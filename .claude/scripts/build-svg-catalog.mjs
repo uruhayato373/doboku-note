@@ -21,7 +21,31 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..', '..');
 const POSTS = join(ROOT, '.local', 'r2', 'posts');
 const AUDIT = join(ROOT, '.claude', 'state', 'svg-audit.json');
+const CANVAS_CFG = join(ROOT, '.claude', 'config', 'figure-canvas.json');
 const OUT = join(ROOT, '.claude', 'state', 'svg-catalog.json');
+
+// --- 固定キャンバス標準（figure-canvas-policy）。figure-*.svg の適合判定に使う ---
+let FEED = [400, 500], WIDE = [640, 360];
+try {
+  const c = JSON.parse(readFileSync(CANVAS_CFG, 'utf8'));
+  FEED = c.canvases.feed.viewBox; WIDE = c.canvases.landscape.viewBox;
+} catch { /* 既定値で継続 */ }
+
+// viewBox 文字列 "0 0 W H" → {w,h}
+function parseVB(vb) {
+  if (!vb) return null;
+  const m = String(vb).match(/([\d.]+)\s+([\d.]+)\s+([\d.]+)\s+([\d.]+)/);
+  return m ? { w: Math.round(+m[3]), h: Math.round(+m[4]) } : null;
+}
+// figure-*.svg のキャンバス適合（非 figure 名は対象外 = canvas:null）
+function canvasFit(name, vb) {
+  if (!/^figure-.*\.svg$/.test(name)) return { canvas: null, fitStatus: 'n/a' };
+  const isWide = /--wide\.svg$/.test(name);
+  const exp = isWide ? WIDE : FEED;
+  const d = parseVB(vb);
+  const conforming = d && d.w === exp[0] && d.h === exp[1];
+  return { canvas: isWide ? 'landscape' : 'feed', fitStatus: conforming ? 'conforming' : 'needs-rework' };
+}
 
 // --- 監査結果（あれば）を file -> {high,medium,low} に集約 ---
 const auditByFile = {};
@@ -72,6 +96,12 @@ for (const rel of svgFiles) {
   }
 
   const repoRel = `.local/r2/posts/${rel}`;
+  const vbDim = parseVB(viewBox);
+  const aspect = vbDim ? +(vbDim.w / vbDim.h).toFixed(3) : null;
+  const { canvas, fitStatus } = canvasFit(file, viewBox);
+  const hasWideVariant = file.startsWith('figure-') && !/--wide\.svg$/.test(file)
+    ? existsSync(join(POSTS, category, slug, 'img', file.replace(/\.svg$/, '--wide.svg')))
+    : false;
   entries.push({
     file: repoRel,
     category,
@@ -79,6 +109,10 @@ for (const rel of svgFiles) {
     name: file,
     concept: concept || null,
     viewBox: viewBox || null,
+    aspect,
+    canvas,
+    fitStatus,
+    hasWideVariant,
     embedded,
     audit: auditByFile[repoRel] || { high: 0, medium: 0, low: 0 },
   });
@@ -89,12 +123,18 @@ entries.sort((a, b) => a.file.localeCompare(b.file));
 const byCategory = {};
 for (const e of entries) byCategory[e.category] = (byCategory[e.category] || 0) + 1;
 
+const figures = entries.filter((e) => e.fitStatus !== 'n/a');
 const summary = {
   total: entries.length,
   embedded: entries.filter((e) => e.embedded).length,
   orphan: entries.filter((e) => !e.embedded).length,
   missingConcept: entries.filter((e) => !e.concept).length,
   withHighAudit: entries.filter((e) => e.audit.high > 0).length,
+  figures: {
+    total: figures.length,
+    conforming: figures.filter((e) => e.fitStatus === 'conforming').length,
+    needsRework: figures.filter((e) => e.fitStatus === 'needs-rework').length,
+  },
   byCategory,
 };
 
@@ -110,4 +150,5 @@ writeFileSync(OUT, JSON.stringify(catalog, null, 2) + '\n', 'utf8');
 
 console.log(`[svg-catalog] ${summary.total} 図版 → ${relative(ROOT, OUT)}`);
 console.log(`  embedded ${summary.embedded} / orphan ${summary.orphan} / concept欠落 ${summary.missingConcept} / HIGH監査 ${summary.withHighAudit}`);
+console.log(`  figure-*: ${summary.figures.total}（適合 ${summary.figures.conforming} / 要再作図 ${summary.figures.needsRework}）`);
 console.log('  カテゴリ別:', JSON.stringify(byCategory));

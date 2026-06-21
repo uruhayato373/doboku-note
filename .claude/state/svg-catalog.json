@@ -2,14 +2,19 @@
   "description": "サイト図版SVGの派生カタログ（SSOT）。build-svg-catalog.mjs が生成。手動編集しない。",
   "source": ".local/r2/posts/**/img/*.svg",
   "summary": {
-    "total": 191,
-    "embedded": 142,
-    "orphan": 49,
+    "total": 194,
+    "embedded": 143,
+    "orphan": 51,
     "missingConcept": 0,
     "withHighAudit": 0,
+    "figures": {
+      "total": 95,
+      "conforming": 2,
+      "needsRework": 93
+    },
     "byCategory": {
-      "civil-construction-1": 29,
-      "pe-comprehensive-management": 162
+      "civil-construction-1": 30,
+      "pe-comprehensive-management": 164
     }
   },
   "entries": [
@@ -20,6 +25,10 @@
       "name": "h26-b-fig-02-cp.svg",
       "concept": "平成26年度後期 No.13 ネットワーク式工程表。イベント0から9。クリティカルパスは0→1→3→4→7→8→9で必要日数38日。3→4はダミー。作業H（4→7）の最早開始は20日。",
       "viewBox": "0 0 500 330",
+      "aspect": 1.515,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -34,6 +43,10 @@
       "name": "h26-b-fig-02.svg",
       "concept": "ネットワーク式工程表。イベント⓪〜⑨、作業A〜J。⓪→①がA（2日）、④→⑦がH（10日）、③→④はダミー。",
       "viewBox": "0 0 500 275",
+      "aspect": 1.818,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -48,6 +61,10 @@
       "name": "h27-b-fig-03-cp.svg",
       "concept": "平成27年度後期 No.13 ネットワーク式工程表。イベント0から7。クリティカルパスは0→2→4→5→7で工期28日。作業E（3→5）に3日遅延すると経路0→2→3→5→7が30日となり工期は2日遅れる。",
       "viewBox": "0 0 500 330",
+      "aspect": 1.515,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -62,6 +79,28 @@
       "name": "h27-b-fig-03.svg",
       "concept": "ネットワーク式工程表。イベント⓪〜⑦、作業A〜K。③→⑤が作業E（9日）、②→③はダミー。各矢線に作業日数を付す。",
       "viewBox": "0 0 500 290",
+      "aspect": 1.724,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h29-b/img/h29-b-fig-03-cp.svg",
+      "category": "civil-construction-1",
+      "slug": "primary-h29-b",
+      "name": "h29-b-fig-03-cp.svg",
+      "concept": "平成29年度後期 No.12 ネットワーク式工程表。イベント0から9、作業AからK。クリティカルパスは0→1→2→3→5→9で工期29日。作業Kの最早開始は23日。",
+      "viewBox": "0 0 500 330",
+      "aspect": 1.515,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -76,6 +115,10 @@
       "name": "pdca-cycle.svg",
       "concept": "施工管理の PDCA サイクル：Plan（計画）→ Do（実施）→ Check（検討）→ Act（処置）の循環。P・D は統制機能、C・A は改善機能",
       "viewBox": "0 0 400 400",
+      "aspect": 1,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -90,6 +133,10 @@
       "name": "angle-types.svg",
       "concept": "水平角と鉛直角",
       "viewBox": "0 0 400 260",
+      "aspect": 1.538,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -104,6 +151,10 @@
       "name": "distance-types.svg",
       "concept": "水平距離と斜距離の関係",
       "viewBox": "0 0 400 240",
+      "aspect": 1.667,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -118,10 +169,14 @@
       "name": "error-cancellation.svg",
       "concept": "対回観測による視準軸誤差の消去原理",
       "viewBox": "0 0 400 280",
+      "aspect": 1.429,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
+        "medium": 0,
         "low": 0
       }
     },
@@ -132,6 +187,10 @@
       "name": "compaction-classification.svg",
       "concept": "締固め機械の分類：静的締固め（ロード・タイヤ・タンピングローラ／砂礫・粘性土向け）と動的締固め（振動ローラ・コンパクタ・ランマ／砂・狭所向け）の 2 系統",
       "viewBox": "0 0 400 380",
+      "aspect": 1.053,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -146,6 +205,10 @@
       "name": "figure-4-6.svg",
       "concept": "工程能力図: 品質特性値が規格中心付近で時間的に変動する様子を折れ線で示す。上限規格値・規格中心・下限規格値の 3 本の線とデータ点を配置",
       "viewBox": "0 0 400 260",
+      "aspect": 1.538,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -160,6 +223,10 @@
       "name": "figure-4-7.svg",
       "concept": "ヒストグラムの概念図。中央に分布、左右に下限規格値と上限規格値、両端に 'ゆとり' の矢印、上方に分布幅と目標値を示す",
       "viewBox": "0 0 400 320",
+      "aspect": 1.25,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -174,6 +241,10 @@
       "name": "figure-4-8.svg",
       "concept": "演習データ（n=44）のヒストグラム完成例。代表値 19.5〜27.5、度数 1、17、22、3、1 の 5 本のバーと下限規格値の注記",
       "viewBox": "0 0 400 300",
+      "aspect": 1.333,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -188,6 +259,10 @@
       "name": "figure-4-9.svg",
       "concept": "ヒストグラムの 10 分布パターン (a〜j)。左右対称・ゆとり不足・下限規格値割れ・バラツキ大・左偏り・右偏り・二山・端切れ・端異常高・飛び離れ山。各セルの 2 本の破線は下限規格値・上限規格値",
       "viewBox": "0 0 400 870",
+      "aspect": 0.46,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -202,6 +277,10 @@
       "name": "figure-3-13.svg",
       "concept": "作業（アクティビティ）の記法：矢線上に作業名、下に所要時間を書く",
       "viewBox": "0 0 380 160",
+      "aspect": 2.375,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -216,6 +295,10 @@
       "name": "figure-3-14.svg",
       "concept": "イベント（結合点）は○で示し、中にイベント番号を書き込む",
       "viewBox": "0 0 380 170",
+      "aspect": 2.235,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -230,6 +313,10 @@
       "name": "figure-3-15.svg",
       "concept": "ダミー（疑似作業）は点線矢印で表記し、所要時間ゼロの疑似作業として起終点イベントを区別する",
       "viewBox": "0 0 380 220",
+      "aspect": 1.727,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -244,6 +331,10 @@
       "name": "figure-3-16.svg",
       "concept": "先行作業 B・C がすべて完了しないと、後続作業 D は開始できない",
       "viewBox": "0 0 380 220",
+      "aspect": 1.727,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -258,6 +349,10 @@
       "name": "figure-3-17.svg",
       "concept": "最早開始時刻（EST）の計算例：左から右に所要時間を加算し、複数経路がある場合は最大値を採る",
       "viewBox": "0 0 400 250",
+      "aspect": 1.6,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -272,6 +367,10 @@
       "name": "figure-3-18.svg",
       "concept": "最遅完了時刻（LFT）の計算例：右から左に所要時間を減算し、複数経路がある場合は最小値を採る",
       "viewBox": "0 0 400 250",
+      "aspect": 1.6,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -286,6 +385,10 @@
       "name": "figure-3-19.svg",
       "concept": "4つの作業時刻（EST・LFT・EFT・LST）を1つのネットワークで確認する例",
       "viewBox": "0 0 400 280",
+      "aspect": 1.429,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -300,6 +403,10 @@
       "name": "figure-3-20.svg",
       "concept": "クリティカルパス：EST と LFT が等しいイベントを通る最長経路を太線で強調",
       "viewBox": "0 0 400 260",
+      "aspect": 1.538,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -314,6 +421,10 @@
       "name": "figure-3-21-23.svg",
       "concept": "3種類の余裕時間（トータルフロート・フリーフロート・インターフェアリングフロート）を1つのタイムラインで比較",
       "viewBox": "0 0 400 340",
+      "aspect": 1.176,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -328,11 +439,15 @@
       "name": "figure-7-6.svg",
       "concept": "港内の航法要点。防波堤を挟んだ港湾内と港湾外、航路と航法ルール（出船優先・右側航行・追越禁止・並行禁止・投びょう禁止・えい航 200m）を配置した概念図",
       "viewBox": "0 0 400 510",
+      "aspect": 0.784,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 6
+        "low": 0
       }
     },
     {
@@ -342,10 +457,14 @@
       "name": "cost-duration-curve.svg",
       "concept": "工事費曲線：直接費・間接費・総建設費と最適工期",
       "viewBox": "0 0 420 320",
+      "aspect": 1.313,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
+        "medium": 0,
         "low": 0
       }
     },
@@ -356,11 +475,15 @@
       "name": "figure-2-10.svg",
       "concept": "油圧バックホゥの作業装置構成。ブーム・アーム・バケットとブームシリンダ・アームシリンダ・バケットシリンダの配置、および本体（旋回台）との接続を示す側面図",
       "viewBox": "0 0 400 340",
+      "aspect": 1.176,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 8
+        "low": 0
       }
     },
     {
@@ -370,11 +493,15 @@
       "name": "figure-2-13.svg",
       "concept": "油圧ショベル兼用屈曲ジブ式移動式クレーンの主要安全装置。過負荷警報装置・定格荷重表示銘板・落下防止バルブ・ブーム/アーム角度センサ・荷重検出圧力センサ・水準器・クレーンモード表示灯の配置",
       "viewBox": "0 0 400 360",
+      "aspect": 1.111,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 15
+        "low": 0
       }
     },
     {
@@ -384,11 +511,15 @@
       "name": "figure-2-8.svg",
       "concept": "ショベル系掘削機の分類系統図。掘削機械（バックホゥ・ショベル・ローディングショベル・クラムシェル・ドラグライン）と派生機械（油圧圧砕機・油圧ブレーカ・フォークグラップル）のツリー構造",
       "viewBox": "0 0 400 540",
+      "aspect": 0.741,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 20
+        "low": 0
       }
     },
     {
@@ -398,6 +529,10 @@
       "name": "figure-2-9.svg",
       "concept": "バケット容量の概念図。バックホゥ・ショベル（安息角 1:1）とローディングショベル（安息角 1:2）における山積容量と平積容量の比較",
       "viewBox": "0 0 400 280",
+      "aspect": 1.429,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -412,6 +547,10 @@
       "name": "travel-device.svg",
       "concept": "トラクタの走行装置：クローラ式とホイール式の比較",
       "viewBox": "0 0 400 260",
+      "aspect": 1.538,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -426,11 +565,15 @@
       "name": "abc-two-stage-allocation.svg",
       "concept": "ABC の 2 段階配賦（資源 → 活動 → 製品）",
       "viewBox": "0 0 520 200",
+      "aspect": 2.6,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 7
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -440,6 +583,10 @@
       "name": "figure-1.svg",
       "concept": "アジャイル開発の反復サイクル。計画・開発・テスト・レビューの短いイテレーションを繰り返し、反復ごとに動作するソフトウェアを提供する。",
       "viewBox": "0 0 380 304",
+      "aspect": 1.25,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -454,6 +601,10 @@
       "name": "figure-1.svg",
       "concept": "警戒レベル5段階と避難行動。レベル1心構えからレベル5緊急安全確保まで、切迫度に応じた住民行動と発令主体を示すラダー図",
       "viewBox": "0 0 400 580",
+      "aspect": 0.69,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -468,6 +619,10 @@
       "name": "ahp-hierarchy.svg",
       "concept": "AHP（階層分析法）の 4 階層構造：上位は総合評価、第 2 階層は重要度係数 W₁・W₂ で分かれる要因 1・要因 2、第 3 階層は W₁₁・W₁₂・W₂₁・W₂₂ で分かれるサブ要因 4 個、最下層は A 案・B 案・C 案の代替案。各階層の重要度係数の和は 1 になる",
       "viewBox": "0 0 400 320",
+      "aspect": 1.25,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -482,6 +637,10 @@
       "name": "figure-1.svg",
       "concept": "API によるシステム連携。複数の利用側アプリが API という公開された取り決めを介してサービス提供側の機能・データを呼び出す。提供側の内部実装は隠蔽される。",
       "viewBox": "0 0 400 212",
+      "aspect": 1.887,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -496,6 +655,10 @@
       "name": "figure-1.svg",
       "concept": "人事考課の3指標と3原則。情意考課・成績考課・能力考課の特性を示し、下部に公平・客観性・透明性の3原則を配置した図",
       "viewBox": "0 0 400 560",
+      "aspect": 0.714,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -510,10 +673,14 @@
       "name": "bs-structure.svg",
       "concept": "貸借対照表の構造：左に資産（流動・固定）、右に負債（流動・固定）と純資産を対置し、資産合計＝負債合計＋純資産合計の等式を示す",
       "viewBox": "0 0 400 280",
+      "aspect": 1.429,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
+        "medium": 0,
         "low": 0
       }
     },
@@ -524,11 +691,15 @@
       "name": "bathtub-curve-phases.svg",
       "concept": "バスタブカーブ",
       "viewBox": "0 0 420 240",
+      "aspect": 1.75,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 3
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -538,11 +709,15 @@
       "name": "bathtub-maintenance-effect.svg",
       "concept": "予防保全とバスタブカーブ",
       "viewBox": "0 0 440 220",
+      "aspect": 2,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 11
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -552,6 +727,10 @@
       "name": "figure-1.svg",
       "concept": "ブロックチェーンの連結構造。各ブロックは前ブロックのハッシュ値・取引データ・ナンスを持ち、前ブロックのハッシュ値で時系列に連結される。",
       "viewBox": "0 0 380 420",
+      "aspect": 0.905,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -566,10 +745,14 @@
       "name": "bep-formulas.svg",
       "concept": "bep formulas",
       "viewBox": "0 0 440 130",
+      "aspect": 3.385,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -580,11 +763,15 @@
       "name": "break-even-chart.svg",
       "concept": "損益分岐点グラフ",
       "viewBox": "0 0 420 300",
+      "aspect": 1.4,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
-        "low": 7
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -594,6 +781,10 @@
       "name": "figure-1.svg",
       "concept": "従来の防災活動とBCM（事業継続マネジメント）の比較。目的・対象・主体・時間軸の4観点で対比した2カラム表",
       "viewBox": "0 0 480 430",
+      "aspect": 1.116,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -608,6 +799,10 @@
       "name": "figure-1.svg",
       "concept": "カーボンニュートラル達成の3ステップと残存CO₂処理技術CCS・BECCS・DACCSを縦積みで示した図",
       "viewBox": "0 0 400 620",
+      "aspect": 0.645,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -622,6 +817,10 @@
       "name": "cf-changes-matrix.svg",
       "concept": "キャッシュ・フローの増減マトリクス：営業・投資・財務の3区分それぞれで現金を増やす取引と減らす取引の対応",
       "viewBox": "0 0 400 440",
+      "aspect": 0.909,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -636,11 +835,15 @@
       "name": "fishbone-4m.svg",
       "concept": "特性要因図（4M）",
       "viewBox": "0 0 460 280",
+      "aspect": 1.643,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 8
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -650,6 +853,10 @@
       "name": "figure-1.svg",
       "concept": "循環型社会の5段階。発生抑制・再使用・再生利用・熱回収・適正処分を優先順位の高い順に上から並べた図",
       "viewBox": "0 0 400 528",
+      "aspect": 0.758,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -664,11 +871,15 @@
       "name": "arnstein-ladder.svg",
       "concept": "アーンスタインの梯子（参加の8段階）",
       "viewBox": "0 0 460 510",
+      "aspect": 0.902,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 4,
-        "low": 1
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -678,11 +889,15 @@
       "name": "heavy-rainfall-trend.svg",
       "concept": "1時間降水量50mm以上の年間発生回数",
       "viewBox": "0 0 500 200",
+      "aspect": 2.5,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 16
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -692,6 +907,10 @@
       "name": "figure-1.svg",
       "concept": "IaaS・PaaS・SaaS の責任分界。アプリケーション・データ・ミドルウェア・OS・ハードウェアの各層について、利用者と事業者のどちらが管理するかを示す。SaaS ほど事業者の管理範囲が広い。",
       "viewBox": "0 0 400 322",
+      "aspect": 1.242,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -706,6 +925,10 @@
       "name": "sequential-vs-concurrent.svg",
       "concept": "逐次開発とコンカレントエンジニアリングの比較：逐次は前工程完了後に後工程を開始するため期間が長いが、コンカレントは各工程をオーバーラップさせて期間を圧縮する",
       "viewBox": "0 0 380 360",
+      "aspect": 1.056,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -720,6 +943,10 @@
       "name": "control-chart.svg",
       "concept": "管理限界と管理図：中心線 CL から ±3σ の上方管理限界線 UCL と下方管理限界線 LCL を引き、サンプルが管理限界を超えると工程異常と判定する",
       "viewBox": "0 0 380 320",
+      "aspect": 1.188,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -734,6 +961,10 @@
       "name": "authors-rights-structure.svg",
       "concept": "著作者の権利の構造：著作者人格権 3 種（公表権・氏名表示権・同一性保持権、一身専属で譲渡不可）と著作権（財産権）11 種（複製権・上演権・演奏権・上映権・公衆送信権・口述権・展示権・頒布権・譲渡権・貸与権・翻訳権/翻案権、譲渡・相続可能）の二層構造",
       "viewBox": "0 0 400 380",
+      "aspect": 1.053,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -748,11 +979,15 @@
       "name": "correlation-scatter-patterns.svg",
       "concept": "相関散布図パターン",
       "viewBox": "0 0 500 185",
+      "aspect": 2.703,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 5
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -762,11 +997,15 @@
       "name": "regression-line.svg",
       "concept": "回帰直線のイメージ",
       "viewBox": "0 0 280 200",
+      "aspect": 1.4,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 5
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -776,6 +1015,10 @@
       "name": "figure-1.svg",
       "concept": "危機広報の2目的。初動期の安全のための広報（迅速性重視）から収束期の安心のための広報（正確さ・迅速さ・安心感の工夫）へ時間軸で移行する図",
       "viewBox": "0 0 420 380",
+      "aspect": 1.105,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -790,6 +1033,10 @@
       "name": "figure-1.svg",
       "concept": "危機への対応4段階サイクル。平常時準備・事前作業・緊急事態対応・事後復旧の順に縦に並び、矢印でつながる危機管理サイクル図",
       "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -804,6 +1051,10 @@
       "name": "csr-4-pillars.svg",
       "concept": "CSR の 4 要素：持続可能な企業活動を支える環境・社会・経済の 3 本柱と、それらを支える基盤としてのガバナンス",
       "viewBox": "0 0 400 340",
+      "aspect": 1.176,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -818,11 +1069,15 @@
       "name": "csr-csv-evolution.svg",
       "concept": "CSR から CSV への発展を示す図：CSR では本業と社会貢献が分離していたが、CSV では両者が統合される",
       "viewBox": "0 0 600 300",
+      "aspect": 2,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 1
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -832,6 +1087,10 @@
       "name": "cyber-physical-cascade.svg",
       "concept": "サイバー攻撃の物理インフラへの3層波及：サイバー空間の攻撃がOT/IT接続点を経由して物理インフラの安全に影響を及ぼす",
       "viewBox": "0 0 400 285",
+      "aspect": 1.404,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -846,6 +1105,10 @@
       "name": "big-data-analysis-flow.svg",
       "concept": "ビッグデータ分析プロセスの 5 段階フロー：①データ収集→②データウェアハウス格納→③データクレンジング→④データマイニング→⑤活用。データマイニング段階は仮説の有無で「機械学習（仮説なし）」と「統計分析（仮説あり）」に分岐する",
       "viewBox": "0 0 400 540",
+      "aspect": 0.741,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -860,6 +1123,10 @@
       "name": "decoupling-concept.svg",
       "concept": "経済成長は右上に伸び続け、天然資源の利用は緩やかに頭打ち、環境影響は中盤でピークを打って減少へ転じる。経済成長と天然資源の間の隙間が相対的デカップリング、経済成長と環境影響の間の隙間が絶対的デカップリング",
       "viewBox": "0 0 400 280",
+      "aspect": 1.429,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -874,6 +1141,10 @@
       "name": "figure-1.svg",
       "concept": "デルファイ法のサイクル。予測テーマ特定から専門家への個別アンケート・集計・フィードバック・再アンケートを繰り返し回答が収束する流れを示した縦フロー図",
       "viewBox": "0 0 400 560",
+      "aspect": 0.714,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -888,6 +1159,10 @@
       "name": "figure-1.svg",
       "concept": "需要予測の手法分類図：定量的手法（移動平均法・指数平滑法・回帰分析）と定性的手法（デルファイ法・市場調査法）に大別される",
       "viewBox": "0 0 380 245",
+      "aspect": 1.551,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -902,6 +1177,10 @@
       "name": "figure-1.svg",
       "concept": "記述統計の代表値4種（平均値・中央値・最頻値・四分位数）の特性カード。メリットをpositive、デメリットをwarnのバッジで示す",
       "viewBox": "0 0 400 620",
+      "aspect": 0.645,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -916,6 +1195,10 @@
       "name": "figure-2.svg",
       "concept": "統計分析6手法の俯瞰。記述統計・推定検定・相関分析・回帰分析・ロジスティック回帰・クラスター分析を目的軸（要約→推測→関係→予測→分類）で並べた手法マップ",
       "viewBox": "0 0 400 580",
+      "aspect": 0.69,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -930,6 +1213,10 @@
       "name": "dr-stages.svg",
       "concept": "デザインレビューの 5 段階（DR0 企画〜DR4 量産移行）と各段階の審査対象、品質ゲートとして設計者以外の関係部門が多角的に審査する",
       "viewBox": "0 0 400 440",
+      "aspect": 0.909,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -944,10 +1231,14 @@
       "name": "5-steps-iterative-flow.svg",
       "concept": "デザイン思考の5ステップとイテレーティブフロー",
       "viewBox": "0 0 600 200",
+      "aspect": 3,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 6,
+        "medium": 0,
         "low": 0
       }
     },
@@ -958,6 +1249,10 @@
       "name": "figure-1.svg",
       "concept": "サイバーフィジカルシステムの双方向ループ。フィジカル空間のデータを IoT センサーでサイバー空間へ収集し、サイバー空間での分析・予測の結果をフィジカル空間へフィードバックする。",
       "viewBox": "0 0 400 264",
+      "aspect": 1.515,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -972,6 +1267,10 @@
       "name": "figure-1.svg",
       "concept": "情報公開法の不開示情報6類型。個人情報・法人情報・国家安全情報・公共安全情報・審議検討等情報・事務事業情報を縦に並べた図",
       "viewBox": "0 0 400 584",
+      "aspect": 0.685,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -986,6 +1285,10 @@
       "name": "overshoot-concept.svg",
       "concept": "世界平均エコロジカル・フットプリント 2.8 gha/人 は地球のバイオキャパシティ 1.6 gha/人 を超え、地球 1.7 個分の資源を消費しているオーバーシュート状態を示す横棒比較図",
       "viewBox": "0 0 400 250",
+      "aspect": 1.6,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -1000,6 +1303,10 @@
       "name": "figure-1.svg",
       "concept": "改善活動の3手法。ECRS（排除・結合・交換・簡素化の優先順）・5S（整理整頓清掃清潔躾）・目で見る管理（可視化）を並列カードで示した図",
       "viewBox": "0 0 400 540",
+      "aspect": 0.741,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -1014,6 +1321,10 @@
       "name": "figure-1.svg",
       "concept": "エッジコンピューティングの階層構造。IoT デバイスが取得した全データをエッジが現場近傍でリアルタイム処理し、必要なデータのみをクラウドへ送信して帯域を節約する。",
       "viewBox": "0 0 380 368",
+      "aspect": 1.033,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -1028,6 +1339,10 @@
       "name": "figure-1.svg",
       "concept": "エネルギー政策の基本視点 S＋3E。安全性を大前提とし、安定供給・経済効率性・環境適合の3Eを優先順位順に示した図",
       "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -1042,6 +1357,10 @@
       "name": "figure-1.svg",
       "concept": "環境の経済価値評価5手法。顕示選好型（代替法・トラベルコスト法・ヘドニック法）と表明選好型（仮想評価法CVM・コンジョイント分析）を2カラムで対比した図",
       "viewBox": "0 0 480 505",
+      "aspect": 0.95,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -1054,8 +1373,12 @@
       "category": "pe-comprehensive-management",
       "slug": "environmental-basic-act",
       "name": "figure-1.svg",
-      "concept": "環境保全の基本7原則。EPR・PPPの経済系2原則、予防的措置・順応的取組の予防系2原則、源流対策・協働・補完性の実施系3原則をカード縦並びで示した図",
+      "concept": "環境保全の基本5原則とPPP/EPR。EPR・PPPの経済系2原則、予防的措置・順応的取組の予防系2原則、源流対策・協働・補完性の実施系3原則をカード縦並びで示した図",
       "viewBox": "0 0 400 620",
+      "aspect": 0.645,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -1070,6 +1393,10 @@
       "name": "figure-1.svg",
       "concept": "環境政策の実施手法7類型。規制的・枠組規制的・経済的・自主的取組・情報的・手続的・事業的の各手法を定義と代表例とともに縦並びで示した図",
       "viewBox": "0 0 400 620",
+      "aspect": 0.645,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -1084,11 +1411,15 @@
       "name": "eia-target-categories.svg",
       "concept": "環境影響評価法の対象 13 事業を 5 カテゴリに分類した図：交通インフラ（道路・鉄道・飛行場）、河川・水（ダム/堰・埋立て干拓）、エネルギー（発電所 6 種）、廃棄物（最終処分場）、面的開発（土地区画整理など 6 事業）",
       "viewBox": "0 0 640 440",
+      "aspect": 1.455,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 5,
-        "low": 13
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -1098,6 +1429,10 @@
       "name": "figure-1.svg",
       "concept": "ERP による業務統合。財務会計・管理会計・人事・販売・購買・生産の各業務モジュールが、単一の統合データベースを共有して部門横断でデータを一元管理する。",
       "viewBox": "0 0 400 188",
+      "aspect": 2.128,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -1112,6 +1447,10 @@
       "name": "figure-1.svg",
       "concept": "ISO26000 社会的責任の7原則。説明責任・透明性・倫理的な行動・ステークホルダーの利害の尊重・法の支配の尊重・国際行動規範の尊重・人権の尊重をカード縦並びで示した図",
       "viewBox": "0 0 400 560",
+      "aspect": 0.714,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -1126,6 +1465,10 @@
       "name": "figure-2.svg",
       "concept": "TCFD提言の4要求項目。ガバナンス・戦略・リスク管理・指標と目標の2×2マトリクスと、移行リスク・物理的リスクの2分類補足帯",
       "viewBox": "0 0 400 460",
+      "aspect": 0.87,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -1140,10 +1483,14 @@
       "name": "figure-4-02.svg",
       "concept": "前文分析で抽出すべき 4 要素（テーマ・設定条件・要求事項・評価項目）の関係図",
       "viewBox": "0 0 500 280",
+      "aspect": 1.786,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -1154,10 +1501,14 @@
       "name": "figure-4-15-three-layer-structure.svg",
       "concept": "総監論文の三層構造：Ⅰ管理対象と前提条件→Ⅱ施策（効果＋トレードオフ）→Ⅲ将来展望と最大リスク（管理行為で克服）の因果連鎖",
       "viewBox": "0 0 560 600",
+      "aspect": 0.933,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -1168,11 +1519,15 @@
       "name": "eta-gas-leak-example.svg",
       "concept": "ETA（イベントツリー分析）の例：初期事象「ガス漏れ」から早期発見・計器による発見・検査による発見・着火しないの 4 つのセーフガードに分岐。各分岐で成功（確率上、上方向）と失敗（確率下、下方向）に分かれ、すべての層で失敗するとガス爆発（確率 0.0005）に至る",
       "viewBox": "0 0 400 290",
+      "aspect": 1.379,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 21
+        "low": 0
       }
     },
     {
@@ -1182,10 +1537,14 @@
       "name": "figure-2-1.svg",
       "concept": "出願段階の業務経歴票が筆記試験の骨子と口頭試験の質問ベースに直結することを示す縦フロー図",
       "viewBox": "0 0 400 540",
+      "aspect": 0.741,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
+        "medium": 0,
         "low": 0
       }
     },
@@ -1196,6 +1555,10 @@
       "name": "figure-2-2.svg",
       "concept": "業務経歴作成の5ステップ（書き出し→5管理整理→最重点特定→トレードオフ描出→絞り込み）の縦フロー図",
       "viewBox": "0 0 380 470",
+      "aspect": 0.809,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -1210,6 +1573,10 @@
       "name": "figure-2-4.svg",
       "concept": "業務内容の詳細の記載項目（総監背景・最重点管理項目→管理間のトレードオフ→改善案→成果）の縦フロー図",
       "viewBox": "0 0 400 460",
+      "aspect": 0.87,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -1224,6 +1591,10 @@
       "name": "figure-1.svg",
       "concept": "日常業務での5管理マッピングフロー",
       "viewBox": "0 0 380 430",
+      "aspect": 0.884,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -1238,6 +1609,10 @@
       "name": "figure-2.svg",
       "concept": "4フェーズ学習計画（試験前6〜7ヶ月の標準スケジュール）",
       "viewBox": "0 0 380 370",
+      "aspect": 1.027,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -1252,6 +1627,10 @@
       "name": "figure-score-balance.svg",
       "concept": "択一式と記述式の得点バランス3パターン比較。理想型は両式60%、記述式偏重は択一45%・記述75%、択一式偏重は択一75%・記述45%。両式とも60%に届くバランス型が最も安全。",
       "viewBox": "0 0 400 258",
+      "aspect": 1.55,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -1266,6 +1645,10 @@
       "name": "figure-1.svg",
       "concept": "システムの高信頼化6方策。左=フォールトアボイダンス（故障させない）、右=フォルトトレランス・フェールソフト・フェールセーフ・フールプルーフ・インターロック（故障や誤操作を前提に安全側へ制御）",
       "viewBox": "0 0 460 480",
+      "aspect": 0.958,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -1280,11 +1663,15 @@
       "name": "5s-quality-map.svg",
       "concept": "5Sと品質・安全・納期の関連図",
       "viewBox": "0 0 360 360",
+      "aspect": 1,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 10
+        "low": 0
       }
     },
     {
@@ -1294,6 +1681,10 @@
       "name": "fmea-rpn-flow.svg",
       "concept": "FMEA の手順とリスク優先数 RPN：構成要素から故障モード・影響・原因を分析し、影響度 S・発生頻度 O・検出難易度 D の積で RPN を算出して対策優先度を決定する",
       "viewBox": "0 0 380 360",
+      "aspect": 1.056,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -1308,11 +1699,15 @@
       "name": "four-e-overview.svg",
       "concept": "事故の4E対策の4要素 — Education(教育)・Engineering(技術)・Enforcement(徹底)・Example(模範)を2×2グリッドで配置",
       "viewBox": "0 0 420 380",
+      "aspect": 1.105,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 11,
-        "low": 1
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -1322,6 +1717,10 @@
       "name": "figure-1.svg",
       "concept": "事故の4M要因分析。Man・Machine・Media・Managementの4視点で事故原因を分類する手法の概念図",
       "viewBox": "0 0 400 460",
+      "aspect": 0.87,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -1336,6 +1735,10 @@
       "name": "figure-1.svg",
       "concept": "4P分析（売り手視点）と4C分析（買い手視点）の4要素対応関係を2カラムで並べた図",
       "viewBox": "0 0 480 500",
+      "aspect": 0.96,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -1350,6 +1753,10 @@
       "name": "front-loading-comparison.svg",
       "concept": "フロントローディングの本質：従来型は後工程に手戻りコストが集中するのに対し、フロントローディングは初期段階に投入リソースを集中させ後工程のコストを抑制する",
       "viewBox": "0 0 380 380",
+      "aspect": 1,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -1364,6 +1771,10 @@
       "name": "fault-tree-diagram.svg",
       "concept": "FTA フォールトツリー解析の例：頂上事象 T を AND ゲートで A1・A2 に分解し、A1 を AND で X1・X2、A2 を OR で X3 と OR(X4・X5) に分解した木構造",
       "viewBox": "0 0 400 320",
+      "aspect": 1.25,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -1378,6 +1789,10 @@
       "name": "or-and-gates.svg",
       "concept": "FTA で用いる OR ゲートと AND ゲートの記号と真理値表。OR は X+Y=Z（X か Y のいずれかが 1 なら Z=1）、AND は X·Y=Z（X と Y の両方が 1 のとき Z=1）",
       "viewBox": "0 0 400 380",
+      "aspect": 1.053,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -1391,7 +1806,11 @@
       "slug": "functional-organization",
       "name": "figure-1.svg",
       "concept": "組織構造7形態の比較。職能別・事業部制・マトリクス・ネットワーク・ピラミッド・ティール・達成型それぞれのメリットとリスクを一覧できるカード図",
-      "viewBox": "0 0 400 890",
+      "viewBox": "0 0 400 918",
+      "aspect": 0.436,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -1406,6 +1825,10 @@
       "name": "gantt-chart-example.svg",
       "concept": "ガントチャートの構成例：横軸に時間、縦軸に作業項目を配置し、計画バー（薄色）と実績バー（濃色）を重ねて進捗を可視化、現在日ラインで遅れを把握する",
       "viewBox": "0 0 380 320",
+      "aspect": 1.188,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -1420,6 +1843,10 @@
       "name": "figure-1.svg",
       "concept": "生成 AI の技術的位置づけ。人工知能（AI）の中に機械学習、その中にディープラーニング、さらにその中に生成 AI が含まれる入れ子構造を示す。",
       "viewBox": "0 0 380 332",
+      "aspect": 1.145,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -1434,6 +1861,10 @@
       "name": "figure-1.svg",
       "concept": "デジタルコミュニケーションツール5分類。テレビ会議・ファイル共有・ビジネスチャット・社内SNS・グループウェアの機能定義を縦に並べた図",
       "viewBox": "0 0 400 540",
+      "aspect": 0.741,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -1448,11 +1879,15 @@
       "name": "affinity-diagram-ii-1-3.svg",
       "concept": "親和図",
       "viewBox": "0 0 480 300",
+      "aspect": 1.6,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 18
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -1462,11 +1897,15 @@
       "name": "bpt-distribution-known-ii-1-28.svg",
       "concept": "BPT分布による地震発生確率（活動時期が明らかな場合）",
       "viewBox": "0 0 580 280",
+      "aspect": 2.071,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 5,
-        "low": 16
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -1476,11 +1915,15 @@
       "name": "bpt-distribution-unknown-ii-1-28.svg",
       "concept": "BPT分布による地震発生確率（活動時期が不明な場合）",
       "viewBox": "0 0 580 270",
+      "aspect": 2.148,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 3,
-        "low": 18
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -1490,11 +1933,15 @@
       "name": "cause-effect-diagram-ii-1-3.svg",
       "concept": "特性要因図（フィッシュボーン図）",
       "viewBox": "0 0 600 280",
+      "aspect": 2.143,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
-        "low": 9
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -1504,11 +1951,15 @@
       "name": "eia-procedure-ii-1-38.svg",
       "concept": "環境影響評価の手続きフロー",
       "viewBox": "0 0 560 600",
+      "aspect": 0.933,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 5,
-        "low": 7
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -1518,11 +1969,15 @@
       "name": "flextime-ii-1-11.svg",
       "concept": "変形労働時間制の概要",
       "viewBox": "0 0 580 240",
+      "aspect": 2.417,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 9,
-        "low": 8
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -1532,11 +1987,15 @@
       "name": "interrelation-diagram-ii-1-3.svg",
       "concept": "連関図",
       "viewBox": "0 0 500 320",
+      "aspect": 1.563,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 1
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -1546,11 +2005,15 @@
       "name": "kj-method-ii-1-3.svg",
       "concept": "集団情報構造化法（KJ法）の4段階",
       "viewBox": "0 0 700 220",
+      "aspect": 3.182,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 7
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -1560,11 +2023,15 @@
       "name": "labor-dispute-resolution-ii-1-15.svg",
       "concept": "労働関係紛争の解決手段（あっせん・調停・仲裁の一覧）",
       "viewBox": "0 0 680 310",
+      "aspect": 2.194,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 11
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -1574,10 +2041,14 @@
       "name": "pdpc-diagram-ii-1-3.svg",
       "concept": "過程決定計画図（PDPC）",
       "viewBox": "0 0 500 380",
+      "aspect": 1.316,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
+        "medium": 0,
         "low": 0
       }
     },
@@ -1588,11 +2059,15 @@
       "name": "safety-org-structure-ii-1-29.svg",
       "concept": "総括安全衛生管理者等の選任業務（業種×事業場規模マトリクス）",
       "viewBox": "0 0 760 380",
+      "aspect": 2,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 4,
-        "low": 20
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -1602,11 +2077,15 @@
       "name": "voc-regulation-ii-1-37.svg",
       "concept": "VOC排出規制の対象施設と排出基準",
       "viewBox": "0 0 680 320",
+      "aspect": 2.125,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 5
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -1616,11 +2095,15 @@
       "name": "xy-theory-ii-1-9.svg",
       "concept": "マグレガーのX理論・Y理論 比較表",
       "viewBox": "0 0 680 420",
+      "aspect": 1.619,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
-        "low": 39
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -1630,11 +2113,15 @@
       "name": "fault-tree-i-1-27.svg",
       "concept": "フォールトツリー図（電源システムの停電確率）",
       "viewBox": "0 0 520 380",
+      "aspect": 1.368,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
-        "low": 8
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -1644,11 +2131,15 @@
       "name": "event-tree-i-1-32.svg",
       "concept": "イベントツリー図（可燃性液体の漏洩事故）",
       "viewBox": "0 0 680 340",
+      "aspect": 2,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 29
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -1658,6 +2149,10 @@
       "name": "figure-1.svg",
       "concept": "人事評価の6つの評価バイアス。ハロー効果・中心化傾向・寛大化（厳格化）傾向・対比誤差・論理的誤差・遠近効果の定義を縦に並べた図",
       "viewBox": "0 0 400 620",
+      "aspect": 0.645,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -1672,6 +2167,10 @@
       "name": "hazop-guidewords.svg",
       "concept": "HAZOP の 7 ガイドワード：プロセスパラメータ（例: 流量）に No / More / Less / As Well As / Part Of / Reverse / Other Than の 7 ガイドワードを掛け合わせて逸脱シナリオを網羅的に導出する",
       "viewBox": "0 0 380 380",
+      "aspect": 1,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -1686,6 +2185,10 @@
       "name": "heinrich-pyramid.svg",
       "concept": "ハインリッヒの法則ピラミッド：1 件の重大事故、29 件の軽微な事故、300 件のヒヤリハット（無傷災害）の比率を三角形で示す",
       "viewBox": "0 0 400 320",
+      "aspect": 1.25,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -1700,6 +2203,10 @@
       "name": "herzberg-two-factor.svg",
       "concept": "ハーズバーグの二要因理論：動機づけ要因（仕事の内容）は満足をもたらし、衛生要因（仕事の環境）は不満足を防止する別々の軸で構成される",
       "viewBox": "0 0 380 380",
+      "aspect": 1,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -1714,6 +2221,10 @@
       "name": "figure-1.svg",
       "concept": "5つのインセンティブと3つの行動パターンの対応。物質的・評価的・人的・理念的・自己実現の5分類と、経済的・情緒的・管理的行動パターンとの関係を示す図",
       "viewBox": "0 0 400 560",
+      "aspect": 0.714,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -1728,11 +2239,33 @@
       "name": "breakeven-point.svg",
       "concept": "損益分岐点図：縦軸に売上高・費用、横軸に売上高をとり、固定費と変動費の合計線と売上高線の交点で利益ゼロとなる位置を示す",
       "viewBox": "0 0 380 260",
+      "aspect": 1.462,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 6
+        "low": 0
+      }
+    },
+    {
+      "file": ".local/r2/posts/pe-comprehensive-management/industrial-property-rights/img/figure-1.svg",
+      "category": "pe-comprehensive-management",
+      "slug": "industrial-property-rights",
+      "name": "figure-1.svg",
+      "concept": "知的財産権の存続期間ラダー。特許20年・意匠25年・種苗25〜30年・実用新案10年・半導体回路10年・商標10年更新可・著作権死後70年の7法を横バーで比較した図",
+      "viewBox": "0 0 460 420",
+      "aspect": 1.095,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
+      "embedded": false,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -1742,6 +2275,10 @@
       "name": "ip-laws-system.svg",
       "concept": "知的財産権関連法規の体系：知的創作物（発明・考案・意匠・著作物等）と営業上の標識（商標・商号等）の二大区分。産業財産権法 4 法（特許・実用新案・意匠・商標）を ★ で示す",
       "viewBox": "0 0 400 540",
+      "aspect": 0.741,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -1756,6 +2293,10 @@
       "name": "three-step-method.svg",
       "concept": "本質的安全設計の 3 ステップ方策：危険源の除去・低減（最高優先）→ ガード・保護装置（中優先）→ 使用上の情報・教育（最低優先）の段階的安全方策",
       "viewBox": "0 0 400 320",
+      "aspect": 1.25,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -1770,6 +2311,10 @@
       "name": "figure-1.svg",
       "concept": "IoT システムの 4 層アーキテクチャ。下からデバイス層・ネットワーク層・プラットフォーム層・アプリケーション層の順に積層し、物理世界で取得したデータが上位層へ流れる構造を示す。",
       "viewBox": "0 0 380 446",
+      "aspect": 0.852,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -1784,11 +2329,15 @@
       "name": "iso-26000-7-core-subjects.svg",
       "concept": "ISO 26000 の 7 つの中核主題のホイール図：組織統治を中心に、人権・労働慣行・環境・公正な事業慣行・消費者課題・コミュニティへの参画が取り囲む",
       "viewBox": "0 0 580 520",
+      "aspect": 1.115,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 4,
-        "low": 8
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -1798,11 +2347,15 @@
       "name": "kanban-two-types-flow.svg",
       "concept": "かんばん 2 種類の流れ（前工程と後工程の間）",
       "viewBox": "0 0 500 230",
+      "aspect": 2.174,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 4
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -1812,6 +2365,10 @@
       "name": "figure-1.svg",
       "concept": "職務設計の5つの中核的職務特性。技能の多様性・仕事の一貫性・仕事の有意味性・自律性・フィードバックの各特性と動機付け効果を示したカード縦並び図",
       "viewBox": "0 0 400 580",
+      "aspect": 0.69,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -1826,6 +2383,10 @@
       "name": "figure-1.svg",
       "concept": "社員格付制度3類型の比較。職能資格制度・職務等級制度・役割等級制度を能力評価・降格・人件費・職務記述書・柔軟性の軸で比較したマトリクス表",
       "viewBox": "0 0 480 500",
+      "aspect": 0.96,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -1840,6 +2401,10 @@
       "name": "figure-1.svg",
       "concept": "ナレッジマネジメント：形式知と暗黙知の対比、活用基盤としてデータウェアハウス・BIツール・集合知の3要素を図示",
       "viewBox": "0 0 440 490",
+      "aspect": 0.898,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -1854,6 +2419,10 @@
       "name": "kyt-four-rounds.svg",
       "concept": "KYT 4 ラウンド法：現状把握・本質追究・対策樹立・目標設定の 4 段階と各ラウンドで問う質問",
       "viewBox": "0 0 400 180",
+      "aspect": 2.222,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -1868,6 +2437,10 @@
       "name": "labor-dispute-resolution-flow.svg",
       "concept": "労働関係調整法の 3 つの調整制度：あっせん・調停・仲裁の各 4 ステップ（開始 → 調査 → 調整方法 → 終結）と委員構成・拘束力の比較",
       "viewBox": "0 0 400 320",
+      "aspect": 1.25,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -1882,6 +2455,10 @@
       "name": "figure-1.svg",
       "concept": "労働三権の構造図。憲法第28条が根拠。団結権・団体交渉権・団体行動権（争議権）の3権を縦に並べたカード形式で示す",
       "viewBox": "0 0 400 530",
+      "aspect": 0.755,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -1896,6 +2473,10 @@
       "name": "figure-1.svg",
       "concept": "LCAの4プロセスと反復構造。目的及び調査範囲の設定・インベントリ分析・影響評価の3段を解釈が横断し、製品改善・戦略立案・政策立案・マーケ等の直接の用途へつながる図",
       "viewBox": "0 0 400 480",
+      "aspect": 0.833,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -1910,11 +2491,15 @@
       "name": "lp-graphical-method.svg",
       "concept": "線形計画法の図解法",
       "viewBox": "0 0 400 340",
+      "aspect": 1.176,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
-        "low": 18
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -1924,6 +2509,10 @@
       "name": "figure-1.svg",
       "concept": "線形回帰とロジスティック回帰の出力範囲と関数形を左右に並べた比較図",
       "viewBox": "0 0 400 320",
+      "aspect": 1.25,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -1938,6 +2527,10 @@
       "name": "figure-2.svg",
       "concept": "シグモイド関数と閾値0.5による陽性・陰性の分類境界を示す図",
       "viewBox": "0 0 380 280",
+      "aspect": 1.357,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -1952,6 +2545,10 @@
       "name": "ml-workflow.svg",
       "concept": "機械学習のワークフロー：学習プロセス（データ収集→前処理→学習→学習済みモデル）と推論プロセス（データ収集→前処理→推論→活用）の 2 段構成、学習済みモデルが推論に渡される",
       "viewBox": "0 0 400 280",
+      "aspect": 1.429,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -1966,6 +2563,10 @@
       "name": "tradeoff-frequency-matrix.svg",
       "concept": "5管理10ペアの出題頻度マトリクス（S=最頻出、A=頻出、B=中、C=低）",
       "viewBox": "0 0 400 340",
+      "aspect": 1.176,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -1980,6 +2581,10 @@
       "name": "maslow-pyramid.svg",
       "concept": "マズローの欲求 5 段階説のピラミッド図。底辺から順に生理的欲求・安全欲求・社会的欲求・尊厳欲求（承認欲求）・自己実現欲求が積み上がり、低次欲求が満たされると高次欲求が動機づけの源泉となることを示す",
       "viewBox": "0 0 400 340",
+      "aspect": 1.176,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -1994,6 +2599,10 @@
       "name": "figure-1.svg",
       "concept": "マグレガーのX理論とY理論の2カラム比較。X理論は仕事嫌い・強制命令・責任回避・安全志向、Y理論は自律・目標で率先・自ら責任を特徴とする",
       "viewBox": "0 0 500 480",
+      "aspect": 1.042,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -2008,10 +2617,14 @@
       "name": "monte-carlo-s-curve.svg",
       "concept": "モンテカルロシミュレーション結果の S 字累積確率カーブ。横軸が作業完了日数、縦軸が累積完了可能性（0〜100%）。試行回数を増やすほど滑らかな S 字曲線に収束し、特定日数までに完了する確率を読み取れる",
       "viewBox": "0 0 400 280",
+      "aspect": 1.429,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -2022,11 +2635,15 @@
       "name": "normal-distribution-sigma.svg",
       "concept": "normal distribution sigma",
       "viewBox": "0 0 440 200",
+      "aspect": 2.2,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 12
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -2036,6 +2653,10 @@
       "name": "accident-factors.svg",
       "concept": "労働災害の発生要因：事故の型は人・物・環境を経由して不安全な状態と不安全な行動から発生。平成 26 年統計では不安全行動のみが 92% を占め、行動への対策が最重要",
       "viewBox": "0 0 400 290",
+      "aspect": 1.379,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -2050,11 +2671,15 @@
       "name": "unskilled-worker-accident-types.svg",
       "concept": "未熟練労働者の事故種別",
       "viewBox": "0 0 380 220",
+      "aspect": 1.727,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 2
+        "low": 0
       }
     },
     {
@@ -2064,6 +2689,10 @@
       "name": "figure-1.svg",
       "concept": "労働安全衛生法の安全衛生管理体制：管理者・委員会ごとの選任規模要件と根拠条文を示すマトリクス表",
       "viewBox": "0 0 480 560",
+      "aspect": 0.857,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -2078,6 +2707,10 @@
       "name": "figure-1.svg",
       "concept": "組織コミットメント3要素：情緒的・功利的・規範的の定義と、功利を抑え情緒・規範を高めると有益な従業員が定着するという方向性を示す図",
       "viewBox": "0 0 400 510",
+      "aspect": 0.784,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -2092,6 +2725,10 @@
       "name": "figure-1.svg",
       "concept": "OSHMSのPDCAサイクル。安全衛生方針を出発点に計画・実施・評価点検・改善を時計回りに循環させ、中央に継続的改善、外周にシステム監査とトップによる見直しを配置した図",
       "viewBox": "0 0 400 430",
+      "aspect": 0.93,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -2106,6 +2743,10 @@
       "name": "figure-1.svg",
       "concept": "事業評価の3指標。インプット（投入資源量）からアウトプット（活動量）を経てアウトカム（成果）へと連鎖する因果フローを示した図",
       "viewBox": "0 0 400 480",
+      "aspect": 0.833,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -2120,6 +2761,10 @@
       "name": "wifi-encryption-strength.svg",
       "concept": "Wi-Fi の暗号化強度比較：WPA2（強・推奨）→ WPA（中）→ WEP（弱・非推奨）→ 暗号化なし（危険）の 4 段階と各方式の表示・推奨度",
       "viewBox": "0 0 400 220",
+      "aspect": 1.818,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -2134,6 +2779,10 @@
       "name": "patent-application-flow.svg",
       "concept": "出願から特許取得までのフロー：特許出願 → 方式審査 → 出願公開（1.5 年後）→ 出願審査請求（3 年以内）→ 実体審査の後、拒絶経路（拒絶理由通知 → 意見書・補正書 → 拒絶査定 → 不服審判）と取得経路（特許査定 → 特許料納付 → 登録）に分岐",
       "viewBox": "0 0 400 540",
+      "aspect": 0.741,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -2148,6 +2797,10 @@
       "name": "figure-1.svg",
       "concept": "事業投資評価3手法の比較：NPV法・回収期間法・ROIの判定基準・時間価値考慮・長所短所を横並びで対比",
       "viewBox": "0 0 480 520",
+      "aspect": 0.923,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -2162,6 +2815,10 @@
       "name": "pdca-cycle.svg",
       "concept": "PDCAサイクル：Plan 計画→Do 実行→Check 検証→Act 改善の 4 段階を循環させる継続的改善手法",
       "viewBox": "0 0 380 380",
+      "aspect": 1,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -2176,6 +2833,10 @@
       "name": "push-pull-communication.svg",
       "concept": "プッシュ型とプル型コミュニケーションの対比：プッシュ型は送信者がイニシアチブを持って情報を発信（電子メール・手紙）、プル型は受信者がイニシアチブを持って情報にアクセス（ポータル・イントラネット・e ラーニング）",
       "viewBox": "0 0 400 280",
+      "aspect": 1.429,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -2190,6 +2851,10 @@
       "name": "figure-1.svg",
       "concept": "ジョブ型（職務主義）とメンバーシップ型（属人主義）の雇用形態を6項目で左右比較した図",
       "viewBox": "0 0 440 380",
+      "aspect": 1.158,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -2204,6 +2869,10 @@
       "name": "pert-network-diagram.svg",
       "concept": "PERT ネットワーク図",
       "viewBox": "0 0 380 160",
+      "aspect": 2.375,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -2218,6 +2887,10 @@
       "name": "pfi-four-types.svg",
       "concept": "PFI 事業の 4 つの方式：BOO（建設→所有→運営）、BTO（建設→移転→運営）、BOT（建設→運営→移転）、RO（改修→運営）。所有権の移転タイミングが各方式の違い",
       "viewBox": "0 0 400 320",
+      "aspect": 1.25,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -2232,6 +2905,10 @@
       "name": "nine-boundaries-status.svg",
       "concept": "プラネタリー・バウンダリー 9 領域の現状一覧（2025年評価）。7 領域が超過（気候変動・生物多様性・土地利用変化・淡水利用・窒素リン循環・新規化学物質・海洋酸性化）。大気エアロゾルは評価中。成層圏オゾン層のみ境界内",
       "viewBox": "0 0 400 320",
+      "aspect": 1.25,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -2246,10 +2923,14 @@
       "name": "pm-quadrant.svg",
       "concept": "PM 理論の 4 象限図。縦軸が P 機能（目標達成機能）、横軸が M 機能（集団維持機能）。右上が PM 型（両機能強・最も効果的）、左上が Pm 型（成果重視・人望薄）、右下が pM 型（人望厚・成果弱）、左下が pm 型（両機能弱）",
       "viewBox": "0 0 400 340",
+      "aspect": 1.176,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -2259,7 +2940,11 @@
       "slug": "power-harassment",
       "name": "figure-1.svg",
       "concept": "パワーハラスメントの6類型と成立3要素。成立には優越的関係・業務逸脱・就業環境悪化の3要素を全て満たす必要がある",
-      "viewBox": "0 0 400 620",
+      "viewBox": "0 0 400 645",
+      "aspect": 0.62,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -2274,6 +2959,10 @@
       "name": "figure-1.svg",
       "concept": "PPM分析マトリクス。縦軸が市場成長率、横軸が相対的市場占有率。花形・問題児・金のなる木・負け犬の4象限と各打ち手を示す図",
       "viewBox": "0 0 420 420",
+      "aspect": 1,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -2288,6 +2977,10 @@
       "name": "figure-1.svg",
       "concept": "設備保全の全体体系：維持活動（予防保全・事後保全）と改善活動（改良保全・保全予防）の4分類",
       "viewBox": "0 0 380 520",
+      "aspect": 0.731,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -2302,6 +2995,10 @@
       "name": "figure-2.svg",
       "concept": "TBM（時間基準保全）とCBM（状態基準保全）の比較：契機・特徴・長所・短所",
       "viewBox": "0 0 400 375",
+      "aspect": 1.067,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -2316,11 +3013,15 @@
       "name": "normal-distribution-3sigma.svg",
       "concept": "正規分布と 3σ 則",
       "viewBox": "0 0 480 260",
+      "aspect": 1.846,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 1
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -2330,11 +3031,15 @@
       "name": "banana-curve.svg",
       "concept": "バナナ曲線（工程管理曲線）— 上方許容限界・予定工程・下方許容限界と実績曲線の関係",
       "viewBox": "0 0 440 290",
+      "aspect": 1.517,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
-        "low": 10
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -2344,11 +3049,15 @@
       "name": "evm-chart.svg",
       "concept": "EVM の基本グラフ — PV・EV・AC と SV・CV の関係",
       "viewBox": "0 0 460 310",
+      "aspect": 1.484,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
-        "low": 14
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -2358,6 +3067,10 @@
       "name": "figure-1.svg",
       "concept": "QCサークル活動の3つの基本理念。自分のため・仲間のため・会社のため の3理念と、上位概念TQMの関係を示した図",
       "viewBox": "0 0 400 480",
+      "aspect": 0.833,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -2372,6 +3085,10 @@
       "name": "qc-seven-tools.svg",
       "concept": "QC 七つ道具：パレート図・特性要因図・ヒストグラム・管理図・散布図・チェックシート・層別の 7 種を 2 列 4 行で配置し、各図の用途と簡易ビジュアルを示す",
       "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -2386,6 +3103,10 @@
       "name": "figure-1-swot-framework.svg",
       "concept": "図1 SWOT分析の枠組み。強み(S)・弱み(W)の列は内部環境、機会(O)・脅威(T)の行は外部環境。両者を掛け合わせる2×2マトリクスで、強み×機会＝パターンA（拡大・進出戦略）、弱み×機会＝パターンB（改善・補強・提携戦略）、強み×脅威＝パターンC（差別化戦略）、弱み×脅威＝パターンD（撤退・縮小戦略）。",
       "viewBox": "0 0 400 308",
+      "aspect": 1.299,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -2400,6 +3121,10 @@
       "name": "figure-2-swot-cross-example.svg",
       "concept": "図2 SWOT項目の組合せを選定した例。強み(S)はS1=知名度が高い・S2=従業員の技術力が高い、弱み(W)はW1=販売コストが高い・W2=人材確保が困難、機会(O)はO1=地域の急激な発展・O2=特定分野のニーズの増大、脅威(T)はT1=競合他社の出現・T2=特定素材の価格高騰。パターンAは例としてS2×O1、パターンBはW2×O2、パターンCはS1×T1、パターンDはW1・W2×T1の組合せをベースにした戦略。",
       "viewBox": "0 0 400 424",
+      "aspect": 0.943,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -2414,7 +3139,29 @@
       "name": "redundancy-types.svg",
       "concept": "冗長化の 3 種類：待機冗長は主系故障時に予備が切替、並列冗長は常時並列稼働で一方の故障でも機能維持、多数決冗長は複数出力を多数決で判定する",
       "viewBox": "0 0 380 380",
+      "aspect": 1,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": ".local/r2/posts/pe-comprehensive-management/rio-declaration/img/figure-1.svg",
+      "category": "pe-comprehensive-management",
+      "slug": "rio-declaration",
+      "name": "figure-1.svg",
+      "concept": "環境条約・会議・議定書の時系列。1971ラムサール条約から2015パリ協定・SDGsまでの主要な国際枠組みを、自然・気候・廃棄物・枠組の4分野に色分けして年代順に並べた図",
+      "viewBox": "0 0 400 812",
+      "aspect": 0.493,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
+      "embedded": false,
       "audit": {
         "high": 0,
         "medium": 0,
@@ -2428,6 +3175,10 @@
       "name": "chemical-ra-flow.svg",
       "concept": "化学物質のリスクアセスメント 5 段階フロー：①危険性・有害性の特定→②リスクの見積もり→③リスク低減措置の内容検討→④リスク低減措置の実施→⑤労働者への結果周知。労働安全衛生法（平成 28 年改正）に基づく義務手順",
       "viewBox": "0 0 400 380",
+      "aspect": 1.053,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -2442,6 +3193,10 @@
       "name": "risk-matrix.svg",
       "concept": "リスクマトリクス：縦軸が生起確率（低・中・高）、横軸が影響度（小・中・大）の 3×3 マトリクス。右上ほどリスクが高く（赤）、左下ほど低い（緑）。点線矢印は右上から左下へのリスク低減方向を示す",
       "viewBox": "0 0 400 280",
+      "aspect": 1.429,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -2456,6 +3211,10 @@
       "name": "figure-1.svg",
       "concept": "リスク認知の5バイアス。正常性・楽観主義・カタストロフィー・ベテラン・バージンの各バイアスを定義とともに縦並びカードで示した図",
       "viewBox": "0 0 400 570",
+      "aspect": 0.702,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -2470,6 +3229,10 @@
       "name": "figure-1.svg",
       "concept": "リスク対応の4方針。低減・移転・回避・保有の各方針と手段、ALARP原則・絶対安全は不可を示した図",
       "viewBox": "0 0 400 520",
+      "aspect": 0.769,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -2484,6 +3247,10 @@
       "name": "figure-2.svg",
       "concept": "リスクマトリクス：縦軸が影響度（大小）、横軸が発生確率（低高）の2×2マトリクスで、右上を最優先で低減し左下へ持っていく対応方針を示す図",
       "viewBox": "0 0 400 460",
+      "aspect": 0.87,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -2498,6 +3265,10 @@
       "name": "figure-1.svg",
       "concept": "RPA の 3 つの自動化レベル。クラス 1（定型業務）が現在の主流で、クラス 2・クラス 3 へ進むほど AI 活用度と自律性が高まる。",
       "viewBox": "0 0 380 296",
+      "aspect": 1.284,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -2512,6 +3283,10 @@
       "name": "figure-1.svg",
       "concept": "安全文化を支える4つの文化（J.リーズン）。報告する文化・正義の文化・柔軟な文化・学習する文化の2×2マトリクス",
       "viewBox": "0 0 400 440",
+      "aspect": 0.909,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -2525,7 +3300,11 @@
       "slug": "sdgs",
       "name": "figure-1.svg",
       "concept": "持続可能な開発 5つのP。People・Prosperity・Planet・Peace・Partnershipの各カードに日本語訳・意味・該当目標範囲を示し、上部帯で経済・社会・環境の三側面調和を表す",
-      "viewBox": "0 0 400 560",
+      "viewBox": "0 0 400 570",
+      "aspect": 0.702,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -2539,7 +3318,11 @@
       "slug": "species-preservation-act",
       "name": "figure-1.svg",
       "concept": "レッドリストカテゴリ階層。絶滅から情報不足・地域個体群まで9区分を危険度の高い順に上から示した図",
-      "viewBox": "0 0 400 580",
+      "viewBox": "0 0 400 650",
+      "aspect": 0.615,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -2554,6 +3337,10 @@
       "name": "swot-matrix.svg",
       "concept": "SWOT 分析の 2 軸 4 象限：内部環境（強み Strengths・弱み Weaknesses）と外部環境（機会 Opportunities・脅威 Threats）をプラス/マイナスで整理する",
       "viewBox": "0 0 380 380",
+      "aspect": 1,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -2568,11 +3355,15 @@
       "name": "series-parallel-configuration.svg",
       "concept": "システム構成図（直列・並列）",
       "viewBox": "0 0 420 180",
+      "aspect": 2.333,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 6
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -2582,11 +3373,15 @@
       "name": "series-parallel-formulas.svg",
       "concept": "直列・並列信頼度の計算式",
       "viewBox": "0 0 400 120",
+      "aspect": 3.333,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 4,
-        "low": 2
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -2596,6 +3391,10 @@
       "name": "ve-basic-steps.svg",
       "concept": "VE の基本 3 ステップ：機能定義 → 機能評価 → 代替案作成",
       "viewBox": "0 0 400 210",
+      "aspect": 1.905,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -2610,6 +3409,10 @@
       "name": "ve-function-tree.svg",
       "concept": "機能系統図（FAST ダイアグラム）：目的機能から手段機能への階層分解（Why/How の階層）",
       "viewBox": "0 0 400 260",
+      "aspect": 1.538,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -2624,6 +3427,10 @@
       "name": "figure-1.svg",
       "concept": "VPN のトンネリングの概念図。拠点 A と拠点 B が、公衆ネットワークであるインターネット上に構築された暗号化トンネルを通じて安全に接続される。",
       "viewBox": "0 0 400 212",
+      "aspect": 1.887,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -2638,6 +3445,10 @@
       "name": "figure-1.svg",
       "concept": "廃棄物処理法に基づく廃棄物の区分。一般廃棄物（市町村責任）と産業廃棄物（事業者責任）の2系統に分類し、各枝の特別管理区分をwarnで強調した縦フロー図",
       "viewBox": "0 0 400 560",
+      "aspect": 0.714,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": false,
       "audit": {
         "high": 0,
@@ -2652,6 +3463,10 @@
       "name": "figure-1.svg",
       "concept": "V モデル。左側の設計工程（要件定義・基本設計・詳細設計・実装）を上から下へ進め、右側のテスト工程（単体・結合・システム・受入）を下から上へ進める。同じ高さの設計工程とテスト工程が対応する。",
       "viewBox": "0 0 400 288",
+      "aspect": 1.389,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
@@ -2666,10 +3481,14 @@
       "name": "standard-time-tree.svg",
       "concept": "標準時間の構成ツリー",
       "viewBox": "0 0 500 190",
+      "aspect": 2.632,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -2680,6 +3499,10 @@
       "name": "figure-1.svg",
       "concept": "境界型防御とゼロトラストの考え方の比較。境界型防御は境界で 1 回だけ認証し内部を信頼領域とするのに対し、ゼロトラストは信頼領域を作らずアクセスのたびに認証する。",
       "viewBox": "0 0 400 296",
+      "aspect": 1.351,
+      "canvas": "feed",
+      "fitStatus": "needs-rework",
+      "hasWideVariant": false,
       "embedded": true,
       "audit": {
         "high": 0,

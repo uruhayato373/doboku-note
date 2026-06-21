@@ -1,0 +1,117 @@
+/**
+ * 図版キャンバス標準ガード — figure-*.svg の viewBox が固定キャンバスに一致するか検証する。
+ *
+ * 真実源: .claude/config/figure-canvas.json（人間向け: docs/reference/figure-canvas-policy.md）
+ *   - figure-N.svg          → feed      viewBox == 400 500 (4:5)
+ *   - figure-N--wide.svg    → landscape viewBox == 640 360 (16:9)
+ *
+ * 段階バックフィル中は config.guard.migrationAllowlist のパスを免除する
+ * （fitStatus=conforming になった図から allowlist を外す）。新規ファイルは最初から対象。
+ *
+ * Usage:
+ *   node scripts/check-figure-canvas.mjs                 全 figure-*.svg を検査
+ *   node scripts/check-figure-canvas.mjs --staged        staged 分のみ（pre-commit 用）
+ *   node scripts/check-figure-canvas.mjs --sync-allowlist 現状の不適合図で migrationAllowlist を再生成（移行完了図を自動除外）
+ */
+import { readdirSync, readFileSync, existsSync, writeFileSync } from "node:fs";
+import { join, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+import { execFileSync } from "node:child_process";
+
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
+const POSTS = join(ROOT, ".local", "r2", "posts");
+const CONFIG = join(ROOT, ".claude", "config", "figure-canvas.json");
+const staged = process.argv.includes("--staged");
+const syncAllowlist = process.argv.includes("--sync-allowlist");
+
+const cfg = JSON.parse(readFileSync(CONFIG, "utf8"));
+const FEED = cfg.canvases.feed.viewBox; // [400,500]
+const WIDE = cfg.canvases.landscape.viewBox; // [640,360]
+const allow = new Set((cfg.guard?.migrationAllowlist || []).map((p) => p.replace(/\\/g, "/")));
+
+function relFromRoot(full) {
+  return full.replace(/\\/g, "/").replace(ROOT.replace(/\\/g, "/") + "/", "");
+}
+
+function listAll() {
+  if (!existsSync(POSTS)) return [];
+  return readdirSync(POSTS, { recursive: true, withFileTypes: false })
+    .map((p) => String(p).replace(/\\/g, "/"))
+    .filter((p) => /\/img\/figure-[^/]*\.svg$/.test(p))
+    .map((rel) => join(POSTS, rel).replace(/\\/g, "/"));
+}
+
+function listStaged() {
+  let out = "";
+  try {
+    out = execFileSync("git", ["diff", "--cached", "--name-only", "--diff-filter=ACM"], {
+      cwd: ROOT,
+      encoding: "utf8",
+    });
+  } catch {
+    return [];
+  }
+  return out
+    .split("\n")
+    .map((l) => l.trim())
+    .filter((l) => /\.local\/r2\/posts\/.*\/img\/figure-[^/]*\.svg$/.test(l))
+    .map((rel) => join(ROOT, rel).replace(/\\/g, "/"));
+}
+
+function viewBoxOf(full) {
+  const m = readFileSync(full, "utf8").match(/viewBox="([\d.]+)\s+([\d.]+)\s+([\d.]+)\s+([\d.]+)"/);
+  if (!m) return null;
+  return [Math.round(+m[3]), Math.round(+m[4])];
+}
+
+// --- allowlist 再同期モード: 現状の不適合 figure を allowlist に書き戻す ---
+if (syncAllowlist) {
+  const nonconf = [];
+  for (const full of listAll()) {
+    const isWide = /--wide\.svg$/.test(full);
+    const exp = isWide ? WIDE : FEED;
+    const vb = viewBoxOf(full);
+    if (!vb || vb[0] !== exp[0] || vb[1] !== exp[1]) nonconf.push(relFromRoot(full));
+  }
+  nonconf.sort();
+  cfg.guard.migrationAllowlist = nonconf;
+  writeFileSync(CONFIG, JSON.stringify(cfg, null, 2) + "\n");
+  console.log(`[check-figure-canvas] migrationAllowlist 再同期: 移行待ち ${nonconf.length} 件`);
+  process.exit(0);
+}
+
+const files = staged ? listStaged() : listAll();
+const errors = [];
+let checked = 0;
+
+for (const full of files) {
+  const rel = relFromRoot(full);
+  if (allow.has(rel)) continue;
+  checked++;
+  const isWide = /--wide\.svg$/.test(full);
+  const expected = isWide ? WIDE : FEED;
+  const vb = viewBoxOf(full);
+  if (!vb) {
+    errors.push(`${rel}\n    viewBox が読み取れません`);
+    continue;
+  }
+  if (vb[0] !== expected[0] || vb[1] !== expected[1]) {
+    const canvas = isWide ? "landscape(16:9)" : "feed(4:5)";
+    errors.push(
+      `${rel}\n    viewBox ${vb[0]}×${vb[1]} → 期待 ${expected[0]}×${expected[1]}（${canvas}）`
+    );
+  }
+}
+
+if (errors.length) {
+  console.error(`\n[check-figure-canvas] ${errors.length} 件のキャンバス不適合:\n`);
+  for (const e of errors) console.error("  " + e);
+  console.error(
+    `\n  修正: viewBox を ${FEED[0]}×${FEED[1]}(figure-N.svg) / ${WIDE[0]}×${WIDE[1]}(figure-N--wide.svg) に。`
+  );
+  console.error(`  移行待ちなら .claude/config/figure-canvas.json の guard.migrationAllowlist に追加。`);
+  console.error(`  真実源: docs/reference/figure-canvas-policy.md\n`);
+  process.exit(1);
+}
+
+console.log(`[check-figure-canvas] OK（${checked} 枚検査${staged ? "（staged）" : ""}・allowlist ${allow.size} 件免除）`);

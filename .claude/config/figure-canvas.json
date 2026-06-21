@@ -1,0 +1,178 @@
+{
+  "$schema": "https://doboku-note.com/schema/figure-canvas.json",
+  "description": "図版SVGの固定キャンバス標準（機械可読SSOT）。人間向け真実源は docs/reference/figure-canvas-policy.md。レンダラー(render-figure-sns)・ガード(check-figure-canvas)・カタログ(build-svg-catalog)・Generator(svg-canvas-fitter) が参照する。",
+  "version": "1.0.0",
+  "updated": "2026-06-22",
+  "canvases": {
+    "feed": {
+      "role": "master",
+      "use": [
+        "site-article",
+        "instagram-feed"
+      ],
+      "viewBox": [
+        400,
+        500
+      ],
+      "ratio": "4:5",
+      "render": [
+        1080,
+        1350
+      ],
+      "embeddable": true,
+      "filename": {
+        "match": "figure-*.svg",
+        "excludeSuffix": "--wide"
+      },
+      "minFontViewBox": 11,
+      "style": "max-width:400px;width:100%"
+    },
+    "landscape": {
+      "role": "variant",
+      "use": [
+        "youtube-video",
+        "youtube-thumb",
+        "x-post"
+      ],
+      "viewBox": [
+        640,
+        360
+      ],
+      "ratio": "16:9",
+      "render": [
+        1920,
+        1080
+      ],
+      "embeddable": false,
+      "filename": {
+        "match": "figure-*--wide.svg",
+        "requireSuffix": "--wide"
+      },
+      "minFontViewBox": 12,
+      "note": "記事に <ArticleImage> 埋込しない。render-figure-sns の入力としてPNG化してSNSへ出す。create-svg の viewBox幅≤400 ルールの対象外。"
+    }
+  },
+  "derived": {
+    "vertical-9-16": {
+      "from": "feed",
+      "render": [
+        1080,
+        1920
+      ],
+      "method": "feed を中央配置＋上下レターボックスで生成",
+      "authored": false,
+      "use": [
+        "youtube-shorts",
+        "instagram-reels",
+        "instagram-stories"
+      ]
+    }
+  },
+  "guard": {
+    "script": "scripts/check-figure-canvas.mjs",
+    "scope": ".local/r2/posts/**/img/figure-*.svg",
+    "rule": "接尾辞 --wide なら viewBox==[640,360]、それ以外は viewBox==[400,500]",
+    "migrationAllowlist": [
+      ".local/r2/posts/civil-construction-1/textbook-histogram/img/figure-4-6.svg",
+      ".local/r2/posts/civil-construction-1/textbook-histogram/img/figure-4-7.svg",
+      ".local/r2/posts/civil-construction-1/textbook-histogram/img/figure-4-8.svg",
+      ".local/r2/posts/civil-construction-1/textbook-histogram/img/figure-4-9.svg",
+      ".local/r2/posts/civil-construction-1/textbook-network-schedule/img/figure-3-13.svg",
+      ".local/r2/posts/civil-construction-1/textbook-network-schedule/img/figure-3-14.svg",
+      ".local/r2/posts/civil-construction-1/textbook-network-schedule/img/figure-3-15.svg",
+      ".local/r2/posts/civil-construction-1/textbook-network-schedule/img/figure-3-16.svg",
+      ".local/r2/posts/civil-construction-1/textbook-network-schedule/img/figure-3-17.svg",
+      ".local/r2/posts/civil-construction-1/textbook-network-schedule/img/figure-3-18.svg",
+      ".local/r2/posts/civil-construction-1/textbook-network-schedule/img/figure-3-19.svg",
+      ".local/r2/posts/civil-construction-1/textbook-network-schedule/img/figure-3-20.svg",
+      ".local/r2/posts/civil-construction-1/textbook-network-schedule/img/figure-3-21-23.svg",
+      ".local/r2/posts/civil-construction-1/textbook-port-regulations/img/figure-7-6.svg",
+      ".local/r2/posts/civil-construction-1/textbook-shovel-excavator/img/figure-2-10.svg",
+      ".local/r2/posts/civil-construction-1/textbook-shovel-excavator/img/figure-2-13.svg",
+      ".local/r2/posts/civil-construction-1/textbook-shovel-excavator/img/figure-2-8.svg",
+      ".local/r2/posts/civil-construction-1/textbook-shovel-excavator/img/figure-2-9.svg",
+      ".local/r2/posts/pe-comprehensive-management/agile/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/alert-levels/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/api/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/appraisal-three-principles/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/blockchain-crypto/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/business-continuity-plan/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/carbon-neutral/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/circular-society-basic-act/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/cloud-on-premises/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/crisis-communication/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/delphi-method/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/demand-forecasting/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/descriptive-statistics/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/descriptive-statistics/img/figure-2.svg",
+      ".local/r2/posts/pe-comprehensive-management/digital-twin-cps/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/disclosure-standards/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/ecrs-principle/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/edge-computing/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/environmental-accounting/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/environmental-basic-act/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/environmental-basic-plan/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/erp/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/esg-investment/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/esg-investment/img/figure-2.svg",
+      ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-02.svg",
+      ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-15-three-layer-structure.svg",
+      ".local/r2/posts/pe-comprehensive-management/exam-application-guide/img/figure-2-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/exam-application-guide/img/figure-2-2.svg",
+      ".local/r2/posts/pe-comprehensive-management/exam-application-guide/img/figure-2-4.svg",
+      ".local/r2/posts/pe-comprehensive-management/exam-passing-strategy/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/exam-passing-strategy/img/figure-2.svg",
+      ".local/r2/posts/pe-comprehensive-management/exam-passing-strategy/img/figure-score-balance.svg",
+      ".local/r2/posts/pe-comprehensive-management/fail-safe/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/four-m-analysis/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/four-p-analysis/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/functional-organization/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/generative-ai/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/groupware/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/halo-effect-errors/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/incentive/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/industrial-property-rights/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/iot/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/job-design/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/job-grade-system/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/knowledge-sharing/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/labor-union-act/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/lifecycle-assessment/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/logistic-regression/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/logistic-regression/img/figure-2.svg",
+      ".local/r2/posts/pe-comprehensive-management/mcgregor-xy-theory/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/occupational-safety-act/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/organizational-commitment/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/oshms/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/outcome-indicators/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/payback-period-method/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/personnel-management/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/power-harassment/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/ppm-analysis/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/preventive-maintenance/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/preventive-maintenance/img/figure-2.svg",
+      ".local/r2/posts/pe-comprehensive-management/qc-circle/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/r05-secondary/img/figure-1-swot-framework.svg",
+      ".local/r2/posts/pe-comprehensive-management/r05-secondary/img/figure-2-swot-cross-example.svg",
+      ".local/r2/posts/pe-comprehensive-management/rio-declaration/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/risk-perception/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/risk-treatment/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/risk-treatment/img/figure-2.svg",
+      ".local/r2/posts/pe-comprehensive-management/rpa/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/safety-culture/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/sdgs/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/species-preservation-act/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/vpn/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/waste-management-act/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/waterfall/img/figure-1.svg",
+      ".local/r2/posts/pe-comprehensive-management/zero-trust/img/figure-1.svg"
+    ]
+  },
+  "references": {
+    "policy": "docs/reference/figure-canvas-policy.md",
+    "colorTokens": "docs/design-system/svg-tokens.json",
+    "authoring": ".claude/skills/authoring/create-svg/SKILL.md",
+    "renderer": ".claude/scripts/sns/render-figure-sns.mjs",
+    "catalog": ".claude/state/svg-catalog.json"
+  }
+}

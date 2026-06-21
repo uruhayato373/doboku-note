@@ -26,7 +26,26 @@ const ROOT = process.cwd();
 const POSTS = join(ROOT, ".local", "r2", "posts");
 const NOTE = join(ROOT, "docs", "note");
 const AUDIT_STATE = join(ROOT, ".claude", "state", "svg-audit.json");
+const CATALOG_STATE = join(ROOT, ".claude", "state", "svg-catalog.json");
 const OUT = join(ROOT, ".tmp", "svg-gallery.html");
+
+// --- カタログ（あれば）から file -> {canvas,fitStatus} を集約（キャンバス適合バッジ用） ---
+const fitByFile = {};
+if (existsSync(CATALOG_STATE)) {
+  try {
+    const cat = JSON.parse(readFileSync(CATALOG_STATE, "utf8"));
+    for (const e of cat.entries || []) {
+      if (e.fitStatus && e.fitStatus !== "n/a") fitByFile[e.file] = { canvas: e.canvas, fitStatus: e.fitStatus };
+    }
+  } catch { /* バッジ無しで継続 */ }
+}
+function fitOf(rel) {
+  // rel は ".local/r2/posts/..." 形（svg-catalog.json の e.file と同形）
+  const f = fitByFile[rel];
+  if (!f) return null; // figure-*.svg 以外 = 標準対象外
+  if (f.fitStatus === "conforming") return { cls: "fit-ok", label: `${f.canvas} ✓` };
+  return { cls: "fit-ng", label: `要再作図(${f.canvas})` };
+}
 
 // note は常にタブで表示する（--all は後方互換で受理する no-op フラグ）
 
@@ -88,7 +107,7 @@ function collectSite() {
       const full = join(POSTS, rel).replace(/\\/g, "/");
       const auditKey = ".local/r2/posts/" + rel; // svg-audit.json の f.file と突合
       const name = rel.split("/").pop();
-      return { rel, category, slug, full, name, sev: sevOf(auditKey) };
+      return { rel, category, slug, full, name, sev: sevOf(auditKey), fit: fitOf(auditKey) };
     })
     .sort((a, b) => {
       const order = { high: 0, medium: 1, low: 2, clean: 3 };
@@ -118,9 +137,11 @@ function collectNote() {
 
 function cardSite(o) {
   const p = o.sev.patterns ? `<div class="pat">${esc(o.sev.patterns)}</div>` : "";
-  return `  <figure class="card" data-cat="${esc(o.category)}" data-sev="${o.sev.key}">
+  const fit = o.fit ? `<span class="fit ${o.fit.cls}">${esc(o.fit.label)}</span>` : "";
+  const fitAttr = o.fit ? o.fit.cls.replace("fit-", "") : "na";
+  return `  <figure class="card" data-cat="${esc(o.category)}" data-sev="${o.sev.key}" data-fit="${fitAttr}">
     <img loading="lazy" src="${fileUrl(o.full)}" alt="${esc(o.slug)}">
-    <figcaption><span class="sev">${o.sev.icon}</span> ${esc(o.slug + "/" + o.name)}<br><span class="badge">${esc(o.sev.badge)}</span>${p}</figcaption>
+    <figcaption><span class="sev">${o.sev.icon}</span> ${esc(o.slug + "/" + o.name)} ${fit}<br><span class="badge">${esc(o.sev.badge)}</span>${p}</figcaption>
   </figure>`;
 }
 
@@ -165,6 +186,9 @@ const html = `<!doctype html>
   .sev{font-size:12px}
   .badge{color:#8a8a8a}
   .pat{color:#b22234;margin-top:2px}
+  .fit{font-size:10px;padding:1px 6px;border-radius:999px;font-weight:700}
+  .fit-ok{background:#e6f4ea;color:#1a7f37}
+  .fit-ng{background:#fde8e8;color:#b22234}
 </style></head>
 <body>
 <header>
@@ -176,6 +200,10 @@ const html = `<!doctype html>
     <span class="sep">資格:</span><button onclick="fc('site','')">全</button>
     ${siteCats.map((c) => `<button onclick="fc('site','${esc(c)}')">${esc(c)}</button>`).join("\n    ")}
     ${sevButtons}
+    <span class="sep">canvas:</span>
+    <button onclick="ff('')">全</button>
+    <button onclick="ff('ng')">要再作図</button>
+    <button onclick="ff('ok')">適合</button>
   </div>
   <div class="filterbar" id="bar-note" style="display:none">
     <span class="sep">資格:</span><button onclick="fc('note','')">全</button>
@@ -193,15 +221,17 @@ ${note.map(cardNote).join("\n")}
 </div>
 </section>
 <script>
-var cF={site:'',note:''}, sF='';
+var cF={site:'',note:''}, sF='', fF='';
 function applyCat(src){
   var cf=cF[src];
   document.querySelectorAll('#sec-'+src+' .card').forEach(function(el){
     var okc=(!cf||el.dataset.cat===cf);
     var oks=(src!=='site'||!sF||el.dataset.sev===sF);
-    el.style.display=(okc&&oks)?'':'none';
+    var okf=(src!=='site'||!fF||el.dataset.fit===fF);
+    el.style.display=(okc&&oks&&okf)?'':'none';
   });
 }
+function ff(f){fF=f;applyCat('site');}
 function setTab(t){
   document.getElementById('sec-site').style.display=(t==='site')?'':'none';
   document.getElementById('sec-note').style.display=(t==='note')?'':'none';

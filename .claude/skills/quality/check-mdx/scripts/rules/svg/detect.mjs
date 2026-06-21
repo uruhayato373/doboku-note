@@ -210,8 +210,11 @@ function bboxesOverlap(a, b) {
 }
 
 /** SVG から問題を検出 */
-export function detectSvgIssues(svg) {
+export function detectSvgIssues(svg, opts = {}) {
   const findings = [];
+  // landscape 変種（figure-N--wide.svg）は viewBox 幅 640 が正（YouTube 用・記事非埋込）。
+  // 厳密な寸法一致は check-figure-canvas.mjs が担保するため、ここでは P5 を免除する。
+  const isWideVariant = opts.isWideVariant === true;
 
   // P3: ルート必須属性
   if (!svg.hasRole) {
@@ -229,7 +232,7 @@ export function detectSvgIssues(svg) {
   }
 
   // P5: viewBox 幅
-  if (svg.viewBox && svg.viewBox.w > 400) {
+  if (!isWideVariant && svg.viewBox && svg.viewBox.w > 400) {
     findings.push({
       pattern: "P5-wide-viewbox",
       severity: "MEDIUM",
@@ -398,7 +401,7 @@ function detectColorAndFontIssues(content) {
 export function auditSvgFile(path) {
   const content = readFileSync(path, "utf-8");
   const svg = parseSvg(content);
-  const findings = detectSvgIssues(svg);
+  const findings = detectSvgIssues(svg, { isWideVariant: /--wide\.svg$/.test(path) });
   // P6/P7/P8 は content 全文を直接走査（parseSvg の対象外）
   findings.push(...detectColorAndFontIssues(content));
   return findings;

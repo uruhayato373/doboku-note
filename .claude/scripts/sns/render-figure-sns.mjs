@@ -8,10 +8,11 @@
  * フォーマット:
  *   ig-single  1080×1350 (IG 4:5)  単一図ポスト
  *   yt-thumb   1280×720  (16:9)    YouTubeサムネ（左テキスト＋右図）
+ *   vertical   1080×1920 (9:16)    Shorts/Reels/Stories（feed図を中央レターボックス）
  *
  * Usage:
  *   node .claude/scripts/sns/render-figure-sns.mjs --slug <slug> [--figure figure-1.svg] \
- *        --format ig-single|yt-thumb|both [--concept "..."] [--mgmt 社会環境管理]
+ *        --format ig-single|yt-thumb|vertical|both|all [--concept "..."] [--mgmt 社会環境管理]
  *
  * 出力: docs/sns/figures/<slug>/<figure-stem>-<format>.png
  */
@@ -36,7 +37,9 @@ const slug = args.slug;
 if (!slug) { console.error('Error: --slug 必須'); process.exit(1); }
 const figureName = typeof args.figure === 'string' ? args.figure : 'figure-1.svg';
 const formatArg = typeof args.format === 'string' ? args.format : 'ig-single';
-const formats = formatArg === 'both' ? ['ig-single', 'yt-thumb'] : [formatArg];
+const formats = formatArg === 'both' ? ['ig-single', 'yt-thumb']
+  : formatArg === 'all' ? ['ig-single', 'yt-thumb', 'vertical']
+  : [formatArg];
 
 const svgPath = resolve(ROOT, '.local/r2/posts/pe-comprehensive-management', slug, 'img', figureName);
 if (!existsSync(svgPath)) { console.error(`Error: SVG not found: ${svgPath}`); process.exit(1); }
@@ -102,7 +105,23 @@ function buildYtThumb() {
   return { svg: svgDoc({ width: W, height: H, body }), W };
 }
 
-const builders = { 'ig-single': buildIgSingle, 'yt-thumb': buildYtThumb };
+function buildVertical() {
+  // 9:16。feed(4:5)図を中央の大きな箱にレターボックスし、上にヘッダ・下にCTA帯。
+  const W = 1080, H = 1920;
+  const body = [
+    rect({ x: 0, y: 0, w: W, h: 16, fill: mgmtColor }),                 // 管理色トップバー
+    text({ x: 60, y: 150, content: mgmt, size: 34, weight: 700, fill: mgmtColor }),
+    text({ x: 60, y: 224, content: concept, size: 58, weight: 700, fill: COLORS.brandDeep }),
+    rect({ x: 60, y: 262, w: 220, h: 7, rx: 3, fill: mgmtColor }),
+    fittedImage(50, 330, W - 100, 1280),                               // 図（中央レターボックス）
+    line({ x1: 60, y1: 1700, x2: W - 60, y2: 1700, stroke: COLORS.border, sw: 2 }),
+    text({ x: 60, y: 1780, content: `詳しくは doboku-note：${concept}`, size: 34, fill: COLORS.inkBody }),
+    text({ x: W - 50, y: 1850, content: 'doboku-note.com', size: 28, fill: COLORS.inkMuted, anchor: 'end' }),
+  ].join('\n');
+  return { svg: svgDoc({ width: W, height: H, body }), W };
+}
+
+const builders = { 'ig-single': buildIgSingle, 'yt-thumb': buildYtThumb, 'vertical': buildVertical };
 const outDir = resolve(ROOT, 'docs/sns/figures', slug);
 mkdirSync(outDir, { recursive: true });
 const stem = basename(figureName, '.svg');

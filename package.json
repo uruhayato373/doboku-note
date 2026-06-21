@@ -82,7 +82,8 @@
     "pre-push:install": "node scripts/install-pre-push.mjs",
     "test": "node --test tests/",
     "test:watch": "node --test --watch tests/",
-    "check-guide-length": "node scripts/check-guide-length.mjs"
+    "check-guide-length": "node scripts/check-guide-length.mjs",
+    "check-figure-canvas": "node scripts/check-figure-canvas.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.908.0",

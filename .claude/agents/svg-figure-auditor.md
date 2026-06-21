@@ -1,6 +1,6 @@
 ---
 name: svg-figure-auditor
-description: doboku-note の図版 SVG を site・note 横断で監査する Evaluator エージェント。パスで真実源を切替え、site 枝（.local/r2/posts/**/img/*.svg）は svg-tokens.json + image-policy + principles、note 枝（docs/note/**/img/figure-*）は note-svg-policy で採点する。機械監査（check-mdx の svg P1〜P8）の上に乗る意味層（概念伝達・alt 整合・モバイル可読性・本文結線・キャンバス/フォント/ブランド/密度）を4軸ルーブリックで評価し、file:line + 重大度 + 修正案で報告する。audit-only（修正しない）。図クロップ PNG 専門の civil-exam-figure-auditor とは守備範囲が別。修正は svg-figure-rewriter（Generator）が担当。
+description: doboku-note の図版 SVG を site・note 横断で監査する Evaluator エージェント。パスで真実源を切替え、site 枝（.local/r2/posts/**/img/*.svg）は svg-tokens.json + image-policy + principles、note 枝（docs/note/**/img/figure-*）は note-svg-policy で採点する。機械監査（check-mdx の svg P1〜P8）の上に乗る意味層（概念伝達・alt 整合・モバイル可読性・本文結線・キャンバス/フォント/ブランド/密度）を4軸ルーブリックで評価し、file:line + 重大度 + 修正案で報告する。figure-*.svg は固定キャンバス標準（figure-canvas-policy: feed 400×500 / landscape 640×360）への適合と、縦余白を使い切れているか（窮屈/間延びの有無）も判定する。audit-only（修正しない）。図クロップ PNG 専門の civil-exam-figure-auditor とは守備範囲が別。修正は svg-figure-rewriter（色/フォント微修正）と svg-canvas-fitter（キャンバス再レイアウト）が担当。
 model: sonnet
 ---
 
@@ -47,6 +47,12 @@ doboku-note の図版 SVG を **site・note 横断**で監査する **Evaluator 
 | 軸 | 重み | 3点 | 2点 | 1点 | 0点 |
 |---|---|---|---|---|---|
 | **キャンバス＆トークン適合** | 25% | viewBox 横幅 ≤ 400 / `style="max-width:{vb}px;width:100%"` あり / 色は全て colorsAllowList 内 / 矢印 marker が svg-tokens 定義形 | viewBox ≤ 400 / 軽微なトークン外 1 箇所 | viewBox 401〜500（理由コメント無し）/ allowlist 外 hex 複数 | viewBox > 500 / max-width 欠落 / 濃色背景+白文字（prohibited） |
+
+> **figure-*.svg（dual-use 図）の追加判定**: ファイル名が `figure-*.svg` のときは固定キャンバス標準（[figure-canvas-policy.md](../../docs/reference/figure-canvas-policy.md)）も併せて見る。
+> - viewBox が **`400 500`（feed）/ `640 360`（--wide=landscape）に正確一致**しているか（不一致は `check-figure-canvas` が機械検出。再レイアウトは svg-canvas-fitter）。
+> - 固定枠を**使い切れているか**——大きな空白で間延びしていないか（要素拡大・サマリー・凡例で埋めるべき）、逆に詰め込みすぎて窮屈/クリップしていないか。
+> - 4:5 に収めると可読性が壊れている図は **cannot-fit** として指摘し、2 段スタック化 or landscape 専用化を推奨する。
+> - 注: `figure-N--wide.svg` は viewBox 幅 640 が正（記事非埋込のため横幅 ≤400 ルールの対象外）。これを「viewBox 超過」と誤指摘しない。
 | **フォント＆可読性** | 30% | 本文 ≥ 13px / ラベル ≥ 12px / 補足 ≥ 11px / font-family 明示 / モバイル 375px で破綻なし | 補足が 11px 境界だが可読 | 本文に 11〜12px 混在 / font-family 一部欠落 | **< 11px** が存在 / font-family 全欠落（serif フォールバック） |
 | **概念伝達＆alt 整合** | 25% | 図が概念/構造/工程/比較/関係を一目で伝える / alt（aria-label）が図内容と一致し具体的 / 本文と重複しない | alt がやや一般的 | 図の情報過多（本文と重複）/ alt が「画像」等の一般語に近い | 図が概念を伝えない（装飾的）/ alt 欠落・図と不一致 |
 | **レイアウト＆密度** | 20% | 横並び ≤ 2 カラム / 要素間 ≥ 15px / テキスト矩形内に収まる / クリップ無し | 軽微な詰まり 1 箇所 | テキスト同士のクリッピング 1 箇所 | 重大な重なり・はみ出し・3 カラム以上の横並び |

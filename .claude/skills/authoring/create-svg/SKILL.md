@@ -44,6 +44,14 @@ SVG は**全体の流れ・構造を一目で把握させる**ためのもの。
 
 ### viewBox 制約
 
+> [!important] 記事＋SNS 両用の図（`figure-N.svg`）は固定キャンバス必須
+> SNS（記事・Instagram）にも使う図は **viewBox を `400 500`（4:5・feed）に固定**する（高さ可変は不可）。
+> YouTube 用の横長は別ファイル `figure-N--wide.svg`（viewBox `640 360`・16:9・記事非埋込）として作る。
+> 真実源 → [figure-canvas-policy.md](../../../../docs/reference/figure-canvas-policy.md) / `.claude/config/figure-canvas.json`。
+> ガード `npm run check-figure-canvas` が逸脱を pre-commit で止める。縦の余白は要素拡大・サマリー・凡例で埋めて使い切る。
+>
+> 以下の「横幅 ≤400・高さ可変」ルールは **SNS に使わない記事専用の図**にのみ適用する。
+
 - 横幅: **400px 以下**（モバイル 375px での縮小率 93% を確保）
 - 縦幅: 制限なし（縦スクロールは自然）
 - 横長レイアウトが不可避な場合のみ **500px** まで許容（理由をコメントで明記）
