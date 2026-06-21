@@ -28,6 +28,7 @@ for (const base of bases) {
   const baseDir = path.join(ROOT, base);
   if (!fs.existsSync(baseDir)) continue;
   for (const name of fs.readdirSync(baseDir)) {
+    if (name.startsWith("_")) continue; // _archive 等（旧アカウント退避）は除外
     const f = path.join(baseDir, name, "status.json");
     if (!fs.existsSync(f)) continue;
     try {

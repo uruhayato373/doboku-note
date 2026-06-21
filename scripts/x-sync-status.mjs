@@ -62,7 +62,7 @@ function loadAllStatuses() {
   for (const base of dirs) {
     const files = fs.existsSync(path.join(ROOT, base))
       ? fs.readdirSync(path.join(ROOT, base), { withFileTypes: true })
-          .filter(d => d.isDirectory())
+          .filter(d => d.isDirectory() && !d.name.startsWith("_")) // _archive 除外
           .map(d => path.join(ROOT, base, d.name, "status.json"))
           .filter(f => fs.existsSync(f))
       : [];
