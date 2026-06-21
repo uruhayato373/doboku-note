@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 540" style="max-width:400px;width:100%" role="img" aria-label="ショベル系掘削機の分類系統図。掘削機械（バックホゥ・ショベル・ローディングショベル・クラムシェル・ドラグライン）と派生機械（油圧圧砕機・油圧ブレーカ・フォークグラップル）のツリー構造">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="ショベル系掘削機の分類系統図。掘削機械（バックホゥ・ショベル・ローディングショベル・クラムシェル・ドラグライン）と派生機械（油圧圧砕機・油圧ブレーカ・フォークグラップル）のツリー構造">
   <style>
     text { font-family: "Hiragino Sans", "Yu Gothic", sans-serif; }
     .node { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.2; }
@@ -113,7 +113,7 @@
   <text x="325" y="468" font-size="11" fill="#1a3a5c" text-anchor="middle">グラップル</text>
 
   <!-- Legend -->
-  <g transform="translate(15,490)">
+  <g transform="translate(15,480)">
     <rect x="0" y="0" width="14" height="10" class="node"/>
     <text x="20" y="9" font-size="10" fill="#555">油圧式</text>
     <rect x="60" y="0" width="14" height="10" class="node-alt"/>
@@ -123,5 +123,5 @@
     <rect x="210" y="0" width="14" height="10" class="root"/>
     <text x="230" y="9" font-size="10" fill="#555">基本分類</text>
   </g>
-  <text x="200" y="525" font-size="10" fill="#8a8a8a" text-anchor="middle">油圧式／機械式は作業動力の伝達方式による分類</text>
+  <text x="200" y="497" font-size="10" fill="#8a8a8a" text-anchor="middle">油圧式／機械式は作業動力の伝達方式による分類</text>
 </svg>

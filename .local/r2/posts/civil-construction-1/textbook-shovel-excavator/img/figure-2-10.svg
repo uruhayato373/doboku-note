@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 340" style="max-width:400px;width:100%" role="img" aria-label="油圧バックホゥの作業装置構成。ブーム・アーム・バケットとブームシリンダ・アームシリンダ・バケットシリンダの配置、および本体（旋回台）との接続を示す側面図">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="油圧バックホゥの作業装置構成。ブーム・アーム・バケットとブームシリンダ・アームシリンダ・バケットシリンダの配置、および本体（旋回台）との接続を示す側面図">
   <style>
     text { font-family: "Hiragino Sans", "Yu Gothic", sans-serif; }
     .body { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
@@ -13,71 +13,71 @@
   </style>
 
   <!-- Ground -->
-  <line x1="10" y1="295" x2="390" y2="295" stroke="#222" stroke-width="1"/>
+  <line x1="10" y1="335" x2="390" y2="335" stroke="#222" stroke-width="1"/>
   <g stroke="#8a8a8a" stroke-width="0.8">
-    <line x1="30" y1="295" x2="20" y2="305"/>
-    <line x1="60" y1="295" x2="50" y2="305"/>
-    <line x1="90" y1="295" x2="80" y2="305"/>
-    <line x1="120" y1="295" x2="110" y2="305"/>
-    <line x1="150" y1="295" x2="140" y2="305"/>
-    <line x1="180" y1="295" x2="170" y2="305"/>
-    <line x1="210" y1="295" x2="200" y2="305"/>
-    <line x1="240" y1="295" x2="230" y2="305"/>
-    <line x1="270" y1="295" x2="260" y2="305"/>
-    <line x1="300" y1="295" x2="290" y2="305"/>
-    <line x1="330" y1="295" x2="320" y2="305"/>
-    <line x1="360" y1="295" x2="350" y2="305"/>
+    <line x1="30" y1="335" x2="20" y2="345"/>
+    <line x1="60" y1="335" x2="50" y2="345"/>
+    <line x1="90" y1="335" x2="80" y2="345"/>
+    <line x1="120" y1="335" x2="110" y2="345"/>
+    <line x1="150" y1="335" x2="140" y2="345"/>
+    <line x1="180" y1="335" x2="170" y2="345"/>
+    <line x1="210" y1="335" x2="200" y2="345"/>
+    <line x1="240" y1="335" x2="230" y2="345"/>
+    <line x1="270" y1="335" x2="260" y2="345"/>
+    <line x1="300" y1="335" x2="290" y2="345"/>
+    <line x1="330" y1="335" x2="320" y2="345"/>
+    <line x1="360" y1="335" x2="350" y2="345"/>
   </g>
 
   <!-- Body (旋回台 + クローラ) -->
-  <rect x="280" y="220" width="90" height="50" rx="6" class="body"/>
-  <text x="325" y="252" class="label" text-anchor="middle">本体（旋回台）</text>
+  <rect x="280" y="260" width="90" height="50" rx="6" class="body"/>
+  <text x="325" y="292" class="label" text-anchor="middle">本体（旋回台）</text>
   <!-- クローラ -->
-  <rect x="265" y="270" width="120" height="18" rx="9" class="body"/>
-  <circle cx="280" cy="279" r="5" fill="#3a7d44"/>
-  <circle cx="370" cy="279" r="5" fill="#3a7d44"/>
+  <rect x="265" y="310" width="120" height="18" rx="9" class="body"/>
+  <circle cx="280" cy="319" r="5" fill="#3a7d44"/>
+  <circle cx="370" cy="319" r="5" fill="#3a7d44"/>
 
   <!-- Boom (上向きの腕, from 旋回台 up to 中央) -->
-  <polygon points="280,225 190,130 175,145 275,250" class="boom"/>
-  <text x="235" y="185" class="label">ブーム</text>
+  <polygon points="280,265 190,170 175,185 275,290" class="boom"/>
+  <text x="235" y="225" class="label">ブーム</text>
 
   <!-- Boom cylinder: 本体から Boom へ -->
-  <rect x="260" y="205" width="35" height="10" rx="2" class="cylinder"/>
-  <rect x="220" y="195" width="50" height="10" rx="2" class="piston"/>
-  <circle cx="220" cy="200" r="2" class="pin"/>
-  <circle cx="285" cy="210" r="2" class="pin"/>
-  <text x="263" y="193" class="annot">ブームシリンダ</text>
+  <rect x="260" y="245" width="35" height="10" rx="2" class="cylinder"/>
+  <rect x="220" y="235" width="50" height="10" rx="2" class="piston"/>
+  <circle cx="220" cy="240" r="2" class="pin"/>
+  <circle cx="285" cy="250" r="2" class="pin"/>
+  <text x="263" y="233" class="annot">ブームシリンダ</text>
 
   <!-- Arm (下向き, Boom 先端から下) -->
-  <polygon points="195,130 170,140 135,235 160,245" class="arm"/>
-  <text x="145" y="190" class="label">アーム</text>
+  <polygon points="195,170 170,180 135,275 160,285" class="arm"/>
+  <text x="145" y="230" class="label">アーム</text>
 
   <!-- Arm cylinder: Boom 上 から Arm へ -->
-  <rect x="215" y="155" width="30" height="8" rx="2" class="cylinder"/>
-  <rect x="180" y="151" width="40" height="8" rx="2" class="piston"/>
-  <circle cx="180" cy="155" r="2" class="pin"/>
-  <circle cx="240" cy="159" r="2" class="pin"/>
-  <text x="208" y="148" class="annot">アームシリンダ</text>
+  <rect x="215" y="195" width="30" height="8" rx="2" class="cylinder"/>
+  <rect x="180" y="191" width="40" height="8" rx="2" class="piston"/>
+  <circle cx="180" cy="195" r="2" class="pin"/>
+  <circle cx="240" cy="199" r="2" class="pin"/>
+  <text x="208" y="188" class="annot">アームシリンダ</text>
 
   <!-- Bucket (at Arm 先端) -->
-  <path d="M 135 235 L 160 245 L 155 270 Q 130 280 115 268 L 125 240 Z" class="bucket"/>
-  <text x="138" y="260" class="label">バケット</text>
+  <path d="M 135 275 L 160 285 L 155 310 Q 130 320 115 308 L 125 280 Z" class="bucket"/>
+  <text x="138" y="300" class="label">バケット</text>
   <!-- ツメ -->
-  <polygon points="115,268 110,275 122,275" class="bucket"/>
-  <polygon points="130,275 125,282 137,282" class="bucket"/>
+  <polygon points="115,308 110,315 122,315" class="bucket"/>
+  <polygon points="130,315 125,322 137,322" class="bucket"/>
 
   <!-- Bucket cylinder: Arm から Bucket へ -->
-  <rect x="148" y="215" width="25" height="7" rx="2" class="cylinder"/>
-  <rect x="125" y="211" width="28" height="7" rx="2" class="piston"/>
-  <circle cx="125" cy="214" r="2" class="pin"/>
-  <circle cx="170" cy="218" r="2" class="pin"/>
-  <text x="100" y="206" class="annot">バケットシリンダ</text>
+  <rect x="148" y="255" width="25" height="7" rx="2" class="cylinder"/>
+  <rect x="125" y="251" width="28" height="7" rx="2" class="piston"/>
+  <circle cx="125" cy="254" r="2" class="pin"/>
+  <circle cx="170" cy="258" r="2" class="pin"/>
+  <text x="100" y="246" class="annot">バケットシリンダ</text>
 
   <!-- Title -->
   <text x="200" y="25" font-size="13" fill="#222" text-anchor="middle" font-weight="bold">油圧バックホゥの作業装置構成</text>
 
   <!-- Legend -->
-  <g transform="translate(15,320)">
+  <g transform="translate(15,358)">
     <rect x="0" y="-8" width="12" height="8" class="boom"/>
     <text x="17" y="0" class="annot">ブーム</text>
     <rect x="55" y="-8" width="12" height="8" class="arm"/>
@@ -89,4 +89,13 @@
     <rect x="230" y="-8" width="12" height="8" class="body"/>
     <text x="247" y="0" class="annot">本体</text>
   </g>
+
+  <!-- 作業装置説明 -->
+  <rect x="15" y="375" width="370" height="108" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="200" y="394" font-size="12" fill="#1a3a5c" text-anchor="middle" font-weight="bold">各部の役割</text>
+  <line x1="15" y1="400" x2="385" y2="400" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="25" y="418" font-size="11" fill="#222">ブーム：本体に取り付く第1腕。ブームシリンダで上下動</text>
+  <text x="25" y="436" font-size="11" fill="#222">アーム：ブーム先端の第2腕。アームシリンダで屈伸動作</text>
+  <text x="25" y="454" font-size="11" fill="#222">バケット：掘削・すくい取り刃。バケットシリンダで回転</text>
+  <text x="25" y="472" font-size="11" fill="#555">3シリンダの協調制御で掘削・積込み・放土を連続実施</text>
 </svg>
