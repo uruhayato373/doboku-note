@@ -179,6 +179,28 @@ docs/sns/x/
 
 - `x-post-qa` は near-duplicate テンプレ／同一 URL 反復／機械的タグ固定を検出したら**重大減点**し、是正指示に「フック・CTA・語順の差し替え／URL を一部に限定／投稿の時間分散」を必ず含める（§8 重点チェック）。
 
+### 11.5 予約前ゲート（再発防止・機械検査）
+
+> **背景（2026-06-21）**: 凍結後に作った新アカウントで再開する際、(a) 古い予約が残ったまま同枠に再予約 → 同時刻二重投稿、(b) 旧アカ status.json の残骸を誤って publish → 凍結文面の再投稿、という二重事故を構造的に防ぐため**機械ゲート**を新設。`§11.1〜11.4` を人/エージェントの規律で守った上で、**予約実行の直前に必ず通す門番**として機能する。
+
+**SSOT**: `docs/sns/x/{draft,published}/<NNN>-*/status.json` が「いつ・何を予約/投稿したか」の唯一の台帳。tweet ごとに `status`（`scheduled`/`posted`）・`scheduled_at`・`text` を持つ。予約・投稿の事実はここにしか書かない。
+
+**門番**: `npm run x-schedule-guard`（[scripts/x-schedule-guard.mjs](../../scripts/x-schedule-guard.mjs)）。全 status.json を読み、以下を判定して **BLOCK があれば exit 1**（文字数 280 超・リンク 404 と同格のブロッキング）。
+
+| 検査 | 判定 | 対応する §11 / 事故 |
+|---|---|---|
+| 同時刻衝突（同一分に2件以上） | BLOCK | 二重投稿の直接原因 |
+| near-duplicate 文面（正規化トライグラム Jaccard ≥ 0.62） | BLOCK | §11.1 テンプレ反復＝凍結カテゴリ「spam」本丸 |
+| 1日上限超（既定3本、新規期は `--max-per-day 2`） | BLOCK | §11.2 |
+| 時刻ジッタ不足（毎日同一 HH:MM 固定） | WARN | §11.2 |
+| 同一 URL を3件以上の予約に貼付 | WARN | §11.1 |
+| `--queue`: X 実キューに予約予定の本文が既存 | BLOCK | (a) 古い予約残存の実体検出 |
+
+- **予約フロー**: `x-post-writer`（生成）→ `x-post-qa`（§11 ゲート採点）→ status.json に `scheduled_at` 記入 → **`npm run x-schedule-guard --queue` で緑**→ `publish-x` 実行 → `npm run x-sync-status`（偽成功の実査・§9＋下記 queued 昇格）。緑でない限り予約しない。
+- **状態ライフサイクル**: `scheduled`（計画・未投入）→ `queued`（X キュー投入済。`x-sync-status` がキュー実在を確認して昇格＝§9 偽成功検証を兼ねる）→ `posted`（送信時刻通過後キューから消えたら昇格）。guard / `x-schedule-view` / `x-sync-status` は `scheduled`＋`queued` を「未来予約」として扱い、**guard の `--queue` 二重チェックだけは `queued` を除外**（既にキューに在って当然なので、週次で次バッチを積むとき誤検出で赤にならない）。次バッチは未投入の `scheduled` のみを `publish-x --tweets N-M` で対象化する。
+- **アカウント境界（epoch）**: 凍結アカウントの drafts は `docs/sns/x/_archive-<handle>/` へ退避する。`_` 接頭辞ディレクトリは guard / `x-schedule-view` / `x-sync-status` のスキャン対象外＝**新アカウントは常にクリーンな台帳から始める**。旧アカの予約済み status を新アカで publish しないための物理的隔離。
+- **週次小分け**: 月単位で数十本を一度にキューへ積まない（§11.2）。1週間分（2本/日×7＝14本）ずつ生成→ゲート→予約し、`x-sync-status` で消化を確認してから次週分を積む。
+
 > 真実源はここ（§11）。計測系の異常は [[measurement-incidents]]、本件の教訓メモは [[feedback_x_suspension_guardrail]]。
 
 ---

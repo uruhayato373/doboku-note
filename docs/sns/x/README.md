@@ -136,10 +136,12 @@ node .tmp/count-x-chars.mjs docs/sns/x/draft/<NNN>-<name>/tweets.md
 - ✅ ピュア URL は単独行に置く（note リンクカード表示・X もカード化）
 - ✅ **各ツイートでフック・語順・CTA を変える**（連投でも骨格を反復しない・凍結回避 §11）
 - ✅ **投稿は分散**（1 日 3〜5 本／時刻をばらす／半自動生成＋手動投稿が基本）
+- ✅ **予約前に `npm run x-schedule-guard` を緑にする**（同時刻衝突・near-dup・1日上限・古い予約残存を機械検査。BLOCK は exit 1。詳細 → `x-post-policy.md` §11.5）
 
 ## チャネル別 SSOT
 
 - 画像生成: `scripts/gen-x-card.mjs`（[create-x-card](../../../.claude/skills/social/create-x-card/SKILL.md)）
 - 投稿: `.claude/skills/social/publish-x/publish-x.ts`（[publish-x](../../../.claude/skills/social/publish-x/SKILL.md)）— **🛑 自動投稿は 2026-06-12 凍結を受け当面停止。投稿は人手**（再開条件 → `x-post-policy.md` §11.3）
 - 字数検証: `scripts/check-x-length.mjs`
+- 予約前ゲート: `scripts/x-schedule-guard.mjs`（`npm run x-schedule-guard [--queue] [--max-per-day 2]`）／俯瞰: `x-schedule-view`／キュー突合: `x-sync-status`
 - マガジン CTA A/B: [magazine-ab-test.md](./magazine-ab-test.md)

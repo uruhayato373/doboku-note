@@ -62,7 +62,7 @@ function loadAllStatuses() {
   for (const base of dirs) {
     const files = fs.existsSync(path.join(ROOT, base))
       ? fs.readdirSync(path.join(ROOT, base), { withFileTypes: true })
-          .filter(d => d.isDirectory())
+          .filter(d => d.isDirectory() && !d.name.startsWith("_")) // _archive 除外
           .map(d => path.join(ROOT, base, d.name, "status.json"))
           .filter(f => fs.existsSync(f))
       : [];
@@ -101,8 +101,9 @@ try {
 }
 
 const entries = loadAllStatuses();
-let promoted = 0, alreadyPosted = 0, stillScheduled = 0, future = 0;
+let promoted = 0, alreadyPosted = 0, stillScheduled = 0, future = 0, queued = 0, notQueued = 0;
 const promotedList = [];
+const queuedList = [];
 
 for (const entry of entries) {
   let dirty = false;
@@ -111,14 +112,33 @@ for (const entry of entries) {
 
   const process_tweet = (tweet, key) => {
     if (tweet.status === "posted") { alreadyPosted++; return; }
-    if (tweet.status !== "scheduled") return;
+    if (tweet.status !== "scheduled" && tweet.status !== "queued") return;
     const scheduledAt = tweet.scheduled_at ? new Date(tweet.scheduled_at) : null;
-    if (!scheduledAt || scheduledAt > NOW) { future++; return; }
-    // 過去の予約 → X キューに残っているか？
-    if (isInQueue(tweet, snippets)) {
+    if (!scheduledAt) return;
+    const inQueue = isInQueue(tweet, snippets);
+
+    if (scheduledAt > NOW) {
+      // 未来予約。キューに在れば scheduled→queued へ昇格（偽成功の実査 + 後日 guard の二重誤検出回避）
+      if (tweet.status === "scheduled") {
+        if (inQueue) {
+          if (!DRY) { tweet.status = "queued"; dirty = true; }
+          queued++;
+          queuedList.push({ file: entry.file, title: tweet.title, at: tweet.scheduled_at });
+        } else {
+          // status=scheduled かつキュー不在 = まだ publish-x で投入していない計画分（正常）。
+          // 偽成功検証は投稿直後にバッチ単位で「投稿数 = queued 昇格数」を突合して行う（§9）。
+          notQueued++;
+        }
+      } else {
+        future++; // 既に queued（キュー実在前提）
+      }
+      return;
+    }
+
+    // 過去予約（送信時刻が過ぎた）→ キューから消えていれば posted
+    if (inQueue) {
       stillScheduled++;
     } else {
-      // X キューに無い = 投稿済み
       if (!DRY) {
         tweet.status = "posted";
         tweet.posted_at = tweet.posted_at || scheduledAt.toISOString();
@@ -142,12 +162,19 @@ for (const entry of entries) {
 }
 
 console.log(`\n━━━ 結果 ━━━`);
-console.log(`  posted に昇格: ${promoted} 件${DRY ? " (dry: 未書込み)" : ""}`);
-console.log(`  既存 posted  : ${alreadyPosted} 件`);
-console.log(`  X キュー残存 : ${stillScheduled} 件`);
-console.log(`  未来の予約   : ${future} 件`);
+console.log(`  posted に昇格   : ${promoted} 件${DRY ? " (dry: 未書込み)" : ""}`);
+console.log(`  queued に昇格    : ${queued} 件${DRY ? " (dry: 未書込み)" : ""}（未来予約をキューで実査）`);
+console.log(`  既存 posted     : ${alreadyPosted} 件`);
+console.log(`  X キュー残存    : ${stillScheduled} 件`);
+console.log(`  既 queued        : ${future} 件`);
+console.log(`  未投入(計画)     : ${notQueued} 件（status=scheduled・キュー未投入。次バッチで publish 予定）`);
+if (queuedList.length) {
+  console.log(`\nqueued 昇格（キュー実在を確認・§9 偽成功検証）:`);
+  queuedList.forEach(p => console.log(`  📥 ${p.at?.slice(0, 16)}  ${p.title}`));
+  console.log(`  → 直前に投稿したバッチ数と queued 昇格数が一致するか確認（不一致＝偽成功）。`);
+}
 if (promotedList.length) {
-  console.log(`\n昇格一覧:`);
+  console.log(`\nposted 昇格:`);
   promotedList.forEach(p => console.log(`  ✅ ${p.at?.slice(0, 16)}  ${p.title}`));
 }
 console.log();
