@@ -53,6 +53,7 @@ if (!PRICE || (!MAGAZINES_ARG && !PATTERN && !NOTES_ARG.length)) {
   node scripts/note-article-price-sweep.mjs --magazines <key1,key2,...> --price <price> [--commit]
   node scripts/note-article-price-sweep.mjs --pattern <id-pattern> --price <price> [--commit]
   node scripts/note-article-price-sweep.mjs --notes <key1,key2,...> --price <price> [--commit]  # マガジン非所属の単独note
+  共通オプション: [--exclude <key1,key2,...>]  # 序章/無料リード等を除外（--magazines/--pattern で全記事を掴むため保護用）
 
 例:
   # 建設部門マガジンを ¥780 に（dry-run）
