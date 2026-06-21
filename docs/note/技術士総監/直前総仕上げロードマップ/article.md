@@ -2,6 +2,10 @@
 notePricing: free
 noteSeries: 直前総仕上げロードマップ
 utmCampaign: tankan-chokuzen-roadmap
+noteUrl: "https://note.com/dobokunote/n/n97e01a94e650"
+noteId: "n97e01a94e650"
+notePublishedAt: "2026-06-21"
+noteStatus: published
 coverTitle:
   - 総監 記述式 直前総仕上げ
   - 本番1ヶ月前からの逆算リスト
