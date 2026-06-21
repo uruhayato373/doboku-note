@@ -109,7 +109,7 @@ cover:
 
 なお令和8年度のコンピテンシー改訂では、データ活用・ステークホルダーとの合意形成・持続可能な成果・文化的価値の尊重が明文化されており、老朽化テーマとも親和性が高い点を押さえておきましょう。
 
-改訂の答案への影響は <https://doboku-note.com/docs/pe-construction-competency-revision-r8> で詳しく整理しています。
+改訂の答案への影響は[令和8年度のコンピテンシー改訂](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=inline&utm_campaign=pe-roukyuuka&utm_content=r8-revision)で詳しく整理しています。
 
 施策名・年度の取り違えは減点に直結します。
 

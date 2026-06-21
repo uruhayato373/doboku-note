@@ -95,9 +95,9 @@ R06 I-2では能登半島地震を例に、DXを活用して事前の防災・�
 
 施策名は「だいたいの意味」で書かず、定義を一言で添えられる状態にしておくと、専門知識の正確さが伝わります。流域治水を「ダムを増やすこと」と誤って要約するような答案は減点されやすいので注意してください。
 
-論文全体の構成や添削観点をひととおり確認したい場合は、サイトの[記述式論文の書き方ガイド](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide)もあわせてどうぞ。
+論文全体の構成や添削観点をひととおり確認したい場合は、サイトの[記述式論文の書き方ガイド](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide?utm_source=note&utm_medium=inline&utm_campaign=pe-bousai&utm_content=essay-guide)もあわせてどうぞ。
 
-必須科目Iの6系統と年度別出題の整理は[こちら](https://doboku-note.com/docs/pe-construction-required-exam-themes)にまとめています。
+必須科目Iの6系統と年度別出題の整理は[こちら](https://doboku-note.com/docs/pe-construction-required-exam-themes?utm_source=note&utm_medium=inline&utm_campaign=pe-bousai&utm_content=exam-themes)にまとめています。
 
 ## 発注者視点を一文織り込む
 
