@@ -109,8 +109,8 @@
   <text class="t-def" x="214" y="511">下から 25% の位置</text>
 
   <!-- Q2 -->
-  <rect x="36" y="522" width="22" height="18" rx="4" fill="#2e6da4"/>
-  <text class="t-badge" x="47" y="535" text-anchor="middle" fill="#ffffff">Q2</text>
+  <rect x="36" y="522" width="22" height="18" rx="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.2"/>
+  <text class="t-badge" x="47" y="535" text-anchor="middle" fill="#1a3a5c">Q2</text>
   <text class="t-def" x="64" y="535">第二四分位数（中央値）</text>
   <text class="t-def" x="214" y="535">下から 50% の位置</text>
 

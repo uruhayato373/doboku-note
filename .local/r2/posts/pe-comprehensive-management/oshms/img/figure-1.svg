@@ -10,11 +10,11 @@
       .t-center { font-size: 13px; font-weight: bold; fill: #3a7d44; }
       .t-outer  { font-size: 11px; fill: #555; }
       .t-foot   { font-size: 11px; fill: #8a8a8a; }
-      /* brand濃淡4段: P・D・C・A */
-      .box-p { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; } /* brand淡 */
-      .box-d { fill: #c9dbf8; stroke: #2e6da4; stroke-width: 1.5; } /* brand中 */
-      .box-c { fill: #d8e8fc; stroke: #2e6da4; stroke-width: 1.5; } /* brand中淡 */
-      .box-a { fill: #eef4ff; stroke: #2e6da4; stroke-width: 1.5; } /* brand最淡 */
+      /* brand: P・D・C・A */
+      .box-p { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; } /* brand-fill */
+      .box-d { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; } /* brand-fill */
+      .box-c { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; } /* brand-fill */
+      .box-a { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; } /* brand-fill */
       /* positive: 継続的改善（中央） */
       .circle-center { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }
       /* surface: 安全衛生方針 */
@@ -24,10 +24,10 @@
       .arr { stroke: #8a8a8a; stroke-width: 2; fill: none; }
       .arr-dash { stroke: #8a8a8a; stroke-width: 1.5; fill: none; stroke-dasharray: 5,3; }
     </style>
-    <marker id="arr" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
-      <polygon points="0,0 9,3.5 0,7" fill="#8a8a8a"/>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#8a8a8a"/>
     </marker>
-    <marker id="arr-s" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+    <marker id="arr-s" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
       <polygon points="0,0 8,3 0,6" fill="#8a8a8a"/>
     </marker>
   </defs>

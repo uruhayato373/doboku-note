@@ -2,6 +2,7 @@
   style="max-width:440px;width:100%"
   role="img"
   aria-label="ジョブ型（職務主義）とメンバーシップ型（属人主義）の雇用形態を6項目で左右比較した図">
+  <!-- viewBox幅440は2カラム比較レイアウト（ラベル96+ブランド152+ポジティブ156+余白）に不可避。max-widthも440で整合済み。viewBox・max-widthは据置 -->
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
@@ -14,11 +15,11 @@
       /* brand = ジョブ型 */
       .col-brand-bg  { fill: #e8f0fe; }
       .col-brand-hd  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
-      .col-brand-row { fill: #f3f7ff; stroke: #2e6da4; stroke-width: 0.8; }
+      .col-brand-row { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 0.8; } /* brand-fill */
       /* positive = メンバーシップ型 */
       .col-pos-bg    { fill: #d0e8d0; }
       .col-pos-hd    { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
-      .col-pos-row   { fill: #f0f8f0; stroke: #3a7d44; stroke-width: 0.8; }
+      .col-pos-row   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 0.8; } /* positive-fill */
       /* row label column */
       .col-label-bg  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 0.8; }
       /* divider */
