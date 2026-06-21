@@ -23,7 +23,7 @@
 
   <!-- タイトル -->
   <text class="t-title" x="200" y="28" text-anchor="middle">リスクマトリクス</text>
-  <text class="t-sub" x="200" y="46" text-anchor="middle">リスク値＝影響度（被害額）× 発生確率　（JIS Q31000 §2-(3)）</text>
+  <text class="t-sub" x="200" y="46" text-anchor="middle">リスク値＝影響度（被害額）× 発生確率　（JIS Q31000）</text>
 
   <!-- === 縦軸ラベル === -->
   <!-- 縦書き: 影響度 -->
