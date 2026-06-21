@@ -42,6 +42,9 @@
 > [!important] 着手前に: 開いているPRのマージ判断
 > - **PR #269（カタログ）/ #270（SNSレンダラー）** が develop 未マージ。**マージするまで SNSパイプライン残りは develop で進められない**（レンダラーがdevelopに無い）。マージはユーザー判断（`/deploy`系）。
 
+> [!important] PRマージ時の doc-sync 宿題（台帳カップリング対象外・忘れやすい）
+> #269/#270 は新スクリプト＋npmコマンド（`build-svg-catalog` / `render-figure-sns`）を追加するが、`.claude/skills`・`.claude/agents` の変更ではないため check-doc-coupling は発火しない。**マージ後に develop 上で `/doc-sync` を1回回し**、新コマンドを reference 索引（CLAUDE.md 頻用コマンド or docs/reference のSNS系）へ追記すること。develop に未反映の今は追記しない（壊れ参照になる）。スキル化（SKILL.md化）するかも併せて判断。
+
 - **Phase 4: 記事への `<ArticleImage>` 埋め込み**（49点は現在 orphan=未埋込）— ユーザー指示で**保留中**。catalog の orphan リストが作業リスト。1記事=1パイロット→記事単位で展開（同一記事複数図は1エージェントで・競合回避）。
 - **SNSパイプライン残り**（#270マージ後）: IG管理別カルーセルのオーケストレーション（cover+図slides+cta）/ コピー Generator 配線（caption/hashtags=ig writer規約、title/desc=yt writer規約）/ Evaluator 配線（ig-carousel-qa・yt-shorts-publisher-qa）
 - **図版ライブラリ残り（低優先）**: UPGRADE 2点（正規分布3σ・マズロー＝既存色なしだが実用十分）。jit プル/プッシュ図は Evaluator が概念逆転検出→破棄（既存 kanban図がカバー）。他候補は既存SVG(145点)がカバー=SKIP（トリアージ済）。
