@@ -42,9 +42,9 @@ for (const base of bases) {
   }
 }
 
-// 集計
+// 集計（scheduled=未投入 / queued=キュー投入済 をまとめて「予約」として扱う）
 const posted   = all.filter(t => t.status === "posted");
-const scheduled = all.filter(t => t.status === "scheduled" && t.scheduled_at);
+const scheduled = all.filter(t => (t.status === "scheduled" || t.status === "queued") && t.scheduled_at);
 const future   = scheduled.filter(t => new Date(t.scheduled_at) >= NOW)
                           .sort((a, b) => new Date(a.scheduled_at) - new Date(b.scheduled_at));
 const WINDOW   = ALL ? Infinity : 7 * 24 * 3600 * 1000;

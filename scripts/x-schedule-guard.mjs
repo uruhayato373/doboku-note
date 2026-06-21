@@ -93,14 +93,18 @@ function jaccard(a, b) {
 
 // ── main ───────────────────────────────────────────────────────────────────
 const all = loadTweets();
-const future = all
-  .filter(t => t.status === "scheduled" && t.scheduled_at && new Date(t.scheduled_at) >= NOW)
+// active = まだ送信前の未来予約（scheduled=未投入 + queued=キュー投入済）。衝突/near-dup/上限の判定対象。
+const active = all
+  .filter(t => (t.status === "scheduled" || t.status === "queued") && t.scheduled_at && new Date(t.scheduled_at) >= NOW)
   .sort((a, b) => new Date(a.scheduled_at) - new Date(b.scheduled_at));
+const future = active; // 以降の衝突/near-dup/上限/ジッタ/URL 判定は active 全体で行う
+const nScheduled = active.filter(t => t.status === "scheduled").length;
+const nQueued = active.filter(t => t.status === "queued").length;
 const recentPosted = all.filter(t => t.status === "posted" && t.posted_at &&
   (NOW - new Date(t.posted_at)) <= 14 * 24 * 3600 * 1000);
 
 console.log(`\n🛡  X 予約ゲート — ${NOW.toLocaleString("ja-JP", { timeZone: "Asia/Tokyo" })}`);
-console.log(`   予約中(未来): ${future.length}件  直近14日投稿済: ${recentPosted.length}件`);
+console.log(`   未来予約: ${active.length}件（未投入 scheduled=${nScheduled} / キュー投入済 queued=${nQueued}）  直近14日投稿済: ${recentPosted.length}件`);
 console.log(`   しきい値: near-dup BLOCK ≥${DUP_BLOCK} / WARN ≥${DUP_WARN}  1日上限 ${MAX_PER_DAY}本\n`);
 
 const blocks = [];
@@ -206,13 +210,14 @@ if (WITH_QUEUE) {
       }
     } finally { await ctx.close(); }
     console.log(`   キュー取得: ${snippets.size} 行`);
-    for (const t of future) {
+    // 未投入(scheduled)のみ照合。queued は既にキュー投入済＝在って当然なので除外（後日 run の二重誤検出回避）。
+    for (const t of future.filter(t => t.status === "scheduled")) {
       const needle = (t.text || t.title || "").slice(0, 15).replace(/\s+/g, " ").trim();
       if (!needle) continue;
       for (const s of snippets) {
         if (s.includes(needle)) {
-          blocks.push(`実キュー二重 : [${t.draft}] "${needle}…" は既にX予約キューに存在。` +
-            `再予約すると同枠二重投稿になる（古い予約を先に消すか、この予約を外す）`);
+          blocks.push(`実キュー二重 : [${t.draft}] "${needle}…" は status=scheduled なのに既にX予約キューに存在。` +
+            `再予約すると同枠二重投稿になる（x-sync-status で queued へ昇格させるか、この予約を外す）`);
           break;
         }
       }

@@ -53,6 +53,21 @@ npx tsx .claude/skills/social/publish-x/publish-x.ts 004 --tweet 1 2026-05-09T08
 - ドラフトが near-duplicate テンプレ／同一 URL 反復になっていないか、投稿前に `x-post-qa` の凍結リスク・ゲート（§11）を通す。
 - 凍結・ロック時は SMS 認証など正規手順で解除し、回避目的の新規アカウント量産（ban evasion）はしない。
 
+## 🛡 予約前ゲート / 予約後の実査（必須・機械検査）
+
+`x-post-qa`（人/エージェント採点）に加え、**予約実行の直前後に機械ゲートを必ず通す**（真実源 [`x-post-policy.md` §11.5](../../../../docs/reference/x-post-policy.md)）:
+
+```bash
+# ① 予約前: 同時刻衝突・near-dup・1日上限・古い予約残存を機械 BLOCK。緑でなければ予約しない
+npm run x-schedule-guard -- --queue --max-per-day 2
+# ② publish-x で予約（このスキル。--tweets N-M で対象を絞る＝誤って全件投稿しない）
+# ③ 予約後: キュー実在を実査し scheduled→queued へ昇格（偽成功検証 §9。投稿数=queued昇格数を突合）
+npm run x-sync-status
+```
+
+- **状態ライフサイクル**: `scheduled`（計画・未投入）→ `queued`（キュー投入済・`x-sync-status` が実査昇格）→ `posted`（送信済）。guard の `--queue` 二重チェックは `queued` を除外するので、**週次小分けで次バッチを積むときも誤検出で赤にならない**。
+- **週次運用**: 1 週間分（2 本/日）ずつ。次バッチは未投入の `scheduled` のみを `--tweets` で対象化する。
+
 ## 使い方
 
 ```bash

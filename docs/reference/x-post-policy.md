@@ -196,7 +196,8 @@ docs/sns/x/
 | 同一 URL を3件以上の予約に貼付 | WARN | §11.1 |
 | `--queue`: X 実キューに予約予定の本文が既存 | BLOCK | (a) 古い予約残存の実体検出 |
 
-- **予約フロー**: `x-post-writer`（生成）→ `x-post-qa`（§11 ゲート採点）→ status.json に `scheduled_at` 記入 → **`npm run x-schedule-guard --queue` で緑**→ `publish-x` 実行 → `npm run x-sync-status`（偽成功の実査・§9）。緑でない限り予約しない。
+- **予約フロー**: `x-post-writer`（生成）→ `x-post-qa`（§11 ゲート採点）→ status.json に `scheduled_at` 記入 → **`npm run x-schedule-guard --queue` で緑**→ `publish-x` 実行 → `npm run x-sync-status`（偽成功の実査・§9＋下記 queued 昇格）。緑でない限り予約しない。
+- **状態ライフサイクル**: `scheduled`（計画・未投入）→ `queued`（X キュー投入済。`x-sync-status` がキュー実在を確認して昇格＝§9 偽成功検証を兼ねる）→ `posted`（送信時刻通過後キューから消えたら昇格）。guard / `x-schedule-view` / `x-sync-status` は `scheduled`＋`queued` を「未来予約」として扱い、**guard の `--queue` 二重チェックだけは `queued` を除外**（既にキューに在って当然なので、週次で次バッチを積むとき誤検出で赤にならない）。次バッチは未投入の `scheduled` のみを `publish-x --tweets N-M` で対象化する。
 - **アカウント境界（epoch）**: 凍結アカウントの drafts は `docs/sns/x/_archive-<handle>/` へ退避する。`_` 接頭辞ディレクトリは guard / `x-schedule-view` / `x-sync-status` のスキャン対象外＝**新アカウントは常にクリーンな台帳から始める**。旧アカの予約済み status を新アカで publish しないための物理的隔離。
 - **週次小分け**: 月単位で数十本を一度にキューへ積まない（§11.2）。1週間分（2本/日×7＝14本）ずつ生成→ゲート→予約し、`x-sync-status` で消化を確認してから次週分を積む。
 
