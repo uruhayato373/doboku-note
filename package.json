@@ -47,6 +47,7 @@
     "ogp-gallery": "node scripts/ogp-gallery.mjs",
     "svg-gallery": "node scripts/svg-gallery.mjs",
     "build-svg-catalog": "node .claude/scripts/build-svg-catalog.mjs",
+    "render-figure-sns": "node .claude/scripts/sns/render-figure-sns.mjs",
     "start": "next start -p 3020",
     "lint": "eslint src/",
     "type-check": "tsc --noEmit",
