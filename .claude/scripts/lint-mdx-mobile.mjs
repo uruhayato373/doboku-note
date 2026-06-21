@@ -64,7 +64,7 @@
  *  12-3 LOW    group: guide で末尾 H2 が承認パターン外（次のステップ / 関連リソース / ○○の選択肢）
  *  13-1 MEDIUM r8-essay-theme-* spoke で許可外の ### ペルソナ名を検出（content-principles.md §21）
  *  13-2 MEDIUM r8-essay-theme-* spoke で「## ペルソナ別の取り組み方」配下の ### サブセクション数が 4 個でない（content-principles.md §21、3 ペルソナ + 業界外救済 = 4 個が正常）
- *  14-1 MEDIUM factual table（数値・年代・指定数・統計データを含む verifiable claim 表）の直下に `<Callout type="reference" title="出典">` がない（content-principles.md §22）
+ *  14-1 MEDIUM factual table（数値・年代・指定数・統計データを含む verifiable claim 表）の直下に `<Callout type="reference" title="出典">` がない（content-principles.md §22）。**group: guide は対象外**（ガイドは外部離脱を最小化＝出典不要、§20）
  *  15-1 MEDIUM 散文で同一の丁寧体文末（です／ます／ました）が3文以上連続（単調、§24。である調は対象外）
  *  15-2 LOW    散文の1文が長すぎる（句点区切りで140字超、目安60〜80字、§24）
  */
@@ -1680,11 +1680,13 @@ function lintFile(filePath) {
     : 0;
   const lines = content.split(/\r?\n/);
 
+  // ガイド記事（group: guide）は外部離脱を最小化する方針（§20）のため、インライン出典（14-1/§22）は不要
+  const isGuide = /^group:\s*guide\s*$/m.test(raw);
   const tables = extractTables(lines);
   for (const t of tables) {
     lintTable(t, findings);
     lintHeadingBeforeTable(t, lines, findings);
-    lintInlineSource(t, lines, findings);
+    if (!isGuide) lintInlineSource(t, lines, findings);
   }
   lintHeadingBeforeBlock(lines, raw, filePath, findings);
 
