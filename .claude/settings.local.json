@@ -76,7 +76,12 @@
       "Bash(jq --arg date 2026-04-23 '.\"covered\".\"pe-comprehensive-management-r02-primary\".\"1-40\" = { *)",
       "mcp__Claude_in_Chrome__list_connected_browsers",
       "mcp__mcp-registry__search_mcp_registry",
-      "mcp__mcp-registry__list_connectors"
+      "mcp__mcp-registry__list_connectors",
+      "Bash(cp .claude/state/sales/sales-log.json /tmp/sales-good.json)",
+      "Bash(cp /tmp/sales-bad.json .claude/state/sales/sales-log.json)",
+      "Bash(cp .claude/state/sales/sales-log.json /tmp/g.json)",
+      "Bash(cp /tmp/g.json .claude/state/sales/sales-log.json)",
+      "mcp__visualize__read_me"
     ],
     "defaultMode": "bypassPermissions"
   }
