@@ -160,7 +160,7 @@ HTTP HEAD（並列 10 / タイムアウト 15 秒）で検証。対象は `.loca
 | P3-missing-aria | MEDIUM | `aria-label` 欠落 |
 | P3-missing-maxwidth | HIGH | `style="max-width:Xpx;width:100%"` 欠落 |
 | P4-tiny-font | LOW | `font-size < 11px` |
-| P5-wide-viewbox | MEDIUM | `viewBox` 幅 > 400px |
+| P5-wide-viewbox | MEDIUM | `viewBox` 幅 > 400px（`figure-*--wide.svg` は landscape 16:9=640 幅が正のため P5 免除。固定キャンバス適合は `npm run check-figure-canvas` が担保。→ figure-canvas-policy.md） |
 | P6-color-drift | MEDIUM | `svg-tokens.json` colorsAllowList 外 |
 | P7-missing-font-family | MEDIUM | `font-family` 未指定 |
 | P8-dark-bg | HIGH | 濃色 fill + 白/薄色テキスト（`prohibited.md` 違反） |

@@ -16,7 +16,7 @@ title: スキル ナビゲーションガイド
 | スキル | 一言説明 | 呼ぶとき |
 |---|---|---|
 | `/keyword-page` | 総合技術監理キーワードページ作成・校正 | `キーワード作成`, `ページ更新`, `/keyword-page` |
-| `/create-svg` | MDX 記事用 SVG 図版作成。一括目視 QA は `npm run svg-gallery`（site/note 図版を1枚 HTML・**site/note タブ＋資格別フィルタ**・site は audit 重大度バッジ付き） | `図版を作りたい`, `SVG 作成`, `/create-svg` |
+| `/create-svg` | MDX 記事用 SVG 図版作成。**`figure-*.svg`（記事+SNS両用）は固定キャンバス必須**（feed 4:5 `400×500`／`--wide` 16:9 `640×360`・概念名タイトル禁止。真実源 figure-canvas-policy.md、ガード `npm run check-figure-canvas`、再レイアウトは `svg-canvas-fitter`）。一括目視 QA は `npm run svg-gallery`（site/note タブ＋資格別フィルタ・audit 重大度＋canvas 適合バッジ） | `図版を作りたい`, `SVG 作成`, `/create-svg` |
 | `/illustrate-concept` | Web 画像検索→SVG 一括生成→MDX 挿入 | `コンセプト図`, `イラスト挿入`, `/illustrate-concept` |
 | `/improve-article` | 単一記事の対話的改善（PDF 照合 QA も可） | `記事を改善`, `校正して`, `/improve-article` |
 | `/promote-to-site` | Obsidian MD → doboku-note MDX 変換・配置 | `Obsidian記事を公開`, `MDX変換`, `.md→.mdx`, `promote` |

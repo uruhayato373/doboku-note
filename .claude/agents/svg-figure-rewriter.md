@@ -42,7 +42,7 @@ model: sonnet
 | 矢印 marker 非標準 | svg-tokens 定義形（`markerWidth=8 markerHeight=6 refX=8 refY=3 orient="auto"` の polygon）に統一 |
 | 必須属性欠落 | `role="img"` / `aria-label` / `style="max-width:{vb}px;width:100%"` を補完 |
 | 濃色背景+白文字（prohibited） | 淡色 fill（box-brand 等）+ 濃色文字（ink-strong/ink-body）に置換 |
-| 要素重なり・クリップ | 座標・viewBox 高さ・要素間余白（site ≥15 / note ≥24）を調整 |
+| 要素重なり・クリップ | 座標・要素間余白（site ≥15 / note ≥24）を調整。**`figure-*.svg`（固定キャンバス）は viewBox を変えず枠内で再配置する**（feed=400×500 / `--wide`=640×360 を死守）。枠内で解消できない＝再レイアウトが要る場合は `svg-canvas-fitter` に委ねる。非 figure 名の site SVG のみ viewBox 高さ調整可 |
 | 制作メタコメント・原典図番号 | SVG 内テキスト/コメントから除去 |
 
 ## 進め方
