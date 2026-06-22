@@ -158,7 +158,9 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 **実行計画 SSOT**: [docs/handoffs/2026-06-23-3piece-horizontal-replication.md](../handoffs/2026-06-23-3piece-horizontal-replication.md)（原資レディネス・推奨順・担当エージェント）。
 
-**要点（コスト是正済み）**: 建設部門の①完全パック=既存24マガジン束ねるだけ（小）②読み方ガイド=論文対策キーワード再包装（中）③**R8予想=道路+必須Iの2科目のみ完成・残10科目は新規生成が必要（大・要GO）**。土木 読み方ガイド=既存ガイド再包装（中）。note 公開は手動（成果物は content＋note-magazines.ts published:false まで）。
+**要点**: 建設部門の①完全パック=既存24マガジン束ねるだけ（小）②読み方ガイド=論文対策キーワード再包装（中）③**R8予想=12科目中10科目が既存マガジンに収録済・横断フラッグシップに再包装（中）＋欠落の電力土木/鉄道2科目のみ補完生成（小）**。土木 読み方ガイド=既存ガイド再包装（中）。note 公開は手動（成果物は content＋note-magazines.ts published:false まで）。
+
+> 2026-06-23 是正: R8予想を当初「残10科目未着手・大」と誤記したが、`find -name article.md` が実体の article-II1/II2/III.md を取りこぼした誤り。実際は10科目完成済で再包装中心（ユーザー指摘で発覚）。
 
 ### Kindle 出版（KDP）＋ note PDF 販売 — 択一式過去問集 全資格展開 🟢
 
