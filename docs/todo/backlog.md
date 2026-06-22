@@ -150,6 +150,16 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 ## 3. 収益化（Kindle / note PDF）
 
+### 3点セット横展開（完全パック＋R8予想＋読み方ガイド） 🔴
+
+**発端**: 総監の3点セットが sales-log で実証（売上TOP3独占＝essay-complete-pack/r8-essay-forecast/tankan-reading-guide）。建設部門・土木へ未複製。新施策発明より型の横展開が最短（2026-06-23 検証）。
+
+**スコープ確定**: 建設部門フル3点 ＋ 土木は読み方ガイドのみ（予想は土木の二刀流＝会員フロー決定 2026-06-12 と矛盾するため持ち込まない）。
+
+**実行計画 SSOT**: [docs/handoffs/2026-06-23-3piece-horizontal-replication.md](../handoffs/2026-06-23-3piece-horizontal-replication.md)（原資レディネス・推奨順・担当エージェント）。
+
+**要点（コスト是正済み）**: 建設部門の①完全パック=既存24マガジン束ねるだけ（小）②読み方ガイド=論文対策キーワード再包装（中）③**R8予想=道路+必須Iの2科目のみ完成・残10科目は新規生成が必要（大・要GO）**。土木 読み方ガイド=既存ガイド再包装（中）。note 公開は手動（成果物は content＋note-magazines.ts published:false まで）。
+
 ### Kindle 出版（KDP）＋ note PDF 販売 — 択一式過去問集 全資格展開 🟢
 
 **既存作業**: 戦略書 `docs/project/01_戦略/08_Kindle出版戦略.md`（3シリーズ設計済み）、スクリプト `scripts/build-takuitsu-reconstruct.mjs`（1ソース → EPUB/Markdown/印刷 HTML）完成。ハンドオフ: `docs/handoffs/2026-06-09-takuitsu-kindle-epub.md`
