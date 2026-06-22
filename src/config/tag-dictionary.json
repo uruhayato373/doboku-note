@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-06-22T02:02:52.075Z",
+  "generated_at": "2026-06-22T21:46:13.360Z",
   "summary": {
-    "total_mdx_files": 1054,
+    "total_mdx_files": 1055,
     "total_unique_tags": 169,
     "allowlist_size": 149,
     "known_count": 79,
@@ -673,7 +673,7 @@
     },
     {
       "name": "総合技術監理",
-      "count": 392,
+      "count": 393,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-access-control",
@@ -808,6 +808,7 @@
         "pe-comprehensive-management-four-m-of-production",
         "pe-comprehensive-management-four-major-pollution-diseases",
         "pe-comprehensive-management-four-p-analysis",
+        "pe-comprehensive-management-frequent-topics",
         "pe-comprehensive-management-functional-organization",
         "pe-comprehensive-management-game-theory",
         "pe-comprehensive-management-gender-equality-act",
@@ -2251,9 +2252,10 @@
     },
     {
       "name": "出題傾向",
-      "count": 12,
+      "count": 13,
       "inAllowlist": true,
       "usedIn": [
+        "pe-comprehensive-management-frequent-topics",
         "pe-construction-construction-planning-exam-themes",
         "pe-construction-environment-exam-themes",
         "pe-construction-geotechnical-exam-themes",
@@ -2270,9 +2272,10 @@
     },
     {
       "name": "過去問分析",
-      "count": 12,
+      "count": 13,
       "inAllowlist": false,
       "usedIn": [
+        "pe-comprehensive-management-frequent-topics",
         "pe-construction-construction-planning-exam-themes",
         "pe-construction-environment-exam-themes",
         "pe-construction-geotechnical-exam-themes",

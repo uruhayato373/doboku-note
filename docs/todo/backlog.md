@@ -315,7 +315,9 @@ Hero → ExamCards → LatestArticles → AboutSection
 **結論**: GSC 流入を実質的に動かせるのは**ドメイン権威性（off-page）のみ**。これは code 編集でなく独自データ + 被リンクの継続プログラム。on-page の追加微修正はしない（[[hub-strengthening-approach]]・2026-04 pivot で「内部施策は天井」と既出）。
 
 **実行可能タスク（権威性を上げる）**:
-1. 独自・被引用される **データ資産**化: 680 問の過去問 + 合格者模範論文を、外部がリンクしたくなる統計/まとめ（合格率推移・頻出論点ランキング等）として整備
+1. 独自・被引用される **データ資産**化: 680 問の過去問 + 合格者模範論文を、外部がリンクしたくなる統計/まとめとして整備
+   - **完了（2026-06-23）**: 総監の頻出論点ランキング（17年度680問×552論点×5管理）を `/docs/pe-comprehensive-management-frequent-topics` に公開。生成は `npm run build-frequent-topics`（`scripts/build-frequent-topics.mjs`・past-exam-backlinks.json から機械集計、新年度追加で自動更新）。keyword-2026 から相互リンク済
+   - 残: ①1級・2級土木版（civil は past-exam-backlinks 未収録＝論点タグ付けが先）②合格率推移（試験団体一次統計を WebSearch 照合・独自性は低）③被リンク獲得の外部発信（note/SNS で本ランキングを紹介）
 2. **外部被リンク**起点: note 記事 → サイトの文脈リンク、`/links` ハブ、X/IG bio、合格体験記の寄稿
 3. 受験期（6-7月）の**高インテント head クエリ**（`1級土木施工管理技士 過去問 解答`）を category/hub ページが取れているか GSC で監視（現状 query に未出現＝未ランク or 季節前）
 4. 継続監視: 月次 `index-coverage.yml` + `/gsc-review`、週次 `fetch-metrics.yml` + `/weekly-improve` は配線済。指標を観測ログへ追記

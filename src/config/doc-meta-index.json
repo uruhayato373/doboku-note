@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "generated_at": "2026-06-22T02:02:51.507Z",
+  "generated_at": "2026-06-22T21:46:12.926Z",
   "summary": {
-    "total": 1054,
-    "published": 1012,
+    "total": 1055,
+    "published": 1013,
     "unpublished": 42,
     "by_category": {
       "civil-construction-1": 97,
       "civil-construction-2": 31,
       "concrete-chief-engineer": 19,
-      "pe-comprehensive-management": 723,
+      "pe-comprehensive-management": 724,
       "pe-construction": 121,
       "pe-first-stage": 21
     }
@@ -8849,6 +8849,21 @@
       "revisionCycle": 1,
       "created": "2026-04-05",
       "dateModified": "2026-05-26"
+    },
+    "pe-comprehensive-management-frequent-topics": {
+      "title": "総合技術監理部門 過去問 頻出論点ランキング（17年度・680問の出題傾向データ）",
+      "description": "技術士総合技術監理部門の択一過去問17年度分（680問）を552論点に分類し、出現頻度で集計した出題傾向データ。経済性・人的資源・情報・安全・社会環境の5管理別に頻出論点をランキング化。労働安全衛生法・労働基準法・環境影響評価などの頻出度を年度数とともに一覧で確認できる。",
+      "shortTitle": "頻出論点ランキング",
+      "subtitle": "平成21年度〜令和7年度の択一を5管理・552論点で集計",
+      "category": "pe-comprehensive-management",
+      "group": "guide",
+      "tags": [
+        "総合技術監理",
+        "出題傾向",
+        "過去問分析"
+      ],
+      "published": true,
+      "seoTitle": "総合技術監理 出題傾向・頻出論点ランキング｜17年度680問を5管理で集計【技術士総監】"
     },
     "pe-comprehensive-management-front-loading": {
       "title": "フロントローディング",
