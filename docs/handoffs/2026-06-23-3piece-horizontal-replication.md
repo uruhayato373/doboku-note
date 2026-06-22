@@ -35,8 +35,8 @@
 
 横展開すべきは **読み方ガイド ×（建設部門＋土木）の2本のみ**。横断R8予想・横断完全パックは選択科目制ゆえ作らない。
 
-1. **建設部門 読み方ガイド**（中）— 論文対策キーワード6テーマ＋論文の書き方を「doboku-note連動 論文対策精読ガイド」として組成。科目非依存＝全11科目受験者に共通の funnel 入口
-2. **土木 読み方ガイド**（中）— 既存ガイド（経験記述の書き方・工事概要の書き方）を note 読み方ガイド商品に組成。経験記述は科目非依存
+1. **建設部門 読み方ガイド**（小〜中）— 論文の書き方コンテンツは**既に無料サイトガイドとして存在**（`pe-secondary-essay-guide`・`toan-kousei-template`・`sentaku-kamoku-kakiwake`・`secondary-study-method`・`hissu-kamoku-kaitourei`）。論文対策キーワード6テーマも既存。よって新規執筆ではなく**既存無料コンテンツの note 商品パッケージ化**（総監 tankan-reading-guide=doboku-note連動 の踏襲）。※無料サイト版が既にfunnel/SEO役を果たしているため、有料note版を別途作る monetization 価値があるかはユーザー判断
+2. **土木 読み方ガイド**（小〜中）— 同様に既存（site `secondary-experience-writing-guide`・docs/note `工事概要の書き方`）の note 商品パッケージ化。経験記述は科目非依存
 
 ### 作らないと確定したもの（棚卸し結論）
 
