@@ -81,7 +81,8 @@
       "Bash(cp /tmp/sales-bad.json .claude/state/sales/sales-log.json)",
       "Bash(cp .claude/state/sales/sales-log.json /tmp/g.json)",
       "Bash(cp /tmp/g.json .claude/state/sales/sales-log.json)",
-      "mcp__visualize__read_me"
+      "mcp__visualize__read_me",
+      "mcp__visualize__show_widget"
     ],
     "defaultMode": "bypassPermissions"
   }
