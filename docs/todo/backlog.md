@@ -301,6 +301,29 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 ---
 
+### SEO 権威性トラック（GSC 流入の唯一残る레버） 🟡
+
+**発端**: 2026-06-22 の GSC 流入減調査で、在庫下の技術・on-page SEO レバーを全数検証し**すべて健全/最適化済み**と確定（真実源: `docs/reference/gsc-management.md` 2026-06-22 ログ）。
+
+**確定事実（再調査不要・現物検証済）**:
+- index 率 **81.6%**（目標 80% 達成。4月の 54% から +256 ページ後もむしろ改善）
+- hygiene = redirect/404 とも **0**
+- 未index の過去問 23本は robots=ALLOWED / indexing=ALLOWED / canonical 一致 / fetch=SUCCESSFUL ＝**技術バグ無し**。「クロール済み未登録」は純粋に Google の価値判断（旧年度の低需要ページ）。on-page 編集で強制 index 不可
+- 本文量・タイトル・description・FAQ schema・内部リンク（82.5/ページ）= 全て充足
+- 流入減は ①新規ページによる blended 平均順位の希釈アーティファクト ②定義ロングテール（換金性ゼロ）中心、で実害は小
+
+**結論**: GSC 流入を実質的に動かせるのは**ドメイン権威性（off-page）のみ**。これは code 編集でなく独自データ + 被リンクの継続プログラム。on-page の追加微修正はしない（[[hub-strengthening-approach]]・2026-04 pivot で「内部施策は天井」と既出）。
+
+**実行可能タスク（権威性を上げる）**:
+1. 独自・被引用される **データ資産**化: 680 問の過去問 + 合格者模範論文を、外部がリンクしたくなる統計/まとめ（合格率推移・頻出論点ランキング等）として整備
+2. **外部被リンク**起点: note 記事 → サイトの文脈リンク、`/links` ハブ、X/IG bio、合格体験記の寄稿
+3. 受験期（6-7月）の**高インテント head クエリ**（`1級土木施工管理技士 過去問 解答`）を category/hub ページが取れているか GSC で監視（現状 query に未出現＝未ランク or 季節前）
+4. 継続監視: 月次 `index-coverage.yml` + `/gsc-review`、週次 `fetch-metrics.yml` + `/weekly-improve` は配線済。指標を観測ログへ追記
+
+**やらないこと**: 個別ページの seoTitle/description 微修正の量産（検証済みで上積み数クリック・換金性ゼロ）。GSC 数値悪化を見ても on-page 施策を増やさない。
+
+---
+
 ## 6. インフラ・セキュリティ
 
 ### セキュリティ定期チェック：API トークン更新サイクルと Claude プラグイン棚卸し 🟢
