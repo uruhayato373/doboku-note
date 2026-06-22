@@ -92,4 +92,12 @@ URL Inspection の `coverage_state` と `page_fetch_state` から真因を切り
 - published 1,012 / sitemap 1,030。GSC clicks ≈ 5/日（横ばい）、impressions 3 週で約 −30%、平均順位 約23→37（ブレンド悪化）。GA4 organic 760/週は GSC クリックの約20倍＝大半 Bing/Yahoo
 - 診断: 4 月以降 +256 ページ追加。**低権威ドメインへの量追加は index 率を下げる方向**（discovered-not-indexed を増やす仮説）。スクレープドーザ等の定義ロングテール個別 SEO は換金性ゼロで誤差
 - 判断: ①量の追加を止める（`no-new-keyword-pages` と整合）②独自データ + 被リンクで権威性 ③hygiene 即修正。本管理システム（gsc-index-auditor + 月次 CI + /gsc-review）を新設して継続追跡へ
-- 残課題: 「+256 ページで index 率が実際に下がったか」は最新 URL Inspection で確定予定（`index-coverage.yml` 実行後に `/gsc-review`）
+- 残課題: 「+256 ページで index 率が実際に下がったか」は最新 URL Inspection で確定予定（`index-coverage.yml` 実行後に `/gsc-review`）→ **2026-06-22 に決着。No（下がっていない）**
+
+### 2026-06-22（残課題の決着 + 流入減の再診断）
+
+- batch: `inspection-batch-2026-06-19T13-26-17.json`（1,030 件）を `append-coverage-history.mjs` で履歴へ反映（4/27 以降止まっていた履歴を是正）
+- 送信して登録 **840（index_ratio 81.6%）** / クロール済み-未登録 144 / 検出-未登録 39 / redirect **0** / 404 **0** / other 7。page_fetch は 986 SUCCESSFUL（43 は UNSPECIFIED＝直近追加の新規ページで本登録待ち）
+- 決着: +256 ページ後も index 率は **54% → 82%** に改善。**「ドメイン権威性の壁で半分未 index」という 4/27〜6/19 の前提は失効**。`indexed_ratio` は目標 80% を達成、hygiene は 0
+- 流入減（impr 3 週で −30% / 平均順位 23→37）の真因再診断: ①順位悪化の大半は新規ページ（pos 80-90）による **blended 平均の希釈アーティファクト**で、価値ページ（scraper pos 9.1 / keyword-2026 pos 7.2）は安定 ②本損失は **CTR 欠落**（上位表示なのに near-zero click。break-even-point pos 5.4 で CTR 0.5%、primary-r07-a pos 7.1 で 0 click 等）
+- 判断: 権威性は緊急ボトルネックから外れた。打ち手の優先度を **CTR 最適化（seoTitle/description を実クエリ整合）> hygiene 確認 > 144 件 crawled-not-indexed の統合 > 被リンク/独自データ** に再設定。CTR は権威性不要・既存 impression の換金で最高 ROI

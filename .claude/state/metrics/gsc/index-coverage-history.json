@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-06-19T12:11:59.662Z",
+  "updated_at": "2026-06-22T14:44:25.918Z",
   "entries": [
     {
       "date": "2026-04-27",
@@ -17,6 +17,22 @@
       "indexed_ratio": 0.538,
       "batch_file": "inspection-batch-2026-04-27T11-49-43.json,inspection-batch-2026-04-27T11-49-46.json,inspection-batch-2026-04-27T11-49-47.json,inspection-batch-2026-04-27T11-49-54.json",
       "notes": "初回計測(756件)。page_fetch SUCCESSFUL=技術問題なし→ドメイン権威性が主因。sitemap_urls≈inspected(4月時点のサイト規模)"
+    },
+    {
+      "date": "2026-06-19",
+      "run_at": "2026-06-22T14:44:25.918Z",
+      "sitemap_urls": 1030,
+      "inspected": 1030,
+      "indexed": 840,
+      "discovered_not_indexed": 39,
+      "crawled_not_indexed": 144,
+      "redirect": 0,
+      "not_found": 0,
+      "excluded_noindex": 0,
+      "other": 7,
+      "indexed_ratio": 0.816,
+      "batch_file": "inspection-batch-2026-06-19T13-26-17.json",
+      "notes": "トラフィック減の再調査。+256ページ後もindex率は54%→82%に改善（権威性の壁は当時想定より低い）。残課題=新規ページのblended順位希釈とCTR欠落。"
     }
   ]
 }
