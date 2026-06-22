@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated_at": "2026-06-22T21:46:13.360Z",
+  "generated_at": "2026-06-22T22:20:06.780Z",
   "summary": {
     "total_mdx_files": 1055,
-    "total_unique_tags": 169,
+    "total_unique_tags": 170,
     "allowlist_size": 149,
-    "known_count": 79,
+    "known_count": 80,
     "unknown_count": 90,
     "typo_candidates_count": 5
   },
@@ -2272,10 +2272,9 @@
     },
     {
       "name": "過去問分析",
-      "count": 13,
+      "count": 12,
       "inAllowlist": false,
       "usedIn": [
-        "pe-comprehensive-management-frequent-topics",
         "pe-construction-construction-planning-exam-themes",
         "pe-construction-environment-exam-themes",
         "pe-construction-geotechnical-exam-themes",
@@ -3634,6 +3633,14 @@
       "inAllowlist": false,
       "usedIn": [
         "pe-construction-guide-required-essay"
+      ]
+    },
+    {
+      "name": "過去問",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-frequent-topics"
       ]
     },
     {
