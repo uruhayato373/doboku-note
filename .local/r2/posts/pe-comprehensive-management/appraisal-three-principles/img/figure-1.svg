@@ -52,8 +52,8 @@
 
   <!-- ===== カード2: 成績考課 ===== -->
   <rect class="box-pos" x="50" y="160" width="300" height="96" rx="8"/>
-  <rect class="pill-pos" x="68" y="172" width="62" height="18" rx="9"/>
-  <text class="t-pill" x="99" y="185" text-anchor="middle">アウトプット</text>
+  <rect class="pill-pos" x="68" y="172" width="68" height="18" rx="9"/>
+  <text class="t-pill" x="102" y="185" text-anchor="middle">アウトプット</text>
   <rect x="138" y="172" width="34" height="18" rx="9" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1"/>
   <text class="t-badge" x="155" y="185" text-anchor="middle" fill="#3a7d44">短期</text>
   <text class="t-head" x="68" y="208">成績考課</text>
@@ -80,6 +80,7 @@
   <text class="t-prin" x="236" y="432" text-anchor="middle">客観性</text>
   <text class="t-badge" x="236" y="450" text-anchor="middle">事実に基づく評価</text>
   <line x1="285" y1="416" x2="285" y2="468" stroke="#d7d7d7" stroke-width="1"/>
-  <text class="t-prin" x="328" y="432" text-anchor="middle">透明性</text>
-  <text class="t-badge" x="328" y="464" text-anchor="middle">基準・結果の公開</text>
+  <text class="t-prin" x="316" y="432" text-anchor="middle">透明性</text>
+  <text class="t-badge" x="316" y="450" text-anchor="middle">基準・</text>
+  <text class="t-badge" x="316" y="464" text-anchor="middle">結果の公開</text>
 </svg>
