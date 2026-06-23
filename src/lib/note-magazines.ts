@@ -409,7 +409,7 @@ const MAGAZINES_RAW = {
   },
 
   // 原稿配置: docs/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-過去問模範答案集/
-  // 2級 過去問の年度別模範答案集。published: false。
+  // 2級 過去問の年度別模範答案集。2026-06-02 note 公開（R03-R07 各記事 published）。
   'civil-2-pastexam-essay': {
     id: 'civil-2-pastexam-essay',
     published: true,
@@ -449,6 +449,28 @@ const MAGAZINES_RAW = {
     imageUrl: '/images/magazines/civil-1-combo-essay-cover.webp',
     price: '¥3,480（10本セット、42%OFF）',
     badge: 'note 限定',
+  },
+
+  // ----- 1級・2級土木 メンバーシップ「土木セコカン 1発合格ラボ」(2026-06-23 配線) -----
+  // 原稿配置: docs/note/1級・2級土木/メンバーシップ/（予想問題マガジン・学科記述予想・添削事例）
+  // 非重複二刀流の会員側（フロー＝予想問題＋個別＝経験記述添削）。過去問・完成答案は会員に入れない
+  // （買い切りマガジンの領分＝非重複の一線。noteコンテンツ計画.md §2.3 / Red Line #10）。
+  // note 上は 1 メンバーシップ・2 プラン（通年¥1,480 / 添削つき¥2,980）＝単一 URL。
+  // 公開時: note でメンバーシップ作成 → noteUrl 埋め + cover 画像作成 + published: true。
+  // CTA は 1級・2級土木の 経験記述系・guide・カテゴリ入口で発火（magazine-placement.ts）。
+  'civil-membership-lab': {
+    id: 'civil-membership-lab',
+    published: false,
+    noteUrl: '',
+    title: '土木セコカン 1発合格ラボ｜月例予想＋経験記述添削メンバーシップ',
+    description:
+      '1級・2級土木施工管理技士の合格伴走メンバーシップ。月例の予想問題（学科記述・経験記述のテーマ予想）で手を動かし、受験シーズンは施工経験記述をマンツーマン添削（NG→OK赤入れ＋採点者視点）で合格水準まで引き上げます。通年プラン（月例予想配信）と添削つきプラン（受験シーズン・定員制）の2プラン。最短ルートで一発合格を目指す人向けの伴走ラボです。過去問の完成答案は買い切りマガジンで別途販売しています。※本会員は合格を保証するものではありません。',
+    shortTitle: '土木セコカン 1発合格ラボ（会員）',
+    shortDescription:
+      '月例の予想問題＋経験記述マンツーマン添削で合格まで伴走。通年／添削つきの2プラン。',
+    imageUrl: '/images/magazines/civil-membership-lab-cover.webp',
+    price: '月額 ¥1,480〜（2プラン）',
+    badge: 'メンバーシップ',
   },
 
   // 原稿配置: docs/note/コンクリート診断士/magazines/コンクリート診断士-記述式-模範答案集/
