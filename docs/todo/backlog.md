@@ -158,7 +158,7 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 **スコープ確定（科目構造補正後）**: **読み方ガイド ×（建設部門＋土木）の2本のみ**。建設部門は選択科目制（必須I＋11科目から1選択）ゆえ横断R8予想・横断完全パックは構造的にニーズなし→作らない。科目非依存の読み方ガイド（論文/経験記述の書き方）だけが横断で成立。R8予想・完全パックは科目別マガジンが既に解決済み。土木の予想は二刀流＝会員フロー（2026-06-12決定）を尊重。
 
-**実行計画 SSOT**: [docs/handoffs/2026-06-23-3piece-horizontal-replication.md](../handoffs/2026-06-23-3piece-horizontal-replication.md)。
+**実行計画 SSOT**: [docs/handoffs/_archive/2026-06-23-3piece-horizontal-replication.md](../handoffs/_archive/2026-06-23-3piece-horizontal-replication.md)。
 
 **残作業**: ①建設部門 読み方ガイド組成（論文対策キーワード6テーマ＋論文の書き方）②土木 読み方ガイド組成（既存ガイド再包装）。note 公開は手動（成果物は content＋note-magazines.ts published:false まで）。
 
@@ -166,7 +166,7 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 ### Kindle 出版（KDP）＋ note PDF 販売 — 択一式過去問集 全資格展開 🟢
 
-**既存作業**: 戦略書 `docs/project/01_戦略/08_Kindle出版戦略.md`（3シリーズ設計済み）、スクリプト `scripts/build-takuitsu-reconstruct.mjs`（1ソース → EPUB/Markdown/印刷 HTML）完成。ハンドオフ: `docs/handoffs/2026-06-09-takuitsu-kindle-epub.md`
+**既存作業**: 戦略書 `docs/project/01_戦略/08_Kindle出版戦略.md`（3シリーズ設計済み）、スクリプト `scripts/build-takuitsu-reconstruct.mjs`（1ソース → EPUB/Markdown/印刷 HTML）完成。ハンドオフ: `docs/handoffs/_archive/2026-06-09-takuitsu-kindle-epub.md`
 
 **3シリーズ設計**:
 
@@ -385,3 +385,43 @@ Hero → ExamCards → LatestArticles → AboutSection
 - `npm run refresh-indexes` 実行
 
 **整備の詳細記録**: 自己修復パイプライン・資産インベントリ（18記事・図84点）・並行セッション事故の経緯は `docs/handoffs/_archive/2026-05-30-concrete-diagnostician.md`（退避済）。
+
+---
+
+## 8. アーカイブ handoff 由来の継続タスク
+
+> **2026-06-23 運用移行**: handoff は「タスクを backlog へ抽出 → 本体は即 `_archive` 退避」へ統一（handoffs/ は溜めない）。以下は退避済み handoff の生きたタスク。詳細手順・経緯・runbook は各**出典（_archive）**を参照。
+
+### BK-09/10 R08予想問題集の生成 🟡
+**残**: `power-civil`(BK-09 電力土木)/`railway`(BK-10 鉄道)の2科目に R08-yosou が未生成（他10科目は収録済）。価格確定→note公開(published:true)はユーザー、過去問15記事/科目は試験後。
+**出典(runbook)**: `docs/handoffs/_archive/2026-06-10-bk04-11-yosou-cloud-runbook.md`
+
+### BK-I（I-1/I-2両収録版）旧4本の後処理 🟡
+**残**: カットオーバー完了済。旧4本(R03/04/06/07)の非公開化（note仕様で下書き戻し不可→孤児化保留）・各 article.md の `noteUrl`/`noteId`/`notePublishedAt` を新IDへ更新してコミット。
+**出典**: `docs/handoffs/_archive/2026-06-20-bki-i2-draft-staging.md`
+
+### 総監キーワード cem-qa 2.2–2.5帯 40本リライト 🟢
+**残**: 合格マージン大（2.2:2/2.3:27/2.4:7/2.5:4）で緊急度低。先頭=inventory-control / personal-info-protection / risk-analysis / ojt-off-jt。作業レシピ=1バッチ4本。
+**出典**: `docs/handoffs/_archive/2026-06-20-cem-keyword-quality-cycle.md`
+
+### 土木メンバーシップ ローンチ実機作業（ローカル）🟣
+**前提**: 全24記事＋週次お題11週＋無料導線2本を下書き仕込み完了。サイトCTA配線=PR #271 MERGED。§3「メンバーシップ設計」の着想段階から実装段階へ進行。
+**残**: 1.無料集客16本を公開（`note-publish-magazine --commit`）2.`civil-membership-lab` の noteUrl→SoT記入＋published:true 3.特典マガジン会員配信（週次ドリップ）開始 4.添削実測ゲート（1本30分以内・募集前必須）5.2級後期の公式試験日確認。
+**出典**: `docs/handoffs/_archive/2026-06-21-civil-membership-content-stocked.md` / `docs/handoffs/_archive/2026-06-23-civil-note-membership-local.md`
+
+### SVG図版 dual-use パイプライン残 🟡
+**前提**: PR #269(カタログ)/#270(SNSレンダラー) MERGED済。
+**残**: Phase4=記事への `<ArticleImage>` 埋込（orphan 49点・ユーザー保留中）・SNSパイプライン残（IG管理別カルーセルのオーケストレーション/コピーGenerator/Evaluator配線）・doc-sync宿題（新コマンド `build-svg-catalog`/`render-figure-sns` を reference索引へ追記）。
+**出典**: `docs/handoffs/_archive/2026-06-21-svg-figures-timeline.md`
+
+### note A系記事の生URL→キーワードリンク反映（note.com実機）🟡
+**残**: SoT(ローカルmd)は確定済。note.com公開6本（防災/担い手/GX/老朽化/国土形成/建設DX）へブラウザ反映が未着手。他7記事も同じ生URL問題。326件バーンダウンの codemod は次セッション。
+**出典**: `docs/handoffs/_archive/2026-06-22-note-a-series-funnel-utm.md`
+
+### 建設部門 逐語反映の残り節 🟡
+**残**: 6節中 02(iji-kanri)完了/03・04・05・06を逐次反映＋commit。README（論文対策キーワード）ガードレール更新（①②反転＋クリーン逐語方針）。巨大逐語ブロックの散文OCR通し校正（公開品質向上時）。
+**出典**: `docs/handoffs/_archive/2026-06-22-pe-construction-verbatim-reflection.md`
+
+### IGディレクトリ資格軸再編の残ファイル更新 🟢
+**残**: 本体再編コミット(437853fbb)済。`.claude/` 配下19ファイルの旧 `_exam-packs` パス参照更新（sns-config.mjs→パック生成2/スキル実行5/その他5/エージェント.md 8）。完了確認= `rg "_exam-packs" .claude/` が0件。
+**出典**: `docs/handoffs/_archive/2026-06-23-ig-dir-reorg-remaining.md`

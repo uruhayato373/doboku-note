@@ -51,6 +51,18 @@ doboku-note プロジェクトにおけるドキュメント・データの置�
 | `monthly.md` | 月（今月のフォーカス + 締切） | 月初 |
 | `weekly.md` | 週（今週やること 3〜5件） | 週初（Claude と協働） |
 
+タスクマスタは `backlog.md`（上表は backlog から pull される下流の3層）。
+
+## handoff のライフサイクル（2026-06-23〜「extract→即 archive」）
+
+`docs/handoffs/YYYY-MM-DD-{context}.md` は**セッション引き継ぎの途中記録**。溜めない運用に統一する:
+
+1. handoff の**生きたタスクは `docs/todo/backlog.md` へ抽出**（出典に退避後の `_archive/` パスを明記）。
+2. handoff 本体は**即 `docs/handoffs/_archive/` へ退避**（runbook・手順・経緯は記録として保全・参照可能）。**退避≠削除**。
+3. 参照は同一 commit で `_archive/` パスへ張り替える（`check-doc-refs`）。
+
+**残作業の有無は `handoffs/` に残す理由にならない**（タスクは backlog が持ち、月初→`monthly`・週初→`weekly` へ落ちる）。`handoffs/` は原則ほぼ空。週次 PDCA（`/weekly-review` の Agent H）が退避漏れを surface し、`/doc-declutter`（`doc-curator`）が外部実体を検証して抽出→退避を適用する。
+
 ## .claude/ の残留ファイル
 
 `.claude/` には Claude の実行能力と機械データのみを置く：

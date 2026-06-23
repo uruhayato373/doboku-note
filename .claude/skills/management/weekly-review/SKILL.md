@@ -342,7 +342,8 @@ B. 実験進捗レポート:
 |---|---|---|---|---|
 | 2026-MM-DD-xxx.md | 21d | あり | #123 | /doc-declutter で退避判定 |
 
-- tracked=あり: 生きたタスクは backlog 済み → handoff は ARCHIVE 候補
+- 既定方針: handoff は「extract→即 ARCHIVE」（残作業があっても KEEP しない・handoffs/ は溜めない。真実源=information-architecture.md「handoff のライフサイクル」）
+- tracked=あり: 生きたタスクは backlog 済み → そのまま ARCHIVE 候補
 - tracked=なし: backlog へタスク抽出してから ARCHIVE（抽出漏れ注意）
 
 ### アクション提案

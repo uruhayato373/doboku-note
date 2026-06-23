@@ -64,7 +64,7 @@ npm run note-append-cta -- --note <noteId> --after <既存カードkey or 文言
   （冒頭 danger）と併せて「**新規 /new 公開 → マガジン入替（新追加＋旧削除）→ 旧版は孤児化（マガジン外で放置）**」
   が現実解（旧版の非公開化は削除しかなく販売履歴ゆえ慎重判断）。マガジン削除は「記事を追加」ダイアログで
   対象行の「追加済」を click すると off になる（add の逆）。BK-I R03/04/06/07 両収録版差し替えで実証
-  （`docs/handoffs/2026-06-20-bki-i2-draft-staging.md`）。
+  （`docs/handoffs/_archive/2026-06-20-bki-i2-draft-staging.md`）。
 
 ## フロー
 

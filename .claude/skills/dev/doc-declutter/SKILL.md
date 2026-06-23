@@ -22,10 +22,12 @@ argument-hint: "[handoffs|reference|all] (既定: handoffs)"
 
 ## いつ回すか（発火規律）
 
-- **回す**: `docs/handoffs/**` が蓄積した（pre-commit hook が「active handoff N 本」と nudge した）／reference・project に重複や完了済み記述が溜まったと感じたとき／週次棚卸し。
+- **回す**: `docs/handoffs/**` が蓄積した（週次 PDCA の `/weekly-review` Agent H が退避候補を surface したとき）／reference・project に重複や完了済み記述が溜まったと感じたとき。
 - **回さない**: 純コンテンツ（`.local/r2/posts/**` MDX・`docs/note,sns/**` 素材）。これらは肥大化管理の対象外。
 
 ## 鉄則（今セッションで実証した安全則）
+
+> **handoff の既定処分は extract→ARCHIVE（2026-06-23 移行）**: handoff は溜めない。生きたタスクは `docs/todo/backlog.md` へ抽出（出典に `_archive/` パス）し、本体は**残作業の有無に関わらず** `_archive/` へ退避する。**残作業がある＝KEEP ではない**（タスクは backlog が持つ）。KEEP は「当該セッションで今まさに編集中・未だ backlog 未抽出」のごく直近に限る。真実源 → `docs/reference/information-architecture.md`「handoff のライフサイクル」。reference/project doc は従来どおり完了判定で KEEP/TRIM/ARCHIVE。
 
 1. **自己申告で完了と決めない**。doc が「完了」と書いていても、**外部実体を git/grep で検証**してから処分する（PR が merged か・成果物が `published:true`／noteUrl 付きか・参照 commit が develop/main に入っているか・ファイルが実在するか）。検証できない残作業がある doc は **DELETE せず ARCHIVE**。
 2. **退避 ≠ 削除**。残détail に価値・外部残尾あり → `_archive/`。完全完了かつ恒久 SSOT が内容を完全保持 → DELETE。判断は doc-curator に出させ、親が最終決定。
