@@ -80,6 +80,51 @@ if (syncAllowlist) {
   process.exit(0);
 }
 
+// --- 命名規則チェック: figure- プレフィックスなし SVG を検出 ---
+// 過去問クロップ専用ディレクトリ（h24-primary, primary-h26-b 等）は免除
+const EXAM_DIR_RE = /\/(h\d+-primary|primary-h\d+[^/]*)\//;
+
+function listNonFigureSvgs() {
+  if (!existsSync(POSTS)) return [];
+  return readdirSync(POSTS, { recursive: true, withFileTypes: false })
+    .map((p) => String(p).replace(/\\/g, "/"))
+    .filter((p) => /\/img\/[^/]+\.svg$/.test(p) && !/\/img\/figure-[^/]*\.svg$/.test(p))
+    .filter((p) => !EXAM_DIR_RE.test(p))
+    .map((rel) => join(POSTS, rel).replace(/\\/g, "/"));
+}
+
+function listStagedNonFigureSvgs() {
+  let out = "";
+  try {
+    out = execFileSync("git", ["diff", "--cached", "--name-only", "--diff-filter=ACM"], {
+      cwd: ROOT,
+      encoding: "utf8",
+    });
+  } catch {
+    return [];
+  }
+  return out
+    .split("\n")
+    .map((l) => l.trim())
+    .filter((l) => /\.local\/r2\/posts\/.*\/img\/[^/]+\.svg$/.test(l))
+    .filter((l) => !/\/img\/figure-[^/]*\.svg$/.test(l))
+    .filter((l) => !EXAM_DIR_RE.test(l))
+    .map((rel) => join(ROOT, rel).replace(/\\/g, "/"));
+}
+
+const namingErrors = [];
+for (const full of staged ? listStagedNonFigureSvgs() : listNonFigureSvgs()) {
+  namingErrors.push(relFromRoot(full));
+}
+
+if (namingErrors.length) {
+  console.error(`\n[check-figure-canvas] ${namingErrors.length} 件の命名規則違反（figure-*.svg にしてください）:\n`);
+  for (const e of namingErrors) console.error("  " + e);
+  console.error(`\n  修正: ファイル名に figure- プレフィックスを付け、MDX 参照も更新する。`);
+  console.error(`  真実源: docs/reference/figure-canvas-policy.md\n`);
+  process.exit(1);
+}
+
 const files = staged ? listStaged() : listAll();
 const errors = [];
 let checked = 0;
