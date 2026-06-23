@@ -10,6 +10,9 @@
  *   P6: svg-tokens.json の colorsAllowList 外の hex 使用（色ドリフト）
  *   P7: font-family が未指定（ブラウザデフォルト serif に落ちる）
  *   P8: 濃色 fill + 内部に白/薄色テキスト（prohibited.md 違反）
+ *   P9: テキストが shape（circle / rect コンテナ）と衝突
+ *       P9-text-shape-overlap: start-anchor テキストが circle bbox と重なる
+ *       P9-text-rect-overflow: テキストが最内 enclosing rect の右端・下端を超える
  *
  * 制限事項:
  *   - 正規表現ベースのため、ネストされた <tspan> や transform 付き <text> は
@@ -186,7 +189,32 @@ export function parseSvg(content) {
     texts.push({ x, y, fontSize, textAnchor, text: textContent, isRotated });
   }
 
-  return { viewBox, hasRole, ariaLabel, hasMaxWidth, texts };
+  // <rect> 要素収集（g transform は非考慮。translate 内の rect は近似値になる）
+  const rects = [];
+  const rectRe = /<rect\b([^/>]*(?:\/(?!>)[^/>]*)*)(?:\/?>)/g;
+  let rm;
+  while ((rm = rectRe.exec(content))) {
+    const a = rm[1];
+    const rx = parseFloat(a.match(/\bx="([\d.-]+)"/)?.[1] ?? 0);
+    const ry = parseFloat(a.match(/\by="([\d.-]+)"/)?.[1] ?? 0);
+    const rw = parseFloat(a.match(/\bwidth="([\d.-]+)"/)?.[1] ?? 0);
+    const rh = parseFloat(a.match(/\bheight="([\d.-]+)"/)?.[1] ?? 0);
+    if (rw > 0 && rh > 0) rects.push({ x: rx, y: ry, w: rw, h: rh, area: rw * rh });
+  }
+
+  // <circle> 要素収集
+  const circles = [];
+  const circleRe = /<circle\b([^/>]*(?:\/(?!>)[^/>]*)*)(?:\/?>)/g;
+  let cm;
+  while ((cm = circleRe.exec(content))) {
+    const a = cm[1];
+    const cx = parseFloat(a.match(/\bcx="([\d.-]+)"/)?.[1] ?? 0);
+    const cy = parseFloat(a.match(/\bcy="([\d.-]+)"/)?.[1] ?? 0);
+    const r  = parseFloat(a.match(/\br="([\d.-]+)"/)?.[1] ?? 0);
+    if (r > 0) circles.push({ cx, cy, r });
+  }
+
+  return { viewBox, hasRole, ariaLabel, hasMaxWidth, texts, rects, circles };
 }
 
 /** テキストの描画 bbox を計算 */
@@ -281,6 +309,68 @@ export function detectSvgIssues(svg, opts = {}) {
           )}」の bbox が重複`,
         });
       }
+    }
+  }
+
+  // P9a: start-anchor テキストが <circle> bbox と重なる（middle = 意図的ラベルとして除外）
+  const SHAPE_SLACK = 2;
+  for (const t of svg.texts) {
+    if (t.textAnchor !== "start") continue;
+    const bb = textBBox(t);
+    for (const c of svg.circles || []) {
+      const xOv = Math.min(bb.x + bb.width, c.cx + c.r) - Math.max(bb.x, c.cx - c.r);
+      const yOv = Math.min(bb.y + bb.height, c.cy + c.r) - Math.max(bb.y, c.cy - c.r);
+      if (xOv > SHAPE_SLACK && yOv > SHAPE_SLACK) {
+        findings.push({
+          pattern: "P9-text-shape-overlap",
+          severity: "MEDIUM",
+          detail: `「${t.text.slice(0, 15)}」が circle(cx=${c.cx},cy=${c.cy},r=${c.r}) と重複`,
+        });
+      }
+    }
+  }
+
+  // P9b: テキストが最内 enclosing <rect> の右端・下端を超える
+  const RECT_H_SLACK = 5; // 横方向（フォント幅推定誤差・描画差を吸収）
+  const RECT_V_SLACK = 1; // 縦方向（descender 微超過を除外）
+  for (const t of svg.texts) {
+    const bb = textBBox(t);
+    // t.x = text 要素のアンカー点（start=左端 / middle=中心 / end=右端）を使って
+    // 最も小さい enclosing rect を探す。bb.x（左端）を使うと middle-anchor テキストが
+    // 細い隣接 rect に誤マッチするため t.x を基準とする。
+    const enclosing = (svg.rects || [])
+      .filter(
+        (r) =>
+          r.w >= 40 &&                   // 幅 40px 未満の小マーカー rect は対象外
+          r.h >= 10 &&
+          r.x - 1 <= t.x &&             // アンカー点が rect の内側
+          r.x + r.w + 1 >= t.x &&
+          r.y <= t.y + 1 &&
+          r.y + r.h >= t.y - t.fontSize * 0.85 - 1
+      )
+      .sort((a, b) => a.area - b.area);
+    if (enclosing.length === 0) continue;
+    const box = enclosing[0];
+    // 右端超過
+    if (bb.x + bb.width > box.x + box.w + RECT_H_SLACK) {
+      findings.push({
+        pattern: "P9-text-rect-overflow",
+        severity: "MEDIUM",
+        detail: `「${t.text.slice(0, 15)}」が rect(x=${box.x},w=${box.w}) 右端 x=${
+          box.x + box.w
+        } を超過（bbox 右端 x=${Math.round(bb.x + bb.width)}）`,
+      });
+    }
+    // 下端超過
+    const textBottom = t.y + t.fontSize * 0.15;
+    if (textBottom > box.y + box.h + RECT_V_SLACK) {
+      findings.push({
+        pattern: "P9-text-rect-overflow",
+        severity: "LOW",
+        detail: `「${t.text.slice(0, 15)}」が rect(y=${box.y},h=${box.h}) 下端 y=${
+          box.y + box.h
+        } を超過（text 下端 y=${textBottom.toFixed(1)}）`,
+      });
     }
   }
 
