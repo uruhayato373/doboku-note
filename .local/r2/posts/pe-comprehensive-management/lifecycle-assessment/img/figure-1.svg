@@ -5,7 +5,7 @@
       .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
       .t-sub   { font-size: 11px; fill: #555; }
       .t-main  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
-      .t-warn  { font-size: 13px; font-weight: bold; fill: #7a5a00; }
+      .t-warn  { font-size: 13px; font-weight: bold; fill: #1a3a5c; } /* warn text → ink-strong (allowlist) */
       .t-use   { font-size: 12px; fill: #555; }
       .t-note  { font-size: 11px; fill: #8a8a8a; }
       .box-brand   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }

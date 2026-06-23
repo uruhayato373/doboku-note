@@ -70,10 +70,10 @@
   <text class="t-label" x="43" y="176" text-anchor="middle">の考慮</text>
   <rect style="fill:#fff3cd;stroke:#d4a017;stroke-width:0.8" x="78"  y="144" width="106" height="40"/>
   <text class="t-body"  x="131" y="159" text-anchor="middle" font-weight="bold">あり</text>
-  <text class="t-muted" x="131" y="175" text-anchor="middle">割引率rで現在価値換算</text>
+  <text class="t-muted" x="131" y="173" text-anchor="middle">割引率rで現在価値換算</text>
   <rect style="fill:#fff3cd;stroke:#d4a017;stroke-width:0.8" x="184" y="144" width="106" height="40"/>
-  <text class="t-body"  x="237" y="159" text-anchor="middle" font-weight="bold">あり（基本形）</text>
-  <text class="t-muted" x="237" y="175" text-anchor="middle">均等資金年額Mで算出</text>
+  <text class="t-body"  x="237" y="158" text-anchor="middle" font-weight="bold">あり（基本形）</text>
+  <text class="t-muted" x="237" y="181" text-anchor="middle">均等資金年額Mで算出</text>
   <rect style="fill:#fff3cd;stroke:#d4a017;stroke-width:0.8" x="290" y="144" width="108" height="40"/>
   <text class="t-body"  x="344" y="159" text-anchor="middle" font-weight="bold">なし（原則）</text>
   <text class="t-muted" x="344" y="175" text-anchor="middle">平均利益額で計算</text>

@@ -2,7 +2,7 @@
   <!-- scale 440 -> 400: 400/440 = 0.9091 -->
   <g transform="scale(0.9091 0.9091)">
     <!-- Banana envelope fill -->
-    <path d="M 55 230 C 130 120 230 60 405 50 C 310 50 200 210 55 230 Z" fill="#f2f2f2" opacity="0.8"/>
+    <path d="M 55 230 C 130 120 230 60 405 50 C 310 50 200 210 55 230 Z" fill="#f5f5f5" opacity="0.8"/> <!-- surface fill (allowlist) */
 
     <!-- Axes -->
     <line x1="55" y1="230" x2="415" y2="230" stroke="#222" stroke-width="1.5"/>

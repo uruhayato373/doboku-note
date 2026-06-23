@@ -36,7 +36,7 @@
   <text x="215" y="252" class="t-axis" text-anchor="middle">作業完了日数</text>
 
   <!-- 縦軸ラベル -->
-  <text x="25" y="130" class="t-axis" text-anchor="middle" transform="rotate(-90,25,130)">完了可能性（累積）</text>
+  <text x="25" y="150" class="t-axis" text-anchor="middle" transform="rotate(-90,25,150)">完了可能性（累積）</text>
 
   <!-- S字曲線（累積分布関数 CDF 風） -->
   <path d="M 70 218 Q 110 215 145 195 Q 185 155 215 100 Q 245 60 285 50 Q 320 47 360 45"
