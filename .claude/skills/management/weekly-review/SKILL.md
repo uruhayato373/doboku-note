@@ -355,6 +355,29 @@ B. 実験進捗レポート:
 - _archive 内は対象外（check-doc-lifecycle が既に除外済み）
 ```
 
+#### Agent I: SNS 予約キュー投入 surfacer（X カウントダウン）
+
+```
+目的: docs/sns/x/draft/ のコミット済み下書きで「X 予約キューへ未投入のまま go-live が近い」
+      ものを週次で検出し、次バッチの投入を促す。直前カウントダウンのように週次小分けで投入する
+      運用（§11 凍結回避＝一括投入しない）で、投入忘れ＝予約キューの穴を防ぐ。
+
+調査項目:
+- node scripts/x-queue-surfacer.mjs   （オフライン・status.json + tweets.md 読みのみ。
+  ルーチンのリモート checkout でもローカル creds 無しで動く）
+  - 既存予約の充足ライン（covered_until）と、lookahead（既定 8 日）内に go-live を迎える
+    未投入下書きを DUE / OVERDUE で列挙する
+
+出力形式: スクリプト出力（📮 ヘッダ + 表 + 投入手順）をそのまま「## SNS 予約キュー投入（X）」
+セクションに埋め込む。DUE/OVERDUE が 1 件以上あれば「## 来週への申し送り」にも 1 行起票する。
+
+注意:
+- 本エージェントは surface のみ。実際の投入は次のローカルセッションで
+  x-schedule-guard --queue 緑 → publish-x → x-sync-status の手順で人手（クラウドルーチンは
+  ローカル Playwright プロファイルを持たないため投入できない）。
+- 「✅ 投入待ちなし」なら本節は 1 行で記録して次へ。
+```
+
 ### Phase 2: 分析・統合
 
 1. **達成率**: 計画タスクの完了率
@@ -526,6 +549,12 @@ B. 実験進捗レポート:
 ### アクション提案
 - （停滞・close 漏れ・孤立が surface されていれば対応指示）
 
+## SNS 予約キュー投入（X）
+
+<!-- Agent I が `node scripts/x-queue-surfacer.mjs` の出力をそのまま埋め込む。
+     未投入のまま go-live が近い X 下書き（直前カウントダウン等）を DUE/OVERDUE で列挙。
+     1 件以上あれば「## 来週への申し送り」にも投入タスクを 1 行起票する。 -->
+
 ## その他パフォーマンス（必要に応じて）
 
 ページ別 PV・内部リンク導線・リファラーなど、NSM 以外で注目すべき指標があれば記録。
@@ -553,6 +582,7 @@ B. 実験進捗レポート:
 - `.claude/skills/management/weekly-plan/SKILL.md` — 週次計画
 - `.claude/skills/management/nsm-experiment/SKILL.md` — 実験ライフサイクル管理
 - `.claude/scripts/lib/metrics-reader.mjs` — NSM 週次メトリクス取得（本スキル Agent C の中核）
+- `scripts/x-queue-surfacer.mjs` — X 予約キューの未投入下書き surfacer（本スキル Agent I の中核。`npm run x-queue-surfacer`）
 - `.claude/skills/analytics/fetch-gsc-data/scripts/fetch-gsc-data.mjs` — GSC 個別取得（ページ別・フィルタ付き）
 - `.claude/scripts/fetch-ga4-data.mjs` — GA4 個別取得（ディメンション・メトリクス指定）
 - `.claude/skills/management/nsm-experiment/references/definition.md` — NSM 定義の真実源

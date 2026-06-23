@@ -41,6 +41,7 @@
     "x-sync-status": "node scripts/x-sync-status.mjs",
     "x-schedule-view": "node scripts/x-schedule-view.mjs",
     "x-schedule-guard": "node scripts/x-schedule-guard.mjs",
+    "x-queue-surfacer": "node scripts/x-queue-surfacer.mjs",
     "generate-webp": "node .claude/scripts/generate-webp.mjs",
     "update-image-refs": "node .claude/scripts/update-mdx-image-refs.mjs",
     "prebuild": "npm run generate-webp && npm run update-image-refs",
