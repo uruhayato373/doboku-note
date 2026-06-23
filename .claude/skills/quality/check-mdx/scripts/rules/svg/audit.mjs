@@ -33,10 +33,15 @@ function parseArgs(argv) {
   return args;
 }
 
+// 過去問クロップ専用ディレクトリ — P1-P8 の対象外（PDF忠実度は別エージェントが担当）
+const EXAM_DIR_RE = /\/(h\d+-primary|primary-h\d+[^/]*)\//;
+
 function main() {
   const args = parseArgs(process.argv);
 
-  const files = args.file ? [args.file] : globSync(args.path);
+  const allFiles = args.file ? [args.file] : globSync(args.path);
+  const examCrops = allFiles.filter((f) => EXAM_DIR_RE.test(f.replace(/\\/g, "/")));
+  const files = allFiles.filter((f) => !EXAM_DIR_RE.test(f.replace(/\\/g, "/")));
   const bySeverity = { HIGH: 0, MEDIUM: 0, LOW: 0 };
   const byPattern = {};
   const allFindings = [];
@@ -61,6 +66,7 @@ function main() {
 
   const summary = {
     scanned_files: files.length,
+    exam_crops_skipped: examCrops.length,
     files_with_issues: new Set(allFindings.map((f) => f.file)).size,
     total_findings: allFindings.length,
     by_severity: bySeverity,
@@ -72,9 +78,11 @@ function main() {
       generated_at: new Date().toISOString(),
       path: args.path,
       file: args.file,
+      note: "exam crop dirs (h*-primary, primary-h*) are excluded — audited by civil-exam-figure-auditor instead",
     },
     summary,
     findings: allFindings,
+    exam_crops: examCrops,
   };
 
   if (!existsSync(".claude/state")) mkdirSync(".claude/state", { recursive: true });
@@ -82,7 +90,7 @@ function main() {
   writeFileSync(outPath, JSON.stringify(out, null, 2));
 
   console.log(`audit-svg:`);
-  console.log(`  scanned: ${summary.scanned_files} file(s)`);
+  console.log(`  scanned: ${summary.scanned_files} file(s) (+ ${summary.exam_crops_skipped} exam crops skipped)`);
   console.log(`  files with issues: ${summary.files_with_issues}`);
   console.log(`  total findings: ${summary.total_findings}`);
   console.log(`  by severity: HIGH=${bySeverity.HIGH || 0}, MEDIUM=${bySeverity.MEDIUM || 0}, LOW=${bySeverity.LOW || 0}`);

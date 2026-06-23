@@ -92,6 +92,9 @@ function esc(s) {
   return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
+// 過去問クロップディレクトリ（P1-P8 対象外・PDF忠実度は別エージェント）
+const EXAM_DIR_RE = /\/(h\d+-primary|primary-h\d+[^/]*)\//;
+
 // --- site SVG を収集 ---
 function collectSite() {
   if (!existsSync(POSTS)) return [];
@@ -105,11 +108,13 @@ function collectSite() {
       const category = parts[0];
       const slug = parts.slice(0, 2).join("/");
       const full = join(POSTS, rel).replace(/\\/g, "/");
-      const auditKey = ".local/r2/posts/" + rel; // svg-audit.json の f.file と突合
+      const auditKey = ".local/r2/posts/" + rel;
       const name = rel.split("/").pop();
-      return { rel, category, slug, full, name, sev: sevOf(auditKey), fit: fitOf(auditKey) };
+      const kind = EXAM_DIR_RE.test("/" + rel) ? "exam" : "content";
+      return { rel, category, slug, full, name, kind, sev: sevOf(auditKey), fit: fitOf(auditKey) };
     })
     .sort((a, b) => {
+      if (a.kind !== b.kind) return a.kind === "content" ? -1 : 1; // content 先
       const order = { high: 0, medium: 1, low: 2, clean: 3 };
       if (order[a.sev.key] !== order[b.sev.key]) return order[a.sev.key] - order[b.sev.key];
       return a.rel.localeCompare(b.rel);
@@ -136,10 +141,16 @@ function collectNote() {
 }
 
 function cardSite(o) {
-  const p = o.sev.patterns ? `<div class="pat">${esc(o.sev.patterns)}</div>` : "";
   const fit = o.fit ? `<span class="fit ${o.fit.cls}">${esc(o.fit.label)}</span>` : "";
   const fitAttr = o.fit ? o.fit.cls.replace("fit-", "") : "na";
-  return `  <figure class="card" data-cat="${esc(o.category)}" data-sev="${o.sev.key}" data-fit="${fitAttr}">
+  if (o.kind === "exam") {
+    return `  <figure class="card" data-cat="${esc(o.category)}" data-sev="clean" data-fit="${fitAttr}" data-kind="exam">
+    <img loading="lazy" src="${fileUrl(o.full)}" alt="${esc(o.slug)}">
+    <figcaption><span class="exam-tag">試験原図</span> ${esc(o.slug + "/" + o.name)} ${fit}<br><span class="badge">PDF忠実度監査対象（P1-P8対象外）</span></figcaption>
+  </figure>`;
+  }
+  const p = o.sev.patterns ? `<div class="pat">${esc(o.sev.patterns)}</div>` : "";
+  return `  <figure class="card" data-cat="${esc(o.category)}" data-sev="${o.sev.key}" data-fit="${fitAttr}" data-kind="content">
     <img loading="lazy" src="${fileUrl(o.full)}" alt="${esc(o.slug)}">
     <figcaption><span class="sev">${o.sev.icon}</span> ${esc(o.slug + "/" + o.name)} ${fit}<br><span class="badge">${esc(o.sev.badge)}</span>${p}</figcaption>
   </figure>`;
@@ -156,6 +167,8 @@ const site = collectSite();
 const note = collectNote();
 const siteCats = [...new Set(site.map((i) => i.category))].sort();
 const noteCats = [...new Set(note.map((i) => i.category))].sort();
+const siteContentCount = site.filter((i) => i.kind === "content").length;
+const siteExamCount = site.filter((i) => i.kind === "exam").length;
 
 const sevButtons = hasAudit
   ? `<span class="sep">severity:</span>
@@ -189,6 +202,7 @@ const html = `<!doctype html>
   .fit{font-size:10px;padding:1px 6px;border-radius:999px;font-weight:700}
   .fit-ok{background:#e6f4ea;color:#1a7f37}
   .fit-ng{background:#fde8e8;color:#b22234}
+  .exam-tag{font-size:10px;padding:1px 6px;border-radius:999px;font-weight:700;background:#f0e6ff;color:#6a0dad}
 </style></head>
 <body>
 <header>
@@ -197,6 +211,10 @@ const html = `<!doctype html>
     <button class="tab" data-tab="note" onclick="setTab('note')">note（${note.length}）</button>
   </div>
   <div class="filterbar" id="bar-site">
+    <span class="sep">種別:</span>
+    <button onclick="fk('')">全（${site.length}）</button>
+    <button onclick="fk('content')">コンテンツ図版（${siteContentCount}）</button>
+    <button onclick="fk('exam')">過去問クロップ（${siteExamCount}）</button>
     <span class="sep">資格:</span><button onclick="fc('site','')">全</button>
     ${siteCats.map((c) => `<button onclick="fc('site','${esc(c)}')">${esc(c)}</button>`).join("\n    ")}
     ${sevButtons}
@@ -221,17 +239,19 @@ ${note.map(cardNote).join("\n")}
 </div>
 </section>
 <script>
-var cF={site:'',note:''}, sF='', fF='';
+var cF={site:'',note:''}, sF='', fF='', kF='';
 function applyCat(src){
   var cf=cF[src];
   document.querySelectorAll('#sec-'+src+' .card').forEach(function(el){
     var okc=(!cf||el.dataset.cat===cf);
     var oks=(src!=='site'||!sF||el.dataset.sev===sF);
     var okf=(src!=='site'||!fF||el.dataset.fit===fF);
-    el.style.display=(okc&&oks&&okf)?'':'none';
+    var okk=(src!=='site'||!kF||el.dataset.kind===kF);
+    el.style.display=(okc&&oks&&okf&&okk)?'':'none';
   });
 }
 function ff(f){fF=f;applyCat('site');}
+function fk(k){kF=k;applyCat('site');}
 function setTab(t){
   document.getElementById('sec-site').style.display=(t==='site')?'':'none';
   document.getElementById('sec-note').style.display=(t==='note')?'':'none';
