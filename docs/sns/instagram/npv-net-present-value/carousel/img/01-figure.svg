@@ -1,0 +1,74 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="将来キャッシュフローを割引率で現在価値に換算し、合計から初期投資を差し引いてNPVを求める仕組みを、初期投資1000万円・年収益400万円3年・割引率5%の例で示した図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #222; }   /* ink-strong */
+      .t-sub   { font-size: 12px; fill: #555; }                      /* ink-body */
+      .t-head  { font-size: 12px; font-weight: bold; fill: #555; }   /* ink-body */
+      .t-box   { font-size: 13px; fill: #1a3a5c; }                   /* ink-strong */
+      .t-val   { font-size: 14px; font-weight: bold; fill: #1a3a5c; }/* ink-strong */
+      .t-op    { font-size: 11px; fill: #8a8a8a; }                   /* ink-muted */
+      .t-note  { font-size: 11px; fill: #8a8a8a; }                   /* ink-muted */
+      .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#2e6da4"/>  <!-- brand -->
+    </marker>
+  </defs>
+
+  <!-- タイトル -->
+  <text class="t-title" x="200" y="30" text-anchor="middle">将来CFを現在価値に割り引く</text>
+  <text class="t-sub" x="200" y="50" text-anchor="middle">割引率 r = 5%　初期投資 1,000万円</text>
+
+  <!-- 列見出し -->
+  <text class="t-head" x="97"  y="78" text-anchor="middle">将来CF（名目）</text>
+  <text class="t-head" x="303" y="78" text-anchor="middle">現在価値（t=0換算）</text>
+
+  <!-- 1年後 -->
+  <rect class="box-brand" x="22" y="94" width="150" height="46" rx="6"/>
+  <text class="t-box" x="97" y="122" text-anchor="middle">1年後 +400万円</text>
+  <line x1="172" y1="117" x2="226" y2="117" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text class="t-op" x="199" y="111" text-anchor="middle">÷1.05</text>
+  <rect class="box-positive" x="228" y="94" width="150" height="46" rx="6"/>
+  <text class="t-val" x="303" y="122" text-anchor="middle">381万円</text>
+
+  <!-- 2年後 -->
+  <rect class="box-brand" x="22" y="152" width="150" height="46" rx="6"/>
+  <text class="t-box" x="97" y="180" text-anchor="middle">2年後 +400万円</text>
+  <line x1="172" y1="175" x2="226" y2="175" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text class="t-op" x="199" y="169" text-anchor="middle">÷1.05²</text>
+  <rect class="box-positive" x="228" y="152" width="150" height="46" rx="6"/>
+  <text class="t-val" x="303" y="180" text-anchor="middle">363万円</text>
+
+  <!-- 3年後 -->
+  <rect class="box-brand" x="22" y="210" width="150" height="46" rx="6"/>
+  <text class="t-box" x="97" y="238" text-anchor="middle">3年後 +400万円</text>
+  <line x1="172" y1="233" x2="226" y2="233" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text class="t-op" x="199" y="227" text-anchor="middle">÷1.05³</text>
+  <rect class="box-positive" x="228" y="210" width="150" height="46" rx="6"/>
+  <text class="t-val" x="303" y="238" text-anchor="middle">346万円</text>
+
+  <!-- 現在価値合計 -->
+  <rect class="box-positive" x="80" y="278" width="240" height="40" rx="6"/>
+  <text class="t-val" x="200" y="303" text-anchor="middle">現在価値合計　1,090万円</text>
+  <line x1="200" y1="256" x2="200" y2="276" stroke="#3a7d44" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- NPV 計算 -->
+  <line x1="200" y1="318" x2="200" y2="338" stroke="#d4a017" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect class="box-warn" x="40" y="340" width="320" height="46" rx="6"/>
+  <text class="t-val" x="200" y="362" text-anchor="middle">NPV = 1,090 − 1,000</text>
+  <text class="t-val" x="200" y="379" text-anchor="middle">= +90万円</text>
+
+  <!-- 判定 -->
+  <rect class="box-positive" x="70" y="406" width="260" height="40" rx="6"/>
+  <text class="t-val" x="200" y="431" text-anchor="middle">NPV &gt; 0 → 投資価値あり</text>
+
+  <!-- 補足 -->
+  <text class="t-note" x="200" y="470" text-anchor="middle">将来のお金は先の年ほど割り引かれ価値が下がる</text>
+  <text class="t-note" x="200" y="486" text-anchor="middle">（400 → 381 → 363 → 346）</text>
+</svg>
