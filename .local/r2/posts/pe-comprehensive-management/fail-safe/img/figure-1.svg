@@ -22,7 +22,7 @@
 
   <rect class="col-pos" x="204" y="12" width="184" height="46" rx="7"/>
   <text class="t-col" x="296" y="33" text-anchor="middle">故障・誤操作許容系</text>
-  <text class="t-en"  x="296" y="50" text-anchor="middle">Fault Tolerance &amp; Fail-Safe</text>
+  <text class="t-en"  x="296" y="50" text-anchor="middle">Fault Tolerance / Fail-Safe</text>
 
   <!-- ===== 中央分割線 ===== -->
   <line x1="200" y1="12" x2="200" y2="432" stroke="#d7d7d7" stroke-width="1.5" stroke-dasharray="4,3"/>
@@ -31,8 +31,8 @@
   <rect class="box-brand" x="12" y="70" width="184" height="152" rx="8"/>
   <circle class="badge-brand" cx="36" cy="98" r="13"/>
   <text style="font-size:11px;font-weight:bold;fill:#2e6da4" x="36" y="103" text-anchor="middle">FA</text>
-  <text class="t-main" x="56" y="93">フォールトアボイダンス</text>
-  <text class="t-en"   x="56" y="109">Fault Avoidance</text>
+  <text class="t-main" x="52" y="93">フォールトアボイダンス</text>
+  <text class="t-en"   x="52" y="109">Fault Avoidance</text>
   <text class="t-note" x="22" y="133">部品品質・予防措置を徹底し</text>
   <text class="t-note" x="22" y="149">故障確率そのものを低減する</text>
   <text class="t-note" x="22" y="168">= 「故障させない」アプローチ</text>
@@ -47,7 +47,7 @@
   <text style="font-size:11px;font-weight:bold;fill:#3a7d44" x="226" y="97" text-anchor="middle">FT</text>
   <text class="t-main" x="244" y="88">フォルトトレランス</text>
   <text class="t-en"   x="244" y="104">Fault Tolerance</text>
-  <text class="t-note" x="216" y="122">故障が起きても全体機能を維持</text>
+  <text class="t-note" x="216" y="122">故障時も全体機能を維持する</text>
 
   <!-- 2. フェールソフト (y=140) -->
   <rect class="box-pos" x="204" y="140" width="184" height="62" rx="8"/>
@@ -55,7 +55,7 @@
   <text style="font-size:11px;font-weight:bold;fill:#3a7d44" x="226" y="167" text-anchor="middle">FSo</text>
   <text class="t-main" x="244" y="158">フェールソフト</text>
   <text class="t-en"   x="244" y="174">Fail Soft</text>
-  <text class="t-note" x="216" y="192">故障時に機能を縮退させ部分継続</text>
+  <text class="t-note" x="216" y="192">故障時は機能を縮退して継続</text>
 
   <!-- 3. フェールセーフ (y=210) -->
   <rect class="box-pos" x="204" y="210" width="184" height="62" rx="8"/>
@@ -63,7 +63,7 @@
   <text style="font-size:11px;font-weight:bold;fill:#3a7d44" x="226" y="237" text-anchor="middle">FS</text>
   <text class="t-main" x="244" y="228">フェールセーフ</text>
   <text class="t-en"   x="244" y="244">Fail Safe</text>
-  <text class="t-note" x="216" y="262">故障時に必ず安全な方向へ制御</text>
+  <text class="t-note" x="216" y="262">故障時は必ず安全方向へ制御</text>
 
   <!-- 4. フールプルーフ (y=280) -->
   <rect class="box-pos" x="204" y="280" width="184" height="62" rx="8"/>
@@ -71,7 +71,7 @@
   <text style="font-size:11px;font-weight:bold;fill:#3a7d44" x="226" y="307" text-anchor="middle">FP</text>
   <text class="t-main" x="244" y="298">フールプルーフ</text>
   <text class="t-en"   x="244" y="314">Foolproof</text>
-  <text class="t-note" x="216" y="332">誤操作しても危険が生じない設計</text>
+  <text class="t-note" x="216" y="332">誤操作しても危険が生じない</text>
 
   <!-- 5. インターロック (y=350) -->
   <rect class="box-pos" x="204" y="350" width="184" height="52" rx="8"/>
