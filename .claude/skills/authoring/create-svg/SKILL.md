@@ -50,6 +50,8 @@ SVG は**全体の流れ・構造を一目で把握させる**ためのもの。
 > 真実源 → [figure-canvas-policy.md](../../../../docs/reference/figure-canvas-policy.md) / `.claude/config/figure-canvas.json`。
 > ガード `npm run check-figure-canvas` が逸脱を pre-commit で止める。縦の余白は要素拡大・サマリー・凡例で埋めて使い切る。
 >
+> **Stories / Reels 流用**: 4:5（400×500）で作った figure-*.svg は、9:16 キャンバス中央に配置するだけで IG Stories / Reels の静止画スライドとして使える（SVG 修正不要）。配置ルール → [sns-image-policy.md §13](../../../../docs/reference/sns-image-policy.md)。
+>
 > 以下の「横幅 ≤400・高さ可変」ルールは **SNS に使わない記事専用の図**にのみ適用する。
 
 - 横幅: **400px 以下**（モバイル 375px での縮小率 93% を確保）

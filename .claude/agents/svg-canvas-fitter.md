@@ -25,7 +25,7 @@ model: sonnet
 |---|---|
 | 入力 | 対象 figure-*.svg パス + 目標キャンバス（feed / landscape） |
 | 対象 | `.local/r2/posts/**/img/figure-*.svg`（site dual-use 図） |
-| feed | viewBox を `0 0 400 500`（4:5）に固定。記事＋IG マスター |
+| feed | viewBox を `0 0 400 500`（4:5）に固定。記事＋IG マスター。再レイアウト済み figure は 9:16 キャンバス中央配置で Stories/Reels にも流用可（→ sns-image-policy §13） |
 | landscape | 別ファイル `figure-N--wide.svg`、viewBox `0 0 640 360`（16:9）。YouTube 用・記事非埋込 |
 | 操作 | Edit（SVG ソースの外科的編集）+ Bash（check-figure-canvas / audit 自己点検） |
 | 範囲外 | cover / ogp / 図クロップ PNG / UI インライン SVG / MDX 本文 / note 図 / 色・フォントの方針変更 |

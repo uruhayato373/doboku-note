@@ -7,6 +7,7 @@
 - カルーセル側の真実源 → [`docs/reference/ig-carousel-policy.md`](./ig-carousel-policy.md)
 - パック構造・ファイル配置 → [`docs/reference/ig-carousel-skill.md`](./ig-carousel-skill.md)
 - Reels モード分岐の設計 → [`docs/design-system/instagram-carousel-tokens.json`](../design-system/instagram-carousel-tokens.json) の `slides.cover.swipeTextReels`
+- **figure-*.svg 静止画を Reels に流用する場合**（過去問パック動画とは別ルート） → [`docs/reference/sns-image-policy.md §13`](./sns-image-policy.md)（4:5 figure を 9:16 中央配置）
 
 最終更新: 2026-05-28（v1: 戦略 v7 化に伴う新設）
 
