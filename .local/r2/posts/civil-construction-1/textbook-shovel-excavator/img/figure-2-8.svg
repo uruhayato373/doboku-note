@@ -63,11 +63,11 @@
   <line x1="375" y1="150" x2="375" y2="165" class="line"/>
 
   <rect x="215" y="165" width="60" height="30" rx="4" class="node-alt"/>
-  <text x="245" y="182" class="sub">クラムシェル</text>
-  <text x="245" y="192" font-size="9" fill="#555" text-anchor="middle">（機械式）</text>
+  <text x="245" y="180" class="sub">クラムシェル</text>
+  <text x="245" y="190" font-size="9" fill="#555" text-anchor="middle">（機械式）</text>
 
   <rect x="280" y="165" width="60" height="30" rx="4" class="node-alt"/>
-  <text x="310" y="185" class="sub">ドラグライン</text>
+  <text x="310" y="194" class="sub">ドラグライン</text>
 
   <rect x="345" y="165" width="50" height="30" rx="4" class="node-alt"/>
   <text x="370" y="182" class="sub">ショベル</text>

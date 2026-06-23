@@ -52,7 +52,7 @@
   <text x="312" y="145" class="duration">6</text>
 
   <!-- calculation block -->
-  <rect x="20" y="218" width="360" height="60" rx="4" fill="#e8f4ec" stroke="#3a7d44" stroke-width="1.2"/>
+  <rect x="20" y="218" width="360" height="60" rx="4" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.2"/>
   <text x="32" y="238" class="rule-title">合流点（ノード④）のEST計算</text>
   <text x="32" y="256" class="rule-body">経路1: A+D = 5+17 = 22日</text>
   <text x="32" y="272" class="rule-body">経路2: A+B+C = 5+7+6 = 18日　→ 最大値 22日を採用</text>

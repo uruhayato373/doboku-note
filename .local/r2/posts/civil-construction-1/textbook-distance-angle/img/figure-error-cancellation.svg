@@ -13,11 +13,11 @@
 
     <!-- Ideal sight (straight up) -->
     <line x1="100" y1="200" x2="100" y2="80" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="3 2"/>
-    <text x="108" y="95" font-family="sans-serif" font-size="11" fill="#8a8a8a">理想視準</text>
+    <text x="108" y="86" font-family="sans-serif" font-size="11" fill="#8a8a8a">理想視準</text>
 
     <!-- Actual sight (tilted right by error) -->
     <line x1="100" y1="200" x2="130" y2="80" stroke="#b22234" stroke-width="2"/>
-    <text x="138" y="95" font-family="sans-serif" font-size="11" fill="#b22234">実測（+e）</text>
+    <text x="138" y="100" font-family="sans-serif" font-size="11" fill="#b22234">実測（+e）</text>
 
     <!-- Angle indicator -->
     <path d="M 100 140 A 60 60 0 0 1 115 140" fill="none" stroke="#d4a017" stroke-width="1.5"/>

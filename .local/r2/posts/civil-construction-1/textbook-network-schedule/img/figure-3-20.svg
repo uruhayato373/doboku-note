@@ -54,7 +54,7 @@
   <text x="313" y="136" class="duration">6</text>
 
   <!-- path summary -->
-  <rect x="20" y="208" width="360" height="68" rx="4" fill="#fde8e8" stroke="#b22234" stroke-width="1.2"/>
+  <rect x="20" y="208" width="360" height="68" rx="4" fill="#f8d7da" stroke="#b22234" stroke-width="1.2"/>
   <text x="32" y="228" class="cp-label">クリティカルパス：① → ② → ④</text>
   <text x="32" y="246" class="sub">A＋D = 5＋17 = 22日（全体工期を決定する最長経路）</text>
   <text x="32" y="264" class="sub">CP上のフロート = 0日（遅延は即座に工期超過につながる）</text>

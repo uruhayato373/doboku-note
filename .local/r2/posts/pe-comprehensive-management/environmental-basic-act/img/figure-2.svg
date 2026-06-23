@@ -54,7 +54,7 @@
   <text class="t-law" x="50" y="204" text-anchor="middle">土壌汚染対策法</text>
   <line class="line-sub" x1="50" y1="210" x2="50" y2="214"/>
   <rect class="box-law" x="12" y="214" width="76" height="20" rx="4"/>
-  <text class="t-law" x="50" y="228" text-anchor="middle">騒音規制法</text>
+  <text class="t-law" x="50" y="226" text-anchor="middle">騒音規制法</text>
   <line class="line-sub" x1="50" y1="234" x2="50" y2="238"/>
   <rect class="box-law" x="12" y="238" width="76" height="20" rx="4"/>
   <text class="t-law" x="50" y="252" text-anchor="middle">振動規制法</text>
@@ -78,12 +78,12 @@
   <rect class="box-law" x="108" y="180" width="84" height="20" rx="4"/>
   <text class="t-law" x="150" y="194" text-anchor="middle">廃棄物処理法</text>
   <line class="line-sub" x1="150" y1="200" x2="150" y2="204"/>
-  <rect class="box-law" x="108" y="204" width="84" height="28" rx="4"/>
-  <text class="t-law" x="150" y="216" text-anchor="middle">容器包装/家電/</text>
-  <text class="t-law" x="150" y="228" text-anchor="middle">建設/食品・各リサイクル法</text>
-  <line class="line-sub" x1="150" y1="232" x2="150" y2="236"/>
-  <rect class="box-law" x="108" y="236" width="84" height="20" rx="4"/>
-  <text class="t-law" x="150" y="250" text-anchor="middle">グリーン購入法</text>
+  <rect class="box-law" x="108" y="208" width="84" height="38" rx="4"/>
+  <text class="t-law" x="150" y="222" text-anchor="middle">容器包装/家電/</text>
+  <text class="t-law" x="150" y="241" text-anchor="middle">建設/食品・各リサイクル法</text>
+  <line class="line-sub" x1="150" y1="246" x2="150" y2="250"/>
+  <rect class="box-law" x="108" y="250" width="84" height="20" rx="4"/>
+  <text class="t-law" x="150" y="264" text-anchor="middle">グリーン購入法</text>
 
   <!-- ===== 系統3: 自然共生系 (cx=250) ===== -->
   <rect class="box-head" x="212" y="108" width="76" height="26" rx="5"/>
@@ -100,7 +100,7 @@
   <text class="t-law" x="250" y="204" text-anchor="middle">自然公園法</text>
   <line class="line-sub" x1="250" y1="210" x2="250" y2="214"/>
   <rect class="box-law" x="212" y="214" width="76" height="20" rx="4"/>
-  <text class="t-law" x="250" y="228" text-anchor="middle">種の保存法</text>
+  <text class="t-law" x="250" y="226" text-anchor="middle">種の保存法</text>
 
   <!-- ===== 系統4: 横断的手法 (cx=350) ===== -->
   <rect class="box-head" x="312" y="108" width="76" height="26" rx="5"/>

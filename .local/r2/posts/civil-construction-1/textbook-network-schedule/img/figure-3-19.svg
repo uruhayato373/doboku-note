@@ -83,7 +83,7 @@
   <text x="32" y="347" class="legend-sub">フロート = LST－EST₃ = 16－12 = 4日（作業Cには4日の余裕）</text>
 
   <!-- 4-time definitions -->
-  <rect x="20" y="375" width="360" height="108" rx="4" fill="#e8f4ec" stroke="#3a7d44" stroke-width="1.2"/>
+  <rect x="20" y="375" width="360" height="108" rx="4" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.2"/>
   <text x="32" y="396" class="rule-title">4時刻の定義</text>
   <line x1="20" y1="403" x2="380" y2="403" stroke="#3a7d44" stroke-width="0.8"/>
   <text x="32" y="420" class="rule-body">EST（最早開始）: 先行作業が全て完了する最も早い開始時刻</text>

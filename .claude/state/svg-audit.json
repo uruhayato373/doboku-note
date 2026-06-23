@@ -1,24 +1,22 @@
 {
   "meta": {
-    "generated_at": "2026-06-23T01:23:19.731Z",
+    "generated_at": "2026-06-23T02:42:06.917Z",
     "path": ".local/r2/posts/**/img/*.svg",
     "file": null,
     "note": "exam crop dirs (h*-primary, primary-h*) are excluded — audited by civil-exam-figure-auditor instead"
   },
   "summary": {
-    "scanned_files": 179,
+    "scanned_files": 178,
     "exam_crops_skipped": 20,
-    "files_with_issues": 34,
-    "total_findings": 191,
+    "files_with_issues": 23,
+    "total_findings": 150,
     "by_severity": {
       "HIGH": 0,
-      "MEDIUM": 30,
-      "LOW": 161
+      "MEDIUM": 0,
+      "LOW": 150
     },
     "by_pattern": {
-      "P4-tiny-font": 161,
-      "P2-text-overlap": 14,
-      "P6-color-drift": 16
+      "P4-tiny-font": 150
     }
   },
   "findings": [
@@ -79,10 +77,11 @@
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\qc-circle\\img\\figure-1.svg",
-      "pattern": "P2-text-overlap",
-      "severity": "MEDIUM",
-      "detail": "「無限の可能性を引き出す」と「自己実現・自己啓発」の bbox が重複"
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\risk-assessment\\img\\figure-chemical-ra-flow.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "出典：労働安全衛生法（平成 28 年改正・SDS 交付対象 640 物質が義務）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
       "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\figure-evm-chart.svg",
@@ -183,12 +182,6 @@
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\figure-evm-chart.svg",
-      "pattern": "P2-text-overlap",
-      "severity": "MEDIUM",
-      "detail": "「時間」と「SPI = EV / PV」の bbox が重複"
-    },
-    {
       "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\figure-banana-curve.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
@@ -259,41 +252,11 @@
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\figure-banana-curve.svg",
-      "pattern": "P6-color-drift",
-      "severity": "MEDIUM",
-      "detail": "allowlist 外の色: #f2f2f2（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
       "file": ".local\\r2\\posts\\pe-comprehensive-management\\process-capability-index\\img\\figure-normal-distribution-3sigma.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "N(μ, σ²) における標準偏差基準の包含確率",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
-    },
-    {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\process-capability-index\\img\\figure-normal-distribution-3sigma.svg",
-      "pattern": "P2-text-overlap",
-      "severity": "MEDIUM",
-      "detail": "「+2σ」と「+3σ」の bbox が重複"
-    },
-    {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\process-capability-index\\img\\figure-normal-distribution-3sigma.svg",
-      "pattern": "P2-text-overlap",
-      "severity": "MEDIUM",
-      "detail": "「N(μ, σ²) における標準」と「工程能力指数（Cp）との関係」の bbox が重複"
-    },
-    {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\pm-theory\\img\\figure-pm-quadrant.svg",
-      "pattern": "P2-text-overlap",
-      "severity": "MEDIUM",
-      "detail": "「高」と「P 機能（目標達成）」の bbox が重複"
-    },
-    {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\payback-period-method\\img\\figure-1.svg",
-      "pattern": "P2-text-overlap",
-      "severity": "MEDIUM",
-      "detail": "「割引率rで現在価値換算」と「均等資金年額Mで算出」の bbox が重複"
     },
     {
       "file": ".local\\r2\\posts\\pe-comprehensive-management\\occupational-accident-prevention-plan\\img\\figure-unskilled-worker-accident-types.svg",
@@ -308,96 +271,6 @@
       "severity": "LOW",
       "text": "出典：厚生労働省・安全衛生教育マニュアル（平成 25 年）",
       "detail": "font-size 9px < 11px（モバイル視認性下限）"
-    },
-    {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\npv-net-present-value\\img\\figure-normal-distribution-sigma.svg",
-      "pattern": "P4-tiny-font",
-      "severity": "LOW",
-      "text": "−3σ",
-      "detail": "font-size 10px < 11px（モバイル視認性下限）"
-    },
-    {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\npv-net-present-value\\img\\figure-normal-distribution-sigma.svg",
-      "pattern": "P4-tiny-font",
-      "severity": "LOW",
-      "text": "−2σ",
-      "detail": "font-size 10px < 11px（モバイル視認性下限）"
-    },
-    {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\npv-net-present-value\\img\\figure-normal-distribution-sigma.svg",
-      "pattern": "P4-tiny-font",
-      "severity": "LOW",
-      "text": "−σ",
-      "detail": "font-size 10px < 11px（モバイル視認性下限）"
-    },
-    {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\npv-net-present-value\\img\\figure-normal-distribution-sigma.svg",
-      "pattern": "P4-tiny-font",
-      "severity": "LOW",
-      "text": "0",
-      "detail": "font-size 10px < 11px（モバイル視認性下限）"
-    },
-    {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\npv-net-present-value\\img\\figure-normal-distribution-sigma.svg",
-      "pattern": "P4-tiny-font",
-      "severity": "LOW",
-      "text": "σ",
-      "detail": "font-size 10px < 11px（モバイル視認性下限）"
-    },
-    {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\npv-net-present-value\\img\\figure-normal-distribution-sigma.svg",
-      "pattern": "P4-tiny-font",
-      "severity": "LOW",
-      "text": "2σ",
-      "detail": "font-size 10px < 11px（モバイル視認性下限）"
-    },
-    {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\npv-net-present-value\\img\\figure-normal-distribution-sigma.svg",
-      "pattern": "P4-tiny-font",
-      "severity": "LOW",
-      "text": "3σ",
-      "detail": "font-size 10px < 11px（モバイル視認性下限）"
-    },
-    {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\npv-net-present-value\\img\\figure-normal-distribution-sigma.svg",
-      "pattern": "P4-tiny-font",
-      "severity": "LOW",
-      "text": "68.3%",
-      "detail": "font-size 10px < 11px（モバイル視認性下限）"
-    },
-    {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\npv-net-present-value\\img\\figure-normal-distribution-sigma.svg",
-      "pattern": "P4-tiny-font",
-      "severity": "LOW",
-      "text": "95.4%",
-      "detail": "font-size 10px < 11px（モバイル視認性下限）"
-    },
-    {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\npv-net-present-value\\img\\figure-normal-distribution-sigma.svg",
-      "pattern": "P4-tiny-font",
-      "severity": "LOW",
-      "text": "99.7%",
-      "detail": "font-size 10px < 11px（モバイル視認性下限）"
-    },
-    {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\npv-net-present-value\\img\\figure-normal-distribution-sigma.svg",
-      "pattern": "P4-tiny-font",
-      "severity": "LOW",
-      "text": "寸法規格を",
-      "detail": "font-size 9px < 11px（モバイル視認性下限）"
-    },
-    {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\npv-net-present-value\\img\\figure-normal-distribution-sigma.svg",
-      "pattern": "P4-tiny-font",
-      "severity": "LOW",
-      "text": "満さない範囲",
-      "detail": "font-size 9px < 11px（モバイル視認性下限）"
-    },
-    {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\monte-carlo-simulation\\img\\figure-monte-carlo-s-curve.svg",
-      "pattern": "P2-text-overlap",
-      "severity": "MEDIUM",
-      "detail": "「50%」と「完了可能性（累積）」の bbox が重複"
     },
     {
       "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\figure-lp-graphical-method.svg",
@@ -524,24 +397,6 @@
       "severity": "LOW",
       "text": "(2, 3)",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
-    },
-    {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\figure-lp-graphical-method.svg",
-      "pattern": "P2-text-overlap",
-      "severity": "MEDIUM",
-      "detail": "「x₂」と「5」の bbox が重複"
-    },
-    {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\figure-lp-graphical-method.svg",
-      "pattern": "P6-color-drift",
-      "severity": "MEDIUM",
-      "detail": "allowlist 外の色: #3498db（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\lifecycle-assessment\\img\\figure-1.svg",
-      "pattern": "P6-color-drift",
-      "severity": "MEDIUM",
-      "detail": "allowlist 外の色: #7a5a00（svg-tokens.json の colorsAllowList 参照）"
     },
     {
       "file": ".local\\r2\\posts\\pe-comprehensive-management\\jit-production\\img\\figure-kanban-two-types-flow.svg",
@@ -675,60 +530,6 @@
       "severity": "LOW",
       "text": "4 つの観点を補完的に組み合わせて運用する",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
-    },
-    {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\four-e-countermeasures\\img\\figure-four-e-overview.svg",
-      "pattern": "P6-color-drift",
-      "severity": "MEDIUM",
-      "detail": "allowlist 外の色: #1e293b（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\four-e-countermeasures\\img\\figure-four-e-overview.svg",
-      "pattern": "P6-color-drift",
-      "severity": "MEDIUM",
-      "detail": "allowlist 外の色: #334155（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\four-e-countermeasures\\img\\figure-four-e-overview.svg",
-      "pattern": "P6-color-drift",
-      "severity": "MEDIUM",
-      "detail": "allowlist 外の色: #475569（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\four-e-countermeasures\\img\\figure-four-e-overview.svg",
-      "pattern": "P6-color-drift",
-      "severity": "MEDIUM",
-      "detail": "allowlist 外の色: #d1fae5（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\four-e-countermeasures\\img\\figure-four-e-overview.svg",
-      "pattern": "P6-color-drift",
-      "severity": "MEDIUM",
-      "detail": "allowlist 外の色: #fed7aa（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\four-e-countermeasures\\img\\figure-four-e-overview.svg",
-      "pattern": "P6-color-drift",
-      "severity": "MEDIUM",
-      "detail": "allowlist 外の色: #7c2d12（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\four-e-countermeasures\\img\\figure-four-e-overview.svg",
-      "pattern": "P6-color-drift",
-      "severity": "MEDIUM",
-      "detail": "allowlist 外の色: #fce7f3（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\four-e-countermeasures\\img\\figure-four-e-overview.svg",
-      "pattern": "P6-color-drift",
-      "severity": "MEDIUM",
-      "detail": "allowlist 外の色: #db2777（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\four-e-countermeasures\\img\\figure-four-e-overview.svg",
-      "pattern": "P6-color-drift",
-      "severity": "MEDIUM",
-      "detail": "allowlist 外の色: #831843（svg-tokens.json の colorsAllowList 参照）"
     },
     {
       "file": ".local\\r2\\posts\\pe-comprehensive-management\\five-s\\img\\figure-5s-quality-map.svg",
@@ -1039,30 +840,6 @@
       "detail": "font-size 9px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\climate-change-adaptation-act\\img\\figure-heavy-rainfall-trend.svg",
-      "pattern": "P2-text-overlap",
-      "severity": "MEDIUM",
-      "detail": "「2005」と「2015」の bbox が重複"
-    },
-    {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\climate-change-adaptation-act\\img\\figure-heavy-rainfall-trend.svg",
-      "pattern": "P2-text-overlap",
-      "severity": "MEDIUM",
-      "detail": "「2005」と「2021」の bbox が重複"
-    },
-    {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\climate-change-adaptation-act\\img\\figure-heavy-rainfall-trend.svg",
-      "pattern": "P2-text-overlap",
-      "severity": "MEDIUM",
-      "detail": "「2015」と「2021」の bbox が重複"
-    },
-    {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\climate-change-adaptation-act\\img\\figure-heavy-rainfall-trend.svg",
-      "pattern": "P2-text-overlap",
-      "severity": "MEDIUM",
-      "detail": "「（1976〜2021年、気象庁」と「棒グラフ＝各年の発生件数／直線」の bbox が重複"
-    },
-    {
       "file": ".local\\r2\\posts\\pe-comprehensive-management\\citizen-participation\\img\\figure-arnstein-ladder.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
@@ -1252,12 +1029,6 @@
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-schedule-overview\\img\\figure-cost-duration-curve.svg",
-      "pattern": "P2-text-overlap",
-      "severity": "MEDIUM",
-      "detail": "「（工期短縮で急増）」と「（直接＋間接の合計 最小）」の bbox が重複"
-    },
-    {
       "file": ".local\\r2\\posts\\civil-construction-1\\textbook-port-regulations\\img\\figure-7-6.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
@@ -1298,36 +1069,6 @@
       "severity": "LOW",
       "text": "被えい航物件",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
-    },
-    {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-network-schedule\\img\\figure-3-20.svg",
-      "pattern": "P6-color-drift",
-      "severity": "MEDIUM",
-      "detail": "allowlist 外の色: #fde8e8（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-network-schedule\\img\\figure-3-19.svg",
-      "pattern": "P6-color-drift",
-      "severity": "MEDIUM",
-      "detail": "allowlist 外の色: #e8f4ec（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-network-schedule\\img\\figure-3-18.svg",
-      "pattern": "P6-color-drift",
-      "severity": "MEDIUM",
-      "detail": "allowlist 外の色: #fef9e7（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-network-schedule\\img\\figure-3-17.svg",
-      "pattern": "P6-color-drift",
-      "severity": "MEDIUM",
-      "detail": "allowlist 外の色: #e8f4ec（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-distance-angle\\img\\figure-error-cancellation.svg",
-      "pattern": "P2-text-overlap",
-      "severity": "MEDIUM",
-      "detail": "「理想視準」と「実測（+e）」の bbox が重複"
     }
   ],
   "exam_crops": [

@@ -58,7 +58,7 @@
   <text x="312" y="145" class="duration">6</text>
 
   <!-- calculation block -->
-  <rect x="20" y="218" width="360" height="60" rx="4" fill="#fef9e7" stroke="#d4a017" stroke-width="1.2"/>
+  <rect x="20" y="218" width="360" height="60" rx="4" fill="#fff3cd" stroke="#d4a017" stroke-width="1.2"/>
   <text x="32" y="238" class="rule-title">分岐点（ノード②）のLFT計算</text>
   <text x="32" y="256" class="rule-body">経路1: LFT④ - D = 22-17 = 5日</text>
   <text x="32" y="272" class="rule-body">経路2: LFT③ - B = 16-7 = 9日　→ 最小値 5日を採用</text>
