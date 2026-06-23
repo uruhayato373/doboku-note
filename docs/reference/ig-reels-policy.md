@@ -163,8 +163,8 @@ node .claude/skills/social/yt-shorts-create/scripts/per-problem-shorts.mjs \
 
 - **構成/尺**: cover → problem → answer → cta の4スライド concat、**実測 36-45 秒**。`ytMode` 流用でカルーセルチャーム（`N/10`・`PROBLEM 1/4`・スワイプCTA）を抑止＝単発リール整合。
 - **素材**: 問題短ナレ `.tmp/yt-gen/narration/<key>.wav`（≈9秒）＋既存 `reels/wav`（解答/CTA）＋カバーキャッシュ `cover-<year>.wav` を流用＝**新規 TTS ゼロ**（要 ffmpeg のみ）。
-- **出力**: `<pack>/reels-pp/q<N>/{video.mp4, caption.txt}` の**自己完結ディレクトリ**。caption は論点（`answer.correctText`）主役＋管理ハッシュタグ（`buildIgReelCaption`）。
-- **公開**: `publish-ig-bs post <pack>/reels-pp/q<N> --reel --schedule …` を**無改修**で1本ずつ予約。JIT は `scripts/publish-reel-jit.mjs`（生成→予約→mp4削除）が1コマンド化。
+- **出力**: `<pack>/reels-pp/q<N>/{video.mp4, caption.txt, cover.png}` の**自己完結ディレクトリ**。caption は論点（`answer.correctText`）主役＋管理ハッシュタグ（`buildIgReelCaption`）。`cover.png` は論点カバー（先頭スライド）＝サムネ用で、`publish-ig-bs` が編集ステップで明示アップロードする（Meta 自動抽出任せにしない）。
+- **公開**: `publish-ig-bs post <pack>/reels-pp/q<N> --reel --schedule …` で1本ずつ予約（編集ステップで `cover.png` をサムネ設定）。JIT は `scripts/publish-reel-jit.mjs`（生成→予約→mp4/cover削除）が1コマンド化。
 - **動画・音声は JIT・git に持たない**（2026-06-09 動画 / 2026-06-18 wav も）: reel の mp4 / img(PNG) / slide-NN.mp4 / **wav** は再生成可能な派生物で **gitignore**。**コミットするのは slide-data.json + reels/script.txt + caption.txt**。wav は script.txt から VOICEVOX で再生成可、かつ `npm run upload-sns-r2` で R2 退避（真実源 [sns-archive-policy.md](sns-archive-policy.md)）。`video.mp4`・`wav` が手元に無いのは正常（JIT/流用時は R2 取得 or 再生成）。
 - **採用判断**: R7 5管理×各2問=10本を 12:30/日次で感触テスト予約済（2026-06-09）。良ければ全年度ロールアウト。
 

@@ -131,6 +131,11 @@ docs/sns/instagram/_exam-packs/**/reels/_combined.mp4
 docs/sns/instagram/_exam-packs/**/reels/img/
 docs/sns/instagram/_exam-packs/**/reels/slide-*.mp4
 
+# IG「1問1リール」(reels-pp, JIT) の派生物。投稿後 publish-reel-jit が削除する運用だが
+# 安全網として ignore（video.mp4＝動画 / cover.png＝サムネ用カバー。SoT は slide-data.json）。
+docs/sns/instagram/**/reels-pp/**/video.mp4
+docs/sns/instagram/**/reels-pp/**/cover.png
+
 # editorial reels（再生成可能な派生物）
 docs/sns/instagram/**/reels/video.mp4
 docs/sns/instagram/**/reels/wav/

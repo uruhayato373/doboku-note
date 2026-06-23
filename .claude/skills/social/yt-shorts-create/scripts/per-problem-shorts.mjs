@@ -301,6 +301,9 @@ async function main() {
 
       if (igMode) {
         writeFileSync(join(outDir, 'caption.txt'), buildIgReelCaption({ pr, an, year, management }) + '\n');
+        // カバー PNG（論点カバー＝動画先頭スライド）を残し、publish-ig-bs が編集ステップで
+        // 明示アップロードしてサムネを確定する（Meta 自動抽出任せにしない）。
+        copyFileSync(coverPng, join(outDir, 'cover.png'));
       } else {
         copyFileSync(coverPng, join(outDir, 'thumbnail.png'));
         writeFileSync(join(outDir, 'meta.json'), JSON.stringify(buildMeta({ year, packNum, q, title, durationSec: dur, management, exam }), null, 2) + '\n');

@@ -59,6 +59,7 @@ const packNum = pack.split('-')[2];       // 01
 const qRel = `${examDir}/exam-packs/${year}/pack-${packNum}/reels-pp/q${q}`;
 const qAbs = join(ROOT, 'docs/sns/instagram', qRel);
 const mp4 = join(qAbs, 'video.mp4');
+const coverPng = join(qAbs, 'cover.png');
 
 function run(cmd, args, label) {
   console.log(`\n▶ ${label}: ${cmd} ${args.join(' ')}`);
@@ -77,13 +78,14 @@ const pubArgs = ['tsx', PUBLISH, 'post', qRel, '--reel', '--schedule', schedule]
 if (values['dry-run']) pubArgs.push('--dry-run');
 run('npx', pubArgs, values['dry-run'] ? '予約(dry-run)' : '予約(本番)');
 
-// 3. mp4 削除（在庫を持たない）
+// 3. mp4 / cover.png 削除（在庫を持たない）
 if (values['dry-run']) {
-  console.log('🧪 dry-run: mp4 は残します');
+  console.log('🧪 dry-run: mp4 / cover.png は残します');
 } else if (values.keep) {
-  console.log('ℹ️  --keep: mp4 を残します');
+  console.log('ℹ️  --keep: mp4 / cover.png を残します');
 } else {
   rmSync(mp4, { force: true });
-  console.log(`🗑  mp4 削除（在庫ゼロ）: ${qRel}/video.mp4`);
+  rmSync(coverPng, { force: true });
+  console.log(`🗑  mp4 / cover.png 削除（在庫ゼロ）: ${qRel}/`);
 }
 console.log('✅ JIT 完了（caption.txt / status.json は記録として保持）');

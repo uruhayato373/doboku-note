@@ -170,6 +170,19 @@ const SEL = {
   reelScheduleOption: (p: Page): Locator => p.getByRole("button", { name: "日時を指定" }),
   reelScheduleConfirm: (p: Page): Locator => p.getByRole("button", { name: "公開日時を指定" }),
   reelPublishNow: (p: Page): Locator => p.getByRole("button", { name: "今すぐシェア" }),
+  // カバー編集（編集ステップ）。候補配列で組み、初回 --dry-run のスクショで確定する。
+  reelCoverEdit: (p: Page): Locator[] => [
+    p.getByRole("button", { name: /カバーを編集|カバー写真を編集|カバーを変更/ }),
+    p.getByText(/カバーを編集|カバー写真を編集|カバーを変更/),
+    p.getByRole("button", { name: /^カバー$/ }),
+  ],
+  reelCoverUpload: (p: Page): Locator[] => [
+    p.getByRole("button", { name: /ファイルから選択|ファイルを選択|カバー写真を追加|アップロード/ }),
+    p.getByText(/ファイルから選択|ファイルを選択|カバー写真を追加/),
+  ],
+  reelCoverDone: (p: Page): Locator[] => [
+    p.getByRole("button", { name: /^完了$|^適用$|^保存$|^確定$/ }),
+  ],
 };
 
 // 予約モードかどうか（実測: 予約 ON で最終ボタンが「公開する」→「日時を指定」になる）
@@ -187,6 +200,7 @@ interface Pack {
   kind: "carousel" | "reel";
   images: string[];   // carousel: ソート済み画像フルパス / reel: []
   video: string | null; // reel: video.mp4 のパス
+  cover: string | null; // reel: カバー画像（00-cover.png / cover.png）。null ならカバー未指定（Meta 自動）
   caption: string;
   slug: string;       // status / ログ用
 }
@@ -230,7 +244,15 @@ function loadPack(arg: string, kind: "carousel" | "reel" = "carousel"): Pack {
       path.join(dir, "caption.txt"),
     ]);
     if (!captionPath) throw new Error(`reels/caption.txt が見つかりません: ${dir}`);
-    return { dir, kind, images: [], video, caption: readCaption(captionPath), slug };
+    // カバー画像（任意）: 編集ステップで明示アップロードしてサムネを確定する。
+    // reels-pp(JIT)=<dir>/cover.png / 旧 reels 構造=<dir>/reels/img/00-cover.png
+    const cover = findFirstExisting([
+      path.join(dir, "cover.png"),
+      path.join(dir, "reels", "img", "00-cover.png"),
+      path.join(dir, "img", "00-cover.png"),
+      path.join(dir, "reels", "cover.png"),
+    ]);
+    return { dir, kind, images: [], video, cover, caption: readCaption(captionPath), slug };
   }
 
   // ── carousel ──
@@ -256,7 +278,7 @@ function loadPack(arg: string, kind: "carousel" | "reel" = "carousel"): Pack {
   if (!captionPath) {
     throw new Error(`caption.txt が見つかりません（carousel/caption.txt か caption.txt）: ${dir}`);
   }
-  return { dir, kind: "carousel", images, video: null, caption: readCaption(captionPath), slug };
+  return { dir, kind: "carousel", images, video: null, cover: null, caption: readCaption(captionPath), slug };
 }
 
 // ─── status.json 更新 ─────────────────────────────────
@@ -832,6 +854,56 @@ async function advanceToShareStep(page: Page): Promise<boolean> {
   return false;
 }
 
+// 「編集」ステップまで進める（カバー設定用）。到達できなければ false。
+async function advanceToEditStep(page: Page): Promise<boolean> {
+  for (let i = 0; i < 3; i++) {
+    const step = await currentReelStep(page);
+    if (step === "編集") return true;
+    if (step === "シェアする") return false; // 行き過ぎ（編集を素通り）
+    if (!(await clickBottomRightNext(page))) return false;
+    await page.waitForTimeout(4000);
+  }
+  return (await currentReelStep(page)) === "編集";
+}
+
+// 編集ステップでカバー画像をファイルからアップロードしてサムネを確定する。
+// セレクタは候補配列＋fail-soft: 見つからなければ警告のみで投稿フローは止めない
+// （初回 --dry-run のスクショ reel-cover-* を見てセレクタを確定する規約）。
+async function setReelCover(page: Page, coverPath: string | null): Promise<boolean> {
+  if (!coverPath) { console.log("ℹ️  カバー画像が無いためカバー設定をスキップ（Meta 自動サムネ）"); return false; }
+  if (!fs.existsSync(coverPath)) { console.log(`⚠️  カバー画像が見つかりません（スキップ）: ${coverPath}`); return false; }
+  console.log(`🖼  カバー設定: ${path.basename(coverPath)}`);
+
+  const editBtn = await firstVisible(SEL.reelCoverEdit(page), 5000);
+  if (!editBtn) {
+    console.log("⚠️  「カバーを編集」UI 未検出 — カバー設定をスキップ（--dry-run で reel-cover-edit-missing を確認しセレクタ更新）");
+    await shot(page, "reel-cover-edit-missing");
+    return false;
+  }
+  await clickResilient(editBtn);
+  await page.waitForTimeout(1500);
+  await shot(page, "reel-cover-editor-opened");
+
+  // 「ファイルから選択」を押すと OS ダイアログではなく <input type=file> に setInputFiles で投入できる
+  const uploadTrigger = await firstVisible(SEL.reelCoverUpload(page), 4000);
+  if (uploadTrigger) await clickResilient(uploadTrigger).catch(() => {});
+  const input = page.locator('input[type="file"]').last();
+  if ((await input.count()) === 0) {
+    console.log("⚠️  カバー用 file input 未検出 — スキップ（reel-cover-input-missing 参照）");
+    await shot(page, "reel-cover-input-missing");
+    return false;
+  }
+  await input.setInputFiles(coverPath);
+  await page.waitForTimeout(2500);
+  await shot(page, "reel-cover-uploaded");
+
+  const doneBtn = await firstVisible(SEL.reelCoverDone(page), 4000);
+  if (doneBtn) { await clickResilient(doneBtn); await page.waitForTimeout(1500); }
+  console.log("✅ カバー設定 完了（要・実体確認: 公開後の投稿サムネを目視）");
+  await shot(page, "reel-cover-done");
+  return true;
+}
+
 // 予約後の成功モーダルを検知して「後で」で閉じる（カルーセルと共通の出し分けに対応）
 async function awaitSuccessAndDismiss(page: Page): Promise<boolean> {
   const successModal = async (): Promise<boolean> => {
@@ -858,6 +930,7 @@ async function awaitSuccessAndDismiss(page: Page): Promise<boolean> {
 async function publishReel(page: Page, pack: Pack, when: Date | null, keepFb: boolean): Promise<boolean> {
   console.log(`\n━━━ [リール] ${pack.slug} ━━━`);
   console.log(`動画: ${path.basename(pack.video!)} / caption ${[...pack.caption].length} 文字`);
+  console.log(`カバー: ${pack.cover ? path.basename(pack.cover) : "未指定（Meta 自動サムネ）"}`);
   console.log(when ? `予約日時: ${when.toLocaleString("ja-JP", { timeZone: "Asia/Tokyo" })}` : "即時シェアモード（--now）");
 
   if (!(await openReelComposer(page))) return false;
@@ -870,7 +943,16 @@ async function publishReel(page: Page, pack: Pack, when: Date | null, keepFb: bo
     await page.pause();
   }
 
-  // 作成→編集→シェアする
+  // 作成 → 編集（カバー設定）→ シェアする
+  // カバーが指定されていれば「編集」ステップで明示アップロード。失敗しても投稿は止めない
+  // （advanceToShareStep が最終的にシェアするまで進めるため、既存の動く経路は不変）。
+  if (pack.cover) {
+    if (await advanceToEditStep(page)) {
+      await setReelCover(page, pack.cover);
+    } else {
+      console.log("⚠️  「編集」ステップに到達できずカバー設定をスキップ（フローは続行）");
+    }
+  }
   if (!(await advanceToShareStep(page))) return false;
   console.log("✅ シェアするステップ到達");
 

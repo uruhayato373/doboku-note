@@ -126,7 +126,8 @@ npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
 - 2 種のリールを扱える（どちらも `<dir>/video.mp4` + `<dir>/caption.txt` フォールバックで読む）:
   - **フルリール**: `<pack>/reels/video.mp4`（4問・長尺）。生成は `ig-reel-create`。
   - **1問1リール（推奨）**: `<pack>/reels-pp/q<N>/video.mp4`（36-45秒）。生成は `per-problem-shorts.mjs --ig-mode`。post の引数に q ディレクトリを渡す。
-- **動画・音声は git に持たない（JIT）**: mp4・wav は再生成可能な派生物で gitignore（コミットは slide-data + script.txt + caption.txt。wav は R2 退避＝`upload-sns-r2`／script.txt から再生成可）。**`video.mp4`・`wav` が無いのは正常** — 投稿時に生成し、予約後に削除する。`scripts/publish-reel-jit.mjs`（生成→予約→mp4削除）が1コマンド化。
+- **カバー（サムネ）を明示設定**: パックに `cover.png`（reels-pp）または `reels/img/00-cover.png`（旧構造）があれば、**編集ステップでファイルアップロードしてサムネを確定**する（Meta 自動抽出任せにしない）。`per-problem-shorts.mjs --ig-mode` は `cover.png`（論点カバー＝先頭スライド）を出力する。カバーが無い／編集 UI 未検出なら **fail-soft でスキップ**（投稿フローは止めず Meta 自動サムネにフォールバック）。
+- **動画・音声・カバーは git に持たない（JIT）**: mp4・wav・cover.png は再生成可能な派生物で gitignore（コミットは slide-data + script.txt + caption.txt。wav は R2 退避＝`upload-sns-r2`／script.txt から再生成可）。**`video.mp4`・`wav` が無いのは正常** — 投稿時に生成し、予約後に削除する。`scripts/publish-reel-jit.mjs`（生成→予約→mp4/cover削除）が1コマンド化。
 - 投稿後 `status.json` に `reel.{...}` を記録（caption.txt / status.json は追跡）。
 
 ### リールフローの実測（カルーセルとの差分）
@@ -138,6 +139,7 @@ npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
 | 投稿先 IG 単独化 | カルーセルと同じ `role=option`（FB ページを外す） |
 | キャプション | 共通（contenteditable textbox） |
 | ステップ送り | 3 ステップ（作成→編集→シェアする）。**右下の「次へ」を座標で click**（サムネ送りの「次へ」ZWSP を誤爆しない） |
+| カバー設定 | カバーありなら**編集ステップで停止** → `カバーを編集` → `ファイルから選択` → `<input type=file>` に `setInputFiles` → `完了`。セレクタは候補配列＋fail-soft。**初回は `--dry-run` で `reel-cover-*` スクショを見てセレクタ確定**（規約: 候補配列を実機で詰める） |
 | 予約 | シェアするで `role=button name="日時を指定"` → 日付/時刻（共通 spinbutton）→ 確定 `role=button name="公開日時を指定"` |
 | 即時 | `role=button name="今すぐシェア"`（`--now`） |
 | fail-safe | 「公開日時を指定」ボタンが出るまで確認できなければ中止（即時シェア誤爆防止） |
