@@ -45,9 +45,9 @@
   <text x="90" y="185" class="sub">ショベル</text>
   <text x="90" y="193" font-size="9" fill="#555" text-anchor="middle">（油圧）</text>
 
-  <rect x="125" y="165" width="60" height="30" rx="4" class="node"/>
-  <text x="155" y="182" class="sub">ローディング</text>
-  <text x="155" y="192" font-size="9" fill="#555" text-anchor="middle">ショベル</text>
+  <rect x="122" y="165" width="66" height="30" rx="4" class="node"/>
+  <text x="155" y="179" class="sub">ローディング</text>
+  <text x="155" y="190" class="sub">ショベル</text>
 
   <!-- Under 油圧式 second row: クラムシェル油圧 -->
   <line x1="90" y1="195" x2="90" y2="210" class="line"/>
@@ -62,12 +62,13 @@
   <line x1="310" y1="150" x2="310" y2="165" class="line"/>
   <line x1="375" y1="150" x2="375" y2="165" class="line"/>
 
-  <rect x="215" y="165" width="60" height="30" rx="4" class="node-alt"/>
-  <text x="245" y="180" class="sub">クラムシェル</text>
-  <text x="245" y="190" font-size="9" fill="#555" text-anchor="middle">（機械式）</text>
+  <rect x="213" y="165" width="64" height="30" rx="4" class="node-alt"/>
+  <text x="245" y="179" class="sub">クラムシェル</text>
+  <text x="245" y="190" class="sub">（機械式）</text>
 
-  <rect x="280" y="165" width="60" height="30" rx="4" class="node-alt"/>
-  <text x="310" y="194" class="sub">ドラグライン</text>
+  <rect x="279" y="165" width="64" height="30" rx="4" class="node-alt"/>
+  <text x="311" y="179" class="sub">ドラグ</text>
+  <text x="311" y="190" class="sub">ライン</text>
 
   <rect x="345" y="165" width="50" height="30" rx="4" class="node-alt"/>
   <text x="370" y="182" class="sub">ショベル</text>
