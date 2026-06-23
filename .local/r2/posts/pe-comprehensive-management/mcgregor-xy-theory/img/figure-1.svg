@@ -26,8 +26,8 @@
   <rect class="box-warn" x="10" y="6" width="380" height="226" rx="10"/>
 
   <!-- ヘッダー warn -->
-  <rect class="hdr-warn" x="10" y="6" width="380" height="38" rx="10"/>
-  <rect class="hdr-warn" x="10" y="30" width="380" height="14"/>
+  <rect class="hdr-warn" x="10" y="6" width="380" height="42" rx="10"/>
+  <rect class="hdr-warn" x="10" y="30" width="380" height="18"/>
   <text class="hdr-warn-text" x="200" y="30" text-anchor="middle">X理論</text>
   <text style="font-size:11px;fill:#ffffff;" x="200" y="43" text-anchor="middle">強制・管理型の人間観</text>
 
@@ -36,15 +36,16 @@
   <circle class="item-warn" cx="40" cy="74" r="13"/>
   <text class="num-warn" x="40" y="79" text-anchor="middle">1</text>
   <text class="t-label" x="60" y="72">仕事嫌い</text>
-  <text class="t-note" x="60" y="89">本質的に仕事を避けようと</text>
-  <text class="t-note" x="60" y="103">する傾向がある</text>
+  <text class="t-note" x="60" y="89">本質的に仕事を</text>
+  <text class="t-note" x="60" y="103">避けようとする傾向がある</text>
 
   <rect class="item-warn" x="204" y="54" width="178" height="76" rx="6"/>
   <circle class="item-warn" cx="226" cy="74" r="13"/>
   <text class="num-warn" x="226" y="79" text-anchor="middle">2</text>
   <text class="t-label" x="246" y="72">強制・命令</text>
-  <text class="t-note" x="226" y="89">強制や命令を常に行わなければ</text>
-  <text class="t-note" x="226" y="103">十分な力を発揮できない</text>
+  <text class="t-note" x="246" y="89">強制や命令を</text>
+  <text class="t-note" x="246" y="103">常に行わなければ</text>
+  <text class="t-note" x="246" y="117">十分な力を発揮できない</text>
 
   <!-- X理論 アイテム3・4（下行） -->
   <rect class="item-warn" x="18" y="140" width="178" height="76" rx="6"/>
@@ -66,8 +67,8 @@
   <rect class="box-pos" x="10" y="244" width="380" height="172" rx="10"/>
 
   <!-- ヘッダー positive -->
-  <rect class="hdr-pos" x="10" y="244" width="380" height="38" rx="10"/>
-  <rect class="hdr-pos" x="10" y="268" width="380" height="14"/>
+  <rect class="hdr-pos" x="10" y="244" width="380" height="42" rx="10"/>
+  <rect class="hdr-pos" x="10" y="268" width="380" height="18"/>
   <text class="hdr-pos-text" x="200" y="268" text-anchor="middle">Y理論</text>
   <text style="font-size:11px;fill:#ffffff;" x="200" y="281" text-anchor="middle">自律・参加型の人間観</text>
 
