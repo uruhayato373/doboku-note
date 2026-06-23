@@ -409,7 +409,7 @@ const MAGAZINES_RAW = {
   },
 
   // 原稿配置: docs/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-過去問模範答案集/
-  // 2級 過去問の年度別模範答案集。published: false。
+  // 2級 過去問の年度別模範答案集。2026-06-02 note 公開（R03-R07 各記事 published）。
   'civil-2-pastexam-essay': {
     id: 'civil-2-pastexam-essay',
     published: true,
