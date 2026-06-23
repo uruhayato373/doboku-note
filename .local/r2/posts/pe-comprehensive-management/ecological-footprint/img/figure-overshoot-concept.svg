@@ -1,4 +1,4 @@
-<svg width="400" height="250" viewBox="0 0 400 250"
+<svg width="400" height="500" viewBox="0 0 400 500"
      xmlns="http://www.w3.org/2000/svg"
      style="max-width:400px;width:100%"
      role="img"
@@ -40,4 +40,13 @@
   <text class="t-axis" x="212" y="205" text-anchor="middle">gha/人</text>
 
   <text class="t-anno" x="200" y="232" text-anchor="middle" fill="#b22234">超過分 = 地球 1.7 個分の消費</text>
+
+  <!-- 下部サマリー -->
+  <rect x="20" y="310" width="360" height="170" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1" rx="4"/>
+  <text x="200" y="338" text-anchor="middle" font-size="13" fill="#222" font-weight="bold">エコロジカル・フットプリントとは</text>
+  <text x="35" y="366" font-size="12" fill="#555">人類の資源消費を地球面積（gha）に換算した指標</text>
+  <text x="35" y="391" font-size="12" fill="#555">EF &gt; バイオキャパシティ → オーバーシュート状態</text>
+  <text x="35" y="416" font-size="12" fill="#555">世界平均 2.8 gha に対し地球 BC は 1.6 gha</text>
+  <text x="35" y="441" font-size="12" fill="#555">アース・オーバーシュート・デーは毎年早まっている</text>
+  <text x="35" y="462" font-size="11" fill="#8a8a8a">（出典: Global Footprint Network 2022 年版データ）</text>
 </svg>

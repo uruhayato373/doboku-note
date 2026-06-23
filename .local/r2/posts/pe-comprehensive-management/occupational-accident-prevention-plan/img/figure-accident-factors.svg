@@ -1,4 +1,4 @@
-<svg width="400" height="290" viewBox="0 0 400 290"
+<svg width="400" height="500" viewBox="0 0 400 500"
      xmlns="http://www.w3.org/2000/svg"
      style="max-width:400px;width:100%"
      role="img"
@@ -74,4 +74,26 @@
   <text class="t-detail"   x="344" y="254" text-anchor="middle">なし</text>
 
   <text class="t-source" x="200" y="282" text-anchor="middle">出典：（一社）中小建設業特別教育協会</text>
+
+  <!-- 追加：対策の方向性 -->
+  <rect x="10" y="300" width="380" height="52" fill="#f8d7da" stroke="#b22234" stroke-width="1.5" rx="6"/>
+  <text class="t-section" x="200" y="320" text-anchor="middle">不安全行動への対策（最重要）</text>
+  <text class="t-detail" x="200" y="336" text-anchor="middle">KYT・ヒヤリハット活動・教育訓練・作業手順遵守</text>
+  <text class="t-detail" x="200" y="350" text-anchor="middle">4E 対策：Education（教育）+ Enforcement（徹底）が主軸</text>
+
+  <rect x="10" y="364" width="185" height="56" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="6"/>
+  <text class="t-bar-label" x="103" y="382" text-anchor="middle">不安全状態の除去</text>
+  <text class="t-detail" x="103" y="398" text-anchor="middle">設備・環境の改善</text>
+  <text class="t-detail" x="103" y="412" text-anchor="middle">本質安全設計を優先</text>
+
+  <rect x="205" y="364" width="185" height="56" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5" rx="6"/>
+  <text class="t-bar-label" x="297" y="382" text-anchor="middle">安全管理体系</text>
+  <text class="t-detail" x="297" y="398" text-anchor="middle">OSHMS 導入・</text>
+  <text class="t-detail" x="297" y="412" text-anchor="middle">リスクアセスメント実施</text>
+
+  <rect x="10" y="432" width="380" height="40" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5" rx="6"/>
+  <text class="t-bar-label" x="200" y="450" text-anchor="middle">労働災害防止計画（第 14 次・2023〜2027 年）</text>
+  <text class="t-detail" x="200" y="466" text-anchor="middle">転倒・腰痛等の減少・高齢者・外国人の安全確保を重点課題に設定</text>
+
+  <text class="t-source" x="200" y="488" text-anchor="middle">総監：安全管理 × 人的資源管理の統合的視点で取り組む</text>
 </svg>

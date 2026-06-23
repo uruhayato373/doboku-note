@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 440" style="max-width:400px;width:100%" role="img" aria-label="デザインレビューの 5 段階（DR0 企画〜DR4 量産移行）と各段階の審査対象、品質ゲートとして設計者以外の関係部門が多角的に審査する">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="デザインレビューの 5 段階（DR0 企画〜DR4 量産移行）と各段階の審査対象、品質ゲートとして設計者以外の関係部門が多角的に審査する">
 
   <text x="200" y="26" text-anchor="middle" font-size="15" fill="#222" font-family="sans-serif" font-weight="bold">デザインレビューの実施段階（DR0〜DR4）</text>
 
@@ -45,5 +45,9 @@
   <rect x="8" y="376" width="384" height="58" fill="none" stroke="#3a7d44" stroke-width="1.5" stroke-dasharray="6,3" rx="4"/>
   <text x="200" y="400" text-anchor="middle" font-size="14" fill="#3a7d44" font-family="sans-serif" font-weight="bold">品質ゲート</text>
   <text x="200" y="420" text-anchor="middle" font-size="13" fill="#555" font-family="sans-serif">設計者以外の関係部門（製造・品質・保全・調達等）が審査</text>
+
+  <!-- サマリー行 -->
+  <text x="200" y="462" text-anchor="middle" font-size="12" fill="#555" font-family="sans-serif">DR は不具合を早期に発見・是正し手戻りコストを最小化する</text>
+  <text x="200" y="482" text-anchor="middle" font-size="11" fill="#8a8a8a" font-family="sans-serif">早期発見ほど是正コストが低い（「10 倍ルール」）</text>
 
 </svg>

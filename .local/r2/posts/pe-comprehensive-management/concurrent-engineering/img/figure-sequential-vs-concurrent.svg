@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 360" style="max-width:380px;width:100%" role="img" aria-label="逐次開発とコンカレントエンジニアリングの比較：逐次は前工程完了後に後工程を開始するため期間が長いが、コンカレントは各工程をオーバーラップさせて期間を圧縮する">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="逐次開発とコンカレントエンジニアリングの比較：逐次は前工程完了後に後工程を開始するため期間が長いが、コンカレントは各工程をオーバーラップさせて期間を圧縮する">
   <text x="190" y="22" text-anchor="middle" font-size="14" fill="#222" font-family="sans-serif" font-weight="bold">逐次開発 vs コンカレントエンジニアリング</text>
 
   <text x="20" y="50" font-size="13" fill="#222" font-family="sans-serif" font-weight="bold">従来型（逐次開発・ウォーターフォール）</text>
@@ -52,8 +52,14 @@
   <text x="140" y="304" text-anchor="middle" font-size="13" fill="#3a7d44" font-family="sans-serif" font-weight="bold">開発期間: 短縮</text>
 
   <g>
-    <rect x="20" y="320" width="340" height="36" fill="none" stroke="#3a7d44" stroke-width="1.5" stroke-dasharray="6,3" rx="4"/>
-    <text x="190" y="338" text-anchor="middle" font-size="13" fill="#3a7d44" font-family="sans-serif" font-weight="bold">各工程をオーバーラップ → 部門間情報共有が密に</text>
-    <text x="190" y="352" text-anchor="middle" font-size="13" fill="#555" font-family="sans-serif">前工程完了を待たず後工程を早期着手</text>
+    <rect x="20" y="320" width="360" height="36" fill="none" stroke="#3a7d44" stroke-width="1.5" stroke-dasharray="6,3" rx="4"/>
+    <text x="200" y="338" text-anchor="middle" font-size="13" fill="#3a7d44" font-family="sans-serif" font-weight="bold">各工程をオーバーラップ → 部門間情報共有が密に</text>
+    <text x="200" y="352" text-anchor="middle" font-size="13" fill="#555" font-family="sans-serif">前工程完了を待たず後工程を早期着手</text>
   </g>
+
+  <!-- 下部サマリー -->
+  <rect x="20" y="395" width="360" height="90" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1" rx="4"/>
+  <text x="200" y="422" text-anchor="middle" font-size="13" fill="#222" font-family="sans-serif" font-weight="bold">コンカレントEの効果と前提</text>
+  <text x="35" y="448" font-size="12" fill="#555" font-family="sans-serif">開発期間短縮・早期問題検出・コスト削減</text>
+  <text x="35" y="470" font-size="12" fill="#555" font-family="sans-serif">前提：部門横断チーム編成と情報共有体制</text>
 </svg>

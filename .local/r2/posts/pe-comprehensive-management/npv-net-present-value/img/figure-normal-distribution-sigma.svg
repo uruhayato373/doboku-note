@@ -1,7 +1,9 @@
-  <svg width="440" height="200" viewBox="0 0 440 200" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="11" style="max-width:440px;width:100%" role="img" aria-label="normal distribution sigma">
+  <svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="11" style="max-width:400px;width:100%" role="img" aria-label="normal distribution sigma">
     <defs>
       <marker id="arrN" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L0,7 L7,3.5 z" fill="#222"/></marker>
     </defs>
+    <!-- 縮小グループ（440→400: scale≈0.909, 上下余白を確保） -->
+    <g transform="translate(0,10) scale(0.909 1)">
     <!-- 軸 -->
     <line x1="20" y1="170" x2="420" y2="170" stroke="#222" stroke-width="1.5" marker-end="url(#arrN)"/>
     <line x1="220" y1="175" x2="220" y2="18" stroke="#222" stroke-width="1.5" marker-end="url(#arrN)"/>
@@ -19,7 +21,7 @@
     <text x="220" y="185" text-anchor="middle" fill="#555" font-size="10">0</text>
     <text x="280" y="185" text-anchor="middle" fill="#555" font-size="10">σ</text>
     <text x="340" y="185" text-anchor="middle" fill="#555" font-size="10">2σ</text>
-    <text x="415" y="185" text-anchor="middle" fill="#555" font-size="10">3σ</text>
+    <text x="375" y="185" text-anchor="middle" fill="#555" font-size="10">3σ</text>
     <!-- %ラベル -->
     <text x="220" y="120" text-anchor="middle" fill="#222" font-size="10">68.3%</text>
     <text x="220" y="135" text-anchor="middle" fill="#222" font-size="10">95.4%</text>
@@ -33,4 +35,33 @@
     <!-- 寸法規格ラベル -->
     <text x="40" y="158" fill="#8a8a8a" font-size="9">寸法規格を</text>
     <text x="40" y="167" fill="#8a8a8a" font-size="9">満さない範囲</text>
+    </g>
+
+    <!-- 追加：正規分布の活用 -->
+    <rect x="10" y="218" width="380" height="52" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="6"/>
+    <text x="200" y="238" text-anchor="middle" font-size="12" fill="#1a3a5c" font-weight="bold">正規分布の性質</text>
+    <text x="200" y="254" text-anchor="middle" font-size="11" fill="#222">±1σ：全体の 68.3% ／ ±2σ：95.4% ／ ±3σ：99.7%</text>
+    <text x="200" y="266" text-anchor="middle" font-size="11" fill="#555">中心極限定理により多くの現象が正規分布に従う</text>
+
+    <rect x="10" y="282" width="185" height="56" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5" rx="6"/>
+    <text x="103" y="300" text-anchor="middle" font-size="11" fill="#1a3a5c" font-weight="bold">品質管理（QC）</text>
+    <text x="103" y="316" text-anchor="middle" font-size="11" fill="#222">3σ 管理限界で</text>
+    <text x="103" y="330" text-anchor="middle" font-size="11" fill="#555">工程異常を検出</text>
+
+    <rect x="205" y="282" width="185" height="56" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5" rx="6"/>
+    <text x="297" y="300" text-anchor="middle" font-size="11" fill="#1a3a5c" font-weight="bold">リスク管理</text>
+    <text x="297" y="316" text-anchor="middle" font-size="11" fill="#222">VaR（信頼区間での</text>
+    <text x="297" y="330" text-anchor="middle" font-size="11" fill="#555">最大損失額推定）</text>
+
+    <rect x="10" y="350" width="380" height="40" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5" rx="6"/>
+    <text x="200" y="368" text-anchor="middle" font-size="11" fill="#1a3a5c" font-weight="bold">工程能力指数 Cp・Cpk による品質評価</text>
+    <text x="200" y="383" text-anchor="middle" font-size="11" fill="#555">Cp = （規格幅）÷（6σ）　Cp ≥ 1.33 が合格目安</text>
+
+    <rect x="10" y="402" width="380" height="40" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="6"/>
+    <text x="200" y="420" text-anchor="middle" font-size="11" fill="#1a3a5c" font-weight="bold">モンテカルロシミュレーションとの関連</text>
+    <text x="200" y="436" text-anchor="middle" font-size="11" fill="#555">入力値の分布を正規分布で仮定してリスク分析を実施</text>
+
+    <text x="200" y="460" text-anchor="middle" font-size="11" fill="#222">6σ 経営：欠陥率 3.4 ppm 以下を目標とする品質戦略</text>
+    <text x="200" y="476" text-anchor="middle" font-size="11" fill="#555">総監：経済性管理 × 情報管理での統計的品質管理</text>
+    <text x="200" y="492" text-anchor="middle" font-size="11" fill="#3a7d44" font-weight="bold">データ駆動型の意思決定基盤として活用</text>
   </svg>

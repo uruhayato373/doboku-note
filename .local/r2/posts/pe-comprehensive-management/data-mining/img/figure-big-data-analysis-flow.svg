@@ -1,4 +1,4 @@
-<svg width="400" height="540" viewBox="0 0 400 540"
+<svg width="400" height="500" viewBox="0 0 400 500"
      xmlns="http://www.w3.org/2000/svg"
      style="max-width:400px;width:100%"
      role="img"
@@ -27,60 +27,56 @@
 
   <text class="t-title" x="200" y="22" text-anchor="middle">ビッグデータ分析の 5 段階プロセス</text>
 
-  <!-- Stage 1: データ収集 -->
-  <rect class="stage-box" x="80" y="40" width="240" height="50" rx="6"/>
-  <text class="t-stage" x="200" y="62" text-anchor="middle">① データ収集</text>
-  <text class="t-desc" x="200" y="80" text-anchor="middle">広く散在する多種多様なデータを収集</text>
+  <!-- Stage 1 -->
+  <rect class="stage-box" x="80" y="35" width="240" height="44" rx="6"/>
+  <text class="t-stage" x="200" y="55" text-anchor="middle">① データ収集</text>
+  <text class="t-desc" x="200" y="71" text-anchor="middle">広く散在する多種多様なデータを収集</text>
 
-  <line class="arrow" x1="200" y1="92" x2="200" y2="108" marker-end="url(#ar)"/>
+  <line class="arrow" x1="200" y1="81" x2="200" y2="96" marker-end="url(#ar)"/>
 
-  <!-- Stage 2: DWH 格納 -->
-  <rect class="stage-box" x="80" y="110" width="240" height="50" rx="6"/>
-  <text class="t-stage" x="200" y="132" text-anchor="middle">② データウェアハウス格納</text>
-  <text class="t-desc" x="200" y="150" text-anchor="middle">時系列・内容別に整理して保管</text>
+  <!-- Stage 2 -->
+  <rect class="stage-box" x="80" y="98" width="240" height="44" rx="6"/>
+  <text class="t-stage" x="200" y="118" text-anchor="middle">② データウェアハウス格納</text>
+  <text class="t-desc" x="200" y="134" text-anchor="middle">時系列・内容別に整理して保管</text>
 
-  <line class="arrow" x1="200" y1="162" x2="200" y2="178" marker-end="url(#ar)"/>
+  <line class="arrow" x1="200" y1="144" x2="200" y2="159" marker-end="url(#ar)"/>
 
-  <!-- Stage 3: クレンジング -->
-  <rect class="stage-box" x="80" y="180" width="240" height="50" rx="6"/>
-  <text class="t-stage" x="200" y="202" text-anchor="middle">③ データクレンジング</text>
-  <text class="t-desc" x="200" y="220" text-anchor="middle">重複削除・誤記修正・表記の正規化</text>
+  <!-- Stage 3 -->
+  <rect class="stage-box" x="80" y="161" width="240" height="44" rx="6"/>
+  <text class="t-stage" x="200" y="181" text-anchor="middle">③ データクレンジング</text>
+  <text class="t-desc" x="200" y="197" text-anchor="middle">重複削除・誤記修正・表記の正規化</text>
 
-  <line class="arrow" x1="200" y1="232" x2="200" y2="248" marker-end="url(#ar)"/>
+  <line class="arrow" x1="200" y1="207" x2="200" y2="222" marker-end="url(#ar)"/>
 
-  <!-- Stage 4: データマイニング (highlighted) -->
-  <rect class="stage-mining" x="80" y="250" width="240" height="50" rx="6"/>
-  <text class="t-stage" x="200" y="272" text-anchor="middle" fill="#3a7d44">④ データマイニング</text>
-  <text class="t-desc" x="200" y="290" text-anchor="middle">データから規則性・傾向・知見を発見</text>
+  <!-- Stage 4 -->
+  <rect class="stage-mining" x="80" y="224" width="240" height="44" rx="6"/>
+  <text class="t-stage" x="200" y="244" text-anchor="middle" fill="#3a7d44">④ データマイニング</text>
+  <text class="t-desc" x="200" y="260" text-anchor="middle">データから規則性・傾向・知見を発見</text>
 
-  <!-- Branches: 仮説の有無 -->
-  <text class="t-branch-title" x="200" y="320" text-anchor="middle">↓ アプローチは仮説の有無で分岐 ↓</text>
+  <!-- Branches -->
+  <text class="t-branch-title" x="200" y="286" text-anchor="middle">↓ アプローチは仮説の有無で分岐 ↓</text>
 
-  <!-- Left branch: 仮説なし → 機械学習 -->
-  <rect class="branch-box" x="20" y="332" width="170" height="76" rx="6"/>
-  <text class="t-branch-title" x="105" y="352" text-anchor="middle">仮説なし</text>
-  <text class="t-branch" x="105" y="372" text-anchor="middle">機械学習</text>
-  <text class="t-desc" x="105" y="390" text-anchor="middle">コンピュータが反復学習し</text>
-  <text class="t-desc" x="105" y="403" text-anchor="middle">自ら相関・パターンを発見</text>
+  <rect class="branch-box" x="16" y="296" width="170" height="66" rx="6"/>
+  <text class="t-branch-title" x="101" y="314" text-anchor="middle">仮説なし</text>
+  <text class="t-branch" x="101" y="332" text-anchor="middle">機械学習</text>
+  <text class="t-desc" x="101" y="350" text-anchor="middle">コンピュータが自ら発見</text>
+  <text class="t-desc" x="101" y="362" text-anchor="middle">（反復学習）</text>
 
-  <!-- Right branch: 仮説あり → 統計分析 -->
-  <rect class="branch-box" x="210" y="332" width="170" height="76" rx="6"/>
-  <text class="t-branch-title" x="295" y="352" text-anchor="middle">仮説あり</text>
-  <text class="t-branch" x="295" y="372" text-anchor="middle">統計分析</text>
-  <text class="t-desc" x="295" y="390" text-anchor="middle">事前に立てた仮説を</text>
-  <text class="t-desc" x="295" y="403" text-anchor="middle">標本データで検証</text>
+  <rect class="branch-box" x="214" y="296" width="170" height="66" rx="6"/>
+  <text class="t-branch-title" x="299" y="314" text-anchor="middle">仮説あり</text>
+  <text class="t-branch" x="299" y="332" text-anchor="middle">統計分析</text>
+  <text class="t-desc" x="299" y="350" text-anchor="middle">仮説を標本データで</text>
+  <text class="t-desc" x="299" y="362" text-anchor="middle">検証する</text>
 
-  <!-- Lines connecting branches back to mining -->
-  <path class="arrow-branch" d="M 105 332 Q 105 320 165 305" marker-end="url(#arb)"/>
-  <path class="arrow-branch" d="M 295 332 Q 295 320 235 305" marker-end="url(#arb)"/>
+  <path class="arrow-branch" d="M 101 296 Q 101 280 165 268" marker-end="url(#arb)"/>
+  <path class="arrow-branch" d="M 299 296 Q 299 280 235 268" marker-end="url(#arb)"/>
 
-  <!-- Continue arrow to stage 5 -->
-  <line class="arrow" x1="200" y1="420" x2="200" y2="442" marker-end="url(#ar)"/>
+  <line class="arrow" x1="200" y1="374" x2="200" y2="392" marker-end="url(#ar)"/>
 
-  <!-- Stage 5: 活用 -->
-  <rect class="stage-box" x="80" y="445" width="240" height="50" rx="6"/>
-  <text class="t-stage" x="200" y="467" text-anchor="middle">⑤ 活用</text>
-  <text class="t-desc" x="200" y="485" text-anchor="middle">意思決定・新ビジネス創出</text>
+  <!-- Stage 5 -->
+  <rect class="stage-box" x="80" y="394" width="240" height="44" rx="6"/>
+  <text class="t-stage" x="200" y="414" text-anchor="middle">⑤ 活用</text>
+  <text class="t-desc" x="200" y="430" text-anchor="middle">意思決定・新ビジネス創出</text>
 
-  <text class="t-desc" x="200" y="520" text-anchor="middle">※ 教材『情報管理』§1-(2) ビッグデータ分析プロセスより</text>
+  <text class="t-desc" x="200" y="475" text-anchor="middle">※ 教材『情報管理』§1-(2) ビッグデータ分析プロセスより</text>
 </svg>

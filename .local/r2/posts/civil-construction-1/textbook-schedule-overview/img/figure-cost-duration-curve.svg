@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 320" style="max-width:420px;width:100%" role="img" aria-label="工事費曲線：直接費・間接費・総建設費と最適工期">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="工事費曲線：直接費・間接費・総建設費と最適工期">
   <defs>
     <marker id="axArr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
       <path d="M0,0 L10,5 L0,10 z" fill="#222"/>
@@ -9,7 +9,7 @@
   <!-- 軸 -->
   <line x1="60" y1="280" x2="400" y2="280" stroke="#222" stroke-width="1.5" marker-end="url(#axArr)"/>
   <line x1="60" y1="280" x2="60" y2="50" stroke="#222" stroke-width="1.5" marker-end="url(#axArr)"/>
-  <text x="415" y="285" text-anchor="end" font-family="sans-serif" font-size="13" fill="#222">工期</text>
+  <text x="390" y="285" text-anchor="end" font-family="sans-serif" font-size="13" fill="#222">工期</text>
   <text x="40" y="45" font-family="sans-serif" font-size="13" fill="#222">費用</text>
   <text x="60" y="298" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">短</text>
   <text x="380" y="298" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">長</text>
@@ -36,4 +36,26 @@
 
   <!-- 底の注釈 -->
   <text x="210" y="125" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#3a7d44">（直接＋間接の合計 最小）</text>
+
+  <!-- 費用特性まとめ -->
+  <rect x="20" y="322" width="400" height="162" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="210" y="342" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#222">費用特性のまとめ</text>
+
+  <rect x="30" y="350" width="360" height="28" rx="3" fill="#f8d7da" stroke="#b22234" stroke-width="1"/>
+  <text x="105" y="363" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#b22234">直接費</text>
+  <text x="105" y="375" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">労務・資材・仮設</text>
+  <text x="280" y="368" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">工期短縮 → 突貫施工で急増</text>
+
+  <rect x="30" y="382" width="360" height="28" rx="3" fill="#fff3cd" stroke="#d4a017" stroke-width="1"/>
+  <text x="105" y="395" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#d4a017">間接費</text>
+  <text x="105" y="407" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">現場経費・管理費</text>
+  <text x="280" y="400" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">工期延長 → 比例的に増加</text>
+
+  <rect x="30" y="414" width="360" height="28" rx="3" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+  <text x="105" y="427" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#2e6da4">総建設費</text>
+  <text x="105" y="439" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">直接費＋間接費</text>
+  <text x="280" y="432" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">M 点（最小値）が最適工期</text>
+
+  <text x="210" y="460" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">工程計画は M 点近傍を目標に作成する</text>
+  <text x="210" y="476" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">工期短縮は直接費増大・工期延長は間接費増大をまねく</text>
 </svg>

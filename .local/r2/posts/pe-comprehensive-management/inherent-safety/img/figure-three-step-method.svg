@@ -1,4 +1,4 @@
-<svg width="400" height="320" viewBox="0 0 400 320"
+<svg width="400" height="500" viewBox="0 0 400 500"
      xmlns="http://www.w3.org/2000/svg"
      style="max-width:400px;width:100%"
      role="img"
@@ -51,4 +51,23 @@
   <text class="t-prio"  x="210" y="292" text-anchor="middle">優先度：最低（人の行動・注意に依存）</text>
 
   <text class="t-source" x="210" y="314" text-anchor="middle">出典：ISO 12100「機械類の安全性」3 ステップメソッド</text>
+
+  <!-- 追加：4E との対応 -->
+  <rect x="30" y="332" width="360" height="52" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="6"/>
+  <text class="t-title" x="210" y="352" text-anchor="middle">4E 対策との対応関係</text>
+  <text class="t-desc" x="210" y="368" text-anchor="middle">Step 1（本質的）≒ Engineering（技術的改善）</text>
+  <text class="t-desc" x="210" y="382" text-anchor="middle">Step 3（情報）≒ Education（教育・訓練）</text>
+
+  <rect x="30" y="398" width="172" height="56" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5" rx="6"/>
+  <text class="t-title" x="116" y="418" text-anchor="middle">本質安全の例</text>
+  <text class="t-desc" x="116" y="434" text-anchor="middle">低電圧化・危険物</text>
+  <text class="t-desc" x="116" y="448" text-anchor="middle">代替・形状変更</text>
+
+  <rect x="218" y="398" width="172" height="56" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5" rx="6"/>
+  <text class="t-title" x="304" y="418" text-anchor="middle">残留リスク対応</text>
+  <text class="t-desc" x="304" y="434" text-anchor="middle">Step 2→3 で低減</text>
+  <text class="t-desc" x="304" y="448" text-anchor="middle">リスクアセスメント必須</text>
+
+  <text class="t-source" x="210" y="474" text-anchor="middle">OSHMS（労働安全衛生管理システム）の中核的手法</text>
+  <text class="t-prio" x="210" y="490" text-anchor="middle">優先度順の適用が安全設計の基本原則</text>
 </svg>

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 380" style="max-width:380px;width:100%" role="img" aria-label="ハーズバーグの二要因理論：動機づけ要因（仕事の内容）は満足をもたらし、衛生要因（仕事の環境）は不満足を防止する別々の軸で構成される">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="ハーズバーグの二要因理論：動機づけ要因（仕事の内容）は満足をもたらし、衛生要因（仕事の環境）は不満足を防止する別々の軸で構成される">
   <text x="190" y="22" text-anchor="middle" font-size="14" fill="#222" font-family="sans-serif" font-weight="bold">ハーズバーグの二要因理論</text>
   <text x="190" y="40" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">満足と不満足は別々の要因で生じる</text>
 
@@ -54,4 +54,14 @@
 
   <text x="190" y="358" text-anchor="middle" font-size="11" fill="#3a7d44" font-family="sans-serif" font-weight="bold">職務充実（job enrichment）で動機づけを強化</text>
   <text x="190" y="372" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">衛生要因の改善は不満解消にとどまる</text>
+
+  <!-- 追加：マズローとの対比 -->
+  <rect x="10" y="390" width="360" height="50" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="6"/>
+  <text x="190" y="409" text-anchor="middle" font-size="12" fill="#1a3a5c" font-weight="bold" font-family="sans-serif">マズロー理論との対応</text>
+  <text x="190" y="425" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">動機づけ要因 → 自己実現・承認（高次欲求）</text>
+  <text x="190" y="438" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">衛生要因 → 社会・安全・生理（低次欲求）</text>
+
+  <rect x="10" y="452" width="360" height="38" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5" rx="6"/>
+  <text x="190" y="469" text-anchor="middle" font-size="11" fill="#1a3a5c" font-weight="bold" font-family="sans-serif">人的資源管理への応用</text>
+  <text x="190" y="485" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">職務充実・職務拡大・職務ローテーションの組み合わせ</text>
 </svg>

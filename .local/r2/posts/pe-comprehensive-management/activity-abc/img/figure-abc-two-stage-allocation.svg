@@ -1,30 +1,41 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 200" style="max-width:520px;width:100%" role="img" aria-label="ABC の 2 段階配賦（資源 → 活動 → 製品）">
-  <rect x="20" y="70" width="120" height="50" fill="none" stroke="#222" stroke-width="1.5"/>
-  <text x="80" y="92" text-anchor="middle" font-size="13" fill="#222" font-family="sans-serif">資源</text>
-  <text x="80" y="110" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">人件費・設備費等</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="ABC の 2 段階配賦（資源 → 活動 → 製品）">
+  <!-- 幅520→400 scaleX=400/520≈0.769 、要素を水平中央に再配置 -->
+  <!-- 資源ボックス -->
+  <rect x="10" y="170" width="110" height="50" fill="none" stroke="#222" stroke-width="1.5"/>
+  <text x="65" y="192" text-anchor="middle" font-size="13" fill="#222" font-family="sans-serif">資源</text>
+  <text x="65" y="210" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">人件費・設備費等</text>
 
-  <rect x="200" y="70" width="120" height="50" fill="none" stroke="#222" stroke-width="1.5"/>
-  <text x="260" y="92" text-anchor="middle" font-size="13" fill="#222" font-family="sans-serif">活動</text>
-  <text x="260" y="110" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">検査・段取・運搬</text>
+  <!-- 活動ボックス -->
+  <rect x="145" y="170" width="110" height="50" fill="none" stroke="#222" stroke-width="1.5"/>
+  <text x="200" y="192" text-anchor="middle" font-size="13" fill="#222" font-family="sans-serif">活動</text>
+  <text x="200" y="210" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">検査・段取・運搬</text>
 
-  <rect x="380" y="70" width="120" height="50" fill="none" stroke="#222" stroke-width="1.5"/>
-  <text x="440" y="92" text-anchor="middle" font-size="13" fill="#222" font-family="sans-serif">製品</text>
-  <text x="440" y="110" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">A・B・C 品番</text>
+  <!-- 製品ボックス -->
+  <rect x="280" y="170" width="110" height="50" fill="none" stroke="#222" stroke-width="1.5"/>
+  <text x="335" y="192" text-anchor="middle" font-size="13" fill="#222" font-family="sans-serif">製品</text>
+  <text x="335" y="210" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">A・B・C 品番</text>
 
-  <line x1="140" y1="95" x2="195" y2="95" stroke="#222" stroke-width="1.8"/>
-  <polygon points="192,90 202,95 192,100" fill="#222"/>
-  <text x="167" y="50" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">① リソース</text>
-  <text x="167" y="65" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">ドライバー</text>
+  <!-- 矢印1 -->
+  <line x1="120" y1="195" x2="140" y2="195" stroke="#222" stroke-width="1.8"/>
+  <polygon points="137,190 147,195 137,200" fill="#222"/>
+  <text x="132" y="153" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">① リソース</text>
+  <text x="132" y="168" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">ドライバー</text>
 
-  <line x1="320" y1="95" x2="375" y2="95" stroke="#222" stroke-width="1.8"/>
-  <polygon points="372,90 382,95 372,100" fill="#222"/>
-  <text x="347" y="50" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">② アクティビティ</text>
-  <text x="347" y="65" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">ドライバー</text>
+  <!-- 矢印2 -->
+  <line x1="255" y1="195" x2="275" y2="195" stroke="#222" stroke-width="1.8"/>
+  <polygon points="272,190 282,195 272,200" fill="#222"/>
+  <text x="267" y="153" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">② アクティビティ</text>
+  <text x="267" y="168" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">ドライバー</text>
 
-  <text x="167" y="145" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">各活動の資源消費量</text>
-  <text x="167" y="160" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">（例: 人時・稼働時間）</text>
-  <text x="347" y="145" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">各製品の活動利用量</text>
-  <text x="347" y="160" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">（例: 検査回数・段取回数）</text>
+  <!-- 補足テキスト -->
+  <text x="132" y="245" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">各活動の資源消費量</text>
+  <text x="132" y="260" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">（例: 人時・稼働時間）</text>
+  <text x="267" y="245" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">各製品の活動利用量</text>
+  <text x="267" y="260" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">（例: 検査回数・段取回数）</text>
 
-  <text x="260" y="185" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">2 段階配賦で間接費を実態に合わせて製品別原価に展開する</text>
+  <!-- 下部サマリー -->
+  <rect x="20" y="360" width="360" height="80" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1" rx="4"/>
+  <text x="200" y="390" text-anchor="middle" font-size="13" fill="#222" font-family="sans-serif" font-weight="bold">2 段階配賦の目的</text>
+  <text x="200" y="413" text-anchor="middle" font-size="12" fill="#555" font-family="sans-serif">間接費を実態に合わせて</text>
+  <text x="200" y="430" text-anchor="middle" font-size="12" fill="#555" font-family="sans-serif">製品別原価に展開する</text>
 </svg>

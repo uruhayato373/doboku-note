@@ -1,4 +1,4 @@
-<svg width="400" height="340" viewBox="0 0 400 340"
+<svg width="400" height="500" viewBox="0 0 400 500"
      xmlns="http://www.w3.org/2000/svg"
      style="max-width:400px;width:100%"
      role="img"
@@ -60,4 +60,10 @@
   <rect class="box-surface" x="20" y="280" width="360" height="50" rx="6"/>
   <text class="t-section" x="200" y="302" text-anchor="middle">ガバナンス（Governance）</text>
   <text class="t-caption" x="200" y="320" text-anchor="middle">コンプライアンス・情報開示・透明性の確保</text>
+
+  <!-- 下部サマリー -->
+  <rect x="20" y="395" width="360" height="90" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1" rx="4"/>
+  <text x="200" y="422" text-anchor="middle" font-size="13" fill="#222" font-weight="bold">CSR の国際標準</text>
+  <text x="35" y="448" font-size="12" fill="#555">ISO 26000（2010）：CSR の国際ガイドライン</text>
+  <text x="35" y="470" font-size="12" fill="#555">SDGs との整合が現代 CSR の中心課題</text>
 </svg>

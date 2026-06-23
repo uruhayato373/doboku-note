@@ -1,4 +1,4 @@
-<svg width="400" height="320" viewBox="0 0 400 320"
+<svg width="400" height="500" viewBox="0 0 400 500"
      xmlns="http://www.w3.org/2000/svg"
      style="max-width:400px;width:100%"
      role="img"
@@ -100,4 +100,24 @@
   <text class="t-step-end" x="330" y="268" text-anchor="middle">終結：裁定で確定</text>
 
   <text class="t-source" x="200" y="305" text-anchor="middle">出典：厚生労働省「労働関係調整法」</text>
+
+  <!-- 追加：拘束力の比較サマリー -->
+  <rect x="10" y="322" width="380" height="54" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="6"/>
+  <text x="200" y="341" text-anchor="middle" font-size="12" fill="#1a3a5c" font-weight="bold" font-family="Inter, sans-serif">3 制度の拘束力比較</text>
+  <text x="200" y="358" text-anchor="middle" font-size="11" fill="#222" font-family="Inter, sans-serif">あっせん：任意（受け入れ自由）</text>
+  <text x="200" y="372" text-anchor="middle" font-size="11" fill="#555" font-family="Inter, sans-serif">調停：任意（提案を受け入れるか選択可）／仲裁：義務的拘束力</text>
+
+  <rect x="10" y="388" width="185" height="54" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="6"/>
+  <text x="103" y="406" text-anchor="middle" font-size="11" fill="#1a3a5c" font-weight="bold" font-family="Inter, sans-serif">労働委員会の役割</text>
+  <text x="103" y="422" text-anchor="middle" font-size="11" fill="#222" font-family="Inter, sans-serif">都道府県・中央で設置</text>
+  <text x="103" y="437" text-anchor="middle" font-size="11" fill="#555" font-family="Inter, sans-serif">公益・労使各委員で構成</text>
+
+  <rect x="205" y="388" width="185" height="54" fill="#f8d7da" stroke="#b22234" stroke-width="1.5" rx="6"/>
+  <text x="297" y="406" text-anchor="middle" font-size="11" fill="#1a3a5c" font-weight="bold" font-family="Inter, sans-serif">争議行為の制限</text>
+  <text x="297" y="422" text-anchor="middle" font-size="11" fill="#222" font-family="Inter, sans-serif">公益事業は事前届出</text>
+  <text x="297" y="437" text-anchor="middle" font-size="11" fill="#555" font-family="Inter, sans-serif">緊急調整・冷却期間</text>
+
+  <text x="200" y="460" text-anchor="middle" font-size="11" fill="#1a3a5c" font-weight="bold" font-family="Inter, sans-serif">人的資源管理の法的基盤：労使関係の正常化を担う</text>
+  <text x="200" y="476" text-anchor="middle" font-size="11" fill="#555" font-family="Inter, sans-serif">労働基準法・労働組合法・労働関係調整法を「労働三法」と呼ぶ</text>
+  <text x="200" y="492" text-anchor="middle" font-size="11" fill="#3a7d44" font-weight="bold" font-family="Inter, sans-serif">総監：労使紛争は組織・安全・生産性に複合影響</text>
 </svg>

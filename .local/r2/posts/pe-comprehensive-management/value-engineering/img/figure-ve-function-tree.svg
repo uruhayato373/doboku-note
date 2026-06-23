@@ -1,4 +1,4 @@
-<svg width="400" height="260" viewBox="0 0 400 260"
+<svg width="400" height="500" viewBox="0 0 400 500"
      xmlns="http://www.w3.org/2000/svg"
      style="max-width:400px;width:100%"
      role="img"
@@ -59,4 +59,23 @@
   <text class="t-leaf" x="306" y="180" text-anchor="middle">下位機能 C-1</text>
   <rect class="box-leaf" x="264" y="198" width="84" height="34" rx="6"/>
   <text class="t-leaf" x="306" y="220" text-anchor="middle">下位機能 C-2</text>
+
+  <!-- サマリー -->
+  <line stroke="#d7d7d7" stroke-width="1" x1="12" y1="252" x2="388" y2="252"/>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="13" font-weight="bold" fill="#1a3a5c" x="200" y="280" text-anchor="middle">FAST ダイアグラムの活用</text>
+
+  <rect fill="#e8f0fe" stroke="#2e6da4" stroke-width="1" x="12" y="292" width="176" height="80" rx="6"/>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c" x="100" y="312" text-anchor="middle">← Why（なぜ）</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="22" y="332">左に進むほど目的・上位</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="22" y="350">概念的・抽象的な機能</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="22" y="366">例：「安全を確保する」</text>
+
+  <rect fill="#fff3cd" stroke="#d4a017" stroke-width="1" x="212" y="292" width="176" height="80" rx="6"/>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c" x="300" y="312" text-anchor="middle">→ How（どうやって）</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="222" y="332">右に進むほど手段・下位</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="222" y="350">具体的・実装的な機能</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="222" y="366">例：「警報を発報する」</text>
+
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="200" y="408" text-anchor="middle">機能を「動詞＋名詞」で表現するのが VE の原則</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="200" y="428" text-anchor="middle">不要機能の削除・手段機能の代替案探索に活用</text>
 </svg>

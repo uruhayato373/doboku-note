@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="400" height="340" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 340" role="img" aria-label="5管理10ペアの出題頻度マトリクス（S=最頻出、A=頻出、B=中、C=低）" style="max-width:400px;width:100%">
+<svg width="400" height="500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" role="img" aria-label="5管理10ペアの出題頻度マトリクス（S=最頻出、A=頻出、B=中、C=低）" style="max-width:400px;width:100%">
   <title>5管理10ペアの出題頻度マトリクス</title>
   <desc>技術士総合技術監理 過去10年（H27〜R6）の記述式・択一複合問題から集計した、5管理（経済性・人的資源・情報・安全・社会環境）の組合せ別出題頻度。S=最頻出（赤）、A=頻出（黄）、B=中（青）、C=低（灰）。</desc>
   <defs>
@@ -91,4 +91,22 @@
     <rect class="box-surface" x="260" y="0" width="22" height="14" rx="3"/>
     <text class="t-legend" x="288" y="11">C 低</text>
   </g>
+
+  <!-- 追加：頻出ペアのポイント -->
+  <rect x="10" y="346" width="380" height="54" fill="#f8d7da" stroke="#b22234" stroke-width="1.5" rx="6"/>
+  <text class="t-axis" x="200" y="366" text-anchor="middle">最頻出（S）ペアの出題傾向</text>
+  <text class="t-sub" x="200" y="382" text-anchor="middle">経済性 × 安全：コスト削減と安全投資のトレードオフ</text>
+  <text class="t-sub" x="200" y="396" text-anchor="middle">経済性 × 社会環境：環境コストと収益性の両立</text>
+
+  <rect x="10" y="412" width="185" height="56" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5" rx="6"/>
+  <text class="t-axis" x="103" y="430" text-anchor="middle">論述のポイント</text>
+  <text class="t-sub" x="103" y="446" text-anchor="middle">S・A ペアを中心に</text>
+  <text class="t-sub" x="103" y="460" text-anchor="middle">解決策の方向性を論述</text>
+
+  <rect x="205" y="412" width="185" height="56" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5" rx="6"/>
+  <text class="t-axis" x="297" y="430" text-anchor="middle">対策のアプローチ</text>
+  <text class="t-sub" x="297" y="446" text-anchor="middle">Win-Win 解の提案</text>
+  <text class="t-sub" x="297" y="460" text-anchor="middle">優先管理の明示</text>
+
+  <text class="t-sub" x="200" y="484" text-anchor="middle">5 管理は相互に連関：1 管理の変化が他の 4 管理に影響</text>
 </svg>

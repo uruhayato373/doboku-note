@@ -1,4 +1,4 @@
-<svg width="400" height="280" viewBox="0 0 400 280"
+<svg width="400" height="500" viewBox="0 0 400 500"
      xmlns="http://www.w3.org/2000/svg"
      style="max-width:400px;width:100%"
      role="img"
@@ -39,4 +39,12 @@
 
   <text class="t-anno" x="210" y="110" text-anchor="middle" fill="#b22234">絶対的</text>
   <text class="t-anno" x="250" y="70" text-anchor="middle" fill="#d4a017">相対的</text>
+
+  <!-- 下部サマリー -->
+  <rect x="20" y="340" width="360" height="145" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1" rx="4"/>
+  <text x="200" y="368" text-anchor="middle" font-size="13" fill="#222" font-weight="bold">デカップリングの 2 種類</text>
+  <text x="35" y="396" font-size="12" fill="#d4a017">相対的デカップリング</text>
+  <text x="35" y="416" font-size="12" fill="#555">経済成長率 ＞ 資源利用増加率（割合が低下）</text>
+  <text x="35" y="444" font-size="12" fill="#b22234">絶対的デカップリング</text>
+  <text x="35" y="464" font-size="12" fill="#555">経済成長しながら環境影響が実数で減少</text>
 </svg>

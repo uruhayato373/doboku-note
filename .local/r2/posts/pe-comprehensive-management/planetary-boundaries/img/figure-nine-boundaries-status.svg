@@ -1,4 +1,4 @@
-<svg width="400" height="320" viewBox="0 0 400 320"
+<svg width="400" height="500" viewBox="0 0 400 500"
      xmlns="http://www.w3.org/2000/svg"
      style="max-width:400px;width:100%"
      role="img"
@@ -57,4 +57,21 @@
 
   <text class="t-note" x="20" y="297">★ 2025 年に海洋酸性化が新たに超過領域へ追加</text>
   <text class="t-note" x="20" y="311">○ オゾン層はモントリオール議定書の効果で唯一改善中</text>
+
+  <!-- サマリー -->
+  <line stroke="#d7d7d7" stroke-width="1" x1="20" y1="332" x2="380" y2="332"/>
+
+  <!-- 凡例 -->
+  <rect x="20" y="350" width="14" height="14" fill="#b22234"/>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#222" x="40" y="362">超過（7 領域）</text>
+  <rect x="140" y="350" width="14" height="14" fill="#d4a017"/>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#222" x="160" y="362">評価中（1 領域）</text>
+  <rect x="280" y="350" width="14" height="14" fill="#3a7d44"/>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#222" x="300" y="362">境界内（1 領域）</text>
+
+  <rect fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1" x="20" y="378" width="360" height="80" rx="6"/>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c" x="200" y="398" text-anchor="middle">試験ポイント</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="30" y="416">・ロックストローム（スウェーデン）が 2009 年に提唱</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="30" y="434">・地球が安全に機能できる限界値を定量化した概念</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="30" y="452">・9 領域のうち複数の同時超過が相互作用リスクを高める</text>
 </svg>

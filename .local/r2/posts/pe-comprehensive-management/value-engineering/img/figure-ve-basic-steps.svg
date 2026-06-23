@@ -1,4 +1,4 @@
-<svg width="400" height="210" viewBox="0 0 400 210"
+<svg width="400" height="500" viewBox="0 0 400 500"
      xmlns="http://www.w3.org/2000/svg"
      style="max-width:400px;width:100%"
      role="img"
@@ -43,4 +43,36 @@
   <text class="t-desc"   x="332" y="126" text-anchor="middle">コスト削減案立案</text>
 
   <text class="t-desc" x="200" y="175" text-anchor="middle">順序が重要：機能評価が代替案作成より先に来る</text>
+
+  <!-- VE の基本公式 -->
+  <rect class="box-brand" x="8" y="195" width="384" height="50" rx="6"/>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c" x="200" y="216" text-anchor="middle">VE の基本式</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="14" font-weight="bold" fill="#1a3a5c" x="200" y="236" text-anchor="middle">V（価値） ＝ F（機能） ÷ C（コスト）</text>
+
+  <!-- 区切り -->
+  <line stroke="#d7d7d7" stroke-width="1" x1="8" y1="262" x2="392" y2="262"/>
+
+  <!-- 詳細解説 -->
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="13" font-weight="bold" fill="#1a3a5c" x="200" y="290" text-anchor="middle">各ステップの詳細</text>
+
+  <rect fill="#e8f0fe" stroke="#2e6da4" stroke-width="1" x="8" y="302" width="120" height="80" rx="6"/>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c" x="68" y="322" text-anchor="middle">STEP 1</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="68" y="340" text-anchor="middle">対象範囲の</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="68" y="356" text-anchor="middle">明確化と機能</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="68" y="372" text-anchor="middle">の動詞形整理</text>
+
+  <rect fill="#e8f0fe" stroke="#2e6da4" stroke-width="1" x="140" y="302" width="120" height="80" rx="6"/>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c" x="200" y="322" text-anchor="middle">STEP 2</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="200" y="340" text-anchor="middle">重要度係数と</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="200" y="356" text-anchor="middle">現コストの比較</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="200" y="372" text-anchor="middle">で優先度を決定</text>
+
+  <rect fill="#d0e8d0" stroke="#3a7d44" stroke-width="1" x="272" y="302" width="120" height="80" rx="6"/>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c" x="332" y="322" text-anchor="middle">STEP 3</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="332" y="340" text-anchor="middle">ブレインスト</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="332" y="356" text-anchor="middle">ーミングで</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="332" y="372" text-anchor="middle">代替案を創出</text>
+
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="200" y="420" text-anchor="middle">VE は品質を維持しながらコスト削減を実現する手法</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="200" y="440" text-anchor="middle">総監「情報管理」「経済性管理」で頻出</text>
 </svg>

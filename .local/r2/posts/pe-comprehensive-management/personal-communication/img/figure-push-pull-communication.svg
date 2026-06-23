@@ -1,4 +1,4 @@
-<svg width="400" height="280" viewBox="0 0 400 280"
+<svg width="400" height="500" viewBox="0 0 400 500"
      xmlns="http://www.w3.org/2000/svg"
      style="max-width:400px;width:100%"
      role="img"
@@ -87,4 +87,18 @@
   <line class="divider" x1="220" y1="230" x2="380" y2="230"/>
   <text class="t-note" x="300" y="248" text-anchor="middle">受信者がイニシアチブ</text>
   <text class="t-note" x="300" y="265" text-anchor="middle">能動: 受け取る側</text>
+
+  <!-- サマリー -->
+  <line class="divider" x1="20" y1="295" x2="380" y2="295"/>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="13" font-weight="bold" fill="#1a3a5c" x="200" y="326" text-anchor="middle">使い分けのポイント</text>
+  <rect fill="#e8f0fe" stroke="#2e6da4" stroke-width="1" x="20" y="340" width="170" height="70" rx="6"/>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c" x="105" y="360" text-anchor="middle">プッシュ型</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="105" y="378" text-anchor="middle">緊急連絡・全員周知</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="105" y="396" text-anchor="middle">確実な配信が必要な場面</text>
+  <rect fill="#d0e8d0" stroke="#3a7d44" stroke-width="1" x="210" y="340" width="170" height="70" rx="6"/>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c" x="295" y="360" text-anchor="middle">プル型</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="295" y="378" text-anchor="middle">リファレンス・マニュアル</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="295" y="396" text-anchor="middle">必要時のアクセスに適合</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="200" y="444" text-anchor="middle">PMBOKでは両方式を組み合わせた</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="200" y="462" text-anchor="middle">コミュニケーション計画の策定を推奨</text>
 </svg>

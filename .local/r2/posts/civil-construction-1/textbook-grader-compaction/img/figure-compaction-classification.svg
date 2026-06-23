@@ -1,4 +1,4 @@
-<svg width="400" height="380" viewBox="0 0 400 380"
+<svg width="400" height="500" viewBox="0 0 400 500"
      xmlns="http://www.w3.org/2000/svg"
      style="max-width:400px;width:100%"
      role="img"
@@ -74,4 +74,18 @@
 
   <!-- 注釈 -->
   <text class="t-note" x="200" y="370" text-anchor="middle">※ モータグレーダはブレード整形用、締固めは別機械</text>
+
+  <!-- 選択基準まとめ -->
+  <rect x="10" y="382" width="380" height="106" rx="5" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text class="t-branch" x="200" y="400" text-anchor="middle">機械選択の基準</text>
+
+  <rect x="20" y="408" width="176" height="24" rx="3" fill="#fff3cd" stroke="#d4a017" stroke-width="1"/>
+  <text class="t-detail" x="108" y="424" text-anchor="middle">静的：大規模・粘性土・深層</text>
+
+  <rect x="204" y="408" width="176" height="24" rx="3" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1"/>
+  <text class="t-detail" x="292" y="424" text-anchor="middle">動的：砂質土・狭所・効率重視</text>
+
+  <text class="t-detail" x="200" y="450" text-anchor="middle">締固め度の確認：砂置換法・RI計器（コア採取不要）</text>
+  <text class="t-detail" x="200" y="468" text-anchor="middle">転圧回数・含水比・層厚を事前に試験施工で決定</text>
+  <text class="t-detail" x="200" y="486" text-anchor="middle">締固め度の基準値：路体 90%以上、路床 95%以上</text>
 </svg>
