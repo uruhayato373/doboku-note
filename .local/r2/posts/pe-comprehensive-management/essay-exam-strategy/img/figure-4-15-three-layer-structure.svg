@@ -34,12 +34,13 @@
   <text x="212" y="362" fill="#555" font-size="11">将来課題が自然に顕在化</text>
 
   <!-- Layer 3: Ⅲ -->
-  <rect x="10" y="376" width="380" height="114" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2" rx="6"/>
+  <rect x="10" y="376" width="380" height="122" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2" rx="6"/>
   <text x="26" y="398" fill="#1a3a5c" font-size="13" font-weight="bold">Ⅲ　将来展望と最大のリスク</text>
   <text x="26" y="416" fill="#555" font-size="11">Ⅱ を進めた先に顕在化する構造的課題 — リスクは 1 つに絞る</text>
   <line x1="26" y1="426" x2="374" y2="426" stroke="#2e6da4" stroke-width="0.5" stroke-dasharray="3,2"/>
-  <text x="26" y="446" fill="#d4a017" font-size="11" font-weight="bold">・最大リスク 1 点（トレードオフ最大／組織弱点／規模拡大破綻）</text>
-  <text x="26" y="460" fill="#222" font-size="11" font-weight="bold">・克服策 ＝ 管理行為（管理方法見直し・</text>
-  <text x="26" y="472" fill="#222" font-size="11" font-weight="bold">　体制再設計・ルール整備）</text>
-  <text x="26" y="485" fill="#555" font-size="11">→ 新技術導入で解決しない（「総合技術監理」の行為そのもの）</text>
+  <text x="26" y="442" fill="#d4a017" font-size="11" font-weight="bold">・最大リスク 1 点（トレードオフ最大／</text>
+  <text x="26" y="456" fill="#d4a017" font-size="11" font-weight="bold">　組織弱点／規模拡大破綻）</text>
+  <text x="26" y="468" fill="#222" font-size="11" font-weight="bold">・克服策 ＝ 管理行為（管理方法見直し・</text>
+  <text x="26" y="480" fill="#222" font-size="11" font-weight="bold">　体制再設計・ルール整備）</text>
+  <text x="26" y="492" fill="#555" font-size="11">→ 新技術導入で解決しない（「総合技術監理」の行為そのもの）</text>
 </svg>
