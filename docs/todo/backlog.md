@@ -40,7 +40,7 @@
 2. ~~pe-first-stage 欠落疑い 4本を確認・補完~~ → **完了 ✅** 欠落ゼロ確認、過去セッションで6本修正済み（2026-06-23）
 3. ~~1級 primary H26-R02 -a ページ 図挿入漏れ 70枚~~ → **完了 ✅** 7年度・70枚挿入（`1c60bf824`・2026-06-23）。h26-a は図の位置が選択肢直後（直前ではない）のため精度要確認
 4. ~~1級 primary H26-H29 B-paper 図クロップ再生成~~ → **完了 ✅** PDF 高精度クロップ＋H28-B fig-02 新規追加（`5f51c33fb`・2026-06-23）
-5. 図クロップ**品質監査**（欠落でなく品質）— 1級 primary 16本＝`civil-exam-figure-auditor`／1級 textbook 10本＝`civil-construction-qa`。優先度低
+5. ~~図クロップ**品質監査**（欠落でなく品質）— 1級 primary 16本~~ → **完了 ✅** H26-R07 全24ページ監査・HIGH全件修正（32枚再クロップ・5件削除・`0ab00413e`・2026-06-23）。H28-A fig-02/07/08/09 のみ元 PDF に図なし（問題用紙テキスト形式）で暫定修正止まり。1級 textbook 10本＝`civil-construction-qa` は低優先で保留
 
 **ソース PDF**: `docs/textbook/{１級,２級}土木施工管理技士/`（年度別・論点別／正答付き）。`.claude/pdfs/` だけ見て「PDF不在」と早合点しない（2026-06-20 訂正）。手順=pdftoppm 200dpi→magick crop+trim→webp(q80)。**過去問の問題図に解答情報を入れない**（CP強調図は解説 `<details>` 内へ＝[[exam-problem-figure-no-answer]]）。
 

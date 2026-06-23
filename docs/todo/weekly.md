@@ -27,7 +27,7 @@
 
 ## 完了ログ
 
-- **2026-06-23**: 1級 primary H26-H29 B-paper 図クロップ再生成（PDF から高精度クロップ、H28-B fig-02 新規追加）＋H27-A fig-03 補完。commit `5f51c33fb`。
+- **2026-06-23**: 1級 primary H26-R07 全 24 ページ 図クロップ品質監査・HIGH 全件修正。32 枚再クロップ・5 件 img 削除・孤立 PNG 6 件削除・R03-B ASCII art 重複除去。H28-A のみ問題用紙 PDF に図なしで暫定修正（ソース不在）。commit `5f51c33fb` + `0ab00413e`。
 - **2026-06-21（会話発）総監 横断系単品 ¥780 統一 + funnel 整備**: R8予想6/設問3バンク11/トレードオフ5/計算1=23単品を live ¥780 化（序章2本は¥100保護、ペルソナ98本は不変）。price-sweep に `--exclude`/`--notes` 追加＋Mac全選択バグ修正。SoT追従（frontmatter/note-magazines.ts/noteコンテンツ計画/掲載文/もくじ）。修正漏れ2点（--help・設問3セット価格）を worktree→PR #268 で安全マージ。commit afc8ae51a / 3b7308e07 / ee1300d27。
 - **2026-06-21（別セッション）ガイド記事 品質改善 完了**: §20参考資料撤去／§25 3,000字バーンダウン32本＋ゲート配線／§24文末単調・§26導入リードのリライト／fact-check是正（civil15・pe/concrete6）。専用エージェント guide-qa・guide-rewriter・guide-fact-checker 新設。commit e6e9745e2 ほか。
 - **2026-06-20**: 建設部門 docs モバイルにビルドジョブ転職カード追加＋develop→main デプロイ（本番反映確認済）。
