@@ -2,13 +2,13 @@
 notePricing: free
 noteSeries: 施工経験記述
 utmCampaign: 2c-essay-theme
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n26e51803f01b"
+noteId: "n26e51803f01b"
+notePublishedAt: "2026-06-23"
 coverTitle:
   - 施工経験記述
   - 管理項目と題材の選び方
-noteStatus: draft
+noteStatus: published
 cover:
   leadIn: "2級土木 施工経験記述"
   hi: "題材選び"

@@ -2,13 +2,13 @@
 notePricing: free
 noteSeries: 施工経験記述
 utmCampaign: c1-essay-theme5
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/nd4c5c13ee445"
+noteId: "nd4c5c13ee445"
+notePublishedAt: "2026-06-23"
 coverTitle:
   - 1級 経験記述
   - 5管理のテーマ選び
-noteStatus: draft
+noteStatus: published
 cover:
   leadIn: "1級土木 施工経験記述"
   hi: "5管理"

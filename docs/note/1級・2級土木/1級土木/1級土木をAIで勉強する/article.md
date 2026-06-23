@@ -2,13 +2,13 @@
 notePricing: free
 noteSeries: 学習戦略
 utmCampaign: ai-study-civil1
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n8b0e42784742"
+noteId: "n8b0e42784742"
+notePublishedAt: "2026-06-23"
 coverTitle:
   - 1級土木施工管理技士を
   - AIで勉強する
-noteStatus: draft
+noteStatus: published
 cover:
   leadIn: "1級土木施工管理技士を"
   hi: "AI"

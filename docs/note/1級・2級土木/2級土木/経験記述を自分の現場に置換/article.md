@@ -2,13 +2,13 @@
 notePricing: free
 noteSeries: 施工経験記述
 utmCampaign: 2c-essay-adapt
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/nc60854accc56"
+noteId: "nc60854accc56"
+notePublishedAt: "2026-06-23"
 coverTitle:
   - 完成答案を
   - 自分の現場に置き換える
-noteStatus: draft
+noteStatus: published
 cover:
   leadIn: "2級土木 施工経験記述"
   hi: "自分の現場"

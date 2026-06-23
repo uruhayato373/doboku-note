@@ -2,13 +2,13 @@
 notePricing: free
 noteSeries: 施工経験記述
 utmCampaign: c1-essay-adapt
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/nd88d5ec77f2d"
+noteId: "nd88d5ec77f2d"
+notePublishedAt: "2026-06-23"
 coverTitle:
   - 1級 完成答案を
   - 自分の現場に置き換える
-noteStatus: draft
+noteStatus: published
 cover:
   leadIn: "1級土木 施工経験記述"
   hi: "自分の現場"

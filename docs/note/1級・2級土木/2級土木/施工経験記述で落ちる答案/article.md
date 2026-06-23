@@ -2,13 +2,13 @@
 notePricing: free
 noteSeries: 施工経験記述
 utmCampaign: 2c-essay-fail
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/na5e045a1c6f8"
+noteId: "na5e045a1c6f8"
+notePublishedAt: "2026-06-23"
 coverTitle:
   - 施工経験記述で
   - 落ちる答案の共通点
-noteStatus: draft
+noteStatus: published
 cover:
   leadIn: "2級土木 施工経験記述"
   hi: "落ちる答案"

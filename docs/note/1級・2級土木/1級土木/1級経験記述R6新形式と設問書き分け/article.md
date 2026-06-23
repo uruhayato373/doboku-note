@@ -2,13 +2,13 @@
 notePricing: free
 noteSeries: 施工経験記述
 utmCampaign: c1-essay-r6-split
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n34c1c35423f1"
+noteId: "n34c1c35423f1"
+notePublishedAt: "2026-06-23"
 coverTitle:
   - 1級 経験記述
   - 設問1と設問2の書き分け
-noteStatus: draft
+noteStatus: published
 cover:
   leadIn: "1級土木 施工経験記述"
   hi: "設問の書き分け"

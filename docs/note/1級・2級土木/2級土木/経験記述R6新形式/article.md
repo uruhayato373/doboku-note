@@ -2,13 +2,13 @@
 notePricing: free
 noteSeries: 施工経験記述
 utmCampaign: 2c-essay-r6
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n3a5866854425"
+noteId: "n3a5866854425"
+notePublishedAt: "2026-06-23"
 coverTitle:
   - 施工経験記述
   - 令和6年 新形式の備え方
-noteStatus: draft
+noteStatus: published
 cover:
   leadIn: "2級土木 施工経験記述"
   hi: "令和6年 新形式"

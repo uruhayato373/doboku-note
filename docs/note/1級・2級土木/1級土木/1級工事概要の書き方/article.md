@@ -2,13 +2,13 @@
 notePricing: free
 noteSeries: 施工経験記述
 utmCampaign: c1-essay-outline
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/na1f84193571a"
+noteId: "na1f84193571a"
+notePublishedAt: "2026-06-23"
 coverTitle:
   - 1級 施工経験記述
   - 工事概要の書き方
-noteStatus: draft
+noteStatus: published
 cover:
   leadIn: "1級土木 施工経験記述"
   hi: "工事概要"

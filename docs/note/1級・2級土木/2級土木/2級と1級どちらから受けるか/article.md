@@ -2,13 +2,13 @@
 notePricing: free
 noteSeries: 受験ガイド
 utmCampaign: 2c-vs-1c-order
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n28133dda5888"
+noteId: "n28133dda5888"
+notePublishedAt: "2026-06-23"
 coverTitle:
   - 2級と1級
   - どちらから受けるか
-noteStatus: draft
+noteStatus: published
 cover:
   leadIn: "土木施工管理技士"
   hi: "2級と1級"

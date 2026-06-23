@@ -2,13 +2,13 @@
 notePricing: free
 noteSeries: 学習戦略
 utmCampaign: 2c-primary-selfstudy
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/nffa7e4e03391"
+noteId: "nffa7e4e03391"
+notePublishedAt: "2026-06-23"
 coverTitle:
   - 2級土木 第一次検定
   - 独学突破の始め方
-noteStatus: draft
+noteStatus: published
 cover:
   leadIn: "2級土木施工管理技士"
   hi: "第一次検定"

@@ -32,11 +32,27 @@ cover:
 
 ## まず読む（無料）
 
+### 1級土木
+
+- [1級土木をAIで勉強する](https://note.com/dobokunote/n/n8b0e42784742)
+- [1級 工事概要の書き方](https://note.com/dobokunote/n/na1f84193571a)
+- [1級 経験記述 R6新形式と設問書き分け](https://note.com/dobokunote/n/n34c1c35423f1)
+- [1級 施工経験記述で落ちる答案の共通点](https://note.com/dobokunote/n/nfea4a39cf108)
+- [1級 経験記述を自分の現場に置換する方法](https://note.com/dobokunote/n/nd88d5ec77f2d)
+- [1級 経験記述 テーマ選び5管理](https://note.com/dobokunote/n/nd4c5c13ee445)
+
+### 2級土木
+
 - [2級土木 二次検定の全体像](https://note.com/dobokunote/n/n27455b88bcd5)
 - [2級土木 独学合格の学習設計](https://note.com/dobokunote/n/n0d6a78c48cef)
 - [2級土木 受験資格と実務経験](https://note.com/dobokunote/n/n6e6db14f4dfc)
-
-> 1級土木の無料入口記事（工事概要の書き方・テーマ選び・落ちる答案 等）は順次 note で公開予定です。
+- [2級と1級どちらから受けるか](https://note.com/dobokunote/n/n28133dda5888)
+- [2級 工事概要の書き方](https://note.com/dobokunote/n/nd288c7ac876b)
+- [2級 施工経験記述で落ちる答案の共通点](https://note.com/dobokunote/n/na5e045a1c6f8)
+- [2級 第一次検定の独学突破](https://note.com/dobokunote/n/nffa7e4e03391)
+- [2級 経験記述 R6新形式](https://note.com/dobokunote/n/n3a5866854425)
+- [2級 経験記述を自分の現場に置換する方法](https://note.com/dobokunote/n/nc60854accc56)
+- [2級 経験記述 テーマ選び](https://note.com/dobokunote/n/n26e51803f01b)
 
 ---
 
@@ -57,7 +73,9 @@ cover:
 
 ## 目的から逆引き
 
+- **1級をこれから始める** → [1級土木をAIで勉強する](https://note.com/dobokunote/n/n8b0e42784742)
 - **2級をこれから始める** → [二次検定の全体像](https://note.com/dobokunote/n/n27455b88bcd5)＋[独学の学習設計](https://note.com/dobokunote/n/n0d6a78c48cef)
+- **落ちる答案のパターンを知りたい** → [1級版](https://note.com/dobokunote/n/nfea4a39cf108)／[2級版](https://note.com/dobokunote/n/na5e045a1c6f8)
 - **経験記述の完成答案がほしい** → [1級](https://note.com/dobokunote/m/m150c9db08902)／[2級](https://note.com/dobokunote/m/m1881a9578027) 完成答案集
 - **過去問の年度別模範答案がほしい** → [1級](https://note.com/dobokunote/m/m3a578194a0a9)／[2級](https://note.com/dobokunote/m/md3aa0f9a37d7) 過去問模範答案集
 - **複数テーマに備えたい**（1級） → [2テーマ組合せ大全](https://note.com/dobokunote/m/m74cfd7c695d6)
