@@ -59,12 +59,14 @@
   <text class="t-axis" x="45"  y="98"  text-anchor="middle">評価</text>
 
   <rect class="col-brand-cell" x="89"  y="61" width="96" height="52" rx="3"/>
-  <text class="t-cell" x="137" y="80"  text-anchor="middle">潜在能力</text>
-  <text class="t-sub"  x="137" y="96"  text-anchor="middle">（将来の伸びしろ）</text>
+  <text class="t-cell" x="137" y="76"  text-anchor="middle">潜在能力</text>
+  <text class="t-sub"  x="137" y="90"  text-anchor="middle">（将来の</text>
+  <text class="t-sub"  x="137" y="104" text-anchor="middle">伸びしろ）</text>
 
   <rect class="col-pos-cell"   x="188" y="61" width="96" height="52" rx="3"/>
-  <text class="t-cell" x="236" y="80"  text-anchor="middle">顕在能力</text>
-  <text class="t-sub"  x="236" y="107"  text-anchor="middle">（現在の遂行力）</text>
+  <text class="t-cell" x="236" y="76"  text-anchor="middle">顕在能力</text>
+  <text class="t-sub"  x="236" y="90"  text-anchor="middle">（現在の</text>
+  <text class="t-sub"  x="236" y="104"  text-anchor="middle">遂行力）</text>
 
   <rect class="col-warn-cell"  x="287" y="61" width="109" height="52" rx="3"/>
   <text class="t-cell" x="341" y="82"  text-anchor="middle">役割の大きさ</text>
@@ -76,12 +78,14 @@
   <text class="t-axis" x="45"  y="153" text-anchor="middle">の有無</text>
 
   <rect class="col-brand-cell" x="89"  y="116" width="96" height="52" rx="3"/>
-  <text class="t-cell" x="137" y="135" text-anchor="middle">基本なし</text>
-  <text class="t-sub"  x="137" y="151" text-anchor="middle">（経験年数で昇格）</text>
+  <text class="t-cell" x="137" y="131" text-anchor="middle">基本なし</text>
+  <text class="t-sub"  x="137" y="145" text-anchor="middle">（経験年数</text>
+  <text class="t-sub"  x="137" y="159" text-anchor="middle">で昇格）</text>
 
   <rect class="col-pos-cell"   x="188" y="116" width="96" height="52" rx="3"/>
-  <text class="t-cell" x="236" y="135" text-anchor="middle">あり</text>
-  <text class="t-sub"  x="236" y="162"  text-anchor="middle">（職務変化で変動）</text>
+  <text class="t-cell" x="236" y="131" text-anchor="middle">あり</text>
+  <text class="t-sub"  x="236" y="145"  text-anchor="middle">（職務変化</text>
+  <text class="t-sub"  x="236" y="159"  text-anchor="middle">で変動）</text>
 
   <rect class="col-warn-cell"  x="287" y="116" width="109" height="52" rx="3"/>
   <text class="t-cell" x="341" y="137" text-anchor="middle">役割変化に</text>
@@ -97,8 +101,9 @@
   <text class="t-sub"  x="137" y="208" text-anchor="middle">（年功積上）</text>
 
   <rect class="col-pos-cell"   x="188" y="171" width="96" height="52" rx="3"/>
-  <text class="t-cell" x="236" y="190" text-anchor="middle">職務に連動</text>
-  <text class="t-sub"  x="236" y="206" text-anchor="middle">（職務ランク固定）</text>
+  <text class="t-cell" x="236" y="186" text-anchor="middle">職務に連動</text>
+  <text class="t-sub"  x="236" y="200" text-anchor="middle">（職務ランク</text>
+  <text class="t-sub"  x="236" y="214" text-anchor="middle">固定）</text>
 
   <rect class="col-warn-cell"  x="287" y="171" width="109" height="52" rx="3"/>
   <text class="t-cell" x="341" y="190" text-anchor="middle">役割で決定</text>
@@ -110,12 +115,14 @@
   <text class="t-axis" x="45"  y="263" text-anchor="middle">記述書</text>
 
   <rect class="col-brand-cell" x="89"  y="226" width="96" height="52" rx="3"/>
-  <text class="t-cell" x="137" y="245" text-anchor="middle">不要</text>
-  <text class="t-sub"  x="137" y="261" text-anchor="middle">（資格ランク基準）</text>
+  <text class="t-cell" x="137" y="241" text-anchor="middle">不要</text>
+  <text class="t-sub"  x="137" y="255" text-anchor="middle">（資格ランク</text>
+  <text class="t-sub"  x="137" y="269" text-anchor="middle">基準）</text>
 
   <rect class="col-pos-cell"   x="188" y="226" width="96" height="52" rx="3"/>
-  <text class="t-cell" x="236" y="245" text-anchor="middle">必須</text>
-  <text class="t-sub"  x="236" y="272" text-anchor="middle">（等級・報酬連動）</text>
+  <text class="t-cell" x="236" y="241" text-anchor="middle">必須</text>
+  <text class="t-sub"  x="236" y="255" text-anchor="middle">（等級・</text>
+  <text class="t-sub"  x="236" y="269" text-anchor="middle">報酬連動）</text>
 
   <rect class="col-warn-cell"  x="287" y="226" width="109" height="52" rx="3"/>
   <text class="t-cell" x="341" y="247" text-anchor="middle">役割定義</text>
@@ -131,8 +138,9 @@
   <text class="t-sub"  x="137" y="326" text-anchor="middle">（異動しやすい）</text>
 
   <rect class="col-pos-cell"   x="188" y="281" width="96" height="52" rx="3"/>
-  <text class="t-cell" x="236" y="298" text-anchor="middle">低い</text>
-  <text class="t-sub"  x="236" y="310" text-anchor="middle">（記述書再検討要）</text>
+  <text class="t-cell" x="236" y="296" text-anchor="middle">低い</text>
+  <text class="t-sub"  x="236" y="310" text-anchor="middle">（記述書</text>
+  <text class="t-sub"  x="236" y="324" text-anchor="middle">再検討要）</text>
 
   <rect class="col-warn-cell"  x="287" y="281" width="109" height="52" rx="3"/>
   <text class="t-cell" x="341" y="298" text-anchor="middle">中程度</text>

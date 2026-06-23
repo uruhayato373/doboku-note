@@ -64,14 +64,14 @@
   <text class="t-mid"   x="280" y="132" text-anchor="middle">A2</text>
   <text class="t-label" x="280" y="156" text-anchor="middle">中間事象</text>
 
-  <!-- A2 の OR -->
-  <text class="t-gate"  x="280" y="174" text-anchor="middle">OR</text>
-  <path class="gate-or" d="M 258 168 Q 280 192 302 168" fill="#fff3cd"/>
+  <!-- A2 の OR: 閉じたアーチ形（平坦な上辺＋下方尖頂） -->
   <line class="conn" x1="280" y1="144" x2="280" y2="168"/>
+  <path class="gate-or" d="M 258 168 L 302 168 Q 302 184 280 196 Q 258 184 258 168 Z"/>
+  <text class="t-gate"  x="280" y="183" text-anchor="middle">OR</text>
 
-  <!-- A2 → X3, OR(X4,X5) -->
-  <line class="conn" x1="280" y1="188" x2="240" y2="216"/>
-  <line class="conn" x1="280" y1="188" x2="320" y2="216"/>
+  <!-- A2 → X3, OR(X4,X5): ゲート頂点(y=196)から分岐 -->
+  <line class="conn" x1="280" y1="196" x2="240" y2="216"/>
+  <line class="conn" x1="280" y1="196" x2="320" y2="216"/>
 
   <!-- X3 -->
   <rect class="box-cause" x="210" y="216" width="58" height="28" rx="4"/>
