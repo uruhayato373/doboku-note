@@ -13,6 +13,9 @@
  *   P9: テキストが shape（circle / rect コンテナ）と衝突
  *       P9-text-shape-overlap: start-anchor テキストが circle bbox と重なる
  *       P9-text-rect-overflow: テキストが最内 enclosing rect の右端・下端を超える
+ *   P10: marker 内 polygon が固定方向（▲▼）で orient="auto" と組み合わさっている
+ *        orient="auto" が線方向に回転するため、▲▼固定 polygon は意図しない方向になる
+ *        正しくは右向き三角形（▶）で定義し、orient="auto" に回転を任せる
  *
  * 制限事項:
  *   - 正規表現ベースのため、ネストされた <tspan> や transform 付き <text> は
@@ -487,6 +490,53 @@ function detectColorAndFontIssues(content) {
   return findings;
 }
 
+/**
+ * P10: marker 内 polygon の方向バグ検出
+ * orient="auto" と固定方向 polygon（▲▼）の組み合わせを検出する。
+ * ▲▼ polygon の特徴: 第1点と第3点が同じ x 座標 or 同じ y 座標の "天底/天頂" 配置。
+ * 正しい ▶ 右向き: 第1点=(0,0), 第2点=(W,H/2), 第3点=(0,H) → 第1・第3点は同じ x=0
+ *
+ * 判定ロジック:
+ *   - points の第2頂点（tip）が W/2 の x 座標（中央）なら ▲▼ 固定形（WRONG）
+ *   - points の第2頂点（tip）が W 付近の x 座標（右端）なら ▶ 正形（OK）
+ */
+function detectMarkerDirectionIssues(content) {
+  const findings = [];
+  // <marker ...orient="auto"...> ... <polygon points="..." .../> ... </marker> を抽出
+  const markerRe = /<marker\b([^>]*)>([\s\S]*?)<\/marker>/g;
+  let m;
+  while ((m = markerRe.exec(content)) !== null) {
+    const attrs = m[1];
+    const inner = m[2];
+    // orient="auto" のみ対象（orient 未指定も auto 相当だが明示分だけチェック）
+    if (!/orient\s*=\s*["']auto["']/.test(attrs)) continue;
+    // polygon を取得
+    const polyM = inner.match(/<polygon\b[^>]*points\s*=\s*["']([^"']+)["']/);
+    if (!polyM) continue;
+    const pts = polyM[1].trim().split(/[\s,]+/).map(Number);
+    if (pts.length < 6) continue; // 3点未満はスキップ
+    // 3点の座標: (x0,y0) (x1,y1) (x2,y2)
+    const [x0, y0, x1, y1, x2, y2] = pts;
+    // markerWidth を取得（tip x の判定基準）
+    const wM = attrs.match(/markerWidth\s*=\s*["']([\d.]+)["']/);
+    const W = wM ? parseFloat(wM[1]) : 10;
+    // ▲ 判定: 第1・第3点が同じ y（水平底辺）、第2点が x≈W/2（頂点）
+    const isTriUp = Math.abs(y0 - y2) < 1 && Math.abs(x1 - W / 2) < W * 0.25;
+    // ▼ 判定: 第1・第2点が同じ y（水平上辺）、第3点が x≈W/2（頂点）
+    const isTriDown = Math.abs(y0 - y1) < 1 && Math.abs(x2 - W / 2) < W * 0.25;
+    if (isTriUp || isTriDown) {
+      const idM = attrs.match(/\bid\s*=\s*["']([^"']+)["']/);
+      const id = idM ? idM[1] : "(無名)";
+      findings.push({
+        pattern: "P10-marker-direction",
+        severity: "HIGH",
+        detail: `marker id="${id}": ▲▼固定polygon(points="${polyM[1]}")とorient="auto"の組合せ。右向き▶に修正: points="0,0 ${W},${W * 0.4} 0,${W * 0.8}" refX="${W}" refY="${W * 0.4}"`,
+      });
+    }
+  }
+  return findings;
+}
+
 /** ファイルパスから監査結果を取得する便利関数 */
 export function auditSvgFile(path) {
   const content = readFileSync(path, "utf-8");
@@ -494,5 +544,7 @@ export function auditSvgFile(path) {
   const findings = detectSvgIssues(svg, { isWideVariant: /--wide\.svg$/.test(path) });
   // P6/P7/P8 は content 全文を直接走査（parseSvg の対象外）
   findings.push(...detectColorAndFontIssues(content));
+  // P10: marker 方向バグ
+  findings.push(...detectMarkerDirectionIssues(content));
   return findings;
 }

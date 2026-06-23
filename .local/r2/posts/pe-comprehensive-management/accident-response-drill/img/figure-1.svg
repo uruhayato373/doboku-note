@@ -25,11 +25,11 @@
       .t-p3     { font-size: 12px; font-weight: bold; fill: #2e6da4; }
       .t-p4     { font-size: 12px; font-weight: bold; fill: #3a7d44; }
     </style>
-    <marker id="arr-down" markerWidth="8" markerHeight="7" refX="4" refY="6" orient="auto">
-      <polygon points="0,0 8,0 4,7" fill="#8a8a8a"/>
+    <marker id="arr-down" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/>
     </marker>
-    <marker id="arr-up-green" markerWidth="8" markerHeight="7" refX="4" refY="1" orient="auto">
-      <polygon points="0,7 8,7 4,0" fill="#3a7d44"/>
+    <marker id="arr-up-green" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/>
     </marker>
   </defs>
 
