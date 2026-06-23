@@ -36,6 +36,13 @@ dateModified: 2026-04-23
 - **適するデータ量** — 階層的: 小〜中規模（数千件程度） / 非階層的: 大規模（数万件以上）
 - **特徴** — 階層的: 階層構造を把握できる / 非階層的: 高速で大規模データに対応
 
+<ArticleImage
+  src="/posts/pe-comprehensive-management/cluster-analysis/img/figure-clustering-comparison.svg"
+  alt="階層的クラスター分析はデンドログラムで近いもの同士を段階的に併合し切る高さでクラスタ数を決める、非階層的（k-means）はkを先に指定し各点を最寄りの重心へ反復割当する、という違いを対比した図"
+/>
+
+過去問 [R06 Ⅰ-1-18](/docs/pe-comprehensive-management-r06-primary#1-18) では「階層的クラスター分析の代表手法は k-means 法」という記述が誤りとして出題された。k-means 法は**非階層的**クラスター分析の代表手法であり、この階層的／非階層的の取り違えが定番の引っかけである。
+
 ### k-means法のアルゴリズム
 
 非階層的クラスター分析の代表であるk-means法は、以下のステップを繰り返す。
