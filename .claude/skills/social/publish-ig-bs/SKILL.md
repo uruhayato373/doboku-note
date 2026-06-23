@@ -139,7 +139,7 @@ npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
 | 投稿先 IG 単独化 | カルーセルと同じ `role=option`（FB ページを外す） |
 | キャプション | 共通（contenteditable textbox） |
 | ステップ送り | 3 ステップ（作成→編集→シェアする）。**右下の「次へ」を座標で click**（サムネ送りの「次へ」ZWSP を誤爆しない） |
-| カバー設定 | カバーありなら**編集ステップで停止** → `カバーを編集` → `ファイルから選択` → `<input type=file>` に `setInputFiles` → `完了`。セレクタは候補配列＋fail-soft。**初回は `--dry-run` で `reel-cover-*` スクショを見てセレクタ確定**（規約: 候補配列を実機で詰める） |
+| カバー設定（2026-06-24 実機確定） | カバーありなら **`role=button「編集」`クリック → 「サムネイル」節へスクロール → `画像をアップロード`タブ → パネル内の`画像をアップロード`で `filechooser` → `cover.png` 投入**（`画像を変更`表示で確定）。**「次へ」送りでは編集が自動完了して飛ぶ**ため編集タブを直接押す。サムネ＝「カバー」ではなく「サムネイル」ラベル。fail-soft（未検出は警告のみで投稿継続→Meta 自動サムネ）。スクショは `.local/playwright-ig-bs-debug/reel-cover-*` |
 | 予約 | シェアするで `role=button name="日時を指定"` → 日付/時刻（共通 spinbutton）→ 確定 `role=button name="公開日時を指定"` |
 | 即時 | `role=button name="今すぐシェア"`（`--now`） |
 | fail-safe | 「公開日時を指定」ボタンが出るまで確認できなければ中止（即時シェア誤爆防止） |

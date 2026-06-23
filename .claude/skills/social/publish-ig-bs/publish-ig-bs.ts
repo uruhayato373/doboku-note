@@ -170,18 +170,15 @@ const SEL = {
   reelScheduleOption: (p: Page): Locator => p.getByRole("button", { name: "日時を指定" }),
   reelScheduleConfirm: (p: Page): Locator => p.getByRole("button", { name: "公開日時を指定" }),
   reelPublishNow: (p: Page): Locator => p.getByRole("button", { name: "今すぐシェア" }),
-  // カバー編集（編集ステップ）。候補配列で組み、初回 --dry-run のスクショで確定する。
-  reelCoverEdit: (p: Page): Locator[] => [
-    p.getByRole("button", { name: /カバーを編集|カバー写真を編集|カバーを変更/ }),
-    p.getByText(/カバーを編集|カバー写真を編集|カバーを変更/),
-    p.getByRole("button", { name: /^カバー$/ }),
-  ],
+  // サムネイル（＝カバー）。Business Suite リール作成の「サムネイル」セクション。
+  // 候補配列で組み、初回 --dry-run のスクショで確定する。
+  reelThumbSection: (p: Page): Locator => p.getByText(/サムネイル/).first(),
   reelCoverUpload: (p: Page): Locator[] => [
-    p.getByRole("button", { name: /ファイルから選択|ファイルを選択|カバー写真を追加|アップロード/ }),
-    p.getByText(/ファイルから選択|ファイルを選択|カバー写真を追加/),
+    p.getByRole("button", { name: /画像をアップロード|ファイルからアップロード/ }),
+    p.getByText(/画像をアップロード|ファイルからアップロード/),
   ],
   reelCoverDone: (p: Page): Locator[] => [
-    p.getByRole("button", { name: /^完了$|^適用$|^保存$|^確定$/ }),
+    p.getByRole("button", { name: /^完了$|^適用$|^保存$|^確定$|^トリミング$|^選択$/ }),
   ],
 };
 
@@ -854,16 +851,21 @@ async function advanceToShareStep(page: Page): Promise<boolean> {
   return false;
 }
 
-// 「編集」ステップまで進める（カバー設定用）。到達できなければ false。
+// 「編集」ステップへ遷移する（カバー設定用）。
+// このウィザードでは「次へ」送りだと編集が自動完了して飛ばされる（作成→シェアするに直行）。
+// そのためステッパーの「編集」タブを直接クリックして編集ステップに入る。
 async function advanceToEditStep(page: Page): Promise<boolean> {
-  for (let i = 0; i < 3; i++) {
-    const step = await currentReelStep(page);
-    if (step === "編集") return true;
-    if (step === "シェアする") return false; // 行き過ぎ（編集を素通り）
-    if (!(await clickBottomRightNext(page))) return false;
-    await page.waitForTimeout(4000);
+  const editTab = page.getByText("編集", { exact: true }).first();
+  if (!(await editTab.isVisible().catch(() => false))) {
+    // ステッパー未表示なら「次へ」を1回送って出す
+    await clickBottomRightNext(page);
+    await page.waitForTimeout(3000);
   }
-  return (await currentReelStep(page)) === "編集";
+  if (!(await editTab.isVisible().catch(() => false))) return false;
+  await editTab.click().catch(() => {});
+  await page.waitForTimeout(3000);
+  await shot(page, "reel-edit-step");
+  return true;
 }
 
 // 編集ステップでカバー画像をファイルからアップロードしてサムネを確定する。
@@ -874,29 +876,55 @@ async function setReelCover(page: Page, coverPath: string | null): Promise<boole
   if (!fs.existsSync(coverPath)) { console.log(`⚠️  カバー画像が見つかりません（スキップ）: ${coverPath}`); return false; }
   console.log(`🖼  カバー設定: ${path.basename(coverPath)}`);
 
-  const editBtn = await firstVisible(SEL.reelCoverEdit(page), 5000);
-  if (!editBtn) {
-    console.log("⚠️  「カバーを編集」UI 未検出 — カバー設定をスキップ（--dry-run で reel-cover-edit-missing を確認しセレクタ更新）");
+  // 「サムネイル」セクションへスクロールして可視化（フォーム下部にあり初期は折り返し外）
+  const thumb = SEL.reelThumbSection(page);
+  if (!(await thumb.isVisible().catch(() => false))) {
+    console.log("⚠️  「サムネイル」セクション未検出 — カバー設定をスキップ（reel-cover-edit-missing 参照）");
     await shot(page, "reel-cover-edit-missing");
     return false;
   }
-  await clickResilient(editBtn);
-  await page.waitForTimeout(1500);
+  await thumb.scrollIntoViewIfNeeded().catch(() => {});
+  await page.waitForTimeout(500);
+  // サムネイルピッカー本体は見出しの下にあるため、左フォーム上にマウスを置いて更に下スクロール
+  await page.mouse.move(220, 300);
+  await page.mouse.wheel(0, 600);
+  await page.waitForTimeout(1000);
   await shot(page, "reel-cover-editor-opened");
 
-  // 「ファイルから選択」を押すと OS ダイアログではなく <input type=file> に setInputFiles で投入できる
-  const uploadTrigger = await firstVisible(SEL.reelCoverUpload(page), 4000);
-  if (uploadTrigger) await clickResilient(uploadTrigger).catch(() => {});
-  const input = page.locator('input[type="file"]').last();
-  if ((await input.count()) === 0) {
-    console.log("⚠️  カバー用 file input 未検出 — スキップ（reel-cover-input-missing 参照）");
+  // 「画像をアップロード」は2段階: ①タブを押すとアップロードパネルが開く ②パネル内の
+  // アップロードリンク/ドロップゾーンを押すとネイティブ filechooser が開く。
+  const tab = await firstVisible(SEL.reelCoverUpload(page), 4000);
+  if (!tab) {
+    console.log("⚠️  「画像をアップロード」タブ未検出 — カバー設定をスキップ（reel-cover-input-missing 参照）");
     await shot(page, "reel-cover-input-missing");
     return false;
   }
-  await input.setInputFiles(coverPath);
+  await clickResilient(tab);
+  await page.waitForTimeout(1500);
+  await shot(page, "reel-cover-upload-panel");
+
+  // パネル内のアップロード起動（タブと同名のため最後の一致＝パネル側を使う）
+  const trigger = page.getByText(/画像をアップロード/).last();
+  try {
+    const [chooser] = await Promise.all([
+      page.waitForEvent("filechooser", { timeout: 8000 }),
+      trigger.click(),
+    ]);
+    await chooser.setFiles(coverPath);
+  } catch {
+    // フォールバック: 露出した input[type=file] があれば直接投入
+    const input = page.locator('input[type="file"]').last();
+    if ((await input.count()) === 0) {
+      console.log("⚠️  カバー用 filechooser/input 未検出 — スキップ（reel-cover-input-missing 参照）");
+      await shot(page, "reel-cover-input-missing");
+      return false;
+    }
+    await input.setInputFiles(coverPath);
+  }
   await page.waitForTimeout(2500);
   await shot(page, "reel-cover-uploaded");
 
+  // アップロード後にトリミング/適用モーダルが出る場合は確定する
   const doneBtn = await firstVisible(SEL.reelCoverDone(page), 4000);
   if (doneBtn) { await clickResilient(doneBtn); await page.waitForTimeout(1500); }
   console.log("✅ カバー設定 完了（要・実体確認: 公開後の投稿サムネを目視）");
