@@ -354,6 +354,7 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
       inline: [
         slot('civil-2-pastexam-essay', slug, 'inline-1'),
         slot('civil-2-experience-essay', slug, 'inline-2'),
+        slot('civil-membership-lab', slug, 'inline-3'),
       ],
       sidebar: [slot('civil-2-pastexam-essay', slug, 'sidebar-1')],
       inlineMobileOnly: false,
@@ -364,6 +365,7 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
       inline: [
         slot('civil-2-experience-essay', slug, 'inline-1'),
         slot('civil-2-pastexam-essay', slug, 'inline-2'),
+        slot('civil-membership-lab', slug, 'inline-3'),
       ],
       sidebar: [slot('civil-2-experience-essay', slug, 'sidebar-1')],
       inlineMobileOnly: false,
@@ -380,6 +382,7 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
         slot('civil-1-pastexam-essay', slug, 'inline-1'),
         slot('civil-1-experience-essay', slug, 'inline-2'),
         slot('civil-1-combo-essay', slug, 'inline-3'),
+        slot('civil-membership-lab', slug, 'inline-4'),
       ],
       sidebar: [slot('civil-1-pastexam-essay', slug, 'sidebar-1')],
       inlineMobileOnly: false,
@@ -391,6 +394,7 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
         slot('civil-1-experience-essay', slug, 'inline-1'),
         slot('civil-1-pastexam-essay', slug, 'inline-2'),
         slot('civil-1-combo-essay', slug, 'inline-3'),
+        slot('civil-membership-lab', slug, 'inline-4'),
       ],
       sidebar: [slot('civil-1-experience-essay', slug, 'sidebar-1')],
       inlineMobileOnly: false,
@@ -405,31 +409,34 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
         slot('civil-1-pastexam-essay', slug, 'inline-1'),
         slot('civil-1-experience-essay', slug, 'inline-2'),
         slot('civil-1-combo-essay', slug, 'inline-3'),
+        slot('civil-membership-lab', slug, 'inline-4'),
       ],
       sidebar: [slot('civil-1-experience-essay', slug, 'sidebar-1')],
       inlineMobileOnly: false,
     };
   }
 
-  // 10. 1級土木 guide（試験概要・学習法・戦略等の検索着地ページ）→ 3マガジン 強 CTA
+  // 10. 1級土木 guide（試験概要・学習法・戦略等の検索着地ページ）→ 3マガジン + 会員 強 CTA
   if (docGroup === 'guide' && slug.startsWith('civil-construction-1-')) {
     return {
       inline: [
         slot('civil-1-experience-essay', slug, 'inline-1'),
         slot('civil-1-pastexam-essay', slug, 'inline-2'),
         slot('civil-1-combo-essay', slug, 'inline-3'),
+        slot('civil-membership-lab', slug, 'inline-4'),
       ],
       sidebar: [slot('civil-1-experience-essay', slug, 'sidebar-1')],
       inlineMobileOnly: false,
     };
   }
 
-  // 11. 2級土木 guide（試験概要・学習法・戦略等の検索着地ページ）→ 2マガジン 強 CTA
+  // 11. 2級土木 guide（試験概要・学習法・戦略等の検索着地ページ）→ 2マガジン + 会員 強 CTA
   if (docGroup === 'guide' && slug.startsWith('civil-construction-2-')) {
     return {
       inline: [
         slot('civil-2-experience-essay', slug, 'inline-1'),
         slot('civil-2-pastexam-essay', slug, 'inline-2'),
+        slot('civil-membership-lab', slug, 'inline-3'),
       ],
       sidebar: [slot('civil-2-experience-essay', slug, 'sidebar-1')],
       inlineMobileOnly: false,
@@ -489,8 +496,8 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
  */
 const CATEGORY_MAGAZINES: Partial<Record<string, readonly MagazineId[]>> = {
   "pe-comprehensive-management": ["essay-complete-pack", "essay-core-pack", "tankan-reading-guide"],
-  "civil-construction-1": ["civil-1-experience-essay", "civil-1-pastexam-essay"],
-  "civil-construction-2": ["civil-2-experience-essay", "civil-2-pastexam-essay"],
+  "civil-construction-1": ["civil-1-experience-essay", "civil-1-pastexam-essay", "civil-membership-lab"],
+  "civil-construction-2": ["civil-2-experience-essay", "civil-2-pastexam-essay", "civil-membership-lab"],
   "concrete-chief-engineer": ["cce-essay-magazine"],
   "concrete-diagnostician": ["cd-essay-magazine"],
 };

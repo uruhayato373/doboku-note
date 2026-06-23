@@ -19,6 +19,15 @@
 
 全24記事（経験記述お題11＋添削事例1＋学科記述10＋無料導線2）は **3点セット（article.md＋img/cover.png＋hashtags.txt）整備済・note-lint 通過・全て下書き**。あとは運営者が note へ投入し `noteUrl` を反映するのみ（特典マガジンは会員専用に設定）。`添削実測/` 配下は内部用ツールで公開しない。
 
+### サイト側 CTA 配線の状態（2026-06-23）
+
+会員（メンバーシップ）への**サイト導線は配線済み・自動発火待ち**（計画 §5.3 step 4 + step 5 のサイトCTA分）。
+
+- `src/lib/note-magazines.ts` に会員エントリ `civil-membership-lab`（1メンバーシップ・2プラン＝単一URL、`badge: メンバーシップ`、`price: 月額 ¥1,480〜（2プラン）`）を追加。買い切りエントリは維持＝両建て。**`published: false`／`noteUrl: ''` のプレースホルダ**で、`getMagazine()` が未公開を防御的に null 返しするため**現状サイトには表示されない**。
+- `src/lib/magazine-placement.ts` で 1級・2級土木の **経験記述系（secondary-r0X／experience-writing guide・examples）・guide・カテゴリ入口**に会員CTAを配置（買い切りCTAは維持し、即金アンカーの後＝LTV枠として末尾に追加）。非重複の一線（過去問・完成答案は会員に入れない）は維持。
+- **運営者の残作業（flip でサイトに自動表示）**: ①note でメンバーシップ「土木セコカン 1発合格ラボ」を 2 プランで作成し URL 取得 → ②`civil-membership-lab` の `noteUrl` を埋め `published: true` に変更 → ③カバー画像 `public/images/magazines/civil-membership-lab-cover.webp` を作成 → ④commit・デプロイ。これで該当 slug ページに会員CTAが自動表示される。
+- 別系統の残作業（手動）: 添削実測ゲート（計画 §5.1）／note 上の特典マガジン設定／note公開済みの「土木もくじ」への会員セクション追記（再公開が必要）。
+
 ## 配信カレンダー（試験日まで全話仕込み済み・週1ドリップ）
 
 5管理 × 2角度 = 10週 ＋ 直前1週。**制作は build-once（仕込み済み）／配信は週1**（特典マガジンに週1本追加＝会員へ自動配信）。
