@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-23T03:29:25.948Z",
+    "generated_at": "2026-06-23T03:51:19.149Z",
     "path": ".local/r2/posts/**/img/*.svg",
     "file": null,
     "note": "exam crop dirs (h*-primary, primary-h*) are excluded — audited by civil-exam-figure-auditor instead"
@@ -8,16 +8,16 @@
   "summary": {
     "scanned_files": 178,
     "exam_crops_skipped": 20,
-    "files_with_issues": 42,
-    "total_findings": 180,
+    "files_with_issues": 35,
+    "total_findings": 168,
     "by_severity": {
       "HIGH": 0,
-      "MEDIUM": 10,
-      "LOW": 170
+      "MEDIUM": 0,
+      "LOW": 168
     },
     "by_pattern": {
-      "P4-tiny-font": 150,
-      "P9-text-rect-overflow": 30
+      "P4-tiny-font": 148,
+      "P9-text-rect-overflow": 20
     }
   },
   "findings": [
@@ -78,12 +78,6 @@
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\rpa\\img\\figure-1.svg",
-      "pattern": "P9-text-rect-overflow",
-      "severity": "MEDIUM",
-      "detail": "「3：研究段階」が rect(x=32,w=348) 右端 x=380 を超過（bbox 右端 x=385）"
-    },
-    {
       "file": ".local\\r2\\posts\\pe-comprehensive-management\\risk-treatment\\img\\figure-2.svg",
       "pattern": "P9-text-rect-overflow",
       "severity": "LOW",
@@ -101,12 +95,6 @@
       "severity": "LOW",
       "text": "出典：労働安全衛生法（平成 28 年改正・SDS 交付対象 640 物質が義務）",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
-    },
-    {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\qc-circle\\img\\figure-1.svg",
-      "pattern": "P9-text-rect-overflow",
-      "severity": "MEDIUM",
-      "detail": "「QCサークル（小集団）→ TQ」が rect(x=32,w=336) 右端 x=368 を超過（bbox 右端 x=378）"
     },
     {
       "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\figure-evm-chart.svg",
@@ -302,12 +290,6 @@
       "severity": "LOW",
       "text": "出典：厚生労働省・安全衛生教育マニュアル（平成 25 年）",
       "detail": "font-size 9px < 11px（モバイル視認性下限）"
-    },
-    {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\occupational-accident-prevention-plan\\img\\figure-accident-factors.svg",
-      "pattern": "P9-text-rect-overflow",
-      "severity": "MEDIUM",
-      "detail": "「事故の型（労働災害）」が rect(x=135,w=130) 右端 x=265 を超過（bbox 右端 x=272）"
     },
     {
       "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\figure-lp-graphical-method.svg",
@@ -622,12 +604,6 @@
       "detail": "「顧客志向の戦略では4Cでの検証」が rect(y=420,h=64) 下端 y=484 を超過（text 下端 y=487.6）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\four-m-analysis\\img\\figure-1.svg",
-      "pattern": "P9-text-rect-overflow",
-      "severity": "MEDIUM",
-      "detail": "「例：作業環境・マニュアル・」が rect(x=12,w=178) 右端 x=190 を超過（bbox 右端 x=196）"
-    },
-    {
       "file": ".local\\r2\\posts\\pe-comprehensive-management\\four-e-countermeasures\\img\\figure-four-e-overview.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
@@ -852,12 +828,6 @@
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\essay-exam-strategy\\img\\figure-4-15-three-layer-structure.svg",
-      "pattern": "P9-text-rect-overflow",
-      "severity": "MEDIUM",
-      "detail": "「・最大リスク 1 点（トレード」が rect(x=10,w=380) 右端 x=390 を超過（bbox 右端 x=397）"
-    },
-    {
       "file": ".local\\r2\\posts\\pe-comprehensive-management\\environmental-impact-assessment\\img\\figure-eia-target-categories.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
@@ -981,12 +951,6 @@
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\carbon-neutral\\img\\figure-2.svg",
-      "pattern": "P9-text-rect-overflow",
-      "severity": "MEDIUM",
-      "detail": "「2050年カーボンニュートラル」が rect(x=80,w=202) 右端 x=282 を超過（bbox 右端 x=292）"
-    },
-    {
       "file": ".local\\r2\\posts\\pe-comprehensive-management\\break-even-point\\img\\figure-break-even-chart.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
@@ -1053,21 +1017,7 @@
       "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-8.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
-      "text": "ショベル",
-      "detail": "font-size 9px < 11px（モバイル視認性下限）"
-    },
-    {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-8.svg",
-      "pattern": "P4-tiny-font",
-      "severity": "LOW",
       "text": "（油圧）",
-      "detail": "font-size 9px < 11px（モバイル視認性下限）"
-    },
-    {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-8.svg",
-      "pattern": "P4-tiny-font",
-      "severity": "LOW",
-      "text": "（機械式）",
       "detail": "font-size 9px < 11px（モバイル視認性下限）"
     },
     {
@@ -1125,24 +1075,6 @@
       "severity": "LOW",
       "text": "油圧式／機械式は作業動力の伝達方式による分類",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
-    },
-    {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-8.svg",
-      "pattern": "P9-text-rect-overflow",
-      "severity": "MEDIUM",
-      "detail": "「ローディング」が rect(x=125,w=60) 右端 x=185 を超過（bbox 右端 x=191）"
-    },
-    {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-8.svg",
-      "pattern": "P9-text-rect-overflow",
-      "severity": "MEDIUM",
-      "detail": "「クラムシェル」が rect(x=215,w=60) 右端 x=275 を超過（bbox 右端 x=281）"
-    },
-    {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-8.svg",
-      "pattern": "P9-text-rect-overflow",
-      "severity": "MEDIUM",
-      "detail": "「ドラグライン」が rect(x=280,w=60) 右端 x=340 を超過（bbox 右端 x=346）"
     },
     {
       "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-13.svg",
@@ -1232,12 +1164,6 @@
       "severity": "LOW",
       "text": "被えい航物件",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
-    },
-    {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-network-schedule\\img\\figure-3-19.svg",
-      "pattern": "P9-text-rect-overflow",
-      "severity": "MEDIUM",
-      "detail": "「フロート = LST－EST₃」が rect(x=20,w=360) 右端 x=380 を超過（bbox 右端 x=390）"
     },
     {
       "file": ".local\\r2\\posts\\civil-construction-1\\textbook-network-schedule\\img\\figure-3-17.svg",
