@@ -176,11 +176,11 @@ mcp__claude_ai_Google_Drive__create_file(
 )
 ```
 
-**PNG 4 枚**: base64 サイズ上限（約 80 KB = 107K chars）のため MCP 経由不可。以下のいずれかで転送:
+**PNG 4 枚**: `mcp__filesystem__read_text_file` の出力上限が約 25K chars のため MCP 経由不可（最小の 03-cta.png でも 57KB → 76K chars base64 → 3× オーバー）。PNG は git に commit 済みなので転送が必要な場合は以下:
 
 1. Windows Explorer で `docs/sns/instagram/{keyword}/carousel/img/` を開き → ブラウザで drive.google.com にドラッグ＆ドロップ
-2. `copy docs\sns\instagram\{keyword}\carousel\img\*.png C:\tmp\` → C:\tmp\ からブラウザ転送
-3. Mac 側に repo があれば Mac で `.tmp/svg-to-png.mjs` を実行して生成
+2. Mac 側に repo があれば Mac で `.tmp/svg-to-png.mjs` を実行して生成
+3. OAuth スクリプト（`C:\tmp\upload-to-drive.mjs`）: Drive スコープのトークンを取得して REST API で直接アップロード（ブラウザ認可 1 回のみ必要）
 
 ## 担当外
 
