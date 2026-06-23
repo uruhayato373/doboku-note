@@ -62,6 +62,7 @@
 
   <!-- 凡例帯 -->
   <rect x="32" y="468" width="336" height="24" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
-  <text font-size="11" fill="#555" x="200" y="484" text-anchor="middle" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif">QCサークル（小集団）→ TQM（全社）の2層構造で品質文化を形成</text>
+  <text font-size="11" fill="#555" x="200" y="478" text-anchor="middle" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif">QCサークル（小集団）→ TQM（全社）</text>
+  <text font-size="11" fill="#555" x="200" y="491" text-anchor="middle" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif">の2層構造で品質文化を形成</text>
 
 </svg>
