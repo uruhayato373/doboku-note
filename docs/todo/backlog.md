@@ -306,12 +306,12 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 ### content-angle P-1 カルーセルパイロット 🟢
 
-**出典**: `docs/handoffs/2026-06-09-content-angle-implementation.md`
+**前提**: P-2（X experience）は 2026-06-15 完了済（draft 059・x-post-qa 3.0）。残るは P-1（IG）のみ。真実源 → `docs/reference/content-angle-policy.md`（§5 Red Line・§6.2 骨子）。2段階の実装設計・Phase 2 ビルダー仕様・検証ルーブリックの詳細 → `docs/handoffs/_archive/2026-06-09-content-angle-implementation.md`。
 
 **残作業**:
-1. `ig-carousel-writer` で `angle: counter`（反論切り口）の slide-data.json を執筆（source: note 記事「キーワード集が点にならない理由」）
-2. `ig-post-create` で PNG 化 → `ig-carousel-qa` で採点
-3. 結果が過去問パック平均を上回った場合のみ Phase 2 へ（angle-slides.mjs・tokens.json 等）
+1. `ig-carousel-writer` で `angle: counter`（反論切り口）の slide-data.json を執筆（source: note 記事「キーワード集が点にならない理由」・既存 notebook-* 型再利用・`meta.angle: counter`）。`meta.angle` が lint を通るか確認（弾かれたら slide-data スキーマを最小拡張）
+2. `ig-post-create` で PNG 化 → `ig-carousel-qa` で採点。完了条件 = PNG が角度骨子に沿う（cover が言い切り/「〜は逆」）＋角度純度 OK（主角度1つ・反論骨子・verbatim なし）＋ Red Line（content-angle-policy §5）逸脱なし
+3. 結果が過去問パック平均（保存数・リーチ）を上回った場合のみ Phase 2 へ（`angle-slides.mjs`＋`slide-render.mjs` dispatch・tokens.json 角度トークン・`ig-post-create --angle/--source` ＋ SKILL.md/skills-guide.md 更新）
 
 ---
 
@@ -380,5 +380,8 @@ Hero → ExamCards → LatestArticles → AboutSection
 **方針決定後の残作業**:
 - 低確度フラグ問題（約40問）の人手校正（`.tmp/cd-final9.json` / `.tmp/cd-final10.json`）
 - 欠番3問（問48・56・85）を MDX に補完
-- cd-essay-magazine の note カバー画像生成 → note 投稿（Mac）
+- cd-essay-magazine の note カバー画像生成 → note 投稿（Mac）＋ `magazine-placement.ts` に診断士ページ→マガジンの placement 配線（vertical 公開後）
+- cd-essay 記述式論述の公開前 人手レビュー（`civil-keiken-essay-qa` は施工経験記述専用で非対応）
 - `npm run refresh-indexes` 実行
+
+**整備の詳細記録**: 自己修復パイプライン・資産インベントリ（18記事・図84点）・並行セッション事故の経緯は `docs/handoffs/_archive/2026-05-30-concrete-diagnostician.md`（退避済）。

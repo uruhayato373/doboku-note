@@ -321,6 +321,39 @@ B. 実験進捗レポート:
 - PSI 違反 Issue（`performance` / `auto-generated`）や個別 Issue は本エージェントの対象外
 ```
 
+#### Agent H: handoff/doc ライフサイクル棚卸し（surface）
+
+```
+目的: docs/handoffs/ に active handoff が溜まるのを週次で検出する。
+      機械 surfacer の候補を列挙し、タスク抽出・退避を促す。判定も適用もしない。
+
+調査項目:
+- node scripts/check-doc-lifecycle.mjs --json   （age>=14d / orphan / tracked / 本文の PR#・SHA 言及）
+- 各候補が docs/todo/ から参照されているか
+  （tracked=あり → 生きたタスクは backlog 済みで ARCHIVE 候補 /
+   tracked=なし → backlog へのタスク抽出漏れの疑い）
+
+出力形式: 「## ドキュメント棚卸し（handoff 退避候補）」セクションに以下を埋め込む
+
+## ドキュメント棚卸し（handoff 退避候補）
+
+### active handoff 候補（{m} 件）
+| handoff | 経過 | tracked(todo) | 完了シグナル(PR/SHA) | 推奨 |
+|---|---|---|---|---|
+| 2026-MM-DD-xxx.md | 21d | あり | #123 | /doc-declutter で退避判定 |
+
+- tracked=あり: 生きたタスクは backlog 済み → handoff は ARCHIVE 候補
+- tracked=なし: backlog へタスク抽出してから ARCHIVE（抽出漏れ注意）
+
+### アクション提案
+- 候補が 1 件以上 → 次のローカルセッションで `/doc-declutter` を実行（外部実体を検証して抽出/退避）
+
+注意:
+- 本エージェントは surface のみ。archive/抽出/commit はしない（判定・適用は doc-curator + /doc-declutter）
+- 候補 0 件なら「棚卸し不要」と記録し次節をスキップ
+- _archive 内は対象外（check-doc-lifecycle が既に除外済み）
+```
+
 ### Phase 2: 分析・統合
 
 1. **達成率**: 計画タスクの完了率

@@ -83,7 +83,7 @@ grep -rl '<handoff-basename>' ~/.claude/projects/*/memory/ 2>/dev/null
 verdict を一覧提示し、ユーザー承認後に親が適用:
 
 - **TRIM**: 完了行を Edit で除去。完了の事実は「注」で 1 行残す（誤読防止）。EOL 保持。
-- **ARCHIVE**: `git mv <doc> docs/handoffs/_archive/<doc>`。全参照を `_archive/` パスへ Edit。memory のポインタも更新。
+- **ARCHIVE**: まず handoff 内に**生きたタスク**が残っていれば `docs/todo/backlog.md` へ抽出（各タスクの出典に退避後の `_archive/` パスを明記）してから `git mv <doc> docs/handoffs/_archive/<doc>`。全参照を `_archive/` パスへ Edit。memory のポインタも更新。
 - **DELETE**: `git rm <doc>`。全参照を SSOT へ張り替え。memory 同期。
 - **CONSOLIDATE**: 内容を統合先へ移し、重複側を ARCHIVE/DELETE。参照は統合先へ。
 
