@@ -102,7 +102,23 @@ note 記事本文は **ProseMirror**。書き込み自動化の可否が操作�
 - **△ 箇条書き（`- `）は typing で自動変換されない**（テキストのまま）。
 - **✗ 既存段落の上書きは不安定**: triple-click / Shift+click 選択→打ち直しが**過剰選択・段落併合・ロケータ陳腐化**で破損（見出しと本文が結合する等）。**既存価格・本文の書き換えは手動が安全**。
 - **公開済み記事は「一時保存」で下書きが保持されない**（再オープンで公開版ロード）。変更は**「公開に進む→更新する」＝即公開**でしか反映されない＝**安全プレビュー不可**。自動編集は検証ゲートを挟み NG なら公開しない運用。
-- **結論**: note 記事本文の自動化は「新規カード/セクション挿入」に限定し、既存テキストの書き換えは手動。
+- **結論（2026-06-15 時点）**: note 記事本文の自動化は「新規カード/セクション挿入」に限定し、既存テキストの書き換えは手動。
+
+### 本文一括差し替え: `note-update-body`（2026-06-23 新設）
+
+上記「結論」の例外として、**ソースファイル（article.md）全体を Ctrl+A → paste で貼り直す**方式で、既公開記事の本文を差し替えるスクリプトを新設。部分選択の段落破損を回避できる。
+
+```bash
+node scripts/note-update-body.mjs --article <article.md>
+node scripts/note-update-body.mjs --list   <list.txt>   # 複数記事
+# npm 経由: npm run note-update-body -- --article <path>
+```
+
+- `noteId` を frontmatter から取得し `editor.note.com/notes/{noteId}/edit` へ直接遷移
+- Ctrl+A 全選択 → ClipboardEvent paste で一括置換（ProseMirror の部分選択問題を回避）
+- URL 行のリンクカード化（type→Enter）まで自動。カバー画像・タイトル・タグは変更しない
+- 公開状態を変えない（下書き保存のみ）。BOM 付きファイル対応済み
+- 実証: 2026-06-23 13 記事 ok=13 / fail=0
 
 ## 記事 frontmatter への公開URL backfill: backfill-note-article-meta
 
