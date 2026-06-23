@@ -189,9 +189,10 @@ function todayISO() {
 function doMark(packDir) {
   const date = flags.date || todayISO();
   const data = { at: date };
+  if (flags.url) data.url = String(flags.url).split("?")[0]; // shortcode のみ保持
   if (flags.note) data.note = String(flags.note);
   writeFileSync(join(packDir, "posted.json"), JSON.stringify(data, null, 2) + "\n", "utf8");
-  console.log(`marked: ${relative(IG_DIR, packDir).replace(/\\/g, "/")}  at=${date}${flags.note ? ` note=${flags.note}` : ""}`);
+  console.log(`marked: ${relative(IG_DIR, packDir).replace(/\\/g, "/")}  at=${date}${flags.url ? ` url=${data.url}` : ""}${flags.note ? ` note=${flags.note}` : ""}`);
 }
 
 function doUnmark(packDir) {
