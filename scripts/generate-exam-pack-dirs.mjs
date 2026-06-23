@@ -1,9 +1,9 @@
-#!/usr/bin/env node
+﻿#!/usr/bin/env node
 /**
  * generate-exam-pack-dirs.mjs
  *
  * exam-questions.json から「4 問パック」単位で
- * docs/sns/instagram/_exam-packs/<year>/pack-NN/slide-data.json を生成。
+ * docs/sns/instagram/{exam}/exam-packs/<year>/pack-NN/slide-data.json を生成。
  *
  * 1 パック = cover + 4×(problem+answer) + cta = 10 枚カルーセル。
  * パック内 4 問は同じ管理（既存 quiz-ig.mjs 4 問パックと同構造）。
