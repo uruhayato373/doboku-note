@@ -40,11 +40,12 @@
 
   <!-- ① 目的及び調査範囲の設定 (2 lines, height=74) -->
   <rect class="box-brand" x="14" y="12" width="174" height="74" rx="7"/>
-  <circle class="badge-brand" cx="35" cy="42" r="12"/>
-  <text class="t-main" x="35" y="47" text-anchor="middle">①</text>
-  <text class="t-main" x="54" y="38">目的及び</text>
-  <text class="t-main" x="54" y="56">調査範囲の設定</text>
-  <text class="t-note" x="54" y="74">分析対象・機能単位・境界を定義</text>
+  <circle class="badge-brand" cx="35" cy="40" r="12"/>
+  <text class="t-main" x="35" y="45" text-anchor="middle">①</text>
+  <text class="t-main" x="54" y="35">目的及び</text>
+  <text class="t-main" x="54" y="51">調査範囲の設定</text>
+  <text class="t-note" x="54" y="65">分析対象・機能単位</text>
+  <text class="t-note" x="54" y="79">境界を定義</text>
 
   <!-- ↕ ①⇄② -->
   <line x1="92" y1="86" x2="92" y2="108" stroke="#2e6da4" stroke-width="2" marker-end="url(#ad)"/>
@@ -52,11 +53,13 @@
 
   <!-- ② インベントリ分析 (1 line + sub, height=74) -->
   <rect class="box-brand" x="14" y="110" width="174" height="74" rx="7"/>
-  <circle class="badge-brand" cx="35" cy="140" r="12"/>
-  <text class="t-main" x="35" y="145" text-anchor="middle">②</text>
-  <text class="t-main" x="54" y="138">インベントリ分析</text>
-  <text class="t-note" x="54" y="156">資源投入量・排出量を定量化</text>
-  <text class="t-note" x="54" y="174">積上法 / 産業連関法で集計</text>
+  <circle class="badge-brand" cx="35" cy="126" r="12"/>
+  <text class="t-main" x="35" y="131" text-anchor="middle">②</text>
+  <text class="t-main" x="54" y="122">インベントリ分析</text>
+  <text class="t-note" x="54" y="140">資源投入量・排出量を</text>
+  <text class="t-note" x="54" y="153">定量化</text>
+  <text class="t-note" x="54" y="166">積上法 / 産業連関法</text>
+  <text class="t-note" x="54" y="179">で集計</text>
 
   <!-- ↕ ②⇄③ -->
   <line x1="92" y1="184" x2="92" y2="206" stroke="#2e6da4" stroke-width="2" marker-end="url(#ad)"/>
@@ -64,11 +67,12 @@
 
   <!-- ③ 影響評価 (1 line + sub, height=74) -->
   <rect class="box-brand" x="14" y="208" width="174" height="74" rx="7"/>
-  <circle class="badge-brand" cx="35" cy="238" r="12"/>
-  <text class="t-main" x="35" y="243" text-anchor="middle">③</text>
-  <text class="t-main" x="54" y="236">影響評価</text>
-  <text class="t-note" x="54" y="254">分類化→特性化→重み付け</text>
-  <text class="t-note" x="54" y="272">インパクトカテゴリへ分類</text>
+  <circle class="badge-brand" cx="35" cy="232" r="12"/>
+  <text class="t-main" x="35" y="237" text-anchor="middle">③</text>
+  <text class="t-main" x="54" y="227">影響評価</text>
+  <text class="t-note" x="54" y="245">分類化→特性化→重み付け</text>
+  <text class="t-note" x="54" y="260">インパクトカテゴリ</text>
+  <text class="t-note" x="54" y="274">へ分類</text>
 
   <!-- ============ CENTER: ④ 解釈 (warn, tall) ============ -->
   <!-- x=200, width=68, covering y=12 to y=282 → height=270 -->
@@ -82,15 +86,15 @@
   <text class="t-note" x="234" y="246" text-anchor="middle">反復する</text>
 
   <!-- bidirectional arrows: 本流↔解釈 -->
-  <!-- ①↔解釈 at y≈42/52 -->
-  <line x1="188" y1="42" x2="200" y2="42" stroke="#d4a017" stroke-width="1.8" marker-end="url(#ar)"/>
-  <line x1="200" y1="52" x2="188" y2="52" stroke="#d4a017" stroke-width="1.8" marker-end="url(#al)"/>
-  <!-- ②↔解釈 at y≈140/150 -->
-  <line x1="188" y1="140" x2="200" y2="140" stroke="#d4a017" stroke-width="1.8" marker-end="url(#ar)"/>
-  <line x1="200" y1="150" x2="188" y2="150" stroke="#d4a017" stroke-width="1.8" marker-end="url(#al)"/>
-  <!-- ③↔解釈 at y≈238/248 -->
-  <line x1="188" y1="238" x2="200" y2="238" stroke="#d4a017" stroke-width="1.8" marker-end="url(#ar)"/>
-  <line x1="200" y1="248" x2="188" y2="248" stroke="#d4a017" stroke-width="1.8" marker-end="url(#al)"/>
+  <!-- ①↔解釈 at y≈40/50 (adjusted for badge cy=40) -->
+  <line x1="188" y1="40" x2="200" y2="40" stroke="#d4a017" stroke-width="1.8" marker-end="url(#ar)"/>
+  <line x1="200" y1="50" x2="188" y2="50" stroke="#d4a017" stroke-width="1.8" marker-end="url(#al)"/>
+  <!-- ②↔解釈 at y≈147/157 (adjusted for badge cy=126) -->
+  <line x1="188" y1="147" x2="200" y2="147" stroke="#d4a017" stroke-width="1.8" marker-end="url(#ar)"/>
+  <line x1="200" y1="157" x2="188" y2="157" stroke="#d4a017" stroke-width="1.8" marker-end="url(#al)"/>
+  <!-- ③↔解釈 at y≈245/255 (adjusted for badge cy=232) -->
+  <line x1="188" y1="245" x2="200" y2="245" stroke="#d4a017" stroke-width="1.8" marker-end="url(#ar)"/>
+  <line x1="200" y1="255" x2="188" y2="255" stroke="#d4a017" stroke-width="1.8" marker-end="url(#al)"/>
 
   <!-- ============ RIGHT COLUMN: 直接の用途 ============ -->
   <!-- arrow from 解釈 → 用途 -->
