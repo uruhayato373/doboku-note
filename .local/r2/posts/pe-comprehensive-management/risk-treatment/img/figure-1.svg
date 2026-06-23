@@ -58,9 +58,11 @@
   <text class="t-num" x="40" y="171" text-anchor="middle">C</text>
   <text class="t-label" x="62" y="167">リスク回避</text>
   <text class="t-en" x="62" y="182">Risk Avoidance</text>
-  <text class="t-detail" x="28" y="206">具体的対策が困難な場合に適用</text>
-  <text class="t-detail" x="28" y="223">手法・方策を別のものに変更</text>
-  <text class="t-detail" x="28" y="240">事業・投資自体を断念</text>
+  <text class="t-detail" x="28" y="202">具体的対策が困難な</text>
+  <text class="t-detail" x="28" y="215">場合に適用</text>
+  <text class="t-detail" x="28" y="228">手法・方策を</text>
+  <text class="t-detail" x="28" y="241">別のものに変更</text>
+  <text class="t-detail" x="28" y="254">事業・投資自体を断念</text>
 
   <!-- D: リスク保有 (muted/surface) -->
   <rect class="box-muted" x="208" y="144" width="176" height="116" rx="8"/>
@@ -68,26 +70,28 @@
   <text class="t-num" x="232" y="171" text-anchor="middle">D</text>
   <text class="t-label" x="254" y="167">リスク保有</text>
   <text class="t-en" x="254" y="182">Risk Retention</text>
-  <text class="t-detail" x="210" y="206">対策コストが効果を上回る場合</text>
-  <text class="t-detail" x="220" y="223">リスクを受容（保有）する</text>
-  <text class="t-detail" x="220" y="240">→ 監視継続・状況変化で対策</text>
+  <text class="t-detail" x="212" y="206">対策コストが効果を</text>
+  <text class="t-detail" x="212" y="219">上回る場合</text>
+  <text class="t-detail" x="212" y="232">リスクを受容（保有）する</text>
+  <text class="t-detail" x="212" y="245">→ 監視継続・状況変化で対策</text>
 
   <!-- リスク値の式 -->
-  <rect x="16" y="276" width="368" height="38" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
-  <text font-size="12" font-weight="bold" fill="#1a3a5c" x="200" y="300" text-anchor="middle" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif">リスク値＝被害額 × 発生確率　→ 右上（高）から左下（低）へ</text>
+  <rect x="16" y="276" width="368" height="50" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <text font-size="12" font-weight="bold" fill="#1a3a5c" x="200" y="296" text-anchor="middle" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif">リスク値＝被害額 × 発生確率</text>
+  <text font-size="12" font-weight="bold" fill="#1a3a5c" x="200" y="314" text-anchor="middle" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif">→ 右上（高）から左下（低）へ</text>
 
   <!-- ALARP原則フッター -->
-  <rect class="foot-bar" x="16" y="328" width="368" height="100" rx="6"/>
-  <text font-size="12" font-weight="bold" fill="#1a3a5c" x="200" y="352" text-anchor="middle" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif">ALARP原則（As Low As Reasonably Practicable）</text>
-  <text class="t-foot" x="200" y="372" text-anchor="middle">合理的かつ実行可能な限り、リスクをできるだけ低くする</text>
-  <text class="t-foot" x="200" y="390" text-anchor="middle">※ リスクは低減できても「絶対安全（リスクゼロ）」にはできない</text>
+  <rect class="foot-bar" x="16" y="334" width="368" height="100" rx="6"/>
+  <text font-size="12" font-weight="bold" fill="#1a3a5c" x="200" y="358" text-anchor="middle" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif">ALARP原則（As Low As Reasonably Practicable）</text>
+  <text class="t-foot" x="200" y="378" text-anchor="middle">合理的かつ実行可能な限り、リスクをできるだけ低くする</text>
+  <text class="t-foot" x="200" y="396" text-anchor="middle">※ リスクは低減できても「絶対安全（リスクゼロ）」にはできない</text>
 
   <!-- 凡例 -->
-  <rect x="16" y="446" width="368" height="44" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
-  <rect x="28" y="456" width="14" height="14" rx="2" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.2"/>
-  <text class="t-foot" x="48" y="467">低減・移転（積極対処）</text>
-  <rect x="170" y="456" width="14" height="14" rx="2" fill="#fff3cd" stroke="#d4a017" stroke-width="1.2"/>
-  <text class="t-foot" x="190" y="467">回避（断念）</text>
-  <rect x="290" y="456" width="14" height="14" rx="2" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.2"/>
-  <text class="t-foot" x="310" y="467">保有（受容）</text>
+  <rect x="16" y="452" width="368" height="44" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <rect x="28" y="462" width="14" height="14" rx="2" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.2"/>
+  <text class="t-foot" x="48" y="473">低減・移転（積極対処）</text>
+  <rect x="170" y="462" width="14" height="14" rx="2" fill="#fff3cd" stroke="#d4a017" stroke-width="1.2"/>
+  <text class="t-foot" x="190" y="473">回避（断念）</text>
+  <rect x="290" y="462" width="14" height="14" rx="2" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.2"/>
+  <text class="t-foot" x="310" y="473">保有（受容）</text>
 </svg>
