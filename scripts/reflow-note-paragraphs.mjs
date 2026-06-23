@@ -8,7 +8,10 @@
  *
  * 対象外（触らない）: frontmatter / 見出し(#) / 箇条書き(- * +) / 引用(>) / 表(|) / 水平線(---) /
  *   コードフェンス(```) / URL 単独行 / 太字だけの行（**こんな人…** **Q. …** 等の見出し的ブロック）/
- *   essay マガジンの答案本文（「## 試験問題 / ## 予想問題 / ## A 案 / ## B 案」以降は連続散文のため保護）。
+ *   画像行（![alt](...)）/ essay マガジンの答案本文（「## 試験問題 / ## 予想問題 / ## A 案 / ## B 案」以降）。
+ *
+ * ⚠ 画像行保護: isPlainPara で `![` 先頭を除外（2026-06-23 修正）。
+ *   修正前は alt text 内の「。」で誤分割し img/... 参照が壊れる事故が発生していた。
  *
  * 真実源（段落長の目安）: docs/reference/content-principles.md §14-e
  * 関連: scripts/note-lint.mjs（note 非互換の BLOCK ゲート）/ /note-prepublish-review（--dry を WARN として呼ぶ）
@@ -53,7 +56,7 @@ const visLen = (s) => s.replace(/\s/g, '').length;
 
 function isPlainPara(block) {
   const t = block.trimStart();
-  if (/^(#{1,6}\s|[-*+]\s|>\s?|\||---|```|https?:\/\/)/.test(t)) return false;
+  if (/^(#{1,6}\s|[-*+]\s|>\s?|\||---|```|https?:\/\/|!\[)/.test(t)) return false;
   // 太字だけの見出し的ブロック（**こんな人…** / **Q. …**）は対象外
   if (/^\*\*/.test(t) && /\*\*\s*$/.test(t.split('\n')[0])) return false;
   return true;

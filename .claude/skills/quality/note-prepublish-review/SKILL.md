@@ -352,3 +352,20 @@ node .claude/scripts/build-note-published-index.mjs
 - **対象は `docs/note/` 配下のみ**（doboku-note 本体の MDX は `/check-mdx` 等の別スキル管轄）
 - **実行は記事 1 本ずつ**（バルク対応は別スキル `/bulk-note-review` を将来検討）
 - **本スキルは編集を行いうる**（link-injector による）。`--audit-only` で抑制可能
+- **スコープ**: 総監・建設部門・1級・2級土木 いずれの集客記事も対象（試験種不問）
+
+## 公開前 reflow フロー（段落長 4f WARN が出たとき）
+
+Phase 1 4f で「>120字の段落」WARN が出たら、公開前に以下を適用する：
+
+```bash
+# 1. 実適用（img/ 参照や見出しは自動保護）
+npm run note-reflow -- "{記事ディレクトリ}"
+
+# 2. git diff で画像参照が壊れていないか確認
+git diff docs/note/...
+
+# 3. commit してから note-publish
+```
+
+> ⚠ 2026-06-23 まで `reflow-note-paragraphs.mjs` に画像 alt text 誤分割バグあり（`![` 先頭を対象外にする修正済み）。旧バージョンで実行済みの場合は `fix-alt-text.mjs` で事後修正可。
