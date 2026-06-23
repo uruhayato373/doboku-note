@@ -1,4 +1,4 @@
-# Instagram カルーセル品質ポリシー
+﻿# Instagram カルーセル品質ポリシー
 
 技術士・総合技術監理キーワードの Instagram カルーセル（`slide-data.json` v2）を、agent が1本ずつ執筆・採点するための品質基準。`ig-carousel-writer`（Generator）と `ig-carousel-qa`（Evaluator）の両方がこの文書を真実源とする。
 
@@ -57,7 +57,7 @@
 
 ## 過去問パック（exam モード）専用スキーマ
 
-`docs/sns/instagram/_exam-packs/{試験}/<year>/pack-<NN>/slide-data.json` は別構造。
+`docs/sns/instagram/{exam}/exam-packs/<year>/pack-<NN>/slide-data.json` は別構造。
 デザイン真実源は [`docs/design-system/instagram-carousel-tokens.json`](../design-system/instagram-carousel-tokens.json)、仕様書は [`docs/design-system/instagram-carousel.md`](../design-system/instagram-carousel.md)。
 
 ```jsonc

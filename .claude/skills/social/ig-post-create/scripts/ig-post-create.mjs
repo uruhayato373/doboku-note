@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Instagram カルーセル PNG 生成スクリプト
  *
  * 2 つの運用モード:
@@ -15,7 +15,7 @@
  * オプション:
  *   --slug        単独 KW のスラグ（--exam と排他）
  *   --exam        過去問パック ID (例: r07-pack-01)。slide-data.json は
- *                 docs/sns/instagram/_exam-packs/{試験}/<year>/pack-<NN>/ から読む
+ *                 docs/sns/instagram/{exam}/exam-packs/<year>/pack-<NN>/ から読む
  *   --exam-dir    試験軸ディレクトリ（例: 1級土木 / 2級土木）。省略時=技術士総監
  *   --date        投稿日（YYYY-MM-DD）[省略時: 今日。--exam では未使用]
  *   --size        reels | carousel | both [省略時: both]
@@ -25,7 +25,7 @@
  *
  * 出力先:
  *   --slug: docs/sns/instagram/{date}-{slug}/{reels,carousel}/img/
- *   --exam: docs/sns/instagram/_exam-packs/{試験}/{year}/pack-{NN}/{reels,carousel}/img/
+ *   --exam: docs/sns/instagram/{exam}/exam-packs/{year}/pack-{NN}/{reels,carousel}/img/
  *
  * 関連スキル:
  *   - 択一クイズパック（運営者作問・シリーズ A）: .claude/scripts/sns/render-quiz-pack.mjs
@@ -234,10 +234,10 @@ if (mode === 'exam') {
     process.exit(1);
   }
   const [, year, packNum] = match;
-  // 試験軸: _exam-packs/{試験}/{年度}/pack-NN（全資格対称）。
+  // 試験軸: {exam}/exam-packs/{年度}/pack-NN（全資格対称）。
   // --exam-dir 省略時は技術士総監（既定）。多資格は 1級土木 / 2級土木 等を明示。
   const resolvedExamDir = examDir || '技術士総監';
-  outBase = resolve(ROOT, `docs/sns/instagram/_exam-packs/${resolvedExamDir}/${year}/pack-${packNum}`);
+  outBase = resolve(ROOT, `docs/sns/instagram/cem/exam-packs/${resolvedExamDir}/${year}/pack-${packNum}`);
 } else {
   outBase = resolve(ROOT, `docs/sns/instagram/${date}-${slug}`);
 }

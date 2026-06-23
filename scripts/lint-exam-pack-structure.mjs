@@ -36,7 +36,12 @@ import { chooseProblemLayout } from '../.claude/scripts/lib/sns-common/quiz-slid
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const BASE = join(ROOT, 'docs/sns/instagram/_exam-packs');
+const EXAM_KEYS = ['cem', 'civil-1', 'civil-2', 'pe-construction'];
+const BASE_MAP = Object.fromEntries(
+  EXAM_KEYS.map((k) => [k, join(ROOT, 'docs/sns/instagram', k, 'exam-packs')]),
+);
+const examArg = process.argv.find((a) => a.startsWith('--exam='))?.split('=')[1] || 'cem';
+const BASE = BASE_MAP[examArg] ?? BASE_MAP.cem;
 
 const args = process.argv.slice(2);
 const strict = args.includes('--strict');

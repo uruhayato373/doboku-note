@@ -1,4 +1,4 @@
----
+﻿---
 name: ig-highlight-designer
 description: Instagram ハイライト (highlights/NN_*) 用 Stories の slide-data.json を設計・執筆する Generator エージェント。モダンシック意匠（色面背景 + 大型タイポ + ミニマル幾何アイコン）と data 駆動レイアウトに準拠。
 model: sonnet
@@ -25,7 +25,7 @@ Instagram ハイライト系統 A 6 種（`docs/sns/instagram/highlights/NN_*/`�
 
 | エージェント | 対象ファイル | 文脈 |
 |---|---|---|
-| `ig-stories-writer` | `_exam-packs/{試験}/<year>/pack-NN/stories/caption.txt` + `note.md` | **過去問パック 4 枚連投**の重ねテキスト・リンクスタンプ・ステッカー文言（ストーリー投稿時の運用キュレーション） |
+| `ig-stories-writer` | `{exam}/exam-packs/<year>/pack-NN/stories/caption.txt` + `note.md` | **過去問パック 4 枚連投**の重ねテキスト・リンクスタンプ・ステッカー文言（ストーリー投稿時の運用キュレーション） |
 | **`ig-highlight-designer`**（本エージェント） | `highlights/NN_*/slide-data.json` | **ハイライト用 6-7 枚 Stories** の構造化データ（PNG レンダリング用、モダンシック意匠） |
 
 両者は対象が独立しており統合しない。

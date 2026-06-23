@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+﻿#!/usr/bin/env node
 /**
  * YouTube Shorts サムネイル（thumbnail.png）のみを生成して R2 にアップする。
  *
@@ -53,7 +53,7 @@ const keyIdx = process.argv.indexOf('--key');
 const targetKey = keyIdx !== -1 ? process.argv[keyIdx + 1] : null;
 
 const W = 1080;
-const EXAM_DIR = 'docs/sns/instagram/_exam-packs/技術士総監';
+const EXAM_DIR = 'docs/sns/instagram/cem/exam-packs/技術士総監';
 
 const { renderExamCoverIg } = await import(pathToFileURL(resolve('.claude/scripts/sns/templates/exam-cover-ig.mjs')).href);
 const { svgToPng } = await import(pathToFileURL(resolve('.claude/scripts/sns/lib/svg-to-png.mjs')).href);

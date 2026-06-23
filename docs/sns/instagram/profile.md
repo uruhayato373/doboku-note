@@ -1,4 +1,4 @@
----
+﻿---
 title: Instagram プロフィール文案
 purpose: Instagram アカウント (`@doboku_note` 想定) のプロフィール欄に貼り付ける本文の SSoT
 characterLimit: 150
@@ -125,7 +125,7 @@ bio 直下に固定表示できる丸アイコン。プロフィール訪問者�
 | 順 | Highlights | brand-color | 主CTA先 | 素材ソース |
 |---|---|---|---|---|
 | ① | **1級土木** | warmRed (#D9533F) | `/docs/keyword-2026` ほか | civil-construction-1 配下のガイドページ |
-| ② | **技術士総監** | default blue (#1858B5) | `/docs/whitepaper-study-map` | `_exam-packs/` カルーセル + 5管理コンテンツ |
+| ② | **技術士総監** | default blue (#1858B5) | `/docs/whitepaper-study-map` | `{exam}/exam-packs/` カルーセル + 5管理コンテンツ |
 | ③ | **note 無料** | teal (#0F766E) | M2 完全無料記事 | `note.com/dobokunote/n/n60efbccd728b` |
 | ④ | **note 有料** | violet (#4338CA) | `/links`（5マガジン分岐） | `src/lib/note-magazines.ts` の cover |
 | ⑤ | **YouTube** | ink-strong (#14191F) | YouTube チャンネル（**URL 未登録のため保留**） | チャンネル開設後 |
@@ -158,10 +158,10 @@ bio 直下に固定表示できる丸アイコン。プロフィール訪問者�
 ```bash
 # 1. 各パックの「厳選 4 枚」を抽出（reels から cover/Q1/A1/cta をコピー）
 node .claude/scripts/instagram/build-stories.mjs --pack r07-pack-01
-# → _exam-packs/技術士総監/r07/pack-01/stories/img/{01-cover, 02-problem, 03-answer, 04-cta}.png
+# → cem/exam-packs/r07/pack-01/stories/img/{01-cover, 02-problem, 03-answer, 04-cta}.png
 
 # 2. 年度入口の「目次カルーセル cover 1 枚」
-# 既に _exam-packs/{試験}/<year>/_summary/reels/img/00-cover.png として整備済み
+# 既に {exam}/exam-packs/<year>/_summary/reels/img/00-cover.png として整備済み
 ```
 
 **パターン A**（年度入口）: 年度ごとに目次 cover 1 枚をストーリー投稿 → リンクスタンプで目次カルーセル投稿へ → 9 パックから選ぶ 3 階層誘導。  
@@ -192,7 +192,7 @@ node .claude/scripts/instagram/build-stories.mjs --pack r07-pack-01
 
 1. **まず ④ note 有料** — 既存 magazine cover を流用、最短起動
 2. **次に ③ note 無料** — リード磁石（M2）は流入起点として最重要
-3. **③ 技術士総監** — 既存 5管理コンテンツ（`_exam-packs/` カルーセル）の流用が効く
+3. **③ 技術士総監** — 既存 5管理コンテンツ（`{exam}/exam-packs/` カルーセル）の流用が効く
 4. **① 1級土木** — `keyword-2026` `guide-last-minute-2026` のスクショ流用
 5. **⑤ YouTube** — チャンネル開設後に保留解除（`src/config/author.ts` に `youtubeUrl` 追加が前提）
 

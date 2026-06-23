@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+﻿#!/usr/bin/env node
 /**
  * lint-stories-titles.mjs — Stories/過去問パック title 字数 lint
  *
@@ -10,7 +10,7 @@
  *
  * スキャン対象:
  *   - docs/sns/instagram/highlights/<NN_*>/slide-data.json
- *   - docs/sns/instagram/_exam-packs/{試験}/<year>/pack-<NN>/slide-data.json
+ *   - docs/sns/instagram/{exam}/exam-packs/<year>/pack-<NN>/slide-data.json
  *   - docs/sns/instagram/highlights/highlight-materials/ (旧パスはスキップ)
  *
  * Usage:
@@ -30,7 +30,9 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '../..');
 const IG_BASE = join(ROOT, 'docs', 'sns', 'instagram');
 const HIGHLIGHTS_BASE = join(IG_BASE, 'highlights');
-const EXAM_PACKS_BASE = join(IG_BASE, '_exam-packs');
+const EXAM_PACKS_DIRS = ['cem', 'civil-1', 'civil-2', 'pe-construction'].map(
+  (e) => join(IG_BASE, e, 'exam-packs'),
+);
 
 // tokens.json から閾値を読む
 const tokens = JSON.parse(
@@ -114,12 +116,12 @@ function main() {
     const dirPath = resolve(args.dir);
     const jsonPath = join(dirPath, 'slide-data.json');
     if (existsSync(jsonPath)) {
-      const isExam = dirPath.includes('_exam-packs');
+      const isExam = EXAM_PACKS_DIRS.some((d) => dirPath.startsWith(d));
       targets.push({ path: jsonPath, sizes: isExam ? COVER_SIZES : STORIES_SIZES, source: isExam ? 'exam' : 'highlight' });
     } else {
       // ディレクトリ配下を再帰スキャン
       for (const p of findSlideDataJsons(dirPath)) {
-        const isExam = p.includes('_exam-packs');
+        const isExam = EXAM_PACKS_DIRS.some((d) => p.startsWith(d));
         targets.push({ path: p, sizes: isExam ? COVER_SIZES : STORIES_SIZES, source: isExam ? 'exam' : 'highlight' });
       }
     }
@@ -128,8 +130,10 @@ function main() {
     for (const p of findSlideDataJsons(HIGHLIGHTS_BASE)) {
       targets.push({ path: p, sizes: STORIES_SIZES, source: 'highlight' });
     }
-    for (const p of findSlideDataJsons(EXAM_PACKS_BASE)) {
-      targets.push({ path: p, sizes: COVER_SIZES, source: 'exam' });
+    for (const examPacksBase of EXAM_PACKS_DIRS) {
+      for (const p of findSlideDataJsons(examPacksBase)) {
+        targets.push({ path: p, sizes: COVER_SIZES, source: 'exam' });
+      }
     }
   }
 

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * SNS 投稿・動画生成の共通設定。
  * テキスト・URL・YouTube メタデータを一元管理する。
  */
@@ -61,7 +61,7 @@ export const SNS_CONFIG = {
 
   // 5管理区分マップ（label + color）
   // label: notebook cover-title / 過去問パックカバー主役表示 / MDX→管理検出 等、全系統で使用。
-  // color: notebook（slug モード）の cover-badge に加え、過去問パックカバー（_exam-packs / renderExamCoverIg）
+  // color: notebook（slug モード）の cover-badge に加え、過去問パックカバー（exam-packs / renderExamCoverIg）
   //        の上部色帯にも使用する（管理分野を主役にする意匠・2026-06-17 復活。真実源 sns-image-policy.md §12）。
   //        ※ 過去問の本文スライド（problem/answer）の配色は単一 brand のまま（instagram-carousel-tokens.json）。
   managementMap: {

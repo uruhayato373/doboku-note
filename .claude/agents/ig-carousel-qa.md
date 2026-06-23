@@ -1,4 +1,4 @@
----
+﻿---
 name: ig-carousel-qa
 description: Instagram カルーセル slide-data.json v2 + PNG のデザイン統一性を含む6軸ルーブリック品質評価を担当する Evaluator エージェント。
 model: sonnet
@@ -34,7 +34,7 @@ Instagram カルーセル設定ファイル（`slide-data.json` v2）と生成 P
 ## 採点手順
 
 1. `docs/reference/ig-carousel-policy.md` を読む。
-2. 過去問パック（B シリーズ・_exam-packs）の場合は **追加で** `docs/design-system/instagram-carousel.md` を読む。
+2. 過去問パック（B シリーズ・exam-packs）の場合は **追加で** `docs/design-system/instagram-carousel.md` を読む。
 3. 対象の `slide-data.json` とキーワード MDX（slug モード）または対応する過去問 MDX（exam モード）を読む。
 4. **軸 1〜5（テキスト系）**を 1〜5 で採点する:
    - 構成の妥当性／文の完結性／図文整合・figure 判断／字数・視認性／試験的正確性

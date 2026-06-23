@@ -1,6 +1,6 @@
-# Instagram カルーセル デザインシステム
+﻿# Instagram カルーセル デザインシステム
 
-> _exam-packs（H21〜R7 過去問パック）の真実源。トークンの実体は [`instagram-carousel-tokens.json`](./instagram-carousel-tokens.json)。
+> exam-packs（H21〜R7 過去問パック）の真実源。トークンの実体は [`instagram-carousel-tokens.json`](./instagram-carousel-tokens.json)。
 
 ## 1. 概要
 

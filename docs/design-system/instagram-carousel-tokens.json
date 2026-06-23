@@ -1,8 +1,8 @@
-{
+﻿{
   "_meta": {
-    "purpose": "Instagram カルーセル（_exam-packs）の真実源デザイントークン。AIDesigner プロトタイプ準拠。",
+    "purpose": "Instagram カルーセル（exam-packs）の真実源デザイントークン。AIDesigner プロトタイプ準拠。",
     "source": "AIDesigner Instagram Carousel prototype (2026-05-27)",
-    "appliesTo": "docs/sns/instagram/_exam-packs/**",
+    "appliesTo": "docs/sns/instagram/{exam}/exam-packs/**",
     "consumedBy": [
       ".claude/scripts/lib/sns-common/quiz-slides.mjs",
       ".claude/skills/social/ig-post-create/scripts/ig-post-create.mjs",
@@ -146,7 +146,7 @@
   "slides": {
     "order": ["cover", "problem", "answer", "problem", "answer", "problem", "answer", "problem", "answer", "cta"],
     "_footerNote": "cover/answer/cta の右下は空白（左下のウォーターマークと URL が重複するため撤廃）。problem だけ誘導テキスト 'next' を右下に出す。",
-    "cover":   { "tagText": "総監過去問", "bigQText": "Q", "swipeText": "スワイプで4問にチャレンジ", "swipeTextReels": "答えは動画内で発表", "swipeTextStories": "まずは1問やってみる", "metaTemplate": "{year} 4問パック", "titleLine1Template": "令和{yearN}年度", "titleLine2Template": "択一式 過去問 #{packNum}", "_tagNote": "B シリーズ（_exam-packs）専用。A シリーズ（運営者作問）は別の表記を使う。", "_titleNote": "管理混在問題を回避するため、cover-title は年度ベースの統一文言。titleLine2 末尾の #N をフォント 80px で大きく表示することで、パック番号を一目で識別できる。", "_swipeTextNote": "3 フォーマット別に分岐: swipeText=Carousel(1080×1350、4 問スワイプ前提) / swipeTextReels=Reels(1080×1920、自動再生) / swipeTextStories=Stories(1080×1920、1 問抜粋試食)。quiz-slides.mjs の buildQuizCover が data.mode === 'stories' を最優先、その後 height で Reels と Carousel を分岐。Stories は Reels と同サイズのため mode 明示が必要。" },
+    "cover":   { "tagText": "総監過去問", "bigQText": "Q", "swipeText": "スワイプで4問にチャレンジ", "swipeTextReels": "答えは動画内で発表", "swipeTextStories": "まずは1問やってみる", "metaTemplate": "{year} 4問パック", "titleLine1Template": "令和{yearN}年度", "titleLine2Template": "択一式 過去問 #{packNum}", "_tagNote": "B シリーズ（exam-packs）専用。A シリーズ（運営者作問）は別の表記を使う。", "_titleNote": "管理混在問題を回避するため、cover-title は年度ベースの統一文言。titleLine2 末尾の #N をフォント 80px で大きく表示することで、パック番号を一目で識別できる。", "_swipeTextNote": "3 フォーマット別に分岐: swipeText=Carousel(1080×1350、4 問スワイプ前提) / swipeTextReels=Reels(1080×1920、自動再生) / swipeTextStories=Stories(1080×1920、1 問抜粋試食)。quiz-slides.mjs の buildQuizCover が data.mode === 'stories' を最優先、その後 height で Reels と Carousel を分岐。Stories は Reels と同サイズのため mode 明示が必要。" },
     "problem": { "eyebrowTemplate": "PROBLEM {n} / {total}", "nextText": "次ページで解答 →", "qTagText": "Q" },
     "answer":  { "eyebrowTemplate": "ANSWER {n} / {total}", "heroLabel": "正答 ／ ANSWER", "pointLabel": "ここがポイント", "pointIconChar": "!", "correctMark": "○", "incorrectMark": "X", "_markNote": "incorrect は純粋な Latin X を Manrope 800 で描画。色は付けない（○/X の形状だけで識別、解説エリアは中立色）。" },
     "cta":     {

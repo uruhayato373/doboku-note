@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Archive SNS binary deliverables (wav / mp4 等) to Cloudflare R2 (S3 API)
  *
  * docs/sns 配下の「再生成可能だが手元に置くと容量を圧迫する」生成物（reels の
@@ -13,7 +13,7 @@
  *   node .claude/scripts/upload-sns-r2.mjs                       # wav+mp4 を R2 へアップロード
  *   node .claude/scripts/upload-sns-r2.mjs --dry-run             # 対象プレビューのみ
  *   node .claude/scripts/upload-sns-r2.mjs --skip-existing       # R2 に同サイズ既存ならスキップ
- *   node .claude/scripts/upload-sns-r2.mjs --prefix instagram/_exam-packs/技術士総監/r07
+ *   node .claude/scripts/upload-sns-r2.mjs --prefix instagram/cem/exam-packs/r07
  *   node .claude/scripts/upload-sns-r2.mjs --ext wav,mp4,m4a     # 対象拡張子を上書き
  *   node .claude/scripts/upload-sns-r2.mjs --posted-only         # status.json が投稿済みの pack のみ
  *   node .claude/scripts/upload-sns-r2.mjs --purge-local         # R2 検証後にローカル削除（退避）

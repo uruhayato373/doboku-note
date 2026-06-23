@@ -213,7 +213,7 @@ node .claude/scripts/sns/render-quiz-pack.mjs docs/sns/instagram/_quiz-sample
 
 **変更フロー**: tokens.json を編集 → `ig-carousel-restyle --pack ...` で再生成 → `ig-carousel-qa` で 6 軸採点。
 
-> **B（過去問 `_exam-packs`）のカバーは別レンダラ**（`.claude/scripts/sns/templates/exam-cover-ig.mjs` の `renderExamCoverIg`、上表の A 用 tokens は不使用）。2026-06-17 に**カバー1枚目を「管理分野」主役に変更**＝上部色帯を 5 管理別色（`sns-config.mjs managementMap[].color`）にし、管理分野ラベルを大見出し、年度＋形式は従（小）へ降格。YT Shorts カバー（`per-problem-shorts.mjs` / `generate-thumbnails.mjs`）も同様に管理分野主役＋「この動画の論点」併記。真実源は sns-image-policy.md §12。本文 problem/answer スライドは単一 brand 配色のまま。
+> **B（過去問 `exam-packs`）のカバーは別レンダラ**（`.claude/scripts/sns/templates/exam-cover-ig.mjs` の `renderExamCoverIg`、上表の A 用 tokens は不使用）。2026-06-17 に**カバー1枚目を「管理分野」主役に変更**＝上部色帯を 5 管理別色（`sns-config.mjs managementMap[].color`）にし、管理分野ラベルを大見出し、年度＋形式は従（小）へ降格。YT Shorts カバー（`per-problem-shorts.mjs` / `generate-thumbnails.mjs`）も同様に管理分野主役＋「この動画の論点」併記。真実源は sns-image-policy.md §12。本文 problem/answer スライドは単一 brand 配色のまま。
 
 ### A 択一クイズパック（既存 SVG）
 

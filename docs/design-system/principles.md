@@ -1,4 +1,4 @@
-# デザイン原則
+﻿# デザイン原則
 
 > melta-ui の 5 設計原則を doboku-note に適応。
 > ブランドパーソナリティ: 「正確・明快・信頼」
@@ -83,7 +83,7 @@ WCAG 2.1 AA 準拠:
 
 ## 7. Instagram カルーセル系（独立サブシステム）
 
-本文記事の UI/SVG とは別系統で、Instagram カルーセル（_exam-packs）専用のデザイントークンを管理する。1080×1350 のラスター画像生成専用で、`src/styles/globals.css` の `--color-*` とは独立。
+本文記事の UI/SVG とは別系統で、Instagram カルーセル（exam-packs）専用のデザイントークンを管理する。1080×1350 のラスター画像生成専用で、`src/styles/globals.css` の `--color-*` とは独立。
 
 - **真実源 JSON**: [`instagram-carousel-tokens.json`](./instagram-carousel-tokens.json)
 - **人間可読仕様書**: [`instagram-carousel.md`](./instagram-carousel.md)

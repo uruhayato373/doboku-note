@@ -1,4 +1,4 @@
----
+﻿---
 title: Instagram ストーリーズ ハイライト 原稿 v1
 purpose: bio 直下に固定する 5 ハイライトの Story コピー + 視覚スペック（Level 2 仕様）
 canvasCover: 1080x1080 (円形トリミング前提)
@@ -551,7 +551,7 @@ linkSticker:
 |---|---|---|---|
 | 1 | ④ note-paid | 既存 magazine cover 流用で最短起動 | `src/lib/note-magazines.ts` の cover URL |
 | 2 | ③ note-free | リード磁石は流入起点として最重要 | M2 記事の図版 |
-| 3 | ② pe-comprehensive | 既存 5管理コンテンツの流用が効く | IG カルーセル `_exam-packs/**/00-cover.png` |
+| 3 | ② pe-comprehensive | 既存 5管理コンテンツの流用が効く | IG カルーセル `{exam}/exam-packs/**/00-cover.png` |
 | 4 | ① civil-construction | keyword-2026 / guide-last-minute-2026 のスクショ流用 | サイトの該当ページ |
 | 5 | ⑤ youtube | チャンネル開設後に保留解除 | — |
 

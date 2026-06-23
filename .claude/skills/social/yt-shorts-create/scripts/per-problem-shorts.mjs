@@ -42,7 +42,7 @@ const { renderExamCoverIg } = await import(pathToFileURL(resolve('.claude/script
 const { svgToPng } = await import(pathToFileURL(resolve('.claude/scripts/sns/lib/svg-to-png.mjs')).href);
 
 const W = 1080, H = 1920;
-const examRoot = (examDir) => join('docs', 'sns', 'instagram', '_exam-packs', examDir);
+const examRoot = (examDir) => join('docs', 'sns', 'instagram', examDir, 'exam-packs');
 
 function yearLabel(year) {
   return `令和${year.replace(/^[rRhH]0?/, '')}年度`;

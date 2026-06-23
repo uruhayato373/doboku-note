@@ -1,4 +1,4 @@
-# SNS バイナリ アーカイブ運用（R2 + GDrive ハイブリッド）
+﻿# SNS バイナリ アーカイブ運用（R2 + GDrive ハイブリッド）
 
 `docs/sns/` 配下の SNS 制作物のうち「再生成可能だが手元に置くと容量を圧迫する」バイナリ（reels の wav・video.mp4 等）を、git に溜め込まず R2 へ退避するための運用方針。2026-06-18 制定。
 
@@ -46,7 +46,7 @@
 ```bash
 npm run upload-sns-r2 -- --dry-run                          # 対象プレビュー（creds 不要）
 npm run upload-sns-r2 -- --skip-existing                    # R2 に同サイズ既存ならスキップ
-npm run upload-sns-r2 -- --prefix instagram/_exam-packs/技術士総監/r07
+npm run upload-sns-r2 -- --prefix instagram/cem/exam-packs/r07
 npm run upload-sns-r2 -- --ext wav,mp4,m4a                  # 対象拡張子を上書き（既定 wav,mp4）
 npm run upload-sns-r2 -- --posted-only                      # status.json が投稿済みの pack のみ
 npm run upload-sns-r2 -- --posted-only --purge-local --skip-existing   # 投稿済みを退避（R2 検証後にローカル削除）

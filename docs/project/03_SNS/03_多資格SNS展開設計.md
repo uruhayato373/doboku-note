@@ -1,4 +1,4 @@
-# 多資格 SNS 展開設計（IG / X の試験軸対応）
+﻿# 多資格 SNS 展開設計（IG / X の試験軸対応）
 
 作成: 2026-06-02 ／ 状態: **実装完了（IG carousel/reels 静止素材・X 多資格分業）。残は mp4 再生成と X 実投稿運用**（§8 参照）
 
@@ -26,16 +26,16 @@ note カバー v2 は既に「試験＝色」で解決済みだが、SNS は未�
 
 ## 3. ディレクトリ構成（試験軸を追加）
 
-### IG（_exam-packs）
+### IG（exam-packs）
 
 ```
-docs/sns/instagram/_exam-packs/{試験}/{年度}/pack-NN/
-  例) _exam-packs/技術士総監/r07/pack-01/
-      _exam-packs/1級土木/r06/pack-01/
-      _exam-packs/コンクリート主任技師/r05/pack-01/
+docs/sns/instagram/{exam}/exam-packs/{年度}/pack-NN/
+  例) cem/exam-packs/r07/pack-01/
+      civil-1/exam-packs/r06/pack-01/
+      exam-packs/コンクリート主任技師/r05/pack-01/
 ```
 
-- 既存の `_exam-packs/{年度}/pack-NN/`（総監・試験軸なし）は `_exam-packs/技術士総監/{年度}/` へ**移行**（§7）。
+- 既存の `exam-packs/{年度}/pack-NN/`（総監・試験軸なし）は `cem/exam-packs/{年度}/` へ**移行**（§7）。
 
 ### X（draft）
 
@@ -96,7 +96,7 @@ IG 過去問パックは「**試験軸つきの問題データ SoT**」から生
 
 ## 7. 移行計画（既存総監パック）
 
-- 既存 `docs/sns/instagram/_exam-packs/{r03..r07}/` → `_exam-packs/技術士総監/{年度}/` へ移動。
+- 既存 `docs/sns/instagram/cem/exam-packs/{r03..r07}/` → `cem/exam-packs/{年度}/` へ移動。
 - 生成器（`generate-exam-pack-dirs.mjs` / `bulk-generate-exam-packs.mjs`）の出力パスを `{試験}/{年度}` 対応に改修。
 - 移行はコンテンツが安定したタイミングで一括実施（並行セッション競合を避ける）。
 
@@ -106,7 +106,7 @@ IG 過去問パックは「**試験軸つきの問題データ SoT**」から生
 
 1. ✅ 本設計の合意（このドキュメント）
 2. ✅ `exam-palette.mjs`（`note-cover-tokens.json` の exams を解決する SNS 共有ローダ）。concrete 系は tokens に定義済み
-3. ✅ 既存総監 IG パックを `_exam-packs/技術士総監/{年度}/` へ移行（git mv, 1909b6f23）＋ `ig-post-create`/`ig-reel-create`/`yt-shorts-create` の `--exam-dir`（既定=技術士総監）・examId `[zk]` 対応
+3. ✅ 既存総監 IG パックを `cem/exam-packs/{年度}/` へ移行（git mv, 1909b6f23）＋ `ig-post-create`/`ig-reel-create`/`yt-shorts-create` の `--exam-dir`（既定=技術士総監）・examId `[zk]` 対応
 4. ✅ 1級土木（`parse-civil-1`＋`civil-1-exam-questions.json`）・2級土木（`parse-civil-2`＋`civil-2-exam-questions.json`、前期 r05z/後期 r05k 分離）を試験軸データ SoT へ統合
 5. ✅ `exam-cover-ig.mjs` を試験識別レイヤー＋**3 フォーマット（carousel/reels/stories）**対応に実装。`slide-data._meta.exam` 注入。正式名称 1 行・レイアウト洗練（C3）。CTA は `buildQuizCta` が試験別 stats/色を出し分け
 6. ✅ パック生成: 1級 carousel 228 + reels 228、2級 carousel 123 + reels 123、総監 carousel/reels/stories カバー＋CTA 刷新。caption は `generate-caption.cjs` が試験別タグで生成

@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+﻿#!/usr/bin/env node
 /**
  * Instagram Reels 自動生成 CLI（カルーセルパック → VOICEVOX TTS → mp4）
  *
@@ -85,7 +85,7 @@ if (!scriptOnly) {
 
 // 試験軸: --exam-dir 省略時=技術士総監（既定）。多資格は 1級土木 / 2級土木 等を明示。
 const examDir = (typeof args['exam-dir'] === 'string' && args['exam-dir']) || '技術士総監';
-const packDir = resolve(ROOT, `docs/sns/instagram/_exam-packs/${examDir}/${year}/pack-${packNum}`);
+const packDir = resolve(ROOT, `docs/sns/instagram/cem/exam-packs/${examDir}/${year}/pack-${packNum}`);
 const slideDataPath = join(packDir, 'slide-data.json');
 if (!existsSync(slideDataPath)) {
   console.error(`Error: ${slideDataPath} not found`);

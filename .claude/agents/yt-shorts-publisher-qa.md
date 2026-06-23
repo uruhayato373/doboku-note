@@ -1,4 +1,4 @@
----
+﻿---
 name: yt-shorts-publisher-qa
 description: YouTube Shorts (IG Reels 派生 mp4 + meta.json) の品質を 4 軸ルーブリックで評価する Evaluator エージェント。尺・UTM・タイトル長・字幕整合を採点。
 model: sonnet
@@ -30,7 +30,7 @@ YT 派生用 Generator エージェントは新設しない（既存スキル `y
 
 1. `docs/reference/yt-shorts-publisher-policy.md` を読む。
 2. 対象パックの YT 出力ディレクトリ `docs/sns/youtube/<date>-<pack-id>/` から `shorts.mp4` / `meta.json` / `thumbnail.png` を確認する。
-3. 参照のため対応 IG Reels パック `docs/sns/instagram/_exam-packs/{試験}/<year>/pack-NN/` の `slide-data.json` を読む。
+3. 参照のため対応 IG Reels パック `docs/sns/instagram/{exam}/exam-packs/<year>/pack-NN/` の `slide-data.json` を読む。
 4. 4 軸を 1〜5 で採点する：
 
    **軸 1: 尺適正（Short 成立条件）**

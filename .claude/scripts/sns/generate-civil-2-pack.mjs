@@ -1,8 +1,8 @@
-/**
+﻿/**
  * generate-civil-2-pack.mjs — 2級土木 IGパックの slide-data.json を生成（追加のみ）
  *
  * 入力: src/config/civil-2-exam-questions.json（packEligible のみ採用）
- * 出力: docs/sns/instagram/_exam-packs/2級土木/{年度コード}/pack-NN/slide-data.json
+ * 出力: docs/sns/instagram/civil-2/exam-packs/{年度コード}/pack-NN/slide-data.json
  *   年度コード: r05z(前期) / r05k(後期)。cover は年度=主役・形式に「前期/後期」を明示。
  *   _meta.exam='civil-2' → ig-post-create が試験識別カバー(緑)で描画。
  *
@@ -14,7 +14,7 @@ import { join } from 'node:path';
 import { wrapByCharCount } from './lib/text-wrap.mjs';
 
 const DATA = 'src/config/civil-2-exam-questions.json';
-const OUT_BASE = 'docs/sns/instagram/_exam-packs/2級土木';
+const OUT_BASE = 'docs/sns/instagram/cem/exam-packs/2級土木';
 const EXAM_DIR = '2級土木';
 
 const args = process.argv.slice(2);

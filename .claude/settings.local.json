@@ -82,7 +82,11 @@
       "Bash(cp .claude/state/sales/sales-log.json /tmp/g.json)",
       "Bash(cp /tmp/g.json .claude/state/sales/sales-log.json)",
       "mcp__visualize__read_me",
-      "mcp__visualize__show_widget"
+      "mcp__visualize__show_widget",
+      "PowerShell(Get-Content \"docs/note/1級・2級土木/2級土木/第一次検定の独学突破/article.md\" -Encoding UTF8 | Select-Object -Index \\(78..104\\))",
+      "PowerShell(grep -n \"update\\\\|--update\\\\|edit\\\\|����\\\\|����\" \"C:\\\\Users\\\\m004195\\\\doboku-note\\\\scripts\\\\note-publish.mjs\")",
+      "PowerShell(head -20)",
+      "PowerShell(Start-Process \"C:\\\\tmp\\\\ig-gallery.html\"; Start-Sleep -Seconds 1; \"launched: $\\(\\(Test-Path 'C:\\\\tmp\\\\ig-gallery.html'\\)\\)\")"
     ],
     "defaultMode": "bypassPermissions"
   }

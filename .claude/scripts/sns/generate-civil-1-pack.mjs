@@ -1,12 +1,12 @@
-/**
+﻿/**
  * generate-civil-1-pack.mjs — 1級土木 IGパックの slide-data.json を生成（追加のみ）
  *
  * 入力: src/config/civil-1-exam-questions.json（packEligible のみ採用）
- * 出力: docs/sns/instagram/_exam-packs/1級土木/{年度}/pack-NN/slide-data.json
+ * 出力: docs/sns/instagram/civil-1/exam-packs/{年度}/pack-NN/slide-data.json
  *   構成: cover + 4×(problem+answer) + cta = 10 枚（既存パック互換スキーマ）
  *   _meta.exam='civil-1' を付与 → ig-post-create が試験識別カバーで描画。
  *
- * 既存（総監 _exam-packs/{年度}/）は一切触らない。新パス {試験}/{年度}/ に出力。
+ * 既存（総監 exam-packs/{年度}/）は一切触らない。新パス {試験}/{年度}/ に出力。
  * 使い方: node .claude/scripts/sns/generate-civil-1-pack.mjs --year r06 [--pack 01]
  */
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
@@ -14,7 +14,7 @@ import { join } from 'node:path';
 import { wrapByCharCount } from './lib/text-wrap.mjs';
 
 const DATA = 'src/config/civil-1-exam-questions.json';
-const OUT_BASE = 'docs/sns/instagram/_exam-packs/1級土木';
+const OUT_BASE = 'docs/sns/instagram/cem/exam-packs/1級土木';
 const EXAM_DIR = '1級土木';
 
 const args = process.argv.slice(2);

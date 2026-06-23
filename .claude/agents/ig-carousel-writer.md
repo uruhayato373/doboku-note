@@ -1,4 +1,4 @@
----
+﻿---
 name: ig-carousel-writer
 description: Instagram カルーセルの slide-data.json v2 を1キーワードずつ執筆する Generator エージェント。
 model: sonnet
@@ -11,7 +11,7 @@ model: sonnet
 > **READ FIRST（真実源）**:
 > - スキーマ・字数ルール・figure 判断基準・5 軸の意図 → [`docs/reference/ig-carousel-policy.md`](../../docs/reference/ig-carousel-policy.md)
 > - 6切り口リパーパス戦略（全チャネル共通） → [`docs/reference/sns-repurpose-policy.md`](../../docs/reference/sns-repurpose-policy.md)
-> - 過去問パック（B シリーズ・_exam-packs）のデザイン仕様 → [`docs/design-system/instagram-carousel.md`](../../docs/design-system/instagram-carousel.md)
+> - 過去問パック（B シリーズ・exam-packs）のデザイン仕様 → [`docs/design-system/instagram-carousel.md`](../../docs/design-system/instagram-carousel.md)
 > - **角度型（angle モード）の 6 切り口・資産マッピング・Red Line** → [`docs/reference/content-angle-policy.md`](../../docs/reference/content-angle-policy.md)
 >
 > 本ファイルは運用スペック（モデル・I/O・進め方）のみ。

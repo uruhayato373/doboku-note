@@ -56,7 +56,7 @@ if (!schedule || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(schedule)) { console.er
 const examDir = values['exam-dir'];
 const year = pack.split('-')[0];          // r07
 const packNum = pack.split('-')[2];       // 01
-const qRel = `_exam-packs/${examDir}/${year}/pack-${packNum}/reels-pp/q${q}`;
+const qRel = `${examDir}/exam-packs/${year}/pack-${packNum}/reels-pp/q${q}`;
 const qAbs = join(ROOT, 'docs/sns/instagram', qRel);
 const mp4 = join(qAbs, 'video.mp4');
 

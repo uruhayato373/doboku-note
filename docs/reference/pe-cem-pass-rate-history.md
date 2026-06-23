@@ -1,4 +1,4 @@
----
+﻿---
 title: 技術士第二次試験 総合技術監理部門 年度別合格率（H26-R7）
 purpose: note 記事・SNS 投稿・記事内ファクトとして引用するための公式データのコピー
 lastUpdated: 2026-05-27
@@ -109,5 +109,5 @@ IPEJ 公表 PDF「[技術士第二次試験結果一覧表（S33-R7）](https://
 ## 7. 関連ファイル
 
 - `docs/note/_magazines/` — 総監記述式マガジンで合格率を引用する場合の挿入位置確認
-- `docs/sns/instagram/_exam-packs/**` — IG カルーセルで「難関 X%」訴求するときの数値根拠
+- `docs/sns/instagram/{exam}/exam-packs/**` — IG カルーセルで「難関 X%」訴求するときの数値根拠
 - `.local/r2/posts/pe-comprehensive-management/whitepaper-study-map/article.mdx` — 総監対策トップで合格率を提示する候補
