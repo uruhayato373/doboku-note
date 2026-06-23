@@ -77,7 +77,7 @@ AIは「答える」のは得意ですが、**「何が頻出で、どこが引�
 
 地図を先に掴み、その地図に沿ってAIで深掘り・反復する。地図にあたるのが doboku-note の1級土木施工管理技士の過去問解説・テキストです。
 
-https://doboku-note.com
+https://doboku-note.com/docs/civil-construction-1-guide-exam-overview
 
 ## まとめ — 一次はNotebookLM、二次は対話AIで「書く→直す」
 
@@ -85,17 +85,11 @@ https://doboku-note.com
 - **二次**：自分の経験を管理項目で構造化し、対話型AIで「書く→直す」。経験そのものは捏造しない
 - どちらも、出発点に「出題の地図」を置く
 
-（AIツールの有料プラン・参考書籍リンクは、公開時にこの位置へ文脈内で配置予定）
-
 ## 関連リソース
 
 **doboku-note — 1級土木施工管理技士の過去問解説・テキスト**（無料）
 
-https://doboku-note.com
-
-**AIで土木資格を攻略する勉強法**（資格別ガイド）
-
-（公開後にURL反映）
+https://doboku-note.com/docs/civil-construction-1-guide-exam-overview
 
 **総監をAIで勉強する**（AIツール使い分けの詳細）
 

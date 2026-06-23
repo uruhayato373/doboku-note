@@ -83,11 +83,7 @@ cover:
 
 **2級土木施工管理技士の過去問解説・テキスト**（無料・doboku-note）
 
-https://doboku-note.com
-
-**AIで土木資格を攻略する勉強法**（資格別ガイド）
-
-（公開後にURL反映）
+https://doboku-note.com/docs/civil-construction-2-guide-exam-overview
 
 **2級土木 施工経験記述 完成答案集**（二次対策のフル答案）
 
