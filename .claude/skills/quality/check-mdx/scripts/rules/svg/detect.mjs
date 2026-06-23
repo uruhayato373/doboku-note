@@ -14,8 +14,8 @@
  * 制限事項:
  *   - 正規表現ベースのため、ネストされた <tspan> や transform 付き <text> は
  *     座標計算が不正確になる
- *   - 日本語文字幅は 1.0em、ラテン/数字は 0.55em で近似（実ブラウザの
- *     フォントメトリクスと完全一致しない）
+ *   - 日本語文字幅は 1.1em、ラテン/数字は 0.60em で近似（実ブラウザの
+ *     フォントメトリクスと完全一致しない。1.0/0.55 は過小評価で P1 見逃しが発生）
  *   - transform="translate(x,y)" 内の子 <text> は親の translate を考慮する
  */
 
@@ -48,7 +48,7 @@ export function estimateTextWidth(text, fontSize) {
   let width = 0;
   for (const c of text) {
     const code = c.codePointAt(0);
-    width += (isCjk(code) ? 1.0 : 0.55) * fontSize;
+    width += (isCjk(code) ? 1.1 : 0.6) * fontSize;
   }
   return width;
 }
@@ -248,7 +248,7 @@ export function detectSvgIssues(svg, opts = {}) {
     const bb = bboxes[i];
     const t = svg.texts[i];
     // 回転テキスト（軸ラベル等）は bbox 計算が rotation を考慮しないため P1 をスキップ
-    if (!t.isRotated && (bb.x < -1 || bb.x + bb.width > svg.viewBox.w + 1)) {
+    if (!t.isRotated && (bb.x < -2 || bb.x + bb.width > svg.viewBox.w)) {
       findings.push({
         pattern: "P1-text-clip",
         severity: "HIGH",
