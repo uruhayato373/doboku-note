@@ -110,7 +110,7 @@
   <text class="t-body" x="325" y="446" text-anchor="middle">緩やか</text>
   <text class="t-note" x="325" y="464" text-anchor="middle">（異動・OJTで吸収）</text>
 
-  <!-- フッター y=490 -->
-  <text class="t-foot" x="200" y="490" text-anchor="middle">日本は近年ジョブ型導入が増加傾向</text>
+  <!-- フッター y=497 (ROW6 下端 y=486 より下に置き enclosing rect 判定を回避) -->
+  <text class="t-foot" x="200" y="497" text-anchor="middle">日本は近年ジョブ型導入が増加傾向</text>
 
 </svg>
