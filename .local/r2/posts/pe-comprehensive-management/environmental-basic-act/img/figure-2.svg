@@ -14,7 +14,7 @@
       .line     { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
       .line-sub { stroke: #8a8a8a; stroke-width: 1.2; fill: none; }
     </style>
-    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+    <marker markerUnits="userSpaceOnUse" id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
       <polygon points="0,0 8,3 0,6" fill="#8a8a8a"/>
     </marker>
   </defs>
@@ -27,11 +27,11 @@
   <line class="line" x1="200" y1="46" x2="200" y2="58"/>
 
   <!-- 環境基本計画 -->
-  <rect class="box-plan" x="105" y="58" width="190" height="26" rx="5"/>
-  <text class="t-plan" x="200" y="75" text-anchor="middle">環境基本計画（基本法に基づく国の総合計画）</text>
+  <rect class="box-plan" x="105" y="58" width="190" height="38" rx="5"/>
+  <text class="t-plan" x="200" y="71" text-anchor="middle">環境基本計画</text>
+  <text class="t-plan" x="200" y="87" text-anchor="middle">（基本法に基づく国の総合計画）</text>
 
   <!-- 計画 → 4系統分岐 水平幹線 -->
-  <line class="line" x1="200" y1="84" x2="200" y2="96"/>
   <line class="line" x1="50"  y1="96" x2="350" y2="96"/>
   <line class="line" x1="50"  y1="96" x2="50"  y2="108" marker-end="url(#arr)"/>
   <line class="line" x1="150" y1="96" x2="150" y2="108" marker-end="url(#arr)"/>
@@ -78,29 +78,31 @@
   <rect class="box-law" x="108" y="180" width="84" height="20" rx="4"/>
   <text class="t-law" x="150" y="194" text-anchor="middle">廃棄物処理法</text>
   <line class="line-sub" x1="150" y1="200" x2="150" y2="204"/>
-  <rect class="box-law" x="108" y="208" width="84" height="38" rx="4"/>
-  <text class="t-law" x="150" y="222" text-anchor="middle">容器包装/家電/</text>
-  <text class="t-law" x="150" y="241" text-anchor="middle">建設/食品・各リサイクル法</text>
-  <line class="line-sub" x1="150" y1="246" x2="150" y2="250"/>
-  <rect class="box-law" x="108" y="250" width="84" height="20" rx="4"/>
-  <text class="t-law" x="150" y="264" text-anchor="middle">グリーン購入法</text>
+  <rect class="box-law" x="108" y="208" width="84" height="50" rx="4"/>
+  <text class="t-law" x="150" y="220" text-anchor="middle">容器包装/家電/</text>
+  <text class="t-law" x="150" y="233" text-anchor="middle">建設/食品・</text>
+  <text class="t-law" x="150" y="250" text-anchor="middle">各リサイクル法</text>
+  <line class="line-sub" x1="150" y1="258" x2="150" y2="262"/>
+  <rect class="box-law" x="108" y="262" width="84" height="20" rx="4"/>
+  <text class="t-law" x="150" y="276" text-anchor="middle">グリーン購入法</text>
 
   <!-- ===== 系統3: 自然共生系 (cx=250) ===== -->
   <rect class="box-head" x="212" y="108" width="76" height="26" rx="5"/>
   <text class="t-head" x="250" y="125" text-anchor="middle">自然共生系</text>
 
   <line class="line-sub" x1="250" y1="134" x2="250" y2="142"/>
-  <rect class="box-law" x="212" y="142" width="76" height="20" rx="4"/>
-  <text class="t-law" x="250" y="156" text-anchor="middle">生物多様性基本法</text>
-  <line class="line-sub" x1="250" y1="162" x2="250" y2="166"/>
-  <rect class="box-law" x="212" y="166" width="76" height="20" rx="4"/>
-  <text class="t-law" x="250" y="180" text-anchor="middle">自然環境保全法</text>
-  <line class="line-sub" x1="250" y1="186" x2="250" y2="190"/>
-  <rect class="box-law" x="212" y="190" width="76" height="20" rx="4"/>
-  <text class="t-law" x="250" y="204" text-anchor="middle">自然公園法</text>
-  <line class="line-sub" x1="250" y1="210" x2="250" y2="214"/>
-  <rect class="box-law" x="212" y="214" width="76" height="20" rx="4"/>
-  <text class="t-law" x="250" y="226" text-anchor="middle">種の保存法</text>
+  <rect class="box-law" x="212" y="142" width="76" height="32" rx="4"/>
+  <text class="t-law" x="250" y="155" text-anchor="middle">生物多様性</text>
+  <text class="t-law" x="250" y="168" text-anchor="middle">基本法</text>
+  <line class="line-sub" x1="250" y1="174" x2="250" y2="178"/>
+  <rect class="box-law" x="212" y="178" width="76" height="20" rx="4"/>
+  <text class="t-law" x="250" y="192" text-anchor="middle">自然環境保全法</text>
+  <line class="line-sub" x1="250" y1="198" x2="250" y2="202"/>
+  <rect class="box-law" x="212" y="202" width="76" height="20" rx="4"/>
+  <text class="t-law" x="250" y="216" text-anchor="middle">自然公園法</text>
+  <line class="line-sub" x1="250" y1="222" x2="250" y2="226"/>
+  <rect class="box-law" x="212" y="226" width="76" height="20" rx="4"/>
+  <text class="t-law" x="250" y="240" text-anchor="middle">種の保存法</text>
 
   <!-- ===== 系統4: 横断的手法 (cx=350) ===== -->
   <rect class="box-head" x="312" y="108" width="76" height="26" rx="5"/>
@@ -111,13 +113,14 @@
   <rect class="box-law" x="312" y="142" width="76" height="20" rx="4"/>
   <text class="t-law" x="350" y="156" text-anchor="middle">環境影響評価法</text>
   <line class="line-sub" x1="350" y1="162" x2="350" y2="166"/>
-  <rect class="box-law" x="312" y="166" width="76" height="28" rx="4"/>
+  <rect class="box-law" x="312" y="166" width="76" height="40" rx="4"/>
   <text class="t-law" x="350" y="178" text-anchor="middle">化学物質審査</text>
-  <text class="t-law" x="350" y="190" text-anchor="middle">規制法（化審法）</text>
-  <line class="line-sub" x1="350" y1="194" x2="350" y2="198"/>
-  <rect class="box-law" x="312" y="198" width="76" height="28" rx="4"/>
-  <text class="t-law" x="350" y="210" text-anchor="middle">化管法</text>
-  <text class="t-law" x="350" y="222" text-anchor="middle">（PRTR法）</text>
+  <text class="t-law" x="350" y="190" text-anchor="middle">規制法</text>
+  <text class="t-law" x="350" y="202" text-anchor="middle">（化審法）</text>
+  <line class="line-sub" x1="350" y1="206" x2="350" y2="210"/>
+  <rect class="box-law" x="312" y="210" width="76" height="28" rx="4"/>
+  <text class="t-law" x="350" y="222" text-anchor="middle">化管法</text>
+  <text class="t-law" x="350" y="234" text-anchor="middle">（PRTR法）</text>
 
   <!-- ===== 区切り線 ===== -->
   <line x1="20" y1="298" x2="380" y2="298" stroke="#d7d7d7" stroke-width="1"/>

@@ -20,13 +20,13 @@
       .arrow-warn { stroke: #d4a017; stroke-width: 1.5; fill: none; }
       .arrow-positive { stroke: #3a7d44; stroke-width: 1.5; fill: none; stroke-dasharray: 5,3; }
     </style>
-    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+    <marker markerUnits="userSpaceOnUse" id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
       <polygon points="0,0 8,3 0,6" fill="#555"/>
     </marker>
-    <marker id="arrow-warn" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+    <marker markerUnits="userSpaceOnUse" id="arrow-warn" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
       <polygon points="0,0 8,3 0,6" fill="#d4a017"/>
     </marker>
-    <marker id="arrow-positive" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+    <marker markerUnits="userSpaceOnUse" id="arrow-positive" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
       <polygon points="0,0 8,3 0,6" fill="#3a7d44"/>
     </marker>
   </defs>

@@ -22,15 +22,15 @@
       .box-surface  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
     </style>
     <!-- 矢印マーカー（灰） -->
-    <marker id="arrow-gray" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+    <marker markerUnits="userSpaceOnUse" id="arrow-gray" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
       <polygon points="0,0 9,3.5 0,7" fill="#8a8a8a"/>
     </marker>
     <!-- 矢印マーカー（正方向：緑系） -->
-    <marker id="arrow-up" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+    <marker markerUnits="userSpaceOnUse" id="arrow-up" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
       <polygon points="0,0 9,3.5 0,7" fill="#3a7d44"/>
     </marker>
     <!-- 矢印マーカー（抑制方向：橙系） -->
-    <marker id="arrow-down" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+    <marker markerUnits="userSpaceOnUse" id="arrow-down" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
       <polygon points="0,0 9,3.5 0,7" fill="#d4a017"/>
     </marker>
   </defs>

@@ -17,7 +17,7 @@
       .box-rehab    { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; } /* surface（改修） */
       .arrow        { stroke: #555; stroke-width: 1.5; fill: none; }       /* ink-body */
     </style>
-    <marker id="pfi-arr" markerWidth="7" markerHeight="6" refX="6" refY="3" orient="auto">
+    <marker markerUnits="userSpaceOnUse" id="pfi-arr" markerWidth="7" markerHeight="6" refX="6" refY="3" orient="auto">
       <polygon points="0,0 7,3 0,6" fill="#555"/>
     </marker>
   </defs>

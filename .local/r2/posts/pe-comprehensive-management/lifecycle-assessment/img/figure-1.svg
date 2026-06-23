@@ -13,24 +13,24 @@
       .box-surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.2; }
       .badge-brand { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; }
     </style>
-    <!-- downward arrow (brand blue) -->
-    <marker id="ad" markerWidth="8" markerHeight="6" refX="4" refY="6" orient="auto">
-      <polygon points="0,0 8,0 4,6" fill="#2e6da4"/>
+    <!-- downward arrow (brand blue) — ▶ polygon; orient="auto" rotates to match line direction -->
+    <marker markerUnits="userSpaceOnUse" id="ad" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#2e6da4"/>
     </marker>
-    <!-- upward arrow (brand blue) -->
-    <marker id="au" markerWidth="8" markerHeight="6" refX="4" refY="0" orient="auto">
-      <polygon points="0,6 8,6 4,0" fill="#2e6da4"/>
+    <!-- upward arrow (brand blue) — same ▶ polygon; orient="auto" rotates upward for up-going lines -->
+    <marker markerUnits="userSpaceOnUse" id="au" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#2e6da4"/>
     </marker>
     <!-- rightward arrow (warn yellow) -->
-    <marker id="ar" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+    <marker markerUnits="userSpaceOnUse" id="ar" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
       <polygon points="0,0 8,3 0,6" fill="#d4a017"/>
     </marker>
-    <!-- leftward arrow (warn yellow) -->
-    <marker id="al" markerWidth="8" markerHeight="6" refX="0" refY="3" orient="auto">
-      <polygon points="8,0 0,3 8,6" fill="#d4a017"/>
+    <!-- leftward arrow (warn yellow) — ▶ polygon; orient="auto" rotates 180° for left-going lines -->
+    <marker markerUnits="userSpaceOnUse" id="al" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#d4a017"/>
     </marker>
     <!-- rightward arrow (gray, for 用途) -->
-    <marker id="ag" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+    <marker markerUnits="userSpaceOnUse" id="ag" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
       <polygon points="0,0 8,3 0,6" fill="#8a8a8a"/>
     </marker>
   </defs>

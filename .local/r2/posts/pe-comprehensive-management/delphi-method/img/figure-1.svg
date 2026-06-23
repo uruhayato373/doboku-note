@@ -25,11 +25,11 @@
       .badge-warn     { fill: #ffffff; stroke: #d4a017; stroke-width: 1.5; }
     </style>
     <!-- standard downward arrow (ink-body) -->
-    <marker id="arr-down" markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto">
+    <marker markerUnits="userSpaceOnUse" id="arr-down" markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto">
       <polygon points="0,0 9,3.5 0,7" fill="#555"/>
     </marker>
     <!-- loop feedback arrow (positive/green) -->
-    <marker id="arr-loop" markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto">
+    <marker markerUnits="userSpaceOnUse" id="arr-loop" markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto">
       <polygon points="0,0 9,3.5 0,7" fill="#3a7d44"/>
     </marker>
   </defs>

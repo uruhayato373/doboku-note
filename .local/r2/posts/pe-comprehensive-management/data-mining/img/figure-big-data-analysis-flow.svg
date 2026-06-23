@@ -17,10 +17,10 @@
       .arrow { stroke: #2e6da4; stroke-width: 2; fill: none; }
       .arrow-branch { stroke: #3a7d44; stroke-width: 1.5; fill: none; stroke-dasharray: 4,2; }
     </style>
-    <marker id="ar" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+    <marker id="ar" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
       <polygon points="0,0 8,3 0,6" fill="#2e6da4"/>
     </marker>
-    <marker id="arb" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto">
+    <marker id="arb" markerUnits="userSpaceOnUse" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto">
       <polygon points="0,0 6,2.5 0,5" fill="#3a7d44"/>
     </marker>
   </defs>

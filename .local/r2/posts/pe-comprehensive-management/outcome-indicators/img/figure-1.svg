@@ -19,7 +19,7 @@
       .t-arrow-label { font-size: 11px; fill: #3a7d44; }
     </style>
     <!-- 矢印マーカー（positive色） -->
-    <marker id="arrowGreen" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+    <marker markerUnits="userSpaceOnUse" id="arrowGreen" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
       <polygon points="0,0 10,4 0,8" fill="#3a7d44"/>
     </marker>
   </defs>

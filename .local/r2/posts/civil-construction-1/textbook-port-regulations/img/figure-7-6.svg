@@ -9,10 +9,10 @@
     .zone-label { font-size: 13px; fill: #555; }
   </style>
   <defs>
-    <marker id="arrow-end" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+    <marker markerUnits="userSpaceOnUse" id="arrow-end" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
       <polygon points="0,0 8,3 0,6" fill="#2e6da4"/>
     </marker>
-    <marker id="arrow-end-danger" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+    <marker markerUnits="userSpaceOnUse" id="arrow-end-danger" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
       <polygon points="0,0 8,3 0,6" fill="#b22234"/>
     </marker>
   </defs>
@@ -35,8 +35,8 @@
   <g transform="translate(200,80)">
     <polygon points="-10,-8 10,-8 12,4 -12,4" fill="#3a7d44" stroke="#1a3a5c" stroke-width="1"/>  <!-- positive -->
     <line x1="0" y1="4" x2="0" y2="20" stroke="#3a7d44" stroke-width="2" marker-end="url(#arrow-end-danger)"/>
-    <text x="20" y="0" font-size="11" fill="#1a3a5c">出港船</text>
-    <text x="20" y="14" font-size="10" class="ink-body">（優先）</text>
+    <text x="-12" y="0" font-size="11" fill="#1a3a5c" text-anchor="end">出港船</text>
+    <text x="-12" y="14" font-size="11" fill="#555" text-anchor="end">（優先）</text>
   </g>
 
   <!-- Waiting ship (inside port, to the right) -->
@@ -50,7 +50,8 @@
     <polygon points="-10,-8 10,-8 12,4 -12,4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
     <line x1="0" y1="-10" x2="0" y2="-30" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrow-end)"/>
     <text x="-70" y="20" font-size="10" fill="#1a3a5c">入港船</text>
-    <text x="-70" y="34" font-size="10" class="ink-body">（防波堤の外で待機→右側航行）</text>
+    <text x="-70" y="34" font-size="10" class="ink-body">（防波堤の外で待機</text>
+    <text x="-70" y="46" font-size="10" class="ink-body">→右側航行）</text>
   </g>
 
   <!-- Port exterior zone (bottom) -->
@@ -71,14 +72,15 @@
   <!-- Right-side rules about 突端・停泊船 -->
   <line x1="290" y1="240" x2="245" y2="240" stroke="#555" stroke-width="1" stroke-dasharray="3,2"/>
   <g font-size="11" fill="#555" text-anchor="end">
-    <text x="395" y="225" font-weight="bold">突端付近の航行</text>
-    <text x="395" y="240">右げん=近寄る</text>
-    <text x="395" y="255">左げん=遠ざかる</text>
+    <text x="390" y="225" font-weight="bold">突端付近の航行</text>
+    <text x="390" y="240">右げん=近寄る</text>
+    <text x="390" y="255">左げん=遠ざかる</text>
   </g>
 
   <!-- 出船優先 callout -->
   <line x1="200" y1="175" x2="200" y2="195" stroke="#2e6da4" stroke-width="1"/>
-  <text x="200" y="210" font-size="11" fill="#2e6da4" text-anchor="middle" font-weight="bold">出船優先（入口付近）</text>
+  <text x="200" y="207" font-size="11" fill="#2e6da4" text-anchor="middle" font-weight="bold">出船優先</text>
+  <text x="200" y="220" font-size="11" fill="#2e6da4" text-anchor="middle" font-weight="bold">（入口付近）</text>
 
   <!-- えい航 200m visualization -->
   <g transform="translate(60,390)">
@@ -92,7 +94,8 @@
   </g>
 
   <!-- Speed limit label -->
-  <text x="380" y="360" font-size="11" class="ink-body" text-anchor="end">速力制限: 港内・境界付近で「危険を及ぼさない速力」</text>
+  <text x="390" y="358" font-size="11" class="ink-body" text-anchor="end">速力制限: 港内・境界付近で</text>
+  <text x="390" y="372" font-size="11" class="ink-body" text-anchor="end">「危険を及ぼさない速力」</text>
 
   <!-- Legend at bottom -->
   <g transform="translate(20,460)">

@@ -18,10 +18,10 @@
       .arrow-em  { stroke: #d4a017; stroke-width: 1.8; fill: none; stroke-dasharray: 4,3; }
       .divider   { stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 4,3; }
     </style>
-    <marker id="ml-arr" markerWidth="7" markerHeight="6" refX="6" refY="3" orient="auto">
+    <marker markerUnits="userSpaceOnUse" id="ml-arr" markerWidth="7" markerHeight="6" refX="6" refY="3" orient="auto">
       <polygon points="0,0 7,3 0,6" fill="#555"/>
     </marker>
-    <marker id="ml-arr-em" markerWidth="7" markerHeight="6" refX="6" refY="3" orient="auto">
+    <marker markerUnits="userSpaceOnUse" id="ml-arr-em" markerWidth="7" markerHeight="6" refX="6" refY="3" orient="auto">
       <polygon points="0,0 7,3 0,6" fill="#d4a017"/>
     </marker>
   </defs>

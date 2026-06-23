@@ -12,7 +12,7 @@
       .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
       .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
     </style>
-    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+    <marker markerUnits="userSpaceOnUse" id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
       <polygon points="0,0 8,3 0,6" fill="#2e6da4"/>
     </marker>
   </defs>

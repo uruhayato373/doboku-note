@@ -10,7 +10,7 @@
 
 <!-- arrow marker -->
 <defs>
-  <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+  <marker markerUnits="userSpaceOnUse" id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
     <polygon points="0 0, 8 3, 0 6" fill="#2e6da4"/>
   </marker>
 </defs>
@@ -73,10 +73,10 @@
 
 <!-- トレードオフ関係図（簡易：左右ペア間の双方向矢印） -->
 <defs>
-  <marker id="arrow2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+  <marker markerUnits="userSpaceOnUse" id="arrow2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
     <polygon points="0 0, 8 3, 0 6" fill="#8a8a8a"/>
   </marker>
-  <marker id="arrow2r" markerWidth="8" markerHeight="6" refX="0" refY="3" orient="auto">
+  <marker markerUnits="userSpaceOnUse" id="arrow2r" markerWidth="8" markerHeight="6" refX="0" refY="3" orient="auto">
     <polygon points="8 0, 0 3, 8 6" fill="#8a8a8a"/>
   </marker>
 </defs>

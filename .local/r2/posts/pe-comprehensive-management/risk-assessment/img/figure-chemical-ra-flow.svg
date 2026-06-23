@@ -14,7 +14,7 @@
       .step-num-circle { fill: #2e6da4; }
       .arrow { stroke: #555; stroke-width: 1.8; fill: none; }
     </style>
-    <marker id="arrh-ra" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+    <marker markerUnits="userSpaceOnUse" id="arrh-ra" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
       <polygon points="0 8, 10 4, 0 0" fill="#555" />
     </marker>
   </defs>

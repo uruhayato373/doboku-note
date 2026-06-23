@@ -22,7 +22,7 @@
       .dot-em       { fill: #b22234; }                                      /* danger */
       .line-em      { stroke: #2e6da4; stroke-width: 1.5; fill: none; }     /* brand */
     </style>
-    <marker id="arrowS" markerWidth="7" markerHeight="6" refX="6" refY="3" orient="auto">
+    <marker markerUnits="userSpaceOnUse" id="arrowS" markerWidth="7" markerHeight="6" refX="6" refY="3" orient="auto">
       <polygon points="0,0 6,3 0,6" fill="#2e6da4"/>  <!-- brand -->
     </marker>
   </defs>

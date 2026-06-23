@@ -24,7 +24,7 @@
       .band-stroke-b { stroke: #3a7d44; stroke-width: 1.2; }
       .band-stroke-c { stroke: #2e6da4; stroke-width: 1.2; }
     </style>
-    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+    <marker markerUnits="userSpaceOnUse" id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
       <polygon points="0,0 8,3 0,6" fill="#8a8a8a"/>
     </marker>
   </defs>
