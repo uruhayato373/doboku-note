@@ -24,7 +24,13 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
-const BASE = join(ROOT, "docs/sns/instagram/_exam-packs");
+const EXAM_DIRS = {
+  cem:      "cem/exam-packs",
+  "civil-1": "civil-1/exam-packs",
+  "civil-2": "civil-2/exam-packs",
+};
+const examKey = process.argv.find((a) => a.startsWith("--exam="))?.split("=")[1] || "cem";
+const BASE = join(ROOT, "docs/sns/instagram", EXAM_DIRS[examKey] ?? EXAM_DIRS.cem);
 const IG_POST_CREATE = join(
   ROOT,
   ".claude/skills/social/ig-post-create/scripts/ig-post-create.mjs",

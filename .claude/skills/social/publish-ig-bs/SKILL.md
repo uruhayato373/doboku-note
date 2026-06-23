@@ -1,4 +1,4 @@
----
+﻿---
 name: publish-ig-bs
 description: >
   Playwright（永続プロファイル）で Meta Business Suite を自動操作し、Instagram
@@ -49,19 +49,19 @@ Playwright で Business Suite（business.facebook.com）のコンポーザを自
 
 ```bash
 # 1) 利用可能なパックを探す（carousel/img + carousel/caption.txt を持つもの）
-ls docs/sns/instagram/_exam-packs/1級土木/r07/
+ls docs/sns/instagram/civil-1/exam-packs/r07/
 
 # 2) dry-run（初回必須。予約確定の手前まで実行しスクショ）
 npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
-  "_exam-packs/1級土木/r07/pack-01" --schedule 2026-06-10T07:00 --dry-run
+  "civil-1/exam-packs/r07/pack-01" --schedule 2026-06-10T07:00 --dry-run
 
 # 3) 予約ウィジェットのセレクタを対話採取（Inspector を schedule 手前で起動）
 npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
-  "_exam-packs/1級土木/r07/pack-01" --schedule 2026-06-10T07:00 --pause
+  "civil-1/exam-packs/r07/pack-01" --schedule 2026-06-10T07:00 --pause
 
 # 4) 本番予約投稿（dry-run 成功後に --dry-run を外す）
 npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
-  "_exam-packs/1級土木/r07/pack-01" --schedule 2026-06-10T07:00
+  "civil-1/exam-packs/r07/pack-01" --schedule 2026-06-10T07:00
 ```
 
 ## 引数
@@ -120,7 +120,7 @@ npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
 ```bash
 # 予約（初回・更新後は --dry-run 必須）
 npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
-  "_exam-packs/技術士総監/r04/pack-07" --reel --schedule 2026-06-20T09:00 [--dry-run]
+  "cem/exam-packs/r04/pack-07" --reel --schedule 2026-06-20T09:00 [--dry-run]
 ```
 
 - 2 種のリールを扱える（どちらも `<dir>/video.mp4` + `<dir>/caption.txt` フォールバックで読む）:

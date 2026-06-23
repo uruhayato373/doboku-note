@@ -1,4 +1,4 @@
----
+﻿---
 name: ig-reel-create
 description: 過去問パックのカルーセル PNG をベースに 1080×1920 縦型 IG Reels mp4 を生成。Satori で reels サイズの PNG 10 枚再生成 → VOICEVOX TTS → ffmpeg 連結まで自動化。
 allowed-tools: Bash, Read, Write
@@ -6,7 +6,7 @@ allowed-tools: Bash, Read, Write
 
 # Instagram Reels 自動生成スキル
 
-`docs/sns/instagram/_exam-packs/{試験}/<year>/pack-<NN>/slide-data.json` を入力に、**1080×1920 縦型 60-120 秒の IG Reels 動画を完全機械生成**する。
+`docs/sns/instagram/{exam}/exam-packs/<year>/pack-<NN>/slide-data.json` を入力に、**1080×1920 縦型 60-120 秒の IG Reels 動画を完全機械生成**する。
 
 ## 前提
 
@@ -42,7 +42,7 @@ node .claude/skills/social/ig-reel-create/scripts/ig-reel-create.mjs \
 | 引数 | 必須 | 既定 | 説明 |
 |---|---|---|---|
 | `--exam` | ✅ | - | パック ID（例: `r07-pack-01`）。2級土木は年度に前期/後期の接尾辞が付く（`r07z`=前期 / `r07k`=後期、例: `r07k-pack-01`） |
-| `--exam-dir` | - | 技術士総監 | 試験軸ディレクトリ（`1級土木` / `2級土木` 等）。`docs/sns/instagram/_exam-packs/<exam-dir>/<year>/` を参照 |
+| `--exam-dir` | - | 技術士総監 | 試験軸ディレクトリ（`1級土木` / `2級土木` 等）。`docs/sns/instagram/cem/exam-packs/<exam-dir>/<year>/` を参照 |
 | `--speaker` | - | 1（四国めたん） | VOICEVOX speaker ID |
 | `--skip-png` | - | false | PNG 再生成をスキップ（既存 reels/img/*.png を使う）。既存 PNG が 1080×1920 ならこれを付けて Satori 再生成を回避 |
 | `--problem-pause` | - | 3 | problem スライド読み上げ後に挿入する無音秒数（考える間）。`0` で無効 |
@@ -55,7 +55,7 @@ node .claude/skills/social/ig-reel-create/scripts/ig-reel-create.mjs \
 ## 出力
 
 ```
-docs/sns/instagram/_exam-packs/{試験}/<year>/pack-<NN>/reels/
+docs/sns/instagram/{exam}/exam-packs/<year>/pack-<NN>/reels/
 ├ video.mp4              最終動画（IG Reels として upload 可能）
 ├ img/{00..09}.png       1080×1920 各スライド PNG（中間ファイル）
 ├ wav/slide-NN.wav       各スライドの TTS 音声（中間ファイル）

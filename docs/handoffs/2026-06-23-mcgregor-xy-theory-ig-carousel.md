@@ -1,11 +1,11 @@
-# マクレガー X/Y 理論 IG カルーセル — Mac から投稿手順
+﻿# マクレガー X/Y 理論 IG カルーセル — Mac から投稿手順
 
 **作成**: 2026-06-23 / **状態**: PNG・caption.txt 完成・develop 止まり → Mac からそのまま投稿可
 
 ## 成果物の場所（git）
 
 ```
-docs/sns/instagram/mcgregor-xy-theory/carousel/
+docs/sns/instagram/cem/mcgregor-xy-theory/carousel/
   img/
     00-cover.png   # 1080×1350 表紙（navy 背景・キーワード名）
     01-figure.png  # 1080×1350 X/Y 理論比較図（site figure 再利用）
@@ -31,7 +31,7 @@ X理論とY理論の特徴が入れ替えられた選択肢に注意！否定形
 #技術士 #総監 #技術士総監 #人的資源管理 ...（20個）
 ```
 
-全文は `docs/sns/instagram/mcgregor-xy-theory/carousel/caption.txt` を参照。
+全文は `docs/sns/instagram/cem/mcgregor-xy-theory/carousel/caption.txt` を参照。
 
 ## Mac からの投稿手順
 
@@ -42,7 +42,7 @@ X理論とY理論の特徴が入れ替えられた選択肢に注意！否定形
 git pull origin develop
 
 # Finder で開く
-open docs/sns/instagram/mcgregor-xy-theory/carousel/img/
+open docs/sns/instagram/cem/mcgregor-xy-theory/carousel/img/
 ```
 
 Finder で 4 枚を選択 → AirDrop でiPhoneに送るか、写真アプリに読み込む。
@@ -52,7 +52,7 @@ Finder で 4 枚を選択 → AirDrop でiPhoneに送るか、写真アプリに
 ### 2. caption.txt をコピー
 
 ```bash
-cat docs/sns/instagram/mcgregor-xy-theory/carousel/caption.txt | pbcopy
+cat docs/sns/instagram/cem/mcgregor-xy-theory/carousel/caption.txt | pbcopy
 ```
 
 クリップボードにコピー済みの状態で iPhone にハンドオフ、または Apple Notes などに貼り付けて使う。
@@ -68,5 +68,5 @@ cat docs/sns/instagram/mcgregor-xy-theory/carousel/caption.txt | pbcopy
 ## 関連
 
 - サイトのキーワードページ: `/docs/mcgregor-xy-theory`
-- SVG ソース: `docs/sns/instagram/mcgregor-xy-theory/carousel/img/*.svg`
+- SVG ソース: `docs/sns/instagram/cem/mcgregor-xy-theory/carousel/img/*.svg`
 - スキル: `/ig-figure-pack`（次のパックを作るときに参照）

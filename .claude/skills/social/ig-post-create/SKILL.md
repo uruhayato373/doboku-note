@@ -1,4 +1,4 @@
----
+﻿---
 name: ig-post-create
 description: Instagram カルーセル PNG 生成。2 系統運用 (A: 択一クイズパック / B: 過去問パック)。Satori vDOM → Resvg PNG。1080×1350 (Carousel) と 1080×1920 (Reels) 対応。
 allowed-tools: Bash, Read, Write
@@ -25,7 +25,7 @@ doboku-note の Instagram カルーセル投稿用 PNG を生成する。**2 シ
 | 過去問パック構造化 | `scripts/generate-exam-pack-dirs.mjs` |
 | 過去問パック 一括生成 | `scripts/bulk-generate-exam-packs.mjs` |
 | 過去問 SoT | `src/config/exam-questions.json` (640 問) |
-| 過去問 slide-data SoT | `docs/sns/instagram/_exam-packs/{試験}/<year>/pack-<NN>/slide-data.json` |
+| 過去問 slide-data SoT | `docs/sns/instagram/{exam}/exam-packs/<year>/pack-<NN>/slide-data.json` |
 | 過去問スライドビルダー | `.claude/scripts/lib/sns-common/quiz-slides.mjs`（tokens.json 参照） |
 | 過去問デザイン真実源 | `docs/design-system/instagram-carousel-tokens.json` + `docs/design-system/instagram-carousel.md` |
 | 択一クイズパック生成 (A) | `.claude/scripts/sns/render-quiz-pack.mjs` |
@@ -76,7 +76,7 @@ node scripts/parse-exam-questions.mjs
 
 # 2. R7 全年度を 4 問パックに集約（管理別グループ化）
 node scripts/generate-exam-pack-dirs.mjs --year r07
-# → docs/sns/instagram/_exam-packs/技術士総監/r07/pack-{01..09}/slide-data.json
+# → docs/sns/instagram/cem/exam-packs/r07/pack-{01..09}/slide-data.json
 
 # 3. 1 パック分の PNG + caption 生成
 node .claude/skills/social/ig-post-create/scripts/ig-post-create.mjs --exam r07-pack-01 --size carousel
@@ -131,7 +131,7 @@ node scripts/bulk-generate-exam-packs.mjs --all   # 約 130 パック生成
 ```bash
 # 1. source.md を運営者が手書き作成
 # 場所: docs/sns/<channel>/draft/<NNN>-クイズ-...-/source.md
-# フォーマットは docs/sns/instagram/_quiz-sample/source.md 参照
+# フォーマットは docs/sns/instagram/_dev/source.md 参照
 
 # 2. レンダリング
 node .claude/scripts/sns/render-quiz-pack.mjs docs/sns/<channel>/draft/<NNN>-...
@@ -165,8 +165,8 @@ node .claude/scripts/sns/render-quiz-pack.mjs docs/sns/<channel>/draft/<NNN>-...
 
 ### サンプル
 
-- ソース: `docs/sns/instagram/_quiz-sample/source.md`
-- 出力: `docs/sns/instagram/_quiz-sample/instagram-carousel/img/01-経済性/{01..10}.png`
+- ソース: `docs/sns/instagram/_dev/source.md`
+- 出力: `docs/sns/instagram/_dev/instagram-carousel/img/01-経済性/{01..10}.png`
 
 ---
 

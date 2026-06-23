@@ -1,4 +1,4 @@
----
+﻿---
 name: ig-carousel-restyle
 description: 新意匠/tokens 更新後に Instagram 過去問パック PNG を 3 フォーマット (Carousel/Reels/Stories) 統一再生成するスキル。--pack/--year/--all で範囲指定。内部で bulk-generate-exam-packs.mjs + build-stories.mjs を呼び出し、生成後にトークン整合性を簡易検証する。
 allowed-tools: Bash, Read
@@ -6,7 +6,7 @@ allowed-tools: Bash, Read
 
 # IG Carousel Restyle スキル（3 フォーマット対応）
 
-`docs/design-system/instagram-carousel-tokens.json` または `quiz-slides.mjs` を変更した後に、既存 `_exam-packs/**` の PNG を **3 フォーマット（Carousel + Reels + Stories）すべてで統一再生成**するためのラッパー。
+`docs/design-system/instagram-carousel-tokens.json` または `quiz-slides.mjs` を変更した後に、既存 `cem/exam-packs/**` の PNG を **3 フォーマット（Carousel + Reels + Stories）すべてで統一再生成**するためのラッパー。
 
 ## いつ使うか
 
@@ -93,6 +93,6 @@ PNG総数 : 90 枚 (9 × 10)
 
 ## 注意
 
-- `git add -A` 禁止（CLAUDE.md §3）。差分提示時は明示的に `_exam-packs/**/carousel/img/*.png` のみを示す。
+- `git add -A` 禁止（CLAUDE.md §3）。差分提示時は明示的に `{exam}/exam-packs/**/carousel/img/*.png` のみを示す。
 - `--all` 実行は数分以上かかる。バックグラウンド実行を検討（run_in_background）。
 - Manrope / NotoSansJP の woff は `node_modules/@fontsource/` 配下から読まれるので、`npm install --legacy-peer-deps` 済みであることを前提とする。

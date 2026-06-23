@@ -1,4 +1,4 @@
-# Instagram カルーセル 2 シリーズ運用ガイド
+﻿# Instagram カルーセル 2 シリーズ運用ガイド
 
 doboku-note の Instagram カルーセル投稿は **2 系統** で運用する：
 
@@ -37,13 +37,13 @@ B のみで全網羅: 130 ÷ 52 ≈ **約 2.5 年**
 ## 3. ファイル構造
 
 > [!note] ディレクトリ規約（試験軸）
-> `_exam-packs/{試験}/{年度}/pack-NN/` で**全資格を対称配置**する。試験軸は
+> `{exam}/exam-packs/{年度}/pack-NN/` で**全資格を対称配置**する。試験軸は
 > `技術士総監` / `1級土木` / `2級土木`（将来）。`ig-post-create.mjs` 等の
 > `--exam-dir` 省略時は `技術士総監` が既定。1級・2級は明示指定する。
 
 ```
 docs/sns/instagram/
-├── _exam-packs/                       ← B 過去問パック (新)
+├── cem/exam-packs/                       ← B 過去問パック (新)
 │   ├── 技術士総監/                     ← 試験軸（既定）。1級土木 / 2級土木 と対称
 │   │   └── r07/                       ← （以下 技術士総監/r07 を例示）
 │   │       ├── _summary/              ← 年度目次カルーセル（ストーリー入口）
@@ -143,7 +143,7 @@ slide-data.json を手動編集して個別修正可能：
 
 ### source.md 作成
 
-`docs/sns/instagram/_quiz-sample/source.md` のフォーマットをコピーして新規パック作成：
+`docs/sns/instagram/_dev/source.md` のフォーマットをコピーして新規パック作成：
 
 ```markdown
 ## 経済性管理（Q1〜Q4）
@@ -190,7 +190,7 @@ node .claude/scripts/sns/render-quiz-pack.mjs docs/sns/instagram/_quiz-sample
 
 ## 7. やらないこと
 
-- **両シリーズを混同する命名**: A は `<NNN>-クイズ-...`、B は `_exam-packs/{試験}/<year>/pack-<NN>` で物理的に分離
+- **両シリーズを混同する命名**: A は `<NNN>-クイズ-...`、B は `{exam}/exam-packs/<year>/pack-<NN>` で物理的に分離
 - **B の自動生成内容を投稿前に確認しない**: 必ず 1 パックずつ視覚確認してから投稿
 - **A の source.md を機械生成する**: 運営者の手書きクラフトが A の価値の中核
 
@@ -273,7 +273,7 @@ node .claude/skills/social/ig-post-create/scripts/ig-post-create.mjs --exam r07-
 
 # stories/img/ に 4 枚（cover/Q1/A1/cta）を抽出 + caption + note.md 自動生成
 node .claude/scripts/instagram/build-stories.mjs --pack r07-pack-01
-# → docs/sns/instagram/_exam-packs/技術士総監/r07/pack-01/stories/{img/01-cover.png ...}
+# → docs/sns/instagram/cem/exam-packs/r07/pack-01/stories/{img/01-cover.png ...}
 ```
 
 `quiz-slides.mjs` は `reelsWrapper`（1350px コンテンツを 1920px キャンバスの中央に配置）で縦長キャンバスにも対応済み。R3-R7 全 42 パック × 4 枚 = 168 PNG 整備完了。

@@ -22,14 +22,34 @@ node scripts/publish-reel-jit.mjs --pack <r07-pack-01> --question 1 --schedule <
 - ローカル GUI 前提（システム Chrome + 手動 2FA でログイン、`.local/playwright-ig-bs-profile/`）。**CI 不可**。
 - ToS グレー（API 外自動操作）ゆえ初回 `--dry-run` 必須・Planner 実体確認を運用ルール化。
 
-## 投稿素材の構造
+## ディレクトリ構造（資格軸）
 
 ```
-docs/sns/instagram/<slug>/
-├── slide-data.json            # cover / board / cta 構成データ（ig-carousel-writer or 人手）
+docs/sns/instagram/
+├── cem/                       # 技術士総監
+│   ├── exam-packs/r03〜r07/   # 過去問パック（generate-exam-pack-dirs.mjs 出力先）
+│   ├── mcgregor-xy-theory/    # A系統 テーマカルーセル
+│   ├── new-qc-seven-tools/
+│   ├── npv-net-present-value/
+│   └── pull-push-production/
+├── civil-1/                   # 1級土木施工管理技士
+│   └── exam-packs/h26〜r07/
+├── civil-2/                   # 2級土木施工管理技士
+│   └── exam-packs/r03k〜r07z/
+├── pe-construction/           # 技術士建設部門
+├── highlights/                # アカウント共通ハイライト
+├── stories/                   # アカウント共通Stories
+└── _dev/                      # デザインプロトタイプ
+```
+
+## 各パックの素材構造
+
+```
+docs/sns/instagram/{exam}/exam-packs/{year}/pack-NN/  または  {exam}/{slug}/
+├── slide-data.json            # cover / board / cta 構成データ（SoT）
 ├── caption.txt                # generate-caption.cjs で生成（publish-ig-bs が読む）
 ├── carousel/img/*.png         # 4:5 投稿画像（2〜10 枚）
-└── reels/                     # リール素材（mp4・wav は gitignore＝再生成可/R2退避、コミットは script.txt + caption.txt）
+└── reels/                     # リール素材（mp4・wav は gitignore＝再生成可/R2退避）
 ```
 
 ## 素材生成スクリプト（残置）

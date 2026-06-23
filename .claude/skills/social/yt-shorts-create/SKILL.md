@@ -1,4 +1,4 @@
----
+﻿---
 name: yt-shorts-create
 description: IG Reels パック (slide-NN.mp4) から 30-60 秒の YouTube Shorts mp4 + meta.json を派生生成する。戦略 v7 (Instagram 一次・YouTube 二次展開) に整合。
 allowed-tools: Bash, Read, Write
@@ -6,7 +6,7 @@ allowed-tools: Bash, Read, Write
 
 # YouTube Shorts 派生スキル（v7）
 
-`docs/sns/instagram/_exam-packs/{試験}/<year>/pack-NN/reels/` の **IG Reels mp4 から、1080×1920 縦型 30-60 秒の YouTube Shorts を派生生成**する。本スキルは mp4 + thumbnail.png + meta.json の生成まで担当。YouTube への投稿は `post-from-schedule.cjs`（台帳 CI 運用）が担う。
+`docs/sns/instagram/{exam}/exam-packs/<year>/pack-NN/reels/` の **IG Reels mp4 から、1080×1920 縦型 30-60 秒の YouTube Shorts を派生生成**する。本スキルは mp4 + thumbnail.png + meta.json の生成まで担当。YouTube への投稿は `post-from-schedule.cjs`（台帳 CI 運用）が担う。
 
 **v7 で MDX 直結モード（旧 `--slug`）は廃止**。詳細は [`docs/project/03_SNS/01_SNS集客戦略.md`](../../../../docs/project/03_SNS/01_SNS集客戦略.md) v7、品質ルーブリックは [`docs/reference/yt-shorts-publisher-policy.md`](../../../../docs/reference/yt-shorts-publisher-policy.md)。
 
@@ -23,9 +23,9 @@ allowed-tools: Bash, Read, Write
    ffmpeg -version
    ```
 2. **対象パックの Reels mp4 が生成済み**（`slide-NN.mp4` は gitignore・再生成可＝手元に無ければ先に `ig-reel-create` で生成すること。`ls` 確認が空でも異常ではない）
-   - `ig-reel-create` で生成: `docs/sns/instagram/_exam-packs/{試験}/<year>/pack-NN/reels/slide-NN.mp4`
+   - `ig-reel-create` で生成: `docs/sns/instagram/{exam}/exam-packs/<year>/pack-NN/reels/slide-NN.mp4`
    - 必要なファイル: `slide-00.mp4` (cover) / `slide-01.mp4` (problem 1) / `slide-02.mp4` (answer 1) / `slide-09.mp4` (cta)
-3. **slide-data.json が存在**: `docs/sns/instagram/_exam-packs/{試験}/<year>/pack-NN/slide-data.json`
+3. **slide-data.json が存在**: `docs/sns/instagram/{exam}/exam-packs/<year>/pack-NN/slide-data.json`
 
 ## 使い方
 
@@ -73,7 +73,7 @@ docs/sns/youtube/<date>-<pack-id>/
 各スライドは IG Reels で既に **VOICEVOX TTS が乗った独立 mp4** なので、ffmpeg concat で結合するだけで音声付きの 30-60 秒 mp4 になる。
 
 ```
-docs/sns/instagram/_exam-packs/{試験}/<year>/pack-NN/reels/
+docs/sns/instagram/{exam}/exam-packs/<year>/pack-NN/reels/
   slide-00.mp4 (cover)        ┐
   slide-01.mp4 (problem 1)    │ ffmpeg concat
   slide-02.mp4 (answer 1)     │ → shorts.mp4 (約 40-50 秒)
@@ -116,7 +116,7 @@ node .../per-problem-shorts.mjs --exam-dir 技術士総監 --pack r07-pack-02
 
 ```bash
 node .../per-problem-shorts.mjs --ig-mode --year r07 --pack r07-pack-01 [--questions 1,2]
-# → docs/sns/instagram/_exam-packs/<軸>/<year>/pack-<NN>/reels-pp/q<N>/{video.mp4, caption.txt}
+# → docs/sns/instagram/cem/exam-packs/<軸>/<year>/pack-<NN>/reels-pp/q<N>/{video.mp4, caption.txt}
 ```
 
 | | YT（既定） | IG（`--ig-mode`） |
@@ -154,7 +154,7 @@ IG 用 PNG には **「N / 10」ページ番号・「PROBLEM 1 / 4」通し番�
 ffmpeg -version
 
 # 2. 対象 IG Reels パックが生成済みか確認
-ls docs/sns/instagram/_exam-packs/技術士総監/r03/pack-01/reels/slide-{00,01,02,09}.mp4
+ls docs/sns/instagram/cem/exam-packs/r03/pack-01/reels/slide-{00,01,02,09}.mp4
 
 # 3. YT 派生実行
 node .claude/skills/social/yt-shorts-create/scripts/yt-shorts-create.mjs --from-reels r03-pack-01

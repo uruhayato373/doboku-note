@@ -21,7 +21,7 @@ import { fileURLToPath } from "url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
 const INPUT_JSON = join(ROOT, "src/config/exam-questions.json");
-const OUTPUT_BASE = join(ROOT, "docs/sns/instagram/_exam-packs");
+const OUTPUT_BASE = join(ROOT, "docs/sns/instagram/cem/exam-packs");
 
 const MGMT_LABEL_MAP = {
   economic: "経済性管理",
