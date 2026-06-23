@@ -82,7 +82,8 @@
   <text x="320" y="260" class="t-leaf" text-anchor="middle">C 案</text>
 
   <!-- 注釈 -->
-  <text x="200" y="295" class="t-cap" text-anchor="middle">W₁ + W₂ = 1、W₁₁ + W₁₂ = 1、W₂₁ + W₂₂ = 1（各階層の係数和 = 1）</text>
+  <text x="200" y="290" class="t-cap" text-anchor="middle">W₁ + W₂ = 1、W₁₁ + W₁₂ = 1、W₂₁ + W₂₂ = 1</text>
+  <text x="200" y="305" class="t-cap" text-anchor="middle">（各階層の係数和 = 1）</text>
   <text x="200" y="313" class="t-cap" text-anchor="middle">総合評価 Sₐ = W₁W₁₁A₁ + W₁W₁₂A₂ + W₂W₂₁A₃ + W₂W₂₂A₄</text>
 
   <!-- 下部サマリー -->

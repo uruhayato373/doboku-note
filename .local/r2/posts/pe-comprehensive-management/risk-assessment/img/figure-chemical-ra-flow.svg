@@ -61,7 +61,7 @@
   <text x="200" y="326" class="t-step-text" text-anchor="middle">労働者への結果周知</text>
 
   <!-- 注釈 -->
-  <text x="200" y="365" class="t-cap" text-anchor="middle">出典：労働安全衛生法（平成 28 年改正・SDS 交付対象 640 物質が義務）</text>
+  <text x="200" y="365" class="t-cap" text-anchor="middle" font-size="10">出典：労働安全衛生法（平成 28 年改正・SDS 交付対象 640 物質が義務）</text>
 
   <!-- サマリー -->
   <line stroke="#d7d7d7" stroke-width="1" x1="20" y1="385" x2="380" y2="385"/>

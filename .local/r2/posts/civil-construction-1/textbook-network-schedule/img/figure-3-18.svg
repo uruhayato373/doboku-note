@@ -16,7 +16,8 @@
     .rule-body { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 11px; fill: #222; }
   </style>
 
-  <text x="200" y="22" text-anchor="middle" class="title">最遅完了時刻（LFT）：右→左に減算、合流は最小値（□で表記）</text>
+  <text x="200" y="14" text-anchor="middle" class="title">最遅完了時刻（LFT）：右→左に減算</text>
+  <text x="200" y="28" text-anchor="middle" class="title">合流は最小値（□で表記）</text>
 
   <!-- nodes with LFT boxes -->
   <circle cx="40" cy="175" r="20" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
@@ -68,7 +69,8 @@
 
   <line x1="20" y1="323" x2="380" y2="323" stroke="#2e6da4" stroke-width="0.8"/>
 
-  <text x="32" y="340" class="rule-body">手順1: 終了イベントの LFT = プロジェクト工期（= EST の最大値）</text>
+  <text x="32" y="336" class="rule-body">手順1: 終了イベントの LFT =</text>
+  <text x="32" y="350" class="rule-body">　　　プロジェクト工期（= EST の最大値）</text>
   <text x="32" y="358" class="rule-body">手順2: 各アクティビティの LFT から所要時間を減算（右→左）</text>
   <text x="32" y="376" class="rule-body">手順3: 複数経路が分岐する場合は最小値を採用</text>
   <text x="32" y="394" class="rule-body">手順4: すべてのアクティビティを右から左に処理</text>

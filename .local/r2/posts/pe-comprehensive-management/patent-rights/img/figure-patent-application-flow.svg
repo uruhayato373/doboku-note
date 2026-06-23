@@ -110,6 +110,7 @@
 
   <!-- Footer separator -->
   <line class="arrow" x1="20" y1="444" x2="380" y2="444"/>
-  <text class="t-legend" x="20" y="462">特許権の存続期間: 出願日から 20 年（医薬品等は最大 5 年延長可）</text>
+  <text class="t-legend" x="20" y="458">特許権の存続期間: 出願日から 20 年</text>
+  <text class="t-legend" x="20" y="474">（医薬品等は最大 5 年延長可）</text>
   <text class="t-legend" x="20" y="478">登録後は何人も無効審判請求可能（特許の有効性を争える）</text>
 </svg>

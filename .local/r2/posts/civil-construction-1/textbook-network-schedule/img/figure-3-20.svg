@@ -19,7 +19,8 @@
     .rule-body { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 11px; fill: #222; }
   </style>
 
-  <text x="200" y="22" text-anchor="middle" class="title">クリティカルパス（赤太線）：最長経路が全体工期を決定する</text>
+  <text x="200" y="16" text-anchor="middle" class="title">クリティカルパス（赤太線）：</text>
+  <text x="200" y="30" text-anchor="middle" class="title">最長経路が全体工期を決定する</text>
 
   <!-- nodes -->
   <circle cx="40" cy="165" r="20" fill="#f8d7da" stroke="#b22234" stroke-width="2.5"/>

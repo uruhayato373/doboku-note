@@ -3,7 +3,8 @@
   <!-- Layer 1: Ⅰ -->
   <rect x="10" y="10" width="380" height="130" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2" rx="6"/>
   <text x="26" y="34" fill="#1a3a5c" font-size="13" font-weight="bold">Ⅰ　管理対象と前提条件の設定</text>
-  <text x="26" y="52" fill="#555" font-size="11">論文全体の設計図 — 後段で扱う課題が成立する条件を意図的に仕込む</text>
+  <text x="26" y="49" fill="#555" font-size="11">論文全体の設計図 — 後段で扱う課題が成立する</text>
+  <text x="26" y="62" fill="#555" font-size="11">条件を意図的に仕込む</text>
   <line x1="26" y1="62" x2="374" y2="62" stroke="#2e6da4" stroke-width="0.5" stroke-dasharray="3,2"/>
   <text x="26" y="82" fill="#222" font-size="12" font-weight="bold">・管理対象を明確にする（自社の○○事業部 等）</text>
   <text x="26" y="100" fill="#222" font-size="12" font-weight="bold">・立場・役割を明示する（PM／部門長／経営層）</text>
@@ -37,7 +38,8 @@
   <text x="26" y="398" fill="#1a3a5c" font-size="13" font-weight="bold">Ⅲ　将来展望と最大のリスク</text>
   <text x="26" y="416" fill="#555" font-size="11">Ⅱ を進めた先に顕在化する構造的課題 — リスクは 1 つに絞る</text>
   <line x1="26" y1="426" x2="374" y2="426" stroke="#2e6da4" stroke-width="0.5" stroke-dasharray="3,2"/>
-  <text x="26" y="446" fill="#d4a017" font-size="12" font-weight="bold">・最大リスク 1 点（トレードオフ最大／組織弱点／規模拡大破綻）</text>
-  <text x="26" y="464" fill="#222" font-size="12" font-weight="bold">・克服策 ＝ 管理行為（管理方法見直し・体制再設計・ルール整備）</text>
-  <text x="26" y="483" fill="#555" font-size="11">→ 新技術導入で解決しない。これが「総合技術監理」の行為そのもの</text>
+  <text x="26" y="446" fill="#d4a017" font-size="11" font-weight="bold">・最大リスク 1 点（トレードオフ最大／組織弱点／規模拡大破綻）</text>
+  <text x="26" y="460" fill="#222" font-size="11" font-weight="bold">・克服策 ＝ 管理行為（管理方法見直し・</text>
+  <text x="26" y="472" fill="#222" font-size="11" font-weight="bold">　体制再設計・ルール整備）</text>
+  <text x="26" y="485" fill="#555" font-size="11">→ 新技術導入で解決しない（「総合技術監理」の行為そのもの）</text>
 </svg>

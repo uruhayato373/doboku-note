@@ -43,8 +43,8 @@
   <circle class="item-warn" cx="226" cy="74" r="13"/>
   <text class="num-warn" x="226" y="79" text-anchor="middle">2</text>
   <text class="t-label" x="246" y="72">強制・命令</text>
-  <text class="t-note" x="246" y="89">強制や命令を常に行わなければ</text>
-  <text class="t-note" x="246" y="103">十分な力を発揮できない</text>
+  <text class="t-note" x="226" y="89">強制や命令を常に行わなければ</text>
+  <text class="t-note" x="226" y="103">十分な力を発揮できない</text>
 
   <!-- X理論 アイテム3・4（下行） -->
   <rect class="item-warn" x="18" y="140" width="178" height="76" rx="6"/>
