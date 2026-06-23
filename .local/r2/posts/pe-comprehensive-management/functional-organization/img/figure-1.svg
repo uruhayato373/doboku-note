@@ -42,7 +42,7 @@
   <circle cx="220" cy="27" r="10" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
   <text class="t-label" x="220" y="31" text-anchor="middle" font-size="11">b</text>
   <text class="t-label" x="238" y="29">事業部制組織</text>
-  <text class="t-body" x="208" y="42" font-size="11">製品・市場別に権限と</text>
+  <text class="t-body" x="208" y="48" font-size="11">製品・市場別に権限と</text>
   <text class="t-body" x="208" y="54" font-size="11">利益責任を分担</text>
   <rect class="tag-pos" x="206" y="62" width="180" height="20" rx="4"/>
   <text class="t-tag tag-pos-t" x="205" y="76">メリット: 意思決定迅速・成果明確</text>
@@ -54,7 +54,7 @@
   <circle cx="26" cy="143" r="10" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
   <text class="t-label" x="26" y="147" text-anchor="middle" font-size="11">c</text>
   <text class="t-label" x="44" y="145">マトリクス組織</text>
-  <text class="t-body" x="14" y="160" font-size="11">職能・事業部門に同時所属の二重構造</text>
+  <text class="t-body" x="14" y="164" font-size="11">職能・事業部門に同時所属の二重構造</text>
   <rect class="tag-pos" x="12" y="172" width="174" height="20" rx="4"/>
   <text class="t-tag tag-pos-t" x="18" y="186">メリット: 柔軟な交流・知識共有</text>
   <rect class="tag-dan" x="12" y="196" width="174" height="20" rx="4"/>

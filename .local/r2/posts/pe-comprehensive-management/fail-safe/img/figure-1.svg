@@ -78,7 +78,7 @@
   <circle class="badge-pos" cx="226" cy="374" r="12"/>
   <text style="font-size:11px;font-weight:bold;fill:#3a7d44" x="226" y="379" text-anchor="middle">IL</text>
   <text class="t-main" x="244" y="370">インターロック</text>
-  <text class="t-note" x="220" y="390">条件不成立で動作させない機構</text>
+  <text class="t-note" x="296" y="390" text-anchor="middle">条件不成立で動作させない機構</text>
 
   <!-- ===== フッター ===== -->
   <rect x="12" y="416" width="376" height="68" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
