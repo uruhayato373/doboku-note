@@ -69,8 +69,9 @@
   <text class="t-label" x="43" y="161" text-anchor="middle">時間価値</text>
   <text class="t-label" x="43" y="176" text-anchor="middle">の考慮</text>
   <rect style="fill:#fff3cd;stroke:#d4a017;stroke-width:0.8" x="78"  y="144" width="106" height="40"/>
-  <text class="t-body"  x="131" y="159" text-anchor="middle" font-weight="bold">あり</text>
-  <text class="t-muted" x="131" y="173" text-anchor="middle">割引率rで現在価値換算</text>
+  <text class="t-body"  x="131" y="157" text-anchor="middle" font-weight="bold">あり</text>
+  <text class="t-muted" x="131" y="169" text-anchor="middle">割引率rで</text>
+  <text class="t-muted" x="131" y="181" text-anchor="middle">現在価値換算</text>
   <rect style="fill:#fff3cd;stroke:#d4a017;stroke-width:0.8" x="184" y="144" width="106" height="40"/>
   <text class="t-body"  x="237" y="158" text-anchor="middle" font-weight="bold">あり（基本形）</text>
   <text class="t-muted" x="237" y="181" text-anchor="middle">均等資金年額Mで算出</text>
@@ -100,8 +101,9 @@
   <text class="t-muted" x="84"  y="260">・割引率が難しい</text>
   <text class="t-muted" x="84"  y="278">・計算が複雑</text>
   <rect class="cell-border" x="184" y="240" width="106" height="56"/>
-  <text class="t-muted" x="190" y="260">・回収後を評価せず</text>
-  <text class="t-muted" x="190" y="278">・規模差を無視</text>
+  <text class="t-muted" x="190" y="256">・回収後を</text>
+  <text class="t-muted" x="190" y="270">　評価せず</text>
+  <text class="t-muted" x="190" y="284">・規模差を無視</text>
   <rect class="cell-border" x="290" y="240" width="108" height="56"/>
   <text class="t-muted" x="296" y="260">・時間価値を無視</text>
   <text class="t-muted" x="296" y="278">・会計利益ベース</text>
@@ -118,17 +120,18 @@
   <text class="t-body" x="190" y="315">資金繰り重視・</text>
   <text class="t-body" x="190" y="331">短期投資の比較</text>
   <rect class="cell-border" x="290" y="296" width="108" height="44"/>
-  <text class="t-body" x="290" y="315">経営指標・複数案の</text>
-  <text class="t-body" x="296" y="331">利益率比較</text>
+  <text class="t-body" x="344" y="313" text-anchor="middle">経営指標・</text>
+  <text class="t-body" x="344" y="327" text-anchor="middle">複数案の利益率比較</text>
 
   <!-- ===== 計算式行 y=340 h=60 (brand) ===== -->
   <rect class="row-header" x="8"   y="340" width="70"  height="60"/>
   <text class="t-label" x="43" y="364" text-anchor="middle" fill="#1a3a5c">計算式</text>
   <text class="t-muted" x="43" y="380" text-anchor="middle">（概要）</text>
   <rect style="fill:#e8f0fe;stroke:#2e6da4;stroke-width:0.8" x="78"  y="340" width="106" height="60"/>
-  <text class="t-body" x="131" y="358" text-anchor="middle">V＝Σ(Ct/(1+r)^t)</text>
-  <text class="t-muted" x="131" y="374" text-anchor="middle">Ct:キャッシュフロー</text>
-  <text class="t-muted" x="131" y="388" text-anchor="middle">r:割引率 t:年数</text>
+  <text class="t-body" x="131" y="356" text-anchor="middle">V＝Σ(Ct/(1+r)^t)</text>
+  <text class="t-muted" x="131" y="369" text-anchor="middle">Ct:キャッシュ</text>
+  <text class="t-muted" x="131" y="382" text-anchor="middle">　フロー</text>
+  <text class="t-muted" x="131" y="394" text-anchor="middle">r:割引率 t:年数</text>
   <rect style="fill:#e8f0fe;stroke:#2e6da4;stroke-width:0.8" x="184" y="340" width="106" height="60"/>
   <text class="t-body" x="237" y="358" text-anchor="middle">n＝C0÷M</text>
   <text class="t-muted" x="237" y="374" text-anchor="middle">C0:初期投資</text>
