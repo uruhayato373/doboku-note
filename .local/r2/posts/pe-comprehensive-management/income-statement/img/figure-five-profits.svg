@@ -1,56 +1,40 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="損益計算書の5つの利益の段階：売上高から売上原価・販管費・営業外損益・特別損益・法人税等を順に加減して、売上総利益・営業利益・経常利益・税引前当期純利益・当期純利益を算出する流れ" font-family='Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif'>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="損益計算書の5つの利益の段階を、幅が段階的に狭まる階段で示す。売上高から売上原価を引くと売上総利益、販管費を引くと営業利益、営業外損益を加減すると経常利益、特別損益を加減すると税引前当期純利益、法人税等を引くと当期純利益となり、費用を引くほど利益は小さくなる" font-family='Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif'>
   <rect width="400" height="500" fill="#ffffff" stroke="#d7d7d7"/>
 
-  <text x="200" y="22" text-anchor="middle" font-size="14" font-weight="bold" fill="#222">損益計算書 5つの利益の段階</text>
-  <text x="200" y="40" text-anchor="middle" font-size="11" fill="#555">売上高から段階的に費用を引いて算出する</text>
+  <text x="200" y="26" text-anchor="middle" font-size="11" fill="#555">売上高から費用を引くほど利益は小さくなる</text>
 
-  <!-- box1 売上高 -->
-  <rect x="12" y="56" width="376" height="36" fill="#f5f5f5" stroke="#d7d7d7"/>
-  <text x="24" y="79" font-size="13" font-weight="bold" fill="#222">売上高</text>
-  <text x="380" y="79" text-anchor="end" font-size="11" fill="#555">商品・サービスの売上（出発点）</text>
-  <!-- op1 -->
-  <rect x="100" y="95" width="200" height="20" rx="10" fill="#f5f5f5" stroke="#d7d7d7"/>
-  <text x="200" y="109" text-anchor="middle" font-size="11" fill="#222"><tspan fill="#b22234">−</tspan> 売上原価</text>
+  <!-- 売上高（出発点・最も広い） -->
+  <rect x="12" y="44" width="336" height="50" fill="#f5f5f5" stroke="#d7d7d7"/>
+  <text x="24" y="75" font-size="13" font-weight="bold" fill="#222">売上高</text>
 
-  <!-- box2 売上総利益 -->
-  <rect x="12" y="120" width="376" height="36" fill="#e8f0fe" stroke="#2e6da4"/>
-  <text x="24" y="143" font-size="13" font-weight="bold" fill="#1a3a5c">売上総利益（粗利）</text>
-  <text x="380" y="143" text-anchor="end" font-size="11" fill="#555">本業の利幅</text>
-  <!-- op2 -->
-  <rect x="100" y="159" width="200" height="20" rx="10" fill="#f5f5f5" stroke="#d7d7d7"/>
-  <text x="200" y="173" text-anchor="middle" font-size="11" fill="#222"><tspan fill="#b22234">−</tspan> 販売費及び一般管理費</text>
+  <!-- 売上総利益 -->
+  <rect x="12" y="106" width="290" height="50" fill="#e8f0fe" stroke="#2e6da4"/>
+  <text x="24" y="137" font-size="13" font-weight="bold" fill="#1a3a5c">売上総利益（粗利）</text>
+  <text x="310" y="137" font-size="11" fill="#222"><tspan fill="#b22234">−</tspan> 売上原価</text>
 
-  <!-- box3 営業利益 -->
-  <rect x="12" y="184" width="376" height="36" fill="#e8f0fe" stroke="#2e6da4"/>
-  <text x="24" y="207" font-size="13" font-weight="bold" fill="#1a3a5c">営業利益</text>
-  <text x="380" y="207" text-anchor="end" font-size="11" fill="#555">本業の収益力</text>
-  <!-- op3 -->
-  <rect x="92" y="223" width="216" height="20" rx="10" fill="#f5f5f5" stroke="#d7d7d7"/>
-  <text x="200" y="237" text-anchor="middle" font-size="11" fill="#222"><tspan fill="#3a7d44">＋</tspan>営業外収益　<tspan fill="#b22234">−</tspan>営業外費用</text>
+  <!-- 営業利益 -->
+  <rect x="12" y="168" width="246" height="50" fill="#e8f0fe" stroke="#2e6da4"/>
+  <text x="24" y="199" font-size="13" font-weight="bold" fill="#1a3a5c">営業利益</text>
+  <text x="266" y="199" font-size="11" fill="#222"><tspan fill="#b22234">−</tspan> 販管費</text>
 
-  <!-- box4 経常利益 -->
-  <rect x="12" y="248" width="376" height="36" fill="#e8f0fe" stroke="#2e6da4"/>
-  <text x="24" y="271" font-size="13" font-weight="bold" fill="#1a3a5c">経常利益</text>
-  <text x="380" y="271" text-anchor="end" font-size="11" fill="#555">財務を含む通常の収益力</text>
-  <!-- op4 -->
-  <rect x="92" y="287" width="216" height="20" rx="10" fill="#f5f5f5" stroke="#d7d7d7"/>
-  <text x="200" y="301" text-anchor="middle" font-size="11" fill="#222"><tspan fill="#3a7d44">＋</tspan>特別利益　<tspan fill="#b22234">−</tspan>特別損失</text>
+  <!-- 経常利益 -->
+  <rect x="12" y="230" width="210" height="50" fill="#e8f0fe" stroke="#2e6da4"/>
+  <text x="24" y="261" font-size="13" font-weight="bold" fill="#1a3a5c">経常利益</text>
+  <text x="230" y="261" font-size="11" fill="#555">± 営業外損益</text>
 
-  <!-- box5 税引前当期純利益 -->
-  <rect x="12" y="312" width="376" height="36" fill="#e8f0fe" stroke="#2e6da4"/>
-  <text x="24" y="335" font-size="13" font-weight="bold" fill="#1a3a5c">税引前当期純利益</text>
-  <text x="380" y="335" text-anchor="end" font-size="11" fill="#555">臨時損益まで反映</text>
-  <!-- op5 -->
-  <rect x="100" y="351" width="200" height="20" rx="10" fill="#f5f5f5" stroke="#d7d7d7"/>
-  <text x="200" y="365" text-anchor="middle" font-size="11" fill="#222"><tspan fill="#b22234">−</tspan> 法人税等</text>
+  <!-- 税引前当期純利益 -->
+  <rect x="12" y="292" width="184" height="50" fill="#e8f0fe" stroke="#2e6da4"/>
+  <text x="24" y="323" font-size="12" font-weight="bold" fill="#1a3a5c">税引前当期純利益</text>
+  <text x="204" y="323" font-size="11" fill="#555">± 特別損益</text>
 
-  <!-- box6 当期純利益 -->
-  <rect x="12" y="376" width="376" height="36" fill="#d0e8d0" stroke="#3a7d44"/>
-  <text x="24" y="399" font-size="13" font-weight="bold" fill="#1a3a5c">当期純利益</text>
-  <text x="380" y="399" text-anchor="end" font-size="11" fill="#555">株主に残る最終利益</text>
+  <!-- 当期純利益（最終・最も狭い・緑） -->
+  <rect x="12" y="354" width="156" height="50" fill="#d0e8d0" stroke="#3a7d44"/>
+  <text x="24" y="385" font-size="13" font-weight="bold" fill="#1a3a5c">当期純利益</text>
+  <text x="176" y="385" font-size="11" fill="#222"><tspan fill="#b22234">−</tspan> 法人税等</text>
 
   <!-- summary -->
-  <rect x="12" y="424" width="376" height="58" fill="#f5f5f5" stroke="#d7d7d7" rx="2"/>
-  <text x="200" y="447" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">段階ごとに「何の利益か」が変わる</text>
-  <text x="200" y="468" text-anchor="middle" font-size="11" fill="#555">営業＝本業／経常＝財務含む通常／当期純＝最終</text>
+  <rect x="12" y="412" width="376" height="74" fill="#f5f5f5" stroke="#d7d7d7" rx="2"/>
+  <text x="200" y="436" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">段階ごとに「何の利益か」が変わる</text>
+  <text x="200" y="457" text-anchor="middle" font-size="11" fill="#555">営業＝本業の力／経常＝財務含む通常</text>
+  <text x="200" y="475" text-anchor="middle" font-size="11" fill="#555">当期純＝株主に残る最終利益</text>
 </svg>
