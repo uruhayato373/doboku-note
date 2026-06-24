@@ -32,6 +32,20 @@ if [ -n "$DECISION_CHANGED" ]; then
   echo ""
 fi
 
+# 新ツール/スクリプト追加 → discoverability 配線（既存 skill/policy から参照）＋ /doc-sync を促す。
+# 機械ガード（参照・台帳）が拾えない routing drift（新ツールを足したが既存案内が旧/別ツールを指したまま）
+# と discoverability gap（新ツールがどの doc からも参照されず次セッションが再調査）の再発防止。
+# 2026-06-25 新設（figure-reel-create 取りこぼし。真実源 docs/reference/information-architecture.md 規律7）。
+NEW_TOOLS=$(git diff --cached --name-status --diff-filter=A 2>/dev/null | grep -E "^A\s+scripts/.*\.(mjs|mts|js|ts|cjs)$" | sed -E 's/^A\s+//')
+if [ -n "$NEW_TOOLS" ]; then
+  echo ""
+  echo "NOTE: 新しいスクリプト/ツールを追加しています。次を確認してください（情報構造 規律7）:"
+  echo "  1) 既存の該当 skill SKILL.md / reference policy から参照を張る（discoverability・新旧の棲み分けも明記）"
+  echo "  2) /doc-sync を回し『既存の案内が旧/別ツールを指したまま』の routing drift を点検"
+  echo "$NEW_TOOLS" | sed 's/^/  /'
+  echo ""
+fi
+
 # ドキュメント肥大化（active handoff の蓄積）→ /doc-declutter（doc-curator）を促す forcing function。
 # 完了済み handoff が active のまま積み上がると棚卸し漏れ＝肥大化するため、一定数で nudge する（非ブロッキング）。
 ACTIVE_HANDOFFS=$(ls docs/handoffs/*.md 2>/dev/null | wc -l | tr -d ' ')

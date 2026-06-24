@@ -94,6 +94,7 @@ doboku-note プロジェクトにおけるドキュメント・データの置�
 4. **揺れやすいパスより安定したインデックスを指す**。章番号付き（`04_コンテンツロードマップ.md` 等）は再編で動きやすいので、可能なら README や本ドキュメント、内容 SSOT（`noteコンテンツ計画.md` 等）を参照する。
 5. **例示パスはプレースホルダで書く**（`{slug}` / `{magazine}` / `YYYY-Www` / `r0X` 等）。実在ファイル参照と区別され、ガードが誤検知しない。
 6. **廃止台帳・移行履歴など「死んだパスを記録として残す」行**は行末に `<!-- doc-ref:ignore -->` を付ける（このセクション直後の「廃止済み」がその例）。
+7. **新しいツール/スクリプト/処理経路を追加したら、最も近い既存 skill SKILL.md か reference policy から参照を張る（discoverability）＋新旧の棲み分けを明記する**。似た既存ツールがあれば「どちらを使うか」を迷わせない。これも `/doc-sync` の対象＝**routing drift**（新ツール追加で既存の「どれを使うか」案内が旧/別ツールを指したまま陳腐化）と **discoverability gap**（新ツールがどの doc からも参照されず次セッションが再調査）。機械ガード（参照・台帳）は壊れた参照と台帳もれしか見ずこの意味ドリフトは拾えないため、追加コミット前に `/doc-sync` を回す（2026-06-25、`scripts/figure-reel-create.mjs` 新設時に `ig-figure-pack` SKILL.md が `ig-reel-create`＝過去問専用を誤案内したまま残った再発防止。[[feedback_new_tool_doc_wiring]]）。
 
 ### ガード（再発防止）— ドキュメント整合の4層
 
@@ -114,7 +115,7 @@ doboku-note プロジェクトにおけるドキュメント・データの置�
 
 **クラスタガード**（`check-policy-anchors.mjs`・2026-06-16 新設）: 1 つの決定が複数文書に散在するクラスタ（台帳 `.claude/config/policy-anchors.json`）で、1 ファイルを staged すると同クラスタの全ファイルを「整合を確認せよ」と決定的に提示する（advisory・exit 0）。`files`/`anchor` の実在も検証し、移動・改名で台帳が腐ると exit 1（registry rot）。**意味照合はしない**（それは意味ガード `/doc-sync` の領分）＝「片方だけ更新した」横展開もれを surface する forcing function。あわせて `check-doc-sync.sh`（PreToolUse on git commit）が決定/ポリシー文書の変更時に `/doc-sync` を促し、`decision-doc-checkpoint.sh`（`PreCompact`/`SessionEnd` フック）がセッションの節目・終了時に未コミットの決定文書を締め切りチェックする。台帳の更新は決定クラスタを増減したときに行う。背景: 2026-06-16 per-persona R8 決定の横展開が 3 往復かかった再発防止（[[feedback_content_deprecation_cross_lineage]]）。
 
-**意味ガード**（`/doc-sync`・2026-06-12 新設）: 「ドキュメント化された面」(`src/** scripts/** .claude/** package.json` 等)を変更したタスクの完了時に、変更 diff × 候補 doc を `doc-sync-auditor`（Evaluator・sonnet）で突合し、機械ガードが拾えない陳腐化を検出→適用。純コンテンツ MDX 編集では回さない。
+**意味ガード**（`/doc-sync`・2026-06-12 新設）: 「ドキュメント化された面」(`src/** scripts/** .claude/** package.json` 等)を変更したタスクの完了時に、変更 diff × 候補 doc を `doc-sync-auditor`（Evaluator・sonnet）で突合し、機械ガードが拾えない陳腐化を検出→適用。純コンテンツ MDX 編集では回さない。**routing drift / discoverability gap（規律 7）も検出対象**。発火トリガーとして `check-doc-sync.sh`（commit フック）が、決定/ポリシー文書の変更に加え **新規スクリプト追加（`scripts/**` への `--diff-filter=A`）でも discoverability 配線＋`/doc-sync` を促す**（2026-06-25 拡張）。
 
 ## 廃止済み
 
