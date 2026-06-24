@@ -14,6 +14,11 @@
 //   audit job = {figId, chId, caption, chosenPage}
 //
 // 返り値 results を WORK/audit.json に保存 → apply_deltas_recrop.py に渡す。
+//
+// 注意（落とし穴）: scanned-figure-crop-auditor を**新規作成した直後の同一セッション**では
+// agentType として解決できない（エージェント定義はセッション開始時ロード）。その場合は
+// args.agentType:"general-purpose" を渡す（本ワークフローのプロンプトに4軸ルーブリックを内包済みで自己完結）。
+// セッションを開き直せば agentType 既定の scanned-figure-crop-auditor が使える。
 export const meta = {
   name: 'scanned-figure-crop-audit',
   description: 'スキャン書籍 図クロップを scanned-figure-crop-auditor で4軸採点し adjust_bbox を返す。groupSize順次でレート制限抑制',
@@ -95,7 +100,7 @@ for (let i = 0; i < jobs.length; i += GROUP) {
   const part = await parallel(
     slice.map((J) => () =>
       agent(buildPrompt(J), { label: `audit:${J.figId}`, phase: 'Audit',
-        agentType: 'scanned-figure-crop-auditor', schema: AUDIT_SCHEMA })
+        agentType: cfg.agentType || 'scanned-figure-crop-auditor', model: cfg.model || 'sonnet', schema: AUDIT_SCHEMA })
         .then((r) => ({ figId: J.figId, chId: J.chId, result: r }))
         .catch((e) => ({ figId: J.figId, chId: J.chId, result: null, err: String(e) }))
     )
