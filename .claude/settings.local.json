@@ -94,7 +94,13 @@
       "PowerShell($content = [System.IO.File]::ReadAllText\\('C:\\\\tmp\\\\civil1-ocr\\\\out\\\\07__b00.md', [System.Text.Encoding]::UTF8\\); $chars = $content.Length; $fffd = \\($content.ToCharArray\\(\\) | Where-Object { $_ -eq [char]0xFFFD }\\).Count; \"chars=$chars\"; \"fffd=$fffd\")",
       "Bash(node --check .claude/skills/conversion/pdf-to-mdx/scripts/scanned/figure_crop_audit.workflow.js)",
       "Bash(cd /c/Users/m004195/doboku-note *)",
-      "Bash(rm .git/index.lock && echo \"lock removed\" && git status --short | head -5)"
+      "Bash(rm .git/index.lock && echo \"lock removed\" && git status --short | head -5)",
+      "mcp__Claude_in_Chrome__navigate",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "Bash(mkdir -p \"C:\\\\Users\\\\m004195\\\\Downloads\\\\herzberg-two-factor-theory\")",
+      "Bash(cp \"C:\\\\Users\\\\m004195\\\\doboku-note\\\\docs\\\\sns\\\\instagram\\\\herzberg-two-factor-theory\\\\carousel\\\\img\\\\00-cover.png\" \"C:\\\\Users\\\\m004195\\\\Downloads\\\\herzberg-two-factor-theory\\\\\" && cp \"C:\\\\Users\\\\m004195\\\\doboku-note\\\\docs\\\\sns\\\\instagram\\\\herzberg-two-factor-theory\\\\carousel\\\\img\\\\01-figure.png\" \"C:\\\\Users\\\\m004195\\\\Downloads\\\\herzberg-two-factor-theory\\\\\")",
+      "Bash(cp \"C:\\\\Users\\\\m004195\\\\doboku-note\\\\docs\\\\sns\\\\instagram\\\\herzberg-two-factor-theory\\\\carousel\\\\img\\\\02-text.png\" \"C:\\\\Users\\\\m004195\\\\Downloads\\\\herzberg-two-factor-theory\\\\\" && cp \"C:\\\\Users\\\\m004195\\\\doboku-note\\\\docs\\\\sns\\\\instagram\\\\herzberg-two-factor-theory\\\\carousel\\\\img\\\\03-cta.png\" \"C:\\\\Users\\\\m004195\\\\Downloads\\\\herzberg-two-factor-theory\\\\\")",
+      "Bash(cp \"C:\\\\Users\\\\m004195\\\\doboku-note\\\\docs\\\\sns\\\\instagram\\\\herzberg-two-factor-theory\\\\carousel\\\\caption.txt\" \"C:\\\\Users\\\\m004195\\\\Downloads\\\\herzberg-two-factor-theory\\\\\" && rm \"C:\\\\Users\\\\m004195\\\\Downloads\\\\00-cover.png\" \"C:\\\\Users\\\\m004195\\\\Downloads\\\\01-figure.png\" \"C:\\\\Users\\\\m004195\\\\Downloads\\\\02-text.png\" \"C:\\\\Users\\\\m004195\\\\Downloads\\\\03-cta.png\" 2>/dev/null; ls \"C:\\\\Users\\\\m004195\\\\Downloads\\\\herzberg-two-factor-theory\\\\\")"
     ],
     "defaultMode": "bypassPermissions"
   }
