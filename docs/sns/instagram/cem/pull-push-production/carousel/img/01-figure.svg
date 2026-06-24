@@ -2,6 +2,7 @@
      style="max-width:400px;width:100%"
      role="img"
      aria-label="プッシュ型とプル型生産方式の違いを生産指示（情報）の向きと中間在庫の量で対比した図。プッシュ型は需要予測で前工程から後工程へ押し出し在庫が多く、プル型はかんばんで後工程から前工程へ引き取り在庫が少ない。モノの流れは両者とも前工程から後工程で共通。">
+  <rect width="400" height="500" fill="#ffffff"/>
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }

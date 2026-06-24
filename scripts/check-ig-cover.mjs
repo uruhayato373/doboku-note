@@ -72,6 +72,16 @@ for (const f of files) {
   // 5. フッター文言
   if (!svg.includes('doboku-note.com')) problems.push(`${f}: フッターが "doboku-note.com" でない`);
   if (svg.includes('@doboku-note')) problems.push(`${f}: 旧フッター "@doboku-note" を使用（"doboku-note.com" に統一）`);
+
+  // 7. 同パックの 01-figure.svg は全面背景rectが必須
+  //    サイト図はページ白背景前提で背景を持たない → PNG化で透明 → Instagram が黒表示（2026-06-24 発覚、8中5パック）
+  const figPath = f.replace('00-cover.svg', '01-figure.svg');
+  if (existsSync(figPath)) {
+    const fig = readFileSync(figPath, 'utf8');
+    if (!/<rect[^>]*width="400"[^>]*height="500"[^>]*fill="#(fff|ffffff)"|<rect[^>]*fill="#(fff|ffffff)"[^>]*width="400"[^>]*height="500"/.test(fig)) {
+      problems.push(`${figPath}: 全面の白背景rectが無い（透明PNG→Instagramで黒地に。<rect width="400" height="500" fill="#ffffff"/> を <svg> 直後に追加）`);
+    }
+  }
 }
 
 if (problems.length) {
@@ -80,4 +90,4 @@ if (problems.length) {
   console.error(`  → SSOT: .claude/skills/social/ig-figure-pack/templates/00-cover.template.svg をコピーして文言だけ差し替える`);
   process.exit(1);
 }
-console.log(`[check-ig-cover] ✓ ${files.length} 枚の IG 表紙はテンプレ準拠`);
+console.log(`[check-ig-cover] ✓ ${files.length} パックの表紙テンプレ＋図解の白背景が規約準拠`);

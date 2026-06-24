@@ -69,11 +69,12 @@ mkdir -p "docs/sns/instagram/{exam}/{keyword}/carousel/img"
 
 > これらは `check-ig-cover`（pre-commit）が機械検証する。逸脱すると赤落ち。**SKILL.md とテンプレと現物の三者は常に一致させる**（2026-06-24 制定、表紙ドリフトの再発防止）。
 
-**01-figure.svg** — site figure をコピー
+**01-figure.svg** — site figure をコピー＋**白背景rectを必ず追加**
 ```bash
-copy ".local\r2\posts\{exam}\{slug}\img\figure-1.svg" "docs\sns\instagram\{keyword}\carousel\img\01-figure.svg"
+copy ".local\r2\posts\{exam}\{slug}\img\figure-1.svg" "docs\sns\instagram\{exam}\{keyword}\carousel\img\01-figure.svg"
 ```
-`figure-N.svg` が `640×360`（landscape）の場合は `viewBox` を再調整して縦型にリレイアウトが必要。
+- **コピー直後に `<svg>` タグの直後へ `<rect width="400" height="500" fill="#ffffff"/>` を追加する**。サイト図はページの白背景に乗る前提で背景を持たないため、そのまま PNG 化すると**透明 → Instagram が黒で表示**され濃色文字が読めなくなる（2026-06-24、8中5パックで発生）。`check-ig-cover` が pre-commit で背景欠落をブロックする
+- `figure-N.svg` が `640×360`（landscape）の場合は `viewBox` を再調整して縦型にリレイアウトが必要
 
 **02-text.svg** — 白背景
 - ヘッダ帯: navy 背景・試験種（orange 10px）+ ページタイトル（白 bold 16px）
