@@ -140,6 +140,9 @@ docs/sns/instagram/**/reels-pp/**/cover.png
 docs/sns/instagram/**/reels/video.mp4
 docs/sns/instagram/**/reels/wav/
 docs/sns/instagram/**/reels/subtitles.ass
+# figure→reel（figure-reel-create）の派生物。SoT は script.txt + caption.txt のみ。
+docs/sns/instagram/**/reels/img/
+docs/sns/instagram/**/reels/cover.png
 
 # Large PDF files exceeding GitHub 100MB limit
 docs/textbook/経営学/経営学.pdf
