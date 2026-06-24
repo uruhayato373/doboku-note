@@ -101,24 +101,29 @@ note 記事本文は **ProseMirror**。書き込み自動化の可否が操作�
 - **○ 新規挿入は安定**: URL を**単独行で入力→Enter**で**リンクカード（figure 埋め込み）化**／`## `→H2見出し／空段落への新規セクション入力。ロードマップ記事へ14ペルソナのカード追加・下段セクション挿入で実証。
 - **△ 箇条書き（`- `）は typing で自動変換されない**（テキストのまま）。
 - **✗ 既存段落の上書きは不安定**: triple-click / Shift+click 選択→打ち直しが**過剰選択・段落併合・ロケータ陳腐化**で破損（見出しと本文が結合する等）。**既存価格・本文の書き換えは手動が安全**。
-- **公開済み記事は「一時保存」で下書きが保持されない**（再オープンで公開版ロード）。変更は**「公開に進む→更新する」＝即公開**でしか反映されない＝**安全プレビュー不可**。自動編集は検証ゲートを挟み NG なら公開しない運用。
-- **結論（2026-06-15 時点）**: note 記事本文の自動化は「新規カード/セクション挿入」に限定し、既存テキストの書き換えは手動。
+- **公開済み記事は「一時保存」で下書きが保持されない**（再オープンで公開版ロード＝autosave は browser close で破棄）。変更は**「公開に進む→更新する」＝即公開**でしか反映されない＝**安全プレビュー不可**。自動編集は検証ゲートを挟み NG なら公開しない運用。
+- **結論の更新（2026-06-24）**: **既存テキストの「全文置換」は自動化可能**（下記 `note-update-body` ＝空エディタ paste＋probe 検証＋publish フロー）。段落単位の部分上書きは依然不安定なので、本文を触るときは「全文を貼り直す」を既定とする。新規カード/セクション挿入は引き続き安定。
 
-### 本文一括差し替え: `note-update-body`（2026-06-23 新設）
+### 本文一括差し替え＋ライブ反映: `note-update-body`（2026-06-23 新設 / 2026-06-24 本番化）
 
-上記「結論」の例外として、**ソースファイル（article.md）全体を Ctrl+A → paste で貼り直す**方式で、既公開記事の本文を差し替えるスクリプトを新設。部分選択の段落破損を回避できる。
+上記「結論」の例外として、**ソースファイル（article.md）全体を貼り直す**方式で、既公開記事の本文を差し替えてライブ反映するスクリプト。部分選択の段落破損を回避できる。
 
 ```bash
-node scripts/note-update-body.mjs --article <article.md>
-node scripts/note-update-body.mjs --list   <list.txt>   # 複数記事
-# npm 経由: npm run note-update-body -- --article <path>
+node scripts/note-update-body.mjs --article <article.md>            # dry-run（既定・安全）
+node scripts/note-update-body.mjs --article <article.md> --commit   # 実ライブ反映
+node scripts/note-update-body.mjs --list   <list.txt>   --commit    # 複数記事を一括反映
+# npm 経由: npm run note-update-body -- --article <path> [--commit]
 ```
 
 - `noteId` を frontmatter から取得し `editor.note.com/notes/{noteId}/edit` へ直接遷移
-- Ctrl+A 全選択 → ClipboardEvent paste で一括置換（ProseMirror の部分選択問題を回避）
-- URL 行のリンクカード化（type→Enter）まで自動。カバー画像・タイトル・タグは変更しない
-- 公開状態を変えない（下書き保存のみ）。BOM 付きファイル対応済み
-- 実証: 2026-06-23 13 記事 ok=13 / fail=0
+- **本文置換 = Ctrl+A → Delete で空に → ClipboardEvent paste**。`Ctrl+A` で全選択した「選択状態」のまま synthetic paste しても **ProseMirror は置換しない**（無音失敗・「pasted」とログだけ出て中身が変わらない）。**一度 Delete で空にしてから paste** すると成功する＝`note-publish.mjs` の `/new` 空エディタ paste と同条件（2026-06-24 バグ修正）
+- **paste 直後に probe 文字列が `contenteditable.innerText` に入ったか必ず検証**。無ければ保存せず中断（無音失敗による空更新事故を防止）。probe は `--probe "<文字列>"` で明示、省略時は本文の素の散文行から自動導出（`--list` 時は各記事ごと自動）
+- **ライブ反映は `--commit` 必須**（既定は dry-run でスクショのみ）。**「下書き保存」だけでは公開済み記事に一切反映されない**（autosave 下書きは browser close で破棄→再オープンで公開版ロード）。`--commit` で **公開に進む →（有料記事なら有料境界保持）→ 更新する → 更新通知は必ず「いいえ」**まで実行（`note-append-cta.mjs:144-219` を移植）
+- **有料記事**: 全文置換で paywall 境界が消えるため、`試験問題|予想問題` H2 直前へ境界を再設定し検証（NG なら保存せず中断＝paywall 保護）。試験 H2 が無い有料記事は `--keep-boundary`、別パターンは `--boundary-h2 "<regex>"`。**無料記事は境界処理を飛ばす**（有料エリア設定ボタンの有無で自動判定）
+- URL 行のリンクカード化（type→Enter）まで自動。カバー画像・タイトル・タグは変更しない。BOM 付きファイル対応済み
+- 検証: 反映後に `curl --ssl-no-revoke https://note.com/api/v3/notes/{noteId}` の `data.body` で新文字列の出現・旧文字列の消失を実体確認
+- 実証: 2026-06-24 1級・2級土木 導線 5 記事をライブ反映し note API で全件 in-sync 確認（旧 `.tmp/note-retype-body.mjs` ＝無料専用の使い捨て版で先行実証）
+- 実行はローカル（note ログイン済みプロファイルのある Windows/Mac）限定。会社 PC で可（`channel:'chrome'`）
 
 ## 記事 frontmatter への公開URL backfill: backfill-note-article-meta
 
