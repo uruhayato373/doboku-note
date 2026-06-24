@@ -425,3 +425,9 @@ Hero → ExamCards → LatestArticles → AboutSection
 ### IGディレクトリ資格軸再編の残ファイル更新 🟢
 **残**: 本体再編コミット(437853fbb)済。`.claude/` 配下19ファイルの旧 `_exam-packs` パス参照更新（sns-config.mjs→パック生成2/スキル実行5/その他5/エージェント.md 8）。完了確認= `rg "_exam-packs" .claude/` が0件。
 **出典**: `docs/handoffs/_archive/2026-06-23-ig-dir-reorg-remaining.md`
+
+### note 編集スクリプトの共通処理を共有lib化（Tier 2 保守性改善）🟢
+**発端**: 2026-06-24、note-update-body の paste 無音失敗事故。原因の一つは account ゲート/ClipboardEvent paste/リンクカード化/ブラウザ起動が note-publish・note-update-body・note-append-cta 等3〜5箇所にコピペで分岐し、note-publish の正しい paste 条件が note-update-body に伝播していなかったこと。
+**方針**: 震源の共通処理を `scripts/lib/note-browser.mjs`（launchNoteBrowser/accountGate/openEditor/pasteBody{clear}/cardifyUrls/clickPublishProceed/clickUpdate）へ一元化し、上記スクリプトを差し替える。**有料境界(paywall boundary)ロジックは収益直結のため統合せず各スクリプトにインライン保持**（壊すと有料エリアが崩れる）。
+**実施条件**: task_4deea43c の Tier 1 修正が commit 済みであること。**独立 worktree で実施**（収益noteに触る5スクリプト改修・並行セッション衝突回避＝§10）。各スクリプトは dry-run/probe で挙動同一を確認、note-publish は次回実公開でスモークテスト。
+**設計の出発点**: 本セッションで note-browser.mjs の設計を完了済み（このセッションのトランスクリプト参照）。
