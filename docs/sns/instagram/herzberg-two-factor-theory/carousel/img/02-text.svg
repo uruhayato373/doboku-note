@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
+  <!-- 背景 white -->
+  <rect width="400" height="500" fill="#ffffff"/>
+
+  <!-- ヘッダ帯 navy -->
+  <rect x="0" y="0" width="400" height="68" fill="#1a3a5c"/>
+  <text x="16" y="26" font-size="10" fill="#d4926a" font-family="sans-serif" font-weight="bold">技術士 総監｜人的資源管理</text>
+  <text x="16" y="54" font-size="18" fill="#ffffff" font-family="sans-serif" font-weight="bold">試験頻出ポイント 3 選</text>
+
+  <!-- ポイント1 -->
+  <circle cx="32" cy="106" r="14" fill="#1a3a5c"/>
+  <text x="32" y="111" text-anchor="middle" font-size="13" fill="#ffffff" font-family="sans-serif" font-weight="bold">1</text>
+  <text x="56" y="98" font-size="13" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">2 要因は独立した別次元</text>
+  <text x="56" y="116" font-size="12" fill="#444444" font-family="sans-serif">動機づけ要因（仕事の内容）と</text>
+  <text x="56" y="132" font-size="12" fill="#444444" font-family="sans-serif">衛生要因（仕事の環境）は別の軸</text>
+
+  <!-- 区切り線 -->
+  <line x1="20" y1="152" x2="380" y2="152" stroke="#e0e0e0" stroke-width="1"/>
+
+  <!-- ポイント2 -->
+  <circle cx="32" cy="188" r="14" fill="#1a3a5c"/>
+  <text x="32" y="193" text-anchor="middle" font-size="13" fill="#ffffff" font-family="sans-serif" font-weight="bold">2</text>
+  <text x="56" y="180" font-size="13" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">衛生要因改善 → 不満解消のみ</text>
+  <text x="56" y="198" font-size="12" fill="#444444" font-family="sans-serif">給与・労働条件を改善しても</text>
+  <text x="56" y="214" font-size="12" fill="#444444" font-family="sans-serif">積極的な満足・動機づけにはならない</text>
+
+  <!-- 区切り線 -->
+  <line x1="20" y1="234" x2="380" y2="234" stroke="#e0e0e0" stroke-width="1"/>
+
+  <!-- ポイント3 -->
+  <circle cx="32" cy="270" r="14" fill="#1a3a5c"/>
+  <text x="32" y="275" text-anchor="middle" font-size="13" fill="#ffffff" font-family="sans-serif" font-weight="bold">3</text>
+  <text x="56" y="262" font-size="13" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">動機づけ → 職務充実が鍵</text>
+  <text x="56" y="280" font-size="12" fill="#444444" font-family="sans-serif">job enrichment：権限委譲・</text>
+  <text x="56" y="296" font-size="12" fill="#444444" font-family="sans-serif">責任拡大・成長機会の提供</text>
+
+  <!-- 注意 Callout (orange) -->
+  <rect x="16" y="326" width="368" height="82" rx="6" fill="#fce8d0"/>
+  <rect x="16" y="326" width="5" height="82" rx="3" fill="#a36b2c"/>
+  <text x="32" y="350" font-size="12" fill="#5e3d18" font-family="sans-serif" font-weight="bold">引っかけ注意（R01 Ⅰ-1-14）</text>
+  <text x="32" y="370" font-size="12" fill="#5e3d18" font-family="sans-serif">「衛生要因を除去することが</text>
+  <text x="32" y="386" font-size="12" fill="#5e3d18" font-family="sans-serif">動機づけになる」→ 誤り</text>
+  <text x="32" y="402" font-size="11" fill="#a36b2c" font-family="sans-serif">正：動機づけ要因の充実（職務充実）が必要</text>
+
+  <!-- フッター帯 -->
+  <rect x="0" y="460" width="400" height="40" fill="#1a3a5c"/>
+  <text x="200" y="485" text-anchor="middle" font-size="13" fill="#7aaed6" font-family="sans-serif">doboku-note.com</text>
+</svg>

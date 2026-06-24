@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
+  <!-- 背景 navy -->
+  <rect width="400" height="500" fill="#1a3a5c"/>
+  <!-- 上部 orange アクセントライン -->
+  <rect x="0" y="0" width="400" height="5" fill="#a36b2c"/>
+
+  <!-- もっと解きたい方へ -->
+  <text x="200" y="80" text-anchor="middle" font-size="14" fill="#7aaed6" font-family="sans-serif">もっと学びたい方へ</text>
+
+  <!-- 本アイコン（幾何学） -->
+  <rect x="172" y="100" width="56" height="68" rx="4" fill="none" stroke="#a36b2c" stroke-width="3"/>
+  <line x1="172" y1="118" x2="228" y2="118" stroke="#a36b2c" stroke-width="2"/>
+  <line x1="182" y1="130" x2="218" y2="130" stroke="#a36b2c" stroke-width="1.5"/>
+  <line x1="182" y1="142" x2="218" y2="142" stroke="#a36b2c" stroke-width="1.5"/>
+  <line x1="182" y1="154" x2="210" y2="154" stroke="#a36b2c" stroke-width="1.5"/>
+
+  <!-- コンテンツ説明 -->
+  <text x="200" y="210" text-anchor="middle" font-size="22" fill="#ffffff" font-family="sans-serif" font-weight="bold">過去問 全問解説</text>
+  <text x="200" y="240" text-anchor="middle" font-size="14" fill="#b0c8e0" font-family="sans-serif">H21〜R06 のキーワード解説</text>
+  <text x="200" y="260" text-anchor="middle" font-size="14" fill="#b0c8e0" font-family="sans-serif">択一・記述の対策をまとめて学習</text>
+
+  <!-- 区切り -->
+  <line x1="80" y1="286" x2="320" y2="286" stroke="#2e5a8a" stroke-width="1"/>
+
+  <!-- サイト誘導ボタン -->
+  <rect x="80" y="306" width="240" height="48" rx="26" fill="#a36b2c"/>
+  <text x="200" y="336" text-anchor="middle" font-size="16" fill="#ffffff" font-family="sans-serif" font-weight="bold">doboku-note.com</text>
+
+  <!-- フォロー促進 -->
+  <text x="200" y="390" text-anchor="middle" font-size="13" fill="#7aaed6" font-family="sans-serif">保存して試験前に見直そう</text>
+  <text x="200" y="412" text-anchor="middle" font-size="12" fill="#7aaed6" font-family="sans-serif">フォローで最新の総監対策を受け取る</text>
+
+  <!-- フッター帯 -->
+  <rect x="0" y="460" width="400" height="40" fill="#0f2035"/>
+  <text x="200" y="485" text-anchor="middle" font-size="13" fill="#7aaed6" font-family="sans-serif">@doboku-note</text>
+</svg>
