@@ -377,6 +377,34 @@ export function detectSvgIssues(svg, opts = {}) {
     }
   }
 
+  // P11: 概念名タイトル禁止（figure-canvas-policy §2.4）
+  // 最上部・中央・大見出し（font>=14）の text は「概念名タイトル」の疑い。
+  // SNS は render-figure-sns が概念名をヘッダーに出すため図内タイトルと二重化し、
+  // 記事は見出しが概念名を担う。軸名・区分ラベル（小さめ font<14 や非中央）は対象外。
+  {
+    const cx = svg.viewBox.w / 2;
+    for (const t of svg.texts) {
+      if (
+        t.y <= 26 &&
+        t.fontSize >= 14 &&
+        t.textAnchor === "middle" &&
+        Math.abs(t.x - cx) <= svg.viewBox.w * 0.12 &&
+        t.text.trim().length >= 4
+      ) {
+        findings.push({
+          pattern: "P11-concept-title",
+          severity: "MEDIUM",
+          text: t.text.slice(0, 30),
+          detail: `最上部中央の大見出し「${t.text.slice(
+            0,
+            20
+          )}」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ`,
+        });
+        break; // 1 図 1 件で十分
+      }
+    }
+  }
+
   return findings;
 }
 

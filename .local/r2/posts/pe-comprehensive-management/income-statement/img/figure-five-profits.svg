@@ -1,8 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="損益計算書の5つの利益の段階：売上高から売上原価・販管費・営業外損益・特別損益・法人税等を順に加減して、売上総利益・営業利益・経常利益・税引前当期純利益・当期純利益を算出する流れ" font-family='Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif'>
   <rect width="400" height="500" fill="#ffffff" stroke="#d7d7d7"/>
 
-  <text x="200" y="22" text-anchor="middle" font-size="14" font-weight="bold" fill="#222">損益計算書 5つの利益の段階</text>
-  <text x="200" y="40" text-anchor="middle" font-size="11" fill="#555">売上高から段階的に費用を引いて算出する</text>
+  <text x="200" y="26" text-anchor="middle" font-size="11" fill="#555">売上高から段階的に費用を引いて算出する</text>
 
   <!-- box1 売上高 -->
   <rect x="12" y="56" width="376" height="36" fill="#f5f5f5" stroke="#d7d7d7"/>

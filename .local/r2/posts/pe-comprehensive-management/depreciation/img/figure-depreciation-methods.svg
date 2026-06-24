@@ -1,8 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="定額法と定率法の違い：定額法は耐用年数にわたり毎期同額を償却、定率法は初年度が最も大きく年とともに逓減し後年は定額に切り替わる。総額（取得価額）はどちらも同じ" font-family='Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif'>
   <rect width="400" height="500" fill="#ffffff" stroke="#d7d7d7"/>
 
-  <text x="200" y="22" text-anchor="middle" font-size="14" font-weight="bold" fill="#222">定額法と定率法の違い</text>
-  <text x="200" y="40" text-anchor="middle" font-size="11" fill="#555">同じ資産でも費用配分のしかたが異なる</text>
+  <text x="200" y="26" text-anchor="middle" font-size="11" fill="#555">同じ資産でも費用配分のしかたが異なる</text>
 
   <!-- Panel headers -->
   <text x="104" y="64" text-anchor="middle" font-size="13" font-weight="bold" fill="#2e6da4">定額法</text>
