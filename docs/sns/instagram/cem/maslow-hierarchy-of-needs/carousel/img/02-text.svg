@@ -1,0 +1,43 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" role="img" aria-label="マズローの欲求5段階説 試験頻出ポイント3点と注意">
+  <defs><style>text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }</style></defs>
+  <rect width="400" height="500" fill="#ffffff"/>
+
+  <rect x="0" y="0" width="400" height="72" fill="#1a3a5c"/>
+  <text x="200" y="30" text-anchor="middle" font-size="11" fill="#d4956a">技術士 総監 | 人的資源管理</text>
+  <text x="200" y="56" text-anchor="middle" font-size="17" font-weight="bold" fill="#fff">択一でここが問われる</text>
+
+  <!-- ポイント1 -->
+  <circle cx="40" cy="116" r="16" fill="#1a3a5c"/>
+  <text x="40" y="122" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">1</text>
+  <text x="68" y="108" font-size="14" font-weight="bold" fill="#1a3a5c">5段階の順序</text>
+  <text x="68" y="128" font-size="12" fill="#555">生理的→安全→社会的→承認→自己実現</text>
+  <text x="68" y="146" font-size="12" fill="#555">低次が満たされ高次へ上がる階層構造。</text>
+
+  <line x1="24" y1="166" x2="376" y2="166" stroke="#e8e8e8" stroke-width="1"/>
+
+  <!-- ポイント2 -->
+  <circle cx="40" cy="204" r="16" fill="#1a3a5c"/>
+  <text x="40" y="210" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">2</text>
+  <text x="68" y="196" font-size="14" font-weight="bold" fill="#1a3a5c">欠乏欲求と成長欲求</text>
+  <text x="68" y="216" font-size="12" fill="#555">第1〜4段＝欠乏欲求（不足で不満）、</text>
+  <text x="68" y="234" font-size="12" fill="#555">第5段の自己実現だけ＝成長欲求。</text>
+
+  <line x1="24" y1="254" x2="376" y2="254" stroke="#e8e8e8" stroke-width="1"/>
+
+  <!-- ポイント3 -->
+  <circle cx="40" cy="292" r="16" fill="#1a3a5c"/>
+  <text x="40" y="298" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">3</text>
+  <text x="68" y="284" font-size="14" font-weight="bold" fill="#1a3a5c">ハーズバーグと対応</text>
+  <text x="68" y="304" font-size="12" fill="#555">動機づけ要因＝承認・自己実現、</text>
+  <text x="68" y="322" font-size="12" fill="#555">衛生要因＝社会・安全・生理に対応。</text>
+
+  <!-- 注意Callout -->
+  <rect x="24" y="350" width="352" height="86" rx="8" fill="#fce8d0"/>
+  <rect x="24" y="350" width="5" height="86" rx="4" fill="#a36b2c"/>
+  <text x="44" y="376" font-size="12" font-weight="bold" fill="#5e3d18">引っかけ注意</text>
+  <text x="44" y="398" font-size="12" fill="#5e3d18">マズローは晩年、自己実現の上に「自己超越欲求」を</text>
+  <text x="44" y="418" font-size="12" fill="#5e3d18">加えた6段階説も提示（5段階が最終とは限らない）</text>
+
+  <rect x="0" y="460" width="400" height="40" fill="#1a3a5c"/>
+  <text x="200" y="485" text-anchor="middle" font-size="12" fill="#6a8faf">doboku-note.com</text>
+</svg>
