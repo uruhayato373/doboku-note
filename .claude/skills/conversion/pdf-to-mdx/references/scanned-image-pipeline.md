@@ -34,6 +34,9 @@
 ### 経路B（単ページ・PyMuPDF）の要点 — 今回てこずった点と対策
 
 - **レンダリング解像度が OCR 精度を決める**。1700px では密な漢字を誤読する（実例: リース料→リリース料、築造→施造、採算面→保算面、節落ち）。**本文 OCR は 2200px / 図クロップは 2600px / bbox サムネは 800px** を既定にした。
+- **図クロップは locate（単発目測）で終わらせない＝必須の audit/refine ループ**。locate（`figure_bbox.workflow.js`）の出す bbox は 800px サムネからの LLM 目測で**上下境界が緩く、本文段落の写り込み・図の切れが高頻度**（locate の "確信度" は「正しい図か」を測り「枠がタイトか」は測らない）。`civil-exam-figure-extractor`↔`civil-exam-figure-auditor` の過去問ループに倣い、**Evaluator `scanned-figure-crop-auditor` が実クロップ PNG を見て `adjust_bbox`（相対調整値）を返し、`apply_deltas_recrop.py` が算術適用＋再クロップを最大2〜3反復**して締める（4軸: クリップ純度45%/図完全性30%/正図同定15%/alt10%、全軸≥2 で合格）。別図を掴んだ（correct_figure=0）図は `relocate` で locate やり直しへ。**この工程を省くと図品質が低い**（2026-06-24 初回はこれを省略し、本文写り込みの緩い crop を量産した実害）。
+- **本文 OCR の言い換え/誤読は proofread パスで締める**。LLM-OCR は密な数値・手順・規格の段落で原文に無い言い換え・脱落を起こす。`proofread.workflow.js`（concat 前の2パス目）で各バッチ md をページ画像と逐語照合して補正する。
+- **埋め込み後の冗長プレースホルダ**（`![図]` 直後の長い `（図: …）`）は `trim_placeholders.py` で要点だけに短縮する。
 - **`<!-- p.NN -->` マーカーは PDF ページと 1:1 でない**（重複・無番ページ・末尾の誤番）。図の所在を「マーカー位置」で決め打ちせず、**候補ページ窓（±N）＋キャプション照合**でエージェントに当てさせる。窓幅は drift（marker数−page数）を見て決める（drift≤±1 なら window=2）。
 - **図が多いと bbox 一括 parallel がサーバ側レート制限で失敗する**（135図一括で29図失敗）。**groupSize（40図）ずつ順次 parallel バリア**で負荷を平準化すると失敗0（322図実証）。
 - **数百ジョブを Workflow args に inline すると破綻**する。**章別ジョブファイル＋コーディネータ agent が Read して構造化返却**（schema で確実にパース）する経路にする。

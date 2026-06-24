@@ -6,7 +6,7 @@ title: サブエージェント詳細レジストリ
 
 `.claude/agents/` に定義されたサブエージェント群の詳細。Generator/Evaluator 分離の原則に基づき設計。
 
-> **件数の SSOT**: エージェント数の真実源は `.claude/agents/*.md` の実数（`find .claude/agents -maxdepth 1 -name '*.md' | wc -l`＝現在 **52**）と下記「エージェント一覧」表。CLAUDE.md など他 doc は件数を重複記載せずここを指す。追加/削除は同一 commit でこの表を更新する。
+> **件数の SSOT**: エージェント数の真実源は `.claude/agents/*.md` の実数（`find .claude/agents -maxdepth 1 -name '*.md' | wc -l`＝現在 **59**）と下記「エージェント一覧」表。CLAUDE.md など他 doc は件数を重複記載せずここを指す。追加/削除は同一 commit でこの表を更新する。
 
 **いつ読むか**: サブエージェントを呼び出すときに担当範囲を確認するとき、連携設計時、新規エージェント追加時の命名・責務設計時。
 
@@ -21,7 +21,7 @@ title: サブエージェント詳細レジストリ
 | 呼出元スキル                                    | 起動エージェント                                                         | 役割                 |
 | ----------------------------------------- | ---------------------------------------------------------------- | ------------------ |
 | `/pdf-to-mdx`                             | `content-qa`                                                     | 変換後品質評価（5軸ルーブリック）  |
-| `/pdf-to-mdx --scanned`                   | `scanned-textbook-transcriber`（図 bbox は `civil-exam-figure-extractor` 同型） | スキャン書籍ページ画像の並列 OCR 文字起こし |
+| `/pdf-to-mdx --scanned`                   | `scanned-textbook-transcriber`（OCR/校正）, `civil-exam-figure-extractor` 同型（図 locate）, `scanned-figure-crop-auditor`（図クロップ品質 audit/refine） | スキャン書籍ページ画像の並列 OCR 文字起こし＋図クロップのタイト化ループ |
 | `/quality-cycle --profile cem`            | `cem-qa`, `keyword-rewriter`                                     | 評価 → リライト → 再評価ループ |
 | `/quality-cycle --profile civil-textbook` | `civil-construction-review`, `civil-textbook-rewriter`           | 評価 → リライト → 再評価ループ |
 | `/audit-exam-mapping`                     | `exam-keyword-mapping-auditor`                                   | 紐づけ精度の semantic 評価 |
@@ -97,6 +97,7 @@ title: サブエージェント詳細レジストリ
 | `ig-carousel-qa`               | Instagram カルーセル の **6 軸**ルーブリック品質評価（テキスト 5 軸 + デザイン統一性 1 軸）。過去問パックは PNG を Read し tokens.json と照合。**角度型は軸1で角度純度・軸5で Red Line（experience 断片/number 出典）を確認** | Evaluator    | sonnet  | `docs/reference/ig-carousel-policy.md` + `docs/design-system/instagram-carousel-tokens.json` + **`docs/reference/content-angle-policy.md`** 参照 | 🚧 Phase 1 着手中（2026-05-20 起動、2026-05-27 第6軸追加、2026-05-28 lint E3 はみ出し検知連携） |
 | `civil-exam-figure-extractor`  | 1級土木 primary（過去問1次）図クロップ bbox spec の Generator。事前レンダリング済み PDF ページ画像を Read し JSON spec を返す | Generator | sonnet | `/civil-figure-rework` 連携、`image-policy.md` L165-177 準拠 alt 生成 | ✅ 運用中（2026-05-28 起動） |
 | `civil-exam-figure-auditor`    | 1級土木 primary 図 PNG の 4 軸ルーブリック品質評価（クリップ純度・本文重複・alt 精度・MDX 結線）。次反復用 feedback JSON 返却 | Evaluator | sonnet | `/civil-figure-rework` 連携、`svg-figure-auditor` の 4 軸構造を参考 | ✅ 運用中（2026-05-28 起動） |
+| `scanned-figure-crop-auditor`  | スキャン教材（`docs/textbook/**` 内部リファレンス）の図クロップ PNG を 4 軸（クリップ純度45/図完全性30/正図同定15/alt10）で採点し `adjust_bbox`（相対調整値）を返す Evaluator。`pdf-to-mdx --scanned` 経路Bの図 audit/refine ループ用。locate 単発の緩い枠（本文写り込み・切れ）を実 PNG 監査で締める。別図掴みは relocate でエスカレーション。audit-only | Evaluator | sonnet | `civil-exam-figure-auditor` のスキャン教材版。`scripts/scanned/figure_crop_audit.workflow.js` 連携 | ✅ 新設（2026-06-24 起動） |
 | `pe-exam-figure-auditor`       | 総監 primary（h2x-primary）試験図 SVG の 4 軸ルーブリック品質評価（概念・構造の正確性・ラベル整合・可読性・MDX 結線）。MDX 問題文を真実源として SVG 忠実度を採点。P1-P8・キャンバス標準は非適用（試験原図はサイズ自由）。audit-only | Evaluator | sonnet | `civil-exam-figure-auditor` の PE 版。`svg-audit.json` の `.exam_crops` が対象 SVG 一覧 | ✅ 新設（2026-06-23） |
 | `ig-reels-writer`              | Instagram Reels の `reels/script.json`（読み上げ台本・想定秒数・無音 pause）+ `caption.txt`（ネタバレなし・ハッシュタグ 3 階層 mix）を 1 パックずつ執筆。`angle` パラメータで6切り口の冒頭 Hook を制御 | Generator    | sonnet  | `docs/reference/ig-reels-policy.md` + `sns-repurpose-policy.md` 参照（戦略 v7 で新設） | 🚧 Phase 1（2026-05-28 起動、2026-06-10 angle 追加）       |
 | `ig-reels-qa`                  | Instagram Reels の **5 軸**ルーブリック品質評価（尺・読み上げ完結性・キャプション/タグ品質・音声画面整合・保存導線）。「スワイプで」等カルーセル流用 CTA を重大減点 | Evaluator    | sonnet  | `docs/reference/ig-reels-policy.md` 参照（戦略 v7 で新設） | 🚧 Phase 1（2026-05-28 起動、戦略 v7 Phase B）       |
@@ -162,6 +163,7 @@ title: サブエージェント詳細レジストリ
 | **note-fact-checker（スコープ D）** | note 記事本文の白書由来 数値・固有名 + NotebookLM 白書ノートブック（`2bf7f0dd-3935-49be-8cef-2d428c59eaa9`・白書 PDF をソース登録済み） | NotebookLM 白書ノートブックへの問い合わせ照合（`notebooklm-cross-query.mjs`・引用を返せない数値を ⚠️要確認 で surface。認証切れ時は照合不能と明記）。**ローカル白書 PDF は 2026-06-17 削除＝offline grep 不可** | 白書連動 note 記事（クロストレードオフ・白書R7対応集・R8予想問題集・模範論文の白書事例）公開前 |
 | **ig-carousel-qa** | `slide-data.json`（v2）+ 過去問パックは `carousel/img/*.png` | スライド構成・文の完結性・図文整合・字数視認性・試験的正確性（5軸）+ デザイン統一性（過去問パック、tokens.json 照合） | IG カルーセル設定ファイル執筆後 / restyle 後 |
 | **civil-exam-figure-auditor** | `.local/r2/posts/civil-construction-1/primary-*/img/*.png` + 該当 MDX | クリップ純度・本文重複なし・alt 精度・MDX 結線（4軸、加重 ≥2.0 かつ全軸 ≥2 で合格） | `/civil-figure-rework` 実行時、Generator 直後 |
+| **scanned-figure-crop-auditor** | `docs/textbook/**/img/*.png`（スキャン教材クロップ）+ 出所ページ画像 | クリップ純度45/図完全性30/正図同定15/alt10（4軸、加重 ≥2.0 かつ全軸 ≥2 で合格）。`adjust_bbox` を返し再クロップ反復、別図掴みは relocate | `pdf-to-mdx --scanned` 経路Bの図 audit/refine ループ、初期クロップ直後 |
 | **pe-exam-figure-auditor** | `.local/r2/posts/pe-comprehensive-management/h*-primary/img/*.svg` + 該当 MDX（問題文） | 概念・構造の正確性・ラベル整合・可読性・MDX 結線（4軸）。MDX 問題文を真実源として SVG 忠実度を採点。P1-P8・キャンバス標準は非適用。`svg-audit.json.exam_crops` が対象一覧 | 総監 h2x-primary 過去問ページ SVG を新規作成・修正後 |
 | **svg-figure-auditor** | site: `.local/r2/posts/**/img/figure-*.svg`（コンテンツ図版のみ）/ note: `docs/note/**/img/figure-*.{svg,png}` | site=svg-tokens（viewBox/font/色 allowlist/marker）+ 概念伝達/alt/可読性/結線、note=note-svg-policy（キャンバス/フォント/ブランド/密度）。各 4 軸・加重 ≥2.0 かつ全軸 ≥2。**過去問クロップ（h*-primary）は対象外** | `/note-prepublish-review`（note 枝）/ 単体 SVG 監査時。機械 svg audit(P1-P8) の後段 |
 | **ig-reels-qa** | `reels/script.json` + `reels/caption.txt` + `reels/video.mp4` + 対応 `reels/img/*.png` | 尺・読み上げ完結性・キャプション/タグ品質・音声画面整合・保存導線（5軸）。「スワイプで」等カルーセル流用 CTA を重大減点 | IG Reels script.json 執筆後 / mp4 生成後 |
