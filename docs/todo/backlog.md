@@ -340,6 +340,25 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 ---
 
+### SNS 競合モニタリングの反復化（agent-reach 取得 ＋ 分析エージェント）🟡
+
+**発端**: Agent-Reach（`~/.claude/skills/agent-reach`・グローバルスキル・2026-06-25 導入、X/YouTube/Web/GitHub 等 8/13 チャンネル稼働、X は twitter-cli で未ログイン公開読取可）を入れたので、競合（X・YouTube）の反復モニタリングを仕組み化したい。ユーザー意思決定済み（2026-06-25、「反復的な競合モニタリングにしたい」）。
+
+**設計の決め手（重要・再導出しない）**: **サブエージェントは Bash 不可**（[[agent-bash-permission]]）。Agent-Reach は `twitter`/`yt-dlp`/`curl jina` 等シェル実行が必須なので、**取得（fetch）はメインループが agent-reach スキルで行う**。サブエージェントは取得した corpus（テキスト）を読んで分析するだけ。既存の X/YT 系（`x-post-writer`/`x-post-qa`/`yt-shorts-title-writer`）は投稿生成・採点（Generator/Evaluator）で役割が別＝**fetch を足して肥大化させない**。
+
+**対応方針（2段）**:
+1. **取得**: メインループが agent-reach で競合 X 投稿・YouTube（タイトル/字幕）・関連 Web を収集。対象競合・クエリは既存の競合 SoT を起点に固定（`docs/project/01_戦略/07_競合調査.md`、[[reference_competitors_civil]]/[[reference_competitors_pe]]）。
+2. **分析**: 新規 Evaluator 型サブエージェント `sns-research-analyst`（Bash 不可・渡された corpus を読む）で、頻出論点・刺さっている切り口（[[content-angle-policy 相当: 結論/理由/体験/反論/数字/ハウツー]]）・エンゲージ傾向・自分が埋めるべき gap を構造化抽出 → `x-post-writer`/コンテンツ企画が消費。
+
+**対象スコープ / 実装**:
+- cadence: 週次（`/weekly-improve` か専用ルーティンに接続。`/schedule`＝RemoteTrigger 新規作成前に `/routines` で重複確認＝[[feedback_session_start_git_sync 隣の cron 重複ルール]]）。
+- 「どの競合を・どのクエリで」を固定するなら、エージェントより**薄い project スキル `sns-research`** で定型化する方が筋が良い（要判断：スキル化 vs インライン手順）。
+- 出力先: 観測ログ（`.claude/state/` 配下の機械データ or 週次レビュー節）。新規 `.claude/state/*.md` は作らない（[[information-architecture 4ゾーン]]）。
+- エージェント追加時は `agents-registry.md` 更新＋ `check-doc-coupling`、新スクリプト追加時は discoverability 配線＋`/doc-sync`（[[new-tool-doc-wiring]]）。
+- 凍結リスク: X は**未ログイン公開読取に留める**（[[x-suspension-guardrail]]・新アカ Cookie を食わせない）。Instagram は Agent-Reach 非対応＝対象外。
+
+---
+
 ## 6. インフラ・セキュリティ
 
 ### セキュリティ定期チェック：API トークン更新サイクルと Claude プラグイン棚卸し 🟢
