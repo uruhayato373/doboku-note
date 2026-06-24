@@ -89,7 +89,7 @@ https://www.jctc.jp/exam/guide/dbk-2/
 
 **2級土木施工管理技士の過去問解説・テキスト**（無料・doboku-note）
 
-https://doboku-note.com
+https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=2c-eligibility
 
 **施工経験記述 出題傾向と対策**（無料・doboku-note）
 

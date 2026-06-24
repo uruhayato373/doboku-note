@@ -60,9 +60,9 @@ cover:
 
 ### 1級土木
 
-- [施工経験記述 完成答案集（5管理）](https://note.com/dobokunote/m/m150c9db08902)
-- [施工経験記述 過去問 模範答案集（R03-R07）](https://note.com/dobokunote/m/m3a578194a0a9)
-- [2テーマ組合せ大全（5管理 全10組合せ）](https://note.com/dobokunote/m/m74cfd7c695d6)
+- [施工経験記述 完成答案集（5管理）](https://note.com/dobokunote/m/m150c9db08902) — まず1本、管理項目別の型がほしい人向け
+- [施工経験記述 過去問 模範答案集（R03-R07）](https://note.com/dobokunote/m/m3a578194a0a9) — 出題された年度の設問でそのまま演習したい人向け
+- [2テーマ組合せ大全（5管理 全10組合せ）](https://note.com/dobokunote/m/m74cfd7c695d6) — R6以降の「2テーマ必答」に何が出ても対応したい人向け
 
 ### 2級土木
 

@@ -81,7 +81,7 @@ https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-g
 
 **2級土木施工管理技士の年度別 過去問解説**（無料・doboku-note）
 
-https://doboku-note.com
+https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=2c-secondary-overview
 
 **2級土木 施工経験記述 完成答案集**（安全・品質・工程のフル答案）
 

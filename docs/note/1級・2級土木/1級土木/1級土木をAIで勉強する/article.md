@@ -91,10 +91,6 @@ https://doboku-note.com/docs/civil-construction-1-guide-exam-overview
 
 https://doboku-note.com/docs/civil-construction-1-guide-exam-overview
 
-**総監をAIで勉強する**（AIツール使い分けの詳細）
-
-https://note.com/dobokunote/n/n89da1120ccaa
-
 ---
 
 <!-- cta:civil-mokuji -->

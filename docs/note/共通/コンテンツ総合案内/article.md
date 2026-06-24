@@ -125,7 +125,12 @@ doboku-note をご覧いただきありがとうございます。記事と有�
 
 ### ① まず読む（無料）
 
-- 経験記述「落ちる答案」診断（無料リードマグネット）※ note 公開後にここへ追記
+- [1級 施工経験記述で落ちる答案の共通点](https://note.com/dobokunote/n/nfea4a39cf108)
+- [2級 施工経験記述で落ちる答案の共通点](https://note.com/dobokunote/n/na5e045a1c6f8)
+- [1級 工事概要の書き方](https://note.com/dobokunote/n/na1f84193571a)
+- [2級土木 二次検定の全体像](https://note.com/dobokunote/n/n27455b88bcd5)
+
+無料記事は全16本あります。一覧は[土木もくじ](https://note.com/dobokunote/n/n4fde0f62dc20)から。
 
 ### ② 仕上げる（有料マガジン）
 
