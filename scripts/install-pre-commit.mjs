@@ -101,6 +101,12 @@ node scripts/check-note-site-utm.mjs --staged
 if [ $? -ne 0 ]; then
   exit 1
 fi
+
+# IG figure-pack 表紙のテンプレ準拠（2ピル/固定バッジ/doboku-note.com/試験dir配下）逸脱検出（表紙ドリフトの再発防止）
+node scripts/check-ig-cover.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
 `;
 
 if (!existsSync(HOOKS_DIR)) {

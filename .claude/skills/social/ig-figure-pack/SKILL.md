@@ -18,7 +18,7 @@ allowed-tools: Bash, Read, Write, Edit
 ## ディレクトリ構成
 
 ```
-docs/sns/instagram/{keyword}/
+docs/sns/instagram/{exam}/{keyword}/   ← {exam} 試験dir（cem / civil-1 / civil-2 / pe-construction）必須
   carousel/
     img/
       00-cover.svg
@@ -32,7 +32,7 @@ docs/sns/instagram/{keyword}/
     caption.txt
 ```
 
-`{keyword}` は site slug（例: `mcgregor-xy-theory`）と一致させる。
+`{keyword}` は site slug（例: `mcgregor-xy-theory`）と一致させる。**`{exam}` 試験dir を省略して `instagram/{keyword}/` 直下に置かない**（パスドリフト。`check-ig-cover` が pre-commit でブロック）。
 
 ## デザイン仕様
 
@@ -52,17 +52,22 @@ docs/sns/instagram/{keyword}/
 ### 1. ディレクトリ作成と SVG 設計
 
 ```bash
-mkdir -p "docs/sns/instagram/{keyword}/carousel/img"
+mkdir -p "docs/sns/instagram/{exam}/{keyword}/carousel/img"
 ```
 
 4 枚の SVG を `viewBox="0 0 400 500"` で設計:
 
-**00-cover.svg** — navy 背景
-- 上部右: 5 管理ラベル（orange 系小テキスト）
-- 中央: キーワード名（白・32-40px・`font-weight="bold"`）
-- 下部小: 試験種 + 「択一 頻出テーマ」（薄青・12px）
-- 上辺: orange アクセントライン 5px
-- フッター帯: 濃 navy `#0f2035`・`@doboku-note`
+**00-cover.svg** — テンプレ（SSOT）をコピーして文言だけ差し替える。**一から書かない**
+
+真実源テンプレ: [`templates/00-cover.template.svg`](templates/00-cover.template.svg)（maslow / mcgregor の現物と一致）。新規パックはこれか直近 `cem/` パックの `00-cover.svg` をコピーし、`{{ARIA}}` `{{KANRI}}` `{{TITLE1/2}}` `{{SUB1/2}}` だけ差し替える。**chrome（下記）は変更不可**:
+
+- 2ピル構造: 塗りピル「技術士 総監」＋枠ピル「{管理区分}」（`stroke="#a36b2c"`）
+- 固定バッジ「**択一 頻出テーマ**」（orange 塗り `rx=20`）
+- スワイプ「スワイプして図解を確認 **▶**」
+- フッター: `#0f2035` 帯・「**doboku-note.com**」（`@doboku-note` は旧仕様・NG）
+- 比較（A vs B）型は `mcgregor-xy-theory/00-cover.svg` をコピー元にする（chrome は同一）
+
+> これらは `check-ig-cover`（pre-commit）が機械検証する。逸脱すると赤落ち。**SKILL.md とテンプレと現物の三者は常に一致させる**（2026-06-24 制定、表紙ドリフトの再発防止）。
 
 **01-figure.svg** — site figure をコピー
 ```bash
