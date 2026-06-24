@@ -86,7 +86,15 @@
       "PowerShell(Get-Content \"docs/note/1級・2級土木/2級土木/第一次検定の独学突破/article.md\" -Encoding UTF8 | Select-Object -Index \\(78..104\\))",
       "PowerShell(grep -n \"update\\\\|--update\\\\|edit\\\\|����\\\\|����\" \"C:\\\\Users\\\\m004195\\\\doboku-note\\\\scripts\\\\note-publish.mjs\")",
       "PowerShell(head -20)",
-      "PowerShell(Start-Process \"C:\\\\tmp\\\\ig-gallery.html\"; Start-Sleep -Seconds 1; \"launched: $\\(\\(Test-Path 'C:\\\\tmp\\\\ig-gallery.html'\\)\\)\")"
+      "PowerShell(Start-Process \"C:\\\\tmp\\\\ig-gallery.html\"; Start-Sleep -Seconds 1; \"launched: $\\(\\(Test-Path 'C:\\\\tmp\\\\ig-gallery.html'\\)\\)\")",
+      "PowerShell(Add-Type -AssemblyName System.Drawing; $img = [System.Drawing.Image]::FromFile\\(\"C:\\\\Users\\\\m004195\\\\doboku-note\\\\.tmp\\\\pdf-pages\\\\H28A\\\\page-021.png\"\\); \"$\\($img.Width\\) x $\\($img.Height\\)\"; $img.Dispose\\(\\))",
+      "PowerShell($text = Get-Content \"C:\\\\tmp\\\\civil1-ocr\\\\out\\\\01__b00.md\" -Raw -Encoding utf8; $text.Length)",
+      "PowerShell(Start-Process 'https://accounts.google.com/o/oauth2/v2/auth?client_id=681255809395-oo8ft2oprdrnp9e3aqf6av3hmdib135j.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A7239%2Fcallback&response_type=code&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive.file&access_type=offline&state=0z2ks49cra2&prompt=consent')",
+      "PowerShell('reopened full auth URL')",
+      "PowerShell($content = [System.IO.File]::ReadAllText\\('C:\\\\tmp\\\\civil1-ocr\\\\out\\\\07__b00.md', [System.Text.Encoding]::UTF8\\); $chars = $content.Length; $fffd = \\($content.ToCharArray\\(\\) | Where-Object { $_ -eq [char]0xFFFD }\\).Count; \"chars=$chars\"; \"fffd=$fffd\")",
+      "Bash(node --check .claude/skills/conversion/pdf-to-mdx/scripts/scanned/figure_crop_audit.workflow.js)",
+      "Bash(cd /c/Users/m004195/doboku-note *)",
+      "Bash(rm .git/index.lock && echo \"lock removed\" && git status --short | head -5)"
     ],
     "defaultMode": "bypassPermissions"
   }
