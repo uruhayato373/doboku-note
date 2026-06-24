@@ -28,9 +28,12 @@ PDF または画像ファイルから doboku-note 用 MDX を生成する統合�
 
 テキスト抽出ができないスキャン書籍（自炊した教材・参考書・基準書）を、**視覚 OCR で内部リファレンス Markdown（`docs/textbook/`）＋図**に変換する。通常モード（テキスト層 → 公開 MDX）とは抽出方式・出力先・図処理がすべて異なるため、**手順は別ファイルに分離**:
 
-→ **`references/scanned-image-pipeline.md`** を参照（pdfimages 抽出 → 回転/見開き分割 → `scanned-textbook-transcriber` で並列 OCR → 章分割 → 図 bbox 判定・精密クロップ埋め込み。bash3.2/zsh/ディスク/破損ページの落とし穴も収録）。
+→ **`references/scanned-image-pipeline.md`** を参照。**着手前に1ページ目視で2経路を判定**する:
 
-ワーカー: 本文 OCR = サブエージェント `scanned-textbook-transcriber`（Generator・sonnet）／図 bbox = `civil-exam-figure-extractor` と同型の Generator。**市販書籍スキャンは内部リファレンス専用＝公開しない**（README に明記）。
+- **経路A: pdfimages 見開き** — 見開き2ページが90°回転で格納されたスキャン。手順書 Step 1-7（bash。pdfimages 抽出→回転/分割→並列OCR→章分割→図クロップ。bash3.2/zsh/ディスク/破損ページの落とし穴も収録）。
+- **経路B: PyMuPDF 単ページ** — 1 PDF ページ＝1 書籍ページ・正立。pdfimages/ImageMagick が無い環境（会社 Windows 等）でも可。再利用スクリプト一式 **`scripts/scanned/`**（`render_pages.py`→OCR Workflow `ocr_fanout.workflow.js`→`concat_chapters.py`→`prep_figures.py`→図 bbox Workflow `figure_bbox.workflow.js`→`crop_embed_figures.py`。runbook = `scripts/scanned/README.md`）。解像度 2200px・図 bbox の候補窓＋groupSize 順次処理（レート制限回避）・確信度しきい値・冪等性の知見を織り込み済み。
+
+ワーカー: 本文 OCR = サブエージェント `scanned-textbook-transcriber`（Generator・sonnet）／図 bbox = `civil-exam-figure-extractor` と同型の Generator。**市販書籍スキャンは内部リファレンス専用＝公開しない**（`docs/textbook/**/img` は r2-sync 対象外＝公開R2へ同期されない。README に明記）。
 
 ## 利用可能な exam テンプレート
 
@@ -252,4 +255,6 @@ node .claude/scripts/upload-images-to-r2.mjs --prefix {category}/{slug}
 - `docs/reference/content-authoring.md` — MDX 作成詳細ルール
 - `.claude/skills/conversion/pdf-to-mdx/templates/` — 試験別テンプレート
 - `.claude/skills/conversion/pdf-to-mdx/references/clean-pdf-artifacts.md` — PDF 残骸除去詳細
+- `.claude/skills/conversion/pdf-to-mdx/references/scanned-image-pipeline.md` — `--scanned` 手順書（経路A/B）
+- `.claude/skills/conversion/pdf-to-mdx/scripts/scanned/` — 経路B（PyMuPDF 単ページ）再利用スクリプト一式＋runbook
 - `.claude/scripts/lib/mdx-io.mjs` — CRLF 保持 I/O（必須）

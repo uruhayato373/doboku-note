@@ -17,6 +17,32 @@
 
 ---
 
+## 経路の選択（最初に1ページ目視で判定）
+
+スキャン本には2系統あり、**着手前に1ページだけレンダ/抽出して Read し、どちらかを判定する**（回転方向・見開き有無は1冊で一定）。
+
+| | 経路A: pdfimages 見開き | 経路B: PyMuPDF 単ページ |
+|---|---|---|
+| 入力 | 見開き2ページが90°回転で1枚に格納（例 1560×2150 portrait） | **1 PDF ページ＝1 書籍ページ・正立**（例 page 515×728 に高解像 image 1枚） |
+| 抽出 | `pdfimages -j` → 回転＋左右分割（Step 1-2） | **PyMuPDF で指定幅レンダ（回転/分割不要）** |
+| 環境 | pdfimages / ImageMagick が要る | **外部バイナリ不要**（会社 Windows 等で pdfimages/magick が無くても可） |
+| スクリプト | 本手順 Step 1-7（bash） | **`scripts/scanned/` の Python＋Workflow テンプレ一式**（runbook = `scripts/scanned/README.md`） |
+| 実績 | 建設部門 論文対策キーワード 168見開き（2026-06-14） | 1級土木 施工管理・法規編 327p/図135・土木一般編 385p/図320（2026-06-24） |
+
+以下の Step 1-2 は**経路A専用**。経路Bは `scripts/scanned/render_pages.py` がレンダ＋バッチ計画(manifest.json)まで行い、Step 3 以降の考え方（ファンアウトOCR→連結→図クロップ）は共通だが、実装は `scripts/scanned/` の各スクリプトに置き換わる。
+
+### 経路B（単ページ・PyMuPDF）の要点 — 今回てこずった点と対策
+
+- **レンダリング解像度が OCR 精度を決める**。1700px では密な漢字を誤読する（実例: リース料→リリース料、築造→施造、採算面→保算面、節落ち）。**本文 OCR は 2200px / 図クロップは 2600px / bbox サムネは 800px** を既定にした。
+- **`<!-- p.NN -->` マーカーは PDF ページと 1:1 でない**（重複・無番ページ・末尾の誤番）。図の所在を「マーカー位置」で決め打ちせず、**候補ページ窓（±N）＋キャプション照合**でエージェントに当てさせる。窓幅は drift（marker数−page数）を見て決める（drift≤±1 なら window=2）。
+- **図が多いと bbox 一括 parallel がサーバ側レート制限で失敗する**（135図一括で29図失敗）。**groupSize（40図）ずつ順次 parallel バリア**で負荷を平準化すると失敗0（322図実証）。
+- **数百ジョブを Workflow args に inline すると破綻**する。**章別ジョブファイル＋コーディネータ agent が Read して構造化返却**（schema で確実にパース）する経路にする。
+- **低確信度 bbox は誤クロップ**になる（写真や別図を掴む）。**confidence<0.55 は未埋め込み扱い**（誤った図を貼るより貼らない）。
+- **crop_embed は冪等でない**（章 md に挿入するため再実行で二重挿入）。再クロップ時は **concat で章 md をクリーン再生成してから**回す。
+- **著作権安全**: `docs/textbook/**/img/**` は r2-sync の対象（`.local/r2/posts/**/img/**`）に**入らない**＝公開R2へ同期されず git のみ。内部リファレンスを公開せずに済む。
+
+---
+
 ## Step 1: ページ画像を抽出（pdfimages、高速）
 
 **`pdftoppm` を使わない**。スキャン PDF は 1 ページ＝1 枚の埋め込み JPEG なので、`pdfimages -j` で**再ラスタライズせず直接ダンプ**＝瞬時・ネイティブ解像度（pdftoppm は遅い＋ネイティブ超え upscale で無駄）。
@@ -90,4 +116,5 @@ bbox 判定で `found:false`（「本文のみ／下半分グレー空白」）�
 
 ## 実績
 
-- 技術士（建設部門）「論文対策キーワード」168 見開き → 7 章 .md（約312k字・文字化け0）＋図31点を埋め込み（2026-06-14）。[[project_pe_construction_secondary]] 等の二次 writer の論点参照元。旧 `reference_scanned_pdf_pipeline`（pdftoppm 方式）を pdfimages 方式に更新。
+- 技術士（建設部門）「論文対策キーワード」168 見開き → 7 章 .md（約312k字・文字化け0）＋図31点を埋め込み（2026-06-14、**経路A: pdfimages 見開き**）。[[project_pe_construction_secondary]] 等の二次 writer の論点参照元。旧 `reference_scanned_pdf_pipeline`（pdftoppm 方式）を pdfimages 方式に更新。
+- 1級土木施工管理技士 テキスト 施工管理・法規編 327p→7章（320k字）＋図135、土木一般編 385p→6章（369k字）＋図320 を埋め込み（2026-06-24、**経路B: PyMuPDF 単ページ**、`scripts/scanned/` 一式で実施）。会社 Windows に pdfimages/magick が無く PyMuPDF 経路を確立。図 bbox の groupSize 順次処理でレート制限を回避（135図一括時の29失敗→322図で失敗0）。[[project_civil1_textbook_transcription]]。
