@@ -8,6 +8,7 @@
 - パック構造・ファイル配置 → [`docs/reference/ig-carousel-skill.md`](./ig-carousel-skill.md)
 - Reels モード分岐の設計 → [`docs/design-system/instagram-carousel-tokens.json`](../design-system/instagram-carousel-tokens.json) の `slides.cover.swipeTextReels`
 - **figure-*.svg 静止画を Reels に流用する場合**（過去問パック動画とは別ルート） → [`docs/reference/sns-image-policy.md §13`](./sns-image-policy.md)（4:5 figure を 9:16 中央配置）
+- **figure カルーセルパックを「ナレーション付き解説リール」動画化する場合**（過去問 quiz リールの `ig-reel-create` とは別ルート） → `node scripts/figure-reel-create.mjs --pack <topic>`（carousel/img の 4:5 PNG を 9:16 白パディング＋`reels/script.txt`を VOICEVOX TTS＋ffmpeg 合成。`reels/cover.png` を出力し `publish-ig-bs` がサムネ設定。SoT は script.txt + caption.txt、video/wav/img/cover は gitignore。2026-06-24 新設）
 
 最終更新: 2026-05-28（v1: 戦略 v7 化に伴う新設）
 
