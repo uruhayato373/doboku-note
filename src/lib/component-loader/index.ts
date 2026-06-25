@@ -31,12 +31,7 @@ const commonLoaders = {
   ExamFields: () => import("@/components/ui/ExamFields/ExamFields").then((m) => m.default),
   StatsCard: () => import("@/components/ui/StatsCard/StatsCard").then((m) => m.default),
   PdcaCycle: () => import("@/components/ui/PdcaCycle/PdcaCycle").then((m) => m.default),
-  CourseAffiliate: () => import("@/components/ui/CourseAffiliate/CourseAffiliate").then((m) => m.default),
   CareerAffiliate: () => import("@/components/ui/CareerAffiliate/CareerAffiliate").then((m) => m.default),
-  DokugakuBanner: () => import("@/components/ui/DokugakuBanner/DokugakuBanner").then((m) => m.default),
-  SatTextLink: () => import("@/components/ui/SatTextLink/SatTextLink").then((m) => m.default),
-  DokugakuKeikenLink: () => import("@/components/ui/DokugakuKeikenLink/DokugakuKeikenLink").then((m) => m.default),
-  BookCard: () => import("@/components/ui/BookCard/BookCard").then((m) => m.default),
   Question: () => import("@/components/ui/ChatBubble/Question").then((m) => m.default),
   Answer: () => import("@/components/ui/ChatBubble/Answer").then((m) => m.default),
 } satisfies Record<string, ComponentLoader>;

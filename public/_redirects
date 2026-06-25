@@ -12,6 +12,9 @@
 # 本ルール追加と同時に MDX ソースを削除し、build 時に `rm -rf out` を実行するようにした。
 /docs/pe-comprehensive-management-public-acceptance-comm /docs/pe-comprehensive-management-public-acceptance 301
 
+# 書籍アフィリ廃止に伴い「おすすめ参考書ガイド」を削除（2026-06-25）。孤児・無流入のため勉強法ページへ統合。
+/docs/civil-construction-1-guide-textbooks /docs/civil-construction-1-guide-study-method 301
+
 # 重複キーワード統合（2026-04-13）— 8組を一括統合
 /docs/pe-comprehensive-management-risk-evaluation /docs/pe-comprehensive-management-risk-assessment 301
 /docs/pe-comprehensive-management-availability-security /docs/pe-comprehensive-management-system-availability 301

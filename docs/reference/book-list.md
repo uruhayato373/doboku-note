@@ -7,7 +7,7 @@ title: 紹介書籍リスト（Amazonアソシエイト用）
 doboku-note のコンテンツから紹介する書籍の手動キュレーション台帳。資格別×用途別に整理し、後日 PA-API 通過後に `src/config/amazon-books.json` へ機械可読化する前段の真実源。
 
 > [!warning]
-> **書籍アフィリエイトは現在「全面休止中」**（2026-06-20〜）。`src/config/affiliate-flags.ts` の `AFFILIATE_LINKS_ENABLED = false` により、`<BookCard>` も `<BookSection>`（「参考書籍」枠）も**サイト全体で一切描画されない**（もしも審査未通過のため。空の「参考書籍」見出しだけ残る不具合を解消した措置）。本ファイルの手順（BOOKCARD-TODO マーカー → `<BookCard asin="...">` 置換等）で配置を追加しても、フラグが `false` の間は表示されない。審査通過後に `AFFILIATE_LINKS_ENABLED = true` へ戻すと既存配置がそのまま全復活する。
+> **書籍アフィリエイトは 2026-06-25 に完全廃止**（note 有料商品とのカニバリ回避）。`BookCard` / `BookSection` コンポーネント・`affiliate-flags.ts` / `affiliate-books.json`・MDX 内の `<BookCard>` / `BOOKCARD-TODO` は全て撤去済み。本ファイルは**過去の手動キュレーション記録（参考用の歴史資料）**として残すが、再有効化の予定はない。再開する場合は新規に配線し直す。決定の背景は `docs/project/04_運営/02_アフィリエイト提携状況.md`。
 
 ## 運用ルール
 

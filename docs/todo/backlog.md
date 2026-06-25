@@ -144,9 +144,9 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 ---
 
-### 書籍アフィリエイト（BookCard）— 審査通過後に再有効化 🟡
+### 書籍アフィリエイト（BookCard）— ✅ 廃止決定（2026-06-25）
 
-アソシエイト審査通過後に `src/config/affiliate-flags.ts` の `AFFILIATE_LINKS_ENABLED` を `true` に戻す（現在 false で `BookCard`/`BookSection` を枠ごと非表示・commit `284b840f5`）。再有効化時は「トップページ下部デザイン統一」と連動して再設計。
+~~審査通過後に再有効化~~ → **完全廃止**。note 有料商品（模範論文・過去問解説・経験記述添削）と財布が競合するため、講座/教材/添削アフィリと併せて撤去（`BookCard`/`BookSection`/`affiliate-flags.ts`/`affiliate-books.json` 削除済み）。残すアフィリは転職のみ。背景は `docs/project/04_運営/02_アフィリエイト提携状況.md`。
 
 ---
 

@@ -180,40 +180,6 @@ export function resolvePeConsultingArticleEndCard(): CareerArticleEndCard {
   };
 }
 
-/** SAT 通信講座（スクール系・A8.net）。記事末テキストリンク カード用 creative。 */
-export const SCHOOL_SAT = {
-  provider: "SAT",
-  course: "すべての人に最高の教材を【eラーニング・現場系国家資格】",
-  description:
-    "一次からの学び直しや、体系的なフル講座で対策したいときに。e ラーニングで現場系国家資格を効率よく対策。",
-  href: "https://px.a8.net/svt/ejp?a8mat=4B3RUZ+6Y22UQ+5TRO+5YJRM",
-  pixelUrl: "https://www12.a8.net/0.gif?a8mat=4B3RUZ+6Y22UQ+5TRO+5YJRM",
-} as const;
-
-export type CategoryAffiliate =
-  | {
-      readonly kind: "career";
-      readonly props: {
-        service: string;
-        category: string;
-        description?: string;
-        href: string;
-        imageSrc?: string;
-        trackingPixelUrl?: string;
-        points?: readonly string[];
-      };
-    }
-  | {
-      readonly kind: "school";
-      readonly props: {
-        provider: string;
-        course: string;
-        description?: string;
-        href: string;
-        pixelUrl?: string;
-      };
-    };
-
 /**
  * カテゴリ hub の右サイドバー転職枠 creative を「カテゴリ別」に解決する（2026-06-16〜）。
  * 受験者層に creative をセグメントする（戻り値 null = 転職枠なし＝単一カラム）。
@@ -238,9 +204,3 @@ export function resolveCategoryCareerAd(
   }
   return null;
 }
-
-/** トップ（複数資格横断）に出すアフィリエイト。汎用の SAT 講座。 */
-export const HOME_AFFILIATE: CategoryAffiliate = {
-  kind: "school",
-  props: { ...SCHOOL_SAT },
-};

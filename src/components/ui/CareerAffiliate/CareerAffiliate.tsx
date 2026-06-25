@@ -35,7 +35,7 @@ interface CareerAffiliateProps {
   /**
    * 計測ピクセルの完全 URL（任意）。
    * ASP ごとに配信ドメインが異なる（A8 は www10〜www29、ValueCommerce / アクセストレード等は別）ため、
-   * CourseAffiliate のようにドメインをハードコードせず、発行された 1x1 ピクセル URL をそのまま渡す。
+   * ドメインをハードコードせず、発行された 1x1 ピクセル URL をそのまま渡す。
    */
   readonly trackingPixelUrl?: string;
   /** 訴求ポイントの箇条書き（任意、最大 3 件目安）。転職サービスの強み訴求に使う */
@@ -47,9 +47,9 @@ interface CareerAffiliateProps {
 /**
  * CareerAffiliate — 建設・施工管理の転職サービスのアフィリエイトリンクを統一カードで表示する。
  *
- * CourseAffiliate（資格講座用）の姉妹コンポーネント。転職案件向けに以下を拡張:
+ * doboku-note で唯一稼働しているアフィリエイト（講座/教材/添削・書籍は完全廃止）。転職案件向けの仕様:
  * - `trackingPixelUrl` を完全 URL で受け取り、ASP（A8 / ValueCommerce / アクセストレード / レントラックス等）の
- *   配信ドメイン差を吸収する（CourseAffiliate は www19 をハードコードしている）
+ *   配信ドメイン差を吸収する
  * - `points` で「年収 UP 率」「求人数」などの訴求ポイントを箇条書き表示できる
  * - `imageSrc` を任意にし、バナーが無い案件でもテキスト主体カードで描画できる
  *

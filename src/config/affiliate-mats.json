@@ -1,5 +1,5 @@
 {
-  "_comment": "アフィリエイト A8 mat の SSOT 許可リスト。scripts/check-affiliate-mats.mjs が src/** と .local/r2/posts/** に出現する a8mat= 値を本リストと突合し、未登録 mat（タイポ/新規未申告）を fail させる。expiresAt が過去日で、かつ src/MDX に出現する mat は WARN（失効 creative の配置放置を検知）。creative の URL 実体は src/config/affiliate-creatives.ts・各コンポーネント・docs/project/04_運営/02_アフィリエイト提携状況.md を参照。mat を追加/変更したら本ファイルも更新する。",
+  "_comment": "アフィリエイト A8 mat の SSOT 許可リスト。scripts/check-affiliate-mats.mjs が src/** と .local/r2/posts/** に出現する a8mat= 値を本リストと突合し、未登録 mat（タイポ/新規未申告）を fail させる。expiresAt が過去日で、かつ src/MDX に出現する mat は WARN（失効 creative の配置放置を検知）。creative の URL 実体は src/config/affiliate-creatives.ts・各コンポーネント・docs/project/04_運営/02_アフィリエイト提携状況.md を参照。mat を追加/変更したら本ファイルも更新する。2026-06-25: 講座/教材/添削（SAT・独学サポート）と書籍アフィリを完全廃止（note 有料商品とのカニバリ回避）。残すアフィリは転職のみ。",
   "mats": [
     {
       "mat": "4B3VR8+F0LMU2+4R40+TSBE9",
@@ -26,54 +26,6 @@
       "definedIn": "src/config/affiliate-creatives.ts (PE_CONSULTING_CAREER_AD)",
       "expiresAt": null,
       "note": "pe-comprehensive-management カテゴリ hub 専用。GKS（20代未経験/施工管理）が総監（シニア技術者）にミスマッチなため差替（resolveCategoryCareerAd）。"
-    },
-    {
-      "mat": "4B3RUZ+6Y22UQ+5TRO+5YJRM",
-      "program": "sat",
-      "label": "SAT eラーニング（現場系国家資格・テキストリンク）",
-      "surfaces": ["inline", "article-end"],
-      "definedIn": "src/config/affiliate-creatives.ts (SCHOOL_SAT) / src/components/ui/SatTextLink",
-      "expiresAt": null
-    },
-    {
-      "mat": "4B3RUZ+6Y23MI+5TRO+BWGDT",
-      "program": "sat",
-      "label": "SAT 技術士/土木 教材セット（商品CTA）",
-      "surfaces": ["article-end", "inline"],
-      "definedIn": "src/app/docs/[...slug]/page.tsx (SAT_DOBOKU_PRODUCT) / src/components/ui/CourseAffiliate (program=sat-gijutsusi preset)",
-      "expiresAt": null
-    },
-    {
-      "mat": "4B3VR8+FAQ04A+4ASS+691UP",
-      "program": "dokugaku",
-      "label": "独学サポート 1級土木（468×60 バナー）",
-      "surfaces": ["inline"],
-      "definedIn": "src/components/ui/DokugakuBanner",
-      "expiresAt": null
-    },
-    {
-      "mat": "4B3VR8+FAQ04A+4ASS+64Z8Y",
-      "program": "dokugaku",
-      "label": "独学サポート 1級土木（記事末テキストリンク）",
-      "surfaces": ["article-end"],
-      "definedIn": "src/app/docs/[...slug]/page.tsx (SCHOOL_DOKUGAKU)",
-      "expiresAt": null
-    },
-    {
-      "mat": "4B3VR8+FAQ04A+4ASS+6M4J5",
-      "program": "dokugaku",
-      "label": "独学サポート 1級土木（120×60 カード）",
-      "surfaces": ["inline"],
-      "definedIn": "src/components/ui/CourseAffiliate (program=dokugaku-keiken preset)",
-      "expiresAt": null
-    },
-    {
-      "mat": "4B3VR8+FAQ04A+4ASS+64RJ6",
-      "program": "dokugaku",
-      "label": "独学サポート 1級土木（インライン テキストリンク）",
-      "surfaces": ["inline"],
-      "definedIn": "src/components/ui/DokugakuKeikenLink",
-      "expiresAt": null
     }
   ]
 }
