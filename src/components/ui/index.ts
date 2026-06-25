@@ -1,6 +1,5 @@
 // UIコンポーネントのエントリーポイント
 export { default as DataTable } from './DataTable';
-export { default as CardList } from './CardList';
 export { default as LinkCard } from './LinkCard';
 export { default as ArticleImage } from './ArticleImage';
 export { default as Callout } from './Callout';

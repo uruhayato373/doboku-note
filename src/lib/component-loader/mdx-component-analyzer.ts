@@ -13,7 +13,6 @@ export const availableComponents = {
   CareerAffiliate: "CareerAffiliate",
 
   // 投資関連コンポーネント
-  CardList: "CardList",
   PieChart: "PortfolioChart",
   PortfolioChart: "PortfolioChart",
 
@@ -100,14 +99,6 @@ export function getAdditionalRequiredComponents(post: ComponentMetadata): Compon
 
   // タグ別の必須コンポーネント
   if (post.tags && Array.isArray(post.tags)) {
-    if (
-      post.tags.includes("投資") ||
-      post.tags.includes("NISA") ||
-      post.tags.includes("iDeCo")
-    ) {
-      additionalComponents.push("CardList");
-    }
-
     if (post.tags.includes("資産運用")) {
       additionalComponents.push("PortfolioChart", "PieChart");
     }

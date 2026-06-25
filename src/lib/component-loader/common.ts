@@ -9,7 +9,6 @@ export const commonComponents = {
   Callout: "Callout",
   ExamPoint: "ExamPoint",
   RelatedKeywords: "RelatedKeywords",
-  RelatedExamQuestions: "RelatedExamQuestions",
   SpecSheetList: "SpecSheetList",
   LinkCard: "LinkCard",
   NoteLink: "NoteLink",
@@ -19,7 +18,6 @@ export const commonComponents = {
   SpokeNavCard: "SpokeNavCard",
   PersonaSelector: "PersonaSelector",
   SourceBadges: "SourceBadges",
-  CardList: "CardList",
   ReferenceLinks: "ReferenceLinks",
   ExamContext: "ExamContext",
   DataTable: "DataTable",
@@ -28,7 +26,6 @@ export const commonComponents = {
   AuthorCallout: "AuthorCallout",
   Timeline: "Timeline",
   ExamFields: "ExamFields",
-  StatsCard: "StatsCard",
   PdcaCycle: "PdcaCycle",
   CareerAffiliate: "CareerAffiliate",
   // 汎用コンポーネント（将来追加予定）
