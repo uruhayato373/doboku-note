@@ -363,6 +363,8 @@ slide-data.json
 - `.claude/skills/social/ig-post-create/SKILL.md` — カルーセル PNG 生成
 - `.claude/skills/social/ig-carousel-restyle/SKILL.md` — 一括再生成
 - `.claude/skills/social/ig-reel-create/SKILL.md` — Reels 動画生成
+- `.claude/skills/social/publish-ig-bs/SKILL.md` — Business Suite 予約投稿エンジン
+- `docs/reference/ig-publish-reconcile.md` — **公開状態の照合＋未公開の予約投稿の運用 SSOT**（`verify-ig-status` でライブ↔SoT 突合・`/ig-reconcile` スキル・`ig-publish-auditor` ゲート。投稿後の posted.json ドリフトを定期是正）
 - `scripts/lint-exam-pack-structure.mjs` — 構造違反 lint
 - `docs/design-system/instagram-carousel.md` — デザイン仕様
 - `docs/design-system/instagram-carousel-tokens.json` — トークン真実源

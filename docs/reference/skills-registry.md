@@ -23,7 +23,7 @@ title: スキル ガバナンス記録
 ├── management/      # 13 — 計画・分析・戦略
 ├── dev/             # 13 — 開発・CI/CD
 ├── analytics/       # 2 — サイト分析
-├── social/          # 21 — SNS 投稿
+├── social/          # 22 — SNS 投稿
 ├── metrics/         # 1 — 売上記録
 └── ui/              # 1 — UI/UX デザイン
 ```

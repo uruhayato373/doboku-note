@@ -1,0 +1,8 @@
+{
+  "handle": "dobokunotecom",
+  "fbPageName": "Doboku-note",
+  "profileUrl": "https://www.instagram.com/dobokunotecom/",
+  "plannerUrl": "https://business.facebook.com/latest/content_calendar",
+  "playwrightProfile": ".local/playwright-ig-bs-profile",
+  "_note": "Instagram アカウントの単一機械可読 SSOT。実アカウントは @dobokunotecom（X と同一ハンドル）。docs/sns/instagram/profile.md の旧『@doboku_note 想定』は誤りで本ファイルが真実源。publish-ig-bs.ts は IG_BS_IG_ACCOUNT 既定が dobokunotecom で整合済み。verify-ig-status.mjs はここを読む。"
+}

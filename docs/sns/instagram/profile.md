@@ -1,6 +1,6 @@
 ﻿---
 title: Instagram プロフィール文案
-purpose: Instagram アカウント (`@doboku_note` 想定) のプロフィール欄に貼り付ける本文の SSoT
+purpose: Instagram アカウント (`@dobokunotecom`) のプロフィール欄に貼り付ける本文の SSoT。ハンドル等の機械可読 SSOT は `.claude/config/ig-account.json`
 characterLimit: 150
 lastUpdated: 2026-05-26
 appliesTo: Instagram のプロフィール欄（自己紹介）
@@ -19,14 +19,17 @@ relatedDocs:
 
 # Instagram プロフィール文案
 
-Instagram アカウント `@doboku_note`（想定・未開設なら開設時にこの hand名を使う）のプロフィール欄に貼り付ける本文を管理する。
+Instagram アカウント `@dobokunotecom`（運用中・X と同一ハンドル）のプロフィール欄に貼り付ける本文を管理する。
+
+> [!note]
+> **ハンドルの真実源**: 実アカウントは `@dobokunotecom`。機械可読 SSOT は [`.claude/config/ig-account.json`](../../../.claude/config/ig-account.json)（スクリプト/スキルはここを読む）。本ファイルは人間向けのプロフィール文案 SoT。旧版の「`@doboku_note` 想定（未開設）」は誤りで、`verify-ig-status`/`publish-ig-bs` は `dobokunotecom` を使う。
 
 ## 仕様
 
 | 項目 | 上限 | 備考 |
 |---|---|---|
 | 表示名 (Name) | 30 字 | 検索インデックス対象（最重要） |
-| ユーザー名 | 30 字 | X と統一推奨 (`@doboku_note`) |
+| ユーザー名 | 30 字 | `@dobokunotecom`（X と統一済み・運用中） |
 | 自己紹介 (Bio) | **150 字** | X (160) より 10 字きつい |
 | リンク欄 | 1 個（複数化は Linktree または自前 `/links`） | doboku-note.com/links を採用 |
 
@@ -53,10 +56,10 @@ doboku-note｜技術士総監・1級土木 対策
 ### ユーザー名
 
 ```
-@doboku_note
+@dobokunotecom
 ```
 
-X (`@dobokunotecom`) と完全統一は難しいが、`doboku_note` 系で揃える。既に取得済みのユーザー名がある場合はそれを優先（変更は SNS リテラシー的にリスクあり）。
+X と同一ハンドルで統一済み（運用中アカウント）。機械可読 SSOT は `.claude/config/ig-account.json`。
 
 ### リンク欄
 

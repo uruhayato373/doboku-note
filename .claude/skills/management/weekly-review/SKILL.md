@@ -50,6 +50,10 @@ description: >
   frontmatter noteStatus ↔ ライブ公開状態を note 公開 API で突合・creds 不要）。
   ドリフト（ライブ=published / frontmatter=draft）があれば `-- --fix` で是正してコミット。
   ※予約投稿は go-live がサーバ側後刻で writeback できず draft 取り残しが起きるため週次で自己修復する
+- IG 公開状態ドリフト: `npm run verify-ig-status` を実行（posted.json/status.json ↔ ライブ
+  グリッド＋プランナーを突合・read-only・★ドリフトで exit 2）。★が出たら次セッションで
+  `/ig-reconcile` を実行して posted.json backfill / 未公開を予約（真実源 `docs/reference/ig-publish-reconcile.md`）。
+  ※Playwright + ログイン済みプロファイル必須＝ローカル実行限定。クラウド週次では実行不可なのでサーフェスのみ
 
 出力形式:
 - 「今週追加したページ」

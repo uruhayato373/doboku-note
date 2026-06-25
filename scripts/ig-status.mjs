@@ -30,15 +30,15 @@
 
 import { readdirSync, readFileSync, writeFileSync, existsSync, statSync, unlinkSync } from "fs";
 import { join, relative, dirname } from "path";
-import { fileURLToPath } from "url";
+import { fileURLToPath, pathToFileURL } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
-const IG_DIR = join(ROOT, "docs/sns/instagram");
+export const IG_DIR = join(ROOT, "docs/sns/instagram");
 
 const EXCLUDE_DIRS = new Set(["_dev", "highlights", "stories", "img", "carousel", "reels"]);
 const EXAM_DIRS = ["cem", "civil-1", "civil-2", "pe-construction"];
-const FORMATS = ["carousel", "reels", "stories"];
+export const FORMATS = ["carousel", "reels", "stories"];
 const FMT_LETTER = { carousel: "C", reels: "R", stories: "S" };
 
 // ─── args ─────────────────────────────────────────────────────
@@ -62,7 +62,7 @@ const targetArg = positional[1]; // relative path under IG_DIR
 const formatArg = positional[2]; // carousel / reels / stories（mark/unmark 時）
 
 // ─── posted.json 正規化（後方互換）────────────────────────────
-function normalizePosted(raw) {
+export function normalizePosted(raw) {
   if (!raw || typeof raw !== "object") return null;
   // 新スキーマ: carousel/reels/stories のいずれかのキーを持つ
   if (FORMATS.some((f) => f in raw)) {
@@ -90,7 +90,7 @@ function isPack(dir) {
     entries.includes("carousel");
 }
 
-function walkPacks(dir, depth = 0) {
+export function walkPacks(dir, depth = 0) {
   const result = [];
   if (depth > 6) return result;
   let entries;
@@ -108,13 +108,13 @@ function walkPacks(dir, depth = 0) {
   return result;
 }
 
-function readPostedRaw(packDir) {
+export function readPostedRaw(packDir) {
   const p = join(packDir, "posted.json");
   if (!existsSync(p)) return null;
   try { return JSON.parse(readFileSync(p, "utf8")); } catch { return null; }
 }
 
-function readPosted(packDir) {
+export function readPosted(packDir) {
   return normalizePosted(readPostedRaw(packDir));
 }
 
@@ -124,7 +124,7 @@ function readMeta(packDir) {
   try { return JSON.parse(readFileSync(p, "utf8"))._meta || null; } catch { return null; }
 }
 
-function packInfo(packDir) {
+export function packInfo(packDir) {
   const rel = relative(IG_DIR, packDir).replace(/\\/g, "/");
   const parts = rel.split("/");
   const exam = parts[0] || "?";
@@ -313,19 +313,22 @@ function doMigrate() {
   console.log(`\n${n} 件を新スキーマ（carousel/reels/stories）へ移行`);
 }
 
-// ─── main ─────────────────────────────────────────────────────
-if (command === "mark") {
-  doMark(resolvePackDir(targetArg));
-} else if (command === "unmark") {
-  doUnmark(resolvePackDir(targetArg));
-} else if (command === "migrate") {
-  doMigrate();
-} else {
-  const allPacks = walkPacks(IG_DIR).map(packInfo);
-  const filtered = filterPacks(allPacks);
-  if (command === "summary") {
-    printSummary(filtered);
+// ─── main（直接実行時のみ・import 時は走らせない）──────────────
+const isMain = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
+if (isMain) {
+  if (command === "mark") {
+    doMark(resolvePackDir(targetArg));
+  } else if (command === "unmark") {
+    doUnmark(resolvePackDir(targetArg));
+  } else if (command === "migrate") {
+    doMigrate();
   } else {
-    printTable(filtered);
+    const allPacks = walkPacks(IG_DIR).map(packInfo);
+    const filtered = filterPacks(allPacks);
+    if (command === "summary") {
+      printSummary(filtered);
+    } else {
+      printTable(filtered);
+    }
   }
 }
