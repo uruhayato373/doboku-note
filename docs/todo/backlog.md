@@ -181,6 +181,18 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 ---
 
+### ガイドカードのカバー写真 🟣 ペンディング（dormant・2026-06-26）
+
+**経緯**: ガイド記事カードに資格別プールの AI 生成写真を付けた（PR #276）が、civil-1 等のガイドは大半が**メタ記事**（年収/合格率/勉強法/参考書/級の違い）で、literal な建設機械写真が記事トピックと不一致＝「無関係な画像」に見え**撤回（PR #277）**。
+
+**dormant 資産（再課金なしで再利用可・develop に存置）**: `scripts/generate-guide-covers.mjs`（npm `guide-covers`）・`src/config/guide-cover-photos.json`・`src/lib/guide-cover.ts`・`public/images/guide-covers/`（Imagen 生成 35枚・資格×5）。再有効化は `DocCard`（CategorySections）に `guideCoverFor` を再配線。
+
+**不採用と分かった案**: (a) OGP をカバー流用＝関連はするがタイトル二重＋サムネで余白だらけで弱い。(b) literal 写真の category プール＝メタ記事に被写体が無く破綻。
+
+**有望な未検証案（やるなら）**: 記事別の**概念イメージ**生成（agent が各ガイドのトピック→概念プロンプト：キャリア＝上昇/階段、勉強法＝学習机、合格率＝チェック/グラフ）。メタ記事でも関連感が出る可能性。**まず5本パイロット（~$0.10・[[gemini-cost-confirm]]）→ :3020 で判断 → 良ければ123本**。ダメなら dormant 維持。
+
+---
+
 ### 書籍アフィリエイト（BookCard）— ✅ 廃止決定（2026-06-25）
 
 ~~審査通過後に再有効化~~ → **完全廃止**。note 有料商品（模範論文・過去問解説・経験記述添削）と財布が競合するため、講座/教材/添削アフィリと併せて撤去（`BookCard`/`BookSection`/`affiliate-flags.ts`/`affiliate-books.json` 削除済み）。残すアフィリは転職のみ。背景は `docs/project/04_運営/02_アフィリエイト提携状況.md`。
