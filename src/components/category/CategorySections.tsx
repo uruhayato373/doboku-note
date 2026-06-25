@@ -2,22 +2,43 @@ import Link from 'next/link';
 import { type DocMeta } from '@/lib/docs';
 import { type DocGroup } from '@/lib/category-groups';
 
+/** カード表示用の更新日を YYYY.MM.DD で返す（取れなければ null）。LatestArticles と同じ整形。 */
+function cardDate(doc: DocMeta): string | null {
+  const iso = doc.updatedAt ?? doc.dateModified ?? doc.lastRewrittenAt ?? doc.publishedAt ?? doc.created;
+  if (!iso) return null;
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return null;
+  return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
+}
+
 export function DocCard({ doc }: { doc: DocMeta }) {
   const displayTitle = doc.shortTitle || doc.title;
+  const excerpt = doc.subtitle || doc.description;
+  const date = cardDate(doc);
   return (
     <Link
       href={`/docs/${doc.slug}`}
-      className="group relative overflow-hidden rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] p-5 hover:border-[var(--accent)] hover:shadow-soft transition-all"
+      className="group relative flex flex-col overflow-hidden rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] hover:border-[var(--accent)] hover:shadow-soft transition-all"
     >
-      <div className="flex flex-col gap-1 h-full">
+      {/* ブランド色の上端アクセント（mockup の category band を mono 化＝硬質エディトリアル維持）。 */}
+      <span aria-hidden className="block h-[3px] w-full bg-[var(--color-brand)] opacity-70 group-hover:opacity-100 transition-opacity" />
+      <div className="flex flex-1 flex-col gap-1.5 p-5">
         <h3 className="font-serif text-lg font-bold text-[var(--ink)] group-hover:text-[var(--accent)] line-clamp-2 transition-colors">
           {displayTitle}
         </h3>
-        {doc.subtitle && (
+        {excerpt && (
           <p className="text-sm text-[var(--ink-muted)] line-clamp-2">
-            {doc.subtitle}
+            {excerpt}
           </p>
         )}
+        <div className="mt-auto pt-3 flex items-center justify-between border-t border-dashed border-[var(--rule-soft)]">
+          <span className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-widest text-[var(--ink-muted)] group-hover:text-[var(--accent)] transition-colors">
+            Read <span aria-hidden>→</span>
+          </span>
+          {date && (
+            <span className="font-mono text-[10px] tabular-nums text-[var(--ink-muted)]">{date}</span>
+          )}
+        </div>
       </div>
     </Link>
   );
