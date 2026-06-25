@@ -29,18 +29,9 @@ const commonLoaders = {
   CareerAffiliate: () => import("@/components/ui/CareerAffiliate/CareerAffiliate").then((m) => m.default),
 } satisfies Record<string, ComponentLoader>;
 
-const specificLoaders = {
-  RealEstateCostsTable: () =>
-    import("@/features/real-estate-investment/RealEstateCostsTable").then((m) => m.default),
-  RealEstateApartmentCostsTable: () =>
-    import("@/features/real-estate-investment/RealEstateApartmentCostsTable").then((m) => m.default),
-  StackedBarChart: () =>
-    import("@/features/nisa-ideco-guide-civil-servants/StackedBarChart").then((m) => m.default),
-  PieChart: () =>
-    import("@/features/nisa-ideco-guide-civil-servants/PieChart").then((m) => m.default),
-  TimeBlockChart: () =>
-    import("@/features/time-management-techniques/TimeBlockChart").then((m) => m.default),
-} satisfies Record<string, ComponentLoader>;
+// 記事固有コンポーネント（特定記事でのみ使う仕組み）。現在は登録なし。
+// テンプレ由来の不動産/NISA/時間管理エントリは 2026-06-25 にデッドコードとして削除。
+const specificLoaders: Record<string, ComponentLoader> = {};
 
 async function loadSelectedComponents(
   componentNames: readonly string[],
