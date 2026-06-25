@@ -67,7 +67,8 @@ function block({ ls, x = W / 2, y, fontSize, lh, fill, weight = 700, anchor = 'm
   return { svg, endY: y + (ls.length - 1) * lh };
 }
 
-function svgHook(s, angle) {
+// hook のレイアウトを 1 度計算し、レイヤー別の SVG 片を返す（キネティック分割用）。
+function hookLayout(s, angle) {
   const chip = s.chip || (CHIP[angle] ? `${CHIP[angle]}｜発注者` : '技術士 総監');
   const lead = lines(s.lead, 104, 900);
   const punch = lines(s.punch || s.onScreen, 124, 900);
@@ -80,21 +81,22 @@ function svgHook(s, angle) {
   y = bLead.endY + 40 + 124;
   const bPunch = block({ ls: punch, y, fontSize: 124, lh: 152, fill: C.accent, ls2: 1 });
   const underlineY = bPunch.endY + 44;
-  const subSvg = sub ? block({ ls: lines(sub, 46, 940), y: underlineY + 100, fontSize: 46, lh: 64, fill: C.sub }).svg : '';
   const chipW = Math.max(360, [...chip].length * 44 + 80);
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
-  <rect width="${W}" height="${H}" fill="${C.navy}"/>
-  <rect x="0" y="0" width="${W}" height="16" fill="${C.brand}"/>
-  ${anchor ? `<text x="${W - 30}" y="1520" font-family="Noto Sans JP" font-weight="700" font-size="920" fill="${C.navyDeep}" text-anchor="end" opacity="0.55">${esc(anchor)}</text>` : ''}
-  <rect x="90" y="250" width="${chipW}" height="84" rx="42" fill="${C.accent}"/>
-  <text x="${90 + chipW / 2}" y="307" font-family="Noto Sans JP" font-weight="700" font-size="40" fill="${C.navy}" text-anchor="middle">${esc(chip)}</text>
-  ${bLead.svg}
-  ${bPunch.svg}
-  <rect x="240" y="${underlineY}" width="600" height="12" rx="6" fill="${C.accent}" opacity="0.85"/>
-  ${subSvg}
-  <text x="${W / 2}" y="1810" font-family="Noto Sans JP" font-weight="700" font-size="36" fill="${C.sub}" text-anchor="middle">@dobokunotecom</text>
-</svg>`;
+  return {
+    hasPunch: punch.length > 0,
+    bg: `<rect width="${W}" height="${H}" fill="${C.navy}"/><rect x="0" y="0" width="${W}" height="16" fill="${C.brand}"/>`,
+    chip: `<rect x="90" y="250" width="${chipW}" height="84" rx="42" fill="${C.accent}"/><text x="${90 + chipW / 2}" y="307" font-family="Noto Sans JP" font-weight="700" font-size="40" fill="${C.navy}" text-anchor="middle">${esc(chip)}</text>`,
+    lead: bLead.svg,
+    anchor: anchor ? `<text x="${W - 30}" y="1520" font-family="Noto Sans JP" font-weight="700" font-size="920" fill="${C.navyDeep}" text-anchor="end" opacity="0.55">${esc(anchor)}</text>` : '',
+    punch: bPunch.svg + `<rect x="240" y="${underlineY}" width="600" height="12" rx="6" fill="${C.accent}" opacity="0.85"/>` + (sub ? block({ ls: lines(sub, 46, 940), y: underlineY + 100, fontSize: 46, lh: 64, fill: C.sub }).svg : ''),
+    handle: `<text x="${W / 2}" y="1810" font-family="Noto Sans JP" font-weight="700" font-size="36" fill="${C.sub}" text-anchor="middle">@dobokunotecom</text>`,
+  };
 }
+const wrapSvg = (inner, transparent = false) => `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">${inner}</svg>`;
+function svgHook(s, angle) { const L = hookLayout(s, angle); return wrapSvg(L.bg + L.anchor + L.chip + L.lead + L.punch + L.handle); }
+// キネティック: base=lead 先行（punch/anchor なし）/ punch=遅延フェードイン層（透明背景）
+function svgHookBase(s, angle) { const L = hookLayout(s, angle); return wrapSvg(L.bg + L.chip + L.lead + L.handle); }
+function svgHookPunch(s, angle) { const L = hookLayout(s, angle); return wrapSvg(L.anchor + L.punch, true); }
 
 function svgPoint(s) {
   const label = s.label;
@@ -135,24 +137,38 @@ function svgCta(s) {
 </svg>`;
 }
 
-function renderSvg(s, angle) {
-  const svg = s.type === 'hook' ? svgHook(s, angle) : s.type === 'cta' ? svgCta(s) : svgPoint(s);
+function renderSvgRaw(svg) {
   return new Resvg(svg, { fitTo: { mode: 'width', value: W }, font: { loadSystemFonts: true, fontFiles: existsSync(FONT) ? [FONT] : [] } }).render().asPng();
+}
+function renderSvg(s, angle) {
+  return renderSvgRaw(s.type === 'hook' ? svgHook(s, angle) : s.type === 'cta' ? svgCta(s) : svgPoint(s));
 }
 
 // ─── 描画 ───
 mkdirSync(reelsDir, { recursive: true });
-const pngPaths = [];
+const pngPaths = [];     // ズーム対象のベース層（hook キネティック時は lead 先行のベース）
+const kinetic = [];      // hook の punch 遅延フェードイン層（透明 PNG）or null
+let coverSrc = null;
 console.log(`🎬 angle-reel: ${values.pack}  angle=${spec.angle}  slides=${spec.slides.length}`);
 for (let i = 0; i < spec.slides.length; i++) {
   const s = spec.slides[i];
-  const png = join(reelsDir, `slide-${String(i).padStart(2, '0')}.png`);
-  writeFileSync(png, renderSvg(s, spec.angle));
-  pngPaths.push(png);
-  console.log(`  [${i}] ${s.type}`);
+  const ii = String(i).padStart(2, '0');
+  if (s.type === 'hook') {
+    const L = hookLayout(s, spec.angle);
+    const full = join(reelsDir, `slide-${ii}.png`); writeFileSync(full, svgHook(s, spec.angle));
+    coverSrc = full; // カバーは punch まで入った完成フック
+    if (L.hasPunch && s.lead) { // lead と punch が揃うときだけキネティック分割
+      const base = join(reelsDir, `slide-${ii}-base.png`); writeFileSync(base, renderSvgRaw(svgHookBase(s, spec.angle)));
+      const punch = join(reelsDir, `slide-${ii}-punch.png`); writeFileSync(punch, renderSvgRaw(svgHookPunch(s, spec.angle)));
+      pngPaths.push(base); kinetic.push(punch); console.log(`  [${i}] hook（キネティック: lead→punch）`);
+    } else { pngPaths.push(full); kinetic.push(null); console.log(`  [${i}] hook`); }
+  } else {
+    const png = join(reelsDir, `slide-${ii}.png`); writeFileSync(png, renderSvg(s, spec.angle));
+    pngPaths.push(png); kinetic.push(null); console.log(`  [${i}] ${s.type}`);
+  }
 }
-copyFileSync(pngPaths[0], join(reelsDir, 'cover.png'));
-console.log('  cover.png = hook スライド');
+copyFileSync(coverSrc ?? pngPaths[0], join(reelsDir, 'cover.png'));
+console.log('  cover.png = 完成フック');
 
 if (values['png-only']) { console.log('✅ PNG のみ描画（--png-only）。VOICEVOX 起動後に外して動画化。'); process.exit(0); }
 
@@ -183,11 +199,19 @@ for (let i = 0; i < pngPaths.length; i++) {
   // 偶数スライドはズームイン、奇数はズームアウト（単調さ回避）。冒頭 0.35s フェードイン。
   const zin = (i % 2 === 0);
   const z = zin ? `min(zoom+0.0007,1.12)` : `if(eq(on,1),1.12,max(zoom-0.0007,1.0))`;
-  const vf = `scale=1620:2880,zoompan=z='${z}':d=${frames}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=${W}x${H}:fps=${FPS},fade=t=in:st=0:d=0.35,format=yuv420p`;
+  const baseVf = `scale=1620:2880,zoompan=z='${z}':d=${frames}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=${W}x${H}:fps=${FPS},fade=t=in:st=0:d=0.35`;
   const seg = join(reelsDir, `seg-${String(i).padStart(2, '0')}.mp4`);
-  ff(['-y', '-loglevel', 'error', '-loop', '1', '-i', pngPaths[i], '-i', wavPaths[i],
-      '-filter_complex', `[0:v]${vf}[v]`, '-map', '[v]', '-map', '1:a',
-      '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-r', String(FPS), '-t', dur.toFixed(3), seg]);
+  if (kinetic[i]) {
+    // キネティック: lead 先行のベースをズーム → punch 層を reveal 時刻に α フェードイン overlay
+    const revealT = Math.min(dur * 0.42, 2.2).toFixed(2);
+    ff(['-y', '-loglevel', 'error', '-loop', '1', '-i', pngPaths[i], '-loop', '1', '-i', kinetic[i], '-i', wavPaths[i],
+        '-filter_complex', `[0:v]${baseVf}[bg];[1:v]format=yuva420p,fade=t=in:st=${revealT}:d=0.5:alpha=1[pl];[bg][pl]overlay=0:0,format=yuv420p[v]`,
+        '-map', '[v]', '-map', '2:a', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-r', String(FPS), '-t', dur.toFixed(3), seg]);
+  } else {
+    ff(['-y', '-loglevel', 'error', '-loop', '1', '-i', pngPaths[i], '-i', wavPaths[i],
+        '-filter_complex', `[0:v]${baseVf},format=yuv420p[v]`, '-map', '[v]', '-map', '1:a',
+        '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-r', String(FPS), '-t', dur.toFixed(3), seg]);
+  }
   segPaths.push(seg);
 }
 const listPath = join(reelsDir, '_concat.txt');
