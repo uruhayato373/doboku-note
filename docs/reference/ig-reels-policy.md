@@ -194,7 +194,7 @@ node .claude/skills/social/yt-shorts-create/scripts/per-problem-shorts.mjs \
 
 ### フォーマット（クイズリールと違う点）
 
-- **尺 15-30 秒・1論点（1 角度）**。`totalDurationSec` 90-110 は適用しない。
+- **尺 15-30 秒・1論点（1 角度）**。`totalDurationSec` 90-110 は適用しない。**実尺は narration 長で決まる**ので narration を絞る目安: hook ≤5秒（≈25字）・point ≤14秒（≈70字）・cta ≤5秒（≈25字）＝合計 ≤30秒。VOICEVOX 速度（既定 speaker 1）で 1 文字 ≈ 0.2 秒が目安。長いと §4 軸1 で減点。
 - **冒頭 2 秒＝フック**（問い・断言）。タイトルスライドにしない。フック＝その角度そのもの。
 - **source は「角度が立った手作りの記事資産」**（note 記事・公務員クラスター 8 本・トレードオフ等）。**カルーセルのスライド流用・自動要約は禁止**（薄くなる既出の教訓 §1 / content-angle-policy §1）。`figure-reel-create.mjs`（カルーセル貼り＋読み上げ）は本タイプでは使わない。
 - **CTA は IG ネイティブ**（保存・フォロー）。「スワイプ」禁忌は §3 と共通。
