@@ -1,0 +1,70 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" width="400" height="500" role="img" aria-label="フェールセーフ・フールプルーフ・インターロック3者比較。フェールセーフ=機械故障を起点に安全状態へ自動移行。フールプルーフ=人間の誤操作を起点に危険な動作を防止。インターロック=条件不成立を起点に動作させない。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-col   { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-term  { font-size: 13px; font-weight: bold; }
+      .t-sub   { font-size: 11px; fill: #8a8a8a; }
+      .t-cell  { font-size: 11px; fill: #555; }
+      .t-note  { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-foot  { font-size: 11px; fill: #555; }
+    </style>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff"/>
+
+  <!-- タイトル -->
+  <text class="t-title" x="200" y="24" text-anchor="middle">混同しやすい3概念の整理</text>
+  <line x1="40" y1="32" x2="360" y2="32" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- 表ヘッダー行: 淡色背景＋濃色テキスト -->
+  <rect x="12" y="40" width="376" height="30" rx="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+  <text class="t-col" x="85"  y="60" text-anchor="middle">用語</text>
+  <text class="t-col" x="213" y="60" text-anchor="middle">対象・トリガー</text>
+  <text class="t-col" x="328" y="60" text-anchor="middle">目的</text>
+
+  <!-- フェールセーフ行（y=78〜178） -->
+  <rect x="12" y="78" width="376" height="100" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <rect x="12" y="78" width="5"   height="100" rx="3" fill="#d4a017"/>
+  <text class="t-term" x="85" y="114" text-anchor="middle" fill="#d4a017">フェールセーフ</text>
+  <text class="t-sub"  x="85" y="130" text-anchor="middle">機械・システムの故障</text>
+  <text class="t-sub"  x="85" y="145" text-anchor="middle">→ 故障を自動検知</text>
+  <text class="t-cell" x="213" y="122" text-anchor="middle">故障が起きたとき</text>
+  <text class="t-cell" x="213" y="138" text-anchor="middle">自動で安全状態へ</text>
+  <text class="t-cell" x="328" y="114" text-anchor="middle">安全状態</text>
+  <text class="t-cell" x="328" y="130" text-anchor="middle">（停止/代替）</text>
+  <text class="t-cell" x="328" y="146" text-anchor="middle">へ自動移行</text>
+
+  <!-- フールプルーフ行（y=190〜290） -->
+  <rect x="12" y="190" width="376" height="100" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="12" y="190" width="5"   height="100" rx="3" fill="#2e6da4"/>
+  <text class="t-term" x="85" y="226" text-anchor="middle" fill="#2e6da4">フールプルーフ</text>
+  <text class="t-sub"  x="85" y="242" text-anchor="middle">人間の誤操作</text>
+  <text class="t-sub"  x="85" y="257" text-anchor="middle">→ 誤操作が起きたとき</text>
+  <text class="t-cell" x="213" y="234" text-anchor="middle">誤操作が</text>
+  <text class="t-cell" x="213" y="250" text-anchor="middle">行われたとき</text>
+  <text class="t-cell" x="328" y="234" text-anchor="middle">危険な動作を</text>
+  <text class="t-cell" x="328" y="250" text-anchor="middle">起こさせない</text>
+
+  <!-- インターロック行（y=302〜402） -->
+  <rect x="12" y="302" width="376" height="100" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <rect x="12" y="302" width="5"   height="100" rx="3" fill="#d7d7d7"/>
+  <text class="t-term" x="85" y="338" text-anchor="middle" fill="#222">インターロック</text>
+  <text class="t-sub"  x="85" y="354" text-anchor="middle">条件の不成立</text>
+  <text class="t-sub"  x="85" y="369" text-anchor="middle">→ 動作前に条件確認</text>
+  <text class="t-cell" x="213" y="338" text-anchor="middle">動作前の</text>
+  <text class="t-cell" x="213" y="354" text-anchor="middle">条件が不成立</text>
+  <text class="t-cell" x="328" y="338" text-anchor="middle">条件未達で</text>
+  <text class="t-cell" x="328" y="354" text-anchor="middle">動作させない</text>
+
+  <!-- 縦区切り線（全行セルの後に描画） -->
+  <line x1="158" y1="40" x2="158" y2="402" stroke="#d7d7d7" stroke-width="1.5"/>
+  <line x1="268" y1="40" x2="268" y2="402" stroke="#d7d7d7" stroke-width="1.5"/>
+
+  <!-- 底部：使い分けの視点 -->
+  <rect x="12" y="416" width="376" height="72" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-note" x="200" y="434" text-anchor="middle">使い分けの視点</text>
+  <text class="t-foot" x="200" y="452" text-anchor="middle">FS = 故障後の安全誘導（事後対応）</text>
+  <text class="t-foot" x="200" y="468" text-anchor="middle">FP = 誤操作の無害化（事前防止）</text>
+  <text class="t-foot" x="200" y="484" text-anchor="middle">IL = 動作条件の強制確認（予防的制御）</text>
+</svg>
