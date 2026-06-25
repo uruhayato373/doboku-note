@@ -43,7 +43,8 @@ docs/sns/instagram/{exam}/keyword-packs/{keyword}/   ← keyword-packs/ サブdi
 | ブランド navy | `#1a3a5c` |
 | ブランド orange | `#a36b2c` |
 | フォント | `Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif` |
-| 5 管理カラー参照 | `docs/design-system/instagram-carousel-tokens.json` → `themes.{management}.primary` |
+
+> **配色は管理区分によらず全パック共通（navy `#1a3a5c` + orange `#a36b2c`）。** `svg-base.mjs` の `MGMT_COLORS`（管理区分別カラー）は過去問パック自動生成スクリプト専用であり keyword pack には**一切適用しない**。新規作成前に必ず既存パック（例: `maslow-hierarchy-of-needs/carousel/img/00-cover.svg`）を Read して配色を目視確認してから SVG を書く（2026-06-25 フェールセーフパックで安全管理色誤適用・修正の再発防止）。
 
 ブランドコンテキスト: **資格試験対策**。表紙には必ず試験種（「技術士 総監 | 人的資源管理」等）を入れる。ライフスタイル系・自己啓発系フックは避ける。
 

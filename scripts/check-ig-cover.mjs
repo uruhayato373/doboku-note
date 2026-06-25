@@ -72,6 +72,9 @@ for (const f of files) {
   // 5. フッター文言
   if (!svg.includes('doboku-note.com')) problems.push(`${f}: フッターが "doboku-note.com" でない`);
   if (svg.includes('@doboku-note')) problems.push(`${f}: 旧フッター "@doboku-note" を使用（"doboku-note.com" に統一）`);
+  // 8. カバー背景色（管理区分によらず全パック共通 navy）
+  // svg-base.mjs の MGMT_COLORS を誤参照して管理区分別色を使うドリフトを防ぐ（2026-06-25）
+  if (!/<rect[^>]*fill="#1a3a5c"/.test(svg)) problems.push(`${f}: カバー背景色が #1a3a5c でない（管理区分によらず全パック navy 統一。MGMT_COLORS は過去問スクリプト専用）`);
 
   // 7. 同パックの 01-figure.svg は全面背景rectが必須
   //    サイト図はページ白背景前提で背景を持たない → PNG化で透明 → Instagram が黒表示（2026-06-24 発覚、8中5パック）
