@@ -169,9 +169,13 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 ---
 
-### カテゴリページの記事一覧をブログカード化 🟢
+### カテゴリページの記事一覧をブログカード化 ◑（PR #274）
 
-記事一覧を `BlogDocCard`（サムネイル OGP 画像 + タイトル + 概要）に刷新。右サイドバー全資格拡張は完了済（`hasSidebar` 化）。参考: ソーシャルPLUS ブログ（`docs/todo/reference-sites.md`）。実装: `src/app/category/[slug]/page.tsx`（DocCard → BlogDocCard）。
+記事一覧を `BlogDocCard` 化。右サイドバー全資格拡張は完了済（`hasSidebar` 化）。参考: ソーシャルPLUS ブログ（`docs/todo/reference-sites.md`）。
+
+**完了（PR #274）**: `DocCard`（`src/components/category/CategorySections.tsx`）を刷新＝ブランド色の上端アクセントバンド＋抜粋（subtitle/description）＋破線フッター（READ→＋更新日）。配色は既存 `var(--*)` トークンのみ（dark 自動追従・§7 準拠）。aidesigner inspire（socialplus・run 87d50e23）を現実データに合わせて mono 化して実装。
+
+**残（Phase 2・データモデル要）**: ①サムネイル画像の本格採用＝現状 OGP はタイトル焼込み済でカード題と二重になるため未採用（写真素材を別途持つ設計が要る）。②特集ショーケース／閲覧ランキング＝注目フラグ・PV 集計が必要。
 
 ---
 
