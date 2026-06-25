@@ -198,6 +198,7 @@ node .claude/skills/social/yt-shorts-create/scripts/per-problem-shorts.mjs \
 - **冒頭 2 秒＝フック**（問い・断言）。タイトルスライドにしない。フック＝その角度そのもの。
 - **source は「角度が立った手作りの記事資産」**（note 記事・公務員クラスター 8 本・トレードオフ等）。**カルーセルのスライド流用・自動要約は禁止**（薄くなる既出の教訓 §1 / content-angle-policy §1）。`figure-reel-create.mjs`（カルーセル貼り＋読み上げ）は本タイプでは使わない。
 - **CTA は IG ネイティブ**（保存・フォロー）。「スワイプ」禁忌は §3 と共通。
+- **リンク機構（重要）**: リール／フィードのキャプションは**クリック不可**（押せるリンクは Stories のリンクスタンプと bio リンクのみ）。よって**リールから note/サイトへ直接送客はできない**。動線は必ず **リール → プロフィール → bio リンク（`/links` ハブ・[links-hub.md](./links-hub.md)）→ note/サイト**。CTA は「プロフィールのリンクから」とし、**キャプションに URL を貼って「ここから」と書かない**（押せない）。リールは直接コンバージョンでなく**リーチ＆フォロー獲得が主**なので、**主 CTA は「フォロー」**（フォロー→bio リンクで後追いコンバージョン）。送客先の出し分け（experience/conclusion→note、howto/reason→サイト）は **bio の `/links` 側で分岐**する。
 
 ### script.json（mode: "angle"）
 
@@ -226,7 +227,7 @@ node .claude/skills/social/yt-shorts-create/scripts/per-problem-shorts.mjs \
 | 2. 読み上げ完結性 | 既存どおり（体言止め禁止・自然読み上げ） |
 | 3. キャプション/タグ | 既存どおり（3 階層 mix） |
 | 4. 音声↔画面整合＋**角度純度** | フックが冒頭・**1 投稿 1 角度**（混在は減点）・カルーセル流用 CTA 無し |
-| 5. 導線＋**Red Line** | フォロー/note 導線整合に加え、**`experience`＝断片まで（受験記フル放出 -2）／`number`＝出典必須・捏造厳禁／送客整合**（howto/reason→サイト・experience/conclusion→note）。content-angle-policy §5 準拠 |
+| 5. 導線＋**Red Line** | **主 CTA＝フォロー**・送客は「プロフィールのリンクから」（bio `/links` 経由）。**キャプションにクリック不可リンクを貼る／「ここから」と URL を載せる＝-2**（リールのキャプションは押せない）。加えて **`experience`＝断片まで（受験記フル放出 -2）／`number`＝出典必須・捏造厳禁／送客の出し分けは bio 側**（howto/reason→サイト・experience/conclusion→note）。content-angle-policy §5 準拠 |
 
 ### 進め方
 
