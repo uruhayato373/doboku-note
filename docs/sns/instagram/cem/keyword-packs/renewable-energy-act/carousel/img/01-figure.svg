@@ -1,0 +1,119 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" width="400" height="500" role="img" aria-label="FITの資金フロー。再エネ発電事業者が電力会社に固定価格で売電、電力会社が消費者に供給し、消費者は再エネ賦課金として買取費用を負担。対象5種：太陽光・風力・水力・地熱・バイオマス。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-sec   { font-size: 11px; font-weight: bold; fill: #ffffff; }
+      .t-hd    { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-name  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub   { font-size: 11px; fill: #555; }
+      .t-note  { font-size: 11px; fill: #8a8a8a; }
+      .t-foot  { font-size: 11px; fill: #8a8a8a; }
+    </style>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff"/>
+
+  <!-- タイトル -->
+  <text class="t-title" x="200" y="22" text-anchor="middle">FITの資金フロー</text>
+  <line x1="20" y1="30" x2="380" y2="30" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- ── 仕組みセクション ── -->
+  <rect x="8" y="34" width="384" height="18" rx="3" fill="#2e6da4"/>
+  <text class="t-sec" x="200" y="47" text-anchor="middle">固定価格買取制度（FIT）の仕組み</text>
+
+  <!-- Box A: 再エネ発電事業者 -->
+  <rect x="8"   y="58" width="112" height="90" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <text class="t-name" x="64"  y="97"  text-anchor="middle">再エネ発電</text>
+  <text class="t-name" x="64"  y="117" text-anchor="middle">事業者</text>
+
+  <!-- Box B: 電力会社 -->
+  <rect x="144" y="58" width="112" height="90" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="t-name" x="200" y="108" text-anchor="middle">電力会社</text>
+
+  <!-- Box C: 電気消費者 -->
+  <rect x="280" y="58" width="112" height="90" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text class="t-name" x="336" y="108" text-anchor="middle" fill="#222">電気消費者</text>
+
+  <!-- ── 上矢印: 電気の流れ (緑) ── -->
+  <text x="132" y="74" text-anchor="middle" font-size="11" fill="#3a7d44">電気</text>
+  <line x1="120" y1="80" x2="138" y2="80" stroke="#3a7d44" stroke-width="1.5"/>
+  <polygon points="0,0 6,3 0,6" transform="translate(138,77)" fill="#3a7d44"/>
+
+  <text x="268" y="74" text-anchor="middle" font-size="11" fill="#3a7d44">電気</text>
+  <line x1="256" y1="80" x2="274" y2="80" stroke="#3a7d44" stroke-width="1.5"/>
+  <polygon points="0,0 6,3 0,6" transform="translate(274,77)" fill="#3a7d44"/>
+
+  <!-- ── 下矢印: 費用の流れ (amber) ── -->
+  <line x1="144" y1="106" x2="126" y2="106" stroke="#d4a017" stroke-width="1.5"/>
+  <polygon points="6,0 0,3 6,6" transform="translate(120,103)" fill="#d4a017"/>
+
+  <line x1="280" y1="106" x2="262" y2="106" stroke="#d4a017" stroke-width="1.5"/>
+  <polygon points="6,0 0,3 6,6" transform="translate(256,103)" fill="#d4a017"/>
+
+  <!-- 下矢印ラベル (ボックス下) -->
+  <text x="132" y="164" text-anchor="middle" font-size="11" fill="#d4a017">固定買取費用</text>
+  <text x="268" y="164" text-anchor="middle" font-size="11" fill="#d4a017">再エネ賦課金</text>
+
+  <!-- ── 説明ノートボックス（3列） ── -->
+  <!-- Note A -->
+  <rect x="8"   y="174" width="112" height="80" rx="5" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1" opacity="0.6"/>
+  <text class="t-sub" x="64"  y="193" text-anchor="middle">経産大臣が設定</text>
+  <text class="t-sub" x="64"  y="209" text-anchor="middle">した固定価格で</text>
+  <text class="t-sub" x="64"  y="225" text-anchor="middle">電力会社に売電</text>
+  <text class="t-sub" x="64"  y="241" text-anchor="middle">（20年間）</text>
+
+  <!-- Note B -->
+  <rect x="144" y="174" width="112" height="80" rx="5" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1" opacity="0.6"/>
+  <text class="t-sub" x="200" y="193" text-anchor="middle">買取費用を</text>
+  <text class="t-sub" x="200" y="209" text-anchor="middle">再エネ賦課金</text>
+  <text class="t-sub" x="200" y="225" text-anchor="middle">として</text>
+  <text class="t-sub" x="200" y="241" text-anchor="middle">消費者に転嫁</text>
+
+  <!-- Note C -->
+  <rect x="280" y="174" width="112" height="80" rx="5" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1" opacity="0.6"/>
+  <text class="t-sub" x="336" y="193" text-anchor="middle">電気料金に</text>
+  <text class="t-sub" x="336" y="209" text-anchor="middle">賦課金を加算</text>
+  <text class="t-sub" x="336" y="225" text-anchor="middle">して支払い</text>
+  <text class="t-sub" x="336" y="241" text-anchor="middle">（全国一律単価）</text>
+
+  <!-- 縦コネクターライン (ボックスと説明を接続) -->
+  <line x1="64"  y1="148" x2="64"  y2="174" stroke="#3a7d44" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="200" y1="148" x2="200" y2="174" stroke="#2e6da4" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="336" y1="148" x2="336" y2="174" stroke="#d7d7d7" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <!-- ── FIT対象5種 ── -->
+  <rect x="8" y="268" width="384" height="18" rx="3" fill="#3a7d44"/>
+  <text class="t-sec" x="200" y="281" text-anchor="middle">FIT 対象 5 種のエネルギー源</text>
+
+  <!-- 5種 pills -->
+  <rect x="9"   y="292" width="71" height="30" rx="5" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1"/>
+  <text x="44"  y="311" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">太陽光</text>
+
+  <rect x="88"  y="292" width="71" height="30" rx="5" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1"/>
+  <text x="123" y="311" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">風力</text>
+
+  <rect x="167" y="292" width="71" height="30" rx="5" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1"/>
+  <text x="202" y="311" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">水力</text>
+
+  <rect x="246" y="292" width="71" height="30" rx="5" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1"/>
+  <text x="281" y="311" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">地熱</text>
+
+  <rect x="325" y="292" width="71" height="30" rx="5" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1"/>
+  <text x="360" y="311" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">バイオ<tspan dy="0">マス</tspan></text>
+
+  <!-- ── 主な要件まとめ ── -->
+  <rect x="8" y="334" width="384" height="138" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+
+  <text x="20" y="356" font-size="12" font-weight="bold" fill="#1a3a5c">買取期間</text>
+  <text class="t-sub" x="20" y="374">太陽光・風力・地熱・水力・バイオマス ── 20 年</text>
+  <text class="t-sub" x="20" y="390">家庭用太陽光（10kW 未満）── 10 年</text>
+
+  <line x1="20" y1="400" x2="384" y2="400" stroke="#d7d7d7" stroke-width="0.5" stroke-dasharray="4,4"/>
+
+  <text x="20" y="420" font-size="12" font-weight="bold" fill="#1a3a5c">価格・賦課金の決定</text>
+  <text class="t-sub" x="20" y="438">買取価格・賦課金単価 ── 経済産業大臣が毎年設定</text>
+  <text class="t-sub" x="20" y="458">賦課金は電気使用量に比例し全電気利用者が負担</text>
+
+  <!-- フッター -->
+  <text class="t-foot" x="200" y="494" text-anchor="middle">再生可能エネルギー特別措置法（2011 年制定・2012 年 FIT 施行）</text>
+</svg>
