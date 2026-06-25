@@ -118,18 +118,13 @@ export default async function HomePage() {
   const allMeta = getAllDocsMeta();
   const exams = buildExamCards();
 
-  const articleCount = allMeta.filter((m) => m.published !== false).length;
-
   const latest = pickRecent(allMeta, 4);
-  const lastUpdated = latest[0]?.date
-    ? new Date(latest[0].date).toLocaleDateString("ja-JP", { year: "numeric", month: "2-digit", day: "2-digit" }).replace(/\//g, ".")
-    : undefined;
 
   return (
     <div className="min-h-screen flex flex-col bg-[var(--bg)] transition-colors duration-300">
       <Header />
       <main className="flex-grow">
-        <Hero articleCount={articleCount} lastUpdated={lastUpdated} />
+        <Hero />
         <ExamCards exams={exams} />
         <LatestArticles articles={latest} />
         <AboutSection />
