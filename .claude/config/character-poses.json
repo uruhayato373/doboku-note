@@ -1,0 +1,36 @@
+{
+  "character": "doboku-note-sensei",
+  "spec": "docs/sns/_assets/character/CHARACTER-SPEC.md",
+  "policy": "docs/reference/character-asset-policy.md",
+  "assetsDir": "docs/sns/_assets/character",
+  "identity": {
+    "name": "doboku-note 先生",
+    "age": "40代男性",
+    "helmetText": "doboku-note",
+    "voicevoxSpeaker": 13,
+    "brandColors": {
+      "main": ["#0F2742", "#16314f", "#1858B5"],
+      "sub": ["#FFFFFF", "#7FA3C7", "#FFC53D"]
+    }
+  },
+  "naming": "slug はポーズ内容（kebab-case）。verified:false は AI生成からの自動推定名で要本人確認。",
+  "categories": ["gesture", "stance", "expression", "item"],
+  "beats": ["hook", "point", "cta"],
+  "poses": [
+    { "slug": "pointing",        "file": "pointing.png",        "label": "指差し",                 "category": "gesture",    "beats": ["point", "hook"], "verified": false },
+    { "slug": "idea",            "file": "idea.png",            "label": "ひらめき",               "category": "expression", "beats": ["hook"],          "verified": false },
+    { "slug": "explaining",      "file": "explaining.png",      "label": "手のひらで解説",         "category": "gesture",    "beats": ["point"],         "verified": false },
+    { "slug": "arms-crossed",    "file": "arms-crossed.png",    "label": "腕組み",                 "category": "stance",     "beats": ["hook", "cta"],   "verified": false },
+    { "slug": "serious",         "file": "serious.png",         "label": "腕組み・真剣",           "category": "stance",     "beats": ["hook"],          "verified": false },
+    { "slug": "point-emphasis",  "file": "point-emphasis.png",  "label": "腰に手＋指差し",         "category": "gesture",    "beats": ["point"],         "verified": false },
+    { "slug": "point-emphasis-2","file": "point-emphasis-2.png","label": "腰に手＋指差し(別)",     "category": "gesture",    "beats": ["point"],         "verified": false },
+    { "slug": "point-up",        "file": "point-up.png",        "label": "指を立てる",             "category": "gesture",    "beats": ["point", "hook"], "verified": false },
+    { "slug": "congrats",        "file": "congrats.png",        "label": "バンザイ(合格)",         "category": "expression", "beats": ["cta"],           "verified": false },
+    { "slug": "good-sign",       "file": "good-sign.png",       "label": "グッドサイン",           "category": "gesture",    "beats": ["cta"],           "verified": false },
+    { "slug": "wave",            "file": "wave.png",            "label": "手を振る",               "category": "gesture",    "beats": ["cta", "hook"],   "verified": false },
+    { "slug": "whiteboard",      "file": "whiteboard.png",      "label": "ホワイトボード解説",     "category": "item",       "beats": ["point"],         "verified": false },
+    { "slug": "pc-work",         "file": "pc-work.png",         "label": "ノートPC作業",           "category": "item",       "beats": ["point"],         "verified": false },
+    { "slug": "smile",           "file": "smile.png",           "label": "笑顔",                   "category": "expression", "beats": ["hook", "cta"],   "verified": false }
+  ],
+  "sourceGrids": ["_source/grid-1.png", "_source/grid-2.png", "_source/grid-3.png"]
+}

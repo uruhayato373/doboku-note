@@ -93,7 +93,8 @@
     "check-note-site-utm": "node scripts/check-note-site-utm.mjs",
     "check-figure-canvas": "node scripts/check-figure-canvas.mjs",
     "check-ig-cover": "node scripts/check-ig-cover.mjs",
-    "check-ig-cta": "node scripts/check-ig-cta.mjs"
+    "check-ig-cta": "node scripts/check-ig-cta.mjs",
+    "character-extract": "node scripts/character-extract.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.908.0",

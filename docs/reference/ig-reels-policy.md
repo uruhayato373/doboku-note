@@ -237,6 +237,7 @@ node .claude/skills/social/yt-shorts-create/scripts/per-problem-shorts.mjs \
 - **キネティック・フック**: hook に `lead` と `punch` が揃うとき、**lead 先行→ punch/anchor が reveal 時刻（ナレの約42%・最大2.2秒）に α フェードイン**する段階表示を自動適用（base/punch を別レイヤーで描画し overlay）。カバーは punch まで入った完成フック。
 - **声（speaker）**: 優先順 `--speaker` > script.json の `speaker` > 既定 **13（青山龍星・成熟男性）**。一人称の体験談には男性声が合う。VOICEVOX エンジンは `~/voicevox_engine_dl/macos-arm64/run`（Docker/アプリ無し環境のローカル起動）。
 - **VOICEVOX 未起動なら `--png-only`** でビジュアルだけ先に確認できる。
+- **キャラ合成（doboku-note 先生）**: スライドに `character: "<pose>"` を指定するとブランドマスコットを重ねられる（登場演出）。pose は [`.claude/config/character-poses.json`](../../.claude/config/character-poses.json) の slug、beat（hook/point/cta）に合うものを選ぶ。素材・追加手順・不変条件は [character-asset-policy.md](character-asset-policy.md)。声は同キャラの speaker 13 で統一。
 
 ### 採点（ig-reels-qa・本タイプの軸読み替え）
 
