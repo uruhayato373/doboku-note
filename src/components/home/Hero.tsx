@@ -1,15 +1,8 @@
-import { NotebookPen, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
   return (
     <section className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 pt-16 sm:pt-24 pb-10 sm:pb-16 text-center">
-      <div className="flex items-center justify-center gap-2 mb-7 flex-wrap">
-        <span className="inline-flex items-center gap-1.5 font-mono text-[11px] tracking-wider uppercase text-[var(--accent)] px-2.5 py-1 bg-[var(--accent-fill)] rounded-full">
-          <NotebookPen className="w-3 h-3" strokeWidth={1.75} />
-          doboku-note
-        </span>
-        <span className="font-mono text-[11px] text-[var(--ink-muted)]">土木系資格試験 対策ノート</span>
-      </div>
       <h1 className="font-serif font-black tracking-tight leading-[1.18] text-[var(--ink)] text-[36px] sm:text-[52px] md:text-[64px] lg:text-[72px] mx-auto max-w-[18ch] text-balance">
         土木の試験対策を、ひとつに。
       </h1>
