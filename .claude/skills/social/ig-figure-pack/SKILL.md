@@ -108,13 +108,18 @@ copy ".local\r2\posts\{exam}\{slug}\img\figure-1.svg" "docs\sns\instagram\{exam}
 - 注意 Callout: orange 左縁・`fill="#fce8d0"` 背景・強調テキスト
 - フッター帯: navy・`doboku-note.com`
 
-**03-cta.svg** — navy 背景
-- 「もっと解きたい方へ」（薄青 14px）
-- 本アイコン（幾何学、orange stroke）
-- コンテンツ説明テキスト（白 bold）
+**03-cta.svg** — テンプレ（SSOT）をコピーして文言だけ差し替える。**一から書かない**
+
+真実源テンプレ: [`templates/03-cta.template.svg`](templates/03-cta.template.svg)（pfi / sexual-harassment / labor-relations-adjustment-act の現物と一致、2026-06-25 標準化）。`{{ARIA}}` `{{TITLE}}` `{{DESC1/2}}` だけ差し替える。**chrome は変更不可**:
+
+- 見出し「もっと深く学びたい方へ」（薄青 14px・固定）
+- 本アイコン（幾何学、orange stroke・固定）
+- テーマ別タイトル「{キーワード} 完全解説」（白 bold 18px）＋このページで分かることを 2 行（薄青 14px）
 - URL ボタン: `rx="26"` 丸角・orange 塗り・白文字 `doboku-note.com`
-- フォロー促進（薄青 13px）
+- 誘導文「プロフィールのリンクから／総監キーワード集へアクセス」（薄青 13px・固定）
 - フッター帯: 濃 navy・`@doboku-note`
+
+> **画像内にハッシュタグを書かない**（クリック・検索できず無意味。タグは caption.txt のみ）。旧 maslow / mcgregor 系 CTA（汎用文言「もっと解きたい方へ」＋画像内ハッシュタグ）は本標準より前の様式で、新規パックでは使わない（既存は必要時に追従）。末尾スライド名はパック枚数で `03-cta.svg`（4 枚）/ `04-cta.svg`（図 2 枚の 5 枚構成）になる。
 
 ### 2. PNG 変換スクリプトを作成・実行
 
