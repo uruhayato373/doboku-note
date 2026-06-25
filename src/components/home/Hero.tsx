@@ -14,7 +14,9 @@ export default function Hero() {
         土木の試験対策を、ひとつに。
       </h1>
       <p className="mt-6 sm:mt-7 text-[15px] sm:text-[18px] leading-[1.9] text-[var(--ink-body)] mx-auto max-w-[56ch]">
-        土木・建設系の実務資格を、合格者が体系化した試験対策サイト。ここだけで合格を目指せます。
+        土木・建設系の実務資格を、合格者が体系化した試験対策サイト。
+        <br />
+        ここだけで合格を目指せます。
       </p>
       <div className="mt-8 sm:mt-9 flex items-center justify-center">
         <a
