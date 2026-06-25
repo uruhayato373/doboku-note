@@ -33,9 +33,9 @@ export default function AuthorSidebarCard() {
             <img
               src={AUTHOR.imageUrl}
               alt={`${AUTHOR.name}のプロフィール画像`}
-              width={96}
-              height={96}
-              className="h-24 w-24 rounded-full border border-[var(--rule-soft)]"
+              width={120}
+              height={120}
+              className="h-[120px] w-[120px] rounded-full border border-[var(--rule-soft)]"
             />
           </Link>
           <Link
