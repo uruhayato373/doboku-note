@@ -204,22 +204,30 @@ node .claude/skills/social/yt-shorts-create/scripts/per-problem-shorts.mjs \
 
 格納先は `docs/sns/instagram/cem/angle-reels/<packId>/reels/script.json`（caption.txt も同階層）。**SoT は script.json + caption.txt のみ**、PNG/wav/video/cover は JIT・gitignore。
 
-各スライドは **`onScreen`（画面に出す短文）と `narration`（読み上げ）を分ける**＝narration 全文はスライドに載せない（hook/要点/CTA の punch だけ表示）。
+各スライドは **画面表示用フィールドと `narration`（読み上げ）を分ける**＝narration 全文はスライドに載せない（punch だけ表示）。type 別フィールド（すべて任意・`narration` のみ必須）:
+- **hook**: `chip`（上部チップ）/ `lead`（白の前振り）/ `punch`（アクセント＋下線の決め句）/ `sub`（灰の緊張サブ）/ `anchor`（巨大な薄い1字＝視線誘導, 例 `?`）
+- **point**: `label`（小見出し, 例「答え」）/ `big`（アクセントの reveal 語, 例「安全管理」）/ `onScreen`（本文・濃色）
+- **cta**: `onScreen`（行・URL は書かない）＋ フォローボタン自動。`\n` で改行。
 
 ```jsonc
 {
   "packId": "<topic>-<angle>",          // 例: civil-servant-blindspots-experience
   "mode": "angle",
   "angle": "experience",                 // experience / conclusion / counter / number
-  "totalDurationSec": 22,                // 15-30（尺は実際はナレ長で決まる・目安）
+  "totalDurationSec": 23,                // 15-30（尺は実際はナレ長で決まる・目安）
   "source": "docs/note/技術士総監/…/article.md#section",  // 角度が立った起点資産（必須・要手作り）
   "slides": [
-    { "type": "hook",  "durationSec": 3,  "onScreen": "発注者だった私が\n一番落とした分野", "narration": "発注者だった私が、総監の択一で一番落としたのは…" },
-    { "type": "point", "durationSec": 14, "onScreen": "「現場の安全は\n施工者の仕事」\nその感覚が罠",       "narration": "1 論点だけを展開（断片・フックまで）。" },
-    { "type": "cta",   "durationSec": 5,  "onScreen": "盲点はあと2つ\nプロフィールのリンクから\nフォローで毎週", "narration": "続きはプロフィールから。フォローで毎週届きます。" }
+    { "type": "hook",  "chip": "体験談｜発注者", "lead": "発注者の私が\n総監択一で", "punch": "一番落とした\n分野は？", "sub": "…たぶん、あなたの予想と違います", "anchor": "?",
+      "narration": "発注者だった私が、総監の択一で一番落とした分野。たぶん、あなたの予想とは違います。" },
+    { "type": "point", "label": "答え", "big": "安全管理", "onScreen": "「現場の安全は施工者の仕事」\nその発注者感覚が、罠になる",
+      "narration": "答えは、安全管理。…（1 論点だけ展開・断片まで）" },
+    { "type": "cta",   "onScreen": "盲点はあと2つ\nプロフィールのリンクから\nフォローで毎週",
+      "narration": "続きはプロフィールから。フォローで毎週届きます。" }
   ]
 }
 ```
+
+> **ストーリー設計**: hook で**問いを立てて answer を見せない**（tease）→ point で `big` に reveal → cta でフォロー。フックの型は角度で替える（experience＝当事者告白・conclusion＝言い切り・counter＝通説否定・number＝数字）。
 
 ### レンダラ（角度リール専用・新設）
 

@@ -7,16 +7,15 @@
  * figure-reel-create（カルーセル貼り＋読み上げ＝§7 で非推奨）とは別物＝1論点・フック先頭の
  * discovery リール専用。
  *
- * 入力: <pack>/reels/script.json（mode:"angle"・slides[].{type,onScreen,narration,durationSec}）
- *   - type: "hook" | "point" | "cta"
- *   - onScreen: 画面に出す短文（フック/要点/CTA。narration とは別＝narration 全文は載せない）
- *   - narration: VOICEVOX で読み上げる文（尺はナレ長で決まる）
- * 出力: <pack>/reels/{video.mp4, cover.png}（gitignore・JIT）。SoT は script.json + caption.txt。
+ * スライド・フィールド（type 別・すべて任意、narration のみ必須）:
+ *   hook : chip / lead(白) / punch(アクセント＋下線) / sub(灰のサブ) / anchor(巨大な薄い1字)
+ *   point: label(小見出し) / big(アクセントの reveal 語) / onScreen(本文・濃色)
+ *   cta  : onScreen(行)  ＋ フォローボタン自動
+ *   共通 : narration（読み上げ）。onScreen 等は画面表示用＝narration 全文は載せない。
  *
  * 使い方:
  *   node scripts/angle-reel-create.mjs --pack cem/angle-reels/<packId> [--speaker 3] [--png-only]
  *   --png-only: PNG だけ描画（VOICEVOX 不要・ビジュアル確認用）
- *
  * 前提: VOICEVOX 起動（localhost:50021）＋ ffmpeg。--png-only は VOICEVOX 不要。
  */
 import { readFileSync, writeFileSync, mkdirSync, existsSync, copyFileSync } from 'node:fs';
@@ -41,12 +40,15 @@ const spec = JSON.parse(readFileSync(scriptPath, 'utf-8'));
 if (spec.mode !== 'angle' || !Array.isArray(spec.slides)) { console.error('🚨 mode:"angle" の script.json ではない'); process.exit(1); }
 
 // ─── ブランド（instagram-carousel-tokens 準拠） ───
-const C = { brand: '#1858B5', navy: '#0F2742', ink: '#14305A', white: '#FFFFFF', bg: '#F4F7FB', sub: '#5B7A9D', accent: '#FFC53D' };
+const C = { brand: '#1858B5', navy: '#0F2742', navyDeep: '#16314f', ink: '#14305A', white: '#FFFFFF', bg: '#F4F7FB', sub: '#7FA3C7', subDark: '#5B7A9D', accent: '#FFC53D' };
 const W = 1080, H = 1920;
+const CHIP = { experience: '体験談', counter: 'よくある誤解', conclusion: '結論', number: 'データ' };
+const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-// 文字幅ベースの素朴な改行（日本語 ≈ 1em/字）。maxChars = 使用幅 / フォントサイズ。
-function wrap(text, fontSize, usableW = 840) {
-  const max = Math.max(6, Math.floor(usableW / fontSize));
+// 文字幅ベースの素朴な改行（日本語 ≈ 1em/字）。明示改行 \n も尊重。
+function lines(text, fontSize, usableW = 880) {
+  if (!text) return [];
+  const max = Math.max(5, Math.floor(usableW / fontSize));
   const out = []; let line = '';
   for (const ch of String(text)) {
     if (ch === '\n') { out.push(line); line = ''; continue; }
@@ -56,47 +58,84 @@ function wrap(text, fontSize, usableW = 840) {
   if (line) out.push(line);
   return out;
 }
-function tspans(lines, x, startY, lh) {
-  return lines.map((l, i) => `<tspan x="${x}" y="${startY + i * lh}">${esc(l)}</tspan>`).join('');
+// 行配列を <text> ブロックにし、最終 baseline を返す（baseline 基準で上から積む）
+function block({ ls, x = W / 2, y, fontSize, lh, fill, weight = 700, anchor = 'middle', ls2 = 0 }) {
+  if (!ls.length) return { svg: '', endY: y };
+  const tspans = ls.map((l, i) => `<tspan x="${x}" y="${y + i * lh}">${esc(l)}</tspan>`).join('');
+  const svg = `<text font-family="Noto Sans JP" font-weight="${weight}" font-size="${fontSize}" fill="${fill}" text-anchor="${anchor}"${ls2 ? ` letter-spacing="${ls2}"` : ''}>${tspans}</text>`;
+  return { svg, endY: y + (ls.length - 1) * lh };
 }
-const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-// ─── スライド SVG（type 別テンプレ。IG UI セーフエリア＝下部 y>1500 と右端は避ける） ───
-function svgHook(onScreen) {
-  const fs = 76, lines = wrap(onScreen, fs, 860), lh = fs * 1.45;
-  const blockH = lines.length * lh, startY = (H - blockH) / 2 + fs;
+function svgHook(s, angle) {
+  const chip = s.chip || (CHIP[angle] ? `${CHIP[angle]}｜発注者` : '技術士 総監');
+  const lead = lines(s.lead, 104, 900);
+  const punch = lines(s.punch || s.onScreen, 124, 900);
+  const sub = s.sub;
+  const anchor = s.anchor;
+  const leadH = lead.length * 140, punchH = punch.length * 152;
+  const totalH = leadH + 40 + punchH + (sub ? 120 : 0);
+  let y = Math.max(540, (H - totalH) / 2 - 60) + 104;
+  const bLead = block({ ls: lead, y, fontSize: 104, lh: 140, fill: C.white, ls2: 1 });
+  y = bLead.endY + 40 + 124;
+  const bPunch = block({ ls: punch, y, fontSize: 124, lh: 152, fill: C.accent, ls2: 1 });
+  const underlineY = bPunch.endY + 44;
+  const subSvg = sub ? block({ ls: lines(sub, 46, 940), y: underlineY + 100, fontSize: 46, lh: 64, fill: C.sub }).svg : '';
+  const chipW = Math.max(360, [...chip].length * 44 + 80);
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
   <rect width="${W}" height="${H}" fill="${C.navy}"/>
-  <rect x="0" y="0" width="${W}" height="14" fill="${C.brand}"/>
-  <rect x="110" y="180" width="180" height="64" rx="32" fill="${C.brand}"/>
-  <text x="200" y="223" font-family="Noto Sans JP" font-weight="700" font-size="30" fill="${C.white}" text-anchor="middle">技術士 総監</text>
-  <text font-family="Noto Sans JP" font-weight="700" font-size="${fs}" fill="${C.white}" text-anchor="middle" letter-spacing="1">${tspans(lines, W/2, startY, lh)}</text>
-  <text x="${W/2}" y="1760" font-family="Noto Sans JP" font-weight="700" font-size="34" fill="${C.sub}" text-anchor="middle">@dobokunotecom</text>
+  <rect x="0" y="0" width="${W}" height="16" fill="${C.brand}"/>
+  ${anchor ? `<text x="${W - 30}" y="1520" font-family="Noto Sans JP" font-weight="700" font-size="920" fill="${C.navyDeep}" text-anchor="end" opacity="0.55">${esc(anchor)}</text>` : ''}
+  <rect x="90" y="250" width="${chipW}" height="84" rx="42" fill="${C.accent}"/>
+  <text x="${90 + chipW / 2}" y="307" font-family="Noto Sans JP" font-weight="700" font-size="40" fill="${C.navy}" text-anchor="middle">${esc(chip)}</text>
+  ${bLead.svg}
+  ${bPunch.svg}
+  <rect x="240" y="${underlineY}" width="600" height="12" rx="6" fill="${C.accent}" opacity="0.85"/>
+  ${subSvg}
+  <text x="${W / 2}" y="1810" font-family="Noto Sans JP" font-weight="700" font-size="36" fill="${C.sub}" text-anchor="middle">@dobokunotecom</text>
 </svg>`;
 }
-function svgPoint(onScreen) {
-  const fs = 60, lines = wrap(onScreen, fs, 860), lh = fs * 1.5;
-  const blockH = lines.length * lh, startY = (H - blockH) / 2 + fs;
+
+function svgPoint(s) {
+  const label = s.label;
+  const big = lines(s.big, 130, 920);
+  const body = lines(s.onScreen, 58, 900);
+  const bigH = big.length * 158, bodyH = body.length * 86;
+  const totalH = (label ? 90 : 0) + bigH + (big.length ? 50 : 0) + bodyH;
+  let y = Math.max(560, (H - totalH) / 2 - 40);
+  const labelSvg = label ? `<rect x="100" y="${y - 56}" width="14" height="60" rx="7" fill="${C.accent}"/><text x="134" y="${y - 8}" font-family="Noto Sans JP" font-weight="700" font-size="44" fill="${C.subDark}" text-anchor="start">${esc(label)}</text>` : '';
+  if (label) y += 90;
+  y += 130;
+  const bBig = block({ ls: big, y, fontSize: 130, lh: 158, fill: C.brand });
+  const by = (big.length ? bBig.endY + 50 : y) + 58;
+  const bBody = block({ ls: body, y: by, fontSize: 58, lh: 86, fill: C.ink });
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
   <rect width="${W}" height="${H}" fill="${C.bg}"/>
-  <rect x="110" y="${startY - fs - 70}" width="120" height="12" rx="6" fill="${C.accent}"/>
-  <text font-family="Noto Sans JP" font-weight="700" font-size="${fs}" fill="${C.ink}" text-anchor="middle">${tspans(lines, W/2, startY, lh)}</text>
-  <text x="${W/2}" y="1760" font-family="Noto Sans JP" font-weight="700" font-size="32" fill="${C.sub}" text-anchor="middle">@dobokunotecom</text>
+  <rect x="0" y="0" width="${W}" height="16" fill="${C.brand}"/>
+  ${labelSvg}
+  ${bBig.svg}
+  ${bBody.svg}
+  <text x="${W / 2}" y="1810" font-family="Noto Sans JP" font-weight="700" font-size="34" fill="${C.subDark}" text-anchor="middle">@dobokunotecom</text>
 </svg>`;
 }
-function svgCta(onScreen) {
-  const fs = 66, lines = wrap(onScreen || 'フォローで毎週\nプロフィールのリンクから', fs, 860), lh = fs * 1.5;
-  const blockH = lines.length * lh, startY = (H - blockH) / 2 + fs - 40;
+
+function svgCta(s) {
+  const ls = lines(s.onScreen || 'プロフィールのリンクから\nフォローで毎週', 64, 920);
+  const h = ls.length * 92;
+  const y = (H - h) / 2 - 120 + 64;
+  const b = block({ ls, y, fontSize: 64, lh: 92, fill: C.white });
+  const btnY = b.endY + 90;
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
   <rect width="${W}" height="${H}" fill="${C.brand}"/>
-  <text font-family="Noto Sans JP" font-weight="700" font-size="${fs}" fill="${C.white}" text-anchor="middle">${tspans(lines, W/2, startY, lh)}</text>
-  <rect x="${W/2 - 200}" y="${startY + blockH - fs + 40}" width="400" height="92" rx="46" fill="${C.white}"/>
-  <text x="${W/2}" y="${startY + blockH - fs + 100}" font-family="Noto Sans JP" font-weight="700" font-size="40" fill="${C.brand}" text-anchor="middle">＋ フォロー</text>
-  <text x="${W/2}" y="1760" font-family="Noto Sans JP" font-weight="700" font-size="34" fill="${C.white}" text-anchor="middle">@dobokunotecom</text>
+  <text x="${W / 2}" y="430" font-family="Noto Sans JP" font-weight="700" font-size="120" fill="#2f6fc7" text-anchor="middle">▶</text>
+  ${b.svg}
+  <rect x="${W / 2 - 230}" y="${btnY}" width="460" height="104" rx="52" fill="${C.white}"/>
+  <text x="${W / 2}" y="${btnY + 68}" font-family="Noto Sans JP" font-weight="700" font-size="46" fill="${C.brand}" text-anchor="middle">＋ フォロー</text>
+  <text x="${W / 2}" y="1810" font-family="Noto Sans JP" font-weight="700" font-size="36" fill="${C.white}" text-anchor="middle">@dobokunotecom</text>
 </svg>`;
 }
-function renderSvg(type, onScreen) {
-  const svg = type === 'hook' ? svgHook(onScreen) : type === 'cta' ? svgCta(onScreen) : svgPoint(onScreen);
+
+function renderSvg(s, angle) {
+  const svg = s.type === 'hook' ? svgHook(s, angle) : s.type === 'cta' ? svgCta(s) : svgPoint(s);
   return new Resvg(svg, { fitTo: { mode: 'width', value: W }, font: { loadSystemFonts: true, fontFiles: existsSync(FONT) ? [FONT] : [] } }).render().asPng();
 }
 
@@ -106,11 +145,10 @@ const pngPaths = [];
 console.log(`🎬 angle-reel: ${values.pack}  angle=${spec.angle}  slides=${spec.slides.length}`);
 for (let i = 0; i < spec.slides.length; i++) {
   const s = spec.slides[i];
-  const onScreen = s.onScreen || s.narration || '';
   const png = join(reelsDir, `slide-${String(i).padStart(2, '0')}.png`);
-  writeFileSync(png, renderSvg(s.type, onScreen));
+  writeFileSync(png, renderSvg(s, spec.angle));
   pngPaths.push(png);
-  console.log(`  [${i}] ${s.type.padEnd(5)} onScreen="${onScreen.replace(/\n/g, ' ').slice(0, 28)}"`);
+  console.log(`  [${i}] ${s.type}`);
 }
 copyFileSync(pngPaths[0], join(reelsDir, 'cover.png'));
 console.log('  cover.png = hook スライド');
