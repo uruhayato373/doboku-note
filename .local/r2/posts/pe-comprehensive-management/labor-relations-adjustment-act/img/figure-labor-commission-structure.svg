@@ -1,0 +1,69 @@
+<svg width="400" height="500" viewBox="0 0 400 500"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="労働委員会の全体像：公益・労働者・使用者の三者同数構成、中央／都道府県の二層構造、労働争議の調整・不当労働行為の審査・労働組合の資格審査という三つの権限">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 17px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub   { font-size: 11px; fill: #555; }
+      .sec     { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .b-title { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .b-note  { font-size: 11px; fill: #555; }
+      .hdr   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .koeki { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1; }
+      .rodo  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1; }
+      .shiyo { fill: #fff3cd; stroke: #d4a017; stroke-width: 1; }
+      .plain { fill: #ffffff; stroke: #2e6da4; stroke-width: 1; }
+      .key   { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <!-- タイトル -->
+  <rect class="hdr" x="10" y="10" width="380" height="44" rx="6"/>
+  <text class="t-title" x="200" y="33" text-anchor="middle">労働委員会とは</text>
+  <text class="t-sub"   x="200" y="49" text-anchor="middle">労使対立に中立で関与する独立の行政委員会</text>
+
+  <!-- A 三者構成 -->
+  <text class="sec" x="14" y="76">三者構成（同数）</text>
+  <rect class="koeki" x="10"  y="84" width="120" height="62" rx="6"/>
+  <text class="b-title" x="70"  y="106" text-anchor="middle">公益委員</text>
+  <text class="b-note"  x="70"  y="123" text-anchor="middle">中立・公正な</text>
+  <text class="b-note"  x="70"  y="137" text-anchor="middle">立場で調整</text>
+  <rect class="rodo" x="140" y="84" width="120" height="62" rx="6"/>
+  <text class="b-title" x="200" y="106" text-anchor="middle">労働者委員</text>
+  <text class="b-note"  x="200" y="123" text-anchor="middle">労働組合の</text>
+  <text class="b-note"  x="200" y="137" text-anchor="middle">推薦に基づく</text>
+  <rect class="shiyo" x="270" y="84" width="120" height="62" rx="6"/>
+  <text class="b-title" x="330" y="106" text-anchor="middle">使用者委員</text>
+  <text class="b-note"  x="330" y="123" text-anchor="middle">使用者団体の</text>
+  <text class="b-note"  x="330" y="137" text-anchor="middle">推薦に基づく</text>
+
+  <!-- B 二層構造 -->
+  <text class="sec" x="14" y="172">二層構造</text>
+  <rect class="plain" x="10"  y="180" width="185" height="56" rx="6"/>
+  <text class="b-title" x="102" y="202" text-anchor="middle">中央労働委員会</text>
+  <text class="b-note"  x="102" y="220" text-anchor="middle">全国・複数県の事件</text>
+  <rect class="plain" x="205" y="180" width="185" height="56" rx="6"/>
+  <text class="b-title" x="297" y="202" text-anchor="middle">都道府県労働委員会</text>
+  <text class="b-note"  x="297" y="220" text-anchor="middle">各都道府県に設置</text>
+
+  <!-- C 権限 -->
+  <text class="sec" x="14" y="262">おもな権限</text>
+  <rect class="key" x="10" y="270" width="380" height="44" rx="6"/>
+  <text class="b-title" x="20" y="289">① 労働争議の調整</text>
+  <text class="b-note"  x="20" y="305">あっせん・調停・仲裁を実施</text>
+  <rect class="plain" x="10" y="320" width="380" height="44" rx="6"/>
+  <text class="b-title" x="20" y="339">② 不当労働行為の審査</text>
+  <text class="b-note"  x="20" y="355">救済命令を発し労働者を保護</text>
+  <rect class="plain" x="10" y="370" width="380" height="44" rx="6"/>
+  <text class="b-title" x="20" y="389">③ 労働組合の資格審査</text>
+  <text class="b-note"  x="20" y="405">労組法上の要件適合を確認</text>
+
+  <!-- まとめ -->
+  <rect class="hdr" x="10" y="424" width="380" height="62" rx="6"/>
+  <text class="b-title" x="200" y="446" text-anchor="middle">準司法的機能をもつ独立機関</text>
+  <text class="b-note"  x="200" y="464" text-anchor="middle">労働組合法に基づき設置され、労使いずれにも</text>
+  <text class="b-note"  x="200" y="478" text-anchor="middle">偏らない中立性が制度上担保されている</text>
+</svg>
