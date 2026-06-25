@@ -208,6 +208,7 @@ node .claude/skills/social/yt-shorts-create/scripts/per-problem-shorts.mjs \
 - **hook**: `chip`（上部チップ）/ `lead`（白の前振り）/ `punch`（アクセント＋下線の決め句）/ `sub`（灰の緊張サブ）/ `anchor`（巨大な薄い1字＝視線誘導, 例 `?`）
 - **point**: `label`（小見出し, 例「答え」）/ `big`（アクセントの reveal 語, 例「安全管理」）/ `onScreen`（本文・濃色）
 - **cta**: `onScreen`（行・URL は書かない）＋ フォローボタン自動。`\n` で改行。
+- **共通（任意）**: `character`（ブランドマスコット合成）= slug 文字列 `"pointing"` か `{ "pose":"explaining", "side":"left"|"right", "scale":0.42 }`。下隅にフェードイン＋せり上がりで登場。slug は [`.claude/config/character-poses.json`](../../.claude/config/character-poses.json)（真実源 [character-asset-policy.md](character-asset-policy.md)）。テキスト密度の高い point は片側・控えめ scale、hook はキネティック干渉を避け原則なし。
 
 ```jsonc
 {

@@ -12,6 +12,9 @@
  *   point: label(小見出し) / big(アクセントの reveal 語) / onScreen(本文・濃色)
  *   cta  : onScreen(行)  ＋ フォローボタン自動
  *   共通 : narration（読み上げ）。onScreen 等は画面表示用＝narration 全文は載せない。
+ *   character: ブランドマスコット合成（任意）。"pointing" 等の slug 文字列、または
+ *             { "pose":"explaining", "side":"left"|"right", "scale":0.42 }。下隅にフェードイン＋
+ *             せり上がりで登場。slug は .claude/config/character-poses.json（真実源=character-asset-policy.md）。
  *
  * 使い方:
  *   node scripts/angle-reel-create.mjs --pack cem/angle-reels/<packId> [--speaker 3] [--png-only]
@@ -27,6 +30,17 @@ import { Resvg } from '@resvg/resvg-js';
 const ROOT = resolve(import.meta.dirname, '..');
 const IG = join(ROOT, 'docs/sns/instagram');
 const FONT = join(ROOT, '.claude/skills/conversion/ogp-create/assets/fonts/NotoSansJP-Bold.ttf');
+const CHARDIR = join(ROOT, 'docs/sns/_assets/character');
+
+// スライドの character 指定（slug 文字列 or {pose,side,scale}）を解決。無ければ null。
+function charOf(s) {
+  const c = s.character; if (!c) return null;
+  const pose = typeof c === 'string' ? c : c.pose;
+  if (!pose) return null;
+  const path = join(CHARDIR, `${pose}.png`);
+  if (!existsSync(path)) { console.warn(`  ⚠ character "${pose}" が無い（${CHARDIR}）: 合成スキップ`); return null; }
+  return { path, side: (typeof c === 'object' && c.side) || 'right', scale: (typeof c === 'object' && c.scale) || 0.42 };
+}
 
 const { values } = parseArgs({ options: {
   pack: { type: 'string' }, speaker: { type: 'string' }, 'png-only': { type: 'boolean', default: false },
@@ -201,17 +215,37 @@ for (let i = 0; i < pngPaths.length; i++) {
   const z = zin ? `min(zoom+0.0007,1.12)` : `if(eq(on,1),1.12,max(zoom-0.0007,1.0))`;
   const baseVf = `scale=1620:2880,zoompan=z='${z}':d=${frames}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=${W}x${H}:fps=${FPS},fade=t=in:st=0:d=0.35`;
   const seg = join(reelsDir, `seg-${String(i).padStart(2, '0')}.mp4`);
-  if (kinetic[i]) {
-    // キネティック: lead 先行のベースをズーム → punch 層を reveal 時刻に α フェードイン overlay
+
+  // 入力を順に積む（背景 → [punch] → 音声 → [character]）。index を後で参照。
+  const inputs = [['-loop', '1', '-i', pngPaths[i]]];
+  let punchIdx = -1;
+  if (kinetic[i]) { inputs.push(['-loop', '1', '-i', kinetic[i]]); punchIdx = inputs.length - 1; }
+  inputs.push(['-i', wavPaths[i]]); const audioIdx = inputs.length - 1;
+  const ch = charOf(spec.slides[i]);
+  let charIdx = -1;
+  if (ch) { inputs.push(['-loop', '1', '-i', ch.path]); charIdx = inputs.length - 1; }
+
+  // filtergraph をレイヤー順に組む（ズーム背景 → punch reveal → キャラ登場）。
+  const parts = [`[0:v]${baseVf}[bg]`];
+  let last = 'bg';
+  if (punchIdx >= 0) {
     const revealT = Math.min(dur * 0.42, 2.2).toFixed(2);
-    ff(['-y', '-loglevel', 'error', '-loop', '1', '-i', pngPaths[i], '-loop', '1', '-i', kinetic[i], '-i', wavPaths[i],
-        '-filter_complex', `[0:v]${baseVf}[bg];[1:v]format=yuva420p,fade=t=in:st=${revealT}:d=0.5:alpha=1[pl];[bg][pl]overlay=0:0,format=yuv420p[v]`,
-        '-map', '[v]', '-map', '2:a', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-r', String(FPS), '-t', dur.toFixed(3), seg]);
-  } else {
-    ff(['-y', '-loglevel', 'error', '-loop', '1', '-i', pngPaths[i], '-i', wavPaths[i],
-        '-filter_complex', `[0:v]${baseVf},format=yuv420p[v]`, '-map', '[v]', '-map', '1:a',
-        '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-r', String(FPS), '-t', dur.toFixed(3), seg]);
+    parts.push(`[${punchIdx}:v]format=yuva420p,fade=t=in:st=${revealT}:d=0.5:alpha=1[pl]`);
+    parts.push(`[${last}][pl]overlay=0:0[k]`); last = 'k';
   }
+  if (charIdx >= 0) {
+    const charH = Math.round(H * ch.scale);
+    const x = ch.side === 'left' ? '40' : 'main_w-overlay_w-40';
+    const yT = 'main_h-overlay_h+10';                 // 足元を下端へ（やや見切れOK）
+    const y = `if(lt(t,0.5),(${yT})+(0.5-t)/0.5*80,${yT})`; // 0.5s でせり上がり
+    parts.push(`[${charIdx}:v]scale=-2:${charH},format=yuva420p,fade=t=in:st=0.15:d=0.45:alpha=1[ch]`);
+    parts.push(`[${last}][ch]overlay='${x}':'${y}'[c]`); last = 'c';
+  }
+  parts.push(`[${last}]format=yuv420p[v]`);
+
+  ff(['-y', '-loglevel', 'error', ...inputs.flat(), '-filter_complex', parts.join(';'),
+      '-map', '[v]', '-map', `${audioIdx}:a`, '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-c:a', 'aac',
+      '-r', String(FPS), '-t', dur.toFixed(3), seg]);
   segPaths.push(seg);
 }
 const listPath = join(reelsDir, '_concat.txt');
