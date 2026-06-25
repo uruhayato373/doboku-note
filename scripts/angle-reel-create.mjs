@@ -169,8 +169,8 @@ for (let i = 0; i < spec.slides.length; i++) {
   const ii = String(i).padStart(2, '0');
   if (s.type === 'hook') {
     const L = hookLayout(s, spec.angle);
-    const full = join(reelsDir, `slide-${ii}.png`); writeFileSync(full, svgHook(s, spec.angle));
-    coverSrc = full; // カバーは punch まで入った完成フック
+    const full = join(reelsDir, `slide-${ii}.png`); writeFileSync(full, renderSvgRaw(svgHook(s, spec.angle)));
+    coverSrc = full; // カバーは punch まで入った完成フック（ラスタライズ済み PNG）
     if (L.hasPunch && s.lead) { // lead と punch が揃うときだけキネティック分割
       const base = join(reelsDir, `slide-${ii}-base.png`); writeFileSync(base, renderSvgRaw(svgHookBase(s, spec.angle)));
       const punch = join(reelsDir, `slide-${ii}-punch.png`); writeFileSync(punch, renderSvgRaw(svgHookPunch(s, spec.angle)));
