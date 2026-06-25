@@ -330,6 +330,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       '型×設問3×予想×全14ペルソナ模範論文＋精読の全部入り。記述式対策の決定版バンドル。',
     imageUrl: '/images/magazines/magazine-essay-complete-pack-cover.webp',
+    sidebarImageUrl: '/images/magazines/magazine-essay-complete-pack-sidebar.webp',
     price: '¥9,800',
     badge: 'note 限定',
   },
@@ -351,6 +352,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       '型×設問3×R8の横断3本セット。記述式エンジンを安く・全員に。ペルソナは別途1本追加。',
     imageUrl: '/images/magazines/magazine-essay-core-pack-cover.webp',
+    sidebarImageUrl: '/images/magazines/magazine-essay-core-pack-sidebar.webp',
     price: '¥5,480（3本セット、31%OFF）',
     badge: 'note 限定',
   },
@@ -369,6 +371,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       '安全・品質・工程の3テーマ別 完成答案＋置換ガイド＋採点者視点。R6新形式対応。',
     imageUrl: '/images/magazines/civil-2-experience-essay-cover.webp',
+    sidebarImageUrl: '/images/magazines/civil-2-experience-essay-sidebar.webp',
     price: '¥1,980（3本セット）',
     badge: 'note 限定',
   },
@@ -387,6 +390,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       '5管理別 完成答案（監理技術者レベル）＋置換ガイド＋採点者視点。R6新形式対応。',
     imageUrl: '/images/magazines/civil-1-experience-essay-cover.webp',
+    sidebarImageUrl: '/images/magazines/civil-1-experience-essay-sidebar.webp',
     price: '¥2,480（5本セット）',
     badge: 'note 限定',
   },
@@ -404,6 +408,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       'R03-R07 年度別×各年3工事 フル模範答案（実問題文再掲・監理技術者レベル）。R6新形式対応。',
     imageUrl: '/images/magazines/civil-1-pastexam-essay-cover.webp',
+    sidebarImageUrl: '/images/magazines/civil-1-pastexam-essay-sidebar.webp',
     price: '¥2,480（5本セット）',
     badge: 'note 限定',
   },
@@ -421,6 +426,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       'R03-R07 年度別×各年3工事 フル模範答案（実問題文再掲・主任技術者レベル）。選択制/R6新形式対応。',
     imageUrl: '/images/magazines/civil-2-pastexam-essay-cover.webp',
+    sidebarImageUrl: '/images/magazines/civil-2-pastexam-essay-sidebar.webp',
     price: '¥2,480（5本セット）',
     badge: 'note 限定',
   },
@@ -469,6 +475,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       '月例の予想問題＋経験記述マンツーマン添削で合格まで伴走。通年／添削つきの2プラン。',
     imageUrl: '/images/magazines/civil-membership-lab-cover.webp',
+    sidebarImageUrl: '/images/magazines/civil-membership-lab-sidebar.webp',
     price: '月額 ¥1,480〜（2プラン）',
     badge: 'メンバーシップ',
   },
@@ -487,6 +494,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       '問題A・問題Bのフル模範答案を劣化機構別に8本。変状把握→劣化機構推定→調査→評価→対策の型を反復。',
     imageUrl: '/images/magazines/cd-essay-cover.webp',
+    sidebarImageUrl: '/images/magazines/cd-essay-magazine-sidebar.webp',
     price: '¥1,980（8本セット）',
     badge: 'note 限定 教材',
   },
@@ -525,6 +533,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       '解法ガイド＋テーマ別フル模範小論文4本（耐久性・品質管理・環境配慮・施工トラブル）。序論・本論・結論の型と採点4観点で攻略。',
     imageUrl: '/images/magazines/cce-essay-cover.webp',
+    sidebarImageUrl: '/images/magazines/cce-essay-magazine-sidebar.webp',
     price: '¥1,480（5本セット）',
     badge: 'note 限定 教材',
   },

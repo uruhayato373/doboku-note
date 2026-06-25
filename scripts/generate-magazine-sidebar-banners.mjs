@@ -9,7 +9,7 @@
 // 共有テンプレ（ogp-templates.mjs）・既存カバー生成（generate-magazine-covers.mjs）には依存しない。
 //
 // 使い方:
-//   node scripts/generate-magazine-sidebar-banners.mjs            # 全 6 枚生成
+//   npm run magazine-sidebar-banners                              # 全バナー生成
 //   node scripts/generate-magazine-sidebar-banners.mjs tankan     # id に部分一致する 1 枚だけ生成
 
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
@@ -113,6 +113,117 @@ const BANNERS = [
       ['総監・1級土木', 28],
       ['note有料教材', 30],
       ['まとめ', 32],
+    ],
+  },
+  // --- 2026-06-26 追加: サイドバー画像オンリー統一のための旗艦マガジン バナー ---
+  //     カテゴリ hub / docs サイドバーを MagazineSidebarCard（画像オンリー）へ一本化する際、
+  //     sidebarImageUrl を持たなかった旗艦商品に 300×250 を付与する（satori 生成・無料）。
+  {
+    id: 'magazine-essay-complete-pack-sidebar',
+    bgTop: '#283a86',
+    bgBottom: '#15224c',
+    accent: '#a5b4fc',
+    label: 'note限定',
+    lines: [
+      ['総監 記述式', 27],
+      ['完全パック', 34],
+      ['全部入り 全14ペルソナ', 19],
+    ],
+  },
+  {
+    id: 'magazine-essay-core-pack-sidebar',
+    bgTop: '#1d5a7a',
+    bgBottom: '#0f3650',
+    accent: '#7dd3fc',
+    label: 'note限定',
+    lines: [
+      ['総監 記述式', 27],
+      ['コアパック', 34],
+      ['型×設問3×R8予想', 20],
+    ],
+  },
+  {
+    id: 'civil-1-experience-essay-sidebar',
+    bgTop: '#b45309',
+    bgBottom: '#7c3a06',
+    accent: '#fcd34d',
+    label: 'note限定',
+    lines: [
+      ['1級土木 経験記述', 24],
+      ['完成答案集', 30],
+      ['工種×テーマ別 5管理', 19],
+    ],
+  },
+  {
+    id: 'civil-1-pastexam-essay-sidebar',
+    bgTop: '#9a3412',
+    bgBottom: '#6b240c',
+    accent: '#fdba74',
+    label: 'note限定',
+    lines: [
+      ['1級土木 経験記述', 24],
+      ['過去問 模範答案', 26],
+      ['R03-R07 年度別', 22],
+    ],
+  },
+  {
+    id: 'civil-2-experience-essay-sidebar',
+    bgTop: '#0f766e',
+    bgBottom: '#0a4f49',
+    accent: '#5eead4',
+    label: 'note限定',
+    lines: [
+      ['2級土木 経験記述', 24],
+      ['完成答案集', 30],
+      ['安全・品質・工程', 20],
+    ],
+  },
+  {
+    id: 'civil-2-pastexam-essay-sidebar',
+    bgTop: '#15803d',
+    bgBottom: '#0d5126',
+    accent: '#86efac',
+    label: 'note限定',
+    lines: [
+      ['2級土木 経験記述', 24],
+      ['過去問 模範答案', 26],
+      ['R03-R07 年度別', 22],
+    ],
+  },
+  {
+    id: 'civil-membership-lab-sidebar',
+    bgTop: '#6d28d9',
+    bgBottom: '#4c1d95',
+    accent: '#c4b5fd',
+    label: 'メンバーシップ',
+    lines: [
+      ['土木セコカン', 26],
+      ['1発合格ラボ', 30],
+      ['月例予想＋添削', 20],
+    ],
+  },
+  {
+    id: 'cce-essay-magazine-sidebar',
+    bgTop: '#475569',
+    bgBottom: '#2f3a4a',
+    accent: '#cbd5e1',
+    label: 'note限定 教材',
+    lines: [
+      ['コンクリート主任技師', 19],
+      ['小論文 模範答案集', 23],
+      ['評価される答案の型', 19],
+    ],
+  },
+  {
+    id: 'cd-essay-magazine-sidebar',
+    bgTop: '#57534e',
+    bgBottom: '#36322e',
+    accent: '#d6d3d1',
+    label: 'note限定 教材',
+    lines: [
+      ['コンクリート診断士', 20],
+      ['記述式 模範答案集', 23],
+      ['問題A・問題B', 22],
     ],
   },
 ];

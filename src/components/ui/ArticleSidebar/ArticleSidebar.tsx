@@ -1,10 +1,11 @@
 import { type DocMeta } from '@/lib/docs';
 import { type DocGroupKey } from '@/lib/doc-classifier';
-import { buildMagazineUrl, type NoteMagazine } from '@/lib/note-magazines';
+import { type NoteMagazine } from '@/lib/note-magazines';
 import { type PlacementSlot } from '@/lib/magazine-placement';
 import { type SidebarAdCreative } from '@/config/affiliate-creatives';
 import { type TocHeading } from '@/lib/toc';
 import MagazineSidebarCard from '@/components/ui/MagazineSidebarCard';
+import SidebarMagazineList from '@/components/ui/SidebarMagazineList';
 import SidebarAdBanner from '@/components/ui/SidebarAdBanner';
 import TableOfContents from '@/components/ui/TableOfContents';
 import ExamQuestionNav from '@/components/ui/ExamQuestionNav';
@@ -45,22 +46,9 @@ export default function ArticleSidebar({
     <aside className="hidden zenn-desktop:block w-[300px] shrink-0 py-10">
       <div className="sticky top-6">
         {/* note 有料マガジン CTA (sidebar)。配置解決済みのマガジンを画像オンリーで上部に並べる。
-            文言・価格はバナー画像 (sidebarImageUrl, 300×250) に焼き込む方針。 */}
-        {sidebarMagazines.length > 0 && (
-          <div className="mb-3 space-y-3">
-            {sidebarMagazines.map(({ slot, magazine }) =>
-              magazine.sidebarImageUrl ? (
-                <MagazineSidebarCard
-                  key={slot.magazineId}
-                  href={buildMagazineUrl(magazine, slot.utmContent)}
-                  imageUrl={magazine.sidebarImageUrl}
-                  alt={magazine.shortTitle ?? magazine.title}
-                  trackLabel={slot.utmContent}
-                />
-              ) : null,
-            )}
-          </div>
-        )}
+            文言・価格はバナー画像 (sidebarImageUrl, 300×250) に焼き込む方針。カテゴリ hub と共通の
+            SidebarMagazineList に集約（2026-06-26）。 */}
+        <SidebarMagazineList magazines={sidebarMagazines} />
         {/* 汎用キーワードページ (個別キーワード辞書ページ): 単一マガジン直送ではなく
             note 有料教材まとめ /links へ誘導する画像バナー。hub/essay 等は上の
             コンテキスト一致マガジンが出るため、ここは sidebarMagazines 空のときのみ。 */}

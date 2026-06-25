@@ -17,7 +17,7 @@ import {
   PeConstructionView,
 } from '@/components/category/CategoryViews';
 import MagazineInlineCard from '@/components/ui/MagazineInlineCard';
-import MagazineSidebarPromoCard from '@/components/ui/MagazineSidebarPromoCard';
+import SidebarMagazineList from '@/components/ui/SidebarMagazineList';
 import { resolveCategoryMagazines } from '@/lib/magazine-placement';
 import { getMagazine, buildMagazineUrl } from '@/lib/note-magazines';
 import SidebarAdBanner from '@/components/ui/SidebarAdBanner';
@@ -210,18 +210,10 @@ export default async function CategoryPage({
             <aside className="hidden zenn-desktop:block w-[300px] shrink-0 py-10 sm:py-12">
               <div className="sticky top-6 space-y-3">
                 {/* note 有料マガジン CTA（PC 右サイドバー上部・文脈一致）。試験単位の旗艦商品を提示する。
-                    冒頭全幅グリッドから集約（2026-06-20）。未公開マガジンは getMagazine で除外済み。 */}
-                {hubMagazines.map(({ slot, magazine }) => (
-                  <MagazineSidebarPromoCard
-                    key={slot.magazineId}
-                    url={buildMagazineUrl(magazine, slot.utmContent)}
-                    title={magazine.title}
-                    description={magazine.description}
-                    imageUrl={magazine.imageUrl}
-                    badge={magazine.badge}
-                    trackLabel={slot.utmContent}
-                  />
-                ))}
+                    冒頭全幅グリッドから集約（2026-06-20）。未公開マガジンは getMagazine で除外済み。
+                    docs サイドバーと共通の SidebarMagazineList で画像オンリーに統一（2026-06-26）。
+                    親の sticky 直下に並べるため className は space-y-3（外側 mb は親が制御）。 */}
+                <SidebarMagazineList magazines={hubMagazines} className="space-y-3" />
                 {/* 転職アフィリ（PC 右サイドバー・sticky）。当ページ唯一のピクセル発火源。
                     creative は resolveCareerSidebarAd で期間出し分け（〜2026-08-31 ビルドジョブ / 以降 GKS）。 */}
                 {careerSidebar && (
