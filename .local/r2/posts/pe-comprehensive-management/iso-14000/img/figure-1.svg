@@ -90,19 +90,17 @@
   <line x1="240" y1="318" x2="160" y2="318" stroke="#d4a017" stroke-width="1.5"/>
   <polygon points="0,0 5,3 0,6" transform="translate(162,315) rotate(180)" fill="#d4a017"/>
 
-  <!-- ── 引っかけ論点 ── -->
-  <rect x="8" y="346" width="384" height="18" rx="3" fill="#d4a017"/>
-  <text class="t-sec" x="200" y="359" text-anchor="middle">頻出の引っかけ論点（R1・R6 繰り返し出題）</text>
+  <!-- ── EMS の対象（定義） ── -->
+  <rect x="8" y="346" width="384" height="48" rx="5" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="20" y="366" font-size="11" font-weight="bold" fill="#1a3a5c">「環境」の定義（ISO 14001）</text>
+  <text x="20" y="384" font-size="11" fill="#555">大気・水質・土地・天然資源・植物・動物・人の相互関係を包括</text>
 
-  <rect x="8" y="370" width="384" height="60" rx="5" fill="#fff3cd" stroke="#d4a017" stroke-width="1"/>
-  <text x="20" y="392" font-size="12" font-weight="bold" fill="#1a3a5c">EMS は「法令遵守の手続き管理システム」ではない</text>
-  <text x="20" y="412" font-size="11" fill="#555">ISO 14001 は自主的な PDCA の枠組み。法令遵守はあくまで</text>
-  <text x="20" y="428" font-size="11" fill="#555">最低条件であり、EMS は継続的改善を実現する上位の仕組み。</text>
-
-  <!-- ── EMS の対象 ── -->
-  <rect x="8" y="440" width="384" height="48" rx="5" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
-  <text x="20" y="460" font-size="11" font-weight="bold" fill="#1a3a5c">「環境」の定義（ISO 14001）</text>
-  <text x="20" y="478" font-size="11" fill="#555">大気・水質・土地・天然資源・植物・動物・人の相互関係を包括</text>
+  <!-- ── 2015年改訂のポイント ── -->
+  <rect x="8" y="404" width="384" height="82" rx="5" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+  <text x="20" y="424" font-size="12" font-weight="bold" fill="#1a3a5c">2015 年改訂の主な変更点</text>
+  <text x="20" y="444" font-size="11" fill="#555">・リーダーシップの強化（トップマネジメントの関与と説明責任）</text>
+  <text x="20" y="460" font-size="11" fill="#555">・リスクに基づく考え方（リスクと機会を特定し計画に反映）</text>
+  <text x="20" y="476" font-size="11" fill="#555">・ライフサイクルの視点（製品・サービス全体の環境負荷を考慮）</text>
 
   <!-- フッター -->
   <text class="t-foot" x="200" y="498" text-anchor="middle">ISO 14001（1996年制定・2015年改訂）</text>

@@ -47,15 +47,16 @@
   <text x="104" y="318" text-anchor="middle" font-size="11" fill="#1a3a5c">取得価額 × 償却率</text>
   <text x="296" y="318" text-anchor="middle" font-size="11" fill="#1a3a5c">未償却残高 × 償却率</text>
 
-  <!-- notes box -->
-  <rect x="12" y="330" width="376" height="92" fill="#f5f5f5" stroke="#d7d7d7" rx="2"/>
-  <text x="24" y="352" font-size="12" font-weight="bold" fill="#222">試験ポイント</text>
-  <text x="24" y="372" font-size="11" fill="#555">・定額法＝毎期同額、定率法＝初期に多く後期に少ない</text>
-  <text x="24" y="391" font-size="11" fill="#555">・総額（取得価額）はどちらも同じ。配分の時期が違うだけ</text>
-  <text x="24" y="410" font-size="11" fill="#555">・定率法は後年、定額へ切替（償却保証額を下回ると）</text>
+  <!-- 定率法の切替ルール -->
+  <rect x="12" y="330" width="376" height="68" fill="#f5f5f5" stroke="#d7d7d7" rx="2"/>
+  <text x="24" y="350" font-size="12" font-weight="bold" fill="#222">定率法の定額切替ルール</text>
+  <text x="24" y="368" font-size="11" fill="#555">「未償却残高×償却率」＜ 償却保証額 となった年度以降は</text>
+  <text x="24" y="385" font-size="11" fill="#555">定額法へ自動切替（残存簿価 1 円まで確実に償却）。</text>
 
   <!-- summary band -->
-  <rect x="12" y="430" width="376" height="56" fill="#e8f0fe" stroke="#2e6da4" rx="2"/>
-  <text x="200" y="453" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#1a3a5c">継続性の原則：選んだ償却方法は正当な理由なく変更不可</text>
-  <text x="200" y="474" text-anchor="middle" font-size="11" fill="#1a3a5c">間接法CFでは税引前利益に減価償却費を加算（自己金融効果）</text>
+  <rect x="12" y="408" width="376" height="82" fill="#e8f0fe" stroke="#2e6da4" rx="2"/>
+  <text x="200" y="428" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#1a3a5c">継続性の原則：選んだ償却方法は正当な理由なく変更不可</text>
+  <text x="200" y="448" text-anchor="middle" font-size="11" fill="#1a3a5c">間接法CFでは税引前利益に減価償却費を加算（自己金融効果）</text>
+  <text x="24" y="467" font-size="11" fill="#555">取得価額・耐用年数・残存価額の 3 要素で償却計算が決まる。</text>
+  <text x="24" y="483" font-size="11" fill="#555">法定耐用年数（税法）と経済的耐用年数（会計）が異なる場合も。</text>
 </svg>

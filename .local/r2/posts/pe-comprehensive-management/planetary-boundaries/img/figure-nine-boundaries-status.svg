@@ -69,9 +69,10 @@
   <rect x="280" y="350" width="14" height="14" fill="#3a7d44"/>
   <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#222" x="300" y="362">境界内（1 領域）</text>
 
-  <rect fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1" x="20" y="378" width="360" height="80" rx="6"/>
-  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c" x="200" y="398" text-anchor="middle">試験ポイント</text>
-  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="30" y="416">・ロックストローム（スウェーデン）が 2009 年に提唱</text>
-  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="30" y="434">・地球が安全に機能できる限界値を定量化した概念</text>
-  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="30" y="452">・9 領域のうち複数の同時超過が相互作用リスクを高める</text>
+  <rect fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1" x="20" y="378" width="360" height="100" rx="6"/>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c" x="200" y="398" text-anchor="middle">概念の背景</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="30" y="416">・提唱: ロックストローム（スウェーデン）2009 年 Science 誌</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="30" y="434">・地球が安全に機能できる「人類の安全な活動空間」を定量化</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="30" y="452">・複数領域の同時超過が相互作用リスクを高める（連鎖的変化）</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="30" y="470">・日本: 第 5 次環境基本計画（2018）で初めて政府文書に明記</text>
 </svg>

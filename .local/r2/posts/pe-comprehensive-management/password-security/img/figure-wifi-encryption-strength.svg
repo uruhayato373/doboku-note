@@ -77,9 +77,10 @@
   <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="12" fill="#555" x="200" y="290" text-anchor="middle">WEP・暗号化なしは脆弱性リスクが高く使用厳禁</text>
   <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="12" fill="#555" x="200" y="314" text-anchor="middle">接続前に必ずセキュリティ方式を確認する</text>
 
-  <rect fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1" x="20" y="340" width="360" height="80" rx="6"/>
-  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c" x="200" y="362" text-anchor="middle">判断基準（試験ポイント）</text>
-  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="40" y="384">・WPA2 は AES 暗号化を使用し最も安全</text>
-  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="40" y="400">・WEP は RC4 暗号で解読容易（数分で解読可能）</text>
-  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="40" y="416">・公衆 Wi-Fi は VPN 併用を推奨</text>
+  <rect fill="#e8f0fe" stroke="#2e6da4" stroke-width="1" x="20" y="340" width="360" height="108" rx="6"/>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c" x="200" y="362" text-anchor="middle">最新規格 WPA3（2018 年 Wi-Fi Alliance 策定）</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="40" y="382">・SAE 認証（Dragonfly）で辞書攻撃・オフライン解読に強い</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="40" y="398">・公衆 Wi-Fi の Enhanced Open でも個別暗号化を提供</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="40" y="414">・接続ごとに個別の暗号鍵を生成（前方秘匿性）</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="40" y="430">・WPA2 との後方互換性あり（移行期は混在モードが一般的）</text>
 </svg>
