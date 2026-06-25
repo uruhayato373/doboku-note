@@ -8,9 +8,10 @@
 - パック構造・ファイル配置 → [`docs/reference/ig-carousel-skill.md`](./ig-carousel-skill.md)
 - Reels モード分岐の設計 → [`docs/design-system/instagram-carousel-tokens.json`](../design-system/instagram-carousel-tokens.json) の `slides.cover.swipeTextReels`
 - **figure-*.svg 静止画を Reels に流用する場合**（過去問パック動画とは別ルート） → [`docs/reference/sns-image-policy.md §13`](./sns-image-policy.md)（4:5 figure を 9:16 中央配置）
-- **figure カルーセルパックを「ナレーション付き解説リール」動画化する場合**（過去問 quiz リールの `ig-reel-create` とは別ルート） → `node scripts/figure-reel-create.mjs --pack <topic>`（carousel/img の 4:5 PNG を 9:16 白パディング＋`reels/script.txt`を VOICEVOX TTS＋ffmpeg 合成。`reels/cover.png` を出力し `publish-ig-bs` がサムネ設定。SoT は script.txt + caption.txt、video/wav/img/cover は gitignore。2026-06-24 新設）
+- **figure カルーセルパックを「ナレーション付き解説リール」動画化する場合** → `node scripts/figure-reel-create.mjs --pack <topic>`（carousel/img の 4:5 PNG を 9:16 白パディング＋`reels/script.txt`を VOICEVOX TTS＋ffmpeg 合成）。**ただし「カルーセル貼り＋読み上げ」は discovery リールとしては薄く、§7（角度駆動リール）方針で量産停止**＝同テーマの重複回避はリール側を角度駆動に振る。本ルートは限定利用（2026-06-24 新設・2026-06-26 §7 で量産停止）。
+- **6 切り口の角度でフックを立てる discovery リールを作る場合**（推奨・新方針） → 本ドキュメント §7（`ig-reels-writer` を `mode:"angle"` で流用・記事資産起点）。
 
-最終更新: 2026-05-28（v1: 戦略 v7 化に伴う新設）
+最終更新: 2026-06-26（v3: §7 角度駆動リールを追加）
 
 ---
 
@@ -169,7 +170,71 @@ node .claude/skills/social/yt-shorts-create/scripts/per-problem-shorts.mjs \
 - **動画・音声は JIT・git に持たない**（2026-06-09 動画 / 2026-06-18 wav も）: reel の mp4 / img(PNG) / slide-NN.mp4 / **wav** は再生成可能な派生物で **gitignore**。**コミットするのは slide-data.json + reels/script.txt + caption.txt**。wav は script.txt から VOICEVOX で再生成可、かつ `npm run upload-sns-r2` で R2 退避（真実源 [sns-archive-policy.md](sns-archive-policy.md)）。`video.mp4`・`wav` が手元に無いのは正常（JIT/流用時は R2 取得 or 再生成）。
 - **採用判断**: R7 5管理×各2問=10本を 12:30/日次で感触テスト予約済（2026-06-09）。良ければ全年度ロールアウト。
 
+## 7. 角度駆動リール（discovery・記事資産起点）2026-06-26 追加
+
+§1-§6 の**過去問クイズリール**（知識チェック型・MOFU 現受験生向け）とは別タイプの、**6 切り口の編集角度でフックを立てる discovery リール**。カルーセル（保存カタログ・現状維持）と**同テーマでも役割が重ならない**ように、リール側を角度駆動に振る方針（2026-06-26 決定）。真実源の角度定義は [content-angle-policy.md](./content-angle-policy.md)。
+
+### なぜ別タイプか（重複回避の核心）
+
+カルーセル＝保存ストック（`counter`/`howto`/数字図解）、**リール＝フックで足を止めさせる発見装置**。同じテーマでも**角度を変えれば消費モードも届く相手も別**になる＝重複しない。クイズリールが「現受験生1層」にしか届かないのを補い、TOFU・公務員層を取りに行く。
+
+### 担当（分業＝新エージェントを作らない）
+
+**`ig-reels-writer`（Generator・`angle` 対応済み）＋ `ig-reels-qa`（Evaluator）をそのまま使う**。角度やフォーマットでエージェントを増やさない（content-angle-policy 冒頭の原則）。角度は `angle` パラメータ、本タイプは `mode: "angle"` で分岐する。
+
+### リールに向く角度（4つに絞る）
+
+| `angle` | リール適性 | 備考 |
+|---|---|---|
+| **`experience`（体験）** | ◎ **主柱** | 元発注者＝唯一無二・コモディティ化不可。`experience` リールを中心ピラーに |
+| **`conclusion`（結論）** | ◎ | 言い切り＝最強の冒頭フック |
+| **`counter`（反論）** | ○ | 通説否定＝足が止まる（保存版はカルーセルと併存可） |
+| **`number`（数字）** | ○ | パンチのある一撃。出典必須 |
+| `howto` / `reason` | ✕（カルーセル/YTへ） | 手順・展開は尺/枚数が要る＝保存系 |
+
+### フォーマット（クイズリールと違う点）
+
+- **尺 15-30 秒・1論点（1 角度）**。`totalDurationSec` 90-110 は適用しない。
+- **冒頭 2 秒＝フック**（問い・断言）。タイトルスライドにしない。フック＝その角度そのもの。
+- **source は「角度が立った手作りの記事資産」**（note 記事・公務員クラスター 8 本・トレードオフ等）。**カルーセルのスライド流用・自動要約は禁止**（薄くなる既出の教訓 §1 / content-angle-policy §1）。`figure-reel-create.mjs`（カルーセル貼り＋読み上げ）は本タイプでは使わない。
+- **CTA は IG ネイティブ**（保存・フォロー）。「スワイプ」禁忌は §3 と共通。
+
+### script.json（mode: "angle"）
+
+```jsonc
+{
+  "packId": "<topic>-<angle>",          // 例: risk-perception-experience
+  "mode": "angle",
+  "angle": "experience",                 // experience / conclusion / counter / number
+  "totalDurationSec": 22,                // 15-30
+  "source": "docs/note/技術士総監/…/article.md#section",  // 角度が立った起点資産（必須・要手作り）
+  "slides": [
+    { "type": "hook",  "durationSec": 3,  "narration": "発注者だった私が言います。総監の○○、現場では…" },
+    { "type": "point", "durationSec": 14, "narration": "1 論点だけを展開（断片・フックまで）。" },
+    { "type": "cta",   "durationSec": 5,  "narration": "続きはプロフィールから。フォローで毎週届きます。" }
+  ]
+}
+```
+
+### 採点（ig-reels-qa・本タイプの軸読み替え）
+
+§4 の 5 軸を本タイプ向けに読み替える（合否＝平均 4.0 以上かつ全軸 3 以上は共通）:
+
+| 軸 | angle リールでの観点 |
+|---|---|
+| 1. 尺適正 | **15-30 秒**・hook 2-3 秒・1 論点に収束（>35 秒は -2） |
+| 2. 読み上げ完結性 | 既存どおり（体言止め禁止・自然読み上げ） |
+| 3. キャプション/タグ | 既存どおり（3 階層 mix） |
+| 4. 音声↔画面整合＋**角度純度** | フックが冒頭・**1 投稿 1 角度**（混在は減点）・カルーセル流用 CTA 無し |
+| 5. 導線＋**Red Line** | フォロー/note 導線整合に加え、**`experience`＝断片まで（受験記フル放出 -2）／`number`＝出典必須・捏造厳禁／送客整合**（howto/reason→サイト・experience/conclusion→note）。content-angle-policy §5 準拠 |
+
+### 進め方
+
+1. **`experience` 角度 × 公務員クラスター記事**から試作 1 本で型を確立。
+2. リーチ/保存/フォロー転換を既存カルーセルと比較してから角度を広げる。クイズリール（§1-6）は当面継続、薄い `figure-reel-create` 量産は停止。
+
 ## 改訂履歴
 
 - v1（2026-05-28）: 初版。SNS 戦略 v7 化に伴い、Reels の Generator/Evaluator 分離を正式運用化。Reels モード分岐の禁忌（カルーセル流用 CTA）を明文化。
 - v2（2026-06-09）: §6「1問1リール（per-problem, `--ig-mode`）」を追加。
+- v3（2026-06-26）: §7「角度駆動リール（discovery・記事資産起点）」を追加。カルーセル＝保存／リール＝角度フックの役割分担を明文化。新エージェントは作らず `ig-reels-writer`/`ig-reels-qa` を `mode:"angle"` で流用（分業原則＝媒体×機能）。`figure-reel-create` の薄い量産は停止方針。
