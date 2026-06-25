@@ -43,7 +43,11 @@ B のみで全網羅: 130 ÷ 52 ≈ **約 2.5 年**
 
 ```
 docs/sns/instagram/
-├── cem/exam-packs/                       ← B 過去問パック (新)
+├── cem/exam-packs/                       ← B 過去問パック
+├── cem/keyword-packs/                    ← キーワード図解パック（ig-figure-pack スキル生成）
+│   ├── cash-flow-statement/             ← {exam}/keyword-packs/{keyword}/ が規約
+│   ├── herzberg-two-factor-theory/
+│   └── ...（site slug と 1:1 対応）
 │   ├── 技術士総監/                     ← 試験軸（既定）。1級土木 / 2級土木 と対称
 │   │   └── r07/                       ← （以下 技術士総監/r07 を例示）
 │   │       ├── _summary/              ← 年度目次カルーセル（ストーリー入口）

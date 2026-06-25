@@ -18,7 +18,7 @@ allowed-tools: Bash, Read, Write, Edit
 ## ディレクトリ構成
 
 ```
-docs/sns/instagram/{exam}/{keyword}/   ← {exam} 試験dir（cem / civil-1 / civil-2 / pe-construction）必須
+docs/sns/instagram/{exam}/keyword-packs/{keyword}/   ← keyword-packs/ サブdir 必須
   carousel/
     img/
       00-cover.svg
@@ -32,7 +32,7 @@ docs/sns/instagram/{exam}/{keyword}/   ← {exam} 試験dir（cem / civil-1 / ci
     caption.txt
 ```
 
-`{keyword}` は site slug（例: `mcgregor-xy-theory`）と一致させる。**`{exam}` 試験dir を省略して `instagram/{keyword}/` 直下に置かない**（パスドリフト。`check-ig-cover` が pre-commit でブロック）。
+`{keyword}` は site slug（例: `mcgregor-xy-theory`）と一致させる。**`keyword-packs/` を省略して `{exam}/{keyword}/` 直下に置かない**（パスドリフト。`check-ig-cover` が pre-commit でブロック）。`figure-reel-create.mjs` は `--pack keyword-packs/{keyword}` または `--pack cem/keyword-packs/{keyword}` で指定する。
 
 ## デザイン仕様
 
