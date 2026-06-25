@@ -18,8 +18,6 @@ export const commonComponents = {
   SpokeNavCard: "SpokeNavCard",
   PersonaSelector: "PersonaSelector",
   SourceBadges: "SourceBadges",
-  ReferenceLinks: "ReferenceLinks",
-  ExamContext: "ExamContext",
   DataTable: "DataTable",
   Nowrap: "Nowrap",
   Underline: "Underline",

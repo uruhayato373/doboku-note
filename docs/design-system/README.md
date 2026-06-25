@@ -34,7 +34,7 @@
 | スタイル | カスタム CSS (`src/styles/globals.css`) + Tailwind CSS |
 | コンテンツ | MDX (Markdown + JSX) |
 | 数式 | KaTeX |
-| 図表 | Mermaid, PNG画像 |
+| 図表 | SVG, PNG画像 |
 | フォント | Noto Sans JP (本文), M PLUS 1 |
 | アイコン | Font Awesome 5 |
 

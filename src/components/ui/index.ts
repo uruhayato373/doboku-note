@@ -6,8 +6,6 @@ export { default as Callout } from './Callout';
 export { default as SpecSheetList } from './SpecSheetList';
 export { default as ThemeToggle } from './ThemeToggle';
 
-// ChatBubble関連コンポーネント
-export { ChatBubble, Question, Answer } from './ChatBubble';
 
 // 型定義のエクスポート
 export type {

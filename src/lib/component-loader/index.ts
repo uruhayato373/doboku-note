@@ -20,8 +20,6 @@ const commonLoaders = {
   SpokeNavCard: () => import("@/components/ui/SpokeNavCard/SpokeNavCard").then((m) => m.default),
   PersonaSelector: () => import("@/components/ui/PersonaSelector").then((m) => m.default),
   SourceBadges: () => import("@/components/ui/SourceBadges").then((m) => m.default),
-  ReferenceLinks: () => import("@/components/ui/ReferenceLinks").then((m) => m.default),
-  ExamContext: () => import("@/components/ui/ExamContext").then((m) => m.default),
   DataTable: () => import("@/components/ui/DataTable/DataTable").then((m) => m.default),
   Nowrap: () => import("@/components/ui/Nowrap/Nowrap").then((m) => m.default),
   Underline: () => import("@/components/ui/Underline/Underline").then((m) => m.default),
@@ -29,8 +27,6 @@ const commonLoaders = {
   ExamFields: () => import("@/components/ui/ExamFields/ExamFields").then((m) => m.default),
   PdcaCycle: () => import("@/components/ui/PdcaCycle/PdcaCycle").then((m) => m.default),
   CareerAffiliate: () => import("@/components/ui/CareerAffiliate/CareerAffiliate").then((m) => m.default),
-  Question: () => import("@/components/ui/ChatBubble/Question").then((m) => m.default),
-  Answer: () => import("@/components/ui/ChatBubble/Answer").then((m) => m.default),
 } satisfies Record<string, ComponentLoader>;
 
 const specificLoaders = {
