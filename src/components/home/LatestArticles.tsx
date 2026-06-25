@@ -25,11 +25,10 @@ export default function LatestArticles({ articles }: LatestArticlesProps) {
   if (!articles || articles.length === 0) return null;
   return (
     <section className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 py-8 sm:py-10">
-      <div className="flex items-end justify-between mb-6 sm:mb-8 gap-4">
-        <div>
-          <h2 className="font-serif text-2xl sm:text-3xl font-black text-[var(--ink)]">最新の記事</h2>
-          <p className="text-[14px] text-[var(--ink-muted)] mt-1.5">現場と参考書から抽出した論点を、定期的に更新</p>
-        </div>
+      <div className="mb-8 sm:mb-10 text-center">
+        <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ink-muted)] mb-3">Latest</div>
+        <h2 className="font-serif text-2xl sm:text-3xl font-black text-[var(--ink)]">最新の記事</h2>
+        <p className="text-[14px] text-[var(--ink-muted)] mt-2">現場と参考書から抽出した論点を、定期的に更新</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
         {articles.map((a) => {

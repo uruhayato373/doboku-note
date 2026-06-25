@@ -58,10 +58,10 @@ function ExamCard({ e }: { e: ExamData }) {
 export default function ExamCards({ exams }: ExamCardsProps) {
   return (
     <section id="exams" className="scroll-mt-24 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 py-8 sm:py-10">
-      <div className="mb-6 sm:mb-8">
+      <div className="mb-8 sm:mb-10 text-center">
         <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ink-muted)] mb-3">Exams</div>
         <h2 className="font-serif text-2xl sm:text-3xl font-black text-[var(--ink)]">対応する資格・試験</h2>
-        <p className="text-[14px] text-[var(--ink-muted)] mt-1.5">現場と試験を往復する、体系的な学習コンテンツ</p>
+        <p className="text-[14px] text-[var(--ink-muted)] mt-2">現場と試験を往復する、体系的な学習コンテンツ</p>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
         {exams.map((e) => (
