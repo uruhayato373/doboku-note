@@ -132,15 +132,15 @@ Hero → ExamCards → LatestArticles → AboutSection
 - マガジンカードが4コンポーネントに過分割（MagazineCard/InlineCard/SidebarCard/SidebarPromoCard）。badge パターン重複・一部 inline-style／`dark:` 漏れ。
 
 **やること（増分順・各増分で build＋curl `<main>`/キーワード検証）**:
-1. **[低リスク] マガジンカード統合**: `Badge` 抽出＋`MagazineCard` proxy層撤廃で 4→2。develop 派生で独立 PR 可（page合成と無依存）。
-2. **[中] docs ArticleFooter 抽出**: 記事末ブロック（page.tsx 355-484）を `ArticleFooter` コンポーネントへ純粋抽出（ロジック不変）→ page.tsx ~120行減・継ぎ目化。
-3. **[中] ArticleFooter を config駆動化**: `src/lib/article-section-config.ts` で category×docGroup→section[] を定義、registry で section→render を解決。新資格＝JSON のみ。
-4. **[高] category レイアウト template化**: `CATEGORY_LAYOUT` + `sortDocs` を strategy factory 化、secondary split をユーティリティ抽出。
-5. **[低] dark:/inline-style 一掃**: badge 等の inline `style` → Tailwind semantic class。
+1. ✅ **[低リスク] マガジンカード統合**（PR #273）: `MagazineBadge` 抽出＋inline `style`→`bg-brand`。※`MagazineCard` proxy撤廃（4→2）は **descope**（48 MDX が直接参照する facade のため）。
+2. ✅ **[中] docs ArticleFooter/ArticleSidebar 抽出**（PR #273）: 記事末ブロック＋右 aside を純粋抽出（ロジック不変）→ `docs/[...slug]/page.tsx` 580→376行。
+3. **[中] ArticleFooter を config駆動化**: `src/lib/article-section-config.ts` で category×docGroup→section[] を定義、registry で section→render を解決。新資格＝JSON のみ。※純粋抽出済みなので残りは config 化のみ。再評価で indirection 増に対し効果は限界的＝**保留**（新資格追加が実際に発生したら着手）。
+4. ◑ **[高] category レイアウト template化**（PR #273 で純粋抽出フェーズ完了）: `category/[slug]/page.tsx` 1065→230行。`lib/category-groups.ts`（grouping/sort）・`components/category/CategorySections.tsx`（DocCard/DocSection/5 テーブル）・`components/category/CategoryViews.tsx`（資格別 5 view）へ分離。**残**: `sortDocs` の 35+ if-else はファイル移動しただけ＝strategy factory 化は未（増分3 と同じく「新資格追加が実際に発生したら」着手で十分。今の view 分離で新資格は CategoryViews へ 1 関数追加すれば済む）。
+5. **[低] dark:/inline-style 一掃**: badge 等の inline `style` → Tailwind semantic class。※増分1で MagazineBadge は対応済み。残りは横断 sweep（別タスク）。
 
-**実装ファイル**: `src/app/docs/[...slug]/page.tsx`・`src/app/category/[slug]/page.tsx`・`src/components/ui/Magazine*`・新規 `src/lib/article-section-config.ts`・新規 `src/components/ui/{ArticleFooter,Badge}/`
+**実装ファイル**: `src/app/docs/[...slug]/page.tsx`・`src/app/category/[slug]/page.tsx`・`src/components/ui/Magazine*`・新規 `src/lib/article-section-config.ts`・新規 `src/components/ui/{ArticleFooter,ArticleSidebar,MagazineBadge}/`・新規 `src/lib/category-groups.ts`・新規 `src/components/category/{CategorySections,CategoryViews}.tsx`
 
-**前提・順序**: PR #272（アフィリ除去）が develop にマージされた後に develop ベースで着手（page.tsx の正は除去後の状態。先に切ると衝突）。リファクタは feature ブランチ＋PR。増分2以降は1000+ページの記事末に影響するため build＋複数ページ種別の SSR 目視必須。
+**前提・順序**: PR #272（アフィリ除去）は develop マージ済み。リファクタは feature ブランチ `refactor/magazine-cards-consolidation`＋PR #273 で進行中。増分2以降は1000+ページの記事末に影響するため build＋複数ページ種別の SSR 目視必須（各増分で実施済み）。
 
 ### 性能: CI PSI 再計測フラグ（Phase 0）🟡
 
