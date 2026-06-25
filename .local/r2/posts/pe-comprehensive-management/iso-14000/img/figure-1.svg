@@ -1,101 +1,109 @@
-<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" width="400" height="500" role="img" aria-label="ISO 14001 環境マネジメントシステムのPDCAサイクル。P計画：環境方針・目標・計画。D実施：実施と運用。C点検：監視・測定・内部監査。A見直し：是正・予防・マネジメントレビュー。中心：継続的改善。EMS は法令遵守手続きではなく自主的な枠組み。">
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" width="400" height="500" role="img" aria-label="ISO 14001 環境マネジメントシステムのPDCAサイクル。環境方針を起点にP計画・D実施・C点検・A見直しを循環させ継続的改善を実現。EMSは法令遵守手続きではなく自主的な枠組み。">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
-      .t-title { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
-      .t-sec   { font-size: 11px; font-weight: bold; fill: #ffffff; }
-      .t-hd    { font-size: 13px; font-weight: bold; }
-      .t-sub   { font-size: 11px; fill: #555; }
-      .t-foot  { font-size: 11px; fill: #8a8a8a; }
+      .t-title  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-sec    { font-size: 11px; font-weight: bold; fill: #ffffff; }
+      .t-step   { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub    { font-size: 11px; fill: #555; }
+      .t-center { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-foot   { font-size: 11px; fill: #8a8a8a; }
+      .box-p    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-d    { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-c    { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .box-a    { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
     </style>
   </defs>
   <rect width="400" height="500" fill="#ffffff"/>
 
   <!-- タイトル -->
-  <text class="t-title" x="200" y="22" text-anchor="middle">ISO 14001 — EMS の PDCA サイクル</text>
+  <text class="t-title" x="200" y="22" text-anchor="middle">ISO 14001 ─ EMS の PDCA サイクル</text>
   <line x1="20" y1="30" x2="380" y2="30" stroke="#d7d7d7" stroke-width="1"/>
 
   <!-- セクションバー -->
   <rect x="8" y="34" width="384" height="18" rx="3" fill="#3a7d44"/>
   <text class="t-sec" x="200" y="47" text-anchor="middle">環境マネジメントシステム（EMS）の仕組み</text>
 
-  <!-- ── PDCA 四象限レイアウト ── -->
-  <!-- P（左上）: x=8, y=58, w=184, h=120 -->
-  <rect x="8"   y="58" width="184" height="120" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
-  <rect x="8"   y="58" width="184" height="28"  rx="6" fill="#2e6da4"/>
-  <rect x="8"   y="72"  width="184" height="14" fill="#2e6da4"/>
-  <text x="100" y="78"  text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">P　計画</text>
-  <text x="100" y="103" text-anchor="middle" font-size="11" fill="#1a3a5c" font-weight="bold">環境方針の設定</text>
-  <text x="100" y="120" text-anchor="middle" font-size="11" fill="#555">環境側面・法規制の特定</text>
-  <text x="100" y="136" text-anchor="middle" font-size="11" fill="#555">目標・実施計画の策定</text>
-  <text x="100" y="152" text-anchor="middle" font-size="11" fill="#555">リスク機会の分析</text>
-  <text x="100" y="168" text-anchor="middle" font-size="11" fill="#555">（トップが方針表明）</text>
+  <!-- ── 環境方針（上部中央）── -->
+  <rect x="110" y="56" width="180" height="44" rx="5" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="200" y="75" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a3a5c">環境方針</text>
+  <text x="200" y="92" text-anchor="middle" font-size="11" fill="#555">トップが策定・表明（起点）</text>
 
-  <!-- D（右上）: x=208, y=58, w=184, h=120 -->
-  <rect x="208" y="58"  width="184" height="120" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="2"/>
-  <rect x="208" y="58"  width="184" height="28"  rx="6" fill="#3a7d44"/>
-  <rect x="208" y="72"  width="184" height="14" fill="#3a7d44"/>
-  <text x="300" y="78"  text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">D　実施</text>
-  <text x="300" y="103" text-anchor="middle" font-size="11" fill="#1a3a5c" font-weight="bold">体制・責任の明確化</text>
-  <text x="300" y="120" text-anchor="middle" font-size="11" fill="#555">教育訓練・意識向上</text>
-  <text x="300" y="136" text-anchor="middle" font-size="11" fill="#555">コミュニケーション</text>
-  <text x="300" y="152" text-anchor="middle" font-size="11" fill="#555">文書管理・運用管理</text>
-  <text x="300" y="168" text-anchor="middle" font-size="11" fill="#555">緊急事態への対応</text>
+  <!-- 矢印: 方針→P -->
+  <line x1="142" y1="100" x2="90" y2="112" stroke="#2e6da4" stroke-width="1.5"/>
+  <polygon points="0,0 5,3 0,6" transform="translate(85,110) rotate(-160)" fill="#2e6da4"/>
+  <!-- 矢印: 方針→D -->
+  <line x1="258" y1="100" x2="310" y2="112" stroke="#3a7d44" stroke-width="1.5"/>
+  <polygon points="0,0 5,3 0,6" transform="translate(308,110) rotate(-20)" fill="#3a7d44"/>
 
-  <!-- 中央：継続的改善 楕円 -->
-  <ellipse cx="200" cy="200" rx="56" ry="38" fill="#ffffff" stroke="#3a7d44" stroke-width="2"/>
-  <text x="200" y="195" text-anchor="middle" font-size="12" font-weight="bold" fill="#3a7d44">継続的</text>
-  <text x="200" y="212" text-anchor="middle" font-size="12" font-weight="bold" fill="#3a7d44">改善</text>
+  <!-- ── P 計画（左上）── -->
+  <rect class="box-p" x="8" y="110" width="152" height="86" rx="6"/>
+  <rect x="8" y="110" width="152" height="26" rx="6" fill="#2e6da4"/>
+  <rect x="8" y="124" width="152" height="12" fill="#2e6da4"/>
+  <text x="84" y="128" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff">P 計画</text>
+  <text x="84" y="152" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a3a5c">環境目標・実施計画の策定</text>
+  <text x="84" y="168" text-anchor="middle" font-size="11" fill="#555">環境側面・法規制の特定</text>
+  <text x="84" y="184" text-anchor="middle" font-size="11" fill="#555">リスクと機会の分析</text>
 
-  <!-- A（左下）: x=8, y=202, w=184, h=110 -->
-  <rect x="8"   y="202" width="184" height="110" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="2"/>
-  <rect x="8"   y="202" width="184" height="28"  rx="6" fill="#d4a017"/>
-  <rect x="8"   y="216" width="184" height="14" fill="#d4a017"/>
-  <text x="100" y="222" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">A　見直し</text>
-  <text x="100" y="247" text-anchor="middle" font-size="11" fill="#1a3a5c" font-weight="bold">是正処置・予防処置</text>
-  <text x="100" y="264" text-anchor="middle" font-size="11" fill="#555">不適合の是正</text>
-  <text x="100" y="280" text-anchor="middle" font-size="11" fill="#555">マネジメントレビュー</text>
-  <text x="100" y="296" text-anchor="middle" font-size="11" fill="#555">（トップによる見直し）</text>
+  <!-- ── D 実施（右上）── -->
+  <rect class="box-d" x="240" y="110" width="152" height="86" rx="6"/>
+  <rect x="240" y="110" width="152" height="26" rx="6" fill="#3a7d44"/>
+  <rect x="240" y="124" width="152" height="12" fill="#3a7d44"/>
+  <text x="316" y="128" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff">D 実施</text>
+  <text x="316" y="152" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a3a5c">体制・役割の整備</text>
+  <text x="316" y="168" text-anchor="middle" font-size="11" fill="#555">教育訓練・運用管理</text>
+  <text x="316" y="184" text-anchor="middle" font-size="11" fill="#555">緊急事態への対応</text>
 
-  <!-- C（右下）: x=208, y=202, w=184, h=110 -->
-  <rect x="208" y="202" width="184" height="110" rx="6" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="2"/>
-  <rect x="208" y="202" width="184" height="28"  rx="6" fill="#8a8a8a"/>
-  <rect x="208" y="216" width="184" height="14" fill="#8a8a8a"/>
-  <text x="300" y="222" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">C　点検</text>
-  <text x="300" y="247" text-anchor="middle" font-size="11" fill="#1a3a5c" font-weight="bold">監視・測定・評価</text>
-  <text x="300" y="264" text-anchor="middle" font-size="11" fill="#555">法令遵守の評価</text>
-  <text x="300" y="280" text-anchor="middle" font-size="11" fill="#555">内部監査の実施</text>
-  <text x="300" y="296" text-anchor="middle" font-size="11" fill="#555">是正処置の決定</text>
+  <!-- 矢印: P→A（左側下向き）-->
+  <line x1="38" y1="196" x2="38" y2="244" stroke="#d4a017" stroke-width="1.5"/>
+  <polygon points="0,0 5,3 0,6" transform="translate(35,242) rotate(90)" fill="#d4a017"/>
+  <!-- 矢印: D→C（右側下向き）-->
+  <line x1="362" y1="196" x2="362" y2="244" stroke="#8a8a8a" stroke-width="1.5"/>
+  <polygon points="0,0 5,3 0,6" transform="translate(359,242) rotate(90)" fill="#8a8a8a"/>
 
-  <!-- 循環矢印（時計回り） -->
-  <!-- P→D（上） -->
-  <path d="M192,68 Q200,56 208,68" fill="none" stroke="#3a7d44" stroke-width="2"/>
-  <polygon points="0,0 5,4 0,8" transform="translate(205,65) rotate(50)" fill="#3a7d44"/>
-  <!-- D→C（右） -->
-  <path d="M392,118 Q404,200 392,240" fill="none" stroke="#8a8a8a" stroke-width="2"/>
-  <polygon points="0,0 5,4 0,8" transform="translate(392,237) rotate(100)" fill="#8a8a8a"/>
-  <!-- C→A（下） -->
-  <path d="M208,312 Q200,324 192,312" fill="none" stroke="#d4a017" stroke-width="2"/>
-  <polygon points="0,0 5,4 0,8" transform="translate(192,310) rotate(230)" fill="#d4a017"/>
-  <!-- A→P（左） -->
-  <path d="M8,240 Q-4,200 8,118" fill="none" stroke="#2e6da4" stroke-width="2"/>
-  <polygon points="0,0 5,4 0,8" transform="translate(8,121) rotate(-80)" fill="#2e6da4"/>
+  <!-- ── 継続的改善（中央）── P box bottom=196, A box top=248 → gap y=196-248, center=222 -->
+  <!-- horizontally: P right=160, D left=240 → center x=200, rx=34 -->
+  <ellipse cx="200" cy="220" rx="34" ry="22" fill="#ffffff" stroke="#3a7d44" stroke-width="2"/>
+  <text x="200" y="215" text-anchor="middle" font-size="11" font-weight="bold" fill="#3a7d44">継続的</text>
+  <text x="200" y="229" text-anchor="middle" font-size="11" font-weight="bold" fill="#3a7d44">改善</text>
 
-  <!-- ── 引っかけポイント注記 ── -->
-  <rect x="8" y="326" width="384" height="18" rx="3" fill="#d4a017"/>
-  <text class="t-sec" x="200" y="339" text-anchor="middle">頻出の引っかけ論点（R1・R6 繰り返し出題）</text>
+  <!-- ── A 見直し（左下）── -->
+  <rect class="box-a" x="8" y="248" width="152" height="86" rx="6"/>
+  <rect x="8" y="248" width="152" height="26" rx="6" fill="#d4a017"/>
+  <rect x="8" y="262" width="152" height="12" fill="#d4a017"/>
+  <text x="84" y="266" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff">A 見直し</text>
+  <text x="84" y="290" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a3a5c">是正処置・予防処置</text>
+  <text x="84" y="306" text-anchor="middle" font-size="11" fill="#555">マネジメントレビュー</text>
+  <text x="84" y="322" text-anchor="middle" font-size="11" fill="#555">（トップによる見直し）</text>
 
-  <rect x="8" y="350" width="384" height="78" rx="5" fill="#fff3cd" stroke="#d4a017" stroke-width="1"/>
-  <text x="20" y="370" font-size="12" font-weight="bold" fill="#1a3a5c">EMS は「法令遵守の手続き管理システム」ではない</text>
-  <text x="20" y="390" font-size="11" fill="#555">ISO 14001 は自主的な PDCA の枠組みであり、</text>
-  <text x="20" y="408" font-size="11" fill="#555">環境関連法令で定められた義務の手続きを網羅するものではない。</text>
-  <text x="20" y="420" font-size="11" fill="#555">法令遵守はあくまで最低条件。EMS はその上位層。</text>
+  <!-- ── C 点検（右下）── -->
+  <rect class="box-c" x="240" y="248" width="152" height="86" rx="6"/>
+  <rect x="240" y="248" width="152" height="26" rx="6" fill="#8a8a8a"/>
+  <rect x="240" y="262" width="152" height="12" fill="#8a8a8a"/>
+  <text x="316" y="266" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff">C 点検</text>
+  <text x="316" y="290" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a3a5c">監視・測定・評価</text>
+  <text x="316" y="306" text-anchor="middle" font-size="11" fill="#555">法令遵守の評価</text>
+  <text x="316" y="322" text-anchor="middle" font-size="11" fill="#555">内部監査の実施</text>
 
-  <!-- ── EMS が対象とする環境の範囲 ── -->
-  <rect x="8" y="438" width="384" height="46" rx="5" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
-  <text x="20" y="456" font-size="11" font-weight="bold" fill="#1a3a5c">「環境」の定義：大気・水質・土地・天然資源・植物・動物・人</text>
-  <text x="20" y="473" font-size="11" fill="#555">単一媒体に閉じず生態系全体と人間の相互作用を包括的に対象とする</text>
+  <!-- 矢印: A→P（左側）: A box top=248, P box bottom=196 → up arrow -->
+  <!-- 矢印: C→A（下辺：横）-->
+  <line x1="240" y1="318" x2="160" y2="318" stroke="#d4a017" stroke-width="1.5"/>
+  <polygon points="0,0 5,3 0,6" transform="translate(162,315) rotate(180)" fill="#d4a017"/>
+
+  <!-- ── 引っかけ論点 ── -->
+  <rect x="8" y="346" width="384" height="18" rx="3" fill="#d4a017"/>
+  <text class="t-sec" x="200" y="359" text-anchor="middle">頻出の引っかけ論点（R1・R6 繰り返し出題）</text>
+
+  <rect x="8" y="370" width="384" height="60" rx="5" fill="#fff3cd" stroke="#d4a017" stroke-width="1"/>
+  <text x="20" y="392" font-size="12" font-weight="bold" fill="#1a3a5c">EMS は「法令遵守の手続き管理システム」ではない</text>
+  <text x="20" y="412" font-size="11" fill="#555">ISO 14001 は自主的な PDCA の枠組み。法令遵守はあくまで</text>
+  <text x="20" y="428" font-size="11" fill="#555">最低条件であり、EMS は継続的改善を実現する上位の仕組み。</text>
+
+  <!-- ── EMS の対象 ── -->
+  <rect x="8" y="440" width="384" height="48" rx="5" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="20" y="460" font-size="11" font-weight="bold" fill="#1a3a5c">「環境」の定義（ISO 14001）</text>
+  <text x="20" y="478" font-size="11" fill="#555">大気・水質・土地・天然資源・植物・動物・人の相互関係を包括</text>
 
   <!-- フッター -->
-  <text class="t-foot" x="200" y="497" text-anchor="middle">ISO 14001（1996年制定・2004年・2015年改訂）</text>
+  <text class="t-foot" x="200" y="498" text-anchor="middle">ISO 14001（1996年制定・2015年改訂）</text>
 </svg>
