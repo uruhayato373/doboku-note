@@ -1,9 +1,14 @@
 {
   "carousel": {
+    "deleted_url": "https://www.instagram.com/p/DZ8qhf0k3ah/",
+    "deleted_at": "2026-06-25",
+    "deleted_reason": "黒背景（白背景化fix前に投稿）を削除。当時リール(DaAFq59EuIO)を白カルーセルと誤認し白の貼り直しを失念（2026-06-25 type_mismatch 検出で発覚・是正）",
+    "note": "白カルーセルは未再投稿＝貼り直し保留（publish-ig-bs で予約予定）"
+  },
+  "reels": {
     "at": "2026-06-25",
     "url": "https://www.instagram.com/p/DaAFq59EuIO/",
-    "note": "白版（黒背景の旧版 https://www.instagram.com/p/DZ8qhf0k3ah/ は2026-06-25削除）"
+    "note": "figure-reel ナレーション付きリール（予約 go-live 17:00）"
   },
-  "reels": null,
   "stories": null
 }
