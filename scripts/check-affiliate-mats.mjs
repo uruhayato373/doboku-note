@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 // アフィリエイト A8 mat の整合ゲート。
 //
-// 背景: GKS 等の mat は本文インライン `<CareerAffiliate href>` で約 90 MDX に直書きされ、
-// 講座系も MDX/コンポーネントに分散している。mat 変更時の取りこぼし・タイポ・未申告の新規 mat が
+// 背景: GKS 等の転職 mat は本文インライン `<CareerAffiliate href>` で約 90 MDX に直書きされる。
+// mat 変更時の取りこぼし・タイポ・未申告の新規 mat が
 // 機械検知されないため（既存 check-* にアフィリ用は無かった）、SSOT 許可リスト
 // src/config/affiliate-mats.json と src/** ・ .local/r2/posts/** の a8mat= を突合する。
 //
@@ -104,7 +104,7 @@ if (mdxRaw.length > 0) {
   );
   for (const u of mdxRaw) console.error(`  - ${u.mat}  (${u.file})`);
   console.error(
-    '  → MDX は preset コンポーネント経由にする（CareerAffiliate program / CourseAffiliate program / DokugakuBanner / SatTextLink / DokugakuKeikenLink）。',
+    '  → MDX は preset コンポーネント経由にする（CareerAffiliate href / サイドバーは SidebarAdBanner）。',
   );
 }
 

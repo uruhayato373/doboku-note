@@ -35,7 +35,6 @@ import {
 import { getMagazine } from "../../src/lib/note-magazines.ts";
 import {
   resolveCategoryCareerAd,
-  HOME_AFFILIATE,
   resolveDocsCareerSidebarAd,
 } from "../../src/config/affiliate-creatives.ts";
 
@@ -65,21 +64,14 @@ function normPath(p: string): string {
 // ── アフィリエイト サイドバー配置の導出（page.tsx のミラー。SoT は page.tsx） ──
 // 全 docs サイドバー上部に転職枠を無条件常設。creative はカテゴリ別出し分け
 // （resolveDocsCareerSidebarAd: 総監=PE_CONSULTING〔DXConsulting〕/ 他=〜2026-08-31 BuildJob・
-// 9-01 以降 GKS）。SAT は PE keyword/guide/pastExam に転職枠の下で併置（priced な note マガジンが
-// sidebar にある時 = sidebarHasPaidMagazine は SAT のみ抑制、転職枠は常設）。docs は全て最低 転職枠が
-// 出るため affiliate は常に非 null。
+// 9-01 以降 GKS）。2026-06-25: 講座（SAT）併置は廃止＝現行アフィリは転職のみ。docs は全て転職枠が出る。
 function deriveAffiliate(
   category: string,
-  docGroup: string,
-  sidebarHasPaidMagazine: boolean,
+  _docGroup: string,
+  _sidebarHasPaidMagazine: boolean,
 ): string | null {
   // サイドバー転職枠のプログラム名（"BuildJob" / "GKS" / "DXConsulting"）。trackLabel = "{program}-sidebar"。
-  const career = resolveDocsCareerSidebarAd(category).trackLabel.replace(/-sidebar$/, "");
-  const hasSat =
-    category === "pe-comprehensive-management" &&
-    (docGroup === "keyword" || docGroup === "guide" || docGroup === "pastExam") &&
-    !sidebarHasPaidMagazine;
-  return hasSat ? `${career}+SAT` : career;
+  return resolveDocsCareerSidebarAd(category).trackLabel.replace(/-sidebar$/, "");
 }
 
 // ── load ──
@@ -187,7 +179,7 @@ for (const [page, t] of traffic) {
   let affiliate: string | null = null;
   if (page === "/") {
     noteCta = ["home-links-hub"]; // /links 教材ハブ banner（src/app/page.tsx）
-    affiliate = HOME_AFFILIATE.kind === "career" ? "GKS" : "SAT";
+    affiliate = null; // 2026-06-25: トップの SAT 講座アフィリ（HOME_AFFILIATE）は廃止。home はアフィリ枠なし。
   } else if (page.startsWith("/category/")) {
     category = page.slice("/category/".length);
     noteCta = resolveCategoryMagazines(category)

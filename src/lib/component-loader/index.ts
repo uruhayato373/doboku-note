@@ -11,7 +11,6 @@ const commonLoaders = {
   Callout: () => import("@/components/ui/Callout/Callout").then((m) => m.default),
   ExamPoint: () => import("@/components/ui/ExamPoint/ExamPoint").then((m) => m.default),
   RelatedKeywords: () => import("@/components/ui/RelatedKeywords/RelatedKeywords").then((m) => m.default),
-  RelatedExamQuestions: () => import("@/components/ui/RelatedExamQuestions/RelatedExamQuestions").then((m) => m.default),
   SpecSheetList: () => import("@/components/ui/SpecSheetList/SpecSheetList").then((m) => m.default),
   LinkCard: () => import("@/components/ui/LinkCard/LinkCard").then((m) => m.default),
   NoteLink: () => import("@/components/ui/NoteLink/NoteLink").then((m) => m.default),
@@ -21,38 +20,18 @@ const commonLoaders = {
   SpokeNavCard: () => import("@/components/ui/SpokeNavCard/SpokeNavCard").then((m) => m.default),
   PersonaSelector: () => import("@/components/ui/PersonaSelector").then((m) => m.default),
   SourceBadges: () => import("@/components/ui/SourceBadges").then((m) => m.default),
-  CardList: () => import("@/components/ui/CardList/CardList").then((m) => m.default),
-  ReferenceLinks: () => import("@/components/ui/ReferenceLinks").then((m) => m.default),
-  ExamContext: () => import("@/components/ui/ExamContext").then((m) => m.default),
   DataTable: () => import("@/components/ui/DataTable/DataTable").then((m) => m.default),
   Nowrap: () => import("@/components/ui/Nowrap/Nowrap").then((m) => m.default),
   Underline: () => import("@/components/ui/Underline/Underline").then((m) => m.default),
   Timeline: () => import("@/components/ui/Timeline/Timeline").then((m) => m.default),
   ExamFields: () => import("@/components/ui/ExamFields/ExamFields").then((m) => m.default),
-  StatsCard: () => import("@/components/ui/StatsCard/StatsCard").then((m) => m.default),
   PdcaCycle: () => import("@/components/ui/PdcaCycle/PdcaCycle").then((m) => m.default),
-  CourseAffiliate: () => import("@/components/ui/CourseAffiliate/CourseAffiliate").then((m) => m.default),
   CareerAffiliate: () => import("@/components/ui/CareerAffiliate/CareerAffiliate").then((m) => m.default),
-  DokugakuBanner: () => import("@/components/ui/DokugakuBanner/DokugakuBanner").then((m) => m.default),
-  SatTextLink: () => import("@/components/ui/SatTextLink/SatTextLink").then((m) => m.default),
-  DokugakuKeikenLink: () => import("@/components/ui/DokugakuKeikenLink/DokugakuKeikenLink").then((m) => m.default),
-  BookCard: () => import("@/components/ui/BookCard/BookCard").then((m) => m.default),
-  Question: () => import("@/components/ui/ChatBubble/Question").then((m) => m.default),
-  Answer: () => import("@/components/ui/ChatBubble/Answer").then((m) => m.default),
 } satisfies Record<string, ComponentLoader>;
 
-const specificLoaders = {
-  RealEstateCostsTable: () =>
-    import("@/features/real-estate-investment/RealEstateCostsTable").then((m) => m.default),
-  RealEstateApartmentCostsTable: () =>
-    import("@/features/real-estate-investment/RealEstateApartmentCostsTable").then((m) => m.default),
-  StackedBarChart: () =>
-    import("@/features/nisa-ideco-guide-civil-servants/StackedBarChart").then((m) => m.default),
-  PieChart: () =>
-    import("@/features/nisa-ideco-guide-civil-servants/PieChart").then((m) => m.default),
-  TimeBlockChart: () =>
-    import("@/features/time-management-techniques/TimeBlockChart").then((m) => m.default),
-} satisfies Record<string, ComponentLoader>;
+// 記事固有コンポーネント（特定記事でのみ使う仕組み）。現在は登録なし。
+// テンプレ由来の不動産/NISA/時間管理エントリは 2026-06-25 にデッドコードとして削除。
+const specificLoaders: Record<string, ComponentLoader> = {};
 
 async function loadSelectedComponents(
   componentNames: readonly string[],

@@ -133,7 +133,7 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 - **MDX コンポーネント**: `<Callout>`, `<ExamPoint>`, `<CustomUnorderedList>`, `<RelatedKeywords>`, `<Timeline>`, `<PdcaCycle>`, `<details>` を試験横断で使用
 - **モバイル視認性ルール**: 表は2軸比較のみ、4列以上禁止、計算手順は番号付きリスト、3列以上の表はセル15字以内
 - **数式**: KaTeX 一択
-- **図表**: Mermaid / PNG / SVG
+- **図表**: SVG / PNG
 - **画像配信**: R2 経由 `/posts/{slug}/img/` パスで参照
 - **URL**: フラット `/docs/{slug}` 設計
 - **見出し階層**: H1 = ページタイトル、H2-H4 = 本文構造

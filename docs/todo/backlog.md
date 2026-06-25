@@ -122,6 +122,37 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 ## 2. UI / UX
 
+### フロントエンド土台リファクタ（page/category の config駆動化）🔴 [Codex候補]
+
+**発端**: 2026-06-25 アクセスアップ＋デザイン改善の議論。デザイン改善の前提として「改修改修でスパゲッティ化した合成ロジック」の共通化が必要（ユーザー指摘）。アセスメント実施済み（デザイントークン自体は良好＝globals.css 単一ソース。負債は page 合成ロジック）。
+
+**問題（file:line 裏取り済み）**:
+- `src/app/docs/[...slug]/page.tsx` と `src/app/category/[slug]/page.tsx` が category×docGroup ごとに記事末セクション/レイアウトをハードコード → 新資格追加で両ファイル編集が必要。
+- `category/[slug]/page.tsx` の `sortDocs()` が 35+ if-else、secondary split regex 重複。
+- マガジンカードが4コンポーネントに過分割（MagazineCard/InlineCard/SidebarCard/SidebarPromoCard）。badge パターン重複・一部 inline-style／`dark:` 漏れ。
+
+**やること（増分順・各増分で build＋curl `<main>`/キーワード検証）**:
+1. **[低リスク] マガジンカード統合**: `Badge` 抽出＋`MagazineCard` proxy層撤廃で 4→2。develop 派生で独立 PR 可（page合成と無依存）。
+2. **[中] docs ArticleFooter 抽出**: 記事末ブロック（page.tsx 355-484）を `ArticleFooter` コンポーネントへ純粋抽出（ロジック不変）→ page.tsx ~120行減・継ぎ目化。
+3. **[中] ArticleFooter を config駆動化**: `src/lib/article-section-config.ts` で category×docGroup→section[] を定義、registry で section→render を解決。新資格＝JSON のみ。
+4. **[高] category レイアウト template化**: `CATEGORY_LAYOUT` + `sortDocs` を strategy factory 化、secondary split をユーティリティ抽出。
+5. **[低] dark:/inline-style 一掃**: badge 等の inline `style` → Tailwind semantic class。
+
+**実装ファイル**: `src/app/docs/[...slug]/page.tsx`・`src/app/category/[slug]/page.tsx`・`src/components/ui/Magazine*`・新規 `src/lib/article-section-config.ts`・新規 `src/components/ui/{ArticleFooter,Badge}/`
+
+**前提・順序**: PR #272（アフィリ除去）が develop にマージされた後に develop ベースで着手（page.tsx の正は除去後の状態。先に切ると衝突）。リファクタは feature ブランチ＋PR。増分2以降は1000+ページの記事末に影響するため build＋複数ページ種別の SSR 目視必須。
+
+### 性能: CI PSI 再計測フラグ（Phase 0）🟡
+
+**発端**: 2026-06-25 性能アセスメント。
+
+**問題**:
+1. `pe-comprehensive-management-exam-index` が desktop PSI で Perf 56・TBT 2521ms。ただし**当該ページに Mermaid は無く（出現0）**、271行の軽い構成。真因はローカルで確定不能＝**計測スパイクの可能性**。次回 CI PSI で再計測し、再現するなら Timeline/ExamFields 等の client JS を疑って profiling。
+2. **モバイル PSI が未計測**（desktop のみ）。モバイルが主流入＋Google ランキング信号。**外部Google API＝ローカル不可（会社PCプロキシ遮断）→ CI 供給で計測**（`fetch-psi-audit` の mobile）。
+3. CLS 超過2ページ（civil-construction-1-primary-r07-a 0.176 / pe-comprehensive-management-r07-primary 0.151）＝AdSense枠の width/height 明示で是正可。
+
+**実装ファイル**: `.claude/config/psi-urls.txt`・`.claude/config/psi-config.json`（mobile 戦略）。計測は CI（measurement-incidents の恒久ルール）。
+
 ### AuthorCard の資格別カスタマイズ + 右サイドバー配置 🟡
 
 **問題**: `AUTHOR.noteLabel` / `AUTHOR.noteUrl` が全資格で総監リンクにハードコード（`src/config/author.ts`）
@@ -144,9 +175,9 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 ---
 
-### 書籍アフィリエイト（BookCard）— 審査通過後に再有効化 🟡
+### 書籍アフィリエイト（BookCard）— ✅ 廃止決定（2026-06-25）
 
-アソシエイト審査通過後に `src/config/affiliate-flags.ts` の `AFFILIATE_LINKS_ENABLED` を `true` に戻す（現在 false で `BookCard`/`BookSection` を枠ごと非表示・commit `284b840f5`）。再有効化時は「トップページ下部デザイン統一」と連動して再設計。
+~~審査通過後に再有効化~~ → **完全廃止**。note 有料商品（模範論文・過去問解説・経験記述添削）と財布が競合するため、講座/教材/添削アフィリと併せて撤去（`BookCard`/`BookSection`/`affiliate-flags.ts`/`affiliate-books.json` 削除済み）。残すアフィリは転職のみ。背景は `docs/project/04_運営/02_アフィリエイト提携状況.md`。
 
 ---
 
