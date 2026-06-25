@@ -48,6 +48,14 @@ export default function AuthorSidebarCard({ category }: AuthorSidebarCardProps) 
           <p className="mt-1 text-[12px] leading-snug text-[var(--ink-muted)]">{AUTHOR.jobTitle}</p>
         </div>
         <p className="mt-3 text-[13px] leading-[1.8] text-[var(--ink-body)]">{AUTHOR.shortBio}</p>
+        <div className="mt-3">
+          <div className="font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--ink-muted)] mb-1.5">
+            保有資格
+          </div>
+          <p className="text-[11.5px] leading-[1.7] text-[var(--ink-body)]">
+            {AUTHOR.qualifications.join("・")}
+          </p>
+        </div>
         <a
           href={note.noteUrl}
           target="_blank"

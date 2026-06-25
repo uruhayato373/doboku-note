@@ -62,6 +62,14 @@ export default function AuthorCard({
           <p className="mt-2 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
             {AUTHOR.shortBio}
           </p>
+          <div className="mt-3">
+            <div className="text-[10px] font-mono uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-1">
+              保有資格
+            </div>
+            <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+              {AUTHOR.qualifications.join("・")}
+            </p>
+          </div>
           {(published || updated || lastReviewed) && (
             <div className="mt-3 text-xs text-gray-500 dark:text-gray-400 flex flex-wrap gap-x-4 gap-y-1">
               {published && <span>公開日: {published}</span>}
