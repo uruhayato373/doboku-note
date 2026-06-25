@@ -1,0 +1,112 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" width="400" height="500" role="img" aria-label="FIT・FIP制度の比較。FITは2012年導入・固定価格で全量買取・市場連動なし。FIPは2022年導入・市場価格＋プレミアム加算・市場連動あり。大規模電源はFIPへ移行。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-sec   { font-size: 11px; font-weight: bold; fill: #ffffff; }
+      .t-hd    { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-cell  { font-size: 11px; fill: #555; }
+      .t-sub   { font-size: 11px; fill: #555; }
+      .t-note  { font-size: 11px; fill: #8a8a8a; }
+      .t-foot  { font-size: 11px; fill: #8a8a8a; }
+    </style>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff"/>
+
+  <!-- タイトル -->
+  <text class="t-title" x="200" y="22" text-anchor="middle">FIT・FIP制度の比較</text>
+  <line x1="20" y1="30" x2="380" y2="30" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- セクションバー -->
+  <rect x="8" y="34" width="384" height="18" rx="3" fill="#d4a017"/>
+  <text class="t-sec" x="200" y="47" text-anchor="middle">制度比較（固定価格買取 vs プレミアム）</text>
+
+  <!-- ── 比較テーブル ── -->
+  <!-- Header row -->
+  <rect x="8"   y="58" width="80"  height="24" fill="#2e6da4"/>
+  <rect x="88"  y="58" width="152" height="24" fill="#2e6da4"/>
+  <rect x="240" y="58" width="152" height="24" fill="#2e6da4"/>
+  <text x="48"  y="75" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">項目</text>
+  <text x="164" y="75" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">FIT（固定価格買取）</text>
+  <text x="316" y="75" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">FIP（プレミアム）</text>
+
+  <!-- Row 1: 導入年 -->
+  <rect x="8"   y="82" width="80"  height="28" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="0.5"/>
+  <rect x="88"  y="82" width="152" height="28" fill="#ffffff"  stroke="#d7d7d7" stroke-width="0.5"/>
+  <rect x="240" y="82" width="152" height="28" fill="#ffffff"  stroke="#d7d7d7" stroke-width="0.5"/>
+  <text class="t-hd"   x="48"  y="101" text-anchor="middle">導入</text>
+  <text class="t-cell" x="164" y="101" text-anchor="middle">2012 年（再エネ特措法施行）</text>
+  <text class="t-cell" x="316" y="101" text-anchor="middle">2022 年（改正再エネ特措法）</text>
+
+  <!-- Row 2: 買取方式 -->
+  <rect x="8"   y="110" width="80"  height="44" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="0.5"/>
+  <rect x="88"  y="110" width="152" height="44" fill="#e8f0fe" stroke="#d7d7d7" stroke-width="0.5"/>
+  <rect x="240" y="110" width="152" height="44" fill="#e8f0fe" stroke="#d7d7d7" stroke-width="0.5"/>
+  <text class="t-hd"   x="48"  y="136" text-anchor="middle">方式</text>
+  <text class="t-cell" x="164" y="124" text-anchor="middle">電力会社が</text>
+  <text class="t-cell" x="164" y="140" text-anchor="middle">固定価格で全量買取</text>
+  <text class="t-cell" x="316" y="124" text-anchor="middle">市場価格に</text>
+  <text class="t-cell" x="316" y="140" text-anchor="middle">プレミアム（交付金）加算</text>
+
+  <!-- Row 3: 価格の安定性 -->
+  <rect x="8"   y="154" width="80"  height="44" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="0.5"/>
+  <rect x="88"  y="154" width="152" height="44" fill="#ffffff"  stroke="#d7d7d7" stroke-width="0.5"/>
+  <rect x="240" y="154" width="152" height="44" fill="#ffffff"  stroke="#d7d7d7" stroke-width="0.5"/>
+  <text class="t-hd"   x="48"  y="180" text-anchor="middle">価格</text>
+  <text class="t-cell" x="164" y="168" text-anchor="middle">固定（需給に無関係）</text>
+  <text class="t-cell" x="164" y="184" text-anchor="middle">予見性が高い</text>
+  <text class="t-cell" x="316" y="168" text-anchor="middle">変動（市場連動）</text>
+  <text class="t-cell" x="316" y="184" text-anchor="middle">需給状況に応じて変化</text>
+
+  <!-- Row 4: 市場参加 -->
+  <rect x="8"   y="198" width="80"  height="44" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="0.5"/>
+  <rect x="88"  y="198" width="152" height="44" fill="#e8f0fe" stroke="#d7d7d7" stroke-width="0.5"/>
+  <rect x="240" y="198" width="152" height="44" fill="#e8f0fe" stroke="#d7d7d7" stroke-width="0.5"/>
+  <text class="t-hd"   x="48"  y="224" text-anchor="middle">市場</text>
+  <text class="t-cell" x="164" y="212" text-anchor="middle">市場参加不要</text>
+  <text class="t-cell" x="164" y="228" text-anchor="middle">（電力会社が買取義務）</text>
+  <text class="t-cell" x="316" y="212" text-anchor="middle">市場参加が必要</text>
+  <text class="t-cell" x="316" y="228" text-anchor="middle">（事業者が自ら売電）</text>
+
+  <!-- Row 5: 主な対象 -->
+  <rect x="8"   y="242" width="80"  height="44" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="0.5"/>
+  <rect x="88"  y="242" width="152" height="44" fill="#ffffff"  stroke="#d7d7d7" stroke-width="0.5"/>
+  <rect x="240" y="242" width="152" height="44" fill="#ffffff"  stroke="#d7d7d7" stroke-width="0.5"/>
+  <text class="t-hd"   x="48"  y="268" text-anchor="middle">対象</text>
+  <text class="t-cell" x="164" y="256" text-anchor="middle">小〜中規模電源</text>
+  <text class="t-cell" x="164" y="272" text-anchor="middle">（住宅用太陽光等）</text>
+  <text class="t-cell" x="316" y="256" text-anchor="middle">大規模電源</text>
+  <text class="t-cell" x="316" y="272" text-anchor="middle">（大型風力・太陽光等）</text>
+
+  <!-- ── 価格メカニズム図 ── -->
+  <rect x="8" y="300" width="384" height="18" rx="3" fill="#2e6da4"/>
+  <text class="t-sec" x="200" y="313" text-anchor="middle">価格メカニズムの違い</text>
+
+  <!-- FIT -->
+  <rect x="8"   y="324" width="184" height="84" rx="5" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="100" y="342" text-anchor="middle" font-size="12" font-weight="bold" fill="#2e6da4">FIT</text>
+  <rect x="24"  y="352" width="152" height="20" rx="3" fill="#2e6da4"/>
+  <text x="100" y="366" text-anchor="middle" font-size="11" fill="#ffffff">固定買取価格（一定）</text>
+  <text x="100" y="392" text-anchor="middle" font-size="11" fill="#555">需給に関係なく</text>
+  <text x="100" y="406" text-anchor="middle" font-size="11" fill="#555">収入が安定</text>
+
+  <!-- FIP -->
+  <rect x="208" y="324" width="184" height="84" rx="5" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <text x="300" y="342" text-anchor="middle" font-size="12" font-weight="bold" fill="#d4a017">FIP</text>
+  <!-- stacked bar: market + premium -->
+  <rect x="224" y="352" width="96"  height="20" rx="3" fill="#d7d7d7"/>
+  <text x="272" y="366" text-anchor="middle" font-size="11" fill="#222">市場価格（変動）</text>
+  <rect x="320" y="352" width="56"  height="20" rx="3" fill="#d4a017"/>
+  <text x="348" y="366" text-anchor="middle" font-size="11" fill="#ffffff">＋P</text>
+  <text x="300" y="392" text-anchor="middle" font-size="11" fill="#555">市場価格＋</text>
+  <text x="300" y="406" text-anchor="middle" font-size="11" fill="#555">プレミアム＝収入</text>
+
+  <!-- ── 制度移行メモ ── -->
+  <rect x="8" y="420" width="384" height="62" rx="5" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="20" y="440" font-size="12" font-weight="bold" fill="#1a3a5c">制度移行の方向性</text>
+  <text class="t-sub" x="20" y="458">大規模電源を FIT から FIP へ移行し、市場メカニズムを</text>
+  <text class="t-sub" x="20" y="474">活用することで再エネの自立化・需給連動を促進する。</text>
+
+  <!-- フッター -->
+  <text class="t-foot" x="200" y="497" text-anchor="middle">FIT=Feed-in Tariff ／ FIP=Feed-in Premium ／ P=プレミアム</text>
+</svg>
