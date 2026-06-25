@@ -12,8 +12,6 @@
   <rect x="20" y="90" width="360" height="36" rx="10" fill="#a36b2c"/>
   <rect x="20" y="108" width="360" height="18" fill="#a36b2c"/>
   <text x="200" y="114" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">フェールパッシブ（縮退停止型）</text>
-  <text x="200" y="133" text-anchor="middle" font-size="11" fill="#fce8d0">Fail Passive</text>
-
   <text x="40" y="164" font-size="12" fill="#333">故障が検知されたとき、</text>
   <text x="40" y="182" font-size="12" fill="#333">システムを「安全な停止状態」に移行する。</text>
   <rect x="40" y="196" width="320" height="1" fill="#d4956a"/>
@@ -26,8 +24,6 @@
   <rect x="20" y="268" width="360" height="36" rx="10" fill="#2e6da4"/>
   <rect x="20" y="286" width="360" height="18" fill="#2e6da4"/>
   <text x="200" y="292" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">フェールアクティブ（代替動作型）</text>
-  <text x="200" y="311" text-anchor="middle" font-size="11" fill="#e8f0fe">Fail Active</text>
-
   <text x="40" y="342" font-size="12" fill="#333">故障が検知されたとき、</text>
   <text x="40" y="360" font-size="12" fill="#333">安全な「代替動作」を能動的に継続する。</text>
   <rect x="40" y="374" width="320" height="1" fill="#2e6da4" opacity="0.4"/>

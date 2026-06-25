@@ -12,8 +12,6 @@
   <text x="90" y="107" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">対象</text>
   <text x="210" y="107" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">トリガー</text>
   <text x="330" y="107" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">目的</text>
-  <line x1="140" y1="86" x2="140" y2="452" stroke="#e0e0e0" stroke-width="1"/>
-  <line x1="268" y1="86" x2="268" y2="452" stroke="#e0e0e0" stroke-width="1"/>
 
   <!-- フェールセーフ行 -->
   <rect x="12" y="118" width="376" height="100" rx="6" fill="#fce8d0" stroke="#a36b2c" stroke-width="1.5"/>
@@ -48,6 +46,10 @@
   <text x="330" y="372" text-anchor="middle" font-size="11" fill="#555">条件未達で</text>
   <text x="330" y="388" text-anchor="middle" font-size="11" fill="#555">動作させない</text>
   <text x="90" y="428" text-anchor="middle" font-size="10" fill="#555">例：ドア開で機械停止</text>
+
+  <!-- 縦区切り線（全行セルの後に描画して隠れないようにする） -->
+  <line x1="140" y1="86" x2="140" y2="452" stroke="#a0a0a0" stroke-width="1.5"/>
+  <line x1="268" y1="86" x2="268" y2="452" stroke="#a0a0a0" stroke-width="1.5"/>
 
   <rect x="0" y="460" width="400" height="40" fill="#0f2035"/>
   <text x="200" y="485" text-anchor="middle" font-size="12" fill="#6a8faf">doboku-note.com</text>
