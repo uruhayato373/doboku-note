@@ -1,6 +1,8 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { type DocMeta } from '@/lib/docs';
 import { type DocGroup } from '@/lib/category-groups';
+import { guideCoverFor } from '@/lib/guide-cover';
 
 /** カード表示用の更新日を YYYY.MM.DD で返す（取れなければ null）。LatestArticles と同じ整形。 */
 function cardDate(doc: DocMeta): string | null {
@@ -15,13 +17,28 @@ export function DocCard({ doc }: { doc: DocMeta }) {
   const displayTitle = doc.shortTitle || doc.title;
   const excerpt = doc.subtitle || doc.description;
   const date = cardDate(doc);
+  const cover = guideCoverFor(doc);
   return (
     <Link
       href={`/docs/${doc.slug}`}
       className="group relative flex flex-col overflow-hidden rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] hover:border-[var(--accent)] hover:shadow-soft transition-all"
     >
-      {/* ブランド色の上端アクセント（mockup の category band を mono 化＝硬質エディトリアル維持）。 */}
-      <span aria-hidden className="block h-[3px] w-full bg-[var(--color-brand)] opacity-70 group-hover:opacity-100 transition-opacity" />
+      {/* ガイド記事は AI 生成のカバー写真（資格別プールから slug ハッシュで選択）。
+          非ガイド／プール未設定はブランド色の上端アクセント（mono バンド）に fallback。 */}
+      {cover ? (
+        <div className="relative w-full aspect-[16/9] overflow-hidden bg-[var(--accent-fill)]">
+          <Image
+            src={cover}
+            alt=""
+            fill
+            unoptimized
+            sizes="(max-width: 768px) 100vw, 360px"
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+      ) : (
+        <span aria-hidden className="block h-[3px] w-full bg-[var(--color-brand)] opacity-70 group-hover:opacity-100 transition-opacity" />
+      )}
       <div className="flex flex-1 flex-col gap-1.5 p-5">
         <h3 className="font-serif text-lg font-bold text-[var(--ink)] group-hover:text-[var(--accent)] line-clamp-2 transition-colors">
           {displayTitle}
