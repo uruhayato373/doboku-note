@@ -18,6 +18,7 @@ import {
 } from '@/components/category/CategoryViews';
 import MagazineInlineCard from '@/components/ui/MagazineInlineCard';
 import SidebarMagazineList from '@/components/ui/SidebarMagazineList';
+import AuthorSidebarCard from '@/components/ui/AuthorSidebarCard';
 import { resolveCategoryMagazines } from '@/lib/magazine-placement';
 import { getMagazine, buildMagazineUrl } from '@/lib/note-magazines';
 import SidebarAdBanner from '@/components/ui/SidebarAdBanner';
@@ -97,7 +98,6 @@ export default async function CategoryPage({
   // note CTA は冒頭全幅グリッドから PC 右サイドバーへ集約し、モバイルは記事一覧の下に出す（2026-06-20）。
   // サイドバーは縦積みのため上位 3 マガジン（placement 優先順）に絞ってコンパクトに保つ。
   const hubMagazines = categoryMagazines.slice(0, 3);
-  const hasSidebar = Boolean(careerSidebar) || hubMagazines.length > 0 || popularDocs.length > 0;
   // モバイル本文中の visible バナー（pixelSrc を渡さない＝PC サイドバー側が唯一の発火源）。
   const mobileCareerAd = careerSidebar ? (
     <div className="zenn-desktop:hidden my-10">
@@ -138,13 +138,10 @@ export default async function CategoryPage({
           </div>
         </div>
 
-        {/* カテゴリ本文 + 右サイドバー。note CTA（hub・文脈一致）または転職枠があれば 2 カラム化し、
-            PC（≥993px）右サイドバー上部に note マガジン CTA、その下に転職アフィリ（SidebarAdBanner＝
-            当ページ唯一のピクセル源）を sticky 配置。note CTA はモバイルでは記事一覧の下に出す。
-            note CTA も転職枠も無いカテゴリは従来どおり単一カラム（flex 子 1 つ＝全幅）。 */}
-        <div className={hasSidebar
-          ? 'max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 flex gap-8 relative'
-          : 'max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10'}>
+        {/* カテゴリ本文 + 右サイドバー（PC ≥993px・常に 2 カラム）。サイドバーは上から
+            転職アフィリ（SidebarAdBanner＝当ページ唯一のピクセル源）→ 運営者プロフィール →
+            人気記事 → note マガジン CTA を sticky 配置。note CTA はモバイルでは記事一覧の下に出す。 */}
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 flex gap-8 relative">
           <div className="flex-1 min-w-0">
             <div className="py-10 sm:py-12 text-[17px] leading-[1.9]">
           {/* よく読まれている記事 特集（GA4 上位 top3・グループ別セクションの上）。データ無しなら描画されない。 */}
@@ -206,8 +203,7 @@ export default async function CategoryPage({
             )}
           </div>
 
-          {hasSidebar && (
-            <aside className="hidden zenn-desktop:block w-[300px] shrink-0 py-10 sm:py-12">
+          <aside className="hidden zenn-desktop:block w-[300px] shrink-0 py-10 sm:py-12">
               <div className="sticky top-6 space-y-3">
                 {/* 転職アフィリ（PC 右サイドバー最上部・sticky）。当ページ唯一のピクセル発火源。
                     ファーストビュー内でインプレッションを最大化するため最上部に置く（2026-06-26 並べ替え）。
@@ -218,6 +214,8 @@ export default async function CategoryPage({
                     trackLabel={careerSidebar.trackLabel}
                   />
                 )}
+                {/* 運営者プロフィール（合格体験者＝発注者）。転職枠の直下に置き E-E-A-T を提示（2026-06-26）。 */}
+                <AuthorSidebarCard category={slug} />
                 {/* 人気記事ランキング（GA4 上位 top5・直近 28 日）。データ無しなら描画されない。 */}
                 <PopularRanking items={popularDocs} />
                 {/* note 有料マガジン CTA（文脈一致・画像オンリー）。回遊導線（人気記事）の下、
@@ -226,7 +224,6 @@ export default async function CategoryPage({
                 <SidebarMagazineList magazines={hubMagazines} className="space-y-3" />
               </div>
             </aside>
-          )}
         </div>
       </main>
 

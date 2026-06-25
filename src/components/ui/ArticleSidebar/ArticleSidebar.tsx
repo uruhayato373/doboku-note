@@ -6,6 +6,7 @@ import { type SidebarAdCreative } from '@/config/affiliate-creatives';
 import { type TocHeading } from '@/lib/toc';
 import MagazineSidebarCard from '@/components/ui/MagazineSidebarCard';
 import SidebarMagazineList from '@/components/ui/SidebarMagazineList';
+import AuthorSidebarCard from '@/components/ui/AuthorSidebarCard';
 import SidebarAdBanner from '@/components/ui/SidebarAdBanner';
 import TableOfContents from '@/components/ui/TableOfContents';
 import ExamQuestionNav from '@/components/ui/ExamQuestionNav';
@@ -70,6 +71,11 @@ export default function ArticleSidebar({
             この 1 枠が当該案件の唯一のピクセル発火源（本文インライン CareerAffiliate は href のみ）。 */}
         <div className="mb-3">
           <SidebarAdBanner {...careerSidebarAd.creative} trackLabel={careerSidebarAd.trackLabel} />
+        </div>
+        {/* 運営者プロフィール（合格体験者＝発注者）。転職枠の直下に置き E-E-A-T を提示（2026-06-26）。
+            記事末尾の横型 AuthorCard とは別フォーマットの縦型で、カテゴリ hub と共通。 */}
+        <div className="mb-3">
+          <AuthorSidebarCard category={category} />
         </div>
         {/* 過去問ページ（CEM 択一=pastExam, 1級2級土木/コンクリート系=primary/secondary）は
             TOC が問番号の羅列になりナビゲーションとして機能しないため非表示にし、
