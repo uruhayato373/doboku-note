@@ -1,64 +1,86 @@
 # 内部リンク監査レポート
 
-- 生成: 2026-06-18T22:41:37.355Z
+- 生成: 2026-06-25T22:34:38.254Z
 - スコープ: all
-- 走査ファイル: 1318
-- チェックしたリンク: 12857
-- リンク切れ（HIGH）: 38
+- 走査ファイル: 1343
+- チェックしたリンク: 12912
+- リンク切れ（HIGH）: 54
 - プレースホルダ（INFO）: 0
 
 ## リンク切れ（要修正）
 
 ### .local/r2/posts/civil-construction-1/guide-career-path/article.mdx
 
-- L114 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-career"
+- L113 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-career"
 
 ### .local/r2/posts/civil-construction-1/guide-market-value/article.mdx
 
-- L112 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-career"
+- L128 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-career"
 
 ### .local/r2/posts/civil-construction-1/guide-salary-up/article.mdx
 
-- L97 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-salary"
+- L113 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-salary"
 
 ### .local/r2/posts/civil-construction-2/guide-career/article.mdx
 
-- L107 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-secondary-experience-writing-guide"
+- L125 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-secondary-experience-writing-guide"
 
 ### .local/r2/posts/civil-construction-2/guide-career-change/article.mdx
 
-- L87 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-exam-overview"
-- L88 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-career"
+- L99 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-exam-overview"
+- L100 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-career"
 
 ### .local/r2/posts/civil-construction-2/guide-exam-overview/article.mdx
 
-- L120 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-career"
-- L121 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-salary"
+- L141 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-career"
+- L142 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-salary"
 
 ### .local/r2/posts/civil-construction-2/guide-job-reality/article.mdx
 
-- L94 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-career-change"
-- L95 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-career"
+- L104 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-career-change"
+- L105 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-career"
 
 ### .local/r2/posts/civil-construction-2/guide-salary/article.mdx
 
-- L86 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-career"
+- L95 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-career"
 
 ### .local/r2/posts/civil-construction-2/guide-study-plan/article.mdx
 
-- L96 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-exam-overview"
-- L97 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-secondary-experience-writing-guide"
-- L98 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-career"
+- L114 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-exam-overview"
+- L115 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-secondary-experience-writing-guide"
+- L116 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-career"
 
 ### .local/r2/posts/civil-construction-2/primary-r03-zenki/article.mdx
 
-- L1788 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-primary-r04-zenki"
-- L1789 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-primary-r04-kouki"
+- L1778 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-earthwork-key-points"
+- L1779 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-concrete-key-points"
+- L1780 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-law-key-points"
+- L1781 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-quality-management"
+- L1782 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-schedule-management"
 
 ### .local/r2/posts/civil-construction-2/primary-r05-zenki/article.mdx
 
-- L1579 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-primary-r07-zenki"
-- L1580 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-primary-r07-kouki"
+- L1569 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-earthwork-key-points"
+- L1570 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-concrete-key-points"
+- L1571 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-law-key-points"
+- L1572 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-quality-management"
+- L1573 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-schedule-management"
+
+### .local/r2/posts/civil-construction-2/primary-r06-zenki/article.mdx
+
+- L1944 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-earthwork-key-points"
+- L1945 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-concrete-key-points"
+- L1946 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-law-key-points"
+- L1947 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-quality-management"
+- L1948 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-schedule-management"
+
+### .local/r2/posts/civil-construction-2/primary-r07-zenki/article.mdx
+
+- L1692 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-earthwork-key-points"
+- L1693 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-concrete-key-points"
+- L1694 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-law-key-points"
+- L1695 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-quality-management"
+- L1696 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-schedule-management"
 
 ### .local/r2/posts/pe-comprehensive-management/disaster-weather-info/article.mdx
 
