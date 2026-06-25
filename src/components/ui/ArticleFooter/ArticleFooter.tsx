@@ -175,7 +175,7 @@ export default function ArticleFooter({
       </div>
 
       {/* 執筆者・最終更新日（全記事共通・E-A-T 強化） */}
-      <AuthorCard {...authorDates} category={category ?? undefined} />
+      <AuthorCard {...authorDates} />
     </>
   );
 }

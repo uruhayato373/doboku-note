@@ -215,7 +215,7 @@ export default async function CategoryPage({
                   />
                 )}
                 {/* 運営者プロフィール（合格体験者＝発注者）。転職枠の直下に置き E-E-A-T を提示（2026-06-26）。 */}
-                <AuthorSidebarCard category={slug} />
+                <AuthorSidebarCard />
                 {/* 人気記事ランキング（GA4 上位 top5・直近 28 日）。データ無しなら描画されない。 */}
                 <PopularRanking items={popularDocs} />
                 {/* note 有料マガジン CTA（文脈一致・画像オンリー）。回遊導線（人気記事）の下、

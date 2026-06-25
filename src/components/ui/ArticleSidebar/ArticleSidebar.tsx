@@ -75,7 +75,7 @@ export default function ArticleSidebar({
         {/* 運営者プロフィール（合格体験者＝発注者）。転職枠の直下に置き E-E-A-T を提示（2026-06-26）。
             記事末尾の横型 AuthorCard とは別フォーマットの縦型で、カテゴリ hub と共通。 */}
         <div className="mb-3">
-          <AuthorSidebarCard category={category} />
+          <AuthorSidebarCard />
         </div>
         {/* 過去問ページ（CEM 択一=pastExam, 1級2級土木/コンクリート系=primary/secondary）は
             TOC が問番号の羅列になりナビゲーションとして機能しないため非表示にし、

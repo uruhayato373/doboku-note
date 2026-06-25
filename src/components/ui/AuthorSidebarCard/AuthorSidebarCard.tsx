@@ -1,24 +1,17 @@
 import Link from "next/link";
 import { AUTHOR } from "@/config/author";
 
-interface AuthorSidebarCardProps {
-  /** 表示中ページのカテゴリ。note 送客先をカテゴリ別に出し分ける（未指定/未登録は L1 全資格案内）。 */
-  readonly category?: string | undefined;
-}
-
 /**
  * AuthorSidebarCard — 右サイドバー用の縦型 運営者プロフィールカード。
  *
- * 著者 SSOT（src/config/author.ts）を読み、アバター・名前・肩書き・短縮 bio・note 送客・
- * /about 導線を縦に積む。E-E-A-T／合格体験者ポジションの提示が目的。
- * 記事末尾の横型 AuthorCard（日付つき）とは別フォーマットで、カテゴリ hub と docs の
- * 両サイドバーで共有する。資格は jobTitle / shortBio に既に含まれるため重複表示しない。
+ * 著者 SSOT（src/config/author.ts）を読み、アバター・名前・一文紹介（tagline）・保有資格（全件）・
+ * 統一 note CTA・X / about 導線を縦に積む。E-E-A-T／合格体験者ポジションの提示が目的。
+ * 役割・姿勢は tagline、資格は qualifications に役割分担し、肩書き/bio との情報重複を避ける。
+ * note CTA は全ページ統一（AUTHOR.noteCta）でカテゴリ別の出し分けはしない。
+ * 記事末尾の横型 AuthorCard（日付つき）とは別フォーマットで、カテゴリ hub と docs で共有する。
  * 意匠はカテゴリサイドバー（PopularRanking 等）と同じエディトリアル系トークンに合わせる。
  */
-export default function AuthorSidebarCard({ category }: AuthorSidebarCardProps) {
-  const noteMap = AUTHOR.noteByCategory as Record<string, { noteUrl: string; noteLabel: string }>;
-  const note = (category && noteMap[category]) || AUTHOR.noteDefault;
-
+export default function AuthorSidebarCard() {
   return (
     <aside
       aria-label="運営者プロフィール"
@@ -45,9 +38,8 @@ export default function AuthorSidebarCard({ category }: AuthorSidebarCardProps) 
           >
             {AUTHOR.name}
           </Link>
-          <p className="mt-1 text-[12px] leading-snug text-[var(--ink-muted)]">{AUTHOR.jobTitle}</p>
+          <p className="mt-2 text-[13px] leading-[1.8] text-[var(--ink-body)]">{AUTHOR.tagline}</p>
         </div>
-        <p className="mt-3 text-[13px] leading-[1.8] text-[var(--ink-body)]">{AUTHOR.shortBio}</p>
         <div className="mt-3">
           <div className="font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--ink-muted)] mb-1.5">
             保有資格
@@ -57,12 +49,12 @@ export default function AuthorSidebarCard({ category }: AuthorSidebarCardProps) 
           </p>
         </div>
         <a
-          href={note.noteUrl}
+          href={AUTHOR.noteCta.url}
           target="_blank"
           rel="noopener noreferrer"
           className="mt-4 flex items-center justify-center gap-2 rounded-full bg-[var(--accent)] px-3.5 py-2 text-[12px] font-bold text-[var(--paper)] hover:opacity-90 transition-opacity"
         >
-          {note.noteLabel}
+          {AUTHOR.noteCta.label}
         </a>
         <div className="mt-2 flex items-center justify-center gap-4 text-[11px] text-[var(--ink-muted)]">
           <a

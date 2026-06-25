@@ -6,8 +6,6 @@ interface AuthorCardProps {
   publishedAt?: string;
   updatedAt?: string;
   lastRewrittenAt?: string;
-  /** 記事カテゴリ。note 送客先をカテゴリ別に出し分ける（未指定/未登録は L1 全資格案内）。 */
-  category?: string | undefined;
 }
 
 function formatDate(iso?: string): string | null {
@@ -25,14 +23,10 @@ export default function AuthorCard({
   publishedAt,
   updatedAt,
   lastRewrittenAt,
-  category,
 }: AuthorCardProps) {
   const published = formatDate(publishedAt);
   const updated = formatDate(updatedAt);
   const lastReviewed = formatDate(lastRewrittenAt);
-  // note 送客先をカテゴリ別に解決（未登録カテゴリは L1 全資格案内へ）。
-  const noteMap = AUTHOR.noteByCategory as Record<string, { noteUrl: string; noteLabel: string }>;
-  const note = (category && noteMap[category]) || AUTHOR.noteDefault;
 
   return (
     <MetaCard as="aside" ariaLabel="執筆者情報" className="mt-10">
@@ -48,19 +42,14 @@ export default function AuthorCard({
           />
         </Link>
         <div className="min-w-0 flex-1">
-          <div className="flex items-baseline gap-2 flex-wrap">
-            <Link
-              href="/about"
-              className="text-base font-bold text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400"
-            >
-              {AUTHOR.name}
-            </Link>
-            <span className="text-xs text-gray-500 dark:text-gray-400">
-              {AUTHOR.jobTitle}
-            </span>
-          </div>
+          <Link
+            href="/about"
+            className="text-base font-bold text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400"
+          >
+            {AUTHOR.name}
+          </Link>
           <p className="mt-2 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
-            {AUTHOR.shortBio}
+            {AUTHOR.tagline}
           </p>
           <div className="mt-3">
             <div className="text-[10px] font-mono uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-1">
@@ -82,13 +71,12 @@ export default function AuthorCard({
             </div>
           )}
           <a
-            href={note.noteUrl}
+            href={AUTHOR.noteCta.url}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-4 inline-flex items-center gap-2 px-3.5 py-2 rounded-md bg-primary-600 dark:bg-primary-500 text-white text-sm font-bold shadow-sm hover:bg-primary-700 dark:hover:bg-primary-400 transition-colors"
           >
-            <span aria-hidden>📘</span>
-            <span>{note.noteLabel}</span>
+            {AUTHOR.noteCta.label}
           </a>
           <Link
             href="/about"
