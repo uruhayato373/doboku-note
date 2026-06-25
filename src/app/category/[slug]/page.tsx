@@ -209,12 +209,8 @@ export default async function CategoryPage({
           {hasSidebar && (
             <aside className="hidden zenn-desktop:block w-[300px] shrink-0 py-10 sm:py-12">
               <div className="sticky top-6 space-y-3">
-                {/* note 有料マガジン CTA（PC 右サイドバー上部・文脈一致）。試験単位の旗艦商品を提示する。
-                    冒頭全幅グリッドから集約（2026-06-20）。未公開マガジンは getMagazine で除外済み。
-                    docs サイドバーと共通の SidebarMagazineList で画像オンリーに統一（2026-06-26）。
-                    親の sticky 直下に並べるため className は space-y-3（外側 mb は親が制御）。 */}
-                <SidebarMagazineList magazines={hubMagazines} className="space-y-3" />
-                {/* 転職アフィリ（PC 右サイドバー・sticky）。当ページ唯一のピクセル発火源。
+                {/* 転職アフィリ（PC 右サイドバー最上部・sticky）。当ページ唯一のピクセル発火源。
+                    ファーストビュー内でインプレッションを最大化するため最上部に置く（2026-06-26 並べ替え）。
                     creative は resolveCareerSidebarAd で期間出し分け（〜2026-08-31 ビルドジョブ / 以降 GKS）。 */}
                 {careerSidebar && (
                   <SidebarAdBanner
@@ -224,6 +220,10 @@ export default async function CategoryPage({
                 )}
                 {/* 人気記事ランキング（GA4 上位 top5・直近 28 日）。データ無しなら描画されない。 */}
                 <PopularRanking items={popularDocs} />
+                {/* note 有料マガジン CTA（文脈一致・画像オンリー）。回遊導線（人気記事）の下、
+                    スクロール下部に配置して訴求する（2026-06-26 並べ替え：旧 最上部 → 最下部）。
+                    docs サイドバーと共通の SidebarMagazineList。未公開マガジンは getMagazine で除外済み。 */}
+                <SidebarMagazineList magazines={hubMagazines} className="space-y-3" />
               </div>
             </aside>
           )}
