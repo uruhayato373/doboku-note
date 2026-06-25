@@ -36,6 +36,17 @@ Instagram カルーセルの「実際に公開されているか（現状確認�
 
 ★ がドリフト（exit 2）。`.claude/state/ig-reconcile/snapshot.json` に保存。
 
+### リール軸（carousel カテゴリと直交）
+
+カルーセルとリールは両方出す設計なので、**カルーセルは出たがリールが無い**パックを別軸で surface する（SoT ドリフトではなく**コンテンツ・バックログ**なので exit には影響しない）:
+
+| 分類 | 意味 | 対応 |
+|---|---|---|
+| `reel_gap` ◆ | カルーセルは公開/予約済みだがリールが無い（`posted.json.reels`／`status.json.reel scheduled`／`reels/` 素材いずれも無し） | `figure-reel-create.mjs` でナレーション付きリール生成 → `publish-ig-bs --reel` で予約 |
+| `reel_built_unposted` ◆ | `reels/` 素材（script.txt/video.mp4）はあるが未投稿・未予約 | `publish-ig-bs --reel` で予約するだけ |
+
+判定: carousel が `published_recorded`/`published_UNrecorded`/`draft_misrecorded`/`scheduled` のいずれか（=carouselDone）のパックについてリール状態を見る。2026-06-25、最初の 9 テーマだけリール化し残り 9 パックがカルーセルのみだった取りこぼしの surface 用。
+
 ### 照合ロジックの要点（堅牢性）
 
 - **記録側は直接存在チェック**（`/p/<shortcode>` が「ご利用いただけません」か）で判定する。プロフィールグリッドの走査は**遅延ロードで全件は載らない**ため、グリッド集合の membership で記録側を判定すると生存投稿を「削除済み」と誤検知する（2026-06-25 実測、cash-flow/mcgregor が 12 件しか載らないグリッドで誤判定→直接チェックへ修正）。

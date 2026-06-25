@@ -81,10 +81,16 @@ function localPacks() {
       const scheduled = typeof carStatus === "object" && carStatus?.status === "scheduled" ? carStatus.scheduled_at : null;
       const draftFlag = carStatus === "draft" || statusRaw?.posted === false;
       const hasContent = existsSync(join(dir, "carousel/caption.txt")) || existsSync(join(dir, "caption.txt"));
+      // リール軸: posted.json.reels（投稿済）/ status.json.reel scheduled（予約）/ reels 素材（script.txt|video.mp4）
+      const reelStatus = statusRaw?.reel;
+      const reelPostedUrl = postedRaw?.reels?.url || null;
+      const reelScheduledAt = typeof reelStatus === "object" && reelStatus?.status === "scheduled" ? reelStatus.scheduled_at : null;
+      const reelMaterial = existsSync(join(dir, "reels/script.txt")) || existsSync(join(dir, "reels/video.mp4"));
       return {
         rel: info.rel, head: captionHead(dir),
         recordedShortcode: shortcodeOf(carouselUrl), recordedUrl: carouselUrl,
         scheduledAt: scheduled, draftFlag, hasContent,
+        reelPostedUrl, reelScheduledAt, reelMaterial,
       };
     })
     .filter(Boolean)
@@ -179,7 +185,7 @@ function reconcile(packs, liveData) {
   const headToLive = {};
   for (const lv of liveData.live) { if (lv.head) (headToLive[lv.head] ||= []).push(lv.shortcode); }
 
-  const cats = { published_recorded: [], published_UNrecorded: [], draft_misrecorded: [], scheduled: [], unpublished: [], recorded_but_gone: [], anomaly: [] };
+  const cats = { published_recorded: [], published_UNrecorded: [], draft_misrecorded: [], scheduled: [], unpublished: [], recorded_but_gone: [], anomaly: [], reel_gap: [], reel_built_unposted: [] };
   for (const p of packs) {
     const matched = p.head ? (headToLive[p.head] || []) : [];
     // 記録側は直接存在チェックの結果を使う（true=生存 / false=削除確定 / null/undefined=取得不能→生存扱い）
@@ -199,6 +205,15 @@ function reconcile(packs, liveData) {
     }
     if (p.scheduledAt) { cats.scheduled.push(p); continue; }    // status.json で予約済み
     cats.unpublished.push(p);                                   // 真の未公開（予約候補）
+  }
+
+  // リール軸（別axis・carousel カテゴリと排他ではない）: カルーセルは出たがリールが無いパックを surface。
+  const carouselDone = new Set([...cats.published_recorded, ...cats.published_UNrecorded, ...cats.draft_misrecorded, ...cats.scheduled].map((p) => p.rel));
+  for (const p of packs) {
+    if (!carouselDone.has(p.rel)) continue;                     // カルーセル未了はリールギャップに含めない
+    if (p.reelPostedUrl || p.reelScheduledAt) continue;        // リール投稿済み or 予約済み＝OK
+    if (p.reelMaterial) cats.reel_built_unposted.push(p);       // 素材はあるが未投稿/未予約
+    else cats.reel_gap.push(p);                                 // カルーセル済みだがリール未作成（素材も無し）
   }
   return cats;
 }
@@ -234,11 +249,15 @@ else {
   show("予約済み（status.json scheduled）", cats.scheduled, (p) => `${p.rel}  @ ${p.scheduledAt}`);
   show("未公開（予約に乗せる候補）", cats.unpublished);
   show("★異常（重複投稿の疑い・要人手判断）", cats.anomaly, (p) => `${p.rel}  → ${p.matched.join(",")}`);
+  show("◆リールギャップ（カルーセル済みだがリール未作成・素材も無し）", cats.reel_gap);
+  show("◆リール素材あり・未投稿（figure-reel 生成済みだが予約していない）", cats.reel_built_unposted);
   if (liveData.scheduled && !liveData.scheduled.error) {
     const sched = Object.entries(liveData.scheduled).filter(([, t]) => t.length).map(([d, t]) => `${d}:${[...new Set(t)].sort().join("/")}`);
     if (sched.length) console.log(`\nプランナー予約スロット（月ビュー実体）: ${sched.join("  ")}`);
   }
-  console.log(`\nドリフト合計 ${driftCount} 件。snapshot → .claude/state/ig-reconcile/snapshot.json`);
-  console.log(driftCount ? "→ 是正は `/ig-reconcile`（operator 確認のうえ posted.json backfill / 未公開を予約）" : "✓ ドリフトなし");
+  console.log(`\nドリフト合計 ${driftCount} 件（SoT 整合）／リールギャップ ${cats.reel_gap.length} 件・素材未投稿 ${cats.reel_built_unposted.length} 件（リール軸）。snapshot → .claude/state/ig-reconcile/snapshot.json`);
+  if (driftCount) console.log("→ SoT 是正は `/ig-reconcile`（operator 確認のうえ posted.json backfill / 未公開を予約）");
+  else console.log("✓ SoT ドリフトなし");
+  if (cats.reel_gap.length) console.log("→ リールギャップは figure-reel-create.mjs でナレーション付きリール生成 → publish-ig-bs --reel で予約");
 }
 process.exit(driftCount ? 2 : 0);
