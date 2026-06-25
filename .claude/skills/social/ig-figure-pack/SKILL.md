@@ -12,7 +12,7 @@ allowed-tools: Bash, Read, Write, Edit
 |---|---|---|
 | 表紙 | `00-cover.svg` | キーワード名（大）+ 5 管理ラベル（orange）+ 試験種ラベル |
 | 図解 | `01-figure.svg` | site の `figure-N.svg` を **cp でそのままコピー**。IG ヘッダー/フッター追加禁止（サイト図はヘッダーなし白背景が正） |
-| テキスト | `02-text.svg` | 試験頻出ポイント 3 点 + orange 注意 Callout |
+| テキスト | `02-text.svg` | 試験頻出ポイント 3 点 + orange 注意 Callout。**サイト figure-*.svg には試験ポイントを含めないルール（figure-canvas-policy §2.5）のため、IG 向けポイント配信の唯一の担当スライド** |
 | CTA | `03-cta.svg` | doboku-note.com 誘導 + @doboku-note フッター |
 
 ## ディレクトリ構成

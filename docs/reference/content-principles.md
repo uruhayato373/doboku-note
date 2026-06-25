@@ -151,7 +151,21 @@ doboku-note のすべてのコンテンツ作成・校正時に従うべき原�
 
 **機械検知**: `lint-mdx-mobile.mjs` カテゴリ **1-7（HIGH）**（review-mobile / bulk-score で surface）に加え、**`scripts/pre-commit-mdx.mjs` の `checkBrokenTables` が pre-commit でコミットをブロックする**（HIGH）。本文行ゼロの表を検出する。
 
-### 5. ExamPointは文脈の後に配置
+### 5. 試験ポイントの担当分離（図版 vs コンポーネント vs IG）
+
+試験頻出ポイント・引っかけ論点の情報は、以下の**3層に分離**して管理する（混在禁止）。
+
+| 担当 | 場所 | 役割 |
+|---|---|---|
+| `<ExamPoint>` / `<Callout>` | MDX 本文 | ページ読了後の整理・ナビゲーション |
+| IG テキストスライド（`0N-text.svg`） | `docs/sns/instagram/.../keyword-packs/` | SNS フォロワー向けの要点配信 |
+| **figure-*.svg** | `.local/r2/posts/**/img/` | **含めない（禁止）** |
+
+**figure-*.svg に「試験ポイント」「引っかけ」バー・注記ボックスを入れてはならない。** 概念・構造・比較の可視化に専念させる。詳細は `figure-canvas-policy.md §2.5`。
+
+---
+
+### 6. ExamPointは文脈の後に配置
 
 概念の説明が終わった後に配置する。定義セクション（〜とは）の直後に置かない。読者がまだ概念を理解していない段階で試験ポイントを示しても効果がない。
 

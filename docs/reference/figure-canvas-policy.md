@@ -42,7 +42,8 @@
 2. landscape は **必ず `--wide` 接尾辞**を付け、`<ArticleImage>` で埋め込まない。
 3. 色は `svg-tokens.json` の allowlist のみ。濃色背景＋白文字・出典/図表番号の書き込みは禁止（create-svg 準拠）。
 4. **概念名タイトルを図の中に入れない**。SNS は枠レンダラー（`render-figure-sns`）が概念名をヘッダーに出し、記事は見出しが担うため、図内タイトルは SNS 出力で重複する。縦余白は「タイトル」ではなく実体（凡例・比較表・サマリー・要素拡大）で埋める。軸名・区分ラベル等の部分見出しは可。**機械検知**: check-mdx svg audit の **P11-concept-title（MEDIUM）**＝最上部中央の大見出し（font≥14・y≤26・text-anchor=middle）を概念名タイトルとして surface する。説明サブタイトル（サマリー）は font≤11 にして先頭へ繰り上げれば可。
-5. コミット前に `/check-mdx --rules svg` ＋ `node scripts/check-figure-canvas.mjs`（§3）。
+5. **試験頻出ポイント・引っかけ論点セクションを図の中に入れない**。これらは MDX の `<ExamPoint>` / `<Callout>` コンポーネントと、IG テキストスライド（`02-text.svg` / `03-text.svg`）が担う。figure-*.svg に「試験ポイント」「引っかけ」バーや注記ボックスを入れると IG 出力で概念図とポイントが混在し視認性が下がる。既存図でこれを含むものは次回リライト時に除去する。
+6. コミット前に `/check-mdx --rules svg` ＋ `node scripts/check-figure-canvas.mjs`（§3）。
 
 ---
 
