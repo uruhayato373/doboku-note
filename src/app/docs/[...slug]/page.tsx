@@ -22,16 +22,11 @@ import rehypeExternalLinks from 'rehype-external-links';
 import { compileMDX } from 'next-mdx-remote/rsc';
 import { MDXProvider } from '@mdx-js/react';
 import { extractHeadings } from '@/lib/toc';
-import TableOfContents from '@/components/ui/TableOfContents';
-import ExamQuestionNav from '@/components/ui/ExamQuestionNav';
-import CategoryNavCard from '@/components/ui/CategoryNavCard/CategoryNavCard';
-import PillarNavCard from '@/components/ui/PillarNavCard';
-import MagazineSidebarCard from '@/components/ui/MagazineSidebarCard';
-import SidebarAdBanner from '@/components/ui/SidebarAdBanner';
 import { resolvePlacement } from '@/lib/magazine-placement';
-import { getMagazine, buildMagazineUrl, type NoteMagazine } from '@/lib/note-magazines';
+import { getMagazine, type NoteMagazine } from '@/lib/note-magazines';
 import MetaRow from '@/components/ui/MetaRow/MetaRow';
 import ArticleFooter from '@/components/ui/ArticleFooter/ArticleFooter';
+import ArticleSidebar from '@/components/ui/ArticleSidebar/ArticleSidebar';
 import { generateHeadingId } from '@/lib/toc';
 import { extractReferencesSection } from '@/lib/extract-references';
 import type { Pluggable } from 'unified';
@@ -359,79 +354,18 @@ export default async function DocPage({
             />
           </main>
 
-          {/* Right Sidebar: Zenn 300px, visible at ≥993px (zenn-desktop) */}
-          <aside className="hidden zenn-desktop:block w-[300px] shrink-0 py-10">
-            <div className="sticky top-6">
-              {/* note 有料マガジン CTA (sidebar)。配置解決済みのマガジンを画像オンリーで上部に並べる。
-                  文言・価格はバナー画像 (sidebarImageUrl, 300×250) に焼き込む方針。 */}
-              {sidebarMagazines.length > 0 && (
-                <div className="mb-3 space-y-3">
-                  {sidebarMagazines.map(({ slot, magazine }) =>
-                    magazine.sidebarImageUrl ? (
-                      <MagazineSidebarCard
-                        key={slot.magazineId}
-                        href={buildMagazineUrl(magazine, slot.utmContent)}
-                        imageUrl={magazine.sidebarImageUrl}
-                        alt={magazine.shortTitle ?? magazine.title}
-                        trackLabel={slot.utmContent}
-                      />
-                    ) : null,
-                  )}
-                </div>
-              )}
-              {/* 汎用キーワードページ (個別キーワード辞書ページ): 単一マガジン直送ではなく
-                  note 有料教材まとめ /links へ誘導する画像バナー。hub/essay 等は上の
-                  コンテキスト一致マガジンが出るため、ここは sidebarMagazines 空のときのみ。 */}
-              {category === 'pe-comprehensive-management' &&
-                (docGroup === 'keyword' || docGroup === 'guide' || docGroup === 'pastExam') &&
-                sidebarMagazines.length === 0 && (
-                  <div className="mb-3">
-                    <MagazineSidebarCard
-                      href="/links"
-                      imageUrl="/images/magazines/links-hub-sidebar.webp"
-                      alt="note 有料教材まとめ"
-                      external={false}
-                      trackLabel="links-hub"
-                    />
-                  </div>
-                )}
-              {/* 転職アフィリエイトを全 docs サイドバー上部に常設（位置 A: note CTA の下・
-                  既存アフィリの上）。全 docs 無条件表示。
-                  2026-06-06: 従来は civil のみだったが全 docs へ拡大。
-                  2026-06-16: creative を期間で出し分け（resolveCareerSidebarAd）。〜2026-08-31 は
-                  ビルドジョブ（無料面談 ¥50,000・GKS の 2 倍報酬の増額キャンペーン）、9/1 以降 GKS に
-                  自動復帰。GKS/ビルドジョブとも同カテゴリ（無料面談で成果）でカニバるため並置せず単独表示。
-                  この 1 枠が当該案件の唯一のピクセル発火源（本文インライン CareerAffiliate は href のみ）。 */}
-              <div className="mb-3">
-                <SidebarAdBanner {...careerSidebarAd.creative} trackLabel={careerSidebarAd.trackLabel} />
-              </div>
-              {/* 過去問ページ（CEM 択一=pastExam, 1級2級土木/コンクリート系=primary/secondary）は
-                  TOC が問番号の羅列になりナビゲーションとして機能しないため非表示にし、
-                  primary は代わりに設問番号グリッド（ExamQuestionNav）を出す。 */}
-              {docGroup !== 'pastExam' && docGroup !== 'primary' && docGroup !== 'secondary' && (
-                <TableOfContents headings={headings} />
-              )}
-              {docGroup === 'primary' && (
-                <ExamQuestionNav headings={headings} variant="sidebar" />
-              )}
-              {hasCategoryNavCard && category && (
-                <div className="mt-3">
-                  <CategoryNavCard
-                    variant="sidebar"
-                    category={category}
-                    currentSlug={slugStr}
-                    docGroup={docGroup}
-                    categoryArticles={categoryArticles}
-                  />
-                </div>
-              )}
-              {showPillarNav && (
-                <div className="mt-3">
-                  <PillarNavCard variant="sidebar" currentSection={sectionStr} />
-                </div>
-              )}
-            </div>
-          </aside>
+          <ArticleSidebar
+            sidebarMagazines={sidebarMagazines}
+            careerSidebarAd={careerSidebarAd}
+            headings={headings}
+            category={category}
+            docGroup={docGroup}
+            slugStr={slugStr}
+            sectionStr={sectionStr}
+            categoryArticles={categoryArticles}
+            hasCategoryNavCard={hasCategoryNavCard}
+            showPillarNav={showPillarNav}
+          />
         </div>
       </div>
 
