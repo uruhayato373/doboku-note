@@ -4,14 +4,20 @@ import { AUTHOR } from "@/config/author";
 /**
  * AuthorSidebarCard — 右サイドバー用の縦型 運営者プロフィールカード。
  *
- * 著者 SSOT（src/config/author.ts）を読み、アバター・名前・一文紹介（tagline）・保有資格（全件）・
+ * 著者 SSOT（src/config/author.ts）を読み、アバター・名前・一文紹介（tagline）・保有資格（全件・リスト）・
  * 統一 note CTA・X / about 導線を縦に積む。E-E-A-T／合格体験者ポジションの提示が目的。
  * 役割・姿勢は tagline、資格は qualifications に役割分担し、肩書き/bio との情報重複を避ける。
+ * tagline は最初の句点で改行して「役割」「姿勢」を 2 行に分ける。
  * note CTA は全ページ統一（AUTHOR.noteCta）でカテゴリ別の出し分けはしない。
  * 記事末尾の横型 AuthorCard（日付つき）とは別フォーマットで、カテゴリ hub と docs で共有する。
  * 意匠はカテゴリサイドバー（PopularRanking 等）と同じエディトリアル系トークンに合わせる。
  */
 export default function AuthorSidebarCard() {
+  // tagline（"役割。姿勢。"）を最初の句点で 2 行に分割して表示する。
+  const dot = AUTHOR.tagline.indexOf("。");
+  const taglineRole = dot >= 0 ? AUTHOR.tagline.slice(0, dot + 1) : AUTHOR.tagline;
+  const taglineRest = dot >= 0 ? AUTHOR.tagline.slice(dot + 1) : "";
+
   return (
     <aside
       aria-label="運営者プロフィール"
@@ -27,9 +33,9 @@ export default function AuthorSidebarCard() {
             <img
               src={AUTHOR.imageUrl}
               alt={`${AUTHOR.name}のプロフィール画像`}
-              width={72}
-              height={72}
-              className="h-[72px] w-[72px] rounded-full border border-[var(--rule-soft)]"
+              width={96}
+              height={96}
+              className="h-24 w-24 rounded-full border border-[var(--rule-soft)]"
             />
           </Link>
           <Link
@@ -38,15 +44,34 @@ export default function AuthorSidebarCard() {
           >
             {AUTHOR.name}
           </Link>
-          <p className="mt-2 text-[13px] leading-[1.8] text-[var(--ink-body)]">{AUTHOR.tagline}</p>
+          <p className="mt-2 text-[13px] leading-[1.8] text-[var(--ink-body)]">
+            {taglineRole}
+            {taglineRest && (
+              <>
+                <br />
+                {taglineRest}
+              </>
+            )}
+          </p>
         </div>
-        <div className="mt-3">
-          <div className="font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--ink-muted)] mb-1.5">
+        <div className="mt-4">
+          <div className="font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--ink-muted)] mb-2">
             保有資格
           </div>
-          <p className="text-[11.5px] leading-[1.7] text-[var(--ink-body)]">
-            {AUTHOR.qualifications.join("・")}
-          </p>
+          <ul className="space-y-1">
+            {AUTHOR.qualifications.map((q) => (
+              <li
+                key={q}
+                className="flex items-start gap-1.5 text-[12px] leading-snug text-[var(--ink-body)]"
+              >
+                <span
+                  aria-hidden
+                  className="mt-[6px] h-1 w-1 shrink-0 rounded-full bg-[var(--accent)]"
+                />
+                <span>{q}</span>
+              </li>
+            ))}
+          </ul>
         </div>
         <a
           href={AUTHOR.noteCta.url}
