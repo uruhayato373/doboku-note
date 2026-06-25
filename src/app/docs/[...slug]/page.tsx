@@ -5,7 +5,6 @@ import Footer from '@/components/layout/Footer';
 import { getAllComponents } from '@/lib/component-loader';
 import { getCategoryLabel } from '@/lib/categories';
 import { classifyDoc, getGroupLabel } from '@/lib/doc-classifier';
-import SectionKeywords from '@/components/ui/SectionKeywords';
 import { Metadata } from 'next';
 import { getOgpImageUrl } from '@/lib/r2-image-loader';
 import StructuredData from '@/components/seo/StructuredData';
@@ -25,26 +24,18 @@ import { MDXProvider } from '@mdx-js/react';
 import { extractHeadings } from '@/lib/toc';
 import TableOfContents from '@/components/ui/TableOfContents';
 import ExamQuestionNav from '@/components/ui/ExamQuestionNav';
-import RelatedArticles from '@/components/ui/RelatedArticles';
 import CategoryNavCard from '@/components/ui/CategoryNavCard/CategoryNavCard';
 import PillarNavCard from '@/components/ui/PillarNavCard';
 import MagazineSidebarCard from '@/components/ui/MagazineSidebarCard';
 import SidebarAdBanner from '@/components/ui/SidebarAdBanner';
-import CareerAffiliate from '@/components/ui/CareerAffiliate/CareerAffiliate';
-import MagazineInlineCard from '@/components/ui/MagazineInlineCard';
 import { resolvePlacement } from '@/lib/magazine-placement';
 import { getMagazine, buildMagazineUrl, type NoteMagazine } from '@/lib/note-magazines';
-import PastExamBacklinks from '@/components/ui/PastExamBacklinks/PastExamBacklinks';
-import RelatedTextbooks from '@/components/ui/RelatedTextbooks/RelatedTextbooks';
-import TextbookNav from '@/components/ui/TextbookNav/TextbookNav';
-import AuthorCard from '@/components/ui/AuthorCard/AuthorCard';
-import FAQCard from '@/components/ui/FAQCard/FAQCard';
-import ExternalReferences from '@/components/ui/ExternalReferences/ExternalReferences';
 import MetaRow from '@/components/ui/MetaRow/MetaRow';
+import ArticleFooter from '@/components/ui/ArticleFooter/ArticleFooter';
 import { generateHeadingId } from '@/lib/toc';
 import { extractReferencesSection } from '@/lib/extract-references';
 import type { Pluggable } from 'unified';
-import { resolveDocsCareerSidebarAd, resolveCareerArticleEndCard, resolvePeConsultingArticleEndCard } from '@/config/affiliate-creatives';
+import { resolveDocsCareerSidebarAd } from '@/config/affiliate-creatives';
 import type React from 'react';
 
 
@@ -352,137 +343,20 @@ export default async function DocPage({
               />
             </article>
 
-            {/* 参考資料カード（## 参考資料 セクションを抽出したもの。全カテゴリ共通） */}
-            {references.length > 0 && (
-              <div className="mt-8">
-                <ExternalReferences references={references} />
-              </div>
-            )}
-
-            {/* 記事末尾の情報（ページ種別ごとの構成は docs/project/article-footer-design.md 参照） */}
-
-            {/* PE keyword: 過去問逆引き + 同セクションキーワード */}
-            {category === 'pe-comprehensive-management' && docGroup === 'keyword' && (
-              <>
-                <div className="mt-8">
-                  <PastExamBacklinks category={category} currentSlug={slugStr} />
-                </div>
-                {/* 同セクションのキーワード: モバイル限定（デスクトップではサイドバーの SectionCard で表示済み） */}
-                {doc.meta.section && (
-                  <div className="mt-8 zenn-desktop:hidden">
-                    <SectionKeywords
-                      currentSlug={slugStr}
-                      section={doc.meta.section as string}
-                    />
-                  </div>
-                )}
-                {/* モバイル: 5 管理ピラーナビ（デスクトップではサイドバーで表示済み） */}
-                <div className="mt-8 zenn-desktop:hidden">
-                  <PillarNavCard variant="mobile" currentSection={sectionStr} />
-                </div>
-              </>
-            )}
-
-
-            {/* Civil primary/secondary: 関連テキスト章 (過去問→教材、1級・2級共通) */}
-            {(category === 'civil-construction-1' || category === 'civil-construction-2') && (docGroup === 'primary' || docGroup === 'secondary') && (
-              <div className="mt-8">
-                <RelatedTextbooks currentMeta={doc.meta} categoryArticles={categoryArticles} />
-              </div>
-            )}
-
-            {/* note 有料マガジン CTA (inline)。slug + docGroup から配置を解決。
-                inlineMobileOnly が true の場合は PC 非表示 (sidebar 側で出る)。
-                ハブ系 (pillar / pattern-essay / r0X-secondary / essay-exam-strategy) は PC でも表示。
-                WP5 2026-06-11: civil の note CTA が書籍・講座 CTA より先に来るよう RelatedTextbooks 直後へ移動。 */}
-            {inlineMagazines.length > 0 && (
-              <div className={`mt-8 space-y-3 ${magazinePlacement.inlineMobileOnly ? 'zenn-desktop:hidden' : ''}`}>
-                {inlineMagazines.map(({ slot, magazine }) => (
-                  <MagazineInlineCard
-                    key={slot.magazineId}
-                    url={buildMagazineUrl(magazine, slot.utmContent)}
-                    title={magazine.title}
-                    description={magazine.description}
-                    imageUrl={magazine.imageUrl}
-                    badge={magazine.badge}
-                    trackLabel={slot.utmContent}
-                  />
-                ))}
-              </div>
-            )}
-
-
-
-
-            {/* Civil 2級 guide（キャリア記事）: 記事末 CTA なし（GKS はサイドバー上部に集約＝1 ページ 1 GKS ピクセル）。
-                本文インライン CareerAffiliate（href のみ）は MDX 側で維持。 */}
-
-            {/* Civil textbook: 前後章ナビ + 過去問逆引き（1級・2級共通） */}
-            {(category === 'civil-construction-1' || category === 'civil-construction-2') && docGroup === 'textbook' && (
-              <>
-                <div className="mt-8">
-                  <TextbookNav currentSlug={slugStr} categoryArticles={categoryArticles} />
-                </div>
-                <div className="mt-8">
-                  <PastExamBacklinks category={category} currentSlug={slugStr} />
-                </div>
-              </>
-            )}
-
-
-
-            {/* guide/pillar/secondary/textbook: カテゴリナビカード（モバイル） */}
-            {hasCategoryNavCard && category && (docGroup === 'guide' || docGroup === 'pillar' || docGroup === 'secondary' || docGroup === 'textbook') && (
-              <div className="mt-8 zenn-desktop:hidden">
-                <CategoryNavCard
-                  variant="mobile"
-                  category={category}
-                  currentSlug={slugStr}
-                  docGroup={docGroup}
-                  categoryArticles={categoryArticles}
-                />
-              </div>
-            )}
-
-
-            {/* よくある質問（frontmatter faqs を持つ記事のみ表示） */}
-            {faqs.length > 0 && (
-              <div className="mt-8">
-                <FAQCard faqs={faqs} />
-              </div>
-            )}
-
-            {/* 記事末 転職 CTA（モバイル限定・civil 1/2 + 建設部門・FAQ 直後）。
-                サイドバー転職枠（PC ≥993px が唯一のピクセル発火源）はモバイル非表示のため、
-                モバイル読者向けに visible なクリック面をここに新設する（ネイティブカード型）。
-                href のみ（ピクセルなし）＝計測はサイドバー側 1 発火を維持（1 ページ 1 ピクセル）。
-                creative は resolveCareerArticleEndCard が期間で出し分け（〜8/31 ビルドジョブ／以降 GKS）。
-                2026-06-20: pe-construction を追加。建設部門 docs はサイドバー(全docs無条件)で PC は
-                ビルドジョブ表示済みだが、モバイルの記事末カードが civil 限定で欠落していた。建設部門
-                受験者＝建設業界エンジニア＝ビルドジョブ(建設業界特化・無料面談¥50,000/件〜8/31)の
-                ド真ん中ターゲット。note→建設部門 docs の送客(既存)がモバイルでも収益化されるよう parity 化。 */}
-            {(category === 'civil-construction-1' || category === 'civil-construction-2' || category === 'pe-construction') && (
-              <div className="mt-8 zenn-desktop:hidden">
-                <CareerAffiliate {...resolveCareerArticleEndCard()} />
-              </div>
-            )}
-            {/* 総監（pe-comprehensive-management）はシニア技術者・管理職層＝施工管理系(ビルドジョブ/GKS)が
-                ミスマッチのため、記事末モバイルカードもサイドバーと揃えて PE_CONSULTING(ハイクラスDX/コンサル)
-                で出す（2026-06-20）。href のみ＝計測はサイドバー側 PE_CONSULTING 1 発火を維持。 */}
-            {category === 'pe-comprehensive-management' && (
-              <div className="mt-8 zenn-desktop:hidden">
-                <CareerAffiliate {...resolvePeConsultingArticleEndCard()} />
-              </div>
-            )}
-
-            {/* 関連記事（全記事共通・記事末 AuthorCard の前。旧 MDX 直書き `## 関連記事` の置換。
-                同カテゴリ × トピックタグ共通数でランク。関連 2 件未満なら自動で非表示）。 */}
-            <div className="mt-8">
-              <RelatedArticles currentMeta={doc.meta} categoryArticles={categoryArticles} />
-            </div>
-
-            {/* 執筆者・最終更新日（全記事共通・E-A-T 強化） */}
-            <AuthorCard {...authorDates} category={category ?? undefined} />
+            <ArticleFooter
+              references={references}
+              category={category}
+              docGroup={docGroup}
+              slugStr={slugStr}
+              sectionStr={sectionStr}
+              meta={doc.meta}
+              categoryArticles={categoryArticles}
+              inlineMagazines={inlineMagazines}
+              inlineMobileOnly={magazinePlacement.inlineMobileOnly}
+              faqs={faqs}
+              hasCategoryNavCard={hasCategoryNavCard}
+              authorDates={authorDates}
+            />
           </main>
 
           {/* Right Sidebar: Zenn 300px, visible at ≥993px (zenn-desktop) */}
