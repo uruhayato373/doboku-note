@@ -97,16 +97,21 @@ function localPacks() {
     .filter((p) => p.hasContent || p.recordedShortcode); // 投稿素材か記録を持つパックのみ
 }
 
-// 投稿が現存するか直接チェック（「ご利用いただけません」= 削除/非公開）。記録済み shortcode は
-// グリッド走査の取りこぼし（遅延ロードで全件は載らない）に左右されないよう、URL を直接叩く。
-async function postExists(page, sc) {
+// 投稿の現存＋型を直接チェック。記録済み shortcode はグリッド走査の取りこぼし（遅延ロードで全件は
+// 載らない）に左右されないよう URL を直接叩く。型は reel / carousel を区別する（rio 事故＝リールを
+// 白カルーセルと誤認して黒カルーセルを削除した再発防止。/reel/ へのリダイレクト or「オリジナル音源」
+// 「リール動画を宣伝」マーカーでリール判定）。返り値 {exists: true|false|null, type: 'reel'|'carousel'|null}。
+async function postInfo(page, sc) {
   try {
     await page.goto(`https://www.instagram.com/p/${sc}/`, { waitUntil: "domcontentloaded" });
-    await page.waitForTimeout(1500);
+    await page.waitForTimeout(2500);
     const body = await page.locator("body").innerText().catch(() => "");
-    if (/ご利用いただけません|isn't available|削除されました/.test(body)) return false;
-    return true;
-  } catch { return null; }
+    if (/ご利用いただけません|isn't available|削除されました/.test(body)) return { exists: false, type: null };
+    // リール判定（強い順）: <video> 要素の有無＝最も確実（実測 reel=1/carousel=0）。次いで /reel/ リダイレクト・本文マーカー。
+    const hasVideo = (await page.locator("video").count().catch(() => 0)) > 0;
+    const isReel = hasVideo || /\/reel\//.test(page.url()) || /オリジナル音源|リール動画を宣伝/.test(body);
+    return { exists: true, type: isReel ? "reel" : "carousel" };
+  } catch { return { exists: null, type: null }; }
 }
 
 // ─── ライブ側（Playwright）─────────────────────────────────────
@@ -122,15 +127,18 @@ async function readLive(account, recordedShortcodes) {
     if (await page.locator('input[name="username"]').count().catch(() => 0)) {
       throw new Error("NOT_LOGGED_IN: プロファイルのセッション切れ（publish-ig-bs ... login をやり直す）");
     }
-    const seen = new Set();
+    // グリッドの href で型を推定（/reel/ → reel・/p/ → carousel。reel が優先）
+    const gridType = new Map();
     for (let i = 0; i < 14; i++) {
       const hrefs = await page.$$eval('a[href*="/p/"], a[href*="/reel/"]', (as) => as.map((a) => a.getAttribute("href")));
-      for (const h of hrefs) { const m = (h || "").match(/\/(?:p|reel)\/([A-Za-z0-9_-]+)/); if (m) seen.add(m[1]); }
+      for (const h of hrefs) {
+        const m = (h || "").match(/\/(p|reel)\/([A-Za-z0-9_-]+)/);
+        if (m) { const t = m[1] === "reel" ? "reel" : "carousel"; if (t === "reel" || !gridType.has(m[2])) gridType.set(m[2], t); }
+      }
       await page.mouse.wheel(0, 2600); await page.waitForTimeout(1400);
     }
-    const shortcodes = [...seen].slice(0, MAX);
-    // 2) グリッド投稿の caption 先頭を取得（og:title）。ただし記録済み URL のものは後段の存在チェックで拾うので、
-    //    ここでは「記録に無い＝未記録候補」の発見に使う head マップを作る。
+    const shortcodes = [...gridType.keys()].slice(0, MAX);
+    // 2) グリッド投稿の caption 先頭＋型を取得（未記録投稿の発見用 head マップ）。
     const live = [];
     for (const sc of shortcodes) {
       try {
@@ -138,16 +146,18 @@ async function readLive(account, recordedShortcodes) {
         await page.waitForTimeout(1500);
         let cap = await page.locator('meta[property="og:title"]').getAttribute("content").catch(() => "");
         cap = (cap || "").replace(/^.*?Instagram:\s*"?/s, "").replace(/"\s*$/, "");
-        live.push({ shortcode: sc, head: normHead(cap) });
-      } catch { live.push({ shortcode: sc, head: "" }); }
+        const hasVideo = (await page.locator("video").count().catch(() => 0)) > 0;
+        const isReel = hasVideo || /\/reel\//.test(page.url()) || gridType.get(sc) === "reel";
+        live.push({ shortcode: sc, head: normHead(cap), type: isReel ? "reel" : "carousel" });
+      } catch { live.push({ shortcode: sc, head: "", type: gridType.get(sc) || "carousel" }); }
     }
-    // 3) 記録済み shortcode を直接存在チェック（グリッド取りこぼしに依存しない authoritative な記録側判定）
-    const recordedExists = {};
-    for (const sc of recordedShortcodes) { if (!(sc in recordedExists)) recordedExists[sc] = await postExists(page, sc); }
+    // 3) 記録済み shortcode を直接存在チェック＋型判定（グリッド取りこぼしに依存しない authoritative な記録側）
+    const recordedInfo = {};
+    for (const sc of recordedShortcodes) { if (!(sc in recordedInfo)) recordedInfo[sc] = await postInfo(page, sc); }
     // 4) プランナーの予約スロット（月ビューの時刻チップを日別抽出）
     let scheduled = null;
     if (!NO_PLANNER) { try { scheduled = await readPlanner(page, account); } catch (e) { scheduled = { error: String(e).slice(0, 80) }; } }
-    return { shortcodes, live, recordedExists, scheduled };
+    return { shortcodes, live, recordedInfo, scheduled };
   } finally {
     await ctx.close();
   }
@@ -182,25 +192,33 @@ async function readPlanner(page, account) {
 
 // ─── 照合 ─────────────────────────────────────────────────────
 function reconcile(packs, liveData) {
+  // head → [{shortcode,type}]（型を保持し anomaly を型考慮にする）
   const headToLive = {};
-  for (const lv of liveData.live) { if (lv.head) (headToLive[lv.head] ||= []).push(lv.shortcode); }
+  for (const lv of liveData.live) { if (lv.head) (headToLive[lv.head] ||= []).push({ shortcode: lv.shortcode, type: lv.type || "carousel" }); }
 
-  const cats = { published_recorded: [], published_UNrecorded: [], draft_misrecorded: [], scheduled: [], unpublished: [], recorded_but_gone: [], anomaly: [], reel_gap: [], reel_built_unposted: [] };
+  const cats = { published_recorded: [], published_UNrecorded: [], draft_misrecorded: [], scheduled: [], unpublished: [], recorded_but_gone: [], type_mismatch: [], anomaly: [], reel_gap: [], reel_built_unposted: [] };
   for (const p of packs) {
     const matched = p.head ? (headToLive[p.head] || []) : [];
-    // 記録側は直接存在チェックの結果を使う（true=生存 / false=削除確定 / null/undefined=取得不能→生存扱い）
-    const recExist = p.recordedShortcode ? liveData.recordedExists?.[p.recordedShortcode] : undefined;
+    const matchedCarousel = matched.filter((m) => m.type === "carousel").map((m) => m.shortcode);
+    // 記録側は直接存在チェック＋型の結果を使う（exists: true=生存/false=削除/null=取得不能→生存扱い）
+    const recInfo = p.recordedShortcode ? liveData.recordedInfo?.[p.recordedShortcode] : undefined;
 
-    if (matched.length >= 2) cats.anomaly.push({ ...p, matched, reason: "同一テーマが複数のライブ投稿に一致（重複投稿の疑い）" });
+    // anomaly は「同テーマの同型（カルーセル）が 2 件以上」のみ。カルーセル＋リールの併存は正常運用なので除外。
+    if (matchedCarousel.length >= 2) cats.anomaly.push({ ...p, matched: matchedCarousel, reason: "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）" });
 
     if (p.recordedShortcode) {
-      if (recExist === false) cats.recorded_but_gone.push(p);  // 記録 URL が削除済み（確定）
-      else cats.published_recorded.push(p);                    // 生存 or 取得不能（誤検知を避け生存扱い）
+      if (recInfo?.exists === false) { cats.recorded_but_gone.push(p); continue; }  // 記録 URL が削除済み（確定）
+      if (recInfo?.type === "reel") {                                                // ★記録 carousel が実はリール（rio 型）
+        // カルーセル記録がリールを指す＝カルーセル実質欠落。型不整合として赤フラグし、carousel-done に含めない。
+        cats.type_mismatch.push({ ...p, recordedType: "reel", note: "posted.json は carousel だが実体はリール＝カルーセル実質なし" });
+        continue;
+      }
+      cats.published_recorded.push(p);                                               // 生存 carousel or 取得不能（生存扱い）
       continue;
     }
-    if (matched.length >= 1) {                                  // 記録は無いがライブ caption に一致
-      if (p.draftFlag) cats.draft_misrecorded.push({ ...p, matched });
-      else cats.published_UNrecorded.push({ ...p, matched });
+    if (matchedCarousel.length >= 1) {                          // 記録は無いがライブのカルーセルに一致
+      if (p.draftFlag) cats.draft_misrecorded.push({ ...p, matched: matchedCarousel });
+      else cats.published_UNrecorded.push({ ...p, matched: matchedCarousel });
       continue;
     }
     if (p.scheduledAt) { cats.scheduled.push(p); continue; }    // status.json で予約済み
@@ -228,7 +246,7 @@ try { liveData = await readLive(account, recordedShortcodes); }
 catch (e) { console.error("[verify-ig-status] ライブ取得失敗:", String(e)); process.exit(1); }
 const cats = reconcile(packs, liveData);
 
-const driftCount = cats.published_UNrecorded.length + cats.draft_misrecorded.length + cats.recorded_but_gone.length + cats.anomaly.length;
+const driftCount = cats.published_UNrecorded.length + cats.draft_misrecorded.length + cats.recorded_but_gone.length + cats.type_mismatch.length + cats.anomaly.length;
 const snapshot = {
   account: account.handle, at: new Date().toISOString(),
   counts: Object.fromEntries(Object.entries(cats).map(([k, v]) => [k, v.length])),
@@ -246,6 +264,7 @@ else {
   show("★公開済み・記録なし（posted.json backfill 必要）", cats.published_UNrecorded, (p) => `${p.rel}  ← live ${p.matched.join(",")}`);
   show("★draft 誤記録（status.json は draft だが実投稿済）", cats.draft_misrecorded, (p) => `${p.rel}  ← live ${p.matched.join(",")}`);
   show("★記録 URL が削除済み（recorded_but_gone）", cats.recorded_but_gone, (p) => `${p.rel}  (${p.recordedUrl})`);
+  show("★型不整合（posted.json carousel が実はリール＝カルーセル実質なし）", cats.type_mismatch, (p) => `${p.rel}  (${p.recordedUrl} はリール)`);
   show("予約済み（status.json scheduled）", cats.scheduled, (p) => `${p.rel}  @ ${p.scheduledAt}`);
   show("未公開（予約に乗せる候補）", cats.unpublished);
   show("★異常（重複投稿の疑い・要人手判断）", cats.anomaly, (p) => `${p.rel}  → ${p.matched.join(",")}`);

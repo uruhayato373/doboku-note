@@ -56,6 +56,7 @@ npm run verify-ig-status -- --json  # 機械処理用
 
 - **報告＋提案が既定**。posted.json 編集・予約投稿・どれも **operator 確認後のみ**実行する。
 - **公開済み投稿の削除は本スキル対象外**（不可逆）。黒背景の貼り直し等は個別判断で手動。
+- **鉄則: リール≠カルーセル。同テーマのリールが存在することはカルーセル削除の根拠にならない**。削除・重複判定の前に投稿の型（`/p/`=カルーセル・`/reel/`=リール・「オリジナル音源」表示）を必ず確認する。`verify-ig-status` の `type_mismatch` が機械ガード（rio 事故の再発防止）。
 - **「予約成功モーダル＋status.json」だけを信用しない**。必ずプランナー実体確認（[[publish-ig-bs]] の偽成功検証と同じ規律）。
 - **コミットは並行セッション保護のため develop を別 worktree で**行う（`git worktree add <dir> develop` → 編集 → pathspec commit → push → worktree 撤去）。共有 worktree では `git commit` も pathspec 必須・commit 先 branch 確認。真実源 → reference「並行セッションとコミット」。
 

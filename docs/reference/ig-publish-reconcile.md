@@ -22,19 +22,22 @@ Instagram カルーセルの「実際に公開されているか（現状確認�
 
 `ig-status.mjs` が C を読み書きし B→C を normalize。`verify-ig-status` は A/B/C すべてを解釈してライブと突合する。
 
-## 3. ドリフト 7 分類（verify-ig-status の出力）
+## 3. ドリフト 8 分類（verify-ig-status の出力）
 
 | 分類 | 意味 | 是正 |
 |---|---|---|
-| `published_recorded` | 記録 URL が生存（整合） | 不要 |
-| `published_UNrecorded` ★ | ライブに一致するが posted.json が無い | posted.json を backfill |
+| `published_recorded` | 記録 URL が生存・かつ**型がカルーセル**（整合） | 不要 |
+| `published_UNrecorded` ★ | ライブのカルーセルに一致するが posted.json が無い | posted.json を backfill |
 | `draft_misrecorded` ★ | status.json が draft だが実投稿済み | status.json を是正 |
 | `recorded_but_gone` ★ | 記録 URL が削除済み（存在チェックで確定） | 新 URL へ更新 or 孤児記録 |
+| `type_mismatch` ★ | **posted.json の carousel が実はリールを指す＝カルーセル実質なし** | カルーセルを貼り直し＋posted.json 是正（reels へ移す） |
 | `scheduled` | status.json で予約済み | 不要（go-live 後に posted へ） |
 | `unpublished` | 素材はあるが未公開 | 予約候補（§5） |
-| `anomaly` ★ | 同テーマが複数ライブ投稿に一致（重複の疑い） | **自動処理しない**・人判断 |
+| `anomaly` ★ | 同テーマが**複数のカルーセル**に一致（重複の疑い・型考慮済み） | **自動処理しない**・人判断 |
 
 ★ がドリフト（exit 2）。`.claude/state/ig-reconcile/snapshot.json` に保存。
+
+> **型不整合（type_mismatch）は rio 事故の再発防止**: 2026-06-25、rio（環境条約の流れ）の白カルーセルが無いのに**リール（DaAFq59EuIO）を白カルーセルと誤認**し、黒カルーセル（DZ8qhf0k3ah）を削除してカルーセルを消失させた。reconciler はカルーセル/リールを `/reel/` リダイレクト＋「オリジナル音源」「リール動画を宣伝」マーカーで判別し、carousel 記録がリールを指していたら赤フラグする。`anomaly` も同型（カルーセル同士）の重複のみ＝カルーセル＋リールの併存は正常運用として除外する。
 
 ### リール軸（carousel カテゴリと直交）
 
@@ -74,6 +77,7 @@ Instagram カルーセルの「実際に公開されているか（現状確認�
 
 - **報告＋提案が既定**。posted.json 編集・予約投稿は **operator 確認後のみ**。
 - **公開済み投稿の削除は本仕組みの対象外**（不可逆。黒背景の貼り直し等は個別判断で手動）。
+- **鉄則: リール≠カルーセル。同テーマのリールが存在することはカルーセル削除の根拠にならない。** 重複判定・削除判断の前に必ず投稿の型を確認する（`/p/`=カルーセル・`/reel/`=リール・投稿ページの「オリジナル音源」「リール動画を宣伝」表示）。カルーセルとリールは**両方出す設計**なので併存は正常。`verify-ig-status` の `type_mismatch`／型考慮 `anomaly` が機械側ガード（2026-06-25 rio 事故の再発防止）。
 - 削除直後の存在チェックは**キャッシュ誤検知**あり（消えていても一時的に「存在」と出る）→ 数秒後に再確認。
 
 ## 7. 並行セッションとコミット
