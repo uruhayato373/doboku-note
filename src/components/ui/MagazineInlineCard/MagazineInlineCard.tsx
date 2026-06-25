@@ -1,4 +1,5 @@
 import Image from "next/image";
+import MagazineBadge from "@/components/ui/MagazineBadge/MagazineBadge";
 
 interface MagazineInlineCardProps {
   readonly url: string;
@@ -47,12 +48,7 @@ export default function MagazineInlineCard({
             unoptimized
             sizes="(max-width: 640px) 100vw, 240px"
           />
-          <div
-            className="absolute top-1.5 left-1.5 px-1.5 py-0.5 text-[10px] font-medium text-white rounded-sm shadow-sm"
-            style={{ background: "var(--color-brand)" }}
-          >
-            {badge}
-          </div>
+          <MagazineBadge>{badge}</MagazineBadge>
         </div>
         <div className="min-w-0 flex-1 p-3 sm:p-4">
           <div className="text-[14px] sm:text-[15px] font-bold text-ink-strong dark:text-gray-100 leading-tight group-hover:text-brand-deep dark:group-hover:text-brand transition-colors line-clamp-2">
