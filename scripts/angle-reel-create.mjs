@@ -21,6 +21,7 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync, copyFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { parseArgs } from 'node:util';
+import { spawnSync } from 'node:child_process';
 import { Resvg } from '@resvg/resvg-js';
 
 const ROOT = resolve(import.meta.dirname, '..');
@@ -28,7 +29,7 @@ const IG = join(ROOT, 'docs/sns/instagram');
 const FONT = join(ROOT, '.claude/skills/conversion/ogp-create/assets/fonts/NotoSansJP-Bold.ttf');
 
 const { values } = parseArgs({ options: {
-  pack: { type: 'string' }, speaker: { type: 'string', default: '3' }, 'png-only': { type: 'boolean', default: false },
+  pack: { type: 'string' }, speaker: { type: 'string' }, 'png-only': { type: 'boolean', default: false },
 } });
 if (!values.pack) { console.error('🚨 --pack <cem/angle-reels/packId> を指定'); process.exit(1); }
 
@@ -155,22 +156,43 @@ console.log('  cover.png = hook スライド');
 
 if (values['png-only']) { console.log('✅ PNG のみ描画（--png-only）。VOICEVOX 起動後に外して動画化。'); process.exit(0); }
 
-// ─── TTS + 合成（VOICEVOX 必要） ───
+// ─── TTS（VOICEVOX 必要）───
 const { synthesize } = await import('../.claude/scripts/lib/sns-common/tts-client.mjs');
 const { applyReadingDict } = await import('../.claude/scripts/lib/sns-common/reading-dict.mjs');
-const { composeShortsVideo } = await import('../.claude/skills/social/yt-shorts-create/scripts/lib/ffmpeg-compose.mjs');
+// 声: CLI --speaker > script.json speaker > 既定 13（青山龍星・成熟男性。発注者の一人称体験に合う）
+const speaker = values.speaker !== undefined ? Number(values.speaker) : (spec.speaker ?? 13);
 
 const wavPaths = [];
 for (let i = 0; i < spec.slides.length; i++) {
   const wav = join(reelsDir, `slide-${String(i).padStart(2, '0')}.wav`);
-  const buf = await synthesize({ text: applyReadingDict(spec.slides[i].narration), speaker: Number(values.speaker) });
+  const buf = await synthesize({ text: applyReadingDict(spec.slides[i].narration), speaker });
   writeFileSync(wav, buf);
   wavPaths.push(wav);
 }
-const assPath = join(reelsDir, '_empty.ass');
-writeFileSync(assPath, '[Script Info]\nScriptType: v4.00+\nPlayResX: 1080\nPlayResY: 1920\n\n[V4+ Styles]\nFormat: Name\n\n[Events]\nFormat: Layer, Start, End, Style, Text\n');
+
+// ─── モーション合成（各スライドに緩いズーム＋冒頭フェードを付与し concat） ───
+const ff = (args) => { const r = spawnSync('ffmpeg', args, { stdio: ['ignore', 'ignore', 'inherit'] }); if (r.status !== 0) { console.error('🚨 ffmpeg 失敗'); process.exit(1); } };
+const probeDur = (f) => { const r = spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f], { encoding: 'utf8' }); return parseFloat(r.stdout) || 3; };
+const FPS = 30;
+const segPaths = [];
+let total = 0;
+for (let i = 0; i < pngPaths.length; i++) {
+  const dur = probeDur(wavPaths[i]);
+  total += dur;
+  const frames = Math.max(2, Math.round(dur * FPS));
+  // 偶数スライドはズームイン、奇数はズームアウト（単調さ回避）。冒頭 0.35s フェードイン。
+  const zin = (i % 2 === 0);
+  const z = zin ? `min(zoom+0.0007,1.12)` : `if(eq(on,1),1.12,max(zoom-0.0007,1.0))`;
+  const vf = `scale=1620:2880,zoompan=z='${z}':d=${frames}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=${W}x${H}:fps=${FPS},fade=t=in:st=0:d=0.35,format=yuv420p`;
+  const seg = join(reelsDir, `seg-${String(i).padStart(2, '0')}.mp4`);
+  ff(['-y', '-loglevel', 'error', '-loop', '1', '-i', pngPaths[i], '-i', wavPaths[i],
+      '-filter_complex', `[0:v]${vf}[v]`, '-map', '[v]', '-map', '1:a',
+      '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-r', String(FPS), '-t', dur.toFixed(3), seg]);
+  segPaths.push(seg);
+}
+const listPath = join(reelsDir, '_concat.txt');
+writeFileSync(listPath, segPaths.map((p) => `file '${p.replace(/'/g, "'\\''")}'`).join('\n') + '\n');
 const outMp4 = join(reelsDir, 'video.mp4');
-const { durations } = await composeShortsVideo({ pngPaths, wavPaths, assPath, outPath: outMp4, options: { tmpDir: reelsDir } });
-const total = durations.reduce((a, b) => a + b, 0);
-console.log(`✅ 完了: ${values.pack}/reels/video.mp4  尺 ${total.toFixed(1)}s（角度=${spec.angle}）`);
+ff(['-y', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', listPath, '-c', 'copy', outMp4]);
+console.log(`✅ 完了: ${values.pack}/reels/video.mp4  尺 ${total.toFixed(1)}s（角度=${spec.angle}・speaker ${speaker}・ズーム/フェード付き）`);
 console.log(`   投稿: publish-ig-bs post ${values.pack} --reel --schedule <dt>（cover.png をサムネ設定）`);

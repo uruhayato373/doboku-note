@@ -231,7 +231,11 @@ node .claude/skills/social/yt-shorts-create/scripts/per-problem-shorts.mjs \
 
 ### レンダラ（角度リール専用・新設）
 
-`node scripts/angle-reel-create.mjs --pack cem/angle-reels/<packId> [--speaker 3] [--png-only]` が、本 script.json から **hook/point/cta の縦型スライドを自前 SVG→PNG で描画**（ブランド色・NotoSansJP）し、VOICEVOX TTS ＋ ffmpeg（`composeShortsVideo`）で 9:16 短尺リールに合成する。`--png-only` は VOICEVOX 不要のビジュアル確認用。**カルーセル貼りの `figure-reel-create` とは別物**（あちらは §7 非推奨）。投稿は `publish-ig-bs post <pack> --reel`（`cover.png`＝hook をサムネ設定）。
+`node scripts/angle-reel-create.mjs --pack cem/angle-reels/<packId> [--speaker N] [--png-only]` が、本 script.json から **hook/point/cta の縦型スライドを自前 SVG→PNG で描画**（ブランド色・NotoSansJP）し、VOICEVOX TTS ＋ ffmpeg で 9:16 短尺リールに合成する。`--png-only` は VOICEVOX 不要のビジュアル確認用。**カルーセル貼りの `figure-reel-create` とは別物**（あちらは §7 非推奨）。投稿は `publish-ig-bs post <pack> --reel`（`cover.png`＝hook をサムネ設定）。
+
+- **モーション**: 各スライドに**緩いズーム（偶奇でイン/アウト交互）＋冒頭フェードイン**を付与して合成（静止スライドショーに見せず Reels アルゴリズムの動画判定に効かせる）。写真/汎用ストックは使わない（ブランドはクリーンな text-on-color・調達摩擦/可読性の問題。リッチ化が要れば AI 背景アートを文字なし＋スクリムで選択的に・課金要確認）。
+- **声（speaker）**: 優先順 `--speaker` > script.json の `speaker` > 既定 **13（青山龍星・成熟男性）**。一人称の体験談には男性声が合う。VOICEVOX エンジンは `~/voicevox_engine_dl/macos-arm64/run`（Docker/アプリ無し環境のローカル起動）。
+- **VOICEVOX 未起動なら `--png-only`** でビジュアルだけ先に確認できる。
 
 ### 採点（ig-reels-qa・本タイプの軸読み替え）
 
