@@ -7,6 +7,8 @@ import { getAllCategories, getCategoryBySlug } from '@/lib/categories';
 import { getDocsMetaByCategory } from '@/lib/docs';
 import { groupDocs } from '@/lib/category-groups';
 import { DocCard, DocSection } from '@/components/category/CategorySections';
+import { PopularShowcase, PopularRanking } from '@/components/category/PopularSections';
+import { getPopularDocs } from '@/lib/popular';
 import {
   CivilConstruction1View,
   CivilConstruction2View,
@@ -76,6 +78,10 @@ export default async function CategoryPage({
 
   const groups = GROUPED_CATEGORIES.has(slug) ? groupDocs(docs, slug) : null;
 
+  // よく読まれている記事（GA4 実アクセス上位・直近 28 日）。特集ショーケース top3 ＋ サイドバー人気ランキング top5。
+  // 計測実績のある記事のみ・データ未生成や該当なしは空配列＝各コンポーネントで graceful 非表示。
+  const popularDocs = getPopularDocs(docs, 5);
+
   // note 有料マガジン CTA（カテゴリ hub 用・文脈一致）。公開済みのみ残す（防御的）。
   const categoryMagazines = resolveCategoryMagazines(slug)
     .map((s) => ({ slot: s, magazine: getMagazine(s.magazineId) }))
@@ -91,7 +97,7 @@ export default async function CategoryPage({
   // note CTA は冒頭全幅グリッドから PC 右サイドバーへ集約し、モバイルは記事一覧の下に出す（2026-06-20）。
   // サイドバーは縦積みのため上位 3 マガジン（placement 優先順）に絞ってコンパクトに保つ。
   const hubMagazines = categoryMagazines.slice(0, 3);
-  const hasSidebar = Boolean(careerSidebar) || hubMagazines.length > 0;
+  const hasSidebar = Boolean(careerSidebar) || hubMagazines.length > 0 || popularDocs.length > 0;
   // モバイル本文中の visible バナー（pixelSrc を渡さない＝PC サイドバー側が唯一の発火源）。
   const mobileCareerAd = careerSidebar ? (
     <div className="zenn-desktop:hidden my-10">
@@ -141,6 +147,12 @@ export default async function CategoryPage({
           : 'max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10'}>
           <div className="flex-1 min-w-0">
             <div className="py-10 sm:py-12 text-[17px] leading-[1.9]">
+          {/* よく読まれている記事 特集（GA4 上位 top3・グループ別セクションの上）。データ無しなら描画されない。 */}
+          {popularDocs.length > 0 && (
+            <div className="mb-16">
+              <PopularShowcase items={popularDocs.slice(0, 3)} />
+            </div>
+          )}
           {docs.length === 0 ? (
             <div className="text-center py-12">
               <p className="text-gray-500 text-lg">
@@ -218,6 +230,8 @@ export default async function CategoryPage({
                     trackLabel={careerSidebar.trackLabel}
                   />
                 )}
+                {/* 人気記事ランキング（GA4 上位 top5・直近 28 日）。データ無しなら描画されない。 */}
+                <PopularRanking items={popularDocs} />
               </div>
             </aside>
           )}
