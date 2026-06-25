@@ -107,6 +107,12 @@ node scripts/check-ig-cover.mjs --staged
 if [ $? -ne 0 ]; then
   exit 1
 fi
+
+# IG figure-pack CTA のテンプレ準拠（見出し/誘導文/画像内ハッシュタグ禁止）逸脱検出（CTAドリフトの再発防止）
+node scripts/check-ig-cta.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
 `;
 
 if (!existsSync(HOOKS_DIR)) {
