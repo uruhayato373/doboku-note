@@ -1,0 +1,59 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" role="img" aria-label="フェールセーフとフールプルーフとインターロックの3者比較表">
+  <defs><style>text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }</style></defs>
+  <rect width="400" height="500" fill="#ffffff"/>
+
+  <!-- ヘッダー -->
+  <rect width="400" height="72" fill="#1a1a2e"/>
+  <text x="200" y="28" text-anchor="middle" font-size="11" fill="#e07070">技術士 総監 | 安全管理</text>
+  <text x="200" y="56" text-anchor="middle" font-size="17" font-weight="bold" fill="#fff">混同しやすい3用語の整理</text>
+
+  <!-- 比較表ヘッダー行 -->
+  <rect x="12" y="86" width="376" height="32" rx="4" fill="#1a1a2e"/>
+  <text x="90" y="107" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">対象</text>
+  <text x="210" y="107" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">トリガー</text>
+  <text x="330" y="107" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">目的</text>
+  <line x1="140" y1="86" x2="140" y2="452" stroke="#e0e0e0" stroke-width="1"/>
+  <line x1="268" y1="86" x2="268" y2="452" stroke="#e0e0e0" stroke-width="1"/>
+
+  <!-- フェールセーフ行 -->
+  <rect x="12" y="118" width="376" height="100" rx="6" fill="#fff0f0" stroke="#b22234" stroke-width="1.5"/>
+  <rect x="12" y="118" width="5" height="100" rx="3" fill="#b22234"/>
+  <text x="90" y="143" text-anchor="middle" font-size="12" font-weight="bold" fill="#b22234">フェールセーフ</text>
+  <text x="90" y="162" text-anchor="middle" font-size="11" fill="#555">機械・システム</text>
+  <text x="90" y="178" text-anchor="middle" font-size="11" fill="#555">の故障</text>
+  <text x="210" y="155" text-anchor="middle" font-size="11" fill="#555">故障の</text>
+  <text x="210" y="171" text-anchor="middle" font-size="11" fill="#555">自動検知</text>
+  <text x="330" y="148" text-anchor="middle" font-size="11" fill="#555">安全な状態</text>
+  <text x="330" y="164" text-anchor="middle" font-size="11" fill="#555">（停止/代替）</text>
+  <text x="330" y="180" text-anchor="middle" font-size="11" fill="#555">へ自動移行</text>
+  <text x="90" y="204" text-anchor="middle" font-size="10" fill="#b22234">例：信号故障→赤固定</text>
+
+  <!-- フールプルーフ行 -->
+  <rect x="12" y="230" width="376" height="100" rx="6" fill="#f0f8f0" stroke="#2e7d32" stroke-width="1.5"/>
+  <rect x="12" y="230" width="5" height="100" rx="3" fill="#2e7d32"/>
+  <text x="90" y="255" text-anchor="middle" font-size="12" font-weight="bold" fill="#2e7d32">フールプルーフ</text>
+  <text x="90" y="274" text-anchor="middle" font-size="11" fill="#555">人間の</text>
+  <text x="90" y="290" text-anchor="middle" font-size="11" fill="#555">誤操作</text>
+  <text x="210" y="267" text-anchor="middle" font-size="11" fill="#555">誤った操作</text>
+  <text x="210" y="283" text-anchor="middle" font-size="11" fill="#555">が行われたとき</text>
+  <text x="330" y="260" text-anchor="middle" font-size="11" fill="#555">危険な動作を</text>
+  <text x="330" y="276" text-anchor="middle" font-size="11" fill="#555">そもそも</text>
+  <text x="330" y="292" text-anchor="middle" font-size="11" fill="#555">起こさせない</text>
+  <text x="90" y="316" text-anchor="middle" font-size="10" fill="#2e7d32">例：逆挿し不可の形状設計</text>
+
+  <!-- インターロック行 -->
+  <rect x="12" y="342" width="376" height="100" rx="6" fill="#f0f4ff" stroke="#2e4da4" stroke-width="1.5"/>
+  <rect x="12" y="342" width="5" height="100" rx="3" fill="#2e4da4"/>
+  <text x="90" y="367" text-anchor="middle" font-size="12" font-weight="bold" fill="#2e4da4">インターロック</text>
+  <text x="90" y="386" text-anchor="middle" font-size="11" fill="#555">条件・状態</text>
+  <text x="90" y="402" text-anchor="middle" font-size="11" fill="#555">の不成立</text>
+  <text x="210" y="379" text-anchor="middle" font-size="11" fill="#555">動作前の</text>
+  <text x="210" y="395" text-anchor="middle" font-size="11" fill="#555">条件チェック</text>
+  <text x="330" y="372" text-anchor="middle" font-size="11" fill="#555">条件が満たされ</text>
+  <text x="330" y="388" text-anchor="middle" font-size="11" fill="#555">ない限り</text>
+  <text x="330" y="404" text-anchor="middle" font-size="11" fill="#555">動作させない</text>
+  <text x="90" y="428" text-anchor="middle" font-size="10" fill="#2e4da4">例：ドア開で機械停止</text>
+
+  <rect x="0" y="460" width="400" height="40" fill="#1a1a2e"/>
+  <text x="200" y="485" text-anchor="middle" font-size="12" fill="#6a8faf">doboku-note.com</text>
+</svg>
