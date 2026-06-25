@@ -43,7 +43,7 @@ export const AUTHOR = {
     "安全管理",
     "建設法務",
   ],
-  imageUrl: "/img/admin-avatar-flat.png",
+  imageUrl: "/img/author-avatar.png",
   twitterUrl: "https://x.com/dobokunotecom",
   // note アカウント固定記事「【はじめての方へ】技術士総監・R08 合格のための note ロードマップ」
   // 各記事末尾の AuthorCard からの送客動線として参照される（UTM 付き）
