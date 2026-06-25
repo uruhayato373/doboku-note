@@ -203,7 +203,8 @@ for (let i = 0; i < spec.slides.length; i++) {
 // ─── モーション合成（各スライドに緩いズーム＋冒頭フェードを付与し concat） ───
 const ff = (args) => { const r = spawnSync('ffmpeg', args, { stdio: ['ignore', 'ignore', 'inherit'] }); if (r.status !== 0) { console.error('🚨 ffmpeg 失敗'); process.exit(1); } };
 const probeDur = (f) => { const r = spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f], { encoding: 'utf8' }); return parseFloat(r.stdout) || 3; };
-const FPS = 30;
+const FPS = 60;                         // 60fps で緩慢ズームを滑らかに
+const ZSTEP = (0.021 / FPS).toFixed(5); // ズーム速度は fps 非依存（30fps×0.0007 相当）
 const segPaths = [];
 let total = 0;
 for (let i = 0; i < pngPaths.length; i++) {
@@ -212,8 +213,10 @@ for (let i = 0; i < pngPaths.length; i++) {
   const frames = Math.max(2, Math.round(dur * FPS));
   // 偶数スライドはズームイン、奇数はズームアウト（単調さ回避）。冒頭 0.35s フェードイン。
   const zin = (i % 2 === 0);
-  const z = zin ? `min(zoom+0.0007,1.12)` : `if(eq(on,1),1.12,max(zoom-0.0007,1.0))`;
-  const baseVf = `scale=1620:2880,zoompan=z='${z}':d=${frames}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=${W}x${H}:fps=${FPS},fade=t=in:st=0:d=0.35`;
+  const z = zin ? `min(zoom+${ZSTEP},1.12)` : `if(eq(on,1),1.12,max(zoom-${ZSTEP},1.0))`;
+  // 入力を 3 倍（3240×5760）に拡大してから zoompan→出力縮小。整数ピクセル丸めが出力で
+  // サブピクセル化し、ズーム中のテキスト段差（カクつき）を解消する。
+  const baseVf = `scale=3240:5760,zoompan=z='${z}':d=${frames}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=${W}x${H}:fps=${FPS},fade=t=in:st=0:d=0.35`;
   const seg = join(reelsDir, `seg-${String(i).padStart(2, '0')}.mp4`);
 
   // 入力を順に積む（背景 → [punch] → 音声 → [character]）。index を後で参照。
