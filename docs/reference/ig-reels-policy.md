@@ -202,20 +202,28 @@ node .claude/skills/social/yt-shorts-create/scripts/per-problem-shorts.mjs \
 
 ### script.json（mode: "angle"）
 
+格納先は `docs/sns/instagram/cem/angle-reels/<packId>/reels/script.json`（caption.txt も同階層）。**SoT は script.json + caption.txt のみ**、PNG/wav/video/cover は JIT・gitignore。
+
+各スライドは **`onScreen`（画面に出す短文）と `narration`（読み上げ）を分ける**＝narration 全文はスライドに載せない（hook/要点/CTA の punch だけ表示）。
+
 ```jsonc
 {
-  "packId": "<topic>-<angle>",          // 例: risk-perception-experience
+  "packId": "<topic>-<angle>",          // 例: civil-servant-blindspots-experience
   "mode": "angle",
   "angle": "experience",                 // experience / conclusion / counter / number
-  "totalDurationSec": 22,                // 15-30
+  "totalDurationSec": 22,                // 15-30（尺は実際はナレ長で決まる・目安）
   "source": "docs/note/技術士総監/…/article.md#section",  // 角度が立った起点資産（必須・要手作り）
   "slides": [
-    { "type": "hook",  "durationSec": 3,  "narration": "発注者だった私が言います。総監の○○、現場では…" },
-    { "type": "point", "durationSec": 14, "narration": "1 論点だけを展開（断片・フックまで）。" },
-    { "type": "cta",   "durationSec": 5,  "narration": "続きはプロフィールから。フォローで毎週届きます。" }
+    { "type": "hook",  "durationSec": 3,  "onScreen": "発注者だった私が\n一番落とした分野", "narration": "発注者だった私が、総監の択一で一番落としたのは…" },
+    { "type": "point", "durationSec": 14, "onScreen": "「現場の安全は\n施工者の仕事」\nその感覚が罠",       "narration": "1 論点だけを展開（断片・フックまで）。" },
+    { "type": "cta",   "durationSec": 5,  "onScreen": "盲点はあと2つ\nプロフィールのリンクから\nフォローで毎週", "narration": "続きはプロフィールから。フォローで毎週届きます。" }
   ]
 }
 ```
+
+### レンダラ（角度リール専用・新設）
+
+`node scripts/angle-reel-create.mjs --pack cem/angle-reels/<packId> [--speaker 3] [--png-only]` が、本 script.json から **hook/point/cta の縦型スライドを自前 SVG→PNG で描画**（ブランド色・NotoSansJP）し、VOICEVOX TTS ＋ ffmpeg（`composeShortsVideo`）で 9:16 短尺リールに合成する。`--png-only` は VOICEVOX 不要のビジュアル確認用。**カルーセル貼りの `figure-reel-create` とは別物**（あちらは §7 非推奨）。投稿は `publish-ig-bs post <pack> --reel`（`cover.png`＝hook をサムネ設定）。
 
 ### 採点（ig-reels-qa・本タイプの軸読み替え）
 

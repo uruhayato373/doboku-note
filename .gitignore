@@ -142,6 +142,11 @@ docs/sns/instagram/**/reels/wav/
 docs/sns/instagram/**/reels/subtitles.ass
 # figure→reel（figure-reel-create）の派生物。SoT は script.txt + caption.txt のみ。
 docs/sns/instagram/**/reels/img/
+# 角度駆動リール（angle-reels・angle-reel-create）の JIT 派生物。SoT は script.json + caption.txt のみ。
+docs/sns/instagram/**/angle-reels/**/reels/slide-*.png
+docs/sns/instagram/**/angle-reels/**/reels/slide-*.wav
+docs/sns/instagram/**/angle-reels/**/reels/cover.png
+docs/sns/instagram/**/angle-reels/**/reels/_empty.ass
 docs/sns/instagram/**/reels/cover.png
 
 # Large PDF files exceeding GitHub 100MB limit

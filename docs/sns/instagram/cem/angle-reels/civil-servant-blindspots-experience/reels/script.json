@@ -1,0 +1,27 @@
+{
+  "packId": "civil-servant-blindspots-experience",
+  "mode": "angle",
+  "angle": "experience",
+  "totalDurationSec": 22,
+  "source": "docs/note/技術士総監/自治体技術職員の択一盲点/article.md#盲点1",
+  "slides": [
+    {
+      "type": "hook",
+      "durationSec": 3,
+      "onScreen": "発注者だった私が\n総監択一で\n一番落とした分野",
+      "narration": "発注者だった私が、総監の択一で一番落としたのは、安全管理でした。"
+    },
+    {
+      "type": "point",
+      "durationSec": 14,
+      "onScreen": "「現場の安全は\n施工者の仕事」\nその感覚が罠になる",
+      "narration": "現場の安全は施工者の仕事。発注者にはその感覚が染みついています。でも択一の安全管理は、労働安全衛生法の事業者責任やエフエムイーエー、エフティーエーといった安全工学が中心。発注者の実務から一番遠い八問なんです。得意なつもりの分野ほど、座学で正面から埋める。"
+    },
+    {
+      "type": "cta",
+      "durationSec": 5,
+      "onScreen": "盲点はあと2つ\nプロフィールのリンクから\nフォローで毎週",
+      "narration": "発注者がつまずく盲点は、あと二つ。プロフィールのリンクから無料記事へ。フォローで毎週届きます。"
+    }
+  ]
+}
