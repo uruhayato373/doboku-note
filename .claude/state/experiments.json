@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-05-30T00:00:00.000Z",
+  "updated_at": "2026-06-26T22:53:34.588Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -514,12 +514,16 @@
         "combined_clicks": 1,
         "source": "gsc-page-2026-05-16T06-22-44.json + gsc-query-2026-05-16T06-22-40.json"
       },
-      "status": "measuring",
+      "status": "done",
       "created_at": "2026-05-16T10:00:00.000Z",
       "started_at": "2026-05-16T10:00:00.000Z",
-      "result": null,
-      "learnings": null,
-      "closed_at": null,
+      "result": "partial",
+      "learnings": [
+        "クリーンな変更後窓(gsc-page 2026-06-19, 28d)で combined clicks 1→10(10x) / impr 450→898(2x)。target(20)未達=partial。seoTitle へのクエリ完全一致キーワード追加は実クリックを生むが、効果は1ページ(civil-construction-1-textbook-scraper: clicks 9 / CTR 0→1.4% / pos 9.1)にほぼ集中。",
+        "残り4ページは impr はあるが CTR が動かない: primary-r07-a(impr108/clicks0/pos7.1)・pe-jisec(impr45/clicks0/pos10.8)・asch-conformity(impr84/clicks1)。pos 7-11 帯では seoTitle 単独ではクリックに繋がらず、次の打ち手は description/構造化 か順位そのものの改善。",
+        "判定は28dトレンドで実施(EXP-001 の学びを踏襲)。05-30 の中間measure(clicks5)は変更前を含む窓で過小評価だった。中間measureの再測定予定(06-13)を42日放置したのが滞留原因。"
+      ],
+      "closed_at": "2026-06-26T22:53:34.588Z",
       "actions": [
         "1. ea14e6dcb: textbook-scraper の seoTitle にスクレープドーザ併記 + リード文も並列明示",
         "2. c906af4d2: primary-r07-a / r06-a の seoTitle を r07-b パターン統一 (suffix 重複解消 + 科目明示)",
@@ -550,6 +554,11 @@
           "date": "2026-05-30T00:00:00.000Z",
           "action": "measured",
           "summary": "combined clicks 1→5 / impr 450→1379(3x)。target(20)未達=partial。窓が変更前を含むため06-13に再measure。"
+        },
+        {
+          "date": "2026-06-26T22:53:34.588Z",
+          "action": "closed",
+          "summary": "partial: combined clicks 1→10(target20未達)、impr 450→898。効果は textbook-scraper(clicks9) に集中、他4ページはCTR不動。"
         }
       ]
     },
@@ -568,12 +577,16 @@
         "individual_clicks_total": 1,
         "source": "gsc-page-2026-05-16T06-22-44.json (上位 200 件には r07-a/r07-b/r06-a 以外ほぼ出現せず、推定値)"
       },
-      "status": "measuring",
+      "status": "done",
       "created_at": "2026-05-16T10:00:00.000Z",
       "started_at": "2026-05-16T10:00:00.000Z",
-      "result": null,
-      "learnings": null,
-      "closed_at": null,
+      "result": "partial",
+      "learnings": [
+        "クリーンな変更後窓(gsc-page 2026-06-19, 28d)で aggregate clicks 1→4 / impr 193→179(横ばい)。target(8)未達=partial(弱)。21枚の薄ページ(個別impr≤20)の seoTitle 一括修正は相対CTRは改善するが絶対クリックの伸びは小さい(+3)。",
+        "title template 二重suffix(`| doboku-note`)除去は正しい衛生施策だが流入の主因ではない。薄ページ群への一括seoTitle投資はROIが低く、今後は高impr単ページ(EXP-003のscraper型)に集中すべき。",
+        "GSC上位行に出現したのは11/21ページのみ。残りは impr 極小で測定限界以下=効果の有無を判定できない。薄ページのaggregate実験は測定可能性そのものが低い。"
+      ],
+      "closed_at": "2026-06-26T22:53:34.588Z",
       "actions": [
         "1. c4cc419fd: 21 件の seoTitle suffix 重複バグを perl -i -pe で一括解消",
         "2. b941f298c: 同 24 件 (上記 + r07-a/b) に publishedAt を git 初回 commit 日から付与"
@@ -603,6 +616,11 @@
           "date": "2026-05-30T00:00:00.000Z",
           "action": "measured",
           "summary": "aggregate clicks 1→0 / impr 193(13/21URL)。target(8)未達。窓が変更前主体のため06-13に再measure。"
+        },
+        {
+          "date": "2026-06-26T22:53:34.588Z",
+          "action": "closed",
+          "summary": "partial(弱): aggregate clicks 1→4(target8未達)、impr 横ばい。薄ページ一括seoTitleはROI低。今後は高impr単ページに集中。"
         }
       ]
     }
