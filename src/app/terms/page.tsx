@@ -63,7 +63,7 @@ export default function TermsPage() {
             <span aria-hidden className="opacity-60">›</span>
             <span>Terms</span>
           </nav>
-          <h1 className="font-serif text-[32px] sm:text-[40px] font-black text-[var(--ink)] tracking-tight mb-2">
+          <h1 className="font-serif text-[24px] sm:text-[30px] font-black text-[var(--ink)] tracking-tight mb-2">
             利用規約
           </h1>
           <p className="font-mono text-[11px] text-[var(--ink-muted)]">最終更新日 2026.04.08</p>

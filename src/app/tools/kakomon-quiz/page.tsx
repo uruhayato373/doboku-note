@@ -41,7 +41,7 @@ export default function KakomonQuizPage() {
             <div className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-[var(--accent)] px-2.5 py-1 bg-[var(--accent-fill)] rounded-full mb-4">
               無料ツール
             </div>
-            <h1 className="font-serif font-black text-[var(--ink)] text-[28px] sm:text-[38px] tracking-tight leading-[1.25] mb-4">
+            <h1 className="font-serif font-black text-[var(--ink)] text-[24px] sm:text-[30px] tracking-tight leading-[1.25] mb-4">
               1級土木 過去問ミニ演習
             </h1>
             <p className="text-[15px] sm:text-[16px] leading-[1.9] text-[var(--ink-body)]">

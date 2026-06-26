@@ -35,7 +35,7 @@ export default function ContactPage() {
               <span aria-hidden className="opacity-60">›</span>
               <span>Contact</span>
             </nav>
-            <h1 className="font-serif font-black text-[var(--ink)] text-[32px] sm:text-[40px] tracking-tight mb-3">
+            <h1 className="font-serif font-black text-[var(--ink)] text-[24px] sm:text-[30px] tracking-tight mb-3">
               お問い合わせ
             </h1>
             <p className="text-[15px] text-[var(--ink-body)]">

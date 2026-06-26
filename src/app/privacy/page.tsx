@@ -70,7 +70,7 @@ export default function PrivacyPage() {
               <span aria-hidden className="opacity-60">›</span>
               <span>Privacy</span>
             </nav>
-            <h1 className="font-serif font-black text-[var(--ink)] text-[32px] sm:text-[44px] tracking-tight mb-2">
+            <h1 className="font-serif font-black text-[var(--ink)] text-[24px] sm:text-[30px] tracking-tight mb-2">
               プライバシーポリシー
             </h1>
             <p className="font-mono text-[11px] text-[var(--ink-muted)]">

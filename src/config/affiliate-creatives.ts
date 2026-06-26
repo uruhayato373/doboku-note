@@ -185,11 +185,12 @@ export function resolvePeConsultingArticleEndCard(): CareerArticleEndCard {
  * 受験者層に creative をセグメントする（戻り値 null = 転職枠なし＝単一カラム）。
  * page.tsx の careerSidebar 判定（ゲート）も兼ねる。
  *
- * - civil-1 / civil-2（施工管理・現場/若手層）→ `resolveCareerSidebarAd()`（期間で BuildJob ↔ GKS）。
+ * - civil-1 / civil-2 / pe-construction（施工管理・建設業界）→ `resolveCareerSidebarAd()`（期間で BuildJob ↔ GKS）。
+ *   pe-construction（建設部門）も BuildJob 適合のため 2026-06-26 にカテゴリ枠を追加（docs は被覆済みだった）。
  * - pe-comprehensive-management（総監＝シニア技術者・管理職層）→ ハイクラス DX/コンサル転職
  *   （`PE_CONSULTING_CAREER_AD`）。GKS の「20代未経験/施工管理」ミスマッチを解消（2026-06-16 差替）。
  *   GA4 流入 2 位の高トラフィックページの収益導線ゼロも解消。
- * - それ以外（concrete 系 / pe-construction / pe-first-stage）→ null（docs でもアフィリ無し）。
+ * - それ以外（concrete 系 / pe-first-stage）→ null（カテゴリ hub に転職枠なし）。
  *
  * 真実源: docs/project/04_運営/02_アフィリエイト提携状況.md。
  */
@@ -199,7 +200,13 @@ export function resolveCategoryCareerAd(
   if (category === "pe-comprehensive-management") {
     return { creative: PE_CONSULTING_CAREER_AD, trackLabel: "DXConsulting-sidebar" };
   }
-  if (category === "civil-construction-1" || category === "civil-construction-2") {
+  if (
+    category === "civil-construction-1" ||
+    category === "civil-construction-2" ||
+    category === "pe-construction"
+  ) {
+    // pe-construction（建設部門）も BuildJob/GKS の建設・施工管理セグメントに適合（2026-06-26）。
+    // docs サイドバー/モバイル記事末は既に BuildJob 被覆済みで、カテゴリ hub だけ枠が無かった穴を埋める。
     return resolveCareerSidebarAd();
   }
   return null;

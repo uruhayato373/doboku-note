@@ -153,19 +153,14 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 **実装ファイル**: `.claude/config/psi-urls.txt`・`.claude/config/psi-config.json`（mobile 戦略）。計測は CI（measurement-incidents の恒久ルール）。
 
-### AuthorCard の資格別カスタマイズ + 右サイドバー配置 🟡
+### AuthorCard の資格別カスタマイズ + 右サイドバー配置 ✅（2026-06-26 完了・PR #279）
 
-**問題**: `AUTHOR.noteLabel` / `AUTHOR.noteUrl` が全資格で総監リンクにハードコード（`src/config/author.ts`）
-
-**やること**:
-1. `AuthorCard` に `category` prop → `noteByCategory` マップで出し分け
-2. 右サイドバー最上部に `AuthorCardCompact`（新規）を sticky で配置
-
-**実装ファイル**:
-- `src/config/author.ts`（noteByCategory マップ追加）
-- `src/components/ui/AuthorCard/AuthorCard.tsx`
-- `src/components/ui/AuthorCard/AuthorCardCompact.tsx`（新規）
-- `src/app/docs/[...slug]/page.tsx`
+- 右サイドバープロフィールは `AuthorSidebarCard`（新規・縦型）で実装。カテゴリ hub と docs
+  両サイドバーに常設（転職枠の直下）。
+- note CTA は当初 `noteByCategory` で資格別出し分けを実装したが、文言の不統一を避けるため
+  **全ページ統一の単一 CTA（`AUTHOR.noteCta`・L1 全資格案内）へ集約**（per-category routing は廃止）。
+- プロフィール本文は役割・姿勢の一文（`AUTHOR.tagline`）＋保有資格全件に再構成し、肩書き/bio との
+  情報重複を解消（旧 `shortBio` は撤去）。
 
 ---
 

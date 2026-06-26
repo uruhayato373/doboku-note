@@ -145,6 +145,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       'R03〜R07 + R8予想2記事 = 計7記事。維持管理版/河川改修版の A案/B案＋印刷用PDF付き。',
     imageUrl: '/images/magazines/essay-river-municipality-cover.webp',
+    sidebarImageUrl: '/images/magazines/essay-river-municipality-sidebar.webp',
     price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
@@ -159,6 +160,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       'R03〜R07 + R8予想2記事 = 計7記事。立地適正化計画版/再開発事業版の A案/B案＋印刷用PDF付き。',
     imageUrl: '/images/magazines/essay-urban-municipality-cover.webp',
+    sidebarImageUrl: '/images/magazines/essay-urban-municipality-sidebar.webp',
     price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
@@ -172,6 +174,7 @@ const MAGAZINES_RAW = {
     description:
       'R03〜R07 過去問（老朽管路更新版/浸水対策雨水幹線整備版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応・浸水対策／資源循環・下水汚泥資源化、各 A案/B案）の計 7 記事。下水道担当（発注者）視点、5 管理間トレードオフが主軸。各記事に印刷用PDF付き。',
     imageUrl: '/images/magazines/essay-sewage-municipality-cover.webp',
+    sidebarImageUrl: '/images/magazines/essay-sewage-municipality-sidebar.webp',
     price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
@@ -184,6 +187,7 @@ const MAGAZINES_RAW = {
     description:
       'R03〜R07 過去問（砂防施設維持管理版/砂防堰堤新設・急傾斜地対策版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応・砂防施設リスク管理／資源循環・サプライチェーン強靭化、各 A案/B案）の計 7 記事。砂防担当（発注者）視点、土砂災害リスク管理・流域管理・5 管理間トレードオフが主軸。各記事に印刷用PDF付き。',
     imageUrl: '/images/magazines/essay-sabo-municipality-cover.webp',
+    sidebarImageUrl: '/images/magazines/essay-sabo-municipality-sidebar.webp',
     price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
@@ -196,6 +200,7 @@ const MAGAZINES_RAW = {
     description:
       'R03〜R07 過去問（港湾施設維持管理版/岸壁改良・水深増深版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応・グリーン港湾／資源循環・サプライチェーン強靭化、各 A案/B案）の計 7 記事。港湾担当（発注者）視点、物流機能維持・CNポート・5 管理間トレードオフが主軸。各記事に印刷用PDF付き。',
     imageUrl: '/images/magazines/essay-port-municipality-cover.webp',
+    sidebarImageUrl: '/images/magazines/essay-port-municipality-sidebar.webp',
     price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
@@ -208,6 +213,7 @@ const MAGAZINES_RAW = {
     description:
       'R03〜R07 過去問（公園施設維持管理・老朽遊具更新版/防災公園新設・グリーンインフラ整備版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応×グリーンインフラ防災公園／資源循環×公園施設の更新管理、各 A案/B案）の計 7 記事。公園緑地担当（発注者）視点、5 管理間トレードオフが主軸。各記事に印刷用PDF付き。',
     imageUrl: '/images/magazines/essay-park-municipality-cover.webp',
+    sidebarImageUrl: '/images/magazines/essay-park-municipality-sidebar.webp',
     price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
@@ -220,6 +226,7 @@ const MAGAZINES_RAW = {
     description:
       'R03〜R07 過去問（老朽管路更新版/浄水場改修・高度浄水処理導入版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応・強靭化／資源循環・サプライチェーン強靭化、各 A案/B案）の計 7 記事。上水道担当（発注者）視点、5 管理間トレードオフが主軸。各記事に印刷用PDF付き。',
     imageUrl: '/images/magazines/essay-water-municipality-cover.webp',
+    sidebarImageUrl: '/images/magazines/essay-water-municipality-sidebar.webp',
     price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
@@ -232,6 +239,7 @@ const MAGAZINES_RAW = {
     description:
       'R03〜R07 過去問（橋梁点検補修設計版/道路改良設計版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応・道路防災／資源循環・再生材活用設計、各 A案/B案）の計 7 記事。道路・橋梁設計コンサルタント（受注者・調査設計者）視点、5管理トレードオフが主軸。各記事に印刷用PDF付き。',
     imageUrl: '/images/magazines/essay-road-consultant-cover.webp',
+    sidebarImageUrl: '/images/magazines/essay-road-consultant-sidebar.webp',
     price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
@@ -244,6 +252,7 @@ const MAGAZINES_RAW = {
     description:
       'R03〜R07 過去問（立地適正化計画策定支援版/市街地整備・再開発計画版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応・グリーンインフラ／資源循環・コンパクトシティ資材戦略、各 A案/B案）の計 7 記事。建設コンサル都市計画部門（受注者・調査設計者）視点、5管理トレードオフが主軸。各記事に印刷用PDF付き。',
     imageUrl: '/images/magazines/essay-urban-consultant-cover.webp',
+    sidebarImageUrl: '/images/magazines/essay-urban-consultant-sidebar.webp',
     price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
@@ -330,6 +339,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       '型×設問3×予想×全14ペルソナ模範論文＋精読の全部入り。記述式対策の決定版バンドル。',
     imageUrl: '/images/magazines/magazine-essay-complete-pack-cover.webp',
+    sidebarImageUrl: '/images/magazines/magazine-essay-complete-pack-sidebar.webp',
     price: '¥9,800',
     badge: 'note 限定',
   },
@@ -351,6 +361,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       '型×設問3×R8の横断3本セット。記述式エンジンを安く・全員に。ペルソナは別途1本追加。',
     imageUrl: '/images/magazines/magazine-essay-core-pack-cover.webp',
+    sidebarImageUrl: '/images/magazines/magazine-essay-core-pack-sidebar.webp',
     price: '¥5,480（3本セット、31%OFF）',
     badge: 'note 限定',
   },
@@ -369,6 +380,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       '安全・品質・工程の3テーマ別 完成答案＋置換ガイド＋採点者視点。R6新形式対応。',
     imageUrl: '/images/magazines/civil-2-experience-essay-cover.webp',
+    sidebarImageUrl: '/images/magazines/civil-2-experience-essay-sidebar.webp',
     price: '¥1,980（3本セット）',
     badge: 'note 限定',
   },
@@ -387,6 +399,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       '5管理別 完成答案（監理技術者レベル）＋置換ガイド＋採点者視点。R6新形式対応。',
     imageUrl: '/images/magazines/civil-1-experience-essay-cover.webp',
+    sidebarImageUrl: '/images/magazines/civil-1-experience-essay-sidebar.webp',
     price: '¥2,480（5本セット）',
     badge: 'note 限定',
   },
@@ -404,6 +417,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       'R03-R07 年度別×各年3工事 フル模範答案（実問題文再掲・監理技術者レベル）。R6新形式対応。',
     imageUrl: '/images/magazines/civil-1-pastexam-essay-cover.webp',
+    sidebarImageUrl: '/images/magazines/civil-1-pastexam-essay-sidebar.webp',
     price: '¥2,480（5本セット）',
     badge: 'note 限定',
   },
@@ -421,6 +435,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       'R03-R07 年度別×各年3工事 フル模範答案（実問題文再掲・主任技術者レベル）。選択制/R6新形式対応。',
     imageUrl: '/images/magazines/civil-2-pastexam-essay-cover.webp',
+    sidebarImageUrl: '/images/magazines/civil-2-pastexam-essay-sidebar.webp',
     price: '¥2,480（5本セット）',
     badge: 'note 限定',
   },
@@ -469,6 +484,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       '月例の予想問題＋経験記述マンツーマン添削で合格まで伴走。通年／添削つきの2プラン。',
     imageUrl: '/images/magazines/civil-membership-lab-cover.webp',
+    sidebarImageUrl: '/images/magazines/civil-membership-lab-sidebar.webp',
     price: '月額 ¥1,480〜（2プラン）',
     badge: 'メンバーシップ',
   },
@@ -487,6 +503,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       '問題A・問題Bのフル模範答案を劣化機構別に8本。変状把握→劣化機構推定→調査→評価→対策の型を反復。',
     imageUrl: '/images/magazines/cd-essay-cover.webp',
+    sidebarImageUrl: '/images/magazines/cd-essay-magazine-sidebar.webp',
     price: '¥1,980（8本セット）',
     badge: 'note 限定 教材',
   },
@@ -525,6 +542,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       '解法ガイド＋テーマ別フル模範小論文4本（耐久性・品質管理・環境配慮・施工トラブル）。序論・本論・結論の型と採点4観点で攻略。',
     imageUrl: '/images/magazines/cce-essay-cover.webp',
+    sidebarImageUrl: '/images/magazines/cce-essay-magazine-sidebar.webp',
     price: '¥1,480（5本セット）',
     badge: 'note 限定 教材',
   },

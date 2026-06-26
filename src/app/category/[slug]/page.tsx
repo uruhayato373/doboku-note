@@ -16,10 +16,10 @@ import {
   PeComprehensiveView,
   PeConstructionView,
 } from '@/components/category/CategoryViews';
-import MagazineInlineCard from '@/components/ui/MagazineInlineCard';
-import MagazineSidebarPromoCard from '@/components/ui/MagazineSidebarPromoCard';
+import SidebarMagazineList from '@/components/ui/SidebarMagazineList';
+import AuthorSidebarCard from '@/components/ui/AuthorSidebarCard';
 import { resolveCategoryMagazines } from '@/lib/magazine-placement';
-import { getMagazine, buildMagazineUrl } from '@/lib/note-magazines';
+import { getMagazine } from '@/lib/note-magazines';
 import SidebarAdBanner from '@/components/ui/SidebarAdBanner';
 import { resolveCategoryCareerAd } from '@/config/affiliate-creatives';
 
@@ -97,7 +97,6 @@ export default async function CategoryPage({
   // note CTA は冒頭全幅グリッドから PC 右サイドバーへ集約し、モバイルは記事一覧の下に出す（2026-06-20）。
   // サイドバーは縦積みのため上位 3 マガジン（placement 優先順）に絞ってコンパクトに保つ。
   const hubMagazines = categoryMagazines.slice(0, 3);
-  const hasSidebar = Boolean(careerSidebar) || hubMagazines.length > 0 || popularDocs.length > 0;
   // モバイル本文中の visible バナー（pixelSrc を渡さない＝PC サイドバー側が唯一の発火源）。
   const mobileCareerAd = careerSidebar ? (
     <div className="zenn-desktop:hidden my-10">
@@ -117,36 +116,30 @@ export default async function CategoryPage({
       <Header />
 
       <main className="flex-grow">
-        {/* Category Header — editorial */}
-        <div className="border-b border-[var(--rule-soft)] py-10 sm:py-12 px-4 sm:px-6 lg:px-10 bg-[var(--paper)]">
-          <div className="max-w-[1280px] mx-auto">
-            <nav aria-label="breadcrumb" className="font-mono text-[11px] text-[var(--ink-muted)] uppercase tracking-widest mb-3 flex items-center gap-2">
-              <Link href="/" className="hover:text-[var(--accent)] transition-colors">Home</Link>
-              <span aria-hidden className="opacity-60">›</span>
-              <span>Category</span>
-            </nav>
-            <div className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-[var(--accent)] px-2.5 py-1 bg-[var(--accent-fill)] rounded-full mb-4">
-              CATEGORY
-            </div>
-            <h1 className="font-serif font-black tracking-tight text-[var(--ink)] text-[32px] sm:text-[40px] md:text-[48px] leading-[1.2] mb-3">
-              {cat.label}
-            </h1>
-            <p className="text-[16px] leading-[1.9] text-[var(--ink-body)] max-w-[60ch]">{cat.subtitle}</p>
-            <div className="mt-5 flex gap-4 flex-wrap font-mono text-[11px] text-[var(--ink-muted)] tabular-nums">
-              <span>{docs.length.toLocaleString()} docs</span>
-            </div>
-          </div>
-        </div>
-
-        {/* カテゴリ本文 + 右サイドバー。note CTA（hub・文脈一致）または転職枠があれば 2 カラム化し、
-            PC（≥993px）右サイドバー上部に note マガジン CTA、その下に転職アフィリ（SidebarAdBanner＝
-            当ページ唯一のピクセル源）を sticky 配置。note CTA はモバイルでは記事一覧の下に出す。
-            note CTA も転職枠も無いカテゴリは従来どおり単一カラム（flex 子 1 つ＝全幅）。 */}
-        <div className={hasSidebar
-          ? 'max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 flex gap-8 relative'
-          : 'max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10'}>
+        {/* カテゴリ本文 + 右サイドバー（PC ≥993px・常に 2 カラム）。サイドバーは上から
+            転職アフィリ（SidebarAdBanner＝当ページ唯一のピクセル源）→ 運営者プロフィール →
+            人気記事 → note マガジン CTA を sticky 配置。note CTA はモバイルでは記事一覧の下に出す。
+            カテゴリ見出しは全幅ヒーロー帯を廃し、左カラム上部にコンパクト配置（2026-06-26）。
+            これにより右サイドバー（転職枠）がファーストビューへ繰り上がる。 */}
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 flex gap-8 relative">
           <div className="flex-1 min-w-0">
-            <div className="py-10 sm:py-12 text-[17px] leading-[1.9]">
+            {/* カテゴリ見出し（縮小版・H1/パンくず/説明は SEO のため維持。CATEGORY チップは
+                パンくずと重複のため削除） */}
+            <div className="pt-8 sm:pt-10 pb-5 border-b border-[var(--rule-soft)]">
+              <nav aria-label="breadcrumb" className="font-mono text-[11px] text-[var(--ink-muted)] uppercase tracking-widest mb-2 flex items-center gap-2">
+                <Link href="/" className="hover:text-[var(--accent)] transition-colors">Home</Link>
+                <span aria-hidden className="opacity-60">›</span>
+                <span>Category</span>
+              </nav>
+              <h1 className="font-serif font-bold tracking-tight text-[var(--ink)] text-[24px] sm:text-[28px] leading-[1.3] mb-2">
+                {cat.label}
+              </h1>
+              <p className="text-[15px] leading-[1.8] text-[var(--ink-body)] max-w-[60ch]">{cat.subtitle}</p>
+              <div className="mt-3 flex gap-4 flex-wrap font-mono text-[11px] text-[var(--ink-muted)] tabular-nums">
+                <span>{docs.length.toLocaleString()} docs</span>
+              </div>
+            </div>
+            <div className="pt-8 sm:pt-10 pb-10 sm:pb-12 text-[17px] leading-[1.9]">
           {/* よく読まれている記事 特集（GA4 上位 top3・グループ別セクションの上）。データ無しなら描画されない。 */}
           {popularDocs.length > 0 && (
             <div className="mb-16">
@@ -187,42 +180,17 @@ export default async function CategoryPage({
           )}
             </div>
 
-            {/* note 有料マガジン CTA（モバイル＜993px のみ）。PC は右サイドバーへ集約するため、
+            {/* note 有料マガジン CTA（モバイル＜993px のみ・画像オンリーに統一）。PC は右サイドバーへ集約。
                 サイドバー非表示のモバイルでは記事一覧の下にフォールバック表示する。 */}
-            {hubMagazines.length > 0 && (
-              <div className="zenn-desktop:hidden pb-10 grid gap-3 sm:grid-cols-2">
-                {hubMagazines.map(({ slot, magazine }) => (
-                  <MagazineInlineCard
-                    key={slot.magazineId}
-                    url={buildMagazineUrl(magazine, slot.utmContent)}
-                    title={magazine.title}
-                    description={magazine.description}
-                    imageUrl={magazine.imageUrl}
-                    badge={magazine.badge}
-                    trackLabel={slot.utmContent}
-                  />
-                ))}
-              </div>
-            )}
+            <div className="zenn-desktop:hidden pb-10 mx-auto max-w-sm">
+              <SidebarMagazineList magazines={hubMagazines} className="space-y-3" />
+            </div>
           </div>
 
-          {hasSidebar && (
-            <aside className="hidden zenn-desktop:block w-[300px] shrink-0 py-10 sm:py-12">
+          <aside className="hidden zenn-desktop:block w-[300px] shrink-0 py-10 sm:py-12">
               <div className="sticky top-6 space-y-3">
-                {/* note 有料マガジン CTA（PC 右サイドバー上部・文脈一致）。試験単位の旗艦商品を提示する。
-                    冒頭全幅グリッドから集約（2026-06-20）。未公開マガジンは getMagazine で除外済み。 */}
-                {hubMagazines.map(({ slot, magazine }) => (
-                  <MagazineSidebarPromoCard
-                    key={slot.magazineId}
-                    url={buildMagazineUrl(magazine, slot.utmContent)}
-                    title={magazine.title}
-                    description={magazine.description}
-                    imageUrl={magazine.imageUrl}
-                    badge={magazine.badge}
-                    trackLabel={slot.utmContent}
-                  />
-                ))}
-                {/* 転職アフィリ（PC 右サイドバー・sticky）。当ページ唯一のピクセル発火源。
+                {/* 転職アフィリ（PC 右サイドバー最上部・sticky）。当ページ唯一のピクセル発火源。
+                    ファーストビュー内でインプレッションを最大化するため最上部に置く（2026-06-26 並べ替え）。
                     creative は resolveCareerSidebarAd で期間出し分け（〜2026-08-31 ビルドジョブ / 以降 GKS）。 */}
                 {careerSidebar && (
                   <SidebarAdBanner
@@ -230,11 +198,16 @@ export default async function CategoryPage({
                     trackLabel={careerSidebar.trackLabel}
                   />
                 )}
+                {/* 運営者プロフィール（合格体験者＝発注者）。転職枠の直下に置き E-E-A-T を提示（2026-06-26）。 */}
+                <AuthorSidebarCard />
                 {/* 人気記事ランキング（GA4 上位 top5・直近 28 日）。データ無しなら描画されない。 */}
                 <PopularRanking items={popularDocs} />
+                {/* note 有料マガジン CTA（文脈一致・画像オンリー）。回遊導線（人気記事）の下、
+                    スクロール下部に配置して訴求する（2026-06-26 並べ替え：旧 最上部 → 最下部）。
+                    docs サイドバーと共通の SidebarMagazineList。未公開マガジンは getMagazine で除外済み。 */}
+                <SidebarMagazineList magazines={hubMagazines} className="space-y-3" />
               </div>
             </aside>
-          )}
         </div>
       </main>
 
