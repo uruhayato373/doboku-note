@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-06-26T03:20:29.718Z",
+  "generated_at": "2026-06-26T03:22:56.461Z",
   "summary": {
-    "total_mdx_files": 1074,
+    "total_mdx_files": 1075,
     "total_unique_tags": 170,
     "allowlist_size": 149,
     "known_count": 80,
@@ -1518,7 +1518,7 @@
     },
     {
       "name": "guide",
-      "count": 110,
+      "count": 111,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1605,6 +1605,7 @@
         "pe-construction-environment-exam-themes",
         "pe-construction-gakushuu-jikan-schedule",
         "pe-construction-geotechnical-exam-themes",
+        "pe-construction-guide-career",
         "pe-construction-gyoumu-keireki-hyou",
         "pe-construction-hissu-kamoku-kaitourei",
         "pe-construction-iji-kanri-ronbun-keyword",
@@ -1856,7 +1857,7 @@
     },
     {
       "name": "career",
-      "count": 33,
+      "count": 34,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-age-career",
@@ -1891,7 +1892,8 @@
         "civil-construction-2-guide-quit-or-stay",
         "civil-construction-2-guide-resume",
         "civil-construction-2-guide-salary",
-        "civil-construction-2-guide-young-career"
+        "civil-construction-2-guide-young-career",
+        "pe-construction-guide-career"
       ]
     },
     {
