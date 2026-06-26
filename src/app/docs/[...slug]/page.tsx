@@ -311,9 +311,9 @@ export default async function DocPage({
               {/* タイトル: frontmatter から server-side で描画。MDX 内 H1 は下で strip する */}
               <h1
                 id={generateHeadingId(doc.meta.title)}
-                className="font-serif font-black text-[var(--ink)] leading-[1.25] tracking-tight text-balance [word-break:auto-phrase] m-0 mb-0"
+                className="font-sans font-bold text-[24px] text-[var(--ink)] leading-[1.4] tracking-tight text-balance [word-break:auto-phrase] m-0 mb-0"
                 style={{
-                  letterSpacing: '-0.02em',
+                  letterSpacing: '-0.01em',
                 }}
               >
                 {doc.meta.title}

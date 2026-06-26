@@ -64,10 +64,11 @@
     --ct-quote-bg: #fafafa;    --ct-quote-bd: #a1a1aa;    --ct-quote-fg: #52525b;
 
     /* Typography scale — single source of truth */
-    /* Fluid: viewport-dependent (article headings) */
-    --font-size-h1: clamp(1.75rem, 3vw, 2rem);       /* 28px → 32px */
-    --font-size-h2: clamp(1.25rem, 2vw, 1.375rem);    /* 20px → 22px */
-    --font-size-h3: 1.25rem;    /* 20px */
+    /* 2026-06-26: 参考サイト(sidejobearn)の記事タイポグラフィに合わせて固定値化
+       （記事 H1 24px / H2 22.4px / H3 20.8px・見出しは太さ700・行間1.4）。 */
+    --font-size-h1: 1.5rem;     /* 24px */
+    --font-size-h2: 1.4rem;     /* 22.4px */
+    --font-size-h3: 1.3rem;     /* 20.8px */
     --font-size-h4: 1.125rem;   /* 18px */
     /* Fixed: UI chrome */
     --font-size-ui-title: 1.125rem;    /* 18px — sidebar / card heading */
@@ -153,10 +154,11 @@
     @apply prose prose-gray dark:prose-invert max-w-none;
   }
 
-  /* 本文: Zenn準拠 font-size 16px / line-height 1.9 */
+  /* 本文: 参考サイト(sidejobearn)準拠 font-size 16px / line-height 1.8 / weight 500（中太） */
   .prose-blog {
     font-size: var(--font-size-body);
-    line-height: 1.9;
+    line-height: 1.8;
+    font-weight: 500;
     text-autospace: normal;
   }
 
@@ -166,9 +168,9 @@
     text-autospace: no-autospace;
   }
 
-  /* 段落: Zenn方式（p+pでのみ間隔をとる） */
+  /* 段落: 参考サイト準拠 line-height 1.8（p+pでのみ間隔をとる） */
   .prose-blog p {
-    line-height: 1.9;
+    line-height: 1.8;
   }
   .prose-blog p + p {
     margin-top: 1.5em;
@@ -240,38 +242,37 @@
     @apply leading-snug;
   }
 
-  /* h1: ページタイトル — system mincho serif (Hiragino Mincho ProN / Yu Mincho fallback)
-     2026-04-26 #84: Noto Serif JP の @font-face CSS が render-blocking で 7350ms 遅延の主因だったため削除。 */
+  /* h1: ページタイトル — 参考サイト(sidejobearn)に合わせゴシック・太さ700・行間1.4。
+     2026-06-26: 旧 mincho serif（明朝見出し）を廃止し本文と同じゴシックに統一。 */
   .prose-blog h1 {
-    font-family: "Hiragino Mincho ProN", "Yu Mincho", YuMincho, Georgia, serif;
-    font-weight: 900;
+    font-weight: 700;
     color: var(--ink);
     font-size: var(--font-size-h1);
-    line-height: 1.25;
-    letter-spacing: -0.02em;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
     margin: 0 0 0.9em;
     padding-bottom: 0;
     border-bottom: none;
     max-width: none;
   }
 
-  /* h2: セクション区切り — system mincho serif, 装飾なし */
+  /* h2: セクション区切り — ゴシック・太さ700・行間1.4、装飾なし */
   .prose-blog h2 {
-    font-family: "Hiragino Mincho ProN", "Yu Mincho", YuMincho, Georgia, serif;
-    font-weight: 800;
+    font-weight: 700;
     color: var(--ink);
     font-size: var(--font-size-h2);
-    line-height: 1.35;
+    line-height: 1.4;
     letter-spacing: -0.01em;
     margin: 2.4em 0 0.8em;
     padding: 0;
     border-left: none;
   }
 
-  /* h3: サブセクション — 中間色の左アクセントバー */
+  /* h3: サブセクション — 中間色の左アクセントバー（ゴシック・太さ700） */
   .prose-blog h3 {
-    font-family: "Hiragino Mincho ProN", "Yu Mincho", YuMincho, Georgia, serif;
-    @apply text-xl font-semibold text-gray-800 dark:text-gray-200;
+    @apply font-bold text-gray-800 dark:text-gray-200;
+    font-size: var(--font-size-h3);
+    line-height: 1.4;
     @apply mb-4 mt-12 pl-4 py-1;
     @apply border-l-4 border-blue-400 dark:border-cyan-400;
     letter-spacing: -0.01em;

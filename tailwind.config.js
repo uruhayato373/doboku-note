@@ -87,21 +87,28 @@ module.exports = {
       fontFamily: {
         // 2026-04-29 #84 LCP 改善: next/font (Inter / Noto_Sans_JP) を全削除し system font に統一。
         // render-blocking @font-face CSS の除去で AdSense 審査に必要な PSI Performance ≥ 70 を狙う。
+        // 2026-06-26: 参考サイト(sidejobearn)に合わせ「游ゴシック優先のゴシック1種」を全要素へ統一。
+        // 見出しの明朝(serif)は廃止し、serif は同一ゴシックスタックへのエイリアスとする
+        // （多数のコンポーネントが font-serif を使うため、トークン側で一括ゴシック化する）。
         sans: [
+          "游ゴシック体",
+          "Yu Gothic",
+          "YuGothic",
           "Hiragino Kaku Gothic ProN",
           "Hiragino Sans",
-          "Yu Gothic UI",
-          "Yu Gothic",
           "Meiryo",
           "system-ui",
           "sans-serif",
         ],
         serif: [
-          'Hiragino Mincho ProN',
-          'Yu Mincho',
-          'YuMincho',
-          'Georgia',
-          'serif',
+          "游ゴシック体",
+          "Yu Gothic",
+          "YuGothic",
+          "Hiragino Kaku Gothic ProN",
+          "Hiragino Sans",
+          "Meiryo",
+          "system-ui",
+          "sans-serif",
         ],
         mono: [
           'ui-monospace',
