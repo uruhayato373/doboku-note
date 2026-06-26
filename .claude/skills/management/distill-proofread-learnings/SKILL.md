@@ -95,16 +95,16 @@ description: >
 | **既存原則の精緻化** | 既存ルールの境界・例外・適用手順が明確化された | `content-principles.md` を修正 |
 | **ユーザー嗜好** | 一般化しにくい個別の好み／ワークスタイル | `memory/` （feedback 型） |
 | **ワークフロー改善** | 校正の進め方・順序・ツール使い方の改善 | 関連 SKILL.md / `workflows.md` |
-| **採点・リライト議論候補** | 採点ルーブリック（cem-qa 5 軸）・リライト方法論（4 視点 × Phase 対応）の改修候補。議論を要するため **既存リファレンス Issue（#205 / #206）のコメントで議論開始** | **#205 のコメント**（採点側） / **#206 のコメント**（リライト側） |
+| **採点・リライト議論候補** | 採点ルーブリック（cem-qa 5 軸）・リライト方法論（4 視点 × Phase 対応）の改修候補。議論を要するため **即適用せず判断を仰ぐ** | `docs/todo/backlog.md` §7「ユーザー判断待ち」に起票 |
 
 **採点・リライト議論候補の判定基準**:
 
-- **採点側候補**（#205 で議論）: 採点軸の重み・閾値・新軸追加・既存軸の判定基準改修など
-  - 反映先（議論決定後）: `cem-qa.md` + `content-principles.md` + `templates/cem.md` の **3 ファイル同期更新が必要** + #205 本文の「合意済み」セクションへ移動
-- **リライト側候補**（#206 で議論）: 視点タグ追加・Phase 対応の見直し・拡張パターン A-G 改修・NLM 照合プロンプト調整など
-  - 反映先（議論決定後）: `exam-keyword-cycle/SKILL.md` ほか該当 SKILL.md の修正 + #206 本文の「合意済み」セクションへ移動
-- **新規 Issue を立てない理由**: 採点とリライトの真実源は #205 / #206 に一元化。議論を分散させると「最新版はどれか」が分からなくなる。**例外（5 軸完全リセット等の構造的変更）のみ** `.github/ISSUE_TEMPLATE/{rubric-review,rewrite-method}.md` を使用
-- **2 回ルール**: 1 回限りの違和感は次サイクル再観察、2 回以上浮上したパターンのみ議論開始推奨
+- **採点側候補**: 採点軸の重み・閾値・新軸追加・既存軸の判定基準改修など
+  - 反映先（ユーザー承認後）: `cem-qa.md` + `content-principles.md` + `templates/cem.md` の **3 ファイル同期更新が必要**
+- **リライト側候補**: 視点タグ追加・Phase 対応の見直し・拡張パターン A-G 改修・NLM 照合プロンプト調整など
+  - 反映先（ユーザー承認後）: `exam-keyword-cycle/SKILL.md` ほか該当 SKILL.md の修正
+- **議論の置き場**: 採点・リライト方法論の改修は即適用せず、`docs/todo/backlog.md` §7「ユーザー判断待ち」に1件として起票してユーザーの判断を仰ぐ。タスク・判断の単一正源は `docs/todo/`（**GitHub Issue は使わない**＝真実源 `docs/reference/information-architecture.md`）
+- **2 回ルール**: 1 回限りの違和感は次サイクル再観察、2 回以上浮上したパターンのみ起票推奨
 
 ### Phase 3: 候補の surface
 
@@ -149,7 +149,7 @@ surface した候補を Markdown レポート形式で会話に出力し、ユ�
 - 既存原則の精緻化: N 件
 - ユーザー嗜好: N 件
 - ワークフロー改善: N 件
-- 採点・リライト議論候補: N 件（#205 採点 N 件 / #206 リライト N 件）
+- 採点・リライト議論候補: N 件（採点 N 件 / リライト N 件）
 
 ## 新規ルール候補
 
@@ -202,24 +202,15 @@ surface した候補を Markdown レポート形式で会話に出力し、ユ�
 
 ### 1. [候補名]
 
-**議論先 Issue**: **#205**（採点） / **#206**（リライト）のいずれか
+**種別**: 採点側 / リライト側 のいずれか
 **サイクル**: 2 回以上浮上（[サイクル1リンク], [サイクル2リンク]）
 **観察**: [両サイクルで共通して見られた現象]
 **仮説**: [採点軸の改修案 or リライト方法論の改修案]
-**反映先（議論承認後、Claude が同期更新）**:
-- 採点側の場合: `.claude/agents/cem-qa.md` + `docs/reference/content-principles.md` + `templates/cem.md`（3 ファイル同期）+ #205 本文「合意済み」へ
-- リライト側の場合: `.claude/skills/quality/quality-cycle/SKILL.md` ほか該当 SKILL.md + #206 本文「合意済み」へ
+**反映先（ユーザー承認後、Claude が同期更新）**:
+- 採点側の場合: `.claude/agents/cem-qa.md` + `docs/reference/content-principles.md` + `templates/cem.md`（3 ファイル同期）
+- リライト側の場合: `.claude/skills/quality/quality-cycle/SKILL.md` ほか該当 SKILL.md
 
-**議論開始コマンド案**:
-```bash
-# 採点側
-gh issue comment 205 --body "<観察・仮説・反映先のドラフト>"
-
-# リライト側
-gh issue comment 206 --body "<観察・仮説・反映先のドラフト>"
-```
-
-**新規 Issue は原則立てない**。例外的に 5 軸完全リセット等の構造的変更が必要な場合のみ `.github/ISSUE_TEMPLATE/rubric-review.md` または `rewrite-method.md` を使用。
+**起票先**: `docs/todo/backlog.md` §7「ユーザー判断待ち」に1件として記録し、ユーザーの判断を仰ぐ（即適用しない）。
 
 ---
 
@@ -258,7 +249,5 @@ CLAUDE.md「ハーネス設計原則」との整合:
 - `.claude/skills/authoring/improve-article/SKILL.md` — 校正オーケストレータ
 - `.claude/skills/quality/review-mobile/SKILL.md` — モバイル視認性ルール
 - `.claude/state/proofread-learnings/` — 過去の学習ログ蓄積先
-- `.github/ISSUE_TEMPLATE/rubric-review.md` — 採点ルーブリック議論用 Issue テンプレ
-- `.github/ISSUE_TEMPLATE/rewrite-method.md` — リライト方法論議論用 Issue テンプレ
-- `.claude/skills/quality/quality-cycle/SKILL.md` §「Issue 駆動継続改善ループ」 — 本スキルとの連携全体図
+- `.claude/skills/quality/quality-cycle/SKILL.md` — 品質サイクルのオーケストレータ（関連スキル）
 - CLAUDE.md ハーネス設計原則 — Generator/Evaluator 分離・パラメタ化優先
