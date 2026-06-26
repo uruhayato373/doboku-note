@@ -78,6 +78,21 @@
 
 ---
 
+### 1級土木テキスト（スキャン教材）図クロップ残作業 🟢
+
+**背景**: テキスト両編（施工管理・法規編／土木一般編）を高解像度OCRでMD化＋図クロップ埋め込み済。図は `docs/textbook/**/img`（r2-sync 対象外＝内部リファレンス・非公開）。handoff `2026-06-24-civil1-textbook-figures.md`（`_archive` 退避済）から抽出。
+
+**残タスク**:
+
+1. **施工管理・法規編 難所10図の手動差し替え**（Windows・目視作業）: 自動 locate が正図に当たらない10図（図番号の版ずれ・小インライン図）= `03-11, 03-14, 05-18, 05-19, 05-22, 05-24, 06-01, 06-11, 07-02, 07-07`。手順=`C:\tmp\civil1a-fix\inspect\{figId}_p{NN}.png` を目視 → `bbox.json` の chosenPage/x/y/w/h を修正 → `python scripts/scanned/crop_embed_figures.py C:/tmp/civil1a-fix --crop-only` → commit。
+2. 土木一般編（図320点）の図タイト化 — **後回し**（パイロットで audit/refine ≒20Mトークン×2.4倍）。再開時は軽量版 `apply_deltas_recrop.py --damp 0.7` ＋監査2-3ラウンド上限。
+3. 本文OCR校正パス（`proofread.workflow.js`）— **見送り**（再OCRコスト）。
+4. 素材活用（本丸）: 検証済みテキストを使った guide 品質改善・note 無料集客記事への展開（GSC 先行で伸び悩みトピックを特定）。
+
+**runbook**: `.claude/skills/conversion/pdf-to-mdx/scripts/scanned/README.md`（locate→crop→audit/refine→trim→embed）。
+
+---
+
 ### pe-construction 選択科目キーワード集の欠落科目を補完 🟢
 
 **残**: 選択科目の論点キーワード集（`*-ronbun-keyword`）が river-coast・road・urban-planning の3科目のみ。geotechnical・tunnel・railway 等が欠落。需要のある科目から新規作成する。
