@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-06-26T02:44:04.028Z",
+  "generated_at": "2026-06-26T02:54:08.897Z",
   "summary": {
-    "total_mdx_files": 1058,
+    "total_mdx_files": 1062,
     "total_unique_tags": 170,
     "allowlist_size": 149,
     "known_count": 80,
@@ -1518,10 +1518,11 @@
     },
     {
       "name": "guide",
-      "count": 94,
+      "count": 98,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
+        "civil-construction-1-guide-age-career",
         "civil-construction-1-guide-career-agents",
         "civil-construction-1-guide-career-cases",
         "civil-construction-1-guide-career-path",
@@ -1532,6 +1533,7 @@
         "civil-construction-1-guide-earthwork-key-points",
         "civil-construction-1-guide-exam-overview",
         "civil-construction-1-guide-four-management",
+        "civil-construction-1-guide-future",
         "civil-construction-1-guide-grade-comparison",
         "civil-construction-1-guide-hatchu-shien",
         "civil-construction-1-guide-interview",
@@ -1539,8 +1541,10 @@
         "civil-construction-1-guide-law-key-points",
         "civil-construction-1-guide-market-value",
         "civil-construction-1-guide-quality-management",
+        "civil-construction-1-guide-quit-honne",
         "civil-construction-1-guide-quit-or-stay",
         "civil-construction-1-guide-resume",
+        "civil-construction-1-guide-salary-by-role",
         "civil-construction-1-guide-salary-up",
         "civil-construction-1-guide-schedule-management",
         "civil-construction-1-guide-strategy",
@@ -1901,6 +1905,34 @@
       ]
     },
     {
+      "name": "career",
+      "count": 21,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-age-career",
+        "civil-construction-1-guide-career-agents",
+        "civil-construction-1-guide-career-cases",
+        "civil-construction-1-guide-career-path",
+        "civil-construction-1-guide-career-salary",
+        "civil-construction-1-guide-exam-overview",
+        "civil-construction-1-guide-future",
+        "civil-construction-1-guide-grade-comparison",
+        "civil-construction-1-guide-hatchu-shien",
+        "civil-construction-1-guide-interview",
+        "civil-construction-1-guide-market-value",
+        "civil-construction-1-guide-quit-honne",
+        "civil-construction-1-guide-quit-or-stay",
+        "civil-construction-1-guide-resume",
+        "civil-construction-1-guide-salary-by-role",
+        "civil-construction-1-guide-salary-up",
+        "civil-construction-2-guide-career",
+        "civil-construction-2-guide-career-change",
+        "civil-construction-2-guide-exam-overview",
+        "civil-construction-2-guide-job-reality",
+        "civil-construction-2-guide-salary"
+      ]
+    },
+    {
       "name": "技術士（第一次試験）",
       "count": 21,
       "inAllowlist": true,
@@ -2004,30 +2036,6 @@
         "concrete-diagnostician-textbook-maintenance",
         "concrete-diagnostician-textbook-repair",
         "concrete-diagnostician-textbook-variation"
-      ]
-    },
-    {
-      "name": "career",
-      "count": 17,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-career-agents",
-        "civil-construction-1-guide-career-cases",
-        "civil-construction-1-guide-career-path",
-        "civil-construction-1-guide-career-salary",
-        "civil-construction-1-guide-exam-overview",
-        "civil-construction-1-guide-grade-comparison",
-        "civil-construction-1-guide-hatchu-shien",
-        "civil-construction-1-guide-interview",
-        "civil-construction-1-guide-market-value",
-        "civil-construction-1-guide-quit-or-stay",
-        "civil-construction-1-guide-resume",
-        "civil-construction-1-guide-salary-up",
-        "civil-construction-2-guide-career",
-        "civil-construction-2-guide-career-change",
-        "civil-construction-2-guide-exam-overview",
-        "civil-construction-2-guide-job-reality",
-        "civil-construction-2-guide-salary"
       ]
     },
     {
