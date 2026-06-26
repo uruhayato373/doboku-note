@@ -44,7 +44,7 @@ export default function AuthorSidebarCard() {
           >
             {AUTHOR.name}
           </Link>
-          <p className="mt-2 text-[13px] leading-[1.8] text-[var(--ink-body)]">
+          <p className="mt-2 text-[14px] leading-[1.8] text-[var(--ink-body)]">
             {taglineRole}
             {taglineRest && (
               <>
@@ -62,11 +62,11 @@ export default function AuthorSidebarCard() {
             {AUTHOR.qualifications.map((q) => (
               <li
                 key={q}
-                className="flex items-start gap-1.5 text-[12px] leading-snug text-[var(--ink-body)]"
+                className="flex items-start gap-1.5 text-[14px] leading-snug text-[var(--ink-body)]"
               >
                 <span
                   aria-hidden
-                  className="mt-[6px] h-1 w-1 shrink-0 rounded-full bg-[var(--accent)]"
+                  className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-[var(--accent)]"
                 />
                 <span>{q}</span>
               </li>
@@ -77,11 +77,11 @@ export default function AuthorSidebarCard() {
           href={AUTHOR.noteCta.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-4 flex items-center justify-center gap-2 rounded-full bg-[var(--accent)] px-3.5 py-2 text-[12px] font-bold text-[var(--paper)] hover:opacity-90 transition-opacity"
+          className="mt-4 flex items-center justify-center gap-2 rounded-full bg-[var(--accent)] px-3.5 py-2 text-[14px] font-bold text-[var(--paper)] hover:opacity-90 transition-opacity"
         >
           {AUTHOR.noteCta.label}
         </a>
-        <div className="mt-2 flex items-center justify-center gap-4 text-[11px] text-[var(--ink-muted)]">
+        <div className="mt-2 flex items-center justify-center gap-4 text-[13px] text-[var(--ink-muted)]">
           <a
             href={AUTHOR.twitterUrl}
             target="_blank"
