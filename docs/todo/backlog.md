@@ -86,6 +86,20 @@
 
 ---
 
+### reference-materials 5記事 精度向上 → 再公開（試験後）🟢
+
+**背景**: EXP-002 で復活させた reference-materials 系5記事（hyogo-port-materials / river-abandonment / inverted-siphon / floodgate / tunnel-02）は、運営者判断で 2026-04-19 から `published: false`（精度向上後に再公開予定）。EXP-002 は非公開のまま計測不能で70日滞留したため 2026-06-27 に **cancelled で close**。記事は削除せず非公開保持（GSC impr 資産 combined 162 impr / 4 clicks を捨てないため）。
+
+**残タスク**（試験ピーク 7/13 後に着手）:
+
+1. 5記事の精度向上リライト（試験文脈・出典・図版の品質を上げる）
+2. `published: true` で再公開 → `npm run refresh-indexes` → commit（R2 は CI 同期）
+3. 再公開14日後に GSC で impr/clicks delta を計測し、再実験化するか判断
+
+**根拠**: `.claude/state/experiments.json` EXP-002（cancelled, 2026-06-27）。
+
+---
+
 ### トップページ下部（note 教材・アフィリ・書籍）のデザイン統一 🟡
 
 **発端**: `https://doboku-note.com/` のフッター直上に3セクションが後付けで積み重なっていてサイトデザインと不整合。

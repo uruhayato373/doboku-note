@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-26T22:53:34.588Z",
+  "updated_at": "2026-06-26T22:57:03.390Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -40,14 +40,17 @@
         "source": "gsc-page-2026-04-18T02-03-37.json",
         "strategy_doc": null
       },
-      "status": "paused",
+      "status": "cancelled",
       "created_at": "2026-04-18T00:00:00.000Z",
       "started_at": "2026-04-18T00:00:00.000Z",
       "paused_at": "2026-04-19T00:00:00.000Z",
       "paused_reason": "運営者判断で 5 URL を一時非公開 + カテゴリ/内部リンクを完全分離（精度向上後に再公開予定）",
-      "result": null,
-      "learnings": null,
-      "closed_at": null,
+      "result": "cancelled",
+      "learnings": [
+        "5記事を published:false のまま70日放置し計測不能だったため cancelled で close。非公開状態では GSC impr/clicks が出ず実験として判定不可能。paused にした実験は『再開条件・期限』を明示しないと無期限滞留する(EXP-002/003/004 が揃って3週ループした共通原因)。",
+        "記事は削除せず非公開保持し、精度向上→再公開タスクを backlog(1.コンテンツ品質)へ退避(試験7/13後に着手)。GSC impr資産(combined 162 impr/4 clicks)を捨てない判断。"
+      ],
+      "closed_at": "2026-06-26T22:57:03.390Z",
       "actions": [
         "1. git show 808aa327^ で削除直前の content/general/common-specs-hyogo/02-03-materials-port.mdx と content/river/river-management/04.mdx を復元",
         "2. .local/r2/posts/civil-construction-1-reference-hyogo-port-materials/article.mdx と .local/r2/posts/civil-construction-1-reference-river-abandonment/article.mdx に配置",
@@ -127,6 +130,11 @@
             "https://doboku-note.com/docs/civil-construction-1-reference-floodgate",
             "https://doboku-note.com/docs/civil-construction-1-reference-tunnel-02"
           ]
+        },
+        {
+          "date": "2026-06-26T22:57:03.390Z",
+          "action": "cancelled",
+          "summary": "非公開70日で計測不能のため中止。5記事は非公開保持、精度向上→再公開を backlog へ退避(試験後)。"
         }
       ],
       "pending_user_actions": [],
