@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-06-26T03:12:57.939Z",
+  "generated_at": "2026-06-26T03:20:29.718Z",
   "summary": {
-    "total_mdx_files": 1070,
+    "total_mdx_files": 1074,
     "total_unique_tags": 170,
     "allowlist_size": 149,
     "known_count": 80,
@@ -1518,7 +1518,7 @@
     },
     {
       "name": "guide",
-      "count": 106,
+      "count": 110,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1565,15 +1565,19 @@
         "civil-construction-2-guide-concrete-key-points",
         "civil-construction-2-guide-earthwork-key-points",
         "civil-construction-2-guide-exam-overview",
+        "civil-construction-2-guide-haken-seishain",
         "civil-construction-2-guide-job-reality",
         "civil-construction-2-guide-law-key-points",
         "civil-construction-2-guide-overview",
         "civil-construction-2-guide-quality-management",
+        "civil-construction-2-guide-quit-or-stay",
+        "civil-construction-2-guide-resume",
         "civil-construction-2-guide-salary",
         "civil-construction-2-guide-schedule-management",
         "civil-construction-2-guide-study-method",
         "civil-construction-2-guide-study-plan",
         "civil-construction-2-guide-textbooks",
+        "civil-construction-2-guide-young-career",
         "concrete-chief-engineer-guide-essay",
         "concrete-chief-engineer-guide-overview",
         "concrete-chief-engineer-guide-trends",
@@ -1852,7 +1856,7 @@
     },
     {
       "name": "career",
-      "count": 29,
+      "count": 33,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-age-career",
@@ -1882,8 +1886,12 @@
         "civil-construction-2-guide-career",
         "civil-construction-2-guide-career-change",
         "civil-construction-2-guide-exam-overview",
+        "civil-construction-2-guide-haken-seishain",
         "civil-construction-2-guide-job-reality",
-        "civil-construction-2-guide-salary"
+        "civil-construction-2-guide-quit-or-stay",
+        "civil-construction-2-guide-resume",
+        "civil-construction-2-guide-salary",
+        "civil-construction-2-guide-young-career"
       ]
     },
     {
