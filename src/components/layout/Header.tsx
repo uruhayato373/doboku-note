@@ -132,7 +132,7 @@ export default function Header() {
   return (
     <>
       <header
-        className="sticky top-0 z-30 bg-[var(--paper)]/90 backdrop-blur-md backdrop-saturate-150 border-b border-[var(--rule-soft)] transition-colors duration-300"
+        className="bg-[var(--paper)] border-b border-[var(--rule-soft)] transition-colors duration-300"
       >
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="flex justify-between items-center h-16 sm:h-[72px]">
