@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-06-26T02:54:08.897Z",
+  "generated_at": "2026-06-26T03:03:25.324Z",
   "summary": {
-    "total_mdx_files": 1062,
+    "total_mdx_files": 1066,
     "total_unique_tags": 170,
     "allowlist_size": 149,
     "known_count": 80,
@@ -1518,7 +1518,7 @@
     },
     {
       "name": "guide",
-      "count": 98,
+      "count": 102,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1527,6 +1527,7 @@
         "civil-construction-1-guide-career-cases",
         "civil-construction-1-guide-career-path",
         "civil-construction-1-guide-career-salary",
+        "civil-construction-1-guide-company-types",
         "civil-construction-1-guide-concrete-key-points",
         "civil-construction-1-guide-concrete-maintenance",
         "civil-construction-1-guide-difficulty",
@@ -1540,6 +1541,7 @@
         "civil-construction-1-guide-last-minute-2026",
         "civil-construction-1-guide-law-key-points",
         "civil-construction-1-guide-market-value",
+        "civil-construction-1-guide-public-servant",
         "civil-construction-1-guide-quality-management",
         "civil-construction-1-guide-quit-honne",
         "civil-construction-1-guide-quit-or-stay",
@@ -1550,7 +1552,9 @@
         "civil-construction-1-guide-strategy",
         "civil-construction-1-guide-study-method",
         "civil-construction-1-guide-study-plan",
+        "civil-construction-1-guide-timing",
         "civil-construction-1-guide-vs-pe",
+        "civil-construction-1-guide-white-company",
         "civil-construction-1-keyword-2026",
         "civil-construction-2-guide-career",
         "civil-construction-2-guide-career-change",
@@ -1876,6 +1880,38 @@
       ]
     },
     {
+      "name": "career",
+      "count": 25,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-age-career",
+        "civil-construction-1-guide-career-agents",
+        "civil-construction-1-guide-career-cases",
+        "civil-construction-1-guide-career-path",
+        "civil-construction-1-guide-career-salary",
+        "civil-construction-1-guide-company-types",
+        "civil-construction-1-guide-exam-overview",
+        "civil-construction-1-guide-future",
+        "civil-construction-1-guide-grade-comparison",
+        "civil-construction-1-guide-hatchu-shien",
+        "civil-construction-1-guide-interview",
+        "civil-construction-1-guide-market-value",
+        "civil-construction-1-guide-public-servant",
+        "civil-construction-1-guide-quit-honne",
+        "civil-construction-1-guide-quit-or-stay",
+        "civil-construction-1-guide-resume",
+        "civil-construction-1-guide-salary-by-role",
+        "civil-construction-1-guide-salary-up",
+        "civil-construction-1-guide-timing",
+        "civil-construction-1-guide-white-company",
+        "civil-construction-2-guide-career",
+        "civil-construction-2-guide-career-change",
+        "civil-construction-2-guide-exam-overview",
+        "civil-construction-2-guide-job-reality",
+        "civil-construction-2-guide-salary"
+      ]
+    },
+    {
       "name": "secondary",
       "count": 22,
       "inAllowlist": true,
@@ -1902,34 +1938,6 @@
         "civil-construction-2-secondary-r05",
         "civil-construction-2-secondary-r06",
         "civil-construction-2-secondary-r07"
-      ]
-    },
-    {
-      "name": "career",
-      "count": 21,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-age-career",
-        "civil-construction-1-guide-career-agents",
-        "civil-construction-1-guide-career-cases",
-        "civil-construction-1-guide-career-path",
-        "civil-construction-1-guide-career-salary",
-        "civil-construction-1-guide-exam-overview",
-        "civil-construction-1-guide-future",
-        "civil-construction-1-guide-grade-comparison",
-        "civil-construction-1-guide-hatchu-shien",
-        "civil-construction-1-guide-interview",
-        "civil-construction-1-guide-market-value",
-        "civil-construction-1-guide-quit-honne",
-        "civil-construction-1-guide-quit-or-stay",
-        "civil-construction-1-guide-resume",
-        "civil-construction-1-guide-salary-by-role",
-        "civil-construction-1-guide-salary-up",
-        "civil-construction-2-guide-career",
-        "civil-construction-2-guide-career-change",
-        "civil-construction-2-guide-exam-overview",
-        "civil-construction-2-guide-job-reality",
-        "civil-construction-2-guide-salary"
       ]
     },
     {
