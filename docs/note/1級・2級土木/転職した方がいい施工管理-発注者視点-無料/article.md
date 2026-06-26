@@ -1,6 +1,7 @@
 ---
 notePricing: free
-noteStatus: draft
+noteStatus: published
+noteUrl: https://note.com/dobokunote/n/n85d4b322898b
 utmCampaign: civil-career-hatchusha-view
 coverTitle: ["発注者から見た", "転職した方がいい施工管理の特徴"]
 cover:

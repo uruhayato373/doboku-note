@@ -1,6 +1,7 @@
 ---
 notePricing: free
-noteStatus: draft
+noteStatus: published
+noteUrl: https://note.com/dobokunote/n/nfbff7b1469b6
 utmCampaign: civil-career-salary-difference
 coverTitle: ["年収を上げた人と", "上がらない人の違い"]
 cover:

@@ -1,6 +1,7 @@
 ---
 notePricing: free
-noteStatus: draft
+noteStatus: published
+noteUrl: https://note.com/dobokunote/n/n96f94252c128
 utmCampaign: civil-career-failure-lessons
 coverTitle: ["施工管理のリアルな失敗", "そこから学ぶ身の振り方"]
 cover:
