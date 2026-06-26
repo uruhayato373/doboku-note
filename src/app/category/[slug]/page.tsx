@@ -116,33 +116,30 @@ export default async function CategoryPage({
       <Header />
 
       <main className="flex-grow">
-        {/* Category Header — editorial */}
-        <div className="border-b border-[var(--rule-soft)] py-10 sm:py-12 px-4 sm:px-6 lg:px-10 bg-[var(--paper)]">
-          <div className="max-w-[1280px] mx-auto">
-            <nav aria-label="breadcrumb" className="font-mono text-[11px] text-[var(--ink-muted)] uppercase tracking-widest mb-3 flex items-center gap-2">
-              <Link href="/" className="hover:text-[var(--accent)] transition-colors">Home</Link>
-              <span aria-hidden className="opacity-60">›</span>
-              <span>Category</span>
-            </nav>
-            <div className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-[var(--accent)] px-2.5 py-1 bg-[var(--accent-fill)] rounded-full mb-4">
-              CATEGORY
-            </div>
-            <h1 className="font-serif font-black tracking-tight text-[var(--ink)] text-[32px] sm:text-[40px] md:text-[48px] leading-[1.2] mb-3">
-              {cat.label}
-            </h1>
-            <p className="text-[16px] leading-[1.9] text-[var(--ink-body)] max-w-[60ch]">{cat.subtitle}</p>
-            <div className="mt-5 flex gap-4 flex-wrap font-mono text-[11px] text-[var(--ink-muted)] tabular-nums">
-              <span>{docs.length.toLocaleString()} docs</span>
-            </div>
-          </div>
-        </div>
-
         {/* カテゴリ本文 + 右サイドバー（PC ≥993px・常に 2 カラム）。サイドバーは上から
             転職アフィリ（SidebarAdBanner＝当ページ唯一のピクセル源）→ 運営者プロフィール →
-            人気記事 → note マガジン CTA を sticky 配置。note CTA はモバイルでは記事一覧の下に出す。 */}
+            人気記事 → note マガジン CTA を sticky 配置。note CTA はモバイルでは記事一覧の下に出す。
+            カテゴリ見出しは全幅ヒーロー帯を廃し、左カラム上部にコンパクト配置（2026-06-26）。
+            これにより右サイドバー（転職枠）がファーストビューへ繰り上がる。 */}
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 flex gap-8 relative">
           <div className="flex-1 min-w-0">
-            <div className="py-10 sm:py-12 text-[17px] leading-[1.9]">
+            {/* カテゴリ見出し（縮小版・H1/パンくず/説明は SEO のため維持。CATEGORY チップは
+                パンくずと重複のため削除） */}
+            <div className="pt-8 sm:pt-10 pb-5 border-b border-[var(--rule-soft)]">
+              <nav aria-label="breadcrumb" className="font-mono text-[11px] text-[var(--ink-muted)] uppercase tracking-widest mb-2 flex items-center gap-2">
+                <Link href="/" className="hover:text-[var(--accent)] transition-colors">Home</Link>
+                <span aria-hidden className="opacity-60">›</span>
+                <span>Category</span>
+              </nav>
+              <h1 className="font-serif font-bold tracking-tight text-[var(--ink)] text-[24px] sm:text-[28px] leading-[1.3] mb-2">
+                {cat.label}
+              </h1>
+              <p className="text-[15px] leading-[1.8] text-[var(--ink-body)] max-w-[60ch]">{cat.subtitle}</p>
+              <div className="mt-3 flex gap-4 flex-wrap font-mono text-[11px] text-[var(--ink-muted)] tabular-nums">
+                <span>{docs.length.toLocaleString()} docs</span>
+              </div>
+            </div>
+            <div className="pt-8 sm:pt-10 pb-10 sm:pb-12 text-[17px] leading-[1.9]">
           {/* よく読まれている記事 特集（GA4 上位 top3・グループ別セクションの上）。データ無しなら描画されない。 */}
           {popularDocs.length > 0 && (
             <div className="mb-16">

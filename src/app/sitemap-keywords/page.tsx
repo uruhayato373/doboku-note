@@ -127,7 +127,7 @@ export default async function SitemapKeywordsPage() {
             <div className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-[var(--accent)] px-2.5 py-1 bg-[var(--accent-fill)] rounded-full mb-4">
               SITEMAP
             </div>
-            <h1 className="font-serif font-black tracking-tight text-[var(--ink)] text-[32px] sm:text-[40px] md:text-[48px] leading-[1.2] mb-3">
+            <h1 className="font-serif font-black tracking-tight text-[var(--ink)] text-[24px] sm:text-[30px] leading-[1.2] mb-3">
               総合技術監理 キーワード索引
             </h1>
             <p className="text-[16px] leading-[1.9] text-[var(--ink-body)] max-w-[60ch]">

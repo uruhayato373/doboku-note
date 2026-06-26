@@ -51,7 +51,7 @@ export default function AboutPage() {
             <div className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-[var(--accent)] px-2.5 py-1 bg-[var(--accent-fill)] rounded-full mb-4">
               About
             </div>
-            <h1 className="font-serif font-black text-[var(--ink)] text-[32px] sm:text-[44px] md:text-[56px] tracking-tight leading-[1.2] mb-5">
+            <h1 className="font-serif font-black text-[var(--ink)] text-[24px] sm:text-[30px] tracking-tight leading-[1.2] mb-5">
               doboku-note
             </h1>
             <p className="text-[16px] sm:text-[17px] leading-[1.95] text-[var(--ink-body)] max-w-[60ch]">

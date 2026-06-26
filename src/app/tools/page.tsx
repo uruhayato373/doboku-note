@@ -52,7 +52,7 @@ export default function ToolsIndexPage() {
               <span aria-hidden className="opacity-60">›</span>
               <span>Tools</span>
             </nav>
-            <h1 className="font-serif font-black text-[var(--ink)] text-[28px] sm:text-[40px] tracking-tight leading-[1.25] mb-4">
+            <h1 className="font-serif font-black text-[var(--ink)] text-[24px] sm:text-[30px] tracking-tight leading-[1.25] mb-4">
               無料ツール
             </h1>
             <p className="text-[15px] sm:text-[16px] leading-[1.9] text-[var(--ink-body)] max-w-[60ch]">
