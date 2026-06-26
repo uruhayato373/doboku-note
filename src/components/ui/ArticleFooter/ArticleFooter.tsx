@@ -104,9 +104,10 @@ export default function ArticleFooter({
           サイドバーから集約し、サイドバー最上部は転職アフィリに譲る。共通の SidebarMagazineList を使用。
           画像は max-w-sm で中央寄せして本文幅で巨大化しないようにする。 */}
       {footerMagazines.length > 0 && (
-        <div className="mt-8 mx-auto max-w-sm">
-          <SidebarMagazineList magazines={footerMagazines} className="space-y-3" />
-        </div>
+        <SidebarMagazineList
+          magazines={footerMagazines}
+          className="mt-8 flex flex-wrap justify-center gap-4"
+        />
       )}
       {showLinksHubFallback && (
         <div className="mt-8 mx-auto max-w-sm">

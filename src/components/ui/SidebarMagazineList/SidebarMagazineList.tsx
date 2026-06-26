@@ -28,13 +28,16 @@ export default function SidebarMagazineList({
   return (
     <div className={className}>
       {renderable.map(({ slot, magazine }) => (
-        <MagazineSidebarCard
-          key={slot.magazineId}
-          href={buildMagazineUrl(magazine, slot.utmContent)}
-          imageUrl={magazine.sidebarImageUrl!}
-          alt={magazine.shortTitle ?? magazine.title}
-          trackLabel={slot.utmContent}
-        />
+        // 各カードを 300px 上限でラップ。縦積み(space-y)では中央寄せ、記事末尾の
+        // flex-wrap 横並びでは 1 枚 = 300px 幅のタイルとして折り返す（PC 横並び／モバイル縦積み）。
+        <div key={slot.magazineId} className="w-full max-w-[300px] mx-auto">
+          <MagazineSidebarCard
+            href={buildMagazineUrl(magazine, slot.utmContent)}
+            imageUrl={magazine.sidebarImageUrl!}
+            alt={magazine.shortTitle ?? magazine.title}
+            trackLabel={slot.utmContent}
+          />
+        </div>
       ))}
     </div>
   );
