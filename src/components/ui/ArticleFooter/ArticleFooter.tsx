@@ -1,6 +1,6 @@
 import { type DocMeta } from '@/lib/docs';
 import { type DocGroupKey } from '@/lib/doc-classifier';
-import { buildMagazineUrl, type NoteMagazine } from '@/lib/note-magazines';
+import { type NoteMagazine } from '@/lib/note-magazines';
 import { type PlacementSlot } from '@/lib/magazine-placement';
 import { type ReferenceItem } from '@/lib/extract-references';
 import {
@@ -12,7 +12,8 @@ import PastExamBacklinks from '@/components/ui/PastExamBacklinks/PastExamBacklin
 import SectionKeywords from '@/components/ui/SectionKeywords';
 import PillarNavCard from '@/components/ui/PillarNavCard';
 import RelatedTextbooks from '@/components/ui/RelatedTextbooks/RelatedTextbooks';
-import MagazineInlineCard from '@/components/ui/MagazineInlineCard';
+import SidebarMagazineList from '@/components/ui/SidebarMagazineList';
+import MagazineSidebarCard from '@/components/ui/MagazineSidebarCard';
 import TextbookNav from '@/components/ui/TextbookNav/TextbookNav';
 import CategoryNavCard from '@/components/ui/CategoryNavCard/CategoryNavCard';
 import FAQCard from '@/components/ui/FAQCard/FAQCard';
@@ -28,8 +29,7 @@ interface ArticleFooterProps {
   readonly sectionStr: string | undefined;
   readonly meta: DocMeta;
   readonly categoryArticles: DocMeta[];
-  readonly inlineMagazines: ReadonlyArray<{ slot: PlacementSlot; magazine: NoteMagazine }>;
-  readonly inlineMobileOnly: boolean;
+  readonly footerMagazines: ReadonlyArray<{ slot: PlacementSlot; magazine: NoteMagazine }>;
   readonly faqs: { q: string; a: string }[];
   readonly hasCategoryNavCard: boolean;
   readonly authorDates: {
@@ -53,12 +53,17 @@ export default function ArticleFooter({
   sectionStr,
   meta,
   categoryArticles,
-  inlineMagazines,
-  inlineMobileOnly,
+  footerMagazines,
   faqs,
   hasCategoryNavCard,
   authorDates,
 }: ArticleFooterProps) {
+  // pe-comprehensive の keyword/guide/pastExam で個別マガジンが無いページは、
+  // note 有料教材まとめ /links への画像バナーをフォールバック表示する（旧サイドバー条件を踏襲）。
+  const showLinksHubFallback =
+    footerMagazines.length === 0 &&
+    category === 'pe-comprehensive-management' &&
+    (docGroup === 'keyword' || docGroup === 'guide' || docGroup === 'pastExam');
   return (
     <>
       {/* 参考資料カード（## 参考資料 セクションを抽出したもの。全カテゴリ共通） */}
@@ -95,20 +100,23 @@ export default function ArticleFooter({
           </div>
         )}
 
-      {/* note 有料マガジン CTA (inline)。inlineMobileOnly が true の場合は PC 非表示 (sidebar 側で出る)。 */}
-      {inlineMagazines.length > 0 && (
-        <div className={`mt-8 space-y-3 ${inlineMobileOnly ? 'zenn-desktop:hidden' : ''}`}>
-          {inlineMagazines.map(({ slot, magazine }) => (
-            <MagazineInlineCard
-              key={slot.magazineId}
-              url={buildMagazineUrl(magazine, slot.utmContent)}
-              title={magazine.title}
-              description={magazine.description}
-              imageUrl={magazine.imageUrl}
-              badge={magazine.badge}
-              trackLabel={slot.utmContent}
-            />
-          ))}
+      {/* note 有料マガジン CTA（記事末尾・全幅・画像オンリーに統一／2026-06-26）。
+          サイドバーから集約し、サイドバー最上部は転職アフィリに譲る。共通の SidebarMagazineList を使用。
+          画像は max-w-sm で中央寄せして本文幅で巨大化しないようにする。 */}
+      {footerMagazines.length > 0 && (
+        <div className="mt-8 mx-auto max-w-sm">
+          <SidebarMagazineList magazines={footerMagazines} className="space-y-3" />
+        </div>
+      )}
+      {showLinksHubFallback && (
+        <div className="mt-8 mx-auto max-w-sm">
+          <MagazineSidebarCard
+            href="/links"
+            imageUrl="/images/magazines/links-hub-sidebar.webp"
+            alt="note 有料教材まとめ"
+            external={false}
+            trackLabel="links-hub"
+          />
         </div>
       )}
 

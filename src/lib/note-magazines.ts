@@ -145,6 +145,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       'R03〜R07 + R8予想2記事 = 計7記事。維持管理版/河川改修版の A案/B案＋印刷用PDF付き。',
     imageUrl: '/images/magazines/essay-river-municipality-cover.webp',
+    sidebarImageUrl: '/images/magazines/essay-river-municipality-sidebar.webp',
     price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
@@ -159,6 +160,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       'R03〜R07 + R8予想2記事 = 計7記事。立地適正化計画版/再開発事業版の A案/B案＋印刷用PDF付き。',
     imageUrl: '/images/magazines/essay-urban-municipality-cover.webp',
+    sidebarImageUrl: '/images/magazines/essay-urban-municipality-sidebar.webp',
     price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
@@ -172,6 +174,7 @@ const MAGAZINES_RAW = {
     description:
       'R03〜R07 過去問（老朽管路更新版/浸水対策雨水幹線整備版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応・浸水対策／資源循環・下水汚泥資源化、各 A案/B案）の計 7 記事。下水道担当（発注者）視点、5 管理間トレードオフが主軸。各記事に印刷用PDF付き。',
     imageUrl: '/images/magazines/essay-sewage-municipality-cover.webp',
+    sidebarImageUrl: '/images/magazines/essay-sewage-municipality-sidebar.webp',
     price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
@@ -184,6 +187,7 @@ const MAGAZINES_RAW = {
     description:
       'R03〜R07 過去問（砂防施設維持管理版/砂防堰堤新設・急傾斜地対策版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応・砂防施設リスク管理／資源循環・サプライチェーン強靭化、各 A案/B案）の計 7 記事。砂防担当（発注者）視点、土砂災害リスク管理・流域管理・5 管理間トレードオフが主軸。各記事に印刷用PDF付き。',
     imageUrl: '/images/magazines/essay-sabo-municipality-cover.webp',
+    sidebarImageUrl: '/images/magazines/essay-sabo-municipality-sidebar.webp',
     price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
@@ -196,6 +200,7 @@ const MAGAZINES_RAW = {
     description:
       'R03〜R07 過去問（港湾施設維持管理版/岸壁改良・水深増深版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応・グリーン港湾／資源循環・サプライチェーン強靭化、各 A案/B案）の計 7 記事。港湾担当（発注者）視点、物流機能維持・CNポート・5 管理間トレードオフが主軸。各記事に印刷用PDF付き。',
     imageUrl: '/images/magazines/essay-port-municipality-cover.webp',
+    sidebarImageUrl: '/images/magazines/essay-port-municipality-sidebar.webp',
     price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
@@ -208,6 +213,7 @@ const MAGAZINES_RAW = {
     description:
       'R03〜R07 過去問（公園施設維持管理・老朽遊具更新版/防災公園新設・グリーンインフラ整備版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応×グリーンインフラ防災公園／資源循環×公園施設の更新管理、各 A案/B案）の計 7 記事。公園緑地担当（発注者）視点、5 管理間トレードオフが主軸。各記事に印刷用PDF付き。',
     imageUrl: '/images/magazines/essay-park-municipality-cover.webp',
+    sidebarImageUrl: '/images/magazines/essay-park-municipality-sidebar.webp',
     price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
@@ -220,6 +226,7 @@ const MAGAZINES_RAW = {
     description:
       'R03〜R07 過去問（老朽管路更新版/浄水場改修・高度浄水処理導入版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応・強靭化／資源循環・サプライチェーン強靭化、各 A案/B案）の計 7 記事。上水道担当（発注者）視点、5 管理間トレードオフが主軸。各記事に印刷用PDF付き。',
     imageUrl: '/images/magazines/essay-water-municipality-cover.webp',
+    sidebarImageUrl: '/images/magazines/essay-water-municipality-sidebar.webp',
     price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
@@ -232,6 +239,7 @@ const MAGAZINES_RAW = {
     description:
       'R03〜R07 過去問（橋梁点検補修設計版/道路改良設計版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応・道路防災／資源循環・再生材活用設計、各 A案/B案）の計 7 記事。道路・橋梁設計コンサルタント（受注者・調査設計者）視点、5管理トレードオフが主軸。各記事に印刷用PDF付き。',
     imageUrl: '/images/magazines/essay-road-consultant-cover.webp',
+    sidebarImageUrl: '/images/magazines/essay-road-consultant-sidebar.webp',
     price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
@@ -244,6 +252,7 @@ const MAGAZINES_RAW = {
     description:
       'R03〜R07 過去問（立地適正化計画策定支援版/市街地整備・再開発計画版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応・グリーンインフラ／資源循環・コンパクトシティ資材戦略、各 A案/B案）の計 7 記事。建設コンサル都市計画部門（受注者・調査設計者）視点、5管理トレードオフが主軸。各記事に印刷用PDF付き。',
     imageUrl: '/images/magazines/essay-urban-consultant-cover.webp',
+    sidebarImageUrl: '/images/magazines/essay-urban-consultant-sidebar.webp',
     price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },

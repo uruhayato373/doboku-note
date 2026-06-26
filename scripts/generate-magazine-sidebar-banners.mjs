@@ -226,6 +226,52 @@ const BANNERS = [
       ['問題A・問題B', 22],
     ],
   },
+  // --- 2026-06-26 追加: 総監 模範論文 ペルソナ別バナー（画像オンリー統一の残9ペルソナ） ---
+  {
+    id: 'essay-road-consultant-sidebar',
+    bgTop: '#155e63', bgBottom: '#0c3d40', accent: '#99f6e4', label: 'note限定',
+    lines: [['総監 模範論文', 29], ['道路橋梁コンサル', 24], ['R3-R7 5年分', 23]],
+  },
+  {
+    id: 'essay-urban-consultant-sidebar',
+    bgTop: '#3730a3', bgBottom: '#262076', accent: '#c7d2fe', label: 'note限定',
+    lines: [['総監 模範論文', 29], ['都市計画コンサル', 24], ['R3-R7 5年分', 23]],
+  },
+  {
+    id: 'essay-river-municipality-sidebar',
+    bgTop: '#1d6fa5', bgBottom: '#114567', accent: '#bae6fd', label: 'note限定',
+    lines: [['総監 模範論文', 29], ['自治体 河川担当', 25], ['R3-R7 5年分', 23]],
+  },
+  {
+    id: 'essay-sewage-municipality-sidebar',
+    bgTop: '#3f6212', bgBottom: '#2a4109', accent: '#d9f99d', label: 'note限定',
+    lines: [['総監 模範論文', 29], ['自治体 下水道担当', 22], ['R3-R7 5年分', 23]],
+  },
+  {
+    id: 'essay-water-municipality-sidebar',
+    bgTop: '#0369a1', bgBottom: '#024a72', accent: '#bae6fd', label: 'note限定',
+    lines: [['総監 模範論文', 29], ['自治体 上水道担当', 22], ['R3-R7 5年分', 23]],
+  },
+  {
+    id: 'essay-sabo-municipality-sidebar',
+    bgTop: '#78572a', bgBottom: '#523a1a', accent: '#fde68a', label: 'note限定',
+    lines: [['総監 模範論文', 29], ['自治体 砂防担当', 25], ['R3-R7 5年分', 23]],
+  },
+  {
+    id: 'essay-port-municipality-sidebar',
+    bgTop: '#0e6e6e', bgBottom: '#094a4a', accent: '#99f6e4', label: 'note限定',
+    lines: [['総監 模範論文', 29], ['自治体 港湾担当', 25], ['R3-R7 5年分', 23]],
+  },
+  {
+    id: 'essay-park-municipality-sidebar',
+    bgTop: '#3f7d3f', bgBottom: '#285228', accent: '#bbf7d0', label: 'note限定',
+    lines: [['総監 模範論文', 29], ['自治体 公園緑地担当', 21], ['R3-R7 5年分', 23]],
+  },
+  {
+    id: 'essay-urban-municipality-sidebar',
+    bgTop: '#5b4f8a', bgBottom: '#3d3460', accent: '#ddd6fe', label: 'note限定',
+    lines: [['総監 模範論文', 29], ['自治体 都市計画担当', 21], ['R3-R7 5年分', 23]],
+  },
 ];
 
 // "doboku" + "-"(アクセント明色) + "note" の 3 スパン構成ワードマーク

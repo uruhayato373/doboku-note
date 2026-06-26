@@ -10,13 +10,14 @@ interface SidebarMagazineListProps {
 }
 
 /**
- * SidebarMagazineList — 右サイドバー（PC）の note 有料マガジン CTA を「画像オンリー」で縦に並べる
- * 共通コンポーネント。docs 記事サイドバー（ArticleSidebar）とカテゴリ hub サイドバー
- * （category/[slug]/page.tsx）の両方で使い、体裁を 1 箇所に集約する。
+ * SidebarMagazineList — note 有料マガジン CTA を「画像オンリー」で縦に並べる共通コンポーネント。
+ * docs 記事末尾（ArticleFooter）・カテゴリ hub サイドバー / モバイル（category/[slug]/page.tsx）で
+ * 共有し、体裁を 1 箇所に集約する（2026-06-26：docs はサイドバーから記事末尾へ集約。
+ * サイドバー最上部は転職アフィリに譲る）。
  *
  * 文言・価格はバナー画像（sidebarImageUrl, 300×250）に焼き込む方針のため、ここではテキストを描画しない。
- * sidebarImageUrl を持たないマガジンは描画対象から除外する（旧 MagazineSidebarPromoCard の
- * テキスト併記版は 2026-06-26 にこの画像オンリー方式へ統一して退役）。
+ * sidebarImageUrl を持たないマガジンは描画対象から除外する（テキスト併記版 MagazineSidebarPromoCard は
+ * 2026-06-26 にこの画像オンリー方式へ統一して退役）。
  */
 export default function SidebarMagazineList({
   magazines,

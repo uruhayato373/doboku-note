@@ -265,8 +265,15 @@ export default async function DocPage({
     slots
       .map((s) => ({ slot: s, magazine: getMagazine(s.magazineId) }))
       .filter((x): x is RenderableSlot => x.magazine !== null);
-  const inlineMagazines = filterRenderable(magazinePlacement.inline);
-  const sidebarMagazines = filterRenderable(magazinePlacement.sidebar);
+  // note 有料マガジン CTA は「画像オンリーで記事末尾に一括表示」に統一（2026-06-26）。
+  // 旧 inline（本文末・テキスト）と sidebar（画像）を 1 セットに統合し、記事末尾で画像オンリー描画する。
+  // サイドバーからは note を外し、最上部の転職アフィリのインプレッションを確保する。
+  const footerMagazines = [
+    ...filterRenderable(magazinePlacement.inline),
+    ...filterRenderable(magazinePlacement.sidebar),
+  ].filter(
+    (x, i, arr) => arr.findIndex((y) => y.slot.magazineId === x.slot.magazineId) === i,
+  );
   // サイドバー転職枠の creative（〜2026-08-31 はビルドジョブ ¥50,000、以降 GKS に自動復帰）。
   const careerSidebarAd = resolveDocsCareerSidebarAd(category ?? '');
 
@@ -346,8 +353,7 @@ export default async function DocPage({
               sectionStr={sectionStr}
               meta={doc.meta}
               categoryArticles={categoryArticles}
-              inlineMagazines={inlineMagazines}
-              inlineMobileOnly={magazinePlacement.inlineMobileOnly}
+              footerMagazines={footerMagazines}
               faqs={faqs}
               hasCategoryNavCard={hasCategoryNavCard}
               authorDates={authorDates}
@@ -355,7 +361,6 @@ export default async function DocPage({
           </main>
 
           <ArticleSidebar
-            sidebarMagazines={sidebarMagazines}
             careerSidebarAd={careerSidebarAd}
             headings={headings}
             category={category}

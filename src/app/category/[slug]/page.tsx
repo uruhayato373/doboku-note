@@ -16,11 +16,10 @@ import {
   PeComprehensiveView,
   PeConstructionView,
 } from '@/components/category/CategoryViews';
-import MagazineInlineCard from '@/components/ui/MagazineInlineCard';
 import SidebarMagazineList from '@/components/ui/SidebarMagazineList';
 import AuthorSidebarCard from '@/components/ui/AuthorSidebarCard';
 import { resolveCategoryMagazines } from '@/lib/magazine-placement';
-import { getMagazine, buildMagazineUrl } from '@/lib/note-magazines';
+import { getMagazine } from '@/lib/note-magazines';
 import SidebarAdBanner from '@/components/ui/SidebarAdBanner';
 import { resolveCategoryCareerAd } from '@/config/affiliate-creatives';
 
@@ -184,23 +183,11 @@ export default async function CategoryPage({
           )}
             </div>
 
-            {/* note 有料マガジン CTA（モバイル＜993px のみ）。PC は右サイドバーへ集約するため、
+            {/* note 有料マガジン CTA（モバイル＜993px のみ・画像オンリーに統一）。PC は右サイドバーへ集約。
                 サイドバー非表示のモバイルでは記事一覧の下にフォールバック表示する。 */}
-            {hubMagazines.length > 0 && (
-              <div className="zenn-desktop:hidden pb-10 grid gap-3 sm:grid-cols-2">
-                {hubMagazines.map(({ slot, magazine }) => (
-                  <MagazineInlineCard
-                    key={slot.magazineId}
-                    url={buildMagazineUrl(magazine, slot.utmContent)}
-                    title={magazine.title}
-                    description={magazine.description}
-                    imageUrl={magazine.imageUrl}
-                    badge={magazine.badge}
-                    trackLabel={slot.utmContent}
-                  />
-                ))}
-              </div>
-            )}
+            <div className="zenn-desktop:hidden pb-10 mx-auto max-w-sm">
+              <SidebarMagazineList magazines={hubMagazines} className="space-y-3" />
+            </div>
           </div>
 
           <aside className="hidden zenn-desktop:block w-[300px] shrink-0 py-10 sm:py-12">
