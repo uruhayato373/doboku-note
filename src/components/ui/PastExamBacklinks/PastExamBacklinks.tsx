@@ -60,10 +60,10 @@ export default function PastExamBacklinks({ category, currentSlug }: PastExamBac
 
     return (
       <MetaCard ariaLabel="過去問での出題">
-        <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
+        <h2 className="text-lg font-bold text-[var(--ink)] mb-1">
           過去問での出題
         </h2>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+        <p className="text-sm text-[var(--ink-muted)] mb-4">
           この教材の分野が登場した {label}の過去問 ({civilEntries.length} 件)
         </p>
         <ul className="space-y-2">
@@ -77,7 +77,7 @@ export default function PastExamBacklinks({ category, currentSlug }: PastExamBac
                   title={
                     <>
                       {b.examTitle}{' '}
-                      <span className="text-gray-700 dark:text-gray-300">{b.section}</span>
+                      <span className="text-[var(--ink-body)]">{b.section}</span>
                     </>
                   }
                 />
@@ -98,10 +98,10 @@ export default function PastExamBacklinks({ category, currentSlug }: PastExamBac
 
   return (
     <MetaCard ariaLabel="過去問での出題">
-      <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
+      <h2 className="text-lg font-bold text-[var(--ink)] mb-1">
         過去問での出題
       </h2>
-      <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+      <p className="text-sm text-[var(--ink-muted)] mb-4">
         このキーワードが登場した過去問の設問
       </p>
       <ul className="space-y-2">
@@ -112,7 +112,7 @@ export default function PastExamBacklinks({ category, currentSlug }: PastExamBac
                 title={
                   <>
                     {b.year}{' '}
-                    <span className="text-gray-700 dark:text-gray-300">{b.question}</span>
+                    <span className="text-[var(--ink-body)]">{b.question}</span>
                   </>
                 }
               />

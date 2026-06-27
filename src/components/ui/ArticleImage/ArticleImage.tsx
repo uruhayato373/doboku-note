@@ -71,7 +71,7 @@ export default function ArticleImage({
         )}
       </div>
       {caption && (
-        <figcaption className="mt-3 text-center text-sm text-gray-600 italic px-4 sm:px-8">
+        <figcaption className="mt-3 text-center text-sm text-[var(--ink-body)] italic px-4 sm:px-8">
           {caption}
         </figcaption>
       )}

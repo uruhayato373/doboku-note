@@ -41,7 +41,7 @@ export default function ExamQuestionNav({ headings, variant = 'sidebar' }: ExamQ
         <a
           key={q.id}
           href={`#${q.id}`}
-          className="flex h-9 min-w-9 items-center justify-center rounded-sm border border-gray-200 px-2 text-sm tabular-nums text-brand transition-colors hover:border-brand hover:bg-brand-fill hover:text-brand-deep dark:border-gray-700 dark:hover:border-brand"
+          className="flex h-9 min-w-9 items-center justify-center rounded-sm border border-[var(--rule-soft)] px-2 text-sm tabular-nums text-brand transition-colors hover:border-brand hover:bg-brand-fill hover:text-brand-deep dark:hover:border-brand"
           aria-label={`問題 ${q.no} へ移動`}
         >
           {q.no}
@@ -53,7 +53,7 @@ export default function ExamQuestionNav({ headings, variant = 'sidebar' }: ExamQ
   if (variant === 'mobile') {
     return (
       <MetaCard>
-        <h2 className="mb-4 text-lg font-bold text-gray-900 dark:text-white">{title}</h2>
+        <h2 className="mb-4 text-lg font-bold text-[var(--ink)]">{title}</h2>
         {grid}
       </MetaCard>
     );
@@ -61,7 +61,7 @@ export default function ExamQuestionNav({ headings, variant = 'sidebar' }: ExamQ
 
   return (
     <MetaCard as="div" padding="compact">
-      <div className="nav-card-title text-gray-900 dark:text-white">{title}</div>
+      <div className="nav-card-title text-[var(--ink)]">{title}</div>
       {grid}
     </MetaCard>
   );

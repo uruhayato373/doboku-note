@@ -59,8 +59,8 @@ export default function RelatedArticles({ currentMeta, categoryArticles }: Relat
 
   return (
     <MetaCard>
-      <h2 className="mb-1 text-lg font-bold text-gray-900 dark:text-white">関連記事</h2>
-      <p className="mb-4 text-sm text-gray-500 dark:text-gray-400">
+      <h2 className="mb-1 text-lg font-bold text-[var(--ink)]">関連記事</h2>
+      <p className="mb-4 text-sm text-[var(--ink-muted)]">
         同じテーマの記事 ({related.length} 件)
       </p>
       <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
@@ -68,11 +68,11 @@ export default function RelatedArticles({ currentMeta, categoryArticles }: Relat
           <li key={doc.slug}>
             <Link
               href={`/docs/${doc.slug}`}
-              className="block h-full rounded-sm border border-gray-200 px-4 py-3 transition-colors hover:border-brand dark:border-gray-700 dark:hover:border-brand"
+              className="block h-full rounded-sm border border-[var(--rule-soft)] px-4 py-3 transition-colors hover:border-brand dark:hover:border-brand"
             >
               <div className="text-sm font-semibold text-brand">{doc.title}</div>
               {doc.description && (
-                <div className="mt-1 line-clamp-2 text-xs text-gray-600 dark:text-gray-400">
+                <div className="mt-1 line-clamp-2 text-xs text-[var(--ink-body)]">
                   {doc.description}
                 </div>
               )}

@@ -27,7 +27,7 @@ export function SearchResults({
   if (error) {
     return (
       <div className="text-center py-12">
-        <p className="text-red-600 dark:text-red-400 mb-4">
+        <p className="text-[var(--color-danger)] mb-4">
           検索中にエラーが発生しました: {error}
         </p>
         <button

@@ -22,8 +22,8 @@ export default function ExternalReferences({ references }: ExternalReferencesPro
 
   return (
     <MetaCard ariaLabel="参考資料">
-      <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">参考資料</h2>
-      <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+      <h2 className="text-lg font-bold text-[var(--ink)] mb-1">参考資料</h2>
+      <p className="text-sm text-[var(--ink-muted)] mb-4">
         公的資料・解説記事への外部リンク（{references.length} 件）
       </p>
       <ul className="space-y-2">

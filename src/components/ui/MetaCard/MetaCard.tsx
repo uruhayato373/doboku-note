@@ -2,8 +2,8 @@
  * 記事末尾・サイドバーの情報カード（rounded-card-section）の共通シェル。
  *
  * 12 箇所で literal にコピペされていた以下のクラス指定を 1 箇所に集約する:
- *   bg-white dark:bg-gray-800 rounded-card-section shadow-card-section
- *   border border-gray-200/60 dark:border-gray-700/60 p-{...}
+ *   bg-[var(--paper)] rounded-card-section shadow-card-section
+ *   border border-[var(--rule-soft)] p-{...}（editorial token・SectionCard と同一 chrome）
  *
  * 子要素（h2 タイトル / p サブタイトル / リスト 等）は呼び出し側の責務。
  * MetaCard は外枠のみを抽象化する純粋なシェル。
@@ -44,7 +44,7 @@ const PADDINGS: Record<NonNullable<MetaCardProps['padding']>, string> = {
 };
 
 const BASE_CLASSES =
-  'bg-white dark:bg-gray-800 rounded-card-section shadow-card-section border border-gray-200/60 dark:border-gray-700/60';
+  'bg-[var(--paper)] rounded-card-section shadow-card-section border border-[var(--rule-soft)]';
 
 export default function MetaCard({
   as = 'section',

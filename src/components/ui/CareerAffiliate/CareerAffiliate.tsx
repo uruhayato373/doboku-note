@@ -79,7 +79,7 @@ export default function CareerAffiliate({
         target="_blank"
         data-cta="affiliate"
         data-cta-label={service}
-        className="group relative flex flex-col sm:flex-row items-stretch gap-4 rounded-card-content border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-4 shadow-card-content hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow"
+        className="group relative flex flex-col sm:flex-row items-stretch gap-4 rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] p-4 shadow-card-content hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow"
         style={{ textDecoration: "none" }}
       >
         <AffiliatePrBadge className="absolute right-3 top-3" />
@@ -99,11 +99,11 @@ export default function CareerAffiliate({
           <div className="text-[11px] font-bold tracking-wider text-brand-deep dark:text-brand uppercase">
             {category}
           </div>
-          <div className="mt-0.5 text-[15px] font-bold text-ink-strong dark:text-gray-100 group-hover:underline">
+          <div className="mt-0.5 text-[15px] font-bold text-ink-strong group-hover:underline">
             {service}
           </div>
           {description && (
-            <div className="mt-1.5 text-sm leading-6 text-ink-body dark:text-gray-400">
+            <div className="mt-1.5 text-sm leading-6 text-ink-body">
               {description}
             </div>
           )}
@@ -112,7 +112,7 @@ export default function CareerAffiliate({
               {points.map((point) => (
                 <li
                   key={point}
-                  className="flex items-start gap-1.5 text-sm leading-6 text-ink-body dark:text-gray-300"
+                  className="flex items-start gap-1.5 text-sm leading-6 text-ink-body"
                 >
                   <Check
                     className="mt-1 h-3.5 w-3.5 shrink-0 text-brand"

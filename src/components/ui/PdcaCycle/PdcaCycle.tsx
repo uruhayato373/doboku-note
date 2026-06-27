@@ -133,7 +133,7 @@ export default function PdcaCycle({ items }: PdcaCycleProps) {
           return (
             <div
               key={i}
-              className="flex items-start gap-3 p-3 rounded-card-content shadow-card-content border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800"
+              className="flex items-start gap-3 p-3 rounded-card-content shadow-card-content border border-[var(--rule-soft)] bg-[var(--paper)]"
             >
               <div
                 className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm"
@@ -142,10 +142,10 @@ export default function PdcaCycle({ items }: PdcaCycleProps) {
                 {PHASE_LETTERS[i]}
               </div>
               <div className="flex-1 min-w-0">
-                <div className="font-bold text-sm text-gray-900 dark:text-gray-100">
+                <div className="font-bold text-sm text-[var(--ink)]">
                   {item.label}
                 </div>
-                <div className="text-sm text-gray-600 dark:text-gray-400 mt-0.5">
+                <div className="text-sm text-[var(--ink-body)] mt-0.5">
                   {item.description}
                 </div>
               </div>

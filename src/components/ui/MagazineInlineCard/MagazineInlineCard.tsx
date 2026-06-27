@@ -36,10 +36,10 @@ export default function MagazineInlineCard({
       rel="noopener noreferrer"
       data-cta="note"
       data-cta-label={trackLabel}
-      className="not-prose group my-6 block max-w-2xl rounded-card-content overflow-hidden border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-card-content hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow"
+      className="not-prose group my-6 block max-w-2xl rounded-card-content overflow-hidden border border-[var(--rule-soft)] bg-[var(--paper)] shadow-card-content hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow"
     >
       <div className="flex flex-col sm:flex-row">
-        <div className="relative w-full sm:w-[240px] shrink-0 aspect-square bg-gray-100 dark:bg-gray-800">
+        <div className="relative w-full sm:w-[240px] shrink-0 aspect-square bg-[var(--bg)]">
           <Image
             src={imageUrl}
             alt={title}
@@ -51,10 +51,10 @@ export default function MagazineInlineCard({
           <MagazineBadge>{badge}</MagazineBadge>
         </div>
         <div className="min-w-0 flex-1 p-3 sm:p-4">
-          <div className="text-[14px] sm:text-[15px] font-bold text-ink-strong dark:text-gray-100 leading-tight group-hover:text-brand-deep dark:group-hover:text-brand transition-colors line-clamp-2">
+          <div className="text-[14px] sm:text-[15px] font-bold text-ink-strong leading-tight group-hover:text-brand-deep dark:group-hover:text-brand transition-colors line-clamp-2">
             {title}
           </div>
-          <p className="mt-1 text-[12px] sm:text-[13px] leading-snug text-ink-body dark:text-gray-400 line-clamp-2 sm:line-clamp-3">
+          <p className="mt-1 text-[12px] sm:text-[13px] leading-snug text-ink-body line-clamp-2 sm:line-clamp-3">
             {description}
           </p>
         </div>

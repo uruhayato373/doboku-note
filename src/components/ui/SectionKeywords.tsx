@@ -26,10 +26,10 @@ export default function SectionKeywords({ currentSlug, section }: SectionKeyword
 
   return (
     <MetaCard ariaLabel="同セクションのキーワード">
-      <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
+      <h2 className="text-lg font-bold text-[var(--ink)] mb-1">
         {sec.title}
       </h2>
-      <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+      <p className="text-sm text-[var(--ink-muted)] mb-4">
         {chapter.title} &mdash; セクション {section}
       </p>
       <div className="flex flex-wrap gap-2">
@@ -37,7 +37,7 @@ export default function SectionKeywords({ currentSlug, section }: SectionKeyword
           <Link
             key={kw.slug}
             href={`/docs/pe-comprehensive-management-${kw.slug}`}
-            className="text-sm px-3 py-1.5 rounded-full border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-blue-400 dark:hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            className="text-sm px-3 py-1.5 rounded-full border border-[var(--rule-soft)] bg-[var(--bg)] text-[var(--ink-body)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors"
           >
             {kw.title}
           </Link>
