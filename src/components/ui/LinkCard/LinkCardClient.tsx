@@ -27,7 +27,7 @@ export default function LinkCardClient({
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        className="group block w-full max-w-2xl cursor-pointer overflow-hidden rounded-card-content border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-card-content hover:shadow-card-hover transition-all duration-300"
+        className="group block w-full max-w-2xl cursor-pointer overflow-hidden rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] shadow-card-content hover:shadow-card-hover transition-all duration-300"
       >
         <span className="flex flex-col sm:flex-row sm:items-center">
           {imageUrl && (
@@ -45,18 +45,18 @@ export default function LinkCardClient({
           )}
 
           <span className="block min-w-0 flex-1 p-4">
-            <span className="linkcard-title mb-2 line-clamp-2 text-base font-semibold text-gray-900 transition-colors group-hover:text-primary-600 dark:text-gray-100 dark:group-hover:text-primary-400">
+            <span className="linkcard-title mb-2 line-clamp-2 text-base font-semibold text-[var(--ink)] transition-colors group-hover:text-[var(--accent)]">
               {title}
             </span>
 
             {description && (
-              <span className="mb-2 line-clamp-2 text-sm text-gray-600 dark:text-gray-400">
+              <span className="mb-2 line-clamp-2 text-sm text-[var(--ink-body)]">
                 {description}
               </span>
             )}
 
             {siteName && (
-              <span className="block text-xs font-medium text-gray-500 dark:text-gray-400">
+              <span className="block text-xs font-medium text-[var(--ink-muted)]">
                 {siteName}
               </span>
             )}

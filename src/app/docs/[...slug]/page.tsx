@@ -80,11 +80,11 @@ async function SafeMDXRemote({
     const message = error instanceof Error ? error.message : String(error);
     console.error('MDX compile error:', message.slice(0, 200));
     return (
-      <div className="p-4 border border-yellow-300 dark:border-yellow-700 rounded-sm bg-yellow-50 dark:bg-yellow-900/20">
-        <p className="text-yellow-700 dark:text-yellow-400 font-semibold">
+      <div className="p-4 border border-[var(--color-warn)] rounded-sm bg-[var(--color-warn-fill)]">
+        <p className="text-[var(--color-warn)] font-semibold">
           このページのコンテンツにフォーマットエラーがあります。
         </p>
-        <p className="text-yellow-600 dark:text-yellow-500 text-sm mt-1">
+        <p className="text-[var(--color-warn)] text-sm mt-1">
           管理者に報告してください。
         </p>
       </div>

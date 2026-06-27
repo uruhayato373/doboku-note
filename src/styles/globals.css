@@ -270,19 +270,23 @@
 
   /* h3: サブセクション — 中間色の左アクセントバー（ゴシック・太さ700） */
   .prose-blog h3 {
-    @apply font-bold text-gray-800 dark:text-gray-200;
+    @apply font-bold;
+    color: var(--ink);
     font-size: var(--font-size-h3);
     line-height: 1.4;
     @apply mb-4 mt-12 pl-4 py-1;
-    @apply border-l-4 border-blue-400 dark:border-cyan-400;
+    @apply border-l-4;
+    border-left-color: var(--accent);
     letter-spacing: -0.01em;
   }
 
   /* h4: 小見出し — 細いグレーの左アクセント */
   .prose-blog h4 {
-    @apply text-lg font-semibold text-gray-700 dark:text-gray-300;
+    @apply text-lg font-semibold;
+    color: var(--ink-body);
     @apply mb-3 mt-8 pl-3;
-    @apply border-l-2 border-gray-300 dark:border-gray-600;
+    @apply border-l-2;
+    border-left-color: var(--rule-soft);
     letter-spacing: -0.01em;
   }
 

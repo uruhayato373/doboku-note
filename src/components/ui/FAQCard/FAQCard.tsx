@@ -14,26 +14,26 @@ export default function FAQCard({ faqs }: FAQCardProps) {
 
   return (
     <MetaCard ariaLabel="よくある質問">
-      <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
+      <h2 className="text-lg font-bold text-[var(--ink)] mb-1">
         よくある質問
       </h2>
-      <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+      <p className="text-sm text-[var(--ink-muted)] mb-4">
         この記事に関する Q&amp;A
       </p>
       <ul className="space-y-2">
         {faqs.map((entry, idx) => (
           <li key={idx}>
-            <details className="group rounded-sm border border-gray-200 dark:border-gray-700 px-4 py-3 open:border-blue-400 dark:open:border-blue-500 transition-colors">
-              <summary className="flex items-start gap-2 cursor-pointer list-none text-sm font-semibold text-gray-900 dark:text-gray-100 marker:hidden">
+            <details className="group rounded-sm border border-[var(--rule-soft)] px-4 py-3 open:border-[var(--accent)] transition-colors">
+              <summary className="flex items-start gap-2 cursor-pointer list-none text-sm font-semibold text-[var(--ink)] marker:hidden">
                 <span
                   aria-hidden="true"
-                  className="mt-0.5 inline-block w-4 h-4 shrink-0 transition-transform group-open:rotate-90 text-gray-400 dark:text-gray-500"
+                  className="mt-0.5 inline-block w-4 h-4 shrink-0 transition-transform group-open:rotate-90 text-[var(--ink-muted)]"
                 >
                   ▶
                 </span>
                 <span className="flex-1">{entry.q}</span>
               </summary>
-              <p className="mt-3 ml-6 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+              <p className="mt-3 ml-6 text-sm text-[var(--ink-body)] leading-relaxed">
                 {entry.a}
               </p>
             </details>

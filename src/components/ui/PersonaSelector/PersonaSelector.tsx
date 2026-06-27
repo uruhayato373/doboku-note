@@ -74,7 +74,7 @@ function resolveItems(
 }
 
 const CARD_BASE_CLASS =
-  "not-prose flex items-start gap-3 rounded-card-content border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-3 shadow-card-content";
+  "not-prose flex items-start gap-3 rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] px-3 py-3 shadow-card-content";
 
 const CARD_LINK_CLASS =
   "group hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow";
@@ -97,11 +97,11 @@ function PersonaCardInner({ personaName, caption, isLink }: PersonaCardInnerProp
       </span>
       <div className="min-w-0 flex-1 leading-snug">
         <div
-          className={`text-[14px] font-bold text-ink-strong dark:text-gray-100 ${isLink ? "group-hover:underline" : ""}`}
+          className={`text-[14px] font-bold text-ink-strong ${isLink ? "group-hover:underline" : ""}`}
         >
           {personaName}
         </div>
-        <div className="mt-0.5 text-[12px] text-ink-body dark:text-gray-300">{caption}</div>
+        <div className="mt-0.5 text-[12px] text-ink-body">{caption}</div>
       </div>
       {isLink && (
         <ArrowRight
@@ -119,7 +119,7 @@ export default function PersonaSelector({ items, mode, label }: PersonaSelectorP
   return (
     <div className="not-prose my-5">
       {label && (
-        <div className="mb-2 text-[11px] font-bold tracking-wider text-ink-muted dark:text-gray-400 uppercase">
+        <div className="mb-2 text-[11px] font-bold tracking-wider text-ink-muted uppercase">
           {label}
         </div>
       )}

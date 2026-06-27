@@ -30,7 +30,7 @@ export default function SourceBadges({ label = "関連白書", items }: SourceBa
   if (!items || items.length === 0) return null;
   return (
     <div className="not-prose my-4 flex items-baseline gap-2 flex-wrap">
-      <span className="text-[11px] font-bold tracking-wider text-ink-muted dark:text-gray-400 uppercase shrink-0">
+      <span className="text-[11px] font-bold tracking-wider text-ink-muted uppercase shrink-0">
         {label}
       </span>
       <div className="flex gap-1.5 flex-wrap">

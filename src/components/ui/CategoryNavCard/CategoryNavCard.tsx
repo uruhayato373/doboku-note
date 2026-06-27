@@ -23,8 +23,8 @@ interface CategoryNavCardProps {
 
 /* ─── 共通: セルリンク ─── */
 function CellLink({ slug, label, currentSlug }: { slug: string | undefined; label: string; currentSlug: string }) {
-  if (!slug) return <span className="text-gray-300 dark:text-gray-600">—</span>;
-  if (slug === currentSlug) return <span className="font-bold text-gray-900 dark:text-gray-100">{label}</span>;
+  if (!slug) return <span className="text-[var(--ink-muted)] opacity-50">—</span>;
+  if (slug === currentSlug) return <span className="font-bold text-[var(--ink)]">{label}</span>;
   return (
     <Link href={`/docs/${slug}`} className="text-brand hover:text-brand-deep hover:underline">
       {label}
@@ -49,9 +49,9 @@ function GuideCard({ variant, currentSlug, categoryArticles }: { variant: 'sideb
       <SidebarWrapper title="試験概要">
         <ul>
           {guides.map((g) => (
-            <li key={g.slug} className="border-b border-gray-200/60 dark:border-gray-700/60 last:border-b-0">
+            <li key={g.slug} className="border-b border-[var(--rule-soft)] last:border-b-0">
               {g.slug === currentSlug ? (
-                <span className="block py-2 text-sm font-bold text-gray-900 dark:text-gray-100">{g.sidebar_label || g.shortTitle || g.title}</span>
+                <span className="block py-2 text-sm font-bold text-[var(--ink)]">{g.sidebar_label || g.shortTitle || g.title}</span>
               ) : (
                 <Link href={`/docs/${g.slug}`} className="block py-2 text-sm text-brand underline decoration-brand/30 underline-offset-2 hover:text-brand-deep hover:decoration-brand transition-colors">
                   {g.sidebar_label || g.shortTitle || g.title}
@@ -68,9 +68,9 @@ function GuideCard({ variant, currentSlug, categoryArticles }: { variant: 'sideb
     <MobileWrapper title="試験概要">
       <ul className="space-y-2">
         {guides.map((g) => (
-          <li key={g.slug} className={`rounded-sm border px-4 py-3 transition-colors ${g.slug === currentSlug ? 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800' : 'border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-500'}`}>
+          <li key={g.slug} className={`rounded-sm border px-4 py-3 transition-colors ${g.slug === currentSlug ? 'bg-[var(--accent-fill)] border-[var(--accent)]' : 'border-[var(--rule-soft)] hover:border-[var(--accent)]'}`}>
             {g.slug === currentSlug ? (
-              <span className="text-sm font-bold text-gray-900 dark:text-gray-100">{g.title}</span>
+              <span className="text-sm font-bold text-[var(--ink)]">{g.title}</span>
             ) : (
               <Link href={`/docs/${g.slug}`} className="text-sm text-brand hover:underline">
                 {g.title}
@@ -100,9 +100,9 @@ function PillarCard({ variant, currentSlug, categoryArticles }: { variant: 'side
       <SidebarWrapper title="5 管理学習ガイド">
         <ul>
           {pillars.map((p) => (
-            <li key={p.slug} className="border-b border-gray-200/60 dark:border-gray-700/60 last:border-b-0">
+            <li key={p.slug} className="border-b border-[var(--rule-soft)] last:border-b-0">
               {p.slug === currentSlug ? (
-                <span className="block py-2 text-sm font-bold text-gray-900 dark:text-gray-100">{p.sidebar_label || p.shortTitle || p.title}</span>
+                <span className="block py-2 text-sm font-bold text-[var(--ink)]">{p.sidebar_label || p.shortTitle || p.title}</span>
               ) : (
                 <Link href={`/docs/${p.slug}`} className="block py-2 text-sm text-brand underline decoration-brand/30 underline-offset-2 hover:text-brand-deep hover:decoration-brand transition-colors">
                   {p.sidebar_label || p.shortTitle || p.title}
@@ -119,9 +119,9 @@ function PillarCard({ variant, currentSlug, categoryArticles }: { variant: 'side
     <MobileWrapper title="5 管理学習ガイド">
       <ul className="space-y-2">
         {pillars.map((p) => (
-          <li key={p.slug} className={`rounded-sm border px-4 py-3 transition-colors ${p.slug === currentSlug ? 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800' : 'border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-500'}`}>
+          <li key={p.slug} className={`rounded-sm border px-4 py-3 transition-colors ${p.slug === currentSlug ? 'bg-[var(--accent-fill)] border-[var(--accent)]' : 'border-[var(--rule-soft)] hover:border-[var(--accent)]'}`}>
             {p.slug === currentSlug ? (
-              <span className="text-sm font-bold text-gray-900 dark:text-gray-100">{p.sidebar_label || p.shortTitle || p.title}</span>
+              <span className="text-sm font-bold text-[var(--ink)]">{p.sidebar_label || p.shortTitle || p.title}</span>
             ) : (
               <Link href={`/docs/${p.slug}`} className="text-sm text-brand hover:underline">
                 {p.sidebar_label || p.shortTitle || p.title}
@@ -144,19 +144,19 @@ function PastExamCard({ variant, currentSlug, categoryArticles, category }: { va
       <SidebarWrapper title="過去問">
         <table className="w-full text-sm">
           <thead>
-            <tr className="border-b border-gray-200 dark:border-gray-700">
-              <th className="text-left py-1 pr-2 font-medium text-gray-500 dark:text-gray-400 text-xs" />
-              <th className="text-center py-1 px-1 font-medium text-gray-500 dark:text-gray-400 text-xs">{data.col1Header}</th>
-              <th className="text-center py-1 px-1 font-medium text-gray-500 dark:text-gray-400 text-xs">{data.col2Header}</th>
-              {data.col3Header && <th className="text-center py-1 px-1 font-medium text-gray-500 dark:text-gray-400 text-xs">{data.col3Header}</th>}
+            <tr className="border-b border-[var(--rule-soft)]">
+              <th className="text-left py-1 pr-2 font-medium text-[var(--ink-muted)] text-xs" />
+              <th className="text-center py-1 px-1 font-medium text-[var(--ink-muted)] text-xs">{data.col1Header}</th>
+              <th className="text-center py-1 px-1 font-medium text-[var(--ink-muted)] text-xs">{data.col2Header}</th>
+              {data.col3Header && <th className="text-center py-1 px-1 font-medium text-[var(--ink-muted)] text-xs">{data.col3Header}</th>}
             </tr>
           </thead>
           <tbody>
             {data.years.map((year) => {
               const isCurrent = year.col1?.slug === currentSlug || year.col2?.slug === currentSlug || year.col3?.slug === currentSlug;
               return (
-                <tr key={year.yearCode} className={isCurrent ? 'bg-blue-50/60 dark:bg-blue-900/20' : ''}>
-                  <td className="py-1.5 pr-2 text-gray-700 dark:text-gray-300 font-medium whitespace-nowrap">{year.label}</td>
+                <tr key={year.yearCode} className={isCurrent ? 'bg-[var(--accent-fill)]' : ''}>
+                  <td className="py-1.5 pr-2 text-[var(--ink-body)] font-medium whitespace-nowrap">{year.label}</td>
                   <td className="py-1.5 px-1 text-center"><CellLink slug={year.col1?.slug} label={data.col1Header} currentSlug={currentSlug} /></td>
                   <td className="py-1.5 px-1 text-center"><CellLink slug={year.col2?.slug} label={data.col2Header} currentSlug={currentSlug} /></td>
                   {data.col3Header && <td className="py-1.5 px-1 text-center"><CellLink slug={year.col3?.slug} label={data.col3Header} currentSlug={currentSlug} /></td>}
@@ -174,19 +174,19 @@ function PastExamCard({ variant, currentSlug, categoryArticles, category }: { va
       <div className="overflow-x-auto">
         <table className="w-full text-base border-collapse">
           <thead>
-            <tr className="border-b-2 border-gray-200 dark:border-gray-700">
-              <th className="text-left py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">年度</th>
-              <th className="text-center py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">{data.col1Header === '択一' ? '択一式' : `問題${data.col1Header}`}</th>
-              <th className="text-center py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">{data.col2Header === '記述' ? '記述式' : `問題${data.col2Header}`}</th>
-              {data.col3Header && <th className="text-center py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">第2次検定</th>}
+            <tr className="border-b-2 border-[var(--rule-soft)]">
+              <th className="text-left py-3 px-4 font-semibold text-[var(--ink-body)]">年度</th>
+              <th className="text-center py-3 px-4 font-semibold text-[var(--ink-body)]">{data.col1Header === '択一' ? '択一式' : `問題${data.col1Header}`}</th>
+              <th className="text-center py-3 px-4 font-semibold text-[var(--ink-body)]">{data.col2Header === '記述' ? '記述式' : `問題${data.col2Header}`}</th>
+              {data.col3Header && <th className="text-center py-3 px-4 font-semibold text-[var(--ink-body)]">第2次検定</th>}
             </tr>
           </thead>
           <tbody>
             {data.years.map((year) => {
               const isCurrent = year.col1?.slug === currentSlug || year.col2?.slug === currentSlug || year.col3?.slug === currentSlug;
               return (
-                <tr key={year.yearCode} className={`border-b border-gray-100 dark:border-gray-800 transition-colors ${isCurrent ? 'bg-blue-50 dark:bg-blue-900/20' : 'hover:bg-gray-50 dark:hover:bg-gray-800/50'}`}>
-                  <td className={`py-3 px-4 text-gray-900 dark:text-gray-100 ${isCurrent ? 'font-bold' : 'font-medium'}`}>{year.label}</td>
+                <tr key={year.yearCode} className={`border-b border-[var(--rule-soft)] transition-colors ${isCurrent ? 'bg-[var(--accent-fill)]' : 'hover:bg-[var(--accent-fill)]'}`}>
+                  <td className={`py-3 px-4 text-[var(--ink)] ${isCurrent ? 'font-bold' : 'font-medium'}`}>{year.label}</td>
                   <td className="py-3 px-4 text-center"><CellLink slug={year.col1?.slug} label={data.col1Header === '択一' ? '択一式' : `問題${data.col1Header}`} currentSlug={currentSlug} /></td>
                   <td className="py-3 px-4 text-center"><CellLink slug={year.col2?.slug} label={data.col2Header === '記述' ? '記述式' : `問題${data.col2Header}`} currentSlug={currentSlug} /></td>
                   {data.col3Header && <td className="py-3 px-4 text-center"><CellLink slug={year.col3?.slug} label="第2次検定" currentSlug={currentSlug} /></td>}
@@ -215,14 +215,14 @@ function SectionCard({ variant, currentSlug, currentSection }: { variant: 'sideb
 
     return (
       <SidebarWrapper title="同セクションのキーワード">
-        <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
+        <p className="text-xs text-[var(--ink-muted)] mb-2">
           {section.id} {section.title}
         </p>
         <ul className="max-h-[280px] overflow-y-auto toc-scroll">
           {keywords.map(kw => (
-            <li key={kw.slug} className="border-b border-gray-200/60 dark:border-gray-700/60 last:border-b-0">
+            <li key={kw.slug} className="border-b border-[var(--rule-soft)] last:border-b-0">
               {kw.slug === currentSuffix ? (
-                <span className="block text-sm py-2 font-bold text-gray-900 dark:text-gray-100">
+                <span className="block text-sm py-2 font-bold text-[var(--ink)]">
                   {kw.title}
                 </span>
               ) : (
@@ -247,7 +247,7 @@ function SectionCard({ variant, currentSlug, currentSection }: { variant: 'sideb
           const isCurrentChapter = ch.id === currentChapterId;
           return (
             <div key={ch.id}>
-              <h3 className={`text-sm font-bold mb-2 ${isCurrentChapter ? 'text-blue-600 dark:text-blue-400' : 'text-gray-700 dark:text-gray-300'}`}>
+              <h3 className={`text-sm font-bold mb-2 ${isCurrentChapter ? 'text-[var(--accent)]' : 'text-[var(--ink-body)]'}`}>
                 {ch.title}
               </h3>
               <div className="flex flex-wrap gap-1.5">
@@ -258,8 +258,8 @@ function SectionCard({ variant, currentSlug, currentSection }: { variant: 'sideb
                       key={sec.id}
                       className={`text-xs px-2.5 py-1 rounded-full border ${
                         isCurrentSection
-                          ? 'bg-blue-50 dark:bg-blue-900/30 border-blue-300 dark:border-blue-700 font-bold text-blue-700 dark:text-blue-300'
-                          : 'border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400'
+                          ? 'bg-[var(--accent-fill)] border-[var(--accent)] font-bold text-[var(--accent)]'
+                          : 'border-[var(--rule-soft)] text-[var(--ink-body)]'
                       }`}
                     >
                       {sec.id} {sec.title}
@@ -280,7 +280,7 @@ function SidebarWrapper({ title, children }: { title: string; children: React.Re
   return (
     <MetaCard as="div" padding="compact">
       <div
-        className="nav-card-title text-gray-900 dark:text-white"
+        className="nav-card-title text-[var(--ink)]"
       >
         {title}
       </div>
@@ -292,7 +292,7 @@ function SidebarWrapper({ title, children }: { title: string; children: React.Re
 function MobileWrapper({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <MetaCard>
-      <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">{title}</h2>
+      <h2 className="text-lg font-bold text-[var(--ink)] mb-4">{title}</h2>
       {children}
     </MetaCard>
   );
@@ -307,9 +307,9 @@ function LinkListCard({ variant, title, currentSlug, docs }: { variant: 'sidebar
       <SidebarWrapper title={title}>
         <ul>
           {docs.map((d) => (
-            <li key={d.slug} className="border-b border-gray-200/60 dark:border-gray-700/60 last:border-b-0">
+            <li key={d.slug} className="border-b border-[var(--rule-soft)] last:border-b-0">
               {d.slug === currentSlug ? (
-                <span className="block py-2 text-sm font-bold text-gray-900 dark:text-gray-100">{d.sidebar_label || d.title}</span>
+                <span className="block py-2 text-sm font-bold text-[var(--ink)]">{d.sidebar_label || d.title}</span>
               ) : (
                 <Link href={`/docs/${d.slug}`} className="block py-2 text-sm text-brand underline decoration-brand/30 underline-offset-2 hover:text-brand-deep hover:decoration-brand transition-colors">
                   {d.sidebar_label || d.title}
@@ -326,9 +326,9 @@ function LinkListCard({ variant, title, currentSlug, docs }: { variant: 'sidebar
     <MobileWrapper title={title}>
       <ul className="space-y-2">
         {docs.map((d) => (
-          <li key={d.slug} className={`rounded-sm border px-4 py-3 transition-colors ${d.slug === currentSlug ? 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800' : 'border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-500'}`}>
+          <li key={d.slug} className={`rounded-sm border px-4 py-3 transition-colors ${d.slug === currentSlug ? 'bg-[var(--accent-fill)] border-[var(--accent)]' : 'border-[var(--rule-soft)] hover:border-[var(--accent)]'}`}>
             {d.slug === currentSlug ? (
-              <span className="text-sm font-bold text-gray-900 dark:text-gray-100">{d.title}</span>
+              <span className="text-sm font-bold text-[var(--ink)]">{d.title}</span>
             ) : (
               <Link href={`/docs/${d.slug}`} className="text-sm text-brand hover:underline">
                 {d.title}

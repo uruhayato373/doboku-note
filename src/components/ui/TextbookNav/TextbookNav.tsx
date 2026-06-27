@@ -27,17 +27,17 @@ export default function TextbookNav({ currentSlug, categoryArticles }: TextbookN
 
   return (
     <MetaCard>
-      <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
+      <h2 className="text-lg font-bold text-[var(--ink)] mb-4">
         テキスト章ナビゲーション
       </h2>
       <div className="grid gap-3 grid-cols-1 sm:grid-cols-2">
         {prev ? (
           <Link
             href={`/docs/${prev.slug}`}
-            className="block rounded-sm border border-gray-200 dark:border-gray-700 p-4 hover:border-blue-400 dark:hover:border-blue-500 transition-colors"
+            className="block rounded-sm border border-[var(--rule-soft)] p-4 hover:border-[var(--accent)] transition-colors"
           >
-            <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">← 前の章</div>
-            <div className="text-sm font-semibold text-blue-600 dark:text-blue-400">{prev.title}</div>
+            <div className="text-xs text-[var(--ink-muted)] mb-1">← 前の章</div>
+            <div className="text-sm font-semibold text-[var(--accent)]">{prev.title}</div>
           </Link>
         ) : (
           <div />
@@ -45,10 +45,10 @@ export default function TextbookNav({ currentSlug, categoryArticles }: TextbookN
         {next ? (
           <Link
             href={`/docs/${next.slug}`}
-            className="block rounded-sm border border-gray-200 dark:border-gray-700 p-4 hover:border-blue-400 dark:hover:border-blue-500 transition-colors text-right"
+            className="block rounded-sm border border-[var(--rule-soft)] p-4 hover:border-[var(--accent)] transition-colors text-right"
           >
-            <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">次の章 →</div>
-            <div className="text-sm font-semibold text-blue-600 dark:text-blue-400">{next.title}</div>
+            <div className="text-xs text-[var(--ink-muted)] mb-1">次の章 →</div>
+            <div className="text-sm font-semibold text-[var(--accent)]">{next.title}</div>
           </Link>
         ) : (
           <div />

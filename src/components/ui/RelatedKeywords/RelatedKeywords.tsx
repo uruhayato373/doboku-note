@@ -48,23 +48,23 @@ export default function RelatedKeywords({ items }: RelatedKeywordsProps) {
               <span key={index} className="inline-flex items-center">
                 <Link
                   href={buildHref(item.slug)}
-                  className="text-sm text-blue-700 dark:text-blue-400 hover:underline"
+                  className="text-sm text-[var(--accent)] hover:underline"
                 >
                   {item.label}
                 </Link>
                 {!isLast && (
-                  <span className="text-gray-400 dark:text-gray-500 ml-1">|</span>
+                  <span className="text-[var(--ink-muted)] ml-1">|</span>
                 )}
               </span>
             );
           }
           return (
             <span key={index} className="inline-flex items-center">
-              <span className="text-sm text-gray-500 dark:text-gray-400">
+              <span className="text-sm text-[var(--ink-muted)]">
                 {item.label}
               </span>
               {!isLast && (
-                <span className="text-gray-300 dark:text-gray-600 ml-1">|</span>
+                <span className="text-[var(--ink-muted)] opacity-50 ml-1">|</span>
               )}
             </span>
           );

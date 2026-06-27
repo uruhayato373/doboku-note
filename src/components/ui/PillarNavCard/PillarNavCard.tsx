@@ -45,7 +45,7 @@ export default function PillarNavCard({ variant, currentSection }: PillarNavCard
     return (
       <MetaCard as="div" padding="compact">
         <div
-          className="nav-card-title text-gray-900 dark:text-white"
+          className="nav-card-title text-[var(--ink)]"
         >
           5 管理学習ガイド
         </div>
@@ -59,8 +59,8 @@ export default function PillarNavCard({ variant, currentSection }: PillarNavCard
                   aria-current={isActive ? "true" : undefined}
                   className={
                     isActive
-                      ? "text-sm font-bold text-gray-900 dark:text-gray-100"
-                      : "text-sm text-gray-600 dark:text-gray-400 hover:text-brand hover:underline"
+                      ? "text-sm font-bold text-[var(--ink)]"
+                      : "text-sm text-[var(--ink-body)] hover:text-brand hover:underline"
                   }
                 >
                   {p.label}
@@ -75,7 +75,7 @@ export default function PillarNavCard({ variant, currentSection }: PillarNavCard
 
   return (
     <MetaCard>
-      <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
+      <h2 className="text-lg font-bold text-[var(--ink)] mb-4">
         5 管理学習ガイド
       </h2>
       <ul className="space-y-2">
@@ -86,8 +86,8 @@ export default function PillarNavCard({ variant, currentSection }: PillarNavCard
               key={p.slug}
               className={`rounded-sm border px-4 py-3 transition-colors ${
                 isActive
-                  ? "bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800"
-                  : "border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-500"
+                  ? "bg-[var(--accent-fill)] border-[var(--accent)]"
+                  : "border-[var(--rule-soft)] hover:border-[var(--accent)]"
               }`}
             >
               <Link
@@ -95,7 +95,7 @@ export default function PillarNavCard({ variant, currentSection }: PillarNavCard
                 aria-current={isActive ? "true" : undefined}
                 className={
                   isActive
-                    ? "text-sm font-bold text-gray-900 dark:text-gray-100"
+                    ? "text-sm font-bold text-[var(--ink)]"
                     : "text-sm text-brand hover:underline"
                 }
               >

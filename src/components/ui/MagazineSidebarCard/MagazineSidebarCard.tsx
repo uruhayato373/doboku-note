@@ -31,7 +31,7 @@ export default function MagazineSidebarCard({
       {...linkProps}
       data-cta="note"
       data-cta-label={trackLabel}
-      className="not-prose group block rounded-card-content overflow-hidden border border-gray-200 dark:border-gray-700 shadow-card-content hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow"
+      className="not-prose group block rounded-card-content overflow-hidden border border-[var(--rule-soft)] shadow-card-content hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow"
     >
       <Image
         src={imageUrl}

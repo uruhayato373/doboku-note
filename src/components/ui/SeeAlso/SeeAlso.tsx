@@ -25,7 +25,7 @@ export default function SeeAlso({ href, title, reason }: SeeAlsoProps) {
   return (
     <Link
       href={href}
-      className="not-prose group my-5 flex items-start gap-3 rounded-card-content border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-4 py-3.5 shadow-card-content hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow"
+      className="not-prose group my-5 flex items-start gap-3 rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] px-4 py-3.5 shadow-card-content hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow"
       style={{ textDecoration: "none" }}
     >
       <span
@@ -40,11 +40,11 @@ export default function SeeAlso({ href, title, reason }: SeeAlsoProps) {
         <div className="text-[11px] font-bold tracking-wider text-brand-deep dark:text-brand uppercase">
           あわせて読みたい
         </div>
-        <div className="mt-0.5 text-[15px] font-bold text-ink-strong dark:text-gray-100 group-hover:underline">
+        <div className="mt-0.5 text-[15px] font-bold text-ink-strong group-hover:underline">
           {title}
         </div>
         {reason && (
-          <div className="mt-1 text-sm leading-6 text-ink-body dark:text-gray-400">
+          <div className="mt-1 text-sm leading-6 text-ink-body">
             {reason}
           </div>
         )}

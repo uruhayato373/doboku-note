@@ -61,11 +61,11 @@ export default function NoteLink({
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="not-prose group my-6 block max-w-2xl rounded-card-content overflow-hidden border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-card-content hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow"
+      className="not-prose group my-6 block max-w-2xl rounded-card-content overflow-hidden border border-[var(--rule-soft)] bg-[var(--paper)] shadow-card-content hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow"
     >
       <div className="flex flex-col sm:flex-row">
         {imageUrl && (
-          <div className="relative w-full sm:w-[240px] shrink-0 aspect-square bg-gray-100 dark:bg-gray-800">
+          <div className="relative w-full sm:w-[240px] shrink-0 aspect-square bg-[var(--bg)]">
             <Image
               src={imageUrl}
               alt={title}
@@ -84,16 +84,16 @@ export default function NoteLink({
         )}
         <div className="min-w-0 flex-1 p-3 sm:p-4">
           <div className="flex items-start justify-between gap-2 mb-1.5">
-            <span className="text-[11px] text-ink-muted dark:text-gray-500 font-medium">
+            <span className="text-[11px] text-ink-muted font-medium">
               note（dobokunote）
             </span>
-            <ExternalLink className="w-3.5 h-3.5 text-gray-400 dark:text-gray-500 group-hover:text-brand dark:group-hover:text-brand transition-colors shrink-0" />
+            <ExternalLink className="w-3.5 h-3.5 text-[var(--ink-muted)] group-hover:text-brand dark:group-hover:text-brand transition-colors shrink-0" />
           </div>
-          <div className="text-[14px] sm:text-[15px] font-bold text-ink-strong dark:text-gray-100 leading-tight group-hover:text-brand-deep dark:group-hover:text-brand transition-colors line-clamp-2">
+          <div className="text-[14px] sm:text-[15px] font-bold text-ink-strong leading-tight group-hover:text-brand-deep dark:group-hover:text-brand transition-colors line-clamp-2">
             {title}
           </div>
           {description && (
-            <p className="mt-1.5 text-[12px] sm:text-[13px] leading-snug text-ink-body dark:text-gray-400 line-clamp-2 sm:line-clamp-3">
+            <p className="mt-1.5 text-[12px] sm:text-[13px] leading-snug text-ink-body line-clamp-2 sm:line-clamp-3">
               {description}
             </p>
           )}

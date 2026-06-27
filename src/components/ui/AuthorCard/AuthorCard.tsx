@@ -30,7 +30,7 @@ export default function AuthorCard({
 
   return (
     <MetaCard as="aside" ariaLabel="執筆者情報" className="mt-10">
-      <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">執筆者</h2>
+      <h2 className="text-lg font-bold text-[var(--ink)] mb-4">執筆者</h2>
       <div className="flex items-start gap-4">
         <Link href="/about" className="shrink-0">
           <img
@@ -38,29 +38,29 @@ export default function AuthorCard({
             alt={`${AUTHOR.name}のプロフィール画像`}
             width={64}
             height={64}
-            className="w-16 h-16 rounded-full border border-gray-200 dark:border-gray-700"
+            className="w-16 h-16 rounded-full border border-[var(--rule-soft)]"
           />
         </Link>
         <div className="min-w-0 flex-1">
           <Link
             href="/about"
-            className="text-base font-bold text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400"
+            className="text-base font-bold text-[var(--ink)] hover:text-[var(--accent)]"
           >
             {AUTHOR.name}
           </Link>
-          <p className="mt-2 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+          <p className="mt-2 text-sm text-[var(--ink-body)] leading-relaxed">
             {AUTHOR.tagline}
           </p>
           <div className="mt-3">
-            <div className="text-[10px] font-mono uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-1">
+            <div className="text-[10px] font-mono uppercase tracking-widest text-[var(--ink-muted)] mb-1">
               保有資格
             </div>
-            <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+            <p className="text-xs text-[var(--ink-body)] leading-relaxed">
               {AUTHOR.qualifications.join("・")}
             </p>
           </div>
           {(published || updated || lastReviewed) && (
-            <div className="mt-3 text-xs text-gray-500 dark:text-gray-400 flex flex-wrap gap-x-4 gap-y-1">
+            <div className="mt-3 text-xs text-[var(--ink-muted)] flex flex-wrap gap-x-4 gap-y-1">
               {published && <span>公開日: {published}</span>}
               {updated && updated !== published && <span>最終更新: {updated}</span>}
               {lastReviewed &&
@@ -74,13 +74,13 @@ export default function AuthorCard({
             href={AUTHOR.noteCta.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 inline-flex items-center gap-2 px-3.5 py-2 rounded-md bg-primary-600 dark:bg-primary-500 text-white text-sm font-bold shadow-sm hover:bg-primary-700 dark:hover:bg-primary-400 transition-colors"
+            className="mt-4 inline-flex items-center gap-2 px-3.5 py-2 rounded-md bg-[var(--accent)] text-white text-sm font-bold shadow-sm hover:bg-[var(--accent)] transition-colors"
           >
             {AUTHOR.noteCta.label}
           </a>
           <Link
             href="/about"
-            className="mt-2 block text-xs text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 hover:underline"
+            className="mt-2 block text-xs text-[var(--ink-muted)] hover:text-[var(--accent)] hover:underline"
           >
             運営者・編集方針について →
           </Link>
