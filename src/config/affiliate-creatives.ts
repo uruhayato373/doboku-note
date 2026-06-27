@@ -53,7 +53,7 @@ const BUILDJOB_CAREER_AD = {
  * GKS（20代未経験/施工管理）が総監層にミスマッチなため、pe カテゴリ hub のサイドバー転職枠に充てる
  * （2026-06-16）。資格別セグメント: civil=施工管理系（BuildJob/GKS）/ pe=ハイクラス DX/コンサル。
  */
-export const PE_CONSULTING_CAREER_AD = {
+const PE_CONSULTING_CAREER_AD = {
   href: "https://px.a8.net/svt/ejp?a8mat=4B5OO5+NTCZ6+4SXU+NUES1",
   imageSrc:
     "https://www23.a8.net/svt/bgt?aid=260605733040&wid=001&eno=01&mid=s00000022413004005000&mc=1",
@@ -72,7 +72,7 @@ export const PE_CONSULTING_CAREER_AD = {
  *     「表示回数」は計測されなくなる（クリック・成果は href 経由で従来どおり計測される）。
  * 人間向け真実源: docs/project/04_運営/02_アフィリエイト提携状況.md
  */
-export function resolveCareerSidebarAd(): {
+function resolveCareerSidebarAd(): {
   creative: SidebarAdCreative;
   trackLabel: string;
 } {
