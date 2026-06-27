@@ -66,9 +66,9 @@ npx next lint 2>&1 | head -100
 #### 3-3. パフォーマンス
 
 - **バンドルサイズ**: 不要な依存、tree-shakingを阻害するインポート
-- **コード分割**: `dynamic()` の適切な使用（Mermaid, recharts等の重いライブラリ）
+- **コード分割**: `dynamic()` の適切な使用（重いクライアントライブラリ）
 - **レンダリング**: 不要な再レンダリング、useMemo/useCallback の適切な使用
-- **KaTeX/Mermaid**: クライアントサイドの初期化コスト。遅延ロードされているか
+- **KaTeX**: クライアントサイドの初期化コスト。遅延ロードされているか
 - **Core Web Vitals目標**: LCP < 2.5s, CLS < 0.1, INP < 200ms
 
 #### 3-4. 保守性・コード品質
@@ -146,5 +146,5 @@ npx next lint 2>&1 | head -100
 - `images.unoptimized: true` は意図的（R2配信）。これを問題として報告しない
 - `content/` 配下のMDXファイルはこのスキルの対象外（`/check-mdx` を使う）
 - Cloudflare Pagesデプロイのため、Node.js固有APIの使用は要注意
-- KaTeX, Mermaid はクライアントサイドレンダリング。SSR不可は既知
+- KaTeX はクライアントサイドレンダリング。SSR不可は既知
 - AdSense/Analytics のスクリプト挿入パターンは現行を尊重する
