@@ -57,6 +57,11 @@ jobs:
       - name: Check guide article length (published guide >= 3000 chars)
         run: npm run check-guide-length
 
+      # affiliate-career-only 違反 prose（添削サービス/講座ブランド等の再提案）の全量 backstop。
+      # pre-commit はローカル限定でクラウドルーティンの自動生成を守れないため CI で全 .local/r2/posts を検査。
+      - name: Check affiliate-career-only prose (no abolished course/添削 re-proposals)
+        run: npm run check-affiliate-prose
+
       - name: Diff local (main) vs R2 — images only
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
