@@ -1,5 +1,4 @@
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
+import PageShell from "@/components/layout/PageShell";
 import Link from "next/link";
 import {
   ExternalLink,
@@ -415,10 +414,7 @@ export default function LinksPage() {
   const chips = HERO_CHIPS.filter((c) => sectionHasContent(byExam, c.key));
 
   return (
-    <div className="min-h-screen flex flex-col bg-[var(--bg)] transition-colors duration-300">
-      <Header />
-
-      <main className="flex-grow py-10 sm:py-14">
+    <PageShell variant="default" className="py-10 sm:py-14">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           {/* Hero band: アバター + 名乗り + キャッチ + 試験チップ（ジャンプ） */}
           <section className="mb-8 rounded-card-section border border-[var(--rule-soft)] bg-[var(--paper)] p-6 sm:p-8">
@@ -580,9 +576,6 @@ export default function LinksPage() {
             </div>
           </section>
         </div>
-      </main>
-
-      <Footer />
-    </div>
+    </PageShell>
   );
 }
