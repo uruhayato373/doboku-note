@@ -8,6 +8,12 @@ interface SearchPaginationProps {
   onPageChange: (page: number) => void;
 }
 
+const BTN_BASE = "px-3 py-2 text-sm font-medium rounded-card-inline border transition-colors";
+const BTN_INACTIVE =
+  "text-[var(--ink-body)] border-[var(--rule-soft)] hover:bg-[var(--accent-fill)] hover:text-[var(--accent)]";
+const BTN_ACTIVE = "bg-[var(--accent)] text-white border-[var(--accent)]";
+const BTN_DISABLED = "text-[var(--ink-muted)] opacity-50 border-[var(--rule-soft)] cursor-not-allowed";
+
 export function SearchPagination({
   currentPage,
   totalPages,
@@ -52,12 +58,7 @@ export function SearchPagination({
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className={cn(
-          "px-3 py-2 text-sm font-medium rounded-sm border transition-colors",
-          currentPage === 1
-            ? "text-gray-400 dark:text-gray-600 border-gray-200 dark:border-gray-700 cursor-not-allowed"
-            : "text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white"
-        )}
+        className={cn(BTN_BASE, currentPage === 1 ? BTN_DISABLED : BTN_INACTIVE)}
       >
         前へ
       </button>
@@ -65,16 +66,11 @@ export function SearchPagination({
       {/* 最初のページ */}
       {pageNumbers[0] && pageNumbers[0] > 1 && (
         <>
-          <button
-            onClick={() => onPageChange(1)}
-            className="px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded-sm hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors"
-          >
+          <button onClick={() => onPageChange(1)} className={cn(BTN_BASE, BTN_INACTIVE)}>
             1
           </button>
           {pageNumbers[0] && pageNumbers[0] > 2 && (
-            <span className="px-2 py-2 text-gray-500 dark:text-gray-400">
-              ...
-            </span>
+            <span className="px-2 py-2 text-[var(--ink-muted)]">...</span>
           )}
         </>
       )}
@@ -84,12 +80,7 @@ export function SearchPagination({
         <button
           key={page}
           onClick={() => onPageChange(page)}
-          className={cn(
-            "px-3 py-2 text-sm font-medium rounded-sm border transition-colors",
-            page === currentPage
-                              ? "bg-primary-500 text-white border-primary-500"
-              : "text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white"
-          )}
+          className={cn(BTN_BASE, page === currentPage ? BTN_ACTIVE : BTN_INACTIVE)}
         >
           {page}
         </button>
@@ -101,14 +92,9 @@ export function SearchPagination({
         return lastPage && lastPage < totalPages ? (
           <>
             {lastPage < totalPages - 1 && (
-              <span className="px-2 py-2 text-gray-500 dark:text-gray-400">
-                ...
-              </span>
+              <span className="px-2 py-2 text-[var(--ink-muted)]">...</span>
             )}
-            <button
-              onClick={() => onPageChange(totalPages)}
-              className="px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded-sm hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors"
-            >
+            <button onClick={() => onPageChange(totalPages)} className={cn(BTN_BASE, BTN_INACTIVE)}>
               {totalPages}
             </button>
           </>
@@ -119,12 +105,7 @@ export function SearchPagination({
       <button
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className={cn(
-          "px-3 py-2 text-sm font-medium rounded-sm border transition-colors",
-          currentPage === totalPages
-            ? "text-gray-400 dark:text-gray-600 border-gray-200 dark:border-gray-700 cursor-not-allowed"
-            : "text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white"
-        )}
+        className={cn(BTN_BASE, currentPage === totalPages ? BTN_DISABLED : BTN_INACTIVE)}
       >
         次へ
       </button>
