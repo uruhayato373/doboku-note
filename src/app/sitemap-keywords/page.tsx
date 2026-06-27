@@ -48,7 +48,7 @@ function PeSectionTree({ keywordDocs }: { keywordDocs: DocMeta[] }) {
 
         return (
           <div key={chapter.id}>
-            <h2 className="text-lg font-bold text-gray-800 dark:text-gray-200 mb-4">
+            <h2 className="text-lg font-bold text-[var(--ink)] mb-4">
               {chapter.title}
             </h2>
             <div className="space-y-3 ml-2">
@@ -57,10 +57,10 @@ function PeSectionTree({ keywordDocs }: { keywordDocs: DocMeta[] }) {
                 if (keywords.length === 0) return null;
 
                 return (
-                  <div key={sec.id} className="border-l-2 border-gray-200 dark:border-gray-700 pl-4">
+                  <div key={sec.id} className="border-l-2 border-[var(--rule-soft)] pl-4">
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="text-base font-semibold text-gray-700 dark:text-gray-300">{sec.title}</span>
-                      <span className="text-xs text-gray-500 dark:text-gray-500">({keywords.length} 件)</span>
+                      <span className="text-base font-semibold text-[var(--ink-body)]">{sec.title}</span>
+                      <span className="text-xs text-[var(--ink-muted)]">({keywords.length} 件)</span>
                     </div>
                     <div className="flex flex-wrap gap-2 ml-2 mt-2">
                       {keywords
@@ -69,7 +69,7 @@ function PeSectionTree({ keywordDocs }: { keywordDocs: DocMeta[] }) {
                           <Link
                             key={kw.slug}
                             href={`/docs/${kw.slug}`}
-                            className="text-base px-2.5 py-1 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:border-blue-400 dark:hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                            className="text-base px-2.5 py-1 rounded-full border border-[var(--rule-soft)] bg-[var(--paper)] text-[var(--ink-body)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors"
                           >
                             {kw.title}
                           </Link>
@@ -85,7 +85,7 @@ function PeSectionTree({ keywordDocs }: { keywordDocs: DocMeta[] }) {
 
       {unmapped.length > 0 && (
         <div>
-          <h2 className="text-lg font-bold text-gray-800 dark:text-gray-200 mb-4">その他</h2>
+          <h2 className="text-lg font-bold text-[var(--ink)] mb-4">その他</h2>
           <div className="flex flex-wrap gap-2 ml-2">
             {unmapped
               .sort((a, b) => (a.title || '').localeCompare(b.title || '', 'ja'))
@@ -93,7 +93,7 @@ function PeSectionTree({ keywordDocs }: { keywordDocs: DocMeta[] }) {
                 <Link
                   key={kw.slug}
                   href={`/docs/${kw.slug}`}
-                  className="text-base px-2.5 py-1 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:border-blue-400 dark:hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  className="text-base px-2.5 py-1 rounded-full border border-[var(--rule-soft)] bg-[var(--paper)] text-[var(--ink-body)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors"
                 >
                   {kw.title}
                 </Link>

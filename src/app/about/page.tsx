@@ -69,29 +69,29 @@ export default function AboutPage() {
               alt={`${AUTHOR.name}のプロフィール画像`}
               width={120}
               height={120}
-              className="w-28 h-28 rounded-full border-2 border-primary-200 dark:border-primary-800 mx-auto sm:mx-0"
+              className="w-28 h-28 rounded-full border-2 border-[var(--rule-soft)] mx-auto sm:mx-0"
             />
             <div className="flex-1 min-w-0">
-              <h3 className="text-xl font-bold text-neutral-900 dark:text-gray-100">
+              <h3 className="text-xl font-bold text-[var(--ink)]">
                 {AUTHOR.name}
               </h3>
-              <p className="text-sm text-primary-600 dark:text-primary-400 mt-1">
+              <p className="text-sm text-[var(--accent)] mt-1">
                 {AUTHOR.jobTitle}
               </p>
-              <p className="mt-4 text-neutral-700 dark:text-gray-300 leading-relaxed">
+              <p className="mt-4 text-[var(--ink-body)] leading-relaxed">
                 {AUTHOR.bio}
               </p>
               <div className="mt-4">
-                <h4 className="text-sm font-bold text-neutral-700 dark:text-gray-300 mb-2">
+                <h4 className="text-sm font-bold text-[var(--ink-body)] mb-2">
                   保有資格
                 </h4>
                 <ul className="space-y-1">
                   {AUTHOR.qualifications.map((q) => (
                     <li
                       key={q}
-                      className="text-sm text-neutral-600 dark:text-gray-400 flex items-start gap-2"
+                      className="text-sm text-[var(--ink-muted)] flex items-start gap-2"
                     >
-                      <CheckCircle className="w-4 h-4 text-primary-600 dark:text-primary-400 mt-0.5 shrink-0" />
+                      <CheckCircle className="w-4 h-4 text-[var(--accent)] mt-0.5 shrink-0" />
                       <span>{q}</span>
                     </li>
                   ))}
@@ -99,11 +99,11 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
-          <div className="mt-6 pt-6 border-t border-neutral-200 dark:border-gray-700">
-            <h4 className="text-sm font-bold text-neutral-700 dark:text-gray-300 mb-2">
+          <div className="mt-6 pt-6 border-t border-[var(--rule-soft)]">
+            <h4 className="text-sm font-bold text-[var(--ink-body)] mb-2">
               編集方針
             </h4>
-            <ul className="text-sm text-neutral-600 dark:text-gray-400 space-y-2">
+            <ul className="text-sm text-[var(--ink-muted)] space-y-2">
               <li>
                 ・出題範囲を体系的に整理し、実務での適用例を必ず併記する
               </li>
@@ -118,43 +118,43 @@ export default function AboutPage() {
               </li>
             </ul>
           </div>
-          <div className="mt-6 pt-6 border-t border-neutral-200 dark:border-gray-700">
-            <h4 className="text-sm font-bold text-neutral-700 dark:text-gray-300 mb-2">
+          <div className="mt-6 pt-6 border-t border-[var(--rule-soft)]">
+            <h4 className="text-sm font-bold text-[var(--ink-body)] mb-2">
               今後の展開
             </h4>
-            <p className="text-sm text-neutral-600 dark:text-gray-400 leading-relaxed">
+            <p className="text-sm text-[var(--ink-muted)] leading-relaxed">
               現在は<strong>1級土木施工管理技士</strong>・<strong>技術士（総合技術監理部門）</strong>を中心にコンテンツを整備していますが、運営者が取得してきた<strong>技術士（建設部門）・コンクリート主任技士・コンクリート診断士・1級舗装施工管理技術者・行政書士・応用情報技術者</strong>などの受験経験を活かし、土木・建設・法務・IT にまたがる多様な資格試験の対策コンテンツを順次展開していく予定です。
             </p>
           </div>
         </SectionCard>
       </SectionBlock>
 
-      {/* Mission Section（内部 palette は後続フェーズで token 化） */}
-      <section className="py-12 bg-white dark:bg-gray-800">
+      {/* Mission Section */}
+      <section className="py-12 bg-[var(--paper)] border-y border-[var(--rule-soft)]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl font-bold text-neutral-900 dark:text-gray-100 mb-6">
+          <h2 className="text-2xl font-bold text-[var(--ink)] mb-6">
             サイトコンセプト
           </h2>
-          <div className="bg-neutral-50 dark:bg-gray-800 border border-neutral-200 dark:border-gray-600 p-6">
-            <p className="text-xl font-bold text-primary-600 dark:text-primary-400 mb-4">
+          <div className="bg-[var(--bg)] border border-[var(--rule-soft)] rounded-card-content p-6">
+            <p className="text-xl font-bold text-[var(--accent)] mb-4">
               「ここだけで合格できる」体験を
             </p>
             <div className="space-y-3 text-left max-w-2xl mx-auto">
               <div className="flex items-start gap-2">
-                <CheckCircle className="w-5 h-5 text-primary-600 dark:text-primary-400 shrink-0 mt-1" />
-                <p className="text-neutral-700 dark:text-gray-300">
+                <CheckCircle className="w-5 h-5 text-[var(--accent)] shrink-0 mt-1" />
+                <p className="text-[var(--ink-body)]">
                   <strong>体系的</strong> → 試験範囲を網羅した技術解説
                 </p>
               </div>
               <div className="flex items-start gap-2">
-                <CheckCircle className="w-5 h-5 text-primary-600 dark:text-primary-400 shrink-0 mt-1" />
-                <p className="text-neutral-700 dark:text-gray-300">
+                <CheckCircle className="w-5 h-5 text-[var(--accent)] shrink-0 mt-1" />
+                <p className="text-[var(--ink-body)]">
                   <strong>実践的</strong> → 過去問の傾向分析と得点戦略
                 </p>
               </div>
               <div className="flex items-start gap-2">
-                <CheckCircle className="w-5 h-5 text-primary-600 dark:text-primary-400 shrink-0 mt-1" />
-                <p className="text-neutral-700 dark:text-gray-300">
+                <CheckCircle className="w-5 h-5 text-[var(--accent)] shrink-0 mt-1" />
+                <p className="text-[var(--ink-body)]">
                   <strong>効率的</strong> → 忙しい実務者でも合格できる学習法
                 </p>
               </div>
@@ -163,63 +163,63 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Content Categories Section（内部 palette は後続フェーズで token 化） */}
-      <section className="py-16 bg-white dark:bg-gray-800">
+      {/* Content Categories Section */}
+      <section className="py-16 bg-[var(--paper)] border-y border-[var(--rule-soft)]">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-neutral-900 dark:text-gray-100 text-center mb-2">
+          <h2 className="text-2xl font-bold text-[var(--ink)] text-center mb-2">
             対応試験
           </h2>
-          <p className="text-neutral-600 dark:text-gray-400 text-center mb-12">
+          <p className="text-[var(--ink-muted)] text-center mb-12">
             土木系の主要資格試験をカバー
           </p>
 
           <div className="grid lg:grid-cols-2 gap-8">
             {/* 1級土木施工管理技士 */}
             <div>
-              <h3 className="text-xl font-bold text-primary-600 dark:text-primary-400 text-center mb-6">
+              <h3 className="text-xl font-bold text-[var(--accent)] text-center mb-6">
                 1級土木施工管理技士
               </h3>
               <div className="space-y-4">
-                <div className="bg-neutral-50 dark:bg-gray-800 border border-neutral-200 dark:border-gray-600 p-4">
+                <div className="bg-[var(--bg)] border border-[var(--rule-soft)] rounded-card-content p-4">
                   <div className="flex items-center gap-4">
-                    <div className="bg-primary-600 dark:bg-primary-500 w-12 h-12 rounded-sm flex items-center justify-center flex-shrink-0">
+                    <div className="bg-[var(--accent)] w-12 h-12 rounded-sm flex items-center justify-center flex-shrink-0">
                       <BookOpen className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-neutral-900 dark:text-gray-100 mb-1">
+                      <h4 className="font-bold text-[var(--ink)] mb-1">
                         試験ガイド・勉強法
                       </h4>
-                      <p className="text-sm text-neutral-600 dark:text-gray-400">
+                      <p className="text-sm text-[var(--ink-muted)]">
                         出題傾向、得点戦略、学習スケジュール
                       </p>
                     </div>
                   </div>
                 </div>
-                <div className="bg-neutral-50 dark:bg-gray-800 border border-neutral-200 dark:border-gray-600 p-4">
+                <div className="bg-[var(--bg)] border border-[var(--rule-soft)] rounded-card-content p-4">
                   <div className="flex items-center gap-4">
-                    <div className="bg-primary-600 dark:bg-primary-500 w-12 h-12 rounded-sm flex items-center justify-center flex-shrink-0">
+                    <div className="bg-[var(--accent)] w-12 h-12 rounded-sm flex items-center justify-center flex-shrink-0">
                       <FileText className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-neutral-900 dark:text-gray-100 mb-1">
+                      <h4 className="font-bold text-[var(--ink)] mb-1">
                         過去問解説
                       </h4>
-                      <p className="text-sm text-neutral-600 dark:text-gray-400">
+                      <p className="text-sm text-[var(--ink-muted)]">
                         第1次・第2次検定の過去問を詳細解説
                       </p>
                     </div>
                   </div>
                 </div>
-                <div className="bg-neutral-50 dark:bg-gray-800 border border-neutral-200 dark:border-gray-600 p-4">
+                <div className="bg-[var(--bg)] border border-[var(--rule-soft)] rounded-card-content p-4">
                   <div className="flex items-center gap-4">
-                    <div className="bg-primary-600 dark:bg-primary-500 w-12 h-12 rounded-sm flex items-center justify-center flex-shrink-0">
+                    <div className="bg-[var(--accent)] w-12 h-12 rounded-sm flex items-center justify-center flex-shrink-0">
                       <GraduationCap className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-neutral-900 dark:text-gray-100 mb-1">
+                      <h4 className="font-bold text-[var(--ink)] mb-1">
                         技術解説
                       </h4>
-                      <p className="text-sm text-neutral-600 dark:text-gray-400">
+                      <p className="text-sm text-[var(--ink-muted)]">
                         土工・コンクリート・基礎工・施工管理
                       </p>
                     </div>
@@ -230,50 +230,50 @@ export default function AboutPage() {
 
             {/* 技術士 */}
             <div>
-              <h3 className="text-xl font-bold text-cyan-600 dark:text-cyan-400 text-center mb-6">
+              <h3 className="text-xl font-bold text-[var(--accent)] text-center mb-6">
                 技術士（総合技術監理部門）
               </h3>
               <div className="space-y-4">
-                <div className="bg-neutral-50 dark:bg-gray-800 border border-neutral-200 dark:border-gray-600 p-4">
+                <div className="bg-[var(--bg)] border border-[var(--rule-soft)] rounded-card-content p-4">
                   <div className="flex items-center gap-4">
-                    <div className="bg-cyan-600 dark:bg-cyan-500 w-12 h-12 rounded-sm flex items-center justify-center flex-shrink-0">
+                    <div className="bg-[var(--accent)] w-12 h-12 rounded-sm flex items-center justify-center flex-shrink-0">
                       <Target className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-neutral-900 dark:text-gray-100 mb-1">
+                      <h4 className="font-bold text-[var(--ink)] mb-1">
                         5つの管理分野
                       </h4>
-                      <p className="text-sm text-neutral-600 dark:text-gray-400">
+                      <p className="text-sm text-[var(--ink-muted)]">
                         経済性管理・人的資源管理・情報管理・安全管理・社会環境管理
                       </p>
                     </div>
                   </div>
                 </div>
-                <div className="bg-neutral-50 dark:bg-gray-800 border border-neutral-200 dark:border-gray-600 p-4">
+                <div className="bg-[var(--bg)] border border-[var(--rule-soft)] rounded-card-content p-4">
                   <div className="flex items-center gap-4">
-                    <div className="bg-cyan-600 dark:bg-cyan-500 w-12 h-12 rounded-sm flex items-center justify-center flex-shrink-0">
+                    <div className="bg-[var(--accent)] w-12 h-12 rounded-sm flex items-center justify-center flex-shrink-0">
                       <Search className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-neutral-900 dark:text-gray-100 mb-1">
+                      <h4 className="font-bold text-[var(--ink)] mb-1">
                         キーワード解説
                       </h4>
-                      <p className="text-sm text-neutral-600 dark:text-gray-400">
+                      <p className="text-sm text-[var(--ink-muted)]">
                         試験頻出キーワードを体系的に整理
                       </p>
                     </div>
                   </div>
                 </div>
-                <div className="bg-neutral-50 dark:bg-gray-800 border border-neutral-200 dark:border-gray-600 p-4">
+                <div className="bg-[var(--bg)] border border-[var(--rule-soft)] rounded-card-content p-4">
                   <div className="flex items-center gap-4">
-                    <div className="bg-cyan-600 dark:bg-cyan-500 w-12 h-12 rounded-sm flex items-center justify-center flex-shrink-0">
+                    <div className="bg-[var(--accent)] w-12 h-12 rounded-sm flex items-center justify-center flex-shrink-0">
                       <CheckCircle className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-neutral-900 dark:text-gray-100 mb-1">
+                      <h4 className="font-bold text-[var(--ink)] mb-1">
                         過去問・模擬問題
                       </h4>
-                      <p className="text-sm text-neutral-600 dark:text-gray-400">
+                      <p className="text-sm text-[var(--ink-muted)]">
                         択一式・記述式の過去問を年度別に解説
                       </p>
                     </div>
