@@ -106,9 +106,9 @@ const WHITEPAPERS_RAW = {
   },
 } as const satisfies Record<string, WhitepaperEntry>;
 
-export type WhitepaperName = keyof typeof WHITEPAPERS_RAW;
+type WhitepaperName = keyof typeof WHITEPAPERS_RAW;
 
-export const WHITEPAPERS: Readonly<Record<WhitepaperName, WhitepaperEntry>> = WHITEPAPERS_RAW;
+const WHITEPAPERS: Readonly<Record<WhitepaperName, WhitepaperEntry>> = WHITEPAPERS_RAW;
 
 /**
  * チップ名から白書エントリを取得。未登録の場合は null。

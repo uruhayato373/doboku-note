@@ -48,7 +48,7 @@ async function loadSelectedComponents(
   return components;
 }
 
-export async function getCommonComponents(componentNames?: readonly string[]) {
+async function getCommonComponents(componentNames?: readonly string[]) {
   const selectedNames = componentNames ?? Object.keys(commonLoaders);
   return {
     img: (props: React.ImgHTMLAttributes<HTMLImageElement>) =>
@@ -57,7 +57,7 @@ export async function getCommonComponents(componentNames?: readonly string[]) {
   };
 }
 
-export async function getSpecificComponents(componentNames: readonly string[]) {
+async function getSpecificComponents(componentNames: readonly string[]) {
   const unknownNames = componentNames.filter((name) => !specificLoaders[name]);
   for (const name of unknownNames) {
     console.warn(`Unknown specific component: ${name}`);

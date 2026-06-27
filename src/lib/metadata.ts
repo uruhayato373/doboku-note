@@ -1,13 +1,3 @@
-import type { Post } from "@/types/blog";
-
-import { getOgpImageUrl } from "./r2-image-loader";
-import tags from "@/config/tags.json";
-
-const getSlugByName = (name: string) => {
-  const tagInfo = tags.find((t) => t.name === name);
-  return tagInfo ? tagInfo.slug : name;
-};
-
 export const getCommonSeoData = () => ({
   title: {
     default: "doboku-note - 土木系資格試験 専門技術ノート",
@@ -80,48 +70,5 @@ export const getCommonSeoData = () => ({
     images: ["https://doboku-note.com/images/og-default.png"],
   },
   // GSC所有権確認はDNS認証で完了済み
-});
-
-export const getPostSeoData = (post: Post) => ({
-  title: post.title,
-  description: post.description,
-  keywords: post.tags,
-  openGraph: {
-    title: post.title,
-    description: post.description,
-    type: "article",
-    publishedTime: new Date(post.date).toISOString(),
-    url: `https://doboku-note.com/blog/${post.id}`,
-    images: [
-      {
-        url: getOgpImageUrl(post.id),
-        width: 1200,
-        height: 630,
-        alt: post.title,
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: post.title,
-    description: post.description,
-    images: [getOgpImageUrl(post.id)],
-  },
-});
-
-export const getTagSeoData = (tag: string) => ({
-  title: `#${tag} の記事一覧`,
-  description: `タグ「${tag}」に関する記事一覧です。`,
-  keywords: [tag, "タグ", "記事一覧"],
-  openGraph: {
-    title: `#${tag} の記事一覧`,
-    description: `タグ「${tag}」に関する記事一覧です。`,
-    url: `https://doboku-note.com/tags/${getSlugByName(tag)}`,
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: `#${tag} の記事一覧`,
-    description: `タグ「${tag}」に関する記事一覧です。`,
-  },
 });
 

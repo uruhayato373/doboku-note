@@ -10,11 +10,6 @@ import type {
 // re-export types for consumers
 export type { SearchQuery, SearchResult, SearchIndexEntry };
 
-export interface FacetData {
-  name: string;
-  values: { value: string; count: number }[];
-}
-
 export function useSearch() {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<string>("");

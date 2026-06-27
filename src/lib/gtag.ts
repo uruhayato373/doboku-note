@@ -3,7 +3,7 @@
 // NEXT_PUBLIC_GA_ID: Google Analytics トラッキングID（GA4の測定ID）
 // 例: G-XXXXXXXXXX
 // 未設定の場合はGoogle Analyticsが無効化される
-export const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 type GtagConfig = {
   page_path?: string;

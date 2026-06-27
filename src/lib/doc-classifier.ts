@@ -58,7 +58,7 @@ export function classifyDoc(meta: DocMeta): DocGroupKey {
   return 'keyword';
 }
 
-export const GROUP_LABELS: Record<string, Partial<Record<DocGroupKey, string>>> = {
+const GROUP_LABELS: Record<string, Partial<Record<DocGroupKey, string>>> = {
   'pe-comprehensive-management': {
     guide: '試験概要',
     pillar: '5 管理学習ガイド',

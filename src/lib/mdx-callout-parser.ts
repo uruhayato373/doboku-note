@@ -120,20 +120,3 @@ function generateCalloutComponent(type: string, title: string, content: string[]
 
   return `<Callout type="${type}"${titleAttr}>\n${contentText}\n</Callout>`;
 }
-
-/**
- * インラインCallout記法の変換（1行での記述）
- */
-export function parseInlineCallouts(content: string): string {
-  return content.replace(
-    />\s*\[!(\w+)\](.*?)$/gm,
-    (_match, type, title) => {
-      const cleanType = (type as string)?.toLowerCase() || 'info';
-      const cleanTitle = (title as string)?.trim() || '';
-      const supportedType = SUPPORTED_TYPES.includes(cleanType) ? cleanType : 'info';
-      
-      const escapedTitle = cleanTitle.replace(/"/g, '&quot;');
-      return `<Callout type="${supportedType}" title="${escapedTitle}">`;
-    }
-  );
-} 

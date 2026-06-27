@@ -38,7 +38,7 @@ export const CIVIL_CAREER_AD = {
  * 期間限定増額キャンペーン中。GKS と同カテゴリ（無料面談で成果）のためカニバる ＝ 並置せず、
  * サイドバー転職枠を期間限定で本案件へ単独切替する（resolveCareerSidebarAd）。
  */
-export const BUILDJOB_CAREER_AD = {
+const BUILDJOB_CAREER_AD = {
   href: "https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHBA2+5B0Y+NTZCH",
   imageSrc:
     "https://www21.a8.net/svt/bgt?aid=260605733026&wid=002&eno=01&mid=s00000024757004003000&mc=1",

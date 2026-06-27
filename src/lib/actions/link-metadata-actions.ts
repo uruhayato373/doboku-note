@@ -41,58 +41,6 @@ function validateUrl(url: string): URL {
   return urlObj;
 }
 
-// 特定のホストのメタデータを強制的に再取得
-export async function refreshLinkMetadata(url: string): Promise<LinkMetadata> {
-  try {
-    const urlObj = validateUrl(url);
-
-    // ローカルホストや内部URLの場合はスキップ（validateUrlで既にブロック済み、フォールバック）
-    if (urlObj.hostname === "localhost" || urlObj.hostname === "127.0.0.1") {
-      return {
-        siteName: urlObj.hostname,
-        title: urlObj.hostname,
-        description: "ローカル環境のためメタデータを取得できません",
-        image: null,
-      };
-    }
-
-    // キャッシュを無効にして強制的に再取得
-    const response = await fetch(url, {
-      headers: {
-        "User-Agent": "Mozilla/5.0 (compatible; LinkCard-Bot/1.0)",
-      },
-      cache: "no-store", // キャッシュしない
-    });
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
-    const html = await response.text();
-
-    // メタデータを抽出
-    return extractMetadataFromHtml(html, urlObj);
-  } catch {
-    // エラーが発生した場合のフォールバック処理
-    try {
-      const urlObj = new URL(url);
-      return {
-        siteName: urlObj.hostname.replace("www.", ""),
-        title: urlObj.hostname,
-        description: "メタデータの再取得に失敗しました",
-        image: null,
-      };
-    } catch {
-      return {
-        siteName: "サイト名なし",
-        title: "タイトルなし",
-        description: "URLの解析に失敗しました",
-        image: null,
-      };
-    }
-  }
-}
-
 // メタデータ抽出のヘルパー関数
 function extractMetadataFromHtml(html: string, urlObj: URL): LinkMetadata {
   const metadata: LinkMetadata = {};
