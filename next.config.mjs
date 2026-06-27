@@ -23,7 +23,6 @@ const nextConfig = {
       '@/components',
       '@/lib',
       'lucide-react',
-      'react-icons',
     ],
   },
 };
