@@ -1,4 +1,3 @@
-import React from "react";
 import { Briefcase, Heart } from "lucide-react";
 
 export const getCategoryIcon = (iconName: string, className?: string) => {

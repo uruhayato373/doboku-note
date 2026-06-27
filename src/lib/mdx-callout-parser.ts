@@ -127,7 +127,7 @@ function generateCalloutComponent(type: string, title: string, content: string[]
 export function parseInlineCallouts(content: string): string {
   return content.replace(
     />\s*\[!(\w+)\](.*?)$/gm,
-    (match, type, title) => {
+    (_match, type, title) => {
       const cleanType = (type as string)?.toLowerCase() || 'info';
       const cleanTitle = (title as string)?.trim() || '';
       const supportedType = SUPPORTED_TYPES.includes(cleanType) ? cleanType : 'info';
