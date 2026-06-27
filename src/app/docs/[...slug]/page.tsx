@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation';
 import { getDoc, getAllDocSlugs, getDocsMetaByCategory, type DocMeta } from '@/lib/docs';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
+import PageShell from '@/components/layout/PageShell';
 import { getAllComponents } from '@/lib/component-loader';
 import { getCategoryLabel } from '@/lib/categories';
 import { classifyDoc, getGroupLabel } from '@/lib/doc-classifier';
@@ -289,19 +288,18 @@ export default async function DocPage({
   );
 
   return (
-    <>
-    <StructuredData type="article" docMeta={doc.meta} />
-    <div className="min-h-screen flex flex-col bg-[var(--bg)] transition-colors duration-300">
-      <Header />
-
-      <div className="flex-grow w-full pb-16">
-        {/* Editorial Container: max-width 1200px + responsive padding（モバイル ≤576px はカードフルブリードのため padding 0） */}
-        <div className="max-w-[1200px] mx-auto zenn-sp:px-[25px] zenn-tablet:px-10 flex gap-[32px] relative">
+    <PageShell
+      variant="article"
+      className="pb-16"
+      beforeHeader={<StructuredData type="article" docMeta={doc.meta} />}
+    >
+        {/* Editorial Container: max-width 1280px + responsive padding（モバイル ≤576px はカードフルブリードのため padding 0） */}
+        <div className="max-w-[1280px] mx-auto zenn-sp:px-[25px] zenn-tablet:px-10 flex gap-[32px] relative">
 
           {/* Main Content Area */}
           <main className="flex-1 min-w-0 py-10">
-            {/* Editorial article card: 12px radius, soft border + shadow */}
-            <article className="bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-section shadow-soft py-12 px-12 overflow-hidden transition-colors duration-300 max-zenn-sp:rounded-none max-zenn-sp:border-x-0 max-zenn-sp:py-[35px] max-zenn-sp:px-5 max-zenn-tiny:px-[14px]">
+            {/* Editorial article card: 12px radius, soft border + shadow。1280 化に伴い desktop は px-16 で本文行長を抑える */}
+            <article className="bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-section shadow-soft py-12 px-12 zenn-desktop:px-16 overflow-hidden transition-colors duration-300 max-zenn-sp:rounded-none max-zenn-sp:border-x-0 max-zenn-sp:py-[35px] max-zenn-sp:px-5 max-zenn-tiny:px-[14px]">
               {/* パンくず（カード内、タイトル上）: mono uppercase tracking-widest */}
               {category && (
                 <nav aria-label="breadcrumb" className="mb-6 font-mono text-[11px] text-[var(--ink-muted)] uppercase tracking-widest flex items-center gap-2">
@@ -372,10 +370,6 @@ export default async function DocPage({
             showPillarNav={showPillarNav}
           />
         </div>
-      </div>
-
-      <Footer />
-    </div>
-    </>
+    </PageShell>
   );
 }

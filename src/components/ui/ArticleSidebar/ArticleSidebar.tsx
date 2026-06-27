@@ -40,7 +40,8 @@ export default function ArticleSidebar({
 }: ArticleSidebarProps) {
   return (
     <aside className="hidden zenn-desktop:block w-[300px] shrink-0 py-10">
-      <div className="sticky top-6">
+      {/* 2026-06-27 sticky 解除: 読中に広告/著者/目次を追従させない（落ち着いた読書体験を優先） */}
+      <div>
         {/* 転職アフィリエイトを全 docs サイドバー最上部に常設（唯一のピクセル発火源・ファーストビュー）。
             全 docs 無条件表示。creative を期間で出し分け（resolveCareerSidebarAd）。
             note CTA は記事末尾へ集約したため、最上部は転職枠が占める（2026-06-26）。 */}
