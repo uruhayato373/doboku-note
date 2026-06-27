@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { getDoc, getAllDocSlugs, getDocsMetaByCategory, type DocMeta } from '@/lib/docs';
 import PageShell from '@/components/layout/PageShell';
+import ArticleHeader from '@/components/ui/ArticleHeader/ArticleHeader';
 import { getAllComponents } from '@/lib/component-loader';
 import { getCategoryLabel } from '@/lib/categories';
 import { classifyDoc, getGroupLabel } from '@/lib/doc-classifier';
@@ -26,7 +27,6 @@ import { getMagazine, type NoteMagazine } from '@/lib/note-magazines';
 import MetaRow from '@/components/ui/MetaRow/MetaRow';
 import ArticleFooter from '@/components/ui/ArticleFooter/ArticleFooter';
 import ArticleSidebar from '@/components/ui/ArticleSidebar/ArticleSidebar';
-import { generateHeadingId } from '@/lib/toc';
 import { extractReferencesSection } from '@/lib/extract-references';
 import type { Pluggable } from 'unified';
 import { resolveDocsCareerSidebarAd } from '@/config/affiliate-creatives';
@@ -300,32 +300,13 @@ export default async function DocPage({
           <main className="flex-1 min-w-0 py-10">
             {/* Editorial article card: 12px radius, soft border + shadow。1280 化に伴い desktop は px-16 で本文行長を抑える */}
             <article className="bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-section shadow-soft py-12 px-12 zenn-desktop:px-16 overflow-hidden transition-colors duration-300 max-zenn-sp:rounded-none max-zenn-sp:border-x-0 max-zenn-sp:py-[35px] max-zenn-sp:px-5 max-zenn-tiny:px-[14px]">
-              {/* パンくず（カード内、タイトル上）: mono uppercase tracking-widest */}
-              {category && (
-                <nav aria-label="breadcrumb" className="mb-6 font-mono text-[11px] text-[var(--ink-muted)] uppercase tracking-widest flex items-center gap-2">
-                  <a
-                    href={`/category/${category}`}
-                    className="hover:text-[var(--accent)] transition-colors"
-                  >
-                    {getCategoryLabel(category)}
-                  </a>
-                  <span aria-hidden className="opacity-60">›</span>
-                  <span>{getGroupLabel(category, docGroup)}</span>
-                </nav>
-              )}
-              {/* タイトル: frontmatter から server-side で描画。MDX 内 H1 は下で strip する */}
-              <h1
-                id={generateHeadingId(doc.meta.title)}
-                className="font-sans font-bold text-[24px] text-[var(--ink)] leading-[1.4] tracking-tight text-balance [word-break:auto-phrase] m-0 mb-0"
-                style={{
-                  letterSpacing: '-0.01em',
-                }}
-              >
-                {doc.meta.title}
-              </h1>
-              {/* タイトル直下 byline: 日付 + 読了時間（タグなし） */}
-              <MetaRow
-                variant="byline"
+              {/* 記事ヘッダー: breadcrumb + H1 + description リード + byline を集約 */}
+              <ArticleHeader
+                title={doc.meta.title}
+                category={category}
+                categoryLabel={category ? getCategoryLabel(category) : null}
+                groupLabel={category ? getGroupLabel(category, docGroup) : null}
+                description={doc.meta.description}
                 publishedAt={doc.meta.publishedAt || doc.meta.created}
                 updatedAt={doc.meta.updatedAt || doc.meta.dateModified}
               />
