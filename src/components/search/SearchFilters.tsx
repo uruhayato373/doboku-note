@@ -28,8 +28,8 @@ export function SearchFilters({
         className={cn(
           "px-3 py-1.5 text-sm rounded-full border transition-colors",
           !category
-            ? "bg-primary-500 text-white border-primary-500"
-            : "bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600"
+            ? "bg-[var(--accent)] text-white border-[var(--accent)]"
+            : "bg-[var(--paper)] text-[var(--ink-body)] border-[var(--rule-soft)] hover:bg-[var(--accent-fill)] hover:text-[var(--accent)]"
         )}
       >
         すべて
@@ -41,8 +41,8 @@ export function SearchFilters({
           className={cn(
             "px-3 py-1.5 text-sm rounded-full border transition-colors",
             category === cat.value
-              ? "bg-primary-500 text-white border-primary-500"
-              : "bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600"
+              ? "bg-[var(--accent)] text-white border-[var(--accent)]"
+              : "bg-[var(--paper)] text-[var(--ink-body)] border-[var(--rule-soft)] hover:bg-[var(--accent-fill)] hover:text-[var(--accent)]"
           )}
         >
           {cat.label}
@@ -51,7 +51,7 @@ export function SearchFilters({
       {category && (
         <button
           onClick={onReset}
-          className="px-3 py-1.5 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
+          className="px-3 py-1.5 text-sm text-[var(--ink-muted)] hover:text-[var(--ink)] transition-colors"
         >
           リセット
         </button>

@@ -119,7 +119,7 @@ export function SearchBox({
           )}
         >
           <svg
-            className={cn("text-gray-400", compact ? "h-4 w-4" : "h-5 w-5")}
+            className={cn("text-[var(--ink-muted)]", compact ? "h-4 w-4" : "h-5 w-5")}
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -146,10 +146,9 @@ export function SearchBox({
           onBlur={onBlur}
           placeholder={placeholder}
           className={cn(
-            "block w-full border border-gray-300 rounded-sm",
-            "focus:ring-2 focus:ring-primary-500 focus:border-primary-500",
-            "dark:bg-gray-700 dark:border-gray-600 dark:text-white",
-            "dark:focus:ring-primary-400 dark:focus:border-primary-400",
+            "block w-full bg-[var(--paper)] text-[var(--ink)] border border-[var(--rule-soft)] rounded-card-content",
+            "focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-[var(--accent)]",
+            "placeholder:text-[var(--ink-muted)]",
             "transition-colors duration-200",
             compact ? "pl-8 pr-8 py-2 text-sm" : "pl-10 pr-10 py-2"
           )}
@@ -165,7 +164,7 @@ export function SearchBox({
           >
             <svg
               className={cn(
-                "text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors",
+                "text-[var(--ink-muted)] hover:text-[var(--ink)] transition-colors",
                 compact ? "h-4 w-4" : "h-5 w-5"
               )}
               fill="none"
@@ -187,7 +186,7 @@ export function SearchBox({
       {showSuggestions && suggestions.length > 0 && (
         <div
           ref={suggestionsRef}
-          className="absolute z-50 w-full mt-1 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-sm shadow-lg"
+          className="absolute z-50 w-full mt-1 bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-content shadow-lift"
         >
           <ul className="py-1">
             {suggestions.map((suggestion, index) => (
@@ -195,15 +194,15 @@ export function SearchBox({
                 <button
                   onClick={() => handleSuggestionClick(suggestion)}
                   className={cn(
-                    "w-full px-4 py-2 text-left text-sm text-gray-700 dark:text-gray-300",
-                    "hover:bg-gray-100 dark:hover:bg-gray-700",
-                    "focus:bg-gray-100 dark:focus:bg-gray-700 focus:outline-none",
+                    "w-full px-4 py-2 text-left text-sm text-[var(--ink-body)]",
+                    "hover:bg-[var(--accent-fill)] hover:text-[var(--accent)]",
+                    "focus:bg-[var(--accent-fill)] focus:outline-none",
                     "transition-colors duration-150"
                   )}
                 >
                   <div className="flex items-center">
                     <svg
-                      className="h-4 w-4 text-gray-400 mr-2"
+                      className="h-4 w-4 text-[var(--ink-muted)] mr-2"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
