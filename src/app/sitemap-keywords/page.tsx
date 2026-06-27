@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
+import PageShell from '@/components/layout/PageShell';
+import PageHeader from '@/components/layout/PageHeader';
+import SectionBlock from '@/components/layout/SectionBlock';
 import { getDocsMetaByCategory, type DocMeta } from '@/lib/docs';
 import peChaptersData from '@/config/pe-chapters.json';
 import type { PeChapter } from '@/config/pe-chapters';
@@ -111,40 +112,30 @@ export default async function SitemapKeywordsPage() {
   );
 
   return (
-    <div className="min-h-screen flex flex-col bg-[var(--bg)] transition-colors duration-300">
-      <Header />
+    <PageShell variant="default">
+      <PageHeader
+        variant="band"
+        width="wide"
+        breadcrumb={[
+          { label: 'Home', href: '/' },
+          { label: '総合技術監理', href: '/category/pe-comprehensive-management' },
+          { label: 'キーワード索引' },
+        ]}
+        label="SITEMAP"
+        title="総合技術監理 キーワード索引"
+        lead={
+          <>
+            <a href="https://www.mext.go.jp/b_menu/shingi/gijyutu/gijyutu7/toushin/1411203_00007.htm" target="_blank" rel="noopener noreferrer" className="text-[var(--accent)] hover:underline">文部科学省「総合技術監理 キーワード集 2026」</a>に基づき、5 管理（経済性 / 人的資源 / 情報 / 安全 / 社会環境）× 26 セクションの体系で整理した全キーワードの索引です。
+          </>
+        }
+        meta={<span className="tabular-nums">{keywordDocs.length.toLocaleString()} keywords</span>}
+      />
 
-      <main className="flex-grow">
-        <div className="border-b border-[var(--rule-soft)] py-10 sm:py-12 px-4 sm:px-6 lg:px-10 bg-[var(--paper)]">
-          <div className="max-w-[1280px] mx-auto">
-            <nav aria-label="breadcrumb" className="font-mono text-[11px] text-[var(--ink-muted)] uppercase tracking-widest mb-3 flex items-center gap-2">
-              <Link href="/" className="hover:text-[var(--accent)] transition-colors">Home</Link>
-              <span aria-hidden className="opacity-60">›</span>
-              <Link href="/category/pe-comprehensive-management" className="hover:text-[var(--accent)] transition-colors">総合技術監理</Link>
-              <span aria-hidden className="opacity-60">›</span>
-              <span>キーワード索引</span>
-            </nav>
-            <div className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-[var(--accent)] px-2.5 py-1 bg-[var(--accent-fill)] rounded-full mb-4">
-              SITEMAP
-            </div>
-            <h1 className="font-serif font-black tracking-tight text-[var(--ink)] text-[24px] sm:text-[30px] leading-[1.2] mb-3">
-              総合技術監理 キーワード索引
-            </h1>
-            <p className="text-[16px] leading-[1.9] text-[var(--ink-body)] max-w-[60ch]">
-              <a href="https://www.mext.go.jp/b_menu/shingi/gijyutu/gijyutu7/toushin/1411203_00007.htm" target="_blank" rel="noopener noreferrer" className="text-[var(--accent)] hover:underline">文部科学省「総合技術監理 キーワード集 2026」</a>に基づき、5 管理（経済性 / 人的資源 / 情報 / 安全 / 社会環境）× 26 セクションの体系で整理した全キーワードの索引です。
-            </p>
-            <div className="mt-5 flex gap-4 flex-wrap font-mono text-[11px] text-[var(--ink-muted)] tabular-nums">
-              <span>{keywordDocs.length.toLocaleString()} keywords</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 py-10 sm:py-12 text-[17px] leading-[1.9]">
+      <SectionBlock width="wide" space="md">
+        <div className="text-[17px] leading-[1.9]">
           <PeSectionTree keywordDocs={keywordDocs} />
         </div>
-      </main>
-
-      <Footer />
-    </div>
+      </SectionBlock>
+    </PageShell>
   );
 }

@@ -1,8 +1,7 @@
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
+import PageShell from '@/components/layout/PageShell';
 import { getAllCategories, getCategoryBySlug } from '@/lib/categories';
 import { getDocsMetaByCategory } from '@/lib/docs';
 import { groupDocs } from '@/lib/category-groups';
@@ -112,17 +111,14 @@ export default async function CategoryPage({
   ) : null;
 
   return (
-    <div className="min-h-screen flex flex-col bg-[var(--bg)] transition-colors duration-300">
-      <Header />
-
-      <main className="flex-grow">
+    <PageShell variant="article">
         {/* カテゴリ本文 + 右サイドバー（PC ≥993px・常に 2 カラム）。サイドバーは上から
             転職アフィリ（SidebarAdBanner＝当ページ唯一のピクセル源）→ 運営者プロフィール →
-            人気記事 → note マガジン CTA を sticky 配置。note CTA はモバイルでは記事一覧の下に出す。
+            人気記事 → note マガジン CTA を配置。note CTA はモバイルでは記事一覧の下に出す。
             カテゴリ見出しは全幅ヒーロー帯を廃し、左カラム上部にコンパクト配置（2026-06-26）。
             これにより右サイドバー（転職枠）がファーストビューへ繰り上がる。 */}
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 flex gap-8 relative">
-          <div className="flex-1 min-w-0">
+          <main className="flex-1 min-w-0">
             {/* カテゴリ見出し（縮小版・H1/パンくず/説明は SEO のため維持。CATEGORY チップは
                 パンくずと重複のため削除） */}
             <div className="pt-8 sm:pt-10 pb-5 border-b border-[var(--rule-soft)]">
@@ -185,10 +181,11 @@ export default async function CategoryPage({
             <div className="zenn-desktop:hidden pb-10 mx-auto max-w-sm">
               <SidebarMagazineList magazines={hubMagazines} className="space-y-3" />
             </div>
-          </div>
+          </main>
 
           <aside className="hidden zenn-desktop:block w-[300px] shrink-0 py-10 sm:py-12">
-              <div className="sticky top-6 space-y-3">
+              {/* 2026-06-27 sticky 解除: 読中に広告/著者/ランキングを追従させない */}
+              <div className="space-y-3">
                 {/* 転職アフィリ（PC 右サイドバー最上部・sticky）。当ページ唯一のピクセル発火源。
                     ファーストビュー内でインプレッションを最大化するため最上部に置く（2026-06-26 並べ替え）。
                     creative は resolveCareerSidebarAd で期間出し分け（〜2026-08-31 ビルドジョブ / 以降 GKS）。 */}
@@ -209,9 +206,6 @@ export default async function CategoryPage({
               </div>
             </aside>
         </div>
-      </main>
-
-      <Footer />
-    </div>
+    </PageShell>
   );
 }

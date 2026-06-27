@@ -5,7 +5,6 @@
 ```
 src/components/
 ├── 共通コンポーネント (ルートレベル)
-│   ├── ErrorBoundary.tsx
 │   ├── Footer.tsx
 │   ├── Header.tsx
 │   ├── ThemeProvider.tsx
@@ -91,8 +90,7 @@ components/
 1. **プロバイダー類の整理**
    ```
    providers/
-   ├── ThemeProvider.tsx
-   └── ErrorBoundary.tsx
+   └── ThemeProvider.tsx
    ```
 
 2. **共通レイアウトの統合**

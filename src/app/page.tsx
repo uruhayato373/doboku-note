@@ -1,5 +1,4 @@
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
+import PageShell from "@/components/layout/PageShell";
 import MagazineSidebarCard from "@/components/ui/MagazineSidebarCard";
 import { Hero, ExamCards, LatestArticles, AboutSection } from "@/components/home";
 import type { LatestArticle } from "@/components/home";
@@ -121,33 +120,29 @@ export default async function HomePage() {
   const latest = pickRecent(allMeta, 4);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[var(--bg)] transition-colors duration-300">
-      <Header />
-      <main className="flex-grow">
-        <Hero />
-        <ExamCards exams={exams} />
-        <LatestArticles articles={latest} />
-        <AboutSection />
-        {/* note 有料教材ハブへの導線（複数資格を横断するトップは単一商品でなく /links 集約へ）。
-            data-cta="note" で AnalyticsProvider のクリック計測対象になる。 */}
-        <div className="mx-auto max-w-3xl px-4 pt-10">
-          <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ink-muted)] mb-3">Premium</div>
-          <h2 className="font-serif text-xl sm:text-2xl font-black text-[var(--ink)] mb-1.5">note 有料教材</h2>
-          <p className="text-[14px] text-[var(--ink-muted)] mb-4">
-            記述式・経験記述の模範答案集や精読ガイドをまとめています。
-          </p>
-          <div className="max-w-sm">
-            <MagazineSidebarCard
-              href="/links"
-              imageUrl="/images/magazines/links-hub-sidebar.webp"
-              alt="note 有料教材まとめ"
-              external={false}
-              trackLabel="home-links-hub"
-            />
-          </div>
+    <PageShell variant="default">
+      <Hero />
+      <ExamCards exams={exams} />
+      <LatestArticles articles={latest} />
+      <AboutSection />
+      {/* note 有料教材ハブへの導線（複数資格を横断するトップは単一商品でなく /links 集約へ）。
+          data-cta="note" で AnalyticsProvider のクリック計測対象になる。 */}
+      <div className="mx-auto max-w-3xl px-4 pt-10">
+        <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ink-muted)] mb-3">Premium</div>
+        <h2 className="font-serif text-xl sm:text-2xl font-black text-[var(--ink)] mb-1.5">note 有料教材</h2>
+        <p className="text-[14px] text-[var(--ink-muted)] mb-4">
+          記述式・経験記述の模範答案集や精読ガイドをまとめています。
+        </p>
+        <div className="max-w-sm">
+          <MagazineSidebarCard
+            href="/links"
+            imageUrl="/images/magazines/links-hub-sidebar.webp"
+            alt="note 有料教材まとめ"
+            external={false}
+            trackLabel="home-links-hub"
+          />
         </div>
-      </main>
-      <Footer />
-    </div>
+      </div>
+    </PageShell>
   );
 }

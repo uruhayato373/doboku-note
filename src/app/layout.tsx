@@ -42,7 +42,7 @@ export default function RootLayout({
           <AnalyticsProvider />
         </Suspense>
         <ThemeProvider>
-          <div className="min-h-screen bg-neutral-50 dark:bg-gray-900 transition-colors duration-300">
+          <div className="min-h-screen bg-[var(--bg)] transition-colors duration-300">
             {children}
             <BackToTopButton />
           </div>

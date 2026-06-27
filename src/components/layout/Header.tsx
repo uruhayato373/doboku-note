@@ -90,6 +90,14 @@ const ChevronDown = ({ className }: IconProps) => (
   </SvgIcon>
 );
 
+const Layers = ({ className }: IconProps) => (
+  <SvgIcon className={className}>
+    <path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z" />
+    <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
+    <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
+  </SvgIcon>
+);
+
 function CategoryIcon({ variant, className }: { variant: string; className?: string }) {
   const cn = className || "w-5 h-5";
   if (variant === "civil") return <HardHat className={cn} />;
@@ -212,6 +220,14 @@ export default function Header() {
               </div>
 
               <Link
+                href="/links"
+                className="flex flex-col items-center gap-1 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2 rounded-card-inline transition-colors"
+              >
+                <Layers className="w-5 h-5" />
+                <span className="text-[11px] font-medium">教材</span>
+              </Link>
+
+              <Link
                 href="/about"
                 className="flex flex-col items-center gap-1 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2 rounded-card-inline transition-colors"
               >
@@ -276,6 +292,16 @@ export default function Header() {
                 <span className="font-medium">{cat.label}</span>
               </Link>
             ))}
+
+            {/* 教材（/links）リンク */}
+            <Link
+              href="/links"
+              onClick={closeMenu}
+              className="flex items-center gap-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2.5 rounded-card-inline transition-colors"
+            >
+              <Layers className="w-5 h-5" />
+              <span className="font-medium">教材</span>
+            </Link>
 
             {/* Aboutリンク */}
             <Link

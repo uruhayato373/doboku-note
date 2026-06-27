@@ -1,5 +1,6 @@
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
+import PageShell from "@/components/layout/PageShell";
+import PageHeader from "@/components/layout/PageHeader";
+import SectionBlock from "@/components/layout/SectionBlock";
 import Link from "next/link";
 import type { Metadata } from "next";
 
@@ -41,48 +42,32 @@ const TOOLS = [
 
 export default function ToolsIndexPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-[var(--bg)] transition-colors duration-300">
-      <Header />
+    <PageShell variant="default">
+      <PageHeader
+        variant="band"
+        width="860"
+        breadcrumb={[{ label: "Home", href: "/" }, { label: "Tools" }]}
+        title="無料ツール"
+        lead="土木施工管理技士の受験対策に使える、その場で動く無料ツールをまとめています。すべて登録不要・無料です。"
+      />
 
-      <main className="flex-grow">
-        <section className="border-b border-[var(--rule-soft)] bg-[var(--paper)] py-10 sm:py-12">
-          <div className="max-w-[860px] mx-auto px-4 sm:px-6">
-            <nav aria-label="breadcrumb" className="font-mono text-[11px] text-[var(--ink-muted)] uppercase tracking-widest mb-3 flex items-center gap-2">
-              <Link href="/" className="hover:text-[var(--accent)] transition-colors">Home</Link>
-              <span aria-hidden className="opacity-60">›</span>
-              <span>Tools</span>
-            </nav>
-            <h1 className="font-serif font-black text-[var(--ink)] text-[24px] sm:text-[30px] tracking-tight leading-[1.25] mb-4">
-              無料ツール
-            </h1>
-            <p className="text-[15px] sm:text-[16px] leading-[1.9] text-[var(--ink-body)] max-w-[60ch]">
-              土木施工管理技士の受験対策に使える、その場で動く無料ツールをまとめています。すべて登録不要・無料です。
-            </p>
-          </div>
-        </section>
-
-        <section className="py-8 sm:py-10">
-          <div className="max-w-[860px] mx-auto px-4 sm:px-6">
-            <div className="grid gap-4 sm:grid-cols-2">
-              {TOOLS.map((t) => (
-                <Link
-                  key={t.href}
-                  href={t.href}
-                  className="group block rounded-card-section border border-[var(--rule-soft)] bg-[var(--paper)] shadow-soft p-5 hover:border-[var(--accent)] transition-colors"
-                >
-                  <div className="inline-flex items-center font-mono text-[10px] uppercase tracking-wider text-[var(--accent)] px-2 py-0.5 bg-[var(--accent-fill)] rounded-full mb-3">
-                    {t.tag}
-                  </div>
-                  <div className="font-bold text-[17px] text-[var(--ink)] group-hover:underline mb-1.5">{t.title}</div>
-                  <p className="text-sm leading-6 text-[var(--ink-body)]">{t.desc}</p>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <Footer />
-    </div>
+      <SectionBlock width="860" space="sm">
+        <div className="grid gap-4 sm:grid-cols-2">
+          {TOOLS.map((t) => (
+            <Link
+              key={t.href}
+              href={t.href}
+              className="group block rounded-card-section border border-[var(--rule-soft)] bg-[var(--paper)] shadow-soft p-5 hover:border-[var(--accent)] transition-colors"
+            >
+              <div className="inline-flex items-center font-mono text-[10px] uppercase tracking-wider text-[var(--accent)] px-2 py-0.5 bg-[var(--accent-fill)] rounded-full mb-3">
+                {t.tag}
+              </div>
+              <div className="font-bold text-[17px] text-[var(--ink)] group-hover:underline mb-1.5">{t.title}</div>
+              <p className="text-sm leading-6 text-[var(--ink-body)]">{t.desc}</p>
+            </Link>
+          ))}
+        </div>
+      </SectionBlock>
+    </PageShell>
   );
 }

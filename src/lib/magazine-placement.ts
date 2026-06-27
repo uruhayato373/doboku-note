@@ -19,15 +19,9 @@ export interface PlacementSlot {
 export interface ResolvedPlacement {
   readonly inline: ReadonlyArray<PlacementSlot>;
   readonly sidebar: ReadonlyArray<PlacementSlot>;
-  /**
-   * true なら inline はモバイルのみ表示 (zenn-desktop:hidden)、PC は sidebar 側に任せる。
-   * 主要ハブ (pillar / pattern-essay / r0X-secondary / essay-exam-strategy) は false にして、
-   * inline を強い CTA として PC でも表示する。
-   */
-  readonly inlineMobileOnly: boolean;
 }
 
-const EMPTY: ResolvedPlacement = { inline: [], sidebar: [], inlineMobileOnly: true };
+const EMPTY: ResolvedPlacement = { inline: [], sidebar: [] };
 
 /**
  * slug → utm_content 用の短縮識別子。
@@ -164,7 +158,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
       sidebar: [
         slot('tankan-reading-guide', slug, 'sidebar-1'),
       ],
-      inlineMobileOnly: false,
     };
   }
 
@@ -186,7 +179,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
         slot(NEW_MAGAZINES.r8Forecast, slug, 'inline-2'),
       ],
       sidebar: [slot(NEW_MAGAZINES.r8Forecast, slug, 'sidebar-1')],
-      inlineMobileOnly: false,
     };
   }
 
@@ -196,7 +188,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     return {
       inline: [slot(peEssayMag, slug, 'inline-1')],
       sidebar: [slot(peEssayMag, slug, 'sidebar-1')],
-      inlineMobileOnly: false,
     };
   }
 
@@ -208,7 +199,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
         slot(patternMag, slug, 'inline-1'),
       ],
       sidebar: [slot(patternMag, slug, 'sidebar')],
-      inlineMobileOnly: false,
     };
   }
 
@@ -222,7 +212,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
         slot(NEW_MAGAZINES.r8Forecast, slug, 'inline-1'),
       ],
       sidebar: [slot(NEW_MAGAZINES.r8Forecast, slug, 'sidebar-1')],
-      inlineMobileOnly: false,
     };
   }
 
@@ -237,7 +226,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
         slot(NEW_MAGAZINES.r8Forecast, slug, 'inline-1'),
       ],
       sidebar: [slot(NEW_MAGAZINES.r8Forecast, slug, 'sidebar-1')],
-      inlineMobileOnly: false,
     };
   }
 
@@ -247,7 +235,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     return {
       inline: [slot(personaMag, slug, 'inline')],
       sidebar: [slot(personaMag, slug, 'sidebar')],
-      inlineMobileOnly: true,
     };
   }
 
@@ -271,7 +258,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
       sidebar: [
         slot('tankan-reading-guide', slug, 'sidebar-1'),
       ],
-      inlineMobileOnly: false,
     };
   }
 
@@ -286,7 +272,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     return {
       inline: [],
       sidebar: [slot('essay-road-municipality-magazine', slug, 'sidebar-1')],
-      inlineMobileOnly: false,
     };
   }
 
@@ -302,7 +287,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
         slot(NEW_MAGAZINES.completePack, slug, 'sidebar-1'),
         slot('tankan-reading-guide', slug, 'sidebar-2'),
       ],
-      inlineMobileOnly: false,
     };
   }
 
@@ -311,7 +295,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     return {
       inline: [slot('tankan-reading-guide', slug, 'inline-1')],
       sidebar: [slot('tankan-reading-guide', slug, 'sidebar')],
-      inlineMobileOnly: false,
     };
   }
 
@@ -335,13 +318,11 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
           slot(NEW_MAGAZINES.r8Forecast, slug, 'sidebar-1'),
           slot('tankan-reading-guide', slug, 'sidebar-2'),
         ],
-        inlineMobileOnly: false,
       };
     }
     return {
       inline: [slot('tankan-reading-guide', slug, 'inline-mobile')],
       sidebar: [],
-      inlineMobileOnly: true,
     };
   }
 
@@ -357,7 +338,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
         slot('civil-membership-lab', slug, 'inline-3'),
       ],
       sidebar: [slot('civil-2-pastexam-essay', slug, 'sidebar-1')],
-      inlineMobileOnly: false,
     };
   }
   if (/^civil-construction-2-secondary-experience-writing-(guide|examples)$/.test(slug)) {
@@ -368,7 +348,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
         slot('civil-membership-lab', slug, 'inline-3'),
       ],
       sidebar: [slot('civil-2-experience-essay', slug, 'sidebar-1')],
-      inlineMobileOnly: false,
     };
   }
 
@@ -385,7 +364,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
         slot('civil-membership-lab', slug, 'inline-4'),
       ],
       sidebar: [slot('civil-1-pastexam-essay', slug, 'sidebar-1')],
-      inlineMobileOnly: false,
     };
   }
   if (/^civil-construction-1-secondary-experience-writing-(guide|examples)$/.test(slug)) {
@@ -397,7 +375,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
         slot('civil-membership-lab', slug, 'inline-4'),
       ],
       sidebar: [slot('civil-1-experience-essay', slug, 'sidebar-1')],
-      inlineMobileOnly: false,
     };
   }
 
@@ -412,7 +389,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
         slot('civil-membership-lab', slug, 'inline-4'),
       ],
       sidebar: [slot('civil-1-experience-essay', slug, 'sidebar-1')],
-      inlineMobileOnly: false,
     };
   }
 
@@ -426,7 +402,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
         slot('civil-membership-lab', slug, 'inline-4'),
       ],
       sidebar: [slot('civil-1-experience-essay', slug, 'sidebar-1')],
-      inlineMobileOnly: false,
     };
   }
 
@@ -439,7 +414,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
         slot('civil-membership-lab', slug, 'inline-3'),
       ],
       sidebar: [slot('civil-2-experience-essay', slug, 'sidebar-1')],
-      inlineMobileOnly: false,
     };
   }
 
@@ -448,7 +422,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     return {
       inline: [slot('civil-1-experience-essay', slug, 'inline-mobile')],
       sidebar: [slot('civil-1-experience-essay', slug, 'sidebar-1')],
-      inlineMobileOnly: true,
     };
   }
 
@@ -457,7 +430,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     return {
       inline: [slot('civil-1-experience-essay', slug, 'inline-mobile')],
       sidebar: [slot('civil-1-experience-essay', slug, 'sidebar-1')],
-      inlineMobileOnly: true,
     };
   }
 
@@ -466,7 +438,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     return {
       inline: [slot('civil-2-experience-essay', slug, 'inline-mobile')],
       sidebar: [slot('civil-2-experience-essay', slug, 'sidebar-1')],
-      inlineMobileOnly: true,
     };
   }
 
@@ -477,7 +448,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     return {
       inline: [slot('cce-essay-magazine', slug, 'inline-1')],
       sidebar: [slot('cce-essay-magazine', slug, 'sidebar-1')],
-      inlineMobileOnly: false,
     };
   }
 
