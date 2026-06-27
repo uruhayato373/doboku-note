@@ -11,13 +11,21 @@ export default function NotFound() {
       <p className="text-[var(--ink-muted)] mt-2 text-sm">
         お探しのページは移動または削除された可能性があります。
       </p>
-      <Link
-        href="/"
-        className="mt-6 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-[var(--accent)] hover:underline"
-      >
-        <span>Back to home</span>
-        <span aria-hidden>→</span>
-      </Link>
+      <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+        <Link
+          href="/search"
+          className="inline-flex items-center gap-2 rounded-card-inline border border-[var(--rule-soft)] px-4 py-2 text-sm font-bold text-[var(--ink-body)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors"
+        >
+          記事を検索
+        </Link>
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 rounded-card-inline bg-[var(--accent)] px-4 py-2 text-sm font-bold text-white hover:opacity-90 transition-opacity"
+        >
+          <span>ホーム（資格一覧）へ</span>
+          <span aria-hidden>→</span>
+        </Link>
+      </div>
     </div>
   );
 }

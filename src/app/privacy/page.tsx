@@ -42,7 +42,7 @@ type PolicyCardProps = {
   children: React.ReactNode;
 };
 
-// 共通 SectionCard へ委譲（chrome の二重管理を解消）。内部 palette は後続フェーズで token 化。
+// 共通 SectionCard へ委譲（chrome の二重管理を解消）。
 function PolicyCard({ icon, title, children }: PolicyCardProps) {
   return (
     <SectionCard interactive icon={icon} title={title}>
@@ -66,7 +66,7 @@ export default function PrivacyPage() {
         <div className="space-y-6">
           {/* 1. はじめに */}
           <PolicyCard
-            icon={<Shield className="w-5 h-5 text-primary-600 dark:text-primary-400" />}
+            icon={<Shield className="w-5 h-5 text-[var(--accent)]" />}
             title="はじめに"
           >
             <p>
@@ -76,26 +76,26 @@ export default function PrivacyPage() {
 
           {/* 2. 収集する情報 */}
           <PolicyCard
-            icon={<Database className="w-5 h-5 text-primary-600 dark:text-primary-400" />}
+            icon={<Database className="w-5 h-5 text-[var(--accent)]" />}
             title="収集する情報"
           >
             <div className="grid sm:grid-cols-2 gap-4">
-              <div className="bg-gray-50 dark:bg-gray-700/50 rounded-sm p-4">
-                <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-2 text-sm">自動的に収集される情報</h3>
+              <div className="bg-[var(--bg)] rounded-sm p-4">
+                <h3 className="font-semibold text-[var(--ink)] mb-2 text-sm">自動的に収集される情報</h3>
                 <ul className="space-y-1 text-sm">
-                  <li className="flex items-center gap-2"><span className="w-1 h-1 bg-primary-400 rounded-full flex-shrink-0" />IPアドレス</li>
-                  <li className="flex items-center gap-2"><span className="w-1 h-1 bg-primary-400 rounded-full flex-shrink-0" />ブラウザの種類とバージョン</li>
-                  <li className="flex items-center gap-2"><span className="w-1 h-1 bg-primary-400 rounded-full flex-shrink-0" />アクセス日時</li>
-                  <li className="flex items-center gap-2"><span className="w-1 h-1 bg-primary-400 rounded-full flex-shrink-0" />参照元のURL</li>
-                  <li className="flex items-center gap-2"><span className="w-1 h-1 bg-primary-400 rounded-full flex-shrink-0" />デバイスの種類</li>
+                  <li className="flex items-center gap-2"><span className="w-1 h-1 bg-[var(--accent)] rounded-full flex-shrink-0" />IPアドレス</li>
+                  <li className="flex items-center gap-2"><span className="w-1 h-1 bg-[var(--accent)] rounded-full flex-shrink-0" />ブラウザの種類とバージョン</li>
+                  <li className="flex items-center gap-2"><span className="w-1 h-1 bg-[var(--accent)] rounded-full flex-shrink-0" />アクセス日時</li>
+                  <li className="flex items-center gap-2"><span className="w-1 h-1 bg-[var(--accent)] rounded-full flex-shrink-0" />参照元のURL</li>
+                  <li className="flex items-center gap-2"><span className="w-1 h-1 bg-[var(--accent)] rounded-full flex-shrink-0" />デバイスの種類</li>
                 </ul>
               </div>
-              <div className="bg-gray-50 dark:bg-gray-700/50 rounded-sm p-4">
-                <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-2 text-sm">ユーザーが提供する情報</h3>
+              <div className="bg-[var(--bg)] rounded-sm p-4">
+                <h3 className="font-semibold text-[var(--ink)] mb-2 text-sm">ユーザーが提供する情報</h3>
                 <ul className="space-y-1 text-sm">
-                  <li className="flex items-center gap-2"><span className="w-1 h-1 bg-primary-400 rounded-full flex-shrink-0" />お問い合わせフォームからの情報</li>
-                  <li className="flex items-center gap-2"><span className="w-1 h-1 bg-primary-400 rounded-full flex-shrink-0" />コメントやフィードバック</li>
-                  <li className="flex items-center gap-2"><span className="w-1 h-1 bg-primary-400 rounded-full flex-shrink-0" />メール配信の登録情報</li>
+                  <li className="flex items-center gap-2"><span className="w-1 h-1 bg-[var(--accent)] rounded-full flex-shrink-0" />お問い合わせフォームからの情報</li>
+                  <li className="flex items-center gap-2"><span className="w-1 h-1 bg-[var(--accent)] rounded-full flex-shrink-0" />コメントやフィードバック</li>
+                  <li className="flex items-center gap-2"><span className="w-1 h-1 bg-[var(--accent)] rounded-full flex-shrink-0" />メール配信の登録情報</li>
                 </ul>
               </div>
             </div>
@@ -103,7 +103,7 @@ export default function PrivacyPage() {
 
           {/* 3. 情報の利用目的 */}
           <PolicyCard
-            icon={<Target className="w-5 h-5 text-primary-600 dark:text-primary-400" />}
+            icon={<Target className="w-5 h-5 text-[var(--accent)]" />}
             title="情報の利用目的"
           >
             <p className="mb-3">収集した情報は以下の目的で利用します：</p>
@@ -116,8 +116,8 @@ export default function PrivacyPage() {
                 '統計データの作成（個人を特定できない形式）',
                 '法的義務の履行',
               ].map((item) => (
-                <div key={item} className="flex items-center gap-2 bg-gray-50 dark:bg-gray-700/50 rounded-sm px-3 py-2 text-sm">
-                  <span className="w-1.5 h-1.5 bg-primary-500 rounded-full flex-shrink-0" />
+                <div key={item} className="flex items-center gap-2 bg-[var(--bg)] rounded-sm px-3 py-2 text-sm">
+                  <span className="w-1.5 h-1.5 bg-[var(--accent)] rounded-full flex-shrink-0" />
                   {item}
                 </div>
               ))}
@@ -126,7 +126,7 @@ export default function PrivacyPage() {
 
           {/* 4. 第三者との情報共有 */}
           <PolicyCard
-            icon={<Users className="w-5 h-5 text-primary-600 dark:text-primary-400" />}
+            icon={<Users className="w-5 h-5 text-[var(--accent)]" />}
             title="第三者との情報共有"
           >
             <p className="mb-3">以下の場合を除き、個人情報を第三者と共有することはありません：</p>
@@ -138,7 +138,7 @@ export default function PrivacyPage() {
                 '公衆衛生の向上または児童の健全な育成の推進のために特に必要な場合',
               ].map((item) => (
                 <li key={item} className="flex items-start gap-2 text-sm">
-                  <span className="w-1.5 h-1.5 bg-primary-500 rounded-full flex-shrink-0 mt-1.5" />
+                  <span className="w-1.5 h-1.5 bg-[var(--accent)] rounded-full flex-shrink-0 mt-1.5" />
                   {item}
                 </li>
               ))}
@@ -147,7 +147,7 @@ export default function PrivacyPage() {
 
           {/* 5. クッキー */}
           <PolicyCard
-            icon={<Cookie className="w-5 h-5 text-primary-600 dark:text-primary-400" />}
+            icon={<Cookie className="w-5 h-5 text-[var(--accent)]" />}
             title="クッキー（Cookie）について"
           >
             <p className="mb-4">
@@ -161,27 +161,27 @@ export default function PrivacyPage() {
                 { label: '分析クッキー', desc: 'サイトの利用状況を分析' },
                 { label: '機能クッキー', desc: 'ユーザーの設定を記憶' },
               ].map((cookie) => (
-                <div key={cookie.label} className="bg-gray-50 dark:bg-gray-700/50 rounded-sm p-3 text-center">
-                  <div className="font-semibold text-sm text-gray-900 dark:text-gray-100">{cookie.label}</div>
-                  <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">{cookie.desc}</div>
+                <div key={cookie.label} className="bg-[var(--bg)] rounded-sm p-3 text-center">
+                  <div className="font-semibold text-sm text-[var(--ink)]">{cookie.label}</div>
+                  <div className="text-xs text-[var(--ink-muted)] mt-1">{cookie.desc}</div>
                 </div>
               ))}
             </div>
 
-            <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-sm p-4">
-              <h3 className="font-semibold text-amber-800 dark:text-amber-300 text-sm mb-2">広告配信におけるクッキーの使用</h3>
+            <div className="bg-[var(--accent-fill)] border border-[var(--rule-soft)] rounded-sm p-4">
+              <h3 className="font-semibold text-[var(--ink)] text-sm mb-2">広告配信におけるクッキーの使用</h3>
               <p className="text-sm mb-2">
                 当サイトでは、第三者配信の広告サービス「Google AdSense」を利用しています。
                 Google などの第三者広告配信事業者は、ユーザーの興味に応じた広告を表示するために Cookie を使用することがあります。
               </p>
               <div className="flex flex-wrap gap-2 mt-3">
-                <a href="https://adssettings.google.com/authenticated" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-xs bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-full px-3 py-1 text-primary-600 dark:text-primary-400 hover:border-primary-400 transition-colors">
+                <a href="https://adssettings.google.com/authenticated" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-xs bg-[var(--paper)] border border-[var(--rule-soft)] rounded-full px-3 py-1 text-[var(--accent)] hover:border-[var(--accent)] transition-colors">
                   広告設定
                 </a>
-                <a href="http://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-xs bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-full px-3 py-1 text-primary-600 dark:text-primary-400 hover:border-primary-400 transition-colors">
+                <a href="http://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-xs bg-[var(--paper)] border border-[var(--rule-soft)] rounded-full px-3 py-1 text-[var(--accent)] hover:border-[var(--accent)] transition-colors">
                   広告Cookie無効化
                 </a>
-                <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-xs bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-full px-3 py-1 text-primary-600 dark:text-primary-400 hover:border-primary-400 transition-colors">
+                <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-xs bg-[var(--paper)] border border-[var(--rule-soft)] rounded-full px-3 py-1 text-[var(--accent)] hover:border-[var(--accent)] transition-colors">
                   Google AdSense 詳細
                 </a>
               </div>
@@ -190,7 +190,7 @@ export default function PrivacyPage() {
 
           {/* 5b. アフィリエイトプログラム */}
           <PolicyCard
-            icon={<ShoppingBag className="w-5 h-5 text-primary-600 dark:text-primary-400" />}
+            icon={<ShoppingBag className="w-5 h-5 text-[var(--accent)]" />}
             title="アフィリエイトプログラムについて"
           >
             <p className="mb-4">
@@ -206,7 +206,7 @@ export default function PrivacyPage() {
           {/* 6 & 7: 2カラム */}
           <div className="grid sm:grid-cols-2 gap-6">
             <PolicyCard
-              icon={<Clock className="w-5 h-5 text-primary-600 dark:text-primary-400" />}
+              icon={<Clock className="w-5 h-5 text-[var(--accent)]" />}
               title="データの保存期間"
             >
               <p>
@@ -216,7 +216,7 @@ export default function PrivacyPage() {
             </PolicyCard>
 
             <PolicyCard
-              icon={<Lock className="w-5 h-5 text-primary-600 dark:text-primary-400" />}
+              icon={<Lock className="w-5 h-5 text-[var(--accent)]" />}
               title="データの保護"
             >
               <p>
@@ -228,7 +228,7 @@ export default function PrivacyPage() {
 
           {/* 8. ユーザーの権利 */}
           <PolicyCard
-            icon={<UserCheck className="w-5 h-5 text-primary-600 dark:text-primary-400" />}
+            icon={<UserCheck className="w-5 h-5 text-[var(--accent)]" />}
             title="ユーザーの権利"
           >
             <p className="mb-3">ユーザーは以下の権利を有します：</p>
@@ -239,8 +239,8 @@ export default function PrivacyPage() {
                 '個人情報の利用停止・消去請求',
                 '個人情報の第三者提供の停止請求',
               ].map((item) => (
-                <div key={item} className="flex items-center gap-2 bg-gray-50 dark:bg-gray-700/50 rounded-sm px-3 py-2 text-sm">
-                  <span className="w-1.5 h-1.5 bg-primary-500 rounded-full flex-shrink-0" />
+                <div key={item} className="flex items-center gap-2 bg-[var(--bg)] rounded-sm px-3 py-2 text-sm">
+                  <span className="w-1.5 h-1.5 bg-[var(--accent)] rounded-full flex-shrink-0" />
                   {item}
                 </div>
               ))}
@@ -249,7 +249,7 @@ export default function PrivacyPage() {
 
           {/* 9. ポリシーの変更 */}
           <PolicyCard
-            icon={<RefreshCw className="w-5 h-5 text-primary-600 dark:text-primary-400" />}
+            icon={<RefreshCw className="w-5 h-5 text-[var(--accent)]" />}
             title="プライバシーポリシーの変更"
           >
             <p>
@@ -260,20 +260,20 @@ export default function PrivacyPage() {
 
           {/* 10. お問い合わせ */}
           <PolicyCard
-            icon={<Mail className="w-5 h-5 text-primary-600 dark:text-primary-400" />}
+            icon={<Mail className="w-5 h-5 text-[var(--accent)]" />}
             title="お問い合わせ"
           >
             <p className="mb-4">
               本プライバシーポリシーに関するお問い合わせは、以下の方法でお願いします：
             </p>
-            <div className="bg-gray-50 dark:bg-gray-700/50 rounded-sm p-4 flex items-center gap-4">
-              <div className="bg-primary-600 dark:bg-primary-500 w-10 h-10 rounded-sm flex items-center justify-center flex-shrink-0">
+            <div className="bg-[var(--bg)] rounded-sm p-4 flex items-center gap-4">
+              <div className="bg-[var(--accent)] w-10 h-10 rounded-sm flex items-center justify-center flex-shrink-0">
                 <Mail className="w-5 h-5 text-white" />
               </div>
               <div>
-                <p className="font-semibold text-gray-900 dark:text-gray-100 text-sm">doboku-note 運営事務局</p>
+                <p className="font-semibold text-[var(--ink)] text-sm">doboku-note 運営事務局</p>
                 <p className="text-sm">privacy@doboku-note.com</p>
-                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                <p className="text-xs text-[var(--ink-muted)] mt-1">
                   件名に「プライバシーポリシーに関するお問い合わせ」と記載してください
                 </p>
               </div>
