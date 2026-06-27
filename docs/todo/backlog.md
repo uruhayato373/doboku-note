@@ -480,6 +480,19 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 ---
 
+### figure-*.svg「試験ポイント/引っかけ」の機械検知を新設するか 🟢 [distill 2026-06-27]
+
+**背景**: `content-principles.md §5`・`figure-canvas-policy.md §2.5 #5` で「figure-*.svg に試験ポイント・引っかけ論点バー/注記ボックスを入れてはならない（概念伝達に専念）」と禁止済み。だが概念名タイトル（P11）と違い**機械検知が無い**ため、ジェネレータが違反図を作り続け、今週（2026-W26）だけで6件以上が「作成 → 手動除去」で取りこぼされた（`274adb804`「figure から試験ポイント・引っかけ除去 6件」、`8eac0fe31`→`bad239b5e` の作成直後除去 等）。
+
+**ユーザーが決める必要があること**:
+- **A. detect.mjs に P12 を追加**（推奨）— `.claude/skills/quality/check-mdx/scripts/rules/svg/detect.mjs` に「試験ポイント/引っかけ バー・注記ボックス」検知を追加し pre-commit で赤落ち。P11 と同型でコスト小。誤検知設計（「試験」「引っかけ」「ポイント」を含む `<text>`/`<rect>`ラベルの閾値）が論点
+- **B. ジェネレータ側リマインダのみ** — svg-figure 生成系 SKILL/エージェントのプロンプトに禁止を明記し、検知は入れない（軽量だが取りこぼし再発リスク残）
+- **C. 現状維持** — 校正時の手動除去で対応（今週のように毎回コストがかかる）
+
+**根拠の置き場**: この distill 観察ログは `.claude/state/proofread-learnings/2026-06-27.md`。コード変更（検知ルール）を伴うため即適用せず判断を仰ぐ。
+
+---
+
 ## 8. アーカイブ handoff 由来の継続タスク
 
 > **2026-06-23 運用移行**: handoff は「タスクを backlog へ抽出 → 本体は即 `_archive` 退避」へ統一（handoffs/ は溜めない）。以下は退避済み handoff の生きたタスク。詳細手順・経緯・runbook は各**出典（_archive）**を参照。
