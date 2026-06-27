@@ -1,6 +1,4 @@
 import React from "react";
-import { commonComponents } from "./common";
-import { specificComponents } from "./specific";
 
 type MdxComponent = React.ElementType;
 type ComponentRegistry = Record<string, MdxComponent>;
@@ -86,13 +84,5 @@ export async function getAllComponents(post: { content: string }) {
   return {
     ...commonComps,
     ...specificComps,
-  };
-}
-
-export function getAllAvailableComponentNames() {
-  return {
-    common: Object.keys(commonComponents),
-    specific: Object.keys(specificComponents),
-    all: [...Object.keys(commonComponents), ...Object.keys(specificComponents)],
   };
 }
