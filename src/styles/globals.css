@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 既定の border 色をエディトリアル token に向ける。
+   Tailwind preflight は color クラス未指定の border-* を gray-200 固定にするため、
+   ダークモードで bare な罫線（Callout の border-l・prose のテーブル/hr 等）が追従しない。
+   既定値を --rule-soft（light/dark 両定義）に上書きして theme-aware にする。
+   明示的な border-[var(--...)] / border-{color} はユーティリティ specificity が勝つため不変。 */
+@layer base {
+  *,
+  ::before,
+  ::after {
+    border-color: var(--rule-soft);
+  }
+}
+
 /* ===== Base Styles ===== */
 @layer base {
   /* Card design tokens — single source of truth */
