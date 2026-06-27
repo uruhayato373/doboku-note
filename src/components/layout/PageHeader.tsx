@@ -19,7 +19,7 @@ export interface Crumb {
   href?: string;
 }
 
-type BandWidth = 'wide' | '860' | '780';
+type BandWidth = 'wide' | '860' | '780' | '760';
 
 interface PageHeaderProps {
   breadcrumb?: Crumb[];
@@ -84,9 +84,9 @@ function HeaderStack({
     <>
       {breadcrumb && breadcrumb.length > 0 && <Breadcrumb items={breadcrumb} />}
       {label && (
-        <span className="block font-mono text-[11px] uppercase tracking-widest text-[var(--accent)] mb-2">
+        <div className="inline-flex items-center font-mono text-[11px] uppercase tracking-wider text-[var(--accent)] px-2.5 py-1 bg-[var(--accent-fill)] rounded-full mb-4">
           {label}
-        </span>
+        </div>
       )}
       <h1
         className={`font-serif font-black text-[var(--ink)] tracking-tight ${TITLE_SIZES[titleSize]}`}

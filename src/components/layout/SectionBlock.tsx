@@ -12,7 +12,7 @@
 
 import type { ReactNode } from 'react';
 
-type SectionWidth = 'wide' | '860' | '780';
+type SectionWidth = 'wide' | '860' | '780' | '760';
 type SectionSpace = 'sm' | 'md' | 'lg';
 
 interface SectionBlockProps {
@@ -34,6 +34,7 @@ const WIDTHS: Record<SectionWidth, string> = {
   wide: 'max-w-[1280px]',
   '860': 'max-w-[860px]',
   '780': 'max-w-[780px]',
+  '760': 'max-w-[760px]',
 };
 
 const SPACES: Record<SectionSpace, string> = {
