@@ -13,6 +13,5 @@
 | `svg-tokens.json` | 記事内 SVG 用デザイントークン真実源（colors / font / geometry） |
 | `instagram-carousel.md` / `instagram-carousel-tokens.json` | Instagram カルーセル（exam-packs）デザイン仕様 — **別サブシステム** |
 | `note-cover.md` / `note-cover-tokens.json` | note カバー画像（G2「全幅バナー帯」）デザイン仕様 — **別サブシステム** |
-| `_archive/` | 退役した旧 doc（`principles.md` / `quick-reference.md` / `prohibited.md`）＋ リデザイン検討案（`proposals/`） |
 
 > トークン値の機械真実源は `src/styles/globals.css` の CSS 変数。別サブシステム（SVG 図版・IG カルーセル・note カバー・サイト OGP）の位置づけは `design-system.md` §9 を参照。

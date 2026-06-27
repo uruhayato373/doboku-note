@@ -20,7 +20,7 @@
 | note カバー画像 | `note-cover.md` + `note-cover-tokens.json` | **別サブシステム**。§9 でリンク |
 | サイト OGP | `docs/reference/ogp-prompts.md` | **別サブシステム**。§9 でリンク |
 
-> 旧 `principles.md` / `quick-reference.md` / `prohibited.md` は本ファイルへ統合し `_archive/` へ退避した。過去のリデザイン検討案（multi-option）は `_archive/proposals/` にある。
+> 旧 `principles.md` / `quick-reference.md` / `prohibited.md`（melta-ui 系）と過去のリデザイン検討案（2026-05-25 multi-option・2026-06-27 proposals）は本ファイルへ統合のうえ削除した。必要時は git 履歴から復元できる（`git log --diff-filter=D -- docs/design-system/`）。
 
 ---
 
@@ -281,4 +281,4 @@ CLAUDE.md §7 と一致:
 ## 履歴・退避
 
 - 2026-06-27: デザイン改善 Phase 0-5 + token 化（PR #284-#290）完了・本番 deploy。
-- 2026-06-28: 旧 `principles.md` / `quick-reference.md` / `prohibited.md` を本ファイルへ統合し `_archive/` へ退避。検討案は `_archive/proposals/`（`2026-05-25-page-redesign/`・`2026-06-27-*.md`）。
+- 2026-06-28: 旧 `principles.md` / `quick-reference.md` / `prohibited.md` を本ファイルへ統合。旧 3 doc と検討案（`2026-05-25-page-redesign/`・`2026-06-27-*.md`）は削除（git 履歴に保全）。
