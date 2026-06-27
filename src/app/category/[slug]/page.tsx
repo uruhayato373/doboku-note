@@ -144,7 +144,7 @@ export default async function CategoryPage({
           )}
           {docs.length === 0 ? (
             <div className="text-center py-12">
-              <p className="text-gray-500 text-lg">
+              <p className="text-[var(--ink-muted)] text-lg">
                 このカテゴリにはまだコンテンツがありません。
               </p>
             </div>

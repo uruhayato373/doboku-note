@@ -95,12 +95,12 @@ function PrimaryExamTable2({ docs, secondaryDocs = [] }: { docs: DocMeta[]; seco
     <div className="overflow-x-auto">
       <table className="w-full text-base border-collapse">
         <thead>
-          <tr className="border-b-2 border-gray-200 dark:border-gray-700">
-            <th className="text-left py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">年度</th>
-            <th className="text-center py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">第1次 前期（6月）</th>
-            <th className="text-center py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">第1次 後期（10月）</th>
+          <tr className="border-b-2 border-[var(--rule-soft)]">
+            <th className="text-left py-3 px-4 font-semibold text-[var(--ink-body)]">年度</th>
+            <th className="text-center py-3 px-4 font-semibold text-[var(--ink-body)]">第1次 前期（6月）</th>
+            <th className="text-center py-3 px-4 font-semibold text-[var(--ink-body)]">第1次 後期（10月）</th>
             {hasSecondary && (
-              <th className="text-center py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">第2次検定</th>
+              <th className="text-center py-3 px-4 font-semibold text-[var(--ink-body)]">第2次検定</th>
             )}
           </tr>
         </thead>
@@ -109,29 +109,29 @@ function PrimaryExamTable2({ docs, secondaryDocs = [] }: { docs: DocMeta[]; seco
             const pair = yearMap.get(yearCode)!;
             const secondary = secondaryMap.get(yearCode);
             return (
-              <tr key={yearCode} className="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                <td className="py-3 px-4 font-medium text-gray-900 dark:text-gray-100">{yearLabel(yearCode)}</td>
+              <tr key={yearCode} className="border-b border-[var(--rule-soft)] hover:bg-[var(--accent-fill)] transition-colors">
+                <td className="py-3 px-4 font-medium text-[var(--ink)]">{yearLabel(yearCode)}</td>
                 <td className="py-3 px-4 text-center">
                   {pair.zenki ? (
-                    <Link href={`/docs/${pair.zenki.slug}`} className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">
+                    <Link href={`/docs/${pair.zenki.slug}`} className="text-[var(--accent)] hover:underline">
                       前期
                     </Link>
-                  ) : <span className="text-gray-300 dark:text-gray-600">—</span>}
+                  ) : <span className="text-[var(--ink-muted)] opacity-50">—</span>}
                 </td>
                 <td className="py-3 px-4 text-center">
                   {pair.kouki ? (
-                    <Link href={`/docs/${pair.kouki.slug}`} className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">
+                    <Link href={`/docs/${pair.kouki.slug}`} className="text-[var(--accent)] hover:underline">
                       後期
                     </Link>
-                  ) : <span className="text-gray-300 dark:text-gray-600">—</span>}
+                  ) : <span className="text-[var(--ink-muted)] opacity-50">—</span>}
                 </td>
                 {hasSecondary && (
                   <td className="py-3 px-4 text-center">
                     {secondary ? (
-                      <Link href={`/docs/${secondary.slug}`} className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">
+                      <Link href={`/docs/${secondary.slug}`} className="text-[var(--accent)] hover:underline">
                         第2次
                       </Link>
-                    ) : <span className="text-gray-300 dark:text-gray-600">—</span>}
+                    ) : <span className="text-[var(--ink-muted)] opacity-50">—</span>}
                   </td>
                 )}
               </tr>
@@ -183,12 +183,12 @@ function PrimaryExamTable({ docs, secondaryDocs = [] }: { docs: DocMeta[]; secon
     <div className="overflow-x-auto">
       <table className="w-full text-base border-collapse">
         <thead>
-          <tr className="border-b-2 border-gray-200 dark:border-gray-700">
-            <th className="text-left py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">年度</th>
-            <th className="text-center py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">第1次 問題A</th>
-            <th className="text-center py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">第1次 問題B</th>
+          <tr className="border-b-2 border-[var(--rule-soft)]">
+            <th className="text-left py-3 px-4 font-semibold text-[var(--ink-body)]">年度</th>
+            <th className="text-center py-3 px-4 font-semibold text-[var(--ink-body)]">第1次 問題A</th>
+            <th className="text-center py-3 px-4 font-semibold text-[var(--ink-body)]">第1次 問題B</th>
             {hasSecondary && (
-              <th className="text-center py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">第2次検定</th>
+              <th className="text-center py-3 px-4 font-semibold text-[var(--ink-body)]">第2次検定</th>
             )}
           </tr>
         </thead>
@@ -197,29 +197,29 @@ function PrimaryExamTable({ docs, secondaryDocs = [] }: { docs: DocMeta[]; secon
             const pair = yearMap.get(yearCode)!;
             const secondary = secondaryMap.get(yearCode);
             return (
-              <tr key={yearCode} className="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                <td className="py-3 px-4 font-medium text-gray-900 dark:text-gray-100">{yearLabel(yearCode)}</td>
+              <tr key={yearCode} className="border-b border-[var(--rule-soft)] hover:bg-[var(--accent-fill)] transition-colors">
+                <td className="py-3 px-4 font-medium text-[var(--ink)]">{yearLabel(yearCode)}</td>
                 <td className="py-3 px-4 text-center">
                   {pair.a ? (
-                    <Link href={`/docs/${pair.a.slug}`} className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">
+                    <Link href={`/docs/${pair.a.slug}`} className="text-[var(--accent)] hover:underline">
                       問題A
                     </Link>
-                  ) : <span className="text-gray-300 dark:text-gray-600">—</span>}
+                  ) : <span className="text-[var(--ink-muted)] opacity-50">—</span>}
                 </td>
                 <td className="py-3 px-4 text-center">
                   {pair.b ? (
-                    <Link href={`/docs/${pair.b.slug}`} className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">
+                    <Link href={`/docs/${pair.b.slug}`} className="text-[var(--accent)] hover:underline">
                       問題B
                     </Link>
-                  ) : <span className="text-gray-300 dark:text-gray-600">—</span>}
+                  ) : <span className="text-[var(--ink-muted)] opacity-50">—</span>}
                 </td>
                 {hasSecondary && (
                   <td className="py-3 px-4 text-center">
                     {secondary ? (
-                      <Link href={`/docs/${secondary.slug}`} className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">
+                      <Link href={`/docs/${secondary.slug}`} className="text-[var(--accent)] hover:underline">
                         第2次
                       </Link>
-                    ) : <span className="text-gray-300 dark:text-gray-600">—</span>}
+                    ) : <span className="text-[var(--ink-muted)] opacity-50">—</span>}
                   </td>
                 )}
               </tr>
@@ -260,10 +260,10 @@ function PeExamTable({ docs }: { docs: DocMeta[] }) {
     <div className="overflow-x-auto">
       <table className="w-full text-base border-collapse">
         <thead>
-          <tr className="border-b-2 border-gray-200 dark:border-gray-700">
-            <th className="text-left py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">年度</th>
-            <th className="text-center py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">択一式</th>
-            <th className="text-center py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">記述式</th>
+          <tr className="border-b-2 border-[var(--rule-soft)]">
+            <th className="text-left py-3 px-4 font-semibold text-[var(--ink-body)]">年度</th>
+            <th className="text-center py-3 px-4 font-semibold text-[var(--ink-body)]">択一式</th>
+            <th className="text-center py-3 px-4 font-semibold text-[var(--ink-body)]">記述式</th>
           </tr>
         </thead>
         <tbody>
@@ -275,21 +275,21 @@ function PeExamTable({ docs }: { docs: DocMeta[] }) {
               ? (yearNum === 1 ? '令和元年度' : `令和${yearNum}年度`)
               : `平成${yearNum}年度`;
             return (
-              <tr key={yearCode} className="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                <td className="py-3 px-4 font-medium text-gray-900 dark:text-gray-100">{label}</td>
+              <tr key={yearCode} className="border-b border-[var(--rule-soft)] hover:bg-[var(--accent-fill)] transition-colors">
+                <td className="py-3 px-4 font-medium text-[var(--ink)]">{label}</td>
                 <td className="py-3 px-4 text-center">
                   {pair.primary ? (
-                    <Link href={`/docs/${pair.primary.slug}`} className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">
+                    <Link href={`/docs/${pair.primary.slug}`} className="text-[var(--accent)] hover:underline">
                       択一式
                     </Link>
-                  ) : <span className="text-gray-300 dark:text-gray-600">—</span>}
+                  ) : <span className="text-[var(--ink-muted)] opacity-50">—</span>}
                 </td>
                 <td className="py-3 px-4 text-center">
                   {pair.secondary ? (
-                    <Link href={`/docs/${pair.secondary.slug}`} className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">
+                    <Link href={`/docs/${pair.secondary.slug}`} className="text-[var(--accent)] hover:underline">
                       記述式
                     </Link>
-                  ) : <span className="text-gray-300 dark:text-gray-600">—</span>}
+                  ) : <span className="text-[var(--ink-muted)] opacity-50">—</span>}
                 </td>
               </tr>
             );
@@ -325,39 +325,39 @@ function PeFirstStageExamTable({ docs }: { docs: DocMeta[] }) {
     <div className="overflow-x-auto">
       <table className="w-full text-base border-collapse">
         <thead>
-          <tr className="border-b-2 border-gray-200 dark:border-gray-700">
-            <th className="text-left py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">年度</th>
-            <th className="text-center py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">適性科目</th>
-            <th className="text-center py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">基礎科目</th>
-            <th className="text-center py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">専門科目（建設）</th>
+          <tr className="border-b-2 border-[var(--rule-soft)]">
+            <th className="text-left py-3 px-4 font-semibold text-[var(--ink-body)]">年度</th>
+            <th className="text-center py-3 px-4 font-semibold text-[var(--ink-body)]">適性科目</th>
+            <th className="text-center py-3 px-4 font-semibold text-[var(--ink-body)]">基礎科目</th>
+            <th className="text-center py-3 px-4 font-semibold text-[var(--ink-body)]">専門科目（建設）</th>
           </tr>
         </thead>
         <tbody>
           {years.map(yearCode => {
             const row = yearMap.get(yearCode)!;
             return (
-              <tr key={yearCode} className="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                <td className="py-3 px-4 font-medium text-gray-900 dark:text-gray-100">{yearLabel(yearCode)}</td>
+              <tr key={yearCode} className="border-b border-[var(--rule-soft)] hover:bg-[var(--accent-fill)] transition-colors">
+                <td className="py-3 px-4 font-medium text-[var(--ink)]">{yearLabel(yearCode)}</td>
                 <td className="py-3 px-4 text-center">
                   {row.aptitude ? (
-                    <Link href={`/docs/${row.aptitude.slug}`} className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">
+                    <Link href={`/docs/${row.aptitude.slug}`} className="text-[var(--accent)] hover:underline">
                       適性科目
                     </Link>
-                  ) : <span className="text-gray-300 dark:text-gray-600">—</span>}
+                  ) : <span className="text-[var(--ink-muted)] opacity-50">—</span>}
                 </td>
                 <td className="py-3 px-4 text-center">
                   {row.basic ? (
-                    <Link href={`/docs/${row.basic.slug}`} className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">
+                    <Link href={`/docs/${row.basic.slug}`} className="text-[var(--accent)] hover:underline">
                       基礎科目
                     </Link>
-                  ) : <span className="text-gray-300 dark:text-gray-600">—</span>}
+                  ) : <span className="text-[var(--ink-muted)] opacity-50">—</span>}
                 </td>
                 <td className="py-3 px-4 text-center">
                   {row.construction ? (
-                    <Link href={`/docs/${row.construction.slug}`} className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">
+                    <Link href={`/docs/${row.construction.slug}`} className="text-[var(--accent)] hover:underline">
                       専門科目
                     </Link>
-                  ) : <span className="text-gray-300 dark:text-gray-600">—</span>}
+                  ) : <span className="text-[var(--ink-muted)] opacity-50">—</span>}
                 </td>
               </tr>
             );
@@ -419,8 +419,8 @@ function PeConstructionExamTable({ docs }: { docs: DocMeta[] }) {
         {rows.map(subject => {
           const yearMap = map.get(subject.key)!;
           return (
-            <div key={subject.key} className="rounded-lg border border-gray-200 dark:border-gray-700 p-4">
-              <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">{subject.label}</h4>
+            <div key={subject.key} className="rounded-card-content border border-[var(--rule-soft)] p-4">
+              <h4 className="font-semibold text-[var(--ink)] mb-3">{subject.label}</h4>
               <div className="flex flex-wrap gap-2">
                 {years.map(y => {
                   const doc = yearMap.get(y);
@@ -428,7 +428,7 @@ function PeConstructionExamTable({ docs }: { docs: DocMeta[] }) {
                     <Link
                       key={y}
                       href={`/docs/${doc.slug}`}
-                      className="inline-flex items-center rounded-md border border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-900/20 px-3 py-2 text-sm font-medium text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/40 transition-colors"
+                      className="inline-flex items-center rounded-card-inline border border-[var(--rule-soft)] bg-[var(--accent-fill)] px-3 py-2 text-sm font-medium text-[var(--accent)] hover:border-[var(--accent)] transition-colors"
                     >
                       {colLabel(y)}
                     </Link>
@@ -443,10 +443,10 @@ function PeConstructionExamTable({ docs }: { docs: DocMeta[] }) {
       <div className="hidden zenn-desktop:block overflow-x-auto">
         <table className="w-full text-base border-collapse">
           <thead>
-            <tr className="border-b-2 border-gray-200 dark:border-gray-700">
-              <th className="text-left py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">科目</th>
+            <tr className="border-b-2 border-[var(--rule-soft)]">
+              <th className="text-left py-3 px-4 font-semibold text-[var(--ink-body)]">科目</th>
               {years.map(y => (
-                <th key={y} className="text-center py-3 px-3 font-semibold text-gray-700 dark:text-gray-300 whitespace-nowrap">{colLabel(y)}</th>
+                <th key={y} className="text-center py-3 px-3 font-semibold text-[var(--ink-body)] whitespace-nowrap">{colLabel(y)}</th>
               ))}
             </tr>
           </thead>
@@ -454,15 +454,15 @@ function PeConstructionExamTable({ docs }: { docs: DocMeta[] }) {
             {rows.map(subject => {
               const yearMap = map.get(subject.key)!;
               return (
-                <tr key={subject.key} className="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                  <td className="py-3 px-4 font-medium text-gray-900 dark:text-gray-100">{subject.label}</td>
+                <tr key={subject.key} className="border-b border-[var(--rule-soft)] hover:bg-[var(--accent-fill)] transition-colors">
+                  <td className="py-3 px-4 font-medium text-[var(--ink)]">{subject.label}</td>
                   {years.map(y => {
                     const doc = yearMap.get(y);
                     return (
                       <td key={y} className="py-3 px-3 text-center">
                         {doc ? (
-                          <Link href={`/docs/${doc.slug}`} className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">問題</Link>
-                        ) : <span className="text-gray-300 dark:text-gray-600">—</span>}
+                          <Link href={`/docs/${doc.slug}`} className="text-[var(--accent)] hover:underline">問題</Link>
+                        ) : <span className="text-[var(--ink-muted)] opacity-50">—</span>}
                       </td>
                     );
                   })}

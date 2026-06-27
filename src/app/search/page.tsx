@@ -1,9 +1,17 @@
 import { Suspense } from "react";
 import PageShell from "@/components/layout/PageShell";
 import PageHeader from "@/components/layout/PageHeader";
+import { getAllCategories } from "@/lib/categories";
+import { getAllDocsMeta } from "@/lib/docs";
+import { getPopularDocs } from "@/lib/popular";
 import SearchPageClient from "./SearchPageClient";
 
 export default function SearchPage() {
+  // ゼロステート（検索語未入力時）の回遊導線用データを server で用意。
+  // 試験別入口 = 全カテゴリ、よく読まれている記事 = GA4 上位（データ無しは graceful 非表示）。
+  const categories = getAllCategories();
+  const popular = getPopularDocs(getAllDocsMeta(), 6);
+
   return (
     <PageShell variant="content" rail="860">
       <PageHeader
@@ -19,7 +27,7 @@ export default function SearchPage() {
           <p className="font-mono text-[12px] text-[var(--ink-muted)]">Loading…</p>
         }
       >
-        <SearchPageClient />
+        <SearchPageClient categories={categories} popular={popular} />
       </Suspense>
     </PageShell>
   );

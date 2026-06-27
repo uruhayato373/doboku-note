@@ -7,8 +7,16 @@ import { SearchBox } from "@/components/search/SearchBox";
 import { SearchResults } from "@/components/search/SearchResults";
 import { SearchFilters } from "@/components/search/SearchFilters";
 import { SearchPagination } from "@/components/search/SearchPagination";
+import { SearchZeroState } from "@/components/search/SearchZeroState";
+import { type CategoryDef } from "@/lib/categories";
+import { type PopularDoc } from "@/lib/popular";
 
-export default function SearchPageClient() {
+interface SearchPageClientProps {
+  categories: CategoryDef[];
+  popular: PopularDoc[];
+}
+
+export default function SearchPageClient({ categories, popular }: SearchPageClientProps) {
   const searchParams = useSearchParams();
   const {
     query,
@@ -69,20 +77,26 @@ export default function SearchPageClient() {
         </div>
       )}
 
-      <SearchResults
-        results={results}
-        isLoading={isLoading}
-        error={error}
-        query={query}
-      />
+      {query.trim() ? (
+        <>
+          <SearchResults
+            results={results}
+            isLoading={isLoading}
+            error={error}
+            query={query}
+          />
 
-      {/* ページネーション */}
-      {results.totalPages > 1 && (
-        <SearchPagination
-          currentPage={results.page}
-          totalPages={results.totalPages}
-          onPageChange={changePage}
-        />
+          {/* ページネーション */}
+          {results.totalPages > 1 && (
+            <SearchPagination
+              currentPage={results.page}
+              totalPages={results.totalPages}
+              onPageChange={changePage}
+            />
+          )}
+        </>
+      ) : (
+        <SearchZeroState categories={categories} popular={popular} />
       )}
     </>
   );

@@ -44,14 +44,16 @@ export function CivilConstruction1View({ groups, mobileCareerAd }: { groups: Doc
       {textbookGroup && (
         <section>
           <div className="mb-6">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">{textbookGroup.title}</h2>
-            <p className="text-base text-gray-500 dark:text-gray-400 mt-1">{textbookGroup.description}</p>
-            <span className="text-sm text-gray-400 dark:text-gray-500">{textbookGroup.docs.length} 件</span>
+            <div className="flex items-baseline justify-between gap-2 flex-wrap">
+              <h2 className="font-serif text-[22px] sm:text-[26px] font-black text-[var(--ink)]">{textbookGroup.title}</h2>
+              <span className="font-mono text-[11px] text-[var(--ink-muted)]">{textbookGroup.docs.length} docs</span>
+            </div>
+            <p className="text-[14px] text-[var(--ink-muted)] mt-1">{textbookGroup.description}</p>
           </div>
           <div className="space-y-8">
             {textbookAreas.map(area => (
               <div key={area.label}>
-                <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-3 border-b border-gray-200 dark:border-gray-700 pb-2">{area.label}</h3>
+                <h3 className="font-serif text-lg font-bold text-[var(--ink)] mb-3 border-b border-[var(--rule-soft)] pb-2">{area.label}</h3>
                 <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                   {area.docs.map(doc => (
                     <DocCard key={doc.slug} doc={doc} />
@@ -171,20 +173,20 @@ export function PeComprehensiveView({ groups, mobileCareerAd }: { groups: DocGro
           </div>
           <Link
             href="/sitemap-keywords"
-            className="group flex items-center gap-4 p-5 rounded-card-content border-2 border-blue-200 dark:border-blue-800 bg-blue-50/50 dark:bg-blue-900/20 hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-card-hover transition-all"
+            className="group flex items-center gap-4 p-5 rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] hover:border-[var(--accent)] hover:shadow-card-hover transition-all"
           >
-            <div className="flex-shrink-0 w-10 h-10 rounded-sm bg-blue-600 dark:bg-blue-500 flex items-center justify-center text-white font-bold text-lg">
+            <div className="flex-shrink-0 w-10 h-10 rounded-sm bg-[var(--accent)] flex items-center justify-center text-white font-bold text-lg">
               ≡
             </div>
             <div className="flex-1">
-              <div className="font-bold text-lg text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400">
+              <div className="font-bold text-lg text-[var(--ink)] group-hover:text-[var(--accent)] transition-colors">
                 キーワードを全件見る（{keywordCount} 件）
               </div>
-              <div className="text-sm text-gray-500 dark:text-gray-400">
+              <div className="text-sm text-[var(--ink-muted)]">
                 文部科学省「総合技術監理 キーワード集 2026」に基づくセクション別索引へ
               </div>
             </div>
-            <span className="text-blue-600 dark:text-blue-400 group-hover:translate-x-1 transition-transform" aria-hidden>›</span>
+            <span className="text-[var(--accent)] group-hover:translate-x-1 transition-transform" aria-hidden>›</span>
           </Link>
         </section>
       )}
