@@ -11,7 +11,7 @@ doboku-note の記事に図・写真を載せるときのルール集。PDF ス�
 **関連文書**:
 - 図版作成スキル: `.claude/skills/authoring/create-svg/SKILL.md`
 - 画像配信フロー: `docs/reference/content-authoring.md` § 画像配信
-- デザイン原則: `docs/design-system/principles.md`
+- デザイン原則: `docs/design-system/design-system.md`
 
 ## 判定フロー
 

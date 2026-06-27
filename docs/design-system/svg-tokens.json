@@ -74,14 +74,14 @@
     "fontFamily": "必ず font.family を <svg> or <style> block で指定（ブラウザデフォルトのセリフに陥るのを防ぐ）"
   },
   "prohibited": {
-    "darkBackgroundWithWhiteText": "fill が輝度 0.3 未満の濃色 + 内部に白/薄色テキストを置く構成は prohibited.md 違反。淡色 bg + 濃色文字（ink-strong / ink-body）を使用する。",
+    "darkBackgroundWithWhiteText": "fill が輝度 0.3 未満の濃色 + 内部に白/薄色テキストを置く構成は design-system.md §8 違反。淡色 bg + 濃色文字（ink-strong / ink-body）を使用する。",
     "inlinePresentationStyle": "<rect fill=\"...\" stroke=\"...\"> のようなインライン装飾より、<defs><style> ブロック + class 属性を推奨。保守性が高まる。",
     "unknownColors": "本 tokens の colorsAllowList 外の hex を使用しない。サイト特色の維持とブランド一貫性のため。"
   },
   "references": {
     "cssVars":          "src/styles/globals.css の --color-* と整合",
-    "designPrinciples": ".claude/design-system/principles.md",
-    "prohibitedRules":  ".claude/design-system/prohibited.md",
+    "designPrinciples": "docs/design-system/design-system.md",
+    "prohibitedRules":  "docs/design-system/design-system.md",
     "createSkill":      ".claude/skills/authoring/create-svg/SKILL.md",
     "auditSkill":       ".claude/skills/quality/check-mdx/SKILL.md"
   }

@@ -122,7 +122,7 @@ SVG は**全体の流れ・構造を一目で把握させる**ためのもの。
 
 ### コントラスト比（WCAG 2.1 AA 準拠）
 
-`docs/design-system/principles.md` に従い、**テキストと背景のコントラスト比は 4.5:1 以上**を必須とする。
+`docs/design-system/design-system.md` に従い、**テキストと背景のコントラスト比は 4.5:1 以上**を必須とする。
 
 - **濃色背景は使用しない**。すべてのボックスは上記の淡色 fill（`brand-fill` / `positive-fill` / `warn-fill` / `danger-fill`）を使う
 - テキストは `#1a3a5c`（見出し）または `#555`（本文）
@@ -176,7 +176,7 @@ SVG は**全体の流れ・構造を一目で把握させる**ためのもの。
 
 ### 禁止事項
 
-- **濃色背景 + 白/薄色文字の組合せ**（例: `<rect fill="#444"/><text fill="white">`）は `prohibited.md` 違反。淡色 bg（`box-brand` 等）+ 濃色文字（`t-title` / `t-text`）を使う
+- **濃色背景 + 白/薄色文字の組合せ**（例: `<rect fill="#444"/><text fill="white">`）は `design-system.md §8` 違反。淡色 bg（`box-brand` 等）+ 濃色文字（`t-title` / `t-text`）を使う
 - **svg-tokens.json の colorsAllowList 外の hex 使用禁止**（サイト特色の維持）
 - **font-family 未指定禁止**（ブラウザデフォルト serif で描画され本文と不整合）
 
@@ -296,7 +296,7 @@ node .claude/skills/quality/check-mdx/scripts/rules/svg/audit.mjs --severity=HIG
 
 ## 参照
 
-- `docs/design-system/principles.md` — デザイン原則（コントラスト比 4.5:1 の根拠）
-- `docs/design-system/prohibited.md` — 禁止パターン（純黒禁止・ライトグレー禁止等）
+- `docs/design-system/design-system.md` — デザイン原則（コントラスト比 4.5:1 の根拠）
+- `docs/design-system/design-system.md §8` — 禁止パターン（純黒禁止・ライトグレー禁止等）
 - `docs/reference/content-authoring.md` — MDX コンポーネント・画像配信規約
 - `docs/reference/content-principles.md` — コンテンツ品質ルールの真実源

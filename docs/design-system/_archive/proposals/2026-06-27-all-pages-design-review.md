@@ -124,7 +124,7 @@
 
 ### `/docs/[slug]` 記事ページ
 
-詳細: `docs/design-system/proposals/2026-06-27-docs-template-improvement.md`
+詳細: `docs/design-system/_archive/proposals/2026-06-27-docs-template-improvement.md`
 
 現状:
 

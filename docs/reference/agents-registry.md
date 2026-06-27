@@ -6,7 +6,7 @@ title: サブエージェント詳細レジストリ
 
 `.claude/agents/` に定義されたサブエージェント群の詳細。Generator/Evaluator 分離の原則に基づき設計。
 
-> **件数の SSOT**: エージェント数の真実源は `.claude/agents/*.md` の実数（`find .claude/agents -maxdepth 1 -name '*.md' | wc -l`＝現在 **59**）と下記「エージェント一覧」表。CLAUDE.md など他 doc は件数を重複記載せずここを指す。追加/削除は同一 commit でこの表を更新する。
+> **件数の SSOT**: エージェント数の真実源は `.claude/agents/*.md` の実数（`find .claude/agents -maxdepth 1 -name '*.md' | wc -l`＝現在 **61**）と下記「エージェント一覧」表。CLAUDE.md など他 doc は件数を重複記載せずここを指す。追加/削除は同一 commit でこの表を更新する。
 
 **いつ読むか**: サブエージェントを呼び出すときに担当範囲を確認するとき、連携設計時、新規エージェント追加時の命名・責務設計時。
 
@@ -42,6 +42,7 @@ title: サブエージェント詳細レジストリ
 | X 投稿生成（親が起動 / `social-post` 連携）     | `x-post-writer`, `x-post-qa`                                     | X 投稿 `tweets.md` 執筆 → 5軸採点（多資格 exam 横断） |
 | `/x-repost`（親が起動）                          | `x-repost-curator`                                              | 引用RP 候補の選別＋引用コメント生成（discover/exec は純 Playwright） |
 | `/yt-shorts-create`（親が起動）                  | `yt-shorts-title-writer`, `yt-shorts-publisher-qa`              | YT Shorts の論点タイトル生成（既定上書き）→ 4軸採点 |
+| UI/ページデザイン（親が起動）                    | `page-design-builder` → `/design-review`                        | design-system.md 準拠でページ/レイアウト/UI コンポーネント実装 → 視覚回帰採点（Generator/Evaluator 分離） |
 | `/doc-sync`（コード変更面の完了時に親が起動）          | `doc-sync-auditor`                                              | 変更 diff × 候補 doc を突合し prose・表・コマンド・件数・閾値の意味的陳腐化を検出（適用は親） |
 | `/doc-declutter`（doc 棚卸し時に親が起動）            | `doc-curator`                                                  | 候補 doc を KEEP/TRIM/ARCHIVE/DELETE/CONSOLIDATE に分類（親が渡す外部実体の検証済みシグナルに基づく・適用は親） |
 | `/record-sales`                                      | `sales-recorder`                                                | 販売履歴テキスト正規化・productId 推定・重複チェック・JSON 追記 |
@@ -90,6 +91,7 @@ title: サブエージェント詳細レジストリ
 | `svg-figure-auditor`          | 図版 SVG を **site/note 横断**で品質監査。site（`.local/r2/posts/**/img/*.svg`）=svg-tokens.json/image-policy/principles、note（`docs/note/**/img/figure-*`）=note-svg-policy で各 4 軸採点（機械 svg audit P1-P8 の上の意味層＝概念伝達・alt・可読性・本文結線）。**figure-*.svg は固定キャンバス適合（feed 400×500 / landscape 640×360）＋縦余白の使い切り（窮屈/間延び）も判定**。audit-only。**2026-06-18 新設＝旧 note-figure-auditor を吸収**                                     | Evaluator    | sonnet  | note-prepublish-review／`svg-canvas-fitter` 連携                         | ✅ 運用中（2026-06-18 新設、2026-06-22 固定キャンバス軸追加）                      |
 | `svg-figure-rewriter`          | `svg-figure-auditor` の指摘を図版 SVG ソースに外科適用（色 token 化・font 引上げ・矢印 marker 統一・必須属性補完・重なり調整）。データ値・文言不変。**キャンバス再レイアウトはしない**（それは svg-canvas-fitter）。site=`audit.mjs` で HIGH=0 自己確認、note=figure-*.svg 修正後に render で PNG 再生成。Edit で外科編集（whole-file Write 禁止＝CRLF 事故）                            | Generator    | sonnet  | `svg-figure-auditor` と対、真実源 `svg-tokens.json`/`note-svg-policy.md`         | ✅ 運用中（2026-06-18 新設）                      |
 | `svg-canvas-fitter`           | site の `figure-*.svg` を固定キャンバス標準（feed 4:5 viewBox 400×500 / landscape 16:9 640×360）へ**再レイアウト**する Generator。横長→縦積み変換・縦余白の使い切り（要素拡大/サマリー/凡例）・viewBox とmax-width更新。データ値/文言/概念/色 不変。適用後 `check-figure-canvas`＋`audit.mjs`(HIGH=0) 自己点検。4:5 に収まらない図は `cannot-fit` で親へ escalate。色/font 微修正の svg-figure-rewriter とは別（あちらは再レイアウトしない） | Generator    | sonnet  | `svg-figure-auditor` と対、真実源 `figure-canvas-policy.md`/`.claude/config/figure-canvas.json` | ✅ 運用中（2026-06-22 新設＝固定キャンバス移行） |
+| `page-design-builder`         | サイト UI・ページレイアウト・UI コンポーネントを **`design-system.md`（単一 SSOT）準拠**で設計・実装する Generator。共通プリミティブ（PageShell/PageHeader/SectionBlock/SectionCard/ArticleHeader）+ editorial トークン（`--accent`/`--paper`/`--ink`/`--rule`・`rounded-card-*`/`shadow-card-*`）を使用。外枠 1280/content rail、Hero=トップ専用・下層=PageHeader、右サイドバーは /docs・/category 限定・sticky 解除、`dark:border` 必須。生 hex 直書き・インライン borderColor・rounded+shadow 直書き禁止。適用後 `lint-ui.mjs` 自己点検、合否は `/design-review` に委ねる（自己合格宣言しない）。SVG 図版・IG/note カバーは対象外（別サブシステム） | Generator    | sonnet  | `/design-review`（Evaluator）と対、真実源 `docs/design-system/design-system.md`/`src/styles/globals.css` | ✅ 新設（2026-06-28） |
 | `note-fact-checker`            | note ドラフトの数値・主張を A（内部整合）+ B（キーワード参照）+ C（過去問データ）+ **D（白書一次照合＝NotebookLM）** でファクトチェック                          | Evaluator    | sonnet  | note-prepublish-review 連携、辞書 `src/config/past-exam-backlinks.json` 参照、**NotebookLM 白書ノートブック `2bf7f0dd-3935-49be-8cef-2d428c59eaa9`（`notebooklm-cross-query.mjs` 経由・スコープ D）** | ✅ 運用中（2026-04-29 起動、2026-05-29 スコープ D 追加、2026-06-17 NotebookLM 方式へ移行＝ローカル白書 PDF 削除） |
 | `note-funnel-auditor`          | note 導線（資格別 3 層モデル）の**意味的**監査。4 軸（資格セグメント整合・もくじ構成・CTA 文面の関連性・回遊の質）。機械監査 `audit-note-funnel.mjs`（D1-D4 ソース＋`--live` D5 ライブ反映）が拾えない並び順・文面ズレ・行き止まりを surface。audit-only | Evaluator    | sonnet  | `/audit-note-funnel --semantic` 起動、真実源 `docs/reference/note-funnel-architecture.md`・`.claude/config/note-funnel.json` 参照 | ✅ 運用中（2026-06-16 新設） |
 | `exam-keyword-mapping-auditor` | PE 過去問 1 問の現紐づけ slug 群を semantic 評価し、追加/削除候補を confidence 付き JSON で surface                           | Evaluator    | sonnet  | audit-exam-mapping 連携、辞書 `.claude/state/keyword-summaries.json` 参照    | ✅ 運用中（2026-05-11 起動）                      |
@@ -180,7 +182,7 @@ title: サブエージェント詳細レジストリ
 
 **PE ガイド記事（`group: guide`）の Evaluator は部分割当**: `cem-qa` は原則キーワードページ専用だが、**横断トレードオフガイド（`management-tradeoffs`）の §23 構造チェック**は cem-qa の追加スコープとして 2026-05-28 起動済み（核同士の対称関係宣言・固有名詞混入・SpecSheetList 個数・評価軸メタ解説）。他の `group: guide` 記事（戦略系 Type-1 / 俯瞰系 Type-2）は依然 lint-mdx-mobile.mjs カテゴリ 12 で構造違反を機械検知のみ。Phase 2 で `guide-qa` Evaluator 新設を検討（note CTA 整合性・サイト内回遊密度の 3 軸）。
 
-**UI コンポーネント（`.tsx`）の視覚回帰**は `/design-review --visual` スキル（旧 `ui-visual-qa` エージェントを統合）で実施する。スキル層で完結するためサブエージェント化不要。
+**UI・ページデザイン**は Generator/Evaluator を分離する: Generator＝`page-design-builder`（`design-system.md` 単一 SSOT 準拠でページ/レイアウト/UI コンポーネントを実装）、Evaluator＝`/design-review --visual` スキル（旧 `ui-visual-qa` エージェントを統合・light/dark × desktop/mobile 視覚回帰 + 7 カテゴリ）。静的 lint は `scripts/lint-ui.mjs`。図版 SVG は別系統（`svg-canvas-fitter`/`svg-figure-rewriter` ↔ `svg-figure-auditor`）。
 
 ---
 
@@ -196,7 +198,7 @@ title: サブエージェント詳細レジストリ
 | 2級土木 過去問変換 | `/exam-questions-import --exam {civil-primary-2\|civil-secondary-2}` --year r0X [--sub zenki\|kouki]（Generator） → `content-qa`（Evaluator） → `civil-secondary-exam-writer`（解答補完、Phase 1 対応予定） |
 | 技術士第一次 過去問変換 | `/exam-questions-import --exam pe-first-stage` --year r0X --sub {basic\|aptitude\|construction}（Generator） → `content-qa`（Evaluator、`pe-first-stage` + `primary`） |
 | 1級土木 textbook/guide 品質サイクル | `/civil-textbook-cycle`（オーケストレータ） → `civil-construction-review`（評価） → `civil-textbook-rewriter`（改訂） → 再評価 → 人間レビュー |
-| UI コンポーネント変更 | 親エージェント（Generator） → `/design-review --visual`（視覚検証・スキル層で完結） → `/simplify` で修正 |
+| UI・ページデザイン | `page-design-builder`（`design-system.md` 準拠で実装）→ `/design-review --visual`（light/dark × desktop/mobile 視覚回帰）→ 親が `lint-ui.mjs` 検証・`/simplify` で微修正 |
 | 過去問品質サイクル | `past-exam-qa`（評価・指摘）→ `past-exam-rewriter`（指摘適用）→ 親が lint-mdx-mobile/validate-mdx で検証 → 再評価 → 親が明示パス commit |
 | 総監 記述式 模範論文サイクル | `cem-essay-writer`（生成・自己ゲート）→ `cem-essay-qa`（5軸採点）→ 不合格は writer へ修正指示で再走 → 親が配線（note-magazines.ts/note掲載文.txt/PDF spec）・公開後 URL 反映・明示パス commit。ランブック＝`note-essay-review-checklist.md` |
 

@@ -9,7 +9,7 @@
  *   P5: viewBox 幅が 400px 超過（create-svg 原則違反）
  *   P6: svg-tokens.json の colorsAllowList 外の hex 使用（色ドリフト）
  *   P7: font-family が未指定（ブラウザデフォルト serif に落ちる）
- *   P8: 濃色 fill + 内部に白/薄色テキスト（prohibited.md 違反）
+ *   P8: 濃色 fill + 内部に白/薄色テキスト（design-system.md §8 違反）
  *   P9: テキストが shape（circle / rect コンテナ）と衝突
  *       P9-text-shape-overlap: start-anchor テキストが circle bbox と重なる
  *       P9-text-rect-overflow: テキストが最内 enclosing rect の右端・下端を超える
@@ -484,7 +484,7 @@ function detectColorAndFontIssues(content) {
     }
   }
 
-  // P8: 濃色 fill + 白/薄色テキストの組合せ（prohibited.md 違反）
+  // P8: 濃色 fill + 白/薄色テキストの組合せ（design-system.md §8 違反）
   // <rect ... fill="#444">（輝度 < 0.3）+ 同 SVG 内に <text ... fill="white|#fff|#xxxx" 輝度 > 0.8>
   const darkRects = [];
   const rectRe = /<rect[^>]*fill\s*=\s*"([^"]+)"[^>]*>/g;
@@ -510,7 +510,7 @@ function detectColorAndFontIssues(content) {
       findings.push({
         pattern: "P8-dark-bg",
         severity: "HIGH",
-        detail: `濃色 bg (例: ${darkRects[0].fill}) + 白/薄色テキスト (例: ${lightTextColors[0]}) の組合せを検出。prohibited.md 違反、淡色 bg + 濃色文字に修正せよ`,
+        detail: `濃色 bg (例: ${darkRects[0].fill}) + 白/薄色テキスト (例: ${lightTextColors[0]}) の組合せを検出。design-system.md §8 違反、淡色 bg + 濃色文字に修正せよ`,
       });
     }
   }

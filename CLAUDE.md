@@ -100,7 +100,7 @@ npm run pages:deploy      # Cloudflare Pages に手動デプロイ
 | [docs/reference/sales-tracking.md](docs/reference/sales-tracking.md) | note 売上管理 SSOT（販売履歴・productId 命名規則・月次集計・運用フロー）。手動転記→`/record-sales`→`sales-recorder` で正規化→`.claude/state/sales/sales-log.json` | 販売履歴を記録・集計するとき、新商品の productId を追加するとき |
 | [docs/reference/notebooklm-cli-gotchas.md](docs/reference/notebooklm-cli-gotchas.md) | notebooklm CLI（Python v0.3.4）の挙動クセ集（venv exe で proxy 通らず 503・list で exit 1 false-positive・全角括弧の cmd.exe 解析破綻・source add --title 無効化 等） | notebooklm を呼ぶ新規スクリプト・skill 設計時／既存 wrapper の挙動確認時 |
 | [docs/reference/content-principles.md](docs/reference/content-principles.md) | コンテンツ品質ルールの真実源（ExamPoint 個数・参考資料構成・Callout 12 種使い分け等） | キーワードページ執筆・評価時 |
-| [docs/design-system/principles.md](docs/design-system/principles.md) | UI・SVG 共通のデザイン原則（レイヤー・コントラスト・カラー）。カラートークンは `src/styles/globals.css` の `--color-*` が真実源 | コンポーネント作成・SVG 図版作成・色選定時 |
+| [docs/design-system/design-system.md](docs/design-system/design-system.md) | サイト UI・記事タイポグラフィのデザイン**単一 SSOT**（トークン体系・レイアウト体系 PageShell/PageHeader/SectionCard・記事 prose・5 原則・禁止パターン・更新手順）。トークン値の真実源は `src/styles/globals.css`（editorial `--accent/--paper/--ink/--rule`＝ページ/prose、`--color-*`＝SVG 図版＋Tailwind semantic の二系統） | コンポーネント作成・ページ改修・SVG 図版作成・色選定時 |
 | [docs/ui/callout-gallery.md](docs/ui/callout-gallery.md) | Callout 12 種の視覚ギャラリー（PNG スクショ + MDX 用例）。GitHub 画面で視覚確認可能 | MDX で `<Callout type="...">` を選ぶとき |
 | [docs/ui/speclist-gallery.md](docs/ui/speclist-gallery.md) | SpecSheetList 5 バリエーションの視覚ギャラリー（ordered / unordered × dot/dash/square） | MDX で `<SpecSheetList>` を選ぶとき |
 | [src/components/ui/Callout/README.md](src/components/ui/Callout/README.md) | Callout コンポーネント直下リファレンス（12 種一覧表・デザイン仕様・旧 type 移行表） | Callout を実装・改修・MDX で使うとき |

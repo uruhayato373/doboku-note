@@ -7,8 +7,8 @@
 
 参照元:
 
-- `docs/design-system/proposals/2026-06-27-all-pages-design-review.md`
-- `docs/design-system/proposals/2026-06-27-docs-template-improvement.md`
+- `docs/design-system/_archive/proposals/2026-06-27-all-pages-design-review.md`
+- `docs/design-system/_archive/proposals/2026-06-27-docs-template-improvement.md`
 - `docs/reviews/weekly/2026-W26.md`
 - `docs/handoffs/_archive/2026-06-27-design-precheck-review.md`
 
