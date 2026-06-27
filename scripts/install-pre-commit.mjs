@@ -77,6 +77,12 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# affiliate-career-only 違反 prose（添削サービス/講座ブランド等の再提案）を検知（PR#272 取りこぼしの再発防止）
+node scripts/check-affiliate-prose.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
 # ポリシークラスタ（決定が複数文書に散在）の横展開もれリマインダ＋台帳 rot 検出（意味的ドリフトの再発防止）
 # クラスタ提示は advisory（exit 0）。台帳の files/anchor が実在しない場合のみ exit 1 でブロック。
 node scripts/check-policy-anchors.mjs --staged

@@ -67,6 +67,7 @@
     "check-ogp-coverage": "node scripts/check-ogp-coverage.mjs",
     "check-home-exam-coverage": "node scripts/check-home-exam-coverage.mjs",
     "check-affiliate-mats": "node scripts/check-affiliate-mats.mjs",
+    "check-affiliate-prose": "node scripts/check-affiliate-prose.mjs",
     "fetch-gsc-data": "node .claude/skills/analytics/fetch-gsc-data/scripts/fetch-gsc-data.mjs",
     "fetch-ga4-data": "node .claude/scripts/fetch-ga4-data.mjs",
     "fetch-ga4-cta-clicks": "node .claude/scripts/fetch-ga4-cta-clicks.mjs",
