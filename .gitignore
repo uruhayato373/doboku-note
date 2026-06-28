@@ -152,6 +152,9 @@ docs/sns/instagram/**/angle-reels/**/reels/_concat.txt
 docs/sns/instagram/**/reels/cover.png
 
 # Large PDF files exceeding GitHub 100MB limit
+# textbook PDF（公式テキスト・白書・問題集）は容量大・著作権物で過去に git 履歴を 7GB+ に
+# 肥大させた主因。包括 ignore で再発防止（追跡は図クロップ済み .md/img のみ。下の個別3行も内包）。
+docs/textbook/**/*.pdf
 docs/textbook/経営学/経営学.pdf
 docs/textbook/コンクリート主任技師2024/コンクリート主任技士2024.pdf
 docs/textbook/コンクリート主任技師2022/コンクリート主任技師2022.pdf

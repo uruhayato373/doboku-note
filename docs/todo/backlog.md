@@ -457,16 +457,15 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 ---
 
-### figure-*.svg「試験ポイント/引っかけ」の機械検知を新設するか 🟢 [distill 2026-06-27]
+### figure-*.svg「試験ポイント/引っかけ」機械検知 P12 — 検知導入済み（残: HIGH 昇格）🟡
 
-**背景**: `content-principles.md §5`・`figure-canvas-policy.md §2.5 #5` で「figure-*.svg に試験ポイント・引っかけ論点バー/注記ボックスを入れてはならない（概念伝達に専念）」と禁止済み。だが概念名タイトル（P11）と違い**機械検知が無い**ため、ジェネレータが違反図を作り続け、今週（2026-W26）だけで6件以上が「作成 → 手動除去」で取りこぼされた（`274adb804`「figure から試験ポイント・引っかけ除去 6件」、`8eac0fe31`→`bad239b5e` の作成直後除去 等）。
+**完了（2026-06-28・案A 採用）**: `detect.mjs` に `P12-exam-hint`（`試験ポイント|出題ポイント|引っかけ|ひっかけ` を含む `<text>` を検知）を追加。試験原図（h*-primary）は audit.mjs が除外済みのため概念図のみ対象。`content-principles §5`・`figure-canvas-policy §2.5 #5` の禁止を機械化し「作成→手動除去」の再発（W26 だけで6件）を surface。
 
-**ユーザーが決める必要があること**:
-- **A. detect.mjs に P12 を追加**（推奨）— `.claude/skills/quality/check-mdx/scripts/rules/svg/detect.mjs` に「試験ポイント/引っかけ バー・注記ボックス」検知を追加し pre-commit で赤落ち。P11 と同型でコスト小。誤検知設計（「試験」「引っかけ」「ポイント」を含む `<text>`/`<rect>`ラベルの閾値）が論点
-- **B. ジェネレータ側リマインダのみ** — svg-figure 生成系 SKILL/エージェントのプロンプトに禁止を明記し、検知は入れない（軽量だが取りこぼし再発リスク残）
-- **C. 現状維持** — 校正時の手動除去で対応（今週のように毎回コストがかかる）
+**severity=MEDIUM（警告）にした理由**: 既存違反3図（`trademark-types` / `design-scope` / `sexual-harassment-types`）が「引っかけ」注記ボックス＋出題情報（R03 出題例等）を含む。HIGH＝pre-commit ブロック化は、その注記を解説 `<details>` へ移設＋図を再レイアウトしてからでないと、(a) 該当図を触る commit がブロックされ (b) 有用な出題情報が図削除で失われる。試験ピーク期に公開図を触るのは避けた。
 
-**根拠の置き場**: この distill 観察ログは `.claude/state/proofread-learnings/2026-06-27.md`。コード変更（検知ルール）を伴うため即適用せず判断を仰ぐ。
+**残（試験後）**: ①3図の引っかけ注記を記事の解説 `<details>` へ移設（情報を失わない）→ ②図を再レイアウト（`svg-canvas-fitter` で空白を埋める）→ ③`detect.mjs` の P12 severity を HIGH へ昇格 → ④全量 audit で P12=0 を確認。
+
+**根拠**: `.claude/state/proofread-learnings/2026-06-27.md`。
 
 ---
 

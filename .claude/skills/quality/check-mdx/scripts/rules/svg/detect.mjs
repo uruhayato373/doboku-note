@@ -16,6 +16,9 @@
  *   P10: marker 内 polygon が固定方向（▲▼）で orient="auto" と組み合わさっている
  *        orient="auto" が線方向に回転するため、▲▼固定 polygon は意図しない方向になる
  *        正しくは右向き三角形（▶）で定義し、orient="auto" に回転を任せる
+ *   P11: 概念名タイトル（最上部中央の大見出し）＝図内タイトル禁止（figure-canvas-policy §2.4）
+ *   P12: 試験ポイント/引っかけ 注記（受験対策テキスト）＝概念図に入れない（content-principles §5。
+ *        当面 MEDIUM＝既存3図の注記移設＋再レイアウト後に HIGH 昇格予定。backlog §7）
  *
  * 制限事項:
  *   - 正規表現ベースのため、ネストされた <tspan> や transform 付き <text> は
@@ -399,6 +402,31 @@ export function detectSvgIssues(svg, opts = {}) {
             0,
             20
           )}」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ`,
+        });
+        break; // 1 図 1 件で十分
+      }
+    }
+  }
+
+  // P12: 試験ポイント/引っかけ 注記の検知（content-principles §5 / figure-canvas-policy §2.5 #5）
+  // figure-*.svg（概念図）は概念伝達に専念し、「試験ポイント」「引っかけ」等の受験対策注記
+  // バー・ボックスを入れない（それは解説 <details> の役割）。試験原図は audit.mjs が
+  // h*-primary を除外済みのため対象外。
+  // severity=MEDIUM（警告）: 既存違反3図（trademark/design/sexual-harassment）が注記ボックス＋
+  // 出題情報を含み、HIGH 化＝pre-commit ブロックにはその注記を解説 <details> へ移設＋図再レイアウト
+  // が前提（試験後）。それまでは検知のみ。昇格タスクは backlog §7。
+  {
+    const EXAM_HINT_RE = /試験ポイント|出題ポイント|引っかけ|ひっかけ/;
+    for (const t of svg.texts) {
+      if (EXAM_HINT_RE.test(t.text)) {
+        findings.push({
+          pattern: "P12-exam-hint",
+          severity: "MEDIUM",
+          text: t.text.slice(0, 30),
+          detail: `図内に受験対策注記「${t.text.slice(
+            0,
+            20
+          )}」を検出。figure-*.svg は概念伝達に専念し試験ポイント/引っかけを入れない（content-principles §5・figure-canvas-policy §2.5 #5）。注記は解説 <details> 内へ移し図からは除去せよ`,
         });
         break; // 1 図 1 件で十分
       }

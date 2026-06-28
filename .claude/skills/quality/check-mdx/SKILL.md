@@ -165,6 +165,7 @@ HTTP HEAD（並列 10 / タイムアウト 15 秒）で検証。対象は `.loca
 | P7-missing-font-family | MEDIUM | `font-family` 未指定 |
 | P8-dark-bg | HIGH | 濃色 fill + 白/薄色テキスト（`design-system.md §8` 違反） |
 | P11-concept-title | MEDIUM | 最上部中央の大見出し（font≥14・y≤26・中央）＝概念名タイトル（`figure-canvas-policy.md` §2.4 違反。SNS ヘッダーと二重化） |
+| P12-exam-hint | MEDIUM | 図内に受験対策注記（試験ポイント/引っかけ/出題ポイント）＝概念図に入れない（`content-principles §5`・`figure-canvas-policy §2.5 #5`。当面 MEDIUM・既存3図の注記を `<details>` 移設後に HIGH 昇格＝backlog §7） |
 
 **出力**: `.claude/state/svg-audit.json`
 
