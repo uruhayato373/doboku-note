@@ -311,8 +311,14 @@ async function generateOne({ fullPath, fullSlug, fonts, args, stats }) {
   const MAIN_FONT_TABLE = [88, 80, 72, 64, 56, 48, 42];
   const { main, sub } = deriveTitleParts(sourceTitle, categoryLabel, contentType?.label);
   const mainLines = await wrapTitle(main, NEW_WRAP_CFG);
-  const subLines = sub ? await wrapTitle(sub, NEW_WRAP_CFG) : [];
   const mainFont = pickFontSize(mainLines, { ...NEW_WRAP_CFG, fontSizeTable: MAIN_FONT_TABLE, safetyWidth: LAYOUT_CONSTANTS.WIDTH - 144 - 8 });
+  // サブタイトルは小フォント（≒主題×0.46・最小26px）で 1 行に多く入る。主題と同じ13字で折ると
+  // 不要に改行されるため、サブのフォントに見合う 1 行最大文字数で折り、区切り（スペース/括弧）での
+  // 過剰改行も避ける（短いサブは1行に収める。長いサブのみ budoux で折る）。
+  const subFontApprox = Math.max(26, Math.round(mainFont * 0.46));
+  const subCharMax = Math.max(13, Math.floor((LAYOUT_CONSTANTS.WIDTH - 144 - 16) / subFontApprox));
+  const SUB_WRAP_CFG = { ...textConfig, breakAt: [], breakBefore: [], charCountFallback: subCharMax };
+  const subLines = sub ? await wrapTitle(sub, SUB_WRAP_CFG) : [];
 
   const element = renderTemplate(templateId, {
     // ライト（--light / note カバー fallback）用
