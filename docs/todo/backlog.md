@@ -457,13 +457,11 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 ---
 
-### figure-*.svg「試験ポイント/引っかけ」機械検知 P12 — 検知導入済み（残: HIGH 昇格）🟡
+### figure-*.svg「試験ポイント/引っかけ」機械検知 P12 — 完了（HIGH）✅
 
-**完了（2026-06-28・案A 採用）**: `detect.mjs` に `P12-exam-hint`（`試験ポイント|出題ポイント|引っかけ|ひっかけ` を含む `<text>` を検知）を追加。試験原図（h*-primary）は audit.mjs が除外済みのため概念図のみ対象。`content-principles §5`・`figure-canvas-policy §2.5 #5` の禁止を機械化し「作成→手動除去」の再発（W26 だけで6件）を surface。
+**完了（2026-06-28・案A）**: `detect.mjs` に `P12-exam-hint`（`試験ポイント|出題ポイント|引っかけ|ひっかけ` を含む `<text>` 検知）を **HIGH＝pre-commit ブロック**で追加。試験原図（h*-primary）は audit.mjs が除外済みのため概念図のみ対象。`content-principles §5`・`figure-canvas-policy §2.5 #5` の禁止を機械化し「作成→手動除去」の再発（W26 6件）を停止。既存違反3図（`trademark-types`/`design-scope`/`sexual-harassment-types`）は引っかけ注記の**事実が記事本文に既出**だったため図から除去（情報ロスなし）＋ sexual-harassment は補足ボックス再配置。全量 audit で **P12=0** 確認。SKILL.md P-code 表・detect.mjs ヘッダー更新。
 
-**severity=MEDIUM（警告）にした理由**: 既存違反3図（`trademark-types` / `design-scope` / `sexual-harassment-types`）が「引っかけ」注記ボックス＋出題情報（R03 出題例等）を含む。HIGH＝pre-commit ブロック化は、その注記を解説 `<details>` へ移設＋図を再レイアウトしてからでないと、(a) 該当図を触る commit がブロックされ (b) 有用な出題情報が図削除で失われる。試験ピーク期に公開図を触るのは避けた。
-
-**残（試験後）**: ①3図の引っかけ注記を記事の解説 `<details>` へ移設（情報を失わない）→ ②図を再レイアウト（`svg-canvas-fitter` で空白を埋める）→ ③`detect.mjs` の P12 severity を HIGH へ昇格 → ④全量 audit で P12=0 を確認。
+**残（任意・cosmetic）**: 注記除去で生じた余白の充填（特に sexual-harassment 下部）は `svg-canvas-fitter` で polish 可（P-check は通過済み・優先度低）。
 
 **根拠**: `.claude/state/proofread-learnings/2026-06-27.md`。
 

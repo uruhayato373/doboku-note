@@ -18,7 +18,7 @@
  *        正しくは右向き三角形（▶）で定義し、orient="auto" に回転を任せる
  *   P11: 概念名タイトル（最上部中央の大見出し）＝図内タイトル禁止（figure-canvas-policy §2.4）
  *   P12: 試験ポイント/引っかけ 注記（受験対策テキスト）＝概念図に入れない（content-principles §5。
- *        当面 MEDIUM＝既存3図の注記移設＋再レイアウト後に HIGH 昇格予定。backlog §7）
+ *        HIGH＝pre-commit ブロック。試験原図は audit.mjs が h*-primary を除外）
  *
  * 制限事項:
  *   - 正規表現ベースのため、ネストされた <tspan> や transform 付き <text> は
@@ -408,20 +408,18 @@ export function detectSvgIssues(svg, opts = {}) {
     }
   }
 
-  // P12: 試験ポイント/引っかけ 注記の検知（content-principles §5 / figure-canvas-policy §2.5 #5）
+  // P12: 試験ポイント/引っかけ 注記の禁止（content-principles §5 / figure-canvas-policy §2.5 #5）
   // figure-*.svg（概念図）は概念伝達に専念し、「試験ポイント」「引っかけ」等の受験対策注記
   // バー・ボックスを入れない（それは解説 <details> の役割）。試験原図は audit.mjs が
-  // h*-primary を除外済みのため対象外。
-  // severity=MEDIUM（警告）: 既存違反3図（trademark/design/sexual-harassment）が注記ボックス＋
-  // 出題情報を含み、HIGH 化＝pre-commit ブロックにはその注記を解説 <details> へ移設＋図再レイアウト
-  // が前提（試験後）。それまでは検知のみ。昇格タスクは backlog §7。
+  // h*-primary を除外済みのため対象外。severity=HIGH＝pre-commit ブロック（既存違反3図
+  // trademark/design/sexual-harassment の注記は本文へ既出のため 2026-06-28 に図から除去済み）。
   {
     const EXAM_HINT_RE = /試験ポイント|出題ポイント|引っかけ|ひっかけ/;
     for (const t of svg.texts) {
       if (EXAM_HINT_RE.test(t.text)) {
         findings.push({
           pattern: "P12-exam-hint",
-          severity: "MEDIUM",
+          severity: "HIGH",
           text: t.text.slice(0, 30),
           detail: `図内に受験対策注記「${t.text.slice(
             0,
