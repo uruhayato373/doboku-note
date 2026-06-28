@@ -78,60 +78,140 @@ function debugSafetyOverlay(width) {
   };
 }
 
+// ---- テンプレート: mono-tag ダーク（2026-06-29 リデザイン・サイト OGP 既定）----
+//
+// 深紺グラデ地。ワードマークは置かず、資格名を大きな kicker（accentLight）に。
+// タイトルは「資格名を除いた主題（大・白）＋サブタイトル（小・淡色）」の階層で、
+// kicker との重複を避ける（資格名除去・主題/サブ分割は ogp-create 側 deriveTitleParts）。
+// 出所表示は左下の控えめなドメインのみ。資格識別は accentLight（資格色を白へ寄せた明色）で
+// kicker・バッジ・外枠に効かせ、紺/藍の資格でも沈ませない。
+function renderMonoTagDark({ examLabel, mainLines, subLines, mainFont, contentType, accentColor }, { width, height }) {
+  const safeL = 72;
+  const contentTop = 92;
+  const contentBottom = 78;
+  const innerW = width - safeL * 2;
+  const contentH = height - contentTop - contentBottom;
+  const accent = accentColor || C_INK_NAVY;
+  const accentLight = lightenHex(accent, 0.5);
+  const titleWhite = '#f5f7fc';
+  const subColor = 'rgba(245, 247, 252, 0.6)';
+  const domainColor = 'rgba(255, 255, 255, 0.38)';
+
+  const LH = 1.3;
+  const lines = mainLines && mainLines.length ? mainLines : [''];
+  const subs = subLines || [];
+  let mFont = mainFont || 72;
+  const subFont = Math.max(26, Math.round(mFont * 0.46));
+  const KICKER = 52; // kicker 行（フォント 34 + marginBottom 18）の概算高さ
+  const subBlockH = subs.length ? 12 + subs.length * subFont * 1.3 : 0;
+  const fitsV = (mf) => KICKER + lines.length * mf * LH + subBlockH;
+  while (mFont > 40 && fitsV(mFont) > contentH) mFont -= 2;
+  // 最小でも収まらない長文は行クランプ＋省略記号（重なり防止）
+  let mLines = lines;
+  const avail = contentH - KICKER - subBlockH;
+  const maxLines = Math.max(1, Math.floor(avail / (mFont * LH)));
+  if (mLines.length > maxLines) {
+    mLines = mLines.slice(0, maxLines);
+    mLines[maxLines - 1] = mLines[maxLines - 1].replace(/[\s、。・　]+$/u, '') + '…';
+  }
+
+  const fineGridUrl = gridDataUrl(30, 'rgba(255,255,255,0.05)', 1);
+  const majorGridUrl = gridDataUrl(120, 'rgba(255,255,255,0.08)', 1.25);
+
+  const kicker = {
+    type: 'div',
+    props: {
+      style: { display: 'flex', fontSize: '34px', fontWeight: 800, letterSpacing: '0.5px', color: accentLight, fontFamily: '"Noto Sans JP", Inter, sans-serif' },
+      children: examLabel || '',
+    },
+  };
+  const badge = contentType
+    ? {
+        type: 'div',
+        props: {
+          style: { display: 'flex', alignItems: 'center', padding: '7px 16px 7px 11px', borderRadius: '999px', border: `2px solid ${accentLight}`, background: 'rgba(255,255,255,0.08)', fontFamily: '"Noto Sans JP", Inter, sans-serif' },
+          children: [
+            g2IconImg(contentType.icon, accentLight, 19, 2.4),
+            { type: 'div', props: { style: { display: 'flex', marginLeft: '8px', fontSize: '19px', fontWeight: 700, letterSpacing: '0.5px', color: accentLight }, children: contentType.label } },
+          ],
+        },
+      }
+    : null;
+  const topRow = {
+    type: 'div',
+    props: { style: { display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: '18px' }, children: [kicker, badge].filter(Boolean) },
+  };
+  const mainEl = {
+    type: 'div',
+    props: {
+      style: { display: 'flex', flexDirection: 'column', fontFamily: '"Noto Sans JP", Inter, sans-serif' },
+      children: mLines.map((l) => ({ type: 'div', props: { style: { display: 'flex', fontSize: `${mFont}px`, fontWeight: 800, lineHeight: LH, color: titleWhite, letterSpacing: '-0.5px' }, children: l } })),
+    },
+  };
+  const subEl = subs.length
+    ? {
+        type: 'div',
+        props: {
+          style: { display: 'flex', flexDirection: 'column', marginTop: '12px', fontFamily: '"Noto Sans JP", Inter, sans-serif' },
+          children: subs.map((l) => ({ type: 'div', props: { style: { display: 'flex', fontSize: `${subFont}px`, fontWeight: 700, lineHeight: 1.3, color: subColor }, children: l } })),
+        },
+      }
+    : null;
+  const centerBlock = {
+    type: 'div',
+    props: { style: { display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'center' }, children: [mainEl, subEl].filter(Boolean) },
+  };
+
+  return {
+    type: 'div',
+    props: {
+      style: { width: `${width}px`, height: `${height}px`, display: 'flex', position: 'relative', background: 'linear-gradient(135deg, #161d33 0%, #0a0e1a 100%)', fontFamily: '"Noto Sans JP", Inter, sans-serif' },
+      children: [
+        { type: 'div', props: { style: { position: 'absolute', inset: 0, display: 'flex', backgroundImage: `url(${majorGridUrl}), url(${fineGridUrl})`, backgroundRepeat: 'repeat, repeat' }, children: [] } },
+        { type: 'div', props: { style: { position: 'absolute', top: '80px', left: 0, width: '80px', height: '4px', display: 'flex', background: C_CYAN_ACCENT }, children: [] } },
+        { type: 'div', props: { style: { position: 'absolute', left: `${safeL}px`, top: `${contentTop}px`, width: `${innerW}px`, height: `${contentH}px`, display: 'flex', flexDirection: 'column' }, children: [topRow, centerBlock] } },
+        { type: 'div', props: { style: { position: 'absolute', left: `${safeL}px`, bottom: '40px', display: 'flex', fontSize: '18px', fontWeight: 700, letterSpacing: '1px', color: domainColor, fontFamily: 'Inter, "Noto Sans JP", sans-serif' }, children: SITE_DOMAIN } },
+        { type: 'div', props: { style: { position: 'absolute', inset: 0, display: 'flex', borderStyle: 'solid', borderColor: accentLight, borderWidth: '16px' }, children: [] } },
+      ],
+    },
+  };
+}
+
 // ---- テンプレート: mono-tag (T06) ----
 
-function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backgroundImage, contentType, dark }, { width, height }) {
+function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backgroundImage, contentType, dark, examLabel, mainLines, subLines, mainFont }, { width, height }) {
+  // ダーク（サイト OGP 既定・2026-06-29 リデザイン）は新レイアウト（資格名 kicker ＋ 主題/サブ階層）へ委譲。
+  // ライト（--light / note カバー mono-tag フォールバック）は従来の全幅レイアウト（以下）。
+  if (dark) {
+    return renderMonoTagDark({ examLabel, mainLines, subLines, mainFont, contentType, accentColor }, { width, height });
+  }
   // 2026-06-16: セーフゾーン(中央630)制約を撤廃し全幅レイアウトへ。左右 72px パディング。
   const safeL = 72;
   const innerWidth = width - safeL * 2;
   const themeColor = accentColor || C_INK_NAVY;
 
-  // パレット切替（dark は検討用モック・既定は false でライトと完全同一の出力）。
-  // ダークは「深紺ベース統一 × 資格色を明るくしたアクセント」で、紺/藍の資格でも
-  // 枠・チップ・バッジが沈まないようにする。
-  const accentLight = dark ? lightenHex(themeColor, 0.5) : themeColor;
-  const pal = dark
-    ? {
-        bg: 'linear-gradient(135deg, #161d33 0%, #0a0e1a 100%)',
-        title: '#f5f7fc',
-        wordmarkInk: '#ffffff',
-        dash: C_CYAN_ACCENT,
-        chipBg: accentLight,
-        chipText: '#0a0e1a',
-        chipArrow: '#0a0e1a',
-        gridFine: 'rgba(255,255,255,0.05)',
-        gridMajor: 'rgba(255,255,255,0.08)',
-        barTL: C_CYAN_ACCENT,
-        barBR: accentLight,
-        frame: accentLight,
-        badgeBg: 'rgba(255,255,255,0.08)',
-        badgeBorder: accentLight,
-        badgeInk: accentLight,
-        scrim: 'rgba(10,14,26,0.58)',
-      }
-    : {
-        bg: C_BG,
-        title: C_INK_DEEP,
-        wordmarkInk: C_INK_NAVY,
-        dash: C_CYAN,
-        chipBg: C_INK_NAVY,
-        chipText: '#ffffff',
-        chipArrow: C_CYAN_ACCENT,
-        gridFine: 'rgba(15,30,63,0.04)',
-        gridMajor: 'rgba(15,30,63,0.09)',
-        barTL: C_CYAN,
-        barBR: C_NAVY_ACCENT,
-        frame: themeColor,
-        badgeBg: 'rgba(255, 255, 255, 0.86)',
-        badgeBorder: themeColor,
-        badgeInk: themeColor,
-        scrim: C_SCRIM,
-      };
+  const pal = {
+    bg: C_BG,
+    title: C_INK_DEEP,
+    wordmarkInk: C_INK_NAVY,
+    dash: C_CYAN,
+    chipBg: C_INK_NAVY,
+    chipText: '#ffffff',
+    chipArrow: C_CYAN_ACCENT,
+    gridFine: 'rgba(15,30,63,0.04)',
+    gridMajor: 'rgba(15,30,63,0.09)',
+    barTL: C_CYAN,
+    barBR: C_NAVY_ACCENT,
+    frame: themeColor,
+    badgeBg: 'rgba(255, 255, 255, 0.86)',
+    badgeBorder: themeColor,
+    badgeInk: themeColor,
+    scrim: C_SCRIM,
+  };
 
   // AI 生成背景（資格ごとに共有）。指定があれば最背面に cover 配置し、上に可読性スクリムを敷く。
   // 未指定なら従来どおりオフホワイト + グリッドのみ（出力は完全後方互換）。
-  // dark では AI 背景は明るく正規化されており暗スクリムを重ねると濁るため使わず、深紺グラデ地を見せる。
-  const backgroundLayers = backgroundImage && !dark
+  const backgroundLayers = backgroundImage
     ? [
         {
           type: 'img',

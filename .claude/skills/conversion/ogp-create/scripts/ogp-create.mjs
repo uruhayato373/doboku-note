@@ -77,6 +77,32 @@ function resolveContentType(group) {
   return GROUP_TO_TYPE[group] || null;
 }
 
+// ダークレイアウト用: タイトルから資格名（kicker と重複）を除き主題/サブへ分割する。
+// 区切り（｜ / — / –）でセグメント分割 → 各セグメント先頭の資格ラベル語・種別ラベル語を除去 →
+// 空や資格名そのものになったセグメントを捨て、先頭=主題・残り=サブ。最善努力（完璧化は ogp.title）。
+function normJP(s) {
+  return String(s).replace(/[\s　（）()・、。,.\-—–｜|:：]/g, '');
+}
+function deriveTitleParts(rawTitle, examLabel, typeLabel) {
+  const normLabel = normJP(examLabel);
+  const normType = typeLabel ? normJP(typeLabel) : '';
+  let segs = String(rawTitle).split(/\s*[｜|]\s*|\s+[—–]\s+/).map(s => s.trim()).filter(Boolean);
+  const stripLeading = (seg) => {
+    const parts = seg.split(/\s+/).filter(Boolean);
+    let i = 0;
+    while (i < parts.length) {
+      const w = normJP(parts[i]);
+      if (!w) { i++; continue; }
+      if ((normLabel && normLabel.includes(w)) || (normType && w === normType)) { i++; continue; }
+      break;
+    }
+    return parts.slice(i).join(' ');
+  };
+  segs = segs.map(stripLeading).filter(s => s && normJP(s) !== normLabel);
+  if (segs.length === 0) segs = [String(rawTitle)];
+  return { main: segs[0], sub: segs.slice(1).join(' ') };
+}
+
 import { renderTemplate, LAYOUT_CONSTANTS } from './lib/ogp-templates.mjs';
 import { wrapTitle, pickFontSize } from './lib/ogp-text.mjs';
 
@@ -279,14 +305,29 @@ async function generateOne({ fullPath, fullSlug, fonts, args, stats }) {
   const accentColor = resolveAccentColor(data.category);
   const contentType = resolveContentType(data.group);
 
+  // ダークレイアウト用の主題/サブタイトル（資格名除去）。区切りでのスペース過剰改行を抑えるため
+  // breakAt（スペース分割）を外した wrap 設定を使い、主題は大きめのフォントテーブルで描く。
+  const NEW_WRAP_CFG = { ...textConfig, breakAt: [] };
+  const MAIN_FONT_TABLE = [88, 80, 72, 64, 56, 48, 42];
+  const { main, sub } = deriveTitleParts(sourceTitle, categoryLabel, contentType?.label);
+  const mainLines = await wrapTitle(main, NEW_WRAP_CFG);
+  const subLines = sub ? await wrapTitle(sub, NEW_WRAP_CFG) : [];
+  const mainFont = pickFontSize(mainLines, { ...NEW_WRAP_CFG, fontSizeTable: MAIN_FONT_TABLE, safetyWidth: LAYOUT_CONSTANTS.WIDTH - 144 - 8 });
+
   const element = renderTemplate(templateId, {
+    // ライト（--light / note カバー fallback）用
     lines,
     categoryLabel,
     fontSize,
     backgroundImage,
     accentColor,
     contentType,
-    dark: !args.light, // サイト OGP は既定ダーク（--light で旧ライト配色）
+    // ダーク（サイト OGP 既定）用
+    dark: !args.light,
+    examLabel: categoryLabel,
+    mainLines,
+    subLines,
+    mainFont,
     debugSafety: args.debugSafety,
   });
 
