@@ -61,6 +61,22 @@ function resolveAccentColor(category) {
   return coverTokens.exams?.[key]?.base || null;
 }
 
+// コンテンツ種別（frontmatter `group`）→ OGP 種別バッジ（ラベル + アイコン）。
+// 資格＝外枠色 と直交する第2軸。サムネ一覧で「青枠＝1級土木 × 過去問バッジ」のように
+// 種別を一目で判別させる。アイコン名は ogp-templates.mjs の G2_ICON_PATHS に存在するもの。
+const GROUP_TO_TYPE = {
+  guide: { label: 'ガイド', icon: 'map' },
+  'past-exam': { label: '過去問', icon: 'pen' },
+  primary: { label: '過去問', icon: 'pen' },
+  secondary: { label: '過去問', icon: 'pen' },
+  textbook: { label: 'テキスト', icon: 'layers' },
+  keyword: { label: 'キーワード', icon: 'target' },
+  pillar: { label: 'まとめ', icon: 'flag' },
+};
+function resolveContentType(group) {
+  return GROUP_TO_TYPE[group] || null;
+}
+
 import { renderTemplate, LAYOUT_CONSTANTS } from './lib/ogp-templates.mjs';
 import { wrapTitle, pickFontSize } from './lib/ogp-text.mjs';
 
@@ -254,6 +270,7 @@ async function generateOne({ fullPath, fullSlug, fonts, args, stats }) {
   // 資格別共有背景を優先し、無ければテンプレ定義の静的背景にフォールバック。
   const backgroundImage = resolveBackgroundImage(data.category) || loadBackgroundImage(templateDef);
   const accentColor = resolveAccentColor(data.category);
+  const contentType = resolveContentType(data.group);
 
   const element = renderTemplate(templateId, {
     lines,
@@ -261,6 +278,7 @@ async function generateOne({ fullPath, fullSlug, fonts, args, stats }) {
     fontSize,
     backgroundImage,
     accentColor,
+    contentType,
     debugSafety: args.debugSafety,
   });
 

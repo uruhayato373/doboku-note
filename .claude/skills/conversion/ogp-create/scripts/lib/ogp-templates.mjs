@@ -67,7 +67,7 @@ function debugSafetyOverlay(width) {
 
 // ---- テンプレート: mono-tag (T06) ----
 
-function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backgroundImage }, { width, height }) {
+function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backgroundImage, contentType }, { width, height }) {
   // 2026-06-16: セーフゾーン(中央630)制約を撤廃し全幅レイアウトへ。左右 72px パディング。
   const safeL = 72;
   const innerWidth = width - safeL * 2;
@@ -125,7 +125,6 @@ function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backg
       style: {
         display: 'flex',
         alignItems: 'baseline',
-        marginBottom: '28px',
         fontFamily: 'Inter, "Noto Sans JP", sans-serif',
       },
       children: [
@@ -148,6 +147,57 @@ function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backg
           },
         },
       ],
+    },
+  };
+
+  // コンテンツ種別バッジ（資格＝外枠色 と直交する第2軸）。テーマ色の輪郭ピル＋
+  // lucide 風アイコン＋短ラベル（ガイド/過去問/テキスト/キーワード）。サムネ一覧での
+  // 種別一目識別が狙い。contentType 未指定（未マッピング group）なら描かない＝後方互換。
+  const typeBadge = contentType
+    ? {
+        type: 'div',
+        props: {
+          style: {
+            display: 'flex',
+            alignItems: 'center',
+            padding: '7px 16px 7px 11px',
+            borderRadius: '999px',
+            border: `2px solid ${themeColor}`,
+            background: 'rgba(255, 255, 255, 0.86)',
+            fontFamily: '"Noto Sans JP", Inter, sans-serif',
+          },
+          children: [
+            g2IconImg(contentType.icon, themeColor, 19, 2.4),
+            {
+              type: 'div',
+              props: {
+                style: {
+                  display: 'flex',
+                  marginLeft: '8px',
+                  fontSize: '19px',
+                  fontWeight: 700,
+                  letterSpacing: '0.5px',
+                  color: themeColor,
+                },
+                children: contentType.label,
+              },
+            },
+          ],
+        },
+      }
+    : null;
+
+  const topRow = {
+    type: 'div',
+    props: {
+      style: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        marginBottom: '28px',
+      },
+      children: [wordmark, typeBadge].filter(Boolean),
     },
   };
 
@@ -242,7 +292,7 @@ function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backg
     },
   };
 
-  const innerStack = [wordmark, categoryChip, titleBlock].filter(Boolean);
+  const innerStack = [topRow, categoryChip, titleBlock].filter(Boolean);
 
   const children = [
     // AI 生成背景 + 可読性スクリム（backgroundImage 指定時のみ。最背面）

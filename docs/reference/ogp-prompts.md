@@ -23,8 +23,26 @@ OGP デザインはここで継続的に検討・改善する。レイアウト�
 | 配色 | warm off-white 背景 `#fdfcf8` / 濃紺 `#0f1e3f` / 紺アクセント `#1e3a8a` / シアン `#06b6d4` / 本文 `#0a1428` |
 | テーマ色外枠 | 16px の実線外枠を**資格別テーマ色**で描く（下記「テーマ色」参照）。余白感の解消＋分野の一目識別 |
 | フォント | Noto Sans JP Bold（タイトル・最大 76px）+ Inter Bold（ワードマーク） |
-| 主要要素 | `doboku-note` ワードマーク（タグラインなし）/ カテゴリチップ（紺背景＋シアン ▶）/ メインタイトル（縦中央寄せ） |
+| 主要要素 | `doboku-note` ワードマーク（タグラインなし）/ **コンテンツ種別バッジ（右上・テーマ色輪郭ピル）** / カテゴリチップ（紺背景＋シアン ▶）/ メインタイトル（縦中央寄せ） |
 | 装飾要素 | 薄い濃紺グリッド全面（30px fine + 120px major）/ 左上シアンバー（80×4）/ 右下紺バー（80×4）|
+
+## 2 軸識別: 資格（色）× コンテンツ種別（バッジ）
+
+mono-tag は **資格＝外枠色** と **コンテンツ種別＝右上バッジ** の 2 軸でサムネ一覧での判別性を担保する（note-cover-g2 の「試験区分=色 × 系列=濃淡」と同じ発想、2026-06-28〜）。
+
+- **コンテンツ種別バッジ**: ワードマークと同じ最上段の右端に、**テーマ色の輪郭ピル＋ lucide 風アイコン＋短ラベル**で描く。背景は半透明オフホワイト（`rgba(255,255,255,0.86)`）で AI 背景・グリッド上でも読める。
+- **種別の解決**: frontmatter `group` → `ogp-create.mjs` の `GROUP_TO_TYPE`（`resolveContentType`）。未マッピングの group はバッジ無し＝**完全後方互換**。
+
+| `group` | バッジラベル | アイコン |
+|---|---|---|
+| `guide` | ガイド | `map` |
+| `past-exam` / `primary` / `secondary` | 過去問 | `pen` |
+| `textbook` | テキスト | `layers` |
+| `keyword` | キーワード | `target` |
+| `pillar` | まとめ | `flag` |
+| 未マッピング | （バッジ無し） | — |
+
+新しい `group` を扱う場合は **この表・`ogp-create.mjs` の `GROUP_TO_TYPE`** を更新する。アイコン名は `ogp-templates.mjs` の `G2_ICON_PATHS` に存在するものを使う（book 等は 19px だと四角に見えて欠字に紛れるため、輪郭が明瞭な map/pen/layers/target/flag を採用）。
 
 ## デザインの原則（mono-tag）
 
@@ -112,6 +130,7 @@ npm run ogp-gallery -- --open  # .tmp/ogp-gallery.html を生成しブラウザ�
 | 2026-05-29 | note-cover-g2 派生を追加（note 記事カバーを試験色分け） | note フィード・リンクカードで試験区分を色で識別 |
 | 2026-06-16 | **mono-tag 全幅リデザイン**: セーフゾーン(630)撤廃→全幅、最大フォント 54→76px、資格別テーマ色 16px 外枠を追加、下部メタ「READ ON doboku-note.com」とワードマークのタグラインを撤去、タイトルを縦中央寄せ。`text.json` を v5 に更新（`safetyWidth` 590→1010、`fontSizeTable` 引き上げ、`charCountFallback` 18→13）。確認用に OGP ギャラリー（`npm run ogp-gallery`）を新設 | 外部リンクカードでの可読性・分野識別性の向上（参考: socialplus / commune の大文字・低余白カード） |
 | 2026-06-18 | **mono-tag に資格別 AI 背景（任意）を追加**: `renderMonoTag` に背景画像レイヤー＋可読性スクリム `C_SCRIM`（0.7）を新設、`ogp-create.mjs` に `resolveBackgroundImage`（`.claude/config/ogp/backgrounds/<exam-key>.png`）を配線。生成スクリプト `npm run ogp-backgrounds`（Gemini/Imagen・輝度正規化・リトライ）を新設。背景なしは完全後方互換 | プレーンなオフホワイトより見栄えを上げつつ、文字の正確性・ブランド一貫性を維持（AI は背景のみ・文字は satori） |
+| 2026-06-28 | **mono-tag に コンテンツ種別バッジ（第2軸）を追加**: ワードマークを最上段の行（`topRow`・space-between）に再構成し右端へ種別バッジを配置。`renderMonoTag` に `contentType` props、`ogp-create.mjs` に `GROUP_TO_TYPE`/`resolveContentType` を新設（`group`→ラベル+アイコン）。アイコンは既存 `G2_ICON_PATHS` を再利用（satori 描画・文字は不使用）。未マッピング group はバッジ無し＝後方互換 | 資格（色）に加えガイド/過去問/テキスト/キーワードをサムネ一覧で一目識別（種別は AI でなくテンプレ描画で確定的・可読） |
 
 ## 旧 5 種テンプレ（撤去済み・履歴）
 
