@@ -241,6 +241,26 @@ function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backg
       }
     : null;
 
+  // タイトルの縦フィット: pickFontSize は横幅のみ合わせるため、行数が多いと固定の
+  // 縦スペースを溢れて行が重なっていた（2026-06-28 修正）。縦スペースに収まるよう font を
+  // 縮小し、最小サイズでも収まらない病的な長文だけ行数をクランプして省略記号を付す。
+  // 縮小は横幅制約を緩めない方向（小さくするだけ）なので pickFontSize の横フィットを壊さない。
+  const TITLE_LINE_HEIGHT = 1.35;
+  const FONT_FLOOR = 34; // table 最小(42)より下げ、7 行までの長見出しを切らずに縮小で吸収する
+  // contentHeight から topRow(≈33)+gap(28) と、chip 有無で chip(≈29)+gap(28) を差し引く
+  const usedAboveTitle = 33 + 28 + (cat ? 29 + 28 : 0);
+  const titleMaxHeight = contentHeight - usedAboveTitle;
+  const fitsHeight = (size, n) => n * size * TITLE_LINE_HEIGHT <= titleMaxHeight;
+  let fitFont = fontSize;
+  while (fitFont > FONT_FLOOR && !fitsHeight(fitFont, lines.length)) fitFont -= 2;
+  let titleLines = lines;
+  const maxFitLines = Math.max(1, Math.floor(titleMaxHeight / (fitFont * TITLE_LINE_HEIGHT)));
+  if (titleLines.length > maxFitLines) {
+    titleLines = titleLines.slice(0, maxFitLines);
+    const lastIdx = maxFitLines - 1;
+    titleLines[lastIdx] = titleLines[lastIdx].replace(/[\s、。・　]+$/u, '') + '…';
+  }
+
   const titleBlock = {
     type: 'div',
     props: {
@@ -251,14 +271,14 @@ function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backg
         justifyContent: 'center',
         fontFamily: '"Noto Sans JP", Inter, sans-serif',
       },
-      children: lines.map((line) => ({
+      children: titleLines.map((line) => ({
         type: 'div',
         props: {
           style: {
             display: 'flex',
-            fontSize: `${fontSize}px`,
+            fontSize: `${fitFont}px`,
             fontWeight: 800,
-            lineHeight: 1.35,
+            lineHeight: TITLE_LINE_HEIGHT,
             color: C_INK_DEEP,
             letterSpacing: '-0.4px',
           },

@@ -85,8 +85,9 @@ mono-tag は資格ごとに **AI 生成の背景画像**を任意で敷ける（
 ## フォントサイズと改行
 
 - `pickFontSize` は `fontSizeTable: [76, 68, 60, 54, 48, 42]`（`.claude/config/ogp/text.json`）を上から試し、**全行が `safetyWidth: 1010px` に収まる最大サイズ**を選ぶ。上限 76px。
+- **縦フィット（2026-06-28〜）**: `pickFontSize` は横幅のみ合わせるため、行数が多いと固定の縦スペースを溢れて行が重なっていた。`renderMonoTag` が描画時に **縦スペース（`contentHeight` − ワードマーク行 − チップ）に収まるよう font を `FONT_FLOOR: 34px` まで縮小**し、最小でも収まらない病的な長文だけ **行数をクランプして `…` を付す**（横幅制約は緩めない＝小さくするだけ）。3 行以下は 76px 維持、4 行以上は自動縮小。
 - タイトル改行は 4 層戦略（`frontmatter.ogp.title` の `\n` → 記号直前 → スペース分割 → BudouX → `charCountFallback: 13` 字）。詳細は SKILL.md「4 層の日本語改行戦略」。
-- 長いタイトルで font が小さくなる・改行が崩れる場合は `frontmatter.ogp.title` に短い OGP 専用見出し（`\n` 改行可）を与えると大きく出る。
+- 長いタイトル（目安 6 行以上＝`…` でクランプされる）は `frontmatter.ogp.title` に短い OGP 専用見出し（`\n` 改行可）を与えると大きく・切れずに出る。自動生成の長い過去問タイトル（`技術士第二次試験 建設部門 令和X年度 …`）等が該当。
 
 ## QA: 全 OGP をギャラリーで確認
 
@@ -131,6 +132,7 @@ npm run ogp-gallery -- --open  # .tmp/ogp-gallery.html を生成しブラウザ�
 | 2026-06-16 | **mono-tag 全幅リデザイン**: セーフゾーン(630)撤廃→全幅、最大フォント 54→76px、資格別テーマ色 16px 外枠を追加、下部メタ「READ ON doboku-note.com」とワードマークのタグラインを撤去、タイトルを縦中央寄せ。`text.json` を v5 に更新（`safetyWidth` 590→1010、`fontSizeTable` 引き上げ、`charCountFallback` 18→13）。確認用に OGP ギャラリー（`npm run ogp-gallery`）を新設 | 外部リンクカードでの可読性・分野識別性の向上（参考: socialplus / commune の大文字・低余白カード） |
 | 2026-06-18 | **mono-tag に資格別 AI 背景（任意）を追加**: `renderMonoTag` に背景画像レイヤー＋可読性スクリム `C_SCRIM`（0.7）を新設、`ogp-create.mjs` に `resolveBackgroundImage`（`.claude/config/ogp/backgrounds/<exam-key>.png`）を配線。生成スクリプト `npm run ogp-backgrounds`（Gemini/Imagen・輝度正規化・リトライ）を新設。背景なしは完全後方互換 | プレーンなオフホワイトより見栄えを上げつつ、文字の正確性・ブランド一貫性を維持（AI は背景のみ・文字は satori） |
 | 2026-06-28 | **mono-tag に コンテンツ種別バッジ（第2軸）を追加**: ワードマークを最上段の行（`topRow`・space-between）に再構成し右端へ種別バッジを配置。`renderMonoTag` に `contentType` props、`ogp-create.mjs` に `GROUP_TO_TYPE`/`resolveContentType` を新設（`group`→ラベル+アイコン）。アイコンは既存 `G2_ICON_PATHS` を再利用（satori 描画・文字は不使用）。未マッピング group はバッジ無し＝後方互換 | 資格（色）に加えガイド/過去問/テキスト/キーワードをサムネ一覧で一目識別（種別は AI でなくテンプレ描画で確定的・可読） |
+| 2026-06-28 | **mono-tag タイトルの縦フィット修正**: `renderMonoTag` に縦スペース計算＋font 縮小（`FONT_FLOOR: 34px`）＋行数クランプ（`…`）を追加。`pickFontSize` が横幅のみ合わせていたため 4 行以上の長タイトルが縦に溢れて行が重なっていた（約 225 件）。3 行以下は 76px 維持 | 長タイトルの行重なり（既存バグ）を解消。横フィットは不変（縮小のみ） |
 
 ## 旧 5 種テンプレ（撤去済み・履歴）
 
