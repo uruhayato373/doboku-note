@@ -99,6 +99,8 @@ function parseArgs(argv) {
     debugSafety: false,
     debugWrap: false,
     template: null,
+    light: false,
+    outDir: null,
   };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
@@ -108,6 +110,8 @@ function parseArgs(argv) {
     else if (a === '--debug-safety') args.debugSafety = true;
     else if (a === '--debug-wrap') args.debugWrap = true;
     else if (a === '--template') args.template = argv[++i];
+    else if (a === '--light') args.light = true; // 既定はダーク。旧ライト配色で描画したいとき用
+    else if (a === '--out-dir') args.outDir = argv[++i]; // 正規パスでなく指定ディレクトリへ <fullSlug>.png 出力（比較・検証用）
     else if (!a.startsWith('--') && !args.slug) args.slug = a;
   }
   return args;
@@ -253,7 +257,10 @@ async function generateOne({ fullPath, fullSlug, fonts, args, stats }) {
     return;
   }
 
-  const outputPath = resolveOutputPath(fullSlug);
+  // --out-dir 指定時は正規パスでなく <out-dir>/<fullSlug>.png へ書き出す（モック比較用・本番を汚さない）
+  const outputPath = args.outDir
+    ? path.join(PROJECT_ROOT, args.outDir, `${fullSlug}.png`)
+    : resolveOutputPath(fullSlug);
 
   if (args.dryRun) {
     console.log(`[dry-run] ${fullSlug}  →  ${templateId}  →  ${path.relative(PROJECT_ROOT, outputPath)}`);
@@ -279,6 +286,7 @@ async function generateOne({ fullPath, fullSlug, fonts, args, stats }) {
     backgroundImage,
     accentColor,
     contentType,
+    dark: !args.light, // サイト OGP は既定ダーク（--light で旧ライト配色）
     debugSafety: args.debugSafety,
   });
 

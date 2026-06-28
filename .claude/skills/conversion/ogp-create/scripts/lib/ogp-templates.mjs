@@ -45,6 +45,19 @@ function gridDataUrl(stepPx, color, strokeWidth) {
   return `data:image/svg+xml;base64,${Buffer.from(svg).toString('base64')}`;
 }
 
+// hex を amount(0..1) だけ白へブレンドして明るくする。ダーク地で資格色（紺/藍など
+// 暗い色）にコントラストを与えるためのアクセント生成に使う。
+function lightenHex(hex, amount) {
+  const h = String(hex).replace('#', '');
+  if (h.length !== 6) return hex;
+  const r = parseInt(h.slice(0, 2), 16);
+  const g = parseInt(h.slice(2, 4), 16);
+  const b = parseInt(h.slice(4, 6), 16);
+  const mix = (c) => Math.round(c + (255 - c) * amount);
+  const to2 = (n) => n.toString(16).padStart(2, '0');
+  return `#${to2(mix(r))}${to2(mix(g))}${to2(mix(b))}`;
+}
+
 function debugSafetyOverlay(width) {
   const safeL = Math.round((width - SAFETY_ZONE_WIDTH) / 2);
   return {
@@ -67,15 +80,58 @@ function debugSafetyOverlay(width) {
 
 // ---- テンプレート: mono-tag (T06) ----
 
-function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backgroundImage, contentType }, { width, height }) {
+function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backgroundImage, contentType, dark }, { width, height }) {
   // 2026-06-16: セーフゾーン(中央630)制約を撤廃し全幅レイアウトへ。左右 72px パディング。
   const safeL = 72;
   const innerWidth = width - safeL * 2;
   const themeColor = accentColor || C_INK_NAVY;
 
+  // パレット切替（dark は検討用モック・既定は false でライトと完全同一の出力）。
+  // ダークは「深紺ベース統一 × 資格色を明るくしたアクセント」で、紺/藍の資格でも
+  // 枠・チップ・バッジが沈まないようにする。
+  const accentLight = dark ? lightenHex(themeColor, 0.5) : themeColor;
+  const pal = dark
+    ? {
+        bg: 'linear-gradient(135deg, #161d33 0%, #0a0e1a 100%)',
+        title: '#f5f7fc',
+        wordmarkInk: '#ffffff',
+        dash: C_CYAN_ACCENT,
+        chipBg: accentLight,
+        chipText: '#0a0e1a',
+        chipArrow: '#0a0e1a',
+        gridFine: 'rgba(255,255,255,0.05)',
+        gridMajor: 'rgba(255,255,255,0.08)',
+        barTL: C_CYAN_ACCENT,
+        barBR: accentLight,
+        frame: accentLight,
+        badgeBg: 'rgba(255,255,255,0.08)',
+        badgeBorder: accentLight,
+        badgeInk: accentLight,
+        scrim: 'rgba(10,14,26,0.58)',
+      }
+    : {
+        bg: C_BG,
+        title: C_INK_DEEP,
+        wordmarkInk: C_INK_NAVY,
+        dash: C_CYAN,
+        chipBg: C_INK_NAVY,
+        chipText: '#ffffff',
+        chipArrow: C_CYAN_ACCENT,
+        gridFine: 'rgba(15,30,63,0.04)',
+        gridMajor: 'rgba(15,30,63,0.09)',
+        barTL: C_CYAN,
+        barBR: C_NAVY_ACCENT,
+        frame: themeColor,
+        badgeBg: 'rgba(255, 255, 255, 0.86)',
+        badgeBorder: themeColor,
+        badgeInk: themeColor,
+        scrim: C_SCRIM,
+      };
+
   // AI 生成背景（資格ごとに共有）。指定があれば最背面に cover 配置し、上に可読性スクリムを敷く。
   // 未指定なら従来どおりオフホワイト + グリッドのみ（出力は完全後方互換）。
-  const backgroundLayers = backgroundImage
+  // dark では AI 背景は明るく正規化されており暗スクリムを重ねると濁るため使わず、深紺グラデ地を見せる。
+  const backgroundLayers = backgroundImage && !dark
     ? [
         {
           type: 'img',
@@ -103,7 +159,7 @@ function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backg
               width: '100%',
               height: '100%',
               display: 'flex',
-              background: C_SCRIM,
+              background: pal.scrim,
             },
             children: [],
           },
@@ -111,8 +167,8 @@ function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backg
       ]
     : [];
 
-  const fineGridUrl = gridDataUrl(30, 'rgba(15,30,63,0.04)', 1);
-  const majorGridUrl = gridDataUrl(120, 'rgba(15,30,63,0.09)', 1.25);
+  const fineGridUrl = gridDataUrl(30, pal.gridFine, 1);
+  const majorGridUrl = gridDataUrl(120, pal.gridMajor, 1.25);
 
   // 上下パディング: 110px top / 80px bottom（handoff 仕様 L455-456）
   const contentTop = 110;
@@ -136,12 +192,12 @@ function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backg
               fontSize: '22px',
               fontWeight: 800,
               letterSpacing: '-0.6px',
-              color: C_INK_NAVY,
+              color: pal.wordmarkInk,
               marginRight: '16px',
             },
             children: [
               { type: 'span', props: { style: { display: 'flex' }, children: 'doboku' } },
-              { type: 'span', props: { style: { display: 'flex', color: C_CYAN }, children: '-' } },
+              { type: 'span', props: { style: { display: 'flex', color: pal.dash }, children: '-' } },
               { type: 'span', props: { style: { display: 'flex' }, children: 'note' } },
             ],
           },
@@ -162,12 +218,12 @@ function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backg
             alignItems: 'center',
             padding: '7px 16px 7px 11px',
             borderRadius: '999px',
-            border: `2px solid ${themeColor}`,
-            background: 'rgba(255, 255, 255, 0.86)',
+            border: `2px solid ${pal.badgeBorder}`,
+            background: pal.badgeBg,
             fontFamily: '"Noto Sans JP", Inter, sans-serif',
           },
           children: [
-            g2IconImg(contentType.icon, themeColor, 19, 2.4),
+            g2IconImg(contentType.icon, pal.badgeInk, 19, 2.4),
             {
               type: 'div',
               props: {
@@ -177,7 +233,7 @@ function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backg
                   fontSize: '19px',
                   fontWeight: 700,
                   letterSpacing: '0.5px',
-                  color: themeColor,
+                  color: pal.badgeInk,
                 },
                 children: contentType.label,
               },
@@ -210,8 +266,8 @@ function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backg
             alignItems: 'center',
             alignSelf: 'flex-start',
             padding: '6px 14px',
-            background: C_INK_NAVY,
-            color: '#ffffff',
+            background: pal.chipBg,
+            color: pal.chipText,
             fontFamily: '"Noto Sans JP", Inter, sans-serif',
             fontSize: '17px',
             fontWeight: 600,
@@ -224,7 +280,7 @@ function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backg
               props: {
                 style: {
                   display: 'flex',
-                  color: C_CYAN_ACCENT,
+                  color: pal.chipArrow,
                   fontSize: '14px',
                   marginRight: '10px',
                   fontFamily: 'Inter, "Noto Sans JP", sans-serif',
@@ -279,7 +335,7 @@ function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backg
             fontSize: `${fitFont}px`,
             fontWeight: 800,
             lineHeight: TITLE_LINE_HEIGHT,
-            color: C_INK_DEEP,
+            color: pal.title,
             letterSpacing: '-0.4px',
           },
           children: line,
@@ -345,7 +401,7 @@ function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backg
           width: '80px',
           height: '4px',
           display: 'flex',
-          background: C_CYAN,
+          background: pal.barTL,
         },
         children: [],
       },
@@ -361,7 +417,7 @@ function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backg
           width: '80px',
           height: '4px',
           display: 'flex',
-          background: C_NAVY_ACCENT,
+          background: pal.barBR,
         },
         children: [],
       },
@@ -394,7 +450,7 @@ function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backg
           height: '100%',
           display: 'flex',
           borderStyle: 'solid',
-          borderColor: themeColor,
+          borderColor: pal.frame,
           borderWidth: '16px',
         },
         children: [],
@@ -410,7 +466,7 @@ function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backg
         height: `${height}px`,
         display: 'flex',
         position: 'relative',
-        background: C_BG,
+        background: pal.bg,
         fontFamily: '"Noto Sans JP", Inter, sans-serif',
       },
       children,
