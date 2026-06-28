@@ -34,7 +34,14 @@ mono-tag は **資格＝色** と **コンテンツ種別＝右上バッジ** �
 - **資格の識別**: ダークは**資格名 kicker＋外枠＋バッジを `accentLight`**（資格色を白へ 50% 寄せた明色）で統一。紺/藍の資格でも深紺地に沈まない。
 - **コンテンツ種別バッジ**: 最上段の右端（資格名 kicker の対面）に、**accentLight 輪郭ピル＋ lucide 風アイコン＋短ラベル**で描く（ダークは半透明白地 `rgba(255,255,255,0.08)`、ライトは `rgba(255,255,255,0.86)`）。
 - **種別の解決**: frontmatter `group` → `ogp-create.mjs` の `GROUP_TO_TYPE`（`resolveContentType`）。未マッピングの group はバッジ無し＝**完全後方互換**。
-- **資格名除去・主題/サブ分割**: `ogp-create.mjs` の `deriveTitleParts(title, examLabel, typeLabel)` が、区切り（`｜` `—` `–`）でセグメント分割→各セグメント先頭の資格ラベル語・種別語を除去→先頭=主題・残り=サブに分ける（**最善努力**。事務的な長文タイトル＝過去問等の完璧化は `ogp.title` 推奨）。
+- **資格名除去・主題/サブ分割（自動）**: `ogp.title` 未指定時は `ogp-create.mjs` の `deriveTitleParts(title, examLabel, typeLabel)` が、区切り（`｜` `—` `–`）でセグメント分割→各セグメント先頭の資格ラベル語・種別語を除去→先頭=主題・残り=サブに分ける（**最善努力**。事務的な長文タイトル＝過去問等の完璧化は下記の手動指定を推奨）。
+- **per-page 手動制御（`ogp.title` / `ogp.subtitle`）**: frontmatter に `ogp.title` を置くと**完全手動モード**になり、`ogp.title`=主題・`ogp.subtitle`=サブとして描く。**`\n` の改行をそのまま尊重**し、自動の資格名除去・記号改行・budoux は行わない（資格名は kicker が出すので主題には入れない）。フォントは横幅に合わせ自動調整。例:
+  ```yaml
+  ogp:
+    title: "河川、砂防及び\n海岸・海洋"   # \n で改行位置を明示
+    subtitle: "令和6年度 選択科目 過去問"  # 省略可
+  ```
+  1 ページずつ改行を作り込むのはこの方式。プレビューは `npm run ogp -- <fullSlug> --force` 後に当該 `ogp.png` を確認（または `--out-dir .tmp/foo` で非破壊出力）。
 
 | `group` | バッジラベル | アイコン |
 |---|---|---|
@@ -137,6 +144,7 @@ npm run ogp-gallery -- --open  # .tmp/ogp-gallery.html を生成しブラウザ�
 | 2026-06-28 | **mono-tag に コンテンツ種別バッジ（第2軸）を追加**: ワードマークを最上段の行（`topRow`・space-between）に再構成し右端へ種別バッジを配置。`renderMonoTag` に `contentType` props、`ogp-create.mjs` に `GROUP_TO_TYPE`/`resolveContentType` を新設（`group`→ラベル+アイコン）。アイコンは既存 `G2_ICON_PATHS` を再利用（satori 描画・文字は不使用）。未マッピング group はバッジ無し＝後方互換 | 資格（色）に加えガイド/過去問/テキスト/キーワードをサムネ一覧で一目識別（種別は AI でなくテンプレ描画で確定的・可読） |
 | 2026-06-28 | **mono-tag タイトルの縦フィット修正**: `renderMonoTag` に縦スペース計算＋font 縮小（`FONT_FLOOR: 34px`）＋行数クランプ（`…`）を追加。`pickFontSize` が横幅のみ合わせていたため 4 行以上の長タイトルが縦に溢れて行が重なっていた（約 225 件）。3 行以下は 76px 維持 | 長タイトルの行重なり（既存バグ）を解消。横フィットは不変（縮小のみ） |
 | 2026-06-29 | **mono-tag をダーク配色に既定化**: `renderMonoTag` に `dark` パレット分岐（深紺グラデ地・白タイトル・`accentLight`＝資格色を白へ 50% 寄せたアクセントで枠/チップ/バッジ/装飾を描画・AI 背景はダーク時スキップ）。`lightenHex` ヘルパ、`ogp-create.mjs` に `--light`（旧配色）/`--out-dir`（比較出力）を追加し render は `dark: !args.light` 既定。全 1033 枚をダーク再生成。ライト出力は `--light` で完全再現可 | 白だらけのフィードでの標準差別化・プレミアム感（参考: 暗色 OGP の標準カードに対する被視認性）。資格色を明色化して紺/藍でも識別性維持 |
+| 2026-06-29 | **per-page タイトル制御（`ogp.title`/`ogp.subtitle`）を追加**: ダークで `ogp.title` 明示時は完全手動モード（主題=`ogp.title`・サブ=`ogp.subtitle`・`\n` 改行を尊重・自動除去/budoux しない）。`deriveTitleParts` は `ogp.title` 未指定時のみ動く。1 ページずつ改行を作り込むための導線（別 PC でのチューニング前提） | 自動の改行/除去では事務的な長文タイトルを完璧化できないため、手動の逃げ道を用意 |
 | 2026-06-29 | **サブタイトルの改行を font 相応に修正**: サブを主題と同じ 13 字で折っていたため小フォントのサブが不要に改行されていた。`ogp-create.mjs` でサブ専用 wrap（`charCountFallback` を サブfont と横幅から算出・`breakBefore`/`breakAt` 無効）に変更し、収まる短いサブは 1 行に。55 枚再生成 | 例: `guide-allowance` のサブ「手当の仕組みと、確認すべきポイント」が 2 行→1 行 |
 | 2026-06-29 | **ダークを新レイアウトへリデザイン**: ダークを `renderMonoTagDark`（新規）へ委譲＝ワードマーク撤去・**資格名を大きな kicker** に・タイトルから資格名を除去して**主題（大）＋サブタイトル（小）の階層**・左下に控えめなドメイン。`ogp-create.mjs` に `deriveTitleParts`（資格名除去・主題/サブ分割）と主題用 `MAIN_FONT_TABLE`（最大 88px）＋スペース過剰改行を抑える wrap 設定（`breakAt:[]`）を追加。`renderMonoTag` は dark のとき `renderMonoTagDark` へ早期 return、pal をライト専用へ整理。全 1033 枚再生成。ライト（`--light`/note カバー fallback）は不変 | 資格名拡大・タイトル重複解消・改行改善・余白活用（ユーザー指摘）。過去問等の事務的タイトルは best-effort（完璧化は `ogp.title`）|
 
