@@ -32,17 +32,11 @@
 
 ## 1. コンテンツ品質
 
-### 過去問・テキストの図クロップ品質整備 🟡
+### 1級 textbook 図クロップ品質監査（残のみ）🟢
 
-**残タスク**（完了分は git 履歴: 2級 r03/r07 図クロップ=`c213be9af`／1級ネットワーク工程表 h26・h27・h29-b 補完=`6f296bf70`〜。緊急度高だった r03/r07 の画像ゼロは解消済）:
+過去問の図クロップ欠落・品質監査（1級/2級 primary・pe-first-stage）は **完了済み**（2026-06-23・git 履歴 `1c60bf824`/`5f51c33fb`/`0ab00413e` 他）。**残**: 1級 textbook 10本の `civil-construction-qa` 品質監査のみ（低優先・合格マージン大）。H28-A fig-02/07/08/09 は元 PDF に図が無く（問題用紙テキスト形式）修正不能で確定。
 
-1. ~~2級 primary 残り（r04-r06・前期等）の図参照を点検・補完~~ → **完了 ✅** 欠落ゼロ確認（2026-06-23）
-2. ~~pe-first-stage 欠落疑い 4本を確認・補完~~ → **完了 ✅** 欠落ゼロ確認、過去セッションで6本修正済み（2026-06-23）
-3. ~~1級 primary H26-R02 -a ページ 図挿入漏れ 70枚~~ → **完了 ✅** 7年度・70枚挿入（`1c60bf824`・2026-06-23）。h26-a は図の位置が選択肢直後（直前ではない）のため精度要確認
-4. ~~1級 primary H26-H29 B-paper 図クロップ再生成~~ → **完了 ✅** PDF 高精度クロップ＋H28-B fig-02 新規追加（`5f51c33fb`・2026-06-23）
-5. ~~図クロップ**品質監査**（欠落でなく品質）— 1級 primary 16本~~ → **完了 ✅** H26-R07 全24ページ監査・HIGH全件修正（32枚再クロップ・5件削除・`0ab00413e`・2026-06-23）。H28-A fig-02/07/08/09 のみ元 PDF に図なし（問題用紙テキスト形式）で暫定修正止まり。1級 textbook 10本＝`civil-construction-qa` は低優先で保留
-
-**ソース PDF**: `docs/textbook/{１級,２級}土木施工管理技士/`（年度別・論点別／正答付き）。`.claude/pdfs/` だけ見て「PDF不在」と早合点しない（2026-06-20 訂正）。手順=pdftoppm 200dpi→magick crop+trim→webp(q80)。**過去問の問題図に解答情報を入れない**（CP強調図は解説 `<details>` 内へ＝[[exam-problem-figure-no-answer]]）。
+**ソース PDF**: `docs/textbook/{１級,２級}土木施工管理技士/`。手順=pdftoppm 200dpi→magick crop+trim→webp(q80)。**過去問の問題図に解答情報を入れない**（[[exam-problem-figure-no-answer]]）。
 
 ---
 
@@ -182,17 +176,6 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 **実装ファイル**: `.claude/config/psi-urls.txt`・`.claude/config/psi-config.json`（mobile 戦略）。計測は CI（measurement-incidents の恒久ルール）。
 
-### AuthorCard の資格別カスタマイズ + 右サイドバー配置 ✅（2026-06-26 完了・PR #279）
-
-- 右サイドバープロフィールは `AuthorSidebarCard`（新規・縦型）で実装。カテゴリ hub と docs
-  両サイドバーに常設（転職枠の直下）。
-- note CTA は当初 `noteByCategory` で資格別出し分けを実装したが、文言の不統一を避けるため
-  **全ページ統一の単一 CTA（`AUTHOR.noteCta`・L1 全資格案内）へ集約**（per-category routing は廃止）。
-- プロフィール本文は役割・姿勢の一文（`AUTHOR.tagline`）＋保有資格全件に再構成し、肩書き/bio との
-  情報重複を解消（旧 `shortBio` は撤去）。
-
----
-
 ### カテゴリページの記事一覧をブログカード化 ◑（PR #274）
 
 記事一覧を `BlogDocCard` 化。右サイドバー全資格拡張は完了済（`hasSidebar` 化）。参考: ソーシャルPLUS ブログ（`docs/todo/reference-sites.md`）。
@@ -214,12 +197,6 @@ Hero → ExamCards → LatestArticles → AboutSection
 **不採用と分かった案**: (a) OGP をカバー流用＝関連はするがタイトル二重＋サムネで余白だらけで弱い。(b) literal 写真の category プール＝メタ記事に被写体が無く破綻。
 
 **有望な未検証案（やるなら）**: 記事別の**概念イメージ**生成（agent が各ガイドのトピック→概念プロンプト：キャリア＝上昇/階段、勉強法＝学習机、合格率＝チェック/グラフ）。メタ記事でも関連感が出る可能性。**まず5本パイロット（~$0.10・[[gemini-cost-confirm]]）→ :3020 で判断 → 良ければ123本**。ダメなら dormant 維持。
-
----
-
-### 書籍アフィリエイト（BookCard）— ✅ 廃止決定（2026-06-25）
-
-~~審査通過後に再有効化~~ → **完全廃止**。note 有料商品（模範論文・過去問解説・経験記述添削）と財布が競合するため、講座/教材/添削アフィリと併せて撤去（`BookCard`/`BookSection`/`affiliate-flags.ts`/`affiliate-books.json` 削除済み）。残すアフィリは転職のみ。背景は `docs/project/04_運営/02_アフィリエイト提携状況.md`。
 
 ---
 
