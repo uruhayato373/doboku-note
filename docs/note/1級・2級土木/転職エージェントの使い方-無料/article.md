@@ -39,8 +39,21 @@ cover:
 
 また、応募書類の添削や面接対策も積極的に頼みましょう。施工管理に詳しいアドバイザーは、「この工種ならこの実績を前に出すべき」といった具体的なアドバイスをくれます。職務経歴書の書き方は[こちら](https://doboku-note.com/docs/civil-construction-1-guide-resume?utm_source=note&utm_medium=inline&utm_campaign=civil-career-agent-howto&utm_content=resume)、面接で聞かれることは[こちら](https://doboku-note.com/docs/civil-construction-1-guide-interview?utm_source=note&utm_medium=inline&utm_campaign=civil-career-agent-howto&utm_content=interview)で解説しているので、エージェントの添削と合わせて使うと効果的です。
 
+**PR**：以下はアフィリエイト広告を含みます。
+
+自分の市場価値を具体的に知りたいなら、建設・施工管理に特化した転職エージェントの無料キャリア面談で、いまの経験・資格で狙える求人と想定年収を相談できます。登録・相談は無料で、在職中でも動くかは提示された条件を見てから決められます。
+
+https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHBA2+5B0Y+NTJWY
+
 ## おわりに
 
 転職エージェントは、転職を決めた人だけのものではありません。「まだ迷っている」「相場を知りたい」という段階でこそ、その価値を発揮します。登録も相談も無料で、動くかどうかは提示された条件を見てから決められます。
 
 現場で忙しいあなたの代わりに、求人探しや調整を引き受けてくれる存在を、賢く使ってみてください。まずは自分の市場価値を知ることから、次の一歩が見えてきます。
+
+---
+
+<!-- cta:civil-mokuji -->
+1級・2級土木のほかの記事・経験記述の答案集は「土木もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n4fde0f62dc20

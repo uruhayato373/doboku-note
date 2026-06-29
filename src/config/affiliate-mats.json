@@ -19,6 +19,15 @@
       "note": "新規無料キャリア面談 ¥50,000 の増額キャンペーン期限。期限後はサイドバーが resolveCareerSidebarAd により GKS へ自動復帰。期限後に本 mat が配置され続けていれば WARN。"
     },
     {
+      "mat": "4B5OO5+FHBA2+5B0Y+NTJWY",
+      "program": "buildjob",
+      "label": "ビルドジョブ（建設業界特化 転職エージェント）／note 記事用テキストリンク",
+      "surfaces": ["note-article"],
+      "definedIn": "docs/note/1級・2級土木/**（note リンクカード・A8「リンク先URLコピー」版。NTZCH バナーと同一プログラム・同一アカウント、creative 末尾のみ別）",
+      "expiresAt": "2026-08-31",
+      "note": "note.com は外部 ASP バナー不可のため A8「リンク先URLコピー」URL を URL 単独行で貼りリンクカード化（A8 公式手順）。景表法のため PR 表記を併記。check-affiliate-mats は docs/note を走査しないため本登録はゲート対象外＝SSOT 衛生目的。注意: note 記事は静的で、サイトの resolveCareerSidebarAd のような期間自動復帰が効かない。8/31 の ¥50,000 キャンペーン終了後は手動で見直す（リンクは生き続けるが報酬が通常レートに戻る）。"
+    },
+    {
       "mat": "4B5OO5+NTCZ6+4SXU+NUES1",
       "program": "dx-consulting",
       "label": "ハイクラス DX・コンサル転職（技術士/総監 シニア層向け）",
