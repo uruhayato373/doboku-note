@@ -2,15 +2,17 @@
 // audit-note-cards.mjs — 全 note 公開記事のライブ本文を取り、「単独URL段落=未カード」を検出し、
 //   doboku-note URL は OGP(og:image)の実在/到達も突合する read-only 監査。
 //
-// 背景（2026-06-30 実機検証で確定。真実源: publish-note/references/update-mode.md）:
-//   note のカード化(figure 埋め込み)は URL の種別で挙動が違う。
-//   - note.com 内部URL（自記事/マガジン）= 編集画面 type でも figure 化する（後追い修正可）。
-//   - doboku-note 等の外部URL = 編集画面では type/実クリップボードのどれでも figure 化しない。
-//     さらに全公開記事を走査しても doboku-note 外部の figure カードは 0個 ＝ note は外部ドメインを
-//     実質カード化しない（/new でも同様）。「公開時の漏れ」ではなく note の挙動で、後追い手段は無い。
-//   分類: INT-fixable=note内部の未カード（編集画面 type で修正可） /
-//         EXT-uncardable=外部URL（note がカード化しない・素リンクが上限） /
-//         B=OGP欠落（外部ページに og:image 無/404・参考情報）。
+// 背景（2026-06-30 実機検証。真実源: publish-note/references/update-mode.md）:
+//   note のカード化(figure 埋め込み)は URL ごとに挙動が違う。
+//   - note.com 内部URL = 編集画面 type でも figure 化（後追い修正可）。
+//   - 外部URL一般 = note はカード化する（実証: 外部 www.jctc.jp が編集画面 type で +1）。
+//   - doboku-note.com だけ失敗 = type/実Cmd+V/初見クエリURL どれでも +0、全記事で figure カード 0個。
+//     note の限界ではなく doboku-note 固有の不具合。最有力仮説（未確定・要 Cloudflare 確認）=
+//     note のカードクローラ(DC IP)が doboku-note の Cloudflare ボット保護に弾かれ OGP 取得失敗。
+//     直れば全 doboku-note リンクがカード化（+X/FB OGP も改善）。
+//   分類: INT-fixable=note内部の未カード（編集 type で可・有料は --boundary-h2 経由） /
+//         DN-blocked=doboku-note（Cloudflare ボット保護の疑い・要確認・直れば可） /
+//         EXT-fixable=他外部（note はカード化する。未カードは入力漏れ）。
 //
 // 使い方:
 //   node scripts/audit-note-cards.mjs                 # 人間向けサマリ + 記事別一覧
@@ -87,7 +89,7 @@ const classify = (u) => u.includes('doboku-note.com') ? 'doboku-note'
   : (u.includes('note.com') ? 'note-internal' : 'external-other');
 
 const report = [];
-let totUncarded = 0, totFixable = 0;
+let totUncarded = 0, totFixable = 0, totDnBlocked = 0;
 for (const a of arts) {
   let body = '';
   try { body = JSON.parse(curl(`https://note.com/api/v3/notes/${a.noteId}`)).data.body || ''; } catch { body = ''; }
@@ -112,16 +114,20 @@ for (const a of arts) {
     if (kind === 'note-internal') {
       // note 内部URL = 編集画面 type でカード化可（有料記事は paywall 安全フロー経由で）
       e.cause = 'INT-fixable';
-    } else {
-      // 外部URL = note がカード化しない（後追い不可・素リンクが上限）。OGP は参考情報。
+    } else if (kind === 'doboku-note') {
+      // doboku-note 固有でカード化失敗中（Cloudflare ボット保護の疑い・要確認・直れば可）。OGP は参考情報。
       const o = await checkOgp(u);
       e.ogpDetail = o.og ? o.imgStatus : 'og:image無し';
-      e.cause = (o.og && o.imgStatus === '200') ? 'EXT-uncardable' : 'EXT-uncardable(OGP欠落)';
+      e.cause = 'DN-blocked';
+    } else {
+      // 他外部 = note はカード化する（jctc 実証）。未カードは公開時の入力漏れ＝後で type で可。
+      e.cause = 'EXT-fixable';
     }
     items.push(e);
   }
   totUncarded += items.length;
-  totFixable += items.filter((x) => x.cause === 'INT-fixable').length;
+  totFixable += items.filter((x) => x.cause === 'INT-fixable' || x.cause === 'EXT-fixable').length;
+  totDnBlocked += items.filter((x) => x.cause === 'DN-blocked').length;
   report.push({ ...a, uncarded: items });
 }
 
@@ -130,8 +136,8 @@ const out = {
     articlesScanned: arts.length,
     articlesWithUncarded: report.filter((r) => r.uncarded).length,
     totalUncardedUrls: totUncarded,
-    intFixableUrls: totFixable,
-    extUncardableUrls: totUncarded - totFixable,
+    fixableUrls: totFixable,
+    dnBlockedUrls: totDnBlocked,
   },
   report,
 };
@@ -139,7 +145,7 @@ if (OUT) { writeFileSync(OUT, JSON.stringify(out, null, 2)); log(`OUT: ${OUT}`);
 if (JSON_OUT) { process.stdout.write(JSON.stringify(out, null, 2) + '\n'); process.exit(0); }
 
 console.log(`\n=== サマリ ===`);
-console.log(`スキャン ${out.summary.articlesScanned} / 未カードあり ${out.summary.articlesWithUncarded} / 未カードURL ${out.summary.totalUncardedUrls}（内部=修正可 ${out.summary.intFixableUrls} / 外部=note非カード化 ${out.summary.extUncardableUrls}）`);
+console.log(`スキャン ${out.summary.articlesScanned} / 未カードあり ${out.summary.articlesWithUncarded} / 未カードURL ${out.summary.totalUncardedUrls}（修正可 ${out.summary.fixableUrls} / doboku-note固有でブロック ${out.summary.dnBlockedUrls}）`);
 for (const r of report.filter((x) => x.uncarded)) {
   const short = r.path.split('/').slice(2).join('/').replace('/article.md', '');
   console.log(`\n■ ${short}  (${r.noteId})`);

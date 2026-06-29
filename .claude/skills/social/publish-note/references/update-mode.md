@@ -22,18 +22,20 @@
 価格変更・誤字修正・CTA 追記などの軽微保守に使う。**本文の大規模差し替えには使わない**（paste 不可のため）。
 
 > [!note]
-> **編集画面のカード化は「note.com 内部URL=可 / 外部URL(doboku-note 等)=不可」（2026-06-30 実機検証で確定）。**
-> note の URL→カード(figure 埋め込み)化は、公開記事の編集画面(`notes/<id>/edit`)でも
-> **note.com 内部URL(自記事/マガジン)なら type で figure +1 する**（note-append-cta の CTA カードはこれ）。
-> 一方 **doboku-note 等の外部URLは編集画面では type も実クリップボード Cmd+V も figure +0**（カード化しない）。
-> さらに全公開記事のライブ本文を走査しても **doboku-note 外部URLの figure カードは 0個**（note.com 内部カードは多数）
-> ＝**note は doboku-note 外部ドメインを実質カード化しない**（公開時 /new でも同様。「公開時の漏れ」ではなく note の挙動）。
+> **note のカード化挙動（2026-06-30 実機検証）: note内部URL=可 / 外部URLも対応するが doboku-note 固有で失敗中。**
+> - **note.com 内部URL**（自記事/マガジン）: 編集画面(`notes/<id>/edit`)でも type で figure +1（note-append-cta の CTA カードはこれ）。
+> - **外部URL一般**: note はカード化する。実証＝外部 `www.jctc.jp` を編集画面 type で figure +1。
+> - **doboku-note.com だけ失敗**: type/実クリップボード Cmd+V どれでも +0、初見クエリ付きURLでも +0、
+>   全公開記事のライブ本文でも doboku-note の figure カードは 0個。**note の限界ではなく doboku-note 固有の不具合**。
+>   切り分け済み（原因ではない）: クローラUA遮断❌（全ボットUAに 200+OGP）・og:image到達不可❌（R2画像 200/png/80KB）・URLキャッシュ❌（初見も0）。
+> - **最有力仮説（未確定・要 Cloudflare 確認）**: note のカードクローラ（データセンターIP）が doboku-note の Cloudflare
+>   ボット保護（Bot Fight Mode 等）に弾かれ OGP を取得できない。residential IP の curl は素通りで 200 が返るため気づきにくい。
+>   直れば全 doboku-note リンクが note でカード化（＋X/Facebook の OGP カードも改善）する高価値案件。
 >
-> 含意: **外部URLを後追いでカード化する手段は無い**（素リンクが note 上の上限・人手でも不可）。
-> **note.com 内部URLの未カードは編集画面 type で後追い可**（ただし有料記事は paywall 境界に触れるため note-append-cta の
-> 有料フロー＝`--boundary-h2` 検証経由でのみ。素の type→更新 は使わない）。
-> カード化は原則 公開時(/new・`note-publish.mjs` Phase 6)で当てる。
-> 棚卸しは **`npm run audit-note-cards`**（read-only・未カード単独URL段落を内部/外部で分類）。
+> 含意: 当面 doboku-note 外部リンクは素テキスト（リンクは機能）。note内部URLの未カードは編集 type で後追い可
+> （有料記事は paywall 境界に触れるため note-append-cta の `--boundary-h2` 安全フロー経由でのみ）。
+> カード化は原則 公開時(/new・`note-publish.mjs` Phase 6)で当てる。次の一手＝Cloudflare ボット保護の確認。
+> 棚卸しは **`npm run audit-note-cards`**（read-only・未カード単独URL段落を分類）。
 
 ## 起動
 
