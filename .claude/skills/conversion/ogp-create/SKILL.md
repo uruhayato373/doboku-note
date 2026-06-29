@@ -162,7 +162,7 @@ ogp:
 - **技術士第一次（`pe-first-stage`）**: `ogp.title` ＝ 科目区分（`基礎科目`/`適性科目`/`専門科目（建設部門）`）＋ `令和X年度 過去問`。
 - **総監（`pe-comprehensive-management/{hXX,r0X}-{primary,secondary}`）= 1段**: `ogp.title` ＝ `shortTitle`（例 `平成21年度 記述式`）、サブは付けない（`総合技術監理部門 …` は kicker と重複）。
 - **コンクリート主任技師（`concrete-chief-engineer/primary-*`）**: `ogp.title` ＝ 分野名（`shortTitle`）＋ `過去問解説`。
-- **1級・2級土木 一次（`civil-construction-{1,2}/primary-*`）= 主題固定**（サイズ均一化）: 1級 `ogp.title: 第1次検定 問題A`/`問題B`、2級 `第1次検定 前期`/`後期`、サブ＝`{年度} 過去問`。二次（`secondary-*`）はトピック主題で自動導出可（手動不要）。
+- **1級・2級土木 一次（`civil-construction-{1,2}/primary-*`）= 主題固定**（サイズ均一化）: 1級 `ogp.title: 第1次検定 問題A`/`問題B`、2級 `第1次検定 前期`/`後期`、サブ＝`{年度} 過去問`。二次（`secondary-*`）の分類は **過去問グループ＝年度試験 `secondary-rXX` のみ**。topic の `-basics`/`-past-problems`/`-experience-writing`/`-examples` は学習ガイド＝`group: guide`（過去問と銘打つのは年度試験に限る）。主題はトピック/年度名で自動導出可（手動不要）。
 - 全資格の per-page 規約の真実源は [`ogp-prompts.md`](../../../../docs/reference/ogp-prompts.md)「過去問ページの per-page 規約」。
 
 ## テンプレート追加手順（将来テンプレを増やす場合）
