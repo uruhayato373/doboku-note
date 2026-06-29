@@ -39,6 +39,12 @@ cover:
 
 いまの会社で1級が十分に評価されていないと感じるなら、それは能力の問題ではなく、環境の問題かもしれません。自分の資格と経験が他社でどう評価されるかは、[1級土木の市場価値（転職・年収・独立）](https://doboku-note.com/docs/civil-construction-1-guide-market-value?utm_source=note&utm_medium=inline&utm_campaign=civil-career-1kyu-value&utm_content=market-value)で整理しています。年収の上げ方そのものは[土木施工管理技士が年収を上げる方法](https://doboku-note.com/docs/civil-construction-1-guide-salary-up?utm_source=note&utm_medium=inline&utm_campaign=civil-career-1kyu-value&utm_content=salary-up)をご覧ください。
 
+**PR**：以下はアフィリエイト広告を含みます。
+
+自分の市場価値を具体的に知りたいなら、建設・施工管理に特化した転職エージェントの無料キャリア面談で、いまの経験・資格で狙える求人と想定年収を相談できます。登録・相談は無料で、在職中でも動くかは提示された条件を見てから決められます。
+
+https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHBA2+5B0Y+NTJWY
+
 ## おわりに
 
 1級土木施工管理技士は、担える役割を広げ、年収とキャリアの天井を引き上げる資格です。ただし、その価値は「活かす環境」があってこそ発揮されます。せっかく難関を突破して得た資格を、評価されない場所で眠らせるのはもったいないことです。

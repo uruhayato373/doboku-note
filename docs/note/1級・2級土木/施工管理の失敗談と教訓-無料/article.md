@@ -41,6 +41,12 @@ cover:
 
 そして、もし環境を変えるなら、次こそ働きやすい会社を選びたいものです。同じ失敗を繰り返さないための会社の見極め方は、[ホワイトな建設会社の見分け方](https://doboku-note.com/docs/civil-construction-1-guide-white-company?utm_source=note&utm_medium=inline&utm_campaign=civil-career-failure-lessons&utm_content=white-company)で具体的に解説しています。
 
+**PR**：以下はアフィリエイト広告を含みます。
+
+環境を変えることを選択肢に入れるなら、建設・施工管理に特化した転職エージェントの無料キャリア面談で、いまの経験・資格で狙える求人と想定年収を相談できます。登録・相談は無料で、動くかは提示された条件を見てから決められます。
+
+https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHBA2+5B0Y+NTJWY
+
 ## おわりに
 
 現場で味わったつらさや失敗は、決して無駄ではありません。それは、自分にとって何が大事か、どんな環境なら力を発揮できるかを教えてくれる、貴重な経験でもあります。

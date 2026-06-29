@@ -39,6 +39,12 @@ cover:
 
 公務員土木への転職を具体的に知りたい方は、[施工管理から公務員（土木職）への転職](https://doboku-note.com/docs/civil-construction-1-guide-public-servant?utm_source=note&utm_medium=inline&utm_campaign=civil-career-public-vs-private&utm_content=public-servant)で、仕事内容・働き方・ルートを整理しています。一方で、民間側の年収がどう決まるかは[役職・会社規模別の年収](https://doboku-note.com/docs/civil-construction-1-guide-salary-by-role?utm_source=note&utm_medium=inline&utm_campaign=civil-career-public-vs-private&utm_content=salary-by-role)で解説しています。両方を読んで、自分にとっての優先順位を見極めてください。
 
+**PR**：以下はアフィリエイト広告を含みます。
+
+民間側の評価を具体的に知りたいなら、建設・施工管理に特化した転職エージェントの無料キャリア面談で、いまの経験・資格で狙える求人と想定年収を相談できます。登録・相談は無料で、在職中でも動くかは提示された条件を見てから決められます。
+
+https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHBA2+5B0Y+NTJWY
+
 ## おわりに
 
 公務員か民間か——この問いに、万人共通の正解はありません。あなたが「安定」を最優先するのか、「年収やスケール」を求めるのか、「働き方」を重視するのかによって、答えは変わります。
