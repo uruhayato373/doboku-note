@@ -21,18 +21,19 @@
 
 価格変更・誤字修正・CTA 追記などの軽微保守に使う。**本文の大規模差し替えには使わない**（paste 不可のため）。
 
-> [!danger]
-> **編集画面では「URL→リンクカード」化が一切できない（2026-06-30 実機3回検証で確定）。**
-> note の URL→OGP 埋め込みカード化は **`/new`（新規作成）専用**で、公開記事の編集画面（`notes/<id>/edit`）では
-> 入力のどの手段でも figure(カード) が生成されない:
-> 1. 実証レシピ（URLテキストノードを selectNodeContents→Delete→type→Enter）= figure +0
-> 2. まっさら新規段落に URL をタイプ→Enter = figure +0
-> 3. 実クリップボード `Cmd+V` / `Ctrl+V` 貼り付け = figure +0
+> [!note]
+> **編集画面のカード化は「note.com 内部URL=可 / 外部URL(doboku-note 等)=不可」（2026-06-30 実機検証で確定）。**
+> note の URL→カード(figure 埋め込み)化は、公開記事の編集画面(`notes/<id>/edit`)でも
+> **note.com 内部URL(自記事/マガジン)なら type で figure +1 する**（note-append-cta の CTA カードはこれ）。
+> 一方 **doboku-note 等の外部URLは編集画面では type も実クリップボード Cmd+V も figure +0**（カード化しない）。
+> さらに全公開記事のライブ本文を走査しても **doboku-note 外部URLの figure カードは 0個**（note.com 内部カードは多数）
+> ＝**note は doboku-note 外部ドメインを実質カード化しない**（公開時 /new でも同様。「公開時の漏れ」ではなく note の挙動）。
 >
-> つまり**公開時にカード化漏れした素URLを、後追いで自動カード化する手段は無い**（人手で note UI から貼れば可）。
-> カード化は必ず公開時（`note-publish.mjs` の Phase 6 リンクカード化）で当てること。
-> 既存記事の素URL残骸の棚卸しは **`npm run audit-note-cards`**（read-only・全公開記事のライブ本文を走査し
-> 「単独URL段落=未カード」を検出、doboku-note URL は OGP 実在も突合。原因A=カード化漏れ/B=OGP欠落で分類）。
+> 含意: **外部URLを後追いでカード化する手段は無い**（素リンクが note 上の上限・人手でも不可）。
+> **note.com 内部URLの未カードは編集画面 type で後追い可**（ただし有料記事は paywall 境界に触れるため note-append-cta の
+> 有料フロー＝`--boundary-h2` 検証経由でのみ。素の type→更新 は使わない）。
+> カード化は原則 公開時(/new・`note-publish.mjs` Phase 6)で当てる。
+> 棚卸しは **`npm run audit-note-cards`**（read-only・未カード単独URL段落を内部/外部で分類）。
 
 ## 起動
 
