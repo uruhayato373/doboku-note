@@ -113,7 +113,13 @@ function kindsOf(i) {
   if (i.inMagazine) k.push("magazine");
   return k;
 }
-const presentKinds = KIND_ORDER.filter((k) => items.some((i) => kindsOf(i).includes(k)));
+// mode（g2/mono）は混在しているときだけフィルタとして出す。全カバーが G2 に統一されている
+// 通常時は全件一致＝無意味なので隠す（将来 coverTitle-only の mono が混ざれば自動で復活）。
+const showMode = new Set(items.map((i) => i.mode)).size > 1;
+const presentKinds = KIND_ORDER.filter((k) => {
+  if ((k === "g2" || k === "mono") && !showMode) return false;
+  return items.some((i) => kindsOf(i).includes(k));
+});
 
 const examBtns = [
   `<button class="cat active" data-exam="" onclick="pickExam(this,'')">全て <span class="n">${items.length}</span></button>`,
