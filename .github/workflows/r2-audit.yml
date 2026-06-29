@@ -62,6 +62,11 @@ jobs:
       - name: Check affiliate-career-only prose (no abolished course/添削 re-proposals)
         run: npm run check-affiliate-prose
 
+      # 孤立 figure（img/figure-*.svg が同記事の本文から未参照＝サイト非表示）の全量 backstop。
+      # pre-commit は staged のみ検査するため、CI で全 .local/r2/posts を検査する。
+      - name: Check orphan figures (figure-*.svg referenced in article body)
+        run: npm run check-orphan-figures
+
       - name: Diff local (main) vs R2 — images only
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
