@@ -1,0 +1,73 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="MTBF・MTTR・稼働率の関係。時間軸上で稼働（運転）と故障・修理が交互に繰り返され、MTBFは稼働区間の平均（実績稼働時間÷故障件数）、MTTRは修理区間の平均、稼働率はMTBF÷（MTBF＋MTTR）で求まる。実績稼働時間は総稼働時間から総修理時間を除いた正味の稼働時間である。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-sub  { font-size: 11px; fill: #8a8a8a; }
+      .t-head { font-size: 16px; font-weight: bold; fill: #1a3a5c; }
+      .t-seg  { font-size: 11px; fill: #1a3a5c; }
+      .t-anno { font-size: 11px; font-weight: bold; }
+      .t-leg  { font-size: 11px; fill: #555; }
+      .t-card { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-ttl  { font-size: 12px; font-weight: bold; fill: #8a8a8a; }
+      .t-note { font-size: 11px; fill: #555; }
+      .up   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.2; }
+      .rep  { fill: #f8d7da; stroke: #b22234; stroke-width: 1.2; }
+    </style>
+  </defs>
+
+  <text class="t-sub"  x="200" y="14" text-anchor="middle">信頼性・保全性（経済性管理／情報管理）</text>
+  <text class="t-head" x="200" y="40" text-anchor="middle">MTBF・MTTR・稼働率の関係</text>
+
+  <!-- MTBF ブラケット（稼働2区間の上） -->
+  <text class="t-anno" x="174" y="74" text-anchor="middle" fill="#2e6da4">MTBF（平均故障間隔）</text>
+  <line x1="136" y1="82" x2="212" y2="82" stroke="#2e6da4" stroke-width="1.2"/>
+  <line x1="136" y1="82" x2="136" y2="92" stroke="#2e6da4" stroke-width="1.2"/>
+  <line x1="212" y1="82" x2="212" y2="92" stroke="#2e6da4" stroke-width="1.2"/>
+
+  <!-- タイムライン帯 -->
+  <rect class="up"  x="40"  y="96" width="76" height="28"/>
+  <rect class="rep" x="116" y="96" width="20" height="28"/>
+  <rect class="up"  x="136" y="96" width="76" height="28"/>
+  <rect class="rep" x="212" y="96" width="20" height="28"/>
+  <rect class="up"  x="232" y="96" width="76" height="28"/>
+  <text class="t-seg" x="78"  y="114" text-anchor="middle">稼働</text>
+  <text class="t-seg" x="174" y="114" text-anchor="middle">稼働</text>
+  <text class="t-seg" x="270" y="114" text-anchor="middle">稼働</text>
+  <line x1="40" y1="124" x2="340" y2="124" stroke="#8a8a8a" stroke-width="1"/>
+  <text class="t-sub" x="346" y="114">時間</text>
+
+  <!-- 故障マーカー -->
+  <text class="t-anno" x="116" y="92" text-anchor="middle" fill="#b22234" font-size="10">故障</text>
+  <text class="t-anno" x="212" y="92" text-anchor="middle" fill="#b22234" font-size="10">故障</text>
+
+  <!-- MTTR ブラケット（修理2区間の下） -->
+  <line x1="212" y1="132" x2="232" y2="132" stroke="#d4a017" stroke-width="1.2"/>
+  <line x1="212" y1="124" x2="212" y2="132" stroke="#d4a017" stroke-width="1.2"/>
+  <line x1="232" y1="124" x2="232" y2="132" stroke="#d4a017" stroke-width="1.2"/>
+  <line x1="222" y1="132" x2="240" y2="146" stroke="#d4a017" stroke-width="1.2"/>
+  <text class="t-anno" x="244" y="150" fill="#d4a017">MTTR（平均修理時間）</text>
+
+  <!-- 凡例 -->
+  <rect class="up"  x="60"  y="170" width="14" height="12"/>
+  <text class="t-leg" x="80" y="180">稼働（運転）</text>
+  <rect class="rep" x="200" y="170" width="14" height="12"/>
+  <text class="t-leg" x="220" y="180">故障・修理（MTTR）</text>
+
+  <!-- 計算式カード -->
+  <rect x="16" y="200" width="368" height="40" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="t-card" x="200" y="225" text-anchor="middle">MTBF ＝ 実績稼働時間 ÷ 故障件数</text>
+
+  <rect x="16" y="248" width="368" height="40" rx="8" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <text class="t-card" x="200" y="273" text-anchor="middle">MTTR ＝ 総修理時間 ÷ 故障件数</text>
+
+  <rect x="16" y="296" width="368" height="40" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <text class="t-card" x="200" y="321" text-anchor="middle">稼働率 ＝ MTBF ÷（MTBF ＋ MTTR）</text>
+
+  <!-- ポイント -->
+  <rect x="16" y="352" width="368" height="130" rx="8" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text class="t-ttl"  x="32" y="376">ポイント</text>
+  <text class="t-note" x="32" y="400">・稼働率は信頼性（MTBF）と保全性（MTTR）の両方で決まる</text>
+  <text class="t-note" x="32" y="424">・MTBF が長い・MTTR が短いほど稼働率は高い</text>
+  <text class="t-note" x="32" y="448">・実績稼働時間＝総稼働時間−総修理時間（修理中を除く正味）</text>
+  <text class="t-note" x="32" y="472">・MTBF の分母は故障件数（稼働時間ではない）</text>
+</svg>
