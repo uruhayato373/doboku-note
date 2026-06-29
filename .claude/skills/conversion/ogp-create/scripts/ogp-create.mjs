@@ -306,20 +306,31 @@ async function generateOne({ fullPath, fullSlug, fonts, args, stats }) {
   const accentColor = resolveAccentColor(data.category);
   const contentType = resolveContentType(data.group);
 
-  // ダークレイアウト用の主題/サブタイトル（資格名除去）。区切りでのスペース過剰改行を抑えるため
-  // breakAt（スペース分割）を外した wrap 設定を使い、主題は大きめのフォントテーブルで描く。
-  const NEW_WRAP_CFG = { ...textConfig, breakAt: [] };
+  // ダークレイアウト用の主題/サブタイトル。
+  //  - frontmatter.ogp.title 明示時 = 完全手動モード: ogp.title=主題 / ogp.subtitle=サブ。
+  //    \n の改行をそのまま尊重し、自動の資格名除去・記号改行・budoux は一切行わない
+  //    （1 ページずつ改行を作り込むための per-page 制御。フォントは横幅に合わせ自動調整）。
+  //  - 未指定時 = 自動モード: deriveTitleParts（資格名除去＋区切り分割）＋ font 相応の折返し。
   const MAIN_FONT_TABLE = [88, 80, 72, 64, 56, 48, 42];
-  const { main, sub } = deriveTitleParts(sourceTitle, categoryLabel, contentType?.label);
-  const mainLines = await wrapTitle(main, NEW_WRAP_CFG);
-  const mainFont = pickFontSize(mainLines, { ...NEW_WRAP_CFG, fontSizeTable: MAIN_FONT_TABLE, safetyWidth: LAYOUT_CONSTANTS.WIDTH - 144 - 8 });
-  // サブタイトルは小フォント（≒主題×0.46・最小26px）で 1 行に多く入る。主題と同じ13字で折ると
-  // 不要に改行されるため、サブのフォントに見合う 1 行最大文字数で折り、区切り（スペース/括弧）での
-  // 過剰改行も避ける（短いサブは1行に収める。長いサブのみ budoux で折る）。
-  const subFontApprox = Math.max(26, Math.round(mainFont * 0.46));
-  const subCharMax = Math.max(13, Math.floor((LAYOUT_CONSTANTS.WIDTH - 144 - 16) / subFontApprox));
-  const SUB_WRAP_CFG = { ...textConfig, breakAt: [], breakBefore: [], charCountFallback: subCharMax };
-  const subLines = sub ? await wrapTitle(sub, SUB_WRAP_CFG) : [];
+  const SAFE_W = LAYOUT_CONSTANTS.WIDTH - 144 - 8;
+  let mainLines, subLines;
+  if (data.ogp?.title) {
+    const EXPLICIT_WRAP = { breakBefore: [], breakAt: [], charCountFallback: 9999, budouX: { enabled: false } };
+    mainLines = await wrapTitle(data.ogp.title, EXPLICIT_WRAP);
+    subLines = data.ogp?.subtitle ? await wrapTitle(data.ogp.subtitle, EXPLICIT_WRAP) : [];
+  } else {
+    const NEW_WRAP_CFG = { ...textConfig, breakAt: [] };
+    const { main, sub } = deriveTitleParts(sourceTitle, categoryLabel, contentType?.label);
+    mainLines = await wrapTitle(main, NEW_WRAP_CFG);
+    const mfApprox = pickFontSize(mainLines, { ...NEW_WRAP_CFG, fontSizeTable: MAIN_FONT_TABLE, safetyWidth: SAFE_W });
+    // サブは小フォント（≒主題×0.46・最小26px）で 1 行に多く入る。主題と同じ13字で折ると不要に改行
+    // されるため、サブfont と横幅から 1 行最大文字数を出し、記号/スペースでの過剰改行も避ける。
+    const subFontApprox = Math.max(26, Math.round(mfApprox * 0.46));
+    const subCharMax = Math.max(13, Math.floor((LAYOUT_CONSTANTS.WIDTH - 144 - 16) / subFontApprox));
+    const SUB_WRAP_CFG = { ...textConfig, breakAt: [], breakBefore: [], charCountFallback: subCharMax };
+    subLines = sub ? await wrapTitle(sub, SUB_WRAP_CFG) : [];
+  }
+  const mainFont = pickFontSize(mainLines, { fontSizeTable: MAIN_FONT_TABLE, safetyWidth: SAFE_W });
 
   const element = renderTemplate(templateId, {
     // ライト（--light / note カバー fallback）用
