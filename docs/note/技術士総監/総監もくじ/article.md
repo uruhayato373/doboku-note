@@ -14,6 +14,7 @@ cover:
   hi: "1ページ"
   hiSuffix: "で迷わず探せる"
   banner: "総監もくじ"
+  character: wave
   meta: "無料・更新型"
   chips:
     - { icon: map, text: "学習段階で逆引き" }

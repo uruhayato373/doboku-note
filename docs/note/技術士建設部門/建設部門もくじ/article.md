@@ -14,6 +14,7 @@ cover:
   hi: "科目別"
   hiSuffix: "で迷わず探せる"
   banner: "建設部門もくじ"
+  character: wave
   meta: "無料・更新型"
   chips:
     - { icon: layers, text: "必須I＋選択科目" }

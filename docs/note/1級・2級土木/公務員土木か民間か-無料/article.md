@@ -9,6 +9,7 @@ cover:
   hi: "公務員土木か"
   hiSuffix: "民間か"
   banner: "両方を知る立場からの比較"
+  character: thinking
   meta: "無料"
   chips:
     - { icon: doc, text: "安定 vs 年収" }

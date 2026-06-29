@@ -8,6 +8,7 @@ cover:
   hi: "独学で詰む"
   hiSuffix: "経験記述"
   banner: "自己採点の限界と抜け道"
+  character: thinking
   meta: "無料"
   chips:
     - { icon: edit, text: "添削の要点" }

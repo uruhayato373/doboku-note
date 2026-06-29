@@ -13,24 +13,21 @@
       "sub": ["#FFFFFF", "#7FA3C7", "#FFC53D"]
     }
   },
-  "naming": "slug はポーズ内容（kebab-case）。verified:false は AI生成からの自動推定名で要本人確認。",
+  "naming": "slug はポーズ内容（kebab-case）。verified:true は実画像を目視確認済み（2026-06-29 全件再マッピング）。旧 slug は AI 抽出のグリッド位置由来で実ポーズと不一致だったため是正。",
   "categories": ["gesture", "stance", "expression", "item"],
   "beats": ["hook", "point", "cta"],
   "poses": [
-    { "slug": "pointing",        "file": "pointing.png",        "label": "指差し",                 "category": "gesture",    "beats": ["point", "hook"], "verified": false },
-    { "slug": "idea",            "file": "idea.png",            "label": "ひらめき",               "category": "expression", "beats": ["hook"],          "verified": false },
-    { "slug": "explaining",      "file": "explaining.png",      "label": "手のひらで解説",         "category": "gesture",    "beats": ["point"],         "verified": false },
-    { "slug": "arms-crossed",    "file": "arms-crossed.png",    "label": "腕組み",                 "category": "stance",     "beats": ["hook", "cta"],   "verified": false },
-    { "slug": "serious",         "file": "serious.png",         "label": "腕組み・真剣",           "category": "stance",     "beats": ["hook"],          "verified": false },
-    { "slug": "point-emphasis",  "file": "point-emphasis.png",  "label": "腰に手＋指差し",         "category": "gesture",    "beats": ["point"],         "verified": false },
-    { "slug": "point-emphasis-2","file": "point-emphasis-2.png","label": "腰に手＋指差し(別)",     "category": "gesture",    "beats": ["point"],         "verified": false },
-    { "slug": "point-up",        "file": "point-up.png",        "label": "指を立てる",             "category": "gesture",    "beats": ["point", "hook"], "verified": false },
-    { "slug": "congrats",        "file": "congrats.png",        "label": "バンザイ(合格)",         "category": "expression", "beats": ["cta"],           "verified": false },
-    { "slug": "good-sign",       "file": "good-sign.png",       "label": "グッドサイン",           "category": "gesture",    "beats": ["cta"],           "verified": false },
-    { "slug": "wave",            "file": "wave.png",            "label": "手を振る",               "category": "gesture",    "beats": ["cta", "hook"],   "verified": false },
-    { "slug": "whiteboard",      "file": "whiteboard.png",      "label": "ホワイトボード解説",     "category": "item",       "beats": ["point"],         "verified": false },
-    { "slug": "pc-work",         "file": "pc-work.png",         "label": "ノートPC作業",           "category": "item",       "beats": ["point"],         "verified": false },
-    { "slug": "smile",           "file": "smile.png",           "label": "笑顔",                   "category": "expression", "beats": ["hook", "cta"],   "verified": false }
+    { "slug": "pointing",   "file": "pointing.png",   "label": "指差し（指を立てる）", "category": "gesture",    "beats": ["point", "hook"], "verified": true },
+    { "slug": "good-sign",  "file": "good-sign.png",  "label": "グッドサイン（親指）", "category": "gesture",    "beats": ["cta"],           "verified": true },
+    { "slug": "explaining", "file": "explaining.png", "label": "手のひらで解説",       "category": "gesture",    "beats": ["point"],         "verified": true },
+    { "slug": "wave",       "file": "wave.png",       "label": "手を振る（挨拶）",     "category": "gesture",    "beats": ["cta", "hook"],   "verified": true },
+    { "slug": "thinking",   "file": "thinking.png",   "label": "考え中（顎に手）",     "category": "expression", "beats": ["hook"],          "verified": true },
+    { "slug": "surprised",  "file": "surprised.png",  "label": "驚き（両手を上げる）", "category": "expression", "beats": ["hook"],          "verified": true },
+    { "slug": "congrats",   "file": "congrats.png",   "label": "バンザイ（合格祝い）", "category": "expression", "beats": ["cta"],           "verified": true },
+    { "slug": "smile",      "file": "smile.png",      "label": "笑顔（立ち）",         "category": "expression", "beats": ["hook", "cta"],   "verified": true },
+    { "slug": "whiteboard", "file": "whiteboard.png", "label": "ホワイトボード解説",   "category": "item",       "beats": ["point"],         "verified": true },
+    { "slug": "pc-work",    "file": "pc-work.png",    "label": "ノートPC作業",         "category": "item",       "beats": ["point"],         "verified": true },
+    { "slug": "reading",    "file": "reading.png",    "label": "教科書を読む",         "category": "item",       "beats": ["point"],         "verified": true }
   ],
   "sourceGrids": ["_source/grid-1.png", "_source/grid-2.png", "_source/grid-3.png"]
 }

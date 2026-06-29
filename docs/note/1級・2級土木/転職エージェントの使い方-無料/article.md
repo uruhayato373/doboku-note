@@ -9,6 +9,7 @@ cover:
   hi: "転職エージェント"
   hiSuffix: "の使い方"
   banner: "在職中でも無理なく進める"
+  character: explaining
   meta: "無料"
   chips:
     - { icon: doc, text: "登録の流れ" }

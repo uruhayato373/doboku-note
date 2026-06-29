@@ -9,6 +9,7 @@ cover:
   hi: "1級土木で"
   hiSuffix: "市場価値が変わる"
   banner: "Before → After で見る"
+  character: good-sign
   meta: "無料"
   chips:
     - { icon: doc, text: "資格の効き方" }

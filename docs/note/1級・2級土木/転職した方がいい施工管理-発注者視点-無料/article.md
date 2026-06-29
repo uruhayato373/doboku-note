@@ -10,6 +10,7 @@ cover:
   hiSuffix: "施工管理"
   banner: "発注者から見えていた本音"
   meta: "無料"
+  character: explaining
   chips:
     - { icon: doc, text: "発注者視点" }
     - { icon: check, text: "判断の物差し" }

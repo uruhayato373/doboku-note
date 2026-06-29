@@ -49,7 +49,7 @@ AIは「透過」「同一人物9体」を守れないため、**1ポーズ=1画
 
 | チャネル | 使い所 | 備考 |
 |---|---|---|
-| サイト | プロフィール画像・記事内吹き出し・アイキャッチ・FAQ | 吹き出しは表情系（smile/serious/explaining） |
+| サイト | プロフィール画像・記事内吹き出し・アイキャッチ・FAQ | 吹き出しは表情系（smile/thinking/surprised）＋ gesture の explaining |
 | YouTube | チャンネルアイコン・サムネ・解説ナビ・Shorts 立ち絵・冒頭/締め | サムネは指差し系＋文字スペース確保 |
 | Instagram | カルーセル・まとめ・過去問解説・暗記ポイント | カルーセルは管理別色テーマと併用 |
 | **IG/YT リール** | 角度駆動リールにキャラを合成（登場演出） | beat（hook/point/cta）に応じ pose を選ぶ。詳細 → [ig-reels-policy.md](ig-reels-policy.md) §7 |

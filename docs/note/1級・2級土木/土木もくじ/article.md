@@ -14,6 +14,7 @@ cover:
   hi: "型から"
   hiSuffix: "迷わず仕上げる"
   banner: "土木もくじ"
+  character: wave
   meta: "無料・更新型"
   chips:
     - { icon: pen, text: "経験記述の完成答案" }
