@@ -1,90 +1,60 @@
-<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="組織コミットメント3要素：情緒的・功利的・規範的の定義と、功利を抑え情緒・規範を高めると有益な従業員が定着するという方向性を示す図">
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="組織コミットメント3要素：情緒的（高める）・功利的（抑える）・規範的（高める）の定義と、功利を抑え情緒・規範を高めると有益な従業員が定着するという管理の方向性を示す図">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
-      .t-title  { font-size: 16px; font-weight: bold; fill: #1a3a5c; }
-      .t-sub    { font-size: 11px; fill: #555; }
       .t-label  { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
-      .t-en     { font-size: 11px; fill: #555; }
+      .t-en     { font-size: 11px; fill: #8a8a8a; }
       .t-body   { font-size: 13px; fill: #555; }
-      .t-foot   { font-size: 12px; fill: #1a3a5c; font-weight: bold; }
-      .t-axis   { font-size: 11px; font-weight: bold; fill: #8a8a8a; }
-      /* positive: 情緒的 */
+      .t-foot   { font-size: 14px; fill: #1a3a5c; font-weight: bold; }
+      .t-note   { font-size: 11px; fill: #8a8a8a; }
       .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
       .badge-positive { fill: #ffffff; stroke: #3a7d44; stroke-width: 1.5; }
-      /* warn: 功利的 */
       .box-warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
       .badge-warn   { fill: #ffffff; stroke: #d4a017; stroke-width: 1.5; }
-      /* brand: 規範的 */
       .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
       .badge-brand  { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
-      /* surface: フッタ帯 */
       .box-surface  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
     </style>
-    <!-- 矢印マーカー（灰） -->
-    <marker markerUnits="userSpaceOnUse" id="arrow-gray" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
-      <polygon points="0,0 9,3.5 0,7" fill="#8a8a8a"/>
-    </marker>
-    <!-- 矢印マーカー（正方向：緑系） -->
-    <marker markerUnits="userSpaceOnUse" id="arrow-up" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
-      <polygon points="0,0 9,3.5 0,7" fill="#3a7d44"/>
-    </marker>
-    <!-- 矢印マーカー（抑制方向：橙系） -->
-    <marker markerUnits="userSpaceOnUse" id="arrow-down" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
-      <polygon points="0,0 9,3.5 0,7" fill="#d4a017"/>
-    </marker>
   </defs>
 
-  <!-- ① 情緒的コミットメント（positive=緑） -->
-  <rect class="box-positive" x="16" y="12" width="368" height="90" rx="8"/>
-  <circle class="badge-positive" cx="46" cy="57" r="16"/>
-  <text class="t-label" x="46" y="62" text-anchor="middle" fill="#3a7d44">①</text>
-  <text class="t-label" x="76" y="40">情緒的コミットメント</text>
-  <text class="t-en"   x="76" y="56">Affective Commitment</text>
-  <!-- キーワード: 一体感 -->
-  <text class="t-body" x="76" y="75">組織の目標・価値観との一体感から</text>
-  <text class="t-body" x="76" y="91">自ら貢献しようとする帰属意識</text>
+  <!-- ① 情緒的コミットメント（positive=緑・高める） -->
+  <rect class="box-positive" x="16" y="14" width="368" height="100" rx="8"/>
+  <circle class="badge-positive" cx="44" cy="64" r="16"/>
+  <text class="t-label" x="44" y="69" text-anchor="middle" fill="#3a7d44">①</text>
+  <text class="t-label" x="72" y="42">情緒的コミットメント</text>
+  <text class="t-en"   x="72" y="59">Affective Commitment</text>
+  <text class="t-body" x="72" y="82">組織への愛着・一体感から</text>
+  <text class="t-body" x="72" y="102">自ら貢献しようとする帰属意識</text>
+  <rect x="288" y="26" width="84" height="26" rx="13" fill="#ffffff" stroke="#3a7d44" stroke-width="1.5"/>
+  <text x="330" y="44" text-anchor="middle" font-size="13" font-weight="bold" fill="#3a7d44">↑ 高める</text>
 
-  <!-- ② 功利的コミットメント（warn=黄） -->
-  <rect class="box-warn" x="16" y="116" width="368" height="90" rx="8"/>
-  <circle class="badge-warn" cx="46" cy="161" r="16"/>
-  <text class="t-label" x="46" y="166" text-anchor="middle" fill="#d4a017">②</text>
-  <text class="t-label" x="76" y="144">功利的コミットメント</text>
-  <text class="t-en"   x="76" y="160">Continuance Commitment</text>
-  <!-- キーワード: 損得・代償 -->
-  <text class="t-body" x="76" y="179">給与・培った技能価値を失いたくない</text>
-  <text class="t-body" x="76" y="196">離職に伴う損得・代償で留まる</text>
+  <!-- ② 功利的コミットメント（warn=黄・抑える） -->
+  <rect class="box-warn" x="16" y="126" width="368" height="100" rx="8"/>
+  <circle class="badge-warn" cx="44" cy="176" r="16"/>
+  <text class="t-label" x="44" y="181" text-anchor="middle" fill="#d4a017">②</text>
+  <text class="t-label" x="72" y="154">功利的コミットメント</text>
+  <text class="t-en"   x="72" y="171">Continuance Commitment</text>
+  <text class="t-body" x="72" y="194">離職に伴う損得・代償から</text>
+  <text class="t-body" x="72" y="214">「辞めると損だから」留まる</text>
+  <rect x="288" y="138" width="84" height="26" rx="13" fill="#ffffff" stroke="#d4a017" stroke-width="1.5"/>
+  <text x="330" y="156" text-anchor="middle" font-size="13" font-weight="bold" fill="#d4a017">↓ 抑える</text>
 
-  <!-- ③ 規範的コミットメント（brand=青） -->
-  <rect class="box-brand" x="16" y="220" width="368" height="90" rx="8"/>
-  <circle class="badge-brand" cx="46" cy="265" r="16"/>
-  <text class="t-label" x="46" y="270" text-anchor="middle" fill="#2e6da4">③</text>
-  <text class="t-label" x="76" y="248">規範的コミットメント</text>
-  <text class="t-en"   x="76" y="264">Normative Commitment</text>
-  <!-- キーワード: 恩・忠誠心 -->
-  <text class="t-body" x="76" y="283">会社への恩・忠誠心という基準で</text>
-  <text class="t-body" x="76" y="299">組織に尽くすべきと考える意識</text>
+  <!-- ③ 規範的コミットメント（brand=青・高める） -->
+  <rect class="box-brand" x="16" y="238" width="368" height="100" rx="8"/>
+  <circle class="badge-brand" cx="44" cy="288" r="16"/>
+  <text class="t-label" x="44" y="293" text-anchor="middle" fill="#2e6da4">③</text>
+  <text class="t-label" x="72" y="266">規範的コミットメント</text>
+  <text class="t-en"   x="72" y="283">Normative Commitment</text>
+  <text class="t-body" x="72" y="306">会社への恩・忠誠心から</text>
+  <text class="t-body" x="72" y="326">組織に尽くすべきと考える意識</text>
+  <rect x="288" y="250" width="84" height="26" rx="13" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="330" y="268" text-anchor="middle" font-size="13" font-weight="bold" fill="#2e6da4">↑ 高める</text>
 
-  <!-- 方向矢印エリア -->
-  <!-- 功利↓（抑制） -->
-  <text class="t-axis" x="58" y="336" text-anchor="middle">抑制</text>
-  <line x1="58" y1="340" x2="58" y2="362" stroke="#d4a017" stroke-width="2" marker-end="url(#arrow-down)"/>
-  <!-- 情緒↑（強化） -->
-  <text class="t-axis" x="178" y="364" text-anchor="middle">強化</text>
-  <line x1="178" y1="338" x2="178" y2="316" stroke="#3a7d44" stroke-width="2" marker-end="url(#arrow-up)"/>
-  <!-- 規範↑（強化） -->
-  <text class="t-axis" x="310" y="364" text-anchor="middle">強化</text>
-  <line x1="310" y1="338" x2="310" y2="316" stroke="#3a7d44" stroke-width="2" marker-end="url(#arrow-up)"/>
-
-  <!-- ラベル -->
-  <text class="t-body" x="58" y="376" text-anchor="middle" fill="#d4a017">功利的</text>
-  <text class="t-body" x="178" y="328" text-anchor="middle" fill="#3a7d44">情緒的</text>
-  <text class="t-body" x="310" y="328" text-anchor="middle" fill="#2e6da4">規範的</text>
-
-  <!-- フッタ：定着効果 -->
-  <rect class="box-surface" x="16" y="390" width="368" height="98" rx="8"/>
-  <text class="t-foot" x="200" y="420" text-anchor="middle">功利を抑え 情緒・規範を高めると</text>
-  <text class="t-foot" x="200" y="442" text-anchor="middle" fill="#3a7d44">有益な従業員が定着する</text>
-  <text class="t-axis" x="200" y="464" text-anchor="middle">管理上の着眼：採用・育成・評価制度で情緒的・規範的を強化</text>
-
+  <!-- フッタ：管理の方向と定着効果 -->
+  <rect class="box-surface" x="16" y="356" width="368" height="130" rx="8"/>
+  <text class="t-foot" x="200" y="390" text-anchor="middle">功利を抑え、情緒・規範を高めると</text>
+  <text class="t-foot" x="200" y="414" text-anchor="middle" fill="#3a7d44">有益な従業員が定着する</text>
+  <line x1="48" y1="432" x2="352" y2="432" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-note" x="200" y="452" text-anchor="middle">メイヤー＆アレンの3次元モデル</text>
+  <text class="t-note" x="200" y="470" text-anchor="middle">採用・育成・評価制度で情緒的・規範的を強化する</text>
 </svg>
