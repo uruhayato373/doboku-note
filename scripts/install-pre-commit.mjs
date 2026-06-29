@@ -102,6 +102,12 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# note カバー(G2)の banner/hi/leadIn がフル1280幅を超えて画面外で切れる"真の溢れ"を検出（note-cover.md）
+node scripts/check-note-cover-fit.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
 # 図版 SVG の固定キャンバス標準（figure-N.svg=4:5 400x500 / --wide=16:9 640x360）逸脱検出（figure-canvas-policy）
 node scripts/check-figure-canvas.mjs --staged
 if [ $? -ne 0 ]; then

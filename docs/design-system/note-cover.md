@@ -67,10 +67,12 @@ note のリンクカード・サムネ・SNS は中央 **630×630** を正方形
 
 バナー帯は全幅 bleed だが**テキストは中央寄せ**なので正方形でも残る。チップは3個中央寄せのため、横長タイトル時は両端チップが切れることがある。最重要メッセージは必ず**バナー帯**に置くこと。
 
+ただし banner は「工事名の列挙」「選択科目II-1 専門知識｜模範解答」など**意味的に縮められない descriptive テキストが正規**で、実態では多くが 7〜11 字を超える。長い banner はフル 1280 幅では綺麗に収まるが、**正方形 630 クロップでは両端が切れる**——要点（gist）が中央に来るよう語順を組めば許容する前提。短く要点だけにできる無料記事系は 7〜11 字に収めると四角サムネでも全文残る。
+
 ### 自動フォントサイズ
 
-- **バナー帯**: 文字数で 110 / 94 / 80 / 70px に段階調整（`layout.banner.fontSizeSteps`）。7〜11字推奨。
-- **HiBox**: 既定 112px。長い強調語は縮小。
+- **バナー帯**: `renderNoteCoverG2` の `bannerFontSize` が中央 630 クロップ安全幅（590px）に収まるよう **48〜110px へ連続的に自動縮小**する（`layout.banner.fontSizeSteps` は読み物用の目安で、実装は連続式）。7〜11 字なら大きく出て四角クロップでも全文残る。超過しても 48px floor でフル 1280 幅には収まる（前項の descriptive 許容）。**フル幅すら超えて画面外で切れる "真の溢れ" は `check-note-cover-fit` が機械検出**する。
+- **HiBox**: 既定 112px。長い強調語は 92 / 76px に縮小。`hi` ＋ `hiSuffix`（58px）が左右 padding 60px を除く 1160px を超えると上段が画面外で切れる（同チェックが検出）。
 
 ## frontmatter `cover:` ブロック
 
@@ -104,6 +106,16 @@ node scripts/generate-note-covers.mjs 安全管理 --debug-safety # 中央630赤
 ```
 
 `--debug-safety` で中央 630×630 の赤枠を重ねて、最重要テキストがクロップ内に収まるか目視する。
+
+```bash
+# 全 cover を1枚 HTML で一覧目視（OGP の ogp-gallery と対称・資格×種別で絞込）
+npm run note-cover-gallery        # → .tmp/note-cover-gallery.html（--open で既定ブラウザ起動）
+
+# banner/hi/hiSuffix/leadIn がフル1280幅を超えて画面外で切れる "真の溢れ" を機械検出
+npm run check-note-cover-fit      # CI/手動（0件必須）。pre-commit は --staged を自動実行
+```
+
+`check-note-cover-fit` は `renderNoteCoverG2` のレイアウト式（`bannerFontSize`/`hiFontSize`・上段 1160px・banner 1280px）をミラーする回帰ゲート。「7〜11字推奨」超過は**検出しない**（descriptive banner は正規）。検出するのは画面外クリップのみ。
 
 ## 関連
 

@@ -12,7 +12,7 @@ cover:
   leadIn: "技術士 建設部門 2次"
   hi: "防災・減災"
   hiSuffix: "国土強靱化のキーワード"
-  banner: "流域治水・事前防災・国土強靱化計画の論点を一気に整理"
+  banner: "流域治水・事前防災の論点を整理"
   meta: "無料記事"
   chips:
     - { icon: target, text: "必須科目I 最頻出" }
