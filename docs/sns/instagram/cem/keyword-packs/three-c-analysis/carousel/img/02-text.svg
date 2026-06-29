@@ -1,0 +1,32 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" role="img" aria-label="3C分析 頻出ポイント">
+  <defs><style>text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }</style></defs>
+  <rect width="400" height="500" fill="#ffffff"/>
+  <rect x="0" y="0" width="400" height="52" fill="#1a3a5c"/>
+  <text x="200" y="18" text-anchor="middle" font-size="10" fill="#a36b2c">技術士 総監 | 情報管理</text>
+  <text x="200" y="40" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffffff">3C分析 頻出ポイント</text>
+  <circle cx="34" cy="92" r="16" fill="#1a3a5c"/>
+  <text x="34" y="97" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">1</text>
+  <text x="60" y="84" font-size="13" font-weight="bold" fill="#1a3a5c">顧客→競合→自社の順に分析</text>
+  <text x="60" y="102" font-size="12" fill="#555">外部環境（顧客・競合）を先に把握し、</text>
+  <text x="60" y="118" font-size="12" fill="#555">内部（自社）と整合させる</text>
+  <line x1="20" y1="138" x2="380" y2="138" stroke="#e8f0fe" stroke-width="1"/>
+  <circle cx="34" cy="168" r="16" fill="#1a3a5c"/>
+  <text x="34" y="173" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">2</text>
+  <text x="60" y="160" font-size="13" font-weight="bold" fill="#1a3a5c">3つの重なり＝KSF</text>
+  <text x="60" y="178" font-size="12" fill="#555">3視点の交わりに重要成功要因</text>
+  <text x="60" y="194" font-size="12" fill="#555">（Key Success Factor）を導く</text>
+  <line x1="20" y1="214" x2="380" y2="214" stroke="#e8f0fe" stroke-width="1"/>
+  <circle cx="34" cy="244" r="16" fill="#1a3a5c"/>
+  <text x="34" y="249" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">3</text>
+  <text x="60" y="236" font-size="13" font-weight="bold" fill="#1a3a5c">他フレームと組み合わせる</text>
+  <text x="60" y="254" font-size="12" fill="#555">PEST・5フォース・バリューチェーン・</text>
+  <text x="60" y="270" font-size="12" fill="#555">SWOTと併用して精度を高める</text>
+  <rect x="20" y="296" width="360" height="86" rx="6" fill="#fce8d0"/>
+  <rect x="20" y="296" width="5" height="86" rx="2" fill="#a36b2c"/>
+  <text x="36" y="318" font-size="12" font-weight="bold" fill="#a36b2c">引っかけ注意</text>
+  <text x="36" y="338" font-size="11" fill="#555">3Cを4P・SWOT・BCGと混同しない。</text>
+  <text x="36" y="356" font-size="11" fill="#555">3Cは自社・顧客・競合の3視点で分析。</text>
+  <text x="36" y="374" font-size="11" fill="#555">（R04 Ⅰ-1-22 の識別肢として登場）</text>
+  <rect x="0" y="460" width="400" height="40" fill="#1a3a5c"/>
+  <text x="200" y="485" text-anchor="middle" font-size="12" fill="#6a8faf">doboku-note.com</text>
+</svg>
