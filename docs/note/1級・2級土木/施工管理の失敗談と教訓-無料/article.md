@@ -9,6 +9,7 @@ cover:
   hi: "施工管理の失敗"
   hiSuffix: "と教訓"
   banner: "つらさを次に活かす"
+  character: thinking
   meta: "無料"
   chips:
     - { icon: doc, text: "ありがちな失敗" }

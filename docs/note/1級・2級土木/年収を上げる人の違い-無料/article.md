@@ -9,6 +9,7 @@ cover:
   hi: "年収を上げる人"
   hiSuffix: "の違い"
   banner: "同じ実力でも差がつく理由"
+  character: pointing
   meta: "無料"
   chips:
     - { icon: doc, text: "比較で分かる" }

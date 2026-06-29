@@ -30,6 +30,7 @@ const require = createRequire(import.meta.url);
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const NOTE_DIR = join(ROOT, 'docs/note');
+const CHAR_DIR = join(ROOT, 'docs/sns/_assets/character');
 const FONTS_DIR = join(ROOT, '.claude/skills/conversion/ogp-create/assets/fonts');
 const TEXT_CONFIG = require(join(ROOT, '.claude/config/ogp/text.json'));
 // note カバー G2 デザイントークン（試験パレット・系列濃淡）の真実源
@@ -101,9 +102,21 @@ async function renderCover({ dirName, title, coverTitle, cover, category, examKe
   // cover: ブロックがあれば G2（試験色分け・全幅バナー帯）、無ければ従来 mono-tag にフォールバック
   if (cover && (cover.banner || cover.hi || cover.leadIn)) {
     const palette = resolvePalette(examKey, { tone: cover.tone, pricing });
+    let coverProps = cover;
+    // cover.character（ポーズ slug）指定時はキャラ立ち絵を data URL 化して合成（opt-in）
+    if (cover.character) {
+      const cpath = join(CHAR_DIR, `${cover.character}.png`);
+      if (existsSync(cpath)) {
+        const cmeta = await sharp(cpath).metadata();
+        const cbuf = readFileSync(cpath);
+        coverProps = { ...cover, characterSrc: `data:image/png;base64,${cbuf.toString('base64')}`, characterW: cmeta.width, characterH: cmeta.height };
+      } else {
+        console.warn(`  warn: cover.character "${cover.character}" の画像が見つかりません（${cpath}）`);
+      }
+    }
     element = renderTemplate(
       'note-cover-g2',
-      { cover, palette, debugSafety },
+      { cover: coverProps, palette, debugSafety },
       { width: W, height: H },
     );
   } else {

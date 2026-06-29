@@ -1011,6 +1011,53 @@ function renderNoteCoverG2({ cover, palette }, { width, height }) {
     },
   };
 
+  // ---- キャラクター variant（cover.character 指定時・無料/ガイド/入口系の opt-in）----
+  // 右にキャラ（先生）立ち絵、左カラムに左寄せでコピー。右上メタはキャラと重なるため
+  // 左カラム上部の kicker へ移す。バナー帯は全幅のまま左寄せにする。
+  if (c.characterSrc) {
+    const dispH = 648;
+    const dispW = c.characterW && c.characterH ? Math.round((c.characterW * dispH) / c.characterH) : 280;
+    const cx = width - dispW - 28;
+    const colPadX = 64;
+    const colW = Math.max(360, cx - colPadX - 24);
+    const characterImg = {
+      type: 'img',
+      props: { src: c.characterSrc, width: dispW, height: dispH, style: { position: 'absolute', left: `${cx}px`, top: `${height - dispH + 8}px`, display: 'flex' } },
+    };
+    const metaKicker = {
+      type: 'div',
+      props: { style: { display: 'flex', fontWeight: 800, fontSize: '16px', letterSpacing: '0.1em', color: band, marginBottom: '12px' }, children: c.meta ? `${examLabel}　${c.meta}` : examLabel },
+    };
+    const upperL = {
+      type: 'div',
+      props: {
+        style: { position: 'absolute', left: `${colPadX}px`, top: '132px', width: `${colW}px`, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', fontFamily: '"Noto Sans JP", Inter, sans-serif' },
+        children: [
+          metaKicker,
+          { type: 'div', props: { style: { display: 'flex', fontSize: '34px', fontWeight: 800, color: G2_INK }, children: c.leadIn || '' } },
+          { type: 'div', props: { style: { display: 'flex', alignItems: 'center', marginTop: '14px' }, children: [hiBox, { type: 'div', props: { style: { display: 'flex', fontSize: '52px', fontWeight: 900, color: G2_INK }, children: c.hiSuffix || '' } }] } },
+        ],
+      },
+    };
+    const bannerL = {
+      type: 'div',
+      props: {
+        style: { position: 'absolute', left: 0, top: '392px', width: '100%', display: 'flex', justifyContent: 'flex-start', alignItems: 'center', background: band, color: '#fff', padding: '18px 0 18px 64px', boxShadow: '0 8px 24px rgba(14,38,69,0.25)', fontFamily: '"Noto Sans JP", Inter, sans-serif' },
+        children: [{ type: 'div', props: { style: { display: 'flex', fontWeight: 900, fontSize: `${bannerFontSize(c.banner)}px`, lineHeight: 1, letterSpacing: '0.03em' }, children: c.banner || '' } }],
+      },
+    };
+    const chipRowL = {
+      type: 'div',
+      props: { style: { position: 'absolute', left: `${colPadX}px`, bottom: '40px', display: 'flex', alignItems: 'center' }, children: chipEls },
+    };
+    const vchildren = [background, logo, characterImg, upperL, bannerL];
+    if (chipEls.length > 0) vchildren.push(chipRowL);
+    return {
+      type: 'div',
+      props: { style: { width: `${width}px`, height: `${height}px`, display: 'flex', position: 'relative', background: G2_PAPER_FROM, color: G2_INK, fontFamily: '"Noto Sans JP", Inter, sans-serif' }, children: vchildren },
+    };
+  }
+
   const children = [background, logo, meta, upper, banner];
   if (chipEls.length > 0) children.push(chipRow);
 

@@ -14,6 +14,7 @@ cover:
   hi: "1ページ"
   hiSuffix: "で迷わず探せる"
   banner: "総合もくじ"
+  character: wave
   meta: "無料・更新型"
   chips:
     - { icon: map, text: "資格別もくじ" }

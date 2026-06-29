@@ -8,6 +8,7 @@ cover:
   hi: "書く練習"
   hiSuffix: "で受かる"
   banner: "過去問暗記からの脱出"
+  character: explaining
   meta: "無料"
   chips:
     - { icon: doc, text: "練習サイクル" }

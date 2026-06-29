@@ -8,6 +8,7 @@ cover:
   hi: "落ちる経験記述"
   hiSuffix: "診断"
   banner: "模範解答サンプル＋NG→合格"
+  character: pointing
   meta: "無料"
   chips:
     - { icon: doc, text: "模範解答サンプル" }
