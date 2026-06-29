@@ -62,13 +62,15 @@ function lightenHex(hex, amount) {
 // 白文字の可読性を確保するため輝度を 40%/20% まで落とす（黒寄りだが色味は残る）。
 function darkBgGradient(hex) {
   const h = String(hex).replace('#', '');
-  if (h.length !== 6) return 'linear-gradient(135deg, #161d33 0%, #0a0e1a 100%)';
+  if (h.length !== 6) return 'radial-gradient(120% 120% at 18% 8%, #161d33 0%, #0a0e1a 70%)';
   const r = parseInt(h.slice(0, 2), 16);
   const g = parseInt(h.slice(2, 4), 16);
   const b = parseInt(h.slice(4, 6), 16);
   const from = `rgb(${Math.round(r * 0.40)},${Math.round(g * 0.40)},${Math.round(b * 0.40)})`;
   const to   = `rgb(${Math.round(r * 0.20)},${Math.round(g * 0.20)},${Math.round(b * 0.20)})`;
-  return `linear-gradient(135deg, ${from} 0%, ${to} 100%)`;
+  // radial（左上寄り）。satori は linear-gradient の原点コーナーをブロック状に塗る
+  // アーティファクト（左上の四角）を出すため radial にして回避（2026-06-29）。
+  return `radial-gradient(120% 120% at 18% 8%, ${from} 0%, ${to} 70%)`;
 }
 
 function debugSafetyOverlay(width) {
@@ -128,9 +130,6 @@ function renderMonoTagDark({ examLabel, mainLines, subLines, mainFont, contentTy
     mLines[maxLines - 1] = mLines[maxLines - 1].replace(/[\s、。・　]+$/u, '') + '…';
   }
 
-  const fineGridUrl = gridDataUrl(30, 'rgba(255,255,255,0.05)', 1);
-  const majorGridUrl = gridDataUrl(120, 'rgba(255,255,255,0.08)', 1.25);
-
   const kicker = {
     type: 'div',
     props: {
@@ -178,9 +177,8 @@ function renderMonoTagDark({ examLabel, mainLines, subLines, mainFont, contentTy
   return {
     type: 'div',
     props: {
-      style: { width: `${width}px`, height: `${height}px`, display: 'flex', position: 'relative', background: accentColor ? darkBgGradient(accentColor) : 'linear-gradient(135deg, #161d33 0%, #0a0e1a 100%)', fontFamily: '"Noto Sans JP", Inter, sans-serif' },
+      style: { width: `${width}px`, height: `${height}px`, display: 'flex', position: 'relative', background: accentColor ? darkBgGradient(accentColor) : 'radial-gradient(120% 120% at 18% 8%, #161d33 0%, #0a0e1a 70%)', fontFamily: '"Noto Sans JP", Inter, sans-serif' },
       children: [
-        { type: 'div', props: { style: { position: 'absolute', inset: 0, display: 'flex', backgroundImage: `url(${majorGridUrl}), url(${fineGridUrl})`, backgroundRepeat: 'repeat, repeat' }, children: [] } },
         { type: 'div', props: { style: { position: 'absolute', left: `${safeL}px`, top: `${contentTop}px`, width: `${innerW}px`, height: `${contentH}px`, display: 'flex', flexDirection: 'column' }, children: [topRow, centerBlock] } },
         { type: 'div', props: { style: { position: 'absolute', left: `${safeL}px`, bottom: '38px', display: 'flex', fontSize: '21px', fontWeight: 700, letterSpacing: '1px', color: domainColor, fontFamily: 'Inter, "Noto Sans JP", sans-serif' }, children: SITE_DOMAIN } },
         { type: 'div', props: { style: { position: 'absolute', inset: 0, display: 'flex', borderStyle: 'solid', borderColor: accentLight, borderWidth: '16px' }, children: [] } },
