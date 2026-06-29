@@ -154,6 +154,16 @@ ogp:
   skip: true   # このページは生成スキップ
 ```
 
+### 過去問ページの per-page 規約（2026-06-29 確定・真実源は ogp-prompts.md）
+
+同じ「過去問」でも資格の構造で主題が変わる（揃えないのが正解＝情報粒度の違いの反映。体裁は kicker/バッジ/枠/色で共通化済み）。**原則**＝下位区分（科目/分野/科目区分）があればそれを主題（1行）＋文脈をサブ（A3）／無ければ年度＋種別を1段。資格名は常に kicker。
+
+- **建設部門 選択科目（`pe-construction/r0X-{科目}`）= A3**: `ogp.title` ＝**科目名のみ・改行なし1行**（`\n` を入れない。長い科目もフォント自動縮小で1行に収まる）、`ogp.subtitle` ＝ `令和X年度 選択科目 過去問`。必須は `ogp.title: 必須科目I` ＋ `令和X年度 過去問`。
+- **技術士第一次（`pe-first-stage`）**: `ogp.title` ＝ 科目区分（`基礎科目`/`適性科目`/`専門科目（建設部門）`）＋ `令和X年度 過去問`。
+- **総監（`pe-comprehensive-management/{hXX,r0X}-{primary,secondary}`）= 1段**: `ogp.title` ＝ `shortTitle`（例 `平成21年度 記述式`）、サブは付けない（`総合技術監理部門 …` は kicker と重複）。
+- **コンクリート主任技師（`concrete-chief-engineer/primary-*`）**: `ogp.title` ＝ 分野名（`shortTitle`）＋ `過去問解説`。
+- 全資格の per-page 規約の真実源は [`ogp-prompts.md`](../../../../docs/reference/ogp-prompts.md)「過去問ページの per-page 規約」。
+
 ## テンプレート追加手順（将来テンプレを増やす場合）
 
 1. `.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs` の `renderers` に新しい render 関数を追加（`renderTemplate(id, props, { width, height })` のシグネチャに従う）

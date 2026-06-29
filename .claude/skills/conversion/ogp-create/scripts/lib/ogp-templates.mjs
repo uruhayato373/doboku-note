@@ -108,14 +108,14 @@ function renderMonoTagDark({ examLabel, mainLines, subLines, mainFont, contentTy
   const accentLight = lightenHex(accent, 0.5);
   const titleWhite = '#f5f7fc';
   const subColor = 'rgba(245, 247, 252, 0.6)';
-  const domainColor = 'rgba(255, 255, 255, 0.38)';
+  const domainColor = 'rgba(255, 255, 255, 0.52)';
 
   const LH = 1.3;
   const lines = mainLines && mainLines.length ? mainLines : [''];
   const subs = subLines || [];
   let mFont = mainFont || 72;
   const subFont = Math.max(26, Math.round(mFont * 0.46));
-  const KICKER = 52; // kicker 行（フォント 34 + marginBottom 18）の概算高さ
+  const KICKER = 64; // kicker 行（フォント 46 + marginBottom 18）の概算高さ
   const subBlockH = subs.length ? 12 + subs.length * subFont * 1.3 : 0;
   const fitsV = (mf) => KICKER + lines.length * mf * LH + subBlockH;
   while (mFont > 40 && fitsV(mFont) > contentH) mFont -= 2;
@@ -134,7 +134,7 @@ function renderMonoTagDark({ examLabel, mainLines, subLines, mainFont, contentTy
   const kicker = {
     type: 'div',
     props: {
-      style: { display: 'flex', fontSize: '34px', fontWeight: 800, letterSpacing: '0.5px', color: accentLight, fontFamily: '"Noto Sans JP", Inter, sans-serif' },
+      style: { display: 'flex', fontSize: '46px', fontWeight: 800, letterSpacing: '0.5px', color: accentLight, fontFamily: '"Noto Sans JP", Inter, sans-serif' },
       children: examLabel || '',
     },
   };
@@ -142,10 +142,10 @@ function renderMonoTagDark({ examLabel, mainLines, subLines, mainFont, contentTy
     ? {
         type: 'div',
         props: {
-          style: { display: 'flex', alignItems: 'center', padding: '7px 16px 7px 11px', borderRadius: '999px', border: `2px solid ${accentLight}`, background: 'rgba(255,255,255,0.08)', fontFamily: '"Noto Sans JP", Inter, sans-serif' },
+          style: { display: 'flex', alignItems: 'center', padding: '10px 22px 10px 16px', borderRadius: '999px', border: `2px solid ${accentLight}`, background: 'rgba(255,255,255,0.08)', fontFamily: '"Noto Sans JP", Inter, sans-serif' },
           children: [
-            g2IconImg(contentType.icon, accentLight, 19, 2.4),
-            { type: 'div', props: { style: { display: 'flex', marginLeft: '8px', fontSize: '19px', fontWeight: 700, letterSpacing: '0.5px', color: accentLight }, children: contentType.label } },
+            g2IconImg(contentType.icon, accentLight, 26, 2.4),
+            { type: 'div', props: { style: { display: 'flex', marginLeft: '10px', fontSize: '26px', fontWeight: 700, letterSpacing: '0.5px', color: accentLight }, children: contentType.label } },
           ],
         },
       }
@@ -181,9 +181,8 @@ function renderMonoTagDark({ examLabel, mainLines, subLines, mainFont, contentTy
       style: { width: `${width}px`, height: `${height}px`, display: 'flex', position: 'relative', background: accentColor ? darkBgGradient(accentColor) : 'linear-gradient(135deg, #161d33 0%, #0a0e1a 100%)', fontFamily: '"Noto Sans JP", Inter, sans-serif' },
       children: [
         { type: 'div', props: { style: { position: 'absolute', inset: 0, display: 'flex', backgroundImage: `url(${majorGridUrl}), url(${fineGridUrl})`, backgroundRepeat: 'repeat, repeat' }, children: [] } },
-        { type: 'div', props: { style: { position: 'absolute', top: '80px', left: 0, width: '80px', height: '4px', display: 'flex', background: C_CYAN_ACCENT }, children: [] } },
         { type: 'div', props: { style: { position: 'absolute', left: `${safeL}px`, top: `${contentTop}px`, width: `${innerW}px`, height: `${contentH}px`, display: 'flex', flexDirection: 'column' }, children: [topRow, centerBlock] } },
-        { type: 'div', props: { style: { position: 'absolute', left: `${safeL}px`, bottom: '40px', display: 'flex', fontSize: '18px', fontWeight: 700, letterSpacing: '1px', color: domainColor, fontFamily: 'Inter, "Noto Sans JP", sans-serif' }, children: SITE_DOMAIN } },
+        { type: 'div', props: { style: { position: 'absolute', left: `${safeL}px`, bottom: '38px', display: 'flex', fontSize: '21px', fontWeight: 700, letterSpacing: '1px', color: domainColor, fontFamily: 'Inter, "Noto Sans JP", sans-serif' }, children: SITE_DOMAIN } },
         { type: 'div', props: { style: { position: 'absolute', inset: 0, display: 'flex', borderStyle: 'solid', borderColor: accentLight, borderWidth: '16px' }, children: [] } },
       ],
     },
