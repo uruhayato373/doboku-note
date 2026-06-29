@@ -181,7 +181,6 @@ function renderMonoTagDark({ examLabel, mainLines, subLines, mainFont, contentTy
       children: [
         { type: 'div', props: { style: { position: 'absolute', left: `${safeL}px`, top: `${contentTop}px`, width: `${innerW}px`, height: `${contentH}px`, display: 'flex', flexDirection: 'column' }, children: [topRow, centerBlock] } },
         { type: 'div', props: { style: { position: 'absolute', left: `${safeL}px`, bottom: '38px', display: 'flex', fontSize: '21px', fontWeight: 700, letterSpacing: '1px', color: domainColor, fontFamily: 'Inter, "Noto Sans JP", sans-serif' }, children: SITE_DOMAIN } },
-        { type: 'div', props: { style: { position: 'absolute', inset: 0, display: 'flex', borderStyle: 'solid', borderColor: accentLight, borderWidth: '16px' }, children: [] } },
       ],
     },
   };
