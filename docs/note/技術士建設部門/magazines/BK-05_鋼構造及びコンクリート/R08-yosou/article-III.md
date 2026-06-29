@@ -15,7 +15,7 @@ cover:
   leadIn: "技術士 建設部門 2次"
   hi: "R8予想"
   hiSuffix: "鋼コンIII"
-  banner: "予防保全・デジタル点検／脱炭素コンクリート｜予想問題＋模範解答"
+  banner: "選択科目III 予想問題＋模範解答"
   meta: "鋼コン R8予想 模範解答"
   chips:
     - { icon: pen, text: "両問題フル模範解答" }

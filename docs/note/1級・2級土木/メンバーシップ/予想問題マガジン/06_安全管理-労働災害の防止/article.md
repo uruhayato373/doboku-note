@@ -5,6 +5,17 @@ noteMagazine: 経験記述-週次お題ラボ
 membershipOnly: true
 utmCampaign: civil-membership-odai-safety-labor
 coverTitle: ["今週のお題｜安全管理", "労働災害の防止"]
+cover:
+  leadIn: "今週のお題 ｜ 安全管理"
+  hi: "予想"
+  hiSuffix: "問題"
+  banner: "労働災害の防止"
+  meta: "メンバーシップ限定"
+  tone: deep
+  chips:
+    - { icon: target, text: "予想問題" }
+    - { icon: edit, text: "模範解答" }
+    - { icon: check, text: "採点ポイント" }
 ---
 # 今週のお題｜安全管理 — 墜落・重機・崩壊による労働災害の防止
 

@@ -5,6 +5,17 @@ noteMagazine: 経験記述-週次お題ラボ
 membershipOnly: true
 utmCampaign: civil-membership-odai-env-noise
 coverTitle: ["今週のお題｜環境対策", "騒音振動・建設副産物"]
+cover:
+  leadIn: "今週のお題 ｜ 環境対策"
+  hi: "予想"
+  hiSuffix: "問題"
+  banner: "騒音振動・建設副産物"
+  meta: "メンバーシップ限定"
+  tone: deep
+  chips:
+    - { icon: target, text: "予想問題" }
+    - { icon: edit, text: "模範解答" }
+    - { icon: check, text: "採点ポイント" }
 ---
 # 今週のお題｜環境対策 — 騒音・振動の抑制と建設副産物の再資源化
 
