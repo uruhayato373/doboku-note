@@ -40,7 +40,7 @@
     "civil": {
       "label": "1級・2級土木",
       "articleGlob": "docs/note/1級・2級土木",
-      "excludeDirs": ["土木もくじ"],
+      "excludeDirs": ["土木もくじ", "メンバーシップ"],
       "magazineExamMatch": ["civil-1", "civil-2"],
       "L2": { "noteId": "n4fde0f62dc20", "title": "土木もくじ", "articleDir": "docs/note/1級・2級土木/土木もくじ", "noteUrl": "https://note.com/dobokunote/n/n4fde0f62dc20" },
       "topCta": { "marker": "cta:pack-top", "text": "" },
