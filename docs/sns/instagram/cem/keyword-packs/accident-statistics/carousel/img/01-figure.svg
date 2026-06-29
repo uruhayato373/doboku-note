@@ -1,4 +1,4 @@
-<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="労働災害の3統計指標の比較。度数率は死傷者数を延べ実労働時間で割り100万を乗じた発生頻度（時間ベース）、強度率は延べ労働損失日数を延べ実労働時間で割り1000を乗じた重篤度（時間ベース）、年千人率は年間死傷者数を平均労働者数で割り1000を乗じた発生率（人数ベース）。死亡時の労働損失日数は7500日で計算する。">
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="労働災害の3統計指標の比較。度数率は死傷者数を延べ実労働時間で割り100万を乗じた発生頻度（時間ベース）、強度率は延べ労働損失日数を延べ実労働時間で割り1000を乗じた災害の重さ（時間ベース）、年千人率は年間死傷者数を平均労働者数で割り1000を乗じた発生率（人数ベース）。死亡時の労働損失日数は7500日で計算する。">
   <rect width="400" height="500" fill="#ffffff"/>
   <defs>
     <style>
@@ -32,7 +32,7 @@
   <!-- 強度率（warn=黄・時間ベース） -->
   <rect x="16" y="176" width="368" height="116" rx="8" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
   <text class="t-name" x="34" y="208" fill="#d4a017">強度率</text>
-  <text class="t-meas" x="96" y="208">重篤度</text>
+  <text class="t-meas" x="96" y="208">重さ（程度）</text>
   <rect x="296" y="188" width="80" height="24" rx="12" fill="#ffffff" stroke="#d4a017" stroke-width="1.5"/>
   <text class="t-pill" x="336" y="204" text-anchor="middle" fill="#d4a017">時間ベース</text>
   <text class="t-frac" x="150" y="240" text-anchor="middle">延べ労働損失日数</text>
