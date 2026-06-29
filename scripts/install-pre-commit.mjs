@@ -96,6 +96,12 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# ガイド OGP 主題フォントの下限（長い題が小さく出てカード間でばらつくのを防止、ogp-prompts.md）
+node scripts/check-ogp-title-fit.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
 # 図版 SVG の固定キャンバス標準（figure-N.svg=4:5 400x500 / --wide=16:9 640x360）逸脱検出（figure-canvas-policy）
 node scripts/check-figure-canvas.mjs --staged
 if [ $? -ne 0 ]; then

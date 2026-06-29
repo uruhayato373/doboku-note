@@ -71,6 +71,8 @@ npm run ogp -- --all --force                 # 既存 OGP へ焼き込み（任�
 
 一括再生成後の目視チェックは `npm run ogp-gallery` で行う（`scripts/ogp-gallery.mjs`）。`.local/r2/posts/**/ogp.png` を 1 枚の HTML グリッドに一覧化し、カテゴリ別フィルタで長タイトルのはみ出し・改行崩れ・テーマ色枠・余白をまとめて確認できる。
 
+**ガイド主題フォントの均一ゲート**: `npm run check-ogp-title-fit`（`scripts/check-ogp-title-fit.mjs`）。ガイド（`group: guide`）の OGP 主題を実 wrap+pickFontSize で算出し、56px 未満（長すぎて小さい）を赤落ち検出。`--staged` は pre-commit（編集ガイドのみ・install-pre-commit 済）、`--all` は全件フォント一覧（バーンダウン）。規約は ogp-prompts.md「ガイドOGPタイトルの統一」。
+
 ```bash
 npm run ogp -- --all --force   # 全 ogp.png を再生成
 npm run ogp-gallery -- --open  # .tmp/ogp-gallery.html を生成しブラウザで開く
