@@ -65,6 +65,7 @@
     "upload-sns-r2": "node .claude/scripts/upload-sns-r2.mjs",
     "ig-status": "node scripts/ig-status.mjs",
     "verify-ig-status": "node scripts/verify-ig-status.mjs",
+    "audit-note-cards": "node scripts/audit-note-cards.mjs",
     "diff-r2": "node .claude/skills/dev/diff-r2/scripts/diff-r2.mjs",
     "check-ogp-coverage": "node scripts/check-ogp-coverage.mjs",
     "check-ogp-design": "node scripts/check-ogp-design.mjs",

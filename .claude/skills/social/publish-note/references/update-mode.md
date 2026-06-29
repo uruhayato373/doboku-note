@@ -21,6 +21,19 @@
 
 価格変更・誤字修正・CTA 追記などの軽微保守に使う。**本文の大規模差し替えには使わない**（paste 不可のため）。
 
+> [!danger]
+> **編集画面では「URL→リンクカード」化が一切できない（2026-06-30 実機3回検証で確定）。**
+> note の URL→OGP 埋め込みカード化は **`/new`（新規作成）専用**で、公開記事の編集画面（`notes/<id>/edit`）では
+> 入力のどの手段でも figure(カード) が生成されない:
+> 1. 実証レシピ（URLテキストノードを selectNodeContents→Delete→type→Enter）= figure +0
+> 2. まっさら新規段落に URL をタイプ→Enter = figure +0
+> 3. 実クリップボード `Cmd+V` / `Ctrl+V` 貼り付け = figure +0
+>
+> つまり**公開時にカード化漏れした素URLを、後追いで自動カード化する手段は無い**（人手で note UI から貼れば可）。
+> カード化は必ず公開時（`note-publish.mjs` の Phase 6 リンクカード化）で当てること。
+> 既存記事の素URL残骸の棚卸しは **`npm run audit-note-cards`**（read-only・全公開記事のライブ本文を走査し
+> 「単独URL段落=未カード」を検出、doboku-note URL は OGP 実在も突合。原因A=カード化漏れ/B=OGP欠落で分類）。
+
 ## 起動
 
 ```
