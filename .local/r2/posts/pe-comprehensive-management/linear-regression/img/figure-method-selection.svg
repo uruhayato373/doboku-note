@@ -1,0 +1,43 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="データ分析手法の使い分け。目的変数がなくグループに分けたい場合はクラスター分析、目的変数が二値（有無・YES/NO）の場合はロジスティック回帰分析、目的変数が連続量の場合は回帰分析（説明変数が1つなら単回帰、複数なら重回帰）を用いる。2変数の関係の強さだけを見る場合は相関分析。目的変数の種類で手法が決まる。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-sub    { font-size: 11px; fill: #8a8a8a; }
+      .t-head   { font-size: 16px; font-weight: bold; fill: #1a3a5c; }
+      .t-tag    { font-size: 12px; fill: #555; }
+      .t-method { font-size: 18px; font-weight: bold; fill: #1a3a5c; }
+      .t-ex     { font-size: 12px; fill: #555; }
+      .t-foot   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-note   { font-size: 11px; fill: #8a8a8a; }
+    </style>
+  </defs>
+
+  <text class="t-sub"  x="200" y="14" text-anchor="middle">情報管理（データ分析）</text>
+  <text class="t-head" x="200" y="40" text-anchor="middle">目的変数で選ぶ分析手法</text>
+
+  <!-- カード1：クラスター分析（目的変数なし） -->
+  <rect x="16" y="58" width="368" height="108" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="16" y="58" width="6" height="108" rx="3" fill="#2e6da4"/>
+  <text class="t-tag"    x="36" y="86">目的変数なし ― グループに分けたい</text>
+  <text class="t-method" x="36" y="116">クラスター分析</text>
+  <text class="t-ex"     x="36" y="144">例：購買履歴から顧客を分類（教師なし）</text>
+
+  <!-- カード2：ロジスティック回帰（目的変数＝二値） -->
+  <rect x="16" y="176" width="368" height="108" rx="8" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <rect x="16" y="176" width="6" height="108" rx="3" fill="#d4a017"/>
+  <text class="t-tag"    x="36" y="204">目的変数あり ― 二値（有無・YES/NO）</text>
+  <text class="t-method" x="36" y="234">ロジスティック回帰分析</text>
+  <text class="t-ex"     x="36" y="262">例：事件発生の有無への要因の影響を調べる</text>
+
+  <!-- カード3：回帰分析（目的変数＝連続量） -->
+  <rect x="16" y="294" width="368" height="108" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <rect x="16" y="294" width="6" height="108" rx="3" fill="#3a7d44"/>
+  <text class="t-tag"    x="36" y="322">目的変数あり ― 連続量</text>
+  <text class="t-method" x="36" y="352">回帰分析（単回帰・重回帰）</text>
+  <text class="t-ex"     x="36" y="380">例：売上への距離・面積の影響（複数→重回帰）</text>
+
+  <!-- フッタ -->
+  <rect x="16" y="412" width="368" height="72" rx="8" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text class="t-foot" x="200" y="438" text-anchor="middle">2変数の関係の強さだけを見る → 相関分析</text>
+  <text class="t-note" x="200" y="462" text-anchor="middle">目的変数の種類（分類／二値／連続量）で手法が決まる</text>
+</svg>
