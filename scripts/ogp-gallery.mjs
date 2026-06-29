@@ -53,9 +53,13 @@ const items = rels
   .map((rel) => {
     const slugDir = dirname(rel);
     const category = slugDir.split("/")[0];
-    // Convention B: <dir>/article.mdx ／ Convention A: <dir>.mdx（兄弟ファイル）
+    // 記事本体の解決順:
+    //  Convention B: <cat>/<slug>/article.mdx ／ Convention A: <cat>/<slug>.mdx（兄弟）
+    //  フラット slug: <cat>-<slug>/article.mdx（記事は平坦dir・OGP は getOgpImageUrl 準拠で
+    //  nested <cat>/<slug>/ogp.png に出る。例: pe-construction-guide-required-essay）
     let mdx = join(POSTS, slugDir, "article.mdx");
     if (!existsSync(mdx)) mdx = join(POSTS, slugDir + ".mdx");
+    if (!existsSync(mdx)) mdx = join(POSTS, slugDir.replace(/\//g, "-"), "article.mdx");
     let group = "other";
     if (existsSync(mdx)) {
       try {
