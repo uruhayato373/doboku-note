@@ -159,10 +159,14 @@ export async function generateMetadata({
     };
   }
 
-  // SEOタイトル: frontmatter の seoTitle をそのまま使用
+  // SEOタイトル: frontmatter の seoTitle を <title>（検索結果）に使用。
+  // 資格名・キーワード・「｜…キーワード集」接尾辞を保持する（画像の無い検索面で効くため）。
   const seoTitle = doc.meta.seoTitle || doc.meta.title;
   const title: string | { absolute: string } = { absolute: seoTitle };
-  const ogTitle = seoTitle;
+  // OGP/Twitter カードのタイトル文字は seoTitle ではなく素の title を使う。
+  // カード画像が資格名 kicker を表示するため、seoTitle の資格名重複＋接尾辞はカード上で冗長。
+  // H1 と同じ自然な title に揃え、検索 <title> とソーシャルカードの役割を分離する。
+  const ogTitle = doc.meta.title;
 
   const description = doc.meta.description || doc.meta.title;
 
