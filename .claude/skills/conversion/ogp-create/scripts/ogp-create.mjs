@@ -137,6 +137,7 @@ function parseArgs(argv) {
     else if (a === '--debug-wrap') args.debugWrap = true;
     else if (a === '--template') args.template = argv[++i];
     else if (a === '--light') args.light = true; // 既定はダーク。旧ライト配色で描画したいとき用
+    else if (a === '--include-unpublished') args.includeUnpublished = true; // published:false も生成対象に含める（デザイン変更後の全件更新用）
     else if (a === '--out-dir') args.outDir = argv[++i]; // 正規パスでなく指定ディレクトリへ <fullSlug>.png 出力（比較・検証用）
     else if (!a.startsWith('--') && !args.slug) args.slug = a;
   }
@@ -251,7 +252,7 @@ async function generateOne({ fullPath, fullSlug, fonts, args, stats }) {
   const raw = fs.readFileSync(fullPath, 'utf-8');
   const { data } = matter(raw);
 
-  if (!data.published) {
+  if (!data.published && !args.includeUnpublished) {
     stats.skipped++;
     return;
   }
