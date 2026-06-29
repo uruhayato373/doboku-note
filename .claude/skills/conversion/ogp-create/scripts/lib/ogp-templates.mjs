@@ -58,6 +58,19 @@ function lightenHex(hex, amount) {
   return `#${to2(mix(r))}${to2(mix(g))}${to2(mix(b))}`;
 }
 
+// 資格別テーマ色（base）から OGP ダーク背景グラデを生成する。
+// 白文字の可読性を確保するため輝度を 40%/20% まで落とす（黒寄りだが色味は残る）。
+function darkBgGradient(hex) {
+  const h = String(hex).replace('#', '');
+  if (h.length !== 6) return 'linear-gradient(135deg, #161d33 0%, #0a0e1a 100%)';
+  const r = parseInt(h.slice(0, 2), 16);
+  const g = parseInt(h.slice(2, 4), 16);
+  const b = parseInt(h.slice(4, 6), 16);
+  const from = `rgb(${Math.round(r * 0.40)},${Math.round(g * 0.40)},${Math.round(b * 0.40)})`;
+  const to   = `rgb(${Math.round(r * 0.20)},${Math.round(g * 0.20)},${Math.round(b * 0.20)})`;
+  return `linear-gradient(135deg, ${from} 0%, ${to} 100%)`;
+}
+
 function debugSafetyOverlay(width) {
   const safeL = Math.round((width - SAFETY_ZONE_WIDTH) / 2);
   return {
@@ -165,7 +178,7 @@ function renderMonoTagDark({ examLabel, mainLines, subLines, mainFont, contentTy
   return {
     type: 'div',
     props: {
-      style: { width: `${width}px`, height: `${height}px`, display: 'flex', position: 'relative', background: 'linear-gradient(135deg, #161d33 0%, #0a0e1a 100%)', fontFamily: '"Noto Sans JP", Inter, sans-serif' },
+      style: { width: `${width}px`, height: `${height}px`, display: 'flex', position: 'relative', background: accentColor ? darkBgGradient(accentColor) : 'linear-gradient(135deg, #161d33 0%, #0a0e1a 100%)', fontFamily: '"Noto Sans JP", Inter, sans-serif' },
       children: [
         { type: 'div', props: { style: { position: 'absolute', inset: 0, display: 'flex', backgroundImage: `url(${majorGridUrl}), url(${fineGridUrl})`, backgroundRepeat: 'repeat, repeat' }, children: [] } },
         { type: 'div', props: { style: { position: 'absolute', top: '80px', left: 0, width: '80px', height: '4px', display: 'flex', background: C_CYAN_ACCENT }, children: [] } },
