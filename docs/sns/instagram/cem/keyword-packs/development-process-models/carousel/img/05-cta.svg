@@ -1,4 +1,4 @@
-<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" role="img" aria-label="スパイラル型開発 サイト誘導CTA">
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" role="img" aria-label="開発プロセスモデル サイト誘導CTA">
   <defs><style>text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }</style></defs>
   <rect width="400" height="500" fill="#1a3a5c"/>
   <rect x="0" y="0" width="400" height="5" fill="#a36b2c"/>
@@ -12,8 +12,8 @@
   <line x1="185" y1="152" x2="215" y2="152" stroke="#a36b2c" stroke-width="1.5"/>
 
   <text x="200" y="210" text-anchor="middle" font-size="18" font-weight="bold" fill="#ffffff">開発プロセス 完全解説</text>
-  <text x="200" y="238" text-anchor="middle" font-size="14" fill="#b8d0e8">ウォーターフォール・V字・スパイラル・</text>
-  <text x="200" y="260" text-anchor="middle" font-size="14" fill="#b8d0e8">アジャイルをひとつのページで完結</text>
+  <text x="200" y="238" text-anchor="middle" font-size="14" fill="#b8d0e8">各モデルの特徴・使い分け・過去問を</text>
+  <text x="200" y="260" text-anchor="middle" font-size="14" fill="#b8d0e8">ひとつのページで完結</text>
 
   <rect x="60" y="290" width="280" height="52" rx="26" fill="#a36b2c"/>
   <text x="200" y="321" text-anchor="middle" font-size="15" font-weight="bold" fill="#ffffff">doboku-note.com</text>

@@ -1,0 +1,44 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" role="img" aria-label="開発プロセスモデルの使い分けと引っかけ注意">
+  <defs><style>text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }</style></defs>
+  <rect width="400" height="500" fill="#ffffff"/>
+
+  <rect x="0" y="0" width="400" height="52" fill="#1a3a5c"/>
+  <text x="200" y="18" text-anchor="middle" font-size="10" fill="#a36b2c">技術士 総監 | 情報管理</text>
+  <text x="200" y="40" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffffff">4モデルの使い分け</text>
+
+  <circle cx="34" cy="84" r="15" fill="#1a3a5c"/>
+  <text x="34" y="89" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff">1</text>
+  <text x="58" y="80" font-size="13" font-weight="bold" fill="#1a3a5c">ウォーターフォール</text>
+  <text x="58" y="98" font-size="12" fill="#555">要件を初期に確定する逐次型。明確・大規模向き</text>
+
+  <line x1="20" y1="116" x2="380" y2="116" stroke="#e8f0fe" stroke-width="1"/>
+
+  <circle cx="34" cy="140" r="15" fill="#1a3a5c"/>
+  <text x="34" y="145" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff">2</text>
+  <text x="58" y="136" font-size="13" font-weight="bold" fill="#1a3a5c">V字モデル</text>
+  <text x="58" y="154" font-size="12" fill="#555">設計⇔テストの対応を加えた品質保証の枠組み</text>
+
+  <line x1="20" y1="172" x2="380" y2="172" stroke="#e8f0fe" stroke-width="1"/>
+
+  <circle cx="34" cy="196" r="15" fill="#1a3a5c"/>
+  <text x="34" y="201" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff">3</text>
+  <text x="58" y="192" font-size="13" font-weight="bold" fill="#1a3a5c">スパイラル型</text>
+  <text x="58" y="210" font-size="12" fill="#555">リスク分析を繰り返す反復。大規模・高リスク向き</text>
+
+  <line x1="20" y1="228" x2="380" y2="228" stroke="#e8f0fe" stroke-width="1"/>
+
+  <circle cx="34" cy="252" r="15" fill="#1a3a5c"/>
+  <text x="34" y="257" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff">4</text>
+  <text x="58" y="248" font-size="13" font-weight="bold" fill="#1a3a5c">アジャイル</text>
+  <text x="58" y="266" font-size="12" fill="#555">短期反復で要件変更に柔軟。不確実・短納期向き</text>
+
+  <rect x="20" y="296" width="360" height="86" rx="6" fill="#fce8d0"/>
+  <rect x="20" y="296" width="5" height="86" rx="2" fill="#a36b2c"/>
+  <text x="36" y="318" font-size="12" font-weight="bold" fill="#a36b2c">引っかけ注意</text>
+  <text x="36" y="338" font-size="11" fill="#555">スパイラル型とウォーターフォール型の取り違え</text>
+  <text x="36" y="356" font-size="11" fill="#555">が頻出。「後戻りせず順次完了」はウォーター</text>
+  <text x="36" y="374" font-size="11" fill="#555">フォール型（R04 Ⅰ-1-7 系で出題）。</text>
+
+  <rect x="0" y="460" width="400" height="40" fill="#1a3a5c"/>
+  <text x="200" y="485" text-anchor="middle" font-size="12" fill="#6a8faf">doboku-note.com</text>
+</svg>
