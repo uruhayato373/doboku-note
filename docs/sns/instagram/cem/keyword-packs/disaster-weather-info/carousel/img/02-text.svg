@@ -1,0 +1,40 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" role="img" aria-label="防災気象情報 試験頻出ポイント3点">
+  <defs><style>text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }</style></defs>
+  <rect width="400" height="500" fill="#ffffff"/>
+
+  <rect x="0" y="0" width="400" height="52" fill="#1a3a5c"/>
+  <text x="200" y="18" text-anchor="middle" font-size="10" fill="#a36b2c">技術士 総監 | 安全管理</text>
+  <text x="200" y="40" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffffff">防災気象情報 頻出ポイント</text>
+
+  <circle cx="34" cy="92" r="16" fill="#1a3a5c"/>
+  <text x="34" y="97" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">1</text>
+  <text x="60" y="84" font-size="13" font-weight="bold" fill="#1a3a5c">特別警報は「数十年に一度」</text>
+  <text x="60" y="102" font-size="12" fill="#555">数十年に一度の重大災害に対して</text>
+  <text x="60" y="118" font-size="12" fill="#555">発表される最大級の警戒情報</text>
+
+  <line x1="20" y1="138" x2="380" y2="138" stroke="#e8f0fe" stroke-width="1"/>
+
+  <circle cx="34" cy="168" r="16" fill="#1a3a5c"/>
+  <text x="34" y="173" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">2</text>
+  <text x="60" y="160" font-size="13" font-weight="bold" fill="#1a3a5c">記録的短時間大雨情報は実測</text>
+  <text x="60" y="178" font-size="12" fill="#555">大雨警報発表中に数年に一度の大雨を</text>
+  <text x="60" y="194" font-size="12" fill="#555">実際に観測した場合（予測ではない）</text>
+
+  <line x1="20" y1="214" x2="380" y2="214" stroke="#e8f0fe" stroke-width="1"/>
+
+  <circle cx="34" cy="244" r="16" fill="#1a3a5c"/>
+  <text x="34" y="249" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">3</text>
+  <text x="60" y="236" font-size="13" font-weight="bold" fill="#1a3a5c">2026年5月から名称が変わる</text>
+  <text x="60" y="254" font-size="12" fill="#555">情報名の頭に警戒レベル数字を冠記。</text>
+  <text x="60" y="270" font-size="12" fill="#555">「レベル3 大雨警報」などに統一</text>
+
+  <rect x="20" y="296" width="360" height="86" rx="6" fill="#fce8d0"/>
+  <rect x="20" y="296" width="5" height="86" rx="2" fill="#a36b2c"/>
+  <text x="36" y="318" font-size="12" font-weight="bold" fill="#a36b2c">引っかけ注意</text>
+  <text x="36" y="338" font-size="11" fill="#555">記録的短時間大雨情報を「予測で発表」と</text>
+  <text x="36" y="356" font-size="11" fill="#555">する記述は誤り。実測ベースが正しい。</text>
+  <text x="36" y="374" font-size="11" fill="#555">（R06 Ⅰ-1-28・H30 Ⅰ-1-32 で出題）</text>
+
+  <rect x="0" y="460" width="400" height="40" fill="#1a3a5c"/>
+  <text x="200" y="485" text-anchor="middle" font-size="12" fill="#6a8faf">doboku-note.com</text>
+</svg>

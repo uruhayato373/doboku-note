@@ -1,0 +1,80 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" width="400" height="500" role="img" aria-label="2026年5月29日運用開始の新しい防災気象情報。情報名の頭に警戒レベル数字を冠記する名称変更（大雨警報→レベル3大雨警報など）と、近年追加されたキキクル・線状降水帯情報を示す図">
+  <rect width="400" height="500" fill="#ffffff"/>
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-sub   { font-size: 11px; fill: #8a8a8a; }
+      .t-head  { font-size: 16px; font-weight: bold; fill: #1a3a5c; }
+      .t-sect  { font-size: 12px; font-weight: bold; fill: #8a8a8a; }
+      .t-old   { font-size: 13px; fill: #555; }
+      .t-new   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-chip3 { font-size: 11px; font-weight: bold; fill: #d4a017; }
+      .t-chip4 { font-size: 11px; font-weight: bold; fill: #b22234; }
+      .t-type  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #d4a017; }
+      .chip3 { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .chip4 { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .typebox { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+    <marker id="arrow" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 9,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <!-- ヘッダー -->
+  <text class="t-sub"  x="200" y="14" text-anchor="middle">2026年5月29日 運用開始（気象庁）</text>
+  <text class="t-head" x="200" y="40" text-anchor="middle">情報名に警戒レベルを冠記</text>
+
+  <!-- === 名称の変更 === -->
+  <text class="t-sect" x="20" y="66">名称の変更（主な例）</text>
+
+  <!-- 列見出し -->
+  <text class="t-sub" x="24"  y="86">旧名称（〜5/28）</text>
+  <text class="t-sub" x="225" y="86">新名称（5/29〜）</text>
+  <line x1="20" y1="92" x2="380" y2="92" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- 行1 -->
+  <text class="t-old" x="24" y="122">大雨警報</text>
+  <line x1="120" y1="118" x2="160" y2="118" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect class="chip3" x="200" y="106" width="58" height="22" rx="11"/>
+  <text class="t-chip3" x="229" y="121" text-anchor="middle">レベル3</text>
+  <text class="t-new" x="268" y="122">大雨警報</text>
+  <line x1="20" y1="140" x2="380" y2="140" stroke="#e8f0fe" stroke-width="1"/>
+
+  <!-- 行2 -->
+  <text class="t-old" x="24" y="170">土砂災害警戒情報</text>
+  <line x1="120" y1="166" x2="160" y2="166" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect class="chip4" x="200" y="154" width="58" height="22" rx="11"/>
+  <text class="t-chip4" x="229" y="169" text-anchor="middle">レベル4</text>
+  <text class="t-new" x="268" y="170" font-size="11">土砂災害警戒情報</text>
+  <line x1="20" y1="188" x2="380" y2="188" stroke="#e8f0fe" stroke-width="1"/>
+
+  <!-- 行3 -->
+  <text class="t-old" x="24" y="218">氾濫危険情報</text>
+  <line x1="120" y1="214" x2="160" y2="214" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect class="chip4" x="200" y="202" width="58" height="22" rx="11"/>
+  <text class="t-chip4" x="229" y="217" text-anchor="middle">レベル4</text>
+  <text class="t-new" x="268" y="218">氾濫危険情報</text>
+
+  <!-- === 近年追加された情報類型 === -->
+  <text class="t-sect" x="20" y="262">近年追加された情報類型</text>
+  <rect class="typebox" x="20"  y="272" width="175" height="40" rx="8"/>
+  <text class="t-type" x="107" y="297" text-anchor="middle">キキクル（危険度分布）</text>
+  <rect class="typebox" x="205" y="272" width="175" height="40" rx="8"/>
+  <text class="t-type" x="292" y="297" text-anchor="middle">線状降水帯情報</text>
+
+  <text class="t-note" x="20" y="334">・線状降水帯情報は早期警戒化（直前予測を改善）</text>
+  <text class="t-note" x="20" y="354">・発表基準も見直し（避難不要エリアを除外）</text>
+
+  <!-- === 引っかけ注意 === -->
+  <rect x="20" y="374" width="360" height="64" rx="6" fill="#fff3cd"/>
+  <rect x="20" y="374" width="5" height="64" rx="2" fill="#d4a017"/>
+  <text class="t-warn" x="36" y="396">試験対策の注意</text>
+  <text class="t-note" x="36" y="416">2025年以前の過去問は旧名称。本番は</text>
+  <text class="t-note" x="36" y="434">出題された名称に合わせて解答する</text>
+
+  <!-- まとめ・出典 -->
+  <text class="t-sub" x="200" y="462" text-anchor="middle" font-size="12" fill="#1a3a5c" font-weight="bold">情報名を見れば取るべき行動が分かる</text>
+  <text class="t-sub" x="200" y="489" text-anchor="middle">出典：気象庁「新たな防災気象情報」（令和8年〜）</text>
+</svg>
