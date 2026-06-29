@@ -1,5 +1,8 @@
 import { Check } from "lucide-react";
-import { CIVIL_CAREER_AD } from "@/config/affiliate-creatives";
+import {
+  CIVIL_CAREER_AD,
+  resolveCareerArticleEndCard,
+} from "@/config/affiliate-creatives";
 import {
   AFFILIATE_LINK_REL,
   AffiliateCta,
@@ -10,7 +13,14 @@ import {
 /**
  * プリセット案件の href を SSOT（affiliate-creatives.ts）から解決するための対応表。
  * MDX 本文では `href` に mat を直書きせず `program="gks"` を指定する（mat 変更時の
- * 約 90 MDX 全置換を回避＝1 箇所変更で全インライン GKS に反映）。
+ * 全 MDX 置換を回避＝1 箇所変更で全インラインに反映）。
+ *
+ * 注意: `program="gks"` は「施工管理/建設の inline 転職枠」を表す**期間連動プリセット**で、
+ * 現在は GKS 単体を指さない。campaign 期間（〜2026-08-31）はビルドジョブ（成果 ¥50,000）、
+ * 9/1 以降は GKS（¥25,000）へ href・コピーごと自動で切り替わる（`resolveCareerArticleEndCard`
+ * と同一 period 境界・ビルド時 SSG 確定）。この preset 指定時、MDX の service/description/points/cta は
+ * resolver の文言で上書きされ無視される（景表法: 表示コピーと遷移先サービスを常に一致させるため）。
+ * 真実源: docs/project/04_運営/02_アフィリエイト提携状況.md。
  */
 const CAREER_PRESETS = {
   gks: CIVIL_CAREER_AD.href,
@@ -70,7 +80,20 @@ export default function CareerAffiliate({
   points,
   cta = "無料で相談する",
 }: CareerAffiliateProps) {
-  const resolvedHref = href ?? (program ? CAREER_PRESETS[program] : undefined);
+  // 期間連動プリセット（program="gks"）: 施工管理/建設の inline 転職枠を、記事末モバイルカードと
+  // 同じ period 解決（resolveCareerArticleEndCard）で href・コピーごと出し分ける。
+  // 〜2026-08-31 はビルドジョブ（¥50,000）／9/1 以降は GKS（¥25,000）に自動復帰。
+  // この preset では MDX の service/description/points/cta は resolver の文言で統一する
+  // （景表法: 表示コピーと遷移先サービスを常に一致させる）。href のみ＝計測ピクセルなし
+  // （インプレッション計測はサイドバー側の 1 発火を唯一の源として維持＝1 ページ 1 ピクセル）。
+  const campaignAware = program === "gks" ? resolveCareerArticleEndCard() : null;
+  const effService = campaignAware?.service ?? service;
+  const effCategory = campaignAware?.category ?? category;
+  const effDescription = campaignAware?.description ?? description;
+  const effPoints = campaignAware?.points ?? points;
+  const effCta = campaignAware?.cta ?? cta;
+  const resolvedHref =
+    campaignAware?.href ?? href ?? (program ? CAREER_PRESETS[program] : undefined);
   return (
     <div className="not-prose my-6">
       <a
@@ -78,7 +101,7 @@ export default function CareerAffiliate({
         rel={AFFILIATE_LINK_REL}
         target="_blank"
         data-cta="affiliate"
-        data-cta-label={service}
+        data-cta-label={effService}
         className="group relative flex flex-col sm:flex-row items-stretch gap-4 rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] p-4 shadow-card-content hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow"
         style={{ textDecoration: "none" }}
       >
@@ -88,7 +111,7 @@ export default function CareerAffiliate({
           <div className="flex shrink-0 items-center justify-center sm:w-40 w-full">
             <img
               src={imageSrc}
-              alt={`${service} ${category}`}
+              alt={`${effService} ${effCategory}`}
               loading="lazy"
               className="max-h-32 sm:max-h-28 w-auto object-contain"
             />
@@ -97,19 +120,19 @@ export default function CareerAffiliate({
 
         <div className="flex min-w-0 flex-1 flex-col justify-center pr-10 sm:pr-12">
           <div className="text-[11px] font-bold tracking-wider text-brand-deep dark:text-brand uppercase">
-            {category}
+            {effCategory}
           </div>
           <div className="mt-0.5 text-[15px] font-bold text-ink-strong group-hover:underline">
-            {service}
+            {effService}
           </div>
-          {description && (
+          {effDescription && (
             <div className="mt-1.5 text-sm leading-6 text-ink-body">
-              {description}
+              {effDescription}
             </div>
           )}
-          {points && points.length > 0 && (
+          {effPoints && effPoints.length > 0 && (
             <ul className="mt-2 flex flex-col gap-1">
-              {points.map((point) => (
+              {effPoints.map((point) => (
                 <li
                   key={point}
                   className="flex items-start gap-1.5 text-sm leading-6 text-ink-body"
@@ -123,7 +146,7 @@ export default function CareerAffiliate({
               ))}
             </ul>
           )}
-          <AffiliateCta>{cta}</AffiliateCta>
+          <AffiliateCta>{effCta}</AffiliateCta>
         </div>
       </a>
 

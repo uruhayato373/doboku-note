@@ -13,10 +13,10 @@
       "mat": "4B5OO5+FHBA2+5B0Y+NTZCH",
       "program": "buildjob",
       "label": "ビルドジョブ（建設業界特化 転職エージェント）",
-      "surfaces": ["sidebar"],
+      "surfaces": ["sidebar", "inline", "article-end"],
       "definedIn": "src/config/affiliate-creatives.ts (BUILDJOB_CAREER_AD)",
       "expiresAt": "2026-08-31",
-      "note": "新規無料キャリア面談 ¥50,000 の増額キャンペーン期限。期限後はサイドバーが resolveCareerSidebarAd により GKS へ自動復帰。期限後に本 mat が配置され続けていれば WARN。"
+      "note": "新規無料キャリア面談 ¥50,000 の増額キャンペーン期限。期限後は (1) サイドバー resolveCareerSidebarAd / (2) モバイル記事末 resolveCareerArticleEndCard / (3) 本文 inline CareerAffiliate(program=gks 経由) のすべてが GKS へ自動復帰（同一 period 境界・ビルド時 SSG 確定）。期限後に本 mat が配置され続けていれば WARN。href は src(affiliate-creatives.ts)に集約され MDX には a8mat を直書きしないため、inline 化でも MDX 側に本 mat は出現しない。"
     },
     {
       "mat": "4B5OO5+FHBA2+5B0Y+NTJWY",
