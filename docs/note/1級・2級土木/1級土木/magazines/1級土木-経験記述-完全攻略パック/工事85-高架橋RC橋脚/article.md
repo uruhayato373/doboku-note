@@ -19,6 +19,7 @@ noteUrl: ""
 noteId: ""
 notePublishedAt: ""
 price: 1280
+paidBoundary: 品質管理
 ---
 # 1級土木 施工経験記述｜高架橋 RC橋脚（多基連続施工）5管理 完成答案
 

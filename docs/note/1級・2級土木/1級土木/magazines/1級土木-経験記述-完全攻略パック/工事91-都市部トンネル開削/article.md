@@ -19,6 +19,7 @@ noteUrl: ""
 noteId: ""
 notePublishedAt: ""
 price: 1280
+paidBoundary: 品質管理
 ---
 # 1級土木 施工経験記述｜都市部トンネル（開削工事）5管理 完成答案
 
