@@ -13,6 +13,7 @@ cover:
   hi: "6"
   hiSuffix: "大テーマを予想"
   banner: "R8予想問題"
+  character: pointing
   meta: "無料記事"
   chips:
     - { icon: layers, text: "三層構造" }
@@ -48,7 +49,12 @@ cover:
 ---
 
 <!-- cta:pack-top -->
-> 本番直前の総仕上げは、出題予想6テーマ×三層骨子で「何が出ても書ける型」を最短装填できる[R8予想問題集（2026最終予想・¥3,480）](https://note.com/dobokunote/m/m6854c7437d4d)が決め手。書き方の型から固めるなら、型・設問(3)の弾薬・R8演習を1セットにした[記述式コアパック（¥5,480）](https://note.com/dobokunote/m/m6e7de5e4ea3d)が入口に最適です。
+> 本番直前の総仕上げは、出題予想6テーマ×三層骨子で「何が出ても書ける型」を最短装填できるR8予想問題集が決め手。書き方の型から固めるなら、型・設問(3)の弾薬・R8演習を1セットにした記述式コアパックが入口に最適です。
+
+https://note.com/dobokunote/m/m6854c7437d4d
+
+https://note.com/dobokunote/m/m6e7de5e4ea3d
+
 
 ## R8 で何が出るのか — 予想の根拠と 6 大テーマ
 
