@@ -81,6 +81,23 @@ jobs:
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
         run: npm run fetch-ga4-cta-clicks
 
+      # モバイル最適化の意思決定用: デバイス別の流入シェア（mobile/desktop/tablet × sessions/engagement）。
+      # 「サイトはモバイル中心か」を勘でなくデータで確定する（ga4-device-*.json）。
+      - name: Fetch GA4 (device, for mobile share)
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+        run: npm run fetch-ga4-data -- --dimension device
+
+      # モバイル最適化の意思決定用: デバイス別の CTA クリック（eventName × deviceCategory）。
+      # 上の device 別 sessions を分母にして「モバイル vs PC の affiliate/note CTR」を出す
+      # （ga4-cta-clicks-by-device-*.json・既定の page 別とは別ファイル）。
+      - name: Fetch GA4 (CTA clicks by device, for mobile vs PC CTR)
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+        run: npm run fetch-ga4-cta-clicks -- --by-device
+
       - name: Check data integrity
         id: integrity
         continue-on-error: true
