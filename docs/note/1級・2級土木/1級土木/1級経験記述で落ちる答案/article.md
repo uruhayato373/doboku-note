@@ -14,6 +14,7 @@ cover:
   hi: "落ちる答案"
   hiSuffix: "の4つの型"
   banner: "発注者・添削視点"
+  character: thinking
   meta: "無料記事"
   chips:
     - { icon: doc, text: "落ちる型" }

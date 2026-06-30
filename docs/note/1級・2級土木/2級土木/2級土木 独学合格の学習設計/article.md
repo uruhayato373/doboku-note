@@ -14,6 +14,7 @@ cover:
   hi: "独学合格"
   hiSuffix: "の学習設計"
   banner: "働きながらの逆算"
+  character: explaining
   meta: "無料記事"
   chips:
     - { icon: calendar, text: "逆算" }

@@ -13,6 +13,7 @@ cover:
   hi: "担い手"
   hiSuffix: "確保と生産性向上"
   banner: "2024年問題を必須科目Iでどう論じるか"
+  character: explaining
   meta: "無料記事"
   chips:
     - { icon: target, text: "必須科目I" }

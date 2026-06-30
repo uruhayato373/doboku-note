@@ -13,6 +13,7 @@ cover:
   hi: "模範解答"
   hiSuffix: "を写経で終わらせない"
   banner: "完成答案を本番で再現できる「論述の型」に変える"
+  character: pointing
   meta: "無料記事"
   chips:
     - { icon: doc, text: "必須科目I" }

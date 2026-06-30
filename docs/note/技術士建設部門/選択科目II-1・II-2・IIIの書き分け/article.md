@@ -13,6 +13,7 @@ cover:
   hi: "書き分け"
   hiSuffix: "II-1・II-2・III"
   banner: "3つの設問が測る力を見抜く"
+  character: thinking
   meta: "無料記事"
   chips:
     - { icon: layers, text: "評価軸の違い" }

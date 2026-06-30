@@ -13,6 +13,7 @@ cover:
   hi: "独学"
   hiSuffix: "ロードマップ"
   banner: "型とネタの二本柱で記述式を攻略する"
+  character: wave
   meta: "無料記事"
   chips:
     - { icon: pen, text: "記述式の型" }

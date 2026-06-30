@@ -13,6 +13,7 @@ cover:
   hi: "合格率"
   hiSuffix: "の読み方"
   banner: "数字より構造を読む入口記事"
+  character: explaining
   meta: "無料記事"
   chips:
     - { icon: target, text: "二段階構造で読む" }

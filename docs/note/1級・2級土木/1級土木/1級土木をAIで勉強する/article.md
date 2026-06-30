@@ -14,6 +14,7 @@ cover:
   hi: "AI"
   hiSuffix: "で勉強する"
   banner: "独学の勉強法"
+  character: explaining
   meta: "無料記事"
   chips:
     - { icon: book, text: "一次の暗記" }

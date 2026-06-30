@@ -13,6 +13,7 @@ cover:
   hi: "経歴票"
   hiSuffix: "で全員が詰まる720字"
   banner: "受験申込で合否の土台が決まる"
+  character: pointing
   meta: "無料記事"
   chips:
     - { icon: doc, text: "業務経歴票の構造" }

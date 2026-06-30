@@ -14,6 +14,7 @@ cover:
   hi: "第二次検定"
   hiSuffix: "の全体像"
   banner: "対策の順番"
+  character: explaining
   meta: "無料記事"
   chips:
     - { icon: edit, text: "経験記述が核" }
