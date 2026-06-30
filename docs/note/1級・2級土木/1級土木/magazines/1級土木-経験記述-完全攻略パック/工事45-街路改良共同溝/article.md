@@ -3,7 +3,7 @@ notePricing: paid
 noteSeries: 1級土木-経験記述-完全攻略パック
 noteMagazine: 1級土木-経験記述-完全攻略パック
 utmCampaign: civil1-keiken-pack-koji45
-noteStatus: draft
+noteStatus: published
 coverTitle: ["1級土木 施工経験記述", "街路改良 共同溝", "5管理 完成答案"]
 cover:
   leadIn: "1級土木施工管理技士 二次"
@@ -15,9 +15,9 @@ cover:
     - { icon: doc, text: "完成答案" }
     - { icon: edit, text: "置換ガイド" }
     - { icon: check, text: "5管理一覧" }
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n83288d2fe5ae"
+noteId: "n83288d2fe5ae"
+notePublishedAt: "2026-06-30"
 price: 1280
 paidBoundary: 品質管理
 ---

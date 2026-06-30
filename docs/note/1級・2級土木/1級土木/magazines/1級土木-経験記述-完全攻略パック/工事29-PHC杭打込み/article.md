@@ -5,10 +5,10 @@ paidBoundary: 品質管理
 noteSeries: 1級土木-経験記述-完全攻略パック
 noteMagazine: 1級土木-経験記述-完全攻略パック
 utmCampaign: civil1-keiken-pack-koji29
-noteStatus: draft
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteStatus: published
+noteUrl: "https://note.com/dobokunote/n/ne2cde72491e1"
+noteId: "ne2cde72491e1"
+notePublishedAt: "2026-06-30"
 coverTitle: ["1級土木 施工経験記述", "PHC杭打込み（既製杭）橋台基礎 5管理完成答案"]
 cover:
   leadIn: "1級土木施工管理技士 二次"

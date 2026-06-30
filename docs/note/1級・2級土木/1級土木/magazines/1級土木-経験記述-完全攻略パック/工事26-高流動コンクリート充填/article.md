@@ -5,10 +5,10 @@ paidBoundary: 品質管理
 noteSeries: 1級土木-経験記述-完全攻略パック
 noteMagazine: 1級土木-経験記述-完全攻略パック
 utmCampaign: civil1-keiken-pack-koji26
-noteStatus: draft
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteStatus: published
+noteUrl: "https://note.com/dobokunote/n/nf7acd3284c3b"
+noteId: "nf7acd3284c3b"
+notePublishedAt: "2026-06-30"
 coverTitle: ["1級土木 施工経験記述", "高流動コンクリート 過密配筋部充填", "5管理 完成答案"]
 cover:
   leadIn: "1級土木施工管理技士 二次"

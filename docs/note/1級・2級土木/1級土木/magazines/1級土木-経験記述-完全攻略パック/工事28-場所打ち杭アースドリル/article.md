@@ -5,10 +5,10 @@ paidBoundary: 品質管理
 noteSeries: 1級土木-経験記述-完全攻略パック
 noteMagazine: 1級土木-経験記述-完全攻略パック
 utmCampaign: civil1-keiken-pack-koji28
-noteStatus: draft
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteStatus: published
+noteUrl: "https://note.com/dobokunote/n/nd69cdad6bb90"
+noteId: "nd69cdad6bb90"
+notePublishedAt: "2026-06-30"
 coverTitle: ["1級土木 施工経験記述", "場所打ち杭（アースドリル）杭施工全体", "5管理 完成答案"]
 cover:
   leadIn: "1級土木施工管理技士 二次"

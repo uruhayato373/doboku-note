@@ -3,10 +3,10 @@ notePricing: paid
 noteSeries: 1級土木-経験記述-完全攻略パック
 noteMagazine: 1級土木-経験記述-完全攻略パック
 utmCampaign: civil1-keiken-pack-koji33
-noteStatus: draft
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteStatus: published
+noteUrl: "https://note.com/dobokunote/n/n907964073daa"
+noteId: "n907964073daa"
+notePublishedAt: "2026-06-30"
 price: 1280
 paidBoundary: 品質管理
 coverTitle: ["1級土木 施工経験記述", "深礎杭（人力掘削）", "5管理 完成答案"]
