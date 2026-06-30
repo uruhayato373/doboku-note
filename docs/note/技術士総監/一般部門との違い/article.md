@@ -9,6 +9,7 @@ cover:
   hi: "3"
   hiSuffix: "つの理由"
   banner: "総監で通用しない訳"
+  character: thinking
   meta: "無料記事"
   chips:
     - { icon: chart, text: "合格率10%の壁" }
@@ -35,7 +36,12 @@ https://note.com/dobokunote/m/m607bf095b02a
 ![一般部門と総監部門 4 つの違い](img/figure-1-comparison.png)
 
 <!-- cta:pack-top -->
-> 本番直前の総仕上げは、出題予想6テーマ×三層骨子で「何が出ても書ける型」を最短装填できる[R8予想問題集（2026最終予想・¥3,480）](https://note.com/dobokunote/m/m6854c7437d4d)が決め手。書き方の型から固めるなら、型・設問(3)の弾薬・R8演習を1セットにした[記述式コアパック（¥5,480）](https://note.com/dobokunote/m/m6e7de5e4ea3d)が入口に最適です。
+> 本番直前の総仕上げは、出題予想6テーマ×三層骨子で「何が出ても書ける型」を最短装填できるR8予想問題集が決め手。書き方の型から固めるなら、型・設問(3)の弾薬・R8演習を1セットにした記述式コアパックが入口に最適です。
+
+https://note.com/dobokunote/m/m6854c7437d4d
+
+https://note.com/dobokunote/m/m6e7de5e4ea3d
+
 
 ## 理由1: 学協会・白書がない
 
