@@ -163,12 +163,13 @@ export default function ArticleFooter({
       )}
 
       {/* 記事末 転職 CTA（モバイル限定・civil 1/2 + 建設部門・FAQ 直後）。href のみ＝計測はサイドバー側 1 発火を維持。
-          creative は resolveCareerArticleEndCard が期間で出し分け（〜8/31 ビルドジョブ／以降 GKS）。 */}
+          creative は resolveCareerArticleEndCard が slug ハッシュ A/B（建設JOBs ↔ ビルドジョブ/GKS）で出し分け。
+          slugStr をサイドバーと共有＝同一ページは PC サイドバーと記事末カードが必ず同じ案件になる。 */}
       {(category === 'civil-construction-1' ||
         category === 'civil-construction-2' ||
         category === 'pe-construction') && (
         <div className="mt-8 zenn-desktop:hidden">
-          <CareerAffiliate {...resolveCareerArticleEndCard()} />
+          <CareerAffiliate {...resolveCareerArticleEndCard(slugStr)} />
         </div>
       )}
       {/* 総監はシニア技術者・管理職層＝施工管理系がミスマッチのため PE_CONSULTING(ハイクラスDX/コンサル)で出す。 */}

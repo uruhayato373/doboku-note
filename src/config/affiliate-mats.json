@@ -35,6 +35,15 @@
       "definedIn": "src/config/affiliate-creatives.ts (PE_CONSULTING_CAREER_AD)",
       "expiresAt": null,
       "note": "pe-comprehensive-management カテゴリ hub 専用。GKS（20代未経験/施工管理）が総監（シニア技術者）にミスマッチなため差替（resolveCategoryCareerAd）。"
+    },
+    {
+      "mat": "4B41ZD+GGZS2I+4XWQ+BXB8X",
+      "program": "kensetsu-jobs",
+      "label": "建設JOBs（リアルエステートWORKS・施工管理/建設業界特化 転職サイト）",
+      "surfaces": ["sidebar", "article-end"],
+      "definedIn": "src/config/affiliate-creatives.ts (KENSETSU_JOBS_CAREER_AD)",
+      "expiresAt": null,
+      "note": "成果点=会員登録 ¥4,500/件（ビルドジョブの面談 ¥50,000 より低単価だが低摩擦＝高成約率の見込み）。施工管理/建設セグメントのサイドバー＋モバイル記事末＋カテゴリ枠で、ビルドジョブ/GKS と slug ハッシュ 50/50 の A/B（resolveCareerSidebarAbArm・isKensetsuJobsArm）。trackLabel=KensetsuJobs-sidebar。EPC（報酬 × 成約率）で勝者を決め、負けたら撤去予定。mat 先頭が他案件（4B5OO5/4B3VR8）と異なる＝A8 の別 wid 登録の可能性、A8 レポートはプログラム単位で集計。"
     }
   ]
 }

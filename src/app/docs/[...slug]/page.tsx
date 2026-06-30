@@ -277,8 +277,8 @@ export default async function DocPage({
   ].filter(
     (x, i, arr) => arr.findIndex((y) => y.slot.magazineId === x.slot.magazineId) === i,
   );
-  // サイドバー転職枠の creative（〜2026-08-31 はビルドジョブ ¥50,000、以降 GKS に自動復帰）。
-  const careerSidebarAd = resolveDocsCareerSidebarAd(category ?? '');
+  // サイドバー転職枠の creative（slug ハッシュ A/B: 建設JOBs ↔ ビルドジョブ/GKS）。
+  const careerSidebarAd = resolveDocsCareerSidebarAd(category ?? '', slugStr);
 
   // 参考資料セクションを本文から抽出して別カードに切り出す
   // → 本文・TOC の両方から ## 参考資料 が消え、<ExternalReferences> として表示される

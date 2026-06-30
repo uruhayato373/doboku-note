@@ -64,6 +64,54 @@ const PE_CONSULTING_CAREER_AD = {
 } as const;
 
 /**
+ * 建設JOBs（リアルエステートWORKS・施工管理/建設業界特化の転職サイト・A8.net）。300×250 + pixel。
+ * 成果点は「会員登録」¥4,500/件。ビルドジョブの面談 ¥50,000 より低単価だが、登録は低摩擦で
+ * 成約率が高い見込み。EPC（報酬 × 成約率）でビルドジョブを上回るかは不明なため、施工管理/建設
+ * セグメントのサイドバー枠で **slug ハッシュ 50/50 の A/B** にかける（resolveCareerSidebarAbArm）。
+ */
+const KENSETSU_JOBS_CAREER_AD = {
+  href: "https://px.a8.net/svt/ejp?a8mat=4B41ZD+GGZS2I+4XWQ+BXB8X",
+  imageSrc:
+    "https://www27.a8.net/svt/bgt?aid=260529673996&wid=002&eno=01&mid=s00000023057002003000&mc=1",
+  pixelSrc: "https://www10.a8.net/0.gif?a8mat=4B41ZD+GGZS2I+4XWQ+BXB8X",
+  alt: "建設JOBs 施工管理・建設業界の転職サイト",
+  width: 300,
+  height: 250,
+} as const;
+
+/** FNV-1a 32bit ハッシュ。slug 単位で決定論的に A/B を振り分ける（同じページは常に同じ arm＝SSG 安定）。 */
+function fnv1a(s: string): number {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < s.length; i++) {
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 0x01000193);
+  }
+  return h >>> 0;
+}
+
+/** A/B 振り分け: slug ハッシュ偶奇で 50/50。true = 建設JOBs(arm B)。slug 不明は arm A（既定）に倒す。 */
+function isKensetsuJobsArm(slug: string | undefined): boolean {
+  return slug ? fnv1a(slug) % 2 === 1 : false;
+}
+
+/**
+ * 施工管理/建設セグメントのサイドバー転職枠を slug ハッシュで A/B 振り分ける（2026-06-29〜）。
+ * - arm B（約50%）: 建設JOBs（登録 ¥4,500・低摩擦）。trackLabel=KensetsuJobs-sidebar。
+ * - arm A（約50%）: 既定 `resolveCareerSidebarAd()`（〜8/31 ビルドジョブ ¥50,000 ／ 9/1 GKS）。
+ * EPC（報酬 × 成約率）で勝者を決めるための恒久 A/B。総監（PE_CONSULTING）は対象外。
+ * 注: 各 arm は自前の pixelSrc を持つ＝ページごとに 1 ピクセル（1 ページ 1 ピクセル維持）。
+ */
+function resolveCareerSidebarAbArm(slug: string | undefined): {
+  creative: SidebarAdCreative;
+  trackLabel: string;
+} {
+  if (isKensetsuJobsArm(slug)) {
+    return { creative: KENSETSU_JOBS_CAREER_AD, trackLabel: "KensetsuJobs-sidebar" };
+  }
+  return resolveCareerSidebarAd();
+}
+
+/**
  * サイドバー転職枠の creative を期間で出し分ける（ビルド時に評価＝SSG）。
  * - 2026-08-31（JST）まで: ビルドジョブ（無料面談 ¥50,000 の増額キャンペーン中、GKS の 2 倍報酬）。
  * - 2026-09-01（JST）以降: GKS に自動復帰（ビルドジョブの増額終了想定）。
@@ -109,7 +157,24 @@ export type CareerArticleEndCard = {
  * 文言は docs/project/04_運営/02_アフィリエイト提携状況.md の保管庫の公称値に基づく
  * （未確認の数値は記載しない）。
  */
-export function resolveCareerArticleEndCard(): CareerArticleEndCard {
+export function resolveCareerArticleEndCard(slug?: string): CareerArticleEndCard {
+  // A/B arm B（建設JOBs・登録 ¥4,500）。サイドバーと同じ slug ハッシュで一致させ、同一ページは
+  // PC サイドバーと記事末カードが必ず同じ案件になる（href のみ＝ピクセルはサイドバー arm B が源）。
+  if (isKensetsuJobsArm(slug)) {
+    return {
+      service: "建設JOBs",
+      category: "施工管理・建設業界の転職サイト",
+      description:
+        "資格取得後のキャリアも視野に。施工管理・建設業界に特化した転職サイトに無料登録して、自分に合う求人を探せます。",
+      href: KENSETSU_JOBS_CAREER_AD.href,
+      points: [
+        "施工管理・建設業界に特化した求人サイト",
+        "登録は無料・スマホで完結",
+        "気になる求人を自分のペースで探せる",
+      ],
+      cta: "無料で登録して求人を見る",
+    };
+  }
   if (resolveCareerSidebarAd().trackLabel === "BuildJob-sidebar") {
     return {
       service: "ビルドジョブ",
@@ -151,11 +216,13 @@ export function resolveCareerArticleEndCard(): CareerArticleEndCard {
  */
 export function resolveDocsCareerSidebarAd(
   category: string,
+  slug?: string,
 ): { creative: SidebarAdCreative; trackLabel: string } {
   if (category === "pe-comprehensive-management") {
     return { creative: PE_CONSULTING_CAREER_AD, trackLabel: "DXConsulting-sidebar" };
   }
-  return resolveCareerSidebarAd();
+  // 施工管理/建設は slug ハッシュで建設JOBs(arm B) ↔ ビルドジョブ/GKS(arm A) の A/B。
+  return resolveCareerSidebarAbArm(slug);
 }
 
 /**
@@ -206,8 +273,8 @@ export function resolveCategoryCareerAd(
     category === "pe-construction"
   ) {
     // pe-construction（建設部門）も BuildJob/GKS の建設・施工管理セグメントに適合（2026-06-26）。
-    // docs サイドバー/モバイル記事末は既に BuildJob 被覆済みで、カテゴリ hub だけ枠が無かった穴を埋める。
-    return resolveCareerSidebarAd();
+    // slug ハッシュで建設JOBs(arm B) ↔ ビルドジョブ/GKS(arm A) の A/B（カテゴリページは1枚＝固定 arm）。
+    return resolveCareerSidebarAbArm(category);
   }
   return null;
 }
