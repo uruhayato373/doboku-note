@@ -34,7 +34,7 @@ import {
 } from "../../src/lib/magazine-placement.ts";
 import { getMagazine } from "../../src/lib/note-magazines.ts";
 import {
-  resolveCategoryCareerAd,
+  resolveCategoryCareerAds,
   resolveDocsCareerSidebarAd,
 } from "../../src/config/affiliate-creatives.ts";
 
@@ -185,9 +185,12 @@ for (const [page, t] of traffic) {
     noteCta = resolveCategoryMagazines(category)
       .filter((s) => getMagazine(s.magazineId))
       .map((s) => s.magazineId);
-    // 転職プログラム名（"DXConsulting" / "BuildJob" / "GKS"）。trackLabel = "{program}-sidebar"。
-    const aff = resolveCategoryCareerAd(category);
-    affiliate = aff ? aff.trackLabel.replace(/-sidebar$/, "") : null;
+    // 転職プログラム名（"DXConsulting" / "BuildJob" / "GKS" / "KensetsuJobs"）。trackLabel = "{program}-sidebar"。
+    // カテゴリ hub は両方表示（show-both）= 複数になり得るため "+" 連結（例 "KensetsuJobs+BuildJob"）。
+    const affs = resolveCategoryCareerAds(category);
+    affiliate = affs.length
+      ? affs.map((a) => a.trackLabel.replace(/-sidebar$/, "")).join("+")
+      : null;
   } else {
     continue;
   }

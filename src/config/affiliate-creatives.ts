@@ -207,7 +207,7 @@ export function resolveCareerArticleEndCard(slug?: string): CareerArticleEndCard
 
 /**
  * docs ページ（記事）のサイドバー転職枠 creative をカテゴリで解決（2026-06-20）。
- * カテゴリ hub の `resolveCategoryCareerAd`（非該当=null＝枠なし）とは別物で、**docs は全カテゴリで枠を出す**
+ * カテゴリ hub の `resolveCategoryCareerAds`（両方表示・非該当=[]＝枠なし）とは別物で、**docs は全カテゴリで枠を出す**
  * 方針（2026-06-06 全 docs 常設）を維持しつつ、総監だけ creative を資格別セグメントする:
  * - pe-comprehensive-management（総監＝シニア技術者・管理職層）→ ハイクラス DX/コンサル転職。
  *   施工管理系（ビルドジョブ/GKS）は総監層にミスマッチなため。カテゴリ hub と同じセグメント判断。
