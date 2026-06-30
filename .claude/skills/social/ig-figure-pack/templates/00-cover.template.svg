@@ -5,10 +5,10 @@
   プレースホルダ:
     {{ARIA}}        aria-label（例: 技術士総監 人的資源管理 マズローの欲求5段階説 表紙）
     {{KANRI}}       5管理区分（人的資源管理 / 経済性管理 / 情報管理 / 安全管理 / 社会環境管理）
-    {{TITLE1}}      メインタイトル1行目
+    {{TITLE1}}      メインタイトル1行目（既定 42px。長い場合のみ 34→28px に段階縮小し、28px 未満になるなら 2 行に分割する＝SKILL.md「タイトル文字サイズのルール」）
     {{TITLE2}}      メインタイトル2行目（1行で足りる場合は空文字 "" にして y=195 に寄せる）
     {{SUB1}}{{SUB2}} サブコピー（頻出論点・引っかけの予告、各 ~18字）
-  比較（A vs B）型の表紙は mcgregor-xy-theory/00-cover.svg を別途コピー元にする（chrome は本テンプレと同一）。
+  比較（A vs B）型の表紙は mcgregor-xy-theory/00-cover.svg を別途コピー元にする（2概念を上下に大きく＝既定 68px＋中央 orange「vs」22px の対向デザイン。chrome は本テンプレと同一）。
   注意: docs/sns/instagram/{exam}/{slug}/ 配下に置く（cem 等の試験dir必須）。色は IG 専用パレット（site allowlist 非対象）。
 -->
 <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" role="img" aria-label="{{ARIA}}">
