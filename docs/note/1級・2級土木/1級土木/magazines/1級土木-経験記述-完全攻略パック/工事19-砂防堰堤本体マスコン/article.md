@@ -4,6 +4,7 @@ price: 1280
 noteSeries: 1級土木-経験記述-完全攻略パック
 noteMagazine: 1級土木-経験記述-完全攻略パック
 utmCampaign: civil1-keiken-pack-koji19
+noteStatus: draft
 coverTitle: ["1級土木 施工経験記述", "砂防堰堤 本体マスコン", "5管理 完成答案"]
 noteUrl: ""
 noteId: ""

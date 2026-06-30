@@ -4,6 +4,10 @@ price: 1280
 noteSeries: 1級土木-経験記述-完全攻略パック
 noteMagazine: 1級土木-経験記述-完全攻略パック
 utmCampaign: civil1-keiken-pack-koji11
+noteUrl: ""
+noteId: ""
+notePublishedAt: ""
+noteStatus: draft
 coverTitle: ["1級土木 施工経験記述", "傾斜地 段切り盛土", "5管理 完成答案"]
 cover:
   leadIn: "1級土木施工管理技士 二次"

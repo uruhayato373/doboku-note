@@ -4,6 +4,10 @@ price: 1280
 noteSeries: 1級土木-経験記述-完全攻略パック
 noteMagazine: 1級土木-経験記述-完全攻略パック
 utmCampaign: civil1-keiken-pack-koji10
+noteUrl: ""
+noteId: ""
+notePublishedAt: ""
+noteStatus: draft
 coverTitle: ["1級土木 施工経験記述", "空港用地造成", "5管理 完成答案"]
 cover:
   leadIn: "1級土木施工管理技士 二次"
