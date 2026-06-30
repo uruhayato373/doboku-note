@@ -117,6 +117,22 @@ npm run check-note-cover-fit      # CI/手動（0件必須）。pre-commit は -
 
 `check-note-cover-fit` は `renderNoteCoverG2` のレイアウト式（`bannerFontSize`/`hiFontSize`・上段 1160px・banner 1280px）をミラーする回帰ゲート。「7〜11字推奨」超過は**検出しない**（descriptive banner は正規）。検出するのは画面外クリップのみ。
 
+## ライブ反映（公開後の stale カバー解消）
+
+`cover.png` を再デザインしても、**公開済み note 記事のカバーは自動では更新されない**（ソース→ライブ非同期）。stale 判定は `cover.png` の git 最終コミット日 > frontmatter `notePublishedAt`。差し替えはブラウザ自動化で行う。
+
+```bash
+# DRY（差し替え load 確認まで・保存しない）
+npm run note-update-cover -- --article docs/note/.../article.md
+# ライブ反映（公開に進む→更新する）。複数は --list で
+npm run note-update-cover -- --list .tmp/list.txt --commit
+```
+
+- 本文を一切触らず eyecatch だけ差し替えるため、**有料記事の paywall 境界は自然保持**される（`note-update-body` の境界「再設定」は不要。本ツールは境界 line の present を読み取り検証するのみで line を動かさない）。
+- fail-safe：新カバー load 未確認／有料境界 line 未確認なら「更新する」を押さない（coverless 化・paywall 開放を防ぐ）。
+- 永続プロファイルは 1 Chrome のみ＝**並列不可・逐次**。大量は 20-28 件チャンク×background 逐次で。
+- 反映後は note API v3 で `eyecatch` 新 ID・`can_read=false`・`price` 不変 を**実体検証**する（proxy 不可）。詳細 → [note-api-verification.md](../reference/note-api-verification.md)
+
 ## 関連
 
 - 値 SSoT: [`note-cover-tokens.json`](note-cover-tokens.json)

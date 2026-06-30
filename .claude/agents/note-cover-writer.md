@@ -72,3 +72,4 @@ generate: 32 covers 再生成
 - **テンプレ実装・色定義** — `ogp-create` スキル（`renderNoteCoverG2` / tokens）
 - **マガジンヘッダーカバー** — `generate-magazine-covers.mjs`（`magazine-banner`、別系統）
 - **本文・図版の編集** — 別工程
+- **公開済み記事のライブ反映** — 別工程。本エージェントは `cover:` 執筆＋PNG 再生成まで。**すでに公開済みの記事**は cover.png を作り直しても note 側に自動反映されないため、`npm run note-update-cover`（`scripts/note-update-cover.mjs`・有料 paywall 保持）でライブ差し替えする。真実源 → `docs/design-system/note-cover.md`「ライブ反映」
