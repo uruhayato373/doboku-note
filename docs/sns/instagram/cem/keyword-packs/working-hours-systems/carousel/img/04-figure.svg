@@ -1,5 +1,7 @@
 <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="高度プロフェッショナル制度の図解。労働時間・休憩・休日・深夜割増・時間外割増の規定が適用除外される。適用5要件は、対象業務（成果と時間の相関が低い高度専門業務）・年収1075万円以上・本人同意・労使委員会の4/5以上の決議・労働基準監督署への届出。健康確保措置として年104日以上の休日確保と健康管理時間の把握が義務で、選択的措置のいずれか1つと医師の面接指導も求められる。">
   <rect width="400" height="500" fill="#ffffff"/>
+  <rect id="topic-band" x="0" y="0" width="400" height="32" fill="#1a3a5c"/>
+  <text x="200" y="21" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">高度プロフェッショナル制度</text>
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }

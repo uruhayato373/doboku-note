@@ -1,5 +1,7 @@
 <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="労働時間制度5類型の比較。通常（固定）は実労働時間で使用者が固定（1日8時間・週40時間）。フレックスは実労働時間を清算期間で清算し労働者が始業・終業を決定。変形は実労働時間を使用者が繁閑に応じて事前特定。裁量労働制はみなし労働時間で遂行方法は労働者裁量（専門業務型・企画業務型）。高度プロフェッショナル制度は労働時間規制の対象外で適用除外（高年収要件）。割増賃金はフレックス・変形・裁量では必要（深夜・休日は裁量もみなし対象外）、高プロは適用除外。">
   <rect width="400" height="500" fill="#ffffff"/>
+  <rect id="topic-band" x="0" y="0" width="400" height="32" fill="#1a3a5c"/>
+  <text x="200" y="21" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">労働時間制度 5類型</text>
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }

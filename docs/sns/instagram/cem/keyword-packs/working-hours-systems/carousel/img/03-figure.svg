@@ -1,5 +1,7 @@
 <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="裁量労働制の図解。実際の労働時間でなく労使協定や労使委員会の決議で定めた時間を働いたとみなす「みなし労働時間制」。専門業務型は労基法第38条の3・法定20業務（研究・SE・士業等）が対象で労使協定＋届出。企画業務型は第38条の4・企画立案調査分析業務が対象で労使委員会の4/5以上の決議＋届出。いずれも本人同意が必要。深夜・休日労働はみなしの対象外で実労働時間に基づく割増賃金が必要。2024年改正で専門業務型も本人同意・撤回手続が義務化。">
   <rect width="400" height="500" fill="#ffffff"/>
+  <rect id="topic-band" x="0" y="0" width="400" height="32" fill="#1a3a5c"/>
+  <text x="200" y="21" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">裁量労働制</text>
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
