@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-29",
+  "updatedAt": "2026-06-30",
   "currency": "JPY",
   "source": "note クリエイターダッシュボード「販売履歴」の手動転記",
   "privacyNote": "購入者名・ハンドルはプライバシー保護のため記録しない（売上分析には date / product / price で十分）。",
@@ -803,6 +803,41 @@
       "title": "技術士 総監｜記述式 コアパック",
       "type": "magazine",
       "price": 5480
+    },
+    {
+      "date": "2026-06-29",
+      "productId": "r8-essay-forecast",
+      "title": "技術士 総監｜記述式 R8予想問題集 2026最終予想",
+      "type": "magazine",
+      "price": 3480
+    },
+    {
+      "date": "2026-06-29",
+      "productId": "r8-essay-forecast",
+      "title": "技術士 総監｜記述式 R8予想問題集 2026最終予想",
+      "type": "magazine",
+      "price": 3480
+    },
+    {
+      "date": "2026-06-29",
+      "productId": "bk-environment-secondary-magazine",
+      "title": "建設部門2次｜建設環境 選択科目 模範解答集",
+      "type": "magazine",
+      "price": 2980
+    },
+    {
+      "date": "2026-06-29",
+      "productId": "article:bk-01-road-r8-yosou-iii-3",
+      "title": "技術士 建設部門｜道路 R8予想 選択科目III 予想③ 道路ネットワークの事前防災・強靱化",
+      "type": "article",
+      "price": 780
+    },
+    {
+      "date": "2026-06-30",
+      "productId": "bk-railway-secondary-magazine",
+      "title": "建設部門2次｜鉄道 選択科目 模範解答集",
+      "type": "magazine",
+      "price": 1980
     }
   ]
 }
