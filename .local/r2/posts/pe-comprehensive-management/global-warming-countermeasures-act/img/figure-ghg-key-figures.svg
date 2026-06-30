@@ -1,0 +1,56 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="温室効果ガスの主要数値。削減目標は2013年度比で、2030年度46%削減（さらに50%の高みに挑戦）、新NDC（2025年2月閣議決定）で2035年度60%削減・2040年度73%削減、2050年に実質ゼロ（カーボンニュートラル）。温室効果ガスの内訳はCO2換算でCO2が約9割を占め、残りはメタン・一酸化二窒素・フロン類など。総排出量は2013年度をピークに減少傾向にあり、部門別では産業部門が家庭部門を大きく上回る。2050年ネットゼロはCO2以外の全温室効果ガスも対象とする。">
+  <rect width="400" height="500" fill="#ffffff"/>
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-head { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .b-lbl  { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .yr     { font-size: 11px; font-weight: bold; fill: #222; }
+      .pct    { font-size: 11px; font-weight: bold; fill: #3a7d44; }
+      .wt     { font-size: 11px; font-weight: bold; fill: #ffffff; }
+      .lg     { font-size: 11px; fill: #222; }
+      .note   { font-size: 11px; fill: #555; }
+      .f-head { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+    </style>
+  </defs>
+
+  <text class="t-head" x="200" y="36" text-anchor="middle">2013年度比で段階削減、2050年に実質ゼロ</text>
+
+  <!-- Block A 削減目標の推移 -->
+  <rect x="10" y="48" width="380" height="174" rx="8" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.3"/>
+  <text class="b-lbl" x="24" y="68" text-anchor="start">温室効果ガス削減目標の推移（2013年度比）</text>
+
+  <text class="yr" x="24" y="92" text-anchor="start">2030年度</text>
+  <rect x="92" y="80" width="124" height="16" rx="2" fill="#3a7d44"/>
+  <text class="pct" x="222" y="92" text-anchor="start">▲46%</text>
+
+  <text class="yr" x="24" y="122" text-anchor="start">2035年度</text>
+  <rect x="92" y="110" width="162" height="16" rx="2" fill="#3a7d44"/>
+  <text class="pct" x="260" y="122" text-anchor="start">▲60%</text>
+
+  <text class="yr" x="24" y="152" text-anchor="start">2040年度</text>
+  <rect x="92" y="140" width="197" height="16" rx="2" fill="#3a7d44"/>
+  <text class="pct" x="295" y="152" text-anchor="start">▲73%</text>
+
+  <text class="yr" x="24" y="182" text-anchor="start">2050年</text>
+  <rect x="92" y="170" width="270" height="16" rx="2" fill="#1a3a5c"/>
+  <text class="wt" x="227" y="182" text-anchor="middle">実質ゼロ（カーボンニュートラル）</text>
+
+  <text class="note" x="24" y="208" text-anchor="start">2030年度はさらに50%の高みに挑戦（2035・40は新NDC）</text>
+
+  <!-- Block B 内訳 -->
+  <rect x="10" y="230" width="380" height="104" rx="8" fill="#ffffff" stroke="#d7d7d7" stroke-width="1.3"/>
+  <text class="b-lbl" x="24" y="250" text-anchor="start">温室効果ガスの内訳（CO2換算）</text>
+  <rect x="24"  y="260" width="317" height="22" fill="#2e6da4"/>
+  <text class="wt" x="182" y="275" text-anchor="middle">CO2 約9割</text>
+  <rect x="341" y="260" width="35"  height="22" fill="#8a8a8a"/>
+  <text class="lg" x="24" y="306" text-anchor="start">残り約1割：メタン・一酸化二窒素・フロン類（HFC等）</text>
+
+  <!-- Block C 傾向・部門 -->
+  <rect x="10" y="342" width="380" height="144" rx="8" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.3"/>
+  <text class="f-head" x="24" y="364" text-anchor="start">傾向・部門・対象</text>
+  <text class="note" x="24" y="388" text-anchor="start">総排出量は2013年度をピークに減少傾向にある。</text>
+  <text class="note" x="24" y="410" text-anchor="start">部門別は産業部門が家庭部門を大きく上回る。</text>
+  <text class="note" x="24" y="432" text-anchor="start">2050年ネットゼロはCO2以外の全GHG（CH4等）も対象。</text>
+  <text class="note" x="24" y="454" text-anchor="start">緩和策の目標は地球温暖化対策計画が一元的に位置づける。</text>
+</svg>
