@@ -5,10 +5,10 @@ paidBoundary: 品質管理
 noteSeries: 1級土木-経験記述-完全攻略パック
 noteMagazine: 1級土木-経験記述-完全攻略パック
 utmCampaign: civil1-keiken-pack-koji67
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/nad043a19a950"
+noteId: "nad043a19a950"
+notePublishedAt: "2026-06-30"
+noteStatus: published
 coverTitle: ["1級土木 施工経験記述", "雨水幹線築造", "5管理 完成答案"]
 cover:
   leadIn: "1級土木施工管理技士 二次"

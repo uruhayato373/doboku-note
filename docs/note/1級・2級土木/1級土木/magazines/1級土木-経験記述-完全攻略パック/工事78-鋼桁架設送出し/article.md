@@ -3,7 +3,7 @@ notePricing: paid
 noteSeries: 1級土木-経験記述-完全攻略パック
 noteMagazine: 1級土木-経験記述-完全攻略パック
 utmCampaign: civil1-keiken-pack-koji78
-noteStatus: draft
+noteStatus: published
 coverTitle: ["1級土木 施工経験記述", "鋼桁架設（送出し工法）", "5管理 完成答案"]
 cover:
   leadIn: "1級土木施工管理技士 二次"
@@ -15,9 +15,9 @@ cover:
     - { icon: doc, text: "完成答案" }
     - { icon: edit, text: "置換ガイド" }
     - { icon: check, text: "5管理一覧" }
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n195e97d885ec"
+noteId: "n195e97d885ec"
+notePublishedAt: "2026-06-30"
 price: 1280
 paidBoundary: 品質管理
 ---

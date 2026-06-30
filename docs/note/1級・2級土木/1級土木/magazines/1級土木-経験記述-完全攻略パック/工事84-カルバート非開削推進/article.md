@@ -5,10 +5,10 @@ paidBoundary: 品質管理
 noteSeries: 1級土木-経験記述-完全攻略パック
 noteMagazine: 1級土木-経験記述-完全攻略パック
 utmCampaign: civil1-keiken-pack-koji84
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/nceab2731c5b7"
+noteId: "nceab2731c5b7"
+notePublishedAt: "2026-06-30"
+noteStatus: published
 coverTitle: ["1級土木 施工経験記述", "カルバート非開削（推進）", "5管理 完成答案"]
 cover:
   leadIn: "1級土木施工管理技士 二次"
