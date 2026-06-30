@@ -6,7 +6,7 @@ utmCampaign: civil1-keiken-pack-koji04
 noteUrl: ""
 noteId: ""
 notePublishedAt: ""
-price: ""
+price: 1280
 coverTitle: ["1級土木 施工経験記述", "高速道路 路体・路床盛土", "5管理 完成答案"]
 cover:
   leadIn: "1級土木施工管理技士 二次"
@@ -47,6 +47,11 @@ cover:
 https://note.com/dobokunote/m/m150c9db08902
 
 ---
+
+<!-- cta:pack-top -->
+自分の工事に近い「想定工事」を選んで5管理すべての完成答案をそろえるなら、想定工事100×5管理を全網羅した完全攻略パックが最短です。
+
+https://note.com/dobokunote/m/m8290970a7f05
 
 ## 〔工事概要〕（記入例）
 
