@@ -264,6 +264,16 @@ const MAGAZINES = [
     accentColor: '#155293',
     fillBg: '#155293',
   },
+  {
+    id: 'civil-1-keiken-complete',
+    fileBaseName: 'civil-1-keiken-complete-pack-cover',
+    magazineDir: 'docs/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック',
+    lines: ['1級土木 施工経験記述', '完全攻略パック', '想定工事100 × 5管理 全網羅'],
+    category: '1級土木施工管理技士',
+    fontSize: 42,
+    accentColor: '#155293',
+    fillBg: '#155293',
+  },
   // ----- 技術士 建設部門 2次 模範解答集（BK シリーズ・2026-06-09） -----
   {
     id: 'bk-i-required',
