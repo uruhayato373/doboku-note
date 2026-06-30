@@ -219,6 +219,8 @@ await page.keyboard.press('Delete');
 カバー画像を更新する場合、本文編集の前にアイキャッチを差し替える。
 editor-operations.md Phase 2 と同じ手順で既存アイキャッチを置き換える（画像はアップロード操作なので edit 画面でも機能する。paste 制約は本文テキストのみ）。
 
+> **カバーだけを更新する（本文を触らない）場合は専用ツールが速い**: `cover.png` 再デザイン後の stale カバー（git 最終コミット日 > `notePublishedAt`）を一括差し替えするなら `npm run note-update-cover -- --list <file> --commit`（`scripts/note-update-cover.mjs`）。本文不触なので有料記事の paywall 境界は自然保持され、ツールは境界 line の present を読み取り検証するのみ（line を動かさない）＋新カバー load 未確認なら保存しない fail-safe。一回限り `.tmp/*.mjs` を書かずこれを使う。詳細 → [`docs/design-system/note-cover.md`](../../../../../docs/design-system/note-cover.md)「ライブ反映」。
+
 ### Phase U-6: 「公開に進む」→「更新する」（2 段）
 
 公開済み記事の編集画面でも、右上ボタンは create と同じ **「公開に進む」**。

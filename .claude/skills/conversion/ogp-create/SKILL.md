@@ -196,6 +196,7 @@ node scripts/generate-note-covers.mjs 1級土木    # slug 部分一致で対象
 node scripts/generate-note-covers.mjs 安全管理   # slug 部分一致で 1 記事だけ再生成
 npm run note-cover-gallery                        # 全 cover を1枚 HTML で目視（OGP の ogp-gallery と対称・資格×種別で絞込）
 npm run check-note-cover-fit                      # banner/hi/leadIn がフル1280幅超で画面外に切れる"真の溢れ"を検出（0件必須・pre-commit でも --staged）
+npm run note-update-cover -- --list <file> --commit  # 公開済み記事の stale カバーをライブ差し替え（有料 paywall 保持・本文不触）
 ```
 
 > banner は工事名列挙・科目名等の **descriptive テキストが正規**で 7〜11 字超を許容（`bannerFontSize` が 48px まで自動縮小しフル幅には収まる／正方形クロップで両端が切れるのは想定内）。`check-note-cover-fit` が止めるのは**フル幅すら超えて画面外で切れる**ケースのみ。真実源 [`note-cover.md`](../../../../docs/design-system/note-cover.md)。
