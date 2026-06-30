@@ -14,6 +14,7 @@ cover:
   hi: "工事概要"
   hiSuffix: "で減点されない"
   banner: "大規模工事の整合"
+  character: pointing
   meta: "無料記事"
   chips:
     - { icon: doc, text: "概要欄の罠" }

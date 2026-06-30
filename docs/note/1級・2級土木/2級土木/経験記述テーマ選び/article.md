@@ -14,6 +14,7 @@ cover:
   hi: "題材選び"
   hiSuffix: "で半分決まる"
   banner: "安全・品質・工程どれで書く"
+  character: explaining
   meta: "無料記事"
   chips:
     - { icon: target, text: "現場が決める" }

@@ -14,6 +14,7 @@ cover:
   hi: "AI"
   hiSuffix: "で攻略する"
   banner: "資格別 勉強法"
+  character: explaining
   meta: "無料記事"
   chips:
     - { icon: book, text: "1級土木" }

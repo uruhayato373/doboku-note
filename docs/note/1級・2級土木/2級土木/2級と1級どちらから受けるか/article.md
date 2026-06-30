@@ -14,6 +14,7 @@ cover:
   hi: "2級と1級"
   hiSuffix: "どちらから"
   banner: "受験順の判断"
+  character: thinking
   meta: "無料記事"
   chips:
     - { icon: target, text: "級の違い" }

@@ -14,6 +14,7 @@ cover:
   hi: "第一次検定"
   hiSuffix: "独学の始め方"
   banner: "何から手をつけるか"
+  character: explaining
   meta: "無料記事"
   chips:
     - { icon: book, text: "過去問起点" }

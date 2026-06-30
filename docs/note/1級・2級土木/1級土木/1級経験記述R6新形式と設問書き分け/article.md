@@ -14,6 +14,7 @@ cover:
   hi: "設問の書き分け"
   hiSuffix: "が1級の関門"
   banner: "5管理から2テーマ必答"
+  character: pointing
   meta: "無料記事"
   chips:
     - { icon: edit, text: "新形式" }

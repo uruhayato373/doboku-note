@@ -14,6 +14,7 @@ cover:
   hi: "お金"
   hiSuffix: "とキャリアで得する"
   banner: "資格活用マップ"
+  character: wave
   meta: "無料記事"
   chips:
     - { icon: chart, text: "年収インパクト" }

@@ -13,6 +13,7 @@ cover:
   hi: "答案構成"
   hiSuffix: "の作り方"
   banner: "現状→課題→解決策→効果・リスク"
+  character: pointing
   meta: "無料記事"
   chips:
     - { icon: layers, text: "4ブロックの骨格" }

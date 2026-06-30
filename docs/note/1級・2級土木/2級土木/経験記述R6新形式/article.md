@@ -14,6 +14,7 @@ cover:
   hi: "令和6年 新形式"
   hiSuffix: "への備え方"
   banner: "2テーマ必答への対応"
+  character: explaining
   meta: "無料記事"
   chips:
     - { icon: edit, text: "形式変更" }

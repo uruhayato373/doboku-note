@@ -14,6 +14,7 @@ cover:
   hi: "5管理"
   hiSuffix: "どれで書くか"
   banner: "題材選びで半分決まる"
+  character: explaining
   meta: "無料記事"
   chips:
     - { icon: target, text: "現場が決める" }

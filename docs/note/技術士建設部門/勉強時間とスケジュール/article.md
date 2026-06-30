@@ -13,6 +13,7 @@ cover:
   hi: "逆算"
   hiSuffix: "で組む学習計画"
   banner: "勉強時間とスケジュールを試験日程から逆算する"
+  character: explaining
   meta: "無料記事"
   chips:
     - { icon: target, text: "7月の筆記から逆算" }

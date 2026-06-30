@@ -14,6 +14,7 @@ cover:
   hi: "受験資格"
   hiSuffix: "はこう変わった"
   banner: "一次は17歳から"
+  character: explaining
   meta: "無料記事"
   chips:
     - { icon: check, text: "一次は実務不要" }
