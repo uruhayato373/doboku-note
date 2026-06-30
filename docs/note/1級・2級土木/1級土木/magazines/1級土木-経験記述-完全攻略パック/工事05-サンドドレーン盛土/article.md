@@ -1,5 +1,6 @@
-﻿---
+---
 notePricing: paid
+price: 1280
 noteSeries: 1級土木-経験記述-完全攻略パック
 noteMagazine: 1級土木-経験記述-完全攻略パック
 utmCampaign: civil1-keiken-pack-koji05
@@ -45,6 +46,11 @@ cover:
 https://note.com/dobokunote/m/m150c9db08902
 
 ---
+
+<!-- cta:pack-top -->
+自分の工事に近い「想定工事」を選んで5管理すべての完成答案をそろえるなら、想定工事100×5管理を全網羅した完全攻略パックが最短です。
+
+https://note.com/dobokunote/m/m8290970a7f05
 
 ## 〔工事概要〕（記入例）
 
