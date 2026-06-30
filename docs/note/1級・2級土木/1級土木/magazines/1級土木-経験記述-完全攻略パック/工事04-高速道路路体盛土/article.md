@@ -3,10 +3,10 @@ notePricing: paid
 noteSeries: 1級土木-経験記述-完全攻略パック
 noteMagazine: 1級土木-経験記述-完全攻略パック
 utmCampaign: civil1-keiken-pack-koji04
-noteStatus: draft
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteStatus: published
+noteUrl: "https://note.com/dobokunote/n/n7f1e1a6ee660"
+noteId: "n7f1e1a6ee660"
+notePublishedAt: "2026-06-30"
 price: 1280
 paidBoundary: 品質管理
 coverTitle: ["1級土木 施工経験記述", "高速道路 路体・路床盛土", "5管理 完成答案"]
