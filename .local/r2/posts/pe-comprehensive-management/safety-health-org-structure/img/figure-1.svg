@@ -1,0 +1,159 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="労働安全衛生法の安全衛生管理体制：管理者・委員会ごとの選任規模要件と根拠条文を示すマトリクス表">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-sub    { font-size: 11px; fill: #555; }
+      .t-head   { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-main   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-note   { font-size: 11px; fill: #555; }
+      .t-warn   { font-size: 11px; font-weight: bold; fill: #d4a017; }
+      .t-foot   { font-size: 11px; fill: #555; }
+      .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.2; }
+      .box-surface  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.2; }
+      .badge-warn   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.2; }
+      .hdr-bg { fill: #e8f0fe; }
+      .t-hdr  { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .sep { stroke: #d7d7d7; stroke-width: 0.8; }
+    </style>
+  </defs>
+
+  <!-- テーブル外枠 x=8 width=384, y=8 height=452 -->
+  <rect x="8" y="8" width="384" height="452" rx="8" fill="none" stroke="#2e6da4" stroke-width="1.5"/>
+
+  <!-- 列ヘッダ背景 -->
+  <rect x="8" y="8" width="384" height="28" rx="8" class="hdr-bg"/>
+  <rect x="8" y="22" width="384" height="14" fill="#e8f0fe"/>
+
+  <!-- 列ヘッダテキスト -->
+  <text class="t-hdr" x="87" y="26" text-anchor="middle">役職・機関</text>
+  <text class="t-hdr" x="245" y="26" text-anchor="middle">選任・設置規模</text>
+  <text class="t-hdr" x="358" y="26" text-anchor="middle">条文</text>
+
+  <!-- 列区切り縦線 x=166, x=324 -->
+  <line x1="166" y1="8" x2="166" y2="460" class="sep"/>
+  <line x1="324" y1="8" x2="324" y2="460" class="sep"/>
+
+  <!-- ===== 管理者セクション ===== -->
+  <rect x="8" y="36" width="384" height="18" fill="#e8f0fe"/>
+  <text class="t-head" x="200" y="49" text-anchor="middle">管理者（個人選任）</text>
+  <line x1="8" y1="54" x2="392" y2="54" class="sep"/>
+
+  <!-- 行1: 総括安全衛生管理者 (height=64) -->
+  <rect x="8" y="54" width="158" height="64" class="box-brand"/>
+  <text class="t-main" x="87" y="74" text-anchor="middle">総括安全衛生</text>
+  <text class="t-main" x="87" y="90" text-anchor="middle">管理者</text>
+  <text class="t-note" x="87" y="108" text-anchor="middle">安全・衛生管理者等を指揮</text>
+
+  <rect x="166" y="54" width="158" height="64" class="box-brand"/>
+  <rect x="174" y="62" width="96" height="18" rx="3" class="badge-warn"/>
+  <text class="t-warn" x="222" y="75" text-anchor="middle">建設業等 100人〜</text>
+  <rect x="174" y="84" width="96" height="18" rx="3" class="badge-warn"/>
+  <text class="t-warn" x="222" y="97" text-anchor="middle">製造業等 300人〜</text>
+  <text class="t-note" x="321" y="86" text-anchor="end">（施行令</text>
+  <text class="t-note" x="321" y="100" text-anchor="end">第2条）</text>
+
+  <rect x="324" y="54" width="68" height="64" class="box-brand"/>
+  <text class="t-main" x="358" y="90" text-anchor="middle">第10条</text>
+
+  <line x1="8" y1="118" x2="392" y2="118" class="sep"/>
+
+  <!-- 行2: 安全管理者 (height=46) -->
+  <rect x="8" y="118" width="158" height="46" class="box-brand"/>
+  <text class="t-main" x="87" y="138" text-anchor="middle">安全管理者</text>
+  <text class="t-note" x="87" y="154" text-anchor="middle">安全の技術的事項を管理</text>
+
+  <rect x="166" y="118" width="158" height="46" class="box-brand"/>
+  <rect x="174" y="126" width="96" height="18" rx="3" class="badge-warn"/>
+  <text class="t-warn" x="222" y="139" text-anchor="middle">常時 50人以上</text>
+  <text class="t-note" x="250" y="155" text-anchor="middle">厚労省令資格者</text>
+
+  <rect x="324" y="118" width="68" height="46" class="box-brand"/>
+  <text class="t-main" x="358" y="145" text-anchor="middle">第11条</text>
+
+  <line x1="8" y1="164" x2="392" y2="164" class="sep"/>
+
+  <!-- 行3: 衛生管理者 (height=46) -->
+  <rect x="8" y="164" width="158" height="46" class="box-brand"/>
+  <text class="t-main" x="87" y="184" text-anchor="middle">衛生管理者</text>
+  <text class="t-note" x="87" y="200" text-anchor="middle">衛生の技術的事項を管理</text>
+
+  <rect x="166" y="164" width="158" height="46" class="box-brand"/>
+  <rect x="174" y="172" width="96" height="18" rx="3" class="badge-warn"/>
+  <text class="t-warn" x="222" y="185" text-anchor="middle">常時 50人以上</text>
+  <text class="t-note" x="250" y="201" text-anchor="middle">労働局長免許者</text>
+
+  <rect x="324" y="164" width="68" height="46" class="box-brand"/>
+  <text class="t-main" x="358" y="191" text-anchor="middle">第12条</text>
+
+  <line x1="8" y1="210" x2="392" y2="210" class="sep"/>
+
+  <!-- 行4: 産業医 (height=46) -->
+  <rect x="8" y="210" width="158" height="46" class="box-brand"/>
+  <text class="t-main" x="87" y="230" text-anchor="middle">産業医</text>
+  <text class="t-note" x="87" y="246" text-anchor="middle">労働者の健康管理等</text>
+
+  <rect x="166" y="210" width="158" height="46" class="box-brand"/>
+  <rect x="174" y="218" width="96" height="18" rx="3" class="badge-warn"/>
+  <text class="t-warn" x="222" y="231" text-anchor="middle">常時 50人以上</text>
+  <text class="t-note" x="250" y="247" text-anchor="middle">医師のうちから選任</text>
+
+  <rect x="324" y="210" width="68" height="46" class="box-brand"/>
+  <text class="t-main" x="358" y="237" text-anchor="middle">第13条</text>
+
+  <line x1="8" y1="256" x2="392" y2="256" class="sep"/>
+
+  <!-- ===== 委員会セクション ===== -->
+  <rect x="8" y="256" width="384" height="18" fill="#f5f5f5"/>
+  <text class="t-head" x="200" y="269" text-anchor="middle" fill="#555">委員会（調査審議機関）</text>
+  <line x1="8" y1="274" x2="392" y2="274" class="sep"/>
+
+  <!-- 行5: 安全委員会 (height=46) -->
+  <rect x="8" y="274" width="158" height="46" class="box-surface"/>
+  <text class="t-main" x="87" y="294" text-anchor="middle">安全委員会</text>
+  <text class="t-note" x="87" y="310" text-anchor="middle">危険防止・再発防止を審議</text>
+
+  <rect x="166" y="274" width="158" height="46" class="box-surface"/>
+  <rect x="174" y="282" width="102" height="18" rx="3" class="badge-warn"/>
+  <text class="t-warn" x="225" y="295" text-anchor="middle">建設業等 50人以上</text>
+  <text class="t-note" x="250" y="311" text-anchor="middle">政令で定める業種</text>
+
+  <rect x="324" y="274" width="68" height="46" class="box-surface"/>
+  <text class="t-main" x="358" y="301" text-anchor="middle" fill="#555">第17条</text>
+
+  <line x1="8" y1="320" x2="392" y2="320" class="sep"/>
+
+  <!-- 行6: 衛生委員会 (height=46) -->
+  <rect x="8" y="320" width="158" height="46" class="box-surface"/>
+  <text class="t-main" x="87" y="340" text-anchor="middle">衛生委員会</text>
+  <text class="t-note" x="87" y="356" text-anchor="middle">健康障害・再発防止を審議</text>
+
+  <rect x="166" y="320" width="158" height="46" class="box-surface"/>
+  <rect x="174" y="328" width="96" height="18" rx="3" class="badge-warn"/>
+  <text class="t-warn" x="222" y="341" text-anchor="middle">常時 50人以上</text>
+  <text class="t-note" x="250" y="357" text-anchor="middle">全業種</text>
+
+  <rect x="324" y="320" width="68" height="46" class="box-surface"/>
+  <text class="t-main" x="358" y="347" text-anchor="middle" fill="#555">第18条</text>
+
+  <line x1="8" y1="366" x2="392" y2="366" class="sep"/>
+
+  <!-- 行7: 安全衛生委員会（横結合）height=30 -->
+  <rect x="8" y="366" width="316" height="30" class="box-surface"/>
+  <text class="t-main" x="166" y="379" text-anchor="middle">安全衛生委員会（第17・18条の代替設置）</text>
+  <text class="t-note" x="166" y="391" text-anchor="middle">両委員会の設置義務がある場合に代替設置可</text>
+  <rect x="324" y="366" width="68" height="30" class="box-surface"/>
+  <text class="t-main" x="358" y="385" text-anchor="middle" fill="#555">第19条</text>
+
+  <!-- テーブル外枠下辺（rx補正） -->
+  <line x1="8" y1="396" x2="392" y2="396" class="sep"/>
+
+  <!-- フッター帯 -->
+  <rect x="8" y="468" width="384" height="24" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-foot" x="200" y="484" text-anchor="middle">建設業等100人未満でも衛生委員会（50人〜）は設置義務あり</text>
+
+  <!-- 補足テキスト -->
+  <text class="t-note" x="200" y="414" text-anchor="middle">※ 建設業等：建設・鉱業・運送業など</text>
+  <text class="t-note" x="200" y="430" text-anchor="middle">　製造業等：製造・電気・ガスなど</text>
+  <text class="t-note" x="200" y="438" text-anchor="middle">※ 元方事業者の統括安全衛生管理義務（第15条）も別途あり</text>
+  <text class="t-note" x="200" y="456" text-anchor="middle">※ 安全衛生推進者（10〜49人）は第12条の2</text>
+</svg>
