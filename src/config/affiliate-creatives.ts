@@ -261,20 +261,26 @@ export function resolvePeConsultingArticleEndCard(): CareerArticleEndCard {
  *
  * 真実源: docs/project/04_運営/02_アフィリエイト提携状況.md。
  */
-export function resolveCategoryCareerAd(
+export function resolveCategoryCareerAds(
   category: string,
-): { creative: SidebarAdCreative; trackLabel: string } | null {
+): Array<{ creative: SidebarAdCreative; trackLabel: string }> {
   if (category === "pe-comprehensive-management") {
-    return { creative: PE_CONSULTING_CAREER_AD, trackLabel: "DXConsulting-sidebar" };
+    return [{ creative: PE_CONSULTING_CAREER_AD, trackLabel: "DXConsulting-sidebar" }];
   }
   if (
     category === "civil-construction-1" ||
     category === "civil-construction-2" ||
     category === "pe-construction"
   ) {
-    // pe-construction（建設部門）も BuildJob/GKS の建設・施工管理セグメントに適合（2026-06-26）。
-    // slug ハッシュで建設JOBs(arm B) ↔ ビルドジョブ/GKS(arm A) の A/B（カテゴリページは1枚＝固定 arm）。
-    return resolveCareerSidebarAbArm(category);
+    // カテゴリ hub は低意図のブラウジング文脈。建設JOBs（登録 ¥4,500）とビルドジョブ（面談 ¥50,000）は
+    // 行動が異なる**補完案件**（代替でない＝A8 は別プログラムで別々に成果課金）ため、A/B で 1 つに
+    // 絞らず**両方**出して読者に選ばせる（harvest・2026-06-29）。記事ページ（読書意図）は別途 slug
+    // ハッシュ A/B（resolveDocsCareerSidebarAd / resolveCareerArticleEndCard）を維持＝直交。
+    // 各 creative は自前 pixelSrc を持つ＝別プログラムの 1 ピクセルずつ（同一 mat 二重発火ではない）。
+    return [
+      { creative: KENSETSU_JOBS_CAREER_AD, trackLabel: "KensetsuJobs-sidebar" },
+      resolveCareerSidebarAd(), // ビルドジョブ（〜8/31）/ GKS（9-01〜）
+    ];
   }
-  return null;
+  return [];
 }

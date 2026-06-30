@@ -5,7 +5,7 @@ import { type DocGroup } from '@/lib/category-groups';
 import { DocCard, DocSection } from '@/components/category/CategorySections';
 
 /** civil-construction-1: primary をテーブル、secondary の年度別を統合 */
-export function CivilConstruction1View({ groups, mobileCareerAd }: { groups: DocGroup[]; mobileCareerAd: ReactNode }) {
+export function CivilConstruction1View({ groups, mobileCareerAds = [] }: { groups: DocGroup[]; mobileCareerAds?: ReactNode[] }) {
   const guideGroup = groups.find(g => g.title === getGroupLabel('civil-construction-1', 'guide'));
   const textbookGroup = groups.find(g => g.title === getGroupLabel('civil-construction-1', 'textbook'));
   const primaryGroup = groups.find(g => g.title === getGroupLabel('civil-construction-1', 'primary'));
@@ -40,7 +40,7 @@ export function CivilConstruction1View({ groups, mobileCareerAd }: { groups: Doc
   return (
     <>
       {guideGroup && <DocSection group={guideGroup} />}
-      {mobileCareerAd}
+      {mobileCareerAds[0]}
       {textbookGroup && (
         <section>
           <div className="mb-6">
@@ -64,6 +64,7 @@ export function CivilConstruction1View({ groups, mobileCareerAd }: { groups: Doc
           </div>
         </section>
       )}
+      {mobileCareerAds[1]}
       {primaryGroup && (
         <DocSection
           group={{
@@ -90,7 +91,7 @@ export function CivilConstruction1View({ groups, mobileCareerAd }: { groups: Doc
 }
 
 /** civil-construction-2: 2級向け、前期/後期テーブル */
-export function CivilConstruction2View({ groups, mobileCareerAd }: { groups: DocGroup[]; mobileCareerAd: ReactNode }) {
+export function CivilConstruction2View({ groups, mobileCareerAds = [] }: { groups: DocGroup[]; mobileCareerAds?: ReactNode[] }) {
   const guideGroup = groups.find(g => g.title === getGroupLabel('civil-construction-2', 'guide'));
   const textbookGroup = groups.find(g => g.title === getGroupLabel('civil-construction-2', 'textbook'));
   const primaryGroup = groups.find(g => g.title === getGroupLabel('civil-construction-2', 'primary'));
@@ -106,8 +107,9 @@ export function CivilConstruction2View({ groups, mobileCareerAd }: { groups: Doc
   return (
     <>
       {guideGroup && <DocSection group={guideGroup} />}
-      {mobileCareerAd}
+      {mobileCareerAds[0]}
       {textbookGroup && <DocSection group={textbookGroup} />}
+      {mobileCareerAds[1]}
       {primaryGroup && (
         <DocSection
           group={{
@@ -146,7 +148,7 @@ export function PeFirstStageView({ groups }: { groups: DocGroup[] }) {
 }
 
 /** pe-comprehensive-management: ガイド・ピラー・過去問・キーワード索引導線 */
-export function PeComprehensiveView({ groups, mobileCareerAd }: { groups: DocGroup[]; mobileCareerAd: ReactNode }) {
+export function PeComprehensiveView({ groups, mobileCareerAds = [] }: { groups: DocGroup[]; mobileCareerAds?: ReactNode[] }) {
   const guideGroup = groups.find(g => g.title === getGroupLabel('pe-comprehensive-management', 'guide'));
   const pillarGroup = groups.find(g => g.title === getGroupLabel('pe-comprehensive-management', 'pillar'));
   const pastExamGroup = groups.find(g => g.title === getGroupLabel('pe-comprehensive-management', 'pastExam'));
@@ -157,7 +159,7 @@ export function PeComprehensiveView({ groups, mobileCareerAd }: { groups: DocGro
   return (
     <>
       {guideGroup && guideGroup.docs.length > 0 && <DocSection group={guideGroup} />}
-      {mobileCareerAd}
+      {mobileCareerAds[0]}
       {pillarGroup && <DocSection group={pillarGroup} />}
       {pastExamGroup && (
         <DocSection group={pastExamGroup} layout="pe-exam-table" />

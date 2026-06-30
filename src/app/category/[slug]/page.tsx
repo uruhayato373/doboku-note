@@ -20,7 +20,7 @@ import AuthorSidebarCard from '@/components/ui/AuthorSidebarCard';
 import { resolveCategoryMagazines } from '@/lib/magazine-placement';
 import { getMagazine } from '@/lib/note-magazines';
 import SidebarAdBanner from '@/components/ui/SidebarAdBanner';
-import { resolveCategoryCareerAd } from '@/config/affiliate-creatives';
+import { resolveCategoryCareerAds } from '@/config/affiliate-creatives';
 
 export async function generateStaticParams() {
   const categories = getAllCategories();
@@ -86,29 +86,30 @@ export default async function CategoryPage({
     .map((s) => ({ slot: s, magazine: getMagazine(s.magazineId) }))
     .filter((x): x is { slot: typeof x.slot; magazine: NonNullable<typeof x.magazine> } => Boolean(x.magazine));
 
-  // 転職アフィリ（資格別セグメント）。PC は右サイドバー上部に sticky 配置してファーストビュー内で
-  // インプレッションを確保し、モバイルは本文 1 セクション目の直後に visible 配置する（記事到達を阻害しない）。
-  // ピクセルは PC サイドバー側のみ発火させ「1 ページ 1 ピクセル」を厳守（モバイルは href のみ）。
-  // creative は資格層に合わせて出し分け（civil=施工管理系 BuildJob/GKS、pe=ハイクラス DX/コンサル）。
-  // 戻り値 null＝転職枠なし（concrete / pe-construction / pe-first-stage は単一カラム）。
-  const careerSidebar = resolveCategoryCareerAd(slug);
+  // 転職アフィリ（資格別セグメント）。カテゴリ hub は **両方表示（show-both）**: civil/建設部門は
+  // 建設JOBs（登録 ¥4,500）＋ビルドジョブ（面談 ¥50,000）の補完 2 案件を出し、読者に選ばせる。
+  // PC は右サイドバーに縦積み、モバイルは記事カードの隙間（グループ境界）に配置して可視化する。
+  // ピクセルは PC サイドバー側のみ発火（モバイルは href のみ）＝各プログラム 1 ピクセルずつ。
+  // 戻り値 []＝転職枠なし（concrete / pe-first-stage は単一カラム）。記事ページは別途 A/B（直交）。
+  const careerAds = resolveCategoryCareerAds(slug);
   // 右サイドバー（PC・≥993px）は「note 有料マガジン CTA」または「転職枠」のどちらかがあれば出す。
   // note CTA は冒頭全幅グリッドから PC 右サイドバーへ集約し、モバイルは記事一覧の下に出す（2026-06-20）。
   // サイドバーは縦積みのため上位 3 マガジン（placement 優先順）に絞ってコンパクトに保つ。
   const hubMagazines = categoryMagazines.slice(0, 3);
   // モバイル本文中の visible バナー（pixelSrc を渡さない＝PC サイドバー側が唯一の発火源）。
-  const mobileCareerAd = careerSidebar ? (
-    <div className="zenn-desktop:hidden my-10">
+  // 各案件を 1 枚ずつの node にしてビューのグループ境界に分散配置する（カードの隙間に「両方」）。
+  const mobileCareerAds = careerAds.map((ad, i) => (
+    <div key={ad.trackLabel + i} className="zenn-desktop:hidden my-10">
       <SidebarAdBanner
-        href={careerSidebar.creative.href}
-        imageSrc={careerSidebar.creative.imageSrc}
-        alt={careerSidebar.creative.alt}
-        width={careerSidebar.creative.width}
-        height={careerSidebar.creative.height}
-        trackLabel={careerSidebar.trackLabel}
+        href={ad.creative.href}
+        imageSrc={ad.creative.imageSrc}
+        alt={ad.creative.alt}
+        width={ad.creative.width}
+        height={ad.creative.height}
+        trackLabel={ad.trackLabel}
       />
     </div>
-  ) : null;
+  ));
 
   return (
     <PageShell variant="article">
@@ -151,13 +152,13 @@ export default async function CategoryPage({
           ) : groups ? (
             <div className="space-y-16">
               {slug === 'civil-construction-1' ? (
-                <CivilConstruction1View groups={groups} mobileCareerAd={mobileCareerAd} />
+                <CivilConstruction1View groups={groups} mobileCareerAds={mobileCareerAds} />
               ) : slug === 'civil-construction-2' ? (
-                <CivilConstruction2View groups={groups} mobileCareerAd={mobileCareerAd} />
+                <CivilConstruction2View groups={groups} mobileCareerAds={mobileCareerAds} />
               ) : slug === 'pe-first-stage' ? (
                 <PeFirstStageView groups={groups} />
               ) : slug === 'pe-comprehensive-management' ? (
-                <PeComprehensiveView groups={groups} mobileCareerAd={mobileCareerAd} />
+                <PeComprehensiveView groups={groups} mobileCareerAds={mobileCareerAds} />
               ) : slug === 'pe-construction' ? (
                 <PeConstructionView groups={groups} />
               ) : (
@@ -186,15 +187,16 @@ export default async function CategoryPage({
           <aside className="hidden zenn-desktop:block w-[300px] shrink-0 py-10 sm:py-12">
               {/* 2026-06-27 sticky 解除: 読中に広告/著者/ランキングを追従させない */}
               <div className="space-y-3">
-                {/* 転職アフィリ（PC 右サイドバー最上部・sticky）。当ページ唯一のピクセル発火源。
-                    ファーストビュー内でインプレッションを最大化するため最上部に置く（2026-06-26 並べ替え）。
-                    creative は resolveCareerSidebarAd で期間出し分け（〜2026-08-31 ビルドジョブ / 以降 GKS）。 */}
-                {careerSidebar && (
+                {/* 転職アフィリ（PC 右サイドバー最上部）。当ページのピクセル発火源（各プログラム 1 回ずつ）。
+                    civil/建設部門は 建設JOBs＋ビルドジョブ の両方を縦積み（show-both）、総監は DX 単独。
+                    creative は resolveCategoryCareerAds が解決（建設JOBs ＋ resolveCareerSidebarAd の期間出し分け）。 */}
+                {careerAds.map((ad, i) => (
                   <SidebarAdBanner
-                    {...careerSidebar.creative}
-                    trackLabel={careerSidebar.trackLabel}
+                    key={ad.trackLabel + i}
+                    {...ad.creative}
+                    trackLabel={ad.trackLabel}
                   />
-                )}
+                ))}
                 {/* 運営者プロフィール（合格体験者＝発注者）。転職枠の直下に置き E-E-A-T を提示（2026-06-26）。 */}
                 <AuthorSidebarCard />
                 {/* 人気記事ランキング（GA4 上位 top5・直近 28 日）。データ無しなら描画されない。 */}
