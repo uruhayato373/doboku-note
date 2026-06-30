@@ -1,7 +1,7 @@
 <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="フレックスタイム制と変形労働時間制の対比。柔軟化する対象はフレックスが日々の始業・終業時刻、変形が期間内の労働時間配分。始業・終業時刻の決定権者はフレックスが労働者本人、変形は使用者が事前特定する点が識別の核心。根拠はフレックスが労基法第32条の3、変形が第32条の2・4・5。時間の基準はフレックスが清算期間で総労働時間を清算、変形は期間平均で週40時間以内。向く業務はフレックスが研究開発・企画・事務、変形が建設・製造など繁閑差の大きい業種。裁量労働制・高度プロフェッショナル制度も関連する柔軟な働き方。">
   <rect width="400" height="500" fill="#ffffff"/>
-  <rect id="topic-band" x="0" y="0" width="400" height="32" fill="#1a3a5c"/>
-  <text x="200" y="21" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">フレックス vs 変形労働時間制</text>
+  <rect id="topic-band" x="0" y="0" width="400" height="22" fill="#1a3a5c"/>
+  <text x="200" y="15" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff">フレックス vs 変形労働時間制</text>
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
