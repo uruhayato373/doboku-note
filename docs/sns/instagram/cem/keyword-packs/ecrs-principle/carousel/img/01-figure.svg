@@ -1,4 +1,4 @@
-<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="改善活動の3手法。ECRS（排除・結合・交換・簡素化の優先順）・5S（整理整頓清掃清潔躾）・目で見る管理（可視化）を並列カードで示した図">
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="改善活動の3手法。ECRS（排除・結合・再配置・簡素化の優先順）・5S（整理整頓清掃清潔躾）・目で見る管理（可視化）を並列カードで示した図">
   <rect width="400" height="500" fill="#ffffff"/>
   <defs>
     <style>
@@ -67,7 +67,7 @@
   <rect class="row-r" x="38" y="156" width="348" height="40" rx="6"/>
   <circle class="badge-brand" cx="64" cy="176" r="14"/>
   <text class="t-num" x="64" y="181" text-anchor="middle">R</text>
-  <text class="t-label" x="88" y="172">交換</text>
+  <text class="t-label" x="88" y="172">再配置</text>
   <text class="t-en"   x="88" y="188">Rearrange</text>
   <text class="t-note" x="384" y="179" text-anchor="end">順序・手順を組み替える</text>
 
