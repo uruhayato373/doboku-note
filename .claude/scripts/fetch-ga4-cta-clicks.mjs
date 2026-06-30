@@ -10,8 +10,10 @@
  * report-monetization-coverage.mts の CTR 分子になる。
  *
  * 使い方:
- *   npm run fetch-ga4-cta-clicks                 # 過去28日（既定）
+ *   npm run fetch-ga4-cta-clicks                 # 過去28日（既定・eventName × pagePath）
  *   npm run fetch-ga4-cta-clicks -- --days 7     # 過去7日
+ *   npm run fetch-ga4-cta-clicks -- --by-device  # eventName × deviceCategory（モバイル vs PC の CTA クリック）
+ *                                                #   → ga4-cta-clicks-by-device-*.json（既定の page 別とは別ファイル・downstream 非破壊）
  *
  * 認証は fetch-ga4-data.mjs と同じサービスアカウント鍵（.env.local）。
  * 計測は本番（NODE_ENV=production）でのみ発火するため、デプロイ後に
@@ -30,7 +32,7 @@ const EVENT_NAMES = ["note_cta_click", "affiliate_cta_click"];
 
 function parseArgs() {
   const args = process.argv.slice(2);
-  const opts = { days: DEFAULT_DAYS, japanOnly: true };
+  const opts = { days: DEFAULT_DAYS, japanOnly: true, byDevice: false };
   for (let i = 0; i < args.length; i++) {
     switch (args[i]) {
       case "--days":
@@ -38,6 +40,12 @@ function parseArgs() {
         break;
       case "--no-japan-only":
         opts.japanOnly = false;
+        break;
+      case "--by-device":
+        // pagePath の代わりに deviceCategory を 2 つ目の dimension にする。
+        // モバイル/PC 別の CTA クリックを取り、device 別 sessions（fetch-ga4-data --dimension device）を
+        // 分母にしてデバイス別 CTR を出す。downstream（report-monetization-coverage = page 別）は非破壊。
+        opts.byDevice = true;
         break;
     }
   }
@@ -96,10 +104,11 @@ async function fetchCtaClicks(client, propertyId, opts) {
     });
   }
 
+  const firstDim = opts.byDevice ? "deviceCategory" : "pagePath";
   const request = {
     property: propertyId,
     dateRanges: [{ startDate, endDate }],
-    dimensions: [{ name: "pagePath" }, { name: "eventName" }],
+    dimensions: [{ name: firstDim }, { name: "eventName" }],
     metrics: [{ name: "eventCount" }],
     dimensionFilter: { andGroup: { expressions: andFilters } },
     orderBys: [{ metric: { metricName: "eventCount" }, desc: true }],
@@ -108,7 +117,7 @@ async function fetchCtaClicks(client, propertyId, opts) {
 
   const [response] = await client.runReport(request);
   const rows = (response.rows || []).map((row) => ({
-    page: row.dimensionValues?.[0]?.value || "",
+    [opts.byDevice ? "device" : "page"]: row.dimensionValues?.[0]?.value || "",
     eventName: row.dimensionValues?.[1]?.value || "",
     eventCount: parseInt(row.metricValues?.[0]?.value || "0", 10),
   }));
@@ -119,6 +128,7 @@ async function fetchCtaClicks(client, propertyId, opts) {
       endDate,
       eventNames: EVENT_NAMES,
       japanOnly: opts.japanOnly,
+      byDevice: opts.byDevice,
       propertyId,
     },
     rows,
@@ -132,7 +142,10 @@ async function main() {
 
   if (!existsSync(OUTPUT_DIR)) mkdirSync(OUTPUT_DIR, { recursive: true });
   const stamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
-  const outPath = join(OUTPUT_DIR, `ga4-cta-clicks-${stamp}.json`);
+  const outPath = join(
+    OUTPUT_DIR,
+    `ga4-cta-clicks${opts.byDevice ? "-by-device" : ""}-${stamp}.json`,
+  );
   writeFileSync(outPath, JSON.stringify(data, null, 2));
 
   console.log(`\n期間: ${data.meta.startDate} 〜 ${data.meta.endDate}`);
