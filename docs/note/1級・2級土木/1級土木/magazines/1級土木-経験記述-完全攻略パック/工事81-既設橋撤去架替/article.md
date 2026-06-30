@@ -19,6 +19,7 @@ noteUrl: ""
 noteId: ""
 notePublishedAt: ""
 price: 1280
+paidBoundary: 品質管理
 ---
 # 1級土木 施工経験記述｜既設橋 撤去・架替（橋全体の解体から新橋架設）5管理 完成答案
 

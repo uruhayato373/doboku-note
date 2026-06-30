@@ -9,12 +9,12 @@
  *
  * 工程: account ゲート → エディタ → カバー(eyecatch) → タイトル → 本文(ClipboardEvent paste・
  *   markdown変換) → リンクカード化(各URL行を Range選択→Delete→type→Enter＝note の埋め込み検出は type で起動・paste不可) → 下書き保存 → 公開に進む → 有料+価格(#price JS setter)
- *   → タグ → 有料エリア設定 → 有料境界を「試験問題/予想問題」直前に設定 → ★境界検証ゲート★ → 投稿する。
+ *   → タグ → 有料エリア設定 → 有料境界を BOUNDARY 見出し（既定=「試験問題/予想問題」・frontmatter `paidBoundary` か `--boundary-regex` で上書き）直前に設定 → ★境界検証ゲート★ → 投稿する。
  *
  * 安全弁（収益アカウントのため）:
  *   1. account=dobokunote を assert（不一致は即中断・1記事も触らない）
  *   2. 既定は draft（下書き保存のみ）。実公開は --commit 必須
- *   3. --commit でも「有料境界が試験問題/予想問題の直前」を検証してからのみ投稿（boundaryBeforeExam=false は中断）
+ *   3. --commit でも「有料境界が BOUNDARY 見出しの直前」を検証してからのみ投稿（boundaryBeforeExam=false は中断）
  *   4. 公開後に note 公開ページを実取得し 無料プレビュー/カード/価格 を実体検証（偽成功ガード）
  *
  * 使い方:
@@ -76,6 +76,9 @@ const tagsCandidates = [typeSuffix && join(dir, `hashtags-${typeSuffix}.txt`), j
 const tagsFile = tagsCandidates.find(existsSync);
 const tags = tagsFile ? readFileSync(tagsFile, 'utf8').split(/\r?\n/).map((s) => s.trim().replace(/^#/, '')).filter(Boolean).slice(0, 99) : [];
 const isPaid = notePricing === 'paid' && price > 0;
+// 有料境界の見出し regex（H2 の innerText 先頭一致）。既定=総監/建設の「試験問題/予想問題」。
+// 他コンテンツ型は frontmatter `paidBoundary` か `--boundary-regex` で上書き（例: 1級土木 工事別パック=「品質管理」）。
+const BOUNDARY = getArg('--boundary-regex') || fmField('paidBoundary') || '試験問題|予想問題';
 
 // ガード: プレースホルダ残・空タイトル
 if (/\{\{|※note\s*公開後|MAGAZINE_URL/.test(body)) { console.error('ABORT: プレースホルダが本文に残存'); process.exit(1); }
@@ -194,32 +197,34 @@ try {
     } catch (e) { console.log('[10] tags skip:', e.message.split('\n')[0]); }
   }
 
-  // 11. 有料エリア設定 → 境界を 試験問題/予想問題 直前へ
+  // 11. 有料エリア設定 → 境界を BOUNDARY 見出し直前へ（既定=試験問題/予想問題・civil=品質管理）
   let boundaryOk = !isPaid; // 無料は境界不要
   if (isPaid) {
     const area = page.getByRole('button', { name: '有料エリア設定' });
     if (await area.count()) {
       await area.first().click(); await sleep(3500);
-      const t = await page.evaluate(() => {
+      const t = await page.evaluate((boundaryStr) => {
+        const re = new RegExp('^(' + boundaryStr + ')');
         const isLineBtn = (el) => (el.tagName === 'BUTTON' || el.getAttribute('role') === 'button') && /ラインをこの場所に変更/.test(el.innerText || el.getAttribute('aria-label') || '');
         const seq = Array.from(document.querySelectorAll('h1,h2,h3,button,[role=button]'));
-        const hIdx = seq.findIndex((el) => el.tagName === 'H2' && /^(試験問題|予想問題)/.test((el.innerText || '').trim()));
-        if (hIdx < 0) return { ok: false, reason: 'no 試験/予想問題 h2' };
+        const hIdx = seq.findIndex((el) => el.tagName === 'H2' && re.test((el.innerText || '').trim()));
+        if (hIdx < 0) return { ok: false, reason: 'no boundary h2: ' + boundaryStr };
         let btn = null; for (let i = hIdx - 1; i >= 0; i--) { if (isLineBtn(seq[i])) { btn = seq[i]; break; } }
         if (!btn) return { ok: false, reason: 'no preceding line-button' };
         document.querySelectorAll('[data-np-target]').forEach((e) => e.removeAttribute('data-np-target')); btn.setAttribute('data-np-target', '1');
         return { ok: true, heading: (seq[hIdx].innerText || '').slice(0, 24) };
-      });
+      }, BOUNDARY);
       console.log('[11] boundary target:', JSON.stringify(t));
       if (t.ok) {
         await page.click('[data-np-target="1"]'); await sleep(2500);
-        const v = await page.evaluate(() => {
+        const v = await page.evaluate((boundaryStr) => {
+          const re = new RegExp('^(' + boundaryStr + ')');
           const seq = Array.from(document.querySelectorAll('h1,h2,h3,p,button,[role=button]'));
           const lineIdx = seq.findIndex((el) => /このラインより先を有料にする/.test(el.innerText || ''));
-          const hIdx = seq.findIndex((el) => el.tagName === 'H2' && /^(試験問題|予想問題)/.test((el.innerText || '').trim()));
+          const hIdx = seq.findIndex((el) => el.tagName === 'H2' && re.test((el.innerText || '').trim()));
           let between = 0; if (lineIdx >= 0 && hIdx > lineIdx) for (let i = lineIdx + 1; i < hIdx; i++) { const tx = (seq[i].innerText || '').trim(); if (tx && !/ラインをこの場所に変更|このラインより先/.test(tx)) between++; }
           return { lineIdx, hIdx, between, boundaryBeforeExam: lineIdx >= 0 && hIdx > lineIdx && between === 0 };
-        });
+        }, BOUNDARY);
         console.log('[11] boundary verify:', JSON.stringify(v));
         boundaryOk = v.boundaryBeforeExam;
       }

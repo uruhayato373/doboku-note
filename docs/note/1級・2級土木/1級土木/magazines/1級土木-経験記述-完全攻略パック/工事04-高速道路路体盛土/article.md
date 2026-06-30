@@ -8,6 +8,7 @@ noteUrl: ""
 noteId: ""
 notePublishedAt: ""
 price: 1280
+paidBoundary: 品質管理
 coverTitle: ["1級土木 施工経験記述", "高速道路 路体・路床盛土", "5管理 完成答案"]
 cover:
   leadIn: "1級土木施工管理技士 二次"
