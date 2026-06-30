@@ -3,7 +3,7 @@ notePricing: paid
 noteSeries: 1級土木-経験記述-完全攻略パック
 noteMagazine: 1級土木-経験記述-完全攻略パック
 utmCampaign: civil1-keiken-pack-koji20
-noteStatus: draft
+noteStatus: published
 coverTitle: ["1級土木 施工経験記述", "水路トンネル 覆工コンクリート", "5管理 完成答案"]
 cover:
   leadIn: "1級土木施工管理技士 二次"
@@ -15,9 +15,9 @@ cover:
     - { icon: doc, text: "5管理×完成答案" }
     - { icon: target, text: "置換ガイド付" }
     - { icon: check, text: "採点者視点" }
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n5d9174475072"
+noteId: "n5d9174475072"
+notePublishedAt: "2026-06-30"
 price: 1280
 paidBoundary: 品質管理
 ---

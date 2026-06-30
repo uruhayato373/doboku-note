@@ -5,10 +5,10 @@ paidBoundary: 品質管理
 noteSeries: 1級土木-経験記述-完全攻略パック
 noteMagazine: 1級土木-経験記述-完全攻略パック
 utmCampaign: civil1-keiken-pack-koji23
-noteStatus: draft
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteStatus: published
+noteUrl: "https://note.com/dobokunote/n/nae80802d7745"
+noteId: "nae80802d7745"
+notePublishedAt: "2026-06-30"
 coverTitle: ["1級土木 施工経験記述", "寒中コンクリート（冬季打設）5管理 完成答案"]
 cover:
   leadIn: "1級土木施工管理技士 二次"
