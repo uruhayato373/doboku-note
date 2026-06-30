@@ -28,6 +28,7 @@
     "note-price-sweep": "node scripts/note-price-sweep.mjs",
     "note-publish-magazine": "node scripts/note-publish-magazine.mjs",
     "note-update-body": "node scripts/note-update-body.mjs",
+    "note-update-cover": "node scripts/note-update-cover.mjs",
     "note-attach-file": "node scripts/note-attach-file.mjs",
     "note-attach-magazine-pdfs": "node scripts/note-attach-magazine-pdfs.mjs",
     "note-meta-lint": "node scripts/note-meta-lint.mjs",
