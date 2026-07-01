@@ -529,6 +529,25 @@ Hero → ExamCards → LatestArticles → AboutSection
 **残**: 本体再編コミット(437853fbb)済。`.claude/` 配下19ファイルの旧 `_exam-packs` パス参照更新（sns-config.mjs→パック生成2/スキル実行5/その他5/エージェント.md 8）。完了確認= `rg "_exam-packs" .claude/` が0件。
 **出典**: `docs/handoffs/_archive/2026-06-23-ig-dir-reorg-remaining.md`
 
+### 1級土木 完全攻略パック 公開後の仕上げ 🟡
+**前提**: 100本note公開＋マガジン `m8290970a7f05` 100/100収録＋SKU `civil-1-keiken-complete-pack` published:true 完了（PR#313 merged）。以下は公開後の live 化残作業（repo に痕跡が出ない browser/別PC作業）。
+**残**: 1.PDF添付（civil用pdf-spec設計→`magazine-to-pdf.mjs`→`note-attach-magazine-pdfs.mjs --commit`・Windows必須）2.各記事へネイティブ目次挿入（`publish-note/references/editor-operations.md` Phase 4.5）3.無料23本へ冒頭CTA live反映（`note-append-cta.mjs`・ソース配線済/ライブ未反映）4.`note-publish.mjs --schedule` の予約投稿selector修復（`.tmp/np-sched-*.png` から作り直し）5.stray下書き3件削除（`n3e2475d0b6d5`/`na5b4cef4fcfe`/`nfc608702b477`）。
+**出典**: `docs/handoffs/_archive/2026-06-30-civil1-flagship-postpublish.md` / `docs/handoffs/_archive/2026-06-30-civil1-flagship-publish.md`
+
+### OGPタイトル改行 per-page 手動チューニング 🟢
+**前提**: ダークOGPの主題/サブタイトル手動制御（`frontmatter.ogp.title/subtitle`）は実装・デプロイ済。作業は frontmatter編集＋プレビュー＋commit のみ（コード変更不要）。
+**残**: 2026-06-29時点で主題が3行以上に折れる published ページ 81件（過去問 `pe-construction-r0X-*` が最多／論文キーワード／長い説明系）。`node .tmp/title-audit.mjs`（出典handoff内スクリプト）で再カウント→ `ogp.title` の `\n` を詰めて `npm run ogp -- <slug> --force` 再生成→commit→区切りで `/deploy`。
+**出典**: `docs/handoffs/_archive/2026-06-29-ogp-title-tuning.md`
+
+### 2級土木 想定工事バンクの membership 2級ライブラリ内包 🟣
+**前提**: 想定工事バンク36本＋索引は note公開・SKU `civil-2-koji-bank` published:true 完了（¥5,480）。会員ローンチ（§5 死守コア2）後に会員特典として2級ライブラリへ内包。会員ローンチ自体が律速。
+**出典**: `docs/handoffs/_archive/2026-07-01-civil2-koji-bank-note-publish.md`
+
+### サイトアクセス×収益化 戦略の深掘り論点 🟡
+**前提**: データ検証で「検索→サイト→note」が実収益回路と判明（サイト流入84%オーガニック・note環流4%未満・CTAクリックの試験構成が売上と一致）。土木は同回路が未稼働＝最大の伸びしろ。分析結論は出典handoff内に一次保持（恒久戦略docへ未転記）。
+**残（別PC深掘り・全未着手）**: 1.勝ち記事の型抽出（GA4 `ga4-page-*`×`ga4-cta-clicks-*` で総監の勝ちパターンをテンプレ化→土木移植）2.土木SEOビルド計画（`textbook-*`34本×テキスト13章カバレッジギャップ表→未カバー節の原著記事化）3.土木のサイト→note導線整備（総監の効くCTA/UTM型を土木全記事へ）4.売上×イベント相関（sales-log×SNS/note公開日でnote-native分ブラケット）5.note内発見性の手動検証（noteアクセス状況ダッシュボード）6.AI検索対策（openai/chatgpt/copilot流入の実態とAI引用構造）。
+**出典**: `docs/handoffs/_archive/2026-07-01-site-access-monetization-strategy.md`
+
 ### note 編集スクリプトの共通処理を共有lib化（Tier 2 保守性改善）🟢
 **発端**: 2026-06-24、note-update-body の paste 無音失敗事故。原因の一つは account ゲート/ClipboardEvent paste/リンクカード化/ブラウザ起動が note-publish・note-update-body・note-append-cta 等3〜5箇所にコピペで分岐し、note-publish の正しい paste 条件が note-update-body に伝播していなかったこと。
 **方針**: 震源の共通処理を `scripts/lib/note-browser.mjs`（launchNoteBrowser/accountGate/openEditor/pasteBody{clear}/cardifyUrls/clickPublishProceed/clickUpdate）へ一元化し、上記スクリプトを差し替える。**有料境界(paywall boundary)ロジックは収益直結のため統合せず各スクリプトにインライン保持**（壊すと有料エリアが崩れる）。
