@@ -1,5 +1,6 @@
 ---
 notePricing: paid
+paidBoundary: 品質管理
 noteSeries: 2級土木-想定工事バンク
 noteMagazine: 2級土木-想定工事バンク
 utmCampaign: civil2-koji-bank-koji37
