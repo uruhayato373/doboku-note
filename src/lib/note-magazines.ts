@@ -476,7 +476,7 @@ const MAGAZINES_RAW = {
   // 2級は別SKU(¥4,980前後)。
   'civil-1-keiken-complete-pack': {
     id: 'civil-1-keiken-complete-pack',
-    published: false,
+    published: true,
     noteUrl: 'https://note.com/dobokunote/m/m8290970a7f05',
     title: '1級土木 施工経験記述｜完全攻略パック（想定工事×5管理 全網羅）',
     description:
