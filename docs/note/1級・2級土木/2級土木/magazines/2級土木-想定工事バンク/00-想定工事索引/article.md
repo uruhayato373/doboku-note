@@ -48,77 +48,77 @@ https://note.com/dobokunote/m/m8554e87ca6ec
 
 盛土・切土・軟弱地盤対策など、2級で出題頻度の高い土工系。
 
-- 道路改良盛土
-- 河川築堤盛土
-- サンドドレーン盛土（軟弱地盤改良）
-- セメント改良土盛土
-- 切土法面・地すべり対策
-- 補強土壁（テールアルメ）
-- 高含水比粘性土盛土
+- [道路改良盛土](https://note.com/dobokunote/n/n1296dedfb870)
+- [河川築堤盛土](https://note.com/dobokunote/n/n5b1cb3ed6bf1)
+- [サンドドレーン盛土](https://note.com/dobokunote/n/na49d36eebeea)
+- [セメント改良土盛土](https://note.com/dobokunote/n/n3d8d94c9e88a)
+- [切土法面・地すべり対策](https://note.com/dobokunote/n/n60e2f0bd7185)
+- [補強土壁（テールアルメ）](https://note.com/dobokunote/n/nb7d2b121782d)
+- [高含水比粘性土盛土](https://note.com/dobokunote/n/n913f3e6076f0)
 
 ## コンクリート工（5工事）
 
 水密性・出来形・暑中寒中など、コンクリートの品質を主軸に。
 
-- RCボックスカルバート
-- 逆T式擁壁
-- 暑中コンクリート
-- 寒中コンクリート
-- 根固めブロック 製作・据付
+- [RCボックスカルバート](https://note.com/dobokunote/n/n29cd76f1eed5)
+- [逆T式擁壁](https://note.com/dobokunote/n/nf7df3ee7bc56)
+- [暑中コンクリート](https://note.com/dobokunote/n/ncb1c27ec9320)
+- [寒中コンクリート](https://note.com/dobokunote/n/n74470729160c)
+- [根固めブロック](https://note.com/dobokunote/n/ne29e71769719)
 
 ## 基礎・杭工（4工事）
 
 場所打ち杭・既製杭・直接基礎など、基礎工の施工管理。
 
-- 場所打ち杭（オールケーシング）
-- 場所打ち杭（アースドリル）
-- PHC杭打込み（既製杭）
-- 橋台直接基礎
+- [場所打ち杭オールケーシング](https://note.com/dobokunote/n/n88e7aa2a5664)
+- [場所打ち杭（アースドリル）](https://note.com/dobokunote/n/n293653e2868a)
+- [PHC杭打込み](https://note.com/dobokunote/n/n2b73d08e8773)
+- [橋台直接基礎](https://note.com/dobokunote/n/ne1b48f2d7262)
 
 ## 道路・舗装（8工事）
 
 アスファルト・コンクリート舗装、道路改良・修繕の定番。
 
-- アスファルト舗装 新設
-- アスファルト舗装 打換え修繕
-- コンクリート舗装（版）
-- 道路改良 拡幅・線形改良
-- 排水性舗装
-- 路上路盤再生
-- 交差点改良
-- 歩道バリアフリー整備
+- [アスファルト舗装新設](https://note.com/dobokunote/n/naf09e67194e4)
+- [アスファルト舗装打換え](https://note.com/dobokunote/n/n6791084d05fd)
+- [コンクリート舗装版](https://note.com/dobokunote/n/nb605bd0a573c)
+- [道路改良拡幅](https://note.com/dobokunote/n/nf27ff0f7cba9)
+- [排水性舗装](https://note.com/dobokunote/n/ned5f4f9012dd)
+- [路上路盤再生](https://note.com/dobokunote/n/nbb3950507537)
+- [交差点改良](https://note.com/dobokunote/n/n868646459427)
+- [歩道バリアフリー整備](https://note.com/dobokunote/n/n0dfcc6d47748)
 
 ## 河川・海岸（6工事）
 
 護岸・樋門・掘削・消波など、水際の工事。
 
-- 河川護岸 ブロック張
-- 樋門・樋管設置
-- 砂防堰堤 基礎・本体
-- 河道掘削しゅんせつ
-- 床止め・落差工
-- 海岸護岸 消波工
+- [河川護岸ブロック張](https://note.com/dobokunote/n/neace09370ba7)
+- [樋門・樋管設置](https://note.com/dobokunote/n/n540457f29c0f)
+- [砂防堰堤](https://note.com/dobokunote/n/n8c61c14e08f3)
+- [河道掘削しゅんせつ](https://note.com/dobokunote/n/neb20a7d909a6)
+- [床止め・落差工](https://note.com/dobokunote/n/n280c47472db7)
+- [海岸護岸消波工](https://note.com/dobokunote/n/n18bba45a0f64)
 
 ## 上下水道・管渠（3工事）
 
 開削・推進など、管路の施工管理。
 
-- 下水道管渠 開削
-- 小口径推進工法
-- 上水道配水管布設 開削
+- [下水道管渠開削](https://note.com/dobokunote/n/ne420c38fb11e)
+- [小口径推進工法](https://note.com/dobokunote/n/n6fc4b78f012e)
+- [上水道配水管布設](https://note.com/dobokunote/n/na848b1eeb339)
 
 ## 橋梁・構造物（2工事）
 
 耐震補強・床版更新など、既設構造物の工事。
 
-- 橋梁耐震補強
-- 床版取替（更新）
+- [橋梁耐震補強](https://note.com/dobokunote/n/n19d4d63037c5)
+- [床版取替（更新）](https://note.com/dobokunote/n/nf2c2431280ba)
 
 ## 専門（1工事）
 
 法面補強など、専門構造物。
 
-- 法面対策 吹付・グラウンドアンカー
+- [法面吹付・アンカー](https://note.com/dobokunote/n/na2a0394ea98e)
 
 ## 令和6年度以降の2テーマ必答に備える
 
