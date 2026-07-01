@@ -2,7 +2,7 @@
 notePricing: paid
 noteSeries: 2級土木-想定工事バンク
 noteMagazine: 2級土木-想定工事バンク
-utmCampaign: civil2-koji-bank-koji01
+utmCampaign: civil2-koji-bank-koji02
 price: 980
 coverTitle: ["2級土木 施工経験記述", "河川築堤盛土", "5管理フルカバー"]
 cover:
