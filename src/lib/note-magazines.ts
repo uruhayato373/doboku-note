@@ -495,6 +495,9 @@ const MAGAZINES_RAW = {
     shortDescription:
       '想定工事を選んで5管理を書き分ける工事起点の索引＋3マガジン全答案を統合。9工種網羅・R6新形式対応。',
     imageUrl: '/images/magazines/civil-1-keiken-complete-pack-cover.webp',
+    // 画像オンリー描画（SidebarMagazineList＝カテゴリ hub・記事末尾）は sidebarImageUrl 必須。
+    // これが無いと published:true でも CTA が全箇所でスキップされる（2026-07-01 に付与）。
+    sidebarImageUrl: '/images/magazines/civil-1-keiken-complete-pack-sidebar.webp',
     price: '¥9,800（完全攻略パック）',
     badge: 'note 限定',
   },
