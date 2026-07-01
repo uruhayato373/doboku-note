@@ -112,7 +112,9 @@ async function emptyAndPaste(page, body, probe) {
   // 3. 本文置換: Ctrl+A → Delete で空に → ClipboardEvent paste（空エディタ paste 成功条件を再現）
   const ed = page.locator('[contenteditable=true]').first();
   await ed.click(); await sleep(400);
-  await page.keyboard.press('Control+a'); await sleep(300);
+  // 全選択: macOS は Meta+A（Ctrl+A は行頭移動の emacs binding で空化に失敗し本文二重化する）。
+  const selectAll = process.platform === 'darwin' ? 'Meta+a' : 'Control+a';
+  await page.keyboard.press(selectAll); await sleep(300);
   await page.keyboard.press('Delete'); await sleep(800);
   const emptiedChars = await page.evaluate(() => (document.querySelector('[contenteditable=true]')?.innerText || '').trim().length);
   console.log(`[3a] emptied editor chars=${emptiedChars}`);

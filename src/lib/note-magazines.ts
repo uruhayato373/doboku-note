@@ -452,12 +452,11 @@ const MAGAZINES_RAW = {
   // 1級 完全攻略パックの2級移植。中小規模36工種にフィルタ、工事軸5管理(3主 品質/安全/工程 ＋ 2備え 施工計画/環境)。
   // 設計: docs/note/1級・2級土木/2級土木/2級版-想定工事バンク展開設計.md
   // 36工種フル生成済(keiken-charcount --strict=0 / note-lint OK / 答案重複0)＋無料索引記事00 添付。
-  // マガジンは note 公開済(2026-07-01・m8554e87ca6ec)。ただし36記事の note 公開＋収録完了まで published:false 据え置き
-  //（空/部分マガジンを広告しない公開ゲート＝civil-1-keiken-complete-pack と同方針）。収録完了後に true 化。
+  // 2026-07-02: 36記事+索引を note 公開→マガジン m8554e87ca6ec に37件収録完了(API検証 0→37)→価格¥5,480反映→published:true 化。
   // 価格は 36工種フルの ¥5,480（設計 §6 の ¥5,480〜6,980 レンジ下限）。
   'civil-2-koji-bank': {
     id: 'civil-2-koji-bank',
-    published: false,
+    published: true,
     noteUrl: 'https://note.com/dobokunote/m/m8554e87ca6ec',
     title: '2級土木 施工経験記述｜想定工事バンク（工種×5管理フル）',
     description:
