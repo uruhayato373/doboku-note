@@ -47,7 +47,7 @@ title: サブエージェント詳細レジストリ
 | `/doc-declutter`（doc 棚卸し時に親が起動）            | `doc-curator`                                                  | 候補 doc を KEEP/TRIM/ARCHIVE/DELETE/CONSOLIDATE に分類（親が渡す外部実体の検証済みシグナルに基づく・適用は親） |
 | `/record-sales`                                      | `sales-recorder`                                                | 販売履歴テキスト正規化・productId 推定・重複チェック・JSON 追記 |
 | note 価格変更・マガジン操作（親が起動）                    | `note-operator`                                                 | 高レベル指示→スクリプト組み合わせ実行→SoT更新 |
-| メンバーシップ運用（親が起動 / `/note-membership`）            | `note-membership-operator`                                      | 会員特典記事の配信（公開→特典マガジン収録＝会員へ自動配信）・記事/プラン設定編集の起動・公開後 SoT 反映。非重複 assert・収益アカウント安全弁内蔵。ローカル実行限定 |
+| メンバーシップ運用（親が起動 / `/note-membership`）            | `note-membership-operator`                                      | 会員特典記事の配信（公開→特典マガジン収録＝会員へ自動配信）・記事/プラン設定編集の起動・公開後 SoT 反映。ライブラリ内包モデル（完成答案は会員内包・FLOWは買い切りに出さない一線）・収益アカウント安全弁内蔵。ローカル実行限定 |
 | SNS バイナリ退避（親が起動 / `upload-sns-r2` 連携）        | `sns-archive-auditor`                                          | 退避候補パックを OFFLOAD/ARCHIVE_KEEP/KEEP_LOCAL/BLOCK に分類（SoT 無傷＝再生成可否を判定・実行は親＋スクリプト） |
 | 過去問品質サイクル（親が起動）                        | `past-exam-qa`, `past-exam-rewriter`                          | 過去問記事（primary/secondary・総監＋civil）の品質監査（5軸）→ 指摘適用 → 再評価ループ。修正は rewriter、検証/commit は親 |
 | **ガイド品質サイクル（親が起動・全資格 `group: guide`）** | `guide-qa`, `guide-rewriter`, `guide-fact-checker`           | ①機械スクリーン `check-guide-length`（3000字）＋`lint-mdx-mobile`（6-2〜4/15-x/12-x）→ ②`guide-qa` 5軸採点 → ③`guide-rewriter` で修正/加筆/密度向上（bulk=sonnet・フラグシップ=opus）→ ④`guide-fact-checker` で加筆事実を WebSearch 一次照合 → ⑤検出を `guide-rewriter` が正値で是正 → 機械再検証・commit は親。`quality-cycle` skill 未統合のため当面は親が fan-out で起動（profile 化は運用頻度が上がってから） |
