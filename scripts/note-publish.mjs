@@ -76,6 +76,10 @@ const tagsCandidates = [typeSuffix && join(dir, `hashtags-${typeSuffix}.txt`), j
 const tagsFile = tagsCandidates.find(existsSync);
 const tags = tagsFile ? readFileSync(tagsFile, 'utf8').split(/\r?\n/).map((s) => s.trim().replace(/^#/, '')).filter(Boolean).slice(0, 99) : [];
 const isPaid = notePricing === 'paid' && price > 0;
+// 目次ブロック挿入（note ネイティブ #toc-setting・本文先頭）。H2 が 3 つ以上のとき自動挿入。
+// markdown の #アンカーは note で機能しないため見出しジャンプの唯一手段。--no-toc で抑止。
+const h2count = (body.match(/^##\s+/gm) || []).length;
+const wantToc = !argv.includes('--no-toc') && h2count >= 3;
 // 有料境界の見出し regex（H2 の innerText 先頭一致）。既定=総監/建設の「試験問題/予想問題」。
 // 他コンテンツ型は frontmatter `paidBoundary` か `--boundary-regex` で上書き（例: 1級土木 工事別パック=「品質管理」）。
 const BOUNDARY = getArg('--boundary-regex') || fmField('paidBoundary') || '試験問題|予想問題';
@@ -83,7 +87,7 @@ const BOUNDARY = getArg('--boundary-regex') || fmField('paidBoundary') || '試�
 // ガード: プレースホルダ残・空タイトル
 if (/\{\{|※note\s*公開後|MAGAZINE_URL/.test(body)) { console.error('ABORT: プレースホルダが本文に残存'); process.exit(1); }
 if (!title) { console.error('ABORT: タイトルが空'); process.exit(1); }
-console.log(`[prep] title="${title.slice(0, 40)}" paid=${isPaid} price=${price} cover=${!!cover} tags=${tags.length} bodyChars=${[...body].length} mode=${COMMIT ? (sched ? `SCHEDULE(${sched.raw})` : 'COMMIT(即時公開)') : 'DRAFT(下書きのみ)'}`);
+console.log(`[prep] title="${title.slice(0, 40)}" paid=${isPaid} price=${price} cover=${!!cover} tags=${tags.length} h2=${h2count} toc=${wantToc} bodyChars=${[...body].length} mode=${COMMIT ? (sched ? `SCHEDULE(${sched.raw})` : 'COMMIT(即時公開)') : 'DRAFT(下書きのみ)'}`);
 
 // 冪等ガード: 既に公開済み（frontmatter に noteUrl あり）ならスキップ（バッチ再実行で重複公開しない）
 const existingUrl = fmField('noteUrl');
@@ -157,6 +161,40 @@ try {
     const cards = await page.evaluate(() => document.querySelectorAll('[contenteditable=true] figure, [contenteditable=true] [embedded-service]').length);
     console.log(`[6] cardify(type method): urls=${urls.length} processed=${made} cards=${cards}`);
   } catch (e) { console.log('[6] cardify skip:', e.message.split('\n')[0]); }
+
+  // 6.5 目次ブロック挿入（H2>=3・本文先頭）。note ネイティブ目次（button#toc-setting）。
+  //     手順: 本文先頭に空段落を作る（caret-start→Enter→ArrowUp）→ 空行左「+」メニュー（aria-label=メニューを開く）
+  //     → 目次ボタン（#toc-setting）クリック。空段落が肝で、無いと無音失敗する（editor-operations.md Phase 4.5）。
+  //     検証は querySelector が note の目次 markup と一致せず当てにならないため screenshot(.tmp/np-toc.png) で目視。
+  //     有料ラインより上（本文先頭）に入るため、無料プレビューで収録構成が見える。
+  if (wantToc) {
+    try {
+      await page.click('[contenteditable=true]'); await sleep(400);
+      await page.evaluate(() => {
+        const ed = document.querySelector('[contenteditable=true]'); ed.focus();
+        const r = document.createRange(); r.selectNodeContents(ed); r.collapse(true);
+        const s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      });
+      await sleep(400);
+      await page.keyboard.press('Enter'); await sleep(500);
+      await page.keyboard.press('ArrowUp'); await sleep(1000);
+      let inserted = false;
+      const menu = page.locator('[aria-label="メニューを開く"]');
+      if (await menu.count()) {
+        await menu.first().click({ timeout: 8000 }); await sleep(1800);
+        const toc = page.locator('#toc-setting');
+        if (await toc.count()) { await toc.first().click({ timeout: 8000 }); await sleep(2000); inserted = true; }
+        else console.log('[6.5] 目次ボタン(#toc-setting) 未検出 → menu 内容を screenshot');
+      } else console.log('[6.5] +メニュー(メニューを開く) 未検出（空段落の確立に失敗の可能性）');
+      const tocGuess = await page.evaluate(() => {
+        const ed = document.querySelector('[contenteditable=true]'); if (!ed) return false;
+        return !!ed.querySelector('[data-name=index],[data-index],.note-common-styles__textnote-index') ||
+          /目次/.test((ed.innerText || '').split('\n').slice(0, 4).join('\n'));
+      });
+      await page.screenshot({ path: join(ROOT, '.tmp/np-toc.png') });
+      console.log(`[6.5] TOC insert: attempted=${inserted} guess=${tocGuess}（.tmp/np-toc.png で目視確認）`);
+    } catch (e) { console.log('[6.5] toc skip:', e.message.split('\n')[0]); }
+  }
 
   // 7. 下書き保存（中間保存）
   const draftBtn = page.getByRole('button', { name: '下書き保存' });

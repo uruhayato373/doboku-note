@@ -3,6 +3,10 @@ notePricing: paid
 paidBoundary: 品質管理
 noteSeries: 2級土木-想定工事バンク
 noteMagazine: 2級土木-想定工事バンク
+noteUrl: "https://note.com/dobokunote/n/n8c61c14e08f3"
+noteId: "n8c61c14e08f3"
+notePublishedAt: "2026-07-01"
+noteStatus: published
 utmCampaign: civil2-koji-bank-koji62
 price: 980
 coverTitle: ["2級土木 施工経験記述", "砂防堰堤", "5管理フルカバー"]
@@ -55,7 +59,7 @@ https://note.com/dobokunote/m/m8554e87ca6ec
 - **工事場所**：`〇〇`県`〇〇`市（町）`〇〇`地先
 - **工期**：令和`〇`年`〇`月`〇`日〜令和`〇`年`〇`月`〇`日
 - **主な工種**：砂防堰堤工（基礎掘削工・堤体コンクリート工・水通し工）、仮設工、発生土処理工
-- **施工量**：堤体コンクリート打設量 `〇〇〇`m<sup>3</sup>、堤高 `〇〇`m、堤長 `〇〇`m
+- **施工量**：堤体コンクリート打設量 `〇〇〇`m³、堤高 `〇〇`m、堤長 `〇〇`m
 - **立場**：現場代理人
 
 ---

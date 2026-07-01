@@ -3,6 +3,10 @@ notePricing: paid
 paidBoundary: 品質管理
 noteSeries: 2級土木-想定工事バンク
 noteMagazine: 2級土木-想定工事バンク
+noteUrl: "https://note.com/dobokunote/n/na49d36eebeea"
+noteId: "na49d36eebeea"
+notePublishedAt: "2026-07-01"
+noteStatus: published
 utmCampaign: civil2-koji-bank-koji05
 price: 980
 coverTitle: ["2級土木 施工経験記述", "サンドドレーン盛土", "5管理フルカバー"]
@@ -55,7 +59,7 @@ https://note.com/dobokunote/m/m8554e87ca6ec
 - **工事場所**：`〇〇`県`〇〇`市`〇〇`地先
 - **工期**：令和`〇`年`〇`月`〇`日〜令和`〇`年`〇`月`〇`日
 - **主な工種**：サンドドレーン工、サンドマット工、段階載荷盛土工、計測管理工（沈下板・間隙水圧計）
-- **施工量**：SD打設本数 `〇〇〇`本、打設深度 `〇〇`m、盛土量 `〇〇〇〇`m<sup>3</sup>、盛土高 `〇〇`m
+- **施工量**：SD打設本数 `〇〇〇`本、打設深度 `〇〇`m、盛土量 `〇〇〇〇`m³、盛土高 `〇〇`m
 - **立場**：現場代理人
 
 ---

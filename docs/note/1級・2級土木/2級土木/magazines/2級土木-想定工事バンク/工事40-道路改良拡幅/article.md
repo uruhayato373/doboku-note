@@ -3,6 +3,10 @@ notePricing: paid
 paidBoundary: 品質管理
 noteSeries: 2級土木-想定工事バンク
 noteMagazine: 2級土木-想定工事バンク
+noteUrl: "https://note.com/dobokunote/n/nf27ff0f7cba9"
+noteId: "nf27ff0f7cba9"
+notePublishedAt: "2026-07-01"
+noteStatus: published
 utmCampaign: civil2-koji-bank-koji40
 price: 980
 coverTitle: ["2級土木 施工経験記述", "道路改良拡幅", "5管理フルカバー"]
@@ -55,7 +59,7 @@ https://note.com/dobokunote/m/m8554e87ca6ec
 - **工事場所**：`〇〇`県`〇〇`市`〇〇`地先
 - **工期**：令和`〇`年`〇`月`〇`日〜令和`〇`年`〇`月`〇`日
 - **主な工種**：道路土工（切土・盛土）、路床工、路盤工、アスファルト舗装工、擁壁工、排水工、交通安全施設工
-- **施工量**：改良延長 L=`〇〇〇`m、拡幅幅員 `〇〇`m→`〇〇`m、盛土量 `〇〇〇〇`m<sup>3</sup>
+- **施工量**：改良延長 L=`〇〇〇`m、拡幅幅員 `〇〇`m→`〇〇`m、盛土量 `〇〇〇〇`m³
 - **立場**：現場代理人
 
 ---

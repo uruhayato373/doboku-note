@@ -112,7 +112,9 @@ async function emptyAndPaste(page, body, probe) {
   // 3. 本文置換: Ctrl+A → Delete で空に → ClipboardEvent paste（空エディタ paste 成功条件を再現）
   const ed = page.locator('[contenteditable=true]').first();
   await ed.click(); await sleep(400);
-  await page.keyboard.press('Control+a'); await sleep(300);
+  // 全選択: macOS は Meta+A（Ctrl+A は行頭移動の emacs binding で空化に失敗し本文二重化する）。
+  const selectAll = process.platform === 'darwin' ? 'Meta+a' : 'Control+a';
+  await page.keyboard.press(selectAll); await sleep(300);
   await page.keyboard.press('Delete'); await sleep(800);
   const emptiedChars = await page.evaluate(() => (document.querySelector('[contenteditable=true]')?.innerText || '').trim().length);
   console.log(`[3a] emptied editor chars=${emptiedChars}`);
@@ -162,6 +164,35 @@ async function cardify(page) {
     const cards = await page.evaluate(() => document.querySelectorAll('[contenteditable=true] figure, [contenteditable=true] [embedded-service]').length);
     console.log(`[4] cardify: urls=${urls.length} processed=${made} cards=${cards}`);
   } catch (e) { console.log('[4] cardify skip:', e.message.split('\n')[0]); }
+}
+
+/**
+ * 4.5. 目次ブロック挿入（H2>=3・本文先頭）。note ネイティブ目次（button#toc-setting）。
+ * note-publish.mjs Phase 6.5 と同一手順。全文置換で目次が消えるため再挿入する（editor-operations.md）。
+ * 検証は querySelector が note 目次 markup と一致せず当てにならないため screenshot(.tmp/nu-toc-*.png) で目視。
+ */
+async function insertTocBlock(page, noteId) {
+  try {
+    await page.click('[contenteditable=true]'); await sleep(400);
+    await page.evaluate(() => {
+      const ed = document.querySelector('[contenteditable=true]'); ed.focus();
+      const r = document.createRange(); r.selectNodeContents(ed); r.collapse(true);
+      const s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    });
+    await sleep(400);
+    await page.keyboard.press('Enter'); await sleep(500);
+    await page.keyboard.press('ArrowUp'); await sleep(1000);
+    let inserted = false;
+    const menu = page.locator('[aria-label="メニューを開く"]');
+    if (await menu.count()) {
+      await menu.first().click({ timeout: 8000 }); await sleep(1800);
+      const toc = page.locator('#toc-setting');
+      if (await toc.count()) { await toc.first().click({ timeout: 8000 }); await sleep(2000); inserted = true; }
+      else console.log('[4.5] 目次ボタン(#toc-setting) 未検出');
+    } else console.log('[4.5] +メニュー(メニューを開く) 未検出（空段落確立に失敗の可能性）');
+    await page.screenshot({ path: join(ROOT, `.tmp/nu-toc-${noteId}.png`) });
+    console.log(`[4.5] TOC insert: attempted=${inserted}（.tmp/nu-toc-${noteId}.png で目視）`);
+  } catch (e) { console.log('[4.5] toc skip:', e.message.split('\n')[0]); }
 }
 
 /**
@@ -277,6 +308,10 @@ async function updateArticle(page, { abs, noteId, body }, probe) {
 
   // 4. リンクカード化
   await cardify(page);
+
+  // 4.5 目次ブロック（H2>=3・本文先頭・--no-toc で抑止）。全文置換で消えるため再挿入。
+  const h2count = (body.match(/^##\s+/gm) || []).length;
+  if (!argv.includes('--no-toc') && h2count >= 3) await insertTocBlock(page, noteId);
 
   // 5. ライブ反映 or dry-run
   if (!COMMIT) {

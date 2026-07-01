@@ -37,6 +37,9 @@
 - 総計 ≈3,400 users/週（≈月1.3〜1.4万）。**サイトは"低アクセス"ではない**。前段で引用した「5クリック/日（GSC）」は過小/古い可能性が高い。
 - 注: `ga4-channel-organic-*`（organicOnly:true・より厳しいフィルタ）では Organic 812。フィルタ差で数値が異なる＝別PCで定義を要確認。
 
+> [!warning] 2026-07-01 追記: 「organic 84%・低アクセスではない」は bing 水増し込みで割り引く
+> GA4 source で **bing 252 > google 77（3.3x）** ＝日本語土木サイトで異常（[measurement-incidents.md](../reference/measurement-incidents.md) 2026-04-26 のボット署名が残存）。フィルタ後も残る 252 は human 的挙動（5.36pg/493秒/eng65%）で単純 bot ではなく**未確定**だが、**GSC(Google人間検索)≒GA4-google 77 でほぼ一致**し、GSC が信頼できる人間検索の下限。**サイトの実人間検索は GSC の小さい数字に近い可能性**があり、本節の「低アクセスではない」は bing 込み＝額面通り受け取らない。確定には次 CI/CD GA4 で bing×device×landing 交差が必要。
+
 ### 1-3. 参照元の実体（`ga4-source-*.json`・5/3-16・やや古い）
 - bing 252 / (direct) 101 / google 77 / **openai 45** / yahoo 25 / **note.com 23** / chatgpt.com 9 / copilot.com 7 / note 6 / youtube 4
 - **note→サイトの流入は約23〜29ユーザー/2週＝ごく小さい**。検索（bing/google/yahoo）＋**AI検索（openai/chatgpt/copilot）**が上位。
