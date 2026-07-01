@@ -217,6 +217,18 @@ const BANNERS = [
     ],
   },
   {
+    id: 'civil-2-koji-bank-sidebar',
+    bgTop: '#0f766e',
+    bgBottom: '#0a4f49',
+    accent: '#5eead4',
+    label: 'note限定',
+    lines: [
+      ['2級土木 経験記述', 22],
+      ['想定工事バンク', 28],
+      ['工種×5管理フル', 18],
+    ],
+  },
+  {
     id: 'cce-essay-magazine-sidebar',
     bgTop: '#475569',
     bgBottom: '#2f3a4a',

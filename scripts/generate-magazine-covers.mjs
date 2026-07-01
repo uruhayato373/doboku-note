@@ -274,6 +274,16 @@ const MAGAZINES = [
     accentColor: '#155293',
     fillBg: '#155293',
   },
+  {
+    id: 'civil-2-koji-bank',
+    fileBaseName: 'civil-2-koji-bank-cover',
+    magazineDir: 'docs/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク',
+    lines: ['2級土木 施工経験記述', '想定工事バンク', '工種 × 5管理フルカバー'],
+    category: '2級土木施工管理技士',
+    fontSize: 42,
+    accentColor: '#1C5038',
+    fillBg: '#1C5038',
+  },
   // ----- 技術士 建設部門 2次 模範解答集（BK シリーズ・2026-06-09） -----
   {
     id: 'bk-i-required',

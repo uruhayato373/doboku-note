@@ -464,6 +464,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       '工種を選んで5管理を書き分ける工事起点の完成答案集。必出3管理＋保険2管理・R6新形式対応。P1 15工種先行。',
     imageUrl: '/images/magazines/civil-2-koji-bank-cover.webp',
+    sidebarImageUrl: '/images/magazines/civil-2-koji-bank-sidebar.webp',
     price: '¥3,480（15工種 先行版）',
     badge: 'note 限定',
   },
