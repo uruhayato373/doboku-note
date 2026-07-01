@@ -91,6 +91,7 @@ kuro
 | `建設部門2次｜鋼コン 選択科目 模範解答集` / `鋼構造及びコンクリート 選択科目 模範解答集` | `bk-steel-concrete-secondary-magazine` |
 | `建設部門2次｜都市計画 選択科目 模範解答集` | `bk-urban-planning-secondary-magazine` |
 | `建設部門2次｜建設環境 選択科目 模範解答集` | `bk-environment-secondary-magazine` |
+| `建設部門2次｜鉄道 選択科目 模範解答集` | `bk-railway-secondary-magazine` |
 | `建設部門2次｜{他科目} 選択科目 模範解答集` | `bk-{subject}-secondary-magazine`（subject は note-magazines.ts の romaji に合わせる） |
 
 ### 単品記事（type: article）
