@@ -234,7 +234,8 @@
 2. **予想問題マガジン・添削事例マガジンを新規作成**し会員専用特典に設定。**完成答案マガジンも会員特典に内包**（単品・¥9,800 パックの販売は継続）
 3. 無料リードマグネット公開 → 無料→買い切り／会員 の分岐導線を設置
 4. **【2026-06-23 完了】** `src/lib/note-magazines.ts` に会員商品エントリ `civil-membership-lab` を追加（買い切りエントリは維持＝両建て）。`published: false`／`noteUrl: ''` のプレースホルダで、note 作成後に運営者が `noteUrl` 埋め＋`published: true` へ flip するとサイトCTAが自動発火する
-5. **【2026-06-23 サイトCTA分 完了】** `src/lib/magazine-placement.ts` で 1級・2級土木の経験記述系・guide・カテゴリ入口に会員CTAを配置（既存買い切り CTA は維持・末尾に追加）。残: note 上の特典マガジン設定・note公開済み「土木もくじ」への会員セクション追記（再公開要）
+5. **【2026-06-23 サイトCTA分 完了】** `src/lib/magazine-placement.ts` で 1級・2級土木の経験記述系・guide・カテゴリ入口に会員CTAを配置（当初は既存買い切り CTA を維持・末尾に追加）。残: note 上の特典マガジン設定・note公開済み「土木もくじ」への会員セクション追記（再公開要）
+    - **【2026-07-01 journey整合 再設計】** guide/textbook/primary の note CTA を journey stage で出し分け（`magazine-placement.ts`）。**一次/学習系 guide＋textbook＋primary は会員（伴走・低コミット）を lead に据え、¥9,800 完全攻略パック等のハード二次商品は demote**（早期の一次読者に二次を正面売りは低転換）／**二次隣接（直前 `guide-last-minute-2026`）はパック led を維持**／**career・年収・転職・比較系 guide は note 二次 CTA を撤去（EMPTY＝本文 `<CareerAffiliate>`＋サイドバー転職枠に委譲。二次経験記述¥9,800 を「辞めたい/年収」読者に正面売りは二重ミスマッチ）**。旧「買い切り CTA を末尾追加」を上書き。会員は `published:false` の間 wire-ahead（launch で自動 lead）。分類集合＝`CIVIL_EXAM_PREP_GUIDES`／`CIVIL_SECONDARY_ADJACENT_GUIDES`。真実源の 3 層モデルは [note-funnel-architecture.md](../../reference/note-funnel-architecture.md)
 6. 集客記事クラスターを「無料リードマグネット → 買い切り / 会員」の導線に整理
 
 撤退ライン: 添削募集 4 週間で会員 3 名未満、またはベース会員 3 ヶ月で 5 名未満 → 当季は予想配信のみに縮退し、添削は翌季再judge（買い切りは継続なので痛手は小さい）。

@@ -131,6 +131,37 @@ const NEW_MAGAZINES = {
 } satisfies Record<string, MagazineId>;
 
 /**
+ * 1級・2級土木 guide ページの journey stage 分類（2026-07-01 再設計）。
+ * 検索着地の guide を「一次/学習の上流」「二次隣接（直前）」「career/転職」で出し分けるための集合。
+ * bare slug（civil-construction-{1,2}- 接頭辞を除いた部分）で判定する。両級で共通の suffix を使う。
+ * - EXAM_PREP: 一次・学習法・試験概要・分野別要点＝早期読者。低コミットの会員（伴走）を lead に、
+ *   ¥9,800 完全攻略パック等のハード二次商品は demote（早期読者に二次を正面売りは低転換）。
+ * - SECONDARY_ADJACENT: 直前対策＝二次購入 intent が立つ。旗艦パック led を維持（civil-1 のみ実在）。
+ * - それ以外（career/年収/転職/比較）: note 二次 CTA を出さない（本文 <CareerAffiliate> ＋ サイドバー
+ *   転職枠 resolveDocsCareerSidebarAd が転職導線を担う。memory affiliate-career-only 準拠）。
+ */
+const CIVIL_EXAM_PREP_GUIDES: ReadonlySet<string> = new Set([
+  'guide-strategy',
+  'guide-exam-overview',
+  'guide-overview',
+  'guide-study-plan',
+  'guide-study-method',
+  'guide-difficulty',
+  'guide-four-management',
+  'guide-quality-management',
+  'guide-schedule-management',
+  'guide-law-key-points',
+  'guide-earthwork-key-points',
+  'guide-concrete-key-points',
+  'guide-concrete-maintenance',
+  'guide-textbooks',
+]);
+
+const CIVIL_SECONDARY_ADJACENT_GUIDES: ReadonlySet<string> = new Set([
+  'guide-last-minute-2026',
+]);
+
+/**
  * slug + docGroup から、表示すべきマガジン配置を解決する。
  * 表示の最終可否 (公開済みか) は呼び出し側で getMagazine() で確認する。
  *
@@ -396,53 +427,83 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     };
   }
 
-  // 10. 1級土木 guide（試験概要・学習法・戦略等の検索着地ページ）→ 3マガジン + 会員 強 CTA
-  if (docGroup === 'guide' && slug.startsWith('civil-construction-1-')) {
-    return {
-      inline: [
-        slot('civil-1-keiken-complete-pack', slug, 'inline-1'),
-        slot('civil-1-experience-essay', slug, 'inline-2'),
-        slot('civil-1-pastexam-essay', slug, 'inline-3'),
-        slot('civil-1-combo-essay', slug, 'inline-4'),
-        slot('civil-membership-lab', slug, 'inline-5'),
-      ],
-      sidebar: [slot('civil-1-experience-essay', slug, 'sidebar-1')],
-    };
+  // 10/11. 1級・2級土木 guide（検索着地）→ journey stage で出し分け（2026-07-01 再設計）。
+  //   note CTA は inline+sidebar を統合し記事末尾に画像カードで一括描画される（page.tsx footerMagazines）。
+  //   ここでは「どの商品を・どの順で」出すかを journey stage で決める（sidebar 別出しはしない）。
+  //   - 一次/学習系（EXAM_PREP）: 早期読者。低コミットの会員「土木セコカン合格ラボ」（伴走・月¥1,480〜）を
+  //     lead に据え、¥9,800 完全攻略パック等のハード二次商品は demote。会員は published:false の間
+  //     getMagazine が null → 防御スキップし launch で自動発火（wire-ahead）。launch 前の live は
+  //     完成答案集（¥2,480/¥1,980）が soft lead、パックは demote 表示。
+  //   - 二次隣接（SECONDARY_ADJACENT＝直前対策）: 二次購入 intent が立つ高 intent 面。旗艦パック led＋会員。
+  //   - career/年収/転職・比較（residual）: note 二次 CTA を出さない（EMPTY）。本文 <CareerAffiliate> と
+  //     サイドバー転職枠（resolveDocsCareerSidebarAd）が転職導線を担う。二次経験記述¥9,800 を「辞めたい/
+  //     年収」読者に正面売りは二重ミスマッチ（2026-07-01 是正・memory affiliate-career-only 準拠）。
+  if (
+    docGroup === 'guide' &&
+    (slug.startsWith('civil-construction-1-') || slug.startsWith('civil-construction-2-'))
+  ) {
+    const isCivil1 = slug.startsWith('civil-construction-1-');
+    const bare = slug.replace(/^civil-construction-[12]-/, '');
+    if (CIVIL_EXAM_PREP_GUIDES.has(bare)) {
+      const soft: MagazineId = isCivil1 ? 'civil-1-experience-essay' : 'civil-2-experience-essay';
+      const flagship: MagazineId = isCivil1 ? 'civil-1-keiken-complete-pack' : 'civil-2-koji-bank';
+      return {
+        inline: [
+          slot('civil-membership-lab', slug, 'inline-1'),
+          slot(soft, slug, 'inline-2'),
+          slot(flagship, slug, 'inline-3'),
+        ],
+        sidebar: [],
+      };
+    }
+    if (isCivil1 && CIVIL_SECONDARY_ADJACENT_GUIDES.has(bare)) {
+      // 直前対策（civil-1 のみ実在）: 旗艦パック led ＋ 会員伴走 ＋ 組合せ/過去問。
+      return {
+        inline: [
+          slot('civil-1-keiken-complete-pack', slug, 'inline-1'),
+          slot('civil-membership-lab', slug, 'inline-2'),
+          slot('civil-1-combo-essay', slug, 'inline-3'),
+          slot('civil-1-pastexam-essay', slug, 'inline-4'),
+        ],
+        sidebar: [],
+      };
+    }
+    // career/年収/転職・比較系 residual → note 二次 CTA なし（転職導線が担う）
+    return EMPTY;
   }
 
-  // 11. 2級土木 guide（試験概要・学習法・戦略等の検索着地ページ）→ 2マガジン + 会員 強 CTA
-  if (docGroup === 'guide' && slug.startsWith('civil-construction-2-')) {
-    return {
-      inline: [
-        slot('civil-2-experience-essay', slug, 'inline-1'),
-        slot('civil-2-pastexam-essay', slug, 'inline-2'),
-        slot('civil-membership-lab', slug, 'inline-3'),
-      ],
-      sidebar: [slot('civil-2-experience-essay', slug, 'sidebar-1')],
-    };
-  }
-
-  // 12. 1級土木 textbook → sidebar のみ軽め CTA（テキスト学習者に二次検定への橋渡し）
+  // 12. 1級土木 textbook（一次テキスト学習）→ 会員（伴走）lead＋完成答案集の軽め CTA（2026-07-01）。
+  //     一次学習中の上流読者なので、二次単品より低コミットの伴走会員へ回遊（会員は launch で自動発火・
+  //     launch 前は完成答案集が live）。
   if (docGroup === 'textbook' && slug.startsWith('civil-construction-1-')) {
     return {
-      inline: [slot('civil-1-experience-essay', slug, 'inline-mobile')],
-      sidebar: [slot('civil-1-experience-essay', slug, 'sidebar-1')],
+      inline: [
+        slot('civil-membership-lab', slug, 'inline-1'),
+        slot('civil-1-experience-essay', slug, 'inline-2'),
+      ],
+      sidebar: [],
     };
   }
 
-  // 13. 1級土木 primary（一次過去問）→ sidebar のみ軽め CTA（一次合格後に二次を意識させる）
+  // 13. 1級土木 primary（一次過去問）→ 会員（伴走）lead＋完成答案集の軽め CTA（一次演習中に伴走へ回遊）
   if (docGroup === 'primary' && slug.startsWith('civil-construction-1-')) {
     return {
-      inline: [slot('civil-1-experience-essay', slug, 'inline-mobile')],
-      sidebar: [slot('civil-1-experience-essay', slug, 'sidebar-1')],
+      inline: [
+        slot('civil-membership-lab', slug, 'inline-1'),
+        slot('civil-1-experience-essay', slug, 'inline-2'),
+      ],
+      sidebar: [],
     };
   }
 
-  // 14. 2級土木 primary（一次過去問）→ sidebar のみ軽め CTA
+  // 14. 2級土木 primary（一次過去問）→ 会員（伴走）lead＋完成答案集の軽め CTA
   if (docGroup === 'primary' && slug.startsWith('civil-construction-2-')) {
     return {
-      inline: [slot('civil-2-experience-essay', slug, 'inline-mobile')],
-      sidebar: [slot('civil-2-experience-essay', slug, 'sidebar-1')],
+      inline: [
+        slot('civil-membership-lab', slug, 'inline-1'),
+        slot('civil-2-experience-essay', slug, 'inline-2'),
+      ],
+      sidebar: [],
     };
   }
 
