@@ -165,6 +165,35 @@ async function cardify(page) {
 }
 
 /**
+ * 4.5. 目次ブロック挿入（H2>=3・本文先頭）。note ネイティブ目次（button#toc-setting）。
+ * note-publish.mjs Phase 6.5 と同一手順。全文置換で目次が消えるため再挿入する（editor-operations.md）。
+ * 検証は querySelector が note 目次 markup と一致せず当てにならないため screenshot(.tmp/nu-toc-*.png) で目視。
+ */
+async function insertTocBlock(page, noteId) {
+  try {
+    await page.click('[contenteditable=true]'); await sleep(400);
+    await page.evaluate(() => {
+      const ed = document.querySelector('[contenteditable=true]'); ed.focus();
+      const r = document.createRange(); r.selectNodeContents(ed); r.collapse(true);
+      const s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    });
+    await sleep(400);
+    await page.keyboard.press('Enter'); await sleep(500);
+    await page.keyboard.press('ArrowUp'); await sleep(1000);
+    let inserted = false;
+    const menu = page.locator('[aria-label="メニューを開く"]');
+    if (await menu.count()) {
+      await menu.first().click({ timeout: 8000 }); await sleep(1800);
+      const toc = page.locator('#toc-setting');
+      if (await toc.count()) { await toc.first().click({ timeout: 8000 }); await sleep(2000); inserted = true; }
+      else console.log('[4.5] 目次ボタン(#toc-setting) 未検出');
+    } else console.log('[4.5] +メニュー(メニューを開く) 未検出（空段落確立に失敗の可能性）');
+    await page.screenshot({ path: join(ROOT, `.tmp/nu-toc-${noteId}.png`) });
+    console.log(`[4.5] TOC insert: attempted=${inserted}（.tmp/nu-toc-${noteId}.png で目視）`);
+  } catch (e) { console.log('[4.5] toc skip:', e.message.split('\n')[0]); }
+}
+
+/**
  * 5(commit). 公開に進む →（有料なら境界保持）→ 更新する → 更新通知「いいえ」
  * note-append-cta.mjs:144-219 を移植。戻り値 = 成否。
  */
@@ -277,6 +306,10 @@ async function updateArticle(page, { abs, noteId, body }, probe) {
 
   // 4. リンクカード化
   await cardify(page);
+
+  // 4.5 目次ブロック（H2>=3・本文先頭・--no-toc で抑止）。全文置換で消えるため再挿入。
+  const h2count = (body.match(/^##\s+/gm) || []).length;
+  if (!argv.includes('--no-toc') && h2count >= 3) await insertTocBlock(page, noteId);
 
   // 5. ライブ反映 or dry-run
   if (!COMMIT) {
