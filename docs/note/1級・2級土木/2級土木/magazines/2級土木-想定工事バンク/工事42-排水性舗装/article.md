@@ -3,10 +3,10 @@ notePricing: paid
 paidBoundary: 品質管理
 noteSeries: 2級土木-想定工事バンク
 noteMagazine: 2級土木-想定工事バンク
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/ned5f4f9012dd"
+noteId: "ned5f4f9012dd"
+notePublishedAt: "2026-07-01"
+noteStatus: published
 utmCampaign: civil2-koji-bank-koji42
 price: 980
 coverTitle: ["2級土木 施工経験記述", "排水性舗装", "5管理フルカバー"]
