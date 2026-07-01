@@ -4,8 +4,9 @@ description: >
   note メンバーシップ「土木セコカン 1発合格ラボ」（1級・2級土木）の運用オーケストレーター。
   会員特典記事の配信（公開→特典マガジン収録＝会員へ自動配信）・記事/プラン設定の編集起動・
   公開後の SoT 反映を、既存の実証済みブラウザスクリプトを束ねて実行する。盲目的な新規 selector は
-  作らず、note-publish / note-magazine-add-articles / note-edit-session / note-magazine-create を
-  組み合わせる。非重複の一線（過去問・完成答案を会員に入れない）と収益アカウント安全弁を実行前に assert。
+  作らず、note-publish / note-magazine-add-articles / note-edit-session / note-magazine-create /
+  note-membership-plan-edit（既存プランの会費/定員/説明の保存・非公開のまま・公開はしない）を
+  組み合わせる。収益アカウント安全弁（account=dobokunote）を実行前に assert。
   実行はローカル（note ログイン済みプロファイルのあるマシン）限定。
   Use when user asks to [メンバーシップ運用, 会員特典記事を配信, 予想問題ドリップ, 特典マガジン収録,
   会員プラン設定編集, membership 投稿編集, /note-membership].
@@ -23,7 +24,7 @@ note メンバーシップ「**土木セコカン 1発合格ラボ**」（1級�
 ## 前提（実行環境・最重要）
 
 - **ローカル実行限定**: note ログイン済み永続プロファイル（`.local/playwright-note-profile`／システム Chrome）が必要。リモート/CI コンテナでは動かない（プロファイルは gitignore・新規クローンに来ない）。初回は `npm run note-edit-session` で手動ログインを済ませておく。
-- **メンバーシップは作成済み前提**: `https://note.com/membership/settings/manage` で「土木セコカン 1発合格ラボ」（2 プラン）が作成済み。新規作成・プラン定義そのものはこのエージェントの守備外（運営者が UI で実施）。
+- **メンバーシップは作成済み前提**: `https://note.com/membership/settings/manage` で「土木セコカン 1発合格ラボ」＋2 プラン（通年 4956c2d4f928／添削 ceacc4bb4574）は**作成済み・非公開ドラフト**。**プラン内容/会費/定員の編集・保存は `note-membership-plan-edit.mjs` で可能**（保存＝非公開のまま＝可逆）。**メンバーシップ本体の新規作成と「プランの公開」（不可逆）は守備外＝運営者が UI で実施**。
 - **特典マガジンの note id を確認してから動く**: 会員配信は「特典マガジンへ記事を追加＝会員へ自動配信」で成立する。対象の特典マガジン（予想問題マガジン／学科記述予想／添削事例アーカイブ）の note magazine key を `verify-note-magazines` or `note-edit-session` で確認し、未確定なら配信しない。
 
 ## SoT（真実源・着手前に Read）
@@ -55,7 +56,7 @@ note メンバーシップ「**土木セコカン 1発合格ラボ**」（1級�
 - **記事の執筆・内容生成**: `civil-keiken-essay-writer` 等 Generator の領分。本エージェントは配信のみ。
 - **添削の実赤入れ**: 運営者の人手（代筆は Red Line #2）。
 - **価格・定員の戦略判断**: 親 + `noteコンテンツ計画.md`。本エージェントは決まった値を UI に反映する起動までで、決めない。
-- **メンバーシップ/プランの新規作成**: 運営者が `/membership/settings/manage` で実施。
+- **メンバーシップ本体の新規作成・「プランの公開」（不可逆）**: 運営者が `/membership/settings/manage` で実施（プラン内容/会費/定員の**保存**は `note-membership-plan-edit.mjs` で可・公開はしない）。
 - **買い切りマガジン・単品の操作**: `note-operator`。
 
 ## 非重複の一線（Red Line #10・実行前に必ず assert）
@@ -98,9 +99,13 @@ note メンバーシップ「**土木セコカン 1発合格ラボ**」（1級�
 ### C. プラン設定の編集（price/定員/説明・低頻度）
 ```
 1. noteコンテンツ計画.md §2.1 / メンバーシップ説明文.md で正値を確認
-2. note-edit-session で /membership/settings/manage を開く
-3. （運営者）UI で手動編集・保存（エージェントは値の提示と画面起動まで）
+2. dry: node scripts/note-membership-plan-edit.mjs --plan <planId>   # 現在値の読取・確認
+3. 保存: node scripts/note-membership-plan-edit.mjs --plan <planId> --price 1480 --commit
+        （名前/説明/定員も任意。保存＝非公開ドラフトのまま＝可逆。planId は /manage の各プラン「編集」リンク末尾）
+4. 公開（③ プランを公開しよう）は不可逆ゆえ**運営者が UI で明示実施**（本ツールは公開しない）
 ```
+> [!warning] 添削つきプラン（定員制）の定員は「添削実測」（1本30分以内か＝運営者）で確定してから設定する。
+> 定員未定のまま公開しない（noteコンテンツ計画.md §5.1 ゲート）。プラン ID: 4956c2d4f928=通年 / ceacc4bb4574=添削。
 
 ## 利用可能なスクリプト
 
@@ -111,6 +116,7 @@ note メンバーシップ「**土木セコカン 1発合格ラボ**」（1級�
 | `scripts/note-magazine-add-articles.mjs` | 既存記事を特典マガジンへ収録（＝会員配信） | dry-run（`--commit`・`--probe`） |
 | `scripts/note-magazine-create.mjs` | 特典マガジン新規作成（note掲載文.txt 駆動） | probe（`--commit`） |
 | `scripts/note-edit-session.mjs` | 記事編集 / 設定 / `/membership/settings/manage` を開いて待機（自動保存なし） | 手動編集 |
+| `scripts/note-membership-plan-edit.mjs` | 既存プランの名前/説明/**会費**/定員を編集して**保存**（非公開ドラフトのまま・可逆。**公開はしない**・account ゲート） | dry-run（`--commit` で保存） |
 | `scripts/verify-note-magazines.mjs` | note 公開状態と SoT の整合検証（偽成功ガード） | 読み取り |
 
 ## 完了条件（DoD）
