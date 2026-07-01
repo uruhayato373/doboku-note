@@ -1,10 +1,10 @@
 ---
 notePricing: free
-noteStatus: draft
+noteStatus: published
 utmCampaign: civil-membership-intro
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n6b66793ca20c"
+noteId: "n6b66793ca20c"
+notePublishedAt: "2026-07-01"
 coverTitle: ["土木セコカン合格ラボ", "はじめます"]
 cover:
   leadIn: "1級・2級土木施工管理技士 二次"
