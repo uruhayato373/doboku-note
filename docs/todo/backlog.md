@@ -352,6 +352,19 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 ---
 
+### note公開2スキル（note-publish / publish-note）の整理 🟢
+
+**背景**: 同じ「note.com 記事公開」を別エンジンで実装した2スキルが並存（意図的だが名前がほぼアナグラムで紛らわしい）。`publish-note`=browser-use（LLM操作・Mac推奨・stats47由来、2026-06-10）／`note-publish`=Playwright×システムChrome（決定的・Windows会社PC可、2026-06-15＝publish-note の Windows 版）。台帳（skills-registry 2026-06-15/skills-guide）に経緯あり。
+
+**やること**:
+
+1. **`publish-note` SKILL.md の幻noteId節をエンジン明示に是正**（軽微）: 2026-07-01 に偽成功ガードを追記したが、`note-publish-magazine.mjs` の一次ガードは Playwright 系（`note-publish`）の話。publish-note（browser-use）は別エンジンで同スクリプトを使わない。「実在ゲート `verify-note-status` は全エンジン共通・note-publish-magazine の一次ガードは Playwright 系」とエンジンを明示して誤読を防ぐ。
+2. **名前の紛らわしさ**（設計判断・🟣寄り）: 将来どちらかにリネーム/統合するか、少なくとも両 SKILL 冒頭の相互参照を強化する。リネームは skills-guide/registry・呼出マップの同期が要る大工事なので費用対効果を要検討。
+
+**真実源**: `.claude/skills/social/{note-publish,publish-note}/SKILL.md`、`docs/reference/skills-registry.md`、[[feedback_note_publish_phantom_id_gate]]。
+
+---
+
 ## 5. SNS・マーケティング
 
 ### 1級土木 二次10/4 直前スプリント（死守コア3つ）🔴
