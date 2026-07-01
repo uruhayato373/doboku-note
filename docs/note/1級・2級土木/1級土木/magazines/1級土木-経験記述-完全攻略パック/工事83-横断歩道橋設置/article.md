@@ -6,9 +6,9 @@ noteSeries: 1級土木-経験記述-完全攻略パック
 noteMagazine: 1級土木-経験記述-完全攻略パック
 utmCampaign: civil1-keiken-pack-koji83
 noteStatus: published
-noteUrl: "https://note.com/dobokunote/n/n0fa7dfaca87b"
-noteId: "n0fa7dfaca87b"
-notePublishedAt: "2026-06-30"
+noteUrl: "https://note.com/dobokunote/n/nb8b8b9533bcc"
+noteId: "nb8b8b9533bcc"
+notePublishedAt: "2026-07-01"
 coverTitle: ["1級土木 施工経験記述", "横断歩道橋設置", "5管理 完成答案"]
 cover:
   leadIn: "1級土木施工管理技士 二次"
