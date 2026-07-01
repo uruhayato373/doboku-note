@@ -351,17 +351,19 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     };
   }
 
-  // 8. 1級土木 施工経験記述 → 3マガジン（過去問年度別＋テーマ別5管理＋2テーマ組合せ大全）。
+  // 8. 1級土木 施工経験記述 → 旗艦（完全攻略パック・最上位）＋ 3マガジン（過去問年度別＋テーマ別5管理＋2テーマ組合せ大全）。
+  //    旗艦 civil-1-keiken-complete-pack は landingUrl（無料の想定工事100索引）へ着地させる front-door。
   //    年度別ページ(r0X)は過去問(pastexam)が年度一致で主、テーマ別(experience)・組合せ大全(combo)が副。
   //    guide/examples はテーマ別が主、過去問・組合せ大全が副。published: false の間は CTA 非表示。
   //    （予想問題集 civil-1-yosou-essay は 2026-06-02 退役、combo へ置換）
   if (/^civil-construction-1-secondary-r0[1-9]$/.test(slug)) {
     return {
       inline: [
-        slot('civil-1-pastexam-essay', slug, 'inline-1'),
-        slot('civil-1-experience-essay', slug, 'inline-2'),
-        slot('civil-1-combo-essay', slug, 'inline-3'),
-        slot('civil-membership-lab', slug, 'inline-4'),
+        slot('civil-1-keiken-complete-pack', slug, 'inline-1'),
+        slot('civil-1-pastexam-essay', slug, 'inline-2'),
+        slot('civil-1-experience-essay', slug, 'inline-3'),
+        slot('civil-1-combo-essay', slug, 'inline-4'),
+        slot('civil-membership-lab', slug, 'inline-5'),
       ],
       sidebar: [slot('civil-1-pastexam-essay', slug, 'sidebar-1')],
     };
@@ -369,10 +371,11 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   if (/^civil-construction-1-secondary-experience-writing-(guide|examples)$/.test(slug)) {
     return {
       inline: [
-        slot('civil-1-experience-essay', slug, 'inline-1'),
-        slot('civil-1-pastexam-essay', slug, 'inline-2'),
-        slot('civil-1-combo-essay', slug, 'inline-3'),
-        slot('civil-membership-lab', slug, 'inline-4'),
+        slot('civil-1-keiken-complete-pack', slug, 'inline-1'),
+        slot('civil-1-experience-essay', slug, 'inline-2'),
+        slot('civil-1-pastexam-essay', slug, 'inline-3'),
+        slot('civil-1-combo-essay', slug, 'inline-4'),
+        slot('civil-membership-lab', slug, 'inline-5'),
       ],
       sidebar: [slot('civil-1-experience-essay', slug, 'sidebar-1')],
     };
@@ -383,10 +386,11 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   if (docGroup === 'secondary' && slug.startsWith('civil-construction-1-')) {
     return {
       inline: [
-        slot('civil-1-pastexam-essay', slug, 'inline-1'),
-        slot('civil-1-experience-essay', slug, 'inline-2'),
-        slot('civil-1-combo-essay', slug, 'inline-3'),
-        slot('civil-membership-lab', slug, 'inline-4'),
+        slot('civil-1-keiken-complete-pack', slug, 'inline-1'),
+        slot('civil-1-pastexam-essay', slug, 'inline-2'),
+        slot('civil-1-experience-essay', slug, 'inline-3'),
+        slot('civil-1-combo-essay', slug, 'inline-4'),
+        slot('civil-membership-lab', slug, 'inline-5'),
       ],
       sidebar: [slot('civil-1-experience-essay', slug, 'sidebar-1')],
     };
@@ -396,10 +400,11 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   if (docGroup === 'guide' && slug.startsWith('civil-construction-1-')) {
     return {
       inline: [
-        slot('civil-1-experience-essay', slug, 'inline-1'),
-        slot('civil-1-pastexam-essay', slug, 'inline-2'),
-        slot('civil-1-combo-essay', slug, 'inline-3'),
-        slot('civil-membership-lab', slug, 'inline-4'),
+        slot('civil-1-keiken-complete-pack', slug, 'inline-1'),
+        slot('civil-1-experience-essay', slug, 'inline-2'),
+        slot('civil-1-pastexam-essay', slug, 'inline-3'),
+        slot('civil-1-combo-essay', slug, 'inline-4'),
+        slot('civil-membership-lab', slug, 'inline-5'),
       ],
       sidebar: [slot('civil-1-experience-essay', slug, 'sidebar-1')],
     };
@@ -466,7 +471,7 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
  */
 const CATEGORY_MAGAZINES: Partial<Record<string, readonly MagazineId[]>> = {
   "pe-comprehensive-management": ["essay-complete-pack", "essay-core-pack", "tankan-reading-guide"],
-  "civil-construction-1": ["civil-1-experience-essay", "civil-1-pastexam-essay", "civil-membership-lab"],
+  "civil-construction-1": ["civil-1-keiken-complete-pack", "civil-1-experience-essay", "civil-1-pastexam-essay", "civil-membership-lab"],
   "civil-construction-2": ["civil-2-experience-essay", "civil-2-pastexam-essay", "civil-membership-lab"],
   "concrete-chief-engineer": ["cce-essay-magazine"],
   "concrete-diagnostician": ["cd-essay-magazine"],

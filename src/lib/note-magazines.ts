@@ -16,6 +16,13 @@ export interface NoteMagazine {
   readonly id: string;
   readonly published: boolean;
   readonly noteUrl: string;
+  /**
+   * サイト CTA の着地先 URL（省略時は noteUrl）。
+   * 有料マガジンへ直接送る代わりに、無料の索引/案内記事など摩擦の低い front-door へ
+   * 着地させたいときに設定する。noteUrl はマガジン SoT（verify-note-magazines が /m/ で照合）
+   * のため不変で、着地先だけをこの field で分離する。
+   */
+  readonly landingUrl?: string;
   readonly title: string;
   readonly description: string;
   /** sidebar 用の短縮タイトル (省略時は title を使用) */
@@ -478,6 +485,9 @@ const MAGAZINES_RAW = {
     id: 'civil-1-keiken-complete-pack',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m8290970a7f05',
+    // サイト CTA は有料マガジンへ直行させず、無料の「想定工事100 索引」に着地させる
+    // （工事起点で選ぶ front-door → そこから pack/単品へ）。noteUrl はマガジン SoT で不変。
+    landingUrl: 'https://note.com/dobokunote/n/n9cf7e60661fa',
     title: '1級土木 施工経験記述｜完全攻略パック（想定工事×5管理 全網羅）',
     description:
       '1級土木施工管理技士 第2次検定 問題1（施工経験記述）の完全攻略パック。自分の現場に近い「想定工事」を選び、その工事で品質・工程・安全・施工計画・環境対策の5管理をどう書くかを一望できる工事起点の索引を背骨に、完成答案集・過去問模範答案集（R03-R07）・2テーマ組合せ大全の全模範答案（監理技術者レベル）を1パックに統合。9工種カテゴリを網羅し、令和6年度以降の2テーマ必答に対応。各答案に自分の現場への置換ガイドと採点者視点の減点ポイントを収録。※本書は改変前提のテンプレートで、合格を保証するものではありません。',
@@ -766,6 +776,7 @@ export function buildMagazineUrl(magazine: NoteMagazine, utmContent: string): st
     utm_campaign: 'note-magazine',
     utm_content: utmContent,
   });
-  const sep = magazine.noteUrl.includes('?') ? '&' : '?';
-  return `${magazine.noteUrl}${sep}${params.toString()}`;
+  const base = magazine.landingUrl ?? magazine.noteUrl;
+  const sep = base.includes('?') ? '&' : '?';
+  return `${base}${sep}${params.toString()}`;
 }
