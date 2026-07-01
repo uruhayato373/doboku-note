@@ -76,14 +76,31 @@ console.log('[1] account gate OK (dobokunote)');
 // --- open plan edit ---
 const url = `https://note.com/membership/settings/plans/${PLAN}/edit`;
 await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
-await sleep(5000);
 if (!/plans\/.+\/edit/.test(page.url())) { console.error('ABORT: プラン編集画面に到達できず。planId 確認:', page.url()); await ctx.close(); process.exit(3); }
+// プロキシ遅延対策: フォーム本体（プラン名/説明の入力）が描画されるまで待つ。
+// 「プラン編集」ヘッダだけ先に出てフォームが未描画のまま操作すると空振りする（会社PCで頻発）。
+try {
+  await page.waitForSelector('textarea, input[type="text"]:not([name="q"])', { timeout: 30000 });
+  await page.waitForSelector('button:has-text("プランを変更する")', { timeout: 15000 }).catch(() => {});
+} catch { console.error('ABORT: フォーム未描画（プロキシ遅延？）。再実行してください。'); await page.screenshot({ path: join(TMP, `mplan-${PLAN}-noform.png`), fullPage: true }); await ctx.close(); process.exit(7); }
+await sleep(1500);
 console.log('[2] plan edit:', page.url());
 
 // フィールド locator（probe 2026-07-01 由来）
 const priceInput = page.locator('input[name="price"]');
 const nameInput = page.getByRole('textbox').filter({ hasNot: page.locator('[name="q"]') }).first(); // プラン名（先頭の text 入力）
-const limitToggle = page.getByText('参加人数を制限する', { exact: true });
+// 人数制限トグル: 実機 probe（2026-07-01）で aria-label が空・DOM順も不定と判明。
+// 「参加人数を制限する」を近傍テキストに持つ [role=switch] を in-page で特定して data 属性でタグ付けし、
+// それをクリックする（他の ON 済みスイッチ＝メンバー限定の記事 等を誤爆しないため）。
+async function tagLimitSwitch() {
+  return await page.evaluate(() => {
+    document.querySelectorAll('[data-np-limit]').forEach((e) => e.removeAttribute('data-np-limit'));
+    const sw = [...document.querySelectorAll('[role="switch"],input[type="checkbox"]')].find((s) => {
+      let p = s; for (let k = 0; k < 6; k++) { p = p.parentElement; if (!p) break; const t = (p.innerText || '').replace(/\s+/g, ' ').trim(); if (t.includes('参加人数を制限する') && t.length < 40) return true; } return false;
+    });
+    if (!sw) return false; sw.setAttribute('data-np-limit', '1'); return true;
+  });
+}
 const saveBtn = page.getByRole('button', { name: 'プランを変更する' });
 
 // --- read current state ---
@@ -109,20 +126,37 @@ if (DESC) {
   await descArea.fill(DESC); console.log('[4] 説明 set'); await sleep(500);
 }
 if (PRICE) {
-  if (!(await priceInput.count())) { console.error('ABORT: 会費フィールド未検出'); await ctx.close(); process.exit(4); }
-  await priceInput.fill(String(PRICE)); console.log('[4] 会費 set:', PRICE); await sleep(500);
+  if (!(await priceInput.count())) {
+    // 会費が既設定のプランは入力欄でなく静的テキスト表示になり input[name=price] が無い。
+    // その場合は「既に設定済み」として skip（中断しない）。値の一致は目視/検証で確認する。
+    const shown = (await page.evaluate(() => (document.body.innerText.match(/([\d,]+)\s*円\/月/) || [])[1] || ''));
+    console.log(`[4] 会費フィールド無し（既設定=${shown || '不明'}円/月）→ 会費はスキップ（変更するには note UI で編集モードにする）`);
+  } else {
+    await priceInput.fill(String(PRICE)); console.log('[4] 会費 set:', PRICE); await sleep(500);
+  }
 }
 if (LIMIT) {
-  // 人数制限トグルを ON にしてから数値入力（現状 OFF 前提）
-  if (await limitToggle.count()) { await limitToggle.first().click().catch(() => {}); await sleep(1200); }
-  // ON 後に現れる数値入力（price 以外の number）に定員を入れる
-  const nums = page.locator('input[type="number"]');
-  const n = await nums.count();
-  for (let i = 0; i < n; i++) {
-    const el = nums.nth(i);
-    const name = await el.getAttribute('name').catch(() => '');
-    if (name !== 'price') { await el.fill(String(LIMIT)); console.log('[4] 定員 set:', LIMIT); break; }
+  // 人数制限トグル（近傍テキストで特定した switch）を ON にしてから数値入力（現状 OFF 前提）
+  if (!(await tagLimitSwitch())) { console.error('ABORT: 「参加人数を制限する」トグル未検出（フォーム未描画？）'); await ctx.close(); process.exit(8); }
+  const sw = page.locator('[data-np-limit="1"]').first();
+  const before = await sw.getAttribute('aria-checked').catch(() => null);
+  if (before !== 'true') { await sw.click({ force: true }).catch(() => {}); await sleep(1500); }
+  const after = await sw.getAttribute('aria-checked').catch(() => null);
+  console.log(`[4] 人数制限トグル: ${before} → ${after}`);
+  if (after !== 'true') { console.error('ABORT: 人数制限トグルを ON にできず（保存しない）'); await page.screenshot({ path: join(TMP, `mplan-${PLAN}-toggle.png`), fullPage: true }); await ctx.close(); process.exit(10); }
+  // ON 後に現れる数値入力（price 以外の number）が描画されるまで待つ
+  let filled = false;
+  for (let tries = 0; tries < 6 && !filled; tries++) {
+    const nums = page.locator('input[type="number"]');
+    const n = await nums.count();
+    for (let i = 0; i < n; i++) {
+      const el = nums.nth(i);
+      const name = await el.getAttribute('name').catch(() => '');
+      if (name !== 'price') { await el.fill(String(LIMIT)); console.log('[4] 定員 set:', LIMIT); filled = true; break; }
+    }
+    if (!filled) await sleep(1500);
   }
+  if (!filled) { console.error('ABORT: 定員の数値入力欄が見つからず（保存しない）'); await page.screenshot({ path: join(TMP, `mplan-${PLAN}-nolimit.png`), fullPage: true }); await ctx.close(); process.exit(9); }
   await sleep(500);
 }
 
