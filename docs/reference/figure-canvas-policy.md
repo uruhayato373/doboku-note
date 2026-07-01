@@ -60,6 +60,16 @@
 > [!tip] バックフィル中の段階適用
 > 既存未移行ファイルを一括で赤落ちさせないため、ガードは初期に **allowlist（移行待ちパス）** を持ち、`fitStatus=conforming` になった図から allowlist を外す。新規ファイルは最初から対象。
 
+### 孤立 figure ガード — 「作った figure は必ず本文に出す」
+
+**`scripts/check-orphan-figures.mjs`**（pre-commit `--staged` + CI `r2-audit.yml` 全量・`npm run check-orphan-figures`）:
+
+- `.local/r2/posts/**/img/figure-*.svg` を走査し、その figure の親（`img/` の 1 つ上）ディレクトリ直下の `*.mdx` / `*.md` 本文を読む。
+- 本文に「basename（`figure-N.svg`）」も「stem（`figure-N`、別拡張子参照を許容）」も**現れない** figure を**孤立**として **exit 1**。
+- 孤立 figure は `img/` に存在してもサイトに一切表示されない（`<ArticleImage>` 等で結線して初めて表示される）。
+- 過去問クロップ専用ディレクトリ（`h24-primary` / `primary-h26-*` 等）は figure 命名対象外なので免除。`{/* quiz-figures:start */}…end */}` ブロック内の `<ArticleImage>` も「本文参照」として有効（孤立扱いしない）。
+- 背景: 2026-06-29、総監（pe-comprehensive-management）で figure 総数 182 の 27%（49 枚）が未結線で非表示だった。全件結線のうえ本ガードを新設。
+
 ---
 
 ## 4. カタログ SSOT 拡張 ＋ 目視ループ

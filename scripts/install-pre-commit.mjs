@@ -9,8 +9,23 @@
 
 import { writeFileSync, chmodSync, existsSync, mkdirSync } from "fs";
 import { join } from "path";
+import { execFileSync } from "child_process";
 
-const HOOKS_DIR = join(".git", "hooks");
+// worktree 対応: worktree では .git はファイル（gitdir ポインタ）なので
+// 相対 ".git/hooks" は解決できない。共有フックの実体パスを git に問い合わせる。
+function resolveHooksDir() {
+  try {
+    const p = execFileSync("git", ["rev-parse", "--git-path", "hooks"], {
+      encoding: "utf8",
+    }).trim();
+    if (p) return p;
+  } catch {
+    /* fall through */
+  }
+  return join(".git", "hooks");
+}
+
+const HOOKS_DIR = resolveHooksDir();
 const HOOK_PATH = join(HOOKS_DIR, "pre-commit");
 
 const HOOK_CONTENT = `#!/bin/sh
@@ -110,6 +125,12 @@ fi
 
 # 図版 SVG の固定キャンバス標準（figure-N.svg=4:5 400x500 / --wide=16:9 640x360）逸脱検出（figure-canvas-policy）
 node scripts/check-figure-canvas.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
+# 孤立 figure（img/figure-*.svg が同記事の本文から未参照＝サイト非表示）検出（結線もれの再発防止）
+node scripts/check-orphan-figures.mjs --staged
 if [ $? -ne 0 ]; then
   exit 1
 fi
