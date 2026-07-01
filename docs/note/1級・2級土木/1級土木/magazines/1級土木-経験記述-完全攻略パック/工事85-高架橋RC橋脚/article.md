@@ -15,9 +15,9 @@ cover:
     - { icon: doc, text: "完成答案" }
     - { icon: edit, text: "置換ガイド" }
     - { icon: check, text: "5管理一覧" }
-noteUrl: "https://note.com/dobokunote/n/n28ce5602f65a"
-noteId: "n28ce5602f65a"
-notePublishedAt: "2026-06-30"
+noteUrl: "https://note.com/dobokunote/n/nb44e8c218401"
+noteId: "nb44e8c218401"
+notePublishedAt: "2026-07-01"
 price: 1280
 paidBoundary: 品質管理
 ---

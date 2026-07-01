@@ -5,9 +5,9 @@ paidBoundary: 品質管理
 noteSeries: 1級土木-経験記述-完全攻略パック
 noteMagazine: 1級土木-経験記述-完全攻略パック
 utmCampaign: civil1-keiken-pack-koji86
-noteUrl: "https://note.com/dobokunote/n/n2ef6f8e23aaf"
-noteId: "n2ef6f8e23aaf"
-notePublishedAt: "2026-06-30"
+noteUrl: "https://note.com/dobokunote/n/nf44492754254"
+noteId: "nf44492754254"
+notePublishedAt: "2026-07-01"
 noteStatus: published
 coverTitle: ["1級土木 施工経験記述", "鋼管矢板 橋脚基礎", "5管理 完成答案"]
 cover:
