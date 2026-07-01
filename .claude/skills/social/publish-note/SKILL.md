@@ -204,6 +204,13 @@ browser-use --headed --profile "$NOTE_PROFILE" state 2>&1 > /tmp/note-acct.txt
 
 「投稿できた」というログを**信用しない**。stats47/publish-x で予約ゼロの空振り事故があった（[[feedback_publish_x_false_success]]）。公開後は **note の公開ページ（または下書き一覧）を実取得して、本文・カバー・タグ・価格・カード化が実際に反映されているか DOM/スクショで確認**してから「完了」と報告する。clipboard paste 不発（本文空）も頻発するため、paste 後に本文の文字数を eval で確認する。
 
+### 幻 noteId（fail=0 なのに未公開）— バッチ公開後の必須ゲート
+
+`note-publish.mjs` の writeback は**ページから拾った URL の id を書くだけ**で、公開が実際は未完了でも幻 id を frontmatter に書きうる。`note-publish-magazine.mjs` は従来 `noteUrl` の有無だけで OK 判定していたため、**`fail=0` と報告しつつ一部が未公開＋幻 id（API で 404）** という偽成功が起きた（2026-06-30 完全攻略パック 工事82-87 の6本・[[project_civil1_flagship_pack]]）。
+
+- **バッチ側の一次ガード（2026-07-01 実装済）**: `note-publish-magazine.mjs` は即時公開分について、書き戻した noteId が note API v3 で実在するか照合する。確定 404（幻 id）なら `fail` で停止する（予約投稿は go-live 後刻ゆえ検証しない）。
+- **バッチ後の確証ゲート（必須）**: 公開バッチ完了後・「完了」と報告する前に必ず `npm run verify-note-status` を回す。**fm=published ↔ ライブ=404** を `WARN` で列挙する reconciler で、幻 id・静かな未公開を全件で捕捉する。WARN が出たら該当記事の frontmatter（noteUrl/noteId/notePublishedAt）を空へリセット→`--commit` で再公開→再照合する。ネットワーク依存で遅いため CI ゲートには入れない（weekly-review でも定期実行）。
+
 ## トラブルシューティング
 
 要素検索ヘルパー（`find_idx`）・実証済み要素パターン・clipboard paste 不発時の対処は **[references/troubleshooting.md](references/troubleshooting.md)**。既存公開記事の更新は **[references/update-mode.md](references/update-mode.md)**。

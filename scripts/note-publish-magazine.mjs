@@ -8,6 +8,12 @@
  * 直列必須・並行不可）。冪等（frontmatter に noteUrl があればスキップ）・1記事最大2回試行・
  * 失敗で停止（再実行で再開）。
  *
+ * 偽成功ガード（2026-07-01）: 即時公開は「noteUrl が書けた」だけで OK とせず、書き戻した
+ *   noteId が note API v3 で実在するかを照合する（幻 id=確定404 なら fail で停止）。writeback は
+ *   ページ URL から id を抜くだけで、公開未完了でも幻 id を書きうるため fmHasUrl だけでは
+ *   偽成功を素通りさせる（工事82-87 が fail=0 のまま未公開だった再発防止）。予約投稿は go-live が
+ *   後刻ゆえ実在検証しない（weekly `verify-note-status` が担保）。バッチ後も同 reconciler で全件照合推奨。
+ *
  * 公開順は article 名の昇順（R03→R07→R08-yosou × II1→II2→III）。各記事公開後、
  * note-publish が noteUrl/noteId/notePublishedAt を frontmatter に writeback する
  * （git commit はしない＝呼び側で pathspec commit）。
@@ -70,6 +76,23 @@ if (LIST) {
 }
 const rel = (f) => f.replace(/\\/g, '/').replace(ROOT.replace(/\\/g, '/') + '/', '');
 const fmHasUrl = (f) => /noteUrl:\s*"https?:\/\//.test(readFileSync(f, 'utf8'));
+const fmNoteId = (f) => (readFileSync(f, 'utf8').match(/^noteId:\s*"?([a-z0-9]+)"?/mi) || [])[1] || '';
+
+// 偽成功ガード: 公開直後に noteId が note API で実在するか検証する。writeback は「ページから
+//   拾った URL に id があれば書く」ため、公開が実際は未完了でも幻 id を書き込みうる（2026-06-30
+//   工事82-87 が fail=0 のまま未公開＝[[project_civil1_flagship_pack]]）。fmHasUrl だけでは
+//   検出できない。'ok'=実在 / '404'=確定不在(幻ID) / 'unknown'=network揺れ(判定保留)。
+//   即時公開のみ検証（予約は go-live 後刻で API 404 が正常＝weekly verify-note-status が担保）。
+function liveNoteStatus(noteId) {
+  let confirmed404 = false;
+  for (let i = 0; i < 3; i++) {
+    let out = '';
+    try { out = execFileSync('curl', ['-s', '--ssl-no-revoke', '--max-time', '20', `https://note.com/api/v3/notes/${noteId}`], { encoding: 'utf8', maxBuffer: 8 * 1024 * 1024 }); } catch { out = ''; }
+    try { const d = JSON.parse(out); const data = d.data || d; if (data && data.status) return 'ok'; confirmed404 = true; } catch { /* 空/非JSON=throttle → retry */ }
+    if (i < 2) { try { execFileSync('sleep', [String(2 + i)]); } catch {} } // 新規公開の eventual-consistency ラグも吸収
+  }
+  return confirmed404 ? '404' : 'unknown';
+}
 
 console.log(`[対象] ${files.length} 記事 (${srcLabel})${LIST ? '' : ` pattern=${PATTERN}`}${SCHED_START ? `  予約: ${SCHED_START} から ${INTERVAL_H}h 間隔` : ''}`);
 let previewSlot = 0;
@@ -94,7 +117,16 @@ for (let i = 0; i < files.length; i++) {
     console.log(`${tag} ${SCHED_START ? `RESERVE @${schedArgs[1]}` : 'PUBLISH'}${attempt > 1 ? ` (retry ${attempt})` : ''}`);
     try {
       execFileSync('node', ['scripts/note-publish.mjs', '--article', f, '--commit', ...schedArgs], { cwd: ROOT, encoding: 'utf8', timeout: 360000, stdio: ['ignore', 'pipe', 'pipe'] });
-      if (fmHasUrl(f)) done = true; else lastErr = 'noteUrl not written after publish';
+      if (!fmHasUrl(f)) { lastErr = 'noteUrl not written after publish'; }
+      else if (SCHED_START) { done = true; } // 予約=go-live 後刻・実在検証しない（weekly verify-note-status が担保）
+      else {
+        // 偽成功ガード（即時公開）: 書き戻した noteId が note API で実在するか照合
+        const id = fmNoteId(f);
+        const live = id ? liveNoteStatus(id) : 'unknown';
+        if (live === 'ok') done = true;
+        else if (live === '404') { lastErr = `偽成功検出: 公開後 noteId ${id} が note API で実在せず（幻ID）。frontmatter をリセットして再公開が必要`; break; } // retry しても skip されるだけ→即停止
+        else { done = true; console.warn(`    WARN: noteId ${id} 実在未確認(network揺れ)。バッチ後に npm run verify-note-status で要照合`); }
+      }
     } catch (e) { lastErr = ((e.stdout || '') + (e.stderr || '')).trim().split('\n').slice(-2).join(' | '); }
     if (!done && attempt < 2) await new Promise((r) => setTimeout(r, 8000));
   }
@@ -103,4 +135,5 @@ for (let i = 0; i < files.length; i++) {
   await new Promise((r) => setTimeout(r, 12000)); // pacing
 }
 console.log(`\n[done] ok=${ok} skip=${skip} fail=${fail} / ${files.length}`);
+if (!SCHED_START) console.log('[偽成功ガード] 即時公開分は noteId 実在を照合済み。全件確証は `npm run verify-note-status`（fm=published↔ライブ404 を検出）を推奨。');
 process.exit(fail ? 1 : 0);

@@ -1,11 +1,14 @@
 # ハンドオフ: 1級土木 完全攻略パック 100本 公開完了 → 仕上げ（別PC継続用）
 
-**日付**: 2026-06-30
-**状態**: **100本すべて note 即時公開済み（fail=0）**。frontmatter 書き戻しは develop に commit/push 済み。
+**日付**: 2026-06-30（**2026-07-01 更新**）
+**状態**: 100本 note 公開済み ＋ **マガジン m8290970a7f05 へ 100/100 収録完了（2026-07-01）**。
 **前ハンドオフ**: [2026-06-30-civil1-flagship-publish.md](2026-06-30-civil1-flagship-publish.md)（公開手順本体）。本書はその**公開後の続き**。
 
+> [!warning] 是正（2026-07-01）— 「fail=0」は偽成功だった
+> 当初「100本すべて即時公開済み（fail=0）」と記録したが、**工事82-87 の6本は実際には未公開**で、frontmatter に幻 noteId（note API で 404）＋ `published` が誤書き戻しされていた（バッチ成功判定が `noteUrl` 有無だけだったため）。2026-07-01 に検出→6本を実公開し直し正 noteId へ是正（API 検証済 published/¥1280/can_read=false・**PR #313 merged**）→マガジン収録し **100/100 完了**。再発防止として `note-publish-magazine.mjs` に noteId 実在照合を追加＋公開後 `npm run verify-note-status` を必須ゲート化（publish-note SKILL.md「偽成功の罠」）。
+
 > [!note] 結論
-> 100本の本番公開は完了。残るは **マガジン収録 → SKU 公開 → deploy** の3工程でパック完成。その後に PDF・目次・予約投稿修復など。
+> 100本公開＋マガジン収録は完了。残るは **SKU published:true → deploy**（＋後続で PDF・目次・無料23本CTA live）。
 
 ---
 
@@ -21,13 +24,14 @@
 
 ## 2. 残作業（この順で・別PCで実行）
 
-### 2-1. マガジン `m8290970a7f05` へ100本収録
+### 2-1. マガジン `m8290970a7f05` へ100本収録 ✅ 完了（2026-07-01）
 ```bash
-node scripts/note-magazine-add-articles.mjs --target <マガジンkey/設定> --from <packDir> --commit
-#   既定 dry-run。--probe で1記事目のボタン文言ダンプ。引数の正確な対応は scripts header 参照（--target/--from/--notes/--limit）
-#   packDir = docs/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック
+# 実行済コマンド（会社PC・冪等・分割再実行で 0→2→85→94→100）
+node scripts/note-magazine-add-articles.mjs --target m8290970a7f05 --notes <100個のnoteId,カンマ区切り> --commit
+#   noteId は各 工事NN-*/article.md frontmatter。--plan-only で API 差分のみ確認可（ブラウザ不要）。
+#   孤児 Chrome がプロファイルをロックし LAUNCH_FAIL する→毎回 playwright-note-profile の chrome を Stop-Process＋Singleton* を rm。
 ```
-- 100本の noteId は各 `工事NN-*/article.md` の frontmatter にあり（収録対象の真実源）
+- 独立 API 検証（`api/v1/magazines/m8290970a7f05/notes` 全ページ）で **100/100 収録・未収録なし** を確認済み。
 
 ### 2-2. SKU を published:true（パック完成）
 - `src/lib/note-magazines.ts` の `civil-1-keiken-complete-pack`（現在 `published: false`・noteUrl=m8290970a7f05・¥9,800）を **100本収録完了後に `published: true`** へ
