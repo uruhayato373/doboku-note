@@ -3,6 +3,10 @@ notePricing: paid
 paidBoundary: 品質管理
 noteSeries: 2級土木-想定工事バンク
 noteMagazine: 2級土木-想定工事バンク
+noteUrl: ""
+noteId: ""
+notePublishedAt: ""
+noteStatus: draft
 utmCampaign: civil2-koji-bank-koji17
 price: 980
 coverTitle: ["2級土木 施工経験記述", "RCボックスカルバート", "5管理フルカバー"]

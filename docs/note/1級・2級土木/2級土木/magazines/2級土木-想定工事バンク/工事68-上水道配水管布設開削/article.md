@@ -3,6 +3,10 @@ notePricing: paid
 paidBoundary: 品質管理
 noteSeries: 2級土木-想定工事バンク
 noteMagazine: 2級土木-想定工事バンク
+noteUrl: ""
+noteId: ""
+notePublishedAt: ""
+noteStatus: draft
 utmCampaign: civil2-koji-bank-koji68
 price: 980
 coverTitle: ["2級土木 施工経験記述", "上水道配水管布設", "5管理フルカバー"]
@@ -16,9 +20,6 @@ cover:
     - { icon: doc, text: "完成答案" }
     - { icon: edit, text: "置換ガイド" }
     - { icon: check, text: "5管理フル" }
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
 ---
 # 2級土木 施工経験記述｜上水道配水管布設開削 5管理フルカバー完成答案
 

@@ -2,6 +2,10 @@
 notePricing: free
 noteSeries: 2級土木-想定工事バンク
 noteMagazine: 2級土木-想定工事バンク
+noteUrl: "https://note.com/dobokunote/n/ned33a34bc42f"
+noteId: "ned33a34bc42f"
+notePublishedAt: "2026-07-02"
+noteStatus: published
 utmCampaign: civil2-koji-bank-index
 coverTitle: ["2級土木 施工経験記述", "想定工事バンク 総合案内", "想定工事36 索引"]
 cover:
