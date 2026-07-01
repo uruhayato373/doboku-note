@@ -203,6 +203,20 @@ const BANNERS = [
     ],
   },
   {
+    // 1級土木 経験記述の旗艦（買い切り・想定工事100×5管理）。サイドバー/記事末尾の
+    // 画像オンリー描画（SidebarMagazineList）に載せるため 300×250 を付与。
+    id: 'civil-1-keiken-complete-pack-sidebar',
+    bgTop: '#155293',
+    bgBottom: '#0e3a68',
+    accent: '#7cc4f0',
+    label: 'note限定',
+    lines: [
+      ['1級土木 経験記述', 22],
+      ['完全攻略パック', 30],
+      ['想定工事100×5管理', 18],
+    ],
+  },
+  {
     id: 'cce-essay-magazine-sidebar',
     bgTop: '#475569',
     bgBottom: '#2f3a4a',
