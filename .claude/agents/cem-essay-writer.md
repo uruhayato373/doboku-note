@@ -54,7 +54,7 @@ model: sonnet
 
 ### Step 2: 執筆（checklist の品質原則を満たす）
 
-frontmatter（`published: false` ＋ `reviewStatus: needs-review` の人間ゲート・`price`/`noteUrl`/`noteId` は本文に直書きしない）＋本文。執筆規則は以下を**厳守**（詳細は checklist 各 Step）：
+frontmatter（`published: false` ＋ `reviewStatus: needs-review` の人間ゲート・`price`/`noteUrl`/`noteId` は本文に直書きしない）＋本文。**note 公開する記事は `noteMagazine:` 直後に note公開メタ4行を空で初期化**：`noteUrl: ""` / `noteId: ""` / `notePublishedAt: ""` / `noteStatus: draft`（無いと `note-publish.mjs` の writeback が URL を記録できず冪等ガードも効かない。2026-07-02 writeback は「行が無ければ挿入」へ堅牢化済だがテンプレ側でも入れる）。執筆規則は以下を**厳守**（詳細は checklist 各 Step）：
 
 1. **各施策 600 字以内（最優先）** — 設問(2)(3)の各 `### 施策` ブロックは①②③合算で 600 字以内。585〜600 字が理想、601 字以上は無条件で圧縮（checklist Step 2）。
 2. **答案は散文** — `- **内容**:` `- **効果**:` のような箇条書き化は禁止。トレードオフの管理名（経済性管理 × 社会環境管理 等）は散文の中に明示（checklist Step 3）。手本＝河川／下水道／都市計画（答案箇条書き0）。

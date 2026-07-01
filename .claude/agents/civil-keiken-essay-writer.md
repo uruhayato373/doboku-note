@@ -53,7 +53,7 @@ model: sonnet
 
 ### Step 3: 執筆
 
-frontmatter（`notePricing: paid` / `noteSeries` / `noteMagazine` / `utmCampaign` / `noteUrl: ""` / `noteId: ""` / `notePublishedAt: ""` / `coverTitle` / `price`）＋本文。本文構成は既存記事のテンプレに合わせる（こんな人 / わかること / マガジン案内 / 失格注意 / 採点者ポイント or 問題文再掲 / 完成答案 / もう一方の組合せ早見 / 置換ガイド / NG→OK or 採点者視点 / 出典(pastexam) / 関連リンク）。
+frontmatter（`notePricing: paid` / `noteSeries` / `noteMagazine` / `utmCampaign` / `coverTitle` / `price`）＋**note公開メタ4行を `noteMagazine:` 直後に必ず入れる**：`noteUrl: ""` / `noteId: ""` / `notePublishedAt: ""` / `noteStatus: draft`（4行セット・空文字で初期化）。この4行が無いと `note-publish.mjs` の公開後 writeback が URL を記録できず（旧実装は行の置換のみ）、`note-publish-magazine` の冪等ガードも効かず一括で重複公開する事故になる（2026-07-02 writeback は「行が無ければ挿入」へ堅牢化済みだが、テンプレ側でも初めから入れて診断可能にする）。本文構成は既存記事のテンプレに合わせる（こんな人 / わかること / マガジン案内 / 失格注意 / 採点者ポイント or 問題文再掲 / 完成答案 / もう一方の組合せ早見 / 置換ガイド / NG→OK or 採点者視点 / 出典(pastexam) / 関連リンク）。
 
 - **ハッシュタグは本文に入れない**。note タグの SoT は別ファイル `{記事dir}/hashtags.txt`（既存全 note 記事の規約。`/note-hashtags` 準拠・**単一行 space 区切り**・`#tag` のみ・最大99・80–90個目安）。記事生成後に `/note-hashtags {slug}` で生成する。マガジン/関連記事への導線リンクカード用 URL のみ本文に単独行で置く（[[feedback_note_link_card]]）。
 

@@ -220,12 +220,13 @@ Read .local/r2/posts/pe-construction/{year}-{subject}/article.mdx
 ---
 notePricing: paid
 noteMagazine: {magazine_id}
-year: {year}
-subject: {subject}
-exam_type: {exam_type}
 noteUrl: ""
 noteId: ""
 notePublishedAt: ""
+noteStatus: draft
+year: {year}
+subject: {subject}
+exam_type: {exam_type}
 price: 500
 coverTitle: "技術士 建設部門｜{専門分野名} {year} {科目種別} 模範解答"
 utmCampaign: pe-construction-secondary
