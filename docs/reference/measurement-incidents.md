@@ -208,6 +208,12 @@ title: 計測・検証事故の記録
 - Umbrella [#82](https://github.com/uruhayato373/doboku-note/issues/82) - Weekly Metrics PDCA
 - 2026-04-25 Cloudflare Bot incident（同根の可能性、本ファイル下方）
 
+### 2026-07-01 フォローアップ（フィルタ後も bing 残留・回遊分析で再確認）
+
+`ga4-source`（5/17・japanOnly＋スパム除外済）で **bing 252 users > google 77（3.3x）** が残存。フィルタで 1,293→252 に激減済みだが、**日本語土木試験サイトで bing>google の逆転は本 incident の署名のまま**。ただし残 252 は 5.36 ページ/session・493 秒・engagement 65% と **human 的挙動**で、単純 bot 署名（1ページ・0秒・直帰100%）ではない＝**「疑わしいが未確定」**。教訓#1 のとおり source 単独では判定不能。**次の CI/CD GA4 取得で bing × device × landing × 新規/再訪 を交差**して確定する（会社PC はプロキシで外部 API 不可＝CI/CD 供給待ち）。
+
+**運用ルール（2026-07-01 確定）**: **GSC を Google 人間検索の真実源（下限）として扱う**。GA4-google（77/2週）≒ GSC(~5クリック/日×14) で両者は一致しており、GSC は汚染されない。GA4 の「organic 84%・低アクセスではない」は **bing 水増し込み**として割り引く。
+
 ## 2026-04-25: Cloudflare Bot 保護で外部 RSS/Atom Validator が 403
 
 ### 現象
