@@ -3,10 +3,10 @@ notePricing: free
 noteSeries: 1級土木-経験記述-完全攻略パック
 noteMagazine: 1級土木-経験記述-完全攻略パック
 utmCampaign: civil1-keiken-pack-index
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/n9cf7e60661fa"
+noteId: "n9cf7e60661fa"
+notePublishedAt: "2026-07-01"
+noteStatus: published
 coverTitle: ["1級土木 施工経験記述", "完全攻略パック 総合案内", "想定工事100 索引"]
 cover:
   leadIn: "1級土木施工管理技士 二次"
