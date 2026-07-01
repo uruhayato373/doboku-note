@@ -116,11 +116,12 @@ node scripts/note-update-body.mjs --list   <list.txt>   --commit    # 複数記�
 ```
 
 - `noteId` を frontmatter から取得し `editor.note.com/notes/{noteId}/edit` へ直接遷移
-- **本文置換 = Ctrl+A → Delete で空に → ClipboardEvent paste**。`Ctrl+A` で全選択した「選択状態」のまま synthetic paste しても **ProseMirror は置換しない**（無音失敗・「pasted」とログだけ出て中身が変わらない）。**一度 Delete で空にしてから paste** すると成功する＝`note-publish.mjs` の `/new` 空エディタ paste と同条件（2026-06-24 バグ修正）
+- **本文置換 = 全選択(Meta+A on macOS / Ctrl+A on Windows) → Delete で空に → ClipboardEvent paste**。全選択した「選択状態」のまま synthetic paste しても **ProseMirror は置換しない**（無音失敗・「pasted」とログだけ出て中身が変わらない）。**一度 Delete で空にしてから paste** すると成功する＝`note-publish.mjs` の `/new` 空エディタ paste と同条件（2026-06-24 バグ修正）。**macOS では Ctrl+A が行頭移動（emacs binding）で全選択にならず空化に失敗→本文が二重化する**ため `Meta+A` 必須（2026-07-02 是正・`process.platform === 'darwin'` で自動分岐）
 - **paste 直後に probe 文字列が `contenteditable.innerText` に入ったか必ず検証**。無ければ保存せず中断（無音失敗による空更新事故を防止）。probe は `--probe "<文字列>"` で明示、省略時は本文の素の散文行から自動導出（`--list` 時は各記事ごと自動）
 - **ライブ反映は `--commit` 必須**（既定は dry-run でスクショのみ）。**「下書き保存」だけでは公開済み記事に一切反映されない**（autosave 下書きは browser close で破棄→再オープンで公開版ロード）。`--commit` で **公開に進む →（有料記事なら有料境界保持）→ 更新する → 更新通知は必ず「いいえ」**まで実行（`note-append-cta.mjs:144-219` を移植）
 - **有料記事**: 全文置換で paywall 境界が消えるため、`試験問題|予想問題` H2 直前へ境界を再設定し検証（NG なら保存せず中断＝paywall 保護）。試験 H2 が無い有料記事は `--keep-boundary`、別パターンは `--boundary-h2 "<regex>"`。**無料記事は境界処理を飛ばす**（有料エリア設定ボタンの有無で自動判定）
 - URL 行のリンクカード化（type→Enter）まで自動。カバー画像・タイトル・タグは変更しない。BOM 付きファイル対応済み
+- **4.5 目次再挿入**（2026-07-02）: 全文置換で note ネイティブ目次が消えるため、H2 見出しが 3 つ以上の記事は本文先頭に目次ブロック（`#toc-setting`）を自動で再挿入する（`--no-toc` で抑止）。検証は `.tmp/nu-toc-*.png` スクショで目視。**無料記事のライブ更新は publishLive の「更新する」ボタン検出が未対応（既知の残課題）**＝無料記事は本文差し替えのみで更新確定に至らない場合がある（有料記事は自動化済）
 - 検証: 反映後に `curl --ssl-no-revoke https://note.com/api/v3/notes/{noteId}` の `data.body` で新文字列の出現・旧文字列の消失を実体確認
 - 実証: 2026-06-24 1級・2級土木 導線 5 記事をライブ反映し note API で全件 in-sync 確認（旧 `.tmp/note-retype-body.mjs` ＝無料専用の使い捨て版で先行実証）
 - 実行はローカル（note ログイン済みプロファイルのある Windows/Mac）限定。会社 PC で可（`channel:'chrome'`）

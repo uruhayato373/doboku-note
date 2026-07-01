@@ -21,14 +21,17 @@
  * 処理:
  *   1. account ゲート（dobokunote 確認）
  *   2. editor.note.com/notes/{noteId}/edit へ遷移
- *   3. 本文置換 = Ctrl+A → Delete でエディタを空に → ClipboardEvent paste
- *      （空エディタへの paste は成功する＝note-publish.mjs:106 の /new 空エディタと同条件）
+ *   3. 本文置換 = 全選択(macOS=Meta+A / それ以外=Ctrl+A) → Delete でエディタを空に → ClipboardEvent paste
+ *      （空エディタへの paste は成功する＝note-publish.mjs の /new 空エディタと同条件）
+ *      ※ macOS で Ctrl+A は行頭移動(emacs binding)で全選択にならず空化に失敗→本文二重化するため Meta+A 必須。
  *      paste 直後に probe 文字列が contenteditable.innerText に入ったか検証。
  *      無ければ保存せず中断（無音失敗による空更新事故を防止）。
  *   4. URL 行のリンクカード化（type→Enter）
+ *   4.5 目次ブロック再挿入（H2>=3・本文先頭・--no-toc で抑止）。全文置換で目次が消えるため note-publish と同手順で再挿入。
  *   5. ライブ反映:
  *        --commit なし = dry-run（スクショのみ・更新しない）
- *        --commit あり = 公開に進む →（有料記事なら有料境界保持）→ 更新する → 更新通知は必ず「いいえ」
+ *        --commit あり = 公開に進む →（有料記事なら有料境界保持/再設定）→ 更新する → 更新通知は必ず「いいえ」
+ *        ※ 無料記事のライブ更新は publishLive の「更新する」ボタン検出が未対応（既知の残課題）。
  *
  * なぜ「下書き保存」だけでは反映されないか:
  *   公開済み記事の autosave 下書きは browser close で破棄され、再オープンで公開版がロードされる。

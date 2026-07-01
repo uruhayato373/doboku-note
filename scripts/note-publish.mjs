@@ -8,8 +8,11 @@
  *   会社PCの社内プロキシ(TLS傍受)を越える。
  *
  * 工程: account ゲート → エディタ → カバー(eyecatch) → タイトル → 本文(ClipboardEvent paste・
- *   markdown変換) → リンクカード化(各URL行を Range選択→Delete→type→Enter＝note の埋め込み検出は type で起動・paste不可) → 下書き保存 → 公開に進む → 有料+価格(#price JS setter)
+ *   markdown変換) → リンクカード化(各URL行を Range選択→Delete→type→Enter＝note の埋め込み検出は type で起動・paste不可)
+ *   → 目次(H2>=3 で本文先頭に note ネイティブ目次 #toc-setting を挿入・Phase 6.5・--no-toc で抑止)
+ *   → 下書き保存 → 公開に進む → 有料+価格(#price JS setter)
  *   → タグ → 有料エリア設定 → 有料境界を BOUNDARY 見出し（既定=「試験問題/予想問題」・frontmatter `paidBoundary` か `--boundary-regex` で上書き）直前に設定 → ★境界検証ゲート★ → 投稿する。
+ *   公開後 writeback は frontmatter の note* 行が無ければ挿入する（setFmField・旧 replace-only は無音失敗した）。
  *
  * 安全弁（収益アカウントのため）:
  *   1. account=dobokunote を assert（不一致は即中断・1記事も触らない）
@@ -272,18 +275,29 @@ try {
 
   // 12. 投稿 / 予約投稿 / 安全離脱
   // frontmatter へ noteUrl/noteId/notePublishedAt を反映（冪等＋記録）。予約時は publishDate=予約日。
+  // frontmatter フィールドを「あれば置換・無ければ挿入」する（旧実装は replace のみで、行が
+  // 無いと URL 記録が無音失敗し、冪等ガード(noteUrl 有無)も効かず一括で重複公開する事故になった。
+  // 2026-07-02 是正）。挿入位置は noteMagazine 直後（正準）→ utmCampaign 直後 → 冒頭 --- の順で解決。
+  const setFmField = (text, key, val) => {
+    const line = `${key}: ${val}`;
+    const re = new RegExp('^' + key + ':.*$', 'm');
+    if (re.test(text)) return text.replace(re, line);
+    if (/^noteMagazine:.*$/m.test(text)) return text.replace(/^(noteMagazine:.*)$/m, `$1\n${line}`);
+    if (/^utmCampaign:.*$/m.test(text)) return text.replace(/^(utmCampaign:.*)$/m, `$1\n${line}`);
+    return text.replace(/^(---\r?\n)/, `$1${line}\n`);
+  };
   const writeBack = (url, publishDate, statusVal = 'published') => {
     try {
       const id = (url.match(/\/n(?:otes)?\/([a-z0-9]+)/) || [])[1] || '';
       if (id) {
         const cleanUrl = `https://note.com/dobokunote/n/${id}`;
-        const upd = raw
-          .replace(/^noteUrl:.*$/m, `noteUrl: "${cleanUrl}"`)
-          .replace(/^noteId:.*$/m, `noteId: "${id}"`)
-          .replace(/^notePublishedAt:.*$/m, `notePublishedAt: "${publishDate}"`)
-          // noteStatus も書き戻す（draft 取り残しの再発防止）。即時=published / 予約=reserved。
-          // 予約の go-live 後分は verify-note-status が published へ是正。行が無ければ no-op。
-          .replace(/^noteStatus:.*$/m, `noteStatus: ${statusVal}`);
+        let upd = raw;
+        upd = setFmField(upd, 'noteUrl', `"${cleanUrl}"`);
+        upd = setFmField(upd, 'noteId', `"${id}"`);
+        upd = setFmField(upd, 'notePublishedAt', `"${publishDate}"`);
+        // noteStatus も書き戻す（draft 取り残しの再発防止）。即時=published / 予約=reserved。
+        // 予約の go-live 後分は verify-note-status が published へ是正。
+        upd = setFmField(upd, 'noteStatus', statusVal);
         writeFileSync(articleAbs, upd);
         console.log('[12] frontmatter 反映:', cleanUrl, publishDate, `status=${statusVal}`);
       }
