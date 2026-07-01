@@ -38,6 +38,8 @@ cover:
 
 本記事は **2級土木 想定工事バンク**（5管理フルカバー）の収録記事です。自分の現場に近い工種を選び、その1工事で5管理を一望できます。
 
+https://note.com/dobokunote/m/m8554e87ca6ec
+
 施工経験記述は「自分が経験した工事」を書く問題です。経験していない工事を書いたことが判明すると失格となります。本記事の答案はそのまま書き写すためのものではなく、**構成・表現・具体性の水準を確認し、自分の現場に置き換えるための雛形**です。数値の `〇〇` は自分の現場の値に必ず差し替えてください。
 
 > [!important] 必出は品質・安全・工程の3管理／施工計画・環境は「保険」
@@ -268,5 +270,5 @@ cover:
 
 **関連リンク**
 
-- 出題傾向と書き方（無料・doboku-note）: https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-guide
-- 工種別 記入例（無料・doboku-note）: https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-examples
+- [出題傾向と書き方（無料・doboku-note）](https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-guide?utm_source=note&utm_medium=inline&utm_campaign=civil2-koji-bank-koji02&utm_content=guide)
+- [工種別 記入例（無料・doboku-note）](https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-examples?utm_source=note&utm_medium=inline&utm_campaign=civil2-koji-bank-koji02&utm_content=examples)
