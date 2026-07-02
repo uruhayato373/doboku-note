@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-07-02T11:47:49.957Z",
+  "generated_at": "2026-07-02T21:16:24.934Z",
   "summary": {
-    "total_mdx_files": 1079,
+    "total_mdx_files": 1085,
     "total_unique_tags": 170,
     "allowlist_size": 149,
     "known_count": 80,
@@ -1252,7 +1252,7 @@
     },
     {
       "name": "guide",
-      "count": 127,
+      "count": 133,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1265,11 +1265,15 @@
         "civil-construction-1-guide-company-types",
         "civil-construction-1-guide-concrete-key-points",
         "civil-construction-1-guide-concrete-maintenance",
+        "civil-construction-1-guide-construction-plan",
         "civil-construction-1-guide-consultant",
+        "civil-construction-1-guide-demolition",
         "civil-construction-1-guide-difficulty",
         "civil-construction-1-guide-dx-jobs",
         "civil-construction-1-guide-earthwork-key-points",
+        "civil-construction-1-guide-environment-management",
         "civil-construction-1-guide-exam-overview",
+        "civil-construction-1-guide-foundation",
         "civil-construction-1-guide-four-management",
         "civil-construction-1-guide-future",
         "civil-construction-1-guide-grade-comparison",
@@ -1277,6 +1281,7 @@
         "civil-construction-1-guide-interview",
         "civil-construction-1-guide-last-minute-2026",
         "civil-construction-1-guide-law-key-points",
+        "civil-construction-1-guide-machinery",
         "civil-construction-1-guide-market-value",
         "civil-construction-1-guide-public-servant",
         "civil-construction-1-guide-quality-management",
@@ -1290,6 +1295,7 @@
         "civil-construction-1-guide-strategy",
         "civil-construction-1-guide-study-method",
         "civil-construction-1-guide-study-plan",
+        "civil-construction-1-guide-surveying",
         "civil-construction-1-guide-timing",
         "civil-construction-1-guide-vs-pe",
         "civil-construction-1-guide-white-company",
@@ -1860,6 +1866,49 @@
       ]
     },
     {
+      "name": "exam-preparation",
+      "count": 36,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-career-salary",
+        "civil-construction-1-guide-concrete-key-points",
+        "civil-construction-1-guide-concrete-maintenance",
+        "civil-construction-1-guide-construction-plan",
+        "civil-construction-1-guide-demolition",
+        "civil-construction-1-guide-difficulty",
+        "civil-construction-1-guide-earthwork-key-points",
+        "civil-construction-1-guide-environment-management",
+        "civil-construction-1-guide-foundation",
+        "civil-construction-1-guide-four-management",
+        "civil-construction-1-guide-grade-comparison",
+        "civil-construction-1-guide-last-minute-2026",
+        "civil-construction-1-guide-law-key-points",
+        "civil-construction-1-guide-machinery",
+        "civil-construction-1-guide-quality-management",
+        "civil-construction-1-guide-safety-management",
+        "civil-construction-1-guide-schedule-management",
+        "civil-construction-1-guide-strategy",
+        "civil-construction-1-guide-study-method",
+        "civil-construction-1-guide-surveying",
+        "civil-construction-1-keyword-2026",
+        "civil-construction-2-guide-concrete-key-points",
+        "civil-construction-2-guide-construction-plan-key-points",
+        "civil-construction-2-guide-earthwork-key-points",
+        "civil-construction-2-guide-foundation-key-points",
+        "civil-construction-2-guide-law-key-points",
+        "civil-construction-2-guide-overview",
+        "civil-construction-2-guide-quality-management",
+        "civil-construction-2-guide-safety-management",
+        "civil-construction-2-guide-schedule-management",
+        "civil-construction-2-guide-study-method",
+        "civil-construction-2-guide-textbooks",
+        "concrete-chief-engineer-guide-overview",
+        "concrete-chief-engineer-guide-trends",
+        "concrete-diagnostician-guide-overview",
+        "pe-comprehensive-management-exam-passing-strategy"
+      ]
+    },
+    {
       "name": "career",
       "count": 34,
       "inAllowlist": true,
@@ -1898,43 +1947,6 @@
         "civil-construction-2-guide-salary",
         "civil-construction-2-guide-young-career",
         "pe-construction-guide-career"
-      ]
-    },
-    {
-      "name": "exam-preparation",
-      "count": 30,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-career-salary",
-        "civil-construction-1-guide-concrete-key-points",
-        "civil-construction-1-guide-concrete-maintenance",
-        "civil-construction-1-guide-difficulty",
-        "civil-construction-1-guide-earthwork-key-points",
-        "civil-construction-1-guide-four-management",
-        "civil-construction-1-guide-grade-comparison",
-        "civil-construction-1-guide-last-minute-2026",
-        "civil-construction-1-guide-law-key-points",
-        "civil-construction-1-guide-quality-management",
-        "civil-construction-1-guide-safety-management",
-        "civil-construction-1-guide-schedule-management",
-        "civil-construction-1-guide-strategy",
-        "civil-construction-1-guide-study-method",
-        "civil-construction-1-keyword-2026",
-        "civil-construction-2-guide-concrete-key-points",
-        "civil-construction-2-guide-construction-plan-key-points",
-        "civil-construction-2-guide-earthwork-key-points",
-        "civil-construction-2-guide-foundation-key-points",
-        "civil-construction-2-guide-law-key-points",
-        "civil-construction-2-guide-overview",
-        "civil-construction-2-guide-quality-management",
-        "civil-construction-2-guide-safety-management",
-        "civil-construction-2-guide-schedule-management",
-        "civil-construction-2-guide-study-method",
-        "civil-construction-2-guide-textbooks",
-        "concrete-chief-engineer-guide-overview",
-        "concrete-chief-engineer-guide-trends",
-        "concrete-diagnostician-guide-overview",
-        "pe-comprehensive-management-exam-passing-strategy"
       ]
     },
     {
@@ -2250,6 +2262,27 @@
       ]
     },
     {
+      "name": "pillar",
+      "count": 14,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-construction-plan",
+        "civil-construction-1-guide-demolition",
+        "civil-construction-1-guide-environment-management",
+        "civil-construction-1-guide-foundation",
+        "civil-construction-1-guide-machinery",
+        "civil-construction-1-guide-quality-management",
+        "civil-construction-1-guide-safety-management",
+        "civil-construction-1-guide-schedule-management",
+        "civil-construction-1-guide-surveying",
+        "pe-comprehensive-management-economic-management-pillar",
+        "pe-comprehensive-management-human-resource-management-pillar",
+        "pe-comprehensive-management-information-management-pillar",
+        "pe-comprehensive-management-safety-management-pillar",
+        "pe-comprehensive-management-social-environment-management-pillar"
+      ]
+    },
+    {
       "name": "令和8年度",
       "count": 13,
       "inAllowlist": false,
@@ -2388,21 +2421,6 @@
         "civil-construction-1-textbook-river-act",
         "civil-construction-1-textbook-road-act",
         "civil-construction-1-textbook-standard-contract"
-      ]
-    },
-    {
-      "name": "pillar",
-      "count": 8,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-quality-management",
-        "civil-construction-1-guide-safety-management",
-        "civil-construction-1-guide-schedule-management",
-        "pe-comprehensive-management-economic-management-pillar",
-        "pe-comprehensive-management-human-resource-management-pillar",
-        "pe-comprehensive-management-information-management-pillar",
-        "pe-comprehensive-management-safety-management-pillar",
-        "pe-comprehensive-management-social-environment-management-pillar"
       ]
     },
     {
