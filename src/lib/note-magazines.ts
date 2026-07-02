@@ -769,11 +769,10 @@ const MAGAZINES_RAW = {
   // 公開手順（note実機）: パック用マガジン新規作成 → BK-I＋該当科目の全記事を収録 → noteUrl 埋め＋published:true。
   // カバー/サイドバーバナーは公開時に生成。価格は実勢バンドル（BK-I¥3,480＋標準¥2,980=¥6,460／道路¥3,480+¥3,480=¥6,960）。
   // note はマガジン入れ子不可のため、パックは記事を個別再収録する実体マガジンになる可能性あり（要note実機確認）。
-  // 2026-07-02 note 実機で作成・LIVE（mebca45bcc745・35記事収録・¥4,980・API実査済）。
-  // site 側 published:true 化は cover/sidebar 生成＋placement 配線が済んでから（それまでは note 直販のみ）。
+  // 2026-07-02 note 実機で作成・LIVE（mebca45bcc745・35記事収録・¥4,980・API実査済）。cover/sidebar 生成済で site published:true 化。
   'pe-construction-road-pack': {
     id: 'pe-construction-road-pack',
-    published: false,
+    published: true,
     noteUrl: 'https://note.com/dobokunote/m/mebca45bcc745',
     title: '技術士 建設部門 2次｜道路 まるごと合格パック（必須科目I＋道路選択科目）',
     description:
@@ -781,6 +780,7 @@ const MAGAZINES_RAW = {
     shortTitle: '建設部門2次｜道路 合格パック',
     shortDescription: '必須I＋道路 全35記事。単品合計¥6,960が¥4,980（約28%OFF）。',
     imageUrl: '/images/magazines/pe-construction-road-pack-cover.webp',
+    sidebarImageUrl: '/images/magazines/pe-construction-road-pack-sidebar.webp',
     price: '¥4,980（必須I＋道路 2マガジン・単品合計¥6,960、約28%OFF）',
     badge: 'note 限定 合格パック',
   },
