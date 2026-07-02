@@ -121,7 +121,7 @@ npx tsx .claude/skills/social/publish-x/publish-x.ts 004 \
 本文構成・ハッシュタグ個数・推奨タグセットの真実源は **`docs/sns/x/README.md`**。
 
 要点だけ抜粋:
-- 文字数上限 280 weighted chars（日本語 = 2、URL = 23 固定）
+- 文字数上限は既定 280 weighted chars（日本語 = 2、URL = 23 固定）。X Premium 加入済のため `[longform]` マーカー付きツイートは 25,000 まで可（短文がデフォルト＝リーチ最適・詳細は x-post-policy §2/§2.1）
 - ハッシュタグは **3-4 個**（ベース 2 個 `#技術士 #技術士総監` + 種別 1-2 個）
 - `#総合技術監理部門` は 17 weight と重く要点投稿限定
 - 投稿前に `node .tmp/count-x-chars.mjs <tweets.md>` で文字数検証必須
