@@ -402,6 +402,15 @@ const MAGAZINES = [
     fontSize: 42,
     fillBg: '#522A69',
   },
+  {
+    id: 'pe-construction-road-pack',
+    fileBaseName: 'pe-construction-road-pack-cover',
+    magazineDir: 'docs/note/技術士建設部門/magazines/PACK-01_道路まるごと合格パック',
+    lines: ['建設部門 2次 合格パック', '道路（必須科目I＋道路）', '全35記事 ¥4,980'],
+    category: '技術士（建設部門）',
+    fontSize: 42,
+    fillBg: '#334155',
+  },
 ];
 
 async function renderOne(mag, fonts) {

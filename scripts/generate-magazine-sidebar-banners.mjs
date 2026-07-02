@@ -370,6 +370,11 @@ const BANNERS = [
     bgTop: '#b45309', bgBottom: '#7c3a06', accent: '#fcd34d', label: 'note限定',
     lines: [['1級土木 経験記述', 22], ['2テーマ組合せ大全', 24], ['全10組合せ網羅', 20]],
   },
+  {
+    id: 'pe-construction-road-pack-sidebar',
+    bgTop: '#334155', bgBottom: '#1e293b', accent: '#cbd5e1', label: 'note限定 合格パック',
+    lines: [['建設部門 2次', 22], ['道路 合格パック', 26], ['必須I＋道路 ¥4,980', 18]],
+  },
 ];
 
 // "doboku" + "-"(アクセント明色) + "note" の 3 スパン構成ワードマーク
