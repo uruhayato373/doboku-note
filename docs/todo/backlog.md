@@ -218,9 +218,9 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 **発端**: Fable 収益ファネル横断再設計（2026-07-02）。完全パック¥9,800 は6月トップ商品（7件¥57,680）だが、買い手が自分のペルソナを自己判定できないと「網羅保証」が刺さらない。sosou_nino（物量63誌）への差別化＝「3分で1冊が決まる」探索コスト低減の要。
 
-**状態**: 原稿・CTA配線とも**完成済み**（`docs/note/技術士総監/総監マガジンの歩き方/article.md`）だが `noteStatus: draft`・`noteUrl: ""` で**未公開**＝執筆コストゼロで公開できる。10月末¥9,800リローンチの前提インフラ（総監計画 §896）だが、直前期の今公開すれば7月試験前の駆け込みにも効く。
+**状態**: 原稿・CTA配線とも完成済み。**2026-07-02 に note.com へ下書き作成済み**（`note-publish --article`・note **nbf2a6de8f9c9**・cover/本文/4カード/目次 挿入・無料記事）。`article.md` は `noteStatus: draft`・`noteUrl: ""` のまま（公開時に writeback）。10月末¥9,800リローンチの前提インフラ（総監計画 §896）だが、直前期の今公開すれば7月試験前の駆け込みにも効く。
 
-**残作業**: ①ユーザーが note 実機公開 → noteUrl 反映 ②L1（全資格サイトマップ）・総監もくじ冒頭へ「まず3分診断」リンク追記（当方）③`audit-note-funnel --live` で確認。関連: [[project_pe_hub_article_design]]・[[note-competitive-analysis-2026]]。
+**残作業**: ①**下書き内容をユーザー確認 → `note-publish --commit` で公開**（noteUrl 自動 writeback）②L1（全資格サイトマップ）・総監もくじ冒頭へ「まず3分診断」リンク追記（当方・①の noteUrl 確定後）③`audit-note-funnel --live` で確認。関連: [[project_pe_hub_article_design]]・[[note-competitive-analysis-2026]]。
 
 ### note 導線 後続配線（Fable P1 由来）🟡 — 当方コード分は PR #330 完了・残は note実機/試験後
 
