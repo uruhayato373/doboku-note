@@ -42,7 +42,6 @@ function ExamCard({ e }: { e: ExamData }) {
   const t = EXAM_THEME[e.slug] ?? FALLBACK_THEME;
   const img = EXAM_IMAGE[e.slug];
   // stats を 1 行のスコープに集約（deep-link はやめ、網羅性の提示のみ残す）。
-  const scope = e.stats.map((s) => `${s.k} ${s.v}`).join(" ・ ");
   return (
     // 画像前面カード: 背景画像＋下部スクリム＋テーマ色ライン、左下にライブ文字を重ねる。カード全体＝カテゴリへのリンク。
     <Link
@@ -72,7 +71,6 @@ function ExamCard({ e }: { e: ExamData }) {
         <div className="font-mono text-[10px] tracking-widest uppercase text-white/75 mb-1.5">{e.nextExam}</div>
         <h3 className="font-serif font-black text-xl sm:text-2xl leading-tight">{e.label}</h3>
         <div className="text-[13px] leading-snug text-white/85 mt-1">{e.subtitle}</div>
-        <div className="font-mono text-[11px] text-white/60 mt-2.5 tabular-nums">{scope}</div>
       </div>
     </Link>
   );
