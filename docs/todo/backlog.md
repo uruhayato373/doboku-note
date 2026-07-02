@@ -222,7 +222,7 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 **残作業**: ①ユーザーが note 実機公開 → noteUrl 反映 ②L1（全資格サイトマップ）・総監もくじ冒頭へ「まず3分診断」リンク追記（当方）③`audit-note-funnel --live` で確認。関連: [[project_pe_hub_article_design]]・[[note-competitive-analysis-2026]]。
 
-### note 導線 後続配線（Fable P1 由来）🟡
+### note 導線 後続配線（Fable P1 由来）🟡 — 当方コード分は PR #330 完了・残は note実機/試験後
 
 **発端**: Fable 収益ファネル横断再設計（2026-07-02）で検出。建設部門CTAの描画ゼロ本体は [PR #329](https://github.com/uruhayato373/doboku-note/pull/329)（`sidebarImageUrl` 15誌欠落＋`CATEGORY_MAGAZINES` に pe-construction 無し）で修復済み。残る導線改善を集約。
 
@@ -231,9 +231,9 @@ Hero → ExamCards → LatestArticles → AboutSection
 - **科目別合格パック ¥4,980 SKU化**（BK-I¥3,480＋標準¥2,980＝¥6,460 → ¥4,980 は約23%OFF・バンドル成立条件を満たす）。売れ筋3科目（道路/鋼コン/トンネル）で試行。
 - **一次→二次 季節CTA切替**：1級土木の最大流入ページ（guide-strategy 271人・note CTA変換0.4%）のCTAを二次・経験記述向けへ**試験後に**切替（当方コード）。
 - **建設→総監ブリッジ記事**（試験後）：建設合格者≒総監来季見込み客。無料記事1本を建設もくじ＋L1へ。総監→建設は張らない（逆流需要なし）。
-- **civil-2-koji-bank を高intent面へ配線**：現状 EXAM_PREP guide の flagship 枠のみ→2級 secondary/experience/カテゴリへ（当方コード）。
-- **死にエントリ削除**：`pe-construction-required`（published:false・placement参照ゼロ・live版 `pe-construction-required-magazine` と重複）。
-- **建設SSOTカレンダー是正**：`docs/note/技術士建設部門/noteコンテンツ計画.md`・`docs/note/README.md` の「9月ローンチ予定」を「前倒しローンチ済（2026-06・検証ゲート20部でクリア）」へ書き換え（doc・`/doc-sync`系）。
+- ✅ **civil-2-koji-bank を高intent面へ配線**（PR #330・2026-07-02）：2級 secondary-r0X／experience-writing の inline 先頭＋sidebar ＋ `CATEGORY_MAGAZINES` へ配線済（civil-1 flagship パターンにミラー）。
+- ✅ **死にエントリ削除**（PR #330）：`pe-construction-required` を削除済（type-check で参照ゼロ確認）。
+- ✅ **建設SSOTカレンダー是正**（PR #330）：`技術士建設部門/noteコンテンツ計画.md` Phase B-0 ＋ `docs/note/README.md` を「前倒しローンチ済（2026-06・全12誌 live・6月¥88k・検証ゲート20部クリア）」へ是正済。
 
 **実装ファイル**: `src/lib/note-magazines.ts`・`src/lib/magazine-placement.ts`・`.claude/config/note-funnel.json`。真実源: PR#329・Fable P1レポート。
 
