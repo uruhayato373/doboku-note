@@ -2,15 +2,21 @@ import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 pt-16 sm:pt-24 pb-10 sm:pb-16 text-center">
-      <h1 className="font-serif font-black tracking-tight leading-[1.18] text-[var(--ink)] text-[36px] sm:text-[52px] md:text-[64px] lg:text-[72px] mx-auto max-w-[18ch] text-balance">
-        土木の試験対策を、ひとつに。
+    <section className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 pt-10 sm:pt-14 pb-10 sm:pb-16">
+      {/* 視覚見出しはブランドバナー画像が担う。SEO / スクリーンリーダー用に本文見出しを sr-only で保持する */}
+      <h1 className="sr-only">
+        土木の試験対策を、ひとつに。土木・建設系の実務資格を、合格者が体系化した試験対策サイト。ここだけで合格を目指せます。
       </h1>
-      <p className="mt-6 sm:mt-7 text-[15px] sm:text-[18px] leading-[1.9] text-[var(--ink-body)] mx-auto max-w-[56ch]">
-        土木・建設系の実務資格を、合格者が体系化した試験対策サイト。
-        <br />
-        ここだけで合格を目指せます。
-      </p>
+      <img
+        src="/images/hero-home.webp"
+        width={1600}
+        height={839}
+        alt="doboku-note — 土木・建設資格の学習ノート。合格に必要な知識を、わかりやすく。"
+        loading="eager"
+        fetchPriority="high"
+        decoding="async"
+        className="w-full h-auto rounded-card-content shadow-card-content border border-[var(--rule)]"
+      />
       <div className="mt-8 sm:mt-9 flex items-center justify-center">
         <a
           href="#exams"
