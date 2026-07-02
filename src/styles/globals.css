@@ -51,6 +51,14 @@
     --color-danger: #b22234;
     --color-danger-fill: #f8d7da;
 
+    /* 試験別テーマ色（SSOT: docs/reference/ogp-prompts.md「テーマ色」表）。
+       note カバー／OGP／X カードと同一の資格アイデンティティ色をサイトにも展開。 */
+    --exam-civil-1: #1e73c8;         /* 1級土木＝青 */
+    --exam-civil-2: #2a7050;         /* 2級土木＝緑 */
+    --exam-pe: #16365c;              /* 総監・第一次＝濃紺 */
+    --exam-pe-construction: #33356b; /* 建設部門＝藍 */
+    --exam-concrete-chief: #0f6e6e;  /* コンクリート主任＝ティール */
+
     /* Editorial palette (handoff) — added alongside legacy --color-brand */
     --accent: #1a3a5c;
     --accent-fill: #eef3f8;
@@ -116,6 +124,13 @@
     --color-warn-fill: #713f12;
     --color-danger: #fca5a5;
     --color-danger-fill: #7f1d1d;
+
+    /* 試験別テーマ色（dark）: 暗い card 地でも沈まないよう明色寄せ。色相は light と同一。 */
+    --exam-civil-1: #5b9fe0;
+    --exam-civil-2: #6bbf8f;
+    --exam-pe: #7fa3d6;
+    --exam-pe-construction: #8385d0;
+    --exam-concrete-chief: #4db3b3;
 
     /* Editorial palette (handoff dark) */
     --accent: #8fb4d8;
