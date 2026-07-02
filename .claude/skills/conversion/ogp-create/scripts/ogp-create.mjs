@@ -334,8 +334,9 @@ async function generateOne({ fullPath, fullSlug, fonts, args, stats }) {
   const mainFont = pickFontSize(mainLines, { fontSizeTable: MAIN_FONT_TABLE, safetyWidth: SAFE_W });
 
   const element = renderTemplate(templateId, {
-    // ライト（--light / note カバー fallback）用
-    lines,
+    // ライト（既定・写真前面 / note カバー fallback）用。
+    // タイトルは分割後の mainLines を使う（旧 lines はフル title＝区切り込みで、subLines と重複するため）。
+    lines: mainLines,
     categoryLabel,
     fontSize,
     backgroundImage,
