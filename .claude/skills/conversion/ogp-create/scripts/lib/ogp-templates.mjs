@@ -416,20 +416,46 @@ function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backg
         justifyContent: 'center',
         fontFamily: '"Noto Sans JP", Inter, sans-serif',
       },
-      children: titleLines.map((line) => ({
-        type: 'div',
-        props: {
-          style: {
-            display: 'flex',
-            fontSize: `${fitFont}px`,
-            fontWeight: 800,
-            lineHeight: TITLE_LINE_HEIGHT,
-            color: pal.title,
-            letterSpacing: '-0.4px',
+      children: [
+        ...titleLines.map((line) => ({
+          type: 'div',
+          props: {
+            style: {
+              display: 'flex',
+              fontSize: `${fitFont}px`,
+              fontWeight: 800,
+              lineHeight: TITLE_LINE_HEIGHT,
+              color: pal.title,
+              letterSpacing: '-0.4px',
+            },
+            children: line,
           },
-          children: line,
-        },
-      })),
+        })),
+        // サブタイトル（subLines）: dark 側と同様に主題の下へ。明色写真上でも読めるよう濃色・中太。
+        ...(subLines && subLines.length
+          ? [
+              {
+                type: 'div',
+                props: {
+                  style: { display: 'flex', flexDirection: 'column', marginTop: '16px' },
+                  children: subLines.map((l) => ({
+                    type: 'div',
+                    props: {
+                      style: {
+                        display: 'flex',
+                        fontSize: '25px',
+                        fontWeight: 600,
+                        lineHeight: 1.45,
+                        color: pal.title,
+                      },
+                      children: l,
+                    },
+                  })),
+                },
+              },
+            ]
+          : []),
+      ],
     },
   };
 

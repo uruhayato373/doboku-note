@@ -125,7 +125,7 @@ function parseArgs(argv) {
     debugSafety: false,
     debugWrap: false,
     template: null,
-    light: false,
+    light: true, // 既定=ライト写真前面（2026-07-02〜。資格別背景写真＋淡スクリム）。旧ダーク配色は --dark
     outDir: null,
   };
   for (let i = 0; i < argv.length; i++) {
@@ -136,7 +136,8 @@ function parseArgs(argv) {
     else if (a === '--debug-safety') args.debugSafety = true;
     else if (a === '--debug-wrap') args.debugWrap = true;
     else if (a === '--template') args.template = argv[++i];
-    else if (a === '--light') args.light = true; // 既定はダーク。旧ライト配色で描画したいとき用
+    else if (a === '--light') args.light = true; // 既定でライト。互換のため受理
+    else if (a === '--dark') args.light = false; // 旧ダーク配色で描画したいとき用（2026-07-02 既定反転）
     else if (a === '--include-unpublished') args.includeUnpublished = true; // published:false も生成対象に含める（デザイン変更後の全件更新用）
     else if (a === '--out-dir') args.outDir = argv[++i]; // 正規パスでなく指定ディレクトリへ <fullSlug>.png 出力（比較・検証用）
     else if (!a.startsWith('--') && !args.slug) args.slug = a;
