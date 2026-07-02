@@ -79,7 +79,7 @@ mcp__aidesigner__get_credit_status   # 残量を確認。残りが少なけれ�
 ## 参照
 
 - 量産・本番生成（決定論テンプレ）: `/ogp-create`（`.claude/skills/conversion/ogp-create/SKILL.md`）
-- 資格別 AI 背景（背景だけを Gemini で生成・全記事共有）: `npm run ogp-backgrounds`（`scripts/generate-ogp-backgrounds.mjs`）。mono-tag の最背面に敷く下地用。**課金が発生するため実行前にユーザー確認**（`--dry-run` は無料）。意匠の全面試作は本スキル、背景下地だけならこちらが軽量
+- 資格別 AI 背景（背景だけを Gemini で生成・全記事共有）: `npm run ogp-backgrounds`（`scripts/generate-ogp-backgrounds.mjs`）。mono-tag の最背面に敷く下地用。**課金が発生するため実行前にユーザー確認**（`--dry-run` は無料）。意匠の全面試作は本スキル、背景下地だけならこちらが軽量。※**2026-07-02〜、現行の資格別背景は Codex 生成のブランド写真プール**（`.claude/config/ogp/backgrounds/<exam-key>.png`・真実源 [`docs/reference/brand-image-system.md`](../../../../docs/reference/brand-image-system.md)）。この Gemini 生成はレガシー/代替扱い
 - デザイン SSOT: `docs/reference/ogp-prompts.md`（レイアウト・配色・テーマ色・変更履歴）
 - テーマ色トークン（真実源）: `docs/design-system/note-cover-tokens.json`
 - レンダラ実装: `.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs`

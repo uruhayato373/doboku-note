@@ -342,7 +342,7 @@ async function generateOne({ fullPath, fullSlug, fonts, args, stats }) {
     backgroundImage,
     accentColor,
     contentType,
-    // ダーク（サイト OGP 既定）用
+    // ダーク（--dark 指定時のみ。2026-06-29〜2026-07-02 は既定だったが現在は非既定）用
     dark: !args.light,
     examLabel: categoryLabel,
     mainLines,
