@@ -229,14 +229,13 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 **発端**: Fable 収益ファネル横断再設計（2026-07-02）で検出。建設部門CTAの描画ゼロ本体は [PR #329](https://github.com/uruhayato373/doboku-note/pull/329)（`sidebarImageUrl` 15誌欠落＋`CATEGORY_MAGAZINES` に pe-construction 無し）で修復済み。残る導線改善を集約。
 
-**残タスク**:
-- **建設 topCta 空文字**（`.claude/config/note-funnel.json` の pe-construction topCta が空）＝建設note記事に冒頭buy CTAが無い。単品¥780購入者を科目誌へ上げる文面を設計＋wire（`wire-note-funnel-cta` の dir単位topCta対応可否を要確認）。
-- **科目別合格パック ¥4,980 SKU化**（BK-I¥3,480＋標準¥2,980＝¥6,460 → ¥4,980 は約23%OFF・バンドル成立条件を満たす）。売れ筋3科目（道路/鋼コン/トンネル）で試行。
-- **一次→二次 季節CTA切替**：1級土木の最大流入ページ（guide-strategy 271人・note CTA変換0.4%）のCTAを二次・経験記述向けへ**試験後に**切替（当方コード）。
-- **建設→総監ブリッジ記事**（試験後）：建設合格者≒総監来季見込み客。無料記事1本を建設もくじ＋L1へ。総監→建設は張らない（逆流需要なし）。
-- ✅ **civil-2-koji-bank を高intent面へ配線**（PR #330・2026-07-02）：2級 secondary-r0X／experience-writing の inline 先頭＋sidebar ＋ `CATEGORY_MAGAZINES` へ配線済（civil-1 flagship パターンにミラー）。
-- ✅ **死にエントリ削除**（PR #330）：`pe-construction-required` を削除済（type-check で参照ゼロ確認）。
-- ✅ **建設SSOTカレンダー是正**（PR #330）：`技術士建設部門/noteコンテンツ計画.md` Phase B-0 ＋ `docs/note/README.md` を「前倒しローンチ済（2026-06・全12誌 live・6月¥88k・検証ゲート20部クリア）」へ是正済。
+**残タスク（note実機・試験後のみ）**:
+- ⏳ **建設 topCta の live wire**：文面（A案）は `note-funnel.json` に**設定済（PR #333）**。残＝`wire-note-funnel-cta --exam pe-construction --apply` で建設 note 24記事へ live 反映（note実機・Playwright）。※config→live の間は既知ドリフト（config先行・許容）。
+- ⏳ **科目パック¥4,980 の実体マガジン作成**：note-magazines.ts に scaffold **3件追加済（PR #333・道路/トンネル/都市計画・published:false）**。残＝note実機でパック用マガジン新規作成→BK-I＋科目記事を収録（**note のマガジン入れ子仕様＝要確認**・不可なら記事個別再収録）→noteUrl 埋め＋published:true＋カバー/sidebar 生成。
+- **一次→二次 季節CTA切替**（試験後）：1級土木 guide-strategy（271人・CTA変換0.4%）を二次・経験記述向けへ（当方コード・7/5一次後）。
+- **建設→総監ブリッジ記事**（試験後）：建設合格者≒総監来季見込み客。無料記事1本を建設もくじ＋L1へ。総監→建設は張らない。
+- ✅ **建設SSOT価格を実勢へ是正**（PR #333）：計画値（BK-I¥2,480/道路¥3,980/標準¥3,480）と実勢（¥3,480/¥3,480/¥2,980）の逆方向乖離を、ユーザー確認（実勢が正）の上で全面是正。
+- ✅ **civil-2-koji-bank を高intent面へ配線**（PR #330）／✅ **死にエントリ削除**（PR #330）／✅ **建設SSOTカレンダー是正**（PR #330）。
 
 **実装ファイル**: `src/lib/note-magazines.ts`・`src/lib/magazine-placement.ts`・`.claude/config/note-funnel.json`。真実源: PR#329・Fable P1レポート。
 
