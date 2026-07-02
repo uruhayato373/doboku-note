@@ -214,13 +214,16 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 > 2026-06-23 経緯: 当初「フル3点横展開」で計画したが、(a)R8予想は10科目が既存マガジンに収録済（誤記是正）(b)選択科目制ゆえ横断商品は不成立（ユーザー指摘）の2点で、横展開すべきは読み方ガイド2本に収束した。
 
-### 総監マガジンの歩き方（17ペルソナ診断ハブ）公開＋配線 🔴
+### 総監マガジンの歩き方（17ペルソナ診断ハブ）公開＋配線 🟡（ほぼ完了）
 
 **発端**: Fable 収益ファネル横断再設計（2026-07-02）。完全パック¥9,800 は6月トップ商品（7件¥57,680）だが、買い手が自分のペルソナを自己判定できないと「網羅保証」が刺さらない。sosou_nino（物量63誌）への差別化＝「3分で1冊が決まる」探索コスト低減の要。
 
-**状態**: 原稿・CTA配線とも完成済み。**2026-07-02 に note.com へ下書き作成済み**（`note-publish --article`・note **nbf2a6de8f9c9**・cover/本文/4カード/目次 挿入・無料記事）。`article.md` は `noteStatus: draft`・`noteUrl: ""` のまま（公開時に writeback）。10月末¥9,800リローンチの前提インフラ（総監計画 §896）だが、直前期の今公開すれば7月試験前の駆け込みにも効く。
+**状態（2026-07-02 公開＋配線 済）**:
+- ✅ **公開**：`note-publish --commit` で公開・**note nc874692256bb**（HTTP 200 実在確認）。`article.md` に noteUrl/noteId/notePublishedAt/`noteStatus: published` writeback 済（commit dd8bc6248）。
+- ✅ **総監もくじ（L2・n3ed4c77ceed6）冒頭へ 歩き方カード配線**（`note-append-cta --before-first-h2 --commit`・note API で body に urlKey 実在確認）。
+- 🧹 孤児下書き **nbf2a6de8f9c9**（初回 draft 作成分）は手動削除推奨（無料下書き・低害）。
 
-**残作業**: ①**下書き内容をユーザー確認 → `note-publish --commit` で公開**（noteUrl 自動 writeback）②L1（全資格サイトマップ）・総監もくじ冒頭へ「まず3分診断」リンク追記（当方・①の noteUrl 確定後）③`audit-note-funnel --live` で確認。関連: [[project_pe_hub_article_design]]・[[note-competitive-analysis-2026]]。
+**残作業**: ①**L1（全資格サイトマップ n296a88f64ac2）への配線**は保留＝グローバル冒頭 append は多資格ページが総監偏重になるため不採用。総監セクション狙い（`--after <総監needle>`）で後日。※L1→総監もくじ→歩き方 の経路は既に成立。関連: [[project_pe_hub_article_design]]・[[note-competitive-analysis-2026]]。
 
 ### note 導線 後続配線（Fable P1 由来）🟡 — 当方コード分は PR #330 完了・残は note実機/試験後
 
