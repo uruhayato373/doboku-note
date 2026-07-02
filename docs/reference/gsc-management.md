@@ -102,3 +102,12 @@ URL Inspection の `coverage_state` と `page_fetch_state` から真因を切り
 - 流入減（impr 3 週で −30% / 平均順位 23→37）の真因再診断: ①順位悪化の大半は新規ページ（pos 80-90）による **blended 平均の希釈アーティファクト**で、価値ページ（scraper pos 9.1 / keyword-2026 pos 7.2）は安定 ②本損失は **CTR 欠落**（上位表示なのに near-zero click。break-even-point pos 5.4 で CTR 0.5%、primary-r07-a pos 7.1 で 0 click 等）
 - 追検証（同日・現物照合）: ①空 description 仮説は**外れ**（YAML 折りたたみで本文あり）。pos 7-10 の CTR 1.4-2.5% はその順位帯で標準値＝スニペット書換の上積みは数クリック。タイトルは 5/17 リライトで実クエリ整合済 ②過去問 56 本中 **23 本が crawled-not-indexed** だが、robots=ALLOWED / indexing=ALLOWED / canonical 一致 / fetch=SUCCESSFUL ＝**技術バグ無し**。本文も 8-13 万字で薄くない。旧年度（h26-r05）中心の低需要ページを Google が価値判断で未登録にしているだけで、on-page で強制 index 不可。在庫高需要の r07 は index 済
 - 判断（確定）: 在庫下の技術・on-page SEO レバーは**全数健全/最適化済み**。GSC 流入を実質的に動かせるのは**ドメイン権威性（独自データ + 外部被リンク）のみ**で、これは code 編集でなく継続プログラム。個別ページの seoTitle/description 微修正の量産はしない（換金性ゼロ・上積み誤差）。実行タスクは `docs/todo/backlog.md`「SEO 権威性トラック」へ起票。GSC 数値悪化を見ても on-page を増やさない（[[hub-strengthening-approach]]・2026-04 pivot と整合）
+
+### 2026-07-02（月次・/gsc-review — index 率の揺り戻し）
+
+- batch: `inspection-batch-2026-07-01T05-04-05.json`（1,051 件）
+- 送信して登録 **784（index_ratio 74.6%）** / クロール済み-未登録 240 / 検出-未登録 25 / 代替canonical 2 / redirect **0** / 404 **0**
+- 前回差分（6/19→7/1）: indexed 840→784（**−56**）、index_ratio 81.6%→**74.6%**、クロール済み-未登録 144→240。**駆動要因＝既存 indexed 126 本が「クロール済み-未登録」へ回帰**（新規 URL の登録待ちは僅か 8 本＝登録待ちバックログではない）
+- 回帰の分布: **総監キーワード 97 / civil-1 guide・過去問 21 / civil-2 3 / concrete 3 / pe-construction 1 / category 1**（サンプル: guide-career-salary / guide-four-management / primary-h30-a / secondary-*-past-problems ほか）
+- 診断: hygiene 0（404/redirect ゼロ・page_fetch 健全）＝技術問題なし。原因バケット＝**ドメイン権威性/index selection**（Google が既存ページの登録価値を再評価し demote）。6/22 の「82% 達成・権威性の壁失効」は**部分的に揺り戻し**＝index 選択は低権威ドメインで volatile。6/22 で観測した「低需要ページの未登録」が総監キーワード群にも広がった形
+- 判断（推奨・様子見＋権威性トラック継続）: ①on-page 微修正はしない（マトリクス：権威性バケットは title/内部リンクで動かない・6/22 確定判断を踏襲）②hygiene タスクなし（404/redirect=0）③打ち手は独自データ + 外部被リンク（`docs/todo/backlog.md`「SEO 権威性トラック」）④**7月は受験期の需要変動が交絡＝単月で結論しない。8月 再測定で回帰が継続・拡大するなら総監キーワード薄ページの統合を検討**（[[no-new-keyword-pages]] と整合＝新規作成でなく既存の統合）
