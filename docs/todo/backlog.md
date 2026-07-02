@@ -234,7 +234,7 @@ Hero → ExamCards → LatestArticles → AboutSection
 - 🟡 **科目パック¥4,980（道路 LAUNCHED・他2は同レシピ）**：
   - ✅ **道路パック 完全開通（2026-07-02）**：note LIVE＝`建設部門2次｜道路まるごと合格パック` **mebca45bcc745**・¥4,980・35記事（API実査済）・HTTP 200（PR #336 で noteUrl 記録）。**site も開通**＝cover(1280×670)/sidebar(300×250) satori 生成・published:true・CATEGORY_MAGAZINES[pe-construction] 先頭配線（PR #337）。／docs 側は develop 済＝`/deploy` で本番反映。
   - 確立レシピ（他パックも同じ）: 掲載文dir作成 → `note-magazine-create --dir <dir> --commit`（有料単体・¥4,980）→ `note-magazine-add-articles --target <key> --from <BK-I key>,<科目 key> --commit`（記事再収録・API自動差分）→ API実査。**入れ子不可問題は再収録モデルで解消済（完全パック precedent）**。
-  - ⏳ **残**：①トンネル・都市計画パック（道路と全く同レシピ：掲載文dir→create→add-articles --from BK-I,科目→cover/sidebar def追加生成→published:true→CATEGORY。ユーザーGoで即実行可）②道路パックの finer placement（道路secondary/keywordページ単位のCTA・任意）。
+  - ⏳ **残**：①トンネル・都市計画パック — **掲載文は作成済（commit e8d76dfdf・PACK-02/PACK-03 dir）だがマガジン実体は未作成**。再開＝`note-magazine-create --dir <PACK-02|03> --commit` → `note-magazine-add-articles --target <新key> --from m0f3bc3933454,<トンネルm5da4b560d8be|都市mc8bd949f1f51> --commit`（各29記事）→ cover/sidebar def追加生成 → note-magazines.ts published:true+noteUrl+sidebarImageUrl → CATEGORY配線。②道路パックの finer placement（道路secondary/keywordページ・任意）。
 - **一次→二次 季節CTA切替**（試験後）：1級土木 guide-strategy（271人・CTA変換0.4%）を二次・経験記述向けへ（当方コード・7/5一次後）。
 - **建設→総監ブリッジ記事**（試験後）：建設合格者≒総監来季見込み客。無料記事1本を建設もくじ＋L1へ。総監→建設は張らない。
 - ✅ **建設SSOT価格を実勢へ是正**（PR #333）：計画値（BK-I¥2,480/道路¥3,980/標準¥3,480）と実勢（¥3,480/¥3,480/¥2,980）の逆方向乖離を、ユーザー確認（実勢が正）の上で全面是正。
