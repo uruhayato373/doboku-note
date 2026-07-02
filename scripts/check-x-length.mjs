@@ -2,15 +2,19 @@
 /**
  * check-x-length.mjs
  *
- * X(Twitter) の 280 weighted chars 上限に対する違反検出。
+ * X(Twitter) の文字数上限に対する違反検出。
  * docs/sns/x/draft/<NNN>-*\/tweets.md を読み、`## Tweet NN` ブロックごとに
  * 重み付き文字数を算出する。
+ *
+ * 上限（ハイブリッド運用・policy §2/§2.1）:
+ *  - 既定は 280（短文デフォルト＝リーチ最適）
+ *  - `## Tweet NN:` 見出しに [longform] マーカーが付いたツイートのみ 25,000 に緩和
+ *    （X Premium 長文。weighted 判定なので実文字数 25,000 より保守的＝安全側）
  *
  * X の重み規則:
  *  - URL は実長によらず 23 固定
  *  - U+0000..U+10FF / U+2000..U+200D / U+2010..U+201F / U+2032..U+2037 は 1
  *  - それ以外（CJK 等）は 2
- *  - 上限 280
  *
  * Usage:
  *   node scripts/check-x-length.mjs                  # 全ドラフト
@@ -28,6 +32,7 @@ import { fileURLToPath } from "url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DRAFTS_DIR = join(__dirname, "../docs/sns/x/draft");
 const LIMIT = 280;
+const LONGFORM_LIMIT = 25000; // X Premium 長文（[longform] マーカー時のみ）
 const URL_WEIGHT = 23;
 
 function charWeight(cp) {
@@ -65,13 +70,14 @@ function splitTweets(md) {
     const header = lines[0].trim();
     const numMatch = header.match(/^(\d+)/);
     const num = numMatch ? parseInt(numMatch[1], 10) : i + 1;
+    const longform = /\[longform\]/i.test(header);
     // Body = block 内、`---` 区切り線で終端
     const body = lines
       .slice(1)
       .join("\n")
       .replace(/\n---\s*\n[\s\S]*$/m, "")
       .trim();
-    return { num, header, body };
+    return { num, header, body, longform };
   });
 }
 
@@ -80,14 +86,20 @@ function checkDraft(folder) {
   if (!existsSync(path)) return null;
   const md = readFileSync(path, "utf8");
   const tweets = splitTweets(md);
-  return tweets.map((t) => ({
-    folder,
-    num: t.num,
-    header: t.header,
-    length: tweetLength(t.body),
-    over: tweetLength(t.body) > LIMIT,
-    body: t.body,
-  }));
+  return tweets.map((t) => {
+    const length = tweetLength(t.body);
+    const limit = t.longform ? LONGFORM_LIMIT : LIMIT;
+    return {
+      folder,
+      num: t.num,
+      header: t.header,
+      length,
+      limit,
+      longform: t.longform,
+      over: length > limit,
+      body: t.body,
+    };
+  });
 }
 
 function listDrafts() {
@@ -146,13 +158,15 @@ function main() {
       for (const r of rows) {
         if (onlyOver && !r.over) continue;
         const mark = r.over ? "❌" : "✅";
+        const lf = r.longform ? " [LF]" : "";
         console.log(
-          `  ${mark} Tweet ${String(r.num).padStart(2, "0")}  ${String(r.length).padStart(3, " ")}/280  ${r.header.slice(0, 40)}`
+          `  ${mark} Tweet ${String(r.num).padStart(2, "0")}  ${String(r.length).padStart(3, " ")}/${r.limit}${lf}  ${r.header.slice(0, 40)}`
         );
       }
     }
+    const lfCount = all.filter((r) => r.longform).length;
     console.log(
-      `\n── Summary: ${all.length} tweets / ${violations.length} violations (limit ${LIMIT})`
+      `\n── Summary: ${all.length} tweets / ${violations.length} violations (short ${LIMIT} / longform ${LONGFORM_LIMIT}; ${lfCount} longform)`
     );
   }
 

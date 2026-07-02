@@ -52,7 +52,8 @@ X 投稿の下書き（`docs/sns/x/draft/<NNN>-<exam>-<topic>/tweets.md`）を**
    - `angle-slice`: 1 テーマ（keyword/note 記事）を **結論・理由・体験・反論・数字・ハウツー** の 6 切り口に刻んで 6 ツイート化（作法は policy §5.1）。**体験軸は合格者の権威で書く**（運営者は総監合格者）。真実を超える固有値は捏造しない。URL は結論・ハウツーの 2 本のみ。
    - `experience`: 既存 note 記事（公務員クラスター 8 本・将来の合格体験 E-1〜E-4 等）の `article.md`。**思考・つまずき・気づきの断片**を 1 ツイートに圧縮し、フルは note 有料へ誘導する（Red Line: 一次情報を割らない）。一人称・体験談トーン。
 3. `docs/sns/x/draft/<NNN>-<exam>-<topic>/tweets.md` を執筆：
-   - 各ツイート **280 weighted 以下**（日本語×2・URL=23）。本文 ≒ 117 字 + URL 1 本が目安。
+   - **既定は各ツイート 280 weighted 以下の短文**（日本語×2・URL=23）。本文 ≒ 117 字 + URL 1 本が目安。短文がリーチ最適なのでこれをデフォルトにする。
+   - **長文（longform）型は opt-in**（policy §2.1）：詳しい解説・合格体験ストーリー・制度解説など短文で足りない内容に限る。`## Tweet NN:` 見出しに **`[longform]`** を付けると `check-x-length` が上限 25,000 に緩和する。**冒頭 1 文で結論／フック**（タイムラインは折りたたまれる）・段落空行・末尾 CTA 1 本。**週 1〜2 本まで**、凍結回避（§11）は長文でも同等適用（詰め込み厳禁）。
    - **試験別ベースタグ**（policy §4）＋論点タグ 1 個まで。計 **1〜3 個**。
    - URL は 1 本・UTM `utm_source=x`。
    - **`/docs/` リンクは本番フラット slug ＝「カテゴリ-ディレクトリ」を必ず使う（404 防止・最重要）**。ネタ源のローカルパス `.local/r2/posts/{category}/{dir}/` の `{dir}` をそのまま使うと 404（誤 `/docs/primary-r03-kouki` → 正 `/docs/civil-construction-2-primary-r03-kouki`）。正しい slug は `src/config/doc-meta-index.json` の `docs` キーに存在するものに限る。曖昧な共通 dir 名（`keyword-2026` 等）は試験文脈で接頭辞を確定する。詳細は policy §6。
@@ -66,7 +67,7 @@ X 投稿の下書き（`docs/sns/x/draft/<NNN>-<exam>-<topic>/tweets.md`）を**
 ## 品質ガード
 
 - `tweets.md` は UTF-8・LF。
-- 280 weighted 超過を 1 件も残さない（reject の原因）。
+- 短文は 280 weighted 超過を残さない。長文は `[longform]` マーカーを付け 25,000 以内（policy §2.1）。`check-x-length` で 0 違反。
 - ハッシュタグ 4 個以上にしない（エンゲージメント低下）。
 - 過去問の**正答全文をそのまま貼らない**（サイト誘導の価値を残す）。
 - **near-duplicate なテンプレ文面を量産しない（凍結回避・policy §11）**。各ツイートでフック・語順・CTA を変え、「【過去問】◯◯／正答の論点は…／詳しくは {URL}」のような定型骨格の反復を避ける。
