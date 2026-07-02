@@ -1,5 +1,9 @@
 # Civil-Construction-1 全面改修 — AdSense 再申請対応
 
+> [!success] 2026-07-02 目的達成・アーカイブ
+> 再申請の主目的だった**品質欠陥（thin content）は解消済み**（civil-construction-1 は published:true 記事 119 本、サイト AdSense `ca-pub-7995274743017484` は `src/app/layout.tsx` で稼働中）。親タスク `.claude/state/task-queue.json` T-010 は**ファイル自体が消滅**し、外部参照も無い実行記録につき `_archive` へ退避。
+> **未確認の外部尻尾**: AdSense 再申請の「実際の申請実施・合否結果」は本 doc の履歴テーブル（TBD のまま）以外に repo 内の痕跡が無く、Google AdSense 管理画面でのみ確認可能。合否判明時は本記録に追記のうえ処分方針を最終化する（DELETE ではなく ARCHIVE 止まりの理由）。
+
 実行記録 + 完了ゲートチェックリスト + 再申請の SOP。
 
 最終更新: 2026-05-21
