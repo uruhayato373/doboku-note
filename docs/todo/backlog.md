@@ -549,9 +549,10 @@ Hero → ExamCards → LatestArticles → AboutSection
 **残**: SoT(ローカルmd)は確定済。note.com公開6本（防災/担い手/GX/老朽化/国土形成/建設DX）へブラウザ反映が未着手。他7記事も同じ生URL問題。326件バーンダウンの codemod は次セッション。
 **出典**: `docs/handoffs/_archive/2026-06-22-note-a-series-funnel-utm.md`
 
-### 建設部門 逐語反映の残り節 🟡
-**残**: 6節中 02(iji-kanri)完了/03・04・05・06を逐次反映＋commit。README（論文対策キーワード）ガードレール更新（①②反転＋クリーン逐語方針）。巨大逐語ブロックの散文OCR通し校正（公開品質向上時）。
-**出典**: `docs/handoffs/_archive/2026-06-22-pe-construction-verbatim-reflection.md`
+### 建設部門 論文対策キーワード 増補の残り節 🟡
+**方針（2026-07-02 再確定）**: 逐語複製ではなく、textbook を出典に既存オリジナル記事へ事実ベースで不足論点を増補（書籍逐語複製・書籍図クロップ埋込はしない）。gap分析は archived handoff を流用。真実源＝README の warning ブロック。
+**残**: 03(bousai-genseigai)＝増補完了。04(ninaite-dx)・05(chiiki-dukuri)・06(datsutanso-kankyo)を同方式で増補＋commit。02(iji-kanri)＝旧「逐語＋図クロップ」方式で公開済のため現行方針との整合を要見直し（B系統note未公開・実害低）。
+**出典**: `docs/handoffs/_archive/2026-06-22-pe-construction-verbatim-reflection.md`（gap分析のみ流用・手法は失効）
 
 ### IGディレクトリ資格軸再編の残ファイル更新 🟢
 **残**: 本体再編コミット(437853fbb)済。`.claude/` 配下19ファイルの旧 `_exam-packs` パス参照更新（sns-config.mjs→パック生成2/スキル実行5/その他5/エージェント.md 8）。完了確認= `rg "_exam-packs" .claude/` が0件。
