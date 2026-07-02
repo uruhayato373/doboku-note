@@ -532,6 +532,7 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
  */
 const CATEGORY_MAGAZINES: Partial<Record<string, readonly MagazineId[]>> = {
   "pe-comprehensive-management": ["essay-complete-pack", "essay-core-pack", "tankan-reading-guide"],
+  "pe-construction": ["pe-construction-required-magazine", "pe-construction-road-magazine", "pe-construction-river-coast-magazine", "pe-construction-urban-planning-magazine"],
   "civil-construction-1": ["civil-1-keiken-complete-pack", "civil-1-experience-essay", "civil-1-pastexam-essay", "civil-membership-lab"],
   "civil-construction-2": ["civil-2-experience-essay", "civil-2-pastexam-essay", "civil-membership-lab"],
   "concrete-chief-engineer": ["cce-essay-magazine"],
