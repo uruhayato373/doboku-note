@@ -66,6 +66,7 @@ npm run pages:deploy      # Cloudflare Pages に手動デプロイ
 | [docs/reference/content-authoring.md](docs/reference/content-authoring.md) | MDX コンポーネント・過去問構造・モバイル視認性詳細・画像配信・frontmatter テンプレ | MDX を書く・編集するとき |
 | [docs/reference/docs-markdown-style.md](docs/reference/docs-markdown-style.md) | docs/ 配下 .md ドキュメントの Obsidian callout（`> [!note]` 等）運用ルール・MDX `<Callout>` との対比・推奨 4 タイプ | docs/handoffs/ / docs/project/ / docs/reference/ の .md を書くとき |
 | [docs/reference/image-policy.md](docs/reference/image-policy.md) | 図版種別判定フロー・CC/PD 写真ソース・出典表記・写真 SVG 化禁止ルール | 図/写真を追加・置換するとき |
+| [docs/reference/brand-image-system.md](docs/reference/brand-image-system.md) | 資格別ブランド写真プールの多フォーマット展開＋サイト色スキーム統一の SSOT（wide/square の2マスター→hero/OGP/note カバー/カード/300×250 バナーへクロップ展開・色ターゲット・Codex 生成プロンプト・生成→保存→反映パイプライン） | hero/OGP/note カバー/カード/広告バナーの背景写真を新規作成・差替・統一するとき |
 | [docs/reference/note-svg-policy.md](docs/reference/note-svg-policy.md) | note 記事用 図解 SVG/PNG ポリシー（キャンバス・最小フォント・余白・密度上限・失敗パターン） | `docs/note/**/img/figure-*` を作成・修正するとき |
 | [docs/reference/figure-canvas-policy.md](docs/reference/figure-canvas-policy.md) | サイト図版 `figure-*.svg` の固定キャンバス標準（feed 4:5 `400×500`／landscape 16:9 `640×360` `--wide`・概念名タイトル禁止・記事+SNS両用）。機械可読は `.claude/config/figure-canvas.json`、ガード `check-figure-canvas`、整形 `svg-canvas-fitter` | `figure-*.svg` を新規作成・移行・SNS 書き出しするとき |
 | [docs/reference/note-publish-enhancement.md](docs/reference/note-publish-enhancement.md) | note 記事を公開レベルに引き上げる10工程手順書（網羅性照合／過去問配置／図版／カバー／e-gov リンク／段落分割／検証） | note 記事を新規公開・大規模改善するとき |
