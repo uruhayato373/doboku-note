@@ -42,7 +42,7 @@ export function CivilConstruction1View({ groups, mobileCareerAds = [] }: { group
       {guideGroup && <DocSection group={guideGroup} />}
       {mobileCareerAds[0]}
       {textbookGroup && (
-        <section>
+        <section id={`sec-${textbookGroup.key}`} className="scroll-mt-24">
           <div className="mb-6">
             <div className="flex items-baseline justify-between gap-2 flex-wrap">
               <h2 className="font-serif text-[22px] sm:text-[26px] font-black text-[var(--ink)]">{textbookGroup.title}</h2>
@@ -80,6 +80,7 @@ export function CivilConstruction1View({ groups, mobileCareerAds = [] }: { group
       {secondaryTopicDocs.length > 0 && (
         <DocSection
           group={{
+            key: 'secondary',
             title: '第2次検定 分野別対策',
             description: '経験記述・施工管理（コンクリート工・土工・品質管理・施工計画）の基礎と過去問',
             docs: secondaryTopicDocs,
@@ -125,6 +126,7 @@ export function CivilConstruction2View({ groups, mobileCareerAds = [] }: { group
       {secondaryTopicDocs.length > 0 && (
         <DocSection
           group={{
+            key: 'secondary',
             title: '第2次検定 分野別対策',
             description: '経験記述・施工管理（コンクリート工・土工・品質管理・施工計画）の基礎と過去問（主任技術者視点）',
             docs: secondaryTopicDocs,
@@ -166,7 +168,7 @@ export function PeComprehensiveView({ groups, mobileCareerAds = [] }: { groups: 
       )}
       {/* キーワード索引へのナビゲーション（本体は /sitemap-keywords に移動） */}
       {keywordCount > 0 && (
-        <section>
+        <section id="sec-keyword" className="scroll-mt-24">
           <div className="mb-6">
             <h2 className="font-serif text-[22px] sm:text-[26px] font-black text-[var(--ink)]">キーワードを探す</h2>
             <p className="text-[14px] text-[var(--ink-muted)] mt-1">

@@ -42,7 +42,17 @@ type HomeExamCard = {
 const homeExamCards = homeExamCardsData as HomeExamCard[];
 const categoryBySlug = new Map(categories.map((c) => [c.slug, c]));
 
-function computeStat(metas: DocMeta[], spec: HomeStatSpec): { k: string; v: string } {
+// 各カテゴリページの種別セクション(id=`sec-<DocGroupKey>`)へ直行させるためのアンカー。
+// spec.groups の frontmatter 値を canonical な DocGroupKey へ寄せる（past-exam → pastExam）。
+function statAnchor(spec: HomeStatSpec): string | undefined {
+  if (spec.value !== undefined || spec.distinctYear || spec.total) return undefined;
+  const raw = spec.groups?.[0];
+  if (!raw) return undefined;
+  return raw === "past-exam" ? "pastExam" : raw;
+}
+
+function computeStat(metas: DocMeta[], spec: HomeStatSpec): { k: string; v: string; anchor?: string } {
+  const anchor = statAnchor(spec);
   if (spec.value !== undefined) return { k: spec.label, v: spec.value };
   if (spec.distinctYear) {
     const years = new Set(metas.map((m) => (String(m.slug).match(/r\d+/) || [])[0]).filter(Boolean));
@@ -54,7 +64,7 @@ function computeStat(metas: DocMeta[], spec: HomeStatSpec): { k: string; v: stri
   const n = metas.filter(
     (m) => (m.group ? groups.includes(m.group) : false) || tags.some((t) => m.tags?.includes(t)),
   ).length;
-  return { k: spec.label, v: n.toLocaleString() };
+  return { k: spec.label, v: n.toLocaleString(), ...(anchor ? { anchor } : {}) };
 }
 
 // categories.json（visible≠false・variant≠reference）に存在する資格だけを、
