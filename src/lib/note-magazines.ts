@@ -764,6 +764,50 @@ const MAGAZINES_RAW = {
     price: '¥2,980（18記事セット・単品¥780、約79%OFF）',
     badge: 'note 限定',
   },
+
+  // ----- 科目別 合格パック（必須I＋選択1科目）SKU scaffold（2026-07-02・Fable P1由来・published:false）-----
+  // 公開手順（note実機）: パック用マガジン新規作成 → BK-I＋該当科目の全記事を収録 → noteUrl 埋め＋published:true。
+  // カバー/サイドバーバナーは公開時に生成。価格は実勢バンドル（BK-I¥3,480＋標準¥2,980=¥6,460／道路¥3,480+¥3,480=¥6,960）。
+  // note はマガジン入れ子不可のため、パックは記事を個別再収録する実体マガジンになる可能性あり（要note実機確認）。
+  'pe-construction-road-pack': {
+    id: 'pe-construction-road-pack',
+    published: false,
+    noteUrl: '',
+    title: '技術士 建設部門 2次｜道路 まるごと合格パック（必須科目I＋道路選択科目）',
+    description:
+      '必須科目I 模範解答集（R03-R07＋R8予想・全11記事）と道路選択科目 模範解答集（R03-R07＋R8予想・全24記事）を束ねた合格パック。単品合計¥6,960が¥4,980。元・地方自治体の土木職（発注者）かつ道路科目合格者の視点で、本番で実際に解く「必須I＋道路」の組み合わせをそのまま収録。',
+    shortTitle: '建設部門2次｜道路 合格パック',
+    shortDescription: '必須I＋道路 全35記事。単品合計¥6,960が¥4,980（約28%OFF）。',
+    imageUrl: '/images/magazines/pe-construction-road-pack-cover.webp',
+    price: '¥4,980（必須I＋道路 2マガジン・単品合計¥6,960、約28%OFF）',
+    badge: 'note 限定 合格パック',
+  },
+  'pe-construction-tunnel-pack': {
+    id: 'pe-construction-tunnel-pack',
+    published: false,
+    noteUrl: '',
+    title: '技術士 建設部門 2次｜トンネル まるごと合格パック（必須科目I＋トンネル選択科目）',
+    description:
+      '必須科目I 模範解答集（R03-R07＋R8予想・全11記事）とトンネル選択科目 模範解答集（R03-R07＋R8予想・全18記事）を束ねた合格パック。単品合計¥6,460が¥4,980。元・地方自治体の土木職（発注者）視点で、本番で実際に解く「必須I＋トンネル」の組み合わせをそのまま収録。',
+    shortTitle: '建設部門2次｜トンネル 合格パック',
+    shortDescription: '必須I＋トンネル 全29記事。単品合計¥6,460が¥4,980（約23%OFF）。',
+    imageUrl: '/images/magazines/pe-construction-tunnel-pack-cover.webp',
+    price: '¥4,980（必須I＋トンネル 2マガジン・単品合計¥6,460、約23%OFF）',
+    badge: 'note 限定 合格パック',
+  },
+  'pe-construction-urban-planning-pack': {
+    id: 'pe-construction-urban-planning-pack',
+    published: false,
+    noteUrl: '',
+    title: '技術士 建設部門 2次｜都市計画 まるごと合格パック（必須科目I＋都市計画選択科目）',
+    description:
+      '必須科目I 模範解答集（R03-R07＋R8予想・全11記事）と都市及び地方計画 選択科目 模範解答集（R03-R07＋R8予想・全18記事）を束ねた合格パック。単品合計¥6,460が¥4,980。元・地方自治体の土木職（発注者）かつ都市計画科目合格者の視点で、本番で実際に解く「必須I＋都市計画」の組み合わせをそのまま収録。',
+    shortTitle: '建設部門2次｜都市計画 合格パック',
+    shortDescription: '必須I＋都市計画 全29記事。単品合計¥6,460が¥4,980（約23%OFF）。',
+    imageUrl: '/images/magazines/pe-construction-urban-planning-pack-cover.webp',
+    price: '¥4,980（必須I＋都市計画 2マガジン・単品合計¥6,460、約23%OFF）',
+    badge: 'note 限定 合格パック',
+  },
 } as const satisfies Record<string, NoteMagazine>;
 
 export type MagazineId = keyof typeof MAGAZINES_RAW;
