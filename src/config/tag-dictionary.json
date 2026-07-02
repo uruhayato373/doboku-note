@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-07-02T07:24:34.069Z",
+  "generated_at": "2026-07-02T09:34:19.416Z",
   "summary": {
-    "total_mdx_files": 1076,
+    "total_mdx_files": 1078,
     "total_unique_tags": 170,
     "allowlist_size": 149,
     "known_count": 80,
@@ -1252,7 +1252,7 @@
     },
     {
       "name": "guide",
-      "count": 124,
+      "count": 126,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1307,6 +1307,7 @@
         "civil-construction-2-guide-career",
         "civil-construction-2-guide-career-change",
         "civil-construction-2-guide-concrete-key-points",
+        "civil-construction-2-guide-construction-plan-key-points",
         "civil-construction-2-guide-earthwork-key-points",
         "civil-construction-2-guide-exam-overview",
         "civil-construction-2-guide-foundation-key-points",
@@ -1317,6 +1318,7 @@
         "civil-construction-2-guide-quality-management",
         "civil-construction-2-guide-quit-or-stay",
         "civil-construction-2-guide-resume",
+        "civil-construction-2-guide-safety-management",
         "civil-construction-2-guide-salary",
         "civil-construction-2-guide-schedule-management",
         "civil-construction-2-guide-study-method",
@@ -1899,7 +1901,7 @@
     },
     {
       "name": "exam-preparation",
-      "count": 27,
+      "count": 29,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-career-salary",
@@ -1917,11 +1919,13 @@
         "civil-construction-1-guide-study-method",
         "civil-construction-1-keyword-2026",
         "civil-construction-2-guide-concrete-key-points",
+        "civil-construction-2-guide-construction-plan-key-points",
         "civil-construction-2-guide-earthwork-key-points",
         "civil-construction-2-guide-foundation-key-points",
         "civil-construction-2-guide-law-key-points",
         "civil-construction-2-guide-overview",
         "civil-construction-2-guide-quality-management",
+        "civil-construction-2-guide-safety-management",
         "civil-construction-2-guide-schedule-management",
         "civil-construction-2-guide-study-method",
         "civil-construction-2-guide-textbooks",

@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-07-02T07:24:33.485Z",
+  "generated_at": "2026-07-02T09:34:18.656Z",
   "summary": {
-    "total": 1076,
-    "published": 1034,
+    "total": 1078,
+    "published": 1036,
     "unpublished": 42,
     "by_category": {
       "civil-construction-1": 112,
-      "civil-construction-2": 36,
+      "civil-construction-2": 38,
       "concrete-chief-engineer": 19,
       "pe-comprehensive-management": 724,
       "pe-construction": 122,
@@ -3782,6 +3782,27 @@
       "created": "2026-05-29",
       "dateModified": "2026-06-25"
     },
+    "civil-construction-2-guide-construction-plan-key-points": {
+      "title": "施工計画の重要ポイント",
+      "description": "2級土木施工管理技士で問われる施工計画を、作成手順（事前調査→基本計画→詳細計画→管理計画）・事前調査の確認項目・施工計画書の内容・工程計画と仮設備計画の要点に絞って整理します。用語と手順の紐付けで第一次検定の得点源にします。",
+      "shortTitle": "施工計画のポイント",
+      "subtitle": "作成手順・事前調査・施工計画書・工程と仮設備計画",
+      "exams": [
+        "civil-construction-2"
+      ],
+      "category": "civil-construction-2",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "exam-preparation"
+      ],
+      "published": true,
+      "publishedAt": "2026-07-02",
+      "seoTitle": "施工計画の重要ポイント｜作成手順・事前調査・施工計画書【2級土木施工管理技士】",
+      "reviewStatus": "needs-review",
+      "created": "2026-07-02T00:00:00.000Z",
+      "dateModified": "2026-07-02T00:00:00.000Z"
+    },
     "civil-construction-2-guide-earthwork-key-points": {
       "title": "土工の重要ポイント",
       "description": "2級土木施工管理技士で頻出の土工分野を、土質試験とN値・土量変化率L/C・盛土と締固め・のり面と軟弱地盤の要点に絞って整理します。第一次検定で確実に得点するためのコアをコンパクトにまとめました。",
@@ -3857,8 +3878,8 @@
       "publishedAt": "2026-07-02",
       "seoTitle": "基礎工の重要ポイント｜直接基礎・杭基礎・土留め【2級土木施工管理技士】",
       "reviewStatus": "needs-review",
-      "created": "2026-07-02T00:00:00.000Z",
-      "dateModified": "2026-07-02T00:00:00.000Z"
+      "created": "2026-07-02",
+      "dateModified": "2026-07-02"
     },
     "civil-construction-2-guide-haken-seishain": {
       "title": "派遣・契約から正社員の施工管理へ — 安定したキャリアに変えるルート",
@@ -4058,6 +4079,27 @@
         "title": "施工管理の\n職務経歴書の書き方",
         "subtitle": "未経験・経験が浅い方へ"
       }
+    },
+    "civil-construction-2-guide-safety-management": {
+      "title": "安全管理の重要ポイント",
+      "description": "2級土木施工管理技士で問われる安全管理を、労働安全衛生法と安全衛生管理体制・足場の作業床と墜落防止・明り掘削の安全・型枠支保工と作業主任者の選任の要点に絞って整理します。数値基準と作業主任者の対応で第一次検定の得点源にします。",
+      "shortTitle": "安全管理のポイント",
+      "subtitle": "労働安全衛生法・足場・掘削・支保工と作業主任者",
+      "exams": [
+        "civil-construction-2"
+      ],
+      "category": "civil-construction-2",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "exam-preparation"
+      ],
+      "published": true,
+      "publishedAt": "2026-07-02",
+      "seoTitle": "安全管理の重要ポイント｜足場・掘削・作業主任者【2級土木施工管理技士】",
+      "reviewStatus": "needs-review",
+      "created": "2026-07-02T00:00:00.000Z",
+      "dateModified": "2026-07-02T00:00:00.000Z"
     },
     "civil-construction-2-guide-salary": {
       "title": "2級土木施工管理技士の年収は？ — 手当・転職での評価と上げ方",

@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-07-02T07:24:33.863Z",
+  "generated_at": "2026-07-02T09:34:19.157Z",
   "summary": {
-    "total_mdx_files": 1076,
-    "with_exams_field": 48,
+    "total_mdx_files": 1078,
+    "with_exams_field": 50,
     "cross_exam_count": 0,
     "by_exam": {
       "civil-construction-1": 29,
-      "civil-construction-2": 19
+      "civil-construction-2": 21
     }
   },
   "by_exam": {
@@ -465,6 +465,21 @@
         "source_path": ".local/r2/posts/civil-construction-2/guide-concrete-key-points/article.mdx"
       },
       {
+        "slug": "civil-construction-2-guide-construction-plan-key-points",
+        "title": "施工計画の重要ポイント",
+        "category": "civil-construction-2",
+        "group": "guide",
+        "tags": [
+          "guide",
+          "exam-preparation"
+        ],
+        "sections": null,
+        "exams": [
+          "civil-construction-2"
+        ],
+        "source_path": ".local/r2/posts/civil-construction-2/guide-construction-plan-key-points/article.mdx"
+      },
+      {
         "slug": "civil-construction-2-guide-earthwork-key-points",
         "title": "土工の重要ポイント",
         "category": "civil-construction-2",
@@ -538,6 +553,21 @@
           "civil-construction-2"
         ],
         "source_path": ".local/r2/posts/civil-construction-2/guide-quality-management/article.mdx"
+      },
+      {
+        "slug": "civil-construction-2-guide-safety-management",
+        "title": "安全管理の重要ポイント",
+        "category": "civil-construction-2",
+        "group": "guide",
+        "tags": [
+          "guide",
+          "exam-preparation"
+        ],
+        "sections": null,
+        "exams": [
+          "civil-construction-2"
+        ],
+        "source_path": ".local/r2/posts/civil-construction-2/guide-safety-management/article.mdx"
       },
       {
         "slug": "civil-construction-2-guide-schedule-management",
