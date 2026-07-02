@@ -2,8 +2,10 @@
 notePricing: free
 noteSeries: 総監記述式
 utmCampaign: 99-magazine-guide
-noteUrl: ""
-noteStatus: draft
+notePublishedAt: "2026-07-02"
+noteId: "nc874692256bb"
+noteUrl: "https://note.com/dobokunote/n/nc874692256bb"
+noteStatus: published
 cover:
   leadIn: "総監の記述式教材は4種類だけ"
   hi: "3分"
