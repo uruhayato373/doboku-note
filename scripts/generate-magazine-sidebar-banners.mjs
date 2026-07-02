@@ -298,6 +298,78 @@ const BANNERS = [
     bgTop: '#5b4f8a', bgBottom: '#3d3460', accent: '#ddd6fe', label: 'note限定',
     lines: [['総監 模範論文', 29], ['自治体 都市計画担当', 21], ['R3-R7 5年分', 23]],
   },
+  // --- 2026-07-02 追加: 技術士 建設部門 2次 BK シリーズ（published:true だが sidebarImageUrl 欠落で
+  //     サイドバー/記事末尾 CTA が描画されていなかった 12 誌）＋ 総監 設問3バンク・1級土木 combo 大全 ---
+  {
+    id: 'pe-construction-required-magazine-sidebar',
+    bgTop: '#1e3a8a', bgBottom: '#14245c', accent: '#93c5fd', label: 'note限定',
+    lines: [['建設部門 2次', 24], ['必須科目I 模範解答', 22], ['R3-R7＋R8予想', 22]],
+  },
+  {
+    id: 'pe-construction-road-magazine-sidebar',
+    bgTop: '#334155', bgBottom: '#1e293b', accent: '#cbd5e1', label: 'note限定',
+    lines: [['建設部門 2次', 24], ['道路 模範解答集', 25], ['R3-R7＋R8予想', 22]],
+  },
+  {
+    id: 'pe-construction-river-coast-magazine-sidebar',
+    bgTop: '#0e7490', bgBottom: '#0a5468', accent: '#a5f3fc', label: 'note限定',
+    lines: [['建設部門 2次', 24], ['河川・砂防 模範解答', 21], ['R3-R7＋R8予想', 22]],
+  },
+  {
+    id: 'pe-construction-urban-planning-magazine-sidebar',
+    bgTop: '#4338ca', bgBottom: '#2e2a86', accent: '#c7d2fe', label: 'note限定',
+    lines: [['建設部門 2次', 24], ['都市計画 模範解答', 22], ['R3-R7＋R8予想', 22]],
+  },
+  {
+    id: 'pe-construction-geotechnical-magazine-sidebar',
+    bgTop: '#78350f', bgBottom: '#4d2109', accent: '#fcd34d', label: 'note限定',
+    lines: [['建設部門 2次', 24], ['土質・基礎 模範解答', 21], ['R3-R7＋R8予想', 22]],
+  },
+  {
+    id: 'pe-construction-steel-concrete-magazine-sidebar',
+    bgTop: '#475569', bgBottom: '#2f3a4a', accent: '#cbd5e1', label: 'note限定',
+    lines: [['建設部門 2次', 24], ['鋼構造・コンクリート', 21], ['R3-R7＋R8予想', 22]],
+  },
+  {
+    id: 'pe-construction-construction-planning-magazine-sidebar',
+    bgTop: '#b45309', bgBottom: '#7c3a06', accent: '#fcd34d', label: 'note限定',
+    lines: [['建設部門 2次', 24], ['施工計画 模範解答', 22], ['R3-R7＋R8予想', 22]],
+  },
+  {
+    id: 'pe-construction-environment-magazine-sidebar',
+    bgTop: '#15803d', bgBottom: '#0d5126', accent: '#86efac', label: 'note限定',
+    lines: [['建設部門 2次', 24], ['建設環境 模範解答', 22], ['R3-R7＋R8予想', 22]],
+  },
+  {
+    id: 'pe-construction-port-airport-magazine-sidebar',
+    bgTop: '#0369a1', bgBottom: '#024a72', accent: '#bae6fd', label: 'note限定',
+    lines: [['建設部門 2次', 24], ['港湾・空港 模範解答', 21], ['R3-R7＋R8予想', 22]],
+  },
+  {
+    id: 'pe-construction-power-civil-magazine-sidebar',
+    bgTop: '#a16207', bgBottom: '#774905', accent: '#fde68a', label: 'note限定',
+    lines: [['建設部門 2次', 24], ['電力土木 模範解答', 22], ['R3-R7 全15記事', 22]],
+  },
+  {
+    id: 'pe-construction-railway-magazine-sidebar',
+    bgTop: '#9f1239', bgBottom: '#6b0d28', accent: '#fda4af', label: 'note限定',
+    lines: [['建設部門 2次', 24], ['鉄道 模範解答集', 25], ['R3-R7 全15記事', 22]],
+  },
+  {
+    id: 'pe-construction-tunnel-magazine-sidebar',
+    bgTop: '#3730a3', bgBottom: '#262076', accent: '#c7d2fe', label: 'note限定',
+    lines: [['建設部門 2次', 24], ['トンネル 模範解答', 22], ['R3-R7＋R8予想', 22]],
+  },
+  {
+    id: 'magazine-setsumon3-policy-bank-sidebar',
+    bgTop: '#1d5a7a', bgBottom: '#0f3650', accent: '#7dd3fc', label: 'note限定',
+    lines: [['総監 記述式', 27], ['設問3 国家施策バンク', 19], ['頻出施策を横断整理', 20]],
+  },
+  {
+    id: 'civil-1-combo-essay-sidebar',
+    bgTop: '#b45309', bgBottom: '#7c3a06', accent: '#fcd34d', label: 'note限定',
+    lines: [['1級土木 経験記述', 22], ['2テーマ組合せ大全', 24], ['全10組合せ網羅', 20]],
+  },
 ];
 
 // "doboku" + "-"(アクセント明色) + "note" の 3 スパン構成ワードマーク
