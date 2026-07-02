@@ -72,6 +72,16 @@ const FALLBACK_THEME: ExamTheme = {
   statHover: "group-hover/stat:text-[var(--accent)]",
 };
 
+// 資格別アクセント画像（カード上部の帯・文字なし・テーマ色に寄せた明色写真）。Codex 生成 → webp。
+const EXAM_IMAGE: Record<string, string> = {
+  "civil-construction-1": "/images/card-civil-construction-1.webp",
+  "civil-construction-2": "/images/card-civil-construction-2.webp",
+  "pe-first-stage": "/images/card-pe-first-stage.webp",
+  "pe-construction": "/images/card-pe-construction.webp",
+  "pe-comprehensive-management": "/images/card-pe-comprehensive-management.webp",
+  "concrete-chief-engineer": "/images/card-concrete-chief-engineer.webp",
+};
+
 function ExamIcon({ variant }: { variant: ExamData["variant"] }) {
   if (variant === "civil") return <HardHat className="w-7 h-7" strokeWidth={1.5} />;
   return <GraduationCap className="w-7 h-7" strokeWidth={1.5} />;
@@ -79,14 +89,34 @@ function ExamIcon({ variant }: { variant: ExamData["variant"] }) {
 
 function ExamCard({ e }: { e: ExamData }) {
   const t = EXAM_THEME[e.slug] ?? FALLBACK_THEME;
+  const img = EXAM_IMAGE[e.slug];
   return (
     // stretched-link パターン: カード全体はタイトルリンク(疑似要素)でカテゴリへ。stats は z-10 で
     // その上に乗り、各種別セクション(/category/{slug}#sec-<group>)へ個別に直行できる。
     <article
       className={`group relative overflow-hidden bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-section transition-all hover:shadow-lift hover:-translate-y-0.5 ${t.hoverBorder}`}
     >
-      {/* 試験別テーマ色のカラーバー（note カバーと同一の資格アイデンティティ色） */}
-      <span aria-hidden="true" className={`block h-1 w-full ${t.bar}`} />
+      {/* 資格別アクセント写真帯＋テーマ色ライン（note カバーと同一の資格アイデンティティ色）。
+          画像が無い資格はテーマ色バーのみ表示。 */}
+      {img ? (
+        <>
+          <div className="overflow-hidden">
+            <img
+              src={img}
+              alt=""
+              aria-hidden="true"
+              width={1000}
+              height={565}
+              loading="lazy"
+              decoding="async"
+              className="block h-28 sm:h-32 w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+            />
+          </div>
+          <span aria-hidden="true" className={`block h-[3px] w-full ${t.bar}`} />
+        </>
+      ) : (
+        <span aria-hidden="true" className={`block h-1 w-full ${t.bar}`} />
+      )}
       <div className="p-6 sm:p-8">
         <div className="flex items-start justify-between gap-4 mb-5">
           <div
