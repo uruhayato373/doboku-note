@@ -2,6 +2,7 @@ import { type DocMeta } from '@/lib/docs';
 import { classifyDoc, getGroupOrder, getGroupLabel, type DocGroupKey } from '@/lib/doc-classifier';
 
 export type DocGroup = {
+  key: DocGroupKey;
   title: string;
   description: string;
   docs: DocMeta[];
@@ -170,6 +171,7 @@ export function groupDocs(docs: DocMeta[], category: string): DocGroup[] {
     sortDocs(groupDocs, groupKey, category);
 
     result.push({
+      key: groupKey,
       title: getGroupLabel(category, groupKey),
       description: GROUP_DESCRIPTIONS[category]?.[groupKey] ?? '',
       docs: groupDocs,

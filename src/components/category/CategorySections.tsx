@@ -478,7 +478,7 @@ function PeConstructionExamTable({ docs }: { docs: DocMeta[] }) {
 
 export function DocSection({ group, layout, secondaryDocs }: { group: DocGroup; layout?: 'cards' | 'exam-table' | 'exam-table-2' | 'pe-exam-table' | 'pe-first-stage-table' | 'pe-construction-exam-table'; secondaryDocs?: DocMeta[] | undefined }) {
   return (
-    <section>
+    <section id={`sec-${group.key}`} className="scroll-mt-24">
       <div className="mb-6">
         <div className="flex items-baseline justify-between gap-2 flex-wrap">
           <h2 className="font-serif text-[22px] sm:text-[26px] font-black text-[var(--ink)]">{group.title}</h2>
