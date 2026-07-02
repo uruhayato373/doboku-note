@@ -364,21 +364,23 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   if (/^civil-construction-2-secondary-r0[1-9]$/.test(slug)) {
     return {
       inline: [
-        slot('civil-2-pastexam-essay', slug, 'inline-1'),
-        slot('civil-2-experience-essay', slug, 'inline-2'),
-        slot('civil-membership-lab', slug, 'inline-3'),
+        slot('civil-2-koji-bank', slug, 'inline-1'),
+        slot('civil-2-pastexam-essay', slug, 'inline-2'),
+        slot('civil-2-experience-essay', slug, 'inline-3'),
+        slot('civil-membership-lab', slug, 'inline-4'),
       ],
-      sidebar: [slot('civil-2-pastexam-essay', slug, 'sidebar-1')],
+      sidebar: [slot('civil-2-koji-bank', slug, 'sidebar-1')],
     };
   }
   if (/^civil-construction-2-secondary-experience-writing-(guide|examples)$/.test(slug)) {
     return {
       inline: [
-        slot('civil-2-experience-essay', slug, 'inline-1'),
-        slot('civil-2-pastexam-essay', slug, 'inline-2'),
-        slot('civil-membership-lab', slug, 'inline-3'),
+        slot('civil-2-koji-bank', slug, 'inline-1'),
+        slot('civil-2-experience-essay', slug, 'inline-2'),
+        slot('civil-2-pastexam-essay', slug, 'inline-3'),
+        slot('civil-membership-lab', slug, 'inline-4'),
       ],
-      sidebar: [slot('civil-2-experience-essay', slug, 'sidebar-1')],
+      sidebar: [slot('civil-2-koji-bank', slug, 'sidebar-1')],
     };
   }
 
@@ -534,7 +536,7 @@ const CATEGORY_MAGAZINES: Partial<Record<string, readonly MagazineId[]>> = {
   "pe-comprehensive-management": ["essay-complete-pack", "essay-core-pack", "tankan-reading-guide"],
   "pe-construction": ["pe-construction-required-magazine", "pe-construction-road-magazine", "pe-construction-river-coast-magazine", "pe-construction-urban-planning-magazine"],
   "civil-construction-1": ["civil-1-keiken-complete-pack", "civil-1-experience-essay", "civil-1-pastexam-essay", "civil-membership-lab"],
-  "civil-construction-2": ["civil-2-experience-essay", "civil-2-pastexam-essay", "civil-membership-lab"],
+  "civil-construction-2": ["civil-2-koji-bank", "civil-2-experience-essay", "civil-2-pastexam-essay", "civil-membership-lab"],
   "concrete-chief-engineer": ["cce-essay-magazine"],
   "concrete-diagnostician": ["cd-essay-magazine"],
 };
