@@ -19,13 +19,13 @@ export default function Hero() {
           decoding="async"
           className="block w-full max-w-[1732px] h-auto"
         />
-        {/* CTA を画像下部の余白帯へオーバーレイ（中央・下寄せ）。下地が明るいので濃紺ボタン＋影で目立たせる */}
+        {/* CTA を画像下部の余白帯へオーバーレイ（中央・下寄せ）。紺系ヒーローにコントラストが立つ琥珀色＋濃色文字で目立たせる */}
         <a
           href="#exams"
-          className="absolute bottom-[6%] sm:bottom-[8%] left-1/2 -translate-x-1/2 inline-flex items-center gap-2 font-mono text-[10px] sm:text-[12px] tracking-wider uppercase text-[var(--paper)] bg-[var(--accent)] px-4 sm:px-6 py-2.5 sm:py-3.5 rounded-full shadow-lift hover:opacity-90 hover:-translate-y-px transition-all"
+          className="absolute bottom-[7%] sm:bottom-[9%] left-1/2 -translate-x-1/2 inline-flex items-center gap-2.5 font-mono text-[13px] sm:text-[16px] font-bold tracking-wider uppercase text-[var(--ink)] bg-[var(--color-warn)] px-7 sm:px-10 py-3.5 sm:py-5 rounded-full shadow-lift hover:brightness-105 hover:-translate-y-0.5 transition-all"
         >
           <span>資格を選んで学ぶ</span>
-          <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" strokeWidth={2} />
+          <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={2.5} />
         </a>
       </div>
     </section>
