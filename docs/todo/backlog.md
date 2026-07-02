@@ -232,9 +232,9 @@ Hero → ExamCards → LatestArticles → AboutSection
 **残タスク（note実機・試験後のみ）**:
 - ✅ **建設 topCta（完了）**：文面A案 note-funnel.json 設定（PR #333）＋ `wire-note-funnel-cta --apply` で建設 note 22記事の source 注入（PR #334）。**live 反映は不要と確認**＝公開済み建設16記事は**全て公開時から BK-I/道路/もくじ CTA を live 保有**（2026-07-02 note API 実査 have=16/miss=0）。未公開6記事は publish 時に source の topCta が反映。
 - 🟡 **科目パック¥4,980（道路 LAUNCHED・他2は同レシピ）**：
-  - ✅ **道路パック LAUNCHED（2026-07-02）**：note 実機で作成・公開＝`建設部門2次｜道路まるごと合格パック` **mebca45bcc745**・¥4,980・BK-I 11＋道路 24＝**35記事収録（API実査済）**・HTTP 200。noteUrl は note-magazines.ts に記録（PR #336）。**site published:true 化は cover/sidebar 生成＋placement 配線の follow-up**（それまで note 直販）。
+  - ✅ **道路パック 完全開通（2026-07-02）**：note LIVE＝`建設部門2次｜道路まるごと合格パック` **mebca45bcc745**・¥4,980・35記事（API実査済）・HTTP 200（PR #336 で noteUrl 記録）。**site も開通**＝cover(1280×670)/sidebar(300×250) satori 生成・published:true・CATEGORY_MAGAZINES[pe-construction] 先頭配線（PR #337）。／docs 側は develop 済＝`/deploy` で本番反映。
   - 確立レシピ（他パックも同じ）: 掲載文dir作成 → `note-magazine-create --dir <dir> --commit`（有料単体・¥4,980）→ `note-magazine-add-articles --target <key> --from <BK-I key>,<科目 key> --commit`（記事再収録・API自動差分）→ API実査。**入れ子不可問題は再収録モデルで解消済（完全パック precedent）**。
-  - ⏳ **残**：①トンネル・都市計画パック（同レシピ・ユーザーGoで）②道路パックの site 促進（cover/sidebar 生成 → published:true → CATEGORY/道路ページ placement 配線）。
+  - ⏳ **残**：①トンネル・都市計画パック（道路と全く同レシピ：掲載文dir→create→add-articles --from BK-I,科目→cover/sidebar def追加生成→published:true→CATEGORY。ユーザーGoで即実行可）②道路パックの finer placement（道路secondary/keywordページ単位のCTA・任意）。
 - **一次→二次 季節CTA切替**（試験後）：1級土木 guide-strategy（271人・CTA変換0.4%）を二次・経験記述向けへ（当方コード・7/5一次後）。
 - **建設→総監ブリッジ記事**（試験後）：建設合格者≒総監来季見込み客。無料記事1本を建設もくじ＋L1へ。総監→建設は張らない。
 - ✅ **建設SSOT価格を実勢へ是正**（PR #333）：計画値（BK-I¥2,480/道路¥3,980/標準¥3,480）と実勢（¥3,480/¥3,480/¥2,980）の逆方向乖離を、ユーザー確認（実勢が正）の上で全面是正。
