@@ -214,6 +214,29 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 > 2026-06-23 経緯: 当初「フル3点横展開」で計画したが、(a)R8予想は10科目が既存マガジンに収録済（誤記是正）(b)選択科目制ゆえ横断商品は不成立（ユーザー指摘）の2点で、横展開すべきは読み方ガイド2本に収束した。
 
+### 総監マガジンの歩き方（17ペルソナ診断ハブ）公開＋配線 🔴
+
+**発端**: Fable 収益ファネル横断再設計（2026-07-02）。完全パック¥9,800 は6月トップ商品（7件¥57,680）だが、買い手が自分のペルソナを自己判定できないと「網羅保証」が刺さらない。sosou_nino（物量63誌）への差別化＝「3分で1冊が決まる」探索コスト低減の要。
+
+**状態**: 原稿・CTA配線とも**完成済み**（`docs/note/技術士総監/総監マガジンの歩き方/article.md`）だが `noteStatus: draft`・`noteUrl: ""` で**未公開**＝執筆コストゼロで公開できる。10月末¥9,800リローンチの前提インフラ（総監計画 §896）だが、直前期の今公開すれば7月試験前の駆け込みにも効く。
+
+**残作業**: ①ユーザーが note 実機公開 → noteUrl 反映 ②L1（全資格サイトマップ）・総監もくじ冒頭へ「まず3分診断」リンク追記（当方）③`audit-note-funnel --live` で確認。関連: [[project_pe_hub_article_design]]・[[note-competitive-analysis-2026]]。
+
+### note 導線 後続配線（Fable P1 由来）🟡
+
+**発端**: Fable 収益ファネル横断再設計（2026-07-02）で検出。建設部門CTAの描画ゼロ本体は [PR #329](https://github.com/uruhayato373/doboku-note/pull/329)（`sidebarImageUrl` 15誌欠落＋`CATEGORY_MAGAZINES` に pe-construction 無し）で修復済み。残る導線改善を集約。
+
+**残タスク**:
+- **建設 topCta 空文字**（`.claude/config/note-funnel.json` の pe-construction topCta が空）＝建設note記事に冒頭buy CTAが無い。単品¥780購入者を科目誌へ上げる文面を設計＋wire（`wire-note-funnel-cta` の dir単位topCta対応可否を要確認）。
+- **科目別合格パック ¥4,980 SKU化**（BK-I¥3,480＋標準¥2,980＝¥6,460 → ¥4,980 は約23%OFF・バンドル成立条件を満たす）。売れ筋3科目（道路/鋼コン/トンネル）で試行。
+- **一次→二次 季節CTA切替**：1級土木の最大流入ページ（guide-strategy 271人・note CTA変換0.4%）のCTAを二次・経験記述向けへ**試験後に**切替（当方コード）。
+- **建設→総監ブリッジ記事**（試験後）：建設合格者≒総監来季見込み客。無料記事1本を建設もくじ＋L1へ。総監→建設は張らない（逆流需要なし）。
+- **civil-2-koji-bank を高intent面へ配線**：現状 EXAM_PREP guide の flagship 枠のみ→2級 secondary/experience/カテゴリへ（当方コード）。
+- **死にエントリ削除**：`pe-construction-required`（published:false・placement参照ゼロ・live版 `pe-construction-required-magazine` と重複）。
+- **建設SSOTカレンダー是正**：`docs/note/技術士建設部門/noteコンテンツ計画.md`・`docs/note/README.md` の「9月ローンチ予定」を「前倒しローンチ済（2026-06・検証ゲート20部でクリア）」へ書き換え（doc・`/doc-sync`系）。
+
+**実装ファイル**: `src/lib/note-magazines.ts`・`src/lib/magazine-placement.ts`・`.claude/config/note-funnel.json`。真実源: PR#329・Fable P1レポート。
+
 ### Kindle 出版（KDP）＋ note PDF 販売 — 択一式過去問集 全資格展開 🟢
 
 **既存作業**: 戦略書 `docs/project/01_戦略/08_Kindle出版戦略.md`（3シリーズ設計済み）、スクリプト `scripts/build-takuitsu-reconstruct.mjs`（1ソース → EPUB/Markdown/印刷 HTML）完成。ハンドオフ: `docs/handoffs/_archive/2026-06-09-takuitsu-kindle-epub.md`
@@ -394,8 +417,8 @@ Hero → ExamCards → LatestArticles → AboutSection
 **発端**: 2026-06-22 の GSC 流入減調査で、在庫下の技術・on-page SEO レバーを全数検証し**すべて健全/最適化済み**と確定（真実源: `docs/reference/gsc-management.md` 2026-06-22 ログ）。
 
 **確定事実（再調査不要・現物検証済）**:
-- index 率 **81.6%**（目標 80% 達成。4月の 54% から +256 ページ後もむしろ改善）
-- hygiene = redirect/404 とも **0**
+- index 率は **volatile**（4/27 **54%** → 6/19 **81.6%** → 7/1 **74.6%**）。7/1 は既存 indexed 126本（総監KW 97中心）が「クロール済み-未登録」へ回帰＝Google の価値判断による demote。「81.6%達成で権威性の壁失効」は**部分的に揺り戻し**。真実源: `gsc-management.md` 2026-07-02 ログ。**8月再測定で回帰継続なら総監キーワード薄ページの統合を検討**（[[no-new-keyword-pages]]＝新規でなく既存の統合）
+- hygiene = redirect/404 とも **0**（7/1 も維持＝回帰は技術問題でなく権威性）
 - 未index の過去問 23本は robots=ALLOWED / indexing=ALLOWED / canonical 一致 / fetch=SUCCESSFUL ＝**技術バグ無し**。「クロール済み未登録」は純粋に Google の価値判断（旧年度の低需要ページ）。on-page 編集で強制 index 不可
 - 本文量・タイトル・description・FAQ schema・内部リンク（82.5/ページ）= 全て充足
 - 流入減は ①新規ページによる blended 平均順位の希釈アーティファクト ②定義ロングテール（換金性ゼロ）中心、で実害は小
