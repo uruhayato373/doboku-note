@@ -549,9 +549,9 @@ Hero → ExamCards → LatestArticles → AboutSection
 **残**: SoT(ローカルmd)は確定済。note.com公開6本（防災/担い手/GX/老朽化/国土形成/建設DX）へブラウザ反映が未着手。他7記事も同じ生URL問題。326件バーンダウンの codemod は次セッション。
 **出典**: `docs/handoffs/_archive/2026-06-22-note-a-series-funnel-utm.md`
 
-### 建設部門 論文対策キーワード 増補の残り節 🟡
-**方針（2026-07-02 再確定）**: 逐語複製ではなく、textbook を出典に既存オリジナル記事へ事実ベースで不足論点を増補（書籍逐語複製・書籍図クロップ埋込はしない）。gap分析は archived handoff を流用。真実源＝README の warning ブロック。
-**残**: 03(bousai-genseigai)＝増補完了。04(ninaite-dx)・05(chiiki-dukuri)・06(datsutanso-kankyo)を同方式で増補＋commit。02(iji-kanri)＝旧「逐語＋図クロップ」方式で公開済のため現行方針との整合を要見直し（B系統note未公開・実害低）。
+### 建設部門 論文対策キーワード 増補 ✅完了（2026-07-02）
+**方針（2026-07-02 再確定）**: 逐語複製ではなく、textbook を出典に既存オリジナル記事へ事実ベースで不足論点を増補（書籍逐語複製・書籍図クロップ埋込はしない）。真実源＝README の warning ブロック。
+**完了**: 全6節を現行方式に統一。02(iji-kanri)＝逐語版をオリジナル散文版へ復元＋国土形成計画(維持管理)増補・書籍クロップ図6枚撤去。03〜06＝各節の不足論点をオリジナル散文で増補（03:3観点/総力戦PJ/事前復興/GD2050、04:i-Con2.0成果/GD2050担い手、05:デジタルライフライン/スーパーシティ、06:温対法改正沿革是正）。image-policy 例外も現行方針へ縮小済み。
 **出典**: `docs/handoffs/_archive/2026-06-22-pe-construction-verbatim-reflection.md`（gap分析のみ流用・手法は失効）
 
 ### IGディレクトリ資格軸再編の残ファイル更新 🟢
