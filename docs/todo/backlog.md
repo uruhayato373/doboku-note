@@ -230,7 +230,7 @@ Hero → ExamCards → LatestArticles → AboutSection
 **発端**: Fable 収益ファネル横断再設計（2026-07-02）で検出。建設部門CTAの描画ゼロ本体は [PR #329](https://github.com/uruhayato373/doboku-note/pull/329)（`sidebarImageUrl` 15誌欠落＋`CATEGORY_MAGAZINES` に pe-construction 無し）で修復済み。残る導線改善を集約。
 
 **残タスク（note実機・試験後のみ）**:
-- ⏳ **建設 topCta の live wire**：文面（A案）は `note-funnel.json` に**設定済（PR #333）**。残＝`wire-note-funnel-cta --exam pe-construction --apply` で建設 note 24記事へ live 反映（note実機・Playwright）。※config→live の間は既知ドリフト（config先行・許容）。
+- ✅ **建設 topCta**：文面A案 note-funnel.json 設定（PR #333）＋ `wire-note-funnel-cta --apply` で建設 note **22記事の source に注入済（PR #334）**。未公開/今後公開分は publish で live 反映。**残＝既公開記事への live 反映のみ**（update-mode 制約＝`note-append-cta` per-article・note実機・限定価値）。
 - ⏳ **科目パック¥4,980 の実体マガジン作成**：note-magazines.ts に scaffold **3件追加済（PR #333・道路/トンネル/都市計画・published:false）**。残＝note実機でパック用マガジン新規作成→BK-I＋科目記事を収録（**note のマガジン入れ子仕様＝要確認**・不可なら記事個別再収録）→noteUrl 埋め＋published:true＋カバー/sidebar 生成。
 - **一次→二次 季節CTA切替**（試験後）：1級土木 guide-strategy（271人・CTA変換0.4%）を二次・経験記述向けへ（当方コード・7/5一次後）。
 - **建設→総監ブリッジ記事**（試験後）：建設合格者≒総監来季見込み客。無料記事1本を建設もくじ＋L1へ。総監→建設は張らない。
