@@ -93,7 +93,7 @@ function debugSafetyOverlay(width) {
   };
 }
 
-// ---- テンプレート: mono-tag ダーク（2026-06-29 リデザイン・サイト OGP 既定）----
+// ---- テンプレート: mono-tag ダーク（2026-06-29 リデザイン。--dark 指定時のみ・2026-07-02 に非既定化）----
 //
 // 深紺グラデ地。ワードマークは置かず、資格名を大きな kicker（accentLight）に。
 // タイトルは「資格名を除いた主題（大・白）＋サブタイトル（小・淡色）」の階層で、
@@ -189,8 +189,8 @@ function renderMonoTagDark({ examLabel, mainLines, subLines, mainFont, contentTy
 // ---- テンプレート: mono-tag (T06) ----
 
 function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backgroundImage, contentType, dark, examLabel, mainLines, subLines, mainFont }, { width, height }) {
-  // ダーク（サイト OGP 既定・2026-06-29 リデザイン）は新レイアウト（資格名 kicker ＋ 主題/サブ階層）へ委譲。
-  // ライト（--light / note カバー mono-tag フォールバック）は従来の全幅レイアウト（以下）。
+  // ダーク（--dark 指定時のみ・旧既定〜2026-07-02。2026-06-29 リデザイン）は資格名 kicker ＋ 主題/サブ階層へ委譲。
+  // ライト（既定＝写真前面 2026-07-02〜 / note カバー mono-tag フォールバック）は全幅レイアウト＋資格別背景写真＋subtitle（以下）。
   if (dark) {
     return renderMonoTagDark({ examLabel, mainLines, subLines, mainFont, contentType, accentColor }, { width, height });
   }

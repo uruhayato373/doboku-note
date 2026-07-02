@@ -30,6 +30,9 @@ note 公開用ドラフト（`docs/note/`）のカバー画像（1280×670）も
 
 ## テンプレート
 
+> [!important] 現在の既定＝ライト写真前面（2026-07-02〜）
+> サイト OGP の既定は **ライト写真前面**（資格別ブランド写真＋淡スクリム＋濃色文字・kicker/主題/subtitle/種別バッジ）。`npm run ogp` は既定でこれを出す。**旧ダーク配色は `--dark` フラグ**で描画（2026-06-29〜2026-07-02 の旧既定）。背景写真は Codex 生成のブランド写真プールで、`.claude/config/ogp/backgrounds/<exam-key>.png` に置き `resolveBackgroundImage` が解決する。真実源＝[`docs/reference/brand-image-system.md`](../../../../docs/reference/brand-image-system.md)（プール・色統一）＋[`ogp-prompts.md`](../../../../docs/reference/ogp-prompts.md)「変更履歴」。下表の `mono-tag` 行の「warm off-white／16px 外枠」等は旧ライト仕様の記述で、現行の写真前面既定とは一致しない点に注意（詳細仕様は上記 SSOT を参照）。
+
 | ID | 用途 | デザイン |
 |---|---|---|
 | `mono-tag` | サイト OGP（1200×630）共通（T06） | warm off-white 背景 + 薄い濃紺グリッド + シアン/紺アクセントバー + Navy カテゴリチップ + **全幅・縦中央寄せ大タイトル（最大76px）** + **資格別テーマ色 16px 外枠**（下部メタ・タグラインは撤去済み）。**任意で資格別 AI 背景**（あり時は最背面に画像＋可読性スクリム `rgba(253,252,248,0.7)`／なし時は上記オフホワイト固定・後方互換、下記「資格別 AI 背景」） |
