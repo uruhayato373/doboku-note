@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-07-02T09:34:19.416Z",
+  "generated_at": "2026-07-02T11:47:49.957Z",
   "summary": {
-    "total_mdx_files": 1078,
+    "total_mdx_files": 1079,
     "total_unique_tags": 170,
     "allowlist_size": 149,
     "known_count": 80,
@@ -1252,7 +1252,7 @@
     },
     {
       "name": "guide",
-      "count": 126,
+      "count": 127,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1283,6 +1283,7 @@
         "civil-construction-1-guide-quit-honne",
         "civil-construction-1-guide-quit-or-stay",
         "civil-construction-1-guide-resume",
+        "civil-construction-1-guide-safety-management",
         "civil-construction-1-guide-salary-by-role",
         "civil-construction-1-guide-salary-up",
         "civil-construction-1-guide-schedule-management",
@@ -1901,7 +1902,7 @@
     },
     {
       "name": "exam-preparation",
-      "count": 29,
+      "count": 30,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-career-salary",
@@ -1914,6 +1915,7 @@
         "civil-construction-1-guide-last-minute-2026",
         "civil-construction-1-guide-law-key-points",
         "civil-construction-1-guide-quality-management",
+        "civil-construction-1-guide-safety-management",
         "civil-construction-1-guide-schedule-management",
         "civil-construction-1-guide-strategy",
         "civil-construction-1-guide-study-method",
@@ -2389,6 +2391,21 @@
       ]
     },
     {
+      "name": "pillar",
+      "count": 8,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-quality-management",
+        "civil-construction-1-guide-safety-management",
+        "civil-construction-1-guide-schedule-management",
+        "pe-comprehensive-management-economic-management-pillar",
+        "pe-comprehensive-management-human-resource-management-pillar",
+        "pe-comprehensive-management-information-management-pillar",
+        "pe-comprehensive-management-safety-management-pillar",
+        "pe-comprehensive-management-social-environment-management-pillar"
+      ]
+    },
+    {
       "name": "トンネル",
       "count": 8,
       "inAllowlist": true,
@@ -2580,20 +2597,6 @@
         "civil-construction-1-textbook-management-subplans",
         "civil-construction-1-textbook-site-investigation",
         "civil-construction-1-textbook-work-scheduling"
-      ]
-    },
-    {
-      "name": "pillar",
-      "count": 7,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-quality-management",
-        "civil-construction-1-guide-schedule-management",
-        "pe-comprehensive-management-economic-management-pillar",
-        "pe-comprehensive-management-human-resource-management-pillar",
-        "pe-comprehensive-management-information-management-pillar",
-        "pe-comprehensive-management-safety-management-pillar",
-        "pe-comprehensive-management-social-environment-management-pillar"
       ]
     },
     {
