@@ -288,7 +288,7 @@ JSON 出力をパースして以下を取得:
 ```
 
 - `<slug-or-path>`: MDX パス or slug（必須）
-- `--pdf`: PDF 原本を明示指定（省略時は scripts/verify-pdf-mdx.mjs の `SLUG_PDF_HINTS` + title glob で自動発見）
+- `--pdf`: PDF 原本を明示指定（省略時は `.claude/skills/conversion/pdf-to-mdx/scripts/verify-pdf-mdx.mjs` の `SLUG_PDF_HINTS` + title glob で自動発見）
 - `--deep`: 視覚比較を全件実行（既定は 3 件サンプル）
 
 ### verify mode の使い方の例

@@ -27,7 +27,7 @@ Check      : measure で前後比較
 Act        : close で learnings 記録 → roadmap にフィードバック
 ```
 
-詳細は `.claude/skills/management/nsm-experiment/references/definition.md` と `docs/pdfs/guide.pdf`（Chapter 3）を参照。
+詳細は `.claude/skills/management/nsm-experiment/references/definition.md` と `.claude/pdfs/guide.pdf`（Chapter 3）を参照。
 
 ## 引数
 

@@ -11,6 +11,8 @@ Google Search Console API から検索パフォーマンスデータ（クエリ
 
 ## 前提条件
 
+> **恒久ルール（2026-06-05・`docs/reference/measurement-incidents.md`）**: 計測データは **CI/CD 供給が正・ローカル creds は不要**。会社 PC はプロキシで外部 API が遮断されるため、**まず `.claude/state/metrics/gsc/` の既存スナップショット（CI 生成）を読む**。ローカル取得は Mac/CI/クラウドでのみ可。以下のローカル creds 手順は CI/Mac でフレッシュ取得が必要な場合に限る。
+
 1. GCPコンソールでサービスアカウントを作成済み
 2. Search Console API を有効化済み
 3. JSON鍵ファイルを `credentials/` に配置済み
