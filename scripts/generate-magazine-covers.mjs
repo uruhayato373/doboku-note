@@ -234,6 +234,26 @@ const MAGAZINES = [
     accentColor: '#1C5038',
     fillBg: '#1C5038',
   },
+  {
+    id: 'civil-1-anki',
+    fileBaseName: 'civil-1-anki-note-cover',
+    magazineDir: 'docs/note/1級・2級土木/1級土木/magazines/1級土木-二次学科記述-直前暗記ノート',
+    lines: ['1級土木 二次学科記述', '直前暗記ノート', '穴埋め一問一答＋赤シートPDF'],
+    category: '1級土木施工管理技士',
+    fontSize: 42,
+    accentColor: '#155293',
+    fillBg: '#155293',
+  },
+  {
+    id: 'civil-2-anki',
+    fileBaseName: 'civil-2-anki-note-cover',
+    magazineDir: 'docs/note/1級・2級土木/2級土木/magazines/2級土木-二次学科記述-直前暗記ノート',
+    lines: ['2級土木 二次学科記述', '直前暗記ノート', '穴埋め一問一答＋赤シートPDF'],
+    category: '2級土木施工管理技士',
+    fontSize: 42,
+    accentColor: '#1C5038',
+    fillBg: '#1C5038',
+  },
   // ----- 土木 1級/2級 施工経験記述 6 マガジン (資格別配色: 1級青 #155293 / 2級緑 #1C5038) -----
   {
     id: 'civil-1-experience',

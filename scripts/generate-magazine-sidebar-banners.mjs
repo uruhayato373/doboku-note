@@ -167,6 +167,30 @@ const BANNERS = [
     ],
   },
   {
+    id: 'civil-1-anki-note-sidebar',
+    bgTop: '#155293',
+    bgBottom: '#0e3a68',
+    accent: '#7dd3fc',
+    label: 'note限定',
+    lines: [
+      ['1級土木 暗記ノート', 23],
+      ['穴埋め一問一答', 26],
+      ['赤シート対応PDF付', 19],
+    ],
+  },
+  {
+    id: 'civil-2-anki-note-sidebar',
+    bgTop: '#1C5038',
+    bgBottom: '#123222',
+    accent: '#86efac',
+    label: 'note限定',
+    lines: [
+      ['2級土木 暗記ノート', 23],
+      ['穴埋め一問一答', 26],
+      ['赤シート対応PDF付', 19],
+    ],
+  },
+  {
     id: 'civil-1-experience-essay-sidebar',
     bgTop: '#b45309',
     bgBottom: '#7c3a06',
