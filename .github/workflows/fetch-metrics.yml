@@ -53,6 +53,14 @@ jobs:
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
         run: npm run fetch-ga4-data -- --dimension channel --days 7 --organic-only
 
+      # SNS 流入 breakdown（source×medium 別・7d）。weekly-review の SNS フェーズと
+      # metrics-analyzer の SNS-Source-Shift が最新2ファイルで WoW を算出する。
+      - name: Fetch GA4 (SNS source×medium, 7d for weekly SNS review)
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+        run: npm run fetch-ga4-data -- --dimension sourceMedium --days 7 --sns-only --limit 50
+
       - name: Fetch GSC
         env:
           GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
