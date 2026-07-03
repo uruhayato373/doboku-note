@@ -33,7 +33,7 @@
 | IG ハイライト | follow判断 | 四半期/6種 | 半手動 | `ig-highlight-designer` | `ig-highlight-qa` | ※6種実制作が未整備 |
 | IG 公開 | — | — | — | — | `ig-publish-auditor` | `/ig-reconcile`（時刻衝突は目視） |
 | YT Shorts | TOFU・検索 | 総監日3/他週1-2 | 自動(総監cron) | ※なし（`/yt-shorts-create`） | `yt-shorts-publisher-qa`／`yt-shorts-title-writer` | — |
-| X | TOFU・信頼 | 週数本 | 手動（凍結中） | `x-post-writer` | `x-post-qa`／`x-repost-curator` | `/publish-x` 凍結停止 |
+| X | TOFU・信頼 | 週数本 | 手動（別アカウントで運用再開） | `x-post-writer` | `x-post-qa`／`x-repost-curator` | 旧アカ凍結（2026-06-12）→別アカウントで再開。`/publish-x` は当面手動運用 |
 | note | BOFU・有料 | — | 決定論スクリプト | `note-operator`系 | `note-funnel-auditor`／`note-fact-checker` | 公開後QA役は非設置(設計上) |
 
 **エージェント15・スキル22**。台帳（`agents-registry.md`/`skills-guide.md`）と実体は**完全同期・件数一致・参照切れ0・退役2件も管理済**。
@@ -44,20 +44,20 @@
 - **試験別色トークン**（総監=紺/1級=青/2級=緑）を note cover と SNS 投稿色帯が共用。※コンクリ診断士の色は未割当。
 - **共通スライド基盤** `sns-common/slide-render.mjs`（4:5・9:16 実装／**16:9 未実装**＝YT通常動画のブロッカー）。
 - **マスコット**「doboku-note 先生」を全チャネル統一。
-- **UTM 統一**は 02§4 で**定義のみ・未実装**（`utm-templates.json` 不在）。
+- **UTM 統一**は基盤実装済（`.claude/config/utm-templates.json`＋`.claude/scripts/lib/utm-builder.mjs`。X/IG=social・YT=video・note=referral、冪等・CLIあり）。sns-config の YT medium も `video` へ是正。**YT生成スクリプトの `.replace()`→builder 全面配線が残**（[Codex候補]）。
 
 ## 4. 穴（capability × infra）と優先アクション
 
 | 種別 | 課題 | 優先 |
 |---|---|---|
-| インフラ | **UTM 統一が定義のみ→未実装**（GA4 で SNS 経路が分類不能） | 🔴 |
+| インフラ | UTM 統一＝**基盤実装済**（templates＋builder＋YT medium是正）。残＝YT生成スクリプトへの builder 配線（[Codex候補]） | 🟡 |
 | doc整合 | 索引の版ドリフト（CLAUDE.md 索引 v5→v7・v1→v2 是正済）／X 凍結対応が doc本体と x-post-policy に二分 | 🔴→一部済 |
 | インフラ | note CTA ライブ反映が月次のみ（新規公開で未反映が再発） | 🟡 |
 | エージェント | **動画 mp4 の品質評価役が無い**（IG Reels・YT Shorts＝台本は採点、完成 mp4 は無評価） | 🟡 |
 | 制作 | IG ハイライト6種の実制作／YT 16:9 テンプレ（0.5–1日）／字幕焼き込み | 🟡🟢 |
 | エージェント | 投稿時刻の衝突自動検出（現状 `ig-publish-auditor` は目視） | 🟢 |
 
-**着手順の推奨**: ①UTM 実装（backlog タスク化済）→ ②X 凍結後の運営ワークフロー整備 → ③note CTA ライブ反映の自動化 → ④動画 mp4 評価エージェントの新設判断 → ⑤IG ハイライト6種・YT 16:9。
+**着手順の推奨**: ①UTM＝**基盤実装済**（残＝YT生成への builder 配線・[Codex候補]）→ ②X 別アカウント運用のワークフロー整備（旧凍結→別アカ再開）→ ③note CTA ライブ反映の自動化 → ④動画 mp4 評価エージェントの新設判断 → ⑤IG ハイライト6種・YT 16:9。
 
 ## 5. 関連台帳・config
 
