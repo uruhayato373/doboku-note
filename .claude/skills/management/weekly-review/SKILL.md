@@ -20,7 +20,6 @@ description: >
 
 > **出力方式: md ファイル保存（GitHub Issue は使わない）**
 > CLAUDE.md §8 準拠で、レビューは `docs/reviews/weekly/YYYY-Www-review.md` に保存する（旧「Issue 一本化」方式は廃止）。
-> 本スキル内に残る `gh issue list` などの参照はレガシーであり、open Umbrella が無ければスキップしてよい。
 > なお、サブエージェントは Bash 不可（記憶 `feedback_agent_bash.md`）なため、データ収集は親が Bash で実行し、抽出済みテキストを分析に使う。
 
 ## 手順
@@ -187,67 +186,6 @@ B. 実験進捗レポート:
 - 「計画タスク vs 実績」の対照表
 ```
 
-#### Agent F: 校正サイクル進捗
-
-> **⚠️ 廃止・実行スキップ（2026-07-03）**: この節が依拠する `/exam-keyword-cycle` は 2026-05-15 に退役（`/quality-cycle` へ一本化）。`.claude/state/exam-keyword-cycles/` は 2026-05-14 で凍結、`select-next-question.mjs`・`sync-umbrella.mjs` は不在、後継 `quality-cycle` は別 state（`quality-cycle-state.json` 等）を使うため読み替え不可。**週次実行時は本節（Agent F）を丸ごとスキップすること。** 全面除去＋references分割は棚卸し提案（PR 説明参照）で判断待ち。
-
-```
-目的: /exam-keyword-cycle の実施状況をトラッキングし、年度別カバレッジ・未カバー過去問・次週の候補を可視化する
-
-調査項目:
-- .claude/state/exam-keyword-cycles/logs/index.json（過去サイクルの履歴）
-- .claude/state/exam-keyword-cycles/progress.json（カバー状況 + umbrella_issues の Issue 番号）
-- src/config/exam-question-keywords.json（過去問カタログ）
-- 今週実施分の抽出: index.json.cycles の date が直近 7 日以内のもの
-- 年度別 Umbrella Issue の状態: `gh issue view <番号> --json state,body`
-
-分析項目:
-- 今週のサイクル数・対象キーワード数・PR リンク
-- 年度別カバレッジ率（covered[exam] の設問数 / catalog[exam] の設問数）
-- 未カバーバックログ件数
-- 次週の推奨 3 件（select-next-question.mjs を 3 回分シミュレートするか、若番順上位 3 件）
-- 年度別 Umbrella Issue の進捗と停滞検知
-
-次週候補の取得方法:
-  node .claude/skills/quality/exam-keyword-cycle/scripts/select-next-question.mjs --pretty
-
-**Umbrella 同期**: 今週サイクルが 1 件以上あれば、レビュー末尾で `sync-umbrella.mjs --all` を呼び出して Umbrella の checkbox・進捗・完了サイクルリストを最新化する（`/exam-keyword-cycle` 側でも毎サイクル呼ぶが、週次でも安全網として実行）。
-
-次週候補 3 件を親 Umbrella `<!-- sync marker: next-candidates -->` セクションに反映（親 Umbrella の body を編集、または本週の [PDCA] Issue に記載）。
-
-出力形式: 「## 過去問起点の校正サイクル」セクションに以下を埋め込む
-
-## 過去問起点の校正サイクル
-
-> **⚠️ 廃止・出力省略（2026-07-03）**: Agent F 廃止（前掲の Agent F バナー参照・/exam-keyword-cycle 退役）に伴い、**本セクションは週次レポートから丸ごと省略すること**（空欄で埋めない）。
-
-### 今週のサイクル実施
-| 日付 | 過去問 | 対象キーワード | PR |
-|---|---|---|---|
-| YYYY-MM-DD | R07 Ⅰ-1-N | N 件 | #N |
-
-### 年度別 Umbrella
-<!-- progress.json.umbrella_issues から Issue 番号・状態・進捗% を surface -->
-
-| 年度 | Umbrella | 状態 | 進捗 | 先週比 |
-|---|---|---|---|---|
-| R07-primary | #36 | open | N/40 (N%) | +M |
-| R06-primary | #37 | open | N/40 (N%) | +M |
-| R05-primary | #38 | open | N/40 (N%) | +M |
-| R04-primary | #39 | open | N/40 (N%) | +M |
-| R03-primary | #40 | open | N/40 (N%) | +M |
-| **全体** | **#41 (親)** | **open** | **N/200 (N%)** | **+M** |
-
-### 次週の候補
-1. R07 Ⅰ-1-X（未カバー最優先）
-2. R07 Ⅰ-1-Y
-3. R06 Ⅰ-1-Z
-
-注意:
-- 今週のサイクルが 0 件なら「今週の実施: なし」と記録し、次週候補のみ surface
-- カバー率 100% の年度は「全問カバー済み」と明記し、年度 Umbrella を close する（次年度 Umbrella を generate-umbrella.mjs で作成）
-```
-
 #### Agent E: 校正学習の蒸留
 
 ```
@@ -283,51 +221,6 @@ B. 実験進捗レポート:
 - 2 回以上適用されたパターンのみ新規ルール候補に昇格（偶然排除）
 - 本エージェントは候補を surface するのみ。適用はユーザー承認後に別途実行
 - 候補がなければ「今週の学習候補: なし」と記録して次週へ
-```
-
-#### Agent G: Umbrella Issue 棚卸し
-
-> **⚠️ 廃止・実行スキップ（2026-07-03）**: 本節は GitHub Issue（Umbrella）を前提とするが、**GitHub Issue は廃止済み**（CLAUDE.md §8「GitHub Issue は使わない・タスク管理は `docs/todo/`」、真実源 `docs/reference/information-architecture.md`）。`gh issue list` は現運用で空/無効。**週次実行時は本節（Agent G）をスキップし、タスク棚卸しは Agent H（handoff/doc ライフサイクル）＋ `docs/todo/` に委ねること。** 全面除去は棚卸し提案で判断待ち。
-
-```
-目的: `docs/reference/information-architecture.md` で定義した
-      「md は Why / Issue は実行タスク」の分離ルールを週次で drift 検出する。
-      open Umbrella Issue の進捗・停滞・完了漏れを surface する
-
-調査項目:
-- gh issue list --label umbrella --state open --json number,title,body,updatedAt,labels
-- gh issue list --label umbrella --state closed --search "closed:>{7日前}" --json number,title,closedAt
-- 各 open Issue の body 内チェックリスト集計: [ ] / [x] の数
-- updatedAt が 14 日以上前の Issue（停滞）
-- checklist が全 [x] なのに open のまま（close 漏れ）
-- body 内の「関連ロードマップ」リンクが docs/project/ に実在するか（孤立 Umbrella 検出）
-
-出力形式: 「## GitHub Umbrella Issue 棚卸し」セクションに以下を埋め込む
-
-## GitHub Umbrella Issue 棚卸し
-
-> **⚠️ 廃止・出力省略（2026-07-03）**: Agent G 廃止（GitHub Issue 廃止・CLAUDE.md §8）に伴い、**本セクションは週次レポートから丸ごと省略すること**（空欄で埋めない）。タスク棚卸しは Agent H＋`docs/todo/` に委ねる。
-
-### Open Umbrella ({n} 件)
-| # | タイトル | 進捗 | 最終更新 | 状態 |
-|---|---|---|---|---|
-| #27 | [Umbrella] exam-keyword-cycle Phase 3 & 補強候補 | 0/6 | 2026-04-20 | 正常 |
-
-- 進捗: checklist の [x] / 全 checkbox 数
-- 状態: 正常 / 停滞（14d+ 更新なし） / close 漏れ（全 [x]） / 孤立（ロードマップ欠落）
-
-### 今週 close された Umbrella ({n} 件)
-- #N: タイトル — 後継 Umbrella があればリンク
-
-### アクション提案
-- 停滞 Umbrella: 着手 or 中止判定が必要
-- close 漏れ: Issue を close し、対応する md の「追跡 Issue」行を更新
-- 孤立: ロードマップ md を作成 or Umbrella を close
-
-注意:
-- Open Umbrella が 0 件なら「追跡中の Umbrella なし」と記録し、次節をスキップ
-- 本エージェントは surface のみ。close や close 漏れ修正はユーザー判断
-- PSI 違反 Issue（`performance` / `auto-generated`）や個別 Issue は本エージェントの対象外
 ```
 
 #### Agent H: handoff/doc ライフサイクル棚卸し（surface）
@@ -503,23 +396,6 @@ B. 実験進捗レポート:
      そのまま埋め込む。高流入 × 無導線のギャップ、上位ページの note/アフィリ カバレッジと
      CTR（クリック未蓄積時は n.d.）。ギャップは「## 課題・ブロッカー」にも 1 行起票。 -->
 
-## 過去問起点の校正サイクル
-
-<!-- ⚠️ 廃止（2026-07-03）: Agent F 廃止（/exam-keyword-cycle 退役）につき本セクションは省略する。
-     Agent F が .claude/state/exam-keyword-cycles/logs/index.json と
-     .claude/state/exam-keyword-cycles/progress.json から自動生成していたが state は 2026-05-14 凍結。 -->
-
-### 今週のサイクル実施
-| 日付 | 過去問 | 対象キーワード | PR |
-|---|---|---|---|
-
-### カバレッジ
-| 年度 | カバー / 全問 | 進捗 |
-|---|---|---|
-
-### 次週の候補
-1. （select-next-question.mjs の出力）
-
 ## 校正学習の蒸留
 
 <!-- Agent E が /distill-proofread-learnings --since "7d" を呼び出して生成。
@@ -540,23 +416,6 @@ B. 実験進捗レポート:
 
 ### 学習ログ
 - `.claude/state/proofread-learnings/YYYY-MM-DD.md` に詳細記録
-
-## GitHub Umbrella Issue 棚卸し
-
-<!-- Agent G が gh issue list --label umbrella で取得した open / 今週 close された
-     Umbrella Issue の進捗・停滞・close 漏れ・孤立を surface する。
-     docs-issue-separation.md ルールの drift 検出用。 -->
-
-### Open Umbrella
-
-| # | タイトル | 進捗 | 最終更新 | 状態 |
-|---|---|---|---|---|
-
-### 今週 close された Umbrella
-- なし
-
-### アクション提案
-- （停滞・close 漏れ・孤立が surface されていれば対応指示）
 
 ## SNS 予約キュー投入（X）
 
