@@ -28,8 +28,6 @@ MDX ファイルから参照画像を自動スキャンしてダウンロード�
 - `--prefix {category}`: 特定カテゴリの画像のみを同期（例: `civil-construction-1/guide-earthwork`）
 - `--dry-run`: ダウンロード対象を確認のみ、実行しない
 
-<!-- TODO: 要確認 — scripts/download-images-from-r2.mjs は `content/**/*.mdx` を全スキャンし `<img src="/content/{path}" />` パターンを抽出、`https://storage.doboku-note.com/content/{path}` からダウンロードして `content/{category}/img/` に配置する実装のまま（作成時から未更新の遺物）。現行アーキは `.local/r2/posts/{category}/{slug}/img/` がマスター・R2 URL は `https://storage.doboku-note.com/posts/{path}`（content-authoring.md §画像配信）。以下の Phase は現行アーキ前提で記載しているが、スクリプト自体の `content/` パスをまだ `.local/r2/posts/` へ書き換えていないため、実行前にスクリプトの現状を確認すること。 -->
-
 ## 処理手順
 
 ### Phase 1: スキャン
