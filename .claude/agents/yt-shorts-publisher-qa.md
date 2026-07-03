@@ -41,7 +41,7 @@ YT 派生用 Generator エージェントは新設しない（既存スキル `y
 
    **軸 2: 概要欄 UTM 整合**
    - `meta.json.description` 内のサイト URL が `utm_source=youtube` を含む
-   - `utm_medium=description` または `utm_medium=youtube-shorts` 相当
+   - `utm_medium=video`（GA4 標準チャネル分類）。旧 `description`/`youtube-shorts` は**非標準で Unassigned 落ちのため不可**（見つけたら -2）。配信形式は `utm_content=shorts`
    - `utm_campaign=exam-pack-<pack-id>` 等パック固有の campaign 値
    - IG 用 UTM（`utm_source=instagram`）が混入していれば -2（重大）
 

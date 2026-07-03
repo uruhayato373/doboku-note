@@ -50,15 +50,16 @@
 この動画は IG Reels で公開した過去問パックから 1 問抜粋した YouTube Shorts 派生版です。
 
 ▼ 詳細解説（doboku-note）
-https://doboku-note.com/docs/pe-comprehensive-management/r03?utm_source=youtube&utm_medium=description&utm_campaign=exam-pack-r03-pack-01
+https://doboku-note.com/docs/pe-comprehensive-management/r03?utm_source=youtube&utm_medium=video&utm_campaign=exam-pack-r03-pack-01&utm_content=shorts
 
 ▼ 受験記・解答再現（note）
-https://note.com/{author}?utm_source=youtube&utm_medium=description&utm_campaign=note
+https://note.com/{author}?utm_source=youtube&utm_medium=video&utm_campaign=note&utm_content=shorts
 
 #技術士 #技術士総監 #総合技術監理 #過去問 #令和3年度
 ```
 
 - **`utm_source=youtube` 必須**（IG 用 `utm_source=instagram` の混入は禁忌）
+- **`utm_medium=video` に統一**（GA4 標準の「Video」チャネル分類。旧 `description`/`youtube-shorts` は非標準値で GA4 が Unassigned に落とす）。配信形式は `utm_content=shorts` で持つ。真実源＝`.claude/scripts/lib/sns-common/sns-config.mjs` ＋ `docs/project/03_SNS/02_チャネル動線設計.md §4`
 - `utm_campaign=exam-pack-<pack-id>` でパック単位の経路追跡
 
 ### タイトル規約（1 問 1 答・重複禁止）
