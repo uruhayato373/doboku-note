@@ -179,8 +179,12 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git fetch origin develop
-          git checkout develop
-          git pull --rebase origin develop
+          # 実行中の in-place 書き込み（crosswalk-latest.md・weekly-metrics/index.json 等の追跡ファイル）で
+          # 作業ツリーが dirty になり `git pull --rebase` が "cannot pull with rebase" で失敗するのを防ぐ。
+          # 成果物は直前の "Stage outputs" で /tmp に退避済みなので、origin/develop 先頭へ hard reset して
+          # クリーンにしてから /tmp を復元する（-f で dirty tree でも develop へ切替）。
+          git checkout -f develop
+          git reset --hard origin/develop
 
           mkdir -p .claude/state/metrics/ga4 .claude/state/metrics/gsc .claude/state/metrics/monetization .claude/state/metrics/crosswalk .claude/state/weekly-metrics
           cp -r /tmp/metrics-publish/ga4/* .claude/state/metrics/ga4/ 2>/dev/null || true
