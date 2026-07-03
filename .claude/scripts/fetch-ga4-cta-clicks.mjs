@@ -28,7 +28,7 @@ dotenv.config({ path: ".env.local" });
 
 const OUTPUT_DIR = ".claude/state/metrics/ga4";
 const DEFAULT_DAYS = 28;
-const EVENT_NAMES = ["note_cta_click", "affiliate_cta_click"];
+const EVENT_NAMES = ["note_cta_click", "affiliate_cta_click", "note_article_click"];
 
 function parseArgs() {
   const args = process.argv.slice(2);
