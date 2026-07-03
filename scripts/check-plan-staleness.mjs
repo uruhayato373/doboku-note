@@ -4,6 +4,7 @@
 
 import fs from 'fs';
 import path from 'path';
+import { execFileSync } from 'child_process';
 import { fileURLToPath } from 'url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -54,6 +55,69 @@ if (warnings.length > 0) {
   console.log('');
   console.log('─── 計画ファイル更新リマインダー ───────────────');
   warnings.forEach(w => console.log(`  ${w}`));
+  console.log('────────────────────────────────────────────────');
+  console.log('');
+}
+
+// ── deploy ドリフト検知 ─────────────────────────────
+// CI が main へ自動 deploy した後、todo 側の「残: /deploy で本番反映」注記が
+// 消し忘れられる drift を検出する。参照 PR 番号が origin/main に入っていれば
+// その項目は既に本番反映済みのはず → WARN（非ブロック・SessionStart 助言）。
+function mergedPrSet() {
+  try {
+    // origin/main の squash 件名 "... (#NNN)" から merged PR 番号を集める（fetch はしない＝高速・助言用）
+    // execFileSync＋引数配列でシェルを経由しない（静的引数だが injection 回避のベストプラクティス）
+    const log = execFileSync('git', ['log', 'origin/main', '--format=%s', '-n', '400'], {
+      cwd: ROOT, encoding: 'utf-8', stdio: ['ignore', 'pipe', 'ignore'],
+    });
+    const set = new Set();
+    for (const m of log.matchAll(/\(#(\d+)\)/g)) set.add(m[1]);
+    return set;
+  } catch {
+    return null; // origin/main 参照なし（浅い clone 等）→ スキップ
+  }
+}
+
+// 未反映マーカー（PENDING）を示す行か。「本番反映済」等の解決済み表現は除外。
+function isDeployPending(line) {
+  if (/本番反映済|deploy\s*済み|反映済/.test(line)) return false;
+  return (
+    /残[：:\s].{0,20}\/deploy/.test(line) ||
+    /\/deploy\s*で(の)?本番反映/.test(line) ||
+    /develop\s*済[＝=].{0,10}\/deploy/.test(line) ||
+    /未deploy/.test(line) ||
+    /deploy\s*待ち/.test(line)
+  );
+}
+
+const deployWarnings = [];
+const merged = mergedPrSet();
+if (merged && merged.size) {
+  let todoFiles = [];
+  try {
+    todoFiles = fs.readdirSync(path.join(ROOT, 'docs/todo'))
+      .filter((f) => f.endsWith('.md'))
+      .map((f) => path.join('docs/todo', f));
+  } catch { /* dir なし */ }
+
+  for (const rel of todoFiles) {
+    let lines;
+    try { lines = fs.readFileSync(path.join(ROOT, rel), 'utf-8').split(/\r?\n/); }
+    catch { continue; }
+    lines.forEach((line, i) => {
+      if (!isDeployPending(line)) return;
+      const prs = [...line.matchAll(/#(\d+)/g)].map((m) => m[1]).filter((n) => merged.has(n));
+      if (prs.length) {
+        deployWarnings.push(`${rel}:${i + 1} 「残:/deploy」だが PR ${prs.map((n) => `#${n}`).join('/')} は origin/main 入り済＝deploy 済のはず → 注記を「本番反映済」に更新`);
+      }
+    });
+  }
+}
+
+if (deployWarnings.length > 0) {
+  console.log('');
+  console.log('─── todo deploy ドリフト検知 ───────────────────');
+  deployWarnings.forEach((w) => console.log(`  ${w}`));
   console.log('────────────────────────────────────────────────');
   console.log('');
 }

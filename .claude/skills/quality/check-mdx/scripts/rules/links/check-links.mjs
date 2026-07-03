@@ -45,7 +45,13 @@ const KNOWN_STATIC = new Set(['/', '/about', '/privacy', '/search']);
 const STATIC_PREFIX_RE = /^\/(about|privacy|search|blog|contact)(\/|$)/;
 
 // JSX <RelatedKeywords> 内 slug の URL 生成（RelatedKeywords.tsx L18-23 と同等）
-const KNOWN_CATEGORY_PREFIXES = ['pe-comprehensive-management-', 'civil-construction-1-'];
+// 真実源は RelatedKeywords.tsx の KNOWN_CATEGORY_PREFIXES（3 件）。ここが欠けると
+// 該当カテゴリの RelatedKeywords slug に pe- が誤前置され偽 BROKEN_SLUG を量産する。
+const KNOWN_CATEGORY_PREFIXES = [
+  'pe-comprehensive-management-',
+  'civil-construction-1-',
+  'civil-construction-2-',
+];
 function buildRelatedKeywordHref(slug) {
   if (KNOWN_CATEGORY_PREFIXES.some((p) => slug.startsWith(p))) {
     return `/docs/${slug}`;
