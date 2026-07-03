@@ -35,6 +35,7 @@ export default function MagazineCard({ id, utmContent }: MagazineCardProps) {
       description={magazine.description}
       imageUrl={magazine.imageUrl}
       badge={magazine.badge}
+      trackLabel={utmContent}
     />
   );
 }
