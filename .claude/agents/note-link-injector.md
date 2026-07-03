@@ -30,7 +30,7 @@ note.com 公開用ドラフトの本文中に出現する doboku-note キーワ�
 | 入力 | `docs/note/{slug}/article.md` のフルパス |
 | 辞書 | `src/config/pe-chapters.json`（PE 658 キーワード、`{slug, title}` のみ） |
 | ルール | `.claude/skills/social/social-post/SKILL.md` の「キーワード内部リンク（全占有方針）」 |
-| URL | `https://doboku-note.com/docs/pe-comprehensive-management-{slug}?utm_source=note&utm_medium=inline&utm_campaign={記事の安定slug}&utm_content=kw-{slug}` |
+| URL | `https://doboku-note.com/docs/pe-comprehensive-management-{slug}?utm_source=note&utm_medium=referral&utm_campaign={記事の安定slug}&utm_content=kw-{slug}` |
 | 操作 | Edit ツールで本文に `[text](url)` を追記（UTM 付き・下記ルール8） |
 | 範囲外 | frontmatter / 画像参照 / コードブロック / 見出し（`#`〜`###`） |
 
@@ -43,7 +43,7 @@ note.com 公開用ドラフトの本文中に出現する doboku-note キーワ�
 5. **1 概念ペアは 1 リンクに統合**: `X理論 ↔ Y理論` → `[X理論 ↔ Y理論](url)` のように 1 リンクで囲む
 6. **note 続編 cross-sell 行も対象**: 「note のおすすめ続編」セクションも例外なし
 7. **既にリンク化済みのテキストは触らない**（重複リンク防止）
-8. **全リンクに UTM を付与**: 注入する各 URL に `?utm_source=note&utm_medium=inline&utm_campaign={記事の安定slug}&utm_content=kw-{キーワードslug}` を付ける（note→サイト送客の計測。真実源 `docs/project/03_SNS/02_チャネル動線設計.md`）。`utm_campaign` は記事ディレクトリの安定 ASCII slug（例: `pe-bousai`）。**生 URL を単独行で置かない**（`/note-publish` がカード化し UTM が消える＝送客リンクは必ず UTM 付きインライン）
+8. **全リンクに UTM を付与**: 注入する各 URL に `?utm_source=note&utm_medium=referral&utm_campaign={記事の安定slug}&utm_content=kw-{キーワードslug}` を付ける（note→サイト送客の計測。真実源 `docs/project/03_SNS/02_チャネル動線設計.md`）。`utm_campaign` は記事ディレクトリの安定 ASCII slug（例: `pe-bousai`）。**生 URL を単独行で置かない**（`/note-publish` がカード化し UTM が消える＝送客リンクは必ず UTM 付きインライン）
 
 ## Synonym 判断（Agent の主戦場）
 
