@@ -5,6 +5,8 @@ description: >
   Use when user asks to [試験対策ガイドを作りたい, 頻出テーマ抽出, ガイド生成, /exam-guide].
 ---
 
+<!-- TODO: 要確認 — 現行では `group: guide` のガイド記事は `guide-qa`（評価）→ `guide-rewriter`（リライト）→ `guide-fact-checker`（事実照合）の3エージェント体制で品質サイクルが運用されている（content-authoring.md 冒頭参照）。本スキルは「既存テキスト・問題集からのガイド新規生成」が目的で、上記サイクルは「既存 MDX の改善」が対象のため重複しない可能性が高いが、新規ガイド生成が本スキル経由のままか、それとも別の生成フローに一本化されているかは未確認。重複と判断されれば退役対象になり得るが、削除判断はユーザーに委ねる。-->
+
 ## 引数
 
 ```
@@ -22,15 +24,17 @@ description: >
 |---|---|---|---|
 | `civil-construction-1` | 1級土木施工管理技士 | `templates/exam-guide/civil-construction-1.md` | `.local/r2/posts/civil-construction-1/guide-*/article.mdx` |
 | `civil-construction-2` | 2級土木施工管理技士 | `templates/exam-guide/civil-construction-2.md` | `.local/r2/posts/civil-construction-2/guide-2-*/article.mdx` |
-| `pe` | 技術士総合技術監理 | `templates/exam-guide/pe.md` | （PE 用、別途） |
+| `pe` | 技術士総合技術監理 | `templates/exam-guide/pe.md` | `.local/r2/posts/pe-comprehensive-management/guide-*/article.mdx` |
+
+<!-- TODO: 要確認 — `templates/exam-guide/*.md`（civil-construction-1.md / civil-construction-2.md / pe.md / _schema.md / _new-exam-template.md）内の `source_paths` / `output_dir` は旧 `content/general/...` パスのまま残っている。本 SKILL.md の改訂スコープ外のため、テンプレート側は別途是正が必要。 -->
 
 新試験は `templates/exam-guide/{exam-id}.md` を新規作成するのみ（スキル本体は変更不要）。
 
 ### 構成テンプレート
 
-```mdx
-# {分野名} 重要ポイント
+タイトルは frontmatter の `title` から自動生成されるため、本文に H1 は書かない。
 
+```mdx
 ## 出題傾向
 
 {過去問からの出題パターン分析}
@@ -41,9 +45,9 @@ description: >
 
 {テキストからの要点抽出。数式・表・図は原文から引用}
 
-:::note[試験のポイント]
+<Callout type="exam" title="試験のポイント">
 {この分野で特に問われやすい知識}
-:::
+</Callout>
 
 ### テーマ2: ...
 
@@ -61,41 +65,22 @@ description: >
 1. **新しい内容を創作しない** — 既存テキストと問題集からの抽出・再構成のみ
 2. **出題頻度で優先順位付け** — 過去問で繰り返し出題されるテーマを上位に配置
 3. **相互リンク** — テキスト元ページと過去問ページへのリンクを必ず含める
-4. **:::note[試験のポイント]** — 各テーマの試験で問われやすいポイントを強調
+4. **`<Callout type="exam" title="試験のポイント">`** — 各テーマの試験で問われやすいポイントを強調
 
 ## 出力先
 
 ```
-content/general/exam-guide/
-├── strategy.mdx              # 出題傾向と得点戦略
-├── earthwork-key-points.mdx  # 土工の重要ポイント
-├── concrete-key-points.mdx   # コンクリートの重要ポイント
-├── four-management.mdx       # 施工管理4大管理まとめ
-└── law-key-points.mdx        # 法規の重要ポイント
+.local/r2/posts/civil-construction-1/
+├── guide-strategy/article.mdx              # 出題傾向と得点戦略
+├── guide-earthwork-key-points/article.mdx   # 土工の重要ポイント
+├── guide-concrete-key-points/article.mdx    # コンクリートの重要ポイント
+├── guide-four-management/article.mdx        # 施工管理4大管理まとめ
+└── guide-law-key-points/article.mdx         # 法規の重要ポイント
 ```
 
-## サイドバー登録
+URL はすべて `/docs/{slug}` フラット（ディレクトリ名がそのまま slug になる想定）。frontmatter は必須項目（`title` / `seoTitle` / `description` / `category` / `tags` / `published`）を満たし、`tags` に `guide` を含める。
 
-`src/lib/sidebar.ts` の `generalSidebar` に追加:
-
-```typescript
-{
-  type: 'category',
-  label: '1級土木施工管理 試験対策ガイド',
-  link: {
-    type: 'generated-index',
-    title: '1級土木施工管理 試験対策ガイド',
-    slug: 'exam-guide',
-  },
-  items: [
-    'general/exam-guide/strategy',
-    'general/exam-guide/earthwork-key-points',
-    'general/exam-guide/concrete-key-points',
-    'general/exam-guide/four-management',
-    'general/exam-guide/law-key-points',
-  ],
-},
-```
+<!-- TODO: 要確認 — 新規ページを一覧・回遊導線に載せるための現行のナビ生成機構（旧 `src/lib/sidebar.ts` 相当）が不明。バックリンク・カテゴリ一覧は `npm run refresh-indexes` で静的インデックス化されるが、それ以外に手動登録が必要な箇所があるかは要確認。 -->
 
 ## テンプレート設定ファイル
 

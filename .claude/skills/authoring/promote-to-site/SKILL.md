@@ -41,12 +41,12 @@ Obsidian の Markdown 記法を MDX に変換する。
 
 | Obsidian 記法 | MDX 変換 |
 |---|---|
-| `[[リンク先]]` | `[リンク先](/docs/path)` に変換（リンク先を content/ から検索） |
-| `![[画像.png]]` | `<img src="/content/{category}/img/{filename}" />` |
-| `> [!note]` | `:::note` ... `:::` |
-| `> [!tip]` | `:::tip` ... `:::` |
-| `> [!warning]` | `:::warning` ... `:::` |
-| `$...$` / `$$...$$` | そのまま維持（KaTeX互換） |
+| `[[リンク先]]` | `[リンク先](/docs/slug)` に変換（リンク先を `.local/r2/posts/` から検索） |
+| `![[画像.png]]` | `<ArticleImage src="/posts/{category}/{slug}/img/{filename}" alt="..." width={N} height={N} />` |
+| `> [!note]` | `<Callout type="note">` ... `</Callout>` |
+| `> [!tip]` | `<Callout type="tip">` ... `</Callout>` |
+| `> [!warning]` | `<Callout type="warn">` ... `</Callout>` |
+| `$...$` / `$$...$$` | そのまま維持（KaTeX互換。ブロック数式は開始・終了 `$$` を別行にする） |
 | Obsidian frontmatter | MDX frontmatter に変換（下記参照） |
 
 **frontmatter 変換:**
@@ -61,35 +61,37 @@ target: doboku-note
 exam-topic: コンクリート
 ```
 
-MDX:
+MDX（必須項目 = `title` / `seoTitle` / `description` / `category` / `tags` / `published`）:
 ```yaml
-id: concrete-basics
 title: コンクリートの基本
-sidebar_label: コンクリートの基本
-sidebar_position: {自動決定}
+seoTitle: "{検索意図に合わせたタイトル}"
 description: "{titleの内容}。1級土木施工管理技士の試験対応。"
+category: "civil-construction-1"
+tags: ["guide"]
+published: true
 ```
 
 ### Step 3: 配置先の決定
 
-`exam-topic` と `tags` から配置先ディレクトリを決定する:
+`exam-topic` と `tags` から配置先カテゴリ（`.local/r2/posts/{category}/{slug}/`）を決定する:
 
-| exam-topic | 配置先 |
+| exam-topic | 配置先カテゴリ |
 |---|---|
-| 土工 | `content/general/exam-guide/` |
-| コンクリート | `content/general/exam-guide/` |
-| 基礎工 | `content/general/exam-guide/` |
-| 施工管理（品質/安全/工程/環境） | `content/general/exam-guide/` |
-| 法規 | `content/general/exam-guide/` |
-| 過去問 | `content/general/exam-questions/` |
-| 参考書・講座 | `content/general/certification/` |
+| 土工 | `civil-construction-1`（tags に `guide`） |
+| コンクリート | `civil-construction-1`（tags に `guide`） |
+| 基礎工 | `civil-construction-1`（tags に `guide`） |
+| 施工管理（品質/安全/工程/環境） | `civil-construction-1`（tags に `guide`） |
+| 法規 | `civil-construction-1`（tags に `guide`） |
+| 過去問 | `civil-construction-1`（tags に `past-questions`） |
 
-配置先が不明な場合はユーザーに確認する。
+`category` の全選択肢は `src/config/categories.json` が真実源（content-authoring.md 参照）。参考書・講座など既存カテゴリに対応しない exam-topic はユーザーに確認する。配置先が不明な場合もユーザーに確認する。
+
+新規コンテンツは Convention B（`{slug}/article.mdx`）を推奨。
 
 ### Step 4: ファイル書き込みと後処理
 
-1. 変換した MDX を配置先に書き込む
-2. sidebar.ts の更新が必要か確認し、必要なら提案する
+1. 変換した MDX を `.local/r2/posts/{category}/{slug}/article.mdx`（Convention B）として `writeMdxFile`（`.claude/scripts/lib/mdx-io.mjs`）経由で書き込む（直接 `writeFileSync` は CRLF 混在を招き pre-commit で reject される）
+2. <!-- TODO: 要確認 — 現行のナビ/一覧生成機構（旧 `src/lib/sidebar.ts` 相当）が不明。新規ページの一覧・回遊導線への反映が別途必要か確認する -->
 3. Obsidian 側の frontmatter を `status: published` に更新
 4. 変換結果のサマリーを表示:
    - ソース: Obsidian パス
@@ -98,26 +100,24 @@ description: "{titleの内容}。1級土木施工管理技士の試験対応。"
 
 ### Step 4.5: 画像を R2 にアップロード（画像含む場合のみ）
 
-変換した MDX に `<img src="/content/...">` タグが含まれている場合:
+変換した MDX に `<ArticleImage src="/posts/...">` タグが含まれている場合:
 
-1. 対応する画像ファイルが `content/{category}/img/` に存在するか確認
+1. 対応する画像ファイルが `.local/r2/posts/{category}/{slug}/img/` に存在するか確認
 2. **存在する場合**:
-   - `node .claude/scripts/upload-images-to-r2.mjs --prefix {category}` を実行
-   - アップロード完了を確認
-   - ローカル開発環境は自動で `.local/r2/` に反映される（`npm run sync-images` 経由）
+   - 通常は `main` push 時に CI（`r2-sync.yml`）が自動同期する（対象 path = `**/img/**` と `**/ogp.png|.webp`）
+   - 手動同期する場合は `npm run upload-images-r2`（= `node .claude/scripts/upload-images-to-r2.mjs --prefix {category}/{slug}`）を実行
 3. **存在しない場合**:
    - ユーザーに「以下の画像ファイルが見つかりません。Obsidian から配置してから再度実行してください」と案内：
      - 未検出ファイルのリスト
 
 **注意:**
-- Obsidian では `![[画像.png]]` 記法で画像を埋め込みますが、MDX 変換時に `<img src="/content/{category}/img/{filename}">` に変換されます
-- 画像ファイル自体は `content/{category}/img/` に配置する必要があります（Obsidian の attachments フォルダから Obsidian vault 同期時にコピー）
+- Obsidian では `![[画像.png]]` 記法で画像を埋め込みますが、MDX 変換時に `<ArticleImage src="/posts/{category}/{slug}/img/{filename}">` に変換されます
+- 画像ファイル自体は `.local/r2/posts/{category}/{slug}/img/` に配置する必要があります（Obsidian の attachments フォルダから Obsidian vault 同期時にコピー）。この配下は git 追跡対象
 
 ### Step 5: ファイル配置確認（オプション）
 
-1. `npm run sync-images` を実行（未実行時）
-2. ローカル開発サーバーで `npm run dev` を実行
-3. 変換先ページをブラウザで確認：
+1. `npm run dev` を実行（`public/posts` → `.local/r2/posts` のシンボリックリンク経由でローカル配信されるため、別途同期は不要）
+2. 変換先ページをブラウザで確認：
    - レイアウト・画像表示・リンク等が正常であること
 
 ### Step 6: 品質チェック（オプション）
@@ -140,13 +140,13 @@ npm run refresh-indexes
 | 項目 | 値 |
 |---|---|
 | ソース | ~/obsidian/{path} |
-| 変換先 | content/{category}/{filename}.mdx |
+| 変換先 | .local/r2/posts/{category}/{slug}/article.mdx |
 | status | ready → published |
 | 変換項目 | Obsidianリンク: N件, 画像: N件, コールアウト: N件 |
 | 警告 | {あれば表示} |
 
 次のステップ:
-- [ ] sidebar.ts の更新（必要な場合）
+- [ ] `npm run refresh-indexes` 実行済みか確認
 - [ ] `/check-mdx {path} --rules syntax` で構文チェック
 - [ ] ブラウザでプレビュー確認
 ```
