@@ -27,8 +27,8 @@ npm ci --legacy-peer-deps                          # 依存（PLAYWRIGHT_SKIP_BR
 
 ## 残タスク（すべて別環境・意思決定・任意のゲート付き）
 
-1. **11 draft の published化＋OGP** — `civil-construction-qa` でQA → 各 frontmatter を `published: true` → `npm run ogp` → `check-ogp-coverage` 通過。
-2. **guide「テキスト参照」へ11本リンク結線**（**publish＋deploy 後にのみ可能**）— `guide-safety-management`（既存テキスト参照表に安全7本追加）・`guide-environment-management`（テキスト参照節を新設し環境4本追加）。**`check-sns-urls` が /docs/ リンクを本番サイトで検証**するため、未deployのうちは結線するとpre-commitで落ちる。
+1. **11 draft の published化＋OGP＋インデックス再生成** — `civil-construction-qa` でQA → 各 frontmatter を `published: true` → `npm run ogp`（新規OGP生成）→ **`npm run refresh-indexes`**（backlink・cross-exam・tag・pillar・popular の静的インデックスを新ページ込みで再生成）→ 生成物を同一 commit に含めて `check-ogp-coverage` 通過。**注**: draft のうちは published 専用 index に載らないため refresh-indexes 対象外で、published 化した瞬間に必要になる。CI ビルド冒頭でも走るが（[[feedback_deploy_mechanics_parallel_safe]]）、ローカルで先に回して差分確認してから commit すると確実。
+2. **guide「テキスト参照」へ11本リンク結線**（**publish＋deploy 後にのみ可能**）— `guide-safety-management`（既存テキスト参照表に安全7本追加）・`guide-environment-management`（テキスト参照節を新設し環境4本追加）。**`check-sns-urls` が /docs/ リンクを本番サイトで検証**するため、未deployのうちは結線するとpre-commitで落ちる。結線後は**同一 commit で `npm run refresh-indexes`**（双方向 backlink 反映）。
 3. **機械8ページの写真差替** — Gemini（別PC・キー必要。当環境はプロキシ＋キー未設定で不可）。対応表＝civil-machinery-photo-manifest.md。PDF写真を形状リファレンスに**オリジナル生成（強い変形）→差替→commit**を一体で。
 4. **フェーズ0.5 法規深掘り（任意★★/★・未着手）** — `textbook-construction-business` 元請負人の義務を表7.9相当化／`textbook-road-act` 道路管理者表の精緻化／`textbook-building-standards` 用語定義表。第2章フロー図SVG化も任意。
 5. `textbook-safety-industrial-safety-law` の description が212字（上限200のLOW）— 軽微短縮すると綺麗。
