@@ -21,6 +21,11 @@ declare global {
   }
 }
 
+// pages.dev（Cloudflare プレビュー/本番直 URL）からの内部トラフィック混入を除外する。
+// 本番カスタムドメイン・未知ホストは通す fail-open（否定チェック）。SSR では window が無いので false。
+const isPreviewHost = () =>
+  typeof window !== "undefined" && window.location.hostname.endsWith(".pages.dev");
+
 // ページビューを送信
 // Issue #84 hotfix (2026-04-25): gtag.js 未ロード時のガードを追加。
 // 将来 Script strategy を lazyOnload 等に変更しても、hydration 直後の
@@ -28,6 +33,7 @@ declare global {
 // クラッシュさせないようにする。
 export const pageview = (url: string) => {
   if (!GA_ID) return;
+  if (isPreviewHost()) return;
   if (typeof window === "undefined" || typeof window.gtag !== "function") return;
   window.gtag("config", GA_ID, {
     page_path: url,
@@ -49,6 +55,7 @@ export const event = ({
   // NODE_ENV: 本番環境でのみイベントを送信
   // 開発環境ではGoogle Analyticsイベントを無効化
   if (!GA_ID || process.env.NODE_ENV !== "production") return;
+  if (isPreviewHost()) return; // pages.dev プレビューからのイベント混入を除外
 
   const eventParams: GtagConfig = {
     event_category: category,
