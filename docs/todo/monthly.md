@@ -25,7 +25,7 @@
 | 完全パック ¥9,800 の直前妥当性判断（10月リローンチ向き） | 判断待ち |
 | AdSense 再申請完遂 | 進行中（外部承認） |
 | pe-construction visible:true 化（noteURL 確定後） | 待機中 |
-| ✅ 建設部門CTA修復 PR #329 → develop merge済（残: /deploy で本番反映）| 2026-07-02 merged |
+| ✅ 建設部門CTA修復 PR #329 → 本番反映済（origin/main 入り確認）| 2026-07-02 merged |
 | 🔴 総監マガジンの歩き方（17ペルソナ診断ハブ）公開＋L1/もくじ配線（原稿完成済・note実機）| 7/10前が理想（backlog §3）|
 | 🟡 総監ハブ2枚（keyword-2026/category）直前テコ入れ（Fable P2・試験前7/10窓）| 当方コード |
 
