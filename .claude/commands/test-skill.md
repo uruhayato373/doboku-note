@@ -1,1 +1,0 @@
-This is a test skill. Say "Hello, skill system is working!" when invoked.

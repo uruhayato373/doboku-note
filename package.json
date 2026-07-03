@@ -7,6 +7,7 @@
     "#shared/*": "./.claude/scripts/*"
   },
   "scripts": {
+    "prepare": "node scripts/install-pre-commit.mjs",
     "predev": "node scripts/kill-port.mjs 3020",
     "dev": "next dev -p 3020",
     "build-backlinks": "node .claude/skills/quality/exam-backlinks/scripts/build-exam-backlinks.mjs",
