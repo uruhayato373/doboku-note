@@ -30,6 +30,55 @@
 
 ---
 
+## 進捗トラッカーと後工程ハンドオフ（2026-07-03 運用開始）
+
+> [!info] 方針：Opus で作り切り、別環境が必須なものだけ機械可読マーカーで記録
+> Codex トークン節約のため、**本文・自前SVG・数値照合は全て Opus（このセッション系）で完結**する。新規11ページは概念図＝自前SVGのみで**写真不要＝Gemini依存ゼロ**。別PC/Codex/Gemini が必須な箇所だけ、下記マーカーで grep 可能に記録する。
+
+### プレースホルダ・アンカー規約（grep で全件検出）
+
+後工程で対応する箇所には、MDX 本文/doc に**1行1タスクの機械可読マーカー**を置き、必ず本トラッカーの「後工程To-Do」にも file:文脈で列挙する。
+
+- `{/* HANDOFF-GEMINI-PHOTO: page=<slug> where=<節/位置> ref=<PDF-PNG or 生成指示> alt="<alt文>" */}` — あとで Gemini 生成した写真をこの位置に挿入
+- `{/* HANDOFF-CODEX: <作業内容> */}` — Codex での一括作業
+- `{/* HANDOFF-VERIFY: <要追加照合の数値・条番号> */}` — 追加の原典照合が要る箇所
+- 一括検出コマンド： `grep -rn "HANDOFF-" .local/r2/posts docs`
+
+### 新規11ページ 進捗
+
+| slug | 状態 | commit | 自前SVG | 後工程 |
+|---|---|---|---|---|
+| textbook-safety-scaffolding | ✅本文+SVG(draft) | 0130e0385 | 3/3 | published化+OGP |
+| textbook-safety-excavation-shoring | ⬜ 未着手 | — | 0/3 | — |
+| textbook-safety-management-system | ⬜ 未着手 | — | 0/2 | — |
+| textbook-safety-machinery-crane | ⬜ 未着手 | — | 0/2 | — |
+| textbook-safety-industrial-safety-law | ⬜ 未着手 | — | 0/2 | — |
+| textbook-safety-risk-assessment | ⬜ 未着手 | — | 0/3 | — |
+| textbook-safety-work-environment | ⬜ 未着手 | — | 0/2 | — |
+| textbook-noise-vibration-regulation | ⬜ 未着手 | — | 0/3 | — |
+| textbook-water-air-soil-pollution | ⬜ 未着手 | — | 0/2 | — |
+| textbook-construction-byproduct-recycle | ⬜ 未着手 | — | 0/2 | — |
+| textbook-waste-disposal-manifest | ⬜ 未着手 | — | 0/3 | — |
+
+### 既存深掘り・フェーズ0残 進捗
+
+| 対象 | 状態 | commit |
+|---|---|---|
+| フェーズ0 金額基準是正 | ✅完了 | 0c69c9dd9 |
+| フェーズ0 労基 就業制限表(表7.1/7.2) | ⬜ 未着手 | — |
+| schedule-charts 工程図表7種の実図SVG | ⬜ | — |
+| network-schedule NW計算演習 | ⬜ | — |
+| control-chart X̄-R実図SVG | ⬜ | — |
+| quality-inspection OC曲線/AQL整合 | ⬜ | — |
+
+### 後工程To-Do（別環境・Opus不可）
+
+1. **機械8ページ 写真差替**（Gemini・別PC）: 対応表＝[civil-machinery-photo-manifest.md](civil-machinery-photo-manifest.md)。PDF写真PNGを形状リファレンスに**オリジナル生成（強い変形）→差替→commit**。現行 Wikimedia CC 写真は生成完了まで据え置き（画像欠けにしない）。**新規11ページには写真マーカーは無い（SVGのみ）**。
+2. **新規ページ published化時**: `npm run ogp` で OGP 生成 → `check-ogp-coverage` を通す（draft の間は不要）。
+3. **deploy**: develop→main は `/deploy` でユーザー判断。
+
+---
+
 ## 全7章 カバレッジ サマリ
 
 | 章 | 規模 | 既存サイト状況 | 本計画のアクション |
