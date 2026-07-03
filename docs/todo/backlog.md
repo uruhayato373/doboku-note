@@ -401,15 +401,11 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 ## 5. SNS・マーケティング
 
-### SNS UTM 統一の実装（GA4 経路分類の空白を埋める）🔴
+### SNS UTM 統一の実装（GA4 経路分類の空白を埋める）✅ 完了（2026-07-04）
 
-**発端**: SNS 整理（2026-07-03・[00_SNS整理マップ.md](../project/03_SNS/00_SNS整理マップ.md) §4）で**最優先ギャップ**と判明。`02_チャネル動線設計.md` §4 で UTM 統一フォーマットは**定義済みだが未実装**。各 SNS 生成スキル（social-post / ig-post-create / yt-shorts-create 等）が独自 UTM または UTM 無しで送客リンクを組むため、**同一の SNS 流入が GA4 で経路別に分類されず**、チャネル別効果（IG/YT/X → note・サイト）が測れない。GA4 レポートが実質機能しない状態。
+**完了**: `.claude/config/utm-templates.json`＋`.claude/scripts/lib/utm-builder.mjs`（2026-07-03 実装）に加え、**YT 生成スクリプト（yt-shorts-create / per-problem-shorts）の `.replace()` 手書きを `buildUtmUrl()` へ配線・sns-config のハードコード utmParams 撤去（出力 byte 等価を検証）**。X 送客リンクは新設 `check-x-utm`（pre-commit ゲート）が utm_source=x/utm_medium=social を強制。さらに GA4 SNS 流入 breakdown（`fetch-ga4-data --sns-only`→`ga4-sourceMedium-sns-*`）・週次スナップショット CI 復旧＋SNS 拡張・YT 公開照合 `verify-yt-status`・週次レビュー Agent F＋metrics-analyzer Pattern 6 まで一括整備。SSOT: `00_SNS整理マップ §型カタログ`／`02_チャネル動線設計 §4`。
 
-**対応方針**: `.claude/config/utm-templates.json`（チャネル × 配信形式別の `utm_source`/`utm_medium`/`utm_campaign` 規約）＋ `.claude/scripts/lib/utm-builder.mjs` を新設し、各 SNS 生成スキルが送客リンクを組む箇所で UTM を自動付与。既存の `check-note-site-utm.mjs`（note→サイト UTM ゲート）と規約を突合。真実源＝`02_チャネル動線設計.md` §4。
-
-**対象**: `.claude/config/utm-templates.json`（新規）／`.claude/scripts/lib/utm-builder.mjs`（新規）／social・ig・yt 各生成スキルの送客リンク組み立て箇所。§6「計測基盤 強化ロードマップ」と連動。
-
-**注意**: `src/**`・`scripts/**`・`.claude/skills/**` を触るコード作業＝着手時に `/doc-sync` 対象。`[Codex候補]`＝規約が固まればテンプレ適用はバルク可。
+<!-- 残（別タスク・本件外）: docs/note/** の bare-url 442件バーンダウン（check-note-site-utm --staged で新規は既に阻止）。IG link sticker の実クリック計測・IG/YT エンゲージメント取り込みは流入データ 4 週蓄積後に判断。 -->
 
 ### 1級土木 二次10/4 直前スプリント（死守コア3つ）🔴
 

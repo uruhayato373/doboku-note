@@ -44,20 +44,20 @@
 - **試験別色トークン**（総監=紺/1級=青/2級=緑）を note cover と SNS 投稿色帯が共用。※コンクリ診断士の色は未割当。
 - **共通スライド基盤** `sns-common/slide-render.mjs`（4:5・9:16 実装／**16:9 未実装**＝YT通常動画のブロッカー）。
 - **マスコット**「doboku-note 先生」を全チャネル統一。
-- **UTM 統一**は基盤実装済（`.claude/config/utm-templates.json`＋`.claude/scripts/lib/utm-builder.mjs`。X/IG=social・YT=video・note=referral、冪等・CLIあり）。sns-config の YT medium も `video` へ是正。**YT生成スクリプトの `.replace()`→builder 全面配線が残**（[Codex候補]）。
+- **UTM 統一**は実装済（`.claude/config/utm-templates.json`＋`.claude/scripts/lib/utm-builder.mjs`。X/IG=social・YT=video・note=referral、冪等・CLIあり）。**YT 生成スクリプト（yt-shorts-create / per-problem-shorts）の `.replace()` 手書きは `buildUtmUrl()` へ配線済＝sns-config のハードコード utmParams は撤去（2026-07-04）**。X 送客リンクは `check-x-utm`（pre-commit）で utm_source=x/utm_medium=social を強制。
 
 ## 4. 穴（capability × infra）と優先アクション
 
 | 種別 | 課題 | 優先 |
 |---|---|---|
-| インフラ | UTM 統一＝**基盤実装済**（templates＋builder＋YT medium是正）。残＝YT生成スクリプトへの builder 配線（[Codex候補]） | 🟡 |
+| インフラ | UTM 統一＝**実装済**（templates＋builder＋YT生成配線完了＋X UTMゲート check-x-utm）。GA4 SNS流入 breakdown＋週次snapshot復旧＋YT公開照合 verify-yt-status も配線済（2026-07-04） | 🟢 |
 | doc整合 | 索引の版ドリフト（CLAUDE.md 索引 v5→v7・v1→v2 是正済）／X 凍結対応は `x-post-policy §11`（§11.6 復帰ゲート新設）に一本化・01 は参照化で解消済 | 🟢 |
 | インフラ | note CTA ライブ反映が月次のみ（新規公開で未反映が再発） | 🟡 |
 | エージェント | **動画 mp4 の品質評価役が無い**（IG Reels・YT Shorts＝台本は採点、完成 mp4 は無評価） | 🟡 |
 | 制作 | IG ハイライト6種の実制作／YT 16:9 テンプレ（0.5–1日）／字幕焼き込み | 🟡🟢 |
 | エージェント | 投稿時刻の衝突自動検出（現状 `ig-publish-auditor` は目視） | 🟢 |
 
-**着手順の推奨**: ①UTM＝**基盤実装済**（残＝YT生成への builder 配線・[Codex候補]）→ ②X 別アカウント運用のワークフロー整備（旧凍結→別アカ再開）→ ③note CTA ライブ反映の自動化 → ④動画 mp4 評価エージェントの新設判断 → ⑤IG ハイライト6種・YT 16:9。
+**着手順の推奨**: ①UTM＋SNS計測基盤＝**実装済**（builder 配線・GA4 SNS breakdown・週次snapshot復旧・YT公開照合・X UTMゲート、2026-07-04）→ ②note CTA ライブ反映の自動化 → ③動画 mp4 評価エージェントの新設判断 → ④IG ハイライト6種・YT 16:9。
 
 ## 5. 関連台帳・config
 
