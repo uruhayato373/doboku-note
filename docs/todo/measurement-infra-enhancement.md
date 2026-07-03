@@ -10,6 +10,27 @@
 
 ---
 
+## 実施状況（2026-07-03・本番 deploy 済 `93b379df6`）
+
+**コード実装完了（develop→main 反映済）**:
+- ✅ #1 NoteLink 計測（別イベント `note_article_click`・PR #343）
+- ✅ #2 MagazineCard trackLabel 伝播（PR #344）
+- ✅ #3 収益カバレッジ表を CI 週次配線（PR #344）
+- ✅ #4 bot 比率監査を CI 週次配線（PR #344）
+- ✅ #6 pages.dev の gtag ブロック（fail-open・PR #344）
+- ✅ #7 UTM referral の policy+check（PR #345・**content 移行は burndown 残**＝下記 item 7）
+- ✅ #9 サイト内検索を URL(?q=) 同期し `view_search_results` 有効化（PR #346）。scroll は拡張計測 ON で自動・outbound は #1＋拡張計測でカバー済＝#9 完了
+- ✅ #11 GA4×GSC crosswalk レポート（PR #347）＋週次 CI 自動化（gsc-page fetch＋crosswalk step）
+- （関連）deploy ドリフト検知＋check-links 偽陽性是正（PR #342）
+
+**GA4 UI（ユーザー作業）**: A 内部トラフィック/参照除外 ✅・B キーイベント ✅・C 拡張計測 全 ON 確認 ✅／**D カスタムディメンション（#8/#10 の前提）未・E bing bot 確定 未**
+
+**残（未着手）**: #5 分析 cadence（metrics-analyzer は LLM＝cloud routine／seo-meta 配線）・#8 カスタムパラメータ（GA4 D 前提）・#10 アフィリ A/B（GA4 event_label 登録前提）・#12 note.com referral・Tier 3（#13-16）・#7 content 移行 burndown
+
+**deploy 後の検証待ち**: GA4 DebugView で `note_article_click`/`view_search_results` 発火・金曜 fetch-metrics 週次で coverage/bot-audit/crosswalk が更新されるか
+
+---
+
 ## Tier 1 — すぐやる（低コスト・高効果／既存資産の配線・是正）
 
 1. **NoteLink のクリック計測** 🔴 — `src/components/ui/NoteLink/NoteLink.tsx:60-64` の `<a>` に `data-cta="note"`＋`data-cta-label` を付与（既存デリゲート `AnalyticsProvider.tsx:26-52` に乗る）。記事内 note 無料記事送客（11箇所）が丸ごと未計測なのを解消。**最大の穴**。URL にも UTM 付与。

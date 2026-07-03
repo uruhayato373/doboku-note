@@ -65,6 +65,14 @@ jobs:
           GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
         run: npm run fetch-gsc-data -- --dimension date --days 7
 
+      # GA4×GSC crosswalk 用: ページ別 GSC スナップショット（gsc-page-*.json）。
+      # 従来 page 次元は月次 index-coverage でしか取れず crosswalk が最大月次だった。
+      # 週次化して ga4-page（週次）と鮮度を揃える。
+      - name: Fetch GSC (page, for crosswalk)
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+        run: npm run fetch-gsc-data -- --dimension page
+
       # 収益カバレッジ ダッシュボード用: ページ別流入（report-monetization-coverage.mts が
       # 最新 ga4-page-*.json を読む）。
       - name: Fetch GA4 (page, for monetization coverage)
@@ -114,6 +122,12 @@ jobs:
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
         run: npm run audit-ga4-bot-ratio
 
+      # GA4×GSC crosswalk 生成: 上で取得した ga4-page × gsc-page を URL で突合し、
+      # title/meta 機会（上位表示低CTR）と ランキング機会（表示多い低順位）を surface（オフライン）。
+      - name: Generate GA4xGSC crosswalk report
+        continue-on-error: true
+        run: npm run report-ga4-gsc-crosswalk
+
       - name: Check data integrity
         id: integrity
         continue-on-error: true
@@ -145,12 +159,13 @@ jobs:
           git checkout develop
           git pull --rebase origin develop
 
-          mkdir -p .claude/state/metrics/ga4 .claude/state/metrics/gsc .claude/state/metrics/monetization
+          mkdir -p .claude/state/metrics/ga4 .claude/state/metrics/gsc .claude/state/metrics/monetization .claude/state/metrics/crosswalk
           cp -r /tmp/metrics-publish/ga4/* .claude/state/metrics/ga4/ 2>/dev/null || true
           cp -r /tmp/metrics-publish/gsc/* .claude/state/metrics/gsc/ 2>/dev/null || true
           cp -r /tmp/metrics-publish/monetization/* .claude/state/metrics/monetization/ 2>/dev/null || true
+          cp -r /tmp/metrics-publish/crosswalk/* .claude/state/metrics/crosswalk/ 2>/dev/null || true
 
-          git add .claude/state/metrics/ga4 .claude/state/metrics/gsc .claude/state/metrics/monetization
+          git add .claude/state/metrics/ga4 .claude/state/metrics/gsc .claude/state/metrics/monetization .claude/state/metrics/crosswalk
           if git diff --cached --quiet; then
             echo "No changes to publish"
             exit 0
