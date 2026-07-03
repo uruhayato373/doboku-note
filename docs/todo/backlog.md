@@ -405,7 +405,23 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 **完了**: `.claude/config/utm-templates.json`＋`.claude/scripts/lib/utm-builder.mjs`（2026-07-03 実装）に加え、**YT 生成スクリプト（yt-shorts-create / per-problem-shorts）の `.replace()` 手書きを `buildUtmUrl()` へ配線・sns-config のハードコード utmParams 撤去（出力 byte 等価を検証）**。X 送客リンクは新設 `check-x-utm`（pre-commit ゲート）が utm_source=x/utm_medium=social を強制。さらに GA4 SNS 流入 breakdown（`fetch-ga4-data --sns-only`→`ga4-sourceMedium-sns-*`）・週次スナップショット CI 復旧＋SNS 拡張・YT 公開照合 `verify-yt-status`・週次レビュー Agent F＋metrics-analyzer Pattern 6 まで一括整備。SSOT: `00_SNS整理マップ §型カタログ`／`02_チャネル動線設計 §4`。
 
-<!-- 残（別タスク・本件外）: docs/note/** の bare-url 442件バーンダウン（check-note-site-utm --staged で新規は既に阻止）。IG link sticker の実クリック計測・IG/YT エンゲージメント取り込みは流入データ 4 週蓄積後に判断。 -->
+### note→サイト bare-url の UTM バーンダウン（442件）🟡
+
+**発端**: SNS 計測基盤整備（2026-07-04・上記 UTM 統一の派生）。X 側は `check-x-utm` で新規を阻止したが、`docs/note/**` の既存 `doboku-note.com/docs/` 送客リンク **442件が bare-url（単独行）のまま**で、`/note-publish` がカード化して UTM が落ち GA4 の Referral 計測に乗らない。`check-note-site-utm --staged` で新規は既に阻止済み＝**既存分のバーンダウン**が残タスク。
+
+**対応方針**: bare-url を `[アンカー文言](url?utm_source=note&utm_medium=referral&utm_campaign={記事slug}&utm_content={送客先})` のインライン形式へ変換。アンカー文言の付与に判断が要る半手動作業（`scripts/add-note-utm.mjs` が自動付与候補だが debug 途上＝要検証）。真実源 `02_チャネル動線設計 §4`／ゲート `check-note-site-utm`。
+**規模**: 442件（`node scripts/check-note-site-utm.mjs` で一覧）。バッチ・記事単位で消化。
+
+### 競合の勝ち型を policy 化（SNS 投稿型カタログの拡張）🟡
+
+**発端**: SNS 競合実地調査（2026-07-04・`07_競合調査.md` SNS節）で、競合が伸ばしている型のうち現行の型カタログ（`00_SNS整理マップ §型カタログ`）に無い3種を surface。型として正式に policy 化すれば writer エージェントが量産に使える。
+
+**対象3型**:
+1. **聞き流し一問一答**（YT 空白型・日建学院で47k再生実測）→ YT 通常動画/長尺。**ブロッカー: 16:9 テンプレ未実装**（`05_YouTube §5` 参照）。テンプレ実装が前提。
+2. **合格後キャリア/現場リアル リール**（IG 差別化・現場密着リールにバイラル実績）→ `ig-reels-policy` に型追加。**要運営者の一次情報**（キャリア体験素材。Red Line=一次情報は note 有料囲い込み・断片/フックまで）。
+3. **お悩み相談回答**（技術士系 X/YT で定着）→ `x-post-policy` の投稿型 or Reels 角度。既存 FAQ/キーワードから素材化可能＝運営者素材なしで着手可。
+
+**対応方針**: 3の「お悩み相談回答」は素材不要で先行 policy 化可。1は16:9テンプレ待ち、2はキャリア素材待ち。着手時に該当 writer エージェント（`x-post-writer`/`ig-reels-writer`）の参照を更新。真実源 `content-angle-policy`／`00_SNS整理マップ §型カタログ 型バックログ`。
 
 ### 1級土木 二次10/4 直前スプリント（死守コア3つ）🔴
 
