@@ -191,6 +191,18 @@ const BANNERS = [
     ],
   },
   {
+    id: 'civil-1-niji-marugoto-pack-sidebar',
+    bgTop: '#123a63',
+    bgBottom: '#0a2743',
+    accent: '#f0c040',
+    label: 'note限定',
+    lines: [
+      ['1級土木 二次検定', 22],
+      ['まるごとパック', 26],
+      ['経験＋学科＋暗記', 19],
+    ],
+  },
+  {
     id: 'civil-1-experience-essay-sidebar',
     bgTop: '#b45309',
     bgBottom: '#7c3a06',

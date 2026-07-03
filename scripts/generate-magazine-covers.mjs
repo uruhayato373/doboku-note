@@ -254,6 +254,16 @@ const MAGAZINES = [
     accentColor: '#1C5038',
     fillBg: '#1C5038',
   },
+  {
+    id: 'civil-1-marugoto',
+    fileBaseName: 'civil-1-niji-marugoto-pack-cover',
+    magazineDir: 'docs/note/1級・2級土木/1級土木/magazines/1級土木-二次まるごとパック',
+    lines: ['1級土木 二次検定', 'まるごとパック', '経験記述＋学科記述＋直前暗記'],
+    category: '1級土木施工管理技士',
+    fontSize: 42,
+    accentColor: '#f0c040',
+    fillBg: '#123a63',
+  },
   // ----- 土木 1級/2級 施工経験記述 6 マガジン (資格別配色: 1級青 #155293 / 2級緑 #1C5038) -----
   {
     id: 'civil-1-experience',
