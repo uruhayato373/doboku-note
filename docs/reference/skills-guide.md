@@ -62,6 +62,7 @@ title: スキル ナビゲーションガイド
 | スキル | 一言説明 | 呼ぶとき |
 |---|---|---|
 | `/social-post` | note / X 投稿テキスト生成の統合スキル | `note投稿文`, `X投稿テキスト`, `/social-post --platform {note\|x}` |
+| `/pe-note-plan` | 技術士総監 記述式 note 有料記事・magazine の**編集ロードマップ**を提案する企画スキル（本文は書かない）。段階投下方針・magazine 在庫・価格・過去問カバレッジを突合し「次に何を・どの順で・いくらで出すか」を優先度付きで提示 | `noteの次の一手`, `magazine企画`, `記述式コンテンツの投下計画`, `/pe-note-plan [--horizon {next\|quarter}]` |
 | `/note-hashtags` | note 公開用ハッシュタグ 99 個を生成（選択科目は `--article II1-1` 等でファイル別出力） | `ハッシュタグ生成`, `/note-hashtags {slug} [--article {suffix}]` |
 | `/ig-post-create` | Instagram カルーセル PNG の**新規生成**（過去問パック・KW 解説の単発）。※既存パック再生成は restyle、figure 変換は figure-pack | `Instagram投稿作成`, `IG スライド`, `/ig-post-create --slug {kw}` |
 | `/ig-figure-pack` | キーワードの **site figure SVG を** 4 枚カルーセルパック（表紙/図解/テキスト/CTA）に変換。resvg-js で 1080×1350 PNG 生成 + caption.txt。slide-data.json 不要の軽量ワンオフ用途（過去問パックは対象外） | `IG figure 投稿`, `キーワード図解カルーセル`, `/ig-figure-pack {keyword}` |
