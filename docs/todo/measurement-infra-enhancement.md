@@ -18,7 +18,7 @@
 4. **bot 比率監査を CI 配線** — `.claude/scripts/audit-ga4-bot-ratio.mjs` が未 wiring・2026-05-17 以降実行ゼロ（出力1本のみ）。fetch-metrics.yml に追加し新規スパム参照元を毎週 surface。
 5. **分析 cadence 化** — metrics-analyzer 出力が 2026-05-11 で停止（データは週次で流れているのに分析生成が止まっている）。seo-meta fetch はどの workflow にも無く 2026-05-17 停止。両者を cron 化。
 6. **pages.dev プレビューの gtag ブロック** — `GoogleAnalytics.tsx:22-24` が「pages.dev 除外は未実装」と自認。`window.location.hostname !== "doboku-note.com"` 判定を追加し、プレビュー/コラボ環境の本番計測混入を遮断。
-7. **UTM 規約ドリフトの是正** — doc は note→site を `utm_medium=inline`・site→note を `utm_source=site`/`utm_medium=banner`（`docs/project/03_SNS/02_チャネル動線設計.md:103-105`）だが、実装は `add-note-utm.mjs:12`＝`referral`、`note-magazines.ts:850`＝`doboku-note`/`referral`。check（`check-note-site-utm.mjs:69`）は `utm_source` しか見ず不一致を検知できない。規約と実装を統一し check に medium 検査を追加。
+7. **UTM 規約ドリフトの是正** — referral へ統一に決定（GA4 標準 medium）。**policy+check は PR #345 で完了**（doc を実装値へ是正＋check に `utm_medium=referral` 検証追加）。**残＝content 移行 burndown**: 既存 inline リンク 94 箇所/47 ファイル＋建設部門論点6本を referral へ移行する必要があるが、対象 53 ファイルのうち 36 が cover-fit・6 が note-lint の pre-existing 債務を持ち bulk 移行がそれらを巻き込む。→ 各ファイルの cover/CTA 債務を解消するタイミングで referral へ段階移行（新 check が編集時に強制・`SKIP_NOTE_UTM=1` で一時回避）。移行ロジックは `utm_medium=inline`→`referral` の単純置換（writeMdxFile・CRLF 保持）。
 
 ## Tier 2 — 中期（新規実装・粒度拡張）
 
