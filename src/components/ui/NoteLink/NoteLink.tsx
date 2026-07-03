@@ -18,6 +18,17 @@ interface NoteLinkProps {
    * 正方形版を生成しておくこと。
    */
   readonly coverImage?: string;
+  /**
+   * GA4 クリック計測ラベル（任意）。省略時は URL の note 記事 ID を使う。
+   * 有料マガジン CTA（note_cta_click）とは別イベント note_article_click で計測する。
+   */
+  readonly trackLabel?: string;
+}
+
+/** note URL から計測ラベルを導く。例: .../n/nc360aaa381b0 → note-nc360aaa381b0 */
+function trackLabelFromUrl(url: string): string {
+  const m = url.match(/\/n\/([a-zA-Z0-9]+)/);
+  return m ? `note-${m[1]}` : "note-article";
 }
 
 /**
@@ -53,6 +64,7 @@ export default function NoteLink({
   title,
   description,
   coverImage,
+  trackLabel,
 }: NoteLinkProps) {
   const imageUrl = coverImage ? toSquareImage(coverImage) : null;
 
@@ -61,6 +73,8 @@ export default function NoteLink({
       href={url}
       target="_blank"
       rel="noopener noreferrer"
+      data-cta="note-article"
+      data-cta-label={trackLabel ?? trackLabelFromUrl(url)}
       className="not-prose group my-6 block max-w-2xl rounded-card-content overflow-hidden border border-[var(--rule-soft)] bg-[var(--paper)] shadow-card-content hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow"
     >
       <div className="flex flex-col sm:flex-row">
