@@ -219,6 +219,8 @@ B. 実験進捗レポート:
 
 ## 過去問起点の校正サイクル
 
+> **⚠️ 廃止・出力省略（2026-07-03）**: Agent F 廃止（前掲の Agent F バナー参照・/exam-keyword-cycle 退役）に伴い、**本セクションは週次レポートから丸ごと省略すること**（空欄で埋めない）。
+
 ### 今週のサイクル実施
 | 日付 | 過去問 | 対象キーワード | PR |
 |---|---|---|---|
@@ -303,6 +305,8 @@ B. 実験進捗レポート:
 出力形式: 「## GitHub Umbrella Issue 棚卸し」セクションに以下を埋め込む
 
 ## GitHub Umbrella Issue 棚卸し
+
+> **⚠️ 廃止・出力省略（2026-07-03）**: Agent G 廃止（GitHub Issue 廃止・CLAUDE.md §8）に伴い、**本セクションは週次レポートから丸ごと省略すること**（空欄で埋めない）。タスク棚卸しは Agent H＋`docs/todo/` に委ねる。
 
 ### Open Umbrella ({n} 件)
 | # | タイトル | 進捗 | 最終更新 | 状態 |
@@ -501,9 +505,9 @@ B. 実験進捗レポート:
 
 ## 過去問起点の校正サイクル
 
-<!-- Agent F が .claude/state/exam-keyword-cycles/logs/index.json と
-     .claude/state/exam-keyword-cycles/progress.json から自動生成。
-     今週実施分、年度別カバレッジ、次週候補を出力。 -->
+<!-- ⚠️ 廃止（2026-07-03）: Agent F 廃止（/exam-keyword-cycle 退役）につき本セクションは省略する。
+     Agent F が .claude/state/exam-keyword-cycles/logs/index.json と
+     .claude/state/exam-keyword-cycles/progress.json から自動生成していたが state は 2026-05-14 凍結。 -->
 
 ### 今週のサイクル実施
 | 日付 | 過去問 | 対象キーワード | PR |
