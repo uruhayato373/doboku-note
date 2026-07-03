@@ -80,6 +80,7 @@
     "fetch-ga4-data": "node .claude/scripts/fetch-ga4-data.mjs",
     "fetch-ga4-cta-clicks": "node .claude/scripts/fetch-ga4-cta-clicks.mjs",
     "report-monetization-coverage": "tsx .claude/scripts/report-monetization-coverage.mts",
+    "report-ga4-gsc-crosswalk": "node .claude/scripts/report-ga4-gsc-crosswalk.mjs",
     "audit-ga4-bot-ratio": "node .claude/scripts/audit-ga4-bot-ratio.mjs",
     "fetch-psi-data": "node .claude/scripts/fetch-psi-data.mjs",
     "fetch-psi-audit": "node .claude/scripts/fetch-psi-data.mjs --file .claude/config/psi-urls.txt --strategy mobile && node .claude/scripts/fetch-psi-data.mjs --file .claude/config/psi-urls.txt --strategy desktop",
