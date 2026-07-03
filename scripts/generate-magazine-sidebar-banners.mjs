@@ -143,6 +143,18 @@ const BANNERS = [
     ],
   },
   {
+    id: 'civil-1-gakka-kijutsu-sidebar',
+    bgTop: '#155293',
+    bgBottom: '#0e3a68',
+    accent: '#7dd3fc',
+    label: 'note限定',
+    lines: [
+      ['1級土木 二次学科記述', 22],
+      ['テーマ別 出る順', 26],
+      ['5テーマ セット', 20],
+    ],
+  },
+  {
     id: 'civil-1-experience-essay-sidebar',
     bgTop: '#b45309',
     bgBottom: '#7c3a06',

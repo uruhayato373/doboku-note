@@ -213,6 +213,17 @@ const MAGAZINES = [
     category: '技術士（総合技術監理部門）',
     fontSize: 44,
   },
+  // ----- 土木 1級/2級 二次学科記述ライン (資格別配色: 1級青 #155293 / 2級緑 #1C5038) -----
+  {
+    id: 'civil-1-gakka',
+    fileBaseName: 'civil-1-gakka-kijutsu-cover',
+    magazineDir: 'docs/note/1級・2級土木/1級土木/magazines/1級土木-二次学科記述-テーマ別出る順',
+    lines: ['1級土木 二次学科記述', 'テーマ別 出る順', '土工・コンクリート他 5テーマ'],
+    category: '1級土木施工管理技士',
+    fontSize: 42,
+    accentColor: '#155293',
+    fillBg: '#155293',
+  },
   // ----- 土木 1級/2級 施工経験記述 6 マガジン (資格別配色: 1級青 #155293 / 2級緑 #1C5038) -----
   {
     id: 'civil-1-experience',
