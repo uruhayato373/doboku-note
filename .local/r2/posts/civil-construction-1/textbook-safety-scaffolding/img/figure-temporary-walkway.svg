@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="架設通路の設置基準。勾配は30度以下、15度を超える場合は踏さんを設け、墜落危険箇所には手すり85cm以上、高さ8m以上の登り桟橋は7m以内ごとに踊り場を設ける">
-  <text x="200" y="26" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="bold" fill="#1a3a5c">架設通路（桟橋）の設置基準</text>
+  <text x="200" y="22" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a3a5c">架設通路：勾配30°以下・15°超で踏さん・手すり85cm</text>
 
   <!-- 地盤 -->
   <line x1="40" y1="392" x2="200" y2="392" stroke="#8a8a8a" stroke-width="2"/>
