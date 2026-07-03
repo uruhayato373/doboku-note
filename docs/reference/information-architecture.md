@@ -102,6 +102,7 @@ doboku-note プロジェクトにおけるドキュメント・データの置�
 |---|---|---|---|
 | 参照 | `scripts/check-doc-refs.mjs` | 壊れた `.md`/`.mdx` パス参照 | pre-commit（機械） |
 | 台帳 | `scripts/check-doc-coupling.mjs` | スキル/エージェントの追加・削除・description 変更に対する skills-guide/registry・agents-registry の更新もれ（capability ドリフト） | pre-commit（機械） |
+| 配線 | `scripts/check-magazine-wiring.mjs` | 新 keiken マガジンが字数ツール（`keiken-charcount`）の探索対象に配線されず字数ゲートを素通りする漏れ（content-line 配線ドリフト） | pre-commit（機械） |
 | クラスタ | `scripts/check-policy-anchors.mjs` ＋ `decision-doc-checkpoint.sh` | 1つの決定が複数文書（ADR/skill/checklist/戦略SoT）に散在し片方だけ更新する横展開もれ（policy ドリフト） | commit フック（機械・advisory）＋ PreCompact/SessionEnd（締め切り） |
 | 意味 | `/doc-sync` ＋ `doc-sync-auditor` | コード変更で prose・表・コマンド・件数・閾値が旧仕様化（semantic staleness） | 節目に手動（LLM・sonnet） |
 
@@ -116,6 +117,8 @@ doboku-note プロジェクトにおけるドキュメント・データの置�
 **クラスタガード**（`check-policy-anchors.mjs`・2026-06-16 新設）: 1 つの決定が複数文書に散在するクラスタ（台帳 `.claude/config/policy-anchors.json`）で、1 ファイルを staged すると同クラスタの全ファイルを「整合を確認せよ」と決定的に提示する（advisory・exit 0）。`files`/`anchor` の実在も検証し、移動・改名で台帳が腐ると exit 1（registry rot）。**意味照合はしない**（それは意味ガード `/doc-sync` の領分）＝「片方だけ更新した」横展開もれを surface する forcing function。あわせて `check-doc-sync.sh`（PreToolUse on git commit）が決定/ポリシー文書の変更時に `/doc-sync` を促し、`decision-doc-checkpoint.sh`（`PreCompact`/`SessionEnd` フック）がセッションの節目・終了時に未コミットの決定文書を締め切りチェックする。台帳の更新は決定クラスタを増減したときに行う。背景: 2026-06-16 per-persona R8 決定の横展開が 3 往復かかった再発防止（[[feedback_content_deprecation_cross_lineage]]）。
 
 **意味ガード**（`/doc-sync`・2026-06-12 新設）: 「ドキュメント化された面」(`src/** scripts/** .claude/** package.json` 等)を変更したタスクの完了時に、変更 diff × 候補 doc を `doc-sync-auditor`（Evaluator・sonnet）で突合し、機械ガードが拾えない陳腐化を検出→適用。純コンテンツ MDX 編集では回さない。**routing drift / discoverability gap（規律 7）も検出対象**。発火トリガーとして `check-doc-sync.sh`（commit フック）が、決定/ポリシー文書の変更に加え **新規スクリプト追加（`scripts/**` への `--diff-filter=A`）でも discoverability 配線＋`/doc-sync` を促す**（2026-06-25 拡張）。
+
+**配線ガード**（`check-magazine-wiring.mjs`・2026-07-01 新設）: keiken マガジン（施工経験記述系）を「答案マーカー（`**(N)` / `### 記述例` 等）を持つ article.md」で内容判定し、`keiken-charcount.mjs` の探索フィルタでカバーされない dir を pre-commit で落とす。台帳ガードが skill/agent の登録もれしか見ないのに対し、本ガードは **コンテンツライン（note マガジン）を依存する実行系（字数ゲート）に配線し忘れる content-line 配線ドリフト**を機械検知する。新マガジン追加時の配線チェックリスト（cover 定義・sales-recorder マッピング・字数フィルタ・essay-writer 型・/doc-sync）は `src/lib/note-magazines.ts` の `MAGAZINES_RAW` 直前コメントに明文化。背景: 2026-07-01 想定工事バンク（36本）が dir 名に「経験記述」を含まず一括字数チェックを全スキップしていた再発防止（[[feedback_new_magazine_wiring_gate]]）。
 
 ## 廃止済み
 
