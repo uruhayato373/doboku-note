@@ -4,6 +4,7 @@ noteSeries: 1級土木-二次学科記述-テーマ別出る順
 noteMagazine: 1級土木-二次学科記述-テーマ別出る順
 utmCampaign: civil1-gakka-safety-law
 price: 580
+paidBoundary: "出る順①"
 coverTitle: ["1級土木 二次学科記述", "安全管理・法規 出る順"]
 cover:
   leadIn: "1級土木施工管理技士 二次"

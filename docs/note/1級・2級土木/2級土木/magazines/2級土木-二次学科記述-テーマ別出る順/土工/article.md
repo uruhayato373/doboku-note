@@ -4,6 +4,7 @@ noteSeries: 2級土木-二次学科記述-テーマ別出る順
 noteMagazine: 2級土木-二次学科記述-テーマ別出る順
 utmCampaign: civil2-gakka-earthwork
 price: 480
+paidBoundary: "出る順①"
 coverTitle: ["2級土木 二次学科記述", "土工 出る順"]
 cover:
   leadIn: "2級土木施工管理技士 二次"
