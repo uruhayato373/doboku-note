@@ -90,6 +90,15 @@ jobs:
                 continue
               fi
 
+              # GA 計装検証: gtag スクリプトが SSR HTML に載っているか。
+              # GoogleAnalytics を client-gating 等に変えると gtag が SSR から消え本番 GA が
+              # 停止する regression（2026-07-03 #6）を機械検知する。pages.dev でも script tag
+              # 自体は在る（config のみ hostname で抑止）ので、この検査は全 URL で成立する。
+              if ! grep -q 'googletagmanager' /tmp/body.html; then
+                FAILURES+=("$URL [$UA_LABEL] no GA script (googletagmanager) — GA 計装が SSR HTML から消失")
+                continue
+              fi
+
               echo "OK: $URL [$UA_LABEL] size=$SIZE"
             done
           done
