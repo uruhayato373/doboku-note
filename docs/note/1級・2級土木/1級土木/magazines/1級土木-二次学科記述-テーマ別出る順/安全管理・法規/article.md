@@ -2,6 +2,10 @@
 notePricing: paid
 noteSeries: 1級土木-二次学科記述-テーマ別出る順
 noteMagazine: 1級土木-二次学科記述-テーマ別出る順
+noteStatus: published
+notePublishedAt: "2026-07-03"
+noteId: "nba82053b030f"
+noteUrl: "https://note.com/dobokunote/n/nba82053b030f"
 utmCampaign: civil1-gakka-safety-law
 price: 580
 paidBoundary: "出る順①"

@@ -2,6 +2,10 @@
 notePricing: paid
 noteSeries: 1級土木-二次学科記述-テーマ別出る順
 noteMagazine: 1級土木-二次学科記述-テーマ別出る順
+noteStatus: published
+notePublishedAt: "2026-07-03"
+noteId: "n6ec9bbbbe274"
+noteUrl: "https://note.com/dobokunote/n/n6ec9bbbbe274"
 utmCampaign: civil1-gakka-concrete
 price: 580
 paidBoundary: "出る順①"
