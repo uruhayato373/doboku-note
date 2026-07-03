@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { useSearch } from "@/hooks/useSearch";
 import { SearchBox } from "@/components/search/SearchBox";
 import { SearchResults } from "@/components/search/SearchResults";
@@ -18,6 +18,8 @@ interface SearchPageClientProps {
 
 export default function SearchPageClient({ categories, popular }: SearchPageClientProps) {
   const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
   const {
     query,
     setQuery,
@@ -43,6 +45,12 @@ export default function SearchPageClient({ categories, popular }: SearchPageClie
   const handleSearch = (searchQuery: string) => {
     setQuery(searchQuery);
     updateSearchQuery({ q: searchQuery });
+    // 検索クエリを URL(?q=) に同期する。
+    // (1) GA4 拡張計測「サイト内検索」が ?q= を含む pageview から検索イベントを自動生成する
+    // (2) 検索結果が共有/ブックマーク/戻る操作可能になる（UX 改善）
+    // router.replace + scroll:false で履歴汚染とスクロールジャンプを避ける。
+    const qs = searchQuery.trim() ? `?q=${encodeURIComponent(searchQuery.trim())}` : "";
+    router.replace(`${pathname}${qs}`, { scroll: false });
   };
 
   const handleCategoryChange = (newCategory: string) => {
