@@ -50,7 +50,9 @@ export const SNS_CONFIG = {
       site: '▼ 詳しい解説（doboku-note）',
       note: '▼ 受験記・解答再現（note）',
     },
-    utmParams: 'utm_source=youtube&utm_medium=description&utm_campaign=shorts',
+    // utm_medium=video に統一（GA4 標準チャネル分類。旧 description は非標準で Unassigned 落ち）。
+    // 恒久的には .claude/scripts/lib/utm-builder.mjs（utm-templates.json 由来）へ集約する（Codex候補）。
+    utmParams: 'utm_source=youtube&utm_medium=video&utm_campaign=shorts&utm_content=shorts',
   },
 
   // コンテンツ生成パラメータ
