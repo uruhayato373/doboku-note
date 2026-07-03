@@ -143,15 +143,12 @@ B. 実験進捗レポート:
 調査項目:
 - .claude/state/metrics/psi/psi-batch-*.json の直近 7 日分（GitHub Actions psi-audit.yml が develop に毎日 [skip ci] で commit）
 - .claude/config/psi-config.json のしきい値
-- gh issue list --label performance,weekly-pdca --state open --json number,title,createdAt（Umbrella #82 配下の open を含む）
-- gh issue list --label performance,weekly-pdca --state closed --search "closed:>{7日前}" --json number,title（今週解消した違反）
+- （廃止: `gh issue list --label performance,weekly-pdca` は GitHub Issue 廃止〔CLAUDE.md §8〕で無効。違反の追跡は上記 psi-batch JSON の時系列＋しきい値比較のみで行う）
 
 分析項目:
-- 今週の違反件数 vs 先週
+- 今週の違反件数 vs 先週（psi-batch JSON の時系列から算出）
 - 各 URL の Performance スコア・LCP の前週比
-- 今週新規発生した違反
-- 今週解消した違反（closed Issue から抽出）
-- 放置されている Issue（7 日以上 open）
+- 今週新規発生した違反 / 今週しきい値内に戻った違反
 
 出力形式: 以下の「## PSI パフォーマンス推移」セクションに埋め込む
 ```
@@ -191,6 +188,8 @@ B. 実験進捗レポート:
 ```
 
 #### Agent F: 校正サイクル進捗
+
+> **⚠️ 廃止・実行スキップ（2026-07-03）**: この節が依拠する `/exam-keyword-cycle` は 2026-05-15 に退役（`/quality-cycle` へ一本化）。`.claude/state/exam-keyword-cycles/` は 2026-05-14 で凍結、`select-next-question.mjs`・`sync-umbrella.mjs` は不在、後継 `quality-cycle` は別 state（`quality-cycle-state.json` 等）を使うため読み替え不可。**週次実行時は本節（Agent F）を丸ごとスキップすること。** 全面除去＋references分割は棚卸し提案（PR 説明参照）で判断待ち。
 
 ```
 目的: /exam-keyword-cycle の実施状況をトラッキングし、年度別カバレッジ・未カバー過去問・次週の候補を可視化する
@@ -285,6 +284,8 @@ B. 実験進捗レポート:
 ```
 
 #### Agent G: Umbrella Issue 棚卸し
+
+> **⚠️ 廃止・実行スキップ（2026-07-03）**: 本節は GitHub Issue（Umbrella）を前提とするが、**GitHub Issue は廃止済み**（CLAUDE.md §8「GitHub Issue は使わない・タスク管理は `docs/todo/`」、真実源 `docs/reference/information-architecture.md`）。`gh issue list` は現運用で空/無効。**週次実行時は本節（Agent G）をスキップし、タスク棚卸しは Agent H（handoff/doc ライフサイクル）＋ `docs/todo/` に委ねること。** 全面除去は棚卸し提案で判断待ち。
 
 ```
 目的: `docs/reference/information-architecture.md` で定義した
