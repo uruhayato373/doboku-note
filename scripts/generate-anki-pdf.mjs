@@ -26,8 +26,11 @@ const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
 const ART = getArg('--article');
 if (!ART) { console.error('--article <path> required'); process.exit(1); }
+// --sample: 無料公開の第1分野だけを使った「付属PDF 見本」画像(PNG)を出力する（有料答え流出なし）
+const SAMPLE = argv.includes('--sample');
+const SAMPLE_QA = parseInt(getArg('--sample-qa') || '9', 10); // 見本に載せる Q/A 数
 const articleAbs = resolve(ROOT, ART);
-const OUT = getArg('--out') || join(dirname(articleAbs), 'anki-redsheet.pdf');
+const OUT = getArg('--out') || join(dirname(articleAbs), SAMPLE ? 'anki-sample.png' : 'anki-redsheet.pdf');
 
 const raw = readFileSync(articleAbs, 'utf8');
 const fm = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/)?.[1] ?? '';
@@ -80,12 +83,47 @@ const html = `<!doctype html><html lang="ja"><head><meta charset="utf-8"><style>
   ${secHtml}
 </body></html>`;
 
-const htmlPath = OUT.replace(/\.pdf$/, '.html');
-writeFileSync(htmlPath, html);
-const browser = await chromium.launch({ headless: true });
-try {
-  const page = await browser.newPage();
-  await page.setContent(html, { waitUntil: 'load' });
-  await page.pdf({ path: OUT, format: 'A5', printBackground: true, preferCSSPageSize: true });
-  console.log(`[anki-pdf] ${OUT}  (${kept.length}分野 / ${qaCount}問)`);
-} finally { await browser.close(); }
+if (SAMPLE) {
+  // 見本画像: 無料の第1分野のみ・先頭 SAMPLE_QA 問。有料の答えは一切含めない。
+  const s = kept[0];
+  let shown = 0; const rows = [];
+  for (const i of s.items) {
+    if (i.t === 'sub') rows.push(`<div class="sub">${esc(i.s)}</div>`);
+    else if (shown < SAMPLE_QA) { rows.push(`<div class="qa"><span class="q">Q. ${esc(i.q)}</span><span class="a">A. ${esc(i.a)}</span></div>`); shown++; }
+    if (shown >= SAMPLE_QA) break;
+  }
+  const sampleHtml = `<!doctype html><html lang="ja"><head><meta charset="utf-8"><style>
+    body { font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif; color:#111; margin:0; width:900px; }
+    .wrap { border:1px solid #d8dee6; border-radius:12px; overflow:hidden; }
+    .banner { background:#155293; color:#fff; padding:14px 20px; font-size:19px; font-weight:700; }
+    .banner small { display:block; font-size:13px; font-weight:400; opacity:.9; margin-top:3px; }
+    .body { padding:16px 22px 22px; }
+    h2 { font-size:17px; color:#fff; background:#155293; padding:4px 10px; border-radius:5px; margin:6px 0 10px; display:inline-block; }
+    .sub { font-size:15px; font-weight:700; color:#0e3a68; margin:12px 0 5px; }
+    .qa { font-size:14px; line-height:1.7; margin:0 0 6px; }
+    .q { color:#111; } .a { color:#e60012; font-weight:600; margin-left:6px; }
+    .foot { font-size:12.5px; color:#555; margin-top:14px; padding-top:10px; border-top:1px dashed #cbd3dc; }
+  </style></head><body><div class="wrap">
+    <div class="banner">付属：A5・赤シート対応 印刷用PDF（見本）<small>全${qaCount}問の一問一答。印刷して赤シートで A.（赤字）を隠し、Q. を見て答える。</small></div>
+    <div class="body"><h2>${esc(s.head)}</h2>${rows.join('\n')}
+      <div class="foot">※これは付属PDFの一部見本です。実物はA5サイズ・全分野・印刷用。赤シートでA.（赤字）が消えます。</div>
+    </div></div></body></html>`;
+  const browser = await chromium.launch({ headless: true });
+  try {
+    const page = await browser.newPage({ viewport: { width: 900, height: 700 }, deviceScaleFactor: 2 });
+    await page.setContent(sampleHtml, { waitUntil: 'load' });
+    const el = await page.$('.wrap');
+    await el.screenshot({ path: OUT });
+    console.log(`[anki-sample] ${OUT}  (第1分野「${s.head}」${shown}問の見本・有料答えなし)`);
+  } finally { await browser.close(); }
+} else {
+  const htmlPath = OUT.replace(/\.pdf$/, '.html');
+  writeFileSync(htmlPath, html);
+  const browser = await chromium.launch({ headless: true });
+  try {
+    const page = await browser.newPage();
+    await page.setContent(html, { waitUntil: 'load' });
+    await page.pdf({ path: OUT, format: 'A5', printBackground: true, preferCSSPageSize: true });
+    console.log(`[anki-pdf] ${OUT}  (${kept.length}分野 / ${qaCount}問)`);
+  } finally { await browser.close(); }
+}
