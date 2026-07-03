@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="足場の作業床の寸法基準。作業床は幅40cm以上・床材のすき間3cm以下、端部は手すり85cm以上と中桟35〜50cm、幅木10cm以上">
+  <text x="200" y="26" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="bold" fill="#1a3a5c">足場の作業床と墜落防止設備</text>
+
+  <!-- 建地（支柱） -->
+  <rect x="66" y="96" width="8" height="324" fill="#555"/>
+  <rect x="326" y="96" width="8" height="324" fill="#555"/>
+
+  <!-- 手すり 85cm -->
+  <rect x="70" y="122" width="260" height="8" rx="2" fill="#2e6da4"/>
+  <!-- 中桟 -->
+  <rect x="70" y="228" width="260" height="7" rx="2" fill="#2e6da4"/>
+
+  <!-- すき間ラベル -->
+  <text x="200" y="316" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a3a5c">すき間 3cm 以下</text>
+  <line x1="200" y1="320" x2="200" y2="330" stroke="#1a3a5c" stroke-width="1"/>
+
+  <!-- 作業床（2枚・中央にすき間） -->
+  <rect x="74" y="330" width="120" height="18" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="206" y="330" width="120" height="18" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+
+  <!-- 幅木 -->
+  <rect x="74" y="315" width="8" height="15" fill="#1a3a5c"/>
+  <rect x="318" y="315" width="8" height="15" fill="#1a3a5c"/>
+
+  <!-- 寸法：手すり85cm（左） -->
+  <line x1="45" y1="126" x2="45" y2="339" stroke="#2e6da4" stroke-width="1"/>
+  <path d="M45 126 l-3 6 h6 z" fill="#2e6da4"/>
+  <path d="M45 339 l-3 -6 h6 z" fill="#2e6da4"/>
+  <text x="40" y="233" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222" transform="rotate(-90 40 233)">手すり 85cm 以上</text>
+
+  <!-- 寸法：中桟35-50cm（右） -->
+  <line x1="352" y1="232" x2="352" y2="339" stroke="#2e6da4" stroke-width="1"/>
+  <path d="M352 232 l-3 6 h6 z" fill="#2e6da4"/>
+  <path d="M352 339 l-3 -6 h6 z" fill="#2e6da4"/>
+  <text x="357" y="290" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222" transform="rotate(-90 357 290)">中桟 35〜50cm</text>
+
+  <!-- 幅40cm（下） -->
+  <line x1="74" y1="368" x2="326" y2="368" stroke="#2e6da4" stroke-width="1"/>
+  <path d="M74 368 l6 -3 v6 z" fill="#2e6da4"/>
+  <path d="M326 368 l-6 -3 v6 z" fill="#2e6da4"/>
+  <text x="200" y="386" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">作業床の幅 40cm 以上</text>
+
+  <!-- 幅木ラベル -->
+  <text x="200" y="406" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">幅木 10cm 以上（物体の落下防止）</text>
+
+  <!-- 補足 -->
+  <rect x="30" y="428" width="340" height="54" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="200" y="450" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">端部＝手すり 85cm 以上 ＋ 中桟 35〜50cm</text>
+  <text x="200" y="469" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">根拠：労働安全衛生規則 第563条</text>
+</svg>
