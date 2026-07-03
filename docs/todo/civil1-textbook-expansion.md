@@ -78,8 +78,9 @@
 
 1. **機械8ページ 写真差替**（Gemini・別PC）: 対応表＝[civil-machinery-photo-manifest.md](civil-machinery-photo-manifest.md)。PDF写真PNGを形状リファレンスに**オリジナル生成（強い変形）→差替→commit**。現行 Wikimedia CC 写真は生成完了まで据え置き（画像欠けにしない）。**新規11ページには写真マーカーは無い（SVGのみ）**。
 2. ~~**新規ページ published化時**: `npm run ogp` で OGP 生成 → `check-ogp-coverage` を通す~~ → ✅ 2026-07-04 完了（11本 published:true・OGP11枚・refresh-indexes・develop `2141c2b22`）。
-3. **guide 結線（deploy 後にのみ可能）**: `guide-safety-management`（安全7本を「テキスト参照」表へ）・`guide-environment-management`（環境4本の参照節を新設）。`check-sns-urls` が本番実在を検証するため **production 反映後**に結線 → 同一 commit で `npm run refresh-indexes`（双方向 backlink）。
-4. **deploy**: develop→main は `/deploy` でユーザー判断。
+3. ~~**guide 結線**: `guide-safety-management`（安全7本）・`guide-environment-management`（環境4本）~~ → ✅ 2026-07-04 完了（develop `0fcfbdb99`）。**補足**: `check-sns-urls` は本番 fetch ではなく **ローカル `src/config/doc-meta-index.json` を参照**（`scripts/check-sns-urls.mjs` L36）。公開＋refresh-indexes 済みなら 11本が index に載るため、**deploy 前でも結線 commit は通る**（handoff の「deploy 後のみ」は draft 時点の前提で、公開後は失効）。
+4. **deploy**: develop→main は `/deploy` でユーザー判断（11本＋guide結線が同時に本番反映）。
+5. **Phase 0.5 法規深掘り（任意）・Phase 3 既存深掘り（schedule-charts/network-schedule/control-chart/quality-inspection）**: トラッカー上は未着手（⬜）だが handoff 本文は「完了」と記載＝**記録の食い違い**。着手前に実体（各 MDX に該当 SVG/節が有るか）を確認する。
 
 ---
 
