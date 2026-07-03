@@ -3,7 +3,6 @@ name: create-skill
 description: >
   新しいスキルの作成ガイドを提供する。Use when user asks to [スキルを作りたい, 新しいスキル, /create-skill].
 ---
-```
 
 ### frontmatter の使い分け
 

@@ -17,10 +17,10 @@ title: スキル ガバナンス記録
 
 ```
 .claude/skills/
-├── authoring/       # 12 — 記事を作る
+├── authoring/       # 11 — 記事を作る
 ├── conversion/      # 5 — 形式変換（MDX / OGP 画像 / 紙用 PDF）＋ OGP 意匠の素案試作
 ├── quality/         # 14 — MDX・note 公開前品質検査
-├── management/      # 13 — 計画・分析・戦略
+├── management/      # 14 — 計画・分析・戦略
 ├── dev/             # 13 — 開発・CI/CD
 ├── analytics/       # 2 — サイト分析
 ├── social/          # 22 — SNS 投稿
@@ -28,7 +28,11 @@ title: スキル ガバナンス記録
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **81 スキル**（9 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+合計 **83 スキル**（9 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+
+> 2026-07-04 退役（棚卸し）: `authoring/exam-guide`（＋`authoring/templates/exam-guide/` 全5テンプレ＝`_schema.md`/`_new-exam-template.md`/`civil-construction-1.md`/`civil-construction-2.md`/`pe.md` と親 `templates/README.md`）を退役。合計 `84→83`・`authoring/ 12→11`。退役理由＝(1) テンプレが旧 Docusaurus アーキ（`:::note[]` admonition・`content/general/…` source_paths・`docs/exam/…` 旧 URL・`sidebar_slug`/`sidebar_label`）のまま死んでいた、(2) 実運用の新規ガイド生成は `group: guide` の品質サイクル（`guide-qa`／`guide-rewriter`／`guide-fact-checker`）主導のオリジナル散文フローに移行済み（2026-07-03 civil1 textbook→guide 13章展開は `/exam-guide` を経由していない＝commit `279760cb5` 等）。以後の新規ガイドは同サイクルへ一本化。退役の詳細行は「退役ログ」節も参照。
+
+> 2026-07-03 件数是正（棚卸し）: `management/ #13→#14`・合計 `81→84` に是正（実数 `find .claude/skills -name SKILL.md` = 84 と突合）。ドリフト根因＝`check-doc-coupling` は SKILL.md 追加/削除時に registry を **staged にしたか** は強制するが **中の件数が正しいか** は検証しないため、追加時にファイルは触られても件数が更新されず放置されていた。`skills-guide.md` は用途別クロス掲載のため行数＝件数ではない（総数は記載しない方針）。
 
 > 2026-07-01 新設（content-line 配線ドリフト ガード）: `scripts/check-magazine-wiring.mjs`（pre-commit・機械）＝keiken マガジンを答案マーカーで内容判定し `keiken-charcount.mjs` の探索フィルタでカバーされない dir を落とす。あわせて `keiken-charcount.mjs` を pre-commit ゲート化（`--staged --strict`・従来は建設部門 BK 限定 `check-note-charlimits` のみで**土木 keiken は字数ゲート無防備**だった）＋探索フィルタに「想定工事バンク」を追加。`civil-keiken-essay-writer` に4種目（想定工事バンク・工事軸）追記＋`agents-registry` 同期、`sales-recorder` に `civil-2-koji-bank` マッピング追加、`note-magazines.ts` に新マガジン配線チェックリストを明文化。SSOT は `docs/reference/information-architecture.md`「SSOT と参照規律」ドリフトガード表（配線行）。背景: 2026-07-01 想定工事バンク36本が dir 名に「経験記述」を含まず一括字数チェックを全スキップしていた修正漏れの再発防止（[[feedback_new_magazine_wiring_gate]]）。スキル/エージェント件数は不変（ゲート追加のみ）。
 > 2026-06-19 新設（GSC 継続管理の統合再設計）: `management/gsc-review`（月次 GSC **index coverage** レビューのオーケストレータ・user-invocable）。あわせて **新エージェント `gsc-index-auditor`（Evaluator・sonnet・audit-only）** ＝URL Inspection から coverage_state 7バケット分類・`indexed_ratio`・履歴差分・原因バケット（権威性/技術/hygiene）を診断（performance を見る `metrics-analyzer` と直交）。取得は CI `index-coverage.yml`（月次 cron・全 sitemap URL を URL Inspection→`url-inspection/*.json`＋`index-coverage-history.json` を develop commit）、履歴追記は `scripts/append-coverage-history.mjs`（冪等・creds 不要）、母集合生成は `scripts/list-sitemap-urls.mjs`（公開 sitemap・creds 不要）。**SSOT は `docs/reference/gsc-management.md`**（分業表・閾値〔indexed_ratio 警戒<60%・目標≥80%〕・判断マトリクス・観測/判断ログ。memory `reference_gsc_diagnosis_toolkit` を移植）。**休止中 `seo-auditor` を退役**（責務を coverage/performance/CWV に分割・参照15箇所を再配線）。背景: 2026-06-19 のトラフィック減調査で「サイト約半分が未 index（原因はドメイン権威性）」が真因と判明したが継続追跡の担当が無かった。スキル件数 80→81・management 12→13、agent 件数は不変（+gsc-index-auditor / −seo-auditor）。
@@ -75,7 +79,6 @@ title: スキル ガバナンス記録
 
 | テンプレート管理ディレクトリ | 用途 | 対応試験 |
 |---|---|---|
-| `authoring/templates/exam-guide/` | 試験ガイド生成 | civil-construction-1 / pe |
 | `conversion/pdf-to-mdx/templates/` | PDF→MDX 試験別ルール | general / cem / civil-construction-1 |
 | `conversion/exam-questions-import/templates/` | 過去問取込 | civil-primary / civil-secondary / pe-primary / pe-first-stage |
 | `quality/quality-cycle/templates/` | 品質サイクル プロファイル | cem / civil-textbook |
@@ -102,7 +105,8 @@ title: スキル ガバナンス記録
 
 | 退役日 | スキル | カテゴリ | 代替 |
 |---|---|---|---|
-| 2026-04-15 | `/pe-exam-guide` | content | `/exam-guide --exam pe` |
+| 2026-07-04 | `/exam-guide`（＋`templates/exam-guide/` 全5テンプレ＋`templates/README.md`） | authoring | `group: guide` 品質サイクル（`guide-rewriter` 生成 → `guide-qa` 評価 → `guide-fact-checker` 事実照合）。テンプレは旧 Docusaurus アーキで死亡・実運用は既にオリジナル散文フローへ移行済み |
+| 2026-04-15 | `/pe-exam-guide` | content | `/exam-guide --exam pe`（**その `/exam-guide` も 2026-07-04 退役**） |
 | 2026-04-23 | `/allow-tool` | dev | ユーザー直接指示 |
 | 2026-04-23 | `/reset-git-history` | dev | ランブック移譲 |
 | 2026-04-23 | `/find-x-accounts` | marketing | Playwright MCP 直接指示 |

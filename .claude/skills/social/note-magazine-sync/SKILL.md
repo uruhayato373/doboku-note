@@ -72,7 +72,7 @@ git diff --cached --name-only   # staged 確認（note-magazines.ts のみのは
 git add src/lib/note-magazines.ts
 git commit -m "fix(note): SoT 配線・価格を note 現実に同期
 
-Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>"
+Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
 ```
 
 ---

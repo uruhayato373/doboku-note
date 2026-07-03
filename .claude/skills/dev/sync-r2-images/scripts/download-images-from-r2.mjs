@@ -5,8 +5,8 @@
  * Usage:
  *   node .claude/skills/dev/sync-r2-images/scripts/download-images-from-r2.mjs              # 全 MDX をスキャン・ダウンロード
  *   node .claude/skills/dev/sync-r2-images/scripts/download-images-from-r2.mjs --dry-run    # プレビューのみ
- *   node .claude/skills/dev/sync-r2-images/scripts/download-images-from-r2.mjs --prefix general/construction-management
- *   node .claude/skills/dev/sync-r2-images/scripts/download-images-from-r2.mjs --prefix general/construction-management --dry-run
+ *   node .claude/skills/dev/sync-r2-images/scripts/download-images-from-r2.mjs --prefix civil-construction-1/guide-earthwork
+ *   node .claude/skills/dev/sync-r2-images/scripts/download-images-from-r2.mjs --prefix civil-construction-1/guide-earthwork --dry-run
  */
 import fs from 'fs';
 import path from 'path';
@@ -21,7 +21,7 @@ const prefixIndex = args.indexOf('--prefix');
 const prefixFilter = prefixIndex !== -1 ? args[prefixIndex + 1] : null;
 
 const R2_PUBLIC_URL = 'https://storage.doboku-note.com';
-const contentDir = path.join(root, 'content');
+const postsDir = path.join(root, '.local/r2/posts');
 
 let downloaded = 0;
 let skipped = 0;
@@ -31,7 +31,7 @@ let failed = 0;
  * Find all MDX files and extract referenced images
  */
 function findReferencedImages() {
-  const imageRefs = new Map(); // key: /content/path, value: absolute local path
+  const imageRefs = new Map(); // key: /posts/path, value: absolute local path
 
   function scanDir(dir) {
     if (!fs.existsSync(dir)) return;
@@ -46,11 +46,11 @@ function findReferencedImages() {
       } else if (entry.name.endsWith('.mdx') || entry.name.endsWith('.md')) {
         const content = fs.readFileSync(full, 'utf-8');
 
-        // Match: <img src="/content/{path}/{file}" /> or <img src="/content/{path}/{file}">
-        const imgPattern = /<img\s+src="(\/content\/[^"]+)"/g;
+        // Match: <img src="/posts/{path}" /> or <ArticleImage src="/posts/{path}" />
+        const imgPattern = /<(?:img|ArticleImage)\s+[^>]*?src="(\/posts\/[^"]+)"/g;
         let match;
         while ((match = imgPattern.exec(content)) !== null) {
-          const imgPath = match[1]; // e.g., /content/general/construction-management/img/0208.jpg
+          const imgPath = match[1]; // e.g., /posts/civil-construction-1/guide-earthwork/img/0208.jpg
 
           // Filter by prefix if specified
           if (prefixFilter && !imgPath.includes(`/${prefixFilter}/`)) {
@@ -58,14 +58,14 @@ function findReferencedImages() {
           }
 
           // Convert to local path
-          const localPath = path.join(contentDir, imgPath.substring('/content/'.length));
+          const localPath = path.join(postsDir, imgPath.substring('/posts/'.length));
           imageRefs.set(imgPath, localPath);
         }
       }
     }
   }
 
-  scanDir(contentDir);
+  scanDir(postsDir);
   return imageRefs;
 }
 
@@ -74,9 +74,9 @@ function findReferencedImages() {
  */
 function downloadImagesFromR2() {
   try {
-    console.log(`[download-images] Scanning MDX files in content/`);
+    console.log(`[download-images] Scanning MDX files in .local/r2/posts/`);
     if (prefixFilter) {
-      console.log(`[download-images] Filter: content/${prefixFilter}/*`);
+      console.log(`[download-images] Filter: .local/r2/posts/${prefixFilter}/*`);
     }
 
     const imageRefs = findReferencedImages();

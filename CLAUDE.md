@@ -14,7 +14,7 @@
 | 言語 | JavaScript (ESM), MDX |
 | 数式 | KaTeX (remark-math + rehype-katex) |
 | 図表 | SVG / PNG（R2 配信） |
-| 検索 | MiniSearch (クライアントサイド全文検索) |
+| 検索 | Pagefind (ビルド時 `out/pagefind` 生成・クライアントサイド全文検索) |
 | 分析 | Google Analytics (gtag: G-8VXJ1RL1HG) |
 | 広告 | Google AdSense (ca-pub-7995274743017484) |
 | 画像配信 | Cloudflare R2 (`storage.doboku-note.com`) |

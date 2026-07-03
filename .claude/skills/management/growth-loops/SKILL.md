@@ -19,14 +19,14 @@ doboku-note の持続的成長ループ（フライホイール）を設計・�
 
 ## プロジェクトコンテキスト
 
-doboku-note は土木工学ドキュメントサイト（Docusaurus + Cloudflare Pages）。以下の特性を前提に分析すること:
+doboku-note は土木工学ドキュメントサイト（Next.js 16 + next-mdx-remote + Cloudflare Pages）。以下の特性を前提に分析すること:
 
 - **プロダクト**: 土木工学・施工管理・河川・道路・法律の技術ノートを無料提供
 - **コンテンツ**: MDX ベースの技術解説ページ（100+ ページ）
 - **現在の成長チャネル**: SEO（検索流入が主）
-- **収益モデル**: Google AdSense + Amazon/通信講座アフィリエイト + note.com有料記事販売
+- **収益モデル**: Google AdSense + note.com有料記事販売 + 転職アフィリ + PWA 過去問アプリ（教材/講座アフィリは 2026-06-25 廃止＝[[affiliate-career-only]]）
 - **ユーザー**: 土木系技術者、資格試験受験者、学生
-- **技術基盤**: Docusaurus + Cloudflare Pages
+- **技術基盤**: Next.js 16 + next-mdx-remote + Cloudflare Pages
 
 ## 手順
 

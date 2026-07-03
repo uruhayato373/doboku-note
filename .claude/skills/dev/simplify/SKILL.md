@@ -138,7 +138,7 @@ scripts/backfill-category.mjs
 ### 例 2: 依頼以外の整形変更が混入
 
 ```
-src/components/ui/Callout.tsx
+src/components/ui/Callout/Callout.tsx
   [MEDIUM] L1-5: import 順のみの変更（依頼範囲外）
     → 削除して diff を最小に
 ```

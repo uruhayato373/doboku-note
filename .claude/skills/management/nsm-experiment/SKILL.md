@@ -27,7 +27,7 @@ Check      : measure で前後比較
 Act        : close で learnings 記録 → roadmap にフィードバック
 ```
 
-詳細は `.claude/skills/management/nsm-experiment/references/definition.md` と `docs/pdfs/guide.pdf`（Chapter 3）を参照。
+詳細は `.claude/skills/management/nsm-experiment/references/definition.md` と `.claude/pdfs/guide.pdf`（Chapter 3）を参照。
 
 ## 引数
 
@@ -64,7 +64,7 @@ abandoned  abandoned  running (re-measure)
 
 **目的**: 新セッション or 作業再開時に、中断中の実験と残作業を即座に把握する。
 
-1. `.claude/scripts/lib/experiments-state.mjs` の `listByStatus('running')` と `listByStatus('measuring')` を呼び、active な実験を全件取得
+1. `.claude/state/experiments.json` を読み、`experiments[]` から `status` が `running` と `measuring` の実験を全件抽出（兄弟スキル weekly-review/weekly-plan/weekly-improve と同じく JSON 直読み。ヘルパーモジュールは介さない）
 2. 各 experiment について以下をチェック:
    - `pending_user_actions` フィールドが存在して配列が空でないか
    - `next_check_date` が今日以前か（期限超過）or 3 日以内（近接）or 未来
@@ -193,14 +193,14 @@ abandoned  abandoned  running (re-measure)
 
 - **NSM 定義の変更**: `/north-star-metric` スキル（既存、未実装）の担当
 - **コンテンツそのものの編集**: `/keyword-page`, `/check-mdx --rules frontmatter` など専任スキルの担当
-- **週次レポート生成**: `/weekly-review` の担当（本スキルは experiments-state を提供するのみ）
+- **週次レポート生成**: `/weekly-review` の担当（本スキルは `experiments.json` の読み書きを担う）
 - **月次集計**: 別スキル（Phase 2 以降）
 
 ## 連携スキル・コンポーネント
 
 | 連携先 | 役割 |
 |---|---|
-| **`.claude/scripts/lib/experiments-state.mjs`** | state I/O 本体 |
+| **`.claude/state/experiments.json`** | 実験 state 本体（JSON 直読み書き。専用ヘルパーモジュールは無い） |
 | **`.claude/scripts/lib/metrics-reader.mjs`** | baseline と current の計測 |
 | **`.claude/scripts/snapshot-weekly-metrics.mjs`** | 週次スナップショット（propose 時の背景データ）|
 | **`.claude/skills/management/weekly-plan/SKILL.md`** | Phase 1 Agent C で実験提案を自動化 |
@@ -237,7 +237,7 @@ abandoned  abandoned  running (re-measure)
 
 - `.claude/pdfs/guide.pdf` Chapter 3 (Testing and iteration) ── Pattern 3 Iterative refinement の出典
 - `.claude/skills/management/nsm-experiment/references/definition.md` ── NSM 定義と目標値
-- `.claude/scripts/lib/experiments-state.mjs` ── state 実装
+- `.claude/state/experiments.json` ── 実験 state 本体（JSON 直読み書き）
 - `.claude/scripts/lib/metrics-reader.mjs` ── 計測実装
 - `references/playbook.md` ── 実験パターンカタログ
 - `references/rubric.md` ── 優先順位評価軸

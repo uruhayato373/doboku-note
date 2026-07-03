@@ -22,7 +22,6 @@ title: スキル ナビゲーションガイド
 | `/promote-to-site` | Obsidian MD → doboku-note MDX 変換・配置 | `Obsidian記事を公開`, `MDX変換`, `.md→.mdx`, `promote` |
 | `/notebooklm-research` | NotebookLM で総監キーワードを深掘り調査 | `NotebookLM調査`, `引用付き根拠強化`, `/notebooklm-research` |
 | `/visual-research` | NotebookLM×参照URL → SVG 概念図生成 | `概念図をSVGで`, `URL直接渡す図版`, `/visual-research` |
-| `/exam-guide` | 試験対策ガイド生成（テンプレート駆動） | `試験ガイドを作りたい`, `/exam-guide` |
 | `/civil-keiken-magazine` | 1級・2級土木 施工経験記述 note有料マガジンのフル模範答案を生成・採点（Generator→Evaluator、過去問年度別/テーマ別/予想の3種） | `施工経験記述マガジン`, `模範答案を作成`, `予想問題集を作る`, `/civil-keiken-magazine` |
 | `/pe-secondary-yosou` | 技術士建設部門2次 選択科目の R8予想を1科目分まるごと公開可能品質まで仕上げる統括（生成→**外部事実照合**→6軸採点→梱包→SoT→commit）。**予想はテーマ別の独立記事（テーマ網羅型・1記事1ディレクトリ）**で作る（年度ミラー/区分1ファイルでなく）。記事内は h2 ブロック構成（予想問題→なぜ出るか→論述の骨子→フル模範解答→採点ポイント）。過去問は区分1ファイル据え置き。**クラウド実行前提**（factcheck は WebSearch 必須） | `建設部門の予想問題を仕上げて`, `BK-0Xの予想`, `{科目}の予想問題集`, `/pe-secondary-yosou` |
 | `pe-secondary-exam-writer` エージェント | 技術士建設部門 2次試験 note有料マガジン用 模範解答を生成（全11専門分野・科目種別I/II-1/II-2/III。元公務員発注者視点注入、合格3科目=合格者訴求・残8科目=発注者監修訴求。過去問＋forecast予想モード） | `建設部門note模範解答`, `技術士2次マガジン`, `pe-secondary-exam-writer` |
@@ -64,9 +63,9 @@ title: スキル ナビゲーションガイド
 |---|---|---|
 | `/social-post` | note / X 投稿テキスト生成の統合スキル | `note投稿文`, `X投稿テキスト`, `/social-post --platform {note\|x}` |
 | `/note-hashtags` | note 公開用ハッシュタグ 99 個を生成（選択科目は `--article II1-1` 等でファイル別出力） | `ハッシュタグ生成`, `/note-hashtags {slug} [--article {suffix}]` |
-| `/ig-post-create` | Instagram カルーセル PNG 生成（過去問パック・KW 解説の単発） | `Instagram投稿作成`, `IG スライド`, `/ig-post-create --slug {kw}` |
-| `/ig-figure-pack` | キーワードの site figure SVG を 4 枚カルーセルパック（表紙/図解/テキスト/CTA）に変換。resvg-js で 1080×1350 PNG 生成 + caption.txt。slide-data.json 不要の軽量ワンオフ用途。 | `IG figure 投稿`, `キーワード図解カルーセル`, `/ig-figure-pack {keyword}` |
-| `/ig-carousel-restyle` | tokens.json 更新後に過去問パック PNG を 3 フォーマット（Carousel/Reels/Stories）統一再生成 | `IGデザイン再適用`, `カルーセル再生成`, `/ig-carousel-restyle --year r07` |
+| `/ig-post-create` | Instagram カルーセル PNG の**新規生成**（過去問パック・KW 解説の単発）。※既存パック再生成は restyle、figure 変換は figure-pack | `Instagram投稿作成`, `IG スライド`, `/ig-post-create --slug {kw}` |
+| `/ig-figure-pack` | キーワードの **site figure SVG を** 4 枚カルーセルパック（表紙/図解/テキスト/CTA）に変換。resvg-js で 1080×1350 PNG 生成 + caption.txt。slide-data.json 不要の軽量ワンオフ用途（過去問パックは対象外） | `IG figure 投稿`, `キーワード図解カルーセル`, `/ig-figure-pack {keyword}` |
+| `/ig-carousel-restyle` | tokens.json 更新後に**既存**過去問パック PNG を 3 フォーマット（Carousel/Reels/Stories）一括再生成（新規生成は post-create） | `IGデザイン再適用`, `カルーセル再生成`, `/ig-carousel-restyle --year r07` |
 | `/ig-reel-create` | 過去問パックのカルーセル PNG から 1080×1920 Reels mp4 を生成（VOICEVOX TTS + ffmpeg）。`--exam-dir` で多資格対応（技術士総監 / 1級土木 / 2級土木、2級は年度に z=前期 / k=後期 接尾辞） | `IG リール作成`, `動画化`, `/ig-reel-create --exam-dir 1級土木 --exam r07-pack-01 --skip-png` |
 | `/create-x-card` | tweets.md から X 投稿用サマリカード PNG 生成（多資格＝総監/1級/2級の試験別色・ヘッダに自動切替） | `Xカード作成`, `X投稿カード`, `/create-x-card` |
 | `/publish-x` | Playwright で X 投稿を自動化（即時・予約）。**🛑 当面停止中（2026-06-12 凍結・異議却下）**: アカウント解除＋手動低頻度で再凍結しないと確認できるまで使わない（投稿は人手）。再開後も §11 ガード必須（1 日 3〜5 本・時刻ジッタ・連投回避・自動エンゲージ禁止） | `X投稿`, `自動投稿`, `/publish-x` |
@@ -115,7 +114,7 @@ title: スキル ナビゲーションガイド
 
 | スキル | 一言説明 | 呼ぶとき |
 |---|---|---|
-| `/plan-weekly` | docs/todo/ を読んで今週の優先タスクを決め weekly.md を直接更新（Sonnet 1回・軽量） | `週次計画`, `今週何をすべきか`, `weekly.md更新`, `/plan-weekly` |
+| `/plan-weekly` | docs/todo/ を読んで今週の優先タスクを決め weekly.md を直接更新（Sonnet 1回・軽量。※戦略計画は /weekly-plan） | `今週のタスクを決めて`, `今週何をすべきか`, `weekly.md更新`, `/plan-weekly` |
 | `/weekly-improve` | 計測→改善候補抽出→実験登録の軽量オーケストレータ（performance 側） | `今週の改善`, `PDCA`, `/weekly-improve` |
 | `/gsc-review` | 月次 GSC index coverage レビュー（gsc-index-auditor 起動→判断ログ追記） | `GSC月次レビュー`, `インデックス率`, `index coverage`, `/gsc-review` |
 | `/weekly-review` | 週次レビューを生成 | `週次レビュー`, `今週の振り返り`, `/weekly-review` |

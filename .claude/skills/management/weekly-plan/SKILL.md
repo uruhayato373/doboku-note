@@ -1,7 +1,7 @@
 ---
 name: weekly-plan
 description: >
-  週次実行計画を並列サブエージェントで生成し、同週の `docs/project/pdca/YYYY-Www.md` に「来週の計画」セクションとして追記する。Use when user asks to [週次計画, 今週の計画を立てたい, /weekly-plan].
+  週次レビュー（/weekly-review）後に翌週の実行計画を並列サブエージェントで生成し、同週の `docs/reviews/weekly/YYYY-Www.md` に「来週の計画」セクションとして追記する（NSM/メトリクス連動・重め・weekly-review Phase 4 から自動起動）。docs/todo/weekly.md のタスク選定・優先度付けは /plan-weekly の担当で別物。Use when user asks to [戦略的週次計画, NSM込みの来週計画, weekly-review後の計画生成, /weekly-plan].
 ---
 
 プロジェクトの現状を調査し、戦略的な週次計画を生成する。
@@ -195,11 +195,11 @@ Phase 0 の snapshot 直後、`.claude/state/weekly-metrics/YYYY-Www.json` を�
 
 ### Phase 5: 出力（週次 PDCA md に追記）
 
-生成した markdown を、同週の `docs/project/pdca/YYYY-Www.md` に「---」区切りで追記する。
+生成した markdown を、同週の `docs/reviews/weekly/YYYY-Www.md` に「---」区切りで追記する。
 
 ```bash
-# /weekly-review が先に docs/project/pdca/YYYY-Www.md を作成している前提
-PDCA_FILE=docs/project/pdca/YYYY-Www.md
+# /weekly-review が先に docs/reviews/weekly/YYYY-Www.md を作成している前提
+PDCA_FILE=docs/reviews/weekly/YYYY-Www.md
 {
   echo ""
   echo "---"
@@ -207,7 +207,7 @@ PDCA_FILE=docs/project/pdca/YYYY-Www.md
 } >> "$PDCA_FILE"
 ```
 
-`docs/project/pdca/YYYY-Www.md` が存在しない場合は計画のみで新規作成してよい（この場合ファイル冒頭に `# 週次 PDCA YYYY-Www` の H1 を追加）。
+`docs/reviews/weekly/YYYY-Www.md` が存在しない場合は計画のみで新規作成してよい（この場合ファイル冒頭に `# 週次 PDCA YYYY-Www` の H1 を追加）。
 
 ## 出力フォーマット（週次 PDCA md の追記セクション）
 

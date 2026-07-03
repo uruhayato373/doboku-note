@@ -307,7 +307,7 @@ Critical が 0 件の場合: 監査完了
 
 ## 関連
 
-- Plan file: `C:\Users\m004195\.claude\plans\graceful-percolating-gray.md`（2026-04-13 の初回整備）
+- Plan file: `C:\Users\m004195\.claude\plans\graceful-percolating-gray.md`（2026-04-13 の初回整備・旧 Windows 環境の履歴。現存しない可能性あり）
 - Typography source: `src/styles/globals.css` L17-213
 - Layout source: `src/app/docs/[...slug]/page.tsx` L213-315
 - Breakpoint source: `tailwind.config.js` `extend.screens`

@@ -86,7 +86,7 @@ grep -rn "B-slug" src/ .local/r2/posts/ public/_redirects
 4. **以下は自動生成なので手を触れない**（Phase 5 で再生成）:
    - `src/config/past-exam-backlinks.json`
    - `src/config/exam-question-keywords.json`
-   - `public/search-index.json`
+   - 全文検索インデックスは build 時に pagefind が `out/pagefind/` へ生成（旧 `public/search-index.json` は廃止済み）
 
 ### フェーズ 1: 正規ページ (A) の統合リライト
 

@@ -25,15 +25,15 @@ MDX ファイルから参照画像を自動スキャンしてダウンロード�
 /sync-r2-images [--prefix {category}] [--dry-run]
 ```
 
-- `--prefix {category}`: 特定カテゴリの画像のみを同期（例: `general/construction-management`）
+- `--prefix {category}`: 特定カテゴリの画像のみを同期（例: `civil-construction-1/guide-earthwork`）
 - `--dry-run`: ダウンロード対象を確認のみ、実行しない
 
 ## 処理手順
 
 ### Phase 1: スキャン
 
-1. `content/**/*.mdx` を全スキャン
-2. `<img src="/content/{path}" />` パターンで参照画像を自動抽出
+1. `.local/r2/posts/**/*.mdx` を全スキャン
+2. `<img src="/posts/{path}" />`（または `<ArticleImage src="/posts/{path}" />`）パターンで参照画像を自動抽出
 3. --prefix が指定されている場合は、マッチするものだけに絞り込み
 4. ローカルに既に存在するファイルはスキップ対象に
 
@@ -46,15 +46,12 @@ MDX ファイルから参照画像を自動スキャンしてダウンロード�
 ### Phase 3: ダウンロード
 
 1. `node .claude/skills/dev/sync-r2-images/scripts/download-images-from-r2.mjs` を実行（--dry-run の場合は --dry-run を渡す）
-2. 各画像を `https://storage.doboku-note.com/content/{path}` からダウンロード
-3. `content/{category}/img/` に配置
+2. 各画像を `https://storage.doboku-note.com/posts/{path}` からダウンロード
+3. `.local/r2/posts/{category}/{slug}/img/` に配置
 
-### Phase 4: ローカル同期
+`.local/r2/posts` は git 追跡対象かつ `public/posts` からシンボリックリンクされているため、ダウンロード完了時点でローカル開発サーバーにそのまま反映される（別途コピー工程は不要）。
 
-1. `npm run sync-images` を実行
-2. `content/**/img/` → `.local/r2/content/` にコピー
-
-### Phase 5: 完了報告
+### Phase 4: 完了報告
 
 ```
 [sync-r2-images] ✅ 完了
@@ -64,7 +61,6 @@ MDX ファイルから参照画像を自動スキャンしてダウンロード�
 | ダウンロード | N件 |
 | スキップ | N件（既存） |
 | 失敗 | 0件 |
-| ローカル同期 | N件 |
 
 次のステップ:
 - npm run dev

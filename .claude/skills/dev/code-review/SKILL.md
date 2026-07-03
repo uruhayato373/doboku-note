@@ -38,7 +38,7 @@ VoltAgent code-reviewer + nextjs-developer をベースに、doboku-note固有�
 npx tsc --noEmit 2>&1 | head -100
 
 # ESLint
-npx next lint 2>&1 | head -100
+npm run lint 2>&1 | head -100
 ```
 
 ### Step 3: コードレビュー（6カテゴリ）
@@ -144,7 +144,7 @@ npx next lint 2>&1 | head -100
 ## doboku-note 固有の注意点
 
 - `images.unoptimized: true` は意図的（R2配信）。これを問題として報告しない
-- `content/` 配下のMDXファイルはこのスキルの対象外（`/check-mdx` を使う）
+- `.local/r2/posts/` 配下のMDXコンテンツはこのスキルの対象外（`/check-mdx` を使う）
 - Cloudflare Pagesデプロイのため、Node.js固有APIの使用は要注意
 - KaTeX はクライアントサイドレンダリング。SSR不可は既知
 - AdSense/Analytics のスクリプト挿入パターンは現行を尊重する
