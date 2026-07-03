@@ -83,6 +83,7 @@ kuro
 | `5管理クロス・トレードオフ` / `5管理クロストレードオフ` | `tradeoff-5kanri` |
 | `記述式 完全パック` / `完全パック` | `essay-complete-pack` |
 | `記述式 コアパック` / `コアパック` | `essay-core-pack` |
+| `2級土木 施工経験記述｜想定工事バンク`（セット・工種×5管理フル全体） | `civil-2-koji-bank` |
 | `技術士 建設部門 2次｜必須科目I` / `必須科目I 模範解答集` | `bk-i-required-essay-magazine` |
 | `建設部門2次｜道路 選択科目 模範解答集` | `bk-road-secondary-magazine` |
 | `建設部門2次｜土質基礎 選択科目 模範解答集` | `bk-geotechnical-secondary-magazine` |
@@ -109,6 +110,7 @@ productId は `article:<slug>` 形式。slug は商品名から推定:
 | `情報管理 × 他4管理｜トレードオフ` | `article:tradeoff-information-management` |
 | `2級土木 施工経験記述｜令和{N}年度` | `article:civil-2-pastexam-essay-r0{N}` |
 | `2級土木 施工経験記述｜品質管理 完成答案集` | `article:civil-2-essay-quality-complete` |
+| `2級土木 施工経験記述｜{工種} 5管理フルカバー完成答案`（想定工事バンク単品¥980） | `article:civil-2-koji-bank-{工種}` |
 | `技術士 建設部門｜道路 R8予想 選択科目II-1` | `article:bk-01-road-r8-yosou-ii1` |
 | `技術士 建設部門｜道路 R8予想 選択科目II-2` | `article:bk-01-road-r8-yosou-ii2-*` |
 | `技術士 建設部門｜道路 R8予想 選択科目III` | `article:bk-01-road-r8-yosou-iii-*` |

@@ -12,6 +12,7 @@
 
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, relative } from 'node:path';
+import { execFileSync } from 'node:child_process';
 
 const ROOT = process.cwd();
 const CONFIG_PATH = join(ROOT, '.claude/config/keiken-answer-sheet-limits.json');
@@ -19,6 +20,7 @@ const CONFIG_PATH = join(ROOT, '.claude/config/keiken-answer-sheet-limits.json')
 const args = process.argv.slice(2);
 const asJson = args.includes('--json');
 const strict = args.includes('--strict');
+const stagedMode = args.includes('--staged'); // pre-commit 用: git staged の keiken 記事だけ検査
 const inputs = args.filter((a) => !a.startsWith('--'));
 
 const config = JSON.parse(readFileSync(CONFIG_PATH, 'utf-8'));
@@ -65,12 +67,32 @@ function defaultTargets() {
     const abs = join(ROOT, base);
     if (existsSync(abs)) walk(abs, acc);
   }
-  // 「経験記述」を含むパスのみ（マガジン種別を限定）
-  return acc.filter((p) => p.includes('経験記述'));
+  // keiken マガジン種別に限定（完成答案集/過去問/予想＝「経験記述」・工事バンク＝「想定工事バンク」）。
+  // 新しい keiken マガジン名を足したらここに追加する。漏れは check-magazine-wiring.mjs が機械検知する。
+  return acc.filter((p) => p.includes('経験記述') || p.includes('想定工事バンク'));
+}
+
+// staged の keiken 記事だけを対象にする（pre-commit ゲート用）
+function isKeikenArticle(p) {
+  const s = p.replace(/\\/g, '/');
+  return /docs\/note\/1級・2級土木\/[12]級土木\/magazines\//.test(s)
+    && (s.includes('経験記述') || s.includes('想定工事バンク'))
+    && s.endsWith('article.md');
+}
+function stagedKeikenTargets() {
+  let out = '';
+  try { out = execFileSync('git', ['diff', '--cached', '--name-only', '--diff-filter=ACM'], { encoding: 'utf-8' }); }
+  catch { return []; }
+  return out.split('\n').map((x) => x.trim())
+    .filter((x) => x && isKeikenArticle(x) && existsSync(join(ROOT, x)))
+    .map((x) => join(ROOT, x));
 }
 
 let files = [];
-if (inputs.length === 0) {
+if (stagedMode) {
+  files = stagedKeikenTargets();
+  if (files.length === 0) process.exit(0); // staged に keiken 記事なし → ゲート通過
+} else if (inputs.length === 0) {
   files = defaultTargets();
 } else {
   for (const inp of inputs) {

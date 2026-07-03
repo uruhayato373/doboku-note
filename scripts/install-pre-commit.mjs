@@ -56,6 +56,18 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# 1級・2級土木 施工経験記述（完成答案集/過去問/予想/想定工事バンク）の解答欄字数超過検出（手書き不可答案の再発防止）
+node scripts/keiken-charcount.mjs --staged --strict
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
+# keiken マガジンが keiken-charcount の探索対象に配線されているか（字数ゲート素通りの再発防止・2026-07-01）
+node scripts/check-magazine-wiring.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
 # SNS 投稿（docs/sns/**）の /docs/ リンクが本番に実在するか検証（404 投稿の再発防止）
 node scripts/check-sns-urls.mjs --staged
 if [ $? -ne 0 ]; then

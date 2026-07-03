@@ -44,6 +44,15 @@ export interface NoteMagazine {
  * 命名規約 (id):
  * - tankan-reading-guide: 5管理 精読ガイド (既公開、価格非表示)
  * - essay-{persona}-magazine: 模範論文 ペルソナ別 5年分マガジン (公開準備中)
+ *
+ * 新マガジン追加時の配線チェックリスト（capability ドリフト再発防止・2026-07-01）:
+ *   本エントリ追加だけでは依存する実行系に配線されない。新マガジンを足したら:
+ *   1. カバー画像: scripts/generate-magazine-covers.mjs / generate-magazine-sidebar-banners.mjs に定義追加
+ *   2. 売上記録: .claude/agents/sales-recorder.md の productId マッピング表に追加
+ *   3. keiken 系（施工経験記述）なら: scripts/keiken-charcount.mjs の探索フィルタに dir 判別語を追加
+ *      （check-magazine-wiring.mjs が pre-commit で漏れを機械検知する）
+ *   4. Generator/Evaluator の対応型: .claude/agents/civil-keiken-essay-writer.md 等の型リスト＋agents-registry.md
+ *   5. 変更後は /doc-sync を1回回して prose 陳腐化を点検（CLAUDE.md §8）
  */
 const MAGAZINES_RAW = {
   'tankan-reading-guide': {
