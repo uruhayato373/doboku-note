@@ -1,7 +1,7 @@
 ---
 name: weekly-plan
 description: >
-  週次実行計画を並列サブエージェントで生成し、同週の `docs/reviews/weekly/YYYY-Www.md` に「来週の計画」セクションとして追記する。Use when user asks to [週次計画, 今週の計画を立てたい, /weekly-plan].
+  週次レビュー（/weekly-review）後に翌週の実行計画を並列サブエージェントで生成し、同週の `docs/reviews/weekly/YYYY-Www.md` に「来週の計画」セクションとして追記する（NSM/メトリクス連動・重め・weekly-review Phase 4 から自動起動）。docs/todo/weekly.md のタスク選定・優先度付けは /plan-weekly の担当で別物。Use when user asks to [戦略的週次計画, NSM込みの来週計画, weekly-review後の計画生成, /weekly-plan].
 ---
 
 プロジェクトの現状を調査し、戦略的な週次計画を生成する。

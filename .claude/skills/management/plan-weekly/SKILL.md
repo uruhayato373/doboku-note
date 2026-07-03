@@ -1,7 +1,7 @@
 ---
 name: plan-weekly
 description: >
-  docs/todo/ を読んで今週のタスクを優先順位付きで決定し、weekly.md を直接更新する。月曜の作業開始前に呼ぶ。Use when user asks to [週次計画, 今週何をすべきか, weekly.md を更新して, /plan-weekly].
+  docs/todo/{annual,monthly,weekly}.md と git log を読んで今週のタスクを優先順位付きで決定し、docs/todo/weekly.md を直接更新する（月曜の作業開始前・todo-planner を1回起動する軽量版）。NSM/メトリクス連動の戦略的計画・weekly-review 後の翌週計画は /weekly-plan の担当で別物。Use when user asks to [今週のタスクを決めて, 今週何をすべきか, weekly.md を更新して, /plan-weekly].
 ---
 
 `todo-planner` エージェントを起動して今週の計画を立て、`docs/todo/weekly.md` を更新する。

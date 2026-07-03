@@ -114,7 +114,7 @@ title: スキル ナビゲーションガイド
 
 | スキル | 一言説明 | 呼ぶとき |
 |---|---|---|
-| `/plan-weekly` | docs/todo/ を読んで今週の優先タスクを決め weekly.md を直接更新（Sonnet 1回・軽量） | `週次計画`, `今週何をすべきか`, `weekly.md更新`, `/plan-weekly` |
+| `/plan-weekly` | docs/todo/ を読んで今週の優先タスクを決め weekly.md を直接更新（Sonnet 1回・軽量。※戦略計画は /weekly-plan） | `今週のタスクを決めて`, `今週何をすべきか`, `weekly.md更新`, `/plan-weekly` |
 | `/weekly-improve` | 計測→改善候補抽出→実験登録の軽量オーケストレータ（performance 側） | `今週の改善`, `PDCA`, `/weekly-improve` |
 | `/gsc-review` | 月次 GSC index coverage レビュー（gsc-index-auditor 起動→判断ログ追記） | `GSC月次レビュー`, `インデックス率`, `index coverage`, `/gsc-review` |
 | `/weekly-review` | 週次レビューを生成 | `週次レビュー`, `今週の振り返り`, `/weekly-review` |
