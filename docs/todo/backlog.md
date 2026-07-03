@@ -89,9 +89,11 @@
 
 ### pe-construction 選択科目キーワード集の欠落科目を補完 🟢
 
-**残**: 選択科目の論点キーワード集（`*-ronbun-keyword`）が river-coast・road・urban-planning の3科目のみ。geotechnical・tunnel・railway 等が欠落。需要のある科目から新規作成する。
+**残**: 選択科目の論点キーワード集（`*-ronbun-keyword`）が river-coast・road・urban-planning の3科目のみ。geotechnical（土質基礎）・鋼構造コンクリート・港湾空港・電力土木・鉄道・トンネル・施工計画・建設環境 の8分野が欠落。需要のある科目から新規作成する。**新規作成したらハブ `pe-secondary-essay-guide` の「選択科目別 論点キーワード」節に追記するだけで回遊導線に自動で乗る**（縦の導線は整備済み・2026-07-03）。
 
 > 注（完了・2026-06-21）: 必須科目I の重複ペア5テーマは A統合でなく **B 差別化＋相互リンク**（seoTitle を「論述の型」/「キーワード集」に明確化・相互リンク挿入）で解消済（[[keep-differentiate-not-delete]] 準拠・GSC カニバリ無し確認）。上記「残」は選択科目の新規作成のみ。
+
+> 注（完了・2026-07-03）: 必須科目I 6テーマは書籍全文スプライス＋図28枚＋通し校正で拡充し、相互リンク網＋ハブ双方向を整備。選択科目3記事（road/river-coast/urban-planning）も縦の回遊導線（ハブ↔記事＋必須科目I橋渡し）を整備済み。詳細 → `docs/handoffs/2026-07-03-pe-construction-ronbun-keyword-expansion.md`。**低優先の残**: 3記事の within-specialty インラインリンク（本文精読を伴う別スコープ）。
 
 ---
 
