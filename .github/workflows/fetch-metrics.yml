@@ -114,6 +114,18 @@ jobs:
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
         run: npm run fetch-ga4-cta-clicks -- --by-device
 
+      # 週次 NSM スナップショット（.claude/state/weekly-metrics/YYYY-Www.json）。
+      # 2026-W18 でローカル手動実行が途絶したのを CI 供給へ移行（measurement-incidents.md
+      # 「計測は CI/CD 供給が正」2026-06-05）。metrics-reader が NSM+SNS流入(source別WoW)を
+      # ライブ取得して time-series を積む。weekly-review の SNS フェーズが最新スナップショットを読む。
+      - name: Snapshot weekly NSM + SNS metrics
+        continue-on-error: true
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+          PSI_API_KEY: ${{ secrets.PSI_API_KEY }}
+        run: node .claude/scripts/snapshot-weekly-metrics.mjs --force
+
       # 収益カバレッジ ダッシュボード生成: ページ別流入(ga4-page) × CTA クリック(ga4-cta-clicks) ×
       # 配置真実源を突合し monetization/coverage-*.{json,md} を生成（オフライン・上の fetch 結果を読む）。
       # 従来 npm script のみで CI 未配線＝coverage-latest.md が 2026-06-18 で停止していたのを週次自動化。
@@ -156,6 +168,9 @@ jobs:
         run: |
           mkdir -p /tmp/metrics-publish
           cp -r .claude/state/metrics/* /tmp/metrics-publish/ 2>/dev/null || true
+          # weekly-metrics は metrics/ の兄弟ディレクトリなので個別にコピーする
+          mkdir -p /tmp/weekly-metrics-publish
+          cp -r .claude/state/weekly-metrics/* /tmp/weekly-metrics-publish/ 2>/dev/null || true
           ls -la /tmp/metrics-publish
 
       - name: Publish to develop branch (.claude/state/metrics/{ga4,gsc}/)
@@ -167,13 +182,14 @@ jobs:
           git checkout develop
           git pull --rebase origin develop
 
-          mkdir -p .claude/state/metrics/ga4 .claude/state/metrics/gsc .claude/state/metrics/monetization .claude/state/metrics/crosswalk
+          mkdir -p .claude/state/metrics/ga4 .claude/state/metrics/gsc .claude/state/metrics/monetization .claude/state/metrics/crosswalk .claude/state/weekly-metrics
           cp -r /tmp/metrics-publish/ga4/* .claude/state/metrics/ga4/ 2>/dev/null || true
           cp -r /tmp/metrics-publish/gsc/* .claude/state/metrics/gsc/ 2>/dev/null || true
           cp -r /tmp/metrics-publish/monetization/* .claude/state/metrics/monetization/ 2>/dev/null || true
           cp -r /tmp/metrics-publish/crosswalk/* .claude/state/metrics/crosswalk/ 2>/dev/null || true
+          cp -r /tmp/weekly-metrics-publish/* .claude/state/weekly-metrics/ 2>/dev/null || true
 
-          git add .claude/state/metrics/ga4 .claude/state/metrics/gsc .claude/state/metrics/monetization .claude/state/metrics/crosswalk
+          git add .claude/state/metrics/ga4 .claude/state/metrics/gsc .claude/state/metrics/monetization .claude/state/metrics/crosswalk .claude/state/weekly-metrics
           if git diff --cached --quiet; then
             echo "No changes to publish"
             exit 0
