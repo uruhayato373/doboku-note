@@ -4,7 +4,7 @@ description: >
   Playwright（永続プロファイル）で Meta Business Suite を自動操作し、Instagram
   カルーセル（画像 2-10 枚）または **リール（reels/video.mp4）** を予約投稿する。
   docs/sns/instagram 配下の carousel/ または reels/ を読み取り 1 パックずつ投稿。
-  Graph API（scripts/publish-ig.mjs）と違い「予約投稿」に対応するのが本スキルの存在意義。
+  予約（--schedule）と即時（--now）の両方に対応し、IG 投稿の唯一の経路（旧 Graph API scripts/publish-ig.mjs は 2026-06-17 全廃）。
   Use when user says "IG予約投稿", "インスタ予約", "リール予約", "Business Suite 投稿".
   **初回 / セレクタ更新後は必ず --dry-run で事前検証すること**。
 disable-model-invocation: true
@@ -13,10 +13,10 @@ argument-hint: "post <pack> --schedule <YYYY-MM-DDTHH:MM> [--reel] [--dry-run] [
 
 Playwright で Business Suite（business.facebook.com）のコンポーザを自動操作し、Instagram カルーセルを予約投稿する。設計は [[publish-x]] に倣う（永続プロファイル・システム Chrome で bot 回避・偽成功を出さない fail-safe・dry-run 必須）。
 
-## ⚠️ 重要 1: これは Graph API ルートの代替ではなく「予約投稿」専用
+## ⚠️ 重要 1: IG 投稿の唯一の経路（予約 --schedule ／ 即時 --now）
 
-- 即時投稿だけなら **`scripts/publish-ig.mjs`（Graph API・公式ルート）** の方が安全・確実。
-- Business Suite を Playwright で叩くのは **予約投稿（Graph API 非対応）** とトークン管理不要が目的。
+- 旧 Graph API ルート **`scripts/publish-ig.mjs` は 2026-06-17 に全廃**。IG 投稿は本スキルに一本化された。
+- 予約投稿（Graph API 非対応だった）に加え、即時公開も `--now` で本スキルが担う（fail-safe が緩むため検証用・非推奨）。
 - **ToS リスク**: ブラウザ自動操作は Meta 利用規約上グレー〜違反。アカウント制限の可能性は自己責任。
 
 ## ⚠️ 重要 2: セレクタは 2026-06-09 に dry-run で実測確定済み（最終確定クリックのみ未実走）
