@@ -15,7 +15,7 @@ Evaluator（`x-post-qa`）が共通参照する。
 
 ## 2. 文字数ルール（短文デフォルト＋長文 opt-in）
 
-**既定は 280 weighted chars 以下の短文**。運用アカウント（@dobokunotecom）は **X Premium 加入済み**で技術上限は約 25,000 字まで拡張されているが、**タイムラインは長文でも「さらに表示」で折りたたまれ、リーチ・エンゲージメントは短文＋強いフックが有利**。よって **280 短文を全投稿のデフォルト**に保ち、長文は「詳しい解説／合格体験ストーリー／制度解説」に限って §2.1 の opt-in で使う。
+**既定は 280 weighted chars 以下の短文**。運用アカウントは **@doboku373**（旧 @dobokunotecom は 2026-06-12 凍結）。Premium 加入時は技術上限が約 25,000 字まで拡張されるが、**タイムラインは長文でも「さらに表示」で折りたたまれ、リーチ・エンゲージメントは短文＋強いフックが有利**。よって **280 短文を全投稿のデフォルト**に保ち、長文は「詳しい解説／合格体験ストーリー／制度解説」に限って §2.1 の opt-in で使う。
 
 > **旧記述の訂正（2026-07-02・X Premium 加入）**: 以前は「280 超は `publish-x` 予約時に X 側で reject される」としていたが、これは Premium 加入前の前提。**Premium では 280 超も投稿可能**（reject されない）。ただし上記リーチ理由から短文をデフォルトに保つ。長さは伸びの要因ではない——効くのはフックと文面のユニーク性（§11）。
 
@@ -119,7 +119,7 @@ docs/sns/x/
 ## 6. URL / UTM
 
 - 投稿内 URL は 1 本まで（23 weighted）。
-- UTM 統一フォーマットは `docs/project/03_SNS/02_チャネル動線設計.md` 準拠（`utm_source=x`）。
+- UTM 統一フォーマットは `docs/project/03_SNS/02_チャネル動線設計.md` §4 準拠（`utm_source=x` / `utm_medium=social`）。送客リンクへの付与は `node .claude/scripts/lib/utm-builder.mjs --url <URL> --channel x --format post --campaign <name>`（`utm-templates.json` 由来・冪等・既存 UTM は上書きしない）。
 - リンクは短縮 URL を使い、weighted 23 固定の利点を活かす。
 - **`/docs/{slug}` は本番フラット slug ＝「カテゴリ-ディレクトリ」を必ず使う**（最重要・404 防止）。ページの**ディレクトリ名だけ**で組むと 404 になる。
   - 誤: `/docs/primary-r03-kouki` → 正: `/docs/civil-construction-2-primary-r03-kouki`

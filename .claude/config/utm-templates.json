@@ -1,0 +1,16 @@
+{
+  "_source": "真実源=docs/project/03_SNS/02_チャネル動線設計.md §4。medium は GA4 標準チャネル分類に寄せる（social/video/referral）。配信形式(shorts/reel/carousel/post)は utm_content、送客対象や slug/pack は呼び出し側が utm_campaign で渡す。utm-builder.mjs が読む。",
+  "_decided": "2026-07-03 ユーザー確定: X/IG=social・YT=video・note→site=referral（既存ゲート check-note-site-utm と整合）",
+  "base": { "site": "https://doboku-note.com" },
+  "channels": {
+    "x.post": { "source": "x", "medium": "social", "content": "post" },
+    "x.pinned": { "source": "x", "medium": "social", "content": "pinned" },
+    "instagram.reel": { "source": "instagram", "medium": "social", "content": "reel" },
+    "instagram.carousel": { "source": "instagram", "medium": "social", "content": "carousel" },
+    "instagram.story": { "source": "instagram", "medium": "social", "content": "story" },
+    "instagram.bio": { "source": "instagram", "medium": "social", "content": "bio" },
+    "youtube.shorts": { "source": "youtube", "medium": "video", "content": "shorts" },
+    "youtube.longform": { "source": "youtube", "medium": "video", "content": "longform" },
+    "note.site": { "source": "note", "medium": "referral", "content": "" }
+  }
+}
