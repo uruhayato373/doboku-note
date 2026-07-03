@@ -143,6 +143,20 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 ---
 
+### 総監 essay の壊れアンカー 20 件を修正（試験後）🟢
+
+**発端**: 2026-07-02 link audit の HIGH 74 件を精査（2026-07-03）。うち BROKEN_SLUG 54 件は `check-links.mjs` のプレフィックス同期漏れによる偽陽性で、チェック側を是正済み（PR #342）。残る **BROKEN_ANCHOR 20 件が本物**。
+
+**問題（現物照合済み）**: 総監 essay 11 本（`pe-comprehensive-management/r0{3-7}-essay-{general-contractor,river-consultant}` 系）が `/docs/pe-comprehensive-management-management-tradeoffs#段階的実施` と `#合意形成情報開示` を参照するが、`management-tradeoffs` ページの見出しは「経済性×安全」等のペア構成で**当該アンカーは存在しない**（別ページ/旧構成向けの stale リンク）。もう 1 件は `disaster-weather-info` → `h30-primary#132`。
+
+**対応方針**: 正しい遷移先の特定が要るコンテンツ修正。①`段階的実施`/`合意形成情報開示` に対応する見出しが tradeoffs 内にリネームされているか、別ページ（例: 論文締めの定型 §残余リスク）に該当節があるかを確認 → 正しいアンカーへ張り替え、無ければアンカーを外して slug 直リンク化。②`h30-primary#132` は過去問アンカー ID 規則で再検証。修正後に `npm run check-links -- --scope all` で HIGH=0 を確認。
+
+**検証**: `.claude/state/link-audit/audit-2026-07-02T22-24-53-124Z.json`（findings 55-74）。**なぜ試験後か**: 試験ピーク週は低リスクのみ・公開済み essay の本文リンク書き換えは新規制作扱い。
+
+**実装ファイル**: 上記 essay 11 本の `article.mdx`（各 1-2 箇所）。真実源アンカー先: `.local/r2/posts/pe-comprehensive-management/management-tradeoffs/article.mdx`。
+
+---
+
 ## 2. UI / UX
 
 ### フロントエンド土台リファクタ（page/category の config駆動化）🔴 [Codex候補]
