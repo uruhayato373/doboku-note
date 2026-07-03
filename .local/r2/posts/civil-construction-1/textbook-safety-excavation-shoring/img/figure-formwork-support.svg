@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="型枠支保工の構造。型枠（せき板）を支柱（パイプサポート）が支え、水平つなぎと根がらみで補強する。支柱の高さ3.5m以上で設置届が必要">
+  <text x="200" y="24" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a3a5c">型枠支保工：支柱 ＋ 水平つなぎ／支柱3.5m以上で設置届（30日前）</text>
+
+  <!-- コンクリート／型枠（せき板） -->
+  <rect x="70" y="96" width="270" height="16" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="80" y="112" width="250" height="8" fill="#8a8a8a"/>
+
+  <!-- 支柱（パイプサポート） 3本 -->
+  <rect x="110" y="120" width="10" height="288" fill="#555"/>
+  <rect x="196" y="120" width="10" height="288" fill="#555"/>
+  <rect x="282" y="120" width="10" height="288" fill="#555"/>
+
+  <!-- 水平つなぎ 2段 -->
+  <rect x="110" y="196" width="182" height="7" fill="#2e6da4"/>
+  <rect x="110" y="300" width="182" height="7" fill="#2e6da4"/>
+
+  <!-- 根がらみ -->
+  <rect x="104" y="392" width="194" height="7" fill="#1a3a5c"/>
+
+  <!-- 地盤 -->
+  <line x1="60" y1="408" x2="350" y2="408" stroke="#8a8a8a" stroke-width="2"/>
+  <path d="M70 408 v8 M100 408 v8 M130 408 v8 M160 408 v8 M190 408 v8 M220 408 v8 M250 408 v8 M280 408 v8 M310 408 v8" stroke="#8a8a8a" stroke-width="1"/>
+
+  <!-- 高さ寸法 3.5m -->
+  <line x1="58" y1="120" x2="58" y2="404" stroke="#2e6da4" stroke-width="1"/>
+  <path d="M58 120 l-3 6 h6 z" fill="#2e6da4"/>
+  <path d="M58 404 l-3 -6 h6 z" fill="#2e6da4"/>
+  <text x="52" y="262" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222" transform="rotate(-90 52 262)">支柱 3.5m 以上 → 設置届</text>
+
+  <!-- ラベル -->
+  <line x1="330" y1="104" x2="360" y2="104" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="396" y="92" text-anchor="end" font-family="sans-serif" font-size="11" fill="#222">型枠（せき板）</text>
+
+  <line x1="292" y1="250" x2="360" y2="250" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="396" y="254" text-anchor="end" font-family="sans-serif" font-size="11" fill="#222">支柱（サポート）</text>
+
+  <line x1="292" y1="199" x2="360" y2="199" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="396" y="203" text-anchor="end" font-family="sans-serif" font-size="11" fill="#222">水平つなぎ</text>
+
+  <line x1="298" y1="395" x2="360" y2="395" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="396" y="399" text-anchor="end" font-family="sans-serif" font-size="11" fill="#222">根がらみ</text>
+
+  <!-- 補足 -->
+  <rect x="30" y="428" width="340" height="54" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="200" y="450" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">設置届＝支柱3.5m以上・30日前に監督署長へ（88条）</text>
+  <text x="200" y="470" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">作業主任者＝組立て・解体の作業で選任（安衛則246条）</text>
+</svg>

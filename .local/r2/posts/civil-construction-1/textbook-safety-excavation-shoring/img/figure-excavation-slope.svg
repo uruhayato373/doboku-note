@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="手掘りの掘削面の勾配基準。岩盤・堅い粘土は5m未満90度・5m以上75度以下、その他の地山は2m未満90度・2〜5m75度以下・5m以上60度以下、砂は35度以下または高さ5m未満">
+  <text x="200" y="24" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a3a5c">掘削面の勾配（手掘り）：地山の種類 × 高さ → 勾配</text>
+
+  <!-- 外枠 -->
+  <rect x="12" y="40" width="376" height="404" rx="6" fill="#ffffff" stroke="#d7d7d7" stroke-width="1.5"/>
+
+  <!-- ヘッダ -->
+  <rect x="12" y="40" width="376" height="34" rx="6" fill="#e8f0fe"/>
+  <text x="78" y="62" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c">地山の種類</text>
+  <text x="196" y="62" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c">掘削面の高さ</text>
+  <text x="320" y="62" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c">勾配</text>
+
+  <!-- 列区切り -->
+  <line x1="140" y1="40" x2="140" y2="444" stroke="#d7d7d7" stroke-width="1"/>
+  <line x1="252" y1="40" x2="252" y2="444" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- 行の帯 -->
+  <rect x="12" y="74" width="376" height="84" fill="#f5f5f5"/>
+  <rect x="12" y="158" width="376" height="126" fill="#ffffff"/>
+  <rect x="12" y="284" width="376" height="80" fill="#f5f5f5"/>
+  <rect x="12" y="364" width="376" height="80" fill="#ffffff"/>
+  <!-- 行区切り -->
+  <line x1="12" y1="116" x2="388" y2="116" stroke="#e8f0fe" stroke-width="1"/>
+  <line x1="12" y1="158" x2="388" y2="158" stroke="#d7d7d7" stroke-width="1.5"/>
+  <line x1="12" y1="200" x2="388" y2="200" stroke="#e8f0fe" stroke-width="1"/>
+  <line x1="12" y1="242" x2="388" y2="242" stroke="#e8f0fe" stroke-width="1"/>
+  <line x1="12" y1="284" x2="388" y2="284" stroke="#d7d7d7" stroke-width="1.5"/>
+  <line x1="12" y1="324" x2="388" y2="324" stroke="#d7d7d7" stroke-width="1.5"/>
+
+  <!-- 岩盤・堅い粘土 -->
+  <text x="76" y="112" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">岩盤・</text>
+  <text x="76" y="128" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">堅い粘土</text>
+  <text x="196" y="100" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">5m 未満</text>
+  <text x="320" y="100" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c">90 度</text>
+  <text x="196" y="142" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">5m 以上</text>
+  <text x="320" y="142" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c">75 度以下</text>
+
+  <!-- その他の地山 -->
+  <text x="76" y="216" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">その他の</text>
+  <text x="76" y="232" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">地山</text>
+  <text x="196" y="184" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">2m 未満</text>
+  <text x="320" y="184" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c">90 度</text>
+  <text x="196" y="226" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">2〜5m 未満</text>
+  <text x="320" y="226" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c">75 度以下</text>
+  <text x="196" y="268" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">5m 以上</text>
+  <text x="320" y="268" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c">60 度以下</text>
+
+  <!-- 砂 -->
+  <text x="76" y="308" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">砂</text>
+  <text x="196" y="308" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">高さ5m未満でも可</text>
+  <text x="320" y="308" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c">35 度以下</text>
+
+  <!-- 発破等 -->
+  <text x="76" y="348" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">発破等で</text>
+  <text x="76" y="362" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">崩れやすい</text>
+  <text x="196" y="348" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">高さ2m未満でも可</text>
+  <text x="320" y="348" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c">45 度以下</text>
+
+  <text x="200" y="386" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">地山が固いほど急勾配が可、高いほど緩勾配が必要</text>
+  <text x="200" y="410" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">根拠：労働安全衛生規則 第356条・第357条</text>
+  <text x="200" y="430" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">※ 掘削面の高さ2m以上 → 地山の掘削作業主任者を選任</text>
+</svg>
