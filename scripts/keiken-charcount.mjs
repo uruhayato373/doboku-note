@@ -3,10 +3,11 @@
 // 決定論的処理（CLAUDE.md 原則5）。判定は Evaluator(civil-keiken-essay-qa)、修正は Generator(civil-keiken-essay-writer)。
 //
 // 使い方:
-//   node scripts/keiken-charcount.mjs [path ...] [--json] [--strict]
-//     path 省略時: docs/note/1級・2級土木/{1級,2級}土木/magazines 配下の「経験記述」を含む article.md を全走査
+//   node scripts/keiken-charcount.mjs [path ...] [--json] [--strict] [--staged]
+//     path 省略時: docs/note/1級・2級土木/{1級,2級}土木/magazines 配下の「経験記述」or「想定工事バンク」を含む article.md を全走査
 //     --json   : 機械可読 JSON を出力（Evaluator 連携用）
 //     --strict : OVER が1件でもあれば exit 1（ゲート用途）
+//     --staged : git staged の keiken 記事だけ検査（pre-commit 用・関連なしは即 exit 0）
 //
 // しきい値の真実源: .claude/config/keiken-answer-sheet-limits.json（公式行数確定までは暫定）
 

@@ -11,12 +11,12 @@ user-invocable: true
 
 ## 用途
 
-施工経験記述 note マガジン（完成答案集 / 過去問模範答案集 / 予想問題集）のフル模範答案が、本番の**解答欄に収まる字数**かを機械チェックする。字数カウントは決定論的処理なのでスクリプトで実行し、超過の**判定**は Evaluator (`civil-keiken-essay-qa`)、**圧縮修正**は Generator (`civil-keiken-essay-writer`) が担う（Generator/Evaluator 分離）。
+施工経験記述 note マガジン（完成答案集 / 過去問模範答案集 / 予想問題集 / 想定工事バンク）のフル模範答案が、本番の**解答欄に収まる字数**かを機械チェックする。字数カウントは決定論的処理なのでスクリプトで実行し、超過の**判定**は Evaluator (`civil-keiken-essay-qa`)、**圧縮修正**は Generator (`civil-keiken-essay-writer`) が担う（Generator/Evaluator 分離）。
 
 ## 実行
 
 ```bash
-# 全マガジン一括（docs/note/1級・2級土木/{1級,2級}土木/magazines 配下の「経験記述」を含む article.md）
+# 全マガジン一括（docs/note/1級・2級土木/{1級,2級}土木/magazines 配下の「経験記述」or「想定工事バンク」を含む article.md）
 node scripts/keiken-charcount.mjs
 
 # 個別ファイル・ディレクトリ指定
@@ -27,7 +27,14 @@ node scripts/keiken-charcount.mjs --json
 
 # ゲート用途（OVER が1件でもあれば exit 1）
 node scripts/keiken-charcount.mjs --strict
+
+# pre-commit ゲート（staged の keiken 記事だけ検査・OVER で exit 1）。install-pre-commit.mjs で自動実行
+node scripts/keiken-charcount.mjs --staged --strict
 ```
+
+> **配線もれ防止**: keiken マガジンが本ツールの探索対象（上記フィルタ）から漏れると字数超過が素通りする。
+> `check-magazine-wiring.mjs`（pre-commit）が、答案マーカーを持つマガジンがフィルタでカバーされているか機械検証する。
+> 新 keiken マガジンを足したら本ツールのフィルタ＋`check-magazine-wiring` の COVERED を同期する。
 
 ## しきい値の真実源
 
