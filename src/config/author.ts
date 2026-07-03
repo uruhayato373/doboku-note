@@ -41,7 +41,7 @@ export const AUTHOR = {
     "建設法務",
   ],
   imageUrl: "/img/author-avatar.png",
-  twitterUrl: "https://x.com/dobokunotecom",
+  twitterUrl: "https://x.com/doboku373",
   // プロフィールカード用の一文（経歴・姿勢の本質のみ）。資格の列挙は qualifications に集約し
   // 肩書き/bio と重複させない。サイドバー・記事末尾の各プロフィールカードで使用。
   tagline:
