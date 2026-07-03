@@ -89,8 +89,16 @@ try {
   // ===== COMMIT: （未添付なら）ファイル添付 → 再公開 =====
   if (!already) {
     // 3. 本文末尾へ → 空段落 →「+」→ ファイル → native filechooser で PDF
+    //    ※ Control+End は Windows 専用ショートカットで Mac では効かず、caret が先頭のまま
+    //      PDF が本文先頭（＝無料プレビュー内）に挿入され有料PDFが無料流出する事故になる
+    //      （2026-07-04 実測・暗記ノート2本）。JS で contenteditable 末尾へ caret を確実に移動する。
     await page.click('[contenteditable=true]'); await sleep(500);
-    await page.keyboard.press('Control+End'); await sleep(500);
+    await page.evaluate(() => {
+      const ed = document.querySelector('[contenteditable=true]'); ed.focus();
+      const r = document.createRange(); r.selectNodeContents(ed); r.collapse(false); // false=末尾
+      const s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    });
+    await sleep(400);
     await page.keyboard.press('Enter'); await sleep(1200);
     const embedsBefore = await page.evaluate(() => document.querySelectorAll('[contenteditable=true] figure, [contenteditable=true] [embedded-service], [contenteditable=true] [data-name]').length);
     await page.locator('[aria-label="メニューを開く"]').last().click({ timeout: 8000 }); await sleep(1200);
