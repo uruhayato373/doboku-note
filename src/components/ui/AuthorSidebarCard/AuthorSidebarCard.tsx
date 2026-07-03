@@ -88,7 +88,7 @@ export default function AuthorSidebarCard() {
             rel="noopener noreferrer"
             className="hover:text-[var(--accent)] hover:underline"
           >
-            X @dobokunotecom
+            X @doboku373
           </a>
           <Link href="/about" className="hover:text-[var(--accent)] hover:underline">
             運営者について →
