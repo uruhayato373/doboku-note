@@ -68,6 +68,10 @@ for (const f of files) {
       if (inline) {
         if (!url.includes('utm_source=note')) {
           problems.push(`${f}:${i + 1} [utm-missing] ${url}`);
+        } else if (!url.includes('utm_medium=referral')) {
+          // referral は GA4 標準 medium（Referral チャネルへ正しく分類）。
+          // inline/banner 等の非標準値は Unassigned 化するため referral に統一する。
+          problems.push(`${f}:${i + 1} [utm-medium] ${url}（utm_medium=referral が必要）`);
         }
       } else {
         problems.push(`${f}:${i + 1} [bare-url] ${url}`);
@@ -79,7 +83,7 @@ for (const f of files) {
 if (problems.length) {
   console.error(`[check-note-site-utm] ✗ UTM 規約違反のサイト送客リンク ${problems.length} 件:`);
   for (const p of problems) console.error('  ' + p);
-  console.error('\n対処: サイト送客リンクは [テキスト](https://doboku-note.com/docs/{slug}?utm_source=note&utm_medium=inline&utm_campaign={記事slug}&utm_content={送客先}) のインライン形式にする。');
+  console.error('\n対処: サイト送客リンクは [テキスト](https://doboku-note.com/docs/{slug}?utm_source=note&utm_medium=referral&utm_campaign={記事slug}&utm_content={送客先}) のインライン形式にする。');
   console.error('生 URL 単独行は /note-publish がカード化し UTM が落ちる。真実源: docs/project/03_SNS/02_チャネル動線設計.md');
   console.error('（既存違反のバーンダウン中は SKIP_NOTE_UTM=1 で一時回避可）');
   process.exit(1);
