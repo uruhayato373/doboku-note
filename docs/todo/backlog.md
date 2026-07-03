@@ -54,15 +54,7 @@
 
 **ソース PDF**: `docs/textbook/１級土木施工管理技士/`（`テキスト（土木一般編）/第２章_建設機械.pdf`・`問題集/`等）。※ [[1級・2級土木施工管理技士 ソースPDF]] 参照。
 
-**対象A＝web検索写真の差し替え（優先・著作権対応）— 8ページ・約24枚**（2026-06-20 現物照合）:
-| ページ | web写真.jpg |
-|---|---|
-| `textbook-crane` | 7 |
-| `textbook-grader-compaction` | 5 |
-| `textbook-distance-angle` | 4 |
-| `textbook-transport-machinery` | 3 |
-| `textbook-scraper` | 2 |
-| `textbook-leveling` / `textbook-loader` / `textbook-tractor-bulldozer` | 各1 |
+**対象A＝写真の差し替え（8ページ・24枚）— 対応表完成（2026-07-03）**: 差し替え元PDF写真PNGとの対応は [civil-machinery-photo-manifest.md](civil-machinery-photo-manifest.md) が真実源（24枚中20枚はPDF写真PNG=02-/05-で賄い、4枚はAI生成）。**注**: 現行写真の大半は Wikimedia CC/PD で著作権上は合法のため、差し替えは著作権対応ではなく体裁統一。PDF写真は市販書由来のため**AI処理は強い変形（実質再生成）必須**、AI処理→差替→commitを一体で（生画像を先行公開しない）。
 
 **対象B＝既存B&W図のカラー化（任意・後回し）**: `fig-*.png` で PDF 由来の白黒図を持つページ（construction-machinery-01=13 / -02=7 / schedule-management=24 / surveying=11 / demolition=6 / construction-mgmt-overview=4 ほか、計 約65枚）。すでに PDF クロップ済なので著作権問題はなく、見栄え向上のカラー化のみ。
 
