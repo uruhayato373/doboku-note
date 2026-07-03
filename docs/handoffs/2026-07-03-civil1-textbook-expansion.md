@@ -3,6 +3,9 @@
 > [!important] 別PC/次セッションで続けるとき、まずこれを読む
 > このブランチ `recover/civil1-textbook-expansion` に**今回の全作業が入っている**（origin へ push 済）。`develop` は並行セッションの共有ブランチ reset で今回後半のコミットが一度外れたため、隔離 worktree で origin/develop 上へ復元した salvage コミット（`db667db47`）が本体。
 
+> [!done] 2026-07-04 更新：残タスク #1（11本の公開化）完了
+> 全11本を QA（`civil-construction-review`）→ 修正（`civil-textbook-rewriter`：全本に `## 参考資料` 新設・ExamPoint §5 末尾≤2 統合・§24 語尾変化・内容2件是正）→ `published: true`・OGP11枚・`refresh-indexes` → **develop `2141c2b22`** へ commit/push（feature ブランチ `civil1/textbook-publish-2026-07-04` も origin に保全）。lint HIGH=0。**production は未反映（`/deploy` でユーザー判断）**。次アクション＝残タスク #2 guide 結線（**deploy 後にのみ可能**）。進捗 SSOT は [civil1-textbook-expansion.md](../todo/civil1-textbook-expansion.md)。
+
 ## まず最初にやること（別PC）
 
 ```bash

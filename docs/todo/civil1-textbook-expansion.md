@@ -44,21 +44,24 @@
 - `{/* HANDOFF-VERIFY: <要追加照合の数値・条番号> */}` — 追加の原典照合が要る箇所
 - 一括検出コマンド： `grep -rn "HANDOFF-" .local/r2/posts docs`
 
+> [!done] 2026-07-04 更新：新規11ページを公開（develop `2141c2b22`）
+> 全11本を `civil-construction-review` でQA → `civil-textbook-rewriter` で修正（全本に `## 参考資料` 新設・ExamPoint を §5 末尾≤2 へ統合・§24 語尾変化・内容2件是正）→ `published: true` 反転 → OGP 11枚生成 → `refresh-indexes` → develop へ commit/push。lint HIGH=0（残 MEDIUM は 9-2 の cosmetic のみ）。**production 反映は未（`/deploy` でユーザー判断）**。残：guide 結線（deploy後）・機械8写真（Gemini）・Phase 0.5（任意）・Phase 3（既存深掘り 未着手）。
+
 ### 新規11ページ 進捗
 
 | slug | 状態 | commit | 自前SVG | 後工程 |
 |---|---|---|---|---|
-| textbook-safety-scaffolding | ✅本文+SVG(draft) | 0130e0385 | 3/3 | published化+OGP |
-| textbook-safety-excavation-shoring | ✅本文+SVG(draft) | 183077f9b | 3/3 | published化+OGP |
-| textbook-safety-management-system | ✅本文+SVG(draft) | 2deec2df2 | 2/2 | published化+OGP |
-| textbook-safety-machinery-crane | ✅本文+SVG(draft) | df5cc3ae1 | 2/2 | published化+OGP |
-| textbook-safety-industrial-safety-law | ✅本文+SVG(draft) | 20df609f4 | 2/2 | published化+OGP |
-| textbook-safety-risk-assessment | ✅本文+SVG(draft) | df5cc3ae1 | 3/3 | published化+OGP |
-| textbook-safety-work-environment | ✅本文+SVG(draft) | 20df609f4 | 2/2 | published化+OGP |
-| textbook-noise-vibration-regulation | ✅本文+SVG(draft) | 23939a5fa | 3/3 | published化+OGP |
-| textbook-water-air-soil-pollution | ✅本文+SVG(draft) | 54a681909 | 2/2 | published化+OGP |
-| textbook-construction-byproduct-recycle | ✅本文+SVG(draft) | 23939a5fa | 2/2 | published化+OGP |
-| textbook-waste-disposal-manifest | ✅本文+SVG(draft) | 23939a5fa | 3/3 | published化+OGP |
+| textbook-safety-scaffolding | ✅公開(published) | 0130e0385 | 3/3 | ✅公開済(07-04) |
+| textbook-safety-excavation-shoring | ✅公開(published) | 183077f9b | 3/3 | ✅公開済(07-04) |
+| textbook-safety-management-system | ✅公開(published) | 2deec2df2 | 2/2 | ✅公開済(07-04) |
+| textbook-safety-machinery-crane | ✅公開(published) | df5cc3ae1 | 2/2 | ✅公開済(07-04) |
+| textbook-safety-industrial-safety-law | ✅公開(published) | 20df609f4 | 2/2 | ✅公開済(07-04) |
+| textbook-safety-risk-assessment | ✅公開(published) | df5cc3ae1 | 3/3 | ✅公開済(07-04) |
+| textbook-safety-work-environment | ✅公開(published) | 20df609f4 | 2/2 | ✅公開済(07-04) |
+| textbook-noise-vibration-regulation | ✅公開(published) | 23939a5fa | 3/3 | ✅公開済(07-04) |
+| textbook-water-air-soil-pollution | ✅公開(published) | 54a681909 | 2/2 | ✅公開済(07-04) |
+| textbook-construction-byproduct-recycle | ✅公開(published) | 23939a5fa | 2/2 | ✅公開済(07-04) |
+| textbook-waste-disposal-manifest | ✅公開(published) | 23939a5fa | 3/3 | ✅公開済(07-04) |
 
 ### 既存深掘り・フェーズ0残 進捗
 
@@ -74,8 +77,9 @@
 ### 後工程To-Do（別環境・Opus不可）
 
 1. **機械8ページ 写真差替**（Gemini・別PC）: 対応表＝[civil-machinery-photo-manifest.md](civil-machinery-photo-manifest.md)。PDF写真PNGを形状リファレンスに**オリジナル生成（強い変形）→差替→commit**。現行 Wikimedia CC 写真は生成完了まで据え置き（画像欠けにしない）。**新規11ページには写真マーカーは無い（SVGのみ）**。
-2. **新規ページ published化時**: `npm run ogp` で OGP 生成 → `check-ogp-coverage` を通す（draft の間は不要）。
-3. **deploy**: develop→main は `/deploy` でユーザー判断。
+2. ~~**新規ページ published化時**: `npm run ogp` で OGP 生成 → `check-ogp-coverage` を通す~~ → ✅ 2026-07-04 完了（11本 published:true・OGP11枚・refresh-indexes・develop `2141c2b22`）。
+3. **guide 結線（deploy 後にのみ可能）**: `guide-safety-management`（安全7本を「テキスト参照」表へ）・`guide-environment-management`（環境4本の参照節を新設）。`check-sns-urls` が本番実在を検証するため **production 反映後**に結線 → 同一 commit で `npm run refresh-indexes`（双方向 backlink）。
+4. **deploy**: develop→main は `/deploy` でユーザー判断。
 
 ---
 
