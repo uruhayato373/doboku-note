@@ -37,6 +37,6 @@ description: >
 |---|---|---|
 | 目的 | `docs/todo/` の週次計画管理 | NSM・メトリクス連動の戦略的週次計画 |
 | 入力 | annual / monthly / weekly / git log | GSC・GA4・PSI メトリクス + PDCA doc |
-| 出力 | `docs/todo/weekly.md` 直接更新 | `docs/project/pdca/` に追記 |
+| 出力 | `docs/todo/weekly.md` 直接更新 | `docs/reviews/weekly/YYYY-Www.md` に追記 |
 | コスト | 軽量（Sonnet 1回） | 重め（複数サブエージェント並列） |
 | 使う場面 | 毎週月曜のタスク整理 | 戦略的な PDCA レビュー時 |

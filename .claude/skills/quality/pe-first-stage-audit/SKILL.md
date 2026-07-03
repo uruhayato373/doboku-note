@@ -55,7 +55,7 @@ description: >
 2. 各ページ PNG を **Read ツール（絶対パス）** で読み込み: `C:\Users\m004195\doboku-note\.tmp\pe-audit\{year}\{sub}\pNNN.png`
    - **`C:\tmp\pe-audit\...` は誤り**（過去の再監査ワークフローで複数エージェントがこの絶対 Windows パス誤りを起こした）
    - 相対パス `.tmp/pe-audit/...` はスクリプト内での生成用。Read ツールには常に絶対パスを渡す
-   - **実在確認**: `ls C:/Users/m004195/doboku-note/.tmp/pe-audit/{year}/{sub}/ | head -5` で PNG 存在を確認してから突合開始
+   - **実在確認**: `ls "$CLAUDE_PROJECT_DIR/.tmp/pe-audit/{year}/{sub}/" | head -5` で PNG 存在を確認してから突合開始（Mac/Windows 両対応・絶対 Windows パス直書きは L56 のとおり誤り）
    - 対応する MDX 設問と突合:
    - 問題番号（Ⅱ-1, Ⅰ-1-1, Ⅲ-1 等）の一致
    - 問題文の先頭30〜50文字の一致（OCR誤字・捏造検出）
