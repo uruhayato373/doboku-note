@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated_at": "2026-07-03T02:15:28.754Z",
+  "generated_at": "2026-07-03T22:13:37.165Z",
   "summary": {
-    "total_mdx_files": 1087,
-    "total_unique_tags": 171,
+    "total_mdx_files": 1096,
+    "total_unique_tags": 172,
     "allowlist_size": 149,
-    "known_count": 81,
+    "known_count": 82,
     "unknown_count": 90,
     "typo_candidates_count": 5
   },
@@ -1645,6 +1645,72 @@
       ]
     },
     {
+      "name": "textbook",
+      "count": 59,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-building-standards",
+        "civil-construction-1-textbook-construction-business",
+        "civil-construction-1-textbook-construction-byproduct-recycle",
+        "civil-construction-1-textbook-construction-mgmt-overview",
+        "civil-construction-1-textbook-construction-plan-overview",
+        "civil-construction-1-textbook-control-chart",
+        "civil-construction-1-textbook-crane",
+        "civil-construction-1-textbook-demolition",
+        "civil-construction-1-textbook-distance-angle",
+        "civil-construction-1-textbook-explosives-act",
+        "civil-construction-1-textbook-grader-compaction",
+        "civil-construction-1-textbook-histogram",
+        "civil-construction-1-textbook-labor-standards",
+        "civil-construction-1-textbook-law-compliance",
+        "civil-construction-1-textbook-leveling",
+        "civil-construction-1-textbook-loader",
+        "civil-construction-1-textbook-machinery-overview",
+        "civil-construction-1-textbook-machinery-structure",
+        "civil-construction-1-textbook-management-subplans",
+        "civil-construction-1-textbook-network-schedule",
+        "civil-construction-1-textbook-noise-vibration-regulation",
+        "civil-construction-1-textbook-port-regulations",
+        "civil-construction-1-textbook-quality-inspection",
+        "civil-construction-1-textbook-quality-overview",
+        "civil-construction-1-textbook-river-act",
+        "civil-construction-1-textbook-road-act",
+        "civil-construction-1-textbook-safety-excavation-shoring",
+        "civil-construction-1-textbook-safety-industrial-safety-law",
+        "civil-construction-1-textbook-safety-machinery-crane",
+        "civil-construction-1-textbook-safety-management-system",
+        "civil-construction-1-textbook-safety-risk-assessment",
+        "civil-construction-1-textbook-safety-scaffolding",
+        "civil-construction-1-textbook-safety-work-environment",
+        "civil-construction-1-textbook-schedule-charts",
+        "civil-construction-1-textbook-schedule-overview",
+        "civil-construction-1-textbook-scraper",
+        "civil-construction-1-textbook-shovel-excavator",
+        "civil-construction-1-textbook-site-investigation",
+        "civil-construction-1-textbook-standard-contract",
+        "civil-construction-1-textbook-surveying-basics",
+        "civil-construction-1-textbook-tractor-bulldozer",
+        "civil-construction-1-textbook-transport-machinery",
+        "civil-construction-1-textbook-waste-disposal-manifest",
+        "civil-construction-1-textbook-water-air-soil-pollution",
+        "civil-construction-1-textbook-work-scheduling",
+        "concrete-chief-engineer-textbook-construction",
+        "concrete-chief-engineer-textbook-durability",
+        "concrete-chief-engineer-textbook-materials",
+        "concrete-chief-engineer-textbook-mix-design",
+        "concrete-chief-engineer-textbook-production-qc",
+        "concrete-chief-engineer-textbook-products",
+        "concrete-chief-engineer-textbook-properties",
+        "concrete-chief-engineer-textbook-structural-design",
+        "concrete-diagnostician-textbook-assessment",
+        "concrete-diagnostician-textbook-deterioration",
+        "concrete-diagnostician-textbook-investigation",
+        "concrete-diagnostician-textbook-maintenance",
+        "concrete-diagnostician-textbook-repair",
+        "concrete-diagnostician-textbook-variation"
+      ]
+    },
+    {
       "name": "primary",
       "count": 52,
       "inAllowlist": true,
@@ -1701,63 +1767,6 @@
         "concrete-diagnostician-primary-exercise-06",
         "concrete-diagnostician-primary-exercise-07",
         "concrete-diagnostician-primary-exercise-08"
-      ]
-    },
-    {
-      "name": "textbook",
-      "count": 50,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-textbook-building-standards",
-        "civil-construction-1-textbook-construction-business",
-        "civil-construction-1-textbook-construction-mgmt-overview",
-        "civil-construction-1-textbook-construction-plan-overview",
-        "civil-construction-1-textbook-control-chart",
-        "civil-construction-1-textbook-crane",
-        "civil-construction-1-textbook-demolition",
-        "civil-construction-1-textbook-distance-angle",
-        "civil-construction-1-textbook-explosives-act",
-        "civil-construction-1-textbook-grader-compaction",
-        "civil-construction-1-textbook-histogram",
-        "civil-construction-1-textbook-labor-standards",
-        "civil-construction-1-textbook-law-compliance",
-        "civil-construction-1-textbook-leveling",
-        "civil-construction-1-textbook-loader",
-        "civil-construction-1-textbook-machinery-overview",
-        "civil-construction-1-textbook-machinery-structure",
-        "civil-construction-1-textbook-management-subplans",
-        "civil-construction-1-textbook-network-schedule",
-        "civil-construction-1-textbook-port-regulations",
-        "civil-construction-1-textbook-quality-inspection",
-        "civil-construction-1-textbook-quality-overview",
-        "civil-construction-1-textbook-river-act",
-        "civil-construction-1-textbook-road-act",
-        "civil-construction-1-textbook-safety-excavation-shoring",
-        "civil-construction-1-textbook-safety-scaffolding",
-        "civil-construction-1-textbook-schedule-charts",
-        "civil-construction-1-textbook-schedule-overview",
-        "civil-construction-1-textbook-scraper",
-        "civil-construction-1-textbook-shovel-excavator",
-        "civil-construction-1-textbook-site-investigation",
-        "civil-construction-1-textbook-standard-contract",
-        "civil-construction-1-textbook-surveying-basics",
-        "civil-construction-1-textbook-tractor-bulldozer",
-        "civil-construction-1-textbook-transport-machinery",
-        "civil-construction-1-textbook-work-scheduling",
-        "concrete-chief-engineer-textbook-construction",
-        "concrete-chief-engineer-textbook-durability",
-        "concrete-chief-engineer-textbook-materials",
-        "concrete-chief-engineer-textbook-mix-design",
-        "concrete-chief-engineer-textbook-production-qc",
-        "concrete-chief-engineer-textbook-products",
-        "concrete-chief-engineer-textbook-properties",
-        "concrete-chief-engineer-textbook-structural-design",
-        "concrete-diagnostician-textbook-assessment",
-        "concrete-diagnostician-textbook-deterioration",
-        "concrete-diagnostician-textbook-investigation",
-        "concrete-diagnostician-textbook-maintenance",
-        "concrete-diagnostician-textbook-repair",
-        "concrete-diagnostician-textbook-variation"
       ]
     },
     {
@@ -2620,6 +2629,20 @@
       ]
     },
     {
+      "name": "safety-management",
+      "count": 7,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-safety-excavation-shoring",
+        "civil-construction-1-textbook-safety-industrial-safety-law",
+        "civil-construction-1-textbook-safety-machinery-crane",
+        "civil-construction-1-textbook-safety-management-system",
+        "civil-construction-1-textbook-safety-risk-assessment",
+        "civil-construction-1-textbook-safety-scaffolding",
+        "civil-construction-1-textbook-safety-work-environment"
+      ]
+    },
+    {
       "name": "キーワード",
       "count": 7,
       "inAllowlist": true,
@@ -2807,6 +2830,17 @@
       ]
     },
     {
+      "name": "environmental-management",
+      "count": 4,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-construction-byproduct-recycle",
+        "civil-construction-1-textbook-noise-vibration-regulation",
+        "civil-construction-1-textbook-waste-disposal-manifest",
+        "civil-construction-1-textbook-water-air-soil-pollution"
+      ]
+    },
+    {
       "name": "experience-writing",
       "count": 4,
       "inAllowlist": true,
@@ -2978,15 +3012,6 @@
       "usedIn": [
         "reference-materials-floodgate",
         "reference-materials-inverted-siphon"
-      ]
-    },
-    {
-      "name": "safety-management",
-      "count": 2,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-textbook-safety-excavation-shoring",
-        "civil-construction-1-textbook-safety-scaffolding"
       ]
     },
     {
