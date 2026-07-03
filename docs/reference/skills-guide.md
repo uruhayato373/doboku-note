@@ -64,9 +64,9 @@ title: スキル ナビゲーションガイド
 |---|---|---|
 | `/social-post` | note / X 投稿テキスト生成の統合スキル | `note投稿文`, `X投稿テキスト`, `/social-post --platform {note\|x}` |
 | `/note-hashtags` | note 公開用ハッシュタグ 99 個を生成（選択科目は `--article II1-1` 等でファイル別出力） | `ハッシュタグ生成`, `/note-hashtags {slug} [--article {suffix}]` |
-| `/ig-post-create` | Instagram カルーセル PNG 生成（過去問パック・KW 解説の単発） | `Instagram投稿作成`, `IG スライド`, `/ig-post-create --slug {kw}` |
-| `/ig-figure-pack` | キーワードの site figure SVG を 4 枚カルーセルパック（表紙/図解/テキスト/CTA）に変換。resvg-js で 1080×1350 PNG 生成 + caption.txt。slide-data.json 不要の軽量ワンオフ用途。 | `IG figure 投稿`, `キーワード図解カルーセル`, `/ig-figure-pack {keyword}` |
-| `/ig-carousel-restyle` | tokens.json 更新後に過去問パック PNG を 3 フォーマット（Carousel/Reels/Stories）統一再生成 | `IGデザイン再適用`, `カルーセル再生成`, `/ig-carousel-restyle --year r07` |
+| `/ig-post-create` | Instagram カルーセル PNG の**新規生成**（過去問パック・KW 解説の単発）。※既存パック再生成は restyle、figure 変換は figure-pack | `Instagram投稿作成`, `IG スライド`, `/ig-post-create --slug {kw}` |
+| `/ig-figure-pack` | キーワードの **site figure SVG を** 4 枚カルーセルパック（表紙/図解/テキスト/CTA）に変換。resvg-js で 1080×1350 PNG 生成 + caption.txt。slide-data.json 不要の軽量ワンオフ用途（過去問パックは対象外） | `IG figure 投稿`, `キーワード図解カルーセル`, `/ig-figure-pack {keyword}` |
+| `/ig-carousel-restyle` | tokens.json 更新後に**既存**過去問パック PNG を 3 フォーマット（Carousel/Reels/Stories）一括再生成（新規生成は post-create） | `IGデザイン再適用`, `カルーセル再生成`, `/ig-carousel-restyle --year r07` |
 | `/ig-reel-create` | 過去問パックのカルーセル PNG から 1080×1920 Reels mp4 を生成（VOICEVOX TTS + ffmpeg）。`--exam-dir` で多資格対応（技術士総監 / 1級土木 / 2級土木、2級は年度に z=前期 / k=後期 接尾辞） | `IG リール作成`, `動画化`, `/ig-reel-create --exam-dir 1級土木 --exam r07-pack-01 --skip-png` |
 | `/create-x-card` | tweets.md から X 投稿用サマリカード PNG 生成（多資格＝総監/1級/2級の試験別色・ヘッダに自動切替） | `Xカード作成`, `X投稿カード`, `/create-x-card` |
 | `/publish-x` | Playwright で X 投稿を自動化（即時・予約）。**🛑 当面停止中（2026-06-12 凍結・異議却下）**: アカウント解除＋手動低頻度で再凍結しないと確認できるまで使わない（投稿は人手）。再開後も §11 ガード必須（1 日 3〜5 本・時刻ジッタ・連投回避・自動エンゲージ禁止） | `X投稿`, `自動投稿`, `/publish-x` |
