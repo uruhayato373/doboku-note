@@ -466,6 +466,18 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 ## 6. インフラ・セキュリティ
 
+### 計測基盤 強化ロードマップ（GA4/note ファネル/収益 attribution/bot 衛生）🟡
+
+**発端**: 2026-07-03 の計測基盤5面並行監査（現物 file:line 裏取り済）。土台は健全（dev 除外・BAILOUT 対策・Japan bot フィルタ・CTA クリック計測は稼働）だが、穴が4クラスタ＝①instrumentation ②収益 attribution ③分析 cadence 停止 ④UTM/bot 設定ドリフト。
+
+**Tier 1（すぐ・低コスト高効果）**: ①NoteLink クリック計測（`NoteLink.tsx:60-64` に data-cta 付与＝最大の穴）②MagazineCard の trackLabel 伝播 ③収益カバレッジ表を CI 配線（06-18 停止）④bot 比率監査を CI 配線（05-17 以降ゼロ）⑤metrics-analyzer/seo-meta の cadence 化（05-11/05-17 停止）⑥pages.dev の gtag ブロック ⑦UTM 規約ドリフト是正（doc=inline/実装=referral）。
+
+**Tier 2/3**: カスタムパラメータ・検索/scroll イベント・アフィリA/B の label 取得・複合 dimension＋GA4↔GSC 突合／AdSense RPM 取込・sales×流入 attribution・送客リダイレクタ・A8 EPC。
+
+**サーバ側（GA4 UI・ユーザー手作業）**: 内部トラフィック除外・参照除外・既知ボット除外 ON・カスタムディメンション登録・bing bot 疑い確定。
+
+**真実源（全 file:line・Tier 詳細）**: [measurement-infra-enhancement.md](measurement-infra-enhancement.md)
+
 ### セキュリティ定期チェック：API トークン更新サイクルと Claude プラグイン棚卸し 🟢
 
 **対象シークレット（GitHub Secrets）**:
