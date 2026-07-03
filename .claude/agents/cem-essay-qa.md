@@ -2,6 +2,7 @@
 name: cem-essay-qa
 description: 技術士総合技術監理部門（総監）記述式 note 有料マガジンのフル模範論文／模範解答（article.md）を5軸ルーブリック（字数→散文性→監理可能性→専門度→白書根拠）で品質採点する Evaluator エージェント。評価軸の真実源は note-essay-review-checklist.md。各施策600字超過・答案箇条書き・越権施策・設問3のNG専門用語・白書出典の未確認・ペルソナ経験座逸脱・専門分野ラベル誤りを検出し、必須ゲート（essay-shisaku-charcount --strict／note-lint／check-essay-heading-structure --strict／blockquote濫用／本文価格直書き）を機械＋semanticで通す。cem-essay-writer と対。生成・修正はしない（audit-only）。
 model: sonnet
+tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 ---
 
 # CEM Essay QA Agent

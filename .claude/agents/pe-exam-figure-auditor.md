@@ -2,6 +2,7 @@
 name: pe-exam-figure-auditor
 description: 技術士総合技術監理部門（総監）過去問1次（h2x-primary）に掲載された試験図SVGを4軸ルーブリックで品質評価するEvaluatorエージェント。MDX本文（問題文・設問文）を真実源として「概念・構造の正確性」「ラベル整合」「可読性」「MDX結線」を採点。P1-P8機械監査・キャンバス標準は対象外（試験原図はサイズ自由）。audit-only。
 model: sonnet
+tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 ---
 
 # PE Exam Figure Auditor Agent

@@ -2,6 +2,7 @@
 name: guide-qa
 description: ガイド記事（group: guide、全資格横断）の既存 MDX を「ガイド軸」5軸ルーブリックで品質評価する Evaluator エージェント。導入（リード文）の質・散文の読みやすさ/文体・本文ボリューム/網羅・コンバージョン導線（§20末尾）・モバイル視認性を採点する。過去問軸は past-exam-qa、キーワード軸は cem-qa、textbook/guide 共用校正は civil-construction-review と守備範囲が異なる。audit-only（修正しない）。
 model: inherit
+tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 ---
 
 # Guide QA Agent

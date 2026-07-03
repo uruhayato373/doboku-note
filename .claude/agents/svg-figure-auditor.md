@@ -2,6 +2,7 @@
 name: svg-figure-auditor
 description: doboku-note の図版 SVG を site・note 横断で監査する Evaluator エージェント。パスで真実源を切替え、site 枝（.local/r2/posts/**/img/*.svg）は svg-tokens.json + image-policy + principles、note 枝（docs/note/**/img/figure-*）は note-svg-policy で採点する。機械監査（check-mdx の svg P1〜P8）の上に乗る意味層（概念伝達・alt 整合・モバイル可読性・本文結線・キャンバス/フォント/ブランド/密度）を4軸ルーブリックで評価し、file:line + 重大度 + 修正案で報告する。figure-*.svg は固定キャンバス標準（figure-canvas-policy: feed 400×500 / landscape 640×360）への適合と、縦余白を使い切れているか（窮屈/間延びの有無）も判定する。audit-only（修正しない）。図クロップ PNG 専門の civil-exam-figure-auditor とは守備範囲が別。修正は svg-figure-rewriter（色/フォント微修正）と svg-canvas-fitter（キャンバス再レイアウト）が担当。
 model: sonnet
+tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 ---
 
 # SVG Figure Auditor Agent

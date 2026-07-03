@@ -2,6 +2,7 @@
 name: sns-archive-auditor
 description: docs/sns 配下の SNS バイナリ（reels の wav/mp4 等）を R2 へ退避する前に、各パックを「ローカル削除して安全か」で分類する Evaluator エージェント。SoT（slide-data.json / script.txt / caption.txt）が無傷で再生成可能か、投稿済み・制作中かを判定し、OFFLOAD / ARCHIVE_KEEP / KEEP_LOCAL / BLOCK の4区分＋根拠＋confidence＋親が実行すべき正確な `npm run upload-sns-r2` コマンドを返す。audit-only（アップロード・削除はしない）。データ消失を構造的に防ぐため「迷ったら KEEP/BLOCK」。Bash 不可で親が dry-run/R2 検証結果を渡す。
 model: sonnet
+tools: Read, Glob, Grep
 ---
 
 # SNS Archive Auditor Agent

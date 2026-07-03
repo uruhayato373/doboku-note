@@ -2,6 +2,7 @@
 name: content-qa
 description: PDF→MDX変換の品質評価を5軸ルーブリックで担当するEvaluatorエージェント（過去問・基準書中心）。
 model: sonnet
+tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 ---
 
 # Content QA Agent

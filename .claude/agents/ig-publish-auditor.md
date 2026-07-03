@@ -2,6 +2,7 @@
 name: ig-publish-auditor
 description: Instagram キーワード/過去問カルーセルパックを「予約投稿してよいか（公開可否ゲート）」で採点し、verify-ig-status の照合結果から重複投稿・疑わしいドリフトを「要人手判断」でフラグする Evaluator エージェント。reconcile JSON ＋ 各パックの caption.txt / 画像枚数 / status を親（ig-reconcile スキル）から受け取り、ready / blocked / flags を理由付きで返す。投稿・予約・SoT 編集はしない（audit-only）。投稿エンジンは publish-ig-bs、デザイン品質採点は ig-carousel-qa が担当で守備範囲が異なる。
 model: sonnet
+tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 ---
 
 # IG Publish Auditor Agent

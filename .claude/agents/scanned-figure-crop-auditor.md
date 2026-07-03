@@ -2,6 +2,7 @@
 name: scanned-figure-crop-auditor
 description: スキャン教材（docs/textbook 配下・内部リファレンス）の図クロップ PNG を、生成済み画像と出所ページ画像を見て4軸ルーブリックで採点し、bbox の相対調整値(adjust_bbox)を返す Evaluator エージェント。本文段落の写り込み・図の切れ・隣接図の誤掴みを検出し、タイトな再クロップへ反復させる。audit-only（再クロップ・埋め込みはしない）。civil-exam-figure-auditor の過去問版に対するスキャン教材版。
 model: sonnet
+tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 ---
 
 # Scanned Figure Crop Auditor Agent

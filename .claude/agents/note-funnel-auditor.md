@@ -2,6 +2,7 @@
 name: note-funnel-auditor
 description: note 導線（ファネル）の資格別 3 層モデル（L1 全資格サイトマップ / L2 資格別もくじ / L3 記事内 CTA）を意味的に監査する Evaluator エージェント。機械スクリプト（audit-note-funnel）では拾えない「もくじの構成・並び順」「CTA 文面と記事内容の関連性」「回遊の質」「資格セグメント違反」を採点する。audit-only（修正しない）。
 model: sonnet
+tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 ---
 
 # Note Funnel Auditor Agent

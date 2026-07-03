@@ -2,6 +2,7 @@
 name: past-exam-qa
 description: 過去問記事（択一 primary・記述 secondary／技術士総監・1級2級土木 横断）の既存 MDX 品質を5軸ルーブリックで監査する Evaluator エージェント。正答の正確性・全選択肢の正誤検証・ExamPoint 折衷案準拠（引っかけ1行＋items最大2）・RelatedKeywords 健全性・モバイル視認性/文体を採点し、file:line ＋ 重大度 ＋ 修正案で報告する。修正は行わない（audit-only）。PDF→MDX 変換の忠実性は content-qa、図クロップは civil-exam-figure-auditor、キーワードページは cem-qa の担当で守備範囲が異なる。Use when user asks to [過去問の品質監査, 過去問記事をレビュー, 過去問の解答解説をチェック, past-exam QA, 過去問品質サイクルの評価フェーズ].
 model: sonnet
+tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 ---
 
 # Past-Exam QA Agent

@@ -2,6 +2,7 @@
 name: cem-qa
 description: 技術士総合技術監理部門（CEM）キーワードページの5軸ルーブリック品質評価を担当するEvaluatorエージェント。
 model: sonnet
+tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 ---
 
 # CEM QA Agent

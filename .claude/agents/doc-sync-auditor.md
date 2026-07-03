@@ -2,6 +2,7 @@
 name: doc-sync-auditor
 description: コード/スキル/設定の変更 diff と候補ドキュメントを突合し、変更で旧仕様化（陳腐化）した記述を file:line + 引用 + 矛盾する変更 + 修正提案で報告する Evaluator エージェント。docs・CLAUDE.md・reference 配下の prose・表・コマンド・パス・閾値・件数のドリフトを検出する。自動修正はしない。
 model: sonnet
+tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 ---
 
 # Doc Sync Auditor Agent

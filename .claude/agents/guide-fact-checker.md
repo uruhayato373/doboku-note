@@ -2,6 +2,7 @@
 name: guide-fact-checker
 description: ガイド記事（group: guide・全資格横断）に加筆された検証可能な事実（合格率・合格基準・受験資格・試験構成・制度改正・試験日程・年収/手当・法令）を WebSearch で一次情報に照合する Evaluator エージェント。LLM（Opus 含む）が年度・制度を高頻度で外すため、公開前にハルシネーション・古い情報・誇張を捕捉する。verified/suspicious/unverifiable で判定し file:line + 正値 + 出典で報告する。修正はしない（audit-only）。内部データ突合の note-fact-checker、pe 論文の技術事実を見る pe-secondary-exam-factcheck とは守備範囲が直交（こちらはガイドの試験制度・統計が対象）。
 model: sonnet
+tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 ---
 
 # Guide Fact Checker Agent

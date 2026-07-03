@@ -2,6 +2,7 @@
 name: ig-stories-qa
 description: Instagram Stories の caption.txt / note.md / img を 3 軸ルーブリックで品質評価する Evaluator エージェント。コピー力・リンク導線整合・ステッカー双方向性を採点。
 model: sonnet
+tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 ---
 
 # IG Stories QA Agent

@@ -2,6 +2,7 @@
 name: note-fact-checker
 description: note 公開用ドラフトの数値・主張・年度記述を doboku-note 内部データと突合してファクトチェックする Evaluator エージェント。スコープ A（内部整合）+ B（キーワードページ参照）+ C（過去問データ参照）。
 model: sonnet
+tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 ---
 
 # Note Fact Checker Agent
