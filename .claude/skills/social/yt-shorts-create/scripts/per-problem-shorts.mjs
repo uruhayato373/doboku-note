@@ -37,6 +37,7 @@ import { synthesize } from '#lib/sns-common/tts-client.mjs';
 import { applyReadingDict } from '#lib/sns-common/reading-dict.mjs';
 import { renderSlide } from '#lib/sns-common/slide-render.mjs';
 import { SNS_CONFIG } from '#lib/sns-common/sns-config.mjs';
+import { buildUtmUrl } from '#lib/utm-builder.mjs';
 
 const { renderExamCoverIg } = await import(pathToFileURL(resolve('.claude/scripts/sns/templates/exam-cover-ig.mjs')).href);
 const { svgToPng } = await import(pathToFileURL(resolve('.claude/scripts/sns/lib/svg-to-png.mjs')).href);
@@ -115,17 +116,16 @@ function reelWav(reelsDir, slot, preferPadded) {
 function buildMeta({ year, packNum, q, title, durationSec, management, exam }) {
   const yt = SNS_CONFIG.youtube;
   const mgmtLabel = SNS_CONFIG.managementMap?.[management]?.label || management;
-  const utm = yt.utmParams.replace('campaign=shorts', `campaign=exam-pack-${year}-pack-${packNum}-q${q}`);
   const description = [
     `${title.replace(/\s*#Shorts\s*$/, '')} — ${SNS_CONFIG.profession}`,
     '',
     `${yearLabel(year)} 択一式 過去問から 1 問を解説する Shorts です。`,
     '',
     yt.descriptionHeaders.site,
-    `${SNS_CONFIG.domainUrl}/docs/pe-comprehensive-management-${year}-primary?${utm}`,
+    buildUtmUrl(`${SNS_CONFIG.domainUrl}/docs/pe-comprehensive-management-${year}-primary`, { channel: 'youtube', format: 'shorts', campaign: `exam-pack-${year}-pack-${packNum}-q${q}` }),
     '',
     yt.descriptionHeaders.note,
-    `${SNS_CONFIG.noteUrl}?${utm.replace(/campaign=[^&]+/, 'campaign=note')}`,
+    buildUtmUrl(SNS_CONFIG.noteUrl, { channel: 'youtube', format: 'shorts', campaign: 'note' }),
     '',
     yt.hashtags,
   ].join('\n');

@@ -57,8 +57,9 @@ npm run fetch-ga4-data -- --dimension date --days 28
 `metrics-analyzer` サブエージェントを起動:
 
 ```
-prompt: 最新の GSC/GA4 データから5パターン（High-Impr-Low-CTR, Rank-Stuck,
-Traffic-Drop, Hidden-Winner, Orphan-Query）で改善候補を抽出し、
+prompt: 最新の GSC/GA4 データから6パターン（High-Impr-Low-CTR, Rank-Stuck,
+Traffic-Drop, Hidden-Winner, Orphan-Query, SNS-Source-Shift〔SNS 流入の急変・
+要 ga4-sourceMedium-sns-*.json〕）で改善候補を抽出し、
 `.claude/state/improvements/{today}.md` に出力してください。
 ```
 

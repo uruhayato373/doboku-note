@@ -62,6 +62,7 @@ title: スキル ナビゲーションガイド
 | スキル | 一言説明 | 呼ぶとき |
 |---|---|---|
 | `/social-post` | note / X 投稿テキスト生成の統合スキル | `note投稿文`, `X投稿テキスト`, `/social-post --platform {note\|x}` |
+| `/pe-note-plan` | 技術士総監 記述式 note 有料記事・magazine の**編集ロードマップ**を提案する企画スキル（本文は書かない）。段階投下方針・magazine 在庫・価格・過去問カバレッジを突合し「次に何を・どの順で・いくらで出すか」を優先度付きで提示 | `noteの次の一手`, `magazine企画`, `記述式コンテンツの投下計画`, `/pe-note-plan [--horizon {next\|quarter}]` |
 | `/note-hashtags` | note 公開用ハッシュタグ 99 個を生成（選択科目は `--article II1-1` 等でファイル別出力） | `ハッシュタグ生成`, `/note-hashtags {slug} [--article {suffix}]` |
 | `/ig-post-create` | Instagram カルーセル PNG の**新規生成**（過去問パック・KW 解説の単発）。※既存パック再生成は restyle、figure 変換は figure-pack | `Instagram投稿作成`, `IG スライド`, `/ig-post-create --slug {kw}` |
 | `/ig-figure-pack` | キーワードの **site figure SVG を** 4 枚カルーセルパック（表紙/図解/テキスト/CTA）に変換。resvg-js で 1080×1350 PNG 生成 + caption.txt。slide-data.json 不要の軽量ワンオフ用途（過去問パックは対象外） | `IG figure 投稿`, `キーワード図解カルーセル`, `/ig-figure-pack {keyword}` |
@@ -165,6 +166,13 @@ title: スキル ナビゲーションガイド
 - `node .claude/scripts/lint-stories-titles.mjs` — title 字数 lint（auto-fit 4 段階判定）
 - エージェント: `ig-highlight-designer`（slide-data 執筆）→ `ig-highlight-qa`（4 軸採点）
 - 詳細: `docs/reference/ig-highlight-design-policy.md`
+
+**SNS 計測・公開状態照合**（「投稿 → 計測 → 改善」ループ。計測は CI 供給が正・ローカル creds 不要）:
+- SNS 流入 breakdown: `fetch-metrics.yml`（金 06:00 JST）が `npm run fetch-ga4-data -- --dimension sourceMedium --sns-only` を回し `ga4-sourceMedium-sns-*.json` を蓄積。週次スナップショット（`weekly-metrics/`）にも SNS 流入（source 別 WoW）が入る
+- 週次レビュー: `/weekly-review` の **Agent F**（SNS 流入・投稿実績）＋ `metrics-analyzer` の **Pattern 6 SNS-Source-Shift**（急落/新規成長 source を surface）
+- X UTM ゲート: `npm run check-x-utm`（pre-commit・X 送客リンクに `utm_source=x`/`utm_medium=social` 必須）
+- YT 公開照合: `npm run verify-yt-status`（`verify-yt-status.yml` 週次・削除/非公開/アップ穴を検知・read-only → `.claude/state/yt-verify/latest.json`）
+- IG 公開照合: `/ig-reconcile`（`verify-ig-status`）／型・雛形の索引: `docs/project/03_SNS/00_SNS整理マップ.md §型カタログ`
 
 ### PDF を MDX に変換したい
 

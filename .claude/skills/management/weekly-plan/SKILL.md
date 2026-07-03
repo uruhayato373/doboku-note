@@ -20,15 +20,17 @@ description: >
 
 ## 手順
 
-### Phase 0: 週次メトリクス スナップショット
+### Phase 0: 週次メトリクス スナップショット（CI 供給が既定）
+
+**スナップショットは `fetch-metrics.yml`（金 06:00 JST）が CI 上でライブ取得してコミットする**（2026-07-04〜。2026-W18 でローカル手動実行が途絶したのを CI 供給へ移行＝恒久ルールと整合）。`.claude/state/weekly-metrics/YYYY-Www.json` に NSM（GA4+GSC 前週比較）＋ **SNS 流入（source 別 WoW）** を保存し index.json に追記する。Phase 0 で人がやることは通常なし（最新スナップショットを読むだけ）。
+
+ローカルで手動生成したい場合のみ（creds のある Mac 等）:
 
 ```bash
-node .claude/scripts/snapshot-weekly-metrics.mjs
+node .claude/scripts/snapshot-weekly-metrics.mjs        # 現在の週（既存週は skip・--force で上書き）
 ```
 
-現在の週の NSM データ（GA4 + GSC の前週比較）を `.claude/state/weekly-metrics/YYYY-Www.json` に保存し、index.json に追記する。既に実行済みの週は skip（`--force` で上書き可）。
-
-この出力が Phase 1 Agent C のインプットになる。`snapshot-weekly-metrics.mjs` がライブ取得できない環境（会社 PC のプロキシ配下など）では skip し、Agent C は **CI がコミットした `.claude/state/metrics/{ga4,gsc}/` のスナップショットを直接読む**（既定経路）。
+会社 PC のプロキシ配下などライブ取得できない環境では実行しない。Agent C（および weekly-review の SNS フェーズ）は **CI がコミットした `.claude/state/{weekly-metrics,metrics/{ga4,gsc}}/` のスナップショットを直接読む**（既定経路）。
 
 > 計測は CI/CD 供給が正（`fetch-metrics.yml` 金 06:00 JST / `psi-audit.yml` 日次）。ローカル creds は設計上不要で「計測基盤未整備」とは扱わない。恒久ルール: `docs/reference/measurement-incidents.md`（2026-06-05）。
 

@@ -33,6 +33,7 @@ import { synthesize } from '#lib/sns-common/tts-client.mjs';
 import { applyReadingDict } from '#lib/sns-common/reading-dict.mjs';
 import { SNS_CONFIG } from '#lib/sns-common/sns-config.mjs';
 import { wrapTitle } from '#lib/sns-common/jp-text-wrap.mjs';
+import { buildUtmUrl } from '#lib/utm-builder.mjs';
 import { buildStoryboard, injectKeywordImage } from './lib/build-storyboard.mjs';
 import { buildScript } from './lib/build-script.mjs';
 import { buildSubtitle } from './lib/build-subtitle.mjs';
@@ -244,10 +245,10 @@ export function buildMeta({ storyboard, durations }) {
     storyboard.description,
     '',
     yt.descriptionHeaders.site,
-    `${SNS_CONFIG.domainUrl}/docs/${storyboard.category}-${storyboard.slug}?${yt.utmParams}`,
+    buildUtmUrl(`${SNS_CONFIG.domainUrl}/docs/${storyboard.category}-${storyboard.slug}`, { channel: 'youtube', format: 'shorts', campaign: 'shorts' }),
     '',
     yt.descriptionHeaders.note,
-    `${SNS_CONFIG.noteUrl}?${yt.utmParams.replace('campaign=shorts', 'campaign=note')}`,
+    buildUtmUrl(SNS_CONFIG.noteUrl, { channel: 'youtube', format: 'shorts', campaign: 'note' }),
     '',
     yt.hashtags,
   ].join('\n');
@@ -389,17 +390,16 @@ function buildMetaFromReels({ slideData, packId, year, packNumLabel, durationSec
   const management = SNS_CONFIG.managementMap?.[managementKey]?.label || managementKey;
   const titleBase = `${yearLabel} 択一式 過去問${management ? `（${management}）` : ''}`;
 
-  const utm = yt.utmParams.replace('campaign=shorts', `campaign=exam-pack-${packId}`);
   const description = [
     `${titleBase} — ${SNS_CONFIG.profession}`,
     '',
     'この動画は IG Reels で公開した過去問パックから 1 問抜粋した YouTube Shorts 派生版です。',
     '',
     yt.descriptionHeaders.site,
-    `${SNS_CONFIG.domainUrl}/docs/pe-comprehensive-management-${year}-primary?${utm}`,
+    buildUtmUrl(`${SNS_CONFIG.domainUrl}/docs/pe-comprehensive-management-${year}-primary`, { channel: 'youtube', format: 'shorts', campaign: `exam-pack-${packId}` }),
     '',
     yt.descriptionHeaders.note,
-    `${SNS_CONFIG.noteUrl}?${utm.replace(/campaign=[^&]+/, 'campaign=note')}`,
+    buildUtmUrl(SNS_CONFIG.noteUrl, { channel: 'youtube', format: 'shorts', campaign: 'note' }),
     '',
     yt.hashtags,
   ].join('\n');
