@@ -50,7 +50,7 @@
 |---|---|---|---|---|
 | textbook-safety-scaffolding | ✅本文+SVG(draft) | 0130e0385 | 3/3 | published化+OGP |
 | textbook-safety-excavation-shoring | ✅本文+SVG(draft) | 183077f9b | 3/3 | published化+OGP |
-| textbook-safety-management-system | ⬜ 未着手 | — | 0/2 | — |
+| textbook-safety-management-system | ✅本文+SVG(draft) | (pending) | 2/2 | published化+OGP |
 | textbook-safety-machinery-crane | ⬜ 未着手 | — | 0/2 | — |
 | textbook-safety-industrial-safety-law | ⬜ 未着手 | — | 0/2 | — |
 | textbook-safety-risk-assessment | ⬜ 未着手 | — | 0/3 | — |

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="下請混在現場の安全衛生管理組織。特定元方事業者の統括安全衛生責任者と元方安全衛生管理者、関係請負人の安全衛生責任者、中小規模現場の店社安全衛生管理者の関係図">
+  <text x="200" y="24" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a3a5c">混在現場の管理体制：統括50人（ずい道等30人）</text>
+
+  <!-- 特定元方事業者 -->
+  <rect x="110" y="40" width="180" height="42" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="200" y="60" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c">特定元方事業者</text>
+  <text x="200" y="76" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">（元請）</text>
+
+  <!-- 分岐バス -->
+  <line x1="200" y1="82" x2="200" y2="98" stroke="#8a8a8a" stroke-width="1.5"/>
+  <line x1="110" y1="98" x2="290" y2="98" stroke="#8a8a8a" stroke-width="1.5"/>
+  <line x1="110" y1="98" x2="110" y2="112" stroke="#8a8a8a" stroke-width="1.5"/>
+  <line x1="290" y1="98" x2="290" y2="112" stroke="#8a8a8a" stroke-width="1.5"/>
+
+  <!-- 統括安全衛生責任者 -->
+  <rect x="24" y="112" width="172" height="54" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="110" y="134" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c">統括安全衛生責任者</text>
+  <text x="110" y="152" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">50人以上・ずい道等30人</text>
+
+  <!-- 関係請負人（下請） -->
+  <rect x="204" y="112" width="172" height="54" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="290" y="134" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#222">関係請負人</text>
+  <text x="290" y="152" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">（下請）</text>
+
+  <!-- 統括 → 元方 -->
+  <line x1="110" y1="166" x2="110" y2="190" stroke="#8a8a8a" stroke-width="1.5"/>
+  <path d="M110 190 l-5 -7 h10 z" fill="#8a8a8a"/>
+  <rect x="30" y="190" width="160" height="52" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="110" y="212" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c">元方安全衛生管理者</text>
+  <text x="110" y="230" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">技術的事項を管理</text>
+
+  <!-- 下請 → 安全衛生責任者 -->
+  <line x1="290" y1="166" x2="290" y2="190" stroke="#8a8a8a" stroke-width="1.5"/>
+  <path d="M290 190 l-5 -7 h10 z" fill="#8a8a8a"/>
+  <rect x="210" y="190" width="160" height="52" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="290" y="212" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c">安全衛生責任者</text>
+  <text x="290" y="230" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">下請が選任（第16条）</text>
+
+  <!-- 連絡（点線） -->
+  <line x1="190" y1="216" x2="210" y2="216" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="200" y="258" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">元方 ↔ 安全衛生責任者 が連絡・調整</text>
+
+  <!-- 店社安全衛生管理者 -->
+  <rect x="60" y="286" width="280" height="66" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="200" y="310" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c">店社安全衛生管理者</text>
+  <text x="200" y="330" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">中小規模現場（20人以上）で選任</text>
+  <text x="200" y="346" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">第15条の3</text>
+
+  <!-- 注記 -->
+  <rect x="40" y="372" width="320" height="84" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="200" y="396" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">統括は元請＋下請の合計人数で判断</text>
+  <text x="200" y="416" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">ずい道等・圧気・橋梁は30人以上で統括</text>
+  <text x="200" y="436" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">統括・元方を選任した現場では店社は不要</text>
+</svg>
