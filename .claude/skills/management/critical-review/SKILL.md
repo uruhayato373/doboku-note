@@ -50,13 +50,13 @@ $ARGUMENTS — レビュー対象のファイルパス（例: `docs/project/03_S
    - 例: 「DB レコード数」→ better-sqlite3 で直接 COUNT する
    - ロードマップの進捗欄は古い可能性が高いため、ソースオブトゥルースとして扱わない
 4. 上記の構造・観点に従いレビューを作成
-5. `docs/03_レビュー/critical/{対象名}_批判的レビュー.md` に保存
+5. `docs/reviews/critical/{対象名}_批判的レビュー.md` に保存
 6. 保存先のパスを報告
 
 ## 出力先
 
-`docs/03_レビュー/critical/{対象名}_批判的レビュー.md`
+`docs/reviews/critical/{対象名}_批判的レビュー.md`
 
 ## 参照
 
-- `docs/03_レビュー/critical/` — 過去のレビュー（トーンやフォーマットの参考）
+- `docs/reviews/critical/` — 過去のレビュー（トーンやフォーマットの参考）
