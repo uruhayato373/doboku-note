@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="騒音・振動対策の3分類の位置関係。発生源（建設機械）での対策を基本に、伝搬経路（遮音壁・防振溝）での対策、受音点（住宅）での対策の順に、音源から住宅までの経路上に配置される">
+  <text x="200" y="24" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a3a5c">対策の位置：発生源（基本）→ 伝搬経路 → 受音点の3段構え</text>
+
+  <!-- 経路ライン -->
+  <line x1="40" y1="120" x2="360" y2="120" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- 段1 発生源 -->
+  <rect x="40" y="52" width="320" height="96" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="56" y="74" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a3a5c">1. 発生源対策（基本）</text>
+  <text x="56" y="96" font-family="sans-serif" font-size="11" fill="#222">低騒音・低振動の工法／機械を採用</text>
+  <text x="56" y="114" font-family="sans-serif" font-size="11" fill="#222">油圧式・タイヤ式の選択、点検・整備</text>
+  <text x="56" y="134" font-family="sans-serif" font-size="11" fill="#8a8a8a">建設機械そのものの音・振動を小さくする</text>
+
+  <line x1="200" y1="148" x2="200" y2="172" stroke="#8a8a8a" stroke-width="2"/>
+  <path d="M200 178 l-6 -8 h12 z" fill="#8a8a8a"/>
+
+  <!-- 段2 伝搬経路 -->
+  <rect x="40" y="178" width="320" height="96" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="56" y="200" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a3a5c">2. 伝搬経路対策</text>
+  <text x="56" y="222" font-family="sans-serif" font-size="11" fill="#222">距離をとる（距離2倍で約6dB減衰）</text>
+  <text x="56" y="240" font-family="sans-serif" font-size="11" fill="#222">遮音壁で遮る、防振溝で振動を絶つ</text>
+  <text x="56" y="260" font-family="sans-serif" font-size="11" fill="#8a8a8a">振動は有効策が少ない点に注意</text>
+
+  <line x1="200" y1="274" x2="200" y2="298" stroke="#8a8a8a" stroke-width="2"/>
+  <path d="M200 304 l-6 -8 h12 z" fill="#8a8a8a"/>
+
+  <!-- 段3 受音点 -->
+  <rect x="40" y="304" width="320" height="86" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="56" y="326" font-family="sans-serif" font-size="13" font-weight="bold" fill="#222">3. 受音点・受振点対策</text>
+  <text x="56" y="348" font-family="sans-serif" font-size="11" fill="#222">住宅側の防音・二重窓など</text>
+  <text x="56" y="368" font-family="sans-serif" font-size="11" fill="#8a8a8a">建設工事では一般的でない補助的手段</text>
+
+  <!-- 注記 -->
+  <rect x="40" y="410" width="320" height="70" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="200" y="434" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">対策の基本は発生源対策。経路・受音点は次善策</text>
+  <text x="200" y="454" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">音源に近いほど対策効果が大きい</text>
+  <text x="200" y="474" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">出典：建設工事に伴う騒音振動対策技術指針</text>
+</svg>

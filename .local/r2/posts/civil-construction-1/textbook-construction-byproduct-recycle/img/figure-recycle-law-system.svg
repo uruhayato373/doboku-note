@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="建設副産物に関する3法の役割分担。資源有効利用促進法が発生抑制と再生資源の利用計画、建設リサイクル法が分別解体と再資源化、廃棄物処理法が排出事業者責任とマニフェストによる適正処理を担う">
+  <text x="200" y="24" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a3a5c">建設副産物は3つの法律が段階ごとに役割分担する</text>
+
+  <!-- 上位の枠組み -->
+  <rect x="40" y="38" width="320" height="34" rx="6" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text x="200" y="59" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">循環型社会形成推進基本法・環境基本法（枠組み）</text>
+
+  <line x1="200" y1="72" x2="200" y2="86" stroke="#8a8a8a" stroke-width="1.5"/>
+
+  <!-- 資源有効利用促進法 -->
+  <rect x="30" y="88" width="340" height="112" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="200" y="108" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c">資源有効利用促進法（リサイクル法）</text>
+  <text x="200" y="127" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">生産・発生の段階</text>
+  <text x="200" y="148" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">指定副産物（土砂・コンクリート塊・</text>
+  <text x="200" y="164" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">アスコン塊・建設発生木材）</text>
+  <text x="200" y="184" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">再生資源利用（促進）計画の作成</text>
+
+  <line x1="200" y1="200" x2="200" y2="214" stroke="#8a8a8a" stroke-width="1.5"/>
+  <path d="M200 214 l-5 -7 h10 z" fill="#8a8a8a"/>
+
+  <!-- 建設リサイクル法 -->
+  <rect x="30" y="216" width="340" height="102" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="200" y="236" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c">建設リサイクル法</text>
+  <text x="200" y="255" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">分別解体・再資源化の段階</text>
+  <text x="200" y="276" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">特定建設資材の分別解体等・再資源化等</text>
+  <text x="200" y="296" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">届出・解体工事業の登録・技術管理者</text>
+  <text x="200" y="312" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">対象工事の規模基準あり</text>
+
+  <line x1="200" y1="318" x2="200" y2="332" stroke="#8a8a8a" stroke-width="1.5"/>
+  <path d="M200 332 l-5 -7 h10 z" fill="#8a8a8a"/>
+
+  <!-- 廃棄物処理法 -->
+  <rect x="30" y="334" width="340" height="100" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="200" y="354" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c">廃棄物処理法</text>
+  <text x="200" y="373" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">収集・運搬・処分の段階</text>
+  <text x="200" y="394" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">排出事業者責任（元請）・委託基準</text>
+  <text x="200" y="414" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">産業廃棄物管理票（マニフェスト）</text>
+  <text x="200" y="430" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">建設廃棄物は原則として産業廃棄物</text>
+
+  <!-- 注記 -->
+  <rect x="30" y="448" width="340" height="42" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="200" y="468" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">実務は建設副産物適正処理推進要綱（国交省）が横断</text>
+  <text x="200" y="483" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">リサイクル法と建設リサイクル法は別法（混同に注意）</text>
+</svg>
