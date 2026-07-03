@@ -175,6 +175,35 @@ B. 実験進捗レポート:
 セクションとして埋め込む。ギャップがあれば「## 課題・ブロッカー」にも 1 行で起票する。
 ```
 
+#### Agent F: SNS 流入・投稿実績
+
+```
+目的: SNS（X / Instagram / YouTube）から doboku-note への流入と公開状態を週次で
+可視化し、「投稿 → 計測 → 改善」ループの計測フェーズを閉じる。オフライン読みのみ
+（ライブ fetch なし・creds 不要）。IG/X の公開ドリフトは Agent B / Agent I が既に
+扱うため、ここでは重複させず「流入」と「YT 公開照合」に絞る。
+
+調査方法（コミット済みスナップショット読み・全て CI 供給）:
+- SNS 流入: `.claude/state/metrics/ga4/ga4-sourceMedium-sns-*.json` の最新 2 ファイルで
+  source（x/instagram/youtube/note）別 WoW を出す。1 ファイルしか無い初週は絶対値のみ
+  （delta は「前週データなし」と明記）。ファイル自体が無ければ「SNS 流入スナップショット
+  未生成（fetch-metrics 次回金曜で生成）」と 1 行。
+- 週次スナップショット: `.claude/state/weekly-metrics/` の最新 YYYY-Www.json の `sns` セクション
+  （source 別 WoW・合計）も併記できる（上と同じ CI 由来）。
+- YT 公開照合: `.claude/state/yt-verify/latest.json`（verify-yt-status.yml が週次で commit）の
+  counts を 1〜2 行で（recorded_but_gone / not_public_after_publishAt / pending_overdue が
+  いずれも 0 なら「YT 公開状態ドリフトなし」）。
+
+分析項目:
+- source 別の週次増減（急落 source・新規に伸びた source を 1 行ずつ）
+- SNS 合計流入の水準（organic との桁比較で「まだ小さいが単価/導線は効く」等の解釈は
+  revenue-diagnosis メモに委ね、ここでは数字と増減のみ）
+- YT 公開ドリフトの有無（★があれば「## 課題・ブロッカー」に 1 行起票）
+
+出力形式: 「## SNS 流入と投稿実績」セクションに source 別 WoW 表＋YT 照合サマリを埋め込む。
+異常（source 急落・YT ドリフト）は「## 来週への申し送り」にも 1 行で起票する。
+```
+
 #### Agent D: 計画との差分
 
 ```
@@ -395,6 +424,13 @@ B. 実験進捗レポート:
 <!-- Agent C3 が `npm run report-monetization-coverage` の出力（coverage-latest.md）を
      そのまま埋め込む。高流入 × 無導線のギャップ、上位ページの note/アフィリ カバレッジと
      CTR（クリック未蓄積時は n.d.）。ギャップは「## 課題・ブロッカー」にも 1 行起票。 -->
+
+## SNS 流入と投稿実績
+
+<!-- Agent F が `.claude/state/metrics/ga4/ga4-sourceMedium-sns-*.json`（最新2件）で source 別 WoW、
+     `.claude/state/weekly-metrics/` 最新の sns セクション、`.claude/state/yt-verify/latest.json` の
+     ドリフト counts を埋め込む。初週/未生成時はその旨を明記。source 急落・YT ドリフトは
+     「## 来週への申し送り」にも 1 行起票。IG/X の公開ドリフトは Agent B / Agent I 側で扱い重複させない。 -->
 
 ## 校正学習の蒸留
 

@@ -167,6 +167,13 @@ title: スキル ナビゲーションガイド
 - エージェント: `ig-highlight-designer`（slide-data 執筆）→ `ig-highlight-qa`（4 軸採点）
 - 詳細: `docs/reference/ig-highlight-design-policy.md`
 
+**SNS 計測・公開状態照合**（「投稿 → 計測 → 改善」ループ。計測は CI 供給が正・ローカル creds 不要）:
+- SNS 流入 breakdown: `fetch-metrics.yml`（金 06:00 JST）が `npm run fetch-ga4-data -- --dimension sourceMedium --sns-only` を回し `ga4-sourceMedium-sns-*.json` を蓄積。週次スナップショット（`weekly-metrics/`）にも SNS 流入（source 別 WoW）が入る
+- 週次レビュー: `/weekly-review` の **Agent F**（SNS 流入・投稿実績）＋ `metrics-analyzer` の **Pattern 6 SNS-Source-Shift**（急落/新規成長 source を surface）
+- X UTM ゲート: `npm run check-x-utm`（pre-commit・X 送客リンクに `utm_source=x`/`utm_medium=social` 必須）
+- YT 公開照合: `npm run verify-yt-status`（`verify-yt-status.yml` 週次・削除/非公開/アップ穴を検知・read-only → `.claude/state/yt-verify/latest.json`）
+- IG 公開照合: `/ig-reconcile`（`verify-ig-status`）／型・雛形の索引: `docs/project/03_SNS/00_SNS整理マップ.md §型カタログ`
+
 ### PDF を MDX に変換したい
 
 1. `/pdf-to-mdx --exam {cem|civil-construction-1|general}` — テキスト・図版含む変換
