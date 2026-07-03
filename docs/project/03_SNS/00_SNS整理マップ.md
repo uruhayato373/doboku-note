@@ -62,4 +62,37 @@
 ## 5. 関連台帳・config
 
 - エージェント詳細＝`docs/reference/agents-registry.md`／スキル早引き＝`docs/reference/skills-guide.md`／退役ログ＝`docs/reference/skills-registry.md`
-- config＝`.claude/config/{note-funnel.json, ig-account.json, character-poses.json, figure-canvas.json}`
+- config＝`.claude/config/{note-funnel.json, ig-account.json, character-poses.json, figure-canvas.json, utm-templates.json}`
+
+## 6. 投稿型・雛形カタログ（量産の索引）
+
+「どのチャネルに・どの投稿型を・どの雛形(schema)から・どのスキルで量産し・誰が採点し・どの policy に従うか」の一枚索引。**新しい型・雛形はここでは発明しない**（既存の型は揃っており、欠けていたのは索引）。詳細仕様は各 policy が真実源。
+
+### チャネル × 投稿型 × 雛形 × 発動
+
+| チャネル | 主な投稿型 | 雛形(schema) | 発動 | Generator → Evaluator | policy(真実源) |
+|---|---|---|---|---|---|
+| IG カルーセル | 過去問クイズ／キーワード図解／自己紹介 | `slide-data.json`(v2) | `/ig-post-create`・再生成`/ig-carousel-restyle`・figure変換`/ig-figure-pack` | `ig-carousel-writer` → `ig-carousel-qa` | `ig-carousel-policy.md`／`ig-carousel-skill.md` |
+| IG Reels | 過去問1問1リール／論点解説／逆転体験談 | `reels/script.json`(+`caption.txt`) | `/ig-reel-create`（1問=`per-problem-shorts.mjs --ig-mode`） | `ig-reels-writer` → `ig-reels-qa` | `ig-reels-policy.md` |
+| IG ストーリーズ | 4枚連投・投票/質問ステッカー・リンク導線 | `stories/caption.txt`＋`stories/note.md` | `node .claude/scripts/instagram/build-stories.mjs` ＋ エージェント（**専用スキルなし＝node＋agent 運用**） | `ig-stories-writer` → `ig-stories-qa` | `ig-stories-policy.md` |
+| IG ハイライト | 6種（intro/カルーセル目次/Reelsまとめ/FAQ/お知らせ/教材） | `highlights/NN_*/slide-data.json` | `node .claude/scripts/instagram/build-highlight-materials.mjs`（**専用スキルなし＝node＋agent 運用**） | `ig-highlight-designer` → `ig-highlight-qa` | `ig-highlight-design-policy.md` |
+| IG 予約投稿 | カルーセル/リールの予約 | — | `/publish-ig-bs`（照合`/ig-reconcile`） | — → `ig-publish-auditor` | `ig-publish-reconcile.md` |
+| YT Shorts | 過去問論点Short（総監は全問展開） | `.claude/state/youtube-schedule.json`（台帳・論点タイトル入力済） | `/yt-shorts-create --from-reels`／`per-problem-shorts.mjs`（YT専用再描画） | `yt-shorts-title-writer` → `yt-shorts-publisher-qa` | `yt-shorts-publisher-policy.md`／`yt-shorts-script-policy.md` |
+| X | 過去問クイズ／カウントダウン／体験断片／angle分割 | `docs/sns/x/{draft,published}/NNN-*/tweets.md` | `/social-post --platform x`・カード`/create-x-card`・引用RP`/x-repost`・（投稿`/publish-x`＝§11.6 到達まで停止・人手） | `x-post-writer` → `x-post-qa`（引用=`x-repost-curator`） | `x-post-policy.md`（§11＝凍結ガード） |
+| note | 有料マガジン記事／無料ファネル記事 | `article.md`（frontmatter） | `/pe-note-plan`(企画)→執筆→`/note-publish`等 | `note-operator`系 → `note-funnel-auditor`／`note-fact-checker` | `note-funnel-architecture.md`／`note-selling-structures.md` |
+
+### 横断レイヤー（型に直交する編集レンズ）
+
+- **6切り口**（`content-angle-policy.md`）: 結論／理由／体験／反論／数字／ハウツーを `angle` パラメータで全チャネル横断適用。層別＝TOFU に number/counter/conclusion・現受験生に howto/reason・公務員に experience/conclusion。
+- **リパーパス**（`sns-repurpose-policy.md`）: 同一コアを6切り口でチャネル別に展開。X は §5.5、IG/YT は各 writer が参照。
+- **画像規約**（`sns-image-policy.md`）＋**図版キャンバス**（`figure-canvas-policy.md`）＝雛形の視覚仕様。
+
+### 型バックログ（競合調査 2026-07-04 で surface・未実装）
+
+競合で伸びている型のうち現行カタログに無いもの。**policy への正式追加は別段（本 PR では surface のみ）**。真実源候補は 07_競合調査 SNS節。
+
+- **聞き流し一問一答**（YouTube の空白型・日建学院で47k再生実測）→ YT 通常動画/長尺 Shorts 候補。16:9 テンプレ実装が前提。
+- **合格後キャリア・現場リアル リール**（IG 差別化・現場密着リールがバイラル実績）→ 合格体験者ポジションと接続。Red Line（一次情報は note 有料囲い込み）を守る。
+- **お悩み相談回答**（技術士系 YT/X で定着）→ X リプライ運用（§10）・リールの角度候補。
+
+> 使い方: 「この型を量産したい」→ 本表で雛形とスキルを引く／「新しい角度で展開したい」→ 6切り口レイヤー／「competitor に無い型か」→ 型バックログ。件数・台帳の真実源は §2・§5。
