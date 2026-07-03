@@ -91,7 +91,7 @@
 
 **残**: 選択科目の論点キーワード集（`*-ronbun-keyword`）が river-coast・road・urban-planning の3科目のみ。geotechnical・tunnel・railway 等が欠落。需要のある科目から新規作成する。
 
-**完了（2026-06-21・B 差別化採用）**: 必須科目I の重複ペア5テーマ（論述メソッド短ページ ×論点キーワード集大ページ＝防災/インフラ/担い手DX/カーボン/地域）は、GSC実測でカニバリ無し（13ページ全て imp=0・未ランク）・切り口が別物（課題分解→4部構成の「論述の型」 vs 現状/計画/政策の「キーワードバンク」）と確認し、A統合でなく **B 差別化＋相互リンク** を適用（[[keep-differentiate-not-delete]] 準拠）。seoTitle を「論述の型・答案構成」/「論点キーワード集・暗記用」に明確化し、各ペアに相互リンク段落を挿入。勉強法ペア（secondary-study-method ↔ gakushuu-jikan-schedule）も相互リンク済。slug `chiiki-dukuri` は実在・機能しており誤記でない。
+> 注（完了・2026-06-21）: 必須科目I の重複ペア5テーマは A統合でなく **B 差別化＋相互リンク**（seoTitle を「論述の型」/「キーワード集」に明確化・相互リンク挿入）で解消済（[[keep-differentiate-not-delete]] 準拠・GSC カニバリ無し確認）。上記「残」は選択科目の新規作成のみ。
 
 ---
 
@@ -143,9 +143,9 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 ---
 
-### ✅ 総監 essay の壊れアンカー 20 件を修正（2026-07-03 完了）
+### 総監 essay の壊れアンカー 20 件を修正 — ほぼ完了 🟢
 
-link audit（2026-07-02）の HIGH 74 件を精査。**BROKEN_ANCHOR 20 件（本物）は修正完了**（commit `8a08ecba4`）＝ `management-tradeoffs#段階的実施`/`#合意形成情報開示` は該当見出しが無いため #fragment 除去でページ本体へ着地（19 件・essay 10 本）＋ `disaster-weather-info` の `h30-primary#132`→`#1-32`（1 件）。`check-links --scope all` で BROKEN_ANCHOR 0 を確認。**BROKEN_SLUG 54 件は偽陽性**で `check-links.mjs` のプレフィックス同期漏れが原因＝チェック側を是正（PR #342・**マージ待ち**）。残タスク＝PR #342 マージのみ。
+> 注: BROKEN_ANCHOR 20件は修正完了（commit `8a08ecba4`・`check-links` で BROKEN_ANCHOR=0 確認）。**残＝PR #342（BROKEN_SLUG 54件偽陽性の check 側是正）マージ待ち**。マージ後この行を削除。
 
 ---
 
@@ -186,9 +186,7 @@ link audit（2026-07-02）の HIGH 74 件を精査。**BROKEN_ANCHOR 20 件（�
 
 記事一覧を `BlogDocCard` 化。右サイドバー全資格拡張は完了済（`hasSidebar` 化）。参考: ソーシャルPLUS ブログ（`docs/todo/reference-sites.md`）。
 
-**完了（PR #274）**: `DocCard`（`src/components/category/CategorySections.tsx`）を刷新＝ブランド色の上端アクセントバンド＋抜粋（subtitle/description）＋破線フッター（READ→＋更新日）。配色は既存 `var(--*)` トークンのみ（dark 自動追従・§7 準拠）。aidesigner inspire（socialplus・run 87d50e23）を現実データに合わせて mono 化して実装。
-
-**Phase 2 完了（PR #274）**: 特集ショーケース「よく読まれている記事」（カテゴリ上部 top3）＋サイドバー「人気記事」ランキング（top5）を **GA4 実アクセス駆動**で実装。`scripts/build-popular-pages.mjs`（ga4-page snapshot→`src/config/popular-pages.json`、refresh-indexes 配線）＋`src/lib/popular.ts`＋`PopularSections.tsx`。注目フラグ不要（実シグナル）。
+> 注（完了・PR #274）: `DocCard` 刷新（`CategorySections.tsx`）＋GA4 駆動の人気記事 特集/ランキング（`build-popular-pages.mjs`・`popular.ts`・`PopularSections.tsx`）実装済。SSOT は該当コンポーネント。
 
 **残**: ①サムネイル画像の本格採用＝現状 OGP はタイトル焼込み済でカード題と二重になるため未採用（写真素材を別途持つ設計が要る）。②人気データの鮮度＝CI の `ga4-page` 取得に依存（週次見込み）。③トップページ／検索結果ページへの横展開。
 
@@ -438,8 +436,7 @@ link audit（2026-07-02）の HIGH 74 件を精査。**BROKEN_ANCHOR 20 件（�
 
 **実行可能タスク（権威性を上げる）**:
 1. 独自・被引用される **データ資産**化: 680 問の過去問 + 合格者模範論文を、外部がリンクしたくなる統計/まとめとして整備
-   - **完了（2026-06-23）**: 総監の頻出論点ランキング（17年度680問×552論点×5管理）を `/docs/pe-comprehensive-management-frequent-topics` に公開。生成は `npm run build-frequent-topics`（`scripts/build-frequent-topics.mjs`・past-exam-backlinks.json から機械集計、新年度追加で自動更新）。keyword-2026 から相互リンク済
-   - 残: ①1級・2級土木版（civil は past-exam-backlinks 未収録＝論点タグ付けが先）②合格率推移（試験団体一次統計を WebSearch 照合・独自性は低）③被リンク獲得の外部発信（note/SNS で本ランキングを紹介）
+   - 総監の頻出論点ランキングは公開済（`/docs/pe-comprehensive-management-frequent-topics`・`build-frequent-topics.mjs`・published:true）。**残**: ①1級・2級土木版（civil は past-exam-backlinks 未収録＝論点タグ付けが先）②合格率推移（独自性低）③被リンク獲得の外部発信（note/SNS で本ランキング紹介）
 2. **外部被リンク**起点: note 記事 → サイトの文脈リンク、`/links` ハブ、X/IG bio、合格体験記の寄稿
 3. 受験期（6-7月）の**高インテント head クエリ**（`1級土木施工管理技士 過去問 解答`）を category/hub ページが取れているか GSC で監視（現状 query に未出現＝未ランク or 季節前）
 4. 継続監視: 月次 `index-coverage.yml` + `/gsc-review`、週次 `fetch-metrics.yml` + `/weekly-improve` は配線済。指標を観測ログへ追記
@@ -515,13 +512,9 @@ link audit（2026-07-02）の HIGH 74 件を精査。**BROKEN_ANCHOR 20 件（�
 
 ---
 
-### figure-*.svg「試験ポイント/引っかけ」機械検知 P12 — 完了（HIGH）✅
+### figure P12「試験ポイント/引っかけ」機械検知 — 完了 ✅（2026-06-28）
 
-**完了（2026-06-28・案A）**: `detect.mjs` に `P12-exam-hint`（`試験ポイント|出題ポイント|引っかけ|ひっかけ` を含む `<text>` 検知）を **HIGH＝pre-commit ブロック**で追加。試験原図（h*-primary）は audit.mjs が除外済みのため概念図のみ対象。`content-principles §5`・`figure-canvas-policy §2.5 #5` の禁止を機械化し「作成→手動除去」の再発（W26 6件）を停止。既存違反3図（`trademark-types`/`design-scope`/`sexual-harassment-types`）は引っかけ注記の**事実が記事本文に既出**だったため図から除去（情報ロスなし）＋ sexual-harassment は補足ボックス再配置。全量 audit で **P12=0** 確認。SKILL.md P-code 表・detect.mjs ヘッダー更新。
-
-**残（任意・cosmetic）**: 注記除去で生じた余白の充填（特に sexual-harassment 下部）は `svg-canvas-fitter` で polish 可（P-check は通過済み・優先度低）。
-
-**根拠**: `.claude/state/proofread-learnings/2026-06-27.md`。
+> 注: `svg/detect.mjs` に P12（HIGH＝pre-commit ブロック）実装・SKILL.md P-code 表更新済（SSOT はそちら）。既存違反3図は本文既出のため除去済・P12=0 確認。余白 cosmetic（sexual-harassment 下部）は `svg-canvas-fitter` で任意 polish。詳細 → `.claude/state/proofread-learnings/2026-06-27.md`。
 
 ---
 
@@ -555,10 +548,9 @@ link audit（2026-07-02）の HIGH 74 件を精査。**BROKEN_ANCHOR 20 件（�
 **残**: SoT(ローカルmd)は確定済。note.com公開6本（防災/担い手/GX/老朽化/国土形成/建設DX）へブラウザ反映が未着手。他7記事も同じ生URL問題。326件バーンダウンの codemod は次セッション。
 **出典**: `docs/handoffs/_archive/2026-06-22-note-a-series-funnel-utm.md`
 
-### 建設部門 論文対策キーワード 増補 ✅完了（2026-07-02）
-**方針（2026-07-02 再確定）**: 逐語複製ではなく、textbook を出典に既存オリジナル記事へ事実ベースで不足論点を増補（書籍逐語複製・書籍図クロップ埋込はしない）。真実源＝README の warning ブロック。
-**完了**: 全6節を現行方式に統一。02(iji-kanri)＝逐語版をオリジナル散文版へ復元＋国土形成計画(維持管理)増補・書籍クロップ図6枚撤去。03〜06＝各節の不足論点をオリジナル散文で増補（03:3観点/総力戦PJ/事前復興/GD2050、04:i-Con2.0成果/GD2050担い手、05:デジタルライフライン/スーパーシティ、06:温対法改正沿革是正）。image-policy 例外も現行方針へ縮小済み。
-**出典**: `docs/handoffs/_archive/2026-06-22-pe-construction-verbatim-reflection.md`（gap分析のみ流用・手法は失効）
+### 建設部門 論文対策キーワード 増補 — 完了 ✅（2026-07-02）
+
+> 注: 全6節を現行方式（逐語複製せず textbook 出典の事実ベース増補）に統一完了（commit `95bb47239`/`28180bc28`/`d16677664`/`6c0605ef4`）。詳細 → `docs/handoffs/_archive/2026-06-22-pe-construction-verbatim-reflection.md`。
 
 ### IGディレクトリ資格軸再編の残ファイル更新 🟢
 **残**: 本体再編コミット(437853fbb)済。`.claude/` 配下19ファイルの旧 `_exam-packs` パス参照更新（sns-config.mjs→パック生成2/スキル実行5/その他5/エージェント.md 8）。完了確認= `rg "_exam-packs" .claude/` が0件。
