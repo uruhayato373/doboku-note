@@ -51,21 +51,21 @@
 | textbook-safety-scaffolding | ✅本文+SVG(draft) | 0130e0385 | 3/3 | published化+OGP |
 | textbook-safety-excavation-shoring | ✅本文+SVG(draft) | 183077f9b | 3/3 | published化+OGP |
 | textbook-safety-management-system | ✅本文+SVG(draft) | 2deec2df2 | 2/2 | published化+OGP |
-| textbook-safety-machinery-crane | ⬜ 未着手 | — | 0/2 | — |
-| textbook-safety-industrial-safety-law | ⬜ 未着手 | — | 0/2 | — |
-| textbook-safety-risk-assessment | ⬜ 未着手 | — | 0/3 | — |
-| textbook-safety-work-environment | ⬜ 未着手 | — | 0/2 | — |
-| textbook-noise-vibration-regulation | ⬜ 未着手 | — | 0/3 | — |
-| textbook-water-air-soil-pollution | ⬜ 未着手 | — | 0/2 | — |
-| textbook-construction-byproduct-recycle | ⬜ 未着手 | — | 0/2 | — |
-| textbook-waste-disposal-manifest | ⬜ 未着手 | — | 0/3 | — |
+| textbook-safety-machinery-crane | ✅本文+SVG(draft) | df5cc3ae1 | 2/2 | published化+OGP |
+| textbook-safety-industrial-safety-law | ✅本文+SVG(draft) | 20df609f4 | 2/2 | published化+OGP |
+| textbook-safety-risk-assessment | ✅本文+SVG(draft) | df5cc3ae1 | 3/3 | published化+OGP |
+| textbook-safety-work-environment | ✅本文+SVG(draft) | 20df609f4 | 2/2 | published化+OGP |
+| textbook-noise-vibration-regulation | ✅本文+SVG(draft) | 23939a5fa | 3/3 | published化+OGP |
+| textbook-water-air-soil-pollution | ✅本文+SVG(draft) | 54a681909 | 2/2 | published化+OGP |
+| textbook-construction-byproduct-recycle | ✅本文+SVG(draft) | 23939a5fa | 2/2 | published化+OGP |
+| textbook-waste-disposal-manifest | ✅本文+SVG(draft) | 23939a5fa | 3/3 | published化+OGP |
 
 ### 既存深掘り・フェーズ0残 進捗
 
 | 対象 | 状態 | commit |
 |---|---|---|
 | フェーズ0 金額基準是正 | ✅完了 | 0c69c9dd9 |
-| フェーズ0 労基 就業制限表(表7.1/7.2) | ⬜ 未着手 | — |
+| フェーズ0 労基 就業制限表(表7.1/7.2) | ✅完了 | de6742eb1 |
 | schedule-charts 工程図表7種の実図SVG | ⬜ | — |
 | network-schedule NW計算演習 | ⬜ | — |
 | control-chart X̄-R実図SVG | ⬜ | — |

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="最終処分場の3形式。安定型は安定5品目を素掘りに近い構造で埋立、管理型は遮水工と浸出水処理を備え有機性・有害性のある廃棄物を埋立、遮断型は水密性コンクリート構造で基準を超える有害廃棄物を外界から隔離する">
+  <text x="200" y="24" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a3a5c">対象廃棄物の性状に応じて3形式を使い分ける</text>
+
+  <!-- 安定型 -->
+  <rect x="20" y="40" width="360" height="132" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="36" y="62" text-anchor="start" font-family="sans-serif" font-size="13" font-weight="bold" fill="#222">安定型処分場</text>
+  <!-- 断面 -->
+  <rect x="250" y="72" width="110" height="42" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="305" y="97" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a3a5c">素掘り＋覆土</text>
+  <text x="36" y="86" text-anchor="start" font-family="sans-serif" font-size="12" fill="#222">遮水工なし。性状が安定した</text>
+  <text x="36" y="104" text-anchor="start" font-family="sans-serif" font-size="12" fill="#222">安定5品目に限る</text>
+  <text x="36" y="128" text-anchor="start" font-family="sans-serif" font-size="11" fill="#555">廃プラスチック類・ゴムくず・金属くず・</text>
+  <text x="36" y="145" text-anchor="start" font-family="sans-serif" font-size="11" fill="#555">ガラス陶磁器くず・がれき類</text>
+  <text x="36" y="163" text-anchor="start" font-family="sans-serif" font-size="11" fill="#8a8a8a">（有害物・有機物が付着しないもの）</text>
+
+  <!-- 管理型 -->
+  <rect x="20" y="180" width="360" height="132" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="36" y="202" text-anchor="start" font-family="sans-serif" font-size="13" font-weight="bold" fill="#222">管理型処分場</text>
+  <rect x="250" y="212" width="110" height="42" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="305" y="230" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a3a5c">遮水工＋</text>
+  <text x="305" y="247" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a3a5c">浸出水処理</text>
+  <text x="36" y="226" text-anchor="start" font-family="sans-serif" font-size="12" fill="#222">遮水工と浸出水処理施設を備え、</text>
+  <text x="36" y="244" text-anchor="start" font-family="sans-serif" font-size="12" fill="#222">水質を管理する</text>
+  <text x="36" y="268" text-anchor="start" font-family="sans-serif" font-size="11" fill="#555">燃え殻・汚泥・紙くず・木くず・</text>
+  <text x="36" y="285" text-anchor="start" font-family="sans-serif" font-size="11" fill="#555">繊維くず・動植物性残さ 等</text>
+  <text x="36" y="303" text-anchor="start" font-family="sans-serif" font-size="11" fill="#8a8a8a">（安定5品目に該当しないもの）</text>
+
+  <!-- 遮断型 -->
+  <rect x="20" y="320" width="360" height="130" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="36" y="342" text-anchor="start" font-family="sans-serif" font-size="13" font-weight="bold" fill="#222">遮断型処分場</text>
+  <rect x="250" y="352" width="110" height="42" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="305" y="370" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a3a5c">水密性</text>
+  <text x="305" y="387" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a3a5c">コンクリート</text>
+  <text x="36" y="366" text-anchor="start" font-family="sans-serif" font-size="12" fill="#222">外界から完全に隔離する構造で、</text>
+  <text x="36" y="384" text-anchor="start" font-family="sans-serif" font-size="12" fill="#222">有害物を封じ込める</text>
+  <text x="36" y="408" text-anchor="start" font-family="sans-serif" font-size="11" fill="#555">判定基準を超える有害な燃え殻・</text>
+  <text x="36" y="425" text-anchor="start" font-family="sans-serif" font-size="11" fill="#555">ばいじん・汚泥 等</text>
+  <text x="36" y="444" text-anchor="start" font-family="sans-serif" font-size="11" fill="#8a8a8a">出典：廃棄物処理法施行令・同施行規則</text>
+</svg>

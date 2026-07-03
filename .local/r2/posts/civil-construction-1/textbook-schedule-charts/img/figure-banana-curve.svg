@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="工程管理曲線（バナナ曲線）。上方許容限界と下方許容限界の間に実施工程曲線が収まればよい。上方を超えると過剰配置、下方を下回ると工程遅延">
+  <text x="200" y="24" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a3a5c">バナナ曲線：上方・下方許容限界と判定</text>
+
+  <!-- 軸 -->
+  <line x1="50" y1="70" x2="50" y2="400" stroke="#8a8a8a" stroke-width="1.5"/>
+  <line x1="50" y1="400" x2="368" y2="400" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text x="30" y="235" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222" transform="rotate(-90 30 235)">出来高 %</text>
+  <text x="210" y="420" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">時間経過率 %</text>
+  <text x="44" y="76" text-anchor="end" font-family="sans-serif" font-size="11" fill="#8a8a8a">100</text>
+  <text x="44" y="403" text-anchor="end" font-family="sans-serif" font-size="11" fill="#8a8a8a">0</text>
+  <text x="360" y="415" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">100</text>
+
+  <!-- 許容範囲の帯 -->
+  <path d="M50 400 C 120 250 200 110 360 70 C 290 235 210 375 50 400 Z" fill="#e8f0fe"/>
+
+  <!-- 上方許容限界 -->
+  <path d="M50 400 C 120 250 200 110 360 70" fill="none" stroke="#2e6da4" stroke-width="2.5"/>
+  <!-- 下方許容限界 -->
+  <path d="M50 400 C 210 375 290 235 360 70" fill="none" stroke="#2e6da4" stroke-width="2.5"/>
+  <!-- 実施工程曲線（帯の中） -->
+  <path d="M50 400 C 165 320 250 180 360 70" fill="none" stroke="#1a3a5c" stroke-width="1.8" stroke-dasharray="5 3"/>
+
+  <!-- ラベル -->
+  <text x="150" y="150" font-family="sans-serif" font-size="11" fill="#1a3a5c">上方許容限界</text>
+  <text x="250" y="330" font-family="sans-serif" font-size="11" fill="#1a3a5c">下方許容限界</text>
+  <text x="175" y="255" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c">許容範囲</text>
+  <text x="112" y="112" font-family="sans-serif" font-size="11" fill="#8a8a8a">過剰配置</text>
+  <text x="292" y="388" font-family="sans-serif" font-size="11" fill="#8a8a8a">工程遅延</text>
+
+  <!-- 判定メモ -->
+  <rect x="30" y="440" width="340" height="52" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="200" y="461" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">上方限界を超える＝機械・人員の過剰配置（不経済）</text>
+  <text x="200" y="481" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">下方限界を下回る＝工程遅延（突貫工事の検討が必要）</text>
+</svg>

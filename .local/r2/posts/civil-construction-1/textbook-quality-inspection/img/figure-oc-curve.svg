@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="OC曲線（検査特性曲線）。横軸のロットの不良率が小さい良いロットは高い確率で合格し、不良率が大きい悪いロットは高い確率で不合格となる右下がりの曲線。生産者危険αと消費者危険βを示す">
+  <text x="200" y="22" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a3a5c">OC曲線：ロットの不良率と合格確率の関係</text>
+
+  <!-- 軸 -->
+  <line x1="62" y1="70" x2="62" y2="404" stroke="#8a8a8a" stroke-width="1.5"/>
+  <line x1="62" y1="404" x2="368" y2="404" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text x="34" y="240" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222" transform="rotate(-90 34 240)">合格確率</text>
+  <text x="212" y="424" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">ロットの不良率 →</text>
+  <text x="56" y="82" text-anchor="end" font-family="sans-serif" font-size="11" fill="#8a8a8a">高</text>
+  <text x="56" y="404" text-anchor="end" font-family="sans-serif" font-size="11" fill="#8a8a8a">低</text>
+
+  <!-- OC曲線 -->
+  <path d="M62 88 C 120 92 150 118 200 232 C 250 346 300 384 366 390" fill="none" stroke="#2e6da4" stroke-width="2.5"/>
+
+  <!-- AQL 目印 -->
+  <line x1="112" y1="112" x2="112" y2="404" stroke="#1a3a5c" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="112" y="418" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a3a5c">AQL</text>
+
+  <!-- 生産者危険 α -->
+  <line x1="112" y1="72" x2="112" y2="108" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="120" y="86" font-family="sans-serif" font-size="11" fill="#8a8a8a">生産者危険 α</text>
+
+  <!-- 消費者危険 β -->
+  <line x1="286" y1="366" x2="286" y2="404" stroke="#1a3a5c" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="282" y="356" text-anchor="end" font-family="sans-serif" font-size="11" fill="#8a8a8a">消費者危険 β</text>
+
+  <!-- ゾーン注記 -->
+  <text x="150" y="150" font-family="sans-serif" font-size="11" fill="#8a8a8a">良いロット→高確率で合格</text>
+  <text x="360" y="330" text-anchor="end" font-family="sans-serif" font-size="11" fill="#8a8a8a">悪いロット→高確率で不合格</text>
+
+  <!-- 注記 -->
+  <rect x="30" y="444" width="340" height="46" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="200" y="463" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">AQL＝合格としてよいロット不良率の上限の目安</text>
+  <text x="200" y="481" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">計数値の抜取検査 JIS Z 9015（AQL指標型）</text>
+</svg>

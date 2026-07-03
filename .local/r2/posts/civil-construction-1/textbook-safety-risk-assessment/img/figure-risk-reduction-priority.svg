@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="リスク低減措置の優先順位ピラミッド。上から本質的対策、工学的対策、管理的対策、個人用保護具の順に優先度が下がり、保護具は最後の手段">
+  <text x="200" y="24" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a3a5c">低減措置の優先順位：本質的 → 工学的 → 管理的 → 保護具</text>
+
+  <!-- 優先度の矢印 -->
+  <line x1="24" y1="70" x2="24" y2="380" stroke="#2e6da4" stroke-width="1.5"/>
+  <path d="M24 70 l-4 8 h8 z" fill="#2e6da4"/>
+  <path d="M24 380 l-4 -8 h8 z" fill="#2e6da4"/>
+  <text x="18" y="120" font-family="sans-serif" font-size="11" fill="#1a3a5c">高</text>
+  <text x="18" y="340" font-family="sans-serif" font-size="11" fill="#8a8a8a">低</text>
+  <text x="16" y="225" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222" transform="rotate(-90 16 225)">優先度</text>
+
+  <!-- 本質的対策 -->
+  <polygon points="145,64 255,64 272,144 128,144" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="200" y="98" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a3a5c">①本質的対策</text>
+  <text x="200" y="120" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">危険な作業の廃止・変更・代替</text>
+
+  <!-- 工学的対策 -->
+  <polygon points="128,148 272,148 300,228 100,228" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="200" y="182" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a3a5c">②工学的対策</text>
+  <text x="200" y="204" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">ガード・インターロック・局所排気</text>
+
+  <!-- 管理的対策 -->
+  <polygon points="100,232 300,232 328,312 72,312" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="200" y="266" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a3a5c">③管理的対策</text>
+  <text x="200" y="288" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">マニュアル・立入禁止・教育</text>
+
+  <!-- 保護具 -->
+  <polygon points="72,316 328,316 356,388 44,388" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="200" y="348" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#222">④個人用保護具</text>
+  <text x="200" y="370" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">①〜③でも残るリスクに限る（最後の手段）</text>
+
+  <text x="200" y="416" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">法令で定められた事項は必ず実施したうえで適用</text>
+</svg>
