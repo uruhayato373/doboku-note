@@ -17,7 +17,7 @@ title: スキル ガバナンス記録
 
 ```
 .claude/skills/
-├── authoring/       # 12 — 記事を作る
+├── authoring/       # 11 — 記事を作る
 ├── conversion/      # 5 — 形式変換（MDX / OGP 画像 / 紙用 PDF）＋ OGP 意匠の素案試作
 ├── quality/         # 14 — MDX・note 公開前品質検査
 ├── management/      # 14 — 計画・分析・戦略
@@ -28,7 +28,9 @@ title: スキル ガバナンス記録
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **84 スキル**（9 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+合計 **83 スキル**（9 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+
+> 2026-07-04 退役（棚卸し）: `authoring/exam-guide`（＋`authoring/templates/exam-guide/` 全5テンプレ＝`_schema.md`/`_new-exam-template.md`/`civil-construction-1.md`/`civil-construction-2.md`/`pe.md` と親 `templates/README.md`）を退役。合計 `84→83`・`authoring/ 12→11`。退役理由＝(1) テンプレが旧 Docusaurus アーキ（`:::note[]` admonition・`content/general/…` source_paths・`docs/exam/…` 旧 URL・`sidebar_slug`/`sidebar_label`）のまま死んでいた、(2) 実運用の新規ガイド生成は `group: guide` の品質サイクル（`guide-qa`／`guide-rewriter`／`guide-fact-checker`）主導のオリジナル散文フローに移行済み（2026-07-03 civil1 textbook→guide 13章展開は `/exam-guide` を経由していない＝commit `279760cb5` 等）。以後の新規ガイドは同サイクルへ一本化。退役の詳細行は「退役ログ」節も参照。
 
 > 2026-07-03 件数是正（棚卸し）: `management/ #13→#14`・合計 `81→84` に是正（実数 `find .claude/skills -name SKILL.md` = 84 と突合）。ドリフト根因＝`check-doc-coupling` は SKILL.md 追加/削除時に registry を **staged にしたか** は強制するが **中の件数が正しいか** は検証しないため、追加時にファイルは触られても件数が更新されず放置されていた。`skills-guide.md` は用途別クロス掲載のため行数＝件数ではない（総数は記載しない方針）。
 
@@ -77,7 +79,6 @@ title: スキル ガバナンス記録
 
 | テンプレート管理ディレクトリ | 用途 | 対応試験 |
 |---|---|---|
-| `authoring/templates/exam-guide/` | 試験ガイド生成 | civil-construction-1 / pe |
 | `conversion/pdf-to-mdx/templates/` | PDF→MDX 試験別ルール | general / cem / civil-construction-1 |
 | `conversion/exam-questions-import/templates/` | 過去問取込 | civil-primary / civil-secondary / pe-primary / pe-first-stage |
 | `quality/quality-cycle/templates/` | 品質サイクル プロファイル | cem / civil-textbook |
@@ -104,7 +105,8 @@ title: スキル ガバナンス記録
 
 | 退役日 | スキル | カテゴリ | 代替 |
 |---|---|---|---|
-| 2026-04-15 | `/pe-exam-guide` | content | `/exam-guide --exam pe` |
+| 2026-07-04 | `/exam-guide`（＋`templates/exam-guide/` 全5テンプレ＋`templates/README.md`） | authoring | `group: guide` 品質サイクル（`guide-rewriter` 生成 → `guide-qa` 評価 → `guide-fact-checker` 事実照合）。テンプレは旧 Docusaurus アーキで死亡・実運用は既にオリジナル散文フローへ移行済み |
+| 2026-04-15 | `/pe-exam-guide` | content | `/exam-guide --exam pe`（**その `/exam-guide` も 2026-07-04 退役**） |
 | 2026-04-23 | `/allow-tool` | dev | ユーザー直接指示 |
 | 2026-04-23 | `/reset-git-history` | dev | ランブック移譲 |
 | 2026-04-23 | `/find-x-accounts` | marketing | Playwright MCP 直接指示 |

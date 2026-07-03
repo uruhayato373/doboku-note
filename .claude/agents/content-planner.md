@@ -33,7 +33,6 @@ model: sonnet
 | `/exam-demand` | 資格試験需要調査 |
 | `/keyword-gap` | コンテンツギャップ分析（GSC データは CI 供給・分析は metrics-analyzer/gsc-index-auditor） |
 | `/plan-affiliate` | アフィリエイト企画（ads 連携） |
-| `/exam-guide` | 試験対策ガイド生成（1級土木・技術士等、試験別設定ファイルでパラメタライズ） |
 | `/content-roadmap` | コンテンツ拡充ロードマップ生成 |
 
 ## 担当外

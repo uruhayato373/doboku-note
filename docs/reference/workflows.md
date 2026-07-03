@@ -242,7 +242,7 @@ npm run refresh-indexes   # 全 3 インデックスを一括再生成
 - iOS アプリ（過去問演習）の開発着手
 - YouTube チャンネル運用開始
 - analytics・strategy・ads 系スキルを復活
-- スキル汎用化（`/exam-guide --exam {id}` 統合）
+- スキル汎用化（試験別設定の共通化。※旧 `/exam-guide` 構想は 2026-07-04 退役＝ガイドは `guide-rewriter`／`guide-qa` サイクルへ一本化）
 
 ### Phase 3（2027年以降: 他分野展開）
 
