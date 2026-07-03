@@ -50,9 +50,8 @@ export const SNS_CONFIG = {
       site: '▼ 詳しい解説（doboku-note）',
       note: '▼ 受験記・解答再現（note）',
     },
-    // utm_medium=video に統一（GA4 標準チャネル分類。旧 description は非標準で Unassigned 落ち）。
-    // 恒久的には .claude/scripts/lib/utm-builder.mjs（utm-templates.json 由来）へ集約する（Codex候補）。
-    utmParams: 'utm_source=youtube&utm_medium=video&utm_campaign=shorts&utm_content=shorts',
+    // UTM は buildUtmUrl（#lib/utm-builder.mjs・真実源 utm-templates.json）へ集約済み（2026-07-04）。
+    // 旧 utmParams ハードコード文字列は撤去（yt-shorts-create / per-problem-shorts が buildUtmUrl を直接呼ぶ）。
   },
 
   // コンテンツ生成パラメータ

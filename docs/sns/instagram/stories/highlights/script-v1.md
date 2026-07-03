@@ -4,7 +4,7 @@ purpose: bio 直下に固定する 5 ハイライトの Story コピー + 視覚
 canvasCover: 1080x1080 (円形トリミング前提)
 canvasStory: 1080x1920 (9:16)
 designTokens: docs/design-system/instagram-carousel-tokens.json
-appliesTo: Instagram @doboku_note プロフィールのハイライト 5 枠
+appliesTo: Instagram @dobokunotecom プロフィールのハイライト 5 枠
 lastUpdated: 2026-05-27
 relatedDocs:
   - docs/sns/instagram/profile.md

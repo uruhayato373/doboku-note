@@ -1,6 +1,6 @@
 ---
 name: metrics-analyzer
-description: GSC/GA4 の計測データから改善機会パターンを抽出する Evaluator エージェント。High-Impr-Low-CTR・Rank-Stuck・Traffic-Drop・Hidden-Winner・Orphan-Query の5パターンで surface し、`/nsm-experiment propose` の入力を生成する。
+description: GSC/GA4 の計測データから改善機会パターンを抽出する Evaluator エージェント。High-Impr-Low-CTR・Rank-Stuck・Traffic-Drop・Hidden-Winner・Orphan-Query・SNS-Source-Shift の6パターンで surface し、`/nsm-experiment propose` の入力を生成する。
 model: sonnet
 ---
 
@@ -34,11 +34,12 @@ GSC/GA4 の JSON データを読み込み、**改善候補のパターン検出*
 | `.claude/state/metrics/gsc/gsc-page-*.json`（最新） | `/fetch-gsc-data --dimension page` |
 | `.claude/state/metrics/ga4/ga4-page-*.json`（最新） | GA4 page dimension |
 | `.claude/state/metrics/ga4/ga4-date-*.json`（最新） | GA4 date dimension（トレンド判定用） |
+| `.claude/state/metrics/ga4/ga4-sourceMedium-sns-*.json`（最新 2 件） | GA4 SNS 流入 source×medium（Pattern 6 用・`fetch-ga4-data --sns-only`） |
 
 オプション（前週比較用）:
 - 上記の前週スナップショット（`snapshot-weekly-metrics` の出力）があれば使用。無ければトレンドは単一週のみで判定。
 
-## 5つの抽出パターン
+## 6つの抽出パターン
 
 ### Pattern 1: High-Impr-Low-CTR（タイトル改善候補）
 
@@ -84,6 +85,18 @@ GSC/GA4 の JSON データを読み込み、**改善候補のパターン検出*
 
 **注**: ページ存在判定は Grep で title/slug にクエリ主要語が含まれるかで判定（完全一致は不要）。
 
+### Pattern 6: SNS-Source-Shift（SNS 流入の急変）
+
+**条件**: `ga4-sourceMedium-sns-*.json` の最新 2 ファイルで source（x/instagram/youtube/note）別に WoW を取り、次のいずれか:
+- **急落**: 今週 sessions ≥ 5 かつ 前週比 −30% 以上の減少
+- **新規成長**: 前週ほぼゼロ（< 3）から今週 ≥ 10 に伸びた source
+
+**理由**: SNS 投稿の効き目・導線の変化を早期に捉える。急落は投稿停止/UTM 欠落/リンク切れ、成長は当たった投稿型を surface。原因は断定せず「何が」だけを出す（原因は現物照合に委ねる）。
+
+**出力項目**: source、今週 users/sessions、前週、delta%、判定（急落/新規成長）
+
+**前提**: `ga4-sourceMedium-sns-*.json` が 2 ファイル未満（初週・未生成）なら本パターンはスキップし「SNS 流入データ不足（1 週分のみ）」と記録。ファイル自体が無ければ「SNS breakdown 未生成」と 1 行。
+
 ## 出力フォーマット
 
 `.claude/state/improvements/{YYYY-MM-DD}.md` に以下を書き出す:
@@ -104,6 +117,7 @@ total_candidates: N
 - Traffic-Drop: N 件
 - Hidden-Winner: N 件
 - Orphan-Query: N 件
+- SNS-Source-Shift: N 件
 
 ## Pattern 1: High-Impr-Low-CTR（タイトル改善候補）
 
@@ -130,7 +144,7 @@ total_candidates: N
 
 1. **入力ファイル特定**: `.claude/state/metrics/gsc/` と `.claude/state/metrics/ga4/` を `Glob` で探索し、各 dimension ごとに最新ファイルを選ぶ
 2. **読み込み**: JSON を Read で取得（容量が大きければ `rows` の上位 N 件に絞る）
-3. **パターン抽出**: 5 つの条件式で該当行を抽出
+3. **パターン抽出**: 6 つの条件式で該当行を抽出（Pattern 6 は SNS 流入・要 `ga4-sourceMedium-sns-*.json`）
 4. **存在判定（Pattern 5 のみ）**: `.local/r2/posts/` に対して Grep で slug 主要語検索
 5. **出力書き出し**: `.claude/state/improvements/{YYYY-MM-DD}.md` を Write
 6. **サマリーを標準出力に返す**: 件数のみ。詳細はファイル経由で呼び出し元が Read する

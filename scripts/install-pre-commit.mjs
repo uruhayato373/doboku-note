@@ -153,6 +153,12 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# X→サイト送客リンクの UTM 規約（utm_source=x / utm_medium=social 必須・_archive は対象外）。SKIP_X_UTM=1 で回避
+node scripts/check-x-utm.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
 # IG figure-pack 表紙のテンプレ準拠（2ピル/固定バッジ/doboku-note.com/試験dir配下）逸脱検出（表紙ドリフトの再発防止）
 node scripts/check-ig-cover.mjs --staged
 if [ $? -ne 0 ]; then

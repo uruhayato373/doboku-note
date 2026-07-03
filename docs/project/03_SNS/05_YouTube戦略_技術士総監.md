@@ -68,6 +68,8 @@
 
 **Shorts の 2 経路併存（v7 原則の総監差分）**: v7 は「IG Reels mp4 のトリム派生」一本だったが、総監は `per-problem-shorts.mjs`（YT 専用再描画。ページ番号・スワイプ CTA を構造的に抑止、4 問全展開対応）で IG mp4 を経由せず生成・投稿している。両経路とも一次ソースは `slide-data.json` で共通のため、コンテンツの二重保守は発生しない。**IG Reels パイプライン障害時も YT 単独で台帳消化を継続できる**＝v7 が懸念した単一障害点は総監では構造的に緩和済み。
 
+> **どちらの経路を使うか（優先度・障害時の扱い）**: 総監の Shorts 量産は **経路B＝`per-problem-shorts.mjs`（YT 専用再描画）が正**。IG 依存がなく 4 問全展開できるため、台帳消化のデフォルトはこちら。**経路A＝`yt-shorts-create --from-reels` は、その週に IG Reels を先に作った先頭問パックを流用したいときだけ**の補助（`assertCoverInSync` で IG 表紙とのズレを SSIM 0.90 未満で中断）。**経路A が障害（IG mp4 欠落・SSIM 失敗）でも経路B は独立稼働**するので、Shorts 供給は止めない。1級・2級土木など IG 一次制作が主の資格は経路A が主、という資格差がある点も混同しない。
+
 台帳は `.claude/state/youtube-schedule.json`（実 items 200 本・論点タイトル入力済み。2026-06-12 実査: uploaded 7／pending 193）。GitHub Actions 日次 cron（`post-youtube-scheduled.yml`）が pending を消化する。
 
 ### サイト・note との動線
