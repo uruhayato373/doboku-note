@@ -589,7 +589,7 @@ const MAGAZINES_RAW = {
   'civil-1-anki-note': {
     id: 'civil-1-anki-note',
     published: true,
-    noteUrl: 'https://note.com/dobokunote/n/nb91888d4dbd0',
+    noteUrl: 'https://note.com/dobokunote/n/na84b001e827e',
     title: '1級土木 二次学科記述｜直前暗記ノート（穴埋め頻出語句 一問一答）',
     description:
       '1級土木施工管理技士 第2次検定の学科記述（問題2〜11）で問われる穴埋め頻出語句を、分野別に一問一答へ整理した直前暗記ノート。令和3〜7年度の出題語句から頻出のものを抽出し、150〜250問の一問一答＋赤シート対応の印刷用PDF（A5・現場ポケット携行）を添付。試験直前の総仕上げ・スキマ時間の詰め込みに特化した最小構成のエントリー商品。※合格を保証するものではありません。',
