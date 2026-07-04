@@ -1,5 +1,8 @@
 # 機械系 textbook ページ 写真差し替えマニフェスト（PDF写真→AI処理）
 
+> [!done] 2026-07-04 完了（develop `b907d01e6`）
+> 24枚中 **23枚を差し替え**（着色12＋生成11）、**macadam-roller のみ現行 Wikimedia を維持**（3輪マカダムの適切なソース/生成が困難なため）。処理は当初計画どおり PC 上の Gemini（`gemini-2.5-flash-image` img2img 着色／`imagen-4.0` txt2img 生成）で実施。抽出PNGが「番号=クリーン写真」でなくフルページ/キャプション混入が多数だったため、**着色は機械領域をクロップしてから img2img、クロップ困難/無ソースは生成**のハイブリッドに。差替23枚の Wikimedia 帰属（caption＋source注釈）を除去し、型番付き alt を機種一般名へ汎用化、ArticleImage の width/height を新比率へ更新。**production 反映は `/deploy`（R2 は main push で CI 同期）**。以降の各表は当初の計画資料（一部はソース番号ズレあり）。
+
 > [!info] 位置づけ
 > 土木一般編・機械系8ページの現行写真を、テキストPDF由来の写真ベース画像へ差し替えるための対応表（2026-07-03 作成）。差し替え元PNGは `docs/textbook/１級土木施工管理技士/テキスト（土木一般編）/img/`（02=建設機械 / 05=測量、抽出済み320枚）。判定は現行 alt/出典コメント × PDF側 md の `（図: 写真X.X ...）` キャプション突合。画像パイプライン（AI処理→差し替え）は Codex/スクリプト向き。真実源ポリシー→[civil1-textbook-expansion.md](civil1-textbook-expansion.md)「図・写真の扱い」。
 

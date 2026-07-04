@@ -69,14 +69,15 @@
 |---|---|---|
 | フェーズ0 金額基準是正 | ✅完了 | 0c69c9dd9 |
 | フェーズ0 労基 就業制限表(表7.1/7.2) | ✅完了 | de6742eb1 |
-| schedule-charts 工程図表7種の実図SVG | ⬜ | — |
-| network-schedule NW計算演習 | ⬜ | — |
-| control-chart X̄-R実図SVG | ⬜ | — |
-| quality-inspection OC曲線/AQL整合 | ⬜ | — |
+| schedule-charts 工程図表7種の実図SVG | ✅（SVG実体あり・チェック欄が陳腐化していた） | — |
+| network-schedule NW計算演習 | ✅（SVG10点実体あり） | — |
+| control-chart X̄-R実図SVG | ✅（SVG実体あり） | — |
+| quality-inspection OC曲線/AQL整合 | ✅（SVG実体あり） | — |
+| フェーズ0.5 法規深掘り（元請義務表/道路管理者精緻化/用語定義） | ✅ 2026-07-04（develop c0971cb3f・法令WebSearch照合済） | — |
 
 ### 後工程To-Do（別環境・Opus不可）
 
-1. **機械8ページ 写真差替**（Gemini・別PC）: 対応表＝[civil-machinery-photo-manifest.md](civil-machinery-photo-manifest.md)。PDF写真PNGを形状リファレンスに**オリジナル生成（強い変形）→差替→commit**。現行 Wikimedia CC 写真は生成完了まで据え置き（画像欠けにしない）。**新規11ページには写真マーカーは無い（SVGのみ）**。
+1. ~~**機械8ページ 写真差替**（Gemini）~~ → ✅ 2026-07-04 完了（develop `b907d01e6`）。方針は**着色**に確定（当初「強い変形＝再生成」から変更）。この環境の `GEMINI_API_KEY`（.env.local）で実施可能と判明し、`gemini-2.5-flash-image`（img2img着色）＋`imagen-4.0`（txt2img生成）で **23枚差替（着色12＋生成11）・macadam維持**。Wikimedia帰属除去・alt汎用化・width/height更新まで完了。詳細＝[civil-machinery-photo-manifest.md](civil-machinery-photo-manifest.md)。
 2. ~~**新規ページ published化時**: `npm run ogp` で OGP 生成 → `check-ogp-coverage` を通す~~ → ✅ 2026-07-04 完了（11本 published:true・OGP11枚・refresh-indexes・develop `2141c2b22`）。
 3. ~~**guide 結線**: `guide-safety-management`（安全7本）・`guide-environment-management`（環境4本）~~ → ✅ 2026-07-04 完了（develop `0fcfbdb99`）。**補足**: `check-sns-urls` は本番 fetch ではなく **ローカル `src/config/doc-meta-index.json` を参照**（`scripts/check-sns-urls.mjs` L36）。公開＋refresh-indexes 済みなら 11本が index に載るため、**deploy 前でも結線 commit は通る**（handoff の「deploy 後のみ」は draft 時点の前提で、公開後は失効）。
 4. **deploy**: develop→main は `/deploy` でユーザー判断（11本＋guide結線が同時に本番反映）。
