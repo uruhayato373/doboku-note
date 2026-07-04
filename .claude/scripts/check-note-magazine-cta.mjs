@@ -18,6 +18,11 @@
  *   多数マガジンを一覧する性質上 markdown リンクのコンパクト列挙を許容する（①は対象外）。
  *   ただし価格（②）は index でも禁止（陳腐化する・note カードが実価格を表示する）。
  *
+ * 例外: 冒頭パック CTA（`<!-- cta:pack-top -->` / `cta:pack-top-light` マーカー直後のブロック）は
+ *   note-funnel-architecture.md 原則2「冒頭はパックへ**インラインで軽く**（カード連打で読み物の信頼を
+ *   損ねない）」に従い markdown リンクを意図的に用いる（①は対象外）。価格（②）は staleness ゆえ CTA でも
+ *   禁止（価格は note 販売ページ＝src/lib/note-magazines.ts が SoT）。マーカー〜次の空行までを CTA 域とみなす。
+ *
  * 真実源: docs/reference/content-principles.md §14-c
  * 呼出元: scripts/note-lint.mjs（pre-commit ゲート）/ /note-prepublish-review Phase 1
  * 兄弟:   .claude/scripts/check-note-bold-paren.mjs（同じ「1チェッカー×2呼出元」パターン）
@@ -65,10 +70,13 @@ for (const file of files) {
   const lines = body.split("\n");
   const fileViolations = [];
   let inFence = false;
+  let inPackTop = false; // 冒頭パック CTA 域（cta:pack-top マーカー〜次の空行）は md リンクを許容
   lines.forEach((line, idx) => {
     if (/^\s*```/.test(line)) { inFence = !inFence; return; }
     if (inFence) return;
-    const v = checkLine(line).filter((x) => !(isIndex && x.kind === "md"));
+    if (/<!--\s*cta:pack-top(-light)?\s*-->/.test(line)) { inPackTop = true; return; }
+    if (inPackTop && line.trim() === "") { inPackTop = false; }
+    const v = checkLine(line).filter((x) => !((isIndex || inPackTop) && x.kind === "md"));
     if (v.length > 0) fileViolations.push({ line: idx + 1 + fmLines, v });
   });
   if (fileViolations.length > 0) {

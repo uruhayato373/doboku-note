@@ -512,6 +512,8 @@ note 記事本文（`docs/note/**/article.md`）から有料マガジンへ誘�
 
 **もくじ index の例外**: frontmatter `noteSeries: 総合案内`（L1 総合案内・各資格 L2 もくじ）は多数マガジンを一覧する index ページのため、① markdown リンクのコンパクト列挙を許容する（note カードは bare URL でしか生成できず、12 本超を全部カード化すると index が冗長になる）。ただし ② 価格（¥）は index でも禁止（陳腐化する・note カードが実価格を表示する）。in-article CTA は「読者を 1〜2 件へ誘導」＝カード必須、index は「全件の一覧」＝リンク許容、と使い分ける。関連: §14-b（太字内全角括弧）。
 
+**冒頭パック CTA の例外**: `<!-- cta:pack-top -->`／`cta:pack-top-light` マーカー直後のブロック（次の空行まで）は、[note-funnel-architecture.md](note-funnel-architecture.md) 原則2「冒頭はパックへ**インラインで軽く**（カード連打で読み物の信頼を損ねない）」に従い、① markdown リンクを意図的に用いるため対象外とする（末尾 `cta:{exam}-mokuji` はカード＝bare URL のまま）。ただし ② 価格（¥）は冒頭 CTA でも禁止で、価格は note 販売ページ（`src/lib/note-magazines.ts` が SoT）に委譲する。機械可読 CTA 文面の SoT は `.claude/config/note-funnel.json` の `exams.{key}.topCta.text`（価格を含めない）。
+
 ### 14-d. note 記事の「3点セット」は公開状態で機械強制する
 
 note 記事1本の完成条件は **3点セット**: `article.md` + `img/cover.png`（アイキャッチ）+ `hashtags.txt`（タグ）。cover.png と hashtags.txt は本文執筆と別工程（`scripts/generate-note-covers.mjs` で frontmatter `cover:` ブロックを PNG 化／`/note-hashtags` でタグ生成）で後から作るため、**公開時に生成漏れが起きやすい**（2026-06-12、公開済 194 本中 2 本が `hashtags.txt` 欠落のまま公開されていた）。
