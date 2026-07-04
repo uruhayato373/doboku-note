@@ -90,10 +90,16 @@ AdSense 審査は **人間のレビュアーがサイトをサンプリングし
 - W2/W3/W4: AdSense「有用性」問題ではないと判断 → 処置を W1 に集中
 
 ### W1 リライト進捗（本文短い順・目標3,000字超の実質散文）
-- **Batch1 完了・commit `d3087710c`（6本）**: pdca-cycle(1,054→4,857) / four-m-of-production(1,172→3,689) / evaluation-bias(1,482→4,765) / analogous-estimation(1,483→3,897) / behavioral-regulation(3,603→4,547) / tripod-theory(1,200台→4,770)。全て lint HIGH=0・U+FFFD なし・内部リンク実在確認済み。
-- Batch2 進行中: self-declaration-system / temporary-works-plan / internal-job-posting / bottom-up-estimation / problem-setting-ability / process-costing
 
-### W1 残リスト（166本中、本セッション未処理）
-本文2,500字未満が70本・2,000字未満が24本。優先は本文短い順。次バッチ以降の候補（本文2,000字未満の残り）:
-depreciation-residual-value, impact, load-leveling, merit-demerit-system, esg-environmental-assessment, public-private-data-act, system-integrity, safety-investment, total-wage-management, safety-health-policy, wildlife-protection-act, five-s ほか。
-**166本の完遂は複数セッション作業。** 内部weighted は当てにならないため、進捗は「本文実測字数 + 独自散文密度」で管理する（`.tmp/adsense-lists.txt` に全リスト）。
+**本セッション完了: 24本（本文2,000字未満の最薄層を全て処理）。** 全て lint HIGH=0・U+FFFD なし・過去問引用は grep 実データ・新規参考URLはHTTP 200確認・frontmatter revisionCycle +1。
+
+- **Batch1 `d3087710c`**: pdca-cycle(1,054→4,857) / four-m-of-production(1,172→3,689) / evaluation-bias(1,482→4,765) / analogous-estimation(1,483→3,897) / behavioral-regulation(3,603→4,547) / tripod-theory(→4,770)
+- **Batch2 `e7c5b960a`**: self-declaration-system(1,742→4,038) / temporary-works-plan(1,752→4,755) / internal-job-posting(1,768→3,590) / bottom-up-estimation(1,779→4,687) / problem-setting-ability(1,831→4,796) / process-costing(1,838→4,008)
+- **Batch3 `b21433663`**: depreciation-residual-value(→3,206) / impact(→3,100) / load-leveling(→3,108) / merit-demerit-system(1,937→4,424) / esg-environmental-assessment(1,954→5,849) / public-private-data-act(1,959→4,532)
+- **Batch4 `ef8062190`**: system-integrity(1,959→4,050) / safety-investment(1,977→4,285) / total-wage-management(1,982→4,476) / safety-health-policy(→3,253) / wildlife-protection-act(→3,736) / five-s(→3,260)
+
+### W1 残リスト（166本中 24本完了・残142本）
+本文2,000〜2,685字の142本が未処理（優先は短い順）。全リストは `.tmp/adsense-lists.txt`。**残142本は複数セッション作業。** リライトは keyword-rewriter が非同期にページ毎サブエージェントへ委譲する挙動があり、1バッチ6本で完了する（親の完了通知後も子が書き込み中のことがあるため、コミット前に全ファイルの字数・HIGH=0・U+FFFD を都度再確認する）。内部 weighted は当てにならないため、進捗は「本文実測字数 + 独自散文密度」で管理する。
+
+### 検証メモ
+`next build` は未実行（`build` が `refresh-indexes` を内包し、別セッションが編集中の `src/config/*.json` を巻き込むため回避）。index 再生成は deploy 時に CI が自動実行する。content MDX の妥当性は pre-commit（validate-mdx）＋ lint-mdx-mobile HIGH=0 ＋ U+FFFD チェックで担保済み。
