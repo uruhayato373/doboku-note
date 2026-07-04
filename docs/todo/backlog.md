@@ -401,15 +401,27 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 ## 5. SNS・マーケティング
 
-### SNS UTM 統一の実装（GA4 経路分類の空白を埋める）🔴
+### SNS UTM 統一の実装（GA4 経路分類の空白を埋める）✅ 完了（2026-07-04）
 
-**発端**: SNS 整理（2026-07-03・[00_SNS整理マップ.md](../project/03_SNS/00_SNS整理マップ.md) §4）で**最優先ギャップ**と判明。`02_チャネル動線設計.md` §4 で UTM 統一フォーマットは**定義済みだが未実装**。各 SNS 生成スキル（social-post / ig-post-create / yt-shorts-create 等）が独自 UTM または UTM 無しで送客リンクを組むため、**同一の SNS 流入が GA4 で経路別に分類されず**、チャネル別効果（IG/YT/X → note・サイト）が測れない。GA4 レポートが実質機能しない状態。
+**完了**: `.claude/config/utm-templates.json`＋`.claude/scripts/lib/utm-builder.mjs`（2026-07-03 実装）に加え、**YT 生成スクリプト（yt-shorts-create / per-problem-shorts）の `.replace()` 手書きを `buildUtmUrl()` へ配線・sns-config のハードコード utmParams 撤去（出力 byte 等価を検証）**。X 送客リンクは新設 `check-x-utm`（pre-commit ゲート）が utm_source=x/utm_medium=social を強制。さらに GA4 SNS 流入 breakdown（`fetch-ga4-data --sns-only`→`ga4-sourceMedium-sns-*`）・週次スナップショット CI 復旧＋SNS 拡張・YT 公開照合 `verify-yt-status`・週次レビュー Agent F＋metrics-analyzer Pattern 6 まで一括整備。SSOT: `00_SNS整理マップ §型カタログ`／`02_チャネル動線設計 §4`。
 
-**対応方針**: `.claude/config/utm-templates.json`（チャネル × 配信形式別の `utm_source`/`utm_medium`/`utm_campaign` 規約）＋ `.claude/scripts/lib/utm-builder.mjs` を新設し、各 SNS 生成スキルが送客リンクを組む箇所で UTM を自動付与。既存の `check-note-site-utm.mjs`（note→サイト UTM ゲート）と規約を突合。真実源＝`02_チャネル動線設計.md` §4。
+### note→サイト bare-url の UTM バーンダウン（442件）🟡
 
-**対象**: `.claude/config/utm-templates.json`（新規）／`.claude/scripts/lib/utm-builder.mjs`（新規）／social・ig・yt 各生成スキルの送客リンク組み立て箇所。§6「計測基盤 強化ロードマップ」と連動。
+**発端**: SNS 計測基盤整備（2026-07-04・上記 UTM 統一の派生）。X 側は `check-x-utm` で新規を阻止したが、`docs/note/**` の既存 `doboku-note.com/docs/` 送客リンク **442件が bare-url（単独行）のまま**で、`/note-publish` がカード化して UTM が落ち GA4 の Referral 計測に乗らない。`check-note-site-utm --staged` で新規は既に阻止済み＝**既存分のバーンダウン**が残タスク。
 
-**注意**: `src/**`・`scripts/**`・`.claude/skills/**` を触るコード作業＝着手時に `/doc-sync` 対象。`[Codex候補]`＝規約が固まればテンプレ適用はバルク可。
+**対応方針**: bare-url を `[アンカー文言](url?utm_source=note&utm_medium=referral&utm_campaign={記事slug}&utm_content={送客先})` のインライン形式へ変換。アンカー文言の付与に判断が要る半手動作業（`scripts/add-note-utm.mjs` が自動付与候補だが debug 途上＝要検証）。真実源 `02_チャネル動線設計 §4`／ゲート `check-note-site-utm`。
+**規模**: 442件（`node scripts/check-note-site-utm.mjs` で一覧）。バッチ・記事単位で消化。
+
+### 競合の勝ち型を policy 化（SNS 投稿型カタログの拡張）🟡
+
+**発端**: SNS 競合実地調査（2026-07-04・`07_競合調査.md` SNS節）で、競合が伸ばしている型のうち現行の型カタログ（`00_SNS整理マップ §型カタログ`）に無い3種を surface。型として正式に policy 化すれば writer エージェントが量産に使える。
+
+**対象3型**:
+1. **聞き流し一問一答**（YT 空白型・日建学院で47k再生実測）→ YT 通常動画/長尺。**ブロッカー: 16:9 テンプレ未実装**（`05_YouTube §5` 参照）。テンプレ実装が前提。
+2. **合格後キャリア/現場リアル リール**（IG 差別化・現場密着リールにバイラル実績）→ `ig-reels-policy` に型追加。**要運営者の一次情報**（キャリア体験素材。Red Line=一次情報は note 有料囲い込み・断片/フックまで）。
+3. **お悩み相談回答**（技術士系 X/YT で定着）→ `x-post-policy` の投稿型 or Reels 角度。既存 FAQ/キーワードから素材化可能＝運営者素材なしで着手可。
+
+**対応方針**: 3の「お悩み相談回答」は素材不要で先行 policy 化可。1は16:9テンプレ待ち、2はキャリア素材待ち。着手時に該当 writer エージェント（`x-post-writer`/`ig-reels-writer`）の参照を更新。真実源 `content-angle-policy`／`00_SNS整理マップ §型カタログ 型バックログ`。
 
 ### 1級土木 二次10/4 直前スプリント（死守コア3つ）🔴
 
@@ -619,3 +631,8 @@ Hero → ExamCards → LatestArticles → AboutSection
 **方針**: 震源の共通処理を `scripts/lib/note-browser.mjs`（launchNoteBrowser/accountGate/openEditor/pasteBody{clear}/cardifyUrls/clickPublishProceed/clickUpdate）へ一元化し、上記スクリプトを差し替える。**有料境界(paywall boundary)ロジックは収益直結のため統合せず各スクリプトにインライン保持**（壊すと有料エリアが崩れる）。
 **実施条件**: task_4deea43c の Tier 1 修正が commit 済みであること。**独立 worktree で実施**（収益noteに触る5スクリプト改修・並行セッション衝突回避＝§10）。各スクリプトは dry-run/probe で挙動同一を確認、note-publish は次回実公開でスモークテスト。
 **設計の出発点**: 本セッションで note-browser.mjs の設計を完了済み（このセッションのトランスクリプト参照）。
+
+### 1級土木 第2章 施工計画フロー図の自前SVG化（任意・低優先）🟢
+**前提**: 施工管理・法規テキスト拡充（新規11本公開・guide結線・機械写真差替・フェーズ0.5法規深掘り）は 2026-07-04 完了（develop `c0971cb3f`）。残る tack-on 任意項目のみ。
+**残**: `textbook-construction-plan-overview`（施工計画フロー図2.1）・`textbook-site-investigation`（施工方法決定フロー図2.8）を自前SVG化（現状フロー図なし）。図版標準＝figure-canvas-policy / create-svg 準拠。
+**出典**: `docs/handoffs/_archive/2026-07-03-civil1-textbook-expansion.md`（フェーズ0.5「第2章フロー図SVG化も任意」）

@@ -80,7 +80,7 @@ user-invocable: true
   ├─ Phase 1: ファイル特定と読み込み
   │   ├ ターゲット解決:
   │   │   ・サイト模範論文: r05-essay-general-contractor → .local/r2/posts/pe-comprehensive-management/{slug}/article.mdx
-  │   │   ・note マガジン論文: 総監模範論文-河川コンサル/R07 → docs/note/magazines/{magazine}/{R0X}/article.md
+  │   │   ・note マガジン論文: 総監模範論文-河川コンサル/R07 → docs/note/技術士総監/magazines/{magazine}/{R0X}/article.md
   │   │       （マガジン名・年度とも前方一致で解決可。R0X は大文字小文字どちらでも可）
   │   ├ 模範論文ファイル read（最大 1000 行）
   │   ├ inline チェック（U+FFFD 文字化け、frontmatter 必須項目）

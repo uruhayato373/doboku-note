@@ -174,6 +174,97 @@ async function fetchGa4Weekly(credentials, ranges, opts = {}) {
   return { channels, total, organic };
 }
 
+// SNS 流入の source 集合を UTM SSOT (utm-templates.json) から読む（ハードコードしない）
+function getSnsSources() {
+  try {
+    const cfg = JSON.parse(readFileSync(".claude/config/utm-templates.json", "utf-8"));
+    const sources = Object.values(cfg.channels || {})
+      .map((c) => c.source)
+      .filter(Boolean);
+    return [...new Set(sources)];
+  } catch {
+    return ["x", "instagram", "youtube", "note"];
+  }
+}
+
+// SNS 流入の source 別 WoW（sessionSource を SNS source 集合＋Japan に絞る）。
+// fetchGa4Weekly と同じ 2-dateRange 比較パターン。SNS 流入の週次可視化用。
+async function fetchGa4SnsWeekly(credentials, ranges) {
+  const propertyId = process.env.GA4_PROPERTY_ID;
+  if (!propertyId) throw new Error("GA4_PROPERTY_ID 未設定");
+
+  const client = new BetaAnalyticsDataClient({ credentials });
+  const snsSources = getSnsSources();
+
+  const [response] = await client.runReport({
+    property: `properties/${propertyId}`,
+    dateRanges: [
+      { startDate: ranges.this.start, endDate: ranges.this.end, name: "this" },
+      { startDate: ranges.prev.start, endDate: ranges.prev.end, name: "prev" },
+    ],
+    dimensions: [{ name: "sessionSource" }],
+    metrics: [{ name: "activeUsers" }, { name: "sessions" }],
+    dimensionFilter: {
+      andGroup: {
+        expressions: [
+          {
+            filter: {
+              fieldName: "sessionSource",
+              inListFilter: { values: snsSources },
+            },
+          },
+          {
+            filter: {
+              fieldName: "country",
+              stringFilter: { matchType: "EXACT", value: "Japan" },
+            },
+          },
+        ],
+      },
+    },
+    limit: 50,
+  });
+
+  const bySource = {};
+  for (const row of response.rows || []) {
+    const source = row.dimensionValues[0]?.value || "(unknown)";
+    const rangeIdx = row.dimensionValues[row.dimensionValues.length - 1]?.value;
+    const bucket = rangeIdx === "date_range_0" || rangeIdx === "this" ? "this" : "prev";
+    if (!bySource[source]) {
+      bySource[source] = { this: { users: 0, sessions: 0 }, prev: { users: 0, sessions: 0 } };
+    }
+    bySource[source][bucket] = {
+      users: parseFloat(row.metricValues[0]?.value || "0"),
+      sessions: parseFloat(row.metricValues[1]?.value || "0"),
+    };
+  }
+
+  const sources = Object.entries(bySource).map(([source, data]) => ({
+    source,
+    thisUsers: data.this.users,
+    prevUsers: data.prev.users,
+    userDelta: data.this.users - data.prev.users,
+    userDeltaPct:
+      data.prev.users > 0 ? ((data.this.users - data.prev.users) / data.prev.users) * 100 : null,
+    thisSessions: data.this.sessions,
+    prevSessions: data.prev.sessions,
+  }));
+  sources.sort((a, b) => b.thisUsers - a.thisUsers);
+
+  const total = sources.reduce(
+    (acc, s) => ({
+      thisUsers: acc.thisUsers + s.thisUsers,
+      prevUsers: acc.prevUsers + s.prevUsers,
+      thisSessions: acc.thisSessions + s.thisSessions,
+    }),
+    { thisUsers: 0, prevUsers: 0, thisSessions: 0 },
+  );
+  total.userDelta = total.thisUsers - total.prevUsers;
+  total.userDeltaPct = total.prevUsers > 0 ? (total.userDelta / total.prevUsers) * 100 : null;
+
+  return { sources, total, snsSources };
+}
+
 // ── GSC ───────────────────────────────────────────────────────────
 
 async function fetchGscAnalytics(auth, siteUrl, startDate, endDate, opts = {}) {
@@ -295,12 +386,15 @@ export async function fetchWeeklyNsmMetrics() {
   const credentials = getCredentials();
   const ranges = computeWeekRanges();
 
-  const [ga4, ga4Jp, gsc, psi] = await Promise.all([
+  const [ga4, ga4Jp, sns, gsc, psi] = await Promise.all([
     fetchGa4Weekly(credentials, ranges.ga4).catch((e) => ({
       error: `GA4 取得失敗: ${e.message}`,
     })),
     fetchGa4Weekly(credentials, ranges.ga4, { country: "Japan" }).catch((e) => ({
       error: `GA4 (Japan) 取得失敗: ${e.message}`,
+    })),
+    fetchGa4SnsWeekly(credentials, ranges.ga4).catch((e) => ({
+      error: `GA4 (SNS) 取得失敗: ${e.message}`,
     })),
     fetchGscWeekly(credentials, ranges.gsc).catch((e) => ({
       error: `GSC 取得失敗: ${e.message}`,
@@ -313,12 +407,14 @@ export async function fetchWeeklyNsmMetrics() {
     ranges,
     ga4,
     ga4_jp: ga4Jp,
+    sns,
     psi,
     gsc,
     notes: [
       `GSC データは 3 日遅延のため、直近期間は ${ranges.gsc.this.start} 〜 ${ranges.gsc.this.end} を採用`,
       "NSM = Organic Search の activeUsers (definition.md 準拠)",
       "ga4_jp は country=Japan フィルタ版（bot 流入の影響を受けにくい母数）。incident 2026-04-26 を参照",
+      "sns は sessionSource を SNS source 集合(utm-templates.json)+Japan に絞った source 別 WoW",
       "PSI は site root 1 URL をモバイル計測（trafficが増えたら field_data も出現）",
     ],
   };
@@ -392,6 +488,34 @@ export function formatNsmSection(metrics) {
           `| **Organic Search users (JP, ★NSM)** | **${o.thisUsers}** | ${o.prevUsers} | ${fmtDelta(o.userDelta, o.userDeltaPct)} |`,
         );
       }
+      lines.push("");
+    }
+  }
+
+  // SNS 流入（source 別 WoW）— weekly-review の SNS フェーズが参照
+  if (metrics.sns) {
+    if (metrics.sns.error) {
+      lines.push(`⚠️ GA4 (SNS): ${metrics.sns.error}`);
+      lines.push("");
+    } else {
+      lines.push("### SNS 流入（source 別 WoW・Japan）");
+      lines.push("");
+      const st = metrics.sns.total;
+      lines.push("| source | users | prev | delta | sessions |");
+      lines.push("|---|---:|---:|---:|---:|");
+      lines.push(
+        `| **合計** | **${st.thisUsers}** | ${st.prevUsers} | ${fmtDelta(st.userDelta, st.userDeltaPct)} | ${st.thisSessions} |`,
+      );
+      for (const s of metrics.sns.sources) {
+        lines.push(
+          `| ${s.source} | ${s.thisUsers} | ${s.prevUsers} | ${fmtDelta(s.userDelta, s.userDeltaPct)} | ${s.thisSessions} |`,
+        );
+      }
+      if (metrics.sns.sources.length === 0) {
+        lines.push("| (SNS 流入なし) | 0 | 0 | - | 0 |");
+      }
+      lines.push("");
+      lines.push("> 初週は前週データが無いため delta は参考値。SNS の source は utm-templates.json 由来。");
       lines.push("");
     }
   }

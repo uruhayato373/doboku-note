@@ -104,6 +104,8 @@
     "test:watch": "node --test --watch tests/",
     "check-guide-length": "node scripts/check-guide-length.mjs",
     "check-note-site-utm": "node scripts/check-note-site-utm.mjs",
+    "check-x-utm": "node scripts/check-x-utm.mjs",
+    "verify-yt-status": "node .claude/scripts/youtube/verify-yt-status.mjs",
     "check-figure-canvas": "node scripts/check-figure-canvas.mjs",
     "check-orphan-figures": "node scripts/check-orphan-figures.mjs",
     "check-ig-cover": "node scripts/check-ig-cover.mjs",

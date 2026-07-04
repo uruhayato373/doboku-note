@@ -135,5 +135,5 @@ npm run check-seo-meta:check -- --exit-on-violation
 ## 既知の制約
 
 - **本番巡回時の Cloudflare Bot 保護**（Issue #159）— 短時間の高頻度アクセスで遮断される可能性。`concurrency: 4` 程度に下げ、`User-Agent` ヘッダ追加が必要なら fetch オプションを追加
-- **dev サーバーの初回コンパイル遅延** — 783 URL 巡回前に `npm run build && npm run serve` で静的化したものを巡回する選択肢もあり（より速く・本番に近い）
+- **dev サーバーの初回コンパイル遅延** — 783 URL 巡回前に `npm run build` で生成した静的 `out/` を任意の静的サーバ（例 `npx serve out`）で配信して巡回する選択肢もあり（より速く・本番に近い）
 - **JSON-LD 構造の深い検証は対象外** — Google Rich Results Test での目視確認で補完する

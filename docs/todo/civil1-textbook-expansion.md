@@ -23,7 +23,7 @@
 | 種別 | 方針 |
 |---|---|
 | **図（構造・線画・フロー・断面）** | **自前SVG新規作成**（PDFは概念参照のみ・トレース/転載不可）。本計画の「必要な自前SVG」列がこれ。 |
-| **写真（実機・現場）** | **PDF写真を種に利用 → 後工程でAI処理（Gemini/Codex）** して仕上げる（ユーザー判断・著作権リスク了承済み）。AI処理は軽い着色でなく**強い変形＝実質再生成**に寄せる。公開前に「AI処理済み」を必須ゲートとし、未処理のPDF直クロップを本番に到達させない。 |
+| **写真（実機・現場）** | **PDFの白黒写真をAIで着色（カラー化）** して差し替える（2026-07-04 ユーザー決定。従来案の「軽い着色でなく強い変形＝実質再生成」は**不採用**）。機種の正確さを優先し、着色は元写真の構図を保つ。**著作権**：着色は市販テキスト写真の派生物にあたりうる（現行 Wikimedia CC/PD は合法なので法的には後退の可能性）。この点を**了承の上**で着色を選択。公開前に「AI着色済み」を必須ゲートとし、未処理のPDF直クロップを本番に到達させない。生成が要るのは**PDFに実機写真が無い4枚のみ**（scraper×2・測距測角×2＝txt2img）。 |
 
 > [!info] 機械ページの既存写真差し替えも同ポリシー
 > `textbook-tractor-bulldozer` 等の土木一般編・機械系8ページの既存写真（大半 Wikimedia CC/PD＝合法）も、この方針で PDF 写真ベース→AI処理へ差し替える。**対応表＝[civil-machinery-photo-manifest.md](civil-machinery-photo-manifest.md)**（24枚中20枚はPDF写真PNGで賄い・4枚AI生成）。バルクな抽出・差し替えは Codex/スクリプト、判断の要る執筆は Opus で分業。
@@ -44,21 +44,24 @@
 - `{/* HANDOFF-VERIFY: <要追加照合の数値・条番号> */}` — 追加の原典照合が要る箇所
 - 一括検出コマンド： `grep -rn "HANDOFF-" .local/r2/posts docs`
 
+> [!done] 2026-07-04 更新：新規11ページを公開（develop `2141c2b22`）
+> 全11本を `civil-construction-review` でQA → `civil-textbook-rewriter` で修正（全本に `## 参考資料` 新設・ExamPoint を §5 末尾≤2 へ統合・§24 語尾変化・内容2件是正）→ `published: true` 反転 → OGP 11枚生成 → `refresh-indexes` → develop へ commit/push。lint HIGH=0（残 MEDIUM は 9-2 の cosmetic のみ）。**production 反映は未（`/deploy` でユーザー判断）**。残：guide 結線（deploy後）・機械8写真（Gemini）・Phase 0.5（任意）・Phase 3（既存深掘り 未着手）。
+
 ### 新規11ページ 進捗
 
 | slug | 状態 | commit | 自前SVG | 後工程 |
 |---|---|---|---|---|
-| textbook-safety-scaffolding | ✅本文+SVG(draft) | 0130e0385 | 3/3 | published化+OGP |
-| textbook-safety-excavation-shoring | ✅本文+SVG(draft) | 183077f9b | 3/3 | published化+OGP |
-| textbook-safety-management-system | ✅本文+SVG(draft) | 2deec2df2 | 2/2 | published化+OGP |
-| textbook-safety-machinery-crane | ✅本文+SVG(draft) | df5cc3ae1 | 2/2 | published化+OGP |
-| textbook-safety-industrial-safety-law | ✅本文+SVG(draft) | 20df609f4 | 2/2 | published化+OGP |
-| textbook-safety-risk-assessment | ✅本文+SVG(draft) | df5cc3ae1 | 3/3 | published化+OGP |
-| textbook-safety-work-environment | ✅本文+SVG(draft) | 20df609f4 | 2/2 | published化+OGP |
-| textbook-noise-vibration-regulation | ✅本文+SVG(draft) | 23939a5fa | 3/3 | published化+OGP |
-| textbook-water-air-soil-pollution | ✅本文+SVG(draft) | 54a681909 | 2/2 | published化+OGP |
-| textbook-construction-byproduct-recycle | ✅本文+SVG(draft) | 23939a5fa | 2/2 | published化+OGP |
-| textbook-waste-disposal-manifest | ✅本文+SVG(draft) | 23939a5fa | 3/3 | published化+OGP |
+| textbook-safety-scaffolding | ✅公開(published) | 0130e0385 | 3/3 | ✅公開済(07-04) |
+| textbook-safety-excavation-shoring | ✅公開(published) | 183077f9b | 3/3 | ✅公開済(07-04) |
+| textbook-safety-management-system | ✅公開(published) | 2deec2df2 | 2/2 | ✅公開済(07-04) |
+| textbook-safety-machinery-crane | ✅公開(published) | df5cc3ae1 | 2/2 | ✅公開済(07-04) |
+| textbook-safety-industrial-safety-law | ✅公開(published) | 20df609f4 | 2/2 | ✅公開済(07-04) |
+| textbook-safety-risk-assessment | ✅公開(published) | df5cc3ae1 | 3/3 | ✅公開済(07-04) |
+| textbook-safety-work-environment | ✅公開(published) | 20df609f4 | 2/2 | ✅公開済(07-04) |
+| textbook-noise-vibration-regulation | ✅公開(published) | 23939a5fa | 3/3 | ✅公開済(07-04) |
+| textbook-water-air-soil-pollution | ✅公開(published) | 54a681909 | 2/2 | ✅公開済(07-04) |
+| textbook-construction-byproduct-recycle | ✅公開(published) | 23939a5fa | 2/2 | ✅公開済(07-04) |
+| textbook-waste-disposal-manifest | ✅公開(published) | 23939a5fa | 3/3 | ✅公開済(07-04) |
 
 ### 既存深掘り・フェーズ0残 進捗
 
@@ -66,16 +69,19 @@
 |---|---|---|
 | フェーズ0 金額基準是正 | ✅完了 | 0c69c9dd9 |
 | フェーズ0 労基 就業制限表(表7.1/7.2) | ✅完了 | de6742eb1 |
-| schedule-charts 工程図表7種の実図SVG | ⬜ | — |
-| network-schedule NW計算演習 | ⬜ | — |
-| control-chart X̄-R実図SVG | ⬜ | — |
-| quality-inspection OC曲線/AQL整合 | ⬜ | — |
+| schedule-charts 工程図表7種の実図SVG | ✅（SVG実体あり・チェック欄が陳腐化していた） | — |
+| network-schedule NW計算演習 | ✅（SVG10点実体あり） | — |
+| control-chart X̄-R実図SVG | ✅（SVG実体あり） | — |
+| quality-inspection OC曲線/AQL整合 | ✅（SVG実体あり） | — |
+| フェーズ0.5 法規深掘り（元請義務表/道路管理者精緻化/用語定義） | ✅ 2026-07-04（develop c0971cb3f・法令WebSearch照合済） | — |
 
 ### 後工程To-Do（別環境・Opus不可）
 
-1. **機械8ページ 写真差替**（Gemini・別PC）: 対応表＝[civil-machinery-photo-manifest.md](civil-machinery-photo-manifest.md)。PDF写真PNGを形状リファレンスに**オリジナル生成（強い変形）→差替→commit**。現行 Wikimedia CC 写真は生成完了まで据え置き（画像欠けにしない）。**新規11ページには写真マーカーは無い（SVGのみ）**。
-2. **新規ページ published化時**: `npm run ogp` で OGP 生成 → `check-ogp-coverage` を通す（draft の間は不要）。
-3. **deploy**: develop→main は `/deploy` でユーザー判断。
+1. ~~**機械8ページ 写真差替**（Gemini）~~ → ✅ 2026-07-04 完了（develop `b907d01e6`）。方針は**着色**に確定（当初「強い変形＝再生成」から変更）。この環境の `GEMINI_API_KEY`（.env.local）で実施可能と判明し、`gemini-2.5-flash-image`（img2img着色）＋`imagen-4.0`（txt2img生成）で **23枚差替（着色12＋生成11）・macadam維持**。Wikimedia帰属除去・alt汎用化・width/height更新まで完了。詳細＝[civil-machinery-photo-manifest.md](civil-machinery-photo-manifest.md)。
+2. ~~**新規ページ published化時**: `npm run ogp` で OGP 生成 → `check-ogp-coverage` を通す~~ → ✅ 2026-07-04 完了（11本 published:true・OGP11枚・refresh-indexes・develop `2141c2b22`）。
+3. ~~**guide 結線**: `guide-safety-management`（安全7本）・`guide-environment-management`（環境4本）~~ → ✅ 2026-07-04 完了（develop `0fcfbdb99`）。**補足**: `check-sns-urls` は本番 fetch ではなく **ローカル `src/config/doc-meta-index.json` を参照**（`scripts/check-sns-urls.mjs` L36）。公開＋refresh-indexes 済みなら 11本が index に載るため、**deploy 前でも結線 commit は通る**（handoff の「deploy 後のみ」は draft 時点の前提で、公開後は失効）。
+4. **deploy**: develop→main は `/deploy` でユーザー判断（11本＋guide結線が同時に本番反映）。
+5. **Phase 0.5 法規深掘り（任意）・Phase 3 既存深掘り（schedule-charts/network-schedule/control-chart/quality-inspection）**: トラッカー上は未着手（⬜）だが handoff 本文は「完了」と記載＝**記録の食い違い**。着手前に実体（各 MDX に該当 SVG/節が有るか）を確認する。
 
 ---
 

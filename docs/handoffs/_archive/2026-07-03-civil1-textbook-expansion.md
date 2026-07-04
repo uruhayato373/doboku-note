@@ -3,6 +3,15 @@
 > [!important] 別PC/次セッションで続けるとき、まずこれを読む
 > このブランチ `recover/civil1-textbook-expansion` に**今回の全作業が入っている**（origin へ push 済）。`develop` は並行セッションの共有ブランチ reset で今回後半のコミットが一度外れたため、隔離 worktree で origin/develop 上へ復元した salvage コミット（`db667db47`）が本体。
 
+> [!done] 2026-07-04：残タスク 1〜5 すべて完了（develop `c0971cb3f`）
+> - #1 11本公開化（QA→修正→published:true→OGP→refresh-indexes、lint HIGH=0）
+> - #2 guide 結線（安全7/環境4、`check-sns-urls` はローカル index 参照ゆえ deploy 前に実施可と判明）
+> - #3 機械8ページ写真差替（この環境の `GEMINI_API_KEY` で実施可能と判明。着色14＋生成9、macadam維持。Wikimedia帰属除去・alt汎用化・width/height更新）
+> - #4 フェーズ0.5 法規深掘り（元請負人義務日数表・道路管理者 指定区間/区間外・建築基準法用語定義、法令WebSearch照合済）
+> - #5 industrial-safety-law description 138字へ短縮
+>
+> **残るは production 反映（`/deploy` develop→main＝ユーザー判断）のみ**。R2 は main push で `**/img/**` を CI 同期。付随の最小任意項目＝第2章フロー図のSVG化（construction-plan-overview / site-investigation）は未着手（backlog 相当）。進捗 SSOT＝[civil1-textbook-expansion.md](../../todo/civil1-textbook-expansion.md)。本 handoff はタスク完了につき /doc-declutter で `_archive` 退避可。
+
 ## まず最初にやること（別PC）
 
 ```bash
@@ -23,7 +32,7 @@ npm ci --legacy-peer-deps                          # 依存（PLAYWRIGHT_SKIP_BR
 
 **フェーズ3 既存深掘り（自前SVG＋整合是正）**: `textbook-schedule-charts`（工程図表4種形状＋バナナ曲線判定）/ `-network-schedule`（EST/LFT/CP/TF/FF の数値演習・全体工期11日）/ `-control-chart`（X̄-R管理図の実図）/ `-quality-inspection`（謳っていたOC曲線・AQLの実体を追記）。
 
-**記録類**: 拡充計画＝[docs/todo/civil1-textbook-expansion.md](../todo/civil1-textbook-expansion.md)（進捗トラッカー・HANDOFFマーカー規約・後工程To-Do）。写真差替＝[docs/todo/civil-machinery-photo-manifest.md](../todo/civil-machinery-photo-manifest.md)。
+**記録類**: 拡充計画＝[docs/todo/civil1-textbook-expansion.md](../../todo/civil1-textbook-expansion.md)（進捗トラッカー・HANDOFFマーカー規約・後工程To-Do）。写真差替＝[docs/todo/civil-machinery-photo-manifest.md](../../todo/civil-machinery-photo-manifest.md)。
 
 ## 残タスク（すべて別環境・意思決定・任意のゲート付き）
 

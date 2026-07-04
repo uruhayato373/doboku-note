@@ -18,7 +18,7 @@ OGP 画像（1200×630）の**見た目の方向性**を、AI デザイン MCP�
 
 ## 前提（MCP の到達性とコスト）
 
-- 接続済み MCP: **aidesigner**（`mcp__aidesigner__*`）と **Canva**（`mcp__claude_ai_Canva__*`）。両者とも claude.ai OAuth 経由のため**会社 PC のプロキシ（外部 API 遮断）でも到達する**（`curl`/node 直叩きとは別経路）。
+- MCP: 主軸は **aidesigner**（`mcp__aidesigner__*`・`.mcp.json` に登録済み）。**Canva**（`mcp__claude_ai_Canva__*`）は claude.ai コネクタとして接続されている場合のみ利用可（現状は未接続の想定・使う前に接続確認）。いずれも claude.ai OAuth 経由のため**会社 PC のプロキシ（外部 API 遮断）でも到達する**（`curl`/node 直叩きとは別経路）。
 - **aidesigner は無料枠でクレジット制限あり**。生成前に必ず `mcp__aidesigner__get_credit_status` を呼んで残量を確認し、**何枚生成してよいかをユーザーに確認**してから着手する（浪費防止）。
 - MCP は**ヘッドレス/CI/cron では使えない**可能性が高い（インタラクティブ認証）。本スキルは対話セッション専用。自動パイプラインに組み込まない。
 

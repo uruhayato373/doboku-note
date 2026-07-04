@@ -11,6 +11,7 @@
  *   npm run fetch-ga4-data -- --dimension page             # ページ別
  *   npm run fetch-ga4-data -- --metric activeUsers,sessions  # メトリクス絞り込み
  *   npm run fetch-ga4-data -- --organic-only               # organic search のみ
+ *   npm run fetch-ga4-data -- --dimension sourceMedium --sns-only  # SNS流入 source×medium 別（x/instagram/youtube/note）
  *   npm run fetch-ga4-data -- --limit 50                   # 上位50件
  *   npm run fetch-ga4-data -- --include-all                # bot/海外を含める（既定では除外）
  *
@@ -46,9 +47,28 @@ const DIMENSION_MAP = {
   page: "pagePath",
   source: "sessionSource",
   medium: "sessionMedium",
+  sourceMedium: "sessionSourceMedium",
   country: "country",
   device: "deviceCategory",
 };
+
+// spam 除外を適用してよい（sessionSource を fieldName に取れる）dimension
+const SOURCE_LIKE_DIMENSIONS = ["sessionSource", "sessionSourceMedium"];
+
+// SNS 流入の source 集合を UTM SSOT (utm-templates.json) から読む。
+// ハードコードせず、真実源の channels[].source をユニーク化して返す。
+function getSnsSources() {
+  try {
+    const cfg = JSON.parse(readFileSync(".claude/config/utm-templates.json", "utf-8"));
+    const sources = Object.values(cfg.channels || {})
+      .map((c) => c.source)
+      .filter(Boolean);
+    return [...new Set(sources)];
+  } catch {
+    // config が読めない場合の安全側フォールバック（真実源が動いたら上で拾える）
+    return ["x", "instagram", "youtube", "note"];
+  }
+}
 
 // デフォルトメトリクスセット（NSM 関連）
 const DEFAULT_METRICS = [
@@ -81,6 +101,7 @@ function parseArgs() {
     limit: DEFAULT_LIMIT,
     metrics: DEFAULT_METRICS,
     organicOnly: false,
+    snsOnly: false,
     // 既定で日本・bot 除外を ON（measurement-incidents.md 2026-04-26 参照）
     japanOnly: true,
     excludeSpam: true,
@@ -103,6 +124,10 @@ function parseArgs() {
         break;
       case "--organic-only":
         opts.organicOnly = true;
+        break;
+      case "--sns-only":
+        // SNS 流入のみ（sessionSource を utm-templates.json の SNS source 集合に絞る）
+        opts.snsOnly = true;
         break;
       case "--include-all":
         // 過去仕様（フィルタなし）に戻す。bot 由来か否かを生で確認したい時に使う
@@ -212,14 +237,25 @@ async function fetchGa4(client, propertyId, opts) {
     });
   }
 
-  // 参照スパム除外は dimension が source の時のみ API 側で適用
-  if (opts.excludeSpam && dimensionName === "sessionSource") {
+  // 参照スパム除外は source 系 dimension の時のみ API 側で適用
+  // （fieldName=sessionSource は sessionSourceMedium レポートでもフィルタ可能）
+  if (opts.excludeSpam && SOURCE_LIKE_DIMENSIONS.includes(dimensionName)) {
     andFilters.push({
       notExpression: {
         filter: {
           fieldName: "sessionSource",
           inListFilter: { values: SPAM_REFERRAL_SOURCES },
         },
+      },
+    });
+  }
+
+  // SNS 流入のみ: sessionSource を SNS source 集合（utm-templates.json）に限定
+  if (opts.snsOnly) {
+    andFilters.push({
+      filter: {
+        fieldName: "sessionSource",
+        inListFilter: { values: getSnsSources() },
       },
     });
   }
@@ -252,9 +288,12 @@ async function fetchGa4(client, propertyId, opts) {
       metrics: opts.metrics,
       limit: opts.limit,
       organicOnly: opts.organicOnly,
+      snsOnly: opts.snsOnly,
+      snsSources: opts.snsOnly ? getSnsSources() : [],
       japanOnly: opts.japanOnly,
       excludeSpam: opts.excludeSpam,
-      spamSourcesExcluded: opts.excludeSpam && dimensionName === "sessionSource" ? SPAM_REFERRAL_SOURCES : [],
+      spamSourcesExcluded:
+        opts.excludeSpam && SOURCE_LIKE_DIMENSIONS.includes(dimensionName) ? SPAM_REFERRAL_SOURCES : [],
       propertyId,
     },
     rows,
@@ -332,7 +371,8 @@ function saveJson(data, opts) {
   }
 
   const timestamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
-  const filename = `ga4-${opts.dimension}${opts.organicOnly ? "-organic" : ""}-${timestamp}.json`;
+  const suffix = `${opts.organicOnly ? "-organic" : ""}${opts.snsOnly ? "-sns" : ""}`;
+  const filename = `ga4-${opts.dimension}${suffix}-${timestamp}.json`;
   const filepath = join(OUTPUT_DIR, filename);
 
   writeFileSync(filepath, JSON.stringify(data, null, 2), "utf-8");

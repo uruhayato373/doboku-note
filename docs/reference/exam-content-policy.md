@@ -24,7 +24,7 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 | **典型的な長さ** | 5,000-15,000字 | 2,000-5,000字 | 2,000-4,000字 | 第1次3,000-5,000字 / 第2次4,000-8,000字 | 800-2,500字 | 3,000-8,000字 |
 | **図の標準量** | 多数（断面・配筋・施工写真） | 少数（重要箇所のみ） | 少数（基礎の図のみ） | 原本準拠（あれば） | ほぼゼロ（テキスト中心） | 原本準拠（あれば） |
 | **数式** | 頻出（W/C 比・配合・力学） | 限定的 | 基礎数式のみ | 問題文に応じて | 少ない | 問題文に応じて |
-| **Generator スキル** | `/pdf-to-mdx --exam civil-construction-1` | 手動編集 | `/exam-guide --exam civil-construction-2` | `/exam-questions-import --exam {civil-primary-2\|civil-secondary-2}` | `/keyword-page` | `/pdf-to-mdx` `/pdf-to-mdx --exam cem` |
+| **Generator スキル** | `/pdf-to-mdx --exam civil-construction-1` | 手動編集 | 手動編集 + `guide-rewriter`／`guide-qa` サイクル | `/exam-questions-import --exam {civil-primary-2\|civil-secondary-2}` | `/keyword-page` | `/pdf-to-mdx` `/pdf-to-mdx --exam cem` |
 | **Evaluator エージェント** | `civil-construction-qa` (textbook mode) | `civil-construction-qa` (guide mode) | `civil-construction-qa` (guide mode、category フィルタ拡張済み) | `content-qa` | `cem-qa` | `content-qa` |
 
 **2級土木の補足**:
@@ -90,7 +90,7 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 - **典型的な長さ**: 2,000-8,000 字（俯瞰系は長め、戦略系は短め）
 - **構造**: キーワードページ専用セクション（`## 総合技術監理における位置づけ` / `## 参考資料` / `## 参考文献`）は **使用禁止**。末尾は Type-1「○○の選択肢」型（戦略・実務手順系）または Type-2「次のステップ」「関連リソース」型（俯瞰・分析系）。詳細は [content-principles.md §20](./content-principles.md)
 - **外部リソース**: 公的資料への離脱を最小化（必要なら本文中インラインリンクで言及、末尾セクション化禁止）。コンバージョン地点として設計
-- **執筆ツール**: `/exam-guide` スキル（PE ガイド末尾テンプレ参照）。手動編集も可
+- **執筆ツール**: 手動編集 + `group: guide` 品質サイクル（`guide-rewriter` 生成／`guide-qa` 評価／`guide-fact-checker` 事実照合）。末尾テンプレは [content-principles.md §20](./content-principles.md) 準拠
 - **Evaluator**: 未割当（lint-mdx-mobile.mjs カテゴリ 12 で構造違反を機械検知。Phase 2 で `guide-qa` 検討）
 - **lint**: 12-1（位置づけ混入）/ 12-2（参考資料・参考文献混入）/ 12-3（末尾 H2 が承認パターン外）
 

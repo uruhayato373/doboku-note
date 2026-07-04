@@ -42,7 +42,7 @@ description: >
 
 ```
 Monitor:
-  command: cd C:/Users/m004195/doboku-note && npm run dev 2>&1 | grep --line-buffered -iE "(error|ERR_|failed|ENOENT|SyntaxError|warning.*mdx|Module not found)"
+  command: cd "$CLAUDE_PROJECT_DIR" && npm run dev 2>&1 | grep --line-buffered -iE "(error|ERR_|failed|ENOENT|SyntaxError|warning.*mdx|Module not found)"
   description: "Next.js dev server errors"
   persistent: true
 ```
@@ -66,7 +66,7 @@ push後の最新ワークフロー実行を追跡し、完了時に結果を通�
 
 ```
 Monitor:
-  command: cd C:/Users/m004195/doboku-note && gh run watch --exit-status 2>&1
+  command: cd "$CLAUDE_PROJECT_DIR" && gh run watch --exit-status 2>&1
   description: "GitHub Actions workflow status"
   persistent: false
   timeout_ms: 600000
@@ -77,7 +77,7 @@ Monitor:
 ```
 Monitor:
   command: |
-    cd C:/Users/m004195/doboku-note
+    cd "$CLAUDE_PROJECT_DIR"
     prev_status=""
     while true; do
       run=$(gh run list --limit 1 --json status,conclusion,name,headBranch --jq '.[0] | "\(.name) [\(.headBranch)]: \(.status) \(.conclusion // "")"' 2>/dev/null || echo "API error")
@@ -100,7 +100,7 @@ npm run build の出力からマイルストーン行だけを通知。ビルド
 
 ```
 Monitor:
-  command: cd C:/Users/m004195/doboku-note && npm run build 2>&1 | grep --line-buffered -iE "(Generating|Generated|Route|error|✓|✗|Compiling|Building|entries|sitemap|Export)"
+  command: cd "$CLAUDE_PROJECT_DIR" && npm run build 2>&1 | grep --line-buffered -iE "(Generating|Generated|Route|error|✓|✗|Compiling|Building|entries|sitemap|Export)"
   description: "Next.js build progress"
   persistent: false
   timeout_ms: 600000
@@ -112,7 +112,7 @@ upload-images-to-r2.mjs の出力から進捗と失敗を通知。
 
 ```
 Monitor:
-  command: cd C:/Users/m004195/doboku-note && node .claude/scripts/upload-images-to-r2.mjs 2>&1 | grep --line-buffered -iE "(Found|Progress|FAILED|Done|Error|Uploading|Skipped)"
+  command: cd "$CLAUDE_PROJECT_DIR" && node .claude/scripts/upload-images-to-r2.mjs 2>&1 | grep --line-buffered -iE "(Found|Progress|FAILED|Done|Error|Uploading|Skipped)"
   description: "R2 image upload progress"
   persistent: false
   timeout_ms: 600000
@@ -148,7 +148,7 @@ MDXファイルの変更を検知し、変更ファイルのバリデーショ�
 ```
 Monitor:
   command: |
-    cd C:/Users/m004195/doboku-note
+    cd "$CLAUDE_PROJECT_DIR"
     echo "Watching .local/r2/posts/ for MDX changes (10s interval)..."
     marker_file=$(mktemp)
     touch "$marker_file"

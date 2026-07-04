@@ -20,7 +20,6 @@ description: >
 
 > **出力方式: md ファイル保存（GitHub Issue は使わない）**
 > CLAUDE.md §8 準拠で、レビューは `docs/reviews/weekly/YYYY-Www-review.md` に保存する（旧「Issue 一本化」方式は廃止）。
-> 本スキル内に残る `gh issue list` などの参照はレガシーであり、open Umbrella が無ければスキップしてよい。
 > なお、サブエージェントは Bash 不可（記憶 `feedback_agent_bash.md`）なため、データ収集は親が Bash で実行し、抽出済みテキストを分析に使う。
 
 ## 手順
@@ -143,15 +142,12 @@ B. 実験進捗レポート:
 調査項目:
 - .claude/state/metrics/psi/psi-batch-*.json の直近 7 日分（GitHub Actions psi-audit.yml が develop に毎日 [skip ci] で commit）
 - .claude/config/psi-config.json のしきい値
-- gh issue list --label performance,weekly-pdca --state open --json number,title,createdAt（Umbrella #82 配下の open を含む）
-- gh issue list --label performance,weekly-pdca --state closed --search "closed:>{7日前}" --json number,title（今週解消した違反）
+- （廃止: `gh issue list --label performance,weekly-pdca` は GitHub Issue 廃止〔CLAUDE.md §8〕で無効。違反の追跡は上記 psi-batch JSON の時系列＋しきい値比較のみで行う）
 
 分析項目:
-- 今週の違反件数 vs 先週
+- 今週の違反件数 vs 先週（psi-batch JSON の時系列から算出）
 - 各 URL の Performance スコア・LCP の前週比
-- 今週新規発生した違反
-- 今週解消した違反（closed Issue から抽出）
-- 放置されている Issue（7 日以上 open）
+- 今週新規発生した違反 / 今週しきい値内に戻った違反
 
 出力形式: 以下の「## PSI パフォーマンス推移」セクションに埋め込む
 ```
@@ -179,6 +175,35 @@ B. 実験進捗レポート:
 セクションとして埋め込む。ギャップがあれば「## 課題・ブロッカー」にも 1 行で起票する。
 ```
 
+#### Agent F: SNS 流入・投稿実績
+
+```
+目的: SNS（X / Instagram / YouTube）から doboku-note への流入と公開状態を週次で
+可視化し、「投稿 → 計測 → 改善」ループの計測フェーズを閉じる。オフライン読みのみ
+（ライブ fetch なし・creds 不要）。IG/X の公開ドリフトは Agent B / Agent I が既に
+扱うため、ここでは重複させず「流入」と「YT 公開照合」に絞る。
+
+調査方法（コミット済みスナップショット読み・全て CI 供給）:
+- SNS 流入: `.claude/state/metrics/ga4/ga4-sourceMedium-sns-*.json` の最新 2 ファイルで
+  source（x/instagram/youtube/note）別 WoW を出す。1 ファイルしか無い初週は絶対値のみ
+  （delta は「前週データなし」と明記）。ファイル自体が無ければ「SNS 流入スナップショット
+  未生成（fetch-metrics 次回金曜で生成）」と 1 行。
+- 週次スナップショット: `.claude/state/weekly-metrics/` の最新 YYYY-Www.json の `sns` セクション
+  （source 別 WoW・合計）も併記できる（上と同じ CI 由来）。
+- YT 公開照合: `.claude/state/yt-verify/latest.json`（verify-yt-status.yml が週次で commit）の
+  counts を 1〜2 行で（recorded_but_gone / not_public_after_publishAt / pending_overdue が
+  いずれも 0 なら「YT 公開状態ドリフトなし」）。
+
+分析項目:
+- source 別の週次増減（急落 source・新規に伸びた source を 1 行ずつ）
+- SNS 合計流入の水準（organic との桁比較で「まだ小さいが単価/導線は効く」等の解釈は
+  revenue-diagnosis メモに委ね、ここでは数字と増減のみ）
+- YT 公開ドリフトの有無（★があれば「## 課題・ブロッカー」に 1 行起票）
+
+出力形式: 「## SNS 流入と投稿実績」セクションに source 別 WoW 表＋YT 照合サマリを埋め込む。
+異常（source 急落・YT ドリフト）は「## 来週への申し送り」にも 1 行で起票する。
+```
+
 #### Agent D: 計画との差分
 
 ```
@@ -188,63 +213,6 @@ B. 実験進捗レポート:
 
 出力形式:
 - 「計画タスク vs 実績」の対照表
-```
-
-#### Agent F: 校正サイクル進捗
-
-```
-目的: /exam-keyword-cycle の実施状況をトラッキングし、年度別カバレッジ・未カバー過去問・次週の候補を可視化する
-
-調査項目:
-- .claude/state/exam-keyword-cycles/logs/index.json（過去サイクルの履歴）
-- .claude/state/exam-keyword-cycles/progress.json（カバー状況 + umbrella_issues の Issue 番号）
-- src/config/exam-question-keywords.json（過去問カタログ）
-- 今週実施分の抽出: index.json.cycles の date が直近 7 日以内のもの
-- 年度別 Umbrella Issue の状態: `gh issue view <番号> --json state,body`
-
-分析項目:
-- 今週のサイクル数・対象キーワード数・PR リンク
-- 年度別カバレッジ率（covered[exam] の設問数 / catalog[exam] の設問数）
-- 未カバーバックログ件数
-- 次週の推奨 3 件（select-next-question.mjs を 3 回分シミュレートするか、若番順上位 3 件）
-- 年度別 Umbrella Issue の進捗と停滞検知
-
-次週候補の取得方法:
-  node .claude/skills/quality/exam-keyword-cycle/scripts/select-next-question.mjs --pretty
-
-**Umbrella 同期**: 今週サイクルが 1 件以上あれば、レビュー末尾で `sync-umbrella.mjs --all` を呼び出して Umbrella の checkbox・進捗・完了サイクルリストを最新化する（`/exam-keyword-cycle` 側でも毎サイクル呼ぶが、週次でも安全網として実行）。
-
-次週候補 3 件を親 Umbrella `<!-- sync marker: next-candidates -->` セクションに反映（親 Umbrella の body を編集、または本週の [PDCA] Issue に記載）。
-
-出力形式: 「## 過去問起点の校正サイクル」セクションに以下を埋め込む
-
-## 過去問起点の校正サイクル
-
-### 今週のサイクル実施
-| 日付 | 過去問 | 対象キーワード | PR |
-|---|---|---|---|
-| YYYY-MM-DD | R07 Ⅰ-1-N | N 件 | #N |
-
-### 年度別 Umbrella
-<!-- progress.json.umbrella_issues から Issue 番号・状態・進捗% を surface -->
-
-| 年度 | Umbrella | 状態 | 進捗 | 先週比 |
-|---|---|---|---|---|
-| R07-primary | #36 | open | N/40 (N%) | +M |
-| R06-primary | #37 | open | N/40 (N%) | +M |
-| R05-primary | #38 | open | N/40 (N%) | +M |
-| R04-primary | #39 | open | N/40 (N%) | +M |
-| R03-primary | #40 | open | N/40 (N%) | +M |
-| **全体** | **#41 (親)** | **open** | **N/200 (N%)** | **+M** |
-
-### 次週の候補
-1. R07 Ⅰ-1-X（未カバー最優先）
-2. R07 Ⅰ-1-Y
-3. R06 Ⅰ-1-Z
-
-注意:
-- 今週のサイクルが 0 件なら「今週の実施: なし」と記録し、次週候補のみ surface
-- カバー率 100% の年度は「全問カバー済み」と明記し、年度 Umbrella を close する（次年度 Umbrella を generate-umbrella.mjs で作成）
 ```
 
 #### Agent E: 校正学習の蒸留
@@ -282,47 +250,6 @@ B. 実験進捗レポート:
 - 2 回以上適用されたパターンのみ新規ルール候補に昇格（偶然排除）
 - 本エージェントは候補を surface するのみ。適用はユーザー承認後に別途実行
 - 候補がなければ「今週の学習候補: なし」と記録して次週へ
-```
-
-#### Agent G: Umbrella Issue 棚卸し
-
-```
-目的: `docs/reference/information-architecture.md` で定義した
-      「md は Why / Issue は実行タスク」の分離ルールを週次で drift 検出する。
-      open Umbrella Issue の進捗・停滞・完了漏れを surface する
-
-調査項目:
-- gh issue list --label umbrella --state open --json number,title,body,updatedAt,labels
-- gh issue list --label umbrella --state closed --search "closed:>{7日前}" --json number,title,closedAt
-- 各 open Issue の body 内チェックリスト集計: [ ] / [x] の数
-- updatedAt が 14 日以上前の Issue（停滞）
-- checklist が全 [x] なのに open のまま（close 漏れ）
-- body 内の「関連ロードマップ」リンクが docs/project/ に実在するか（孤立 Umbrella 検出）
-
-出力形式: 「## GitHub Umbrella Issue 棚卸し」セクションに以下を埋め込む
-
-## GitHub Umbrella Issue 棚卸し
-
-### Open Umbrella ({n} 件)
-| # | タイトル | 進捗 | 最終更新 | 状態 |
-|---|---|---|---|---|
-| #27 | [Umbrella] exam-keyword-cycle Phase 3 & 補強候補 | 0/6 | 2026-04-20 | 正常 |
-
-- 進捗: checklist の [x] / 全 checkbox 数
-- 状態: 正常 / 停滞（14d+ 更新なし） / close 漏れ（全 [x]） / 孤立（ロードマップ欠落）
-
-### 今週 close された Umbrella ({n} 件)
-- #N: タイトル — 後継 Umbrella があればリンク
-
-### アクション提案
-- 停滞 Umbrella: 着手 or 中止判定が必要
-- close 漏れ: Issue を close し、対応する md の「追跡 Issue」行を更新
-- 孤立: ロードマップ md を作成 or Umbrella を close
-
-注意:
-- Open Umbrella が 0 件なら「追跡中の Umbrella なし」と記録し、次節をスキップ
-- 本エージェントは surface のみ。close や close 漏れ修正はユーザー判断
-- PSI 違反 Issue（`performance` / `auto-generated`）や個別 Issue は本エージェントの対象外
 ```
 
 #### Agent H: handoff/doc ライフサイクル棚卸し（surface）
@@ -498,22 +425,12 @@ B. 実験進捗レポート:
      そのまま埋め込む。高流入 × 無導線のギャップ、上位ページの note/アフィリ カバレッジと
      CTR（クリック未蓄積時は n.d.）。ギャップは「## 課題・ブロッカー」にも 1 行起票。 -->
 
-## 過去問起点の校正サイクル
+## SNS 流入と投稿実績
 
-<!-- Agent F が .claude/state/exam-keyword-cycles/logs/index.json と
-     .claude/state/exam-keyword-cycles/progress.json から自動生成。
-     今週実施分、年度別カバレッジ、次週候補を出力。 -->
-
-### 今週のサイクル実施
-| 日付 | 過去問 | 対象キーワード | PR |
-|---|---|---|---|
-
-### カバレッジ
-| 年度 | カバー / 全問 | 進捗 |
-|---|---|---|
-
-### 次週の候補
-1. （select-next-question.mjs の出力）
+<!-- Agent F が `.claude/state/metrics/ga4/ga4-sourceMedium-sns-*.json`（最新2件）で source 別 WoW、
+     `.claude/state/weekly-metrics/` 最新の sns セクション、`.claude/state/yt-verify/latest.json` の
+     ドリフト counts を埋め込む。初週/未生成時はその旨を明記。source 急落・YT ドリフトは
+     「## 来週への申し送り」にも 1 行起票。IG/X の公開ドリフトは Agent B / Agent I 側で扱い重複させない。 -->
 
 ## 校正学習の蒸留
 
@@ -535,23 +452,6 @@ B. 実験進捗レポート:
 
 ### 学習ログ
 - `.claude/state/proofread-learnings/YYYY-MM-DD.md` に詳細記録
-
-## GitHub Umbrella Issue 棚卸し
-
-<!-- Agent G が gh issue list --label umbrella で取得した open / 今週 close された
-     Umbrella Issue の進捗・停滞・close 漏れ・孤立を surface する。
-     docs-issue-separation.md ルールの drift 検出用。 -->
-
-### Open Umbrella
-
-| # | タイトル | 進捗 | 最終更新 | 状態 |
-|---|---|---|---|---|
-
-### 今週 close された Umbrella
-- なし
-
-### アクション提案
-- （停滞・close 漏れ・孤立が surface されていれば対応指示）
 
 ## SNS 予約キュー投入（X）
 

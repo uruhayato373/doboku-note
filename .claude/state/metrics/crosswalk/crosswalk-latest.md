@@ -1,8 +1,8 @@
 # GA4 × GSC crosswalk（page 突合）
 
-- GA4: `ga4-page-2026-07-02T21-25-45.json`（2026-06-04〜2026-07-01）
-- GSC: `gsc-page-2026-07-01T03-15-12.json`（2026-05-31〜2026-06-28）
-- join 済ページ: 70（GSCのみ 476 / GA4のみ 30）
+- GA4: `ga4-page-2026-07-03T23-24-14.json`（2026-06-05〜2026-07-02）
+- GSC: `gsc-page-2026-07-03T23-24-13.json`（2026-06-02〜2026-06-30）
+- join 済ページ: 27（GSCのみ 70 / GA4のみ 73）
 
 ## title/meta 改善機会（上位表示 pos≤15 なのに CTR<1.0%＝クリックされない）
 
@@ -14,17 +14,8 @@
 
 | page | impr | clicks | ctr | pos |
 |---|--:|--:|--:|--:|
-| /docs/pe-comprehensive-management-verbal-nonverbal-communication | 167 | 0 | 0.0% | 92.1 |
-| /docs/pe-comprehensive-management-communication-planning | 166 | 0 | 0.0% | 88.5 |
-| /docs/pe-comprehensive-management-ppm-analysis | 164 | 0 | 0.0% | 87.7 |
-| /docs/pe-comprehensive-management-fool-proof | 93 | 0 | 0.0% | 73.1 |
-| /docs/pe-comprehensive-management-master-schedule-planning | 71 | 0 | 0.0% | 49.8 |
-| /docs/pe-comprehensive-management-overall-equipment-effectiveness | 68 | 0 | 0.0% | 76.4 |
-| /docs/civil-construction-2-guide-overview | 66 | 0 | 0.0% | 79.2 |
-| / | 59 | 11 | 18.6% | 31.9 |
-| /docs/civil-construction-1-guide-vs-pe | 55 | 0 | 0.0% | 36.0 |
-| /docs/civil-construction-1-textbook-network-schedule | 54 | 3 | 5.6% | 20.3 |
-| /docs/civil-construction-2-guide-schedule-management | 54 | 0 | 0.0% | 78.4 |
+| /docs/civil-construction-1-textbook-network-schedule | 67 | 3 | 4.5% | 23.2 |
+| / | 61 | 12 | 19.7% | 31.9 |
 
 ## Ranked-Low-Engagement（検索クリックはあるが GA4 engagement<40%・内容/UX 要改善）
 

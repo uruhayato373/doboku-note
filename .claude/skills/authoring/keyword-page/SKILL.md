@@ -10,7 +10,7 @@ description: >
 総合技術監理（CEM）キーワードページを新規作成または既存の空ページを仕上げるスキル。
 総合技術監理キーワード集2026に基づき、試験対策として必要十分な概要ページを作成する。
 
-**対象スコープ**: `group: keyword`（または group 未設定）のキーワードページのみ。`group: guide` の **ガイド記事は対象外**（受験戦略・学習計画・俯瞰ハブはコンバージョン地点として別構造）。ガイド記事の末尾構成・禁止セクションは [content-principles.md §20](../../../../docs/reference/content-principles.md) を参照。ガイド記事のテンプレ実装は `/exam-guide` スキル経由。
+**対象スコープ**: `group: keyword`（または group 未設定）のキーワードページのみ。`group: guide` の **ガイド記事は対象外**（受験戦略・学習計画・俯瞰ハブはコンバージョン地点として別構造）。ガイド記事の末尾構成・禁止セクションは [content-principles.md §20](../../../../docs/reference/content-principles.md) を参照。ガイド記事の生成・改善は `group: guide` 品質サイクル（`guide-rewriter`／`guide-qa`／`guide-fact-checker`）経由。
 
 ## 引数
 

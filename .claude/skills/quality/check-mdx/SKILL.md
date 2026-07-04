@@ -29,7 +29,7 @@ MDX 品質に関する 10 種類の検査ルールを 1 つのスキルに統合
 
 | Rule | 重大度 | 対象 | 検査内容 | 実装 |
 |---|---|---|---|---|
-| `syntax` | ERROR/WARN | MDX 全般 | MDX 構文（`{}` エスケープ、`<>` タグ、見出し階層、テーブル、数式、Docusaurus 拡張） | Claude 読解 |
+| `syntax` | ERROR/WARN | MDX 全般 | MDX 構文（`{}` エスケープ、`<>` タグ、見出し階層、テーブル、数式、未対応記法の混入） | Claude 読解 |
 | `frontmatter` | HIGH/MEDIUM/LOW | frontmatter | zod スキーマ + 内容（description 長・publishedAt・tags allowlist） | `.claude/scripts/lint-frontmatter.mjs` |
 | `links` | HIGH/INFO | 外部・内部リンク | HTTP HEAD で外部 URL 死活、内部 `/docs/`・`/category/` slug 存在＋`#anchor` 断片検証（note ドラフトも対象） | `scripts/rules/links/` |
 | `svg` | HIGH/MEDIUM/LOW | 埋込 SVG | 文字クリップ、必須属性、viewBox 幅、font-size、テキスト重なり、色トークン | `scripts/rules/svg/` |
@@ -75,7 +75,7 @@ MDX 品質に関する 10 種類の検査ルールを 1 つのスキルに統合
 
 ### syntax — MDX 構文検証（Claude 読解）
 
-Docusaurus 3.x / MDX v3 のビルドエラーを未然に防ぐ。
+next-mdx-remote / MDX v3 のビルドエラーを未然に防ぐ。
 
 **検査項目**:
 1. **frontmatter**: `---` で囲まれた YAML、title / description の存在
@@ -85,7 +85,7 @@ Docusaurus 3.x / MDX v3 のビルドエラーを未然に防ぐ。
 5. **数式（KaTeX）**: `$$...$$` ブロック前後の空行、`$...$` 内改行なし
 6. **既知の落とし穴**: `**[text](url)**` の太字リンク、ローマ数字見出しアンカー（`#Ⅰ-`）
 7. **テーブル**: ヘッダー行・セパレーター・列数一致
-8. **Docusaurus 拡張**: `:::note` 閉じ、`<div>` 閉じ、Mermaid 記法
+8. **未対応記法の混入**: `:::note`（Docusaurus admonition・本サイトは `<Callout>`）や Mermaid は next-mdx-remote で描画されないため混入を検出、`<div>` 閉じ
 
 **出力**: ERROR / WARN / INFO。Claude が MDX を読んで判定。
 

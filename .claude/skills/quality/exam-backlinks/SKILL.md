@@ -31,8 +31,8 @@ src/config/past-exam-backlinks.json    （キーワード→過去問 逆引き�
 src/config/exam-question-keywords.json （過去問→キーワード 正引き）
      ↓
 src/components/ui/PastExamBacklinks/  （キーワードページで表示）
-src/components/ui/KeywordsInExam/     （過去問ページで表示）
 ```
+（注: 過去問ページ側の KeywordsInExam は 2026-05-22 commit 4e1a9d666 で機能ごと削除済み。exam-question-keywords.json は他用途で残置）
 
 過去問MDX の `<RelatedKeywords>` は表示用として残るが、ビルドスクリプトは参照しない（Phase 2 で除去予定）。
 
@@ -303,7 +303,6 @@ grep -c '��' .local/r2/posts/pe-comprehensive-management/*/article.mdx | gre
 - `src/config/exam-question-keywords.json` — 過去問→キーワード 正引き
 - `src/config/keyword-relations.json` — キーワード→関連キーワード top-5
 - `src/components/ui/PastExamBacklinks/PastExamBacklinks.tsx` — キーワードページ表示
-- `src/components/ui/KeywordsInExam/KeywordsInExam.tsx` — 過去問ページ表示
 - `src/components/ui/RelatedKeywords/RelatedKeywords.tsx` — 関連キーワード表示
 - `src/config/pe-chapters.json` — 全キーワードの正規マスタ
 - 記事末尾の情報設計ルール（旧 article-footer-design は廃止、ルールは本スキルのリンク注入仕様に内包）

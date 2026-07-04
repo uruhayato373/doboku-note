@@ -38,6 +38,8 @@ description: >
 
 ### `--since "1cycle"` の動作
 
+> **注記（2026-07-03）**: `/exam-keyword-cycle` は 2026-05-15 に退役（`/quality-cycle` へ一本化）。`.claude/state/exam-keyword-cycles/` は 2026-05-14 で凍結済み。以下のサイクル起点の絞込は当該 state が凍結のため実質空振り。**現行は後継 `/quality-cycle` 完了後に、または `--pages` / 手動範囲指定で使うこと**（凍結 state を読む手順は歴史記述として残置）。全面改修は棚卸し提案で判断待ち。
+
 `/exam-keyword-cycle` 完了直後に呼ばれることを想定。最新サイクルの範囲に絞って学習抽出する:
 
 1. `.claude/state/exam-keyword-cycles/logs/index.json` の `cycles[-1]` を読む（最新サイクル）

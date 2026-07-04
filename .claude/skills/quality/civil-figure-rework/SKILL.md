@@ -48,12 +48,13 @@ Generator (`civil-exam-figure-extractor`) と Evaluator (`civil-exam-figure-audi
 ### Step 1: PDF 事前準備
 
 ```bash
-# 例: exam=r06-a → R6-1ji-A
+# 例: exam=r06-a → 原本 過去問/R06/R06_第一次検定_問題A.pdf（.tmp 作業dir名は任意ラベル）
+#     原本は年度別 過去問/R{06|07|...}/、命名は R{NN}_第一次検定_問題{A|B}.pdf
 mkdir -p .tmp/pdf-pages/R6-1ji-A
-pdftoppm -r 200 -png "docs/textbook/１級土木施工管理技士/R6-1ji-A.pdf" .tmp/pdf-pages/R6-1ji-A/page
+pdftoppm -r 200 -png "docs/textbook/１級土木施工管理技士/過去問/R06/R06_第一次検定_問題A.pdf" .tmp/pdf-pages/R6-1ji-A/page
 
 mkdir -p .tmp/pdf-text
-pdftotext -layout "docs/textbook/１級土木施工管理技士/R6-1ji-A.pdf" .tmp/pdf-text/R6-1ji-A.txt
+pdftotext -layout "docs/textbook/１級土木施工管理技士/過去問/R06/R06_第一次検定_問題A.pdf" .tmp/pdf-text/R6-1ji-A.txt
 ```
 
 ### Step 2: 既存図を backup へ退避
