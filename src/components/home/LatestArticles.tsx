@@ -8,6 +8,7 @@ export interface LatestArticle {
   categoryLabel?: string | undefined;
   date?: string | undefined;
   tags?: string[] | undefined;
+  image?: string | undefined;
 }
 
 interface LatestArticlesProps {
@@ -38,32 +39,50 @@ export default function LatestArticles({ articles }: LatestArticlesProps) {
             <Link
               key={a.slug}
               href={`/docs/${a.slug}`}
-              className="group block bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-section p-5 sm:p-6 hover:border-[var(--accent)] hover:shadow-soft transition-all"
+              className="group flex flex-col overflow-hidden bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-section hover:border-[var(--accent)] hover:shadow-soft transition-all"
             >
-              <div className="flex items-center gap-2 mb-2 flex-wrap">
-                {a.categoryLabel && (
-                  <span className="font-mono text-[10px] tracking-widest uppercase text-[var(--accent)] px-2 py-0.5 bg-[var(--accent-fill)] rounded-sm">
-                    {a.categoryLabel}
-                  </span>
+              {/* サムネ（16:9・資格別プール写真。文字は焼き込まず下の HTML で見出しを出す＝A8/Yahoo 型）。
+                  プール原版が 16:9 なので object-cover でも被写体を切らない。 */}
+              <div className="relative aspect-[16/9] overflow-hidden bg-[var(--accent-fill)]">
+                {a.image && (
+                  <img
+                    src={a.image}
+                    alt=""
+                    aria-hidden="true"
+                    width={1024}
+                    height={576}
+                    loading="lazy"
+                    decoding="async"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                  />
                 )}
-                {date && <span className="font-mono text-[10px] text-[var(--ink-muted)] tabular-nums">{date}</span>}
               </div>
-              <h3 className="font-serif font-bold text-base sm:text-lg text-[var(--ink)] leading-snug group-hover:text-[var(--accent)] transition-colors">
-                {a.title}
-              </h3>
-              {a.tags && a.tags.length > 0 && (
-                <div className="flex gap-3 mt-3 flex-wrap">
-                  {a.tags.slice(0, 4).map((t) => (
-                    <span key={t} className="font-mono text-[10px] text-[var(--ink-muted)] flex items-center gap-1">
-                      <Hash className="w-2.5 h-2.5" />
-                      {t}
+              <div className="p-5 sm:p-6">
+                <div className="flex items-center gap-2 mb-2 flex-wrap">
+                  {a.categoryLabel && (
+                    <span className="font-mono text-[10px] tracking-widest uppercase text-[var(--accent)] px-2 py-0.5 bg-[var(--accent-fill)] rounded-sm">
+                      {a.categoryLabel}
                     </span>
-                  ))}
+                  )}
+                  {date && <span className="font-mono text-[10px] text-[var(--ink-muted)] tabular-nums">{date}</span>}
                 </div>
-              )}
-              <div className="mt-3 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest text-[var(--ink-muted)] group-hover:text-[var(--accent)] transition-colors">
-                <span>Read</span>
-                <ArrowRight className="w-3 h-3" />
+                <h3 className="font-serif font-bold text-base sm:text-lg text-[var(--ink)] leading-snug group-hover:text-[var(--accent)] transition-colors">
+                  {a.title}
+                </h3>
+                {a.tags && a.tags.length > 0 && (
+                  <div className="flex gap-3 mt-3 flex-wrap">
+                    {a.tags.slice(0, 4).map((t) => (
+                      <span key={t} className="font-mono text-[10px] text-[var(--ink-muted)] flex items-center gap-1">
+                        <Hash className="w-2.5 h-2.5" />
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                )}
+                <div className="mt-3 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest text-[var(--ink-muted)] group-hover:text-[var(--accent)] transition-colors">
+                  <span>Read</span>
+                  <ArrowRight className="w-3 h-3" />
+                </div>
               </div>
             </Link>
           );
