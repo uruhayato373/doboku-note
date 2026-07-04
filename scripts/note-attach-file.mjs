@@ -172,7 +172,10 @@ try {
   if (t.ok && t.alreadyCorrect) {
     boundaryOk = true; // 既に試験問題直前に線あり＝動かさない（最安全）
   } else if (t.ok) {
-    await page.click('[data-af-line="1"]'); await sleep(2500);
+    // 「ラインをこの場所に変更」は note 再描画で detach し Playwright の stability 待ちが
+    // 30s タイムアウトする。DOM native .click() で stability 待ちを回避（note-update-body と同型）。
+    await page.evaluate(() => { const el = document.querySelector('[data-af-line="1"]'); if (el) { el.scrollIntoView({ block: 'center' }); el.click(); } });
+    await sleep(2500);
   }
   // 検証（クリック後 or 既存どちらも最終確認）: 線が試験問題の直前にあるか
   const v = await page.evaluate((bStr) => {
