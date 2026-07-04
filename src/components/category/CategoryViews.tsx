@@ -39,8 +39,8 @@ export function CivilConstruction1View({ groups, mobileCareerAds = [] }: { group
       )}
       {mobileCareerAds[0]}
       {chapters.length > 0 && (
-        <CurriculumSection id="textbook" title="テキスト" description="分冊・章立てに沿った本文テキスト（各章の冒頭に要点まとめを収録）" count={textbookCount}>
-          <CurriculumList blocks={chapters} numbered />
+        <CurriculumSection id="textbook" title="テキスト" description="分冊・章立てに沿った本文テキスト（章を開いて閲覧・各章の冒頭に要点まとめを収録）" count={textbookCount}>
+          <CurriculumList blocks={chapters} numbered collapsible />
         </CurriculumSection>
       )}
       {mobileCareerAds[1]}

@@ -66,58 +66,96 @@ function CurriculumRow({ doc, marker }: { doc: DocMeta; marker: React.ReactNode 
   );
 }
 
+/** 1 ブロック内の行（章頭の要点 → 本文 docs）。開閉カード内・フラット双方で共有。 */
+function ChapterRows({ block, numbered }: { block: CurriculumBlockView; numbered: boolean }) {
+  return (
+    <ul>
+      {/* 章の入口: 要点まとめ（本文の前・「要点」マーカーで区別） */}
+      {(block.intro ?? []).map((doc) => (
+        <CurriculumRow
+          key={doc.slug}
+          doc={doc}
+          marker={<span className="font-mono text-[10px] font-bold text-[var(--accent)]">要点</span>}
+        />
+      ))}
+      {block.docs.map((doc, i) => (
+        <CurriculumRow
+          key={doc.slug}
+          doc={doc}
+          marker={
+            numbered ? (
+              <span className="font-mono text-[11px] tabular-nums text-[var(--ink-muted)]">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+            ) : (
+              <span className="block h-1.5 w-1.5 rounded-[1px] bg-[var(--accent)] opacity-60" />
+            )
+          }
+        />
+      ))}
+    </ul>
+  );
+}
+
 /**
  * ブロック群を目次調リストで描画する。
  * - numbered: 連番マーカー（テキスト章目次）。ブロックごとに 01 から振り直す。
  * - 非 numbered: 小さな四角マーカー（分野別）。
  * - volume が前ブロックと変われば冊 eyebrow を挿入。
+ * - collapsible: 章（label あり）を <details> 開閉カードにする。畳めば章タイトルだけが並び「体系が一目」、
+ *   開けば章内リストへドリルダウン。JS 不要（ネイティブ details）。FAQCard と同じ group/open パターン。
  */
-export function CurriculumList({ blocks, numbered = false }: { blocks: CurriculumBlockView[]; numbered?: boolean }) {
+export function CurriculumList({
+  blocks,
+  numbered = false,
+  collapsible = false,
+}: {
+  blocks: CurriculumBlockView[];
+  numbered?: boolean;
+  collapsible?: boolean;
+}) {
   const visible = blocks.filter((b) => b.docs.length > 0 || (b.intro?.length ?? 0) > 0);
   return (
-    <div className="space-y-6">
+    <div className={collapsible ? 'space-y-3' : 'space-y-6'}>
       {visible.map((block, bi) => {
-          const showVolume = !!block.volume && block.volume !== visible[bi - 1]?.volume;
-          return (
-            <div key={block.id ?? block.label ?? bi}>
-              {showVolume && (
-                <div className="font-mono text-[11px] uppercase tracking-widest text-[var(--ink-muted)] mb-2 mt-1">
-                  {block.volume}
+        const showVolume = !!block.volume && block.volume !== visible[bi - 1]?.volume;
+        const count = (block.intro?.length ?? 0) + block.docs.length;
+        return (
+          <div key={block.id ?? block.label ?? bi}>
+            {showVolume && (
+              <div className="font-mono text-[11px] uppercase tracking-widest text-[var(--ink-muted)] mb-2 mt-1">
+                {block.volume}
+              </div>
+            )}
+            {collapsible && block.label ? (
+              <details className="group rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] open:border-[var(--accent)] transition-colors">
+                <summary className="flex cursor-pointer list-none items-center gap-3 px-4 py-3 marker:hidden">
+                  <span
+                    aria-hidden="true"
+                    className="inline-block w-4 h-4 shrink-0 text-[var(--ink-muted)] transition-transform group-open:rotate-90"
+                  >
+                    ▶
+                  </span>
+                  <span className="font-serif text-lg font-bold text-[var(--ink)]">{block.label}</span>
+                  <span className="ml-auto font-mono text-[11px] tabular-nums text-[var(--ink-muted)]">{count}</span>
+                </summary>
+                <div className="border-t border-[var(--rule-soft)] px-4">
+                  <ChapterRows block={block} numbered={numbered} />
                 </div>
-              )}
-              {block.label && (
-                <h3 className="font-serif text-lg font-bold text-[var(--ink)] mb-1 border-b border-[var(--rule-soft)] pb-2">
-                  {block.label}
-                </h3>
-              )}
-              <ul>
-                {/* 章の入口: 要点まとめ（本文の前・「要点」マーカーで区別） */}
-                {(block.intro ?? []).map((doc) => (
-                  <CurriculumRow
-                    key={doc.slug}
-                    doc={doc}
-                    marker={<span className="font-mono text-[10px] font-bold text-[var(--accent)]">要点</span>}
-                  />
-                ))}
-                {block.docs.map((doc, i) => (
-                  <CurriculumRow
-                    key={doc.slug}
-                    doc={doc}
-                    marker={
-                      numbered ? (
-                        <span className="font-mono text-[11px] tabular-nums text-[var(--ink-muted)]">
-                          {String(i + 1).padStart(2, '0')}
-                        </span>
-                      ) : (
-                        <span className="block h-1.5 w-1.5 rounded-[1px] bg-[var(--accent)] opacity-60" />
-                      )
-                    }
-                  />
-                ))}
-              </ul>
-            </div>
-          );
-        })}
+              </details>
+            ) : (
+              <>
+                {block.label && (
+                  <h3 className="font-serif text-lg font-bold text-[var(--ink)] mb-1 border-b border-[var(--rule-soft)] pb-2">
+                    {block.label}
+                  </h3>
+                )}
+                <ChapterRows block={block} numbered={numbered} />
+              </>
+            )}
+          </div>
+        );
+      })}
     </div>
   );
 }
