@@ -26,7 +26,7 @@ export default function TextbookNav({ currentSlug, categoryArticles }: TextbookN
   if (!prev && !next) return null;
 
   return (
-    <MetaCard>
+    <MetaCard trackNav="textbook-nav">
       <h2 className="text-lg font-bold text-[var(--ink)] mb-4">
         テキスト章ナビゲーション
       </h2>

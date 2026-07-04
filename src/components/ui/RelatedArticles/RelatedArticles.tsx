@@ -58,7 +58,7 @@ export default function RelatedArticles({ currentMeta, categoryArticles }: Relat
   if (related.length < 2) return null;
 
   return (
-    <MetaCard>
+    <MetaCard trackNav="related-articles">
       <h2 className="mb-1 text-lg font-bold text-[var(--ink)]">関連記事</h2>
       <p className="mb-4 text-sm text-[var(--ink-muted)]">
         同じテーマの記事 ({related.length} 件)

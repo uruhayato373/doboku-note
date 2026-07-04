@@ -18,6 +18,8 @@ export function DocCard({ doc }: { doc: DocMeta }) {
   return (
     <Link
       href={`/docs/${doc.slug}`}
+      data-cta="nav"
+      data-cta-label="category-card"
       className="group relative flex flex-col overflow-hidden rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] hover:border-[var(--accent)] hover:shadow-soft transition-all"
     >
       {/* ブランド色の上端アクセント（mockup の category band を mono 化＝硬質エディトリアル維持）。

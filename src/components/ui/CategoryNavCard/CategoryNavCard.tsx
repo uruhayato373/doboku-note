@@ -278,7 +278,7 @@ function SectionCard({ variant, currentSlug, currentSection }: { variant: 'sideb
 /* ─── ラッパー（デザイン統一） ─── */
 function SidebarWrapper({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <MetaCard as="div" padding="compact">
+    <MetaCard as="div" padding="compact" trackNav="category-nav">
       <div
         className="nav-card-title text-[var(--ink)]"
       >
@@ -291,7 +291,7 @@ function SidebarWrapper({ title, children }: { title: string; children: React.Re
 
 function MobileWrapper({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <MetaCard>
+    <MetaCard trackNav="category-nav">
       <h2 className="text-lg font-bold text-[var(--ink)] mb-4">{title}</h2>
       {children}
     </MetaCard>

@@ -43,7 +43,7 @@ export default function PillarNavCard({ variant, currentSection }: PillarNavCard
 
   if (variant === "sidebar") {
     return (
-      <MetaCard as="div" padding="compact">
+      <MetaCard as="div" padding="compact" trackNav="pillar-nav">
         <div
           className="nav-card-title text-[var(--ink)]"
         >

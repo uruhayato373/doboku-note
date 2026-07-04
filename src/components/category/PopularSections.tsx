@@ -60,7 +60,7 @@ export function PopularShowcase({ items }: { items: PopularDoc[] }) {
   if (!lead) return null;
   const label = windowLabel();
   return (
-    <section>
+    <section data-cta="nav" data-cta-label="popular-showcase">
       <div className="mb-6">
         <div className="flex items-baseline justify-between gap-2 flex-wrap">
           <h2 className="font-serif text-[22px] sm:text-[26px] font-black text-[var(--ink)]">よく読まれている記事</h2>
@@ -90,7 +90,7 @@ export function PopularRanking({ items }: { items: PopularDoc[] }) {
   if (items.length === 0) return null;
   const label = windowLabel();
   return (
-    <div className="rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] overflow-hidden">
+    <div data-cta="nav" data-cta-label="popular-ranking" className="rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] overflow-hidden">
       <div className="px-4 py-3 border-b border-[var(--rule-soft)] flex items-baseline justify-between gap-2">
         <h3 className="font-serif font-bold text-[var(--ink)] text-sm">人気記事</h3>
         {label && <span className="font-mono text-[10px] text-[var(--ink-muted)] tabular-nums">{label}</span>}

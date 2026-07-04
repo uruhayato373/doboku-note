@@ -47,7 +47,7 @@ export function CurriculumSection({
 function CurriculumRow({ doc, marker }: { doc: DocMeta; marker: React.ReactNode }) {
   return (
     <li className="border-b border-[var(--rule-soft)] last:border-b-0">
-      <Link href={`/docs/${doc.slug}`} className="group flex items-baseline gap-3 py-3">
+      <Link href={`/docs/${doc.slug}`} data-cta="nav" data-cta-label="curriculum-list" className="group flex items-baseline gap-3 py-3">
         <span className="shrink-0 flex items-center justify-center min-w-6" aria-hidden>
           {marker}
         </span>
