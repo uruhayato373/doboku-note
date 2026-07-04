@@ -206,6 +206,15 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 ---
 
+### 回遊・note 動線 最適化 P4/P5（P1-P3 は実装済み）🟡
+
+**背景**: 2026-07-04 に回遊・note 動線・アフィリを全面調査。P1（内部回遊の GA4 計測基盤）・P2（guide 記事末「次のステップ」導線 NextStepNav）・P3（カテゴリ hub の季節モード note CTA）は実装済み（PR feat/funnel-tracking）。以下は増分で今回スコープ外。
+
+- **P4: keyword-relations.json の自動レコメンド活用** — `keyword-relations.json`（598KB・refresh-indexes 生成）は存在するが `RelatedKeywords` は MDX ハードコードで未活用。RelatedKeywords 未記述の keyword 記事に build 時 top-N を自動挿入する fallback を入れれば PE 総監 keyword 650 面の回遊が強化される。**要: 挿入品質の監査（自動レコメンドの妥当性）と PE keyword 面での A/B**。既存ハードコードは優先維持。
+- **P5: アフィリ EPC 判定のタイムボックス化** — 建設JOBs vs ビルドジョブ/GKS の恒久 A/B（slug ハッシュ 50/50・`affiliate-creatives.ts`）は EPC 計測中で判定期限が未定。~2026-09 に GA4 の `affiliate_cta_click` × label（arm 別）× A8 成果で EPC 比較→勝者決定・負け arm 撤去。あわせて concrete/pe-first-stage の docs sidebar 空白を既存クリエイティブで埋める是非（セグメント適合を優先し無理に埋めない判断も可）。**まず P1 計測の実データ（2-4 週）を見てから**。
+
+---
+
 ## 3. 収益化（Kindle / note PDF）
 
 ### 読み方ガイド 横展開（建設部門＋土木）🔴
