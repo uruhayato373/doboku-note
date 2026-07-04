@@ -69,10 +69,11 @@
 |---|---|---|
 | フェーズ0 金額基準是正 | ✅完了 | 0c69c9dd9 |
 | フェーズ0 労基 就業制限表(表7.1/7.2) | ✅完了 | de6742eb1 |
-| schedule-charts 工程図表7種の実図SVG | ⬜ | — |
-| network-schedule NW計算演習 | ⬜ | — |
-| control-chart X̄-R実図SVG | ⬜ | — |
-| quality-inspection OC曲線/AQL整合 | ⬜ | — |
+| schedule-charts 工程図表7種の実図SVG | ✅（SVG実体あり・チェック欄が陳腐化していた） | — |
+| network-schedule NW計算演習 | ✅（SVG10点実体あり） | — |
+| control-chart X̄-R実図SVG | ✅（SVG実体あり） | — |
+| quality-inspection OC曲線/AQL整合 | ✅（SVG実体あり） | — |
+| フェーズ0.5 法規深掘り（元請義務表/道路管理者精緻化/用語定義） | ✅ 2026-07-04（develop c0971cb3f・法令WebSearch照合済） | — |
 
 ### 後工程To-Do（別環境・Opus不可）
 

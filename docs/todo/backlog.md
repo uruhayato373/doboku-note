@@ -616,3 +616,8 @@ Hero → ExamCards → LatestArticles → AboutSection
 **方針**: 震源の共通処理を `scripts/lib/note-browser.mjs`（launchNoteBrowser/accountGate/openEditor/pasteBody{clear}/cardifyUrls/clickPublishProceed/clickUpdate）へ一元化し、上記スクリプトを差し替える。**有料境界(paywall boundary)ロジックは収益直結のため統合せず各スクリプトにインライン保持**（壊すと有料エリアが崩れる）。
 **実施条件**: task_4deea43c の Tier 1 修正が commit 済みであること。**独立 worktree で実施**（収益noteに触る5スクリプト改修・並行セッション衝突回避＝§10）。各スクリプトは dry-run/probe で挙動同一を確認、note-publish は次回実公開でスモークテスト。
 **設計の出発点**: 本セッションで note-browser.mjs の設計を完了済み（このセッションのトランスクリプト参照）。
+
+### 1級土木 第2章 施工計画フロー図の自前SVG化（任意・低優先）🟢
+**前提**: 施工管理・法規テキスト拡充（新規11本公開・guide結線・機械写真差替・フェーズ0.5法規深掘り）は 2026-07-04 完了（develop `c0971cb3f`）。残る tack-on 任意項目のみ。
+**残**: `textbook-construction-plan-overview`（施工計画フロー図2.1）・`textbook-site-investigation`（施工方法決定フロー図2.8）を自前SVG化（現状フロー図なし）。図版標準＝figure-canvas-policy / create-svg 準拠。
+**出典**: `docs/handoffs/2026-07-03-civil1-textbook-expansion.md`（フェーズ0.5「第2章フロー図SVG化も任意」）
