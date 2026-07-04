@@ -107,8 +107,11 @@ try {
 
   // 1. account ゲート（ページ描画遅延に強い polling・偽 ABORT 防止）
   await page.goto('https://note.com/settings/account', { waitUntil: 'domcontentloaded', timeout: 60000 });
+  try { await page.waitForLoadState('networkidle', { timeout: 20000 }); } catch {}
   let acct = false;
-  for (let i = 0; i < 10; i++) { await sleep(2000); if (/dobokunote/.test(await page.evaluate(() => document.body.innerText || ''))) { acct = true; break; } }
+  // SPA 描画遅延＋polling 中のナビゲーションで evaluate が Execution context destroyed を投げるため
+  // try/catch で吸収し、networkidle 後に十分な回数リトライする（偽 ABORT 防止・2026-07-04 堅牢化）
+  for (let i = 0; i < 12; i++) { await sleep(2500); let t = ''; try { t = await page.evaluate(() => document.body.innerText || ''); } catch {} if (/dobokunote/.test(t)) { acct = true; break; } }
   if (!acct) { console.error('ABORT: account != dobokunote'); await ctx.close(); process.exit(2); }
   console.log('[1] account gate OK (dobokunote)');
 

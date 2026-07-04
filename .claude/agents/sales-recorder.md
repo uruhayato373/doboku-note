@@ -84,6 +84,11 @@ kuro
 | `記述式 完全パック` / `完全パック` | `essay-complete-pack` |
 | `記述式 コアパック` / `コアパック` | `essay-core-pack` |
 | `2級土木 施工経験記述｜想定工事バンク`（セット・工種×5管理フル全体） | `civil-2-koji-bank` |
+| `1級土木 二次学科記述｜テーマ別 出る順`（セット） | `civil-1-gakka-kijutsu` |
+| `2級土木 二次学科記述｜テーマ別 出る順`（セット） | `civil-2-gakka-kijutsu` |
+| `1級土木 二次学科記述｜直前暗記ノート` | `civil-1-anki-note` |
+| `2級土木 二次学科記述｜直前暗記ノート` | `civil-2-anki-note` |
+| `1級土木 二次検定まるごとパック`（経験＋学科＋暗記の統合） | `civil-1-niji-marugoto-pack` |
 | `技術士 建設部門 2次｜必須科目I` / `必須科目I 模範解答集` | `bk-i-required-essay-magazine` |
 | `建設部門2次｜道路 選択科目 模範解答集` | `bk-road-secondary-magazine` |
 | `建設部門2次｜土質基礎 選択科目 模範解答集` | `bk-geotechnical-secondary-magazine` |
@@ -111,6 +116,8 @@ productId は `article:<slug>` 形式。slug は商品名から推定:
 | `2級土木 施工経験記述｜令和{N}年度` | `article:civil-2-pastexam-essay-r0{N}` |
 | `2級土木 施工経験記述｜品質管理 完成答案集` | `article:civil-2-essay-quality-complete` |
 | `2級土木 施工経験記述｜{工種} 5管理フルカバー完成答案`（想定工事バンク単品¥980） | `article:civil-2-koji-bank-{工種}` |
+| `1級土木 二次学科記述｜{テーマ}`（テーマ別出る順 単品¥580） | `article:civil-1-gakka-kijutsu-{テーマ}` |
+| `2級土木 二次学科記述｜{テーマ}`（テーマ別出る順 単品） | `article:civil-2-gakka-kijutsu-{テーマ}` |
 | `技術士 建設部門｜道路 R8予想 選択科目II-1` | `article:bk-01-road-r8-yosou-ii1` |
 | `技術士 建設部門｜道路 R8予想 選択科目II-2` | `article:bk-01-road-r8-yosou-ii2-*` |
 | `技術士 建設部門｜道路 R8予想 選択科目III` | `article:bk-01-road-r8-yosou-iii-*` |

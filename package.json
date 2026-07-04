@@ -32,6 +32,7 @@
     "note-update-body": "node scripts/note-update-body.mjs",
     "note-update-cover": "node scripts/note-update-cover.mjs",
     "note-attach-file": "node scripts/note-attach-file.mjs",
+    "generate-anki-pdf": "node scripts/generate-anki-pdf.mjs",
     "note-attach-magazine-pdfs": "node scripts/note-attach-magazine-pdfs.mjs",
     "note-meta-lint": "node scripts/note-meta-lint.mjs",
     "note-meta-to-txt": "node scripts/note-meta-to-txt.mjs",

@@ -37,6 +37,9 @@ const COMMIT = argv.includes('--commit');
 const NOTE = getArg('--note');
 const FILE = getArg('--file');
 if (!NOTE || !FILE) { console.error('--note <key> --file <pdf> required'); process.exit(1); }
+// 有料境界の見出し regex（H2 innerText 先頭一致）。既定=総監/建設の「試験問題/予想問題」。
+// 他コンテンツ型（例: 直前暗記ノート）は --boundary-regex で上書き（note-publish の paidBoundary と対応）。
+const BOUNDARY = getArg('--boundary-regex') || '試験問題|予想問題';
 const fileAbs = FILE.startsWith('/') || /^[A-Za-z]:/.test(FILE) ? FILE : join(ROOT, FILE);
 if (!existsSync(fileAbs)) { console.error('file not found: ' + fileAbs); process.exit(1); }
 console.log(`[prep] note=${NOTE} file=${fileAbs} mode=${COMMIT ? 'COMMIT' : 'PROBE'}`);
@@ -86,8 +89,16 @@ try {
   // ===== COMMIT: （未添付なら）ファイル添付 → 再公開 =====
   if (!already) {
     // 3. 本文末尾へ → 空段落 →「+」→ ファイル → native filechooser で PDF
+    //    ※ Control+End は Windows 専用ショートカットで Mac では効かず、caret が先頭のまま
+    //      PDF が本文先頭（＝無料プレビュー内）に挿入され有料PDFが無料流出する事故になる
+    //      （2026-07-04 実測・暗記ノート2本）。JS で contenteditable 末尾へ caret を確実に移動する。
     await page.click('[contenteditable=true]'); await sleep(500);
-    await page.keyboard.press('Control+End'); await sleep(500);
+    await page.evaluate(() => {
+      const ed = document.querySelector('[contenteditable=true]'); ed.focus();
+      const r = document.createRange(); r.selectNodeContents(ed); r.collapse(false); // false=末尾
+      const s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    });
+    await sleep(400);
     await page.keyboard.press('Enter'); await sleep(1200);
     const embedsBefore = await page.evaluate(() => document.querySelectorAll('[contenteditable=true] figure, [contenteditable=true] [embedded-service], [contenteditable=true] [data-name]').length);
     await page.locator('[aria-label="メニューを開く"]').last().click({ timeout: 8000 }); await sleep(1200);
@@ -133,20 +144,22 @@ try {
   // 有料エリアビューの描画待ち（試験問題 h2 と ライン制御が両方出るまで・偽 NG 防止）
   let viewReady = false;
   for (let i = 0; i < 12; i++) {
-    viewReady = await page.evaluate(() => {
-      const hasH2 = Array.from(document.querySelectorAll('h2')).some((el) => /^(試験問題|予想問題)/.test((el.innerText || '').trim()));
+    viewReady = await page.evaluate((bStr) => {
+      const bre = new RegExp('^(' + bStr + ')');
+      const hasH2 = Array.from(document.querySelectorAll('h2')).some((el) => bre.test((el.innerText || '').trim()));
       const hasLine = /このラインより先を有料にする|ラインをこの場所に変更/.test(document.body.innerText || '');
       return hasH2 && hasLine;
-    });
+    }, BOUNDARY);
     if (viewReady) break;
     await sleep(1500);
   }
   console.log('[5b] 有料エリアビュー描画=' + viewReady);
-  const t = await page.evaluate(() => {
+  const t = await page.evaluate((bStr) => {
+    const bre = new RegExp('^(' + bStr + ')');
     const all = Array.from(document.querySelectorAll('h2, button, [role=button]'));
     const isBar = (el) => /このラインより先を有料にする/.test(el.innerText || '');
     const isChange = (el) => /ラインをこの場所に変更/.test(el.innerText || el.getAttribute('aria-label') || '');
-    const isExam = (el) => el.tagName === 'H2' && /^(試験問題|予想問題)/.test((el.innerText || '').trim());
+    const isExam = (el) => el.tagName === 'H2' && bre.test((el.innerText || '').trim());
     const hIdx = all.findIndex(isExam);
     if (hIdx < 0) return { ok: false, reason: 'no 試験/予想問題 h2' };
     let ctrlIdx = -1; for (let i = hIdx - 1; i >= 0; i--) { if (isBar(all[i]) || isChange(all[i])) { ctrlIdx = i; break; } }
@@ -154,7 +167,7 @@ try {
     if (isBar(all[ctrlIdx])) return { ok: true, alreadyCorrect: true, heading: (all[hIdx].innerText || '').slice(0, 24) };
     document.querySelectorAll('[data-af-line]').forEach((e) => e.removeAttribute('data-af-line')); all[ctrlIdx].setAttribute('data-af-line', '1');
     return { ok: true, alreadyCorrect: false, heading: (all[hIdx].innerText || '').slice(0, 24) };
-  });
+  }, BOUNDARY);
   console.log('[5b] boundary state:', JSON.stringify(t));
   if (t.ok && t.alreadyCorrect) {
     boundaryOk = true; // 既に試験問題直前に線あり＝動かさない（最安全）
@@ -162,13 +175,14 @@ try {
     await page.click('[data-af-line="1"]'); await sleep(2500);
   }
   // 検証（クリック後 or 既存どちらも最終確認）: 線が試験問題の直前にあるか
-  const v = await page.evaluate(() => {
+  const v = await page.evaluate((bStr) => {
+    const bre = new RegExp('^(' + bStr + ')');
     const seq = Array.from(document.querySelectorAll('h1,h2,h3,p,button,[role=button]'));
     const lineIdx = seq.findIndex((el) => /このラインより先を有料にする/.test(el.innerText || ''));
-    const hIdx = seq.findIndex((el) => el.tagName === 'H2' && /^(試験問題|予想問題)/.test((el.innerText || '').trim()));
+    const hIdx = seq.findIndex((el) => el.tagName === 'H2' && bre.test((el.innerText || '').trim()));
     let between = 0; if (lineIdx >= 0 && hIdx > lineIdx) for (let i = lineIdx + 1; i < hIdx; i++) { const tx = (seq[i].innerText || '').trim(); if (tx && !/ラインをこの場所に変更|このラインより先/.test(tx)) between++; }
     return { lineIdx, hIdx, between, boundaryBeforeExam: lineIdx >= 0 && hIdx > lineIdx && between === 0 };
-  });
+  }, BOUNDARY);
   console.log('[5b] boundary verify:', JSON.stringify(v));
   boundaryOk = v.boundaryBeforeExam;
   await page.screenshot({ path: join(ROOT, '.tmp/attach-boundary.png') }).catch(() => {});

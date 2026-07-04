@@ -536,10 +536,118 @@ const MAGAZINES_RAW = {
     badge: 'note 限定',
   },
 
+  // ===== 二次 学科記述（問題2〜11）買い切りライン (2026-07-03 設計登録) =====
+  // 既存 civil 買い切りは全て問題1（施工経験記述）。二次配点の約4割を占める学科記述（問題2〜11）と
+  // 低価格エントリー帯が完全空白だったため新設（noteコンテンツ計画.md §9）。
+  // Red Line 整合: サイト secondary-* 無料は「年度別・R03-R07・全問解説」。本ラインは
+  //   「テーマ縦断・R03-R07 5年・出題頻度データ・出る順・暗記特化」の加工付加価値。
+  //   ただし site の secondary-*-past-problems（テーマ別・傾向表つき・published:true）と論点が重なる。
+  //   2026-07-03 オーナー判断＝カニバリは一旦考慮せず作って計測（Red Line #4 を当ラインでは適用保留）。
+  //   予想（フロー）ではなく過去問の後ろ向き分析（ストック）のため会員フローと非競合（Red Line #10）。
+  //   完成答案と同様に買い切り○＋会員ライブラリ内包○の二重配置（§2.2 踏襲）。
+  // 制作は別セッション。公開時: 原稿制作 → note マガジン作成 → cover/sidebar 生成 →
+  //   noteUrl 埋め + published: true。SKU は wire-ahead（published:false / noteUrl:''）。
+  // 投入時期: P1→8月中旬 / P3a→8月下旬 / P5→9月上旬 / P2・P3b→10月上旬（§5.4）。
+
+  // P1: 1級 二次学科記述 テーマ別 出る順（5本セット・単品¥580）
+  //   実データ(R03-R07)の出題分布から当初「7本」→「5本」に最適化(2026-07-03)。
+  //   品質管理は独立出題が薄い(年0.2問)ため横断集約、安全と法規は同じ労安則群のため統合。
+  'civil-1-gakka-kijutsu': {
+    id: 'civil-1-gakka-kijutsu',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/mcfe1059b3335',
+    title: '1級土木 二次学科記述｜テーマ別 出る順 完全攻略（問題2〜11）',
+    description:
+      '1級土木施工管理技士 第2次検定の学科記述（問題2〜11）を、年度別ではなくテーマ別に横断再編した完全攻略集。土工／コンクリート工／安全管理・法規／施工計画・環境／品質管理の5本立てで、令和3〜7年度の5年分の出題を分野ごとに束ね、出題頻度マトリクス（何が何年に出たか）と出る順ランキング、設問パターン別の解答の型、頻出語句の穴埋めリストを収録。過去問の客観的な頻度分析に基づく後ろ向きの整理で、経験記述（問題1）で埋まっていた対策の穴を学科記述側から埋める。※改変・自作の学習前提。合格を保証するものではありません。',
+    shortTitle: '1級土木 二次学科記述 テーマ別出る順',
+    shortDescription:
+      '問題2〜11をテーマ別に横断再編。5年分の出題頻度＋出る順＋解答の型＋頻出語句。5本セット。',
+    imageUrl: '/images/magazines/civil-1-gakka-kijutsu-cover.webp',
+    sidebarImageUrl: '/images/magazines/civil-1-gakka-kijutsu-sidebar.webp',
+    price: '¥2,480（5本セット）',
+    badge: 'note 限定',
+  },
+
+  // P2: 2級 二次学科記述 テーマ別 出る順（P1 の2級移植・5本セット）
+  'civil-2-gakka-kijutsu': {
+    id: 'civil-2-gakka-kijutsu',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m9a09a8982734',
+    title: '2級土木 二次学科記述｜テーマ別 出る順 完全攻略（問題2〜9）',
+    description:
+      '2級土木施工管理技士 第2次検定の学科記述（問題2〜9）を、年度別ではなくテーマ別に横断再編した完全攻略集。土工／コンクリート工／安全管理・法規／施工計画・環境／品質管理の5本立てで、令和3〜7年度の出題を分野ごとに束ね、出題頻度と出る順、設問パターン別の解答の型、頻出語句の穴埋めリストを収録。過去問の客観的な頻度分析に基づく後ろ向きの整理。※改変・自作の学習前提。合格を保証するものではありません。',
+    shortTitle: '2級土木 二次学科記述 テーマ別出る順',
+    shortDescription:
+      '問題2〜9をテーマ別に横断再編。出題頻度＋出る順＋解答の型＋頻出語句。5本セット。',
+    imageUrl: '/images/magazines/civil-2-gakka-kijutsu-cover.webp',
+    sidebarImageUrl: '/images/magazines/civil-2-gakka-kijutsu-sidebar.webp',
+    price: '¥1,980（5本セット）',
+    badge: 'note 限定',
+  },
+
+  // P3a: 1級 学科記述 直前暗記ノート（P1副産物・赤シート対応PDF添付・エントリー層）
+  'civil-1-anki-note': {
+    id: 'civil-1-anki-note',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/n/na84b001e827e',
+    title: '1級土木 二次学科記述｜直前暗記ノート（穴埋め頻出語句 一問一答）',
+    description:
+      '1級土木施工管理技士 第2次検定の学科記述（問題2〜11）で問われる穴埋め頻出語句を、分野別に一問一答へ整理した直前暗記ノート。令和3〜7年度の出題語句から頻出のものを抽出し、150〜250問の一問一答＋赤シート対応の印刷用PDF（A5・現場ポケット携行）を添付。試験直前の総仕上げ・スキマ時間の詰め込みに特化した最小構成のエントリー商品。※合格を保証するものではありません。',
+    shortTitle: '1級土木 学科記述 直前暗記ノート',
+    shortDescription:
+      '穴埋め頻出語句の一問一答150〜250問＋赤シート対応PDF。直前・スキマ詰め込み用。',
+    imageUrl: '/images/magazines/civil-1-anki-note-cover.webp',
+    sidebarImageUrl: '/images/magazines/civil-1-anki-note-sidebar.webp',
+    price: '¥980',
+    badge: 'note 限定',
+  },
+
+  // P3b: 2級 学科記述 直前暗記ノート（どぼくじら¥500×500部超の低価格エントリー枠に対抗）
+  'civil-2-anki-note': {
+    id: 'civil-2-anki-note',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/n/n793523a059e5',
+    title: '2級土木 二次学科記述｜直前暗記ノート（穴埋め頻出語句 一問一答）',
+    description:
+      '2級土木施工管理技士 第2次検定の学科記述（問題2〜9）で問われる穴埋め頻出語句を、分野別に一問一答へ整理した直前暗記ノート。令和3〜7年度の出題語句から頻出のものを抽出し、一問一答＋赤シート対応の印刷用PDF（A5・現場ポケット携行）を添付。試験直前の総仕上げに特化した最小構成・低価格のエントリー商品。※合格を保証するものではありません。',
+    shortTitle: '2級土木 学科記述 直前暗記ノート',
+    shortDescription:
+      '穴埋め頻出語句の一問一答＋赤シート対応PDF。直前・スキマ詰め込み用の低価格エントリー。',
+    imageUrl: '/images/magazines/civil-2-anki-note-cover.webp',
+    sidebarImageUrl: '/images/magazines/civil-2-anki-note-sidebar.webp',
+    price: '¥580',
+    badge: 'note 限定',
+  },
+
+  // P5: 1級 二次まるごとパック（新最上位アンカー・経験記述完全攻略¥9,800＋P1＋P3aを束ね）
+  // 単品合計 ¥13,260（¥9,800＋¥2,480＋¥980）→ ¥11,800。既存¥9,800は残置（Red Line #8）。
+  // 商品ページに「伴走・添削が欲しい方は会員へ」の分岐を明記（会員より魅力的に見えすぎ回避）。
+  // P1/P3a 完成後に束ねるだけ（索引記事1本のみ新規）。
+  'civil-1-niji-marugoto-pack': {
+    id: 'civil-1-niji-marugoto-pack',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/md29a34906314',
+    // サイト CTA は有料マガジンへ直行させず、無料の「まるごとパック 総合案内」に着地させる
+    // （3つの柱の全体像を見せてから購入へ）。noteUrl はマガジン SoT で不変。
+    landingUrl: 'https://note.com/dobokunote/n/n824a4ea20acf',
+    title: '1級土木 二次検定まるごとパック（経験記述＋学科記述＋直前暗記）',
+    description:
+      '1級土木施工管理技士 第2次検定を、経験記述（問題1）と学科記述（問題2〜11）の両面からまるごと対策する最上位パック。施工経験記述 完全攻略パック（想定工事×5管理の全模範答案）と、二次学科記述 テーマ別出る順（5年分の頻度分析＋解答の型）、直前暗記ノート（穴埋め頻出語句 一問一答）を1つに統合。単品合計より割安に束ねた買い切りアンカー。個別添削や月例予想での伴走が欲しい方は、メンバーシップ「土木セコカン合格ラボ」が別途あります。※改変前提のテンプレートで、合格を保証するものではありません。',
+    shortTitle: '1級土木 二次検定まるごとパック',
+    shortDescription:
+      '経験記述 完全攻略＋学科記述 出る順＋直前暗記ノートを統合した最上位買い切りパック。',
+    imageUrl: '/images/magazines/civil-1-niji-marugoto-pack-cover.webp',
+    sidebarImageUrl: '/images/magazines/civil-1-niji-marugoto-pack-sidebar.webp',
+    price: '¥11,800（二次まるごと）',
+    badge: 'note 限定',
+  },
+
   // ----- 1級・2級土木 メンバーシップ「土木セコカン合格ラボ」(2026-06-23 配線) -----
   // 原稿配置: docs/note/1級・2級土木/メンバーシップ/（予想問題マガジン・学科記述予想・添削事例）
-  // 非重複二刀流の会員側（フロー＝予想問題＋個別＝経験記述添削）。過去問・完成答案は会員に入れない
-  // （買い切りマガジンの領分＝非重複の一線。noteコンテンツ計画.md §2.3 / Red Line #10）。
+  // 会員の固有価値＝フロー（予想問題）＋個別（経験記述添削）。完成答案ライブラリ（104本）は
+  // 2026-07-01 転換で会員特典マガジンに内包（入会の引き金）しつつ買い切りでも購入可能なまま残置
+  // ＝二重配置。フロー（予想・添削）だけは買い切りに出さない一線を守る
+  // （noteコンテンツ計画.md §1.4 / §2.3 / Red Line #10）。
   // note 上は 1 メンバーシップ・2 プラン（通年¥1,480 / 添削つき¥2,980）＝単一 URL。
   // 公開時: note でメンバーシップ作成 → noteUrl 埋め + cover 画像作成 + published: true。
   // CTA は 1級・2級土木の 経験記述系・guide・カテゴリ入口で発火（magazine-placement.ts）。

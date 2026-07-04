@@ -434,6 +434,21 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 **捨てる**: 1級向け一次PDF（7/5に間に合わない）／重い学科予想の作り込み／2級深掘り。 `[Codex候補]`=パック残公開の機械配線。
 
+### 1級・2級土木 二次 学科記述（問題2〜11）買い切りライン 制作 🟡
+
+**発端**: 2026-07-03 設計。既存 civil 買い切り7誌は全て問題1（経験記述）で、二次配点の約4割を占める学科記述（問題2〜11）と低価格エントリー帯が空白だった。SKU は wire-ahead 登録済（note-magazines.ts `civil-1-gakka-kijutsu`/`civil-2-gakka-kijutsu`/`civil-1-anki-note`/`civil-2-anki-note`/`civil-1-niji-marugoto-pack`・全て published:false）。真実源・設計＝[noteコンテンツ計画.md §9](../note/1級・2級土木/noteコンテンツ計画.md)。**死守コア3つ（上記スプリント）を最優先し、その邪魔をしない範囲で並行**。
+
+**前提の是正（2026-07-03 現物照合）**: (1) 二次PDFは R03-R07 の5年分のみ（H30-R02 は一次のみ）→「8年分」は不成立、**R03-R07 5年分**。(2) サイト無料 `secondary-*-past-problems` が既にテーマ別頻度表＋解説を公開済＝カニバリあり → オーナー判断で**一旦考慮せず作って計測**（§9.1）。(3) 逐語転載はしない（独自散文）。
+
+**制作順（§5.4 の投入時期）**:
+1. ✅ **P1 パイロット（土工）完成**（2026-07-03）— `magazines/1級土木-二次学科記述-テーマ別出る順/土工/article.md`。R03-R07 の土工出題を頻度分析（TS/GNSS締固めが5年中4年で最頻出）→出る順→論点別攻略→頻出穴埋め語句→書き方の型。guide-fact-checker で技術事実VERIFIED・試験構成の誤り是正済。**学科記述商品の型を確立**。残り6テーマ（コンクリート/品質/安全/施工計画・環境/法規/書き方）は本パイロットの型を踏襲して量産。
+2. **P1 残6テーマ制作** — 8月中旬公開目標。各テーマ＝R03-R07 5年分の頻度分析＋出る順＋解答の型＋頻出語句。縮退時はコン・安全を先行。`[Codex候補]`=頻度集計の機械処理。専用 Generator/Evaluator エージェントは未整備（型が固まったのでエージェント化を検討）
+2. **P3a 派生**（1級 暗記ノート ¥980）— P1 の穴埋め頻出語句を一問一答150-250問＋赤シート対応A5 PDF（`scripts/magazine-to-pdf.mjs` 流用）。8月下旬
+3. **P5 束ね**（1級 まるごとパック ¥11,800）— 完全攻略パック＋P1＋P3a を統合、索引記事1本のみ新規。9月上旬。商品ページに「伴走・添削は会員へ」分岐明記
+4. **P2/P3b 移植**（2級版）— P1 の型完成後に移植。10月上旬（2級後期前）
+
+**公開手順（各SKU共通）**: 原稿制作 → cover/sidebar 画像生成（`generate-magazine-covers.mjs`/`generate-magazine-sidebar-banners.mjs` に定義追加）→ note マガジン作成 → noteUrl 埋め＋published:true。**不採用**: 買い切り予想問題集（Red Line #10 堅持・§9.4）。
+
 ### content-angle P-1 カルーセルパイロット 🟢
 
 **前提**: P-2（X experience）は 2026-06-15 完了済（draft 059・x-post-qa 3.0）。残るは P-1（IG）のみ。真実源 → `docs/reference/content-angle-policy.md`（§5 Red Line・§6.2 骨子）。2段階の実装設計・Phase 2 ビルダー仕様・検証ルーブリックの詳細 → `docs/handoffs/_archive/2026-06-09-content-angle-implementation.md`。
