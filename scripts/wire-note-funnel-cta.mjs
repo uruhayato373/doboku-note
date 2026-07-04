@@ -63,7 +63,11 @@ for (const adir of articleDirs) {
   const d = { name: adir.slice(baseDir.length + 1) || adir };
   const f = join(adir, 'article.md');
   if (!existsSync(f)) continue;
-  const raw = readFileSync(f, 'utf8');
+  let raw = readFileSync(f, 'utf8');
+  // 先頭 UTF-8 BOM を除去してから FM 判定（BOM 付きだと ^--- が非マッチ＝NO-FM 無音スキップになる。
+  // 2026-07-05 に civil の 2 記事が BOM で wire を素通り→D1 未配線だった再発防止）。除去分は書き出しにも反映＝ハイジーン改善。
+  let hadBom = false;
+  if (raw.charCodeAt(0) === 0xFEFF) { raw = raw.slice(1); hadBom = true; }
   const m = raw.match(/^---\r?\n[\s\S]*?\r?\n---\r?\n/);
   if (!m) { console.log('NO-FM ' + d.name); continue; }
   const head = raw.slice(0, m[0].length);

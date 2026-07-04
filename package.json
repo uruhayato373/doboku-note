@@ -24,6 +24,7 @@
     "note-edit-session": "node scripts/note-edit-session.mjs",
     "note-membership-plan-edit": "node scripts/note-membership-plan-edit.mjs",
     "note-append-cta": "node scripts/note-append-cta.mjs",
+    "note-append-list-links": "node scripts/note-append-list-links.mjs",
     "note-edit-magazine": "node scripts/note-edit-magazine.mjs",
     "note-magazine-add": "node scripts/note-magazine-add-articles.mjs",
     "note-magazine-cover": "node scripts/note-magazine-cover.mjs",

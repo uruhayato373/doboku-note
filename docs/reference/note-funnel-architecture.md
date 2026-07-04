@@ -54,6 +54,7 @@ note 記事・マガジンが増えると、記事末尾の CTA が場当たり�
 | `npm run check-note-funnel` | CI ゲート（`audit --ci`、**ソースのみ**でドリフト exit 1・高速）。`r2-audit.yml` で発火 |
 | `npm run wire-note-funnel-cta -- --exam {key} [--apply]` | 資格別に L3 冒頭/末尾 CTA を**ソースへ**冪等配線（既定は dry-run） |
 | `npm run note-append-cta -- --note {id} ...` | **公開済み記事へ CTA を live 反映**（Playwright・Windows 可・browser-use 不要）。`--after`=free プレビューへアンカー挿入／`--boundary-h2`=有料境界保持。D5 ドリフトの修復手段。詳細 → [publish-note/references/update-mode.md](../../.claude/skills/social/publish-note/references/update-mode.md) |
+| `npm run note-append-list-links -- --spec {json} [--commit]` | **公開済みもくじの既存 `<ul>` へインラインリンク項目を live 追加**（D2 ライブ反映）。type ではインラインリンクが作れない（`[text](url)` はリテラル残存・bare URL はカード化）ため `insertAdjacentHTML` で兄弟 `<li>` を挿入。spec JSON = `{note, sections:[{anchorMagId, items:[{url,title,desc}]}]}` |
 | `audit-note-funnel` スキル | 監査→修復→再公開の手順書（資格別 config 駆動） |
 | `note-funnel-auditor` エージェント | 意味的監査（もくじ構成・CTA 文面の関連性・回遊の質）。Evaluator・audit-only。機械の D1-D5 とは直交 |
 
