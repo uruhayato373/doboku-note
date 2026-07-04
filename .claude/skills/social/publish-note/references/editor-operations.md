@@ -295,7 +295,9 @@ sleep 3
 
 ## Phase 4.5: 目次ブロック挿入（H2 が 3 つ以上のとき実行）
 
-note には**見出し（H2/H3）からクリックジャンプ可能な「目次」を自動生成するネイティブブロック**がある。**もくじ/総合案内/長文記事**ではこれを本文先頭に挿入する（短い単一セクション記事ではスキップ可）。
+note には**見出し（H2/H3）からクリックジャンプ可能な「目次」を自動生成するネイティブブロック**がある。**もくじ/総合案内/長文記事**ではこれを**最初の h2 の直前**に挿入する（短い単一セクション記事ではスキップ可）。
+
+> ⚠️ **body 先頭に入れてはいけない**（2026-07-04 是正）。`selectNodeContents(ed); collapse(true)` で本文先頭に置くと、note の ProseMirror では導入段落（例「こんな人のための記事です」）の**途中**に割り込み、「見出し→目次→本文リスト」と導入が分断される（二次学科記述 9 記事で発生）。**最初の h2 に caret を置き（`ed.querySelector('h2')` に range→collapse）→ Enter→ArrowUp で h2 直前に空段落を作る**。不変条件は `導入 < 目次(table-of-contents) < 最初のh2`。
 
 > ⚠️ **markdown の `[text](#anchor)` リンクは note では機能しない**。見出しジャンプは必ずこのネイティブ目次ブロック（`<button id=toc-setting>`）で行う。Phase 0 で本文の `(#...)` アンカーは素テキスト化しておくこと。
 
@@ -304,12 +306,13 @@ note には**見出し（H2/H3）からクリックジャンプ可能な「目�
 browser-use --headed --profile "$NOTE_PROFILE" state 2>&1 > /tmp/note-state.txt
 BODY_IDX=$(grep -oE '\[[0-9]+\]<div contenteditable=true role=textbox' /tmp/note-state.txt | grep -oE '[0-9]+' | head -1)
 
-# 1) 本文先頭に空段落を作り、その行へカーソルを移す
+# 1) 最初の h2 の直前に空段落を作り、その行へカーソルを移す（body 先頭は導入を分断するため不可）
 browser-use --headed --profile "$NOTE_PROFILE" click "$BODY_IDX"
 browser-use --headed --profile "$NOTE_PROFILE" eval "
   var ed=document.querySelector('[contenteditable=true]'); ed.focus();
-  var r=document.createRange(); r.selectNodeContents(ed); r.collapse(true);
-  var s=window.getSelection(); s.removeAllRanges(); s.addRange(r); String('caret-start');
+  var h=ed.querySelector('h2');
+  var r=document.createRange(); r.selectNodeContents(h); r.collapse(true);
+  var s=window.getSelection(); s.removeAllRanges(); s.addRange(r); String('caret-first-h2');
 "
 browser-use --headed --profile "$NOTE_PROFILE" keys Enter
 browser-use --headed --profile "$NOTE_PROFILE" keys ArrowUp
@@ -329,9 +332,10 @@ sleep 2
 browser-use --headed --profile "$NOTE_PROFILE" screenshot /tmp/note-toc-check.png
 ```
 
-**実機で確認した落とし穴（2026-06-16）**:
-- **空段落の確立が肝**。`caret-start → Enter → ArrowUp` で本文先頭に空行を作ってから `+` メニューを開く。空行が無い／別行を掴むと挿入が無音で失敗する（本文先頭が intro 段落のまま＝目次未挿入）。**失敗したら編集画面を再読込してクリーンな状態でやり直す**と通る
-- **検証は screenshot で目視**。`document.querySelector('[data-name=index] …')` 等の eval 判定は note の目次 markup と一致せず `tocBlocks=0` の偽陰性、また `result: None`（最後の式が throw）になりやすい。公開ページ（または編集画面）の screenshot で「▼ 目次」ブロックの存在を確認する
+**実機で確認した落とし穴（2026-06-16 / 2026-07-04 更新）**:
+- **挿入位置は「最初の h2 直前」**（2026-07-04）。body 先頭に入れると導入段落を分断する（上の ⚠️ 参照）。`h2 に caret → Enter → ArrowUp` で h2 直前に空行を作ってから `+` メニューを開く。
+- **空段落の確立が肝**。空行が無い／別行を掴むと挿入が無音で失敗する。**失敗したら編集画面を再読込してクリーンな状態でやり直す**と通る。`+` メニューは caret に**最も近い**ものを座標クリックで掴む（`.first()` は最上部を掴み位置ずれする）
+- **検証は screenshot 目視＋DOM 順序チェックの併用**。`document.querySelector('[data-name=index] …')` 等の eval 判定は編集画面の目次 markup と一致せず偽陰性になりやすいので screenshot で「▼ 目次」ブロックの存在を確認する。加えて `note-update-body`/`note-publish` は挿入後に `目次ノード < 最初のh2`（`table-of-contents`/`[data-name=index]` の document order）を DOM で自己検証し、後ろにあれば WARN する（導入分断の再発防止）。公開後は API body で `pos(<table-of-contents) < pos(<h2)` を実査できる
 - **目次はソース markdown には保存されない**（note が見出しから自動生成する要素）。`--update` で本文を丸ごと貼り直すと目次は消えるので Phase 4.5 を再実行する
 - 左サイドバーの「目次」パネルはエディタの見出しナビ（常時表示）であり、**本文に挿入される目次ブロックとは別物**。混同しない
 

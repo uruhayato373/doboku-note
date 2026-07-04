@@ -9,7 +9,7 @@
  *
  * 工程: account ゲート → エディタ → カバー(eyecatch) → タイトル → 本文(ClipboardEvent paste・
  *   markdown変換) → リンクカード化(各URL行を Range選択→Delete→type→Enter＝note の埋め込み検出は type で起動・paste不可)
- *   → 目次(H2>=3 で本文先頭に note ネイティブ目次 #toc-setting を挿入・Phase 6.5・--no-toc で抑止)
+ *   → 目次(H2>=3 で最初のh2直前に note ネイティブ目次 #toc-setting を挿入・Phase 6.5・--no-toc で抑止)
  *   → 下書き保存 → 公開に進む → 有料+価格(#price JS setter)
  *   → タグ → 有料エリア設定 → 有料境界を BOUNDARY 見出し（既定=「試験問題/予想問題」・frontmatter `paidBoundary` か `--boundary-regex` で上書き）直前に設定 → ★境界検証ゲート★ → 投稿する。
  *   公開後 writeback は frontmatter の note* 行が無ければ挿入する（setFmField・旧 replace-only は無音失敗した）。
@@ -79,7 +79,7 @@ const tagsCandidates = [typeSuffix && join(dir, `hashtags-${typeSuffix}.txt`), j
 const tagsFile = tagsCandidates.find(existsSync);
 const tags = tagsFile ? readFileSync(tagsFile, 'utf8').split(/\r?\n/).map((s) => s.trim().replace(/^#/, '')).filter(Boolean).slice(0, 99) : [];
 const isPaid = notePricing === 'paid' && price > 0;
-// 目次ブロック挿入（note ネイティブ #toc-setting・本文先頭）。H2 が 3 つ以上のとき自動挿入。
+// 目次ブロック挿入（note ネイティブ #toc-setting・最初のh2直前）。H2 が 3 つ以上のとき自動挿入。
 // markdown の #アンカーは note で機能しないため見出しジャンプの唯一手段。--no-toc で抑止。
 const h2count = (body.match(/^##\s+/gm) || []).length;
 const wantToc = !argv.includes('--no-toc') && h2count >= 3;
@@ -175,11 +175,12 @@ try {
     console.log(`[6] cardify(type method): urls=${urls.length} processed=${made} cards=${cards}`);
   } catch (e) { console.log('[6] cardify skip:', e.message.split('\n')[0]); }
 
-  // 6.5 目次ブロック挿入（H2>=3・本文先頭）。note ネイティブ目次（button#toc-setting）。
-  //     手順: 本文先頭に空段落を作る（caret-start→Enter→ArrowUp）→ 空行左「+」メニュー（aria-label=メニューを開く）
-  //     → 目次ボタン（#toc-setting）クリック。空段落が肝で、無いと無音失敗する（editor-operations.md Phase 4.5）。
-  //     検証は querySelector が note の目次 markup と一致せず当てにならないため screenshot(.tmp/np-toc.png) で目視。
-  //     有料ラインより上（本文先頭）に入るため、無料プレビューで収録構成が見える。
+  // 6.5 目次ブロック挿入（H2>=3・最初のh2直前）。note ネイティブ目次（button#toc-setting）。
+  //     手順: 最初の h2 に caret→Enter→ArrowUp で直前に空段落を作る→ caret に最も近い「+」メニュー
+  //     （aria-label=メニューを開く）→ 目次ボタン（#toc-setting）クリック。body 先頭に入れると導入段落を
+  //     分断する（見出し→目次→本文リスト）ため h2 直前にする（2026-07-04 是正・editor-operations.md Phase 4.5）。
+  //     検証は screenshot(.tmp/np-toc.png)＋目次<最初のh2 の DOM チェック。
+  //     導入直後（最初のh2直前＝有料ラインより上）に入るため、無料プレビューで収録構成が見える。
   if (wantToc) {
     try {
       // 目次は「最初の h2 の直前」に入れる（導入の後・最初の内容見出しの前）。body 先頭に置くと
@@ -217,6 +218,20 @@ try {
       });
       await page.screenshot({ path: join(ROOT, '.tmp/np-toc.png') });
       console.log(`[6.5] TOC insert: attempted=${inserted} guess=${tocGuess}（.tmp/np-toc.png で目視確認）`);
+      // 自己検証: 目次ノードが最初の h2 より前にあるか（body 先頭に入って導入を分断する再発の検出・WARN のみ）。
+      const chk = await page.evaluate(() => {
+        const ed = document.querySelector('[contenteditable=true]'); if (!ed) return { ok: null, reason: 'no editor' };
+        const kids = Array.from(ed.querySelectorAll('*'));
+        const isToc = (el) => /table-of-contents/i.test(el.tagName) || el.getAttribute?.('data-name') === 'index' || /(^|\s)toc(\s|$)/i.test(el.className || '');
+        const tocIdx = kids.findIndex(isToc);
+        const h2Idx = kids.findIndex((el) => el.tagName === 'H2');
+        if (tocIdx < 0) return { ok: null, reason: 'toc node 未検出（検証保留・screenshot 参照）' };
+        if (h2Idx < 0) return { ok: null, reason: 'h2 未検出' };
+        return { ok: tocIdx < h2Idx, tocIdx, h2Idx };
+      });
+      if (chk.ok === true) console.log('[6.5] 位置検証 OK（目次 < 最初のh2）');
+      else if (chk.ok === false) console.log(`[6.5] ⚠ WARN: 目次が最初のh2より後（導入分断の疑い）→ .tmp/np-toc.png を目視。tocIdx=${chk.tocIdx} h2Idx=${chk.h2Idx}`);
+      else console.log(`[6.5] 位置検証 保留: ${chk.reason}`);
     } catch (e) { console.log('[6.5] toc skip:', e.message.split('\n')[0]); }
   }
 

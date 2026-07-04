@@ -27,7 +27,7 @@
  *      paste 直後に probe 文字列が contenteditable.innerText に入ったか検証。
  *      無ければ保存せず中断（無音失敗による空更新事故を防止）。
  *   4. URL 行のリンクカード化（type→Enter）
- *   4.5 目次ブロック再挿入（H2>=3・本文先頭・--no-toc で抑止）。全文置換で目次が消えるため note-publish と同手順で再挿入。
+ *   4.5 目次ブロック再挿入（H2>=3・最初のh2直前・--no-toc で抑止）。全文置換で目次が消えるため note-publish と同手順で再挿入。
  *   5. ライブ反映:
  *        --commit なし = dry-run（スクショのみ・更新しない）
  *        --commit あり = 公開に進む →（有料記事なら有料境界保持/再設定）→ 更新する → 更新通知は必ず「いいえ」
@@ -170,9 +170,9 @@ async function cardify(page) {
 }
 
 /**
- * 4.5. 目次ブロック挿入（H2>=3・本文先頭）。note ネイティブ目次（button#toc-setting）。
+ * 4.5. 目次ブロック挿入（H2>=3・最初のh2直前）。note ネイティブ目次（button#toc-setting）。
  * note-publish.mjs Phase 6.5 と同一手順。全文置換で目次が消えるため再挿入する（editor-operations.md）。
- * 検証は querySelector が note 目次 markup と一致せず当てにならないため screenshot(.tmp/nu-toc-*.png) で目視。
+ * 挿入後に「目次 < 最初のh2」を DOM で自己検証（導入分断の再発防止・WARN のみ）。screenshot(.tmp/nu-toc-*.png) も残す。
  */
 async function insertTocBlock(page, noteId) {
   try {
@@ -210,6 +210,21 @@ async function insertTocBlock(page, noteId) {
     } else console.log('[4.5] +メニュー(メニューを開く) 未検出');
     await page.screenshot({ path: join(ROOT, `.tmp/nu-toc-${noteId}.png`) });
     console.log(`[4.5] TOC insert(最初のh2直前): attempted=${inserted}（.tmp/nu-toc-${noteId}.png で目視）`);
+    // 自己検証: 目次ノードが最初の h2 より前にあるか（body 先頭に入って導入を分断する再発の検出）。
+    // 目次は非破壊のため不一致でも保存は止めず WARN のみ（paywall の ABORT とは severity が異なる）。
+    const chk = await page.evaluate(() => {
+      const ed = document.querySelector('[contenteditable=true]'); if (!ed) return { ok: null, reason: 'no editor' };
+      const kids = Array.from(ed.querySelectorAll('*'));
+      const isToc = (el) => /table-of-contents/i.test(el.tagName) || el.getAttribute?.('data-name') === 'index' || /(^|\s)toc(\s|$)/i.test(el.className || '');
+      const tocIdx = kids.findIndex(isToc);
+      const h2Idx = kids.findIndex((el) => el.tagName === 'H2');
+      if (tocIdx < 0) return { ok: null, reason: 'toc node 未検出（検証保留・screenshot 参照）' };
+      if (h2Idx < 0) return { ok: null, reason: 'h2 未検出' };
+      return { ok: tocIdx < h2Idx, tocIdx, h2Idx };
+    });
+    if (chk.ok === true) console.log('[4.5] 位置検証 OK（目次 < 最初のh2）');
+    else if (chk.ok === false) console.log(`[4.5] ⚠ WARN: 目次が最初のh2より後（導入分断の疑い）→ .tmp/nu-toc-${noteId}.png を目視。tocIdx=${chk.tocIdx} h2Idx=${chk.h2Idx}`);
+    else console.log(`[4.5] 位置検証 保留: ${chk.reason}`);
   } catch (e) { console.log('[4.5] toc skip:', e.message.split('\n')[0]); }
 }
 
@@ -339,7 +354,7 @@ async function updateArticle(page, { abs, noteId, body }, probe) {
   // 4. リンクカード化
   await cardify(page);
 
-  // 4.5 目次ブロック（H2>=3・本文先頭・--no-toc で抑止）。全文置換で消えるため再挿入。
+  // 4.5 目次ブロック（H2>=3・最初のh2直前・--no-toc で抑止）。全文置換で消えるため再挿入。
   const h2count = (body.match(/^##\s+/gm) || []).length;
   if (!argv.includes('--no-toc') && h2count >= 3) await insertTocBlock(page, noteId);
 
