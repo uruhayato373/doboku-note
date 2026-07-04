@@ -120,6 +120,7 @@
 | `SectionBlock`（`layout/SectionBlock.tsx`） | セクション間余白・band 背景を統一 | — |
 | `SectionCard`（`ui/SectionCard/`） | カード（radius/border/shadow を token に統一・カード内カード回避） | — |
 | `ArticleHeader`（`ui/ArticleHeader/`） | docs 記事冒頭（breadcrumb + h1 + description リード + byline/meta） | — |
+| `CurriculumSections`（`category/CurriculumSections.tsx`） | カテゴリページの体系表示。試験ガイド・テキストを**カードでなく目次調リスト**で見せ、章立て・出題分野の体系を一目で伝える（`CurriculumSection` 枠 / `CurriculumList` 目次リスト / `CareerSection` 注目カード＋リスト）。編成は `src/config/category-curriculum.json`（SSOT）、解決は `src/lib/category-curriculum.ts`（resolver・silent drop 防止の `unassigned` 付き）、健全性は `check-category-curriculum`（pre-commit）。過去問テーブル群（`CategorySections.tsx`）とは併存 | `CurriculumList`: `blocks`/`numbered`。`CareerSection`: `featured`/`rest` |
 
 `not-found` は Header/Footer を持たない設計のため PageShell を使わない（意図的な例外）。
 

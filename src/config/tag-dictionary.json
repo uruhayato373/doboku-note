@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-07-03T22:25:08.711Z",
+  "generated_at": "2026-07-04T02:11:48.504Z",
   "summary": {
     "total_mdx_files": 1096,
     "total_unique_tags": 172,
@@ -1252,7 +1252,7 @@
     },
     {
       "name": "guide",
-      "count": 133,
+      "count": 121,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1301,16 +1301,6 @@
         "civil-construction-1-guide-white-company",
         "civil-construction-1-guide-women",
         "civil-construction-1-keyword-2026",
-        "civil-construction-1-secondary-concrete-basics",
-        "civil-construction-1-secondary-concrete-past-problems",
-        "civil-construction-1-secondary-construction-plan-basics",
-        "civil-construction-1-secondary-construction-plan-past-problems",
-        "civil-construction-1-secondary-earthwork-basics",
-        "civil-construction-1-secondary-earthwork-past-problems",
-        "civil-construction-1-secondary-experience-writing-examples",
-        "civil-construction-1-secondary-experience-writing-guide",
-        "civil-construction-1-secondary-quality-management-basics",
-        "civil-construction-1-secondary-quality-management-past-problems",
         "civil-construction-2-guide-career",
         "civil-construction-2-guide-career-change",
         "civil-construction-2-guide-concrete-key-points",
@@ -1332,8 +1322,6 @@
         "civil-construction-2-guide-study-plan",
         "civil-construction-2-guide-textbooks",
         "civil-construction-2-guide-young-career",
-        "civil-construction-2-secondary-experience-writing-examples",
-        "civil-construction-2-secondary-experience-writing-guide",
         "concrete-chief-engineer-guide-essay",
         "concrete-chief-engineer-guide-overview",
         "concrete-chief-engineer-guide-trends",
@@ -1921,7 +1909,7 @@
     },
     {
       "name": "career",
-      "count": 34,
+      "count": 32,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-age-career",
@@ -1933,7 +1921,6 @@
         "civil-construction-1-guide-company-types",
         "civil-construction-1-guide-consultant",
         "civil-construction-1-guide-dx-jobs",
-        "civil-construction-1-guide-exam-overview",
         "civil-construction-1-guide-future",
         "civil-construction-1-guide-grade-comparison",
         "civil-construction-1-guide-hatchu-shien",
@@ -1950,7 +1937,6 @@
         "civil-construction-1-guide-women",
         "civil-construction-2-guide-career",
         "civil-construction-2-guide-career-change",
-        "civil-construction-2-guide-exam-overview",
         "civil-construction-2-guide-haken-seishain",
         "civil-construction-2-guide-job-reality",
         "civil-construction-2-guide-quit-or-stay",
@@ -1958,6 +1944,35 @@
         "civil-construction-2-guide-salary",
         "civil-construction-2-guide-young-career",
         "pe-construction-guide-career"
+      ]
+    },
+    {
+      "name": "secondary",
+      "count": 22,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-secondary-concrete-basics",
+        "civil-construction-1-secondary-concrete-past-problems",
+        "civil-construction-1-secondary-construction-plan-basics",
+        "civil-construction-1-secondary-construction-plan-past-problems",
+        "civil-construction-1-secondary-earthwork-basics",
+        "civil-construction-1-secondary-earthwork-past-problems",
+        "civil-construction-1-secondary-experience-writing-examples",
+        "civil-construction-1-secondary-experience-writing-guide",
+        "civil-construction-1-secondary-quality-management-basics",
+        "civil-construction-1-secondary-quality-management-past-problems",
+        "civil-construction-1-secondary-r03",
+        "civil-construction-1-secondary-r04",
+        "civil-construction-1-secondary-r05",
+        "civil-construction-1-secondary-r06",
+        "civil-construction-1-secondary-r07",
+        "civil-construction-2-secondary-experience-writing-examples",
+        "civil-construction-2-secondary-experience-writing-guide",
+        "civil-construction-2-secondary-r03",
+        "civil-construction-2-secondary-r04",
+        "civil-construction-2-secondary-r05",
+        "civil-construction-2-secondary-r06",
+        "civil-construction-2-secondary-r07"
       ]
     },
     {
@@ -2367,23 +2382,6 @@
         "concrete-chief-engineer-textbook-products",
         "concrete-chief-engineer-textbook-properties",
         "concrete-chief-engineer-textbook-structural-design"
-      ]
-    },
-    {
-      "name": "secondary",
-      "count": 10,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-r03",
-        "civil-construction-1-secondary-r04",
-        "civil-construction-1-secondary-r05",
-        "civil-construction-1-secondary-r06",
-        "civil-construction-1-secondary-r07",
-        "civil-construction-2-secondary-r03",
-        "civil-construction-2-secondary-r04",
-        "civil-construction-2-secondary-r05",
-        "civil-construction-2-secondary-r06",
-        "civil-construction-2-secondary-r07"
       ]
     },
     {

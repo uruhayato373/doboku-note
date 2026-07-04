@@ -2,73 +2,46 @@ import { type ReactNode } from 'react';
 import Link from 'next/link';
 import { getGroupLabel } from '@/lib/doc-classifier';
 import { type DocGroup } from '@/lib/category-groups';
-import { DocCard, DocSection } from '@/components/category/CategorySections';
+import { DocSection } from '@/components/category/CategorySections';
+import { resolveCurriculum, resolveTextbookChapters } from '@/lib/category-curriculum';
+import { CurriculumSection, CurriculumList, CareerSection } from '@/components/category/CurriculumSections';
 
-/** civil-construction-1: primary をテーブル、secondary の年度別を統合 */
+/** civil-construction-1: 受験ガイド＋分野別＋テキスト章目次をリスト化、過去問はテーブル維持 */
 export function CivilConstruction1View({ groups, mobileCareerAds = [] }: { groups: DocGroup[]; mobileCareerAds?: ReactNode[] }) {
-  const guideGroup = groups.find(g => g.title === getGroupLabel('civil-construction-1', 'guide'));
-  const textbookGroup = groups.find(g => g.title === getGroupLabel('civil-construction-1', 'textbook'));
-  const primaryGroup = groups.find(g => g.title === getGroupLabel('civil-construction-1', 'primary'));
-  const secondaryGroup = groups.find(g => g.title === getGroupLabel('civil-construction-1', 'secondary'));
+  const category = 'civil-construction-1';
+  const guideGroup = groups.find(g => g.key === 'guide');
+  const textbookGroup = groups.find(g => g.key === 'textbook');
+  const primaryGroup = groups.find(g => g.key === 'primary');
+  const secondaryGroup = groups.find(g => g.key === 'secondary');
+
+  const curriculum = resolveCurriculum(category, guideGroup?.docs ?? []);
+  const chapters = resolveTextbookChapters(category, textbookGroup?.docs ?? []);
+  // 受験ガイド節に未割当（config 追記漏れ・新規記事）を必ず合流させ silent drop を防ぐ
+  const examGuideDocs = [...(curriculum.examGuide?.docs ?? []), ...curriculum.unassigned];
+  const fieldsCount = curriculum.fields?.blocks.reduce((n, b) => n + b.docs.length, 0) ?? 0;
+  const textbookCount = chapters.reduce((n, c) => n + c.docs.length, 0);
 
   // secondary を年度別過去問と分野別に分離
-  const secondaryYearDocs = secondaryGroup?.docs.filter(d =>
-    /secondary-(r|h)\d+$/.test(d.slug || '')
-  ) || [];
-  const secondaryTopicDocs = secondaryGroup?.docs.filter(d =>
-    !/secondary-(r|h)\d+$/.test(d.slug || '')
-  ) || [];
-
-  // 試験ガイドからキャリア・転職系を分離（ソート順は維持）
-  const examGuideDocs = guideGroup?.docs.filter(d => !d.tags?.includes('career')) || [];
-  const careerDocs = guideGroup?.docs.filter(d => d.tags?.includes('career')) || [];
-
-  // テキストブックをエリア別にグループ化
-  const TEXTBOOK_AREAS = [
-    { label: '建設機械', min: 100, max: 149 },
-    { label: '測量', min: 150, max: 169 },
-    { label: '解体工事', min: 170, max: 179 },
-    { label: '施工管理・施工計画', min: 200, max: 230 },
-    { label: '工程管理', min: 250, max: 269 },
-    { label: '品質管理', min: 300, max: 320 },
-    { label: '関係法規', min: 400, max: 449 },
-  ];
-  const textbookAreas = textbookGroup ? TEXTBOOK_AREAS.map(area => ({
-    ...area,
-    docs: textbookGroup.docs.filter(d => {
-      const order = d.textbook_order ?? 999;
-      return order >= area.min && order <= area.max;
-    }),
-  })).filter(a => a.docs.length > 0) : [];
+  const secondaryYearDocs = secondaryGroup?.docs.filter(d => /secondary-(r|h)\d+$/.test(d.slug || '')) || [];
+  const secondaryTopicDocs = secondaryGroup?.docs.filter(d => !/secondary-(r|h)\d+$/.test(d.slug || '')) || [];
 
   return (
     <>
-      {guideGroup && examGuideDocs.length > 0 && (
-        <DocSection group={{ ...guideGroup, docs: examGuideDocs }} />
+      {examGuideDocs.length > 0 && (
+        <CurriculumSection id="guide" title={curriculum.examGuide?.title ?? '受験ガイド'} description={curriculum.examGuide?.description} count={examGuideDocs.length}>
+          <CurriculumList blocks={[{ docs: examGuideDocs }]} />
+        </CurriculumSection>
+      )}
+      {curriculum.fields && (
+        <CurriculumSection id="fields" title={curriculum.fields.title} description={curriculum.fields.description} count={fieldsCount}>
+          <CurriculumList blocks={curriculum.fields.blocks} />
+        </CurriculumSection>
       )}
       {mobileCareerAds[0]}
-      {textbookGroup && (
-        <section id={`sec-${textbookGroup.key}`} className="scroll-mt-24">
-          <div className="mb-6">
-            <div className="flex items-baseline justify-between gap-2 flex-wrap">
-              <h2 className="font-serif text-[22px] sm:text-[26px] font-black text-[var(--ink)]">{textbookGroup.title}</h2>
-              <span className="font-mono text-[11px] text-[var(--ink-muted)]">{textbookGroup.docs.length} docs</span>
-            </div>
-            <p className="text-[14px] text-[var(--ink-muted)] mt-1">{textbookGroup.description}</p>
-          </div>
-          <div className="space-y-8">
-            {textbookAreas.map(area => (
-              <div key={area.label}>
-                <h3 className="font-serif text-lg font-bold text-[var(--ink)] mb-3 border-b border-[var(--rule-soft)] pb-2">{area.label}</h3>
-                <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                  {area.docs.map(doc => (
-                    <DocCard key={doc.slug} doc={doc} />
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
+      {chapters.length > 0 && (
+        <CurriculumSection id="textbook" title="テキスト" description="分冊・章立てに沿った本文テキスト（本試験の出題順）" count={textbookCount}>
+          <CurriculumList blocks={chapters} numbered />
+        </CurriculumSection>
       )}
       {mobileCareerAds[1]}
       {primaryGroup && (
@@ -93,45 +66,50 @@ export function CivilConstruction1View({ groups, mobileCareerAds = [] }: { group
           }}
         />
       )}
-      {careerDocs.length > 0 && (
-        <DocSection
-          group={{
-            key: 'career',
-            title: 'キャリア・転職',
-            description: '年収・転職・キャリアパス・働き方の実務ガイド',
-            docs: careerDocs,
-          }}
-        />
-      )}
+      <CareerSection
+        featured={curriculum.career.featured}
+        rest={curriculum.career.rest}
+        description="年収・転職・キャリアパス・働き方の実務ガイド"
+      />
     </>
   );
 }
 
-/** civil-construction-2: 2級向け、前期/後期テーブル */
+/** civil-construction-2: 受験ガイド＋分野別をリスト化、過去問は前期/後期テーブル維持（textbook 記事は無し） */
 export function CivilConstruction2View({ groups, mobileCareerAds = [] }: { groups: DocGroup[]; mobileCareerAds?: ReactNode[] }) {
-  const guideGroup = groups.find(g => g.title === getGroupLabel('civil-construction-2', 'guide'));
-  const textbookGroup = groups.find(g => g.title === getGroupLabel('civil-construction-2', 'textbook'));
-  const primaryGroup = groups.find(g => g.title === getGroupLabel('civil-construction-2', 'primary'));
-  const secondaryGroup = groups.find(g => g.title === getGroupLabel('civil-construction-2', 'secondary'));
+  const category = 'civil-construction-2';
+  const guideGroup = groups.find(g => g.key === 'guide');
+  const textbookGroup = groups.find(g => g.key === 'textbook');
+  const primaryGroup = groups.find(g => g.key === 'primary');
+  const secondaryGroup = groups.find(g => g.key === 'secondary');
 
-  const secondaryYearDocs = secondaryGroup?.docs.filter(d =>
-    /secondary-(r|h)\d+$/.test(d.slug || '')
-  ) || [];
-  const secondaryTopicDocs = secondaryGroup?.docs.filter(d =>
-    !/secondary-(r|h)\d+$/.test(d.slug || '')
-  ) || [];
+  const curriculum = resolveCurriculum(category, guideGroup?.docs ?? []);
+  const chapters = resolveTextbookChapters(category, textbookGroup?.docs ?? []);
+  const examGuideDocs = [...(curriculum.examGuide?.docs ?? []), ...curriculum.unassigned];
+  const fieldsCount = curriculum.fields?.blocks.reduce((n, b) => n + b.docs.length, 0) ?? 0;
+  const textbookCount = chapters.reduce((n, c) => n + c.docs.length, 0);
 
-  // 試験ガイドからキャリア・転職系を分離（ソート順は維持）
-  const examGuideDocs = guideGroup?.docs.filter(d => !d.tags?.includes('career')) || [];
-  const careerDocs = guideGroup?.docs.filter(d => d.tags?.includes('career')) || [];
+  const secondaryYearDocs = secondaryGroup?.docs.filter(d => /secondary-(r|h)\d+$/.test(d.slug || '')) || [];
+  const secondaryTopicDocs = secondaryGroup?.docs.filter(d => !/secondary-(r|h)\d+$/.test(d.slug || '')) || [];
 
   return (
     <>
-      {guideGroup && examGuideDocs.length > 0 && (
-        <DocSection group={{ ...guideGroup, docs: examGuideDocs }} />
+      {examGuideDocs.length > 0 && (
+        <CurriculumSection id="guide" title={curriculum.examGuide?.title ?? '受験ガイド'} description={curriculum.examGuide?.description} count={examGuideDocs.length}>
+          <CurriculumList blocks={[{ docs: examGuideDocs }]} />
+        </CurriculumSection>
+      )}
+      {curriculum.fields && (
+        <CurriculumSection id="fields" title={curriculum.fields.title} description={curriculum.fields.description} count={fieldsCount}>
+          <CurriculumList blocks={curriculum.fields.blocks} />
+        </CurriculumSection>
       )}
       {mobileCareerAds[0]}
-      {textbookGroup && <DocSection group={textbookGroup} />}
+      {chapters.length > 0 && (
+        <CurriculumSection id="textbook" title="テキスト" description="章立てに沿った本文テキスト" count={textbookCount}>
+          <CurriculumList blocks={chapters} numbered />
+        </CurriculumSection>
+      )}
       {mobileCareerAds[1]}
       {primaryGroup && (
         <DocSection
@@ -155,15 +133,44 @@ export function CivilConstruction2View({ groups, mobileCareerAds = [] }: { group
           }}
         />
       )}
-      {careerDocs.length > 0 && (
-        <DocSection
-          group={{
-            key: 'career',
-            title: 'キャリア・転職',
-            description: '年収・転職・キャリアパス・働き方の実務ガイド',
-            docs: careerDocs,
-          }}
-        />
+      <CareerSection
+        featured={curriculum.career.featured}
+        rest={curriculum.career.rest}
+        description="年収・転職・キャリアパス・働き方の実務ガイド"
+      />
+    </>
+  );
+}
+
+/** concrete-chief-engineer / concrete-diagnostician: 受験ガイド＋テキスト章目次＋分野別過去問をリスト化（共用） */
+export function ConcreteView({ groups }: { groups: DocGroup[] }) {
+  const guideGroup = groups.find(g => g.key === 'guide');
+  const textbookGroup = groups.find(g => g.key === 'textbook');
+  const primaryGroup = groups.find(g => g.key === 'primary');
+  // 共用 View なので category は実データ（各記事の category は同一）から取る
+  const category = groups.flatMap(g => g.docs)[0]?.category ?? '';
+
+  const curriculum = resolveCurriculum(category, guideGroup?.docs ?? []);
+  const chapters = resolveTextbookChapters(category, textbookGroup?.docs ?? []);
+  const examGuideDocs = [...(curriculum.examGuide?.docs ?? []), ...curriculum.unassigned];
+  const textbookCount = chapters.reduce((n, c) => n + c.docs.length, 0);
+
+  return (
+    <>
+      {examGuideDocs.length > 0 && (
+        <CurriculumSection id="guide" title={curriculum.examGuide?.title ?? '受験ガイド'} description={curriculum.examGuide?.description} count={examGuideDocs.length}>
+          <CurriculumList blocks={[{ docs: examGuideDocs }]} />
+        </CurriculumSection>
+      )}
+      {chapters.length > 0 && (
+        <CurriculumSection id="textbook" title={textbookGroup?.title ?? 'テキスト'} description={textbookGroup?.description} count={textbookCount}>
+          <CurriculumList blocks={chapters} numbered />
+        </CurriculumSection>
+      )}
+      {primaryGroup && primaryGroup.docs.length > 0 && (
+        <CurriculumSection id="primary" title={primaryGroup.title} description={primaryGroup.description} count={primaryGroup.docs.length}>
+          <CurriculumList blocks={[{ docs: primaryGroup.docs }]} numbered />
+        </CurriculumSection>
       )}
     </>
   );
@@ -189,10 +196,24 @@ export function PeComprehensiveView({ groups, mobileCareerAds = [] }: { groups: 
   const keywordGroup = groups.find(g => g.title === getGroupLabel('pe-comprehensive-management', 'keyword'));
   const keywordCount = keywordGroup?.docs.length ?? 0;
 
+  // guide をカード→受験ガイド＋論文対策のリストへ。pillar/pastExam/keyword 導線は現状維持。
+  const curriculum = resolveCurriculum('pe-comprehensive-management', guideGroup?.docs ?? []);
+  const examGuideDocs = [...(curriculum.examGuide?.docs ?? []), ...curriculum.unassigned];
+  const fieldsCount = curriculum.fields?.blocks.reduce((n, b) => n + b.docs.length, 0) ?? 0;
+
   // essay-mlit-* 7 記事は 2026-05-18 撤回済み（旧分離ロジック削除）
   return (
     <>
-      {guideGroup && guideGroup.docs.length > 0 && <DocSection group={guideGroup} />}
+      {examGuideDocs.length > 0 && (
+        <CurriculumSection id="guide" title={curriculum.examGuide?.title ?? '受験ガイド'} description={curriculum.examGuide?.description} count={examGuideDocs.length}>
+          <CurriculumList blocks={[{ docs: examGuideDocs }]} />
+        </CurriculumSection>
+      )}
+      {curriculum.fields && (
+        <CurriculumSection id="fields" title={curriculum.fields.title} description={curriculum.fields.description} count={fieldsCount}>
+          <CurriculumList blocks={curriculum.fields.blocks} />
+        </CurriculumSection>
+      )}
       {mobileCareerAds[0]}
       {pillarGroup && <DocSection group={pillarGroup} />}
       {pastExamGroup && (
@@ -230,18 +251,37 @@ export function PeComprehensiveView({ groups, mobileCareerAds = [] }: { groups: 
   );
 }
 
-/** pe-construction: ガイド・キーワード・科目×年度マトリクス */
+/** pe-construction: 受験ガイド＋論文の書き方をリスト化、キーワード・科目×年度マトリクスは維持 */
 export function PeConstructionView({ groups }: { groups: DocGroup[] }) {
-  const guideGroup = groups.find(g => g.title === getGroupLabel('pe-construction', 'guide'));
-  const keywordGroup = groups.find(g => g.title === getGroupLabel('pe-construction', 'keyword'));
-  const pastExamGroup = groups.find(g => g.title === getGroupLabel('pe-construction', 'pastExam'));
+  const guideGroup = groups.find(g => g.key === 'guide');
+  const keywordGroup = groups.find(g => g.key === 'keyword');
+  const pastExamGroup = groups.find(g => g.key === 'pastExam');
+
+  const curriculum = resolveCurriculum('pe-construction', guideGroup?.docs ?? []);
+  const examGuideDocs = [...(curriculum.examGuide?.docs ?? []), ...curriculum.unassigned];
+  const fieldsCount = curriculum.fields?.blocks.reduce((n, b) => n + b.docs.length, 0) ?? 0;
+
   return (
     <>
-      {guideGroup && <DocSection group={guideGroup} />}
+      {examGuideDocs.length > 0 && (
+        <CurriculumSection id="guide" title={curriculum.examGuide?.title ?? '受験ガイド'} description={curriculum.examGuide?.description} count={examGuideDocs.length}>
+          <CurriculumList blocks={[{ docs: examGuideDocs }]} />
+        </CurriculumSection>
+      )}
+      {curriculum.fields && (
+        <CurriculumSection id="fields" title={curriculum.fields.title} description={curriculum.fields.description} count={fieldsCount}>
+          <CurriculumList blocks={curriculum.fields.blocks} />
+        </CurriculumSection>
+      )}
       {keywordGroup && <DocSection group={keywordGroup} />}
       {pastExamGroup && (
         <DocSection group={pastExamGroup} layout="pe-construction-exam-table" />
       )}
+      <CareerSection
+        featured={curriculum.career.featured}
+        rest={curriculum.career.rest}
+        description="建設部門技術士のキャリア・年収"
+      />
     </>
   );
 }

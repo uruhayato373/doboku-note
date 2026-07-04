@@ -1,0 +1,146 @@
+{
+  "$comment": "カテゴリページの体系（受験ガイド / 分野別 / テキスト章 / キャリア注目）の編成 SSOT。slugs はカテゴリ prefix を抜いた suffix。並び順は slugs 記載順（明示編成）。真実源の詳細は docs/design-system/design-system.md §3 と docs/reference の各方針。resolver=src/lib/category-curriculum.ts。未割当 guide は resolver が unassigned で必ず表示に回す（silent drop 禁止）。",
+  "civil-construction-1": {
+    "examGuide": {
+      "title": "受験ガイド",
+      "description": "試験概要・難易度・学習計画・勉強法など、まず全体像をつかむための記事",
+      "slugs": [
+        "guide-exam-overview",
+        "guide-difficulty",
+        "guide-1-vs-2",
+        "guide-vs-pe",
+        "guide-strategy",
+        "guide-study-plan",
+        "guide-study-method",
+        "guide-four-management",
+        "guide-last-minute-2026"
+      ]
+    },
+    "fields": {
+      "title": "分野別対策",
+      "description": "出題分野順（問題A: 土木一般・法規 / 問題B: 共通工学・施工管理法）に要点を整理",
+      "blocks": [
+        {
+          "id": "doboku-ippan",
+          "label": "土木一般（土工・コンクリート・基礎工）",
+          "slugs": ["guide-earthwork-key-points", "guide-concrete-key-points", "guide-concrete-maintenance", "guide-foundation"]
+        },
+        {
+          "id": "kyotsu-kogaku",
+          "label": "共通工学（建設機械・測量・解体）",
+          "slugs": ["guide-machinery", "guide-surveying", "guide-demolition"]
+        },
+        {
+          "id": "seko-kanri",
+          "label": "施工管理法（施工計画・工程・品質・安全・環境）",
+          "slugs": ["guide-construction-plan", "guide-schedule-management", "guide-quality-management", "guide-safety-management", "guide-environment-management"]
+        },
+        {
+          "id": "hoki",
+          "label": "法規",
+          "slugs": ["guide-law-key-points"]
+        }
+      ]
+    },
+    "textbookChapters": [
+      { "volume": "土木一般・共通工学編", "label": "建設機械", "min": 100, "max": 149 },
+      { "volume": "土木一般・共通工学編", "label": "測量", "min": 150, "max": 169 },
+      { "volume": "土木一般・共通工学編", "label": "解体工事", "min": 170, "max": 199 },
+      { "volume": "施工管理・法規編", "label": "施工管理・施工計画", "min": 200, "max": 249 },
+      { "volume": "施工管理・法規編", "label": "工程管理", "min": 250, "max": 299 },
+      { "volume": "施工管理・法規編", "label": "品質管理", "min": 300, "max": 399 },
+      { "volume": "施工管理・法規編", "label": "関係法規", "min": 400, "max": 499 },
+      { "volume": "施工管理・法規編", "label": "安全管理", "min": 500, "max": 599 },
+      { "volume": "施工管理・法規編", "label": "環境保全・建設副産物", "min": 600, "max": 699 }
+    ],
+    "careerFeatured": ["guide-career-salary", "guide-career-agents", "guide-quit-or-stay", "guide-timing"]
+  },
+  "civil-construction-2": {
+    "examGuide": {
+      "title": "受験ガイド",
+      "description": "2級の試験概要・学習計画・勉強法・参考書など、まず全体像をつかむための記事",
+      "slugs": ["guide-overview", "guide-exam-overview", "guide-study-plan", "guide-study-method", "guide-textbooks"]
+    },
+    "fields": {
+      "title": "分野別対策",
+      "description": "出題分野順（土木一般 → 施工管理法 → 法規）に要点を整理",
+      "blocks": [
+        {
+          "id": "doboku-ippan",
+          "label": "土木一般（土工・コンクリート・基礎工）",
+          "slugs": ["guide-earthwork-key-points", "guide-concrete-key-points", "guide-foundation-key-points"]
+        },
+        {
+          "id": "seko-kanri",
+          "label": "施工管理法（施工計画・工程・品質・安全）",
+          "slugs": ["guide-construction-plan-key-points", "guide-schedule-management", "guide-quality-management", "guide-safety-management"]
+        },
+        {
+          "id": "hoki",
+          "label": "法規",
+          "slugs": ["guide-law-key-points"]
+        }
+      ]
+    },
+    "careerFeatured": ["guide-salary", "guide-career-change", "guide-quit-or-stay"]
+  },
+  "concrete-chief-engineer": {
+    "examGuide": {
+      "title": "受験ガイド",
+      "description": "試験概要・出題傾向・小論文対策",
+      "slugs": ["guide-overview", "guide-trends", "guide-essay"]
+    }
+  },
+  "pe-construction": {
+    "$note": "出題テーマ分析・論点キーワード・論文論点（各 group:keyword・計27本）は keyword セクションで維持。ここは guide group（11本）のみ扱う。",
+    "examGuide": {
+      "title": "受験ガイド",
+      "description": "難易度・学習計画・勉強法・コンピテンシー改訂など、二次試験の全体像",
+      "slugs": ["nanido-goukakuritsu", "gakushuu-jikan-schedule", "secondary-study-method", "competency-revision-r8"]
+    },
+    "fields": {
+      "title": "記述式論文の書き方",
+      "description": "答案構成 → 科目の書き分け → 解答例 → 業務経歴票の順に、論述の型を固める",
+      "blocks": [
+        {
+          "id": "kakikata",
+          "label": "論文の書き方・業務経歴票",
+          "slugs": ["pe-secondary-essay-guide", "toan-kousei-template", "sentaku-kamoku-kakiwake", "hissu-kamoku-kaitourei", "guide-required-essay", "gyoumu-keireki-hyou"]
+        }
+      ]
+    }
+  },
+  "pe-comprehensive-management": {
+    "examGuide": {
+      "title": "受験ガイド",
+      "description": "試験ガイド・合格戦略・出願の留意点",
+      "slugs": ["exam-index", "exam-passing-strategy", "course-selection-guide", "exam-application-guide", "general-vs-comprehensive"]
+    },
+    "fields": {
+      "title": "記述式論文の対策",
+      "description": "解答戦略 → 立場別の模範論文ガイド → 白書マップ → 直前対策",
+      "blocks": [
+        {
+          "id": "essay-strategy",
+          "label": "記述式の学習法・戦略",
+          "slugs": ["essay-exam-strategy", "essay-persona-guide", "essay-pattern-cross-year-application", "whitepaper-study-map", "management-tradeoffs", "frequent-topics", "last-minute-2026"]
+        },
+        {
+          "id": "r8-forecast",
+          "label": "R8 予想問題",
+          "slugs": ["r8-essay-keyword-forecast", "r8-essay-theme-climate-adaptation", "r8-essay-theme-disaster-recovery", "r8-essay-theme-circular-economy", "r8-essay-theme-infrastructure-maintenance", "r8-essay-theme-ai-governance", "r8-essay-theme-economic-security"]
+        },
+        {
+          "id": "model-essay",
+          "label": "立場別 模範論文",
+          "slugs": ["pattern-essay-general-contractor", "pattern-essay-river-consultant", "pattern-essay-road-municipality"]
+        },
+        {
+          "id": "why-comprehensive",
+          "label": "総監を取る意味・キャリア",
+          "slugs": ["public-servant-comprehensive-merit", "private-engineer-comprehensive-merit", "public-engineer-qualification-map"]
+        }
+      ]
+    }
+  }
+}
