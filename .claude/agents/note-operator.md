@@ -61,6 +61,13 @@ note.com への高レベル操作指示を受け取り、既存の決定的ス�
 |---|---|---|
 | `verify-note-magazines.mjs` | note API と SoT の同期検証 | `[--contents]` |
 
+### 記事アセット・削除
+
+| スクリプト | 用途 | 引数 |
+|---|---|---|
+| `generate-anki-pdf.mjs` | 暗記ノートの一問一答→A5赤シート対応 印刷用PDF生成（`--sample`=無料第1分野のみの見本PNG・答え流出なし。Mac は Playwright page.pdf で動作） | `--article <path> [--sample] [--out <path>]` |
+| `note-delete-note.mjs` | 公開/下書き記事の削除（エディタからは不可＝ダッシュボード note.com/notes 方式）。account ゲート・既定 PROBE・`--commit` で実行・API で消滅検証 | `--note <key> [--allow-published] [--commit]` |
+
 ## 実行手順
 
 ### ケース1: 価格変更

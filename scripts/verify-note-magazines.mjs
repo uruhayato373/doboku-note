@@ -211,7 +211,10 @@ function main() {
     if (e.key && !noteByKey.has(e.key)) {
       issues.push(`[非公開化?] SoT ${e.id} の noteUrl(${e.key}) が note 一覧に無い（404/非公開化の疑い）`);
     }
-    if (e.published && !e.key) {
+    // noteUrl 空の真偽は noteUrl 文字列そのもので判定する。e.key は「マガジン(/m/…)キー」で、
+    // 単品記事 SKU（noteUrl が /n/… の暗記ノート等）は key=null でも noteUrl は配線済み。
+    // ここで !e.key を使うと単品記事を「noteUrl 空」と誤検知する（2026-07-04 是正）。
+    if (e.published && !e.noteUrl) {
       issues.push(`[要修正] SoT ${e.id} は published:true だが noteUrl 空`);
     }
   }

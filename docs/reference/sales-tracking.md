@@ -95,6 +95,8 @@ npm run sales-summary -- 2026-06   # 指定月（位置引数。--month フラ�
 | 精読ガイド | `tankan-reading-guide` |
 | 建設部門 必須科目I | `bk-i-required-essay-magazine` |
 | 建設部門 選択科目 模範解答集 | `bk-{subject}-secondary-magazine`（例: `bk-road-secondary-magazine` / `bk-geotechnical-secondary-magazine` / `bk-port-airport-secondary-magazine`。subject は note-magazines.ts の romaji に合わせる） |
+| 1級2級土木 学科記述セット | `civil-1-gakka-kijutsu`（¥2,480）/ `civil-2-gakka-kijutsu`（¥1,980） |
+| 1級土木 二次まるごとパック | `civil-1-niji-marugoto-pack`（¥11,800・108記事バンドル） |
 
 ### 単品記事
 
@@ -111,6 +113,7 @@ npm run sales-summary -- 2026-06   # 指定月（位置引数。--month フラ�
 | 建設部門 他科目 R8予想単品 | `article:bk-{subject}-r8-yosou-{ii1\|ii2\|iii}`（例: `bk-steel-concrete-r8-yosou-ii1` / `bk-port-airport-r8-yosou-ii2` / `bk-environment-r8-yosou-iii`） |
 | 建設部門 過去問単品 | `article:bk-i-r07-required`（必須科目I R07 等） |
 | 総監 R8予想 老朽化インフラ | `article:r8-aging-infra-preventive` |
+| 1級2級土木 学科記述 直前暗記ノート | `article:civil-1-anki-note`（¥980）/ `article:civil-2-anki-note`（¥580）。noteUrl は `/n/…` 単品（マガジン非収録） |
 
 ### 新商品の追加
 
