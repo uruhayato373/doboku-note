@@ -84,7 +84,9 @@ function walk(dir, out = []) {
 }
 function stagedMd() {
   try {
-    return execFileSync('git', ['diff', '--cached', '--name-only', '--diff-filter=ACM'], { encoding: 'utf8' })
+    // -c core.quotepath=false: 日本語パスを生UTF-8で出力（既定は "docs/note/1\347..." と
+    // 引用符付き8進エスケープになり startsWith('docs/note') に不一致→日本語パス記事が素通りする）
+    return execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACM'], { encoding: 'utf8' })
       .split('\n').map((s) => s.trim())
       .filter((s) => s.startsWith(ROOT) && /\/article(-[A-Za-z0-9-]+)?\.md$/.test(s));
   } catch {

@@ -37,7 +37,10 @@ const SET_CHECKER = join(ROOT, '.claude', 'scripts', 'check-note-3set.mjs');
 
 function stagedNoteArticles() {
   try {
-    return execSync('git diff --cached --name-only --diff-filter=ACM', { encoding: 'utf8', cwd: ROOT })
+    // -c core.quotepath=false: 日本語パスを引用符+8進エスケープ("docs/note/1\347...")でなく
+    // 生UTF-8で出力させる。既定(quotepath=true)だと下の /^docs\/note\// 正規表現に不一致で
+    // 日本語パス記事が全て素通りし、pipe表ゲートが一度も発火しなかった（2026-07-04 是正）。
+    return execSync('git -c core.quotepath=false diff --cached --name-only --diff-filter=ACM', { encoding: 'utf8', cwd: ROOT })
       .split('\n').filter((f) => /^docs\/note\/.*\/article\.md$/.test(f))
       .map((f) => join(ROOT, f))
       .filter((f) => existsSync(f));

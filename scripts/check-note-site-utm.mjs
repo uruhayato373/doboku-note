@@ -45,7 +45,9 @@ function walk(dir, acc) {
 
 let files;
 if (STAGED) {
-  files = execFileSync('git', ['diff', '--cached', '--name-only', '--diff-filter=ACM'], { encoding: 'utf8' })
+  // -c core.quotepath=false: 日本語パスを生UTF-8で出力（既定は引用符+8進エスケープで
+  // startsWith('docs/note/') と existsSync に不一致→日本語パス記事が素通りする）
+  files = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACM'], { encoding: 'utf8' })
     .split('\n')
     .filter((f) => f.startsWith('docs/note/') && /\.md$/.test(f) && existsSync(f));
 } else {

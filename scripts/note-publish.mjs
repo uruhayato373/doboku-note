@@ -90,6 +90,13 @@ const BOUNDARY = getArg('--boundary-regex') || fmField('paidBoundary') || '試�
 // ガード: プレースホルダ残・空タイトル
 if (/\{\{|※note\s*公開後|MAGAZINE_URL/.test(body)) { console.error('ABORT: プレースホルダが本文に残存'); process.exit(1); }
 if (!title) { console.error('ABORT: タイトルが空'); process.exit(1); }
+// ガード: markdown 表（note 非対応・生パイプ表示になる）。note-lint のバックストップ。
+// コードフェンス外の行頭パイプを検出したら公開しない（2026-07-04・9記事流出の再発防止）。
+{
+  let inFence = false;
+  const pipeLine = body.split('\n').find((l) => { if (/^\s*```/.test(l)) inFence = !inFence; return !inFence && /^\s*\|/.test(l); });
+  if (pipeLine) { console.error(`ABORT: markdown 表を検出（note 非対応・箇条書きへ変換せよ）: ${pipeLine.trim().slice(0, 50)}`); process.exit(1); }
+}
 console.log(`[prep] title="${title.slice(0, 40)}" paid=${isPaid} price=${price} cover=${!!cover} tags=${tags.length} h2=${h2count} toc=${wantToc} bodyChars=${[...body].length} mode=${COMMIT ? (sched ? `SCHEDULE(${sched.raw})` : 'COMMIT(即時公開)') : 'DRAFT(下書きのみ)'}`);
 
 // 冪等ガード: 既に公開済み（frontmatter に noteUrl あり）ならスキップ（バッチ再実行で重複公開しない）
