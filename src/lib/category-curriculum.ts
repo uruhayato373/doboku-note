@@ -62,8 +62,14 @@ export function resolveCurriculum(category: string, guideDocs: DocMeta[]): Resol
     ? { title: cfg.fields.title, description: cfg.fields.description, blocks }
     : null;
 
+  // テキスト章の入口（introGuides）へ移した要点 guide は分野別/未割当に出さない（章頭で表示される）。
+  const introSuffixes = new Set<string>();
+  for (const ch of cfg?.textbookChapters ?? []) for (const s of ch.introGuides ?? []) introSuffixes.add(s);
+
   // 非キャリア guide で未割当のもの（config 追記漏れ・新規記事）。必ず表示に回す。
-  const unassigned = nonCareer.filter((d) => !assigned.has(d));
+  const unassigned = nonCareer.filter(
+    (d) => !assigned.has(d) && !introSuffixes.has(toSuffix(category, d.slug)),
+  );
 
   const featuredSuffixes = cfg?.careerFeatured ?? [];
   const featured: DocMeta[] = [];
@@ -87,14 +93,25 @@ function textbookSortKey(d: DocMeta): number {
   return Number.isFinite(s) ? s : 9999;
 }
 
-export type TextbookChapterResolved = { volume?: string | undefined; label: string; docs: DocMeta[] };
+export type TextbookChapterResolved = {
+  volume?: string | undefined;
+  label: string;
+  /** 章の入口に据える要点 guide（分野別対策から移した「要点まとめ」）。本文の前に表示する。 */
+  intro: DocMeta[];
+  docs: DocMeta[];
+};
 
 /**
  * textbook 記事を config の章レンジ（textbook_order）でグルーピングする。
  * - config が無い（concrete 系: section 連番）なら単一のフラット章として order 昇順で返す。
  * - レンジ外の記事は「その他」章へ回す（silent drop 防止）。
+ * - guideDocs を渡すと各章の introGuides（要点 guide）を解決して intro に載せる。
  */
-export function resolveTextbookChapters(category: string, textbookDocs: DocMeta[]): TextbookChapterResolved[] {
+export function resolveTextbookChapters(
+  category: string,
+  textbookDocs: DocMeta[],
+  guideDocs: DocMeta[] = [],
+): TextbookChapterResolved[] {
   if (textbookDocs.length === 0) return [];
   const cfg = getCategoryCurriculum(category);
   const ranges = cfg?.textbookChapters;
@@ -103,10 +120,22 @@ export function resolveTextbookChapters(category: string, textbookDocs: DocMeta[
 
   if (!ranges || ranges.length === 0) {
     // section ベース（concrete 系）: 章見出しなしのフラット目次。
-    return [{ label: '', docs: sorted }];
+    return [{ label: '', intro: [], docs: sorted }];
   }
 
-  const chapters: TextbookChapterResolved[] = ranges.map((r) => ({ volume: r.volume, label: r.label, docs: [] }));
+  const guideBySuffix = new Map<string, DocMeta>();
+  for (const d of guideDocs) {
+    if (!d.tags?.includes('career')) guideBySuffix.set(toSuffix(category, d.slug), d);
+  }
+
+  const chapters: TextbookChapterResolved[] = ranges.map((r) => ({
+    volume: r.volume,
+    label: r.label,
+    intro: (r.introGuides ?? [])
+      .map((s) => guideBySuffix.get(s))
+      .filter((d): d is DocMeta => Boolean(d)),
+    docs: [],
+  }));
   const leftover: DocMeta[] = [];
   for (const d of sorted) {
     const order = typeof d.textbook_order === 'number' ? d.textbook_order : NaN;
@@ -115,6 +144,6 @@ export function resolveTextbookChapters(category: string, textbookDocs: DocMeta[
     if (chapter) chapter.docs.push(d);
     else leftover.push(d);
   }
-  if (leftover.length > 0) chapters.push({ label: 'その他', docs: leftover });
-  return chapters.filter((c) => c.docs.length > 0);
+  if (leftover.length > 0) chapters.push({ label: 'その他', intro: [], docs: leftover });
+  return chapters.filter((c) => c.docs.length > 0 || c.intro.length > 0);
 }
