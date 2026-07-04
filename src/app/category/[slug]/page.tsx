@@ -11,6 +11,7 @@ import { getPopularDocs } from '@/lib/popular';
 import {
   CivilConstruction1View,
   CivilConstruction2View,
+  ConcreteView,
   PeFirstStageView,
   PeComprehensiveView,
   PeConstructionView,
@@ -161,6 +162,8 @@ export default async function CategoryPage({
                 <PeComprehensiveView groups={groups} mobileCareerAds={mobileCareerAds} />
               ) : slug === 'pe-construction' ? (
                 <PeConstructionView groups={groups} />
+              ) : slug === 'concrete-chief-engineer' || slug === 'concrete-diagnostician' ? (
+                <ConcreteView groups={groups} />
               ) : (
                 groups.map(group => (
                   <DocSection key={group.title} group={group} />

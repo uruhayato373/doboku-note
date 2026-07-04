@@ -98,6 +98,12 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# category-curriculum.json の slug 実在＋career タグ整合（カテゴリページ体系リストの slug 陳腐化・silent drop の再発防止）
+node scripts/check-category-curriculum.mjs
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
 # アフィリエイト A8 mat が SSOT 許可リスト(affiliate-mats.json)に存在するか検証（mat タイポ/未登録/失効の取りこぼし防止）
 node scripts/check-affiliate-mats.mjs --staged
 if [ $? -ne 0 ]; then

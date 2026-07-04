@@ -77,6 +77,7 @@
     "check-ogp-title-fit": "node scripts/check-ogp-title-fit.mjs",
     "check-note-cover-fit": "node scripts/check-note-cover-fit.mjs",
     "check-home-exam-coverage": "node scripts/check-home-exam-coverage.mjs",
+    "check-category-curriculum": "node scripts/check-category-curriculum.mjs",
     "check-affiliate-mats": "node scripts/check-affiliate-mats.mjs",
     "check-affiliate-prose": "node scripts/check-affiliate-prose.mjs",
     "fetch-gsc-data": "node .claude/skills/analytics/fetch-gsc-data/scripts/fetch-gsc-data.mjs",
