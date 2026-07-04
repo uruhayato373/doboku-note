@@ -54,19 +54,22 @@ AdSense 審査は **人間のレビュアーがサイトをサンプリングし
 - **手段**: `keyword-rewriter`（Generator）で増補 → スポットで `cem-qa` ＋ **人手読み**で散文が実質的に増えたか確認（rubric合格だけで満足しない）。事実加筆時は WebSearch 一次情報照合（LLM は試験統計・制度を外す）。
 - **規模の正直な見積もり**: 166本の品質リライトは**複数セッションの作業**。本セッションでは最短ページから着手し、完了数と残リストを本レポート末尾に記録する。
 
-### W2 転職ガイド8本
+### W2 転職ガイド8本 — 実は「薄くない」ので優先度低
 
-`guide-qa` → `guide-rewriter`。年収・統計は `guide-fact-checker` 必須。
+実測で `guide-career-salary` は本文3,590字・良質な散文構成。それでも非インデックス（「クロール済み - 未登録」）。**原因は薄さではなく、サイト権威性・鮮度・8本の類似ガイド間の差別化不足**。人間のレビュアーが見れば十分な記事なので **AdSense「有用性」問題ではない**。リライトは低レバレッジ。むしろ8本の切り口重複を相互リンク＋差別化で整理する方が索引に効く可能性（時間をかけて観察）。
 
 ### W3/W4/W5/W7 長尺の重複ページ（本質は独自性）
 
-- **長くする処置は無効**（既に長い）。過去問は各年度ページ冒頭に「その年度の出題傾向・分野構成・難易度・攻略順序」の**独自散文**を付加して転記オンリー構造を解消（`past-exam-rewriter`、設問文・正答は不変）。
-- ただし過去問は構造的に重複性が高く、全てをインデックスさせるのは困難。**AdSense 対策としての優先度は W1 より低い**（レビュアーが薄いと感じるのは短いページ）。
+- **長くする処置は無効**（既に7,000〜33,000字）。過去問設問は競合と重複するため索引されにくい構造的問題。各年度ページ冒頭に独自の「出題傾向・分野構成・攻略順序」を付加すれば差別化にはなるが、**AdSense 対策としての優先度は最低**（レビュアーが「有用性が低い」と感じるのは短い量産ページであって、長い過去問解説ではない）。
+
+### 絞り込みの結論
+
+非インデックス265本のうち、**AdSense「有用性の低いコンテンツ」に直接効くのは W1 の薄いCEMキーワードページ（166本＝全体の63%）**。W2（良質）・W3/W4（長尺）は別要因の非インデックスで、審査対策としては後回しでよい。**本セッションの処置は W1 に集中する。**
 
 ### 補助（軽量・即効）
 
-- **極小PNG**: 対応不要（実測で解像度十分）。200×180の `fig-2-42a/b` のみ将来余裕があれば再描画候補。
-- **CLS超過2ページ**（`civil-construction-1-primary-r07-a` 0.176 / `pe-comprehensive-management-r07-primary` 0.151）: AdSense枠に `width`/`height` 明示。UX/CWV改善で審査にプラス。
+- **極小PNG**: 対応不要（実測で解像度十分。q3-fig 507×288 等、200×180の `fig-2-42a/b` のみ小さいが機能）。**画像クロップは審査落ちの主因ではないと確定**。
+- **CLS超過2ページ**（`civil-construction-1-primary-r07-a` 0.176 / `pe-comprehensive-management-r07-primary` 0.151）: **計画時の想定「AdSense枠に width/height 明示」は誤り** — コードベースに広告ユニット（`<ins class="adsbygoogle">`）は未実装（`AdSenseScript.tsx` のローダーのみ）で、審査未通過ゆえ広告は描画されない。CLSの実原因は `ArticleImage` のSVG分岐（raw `<img>` + `height:auto` で寸法予約なし、`ArticleImage.tsx:47-56`）が最有力。**これはCWV/ランキングの別課題であり、AdSense「有用性の低いコンテンツ」却下とは無関係。** 個別のCWV調査＋検証を経てから修正すべき（本セッションでは投機的修正をしない）。
 
 ---
 
@@ -81,4 +84,16 @@ AdSense 審査は **人間のレビュアーがサイトをサンプリングし
 
 ## 処置ログ（本セッション追記）
 
-<!-- 完了記事・残リストをここに追記 -->
+### 確定事項
+- 画像クロップ: 主因でないと確定（極小PNG 8枚を実測、解像度十分）→ 対応不要
+- CLS修正: 計画の前提誤り（広告ユニット未実装）→ 投機的修正を回避、CWV別課題として切り離し
+- W2/W3/W4: AdSense「有用性」問題ではないと判断 → 処置を W1 に集中
+
+### W1 リライト進捗（本文短い順・目標3,000字超の実質散文）
+- **Batch1 完了・commit `d3087710c`（6本）**: pdca-cycle(1,054→4,857) / four-m-of-production(1,172→3,689) / evaluation-bias(1,482→4,765) / analogous-estimation(1,483→3,897) / behavioral-regulation(3,603→4,547) / tripod-theory(1,200台→4,770)。全て lint HIGH=0・U+FFFD なし・内部リンク実在確認済み。
+- Batch2 進行中: self-declaration-system / temporary-works-plan / internal-job-posting / bottom-up-estimation / problem-setting-ability / process-costing
+
+### W1 残リスト（166本中、本セッション未処理）
+本文2,500字未満が70本・2,000字未満が24本。優先は本文短い順。次バッチ以降の候補（本文2,000字未満の残り）:
+depreciation-residual-value, impact, load-leveling, merit-demerit-system, esg-environmental-assessment, public-private-data-act, system-integrity, safety-investment, total-wage-management, safety-health-policy, wildlife-protection-act, five-s ほか。
+**166本の完遂は複数セッション作業。** 内部weighted は当てにならないため、進捗は「本文実測字数 + 独自散文密度」で管理する（`.tmp/adsense-lists.txt` に全リスト）。
