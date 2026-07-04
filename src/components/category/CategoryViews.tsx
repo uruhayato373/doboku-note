@@ -15,11 +15,11 @@ export function CivilConstruction1View({ groups, mobileCareerAds = [] }: { group
   const secondaryGroup = groups.find(g => g.key === 'secondary');
 
   const curriculum = resolveCurriculum(category, guideGroup?.docs ?? []);
-  const chapters = resolveTextbookChapters(category, textbookGroup?.docs ?? []);
+  const chapters = resolveTextbookChapters(category, textbookGroup?.docs ?? [], guideGroup?.docs ?? []);
   // 受験ガイド節に未割当（config 追記漏れ・新規記事）を必ず合流させ silent drop を防ぐ
   const examGuideDocs = [...(curriculum.examGuide?.docs ?? []), ...curriculum.unassigned];
   const fieldsCount = curriculum.fields?.blocks.reduce((n, b) => n + b.docs.length, 0) ?? 0;
-  const textbookCount = chapters.reduce((n, c) => n + c.docs.length, 0);
+  const textbookCount = chapters.reduce((n, c) => n + c.docs.length + c.intro.length, 0);
 
   // secondary を年度別過去問と分野別に分離
   const secondaryYearDocs = secondaryGroup?.docs.filter(d => /secondary-(r|h)\d+$/.test(d.slug || '')) || [];
@@ -39,7 +39,7 @@ export function CivilConstruction1View({ groups, mobileCareerAds = [] }: { group
       )}
       {mobileCareerAds[0]}
       {chapters.length > 0 && (
-        <CurriculumSection id="textbook" title="テキスト" description="分冊・章立てに沿った本文テキスト（本試験の出題順）" count={textbookCount}>
+        <CurriculumSection id="textbook" title="テキスト" description="分冊・章立てに沿った本文テキスト（各章の冒頭に要点まとめを収録）" count={textbookCount}>
           <CurriculumList blocks={chapters} numbered />
         </CurriculumSection>
       )}
@@ -84,10 +84,10 @@ export function CivilConstruction2View({ groups, mobileCareerAds = [] }: { group
   const secondaryGroup = groups.find(g => g.key === 'secondary');
 
   const curriculum = resolveCurriculum(category, guideGroup?.docs ?? []);
-  const chapters = resolveTextbookChapters(category, textbookGroup?.docs ?? []);
+  const chapters = resolveTextbookChapters(category, textbookGroup?.docs ?? [], guideGroup?.docs ?? []);
   const examGuideDocs = [...(curriculum.examGuide?.docs ?? []), ...curriculum.unassigned];
   const fieldsCount = curriculum.fields?.blocks.reduce((n, b) => n + b.docs.length, 0) ?? 0;
-  const textbookCount = chapters.reduce((n, c) => n + c.docs.length, 0);
+  const textbookCount = chapters.reduce((n, c) => n + c.docs.length + c.intro.length, 0);
 
   const secondaryYearDocs = secondaryGroup?.docs.filter(d => /secondary-(r|h)\d+$/.test(d.slug || '')) || [];
   const secondaryTopicDocs = secondaryGroup?.docs.filter(d => !/secondary-(r|h)\d+$/.test(d.slug || '')) || [];
@@ -151,9 +151,9 @@ export function ConcreteView({ groups }: { groups: DocGroup[] }) {
   const category = groups.flatMap(g => g.docs)[0]?.category ?? '';
 
   const curriculum = resolveCurriculum(category, guideGroup?.docs ?? []);
-  const chapters = resolveTextbookChapters(category, textbookGroup?.docs ?? []);
+  const chapters = resolveTextbookChapters(category, textbookGroup?.docs ?? [], guideGroup?.docs ?? []);
   const examGuideDocs = [...(curriculum.examGuide?.docs ?? []), ...curriculum.unassigned];
-  const textbookCount = chapters.reduce((n, c) => n + c.docs.length, 0);
+  const textbookCount = chapters.reduce((n, c) => n + c.docs.length + c.intro.length, 0);
 
   return (
     <>

@@ -6,11 +6,13 @@ import { DocCard } from '@/components/category/CategorySections';
 // カード（DocCard）でなくリストにすることで、章立て・出題分野の体系が一目で分かり情報密度を上げる。
 // editorial トークンのみ使用（生 hex なし・rounded/shadow 直書きなし）。真実源: docs/design-system/design-system.md §3。
 
-/** 目次リストの1ブロック（見出し＋所属記事）。volume は冊（テキスト2分冊）をまとめる eyebrow。 */
+/** 目次リストの1ブロック（見出し＋所属記事）。volume は冊（テキスト2分冊）をまとめる eyebrow。
+ *  intro は章の入口に据える「要点」記事（本文 docs の前・「要点」マーカーで区別して表示）。 */
 export type CurriculumBlockView = {
   id?: string | undefined;
   label?: string | undefined;
   volume?: string | undefined;
+  intro?: DocMeta[] | undefined;
   docs: DocMeta[];
 };
 
@@ -71,7 +73,7 @@ function CurriculumRow({ doc, marker }: { doc: DocMeta; marker: React.ReactNode 
  * - volume が前ブロックと変われば冊 eyebrow を挿入。
  */
 export function CurriculumList({ blocks, numbered = false }: { blocks: CurriculumBlockView[]; numbered?: boolean }) {
-  const visible = blocks.filter((b) => b.docs.length > 0);
+  const visible = blocks.filter((b) => b.docs.length > 0 || (b.intro?.length ?? 0) > 0);
   return (
     <div className="space-y-6">
       {visible.map((block, bi) => {
@@ -89,6 +91,14 @@ export function CurriculumList({ blocks, numbered = false }: { blocks: Curriculu
                 </h3>
               )}
               <ul>
+                {/* 章の入口: 要点まとめ（本文の前・「要点」マーカーで区別） */}
+                {(block.intro ?? []).map((doc) => (
+                  <CurriculumRow
+                    key={doc.slug}
+                    doc={doc}
+                    marker={<span className="font-mono text-[10px] font-bold text-[var(--accent)]">要点</span>}
+                  />
+                ))}
                 {block.docs.map((doc, i) => (
                   <CurriculumRow
                     key={doc.slug}

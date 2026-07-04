@@ -27,6 +27,8 @@ export type TextbookChapterDef = {
   label: string;
   min: number;
   max: number;
+  /** 章の入口に据える要点 guide（suffix）。分野別対策から章頭へ移した「要点まとめ」記事。 */
+  introGuides?: string[];
 };
 
 /** 1カテゴリの体系編成。examGuide / fields / textbookChapters / careerFeatured はいずれも任意。 */

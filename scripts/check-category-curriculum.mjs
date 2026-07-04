@@ -44,6 +44,10 @@ for (const [category, cfg] of Object.entries(curriculum)) {
   const blockSpecs = [];
   if (cfg.examGuide) blockSpecs.push({ where: `${category}.examGuide`, slugs: cfg.examGuide.slugs, kind: 'guide' });
   for (const b of cfg.fields?.blocks ?? []) blockSpecs.push({ where: `${category}.fields.${b.id}`, slugs: b.slugs, kind: 'guide' });
+  // テキスト章の入口に据えた要点 guide（introGuides）も guide 記事として検証＋assigned 化（未割当 WARN を避ける）
+  for (const ch of cfg.textbookChapters ?? []) {
+    if (ch.introGuides) blockSpecs.push({ where: `${category}.textbookChapters[${ch.label}].introGuides`, slugs: ch.introGuides, kind: 'guide' });
+  }
 
   for (const spec of blockSpecs) {
     for (const suffix of spec.slugs) {
