@@ -365,9 +365,11 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     return {
       inline: [
         slot('civil-2-koji-bank', slug, 'inline-1'),
-        slot('civil-2-pastexam-essay', slug, 'inline-2'),
-        slot('civil-2-experience-essay', slug, 'inline-3'),
-        slot('civil-membership-lab', slug, 'inline-4'),
+        slot('civil-2-gakka-kijutsu', slug, 'inline-2'), // 学科記述（問題2〜9）
+        slot('civil-2-anki-note', slug, 'inline-3'), // 直前暗記ノート
+        slot('civil-2-pastexam-essay', slug, 'inline-4'),
+        slot('civil-2-experience-essay', slug, 'inline-5'),
+        slot('civil-membership-lab', slug, 'inline-6'),
       ],
       sidebar: [slot('civil-2-koji-bank', slug, 'sidebar-1')],
     };
@@ -392,11 +394,13 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   if (/^civil-construction-1-secondary-r0[1-9]$/.test(slug)) {
     return {
       inline: [
-        slot('civil-1-keiken-complete-pack', slug, 'inline-1'),
-        slot('civil-1-pastexam-essay', slug, 'inline-2'),
-        slot('civil-1-experience-essay', slug, 'inline-3'),
-        slot('civil-1-combo-essay', slug, 'inline-4'),
-        slot('civil-membership-lab', slug, 'inline-5'),
+        slot('civil-1-niji-marugoto-pack', slug, 'inline-1'), // 二次まるごと（経験+学科+暗記の最上位バンドル）
+        slot('civil-1-keiken-complete-pack', slug, 'inline-2'),
+        slot('civil-1-gakka-kijutsu', slug, 'inline-3'), // 学科記述（問題2〜11）
+        slot('civil-1-pastexam-essay', slug, 'inline-4'),
+        slot('civil-1-experience-essay', slug, 'inline-5'),
+        slot('civil-1-combo-essay', slug, 'inline-6'),
+        slot('civil-membership-lab', slug, 'inline-7'),
       ],
       sidebar: [slot('civil-1-pastexam-essay', slug, 'sidebar-1')],
     };
@@ -405,10 +409,11 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     return {
       inline: [
         slot('civil-1-keiken-complete-pack', slug, 'inline-1'),
-        slot('civil-1-experience-essay', slug, 'inline-2'),
-        slot('civil-1-pastexam-essay', slug, 'inline-3'),
-        slot('civil-1-combo-essay', slug, 'inline-4'),
-        slot('civil-membership-lab', slug, 'inline-5'),
+        slot('civil-1-niji-marugoto-pack', slug, 'inline-2'), // 経験+学科+暗記の二次まるごと（upsell）
+        slot('civil-1-experience-essay', slug, 'inline-3'),
+        slot('civil-1-pastexam-essay', slug, 'inline-4'),
+        slot('civil-1-combo-essay', slug, 'inline-5'),
+        slot('civil-membership-lab', slug, 'inline-6'),
       ],
       sidebar: [slot('civil-1-experience-essay', slug, 'sidebar-1')],
     };
@@ -417,15 +422,17 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   // 8.5. 1級土木 secondary テーマ別残余（basics / past-problems 等）→ 3マガジン
   //      secondary-r0X / experience-writing 以外の secondary ページ（分野別）をカバー。
   if (docGroup === 'secondary' && slug.startsWith('civil-construction-1-')) {
+    // past-problems 等の分野別二次ページは学科記述（問題2〜11）と直結 → 学科記述セット・暗記を上位に。
     return {
       inline: [
-        slot('civil-1-keiken-complete-pack', slug, 'inline-1'),
-        slot('civil-1-pastexam-essay', slug, 'inline-2'),
-        slot('civil-1-experience-essay', slug, 'inline-3'),
-        slot('civil-1-combo-essay', slug, 'inline-4'),
-        slot('civil-membership-lab', slug, 'inline-5'),
+        slot('civil-1-gakka-kijutsu', slug, 'inline-1'), // 学科記述 テーマ別出る順
+        slot('civil-1-niji-marugoto-pack', slug, 'inline-2'), // 二次まるごと
+        slot('civil-1-anki-note', slug, 'inline-3'), // 直前暗記ノート
+        slot('civil-1-keiken-complete-pack', slug, 'inline-4'),
+        slot('civil-1-pastexam-essay', slug, 'inline-5'),
+        slot('civil-membership-lab', slug, 'inline-6'),
       ],
-      sidebar: [slot('civil-1-experience-essay', slug, 'sidebar-1')],
+      sidebar: [slot('civil-1-gakka-kijutsu', slug, 'sidebar-1')],
     };
   }
 
@@ -459,13 +466,14 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
       };
     }
     if (isCivil1 && CIVIL_SECONDARY_ADJACENT_GUIDES.has(bare)) {
-      // 直前対策（civil-1 のみ実在）: 旗艦パック led ＋ 会員伴走 ＋ 組合せ/過去問。
+      // 直前対策（civil-1 のみ実在）: 二次まるごと旗艦 led ＋ 直前暗記 ＋ 学科記述 ＋ 会員伴走。
       return {
         inline: [
-          slot('civil-1-keiken-complete-pack', slug, 'inline-1'),
-          slot('civil-membership-lab', slug, 'inline-2'),
-          slot('civil-1-combo-essay', slug, 'inline-3'),
-          slot('civil-1-pastexam-essay', slug, 'inline-4'),
+          slot('civil-1-niji-marugoto-pack', slug, 'inline-1'), // 経験+学科+暗記の最上位バンドル
+          slot('civil-1-anki-note', slug, 'inline-2'), // 直前暗記ノート（赤シートPDF付）
+          slot('civil-1-gakka-kijutsu', slug, 'inline-3'), // 学科記述 テーマ別出る順
+          slot('civil-1-keiken-complete-pack', slug, 'inline-4'),
+          slot('civil-membership-lab', slug, 'inline-5'),
         ],
         sidebar: [],
       };
@@ -535,8 +543,8 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
 const CATEGORY_MAGAZINES: Partial<Record<string, readonly MagazineId[]>> = {
   "pe-comprehensive-management": ["essay-complete-pack", "essay-core-pack", "tankan-reading-guide"],
   "pe-construction": ["pe-construction-road-pack", "pe-construction-required-magazine", "pe-construction-road-magazine", "pe-construction-river-coast-magazine", "pe-construction-urban-planning-magazine"],
-  "civil-construction-1": ["civil-1-keiken-complete-pack", "civil-1-experience-essay", "civil-1-pastexam-essay", "civil-membership-lab"],
-  "civil-construction-2": ["civil-2-koji-bank", "civil-2-experience-essay", "civil-2-pastexam-essay", "civil-membership-lab"],
+  "civil-construction-1": ["civil-1-niji-marugoto-pack", "civil-1-keiken-complete-pack", "civil-1-gakka-kijutsu", "civil-1-anki-note", "civil-membership-lab"],
+  "civil-construction-2": ["civil-2-koji-bank", "civil-2-gakka-kijutsu", "civil-2-anki-note", "civil-2-experience-essay", "civil-membership-lab"],
   "concrete-chief-engineer": ["cce-essay-magazine"],
   "concrete-diagnostician": ["cd-essay-magazine"],
 };

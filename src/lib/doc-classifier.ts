@@ -5,7 +5,7 @@
  */
 import type { DocMeta } from './docs';
 
-export type DocGroupKey = 'guide' | 'pillar' | 'textbook' | 'pastExam' | 'keyword' | 'primary' | 'secondary';
+export type DocGroupKey = 'guide' | 'pillar' | 'textbook' | 'pastExam' | 'keyword' | 'primary' | 'secondary' | 'career';
 
 /** frontmatter の group 値 → DocGroupKey のマッピング */
 const GROUP_FIELD_MAP: Record<string, DocGroupKey> = {
