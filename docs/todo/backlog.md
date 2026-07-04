@@ -620,4 +620,4 @@ Hero → ExamCards → LatestArticles → AboutSection
 ### 1級土木 第2章 施工計画フロー図の自前SVG化（任意・低優先）🟢
 **前提**: 施工管理・法規テキスト拡充（新規11本公開・guide結線・機械写真差替・フェーズ0.5法規深掘り）は 2026-07-04 完了（develop `c0971cb3f`）。残る tack-on 任意項目のみ。
 **残**: `textbook-construction-plan-overview`（施工計画フロー図2.1）・`textbook-site-investigation`（施工方法決定フロー図2.8）を自前SVG化（現状フロー図なし）。図版標準＝figure-canvas-policy / create-svg 準拠。
-**出典**: `docs/handoffs/2026-07-03-civil1-textbook-expansion.md`（フェーズ0.5「第2章フロー図SVG化も任意」）
+**出典**: `docs/handoffs/_archive/2026-07-03-civil1-textbook-expansion.md`（フェーズ0.5「第2章フロー図SVG化も任意」）
