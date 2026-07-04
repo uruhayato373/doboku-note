@@ -19,6 +19,9 @@ export interface PlacementSlot {
 export interface ResolvedPlacement {
   readonly inline: ReadonlyArray<PlacementSlot>;
   readonly sidebar: ReadonlyArray<PlacementSlot>;
+  // 記事冒頭（本文 prose の前）に出す 1 行テキスト CTA。二次系の高 intent ページのみ設定する。
+  // 末尾の画像カード（inline）と重複してよい（形が違い・記事が長いため）。未設定＝冒頭 CTA なし。
+  readonly top?: PlacementSlot;
 }
 
 const EMPTY: ResolvedPlacement = { inline: [], sidebar: [] };
@@ -155,6 +158,18 @@ const CIVIL_EXAM_PREP_GUIDES: ReadonlySet<string> = new Set([
   'guide-concrete-key-points',
   'guide-concrete-maintenance',
   'guide-textbooks',
+  // 「重要ポイント」試験系シリーズの配線漏れ是正（2026-07-04）。土工/コンクリ/法規/品質/工程は
+  // 既に入っていたが、施工計画・基礎工・安全管理・測量・建設機械・環境保全が欠落し CTA ゼロだった。
+  'guide-construction-plan',            // 1級 施工計画の重要ポイント
+  'guide-foundation',                   // 1級 基礎工の重要ポイント
+  'guide-safety-management',            // 1級・2級 安全管理の重要ポイント（bare 共有）
+  'guide-surveying',                    // 1級 測量の重要ポイント
+  'guide-machinery',                    // 1級 建設機械の重要ポイント
+  'guide-environment-management',       // 1級 環境保全管理の重要ポイント
+  'guide-foundation-key-points',        // 2級 基礎工の重要ポイント
+  'guide-construction-plan-key-points', // 2級 施工計画の重要ポイント
+  'keyword-2026',                       // 1級 全分野キーワード索引（GA4 上位着地）
+  'guide-1-vs-2',                       // 1級と2級の違い（受験選択＝guide-difficulty と同枠）
 ]);
 
 const CIVIL_SECONDARY_ADJACENT_GUIDES: ReadonlySet<string> = new Set([
@@ -363,6 +378,7 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   //    （予想問題集 civil-2-yosou-essay は 2026-06-02 退役。環境対策のみ完成答案集へ昇格）
   if (/^civil-construction-2-secondary-r0[1-9]$/.test(slug)) {
     return {
+      top: slot('civil-2-koji-bank', slug, 'top'),
       inline: [
         slot('civil-2-koji-bank', slug, 'inline-1'),
         slot('civil-2-gakka-kijutsu', slug, 'inline-2'), // 学科記述（問題2〜9）
@@ -376,6 +392,7 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   }
   if (/^civil-construction-2-secondary-experience-writing-(guide|examples)$/.test(slug)) {
     return {
+      top: slot('civil-2-koji-bank', slug, 'top'),
       inline: [
         slot('civil-2-koji-bank', slug, 'inline-1'),
         slot('civil-2-experience-essay', slug, 'inline-2'),
@@ -389,6 +406,7 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   //      top-of-funnel の入口記事。civil-2 は catch-all が無いため明示ブランチが必要（2026-07-04 新設）。
   if (slug === 'civil-construction-2-secondary-getting-started') {
     return {
+      top: slot('civil-2-koji-bank', slug, 'top'),
       inline: [
         slot('civil-2-koji-bank', slug, 'inline-1'),
         slot('civil-2-experience-essay', slug, 'inline-2'),
@@ -407,6 +425,7 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   //    （予想問題集 civil-1-yosou-essay は 2026-06-02 退役、combo へ置換）
   if (/^civil-construction-1-secondary-r0[1-9]$/.test(slug)) {
     return {
+      top: slot('civil-1-niji-marugoto-pack', slug, 'top'),
       inline: [
         slot('civil-1-niji-marugoto-pack', slug, 'inline-1'), // 二次まるごと（経験+学科+暗記の最上位バンドル）
         slot('civil-1-keiken-complete-pack', slug, 'inline-2'),
@@ -421,6 +440,7 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   }
   if (/^civil-construction-1-secondary-experience-writing-(guide|examples)$/.test(slug)) {
     return {
+      top: slot('civil-1-keiken-complete-pack', slug, 'top'),
       inline: [
         slot('civil-1-keiken-complete-pack', slug, 'inline-1'),
         slot('civil-1-niji-marugoto-pack', slug, 'inline-2'), // 経験+学科+暗記の二次まるごと（upsell）
@@ -438,6 +458,7 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   if (docGroup === 'secondary' && slug.startsWith('civil-construction-1-')) {
     // past-problems 等の分野別二次ページは学科記述（問題2〜11）と直結 → 学科記述セット・暗記を上位に。
     return {
+      top: slot('civil-1-gakka-kijutsu', slug, 'top'),
       inline: [
         slot('civil-1-gakka-kijutsu', slug, 'inline-1'), // 学科記述 テーマ別出る順
         slot('civil-1-niji-marugoto-pack', slug, 'inline-2'), // 二次まるごと
@@ -482,6 +503,7 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     if (isCivil1 && CIVIL_SECONDARY_ADJACENT_GUIDES.has(bare)) {
       // 直前対策（civil-1 のみ実在）: 二次まるごと旗艦 led ＋ 直前暗記 ＋ 学科記述 ＋ 会員伴走。
       return {
+        top: slot('civil-1-niji-marugoto-pack', slug, 'top'),
         inline: [
           slot('civil-1-niji-marugoto-pack', slug, 'inline-1'), // 経験+学科+暗記の最上位バンドル
           slot('civil-1-anki-note', slug, 'inline-2'), // 直前暗記ノート（赤シートPDF付）

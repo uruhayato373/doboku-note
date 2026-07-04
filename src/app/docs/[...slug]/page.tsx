@@ -23,7 +23,8 @@ import { compileMDX } from 'next-mdx-remote/rsc';
 import { MDXProvider } from '@mdx-js/react';
 import { extractHeadings } from '@/lib/toc';
 import { resolvePlacement } from '@/lib/magazine-placement';
-import { getMagazine, type NoteMagazine } from '@/lib/note-magazines';
+import { getMagazine, buildMagazineUrl, type NoteMagazine } from '@/lib/note-magazines';
+import MagazineTopBanner from '@/components/ui/MagazineTopBanner';
 import MetaRow from '@/components/ui/MetaRow/MetaRow';
 import ArticleFooter from '@/components/ui/ArticleFooter/ArticleFooter';
 import ArticleSidebar from '@/components/ui/ArticleSidebar/ArticleSidebar';
@@ -277,6 +278,10 @@ export default async function DocPage({
   ].filter(
     (x, i, arr) => arr.findIndex((y) => y.slot.magazineId === x.slot.magazineId) === i,
   );
+  // 記事冒頭 CTA（二次系高 intent ページのみ placement.top で設定）。getMagazine() ゲートを
+  // 通すため未公開マガジン（会員ラボ等）は自動非表示。末尾の画像カードと重複してよい。
+  const topSlot = magazinePlacement.top;
+  const topMagazine = topSlot ? getMagazine(topSlot.magazineId) : null;
   // サイドバー転職枠の creative（slug ハッシュ A/B: 建設JOBs ↔ ビルドジョブ/GKS）。
   const careerSidebarAd = resolveDocsCareerSidebarAd(category ?? '', slugStr);
 
@@ -314,6 +319,16 @@ export default async function DocPage({
                 publishedAt={doc.meta.publishedAt || doc.meta.created}
                 updatedAt={doc.meta.updatedAt || doc.meta.dateModified}
               />
+              {/* 記事冒頭 CTA（二次系高 intent ページのみ・1 行テキスト）。未公開は topMagazine=null で非表示 */}
+              {topSlot && topMagazine && (
+                <MagazineTopBanner
+                  url={buildMagazineUrl(topMagazine, topSlot.utmContent)}
+                  title={topMagazine.shortTitle ?? topMagazine.title}
+                  price={topMagazine.price}
+                  badge={topMagazine.badge}
+                  trackLabel={topSlot.utmContent}
+                />
+              )}
               {/* MDX Content — 先頭の # H1 は server-side で描画済みのため strip。
                   参考資料セクションは extractReferencesSection で抽出済みのため strippedContent を渡す */}
               <div className="prose-blog prose-base">
