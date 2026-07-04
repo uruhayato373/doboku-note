@@ -125,6 +125,16 @@ node scripts/note-update-body.mjs --list   <list.txt>   --commit    # 複数記�
 - 検証: 反映後に `curl --ssl-no-revoke https://note.com/api/v3/notes/{noteId}` の `data.body` で新文字列の出現・旧文字列の消失を実体確認
 - 実証: 2026-06-24 1級・2級土木 導線 5 記事をライブ反映し note API で全件 in-sync 確認（旧 `.tmp/note-retype-body.mjs` ＝無料専用の使い捨て版で先行実証）
 - 実行はローカル（note ログイン済みプロファイルのある Windows/Mac）限定。会社 PC で可（`channel:'chrome'`）
+- **`--boundary-h2` の型別上書き**: 既定 `試験問題|予想問題`。他コンテンツ型は上書きする（例: 二次学科記述の有料境界は `出る順①`／1級施工計画・環境のみ `施工計画・出る順①`）。`note-attach-file.mjs` も同様に `--boundary-regex` で境界見出しを上書きできる（2026-07-04 新設）
+
+### 記事の削除: note-delete-note（2026-07-04 実機確定）
+- **公開済み記事はエディタからは削除できない**。`editor.note.com/notes/{key}/edit` の右上「・・・」メニューは**「変更履歴」のみ**で削除項目がない（下書きでも編集画面のブロック用「削除」ボタンが紛れて誤操作しやすい）。
+- **削除は記事管理ダッシュボード `note.com/notes` から**: 対象記事カードの操作メニュー（・・・）→「削除」→ 確認ダイアログ「削除する」。マガジン収録も自動で外れる。
+- ツール: `node scripts/note-delete-note.mjs --note <key>`（既定 PROBE）／`--commit`（実削除・account gate＋API消滅検証つき）。
+- **note リッチエディタは既存ブロックの移動・削除に強く抵抗**する（プログラム的 marker を剥がす・画像ブロックの scripted 削除が無反応）。**構成変更は「旧note破棄→新規公開で理想順に組む」が確実**（見出し直前への挿入＝native h2 に range→Enter→ArrowUp→座標で+menu は堅牢）。
+
+### PDF 生成の環境依存（2026-07-04 訂正）
+- **Mac でハングするのは `magazine-to-pdf.mjs` の Chrome `--print-to-pdf` 経路だけ**。**Playwright `chromium.launch({headless:true})` → `page.pdf()` は Mac で正常動作**する（実例 `scripts/generate-anki-pdf.mjs`＝A5赤シートPDF・`--sample` で見本PNG）。カスタムHTML→PDF は magazine-to-pdf でなく `page.pdf()` を使う。
 
 ## 記事 frontmatter への公開URL backfill: backfill-note-article-meta
 
