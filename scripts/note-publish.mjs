@@ -182,23 +182,34 @@ try {
   //     有料ラインより上（本文先頭）に入るため、無料プレビューで収録構成が見える。
   if (wantToc) {
     try {
+      // 目次は「最初の h2 の直前」に入れる（導入の後・最初の内容見出しの前）。body 先頭に置くと
+      // 導入段落の途中に割り込み、見出し→目次→本文リストと導入を分断する（2026-07-04 是正）。
       await page.click('[contenteditable=true]'); await sleep(400);
-      await page.evaluate(() => {
+      const caretOk = await page.evaluate(() => {
         const ed = document.querySelector('[contenteditable=true]'); ed.focus();
-        const r = document.createRange(); r.selectNodeContents(ed); r.collapse(true);
+        const h = ed.querySelector('h2'); if (!h) return false;
+        h.scrollIntoView({ block: 'center' });
+        const r = document.createRange(); r.selectNodeContents(h); r.collapse(true);
         const s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        return true;
       });
       await sleep(400);
       await page.keyboard.press('Enter'); await sleep(500);
       await page.keyboard.press('ArrowUp'); await sleep(1000);
       let inserted = false;
-      const menu = page.locator('[aria-label="メニューを開く"]');
-      if (await menu.count()) {
-        await menu.first().click({ timeout: 8000 }); await sleep(1800);
+      const box = await page.evaluate(() => {
+        const sel = window.getSelection(); const cy = (sel.rangeCount ? sel.getRangeAt(0).getBoundingClientRect().top : 0) || 0;
+        const b = Array.from(document.querySelectorAll('[aria-label="メニューを開く"]'));
+        if (!b.length) return null;
+        b.sort((p, q) => Math.abs(p.getBoundingClientRect().top - cy) - Math.abs(q.getBoundingClientRect().top - cy));
+        const rr = b[0].getBoundingClientRect(); return { x: rr.left + rr.width / 2, y: rr.top + rr.height / 2 };
+      });
+      if (caretOk && box) {
+        await page.mouse.click(box.x, box.y); await sleep(1800);
         const toc = page.locator('#toc-setting');
         if (await toc.count()) { await toc.first().click({ timeout: 8000 }); await sleep(2000); inserted = true; }
         else console.log('[6.5] 目次ボタン(#toc-setting) 未検出 → menu 内容を screenshot');
-      } else console.log('[6.5] +メニュー(メニューを開く) 未検出（空段落の確立に失敗の可能性）');
+      } else console.log('[6.5] h2/+メニュー 未検出（TOC skip）');
       const tocGuess = await page.evaluate(() => {
         const ed = document.querySelector('[contenteditable=true]'); if (!ed) return false;
         return !!ed.querySelector('[data-name=index],[data-index],.note-common-styles__textnote-index') ||
@@ -267,7 +278,10 @@ try {
       }, BOUNDARY);
       console.log('[11] boundary target:', JSON.stringify(t));
       if (t.ok) {
-        await page.click('[data-np-target="1"]'); await sleep(2500);
+        // 「ラインをこの場所に変更」は note の再描画で detach しやすく Playwright の stability 待ち
+        // だと "not stable / detached" で 30s タイムアウトする。DOM native .click() で回避する。
+        await page.evaluate(() => { const el = document.querySelector('[data-np-target="1"]'); if (el) { el.scrollIntoView({ block: 'center' }); el.click(); } });
+        await sleep(2500);
         const v = await page.evaluate((boundaryStr) => {
           const re = new RegExp('^(' + boundaryStr + ')');
           const seq = Array.from(document.querySelectorAll('h1,h2,h3,p,button,[role=button]'));

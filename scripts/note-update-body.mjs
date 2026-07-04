@@ -176,25 +176,40 @@ async function cardify(page) {
  */
 async function insertTocBlock(page, noteId) {
   try {
+    // 目次は「最初の h2 の直前」に入れる（導入の後・最初の内容見出しの前）。
+    // 旧実装は body 先頭(selectNodeContents(ed) collapse) に入れていたが、note の ProseMirror では
+    // 導入段落（例「こんな人のための記事です」）の途中に割り込み、見出し→目次→本文リストと
+    // 導入を分断する不具合になった（2026-07-04 是正・9記事で発生）。
     await page.click('[contenteditable=true]'); await sleep(400);
-    await page.evaluate(() => {
+    const ok = await page.evaluate(() => {
       const ed = document.querySelector('[contenteditable=true]'); ed.focus();
-      const r = document.createRange(); r.selectNodeContents(ed); r.collapse(true);
+      const h = ed.querySelector('h2'); if (!h) return false;
+      h.scrollIntoView({ block: 'center' });
+      const r = document.createRange(); r.selectNodeContents(h); r.collapse(true);
       const s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      return true;
     });
+    if (!ok) { console.log('[4.5] h2 未検出 → TOC skip'); return; }
     await sleep(400);
     await page.keyboard.press('Enter'); await sleep(500);
     await page.keyboard.press('ArrowUp'); await sleep(1000);
+    // caret に最も近い +メニュー を座標クリック（.first() は最上部を掴み位置ずれする）
+    const box = await page.evaluate(() => {
+      const sel = window.getSelection(); const cy = (sel.rangeCount ? sel.getRangeAt(0).getBoundingClientRect().top : 0) || 0;
+      const b = Array.from(document.querySelectorAll('[aria-label="メニューを開く"]'));
+      if (!b.length) return null;
+      b.sort((p, q) => Math.abs(p.getBoundingClientRect().top - cy) - Math.abs(q.getBoundingClientRect().top - cy));
+      const rr = b[0].getBoundingClientRect(); return { x: rr.left + rr.width / 2, y: rr.top + rr.height / 2 };
+    });
     let inserted = false;
-    const menu = page.locator('[aria-label="メニューを開く"]');
-    if (await menu.count()) {
-      await menu.first().click({ timeout: 8000 }); await sleep(1800);
+    if (box) {
+      await page.mouse.click(box.x, box.y); await sleep(1800);
       const toc = page.locator('#toc-setting');
       if (await toc.count()) { await toc.first().click({ timeout: 8000 }); await sleep(2000); inserted = true; }
       else console.log('[4.5] 目次ボタン(#toc-setting) 未検出');
-    } else console.log('[4.5] +メニュー(メニューを開く) 未検出（空段落確立に失敗の可能性）');
+    } else console.log('[4.5] +メニュー(メニューを開く) 未検出');
     await page.screenshot({ path: join(ROOT, `.tmp/nu-toc-${noteId}.png`) });
-    console.log(`[4.5] TOC insert: attempted=${inserted}（.tmp/nu-toc-${noteId}.png で目視）`);
+    console.log(`[4.5] TOC insert(最初のh2直前): attempted=${inserted}（.tmp/nu-toc-${noteId}.png で目視）`);
   } catch (e) { console.log('[4.5] toc skip:', e.message.split('\n')[0]); }
 }
 
@@ -246,7 +261,19 @@ async function publishLive(page, noteId) {
     }, BOUNDARY_RE);
     console.log('[5b] boundary target:', JSON.stringify(t));
     if (!t.ok) { console.error('[5b] ABORT: 有料境界の基準(試験/予想問題 H2)を特定できず。保存せず中断。--keep-boundary か --boundary-h2 を検討。'); await page.screenshot({ path: join(ROOT, `.tmp/nu-boundary-${noteId}.png`) }); return false; }
-    await page.click('[data-np-target="1"]'); await sleep(2500);
+    // 「ラインをこの場所に変更」ボタンは note 側の再描画で detach しやすく、Playwright の
+    // actionability 待ち（stable 判定）だと "element is not stable / detached" で 30s タイム
+    // アウトする（2級 コンクリート工/品質管理 で再現）。DOM の native .click() を evaluate で
+    // 直接叩いて stability 待ちを回避する（React の click ハンドラは native click で発火する）。
+    const clicked = await page.evaluate(() => {
+      const el = document.querySelector('[data-np-target="1"]');
+      if (!el) return false;
+      el.scrollIntoView({ block: 'center' });
+      el.click();
+      return true;
+    });
+    if (!clicked) { console.error('[5b] ABORT: data-np-target ボタンを DOM 上で特定できず。'); await page.screenshot({ path: join(ROOT, `.tmp/nu-boundary-${noteId}.png`) }); return false; }
+    await sleep(2500);
     const v = await page.evaluate((bre) => {
       const RE = new RegExp('^(' + bre + ')');
       const seq = Array.from(document.querySelectorAll('h1,h2,h3,p,button,[role=button]'));
