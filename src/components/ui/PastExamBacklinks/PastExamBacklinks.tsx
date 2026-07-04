@@ -59,7 +59,7 @@ export default function PastExamBacklinks({ category, currentSlug }: PastExamBac
     if (!civilEntries || civilEntries.length === 0) return null;
 
     return (
-      <MetaCard ariaLabel="過去問での出題">
+      <MetaCard ariaLabel="過去問での出題" trackNav="past-exam-backlinks">
         <h2 className="text-lg font-bold text-[var(--ink)] mb-1">
           過去問での出題
         </h2>
@@ -97,7 +97,7 @@ export default function PastExamBacklinks({ category, currentSlug }: PastExamBac
   if (!backlinks || backlinks.length === 0) return null;
 
   return (
-    <MetaCard ariaLabel="過去問での出題">
+    <MetaCard ariaLabel="過去問での出題" trackNav="past-exam-backlinks">
       <h2 className="text-lg font-bold text-[var(--ink)] mb-1">
         過去問での出題
       </h2>

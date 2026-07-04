@@ -19,6 +19,7 @@ import CategoryNavCard from '@/components/ui/CategoryNavCard/CategoryNavCard';
 import FAQCard from '@/components/ui/FAQCard/FAQCard';
 import CareerAffiliate from '@/components/ui/CareerAffiliate/CareerAffiliate';
 import RelatedArticles from '@/components/ui/RelatedArticles';
+import NextStepNav from '@/components/ui/NextStepNav/NextStepNav';
 import AuthorCard from '@/components/ui/AuthorCard/AuthorCard';
 
 interface ArticleFooterProps {
@@ -154,6 +155,14 @@ export default function ArticleFooter({
             />
           </div>
         )}
+
+      {/* guide（キャリア記事を除く）: 次のステップ導線（演習・テキスト・分野へ）。全ビューポート。
+          要点記事の行き止まりを解消し、カテゴリ hub の sec-* アンカー（直前期 note CTA と同居）へ送る。 */}
+      {docGroup === 'guide' && category && !meta.tags?.includes('career') && (
+        <div className="mt-8">
+          <NextStepNav category={category} />
+        </div>
+      )}
 
       {/* よくある質問（frontmatter faqs を持つ記事のみ表示） */}
       {faqs.length > 0 && (

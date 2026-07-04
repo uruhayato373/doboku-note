@@ -137,7 +137,7 @@ export default function RelatedTextbooks({ currentMeta, categoryArticles }: Rela
   if (entries.length === 0) return null;
 
   return (
-    <MetaCard>
+    <MetaCard trackNav="related-textbooks">
       <h2 className="text-lg font-bold text-[var(--ink)] mb-1">
         この試験で扱われた教材
       </h2>

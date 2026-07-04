@@ -34,6 +34,12 @@ interface MetaCardProps {
   padding?: 'default' | 'compact' | 'none';
   /** 追加クラス（mt-10、max-h、toc-scroll 等の特殊指定） */
   className?: string;
+  /**
+   * サイト内回遊クリック計測のラベル（任意）。指定すると root に
+   * `data-cta="nav" data-cta-label={trackNav}` を付与し、AnalyticsProvider の
+   * デリゲートリスナーが配下リンクのクリックを internal_nav_click として拾う。
+   */
+  trackNav?: string;
   children: ReactNode;
 }
 
@@ -51,26 +57,28 @@ export default function MetaCard({
   ariaLabel,
   padding = 'default',
   className = '',
+  trackNav,
   children,
 }: MetaCardProps) {
   const finalClassName = [BASE_CLASSES, PADDINGS[padding], className].filter(Boolean).join(' ');
+  const trackAttrs = trackNav ? { 'data-cta': 'nav', 'data-cta-label': trackNav } : {};
 
   if (as === 'aside') {
     return (
-      <aside aria-label={ariaLabel} className={finalClassName}>
+      <aside aria-label={ariaLabel} className={finalClassName} {...trackAttrs}>
         {children}
       </aside>
     );
   }
   if (as === 'div') {
     return (
-      <div aria-label={ariaLabel} className={finalClassName}>
+      <div aria-label={ariaLabel} className={finalClassName} {...trackAttrs}>
         {children}
       </div>
     );
   }
   return (
-    <section aria-label={ariaLabel} className={finalClassName}>
+    <section aria-label={ariaLabel} className={finalClassName} {...trackAttrs}>
       {children}
     </section>
   );
