@@ -184,6 +184,19 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 **実装ファイル**: `.claude/config/psi-urls.txt`・`.claude/config/psi-config.json`（mobile 戦略）。計測は CI（measurement-incidents の恒久ルール）。
 
+### AdSense 再申請（有用性の低いコンテンツ対策の仕上げ）🔴
+
+**発端**: 2026-07-04 診断。「有用性の低いコンテンツ」で直近2-3回却下。主因＝非インデックス265本(サイトの25%)、本丸は薄いCEMキーワード。診断詳細＝`docs/handoffs/_archive/2026-07-04-adsense-low-quality-report.md`、真実源メモリ `[[project_adsense_low_value_2026_07]]`。
+
+**完了済**: 本文3,000字未満だった薄層CEMキーワード**112本を全リライト→3,000字超の実質散文化・deploy済**（本番反映確認）。画像クロップ/CLSは主因でないと確定（対応不要）。
+
+**残（ユーザー作業＝外部承認依存）**:
+1. GSC で sitemap 再送信 ＋ 強化した主要URL 10〜20本を手動インデックス登録リクエスト。
+2. 非インデックス率が下がるか 1〜2週間観察（`url-inspection` 再取得）。
+3. **前回却下から2〜4週間空けて再申請**（短間隔の連続再申請は逆効果）。既存チェックリスト `docs/project/_archive/03_civil-adsense-resubmission.md:147-191`。
+
+**任意（優先度低）**: W2転職ガイド8本・W3/W4長尺過去問は薄さでなく権威性/鮮度/重複が非索引要因のため、AdSense対策としては後回し（本文3,000字超のW1 54本も同様に対象外）。
+
 ### カテゴリページの記事一覧をブログカード化 ◑（PR #274）
 
 記事一覧を `BlogDocCard` 化。右サイドバー全資格拡張は完了済（`hasSidebar` 化）。参考: ソーシャルPLUS ブログ（`docs/todo/reference-sites.md`）。
