@@ -62,15 +62,17 @@ function ExamCard({ e }: { e: ExamData }) {
       ) : (
         <div className="absolute inset-0 bg-[var(--accent-fill)]" />
       )}
-      {/* 可読性スクリム（下部を暗くしてタイトルを白で乗せる。画像・テーマ非依存で両モード同一） */}
-      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
       {/* 試験別テーマ色ライン（上端） */}
-      <span aria-hidden="true" className={`absolute inset-x-0 top-0 h-1 ${t.bar}`} />
-      {/* テキスト（左下・白） */}
-      <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 text-white">
-        <div className="font-mono text-[10px] tracking-widest uppercase text-white/75 mb-1.5">{e.nextExam}</div>
-        <h3 className="font-serif font-black text-xl sm:text-2xl leading-tight">{e.label}</h3>
-        <div className="text-[13px] leading-snug text-white/85 mt-1">{e.subtitle}</div>
+      <span aria-hidden="true" className={`absolute inset-x-0 top-0 z-10 h-1 ${t.bar}`} />
+      {/* 下部テキスト帯：黒の半透明フロストパネル（backdrop-blur）。画像は上部をそのまま見せ、
+          テキスト範囲にだけ半透明ダークを敷く。上端はソフトなグラデで硬い境界を和らげておしゃれに。 */}
+      <div className="absolute inset-x-0 bottom-0">
+        <div aria-hidden="true" className="h-6 bg-gradient-to-t from-black/35 to-transparent" />
+        <div className="border-t border-white/10 bg-black/45 px-4 py-3 text-white backdrop-blur-md">
+          <div className="font-mono text-[10px] uppercase tracking-widest text-white/80">{e.nextExam}</div>
+          <h3 className="mt-0.5 font-serif text-lg font-black leading-tight sm:text-xl">{e.label}</h3>
+          <div className="mt-1 line-clamp-1 text-[12px] leading-snug text-white/85">{e.subtitle}</div>
+        </div>
       </div>
     </Link>
   );
@@ -82,7 +84,7 @@ export default function ExamCards({ exams }: ExamCardsProps) {
       <div className="mb-6 sm:mb-8">
         <h2 className="font-serif text-2xl sm:text-3xl font-black text-[var(--ink)]">対応する資格・試験</h2>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {exams.map((e) => (
           <ExamCard key={e.slug} e={e} />
         ))}
