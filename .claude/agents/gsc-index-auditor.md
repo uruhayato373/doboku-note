@@ -26,7 +26,7 @@ URL Inspection のスナップショットを読み込み、**サイトの index
 ## 担当外（他エージェント/CI の責務）
 
 - **URL Inspection データの取得**: `index-coverage.yml`（CI・月次）。本エージェントは取得済み JSON を読むだけ
-- **index 済みページの performance 分析**（CTR/rank の 5 パターン）: `metrics-analyzer`
+- **index 済みページの performance 分析**（CTR/rank ＋ SNS 流入の 6 パターン）: `metrics-analyzer`
 - **CWV / PSI**: `performance-auditor`
 - **修正の実施**（meta 書換・リダイレクト修正・ページ統合・noindex 付与）: ユーザー判断 / 各 Generator
 - **history.json への追記**: CI（`append-coverage-history.mjs`）。本エージェントは読むだけ・書かない

@@ -158,7 +158,7 @@ const captionText = [
   '- または doboku-note.com の ' + yearLabel + ' 解説ページ',
   '',
   '### メンション',
-  '@doboku_note',
+  '@dobokunotecom',
   '',
 ].join('\n');
 writeFileSync(join(storiesDir, 'caption.txt'), captionText, 'utf8');

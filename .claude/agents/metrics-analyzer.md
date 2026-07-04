@@ -13,7 +13,7 @@ GSC/GA4 の JSON データを読み込み、**改善候補のパターン検出*
 ## 担当範囲
 
 - `.claude/state/metrics/gsc/` と `.claude/state/metrics/ga4/` 配下の最新 JSON 読み込み
-- 改善機会の5パターン抽出
+- 改善機会の6パターン抽出（SNS-Source-Shift 含む）
 - `.claude/state/improvements/{YYYY-MM-DD}.md` への出力
 
 ## 担当外
