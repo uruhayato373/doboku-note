@@ -335,7 +335,7 @@ browser-use --headed --profile "$NOTE_PROFILE" screenshot /tmp/note-toc-check.pn
 **実機で確認した落とし穴（2026-06-16 / 2026-07-04 更新）**:
 - **挿入位置は「最初の h2 直前」**（2026-07-04）。body 先頭に入れると導入段落を分断する（上の ⚠️ 参照）。`h2 に caret → Enter → ArrowUp` で h2 直前に空行を作ってから `+` メニューを開く。
 - **空段落の確立が肝**。空行が無い／別行を掴むと挿入が無音で失敗する。**失敗したら編集画面を再読込してクリーンな状態でやり直す**と通る。`+` メニューは caret に**最も近い**ものを座標クリックで掴む（`.first()` は最上部を掴み位置ずれする）
-- **検証は screenshot 目視＋DOM 順序チェックの併用**。`document.querySelector('[data-name=index] …')` 等の eval 判定は編集画面の目次 markup と一致せず偽陰性になりやすいので screenshot で「▼ 目次」ブロックの存在を確認する。加えて `note-update-body`/`note-publish` は挿入後に `目次ノード < 最初のh2`（`table-of-contents`/`[data-name=index]` の document order）を DOM で自己検証し、後ろにあれば WARN する（導入分断の再発防止）。公開後は API body で `pos(<table-of-contents) < pos(<h2)` を実査できる
+- **再発防止＝自己検証＋自動再挿入＋サマリ計上**（2026-07-04）。`note-update-body`/`note-publish` は挿入後に `目次ノード < 最初のh2`（`table-of-contents`/`[data-name=index]` の document order）を DOM で自己検証し、**後ろにあれば誤配置分を除去して h2 直前へ 1 回だけ入れ直す**。再挿入しても直らない場合、note-update-body は末尾サマリに `目次位置NG` として列挙し **exit 1**（WARN ログ埋没による再発を防ぐ＝バッチでも見逃せない）、note-publish は最終行に手動移動を促すエラーを出す。`document.querySelector('[data-name=index] …')` は編集画面の目次 markup と一致せず偽陰性になりやすいので screenshot(`.tmp/nu-toc-*.png`/`.tmp/np-toc.png`) も併用。公開後は API body で `pos(<table-of-contents) < pos(<h2)` を実査できる
 - **目次はソース markdown には保存されない**（note が見出しから自動生成する要素）。`--update` で本文を丸ごと貼り直すと目次は消えるので Phase 4.5 を再実行する
 - 左サイドバーの「目次」パネルはエディタの見出しナビ（常時表示）であり、**本文に挿入される目次ブロックとは別物**。混同しない
 

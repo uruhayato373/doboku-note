@@ -59,6 +59,9 @@ const COMMIT = argv.includes('--commit');         // 実ライブ反映（既定
 const KEEP_BOUNDARY = argv.includes('--keep-boundary'); // 有料: 境界を動かさず保持
 const BOUNDARY_RE = getArg('--boundary-h2') || '試験問題|予想問題';
 
+// 目次が「最初のh2より後」に入って直せなかった記事（バッチ末尾サマリで失敗として可視化する）
+const tocProblems = [];
+
 if (!ARTICLE_ARG && !LIST_ARG) { console.error('--article <path> or --list <file> required'); process.exit(1); }
 
 mkdirSync(join(ROOT, '.tmp'), { recursive: true });
@@ -174,58 +177,79 @@ async function cardify(page) {
  * note-publish.mjs Phase 6.5 と同一手順。全文置換で目次が消えるため再挿入する（editor-operations.md）。
  * 挿入後に「目次 < 最初のh2」を DOM で自己検証（導入分断の再発防止・WARN のみ）。screenshot(.tmp/nu-toc-*.png) も残す。
  */
+// 目次ノードを最初の h2 の直前に 1 回挿入する（内部）。挿入できたら true。
+async function tocInsertOnce(page) {
+  await page.click('[contenteditable=true]'); await sleep(400);
+  const ok = await page.evaluate(() => {
+    const ed = document.querySelector('[contenteditable=true]'); ed.focus();
+    const h = ed.querySelector('h2'); if (!h) return false;
+    h.scrollIntoView({ block: 'center' });
+    const r = document.createRange(); r.selectNodeContents(h); r.collapse(true);
+    const s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    return true;
+  });
+  if (!ok) { console.log('[4.5] h2 未検出 → TOC skip'); return false; }
+  await sleep(400);
+  await page.keyboard.press('Enter'); await sleep(500);
+  await page.keyboard.press('ArrowUp'); await sleep(1000);
+  // caret に最も近い +メニュー を座標クリック（.first() は最上部を掴み位置ずれする）
+  const box = await page.evaluate(() => {
+    const sel = window.getSelection(); const cy = (sel.rangeCount ? sel.getRangeAt(0).getBoundingClientRect().top : 0) || 0;
+    const b = Array.from(document.querySelectorAll('[aria-label="メニューを開く"]'));
+    if (!b.length) return null;
+    b.sort((p, q) => Math.abs(p.getBoundingClientRect().top - cy) - Math.abs(q.getBoundingClientRect().top - cy));
+    const rr = b[0].getBoundingClientRect(); return { x: rr.left + rr.width / 2, y: rr.top + rr.height / 2 };
+  });
+  if (!box) { console.log('[4.5] +メニュー(メニューを開く) 未検出'); return false; }
+  await page.mouse.click(box.x, box.y); await sleep(1800);
+  const toc = page.locator('#toc-setting');
+  if (!(await toc.count())) { console.log('[4.5] 目次ボタン(#toc-setting) 未検出'); return false; }
+  await toc.first().click({ timeout: 8000 }); await sleep(2000);
+  return true;
+}
+
+// 目次ノードが最初の h2 より前にあるか自己検証。{ ok: true|false|null }（null=検出保留）。
+async function tocVerify(page) {
+  return page.evaluate(() => {
+    const ed = document.querySelector('[contenteditable=true]'); if (!ed) return { ok: null, reason: 'no editor' };
+    const kids = Array.from(ed.querySelectorAll('*'));
+    const isToc = (el) => /table-of-contents/i.test(el.tagName) || el.getAttribute?.('data-name') === 'index' || /(^|\s)toc(\s|$)/i.test(el.className || '');
+    const tocIdx = kids.findIndex(isToc);
+    const h2Idx = kids.findIndex((el) => el.tagName === 'H2');
+    if (tocIdx < 0) return { ok: null, reason: 'toc node 未検出（検証保留・screenshot 参照）' };
+    if (h2Idx < 0) return { ok: null, reason: 'h2 未検出' };
+    return { ok: tocIdx < h2Idx, tocIdx, h2Idx };
+  });
+}
+
+// 目次を「最初の h2 の直前」に挿入する。
+// 旧実装は body 先頭(selectNodeContents(ed) collapse)に入れ、note の ProseMirror では導入段落
+// （例「こんな人のための記事です」）の途中に割り込み、見出し→目次→本文リストと導入を分断する不具合
+// になった（2026-07-04 是正・9記事で発生）。再発防止として挿入後に「目次 < 最初のh2」を自己検証し、
+// 後ろにあれば誤配置分を除去して 1 回だけ再挿入する。再挿入後も直らない場合は 'misplaced' を返し、
+// 呼び出し元がバッチ末尾のサマリで**失敗として可視化**する（WARN ログ埋没による再発の防止）。
+// 戻り値: 'ok' | 'skip'(h2<3等) | 'misplaced' | 'unverified'(検出保留)。
 async function insertTocBlock(page, noteId) {
   try {
-    // 目次は「最初の h2 の直前」に入れる（導入の後・最初の内容見出しの前）。
-    // 旧実装は body 先頭(selectNodeContents(ed) collapse) に入れていたが、note の ProseMirror では
-    // 導入段落（例「こんな人のための記事です」）の途中に割り込み、見出し→目次→本文リストと
-    // 導入を分断する不具合になった（2026-07-04 是正・9記事で発生）。
-    await page.click('[contenteditable=true]'); await sleep(400);
-    const ok = await page.evaluate(() => {
-      const ed = document.querySelector('[contenteditable=true]'); ed.focus();
-      const h = ed.querySelector('h2'); if (!h) return false;
-      h.scrollIntoView({ block: 'center' });
-      const r = document.createRange(); r.selectNodeContents(h); r.collapse(true);
-      const s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
-      return true;
-    });
-    if (!ok) { console.log('[4.5] h2 未検出 → TOC skip'); return; }
-    await sleep(400);
-    await page.keyboard.press('Enter'); await sleep(500);
-    await page.keyboard.press('ArrowUp'); await sleep(1000);
-    // caret に最も近い +メニュー を座標クリック（.first() は最上部を掴み位置ずれする）
-    const box = await page.evaluate(() => {
-      const sel = window.getSelection(); const cy = (sel.rangeCount ? sel.getRangeAt(0).getBoundingClientRect().top : 0) || 0;
-      const b = Array.from(document.querySelectorAll('[aria-label="メニューを開く"]'));
-      if (!b.length) return null;
-      b.sort((p, q) => Math.abs(p.getBoundingClientRect().top - cy) - Math.abs(q.getBoundingClientRect().top - cy));
-      const rr = b[0].getBoundingClientRect(); return { x: rr.left + rr.width / 2, y: rr.top + rr.height / 2 };
-    });
-    let inserted = false;
-    if (box) {
-      await page.mouse.click(box.x, box.y); await sleep(1800);
-      const toc = page.locator('#toc-setting');
-      if (await toc.count()) { await toc.first().click({ timeout: 8000 }); await sleep(2000); inserted = true; }
-      else console.log('[4.5] 目次ボタン(#toc-setting) 未検出');
-    } else console.log('[4.5] +メニュー(メニューを開く) 未検出');
+    if (!(await tocInsertOnce(page))) return 'skip';
+    let chk = await tocVerify(page);
+    if (chk.ok === false) {
+      console.log(`[4.5] ⚠ 目次が最初のh2より後（tocIdx=${chk.tocIdx} h2Idx=${chk.h2Idx}）→ 誤配置分を除去して再挿入`);
+      // 誤配置の目次ノードを除去してから 1 回だけ入れ直す。
+      await page.evaluate(() => {
+        const ed = document.querySelector('[contenteditable=true]'); if (!ed) return;
+        const isToc = (el) => /table-of-contents/i.test(el.tagName) || el.getAttribute?.('data-name') === 'index' || /(^|\s)toc(\s|$)/i.test(el.className || '');
+        ed.querySelectorAll('*').forEach((el) => { if (isToc(el)) el.remove(); });
+      });
+      await sleep(600);
+      await tocInsertOnce(page);
+      chk = await tocVerify(page);
+    }
     await page.screenshot({ path: join(ROOT, `.tmp/nu-toc-${noteId}.png`) });
-    console.log(`[4.5] TOC insert(最初のh2直前): attempted=${inserted}（.tmp/nu-toc-${noteId}.png で目視）`);
-    // 自己検証: 目次ノードが最初の h2 より前にあるか（body 先頭に入って導入を分断する再発の検出）。
-    // 目次は非破壊のため不一致でも保存は止めず WARN のみ（paywall の ABORT とは severity が異なる）。
-    const chk = await page.evaluate(() => {
-      const ed = document.querySelector('[contenteditable=true]'); if (!ed) return { ok: null, reason: 'no editor' };
-      const kids = Array.from(ed.querySelectorAll('*'));
-      const isToc = (el) => /table-of-contents/i.test(el.tagName) || el.getAttribute?.('data-name') === 'index' || /(^|\s)toc(\s|$)/i.test(el.className || '');
-      const tocIdx = kids.findIndex(isToc);
-      const h2Idx = kids.findIndex((el) => el.tagName === 'H2');
-      if (tocIdx < 0) return { ok: null, reason: 'toc node 未検出（検証保留・screenshot 参照）' };
-      if (h2Idx < 0) return { ok: null, reason: 'h2 未検出' };
-      return { ok: tocIdx < h2Idx, tocIdx, h2Idx };
-    });
-    if (chk.ok === true) console.log('[4.5] 位置検証 OK（目次 < 最初のh2）');
-    else if (chk.ok === false) console.log(`[4.5] ⚠ WARN: 目次が最初のh2より後（導入分断の疑い）→ .tmp/nu-toc-${noteId}.png を目視。tocIdx=${chk.tocIdx} h2Idx=${chk.h2Idx}`);
-    else console.log(`[4.5] 位置検証 保留: ${chk.reason}`);
-  } catch (e) { console.log('[4.5] toc skip:', e.message.split('\n')[0]); }
+    if (chk.ok === true) { console.log('[4.5] 位置検証 OK（目次 < 最初のh2）'); return 'ok'; }
+    if (chk.ok === false) { console.log(`[4.5] ⚠ 再挿入後も目次が最初のh2より後（tocIdx=${chk.tocIdx} h2Idx=${chk.h2Idx}）→ サマリで失敗計上`); return 'misplaced'; }
+    console.log(`[4.5] 位置検証 保留: ${chk.reason}（.tmp/nu-toc-${noteId}.png で目視）`); return 'unverified';
+  } catch (e) { console.log('[4.5] toc skip:', e.message.split('\n')[0]); return 'skip'; }
 }
 
 /**
@@ -356,7 +380,10 @@ async function updateArticle(page, { abs, noteId, body }, probe) {
 
   // 4.5 目次ブロック（H2>=3・最初のh2直前・--no-toc で抑止）。全文置換で消えるため再挿入。
   const h2count = (body.match(/^##\s+/gm) || []).length;
-  if (!argv.includes('--no-toc') && h2count >= 3) await insertTocBlock(page, noteId);
+  if (!argv.includes('--no-toc') && h2count >= 3) {
+    const tocStatus = await insertTocBlock(page, noteId);
+    if (tocStatus === 'misplaced') tocProblems.push(noteId);
+  }
 
   // 5. ライブ反映 or dry-run
   if (!COMMIT) {
@@ -413,4 +440,8 @@ try {
 }
 
 console.log(`\n[done] ok=${ok} fail=${fail} / ${articles.length}`);
-process.exit(fail > 0 ? 1 : 0);
+if (tocProblems.length) {
+  console.error(`[done] ⚠ 目次位置NG（導入分断の疑い・再挿入しても直らず）: ${tocProblems.length} 件 → ${tocProblems.join(', ')}`);
+  console.error('       各記事の .tmp/nu-toc-<id>.png を目視し、必要なら手動で目次を最初のh2直前へ移動すること。');
+}
+process.exit(fail > 0 || tocProblems.length > 0 ? 1 : 0);

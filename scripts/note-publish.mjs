@@ -216,10 +216,8 @@ try {
         return !!ed.querySelector('[data-name=index],[data-index],.note-common-styles__textnote-index') ||
           /目次/.test((ed.innerText || '').split('\n').slice(0, 4).join('\n'));
       });
-      await page.screenshot({ path: join(ROOT, '.tmp/np-toc.png') });
-      console.log(`[6.5] TOC insert: attempted=${inserted} guess=${tocGuess}（.tmp/np-toc.png で目視確認）`);
-      // 自己検証: 目次ノードが最初の h2 より前にあるか（body 先頭に入って導入を分断する再発の検出・WARN のみ）。
-      const chk = await page.evaluate(() => {
+      // 自己検証: 目次ノードが最初の h2 より前にあるか（body 先頭に入って導入を分断する再発の検出）。
+      const verifyToc = () => page.evaluate(() => {
         const ed = document.querySelector('[contenteditable=true]'); if (!ed) return { ok: null, reason: 'no editor' };
         const kids = Array.from(ed.querySelectorAll('*'));
         const isToc = (el) => /table-of-contents/i.test(el.tagName) || el.getAttribute?.('data-name') === 'index' || /(^|\s)toc(\s|$)/i.test(el.className || '');
@@ -229,9 +227,40 @@ try {
         if (h2Idx < 0) return { ok: null, reason: 'h2 未検出' };
         return { ok: tocIdx < h2Idx, tocIdx, h2Idx };
       });
-      if (chk.ok === true) console.log('[6.5] 位置検証 OK（目次 < 最初のh2）');
-      else if (chk.ok === false) console.log(`[6.5] ⚠ WARN: 目次が最初のh2より後（導入分断の疑い）→ .tmp/np-toc.png を目視。tocIdx=${chk.tocIdx} h2Idx=${chk.h2Idx}`);
-      else console.log(`[6.5] 位置検証 保留: ${chk.reason}`);
+      let chk = await verifyToc();
+      if (chk.ok === false) {
+        // 誤配置分を除去して最初の h2 直前へ 1 回だけ入れ直す（WARN 埋没による再発の防止）。
+        console.log(`[6.5] ⚠ 目次が最初のh2より後（tocIdx=${chk.tocIdx} h2Idx=${chk.h2Idx}）→ 除去して再挿入`);
+        await page.evaluate(() => {
+          const ed = document.querySelector('[contenteditable=true]'); if (!ed) return;
+          const isToc = (el) => /table-of-contents/i.test(el.tagName) || el.getAttribute?.('data-name') === 'index' || /(^|\s)toc(\s|$)/i.test(el.className || '');
+          ed.querySelectorAll('*').forEach((el) => { if (isToc(el)) el.remove(); });
+        });
+        await sleep(600);
+        const caret2 = await page.evaluate(() => {
+          const ed = document.querySelector('[contenteditable=true]'); ed.focus();
+          const h = ed.querySelector('h2'); if (!h) return false;
+          h.scrollIntoView({ block: 'center' });
+          const r = document.createRange(); r.selectNodeContents(h); r.collapse(true);
+          const s = window.getSelection(); s.removeAllRanges(); s.addRange(r); return true;
+        });
+        if (caret2) {
+          await sleep(300); await page.keyboard.press('Enter'); await sleep(500); await page.keyboard.press('ArrowUp'); await sleep(900);
+          const box2 = await page.evaluate(() => {
+            const sel = window.getSelection(); const cy = (sel.rangeCount ? sel.getRangeAt(0).getBoundingClientRect().top : 0) || 0;
+            const b = Array.from(document.querySelectorAll('[aria-label="メニューを開く"]'));
+            if (!b.length) return null;
+            b.sort((p, q) => Math.abs(p.getBoundingClientRect().top - cy) - Math.abs(q.getBoundingClientRect().top - cy));
+            const rr = b[0].getBoundingClientRect(); return { x: rr.left + rr.width / 2, y: rr.top + rr.height / 2 };
+          });
+          if (box2) { await page.mouse.click(box2.x, box2.y); await sleep(1800); const toc2 = page.locator('#toc-setting'); if (await toc2.count()) { await toc2.first().click({ timeout: 8000 }); await sleep(2000); } }
+          chk = await verifyToc();
+        }
+      }
+      await page.screenshot({ path: join(ROOT, '.tmp/np-toc.png') });
+      if (chk.ok === true) console.log(`[6.5] TOC insert OK（目次 < 最初のh2・attempted=${inserted} guess=${tocGuess}）`);
+      else if (chk.ok === false) console.error(`[6.5] ⚠ 再挿入後も目次が最初のh2より後（tocIdx=${chk.tocIdx} h2Idx=${chk.h2Idx}）→ .tmp/np-toc.png を目視し手動で最初のh2直前へ移動すること`);
+      else console.log(`[6.5] TOC 位置検証 保留: ${chk.reason}（.tmp/np-toc.png で目視）`);
     } catch (e) { console.log('[6.5] toc skip:', e.message.split('\n')[0]); }
   }
 
