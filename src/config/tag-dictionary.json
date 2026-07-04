@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-07-04T07:06:55.701Z",
+  "generated_at": "2026-07-04T07:20:40.745Z",
   "summary": {
-    "total_mdx_files": 1097,
+    "total_mdx_files": 1098,
     "total_unique_tags": 172,
     "allowlist_size": 149,
     "known_count": 82,
@@ -1948,7 +1948,7 @@
     },
     {
       "name": "secondary",
-      "count": 23,
+      "count": 24,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-secondary-concrete-basics",
@@ -1969,6 +1969,7 @@
         "civil-construction-1-secondary-r07",
         "civil-construction-2-secondary-experience-writing-examples",
         "civil-construction-2-secondary-experience-writing-guide",
+        "civil-construction-2-secondary-getting-started",
         "civil-construction-2-secondary-r03",
         "civil-construction-2-secondary-r04",
         "civil-construction-2-secondary-r05",
@@ -2740,6 +2741,19 @@
       ]
     },
     {
+      "name": "experience-writing",
+      "count": 6,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-secondary-experience-writing-examples",
+        "civil-construction-1-secondary-experience-writing-guide",
+        "civil-construction-1-secondary-getting-started",
+        "civil-construction-2-secondary-experience-writing-examples",
+        "civil-construction-2-secondary-experience-writing-guide",
+        "civil-construction-2-secondary-getting-started"
+      ]
+    },
+    {
       "name": "quality-management",
       "count": 6,
       "inAllowlist": true,
@@ -2802,18 +2816,6 @@
         "pe-comprehensive-management-r05-essay-general-contractor",
         "pe-comprehensive-management-r06-essay-general-contractor",
         "pe-comprehensive-management-r07-essay-general-contractor"
-      ]
-    },
-    {
-      "name": "experience-writing",
-      "count": 5,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-experience-writing-examples",
-        "civil-construction-1-secondary-experience-writing-guide",
-        "civil-construction-1-secondary-getting-started",
-        "civil-construction-2-secondary-experience-writing-examples",
-        "civil-construction-2-secondary-experience-writing-guide"
       ]
     },
     {

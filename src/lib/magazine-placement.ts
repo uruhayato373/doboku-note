@@ -385,6 +385,20 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
       sidebar: [slot('civil-2-koji-bank', slug, 'sidebar-1')],
     };
   }
+  // 7.5. 2級 二次ブリッジ磁石（二次の始め方）→ 二次ラインの面を提示（経験記述の柱＋完成答案集＋学科＋暗記＋会員）。
+  //      top-of-funnel の入口記事。civil-2 は catch-all が無いため明示ブランチが必要（2026-07-04 新設）。
+  if (slug === 'civil-construction-2-secondary-getting-started') {
+    return {
+      inline: [
+        slot('civil-2-koji-bank', slug, 'inline-1'),
+        slot('civil-2-experience-essay', slug, 'inline-2'),
+        slot('civil-2-gakka-kijutsu', slug, 'inline-3'),
+        slot('civil-2-anki-note', slug, 'inline-4'),
+        slot('civil-membership-lab', slug, 'inline-5'),
+      ],
+      sidebar: [slot('civil-2-koji-bank', slug, 'sidebar-1')],
+    };
+  }
 
   // 8. 1級土木 施工経験記述 → 旗艦（完全攻略パック・最上位）＋ 3マガジン（過去問年度別＋テーマ別5管理＋2テーマ組合せ大全）。
   //    旗艦 civil-1-keiken-complete-pack は landingUrl（無料の想定工事100索引）へ着地させる front-door。

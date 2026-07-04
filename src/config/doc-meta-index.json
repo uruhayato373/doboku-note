@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-07-04T07:06:55.112Z",
+  "generated_at": "2026-07-04T07:20:39.907Z",
   "summary": {
-    "total": 1097,
-    "published": 1055,
+    "total": 1098,
+    "published": 1056,
     "unpublished": 42,
     "by_category": {
       "civil-construction-1": 131,
-      "civil-construction-2": 38,
+      "civil-construction-2": 39,
       "concrete-chief-engineer": 19,
       "pe-comprehensive-management": 724,
       "pe-construction": 122,
@@ -2301,8 +2301,8 @@
       "published": true,
       "publishedAt": "2026-07-05",
       "seoTitle": "一次のあと二次は何から？第二次検定の始め方【1級土木・令和8年度】",
-      "created": "2026-07-05T00:00:00.000Z",
-      "dateModified": "2026-07-05T00:00:00.000Z"
+      "created": "2026-07-04",
+      "dateModified": "2026-07-04"
     },
     "civil-construction-1-secondary-quality-management-basics": {
       "title": "品質管理 基礎解説 - 1級土木 第2次検定",
@@ -5351,6 +5351,23 @@
       "ogp": {
         "title": "施工経験記述\n出題傾向と対策"
       }
+    },
+    "civil-construction-2-secondary-getting-started": {
+      "title": "二次は何から始める？2級土木 第二次検定の準備の入口",
+      "description": "2級土木施工管理技士の第二次検定（令和8年度は2026年10月25日）に向けて、何から準備すればよいかを整理。第一次検定の合否を待たずに着手すべき理由、二次の全体像（施工経験記述＋学科記述）、経験記述の題材を今週中に固める手順を、最短で解説する。",
+      "shortTitle": "2級 二次検定 何から始める",
+      "subtitle": "第二次検定（10/25）までにやるべき、経験記述の最初の一歩",
+      "category": "civil-construction-2",
+      "group": "secondary",
+      "tags": [
+        "secondary",
+        "experience-writing"
+      ],
+      "published": true,
+      "publishedAt": "2026-07-05",
+      "seoTitle": "二次は何から始める？第二次検定の準備の入口【2級土木・令和8年度】",
+      "created": "2026-07-05T00:00:00.000Z",
+      "dateModified": "2026-07-05T00:00:00.000Z"
     },
     "civil-construction-2-secondary-r03": {
       "title": "令和3年度 第2次検定",
