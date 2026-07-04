@@ -19,6 +19,10 @@ export function CivilConstruction1View({ groups, mobileCareerAds = [] }: { group
     !/secondary-(r|h)\d+$/.test(d.slug || '')
   ) || [];
 
+  // 試験ガイドからキャリア・転職系を分離（ソート順は維持）
+  const examGuideDocs = guideGroup?.docs.filter(d => !d.tags?.includes('career')) || [];
+  const careerDocs = guideGroup?.docs.filter(d => d.tags?.includes('career')) || [];
+
   // テキストブックをエリア別にグループ化
   const TEXTBOOK_AREAS = [
     { label: '建設機械', min: 100, max: 149 },
@@ -39,7 +43,9 @@ export function CivilConstruction1View({ groups, mobileCareerAds = [] }: { group
 
   return (
     <>
-      {guideGroup && <DocSection group={guideGroup} />}
+      {guideGroup && examGuideDocs.length > 0 && (
+        <DocSection group={{ ...guideGroup, docs: examGuideDocs }} />
+      )}
       {mobileCareerAds[0]}
       {textbookGroup && (
         <section id={`sec-${textbookGroup.key}`} className="scroll-mt-24">
@@ -87,6 +93,16 @@ export function CivilConstruction1View({ groups, mobileCareerAds = [] }: { group
           }}
         />
       )}
+      {careerDocs.length > 0 && (
+        <DocSection
+          group={{
+            key: 'career',
+            title: 'キャリア・転職',
+            description: '年収・転職・キャリアパス・働き方の実務ガイド',
+            docs: careerDocs,
+          }}
+        />
+      )}
     </>
   );
 }
@@ -105,9 +121,15 @@ export function CivilConstruction2View({ groups, mobileCareerAds = [] }: { group
     !/secondary-(r|h)\d+$/.test(d.slug || '')
   ) || [];
 
+  // 試験ガイドからキャリア・転職系を分離（ソート順は維持）
+  const examGuideDocs = guideGroup?.docs.filter(d => !d.tags?.includes('career')) || [];
+  const careerDocs = guideGroup?.docs.filter(d => d.tags?.includes('career')) || [];
+
   return (
     <>
-      {guideGroup && <DocSection group={guideGroup} />}
+      {guideGroup && examGuideDocs.length > 0 && (
+        <DocSection group={{ ...guideGroup, docs: examGuideDocs }} />
+      )}
       {mobileCareerAds[0]}
       {textbookGroup && <DocSection group={textbookGroup} />}
       {mobileCareerAds[1]}
@@ -130,6 +152,16 @@ export function CivilConstruction2View({ groups, mobileCareerAds = [] }: { group
             title: '第2次検定 分野別対策',
             description: '経験記述・施工管理（コンクリート工・土工・品質管理・施工計画）の基礎と過去問（主任技術者視点）',
             docs: secondaryTopicDocs,
+          }}
+        />
+      )}
+      {careerDocs.length > 0 && (
+        <DocSection
+          group={{
+            key: 'career',
+            title: 'キャリア・転職',
+            description: '年収・転職・キャリアパス・働き方の実務ガイド',
+            docs: careerDocs,
           }}
         />
       )}
