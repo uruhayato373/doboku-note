@@ -17,8 +17,9 @@ import {
   PeConstructionView,
 } from '@/components/category/CategoryViews';
 import SidebarMagazineList from '@/components/ui/SidebarMagazineList';
+import MagazineCard from '@/components/ui/MagazineCard/MagazineCard';
 import AuthorSidebarCard from '@/components/ui/AuthorSidebarCard';
-import { resolveCategoryMagazines } from '@/lib/magazine-placement';
+import { resolveCategoryMagazines, resolveSeasonalHubMagazine } from '@/lib/magazine-placement';
 import { getMagazine } from '@/lib/note-magazines';
 import SidebarAdBanner from '@/components/ui/SidebarAdBanner';
 import { resolveCategoryCareerAds } from '@/config/affiliate-creatives';
@@ -97,6 +98,8 @@ export default async function CategoryPage({
   // note CTA は冒頭全幅グリッドから PC 右サイドバーへ集約し、モバイルは記事一覧の下に出す（2026-06-20）。
   // サイドバーは縦積みのため上位 3 マガジン（placement 優先順）に絞ってコンパクトに保つ。
   const hubMagazines = categoryMagazines.slice(0, 3);
+  // 本文フロー用の季節モード CTA（試験日前=直前商品／後=旗艦・ビルド時確定）。sidebar とは別枠。
+  const seasonalHub = resolveSeasonalHubMagazine(slug);
   // モバイル本文中の visible バナー（pixelSrc を渡さない＝PC サイドバー側が唯一の発火源）。
   // 各案件を 1 枚ずつの node にしてビューのグループ境界に分散配置する（カードの隙間に「両方」）。
   const mobileCareerAds = careerAds.map((ad, i) => (
@@ -142,6 +145,13 @@ export default async function CategoryPage({
           {popularDocs.length > 0 && (
             <div className="mb-16">
               <PopularShowcase items={popularDocs.slice(0, 3)} />
+            </div>
+          )}
+          {/* 季節モード note CTA（本文フロー・最大送客源のカテゴリ hub を最適化）。直前期は直前商品、
+              試験日以降は旗艦へビルド時に自動切替。未公開なら MagazineCard が null を返す（防御）。 */}
+          {seasonalHub && (
+            <div className="mb-16 max-w-2xl">
+              <MagazineCard id={seasonalHub.magazineId} utmContent={seasonalHub.utmContent} />
             </div>
           )}
           {docs.length === 0 ? (
