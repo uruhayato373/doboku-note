@@ -148,5 +148,7 @@ echo "重複: $(sort "$F" | uniq -d | wc -l | tr -d ' ')"
 
 - **対象は `docs/note/` 配下のみ**
 - **既存 hashtags.txt があれば上書き**（バックアップは取らない、git で履歴管理）
-- **記事 1 本ずつ実行**（バルク非対応）
+- **記事 1 本ずつ実行**（バルク非対応）。**バルクで記事を作るワークフロー（学科ライン・想定工事バンク等）は、各記事へ本スキルを必ず回す**。省くと 10 個等の過少 hashtags.txt が公開に到達する（2026-07-05、civil 二次学科13本が10個・LP がライブ3個で発覚）。
+- **過少生成ガード**: `check-note-3set.mjs`（`note-lint` pre-commit）が公開状態の `hashtags.txt` のタグ数 `< MIN_TAGS`（既定 40・`NOTE_MIN_HASHTAGS` で調整）を BLOCK する。存在だけでなく個数も強制。標準は ~90 個。真実源 [content-principles.md](../../../../docs/reference/content-principles.md) §14-d
+- **公開後のライブ反映は手動**: note は公開済み記事のハッシュタグ編集を「更新する」フローで保存しない（有料/限定記事で確認・2026-07-05）。`hashtags.txt` を note の編集画面で全選択コピペ → 更新するのが確実
 - **slug → hashtag マップは本ファイルが真実源**。新カテゴリ・新キーワードを追加するときは本 SKILL.md を編集
