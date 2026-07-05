@@ -593,26 +593,5 @@ export function resolveCategoryMagazines(category: string): PlacementSlot[] {
   }));
 }
 
-// カテゴリ hub 本文フローに置く「季節モード」note CTA（ビルド時確定）。
-// 試験日前は直前商品（R8予想・直前暗記＝直前期の売れ筋）、試験日以降は旗艦パックへ自動切替。
-// アフィリの period 切替（affiliate-creatives.ts campaignEndUtcMs）と同型で、SSG のビルド時刻で確定する。
-// switchUtcMs = 各資格の筆記/二次の概ねの直後（数日ズレは許容）。before/after は published 済みを使用。
-type SeasonalHubSpec = { switchUtcMs: number; before: MagazineId; after: MagazineId };
-const SEASONAL_HUB: Partial<Record<string, SeasonalHubSpec>> = {
-  // 総監・建設部門は 2026 筆記が 7 月中旬 → 7/14 で直前(R8予想)→旗艦へ
-  'pe-comprehensive-management': { switchUtcMs: Date.UTC(2026, 6, 14), before: 'r8-essay-forecast', after: 'essay-complete-pack' },
-  'pe-construction': { switchUtcMs: Date.UTC(2026, 6, 14), before: 'pe-construction-required-magazine', after: 'pe-construction-required-magazine' },
-  // 1・2 級土木の note 商品は二次(10 月上旬)向け → 10/5 で直前(暗記)→まるごと/バンクへ
-  'civil-construction-1': { switchUtcMs: Date.UTC(2026, 9, 5), before: 'civil-1-anki-note', after: 'civil-1-niji-marugoto-pack' },
-  'civil-construction-2': { switchUtcMs: Date.UTC(2026, 9, 5), before: 'civil-2-anki-note', after: 'civil-2-koji-bank' },
-};
-
-export function resolveSeasonalHubMagazine(category: string): PlacementSlot | null {
-  const spec = SEASONAL_HUB[category];
-  if (!spec) return null;
-  const beforeExam = Date.now() < spec.switchUtcMs;
-  return {
-    magazineId: beforeExam ? spec.before : spec.after,
-    utmContent: `category-${category}-seasonal-${beforeExam ? 'chokuzen' : 'flagship'}`,
-  };
-}
+// 旧「季節モード」note CTA（resolveSeasonalHubMagazine/SEASONAL_HUB）は、資格別リッチ背景×HTML文字＋
+// もくじ集約の新方式（src/lib/hub-cta.ts の resolveHubCta）へ 2026-07-05 に置き換えて撤去した。

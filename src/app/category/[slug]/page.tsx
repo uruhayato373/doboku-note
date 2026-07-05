@@ -17,9 +17,11 @@ import {
   PeConstructionView,
 } from '@/components/category/CategoryViews';
 import SidebarMagazineList from '@/components/ui/SidebarMagazineList';
+import HubCtaBanner from '@/components/ui/HubCtaBanner/HubCtaBanner';
 import AuthorSidebarCard from '@/components/ui/AuthorSidebarCard';
-import { resolveCategoryMagazines, resolveSeasonalHubMagazine } from '@/lib/magazine-placement';
+import { resolveCategoryMagazines } from '@/lib/magazine-placement';
 import { getMagazine } from '@/lib/note-magazines';
+import { resolveHubCta } from '@/lib/hub-cta';
 import SidebarAdBanner from '@/components/ui/SidebarAdBanner';
 import { resolveCategoryCareerAds } from '@/config/affiliate-creatives';
 
@@ -97,10 +99,8 @@ export default async function CategoryPage({
   // note CTA は冒頭全幅グリッドから PC 右サイドバーへ集約し、モバイルは記事一覧の下に出す（2026-06-20）。
   // サイドバーは縦積みのため上位 3 マガジン（placement 優先順）に絞ってコンパクトに保つ。
   const hubMagazines = categoryMagazines.slice(0, 3);
-  // 本文フロー用の季節モード CTA（試験日前=直前商品／後=旗艦・ビルド時確定）。sidebar とは別枠。
-  // サイト note CTA は画像オンリー方針（2026-06-26）のため MagazineSidebarCard 系で描画する。
-  const seasonalHub = resolveSeasonalHubMagazine(slug);
-  const seasonalMagazine = seasonalHub ? getMagazine(seasonalHub.magazineId) : undefined;
+  // 本文フロー用の note CTA（資格別リッチ背景×HTML文字）。幅広面はもくじへ集約、直前期は特定商品へ直リンク。
+  const hubCta = resolveHubCta(slug);
   // モバイル本文中の visible バナー（pixelSrc を渡さない＝PC サイドバー側が唯一の発火源）。
   // 各案件を 1 枚ずつの node にしてビューのグループ境界に分散配置する（カードの隙間に「両方」）。
   const mobileCareerAds = careerAds.map((ad, i) => (
@@ -148,12 +148,12 @@ export default async function CategoryPage({
               <PopularShowcase items={popularDocs.slice(0, 3)} />
             </div>
           )}
-          {/* 季節モード note CTA（本文フロー・最大送客源のカテゴリ hub を最適化）。直前期は直前商品、
-              試験日以降は旗艦へビルド時に自動切替。画像オンリー（テキストはバナー画像に焼込・sidebarImageUrl
-              が無いマガジンは SidebarMagazineList が自動除外）。 */}
-          {seasonalHub && seasonalMagazine?.sidebarImageUrl && (
+          {/* カテゴリ hub の note CTA（資格別リッチ背景×HTML文字）。マガジン多数のため幅広面は
+              「もくじ(L2索引)」へ集約し、直前期のみ売れ筋の特定商品へ直リンク（resolveHubCta が分岐）。
+              背景は資格ごと1枚を使い回し、文言/価格はデータ駆動。クリックは data-cta="note" で計測。 */}
+          {hubCta && (
             <div className="mb-16">
-              <SidebarMagazineList magazines={[{ slot: seasonalHub, magazine: seasonalMagazine }]} />
+              <HubCtaBanner cta={hubCta} />
             </div>
           )}
           {docs.length === 0 ? (
