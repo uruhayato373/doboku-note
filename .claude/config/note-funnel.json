@@ -44,6 +44,9 @@
       "magazineExamMatch": ["civil-1", "civil-2"],
       "L2": { "noteId": "n4fde0f62dc20", "title": "土木もくじ", "articleDir": "docs/note/1級・2級土木/土木もくじ", "noteUrl": "https://note.com/dobokunote/n/n4fde0f62dc20" },
       "topCta": { "marker": "cta:pack-top", "text": "<!-- cta:pack-top -->\n自分の工事に近い「想定工事」を選んで5管理すべての完成答案をそろえるなら、想定工事100×5管理を全網羅した完全攻略パックが最短です。\n\nhttps://note.com/dobokunote/m/m8290970a7f05" },
+      "topCtaOverrides": [
+        { "dirPrefix": "2級土木/", "marker": "cta:pack-top", "text": "<!-- cta:pack-top -->\n自分の工事に近い「想定工事」を選んで5管理すべての完成答案をそろえるなら、2級の想定工事×5管理をそろえた想定工事バンクが最短です。\n\nhttps://note.com/dobokunote/m/m8554e87ca6ec" }
+      ],
       "bottomCta": { "marker": "cta:civil-mokuji", "text": "<!-- cta:civil-mokuji -->\n1級・2級土木のほかの記事・経験記述の答案集は「土木もくじ」から一覧できます。\n\nhttps://note.com/dobokunote/n/n4fde0f62dc20" }
     }
   }

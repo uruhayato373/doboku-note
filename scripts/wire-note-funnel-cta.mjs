@@ -76,11 +76,16 @@ for (const adir of articleDirs) {
 
   // ナビ/入口記事は冒頭パック CTA を付けない（無料→有料の導線思想に反するため）
   const topExcluded = (ex.topCtaExcludeDirs || []).some(x => d.name === x || d.name.endsWith('/' + x));
-  if (ex.topCta.text && !topExcluded && !body.includes(ex.topCta.marker)) {
+  // ディレクトリ接頭辞で冒頭パック CTA を差し替える（例: 2級土木/ 配下は 2級バンクへ）。
+  // 資格別セグメントの下の「サブ資格別」上げ導線に対応。マーカーは共通（cta:pack-top）。
+  const ovr = (ex.topCtaOverrides || []).find(o => d.name.startsWith(o.dirPrefix));
+  const topText = ovr ? ovr.text : ex.topCta.text;
+  const topMarker = ovr ? (ovr.marker || ex.topCta.marker) : ex.topCta.marker;
+  if (topText && !topExcluded && !body.includes(topMarker)) {
     const h2 = body.search(/^##\s/m);
-    if (h2 >= 0) { body = body.slice(0, h2) + ex.topCta.text + '\n\n' + body.slice(h2); actions.push('TOP'); topN++; }
+    if (h2 >= 0) { body = body.slice(0, h2) + topText + '\n\n' + body.slice(h2); actions.push('TOP'); topN++; }
     else { actions.push('TOP-skip(noH2)'); skipTop++; }
-  } else if (ex.topCta.text) { skipTop++; }
+  } else if (topText) { skipTop++; }
 
   if (ex.bottomCta.text && !body.includes(ex.bottomCta.marker)) {
     body = body.replace(/\s*$/, '') + '\n\n---\n\n' + ex.bottomCta.text + '\n';

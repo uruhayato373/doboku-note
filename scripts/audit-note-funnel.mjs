@@ -98,7 +98,12 @@ for (const [key, ex] of Object.entries(CONFIG.exams)) {
     return out;
   };
   // ライブ反映検証(D5)用ターゲット: 冒頭=topCta 本文の先頭マガジン(コアパック等)/ 末尾=L2 もくじ noteId
-  const topTargets = ex.topCta.text ? [...ex.topCta.text.matchAll(/\/[mn]\/([a-z0-9]+)/g)].map((m) => m[1]) : [];
+  // topCtaOverrides（例: 2級土木/ → 2級バンク）は記事ごとに先頭ターゲットを差し替える。
+  const topTargetsOf = (name) => {
+    const ovr = (ex.topCtaOverrides || []).find(o => name.startsWith(o.dirPrefix));
+    const text = ovr ? ovr.text : ex.topCta.text;
+    return text ? [...text.matchAll(/\/[mn]\/([a-z0-9]+)/g)].map((m) => m[1]) : [];
+  };
   const bottomTarget = ex.L2.noteId || '';
 
   for (const adir of collect(baseDir)) {
@@ -124,6 +129,7 @@ for (const [key, ex] of Object.entries(CONFIG.exams)) {
           liveWarn.push(`[${key}] 「${name}」live 取得失敗（noteId=${noteId}）`);
         } else {
           const lmiss = [];
+          const topTargets = topTargetsOf(name);
           if (ex.topCta.text && !topExcluded && topTargets[0] && !blob.includes(topTargets[0])) lmiss.push('冒頭パック(コアパック)');
           if (bottomTarget && !blob.includes(bottomTarget)) lmiss.push('末尾もくじ');
           if (lmiss.length) drifts.push(`D5 [${key}] 公開記事「${name}」の ${lmiss.join('・')} CTA がライブ未反映（ソースは正・要 note-append-cta / publish-note --update）`);
