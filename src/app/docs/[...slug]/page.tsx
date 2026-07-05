@@ -18,6 +18,7 @@ import rehypeKatex from 'rehype-katex';
 import 'katex/dist/katex.min.css';
 import rehypeHeadingIds from '@/lib/rehype-heading-ids';
 import rehypeExamReferences from '@/lib/rehype-exam-references';
+import rehypeMidCta from '@/lib/rehype-mid-cta';
 import rehypeExternalLinks from 'rehype-external-links';
 import { compileMDX } from 'next-mdx-remote/rsc';
 import { MDXProvider } from '@mdx-js/react';
@@ -28,6 +29,8 @@ import MagazineTopBanner from '@/components/ui/MagazineTopBanner';
 import MetaRow from '@/components/ui/MetaRow/MetaRow';
 import ArticleFooter from '@/components/ui/ArticleFooter/ArticleFooter';
 import ArticleSidebar from '@/components/ui/ArticleSidebar/ArticleSidebar';
+import MidArticleCta from '@/components/ui/MidArticleCta/MidArticleCta';
+import { rankRelated } from '@/lib/related-score';
 import { extractReferencesSection } from '@/lib/extract-references';
 import type { Pluggable } from 'unified';
 import { resolveDocsCareerSidebarAd } from '@/config/affiliate-creatives';
@@ -35,19 +38,29 @@ import type React from 'react';
 
 
 
-const mdxOptions = {
-  blockJS: false as const,
-  blockDangerousJS: true as const,
-  mdxOptions: {
-    remarkPlugins: [remarkMath, remarkGfm],
-    rehypePlugins: [
-      rehypeHeadingIds,
-      rehypeKatex,
-      rehypeExamReferences,
-      [rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] }] satisfies Pluggable,
-    ] as Pluggable[],
-  },
-};
+/**
+ * MDX コンパイルオプションを組み立てる。midCtaPosition が指定されたときのみ
+ * rehypeMidCta を rehypePlugins 末尾に追加し、本文中間に <midslot> を 1 個挿入する。
+ */
+function buildMdxOptions(midCtaPosition?: number) {
+  const rehypePlugins: Pluggable[] = [
+    rehypeHeadingIds,
+    rehypeKatex,
+    rehypeExamReferences,
+    [rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] }] satisfies Pluggable,
+  ];
+  if (midCtaPosition !== undefined) {
+    rehypePlugins.push([rehypeMidCta, { afterH2Index: midCtaPosition }] satisfies Pluggable);
+  }
+  return {
+    blockJS: false as const,
+    blockDangerousJS: true as const,
+    mdxOptions: {
+      remarkPlugins: [remarkMath, remarkGfm],
+      rehypePlugins,
+    },
+  };
+}
 
 /**
  * MDX content の先頭にある単一の `# title` 行（および直後の空行）を削除する。
@@ -69,14 +82,20 @@ function stripLeadingH1(content: string): string {
 async function SafeMDXRemote({
   source,
   components,
+  midCtaPosition,
 }: {
   source: string;
   components: React.ComponentProps<typeof MDXProvider>['components'];
+  midCtaPosition?: number | undefined;
 }) {
   let content: React.ReactElement;
   try {
     // Compile once and use the result directly (avoid double compilation)
-    ({ content } = await compileMDX({ source, options: mdxOptions, components }));
+    ({ content } = await compileMDX({
+      source,
+      options: buildMdxOptions(midCtaPosition),
+      components,
+    }));
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : String(error);
     console.error('MDX compile error:', message.slice(0, 200));
@@ -306,6 +325,51 @@ export default async function DocPage({
     doc.meta.toc_max_heading_level ?? 3,
   );
 
+  // 記事内（本文中間）CTA（2026-07）。長文ガイド系のみ・h2 境界に 1 個だけ挿入。
+  // 中身は「footerMagazines[0] が冒頭 CTA と別マガジンなら note、それ以外は関連記事」。
+  // MDX ソースは書き換えず rehypeMidCta が <midslot> を挿し、components で MidCtaBound に解決する。
+  const midH2Count = headings.filter((h) => h.level === 2).length;
+  const midEligibleGroup =
+    docGroup === 'guide' || docGroup === 'pillar' || docGroup === 'textbook';
+  const midEnabled =
+    midEligibleGroup && midH2Count >= 5 && stripLeadingH1(strippedContent).length >= 8000;
+  // 中間（floor(h2/2)）だが最終 h2（まとめ）直前は避ける
+  const midCtaPosition = midEnabled
+    ? Math.min(Math.floor(midH2Count / 2), midH2Count - 2)
+    : undefined;
+
+  let MidCtaBound: (() => React.ReactElement) | null = null;
+  if (midEnabled) {
+    const midNote = footerMagazines[0];
+    const midNoteMag = midNote?.magazine;
+    const differsFromTop = midNoteMag && (!topSlot || topSlot.magazineId !== midNote.slot.magazineId);
+    if (midNoteMag && differsFromTop) {
+      const url = buildMagazineUrl(midNoteMag, `${midNote.slot.utmContent}-mid`);
+      MidCtaBound = () => (
+        <MidArticleCta
+          mode="note"
+          url={url}
+          title={midNoteMag.shortTitle ?? midNoteMag.title}
+          description={midNoteMag.shortDescription ?? midNoteMag.description}
+          imageUrl={midNoteMag.imageUrl}
+          badge={midNoteMag.badge}
+          trackLabel={`${midNote.slot.utmContent}-mid`}
+        />
+      );
+    } else {
+      // 関連記事モード: 同カテゴリ近傍の最上位 1 件（無ければ CTA を出さない）
+      const relatedTop = rankRelated(doc.meta, categoryArticles, 1)[0];
+      if (relatedTop) {
+        MidCtaBound = () => <MidArticleCta mode="related" doc={relatedTop} />;
+      }
+    }
+  }
+  // resolve できなかった場合は midslot を出さない（挿入位置も無効化）
+  const effectiveMidPosition = MidCtaBound ? midCtaPosition : undefined;
+  const componentsWithMid = MidCtaBound
+    ? { ...components, midslot: MidCtaBound }
+    : components;
+
   return (
     <PageShell
       variant="article"
@@ -342,7 +406,11 @@ export default async function DocPage({
               {/* MDX Content — 先頭の # H1 は server-side で描画済みのため strip。
                   参考資料セクションは extractReferencesSection で抽出済みのため strippedContent を渡す */}
               <div className="prose-blog prose-base">
-                <SafeMDXRemote source={stripLeadingH1(strippedContent)} components={components} />
+                <SafeMDXRemote
+                  source={stripLeadingH1(strippedContent)}
+                  components={componentsWithMid}
+                  midCtaPosition={effectiveMidPosition}
+                />
               </div>
               <MetaRow
                 variant="footer"
