@@ -2,8 +2,11 @@ import { type DocMeta } from '@/lib/docs';
 import { type DocGroupKey } from '@/lib/doc-classifier';
 import { type SidebarAdCreative } from '@/config/affiliate-creatives';
 import { type TocHeading } from '@/lib/toc';
+import { type PlacementSlot } from '@/lib/magazine-placement';
+import { type NoteMagazine } from '@/lib/note-magazines';
 import AuthorSidebarCard from '@/components/ui/AuthorSidebarCard';
 import SidebarAdBanner from '@/components/ui/SidebarAdBanner';
+import SidebarMagazineList from '@/components/ui/SidebarMagazineList/SidebarMagazineList';
 import TableOfContents from '@/components/ui/TableOfContents';
 import ExamQuestionNav from '@/components/ui/ExamQuestionNav';
 import CategoryNavCard from '@/components/ui/CategoryNavCard/CategoryNavCard';
@@ -11,6 +14,8 @@ import PillarNavCard from '@/components/ui/PillarNavCard';
 
 interface ArticleSidebarProps {
   readonly careerSidebarAd: { creative: SidebarAdCreative; trackLabel: string };
+  /** 転職枠直下に再掲する note マガジン（utmContent は -sb 済み・呼び出し側で slice/公開判定済み）。 */
+  readonly noteMagazines: ReadonlyArray<{ slot: PlacementSlot; magazine: NoteMagazine }>;
   readonly headings: TocHeading[];
   readonly category: DocMeta['category'];
   readonly docGroup: DocGroupKey;
@@ -22,13 +27,20 @@ interface ArticleSidebarProps {
 }
 
 /**
- * docs 記事の右サイドバー（PC ≥993px・sticky）。
- * 転職アフィリ枠（最上部・唯一のピクセル源）→ 運営者プロフィール → TOC/設問ナビ →
- * カテゴリナビ → ピラーナビ の順。note CTA は記事末尾へ集約したためサイドバーには出さない
- * （2026-06-26：最上部の転職インプレッションを確保）。
+ * docs 記事の右サイドバー（PC ≥993px）。
+ *
+ * 2 ブロック構成:
+ *  1. 通常フロー（追従させない）: 転職アフィリ枠（最上部・唯一のピクセル源）→ note CTA →
+ *     運営者プロフィール。広告・著者を追従させると「広告が追いかけてくる」体験になるため固定。
+ *  2. sticky クラスタ（列の最終要素・読中に追従）: TOC / 設問ナビ → カテゴリナビ → ピラーナビ。
+ *     ナビゲーションだけを追従させ、長記事でも導線が視界に残る。
+ *
+ * 経緯: 2026-06-27 に全体 sticky を解除（落ち着いた読書体験）→ 2026-07 に「TOC+ナビのみ」へ限定復活。
+ * sticky クラスタの下に非 sticky を置くと下スクロールで届かなくなる（過去事故）ため、クラスタは末尾に置く。
  */
 export default function ArticleSidebar({
   careerSidebarAd,
+  noteMagazines,
   headings,
   category,
   docGroup,
@@ -38,47 +50,53 @@ export default function ArticleSidebar({
   hasCategoryNavCard,
   showPillarNav,
 }: ArticleSidebarProps) {
+  const hasStickyCluster =
+    docGroup === 'pastExam' || docGroup === 'primary' || docGroup === 'secondary'
+      ? docGroup === 'primary' || hasCategoryNavCard || showPillarNav
+      : true;
   return (
     <aside className="hidden zenn-desktop:block w-[300px] shrink-0 py-10">
-      {/* 2026-06-27 sticky 解除: 読中に広告/著者/目次を追従させない（落ち着いた読書体験を優先） */}
-      <div>
-        {/* 転職アフィリエイトを全 docs サイドバー最上部に常設（唯一のピクセル発火源・ファーストビュー）。
-            全 docs 無条件表示。creative を期間で出し分け（resolveCareerSidebarAd）。
-            note CTA は記事末尾へ集約したため、最上部は転職枠が占める（2026-06-26）。 */}
-        <div className="mb-3">
-          <SidebarAdBanner {...careerSidebarAd.creative} trackLabel={careerSidebarAd.trackLabel} />
-        </div>
-        {/* 運営者プロフィール（合格体験者＝発注者）。転職枠の直下に置き E-E-A-T を提示（2026-06-26）。
-            記事末尾の横型 AuthorCard とは別フォーマットの縦型で、カテゴリ hub と共通。 */}
-        <div className="mb-3">
-          <AuthorSidebarCard />
-        </div>
-        {/* 過去問ページ（CEM 択一=pastExam, 1級2級土木/コンクリート系=primary/secondary）は
-            TOC が問番号の羅列になりナビゲーションとして機能しないため非表示にし、
-            primary は代わりに設問番号グリッド（ExamQuestionNav）を出す。 */}
-        {docGroup !== 'pastExam' && docGroup !== 'primary' && docGroup !== 'secondary' && (
-          <TableOfContents headings={headings} />
-        )}
-        {docGroup === 'primary' && (
-          <ExamQuestionNav headings={headings} variant="sidebar" />
-        )}
-        {hasCategoryNavCard && category && (
-          <div className="mt-3">
-            <CategoryNavCard
-              variant="sidebar"
-              category={category}
-              currentSlug={slugStr}
-              docGroup={docGroup}
-              categoryArticles={categoryArticles}
-            />
-          </div>
-        )}
-        {showPillarNav && (
-          <div className="mt-3">
-            <PillarNavCard variant="sidebar" currentSection={sectionStr} />
-          </div>
-        )}
+      {/* ブロック1: 通常フロー（追従させない）——転職ピクセル・note・著者 */}
+      {/* 転職アフィリを全 docs サイドバー最上部に常設（唯一のピクセル発火源・ファーストビュー）。 */}
+      <div className="mb-3">
+        <SidebarAdBanner {...careerSidebarAd.creative} trackLabel={careerSidebarAd.trackLabel} />
       </div>
+      {/* note CTA を転職枠の直下に再掲（2026-07・記事末尾集約は維持しつつ導線を強化）。
+          sidebarImageUrl 無し・career-only 記事では noteMagazines が空 → SidebarMagazineList が null を返す。 */}
+      <SidebarMagazineList magazines={noteMagazines} />
+      {/* 運営者プロフィール（合格体験者＝発注者）。E-E-A-T を提示。 */}
+      <div className="mb-3">
+        <AuthorSidebarCard />
+      </div>
+
+      {/* ブロック2: sticky クラスタ（列の最終要素・読中に追従）——TOC/ナビのみ。
+          自身をスクロール可能にし、低解像度でも見切れない（TOC 側の max-h は撤去し高さ制御をここへ一元化）。 */}
+      {hasStickyCluster && (
+        <div className="sticky top-6 max-h-[calc(100vh-3rem)] overflow-y-auto">
+          {/* 過去問ページ（pastExam / primary / secondary）は TOC が問番号の羅列になり機能しないため
+              非表示にし、primary は代わりに設問番号グリッド（ExamQuestionNav）を出す。 */}
+          {docGroup !== 'pastExam' && docGroup !== 'primary' && docGroup !== 'secondary' && (
+            <TableOfContents headings={headings} />
+          )}
+          {docGroup === 'primary' && <ExamQuestionNav headings={headings} variant="sidebar" />}
+          {hasCategoryNavCard && category && (
+            <div className="mt-3">
+              <CategoryNavCard
+                variant="sidebar"
+                category={category}
+                currentSlug={slugStr}
+                docGroup={docGroup}
+                categoryArticles={categoryArticles}
+              />
+            </div>
+          )}
+          {showPillarNav && (
+            <div className="mt-3">
+              <PillarNavCard variant="sidebar" currentSection={sectionStr} />
+            </div>
+          )}
+        </div>
+      )}
     </aside>
   );
 }

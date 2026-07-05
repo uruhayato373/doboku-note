@@ -78,7 +78,7 @@ export default function TableOfContents({ headings }: TableOfContentsProps) {
   };
 
   return (
-    <MetaCard as="div" padding="none" className="toc-scroll p-5 pb-6 max-h-[calc(100vh-10rem)] overflow-auto">
+    <MetaCard as="div" padding="none" className="toc-scroll p-5 pb-6">
       <div className="toc-title">目次</div>
       <nav className="toc-content">
         <ol className="ol-depth-1">

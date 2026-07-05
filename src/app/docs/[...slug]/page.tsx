@@ -278,6 +278,16 @@ export default async function DocPage({
   ].filter(
     (x, i, arr) => arr.findIndex((y) => y.slot.magazineId === x.slot.magazineId) === i,
   );
+  // サイドバー用 note CTA（2026-07 再配置）。記事末尾集約（footerMagazines）は維持しつつ、
+  // その優先順リストから sidebarImageUrl を持つ先頭 1 枚（TOC 非表示 docGroup は 2 枚）を
+  // 転職枠の直下に再掲する。utmContent に -sb を付けて記事末尾クリックと GA4 で分離計測。
+  // career-only 記事は footerMagazines が空 → 自動で非表示（転職一本方針を継承）。
+  const sidebarNoteMax =
+    docGroup === 'pastExam' || docGroup === 'primary' || docGroup === 'secondary' ? 2 : 1;
+  const sidebarNoteMagazines = footerMagazines
+    .filter((x) => x.magazine.sidebarImageUrl)
+    .slice(0, sidebarNoteMax)
+    .map((x) => ({ ...x, slot: { ...x.slot, utmContent: `${x.slot.utmContent}-sb` } }));
   // 記事冒頭 CTA（二次系高 intent ページのみ placement.top で設定）。getMagazine() ゲートを
   // 通すため未公開マガジン（会員ラボ等）は自動非表示。末尾の画像カードと重複してよい。
   const topSlot = magazinePlacement.top;
@@ -360,6 +370,7 @@ export default async function DocPage({
 
           <ArticleSidebar
             careerSidebarAd={careerSidebarAd}
+            noteMagazines={sidebarNoteMagazines}
             headings={headings}
             category={category}
             docGroup={docGroup}
