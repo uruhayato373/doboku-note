@@ -57,8 +57,8 @@ export default function ArticleHeader({
 
       <h1
         id={generateHeadingId(title)}
-        className="font-sans font-bold text-[24px] text-[var(--ink)] leading-[1.4] tracking-tight text-balance [word-break:auto-phrase] m-0"
-        style={{ letterSpacing: '-0.01em' }}
+        className="font-sans font-bold text-[26px] sm:text-[28px] text-[var(--ink)] leading-[1.4] text-balance [word-break:auto-phrase] m-0"
+        style={{ letterSpacing: '0.02em', fontFeatureSettings: '"palt" 1' }}
       >
         {title}
       </h1>

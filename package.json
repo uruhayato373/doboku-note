@@ -73,6 +73,7 @@
     "verify-ig-status": "node scripts/verify-ig-status.mjs",
     "audit-note-cards": "node scripts/audit-note-cards.mjs",
     "diff-r2": "node .claude/skills/dev/diff-r2/scripts/diff-r2.mjs",
+    "check-cta-density": "node scripts/check-cta-density.mjs",
     "check-ogp-coverage": "node scripts/check-ogp-coverage.mjs",
     "check-ogp-design": "node scripts/check-ogp-design.mjs",
     "check-ogp-title-fit": "node scripts/check-ogp-title-fit.mjs",

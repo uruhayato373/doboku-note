@@ -26,7 +26,7 @@ interface PageHeaderProps {
   /** h1 上のアクセント eyebrow（小ラベル） */
   label?: ReactNode;
   title: ReactNode;
-  /** 'default' = text-[24px] sm:text-[30px] / 'lg' = text-[28px] sm:text-[36px] */
+  /** 'default' = text-[26px] sm:text-[32px] / 'lg' = text-[30px] sm:text-[38px] */
   titleSize?: 'default' | 'lg';
   /** h1 下のリード文 */
   lead?: ReactNode;
@@ -41,8 +41,8 @@ interface PageHeaderProps {
 }
 
 const TITLE_SIZES = {
-  default: 'text-[24px] sm:text-[30px]',
-  lg: 'text-[28px] sm:text-[36px]',
+  default: 'text-[26px] sm:text-[32px]',
+  lg: 'text-[30px] sm:text-[38px]',
 };
 
 function Breadcrumb({ items }: { items: Crumb[] }) {
@@ -89,7 +89,8 @@ function HeaderStack({
         </div>
       )}
       <h1
-        className={`font-serif font-black text-[var(--ink)] tracking-tight ${TITLE_SIZES[titleSize]}`}
+        className={`font-serif font-black text-[var(--ink)] tracking-[0.01em] ${TITLE_SIZES[titleSize]}`}
+        style={{ fontFeatureSettings: '"palt" 1' }}
       >
         {title}
       </h1>
