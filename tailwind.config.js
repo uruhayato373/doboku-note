@@ -123,19 +123,19 @@ module.exports = {
         DEFAULT: {
           css: {
             fontSize: '16px',
-            lineHeight: '1.9',
+            lineHeight: '1.8',
             maxWidth: 'none',
             'p': {
               marginBottom: '1rem',
-              lineHeight: '1.9',
+              lineHeight: '1.8',
             },
             'ul, ol': {
               marginBottom: '1rem',
-              lineHeight: '1.9',
+              lineHeight: '1.8',
             },
             'li': {
               marginBottom: '0.5rem',
-              lineHeight: '1.9',
+              lineHeight: '1.8',
             },
             'li:last-child': {
               marginBottom: '0',

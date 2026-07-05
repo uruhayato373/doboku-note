@@ -46,17 +46,21 @@
 
 ページの地色・本文・見出し・罫線・リンク・表など「読み物としての面」に使う。
 
+**2026-07 Soft Editorial 改訂**: 紺のアイデンティティを保ちつつ 1 段明るく・寒色寄せに調整（重苦しさの解消と浮遊感の付与）。全て WCAG AA 以上（accent 白地 6.6:1 / body 11.4:1 / muted 4.9:1）。dark は `--paper` を `--bg` より 1 段明るくしカードに立体感を出す。**このパレットのみが刷新対象**で、下記 2.2 `--color-*`・2.3 `--ct-*`・試験別 `--exam-*` は**凍結**（OGP/note カバー/cta-bg/SVG 図版と色を共有するため触らない）。
+
 | 変数 | light | dark | 用途 |
 |---|---|---|---|
-| `--accent` | `#1a3a5c` | `#8fb4d8` | リンク・h3 アクセントバー・強調・thead 文字 |
-| `--accent-fill` | `#eef3f8` | `#1a2632` | thead 背景・インラインコード背景・hover |
-| `--paper` | `#ffffff` | `#141516` | カード・details の地 |
-| `--bg` | `#fafafa` | `#141516` | ページ背景 |
-| `--ink` | `#0a0a0a` | `#ececea` | 見出し（h1/h2/h3）本文の最濃色 |
-| `--ink-body` | `#2d2d30` | `#b8b5ac` | 本文・td・h4 |
-| `--ink-muted` | `#6a6a6a` | `#7a7770` | 補助テキスト・blockquote |
-| `--rule` | `#1a1a1a` | `#3a3a3a` | 濃い罫線 |
-| `--rule-soft` | `#e8e8eb` | `#2a2a2a` | 既定罫線（Tailwind preflight の border 既定をこれに上書き済み = bare border が dark 追従する） |
+| `--accent` | `#2a5f96` | `#93b8e0` | リンク・h3 アクセントバー・強調・thead 文字 |
+| `--accent-fill` | `#edf3fa` | `#1d2836` | thead 背景・インラインコード背景・hover |
+| `--paper` | `#ffffff` | `#1b1d21` | カード・details の地 |
+| `--bg` | `#f6f7f9` | `#121316` | ページ背景 |
+| `--ink` | `#181a1f` | `#ececea` | 見出し（h1/h2/h3）本文の最濃色 |
+| `--ink-body` | `#33363d` | `#b6b9c0` | 本文・td・h4 |
+| `--ink-muted` | `#697080` | `#80858f` | 補助テキスト・blockquote |
+| `--rule` | `#23252b` | `#3c3f47` | 濃い罫線 |
+| `--rule-soft` | `#e7e9ef` | `#2b2e35` | 既定罫線（Tailwind preflight の border 既定をこれに上書き済み = bare border が dark 追従する） |
+
+> リンク下線色・表行 hover 色は `color-mix(in srgb, var(--accent…) …)` で `--accent`/`--accent-fill` から派生させ、accent 変更に自動追従する（旧: 生 rgba の light/dark 2 定義）。
 
 ### 2.2 Legacy `--color-*` パレット（SVG 図版 + Tailwind semantic）
 
@@ -80,25 +84,35 @@
 
 12 種の Callout（note/tip/warn/danger/success/exam/formula/standard/example/reference/faq/quote）× bg/border/fg。light/dark 両定義。実装・使い分けは `src/components/ui/Callout/README.md` と `docs/ui/callout-gallery.md`。
 
-### 2.4 カード・影トークン
+### 2.4 カード・影・モーショントークン
+
+**2026-07 Soft Editorial 改訂**: 角丸を小→大で段階化し、影を 2 層ソフトシャドウ（slate 寒色 `rgb(15 23 42)`）へ。値のみ変更で `rounded-card-*`/`shadow-*` 経由の全カードが自動追従。
 
 | 変数 | 値 | 用途 |
 |---|---|---|
-| `--radius-card-{inline,content,section,hero}` | すべて `2px`（仕様書調に統一） | カード角丸。Tailwind `rounded-card-*` |
-| `--shadow-card-{content,section}` | `0 1px 2px /0.05`（dark `/0.15`） | カード影。Tailwind `shadow-card-*` |
-| `--shadow-card-hover` | 強めの lift | hover |
+| `--radius-card-inline` | `6px` | バッジ・チップ・インラインコード |
+| `--radius-card-content` | `10px` | 標準カード・表・details・pre・KaTeX display |
+| `--radius-card-section` | `14px` | SectionCard 等の大カード |
+| `--radius-card-hero` | `20px` | トップ hero |
+| `--shadow-card-content` | `0 1px 2px /.04, 0 2px 8px /.05` | カード影（2 層）。Tailwind `shadow-card-*` |
+| `--shadow-card-section` | `0 1px 3px /.04, 0 6px 20px /.06` | 大カード影 |
+| `--shadow-card-hover` | `0 2px 4px /.06, 0 12px 32px /.10` | hover lift |
 | `--shadow-soft` / `--shadow-lift` | editorial 影 | 帯・浮き |
+| `--dur-fast` / `--dur-base` | `150ms` / `200ms` | transition duration |
+| `--ease-soft` | `cubic-bezier(.22,1,.36,1)` | イージング |
 
-### 2.5 タイポグラフィスケール（固定値・2026-06-26 確定）
+> クリック可能カードの hover 演出は共通クラス `.card-interactive`（影の深化＋`translateY(-2px)`）を使う。`prefers-reduced-motion: reduce` で transition/animation を無効化済み。**scale・色反転・長い duration は禁止**（§8）。
 
-参考: 記事 = sidejobearn / 本文・箇条書き = Zenn 実測。
+### 2.5 タイポグラフィスケール（2026-07 Soft Editorial 改訂）
+
+参考: 本文・箇条書き = Zenn 実測 / 和文タイポ = 16px 以上・行間 1.7〜1.9・letter-spacing 0.02〜0.05em・見出しに `palt`（AQ works / Typotheque 各ガイド）。フォントはシステムスタック（游ゴシック→ヒラギノ→Meiryo・webfont は LCP 対策で非採用）を維持し、詰め・トラッキング・ジャンプ率で磨く方針。
 
 | 変数 | 値 | 用途 |
 |---|---|---|
-| `--font-size-h1` | `1.5rem`（24px） | 記事 h1 |
-| `--font-size-h2` | `1.4rem`（22.4px） | h2 |
-| `--font-size-h3` | `1.3rem`（20.8px） | h3 |
-| `--font-size-h4` | `1.125rem`（18px） | h4 |
+| `--font-size-h1` | `1.75rem`（28px） | 記事 h1（ジャンプ率拡大） |
+| `--font-size-h2` | `1.375rem`（22px） | h2 |
+| `--font-size-h3` | `1.1875rem`（19px） | h3 |
+| `--font-size-h4` | `1.0625rem`（17px） | h4 |
 | `--font-size-ui-title` | `1.125rem`（18px） | サイドバー/カード見出し |
 | `--font-size-body` | `1rem`（16px） | 本文 |
 | `--font-size-secondary` | `0.9375rem`（15px） | Callout 等 |
@@ -162,11 +176,12 @@
 
 真実源は `globals.css` の `@layer components`。
 
-- **本文**: 16px / line-height 1.8 / weight 500（中太）。`text-autospace: normal`。段落間は `p + p` で `1.5em`。見出し直後の p は `0.3em`（ほぼ密着）。
-- **h1**: ゴシック・weight 700・24px・行間 1.4・`letter-spacing -0.01em`・**罫線なし**（旧・明朝/白抜き/下線は 2026-06-26 廃止）。色 `--ink`。
-- **h2**: ゴシック・700・22.4px・**装飾なし**（旧・黒背景白抜きは廃止）。`margin 2.4em 0 0.8em`。
-- **h3**: 700・20.8px・**左 4px アクセントバー** `border-left-color: var(--accent)` + `pl-4`。
-- **h4**: semibold・18px・**左 2px 細罫** `var(--rule-soft)` + `pl-3`。色 `--ink-body`。
+- **本文**: 16px / line-height 1.8 / weight 500（中太）/ `letter-spacing 0.03em`（2026-07 追加・和文可読性）。`text-autospace: normal`。段落間は `p + p` で `1.5em`。見出し直後の p は `0.3em`（ほぼ密着）。コード・数式（`code`/`pre`/`.katex`）は `letter-spacing: normal` でリセット。
+- **見出し共通**: `font-feature-settings: "palt" 1`（仮名・約物を詰める）+ `letter-spacing 0.02em`（呼吸を戻す）。2026-07 に旧 `-0.01em`（ラテン主体前提）から反転。
+- **h1**: ゴシック・weight 700・28px・行間 1.4・**罫線なし**（旧・明朝/白抜き/下線は 2026-06-26 廃止）。色 `--ink`。
+- **h2**: ゴシック・700・22px・**装飾なし**（旧・黒背景白抜きは廃止）。`margin 2.8em 0 0.8em`（セクション区切りを余白で作る）。
+- **h3**: 700・19px・**左 4px アクセントバー** `border-left-color: var(--accent)` + `pl-4`。
+- **h4**: semibold・17px・**左 2px 細罫** `var(--rule-soft)` + `pl-3`。色 `--ink-body`。
 - **リンク**: `color: var(--accent)` + 半透明 accent アンダーライン（offset 4px、hover で濃く）。
 - **表**: soft border（`--rule-soft`）+ thead 背景 `--accent-fill` + th はモノスペース・大文字・11px・letter-spacing。`rounded-card-content`。最初列（ラベル列慣習）は `white-space: nowrap`。
 - **details / blockquote / code / pre**: editorial soft rule（`--rule-soft`）。インラインコードは `--accent-fill` 背景 + `--accent` 文字。
@@ -180,7 +195,7 @@
 1. **Layered** — Background（地色 `--bg`）→ Surface（カード/表/details = `--paper`）→ Text/Object（`--ink`/`--ink-body`）の 3 層。
 2. **Contrast** — WCAG 2.1 AA。通常テキスト 4.5:1 / 大テキスト・UI 3:1。本文 `--ink-body` on `--paper` は十分。
 3. **Semantic** — 色は用途で固定。リンク=`--accent`、成功=`--color-positive`、警告=`--color-warn`、危険=`--color-danger`。色だけで情報を伝えない（アイコン/テキスト併用）。
-4. **Minimal** — 装飾は最小。見出し階層で視覚ヒエラルキー。カード/枠はグルーピング目的のみ。アニメーションは原則不要。
+4. **Minimal** — 装飾は最小。見出し階層で視覚ヒエラルキー。カード/枠はグルーピング目的のみ。モーションは抑制（クリック可能カードの hover 演出 = 影の深化＋`translateY(-2px)` まで。`.card-interactive` を使う。scale・色反転・長い duration は禁止）。
 5. **Grid** — 外枠 1280 / content rail で読み幅 / line-height 1.8（日本語長文最適）/ セクション余白は `SectionBlock` で統一。
 
 ---
@@ -217,7 +232,7 @@ CLAUDE.md §7 と一致:
 - リンク色を本文色と同じに → `--accent` を維持。
 
 ### タイポグラフィ
-- 日本語**本文**へのネガティブ letter-spacing → 0 以上。（※ ラテン主体の**見出し**は `-0.01em` を採用済み。本文には適用しない。）
+- ネガティブ letter-spacing → 使わない。本文は `0.03em`・見出しは `palt` + `0.02em`（2026-07 で旧見出し `-0.01em` を廃止）。
 - `font-weight: 300` 以下 → 400 以上（本文は 500）。
 - MDX 本文 `font-size: 12px` 以下 → 本文 16px 基準。
 - 見出し階層スキップ（h2 → h4）→ h1→h2→h3→h4 順。

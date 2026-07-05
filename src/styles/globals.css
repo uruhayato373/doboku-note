@@ -19,19 +19,26 @@
 @layer base {
   /* Card design tokens — single source of truth */
   :root {
-    /* Card radius — unified to 2px (specification-style discipline) */
-    --radius-card-inline: 2px;
-    --radius-card-content: 2px;
-    --radius-card-section: 2px;
-    --radius-card-hero: 2px;
+    /* Card radius — Soft Editorial (2026-07). 小→大で段階化（旧: 一律 2px）。
+       値のみ変更で rounded-card-* 経由の全カードが自動追従する。 */
+    --radius-card-inline: 6px;   /* バッジ・チップ・インラインコード */
+    --radius-card-content: 10px; /* 標準カード・表・details・pre・KaTeX display */
+    --radius-card-section: 14px; /* SectionCard 等の大カード */
+    --radius-card-hero: 20px;    /* トップ hero */
 
-    --shadow-card-content: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    --shadow-card-section: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    --shadow-card-hover: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    /* 影 — 2 層ソフトシャドウ（slate 寒色 rgb(15 23 42) で紙面に馴染ませる） */
+    --shadow-card-content: 0 1px 2px rgb(15 23 42 / 0.04), 0 2px 8px rgb(15 23 42 / 0.05);
+    --shadow-card-section: 0 1px 3px rgb(15 23 42 / 0.04), 0 6px 20px rgb(15 23 42 / 0.06);
+    --shadow-card-hover: 0 2px 4px rgb(15 23 42 / 0.06), 0 12px 32px rgb(15 23 42 / 0.10);
 
     /* Editorial shadows (handoff) */
-    --shadow-soft: 0 1px 2px rgba(10, 15, 30, 0.04);
-    --shadow-lift: 0 8px 24px rgba(0, 0, 0, 0.04);
+    --shadow-soft: 0 1px 2px rgb(15 23 42 / 0.04);
+    --shadow-lift: 0 2px 8px rgb(15 23 42 / 0.04), 0 12px 32px rgb(15 23 42 / 0.08);
+
+    /* モーション — hover/transition の共通トークン（.card-interactive が参照） */
+    --dur-fast: 150ms;
+    --dur-base: 200ms;
+    --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
 
     /* Color tokens — single source of truth for UI + SVG figures */
     --color-ink-strong: #222222;
@@ -59,16 +66,18 @@
     --exam-pe-construction: #33356b; /* 建設部門＝藍 */
     --exam-concrete-chief: #0f6e6e;  /* コンクリート主任＝ティール */
 
-    /* Editorial palette (handoff) — added alongside legacy --color-brand */
-    --accent: #1a3a5c;
-    --accent-fill: #eef3f8;
+    /* Editorial palette — Soft Editorial (2026-07). 紺のアイデンティティを保ちつつ
+       1 段明るく・寒色寄せ。全て WCAG AA 以上（accent 6.6:1 / body 11.4:1 / muted 4.9:1）。
+       SVG 系 --color-*・Callout --ct-*・試験色 --exam-* は凍結（このパレット外）。 */
+    --accent: #2a5f96;
+    --accent-fill: #edf3fa;
     --paper: #ffffff;
-    --bg: #fafafa;
-    --ink: #0a0a0a;
-    --ink-body: #2d2d30;
-    --ink-muted: #6a6a6a;
-    --rule: #1a1a1a;
-    --rule-soft: #e8e8eb;
+    --bg: #f6f7f9;
+    --ink: #181a1f;
+    --ink-body: #33363d;
+    --ink-muted: #697080;
+    --rule: #23252b;
+    --rule-soft: #e7e9ef;
 
     /* Callout palette (12 kinds × bg / border / foreground) */
     --ct-note-bg: #eff6ff;     --ct-note-bd: #3b82f6;     --ct-note-fg: #1d4ed8;
@@ -85,12 +94,12 @@
     --ct-quote-bg: #fafafa;    --ct-quote-bd: #a1a1aa;    --ct-quote-fg: #52525b;
 
     /* Typography scale — single source of truth */
-    /* 2026-06-26: 参考サイト(sidejobearn)の記事タイポグラフィに合わせて固定値化
-       （記事 H1 24px / H2 22.4px / H3 20.8px・見出しは太さ700・行間1.4）。 */
-    --font-size-h1: 1.5rem;     /* 24px */
-    --font-size-h2: 1.4rem;     /* 22.4px */
-    --font-size-h3: 1.3rem;     /* 20.8px */
-    --font-size-h4: 1.125rem;   /* 18px */
+    /* 2026-07 Soft Editorial: 見出しジャンプ率を拡大し階層を明確化
+       （旧: H1 24 / H2 22.4 / H3 20.8 は比 1.07 で平坦だった）。 */
+    --font-size-h1: 1.75rem;    /* 28px */
+    --font-size-h2: 1.375rem;   /* 22px */
+    --font-size-h3: 1.1875rem;  /* 19px */
+    --font-size-h4: 1.0625rem;  /* 17px */
     /* Fixed: UI chrome */
     --font-size-ui-title: 1.125rem;    /* 18px — sidebar / card heading */
     --font-size-body: 1rem;            /* 16px */
@@ -100,12 +109,13 @@
   }
 
   .dark {
-    --shadow-card-content: 0 1px 2px 0 rgb(0 0 0 / 0.15);
-    --shadow-card-section: 0 1px 2px 0 rgb(0 0 0 / 0.15);
-    --shadow-card-hover: 0 4px 6px -1px rgb(0 0 0 / 0.25), 0 2px 4px -2px rgb(0 0 0 / 0.25);
+    /* dark は影が視認されにくいため paper/bg 分離＋ボーダーで階層を作り、影は淡く保つ。 */
+    --shadow-card-content: 0 1px 2px 0 rgb(0 0 0 / 0.25);
+    --shadow-card-section: 0 1px 3px 0 rgb(0 0 0 / 0.30);
+    --shadow-card-hover: 0 2px 4px rgb(0 0 0 / 0.30), 0 12px 32px rgb(0 0 0 / 0.40);
 
-    --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.2);
-    --shadow-lift: 0 8px 24px rgba(0, 0, 0, 0.3);
+    --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.25);
+    --shadow-lift: 0 2px 8px rgba(0, 0, 0, 0.3), 0 12px 32px rgba(0, 0, 0, 0.4);
 
     /* Color tokens — dark mode */
     --color-ink-strong: #f3f4f6;
@@ -132,16 +142,17 @@
     --exam-pe-construction: #8385d0;
     --exam-concrete-chief: #4db3b3;
 
-    /* Editorial palette (handoff dark) */
-    --accent: #8fb4d8;
-    --accent-fill: #1a2632;
-    --paper: #141516;
-    --bg: #141516;
+    /* Editorial palette — Soft Editorial dark (2026-07)。
+       paper を bg より 1 段明るくしカードに浮遊感を与える。ink 系は寒色寄せで accent と色温度統一。 */
+    --accent: #93b8e0;
+    --accent-fill: #1d2836;
+    --paper: #1b1d21;
+    --bg: #121316;
     --ink: #ececea;
-    --ink-body: #b8b5ac;
-    --ink-muted: #7a7770;
-    --rule: #3a3a3a;
-    --rule-soft: #2a2a2a;
+    --ink-body: #b6b9c0;
+    --ink-muted: #80858f;
+    --rule: #3c3f47;
+    --rule-soft: #2b2e35;
 
     /* Callout palette — dark mode (deeper bg, lighter fg) */
     --ct-note-bg: #172554;     --ct-note-bd: #3b82f6;     --ct-note-fg: #93c5fd;
@@ -159,12 +170,22 @@
   }
 
   html {
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     scroll-padding-top: 5rem;
   }
 
   body {
     @apply antialiased;
+  }
+
+  /* モーション控えめ設定を尊重（.card-interactive 等の transform/transition を無効化） */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
   }
 }
 
@@ -173,8 +194,22 @@
   .nav-card-title {
     font-size: var(--font-size-ui-title);
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 0.04em;
     margin-bottom: 8px;
+  }
+
+  /* ===== card-interactive: クリック可能カードの hover 演出（影＋2px 浮き）=====
+     2026-07 Soft Editorial。演出は「影の深化＋translateY(-2px)」まで。
+     scale・色反転・長い duration は禁止（design-system §8）。reduced-motion は上の base で無効化。 */
+  .card-interactive {
+    transition:
+      box-shadow var(--dur-base) var(--ease-soft),
+      transform var(--dur-base) var(--ease-soft),
+      border-color var(--dur-base) var(--ease-soft);
+  }
+  .card-interactive:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-2px);
   }
 
   /* ===== prose-blog: kakkom から継承 ===== */
@@ -182,17 +217,22 @@
     @apply prose prose-gray dark:prose-invert max-w-none;
   }
 
-  /* 本文: 参考サイト(sidejobearn)準拠 font-size 16px / line-height 1.8 / weight 500（中太） */
+  /* 本文: font-size 16px / line-height 1.8 / weight 500（中太）。
+     2026-07: 和文可読性のため letter-spacing 0.03em を追加（0.02〜0.05em ベストプラクティス内）。 */
   .prose-blog {
     font-size: var(--font-size-body);
     line-height: 1.8;
     font-weight: 500;
+    letter-spacing: 0.03em;
     text-autospace: normal;
   }
 
+  /* コード・数式はトラッキングをリセット（等幅・記号の整列を崩さない） */
   .prose-blog :not(pre) > code,
   .prose-blog pre,
-  .prose-blog pre code {
+  .prose-blog pre code,
+  .prose-blog .katex {
+    letter-spacing: normal;
     text-autospace: no-autospace;
   }
 
@@ -247,27 +287,27 @@
     margin-bottom: 0;
   }
 
-  /* リンク: editorial アンダーライン（半透明 accent + offset 4px、hoverで濃く） */
+  /* リンク: editorial アンダーライン（半透明 accent + offset 4px、hoverで濃く）。
+     2026-07: 下線色を accent 由来の color-mix に統一し、accent 変更へ自動追従（旧: 生 rgba の light/dark 2 定義）。 */
   .prose-blog a {
     color: var(--accent);
     text-decoration: underline;
-    text-decoration-color: rgba(26, 58, 92, 0.35);
+    text-decoration-color: color-mix(in srgb, var(--accent) 38%, transparent);
     text-decoration-thickness: 1px;
     text-underline-offset: 4px;
-  }
-  .dark .prose-blog a {
-    text-decoration-color: rgba(143, 180, 216, 0.45);
   }
   .prose-blog a:hover {
     text-decoration-color: var(--accent);
   }
 
-  /* 見出し共通: 行間 */
+  /* 見出し共通: 行間 + 和文プロポーショナル詰め（palt）。
+     palt で仮名・約物を詰め、正のトラッキングで呼吸を戻す（游ゴシック/ヒラギノ対応）。 */
   .prose-blog h1,
   .prose-blog h2,
   .prose-blog h3,
   .prose-blog h4 {
     @apply leading-snug;
+    font-feature-settings: "palt" 1;
   }
 
   /* h1: ページタイトル — 参考サイト(sidejobearn)に合わせゴシック・太さ700・行間1.4。
@@ -277,7 +317,7 @@
     color: var(--ink);
     font-size: var(--font-size-h1);
     line-height: 1.4;
-    letter-spacing: -0.01em;
+    letter-spacing: 0.02em;
     margin: 0 0 0.9em;
     padding-bottom: 0;
     border-bottom: none;
@@ -290,8 +330,8 @@
     color: var(--ink);
     font-size: var(--font-size-h2);
     line-height: 1.4;
-    letter-spacing: -0.01em;
-    margin: 2.4em 0 0.8em;
+    letter-spacing: 0.02em;
+    margin: 2.8em 0 0.8em;
     padding: 0;
     border-left: none;
   }
@@ -305,7 +345,7 @@
     @apply mb-4 mt-12 pl-4 py-1;
     @apply border-l-4;
     border-left-color: var(--accent);
-    letter-spacing: -0.01em;
+    letter-spacing: 0.02em;
   }
 
   /* h4: 小見出し — 細いグレーの左アクセント */
@@ -315,7 +355,7 @@
     @apply mb-3 mt-8 pl-3;
     @apply border-l-2;
     border-left-color: var(--rule-soft);
-    letter-spacing: -0.01em;
+    letter-spacing: 0.02em;
   }
 
   /* ===== フォントファミリー切替（opt-in）=====
@@ -369,11 +409,9 @@
     border-bottom: none;
   }
 
+  /* 2026-07: 行 hover を accent-fill 由来の color-mix に統一（accent 変更へ自動追従・light/dark 1 定義）。 */
   .prose-blog tbody tr:hover {
-    background: rgba(238, 243, 248, 0.5);
-  }
-  .dark .prose-blog tbody tr:hover {
-    background: rgba(26, 38, 50, 0.5);
+    background: color-mix(in srgb, var(--accent-fill) 55%, transparent);
   }
 
   /* ===== details: editorial accent ===== */
@@ -461,7 +499,7 @@
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     font-size: 0.92em;
     padding: 1px 6px;
-    border-radius: 2px;
+    border-radius: var(--radius-card-inline);
     background: var(--accent-fill);
     color: var(--accent);
     border: 1px solid var(--rule-soft);
