@@ -25,7 +25,7 @@ export default function SpokeNavCard({ href, label, title }: SpokeNavCardProps) 
   return (
     <Link
       href={href}
-      className="not-prose group my-4 flex items-center gap-3 rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] px-4 py-3 shadow-card-content hover:shadow-card-hover hover:border-brand transition-shadow"
+      className="card-interactive not-prose group my-4 flex items-center gap-3 rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] px-4 py-3 shadow-card-content hover:shadow-card-hover hover:border-brand"
       style={{ textDecoration: "none" }}
     >
       <span

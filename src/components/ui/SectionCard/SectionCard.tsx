@@ -76,7 +76,7 @@ export default function SectionCard({
 }: SectionCardProps) {
   const finalClass = [
     BASE,
-    interactive ? 'hover:shadow-card-hover transition-shadow' : '',
+    interactive ? 'card-interactive hover:shadow-card-hover' : '',
     PADDINGS[padding],
     className,
   ]

@@ -27,7 +27,7 @@ export default function LinkCardClient({
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        className="group block w-full max-w-2xl cursor-pointer overflow-hidden rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] shadow-card-content hover:shadow-card-hover transition-all duration-300"
+        className="card-interactive group block w-full max-w-2xl cursor-pointer overflow-hidden rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] shadow-card-content hover:shadow-card-hover"
       >
         <span className="flex flex-col sm:flex-row sm:items-center">
           {imageUrl && (
