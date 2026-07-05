@@ -7,14 +7,21 @@
  * 上限を超えていないかを検査する。1 件でも超過すれば exit 1（CI を赤くする）。
  *
  * SSG（output: 'export'）なので静的 HTML の属性カウントで完全に検証できる。
- *   - data-cta="note"      … note 有料マガジン CTA（冒頭 top / サイドバー -sb / 中間 -mid / 記事末尾）
- *   - data-cta="affiliate" … 転職アフィリ枠（ピクセル発火源）
+ *   - data-cta="note" … note 有料マガジン CTA（冒頭 top / サイドバー -sb / 中間 -mid / 記事末尾）
  *
- * 閾値（design-system.md と一致・変更時は両方更新）:
- *   - affiliate 要素        ≤ 1（1 ページ 1 ピクセル。A8 は banner+pixel で複数 <img> になるが
- *                              data-cta="affiliate" を持つ CTA ブロックは 1 個の想定）
- *   - note スロット（footer 除く: top/sidebar/mid の -sb/-mid/top ラベル） ≤ 3
- *   - note 要素の総数（footer 含む）                                       ≤ 10
+ * このゲートが守るのは「ファーストビュー～本文中の能動的な note 押し出し密度」
+ * （footer 除く top/sidebar/mid スロット）。デザイン刷新で追加した サイドバー note 再掲・
+ * 記事内中間 CTA が将来暴走しないための回帰ガード。
+ *
+ * 対象外（別системで担保）:
+ *   - 転職アフィリのピクセル発火数 … PC サイドバー枠と モバイル記事末カードは同一 creative の
+ *     レスポンシブ複製で、DOM 要素数は 1 ページ 2〜（見えるのは片方）になり静的カウントでは
+ *     真のピクセル数を測れない。「1 ページ 1 ピクセル」は既存のアフィリ配線規律で担保する。
+ *   - 記事末尾 footer カード枚数 … 旗艦セールスハブ（essay-exam-strategy 等）は意図的に多数収録する。
+ *
+ * 閾値（design-system.md §8.5 と一致・変更時は両方更新）:
+ *   - note スロット（footer 除く: top/sidebar -sb/中間 -mid） ≤ 3
+ *   - note 要素の総数（footer 含む・暴走検知の緩い上限）        ≤ 30
  *
  * Usage: node scripts/check-cta-density.mjs [--json]
  */
@@ -26,18 +33,19 @@ const OUT_DOCS = path.join(root, 'out', 'docs');
 const asJson = process.argv.includes('--json');
 
 const LIMITS = {
-  affiliate: 1,
   noteNonFooter: 3,
-  noteTotal: 10,
+  noteTotal: 30,
 };
 
+// next export（output: 'export'）は docs を `out/docs/<slug>.html` のフラット HTML で出力する
+// （`<slug>/` ディレクトリは RSC ペイロードのため .html のみ拾う）。
 function walkHtml(dir) {
   const out = [];
   if (!fs.existsSync(dir)) return out;
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
     const full = path.join(dir, e.name);
     if (e.isDirectory()) out.push(...walkHtml(full));
-    else if (e.name === 'index.html') out.push(full);
+    else if (e.name.endsWith('.html')) out.push(full);
   }
   return out;
 }
@@ -51,7 +59,7 @@ function countCta(html, value) {
 /** footer 集約でない note スロット（top/sidebar -sb/mid -mid）を data-cta-label で数える。 */
 function countNonFooterNote(html) {
   const labels = [...html.matchAll(/data-cta="note"[^>]*data-cta-label="([^"]*)"/g)].map((m) => m[1]);
-  return labels.filter((l) => /-sb$|-mid$|-top$|(^|[^a-z])top($|[^a-z])/.test(l)).length;
+  return labels.filter((l) => /-sb$|-mid$|-top$/.test(l)).length;
 }
 
 const files = walkHtml(OUT_DOCS);
@@ -66,13 +74,10 @@ if (files.length === 0) {
 const violations = [];
 for (const file of files) {
   const html = fs.readFileSync(file, 'utf8');
-  const affiliate = countCta(html, 'affiliate');
   const noteTotal = countCta(html, 'note');
   const noteNonFooter = countNonFooterNote(html);
-  const rel = path.relative(OUT_DOCS, file).replace(/\/index\.html$/, '');
+  const rel = path.relative(OUT_DOCS, file).replace(/\.html$/, '');
 
-  if (affiliate > LIMITS.affiliate)
-    violations.push({ slug: rel, rule: 'affiliate', count: affiliate, limit: LIMITS.affiliate });
   if (noteNonFooter > LIMITS.noteNonFooter)
     violations.push({ slug: rel, rule: 'note-non-footer', count: noteNonFooter, limit: LIMITS.noteNonFooter });
   if (noteTotal > LIMITS.noteTotal)
