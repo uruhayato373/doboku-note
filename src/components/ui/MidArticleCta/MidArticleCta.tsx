@@ -1,13 +1,15 @@
 import type { DocMeta } from '@/lib/docs';
 import MagazineInlineCard from '@/components/ui/MagazineInlineCard/MagazineInlineCard';
 import RelatedArticleCard from '@/components/ui/RelatedArticles/RelatedArticleCard';
+import { AFFILIATE_LINK_REL, AffiliatePrBadge } from '@/components/ui/AffiliateParts';
 
 /**
  * MidArticleCta — 長文記事の中間 h2 境界に 1 個だけ挿入する文脈連動 CTA。
  * rehype-mid-cta が置いた <midslot> を page.tsx の components マップで解決する。
  *
- * 2 モード（page.tsx 側で択一決定・props で渡す）:
+ * 3 モード（page.tsx 側で択一決定・props で渡す）:
  *  - note モード: MagazineInlineCard（横長・本文中用）。utmContent は -mid 済み。
+ *  - career モード: 転職アフィリのテキスト CTA（career 記事のみ・PR 表記＋href のみ）。
  *  - related モード: RelatedArticleCard（OGP サムネ）1 枚に「この続きに読みたい」見出し。
  */
 type MidArticleCtaProps =
@@ -18,6 +20,12 @@ type MidArticleCtaProps =
       readonly description: string;
       readonly magazineId: string;
       readonly badge: string;
+      readonly trackLabel: string;
+    }
+  | {
+      readonly mode: 'career';
+      readonly href: string;
+      readonly text: string;
       readonly trackLabel: string;
     }
   | {
@@ -36,6 +44,26 @@ export default function MidArticleCta(props: MidArticleCtaProps) {
         badge={props.badge}
         trackLabel={props.trackLabel}
       />
+    );
+  }
+  if (props.mode === 'career') {
+    // 転職アフィリのテキスト CTA（career 記事の本文中間・href のみ＝計測はサイドバー1発火）。
+    // 景表法: PR 表記・rel="nofollow sponsored"・表示文言は A8 公式テキスト（¥表記なし）。
+    return (
+      <div className="not-prose my-8 max-w-2xl rounded-card-content border border-[var(--rule-soft)] bg-[var(--accent-fill)] px-4 py-3.5">
+        <AffiliatePrBadge className="mb-1.5" />
+        <a
+          href={props.href}
+          target="_blank"
+          rel={AFFILIATE_LINK_REL}
+          data-cta="affiliate"
+          data-cta-label={props.trackLabel}
+          className="group inline-flex items-center gap-1 text-[14px] sm:text-[15px] font-bold text-[var(--accent)] hover:underline"
+        >
+          {props.text}
+          <span aria-hidden className="transition-transform group-hover:translate-x-0.5">›</span>
+        </a>
+      </div>
     );
   }
   return (
