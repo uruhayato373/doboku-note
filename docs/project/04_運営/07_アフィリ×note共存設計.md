@@ -182,7 +182,7 @@ note 側は utm_content がスロット位置を既に符号化しているた�
 対象: `src/app/docs/[...slug]/page.tsx`
 
 1. `SAT_SIDEBAR_AD` 定数とその描画ブロック（`category === 'pe-comprehensive-management' && (keyword|guide|pastExam) && !sidebarHasPaidMagazine` の `SidebarAdBanner`）を削除。
-2. 既存の keyword 限定 `/links` フォールバックバナー（`MagazineSidebarCard href="/links"`）の条件を
+2. 既存の keyword 限定 `/links` フォールバックバナー（現 `LinksHubTile`・旧 `MagazineSidebarCard href="/links"`、2026-07 に画像レスタイル化）の条件を
    `docGroup === 'keyword'` から `(docGroup === 'keyword' || docGroup === 'guide' || docGroup === 'pastExam')` に拡張。
    `sidebarMagazines.length === 0` 条件は維持。trackLabel は `links-hub` のまま。
 3. ラベル変更: GKS `SidebarAdBanner trackLabel="GKS"` → `"GKS-sidebar"`、`CivilSatProductCTA` の

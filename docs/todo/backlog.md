@@ -120,26 +120,26 @@
 ```
 Hero → ExamCards → LatestArticles → AboutSection
 ↓ ここから後付けのアドホックセクション
-[note 有料教材]  MagazineSidebarCard（サイドバー用コンポーネント）を max-w-sm 左寄せで配置
+[note 有料教材]  LinksHubTile（/links への画像レス内部リンクタイル・2026-07 に MagazineSidebarCard から置換）を max-w-sm 左寄せで配置
 [アフィリエイト] SchoolAffiliate をそのまま max-w-3xl に配置
 [参考書籍]       BookSection "総監受験の参考書籍"（トップなのに総監限定タイトル）+ BookCard
 ↓ Footer
 ```
 
-1. **`MagazineSidebarCard` をメインカラムに使っている** — サイドバー用コンポーネントが本文幅に配置されて `max-w-sm` 左寄せになり、前後のフル幅セクションと不整合
+1. ~~**`MagazineSidebarCard` をメインカラムに使っている**~~ → **✅ 2026-07 解消**（`LinksHubTile`＝画像レス内部リンクタイルに置換。旧 `MagazineSidebarCard`/焼き込み画像は退役）。残るは下記「やりたいこと」の3セクション統合デザインのみ
 2. **セクションヘッダーのスタイルがバラバラ** — "Premium" ラベル（`font-mono text-[10px]`）が他セクション（Hero・ExamCards 等）の見出し設計と異なる
 3. **参考書籍のタイトルが資格固定** — "総監受験の参考書籍" はトップページ（全資格横断）のコンテキストに不適
 4. ~~**`BookCard` は休止中** — アフィリエイト審査未通過なのに表示されている~~ → **✅ 2026-06-20 解消**（`AFFILIATE_LINKS_ENABLED=false` で homepage 含め参考書籍枠は非表示済。残るは下記「やりたいこと」のデザイン統合のみ）
 
 **やりたいこと**:
 1. 3セクションをまとめて **1つの "教材・リソース" セクション**に統合し、サイトの他セクションと同じデザインシステム（デザイントークン・余白・見出し階層）で設計し直す
-2. `MagazineSidebarCard` → トップページ用の **横幅フルの CTA カード**（`MagazineFeatureCard` 等・新規 or 既存コンポーネント流用）に置き換え
+2. ~~`MagazineSidebarCard` → 横幅フルの CTA カードに置き換え~~ → 現状 `LinksHubTile`（画像レス）。フル幅 Feature 版にするかは3セクション統合時に判断
 3. `BookCard` はアフィリエイト審査通過まで非表示（「BookCard 休止対応」バックログと同時対応）
 4. スクールアフィリエイト（`SchoolAffiliate`）も同セクション内に統合して視覚的なまとまりを作る
 
 **実装ファイル**:
 - `src/app/page.tsx`（L142-172 を再設計）
-- `src/components/ui/MagazineSidebarCard/`（または新規 Feature 版コンポーネント）
+- `src/components/ui/LinksHubTile/`（または新規 Feature 版コンポーネント）
 
 **備考**: デザイン反復は develop/ローカル(:3020)で実施し、ユーザーが確認してから develop push（毎回本番 deploy しない）。
 
@@ -262,7 +262,7 @@ Hero → ExamCards → LatestArticles → AboutSection
 - 🟡 **科目パック¥4,980（道路 LAUNCHED・他2は同レシピ）**：
   - ✅ **道路パック 完全開通（2026-07-02）**：note LIVE＝`建設部門2次｜道路まるごと合格パック` **mebca45bcc745**・¥4,980・35記事（API実査済）・HTTP 200（PR #336 で noteUrl 記録）。**site も開通**＝cover(1280×670)/sidebar(300×250) satori 生成・published:true・CATEGORY_MAGAZINES[pe-construction] 先頭配線（PR #337）。／docs 側も本番反映済（PR #337 origin/main 入り確認）。
   - 確立レシピ（他パックも同じ）: 掲載文dir作成 → `note-magazine-create --dir <dir> --commit`（有料単体・¥4,980）→ `note-magazine-add-articles --target <key> --from <BK-I key>,<科目 key> --commit`（記事再収録・API自動差分）→ API実査。**入れ子不可問題は再収録モデルで解消済（完全パック precedent）**。
-  - ⏳ **残**：①トンネル・都市計画パック — **掲載文は作成済（commit e8d76dfdf・PACK-02/PACK-03 dir）だがマガジン実体は未作成**。再開＝`note-magazine-create --dir <PACK-02|03> --commit` → `note-magazine-add-articles --target <新key> --from m0f3bc3933454,<トンネルm5da4b560d8be|都市mc8bd949f1f51> --commit`（各29記事）→ cover/sidebar def追加生成 → note-magazines.ts published:true+noteUrl+sidebarImageUrl → CATEGORY配線。②道路パックの finer placement（道路secondary/keywordページ・任意）。
+  - ⏳ **残**：①トンネル・都市計画パック — **掲載文は作成済（commit e8d76dfdf・PACK-02/PACK-03 dir）だがマガジン実体は未作成**。再開＝`note-magazine-create --dir <PACK-02|03> --commit` → `note-magazine-add-articles --target <新key> --from m0f3bc3933454,<トンネルm5da4b560d8be|都市mc8bd949f1f51> --commit`（各29記事）→ note ヘッダー `_cover.png` 生成（`generate-magazine-covers.mjs`・サイト表示用画像は不要＝CTA は exam-brand の cta-bg でデータ駆動）→ note-magazines.ts published:true+noteUrl → CATEGORY_MAGAZINES は廃止済のため配線不要（hub CTA は resolveHubCta のもくじ集約）。②道路パックの finer placement（道路secondary/keywordページ・任意）。
 - **一次→二次 季節CTA切替**（試験後）：1級土木 guide-strategy（271人・CTA変換0.4%）を二次・経験記述向けへ（当方コード・7/5一次後）。
 - **建設→総監ブリッジ記事**（試験後）：建設合格者≒総監来季見込み客。無料記事1本を建設もくじ＋L1へ。総監→建設は張らない。
 - ✅ **建設SSOT価格を実勢へ是正**（PR #333）：計画値（BK-I¥2,480/道路¥3,980/標準¥3,480）と実勢（¥3,480/¥3,480/¥2,980）の逆方向乖離を、ユーザー確認（実勢が正）の上で全面是正。
