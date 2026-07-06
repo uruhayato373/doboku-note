@@ -90,7 +90,9 @@ export default async function CategoryPage({
   // note CTA（資格別リッチ背景×HTML文字）。幅広面はもくじへ集約、直前期は特定商品へ直リンク。
   // 本文・PC サイドバー・モバイルの 3 面に同一内容を出し、utm で面分離する（旧 上位3誌直リンクを廃止し
   // 「もくじ集約」に一本化・2026-07）。HUB 非対応資格（concrete/一次）は null → 非表示。
-  const hubCta = resolveHubCta(slug);
+  // note もくじ CTA は面ごとに 1 つずつ（重複回避）: PC=右サイドバー（hubCtaSidebar）／モバイル=最下部
+  // （hubCtaMobile）。本文フロー内には置かない（カテゴリ hub は回遊が主タスクで、記事一覧の手前に販売
+  // タイルを割り込ませない・2026-07-06。旧 hubCta 本文 CTA は撤去）。utm で面分離。
   const hubCtaSidebar = resolveHubCta(slug, { utmSuffix: 'sb' });
   const hubCtaMobile = resolveHubCta(slug, { utmSuffix: 'mob' });
   // モバイル本文中の visible バナー（pixelSrc を渡さない＝PC サイドバー側が唯一の発火源）。
@@ -138,14 +140,6 @@ export default async function CategoryPage({
           {popularDocs.length > 0 && (
             <div className="mb-16">
               <PopularShowcase items={popularDocs.slice(0, 3)} />
-            </div>
-          )}
-          {/* カテゴリ hub の note CTA（資格別リッチ背景×HTML文字）。マガジン多数のため幅広面は
-              「もくじ(L2索引)」へ集約し、直前期のみ売れ筋の特定商品へ直リンク（resolveHubCta が分岐）。
-              背景は資格ごと1枚を使い回し、文言/価格はデータ駆動。クリックは data-cta="note" で計測。 */}
-          {hubCta && (
-            <div className="mb-16">
-              <HubCtaBanner cta={hubCta} />
             </div>
           )}
           {docs.length === 0 ? (
@@ -207,11 +201,11 @@ export default async function CategoryPage({
                 ))}
                 {/* 運営者プロフィール（合格体験者＝発注者）。転職枠の直下に置き E-E-A-T を提示（2026-06-26）。 */}
                 <AuthorSidebarCard />
+                {/* note もくじ CTA（PC はこのサイドバーが唯一の note 面）。著者カード直下に繰り上げて視認性を
+                    確保（旧: 人気記事の下＝最下部で埋もれていた。本文 CTA 撤去に合わせ 2026-07-06 移動）。utm -sb。 */}
+                {hubCtaSidebar && <HubCtaBanner cta={hubCtaSidebar} />}
                 {/* 人気記事ランキング（GA4 上位 top5・直近 28 日）。データ無しなら描画されない。 */}
                 <PopularRanking items={popularDocs} />
-                {/* note もくじ CTA（資格別リッチ背景×HTML文字）。回遊導線（人気記事）の下、
-                    スクロール下部に配置して訴求する。本文 CTA と同一内容・utm -sb で面分離。 */}
-                {hubCtaSidebar && <HubCtaBanner cta={hubCtaSidebar} />}
               </div>
             </aside>
         </div>
