@@ -1,7 +1,10 @@
 ---
 notePricing: free
-noteStatus: draft
+noteStatus: published
 utmCampaign: civil-career-white-company
+notePublishedAt: "2026-07-06"
+noteId: "ne7284dacf78b"
+noteUrl: "https://note.com/dobokunote/n/ne7284dacf78b"
 coverTitle: ["ホワイトな建設会社の", "見分け方"]
 cover:
   leadIn: "残業・休日・離職率で見抜く"

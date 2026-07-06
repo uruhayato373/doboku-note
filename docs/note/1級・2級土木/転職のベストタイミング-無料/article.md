@@ -1,7 +1,10 @@
 ---
 notePricing: free
-noteStatus: draft
+noteStatus: published
 utmCampaign: civil-career-timing
+notePublishedAt: "2026-07-06"
+noteId: "n401905648243"
+noteUrl: "https://note.com/dobokunote/n/n401905648243"
 coverTitle: ["施工管理の転職は", "いつ動くべきか"]
 cover:
   leadIn: "在職中に無理なく進める"
