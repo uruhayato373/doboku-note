@@ -31,7 +31,7 @@
  *   4.5 目次ブロック再挿入（H2>=3・最初のh2直前・--no-toc で抑止）。全文置換で目次が消えるため note-publish と同手順で再挿入。
  *   5. ライブ反映:
  *        --commit なし = dry-run（スクショのみ・更新しない）
- *        --commit あり = 公開に進む →（有料記事なら有料境界保持/再設定）→ 更新する → 更新通知は必ず「いいえ」
+ *        --commit あり = （title あれば差替）→ 公開に進む →（有料なら境界保持/再設定）→ 更新する → 通知「いいえ」
  *        --pause あり = 本文差替＋カード化＋目次まで自動 → 反映直前で停止。タイトル変更と「更新する」確定を
  *                       手動で行う（ブラウザ close で終了）。無料記事＋タイトル変更が要るケース（もくじ）向け。
  *        ※ 無料記事の --commit 自動確定は publishLive の「更新する」ボタン検出が未検証（既知の残課題）→ --pause 推奨。
@@ -40,7 +40,7 @@
  *   公開済み記事の autosave 下書きは browser close で破棄され、再オープンで公開版がロードされる。
  *   ＝ライブには一切反映されない。同一セッション内で「更新する」まで到達して初めて反映される。
  *
- * 注意: カバー画像・タイトル・タグは変更しない。本文のみ差し替え。
+ * 注意: カバー画像・タグは変更しない。タイトルは frontmatter に title があれば差し替える（--no-title で抑止）。
  * 実行はローカル（note ログイン済みプロファイルのある Windows/Mac）限定。会社 PC で可（channel:'chrome'）。
  * ---------------------------------------------------------------------------
  */
@@ -391,6 +391,23 @@ async function updateArticle(page, { abs, noteId, title, body }, probe) {
   if (!argv.includes('--no-toc') && h2count >= 3) {
     const tocStatus = await insertTocBlock(page, noteId);
     if (tocStatus === 'misplaced') tocProblems.push(noteId);
+  }
+
+  // 4.7 タイトル変更（frontmatter に title があるとき）。edit 画面のタイトル textarea を差し替える。
+  //     もくじの便益タイトル刷新など、本文と同時にタイトルも変えたいケース用。--no-title で抑止。
+  if (title && !argv.includes('--no-title')) {
+    try {
+      const titleSel = 'textarea[placeholder*="タイトル"]';
+      const tl = page.locator(titleSel).first();
+      if (await tl.count()) {
+        await tl.click(); await sleep(300);
+        await tl.fill(title); await sleep(700);
+        const cur = (await tl.inputValue().catch(() => '')) || '';
+        console.log(`[4.7] title set: ${cur.trim() === title.trim() ? 'OK' : 'MISMATCH cur="' + cur + '"'}`);
+      } else {
+        console.log('[4.7] title textarea 未検出（タイトル変更スキップ・本文のみ更新）');
+      }
+    } catch (e) { console.log('[4.7] title set skip:', e.message.split('\n')[0]); }
   }
 
   // 5. 手動確定（--pause）: 本文差替まで済ませ、タイトル変更＋更新確定はユーザーに委ねる。
