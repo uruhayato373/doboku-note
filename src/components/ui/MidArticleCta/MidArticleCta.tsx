@@ -16,7 +16,7 @@ type MidArticleCtaProps =
       readonly url: string;
       readonly title: string;
       readonly description: string;
-      readonly imageUrl: string;
+      readonly magazineId: string;
       readonly badge: string;
       readonly trackLabel: string;
     }
@@ -32,7 +32,7 @@ export default function MidArticleCta(props: MidArticleCtaProps) {
         url={props.url}
         title={props.title}
         description={props.description}
-        imageUrl={props.imageUrl}
+        magazineId={props.magazineId}
         badge={props.badge}
         trackLabel={props.trackLabel}
       />

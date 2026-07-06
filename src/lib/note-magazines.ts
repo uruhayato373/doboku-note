@@ -25,29 +25,27 @@ export interface NoteMagazine {
   readonly landingUrl?: string;
   readonly title: string;
   readonly description: string;
-  /** sidebar 用の短縮タイトル (省略時は title を使用) */
+  /** CTA タイル用の短縮タイトル (省略時は title を使用) */
   readonly shortTitle?: string;
-  /** sidebar 用の短縮説明 (省略時は description を使用) */
+  /** サイドバー/インライン CTA 用の短縮説明 (省略時は description を使用) */
   readonly shortDescription?: string;
-  readonly imageUrl: string;
-  /**
-   * sidebar 用の 300×250 バナー画像 (IAB レクタングル中)。
-   * サイドバーは画像オンリー表示のため、文言・価格はこの画像内に焼き込む。
-   * 省略時はサイドバーに画像カードを出さない。
-   */
-  readonly sidebarImageUrl?: string;
   readonly price?: string;
   readonly badge: string;
 }
+// 注: 画像（imageUrl / sidebarImageUrl）は 2026-07 に廃止。CTA タイルは資格別ブランド背景
+//     （exam-brand.ts の cta-bg イラスト）＋ HTML 文字でデータ駆動する（マガジン追加時の画像生成が不要）。
 
 /**
  * 命名規約 (id):
  * - tankan-reading-guide: 5管理 精読ガイド (既公開、価格非表示)
  * - essay-{persona}-magazine: 模範論文 ペルソナ別 5年分マガジン (公開準備中)
  *
- * 新マガジン追加時の配線チェックリスト（capability ドリフト再発防止・2026-07-01）:
+ * 新マガジン追加時の配線チェックリスト（capability ドリフト再発防止・2026-07-01 / 画像廃止 2026-07-06）:
  *   本エントリ追加だけでは依存する実行系に配線されない。新マガジンを足したら:
- *   1. カバー画像: scripts/generate-magazine-covers.mjs / generate-magazine-sidebar-banners.mjs に定義追加
+ *   1. サイト表示用の画像は不要（CTA タイルは exam-brand.ts の資格別 cta-bg 背景＋ HTML 文字で
+ *      データ駆動）。examKeyOf が id 接頭辞から資格を推定できることだけ確認（新接頭辞なら
+ *      exam-brand.ts に追記）。※note 公開時のマガジンヘッダー _cover.png は別工程で
+ *      generate-magazine-covers.mjs が生成（note-magazine-cover.mjs がアップロード）。
  *   2. 売上記録: .claude/agents/sales-recorder.md の productId マッピング表に追加
  *   3. keiken 系（施工経験記述）なら: scripts/keiken-charcount.mjs の探索フィルタに dir 判別語を追加
  *      （check-magazine-wiring.mjs が pre-commit で漏れを機械検知する）
@@ -65,8 +63,6 @@ const MAGAZINES_RAW = {
     shortTitle: '5管理 精読ガイド',
     shortDescription:
       '5管理ごとの頻出論点と引っかけパターンを体系化。約7万字、doboku-note 解説への直リンク付き。',
-    imageUrl: '/images/magazines/tankan-magazine-cover.webp',
-    sidebarImageUrl: '/images/magazines/tankan-sidebar.webp',
     badge: 'note 限定 教材',
   },
 
@@ -80,8 +76,6 @@ const MAGAZINES_RAW = {
     shortTitle: '模範論文｜河川コンサル',
     shortDescription:
       'R03〜R07 過去問 5記事セット。河川・砂防部門 部長（調査設計者）視点で 3,000 字フル論文。',
-    imageUrl: '/images/magazines/essay-river-consultant-cover.webp',
-    sidebarImageUrl: '/images/magazines/essay-river-consultant-sidebar.webp',
     price: '¥2,480（5本セット）',
     badge: 'note 限定',
   },
@@ -96,8 +90,6 @@ const MAGAZINES_RAW = {
     shortTitle: '模範論文｜ゼネコン',
     shortDescription:
       'R03〜R07 過去問 5記事セット。ゼネコン土木部門（施工者）視点、安全 × 経済性 × 人的資源 が主軸。',
-    imageUrl: '/images/magazines/essay-general-contractor-cover.webp',
-    sidebarImageUrl: '/images/magazines/essay-general-contractor-sidebar.webp',
     price: '¥2,480（5本セット）',
     badge: 'note 限定',
   },
@@ -112,8 +104,6 @@ const MAGAZINES_RAW = {
     shortTitle: '模範論文｜自治体 道路担当 R3-R7',
     shortDescription:
       'R03〜R07 過去問（全 A/B 2 案）＋ R8予想問題集デモ 1 本 = 計 6 記事。試験対策決定版。',
-    imageUrl: '/images/magazines/essay-road-municipality-cover.webp',
-    sidebarImageUrl: '/images/magazines/essay-road-municipality-sidebar.webp',
     price: '¥2,480（6本セット、単品比17%OFF）',
     badge: 'note 限定',
   },
@@ -128,8 +118,6 @@ const MAGAZINES_RAW = {
     shortTitle: '模範論文｜自治体 契約・調達担当',
     shortDescription:
       'R03〜R07 過去問（全 A/B 2 案）+ R8予想2記事 = 計 7 記事。調達・契約視点の決定版。',
-    imageUrl: '/images/magazines/essay-procurement-municipality-cover.webp',
-    sidebarImageUrl: '/images/magazines/essay-procurement-municipality-cover.webp',
     price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
@@ -144,8 +132,6 @@ const MAGAZINES_RAW = {
     shortTitle: '模範論文｜自治体 技術基準担当',
     shortDescription:
       'R03〜R07 過去問（全 A/B 2 案）+ R8予想2記事 = 計 7 記事。情報管理・標準化視点の決定版。',
-    imageUrl: '/images/magazines/essay-standards-municipality-cover.webp',
-    sidebarImageUrl: '/images/magazines/essay-standards-municipality-cover.webp',
     price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
@@ -160,8 +146,6 @@ const MAGAZINES_RAW = {
     shortTitle: '模範論文｜自治体河川担当',
     shortDescription:
       'R03〜R07 + R8予想2記事 = 計7記事。維持管理版/河川改修版の A案/B案＋印刷用PDF付き。',
-    imageUrl: '/images/magazines/essay-river-municipality-cover.webp',
-    sidebarImageUrl: '/images/magazines/essay-river-municipality-sidebar.webp',
     price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
@@ -175,8 +159,6 @@ const MAGAZINES_RAW = {
     shortTitle: '模範論文｜自治体都市計画担当',
     shortDescription:
       'R03〜R07 + R8予想2記事 = 計7記事。立地適正化計画版/再開発事業版の A案/B案＋印刷用PDF付き。',
-    imageUrl: '/images/magazines/essay-urban-municipality-cover.webp',
-    sidebarImageUrl: '/images/magazines/essay-urban-municipality-sidebar.webp',
     price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
@@ -189,8 +171,6 @@ const MAGAZINES_RAW = {
     shortTitle: '模範論文｜自治体下水道担当',
     description:
       'R03〜R07 過去問（老朽管路更新版/浸水対策雨水幹線整備版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応・浸水対策／資源循環・下水汚泥資源化、各 A案/B案）の計 7 記事。下水道担当（発注者）視点、5 管理間トレードオフが主軸。各記事に印刷用PDF付き。',
-    imageUrl: '/images/magazines/essay-sewage-municipality-cover.webp',
-    sidebarImageUrl: '/images/magazines/essay-sewage-municipality-sidebar.webp',
     price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
@@ -202,8 +182,6 @@ const MAGAZINES_RAW = {
     shortTitle: '模範論文｜自治体砂防担当',
     description:
       'R03〜R07 過去問（砂防施設維持管理版/砂防堰堤新設・急傾斜地対策版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応・砂防施設リスク管理／資源循環・サプライチェーン強靭化、各 A案/B案）の計 7 記事。砂防担当（発注者）視点、土砂災害リスク管理・流域管理・5 管理間トレードオフが主軸。各記事に印刷用PDF付き。',
-    imageUrl: '/images/magazines/essay-sabo-municipality-cover.webp',
-    sidebarImageUrl: '/images/magazines/essay-sabo-municipality-sidebar.webp',
     price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
@@ -215,8 +193,6 @@ const MAGAZINES_RAW = {
     shortTitle: '模範論文｜自治体港湾担当',
     description:
       'R03〜R07 過去問（港湾施設維持管理版/岸壁改良・水深増深版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応・グリーン港湾／資源循環・サプライチェーン強靭化、各 A案/B案）の計 7 記事。港湾担当（発注者）視点、物流機能維持・CNポート・5 管理間トレードオフが主軸。各記事に印刷用PDF付き。',
-    imageUrl: '/images/magazines/essay-port-municipality-cover.webp',
-    sidebarImageUrl: '/images/magazines/essay-port-municipality-sidebar.webp',
     price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
@@ -228,8 +204,6 @@ const MAGAZINES_RAW = {
     shortTitle: '模範論文｜自治体公園緑地担当',
     description:
       'R03〜R07 過去問（公園施設維持管理・老朽遊具更新版/防災公園新設・グリーンインフラ整備版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応×グリーンインフラ防災公園／資源循環×公園施設の更新管理、各 A案/B案）の計 7 記事。公園緑地担当（発注者）視点、5 管理間トレードオフが主軸。各記事に印刷用PDF付き。',
-    imageUrl: '/images/magazines/essay-park-municipality-cover.webp',
-    sidebarImageUrl: '/images/magazines/essay-park-municipality-sidebar.webp',
     price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
@@ -241,8 +215,6 @@ const MAGAZINES_RAW = {
     shortTitle: '模範論文｜自治体上水道担当',
     description:
       'R03〜R07 過去問（老朽管路更新版/浄水場改修・高度浄水処理導入版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応・強靭化／資源循環・サプライチェーン強靭化、各 A案/B案）の計 7 記事。上水道担当（発注者）視点、5 管理間トレードオフが主軸。各記事に印刷用PDF付き。',
-    imageUrl: '/images/magazines/essay-water-municipality-cover.webp',
-    sidebarImageUrl: '/images/magazines/essay-water-municipality-sidebar.webp',
     price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
@@ -254,8 +226,6 @@ const MAGAZINES_RAW = {
     shortTitle: '模範論文｜道路橋梁コンサル',
     description:
       'R03〜R07 過去問（橋梁点検補修設計版/道路改良設計版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応・道路防災／資源循環・再生材活用設計、各 A案/B案）の計 7 記事。道路・橋梁設計コンサルタント（受注者・調査設計者）視点、5管理トレードオフが主軸。各記事に印刷用PDF付き。',
-    imageUrl: '/images/magazines/essay-road-consultant-cover.webp',
-    sidebarImageUrl: '/images/magazines/essay-road-consultant-sidebar.webp',
     price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
@@ -267,8 +237,6 @@ const MAGAZINES_RAW = {
     shortTitle: '模範論文｜都市計画コンサル',
     description:
       'R03〜R07 過去問（立地適正化計画策定支援版/市街地整備・再開発計画版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応・グリーンインフラ／資源循環・コンパクトシティ資材戦略、各 A案/B案）の計 7 記事。建設コンサル都市計画部門（受注者・調査設計者）視点、5管理トレードオフが主軸。各記事に印刷用PDF付き。',
-    imageUrl: '/images/magazines/essay-urban-consultant-cover.webp',
-    sidebarImageUrl: '/images/magazines/essay-urban-consultant-sidebar.webp',
     price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
@@ -292,8 +260,6 @@ const MAGAZINES_RAW = {
     shortTitle: 'R8 予想問題集',
     shortDescription:
       'R8の出る6テーマを分野不問の三層骨子＋3ペルソナ早見表で攻略。道路担当フル論文を実演収録。試験直前の最終予想。',
-    imageUrl: '/images/magazines/magazine-r8-essay-forecast-cover.webp',
-    sidebarImageUrl: '/images/magazines/magazine-r8-essay-forecast-sidebar.webp',
     price: '¥3,480（6テーマセット・各¥780、単品比26%OFF）',
     badge: 'note 限定',
   },
@@ -314,8 +280,6 @@ const MAGAZINES_RAW = {
     shortTitle: '設問3 国家施策バンク',
     shortDescription:
       '将来課題11テーマ × 国家施策68案（各約600字・答案1枚相当）。設問(3)専用の引き出し集。',
-    imageUrl: '/images/magazines/magazine-setsumon3-policy-bank-cover.webp',
-    sidebarImageUrl: '/images/magazines/magazine-setsumon3-policy-bank-sidebar.webp',
     price: '¥2,980',
     badge: 'note 限定',
   },
@@ -333,8 +297,6 @@ const MAGAZINES_RAW = {
     shortTitle: '5管理クロストレードオフ',
     shortDescription:
       '20セル全網羅・総監フレーム辞書・答案ひな型付き。序章無料＋有料5記事。',
-    imageUrl: '/images/magazines/magazine-tradeoff-5kanri-cover.webp',
-    sidebarImageUrl: '/images/magazines/magazine-tradeoff-5kanri-cover.webp',
     price: '¥1,980（5本セット、49%OFF）',
     badge: 'note 限定',
   },
@@ -355,8 +317,6 @@ const MAGAZINES_RAW = {
     shortTitle: '記述式 完全パック',
     shortDescription:
       '型×設問3×予想×全14ペルソナ模範論文＋精読の全部入り。記述式対策の決定版バンドル。',
-    imageUrl: '/images/magazines/magazine-essay-complete-pack-cover.webp',
-    sidebarImageUrl: '/images/magazines/magazine-essay-complete-pack-sidebar.webp',
     price: '¥9,800',
     badge: 'note 限定',
   },
@@ -377,8 +337,6 @@ const MAGAZINES_RAW = {
     shortTitle: '記述式 コアパック',
     shortDescription:
       '型×設問3×R8の横断3本セット。記述式エンジンを安く・全員に。ペルソナは別途1本追加。',
-    imageUrl: '/images/magazines/magazine-essay-core-pack-cover.webp',
-    sidebarImageUrl: '/images/magazines/magazine-essay-core-pack-sidebar.webp',
     price: '¥5,480（3本セット、31%OFF）',
     badge: 'note 限定',
   },
@@ -396,8 +354,6 @@ const MAGAZINES_RAW = {
     shortTitle: '2級土木 施工経験記述 完成答案集',
     shortDescription:
       '安全・品質・工程の3テーマ別 完成答案＋置換ガイド＋採点者視点。R6新形式対応。',
-    imageUrl: '/images/magazines/civil-2-experience-essay-cover.webp',
-    sidebarImageUrl: '/images/magazines/civil-2-experience-essay-sidebar.webp',
     price: '¥1,980（3本セット）',
     badge: 'note 限定',
   },
@@ -415,8 +371,6 @@ const MAGAZINES_RAW = {
     shortTitle: '1級土木 施工経験記述 完成答案集',
     shortDescription:
       '5管理別 完成答案（監理技術者レベル）＋置換ガイド＋採点者視点。R6新形式対応。',
-    imageUrl: '/images/magazines/civil-1-experience-essay-cover.webp',
-    sidebarImageUrl: '/images/magazines/civil-1-experience-essay-sidebar.webp',
     price: '¥2,480（5本セット）',
     badge: 'note 限定',
   },
@@ -433,8 +387,6 @@ const MAGAZINES_RAW = {
     shortTitle: '1級土木 施工経験記述 過去問模範答案集',
     shortDescription:
       'R03-R07 年度別×各年3工事 フル模範答案（実問題文再掲・監理技術者レベル）。R6新形式対応。',
-    imageUrl: '/images/magazines/civil-1-pastexam-essay-cover.webp',
-    sidebarImageUrl: '/images/magazines/civil-1-pastexam-essay-sidebar.webp',
     price: '¥2,480（5本セット）',
     badge: 'note 限定',
   },
@@ -451,8 +403,6 @@ const MAGAZINES_RAW = {
     shortTitle: '2級土木 施工経験記述 過去問模範答案集',
     shortDescription:
       'R03-R07 年度別×各年3工事 フル模範答案（実問題文再掲・主任技術者レベル）。選択制/R6新形式対応。',
-    imageUrl: '/images/magazines/civil-2-pastexam-essay-cover.webp',
-    sidebarImageUrl: '/images/magazines/civil-2-pastexam-essay-sidebar.webp',
     price: '¥2,480（5本セット）',
     badge: 'note 限定',
   },
@@ -474,8 +424,6 @@ const MAGAZINES_RAW = {
     shortTitle: '2級土木 施工経験記述 想定工事バンク',
     shortDescription:
       '工種を選んで5管理を書き分ける工事起点の完成答案集。8工種36工事フル・必出3管理＋保険2管理・R6新形式対応。',
-    imageUrl: '/images/magazines/civil-2-koji-bank-cover.webp',
-    sidebarImageUrl: '/images/magazines/civil-2-koji-bank-sidebar.webp',
     price: '¥5,480（36工種フル）',
     badge: 'note 限定',
   },
@@ -501,8 +449,6 @@ const MAGAZINES_RAW = {
     shortTitle: '1級土木 施工経験記述 2テーマ組合せ大全',
     shortDescription:
       '5管理の2テーマ全10組合せ × 想定工事①②③ フル模範答案。現行形式（R06+）を全網羅。',
-    imageUrl: '/images/magazines/civil-1-combo-essay-cover.webp',
-    sidebarImageUrl: '/images/magazines/civil-1-combo-essay-sidebar.webp',
     price: '¥3,480（10本セット、42%OFF）',
     badge: 'note 限定',
   },
@@ -528,10 +474,6 @@ const MAGAZINES_RAW = {
     shortTitle: '1級土木 施工経験記述 完全攻略パック',
     shortDescription:
       '想定工事を選んで5管理を書き分ける工事起点の索引＋3マガジン全答案を統合。9工種網羅・R6新形式対応。',
-    imageUrl: '/images/magazines/civil-1-keiken-complete-pack-cover.webp',
-    // 画像オンリー描画（SidebarMagazineList＝カテゴリ hub・記事末尾）は sidebarImageUrl 必須。
-    // これが無いと published:true でも CTA が全箇所でスキップされる（2026-07-01 に付与）。
-    sidebarImageUrl: '/images/magazines/civil-1-keiken-complete-pack-sidebar.webp',
     price: '¥9,800（完全攻略パック）',
     badge: 'note 限定',
   },
@@ -562,8 +504,6 @@ const MAGAZINES_RAW = {
     shortTitle: '1級土木 二次学科記述 テーマ別出る順',
     shortDescription:
       '問題2〜11をテーマ別に横断再編。5年分の出題頻度＋出る順＋解答の型＋頻出語句。5本セット。',
-    imageUrl: '/images/magazines/civil-1-gakka-kijutsu-cover.webp',
-    sidebarImageUrl: '/images/magazines/civil-1-gakka-kijutsu-sidebar.webp',
     price: '¥2,480（5本セット）',
     badge: 'note 限定',
   },
@@ -579,8 +519,6 @@ const MAGAZINES_RAW = {
     shortTitle: '2級土木 二次学科記述 テーマ別出る順',
     shortDescription:
       '問題2〜9をテーマ別に横断再編。出題頻度＋出る順＋解答の型＋頻出語句。5本セット。',
-    imageUrl: '/images/magazines/civil-2-gakka-kijutsu-cover.webp',
-    sidebarImageUrl: '/images/magazines/civil-2-gakka-kijutsu-sidebar.webp',
     price: '¥1,980（5本セット）',
     badge: 'note 限定',
   },
@@ -596,8 +534,6 @@ const MAGAZINES_RAW = {
     shortTitle: '1級土木 学科記述 直前暗記ノート',
     shortDescription:
       '穴埋め頻出語句の一問一答150〜250問＋赤シート対応PDF。直前・スキマ詰め込み用。',
-    imageUrl: '/images/magazines/civil-1-anki-note-cover.webp',
-    sidebarImageUrl: '/images/magazines/civil-1-anki-note-sidebar.webp',
     price: '¥980',
     badge: 'note 限定',
   },
@@ -613,8 +549,6 @@ const MAGAZINES_RAW = {
     shortTitle: '2級土木 学科記述 直前暗記ノート',
     shortDescription:
       '穴埋め頻出語句の一問一答＋赤シート対応PDF。直前・スキマ詰め込み用の低価格エントリー。',
-    imageUrl: '/images/magazines/civil-2-anki-note-cover.webp',
-    sidebarImageUrl: '/images/magazines/civil-2-anki-note-sidebar.webp',
     price: '¥580',
     badge: 'note 限定',
   },
@@ -636,8 +570,6 @@ const MAGAZINES_RAW = {
     shortTitle: '1級土木 二次検定まるごとパック',
     shortDescription:
       '経験記述 完全攻略＋学科記述 出る順＋直前暗記ノートを統合した最上位買い切りパック。',
-    imageUrl: '/images/magazines/civil-1-niji-marugoto-pack-cover.webp',
-    sidebarImageUrl: '/images/magazines/civil-1-niji-marugoto-pack-sidebar.webp',
     price: '¥11,800（二次まるごと）',
     badge: 'note 限定',
   },
@@ -661,8 +593,6 @@ const MAGAZINES_RAW = {
     shortTitle: '土木セコカン合格ラボ（会員）',
     shortDescription:
       '月例の予想問題＋経験記述マンツーマン添削で合格まで伴走。通年／添削つきの2プラン。',
-    imageUrl: '/images/magazines/civil-membership-lab-cover.webp',
-    sidebarImageUrl: '/images/magazines/civil-membership-lab-sidebar.webp',
     price: '月額 ¥1,480〜（2プラン）',
     badge: 'メンバーシップ',
   },
@@ -680,8 +610,6 @@ const MAGAZINES_RAW = {
     shortTitle: 'コンクリート診断士 記述式 模範答案集',
     shortDescription:
       '問題A・問題Bのフル模範答案を劣化機構別に8本。変状把握→劣化機構推定→調査→評価→対策の型を反復。',
-    imageUrl: '/images/magazines/cd-essay-cover.webp',
-    sidebarImageUrl: '/images/magazines/cd-essay-magazine-sidebar.webp',
     price: '¥1,980（8本セット）',
     badge: 'note 限定 教材',
   },
@@ -700,8 +628,6 @@ const MAGAZINES_RAW = {
     shortTitle: 'コンクリート主任技師 小論文 模範答案集',
     shortDescription:
       '解法ガイド＋テーマ別フル模範小論文4本（耐久性・品質管理・環境配慮・施工トラブル）。序論・本論・結論の型と採点4観点で攻略。',
-    imageUrl: '/images/magazines/cce-essay-cover.webp',
-    sidebarImageUrl: '/images/magazines/cce-essay-magazine-sidebar.webp',
     price: '¥1,480（5本セット）',
     badge: 'note 限定 教材',
   },
@@ -718,8 +644,6 @@ const MAGAZINES_RAW = {
     shortTitle: '建設部門2次｜必須I 模範解答集',
     shortDescription:
       'R03〜R07＋R8予想6テーマ（各A/B案2バージョン）の全11記事。必須科目I を発注者視点でフル解答。',
-    imageUrl: '/images/magazines/pe-construction-bk-i-required-cover.webp',
-    sidebarImageUrl: '/images/magazines/pe-construction-required-magazine-sidebar.webp',
     price: '¥3,480（11記事セット・単品¥780、約59%OFF）',
     badge: 'note 限定',
   },
@@ -734,8 +658,6 @@ const MAGAZINES_RAW = {
     shortTitle: '建設部門2次｜道路 模範解答集',
     shortDescription:
       'R03〜R07＋R8予想 全24記事（予想は II-2・III を各4テーマ網羅）。道路科目 合格者＋発注者視点でフル解答。',
-    imageUrl: '/images/magazines/pe-construction-bk-01-road-cover.webp',
-    sidebarImageUrl: '/images/magazines/pe-construction-road-magazine-sidebar.webp',
     price: '¥3,480（24記事セット・単品¥780、約81%OFF）',
     badge: 'note 限定',
   },
@@ -749,8 +671,6 @@ const MAGAZINES_RAW = {
     shortTitle: '建設部門2次｜河川砂防 模範解答集',
     shortDescription:
       'R03〜R07＋R8予想の II-1/II-2/III 全18記事。河川・砂防・海岸を発注者視点でフル解答。',
-    imageUrl: '/images/magazines/pe-construction-bk-02-river-cover.webp',
-    sidebarImageUrl: '/images/magazines/pe-construction-river-coast-magazine-sidebar.webp',
     price: '¥2,980（18記事セット・単品¥780、約79%OFF）',
     badge: 'note 限定',
   },
@@ -764,8 +684,6 @@ const MAGAZINES_RAW = {
     shortTitle: '建設部門2次｜都市計画 模範解答集',
     shortDescription:
       'R03〜R07＋R8予想 の II-1/II-2/III 全18記事。都市計画・まちづくりを発注者視点でフル解答。',
-    imageUrl: '/images/magazines/pe-construction-bk-03-urban-cover.webp',
-    sidebarImageUrl: '/images/magazines/pe-construction-urban-planning-magazine-sidebar.webp',
     price: '¥2,980（18記事セット・単品¥780、約79%OFF）',
     badge: 'note 限定',
   },
@@ -778,8 +696,6 @@ const MAGAZINES_RAW = {
       '技術士第二次試験 建設部門「土質及び基礎」選択科目の令和3〜7年度を、II-1（全設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。元・地方自治体の土木職（発注者）として軟弱地盤・基礎工事の発注・監督・地盤調査審査に携わった視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。さらに令和8年度の出題傾向・改訂コンピテンシーから導出した予想問題＋フル模範解答（II-1/II-2/IIIの3記事）を加えた全18記事。各記事に印刷用PDF付き。',
     shortTitle: '建設部門2次｜土質基礎 模範解答集',
     shortDescription: 'R03〜R07＋R8予想 全18記事。土質・基礎を発注者視点でフル解答。',
-    imageUrl: '/images/magazines/pe-construction-bk-04-geotech-cover.webp',
-    sidebarImageUrl: '/images/magazines/pe-construction-geotechnical-magazine-sidebar.webp',
     price: '¥2,980（18記事セット・単品¥780、約79%OFF）',
     badge: 'note 限定',
   },
@@ -792,8 +708,6 @@ const MAGAZINES_RAW = {
       '技術士第二次試験 建設部門「鋼構造及びコンクリート」選択科目の令和3〜7年度を、II-1（全設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。元・地方自治体の土木職（発注者）として橋梁・コンクリート構造物工事の発注・監督・点検に携わった視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。さらに令和8年度の出題傾向・改訂コンピテンシーから導出した予想問題＋フル模範解答（3記事）を加えた全18記事。各記事に印刷用PDF付き。',
     shortTitle: '建設部門2次｜鋼コン 模範解答集',
     shortDescription: 'R03〜R07＋R8予想 全18記事。鋼構造・コンクリートを発注者視点でフル解答。',
-    imageUrl: '/images/magazines/pe-construction-bk-05-steel-cover.webp',
-    sidebarImageUrl: '/images/magazines/pe-construction-steel-concrete-magazine-sidebar.webp',
     price: '¥2,980（18記事セット・単品¥780、約79%OFF）',
     badge: 'note 限定',
   },
@@ -806,8 +720,6 @@ const MAGAZINES_RAW = {
       '技術士第二次試験 建設部門「施工計画、施工設備及び積算」選択科目の令和3〜7年度を、II-1（全設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。元・地方自治体の土木職（発注者）として施工計画・積算審査・施工監督に携わった視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。さらに令和8年度の出題傾向・改訂コンピテンシーから導出した予想問題＋フル模範解答（3記事）を加えた全18記事。各記事に印刷用PDF付き。',
     shortTitle: '建設部門2次｜施工計画 模範解答集',
     shortDescription: 'R03〜R07＋R8予想 全18記事。施工計画・積算を発注者視点でフル解答。',
-    imageUrl: '/images/magazines/pe-construction-bk-06-construction-cover.webp',
-    sidebarImageUrl: '/images/magazines/pe-construction-construction-planning-magazine-sidebar.webp',
     price: '¥2,980（18記事セット・単品¥780、約79%OFF）',
     badge: 'note 限定',
   },
@@ -820,8 +732,6 @@ const MAGAZINES_RAW = {
       '技術士第二次試験 建設部門「建設環境」選択科目の令和3〜7年度を、II-1（全設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。元・地方自治体の土木職（発注者）として環境影響評価の発注・審査・環境保全対策に携わった視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。さらに令和8年度の出題傾向・改訂コンピテンシーから導出した予想問題＋フル模範解答（3記事）を加えた全18記事。各記事に印刷用PDF付き。',
     shortTitle: '建設部門2次｜建設環境 模範解答集',
     shortDescription: 'R03〜R07＋R8予想 全18記事。建設環境を発注者視点でフル解答。',
-    imageUrl: '/images/magazines/pe-construction-bk-07-environment-cover.webp',
-    sidebarImageUrl: '/images/magazines/pe-construction-environment-magazine-sidebar.webp',
     price: '¥2,980（18記事セット・単品¥780、約79%OFF）',
     badge: 'note 限定',
   },
@@ -834,8 +744,6 @@ const MAGAZINES_RAW = {
       '技術士第二次試験 建設部門「港湾及び空港」選択科目の令和3〜7年度を、II-1（全設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。元・地方自治体の土木職（発注者）として港湾・海岸関連業務に携わった視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。さらに令和8年度の出題傾向・改訂コンピテンシーから導出した予想問題＋フル模範解答（3記事）を加えた全18記事。各記事に印刷用PDF付き。',
     shortTitle: '建設部門2次｜港湾空港 模範解答集',
     shortDescription: 'R03〜R07＋R8予想 全18記事。港湾・空港を発注者視点でフル解答。',
-    imageUrl: '/images/magazines/pe-construction-bk-08-port-cover.webp',
-    sidebarImageUrl: '/images/magazines/pe-construction-port-airport-magazine-sidebar.webp',
     price: '¥2,980（18記事セット・単品¥780、約79%OFF）',
     badge: 'note 限定',
   },
@@ -848,8 +756,6 @@ const MAGAZINES_RAW = {
       '技術士第二次試験 建設部門「電力土木」選択科目の令和3〜7年度を、II-1（全設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。元・地方自治体の土木職（発注者）として電力関連土木工事の調整・監督に携わった視点で、ダム・水路・発電所土木の各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。令和8年度の改訂コンピテンシーにも対応。各記事に印刷用PDF付き。',
     shortTitle: '建設部門2次｜電力土木 模範解答集',
     shortDescription: 'R03〜R07 全15記事。電力土木を発注者視点でフル解答。',
-    imageUrl: '/images/magazines/pe-construction-bk-09-power-cover.webp',
-    sidebarImageUrl: '/images/magazines/pe-construction-power-civil-magazine-sidebar.webp',
     price: '¥1,980（15記事セット・単品¥780、約83%OFF）',
     badge: 'note 限定',
   },
@@ -862,8 +768,6 @@ const MAGAZINES_RAW = {
       '技術士第二次試験 建設部門「鉄道」選択科目の令和3〜7年度を、II-1（全設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。元・地方自治体の土木職（発注者）として道路・鉄道交差部の協議や鉄道関連土木の発注・監督に携わった視点で、軌道・鉄道構造物の各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。令和8年度の改訂コンピテンシーにも対応。各記事に印刷用PDF付き。',
     shortTitle: '建設部門2次｜鉄道 模範解答集',
     shortDescription: 'R03〜R07 全15記事。鉄道を発注者視点でフル解答。',
-    imageUrl: '/images/magazines/pe-construction-bk-10-railway-cover.webp',
-    sidebarImageUrl: '/images/magazines/pe-construction-railway-magazine-sidebar.webp',
     price: '¥1,980（15記事セット・単品¥780、約83%OFF）',
     badge: 'note 限定',
   },
@@ -876,8 +780,6 @@ const MAGAZINES_RAW = {
       '技術士第二次試験 建設部門「トンネル」選択科目の令和3〜7年度を、II-1（全設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。元・地方自治体の土木職（発注者）としてトンネル工事の発注・施工監理に携わった視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。さらに令和8年度の出題傾向・改訂コンピテンシーから導出した予想問題＋フル模範解答（3記事）を加えた全18記事。各記事に印刷用PDF付き。',
     shortTitle: '建設部門2次｜トンネル 模範解答集',
     shortDescription: 'R03〜R07＋R8予想 全18記事。トンネルを発注者視点でフル解答。',
-    imageUrl: '/images/magazines/pe-construction-bk-11-tunnel-cover.webp',
-    sidebarImageUrl: '/images/magazines/pe-construction-tunnel-magazine-sidebar.webp',
     price: '¥2,980（18記事セット・単品¥780、約79%OFF）',
     badge: 'note 限定',
   },
@@ -896,8 +798,6 @@ const MAGAZINES_RAW = {
       '必須科目I 模範解答集（R03-R07＋R8予想・全11記事）と道路選択科目 模範解答集（R03-R07＋R8予想・全24記事）を束ねた合格パック。単品合計¥6,960が¥4,980。元・地方自治体の土木職（発注者）かつ道路科目合格者の視点で、本番で実際に解く「必須I＋道路」の組み合わせをそのまま収録。',
     shortTitle: '建設部門2次｜道路 合格パック',
     shortDescription: '必須I＋道路 全35記事。単品合計¥6,960が¥4,980（約28%OFF）。',
-    imageUrl: '/images/magazines/pe-construction-road-pack-cover.webp',
-    sidebarImageUrl: '/images/magazines/pe-construction-road-pack-sidebar.webp',
     price: '¥4,980（必須I＋道路 2マガジン・単品合計¥6,960、約28%OFF）',
     badge: 'note 限定 合格パック',
   },
@@ -910,7 +810,6 @@ const MAGAZINES_RAW = {
       '必須科目I 模範解答集（R03-R07＋R8予想・全11記事）とトンネル選択科目 模範解答集（R03-R07＋R8予想・全18記事）を束ねた合格パック。単品合計¥6,460が¥4,980。元・地方自治体の土木職（発注者）視点で、本番で実際に解く「必須I＋トンネル」の組み合わせをそのまま収録。',
     shortTitle: '建設部門2次｜トンネル 合格パック',
     shortDescription: '必須I＋トンネル 全29記事。単品合計¥6,460が¥4,980（約23%OFF）。',
-    imageUrl: '/images/magazines/pe-construction-tunnel-pack-cover.webp',
     price: '¥4,980（必須I＋トンネル 2マガジン・単品合計¥6,460、約23%OFF）',
     badge: 'note 限定 合格パック',
   },
@@ -923,7 +822,6 @@ const MAGAZINES_RAW = {
       '必須科目I 模範解答集（R03-R07＋R8予想・全11記事）と都市及び地方計画 選択科目 模範解答集（R03-R07＋R8予想・全18記事）を束ねた合格パック。単品合計¥6,460が¥4,980。元・地方自治体の土木職（発注者）かつ都市計画科目合格者の視点で、本番で実際に解く「必須I＋都市計画」の組み合わせをそのまま収録。',
     shortTitle: '建設部門2次｜都市計画 合格パック',
     shortDescription: '必須I＋都市計画 全29記事。単品合計¥6,460が¥4,980（約23%OFF）。',
-    imageUrl: '/images/magazines/pe-construction-urban-planning-pack-cover.webp',
     price: '¥4,980（必須I＋都市計画 2マガジン・単品合計¥6,460、約23%OFF）',
     badge: 'note 限定 合格パック',
   },

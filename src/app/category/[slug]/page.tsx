@@ -16,11 +16,8 @@ import {
   PeComprehensiveView,
   PeConstructionView,
 } from '@/components/category/CategoryViews';
-import SidebarMagazineList from '@/components/ui/SidebarMagazineList';
 import HubCtaBanner from '@/components/ui/HubCtaBanner/HubCtaBanner';
 import AuthorSidebarCard from '@/components/ui/AuthorSidebarCard';
-import { resolveCategoryMagazines } from '@/lib/magazine-placement';
-import { getMagazine } from '@/lib/note-magazines';
 import { resolveHubCta } from '@/lib/hub-cta';
 import SidebarAdBanner from '@/components/ui/SidebarAdBanner';
 import { resolveCategoryCareerAds } from '@/config/affiliate-creatives';
@@ -84,23 +81,20 @@ export default async function CategoryPage({
   // 計測実績のある記事のみ・データ未生成や該当なしは空配列＝各コンポーネントで graceful 非表示。
   const popularDocs = getPopularDocs(docs, 5);
 
-  // note 有料マガジン CTA（カテゴリ hub 用・文脈一致）。公開済みのみ残す（防御的）。
-  const categoryMagazines = resolveCategoryMagazines(slug)
-    .map((s) => ({ slot: s, magazine: getMagazine(s.magazineId) }))
-    .filter((x): x is { slot: typeof x.slot; magazine: NonNullable<typeof x.magazine> } => Boolean(x.magazine));
-
   // 転職アフィリ（資格別セグメント）。カテゴリ hub は **両方表示（show-both）**: civil/建設部門は
   // 建設JOBs（登録 ¥4,500）＋ビルドジョブ（面談 ¥50,000）の補完 2 案件を出し、読者に選ばせる。
   // PC は右サイドバーに縦積み、モバイルは記事カードの隙間（グループ境界）に配置して可視化する。
   // ピクセルは PC サイドバー側のみ発火（モバイルは href のみ）＝各プログラム 1 ピクセルずつ。
   // 戻り値 []＝転職枠なし（concrete / pe-first-stage は単一カラム）。記事ページは別途 A/B（直交）。
   const careerAds = resolveCategoryCareerAds(slug);
-  // 右サイドバー（PC・≥993px）は「note 有料マガジン CTA」または「転職枠」のどちらかがあれば出す。
-  // note CTA は冒頭全幅グリッドから PC 右サイドバーへ集約し、モバイルは記事一覧の下に出す（2026-06-20）。
-  // サイドバーは縦積みのため上位 3 マガジン（placement 優先順）に絞ってコンパクトに保つ。
-  const hubMagazines = categoryMagazines.slice(0, 3);
-  // 本文フロー用の note CTA（資格別リッチ背景×HTML文字）。幅広面はもくじへ集約、直前期は特定商品へ直リンク。
-  const hubCta = resolveHubCta(slug);
+  // note CTA（資格別リッチ背景×HTML文字）。幅広面はもくじへ集約、直前期は特定商品へ直リンク。
+  // 本文・PC サイドバー・モバイルの 3 面に同一内容を出し、utm で面分離する（旧 上位3誌直リンクを廃止し
+  // 「もくじ集約」に一本化・2026-07）。HUB 非対応資格（concrete/一次）は null → 非表示。
+  // note もくじ CTA は面ごとに 1 つずつ（重複回避）: PC=右サイドバー（hubCtaSidebar）／モバイル=最下部
+  // （hubCtaMobile）。本文フロー内には置かない（カテゴリ hub は回遊が主タスクで、記事一覧の手前に販売
+  // タイルを割り込ませない・2026-07-06。旧 hubCta 本文 CTA は撤去）。utm で面分離。
+  const hubCtaSidebar = resolveHubCta(slug, { utmSuffix: 'sb' });
+  const hubCtaMobile = resolveHubCta(slug, { utmSuffix: 'mob' });
   // モバイル本文中の visible バナー（pixelSrc を渡さない＝PC サイドバー側が唯一の発火源）。
   // 各案件を 1 枚ずつの node にしてビューのグループ境界に分散配置する（カードの隙間に「両方」）。
   const mobileCareerAds = careerAds.map((ad, i) => (
@@ -148,14 +142,6 @@ export default async function CategoryPage({
               <PopularShowcase items={popularDocs.slice(0, 3)} />
             </div>
           )}
-          {/* カテゴリ hub の note CTA（資格別リッチ背景×HTML文字）。マガジン多数のため幅広面は
-              「もくじ(L2索引)」へ集約し、直前期のみ売れ筋の特定商品へ直リンク（resolveHubCta が分岐）。
-              背景は資格ごと1枚を使い回し、文言/価格はデータ駆動。クリックは data-cta="note" で計測。 */}
-          {hubCta && (
-            <div className="mb-16">
-              <HubCtaBanner cta={hubCta} />
-            </div>
-          )}
           {docs.length === 0 ? (
             <div className="text-center py-12">
               <p className="text-[var(--ink-muted)] text-lg">
@@ -192,11 +178,12 @@ export default async function CategoryPage({
           )}
             </div>
 
-            {/* note 有料マガジン CTA（モバイル＜993px のみ・画像オンリーに統一）。PC は右サイドバーへ集約。
-                サイドバー非表示のモバイルでは記事一覧の下にフォールバック表示する。 */}
-            <div className="zenn-desktop:hidden pb-10 mx-auto max-w-sm">
-              <SidebarMagazineList magazines={hubMagazines} className="space-y-3" />
-            </div>
+            {/* note もくじ CTA（モバイル＜993px のみ）。PC は右サイドバーへ集約。 */}
+            {hubCtaMobile && (
+              <div className="zenn-desktop:hidden pb-10 mx-auto max-w-[360px]">
+                <HubCtaBanner cta={hubCtaMobile} />
+              </div>
+            )}
           </main>
 
           <aside className="hidden zenn-desktop:block w-[300px] shrink-0 py-10 sm:py-12">
@@ -214,12 +201,11 @@ export default async function CategoryPage({
                 ))}
                 {/* 運営者プロフィール（合格体験者＝発注者）。転職枠の直下に置き E-E-A-T を提示（2026-06-26）。 */}
                 <AuthorSidebarCard />
+                {/* note もくじ CTA（PC はこのサイドバーが唯一の note 面）。著者カード直下に繰り上げて視認性を
+                    確保（旧: 人気記事の下＝最下部で埋もれていた。本文 CTA 撤去に合わせ 2026-07-06 移動）。utm -sb。 */}
+                {hubCtaSidebar && <HubCtaBanner cta={hubCtaSidebar} />}
                 {/* 人気記事ランキング（GA4 上位 top5・直近 28 日）。データ無しなら描画されない。 */}
                 <PopularRanking items={popularDocs} />
-                {/* note 有料マガジン CTA（文脈一致・画像オンリー）。回遊導線（人気記事）の下、
-                    スクロール下部に配置して訴求する（2026-06-26 並べ替え：旧 最上部 → 最下部）。
-                    docs サイドバーと共通の SidebarMagazineList。未公開マガジンは getMagazine で除外済み。 */}
-                <SidebarMagazineList magazines={hubMagazines} className="space-y-3" />
               </div>
             </aside>
         </div>

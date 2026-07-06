@@ -1,7 +1,7 @@
 # note マガジン説明文（貼付用）
 
 > note のマガジン作成時、「マガジンの説明」欄に貼り付ける紹介文。価格 ¥2,480・有料マガジン。
-> カバー画像: `public/images/magazines/magazine-setsumon3-policy-bank-cover.png`
+> カバー画像（note ヘッダー用）: `generate-magazine-covers.mjs` で magazine dir に `_cover.png` を生成（サイト表示用の焼き込みカバーは 2026-07 廃止＝サイト CTA は exam-brand の cta-bg でデータ駆動）
 
 ---
 

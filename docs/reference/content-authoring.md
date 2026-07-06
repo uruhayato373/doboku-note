@@ -40,7 +40,7 @@ MDX 内で使える主要コンポーネント（`src/lib/component-loader/index
 - `<SeeAlso href="/docs/slug" title="..." reason="..." />` — 内部 doboku-note ページへの「あわせて読みたい」カード
 - `<NoteLink url="..." title="..." description="..." coverImage="..." />` — **note 記事への導線専用カード**（リンク系の使い分けは下記参照）
 - `<LinkCard url="..." title="..." description="..." siteName="..." imageUrl="..." />` — 一般外部 URL のカード（OGP 画像を左に本来比で表示する横型カード。モバイルは画像を上に縦積み）
-- `<MagazineInlineCard>` / `<MagazineSidebarCard>` — note magazine（有料）販売ページへのカード
+- `<MagazineCard id="..." utmContent="..." />` — note magazine（有料）販売ページへの本文中カード（SoT 解決版・内部で `<MagazineInlineCard>` を描画。記事末尾/サイドバーのタイルは placement 経由で自動配置）
 
 ## リンク系コンポーネントの使い分け
 
@@ -50,7 +50,7 @@ MDX 内で使える主要コンポーネント（`src/lib/component-loader/index
 |---|---|---|
 | 内部 doboku-note ページ | `<SeeAlso>`（ブロック）/ markdown リンク（インライン） | ページ間ナビ |
 | **note 記事** | **`<NoteLink>`** | note.com 記事は必ずこれ。生 markdown・`<Callout type="reference">` で note リンクを書かない |
-| note magazine（有料）販売ページ | `<MagazineInlineCard>` / `<MagazineSidebarCard>` | 商品導線 |
+| note magazine（有料）販売ページ | `<MagazineCard>`（本文中）／placement 経由の末尾タイル `NoteMagazineTile` | 商品導線 |
 | 書籍・論文 | `<Callout type="reference">` | 参考文献。外部 URL 一般には使わない |
 | 一般外部 URL（公的機関・規格等） | `<LinkCard>` または markdown リンク | note 以外の外部サイト |
 

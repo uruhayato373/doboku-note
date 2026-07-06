@@ -66,6 +66,12 @@
     --exam-pe-construction: #33356b; /* 建設部門＝藍 */
     --exam-concrete-chief: #0f6e6e;  /* コンクリート主任＝ティール */
 
+    /* CTA バナー画像上の文字色。背景イラスト（cta-bg/*.webp）は常に明色でテーマ非追従のため、
+       文字はダーク固定にして可読性を担保する（.dark で上書きしない＝両テーマで同値）。 */
+    --on-image-ink: #181a1f;       /* タイトル（= light --ink） */
+    --on-image-ink-soft: #33363d;  /* サブ・資格ラベル（= light --ink-body） */
+    --on-image-pill-bg: #b45309;   /* 価格ピル背景（amber-700・白文字 AA） */
+
     /* Editorial palette — Soft Editorial (2026-07). 紺のアイデンティティを保ちつつ
        1 段明るく・寒色寄せ。全て WCAG AA 以上（accent 6.6:1 / body 11.4:1 / muted 4.9:1）。
        SVG 系 --color-*・Callout --ct-*・試験色 --exam-* は凍結（このパレット外）。 */

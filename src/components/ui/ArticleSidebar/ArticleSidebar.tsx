@@ -2,11 +2,8 @@ import { type DocMeta } from '@/lib/docs';
 import { type DocGroupKey } from '@/lib/doc-classifier';
 import { type SidebarAdCreative } from '@/config/affiliate-creatives';
 import { type TocHeading } from '@/lib/toc';
-import { type PlacementSlot } from '@/lib/magazine-placement';
-import { type NoteMagazine } from '@/lib/note-magazines';
 import AuthorSidebarCard from '@/components/ui/AuthorSidebarCard';
 import SidebarAdBanner from '@/components/ui/SidebarAdBanner';
-import SidebarMagazineList from '@/components/ui/SidebarMagazineList/SidebarMagazineList';
 import TableOfContents from '@/components/ui/TableOfContents';
 import ExamQuestionNav from '@/components/ui/ExamQuestionNav';
 import CategoryNavCard from '@/components/ui/CategoryNavCard/CategoryNavCard';
@@ -14,8 +11,6 @@ import PillarNavCard from '@/components/ui/PillarNavCard';
 
 interface ArticleSidebarProps {
   readonly careerSidebarAd: { creative: SidebarAdCreative; trackLabel: string };
-  /** 転職枠直下に再掲する note マガジン（utmContent は -sb 済み・呼び出し側で slice/公開判定済み）。 */
-  readonly noteMagazines: ReadonlyArray<{ slot: PlacementSlot; magazine: NoteMagazine }>;
   readonly headings: TocHeading[];
   readonly category: DocMeta['category'];
   readonly docGroup: DocGroupKey;
@@ -40,7 +35,6 @@ interface ArticleSidebarProps {
  */
 export default function ArticleSidebar({
   careerSidebarAd,
-  noteMagazines,
   headings,
   category,
   docGroup,
@@ -61,9 +55,8 @@ export default function ArticleSidebar({
       <div className="mb-3">
         <SidebarAdBanner {...careerSidebarAd.creative} trackLabel={careerSidebarAd.trackLabel} />
       </div>
-      {/* note CTA を転職枠の直下に再掲（2026-07・記事末尾集約は維持しつつ導線を強化）。
-          sidebarImageUrl 無し・career-only 記事では noteMagazines が空 → SidebarMagazineList が null を返す。 */}
-      <SidebarMagazineList magazines={noteMagazines} />
+      {/* note CTA は記事末尾（footerMagazines＋footerMokuji）に一本集約する方針（2026-07-06）。
+          読書中サイドバーへのもくじ再掲は撤去し、サイドバーは転職枠＋著者＋ナビに絞る。 */}
       {/* 運営者プロフィール（合格体験者＝発注者）。E-E-A-T を提示。 */}
       <div className="mb-3">
         <AuthorSidebarCard />

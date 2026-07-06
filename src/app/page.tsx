@@ -1,5 +1,5 @@
 import PageShell from "@/components/layout/PageShell";
-import MagazineSidebarCard from "@/components/ui/MagazineSidebarCard";
+import LinksHubTile from "@/components/ui/LinksHubTile";
 import { Hero, ExamCards, LatestArticles, AboutSection } from "@/components/home";
 import type { LatestArticle } from "@/components/home";
 import { getDocsMetaByCategory, getAllDocsMeta, type DocMeta } from "@/lib/docs";
@@ -146,13 +146,7 @@ export default async function HomePage() {
           記述式・経験記述の模範答案集や精読ガイドをまとめています。
         </p>
         <div className="max-w-sm">
-          <MagazineSidebarCard
-            href="/links"
-            imageUrl="/images/magazines/links-hub-sidebar.webp"
-            alt="note 有料教材まとめ"
-            external={false}
-            trackLabel="home-links-hub"
-          />
+          <LinksHubTile trackLabel="home-links-hub" />
         </div>
       </div>
     </PageShell>

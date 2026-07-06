@@ -24,6 +24,7 @@ import { compileMDX } from 'next-mdx-remote/rsc';
 import { MDXProvider } from '@mdx-js/react';
 import { extractHeadings } from '@/lib/toc';
 import { resolvePlacement } from '@/lib/magazine-placement';
+import { resolveHubCta } from '@/lib/hub-cta';
 import { getMagazine, buildMagazineUrl, type NoteMagazine } from '@/lib/note-magazines';
 import MagazineTopBanner from '@/components/ui/MagazineTopBanner';
 import MetaRow from '@/components/ui/MetaRow/MetaRow';
@@ -288,25 +289,28 @@ export default async function DocPage({
     slots
       .map((s) => ({ slot: s, magazine: getMagazine(s.magazineId) }))
       .filter((x): x is RenderableSlot => x.magazine !== null);
-  // note 有料マガジン CTA は「画像オンリーで記事末尾に一括表示」に統一（2026-06-26）。
-  // 旧 inline（本文末・テキスト）と sidebar（画像）を 1 セットに統合し、記事末尾で画像オンリー描画する。
-  // サイドバーからは note を外し、最上部の転職アフィリのインプレッションを確保する。
-  const footerMagazines = [
+  // note 有料マガジン CTA は資格別ブランドタイル（HTML 文字駆動）で記事末尾に一括表示（2026-07 刷新）。
+  // placement の inline∪sidebar を優先順で dedup し、直リンク商品は先頭 3 誌に cap（リンク過多の抑制）。
+  // 4 誌目以降と「網羅の全体像」はもくじタイル（footerMokuji）が肩代わりする（L2 に全公開誌が収録済＝
+  // audit-note-funnel D2=0 が前提）。cap は表示のみで [0]（MidCta 等）の優先順は不変。
+  const footerMagazinesAll = [
     ...filterRenderable(magazinePlacement.inline),
     ...filterRenderable(magazinePlacement.sidebar),
   ].filter(
     (x, i, arr) => arr.findIndex((y) => y.slot.magazineId === x.slot.magazineId) === i,
   );
-  // サイドバー用 note CTA（2026-07 再配置）。記事末尾集約（footerMagazines）は維持しつつ、
-  // その優先順リストから sidebarImageUrl を持つ先頭 1 枚（TOC 非表示 docGroup は 2 枚）を
-  // 転職枠の直下に再掲する。utmContent に -sb を付けて記事末尾クリックと GA4 で分離計測。
-  // career-only 記事は footerMagazines が空 → 自動で非表示（転職一本方針を継承）。
-  const sidebarNoteMax =
-    docGroup === 'pastExam' || docGroup === 'primary' || docGroup === 'secondary' ? 2 : 1;
-  const sidebarNoteMagazines = footerMagazines
-    .filter((x) => x.magazine.sidebarImageUrl)
-    .slice(0, sidebarNoteMax)
-    .map((x) => ({ ...x, slot: { ...x.slot, utmContent: `${x.slot.utmContent}-sb` } }));
+  const FOOTER_PRODUCT_CAP = 3;
+  const footerMagazines = footerMagazinesAll.slice(0, FOOTER_PRODUCT_CAP);
+  // もくじタイル（L2 索引への回遊）。個別商品を既に出しているため常にもくじへ集約（forceMokuji）。
+  // 出すのは HUB 対応資格（civil 1/2・総監・建設）かつ placement 非空のときだけ
+  // ＝career-only 記事（footerMagazinesAll 空）や concrete/一次には出さない（転職一本方針・L2 不在を継承）。
+  const footerMokuji =
+    footerMagazinesAll.length > 0 && category
+      ? resolveHubCta(category, { utmSuffix: 'footer', forceMokuji: true })
+      : null;
+  // note CTA は記事末尾（footerMagazines＋footerMokuji）に一本集約する。読書中サイドバーへの
+  // もくじ再掲は 2026-07-06 に撤去（同一もくじが末尾とサイドバーで重複し冗長だったため。
+  // カテゴリ hub の重複解消と足並みを揃え「1面1CTA」に統一）。サイドバーは転職枠＋著者＋ナビのみ。
   // 記事冒頭 CTA（二次系高 intent ページのみ placement.top で設定）。getMagazine() ゲートを
   // 通すため未公開マガジン（会員ラボ等）は自動非表示。末尾の画像カードと重複してよい。
   const topSlot = magazinePlacement.top;
@@ -351,7 +355,7 @@ export default async function DocPage({
           url={url}
           title={midNoteMag.shortTitle ?? midNoteMag.title}
           description={midNoteMag.shortDescription ?? midNoteMag.description}
-          imageUrl={midNoteMag.imageUrl}
+          magazineId={midNoteMag.id}
           badge={midNoteMag.badge}
           trackLabel={`${midNote.slot.utmContent}-mid`}
         />
@@ -430,6 +434,7 @@ export default async function DocPage({
               meta={doc.meta}
               categoryArticles={categoryArticles}
               footerMagazines={footerMagazines}
+              footerMokuji={footerMokuji}
               faqs={faqs}
               hasCategoryNavCard={hasCategoryNavCard}
               authorDates={authorDates}
@@ -438,7 +443,6 @@ export default async function DocPage({
 
           <ArticleSidebar
             careerSidebarAd={careerSidebarAd}
-            noteMagazines={sidebarNoteMagazines}
             headings={headings}
             category={category}
             docGroup={docGroup}
