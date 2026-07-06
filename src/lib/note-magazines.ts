@@ -632,8 +632,8 @@ const MAGAZINES_RAW = {
     badge: 'note 限定 教材',
   },
 
-  // 技術士 建設部門 2次（BK シリーズ）。公開準備中（published:false）。
-  // 公開時: note でマガジン公開 → noteUrl 埋め + published: true。CTA は pe-construction-r0X-required ページで発火。
+  // 技術士 建設部門 2次（BK シリーズ）。公開済み（published:true・noteUrl 埋め済み）。
+  // CTA は pe-construction-r0X-required ページ等で発火。価格ラダーは各エントリ price 参照。
   'pe-construction-required-magazine': {
     id: 'pe-construction-required-magazine',
     published: true,

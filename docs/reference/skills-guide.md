@@ -69,7 +69,7 @@ title: スキル ナビゲーションガイド
 | `/ig-carousel-restyle` | tokens.json 更新後に**既存**過去問パック PNG を 3 フォーマット（Carousel/Reels/Stories）一括再生成（新規生成は post-create） | `IGデザイン再適用`, `カルーセル再生成`, `/ig-carousel-restyle --year r07` |
 | `/ig-reel-create` | 過去問パックのカルーセル PNG から 1080×1920 Reels mp4 を生成（VOICEVOX TTS + ffmpeg）。`--exam-dir` で多資格対応（技術士総監 / 1級土木 / 2級土木、2級は年度に z=前期 / k=後期 接尾辞） | `IG リール作成`, `動画化`, `/ig-reel-create --exam-dir 1級土木 --exam r07-pack-01 --skip-png` |
 | `/create-x-card` | tweets.md から X 投稿用サマリカード PNG 生成（多資格＝総監/1級/2級の試験別色・ヘッダに自動切替） | `Xカード作成`, `X投稿カード`, `/create-x-card` |
-| `/publish-x` | Playwright で X 投稿を自動化（即時・予約）。**🛑 当面停止中（2026-06-12 凍結・異議却下）**: アカウント解除＋手動低頻度で再凍結しないと確認できるまで使わない（投稿は人手）。再開後も §11 ガード必須（1 日 3〜5 本・時刻ジッタ・連投回避・自動エンゲージ禁止） | `X投稿`, `自動投稿`, `/publish-x` |
+| `/publish-x` | Playwright で X 投稿を自動化（即時・予約）。**予約運用は再開（2026-07-07・@doboku373）**。凍結実因＝連続/重複予約を潰すため **ガード付きフロー必須**: writer→`x-schedule-guard`緑→`--dry-run`→`--queue`緑→本番→`x-sync-status`（policy §11.5）。ガード赤なら予約しない・1 週間分ずつ・1 日 3 本上限・自動エンゲージ禁止 | `X投稿`, `自動投稿`, `/publish-x` |
 | `/publish-note` | browser-use CLI で note.com/dobokunote に投稿。(1) 模範論文マガジン記事（有料・`<persona> <RXX>`）または (2) 建設部門 無料ファネル記事（入口/キーワード・`--free <dir>`）を下書き/予約/即時公開（stats47 由来を適応）。本文paste・カバー・タグ自動／有料境界・PDF添付・リンクカードは半手動。**実行は Mac 推奨**（会社PCプロキシ制約） | `note投稿`, `note公開`, `note下書き作成`, `/publish-note <persona> <RXX>`, `/publish-note --free <dir>` |
 | `/audit-note-funnel` | note 導線（資格別 3 層モデル＝L1 全資格サイトマップ / L2 資格別もくじ / L3 記事内 CTA）のドリフトを監査・修復。**ソース D1-D4**（CTA 欠落・L2 未収録・L1 未リンク／`npm run audit-note-funnel`・CI=`check-note-funnel`）＋ **`--live` で D5 ライブ反映**（配線後に再投稿せず live が死ぬドリフトを note API で検出）。修復は `wire-note-funnel-cta`（ソース配線）／**`note-append-cta`（公開済み記事へ live 反映・Windows 可・通知いいえ）**。意味監査は `note-funnel-auditor`。真実源 `docs/reference/note-funnel-architecture.md` | `note導線の見直し`, `もくじ整備`, `CTA配線`, `ファネル監査`, `/audit-note-funnel [--exam {key}] [--apply\|--semantic\|--live]` |
 | `/note-magazine-sync` | note.com 公開マガジン（27件）と SoT（note-magazines.ts）の同期ズレを検出・自動修正。SoT 側（未配線/価格ドリフト）は自動 Edit+commit、note.com 側（空マガジン/異質記事）は残件報告。`node scripts/verify-note-magazines.mjs --contents` 駆動（npm run は intermittent 失敗あり → node 直呼び） | `noteの同期確認`, `SoT突合`, `マガジン公開状態チェック`, `ブラウザcliでnoteを確認`, `/note-magazine-sync` |
@@ -159,7 +159,7 @@ title: スキル ナビゲーションガイド
 3. `/publish-ig-bs post {pack|reels-pp/q<N>} [--reel] --schedule …` — IG カルーセル/リールを Business Suite で**予約投稿**（即時は `--now`。Graph API 経路は 2026-06-17 全廃）
    - **リール JIT**（生成→予約→mp4削除で在庫を持たない）: `node scripts/publish-reel-jit.mjs --pack {r07-pack-01} --question 1 --schedule {YYYY-MM-DDTHH:MM}`。動画 mp4・wav は gitignore（コミットは slide-data + script.txt + caption.txt、wav は R2 退避＝upload-sns-r2／再生成可）
 4. `/yt-shorts-create --from-reels {pack-id}` — IG Reels mp4 → YouTube Shorts 派生
-5. `/create-x-card` — X 投稿カード作成（`/publish-x` 自動投稿は 2026-06-12 凍結を受け当面停止 → 投稿は人手。skills-guide §69 / policy §11）
+5. `/create-x-card` — X 投稿カード作成（`/publish-x` 予約運用は 2026-07-07 再開・ガード付きフロー必須。policy §11.5 / skills-guide §69）
 
 **IG ハイライト整備**（戦略 v7.1、`node` スクリプト）:
 - `node .claude/scripts/instagram/build-highlight-materials.mjs --all` — 6 ハイライト × 32 PNG 一括生成（モダンシック意匠、ジャンル別カラー）

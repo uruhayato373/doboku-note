@@ -33,14 +33,14 @@ const HUB: Partial<Record<string, HubCtaSpec>> = {
     themeVar: '--exam-pe',
     qual: '技術士 総監',
     mokuji: { url: 'https://note.com/dobokunote/n/n3ed4c77ceed6', title1: 'note教材', title2: 'もくじ・まとめ', sub: '記述式・R8予想・キーワード' },
-    seasonal: { switchUtcMs: Date.UTC(2026, 6, 14), product: 'r8-essay-forecast', sub: '出る6テーマ×専門' },
+    seasonal: { switchUtcMs: Date.UTC(2026, 6, 19), product: 'r8-essay-forecast', sub: '出る6テーマ×専門' },
   },
   'pe-construction': {
     bg: '/images/cta-bg/pe-construction.webp',
     themeVar: '--exam-pe-construction',
     qual: '技術士 建設部門',
     mokuji: { url: 'https://note.com/dobokunote/n/n7279ca0d926f', title1: 'note教材', title2: 'もくじ・まとめ', sub: '必須I・選択科目 模範解答' },
-    seasonal: { switchUtcMs: Date.UTC(2026, 6, 14), product: 'pe-construction-required-magazine', sub: 'R03-R07＋R8予想' },
+    seasonal: { switchUtcMs: Date.UTC(2026, 6, 20), product: 'pe-construction-required-magazine', sub: 'R03-R07＋R8予想' },
   },
 };
 
