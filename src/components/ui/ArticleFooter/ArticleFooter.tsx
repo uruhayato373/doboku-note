@@ -15,7 +15,7 @@ import RelatedTextbooks from '@/components/ui/RelatedTextbooks/RelatedTextbooks'
 import NoteMagazineTile from '@/components/ui/NoteMagazineTile';
 import HubCtaBanner from '@/components/ui/HubCtaBanner/HubCtaBanner';
 import { type ResolvedHubCta } from '@/lib/hub-cta';
-import MagazineSidebarCard from '@/components/ui/MagazineSidebarCard';
+import LinksHubTile from '@/components/ui/LinksHubTile';
 import TextbookNav from '@/components/ui/TextbookNav/TextbookNav';
 import CategoryNavCard from '@/components/ui/CategoryNavCard/CategoryNavCard';
 import FAQCard from '@/components/ui/FAQCard/FAQCard';
@@ -125,13 +125,7 @@ export default function ArticleFooter({
       )}
       {showLinksHubFallback && (
         <div className="mt-8 mx-auto max-w-sm">
-          <MagazineSidebarCard
-            href="/links"
-            imageUrl="/images/magazines/links-hub-sidebar.webp"
-            alt="note 有料教材まとめ"
-            external={false}
-            trackLabel="links-hub"
-          />
+          <LinksHubTile trackLabel="links-hub" />
         </div>
       )}
 
