@@ -358,7 +358,7 @@ export default async function DocPage({
           url={url}
           title={midNoteMag.shortTitle ?? midNoteMag.title}
           description={midNoteMag.shortDescription ?? midNoteMag.description}
-          imageUrl={midNoteMag.imageUrl}
+          magazineId={midNoteMag.id}
           badge={midNoteMag.badge}
           trackLabel={`${midNote.slot.utmContent}-mid`}
         />

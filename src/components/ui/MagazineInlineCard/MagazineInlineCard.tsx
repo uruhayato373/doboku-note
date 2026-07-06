@@ -1,11 +1,13 @@
 import Image from "next/image";
 import MagazineBadge from "@/components/ui/MagazineBadge/MagazineBadge";
+import { brandOf } from "@/lib/exam-brand";
 
 interface MagazineInlineCardProps {
   readonly url: string;
   readonly title: string;
   readonly description: string;
-  readonly imageUrl: string;
+  /** 資格別ブランド背景（cta-bg イラスト）の解決に使う magazine id。 */
+  readonly magazineId: string;
   readonly badge: string;
   /** GA4 クリック計測ラベル（通常は utm_content）。AnalyticsProvider のデリゲートリスナーが拾う。 */
   readonly trackLabel?: string;
@@ -14,21 +16,22 @@ interface MagazineInlineCardProps {
 /**
  * MagazineInlineCard — 記事本文中に置く magazine 訴求カード（横長レイアウト）。
  *
- * LinkCard と違い、OGP fetch を行わず props のみで完結する（OGP 取得に依存しないので
- * 外部 metadata API が無くても確実にレンダリングされる）。
+ * 画像左（資格別ブランドイラスト＝cta-bg）＋ テキスト右。文言は props（SoT 解決済み）で完結し、
+ * 焼き込みカバー画像（旧 imageUrl）には依存しない。イラスト無し資格はテーマ色ベタ塗りにフォールバック。
  *
  * 使い分け:
- * - MagazineSidebarCard: 縦長、サイドバー用 (aspect-16/9 → タイトル → 説明 → 価格)
- * - MagazineInlineCard: 横長、本文中用 (画像左 + テキスト右)
+ * - NoteMagazineTile: 縦 300×250、記事末尾・サイドバー用（背景イラスト＋文字オーバーレイ）
+ * - MagazineInlineCard: 横長、本文中用（画像左 + テキスト右）
  */
 export default function MagazineInlineCard({
   url,
   title,
   description,
-  imageUrl,
+  magazineId,
   badge,
   trackLabel,
 }: MagazineInlineCardProps) {
+  const brand = brandOf(magazineId);
   return (
     <a
       href={url}
@@ -39,15 +42,18 @@ export default function MagazineInlineCard({
       className="not-prose group my-6 block max-w-2xl rounded-card-content overflow-hidden border border-[var(--rule-soft)] bg-[var(--paper)] shadow-card-content hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow"
     >
       <div className="flex flex-col sm:flex-row">
-        <div className="relative w-full sm:w-[240px] shrink-0 aspect-square bg-[var(--bg)]">
-          <Image
-            src={imageUrl}
-            alt={title}
-            fill
-            className="object-cover group-hover:scale-105 transition-transform duration-300"
-            unoptimized
-            sizes="(max-width: 640px) 100vw, 240px"
-          />
+        <div className="relative w-full sm:w-[240px] shrink-0 aspect-square overflow-hidden bg-[var(--bg)]">
+          {brand.ctaBg ? (
+            <Image
+              src={brand.ctaBg}
+              alt=""
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-300"
+              sizes="(max-width: 640px) 100vw, 240px"
+            />
+          ) : (
+            <div className="absolute inset-0" style={{ background: `var(${brand.themeVar})` }} />
+          )}
           <MagazineBadge>{badge}</MagazineBadge>
         </div>
         <div className="min-w-0 flex-1 p-3 sm:p-4">

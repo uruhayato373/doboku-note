@@ -33,7 +33,7 @@ export default function MagazineCard({ id, utmContent }: MagazineCardProps) {
       url={buildMagazineUrl(magazine, utmContent)}
       title={magazine.title}
       description={magazine.description}
-      imageUrl={magazine.imageUrl}
+      magazineId={magazine.id}
       badge={magazine.badge}
       trackLabel={utmContent}
     />
