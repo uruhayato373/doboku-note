@@ -56,7 +56,6 @@
     "ogp": "node .claude/skills/conversion/ogp-create/scripts/ogp-create.mjs",
     "ogp-backgrounds": "node scripts/generate-ogp-backgrounds.mjs",
     "guide-covers": "node scripts/generate-guide-covers.mjs",
-    "magazine-sidebar-banners": "node scripts/generate-magazine-sidebar-banners.mjs",
     "ogp-gallery": "node scripts/ogp-gallery.mjs",
     "note-cover-gallery": "node scripts/note-cover-gallery.mjs",
     "svg-gallery": "node scripts/svg-gallery.mjs",

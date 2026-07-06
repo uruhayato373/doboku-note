@@ -46,7 +46,7 @@ editorial 基調：`--accent #2a5f96` / `--ink #181a1f` / CTA=`--color-warn #d4a
 | ホームカード | 16:9 | wide | `public/images/card-<category>.webp` |
 | OGP 背景 | 1.9:1 | wide | `.claude/config/ogp/backgrounds/<exam-key>.png` |
 | note カバー背景 | 1.91:1 | wide | note カバー renderer（フォールバック系に背景配線が前提・未実装）|
-| 広告バナー | 300×250 | square | `public/images/ads/<exam-key>-300x250.*`（新設・要配線）|
+| 広告バナー | 300×250 | square | `public/images/ads/<exam-key>-300x250.*`（自社ハウスバナー/ディスプレイ広告用の予備素材。サイト内の note CTA タイルは焼き込み画像を廃し `public/images/cta-bg/<exam>.webp` イラスト＋HTML 文字でデータ駆動＝`src/lib/exam-brand.ts`。2026-07）|
 
 ## 4. 生成→保存→反映パイプライン
 

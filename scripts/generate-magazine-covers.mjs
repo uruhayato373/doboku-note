@@ -1,13 +1,15 @@
 #!/usr/bin/env node
-// public/images/magazines/ に note 有料マガジン用のカバー画像を生成する。
+// note 有料マガジンの「ヘッダー画像」= マガジンdir直下 _cover.png を生成する（note アップロード用）。
 //
-// magazine-banner テンプレ（ogp-templates.mjs）で 1280×670 のマガジンカバーを出力する。
-// note のマガジン/クリエイターページのヘッダーは中央 1280×216 帯がクロップ表示されるため、
-// マガジン名をこの帯の縦横中央に配置する。doboku-note サイトの aspect-square カード
-// クロップにも対応（全要素を全幅中央寄せ）。
+// magazine-banner テンプレ（ogp-templates.mjs）で 1280×670 を出力する。note のマガジン/クリエイター
+// ページのヘッダーは中央 1280×216 帯がクロップ表示されるため、マガジン名をこの帯の縦横中央に配置する。
+// 生成した _cover.png は note-magazine-cover.mjs がアップロードする。
+//
+// 注: サイト側の CTA 画像（旧 public/images/magazines/*-cover）は 2026-07 に廃止した。サイトの note CTA は
+//     exam-brand.ts の資格別 cta-bg イラスト＋ HTML 文字でデータ駆動する（本スクリプトは note 側専用）。
 //
 // 使い方:
-//   node scripts/generate-magazine-covers.mjs                 # 全件生成
+//   node scripts/generate-magazine-covers.mjs                 # 全件生成（magazineDir 設定分）
 //   node scripts/generate-magazine-covers.mjs river-consultant # 1件だけ生成
 
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
@@ -20,7 +22,6 @@ import { renderTemplate } from '../.claude/skills/conversion/ogp-create/scripts/
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const OUT_DIR = join(ROOT, 'public/images/magazines');
 const FONTS_DIR = join(ROOT, '.claude/skills/conversion/ogp-create/assets/fonts');
 
 const W = 1280;
@@ -477,20 +478,15 @@ async function renderOne(mag, fonts) {
     { width: W, height: H },
   );
   const svg = await satori(element, { width: W, height: H, fonts });
-  const baseName = mag.fileBaseName ?? `essay-${mag.id}-cover`;
-  mkdirSync(OUT_DIR, { recursive: true });
-  const pngPath = join(OUT_DIR, `${baseName}.png`);
-  const webpPath = join(OUT_DIR, `${baseName}.webp`);
   const pngBuffer = await sharp(Buffer.from(svg)).png().toBuffer();
-  writeFileSync(pngPath, pngBuffer);
-  await sharp(pngBuffer).webp({ quality: 90 }).toFile(webpPath);
-  console.log(`  ok: ${baseName}.{png,webp}`);
-  // マガジンdir直下にも _cover.png を配置（note アップロード用。総監マガジンと同規約）
+  // note アップロード用の _cover.png のみ生成する（サイト用 public/images/magazines は廃止）。
   if (mag.magazineDir) {
     const magDirAbs = join(ROOT, mag.magazineDir);
     mkdirSync(magDirAbs, { recursive: true });
     writeFileSync(join(magDirAbs, '_cover.png'), pngBuffer);
     console.log(`  ok: ${mag.magazineDir}/_cover.png`);
+  } else {
+    console.warn(`  skip: ${mag.id} は magazineDir 未設定（サイト用 public cover は廃止済み）`);
   }
 }
 
@@ -506,7 +502,7 @@ async function main() {
   for (const mag of targets) {
     await renderOne(mag, fonts);
   }
-  console.log(`done. output: ${OUT_DIR}/essay-*-cover.{png,webp}`);
+  console.log(`done. output: <magazineDir>/_cover.png`);
 }
 
 main().catch((err) => {

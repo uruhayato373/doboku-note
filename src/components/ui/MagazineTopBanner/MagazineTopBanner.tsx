@@ -13,7 +13,7 @@ interface MagazineTopBannerProps {
 /**
  * MagazineTopBanner — 記事冒頭（本文 prose の前）に置くコンパクトな 1 行テキスト CTA。
  *
- * 末尾の画像カード（MagazineSidebarCard / MagazineInlineCard）とは別物の軽量型。
+ * 末尾のブランドタイル（NoteMagazineTile / MagazineInlineCard）とは別物の軽量型。
  * 二次系の高 intent ページのみ resolvePlacement().top で設定され、記事が長いため冒頭にも
  * 到達導線を 1 本置く。冒頭=テキスト1行・末尾=画像カードで形が異なり重複感を避ける。
  * 表示可否は呼び出し側で getMagazine()（published + noteUrl）ゲートを通す（未公開は非表示）。

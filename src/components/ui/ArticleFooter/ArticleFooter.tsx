@@ -48,7 +48,6 @@ interface ArticleFooterProps {
  * 記事末セクション（docs/[...slug]/page.tsx から抽出）。
  * category × docGroup ごとに「過去問逆引き／関連テキスト／note CTA／ナビ／FAQ／転職カード／
  * 関連記事／著者」の構成を出し分ける。ロジックは抽出前と不変。
- * ページ種別ごとの構成は docs/project/article-footer-design.md 参照。
  */
 export default function ArticleFooter({
   references,

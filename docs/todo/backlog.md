@@ -469,7 +469,7 @@ Hero → ExamCards → LatestArticles → AboutSection
 3. **P5 束ね**（1級 まるごとパック ¥11,800）— 完全攻略パック＋P1＋P3a を統合、索引記事1本のみ新規。9月上旬。商品ページに「伴走・添削は会員へ」分岐明記
 4. **P2/P3b 移植**（2級版）— P1 の型完成後に移植。10月上旬（2級後期前）
 
-**公開手順（各SKU共通）**: 原稿制作 → cover/sidebar 画像生成（`generate-magazine-covers.mjs`/`generate-magazine-sidebar-banners.mjs` に定義追加）→ note マガジン作成 → noteUrl 埋め＋published:true。**不採用**: 買い切り予想問題集（Red Line #10 堅持・§9.4）。
+**公開手順（各SKU共通）**: 原稿制作 → note ヘッダー `_cover.png` 生成（`generate-magazine-covers.mjs` に定義追加。サイト表示用の画像は不要＝CTA は exam-brand の cta-bg でデータ駆動）→ note マガジン作成 → noteUrl 埋め＋published:true。**不採用**: 買い切り予想問題集（Red Line #10 堅持・§9.4）。
 
 ### content-angle P-1 カルーセルパイロット 🟢
 

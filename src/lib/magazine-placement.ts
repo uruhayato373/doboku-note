@@ -190,7 +190,7 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   if (slug === 'pe-comprehensive-management-essay-exam-strategy') {
     // パイプライン順 (完全パック → コアパック → 型 → 設問3 → 予想 → 模範論文 → 精読基礎)。
     // 上段=完全パック¥9,800 を筆頭の強 CTA、下段=コアパック¥5,480 を次点（2段ラダー）。
-    // sidebar は sidebarImageUrl を持つ精読ガイドを維持（パックは sidebarImageUrl 未設定）。
+    // sidebar は精読ガイドを据える（記事末尾の footer 集約時に inline と dedup 統合される）。
     return {
       inline: [
         slot(NEW_MAGAZINES.completePack, slug, 'inline-1'),
@@ -353,7 +353,7 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     const isHub = slug === 'pe-comprehensive-management-keyword-2026';
     if (isHub) {
       // 受験期最大の入口（GA4 トップ）。精読ガイド（文脈一致）を軸に据えつつ、完全パック +
-      // R8 予想を加えて予想・直前需要も拾う。sidebar は sidebarImageUrl を持つ R8 予想 + 精読ガイド。
+      // R8 予想を加えて予想・直前需要も拾う。sidebar は R8 予想 + 精読ガイド。
       return {
         inline: [
           slot(NEW_MAGAZINES.completePack, slug, 'inline-1'),
@@ -566,32 +566,7 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   return EMPTY;
 }
 
-/**
- * カテゴリ ランディング（/category/{slug}）に出す note マガジン配置。
- *
- * docs ページ（resolvePlacement）と異なり、カテゴリ hub は試験単位の広い入口なので
- * 「その試験の旗艦商品」を文脈一致 CTA として並べる。表示の最終可否は呼び出し側で
- * getMagazine() が公開判定（published + noteUrl）する（未公開は防御的に非表示）。
- *
- * 2026-06-06 新設: GA4 で /category/pe-comprehensive-management が全体 2 位の高流入
- * ながら収益導線ゼロだったため、カテゴリ hub にも CTA を張る。
- */
-const CATEGORY_MAGAZINES: Partial<Record<string, readonly MagazineId[]>> = {
-  "pe-comprehensive-management": ["essay-complete-pack", "essay-core-pack", "tankan-reading-guide"],
-  "pe-construction": ["pe-construction-road-pack", "pe-construction-required-magazine", "pe-construction-road-magazine", "pe-construction-river-coast-magazine", "pe-construction-urban-planning-magazine"],
-  "civil-construction-1": ["civil-1-niji-marugoto-pack", "civil-1-keiken-complete-pack", "civil-1-gakka-kijutsu", "civil-1-anki-note", "civil-membership-lab"],
-  "civil-construction-2": ["civil-2-koji-bank", "civil-2-gakka-kijutsu", "civil-2-anki-note", "civil-2-experience-essay", "civil-membership-lab"],
-  "concrete-chief-engineer": ["cce-essay-magazine"],
-  "concrete-diagnostician": ["cd-essay-magazine"],
-};
-
-export function resolveCategoryMagazines(category: string): PlacementSlot[] {
-  const ids = CATEGORY_MAGAZINES[category] ?? [];
-  return ids.map((magazineId, i) => ({
-    magazineId,
-    utmContent: `category-${category}-${i + 1}`,
-  }));
-}
-
-// 旧「季節モード」note CTA（resolveSeasonalHubMagazine/SEASONAL_HUB）は、資格別リッチ背景×HTML文字＋
-// もくじ集約の新方式（src/lib/hub-cta.ts の resolveHubCta）へ 2026-07-05 に置き換えて撤去した。
+// カテゴリ hub（/category/{slug}）の note CTA は、上位数誌の直リンク列（旧 CATEGORY_MAGAZINES /
+// resolveCategoryMagazines）を廃し、資格別リッチ背景×HTML文字＋もくじ集約の resolveHubCta
+// （src/lib/hub-cta.ts）へ一本化した（2026-07-06）。旧「季節モード」（resolveSeasonalHubMagazine/
+// SEASONAL_HUB）は 2026-07-05 に resolveHubCta へ置き換えて撤去済み。
