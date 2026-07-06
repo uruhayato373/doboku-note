@@ -2,6 +2,7 @@
 notePricing: free
 noteStatus: published
 noteUrl: https://note.com/dobokunote/n/n8b03a7de0c6b
+noteId: n8b03a7de0c6b
 utmCampaign: civil-career-public-vs-private
 coverTitle: ["公務員土木か、民間か", "元公務員が考える選び方"]
 cover:

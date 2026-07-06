@@ -2,6 +2,7 @@
 notePricing: free
 noteStatus: published
 noteUrl: https://note.com/dobokunote/n/n5a823955985c
+noteId: n5a823955985c
 utmCampaign: civil-career-agent-howto
 coverTitle: ["転職エージェントを", "実際どう使うか"]
 cover:

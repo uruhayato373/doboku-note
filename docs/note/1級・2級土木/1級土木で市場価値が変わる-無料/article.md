@@ -2,6 +2,7 @@
 notePricing: free
 noteStatus: published
 noteUrl: https://note.com/dobokunote/n/n6c68d022a56a
+noteId: n6c68d022a56a
 utmCampaign: civil-career-1kyu-value
 coverTitle: ["1級土木で", "市場価値はどう変わるか"]
 cover:
