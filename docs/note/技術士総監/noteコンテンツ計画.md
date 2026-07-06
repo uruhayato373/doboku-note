@@ -156,7 +156,7 @@
 - [x] **note 投稿**（R8 完了）: 有料マガジン M3（総監記述式-R8予想問題集、m6854c7437d4d）＋無料記事『R8予想問題』（n8e92e4673a99）を投稿済・公開中
 - [x] **note 投稿**（W3 先行）**— 完了 2026-05-25**: M2「白書 R7 完全対応集」を完全無料の単独記事として公開済（https://note.com/dobokunote/n/n60efbccd728b 、W3 前倒し）。試験前 6 週間の集客窓を確保。記事末尾と各章末 7 ヶ所に M9/M5/M6/M8（公開済）へのピュア URL リンクカード CTA を配線済。M3/M4 は本記事公開後 1-2 週遅れで投稿し、本記事末尾に追記送客予定
 - [x] **note 投稿（現行ラインナップ一巡完了）**: R8予想問題集（M3）＋無料記事『R8予想問題』＋クロストレードオフ（M12）＋模範論文 Series2（M5・M6・M8）＋精読ガイド（M9）＋無料リード磁石（M2）すべて投稿済。essay-template-3d（解答テンプレ3D）は 2026-06-01 企画中止により投稿対象から除外。
-- [ ] **カバー画像確認**: M2「白書R7完全対応集」は `docs/note/白書R7完全対応集/img/cover.png`、M4「解答テンプレ3D」は `docs/note/解答テンプレ3D/img/cover.png` にそれぞれ generate-note-covers.mjs で自動生成済（2026-05-25、note 単独記事の standard 配置）。R8予想問題集は `_cover.png` ＋ 各記事 `img/cover.png` 生成済 2026-05-22。模範論文 3 ペルソナは完成済。サイト CTA 用の `public/images/magazines/magazine-essay-template-3d-cover.{png,webp}` は据置（site UI 参照）
+- [ ] **カバー画像確認**: M2「白書R7完全対応集」は `docs/note/白書R7完全対応集/img/cover.png`、M4「解答テンプレ3D」は `docs/note/解答テンプレ3D/img/cover.png` にそれぞれ generate-note-covers.mjs で自動生成済（2026-05-25、note 単独記事の standard 配置）。R8予想問題集は `_cover.png` ＋ 各記事 `img/cover.png` 生成済 2026-05-22。模範論文 3 ペルソナは完成済。（essay-template-3d は 2026-06-01 企画中止＋サイト表示用カバー〔旧 public/images/magazines〕は 2026-07 廃止のため、この項目は無効。サイト CTA は exam-brand の cta-bg でデータ駆動）
 - [ ] **M3 公開後の M2 末尾追記**: M3（R8予想問題集）公開済につき、M2 記事末尾「R08 で出る可能性の高い 6 大テーマのフル模範論文が欲しい方」セクションに M3 の noteUrl を URL 単独行で追記する（M4 は 2026-06-01 企画中止のため対象外）
 
 ### 自動化済み・運用継続中

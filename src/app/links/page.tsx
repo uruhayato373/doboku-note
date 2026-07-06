@@ -124,8 +124,6 @@ const EXAM_SECTIONS: {
   },
 ];
 
-// 試験別グルーピングのキーは exam-brand.ts の examKeyOf に一本化（導線タイルと共有）。
-const examOf = examKeyOf;
 
 // 総監の模範論文（職種別ペルソナ）は1エントリに集約。コア商品は個別表示。
 function isPersonaEssay(id: string): boolean {
@@ -300,7 +298,7 @@ function buildByExam(): Record<string, PublishedMagazine[]> {
   (Object.keys(NOTE_MAGAZINES) as MagazineId[]).forEach((id) => {
     const mag = getMagazine(id);
     if (!mag) return;
-    (byExam[examOf(id)] ??= []).push(mag);
+    (byExam[examKeyOf(id)] ??= []).push(mag);
   });
   return byExam;
 }
