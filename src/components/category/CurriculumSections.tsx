@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { type DocMeta } from '@/lib/docs';
 import { DocCard } from '@/components/category/CategorySections';
+import { AFFILIATE_LINK_REL, AffiliatePrBadge } from '@/components/ui/AffiliateParts';
+import { type SmallBannerCreative } from '@/config/affiliate-creatives';
 
 // カテゴリページの「体系（受験ガイド / 分野別 / テキスト章）」をテキスト目次調のリストで見せる共有コンポーネント群。
 // カード（DocCard）でなくリストにすることで、章立て・出題分野の体系が一目で分かり情報密度を上げる。
@@ -169,11 +171,14 @@ export function CareerSection({
   rest,
   title = 'キャリア・転職',
   description,
+  smallBanner = null,
 }: {
   featured: DocMeta[];
   rest: DocMeta[];
   title?: string;
   description?: string | undefined;
+  /** 転職アフィリの小バナー（120×60・href のみ）。campaign 中のみ非 null。 */
+  smallBanner?: SmallBannerCreative | null;
 }) {
   if (featured.length === 0 && rest.length === 0) return null;
   return (
@@ -189,6 +194,31 @@ export function CareerSection({
         </div>
       )}
       {rest.length > 0 && <CurriculumList blocks={[{ docs: rest }]} />}
+      {smallBanner && (
+        // 転職アフィリ小バナー（PR 表記・href のみ・width/height 属性で自然サイズ＝引き伸ばしなし）。
+        // 計測ピクセルは持たない（hub のサイドバー枠が発火源）。景表法: rel=nofollow sponsored。
+        <div className="mt-6 flex items-center gap-2">
+          <AffiliatePrBadge />
+          <a
+            href={smallBanner.href}
+            target="_blank"
+            rel={AFFILIATE_LINK_REL}
+            data-cta="affiliate"
+            data-cta-label={smallBanner.trackLabel}
+            className="inline-block"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element -- A8 外部バナーは next/image 不可 */}
+            <img
+              src={smallBanner.imageSrc}
+              alt={smallBanner.alt}
+              width={smallBanner.width}
+              height={smallBanner.height}
+              loading="lazy"
+              className="block"
+            />
+          </a>
+        </div>
+      )}
     </CurriculumSection>
   );
 }
