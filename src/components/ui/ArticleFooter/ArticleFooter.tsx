@@ -12,7 +12,9 @@ import PastExamBacklinks from '@/components/ui/PastExamBacklinks/PastExamBacklin
 import SectionKeywords from '@/components/ui/SectionKeywords';
 import PillarNavCard from '@/components/ui/PillarNavCard';
 import RelatedTextbooks from '@/components/ui/RelatedTextbooks/RelatedTextbooks';
-import SidebarMagazineList from '@/components/ui/SidebarMagazineList';
+import NoteMagazineTile from '@/components/ui/NoteMagazineTile';
+import HubCtaBanner from '@/components/ui/HubCtaBanner/HubCtaBanner';
+import { type ResolvedHubCta } from '@/lib/hub-cta';
 import MagazineSidebarCard from '@/components/ui/MagazineSidebarCard';
 import TextbookNav from '@/components/ui/TextbookNav/TextbookNav';
 import CategoryNavCard from '@/components/ui/CategoryNavCard/CategoryNavCard';
@@ -31,6 +33,8 @@ interface ArticleFooterProps {
   readonly meta: DocMeta;
   readonly categoryArticles: DocMeta[];
   readonly footerMagazines: ReadonlyArray<{ slot: PlacementSlot; magazine: NoteMagazine }>;
+  /** もくじ（L2 索引）タイル。placement 非空 & HUB 資格のときのみ非 null（回遊専用・forceMokuji）。 */
+  readonly footerMokuji: ResolvedHubCta | null;
   readonly faqs: { q: string; a: string }[];
   readonly hasCategoryNavCard: boolean;
   readonly authorDates: {
@@ -55,6 +59,7 @@ export default function ArticleFooter({
   meta,
   categoryArticles,
   footerMagazines,
+  footerMokuji,
   faqs,
   hasCategoryNavCard,
   authorDates,
@@ -101,14 +106,22 @@ export default function ArticleFooter({
           </div>
         )}
 
-      {/* note 有料マガジン CTA（記事末尾・全幅・画像オンリーに統一／2026-06-26）。
-          サイドバーから集約し、サイドバー最上部は転職アフィリに譲る。共通の SidebarMagazineList を使用。
-          画像は max-w-sm で中央寄せして本文幅で巨大化しないようにする。 */}
-      {footerMagazines.length > 0 && (
-        <SidebarMagazineList
-          magazines={footerMagazines}
-          className="mt-8 flex flex-wrap justify-center gap-4"
-        />
+      {/* note 有料マガジン CTA（記事末尾・資格別ブランドタイルに統一／2026-07）。
+          直リンク商品タイル（先頭 3 誌に cap 済み）＋ もくじ（L2 索引）タイルを 1 行に折り返し表示。
+          文言/価格は SoT から HTML 駆動（旧 300×250 焼き込みバナーを廃止）。 */}
+      {(footerMagazines.length > 0 || footerMokuji) && (
+        <div className="mt-8 flex flex-wrap justify-center gap-4">
+          {footerMagazines.map(({ slot, magazine }) => (
+            <div key={slot.magazineId} className="w-full max-w-[300px]">
+              <NoteMagazineTile magazine={magazine} utmContent={slot.utmContent} />
+            </div>
+          ))}
+          {footerMokuji && (
+            <div className="w-full max-w-[300px]">
+              <HubCtaBanner cta={footerMokuji} />
+            </div>
+          )}
+        </div>
       )}
       {showLinksHubFallback && (
         <div className="mt-8 mx-auto max-w-sm">

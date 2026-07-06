@@ -71,17 +71,32 @@ function appendUtm(base: string, utmContent: string): string {
   return `${base}${sep}${params.toString()}`;
 }
 
-export function resolveHubCta(category: string): ResolvedHubCta | null {
+/**
+ * カテゴリ hub / docs 記事の note CTA を解決する。
+ * @param opts.utmSuffix 面識別子（"sb" 等）。trackLabel/utm_content 末尾に付与し GA4 で面分離する。
+ * @param opts.forceMokuji 直前期でも商品へ振らず常にもくじへ集約する（docs 記事末尾/サイドバー用。
+ *   本文カード側で個別商品を既に出しているため、もくじは回遊専用にする）。
+ */
+export function resolveHubCta(
+  category: string,
+  opts: { utmSuffix?: string; forceMokuji?: boolean } = {},
+): ResolvedHubCta | null {
   const spec = HUB[category];
   if (!spec) return null;
+  const suffix = opts.utmSuffix ? `-${opts.utmSuffix}` : '';
 
-  // 直前期（試験の 6 週間前〜試験日）だけ売れ筋の特定商品へ直リンク。それ以外はもくじへ集約。
+  // 直前期（試験の 6 週間前〜試験日）だけ売れ筋の特定商品へ直リンク。それ以外／forceMokuji はもくじへ集約。
   const PRE_EXAM_WINDOW_MS = 42 * 24 * 60 * 60 * 1000; // 6 週間
   const now = Date.now();
-  if (spec.seasonal && now >= spec.seasonal.switchUtcMs - PRE_EXAM_WINDOW_MS && now < spec.seasonal.switchUtcMs) {
+  if (
+    !opts.forceMokuji &&
+    spec.seasonal &&
+    now >= spec.seasonal.switchUtcMs - PRE_EXAM_WINDOW_MS &&
+    now < spec.seasonal.switchUtcMs
+  ) {
     const mag = getMagazine(spec.seasonal.product);
     if (mag) {
-      const utm = `category-${category}-hub-seasonal`;
+      const utm = `category-${category}-hub-seasonal${suffix}`;
       return {
         mode: 'product',
         bg: spec.bg,
@@ -100,7 +115,7 @@ export function resolveHubCta(category: string): ResolvedHubCta | null {
   }
 
   // それ以外は「もくじ」へ集約（マガジンが増えても追加不要でスケール）
-  const utm = `category-${category}-hub-mokuji`;
+  const utm = `category-${category}-hub-mokuji${suffix}`;
   return {
     mode: 'mokuji',
     bg: spec.bg,

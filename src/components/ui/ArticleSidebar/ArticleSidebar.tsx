@@ -2,11 +2,10 @@ import { type DocMeta } from '@/lib/docs';
 import { type DocGroupKey } from '@/lib/doc-classifier';
 import { type SidebarAdCreative } from '@/config/affiliate-creatives';
 import { type TocHeading } from '@/lib/toc';
-import { type PlacementSlot } from '@/lib/magazine-placement';
-import { type NoteMagazine } from '@/lib/note-magazines';
+import { type ResolvedHubCta } from '@/lib/hub-cta';
 import AuthorSidebarCard from '@/components/ui/AuthorSidebarCard';
 import SidebarAdBanner from '@/components/ui/SidebarAdBanner';
-import SidebarMagazineList from '@/components/ui/SidebarMagazineList/SidebarMagazineList';
+import HubCtaBanner from '@/components/ui/HubCtaBanner/HubCtaBanner';
 import TableOfContents from '@/components/ui/TableOfContents';
 import ExamQuestionNav from '@/components/ui/ExamQuestionNav';
 import CategoryNavCard from '@/components/ui/CategoryNavCard/CategoryNavCard';
@@ -14,8 +13,8 @@ import PillarNavCard from '@/components/ui/PillarNavCard';
 
 interface ArticleSidebarProps {
   readonly careerSidebarAd: { creative: SidebarAdCreative; trackLabel: string };
-  /** 転職枠直下に再掲する note マガジン（utmContent は -sb 済み・呼び出し側で slice/公開判定済み）。 */
-  readonly noteMagazines: ReadonlyArray<{ slot: PlacementSlot; magazine: NoteMagazine }>;
+  /** 転職枠直下に出す note もくじ（L2 索引）タイル。HUB 資格 & placement 非空のときのみ非 null。 */
+  readonly noteMokuji: ResolvedHubCta | null;
   readonly headings: TocHeading[];
   readonly category: DocMeta['category'];
   readonly docGroup: DocGroupKey;
@@ -40,7 +39,7 @@ interface ArticleSidebarProps {
  */
 export default function ArticleSidebar({
   careerSidebarAd,
-  noteMagazines,
+  noteMokuji,
   headings,
   category,
   docGroup,
@@ -61,9 +60,13 @@ export default function ArticleSidebar({
       <div className="mb-3">
         <SidebarAdBanner {...careerSidebarAd.creative} trackLabel={careerSidebarAd.trackLabel} />
       </div>
-      {/* note CTA を転職枠の直下に再掲（2026-07・記事末尾集約は維持しつつ導線を強化）。
-          sidebarImageUrl 無し・career-only 記事では noteMagazines が空 → SidebarMagazineList が null を返す。 */}
-      <SidebarMagazineList magazines={noteMagazines} />
+      {/* note もくじ（L2 索引）タイルを転職枠の直下に（2026-07・記事末尾の商品タイルとは別に回遊導線を再掲）。
+          career-only 記事・HUB 非対応資格では noteMokuji が null → 非表示（転職一本方針を継承）。 */}
+      {noteMokuji && (
+        <div className="mb-3">
+          <HubCtaBanner cta={noteMokuji} />
+        </div>
+      )}
       {/* 運営者プロフィール（合格体験者＝発注者）。E-E-A-T を提示。 */}
       <div className="mb-3">
         <AuthorSidebarCard />
