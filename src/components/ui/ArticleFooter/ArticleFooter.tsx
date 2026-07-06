@@ -177,12 +177,16 @@ export default function ArticleFooter({
         </div>
       )}
 
-      {/* 記事末 転職 CTA（モバイル限定・civil 1/2 + 建設部門・FAQ 直後）。href のみ＝計測はサイドバー側 1 発火を維持。
+      {/* 記事末 転職 CTA（モバイル限定・施工管理/建設業界カテゴリ・FAQ 直後）。href のみ＝計測はサイドバー側 1 発火を維持。
           creative は resolveCareerArticleEndCard が slug ハッシュ A/B（建設JOBs ↔ ビルドジョブ/GKS）で出し分け。
-          slugStr をサイドバーと共有＝同一ページは PC サイドバーと記事末カードが必ず同じ案件になる。 */}
+          slugStr をサイドバーと共有＝同一ページは PC サイドバーと記事末カードが必ず同じ案件になる。
+          concrete/pe-first-stage も建設業界読者ゆえ 2026-07-06 に parity 追加（モバイル収益化）。 */}
       {(category === 'civil-construction-1' ||
         category === 'civil-construction-2' ||
-        category === 'pe-construction') && (
+        category === 'pe-construction' ||
+        category === 'concrete-chief-engineer' ||
+        category === 'concrete-diagnostician' ||
+        category === 'pe-first-stage') && (
         <div className="mt-8 zenn-desktop:hidden">
           <CareerAffiliate {...resolveCareerArticleEndCard(slugStr)} />
         </div>

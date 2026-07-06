@@ -284,12 +284,13 @@ export function resolvePeConsultingArticleEndCard(): CareerArticleEndCard {
  * 受験者層に creative をセグメントする（戻り値 null = 転職枠なし＝単一カラム）。
  * page.tsx の careerSidebar 判定（ゲート）も兼ねる。
  *
- * - civil-1 / civil-2 / pe-construction（施工管理・建設業界）→ `resolveCareerSidebarAd()`（期間で BuildJob ↔ GKS）。
- *   pe-construction（建設部門）も BuildJob 適合のため 2026-06-26 にカテゴリ枠を追加（docs は被覆済みだった）。
+ * - civil-1 / civil-2 / pe-construction / concrete 系 / pe-first-stage（施工管理・建設業界エンジニア）
+ *   → `[建設JOBs, resolveCareerSidebarAd()]`（期間で BuildJob ↔ GKS）。concrete（コンクリート主任/診断士）と
+ *   pe-first-stage（技術士一次＝建設部門志望が主）も建設業界読者ゆえ 2026-07-06 に枠を追加（露出最大化）。
  * - pe-comprehensive-management（総監＝シニア技術者・管理職層）→ ハイクラス DX/コンサル転職
  *   （`PE_CONSULTING_CAREER_AD`）。GKS の「20代未経験/施工管理」ミスマッチを解消（2026-06-16 差替）。
  *   GA4 流入 2 位の高トラフィックページの収益導線ゼロも解消。
- * - それ以外（concrete 系 / pe-first-stage）→ null（カテゴリ hub に転職枠なし）。
+ * - それ以外 → null（カテゴリ hub に転職枠なし）。
  *
  * 真実源: docs/project/04_運営/02_アフィリエイト提携状況.md。
  */
@@ -302,7 +303,10 @@ export function resolveCategoryCareerAds(
   if (
     category === "civil-construction-1" ||
     category === "civil-construction-2" ||
-    category === "pe-construction"
+    category === "pe-construction" ||
+    category === "concrete-chief-engineer" ||
+    category === "concrete-diagnostician" ||
+    category === "pe-first-stage"
   ) {
     // カテゴリ hub は低意図のブラウジング文脈。建設JOBs（登録 ¥4,500）とビルドジョブ（面談 ¥50,000）は
     // 行動が異なる**補完案件**（代替でない＝A8 は別プログラムで別々に成果課金）ため、A/B で 1 つに
