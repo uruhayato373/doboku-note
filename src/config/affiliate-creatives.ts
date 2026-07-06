@@ -79,6 +79,30 @@ const KENSETSU_JOBS_CAREER_AD = {
   height: 250,
 } as const;
 
+/**
+ * ビルドジョブ 本文テキストリンク（NTRMQ）。300×250 バナーが置けない狭い面（記事中間）に
+ * テキストで露出するための creative。文言は A8 発行の公式テキスト（景表法整合・¥表記なし）。
+ * href のみ（計測ピクセルなし）。note 用テキストリンク（NTJWY）とは別 mat（サイト用）。
+ */
+const BUILDJOB_TEXT_AD = {
+  href: "https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHBA2+5B0Y+NTRMQ",
+  text: "ビルドジョブ｜建設業界特化の転職エージェントの無料キャリア面談",
+} as const;
+
+/**
+ * ビルドジョブ 120×60 小バナー（NU729）。カテゴリ hub の「キャリア・転職」セクションなど、
+ * 300×250 では大きすぎる面に置く小型バナー。href のみ（ピクセルなし）。
+ * ※ 100×60（NUES1）も affiliate-mats.json に登録済み（別サイズが要るとき用の予備）。
+ */
+const BUILDJOB_BANNER_120 = {
+  href: "https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHBA2+5B0Y+NU729",
+  imageSrc:
+    "https://www24.a8.net/svt/bgt?aid=260605733026&wid=002&eno=01&mid=s00000024757004004000&mc=1",
+  alt: "建設業界特化 転職エージェント ビルドジョブ",
+  width: 120,
+  height: 60,
+} as const;
+
 /** FNV-1a 32bit ハッシュ。slug 単位で決定論的に A/B を振り分ける（同じページは常に同じ arm＝SSG 安定）。 */
 function fnv1a(s: string): number {
   let h = 0x811c9dc5;
@@ -120,13 +144,21 @@ function resolveCareerSidebarAbArm(slug: string | undefined): {
  *     「表示回数」は計測されなくなる（クリック・成果は href 経由で従来どおり計測される）。
  * 人間向け真実源: docs/project/04_運営/02_アフィリエイト提携状況.md
  */
+/**
+ * ビルドジョブ増額キャンペーン期間中か（ビルド時=SSG 評価）。
+ * 2026-09-01 00:00 JST = 2026-08-31 15:00 UTC（月は 0 始まりのため 8 月 = 7）以降 false。
+ * 9/1 以降の最初の本番再ビルドで、ビルドジョブ依存の面（サイドバー/テキスト/小バナー）が
+ * 自動的に GKS 復帰 or 非表示になる。全アフィリ resolver が共有する単一の期間境界。
+ */
+function isCampaignActive(): boolean {
+  return Date.now() < Date.UTC(2026, 7, 31, 15, 0, 0);
+}
+
 function resolveCareerSidebarAd(): {
   creative: SidebarAdCreative;
   trackLabel: string;
 } {
-  // 2026-09-01 00:00 JST = 2026-08-31 15:00 UTC（月は 0 始まりのため 8 月 = 7）
-  const campaignEndUtcMs = Date.UTC(2026, 7, 31, 15, 0, 0);
-  if (Date.now() < campaignEndUtcMs) {
+  if (isCampaignActive()) {
     return { creative: BUILDJOB_CAREER_AD, trackLabel: "BuildJob-sidebar" };
   }
   return { creative: CIVIL_CAREER_AD, trackLabel: "GKS-sidebar" };
@@ -252,12 +284,13 @@ export function resolvePeConsultingArticleEndCard(): CareerArticleEndCard {
  * 受験者層に creative をセグメントする（戻り値 null = 転職枠なし＝単一カラム）。
  * page.tsx の careerSidebar 判定（ゲート）も兼ねる。
  *
- * - civil-1 / civil-2 / pe-construction（施工管理・建設業界）→ `resolveCareerSidebarAd()`（期間で BuildJob ↔ GKS）。
- *   pe-construction（建設部門）も BuildJob 適合のため 2026-06-26 にカテゴリ枠を追加（docs は被覆済みだった）。
+ * - civil-1 / civil-2 / pe-construction / concrete 系 / pe-first-stage（施工管理・建設業界エンジニア）
+ *   → `[建設JOBs, resolveCareerSidebarAd()]`（期間で BuildJob ↔ GKS）。concrete（コンクリート主任/診断士）と
+ *   pe-first-stage（技術士一次＝建設部門志望が主）も建設業界読者ゆえ 2026-07-06 に枠を追加（露出最大化）。
  * - pe-comprehensive-management（総監＝シニア技術者・管理職層）→ ハイクラス DX/コンサル転職
  *   （`PE_CONSULTING_CAREER_AD`）。GKS の「20代未経験/施工管理」ミスマッチを解消（2026-06-16 差替）。
  *   GA4 流入 2 位の高トラフィックページの収益導線ゼロも解消。
- * - それ以外（concrete 系 / pe-first-stage）→ null（カテゴリ hub に転職枠なし）。
+ * - それ以外 → null（カテゴリ hub に転職枠なし）。
  *
  * 真実源: docs/project/04_運営/02_アフィリエイト提携状況.md。
  */
@@ -270,7 +303,10 @@ export function resolveCategoryCareerAds(
   if (
     category === "civil-construction-1" ||
     category === "civil-construction-2" ||
-    category === "pe-construction"
+    category === "pe-construction" ||
+    category === "concrete-chief-engineer" ||
+    category === "concrete-diagnostician" ||
+    category === "pe-first-stage"
   ) {
     // カテゴリ hub は低意図のブラウジング文脈。建設JOBs（登録 ¥4,500）とビルドジョブ（面談 ¥50,000）は
     // 行動が異なる**補完案件**（代替でない＝A8 は別プログラムで別々に成果課金）ため、A/B で 1 つに
@@ -283,4 +319,59 @@ export function resolveCategoryCareerAds(
     ];
   }
   return [];
+}
+
+/** 本文中間テキスト CTA の型（career 記事用・href のみ・ピクセルなし）。 */
+export type CareerTextLink = {
+  readonly href: string;
+  readonly text: string;
+  readonly trackLabel: string;
+};
+
+/**
+ * career 記事の本文中間テキスト CTA を解決する（2026-07・ビルドジョブ増額キャンペーン限定）。
+ * 300×250 バナーが置けない本文フローに、テキストリンクで露出する（テキストは一般にバナーより CTR 高）。
+ * - arm B（建設JOBs slug ハッシュ）: **null**。建設JOBs のテキスト mat が無く、arm B に別ブランドの
+ *   テキストを混ぜると恒久 A/B の EPC 比較が汚れるため、面を出さず related fallback に委ねる。
+ * - arm A かつ campaign 中: ビルドジョブ テキストリンク（NTRMQ）。label=BuildJob-midtext。
+ * - 2026-09-01 以降: null（GKS のテキスト mat 未提供＝面ごと自動消滅）。
+ * href のみ（1 ページ 1 ピクセル維持）。表示側で PR 開示を必ず付ける。
+ */
+export function resolveCareerTextLink(slug?: string): CareerTextLink | null {
+  if (isKensetsuJobsArm(slug)) return null;
+  if (isCampaignActive()) {
+    return {
+      href: BUILDJOB_TEXT_AD.href,
+      text: BUILDJOB_TEXT_AD.text,
+      trackLabel: "BuildJob-midtext",
+    };
+  }
+  return null;
+}
+
+/** hub キャリアセクション用の小バナー creative 型（href のみ・ピクセルなし）。 */
+export type SmallBannerCreative = {
+  readonly href: string;
+  readonly imageSrc: string;
+  readonly alt: string;
+  readonly width: number;
+  readonly height: number;
+  readonly trackLabel: string;
+};
+
+/**
+ * カテゴリ hub の「キャリア・転職」セクションに置く小バナー（120×60）を解決する。
+ * campaign 中のみ返す（9/1 以降 null＝GKS 小バナー mat 未提供）。href のみ（hub は既に
+ * 建設JOBs＋BuildJob の 2 ピクセルを発火中のため、この小バナーはピクセルを持たない）。
+ */
+export function resolveCareerSmallBanner(): SmallBannerCreative | null {
+  if (!isCampaignActive()) return null;
+  return {
+    href: BUILDJOB_BANNER_120.href,
+    imageSrc: BUILDJOB_BANNER_120.imageSrc,
+    alt: BUILDJOB_BANNER_120.alt,
+    width: BUILDJOB_BANNER_120.width,
+    height: BUILDJOB_BANNER_120.height,
+    trackLabel: "BuildJob-hubcareer",
+  };
 }

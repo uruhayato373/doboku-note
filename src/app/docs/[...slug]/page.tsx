@@ -34,7 +34,7 @@ import MidArticleCta from '@/components/ui/MidArticleCta/MidArticleCta';
 import { rankRelated } from '@/lib/related-score';
 import { extractReferencesSection } from '@/lib/extract-references';
 import type { Pluggable } from 'unified';
-import { resolveDocsCareerSidebarAd } from '@/config/affiliate-creatives';
+import { resolveDocsCareerSidebarAd, resolveCareerTextLink } from '@/config/affiliate-creatives';
 import type React from 'react';
 
 
@@ -333,17 +333,39 @@ export default async function DocPage({
   // 中身は「footerMagazines[0] が冒頭 CTA と別マガジンなら note、それ以外は関連記事」。
   // MDX ソースは書き換えず rehypeMidCta が <midslot> を挿し、components で MidCtaBound に解決する。
   const midH2Count = headings.filter((h) => h.level === 2).length;
+  const midBodyLen = stripLeadingH1(strippedContent).length;
   const midEligibleGroup =
     docGroup === 'guide' || docGroup === 'pillar' || docGroup === 'textbook';
-  const midEnabled =
-    midEligibleGroup && midH2Count >= 5 && stripLeadingH1(strippedContent).length >= 8000;
+  const midEnabled = midEligibleGroup && midH2Count >= 5 && midBodyLen >= 8000;
+  // career 記事（tags に career）の本文中間 転職テキスト CTA。career 記事は実測 3〜4k 字で上の
+  // midEnabled（8,000字）に届かないため、専用の軽いゲートで拾う（h2>=4・>=2,500字）。
+  // ただし既に本文へ inline <CareerAffiliate> カードがある記事は二重表示になるため除外し、
+  // 「本文に転職導線が無い career 記事」だけを埋める（＝各 career 記事の本文導線は 1 個に保つ）。
+  // resolveCareerTextLink は arm B / campaign 終了時に null＝面ごと自動非表示（EPC A/B 非汚染）。
+  const isCareerArticle =
+    docGroup === 'guide' && Array.isArray(doc.meta.tags) && doc.meta.tags.includes('career');
+  const hasInlineCareerCard = /\bCareerAffiliate\b/.test(strippedContent);
+  const careerMidLink =
+    isCareerArticle && !hasInlineCareerCard && midH2Count >= 4 && midBodyLen >= 2500
+      ? resolveCareerTextLink(slugStr)
+      : null;
   // 中間（floor(h2/2)）だが最終 h2（まとめ）直前は避ける
-  const midCtaPosition = midEnabled
+  const midCtaPosition = (midEnabled || careerMidLink)
     ? Math.min(Math.floor(midH2Count / 2), midH2Count - 2)
     : undefined;
 
   let MidCtaBound: (() => React.ReactElement) | null = null;
-  if (midEnabled) {
+  if (careerMidLink) {
+    // career 記事は最優先で転職テキスト CTA（footerMagazines は career-only で空＝note は元々出ない）。
+    MidCtaBound = () => (
+      <MidArticleCta
+        mode="career"
+        href={careerMidLink.href}
+        text={careerMidLink.text}
+        trackLabel={careerMidLink.trackLabel}
+      />
+    );
+  } else if (midEnabled) {
     const midNote = footerMagazines[0];
     const midNoteMag = midNote?.magazine;
     const differsFromTop = midNoteMag && (!topSlot || topSlot.magazineId !== midNote.slot.magazineId);

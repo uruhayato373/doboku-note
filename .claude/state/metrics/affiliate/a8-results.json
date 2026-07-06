@@ -1,0 +1,13 @@
+{
+  "_comment": "A8.net アフィリ成果の月次手動スナップショット。A8 は API が無く CI 供給不能なため、A8 管理画面から月1で手入力する（クリック/成果/報酬の突合＝EPC 判定の分母）。GA4 の by-label クリック（ga4-cta-clicks-by-label-*.json）と突き合わせて、建設JOBs vs ビルドジョブ の EPC（報酬/クリック）を比較し ~2026-09 に恒久 A/B の勝者を決める（docs/todo/backlog.md P5）。GA4 側クリックが真実源＝ここは A8 の成果（発生件数・確定報酬）のみ記録。運用: docs/project/04_運営/02_アフィリエイト提携状況.md 参照。",
+  "schema": {
+    "month": "YYYY-MM（A8 レポート期間）",
+    "program": "buildjob | kensetsu-jobs | gks | dx-consulting",
+    "clicks": "A8 管理画面のクリック数（GA4 とは母数が異なりうる＝参考）",
+    "conversions": "成果発生件数（未確定含む）",
+    "approved": "承認確定件数",
+    "revenueYen": "確定報酬（円）",
+    "note": "備考（キャンペーン期間・イレギュラー等）"
+  },
+  "records": []
+}

@@ -5,6 +5,7 @@ import { type DocGroup } from '@/lib/category-groups';
 import { DocSection } from '@/components/category/CategorySections';
 import { resolveCurriculum, resolveTextbookChapters } from '@/lib/category-curriculum';
 import { CurriculumSection, CurriculumList, CareerSection } from '@/components/category/CurriculumSections';
+import { resolveCareerSmallBanner } from '@/config/affiliate-creatives';
 
 /** civil-construction-1: 受験ガイド＋分野別＋テキスト章目次をリスト化、過去問はテーブル維持 */
 export function CivilConstruction1View({ groups, mobileCareerAds = [] }: { groups: DocGroup[]; mobileCareerAds?: ReactNode[] }) {
@@ -70,6 +71,7 @@ export function CivilConstruction1View({ groups, mobileCareerAds = [] }: { group
         featured={curriculum.career.featured}
         rest={curriculum.career.rest}
         description="年収・転職・キャリアパス・働き方の実務ガイド"
+        smallBanner={resolveCareerSmallBanner()}
       />
     </>
   );
@@ -143,7 +145,7 @@ export function CivilConstruction2View({ groups, mobileCareerAds = [] }: { group
 }
 
 /** concrete-chief-engineer / concrete-diagnostician: 受験ガイド＋テキスト章目次＋分野別過去問をリスト化（共用） */
-export function ConcreteView({ groups }: { groups: DocGroup[] }) {
+export function ConcreteView({ groups, mobileCareerAds = [] }: { groups: DocGroup[]; mobileCareerAds?: ReactNode[] }) {
   const guideGroup = groups.find(g => g.key === 'guide');
   const textbookGroup = groups.find(g => g.key === 'textbook');
   const primaryGroup = groups.find(g => g.key === 'primary');
@@ -162,6 +164,7 @@ export function ConcreteView({ groups }: { groups: DocGroup[] }) {
           <CurriculumList blocks={[{ docs: examGuideDocs }]} />
         </CurriculumSection>
       )}
+      {mobileCareerAds[0]}
       {chapters.length > 0 && (
         <CurriculumSection id="textbook" title={textbookGroup?.title ?? 'テキスト'} description={textbookGroup?.description} count={textbookCount}>
           <CurriculumList blocks={chapters} numbered />
@@ -172,18 +175,21 @@ export function ConcreteView({ groups }: { groups: DocGroup[] }) {
           <CurriculumList blocks={[{ docs: primaryGroup.docs }]} numbered />
         </CurriculumSection>
       )}
+      {mobileCareerAds[1]}
     </>
   );
 }
 
 /** pe-first-stage: 適性・基礎・専門マトリクス */
-export function PeFirstStageView({ groups }: { groups: DocGroup[] }) {
+export function PeFirstStageView({ groups, mobileCareerAds = [] }: { groups: DocGroup[]; mobileCareerAds?: ReactNode[] }) {
   const primaryGroup = groups.find(g => g.title === getGroupLabel('pe-first-stage', 'primary'));
   return (
     <>
       {primaryGroup && (
         <DocSection group={primaryGroup} layout="pe-first-stage-table" />
       )}
+      {/* セクションが1個のためテーブル後ろに転職枠を配置（モバイル・href のみ）。 */}
+      {mobileCareerAds[0]}
     </>
   );
 }
@@ -252,7 +258,7 @@ export function PeComprehensiveView({ groups, mobileCareerAds = [] }: { groups: 
 }
 
 /** pe-construction: 受験ガイド＋論文の書き方をリスト化、キーワード・科目×年度マトリクスは維持 */
-export function PeConstructionView({ groups }: { groups: DocGroup[] }) {
+export function PeConstructionView({ groups, mobileCareerAds = [] }: { groups: DocGroup[]; mobileCareerAds?: ReactNode[] }) {
   const guideGroup = groups.find(g => g.key === 'guide');
   const keywordGroup = groups.find(g => g.key === 'keyword');
   const pastExamGroup = groups.find(g => g.key === 'pastExam');
@@ -273,10 +279,12 @@ export function PeConstructionView({ groups }: { groups: DocGroup[] }) {
           <CurriculumList blocks={curriculum.fields.blocks} />
         </CurriculumSection>
       )}
+      {mobileCareerAds[0]}
       {keywordGroup && <DocSection group={keywordGroup} />}
       {pastExamGroup && (
         <DocSection group={pastExamGroup} layout="pe-construction-exam-table" />
       )}
+      {mobileCareerAds[1]}
       <CareerSection
         featured={curriculum.career.featured}
         rest={curriculum.career.rest}

@@ -273,7 +273,7 @@ CLAUDE.md §7 と一致:
 | note 要素の総数（footer 含む・暴走検知の緩い上限） | ≤ 30 | **機械**（旗艦ハブは意図的に多数収録＝22 程度まで） |
 | 同一 a8mat のインプレッションピクセル（`<img …0.gif?a8mat=MAT>`） | ≤ 1 /ページ | **機械**（同一 MAT 二重発火を検知。別 MAT の併置＝カテゴリ hub の補完 2 案件 は正当で許可） |
 | サイドバー note カード | 既定 1 枚（TOC 非表示 docGroup のみ 2 枚） | コード（page.tsx 導出） |
-| 本文中間 CTA（`MidArticleCta`） | 1 記事 1 個（guide/pillar/textbook・h2≥5・8,000字以上のみ） | コード（挿入条件） |
+| 本文中間 CTA（`MidArticleCta`） | 1 記事 1 個。**note/related モード**=guide/pillar/textbook・h2≥5・8,000字以上。**career モード**（転職テキスト・affiliate）=career タグ・h2≥4・2,500字以上（career 記事は 3〜4k 字で 8,000字に届かないため専用ゲート）＋ `resolveCareerTextLink` 非 null（arm A・campaign 中のみ＝arm B/9月以降は非表示） | コード（挿入条件） |
 | 記事末尾 footer カード | ≤ 7 目安（旗艦セールスハブは例外的に超過可） | 手動 |
 | AdSense 自動広告 | コードで除外指定不可 → 管理画面「広告掲載率」＋`google-auto-placed` 出現数を週次監査 | 手動 |
 

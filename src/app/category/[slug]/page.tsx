@@ -85,7 +85,8 @@ export default async function CategoryPage({
   // 建設JOBs（登録 ¥4,500）＋ビルドジョブ（面談 ¥50,000）の補完 2 案件を出し、読者に選ばせる。
   // PC は右サイドバーに縦積み、モバイルは記事カードの隙間（グループ境界）に配置して可視化する。
   // ピクセルは PC サイドバー側のみ発火（モバイルは href のみ）＝各プログラム 1 ピクセルずつ。
-  // 戻り値 []＝転職枠なし（concrete / pe-first-stage は単一カラム）。記事ページは別途 A/B（直交）。
+  // 戻り値 []＝転職枠なし（総監以外の非建設カテゴリのみ）。civil/建設部門/concrete/pe-first-stage は
+  // 建設業界読者ゆえ [建設JOBs, BuildJob/GKS] を返す（2026-07-06 拡大）。記事ページは別途 A/B（直交）。
   const careerAds = resolveCategoryCareerAds(slug);
   // note CTA（資格別リッチ背景×HTML文字）。幅広面はもくじへ集約、直前期は特定商品へ直リンク。
   // 本文・PC サイドバー・モバイルの 3 面に同一内容を出し、utm で面分離する（旧 上位3誌直リンクを廃止し
@@ -155,13 +156,13 @@ export default async function CategoryPage({
               ) : slug === 'civil-construction-2' ? (
                 <CivilConstruction2View groups={groups} mobileCareerAds={mobileCareerAds} />
               ) : slug === 'pe-first-stage' ? (
-                <PeFirstStageView groups={groups} />
+                <PeFirstStageView groups={groups} mobileCareerAds={mobileCareerAds} />
               ) : slug === 'pe-comprehensive-management' ? (
                 <PeComprehensiveView groups={groups} mobileCareerAds={mobileCareerAds} />
               ) : slug === 'pe-construction' ? (
-                <PeConstructionView groups={groups} />
+                <PeConstructionView groups={groups} mobileCareerAds={mobileCareerAds} />
               ) : slug === 'concrete-chief-engineer' || slug === 'concrete-diagnostician' ? (
-                <ConcreteView groups={groups} />
+                <ConcreteView groups={groups} mobileCareerAds={mobileCareerAds} />
               ) : (
                 groups.map(group => (
                   <DocSection key={group.title} group={group} />

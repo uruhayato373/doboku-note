@@ -14,6 +14,10 @@
  *   npm run fetch-ga4-cta-clicks -- --days 7     # 過去7日
  *   npm run fetch-ga4-cta-clicks -- --by-device  # eventName × deviceCategory（モバイル vs PC の CTA クリック）
  *                                                #   → ga4-cta-clicks-by-device-*.json（既定の page 別とは別ファイル・downstream 非破壊）
+ *   npm run fetch-ga4-cta-clicks -- --by-label   # eventName × event_label（プログラム/面別＝BuildJob-sidebar 等）
+ *                                                #   → ga4-cta-clicks-by-label-*.json。要 GA4 カスタムディメンション
+ *                                                #     （イベントスコープ・パラメータ event_label）を先に管理画面で登録。
+ *                                                #     未登録なら API がエラー→登録手順を表示して exit 0（CI 非破壊）。
  *
  * 認証は fetch-ga4-data.mjs と同じサービスアカウント鍵（.env.local）。
  * 計測は本番（NODE_ENV=production）でのみ発火するため、デプロイ後に
@@ -32,7 +36,7 @@ const EVENT_NAMES = ["note_cta_click", "affiliate_cta_click", "note_article_clic
 
 function parseArgs() {
   const args = process.argv.slice(2);
-  const opts = { days: DEFAULT_DAYS, japanOnly: true, byDevice: false };
+  const opts = { days: DEFAULT_DAYS, japanOnly: true, byDevice: false, byLabel: false };
   for (let i = 0; i < args.length; i++) {
     switch (args[i]) {
       case "--days":
@@ -46,6 +50,12 @@ function parseArgs() {
         // モバイル/PC 別の CTA クリックを取り、device 別 sessions（fetch-ga4-data --dimension device）を
         // 分母にしてデバイス別 CTR を出す。downstream（report-monetization-coverage = page 別）は非破壊。
         opts.byDevice = true;
+        break;
+      case "--by-label":
+        // pagePath の代わりに event_label（=data-cta-label＝プログラム/面）を 2 つ目の dimension に。
+        // BuildJob-sidebar / KensetsuJobs-sidebar / BuildJob-midtext / ビルドジョブ 等のプログラム×面別
+        // クリック内訳を取り、アフィリ EPC 判定（建設JOBs vs BuildJob）の分子にする。別ファイル・非破壊。
+        opts.byLabel = true;
         break;
     }
   }
@@ -104,7 +114,14 @@ async function fetchCtaClicks(client, propertyId, opts) {
     });
   }
 
-  const firstDim = opts.byDevice ? "deviceCategory" : "pagePath";
+  // event_label は GA4 のイベントスコープ カスタムディメンション（パラメータ event_label）として
+  // 管理画面で登録済みの場合のみ customEvent:event_label で取得できる（未登録なら API がエラー）。
+  const firstDim = opts.byLabel
+    ? "customEvent:event_label"
+    : opts.byDevice
+      ? "deviceCategory"
+      : "pagePath";
+  const rowKey = opts.byLabel ? "label" : opts.byDevice ? "device" : "page";
   const request = {
     property: propertyId,
     dateRanges: [{ startDate, endDate }],
@@ -117,7 +134,7 @@ async function fetchCtaClicks(client, propertyId, opts) {
 
   const [response] = await client.runReport(request);
   const rows = (response.rows || []).map((row) => ({
-    [opts.byDevice ? "device" : "page"]: row.dimensionValues?.[0]?.value || "",
+    [rowKey]: row.dimensionValues?.[0]?.value || "",
     eventName: row.dimensionValues?.[1]?.value || "",
     eventCount: parseInt(row.metricValues?.[0]?.value || "0", 10),
   }));
@@ -129,6 +146,7 @@ async function fetchCtaClicks(client, propertyId, opts) {
       eventNames: EVENT_NAMES,
       japanOnly: opts.japanOnly,
       byDevice: opts.byDevice,
+      byLabel: opts.byLabel,
       propertyId,
     },
     rows,
@@ -142,10 +160,8 @@ async function main() {
 
   if (!existsSync(OUTPUT_DIR)) mkdirSync(OUTPUT_DIR, { recursive: true });
   const stamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
-  const outPath = join(
-    OUTPUT_DIR,
-    `ga4-cta-clicks${opts.byDevice ? "-by-device" : ""}-${stamp}.json`,
-  );
+  const variant = opts.byLabel ? "-by-label" : opts.byDevice ? "-by-device" : "";
+  const outPath = join(OUTPUT_DIR, `ga4-cta-clicks${variant}-${stamp}.json`);
   writeFileSync(outPath, JSON.stringify(data, null, 2));
 
   console.log(`\n期間: ${data.meta.startDate} 〜 ${data.meta.endDate}`);
@@ -166,6 +182,18 @@ async function main() {
 }
 
 main().catch((e) => {
+  // --by-label はカスタムディメンション未登録だと GA4 が「customEvent:event_label」不明で失敗する。
+  // その場合は登録手順を示して exit 0（CI の他 step を止めない・continue-on-error 前提だが明示）。
+  const msg = String(e?.message || e);
+  if (/customEvent:event_label|not.*valid.*dimension|did not match/i.test(msg)) {
+    console.warn(
+      "[fetch-ga4-cta-clicks] --by-label は GA4 カスタムディメンション未登録のためスキップ。\n" +
+        "  GA4 管理画面 → 管理 → データ表示 → カスタム定義 → カスタムディメンション作成:\n" +
+        "    範囲=イベント / イベントパラメータ=event_label / 表示名=event_label\n" +
+        "  登録後 最大 48h で反映し、以降の by-label 取得が有効になる（登録前データは遡及不可）。",
+    );
+    process.exit(0);
+  }
   console.error(e);
   process.exit(1);
 });
