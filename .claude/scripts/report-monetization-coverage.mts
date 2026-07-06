@@ -52,7 +52,9 @@ const MIN_USERS = arg("--min-users", 15); // gap 判定の高流入しきい値
 function latest(prefix: string): string | null {
   if (!existsSync(GA4_DIR)) return null;
   const files = readdirSync(GA4_DIR)
-    .filter((f) => f.startsWith(prefix) && f.endsWith(".json"))
+    // prefix の直後が数字（日付）のものだけ＝`ga4-cta-clicks-by-device-*` / `-by-label-*` の別スキーマ
+    // ファイルを誤って拾わない（"b">"2" で sort 末尾に来て latest を乗っ取り TypeError になっていた）。
+    .filter((f) => f.startsWith(prefix) && /^\d/.test(f.slice(prefix.length)) && f.endsWith(".json"))
     .sort();
   return files.length ? join(GA4_DIR, files[files.length - 1]) : null;
 }
