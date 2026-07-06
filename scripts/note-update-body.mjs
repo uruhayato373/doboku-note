@@ -10,8 +10,9 @@
  * 使い方:
  *   node scripts/note-update-body.mjs --article <article.md path>            # dry-run（既定・安全）
  *   node scripts/note-update-body.mjs --article <article.md path> --commit   # 実ライブ反映（公開に進む→更新する）
+ *   node scripts/note-update-body.mjs --article <article.md path> --pause    # 本文差替まで自動→タイトル変更＋更新確定を手動
  *   node scripts/note-update-body.mjs --list <list.txt> --commit             # 複数記事を一括ライブ反映
- *   npm 経由: npm run note-update-body -- --article <path> [--commit]
+ *   npm 経由: npm run note-update-body -- --article <path> [--commit|--pause]
  *
  * 追加オプション:
  *   --probe "<文字列>"        paste 成功検証に使う必須文字列（単一記事時のみ。省略時は本文から自動導出）
@@ -30,14 +31,16 @@
  *   4.5 目次ブロック再挿入（H2>=3・最初のh2直前・--no-toc で抑止）。全文置換で目次が消えるため note-publish と同手順で再挿入。
  *   5. ライブ反映:
  *        --commit なし = dry-run（スクショのみ・更新しない）
- *        --commit あり = 公開に進む →（有料記事なら有料境界保持/再設定）→ 更新する → 更新通知は必ず「いいえ」
- *        ※ 無料記事のライブ更新は publishLive の「更新する」ボタン検出が未対応（既知の残課題）。
+ *        --commit あり = （title あれば差替）→ 公開に進む →（有料なら境界保持/再設定）→ 更新する → 通知「いいえ」
+ *        --pause あり = 本文差替＋カード化＋目次まで自動 → 反映直前で停止。タイトル変更と「更新する」確定を
+ *                       手動で行う（ブラウザ close で終了）。無料記事＋タイトル変更が要るケース（もくじ）向け。
+ *        ※ 無料記事の --commit 自動確定は publishLive の「更新する」ボタン検出が未検証（既知の残課題）→ --pause 推奨。
  *
  * なぜ「下書き保存」だけでは反映されないか:
  *   公開済み記事の autosave 下書きは browser close で破棄され、再オープンで公開版がロードされる。
  *   ＝ライブには一切反映されない。同一セッション内で「更新する」まで到達して初めて反映される。
  *
- * 注意: カバー画像・タイトル・タグは変更しない。本文のみ差し替え。
+ * 注意: カバー画像・タグは変更しない。タイトルは frontmatter に title があれば差し替える（--no-title で抑止）。
  * 実行はローカル（note ログイン済みプロファイルのある Windows/Mac）限定。会社 PC で可（channel:'chrome'）。
  * ---------------------------------------------------------------------------
  */
@@ -56,6 +59,7 @@ const ARTICLE_ARG = getArg('--article');
 const LIST_ARG = getArg('--list');
 const PROBE_ARG = getArg('--probe');             // 単一記事時の明示 probe（省略時は自動導出）
 const COMMIT = argv.includes('--commit');         // 実ライブ反映（既定は dry-run）
+const PAUSE = argv.includes('--pause');           // 反映直前で停止＝タイトル変更＋更新確定を手動に委ねる
 const KEEP_BOUNDARY = argv.includes('--keep-boundary'); // 有料: 境界を動かさず保持
 const BOUNDARY_RE = getArg('--boundary-h2') || '試験問題|予想問題';
 
@@ -63,6 +67,9 @@ const BOUNDARY_RE = getArg('--boundary-h2') || '試験問題|予想問題';
 const tocProblems = [];
 
 if (!ARTICLE_ARG && !LIST_ARG) { console.error('--article <path> or --list <file> required'); process.exit(1); }
+// --pause はブラウザ close で待機を解除する（1記事=1セッション）。--list はループ内で close されると
+// 後続記事が全滅するため併用不可。無料記事のタイトル変更＋更新確定を手動に委ねる用途（P4）。
+if (PAUSE && LIST_ARG) { console.error('--pause は --article 単体でのみ使用可（--list 併用不可＝close で後続が全滅する）'); process.exit(1); }
 
 mkdirSync(join(ROOT, '.tmp'), { recursive: true });
 
@@ -82,10 +89,11 @@ function parseArticle(articlePath) {
   const fmField = (k) => (fm.match(new RegExp('^' + k + ':\\s*(?:"(.*?)"|\'(.*?)\'|(.+?))\\s*$', 'm')) || []).slice(1).find(Boolean) || '';
   const noteId = fmField('noteId');
   if (!noteId || !/^n[0-9a-f]{6,}$/.test(noteId)) { throw new Error('noteId missing or invalid: ' + noteId); }
+  const title = fmField('title'); // --pause 時にユーザーへ提示する新タイトル（本文には出さない）
   let body = raw.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n*/, '');
   // note-publish.mjs と同じ前処理: コメント・画像・H1行を除去
   body = body.replace(/<!--[\s\S]*?-->\r?\n?/g, '').replace(/!\[.*?\]\(.*?\)\r?\n?/g, '').trim().replace(/^#\s+.*(?:\r?\n)+/, '').trim();
-  return { abs, noteId, body };
+  return { abs, noteId, title, body };
 }
 
 /**
@@ -350,7 +358,7 @@ async function publishLive(page, noteId) {
   return true;
 }
 
-async function updateArticle(page, { abs, noteId, body }, probe) {
+async function updateArticle(page, { abs, noteId, title, body }, probe) {
   console.log(`\n[article] ${noteId} — ${abs.split(/[/\\]/).slice(-2).join('/')}`);
 
   // 2. 編集 URL へ遷移
@@ -385,7 +393,47 @@ async function updateArticle(page, { abs, noteId, body }, probe) {
     if (tocStatus === 'misplaced') tocProblems.push(noteId);
   }
 
-  // 5. ライブ反映 or dry-run
+  // 4.7 タイトル変更（frontmatter に title があるとき）。edit 画面のタイトル textarea を差し替える。
+  //     もくじの便益タイトル刷新など、本文と同時にタイトルも変えたいケース用。--no-title で抑止。
+  if (title && !argv.includes('--no-title')) {
+    try {
+      const titleSel = 'textarea[placeholder*="タイトル"]';
+      const tl = page.locator(titleSel).first();
+      if (await tl.count()) {
+        await tl.click(); await sleep(300);
+        await tl.fill(title); await sleep(700);
+        const cur = (await tl.inputValue().catch(() => '')) || '';
+        console.log(`[4.7] title set: ${cur.trim() === title.trim() ? 'OK' : 'MISMATCH cur="' + cur + '"'}`);
+      } else {
+        console.log('[4.7] title textarea 未検出（タイトル変更スキップ・本文のみ更新）');
+      }
+    } catch (e) { console.log('[4.7] title set skip:', e.message.split('\n')[0]); }
+  }
+
+  // 5. 手動確定（--pause）: 本文差替まで済ませ、タイトル変更＋更新確定はユーザーに委ねる。
+  //    無料記事の「更新する」自動確定は未検証、かつタイトル変更ツールが無いため、この2つを同一
+  //    セッションで手動処理する（P4 もくじ live 反映）。ブラウザを閉じるとスクリプトが終了する。
+  if (PAUSE) {
+    await page.screenshot({ path: join(ROOT, `.tmp/nu-pause-${noteId}.png`), fullPage: false });
+    console.log('\n========================================');
+    console.log(`[PAUSE] 本文を差し替えました（${noteId}）。ブラウザで手動で仕上げてください:`);
+    console.log('  1. タイトル欄を新しいタイトルに書き換える');
+    if (title) console.log(`     新タイトル: ${title}`);
+    console.log('  2. 右上「公開に進む」→「更新する」をクリック');
+    console.log('  3. フォロワー通知は「いいえ（しない）」を選ぶ');
+    console.log('  4. 反映を確認したらブラウザのウィンドウを閉じる（閉じると本スクリプトが終了）');
+    console.log('  ※ 閉じる前に必ず「更新する」まで完了すること（未確定で閉じると下書きは破棄されます）');
+    console.log('========================================\n');
+    // ブラウザ close で解除。手動作業を待つため最大 30 分の安全タイムアウトを付す。
+    await Promise.race([
+      new Promise((res) => ctx.once('close', res)),
+      new Promise((res) => setTimeout(res, 30 * 60 * 1000)),
+    ]);
+    console.log(`[PAUSE] セッション終了（${noteId}）。API で反映を実査してください: curl --ssl-no-revoke https://note.com/api/v3/notes/${noteId}`);
+    return true;
+  }
+
+  // 5'. ライブ反映 or dry-run
   if (!COMMIT) {
     await page.screenshot({ path: join(ROOT, `.tmp/nu-dry-${noteId}.png`), fullPage: false });
     console.log(`[dry-run] paste まで成功（未反映）。スクショ: .tmp/nu-dry-${noteId}.png。実反映は --commit。`);
