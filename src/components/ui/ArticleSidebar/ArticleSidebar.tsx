@@ -2,10 +2,8 @@ import { type DocMeta } from '@/lib/docs';
 import { type DocGroupKey } from '@/lib/doc-classifier';
 import { type SidebarAdCreative } from '@/config/affiliate-creatives';
 import { type TocHeading } from '@/lib/toc';
-import { type ResolvedHubCta } from '@/lib/hub-cta';
 import AuthorSidebarCard from '@/components/ui/AuthorSidebarCard';
 import SidebarAdBanner from '@/components/ui/SidebarAdBanner';
-import HubCtaBanner from '@/components/ui/HubCtaBanner/HubCtaBanner';
 import TableOfContents from '@/components/ui/TableOfContents';
 import ExamQuestionNav from '@/components/ui/ExamQuestionNav';
 import CategoryNavCard from '@/components/ui/CategoryNavCard/CategoryNavCard';
@@ -13,8 +11,6 @@ import PillarNavCard from '@/components/ui/PillarNavCard';
 
 interface ArticleSidebarProps {
   readonly careerSidebarAd: { creative: SidebarAdCreative; trackLabel: string };
-  /** 転職枠直下に出す note もくじ（L2 索引）タイル。HUB 資格 & placement 非空のときのみ非 null。 */
-  readonly noteMokuji: ResolvedHubCta | null;
   readonly headings: TocHeading[];
   readonly category: DocMeta['category'];
   readonly docGroup: DocGroupKey;
@@ -39,7 +35,6 @@ interface ArticleSidebarProps {
  */
 export default function ArticleSidebar({
   careerSidebarAd,
-  noteMokuji,
   headings,
   category,
   docGroup,
@@ -60,13 +55,8 @@ export default function ArticleSidebar({
       <div className="mb-3">
         <SidebarAdBanner {...careerSidebarAd.creative} trackLabel={careerSidebarAd.trackLabel} />
       </div>
-      {/* note もくじ（L2 索引）タイルを転職枠の直下に（2026-07・記事末尾の商品タイルとは別に回遊導線を再掲）。
-          career-only 記事・HUB 非対応資格では noteMokuji が null → 非表示（転職一本方針を継承）。 */}
-      {noteMokuji && (
-        <div className="mb-3">
-          <HubCtaBanner cta={noteMokuji} />
-        </div>
-      )}
+      {/* note CTA は記事末尾（footerMagazines＋footerMokuji）に一本集約する方針（2026-07-06）。
+          読書中サイドバーへのもくじ再掲は撤去し、サイドバーは転職枠＋著者＋ナビに絞る。 */}
       {/* 運営者プロフィール（合格体験者＝発注者）。E-E-A-T を提示。 */}
       <div className="mb-3">
         <AuthorSidebarCard />

@@ -308,12 +308,9 @@ export default async function DocPage({
     footerMagazinesAll.length > 0 && category
       ? resolveHubCta(category, { utmSuffix: 'footer', forceMokuji: true })
       : null;
-  // サイドバー用 note CTA（2026-07）。商品の再掲はやめ、もくじタイル 1 枚に集約して転職枠の直下へ。
-  // 面分離のため utm に -sb を付ける。footerMokuji と同じゲート（placement 非空 & HUB 資格）。
-  const sidebarMokuji =
-    footerMagazinesAll.length > 0 && category
-      ? resolveHubCta(category, { utmSuffix: 'sb', forceMokuji: true })
-      : null;
+  // note CTA は記事末尾（footerMagazines＋footerMokuji）に一本集約する。読書中サイドバーへの
+  // もくじ再掲は 2026-07-06 に撤去（同一もくじが末尾とサイドバーで重複し冗長だったため。
+  // カテゴリ hub の重複解消と足並みを揃え「1面1CTA」に統一）。サイドバーは転職枠＋著者＋ナビのみ。
   // 記事冒頭 CTA（二次系高 intent ページのみ placement.top で設定）。getMagazine() ゲートを
   // 通すため未公開マガジン（会員ラボ等）は自動非表示。末尾の画像カードと重複してよい。
   const topSlot = magazinePlacement.top;
@@ -446,7 +443,6 @@ export default async function DocPage({
 
           <ArticleSidebar
             careerSidebarAd={careerSidebarAd}
-            noteMokuji={sidebarMokuji}
             headings={headings}
             category={category}
             docGroup={docGroup}
