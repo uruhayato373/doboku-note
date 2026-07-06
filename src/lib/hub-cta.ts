@@ -48,6 +48,8 @@ export type ResolvedHubCta = {
   mode: 'product' | 'mokuji';
   bg: string;
   themeVar: string;
+  /** バッジ文言（省略時は "note限定"）。product タイルでは magazine.badge を差す。 */
+  badge?: string;
   qual: string;
   title1: string;
   title2: string;

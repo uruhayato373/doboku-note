@@ -16,6 +16,7 @@ import {
   NOTE_MAGAZINES,
   type MagazineId,
 } from "@/lib/note-magazines";
+import { examKeyOf } from "@/lib/exam-brand";
 
 export const metadata: Metadata = {
   title: "Links — doboku-note の入口",
@@ -123,13 +124,8 @@ const EXAM_SECTIONS: {
   },
 ];
 
-function examOf(id: string): string {
-  if (id.startsWith("pe-construction")) return "pe-construction";
-  if (id.startsWith("civil-1")) return "civil-1";
-  if (id.startsWith("civil-2")) return "civil-2";
-  if (id.startsWith("cd-") || id.startsWith("cce-")) return "concrete";
-  return "tankan";
-}
+// 試験別グルーピングのキーは exam-brand.ts の examKeyOf に一本化（導線タイルと共有）。
+const examOf = examKeyOf;
 
 // 総監の模範論文（職種別ペルソナ）は1エントリに集約。コア商品は個別表示。
 function isPersonaEssay(id: string): boolean {
