@@ -11,7 +11,7 @@ npm run admin        # → http://127.0.0.1:3021
 
 `127.0.0.1` バインドのみ（LAN 非公開）。依存追加ゼロ（node:http のみ）。
 
-## タブ（Phase 0〜2 実装済み）
+## タブ（Phase 0〜3 実装済み）
 
 | タブ | 内容 | データソース |
 |---|---|---|
@@ -20,8 +20,18 @@ npm run admin        # → http://127.0.0.1:3021
 | note画像 | カバー / 図版（試験×種別フィルタ） | `docs/note/**/img/{cover*,figure-*}.png` |
 | SNSパック | IG パック・X ドラフトの画像目視 + posted バッジ | `docs/sns/instagram/**`、`docs/sns/x/draft/**` |
 | SNS状態板 | IG 進捗サマリ・X 予約状況・直近スケジュール（読み取り専用） | `docs/sns/schedule.json`、posted.json、x status.json |
+| 投稿/予約 | X 4ステップパイプライン・IG 予約投稿・note 公開（2段階UI + SSEログ） | 既存 CLI を child_process 実行（`lib/jobs.mjs`） |
 
 件数は既存ギャラリースクリプト（`ogp-gallery` / `note-cover-gallery` / `svg-gallery`）と一致する。
+
+## 投稿/予約タブ（Phase 3）の安全設計
+
+- **ホワイトリストのみ実行**（`lib/jobs.mjs` の `ACTIONS`）: `ig-mark` / `ig-unmark` / `x-guard` / `x-publish` / `x-sync` / `ig-publish` / `note-publish`。任意コマンドは走らない。
+- **引数は厳格検証 + shell なし**: pack/draft/date/format を正規表現で検証し、`spawn(shell:false)` の配列引数（シェル連結しない）。最終ガードで metachar/`..` を拒否。
+- **本番(commit)は明示フラグ必須**: `mode!=='commit'` の間は投稿系に `--dry-run` を強制付与。UI は dry-run/ガード成功まで本番ボタンを disabled にし、実行時は対象名タイプ確認。
+- **X は 4 ステップ固定**: `x-schedule-guard`（BLOCK 判定）→ dry-run → 本番 → `x-sync-status`（予約→posted 昇格の偽成功検証）。
+- **同時 1 ジョブ**（Playwright SingletonLock 対策）。ログは SSE ストリーム。
+- **CSRF ガード**: POST は `Origin=127.0.0.1` 検査 + `X-Admin: 1` ヘッダ必須（drive-by POST を遮断）。
 
 ## 設計方針
 
@@ -34,15 +44,15 @@ npm run admin        # → http://127.0.0.1:3021
 
 ```
 tools/admin/
-  server.mjs         node:http ルーター（/ + /media/* + /api/*）
+  server.mjs         node:http ルーター（/ + /media/* + /api/* + POST /api/job/*）
   lib/media.mjs      /media/* パスマッピング + traversal ガード + MIME allowlist
   lib/scan.mjs       ギャラリー走査（ogp / figures / note / sns）
   lib/sot.mjs        SNS 状態板の SoT 統合
+  lib/jobs.mjs       投稿アクションのホワイトリスト実行 + 引数検証 + SSE（P3）
   public/            Vanilla JS SPA（no-build）
 ```
 
 ## 未実装（ロードマップ）
 
-- P3 投稿/予約アクション（child_process + SSE ログ + 2 段階 UI + X 偽成功検証）
 - P4 記事/note/マガジン一覧（doc-meta-index / note-magazines）
 - P5 売上ダッシュボード（sales-log + 月次チャート）

@@ -15,6 +15,36 @@ window.App = (function () {
     return r.json();
   }
 
+  // POST /api/job/run を叩き、SSE 行を onLine(obj) でストリーム。完了時に resolve。
+  // EventSource は POST 不可なので fetch + ReadableStream で SSE を手動パースする。
+  async function runJob(action, mode, params, onLine) {
+    const r = await fetch("/api/job/run", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "X-Admin": "1" },
+      body: JSON.stringify({ action, mode, params }),
+    });
+    if (!r.ok) {
+      let msg = `${r.status}`;
+      try { msg = (await r.json()).error || msg; } catch { /* noop */ }
+      throw new Error(msg);
+    }
+    const reader = r.body.getReader();
+    const dec = new TextDecoder();
+    let buf = "";
+    for (;;) {
+      const { value, done } = await reader.read();
+      if (done) break;
+      buf += dec.decode(value, { stream: true });
+      let idx;
+      while ((idx = buf.indexOf("\n\n")) >= 0) {
+        const chunk = buf.slice(0, idx);
+        buf = buf.slice(idx + 2);
+        const line = chunk.replace(/^data: /, "");
+        if (line) { try { onLine(JSON.parse(line)); } catch { /* skip */ } }
+      }
+    }
+  }
+
   function setTab(name) {
     current = name;
     document.querySelectorAll(".tab").forEach((b) =>
@@ -46,5 +76,5 @@ window.App = (function () {
     setTab(current);
   }
 
-  return { init, register, setTab, esc, fetchJson };
+  return { init, register, setTab, esc, fetchJson, runJob };
 })();

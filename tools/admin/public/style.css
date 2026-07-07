@@ -204,3 +204,65 @@ table.summary th { background: #f8f8f8; font-weight: 600; color: #666; }
   letter-spacing: -1px;
   color: #16365c;
 }
+
+/* 投稿/予約タブ */
+.pub-wrap { max-width: 780px; display: flex; flex-direction: column; gap: 16px; }
+.pub-note {
+  font-size: 12px;
+  background: #fff8ec;
+  border: 1px solid #f0d9a8;
+  color: #7a5a1e;
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+.pub-card {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+.pub-card h3 { margin: 0 0 10px; font-size: 14px; color: #16365c; }
+.pub-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin-bottom: 8px; }
+.pub-row label { font-size: 12px; color: #555; display: flex; gap: 6px; align-items: center; }
+.pub-row select, .pub-row input {
+  font-size: 12px;
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+.pub-steps { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 4px; }
+.pub-sep { width: 1px; height: 22px; background: #e0e0e0; margin: 0 4px; }
+.pub-btn {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border: 1px solid #16365c;
+  border-radius: 6px;
+  background: #16365c;
+  color: #fff;
+  cursor: pointer;
+}
+.pub-btn:hover:not(:disabled) { background: #0f2846; }
+.pub-btn:disabled { background: #e8e8e8; color: #aaa; border-color: #ddd; cursor: not-allowed; }
+.pub-btn.armed { background: #b8341f; border-color: #b8341f; }
+.pub-btn.armed:hover:not(:disabled) { background: #97291799; background: #8f2417; }
+.pub-btn.armed-off { background: #e8e8e8; color: #aaa; border-color: #ddd; }
+.pub-hint { font-size: 11px; color: #999; margin-top: 8px; }
+.pub-log {
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  font-size: 12px;
+  line-height: 1.5;
+  background: #0f1720;
+  color: #d6deeb;
+  border-radius: 8px;
+  padding: 10px 12px;
+  max-height: 320px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+.pub-log .log-cmd { color: #7fd1ff; }
+.pub-log .log-ok { color: #6ade8f; font-weight: 700; }
+.pub-log .log-ng { color: #ff8a7a; font-weight: 700; }
+.pub-log .log-out { color: #d6deeb; }
+.pub-log:empty::before { content: "（ここに実行ログが表示されます）"; color: #55627a; }
