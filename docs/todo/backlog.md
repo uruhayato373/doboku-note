@@ -284,22 +284,24 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 ### Kindle 出版（KDP）＋ note PDF 販売 — 択一式過去問集 全資格展開 🟢
 
-**既存作業**: 戦略書 `docs/project/01_戦略/08_Kindle出版戦略.md`（3シリーズ設計済み）、スクリプト `scripts/build-takuitsu-reconstruct.mjs`（1ソース → EPUB/Markdown/印刷 HTML）完成。ハンドオフ: `docs/handoffs/_archive/2026-06-09-takuitsu-kindle-epub.md`
+**既存作業（2026-07-08 更新）**: 戦略書 `docs/project/01_戦略/08_Kindle出版戦略.md`（v3・4シリーズ設計）。制作パイプライン整備済み＝`/kindle-build` スキル＋`kindle-book-composer`/`kindle-book-qa` エージェント、A系 `scripts/build-takuitsu-reconstruct.mjs`（lead判定+exclude 是正済み）、D系 `scripts/build-pe1-kindle.mjs`（spec駆動・MathML/画像同梱）。**A-01 は EPUB 完成（収録127問・epubcheck 0/0・5軸監査→混入是正済み・¥390）**。
 
-**3シリーズ設計**:
+**4シリーズ設計**:
 
 | シリーズ | 内容 | 状態 |
 |---|---|---|
-| A — 1級土木 論点別 | A-01〜A-06（安全/法規/施工/環境/品質/工程）¥350〜¥490 | A-01 EPUB試作完了 |
+| A — 1級土木 論点別 | A-01〜A-06（安全/法規/施工/環境/品質/工程） | **A-01 EPUB完成**・A-02以降 THEMES実測待ち |
 | B — 技術士総監 年度別 | B-01〜B-05（R03〜R07 各20問）¥350 | ジェネレータ設計待ち |
-| C — 建設部門 二次模範解答 | C-01〜C-03（道路/河川/都市計画）¥690 | Web¥15k達成後 |
+| C — 建設部門 二次模範解答 | C-01〜C-03（道路/河川/都市計画）¥690・合本¥1,250 | 着手条件達成済み・未着手 |
+| D — 技術士一次 科目別7年分合本 | D-01基礎¥490 / D-02適性¥390（パイロット）/ D-03専門建設¥490 | ビルダー完成・D-02 spec作成済み・書き下ろし前付け待ち |
 
 **次の一手**:
-- (a) 表紙画像の用意（EPUB 未内蔵・KDP Cover Creator か JPEG 1600×2560）
-- (b) 論点まとめの剪定（複合設問由来の混入を人手校正）
-- (c) A-02「法規」の THEMES 定義追加 → EPUB 生成
-- (d) epubcheck（Java 環境が必要）
-- (e) KDP アカウント作成・税務情報（W-8BEN）登録
+- (a) KDP アカウント作成・税務情報（W-8BEN）登録 ← A-01 出版の残ブロッカー（ユーザー作業）
+- (b) 表紙画像の用意（EPUB 未内蔵・KDP Cover Creator か JPEG 1600×2560）
+- (c) Kindle Previewer 3 で A-01 最終目視 → KDP アップロード
+- (d) D-02 適性: `kindle-book-composer` で書き下ろし前付け作成 → `/kindle-build D-02`
+- (e) A-02「法規」の THEMES 定義（lead判定で実測）→ `/kindle-build A-02`
+- (f) サイト MDX の尻切れ解説（「…」）の恒久修正（`primary-{年度}-{a,b}`・パーサー上流）
 
 **note PDF 販売（従チャネル）**: Kindle Select 独占期間（90日）終了後に開始。同一ソースから印刷 PDF を生成し note 有料記事に添付（`/note-attach-pdf` スキルで添付可能）。価格は Kindle より若干高め（¥500〜¥1,480）。
 
