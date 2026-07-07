@@ -2,8 +2,10 @@ import { type DocMeta } from '@/lib/docs';
 import { type DocGroupKey } from '@/lib/doc-classifier';
 import { type SidebarAdCreative } from '@/config/affiliate-creatives';
 import { type TocHeading } from '@/lib/toc';
+import { type ResolvedHubCta } from '@/lib/hub-cta';
 import AuthorSidebarCard from '@/components/ui/AuthorSidebarCard';
 import SidebarAdBanner from '@/components/ui/SidebarAdBanner';
+import HubCtaBanner from '@/components/ui/HubCtaBanner/HubCtaBanner';
 import TableOfContents from '@/components/ui/TableOfContents';
 import ExamQuestionNav from '@/components/ui/ExamQuestionNav';
 import CategoryNavCard from '@/components/ui/CategoryNavCard/CategoryNavCard';
@@ -11,6 +13,8 @@ import PillarNavCard from '@/components/ui/PillarNavCard';
 
 interface ArticleSidebarProps {
   readonly careerSidebarAd: { creative: SidebarAdCreative; trackLabel: string };
+  /** もくじ（L2 索引）タイル。HUB 資格 & 非 career のとき非 null。記事末尾と同一もくじを PC 側で併掲。 */
+  readonly sidebarMokuji: ResolvedHubCta | null;
   readonly headings: TocHeading[];
   readonly category: DocMeta['category'];
   readonly docGroup: DocGroupKey;
@@ -25,16 +29,19 @@ interface ArticleSidebarProps {
  * docs 記事の右サイドバー（PC ≥993px）。
  *
  * 2 ブロック構成:
- *  1. 通常フロー（追従させない）: 転職アフィリ枠（最上部・唯一のピクセル源）→ note CTA →
+ *  1. 通常フロー（追従させない）: 転職アフィリ枠（最上部・唯一のピクセル源）→ note もくじタイル →
  *     運営者プロフィール。広告・著者を追従させると「広告が追いかけてくる」体験になるため固定。
  *  2. sticky クラスタ（列の最終要素・読中に追従）: TOC / 設問ナビ → カテゴリナビ → ピラーナビ。
  *     ナビゲーションだけを追従させ、長記事でも導線が視界に残る。
  *
  * 経緯: 2026-06-27 に全体 sticky を解除（落ち着いた読書体験）→ 2026-07 に「TOC+ナビのみ」へ限定復活。
  * sticky クラスタの下に非 sticky を置くと下スクロールで届かなくなる（過去事故）ため、クラスタは末尾に置く。
+ * note もくじタイル: 2026-07-06 に一旦撤去したが全ページ統一の一環で復活（記事末尾と同一もくじを PC で併掲・
+ * utm -docs-sb で面分離）。sidebarMokuji が null（非 HUB 資格・career）のときは枠ごと非表示。
  */
 export default function ArticleSidebar({
   careerSidebarAd,
+  sidebarMokuji,
   headings,
   category,
   docGroup,
@@ -55,8 +62,13 @@ export default function ArticleSidebar({
       <div className="mb-3">
         <SidebarAdBanner {...careerSidebarAd.creative} trackLabel={careerSidebarAd.trackLabel} />
       </div>
-      {/* note CTA は記事末尾（footerMagazines＋footerMokuji）に一本集約する方針（2026-07-06）。
-          読書中サイドバーへのもくじ再掲は撤去し、サイドバーは転職枠＋著者＋ナビに絞る。 */}
+      {/* note もくじタイル（L2 索引）。HUB 資格の全 docs ページで記事末尾と併掲（全ページ統一・2026-07）。
+          非 HUB 資格（一次・concrete・reference）と career タグ記事は sidebarMokuji=null で非表示。 */}
+      {sidebarMokuji && (
+        <div className="mb-3">
+          <HubCtaBanner cta={sidebarMokuji} />
+        </div>
+      )}
       {/* 運営者プロフィール（合格体験者＝発注者）。E-E-A-T を提示。 */}
       <div className="mb-3">
         <AuthorSidebarCard />

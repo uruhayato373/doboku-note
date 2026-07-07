@@ -289,28 +289,20 @@ export default async function DocPage({
     slots
       .map((s) => ({ slot: s, magazine: getMagazine(s.magazineId) }))
       .filter((x): x is RenderableSlot => x.magazine !== null);
-  // note 有料マガジン CTA は資格別ブランドタイル（HTML 文字駆動）で記事末尾に一括表示（2026-07 刷新）。
-  // placement の inline∪sidebar を優先順で dedup し、直リンク商品は先頭 3 誌に cap（リンク過多の抑制）。
-  // 4 誌目以降と「網羅の全体像」はもくじタイル（footerMokuji）が肩代わりする（L2 に全公開誌が収録済＝
-  // audit-note-funnel D2=0 が前提）。cap は表示のみで [0]（MidCta 等）の優先順は不変。
-  const footerMagazinesAll = [
-    ...filterRenderable(magazinePlacement.inline),
-    ...filterRenderable(magazinePlacement.sidebar),
-  ].filter(
-    (x, i, arr) => arr.findIndex((y) => y.slot.magazineId === x.slot.magazineId) === i,
-  );
-  const FOOTER_PRODUCT_CAP = 3;
-  const footerMagazines = footerMagazinesAll.slice(0, FOOTER_PRODUCT_CAP);
-  // もくじタイル（L2 索引への回遊）。個別商品を既に出しているため常にもくじへ集約（forceMokuji）。
-  // 出すのは HUB 対応資格（civil 1/2・総監・建設）かつ placement 非空のときだけ
-  // ＝career-only 記事（footerMagazinesAll 空）や concrete/一次には出さない（転職一本方針・L2 不在を継承）。
+  // note 有料マガジン導線は「もくじタイル」（L2 索引）を全 HUB 資格の記事末尾＋サイドバーに 1 枚ずつ
+  // 統一表示する（2026-07 統一）。従来の個別マガジンタイル（inline を先頭 3 誌 cap）はページ個別配線に
+  // 依存し、未配線ページ（総監 guide 等）が空白になる不整合を生んでいたため廃止した。
+  // 個別マガジンへの導線は記事内（冒頭 CTA=placement.top・中間 CTA=MidCta・MDX 内 <MagazineCard>）が担う。
+  // タイルの中身は resolveHubCta に一任: 平時=L2 もくじ、直前期 6 週間=売れ筋商品直リンク（seasonal）。
+  // resolveHubCta は非 HUB 資格（一次・concrete・reference）に null を返すため、それらは自然に非表示。
+  // career タグ記事は転職一本方針を継承し note もくじを出さない（転職テキスト CTA と二重化させない）。
+  const showMokuji = Boolean(category) && !doc.meta.tags?.includes('career');
   const footerMokuji =
-    footerMagazinesAll.length > 0 && category
-      ? resolveHubCta(category, { utmSuffix: 'footer', forceMokuji: true })
-      : null;
-  // note CTA は記事末尾（footerMagazines＋footerMokuji）に一本集約する。読書中サイドバーへの
-  // もくじ再掲は 2026-07-06 に撤去（同一もくじが末尾とサイドバーで重複し冗長だったため。
-  // カテゴリ hub の重複解消と足並みを揃え「1面1CTA」に統一）。サイドバーは転職枠＋著者＋ナビのみ。
+    showMokuji && category ? resolveHubCta(category, { utmSuffix: 'footer' }) : null;
+  // 読書中サイドバー（PC）にも同じもくじを併掲（utm -docs-sb で面分離）。2026-07-06 に一旦撤去したが、
+  // 全ページ統一の一環で復活し、カテゴリ hub（sidebar -sb + mobile -mob）と同じ二面構成に揃える。
+  const sidebarMokuji =
+    showMokuji && category ? resolveHubCta(category, { utmSuffix: 'docs-sb' }) : null;
   // 記事冒頭 CTA（二次系高 intent ページのみ placement.top で設定）。getMagazine() ゲートを
   // 通すため未公開マガジン（会員ラボ等）は自動非表示。末尾の画像カードと重複してよい。
   const topSlot = magazinePlacement.top;
@@ -330,7 +322,7 @@ export default async function DocPage({
   );
 
   // 記事内（本文中間）CTA（2026-07）。長文ガイド系のみ・h2 境界に 1 個だけ挿入。
-  // 中身は「footerMagazines[0] が冒頭 CTA と別マガジンなら note、それ以外は関連記事」。
+  // 中身は「placement.inline[0] が冒頭 CTA と別マガジンなら note、それ以外は関連記事」。
   // MDX ソースは書き換えず rehypeMidCta が <midslot> を挿し、components で MidCtaBound に解決する。
   const midH2Count = headings.filter((h) => h.level === 2).length;
   const midBodyLen = stripLeadingH1(strippedContent).length;
@@ -356,7 +348,7 @@ export default async function DocPage({
 
   let MidCtaBound: (() => React.ReactElement) | null = null;
   if (careerMidLink) {
-    // career 記事は最優先で転職テキスト CTA（footerMagazines は career-only で空＝note は元々出ない）。
+    // career 記事は最優先で転職テキスト CTA（note もくじは career 除外＝二重化しない）。
     MidCtaBound = () => (
       <MidArticleCta
         mode="career"
@@ -366,7 +358,10 @@ export default async function DocPage({
       />
     );
   } else if (midEnabled) {
-    const midNote = footerMagazines[0];
+    // 中間 CTA の note 供給源は placement.inline の先頭 1 誌（従来 footerMagazines[0] と同一＝
+    // footerMagazines は inline 起点で構成していたため挙動不変）。個別マガジンタイル廃止後も
+    // placement データは top / mid の供給源として存続する。
+    const midNote = filterRenderable(magazinePlacement.inline)[0];
     const midNoteMag = midNote?.magazine;
     const differsFromTop = midNoteMag && (!topSlot || topSlot.magazineId !== midNote.slot.magazineId);
     if (midNoteMag && differsFromTop) {
@@ -455,7 +450,6 @@ export default async function DocPage({
               sectionStr={sectionStr}
               meta={doc.meta}
               categoryArticles={categoryArticles}
-              footerMagazines={footerMagazines}
               footerMokuji={footerMokuji}
               faqs={faqs}
               hasCategoryNavCard={hasCategoryNavCard}
@@ -465,6 +459,7 @@ export default async function DocPage({
 
           <ArticleSidebar
             careerSidebarAd={careerSidebarAd}
+            sidebarMokuji={sidebarMokuji}
             headings={headings}
             category={category}
             docGroup={docGroup}

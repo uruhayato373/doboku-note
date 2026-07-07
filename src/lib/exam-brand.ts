@@ -2,7 +2,7 @@
  * 資格（試験ファミリー）別のブランド情報 SSOT。
  *
  * マガジン id → 資格キー（examKeyOf）と、資格キー → 表示ブランド（ラベル・テーマ色・
- * CTA 背景イラスト）を一元管理する。note CTA タイル（NoteMagazineTile / HubCtaBanner）が
+ * CTA 背景イラスト）を一元管理する。note CTA タイル（HubCtaBanner）や記事内 MagazineCard が
  * 「どのマガジンをどの資格の見た目で出すか」を data 駆動で解決するために参照する。
  *
  * 背景イラストは cta-bg/*.webp（左空き・右にモチーフの明色イラスト＝HTML 文字オーバーレイ用）を

@@ -225,6 +225,8 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 - **P4: keyword-relations.json の自動レコメンド活用** — `keyword-relations.json`（598KB・refresh-indexes 生成）は存在するが `RelatedKeywords` は MDX ハードコードで未活用。RelatedKeywords 未記述の keyword 記事に build 時 top-N を自動挿入する fallback を入れれば PE 総監 keyword 650 面の回遊が強化される。**要: 挿入品質の監査（自動レコメンドの妥当性）と PE keyword 面での A/B**。既存ハードコードは優先維持。
 - **P5: アフィリ EPC 判定のタイムボックス化** — 建設JOBs vs ビルドジョブ/GKS の恒久 A/B（slug ハッシュ 50/50・`affiliate-creatives.ts`）は EPC 計測中で判定期限が未定。~2026-09 に GA4 の `affiliate_cta_click` × label（arm 別）× A8 成果で EPC 比較→勝者決定・負け arm 撤去。あわせて concrete/pe-first-stage の docs sidebar 空白を既存クリエイティブで埋める是非（セグメント適合を優先し無理に埋めない判断も可）。**まず P1 計測の実データ（2-4 週）を見てから**。
+- **P6: 高購買意欲ページへの個別 MagazineCard 補強**（PR #382 の後続）🟡 — note CTA を全 HUB ページで「もくじタイル」に統一（PR #382）した際、記事末尾の個別マガジンタイル（最大3枚）を廃止。1級土木二次・総監 essay ハブ等の高 converting 面は、個別商品への直リンクが季節タイル 1 枚に減った。売上実績のあるページから優先し、MDX 本文内 `<MagazineCard>` で個別商品導線を明示補強する。**要: 売上ログ（`sales-log.json`）で対象ページを特定してから着手**。
+- **P7: concrete 系の L2 もくじ新設** 🟢 — `resolveHubCta` の HUB は civil-1/2・総監・建設のみ。concrete-chief-engineer / concrete-diagnostician は note 側に L2 もくじ記事が無く、docs もくじタイルが出ない（現状は正しく非表示）。note に concrete もくじを作成→`note-funnel.json` L2 登録→`hub-cta.ts` の HUB に追加すれば concrete 面も統一導線に乗る。**note 商品の拡充が前提**。
 
 ---
 
