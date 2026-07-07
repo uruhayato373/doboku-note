@@ -1,6 +1,5 @@
 import PageShell from "@/components/layout/PageShell";
-import LinksHubTile from "@/components/ui/LinksHubTile";
-import { Hero, ExamCards, LatestArticles, AboutSection } from "@/components/home";
+import { Hero, ExamCards, LatestArticles, AboutSection, PremiumNoteHero } from "@/components/home";
 import type { LatestArticle } from "@/components/home";
 import { getDocsMetaByCategory, getAllDocsMeta, type DocMeta } from "@/lib/docs";
 import { getOgpImageUrl } from "@/lib/r2-image-loader";
@@ -137,18 +136,9 @@ export default async function HomePage() {
       <ExamCards exams={exams} />
       <LatestArticles articles={latest} />
       <AboutSection />
-      {/* note 有料教材ハブへの導線（複数資格を横断するトップは単一商品でなく /links 集約へ）。
-          data-cta="note" で AnalyticsProvider のクリック計測対象になる。 */}
-      <div className="mx-auto max-w-3xl px-4 pt-10">
-        <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ink-muted)] mb-3">Premium</div>
-        <h2 className="font-serif text-xl sm:text-2xl font-black text-[var(--ink)] mb-1.5">note 有料教材</h2>
-        <p className="text-[14px] text-[var(--ink-muted)] mb-4">
-          記述式・経験記述の模範答案集や精読ガイドをまとめています。
-        </p>
-        <div className="max-w-sm">
-          <LinksHubTile trackLabel="home-links-hub" />
-        </div>
-      </div>
+      {/* note 有料教材ハブへの導線（複数資格横断のトップは単一商品でなく /links 集約へ）。
+          ブランド背景＋HTML文字のヒーロー（PremiumNoteHero）。data-cta="note" で計測。 */}
+      <PremiumNoteHero />
     </PageShell>
   );
 }
