@@ -25,6 +25,8 @@ import { serveMedia } from "./lib/media.mjs";
 import { scanOgp, scanFigures, scanNoteImages, scanSnsPacks } from "./lib/scan.mjs";
 import { snsBoard } from "./lib/sot.mjs";
 import { ACTIONS, startJob, jobStatus } from "./lib/jobs.mjs";
+import { articlesIndex, magazines, noteArticles } from "./lib/content.mjs";
+import { salesSummary } from "./lib/sales.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const PUBLIC = resolve(join(HERE, "public"));
@@ -70,6 +72,14 @@ async function handleApi(req, res, url) {
         return sendJson(res, 200, await cached("sns", scanSnsPacks, refresh));
       case "/api/sns/board":
         return sendJson(res, 200, await cached("board", snsBoard, refresh));
+      case "/api/content/articles":
+        return sendJson(res, 200, await cached("articles", articlesIndex, refresh));
+      case "/api/content/magazines":
+        return sendJson(res, 200, await cached("magazines", magazines, refresh));
+      case "/api/content/note":
+        return sendJson(res, 200, await cached("note-articles", noteArticles, refresh));
+      case "/api/sales":
+        return sendJson(res, 200, await cached("sales", salesSummary, refresh));
       case "/api/actions":
         return sendJson(res, 200, {
           actions: Object.entries(ACTIONS).map(([id, a]) => ({

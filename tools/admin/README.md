@@ -11,7 +11,7 @@ npm run admin        # → http://127.0.0.1:3021
 
 `127.0.0.1` バインドのみ（LAN 非公開）。依存追加ゼロ（node:http のみ）。
 
-## タブ（Phase 0〜3 実装済み）
+## タブ（Phase 0〜5 実装済み）
 
 | タブ | 内容 | データソース |
 |---|---|---|
@@ -21,8 +21,10 @@ npm run admin        # → http://127.0.0.1:3021
 | SNSパック | IG パック・X ドラフトの画像目視 + posted バッジ | `docs/sns/instagram/**`、`docs/sns/x/draft/**` |
 | SNS状態板 | IG 進捗サマリ・X 予約状況・直近スケジュール（読み取り専用） | `docs/sns/schedule.json`、posted.json、x status.json |
 | 投稿/予約 | X 4ステップパイプライン・IG 予約投稿・note 公開（2段階UI + SSEログ） | 既存 CLI を child_process 実行（`lib/jobs.mjs`） |
+| 記事/note/マガジン | サイト記事 / note 原稿 / マガジンの一覧・公開状態（読み取り専用） | `doc-meta-index.json`、`docs/note/**/article*.md`、`note-magazines.ts`（`lib/content.mjs`） |
+| 売上 | 月次売上推移（インライン SVG 棒グラフ）+ 商品別内訳・¥15k マイルストーン | `.claude/state/sales/sales-log.json`（`lib/sales.mjs`） |
 
-件数は既存ギャラリースクリプト（`ogp-gallery` / `note-cover-gallery` / `svg-gallery`）と一致する。
+件数は既存スクリプト（`ogp-gallery` / `note-cover-gallery` / `svg-gallery` / `sales-summary`）と一致する。
 
 ## 投稿/予約タブ（Phase 3）の安全設計
 
@@ -49,10 +51,10 @@ tools/admin/
   lib/scan.mjs       ギャラリー走査（ogp / figures / note / sns）
   lib/sot.mjs        SNS 状態板の SoT 統合
   lib/jobs.mjs       投稿アクションのホワイトリスト実行 + 引数検証 + SSE（P3）
+  lib/content.mjs    記事/note/マガジン一覧（P4）
+  lib/sales.mjs      売上集計（P5）
   public/            Vanilla JS SPA（no-build）
 ```
 
-## 未実装（ロードマップ）
-
-- P4 記事/note/マガジン一覧（doc-meta-index / note-magazines）
-- P5 売上ダッシュボード（sales-log + 月次チャート）
+Phase 0〜5 実装済み。追加候補: 計測ダッシュボード統合（GA4/GSC weekly-metrics）、
+IG ライブ照合（`verify-ig-status`）の UI 化、note ライブ照合（`verify-note-magazines`）ボタン。
