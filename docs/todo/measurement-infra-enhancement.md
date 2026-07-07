@@ -69,7 +69,7 @@
 
 ## 付随発見（別修正候補）
 
-- `monetization-strategy` SKILL.md が旧・書籍アフィリ前提のまま陳腐化（`SKILL.md:48` 「技術書籍（Amazon）」＝2026-06-25 廃止済み）。RPM/転換率/EPC の KPI 定義が skill 群に無い。
+- ✅ `monetization-strategy` SKILL.md 現行モデル同期（2026-07-07）: 書籍アフィリ前提は解消済み（affiliate 表は既に転職一本）＋ **RPM/EPC/CTA 転換率/note ファネル効率の KPI 定義を追加**・現在の収益 3 本柱（note 有料/AdSense/転職アフィリ）・SSOT 参照（02_アフィリエイト提携状況・sales-tracking）を反映。
 
 ## 進め方
 

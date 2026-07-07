@@ -23,12 +23,26 @@ doboku-note は土木工学に関するドキュメントサイト（Next.js 16 
 
 - **プロダクト**: 土木工学・施工管理・河川・道路・法律の技術ノートを無料提供
 - **ユーザー**: 土木系技術者、施工管理技士受験者、技術士受験者、公務員試験受験者、行政書士受験者、土木系学生
-- **現在の収益**: Google AdSense（導入済み、最適化未実施）
-- **トラフィック**: SEO 経由（検索流入が主）
+- **現在の収益（3 本柱）**: ① **note 有料記事**（実証済みの主エンジン・月¥114k 規模・高 CTR＝学習意図の財布を自社・高粗利で独占）／② **Google AdSense**（ページ別 RPM に最適化余地）／③ **転職アフィリ一本**（建設・施工管理特化＝BuildJob・GKS・建設JOBs。講座/教材/添削/書籍は 2026-06-25 廃止＝note とカニバるため。真実源: `docs/project/04_運営/02_アフィリエイト提携状況.md`・[[affiliate-career-only]]）。**将来**: PWA 過去問アプリ（買い切り・Web 月¥15k 達成後に着手 [[project_ios_app_design]]）
+- **トラフィック**: SEO 経由（検索流入が主）＋ note/SNS 送客
 - **技術基盤**: Next.js 16 + next-mdx-remote + Cloudflare Pages（サーバーコスト極小）
 - **運営**: 個人開発
-- **コンテンツ資産**: 土木工学ノート、法律解説、施工管理解説（MDX 100+ ページ）
+- **コンテンツ資産**: サイト 640+ ページ（1 級土木・技術士総監/建設部門・コンクリート診断士 等）＋ note 有料/無料記事 450+（実数は Step 1 の調査で取得）
 - **URL**: https://doboku-note.com
+
+## 収益 KPI の定義（現行モデル・数値で判断する）
+
+施策の評価は勘でなくこの 4 KPI で行う。計測は **CI/CD 供給が正**（会社 PC は社内プロキシで Google API 遮断＝ローカル fetch 不可。真実源 [[feedback_metrics_cicd_supplied]]）。
+
+| KPI | 定義 | 分子 ÷ 分母 | 取得元 |
+|---|---|---|---|
+| **RPM**（広告） | 1,000 PV あたり AdSense 収益 | 収益 ÷ PV × 1000 | AdSense（ページ別取り込みは measurement-infra #13＝**未実装**・現状は手動概算） |
+| **EPC**（アフィリ） | 1 クリックあたり報酬 | A8 成果報酬 ÷ アフィリクリック | `a8-results.json`（月次手動）÷ GA4 `affiliate_cta_click` by-label（`fetch-ga4-cta-clicks --by-label`・カスタムディメンション `event_label` 登録済 2026-07-07） |
+| **CTA 転換率** | 収益 CTA のクリック率 | CTA クリック ÷ ページ流入 | GA4 `affiliate_cta_click`/`note_cta_click` ÷ `ga4-page`（`report-monetization-coverage`・週次 CI） |
+| **note ファネル効率** | note 送客 → 購入 | 売上件数 ÷ `note_cta_click` | `sales-log.json`（`docs/reference/sales-tracking.md`）÷ GA4（厳密 attribution は measurement-infra #14/#15） |
+
+- **EPC で案件を選ぶ**: 転職アフィリは BuildJob（無料面談 ¥50,000〜8/31 増額）/ GKS（¥25,000）/ 建設JOBs（登録 ¥4,500）が **EPC＝報酬 × 成約率**で優劣が決まる。低摩擦・低単価が高 EPC のこともある。~2026-09 に判定（backlog P5・[[project_buildjob_impressions_campaign]]）。
+- **カニバリ境界（不可侵）**: 学習・受験意図は **note（自社・高粗利）が独占**、キャリア意図は**転職アフィリ**。両者は財布が別＝競合しない。この境界を崩す施策（学習導線への外部講座/教材送客等）は**提案しない**（[[affiliate-career-only]]）。
 
 ## 手順
 
@@ -135,6 +149,10 @@ doboku-note に適した収益化モデルを 3-5 案生成する。以下のカ
 
 ## 参照
 
+- `docs/project/04_運営/02_アフィリエイト提携状況.md` — 転職アフィリの配置面・EPC・a8-results 運用の真実源
+- `docs/reference/sales-tracking.md` — note 売上 SSOT（sales-log.json・productId 命名）
+- `docs/todo/measurement-infra-enhancement.md` — 計測基盤タスク（RPM 取り込み #13・attribution #14/#15 は未実装）
+- `docs/project/01_戦略/04_収益化戦略.md` — 収益化戦略の恒久文書（結論はここへ）
 - `.claude/skills/management/growth-loops/SKILL.md` — 成長ループ分析
 - `.claude/skills/management/north-star-metric/SKILL.md` — NSM 定義
 - 原典: Pawel Huryn の Monetization Strategy フレームワーク
