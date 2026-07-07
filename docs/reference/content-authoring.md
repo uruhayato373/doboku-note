@@ -155,7 +155,7 @@ CLAUDE.md 本体にも要点を置いているが、詳細はここで扱う。
 | 長文セルの3列表 | H3/太字リード＋箇条書き | — |
 | 本当に必要な2軸比較（**短い値**） | 2〜3列表のまま可 | 年度→テーマの2列表 |
 
-ルールの重大度・資格×種別の適用は `.claude/config/content-rules.json` が SSOT。機械チェックは `.claude/scripts/lint-mdx-mobile.mjs`（pre-commit staged + 週次全量ラチェット `check-content-quality`）と `/review-mobile` スキルで実施。
+ルールの重大度・資格×種別の適用は `.claude/config/content-rules.json` が SSOT。機械チェックは `.claude/scripts/lint-mdx-mobile.mjs`（実行点＝品質サイクル `/quality-cycle`・`/check-mdx`・手動、全量は週次ラチェット `check-content-quality`）と `/review-mobile` スキルで実施。pre-commit フックが実行するのは `pre-commit-mdx.mjs`（MDX コンパイル・frontmatter・壊れ表等）で、lint-mdx-mobile とはルールの一部（0-1/1-7 相当）が判定同等という関係。
 
 ## 画像配信
 

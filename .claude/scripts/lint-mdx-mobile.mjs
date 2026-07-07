@@ -107,9 +107,11 @@ function parseScope(raw) {
   const block = fm ? fm[1] : '';
   const cat = block.match(/^category:\s*(\S+)\s*$/m);
   const grp = block.match(/^group:\s*(\S+)\s*$/m);
+  // YAML のクォート形（category: 'civil-construction-2' 等・実コーパスに11件）を外す
+  const unquote = (s) => s.replace(/^['"]|['"]$/g, '');
   return {
-    exam: cat ? cat[1].trim() : '',
-    group: grp ? grp[1].trim() : '',
+    exam: cat ? unquote(cat[1].trim()) : '',
+    group: grp ? unquote(grp[1].trim()) : '',
   };
 }
 
@@ -2104,11 +2106,12 @@ function main() {
   if (flags.updateBaseline) {
     const counts = {};
     for (const [rp, info] of Object.entries(perFile)) counts[rp] = info.counts;
-    writeJson(DEFAULT_BASELINE, {
+    const outPath = flags.baseline || DEFAULT_BASELINE; // --baseline=custom を尊重
+    writeJson(outPath, {
       _doc: 'コンテンツ品質ラチェットの baseline。file × ruleID × 件数。新規違反(baseline 超過)のみ CI で赤落ちさせ、リライトで件数を漸減させる。更新: node .claude/scripts/lint-mdx-mobile.mjs --all --update-baseline',
       counts,
     });
-    console.log(`baseline 更新: ${relPath(DEFAULT_BASELINE)}（${Object.keys(counts).length} 記事）`);
+    console.log(`baseline 更新: ${relPath(outPath)}（${Object.keys(counts).length} 記事）`);
     process.exit(0);
   }
 

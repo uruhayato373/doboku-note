@@ -128,7 +128,7 @@ doboku-note のすべてのコンテンツ作成・校正時に従うべき原�
 
 **具体的な変換パターンカタログ**は [content-authoring.md](content-authoring.md) の「モバイル視認性」節を参照（現状の表 → 変換先の早見表）。
 
-全量ラチェット `npm run check-content-quality`（週次 CI `r2-audit.yml`）が既存違反を baseline で grandfather しつつ、**新規違反（baseline 超過）を赤落ち**させる。既存違反はリライトで漸減させる（優先度は `.claude/state/quality/latest-report.md` の GA4 人気度順）。pre-commit は従来どおり staged ファイルを全ルールで検査する。
+全量ラチェット `npm run check-content-quality`（週次 CI `r2-audit.yml`）が既存違反を baseline で grandfather しつつ、**新規違反（baseline 超過）を赤落ち**させる。既存違反はリライトで漸減させる（優先度は `.claude/state/quality/latest-report.md` の GA4 人気度順）。なお pre-commit フックが実行するのは `pre-commit-mdx.mjs`（MDX コンパイル・frontmatter・壊れ表・SVG 等）であり、`lint-mdx-mobile.mjs` 自体の実行点は品質サイクル（`/quality-cycle`・`bulk-score`・`/check-mdx`）・手動・週次 CI ラチェットの3系統。
 
 #### 「用語+定義+例」型 shallow table の散文化（2026-05-27 追加）
 
