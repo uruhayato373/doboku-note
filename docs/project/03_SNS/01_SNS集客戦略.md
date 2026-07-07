@@ -501,7 +501,7 @@ X は手動運用前提。資格試験は年サイクル（1次6月・2次10月�
 ## 関連ドキュメント
 
 - `docs/project/01_戦略/03_事業戦略.md` — 全体戦略
-- `docs/project/01_戦略/05_コンテンツロードマップ.md` — コンテンツ計画
+- `docs/project/01_戦略/11_STP分析2026-07.md` — 実売・流入による S/T/P（SNS 流入寄与の実測含む）
 - `docs/project/01_戦略/04_収益化戦略.md` — note 商品ラインナップとの連携
 - `.claude/skills/management/nsm-experiment/references/definition.md` — NSM 定義
 - `.claude/skills/social/social-post/SKILL.md` — note / X 投稿下書き生成スキル

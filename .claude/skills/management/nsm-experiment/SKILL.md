@@ -169,7 +169,7 @@ abandoned  abandoned  running (re-measure)
 4. learnings をユーザーに記述してもらう（何が分かったか、他に転用可能か）
 5. `updateExperiment(id, { result, learnings })`
 6. `transitionStatus(id, 'done')`
-7. **roadmap フィードバック提案**: 成功パターンなら `docs/project/01_戦略/05_コンテンツロードマップ.md` への追記提案を出力
+7. **roadmap フィードバック提案**: 成功パターンなら `docs/todo/backlog.md`（タスクマスタ）への追記提案を出力
 
 ### abandon: 中止
 
@@ -208,7 +208,7 @@ abandoned  abandoned  running (re-measure)
 | **`.claude/skills/management/nsm-experiment/references/playbook.md`** | 実験パターンカタログ |
 | **`.claude/skills/management/nsm-experiment/references/rubric.md`** | 優先順位評価軸 |
 | **`.claude/skills/management/nsm-experiment/references/definition.md`** | NSM 定義の真実源 |
-| **`docs/project/01_戦略/05_コンテンツロードマップ.md`** | close 時の learnings フィードバック先 |
+| **`docs/todo/backlog.md`** | close 時の learnings フィードバック先（タスクマスタ。旧 05_コンテンツロードマップ.md はアーカイブ済み）|
 
 ## 使い方の例
 
