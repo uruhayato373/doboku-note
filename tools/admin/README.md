@@ -11,7 +11,7 @@ npm run admin        # → http://127.0.0.1:3021
 
 `127.0.0.1` バインドのみ（LAN 非公開）。依存追加ゼロ（node:http のみ）。
 
-## タブ（Phase 0〜5 実装済み）
+## タブ（Phase 0〜6 実装済み）
 
 | タブ | 内容 | データソース |
 |---|---|---|
@@ -22,6 +22,7 @@ npm run admin        # → http://127.0.0.1:3021
 | SNS状態板 | IG 進捗サマリ・X 予約状況・直近スケジュール（読み取り専用） | `docs/sns/schedule.json`、posted.json、x status.json |
 | 投稿/予約 | X 4ステップパイプライン・IG 予約投稿・note 公開（2段階UI + SSEログ） | 既存 CLI を child_process 実行（`lib/jobs.mjs`） |
 | 記事/note/マガジン | サイト記事 / note 原稿 / マガジンの一覧・公開状態（読み取り専用） | `doc-meta-index.json`、`docs/note/**/article*.md`、`note-magazines.ts`（`lib/content.mjs`） |
+| 品質 | モバイル可読性ラチェットの違反を GA4 人気度順に一覧（資格×分類×ルールでフィルタ）・ルール別集計・違反バーンダウン（読み取り専用） | `lint-baseline.json` × `popular-pages.json` × `content-rules.json` × `doc-meta-index.json` × `history.jsonl`（`lib/quality.mjs`） |
 | 売上 | 月次売上推移（インライン SVG 棒グラフ）+ 商品別内訳・¥15k マイルストーン | `.claude/state/sales/sales-log.json`（`lib/sales.mjs`） |
 
 件数は既存スクリプト（`ogp-gallery` / `note-cover-gallery` / `svg-gallery` / `sales-summary`）と一致する。
@@ -53,8 +54,18 @@ tools/admin/
   lib/jobs.mjs       投稿アクションのホワイトリスト実行 + 引数検証 + SSE（P3）
   lib/content.mjs    記事/note/マガジン一覧（P4）
   lib/sales.mjs      売上集計（P5）
+  lib/quality.mjs    品質ラチェット集計（P6・読み取り専用）
   public/            Vanilla JS SPA（no-build）
 ```
 
-Phase 0〜5 実装済み。追加候補: 計測ダッシュボード統合（GA4/GSC weekly-metrics）、
-IG ライブ照合（`verify-ig-status`）の UI 化、note ライブ照合（`verify-note-magazines`）ボタン。
+Phase 0〜6 実装済み。
+
+**品質タブ（P6）の補足**: データは全て live 読み（UI に状態を持たない）。表示の鮮度は
+`npm run check-content-quality` →（リライト後は）`npm run update-content-quality-baseline`
+で `lint-baseline.json` を更新した時点。違反バーンダウンは `npm run quality-snapshot`
+（`.claude/state/quality/history.jsonl` に日次追記）を週次で回すと折れ線になる。真実源は
+`.claude/scripts/lint-mdx-mobile.mjs` / `.claude/config/content-rules.json`。
+
+追加候補: 品質タブに「再スキャンボタン」（`lib/jobs.mjs` の CSRF/SSE パターンで
+`check-content-quality` を実行）、`/quality-cycle` リライト起動、TODO（`docs/todo/*.md`）の
+read-only 統合ビュー、計測ダッシュボード統合（GA4/GSC weekly-metrics）。

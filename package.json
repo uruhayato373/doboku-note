@@ -114,6 +114,7 @@
     "check-content-quality": "node .claude/scripts/lint-mdx-mobile.mjs --all --baseline --report",
     "check-content-quality:ci": "node .claude/scripts/lint-mdx-mobile.mjs --all --baseline --report --ci",
     "update-content-quality-baseline": "node .claude/scripts/lint-mdx-mobile.mjs --all --update-baseline",
+    "quality-snapshot": "node scripts/quality-snapshot.mjs",
     "check-orphan-figures": "node scripts/check-orphan-figures.mjs",
     "check-ig-cover": "node scripts/check-ig-cover.mjs",
     "check-ig-cta": "node scripts/check-ig-cta.mjs",
