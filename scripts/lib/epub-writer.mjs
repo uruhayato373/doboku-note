@@ -9,8 +9,10 @@
 // API:
 //   writeEpub({ meta, css, pages, resources }, { outDir, fileName }) => epubPath
 //     meta:  { title, author, publisher, description, rights, language='ja', uuid?, date? }
-//     pages: [{ id, href, label, content, properties? }]  // content=完全な XHTML 文字列
+//     pages: [{ id, href, label, content, properties?, inToc? }]  // content=完全な XHTML 文字列
 //            properties は opf manifest の properties 属性（例 'mathml'）
+//            inToc: false で nav/ncx（目次）から除外（spine には載る＝本文順に読める）。
+//            1問=1ファイル分割で問題/解答ページを目次に並べないために使う
 //     resources: [{ id, href, mediaType, data }]          // data=Buffer|string（画像等）
 //
 // 補助エクスポート: xesc / xinline / xhtmlDoc（呼び出し側のページ生成用）
@@ -65,13 +67,14 @@ export function writeEpub({ meta, css, pages, resources = [] }, { outDir, fileNa
   // リソース（画像等）
   for (const r of resources) W(`OEBPS/${r.href}`, r.data)
 
-  // nav.xhtml（EPUB3）
-  const navList = pages.map((p) => `<li><a href="${p.href}">${xesc(p.label)}</a></li>`).join('\n')
+  // nav.xhtml（EPUB3）— inToc: false のページは目次に載せない（spine には残る）
+  const tocPages = pages.filter((p) => p.inToc !== false)
+  const navList = tocPages.map((p) => `<li><a href="${p.href}">${xesc(p.label)}</a></li>`).join('\n')
   W('OEBPS/nav.xhtml', xhtmlDoc('目次',
     `<nav epub:type="toc" xmlns:epub="http://www.idpf.org/2007/ops" id="toc"><h1>目次</h1><ol>${navList}</ol></nav>`))
 
   // toc.ncx（EPUB2 互換・Kindle 安定化）
-  const navPoints = pages.map((p, i) =>
+  const navPoints = tocPages.map((p, i) =>
     `<navPoint id="np-${i}" playOrder="${i + 1}"><navLabel><text>${xesc(p.label)}</text></navLabel><content src="${p.href}"/></navPoint>`).join('\n')
   W('OEBPS/toc.ncx',
     `<?xml version="1.0" encoding="utf-8"?>

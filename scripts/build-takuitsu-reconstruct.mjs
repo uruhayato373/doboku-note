@@ -320,9 +320,11 @@ li { margin-bottom: 0.4em; }
 ol.opts { margin: 0.4em 0 0.6em; padding-left: 1.4em; }
 ol.opts li { margin-bottom: 0.3em; }
 .tag { font-weight: bold; color: #7a3e0c; }
-.qbody { margin-top: 1em; }
-.ans { background: #f4f8f4; border-left: 3px solid #2f7a3e; padding: 0.3em 0.6em;
-  break-before: page; page-break-before: always; }
+.qbody { margin-top: 0.6em; }
+.chapnav { font-size: 0.8em; color: #8a6a4a; border-bottom: 1px solid #e2cdb8;
+  padding-bottom: 0.3em; margin: 0 0 0.8em; }
+.turn { font-size: 0.85em; color: #7a3e0c; text-align: right; margin-top: 1.6em; }
+.ans { background: #f4f8f4; border-left: 3px solid #2f7a3e; padding: 0.4em 0.6em; }
 .dup { font-size: 0.85em; color: #666; }
 .cover-title { text-align: center; margin-top: 25%; }
 .cover-title h1 { border: none; font-size: 1.9em; color: #7a3e0c; }
@@ -334,27 +336,44 @@ ol.opts li { margin-bottom: 0.3em; }
 hr { border: none; border-top: 1px solid #ddd; margin: 1em 0; }
 `
 
-function chapterXhtml(model, ch) {
+// 章扉: 章タイトル + 論点まとめ（覚える正しい知識）
+function chapterIntroXhtml(ch) {
   const parts = [`<h1>${ch.n}. ${xesc(ch.label)}</h1>`]
   if (ch.ronten.length) {
     parts.push('<h2>論点まとめ（覚える正しい知識）</h2>')
     parts.push(`<ul>${ch.ronten.map((b) => `<li>${xinline(b)}</li>`).join('')}</ul>`)
   }
-  parts.push(`<h2>一問一答（${ch.items.length} 問・H26〜R07）</h2>`)
-  for (const { q, dupYears } of ch.items) {
-    const tag = `${YEAR_LABEL(q.year)} ${q.part}-${String(q.no).padStart(2, '0')}`
-    const opts = [...(q.options || [])]
-      .sort((a, b) => a.num - b.num)
-      .map((o) => `<li>${xinline(o.text)}</li>`)
-      .join('')
-    parts.push('<div class="q">')
-    parts.push(`<p class="qbody"><span class="tag">［${xesc(tag)}］</span> ${xinline(q.body)}</p>`)
-    parts.push(`<ol class="opts">${opts}</ol>`)
-    parts.push(`<p class="ans"><strong>正答 ${q.correct}</strong> ― ${xinline(correctPoint(q))}</p>`)
-    if (dupYears.length) parts.push(`<p class="dup">同趣旨で再出題: ${xesc(dupYears.join(' / '))}</p>`)
-    parts.push('</div><hr/>')
-  }
+  parts.push(`<p>この論点の一問一答は ${ch.items.length} 問（H26〜R07）。次のページから、1問ごとに「問題 → ページをめくって正答・解説」の順に進みます。</p>`)
   return xhtmlDoc(`${ch.n}. ${ch.label}`, parts.join('\n'))
+}
+
+const qTag = (q) => `${YEAR_LABEL(q.year)} ${q.part}-${String(q.no).padStart(2, '0')}`
+
+// 問題ページ（1問=1ファイル。長い設問はリフローで複数ページに自然に流れる）
+function questionXhtml(ch, item, idx) {
+  const { q } = item
+  const opts = [...(q.options || [])]
+    .sort((a, b) => a.num - b.num)
+    .map((o) => `<li>${xinline(o.text)}</li>`)
+    .join('')
+  const parts = [
+    `<p class="chapnav">${ch.n}. ${xesc(ch.label)}　問 ${idx + 1}/${ch.items.length}</p>`,
+    `<p class="qbody"><span class="tag">［${xesc(qTag(q))}］</span> ${xinline(q.body)}</p>`,
+    `<ol class="opts">${opts}</ol>`,
+    '<p class="turn">正答・解説は次のページ ▶</p>',
+  ]
+  return xhtmlDoc(`問 ${idx + 1}［${qTag(q)}］`, parts.join('\n'))
+}
+
+// 解答ページ（改ページはファイル境界で保証される）
+function answerXhtml(ch, item, idx) {
+  const { q, dupYears } = item
+  const parts = [
+    `<p class="chapnav">${ch.n}. ${xesc(ch.label)}　問 ${idx + 1}/${ch.items.length}　［${xesc(qTag(q))}］</p>`,
+    `<p class="ans"><strong>正答 ${q.correct}</strong> ― ${xinline(correctPoint(q))}</p>`,
+  ]
+  if (dupYears.length) parts.push(`<p class="dup">同趣旨で再出題: ${xesc(dupYears.join(' / '))}</p>`)
+  return xhtmlDoc(`正答 問 ${idx + 1}［${qTag(q)}］`, parts.join('\n'))
 }
 
 function renderEpub(model, outDir) {
@@ -377,17 +396,34 @@ function renderEpub(model, outDir) {
 <p>同じ論点の問題を年度をまたいで連続演習することで「どこが繰り返し問われるか」が体で分かります。各論点の冒頭には、過去問の正答選択肢から抽出した<strong>「論点まとめ（覚える正しい知識）」</strong>を配置しました。生の年度別過去問では得られない、横断・体系化された一冊です。</p>
 <p>図版を要する設問は本書では割愛し、文章で完結する設問のみを収録しています。</p></div>`)
 
+  // 1問=1ファイル + 解答=1ファイル。ファイル境界は Kindle が必ず改ページするので、
+  // 「問題 → めくって正答・解説」の読書体験を CSS 改ページに頼らず保証する。
+  // 問題/解答ページは inToc: false（目次には章扉だけを並べる）。
   const pages = [
     { id: 'p-title', href: 'p-title.xhtml', label: '扉', content: titlePage },
     { id: 'p-credit', href: 'p-credit.xhtml', label: '出典・免責', content: creditPage },
     { id: 'p-intro', href: 'p-intro.xhtml', label: '本書の使い方', content: introPage },
-    ...model.chapters.map((ch) => ({
-      id: `chap-${String(ch.n).padStart(2, '0')}`,
-      href: `chap-${String(ch.n).padStart(2, '0')}.xhtml`,
-      label: `${ch.n}. ${ch.label}`,
-      content: chapterXhtml(model, ch),
-    })),
   ]
+  for (const ch of model.chapters) {
+    const nn = String(ch.n).padStart(2, '0')
+    pages.push({
+      id: `chap-${nn}`,
+      href: `chap-${nn}.xhtml`,
+      label: `${ch.n}. ${ch.label}`,
+      content: chapterIntroXhtml(ch),
+    })
+    ch.items.forEach((item, i) => {
+      const qq = `c${nn}-q${String(i + 1).padStart(3, '0')}`
+      pages.push({
+        id: qq, href: `${qq}.xhtml`, label: `問 ${i + 1}`, inToc: false,
+        content: questionXhtml(ch, item, i),
+      })
+      pages.push({
+        id: `${qq}a`, href: `${qq}a.xhtml`, label: `正答 ${i + 1}`, inToc: false,
+        content: answerXhtml(ch, item, i),
+      })
+    })
+  }
 
   return writeEpub(
     {
