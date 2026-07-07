@@ -14,6 +14,9 @@ user-invocable: true
 
 Generator (`civil-exam-figure-extractor`) と Evaluator (`civil-exam-figure-auditor`) を 1 ページごとに最大 3 反復ループし、合格したら commit。
 
+> [!warning] 適用限界（2026-07-08 確認）
+> 本スキルは**問題PDF（問題A/B）に図が存在する**ことが前提。しかし確認した年度（H30/R01/R02/R07）の問題PDFは **"DHP-A.smd" テキスト起こし版で埋め込み画像0・図なし**（`pdfimages -list` / `pdftoppm` で確認）、**H26/H27 は問題PDF自体なし**。これらのページでは extractor が**空 spec を返す**（図は問題PDFでなく解答・解説資料側にしか存在しない）。既存クロップの「答え漏らし写り込み」是正は本スキルでなく**既存画像の手動タイト切り直し**で行う。詳細 → `docs/handoffs/2026-07-08-civil1-figure-answer-leak.md`。
+
 ## 引数
 
 ```
