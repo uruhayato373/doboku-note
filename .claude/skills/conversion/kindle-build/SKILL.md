@@ -31,7 +31,7 @@ Kindle 出版戦略（[08_Kindle出版戦略.md](../../../../docs/project/01_戦
 
 | 書籍ID | シリーズ | ビルド | 構成定義 | 状態 |
 |---|---|---|---|---|
-| A-01 安全管理 | A: 1級土木択一 | `node scripts/build-takuitsu-reconstruct.mjs --theme anzen --format both` | THEMES 実装済み | ビルド可 |
+| A-01 安全管理 | A: 1級土木択一 | `node scripts/build-takuitsu-reconstruct.mjs --theme anzen --format both` | THEMES 実装済み（lead判定＋exclude） | EPUB完成（収録127問・9論点） |
 | A-02〜A-06 | A | 同上 `--theme {key}` | **THEMES 未定義** → composer 委譲 | 構成待ち |
 | D-01 基礎 / D-02 適性 / D-03 専門(建設) | D: 技術士一次 合本 | `node scripts/build-pe1-kindle.mjs --spec scripts/kindle-specs/{id}.json` | spec + 書き下ろし前付け | D-02 spec から整備 |
 
@@ -43,7 +43,7 @@ Kindle 出版戦略（[08_Kindle出版戦略.md](../../../../docs/project/01_戦
 
 ### ケース 1: 構成定義済み（A-01 等）
 
-1. 解決表のコマンドを実行し、統計行（抽出→除外→圧縮→収録）を 08 の期待値（例: A-01 = 190 問/9論点、収録 160 問）と突合
+1. 解決表のコマンドを実行し、統計行（抽出→除外→圧縮→収録）を 08 の期待値（例: A-01 = 抽出153→図版4除外→同趣旨22圧縮→収録127問・9論点）と突合
 2. 機械検証: `epubcheck {out}.epub`（エラー0/警告0 が合格）。epubcheck 不在時の代替: `unzip -lv` で mimetype が先頭・Stored、展開して全 `.xhtml/.opf/.ncx` に `xmllint --noout`
 3. `--skip-qa` でなければ `kindle-book-qa` を起動し 5 軸監査（原稿完全性/構成整合/EPUB技術/KDP規約適合/商品性）
 4. FAIL 指摘 → THEMES 微修正 or 元データ解説補完（Generator/親が適用）→ 再ビルド → 機械検証再通過。**最大2周**、収束しなければユーザーへ escalate
