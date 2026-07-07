@@ -1,0 +1,17 @@
+{
+  "bookId": "d-02",
+  "title": "技術士第一次試験 適性科目 過去問7年分完全解説",
+  "subtitle": "令和元〜7年度 105問",
+  "price": 390,
+  "description": "技術士第一次試験 適性科目の過去問（令和元〜7年度・105問）を全問収録し、正答と選択肢ごとの正誤理由を完全解説。技術士法第4章・技術者倫理・SDGs・安全保障貿易管理・製造物責任法・知的財産など頻出論点を7年分横断で演習できる一冊。",
+  "sources": [
+    ".local/r2/posts/pe-first-stage/r01-aptitude/article.mdx",
+    ".local/r2/posts/pe-first-stage/r02-aptitude/article.mdx",
+    ".local/r2/posts/pe-first-stage/r03-aptitude/article.mdx",
+    ".local/r2/posts/pe-first-stage/r04-aptitude/article.mdx",
+    ".local/r2/posts/pe-first-stage/r05-aptitude/article.mdx",
+    ".local/r2/posts/pe-first-stage/r06-aptitude/article.mdx",
+    ".local/r2/posts/pe-first-stage/r07-aptitude/article.mdx"
+  ],
+  "frontMatter": "docs/kindle/d-02/front-matter.md"
+}

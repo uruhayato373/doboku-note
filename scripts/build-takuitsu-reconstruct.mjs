@@ -19,10 +19,9 @@
 //
 // 図版に依存する設問（「下図」等を含む body）は、JSON に画像が無いため自動除外する。
 
-import { readFileSync, mkdirSync, writeFileSync, rmSync } from 'node:fs'
+import { readFileSync, mkdirSync, writeFileSync } from 'node:fs'
 import { join, resolve } from 'node:path'
-import { execFileSync } from 'node:child_process'
-import { randomUUID } from 'node:crypto'
+import { writeEpub, xhtmlDoc, xesc, xinline } from './lib/epub-writer.mjs'
 
 const REPO = resolve(import.meta.dirname, '..')
 
@@ -268,13 +267,9 @@ function renderPrintHtml(md, title) {
 
 // =====================================================================
 // EPUB レンダラ（Kindle / KDP 用・リフロー）
+// EPUB 組立（container/nav/ncx/opf/zip）は scripts/lib/epub-writer.mjs に共通化。
+// ここではテーマ固有のページ（扉・出典・使い方・各章 XHTML）と CSS を組み立てる。
 // =====================================================================
-const xesc = (s) =>
-  (s || '')
-    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-const xinline = (s) => xesc(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-
 const EPUB_CSS = `
 body { font-family: serif; line-height: 1.7; margin: 0 4%; }
 h1 { font-size: 1.5em; line-height: 1.4; margin: 1em 0 0.8em;
@@ -301,15 +296,6 @@ ol.opts li { margin-bottom: 0.3em; }
 hr { border: none; border-top: 1px solid #ddd; margin: 1em 0; }
 `
 
-function xhtmlDoc(title, inner) {
-  return `<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
-<head><meta charset="utf-8"/><title>${xesc(title)}</title>
-<link rel="stylesheet" type="text/css" href="style.css"/></head>
-<body>${inner}</body></html>`
-}
-
 function chapterXhtml(model, ch) {
   const parts = [`<h1>${ch.n}. ${xesc(ch.label)}</h1>`]
   if (ch.ronten.length) {
@@ -335,22 +321,6 @@ function chapterXhtml(model, ch) {
 
 function renderEpub(model, outDir) {
   const t = model.theme
-  const uuid = `urn:uuid:${randomUUID()}`
-  const work = join(outDir, '_epub')
-  rmSync(work, { recursive: true, force: true })
-  mkdirSync(join(work, 'META-INF'), { recursive: true })
-  mkdirSync(join(work, 'OEBPS'), { recursive: true })
-
-  const W = (rel, data) => writeFileSync(join(work, rel), data, 'utf8')
-
-  // 固定ファイル
-  W('mimetype', 'application/epub+zip')
-  W('META-INF/container.xml',
-    `<?xml version="1.0" encoding="utf-8"?>
-<container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container">
-<rootfiles><rootfile full-path="OEBPS/content.opf" media-type="application/oebps-package+xml"/></rootfiles>
-</container>`)
-  W('OEBPS/style.css', EPUB_CSS)
 
   // 前付け
   const titlePage = xhtmlDoc(model.title,
@@ -368,75 +338,33 @@ function renderEpub(model, outDir) {
 <p>本書は ${xesc(t.examLabel)}「${xesc(t.label)}」の択一過去問（H26〜R07）を、<strong>年度別ではなく論点別</strong>に解体・再構成した暗記特化教材です。</p>
 <p>同じ論点の問題を年度をまたいで連続演習することで「どこが繰り返し問われるか」が体で分かります。各論点の冒頭には、過去問の正答選択肢から抽出した<strong>「論点まとめ（覚える正しい知識）」</strong>を配置しました。生の年度別過去問では得られない、横断・体系化された一冊です。</p>
 <p>図版を要する設問は本書では割愛し、文章で完結する設問のみを収録しています。</p></div>`)
-  W('OEBPS/p-title.xhtml', titlePage)
-  W('OEBPS/p-credit.xhtml', creditPage)
-  W('OEBPS/p-intro.xhtml', introPage)
 
-  // 各章
-  for (const ch of model.chapters) W(`OEBPS/chap-${String(ch.n).padStart(2, '0')}.xhtml`, chapterXhtml(model, ch))
-
-  // spine 構成
-  const front = [
-    { id: 'p-title', href: 'p-title.xhtml', label: '扉' },
-    { id: 'p-credit', href: 'p-credit.xhtml', label: '出典・免責' },
-    { id: 'p-intro', href: 'p-intro.xhtml', label: '本書の使い方' },
+  const pages = [
+    { id: 'p-title', href: 'p-title.xhtml', label: '扉', content: titlePage },
+    { id: 'p-credit', href: 'p-credit.xhtml', label: '出典・免責', content: creditPage },
+    { id: 'p-intro', href: 'p-intro.xhtml', label: '本書の使い方', content: introPage },
+    ...model.chapters.map((ch) => ({
+      id: `chap-${String(ch.n).padStart(2, '0')}`,
+      href: `chap-${String(ch.n).padStart(2, '0')}.xhtml`,
+      label: `${ch.n}. ${ch.label}`,
+      content: chapterXhtml(model, ch),
+    })),
   ]
-  const chaps = model.chapters.map((ch) => ({
-    id: `chap-${String(ch.n).padStart(2, '0')}`,
-    href: `chap-${String(ch.n).padStart(2, '0')}.xhtml`,
-    label: `${ch.n}. ${ch.label}`,
-  }))
-  const all = [...front, ...chaps]
 
-  // nav.xhtml（EPUB3）
-  const navList = all.map((p) => `<li><a href="${p.href}">${xesc(p.label)}</a></li>`).join('\n')
-  W('OEBPS/nav.xhtml', xhtmlDoc('目次',
-    `<nav epub:type="toc" xmlns:epub="http://www.idpf.org/2007/ops" id="toc"><h1>目次</h1><ol>${navList}</ol></nav>`))
-
-  // toc.ncx（EPUB2 互換・Kindle 安定化）
-  const navPoints = all.map((p, i) =>
-    `<navPoint id="np-${i}" playOrder="${i + 1}"><navLabel><text>${xesc(p.label)}</text></navLabel><content src="${p.href}"/></navPoint>`).join('\n')
-  W('OEBPS/toc.ncx',
-    `<?xml version="1.0" encoding="utf-8"?>
-<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1">
-<head><meta name="dtb:uid" content="${uuid}"/></head>
-<docTitle><text>${xesc(model.title)} ― ${xesc(model.subtitle)}</text></docTitle>
-<navMap>${navPoints}</navMap></ncx>`)
-
-  // content.opf
-  const manifestItems = [
-    '<item id="nav" href="nav.xhtml" media-type="application/xhtml+xml" properties="nav"/>',
-    '<item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>',
-    '<item id="css" href="style.css" media-type="text/css"/>',
-    ...all.map((p) => `<item id="${p.id}" href="${p.href}" media-type="application/xhtml+xml"/>`),
-  ].join('\n')
-  const spineItems = all.map((p) => `<itemref idref="${p.id}"/>`).join('\n')
-  const today = new Date().toISOString().slice(0, 10)
-  W('OEBPS/content.opf',
-    `<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="bookid" xml:lang="ja">
-<metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
-<dc:identifier id="bookid">${uuid}</dc:identifier>
-<dc:title>${xesc(model.title)} ― ${xesc(model.subtitle)}</dc:title>
-<dc:creator>${xesc(AUTHOR)}</dc:creator>
-<dc:publisher>${xesc(PUBLISHER)}</dc:publisher>
-<dc:language>ja</dc:language>
-<dc:date>${today}</dc:date>
-<dc:description>${xesc(t.examLabel)}「${xesc(t.label)}」の択一過去問（H26〜R07）を論点別に再構成した暗記特化教材。</dc:description>
-<dc:rights>${xesc(CREDIT_BODY)}</dc:rights>
-<meta property="dcterms:modified">${today}T00:00:00Z</meta>
-</metadata>
-<manifest>${manifestItems}</manifest>
-<spine toc="ncx">${spineItems}</spine>
-</package>`)
-
-  // zip（mimetype を無圧縮で先頭に）
-  const epubPath = join(outDir, `${t.key}.epub`)
-  rmSync(epubPath, { force: true })
-  execFileSync('zip', ['-X', '-0', epubPath, 'mimetype'], { cwd: work, stdio: 'pipe' })
-  execFileSync('zip', ['-rgq', epubPath, 'META-INF', 'OEBPS', '-x', 'mimetype'], { cwd: work, stdio: 'pipe' })
-  rmSync(work, { recursive: true, force: true })
-  return epubPath
+  return writeEpub(
+    {
+      meta: {
+        title: `${model.title} ― ${model.subtitle}`,
+        author: AUTHOR,
+        publisher: PUBLISHER,
+        description: `${t.examLabel}「${t.label}」の択一過去問（H26〜R07）を論点別に再構成した暗記特化教材。`,
+        rights: CREDIT_BODY,
+      },
+      css: EPUB_CSS,
+      pages,
+    },
+    { outDir, fileName: `${t.key}.epub` },
+  )
 }
 
 // =====================================================================
