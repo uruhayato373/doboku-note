@@ -32,6 +32,16 @@
 
 ## 1. コンテンツ品質
 
+### モバイル可読性リライト 第1弾（表・入れ子・長段落の既存違反）🟡
+
+機械ラチェット基盤は整備済み（`content-rules.json` ＋ `lint-mdx-mobile.mjs --all` ＋ 週次 `check-content-quality`、パイロット=`pe-construction/river-coast-exam-themes`）。baseline に grandfather された既存違反を、`.claude/state/quality/latest-report.md` の **GA4 人気度順**上位から実際にリライトして漸減させる。
+
+- **優先上位（違反数 × 人気）**: `civil-construction-1-guide-strategy`（3-1×29・#1人気）／`pe-comprehensive-management-keyword-2026`（3-1×48）／`civil-construction-1-secondary-experience-writing-guide`（1-4×48）／`civil-construction-2-secondary-r0X`（1-4 多数）／`pe-construction/*-exam-themes` 残11本（river-coast と同型の年度マトリクス表）
+- **手順**: レポート上位を `category`/`group` 対応の `/quality-cycle`（cem / civil-textbook 等・ルーティング＝exam-content-policy.md Part 2）へ。表→非表・入れ子→フラット・長段落→改段（カタログ＝content-authoring.md）。1バッチ 10-20 記事、完了ごとに `npm run update-content-quality-baseline` で刈り込み
+- **注意**: civil textbook の規格表・配合表は override で除外済み（触らない）。過去問（primary/secondary）の年度×選択肢表は構造上必要な場面があり、無理に崩さない
+
+---
+
 ### 1級 textbook 図クロップ品質監査（残のみ）🟢
 
 過去問の図クロップ欠落・品質監査（1級/2級 primary・pe-first-stage）は **完了済み**（2026-06-23・git 履歴 `1c60bf824`/`5f51c33fb`/`0ab00413e` 他）。**残**: 1級 textbook 10本の `civil-construction-qa` 品質監査のみ（低優先・合格マージン大）。H28-A fig-02/07/08/09 は元 PDF に図が無く（問題用紙テキスト形式）修正不能で確定。

@@ -32,6 +32,7 @@
  *   1-7 HIGH   壊れた表（ヘッダー＋セパレータのみで本文行ゼロ — 表崩れ・空テーブル描画）
  *   2-1 HIGH   本文 H1（# ）— ページ H1 は frontmatter title から自動描画
  *   2-3 MEDIUM 見出しがページタイトルとほぼ重複
+ *   3-1 MEDIUM 入れ子リスト（2階層以上）— モバイル視認性。太字リード＋フラット化 or <SpecSheetList> へ（全資格共通）
  *   6-1 MEDIUM 表の直前行が見出しのみで導入文がない
  *   6-2 MEDIUM 見出し直下にいきなり箇条書き（導入文なし、§2/§17-2、group:guide限定）
  *   6-3 MEDIUM 見出し直下にいきなり図（導入文なし、§8、group:guide限定）
@@ -67,19 +68,121 @@
  *  14-1 MEDIUM factual table（数値・年代・指定数・統計データを含む verifiable claim 表）の直下に `<Callout type="reference" title="出典">` がない（content-principles.md §22）。**group: guide は対象外**（ガイドは外部離脱を最小化＝出典不要、§20）
  *  15-1 MEDIUM 散文で同一の丁寧体文末（です／ます／ました）が3文以上連続（単調、§24。である調は対象外）
  *  15-2 LOW    散文の1文が長すぎる（句点区切りで140字超、目安60〜80字、§24）
+ *  15-3 MEDIUM 1段落が長すぎる（300字超、目安200字、§24。全資格共通。note は〜120字で別系統）
+ *
+ * ルールの重大度・資格×種別の有効/無効は `.claude/config/content-rules.json` が SSOT。
+ * config 不在/破損時は各ルール function 内のハードコード severity へフォールバックする。
  */
-import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
-import { join, resolve } from 'node:path';
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, existsSync } from 'node:fs';
+import { join, resolve, dirname, relative, sep } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
 
 const CELL_MAX = 15;
 
+// ── ルール設定（.claude/config/content-rules.json）────────────────────────────
+// 重大度・資格×種別の有効/無効を外部化した SSOT。不在/破損時はスクリプト内
+// ハードコード値（各ルール function が push する severity）へフォールバックする。
+const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
+
+function loadContentRules() {
+  const p = resolve(REPO_ROOT, '.claude/config/content-rules.json');
+  if (!existsSync(p)) return null;
+  try {
+    return JSON.parse(readFileSync(p, 'utf8'));
+  } catch (e) {
+    console.warn(`⚠ content-rules.json の読み込みに失敗（ハードコード値で継続）: ${e.message}`);
+    return null;
+  }
+}
+
+const CONTENT_RULES = loadContentRules();
+
+/**
+ * ファイル frontmatter から exam(category) / docGroup(group) を抽出する。
+ * config の overrides キー解決に使う。抽出できない場合は空文字。
+ */
+function parseScope(raw) {
+  const fm = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+  const block = fm ? fm[1] : '';
+  const cat = block.match(/^category:\s*(\S+)\s*$/m);
+  const grp = block.match(/^group:\s*(\S+)\s*$/m);
+  // YAML のクォート形（category: 'civil-construction-2' 等・実コーパスに11件）を外す
+  const unquote = (s) => s.replace(/^['"]|['"]$/g, '');
+  return {
+    exam: cat ? unquote(cat[1].trim()) : '',
+    group: grp ? unquote(grp[1].trim()) : '',
+  };
+}
+
+/**
+ * 収集済み findings に config の defaults(基準重大度)と
+ * overrides[exam][group|'*'](無効化・重大度上書き)を適用する。
+ * config 不在時は findings をそのまま返す（現行挙動）。
+ */
+function applyContentRules(findings, scope) {
+  if (!CONTENT_RULES) return findings;
+  const { defaults = {}, overrides = {} } = CONTENT_RULES;
+  const out = [];
+  for (const f of findings) {
+    let severity = defaults[f.rule] ?? f.severity;
+    const examOv = overrides[scope.exam] || {};
+    const ov = examOv[scope.group]?.[f.rule] ?? examOv['*']?.[f.rule];
+    if (ov) {
+      if (ov.enabled === false) continue; // 資格×種別でこのルールを無効化
+      if (ov.severity) severity = ov.severity;
+    }
+    out.push(severity === f.severity ? f : { ...f, severity });
+  }
+  return out;
+}
+
 // ── CLI ──────────────────────────────────────────────────────────────────────
 
-const args = process.argv.slice(2);
+const DEFAULT_BASELINE = resolve(REPO_ROOT, '.claude/state/quality/lint-baseline.json');
+const DEFAULT_REPORT = resolve(REPO_ROOT, '.claude/state/quality/latest-report.md');
+const POSTS_ROOT = resolve(REPO_ROOT, '.local/r2/posts');
 
-function resolveTargets(args) {
-  if (args.length === 0) {
+/**
+ * process.argv からフラグと位置引数を分離する。
+ *   --all               .local/r2/posts の全 published MDX を対象
+ *   --baseline[=path]   ラチェット比較（baseline に無い新規違反のみで exit 1）
+ *   --update-baseline   現状を baseline に書き出す（刈り込み・初期化）
+ *   --report[=path]     Markdown レポートを出力（GA4 人気度で優先度付け）
+ *   --ci                新規違反があれば exit 1（--baseline と併用）
+ */
+function parseArgs(argv) {
+  const flags = { all: false, baseline: null, updateBaseline: false, report: null, ci: false };
+  const positional = [];
+  for (const a of argv) {
+    if (a === '--all') flags.all = true;
+    else if (a === '--update-baseline') flags.updateBaseline = true;
+    else if (a === '--ci') flags.ci = true;
+    else if (a === '--baseline') flags.baseline = DEFAULT_BASELINE;
+    else if (a.startsWith('--baseline=')) flags.baseline = resolve(a.slice('--baseline='.length));
+    else if (a === '--report') flags.report = DEFAULT_REPORT;
+    else if (a.startsWith('--report=')) flags.report = resolve(a.slice('--report='.length));
+    else positional.push(a);
+  }
+  return { flags, positional };
+}
+
+function isPublished(filePath) {
+  try {
+    const head = readFileSync(filePath, 'utf8').slice(0, 2500);
+    return /^published:\s*true\s*$/m.test(head);
+  } catch {
+    return false;
+  }
+}
+
+function resolveTargets(positional, flags) {
+  if (flags.all) {
+    const files = [];
+    collectMdx(POSTS_ROOT, files);
+    return files.filter(isPublished);
+  }
+  if (positional.length === 0) {
     // git diff モード
     try {
       const out = execSync('git diff --name-only', { encoding: 'utf8' });
@@ -91,7 +194,7 @@ function resolveTargets(args) {
     }
   }
   const files = [];
-  for (const a of args) {
+  for (const a of positional) {
     if (!existsSync(a)) {
       console.error(`Not found: ${a}`);
       process.exit(2);
@@ -1566,6 +1669,58 @@ function isProseLine(line) {
   return true;
 }
 
+/**
+ * 3-1: 入れ子リスト（2階層以上）を検出。
+ * モバイルでインデントが視認しにくく、意味構造も伝わりにくいため、
+ * 太字リード＋フラット1階層 or <SpecSheetList> への再構成を促す（§4系・§17-2）。
+ * コードフェンス内・複数行 JSX ブロック内は除外。連続する入れ子ブロックは1件に集約。
+ */
+function lintNestedList(lines, findings) {
+  const NESTED = /^(?: {2,}|\t+)(?:[-*+]|\d+[.)])\s/;
+  let inFence = false;
+  let inJsx = false;
+  let runStart = -1; // 連続入れ子行の開始（1-based）、-1 = 非連続中
+
+  const flush = (endLine) => {
+    if (runStart === -1) return;
+    findings.push({
+      severity: 'MEDIUM',
+      rule: '3-1',
+      line: runStart,
+      endLine,
+      message:
+        '入れ子リスト（2階層以上）。モバイルで視認しにくい。太字リード＋フラット1階層、または <SpecSheetList> への再構成を検討',
+    });
+    runStart = -1;
+  };
+
+  for (let idx = 0; idx < lines.length; idx++) {
+    const line = lines[idx];
+    if (/^\s*```/.test(line)) {
+      flush(idx);
+      inFence = !inFence;
+      continue;
+    }
+    if (inFence) continue;
+    const trimmed = line.trim();
+    if (inJsx) {
+      if (/\/>\s*$|<\/[A-Za-z]/.test(trimmed)) inJsx = false;
+      continue;
+    }
+    if (/^<[A-Z][A-Za-z]*/.test(trimmed) && !/\/>\s*$|<\/[A-Za-z]/.test(trimmed)) {
+      inJsx = true;
+      continue;
+    }
+    if (NESTED.test(line)) {
+      if (runStart === -1) runStart = idx + 1;
+    } else if (trimmed !== '') {
+      // 空行はネストブロックの継続とみなす（項目間の空行）、非空・非ネスト行で確定
+      flush(idx);
+    }
+  }
+  flush(lines.length);
+}
+
 function lintProseStyle(lines, findings) {
   const cleanInline = (s) =>
     s
@@ -1599,6 +1754,20 @@ function lintProseStyle(lines, findings) {
     if (!isProseLine(line)) continue;
 
     const cleaned = cleanInline(line);
+
+    // 15-3: 1段落が長い（300字超）。MDX では1段落＝空行区切りの1行なので行長で判定。
+    // note の〜120字（note-reflow）とは別系統のサイト基準。
+    const paraLen = [...cleaned.trim()].length;
+    if (paraLen > 300) {
+      findings.push({
+        severity: 'MEDIUM',
+        rule: '15-3',
+        line: idx + 1,
+        endLine: idx + 1,
+        message: `1段落が長い（${paraLen}字）。300字超の段落は2〜3文・目安200字で改段を検討（§24。note は〜120字で別系統）`,
+      });
+    }
+
     const parts = cleaned.split('。');
     for (let k = 0; k < parts.length - 1; k++) {
       const sent = parts[k];
@@ -1714,37 +1883,158 @@ function lintFile(filePath) {
   // カテゴリ13: R8 予想問題 spoke の固定 3 ペルソナ統一（content-principles.md §21）
   lintR8SpokeFixedPersonas(lines, raw, filePath, findings);
 
+  // カテゴリ3: 入れ子リスト（2階層以上）（content-principles.md §4系・§17-2）
+  lintNestedList(lines, findings);
+
   // カテゴリ15: 文体（1文の長さ・文末の単調回避）（content-principles.md §24）
   lintProseStyle(lines, findings);
 
+  // config（content-rules.json）の重大度・資格×種別の有効/無効を適用
+  const scoped = applyContentRules(findings, parseScope(raw));
+
   // 行番号を frontmatter 分シフト（ただし 0-1, 0-2 はファイル全体 or frontmatter の問題なので対象外）
-  for (const f of findings) {
+  for (const f of scoped) {
     if (f.rule === '0-1' || f.rule === '0-2') continue;
     f.line += offset;
     f.endLine += offset;
   }
 
-  return findings;
+  return scoped;
 }
 
 function severityRank(s) {
   return { HIGH: 0, MEDIUM: 1, LOW: 2 }[s] ?? 3;
 }
 
+// ── ラチェット（baseline）・レポート ──────────────────────────────────────────
+
+/** リポジトリルート相対・スラッシュ区切りの正規化パス（baseline のキー）。 */
+function relPath(file) {
+  return relative(REPO_ROOT, resolve(file)).split(sep).join('/');
+}
+
+/** posts 配下のファイルパスから /docs のフラット slug を推定（人気度突合用・推定なので fallback 許容）。 */
+function deriveSlug(file) {
+  const rel = relative(POSTS_ROOT, resolve(file));
+  if (rel.startsWith('..')) return null;
+  const parts = rel.split(sep);
+  const last = parts[parts.length - 1];
+  if (last === 'article.mdx') parts.pop();
+  else parts[parts.length - 1] = last.replace(/\.mdx$/, '');
+  return parts.join('-');
+}
+
+/** popular-pages.json を読み、slug → { users, rank } を返す。無ければ空。 */
+function loadPopularity() {
+  const map = new Map();
+  try {
+    const p = resolve(REPO_ROOT, 'src/config/popular-pages.json');
+    if (!existsSync(p)) return map;
+    const data = JSON.parse(readFileSync(p, 'utf8'));
+    (data.pages || []).forEach((pg, i) => {
+      map.set(pg.slug, { users: pg.activeUsers ?? 0, rank: i + 1 });
+    });
+  } catch {
+    /* 人気度は任意情報。失敗しても続行 */
+  }
+  return map;
+}
+
+function loadBaseline(path) {
+  if (!path || !existsSync(path)) return { counts: {} };
+  try {
+    const data = JSON.parse(readFileSync(path, 'utf8'));
+    return { counts: data.counts || {} };
+  } catch (e) {
+    console.warn(`⚠ baseline の読み込みに失敗（全違反を新規扱い）: ${e.message}`);
+    return { counts: {} };
+  }
+}
+
+function writeJson(path, obj) {
+  mkdirSync(dirname(path), { recursive: true });
+  writeFileSync(path, JSON.stringify(obj, null, 2) + '\n');
+}
+
+function buildReport({ perFile, totals, regressions, pop }) {
+  const rows = Object.entries(perFile)
+    .map(([rp, info]) => {
+      const slug = info.slug;
+      const popInfo = slug ? pop.get(slug) : null;
+      const users = popInfo?.users ?? 0;
+      const total = Object.values(info.counts).reduce((a, n) => a + n, 0);
+      return { rp, slug, users, rank: popInfo?.rank ?? null, total, counts: info.counts };
+    })
+    .sort((a, b) => b.total * (b.users + 1) - a.total * (a.users + 1) || b.total - a.total);
+
+  const CAP = 60;
+  const shown = rows.slice(0, CAP);
+  const lines = [];
+  lines.push('# コンテンツ品質 全量スキャンレポート');
+  lines.push('');
+  lines.push(`- 対象: published MDX（.local/r2/posts）`);
+  lines.push(`- 違反合計: HIGH ${totals.HIGH} / MEDIUM ${totals.MEDIUM} / LOW ${totals.LOW}`);
+  lines.push(`- 違反のある記事数: ${rows.length}`);
+  if (regressions.length) {
+    lines.push(`- **baseline 比の新規違反: ${regressions.length} 件（下記）**`);
+  } else {
+    lines.push(`- baseline 比の新規違反: 0 件`);
+  }
+  lines.push('');
+  lines.push('優先度 = 違反数 × GA4 人気度（activeUsers）。人気ページの違反を上位に。');
+  lines.push('');
+  lines.push('| 優先 | 記事(slug) | 人気(users/rank) | 違反計 | 内訳(rule×件数) |');
+  lines.push('|---|---|---|---|---|');
+  shown.forEach((r, i) => {
+    const brk = Object.entries(r.counts)
+      .sort((a, b) => b[1] - a[1])
+      .map(([rule, n]) => `${rule}:${n}`)
+      .join(' ');
+    const popCol = r.users ? `${r.users} / #${r.rank}` : '—';
+    lines.push(`| ${i + 1} | ${r.slug ?? r.rp} | ${popCol} | ${r.total} | ${brk} |`);
+  });
+  if (rows.length > CAP) {
+    lines.push('');
+    lines.push(`※ 上位 ${CAP} 件のみ表示（違反記事 ${rows.length} 件中 ${rows.length - CAP} 件を省略）。全量は --update-baseline 後の baseline JSON を参照。`);
+  }
+  if (regressions.length) {
+    lines.push('');
+    lines.push('## baseline 比の新規違反（ラチェット逆行）');
+    lines.push('');
+    lines.push('| 記事 | rule | baseline | 現在 | 増加 |');
+    lines.push('|---|---|---|---|---|');
+    for (const g of regressions) {
+      lines.push(`| ${g.file} | ${g.rule} | ${g.was} | ${g.now} | +${g.delta} |`);
+    }
+  }
+  lines.push('');
+  return lines.join('\n');
+}
+
 function main() {
-  const targets = resolveTargets(args);
+  const { flags, positional } = parseArgs(process.argv.slice(2));
+  const targets = resolveTargets(positional, flags);
   if (targets.length === 0) {
     console.log('No MDX files to lint.');
     process.exit(0);
   }
 
+  const ratchetMode = flags.all || flags.baseline || flags.updateBaseline || flags.report;
+
+  // 全量ラチェット/レポートは content-rules.json の fullScan.rules（可読性・レイアウト系）に限定。
+  // 未設定なら全ルール。レガシー（pre-commit/単一/diff）モードは常に全ルール。
+  const fullScanRules = ratchetMode ? CONTENT_RULES?.fullScan?.rules ?? null : null;
+  const inScan = (rule) => !fullScanRules || fullScanRules.includes(rule);
+
+  // 集計（全モード共通）
+  const perFile = {}; // relPath -> { slug, counts:{rule:n} }
+  const totals = { HIGH: 0, MEDIUM: 0, LOW: 0 };
   let totalHigh = 0;
-  let totalMedium = 0;
-  let totalLow = 0;
   let anyFindings = false;
 
   for (const file of targets) {
-    const findings = lintFile(file);
+    let findings = lintFile(file);
+    if (fullScanRules) findings = findings.filter((f) => inScan(f.rule));
     if (findings.length === 0) continue;
     anyFindings = true;
 
@@ -1752,23 +2042,91 @@ function main() {
       (a, b) => severityRank(a.severity) - severityRank(b.severity) || a.line - b.line,
     );
 
-    console.log(`\n=== ${file} ===`);
+    const rp = relPath(file);
+    const counts = {};
     for (const f of findings) {
-      const range = f.line === f.endLine ? `L${f.line}` : `L${f.line}-${f.endLine}`;
-      console.log(`[${f.severity}] ${range} (${f.rule}) ${f.message}`);
+      counts[f.rule] = (counts[f.rule] || 0) + 1;
+      totals[f.severity] = (totals[f.severity] || 0) + 1;
       if (f.severity === 'HIGH') totalHigh++;
-      else if (f.severity === 'MEDIUM') totalMedium++;
-      else totalLow++;
+    }
+    perFile[rp] = { slug: deriveSlug(file), counts };
+
+    // 個別行の console 出力はレガシー（単一/ディレクトリ/diff）モードのみ
+    if (!ratchetMode) {
+      console.log(`\n=== ${file} ===`);
+      for (const f of findings) {
+        const range = f.line === f.endLine ? `L${f.line}` : `L${f.line}-${f.endLine}`;
+        console.log(`[${f.severity}] ${range} (${f.rule}) ${f.message}`);
+      }
     }
   }
 
-  console.log(`\n${'='.repeat(60)}`);
-  if (!anyFindings) {
-    console.log(`✓ ${targets.length} file(s) passed.`);
+  // ── レガシーモード（従来挙動を厳密維持: HIGH で exit 1）──
+  if (!ratchetMode) {
+    console.log(`\n${'='.repeat(60)}`);
+    if (!anyFindings) {
+      console.log(`✓ ${targets.length} file(s) passed.`);
+      process.exit(0);
+    }
+    console.log(
+      `Summary: HIGH ${totals.HIGH} / MEDIUM ${totals.MEDIUM} / LOW ${totals.LOW}`,
+    );
+    process.exit(totalHigh > 0 ? 1 : 0);
+  }
+
+  // ── ラチェット/レポートモード ──
+  const baselinePath = flags.baseline || (flags.updateBaseline ? DEFAULT_BASELINE : null);
+  const baseline = loadBaseline(baselinePath);
+
+  // baseline 比の新規違反（file×rule で件数増）
+  const regressions = [];
+  for (const [rp, info] of Object.entries(perFile)) {
+    const base = baseline.counts[rp] || {};
+    for (const [rule, now] of Object.entries(info.counts)) {
+      const was = base[rule] || 0;
+      if (now > was) regressions.push({ file: rp, rule, was, now, delta: now - was });
+    }
+  }
+  regressions.sort((a, b) => b.delta - a.delta);
+
+  console.log(
+    `\nScanned ${targets.length} files. 違反 HIGH ${totals.HIGH} / MEDIUM ${totals.MEDIUM} / LOW ${totals.LOW}（違反記事 ${Object.keys(perFile).length} 件）`,
+  );
+
+  // レポート出力
+  if (flags.report) {
+    const pop = loadPopularity();
+    const report = buildReport({ perFile, totals, regressions, pop });
+    mkdirSync(dirname(flags.report), { recursive: true });
+    writeFileSync(flags.report, report);
+    console.log(`レポート: ${relPath(flags.report)}`);
+  }
+
+  // baseline 更新
+  if (flags.updateBaseline) {
+    const counts = {};
+    for (const [rp, info] of Object.entries(perFile)) counts[rp] = info.counts;
+    const outPath = flags.baseline || DEFAULT_BASELINE; // --baseline=custom を尊重
+    writeJson(outPath, {
+      _doc: 'コンテンツ品質ラチェットの baseline。file × ruleID × 件数。新規違反(baseline 超過)のみ CI で赤落ちさせ、リライトで件数を漸減させる。更新: node .claude/scripts/lint-mdx-mobile.mjs --all --update-baseline',
+      counts,
+    });
+    console.log(`baseline 更新: ${relPath(outPath)}（${Object.keys(counts).length} 記事）`);
     process.exit(0);
   }
-  console.log(`Summary: HIGH ${totalHigh} / MEDIUM ${totalMedium} / LOW ${totalLow}`);
-  process.exit(totalHigh > 0 ? 1 : 0);
+
+  // ラチェット判定
+  if (regressions.length) {
+    console.log(`\n✗ baseline 比の新規違反 ${regressions.length} 件:`);
+    for (const g of regressions.slice(0, 30)) {
+      console.log(`  ${g.file}  (${g.rule}) ${g.was} → ${g.now}`);
+    }
+    if (regressions.length > 30) console.log(`  … 他 ${regressions.length - 30} 件`);
+    if (flags.ci) process.exit(1);
+  } else {
+    console.log('✓ baseline 比の新規違反なし');
+  }
+  process.exit(0);
 }
 
 main();

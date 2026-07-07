@@ -67,6 +67,13 @@ jobs:
       - name: Check orphan figures (figure-*.svg referenced in article body)
         run: npm run check-orphan-figures
 
+      # モバイル可読性ラチェット。全 published MDX を content-rules.json の fullScan ルール
+      # （表/入れ子リスト/段落長/見出し/文体）で走査し、baseline を超える新規違反があれば赤落ち。
+      # 既存違反は baseline で grandfather 済み（リライトで漸減）。レポートは PR 差分では追わず、
+      # 全量 backstop として週次で回す。
+      - name: Check content quality ratchet (mobile readability, no new violations)
+        run: npm run check-content-quality:ci
+
       - name: Diff local (main) vs R2 — images only
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

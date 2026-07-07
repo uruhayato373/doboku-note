@@ -1,0 +1,86 @@
+{
+  "_doc": "サイト記事(.local/r2/posts/**)の機械品質ルールの重大度・適用範囲マトリクス。人間可読の根拠は docs/reference/content-principles.md(資格共通)と docs/reference/exam-content-policy.md(試験別差分)。ルールの検出ロジックの実装は .claude/scripts/lint-mdx-mobile.mjs が唯一の真実源。本ファイルは『どのルールをどの重大度で・どの資格×種別に適用するか』の SSOT。figure-canvas.json / note-funnel.json と同じ policy.md ↔ config.json ↔ guard script パターン。",
+  "_usage": "lint-mdx-mobile.mjs はファイルの frontmatter から exam(=category)/docGroup(=group) を判定し、(1)defaults で各ルールの基準重大度を引き、(2)overrides[exam][docGroup] で enabled:false=無効化 / severity 上書き を適用する。本ファイルが存在しない/壊れている場合はスクリプト内ハードコード値へフォールバックする。",
+  "defaults": {
+    "0-1": "HIGH",
+    "0-2": "HIGH",
+    "1-1": "HIGH",
+    "1-3": "MEDIUM",
+    "1-4": "MEDIUM",
+    "1-5": "HIGH",
+    "1-7": "HIGH",
+    "2-1": "HIGH",
+    "2-3": "MEDIUM",
+    "3-1": "MEDIUM",
+    "6-1": "MEDIUM",
+    "6-2": "MEDIUM",
+    "6-3": "MEDIUM",
+    "6-4": "MEDIUM",
+    "8-1": "MEDIUM",
+    "8-2": "LOW",
+    "8-3": "MEDIUM",
+    "9-1": "HIGH",
+    "9-2": "MEDIUM",
+    "9-3": "HIGH",
+    "9-4": "MEDIUM",
+    "9-5": "LOW",
+    "9-6": "HIGH",
+    "9-7": "MEDIUM",
+    "9-8": "HIGH",
+    "9-9": "MEDIUM",
+    "9-10": "HIGH",
+    "9-11": "HIGH",
+    "9-12": "HIGH",
+    "9-13": "MEDIUM",
+    "10-1": "HIGH",
+    "10-2": "MEDIUM",
+    "10-3": "MEDIUM",
+    "10-5": "HIGH",
+    "11-1": "MEDIUM",
+    "11-2": "MEDIUM",
+    "12-1": "MEDIUM",
+    "12-2": "MEDIUM",
+    "12-3": "LOW",
+    "13-1": "MEDIUM",
+    "13-2": "MEDIUM",
+    "14-1": "MEDIUM",
+    "15-1": "MEDIUM",
+    "15-2": "LOW",
+    "15-3": "MEDIUM"
+  },
+  "scopes": {
+    "_doc": "各ルールの適用条件(記述的 SSOT)。複雑なもの(path 正規表現・性能上の早期 return)は lint-mdx-mobile.mjs 内のガードが一次実行点。ここは可読な対応表で、資格別の有効/無効の実運用ノブは overrides を使う。",
+    "3-1": { "applies": "all", "note": "入れ子リスト(2階層以上)。全資格共通" },
+    "6-2": { "applies": "group:guide", "note": "見出し直下いきなり箇条書き" },
+    "6-3": { "applies": "group:guide", "note": "見出し直下いきなり図" },
+    "6-4": { "applies": "group:guide", "note": "見出し直下いきなり SpecSheetList" },
+    "9-7": { "applies": "category:pe-comprehensive-management", "note": "教材外の実務応用セクション禁止" },
+    "9-12": { "applies": "category:civil-construction-1 & slug:secondary-r0X", "note": "解答欠落検出" },
+    "12-1": { "applies": "group:guide", "note": "総合技術監理における位置づけ H2 禁止" },
+    "12-2": { "applies": "group:guide", "note": "参考資料/参考文献 H2 禁止" },
+    "12-3": { "applies": "group:guide", "note": "末尾 H2 が承認パターン外" },
+    "13-1": { "applies": "slug:r8-essay-theme-*", "note": "許可外ペルソナ名" },
+    "13-2": { "applies": "slug:r8-essay-theme-*", "note": "ペルソナ別サブセクション数" },
+    "14-1": { "applies": "all except group:guide", "note": "factual table の出典 Callout 欠落" },
+    "15-3": { "applies": "all", "note": "1段落300字超。全資格共通(サイト基準。note は別系統〜120字)" }
+  },
+  "overrides": {
+    "_doc": "資格(exam=category)×種別(docGroup=group)単位でルールを無効化/重大度上書きする実運用ノブ。形式: overrides[exam][group|'*'][ruleId] = { enabled?: false, severity?: 'HIGH'|'MEDIUM'|'LOW' }。真実源は exam-content-policy.md Part 2 のレビュー視点マトリクス。",
+    "civil-construction-1": {
+      "textbook": {
+        "1-3": { "enabled": false },
+        "1-4": { "enabled": false }
+      }
+    },
+    "civil-construction-2": {
+      "textbook": {
+        "1-3": { "enabled": false },
+        "1-4": { "enabled": false }
+      }
+    }
+  },
+  "fullScan": {
+    "_doc": "--all(週次CIラチェット/check-content-quality)が追跡するルール = モバイル可読性・レイアウト系に限定。理由: (1)pre-commit は staged で全ルールを見るが、全量ラチェットは『読みやすい記事』ミッションのルール群だけを追い、baseline を意味あるものに保つ。(2)10-5(画像存在)は画像が git ツリー外(R2同期)のため全量走査で誤検知 → r2-audit の image ステップが担当。(3)9-6(解答マーカー)等の過去問固有 HIGH は本来の pre-commit ゲートが担当。ここに無いルールは pre-commit では従来どおり効く。",
+    "rules": ["1-3", "1-4", "1-5", "1-7", "2-1", "2-3", "3-1", "6-1", "6-2", "6-3", "6-4", "11-1", "11-2", "15-1", "15-2", "15-3"]
+  }
+}

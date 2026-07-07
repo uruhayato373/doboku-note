@@ -123,6 +123,8 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 
 **判定方法**: `/improve-article --mode verify` スキルが MDX の `category` と `group` から自動判定し、適切な Evaluator エージェントへ振り分ける（cem-qa / civil-construction-qa / content-qa）。詳細は各エージェント定義 `.claude/agents/*.md` を参照。
 
+**機械ルールの資格×種別マトリクス**: 上表の「表」「モバイル視認性」行など機械検知可能なルールの重大度・資格別の有効/無効は **`.claude/config/content-rules.json`** が SSOT（実装は `lint-mdx-mobile.mjs`）。例: 上表の「1級土木 textbook＝規格表・配合表など4列以上も許容」は同 config の `overrides.civil-construction-{1,2}.textbook` で 1-3/1-4 を無効化して機械化済み。全量ラチェット（`npm run check-content-quality` / 週次 `r2-audit.yml`）が `fullScan` ルール群で新規違反を赤落ちさせ、既存違反は baseline で grandfather する。リライト優先度は `.claude/state/quality/latest-report.md`（GA4 人気度順）。
+
 ---
 
 ## Part 3: 全試験で共通のデザイン制約
