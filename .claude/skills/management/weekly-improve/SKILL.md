@@ -79,7 +79,7 @@ Traffic-Drop, Hidden-Winner, Orphan-Query, SNS-Source-Shift〔SNS 流入の急�
 転職アフィリ（現在 BuildJob が主力・GKS / 建設JOBs 併存）のクリック実績と期間施策を週次で確認する。この Phase は親が直接実行する（単純な JSON 読み + 算術のため metrics-analyzer には委譲しない）。
 
 1. **by-label CTR を読む**: `.claude/state/metrics/ga4/ga4-cta-clicks-by-label-*.json`（最新）から `affiliate_cta_click` を label 別に集計。主要 label = `BuildJob-sidebar`（全 docs サイドバー）/ `BuildJob-midtext`（career 記事の本文中間テキスト）/ `BuildJob-hubcareer`（カテゴリ hub 小バナー）/ `KensetsuJobs-sidebar`（記事 A/B の arm B）。ページ別流入（`ga4-page-*.json`）を分母に CTR を出す。
-   - 本番クリックが蓄積するまで 0 件が正常。ファイルが無ければ「by-label 未生成（GA4 カスタムディメンション `event_label`〔イベントスコープ〕未登録の可能性・登録は管理画面手動・遡及なし）」と 1 行残す。
+   - GA4 カスタムディメンション `event_label`／`event_category`（イベントスコープ）は **2026-07-07 登録済み**（遡及なし＝それ以前の窓は空が正常）。登録直後は伝播〜48h。本番クリックが蓄積するまで 0 件も正常。ファイルが無ければ by-label fetch 失敗（伝播待ち or fetch エラー）を 1 行残す。
 2. **BuildJob 期限（2026-08-31）**: 無料キャリア面談 ¥50,000 の増額キャンペーンは 8/31 まで。**残り週数を表示**し、9/1（= 8/31 15:00 UTC）で全 BuildJob 面が GKS へ自動復帰する（SSG・ビルド時刻で確定）ことを想起する。**9 月最初の本番ビルド後は本 Phase で「BuildJob 面が消えて GKS へ戻ったか」を curl で 1 回検証**（万一再ビルドが無ければ creative 定数を手動 revert）。
 3. **EPC 判定への布石**: A8 成果（`.claude/state/metrics/affiliate/a8-results.json` に月次手動記録）÷ GA4 クリックで案件別 EPC を出し、BuildJob vs 建設JOBs vs GKS の勝者を ~2026-09 に判定（backlog P5）。本 Phase は「クリックの推移を追う」までで、成果転記と EPC 確定は月次で行う。
 

@@ -21,11 +21,12 @@
 - ✅ #7 UTM referral の policy+check（PR #345・**content 移行は burndown 残**＝下記 item 7）
 - ✅ #9 サイト内検索を URL(?q=) 同期し `view_search_results` 有効化（PR #346）。scroll は拡張計測 ON で自動・outbound は #1＋拡張計測でカバー済＝#9 完了
 - ✅ #11 GA4×GSC crosswalk レポート（PR #347）＋週次 CI 自動化（gsc-page fetch＋crosswalk step）
+- ✅ #10 アフィリ A/B の event_label 取得（PR #378 で `fetch-ga4-cta-clicks --by-label`＋fetch-metrics.yml step 配線・2026-07-07 に GA4 カスタムディメンション `event_label`/`event_category`〔イベントスコープ〕登録で前提充足＝以降ラベル別 CTR〔BuildJob-sidebar/midtext/hubcareer・KensetsuJobs-sidebar〕取得可。遡及なしのため蓄積待ち）
 - （関連）deploy ドリフト検知＋check-links 偽陽性是正（PR #342）
 
-**GA4 UI（ユーザー作業）**: A 内部トラフィック/参照除外 ✅・B キーイベント ✅・C 拡張計測 全 ON 確認 ✅／**D カスタムディメンション（#8/#10 の前提）未・E bing bot 確定 未**
+**GA4 UI（ユーザー作業）**: A 内部トラフィック/参照除外 ✅・B キーイベント ✅・C 拡張計測 全 ON 確認 ✅・**D カスタムディメンション ✅**（`event_label`＋`event_category`・イベントスコープ・2026-07-07 登録＝#10 の前提を充足。#8 の追加 param〔productId 等〕は当該コード着手時に別途登録）／**E bing bot 確定 未**
 
-**残（未着手）**: #5 分析 cadence（metrics-analyzer は LLM＝cloud routine／seo-meta 配線）・#8 カスタムパラメータ（GA4 D 前提）・#10 アフィリ A/B（GA4 event_label 登録前提）・#12 note.com referral・Tier 3（#13-16）・#7 content 移行 burndown
+**残（未着手）**: #5 分析 cadence（metrics-analyzer は LLM＝cloud routine／seo-meta 配線）・#8 カスタムパラメータ（追加 param の GA4 登録が前提）・#12 note.com referral・Tier 3（#13-16）・#7 content 移行 burndown
 
 **deploy 後の検証待ち**: GA4 DebugView で `note_article_click`/`view_search_results` 発火・金曜 fetch-metrics 週次で coverage/bot-audit/crosswalk が更新されるか
 
