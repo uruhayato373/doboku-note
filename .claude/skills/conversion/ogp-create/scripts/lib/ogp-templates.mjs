@@ -259,8 +259,8 @@ function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backg
   const fineGridUrl = gridDataUrl(30, pal.gridFine, 1);
   const majorGridUrl = gridDataUrl(120, pal.gridMajor, 1.25);
 
-  // 上下パディング: 110px top / 80px bottom（handoff 仕様 L455-456）
-  const contentTop = 110;
+  // 上下パディング: 72px top / 80px bottom（2026-07-07 メタ帯の余白圧縮。旧 110px top）
+  const contentTop = 72;
   const contentBottom = 80;
   const contentHeight = height - contentTop - contentBottom;
 
@@ -278,11 +278,11 @@ function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backg
           props: {
             style: {
               display: 'flex',
-              fontSize: '22px',
+              fontSize: '24px',
               fontWeight: 800,
               letterSpacing: '-0.6px',
               color: pal.wordmarkInk,
-              marginRight: '16px',
+              marginRight: '18px',
             },
             children: [
               { type: 'span', props: { style: { display: 'flex' }, children: 'doboku' } },
@@ -295,9 +295,10 @@ function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backg
     },
   };
 
-  // コンテンツ種別バッジ（資格＝外枠色 と直交する第2軸）。テーマ色の輪郭ピル＋
-  // lucide 風アイコン＋短ラベル（ガイド/過去問/テキスト/キーワード）。サムネ一覧での
-  // 種別一目識別が狙い。contentType 未指定（未マッピング group）なら描かない＝後方互換。
+  // コンテンツ種別バッジ（資格＝外枠色 と直交する第2軸）。テーマ色の輪郭ピル＋短ラベル
+  // （ガイド/過去問/テキスト/キーワード）。2026-07-07: 装飾アイコンを撤去しテキストのみへ
+  // （text-forward トレンド準拠・ラベルで種別は一意・ガイドアイコンの字化け解消）。
+  // contentType 未指定（未マッピング group）なら描かない＝後方互換。
   const typeBadge = contentType
     ? {
         type: 'div',
@@ -305,21 +306,19 @@ function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backg
           style: {
             display: 'flex',
             alignItems: 'center',
-            padding: '7px 16px 7px 11px',
+            padding: '8px 20px',
             borderRadius: '999px',
             border: `2px solid ${pal.badgeBorder}`,
             background: pal.badgeBg,
             fontFamily: '"Noto Sans JP", Inter, sans-serif',
           },
           children: [
-            g2IconImg(contentType.icon, pal.badgeInk, 19, 2.4),
             {
               type: 'div',
               props: {
                 style: {
                   display: 'flex',
-                  marginLeft: '8px',
-                  fontSize: '19px',
+                  fontSize: '23px',
                   fontWeight: 700,
                   letterSpacing: '0.5px',
                   color: pal.badgeInk,
@@ -332,20 +331,8 @@ function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backg
       }
     : null;
 
-  const topRow = {
-    type: 'div',
-    props: {
-      style: {
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        marginBottom: '28px',
-      },
-      children: [wordmark, typeBadge].filter(Boolean),
-    },
-  };
-
+  // 資格名を主役 kicker として左上に（2026-07-07: 旧ワードマーク位置を資格名へ譲り拡大。
+  // ▶ 装飾マーカーは撤去＝塗りチップ自体がラベルとして機能・text-forward トレンド準拠）。
   const categoryChip = cat
     ? {
         type: 'div',
@@ -353,30 +340,15 @@ function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backg
           style: {
             display: 'flex',
             alignItems: 'center',
-            alignSelf: 'flex-start',
-            padding: '6px 14px',
+            padding: '10px 20px',
             background: pal.chipBg,
             color: pal.chipText,
             fontFamily: '"Noto Sans JP", Inter, sans-serif',
-            fontSize: '17px',
-            fontWeight: 600,
+            fontSize: '30px',
+            fontWeight: 700,
             letterSpacing: '0.5px',
-            marginBottom: '28px',
           },
           children: [
-            {
-              type: 'div',
-              props: {
-                style: {
-                  display: 'flex',
-                  color: pal.chipArrow,
-                  fontSize: '14px',
-                  marginRight: '10px',
-                  fontFamily: 'Inter, "Noto Sans JP", sans-serif',
-                },
-                children: '▶',
-              },
-            },
             {
               type: 'div',
               props: { style: { display: 'flex' }, children: cat },
@@ -386,14 +358,44 @@ function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backg
       }
     : null;
 
+  // 資格名（左）＋種別バッジ（右）の 1 行メタ。ワードマークは右下へ退避（wordmarkCorner）。
+  const topRow = {
+    type: 'div',
+    props: {
+      style: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        marginBottom: '16px',
+      },
+      children: [categoryChip, typeBadge].filter(Boolean),
+    },
+  };
+
+  // ワードマーク（右下・従属表記）。装飾ラインを撤去した分、隅で控えめにブランドを担保。
+  const wordmarkCorner = {
+    type: 'div',
+    props: {
+      style: {
+        position: 'absolute',
+        right: `${safeL}px`,
+        bottom: '52px',
+        display: 'flex',
+      },
+      children: [wordmark],
+    },
+  };
+
   // タイトルの縦フィット: pickFontSize は横幅のみ合わせるため、行数が多いと固定の
   // 縦スペースを溢れて行が重なっていた（2026-06-28 修正）。縦スペースに収まるよう font を
   // 縮小し、最小サイズでも収まらない病的な長文だけ行数をクランプして省略記号を付す。
   // 縮小は横幅制約を緩めない方向（小さくするだけ）なので pickFontSize の横フィットを壊さない。
   const TITLE_LINE_HEIGHT = 1.35;
   const FONT_FLOOR = 34; // table 最小(42)より下げ、7 行までの長見出しを切らずに縮小で吸収する
-  // contentHeight から topRow(≈33)+gap(28) と、chip 有無で chip(≈29)+gap(28) を差し引く
-  const usedAboveTitle = 33 + 28 + (cat ? 29 + 28 : 0);
+  // メタは資格名(≈52)＋種別バッジの 1 行のみ（+gap16）。ワードマークは右下絶対配置で flow 外。
+  // （2026-07-07 メタ1行統合＋装飾ライン撤去に合わせて更新）
+  const usedAboveTitle = (cat ? 52 : 42) + 16;
   const titleMaxHeight = contentHeight - usedAboveTitle;
   const fitsHeight = (size, n) => n * size * TITLE_LINE_HEIGHT <= titleMaxHeight;
   let fitFont = fontSize;
@@ -483,7 +485,7 @@ function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backg
     },
   };
 
-  const innerStack = [topRow, categoryChip, titleBlock].filter(Boolean);
+  const innerStack = [topRow, titleBlock].filter(Boolean);
 
   const children = [
     // AI 生成背景 + 可読性スクリム（backgroundImage 指定時のみ。最背面）
@@ -505,38 +507,8 @@ function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backg
         children: [],
       },
     },
-    // 左上シアンバー（装飾、安全領域外 OK）
-    {
-      type: 'div',
-      props: {
-        style: {
-          position: 'absolute',
-          top: '80px',
-          left: 0,
-          width: '80px',
-          height: '4px',
-          display: 'flex',
-          background: pal.barTL,
-        },
-        children: [],
-      },
-    },
-    // 右下紺バー
-    {
-      type: 'div',
-      props: {
-        style: {
-          position: 'absolute',
-          bottom: '80px',
-          right: 0,
-          width: '80px',
-          height: '4px',
-          display: 'flex',
-          background: pal.barBR,
-        },
-        children: [],
-      },
-    },
+    // ワードマーク（右下・従属表記。2026-07-07 装飾ライン撤去に伴い設置）
+    wordmarkCorner,
     // セーフティゾーン内主コンテンツ
     {
       type: 'div',
