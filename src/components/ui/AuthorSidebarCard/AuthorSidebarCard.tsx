@@ -12,7 +12,12 @@ import { AUTHOR } from "@/config/author";
  * 記事末尾の横型 AuthorCard（日付つき）とは別フォーマットで、カテゴリ hub と docs で共有する。
  * 意匠はカテゴリサイドバー（PopularRanking 等）と同じエディトリアル系トークンに合わせる。
  */
-export default function AuthorSidebarCard() {
+export default function AuthorSidebarCard({
+  showNoteCta = true,
+}: {
+  /** note CTA ボタンを出すか（既定 true）。トップの運営者枠は直下に note教材ヒーローがあるため false。 */
+  showNoteCta?: boolean;
+} = {}) {
   // tagline（"役割。姿勢。"）を最初の句点で 2 行に分割して表示する。
   const dot = AUTHOR.tagline.indexOf("。");
   const taglineRole = dot >= 0 ? AUTHOR.tagline.slice(0, dot + 1) : AUTHOR.tagline;
@@ -73,14 +78,16 @@ export default function AuthorSidebarCard() {
             ))}
           </ul>
         </div>
-        <a
-          href={AUTHOR.noteCta.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-4 flex items-center justify-center gap-2 rounded-full bg-[var(--accent)] px-3.5 py-2 text-[14px] font-bold text-[var(--paper)] hover:opacity-90 transition-opacity"
-        >
-          {AUTHOR.noteCta.label}
-        </a>
+        {showNoteCta && (
+          <a
+            href={AUTHOR.noteCta.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 flex items-center justify-center gap-2 rounded-full bg-[var(--accent)] px-3.5 py-2 text-[14px] font-bold text-[var(--paper)] hover:opacity-90 transition-opacity"
+          >
+            {AUTHOR.noteCta.label}
+          </a>
+        )}
         <div className="mt-2 flex items-center justify-center gap-4 text-[13px] text-[var(--ink-muted)]">
           <a
             href={AUTHOR.twitterUrl}
