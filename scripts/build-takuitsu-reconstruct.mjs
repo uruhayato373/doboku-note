@@ -102,6 +102,24 @@ function parseArgs(argv) {
 
 const YEAR_LABEL = (y) => (y.startsWith('h') ? `H${y.slice(1)}` : `R${y.slice(1)}`)
 
+// 元 JSON（サイト MDX 派生）に残る HTML 数値エンティティを実文字へ復号し、
+// 穴埋め空欄の記号（▆ / ｜　　｜）を ［　　］ に正規化する。
+// 例: &#x2460;→① / &#x2586;→▆→［　　］。放置すると Kindle で
+// 「&#x2586;」という生文字列が見えてしまう。
+const normalizeText = (s) =>
+  (s || '')
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCodePoint(parseInt(hex, 16)))
+    .replace(/&#(\d+);/g, (_, dec) => String.fromCodePoint(Number(dec)))
+    .replace(/▆+/g, '［　　］')
+    .replace(/｜　+｜/g, '［　　］')
+
+const normalizeQuestion = (q) => ({
+  ...q,
+  body: normalizeText(q.body),
+  options: (q.options || []).map((o) => ({ ...o, text: normalizeText(o.text) })),
+  optionExplanations: (q.optionExplanations || []).map((e) => ({ ...e, text: normalizeText(e.text) })),
+})
+
 // 設問の見出し文（主題文）。body の最初の行を指す。穴埋め・組合せ形式の
 // 設問は選択肢や空欄前後の説明文が body に直接埋め込まれるため、
 // include/exclude/subtopics の判定はすべてこの lead に対して行う
@@ -325,6 +343,10 @@ ol.opts li { margin-bottom: 0.3em; }
   padding-bottom: 0.3em; margin: 0 0 0.8em; }
 .turn { font-size: 0.85em; color: #7a3e0c; text-align: right; margin-top: 1.6em; }
 .ans { background: #f4f8f4; border-left: 3px solid #2f7a3e; padding: 0.4em 0.6em; }
+ul.expl { list-style: none; margin: 0.8em 0 1em; padding-left: 0; }
+ul.expl li { margin-bottom: 0.7em; padding-left: 1.6em; text-indent: -1.6em; }
+.ok { font-weight: bold; color: #2f7a3e; }
+.ng { font-weight: bold; color: #a33333; }
 .dup { font-size: 0.85em; color: #666; }
 .cover-title { text-align: center; margin-top: 25%; }
 .cover-title h1 { border: none; font-size: 1.9em; color: #7a3e0c; }
@@ -366,12 +388,25 @@ function questionXhtml(ch, item, idx) {
 }
 
 // 解答ページ（改ページはファイル境界で保証される）
+// 正答に加え、全選択肢の正誤理由（○=適当/×=誤り）を列挙する。
+// 解説が元データに無い選択肢はスキップ（創作しない）。
 function answerXhtml(ch, item, idx) {
   const { q, dupYears } = item
   const parts = [
     `<p class="chapnav">${ch.n}. ${xesc(ch.label)}　問 ${idx + 1}/${ch.items.length}　［${xesc(qTag(q))}］</p>`,
-    `<p class="ans"><strong>正答 ${q.correct}</strong> ― ${xinline(correctPoint(q))}</p>`,
+    `<p class="ans"><strong>正答 ${q.correct}</strong></p>`,
   ]
+  const expls = [...(q.optionExplanations || [])]
+    .filter((e) => e.text && e.text.trim())
+    .sort((a, b) => a.num - b.num)
+  if (expls.length) {
+    parts.push('<ul class="expl">')
+    for (const e of expls) {
+      const mark = e.correct ? '<span class="ok">○</span>' : '<span class="ng">×</span>'
+      parts.push(`<li>${mark} <strong>${e.num}.</strong> ${xinline(e.text)}</li>`)
+    }
+    parts.push('</ul>')
+  }
   if (dupYears.length) parts.push(`<p class="dup">同趣旨で再出題: ${xesc(dupYears.join(' / '))}</p>`)
   return xhtmlDoc(`正答 問 ${idx + 1}［${qTag(q)}］`, parts.join('\n'))
 }
@@ -394,6 +429,7 @@ function renderEpub(model, outDir) {
     `<div class="front"><h1>本書の使い方</h1>
 <p>本書は ${xesc(t.examLabel)}「${xesc(t.label)}」の択一過去問（H26〜R07）を、<strong>年度別ではなく論点別</strong>に解体・再構成した暗記特化教材です。</p>
 <p>同じ論点の問題を年度をまたいで連続演習することで「どこが繰り返し問われるか」が体で分かります。各論点の冒頭には、過去問の正答選択肢から抽出した<strong>「論点まとめ（覚える正しい知識）」</strong>を配置しました。生の年度別過去問では得られない、横断・体系化された一冊です。</p>
+<p>1問ごとに「問題 → ページをめくって正答・解説」の順に進みます。正答・解説ページでは、各選択肢の記述が適当なものを<strong>○</strong>、誤っているものを<strong>×</strong>で示しています。</p>
 <p>図版を要する設問は本書では割愛し、文章で完結する設問のみを収録しています。</p></div>`)
 
   // 1問=1ファイル + 解答=1ファイル。ファイル境界は Kindle が必ず改ページするので、
@@ -449,7 +485,7 @@ async function main() {
 
   const data = JSON.parse(readFileSync(resolve(REPO, theme.src), 'utf8'))
   const all = []
-  for (const y of data.years) for (const q of y.questions) all.push({ ...q, year: y.year })
+  for (const y of data.years) for (const q of y.questions) all.push(normalizeQuestion({ ...q, year: y.year }))
   const questions = all.filter((q) => {
     const head = lead(q.body)
     return theme.include.test(head) && !(theme.exclude && theme.exclude.test(head))
