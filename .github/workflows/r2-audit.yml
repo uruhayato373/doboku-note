@@ -46,6 +46,12 @@ jobs:
       - name: Check OGP coverage (published articles have ogp.png)
         run: node scripts/check-ogp-coverage.mjs
 
+      # 孤児 OGP の能動検知（coverage の逆方向）。記事 MDX を撤去（ステージング退避・非公開化）
+      # しても ogp.png/webp が git に取り残される死に資産を捕捉する（2026-07 reference-materials
+      # 5 記事の孤児 OGP 掃除の再発防止）。修正は `npm run check-orphan-ogp -- --fix`。
+      - name: Check orphan OGP (ogp.png/webp with no article MDX)
+        run: npm run check-orphan-ogp
+
       # note 導線（ファネル）ドリフトの能動検知（creds 不要のローカル検査）。
       # 公開記事の CTA 欠落・公開マガジンの L2 もくじ未収録・L2 の L1 未リンクを
       # 赤落ちで捕捉する。真実源: docs/reference/note-funnel-architecture.md
