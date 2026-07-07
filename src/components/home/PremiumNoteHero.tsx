@@ -12,7 +12,7 @@ const HALO = {
 
 export default function PremiumNoteHero() {
   return (
-    <section className="mx-auto max-w-[1280px] px-4 pt-10 sm:px-6 lg:px-10">
+    <section className="mx-auto max-w-[1280px] px-4 py-8 sm:px-6 sm:py-10 lg:px-10">
       <Link
         href="/links"
         data-cta="note"

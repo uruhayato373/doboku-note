@@ -5,7 +5,7 @@ import AuthorProfile from "@/components/ui/AuthorProfile/AuthorProfile";
 // 箇条書きは SSOT として docs サイドバー等と統一。note CTA は直下ヒーローと重複するため出さない。
 export default function AboutSection() {
   return (
-    <section className="mx-auto max-w-[1280px] border-t border-[var(--rule-soft)] px-4 py-10 sm:px-6 sm:py-14 lg:px-10">
+    <section className="mx-auto max-w-[1280px] px-4 py-8 sm:px-6 sm:py-10 lg:px-10">
       <AuthorProfile variant="wide" showNoteCta={false} />
     </section>
   );
