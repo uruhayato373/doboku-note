@@ -6,7 +6,7 @@ title: サブエージェント詳細レジストリ
 
 `.claude/agents/` に定義されたサブエージェント群の詳細。Generator/Evaluator 分離の原則に基づき設計。
 
-> **件数の SSOT**: エージェント数の真実源は `.claude/agents/*.md` の実数（`find .claude/agents -maxdepth 1 -name '*.md' | wc -l`＝現在 **61**）と下記「エージェント一覧」表。CLAUDE.md など他 doc は件数を重複記載せずここを指す。追加/削除は同一 commit でこの表を更新する。
+> **件数の SSOT**: エージェント数の真実源は `.claude/agents/*.md` の実数（`find .claude/agents -maxdepth 1 -name '*.md' | wc -l`＝現在 **63**）と下記「エージェント一覧」表。CLAUDE.md など他 doc は件数を重複記載せずここを指す。追加/削除は同一 commit でこの表を更新する。
 
 **いつ読むか**: サブエージェントを呼び出すときに担当範囲を確認するとき、連携設計時、新規エージェント追加時の命名・責務設計時。
 
@@ -36,6 +36,7 @@ title: サブエージェント詳細レジストリ
 | `/plan-weekly`                            | `todo-planner`                                                          | docs/todo/ 週次計画の軽量更新（Sonnet 1回） |
 | `/weekly-review`, `/weekly-plan`          | `strategy-advisor`（オーケストレータ）                                     | 戦略的な PDCA 統括       |
 | `/magazine-to-pdf`                        | `magazine-pdf-builder`                                           | 新規マガジンの PDF 抽出 spec 作成・変換実行 |
+| `/kindle-build`                           | `kindle-book-composer`, `kindle-book-qa`                         | Kindle 書籍の構成設計（A系 THEMES / D系 spec+書き下ろし前付け）→ 決定的ビルド → 5軸監査（原稿完全性/構成整合/EPUB技術/KDP規約適合/商品性） |
 | `/civil-keiken-magazine`                  | `civil-keiken-essay-writer`, `civil-keiken-essay-qa`            | 施工経験記述マガジン模範答案の生成 → 5軸採点ループ |
 | 技術士建設部門 模範解答生成（親が起動）           | `pe-secondary-exam-writer`, `pe-secondary-exam-qa`              | 二次模範解答 article.md の生成 → 6軸採点ループ（論述メソッドは `技術士論文の書き方` 由来） |
 | `/pe-secondary-yosou`（建設部門二次 予想バッチ）   | `pe-secondary-exam-writer`, `pe-secondary-exam-factcheck`, `pe-secondary-exam-qa` | 1科目分の R8予想（II-1/II-2/III）を 生成 → 外部事実照合 → 6軸採点 → 梱包 → SoT → commit。クラウド実行前提（factcheck は WebSearch 必須） |
@@ -113,6 +114,8 @@ title: サブエージェント詳細レジストリ
 | `ig-highlight-designer`        | Instagram ハイライト（`highlights/NN_*/slide-data.json`）の Stories 用構造化データを 1 ハイライトずつ執筆。モダンシック意匠 + データ駆動レイアウト | Generator    | sonnet  | `docs/reference/ig-highlight-design-policy.md` 参照（戦略 v7.1 で新設） | 🚧 Phase 1（2026-05-28 起動、戦略 v7.1）              |
 | `ig-highlight-qa`              | Instagram ハイライト の **4 軸**ルーブリック品質評価（サムネ識別性・リードコピー力・ジャンル一貫性・余白配分／セーフエリア）。IG UI セーフエリア侵入（overline が y<200）・本文の y>=1280 侵入・06_materials の note 有料直リンクを重大減点 | Evaluator    | sonnet  | `docs/reference/ig-highlight-design-policy.md` 参照（戦略 v7.1 で新設） | 🚧 Phase 1（2026-05-28 起動、戦略 v7.1）              |
 | `magazine-pdf-builder`         | note マガジンの article.md を「問題文＋解答」紙用 PDF に変換する spec(JSON) を作成し `scripts/magazine-to-pdf.mjs` を実行。新規/構造不明マガジンの include/exclude 設計が主戦場。複数解答（A/B案）両収録を社則化 | Generator    | sonnet  | `/magazine-to-pdf` 連携、`scripts/magazine-to-pdf.mjs` DSL 準拠 | ✅ 運用中（2026-05-29 起動） |
+| `kindle-book-composer`         | Kindle 書籍の**構成設計** Generator。A系（1級土木択一）＝`civil-1-exam-questions.json` から THEMES 論点分類（include regex＋subtopics）を設計し件数を 08_Kindle出版戦略 と突合。D系（技術士一次 合本）＝`kindle-specs/{id}.json` spec 作成＋書き下ろし前付け（はじめに/出題傾向分析/学習ガイド＝KDP 差別化の中核）を原稿 7 冊実読から執筆。ビルド実行・合否判定はしない | Generator    | sonnet  | `/kindle-build` 連携、`kindle-book-qa` と対 | ✅ 運用中（2026-07-08 起動） |
+| `kindle-book-qa`               | Kindle(KDP) 入稿用 EPUB＋原稿を出版直前品質で 5 軸監査（①原稿完全性〔収録数=08期待値・「…」省略解説〕②構成整合〔nav/spine・論点混入サンプリング〕③EPUB技術〔epubcheck・U+FFFD・MathML〕④KDP規約適合〔差別化度・出典/免責。外部規約は断定せず要確認 surface〕⑤商品性〔書誌メタ・価格ポリシー整合〕）。audit-only | Evaluator    | sonnet  | `/kindle-build` 連携、`kindle-book-composer` と対 | ✅ 運用中（2026-07-08 起動） |
 | `note-cover-writer`            | note 記事の G2 カバー frontmatter（`cover:` ブロック）を1記事ずつ執筆。タイトルを leadIn/hi/hiSuffix/banner/chips×3 に分解。色は書かず文字列のみ（試験色は dir から自動）。注入は `add-note-cover.mjs`（CRLF安全）、再生成は `generate-note-covers.mjs` | Generator    | sonnet  | `docs/design-system/note-cover.md` + `note-cover-tokens.json` 参照、`ogp-create` スキルと対 | ✅ 運用中（2026-05-29 起動） |
 | `x-post-writer`                | X(旧Twitter)投稿 `tweets.md` を多資格（総監/1級土木/2級土木）横断で執筆。過去問/キーワード/テーマからネタ生成（切り口分割 angle-slice・**`experience` 型新設**）、280 weighted 以下・試験別ベースタグ・サイト誘導を遵守。**near-duplicate テンプレ/同一 URL 反復を避ける凍結回避（policy §11）も自己点検**。`social-post`/`create-x-card`/`publish-x` と連携 | Generator    | sonnet  | `docs/reference/x-post-policy.md` §5.1/§11 + **`docs/reference/content-angle-policy.md`** 参照、`x-post-qa` と対 | ✅ 運用中（2026-06-12 更新） |
 | `x-post-qa`                    | X 投稿 `tweets.md` の **5 軸**ルーブリック品質評価（文字数 280 weighted・論点的確さ・タグ 1-3 個・導線/UTM・偽成功検証。angle-slice 型は体験軸の合格捏造・**軸2 で角度純度（主角度 1 つ・experience 断片）** もチェック）。**+ 凍結リスク（§11）を重大減点ゲート**（near-duplicate テンプレ/同一 URL 反復/機械的タグ固定）。`publish-x` の予約完了ログを信用せず予約キュー実査を採点 | Evaluator    | sonnet  | `docs/reference/x-post-policy.md` §11 + **`docs/reference/content-angle-policy.md`** 参照、`x-post-writer` と対 | ✅ 運用中（2026-06-12 更新） |
@@ -166,6 +169,7 @@ title: サブエージェント詳細レジストリ
 | **performance-auditor** | `.claude/state/metrics/psi/*.json` | しきい値違反＋回帰検出（LCP/CLS/INP/TBT/TTFB/Scores）＋既知パターンマッピング | `/psi-audit` 実行時 / 日次 workflow 後 |
 | **exam-keyword-mapping-auditor** | `.claude/state/exam-keyword-map.json` の anchor 1 件単位 | 紐づけ精度の 2 段階 semantic 評価（Stage 1=現紐づけのカバレッジ、Stage 2=候補発見）＋ 3 階層 confidence（auto_apply / needs_review / reject） | `/audit-exam-mapping audit-year` 実行時に各 anchor へ分配 |
 | **note-fact-checker（スコープ D）** | note 記事本文の白書由来 数値・固有名 + NotebookLM 白書ノートブック（`2bf7f0dd-3935-49be-8cef-2d428c59eaa9`・白書 PDF をソース登録済み） | NotebookLM 白書ノートブックへの問い合わせ照合（`notebooklm-cross-query.mjs`・引用を返せない数値を ⚠️要確認 で surface。認証切れ時は照合不能と明記）。**ローカル白書 PDF は 2026-06-17 削除＝offline grep 不可** | 白書連動 note 記事（クロストレードオフ・白書R7対応集・R8予想問題集・模範論文の白書事例）公開前 |
+| **kindle-book-qa** | Kindle 入稿用 `.epub` + 同梱原稿 `article.md`（`.tmp/` 出力） | 原稿完全性・構成整合・EPUB技術（epubcheck）・KDP規約適合・商品性（5軸、PASS/WARN/FAIL） | `/kindle-build` のビルド直後（KDP アップロード前ゲート） |
 | **ig-carousel-qa** | `slide-data.json`（v2）+ 過去問パックは `carousel/img/*.png` | スライド構成・文の完結性・図文整合・字数視認性・試験的正確性（5軸）+ デザイン統一性（過去問パック、tokens.json 照合） | IG カルーセル設定ファイル執筆後 / restyle 後 |
 | **ig-publish-auditor** | `verify-ig-status --json` の reconcile JSON ＋ 未公開パックの `caption.txt`・画像一覧・`status.json`（親が渡す） | 公開可否ゲート（caption 実在/品質・画像 2〜10 枚・draft 痕跡なし・テーマ整合）→ ready/blocked ＋ 重複投稿/疑わしいドリフトを flags で要人手判断。投稿・予約・SoT 編集はしない | `/ig-reconcile` の未公開予約ステップ（`verify-ig-status` でドリフト検出後） |
 | **civil-exam-figure-auditor** | `.local/r2/posts/civil-construction-1/primary-*/img/*.png` + 該当 MDX | クリップ純度・本文重複なし・alt 精度・MDX 結線（4軸、加重 ≥2.0 かつ全軸 ≥2 で合格） | `/civil-figure-rework` 実行時、Generator 直後 |

@@ -18,7 +18,7 @@ title: スキル ガバナンス記録
 ```
 .claude/skills/
 ├── authoring/       # 11 — 記事を作る
-├── conversion/      # 5 — 形式変換（MDX / OGP 画像 / 紙用 PDF）＋ OGP 意匠の素案試作
+├── conversion/      # 6 — 形式変換（MDX / OGP 画像 / 紙用 PDF / Kindle EPUB）＋ OGP 意匠の素案試作
 ├── quality/         # 14 — MDX・note 公開前品質検査
 ├── management/      # 14 — 計画・分析・戦略
 ├── dev/             # 13 — 開発・CI/CD
@@ -28,7 +28,9 @@ title: スキル ガバナンス記録
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **83 スキル**（9 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+合計 **84 スキル**（9 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+
+> 2026-07-08 新設（Kindle 出版パイプライン）: `conversion/kindle-build`（Kindle(KDP) 入稿用 EPUB を書籍IDから生成→epubcheck→5軸監査まで一気通貫のオーケストレータ・user-invocable）。あわせて**新エージェント 2 体**＝`kindle-book-composer`（Generator・sonnet。A系 THEMES 論点分類設計 / D系 spec + 書き下ろし前付け執筆）と `kindle-book-qa`（Evaluator・sonnet・audit-only。原稿完全性/構成整合/EPUB技術/KDP規約適合/商品性の5軸）。ビルドは決定的スクリプト（A系=`scripts/build-takuitsu-reconstruct.mjs`・D系=`scripts/build-pe1-kindle.mjs`+`scripts/kindle-specs/*.json`）で LLM 不使用（§5 準拠）。戦略・価格の真実源は `docs/project/01_戦略/08_Kindle出版戦略.md`。合計 `83→84`・conversion `5→6`、agents `+2`。
 
 > 2026-07-04 退役（棚卸し）: `authoring/exam-guide`（＋`authoring/templates/exam-guide/` 全5テンプレ＝`_schema.md`/`_new-exam-template.md`/`civil-construction-1.md`/`civil-construction-2.md`/`pe.md` と親 `templates/README.md`）を退役。合計 `84→83`・`authoring/ 12→11`。退役理由＝(1) テンプレが旧 Docusaurus アーキ（`:::note[]` admonition・`content/general/…` source_paths・`docs/exam/…` 旧 URL・`sidebar_slug`/`sidebar_label`）のまま死んでいた、(2) 実運用の新規ガイド生成は `group: guide` の品質サイクル（`guide-qa`／`guide-rewriter`／`guide-fact-checker`）主導のオリジナル散文フローに移行済み（2026-07-03 civil1 textbook→guide 13章展開は `/exam-guide` を経由していない＝commit `279760cb5` 等）。以後の新規ガイドは同サイクルへ一本化。退役の詳細行は「退役ログ」節も参照。
 
