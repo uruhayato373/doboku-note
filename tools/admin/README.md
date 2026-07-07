@@ -1,0 +1,60 @@
+# tools/admin — 運営管理画面（ローカル専用）
+
+SNS 投稿・記事画像・note カバーを目視確認し、投稿状態を一覧する**ローカル専用**ダッシュボード。
+デプロイしない（運用コスト 0 円）。データ SoT は git 作業ツリー内ファイルを直読。
+
+## 起動
+
+```bash
+npm run admin        # → http://127.0.0.1:3021
+```
+
+`127.0.0.1` バインドのみ（LAN 非公開）。依存追加ゼロ（node:http のみ）。
+
+## タブ（Phase 0〜5 実装済み）
+
+| タブ | 内容 | データソース |
+|---|---|---|
+| OGP | 全 ogp.png（資格×分類フィルタ） | `.local/r2/posts/**/ogp.png` |
+| 記事図版 | SVG / PNG・WebP クロップ（監査 severity バッジ） | `.local/r2/posts/**/img/*`、`.claude/state/svg-audit.json` |
+| note画像 | カバー / 図版（試験×種別フィルタ） | `docs/note/**/img/{cover*,figure-*}.png` |
+| SNSパック | IG パック・X ドラフトの画像目視 + posted バッジ | `docs/sns/instagram/**`、`docs/sns/x/draft/**` |
+| SNS状態板 | IG 進捗サマリ・X 予約状況・直近スケジュール（読み取り専用） | `docs/sns/schedule.json`、posted.json、x status.json |
+| 投稿/予約 | X 4ステップパイプライン・IG 予約投稿・note 公開（2段階UI + SSEログ） | 既存 CLI を child_process 実行（`lib/jobs.mjs`） |
+| 記事/note/マガジン | サイト記事 / note 原稿 / マガジンの一覧・公開状態（読み取り専用） | `doc-meta-index.json`、`docs/note/**/article*.md`、`note-magazines.ts`（`lib/content.mjs`） |
+| 売上 | 月次売上推移（インライン SVG 棒グラフ）+ 商品別内訳・¥15k マイルストーン | `.claude/state/sales/sales-log.json`（`lib/sales.mjs`） |
+
+件数は既存スクリプト（`ogp-gallery` / `note-cover-gallery` / `svg-gallery` / `sales-summary`）と一致する。
+
+## 投稿/予約タブ（Phase 3）の安全設計
+
+- **ホワイトリストのみ実行**（`lib/jobs.mjs` の `ACTIONS`）: `ig-mark` / `ig-unmark` / `x-guard` / `x-publish` / `x-sync` / `ig-publish` / `note-publish`。任意コマンドは走らない。
+- **引数は厳格検証 + shell なし**: pack/draft/date/format を正規表現で検証し、`spawn(shell:false)` の配列引数（シェル連結しない）。最終ガードで metachar/`..` を拒否。
+- **本番(commit)は明示フラグ必須**: `mode!=='commit'` の間は投稿系に `--dry-run` を強制付与。UI は dry-run/ガード成功まで本番ボタンを disabled にし、実行時は対象名タイプ確認。
+- **X は 4 ステップ固定**: `x-schedule-guard`（BLOCK 判定）→ dry-run → 本番 → `x-sync-status`（予約→posted 昇格の偽成功検証）。
+- **同時 1 ジョブ**（Playwright SingletonLock 対策）。ログは SSE ストリーム。
+- **CSRF ガード**: POST は `Origin=127.0.0.1` 検査 + `X-Admin: 1` ヘッダ必須（drive-by POST を遮断）。
+
+## 設計方針
+
+- **投稿系はローカル実行必須**: Playwright ログインプロファイル（`.local/playwright-*-profile`）がこの PC にあるため。クラウドにデプロイしても投稿・書き込み不可。
+- **書き込みは既存 CLI 経由に一本化**（Phase 3 以降）: `scripts/ig-status.mjs mark`、`note-publish.mjs`、publish-x 系を child_process 実行。ガード（`--commit` ゲート・dobokunote assert）を UI から迂回させない。直接 fs 書き込みはしない。
+- **走査ロジックは既存資産を再利用**: `ig-status.mjs` の export（`walkPacks`/`packInfo`/`normalizePosted`）を import、ギャラリー走査は既存 `.tmp` ギャラリーの移植。
+- `tools/` は eslint / tsc / knip / next build のどのスコープにも入らない（CI 影響ゼロ）。
+
+## 構成
+
+```
+tools/admin/
+  server.mjs         node:http ルーター（/ + /media/* + /api/* + POST /api/job/*）
+  lib/media.mjs      /media/* パスマッピング + traversal ガード + MIME allowlist
+  lib/scan.mjs       ギャラリー走査（ogp / figures / note / sns）
+  lib/sot.mjs        SNS 状態板の SoT 統合
+  lib/jobs.mjs       投稿アクションのホワイトリスト実行 + 引数検証 + SSE（P3）
+  lib/content.mjs    記事/note/マガジン一覧（P4）
+  lib/sales.mjs      売上集計（P5）
+  public/            Vanilla JS SPA（no-build）
+```
+
+Phase 0〜5 実装済み。追加候補: 計測ダッシュボード統合（GA4/GSC weekly-metrics）、
+IG ライブ照合（`verify-ig-status`）の UI 化、note ライブ照合（`verify-note-magazines`）ボタン。

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doboku-note 管理画面</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header>
+  <div class="brand">doboku-note <span>admin</span> <em>local only · 127.0.0.1</em></div>
+  <nav class="tabs" id="tabs">
+    <button class="tab active" data-tab="ogp">OGP</button>
+    <button class="tab" data-tab="figures">記事図版</button>
+    <button class="tab" data-tab="note">note画像</button>
+    <button class="tab" data-tab="sns">SNSパック</button>
+    <button class="tab" data-tab="board">SNS状態板</button>
+    <button class="tab" data-tab="publish">投稿/予約</button>
+    <button class="tab" data-tab="content">記事/note/マガジン</button>
+    <button class="tab" data-tab="sales">売上</button>
+  </nav>
+  <div class="filterbar" id="filterbar"></div>
+</header>
+<main id="main">
+  <div class="loading">読み込み中…</div>
+</main>
+<script src="/app.js"></script>
+<script src="/tabs/gallery.js"></script>
+<script src="/tabs/sns.js"></script>
+<script src="/tabs/publish.js"></script>
+<script src="/tabs/content.js"></script>
+<script src="/tabs/sales.js"></script>
+<script>App.init();</script>
+</body>
+</html>
