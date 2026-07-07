@@ -13,6 +13,7 @@ import PageShell from "@/components/layout/PageShell";
 import PageHeader from "@/components/layout/PageHeader";
 import SectionBlock from "@/components/layout/SectionBlock";
 import SectionCard from "@/components/ui/SectionCard/SectionCard";
+import AuthorProfile from "@/components/ui/AuthorProfile/AuthorProfile";
 
 export const metadata: Metadata = {
   // title template `%s | doboku-note` で自動付与されるため "doboku-note" を重ねない
@@ -62,44 +63,9 @@ export default function AboutPage() {
         <h2 className="font-serif text-2xl sm:text-3xl font-black text-[var(--ink)] mb-8">
           運営者プロフィール
         </h2>
-        <SectionCard as="div">
-          <div className="flex flex-col sm:flex-row gap-6 items-start">
-            <img
-              src={AUTHOR.imageUrl}
-              alt={`${AUTHOR.name}のプロフィール画像`}
-              width={120}
-              height={120}
-              className="w-28 h-28 rounded-full border-2 border-[var(--rule-soft)] mx-auto sm:mx-0"
-            />
-            <div className="flex-1 min-w-0">
-              <h3 className="text-xl font-bold text-[var(--ink)]">
-                {AUTHOR.name}
-              </h3>
-              <p className="text-sm text-[var(--accent)] mt-1">
-                {AUTHOR.jobTitle}
-              </p>
-              <p className="mt-4 text-[var(--ink-body)] leading-relaxed">
-                {AUTHOR.bio}
-              </p>
-              <div className="mt-4">
-                <h4 className="text-sm font-bold text-[var(--ink-body)] mb-2">
-                  保有資格
-                </h4>
-                <ul className="space-y-1">
-                  {AUTHOR.qualifications.map((q) => (
-                    <li
-                      key={q}
-                      className="text-sm text-[var(--ink-muted)] flex items-start gap-2"
-                    >
-                      <CheckCircle className="w-4 h-4 text-[var(--accent)] mt-0.5 shrink-0" />
-                      <span>{q}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div className="mt-6 pt-6 border-t border-[var(--rule-soft)]">
+        <AuthorProfile variant="wide" showNoteCta={false} />
+        <SectionCard as="div" className="mt-6">
+          <div>
             <h4 className="text-sm font-bold text-[var(--ink-body)] mb-2">
               編集方針
             </h4>
