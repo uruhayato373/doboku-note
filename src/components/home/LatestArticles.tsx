@@ -41,9 +41,9 @@ export default function LatestArticles({ articles }: LatestArticlesProps) {
               href={`/docs/${a.slug}`}
               className="group flex flex-col overflow-hidden bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-section hover:border-[var(--accent)] hover:shadow-soft transition-all"
             >
-              {/* サムネ（16:9・資格別プール写真。文字は焼き込まず下の HTML で見出しを出す＝A8/Yahoo 型）。
-                  プール原版が 16:9 なので object-cover でも被写体を切らない。 */}
-              <div className="relative aspect-[16/9] overflow-hidden bg-[var(--accent-fill)]">
+              {/* サムネ（記事別 OGP＝1200:630・資格別テーマ色＋タグ焼き込み。RelatedArticleCard と同系統）。
+                  資格別写真プール（guide-covers）は猫/場違い画像の混入により 2026-07-07 に廃止し OGP へ一本化。 */}
+              <div className="relative aspect-[1200/630] overflow-hidden bg-[var(--accent-fill)]">
                 {a.image && (
                   <img
                     src={a.image}
