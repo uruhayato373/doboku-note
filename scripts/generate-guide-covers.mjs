@@ -2,6 +2,12 @@
 /**
  * ガイドカバー写真ジェネレータ（資格ごとにプール・AI 生成）。
  *
+ * ⚠️ 2026-07-07 廃止（dormant）: 生成プール（public/images/guide-covers/**）は
+ *   AI 生成バッチに猫/場違い画像が混入したため一旦廃止し、記事カードのサムネは
+ *   記事別 OGP（getOgpImageUrl）へ一本化した（src/app/page.tsx / RelatedArticleCard 参照）。
+ *   本ジェネレータは復活用に温存。再開するなら: プロンプト厳格化で再生成 →
+ *   card-image.ts 相当のセレクタ + page.tsx の image 解決を戻す。
+ *
  * Gemini / Imagen API で「文字なしのプロフェッショナルな土木/建設シーン写真」を資格ごとに
  * 複数枚生成し、
  *   public/images/guide-covers/<category-slug>/<n>.webp （16:9・1024×576）

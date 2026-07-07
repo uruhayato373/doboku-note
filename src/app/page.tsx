@@ -3,7 +3,7 @@ import LinksHubTile from "@/components/ui/LinksHubTile";
 import { Hero, ExamCards, LatestArticles, AboutSection } from "@/components/home";
 import type { LatestArticle } from "@/components/home";
 import { getDocsMetaByCategory, getAllDocsMeta, type DocMeta } from "@/lib/docs";
-import { resolveCardImage } from "@/lib/card-image";
+import { getOgpImageUrl } from "@/lib/r2-image-loader";
 import categoriesData from "@/config/categories.json";
 import homeExamCardsData from "@/config/home-exam-cards.json";
 import { CategoryDef } from "@/lib/categories";
@@ -121,7 +121,7 @@ function pickRecent(allMeta: DocMeta[], n: number): LatestArticle[] {
       tags: (meta.tags || []).filter(
         (t) => !["primary", "secondary", "past-questions", "guide", "textbook", "keyword"].includes(t),
       ),
-      image: resolveCardImage(meta.category, meta.slug),
+      image: getOgpImageUrl(meta.slug),
     }));
 }
 
