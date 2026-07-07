@@ -72,24 +72,23 @@ function appendUtm(base: string, utmContent: string): string {
 }
 
 /**
- * カテゴリ hub / docs 記事の note CTA を解決する。
- * @param opts.utmSuffix 面識別子（"sb" 等）。trackLabel/utm_content 末尾に付与し GA4 で面分離する。
- * @param opts.forceMokuji 直前期でも商品へ振らず常にもくじへ集約する（docs 記事末尾/サイドバー用。
- *   本文カード側で個別商品を既に出しているため、もくじは回遊専用にする）。
+ * カテゴリ hub / docs 記事の note CTA を解決する。カテゴリページ・docs 記事末尾・docs サイドバーの
+ * 全 HUB 面で共通利用し、平時=L2 もくじ／直前期 6 週間=売れ筋商品直リンク（seasonal）を返す。
+ * @param opts.utmSuffix 面識別子（"sb" / "docs-sb" / "footer" 等）。trackLabel/utm_content 末尾に
+ *   付与し GA4 で面分離する。
  */
 export function resolveHubCta(
   category: string,
-  opts: { utmSuffix?: string; forceMokuji?: boolean } = {},
+  opts: { utmSuffix?: string } = {},
 ): ResolvedHubCta | null {
   const spec = HUB[category];
   if (!spec) return null;
   const suffix = opts.utmSuffix ? `-${opts.utmSuffix}` : '';
 
-  // 直前期（試験の 6 週間前〜試験日）だけ売れ筋の特定商品へ直リンク。それ以外／forceMokuji はもくじへ集約。
+  // 直前期（試験の 6 週間前〜試験日）だけ売れ筋の特定商品へ直リンク。それ以外はもくじへ集約。
   const PRE_EXAM_WINDOW_MS = 42 * 24 * 60 * 60 * 1000; // 6 週間
   const now = Date.now();
   if (
-    !opts.forceMokuji &&
     spec.seasonal &&
     now >= spec.seasonal.switchUtcMs - PRE_EXAM_WINDOW_MS &&
     now < spec.seasonal.switchUtcMs

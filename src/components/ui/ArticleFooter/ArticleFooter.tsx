@@ -1,7 +1,5 @@
 import { type DocMeta } from '@/lib/docs';
 import { type DocGroupKey } from '@/lib/doc-classifier';
-import { type NoteMagazine } from '@/lib/note-magazines';
-import { type PlacementSlot } from '@/lib/magazine-placement';
 import { type ReferenceItem } from '@/lib/extract-references';
 import {
   resolveCareerArticleEndCard,
@@ -12,10 +10,8 @@ import PastExamBacklinks from '@/components/ui/PastExamBacklinks/PastExamBacklin
 import SectionKeywords from '@/components/ui/SectionKeywords';
 import PillarNavCard from '@/components/ui/PillarNavCard';
 import RelatedTextbooks from '@/components/ui/RelatedTextbooks/RelatedTextbooks';
-import NoteMagazineTile from '@/components/ui/NoteMagazineTile';
 import HubCtaBanner from '@/components/ui/HubCtaBanner/HubCtaBanner';
 import { type ResolvedHubCta } from '@/lib/hub-cta';
-import LinksHubTile from '@/components/ui/LinksHubTile';
 import TextbookNav from '@/components/ui/TextbookNav/TextbookNav';
 import CategoryNavCard from '@/components/ui/CategoryNavCard/CategoryNavCard';
 import FAQCard from '@/components/ui/FAQCard/FAQCard';
@@ -32,8 +28,7 @@ interface ArticleFooterProps {
   readonly sectionStr: string | undefined;
   readonly meta: DocMeta;
   readonly categoryArticles: DocMeta[];
-  readonly footerMagazines: ReadonlyArray<{ slot: PlacementSlot; magazine: NoteMagazine }>;
-  /** もくじ（L2 索引）タイル。placement 非空 & HUB 資格のときのみ非 null（回遊専用・forceMokuji）。 */
+  /** もくじ（L2 索引）タイル。HUB 資格 & 非 career のとき非 null。全 HUB ページの記事末尾に統一表示。 */
   readonly footerMokuji: ResolvedHubCta | null;
   readonly faqs: { q: string; a: string }[];
   readonly hasCategoryNavCard: boolean;
@@ -57,18 +52,11 @@ export default function ArticleFooter({
   sectionStr,
   meta,
   categoryArticles,
-  footerMagazines,
   footerMokuji,
   faqs,
   hasCategoryNavCard,
   authorDates,
 }: ArticleFooterProps) {
-  // pe-comprehensive の keyword/guide/pastExam で個別マガジンが無いページは、
-  // note 有料教材まとめ /links への画像バナーをフォールバック表示する（旧サイドバー条件を踏襲）。
-  const showLinksHubFallback =
-    footerMagazines.length === 0 &&
-    category === 'pe-comprehensive-management' &&
-    (docGroup === 'keyword' || docGroup === 'guide' || docGroup === 'pastExam');
   return (
     <>
       {/* 参考資料カード（## 参考資料 セクションを抽出したもの。全カテゴリ共通） */}
@@ -105,26 +93,14 @@ export default function ArticleFooter({
           </div>
         )}
 
-      {/* note 有料マガジン CTA（記事末尾・資格別ブランドタイルに統一／2026-07）。
-          直リンク商品タイル（先頭 3 誌に cap 済み）＋ もくじ（L2 索引）タイルを 1 行に折り返し表示。
-          文言/価格は SoT から HTML 駆動（旧 300×250 焼き込みバナーを廃止）。 */}
-      {(footerMagazines.length > 0 || footerMokuji) && (
-        <div className="mt-8 flex flex-wrap justify-center gap-4">
-          {footerMagazines.map(({ slot, magazine }) => (
-            <div key={slot.magazineId} className="w-full max-w-[300px]">
-              <NoteMagazineTile magazine={magazine} utmContent={slot.utmContent} />
-            </div>
-          ))}
-          {footerMokuji && (
-            <div className="w-full max-w-[300px]">
-              <HubCtaBanner cta={footerMokuji} />
-            </div>
-          )}
-        </div>
-      )}
-      {showLinksHubFallback && (
-        <div className="mt-8 mx-auto max-w-sm">
-          <LinksHubTile trackLabel="links-hub" />
+      {/* note 有料マガジン CTA（記事末尾）。全 HUB 資格で「もくじ（L2 索引）」タイル 1 枚に統一（2026-07 統一）。
+          個別マガジンタイル（旧・最大 3 誌）は廃止し、個別導線は冒頭/中間 CTA・MDX 内 MagazineCard に一本化。
+          文言/価格/リンク先は resolveHubCta が SoT から HTML 駆動（平時=もくじ／直前期=売れ筋商品）。 */}
+      {footerMokuji && (
+        <div className="mt-8 flex justify-center">
+          <div className="w-full max-w-[300px]">
+            <HubCtaBanner cta={footerMokuji} />
+          </div>
         </div>
       )}
 

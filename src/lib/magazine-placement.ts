@@ -472,8 +472,10 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   }
 
   // 10/11. 1級・2級土木 guide（検索着地）→ journey stage で出し分け（2026-07-01 再設計）。
-  //   note CTA は inline+sidebar を統合し記事末尾に画像カードで一括描画される（page.tsx footerMagazines）。
-  //   ここでは「どの商品を・どの順で」出すかを journey stage で決める（sidebar 別出しはしない）。
+  //   注（2026-07 統一）: 記事末尾の個別マガジンタイルは廃止し、末尾＋サイドバーは資格別「もくじタイル」
+  //   （resolveHubCta）に一本化した。placement.inline は記事内 中間 CTA（MidCta）の note 供給源＝
+  //   先頭 1 誌としてのみ生きる。top（二次系の冒頭 CTA）はそのまま。ここでは「どの商品を・どの順で」
+  //   中間 CTA に出すかを journey stage で決める（sidebar 別出しはしない）。
   //   - 一次/学習系（EXAM_PREP）: 早期読者。低コミットの会員「土木セコカン合格ラボ」（伴走・月¥1,480〜）を
   //     lead に据え、¥9,800 完全攻略パック等のハード二次商品は demote。会員は published:false の間
   //     getMagazine が null → 防御スキップし launch で自動発火（wire-ahead）。launch 前の live は

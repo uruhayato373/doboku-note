@@ -136,10 +136,9 @@
 | `ArticleHeader`（`ui/ArticleHeader/`） | docs 記事冒頭（breadcrumb + h1 + description リード + byline/meta） | — |
 | `CurriculumSections`（`category/CurriculumSections.tsx`） | カテゴリページの体系表示。試験ガイド・テキストを**カードでなく目次調リスト**で見せ、章立て・出題分野の体系を一目で伝える（`CurriculumSection` 枠 / `CurriculumList` 目次リスト / `CareerSection` 注目カード＋リスト）。編成は `src/config/category-curriculum.json`（SSOT）、解決は `src/lib/category-curriculum.ts`（resolver・silent drop 防止の `unassigned` 付き）、健全性は `check-category-curriculum`（pre-commit）。過去問テーブル群（`CategorySections.tsx`）とは併存。テキスト章がある分野の**要点 guide は各章の入口**（config `textbookChapters[].introGuides`）に「要点」マーカーで内包し、分野別対策との重複を回避 | `CurriculumList`: `blocks`/`numbered`/`collapsible`（テキストは章を `<details>` アコーディオン＝畳めば体系一目・開いてドリルダウン。`block.intro` で章頭の要点）。`CareerSection`: `featured`/`rest` |
 | `NextStepNav`（`ui/NextStepNav/NextStepNav.tsx`） | guide（要点）記事末の「次のステップ」導線。読者を演習（過去問）・テキスト・分野へ送り行き止まりを解消（リンク先はカテゴリ hub の `sec-*` アンカー＝季節 note CTA と同居）。解決は `src/lib/next-step.ts`（カテゴリ別・純関数）。`MetaCard` の `trackNav` で回遊クリックが `internal_nav_click` 計測に乗る。キャリア記事では非描画（転職導線と非競合）。回遊ナビの GA4 計測は `data-cta="nav"`＋`MetaCard trackNav`／`AnalyticsProvider` の `nav` 種別 | `category` |
-| `HubCtaBanner`（`ui/HubCtaBanner/HubCtaBanner.tsx`） | **資格別リッチ背景 note CTA / もくじタイル**。カテゴリ hub の本文＋PC サイドバー＋モバイル、および docs 記事の末尾＋サイドバーの**もくじタイル**に共用（NextStepNav が指す「季節 note CTA」の実体）。背景は資格ごと 1 枚 `public/images/cta-bg/*.webp` を使い回し、文言・価格は**画像に焼かず HTML 文字を左に重ねる**（文字色は `--on-image-*` の固定濃色＝背景イラストが常に明色のため dark でも可読）。**季節モード**: 直前期（試験日の 6 週間前〜試験日）は売れ筋の特定商品へ直リンク（`mode=product`・価格ピル）、それ以外は資格別 **L2「もくじ」へ集約**（`mode=mokuji`・マガジンが増えても config 追加不要でスケール）。解決は `src/lib/hub-cta.ts`（`resolveHubCta(category, {utmSuffix?, forceMokuji?})`・ビルド時 `Date.now()` で switch。docs 側は `forceMokuji` で常にもくじ・`utmSuffix` で面分離）。もくじ URL は **`.claude/config/note-funnel.json` の L2 レジストリと同一 note 永続 ID**（変更時は両方更新）。GA4 は `data-cta="note"`＋`data-cta-label`、色は `--exam-*` トークン | `cta`（`ResolvedHubCta`） |
-| `NoteMagazineTile`（`ui/NoteMagazineTile/`） | docs 記事末尾に置く**1 マガジンのブランドタイル**（300×250 相当）。資格別背景イラスト（`exam-brand.ts` の `brandOf().ctaBg`）＋左白スクリム＋ HTML 文字（バッジ／資格ラベル／短縮タイトル／先頭金額ピル）で、旧 300×250 焼き込みバナー（`sidebarImageUrl`）を置換。文言は SoT（`note-magazines.ts`）から描画し**画像生成不要**。文字色は `--on-image-*` 固定濃色。記事末尾は商品タイル最大 3 枚＋もくじ（`HubCtaBanner`）1 枚を折り返し表示（`magazine`/`utmContent`） | `magazine`/`utmContent` |
-| `MagazineTopBanner`（`ui/MagazineTopBanner/`） | docs 記事**冒頭**（ArticleHeader と本文 prose の間）に置く 1 行テキスト note CTA（バッジ＋短縮タイトル＋価格＋矢印）。二次系の高 intent ページのみ `resolvePlacement().top`（`src/lib/magazine-placement.ts`）で設定され、記事が長いため冒頭にも到達導線を 1 本置く。**末尾のブランドタイル（`NoteMagazineTile`＝`footerMagazines`）と別物・重複可**（冒頭=テキスト／末尾=タイルで形が違う）。表示可否は `getMagazine()`（published＋noteUrl）ゲート通過で決まり未公開は自動非表示。GA4 は `data-cta="note"`＋`data-cta-label`（utm_content） | `url`/`title`/`price?`/`badge`/`trackLabel` |
-| `LinksHubTile`（`ui/LinksHubTile/`） | 「note 有料教材まとめ（`/links`）」への**内部リンクタイル**（画像レス・accent テキスト）。ホームの note 教材セクションと、pe-comprehensive keyword/guide/pastExam で個別マガジンが無いページの ArticleFooter フォールバックに使う。全資格横断ハブのため単一資格イラストは使わない。`data-cta="note"` で計測（内部遷移・同タブ） | `trackLabel` |
+| `HubCtaBanner`（`ui/HubCtaBanner/HubCtaBanner.tsx`） | **資格別リッチ背景 note CTA / もくじタイル**。カテゴリ hub の本文＋PC サイドバー＋モバイル、および docs 記事の末尾＋サイドバーの**もくじタイル**に共用（NextStepNav が指す「季節 note CTA」の実体）。背景は資格ごと 1 枚 `public/images/cta-bg/*.webp` を使い回し、文言・価格は**画像に焼かず HTML 文字を左に重ねる**（文字色は `--on-image-*` の固定濃色＝背景イラストが常に明色のため dark でも可読）。**季節モード**: 直前期（試験日の 6 週間前〜試験日）は売れ筋の特定商品へ直リンク（`mode=product`・価格ピル）、それ以外は資格別 **L2「もくじ」へ集約**（`mode=mokuji`・マガジンが増えても config 追加不要でスケール）。解決は `src/lib/hub-cta.ts`（`resolveHubCta(category, {utmSuffix?})`・ビルド時 `Date.now()` で switch。カテゴリ hub・docs 記事末尾・docs サイドバーで共用し `utmSuffix`（`-sb`/`-mob`/`-docs-sb`/`-footer`）で面分離）。もくじ URL は **`.claude/config/note-funnel.json` の L2 レジストリと同一 note 永続 ID**（変更時は両方更新）。GA4 は `data-cta="note"`＋`data-cta-label`、色は `--exam-*` トークン | `cta`（`ResolvedHubCta`） |
+| `MagazineTopBanner`（`ui/MagazineTopBanner/`） | docs 記事**冒頭**（ArticleHeader と本文 prose の間）に置く 1 行テキスト note CTA（バッジ＋短縮タイトル＋価格＋矢印）。二次系の高 intent ページのみ `resolvePlacement().top`（`src/lib/magazine-placement.ts`）で設定され、記事が長いため冒頭にも到達導線を 1 本置く。**末尾のもくじタイル（`HubCtaBanner`）と別物・重複可**（冒頭=個別商品テキスト／末尾=もくじタイルで役割が違う）。表示可否は `getMagazine()`（published＋noteUrl）ゲート通過で決まり未公開は自動非表示。GA4 は `data-cta="note"`＋`data-cta-label`（utm_content） | `url`/`title`/`price?`/`badge`/`trackLabel` |
+| `LinksHubTile`（`ui/LinksHubTile/`） | 「note 有料教材まとめ（`/links`）」への**内部リンクタイル**（画像レス・accent テキスト）。ホームの note 教材セクションで使う（記事側の note CTA は 2026-07 に `HubCtaBanner` もくじタイルへ統一し ArticleFooter フォールバックは廃止）。全資格横断ハブのため単一資格イラストは使わない。`data-cta="note"` で計測（内部遷移・同タブ） | `trackLabel` |
 
 `not-found` は Header/Footer を持たない設計のため PageShell を使わない（意図的な例外）。
 
@@ -171,10 +170,10 @@
 理由 — 検索=入力と結果比較に集中 / links=試験カードを全幅で大きく / about=本文そのもので右に逃さない。
 
 **PC 右サイドバー（`/docs`）は 2 ブロック構成**（2026-07 改訂）:
-1. **通常フロー（追従させない）**: 転職アフィリ枠（最上部・唯一のピクセル源）→ note もくじタイル（`HubCtaBanner`・`forceMokuji`・転職枠直下に 1 枚。HUB 対応資格 & placement 非空のときのみ）→ 運営者プロフィール。広告・著者は追従させない（「広告が追いかけてくる」体験を避ける）。
+1. **通常フロー（追従させない）**: 転職アフィリ枠（最上部・唯一のピクセル源）→ note もくじタイル（`HubCtaBanner`・転職枠直下に 1 枚・utm `-docs-sb`。HUB 対応資格 & 非 career 記事のときのみ＝`resolveHubCta` が null で自動非表示）→ 運営者プロフィール。広告・著者は追従させない（「広告が追いかけてくる」体験を避ける）。
 2. **sticky クラスタ（列の最終要素・読中に追従）**: TOC / 設問ナビ → カテゴリナビ → ピラーナビ。`sticky top-6 max-h-[calc(100vh-3rem)] overflow-y-auto`。ナビゲーションだけ追従させ長記事でも導線を視界に残す。
 
-> sticky クラスタの**下に非 sticky 要素を置かない**（下スクロールで届かなくなる過去事故）。だからクラスタは列の末尾に置く。TOC 自身の `max-h` は撤去し高さ制御を sticky コンテナへ一元化。note CTA の記事末尾集約（`ArticleFooter`）は維持し、サイドバーは併掲（utm `-sb` で分離計測）。
+> sticky クラスタの**下に非 sticky 要素を置かない**（下スクロールで届かなくなる過去事故）。だからクラスタは列の末尾に置く。TOC 自身の `max-h` は撤去し高さ制御を sticky コンテナへ一元化。note もくじタイルは記事末尾（`ArticleFooter`・utm `-footer`）と PC サイドバー（utm `-docs-sb`）に各 1 枚を併掲し全 HUB ページで統一（2026-07・個別マガジンタイルは廃止）。
 
 ---
 
@@ -269,10 +268,10 @@ CLAUDE.md §7 と一致:
 
 | ルール | 値 | 担保 |
 |---|---|---|
-| footer を除く note スロット（top + sidebar `-sb` + 中間 `-mid`） | ≤ 3 | **機械**（check-cta-density） |
+| footer を除く note スロット（top + sidebar `-sb`/`-docs-sb` + 中間 `-mid`） | ≤ 3 | **機械**（check-cta-density） |
 | note 要素の総数（footer 含む・暴走検知の緩い上限） | ≤ 30 | **機械**（旗艦ハブは意図的に多数収録＝22 程度まで） |
 | 同一 a8mat のインプレッションピクセル（`<img …0.gif?a8mat=MAT>`） | ≤ 1 /ページ | **機械**（同一 MAT 二重発火を検知。別 MAT の併置＝カテゴリ hub の補完 2 案件 は正当で許可） |
-| サイドバー note カード | 既定 1 枚（TOC 非表示 docGroup のみ 2 枚） | コード（page.tsx 導出） |
+| note もくじタイル（`HubCtaBanner`／L2 索引） | 全 HUB 資格（civil-1/2・総監・建設）の docs 記事末尾＋サイドバーに各 1 枚（`-docs-sb`／`-footer`）＋カテゴリ hub に sidebar/mobile 各 1 枚。個別マガジンタイル（旧・最大 3 誌）は 2026-07 廃止し個別導線は冒頭/中間 CTA・MDX 内 MagazineCard に一本化。非 HUB 資格・career タグ記事は非表示 | コード（page.tsx 導出・`resolveHubCta`） |
 | 本文中間 CTA（`MidArticleCta`） | 1 記事 1 個。**note/related モード**=guide/pillar/textbook・h2≥5・8,000字以上。**career モード**（転職テキスト・affiliate）=career タグ・h2≥4・2,500字以上（career 記事は 3〜4k 字で 8,000字に届かないため専用ゲート）＋ `resolveCareerTextLink` 非 null（arm A・campaign 中のみ＝arm B/9月以降は非表示） | コード（挿入条件） |
 | 記事末尾 footer カード | ≤ 7 目安（旗艦セールスハブは例外的に超過可） | 手動 |
 | AdSense 自動広告 | コードで除外指定不可 → 管理画面「広告掲載率」＋`google-auto-placed` 出現数を週次監査 | 手動 |

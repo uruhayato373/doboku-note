@@ -50,7 +50,7 @@ MDX 内で使える主要コンポーネント（`src/lib/component-loader/index
 |---|---|---|
 | 内部 doboku-note ページ | `<SeeAlso>`（ブロック）/ markdown リンク（インライン） | ページ間ナビ |
 | **note 記事** | **`<NoteLink>`** | note.com 記事は必ずこれ。生 markdown・`<Callout type="reference">` で note リンクを書かない |
-| note magazine（有料）販売ページ | `<MagazineCard>`（本文中）／placement 経由の末尾タイル `NoteMagazineTile` | 商品導線 |
+| note magazine（有料）販売ページ | `<MagazineCard>`（本文中）／記事末尾・サイドバーの もくじタイル `HubCtaBanner`（全 HUB 資格で自動） | 商品導線 |
 | 書籍・論文 | `<Callout type="reference">` | 参考文献。外部 URL 一般には使わない |
 | 一般外部 URL（公的機関・規格等） | `<LinkCard>` または markdown リンク | note 以外の外部サイト |
 
