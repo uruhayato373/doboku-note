@@ -98,7 +98,9 @@ Kindle 出版戦略（[08_Kindle出版戦略.md](../../../../docs/project/01_戦
 - 著者: **doboku-note**（ブランド統一・表紙署名/EPUB dc:creator も同じ）。フリガナ=ドボクノート
 - 価格: 08 の価格ポリシー（150問↑¥490 / 80-150¥390 / 80未満¥350）。ロイヤリティ **70%**（¥250-1,250 帯）
 
-**ユーザー本人しかできない工程（自動化・代行不可）**: KDP アカウント登録、**税務情報（マイナンバー＝米国以外の TIN・住所は英語ローマ字入力）・W-8BEN**、銀行口座、最終「出版」クリック。表紙 JPEG 1600×2560 の生成は satori 合成スクリプト（`.tmp/compose-cover.mjs` を書籍別に複製）で作れる。
+**ユーザー本人しかできない工程（自動化・代行不可）**: KDP アカウント登録、**税務情報（マイナンバー＝米国以外の TIN・住所は英語ローマ字入力）・W-8BEN**、銀行口座、最終「出版」クリック。
+
+**表紙（git 管理下・spec 駆動で再生成可能）**: `scripts/kindle-covers/build-kindle-cover.mjs --spec scripts/kindle-covers/specs/<id>.json`。背景（Codex 生成・文字なし・上部余白ゾーン）は `scripts/kindle-covers/backgrounds/<id>.png`、文言は spec に。日本語タイトルは satori + NotoSansJP-Bold で後合成（画像モデルは日本語を崩すため文字は必ずコードで乗せる）。詳細 → `scripts/kindle-covers/README.md`
 
 ## 参照
 
