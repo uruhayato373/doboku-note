@@ -144,6 +144,10 @@ main { padding: 16px; }
 /* 図の画質（ボケ=紫 / やや不鮮明=くすみ青。写り込みと直交する軸） */
 .badge.iq-blurry { background: #8a3fb5; }
 .badge.iq-soft { background: #6a7f9a; }
+/* provenance の推奨アクション（次にすべきこと） */
+.badge.nd-urgent { background: #c0392b; }
+.badge.nd-recrop { background: #cf7a1e; }
+.badge.nd-rescan { background: #7d5ba6; }
 
 /* 記事図版カードのメタ行（掲載/孤児・公開状態・記事/ローカル/MDX リンク） */
 .card figcaption .figname { word-break: break-all; }

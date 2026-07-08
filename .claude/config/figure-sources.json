@@ -1,0 +1,71 @@
+{
+  "_comment": "図ソース台帳（SSOT）。資格(category slug)ごとに、記事図クロップの元素材の所在・種別・品質・再スキャン要否を1度記録する。build-figure-provenance.mjs が図の provenance を組むときに参照。図の実ソースを毎回手で辿らないための恒久記録。更新: docs/textbook 実体 + 図品質監査(sharpness) を根拠に随時。",
+  "_updated": "2026-07-08",
+  "_fields": {
+    "source_dir": "元素材のディレクトリ（docs/textbook 配下）",
+    "source_kind": "pdf-vector(図がPDFにベクター/画像で入る) | pdf-textonly(問題PDFは図なしテキスト版) | scan-image(書籍スキャンpngのみ・PDF無し) | mixed",
+    "figure_origin": "記事図クロップの実際の出所（question-pdf / answer-booklet / textbook-scan / unknown）",
+    "quality": "print-clean(印刷/デジタル・鮮明) | scan-low(書籍スキャン・低品質) | mixed",
+    "rescannable": "true=元書籍/資料を高解像度再スキャンで品質改善可 / needs-source=元資料の入手が要 / na",
+    "note": "運用メモ"
+  },
+  "categories": {
+    "civil-construction-1": {
+      "source_dir": "docs/textbook/１級土木施工管理技士",
+      "source_kind": "mixed",
+      "figure_origin": "answer-booklet",
+      "quality": "print-clean",
+      "rescannable": "needs-source",
+      "note": "過去問1次の図は問題PDF(過去問/{年}/問題A・B)に無い(図なしテキスト版=DHP-A.smd)。図は別の解答・解説資料由来で未特定・リポ未収録。textbook(土木一般編/施工管理編)章PDFには図あり。過半は写り込み(recrop)で対応可＝画質は概ね鮮明。"
+    },
+    "civil-construction-2": {
+      "source_dir": "docs/textbook/２級土木施工管理技士",
+      "source_kind": "pdf-vector",
+      "figure_origin": "question-pdf",
+      "quality": "print-clean",
+      "rescannable": "na",
+      "note": "過去問PDF(R03〜R07)。図は鮮明(sharpness 800-2130)。品質問題は基本なし。"
+    },
+    "concrete-chief-engineer": {
+      "source_dir": "docs/textbook/コンクリート主任技師2024",
+      "source_kind": "scan-image",
+      "figure_origin": "textbook-scan",
+      "quality": "scan-low",
+      "rescannable": "true",
+      "note": "PDF無し・書籍を撮影/スキャンした page*.png のみ(低品質・見切れ・ページ端影)。記事図はwebpのみで高解像度再クロップ元なし。データグラフはSVG不可(誤答リスク)→物理再スキャン必須。模式図は本文確定できればSVG可。コンクリート主任技師2022 は過去問。"
+    },
+    "concrete-diagnostician": {
+      "source_dir": "docs/textbook/コンクリート診断士",
+      "source_kind": "pdf-vector",
+      "figure_origin": "textbook-scan",
+      "quality": "mixed",
+      "rescannable": "true",
+      "note": "PDF10本あり。全記事 published:false 下書き(JCI権利確認待ち)。図は撮影由来で指写り込み等あり。公開前に要整備。"
+    },
+    "concrete-diagnostician-jci": { "_alias": "concrete-diagnostician" },
+    "pe-comprehensive-management": {
+      "source_dir": "docs/textbook/技術士（総監）",
+      "source_kind": "pdf-vector",
+      "figure_origin": "unknown",
+      "quality": "print-clean",
+      "rescannable": "na",
+      "note": "総監はキーワード/記述中心で図クロップは少数。standard-text由来のSVG図(textbook-svg-dual-use)が主。"
+    },
+    "pe-construction": {
+      "source_dir": "docs/textbook/技術士（建設部門）",
+      "source_kind": "mixed",
+      "figure_origin": "unknown",
+      "quality": "print-clean",
+      "rescannable": "needs-source",
+      "note": "PDF93+抽出png31。二次論述中心。"
+    },
+    "pe-first-stage": {
+      "source_dir": "docs/textbook/技術士第一次試験",
+      "source_kind": "pdf-vector",
+      "figure_origin": "question-pdf",
+      "quality": "print-clean",
+      "rescannable": "na",
+      "note": "一次試験PDF28本。過去問図。"
+    }
+  }
+}

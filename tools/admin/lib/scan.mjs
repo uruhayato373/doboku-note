@@ -81,9 +81,14 @@ const EXAM_DIR_RE = /\/(h\d+-primary|primary-h\d+[^/]*)\//;
 export function scanFigures() {
   // 図テキスト品質監査（答え漏らし/写り込み・npm run audit-figure-text 生成）。無ければ未監査。
   const textAudit = readJson(join(ROOT, ".claude", "state", "figure-text-audit.json"));
+  const provenance = readJson(join(ROOT, ".claude", "state", "figure-provenance.json"));
   const figAudit = (rel) => {
     const baseRel = rel.replace(/\.(png|webp|jpg|jpeg)$/i, "");
     return textAudit?.figures?.[baseRel] || null;
+  };
+  const figProv = (rel) => {
+    const baseRel = rel.replace(/\.(png|webp|jpg|jpeg)$/i, "");
+    return provenance?.figures?.[baseRel] || null;
   };
   const audit = readJson(AUDIT_STATE);
   const fileSeverity = {};
@@ -150,6 +155,7 @@ export function scanFigures() {
         ? new RegExp(escRe(base) + "\\.(webp|png|svg|jpg|jpeg)", "i").test(art.content)
         : false;
       const fa = figAudit(rel);
+      const fp = kind === "raster" ? figProv(rel) : null;
       const urlSlug = slug.replace(/\//g, "-");
       return {
         rel,
@@ -162,6 +168,10 @@ export function scanFigures() {
         textStatus: kind === "raster" ? (fa?.status || "unaudited") : null,
         imgQuality: kind === "raster" ? (fa?.quality || "unknown") : null,
         sharpness: kind === "raster" ? (fa?.sharpness ?? null) : null,
+        // provenance: needs=次アクション / sourceDir=再スキャン/再クロップ元 / rescannable
+        needs: fp?.needs || null,
+        sourceDir: fp?.source_dir || null,
+        rescannable: fp?.rescannable || null,
         url: `/media/posts/${rel}`,
         referenced,
         articleFound: art.found,
