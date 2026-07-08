@@ -5,7 +5,7 @@
  * 今セッションで確立したノウハウ（答え漏らし/写り込みを既存画像から除く再クロップ）のうち、
  * 視覚判断（どこで切るか）以外の反復部分を 1 コマンドに束ねる:
  *   ① png を crop（-trim +repage -border で外周整形） → ② webp 再生成
- *   → ③ MDX の <img> width/height を新寸法へ更新 → ④ OCR で残存テキストを報告
+ *   → ③ MDX の <img>/<ArticleImage> width/height を新寸法へ更新 → ④ OCR で残存テキストを報告
  *
  * 切り位置（人/エージェントが図を見て決める）は下記いずれかで渡す:
  *   --top F        上から F(0-1) を除去（上帯＝答え/問題文を落とす）
@@ -91,7 +91,7 @@ if (dryRun) {
 execSync(`magick "${pngPath}" -quality 82 "${webpPath}"`, { stdio: "pipe" });
 if (tmpSrc) fs.rmSync(tmpSrc, { force: true });
 
-// MDX の <img> width/height を更新（{N} と "N" 両形式・writeMdxFile で CRLF 保持）
+// MDX の <img>/<ArticleImage> width/height を更新（{N} と "N" 両形式・webp/png 参照両対応・既存 EOL 保持）
 let mdxUpdated = false;
 if (!noMdx) {
   const parts = path.relative(path.join(ROOT, ".local/r2/posts"), dir).split(path.sep); // [cat, localSlug, img]
@@ -107,7 +107,9 @@ if (!noMdx) {
     const eol = src.includes("\r\n") ? "\r\n" : "\n";
     const lines = src.split(/\r?\n/);
     for (let i = 0; i < lines.length; i++) {
-      if (lines[i].includes(`${baseName}.webp`) && lines[i].includes("<img")) {
+      const refsFile = lines[i].includes(`${baseName}.webp`) || lines[i].includes(`${baseName}.png`);
+      const isImgTag = lines[i].includes("<img") || lines[i].includes("<ArticleImage");
+      if (refsFile && isImgTag) {
         lines[i] = lines[i]
           .replace(/(width=[{"])\d+([}"])/, `$1${nW}$2`)
           .replace(/(height=[{"])\d+([}"])/, `$1${nH}$2`);

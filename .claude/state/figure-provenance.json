@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-07-08T21:13:33.382Z",
+  "generated_at": "2026-07-08T21:53:23.000Z",
   "note": "図provenance。needs=次アクション。真実源: figure-sources.json(台帳)+figure-text-audit.json(品質)。再生成可。",
   "figure_count": 591,
   "summary": {
     "recrop-urgent": 4,
-    "ok": 322,
+    "ok": 331,
     "recrop-review": 190,
-    "recrop": 37,
+    "recrop": 28,
     "rescan-need-source": 5,
     "rescan": 33
   },
@@ -6776,7 +6776,8 @@
       "source_dir": "docs/textbook/技術士（総監）",
       "figure_origin": "unknown",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "ok",
+      "manualReason": "writein誤検出をok上書き。（1）（2）は差異分析の下位図キャプションで設問/選択肢の写り込みではない（目視＋OCRで設問語ゼロ確認）。writein検出器のoptSentence正規表現が全角丸数字＋短ラベルに誤反応。"
     },
     "pe-comprehensive-management/r03-primary/img/i-1-28-org-chart": {
       "category": "pe-comprehensive-management",
@@ -7499,12 +7500,13 @@
       "published": true,
       "referenced": true,
       "quality": "sharp",
-      "sharpness": 2047.13,
-      "textStatus": "writein",
+      "sharpness": 1229.19,
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "ok",
+      "manualReason": "再クロップ済(問題文除去)。残periodsは図要素(45°記号/地面ハッチ)のOCR誤読で写り込みではない（目視でばね質点系A/B/C図のみ確認）。"
     },
     "pe-first-stage/r02-basic/img/q36-fig": {
       "category": "pe-first-stage",
@@ -7527,12 +7529,13 @@
       "published": true,
       "referenced": true,
       "quality": "sharp",
-      "sharpness": 1447.57,
-      "textStatus": "writein",
+      "sharpness": 1401.19,
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "ok",
+      "manualReason": "再クロップ済(問題文＋選択肢①-⑤除去)。残periodsは化学構造式(ベンゼン環/CH3)のOCRドットノイズで写り込みではない（目視で反応a-dのみ確認）。"
     },
     "pe-first-stage/r02-construction/img/q17-fig": {
       "category": "pe-first-stage",
@@ -7555,12 +7558,12 @@
       "published": true,
       "referenced": true,
       "quality": "sharp",
-      "sharpness": 3140.61,
-      "textStatus": "writein",
+      "sharpness": 2451.76,
+      "textStatus": "clean",
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "ok"
     },
     "pe-first-stage/r02-construction/img/q4-fig": {
       "category": "pe-first-stage",
@@ -7639,12 +7642,13 @@
       "published": true,
       "referenced": true,
       "quality": "sharp",
-      "sharpness": 2198.78,
-      "textStatus": "writein",
+      "sharpness": 1892.1,
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "ok",
+      "manualReason": "再クロップ済(問題文除去)。残periods=2は図の●凡例『（A＋B）×（C−D）を表す構文木。矢印の方向に走査し…記号を書き出す。』＝図の一部として意図的に保持（設問/選択肢ではない）。"
     },
     "pe-first-stage/r03-basic/img/q-I3-3": {
       "category": "pe-first-stage",
@@ -7737,12 +7741,12 @@
       "published": true,
       "referenced": true,
       "quality": "sharp",
-      "sharpness": 1094.55,
-      "textStatus": "writein",
+      "sharpness": 1090.2,
+      "textStatus": "clean",
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "ok"
     },
     "pe-first-stage/r03-construction/img/q17-fig": {
       "category": "pe-first-stage",
@@ -7849,12 +7853,12 @@
       "published": true,
       "referenced": true,
       "quality": "sharp",
-      "sharpness": 1819.84,
-      "textStatus": "writein",
+      "sharpness": 851.85,
+      "textStatus": "clean",
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "ok"
     },
     "pe-first-stage/r05-aptitude/img/q08-fig": {
       "category": "pe-first-stage",
@@ -7905,12 +7909,12 @@
       "published": true,
       "referenced": true,
       "quality": "sharp",
-      "sharpness": 1124.14,
-      "textStatus": "writein",
+      "sharpness": 1238.73,
+      "textStatus": "clean",
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "ok"
     },
     "pe-first-stage/r05-basic/img/q3-5-fig": {
       "category": "pe-first-stage",
@@ -8087,12 +8091,12 @@
       "published": true,
       "referenced": true,
       "quality": "sharp",
-      "sharpness": 2536.14,
-      "textStatus": "writein",
+      "sharpness": 2679.6,
+      "textStatus": "clean",
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "ok"
     },
     "pe-first-stage/r06-basic/img/q5-3-fig": {
       "category": "pe-first-stage",

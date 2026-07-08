@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-07-08T07:38:57.182Z",
+  "generated_at": "2026-07-08T21:52:12.296Z",
   "tool": "tesseract jpn --psm 6",
   "base_count": 591,
-  "file_count": 1021,
+  "file_count": 1020,
   "summary": {
     "leak": 4,
-    "writein": 44,
-    "maybe": 203,
-    "clean": 340
+    "writein": 36,
+    "maybe": 206,
+    "clean": 345
   },
   "quality_summary": {
     "sharp": 558,
@@ -4299,10 +4299,10 @@
       "variants": 1
     },
     "pe-first-stage/r02-basic/img/q35-fig": {
-      "status": "writein",
-      "periods": 5,
+      "status": "maybe",
+      "periods": 1,
       "markers": [],
-      "sharpness": 2047.13,
+      "sharpness": 1229.19,
       "quality": "sharp",
       "variants": 1
     },
@@ -4315,10 +4315,10 @@
       "variants": 1
     },
     "pe-first-stage/r02-basic/img/q42-fig": {
-      "status": "writein",
+      "status": "maybe",
       "periods": 9,
       "markers": [],
-      "sharpness": 1447.57,
+      "sharpness": 1401.19,
       "quality": "sharp",
       "variants": 1
     },
@@ -4331,10 +4331,10 @@
       "variants": 1
     },
     "pe-first-stage/r02-construction/img/q3-fig": {
-      "status": "writein",
-      "periods": 3,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
-      "sharpness": 3140.61,
+      "sharpness": 2451.76,
       "quality": "sharp",
       "variants": 1
     },
@@ -4379,10 +4379,10 @@
       "variants": 1
     },
     "pe-first-stage/r03-basic/img/q-I2-5": {
-      "status": "writein",
-      "periods": 4,
+      "status": "maybe",
+      "periods": 2,
       "markers": [],
-      "sharpness": 2198.78,
+      "sharpness": 1892.1,
       "quality": "sharp",
       "variants": 1
     },
@@ -4435,12 +4435,12 @@
       "variants": 2
     },
     "pe-first-stage/r03-construction/img/q07-fig": {
-      "status": "writein",
-      "periods": 3,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
-      "sharpness": 1094.55,
+      "sharpness": 1090.2,
       "quality": "sharp",
-      "variants": 2
+      "variants": 1
     },
     "pe-first-stage/r03-construction/img/q17-fig": {
       "status": "maybe",
@@ -4499,10 +4499,10 @@
       "variants": 1
     },
     "pe-first-stage/r04-construction/img/q17-fig": {
-      "status": "writein",
-      "periods": 3,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
-      "sharpness": 1819.84,
+      "sharpness": 851.85,
       "quality": "sharp",
       "variants": 1
     },
@@ -4531,10 +4531,10 @@
       "variants": 1
     },
     "pe-first-stage/r05-basic/img/q222-fig": {
-      "status": "writein",
-      "periods": 1,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
-      "sharpness": 1124.14,
+      "sharpness": 1238.73,
       "quality": "sharp",
       "variants": 1
     },
@@ -4635,10 +4635,10 @@
       "variants": 1
     },
     "pe-first-stage/r06-basic/img/q5-2-fig": {
-      "status": "writein",
-      "periods": 2,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
-      "sharpness": 2536.14,
+      "sharpness": 2679.6,
       "quality": "sharp",
       "variants": 1
     },

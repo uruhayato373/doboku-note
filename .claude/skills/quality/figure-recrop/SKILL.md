@@ -65,9 +65,12 @@ npm run audit-figures                              # 監査/provenance を最新
 
 - **触る前に必ず目視**。クリーンな図（数値ラベルのみ）を写り込みと誤判定して切らない。
 - **図の凡例（「Uc≥10：粒度分布がよい。」等）は図の一部**＝残す。答え/本文だけ落とす。
-- **MDX の width/height は新寸法に一致必須**（figure-recrop.mjs が自動更新。アスペクト比崩れ防止）。
+- **MDX の width/height は新寸法に一致必須**（figure-recrop.mjs が `<img>`／`<ArticleImage>` 両方を自動更新。アスペクト比崩れ防止）。pe 系は `<ArticleImage>`＝旧版ツールは `mdx_updated:false` になったので手動更新した（2026-07-09 に両対応化済）。
+- **二度切り厳禁**: figure-recrop.mjs は上書き適用。切り位置をやり直すときは**必ず元画像に戻してから**再適用する（既に切った画像に再度 --top を掛けると割合が二重に効いて切りすぎる）。civil-1 過去問図・pe 図は **webp のみ git 追跡**（png は untracked の一時生成物）→ 戻すのは `git checkout -- <webp>` だけ（png を pathspec に混ぜると "did not match" で checkout 全体が中断し戻らない、2026-07-09 実害）。
+- **`--top` の割合が効かない/残る時は px 直指定**: テキスト最終行が図に近いと割合推定が外れる。原寸に px グリッド（`-draw "line 0,Y w,Y"`）を重ねて境界 px を読み、`magick -crop WxH+X+Y +repage -trim +repage -bordercolor white -border 12` で直接切ってから webp 化するのが確実（q35 で実施）。ツールは白 12px 枠を足すので出力高さ＝(crop高 − trim + 24)。
+- **periods は万能でない**: 化学構造式・図の点はOCRで句点として誤カウントされる（q42 で periods:10 だが写り込み無し）。残テキストの真偽は **必ず目視**で判定。図に残す凡例に句点があれば periods は0にならない（q-I2-5 の ● 凡例）→ その場合は再監査後 `manual_needs` の `needs:ok` で確定させる。
 - **1 ページ 1 commit**・明示 pathspec（`git add -A` 禁止）。
-- 見切れ/画質不足は本スキール対象外 → provenance の rescan へ。
+- 見切れ/画質不足は本スキール対象外 → provenance の rescan / `manual_needs` へ。
 
 ## 連携
 
