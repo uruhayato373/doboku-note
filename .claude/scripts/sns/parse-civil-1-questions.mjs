@@ -45,8 +45,18 @@ function parseArticle(dir) {
     while ((cm = choiceRe.exec(beforeDetails)) !== null) {
       options.push({ num: parseInt(cm[1], 10), text: cm[2].trim().replace(/\s+/g, ' ') });
     }
-    // 設問文＝最初の選択肢より前（No 行を除く）
-    const firstChoiceIdx = beforeDetails.search(/^[（(]\s*1\s*[)）]/m);
+    // 現行書式: 行頭「1. 」〜「4. 」の番号リスト（2026-06 の過去問品質サイクルで
+    // （1）括弧書式から全記事移行済み。旧 regex のみだと全問 options 空になり、
+    // 再実行で既存 JSON の選択肢が全滅する事故になる）
+    if (options.length === 0) {
+      const listRe = /^([1-4])[.．]\s+([\s\S]*?)(?=^[1-4][.．]\s+|<details>|$)/gm;
+      while ((cm = listRe.exec(beforeDetails)) !== null) {
+        options.push({ num: parseInt(cm[1], 10), text: cm[2].trim().replace(/\s+/g, ' ') });
+      }
+    }
+    // 設問文＝最初の選択肢より前（No 行を除く）。両書式対応
+    let firstChoiceIdx = beforeDetails.search(/^[（(]\s*1\s*[)）]/m);
+    if (firstChoiceIdx < 0) firstChoiceIdx = beforeDetails.search(/^1[.．]\s+/m);
     let stem = (firstChoiceIdx >= 0 ? beforeDetails.slice(0, firstChoiceIdx) : beforeDetails)
       .replace(/^\s*\d+\s*/, '').trim();
     // 正答
