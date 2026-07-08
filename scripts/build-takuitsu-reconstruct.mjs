@@ -26,7 +26,7 @@ import { writeEpub, xhtmlDoc, xesc, xinline } from './lib/epub-writer.mjs'
 const REPO = resolve(import.meta.dirname, '..')
 
 // ---- 著者・出版者・出典クレジット（src/config/author.ts と整合）-----------
-const AUTHOR = '架（かける）'
+const AUTHOR = 'doboku-note'
 const PUBLISHER = 'doboku-note'
 // 1級/2級土木は試験実施機関のクレジット表示で過去問を使用する
 const CREDIT_BODY =
@@ -488,11 +488,10 @@ function renderEpub(model, outDir) {
 <p class="url"><a href="https://note.com/dobokunote/m/md29a34906314">1級土木 二次検定まるごとパック（経験記述＋学科記述＋直前暗記）</a></p>
 <p class="url"><a href="https://note.com/dobokunote">note マガジン一覧（dobokunote）</a></p></div>
 <p>本シリーズ（科目別・論点別過去問）は、法規・施工計画などの科目を順次刊行予定です。</p></div>`)
-  const authorPage = xhtmlDoc('著者プロフィール',
-    `<div class="front back"><h1>著者プロフィール</h1>
-<p><strong>${xesc(AUTHOR)}</strong></p>
-<p>元・地方自治体の土木職。発注者の立場で公共土木工事に携わる。技術士第二次試験（総合技術監理部門）合格。</p>
-<p>土木・建設系資格の試験対策サイト「doboku-note」を運営し、1級土木施工管理技士・技術士などの過去問解説と学習コンテンツを公開している。</p>
+  const authorPage = xhtmlDoc('doboku-note について',
+    `<div class="front back"><h1>doboku-note について</h1>
+<p><strong>doboku-note</strong> は、土木・建設系資格の試験対策サイトです。1級土木施工管理技士・技術士などの過去問解説と学習コンテンツを公開しています。</p>
+<p>運営者は元・地方自治体の土木職（発注者の立場で公共土木工事に携わる）。技術士第二次試験（総合技術監理部門）合格。実務と受験の両面から教材を制作しています。</p>
 <p class="url"><a href="https://doboku-note.com/${utm}">https://doboku-note.com</a></p></div>`)
   pages.push({ id: 'p-next', href: 'p-next.xhtml', label: '学習をさらに進めたい方へ', content: nextPage })
   pages.push({ id: 'p-author', href: 'p-author.xhtml', label: '著者プロフィール', content: authorPage })
