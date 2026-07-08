@@ -213,7 +213,8 @@
 - [x] A-02〜A-06: THEMES 定義追加 → EPUB 生成 → epubcheck 0/0（2026-07-08）
 - [x] A-00 全科目合本: `--theme goubon` モード新設 → EPUB 生成 → epubcheck 0/0（2026-07-08）
 - [x] 元データの破損解説を機械スイープ→e-gov 条文照合つきで補完（A-01 更新版の再アップも可能に）
-- [ ] A-02〜A-06・A-00 の表紙作成 → KDP アップロード ← **ユーザー作業**（表紙はスコープ外で未作成）
+- [x] A-02〜A-06・A-00 の表紙作成（spec 駆動 `scripts/kindle-covers/specs/a-0*.json`＋背景6枚 git 管理化・`~/Downloads/kindle-cover-a-*.jpg` 生成済み、2026-07-08）
+- [ ] KDP アップロード（登録順メモ = `~/Downloads/KDP登録順メモ_Aシリーズ全冊.txt`）← **ユーザー作業**
 - [ ] Author Central でプロフィール充実
 
 ### Phase 3（2026-08〜）: Dシリーズ

@@ -31,9 +31,12 @@ Kindle 出版戦略（[08_Kindle出版戦略.md](../../../../docs/project/01_戦
 
 | 書籍ID | シリーズ | ビルド | 構成定義 | 状態 |
 |---|---|---|---|---|
-| A-01 安全管理 | A: 1級土木択一 | `node scripts/build-takuitsu-reconstruct.mjs --theme anzen --format both` | THEMES 実装済み（lead判定＋exclude） | EPUB完成（収録127問・9論点） |
-| A-02〜A-06 | A | 同上 `--theme {key}` | **THEMES 未定義** → composer 委譲 | 構成待ち |
+| A-01 安全管理 | A: 1級土木択一 | `node scripts/build-takuitsu-reconstruct.mjs --theme anzen --format both` | THEMES 実装済み（lead判定＋exclude） | **出版済み**（127問・9論点。解説補完後の更新版EPUB再アップ推奨） |
+| A-02 法規〜A-06 工程管理 | A | 同上 `--theme {hoki\|sekokeikaku\|kankyo\|hinshitsu\|koutei}` | THEMES 全定義済み（2026-07-08）。lead判定＋exclude＋**parts フィルタ**（A/B問題で lead 同文の設問を試験構成で切り分け。hinshitsu=Bのみ） | EPUB完成（126/42/31/65/31問・epubcheck 0/0・QA済み） |
+| A-00 全科目合本 | A | 同上 `--theme goubon`（EPUB のみ生成・md/print なし） | 6テーマを部立て結合・章番号通し（GOUBON.order） | EPUB完成（422問・39論点・¥1,200） |
 | D-01 基礎 / D-02 適性 / D-03 専門(建設) | D: 技術士一次 合本 | `node scripts/build-pe1-kindle.mjs --spec scripts/kindle-specs/{id}.json` | spec + 書き下ろし前付け | D-02 spec から整備 |
+
+表紙は全冊 spec 駆動で再生成可能（`scripts/kindle-covers/specs/a-0*.json`＋`backgrounds/a-0*.png`、下記「表紙」参照）。
 
 - A系入力: `src/config/civil-1-exam-questions.json`（H26-R07 構造化 1,162 問）
 - D系入力: `.local/r2/posts/pe-first-stage/{r01..r07}-{basic,aptitude,construction}/article.mdx`（全問完全解説つき）

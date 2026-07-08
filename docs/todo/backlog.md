@@ -297,11 +297,11 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 **次の一手**:
 - (a) KDP アカウント作成・税務情報（W-8BEN）登録 ← A-01 出版の残ブロッカー（ユーザー作業）
-- (b) 表紙画像の用意（EPUB 未内蔵・KDP Cover Creator か JPEG 1600×2560）
-- (c) Kindle Previewer 3 で A-01 最終目視 → KDP アップロード
+- (b) ~~表紙画像の用意~~ → **完了（2026-07-08）**: A-00/A-02〜A-06 全冊 spec 駆動で生成済み（`scripts/kindle-covers/`）
+- (c) Kindle Previewer 3 で各冊最終目視 → KDP アップロード（登録順メモ = `~/Downloads/KDP登録順メモ_Aシリーズ全冊.txt`。A-01 は更新版 EPUB の差し替え再アップ）
 - (d) D-02 適性: `kindle-book-composer` で書き下ろし前付け作成 → `/kindle-build D-02`
-- (e) A-02「法規」の THEMES 定義（lead判定で実測）→ `/kindle-build A-02`
-- (f) サイト MDX の尻切れ解説（「…」）の恒久修正（`primary-{年度}-{a,b}`・パーサー上流）
+- (e) ~~A-02「法規」の THEMES 定義~~ → **完了（2026-07-08）**: A-02〜A-06＋A-00 合本まで全冊 EPUB 完成（epubcheck 0/0・QA済み）
+- (f) サイト MDX の尻切れ解説の恒久修正（`primary-{年度}-{a,b}`・パーサー上流）。**重要度アップ（2026-07-08）**: Kindle 向けに `civil-1-exam-questions.json` 側で破損解説 212 件を条文照合つきで補完済み。**パーサー（`.claude/scripts/sns/parse-civil-1-questions.mjs`）を再実行すると全部上書きで消える**ため、再実行前に必ず MDX 側へ逆移植するか、パーサーに JSON 側優先のマージ機構を入れること
 
 **note PDF 販売（従チャネル）**: Kindle Select 独占期間（90日）終了後に開始。同一ソースから印刷 PDF を生成し note 有料記事に添付（`/note-attach-pdf` スキルで添付可能）。価格は Kindle より若干高め（¥500〜¥1,480）。
 
