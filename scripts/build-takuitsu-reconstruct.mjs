@@ -736,8 +736,133 @@ function renderEpub(model, outDir) {
 }
 
 // =====================================================================
+// 合本（A-00）: 全6テーマを部立てで1冊に結合した EPUB を出す。
+// 章番号は全体通し。テーマ間の収録重複は THEMES 設計時に id 突合で 0 を
+// 確認済み（各テーマの専管ルールで排他）。学習順（施工計画→工程→安全→
+// 品質→環境→法規）で並べる。
+const GOUBON = {
+  key: 'goubon',
+  label: '全科目合本',
+  order: ['sekokeikaku', 'koutei', 'anzen', 'hinshitsu', 'kankyo', 'hoki'],
+  examLabel: '1級土木施工管理技士 第1次検定',
+}
+
+function renderGoubonEpub(models, outDir) {
+  const title = `${GOUBON.examLabel} 択一・論点別トレーニング 全科目合本`
+  const totalQ = models.reduce((s, m) => s + m.stats.rendered, 0)
+
+  const titlePage = xhtmlDoc(title,
+    `<div class="cover-title"><h1>${xesc(`${GOUBON.examLabel} 択一・論点別トレーニング`)}</h1>
+<p class="sub">― 全科目合本（${models.map((m) => m.theme.label).join('・')}） ―</p>
+<p class="author">${xesc(AUTHOR)}</p></div>`)
+  const creditPage = xhtmlDoc('出典・免責',
+    `<div class="front"><h1>出典・免責</h1>
+<p class="credit"><strong>出典</strong><br/>${xesc(CREDIT_BODY)}</p>
+<p class="credit"><strong>免責</strong><br/>${xesc(DISCLAIMER)}</p>
+<p class="credit"><strong>著者</strong>　${xesc(AUTHOR)}<br/>
+<strong>発行</strong>　${xesc(PUBLISHER)}</p></div>`)
+  const introPage = xhtmlDoc('本書の使い方',
+    `<div class="front"><h1>本書の使い方</h1>
+<p>本書は ${xesc(GOUBON.examLabel)}の択一過去問（H26〜R07）を、<strong>年度別ではなく論点別</strong>に解体・再構成した暗記特化教材の<strong>全科目合本</strong>です。${models.map((m) => `「${xesc(m.theme.label)}」`).join('')}の6科目・全${totalQ}問を1冊に収録しています。</p>
+<p>同じ論点の問題を年度をまたいで連続演習することで「どこが繰り返し問われるか」が体で分かります。各論点の冒頭には、過去問の正答選択肢から抽出した<strong>「論点まとめ（覚える正しい知識）」</strong>を配置しました。</p>
+<p>1問ごとに「問題 → ページをめくって正答・解説」の順に進みます。正答・解説ページでは、各選択肢の記述が適当なものを<strong>○</strong>、誤っているものを<strong>×</strong>で示しています。</p>
+<p>図版を要する設問は本書では割愛し、文章で完結する設問のみを収録しています。</p></div>`)
+
+  const pages = [
+    { id: 'p-title', href: 'p-title.xhtml', label: '扉', content: titlePage },
+    { id: 'p-credit', href: 'p-credit.xhtml', label: '出典・免責', content: creditPage },
+    { id: 'p-intro', href: 'p-intro.xhtml', label: '本書の使い方', content: introPage },
+  ]
+
+  // 章番号を全体通しに振り直してから各部を組み立てる
+  let n = 0
+  models.forEach((model, pi) => {
+    const pn = pi + 1
+    const partPage = xhtmlDoc(`第${pn}部 ${model.theme.label}`,
+      `<div class="cover-title"><h1>第${pn}部　${xesc(model.theme.label)}</h1>
+<p class="sub">${model.chapters.length} 論点・${model.stats.rendered} 問（H26〜R07）</p></div>`)
+    pages.push({ id: `part-${pn}`, href: `part-${pn}.xhtml`, label: `第${pn}部 ${model.theme.label}`, content: partPage })
+    for (const ch of model.chapters) {
+      ch.n = ++n
+      const nn = String(ch.n).padStart(2, '0')
+      pages.push({
+        id: `chap-${nn}`,
+        href: `chap-${nn}.xhtml`,
+        label: `${ch.n}. ${ch.label}`,
+        content: chapterIntroXhtml(ch),
+      })
+      ch.items.forEach((item, i) => {
+        const qq = `c${nn}-q${String(i + 1).padStart(3, '0')}`
+        pages.push({ id: qq, href: `${qq}.xhtml`, label: `問 ${i + 1}`, inToc: false, content: questionXhtml(ch, item, i) })
+        pages.push({ id: `${qq}a`, href: `${qq}a.xhtml`, label: `正答 ${i + 1}`, inToc: false, content: answerXhtml(ch, item, i) })
+      })
+    }
+  })
+
+  const utm = `?utm_source=kindle&amp;utm_medium=ebook&amp;utm_campaign=takuitsu-goubon`
+  const nextPage = xhtmlDoc('学習をさらに進めたい方へ',
+    `<div class="front back"><h1>学習をさらに進めたい方へ</h1>
+<p>本書で第1次検定の論点を固めたら、次の一手にお使いください。</p>
+<div class="linkbox"><p><strong>年度別の全問解説（無料）</strong></p>
+<p>試験対策サイト「doboku-note」で、第1次検定の年度別過去問解説と学習ガイドを無料公開しています。</p>
+<p class="url"><a href="https://doboku-note.com/${utm}">https://doboku-note.com</a></p></div>
+<div class="linkbox"><p><strong>第2次検定対策（note）</strong></p>
+<p>施工経験記述の完成答案集・学科記述のテーマ別対策など、第2次検定の教材を note で公開しています。</p>
+<p class="url"><a href="https://note.com/dobokunote/m/md29a34906314">1級土木 二次検定まるごとパック（経験記述＋学科記述＋直前暗記）</a></p>
+<p class="url"><a href="https://note.com/dobokunote">note マガジン一覧（dobokunote）</a></p></div>
+<p>本シリーズは科目別の分冊（安全管理・法規・施工計画・環境管理・品質管理・工程管理）でも刊行しています。</p></div>`)
+  const authorPage = xhtmlDoc('doboku-note について',
+    `<div class="front back"><h1>doboku-note について</h1>
+<p><strong>doboku-note</strong> は、土木・建設系資格の試験対策サイトです。1級土木施工管理技士・技術士などの過去問解説と学習コンテンツを公開しています。</p>
+<p>運営者は元・地方自治体の土木職（発注者の立場で公共土木工事に携わる）。技術士第二次試験（総合技術監理部門）合格。実務と受験の両面から教材を制作しています。</p>
+<p class="url"><a href="https://doboku-note.com/${utm}">https://doboku-note.com</a></p></div>`)
+  pages.push({ id: 'p-next', href: 'p-next.xhtml', label: '学習をさらに進めたい方へ', content: nextPage })
+  pages.push({ id: 'p-author', href: 'p-author.xhtml', label: '著者プロフィール', content: authorPage })
+
+  return writeEpub(
+    {
+      meta: {
+        title,
+        author: AUTHOR,
+        publisher: PUBLISHER,
+        description: `${GOUBON.examLabel}の択一過去問（H26〜R07）を論点別に再構成した暗記特化教材の全科目合本（6科目・全${totalQ}問）。`,
+        rights: CREDIT_BODY,
+      },
+      css: EPUB_CSS,
+      pages,
+    },
+    { outDir, fileName: 'goubon.epub' },
+  )
+}
+
+async function buildGoubon(args) {
+  const outDir = resolve(REPO, args.outDir || '.tmp/takuitsu-goubon')
+  mkdirSync(outDir, { recursive: true })
+  const models = []
+  for (const key of GOUBON.order) {
+    const theme = THEMES[key]
+    const data = JSON.parse(readFileSync(resolve(REPO, theme.src), 'utf8'))
+    const all = []
+    for (const y of data.years) for (const q of y.questions) all.push(normalizeQuestion({ ...q, year: y.year }))
+    const questions = all.filter((q) => {
+      if (theme.parts && !theme.parts.includes(q.part)) return false
+      const head = lead(q.body)
+      return theme.include.test(head) && !(theme.exclude && theme.exclude.test(head))
+    })
+    models.push(buildModel(theme, questions))
+  }
+  const epub = renderGoubonEpub(models, outDir)
+  console.log('テーマ: 全科目合本')
+  for (const m of models) console.log(`  ${m.theme.label}: 収録 ${m.stats.rendered} 問・${m.chapters.length} 論点`)
+  console.log(`合計 収録 ${models.reduce((s, m) => s + m.stats.rendered, 0)} 問・${models.reduce((s, m) => s + m.chapters.length, 0)} 論点`)
+  console.log(`出力先: ${outDir}`)
+  console.log(`  - ${epub.split('/').pop()}`)
+}
+
+// =====================================================================
 async function main() {
   const args = parseArgs(process.argv.slice(2))
+  if (args.theme === 'goubon') return buildGoubon(args)
   const theme = THEMES[args.theme]
   if (!theme) throw new Error(`未知のテーマ: ${args.theme}（${Object.keys(THEMES).join(',')}）`)
 
