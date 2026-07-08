@@ -196,11 +196,12 @@ title: スキル ナビゲーションガイド
 ### Kindle EPUB（KDP 出版）を生成したい
 
 1. **Aシリーズ（1級土木 択一・論点別）**: `node scripts/build-takuitsu-reconstruct.mjs --theme {key} --format epub`
-   - `--theme` に指定できるキー: `anzen`（安全管理）、今後 `hoki`/`sekko`/`kankyo`/`hinshitsu`/`kotei` を追加
-   - 出力先: `.tmp/takuitsu-{key}/{key}.epub`（gitignore）
+   - `--theme` キー（全 THEMES 定義済み・2026-07-08）: `anzen`（安全管理）/`hoki`（法規）/`sekokeikaku`（施工計画）/`kankyo`（環境管理）/`hinshitsu`（品質管理）/`koutei`（工程管理）/`goubon`（全科目合本・EPUB のみ生成）
+   - 出力先: `.tmp/takuitsu-{key}/{key}.epub`（gitignore）。表紙は `scripts/kindle-covers/`（spec 駆動）
    - Kindle Previewer 確認後、KDP（[kdp.amazon.co.jp](https://kdp.amazon.co.jp)）にアップロード
-2. **Bシリーズ（技術士総監 択一・年度別）**: ジェネレータ未設計（Phase 2 着手予定）
-3. **Cシリーズ（技術士建設部門 二次・模範解答）**: 着手条件「Web月収¥15k達成後」
+   - 書籍ID→コマンドの解決表・KDP実運用メモの真実源 → `.claude/skills/conversion/kindle-build/SKILL.md`
+2. **Bシリーズ（技術士総監 択一・年度別）**: ジェネレータ未設計（Phase 4 着手予定）
+3. **Cシリーズ（技術士建設部門 二次・模範解答）**: 着手条件達成済み・実制作未着手
 4. 戦略全体・ラインナップ一覧 → `docs/project/01_戦略/08_Kindle出版戦略.md`
 
 ### マガジン記事を紙用 PDF にしたい
