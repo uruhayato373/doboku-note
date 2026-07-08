@@ -111,10 +111,10 @@
       const refCount = items.filter((i) => i.referenced).length;
       const orphanCount = items.length - refCount;
       // 図テキスト品質（ラスタのみ）と公開状態の集計
-      const TQ = { leak: "答え漏らし", prose: "写り込み", maybe: "要確認", clean: "クリーン", unaudited: "未監査" };
+      const TQ = { leak: "答え漏らし", writein: "問題文写り込み", maybe: "要目視", clean: "クリーン", unaudited: "未監査" };
       const IQ = { blurry: "ボケ", soft: "やや不鮮明", sharp: "鮮明", unknown: "未監査", unaudited: "未監査" };
-      const ND = { "recrop-urgent": "要再クロップ(緊急)", recrop: "再クロップ", rescan: "要再スキャン", "rescan-need-source": "要再スキャン(元入手)", "rescan-or-svg": "再スキャン/SVG", ok: "OK" };
-      const NEEDS_ORDER = ["recrop-urgent", "recrop", "rescan", "rescan-need-source", "rescan-or-svg", "ok"];
+      const ND = { "recrop-urgent": "要再クロップ(緊急)", recrop: "再クロップ", "recrop-review": "再クロップ?(要目視)", rescan: "要再スキャン", "rescan-need-source": "要再スキャン(元入手)", "rescan-or-svg": "再スキャン/SVG", ok: "OK" };
+      const NEEDS_ORDER = ["recrop-urgent", "recrop", "recrop-review", "rescan", "rescan-need-source", "rescan-or-svg", "ok"];
       const tqCount = {};
       const iqCount = {};
       const ndCount = {};
@@ -139,7 +139,7 @@
         `<span class="sep"></span><b>写り込み</b>` +
         `<select class="fsel" data-key="textq">` +
         `<option value="">全て</option>` +
-        ["leak", "prose", "maybe", "clean", "unaudited"].map((s) =>
+        ["leak", "writein", "maybe", "clean", "unaudited"].map((s) =>
           `<option value="${s}">${TQ[s]} (${tqCount[s] || 0})</option>`
         ).join("") +
         `</select>` +
@@ -183,7 +183,7 @@
             ? `<span class="badge ${esc(sev)}">${esc(sev)}</span>`
             : "";
           const tq = o.kind === "raster" ? (o.textStatus || "unaudited") : "na";
-          const tqBadge = ["leak", "prose", "maybe"].includes(tq)
+          const tqBadge = ["leak", "writein", "maybe"].includes(tq)
             ? `<span class="badge tq-${esc(tq)}" title="図内に文章テキスト（答え/本文）の写り込みを検出">${esc(TQ[tq])}</span>`
             : "";
           const iq = o.kind === "raster" ? (o.imgQuality || "unknown") : "na";

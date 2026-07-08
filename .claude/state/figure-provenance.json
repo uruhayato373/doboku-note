@@ -1,11 +1,12 @@
 {
-  "generated_at": "2026-07-08T03:46:52.624Z",
+  "generated_at": "2026-07-08T07:23:27.164Z",
   "note": "図provenance。needs=次アクション。真実源: figure-sources.json(台帳)+figure-text-audit.json(品質)。再生成可。",
   "figure_count": 591,
   "summary": {
-    "recrop-urgent": 3,
-    "ok": 319,
-    "recrop": 236,
+    "recrop-urgent": 4,
+    "ok": 318,
+    "recrop-review": 188,
+    "recrop": 48,
     "rescan": 33
   },
   "figures": {
@@ -91,7 +92,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/primary-h26-a/img/h26-a-fig-07": {
       "category": "civil-construction-1",
@@ -199,11 +200,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 1966.3,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/primary-h26-b/img/h26-b-fig-01": {
       "category": "civil-construction-1",
@@ -212,12 +213,12 @@
       "published": true,
       "referenced": true,
       "quality": "sharp",
-      "sharpness": 1627.74,
-      "textStatus": "prose",
+      "sharpness": 1664.61,
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "ok"
     },
     "civil-construction-1/primary-h26-b/img/h26-b-fig-02": {
       "category": "civil-construction-1",
@@ -227,11 +228,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 1860.82,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/primary-h26-b/img/h26-b-fig-03": {
       "category": "civil-construction-1",
@@ -241,11 +242,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 4684.41,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/primary-h27-a/img/h27-a-fig-01": {
       "category": "civil-construction-1",
@@ -259,7 +260,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/primary-h27-a/img/h27-a-fig-02": {
       "category": "civil-construction-1",
@@ -283,7 +284,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2973.13,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
@@ -297,11 +298,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 4274.87,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/primary-h28-a/img/h28-a-fig-01": {
       "category": "civil-construction-1",
@@ -311,11 +312,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 4444.59,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/primary-h28-a/img/h28-a-fig-02": {
       "category": "civil-construction-1",
@@ -493,11 +494,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 3869.23,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/primary-h28-b/img/h28-b-fig-02": {
       "category": "civil-construction-1",
@@ -507,11 +508,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 1926.12,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/primary-h28-b/img/h28-b-fig-03": {
       "category": "civil-construction-1",
@@ -525,7 +526,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/primary-h28-b/img/h28-b-fig-04": {
       "category": "civil-construction-1",
@@ -535,11 +536,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2171.42,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/primary-h29-a/img/h29-a-fig-01": {
       "category": "civil-construction-1",
@@ -619,11 +620,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 3229.02,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/primary-h29-b/img/h29-b-fig-03": {
       "category": "civil-construction-1",
@@ -633,11 +634,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 1447.24,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/primary-h30-a/img/h30-a-fig-02": {
       "category": "civil-construction-1",
@@ -647,11 +648,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2555.69,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/primary-h30-a/img/h30-a-fig-03": {
       "category": "civil-construction-1",
@@ -661,11 +662,11 @@
       "referenced": false,
       "quality": "sharp",
       "sharpness": 2555.69,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/primary-h30-a/img/h30-a-fig-04": {
       "category": "civil-construction-1",
@@ -675,11 +676,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 4154.35,
-      "textStatus": "prose",
+      "textStatus": "leak",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-urgent"
     },
     "civil-construction-1/primary-h30-a/img/h30-a-fig-05": {
       "category": "civil-construction-1",
@@ -689,11 +690,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 5400.61,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/primary-h30-a/img/h30-a-fig-06": {
       "category": "civil-construction-1",
@@ -703,11 +704,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 4006.26,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/primary-h30-a/img/h30-a-fig-07": {
       "category": "civil-construction-1",
@@ -749,7 +750,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/primary-h30-a/img/h30-a-fig-10": {
       "category": "civil-construction-1",
@@ -773,11 +774,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2292.48,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/primary-h30-a/img/h30-a-fig-12": {
       "category": "civil-construction-1",
@@ -787,7 +788,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 3069.81,
-      "textStatus": "maybe",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
@@ -815,11 +816,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 4880.39,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/primary-h30-b/img/h30-b-fig-01": {
       "category": "civil-construction-1",
@@ -829,7 +830,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 1446.87,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
@@ -843,7 +844,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2132.6,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
@@ -861,7 +862,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/primary-r01-a/img/r01-a-fig-01": {
       "category": "civil-construction-1",
@@ -871,11 +872,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 8818.83,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/primary-r01-a/img/r01-a-fig-02": {
       "category": "civil-construction-1",
@@ -1001,7 +1002,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/primary-r01-b/img/r01-b-fig-02": {
       "category": "civil-construction-1",
@@ -1011,11 +1012,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 3820.91,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/primary-r01-b/img/r01-b-fig-03": {
       "category": "civil-construction-1",
@@ -1025,7 +1026,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2486.72,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
@@ -1039,11 +1040,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 3511.67,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/primary-r02-a/img/r02-a-fig-01": {
       "category": "civil-construction-1",
@@ -1109,11 +1110,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 3308.26,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/primary-r02-a/img/r02-a-fig-06": {
       "category": "civil-construction-1",
@@ -1235,7 +1236,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 1904.27,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
@@ -1249,7 +1250,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2531.89,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
@@ -1267,7 +1268,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/primary-r03-b/img/r03-b-fig-02": {
       "category": "civil-construction-1",
@@ -1291,11 +1292,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 4942.68,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/primary-r04-b/img/r04-b-fig-02": {
       "category": "civil-construction-1",
@@ -1305,7 +1306,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 1715.12,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
@@ -1337,7 +1338,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/primary-r05-b/img/r05-b-fig-02": {
       "category": "civil-construction-1",
@@ -1347,7 +1348,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 1716.87,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
@@ -1379,7 +1380,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/primary-r06-a/img/r06-a-fig-03": {
       "category": "civil-construction-1",
@@ -1421,7 +1422,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/primary-r06-b/img/r06-b-fig-01": {
       "category": "civil-construction-1",
@@ -1431,11 +1432,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 5007.36,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/primary-r06-b/img/r06-b-fig-02": {
       "category": "civil-construction-1",
@@ -1459,7 +1460,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 3247.9,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
@@ -1473,7 +1474,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2623.46,
-      "textStatus": "maybe",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
@@ -1487,11 +1488,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 3964.18,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/primary-r07-a/img/r07-a-fig-04": {
       "category": "civil-construction-1",
@@ -1547,7 +1548,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/primary-r07-b/img/r07-b-fig-02": {
       "category": "civil-construction-1",
@@ -1557,7 +1558,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 3258.4,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
@@ -1571,11 +1572,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2524.84,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-10": {
       "category": "civil-construction-1",
@@ -1613,11 +1614,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 1421.27,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-13": {
       "category": "civil-construction-1",
@@ -1631,7 +1632,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-14": {
       "category": "civil-construction-1",
@@ -1683,11 +1684,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 3453.19,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-18": {
       "category": "civil-construction-1",
@@ -1701,7 +1702,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-19": {
       "category": "civil-construction-1",
@@ -1785,7 +1786,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-6": {
       "category": "civil-construction-1",
@@ -1799,7 +1800,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-7": {
       "category": "civil-construction-1",
@@ -1809,11 +1810,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 1397.18,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-8": {
       "category": "civil-construction-1",
@@ -1823,11 +1824,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 3312.92,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-9": {
       "category": "civil-construction-1",
@@ -1841,7 +1842,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-crack-alkali-silica": {
       "category": "civil-construction-1",
@@ -1883,7 +1884,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-crack-improper-joint": {
       "category": "civil-construction-1",
@@ -1949,11 +1950,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2686.33,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-concrete-past-problems/img/fig-slump-column": {
       "category": "civil-construction-1",
@@ -1963,11 +1964,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2305.74,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-concrete-past-problems/img/fig-slump-wall": {
       "category": "civil-construction-1",
@@ -2033,11 +2034,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2384.99,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-construction-plan-basics/img/fig-4-13": {
       "category": "civil-construction-1",
@@ -2047,11 +2048,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2895.4,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-construction-plan-basics/img/fig-4-2": {
       "category": "civil-construction-1",
@@ -2065,7 +2066,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-construction-plan-basics/img/fig-4-3": {
       "category": "civil-construction-1",
@@ -2107,7 +2108,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-construction-plan-basics/img/fig-4-6": {
       "category": "civil-construction-1",
@@ -2201,11 +2202,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 3625.39,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-construction-plan-past-problems/img/fig-box-culvert-h30": {
       "category": "civil-construction-1",
@@ -2219,7 +2220,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-construction-plan-past-problems/img/fig-culvert-flow-h23": {
       "category": "civil-construction-1",
@@ -2229,11 +2230,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2953.21,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-construction-plan-past-problems/img/fig-culvert-flow-h27": {
       "category": "civil-construction-1",
@@ -2257,11 +2258,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2947.32,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-construction-plan-past-problems/img/fig-l-retaining-wall-h26": {
       "category": "civil-construction-1",
@@ -2285,11 +2286,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 5084.13,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-1": {
       "category": "civil-construction-1",
@@ -2327,11 +2328,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 4108.71,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-12": {
       "category": "civil-construction-1",
@@ -2359,7 +2360,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-14": {
       "category": "civil-construction-1",
@@ -2443,7 +2444,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-2": {
       "category": "civil-construction-1",
@@ -2467,11 +2468,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2589.41,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-21": {
       "category": "civil-construction-1",
@@ -2513,7 +2514,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-24": {
       "category": "civil-construction-1",
@@ -2583,7 +2584,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-29": {
       "category": "civil-construction-1",
@@ -2611,7 +2612,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-30": {
       "category": "civil-construction-1",
@@ -2635,11 +2636,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2164.15,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-32": {
       "category": "civil-construction-1",
@@ -2649,11 +2650,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2703.87,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-33": {
       "category": "civil-construction-1",
@@ -2691,11 +2692,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 5798.92,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-36": {
       "category": "civil-construction-1",
@@ -2737,7 +2738,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-39": {
       "category": "civil-construction-1",
@@ -2751,7 +2752,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-4": {
       "category": "civil-construction-1",
@@ -2761,11 +2762,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2924.7,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-40": {
       "category": "civil-construction-1",
@@ -2849,7 +2850,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-45": {
       "category": "civil-construction-1",
@@ -2859,11 +2860,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2561.47,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-46": {
       "category": "civil-construction-1",
@@ -2873,11 +2874,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 3774.04,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-47": {
       "category": "civil-construction-1",
@@ -2887,11 +2888,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2360.3,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-48": {
       "category": "civil-construction-1",
@@ -2901,11 +2902,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 3271.96,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-49": {
       "category": "civil-construction-1",
@@ -2915,11 +2916,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 3259.65,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-5": {
       "category": "civil-construction-1",
@@ -2929,11 +2930,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 3422.25,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-50": {
       "category": "civil-construction-1",
@@ -2975,7 +2976,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-53": {
       "category": "civil-construction-1",
@@ -3017,7 +3018,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-56": {
       "category": "civil-construction-1",
@@ -3027,11 +3028,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 5656.99,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-57": {
       "category": "civil-construction-1",
@@ -3041,11 +3042,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 1733.15,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-58": {
       "category": "civil-construction-1",
@@ -3055,11 +3056,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2065.75,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-59": {
       "category": "civil-construction-1",
@@ -3069,11 +3070,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 1963.55,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-6": {
       "category": "civil-construction-1",
@@ -3097,11 +3098,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 3010.13,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-61": {
       "category": "civil-construction-1",
@@ -3111,11 +3112,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2369.54,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-62": {
       "category": "civil-construction-1",
@@ -3129,7 +3130,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-63": {
       "category": "civil-construction-1",
@@ -3143,7 +3144,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-64": {
       "category": "civil-construction-1",
@@ -3153,11 +3154,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 6741.07,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-7": {
       "category": "civil-construction-1",
@@ -3167,11 +3168,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2178.37,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-8": {
       "category": "civil-construction-1",
@@ -3195,11 +3196,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 3641.21,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-earthwork-past-problems/img/fig-boiling": {
       "category": "civil-construction-1",
@@ -3363,11 +3364,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 1322.12,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-quality-management-basics/img/fig-5-2": {
       "category": "civil-construction-1",
@@ -3377,11 +3378,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 3231.18,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-quality-management-basics/img/fig-5-3": {
       "category": "civil-construction-1",
@@ -3423,7 +3424,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-quality-management-basics/img/fig-5-6": {
       "category": "civil-construction-1",
@@ -3433,11 +3434,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 3806.44,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-quality-management-basics/img/fig-rebar-joint": {
       "category": "civil-construction-1",
@@ -3447,11 +3448,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 4377.95,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-quality-management-past-problems/img/fig-compaction-curve-1": {
       "category": "civil-construction-1",
@@ -3535,7 +3536,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-r04/img/i-5-compaction-curve": {
       "category": "civil-construction-1",
@@ -3545,11 +3546,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2155.07,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-r04/img/i-8-shoring-section": {
       "category": "civil-construction-1",
@@ -3559,11 +3560,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2865.16,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-r04/img/i-9-crack-types": {
       "category": "civil-construction-1",
@@ -3587,11 +3588,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 7403.65,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-r06/img/i-5-compaction-curve": {
       "category": "civil-construction-1",
@@ -3601,11 +3602,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2344.29,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-r06/img/i-8-shoring-section": {
       "category": "civil-construction-1",
@@ -3619,7 +3620,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-r07/img/i-10-machinery-scene": {
       "category": "civil-construction-1",
@@ -3633,7 +3634,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/secondary-r07/img/i-11-l-retaining-wall": {
       "category": "civil-construction-1",
@@ -3647,7 +3648,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/textbook-construction-mgmt-overview/img/fig-1-1": {
       "category": "civil-construction-1",
@@ -3717,7 +3718,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/textbook-crane/img/boom-lift": {
       "category": "civil-construction-1",
@@ -3769,11 +3770,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 6051.26,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/textbook-crane/img/rough-terrain-crane": {
       "category": "civil-construction-1",
@@ -3801,7 +3802,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/textbook-demolition/img/fig-6-1": {
       "category": "civil-construction-1",
@@ -3829,7 +3830,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/textbook-demolition/img/fig-6-3": {
       "category": "civil-construction-1",
@@ -3871,7 +3872,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/textbook-demolition/img/fig-6-6": {
       "category": "civil-construction-1",
@@ -3881,11 +3882,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 5268.65,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/textbook-demolition/img/photo-6-1": {
       "category": "civil-construction-1",
@@ -3909,11 +3910,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 804.79,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/textbook-distance-angle/img/gnss-receiver": {
       "category": "civil-construction-1",
@@ -3955,7 +3956,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/textbook-grader-compaction/img/macadam-roller": {
       "category": "civil-construction-1",
@@ -3969,7 +3970,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/textbook-grader-compaction/img/motor-grader": {
       "category": "civil-construction-1",
@@ -3997,7 +3998,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/textbook-grader-compaction/img/tandem-roller": {
       "category": "civil-construction-1",
@@ -4007,11 +4008,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 3184.55,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/textbook-grader-compaction/img/tire-roller": {
       "category": "civil-construction-1",
@@ -4119,11 +4120,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 7353.32,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/textbook-transport-machinery/img/rough-terrain-carrier": {
       "category": "civil-construction-1",
@@ -4319,7 +4320,7 @@
       "source_dir": "docs/textbook/２級土木施工管理技士",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-2/primary-r04-zenki/img/q45-fig": {
       "category": "civil-construction-2",
@@ -4403,7 +4404,7 @@
       "source_dir": "docs/textbook/２級土木施工管理技士",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-2/primary-r05-zenki/img/q31-fig": {
       "category": "civil-construction-2",
@@ -4431,7 +4432,7 @@
       "source_dir": "docs/textbook/２級土木施工管理技士",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-2/primary-r05-zenki/img/q45-fig": {
       "category": "civil-construction-2",
@@ -4473,7 +4474,7 @@
       "source_dir": "docs/textbook/２級土木施工管理技士",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-2/primary-r06-kouki/img/q02-fig": {
       "category": "civil-construction-2",
@@ -4515,7 +4516,7 @@
       "source_dir": "docs/textbook/２級土木施工管理技士",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-2/primary-r06-kouki/img/q05-fig": {
       "category": "civil-construction-2",
@@ -4525,11 +4526,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2103.83,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/２級土木施工管理技士",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-2/primary-r06-kouki/img/q22-fig": {
       "category": "civil-construction-2",
@@ -4539,11 +4540,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 3303.3,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/２級土木施工管理技士",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-2/primary-r06-kouki/img/q30-fig": {
       "category": "civil-construction-2",
@@ -4599,7 +4600,7 @@
       "source_dir": "docs/textbook/２級土木施工管理技士",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-2/primary-r06-zenki/img/q01-fig": {
       "category": "civil-construction-2",
@@ -4725,7 +4726,7 @@
       "source_dir": "docs/textbook/２級土木施工管理技士",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-2/primary-r07-kouki/img/q1-fig": {
       "category": "civil-construction-2",
@@ -4847,11 +4848,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 3315.74,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/２級土木施工管理技士",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-2/primary-r07-zenki/img/q03-fig": {
       "category": "civil-construction-2",
@@ -4889,11 +4890,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2321.06,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/２級土木施工管理技士",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-2/primary-r07-zenki/img/q16-fig": {
       "category": "civil-construction-2",
@@ -4973,7 +4974,7 @@
       "referenced": true,
       "quality": "blurry",
       "sharpness": 35.5,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/コンクリート主任技師2024",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -4987,7 +4988,7 @@
       "referenced": true,
       "quality": "blurry",
       "sharpness": 38.18,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/コンクリート主任技師2024",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -5057,7 +5058,7 @@
       "referenced": true,
       "quality": "soft",
       "sharpness": 57.76,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/コンクリート主任技師2024",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -5085,7 +5086,7 @@
       "referenced": true,
       "quality": "soft",
       "sharpness": 86.18,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/コンクリート主任技師2024",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -5113,7 +5114,7 @@
       "referenced": true,
       "quality": "soft",
       "sharpness": 117.85,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/コンクリート主任技師2024",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -5141,7 +5142,7 @@
       "referenced": true,
       "quality": "blurry",
       "sharpness": 37.01,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/コンクリート主任技師2024",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -5197,7 +5198,7 @@
       "referenced": true,
       "quality": "blurry",
       "sharpness": 23.31,
-      "textStatus": "maybe",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/コンクリート主任技師2024",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -5211,7 +5212,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 697.63,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -5239,7 +5240,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 406.03,
-      "textStatus": "maybe",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -5257,7 +5258,7 @@
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "concrete-diagnostician/primary-exercise-01/img/q3-fig": {
       "category": "concrete-diagnostician",
@@ -5267,7 +5268,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 1261.95,
-      "textStatus": "maybe",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -5281,11 +5282,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 481.11,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "concrete-diagnostician/primary-exercise-01/img/q8-fig": {
       "category": "concrete-diagnostician",
@@ -5295,7 +5296,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 410.37,
-      "textStatus": "maybe",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -5309,7 +5310,7 @@
       "referenced": true,
       "quality": "soft",
       "sharpness": 176.72,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -5323,7 +5324,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 383.43,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -5351,7 +5352,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 263.59,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -5365,7 +5366,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 437.27,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -5407,7 +5408,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 625.16,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -5421,7 +5422,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 1042.31,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -5439,7 +5440,7 @@
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "concrete-diagnostician/primary-exercise-03/img/q33-fig": {
       "category": "concrete-diagnostician",
@@ -5449,7 +5450,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 535.04,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -5477,7 +5478,7 @@
       "referenced": true,
       "quality": "soft",
       "sharpness": 197.19,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -5519,11 +5520,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 659.56,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "concrete-diagnostician/primary-exercise-04/img/q43-fig": {
       "category": "concrete-diagnostician",
@@ -5533,7 +5534,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 617.67,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -5547,7 +5548,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 886.59,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -5575,11 +5576,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 490.53,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "concrete-diagnostician/primary-exercise-05/img/q55-fig": {
       "category": "concrete-diagnostician",
@@ -5593,7 +5594,7 @@
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "concrete-diagnostician/primary-exercise-05/img/q57-fig": {
       "category": "concrete-diagnostician",
@@ -5617,7 +5618,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 323.81,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -5649,7 +5650,7 @@
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "concrete-diagnostician/primary-exercise-05/img/q64-fig": {
       "category": "concrete-diagnostician",
@@ -5659,11 +5660,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 692.5,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "concrete-diagnostician/primary-exercise-05/img/q65-fig": {
       "category": "concrete-diagnostician",
@@ -5673,7 +5674,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 416.71,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -5701,7 +5702,7 @@
       "referenced": true,
       "quality": "soft",
       "sharpness": 164.53,
-      "textStatus": "clean",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -5715,7 +5716,7 @@
       "referenced": true,
       "quality": "soft",
       "sharpness": 89.85,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -5743,11 +5744,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 299.52,
-      "textStatus": "clean",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
-      "needs": "ok"
+      "needs": "recrop"
     },
     "concrete-diagnostician/primary-exercise-06/img/q72-fig": {
       "category": "concrete-diagnostician",
@@ -5757,7 +5758,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 414.58,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -5785,7 +5786,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 706.55,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -5799,11 +5800,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 476.37,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "concrete-diagnostician/primary-exercise-06/img/q79-fig": {
       "category": "concrete-diagnostician",
@@ -5813,7 +5814,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 518.58,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -5827,7 +5828,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 485.44,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -5855,7 +5856,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 529.3,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -5911,7 +5912,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 543.35,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -5925,7 +5926,7 @@
       "referenced": true,
       "quality": "soft",
       "sharpness": 165.15,
-      "textStatus": "maybe",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -5939,7 +5940,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 531.69,
-      "textStatus": "maybe",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -5953,7 +5954,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 280.52,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -5967,7 +5968,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 483.66,
-      "textStatus": "maybe",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -5981,7 +5982,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 842.58,
-      "textStatus": "maybe",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -5995,7 +5996,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 496.75,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -6009,7 +6010,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 365.57,
-      "textStatus": "maybe",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -6023,11 +6024,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 749.52,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "concrete-diagnostician/textbook-assessment/img/figure-01": {
       "category": "concrete-diagnostician",
@@ -6037,11 +6038,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 328.7,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "concrete-diagnostician/textbook-assessment/img/figure-02": {
       "category": "concrete-diagnostician",
@@ -6051,7 +6052,7 @@
       "referenced": true,
       "quality": "soft",
       "sharpness": 190.72,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -6065,11 +6066,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2029.66,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "concrete-diagnostician/textbook-assessment/img/figure-04": {
       "category": "concrete-diagnostician",
@@ -6079,11 +6080,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 345.16,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "concrete-diagnostician/textbook-deterioration/img/figure-01": {
       "category": "concrete-diagnostician",
@@ -6093,11 +6094,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 350.04,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "concrete-diagnostician/textbook-deterioration/img/figure-02": {
       "category": "concrete-diagnostician",
@@ -6107,11 +6108,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 655.01,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "concrete-diagnostician/textbook-deterioration/img/figure-03": {
       "category": "concrete-diagnostician",
@@ -6121,11 +6122,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 252.76,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "concrete-diagnostician/textbook-investigation/img/figure-01": {
       "category": "concrete-diagnostician",
@@ -6135,11 +6136,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 333.36,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "concrete-diagnostician/textbook-investigation/img/figure-02": {
       "category": "concrete-diagnostician",
@@ -6149,11 +6150,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 310.91,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "concrete-diagnostician/textbook-investigation/img/figure-03": {
       "category": "concrete-diagnostician",
@@ -6177,11 +6178,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 262.72,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "concrete-diagnostician/textbook-investigation/img/figure-05": {
       "category": "concrete-diagnostician",
@@ -6191,7 +6192,7 @@
       "referenced": true,
       "quality": "soft",
       "sharpness": 133.67,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -6233,11 +6234,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 233.17,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "concrete-diagnostician/textbook-maintenance/img/figure-04": {
       "category": "concrete-diagnostician",
@@ -6247,11 +6248,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 887.34,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "concrete-diagnostician/textbook-repair/img/figure-01": {
       "category": "concrete-diagnostician",
@@ -6261,11 +6262,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 338.26,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "concrete-diagnostician/textbook-repair/img/figure-02": {
       "category": "concrete-diagnostician",
@@ -6289,11 +6290,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 1494.15,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "concrete-diagnostician/textbook-repair/img/figure-04": {
       "category": "concrete-diagnostician",
@@ -6303,11 +6304,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 1695.03,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "concrete-diagnostician/textbook-repair/img/figure-05": {
       "category": "concrete-diagnostician",
@@ -6317,11 +6318,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 1103.49,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "concrete-diagnostician/textbook-variation/img/figure-01": {
       "category": "concrete-diagnostician",
@@ -6331,11 +6332,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 1745.22,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "concrete-diagnostician/textbook-variation/img/figure-02": {
       "category": "concrete-diagnostician",
@@ -6373,7 +6374,7 @@
       "referenced": true,
       "quality": "soft",
       "sharpness": 130.64,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/コンクリート診断士",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
@@ -6401,11 +6402,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 1.33838e+27,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/技術士（総監）",
       "figure_origin": "unknown",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "pe-comprehensive-management/carbon-neutral/img/figure-5-2-ccs-flow": {
       "category": "pe-comprehensive-management",
@@ -6419,7 +6420,7 @@
       "source_dir": "docs/textbook/技術士（総監）",
       "figure_origin": "unknown",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "pe-comprehensive-management/circular-economy/img/figure-5-6-material-flow": {
       "category": "pe-comprehensive-management",
@@ -6443,11 +6444,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 1.33838e+27,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/技術士（総監）",
       "figure_origin": "unknown",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "pe-comprehensive-management/exam-passing-strategy/img/note-4phase-cover": {
       "category": "pe-comprehensive-management",
@@ -6513,11 +6514,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 4701.44,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/技術士（総監）",
       "figure_origin": "unknown",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "pe-comprehensive-management/h23-primary/img/i-2-30-system-diagram": {
       "category": "pe-comprehensive-management",
@@ -6555,11 +6556,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 13986,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/技術士（総監）",
       "figure_origin": "unknown",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "pe-comprehensive-management/h27-primary/img/i-1-4-qms-pdca": {
       "category": "pe-comprehensive-management",
@@ -6601,7 +6602,7 @@
       "source_dir": "docs/textbook/技術士（総監）",
       "figure_origin": "unknown",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "pe-comprehensive-management/h28-primary/img/i-1-5-pert-network": {
       "category": "pe-comprehensive-management",
@@ -6681,11 +6682,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 1.79491e+27,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/技術士（総監）",
       "figure_origin": "unknown",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "pe-comprehensive-management/r01-primary/img/i-1-24-ict-concept": {
       "category": "pe-comprehensive-management",
@@ -6765,11 +6766,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 6051,
-      "textStatus": "clean",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/技術士（総監）",
       "figure_origin": "unknown",
       "rescannable": "na",
-      "needs": "ok"
+      "needs": "recrop"
     },
     "pe-comprehensive-management/r03-primary/img/i-1-28-org-chart": {
       "category": "pe-comprehensive-management",
@@ -6797,7 +6798,7 @@
       "source_dir": "docs/textbook/技術士（総監）",
       "figure_origin": "unknown",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "pe-comprehensive-management/r03-primary/img/i-1-30-system-diagram": {
       "category": "pe-comprehensive-management",
@@ -6807,11 +6808,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 4158.03,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/技術士（総監）",
       "figure_origin": "unknown",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "pe-comprehensive-management/r04-primary/img/i-1-8-pert-schematic": {
       "category": "pe-comprehensive-management",
@@ -7021,7 +7022,7 @@
       "source_dir": "docs/textbook/技術士（建設部門）",
       "figure_origin": "unknown",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig29": {
       "category": "pe-construction",
@@ -7035,7 +7036,7 @@
       "source_dir": "docs/textbook/技術士（建設部門）",
       "figure_origin": "unknown",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig31": {
       "category": "pe-construction",
@@ -7045,11 +7046,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 1856.02,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/技術士（建設部門）",
       "figure_origin": "unknown",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "pe-construction/iji-kanri-ronbun-keyword/img/fig06": {
       "category": "pe-construction",
@@ -7059,11 +7060,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2036.29,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/技術士（建設部門）",
       "figure_origin": "unknown",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "pe-construction/iji-kanri-ronbun-keyword/img/fig07": {
       "category": "pe-construction",
@@ -7073,11 +7074,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2848.86,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/技術士（建設部門）",
       "figure_origin": "unknown",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "pe-construction/iji-kanri-ronbun-keyword/img/fig08": {
       "category": "pe-construction",
@@ -7087,11 +7088,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2252.01,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/技術士（建設部門）",
       "figure_origin": "unknown",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "pe-construction/iji-kanri-ronbun-keyword/img/fig09": {
       "category": "pe-construction",
@@ -7115,11 +7116,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 1723.1,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/技術士（建設部門）",
       "figure_origin": "unknown",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "pe-construction/iji-kanri-ronbun-keyword/img/fig11": {
       "category": "pe-construction",
@@ -7161,7 +7162,7 @@
       "source_dir": "docs/textbook/技術士（建設部門）",
       "figure_origin": "unknown",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "pe-construction/ninaite-dx-ronbun-keyword/img/fig17": {
       "category": "pe-construction",
@@ -7175,7 +7176,7 @@
       "source_dir": "docs/textbook/技術士（建設部門）",
       "figure_origin": "unknown",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "pe-construction/ninaite-dx-ronbun-keyword/img/fig18": {
       "category": "pe-construction",
@@ -7245,7 +7246,7 @@
       "source_dir": "docs/textbook/技術士（建設部門）",
       "figure_origin": "unknown",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "pe-construction/shakai-shihon-ronbun-keyword/img/fig01": {
       "category": "pe-construction",
@@ -7273,7 +7274,7 @@
       "source_dir": "docs/textbook/技術士（建設部門）",
       "figure_origin": "unknown",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "pe-construction/shakai-shihon-ronbun-keyword/img/fig04": {
       "category": "pe-construction",
@@ -7287,7 +7288,7 @@
       "source_dir": "docs/textbook/技術士（建設部門）",
       "figure_origin": "unknown",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "pe-construction/shakai-shihon-ronbun-keyword/img/fig05": {
       "category": "pe-construction",
@@ -7297,11 +7298,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2282.31,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/技術士（建設部門）",
       "figure_origin": "unknown",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "pe-first-stage/r01-basic/img/q1-4-fig": {
       "category": "pe-first-stage",
@@ -7385,7 +7386,7 @@
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "pe-first-stage/r01-construction/img/q05-fig": {
       "category": "pe-first-stage",
@@ -7409,11 +7410,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 1406.96,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "pe-first-stage/r01-construction/img/q17-fig": {
       "category": "pe-first-stage",
@@ -7423,11 +7424,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 995.76,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "pe-first-stage/r02-aptitude/img/q7-fig": {
       "category": "pe-first-stage",
@@ -7465,11 +7466,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 1965.92,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "pe-first-stage/r02-basic/img/q34-fig": {
       "category": "pe-first-stage",
@@ -7483,7 +7484,7 @@
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "pe-first-stage/r02-basic/img/q35-fig": {
       "category": "pe-first-stage",
@@ -7493,7 +7494,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2047.13,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
@@ -7521,7 +7522,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 1447.57,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
@@ -7539,7 +7540,7 @@
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "pe-first-stage/r02-construction/img/q3-fig": {
       "category": "pe-first-stage",
@@ -7549,7 +7550,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 3140.61,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
@@ -7633,7 +7634,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2198.78,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
@@ -7679,7 +7680,7 @@
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "pe-first-stage/r03-basic/img/q3-6-fig": {
       "category": "pe-first-stage",
@@ -7707,7 +7708,7 @@
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "pe-first-stage/r03-construction/img/q06-fig": {
       "category": "pe-first-stage",
@@ -7731,7 +7732,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 1094.55,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
@@ -7749,7 +7750,7 @@
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "pe-first-stage/r04-basic/img/q34-fig": {
       "category": "pe-first-stage",
@@ -7787,11 +7788,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2266.14,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "pe-first-stage/r04-construction/img/q04-fig": {
       "category": "pe-first-stage",
@@ -7843,7 +7844,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 1819.84,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
@@ -7899,7 +7900,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 1124.14,
-      "textStatus": "maybe",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
@@ -7945,7 +7946,7 @@
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "pe-first-stage/r05-construction/img/q04-fig": {
       "category": "pe-first-stage",
@@ -7997,11 +7998,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 1093.85,
-      "textStatus": "prose",
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "pe-first-stage/r06-aptitude/img/q12-fig": {
       "category": "pe-first-stage",
@@ -8081,7 +8082,7 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2536.14,
-      "textStatus": "prose",
+      "textStatus": "writein",
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
@@ -8099,7 +8100,7 @@
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "pe-first-stage/r06-construction/img/q05-fig": {
       "category": "pe-first-stage",
@@ -8211,7 +8212,7 @@
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "pe-first-stage/r07-basic/img/q36-fig": {
       "category": "pe-first-stage",
@@ -8225,7 +8226,7 @@
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "pe-first-stage/r07-construction/img/q01-fig": {
       "category": "pe-first-stage",

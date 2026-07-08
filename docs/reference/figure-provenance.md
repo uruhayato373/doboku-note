@@ -14,7 +14,7 @@ title: 図 provenance システム（出所・品質・次アクションの恒�
 | 層 | ファイル | 役割 | 生成 |
 |---|---|---|---|
 | ① ソース台帳（SSOT・手動） | `.claude/config/figure-sources.json` | 資格別に元素材の所在・種別・品質・**再スキャン要否**を記録 | 手動更新（ソース状況が変わったら） |
-| ② 品質監査（機械） | `.claude/state/figure-text-audit.json` | 各図の**写り込み**(leak/prose/maybe/clean)＋**画質**(sharp/soft/blurry・ラプラシアン分散) | `npm run audit-figure-text`（OCR＋magick・数分） |
+| ② 品質監査（機械） | `.claude/state/figure-text-audit.json` | 各図の**写り込み**(leak=答え漏らし/writein=設問・選択肢/maybe=句点あり要目視/clean)＋**画質**(sharp/soft/blurry・ラプラシアン分散) | `npm run audit-figure-text`（OCR＋magick・数分） |
 | ③ provenance マニフェスト（機械・join） | `.claude/state/figure-provenance.json` | ①②＋命名(年度)＋公開/掲載 を join し、各図の **needs（次アクション）** を算出 | `npm run build-figure-provenance` |
 
 **一括更新**: `npm run audit-figures`（② → ③ を順に再生成）。図を直したら実行するとギャラリーのバッジ/対応が最新化する。
@@ -25,8 +25,9 @@ title: 図 provenance システム（出所・品質・次アクションの恒�
 
 | needs | 意味 | 直し方 |
 |---|---|---|
-| `recrop-urgent` | 答え漏らし写り込み（公開中は読者に正答が見える） | 既存画像を答えテキスト除いて再クロップ（最優先） |
-| `recrop` | 本文/問題文の写り込み・要確認 | 既存画像を再クロップ（画質は足りている） |
+| `recrop-urgent` | 答え漏らし（正答明示・公開中は読者に見える） | 既存画像を答えテキスト除いて再クロップ（最優先） |
+| `recrop` | 問題文/選択肢の写り込み（QA構造で高精度検出） | 既存画像を再クロップ（画質は足りている）＝`/figure-recrop` |
+| `recrop-review` | 句点はあるが QA 構造なし（図の凡例/ラベルの可能性）→要目視 | 目視して写り込みなら再クロップ、凡例なら放置 |
 | `rescan` | 画質不足（ボケ/低解像度）かつ**再スキャン可**（元書籍あり） | ソース台帳の `source_dir` を高解像度再スキャン → 再クロップ |
 | `rescan-need-source` | 画質不足だが元素材が未収録/要入手 | 元資料を入手してから再スキャン |
 | `rescan-or-svg` | 画質不足・再スキャン不可 | データグラフは再スキャン、模式図は SVG 化 |

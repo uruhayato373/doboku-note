@@ -106,9 +106,11 @@ for (const rel of all) {
   if (quality === "blurry" || quality === "soft") {
     needs = rescannable === "true" ? "rescan" : rescannable === "needs-source" ? "rescan-need-source" : "rescan-or-svg";
   } else if (textStatus === "leak") {
-    needs = "recrop-urgent";
-  } else if (textStatus === "prose" || textStatus === "maybe") {
-    needs = "recrop";
+    needs = "recrop-urgent";       // 答え漏らし＝最優先
+  } else if (textStatus === "writein") {
+    needs = "recrop";              // 問題文/選択肢の写り込み（高精度）
+  } else if (textStatus === "maybe") {
+    needs = "recrop-review";       // 句点あり but QA構造なし＝凡例かも→要目視
   } else {
     needs = "ok";
   }

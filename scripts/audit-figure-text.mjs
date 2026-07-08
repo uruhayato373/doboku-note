@@ -32,7 +32,12 @@ const args = process.argv.slice(2);
 const limit = args.includes("--limit") ? Number(args[args.indexOf("--limit") + 1]) : Infinity;
 const quiet = args.includes("--json");
 
-const LEAK = /したがって|正\s*解/; // 答えを明示する語
+// 答え漏らし＝正答を明示する語（最優先）。
+const LEAK = /したがって|正\s*解|は適当である|は適当でない|は誤っている/;
+// 問題文の写り込み＝設問語幹「どれか」or 選択肢文（(N)＋文が複数）。
+// ※図内の callout（①②③④ が領域を指すだけ）と区別するため、マーカー直後に文字が続く「選択肢文」を要求。
+const STEM = /どれか/;
+const optSentenceRe = /[（(][1-4１-４][)）][ぁ-んァ-ヶ一-龠]{3,}/g;
 const IMG_RE = /\/img\/[^/]+\.(png|webp|jpg|jpeg)$/i;
 
 function walk(dir, acc = []) {
@@ -64,7 +69,7 @@ for (const rel of all) {
 const bases = [...byBase.keys()].sort().slice(0, limit);
 const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "figtext-"));
 const figures = {};
-const summary = { leak: 0, prose: 0, maybe: 0, clean: 0 };
+const summary = { leak: 0, writein: 0, maybe: 0, clean: 0 };
 const qualitySummary = { sharp: 0, soft: 0, blurry: 0, unknown: 0 };
 let done = 0;
 
@@ -97,11 +102,18 @@ for (const baseRel of bases) {
     const clean = text.replace(/\s+/g, "");
     periods = (clean.match(/。/g) || []).length;
     const leakHit = LEAK.test(clean);
-    if (leakHit) markers = clean.match(/したがって|正\s*解/g) || [];
-    if (leakHit) status = "leak";
-    else if (periods >= 2) status = "prose";
-    else if (periods === 1) status = "maybe";
-    else status = "clean";
+    const optSentences = (clean.match(optSentenceRe) || []).length;
+    const writein = STEM.test(clean) || optSentences >= 2; // 設問語幹 or 選択肢文2つ以上
+    if (leakHit) {
+      markers = clean.match(/したがって|正\s*解|は適当/g) || [];
+      status = "leak";            // 答え漏らし（正答明示）＝最優先で再クロップ
+    } else if (writein) {
+      status = "writein";         // 問題文/選択肢の写り込み＝再クロップ
+    } else if (periods >= 1) {
+      status = "maybe";           // 句点あり but QA構造なし＝凡例/ラベルの可能性→要目視
+    } else {
+      status = "clean";           // ラベルのみ＝良好
+    }
     // シャープネス（ラプラシアン分散×10000）。低=ボケ/低解像度、高=くっきり線画。
     // 実測: 良品(digital線画)≈50・スキャン元(高dpi)25〜53・処理劣化ボケ≈0.5。
     try {
@@ -139,5 +151,5 @@ fs.writeFileSync(OUT, JSON.stringify(payload, null, 2));
 
 if (!quiet) process.stderr.write("\r");
 console.log(`[audit-figure-text] ${bases.length} base（${all.length} ファイル）監査 → ${path.relative(ROOT, OUT)}`);
-console.log(`  leak(答え漏らし): ${summary.leak} / prose(写り込み): ${summary.prose} / maybe(要確認): ${summary.maybe} / clean: ${summary.clean}`);
+console.log(`  leak(答え漏らし): ${summary.leak} / writein(問題文写り込み): ${summary.writein} / maybe(要目視): ${summary.maybe} / clean: ${summary.clean}`);
 console.log(`  画質 sharp: ${qualitySummary.sharp} / soft: ${qualitySummary.soft} / blurry(ボケ): ${qualitySummary.blurry} / unknown: ${qualitySummary.unknown}`);
