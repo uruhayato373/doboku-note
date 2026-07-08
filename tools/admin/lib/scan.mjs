@@ -79,6 +79,12 @@ export function scanOgp() {
 const EXAM_DIR_RE = /\/(h\d+-primary|primary-h\d+[^/]*)\//;
 
 export function scanFigures() {
+  // 図テキスト品質監査（答え漏らし/写り込み・npm run audit-figure-text 生成）。無ければ未監査。
+  const textAudit = readJson(join(ROOT, ".claude", "state", "figure-text-audit.json"));
+  const textOf = (rel) => {
+    const baseRel = rel.replace(/\.(png|webp|jpg|jpeg)$/i, "");
+    return textAudit?.figures?.[baseRel]?.status || "unaudited";
+  };
   const audit = readJson(AUDIT_STATE);
   const fileSeverity = {};
   for (const f of audit?.findings || []) {
@@ -151,6 +157,8 @@ export function scanFigures() {
         name,
         kind,
         severity: kind === "svg" ? sevOf(".local/r2/posts/" + rel) : null,
+        // ラスタ図はテキスト監査（leak/prose/maybe/clean/unaudited）、svg は null（severity を使う）
+        textStatus: kind === "raster" ? textOf(rel) : null,
         url: `/media/posts/${rel}`,
         referenced,
         articleFound: art.found,

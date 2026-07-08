@@ -16,7 +16,7 @@ npm run admin        # → http://127.0.0.1:3021
 | タブ | 内容 | データソース |
 |---|---|---|
 | OGP | 全 ogp.png（資格×分類フィルタ） | `.local/r2/posts/**/ogp.png` |
-| 記事図版 | SVG / PNG・WebP クロップ（監査 severity バッジ）＋各カードに**掲載/孤児バッジ・公開状態・記事(本番/ローカル)/MDX リンク**（下書きは getDoc が published:false を弾き本番/ローカルとも 404 になるため MDX リンクのみ表示）、`掲載`セレクトで掲載/孤児フィルタ | `.local/r2/posts/**/img/*`、`.claude/state/svg-audit.json`、各記事 `article.mdx`（掲載判定＝図名の本文参照有無・記事単位でキャッシュ） |
+| 記事図版 | SVG / PNG・WebP クロップ。各カードに**品質バッジ（答え漏らし/写り込み/要確認＝ラスタ図の OCR テキスト監査）・掲載/孤児バッジ・公開状態・記事(本番/ローカル)/MDX リンク**（下書きは getDoc が published:false を弾き本番/ローカルとも 404 になるため MDX リンクのみ表示）。フィルタ＝資格/種別/**品質**セレクト/**公開**セレクト/**掲載**セレクト/監査(SVG severity)。「公開×答え漏らし」等でスライスして図品質作業の対象を把握できる | `.local/r2/posts/**/img/*`、`.claude/state/figure-text-audit.json`（`npm run audit-figure-text` で生成＝ラスタ図を tesseract OCR し leak/prose/maybe/clean 分類・png/webp は basename で 1 回）、`svg-audit.json`、各記事 `article.mdx`（掲載判定＝図名の本文参照有無・記事単位でキャッシュ） |
 | note画像 | カバー / 図版（試験×種別フィルタ） | `docs/note/**/img/{cover*,figure-*}.png` |
 | SNSパック | IG パック・X ドラフトの画像目視 + posted バッジ | `docs/sns/instagram/**`、`docs/sns/x/draft/**` |
 | SNS状態板 | IG 進捗サマリ・X 予約状況・直近スケジュール（読み取り専用） | `docs/sns/schedule.json`、posted.json、x status.json |
