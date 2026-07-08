@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-07-08T03:02:08.065Z",
+  "generated_at": "2026-07-08T03:15:30.118Z",
   "tool": "tesseract jpn --psm 6",
   "base_count": 591,
   "file_count": 1021,
   "summary": {
-    "leak": 7,
-    "prose": 162,
-    "maybe": 90,
-    "clean": 332
+    "leak": 3,
+    "prose": 163,
+    "maybe": 91,
+    "clean": 334
   },
   "figures": {
     "civil-construction-1/primary-h26-a/img/h26-a-fig-01": {
@@ -303,11 +303,9 @@
       "variants": 2
     },
     "civil-construction-1/primary-h30-a/img/h30-a-fig-05": {
-      "status": "leak",
-      "periods": 5,
-      "markers": [
-        "正解"
-      ],
+      "status": "prose",
+      "periods": 2,
+      "markers": [],
       "variants": 2
     },
     "civil-construction-1/primary-h30-a/img/h30-a-fig-06": {
@@ -317,12 +315,9 @@
       "variants": 2
     },
     "civil-construction-1/primary-h30-a/img/h30-a-fig-07": {
-      "status": "leak",
-      "periods": 5,
-      "markers": [
-        "したがって",
-        "したがって"
-      ],
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
       "variants": 2
     },
     "civil-construction-1/primary-h30-a/img/h30-a-fig-08": {
@@ -332,11 +327,9 @@
       "variants": 2
     },
     "civil-construction-1/primary-h30-a/img/h30-a-fig-09": {
-      "status": "leak",
-      "periods": 4,
-      "markers": [
-        "したがって"
-      ],
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
       "variants": 2
     },
     "civil-construction-1/primary-h30-a/img/h30-a-fig-10": {
@@ -358,11 +351,9 @@
       "variants": 2
     },
     "civil-construction-1/primary-h30-a/img/h30-a-fig-13": {
-      "status": "leak",
+      "status": "clean",
       "periods": 0,
-      "markers": [
-        "正解"
-      ],
+      "markers": [],
       "variants": 2
     },
     "civil-construction-1/primary-h30-a/img/h30-a-fig-14": {
