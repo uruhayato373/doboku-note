@@ -51,8 +51,8 @@ OCR/シャープネスでは検出できない欠陥がある。最重要は **�
 
 ## 現状の分布（2026-07-09）
 
-591 図: `ok:324 / recrop-review:190 / recrop:37 / rescan:33 / recrop-urgent:4 / rescan-need-source:3`。うち**公開×掲載（ライブで要改善）= recrop-review:163 / recrop:10 / rescan:17 / rescan-need-source:3 / recrop-urgent:1**。
-`rescan` 33 は**全て concrete系**（コンクリート主任技師＝PDF無し・書籍スキャン低品質）。civil/pe はゼロ（鮮明）。`rescan-need-source:3` は `manual_needs` 上書き分（見切れ図 r04-b-fig-02 / r05-b-fig-02 / r01-b-fig-03）。
+591 図: `ok:322 / recrop-review:190 / recrop:37 / rescan:33 / rescan-need-source:5 / recrop-urgent:4`。うち**公開×掲載（ライブで要改善）= recrop-review:163 / recrop:10 / rescan:17 / rescan-need-source:5 / recrop-urgent:1**。
+`rescan` 33 は**全て concrete系**（コンクリート主任技師＝PDF無し・書籍スキャン低品質）。civil/pe はゼロ（鮮明）。`rescan-need-source:5` は `manual_needs` 上書き分＝civil-1 のネットワーク工程表の見切れ図（r04-b-fig-02 / r05-b-fig-02 / r01-b-fig-03 が答え/図要素欠落の重症、r07-b-fig-02 が作業ラベル欠落で答えに影響、r06-b-fig-02 がラベルのみ欠落で解答は可能）。civil-1 の工程表10図を全数目視し、残5図（h28-b/h29-b/h30-b/r02-b/r03-b）は完全と確認。
 
 ## 運用（管理画面ギャラリー）
 
