@@ -145,9 +145,13 @@
             : o.published
             ? `<span class="badge pub">公開</span>`
             : `<span class="badge draft">下書き</span>`;
+          // 下書き(published:false)は getDoc が null を返し本番/ローカルとも 404 になるため
+          // 記事リンクは公開記事のみ表示。下書き/記事なしは MDX(編集)リンクのみ。
           const links =
-            `<a href="${esc(o.articleUrl)}" target="_blank" rel="noopener" title="本番記事を開く">記事↗</a>` +
-            `<a href="${esc(o.localUrl)}" target="_blank" rel="noopener" title="ローカルdev(npm run dev / :3020)で開く">ローカル</a>` +
+            (o.published
+              ? `<a href="${esc(o.articleUrl)}" target="_blank" rel="noopener" title="本番記事を開く">記事↗</a>` +
+                `<a href="${esc(o.localUrl)}" target="_blank" rel="noopener" title="ローカルdev(npm run dev / :3020)で開く">ローカル</a>`
+              : "") +
             (o.mdxAbs ? `<a href="vscode://file${esc(o.mdxAbs)}" title="MDXをVS Codeで開く">MDX</a>` : "");
           return `<figure class="card ${esc(o.kind === "raster" ? "raster" : "svg")}" ` +
             `data-category="${esc(o.category)}" data-kind="${esc(o.kind)}" data-severity="${esc(sev)}" data-placement="${placement}">` +
