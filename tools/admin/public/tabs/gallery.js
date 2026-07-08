@@ -120,16 +120,39 @@
       const ndCount = {};
       const pubOf = (o) => (!o.articleFound ? "none" : o.published ? "published" : "draft");
       const pubN = { published: 0, draft: 0, none: 0 };
+      const liveND = {}; // 公開×掲載（ライブ）の needs 別（basename で dedupe＝png/webp を二重計上しない）
+      const liveSeen = new Set();
+      const baseKey = (o) => String(o.url || o.rel || "").replace(/\.(png|webp|jpg|jpeg)$/i, "");
       items.forEach((i) => {
         if (i.kind === "raster") {
           tqCount[i.textStatus || "unaudited"] = (tqCount[i.textStatus || "unaudited"] || 0) + 1;
           iqCount[i.imgQuality || "unknown"] = (iqCount[i.imgQuality || "unknown"] || 0) + 1;
           if (i.needs) ndCount[i.needs] = (ndCount[i.needs] || 0) + 1;
+          if (i.needs && i.published && i.referenced) {
+            const k = baseKey(i);
+            if (!liveSeen.has(k)) { liveSeen.add(k); liveND[i.needs] = (liveND[i.needs] || 0) + 1; }
+          }
         }
         pubN[pubOf(i)]++;
       });
+      // 進捗サマリー（公開×掲載＝ライブで読者に見える図。ok以外＝要対応。basename で dedupe）
+      const liveTotal = NEEDS_ORDER.reduce((n, s) => n + (liveND[s] || 0), 0);
+      const liveOk = liveND.ok || 0;
+      const liveAction = liveTotal - liveOk;
+      const actionBreak = NEEDS_ORDER.filter((s) => s !== "ok" && liveND[s])
+        .map((s) => `${ND[s]} ${liveND[s]}`).join(" · ");
+      const pct = liveTotal ? Math.round((liveOk / liveTotal) * 100) : 100;
+      const progressBar =
+        `<div class="fig-progress" title="公開×掲載（ライブで読者に見える図）の対応状況。ok以外が要対応。png/webpはbasenameで重複排除。">` +
+        `<b>進捗（公開×掲載）</b> ` +
+        `<span class="pg-ok">OK ${liveOk}</span> / ` +
+        `<span class="pg-act">要対応 ${liveAction}</span> ` +
+        `<span class="pg-pct">(${pct}% 完了)</span>` +
+        (actionBreak ? `<span class="pg-brk">内訳: ${actionBreak}</span>` : "") +
+        `</div>`;
 
       filterbar.innerHTML =
+        progressBar +
         `<b>資格</b>` +
         `<button class="chip active" data-key="category" data-val="">全て <span class="n">${items.length}</span></button>` +
         cats.map((c) => chip(c, c, { key: "category" }, items.filter((i) => i.category === c).length)).join("") +
