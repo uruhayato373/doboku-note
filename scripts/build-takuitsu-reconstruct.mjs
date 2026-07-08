@@ -362,6 +362,11 @@ ul.expl li { margin-bottom: 0.7em; padding-left: 1.6em; text-indent: -1.6em; }
 .front { margin-top: 2em; }
 .front h1 { border-bottom: none; }
 .credit { font-size: 0.9em; color: #444; line-height: 1.9; }
+.back a { color: #1d5a8a; }
+.back .linkbox { border: 1px solid #d9b48f; background: #fbf6f0;
+  padding: 0.7em 0.9em; margin: 0.6em 0 1.1em; }
+.back .linkbox p { margin: 0 0 0.3em; }
+.back .url { font-size: 0.9em; }
 hr { border: none; border-top: 1px solid #ddd; margin: 1em 0; }
 `
 
@@ -468,6 +473,29 @@ function renderEpub(model, outDir) {
       })
     })
   }
+
+  // 巻末: 学習導線（サイト・note）と著者プロフィール
+  // XHTML 属性内なので & は &amp; にエスケープする（生 & は epubcheck FATAL）
+  const utm = `?utm_source=kindle&amp;utm_medium=ebook&amp;utm_campaign=takuitsu-${t.key}`
+  const nextPage = xhtmlDoc('学習をさらに進めたい方へ',
+    `<div class="front back"><h1>学習をさらに進めたい方へ</h1>
+<p>本書で「${xesc(t.label)}」の論点を固めたら、次の一手にお使いください。</p>
+<div class="linkbox"><p><strong>年度別の全問解説（無料）</strong></p>
+<p>試験対策サイト「doboku-note」で、第1次検定の年度別過去問解説と学習ガイドを無料公開しています。</p>
+<p class="url"><a href="https://doboku-note.com/${utm}">https://doboku-note.com</a></p></div>
+<div class="linkbox"><p><strong>第2次検定対策（note）</strong></p>
+<p>施工経験記述の完成答案集・学科記述のテーマ別対策など、第2次検定の教材を note で公開しています。</p>
+<p class="url"><a href="https://note.com/dobokunote/m/md29a34906314">1級土木 二次検定まるごとパック（経験記述＋学科記述＋直前暗記）</a></p>
+<p class="url"><a href="https://note.com/dobokunote">note マガジン一覧（dobokunote）</a></p></div>
+<p>本シリーズ（科目別・論点別過去問）は、法規・施工計画などの科目を順次刊行予定です。</p></div>`)
+  const authorPage = xhtmlDoc('著者プロフィール',
+    `<div class="front back"><h1>著者プロフィール</h1>
+<p><strong>${xesc(AUTHOR)}</strong></p>
+<p>元・地方自治体の土木職。発注者の立場で公共土木工事に携わる。技術士第二次試験（総合技術監理部門）合格。</p>
+<p>土木・建設系資格の試験対策サイト「doboku-note」を運営し、1級土木施工管理技士・技術士などの過去問解説と学習コンテンツを公開している。</p>
+<p class="url"><a href="https://doboku-note.com/${utm}">https://doboku-note.com</a></p></div>`)
+  pages.push({ id: 'p-next', href: 'p-next.xhtml', label: '学習をさらに進めたい方へ', content: nextPage })
+  pages.push({ id: 'p-author', href: 'p-author.xhtml', label: '著者プロフィール', content: authorPage })
 
   return writeEpub(
     {
