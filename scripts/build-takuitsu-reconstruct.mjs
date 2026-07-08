@@ -336,13 +336,20 @@ p { margin: 0 0 0.6em; }
 ul { margin: 0 0 1em; padding-left: 1.2em; }
 li { margin-bottom: 0.4em; }
 ol.opts { margin: 0.4em 0 0.6em; padding-left: 1.4em; }
-ol.opts li { margin-bottom: 0.3em; }
-.tag { font-weight: bold; color: #7a3e0c; }
+ol.opts li { margin-bottom: 0.45em; }
 .qbody { margin-top: 0.6em; }
 .chapnav { font-size: 0.8em; color: #8a6a4a; border-bottom: 1px solid #e2cdb8;
   padding-bottom: 0.3em; margin: 0 0 0.8em; }
+.qhead { border-left: 6px solid #7a3e0c; background: #fbf0e4;
+  padding: 0.35em 0.6em; margin: 0.2em 0 0.9em; }
+.qno { font-size: 1.3em; font-weight: bold; color: #7a3e0c; }
+.qtag { font-size: 0.85em; color: #8a6a4a; margin-left: 1em; }
 .turn { font-size: 0.85em; color: #7a3e0c; text-align: right; margin-top: 1.6em; }
-.ans { background: #f4f8f4; border-left: 3px solid #2f7a3e; padding: 0.4em 0.6em; }
+.ansband { background: #2f7a3e; color: #ffffff; font-weight: bold;
+  font-size: 1.15em; padding: 0.3em 0.7em; margin: 0.2em 0 0.9em; }
+.ronten { border: 1px solid #d9b48f; background: #fbf6f0;
+  padding: 0.7em 0.9em; margin: 0 0 1.2em; }
+.ronten ul { margin: 0; }
 ul.expl { list-style: none; margin: 0.8em 0 1em; padding-left: 0; }
 ul.expl li { margin-bottom: 0.7em; padding-left: 1.6em; text-indent: -1.6em; }
 .ok { font-weight: bold; color: #2f7a3e; }
@@ -358,12 +365,12 @@ ul.expl li { margin-bottom: 0.7em; padding-left: 1.6em; text-indent: -1.6em; }
 hr { border: none; border-top: 1px solid #ddd; margin: 1em 0; }
 `
 
-// 章扉: 章タイトル + 論点まとめ（覚える正しい知識）
+// 章扉: 章タイトル + 論点まとめ（覚える正しい知識・囲み罫で教材感を出す）
 function chapterIntroXhtml(ch) {
   const parts = [`<h1>${ch.n}. ${xesc(ch.label)}</h1>`]
   if (ch.ronten.length) {
     parts.push('<h2>論点まとめ（覚える正しい知識）</h2>')
-    parts.push(`<ul>${ch.ronten.map((b) => `<li>${xinline(b)}</li>`).join('')}</ul>`)
+    parts.push(`<div class="ronten"><ul>${ch.ronten.map((b) => `<li>${xinline(b)}</li>`).join('')}</ul></div>`)
   }
   parts.push(`<p>この論点の一問一答は ${ch.items.length} 問（H26〜R07）。次のページから、1問ごとに「問題 → ページをめくって正答・解説」の順に進みます。</p>`)
   return xhtmlDoc(`${ch.n}. ${ch.label}`, parts.join('\n'))
@@ -379,8 +386,9 @@ function questionXhtml(ch, item, idx) {
     .map((o) => `<li>${xinline(o.text)}</li>`)
     .join('')
   const parts = [
-    `<p class="chapnav">${ch.n}. ${xesc(ch.label)}　問 ${idx + 1}/${ch.items.length}</p>`,
-    `<p class="qbody"><span class="tag">［${xesc(qTag(q))}］</span> ${xinline(q.body)}</p>`,
+    `<p class="chapnav">${ch.n}. ${xesc(ch.label)}（問 ${idx + 1}/${ch.items.length}）</p>`,
+    `<div class="qhead"><span class="qno">問 ${idx + 1}</span><span class="qtag">［${xesc(qTag(q))}］</span></div>`,
+    `<p class="qbody">${xinline(q.body)}</p>`,
     `<ol class="opts">${opts}</ol>`,
     '<p class="turn">正答・解説は次のページ ▶</p>',
   ]
@@ -393,8 +401,8 @@ function questionXhtml(ch, item, idx) {
 function answerXhtml(ch, item, idx) {
   const { q, dupYears } = item
   const parts = [
-    `<p class="chapnav">${ch.n}. ${xesc(ch.label)}　問 ${idx + 1}/${ch.items.length}　［${xesc(qTag(q))}］</p>`,
-    `<p class="ans"><strong>正答 ${q.correct}</strong></p>`,
+    `<p class="chapnav">${ch.n}. ${xesc(ch.label)}（問 ${idx + 1}/${ch.items.length}）　［${xesc(qTag(q))}］</p>`,
+    `<p class="ansband">正答　${q.correct}</p>`,
   ]
   const expls = [...(q.optionExplanations || [])]
     .filter((e) => e.text && e.text.trim())
