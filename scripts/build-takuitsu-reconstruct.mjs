@@ -334,6 +334,8 @@ const normalizeText = (s) =>
     .replace(/&sup2;/g, '²')
     .replace(/&sup3;/g, '³')
     .replace(/▆+/g, '［　　］')
+    // ラベル付き穴埋め（｜　(イ)　｜ 等）はラベルを保持したまま角括弧化する
+    .replace(/｜(　*\((?:イ|ロ|ハ|ニ)\)　*)｜/g, '［$1］')
     .replace(/｜　+｜/g, '［　　］')
 
 const normalizeQuestion = (q) => ({
