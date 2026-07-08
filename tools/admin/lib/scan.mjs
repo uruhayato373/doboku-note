@@ -170,6 +170,7 @@ export function scanFigures() {
         sharpness: kind === "raster" ? (fa?.sharpness ?? null) : null,
         // provenance: needs=次アクション / sourceDir=再スキャン/再クロップ元 / rescannable
         needs: fp?.needs || null,
+        needsReason: fp?.manualReason || null,
         sourceDir: fp?.source_dir || null,
         rescannable: fp?.rescannable || null,
         url: `/media/posts/${rel}`,

@@ -1,6 +1,6 @@
 {
   "_comment": "図ソース台帳（SSOT）。資格(category slug)ごとに、記事図クロップの元素材の所在・種別・品質・再スキャン要否を1度記録する。build-figure-provenance.mjs が図の provenance を組むときに参照。図の実ソースを毎回手で辿らないための恒久記録。更新: docs/textbook 実体 + 図品質監査(sharpness) を根拠に随時。",
-  "_updated": "2026-07-08",
+  "_updated": "2026-07-09",
   "_fields": {
     "source_dir": "元素材のディレクトリ（docs/textbook 配下）",
     "source_kind": "pdf-vector(図がPDFにベクター/画像で入る) | pdf-textonly(問題PDFは図なしテキスト版) | scan-image(書籍スキャンpngのみ・PDF無し) | mixed",
@@ -9,6 +9,12 @@
     "rescannable": "true=元書籍/資料を高解像度再スキャンで品質改善可 / needs-source=元資料の入手が要 / na",
     "note": "運用メモ"
   },
+  "_manual_needs_comment": "機械監査(OCR/sharpness)では検出不能な図欠陥の per-figure 上書き。特に『元図が上下で見切れて図要素/答えが欠落』は鮮明かつ写り込み無し=textStatus:clean のため needs:ok と誤判定される。build-figure-provenance.mjs が baseRel 末尾一致で needs を上書きする。figure=baseRel 末尾（slug/img/名）。",
+  "manual_needs": [
+    { "figure": "civil-construction-1/primary-r04-b/img/r04-b-fig-02", "needs": "rescan-need-source", "reason": "元図が上端で見切れ。作業B・D＋イベント①が欠落（解説のクリティカルパスA→B→D→Iは欠落部を通る）。⑤へ上から刺さる矢印の元ノードが切断。再クロップ不可＝完全な元スキャン要。r05-b-fig-02とmd5同一。", "verified": "2026-07-09" },
+    { "figure": "civil-construction-1/primary-r05-b/img/r05-b-fig-02", "needs": "rescan-need-source", "reason": "r04-b-fig-02とmd5完全一致の同一ファイル。同じく上端見切れ（作業A〜J中B・D欠落）。再クロップ不可。", "verified": "2026-07-09" },
+    { "figure": "civil-construction-1/primary-r01-b/img/r01-b-fig-03", "needs": "rescan-need-source", "reason": "網目工程図が元クロップ時点で見切れ（handoff 2026-07-08記録）。writein検出でrecrop分類されるが切り直しでは直らない＝要元スキャン。", "verified": "2026-07-08" }
+  ],
   "categories": {
     "civil-construction-1": {
       "source_dir": "docs/textbook/１級土木施工管理技士",

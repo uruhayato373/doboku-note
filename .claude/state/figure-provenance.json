@@ -1,12 +1,13 @@
 {
-  "generated_at": "2026-07-08T07:23:27.164Z",
+  "generated_at": "2026-07-08T20:59:33.508Z",
   "note": "図provenance。needs=次アクション。真実源: figure-sources.json(台帳)+figure-text-audit.json(品質)。再生成可。",
   "figure_count": 591,
   "summary": {
     "recrop-urgent": 4,
-    "ok": 318,
-    "recrop-review": 188,
-    "recrop": 48,
+    "ok": 324,
+    "recrop-review": 190,
+    "recrop": 37,
+    "rescan-need-source": 3,
     "rescan": 33
   },
   "figures": {
@@ -283,12 +284,12 @@
       "published": true,
       "referenced": true,
       "quality": "sharp",
-      "sharpness": 2973.13,
-      "textStatus": "writein",
+      "sharpness": 3279.17,
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "ok"
     },
     "civil-construction-1/primary-h27-b/img/h27-b-fig-02": {
       "category": "civil-construction-1",
@@ -829,12 +830,12 @@
       "published": true,
       "referenced": true,
       "quality": "sharp",
-      "sharpness": 1446.87,
-      "textStatus": "writein",
+      "sharpness": 1554.52,
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "ok"
     },
     "civil-construction-1/primary-h30-b/img/h30-b-fig-02": {
       "category": "civil-construction-1",
@@ -843,12 +844,12 @@
       "published": true,
       "referenced": true,
       "quality": "sharp",
-      "sharpness": 2132.6,
-      "textStatus": "writein",
+      "sharpness": 2686.81,
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/primary-h30-b/img/h30-b-fig-03": {
       "category": "civil-construction-1",
@@ -1030,7 +1031,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "rescan-need-source",
+      "manualReason": "網目工程図が元クロップ時点で見切れ（handoff 2026-07-08記録）。writein検出でrecrop分類されるが切り直しでは直らない＝要元スキャン。"
     },
     "civil-construction-1/primary-r01-b/img/r01-b-fig-04": {
       "category": "civil-construction-1",
@@ -1235,12 +1237,12 @@
       "published": true,
       "referenced": true,
       "quality": "sharp",
-      "sharpness": 1904.27,
-      "textStatus": "writein",
+      "sharpness": 2359.67,
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "ok"
     },
     "civil-construction-1/primary-r02-b/img/r02-b-fig-03": {
       "category": "civil-construction-1",
@@ -1249,12 +1251,12 @@
       "published": true,
       "referenced": true,
       "quality": "sharp",
-      "sharpness": 2531.89,
-      "textStatus": "writein",
+      "sharpness": 2513.46,
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "ok"
     },
     "civil-construction-1/primary-r03-b/img/r03-b-fig-01": {
       "category": "civil-construction-1",
@@ -1305,12 +1307,13 @@
       "published": true,
       "referenced": true,
       "quality": "sharp",
-      "sharpness": 1715.12,
-      "textStatus": "writein",
+      "sharpness": 3007.48,
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "rescan-need-source",
+      "manualReason": "元図が上端で見切れ。作業B・D＋イベント①が欠落（解説のクリティカルパスA→B→D→Iは欠落部を通る）。⑤へ上から刺さる矢印の元ノードが切断。再クロップ不可＝完全な元スキャン要。r05-b-fig-02とmd5同一。"
     },
     "civil-construction-1/primary-r05-a/img/r05-a-fig-01": {
       "category": "civil-construction-1",
@@ -1347,12 +1350,13 @@
       "published": true,
       "referenced": true,
       "quality": "sharp",
-      "sharpness": 1716.87,
-      "textStatus": "writein",
+      "sharpness": 3007.48,
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "rescan-need-source",
+      "manualReason": "r04-b-fig-02とmd5完全一致の同一ファイル。同じく上端見切れ（作業A〜J中B・D欠落）。再クロップ不可。"
     },
     "civil-construction-1/primary-r06-a/img/r06-a-fig-01": {
       "category": "civil-construction-1",
@@ -1459,12 +1463,12 @@
       "published": true,
       "referenced": true,
       "quality": "sharp",
-      "sharpness": 3247.9,
-      "textStatus": "writein",
+      "sharpness": 4313.78,
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "ok"
     },
     "civil-construction-1/primary-r07-a/img/r07-a-fig-02": {
       "category": "civil-construction-1",
@@ -1473,12 +1477,12 @@
       "published": true,
       "referenced": true,
       "quality": "sharp",
-      "sharpness": 2623.46,
-      "textStatus": "writein",
+      "sharpness": 3221.44,
+      "textStatus": "maybe",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "recrop-review"
     },
     "civil-construction-1/primary-r07-a/img/r07-a-fig-03": {
       "category": "civil-construction-1",
@@ -1557,12 +1561,12 @@
       "published": true,
       "referenced": true,
       "quality": "sharp",
-      "sharpness": 3258.4,
-      "textStatus": "writein",
+      "sharpness": 3088.02,
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "ok"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-1": {
       "category": "civil-construction-1",

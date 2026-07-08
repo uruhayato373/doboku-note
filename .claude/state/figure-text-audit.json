@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-07-08T07:23:26.233Z",
+  "generated_at": "2026-07-08T07:38:57.182Z",
   "tool": "tesseract jpn --psm 6",
   "base_count": 591,
   "file_count": 1021,
   "summary": {
     "leak": 4,
-    "writein": 54,
-    "maybe": 201,
-    "clean": 332
+    "writein": 44,
+    "maybe": 203,
+    "clean": 340
   },
   "quality_summary": {
     "sharp": 558,
@@ -174,10 +174,10 @@
       "variants": 2
     },
     "civil-construction-1/primary-h27-a/img/h27-a-fig-03": {
-      "status": "writein",
-      "periods": 2,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
-      "sharpness": 2973.13,
+      "sharpness": 3279.17,
       "quality": "sharp",
       "variants": 2
     },
@@ -488,18 +488,18 @@
       "variants": 2
     },
     "civil-construction-1/primary-h30-b/img/h30-b-fig-01": {
-      "status": "writein",
-      "periods": 3,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
-      "sharpness": 1446.87,
+      "sharpness": 1554.52,
       "quality": "sharp",
       "variants": 2
     },
     "civil-construction-1/primary-h30-b/img/h30-b-fig-02": {
-      "status": "writein",
-      "periods": 4,
+      "status": "maybe",
+      "periods": 2,
       "markers": [],
-      "sharpness": 2132.6,
+      "sharpness": 2686.81,
       "quality": "sharp",
       "variants": 2
     },
@@ -723,18 +723,18 @@
       "variants": 2
     },
     "civil-construction-1/primary-r02-b/img/r02-b-fig-02": {
-      "status": "writein",
-      "periods": 4,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
-      "sharpness": 1904.27,
+      "sharpness": 2359.67,
       "quality": "sharp",
       "variants": 2
     },
     "civil-construction-1/primary-r02-b/img/r02-b-fig-03": {
-      "status": "writein",
-      "periods": 6,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
-      "sharpness": 2531.89,
+      "sharpness": 2513.46,
       "quality": "sharp",
       "variants": 2
     },
@@ -763,10 +763,10 @@
       "variants": 2
     },
     "civil-construction-1/primary-r04-b/img/r04-b-fig-02": {
-      "status": "writein",
-      "periods": 4,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
-      "sharpness": 1715.12,
+      "sharpness": 3007.48,
       "quality": "sharp",
       "variants": 2
     },
@@ -787,10 +787,10 @@
       "variants": 2
     },
     "civil-construction-1/primary-r05-b/img/r05-b-fig-02": {
-      "status": "writein",
-      "periods": 4,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
-      "sharpness": 1716.87,
+      "sharpness": 3007.48,
       "quality": "sharp",
       "variants": 2
     },
@@ -851,18 +851,18 @@
       "variants": 2
     },
     "civil-construction-1/primary-r07-a/img/r07-a-fig-01": {
-      "status": "writein",
-      "periods": 5,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
-      "sharpness": 3247.9,
+      "sharpness": 4313.78,
       "quality": "sharp",
       "variants": 2
     },
     "civil-construction-1/primary-r07-a/img/r07-a-fig-02": {
-      "status": "writein",
-      "periods": 1,
+      "status": "maybe",
+      "periods": 2,
       "markers": [],
-      "sharpness": 2623.46,
+      "sharpness": 3221.44,
       "quality": "sharp",
       "variants": 2
     },
@@ -907,10 +907,10 @@
       "variants": 2
     },
     "civil-construction-1/primary-r07-b/img/r07-b-fig-02": {
-      "status": "writein",
-      "periods": 5,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
-      "sharpness": 3258.4,
+      "sharpness": 3088.02,
       "quality": "sharp",
       "variants": 2
     },

@@ -33,6 +33,7 @@ const readJson = (p) => { try { return JSON.parse(fs.readFileSync(p, "utf8")); }
 const audit = readJson(path.join(ROOT, ".claude", "state", "figure-text-audit.json"));
 const sourcesDoc = readJson(path.join(ROOT, ".claude", "config", "figure-sources.json"));
 const sources = sourcesDoc?.categories || {};
+const manualNeeds = Array.isArray(sourcesDoc?.manual_needs) ? sourcesDoc.manual_needs : [];
 const resolveSrc = (cat) => {
   let s = sources[cat];
   if (s && s._alias) s = sources[s._alias];
@@ -115,6 +116,11 @@ for (const rel of all) {
     needs = "ok";
   }
 
+  // per-figure 手動上書き（機械監査で検出不能な欠陥＝見切れ等。baseRel 末尾一致）
+  const manual = manualNeeds.find((m) => baseRel === m.figure || baseRel.endsWith("/" + m.figure) || baseRel.endsWith(m.figure));
+  const manualReason = manual ? manual.reason || null : null;
+  if (manual) needs = manual.needs;
+
   figures[baseRel] = {
     category,
     slug,
@@ -128,6 +134,7 @@ for (const rel of all) {
     figure_origin: src?.figure_origin || "unknown",
     rescannable,
     needs,
+    ...(manualReason ? { manualReason } : {}),
   };
   summary[needs] = (summary[needs] || 0) + 1;
 }

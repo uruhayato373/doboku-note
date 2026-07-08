@@ -192,8 +192,11 @@
             : "";
           const needs = o.needs || "";
           const ndCls = needs.startsWith("recrop") ? (needs === "recrop-urgent" ? "nd-urgent" : "nd-recrop") : needs.startsWith("rescan") ? "nd-rescan" : "";
+          const ndTitle = o.needsReason
+            ? esc(o.needsReason)
+            : (needs.startsWith("rescan") && o.sourceDir ? "再スキャン元: " + esc(o.sourceDir) : "provenance 由来の推奨アクション");
           const ndBadge = (needs && needs !== "ok")
-            ? `<span class="badge ${ndCls}" title="${needs.startsWith("rescan") && o.sourceDir ? "再スキャン元: " + esc(o.sourceDir) : "provenance 由来の推奨アクション"}">${esc(ND[needs] || needs)}</span>`
+            ? `<span class="badge ${ndCls}" title="${ndTitle}">${esc(ND[needs] || needs)}</span>`
             : "";
           const placement = o.referenced ? "referenced" : "orphan";
           const placeBadge = o.referenced
