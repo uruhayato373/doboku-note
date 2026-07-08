@@ -112,11 +112,16 @@
       const orphanCount = items.length - refCount;
       // 図テキスト品質（ラスタのみ）と公開状態の集計
       const TQ = { leak: "答え漏らし", prose: "写り込み", maybe: "要確認", clean: "クリーン", unaudited: "未監査" };
+      const IQ = { blurry: "ボケ", soft: "やや不鮮明", sharp: "鮮明", unknown: "未監査", unaudited: "未監査" };
       const tqCount = {};
+      const iqCount = {};
       const pubOf = (o) => (!o.articleFound ? "none" : o.published ? "published" : "draft");
       const pubN = { published: 0, draft: 0, none: 0 };
       items.forEach((i) => {
-        if (i.kind === "raster") tqCount[i.textStatus || "unaudited"] = (tqCount[i.textStatus || "unaudited"] || 0) + 1;
+        if (i.kind === "raster") {
+          tqCount[i.textStatus || "unaudited"] = (tqCount[i.textStatus || "unaudited"] || 0) + 1;
+          iqCount[i.imgQuality || "unknown"] = (iqCount[i.imgQuality || "unknown"] || 0) + 1;
+        }
         pubN[pubOf(i)]++;
       });
 
@@ -127,11 +132,18 @@
         `<span class="sep"></span><b>種別</b>` +
         `<button class="chip active" data-key="kind" data-val="">全種別</button>` +
         kinds.map(([k, l]) => chip(l, k, { key: "kind" })).join("") +
-        `<span class="sep"></span><b>品質</b>` +
+        `<span class="sep"></span><b>写り込み</b>` +
         `<select class="fsel" data-key="textq">` +
         `<option value="">全て</option>` +
         ["leak", "prose", "maybe", "clean", "unaudited"].map((s) =>
           `<option value="${s}">${TQ[s]} (${tqCount[s] || 0})</option>`
+        ).join("") +
+        `</select>` +
+        `<span class="sep"></span><b>画質(目安)</b>` +
+        `<select class="fsel" data-key="imgq">` +
+        `<option value="">全て</option>` +
+        ["blurry", "soft", "sharp", "unknown"].map((s) =>
+          `<option value="${s}">${IQ[s]} (${iqCount[s] || 0})</option>`
         ).join("") +
         `</select>` +
         `<span class="sep"></span><b>公開</b>` +
@@ -163,6 +175,10 @@
           const tqBadge = ["leak", "prose", "maybe"].includes(tq)
             ? `<span class="badge tq-${esc(tq)}" title="図内に文章テキスト（答え/本文）の写り込みを検出">${esc(TQ[tq])}</span>`
             : "";
+          const iq = o.kind === "raster" ? (o.imgQuality || "unknown") : "na";
+          const iqBadge = ["blurry", "soft"].includes(iq)
+            ? `<span class="badge iq-${esc(iq)}" title="シャープネス ${esc(String(o.sharpness))}（低=ボケ/低解像度・目安）">${esc(IQ[iq])}</span>`
+            : "";
           const placement = o.referenced ? "referenced" : "orphan";
           const placeBadge = o.referenced
             ? `<span class="badge ref" title="記事本文に掲載されています">掲載</span>`
@@ -183,13 +199,13 @@
             (o.mdxAbs ? `<a href="vscode://file${esc(o.mdxAbs)}" title="MDXをVS Codeで開く">MDX</a>` : "");
           return `<figure class="card ${esc(o.kind === "raster" ? "raster" : "svg")}" ` +
             `data-category="${esc(o.category)}" data-kind="${esc(o.kind)}" data-severity="${esc(sev)}" ` +
-            `data-placement="${placement}" data-textq="${esc(tq)}" data-pub="${esc(pub)}">` +
+            `data-placement="${placement}" data-textq="${esc(tq)}" data-imgq="${esc(iq)}" data-pub="${esc(pub)}">` +
             `<img loading="lazy" src="${esc(o.url)}" alt="${esc(o.slug)}">` +
-            `<figcaption><div class="figname">${sevBadge}${tqBadge}${esc(o.slug + "/" + o.name)}</div>` +
+            `<figcaption><div class="figname">${sevBadge}${tqBadge}${iqBadge}${esc(o.slug + "/" + o.name)}</div>` +
             `<div class="figmeta">${placeBadge}${pubBadge}${links}</div></figcaption></figure>`;
         }).join("") +
         "</div>";
-      wireFilters(filterbar, main, ["category", "kind", "severity", "placement", "textq", "pub"]);
+      wireFilters(filterbar, main, ["category", "kind", "severity", "placement", "textq", "imgq", "pub"]);
     },
   });
 

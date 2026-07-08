@@ -141,6 +141,9 @@ main { padding: 16px; }
 .badge.tq-leak { background: #d33; }
 .badge.tq-prose { background: #e0742a; }
 .badge.tq-maybe { background: #c9a21a; }
+/* 図の画質（ボケ=紫 / やや不鮮明=くすみ青。写り込みと直交する軸） */
+.badge.iq-blurry { background: #8a3fb5; }
+.badge.iq-soft { background: #6a7f9a; }
 
 /* 記事図版カードのメタ行（掲載/孤児・公開状態・記事/ローカル/MDX リンク） */
 .card figcaption .figname { word-break: break-all; }

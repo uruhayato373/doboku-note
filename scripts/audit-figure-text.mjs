@@ -65,6 +65,7 @@ const bases = [...byBase.keys()].sort().slice(0, limit);
 const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "figtext-"));
 const figures = {};
 const summary = { leak: 0, prose: 0, maybe: 0, clean: 0 };
+const qualitySummary = { sharp: 0, soft: 0, blurry: 0, unknown: 0 };
 let done = 0;
 
 for (const baseRel of bases) {
@@ -82,6 +83,7 @@ for (const baseRel of bases) {
     }
   }
   let status = "clean", periods = 0, markers = [];
+  let sharpness = null, quality = "unknown";
   if (src) {
     let text = "";
     try {
@@ -100,9 +102,24 @@ for (const baseRel of bases) {
     else if (periods >= 2) status = "prose";
     else if (periods === 1) status = "maybe";
     else status = "clean";
+    // シャープネス（ラプラシアン分散×10000）。低=ボケ/低解像度、高=くっきり線画。
+    // 実測: 良品(digital線画)≈50・スキャン元(高dpi)25〜53・処理劣化ボケ≈0.5。
+    try {
+      const out = execSync(
+        `magick "${src}" -colorspace Gray -morphology Convolve Laplacian:0 -format "%[fx:standard_deviation*standard_deviation*10000]" info:`,
+        { encoding: "utf8" },
+      );
+      sharpness = Math.round(Number(out) * 100) / 100;
+      // 閾値は原本での実測分布で較正（digital線画 800〜2130 / スキャン系 18〜118）。
+      // 内容依存で疎な図は低めに出るため「目安」。要改善の当たりを付ける用途。
+      quality = sharpness < 50 ? "blurry" : sharpness < 200 ? "soft" : "sharp";
+    } catch {
+      /* keep unknown */
+    }
   }
-  figures[baseRel] = { status, periods, markers, variants: variants.length };
+  figures[baseRel] = { status, periods, markers, sharpness, quality, variants: variants.length };
   summary[status]++;
+  qualitySummary[quality] = (qualitySummary[quality] || 0) + 1;
   done++;
   if (!quiet && done % 50 === 0) process.stderr.write(`\r  ...${done}/${bases.length} 監査済み`);
 }
@@ -114,6 +131,7 @@ const payload = {
   base_count: bases.length,
   file_count: all.length,
   summary,
+  quality_summary: qualitySummary,
   figures,
 };
 fs.mkdirSync(path.dirname(OUT), { recursive: true });
@@ -122,3 +140,4 @@ fs.writeFileSync(OUT, JSON.stringify(payload, null, 2));
 if (!quiet) process.stderr.write("\r");
 console.log(`[audit-figure-text] ${bases.length} base（${all.length} ファイル）監査 → ${path.relative(ROOT, OUT)}`);
 console.log(`  leak(答え漏らし): ${summary.leak} / prose(写り込み): ${summary.prose} / maybe(要確認): ${summary.maybe} / clean: ${summary.clean}`);
+console.log(`  画質 sharp: ${qualitySummary.sharp} / soft: ${qualitySummary.soft} / blurry(ボケ): ${qualitySummary.blurry} / unknown: ${qualitySummary.unknown}`);
