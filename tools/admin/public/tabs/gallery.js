@@ -36,6 +36,13 @@
       if (typeof filterbar._onFilter === "function") filterbar._onFilter(key, sel);
       apply();
     });
+    // セレクトボックス（data-key）も chip と同じ sel に参加させる
+    filterbar.addEventListener("change", (e) => {
+      const s = e.target.closest("select[data-key]");
+      if (!s) return;
+      sel[s.dataset.key] = s.value;
+      apply();
+    });
     filterbar._apply = apply;
     apply();
   }
@@ -101,6 +108,8 @@
         ["exam-svg", "試験原図SVG"],
         ["raster", "PNG/WebPクロップ"],
       ].filter(([k]) => items.some((i) => i.kind === k));
+      const refCount = items.filter((i) => i.referenced).length;
+      const orphanCount = items.length - refCount;
 
       filterbar.innerHTML =
         `<b>資格</b>` +
@@ -112,6 +121,12 @@
         `<span class="sep"></span><b>監査</b>` +
         `<button class="chip active" data-key="severity" data-val="">全</button>` +
         ["high", "medium", "low", "clean"].map((s) => chip(s.toUpperCase(), s, { key: "severity" })).join("") +
+        `<span class="sep"></span><b>掲載</b>` +
+        `<select class="fsel" data-key="placement">` +
+        `<option value="">全て (${items.length})</option>` +
+        `<option value="referenced">掲載のみ (${refCount})</option>` +
+        `<option value="orphan">孤児のみ (${orphanCount})</option>` +
+        `</select>` +
         `<span class="count"></span>`;
 
       main.innerHTML =
@@ -121,13 +136,27 @@
           const sevBadge = o.kind === "svg"
             ? `<span class="badge ${esc(sev)}">${esc(sev)}</span>`
             : "";
+          const placement = o.referenced ? "referenced" : "orphan";
+          const placeBadge = o.referenced
+            ? `<span class="badge ref" title="記事本文に掲載されています">掲載</span>`
+            : `<span class="badge orphan" title="記事本文から参照されていない孤児画像">孤児</span>`;
+          const pubBadge = !o.articleFound
+            ? `<span class="badge draft" title="記事MDXが見つかりません">記事なし</span>`
+            : o.published
+            ? `<span class="badge pub">公開</span>`
+            : `<span class="badge draft">下書き</span>`;
+          const links =
+            `<a href="${esc(o.articleUrl)}" target="_blank" rel="noopener" title="本番記事を開く">記事↗</a>` +
+            `<a href="${esc(o.localUrl)}" target="_blank" rel="noopener" title="ローカルdev(npm run dev / :3020)で開く">ローカル</a>` +
+            (o.mdxAbs ? `<a href="vscode://file${esc(o.mdxAbs)}" title="MDXをVS Codeで開く">MDX</a>` : "");
           return `<figure class="card ${esc(o.kind === "raster" ? "raster" : "svg")}" ` +
-            `data-category="${esc(o.category)}" data-kind="${esc(o.kind)}" data-severity="${esc(sev)}">` +
+            `data-category="${esc(o.category)}" data-kind="${esc(o.kind)}" data-severity="${esc(sev)}" data-placement="${placement}">` +
             `<img loading="lazy" src="${esc(o.url)}" alt="${esc(o.slug)}">` +
-            `<figcaption>${sevBadge}${esc(o.slug + "/" + o.name)}</figcaption></figure>`;
+            `<figcaption><div class="figname">${sevBadge}${esc(o.slug + "/" + o.name)}</div>` +
+            `<div class="figmeta">${placeBadge}${pubBadge}${links}</div></figcaption></figure>`;
         }).join("") +
         "</div>";
-      wireFilters(filterbar, main, ["category", "kind", "severity"]);
+      wireFilters(filterbar, main, ["category", "kind", "severity", "placement"]);
     },
   });
 

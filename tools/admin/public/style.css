@@ -133,6 +133,43 @@ main { padding: 16px; }
 .badge.low { background: #3a3; }
 .badge.clean { background: #bbb; }
 .badge.offloaded { background: #6a0dad; }
+.badge.ref { background: #2a8a5a; }
+.badge.orphan { background: #d47a17; }
+.badge.pub { background: #16365c; }
+.badge.draft { background: #9aa0aa; }
+
+/* 記事図版カードのメタ行（掲載/孤児・公開状態・記事/ローカル/MDX リンク） */
+.card figcaption .figname { word-break: break-all; }
+.figmeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  margin-top: 6px;
+}
+.figmeta a {
+  font-size: 11px;
+  line-height: 1.4;
+  color: #16365c;
+  text-decoration: none;
+  border: 1px solid #dfe4ec;
+  border-radius: 5px;
+  padding: 1px 7px;
+  background: #f6f9fc;
+  transition: background .12s, color .12s;
+}
+.figmeta a:hover { background: #16365c; color: #fff; border-color: #16365c; }
+.filterbar select.fsel {
+  font-size: 12px;
+  padding: 3px 26px 3px 10px;
+  border: 1px solid #ccc;
+  border-radius: 999px;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2316365c' stroke-width='1.5' fill='none'/%3E%3C/svg%3E") no-repeat right 9px center;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.filterbar select.fsel:hover { border-color: #16365c; }
 
 /* SNS パックカード */
 .pack {

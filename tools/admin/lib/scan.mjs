@@ -95,6 +95,34 @@ export function scanFigures() {
     return "clean";
   };
 
+  // 記事（slug = cat/localSlug）ごとに MDX を 1 回だけ読んでキャッシュし、
+  // 図が MDX に参照されているか（掲載/孤児）・published・title・MDX 実体パスを解決する。
+  const SITE = "https://doboku-note.com";
+  const LOCAL = "http://localhost:3020";
+  const articleCache = new Map();
+  const resolveArticle = (slug) => {
+    if (articleCache.has(slug)) return articleCache.get(slug);
+    const cands = [
+      join(POSTS, slug, "article.mdx"),
+      join(POSTS, slug + ".mdx"),
+      join(POSTS, slug.replace(/\//g, "-"), "article.mdx"),
+    ];
+    let info = { found: false, published: false, title: "", content: "", mdxAbs: null };
+    for (const p of cands) {
+      if (!existsSync(p)) continue;
+      try {
+        const { data, content } = matter(readFileSync(p, "utf8"));
+        info = { found: true, published: data.published === true, title: data.title || "", content, mdxAbs: p };
+      } catch {
+        /* keep default */
+      }
+      break;
+    }
+    articleCache.set(slug, info);
+    return info;
+  };
+  const escRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
   const rels = readdirSync(POSTS, { recursive: true, withFileTypes: false })
     .map(toPosix)
     .filter((p) => /\/img\/[^/]+\.(svg|png|webp|jpg)$/i.test(p));
@@ -104,18 +132,33 @@ export function scanFigures() {
       const parts = dirname(rel).split("/");
       const category = parts[0];
       const slug = parts.slice(0, 2).join("/");
-      const ext = rel.split(".").pop().toLowerCase();
+      const name = rel.split("/").pop();
+      const ext = name.split(".").pop().toLowerCase();
       const kind = ext === "svg"
         ? (EXAM_DIR_RE.test("/" + rel) ? "exam-svg" : "svg")
         : "raster";
+      // 図の実掲載判定: MDX が {basename}.{img拡張子} を参照しているか（png/webp ペアを吸収）
+      const art = resolveArticle(slug);
+      const base = name.replace(/\.(svg|png|webp|jpg|jpeg)$/i, "");
+      const referenced = art.found
+        ? new RegExp(escRe(base) + "\\.(webp|png|svg|jpg|jpeg)", "i").test(art.content)
+        : false;
+      const urlSlug = slug.replace(/\//g, "-");
       return {
         rel,
         category,
         slug,
-        name: rel.split("/").pop(),
+        name,
         kind,
         severity: kind === "svg" ? sevOf(".local/r2/posts/" + rel) : null,
         url: `/media/posts/${rel}`,
+        referenced,
+        articleFound: art.found,
+        published: art.published,
+        title: art.title,
+        articleUrl: `${SITE}/docs/${urlSlug}`,
+        localUrl: `${LOCAL}/docs/${urlSlug}`,
+        mdxAbs: art.mdxAbs,
       };
     })
     .sort((a, b) => a.rel.localeCompare(b.rel));

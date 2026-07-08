@@ -16,7 +16,7 @@ npm run admin        # → http://127.0.0.1:3021
 | タブ | 内容 | データソース |
 |---|---|---|
 | OGP | 全 ogp.png（資格×分類フィルタ） | `.local/r2/posts/**/ogp.png` |
-| 記事図版 | SVG / PNG・WebP クロップ（監査 severity バッジ） | `.local/r2/posts/**/img/*`、`.claude/state/svg-audit.json` |
+| 記事図版 | SVG / PNG・WebP クロップ（監査 severity バッジ）＋各カードに**掲載/孤児バッジ・公開状態・記事(本番/ローカル)/MDX リンク**、`掲載`セレクトで掲載/孤児フィルタ | `.local/r2/posts/**/img/*`、`.claude/state/svg-audit.json`、各記事 `article.mdx`（掲載判定＝図名の本文参照有無・記事単位でキャッシュ） |
 | note画像 | カバー / 図版（試験×種別フィルタ） | `docs/note/**/img/{cover*,figure-*}.png` |
 | SNSパック | IG パック・X ドラフトの画像目視 + posted バッジ | `docs/sns/instagram/**`、`docs/sns/x/draft/**` |
 | SNS状態板 | IG 進捗サマリ・X 予約状況・直近スケジュール（読み取り専用） | `docs/sns/schedule.json`、posted.json、x status.json |
