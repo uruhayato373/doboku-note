@@ -108,11 +108,13 @@
 
 ### pe-construction 選択科目キーワード集の欠落科目を補完 🟢
 
-**残**: 選択科目の論点キーワード集（`*-ronbun-keyword`）が river-coast・road・urban-planning の3科目のみ。geotechnical（土質基礎）・鋼構造コンクリート・港湾空港・電力土木・鉄道・トンネル・施工計画・建設環境 の8分野が欠落。需要のある科目から新規作成する。**新規作成したらハブ `pe-secondary-essay-guide` の「選択科目別 論点キーワード」節に追記するだけで回遊導線に自動で乗る**（縦の導線は整備済み・2026-07-03）。
+> 注（完了・2026-07-09）: 欠落8分野（施工計画・鋼構造コンクリート・土質及び基礎・トンネル・建設環境・港湾及び空港・鉄道・電力土木）を全て新規作成し、ハブ `pe-secondary-essay-guide` へ配線（公式選択科目順に整理）。**これで選択科目11分野が全て整備完了**。各記事は制度・政策事実を一次情報（MLIT/環境省/MHLW）で裏取りし、発注者経験座で執筆。lint 15-1/2-3 解消・content-quality 新規違反0・OGP 生成・doc-meta-index 同梱で develop へ push 済み（commit c88d458b4〜2985a73a0）。
+
+**低優先の残（別スコープ）**: 選択科目3記事（road/river-coast/urban-planning）の within-specialty インラインリンク（本文精読を伴う）。新規8記事も本文からの個別キーワードページへのインラインリンクは薄いため、同様に別途拡充余地あり。
 
 > 注（完了・2026-06-21）: 必須科目I の重複ペア5テーマは A統合でなく **B 差別化＋相互リンク**（seoTitle を「論述の型」/「キーワード集」に明確化・相互リンク挿入）で解消済（[[keep-differentiate-not-delete]] 準拠・GSC カニバリ無し確認）。上記「残」は選択科目の新規作成のみ。
 
-> 注（完了・2026-07-03）: 必須科目I 6テーマは書籍全文スプライス＋図28枚＋通し校正で拡充し、相互リンク網＋ハブ双方向を整備。選択科目3記事（road/river-coast/urban-planning）も縦の回遊導線（ハブ↔記事＋必須科目I橋渡し）を整備済み。詳細 → `docs/handoffs/2026-07-03-pe-construction-ronbun-keyword-expansion.md`。**低優先の残**: 3記事の within-specialty インラインリンク（本文精読を伴う別スコープ）。
+> 注（完了・2026-07-03）: 必須科目I 6テーマは書籍全文スプライス＋図28枚＋通し校正で拡充し、相互リンク網＋ハブ双方向を整備。選択科目3記事（road/river-coast/urban-planning）も縦の回遊導線（ハブ↔記事＋必須科目I橋渡し）を整備済み。詳細 → `docs/handoffs/_archive/2026-07-03-pe-construction-ronbun-keyword-expansion.md`。**低優先の残**: 3記事の within-specialty インラインリンク（本文精読を伴う別スコープ）。
 
 ---
 
