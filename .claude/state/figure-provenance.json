@@ -1,30 +1,15 @@
 {
   "generated_at": "2026-07-08T21:53:23.000Z",
   "note": "図provenance。needs=次アクション。真実源: figure-sources.json(台帳)+figure-text-audit.json(品質)。再生成可。",
-  "figure_count": 591,
+  "figure_count": 588,
   "summary": {
-    "recrop-urgent": 4,
-    "ok": 331,
+    "ok": 332,
     "recrop-review": 190,
     "recrop": 28,
     "rescan-need-source": 5,
     "rescan": 33
   },
   "figures": {
-    "civil-construction-1/primary-h26-a/img/h26-a-fig-01": {
-      "category": "civil-construction-1",
-      "slug": "civil-construction-1/primary-h26-a",
-      "year": "h26",
-      "published": true,
-      "referenced": false,
-      "quality": "sharp",
-      "sharpness": 2216.46,
-      "textStatus": "leak",
-      "source_dir": "docs/textbook/１級土木施工管理技士",
-      "figure_origin": "answer-booklet",
-      "rescannable": "needs-source",
-      "needs": "recrop-urgent"
-    },
     "civil-construction-1/primary-h26-a/img/h26-a-fig-02": {
       "category": "civil-construction-1",
       "slug": "civil-construction-1/primary-h26-a",
@@ -66,20 +51,6 @@
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
       "needs": "ok"
-    },
-    "civil-construction-1/primary-h26-a/img/h26-a-fig-05": {
-      "category": "civil-construction-1",
-      "slug": "civil-construction-1/primary-h26-a",
-      "year": "h26",
-      "published": true,
-      "referenced": false,
-      "quality": "sharp",
-      "sharpness": 1446.13,
-      "textStatus": "leak",
-      "source_dir": "docs/textbook/１級土木施工管理技士",
-      "figure_origin": "answer-booklet",
-      "rescannable": "needs-source",
-      "needs": "recrop-urgent"
     },
     "civil-construction-1/primary-h26-a/img/h26-a-fig-06": {
       "category": "civil-construction-1",
@@ -677,11 +648,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 4154.35,
-      "textStatus": "leak",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-urgent"
+      "needs": "ok"
     },
     "civil-construction-1/primary-h30-a/img/h30-a-fig-05": {
       "category": "civil-construction-1",
@@ -906,20 +877,6 @@
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
       "needs": "ok"
-    },
-    "civil-construction-1/primary-r01-a/img/r01-a-fig-04": {
-      "category": "civil-construction-1",
-      "slug": "civil-construction-1/primary-r01-a",
-      "year": "r01",
-      "published": true,
-      "referenced": false,
-      "quality": "sharp",
-      "sharpness": 2445.43,
-      "textStatus": "leak",
-      "source_dir": "docs/textbook/１級土木施工管理技士",
-      "figure_origin": "answer-booklet",
-      "rescannable": "needs-source",
-      "needs": "recrop-urgent"
     },
     "civil-construction-1/primary-r01-a/img/r01-a-fig-05": {
       "category": "civil-construction-1",
@@ -8294,5 +8251,6 @@
       "rescannable": "na",
       "needs": "ok"
     }
-  }
+  },
+  "_manual_patch": "2026-07-09 手動更新: h30-a-fig-04 を答え漏らし再クロップ後 clean に是正(目視検証・tesseract不在のためOCR未再実行)、未参照孤立3図(h26-a-fig-01/05・r01-a-fig-04=git追跡外ローカル残骸)を削除に伴い除去。次回 audit-figure-text で再確認要。"
 }

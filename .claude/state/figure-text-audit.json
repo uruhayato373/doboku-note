@@ -1,32 +1,19 @@
 {
   "generated_at": "2026-07-08T21:52:12.296Z",
   "tool": "tesseract jpn --psm 6",
-  "base_count": 591,
-  "file_count": 1020,
+  "base_count": 588,
+  "file_count": 1014,
   "summary": {
-    "leak": 4,
-    "writein": 36,
+    "clean": 346,
     "maybe": 206,
-    "clean": 345
+    "writein": 36
   },
   "quality_summary": {
-    "sharp": 558,
-    "soft": 20,
+    "sharp": 555,
     "blurry": 13,
-    "unknown": 0
+    "soft": 20
   },
   "figures": {
-    "civil-construction-1/primary-h26-a/img/h26-a-fig-01": {
-      "status": "leak",
-      "periods": 4,
-      "markers": [
-        "したがって",
-        "は適当"
-      ],
-      "sharpness": 2216.46,
-      "quality": "sharp",
-      "variants": 2
-    },
     "civil-construction-1/primary-h26-a/img/h26-a-fig-02": {
       "status": "clean",
       "periods": 0,
@@ -48,16 +35,6 @@
       "periods": 0,
       "markers": [],
       "sharpness": 1889.82,
-      "quality": "sharp",
-      "variants": 2
-    },
-    "civil-construction-1/primary-h26-a/img/h26-a-fig-05": {
-      "status": "leak",
-      "periods": 1,
-      "markers": [
-        "正解"
-      ],
-      "sharpness": 1446.13,
       "quality": "sharp",
       "variants": 2
     },
@@ -398,11 +375,9 @@
       "variants": 2
     },
     "civil-construction-1/primary-h30-a/img/h30-a-fig-04": {
-      "status": "leak",
-      "periods": 2,
-      "markers": [
-        "は適当"
-      ],
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
       "sharpness": 4154.35,
       "quality": "sharp",
       "variants": 2
@@ -532,17 +507,6 @@
       "periods": 0,
       "markers": [],
       "sharpness": 2793.58,
-      "quality": "sharp",
-      "variants": 2
-    },
-    "civil-construction-1/primary-r01-a/img/r01-a-fig-04": {
-      "status": "leak",
-      "periods": 2,
-      "markers": [
-        "したがって",
-        "は適当"
-      ],
-      "sharpness": 2445.43,
       "quality": "sharp",
       "variants": 2
     },
@@ -4754,5 +4718,6 @@
       "quality": "sharp",
       "variants": 1
     }
-  }
+  },
+  "_manual_patch": "2026-07-09 手動更新: h30-a-fig-04 を答え漏らし再クロップ後 clean に是正(目視検証・tesseract不在のためOCR未再実行)、未参照孤立3図(h26-a-fig-01/05・r01-a-fig-04=git追跡外ローカル残骸)を削除に伴い除去。次回 audit-figure-text で再確認要。"
 }
