@@ -4,8 +4,8 @@
   "base_count": 586,
   "file_count": 1010,
   "summary": {
-    "clean": 349,
-    "maybe": 201,
+    "clean": 350,
+    "maybe": 200,
     "writein": 36
   },
   "quality_summary": {
@@ -1711,8 +1711,8 @@
       "variants": 2
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-58": {
-      "status": "maybe",
-      "periods": 6,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 2065.75,
       "quality": "sharp",
