@@ -3,8 +3,8 @@
   "note": "図provenance。needs=次アクション。真実源: figure-sources.json(台帳)+figure-text-audit.json(品質)。再生成可。",
   "figure_count": 586,
   "summary": {
-    "ok": 338,
-    "recrop-review": 179,
+    "ok": 339,
+    "recrop-review": 178,
     "rescan-need-source": 8,
     "recrop": 28,
     "rescan": 33
@@ -2837,11 +2837,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 3271.96,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-49": {
       "category": "civil-construction-1",

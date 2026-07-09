@@ -124,6 +124,12 @@
       "needs": "rescan-need-source",
       "reason": "粒径加積曲線の上端(90-100%)が見切れ。要ソース再取得。",
       "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-48",
+      "needs": "ok",
+      "reason": "図2.48キャプション写り込み除去・手順凡例保持で再クロップ 2026-07-09",
+      "verified": "2026-07-09"
     }
   ],
   "categories": {
