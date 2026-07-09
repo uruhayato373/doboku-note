@@ -81,6 +81,10 @@
 
 **ソース/手順**: `docs/textbook/{１級,２級}土木施工管理技士/`。手順=pdftoppm 200dpi→magick crop+trim→webp(q80)。**過去問の問題図に解答情報を入れない**（[[exam-problem-figure-no-answer]]）。**過去問データグラフのSVG化禁止**（幾何が答え＝誤答誘発）。[[civil1-figure-answer-leak-remediation]] / [[figure-provenance-system]]
 
+### コンクリート主任技師 年度別過去問 H26-H28 転記 🟡
+
+**背景**: ユーザーが原典書籍を追加スキャン→`docs/textbook/コンクリート主任技師2024/スキャンした書類{2-9}.pdf`（年度別全問H26-30＋小論文章・git追跡外）。既存primary 8分野は R01-R05 中心でH26-28未収録。約90問（H26/H27/H28 各30問）を転記して被覆を H26-R05 化する。**年度別パートは解説なし＝問題文原典転記＋解説自作＋親検算**（既存118問と同方式）。図差替2枚(H30/H29)・小論文ガイド増補は**完了・deploy済**（今回）。**手順・正答マップ（H28確定）・ページ範囲・リスクは真実源 → `docs/handoffs/2026-07-10-cce-nendo-transcription.md`**。規模大につき継続セッションで年度単位に実行。[[project_concrete_chief_engineer]]
+
 ---
 
 ### 1級土木 施工管理・法規編 テキスト → サイト拡充（新規11ページ＋既存深掘り）🔴
