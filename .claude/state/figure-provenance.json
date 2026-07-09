@@ -4,9 +4,9 @@
   "figure_count": 586,
   "summary": {
     "ok": 338,
-    "recrop-review": 182,
+    "recrop-review": 179,
+    "rescan-need-source": 8,
     "recrop": 28,
-    "rescan-need-source": 5,
     "rescan": 33
   },
   "figures": {
@@ -274,7 +274,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "rescan-need-source"
     },
     "civil-construction-1/primary-h28-a/img/h28-a-fig-02": {
       "category": "civil-construction-1",
@@ -3373,7 +3373,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "rescan-need-source"
     },
     "civil-construction-1/secondary-quality-management-basics/img/fig-rebar-joint": {
       "category": "civil-construction-1",
@@ -3387,7 +3387,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "rescan-need-source"
     },
     "civil-construction-1/secondary-quality-management-past-problems/img/fig-compaction-curve-1": {
       "category": "civil-construction-1",

@@ -106,6 +106,24 @@
       "needs": "ok",
       "reason": "ネットワーク式工程表の図の下に設問選択肢(1)(2)(3)が写り込み。図(ネットワーク図)のみに再クロップ(1456x548→915x326, 2026-07-09)。選択肢は記事本文にあり図には不要。",
       "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-quality-management-basics/img/fig-rebar-joint",
+      "needs": "rescan-need-source",
+      "reason": "表5.13 鉄筋の継手の検査が下部見切れ(超音波検査行が切断)。出所=過去問解答編・元PDFはスキャン。要ソース再取得。",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-quality-management-basics/img/fig-5-6",
+      "needs": "rescan-need-source",
+      "reason": "強度試験の合否判定図が上部本文写り込み＋下部見切れ(合否判定が矢印の先で切断)。要ソース再取得。",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-h28-a/img/h28-a-fig-01",
+      "needs": "rescan-need-source",
+      "reason": "粒径加積曲線の上端(90-100%)が見切れ。要ソース再取得。",
+      "verified": "2026-07-09"
     }
   ],
   "categories": {
