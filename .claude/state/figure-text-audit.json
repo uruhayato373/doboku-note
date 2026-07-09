@@ -4,8 +4,8 @@
   "base_count": 586,
   "file_count": 1010,
   "summary": {
-    "clean": 347,
-    "maybe": 203,
+    "clean": 349,
+    "maybe": 201,
     "writein": 36
   },
   "quality_summary": {
@@ -375,8 +375,8 @@
       "variants": 2
     },
     "civil-construction-1/primary-h30-a/img/h30-a-fig-06": {
-      "status": "maybe",
-      "periods": 10,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 4006.26,
       "quality": "sharp",
@@ -1135,8 +1135,8 @@
       "variants": 2
     },
     "civil-construction-1/secondary-construction-plan-basics/img/fig-4-13": {
-      "status": "maybe",
-      "periods": 9,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 2895.4,
       "quality": "sharp",

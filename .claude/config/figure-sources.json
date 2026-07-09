@@ -76,6 +76,18 @@
       "needs": "ok",
       "reason": "右端の教材行番号(10/15/20)写り込みを再クロップ除去(920x480→734x464, 2026-07-09)。番号付きテキストは図の正規「施工順序」凡例=図本体のため ok。",
       "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-h30-a/img/h30-a-fig-06",
+      "needs": "ok",
+      "reason": "図1 サンドドレーン工法の施工順序=クリーンな正規図。periods は施工順序の番号凡例=図本体、写り込みなし。目視確認2026-07-09。",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-construction-plan-basics/img/fig-4-13",
+      "needs": "ok",
+      "reason": "上部の前図「図4.12 施工体制台帳の例」写り込み＋左の教材行番号(20/25/30/35)を再クロップ除去(950x650→885x578, 2026-07-09)。残る文字は施工体系図の正規ボックスラベル=図本体。",
+      "verified": "2026-07-09"
     }
   ],
   "categories": {
