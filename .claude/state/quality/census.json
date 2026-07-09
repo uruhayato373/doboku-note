@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-07-09T21:47:58.167Z",
+  "generated_at": "2026-07-09T21:51:31.856Z",
   "thresholds": {
     "fail": 2,
     "thin_chars": 3000,
@@ -12,11 +12,11 @@
   },
   "totals": {
     "total": 1064,
-    "scored": 783,
-    "unscored": 281,
-    "failed": 13,
+    "scored": 815,
+    "unscored": 249,
+    "failed": 34,
     "thin": 377,
-    "coverage_pct": 73.6
+    "coverage_pct": 76.6
   },
   "by_category": {
     "civil-construction-1": {
@@ -47,17 +47,17 @@
         },
         "textbook": {
           "total": 45,
-          "scored": 34,
-          "unscored": 11,
+          "scored": 45,
+          "unscored": 0,
           "failed": 0,
           "thin": 0,
-          "avg_weighted": 2.82
+          "avg_weighted": 2.86
         }
       },
       "totals": {
         "total": 131,
-        "scored": 55,
-        "unscored": 76,
+        "scored": 66,
+        "unscored": 65,
         "failed": 0,
         "thin": 0
       }
@@ -214,18 +214,18 @@
       "groups": {
         "primary": {
           "total": 21,
-          "scored": 0,
-          "unscored": 21,
-          "failed": 0,
+          "scored": 21,
+          "unscored": 0,
+          "failed": 21,
           "thin": 0,
-          "avg_weighted": null
+          "avg_weighted": 1
         }
       },
       "totals": {
         "total": 21,
-        "scored": 0,
-        "unscored": 21,
-        "failed": 0,
+        "scored": 21,
+        "unscored": 0,
+        "failed": 21,
         "thin": 0
       }
     }
@@ -3350,6 +3350,174 @@
       "reason": "thin",
       "weighted": null,
       "body_chars": 2417
+    },
+    {
+      "slug": "pe-first-stage-r01-aptitude",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "reason": "failed",
+      "weighted": 1,
+      "body_chars": 17252
+    },
+    {
+      "slug": "pe-first-stage-r01-basic",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "reason": "failed",
+      "weighted": 1,
+      "body_chars": 30005
+    },
+    {
+      "slug": "pe-first-stage-r01-construction",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "reason": "failed",
+      "weighted": 1,
+      "body_chars": 29558
+    },
+    {
+      "slug": "pe-first-stage-r02-aptitude",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "reason": "failed",
+      "weighted": 1,
+      "body_chars": 17866
+    },
+    {
+      "slug": "pe-first-stage-r02-basic",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "reason": "failed",
+      "weighted": 1,
+      "body_chars": 31292
+    },
+    {
+      "slug": "pe-first-stage-r02-construction",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "reason": "failed",
+      "weighted": 1,
+      "body_chars": 28017
+    },
+    {
+      "slug": "pe-first-stage-r03-aptitude",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "reason": "failed",
+      "weighted": 1,
+      "body_chars": 17523
+    },
+    {
+      "slug": "pe-first-stage-r03-basic",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "reason": "failed",
+      "weighted": 1,
+      "body_chars": 28946
+    },
+    {
+      "slug": "pe-first-stage-r03-construction",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "reason": "failed",
+      "weighted": 1,
+      "body_chars": 28852
+    },
+    {
+      "slug": "pe-first-stage-r04-aptitude",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "reason": "failed",
+      "weighted": 1,
+      "body_chars": 18317
+    },
+    {
+      "slug": "pe-first-stage-r04-basic",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "reason": "failed",
+      "weighted": 1,
+      "body_chars": 27970
+    },
+    {
+      "slug": "pe-first-stage-r04-construction",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "reason": "failed",
+      "weighted": 1,
+      "body_chars": 29742
+    },
+    {
+      "slug": "pe-first-stage-r05-aptitude",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "reason": "failed",
+      "weighted": 1,
+      "body_chars": 17401
+    },
+    {
+      "slug": "pe-first-stage-r05-basic",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "reason": "failed",
+      "weighted": 1,
+      "body_chars": 26118
+    },
+    {
+      "slug": "pe-first-stage-r05-construction",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "reason": "failed",
+      "weighted": 1,
+      "body_chars": 29775
+    },
+    {
+      "slug": "pe-first-stage-r06-aptitude",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "reason": "failed",
+      "weighted": 1,
+      "body_chars": 19505
+    },
+    {
+      "slug": "pe-first-stage-r06-basic",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "reason": "failed",
+      "weighted": 1,
+      "body_chars": 30353
+    },
+    {
+      "slug": "pe-first-stage-r06-construction",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "reason": "failed",
+      "weighted": 1,
+      "body_chars": 28827
+    },
+    {
+      "slug": "pe-first-stage-r07-aptitude",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "reason": "failed",
+      "weighted": 1,
+      "body_chars": 16124
+    },
+    {
+      "slug": "pe-first-stage-r07-basic",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "reason": "failed",
+      "weighted": 1,
+      "body_chars": 27530
+    },
+    {
+      "slug": "pe-first-stage-r07-construction",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "reason": "failed",
+      "weighted": 1,
+      "body_chars": 31385
     }
   ],
   "articles": [
@@ -4326,9 +4494,9 @@
       "category": "civil-construction-1",
       "group": "textbook",
       "body_chars": 5519,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
+      "scored": true,
+      "weighted": 3,
+      "scored_at": "2026-07-10T00:00:00.000Z",
       "failed": false,
       "thin": false
     },
@@ -4524,9 +4692,9 @@
       "category": "civil-construction-1",
       "group": "textbook",
       "body_chars": 5708,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
+      "scored": true,
+      "weighted": 3,
+      "scored_at": "2026-07-10T00:00:00.000Z",
       "failed": false,
       "thin": false
     },
@@ -4590,9 +4758,9 @@
       "category": "civil-construction-1",
       "group": "textbook",
       "body_chars": 3956,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
+      "scored": true,
+      "weighted": 3,
+      "scored_at": "2026-07-10T00:00:00.000Z",
       "failed": false,
       "thin": false
     },
@@ -4601,9 +4769,9 @@
       "category": "civil-construction-1",
       "group": "textbook",
       "body_chars": 4891,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
+      "scored": true,
+      "weighted": 3,
+      "scored_at": "2026-07-10T00:00:00.000Z",
       "failed": false,
       "thin": false
     },
@@ -4612,9 +4780,9 @@
       "category": "civil-construction-1",
       "group": "textbook",
       "body_chars": 5065,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
+      "scored": true,
+      "weighted": 2.8,
+      "scored_at": "2026-07-10T00:00:00.000Z",
       "failed": false,
       "thin": false
     },
@@ -4623,9 +4791,9 @@
       "category": "civil-construction-1",
       "group": "textbook",
       "body_chars": 4257,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
+      "scored": true,
+      "weighted": 3,
+      "scored_at": "2026-07-10T00:00:00.000Z",
       "failed": false,
       "thin": false
     },
@@ -4634,9 +4802,9 @@
       "category": "civil-construction-1",
       "group": "textbook",
       "body_chars": 3511,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
+      "scored": true,
+      "weighted": 3,
+      "scored_at": "2026-07-10T00:00:00.000Z",
       "failed": false,
       "thin": false
     },
@@ -4645,9 +4813,9 @@
       "category": "civil-construction-1",
       "group": "textbook",
       "body_chars": 4741,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
+      "scored": true,
+      "weighted": 3,
+      "scored_at": "2026-07-10T00:00:00.000Z",
       "failed": false,
       "thin": false
     },
@@ -4656,9 +4824,9 @@
       "category": "civil-construction-1",
       "group": "textbook",
       "body_chars": 5602,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
+      "scored": true,
+      "weighted": 2.8,
+      "scored_at": "2026-07-10T00:00:00.000Z",
       "failed": false,
       "thin": false
     },
@@ -4766,9 +4934,9 @@
       "category": "civil-construction-1",
       "group": "textbook",
       "body_chars": 6202,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
+      "scored": true,
+      "weighted": 3,
+      "scored_at": "2026-07-10T00:00:00.000Z",
       "failed": false,
       "thin": false
     },
@@ -4777,9 +4945,9 @@
       "category": "civil-construction-1",
       "group": "textbook",
       "body_chars": 5498,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
+      "scored": true,
+      "weighted": 3,
+      "scored_at": "2026-07-10T00:00:00.000Z",
       "failed": false,
       "thin": false
     },
@@ -14831,10 +14999,10 @@
       "category": "pe-first-stage",
       "group": "primary",
       "body_chars": 17252,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
-      "failed": false,
+      "scored": true,
+      "weighted": 1,
+      "scored_at": "2026-07-10T00:00:00.000Z",
+      "failed": true,
       "thin": false
     },
     {
@@ -14842,10 +15010,10 @@
       "category": "pe-first-stage",
       "group": "primary",
       "body_chars": 30005,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
-      "failed": false,
+      "scored": true,
+      "weighted": 1,
+      "scored_at": "2026-07-10T00:00:00.000Z",
+      "failed": true,
       "thin": false
     },
     {
@@ -14853,10 +15021,10 @@
       "category": "pe-first-stage",
       "group": "primary",
       "body_chars": 29558,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
-      "failed": false,
+      "scored": true,
+      "weighted": 1,
+      "scored_at": "2026-07-10T00:00:00.000Z",
+      "failed": true,
       "thin": false
     },
     {
@@ -14864,10 +15032,10 @@
       "category": "pe-first-stage",
       "group": "primary",
       "body_chars": 17866,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
-      "failed": false,
+      "scored": true,
+      "weighted": 1,
+      "scored_at": "2026-07-10T00:00:00.000Z",
+      "failed": true,
       "thin": false
     },
     {
@@ -14875,10 +15043,10 @@
       "category": "pe-first-stage",
       "group": "primary",
       "body_chars": 31292,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
-      "failed": false,
+      "scored": true,
+      "weighted": 1,
+      "scored_at": "2026-07-10T00:00:00.000Z",
+      "failed": true,
       "thin": false
     },
     {
@@ -14886,10 +15054,10 @@
       "category": "pe-first-stage",
       "group": "primary",
       "body_chars": 28017,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
-      "failed": false,
+      "scored": true,
+      "weighted": 1,
+      "scored_at": "2026-07-10T00:00:00.000Z",
+      "failed": true,
       "thin": false
     },
     {
@@ -14897,10 +15065,10 @@
       "category": "pe-first-stage",
       "group": "primary",
       "body_chars": 17523,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
-      "failed": false,
+      "scored": true,
+      "weighted": 1,
+      "scored_at": "2026-07-10T00:00:00.000Z",
+      "failed": true,
       "thin": false
     },
     {
@@ -14908,10 +15076,10 @@
       "category": "pe-first-stage",
       "group": "primary",
       "body_chars": 28946,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
-      "failed": false,
+      "scored": true,
+      "weighted": 1,
+      "scored_at": "2026-07-10T00:00:00.000Z",
+      "failed": true,
       "thin": false
     },
     {
@@ -14919,10 +15087,10 @@
       "category": "pe-first-stage",
       "group": "primary",
       "body_chars": 28852,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
-      "failed": false,
+      "scored": true,
+      "weighted": 1,
+      "scored_at": "2026-07-10T00:00:00.000Z",
+      "failed": true,
       "thin": false
     },
     {
@@ -14930,10 +15098,10 @@
       "category": "pe-first-stage",
       "group": "primary",
       "body_chars": 18317,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
-      "failed": false,
+      "scored": true,
+      "weighted": 1,
+      "scored_at": "2026-07-10T00:00:00.000Z",
+      "failed": true,
       "thin": false
     },
     {
@@ -14941,10 +15109,10 @@
       "category": "pe-first-stage",
       "group": "primary",
       "body_chars": 27970,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
-      "failed": false,
+      "scored": true,
+      "weighted": 1,
+      "scored_at": "2026-07-10T00:00:00.000Z",
+      "failed": true,
       "thin": false
     },
     {
@@ -14952,10 +15120,10 @@
       "category": "pe-first-stage",
       "group": "primary",
       "body_chars": 29742,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
-      "failed": false,
+      "scored": true,
+      "weighted": 1,
+      "scored_at": "2026-07-10T00:00:00.000Z",
+      "failed": true,
       "thin": false
     },
     {
@@ -14963,10 +15131,10 @@
       "category": "pe-first-stage",
       "group": "primary",
       "body_chars": 17401,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
-      "failed": false,
+      "scored": true,
+      "weighted": 1,
+      "scored_at": "2026-07-10T00:00:00.000Z",
+      "failed": true,
       "thin": false
     },
     {
@@ -14974,10 +15142,10 @@
       "category": "pe-first-stage",
       "group": "primary",
       "body_chars": 26118,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
-      "failed": false,
+      "scored": true,
+      "weighted": 1,
+      "scored_at": "2026-07-10T00:00:00.000Z",
+      "failed": true,
       "thin": false
     },
     {
@@ -14985,10 +15153,10 @@
       "category": "pe-first-stage",
       "group": "primary",
       "body_chars": 29775,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
-      "failed": false,
+      "scored": true,
+      "weighted": 1,
+      "scored_at": "2026-07-10T00:00:00.000Z",
+      "failed": true,
       "thin": false
     },
     {
@@ -14996,10 +15164,10 @@
       "category": "pe-first-stage",
       "group": "primary",
       "body_chars": 19505,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
-      "failed": false,
+      "scored": true,
+      "weighted": 1,
+      "scored_at": "2026-07-10T00:00:00.000Z",
+      "failed": true,
       "thin": false
     },
     {
@@ -15007,10 +15175,10 @@
       "category": "pe-first-stage",
       "group": "primary",
       "body_chars": 30353,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
-      "failed": false,
+      "scored": true,
+      "weighted": 1,
+      "scored_at": "2026-07-10T00:00:00.000Z",
+      "failed": true,
       "thin": false
     },
     {
@@ -15018,10 +15186,10 @@
       "category": "pe-first-stage",
       "group": "primary",
       "body_chars": 28827,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
-      "failed": false,
+      "scored": true,
+      "weighted": 1,
+      "scored_at": "2026-07-10T00:00:00.000Z",
+      "failed": true,
       "thin": false
     },
     {
@@ -15029,10 +15197,10 @@
       "category": "pe-first-stage",
       "group": "primary",
       "body_chars": 16124,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
-      "failed": false,
+      "scored": true,
+      "weighted": 1,
+      "scored_at": "2026-07-10T00:00:00.000Z",
+      "failed": true,
       "thin": false
     },
     {
@@ -15040,10 +15208,10 @@
       "category": "pe-first-stage",
       "group": "primary",
       "body_chars": 27530,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
-      "failed": false,
+      "scored": true,
+      "weighted": 1,
+      "scored_at": "2026-07-10T00:00:00.000Z",
+      "failed": true,
       "thin": false
     },
     {
@@ -15051,10 +15219,10 @@
       "category": "pe-first-stage",
       "group": "primary",
       "body_chars": 31385,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
-      "failed": false,
+      "scored": true,
+      "weighted": 1,
+      "scored_at": "2026-07-10T00:00:00.000Z",
+      "failed": true,
       "thin": false
     }
   ]

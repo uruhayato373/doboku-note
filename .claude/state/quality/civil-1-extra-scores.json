@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "categories": [
+    "civil-construction-1"
+  ],
+  "scored_at": "2026-07-10T00:00:00.000Z",
+  "pages": {
+    "textbook-construction-byproduct-recycle": {
+      "slug": "civil-construction-1-textbook-construction-byproduct-recycle",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "frontmatter完備・2法対比が明快。ArticleImage2点にalt適切、参考資料は公的＋民間＋e-Gov内部リンク・過去問バックリンク完備。減点箇所なし。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "textbook-noise-vibration-regulation": {
+      "slug": "civil-construction-1-textbook-noise-vibration-regulation",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "数値の塊を3グループに整理し文体一貫。ArticleImage3点・ExamPoint末尾配置・条文e-Gov内部リンク・参考資料に環境省と民間技術資料を両立。優秀。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "textbook-safety-excavation-shoring": {
+      "slug": "civil-construction-1-textbook-safety-excavation-shoring",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "掘削・支保工の数値と作業主任者を対比整理。図4点alt適切、参考資料に安衛法/則e-Gov・建災防・Wikipedia。文体・見出し・導入とも安定。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "textbook-safety-industrial-safety-law": {
+      "slug": "civil-construction-1-textbook-safety-industrial-safety-law",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "届出3系統を主体×数値で整理、第88条にe-Gov内部リンク。ArticleImage2点・末尾ExamPoint・参考資料も公的＋Wikipedia。表を使わずリストで視認性良好。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "textbook-safety-machinery-crane": {
+      "slug": "civil-construction-1-textbook-safety-machinery-crane",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 2,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 3
+      },
+      "weighted": 2.8,
+      "weak_axes": [
+        "principle"
+      ],
+      "qualitative_comment": "内容・図・参考資料は優秀。ただしL32/L59等で常体が敬体prose中に混入し文体が不統一。統一すれば満点級。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "textbook-safety-management-system": {
+      "slug": "civil-construction-1-textbook-safety-management-system",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "度数率/強度率をKaTeX Calloutで明示、選任人数を事業場/混在で対比。図2点alt適切・参考資料はあんぜんサイト＋Wikipedia。文体一貫で優秀。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "textbook-safety-risk-assessment": {
+      "slug": "civil-construction-1-textbook-safety-risk-assessment",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "RA手順と低減措置優先順位を明快に整理、保護具=最終手段の引っかけをCalloutで警告。図3点・末尾ExamPoint・第28条の2にe-Gov内部リンク。優秀。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "textbook-safety-scaffolding": {
+      "slug": "civil-construction-1-textbook-safety-scaffolding",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "足場の頻出数値をグルーピング、つり足場の対比も的確。図3点alt適切・ExamPoint2本・参考資料に仮設工業会等民間も。優秀。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "textbook-safety-work-environment": {
+      "slug": "civil-construction-1-textbook-safety-work-environment",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 2,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 3
+      },
+      "weighted": 2.8,
+      "weak_axes": [
+        "principle"
+      ],
+      "qualitative_comment": "投下/酸欠/悪天候の数値を網羅し図・参考資料も良好。ただし敬体prose中に常体が混じる箇所があり文体統一で満点級。密度高め。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "textbook-waste-disposal-manifest": {
+      "slug": "civil-construction-1-textbook-waste-disposal-manifest",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "排出事業者責任・二者契約・マニフェスト日数・処分場3形式を4柱で整理。図4点alt適切・ExamPoint2本・参考資料に環境省＋連合会。文体一貫で優秀。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "textbook-water-air-soil-pollution": {
+      "slug": "civil-construction-1-textbook-water-air-soil-pollution",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "排出物×法令の対応と排水先分岐を骨格化、SpecSheetList/図の使い分けが適切。図3点・e-Gov4法内部リンク・参考資料に民間解説サイトも。優秀。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    }
+  }
+}

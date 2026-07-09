@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "categories": [
+    "pe-first-stage"
+  ],
+  "scored_at": "2026-07-10T00:00:00.000Z",
+  "pages": {
+    "r01-aptitude": {
+      "slug": "pe-first-stage-r01-aptitude",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 0,
+        "mobile": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "正答・選択肢解説・ExamPointは折衷案準拠で良質。ただしRelatedKeywordsが本文に存在せず0軸クランプ。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r01-basic": {
+      "slug": "pe-first-stage-r01-basic",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 3,
+        "related_keywords": 0,
+        "mobile": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "answer_accuracy",
+        "option_verification",
+        "related_keywords"
+      ],
+      "qualitative_comment": "ハミング距離の逆算根拠がやや粗い。RelatedKeywords不在で0軸クランプ。計算問題の式は概ね明快。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r01-construction": {
+      "slug": "pe-first-stage-r01-construction",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 3,
+        "related_keywords": 0,
+        "mobile": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "answer_accuracy",
+        "option_verification",
+        "related_keywords"
+      ],
+      "qualitative_comment": "航路幅員の解説が数値未提示で弱い。全体は良質だがRelatedKeywords不在で0軸クランプ。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r02-aptitude": {
+      "slug": "pe-first-stage-r02-aptitude",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 0,
+        "mobile": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "折衷案構造・選択肢解説・ExamPointとも高品質。RelatedKeywords欠落で0軸クランプ。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r02-basic": {
+      "slug": "pe-first-stage-r02-basic",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 3,
+        "related_keywords": 0,
+        "mobile": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "answer_accuracy",
+        "option_verification",
+        "related_keywords"
+      ],
+      "qualitative_comment": "PCR代謝計算問題は前提の曖昧さを解説内で自認しており正答論拠がやや弱い。RelatedKeywords不在で0軸。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r02-construction": {
+      "slug": "pe-first-stage-r02-construction",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 1,
+        "option_verification": 2,
+        "exampoint": 3,
+        "related_keywords": 0,
+        "mobile": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "answer_accuracy",
+        "option_verification",
+        "related_keywords"
+      ],
+      "qualitative_comment": "堤防・スコーピング・沈砂池で正答根拠が本文内で自己撞着的に弱い箇所が複数。RelatedKeywords不在で0軸。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r03-aptitude": {
+      "slug": "pe-first-stage-r03-aptitude",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 0,
+        "mobile": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "技術士法・SDGs・安全保障貿易管理等の解説は的確で正答論拠も明快。RelatedKeywords欠落で0軸クランプ。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r03-basic": {
+      "slug": "pe-first-stage-r03-basic",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 0,
+        "mobile": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "折衷案構造・正誤理由・ExamPointとも高品質。RelatedKeywords完全欠落が唯一の欠陥で0軸クランプ。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r03-construction": {
+      "slug": "pe-first-stage-r03-construction",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 1,
+        "option_verification": 1,
+        "exampoint": 2,
+        "related_keywords": 0,
+        "mobile": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "answer_accuracy",
+        "option_verification",
+        "related_keywords"
+      ],
+      "qualitative_comment": "Ⅲ-2はc低いが正しいのに選択肢3のc高いを正答とする自己矛盾。Ⅲ-18も正誤理由が破綻。RelatedKeywordsも欠落。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r04-aptitude": {
+      "slug": "pe-first-stage-r04-aptitude",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 2,
+        "exampoint": 3,
+        "related_keywords": 0,
+        "mobile": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "option_verification",
+        "related_keywords"
+      ],
+      "qualitative_comment": "全体高品質。Ⅱ-8/Ⅱ-11に本問の公式正答ではという機械的な逃げ理由あり。RelatedKeywords欠落で0軸クランプ。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r04-basic": {
+      "slug": "pe-first-stage-r04-basic",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 1,
+        "option_verification": 2,
+        "exampoint": 3,
+        "related_keywords": 0,
+        "mobile": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "answer_accuracy",
+        "related_keywords"
+      ],
+      "qualitative_comment": "Ⅰ-2-4のハミング距離解説がアに該当する誤り検出の指標は4と意味不明で破綻。他問は概ね良好。RelatedKeywords欠落。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r04-construction": {
+      "slug": "pe-first-stage-r04-construction",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 3,
+        "related_keywords": 0,
+        "mobile": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "answer_accuracy",
+        "option_verification",
+        "related_keywords"
+      ],
+      "qualitative_comment": "Ⅲ-2で数値不整合を強引に帳尻合わせる記述あり。他は高品質。RelatedKeywords完全欠落で0軸クランプ。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r05-aptitude": {
+      "slug": "pe-first-stage-r05-aptitude",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 0,
+        "mobile": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "全問で正答明示・正誤理由・ExamPointとも高品質。RelatedKeywords完全欠落のみが課題。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r05-basic": {
+      "slug": "pe-first-stage-r05-basic",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 0,
+        "mobile": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "計算問題のKaTeX解説・正誤理由とも精度高い。RelatedKeywords完全欠落のみが課題。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r05-construction": {
+      "slug": "pe-first-stage-r05-construction",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 1,
+        "related_keywords": 0,
+        "mobile": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "option_verification",
+        "exampoint",
+        "related_keywords"
+      ],
+      "qualitative_comment": "RelatedKeywords皆無、ExamPoint items3件が常態化。Ⅲ-14/Ⅲ-22で正誤理由が正答キーは○型の弱い説明に留まる。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r06-aptitude": {
+      "slug": "pe-first-stage-r06-aptitude",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 1,
+        "related_keywords": 0,
+        "mobile": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "exampoint",
+        "related_keywords"
+      ],
+      "qualitative_comment": "正答・全選択肢検証は良好。RelatedKeywords欠落、ExamPoint items3件の常態化のみ課題。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r06-basic": {
+      "slug": "pe-first-stage-r06-basic",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 1,
+        "related_keywords": 0,
+        "mobile": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "exampoint",
+        "related_keywords"
+      ],
+      "qualitative_comment": "計算問題のKaTeX解説が丁寧で正誤理由も明確。RelatedKeywords欠落とExamPoint3項目化が共通課題。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r06-construction": {
+      "slug": "pe-first-stage-r06-construction",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 1,
+        "related_keywords": 0,
+        "mobile": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "option_verification",
+        "exampoint",
+        "related_keywords"
+      ],
+      "qualitative_comment": "Ⅲ-13/Ⅲ-16で正答キーで◯とされている型の推測的説明が複数箇所。RelatedKeywords欠落。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r07-aptitude": {
+      "slug": "pe-first-stage-r07-aptitude",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 1,
+        "related_keywords": 0,
+        "mobile": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "exampoint",
+        "related_keywords"
+      ],
+      "qualitative_comment": "正答根拠が条文・制度に基づき明確。RelatedKeywords欠落とExamPoint3項目化のみ課題。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r07-basic": {
+      "slug": "pe-first-stage-r07-basic",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 1,
+        "related_keywords": 0,
+        "mobile": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "exampoint",
+        "related_keywords"
+      ],
+      "qualitative_comment": "計算・専門知識問題とも解説が的確。RelatedKeywords欠落・ExamPoint3項目化は共通のドリフト。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r07-construction": {
+      "slug": "pe-first-stage-r07-construction",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 1,
+        "option_verification": 2,
+        "exampoint": 1,
+        "related_keywords": 0,
+        "mobile": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "answer_accuracy",
+        "option_verification",
+        "exampoint",
+        "related_keywords"
+      ],
+      "qualitative_comment": "Ⅲ-13で正答未確定を告白する記事構成、Ⅲ-4/Ⅲ-14に弱い正誤理由あり。RelatedKeywords皆無。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    }
+  }
+}
