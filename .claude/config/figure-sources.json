@@ -442,6 +442,318 @@
       "needs": "ok",
       "reason": "CC機材写真・写り込みなし。OCRが機材ブランド文字をperiods誤検知したrecrop-review偽陽性 2026-07-09",
       "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-h28-b/img/h28-b-fig-04",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-r01-a/img/r01-a-fig-01",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-h26-a/img/h26-a-fig-no1-consistency",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-h28-b/img/h28-b-fig-01",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-h26-b/img/h26-b-fig-03",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-h26-b/img/h26-b-fig-02",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-construction-plan-past-problems/img/fig-culvert-flow-h30",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-h29-b/img/h29-b-fig-03",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-r06-b/img/r06-b-fig-01",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-r04-b/img/r04-b-fig-01",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-r07-a/img/r07-a-fig-03",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-h30-a/img/h30-a-fig-11",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-concrete-past-problems/img/fig-slump-column",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-concrete-past-problems/img/fig-chute-past",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-h30-a/img/h30-a-fig-02",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-construction-plan-past-problems/img/fig-retaining-wall-flow-h26",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-h30-a/img/h30-a-fig-05",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-r06/img/i-5-compaction-curve",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/textbook-demolition/img/fig-6-6",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-h30-a/img/h30-a-fig-09",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-r05/img/i-11-box-culvert-section",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-r01-a/img/r01-a-fig-10",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-construction-plan-basics/img/fig-4-2",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-construction-plan-basics/img/fig-4-12",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-construction-plan-basics/img/fig-4-5",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-r04/img/i-8-shoring-section",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-construction-plan-past-problems/img/fig-box-culvert-h30",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-r07/img/i-11-l-retaining-wall",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/textbook-demolition/img/fig-6-5",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-r07-b/img/r07-b-fig-01",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-h30-b/img/h30-b-fig-02",
+      "needs": "ok",
+      "reason": "workflow判定=既にクリーン（親QA確認・写り込みなし）2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-r07-a/img/r07-a-fig-02",
+      "needs": "ok",
+      "reason": "workflow判定=既にクリーン（親QA確認・写り込みなし）2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-r06-a/img/r06-a-fig-02",
+      "needs": "ok",
+      "reason": "workflow判定=既にクリーン（親QA確認・写り込みなし）2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-r06-a/img/r06-a-fig-05",
+      "needs": "ok",
+      "reason": "workflow判定=既にクリーン（親QA確認・写り込みなし）2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-r01-b/img/r01-b-fig-04",
+      "needs": "rescan-need-source",
+      "reason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-construction-plan-past-problems/img/fig-culvert-flow-h23",
+      "needs": "rescan-need-source",
+      "reason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-r01-b/img/r01-b-fig-02",
+      "needs": "rescan-need-source",
+      "reason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-h29-b/img/h29-b-fig-02",
+      "needs": "rescan-need-source",
+      "reason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-h27-b/img/h27-b-fig-02",
+      "needs": "rescan-need-source",
+      "reason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-quality-management-basics/img/fig-5-1",
+      "needs": "rescan-need-source",
+      "reason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-h28-b/img/h28-b-fig-03",
+      "needs": "rescan-need-source",
+      "reason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-h30-b/img/h30-b-fig-03",
+      "needs": "rescan-need-source",
+      "reason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-h27-a/img/h27-a-fig-01",
+      "needs": "rescan-need-source",
+      "reason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-quality-management-basics/img/fig-5-5",
+      "needs": "rescan-need-source",
+      "reason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-r03/img/i-11-culvert-section",
+      "needs": "rescan-need-source",
+      "reason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-quality-management-basics/img/fig-5-2",
+      "needs": "rescan-need-source",
+      "reason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-h26-a/img/h26-a-fig-06",
+      "needs": "rescan-need-source",
+      "reason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-r07/img/i-10-machinery-scene",
+      "needs": "rescan-need-source",
+      "reason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/textbook-demolition/img/fig-6-2",
+      "needs": "rescan-need-source",
+      "reason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-r06/img/i-8-shoring-section",
+      "needs": "rescan-need-source",
+      "reason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-r03-b/img/r03-b-fig-01",
+      "needs": "rescan-need-source",
+      "reason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-r05-b/img/r05-b-fig-01",
+      "needs": "rescan-need-source",
+      "reason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09",
+      "verified": "2026-07-09"
     }
   ],
   "categories": {
