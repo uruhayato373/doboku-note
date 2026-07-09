@@ -142,6 +142,12 @@
       "needs": "ok",
       "reason": "上部の前段テーブル写り込み・左余白行番号・図2.20キャプションを除去して再クロップ 2026-07-09",
       "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-construction-plan-past-problems/img/fig-box-culvert-h23",
+      "needs": "ok",
+      "reason": "上部の設問文写り込み4行を除去して断面図のみに再クロップ 2026-07-09",
+      "verified": "2026-07-09"
     }
   ],
   "categories": {
