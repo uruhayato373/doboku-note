@@ -10,6 +10,7 @@
  *   /api/gallery/{ogp|figures|note|sns} … ギャラリー走査 JSON（lib/scan.mjs）
  *   /api/sns/board                      … SNS 投稿状態板 JSON（lib/sot.mjs）
  *   /api/quality                        … コンテンツ品質集計 JSON（lib/quality.mjs）
+ *   /api/quality-census                 … ルーブリック採点カバレッジ census（lib/quality.mjs qualityCensus）
  *   /api/actions                        … 実行可能アクション一覧（GET）
  *   /api/job/run   (POST, SSE)          … アクション実行 + ログストリーム（lib/jobs.mjs）
  *   /api/job/status (GET)               … 実行中ジョブ状態
@@ -28,7 +29,7 @@ import { snsBoard } from "./lib/sot.mjs";
 import { ACTIONS, startJob, jobStatus } from "./lib/jobs.mjs";
 import { articlesIndex, magazines, noteArticles } from "./lib/content.mjs";
 import { salesSummary } from "./lib/sales.mjs";
-import { qualitySummary } from "./lib/quality.mjs";
+import { qualitySummary, qualityCensus } from "./lib/quality.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const PUBLIC = resolve(join(HERE, "public"));
@@ -84,6 +85,8 @@ async function handleApi(req, res, url) {
         return sendJson(res, 200, await cached("sales", salesSummary, refresh));
       case "/api/quality":
         return sendJson(res, 200, await cached("quality", qualitySummary, refresh));
+      case "/api/quality-census":
+        return sendJson(res, 200, await cached("quality-census", qualityCensus, refresh));
       case "/api/actions":
         return sendJson(res, 200, {
           actions: Object.entries(ACTIONS).map(([id, a]) => ({

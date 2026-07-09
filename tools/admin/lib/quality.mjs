@@ -23,6 +23,7 @@ const HISTORY = join(ROOT, ".claude", "state", "quality", "history.jsonl");
 const POPULAR = join(ROOT, "src", "config", "popular-pages.json");
 const RULES = join(ROOT, ".claude", "config", "content-rules.json");
 const DOCMETA = join(ROOT, "src", "config", "doc-meta-index.json");
+const CENSUS = join(ROOT, ".claude", "state", "quality", "census.json");
 
 function readJson(p, fallback) {
   try { return JSON.parse(readFileSync(p, "utf8")); } catch { return fallback; }
@@ -118,5 +119,28 @@ export function qualitySummary() {
     byRule,
     byExam,
     history,
+  };
+}
+
+/**
+ * ルーブリック採点カバレッジ census（読み取り専用）。
+ * `.claude/state/quality/census.json`（npm run quality-census で生成）をそのまま返す。
+ * 生成物が無い場合は present:false を返し、UI が生成コマンドを案内する。
+ */
+export function qualityCensus() {
+  if (!existsSync(CENSUS)) {
+    return { present: false, hint: "npm run quality-census" };
+  }
+  const c = readJson(CENSUS, null);
+  if (!c) return { present: false, hint: "npm run quality-census" };
+  // 記事全件（articles）は重いので、rewrite_queue の未採点/薄層別件数と
+  // 資格 × group カバレッジ表・全体サマリーのみを返す（UI は census タブで軽量表示）。
+  return {
+    present: true,
+    generated_at: c.generated_at || null,
+    thresholds: c.thresholds || null,
+    totals: c.totals || null,
+    by_category: c.by_category || {},
+    rewrite_queue_count: Array.isArray(c.rewrite_queue) ? c.rewrite_queue.length : 0,
   };
 }

@@ -40,10 +40,52 @@
       `<path d="${line}" fill="none" stroke="#16365c" stroke-width="1.5"></path>${dots}</svg>`;
   }
 
+  // ルーブリック採点カバレッジ census（資格 × group の採点済み/未採点/不合格/薄層）。
+  // 真実源は .claude/state/quality/census.json（npm run quality-census で生成）。
+  function censusSection(c) {
+    if (!c || !c.present) {
+      return `<div class="board-section"><h2>採点カバレッジ（census）</h2>` +
+        `<div class="cinfo">未生成。<code>npm run quality-census</code> を実行すると資格 × group の採点率が出ます。</div></div>`;
+    }
+    const t = c.totals || {};
+    const th = c.thresholds || {};
+    const head = `<div class="cinfo">全 published <b>${t.total}</b> 件　/　採点済み <b>${t.scored}</b>（${t.coverage_pct}%）` +
+      `　未採点 <b>${t.unscored}</b>　不合格 <b>${t.failed}</b>　薄層 <b>${t.thin}</b>` +
+      `<br><small style="color:#888">薄層 = ${(th.thin_groups || []).join("/")} かつ 本文 ${th.thin_chars} 字未満（frontmatter 除外・空白除去）。` +
+      `不合格 = weighted &lt; ${th.fail}。rewrite queue ${c.rewrite_queue_count} 件。生成 ${esc((c.generated_at || "").slice(0, 10))}</small></div>`;
+    const rows = [];
+    for (const [cat, node] of Object.entries(c.by_category || {})) {
+      const ct = node.totals || {};
+      rows.push(`<tr class="row" style="background:#fafafa"><td><b>${esc(cat)}</b></td><td>—</td>` +
+        `<td style="text-align:right"><b>${ct.scored}/${ct.total}</b></td>` +
+        `<td style="text-align:right">${ct.unscored || ""}</td>` +
+        `<td style="text-align:right">${ct.failed || ""}</td>` +
+        `<td style="text-align:right">${ct.thin || ""}</td><td></td></tr>`);
+      for (const [g, a] of Object.entries(node.groups || {})) {
+        const gap = a.unscored || a.failed || a.thin;
+        rows.push(`<tr class="row"><td style="padding-left:20px;color:#666">${esc(GROUP_LABEL[g] || g)}</td>` +
+          `<td style="text-align:right;color:#999">${a.avg_weighted != null ? a.avg_weighted : "—"}</td>` +
+          `<td style="text-align:right">${a.scored}/${a.total}</td>` +
+          `<td style="text-align:right">${a.unscored ? `<span class="badge medium">${a.unscored}</span>` : ""}</td>` +
+          `<td style="text-align:right">${a.failed ? `<span class="badge high">${a.failed}</span>` : ""}</td>` +
+          `<td style="text-align:right">${a.thin ? `<span class="badge low">${a.thin}</span>` : ""}</td>` +
+          `<td>${gap ? "" : "<span style=\"color:#3a3\">✓</span>"}</td></tr>`);
+      }
+    }
+    return `<div class="board-section"><h2>採点カバレッジ（census）</h2>${head}` +
+      `<table class="summary"><thead><tr><th>資格 / 分類</th><th style="text-align:right">avg</th>` +
+      `<th style="text-align:right">採点/総数</th><th style="text-align:right">未採点</th>` +
+      `<th style="text-align:right">不合格</th><th style="text-align:right">薄層</th><th></th></tr></thead>` +
+      `<tbody>${rows.join("")}</tbody></table></div>`;
+  }
+
   App.register("quality", {
     async render(main, filterbar) {
       filterbar.innerHTML = "";
-      const data = await fetchJson("/api/quality");
+      const [data, census] = await Promise.all([
+        fetchJson("/api/quality"),
+        fetchJson("/api/quality-census").catch(() => null),
+      ]);
       const { totals, articleCount, articles, byRule, byExam, history, window: win, generatedFrom } = data;
 
       // サマリカード
@@ -100,6 +142,7 @@
 
       main.innerHTML =
         `<div class="pub-wrap" style="max-width:900px">` +
+        censusSection(census) +
         cinfo +
         `<div class="board-section"><h2>違反バーンダウン</h2>${burndown(history)}</div>` +
         ruleTable +

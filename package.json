@@ -111,6 +111,7 @@
     "test": "node --test tests/",
     "test:watch": "node --test --watch tests/",
     "check-guide-length": "node scripts/check-guide-length.mjs",
+    "quality-census": "node .claude/scripts/build-quality-census.mjs",
     "check-note-site-utm": "node scripts/check-note-site-utm.mjs",
     "check-x-utm": "node scripts/check-x-utm.mjs",
     "verify-yt-status": "node .claude/scripts/youtube/verify-yt-status.mjs",
