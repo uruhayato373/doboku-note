@@ -54,8 +54,10 @@
 
 > 注（完了・2026-07-09続き）: **他資格の recrop-review 48図も並列workflowで処理し、非ドラフト全資格で recrop-review 0 に**（civil-2 11/pe-first-stage 15/pe-construction 13/pe-comprehensive 9＝png36+webp12、webpは sharp extract で直接クロップ）。crop26/ok9/needs-source13。親QAで q35-fig・fig05 を crop→needs-source 是正（原画も上端で入力ラベル/見出しを切断）。機材写真9枚はok。**concrete-diagnostician 26図は著作権凍結ドラフト（`published:false`）のため意図的に除外**＝これが recrop-review の全残数。
 
-**残（2026-07-09・優先度順）**:
-1. 🟡 **rescan-need-source 45図**（全資格・図本体が原典スキャンで画像端に見切れ＝civil-1 32/pe-first-stage 6/pe-construction 4/civil-2 2/pe-comprehensive 1）。`manual_needs`登録済・クロップ不能。完全な元スキャン入手 or SVG再作図で解消（ユーザー作業 or 別バッチ）。
+> 注（完了・2026-07-10）: **rescan-need-source を 45→6 に削減（39図フル再抽出）**。「要ソース再取得＝クロップ不能」は誤りで、元PDF（過去問/テキスト/問題集）が大半実在し**フル再抽出可能**と判明（ユーザー指摘起点）。並行workflow 5本＋**親の新旧比較目視QA**で復元し、各 manual_needs に `source_pdf`/`page`/`dpi` を記録（繰り返し可能化）。QAで h29-b-fig-02 の問題集版=2図劣化を検出し除外（旧4図維持）。commit `b3dd2e567`/`dda9e86a9`/`218c64474`/`0b9324923`/`2fe13b647`。詳細 → [[civil1-figure-answer-leak-remediation]]。
+
+**残（2026-07-10・優先度順）**:
+1. 🟡 **rescan-need-source 6図**（真にローカルPDF再抽出不可・要外部/別原典）＝h29-b-fig-02（旧4図完全・タイトルのみ上端切れ→要H29第2次B原典で補完）/h27-a-fig-01（問題集にH27非収録→要H27原典）/pe-construction 4（fig22/27/04/05＝スキャン書籍の白書グラフ再録→要白書PDF等の外部ソース）。台帳に理由記録済。
 2. 🟢 **concrete-diagnostician recrop-review 26**（`published:false` 著作権凍結ドラフト内）。図クロップ著作権方針（L597）が決まるまで保留＝方針決定後にまとめて workflow 処理可。
 3. 🟢 **rescan 33**（concrete-chief 等・書籍スキャン低品質）＝物理再スキャン要（PDF無し・ユーザー作業）。
 4. 🟢 **h30-a-fig-12 の確認**（旧メモの「見切れ」候補・未検証）。fig-04 は答え漏らしとして再クロップ済み（2026-07-09）＝旧メモとの食い違いは fig-04 で解消、残る fig-12 のみ目視確認要。
