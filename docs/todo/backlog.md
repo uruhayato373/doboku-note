@@ -52,9 +52,11 @@
 
 > 注（完了・2026-07-09）: **civil-construction-1 のライブ図 recrop-review を 94→0 に**。手作業13図＋**並列workflow3本（土工22/コンクリート11/残52＝計85エージェント）**で写り込み除去クロップ→**親が全crop図を最終目視QA**（fig-2-55/fig-3-9の写り込み残り、fig-4-12のフォーム切り過ぎ＝原画git復元→再クロップを捕捉修正）。機材写真9枚はOCR偽陽性でok。civil-1 内訳＝**ok 257／rescan-need-source 32（原典見切れ・要再スキャン）／recrop 1**。台帳3種（figure-provenance/sources/text-audit）に全反映済み＝ギャラリーがライブ表示。workflow設計＝並列でPNG/webpクロップ＋自己検証、MDX寸法・台帳は親が直列適用（同一記事MDX/共有台帳の競合回避）。
 
+> 注（完了・2026-07-09続き）: **他資格の recrop-review 48図も並列workflowで処理し、非ドラフト全資格で recrop-review 0 に**（civil-2 11/pe-first-stage 15/pe-construction 13/pe-comprehensive 9＝png36+webp12、webpは sharp extract で直接クロップ）。crop26/ok9/needs-source13。親QAで q35-fig・fig05 を crop→needs-source 是正（原画も上端で入力ラベル/見出しを切断）。機材写真9枚はok。**concrete-diagnostician 26図は著作権凍結ドラフト（`published:false`）のため意図的に除外**＝これが recrop-review の全残数。
+
 **残（2026-07-09・優先度順）**:
-1. 🟡 **civil-1 rescan-need-source 32図**（図本体が原典スキャンで画像端に見切れ／工程表・配筋図・組織図・締固め曲線 等）。`manual_needs`登録済・クロップ不能。完全な元スキャン入手 or SVG再作図で解消（ユーザー作業 or 別バッチ）。
-2. 🟢 **他資格 recrop-review 74**（civil-1 は 0・残は総監 pe 系等）。同 workflow を横展開でトリアージ可。
+1. 🟡 **rescan-need-source 45図**（全資格・図本体が原典スキャンで画像端に見切れ＝civil-1 32/pe-first-stage 6/pe-construction 4/civil-2 2/pe-comprehensive 1）。`manual_needs`登録済・クロップ不能。完全な元スキャン入手 or SVG再作図で解消（ユーザー作業 or 別バッチ）。
+2. 🟢 **concrete-diagnostician recrop-review 26**（`published:false` 著作権凍結ドラフト内）。図クロップ著作権方針（L597）が決まるまで保留＝方針決定後にまとめて workflow 処理可。
 3. 🟢 **rescan 33**（concrete-chief 等・書籍スキャン低品質）＝物理再スキャン要（PDF無し・ユーザー作業）。
 4. 🟢 **h30-a-fig-12 の確認**（旧メモの「見切れ」候補・未検証）。fig-04 は答え漏らしとして再クロップ済み（2026-07-09）＝旧メモとの食い違いは fig-04 で解消、残る fig-12 のみ目視確認要。
 5. 🟢 1級 textbook 10本の `civil-construction-qa` 品質監査（低優先・合格マージン大）。H28-A fig-02/07/08/09 は元 PDF に図が無く（問題用紙テキスト形式）修正不能で確定。
