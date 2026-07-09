@@ -142,9 +142,12 @@
     },
     {
       "figure": "civil-construction-1/primary-h28-a/img/h28-a-fig-01",
-      "needs": "rescan-need-source",
-      "reason": "粒径加積曲線の上端(90-100%)が見切れ。要ソース再取得。",
-      "verified": "2026-07-09"
+      "needs": "ok",
+      "reason": "分野別問題集PDF(p.359)からフル再抽出＝図 粒径加積曲線。旧画像は上部目盛/ラベル/均等係数式/凡例が欠落。並行workflow＋親の新旧比較QA。再クロップ済 2026-07-10。",
+      "verified": "2026-07-10",
+      "source_pdf": "docs/textbook/１級土木施工管理技士/問題集/１級土木施工管理第１次試験問題集.pdf",
+      "page": 359,
+      "dpi": 300
     },
     {
       "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-48",
@@ -714,14 +717,17 @@
     {
       "figure": "civil-construction-1/primary-h29-b/img/h29-b-fig-02",
       "needs": "rescan-need-source",
-      "reason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09",
-      "verified": "2026-07-09"
+      "reason": "逆T型擁壁配筋図。旧画像は4図(一般図/底版伏図/断面図/たて壁)完全だがパネルタイトルが上端見切れ。問題集版は断面図+たて壁の2図のみで一般図/伏図欠落＝劣化のため不採用。旧4図維持。要H29第2次B原典で上端補完。(2026-07-10確認)",
+      "verified": "2026-07-10"
     },
     {
       "figure": "civil-construction-1/primary-h27-b/img/h27-b-fig-02",
-      "needs": "rescan-need-source",
-      "reason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09",
-      "verified": "2026-07-09"
+      "needs": "ok",
+      "reason": "分野別問題集PDF(p.160)からフル再抽出＝ボックスカルバート配筋図4図。旧画像は側壁/断面図の下半分が欠落。並行workflow＋親の新旧比較QA。再クロップ済 2026-07-10。",
+      "verified": "2026-07-10",
+      "source_pdf": "docs/textbook/１級土木施工管理技士/問題集/１級土木施工管理第１次試験問題集.pdf",
+      "page": 160,
+      "dpi": 300
     },
     {
       "figure": "civil-construction-1/secondary-quality-management-basics/img/fig-5-1",
@@ -734,9 +740,12 @@
     },
     {
       "figure": "civil-construction-1/primary-h28-b/img/h28-b-fig-03",
-      "needs": "rescan-need-source",
-      "reason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09",
-      "verified": "2026-07-09"
+      "needs": "ok",
+      "reason": "分野別問題集PDF(p.170)からフル再抽出＝施工体制図(発注者→A→B/C→D/E)。旧画像は選択肢テキストのみの誤抽出だった。並行workflow＋親の新旧比較QA。再クロップ済 2026-07-10。",
+      "verified": "2026-07-10",
+      "source_pdf": "docs/textbook/１級土木施工管理技士/問題集/１級土木施工管理第１次試験問題集.pdf",
+      "page": 170,
+      "dpi": 300
     },
     {
       "figure": "civil-construction-1/primary-h30-b/img/h30-b-fig-03",
@@ -750,8 +759,8 @@
     {
       "figure": "civil-construction-1/primary-h27-a/img/h27-a-fig-01",
       "needs": "rescan-need-source",
-      "reason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09",
-      "verified": "2026-07-09"
+      "reason": "土量の変化図。問題集(分野別収録)にH27版は非収録(R02/R01/H30版のみ)＝再抽出不可。要H27原典入手。(2026-07-10確認)",
+      "verified": "2026-07-10"
     },
     {
       "figure": "civil-construction-1/secondary-quality-management-basics/img/fig-5-5",
@@ -782,9 +791,12 @@
     },
     {
       "figure": "civil-construction-1/primary-h26-a/img/h26-a-fig-06",
-      "needs": "rescan-need-source",
-      "reason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09",
-      "verified": "2026-07-09"
+      "needs": "ok",
+      "reason": "分野別問題集PDF(p.536)からフル再抽出＝図 スランプ10cm以下コンクリートの側圧(柱)。旧画像は左/上部(T=0-20曲線・0-120目盛)が欠落。並行workflow＋親の新旧比較QA。再クロップ済 2026-07-10。",
+      "verified": "2026-07-10",
+      "source_pdf": "docs/textbook/１級土木施工管理技士/問題集/１級土木施工管理第１次試験問題集.pdf",
+      "page": 536,
+      "dpi": 300
     },
     {
       "figure": "civil-construction-1/secondary-r07/img/i-10-machinery-scene",

@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-09T19:12:04.180Z",
+  "generated_at": "2026-07-09T19:30:23.190Z",
   "note": "図provenance。needs=次アクション。真実源: figure-sources.json(台帳)+figure-text-audit.json(品質)。再生成可。",
   "figure_count": 589,
   "summary": {
-    "ok": 492,
-    "rescan-need-source": 10,
+    "ok": 496,
+    "rescan-need-source": 6,
     "recrop": 28,
     "rescan": 33,
     "recrop-review": 26
@@ -92,8 +92,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source",
-      "manualReason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09"
+      "needs": "ok",
+      "manualReason": "分野別問題集PDF(p.536)からフル再抽出＝図 スランプ10cm以下コンクリートの側圧(柱)。旧画像は左/上部(T=0-20曲線・0-120目盛)が欠落。並行workflow＋親の新旧比較QA。再クロップ済 2026-07-10。"
     },
     "civil-construction-1/primary-h26-a/img/h26-a-fig-07": {
       "category": "civil-construction-1",
@@ -265,7 +265,7 @@
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
       "needs": "rescan-need-source",
-      "manualReason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09"
+      "manualReason": "土量の変化図。問題集(分野別収録)にH27版は非収録(R02/R01/H30版のみ)＝再抽出不可。要H27原典入手。(2026-07-10確認)"
     },
     "civil-construction-1/primary-h27-a/img/h27-a-fig-03": {
       "category": "civil-construction-1",
@@ -293,8 +293,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source",
-      "manualReason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09"
+      "needs": "ok",
+      "manualReason": "分野別問題集PDF(p.160)からフル再抽出＝ボックスカルバート配筋図4図。旧画像は側壁/断面図の下半分が欠落。並行workflow＋親の新旧比較QA。再クロップ済 2026-07-10。"
     },
     "civil-construction-1/primary-h28-a/img/h28-a-fig-01": {
       "category": "civil-construction-1",
@@ -308,8 +308,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source",
-      "manualReason": "粒径加積曲線の上端(90-100%)が見切れ。要ソース再取得。"
+      "needs": "ok",
+      "manualReason": "分野別問題集PDF(p.359)からフル再抽出＝図 粒径加積曲線。旧画像は上部目盛/ラベル/均等係数式/凡例が欠落。並行workflow＋親の新旧比較QA。再クロップ済 2026-07-10。"
     },
     "civil-construction-1/primary-h28-a/img/h28-a-fig-02": {
       "category": "civil-construction-1",
@@ -521,8 +521,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source",
-      "manualReason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09"
+      "needs": "ok",
+      "manualReason": "分野別問題集PDF(p.170)からフル再抽出＝施工体制図(発注者→A→B/C→D/E)。旧画像は選択肢テキストのみの誤抽出だった。並行workflow＋親の新旧比較QA。再クロップ済 2026-07-10。"
     },
     "civil-construction-1/primary-h28-b/img/h28-b-fig-04": {
       "category": "civil-construction-1",
@@ -622,7 +622,7 @@
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
       "needs": "rescan-need-source",
-      "manualReason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09"
+      "manualReason": "逆T型擁壁配筋図。旧画像は4図(一般図/底版伏図/断面図/たて壁)完全だがパネルタイトルが上端見切れ。問題集版は断面図+たて壁の2図のみで一般図/伏図欠落＝劣化のため不採用。旧4図維持。要H29第2次B原典で上端補完。(2026-07-10確認)"
     },
     "civil-construction-1/primary-h29-b/img/h29-b-fig-03": {
       "category": "civil-construction-1",
