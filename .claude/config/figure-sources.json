@@ -124,15 +124,21 @@
     },
     {
       "figure": "civil-construction-1/secondary-quality-management-basics/img/fig-rebar-joint",
-      "needs": "rescan-need-source",
-      "reason": "表5.13 鉄筋の継手の検査が下部見切れ(超音波検査行が切断)。出所=過去問解答編・元PDFはスキャン。要ソース再取得。",
-      "verified": "2026-07-09"
+      "needs": "ok",
+      "reason": "教材PDFからフル再抽出＝表3.51 ガス圧接継手の検査。旧画像は備考の2寸法図が欠落。並行workflow＋親目視QA(切れ/写り込み/余白確認)。再クロップ済 2026-07-10。",
+      "verified": "2026-07-10",
+      "source_pdf": "docs/textbook/１級土木施工管理技士/テキスト（土木一般編）/第３章_コンクリート工.pdf",
+      "dpi": 300,
+      "page": 88
     },
     {
       "figure": "civil-construction-1/secondary-quality-management-basics/img/fig-5-6",
-      "needs": "rescan-need-source",
-      "reason": "強度試験の合否判定図が上部本文写り込み＋下部見切れ(合否判定が矢印の先で切断)。要ソース再取得。",
-      "verified": "2026-07-09"
+      "needs": "ok",
+      "reason": "教材PDFからフル再抽出＝図3.42 強度試験の合否判定。旧画像は判定条件(b)が欠落。並行workflow＋親目視QA(切れ/写り込み/余白確認)。再クロップ済 2026-07-10。",
+      "verified": "2026-07-10",
+      "source_pdf": "docs/textbook/１級土木施工管理技士/テキスト（土木一般編）/第３章_コンクリート工.pdf",
+      "dpi": 300,
+      "page": 86
     },
     {
       "figure": "civil-construction-1/primary-h28-a/img/h28-a-fig-01",
@@ -148,9 +154,12 @@
     },
     {
       "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-47",
-      "needs": "rescan-need-source",
-      "reason": "上端でリーダー/マンドレル装置が見切れ・原典PDF再スキャン要 2026-07-09",
-      "verified": "2026-07-09"
+      "needs": "ok",
+      "reason": "教材PDFからフル再抽出＝図1.93 ペーパードレーン工法施工順序。旧画像はクレーン左端が欠落(作画は元教材準拠)。並行workflow＋親目視QA(切れ/写り込み/余白確認)。再クロップ済 2026-07-10。",
+      "verified": "2026-07-10",
+      "source_pdf": "docs/textbook/１級土木施工管理技士/テキスト（土木一般編）/第１章_土工.pdf",
+      "dpi": 300,
+      "page": 76
     },
     {
       "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-20",
@@ -322,21 +331,29 @@
     },
     {
       "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-32",
-      "needs": "rescan-need-source",
-      "reason": "workflow判定=図本体が端で見切れ・原典PDF再スキャン要（親QA確認）2026-07-09",
-      "verified": "2026-07-09"
+      "needs": "ok",
+      "reason": "教材PDFからフル再抽出＝図1.83 U形溝縦排水溝。旧画像は寸法/勾配表が欠落(簡略再描画版を原典に置換)。並行workflow＋親目視QA(切れ/写り込み/余白確認)。再クロップ済 2026-07-10。",
+      "verified": "2026-07-10",
+      "source_pdf": "docs/textbook/１級土木施工管理技士/テキスト（土木一般編）/第１章_土工.pdf",
+      "dpi": 300,
+      "page": 67
     },
     {
       "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-23",
-      "needs": "rescan-need-source",
-      "reason": "workflow判定=図本体が端で見切れ・原典PDF再スキャン要（親QA確認）2026-07-09",
-      "verified": "2026-07-09"
+      "needs": "ok",
+      "reason": "教材PDFからフル再抽出＝図1.74 モルタル吹付工。旧画像は下部(金網/アンカー)が見切れ。並行workflow＋親目視QA(切れ/写り込み/余白確認)。再クロップ済 2026-07-10。",
+      "verified": "2026-07-10",
+      "source_pdf": "docs/textbook/１級土木施工管理技士/テキスト（土木一般編）/第１章_土工.pdf",
+      "dpi": 300,
+      "page": 64
     },
     {
       "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-31",
-      "needs": "rescan-need-source",
-      "reason": "workflow判定=図本体が端で見切れ・原典PDF再スキャン要（親QA確認）2026-07-09",
-      "verified": "2026-07-09"
+      "needs": "ok",
+      "reason": "教材PDFからフル再抽出＝図1.82 道路法面と水の流れ。教材からフル再抽出。並行workflow＋親目視QA(切れ/写り込み/余白確認)。再クロップ済 2026-07-10。",
+      "verified": "2026-07-10",
+      "source_pdf": "docs/textbook/１級土木施工管理技士/テキスト（土木一般編）/第１章_土工.pdf",
+      "dpi": 300
     },
     {
       "figure": "civil-construction-1/secondary-concrete-basics/img/fig-3-7",
@@ -394,15 +411,20 @@
     },
     {
       "figure": "civil-construction-1/secondary-concrete-basics/img/fig-3-6",
-      "needs": "rescan-need-source",
-      "reason": "workflow判定=図本体の見切れ/内部裏写り・原典再スキャン要（親QA確認）2026-07-09",
-      "verified": "2026-07-09"
+      "needs": "ok",
+      "reason": "教材PDFからフル再抽出＝図3.22 床組みの打継目の位置。旧画像は下部断面が欠落。並行workflow＋親目視QA(切れ/写り込み/余白確認)。再クロップ済 2026-07-10。",
+      "verified": "2026-07-10",
+      "source_pdf": "docs/textbook/１級土木施工管理技士/テキスト（土木一般編）/第３章_コンクリート工.pdf",
+      "dpi": 300,
+      "page": 53
     },
     {
       "figure": "civil-construction-1/secondary-concrete-basics/img/fig-3-17",
-      "needs": "rescan-need-source",
-      "reason": "workflow判定=図本体の見切れ/内部裏写り・原典再スキャン要（親QA確認）2026-07-09",
-      "verified": "2026-07-09"
+      "needs": "ok",
+      "reason": "教材PDFからフル再抽出＝図3.33 束ねた鉄筋のあきおよびかぶり。教材からフル再抽出。並行workflow＋親目視QA(切れ/写り込み/余白確認)。再クロップ済 2026-07-10。",
+      "verified": "2026-07-10",
+      "source_pdf": "docs/textbook/１級土木施工管理技士/テキスト（土木一般編）/第３章_コンクリート工.pdf",
+      "dpi": 300
     },
     {
       "figure": "civil-construction-1/textbook-crane/img/all-terrain-crane",
@@ -673,9 +695,12 @@
     },
     {
       "figure": "civil-construction-1/secondary-construction-plan-past-problems/img/fig-culvert-flow-h23",
-      "needs": "rescan-need-source",
-      "reason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09",
-      "verified": "2026-07-09"
+      "needs": "ok",
+      "reason": "教材PDFからフル再抽出＝図2.4 施工フロー例2(カルバート)。旧画像は埋戻し工/キャプションが見切れ。並行workflow＋親目視QA(切れ/写り込み/余白確認)。再クロップ済 2026-07-10。",
+      "verified": "2026-07-10",
+      "source_pdf": "docs/textbook/１級土木施工管理技士/テキスト（施工管理・法規編）/第２章_施工計画.pdf",
+      "dpi": 300,
+      "page": 27
     },
     {
       "figure": "civil-construction-1/primary-r01-b/img/r01-b-fig-02",
@@ -700,9 +725,12 @@
     },
     {
       "figure": "civil-construction-1/secondary-quality-management-basics/img/fig-5-1",
-      "needs": "rescan-need-source",
-      "reason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09",
-      "verified": "2026-07-09"
+      "needs": "ok",
+      "reason": "教材PDFからフル再抽出＝図1.35 締固め曲線。旧画像は縦軸ラベルが見切れ。並行workflow＋親目視QA(切れ/写り込み/余白確認)。再クロップ済 2026-07-10。",
+      "verified": "2026-07-10",
+      "source_pdf": "docs/textbook/１級土木施工管理技士/テキスト（土木一般編）/第１章_土工.pdf",
+      "dpi": 300,
+      "page": 39
     },
     {
       "figure": "civil-construction-1/primary-h28-b/img/h28-b-fig-03",
@@ -727,9 +755,12 @@
     },
     {
       "figure": "civil-construction-1/secondary-quality-management-basics/img/fig-5-5",
-      "needs": "rescan-need-source",
-      "reason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09",
-      "verified": "2026-07-09"
+      "needs": "ok",
+      "reason": "教材PDFからフル再抽出＝図3.6 スランプ試験。旧画像は下半分(測定/フロー試験)が欠落。並行workflow＋親目視QA(切れ/写り込み/余白確認)。再クロップ済 2026-07-10。",
+      "verified": "2026-07-10",
+      "source_pdf": "docs/textbook/１級土木施工管理技士/テキスト（土木一般編）/第３章_コンクリート工.pdf",
+      "dpi": 300,
+      "page": 20
     },
     {
       "figure": "civil-construction-1/secondary-r03/img/i-11-culvert-section",
@@ -742,9 +773,12 @@
     },
     {
       "figure": "civil-construction-1/secondary-quality-management-basics/img/fig-5-2",
-      "needs": "rescan-need-source",
-      "reason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09",
-      "verified": "2026-07-09"
+      "needs": "ok",
+      "reason": "教材PDFからフル再抽出＝図1.36 最適領域の説明。旧画像は凡例が欠落。並行workflow＋親目視QA(切れ/写り込み/余白確認)。再クロップ済 2026-07-10。",
+      "verified": "2026-07-10",
+      "source_pdf": "docs/textbook/１級土木施工管理技士/テキスト（土木一般編）/第１章_土工.pdf",
+      "dpi": 300,
+      "page": 40
     },
     {
       "figure": "civil-construction-1/primary-h26-a/img/h26-a-fig-06",
@@ -763,9 +797,12 @@
     },
     {
       "figure": "civil-construction-1/textbook-demolition/img/fig-6-2",
-      "needs": "rescan-need-source",
-      "reason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09",
-      "verified": "2026-07-09"
+      "needs": "ok",
+      "reason": "教材PDFからフル再抽出＝図6.2 ベースマシンに搭載した圧砕機。柱/行番号除去で再クロップ。並行workflow＋親目視QA(切れ/写り込み/余白確認)。再クロップ済 2026-07-10。",
+      "verified": "2026-07-10",
+      "source_pdf": "docs/textbook/１級土木施工管理技士/テキスト（土木一般編）/第６章_解体工事.pdf",
+      "dpi": 300,
+      "page": 2
     },
     {
       "figure": "civil-construction-1/secondary-r06/img/i-8-shoring-section",
