@@ -148,6 +148,12 @@
       "needs": "ok",
       "reason": "上部の設問文写り込み4行を除去して断面図のみに再クロップ 2026-07-09",
       "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-r02-a/img/r02-a-fig-05",
+      "needs": "ok",
+      "reason": "解説文・数式・図が一体の正規解説図（写り込みなし・periodsは図内正当な説明文）2026-07-09",
+      "verified": "2026-07-09"
     }
   ],
   "categories": {
