@@ -4,8 +4,8 @@
   "base_count": 586,
   "file_count": 1010,
   "summary": {
-    "clean": 345,
-    "maybe": 205,
+    "clean": 346,
+    "maybe": 204,
     "writein": 36
   },
   "quality_summary": {
@@ -439,8 +439,8 @@
       "variants": 2
     },
     "civil-construction-1/primary-h30-a/img/h30-a-fig-14": {
-      "status": "maybe",
-      "periods": 23,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 4880.39,
       "quality": "sharp",

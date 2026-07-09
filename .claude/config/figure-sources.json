@@ -11,15 +11,66 @@
   },
   "_manual_needs_comment": "機械監査(OCR/sharpness)では検出不能な図欠陥の per-figure 上書き。特に『元図が上下で見切れて図要素/答えが欠落』は鮮明かつ写り込み無し=textStatus:clean のため needs:ok と誤判定される。build-figure-provenance.mjs が baseRel 末尾一致で needs を上書きする。figure=baseRel 末尾（slug/img/名）。",
   "manual_needs": [
-    { "figure": "civil-construction-1/primary-r04-b/img/r04-b-fig-02", "needs": "rescan-need-source", "reason": "元図が上端で見切れ。作業B・D＋イベント①が欠落（解説のクリティカルパスA→B→D→Iは欠落部を通る）。⑤へ上から刺さる矢印の元ノードが切断。再クロップ不可＝完全な元スキャン要。r05-b-fig-02とmd5同一。", "verified": "2026-07-09" },
-    { "figure": "civil-construction-1/primary-r05-b/img/r05-b-fig-02", "needs": "rescan-need-source", "reason": "r04-b-fig-02とmd5完全一致の同一ファイル。同じく上端見切れ（作業A〜J中B・D欠落）。再クロップ不可。", "verified": "2026-07-09" },
-    { "figure": "civil-construction-1/primary-r01-b/img/r01-b-fig-03", "needs": "rescan-need-source", "reason": "網目工程図が元クロップ時点で見切れ（handoff 2026-07-08記録）。writein検出でrecrop分類されるが切り直しでは直らない＝要元スキャン。", "verified": "2026-07-08" },
-    { "figure": "civil-construction-1/primary-r07-b/img/r07-b-fig-02", "needs": "rescan-need-source", "reason": "上端見切れ＝イベント③の円が上半分切断＋上枝の作業ラベルC・Dが欠落。正答(選択肢4)が『作業Dが3日遅れると…』で作業D特定を要するのにラベル無し＝解答検証に影響。トポロジ/日数は残存。再クロップ不可。", "verified": "2026-07-09" },
-    { "figure": "civil-construction-1/primary-r06-b/img/r06-b-fig-02", "needs": "rescan-need-source", "reason": "上枝の作業ラベルC・Dが欠落（イベント③・日数8日/6日は残存）。ただし解説はnode-path(⓪→①→②→③→⑤→⑨)＋作業F/K依存で解答は可能＝重症度低。ラベル欠落は再クロップで復元不可。", "verified": "2026-07-09" },
-    { "figure": "pe-comprehensive-management/r02-primary/img/i-1-6-cost-variance-diagram", "needs": "ok", "reason": "writein誤検出をok上書き。（1）（2）は差異分析の下位図キャプションで設問/選択肢の写り込みではない（目視＋OCRで設問語ゼロ確認）。writein検出器のoptSentence正規表現が全角丸数字＋短ラベルに誤反応。", "verified": "2026-07-09" },
-    { "figure": "pe-first-stage/r02-basic/img/q35-fig", "needs": "ok", "reason": "再クロップ済(問題文除去)。残periodsは図要素(45°記号/地面ハッチ)のOCR誤読で写り込みではない（目視でばね質点系A/B/C図のみ確認）。", "verified": "2026-07-09" },
-    { "figure": "pe-first-stage/r02-basic/img/q42-fig", "needs": "ok", "reason": "再クロップ済(問題文＋選択肢①-⑤除去)。残periodsは化学構造式(ベンゼン環/CH3)のOCRドットノイズで写り込みではない（目視で反応a-dのみ確認）。", "verified": "2026-07-09" },
-    { "figure": "pe-first-stage/r03-basic/img/q-I2-5", "needs": "ok", "reason": "再クロップ済(問題文除去)。残periods=2は図の●凡例『（A＋B）×（C−D）を表す構文木。矢印の方向に走査し…記号を書き出す。』＝図の一部として意図的に保持（設問/選択肢ではない）。", "verified": "2026-07-09" }
+    {
+      "figure": "civil-construction-1/primary-r04-b/img/r04-b-fig-02",
+      "needs": "rescan-need-source",
+      "reason": "元図が上端で見切れ。作業B・D＋イベント①が欠落（解説のクリティカルパスA→B→D→Iは欠落部を通る）。⑤へ上から刺さる矢印の元ノードが切断。再クロップ不可＝完全な元スキャン要。r05-b-fig-02とmd5同一。",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-r05-b/img/r05-b-fig-02",
+      "needs": "rescan-need-source",
+      "reason": "r04-b-fig-02とmd5完全一致の同一ファイル。同じく上端見切れ（作業A〜J中B・D欠落）。再クロップ不可。",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-r01-b/img/r01-b-fig-03",
+      "needs": "rescan-need-source",
+      "reason": "網目工程図が元クロップ時点で見切れ（handoff 2026-07-08記録）。writein検出でrecrop分類されるが切り直しでは直らない＝要元スキャン。",
+      "verified": "2026-07-08"
+    },
+    {
+      "figure": "civil-construction-1/primary-r07-b/img/r07-b-fig-02",
+      "needs": "rescan-need-source",
+      "reason": "上端見切れ＝イベント③の円が上半分切断＋上枝の作業ラベルC・Dが欠落。正答(選択肢4)が『作業Dが3日遅れると…』で作業D特定を要するのにラベル無し＝解答検証に影響。トポロジ/日数は残存。再クロップ不可。",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-r06-b/img/r06-b-fig-02",
+      "needs": "rescan-need-source",
+      "reason": "上枝の作業ラベルC・Dが欠落（イベント③・日数8日/6日は残存）。ただし解説はnode-path(⓪→①→②→③→⑤→⑨)＋作業F/K依存で解答は可能＝重症度低。ラベル欠落は再クロップで復元不可。",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "pe-comprehensive-management/r02-primary/img/i-1-6-cost-variance-diagram",
+      "needs": "ok",
+      "reason": "writein誤検出をok上書き。（1）（2）は差異分析の下位図キャプションで設問/選択肢の写り込みではない（目視＋OCRで設問語ゼロ確認）。writein検出器のoptSentence正規表現が全角丸数字＋短ラベルに誤反応。",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "pe-first-stage/r02-basic/img/q35-fig",
+      "needs": "ok",
+      "reason": "再クロップ済(問題文除去)。残periodsは図要素(45°記号/地面ハッチ)のOCR誤読で写り込みではない（目視でばね質点系A/B/C図のみ確認）。",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "pe-first-stage/r02-basic/img/q42-fig",
+      "needs": "ok",
+      "reason": "再クロップ済(問題文＋選択肢①-⑤除去)。残periodsは化学構造式(ベンゼン環/CH3)のOCRドットノイズで写り込みではない（目視で反応a-dのみ確認）。",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "pe-first-stage/r03-basic/img/q-I2-5",
+      "needs": "ok",
+      "reason": "再クロップ済(問題文除去)。残periods=2は図の●凡例『（A＋B）×（C−D）を表す構文木。矢印の方向に走査し…記号を書き出す。』＝図の一部として意図的に保持（設問/選択肢ではない）。",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-h30-a/img/h30-a-fig-14",
+      "needs": "ok",
+      "reason": "問題文(4)+【解説】写り込みを再クロップ除去(1168x1246→921x1070, 2026-07-09)。残る句点は表「支保工の形式と特徴」の正規セル文=図本体のため ok。",
+      "verified": "2026-07-09"
+    }
   ],
   "categories": {
     "civil-construction-1": {
@@ -54,7 +105,9 @@
       "rescannable": "true",
       "note": "PDF10本あり。全記事 published:false 下書き(JCI権利確認待ち)。図は撮影由来で指写り込み等あり。公開前に要整備。"
     },
-    "concrete-diagnostician-jci": { "_alias": "concrete-diagnostician" },
+    "concrete-diagnostician-jci": {
+      "_alias": "concrete-diagnostician"
+    },
     "pe-comprehensive-management": {
       "source_dir": "docs/textbook/技術士（総監）",
       "source_kind": "pdf-vector",
