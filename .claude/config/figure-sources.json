@@ -190,6 +190,138 @@
       "needs": "ok",
       "reason": "上部プローズ・左カラム本文写り込み・図2.49キャプションを除去、①〜④図と手順凡例保持で再クロップ 2026-07-09",
       "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-45",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-13",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-56",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-4",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-28",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-60",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-35",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-64",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-39",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-19",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-55",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-44",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-52",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-7",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-63",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-57",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-62",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-3",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-38",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-32",
+      "needs": "rescan-need-source",
+      "reason": "workflow判定=図本体が端で見切れ・原典PDF再スキャン要（親QA確認）2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-23",
+      "needs": "rescan-need-source",
+      "reason": "workflow判定=図本体が端で見切れ・原典PDF再スキャン要（親QA確認）2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-31",
+      "needs": "rescan-need-source",
+      "reason": "workflow判定=図本体が端で見切れ・原典PDF再スキャン要（親QA確認）2026-07-09",
+      "verified": "2026-07-09"
     }
   ],
   "categories": {

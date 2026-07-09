@@ -3,9 +3,9 @@
   "note": "図provenance。needs=次アクション。真実源: figure-sources.json(台帳)+figure-text-audit.json(品質)。再生成可。",
   "figure_count": 586,
   "summary": {
-    "ok": 348,
-    "recrop-review": 168,
-    "rescan-need-source": 9,
+    "ok": 367,
+    "recrop-review": 146,
+    "rescan-need-source": 12,
     "recrop": 28,
     "rescan": 33
   },
@@ -2291,11 +2291,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 1659.65,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-14": {
       "category": "civil-construction-1",
@@ -2375,11 +2375,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2826.08,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-2": {
       "category": "civil-construction-1",
@@ -2449,7 +2449,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "rescan-need-source"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-24": {
       "category": "civil-construction-1",
@@ -2515,11 +2515,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2412.42,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-29": {
       "category": "civil-construction-1",
@@ -2543,11 +2543,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2962.23,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-30": {
       "category": "civil-construction-1",
@@ -2575,7 +2575,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "rescan-need-source"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-32": {
       "category": "civil-construction-1",
@@ -2589,7 +2589,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "rescan-need-source"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-33": {
       "category": "civil-construction-1",
@@ -2627,11 +2627,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 5798.92,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-36": {
       "category": "civil-construction-1",
@@ -2669,11 +2669,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 3521.34,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-39": {
       "category": "civil-construction-1",
@@ -2683,11 +2683,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 1975.85,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-4": {
       "category": "civil-construction-1",
@@ -2697,11 +2697,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2924.7,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-40": {
       "category": "civil-construction-1",
@@ -2781,11 +2781,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2849.85,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-45": {
       "category": "civil-construction-1",
@@ -2795,11 +2795,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2561.47,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-46": {
       "category": "civil-construction-1",
@@ -2907,11 +2907,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 3374.02,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-53": {
       "category": "civil-construction-1",
@@ -2949,11 +2949,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2456.83,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-56": {
       "category": "civil-construction-1",
@@ -2963,11 +2963,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 5656.99,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-57": {
       "category": "civil-construction-1",
@@ -2977,11 +2977,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 1733.15,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-58": {
       "category": "civil-construction-1",
@@ -3033,11 +3033,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 3010.13,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-61": {
       "category": "civil-construction-1",
@@ -3061,11 +3061,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2100.28,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-63": {
       "category": "civil-construction-1",
@@ -3075,11 +3075,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2169.22,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-64": {
       "category": "civil-construction-1",
@@ -3089,11 +3089,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 6741.07,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-7": {
       "category": "civil-construction-1",
@@ -3103,11 +3103,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2178.37,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-8": {
       "category": "civil-construction-1",
