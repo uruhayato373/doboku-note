@@ -322,6 +322,72 @@
       "needs": "rescan-need-source",
       "reason": "workflow判定=図本体が端で見切れ・原典PDF再スキャン要（親QA確認）2026-07-09",
       "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-concrete-basics/img/fig-3-7",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-concrete-basics/img/fig-3-8",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-concrete-basics/img/fig-3-5",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-concrete-basics/img/fig-3-1",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-concrete-basics/img/fig-3-12",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-concrete-basics/img/fig-crack-hydration-heat",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-concrete-basics/img/fig-3-18",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-concrete-basics/img/fig-3-13",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-concrete-basics/img/fig-3-9",
+      "needs": "ok",
+      "reason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-concrete-basics/img/fig-3-6",
+      "needs": "rescan-need-source",
+      "reason": "workflow判定=図本体の見切れ/内部裏写り・原典再スキャン要（親QA確認）2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-concrete-basics/img/fig-3-17",
+      "needs": "rescan-need-source",
+      "reason": "workflow判定=図本体の見切れ/内部裏写り・原典再スキャン要（親QA確認）2026-07-09",
+      "verified": "2026-07-09"
     }
   ],
   "categories": {

@@ -3,9 +3,9 @@
   "note": "図provenance。needs=次アクション。真実源: figure-sources.json(台帳)+figure-text-audit.json(品質)。再生成可。",
   "figure_count": 586,
   "summary": {
-    "ok": 367,
-    "recrop-review": 146,
-    "rescan-need-source": 12,
+    "ok": 376,
+    "recrop-review": 135,
+    "rescan-need-source": 14,
     "recrop": 28,
     "rescan": 33
   },
@@ -1507,11 +1507,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2524.84,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-10": {
       "category": "civil-construction-1",
@@ -1549,11 +1549,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 1421.27,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-13": {
       "category": "civil-construction-1",
@@ -1563,11 +1563,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2944.57,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-14": {
       "category": "civil-construction-1",
@@ -1623,7 +1623,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "rescan-need-source"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-18": {
       "category": "civil-construction-1",
@@ -1633,11 +1633,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2468.3,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-19": {
       "category": "civil-construction-1",
@@ -1717,11 +1717,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 1841.66,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-6": {
       "category": "civil-construction-1",
@@ -1735,7 +1735,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "rescan-need-source"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-7": {
       "category": "civil-construction-1",
@@ -1745,11 +1745,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 1397.18,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-8": {
       "category": "civil-construction-1",
@@ -1759,11 +1759,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 3312.92,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-9": {
       "category": "civil-construction-1",
@@ -1773,11 +1773,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2329.95,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-crack-alkali-silica": {
       "category": "civil-construction-1",
@@ -1815,11 +1815,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2500.31,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-crack-improper-joint": {
       "category": "civil-construction-1",
