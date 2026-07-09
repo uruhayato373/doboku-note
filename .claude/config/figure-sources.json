@@ -1295,15 +1295,21 @@
     },
     {
       "figure": "concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29",
-      "needs": "rescan-need-source",
-      "reason": "H.29問題7。再スキャン書籍(項目別抜粋・収録R5〜H30)にH29は範囲外で非収録＝再抽出不可。旧画像維持。要H29原典。",
-      "verified": "2026-07-10"
+      "needs": "ok",
+      "reason": "追加再スキャン(年度別パート)からフル再抽出＝H29問7 含有炭素量-引張強さ/降伏点/伸びグラフ(A-C)。旧画像は横倒し+手書きの答え書込み(答え漏らし)+設問文/選択肢表混入→グラフのみ正立で抽出。親目視QA。差替済 2026-07-10。",
+      "verified": "2026-07-10",
+      "source_pdf": "docs/textbook/コンクリート主任技師2024/スキャンした書類 2.pdf",
+      "page": 222,
+      "dpi": 0
     },
     {
       "figure": "concrete-chief-engineer/primary-properties/img/bingham-flow-h30",
-      "needs": "rescan-need-source",
-      "reason": "H.30問題7。冒頭の出題状況表は出題実績一覧であり収録一覧ではない＝②/01本文にH30設問なし(p56-83全設問精査)。旧画像維持。要H30原典。",
-      "verified": "2026-07-10"
+      "needs": "ok",
+      "reason": "追加再スキャン(年度別パート)からフル再抽出＝H30問7 ビンガム流体グラフ(A-D)。前回は項目別章のみ探索し年度別パートを見逃し→今回p206から抽出。旧画像は横倒し+設問文写り込み+ボケ。親目視QA。差替済 2026-07-10。",
+      "verified": "2026-07-10",
+      "source_pdf": "docs/textbook/コンクリート主任技師2024/スキャンした書類 18.pdf",
+      "page": 206,
+      "dpi": 0
     },
     {
       "figure": "concrete-chief-engineer/primary-construction/img/bingham-shear-r04",
@@ -1331,11 +1337,11 @@
     },
     "concrete-chief-engineer": {
       "source_dir": "docs/textbook/コンクリート主任技師2024",
-      "source_kind": "scan-image",
+      "source_kind": "mixed",
       "figure_origin": "textbook-scan",
       "quality": "scan-low",
       "rescannable": "true",
-      "note": "PDF無し・書籍を撮影/スキャンした page*.png のみ(低品質・見切れ・ページ端影)。記事図はwebpのみで高解像度再クロップ元なし。データグラフはSVG不可(誤答リスク)→物理再スキャン必須。模式図は本文確定できればSVG可。コンクリート主任技師2022 は過去問。"
+      "note": "高品質再スキャンPDF13冊を保持（git追跡外・2026-07-10）: 14-18=項目別過去問解説(書籍p24-221・R05〜H30抜粋+解説)、3=p202-221(目次+H30全問)/2=p218-237(H29全問)/9=p238-255(H28全問)/4=p256-271(H27全問)/5=p270-287(H26全問)＝年度別全問+解答一覧(解説なし)、6-8=p286-397(小論文対策)。旧記載『PDF無し・page*.pngのみ』は解消。データグラフはSVG不可(誤答リスク)→PDFから再クロップ。コンクリート主任技師2022 は過去問(H24-H28・スキャンした書類N.pdfは診断士dirと同名別物)。"
     },
     "concrete-diagnostician": {
       "source_dir": "docs/textbook/コンクリート診断士",

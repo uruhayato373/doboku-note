@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-09T20:36:19.167Z",
+  "generated_at": "2026-07-09T21:28:33.703Z",
   "note": "図provenance。needs=次アクション。真実源: figure-sources.json(台帳)+figure-text-audit.json(品質)。再生成可。",
   "figure_count": 586,
   "summary": {
-    "ok": 507,
-    "rescan-need-source": 9,
+    "ok": 509,
+    "rescan-need-source": 7,
     "recrop": 28,
     "recrop-review": 26,
     "rescan": 16
@@ -5160,8 +5160,8 @@
       "source_dir": "docs/textbook/コンクリート主任技師2024",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
-      "needs": "rescan-need-source",
-      "manualReason": "H.29問題7。再スキャン書籍(項目別抜粋・収録R5〜H30)にH29は範囲外で非収録＝再抽出不可。旧画像維持。要H29原典。"
+      "needs": "ok",
+      "manualReason": "追加再スキャン(年度別パート)からフル再抽出＝H29問7 含有炭素量-引張強さ/降伏点/伸びグラフ(A-C)。旧画像は横倒し+手書きの答え書込み(答え漏らし)+設問文/選択肢表混入→グラフのみ正立で抽出。親目視QA。差替済 2026-07-10。"
     },
     "concrete-chief-engineer/primary-mix-design/img/volume-ratio-r03": {
       "category": "concrete-chief-engineer",
@@ -5220,8 +5220,8 @@
       "source_dir": "docs/textbook/コンクリート主任技師2024",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
-      "needs": "rescan-need-source",
-      "manualReason": "H.30問題7。冒頭の出題状況表は出題実績一覧であり収録一覧ではない＝②/01本文にH30設問なし(p56-83全設問精査)。旧画像維持。要H30原典。"
+      "needs": "ok",
+      "manualReason": "追加再スキャン(年度別パート)からフル再抽出＝H30問7 ビンガム流体グラフ(A-D)。前回は項目別章のみ探索し年度別パートを見逃し→今回p206から抽出。旧画像は横倒し+設問文写り込み+ボケ。親目視QA。差替済 2026-07-10。"
     },
     "concrete-chief-engineer/primary-properties/img/bingham-flow-r01": {
       "category": "concrete-chief-engineer",
