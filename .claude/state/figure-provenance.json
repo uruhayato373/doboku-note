@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-07-09T19:30:23.190Z",
+  "generated_at": "2026-07-09T19:42:18.308Z",
   "note": "図provenance。needs=次アクション。真実源: figure-sources.json(台帳)+figure-text-audit.json(品質)。再生成可。",
   "figure_count": 589,
   "summary": {
-    "ok": 496,
+    "ok": 497,
     "rescan-need-source": 6,
-    "recrop": 28,
     "rescan": 33,
+    "recrop": 27,
     "recrop-review": 26
   },
   "figures": {
@@ -782,7 +782,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop"
+      "needs": "ok",
+      "manualReason": "図 側圧分布(イ)(ロ)(ハ)(ニ)。旧画像は【正解】(1)の答え漏らし＋No.11設問文写り込み＋4図が下端見切れの三重欠陥だった。元PDF(H30第一次A p.5)から4図のみをフル再抽出(設問文/選択肢/正解/トンボ除去)。再クロップ済 2026-07-10。"
     },
     "civil-construction-1/primary-h30-a/img/h30-a-fig-13": {
       "category": "civil-construction-1",

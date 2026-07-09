@@ -1157,6 +1157,15 @@
       "needs": "rescan-need-source",
       "reason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09",
       "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/primary-h30-a/img/h30-a-fig-12",
+      "needs": "ok",
+      "source_pdf": "docs/textbook/１級土木施工管理技士/過去問/H30/H30_第一次検定_問題A.pdf",
+      "page": 5,
+      "dpi": 300,
+      "reason": "図 側圧分布(イ)(ロ)(ハ)(ニ)。旧画像は【正解】(1)の答え漏らし＋No.11設問文写り込み＋4図が下端見切れの三重欠陥だった。元PDF(H30第一次A p.5)から4図のみをフル再抽出(設問文/選択肢/正解/トンボ除去)。再クロップ済 2026-07-10。",
+      "verified": "2026-07-10"
     }
   ],
   "categories": {
