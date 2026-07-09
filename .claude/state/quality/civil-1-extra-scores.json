@@ -173,6 +173,1119 @@
       "weak_axes": [],
       "qualitative_comment": "排出物×法令の対応と排水先分岐を骨格化、SpecSheetList/図の使い分けが適切。図3点・e-Gov4法内部リンク・参考資料に民間解説サイトも。優秀。",
       "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "guide-age-career": {
+      "slug": "civil-construction-1-guide-age-career",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 2,
+        "volume": 2,
+        "funnel": 3,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "readability",
+        "volume"
+      ],
+      "qualitative_comment": "共感→わかること→結論の好リード。文末ます連続の単調が複数。CareerAffiliate＋RelatedKeywordsで導線良好。本文やや軽量だが3000字超。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "guide-allowance": {
+      "slug": "civil-construction-1-guide-allowance",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 2,
+        "volume": 2,
+        "funnel": 3,
+        "mobile": 2
+      },
+      "weighted": 2.4,
+      "weak_axes": [
+        "readability",
+        "volume",
+        "mobile"
+      ],
+      "qualitative_comment": "手当の相場なし前提を丁寧に整理。warn Callout適切。15-1連続と324字段落あり。末尾承認導線良好。本文軽量ながら下限クリア。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "guide-career-cases": {
+      "slug": "civil-construction-1-guide-career-cases",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 3,
+        "volume": 2,
+        "funnel": 2,
+        "mobile": 2
+      },
+      "weighted": 2.4,
+      "weak_axes": [
+        "volume",
+        "funnel",
+        "mobile"
+      ],
+      "qualitative_comment": "3王道パターン＋モデルケース表＋発注者視点Calloutで説得力高い。CareerAffiliate2枚と選択肢やや過多。3列表セル超過。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "guide-company-types": {
+      "slug": "civil-construction-1-guide-company-types",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 2,
+        "volume": 2,
+        "funnel": 3,
+        "mobile": 2
+      },
+      "weighted": 2.4,
+      "weak_axes": [
+        "readability",
+        "volume",
+        "mobile"
+      ],
+      "qualitative_comment": "業態比較の地図として明快。各H2に導入文あり。文末ます6連続など単調と301字段落。CareerAffiliate＋RelatedKeywordsで導線妥当。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "guide-construction-plan": {
+      "slug": "civil-construction-1-guide-construction-plan",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 2,
+        "volume": 3,
+        "funnel": 2,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "readability",
+        "funnel"
+      ],
+      "qualitative_comment": "施工計画pillar。本文7500字級で網羅十分、benefit型リード。長段落15-3多発と総括ExamPoint配置。末尾はSeeAlso＋過去問＋テキスト参照で承認導線成立。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "guide-consultant": {
+      "slug": "civil-construction-1-guide-consultant",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 2,
+        "volume": 2,
+        "funnel": 3,
+        "mobile": 2
+      },
+      "weighted": 2.4,
+      "weak_axes": [
+        "readability",
+        "volume",
+        "mobile"
+      ],
+      "qualitative_comment": "施工→上流の転職を現実的に整理。15-1連続と太字内全角括弧2件でレンダ懸念。本文軽量だが下限クリア。CareerAffiliate文脈整合。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "guide-demolition": {
+      "slug": "civil-construction-1-guide-demolition",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 3,
+        "volume": 3,
+        "funnel": 2,
+        "mobile": 2
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "funnel",
+        "mobile"
+      ],
+      "qualitative_comment": "解体工事pillar。5工法を動作イメージで整理し網羅濃厚、リードも強い。冒頭327字段落と総括ExamPoint。SeeAlso2件＋過去問で導線成立。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "guide-dx-jobs": {
+      "slug": "civil-construction-1-guide-dx-jobs",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 2,
+        "volume": 2,
+        "funnel": 3,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "readability",
+        "volume"
+      ],
+      "qualitative_comment": "建設DX/ICT施工の職種需要を平易に。各H2導入文あり。文末です/ます4連続の単調が複数。CareerAffiliate＋RelatedKeywordsで承認導線良好。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "guide-environment-management": {
+      "slug": "civil-construction-1-guide-environment-management",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 2,
+        "volume": 3,
+        "funnel": 2,
+        "mobile": 2
+      },
+      "weighted": 2.4,
+      "weak_axes": [
+        "readability",
+        "funnel",
+        "mobile"
+      ],
+      "qualitative_comment": "環境保全pillar。3本柱＋6分野の地図で網羅厚く本記事でわかる明示リード。長段落15-3が7件、総括ExamPoint。SeeAlso＋過去問で導線成立。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "guide-foundation": {
+      "slug": "civil-construction-1-guide-foundation",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 2,
+        "volume": 3,
+        "funnel": 3,
+        "mobile": 2
+      },
+      "weighted": 2.6,
+      "weak_axes": [],
+      "qualitative_comment": "ベネフィット型リードで全見出しに導入文、9660字で網羅十分。SeeAlso2+過去問+テキスト表の承認導線も完備。長段落15-3多数がモバイル減点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "guide-future": {
+      "slug": "civil-construction-1-guide-future",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 2,
+        "volume": 2,
+        "funnel": 2,
+        "mobile": 3
+      },
+      "weighted": 2.4,
+      "weak_axes": [],
+      "qualitative_comment": "共感リードとデータ根拠は良好だが3028字と下限ギリ。ですます4連続の単調と太字スコープ超過。CareerAffiliate導線は文脈整合。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "guide-hatchu-shien": {
+      "slug": "civil-construction-1-guide-hatchu-shien",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 2,
+        "volume": 2,
+        "funnel": 2,
+        "mobile": 3
+      },
+      "weighted": 2.4,
+      "weak_axes": [],
+      "qualitative_comment": "立ち位置変更の第三の道として導入が明快。3102字で下限近く、15-1連続5箇所と文末単調がやや目立つ。導線は自然。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "guide-interview": {
+      "slug": "civil-construction-1-guide-interview",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 3,
+        "volume": 2,
+        "funnel": 2,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [],
+      "qualitative_comment": "面接官の2意図を軸に構成明快でPREPが通る。文末単調は軽微1件のみ。3116字で下限近いが密度は良好。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "guide-machinery": {
+      "slug": "civil-construction-1-guide-machinery",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 2,
+        "volume": 3,
+        "funnel": 3,
+        "mobile": 2
+      },
+      "weighted": 2.6,
+      "weak_axes": [],
+      "qualitative_comment": "引っかけの型を軸にした導入が秀逸、9395字で網羅十分。SeeAlso+過去問+テキスト表の承認導線完備。長段落15-3多数がモバイル減点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "guide-public-servant": {
+      "slug": "civil-construction-1-guide-public-servant",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 2,
+        "volume": 2,
+        "funnel": 2,
+        "mobile": 3
+      },
+      "weighted": 2.4,
+      "weak_axes": [],
+      "qualitative_comment": "民間対比で判断材料を並べる誠実な構成。3001字で下限ぎりぎり、15-1が5連続含め文末単調がやや多い。導線は文脈整合。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "guide-quit-honne": {
+      "slug": "civil-construction-1-guide-quit-honne",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 2,
+        "volume": 2,
+        "funnel": 2,
+        "mobile": 3
+      },
+      "weighted": 2.4,
+      "weak_axes": [],
+      "qualitative_comment": "きつさを環境/仕事に分解する導入が明快でデータ根拠も適切。3052字で下限近く、15-1が5連続含め単調やや目立つ。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "guide-quit-or-stay": {
+      "slug": "civil-construction-1-guide-quit-or-stay",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 2,
+        "volume": 3,
+        "funnel": 2,
+        "mobile": 2
+      },
+      "weighted": 2.4,
+      "weak_axes": [],
+      "qualitative_comment": "判断軸を提供する立場が明快で3552字と余裕あり。太字スコープ超過3件と15-1連続がやや減点。導線は文脈整合。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "guide-resume": {
+      "slug": "civil-construction-1-guide-resume",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 2,
+        "volume": 3,
+        "funnel": 3,
+        "mobile": 2
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "mobile"
+      ],
+      "qualitative_comment": "読者ベネフィット型リードとPREPが明快。4ブロック構成が実用的。7-1太字スコープ超過が1件、末尾はCareerAffiliate+まとめ+RelatedKeywordsで導線良好。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "guide-safety-management": {
+      "slug": "civil-construction-1-guide-safety-management",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 3,
+        "volume": 3,
+        "funnel": 3,
+        "mobile": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "共感型リード・ですます統一・16k字の網羅・SeeAlso2件+過去問導線と全軸で優秀。参考資料見出しなし。テキスト参照表も適切。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "guide-salary-by-role": {
+      "slug": "civil-construction-1-guide-salary-by-role",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 2,
+        "volume": 3,
+        "funnel": 3,
+        "mobile": 2
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "mobile"
+      ],
+      "qualitative_comment": "役職×会社の2軸分解が明快でリードも結論ファースト。15-1文末単調5連続と7-1太字超過あり。CareerAffiliate+まとめ+RelatedKeywordsで導線良好。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "guide-surveying": {
+      "slug": "civil-construction-1-guide-surveying",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 1,
+        "volume": 3,
+        "funnel": 3,
+        "mobile": 2
+      },
+      "weighted": 2.4,
+      "weak_axes": [
+        "readability"
+      ],
+      "qualitative_comment": "20k字の網羅と優先順位設計は優秀だが、である調が10箇所ほどですます本文に混在し統一崩れ。15-3長段落4件。SeeAlso+過去問導線は良好。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "guide-timing": {
+      "slug": "civil-construction-1-guide-timing",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 2,
+        "volume": 3,
+        "funnel": 3,
+        "mobile": 3
+      },
+      "weighted": 2.8,
+      "weak_axes": [],
+      "qualitative_comment": "いつ動くかの共感リードとPREPが自然。15-1文末単調3連続が2件のみ。CareerAffiliate+まとめ+RelatedKeywordsで導線完備。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "guide-white-company": {
+      "slug": "civil-construction-1-guide-white-company",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 2,
+        "volume": 3,
+        "funnel": 3,
+        "mobile": 3
+      },
+      "weighted": 2.8,
+      "weak_axes": [],
+      "qualitative_comment": "求人票/面接の2段構成が実用的でリードも読者不安直撃。15-1文末単調3-4連続あり。CareerAffiliate+まとめ+RelatedKeywordsで導線良好。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "guide-women": {
+      "slug": "civil-construction-1-guide-women",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 2,
+        "volume": 3,
+        "funnel": 3,
+        "mobile": 2
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "mobile"
+      ],
+      "qualitative_comment": "不安に寄り添うリードと制度×実績の視点が明快。15-1文末単調5連続と7-2太字デリミタのCommonMark違反1件。導線はCareerAffiliate+まとめで良好。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "keyword-2026": {
+      "slug": "civil-construction-1-keyword-2026",
+      "group": "guide",
+      "scores": {
+        "intro": 1,
+        "readability": 2,
+        "volume": 2,
+        "funnel": 2,
+        "mobile": 3
+      },
+      "weighted": 2,
+      "weak_axes": [
+        "intro",
+        "volume",
+        "funnel"
+      ],
+      "qualitative_comment": "索引ハブ。冒頭がいきなりCalloutでリード文なし。散文が薄くリンク一覧主体、末尾は関連リソース箇条書きでSeeAlso承認パターン不採用。索引性質ゆえ許容範囲。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "primary-h26-a": {
+      "slug": "civil-construction-1-primary-h26-a",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 0,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "exampoint",
+        "related_keywords"
+      ],
+      "qualitative_comment": "ExamPoint未実装・RelatedKeywordsもプレーンリンクのみ。検証本文は概ね良好。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "primary-h26-b": {
+      "slug": "civil-construction-1-primary-h26-b",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 0,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "exampoint",
+        "related_keywords"
+      ],
+      "qualitative_comment": "ExamPoint未実装。マスカーブ・NW工程表の計算問題は式なしだが定性説明で対応。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "primary-h27-a": {
+      "slug": "civil-construction-1-primary-h27-a",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 0,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "exampoint",
+        "related_keywords"
+      ],
+      "qualitative_comment": "ExamPoint未実装。折衷案構造未移行の旧フォーマット。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "primary-h27-b": {
+      "slug": "civil-construction-1-primary-h27-b",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 0,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "exampoint",
+        "related_keywords"
+      ],
+      "qualitative_comment": "品質特性の表は設問本体で軸5対象外。ExamPoint未実装。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "primary-h28-a": {
+      "slug": "civil-construction-1-primary-h28-a",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 0,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "exampoint",
+        "related_keywords"
+      ],
+      "qualitative_comment": "ExamPoint未実装。選択肢解説は誤り理由を明示できている。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "primary-h28-b": {
+      "slug": "civil-construction-1-primary-h28-b",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 0,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "exampoint",
+        "related_keywords"
+      ],
+      "qualitative_comment": "組合せ表2件は設問本体で軸5対象外。ExamPoint未実装。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "primary-h29-a": {
+      "slug": "civil-construction-1-primary-h29-a",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 0,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "exampoint",
+        "related_keywords"
+      ],
+      "qualitative_comment": "原位置試験の組合せ表は設問本体で対象外。ExamPoint未実装。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "primary-h29-b": {
+      "slug": "civil-construction-1-primary-h29-b",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 0,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "exampoint",
+        "related_keywords"
+      ],
+      "qualitative_comment": "ExamPoint未実装。検証本文は各選択肢に理由明記。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "primary-h30-a": {
+      "slug": "civil-construction-1-primary-h30-a",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 0,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "exampoint",
+        "related_keywords"
+      ],
+      "qualitative_comment": "土質試験の組合せ表は設問本体で対象外。ExamPoint未実装。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "primary-h30-b": {
+      "slug": "civil-construction-1-primary-h30-b",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 0,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "exampoint",
+        "related_keywords"
+      ],
+      "qualitative_comment": "工程表・品質特性の組合せ表2件は設問本体で対象外。ExamPoint未実装。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "primary-r01-a": {
+      "slug": "civil-construction-1-primary-r01-a",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 0,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "exampoint",
+        "related_keywords"
+      ],
+      "qualitative_comment": "ExamPoint未実装。全61問の検証は概ね妥当。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "primary-r01-b": {
+      "slug": "civil-construction-1-primary-r01-b",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 0,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "exampoint",
+        "related_keywords"
+      ],
+      "qualitative_comment": "品質特性の組合せ表は設問本体で対象外。ExamPoint未実装。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "primary-r02-a": {
+      "slug": "civil-construction-1-primary-r02-a",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 1,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 1.8,
+      "weak_axes": [
+        "exampoint",
+        "related_keywords"
+      ],
+      "qualitative_comment": "全選択肢に正誤理由ありだが構造が旧式(ExamPoint無・素リンク)。r02系で解説一部省略。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "primary-r02-b": {
+      "slug": "civil-construction-1-primary-r02-b",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 1,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 1.8,
+      "weak_axes": [
+        "exampoint",
+        "related_keywords"
+      ],
+      "qualitative_comment": "No.6/No.8で選択肢説明が一部省略。RelatedKeywords未コンポーネント化。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "primary-r03-a": {
+      "slug": "civil-construction-1-primary-r03-a",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 1,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "exampoint",
+        "related_keywords"
+      ],
+      "qualitative_comment": "全選択肢に理由明快で高品質。ExamPoint構造未使用・RelatedKeywords素リンクのみ減点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "primary-r03-b": {
+      "slug": "civil-construction-1-primary-r03-b",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 1,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 1.8,
+      "weak_axes": [
+        "exampoint",
+        "related_keywords"
+      ],
+      "qualitative_comment": "No.3配筋図問題で誤答肢の理由が薄い。他は良好。構造は旧式。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "primary-r04-a": {
+      "slug": "civil-construction-1-primary-r04-a",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 1,
+        "option_verification": 0,
+        "exampoint": 1,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "option_verification",
+        "exampoint",
+        "related_keywords"
+      ],
+      "qualitative_comment": "大多数の設問で正答のみ解説・誤答肢の正誤理由が皆無(19✅/45❌)。全面書き直し級のリライトが必要。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "primary-r04-b": {
+      "slug": "civil-construction-1-primary-r04-b",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 1,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 1.8,
+      "weak_axes": [
+        "exampoint",
+        "related_keywords"
+      ],
+      "qualitative_comment": "労働安全衛生系は各肢に理由あり良好だが穴埋め問題の一部で正答のみ解説。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "primary-r05-a": {
+      "slug": "civil-construction-1-primary-r05-a",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 1,
+        "option_verification": 0,
+        "exampoint": 1,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "option_verification",
+        "exampoint",
+        "related_keywords"
+      ],
+      "qualitative_comment": "r04-aと同様、正答のみ解説が支配的(13✅/51❌)で誤答肢の検証がほぼ欠落。優先リライト対象。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "primary-r05-b": {
+      "slug": "civil-construction-1-primary-r05-b",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 1,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "exampoint",
+        "related_keywords"
+      ],
+      "qualitative_comment": "全選択肢に明快な正誤理由。労働安全衛生条文引用も的確。構造は旧式のみ減点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "primary-r06-a": {
+      "slug": "civil-construction-1-primary-r06-a",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 1,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 1.8,
+      "weak_axes": [
+        "exampoint",
+        "related_keywords"
+      ],
+      "qualitative_comment": "概ね良好だがNo.17選択肢4で正誤マーク❌なのに解説内容は肯定文という矛盾あり(要修正)。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "primary-r06-b": {
+      "slug": "civil-construction-1-primary-r06-b",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 1,
+        "option_verification": 1,
+        "exampoint": 1,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 1.4,
+      "weak_axes": [
+        "answer_accuracy",
+        "option_verification",
+        "exampoint",
+        "related_keywords"
+      ],
+      "qualitative_comment": "穴埋め問題5問(No.21,23,26,29,33)で誤答肢が誤りを含む記述❌のみでどこが誤りか不明。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "primary-r07-a": {
+      "slug": "civil-construction-1-primary-r07-a",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 1,
+        "related_keywords": 2,
+        "mobile": 3
+      },
+      "weighted": 2,
+      "weak_axes": [
+        "exampoint"
+      ],
+      "qualitative_comment": "簡潔だが各肢に一言理由あり。末尾RelatedKeywordsコンポーネント化・slug適正。ExamPoint構造は未採用。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "primary-r07-b": {
+      "slug": "civil-construction-1-primary-r07-b",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 1,
+        "option_verification": 1,
+        "exampoint": 1,
+        "related_keywords": 2,
+        "mobile": 3
+      },
+      "weighted": 1.6,
+      "weak_axes": [
+        "answer_accuracy",
+        "option_verification",
+        "exampoint"
+      ],
+      "qualitative_comment": "穴埋め問題(No.21,23,26,29,33)が正答のみ解説で誤答肢理由なし。RelatedKeywordsは良好。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "secondary-concrete-basics": {
+      "slug": "civil-construction-1-secondary-concrete-basics",
+      "group": "secondary",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 2,
+        "exampoint": 0,
+        "related_keywords": 3,
+        "mobile": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "option_verification"
+      ],
+      "qualitative_comment": "基礎解説記事で正答/ExamPointは非該当。表が多く4列超の一部あり。関連リンク健全。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "secondary-concrete-past-problems": {
+      "slug": "civil-construction-1-secondary-concrete-past-problems",
+      "group": "secondary",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 2,
+        "related_keywords": 3,
+        "mobile": 3
+      },
+      "weighted": 2.8,
+      "weak_axes": [],
+      "qualitative_comment": "折衷案構造に完全準拠。全17問に正答・解説・ポイント完備。各解答表の正誤列は形骸的だが減点小。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "secondary-construction-plan-basics": {
+      "slug": "civil-construction-1-secondary-construction-plan-basics",
+      "group": "secondary",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 2,
+        "exampoint": 0,
+        "related_keywords": 3,
+        "mobile": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "option_verification"
+      ],
+      "qualitative_comment": "基礎解説記事。frontmatterにogpタイトル二行の軽微な崩れあり。関連リンク健全。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "secondary-construction-plan-past-problems": {
+      "slug": "civil-construction-1-secondary-construction-plan-past-problems",
+      "group": "secondary",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 3,
+        "exampoint": 2,
+        "related_keywords": 3,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "answer_accuracy"
+      ],
+      "qualitative_comment": "No.9(1)建設副産物の解答欄記述が省略され解答完結性に穴。他9問は折衷案構造準拠で良好。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "secondary-earthwork-basics": {
+      "slug": "civil-construction-1-secondary-earthwork-basics",
+      "group": "secondary",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 2,
+        "exampoint": 0,
+        "related_keywords": 3,
+        "mobile": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "option_verification"
+      ],
+      "qualitative_comment": "基礎解説記事で正答/ExamPoint非該当。表内容は充実、複数の広範な表あり視認性やや圧迫。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "secondary-earthwork-past-problems": {
+      "slug": "civil-construction-1-secondary-earthwork-past-problems",
+      "group": "secondary",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 3,
+        "mobile": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "16問全て折衷案構造に完全準拠。ポイント要約が的確で引っかけ論点を簡潔に捉える。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "secondary-experience-writing-examples": {
+      "slug": "civil-construction-1-secondary-experience-writing-examples",
+      "group": "secondary",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 3,
+        "exampoint": 0,
+        "related_keywords": 3,
+        "mobile": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "answer_accuracy"
+      ],
+      "qualitative_comment": "改善前例と改善ポイントの併記形式。模範解答自体は意図的に非掲載(note誘導)のため解答完結性はやや弱い。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "secondary-experience-writing-guide": {
+      "slug": "civil-construction-1-secondary-experience-writing-guide",
+      "group": "secondary",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 0,
+        "related_keywords": 3,
+        "mobile": 3
+      },
+      "weighted": 1,
+      "weak_axes": [],
+      "qualitative_comment": "出題傾向・R6形式変更・記述留意点を体系的に解説。文字数チェッカー導線もあり充実度高い。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "secondary-getting-started": {
+      "slug": "civil-construction-1-secondary-getting-started",
+      "group": "secondary",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 1,
+        "exampoint": 1,
+        "related_keywords": 2,
+        "mobile": 3
+      },
+      "weighted": 1.8,
+      "weak_axes": [
+        "option_verification",
+        "exampoint"
+      ],
+      "qualitative_comment": "過去問でなく学習ガイド記事。設問/解答構造がなくルーブリック対象外に近い。関連リンクはSeeAlso1本のみで薄い。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "secondary-quality-management-basics": {
+      "slug": "civil-construction-1-secondary-quality-management-basics",
+      "group": "secondary",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 1,
+        "exampoint": 0,
+        "related_keywords": 2,
+        "mobile": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "exampoint",
+        "option_verification"
+      ],
+      "qualitative_comment": "基礎解説記事で過去問の設問/解答構造がない。4列以上の表が複数あり、ExamPoint皆無。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "secondary-quality-management-past-problems": {
+      "slug": "civil-construction-1-secondary-quality-management-past-problems",
+      "group": "secondary",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 1,
+        "related_keywords": 2,
+        "mobile": 2
+      },
+      "weighted": 1.8,
+      "weak_axes": [
+        "exampoint"
+      ],
+      "qualitative_comment": "全16問の正誤列が常に⭕で情報価値が低い。ポイント欄は薄く、r03以降のExamPoint構造と不統一。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "secondary-r03": {
+      "slug": "civil-construction-1-secondary-r03",
+      "group": "secondary",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 2,
+        "related_keywords": 3,
+        "mobile": 3
+      },
+      "weighted": 2.8,
+      "weak_axes": [],
+      "qualitative_comment": "全問模範解答・法令根拠明記、ExamPoint・出典・FAQ完備。items3-5個とやや冗長だが十分高品質。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "secondary-r04": {
+      "slug": "civil-construction-1-secondary-r04",
+      "group": "secondary",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 2,
+        "related_keywords": 3,
+        "mobile": 3
+      },
+      "weighted": 2.8,
+      "weak_axes": [],
+      "qualitative_comment": "r03と同水準の高品質。法令根拠・出典・FAQ完備。ExamPoint items4-6個で折衷案よりやや多い。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "secondary-r05": {
+      "slug": "civil-construction-1-secondary-r05",
+      "group": "secondary",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 2,
+        "related_keywords": 3,
+        "mobile": 3
+      },
+      "weighted": 2.8,
+      "weak_axes": [],
+      "qualitative_comment": "必須/選択問題見出し明示、模範解答充実。ExamPoint items4-5個で折衷案の上限2よりやや多い。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "secondary-r06": {
+      "slug": "civil-construction-1-secondary-r06",
+      "group": "secondary",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 2,
+        "related_keywords": 3,
+        "mobile": 3
+      },
+      "weighted": 2.8,
+      "weak_axes": [],
+      "qualitative_comment": "FAQ・出典・法令条文番号まで明記し高品質。ExamPoint items3個程度に抑制傾向あり良好。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "secondary-r07": {
+      "slug": "civil-construction-1-secondary-r07",
+      "group": "secondary",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 2,
+        "related_keywords": 3,
+        "mobile": 3
+      },
+      "weighted": 2.8,
+      "weak_axes": [],
+      "qualitative_comment": "最新年度。経験記述問題にもExamPoint付与し他年度と統一構造を維持、品質安定。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
     }
   }
 }
