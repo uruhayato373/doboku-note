@@ -1,10 +1,10 @@
 {
   "generated_at": "2026-07-08T21:53:23.000Z",
   "note": "図provenance。needs=次アクション。真実源: figure-sources.json(台帳)+figure-text-audit.json(品質)。再生成可。",
-  "figure_count": 588,
+  "figure_count": 586,
   "summary": {
-    "ok": 332,
-    "recrop-review": 190,
+    "ok": 331,
+    "recrop-review": 189,
     "recrop": 28,
     "rescan-need-source": 5,
     "rescan": 33
@@ -233,20 +233,6 @@
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
       "needs": "recrop-review"
-    },
-    "civil-construction-1/primary-h27-a/img/h27-a-fig-02": {
-      "category": "civil-construction-1",
-      "slug": "civil-construction-1/primary-h27-a",
-      "year": "h27",
-      "published": true,
-      "referenced": false,
-      "quality": "sharp",
-      "sharpness": 3856.37,
-      "textStatus": "clean",
-      "source_dir": "docs/textbook/１級土木施工管理技士",
-      "figure_origin": "answer-booklet",
-      "rescannable": "needs-source",
-      "needs": "ok"
     },
     "civil-construction-1/primary-h27-a/img/h27-a-fig-03": {
       "category": "civil-construction-1",
@@ -618,20 +604,6 @@
       "year": "h30",
       "published": true,
       "referenced": true,
-      "quality": "sharp",
-      "sharpness": 2555.69,
-      "textStatus": "maybe",
-      "source_dir": "docs/textbook/１級土木施工管理技士",
-      "figure_origin": "answer-booklet",
-      "rescannable": "needs-source",
-      "needs": "recrop-review"
-    },
-    "civil-construction-1/primary-h30-a/img/h30-a-fig-03": {
-      "category": "civil-construction-1",
-      "slug": "civil-construction-1/primary-h30-a",
-      "year": "h30",
-      "published": true,
-      "referenced": false,
       "quality": "sharp",
       "sharpness": 2555.69,
       "textStatus": "maybe",
@@ -6348,7 +6320,7 @@
       "slug": "note/_magazines",
       "year": null,
       "published": false,
-      "referenced": false,
+      "referenced": true,
       "quality": "sharp",
       "sharpness": 1004.19,
       "textStatus": "clean",
@@ -8252,5 +8224,6 @@
       "needs": "ok"
     }
   },
-  "_manual_patch": "2026-07-09 手動更新: h30-a-fig-04 を答え漏らし再クロップ後 clean に是正(目視検証・tesseract不在のためOCR未再実行)、未参照孤立3図(h26-a-fig-01/05・r01-a-fig-04=git追跡外ローカル残骸)を削除に伴い除去。次回 audit-figure-text で再確認要。"
+  "_manual_patch": "2026-07-09 手動更新: h30-a-fig-04 を答え漏らし再クロップ後 clean に是正(目視検証・tesseract不在のためOCR未再実行)、未参照孤立3図(h26-a-fig-01/05・r01-a-fig-04=git追跡外ローカル残骸)を削除に伴い除去。次回 audit-figure-text で再確認要。",
+  "_manual_patch_2": "2026-07-09(2): 未参照の余剰図2件(h27-a-fig-02=未使用の見切れ・h30-a-fig-03=fig-02と重複)を削除し台帳から除去。tankan-magazine-cover はマガジンカバー(記事img外)のため referenced:true に是正(誤検知解消)。"
 }

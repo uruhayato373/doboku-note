@@ -1,15 +1,15 @@
 {
   "generated_at": "2026-07-08T21:52:12.296Z",
   "tool": "tesseract jpn --psm 6",
-  "base_count": 588,
-  "file_count": 1014,
+  "base_count": 586,
+  "file_count": 1010,
   "summary": {
-    "clean": 346,
-    "maybe": 206,
+    "clean": 345,
+    "maybe": 205,
     "writein": 36
   },
   "quality_summary": {
-    "sharp": 555,
+    "sharp": 553,
     "blurry": 13,
     "soft": 20
   },
@@ -139,14 +139,6 @@
       "periods": 1,
       "markers": [],
       "sharpness": 2683.19,
-      "quality": "sharp",
-      "variants": 2
-    },
-    "civil-construction-1/primary-h27-a/img/h27-a-fig-02": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 3856.37,
       "quality": "sharp",
       "variants": 2
     },
@@ -359,14 +351,6 @@
       "variants": 2
     },
     "civil-construction-1/primary-h30-a/img/h30-a-fig-02": {
-      "status": "maybe",
-      "periods": 2,
-      "markers": [],
-      "sharpness": 2555.69,
-      "quality": "sharp",
-      "variants": 2
-    },
-    "civil-construction-1/primary-h30-a/img/h30-a-fig-03": {
       "status": "maybe",
       "periods": 2,
       "markers": [],
@@ -4719,5 +4703,6 @@
       "variants": 1
     }
   },
-  "_manual_patch": "2026-07-09 手動更新: h30-a-fig-04 を答え漏らし再クロップ後 clean に是正(目視検証・tesseract不在のためOCR未再実行)、未参照孤立3図(h26-a-fig-01/05・r01-a-fig-04=git追跡外ローカル残骸)を削除に伴い除去。次回 audit-figure-text で再確認要。"
+  "_manual_patch": "2026-07-09 手動更新: h30-a-fig-04 を答え漏らし再クロップ後 clean に是正(目視検証・tesseract不在のためOCR未再実行)、未参照孤立3図(h26-a-fig-01/05・r01-a-fig-04=git追跡外ローカル残骸)を削除に伴い除去。次回 audit-figure-text で再確認要。",
+  "_manual_patch_2": "2026-07-09(2): 未参照の余剰図2件(h27-a-fig-02=未使用の見切れ・h30-a-fig-03=fig-02と重複)を削除し台帳から除去。tankan-magazine-cover はマガジンカバー(記事img外)のため referenced:true に是正(誤検知解消)。"
 }
