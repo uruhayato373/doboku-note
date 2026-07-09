@@ -60,7 +60,7 @@
 1. 🟡 **rescan-need-source 6図**（真にローカルPDF再抽出不可・要外部/別原典）＝h29-b-fig-02（旧4図完全・タイトルのみ上端切れ→要H29第2次B原典で補完）/h27-a-fig-01（問題集にH27非収録→要H27原典）/pe-construction 4（fig22/27/04/05＝スキャン書籍の白書グラフ再録→要白書PDF等の外部ソース）。台帳に理由記録済。
 2. 🟢 **concrete-diagnostician recrop-review 26**（`published:false` 著作権凍結ドラフト内）。図クロップ著作権方針（L597）が決まるまで保留＝方針決定後にまとめて workflow 処理可。
 3. 🟢 **rescan 33**（concrete-chief 等・書籍スキャン低品質）＝物理再スキャン要（PDF無し・ユーザー作業）。
-4. 🟢 **h30-a-fig-12 の確認**（旧メモの「見切れ」候補・未検証）。fig-04 は答え漏らしとして再クロップ済み（2026-07-09）＝旧メモとの食い違いは fig-04 で解消、残る fig-12 のみ目視確認要。
+4. ✅ **h30-a-fig-12 確認・是正完了（2026-07-10）**。目視で「見切れ」以上の欠陥を発見＝**【正解】(1)の答え漏らし＋No.11設問文写り込み＋4図下端見切れの三重欠陥**。元PDF(H30第一次A p.5)から側圧分布模式図4図のみを再抽出し公開中ページの答え漏らしを解消（commit `33db07972`）。fig-04 は既済（2026-07-09）。
 5. 🟢 1級 textbook 10本の `civil-construction-qa` 品質監査（低優先・合格マージン大）。H28-A fig-02/07/08/09 は元 PDF に図が無く（問題用紙テキスト形式）修正不能で確定。
 
 **ソース/手順**: `docs/textbook/{１級,２級}土木施工管理技士/`。手順=pdftoppm 200dpi→magick crop+trim→webp(q80)。**過去問の問題図に解答情報を入れない**（[[exam-problem-figure-no-answer]]）。**過去問データグラフのSVG化禁止**（幾何が答え＝誤答誘発）。[[civil1-figure-answer-leak-remediation]] / [[figure-provenance-system]]
