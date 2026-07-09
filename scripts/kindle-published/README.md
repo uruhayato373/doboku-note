@@ -19,4 +19,8 @@ KDP で**公開済み（LIVE）**の Kindle 実物アーカイブ。実際に出
 | A-05 品質管理 | `kindle-A-05-hinshitsu.epub` | `kindle-cover-a-05.jpg` | `KDP入力メモ_A-05品質管理.txt` |
 | A-06 工程管理 | `kindle-A-06-koutei.epub` | `kindle-cover-a-06.jpg` | `KDP入力メモ_A-06工程管理.txt` |
 
+## cover-designs/
+
+AI生成の表紙デザイン元 PNG（Downloads から退避・7/8 生成分 8枚）。品番マッピングは付いていない生成物（採用/不採用のバリアント混在）。最終採用の表紙は上記の `kindle-cover-*.jpg`（satori 合成・1600×2560）が正。
+
 戦略・価格の真実源は `docs/project/01_戦略/08_Kindle出版戦略.md`。
