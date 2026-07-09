@@ -172,6 +172,12 @@
       "needs": "ok",
       "reason": "本文4行写り込み・図2.11キャプションを除去、概念図(P_A-ΔP注記含む)保持で再クロップ 2026-07-09",
       "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-9",
+      "needs": "ok",
+      "reason": "本文3行写り込み・図2.9キャプション/ページ番号を除去、断面図(舗装/路床/路体ラベル含む)保持で再クロップ 2026-07-09",
+      "verified": "2026-07-09"
     }
   ],
   "categories": {
