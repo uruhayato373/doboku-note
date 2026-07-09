@@ -154,6 +154,12 @@
       "needs": "ok",
       "reason": "解説文・数式・図が一体の正規解説図（写り込みなし・periodsは図内正当な説明文）2026-07-09",
       "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-61",
+      "needs": "ok",
+      "reason": "ランニングヘッド・左過大余白・図2.61キャプションを除去、グラフと(注)保持で再クロップ 2026-07-09",
+      "verified": "2026-07-09"
     }
   ],
   "categories": {
