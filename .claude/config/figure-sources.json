@@ -1166,6 +1166,150 @@
       "dpi": 300,
       "reason": "図 側圧分布(イ)(ロ)(ハ)(ニ)。旧画像は【正解】(1)の答え漏らし＋No.11設問文写り込み＋4図が下端見切れの三重欠陥だった。元PDF(H30第一次A p.5)から4図のみをフル再抽出(設問文/選択肢/正解/トンボ除去)。再クロップ済 2026-07-10。",
       "verified": "2026-07-10"
+    },
+    {
+      "figure": "concrete-chief-engineer/primary-materials/img/cement-r01-composition",
+      "needs": "ok",
+      "source_pdf": "docs/textbook/コンクリート主任技師2024/スキャンした書類 14.pdf",
+      "page": 34,
+      "dpi": 0,
+      "reason": "高品質再スキャン(スキャンした書類 14.pdf・書籍p.34)からフル再抽出＝旧は指で左端隠れ+ボケ→5棒+凡例完全。並行workflow+親の新旧比較QA。差替済 2026-07-10。",
+      "verified": "2026-07-10"
+    },
+    {
+      "figure": "concrete-chief-engineer/primary-properties/img/bingham-flow-r01",
+      "needs": "ok",
+      "source_pdf": "docs/textbook/コンクリート主任技師2024/スキャンした書類 15.pdf",
+      "page": 64,
+      "dpi": 0,
+      "reason": "高品質再スキャン(スキャンした書類 15.pdf・書籍p.64)からフル再抽出＝旧は縦軸ラベル・ア欠落+ボケ→全要素復元。並行workflow+親の新旧比較QA。差替済 2026-07-10。",
+      "verified": "2026-07-10"
+    },
+    {
+      "figure": "concrete-chief-engineer/primary-properties/img/creep-strain-r04",
+      "needs": "ok",
+      "source_pdf": "docs/textbook/コンクリート主任技師2024/スキャンした書類 15.pdf",
+      "page": 69,
+      "dpi": 0,
+      "reason": "高品質再スキャン(スキャンした書類 15.pdf・書籍p.69)からフル再抽出＝旧は全体ボケ→載荷/除荷/数値鮮明化。並行workflow+親の新旧比較QA。差替済 2026-07-10。",
+      "verified": "2026-07-10"
+    },
+    {
+      "figure": "concrete-chief-engineer/primary-mix-design/img/volume-ratio-r03",
+      "needs": "ok",
+      "source_pdf": "docs/textbook/コンクリート主任技師2024/スキャンした書類 15.pdf",
+      "page": 97,
+      "dpi": 0,
+      "reason": "高品質再スキャン(スキャンした書類 15.pdf・書籍p.97)からフル再抽出＝旧は低解像度ボケ→①-④/全ラベル鮮明。並行workflow+親の新旧比較QA。差替済 2026-07-10。",
+      "verified": "2026-07-10"
+    },
+    {
+      "figure": "concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05",
+      "needs": "ok",
+      "source_pdf": "docs/textbook/コンクリート主任技師2024/スキャンした書類 15.pdf",
+      "page": 99,
+      "dpi": 0,
+      "reason": "高品質再スキャン(スキャンした書類 15.pdf・書籍p.99)からフル再抽出＝旧は左端欠け+黒帯+ボケ→表+図1図2完全。並行workflow+親の新旧比較QA。差替済 2026-07-10。",
+      "verified": "2026-07-10"
+    },
+    {
+      "figure": "concrete-chief-engineer/primary-production-qc/img/normal-dist-r05",
+      "needs": "ok",
+      "source_pdf": "docs/textbook/コンクリート主任技師2024/スキャンした書類 16.pdf",
+      "page": 120,
+      "dpi": 0,
+      "reason": "高品質再スキャン(スキャンした書類 16.pdf・書籍p.120)からフル再抽出＝旧は左端見切れ(ε斜線部)+ボケ→完全。並行workflow+親の新旧比較QA。差替済 2026-07-10。",
+      "verified": "2026-07-10"
+    },
+    {
+      "figure": "concrete-chief-engineer/primary-construction/img/pump-pressure-r01",
+      "needs": "ok",
+      "source_pdf": "docs/textbook/コンクリート主任技師2024/スキャンした書類 16.pdf",
+      "page": 143,
+      "dpi": 0,
+      "reason": "高品質再スキャン(スキャンした書類 16.pdf・書籍p.143)からフル再抽出＝旧はボケ+綴じ黒線→軸数値鮮明。並行workflow+親の新旧比較QA。差替済 2026-07-10。",
+      "verified": "2026-07-10"
+    },
+    {
+      "figure": "concrete-chief-engineer/primary-construction/img/pump-pressure-r05",
+      "needs": "ok",
+      "source_pdf": "docs/textbook/コンクリート主任技師2024/スキャンした書類 16.pdf",
+      "page": 136,
+      "dpi": 0,
+      "reason": "高品質再スキャン(スキャンした書類 16.pdf・書籍p.136)からフル再抽出＝旧は指写り込み+ボケ→除去・鮮明化。並行workflow+親の新旧比較QA。差替済 2026-07-10。",
+      "verified": "2026-07-10"
+    },
+    {
+      "figure": "concrete-chief-engineer/primary-construction/img/strength-dev-r02",
+      "needs": "ok",
+      "source_pdf": "docs/textbook/コンクリート主任技師2024/スキャンした書類 17.pdf",
+      "page": 148,
+      "dpi": 0,
+      "reason": "高品質再スキャン(スキャンした書類 17.pdf・書籍p.148)からフル再抽出＝旧は指が左半分に大写り+ボケ→完全。並行workflow+親の新旧比較QA。差替済 2026-07-10。",
+      "verified": "2026-07-10"
+    },
+    {
+      "figure": "concrete-chief-engineer/primary-construction/img/marine-joint-r01",
+      "needs": "ok",
+      "source_pdf": "docs/textbook/コンクリート主任技師2024/スキャンした書類 17.pdf",
+      "page": 179,
+      "dpi": 0,
+      "reason": "高品質再スキャン(スキャンした書類 17.pdf・書籍p.179)からフル再抽出＝旧はボケ→橋脚/打継目a-d/潮位鮮明。並行workflow+親の新旧比較QA。差替済 2026-07-10。",
+      "verified": "2026-07-10"
+    },
+    {
+      "figure": "concrete-chief-engineer/primary-construction/img/form-pressure-r02",
+      "needs": "ok",
+      "source_pdf": "docs/textbook/コンクリート主任技師2024/スキャンした書類 17.pdf",
+      "page": 153,
+      "dpi": 0,
+      "reason": "高品質再スキャン(スキャンした書類 17.pdf・書籍p.153)からフル再抽出＝旧はボケ。新は5グラフ完全(設問見出し写り込みは白塗り除去)。並行workflow+親の新旧比較QA。差替済 2026-07-10。",
+      "verified": "2026-07-10"
+    },
+    {
+      "figure": "concrete-chief-engineer/primary-construction/img/temp-history-r02",
+      "needs": "ok",
+      "source_pdf": "docs/textbook/コンクリート主任技師2024/スキャンした書類 17.pdf",
+      "page": 166,
+      "dpi": 0,
+      "reason": "高品質再スキャン(スキャンした書類 17.pdf・書籍p.166)からフル再抽出＝旧はほぼ判読不能→全要素鮮明(指影は白塗り除去)。並行workflow+親の新旧比較QA。差替済 2026-07-10。",
+      "verified": "2026-07-10"
+    },
+    {
+      "figure": "concrete-chief-engineer/primary-structural-design/img/crack-pattern-r02",
+      "needs": "ok",
+      "source_pdf": "docs/textbook/コンクリート主任技師2024/スキャンした書類 18.pdf",
+      "page": 199,
+      "dpi": 0,
+      "reason": "高品質再スキャン(スキャンした書類 18.pdf・書籍p.199)からフル再抽出＝旧は指+ボケ+右端見切れ→5図完全。並行workflow+親の新旧比較QA。差替済 2026-07-10。",
+      "verified": "2026-07-10"
+    },
+    {
+      "figure": "concrete-chief-engineer/primary-structural-design/img/crack-pattern-r03",
+      "needs": "ok",
+      "source_pdf": "docs/textbook/コンクリート主任技師2024/スキャンした書類 18.pdf",
+      "page": 196,
+      "dpi": 0,
+      "reason": "高品質再スキャン(スキャンした書類 18.pdf・書籍p.196)からフル再抽出＝旧は(a)(b)のみ不鮮明→(a)-(d)全4図復元。並行workflow+親の新旧比較QA。差替済 2026-07-10。",
+      "verified": "2026-07-10"
+    },
+    {
+      "figure": "concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29",
+      "needs": "rescan-need-source",
+      "reason": "H.29問題7。再スキャン書籍(項目別抜粋・収録R5〜H30)にH29は範囲外で非収録＝再抽出不可。旧画像維持。要H29原典。",
+      "verified": "2026-07-10"
+    },
+    {
+      "figure": "concrete-chief-engineer/primary-properties/img/bingham-flow-h30",
+      "needs": "rescan-need-source",
+      "reason": "H.30問題7。冒頭の出題状況表は出題実績一覧であり収録一覧ではない＝②/01本文にH30設問なし(p56-83全設問精査)。旧画像維持。要H30原典。",
+      "verified": "2026-07-10"
+    },
+    {
+      "figure": "concrete-chief-engineer/primary-construction/img/bingham-shear-r04",
+      "needs": "rescan-need-source",
+      "reason": "R.04問題9(高流動)。書籍②/01のR4収録は問題14(テキスト設問)のみで本設問は非収録(p56-66精査・R.01問題9は選択肢が別物のため不採用)。旧画像維持。要R4原典。",
+      "verified": "2026-07-10"
     }
   ],
   "categories": {
