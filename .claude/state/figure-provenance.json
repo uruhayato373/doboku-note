@@ -1,15 +1,29 @@
 {
-  "generated_at": "2026-07-08T21:53:23.000Z",
+  "generated_at": "2026-07-09T12:41:13.896Z",
   "note": "図provenance。needs=次アクション。真実源: figure-sources.json(台帳)+figure-text-audit.json(品質)。再生成可。",
-  "figure_count": 586,
+  "figure_count": 589,
   "summary": {
-    "ok": 454,
-    "rescan-need-source": 45,
+    "ok": 459,
+    "rescan-need-source": 43,
     "recrop": 28,
     "rescan": 33,
     "recrop-review": 26
   },
   "figures": {
+    "civil-construction-1/primary-h26-a/img/h26-a-fig-01": {
+      "category": "civil-construction-1",
+      "slug": "civil-construction-1/primary-h26-a",
+      "year": "h26",
+      "published": true,
+      "referenced": false,
+      "quality": "unknown",
+      "sharpness": null,
+      "textStatus": "unaudited",
+      "source_dir": "docs/textbook/１級土木施工管理技士",
+      "figure_origin": "answer-booklet",
+      "rescannable": "needs-source",
+      "needs": "ok"
+    },
     "civil-construction-1/primary-h26-a/img/h26-a-fig-02": {
       "category": "civil-construction-1",
       "slug": "civil-construction-1/primary-h26-a",
@@ -52,6 +66,20 @@
       "rescannable": "needs-source",
       "needs": "ok"
     },
+    "civil-construction-1/primary-h26-a/img/h26-a-fig-05": {
+      "category": "civil-construction-1",
+      "slug": "civil-construction-1/primary-h26-a",
+      "year": "h26",
+      "published": true,
+      "referenced": false,
+      "quality": "unknown",
+      "sharpness": null,
+      "textStatus": "unaudited",
+      "source_dir": "docs/textbook/１級土木施工管理技士",
+      "figure_origin": "answer-booklet",
+      "rescannable": "needs-source",
+      "needs": "ok"
+    },
     "civil-construction-1/primary-h26-a/img/h26-a-fig-06": {
       "category": "civil-construction-1",
       "slug": "civil-construction-1/primary-h26-a",
@@ -64,7 +92,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09"
     },
     "civil-construction-1/primary-h26-a/img/h26-a-fig-07": {
       "category": "civil-construction-1",
@@ -176,7 +205,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/primary-h26-b/img/h26-b-fig-01": {
       "category": "civil-construction-1",
@@ -204,7 +234,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/primary-h26-b/img/h26-b-fig-03": {
       "category": "civil-construction-1",
@@ -218,7 +249,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/primary-h27-a/img/h27-a-fig-01": {
       "category": "civil-construction-1",
@@ -232,7 +264,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09"
     },
     "civil-construction-1/primary-h27-a/img/h27-a-fig-03": {
       "category": "civil-construction-1",
@@ -260,7 +293,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09"
     },
     "civil-construction-1/primary-h28-a/img/h28-a-fig-01": {
       "category": "civil-construction-1",
@@ -274,7 +308,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "粒径加積曲線の上端(90-100%)が見切れ。要ソース再取得。"
     },
     "civil-construction-1/primary-h28-a/img/h28-a-fig-02": {
       "category": "civil-construction-1",
@@ -456,7 +491,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/primary-h28-b/img/h28-b-fig-02": {
       "category": "civil-construction-1",
@@ -470,7 +506,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "ネットワーク式工程表の図の下に設問選択肢(1)(2)(3)が写り込み。図(ネットワーク図)のみに再クロップ(1456x548→915x326, 2026-07-09)。選択肢は記事本文にあり図には不要。"
     },
     "civil-construction-1/primary-h28-b/img/h28-b-fig-03": {
       "category": "civil-construction-1",
@@ -484,7 +521,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09"
     },
     "civil-construction-1/primary-h28-b/img/h28-b-fig-04": {
       "category": "civil-construction-1",
@@ -498,7 +536,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/primary-h29-a/img/h29-a-fig-01": {
       "category": "civil-construction-1",
@@ -582,7 +621,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09"
     },
     "civil-construction-1/primary-h29-b/img/h29-b-fig-03": {
       "category": "civil-construction-1",
@@ -596,7 +636,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/primary-h30-a/img/h30-a-fig-02": {
       "category": "civil-construction-1",
@@ -610,7 +651,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/primary-h30-a/img/h30-a-fig-04": {
       "category": "civil-construction-1",
@@ -638,7 +680,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/primary-h30-a/img/h30-a-fig-06": {
       "category": "civil-construction-1",
@@ -652,7 +695,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "図1 サンドドレーン工法の施工順序=クリーンな正規図。periods は施工順序の番号凡例=図本体、写り込みなし。目視確認2026-07-09。"
     },
     "civil-construction-1/primary-h30-a/img/h30-a-fig-07": {
       "category": "civil-construction-1",
@@ -694,7 +738,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/primary-h30-a/img/h30-a-fig-10": {
       "category": "civil-construction-1",
@@ -722,7 +767,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/primary-h30-a/img/h30-a-fig-12": {
       "category": "civil-construction-1",
@@ -764,7 +810,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "問題文(4)+【解説】写り込みを再クロップ除去(1168x1246→921x1070, 2026-07-09)。残る句点は表「支保工の形式と特徴」の正規セル文=図本体のため ok。"
     },
     "civil-construction-1/primary-h30-b/img/h30-b-fig-01": {
       "category": "civil-construction-1",
@@ -792,7 +839,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow判定=既にクリーン（親QA確認・写り込みなし）2026-07-09"
     },
     "civil-construction-1/primary-h30-b/img/h30-b-fig-03": {
       "category": "civil-construction-1",
@@ -806,7 +854,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09"
     },
     "civil-construction-1/primary-r01-a/img/r01-a-fig-01": {
       "category": "civil-construction-1",
@@ -820,7 +869,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/primary-r01-a/img/r01-a-fig-02": {
       "category": "civil-construction-1",
@@ -845,6 +895,20 @@
       "quality": "sharp",
       "sharpness": 2793.58,
       "textStatus": "clean",
+      "source_dir": "docs/textbook/１級土木施工管理技士",
+      "figure_origin": "answer-booklet",
+      "rescannable": "needs-source",
+      "needs": "ok"
+    },
+    "civil-construction-1/primary-r01-a/img/r01-a-fig-04": {
+      "category": "civil-construction-1",
+      "slug": "civil-construction-1/primary-r01-a",
+      "year": "r01",
+      "published": true,
+      "referenced": false,
+      "quality": "unknown",
+      "sharpness": null,
+      "textStatus": "unaudited",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
@@ -932,7 +996,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/primary-r01-b/img/r01-b-fig-02": {
       "category": "civil-construction-1",
@@ -946,7 +1011,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09"
     },
     "civil-construction-1/primary-r01-b/img/r01-b-fig-03": {
       "category": "civil-construction-1",
@@ -975,7 +1041,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09"
     },
     "civil-construction-1/primary-r02-a/img/r02-a-fig-01": {
       "category": "civil-construction-1",
@@ -1045,7 +1112,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "解説文・数式・図が一体の正規解説図（写り込みなし・periodsは図内正当な説明文）2026-07-09"
     },
     "civil-construction-1/primary-r02-a/img/r02-a-fig-06": {
       "category": "civil-construction-1",
@@ -1199,7 +1267,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09"
     },
     "civil-construction-1/primary-r03-b/img/r03-b-fig-02": {
       "category": "civil-construction-1",
@@ -1227,7 +1296,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/primary-r04-b/img/r04-b-fig-02": {
       "category": "civil-construction-1",
@@ -1241,8 +1311,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source",
-      "manualReason": "元図が上端で見切れ。作業B・D＋イベント①が欠落（解説のクリティカルパスA→B→D→Iは欠落部を通る）。⑤へ上から刺さる矢印の元ノードが切断。再クロップ不可＝完全な元スキャン要。r05-b-fig-02とmd5同一。"
+      "needs": "ok",
+      "manualReason": "元PDF(R04第一次B p.5 No.6)から上枝含め再抽出＝作業B・D・イベント①を復元(737x366→1069x636)。旧判定『元図が見切れ・要ソース再取得』は誤りで、元PDFは鮮明ベクターで完全な図を保持。r05-b-fig-02と同一図。再クロップ済 2026-07-09。"
     },
     "civil-construction-1/primary-r05-a/img/r05-a-fig-01": {
       "category": "civil-construction-1",
@@ -1270,7 +1340,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09"
     },
     "civil-construction-1/primary-r05-b/img/r05-b-fig-02": {
       "category": "civil-construction-1",
@@ -1284,8 +1355,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source",
-      "manualReason": "r04-b-fig-02とmd5完全一致の同一ファイル。同じく上端見切れ（作業A〜J中B・D欠落）。再クロップ不可。"
+      "needs": "ok",
+      "manualReason": "R05第一次B p.5 No.6の図はR04と完全同一(設問のみF/4日差)。r04-b-fig-02と同じ再抽出クロップを適用し作業B・D復元。再クロップ済 2026-07-09。"
     },
     "civil-construction-1/primary-r06-a/img/r06-a-fig-01": {
       "category": "civil-construction-1",
@@ -1313,7 +1384,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow判定=既にクリーン（親QA確認・写り込みなし）2026-07-09"
     },
     "civil-construction-1/primary-r06-a/img/r06-a-fig-03": {
       "category": "civil-construction-1",
@@ -1355,7 +1427,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow判定=既にクリーン（親QA確認・写り込みなし）2026-07-09"
     },
     "civil-construction-1/primary-r06-b/img/r06-b-fig-01": {
       "category": "civil-construction-1",
@@ -1369,7 +1442,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/primary-r06-b/img/r06-b-fig-02": {
       "category": "civil-construction-1",
@@ -1412,7 +1486,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow判定=既にクリーン（親QA確認・写り込みなし）2026-07-09"
     },
     "civil-construction-1/primary-r07-a/img/r07-a-fig-03": {
       "category": "civil-construction-1",
@@ -1426,7 +1501,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/primary-r07-a/img/r07-a-fig-04": {
       "category": "civil-construction-1",
@@ -1482,7 +1558,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/primary-r07-b/img/r07-b-fig-02": {
       "category": "civil-construction-1",
@@ -1511,7 +1588,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-10": {
       "category": "civil-construction-1",
@@ -1553,7 +1631,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-13": {
       "category": "civil-construction-1",
@@ -1567,7 +1646,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-14": {
       "category": "civil-construction-1",
@@ -1623,7 +1703,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "workflow判定=図本体の見切れ/内部裏写り・原典再スキャン要（親QA確認）2026-07-09"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-18": {
       "category": "civil-construction-1",
@@ -1637,7 +1718,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-19": {
       "category": "civil-construction-1",
@@ -1721,7 +1803,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-6": {
       "category": "civil-construction-1",
@@ -1735,7 +1818,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "workflow判定=図本体の見切れ/内部裏写り・原典再スキャン要（親QA確認）2026-07-09"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-7": {
       "category": "civil-construction-1",
@@ -1749,7 +1833,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-8": {
       "category": "civil-construction-1",
@@ -1763,7 +1848,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-9": {
       "category": "civil-construction-1",
@@ -1777,7 +1863,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-crack-alkali-silica": {
       "category": "civil-construction-1",
@@ -1819,7 +1906,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-crack-improper-joint": {
       "category": "civil-construction-1",
@@ -1889,7 +1977,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-concrete-past-problems/img/fig-slump-column": {
       "category": "civil-construction-1",
@@ -1903,7 +1992,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-concrete-past-problems/img/fig-slump-wall": {
       "category": "civil-construction-1",
@@ -1973,7 +2063,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-construction-plan-basics/img/fig-4-13": {
       "category": "civil-construction-1",
@@ -1987,7 +2078,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "上部の前図「図4.12 施工体制台帳の例」写り込み＋左の教材行番号(20/25/30/35)を再クロップ除去(950x650→885x578, 2026-07-09)。残る文字は施工体系図の正規ボックスラベル=図本体。"
     },
     "civil-construction-1/secondary-construction-plan-basics/img/fig-4-2": {
       "category": "civil-construction-1",
@@ -2001,7 +2093,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-construction-plan-basics/img/fig-4-3": {
       "category": "civil-construction-1",
@@ -2043,7 +2136,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-construction-plan-basics/img/fig-4-6": {
       "category": "civil-construction-1",
@@ -2141,7 +2235,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "上部の設問文写り込み4行を除去して断面図のみに再クロップ 2026-07-09"
     },
     "civil-construction-1/secondary-construction-plan-past-problems/img/fig-box-culvert-h30": {
       "category": "civil-construction-1",
@@ -2155,7 +2250,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-construction-plan-past-problems/img/fig-culvert-flow-h23": {
       "category": "civil-construction-1",
@@ -2169,7 +2265,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09"
     },
     "civil-construction-1/secondary-construction-plan-past-problems/img/fig-culvert-flow-h27": {
       "category": "civil-construction-1",
@@ -2197,7 +2294,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-construction-plan-past-problems/img/fig-l-retaining-wall-h26": {
       "category": "civil-construction-1",
@@ -2225,7 +2323,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-1": {
       "category": "civil-construction-1",
@@ -2267,7 +2366,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "本文4行写り込み・図2.11キャプションを除去、概念図(P_A-ΔP注記含む)保持で再クロップ 2026-07-09"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-12": {
       "category": "civil-construction-1",
@@ -2295,7 +2395,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-14": {
       "category": "civil-construction-1",
@@ -2379,7 +2480,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-2": {
       "category": "civil-construction-1",
@@ -2407,7 +2509,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "上部の前段テーブル写り込み・左余白行番号・図2.20キャプションを除去して再クロップ 2026-07-09"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-21": {
       "category": "civil-construction-1",
@@ -2449,7 +2552,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "workflow判定=図本体が端で見切れ・原典PDF再スキャン要（親QA確認）2026-07-09"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-24": {
       "category": "civil-construction-1",
@@ -2519,7 +2623,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-29": {
       "category": "civil-construction-1",
@@ -2547,7 +2652,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-30": {
       "category": "civil-construction-1",
@@ -2575,7 +2681,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "workflow判定=図本体が端で見切れ・原典PDF再スキャン要（親QA確認）2026-07-09"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-32": {
       "category": "civil-construction-1",
@@ -2589,7 +2696,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "workflow判定=図本体が端で見切れ・原典PDF再スキャン要（親QA確認）2026-07-09"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-33": {
       "category": "civil-construction-1",
@@ -2631,7 +2739,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-36": {
       "category": "civil-construction-1",
@@ -2673,7 +2782,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-39": {
       "category": "civil-construction-1",
@@ -2687,7 +2797,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-4": {
       "category": "civil-construction-1",
@@ -2701,7 +2812,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-40": {
       "category": "civil-construction-1",
@@ -2785,7 +2897,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-45": {
       "category": "civil-construction-1",
@@ -2799,7 +2912,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-46": {
       "category": "civil-construction-1",
@@ -2813,7 +2927,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "右端の教材行番号(10/15/20)写り込みを再クロップ除去(920x480→734x464, 2026-07-09)。番号付きテキストは図の正規「施工順序」凡例=図本体のため ok。"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-47": {
       "category": "civil-construction-1",
@@ -2827,7 +2942,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "上端でリーダー/マンドレル装置が見切れ・原典PDF再スキャン要 2026-07-09"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-48": {
       "category": "civil-construction-1",
@@ -2841,7 +2957,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "図2.48キャプション写り込み除去・手順凡例保持で再クロップ 2026-07-09"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-49": {
       "category": "civil-construction-1",
@@ -2855,7 +2972,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "上部プローズ・左カラム本文写り込み・図2.49キャプションを除去、①〜④図と手順凡例保持で再クロップ 2026-07-09"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-5": {
       "category": "civil-construction-1",
@@ -2869,7 +2987,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "本文2行写り込み・左行番号・図2.5キャプションを除去、断面図と全ラベル保持で再クロップ 2026-07-09"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-50": {
       "category": "civil-construction-1",
@@ -2911,7 +3030,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-53": {
       "category": "civil-construction-1",
@@ -2953,7 +3073,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-56": {
       "category": "civil-construction-1",
@@ -2967,7 +3088,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-57": {
       "category": "civil-construction-1",
@@ -2981,7 +3103,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-58": {
       "category": "civil-construction-1",
@@ -2995,7 +3118,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "上部の本文写り込み(2行)＋右の教材行番号(25/30/35)＋ページ番号(—123—)を再クロップ除去(920x520→855x397, 2026-07-09)。残テキストは図の正規説明=図本体。"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-59": {
       "category": "civil-construction-1",
@@ -3009,7 +3133,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "本文2行写り込み・左余白・右行番号・図2.59キャプションを除去、縦断面+土積図+集計表保持で再クロップ 2026-07-09"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-6": {
       "category": "civil-construction-1",
@@ -3037,7 +3162,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-61": {
       "category": "civil-construction-1",
@@ -3051,7 +3177,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "ランニングヘッド・左過大余白・図2.61キャプションを除去、グラフと(注)保持で再クロップ 2026-07-09"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-62": {
       "category": "civil-construction-1",
@@ -3065,7 +3192,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-63": {
       "category": "civil-construction-1",
@@ -3079,7 +3207,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-64": {
       "category": "civil-construction-1",
@@ -3093,7 +3222,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-7": {
       "category": "civil-construction-1",
@@ -3107,7 +3237,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-8": {
       "category": "civil-construction-1",
@@ -3135,7 +3266,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "本文3行写り込み・図2.9キャプション/ページ番号を除去、断面図(舗装/路床/路体ラベル含む)保持で再クロップ 2026-07-09"
     },
     "civil-construction-1/secondary-earthwork-past-problems/img/fig-boiling": {
       "category": "civil-construction-1",
@@ -3303,7 +3435,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09"
     },
     "civil-construction-1/secondary-quality-management-basics/img/fig-5-2": {
       "category": "civil-construction-1",
@@ -3317,7 +3450,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09"
     },
     "civil-construction-1/secondary-quality-management-basics/img/fig-5-3": {
       "category": "civil-construction-1",
@@ -3359,7 +3493,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09"
     },
     "civil-construction-1/secondary-quality-management-basics/img/fig-5-6": {
       "category": "civil-construction-1",
@@ -3373,7 +3508,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "強度試験の合否判定図が上部本文写り込み＋下部見切れ(合否判定が矢印の先で切断)。要ソース再取得。"
     },
     "civil-construction-1/secondary-quality-management-basics/img/fig-rebar-joint": {
       "category": "civil-construction-1",
@@ -3387,7 +3523,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "表5.13 鉄筋の継手の検査が下部見切れ(超音波検査行が切断)。出所=過去問解答編・元PDFはスキャン。要ソース再取得。"
     },
     "civil-construction-1/secondary-quality-management-past-problems/img/fig-compaction-curve-1": {
       "category": "civil-construction-1",
@@ -3471,7 +3608,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09"
     },
     "civil-construction-1/secondary-r04/img/i-5-compaction-curve": {
       "category": "civil-construction-1",
@@ -3485,7 +3623,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "クリーンな正規ベクター図(締固め曲線)。写り込みなし。下部の過剰余白を詰めてタイト化(1100x650→615x458, 2026-07-09)。periods はふりがな付きラベル由来の誤検知。"
     },
     "civil-construction-1/secondary-r04/img/i-8-shoring-section": {
       "category": "civil-construction-1",
@@ -3499,7 +3638,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-r04/img/i-9-crack-types": {
       "category": "civil-construction-1",
@@ -3527,7 +3667,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-r06/img/i-5-compaction-curve": {
       "category": "civil-construction-1",
@@ -3541,7 +3682,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/secondary-r06/img/i-8-shoring-section": {
       "category": "civil-construction-1",
@@ -3555,7 +3697,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09"
     },
     "civil-construction-1/secondary-r07/img/i-10-machinery-scene": {
       "category": "civil-construction-1",
@@ -3569,7 +3712,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09"
     },
     "civil-construction-1/secondary-r07/img/i-11-l-retaining-wall": {
       "category": "civil-construction-1",
@@ -3583,7 +3727,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/textbook-construction-mgmt-overview/img/fig-1-1": {
       "category": "civil-construction-1",
@@ -3653,7 +3798,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "CC機材写真・写り込みなし。OCRが機材ブランド文字をperiods誤検知したrecrop-review偽陽性 2026-07-09"
     },
     "civil-construction-1/textbook-crane/img/boom-lift": {
       "category": "civil-construction-1",
@@ -3709,7 +3855,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "CC機材写真・写り込みなし。OCRが機材ブランド文字をperiods誤検知したrecrop-review偽陽性 2026-07-09"
     },
     "civil-construction-1/textbook-crane/img/rough-terrain-crane": {
       "category": "civil-construction-1",
@@ -3737,7 +3884,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "CC機材写真・写り込みなし。OCRが機材ブランド文字をperiods誤検知したrecrop-review偽陽性 2026-07-09"
     },
     "civil-construction-1/textbook-demolition/img/fig-6-1": {
       "category": "civil-construction-1",
@@ -3765,7 +3913,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09"
     },
     "civil-construction-1/textbook-demolition/img/fig-6-3": {
       "category": "civil-construction-1",
@@ -3807,7 +3956,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/textbook-demolition/img/fig-6-6": {
       "category": "civil-construction-1",
@@ -3821,7 +3971,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
     "civil-construction-1/textbook-demolition/img/photo-6-1": {
       "category": "civil-construction-1",
@@ -3849,7 +4000,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "CC機材写真・写り込みなし。OCRが機材ブランド文字をperiods誤検知したrecrop-review偽陽性 2026-07-09"
     },
     "civil-construction-1/textbook-distance-angle/img/gnss-receiver": {
       "category": "civil-construction-1",
@@ -3891,7 +4043,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "CC機材写真・写り込みなし。OCRが機材ブランド文字をperiods誤検知したrecrop-review偽陽性 2026-07-09"
     },
     "civil-construction-1/textbook-grader-compaction/img/macadam-roller": {
       "category": "civil-construction-1",
@@ -3905,7 +4058,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "CC機材写真・写り込みなし。OCRが機材ブランド文字をperiods誤検知したrecrop-review偽陽性 2026-07-09"
     },
     "civil-construction-1/textbook-grader-compaction/img/motor-grader": {
       "category": "civil-construction-1",
@@ -3933,7 +4087,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "CC機材写真・写り込みなし。OCRが機材ブランド文字をperiods誤検知したrecrop-review偽陽性 2026-07-09"
     },
     "civil-construction-1/textbook-grader-compaction/img/tandem-roller": {
       "category": "civil-construction-1",
@@ -3947,7 +4102,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "CC機材写真・写り込みなし。OCRが機材ブランド文字をperiods誤検知したrecrop-review偽陽性 2026-07-09"
     },
     "civil-construction-1/textbook-grader-compaction/img/tire-roller": {
       "category": "civil-construction-1",
@@ -4059,7 +4215,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "CC機材写真・写り込みなし。OCRが機材ブランド文字をperiods誤検知したrecrop-review偽陽性 2026-07-09"
     },
     "civil-construction-1/textbook-transport-machinery/img/rough-terrain-carrier": {
       "category": "civil-construction-1",
@@ -4255,7 +4412,8 @@
       "source_dir": "docs/textbook/２級土木施工管理技士",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow判定=既にクリーン（親QA確認・authored図/過去問図で写り込みなし）2026-07-09"
     },
     "civil-construction-2/primary-r04-zenki/img/q45-fig": {
       "category": "civil-construction-2",
@@ -4339,7 +4497,8 @@
       "source_dir": "docs/textbook/２級土木施工管理技士",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow判定=既にクリーン（親QA確認・authored図/過去問図で写り込みなし）2026-07-09"
     },
     "civil-construction-2/primary-r05-zenki/img/q31-fig": {
       "category": "civil-construction-2",
@@ -4367,7 +4526,8 @@
       "source_dir": "docs/textbook/２級土木施工管理技士",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow判定=既にクリーン（親QA確認・authored図/過去問図で写り込みなし）2026-07-09"
     },
     "civil-construction-2/primary-r05-zenki/img/q45-fig": {
       "category": "civil-construction-2",
@@ -4409,7 +4569,8 @@
       "source_dir": "docs/textbook/２級土木施工管理技士",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格（写り込み除去/余白タイト化）2026-07-09"
     },
     "civil-construction-2/primary-r06-kouki/img/q02-fig": {
       "category": "civil-construction-2",
@@ -4451,7 +4612,8 @@
       "source_dir": "docs/textbook/２級土木施工管理技士",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格（写り込み除去/余白タイト化）2026-07-09"
     },
     "civil-construction-2/primary-r06-kouki/img/q05-fig": {
       "category": "civil-construction-2",
@@ -4465,7 +4627,8 @@
       "source_dir": "docs/textbook/２級土木施工管理技士",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格（写り込み除去/余白タイト化）2026-07-09"
     },
     "civil-construction-2/primary-r06-kouki/img/q22-fig": {
       "category": "civil-construction-2",
@@ -4479,7 +4642,8 @@
       "source_dir": "docs/textbook/２級土木施工管理技士",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格（写り込み除去/余白タイト化）2026-07-09"
     },
     "civil-construction-2/primary-r06-kouki/img/q30-fig": {
       "category": "civil-construction-2",
@@ -4535,7 +4699,8 @@
       "source_dir": "docs/textbook/２級土木施工管理技士",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow判定=既にクリーン（親QA確認・authored図/過去問図で写り込みなし）2026-07-09"
     },
     "civil-construction-2/primary-r06-zenki/img/q01-fig": {
       "category": "civil-construction-2",
@@ -4661,7 +4826,8 @@
       "source_dir": "docs/textbook/２級土木施工管理技士",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow判定=既にクリーン（親QA確認・authored図/過去問図で写り込みなし）2026-07-09"
     },
     "civil-construction-2/primary-r07-kouki/img/q1-fig": {
       "category": "civil-construction-2",
@@ -4787,7 +4953,8 @@
       "source_dir": "docs/textbook/２級土木施工管理技士",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09"
     },
     "civil-construction-2/primary-r07-zenki/img/q03-fig": {
       "category": "civil-construction-2",
@@ -4829,7 +4996,8 @@
       "source_dir": "docs/textbook/２級土木施工管理技士",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09"
     },
     "civil-construction-2/primary-r07-zenki/img/q16-fig": {
       "category": "civil-construction-2",
@@ -6320,7 +6488,7 @@
       "slug": "note/_magazines",
       "year": null,
       "published": false,
-      "referenced": true,
+      "referenced": false,
       "quality": "sharp",
       "sharpness": 1004.19,
       "textStatus": "clean",
@@ -6341,7 +6509,8 @@
       "source_dir": "docs/textbook/技術士（総監）",
       "figure_origin": "unknown",
       "rescannable": "na",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow判定=既にクリーン（親QA確認・authored図/過去問図で写り込みなし）2026-07-09"
     },
     "pe-comprehensive-management/carbon-neutral/img/figure-5-2-ccs-flow": {
       "category": "pe-comprehensive-management",
@@ -6355,7 +6524,8 @@
       "source_dir": "docs/textbook/技術士（総監）",
       "figure_origin": "unknown",
       "rescannable": "na",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格（写り込み除去/余白タイト化）2026-07-09"
     },
     "pe-comprehensive-management/circular-economy/img/figure-5-6-material-flow": {
       "category": "pe-comprehensive-management",
@@ -6383,7 +6553,8 @@
       "source_dir": "docs/textbook/技術士（総監）",
       "figure_origin": "unknown",
       "rescannable": "na",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow判定=既にクリーン（親QA確認・authored図/過去問図で写り込みなし）2026-07-09"
     },
     "pe-comprehensive-management/exam-passing-strategy/img/note-4phase-cover": {
       "category": "pe-comprehensive-management",
@@ -6453,7 +6624,8 @@
       "source_dir": "docs/textbook/技術士（総監）",
       "figure_origin": "unknown",
       "rescannable": "na",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格（写り込み除去/余白タイト化）2026-07-09"
     },
     "pe-comprehensive-management/h23-primary/img/i-2-30-system-diagram": {
       "category": "pe-comprehensive-management",
@@ -6495,7 +6667,8 @@
       "source_dir": "docs/textbook/技術士（総監）",
       "figure_origin": "unknown",
       "rescannable": "na",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格（写り込み除去/余白タイト化）2026-07-09"
     },
     "pe-comprehensive-management/h27-primary/img/i-1-4-qms-pdca": {
       "category": "pe-comprehensive-management",
@@ -6537,7 +6710,8 @@
       "source_dir": "docs/textbook/技術士（総監）",
       "figure_origin": "unknown",
       "rescannable": "na",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09"
     },
     "pe-comprehensive-management/h28-primary/img/i-1-5-pert-network": {
       "category": "pe-comprehensive-management",
@@ -6621,7 +6795,8 @@
       "source_dir": "docs/textbook/技術士（総監）",
       "figure_origin": "unknown",
       "rescannable": "na",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow判定=既にクリーン（親QA確認・authored図/過去問図で写り込みなし）2026-07-09"
     },
     "pe-comprehensive-management/r01-primary/img/i-1-24-ict-concept": {
       "category": "pe-comprehensive-management",
@@ -6734,7 +6909,8 @@
       "source_dir": "docs/textbook/技術士（総監）",
       "figure_origin": "unknown",
       "rescannable": "na",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格（写り込み除去/余白タイト化）2026-07-09"
     },
     "pe-comprehensive-management/r03-primary/img/i-1-30-system-diagram": {
       "category": "pe-comprehensive-management",
@@ -6748,7 +6924,8 @@
       "source_dir": "docs/textbook/技術士（総監）",
       "figure_origin": "unknown",
       "rescannable": "na",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格（写り込み除去/余白タイト化）2026-07-09"
     },
     "pe-comprehensive-management/r04-primary/img/i-1-8-pert-schematic": {
       "category": "pe-comprehensive-management",
@@ -6958,7 +7135,8 @@
       "source_dir": "docs/textbook/技術士（建設部門）",
       "figure_origin": "unknown",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09"
     },
     "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig29": {
       "category": "pe-construction",
@@ -6972,7 +7150,8 @@
       "source_dir": "docs/textbook/技術士（建設部門）",
       "figure_origin": "unknown",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格（写り込み除去/余白タイト化）2026-07-09"
     },
     "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig31": {
       "category": "pe-construction",
@@ -6986,7 +7165,8 @@
       "source_dir": "docs/textbook/技術士（建設部門）",
       "figure_origin": "unknown",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格（写り込み除去/余白タイト化）2026-07-09"
     },
     "pe-construction/iji-kanri-ronbun-keyword/img/fig06": {
       "category": "pe-construction",
@@ -7000,7 +7180,8 @@
       "source_dir": "docs/textbook/技術士（建設部門）",
       "figure_origin": "unknown",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格（写り込み除去/余白タイト化）2026-07-09"
     },
     "pe-construction/iji-kanri-ronbun-keyword/img/fig07": {
       "category": "pe-construction",
@@ -7014,7 +7195,8 @@
       "source_dir": "docs/textbook/技術士（建設部門）",
       "figure_origin": "unknown",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格（写り込み除去/余白タイト化）2026-07-09"
     },
     "pe-construction/iji-kanri-ronbun-keyword/img/fig08": {
       "category": "pe-construction",
@@ -7028,7 +7210,8 @@
       "source_dir": "docs/textbook/技術士（建設部門）",
       "figure_origin": "unknown",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow判定=既にクリーン（親QA確認・authored図/過去問図で写り込みなし）2026-07-09"
     },
     "pe-construction/iji-kanri-ronbun-keyword/img/fig09": {
       "category": "pe-construction",
@@ -7056,7 +7239,8 @@
       "source_dir": "docs/textbook/技術士（建設部門）",
       "figure_origin": "unknown",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格（写り込み除去/余白タイト化）2026-07-09"
     },
     "pe-construction/iji-kanri-ronbun-keyword/img/fig11": {
       "category": "pe-construction",
@@ -7098,7 +7282,8 @@
       "source_dir": "docs/textbook/技術士（建設部門）",
       "figure_origin": "unknown",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格（写り込み除去/余白タイト化）2026-07-09"
     },
     "pe-construction/ninaite-dx-ronbun-keyword/img/fig17": {
       "category": "pe-construction",
@@ -7112,7 +7297,8 @@
       "source_dir": "docs/textbook/技術士（建設部門）",
       "figure_origin": "unknown",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格（写り込み除去/余白タイト化）2026-07-09"
     },
     "pe-construction/ninaite-dx-ronbun-keyword/img/fig18": {
       "category": "pe-construction",
@@ -7182,7 +7368,8 @@
       "source_dir": "docs/textbook/技術士（建設部門）",
       "figure_origin": "unknown",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09"
     },
     "pe-construction/shakai-shihon-ronbun-keyword/img/fig01": {
       "category": "pe-construction",
@@ -7210,7 +7397,8 @@
       "source_dir": "docs/textbook/技術士（建設部門）",
       "figure_origin": "unknown",
       "rescannable": "needs-source",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格（写り込み除去/余白タイト化）2026-07-09"
     },
     "pe-construction/shakai-shihon-ronbun-keyword/img/fig04": {
       "category": "pe-construction",
@@ -7224,7 +7412,8 @@
       "source_dir": "docs/textbook/技術士（建設部門）",
       "figure_origin": "unknown",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09"
     },
     "pe-construction/shakai-shihon-ronbun-keyword/img/fig05": {
       "category": "pe-construction",
@@ -7238,7 +7427,8 @@
       "source_dir": "docs/textbook/技術士（建設部門）",
       "figure_origin": "unknown",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09"
     },
     "pe-first-stage/r01-basic/img/q1-4-fig": {
       "category": "pe-first-stage",
@@ -7322,7 +7512,8 @@
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格（写り込み除去/余白タイト化）2026-07-09"
     },
     "pe-first-stage/r01-construction/img/q05-fig": {
       "category": "pe-first-stage",
@@ -7350,7 +7541,8 @@
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格（写り込み除去/余白タイト化）2026-07-09"
     },
     "pe-first-stage/r01-construction/img/q17-fig": {
       "category": "pe-first-stage",
@@ -7364,7 +7556,8 @@
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09"
     },
     "pe-first-stage/r02-aptitude/img/q7-fig": {
       "category": "pe-first-stage",
@@ -7406,7 +7599,8 @@
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格（写り込み除去/余白タイト化）2026-07-09"
     },
     "pe-first-stage/r02-basic/img/q34-fig": {
       "category": "pe-first-stage",
@@ -7420,7 +7614,8 @@
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09"
     },
     "pe-first-stage/r02-basic/img/q35-fig": {
       "category": "pe-first-stage",
@@ -7478,7 +7673,8 @@
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格（写り込み除去/余白タイト化）2026-07-09"
     },
     "pe-first-stage/r02-construction/img/q3-fig": {
       "category": "pe-first-stage",
@@ -7619,7 +7815,8 @@
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格（写り込み除去/余白タイト化）2026-07-09"
     },
     "pe-first-stage/r03-basic/img/q3-6-fig": {
       "category": "pe-first-stage",
@@ -7647,7 +7844,8 @@
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格（写り込み除去/余白タイト化）2026-07-09"
     },
     "pe-first-stage/r03-construction/img/q06-fig": {
       "category": "pe-first-stage",
@@ -7689,7 +7887,8 @@
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格（写り込み除去/余白タイト化）2026-07-09"
     },
     "pe-first-stage/r04-basic/img/q34-fig": {
       "category": "pe-first-stage",
@@ -7731,7 +7930,8 @@
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格（写り込み除去/余白タイト化）2026-07-09"
     },
     "pe-first-stage/r04-construction/img/q04-fig": {
       "category": "pe-first-stage",
@@ -7885,7 +8085,8 @@
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "ok"
+      "needs": "ok",
+      "manualReason": "workflow並列クロップ→親目視QA合格（写り込み除去/余白タイト化）2026-07-09"
     },
     "pe-first-stage/r05-construction/img/q04-fig": {
       "category": "pe-first-stage",
@@ -7941,7 +8142,8 @@
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09"
     },
     "pe-first-stage/r06-aptitude/img/q12-fig": {
       "category": "pe-first-stage",
@@ -8039,7 +8241,8 @@
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09"
     },
     "pe-first-stage/r06-construction/img/q05-fig": {
       "category": "pe-first-stage",
@@ -8151,7 +8354,8 @@
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09"
     },
     "pe-first-stage/r07-basic/img/q36-fig": {
       "category": "pe-first-stage",
@@ -8165,7 +8369,8 @@
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "rescan-need-source"
+      "needs": "rescan-need-source",
+      "manualReason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09"
     },
     "pe-first-stage/r07-construction/img/q01-fig": {
       "category": "pe-first-stage",
@@ -8223,7 +8428,5 @@
       "rescannable": "na",
       "needs": "ok"
     }
-  },
-  "_manual_patch": "2026-07-09 手動更新: h30-a-fig-04 を答え漏らし再クロップ後 clean に是正(目視検証・tesseract不在のためOCR未再実行)、未参照孤立3図(h26-a-fig-01/05・r01-a-fig-04=git追跡外ローカル残骸)を削除に伴い除去。次回 audit-figure-text で再確認要。",
-  "_manual_patch_2": "2026-07-09(2): 未参照の余剰図2件(h27-a-fig-02=未使用の見切れ・h30-a-fig-03=fig-02と重複)を削除し台帳から除去。tankan-magazine-cover はマガジンカバー(記事img外)のため referenced:true に是正(誤検知解消)。"
+  }
 }
