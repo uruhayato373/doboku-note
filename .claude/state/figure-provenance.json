@@ -3,8 +3,8 @@
   "note": "図provenance。needs=次アクション。真実源: figure-sources.json(台帳)+figure-text-audit.json(品質)。再生成可。",
   "figure_count": 586,
   "summary": {
-    "ok": 376,
-    "recrop-review": 135,
+    "ok": 385,
+    "recrop-review": 126,
     "rescan-need-source": 14,
     "recrop": 28,
     "rescan": 33
@@ -3649,11 +3649,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 2466.48,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/textbook-crane/img/boom-lift": {
       "category": "civil-construction-1",
@@ -3705,11 +3705,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 6051.26,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/textbook-crane/img/rough-terrain-crane": {
       "category": "civil-construction-1",
@@ -3733,11 +3733,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 6838.23,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/textbook-demolition/img/fig-6-1": {
       "category": "civil-construction-1",
@@ -3845,11 +3845,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 804.79,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/textbook-distance-angle/img/gnss-receiver": {
       "category": "civil-construction-1",
@@ -3887,11 +3887,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 3916.65,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/textbook-grader-compaction/img/macadam-roller": {
       "category": "civil-construction-1",
@@ -3901,11 +3901,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 6681.84,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/textbook-grader-compaction/img/motor-grader": {
       "category": "civil-construction-1",
@@ -3929,11 +3929,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 5287.46,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/textbook-grader-compaction/img/tandem-roller": {
       "category": "civil-construction-1",
@@ -3943,11 +3943,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 3184.55,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/textbook-grader-compaction/img/tire-roller": {
       "category": "civil-construction-1",
@@ -4055,11 +4055,11 @@
       "referenced": true,
       "quality": "sharp",
       "sharpness": 7353.32,
-      "textStatus": "maybe",
+      "textStatus": "clean",
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/textbook-transport-machinery/img/rough-terrain-carrier": {
       "category": "civil-construction-1",

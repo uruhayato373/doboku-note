@@ -4,8 +4,8 @@
   "base_count": 586,
   "file_count": 1010,
   "summary": {
-    "clean": 390,
-    "maybe": 160,
+    "clean": 399,
+    "maybe": 151,
     "writein": 36
   },
   "quality_summary": {
@@ -2087,8 +2087,8 @@
       "variants": 2
     },
     "civil-construction-1/textbook-crane/img/all-terrain-crane": {
-      "status": "maybe",
-      "periods": 1,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 2466.48,
       "quality": "sharp",
@@ -2119,8 +2119,8 @@
       "variants": 2
     },
     "civil-construction-1/textbook-crane/img/loader-crane": {
-      "status": "maybe",
-      "periods": 2,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 6051.26,
       "quality": "sharp",
@@ -2135,8 +2135,8 @@
       "variants": 2
     },
     "civil-construction-1/textbook-crane/img/tower-crane": {
-      "status": "maybe",
-      "periods": 1,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 6838.23,
       "quality": "sharp",
@@ -2199,8 +2199,8 @@
       "variants": 2
     },
     "civil-construction-1/textbook-distance-angle/img/edm-rangefinder": {
-      "status": "maybe",
-      "periods": 2,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 804.79,
       "quality": "sharp",
@@ -2223,16 +2223,16 @@
       "variants": 2
     },
     "civil-construction-1/textbook-distance-angle/img/total-station": {
-      "status": "maybe",
-      "periods": 1,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 3916.65,
       "quality": "sharp",
       "variants": 2
     },
     "civil-construction-1/textbook-grader-compaction/img/macadam-roller": {
-      "status": "maybe",
-      "periods": 1,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 6681.84,
       "quality": "sharp",
@@ -2247,16 +2247,16 @@
       "variants": 2
     },
     "civil-construction-1/textbook-grader-compaction/img/tamping-roller": {
-      "status": "maybe",
-      "periods": 1,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 5287.46,
       "quality": "sharp",
       "variants": 2
     },
     "civil-construction-1/textbook-grader-compaction/img/tandem-roller": {
-      "status": "maybe",
-      "periods": 3,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 3184.55,
       "quality": "sharp",
@@ -2319,8 +2319,8 @@
       "variants": 2
     },
     "civil-construction-1/textbook-transport-machinery/img/dump-truck": {
-      "status": "maybe",
-      "periods": 2,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 7353.32,
       "quality": "sharp",

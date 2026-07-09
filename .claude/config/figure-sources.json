@@ -388,6 +388,60 @@
       "needs": "rescan-need-source",
       "reason": "workflow判定=図本体の見切れ/内部裏写り・原典再スキャン要（親QA確認）2026-07-09",
       "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/textbook-crane/img/all-terrain-crane",
+      "needs": "ok",
+      "reason": "CC機材写真・写り込みなし。OCRが機材ブランド文字をperiods誤検知したrecrop-review偽陽性 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/textbook-crane/img/loader-crane",
+      "needs": "ok",
+      "reason": "CC機材写真・写り込みなし。OCRが機材ブランド文字をperiods誤検知したrecrop-review偽陽性 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/textbook-crane/img/tower-crane",
+      "needs": "ok",
+      "reason": "CC機材写真・写り込みなし。OCRが機材ブランド文字をperiods誤検知したrecrop-review偽陽性 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/textbook-distance-angle/img/edm-rangefinder",
+      "needs": "ok",
+      "reason": "CC機材写真・写り込みなし。OCRが機材ブランド文字をperiods誤検知したrecrop-review偽陽性 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/textbook-distance-angle/img/total-station",
+      "needs": "ok",
+      "reason": "CC機材写真・写り込みなし。OCRが機材ブランド文字をperiods誤検知したrecrop-review偽陽性 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/textbook-grader-compaction/img/macadam-roller",
+      "needs": "ok",
+      "reason": "CC機材写真・写り込みなし。OCRが機材ブランド文字をperiods誤検知したrecrop-review偽陽性 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/textbook-grader-compaction/img/tamping-roller",
+      "needs": "ok",
+      "reason": "CC機材写真・写り込みなし。OCRが機材ブランド文字をperiods誤検知したrecrop-review偽陽性 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/textbook-grader-compaction/img/tandem-roller",
+      "needs": "ok",
+      "reason": "CC機材写真・写り込みなし。OCRが機材ブランド文字をperiods誤検知したrecrop-review偽陽性 2026-07-09",
+      "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/textbook-transport-machinery/img/dump-truck",
+      "needs": "ok",
+      "reason": "CC機材写真・写り込みなし。OCRが機材ブランド文字をperiods誤検知したrecrop-review偽陽性 2026-07-09",
+      "verified": "2026-07-09"
     }
   ],
   "categories": {
