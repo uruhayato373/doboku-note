@@ -4,8 +4,8 @@
   "base_count": 586,
   "file_count": 1010,
   "summary": {
-    "clean": 433,
-    "maybe": 117,
+    "clean": 468,
+    "maybe": 82,
     "writein": 36
   },
   "quality_summary": {
@@ -2431,8 +2431,8 @@
       "variants": 2
     },
     "civil-construction-2/primary-r04-zenki/img/q43-fig": {
-      "status": "maybe",
-      "periods": 1,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 2130.31,
       "quality": "sharp",
@@ -2479,8 +2479,8 @@
       "variants": 2
     },
     "civil-construction-2/primary-r05-zenki/img/q12-fig": {
-      "status": "maybe",
-      "periods": 1,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 685.67,
       "quality": "sharp",
@@ -2495,8 +2495,8 @@
       "variants": 2
     },
     "civil-construction-2/primary-r05-zenki/img/q43-fig": {
-      "status": "maybe",
-      "periods": 1,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 1974.61,
       "quality": "sharp",
@@ -2519,8 +2519,8 @@
       "variants": 2
     },
     "civil-construction-2/primary-r06-kouki/img/q01-fig": {
-      "status": "maybe",
-      "periods": 1,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 1770.13,
       "quality": "sharp",
@@ -2543,24 +2543,24 @@
       "variants": 2
     },
     "civil-construction-2/primary-r06-kouki/img/q04-fig": {
-      "status": "maybe",
-      "periods": 1,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 1227.77,
       "quality": "sharp",
       "variants": 2
     },
     "civil-construction-2/primary-r06-kouki/img/q05-fig": {
-      "status": "maybe",
-      "periods": 2,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 2103.83,
       "quality": "sharp",
       "variants": 2
     },
     "civil-construction-2/primary-r06-kouki/img/q22-fig": {
-      "status": "maybe",
-      "periods": 2,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 3303.3,
       "quality": "sharp",
@@ -2591,8 +2591,8 @@
       "variants": 2
     },
     "civil-construction-2/primary-r06-kouki/img/q65-fig": {
-      "status": "maybe",
-      "periods": 1,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 1809.47,
       "quality": "sharp",
@@ -2663,8 +2663,8 @@
       "variants": 2
     },
     "civil-construction-2/primary-r06-zenki/img/q65-fig": {
-      "status": "maybe",
-      "periods": 1,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 3017.67,
       "quality": "sharp",
@@ -3623,16 +3623,16 @@
       "variants": 2
     },
     "pe-comprehensive-management/alert-levels/img/alertlevel-jma-official": {
-      "status": "maybe",
-      "periods": 4,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 1.33838e+27,
       "quality": "sharp",
       "variants": 2
     },
     "pe-comprehensive-management/carbon-neutral/img/figure-5-2-ccs-flow": {
-      "status": "maybe",
-      "periods": 1,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 939.24,
       "quality": "sharp",
@@ -3647,8 +3647,8 @@
       "variants": 2
     },
     "pe-comprehensive-management/climate-change-adaptation-act/img/figure-5-10-alert-levels": {
-      "status": "maybe",
-      "periods": 4,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 1.33838e+27,
       "quality": "sharp",
@@ -3687,8 +3687,8 @@
       "variants": 2
     },
     "pe-comprehensive-management/h22-primary/img/i-2-33-co2-emissions-graph": {
-      "status": "maybe",
-      "periods": 5,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 4701.44,
       "quality": "sharp",
@@ -3711,8 +3711,8 @@
       "variants": 2
     },
     "pe-comprehensive-management/h26-primary/img/i-1-40-co2-line-graph": {
-      "status": "maybe",
-      "periods": 2,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 13986,
       "quality": "sharp",
@@ -3783,8 +3783,8 @@
       "variants": 2
     },
     "pe-comprehensive-management/osh-management-system/img/figure-1": {
-      "status": "maybe",
-      "periods": 4,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 1.79491e+27,
       "quality": "sharp",
@@ -3847,16 +3847,16 @@
       "variants": 2
     },
     "pe-comprehensive-management/r03-primary/img/i-1-29-oshms-flowchart": {
-      "status": "maybe",
-      "periods": 1,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 7326.58,
       "quality": "sharp",
       "variants": 2
     },
     "pe-comprehensive-management/r03-primary/img/i-1-30-system-diagram": {
-      "status": "maybe",
-      "periods": 2,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 4158.03,
       "quality": "sharp",
@@ -3983,40 +3983,40 @@
       "variants": 2
     },
     "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig29": {
-      "status": "maybe",
-      "periods": 1,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 4394.92,
       "quality": "sharp",
       "variants": 2
     },
     "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig31": {
-      "status": "maybe",
-      "periods": 2,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 1856.02,
       "quality": "sharp",
       "variants": 2
     },
     "pe-construction/iji-kanri-ronbun-keyword/img/fig06": {
-      "status": "maybe",
-      "periods": 4,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 2036.29,
       "quality": "sharp",
       "variants": 2
     },
     "pe-construction/iji-kanri-ronbun-keyword/img/fig07": {
-      "status": "maybe",
-      "periods": 4,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 2848.86,
       "quality": "sharp",
       "variants": 2
     },
     "pe-construction/iji-kanri-ronbun-keyword/img/fig08": {
-      "status": "maybe",
-      "periods": 5,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 2252.01,
       "quality": "sharp",
@@ -4031,8 +4031,8 @@
       "variants": 2
     },
     "pe-construction/iji-kanri-ronbun-keyword/img/fig10": {
-      "status": "maybe",
-      "periods": 3,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 1723.1,
       "quality": "sharp",
@@ -4055,16 +4055,16 @@
       "variants": 2
     },
     "pe-construction/ninaite-dx-ronbun-keyword/img/fig16": {
-      "status": "maybe",
-      "periods": 1,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 1094.56,
       "quality": "sharp",
       "variants": 2
     },
     "pe-construction/ninaite-dx-ronbun-keyword/img/fig17": {
-      "status": "maybe",
-      "periods": 1,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 2825.37,
       "quality": "sharp",
@@ -4119,8 +4119,8 @@
       "variants": 2
     },
     "pe-construction/shakai-shihon-ronbun-keyword/img/fig03": {
-      "status": "maybe",
-      "periods": 1,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 1666.32,
       "quality": "sharp",
@@ -4183,8 +4183,8 @@
       "variants": 1
     },
     "pe-first-stage/r01-construction/img/q04-fig": {
-      "status": "maybe",
-      "periods": 1,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 1108.94,
       "quality": "sharp",
@@ -4199,8 +4199,8 @@
       "variants": 1
     },
     "pe-first-stage/r01-construction/img/q06-fig": {
-      "status": "maybe",
-      "periods": 2,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 1406.96,
       "quality": "sharp",
@@ -4231,8 +4231,8 @@
       "variants": 1
     },
     "pe-first-stage/r02-basic/img/q25-fig": {
-      "status": "maybe",
-      "periods": 4,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 1965.92,
       "quality": "sharp",
@@ -4271,8 +4271,8 @@
       "variants": 1
     },
     "pe-first-stage/r02-construction/img/q17-fig": {
-      "status": "maybe",
-      "periods": 1,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 1436.48,
       "quality": "sharp",
@@ -4351,8 +4351,8 @@
       "variants": 1
     },
     "pe-first-stage/r03-basic/img/q3-5-fig": {
-      "status": "maybe",
-      "periods": 1,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 1192.06,
       "quality": "sharp",
@@ -4367,8 +4367,8 @@
       "variants": 1
     },
     "pe-first-stage/r03-construction/img/q03-fig": {
-      "status": "maybe",
-      "periods": 1,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 2614.43,
       "quality": "sharp",
@@ -4391,8 +4391,8 @@
       "variants": 1
     },
     "pe-first-stage/r03-construction/img/q17-fig": {
-      "status": "maybe",
-      "periods": 1,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 1170.94,
       "quality": "sharp",
@@ -4415,8 +4415,8 @@
       "variants": 1
     },
     "pe-first-stage/r04-construction/img/q02-fig": {
-      "status": "maybe",
-      "periods": 3,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 2266.14,
       "quality": "sharp",
@@ -4503,8 +4503,8 @@
       "variants": 1
     },
     "pe-first-stage/r05-construction/img/q02-fig": {
-      "status": "maybe",
-      "periods": 1,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
       "sharpness": 1569.66,
       "quality": "sharp",
