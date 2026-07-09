@@ -136,6 +136,12 @@
       "needs": "rescan-need-source",
       "reason": "上端でリーダー/マンドレル装置が見切れ・原典PDF再スキャン要 2026-07-09",
       "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-20",
+      "needs": "ok",
+      "reason": "上部の前段テーブル写り込み・左余白行番号・図2.20キャプションを除去して再クロップ 2026-07-09",
+      "verified": "2026-07-09"
     }
   ],
   "categories": {
