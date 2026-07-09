@@ -50,10 +50,12 @@
 
 > 注（完了・2026-07-09）: **recrop-urgent（答え漏らし）を 0 に**。唯一の公開×掲載＝h30-a-fig-04（圧密試験図の上に設問(3)正答文「(3)は適当でない」＋隣図断片＋次問(4)文が写り込み）を図のみに再クロップ（762×774→411×409、commit beb24b934）。残る3件（h26-a-fig-01/05・r01-a-fig-04）は**どの記事からも未参照の git 追跡外ローカル残骸**と判明→削除。台帳(figure-provenance/text-audit)を同期（recrop-urgent 4→0・leak 4→0、commit ba84ff43b、tesseract不在のため目視検証ベース＝次回 audit-figure-text で再確認）。
 
+> 注（完了・2026-07-09）: **civil-construction-1 のライブ図 recrop-review を 94→0 に**。手作業13図＋**並列workflow3本（土工22/コンクリート11/残52＝計85エージェント）**で写り込み除去クロップ→**親が全crop図を最終目視QA**（fig-2-55/fig-3-9の写り込み残り、fig-4-12のフォーム切り過ぎ＝原画git復元→再クロップを捕捉修正）。機材写真9枚はOCR偽陽性でok。civil-1 内訳＝**ok 257／rescan-need-source 32（原典見切れ・要再スキャン）／recrop 1**。台帳3種（figure-provenance/sources/text-audit）に全反映済み＝ギャラリーがライブ表示。workflow設計＝並列でPNG/webpクロップ＋自己検証、MDX寸法・台帳は親が直列適用（同一記事MDX/共有台帳の競合回避）。
+
 **残（2026-07-09・優先度順）**:
-1. 🟡 **見切れ5図**（civil-1 工程表 r04-b/r05-b/r01-b/r07-b/r06-b-fig-02＝作業/ノード/ラベル欠落）。needs-source 棚上げ中（`manual_needs`登録済）。完全な元スキャン入手 or 工程表SVG再作図で解消。
-2. 🟢 **recrop-review 190**（句点ありだが多くは図の凡例）。目視トリアージし凡例なら `manual_needs` で ok 上書き・写り込みなら再クロップ。
-3. 🟢 **rescan 17**（全て concrete-chief・書籍スキャン低品質）＝物理再スキャン要（PDF無し・ユーザー作業）。
+1. 🟡 **civil-1 rescan-need-source 32図**（図本体が原典スキャンで画像端に見切れ／工程表・配筋図・組織図・締固め曲線 等）。`manual_needs`登録済・クロップ不能。完全な元スキャン入手 or SVG再作図で解消（ユーザー作業 or 別バッチ）。
+2. 🟢 **他資格 recrop-review 74**（civil-1 は 0・残は総監 pe 系等）。同 workflow を横展開でトリアージ可。
+3. 🟢 **rescan 33**（concrete-chief 等・書籍スキャン低品質）＝物理再スキャン要（PDF無し・ユーザー作業）。
 4. 🟢 **h30-a-fig-12 の確認**（旧メモの「見切れ」候補・未検証）。fig-04 は答え漏らしとして再クロップ済み（2026-07-09）＝旧メモとの食い違いは fig-04 で解消、残る fig-12 のみ目視確認要。
 5. 🟢 1級 textbook 10本の `civil-construction-qa` 品質監査（低優先・合格マージン大）。H28-A fig-02/07/08/09 は元 PDF に図が無く（問題用紙テキスト形式）修正不能で確定。
 
