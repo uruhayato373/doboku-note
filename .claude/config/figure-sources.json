@@ -178,6 +178,12 @@
       "needs": "ok",
       "reason": "本文3行写り込み・図2.9キャプション/ページ番号を除去、断面図(舗装/路床/路体ラベル含む)保持で再クロップ 2026-07-09",
       "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-5",
+      "needs": "ok",
+      "reason": "本文2行写り込み・左行番号・図2.5キャプションを除去、断面図と全ラベル保持で再クロップ 2026-07-09",
+      "verified": "2026-07-09"
     }
   ],
   "categories": {
