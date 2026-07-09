@@ -1,0 +1,204 @@
+{
+  "version": 1,
+  "categories": [
+    "pe-construction"
+  ],
+  "scored_at": "2026-07-10T00:00:00.000Z",
+  "pages": {
+    "competency-revision-r8": {
+      "slug": "pe-construction-competency-revision-r8",
+      "group": "guide",
+      "scores": {
+        "intro": 2,
+        "readability": 2,
+        "volume": 2,
+        "funnel": 2,
+        "mobile": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "intro",
+        "readability",
+        "volume",
+        "funnel"
+      ],
+      "qualitative_comment": "冒頭リードは読者ベネフィット型で妥当だがH2直下に常体・体言止めが散在しですます統一が崩れる。本文2852字で3000字下限を約150字下回り薄い。lint機械値はクリーン。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "gakushuu-jikan-schedule": {
+      "slug": "pe-construction-gakushuu-jikan-schedule",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 3,
+        "volume": 2,
+        "funnel": 2,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "volume",
+        "funnel"
+      ],
+      "qualitative_comment": "共感→逆算という強い読者ベネフィット型リードで読みやすさも高い。本文2847字で3000字下限をわずかに下回る点と、末尾がSeeAlsoなしの素の箇条書き2件で承認導線がやや弱い。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "guide-career": {
+      "slug": "pe-construction-guide-career",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 2,
+        "volume": 3,
+        "funnel": 3,
+        "mobile": 3
+      },
+      "weighted": 2.8,
+      "weak_axes": [
+        "readability"
+      ],
+      "qualitative_comment": "導入・まとめ・CareerAffiliate導線・RelatedKeywordsが揃い完成度が高い。文末単調が4件(15-1 MEDIUM)で読みやすさのみ減点。本文3084字で下限クリア。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "guide-required-essay": {
+      "slug": "pe-construction-guide-required-essay",
+      "group": "guide",
+      "scores": {
+        "intro": 2,
+        "readability": 3,
+        "volume": 3,
+        "funnel": 3,
+        "mobile": 1
+      },
+      "weighted": 2.4,
+      "weak_axes": [
+        "intro",
+        "mobile"
+      ],
+      "qualitative_comment": "本文4784字と網羅充実・導線も良好。ただし冒頭がリード後すぐ仕様表で共感型導入が弱く、3列表セル超過11件＋キーバリュー表HIGHでモバイル視認性が最弱軸。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "gyoumu-keireki-hyou": {
+      "slug": "pe-construction-gyoumu-keireki-hyou",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 2,
+        "volume": 3,
+        "funnel": 3,
+        "mobile": 2
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "readability",
+        "mobile"
+      ],
+      "qualitative_comment": "手を止める箇所への共感リード・MagazineCard mid+end導線が的確で本文3390字も十分。L54が321字の長段落(15-3)で読みやすさとモバイル視認性を各1点減点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "hissu-kamoku-kaitourei": {
+      "slug": "pe-construction-hissu-kamoku-kaitourei",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 3,
+        "volume": 3,
+        "funnel": 3,
+        "mobile": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "「読める・書けない」の悩み直撃リード＋このガイドでわかること＋結論ファーストが理想形。3層読み構成で網羅3630字、MagazineCard mid+foot導線も文脈整合。lintクリーンで弱点なし。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "nanido-goukakuritsu": {
+      "slug": "pe-construction-nanido-goukakuritsu",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 3,
+        "volume": 2,
+        "funnel": 1,
+        "mobile": 3
+      },
+      "weighted": 2.4,
+      "weak_axes": [
+        "volume",
+        "funnel"
+      ],
+      "qualitative_comment": "導入・文体は優秀でlintクリーン。だが冒頭で末尾リンクを約束しつつ末尾はMagazineCard反復のみでSeeAlso・次のステップ節が無く§20承認パターン不成立。本文3460字だが導線が弱い。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "pe-secondary-essay-guide": {
+      "slug": "pe-construction-pe-secondary-essay-guide",
+      "group": "guide",
+      "scores": {
+        "intro": 2,
+        "readability": 1,
+        "volume": 3,
+        "funnel": 2,
+        "mobile": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "intro",
+        "readability"
+      ],
+      "qualitative_comment": "本文4314字で網羅・導線は充実。ただ冒頭に共感フックが弱く見出し直下が箇条書き直行の節あり。である調がですます本文に4件以上混在し文体が不統一。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "secondary-study-method": {
+      "slug": "pe-construction-secondary-study-method",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 2,
+        "volume": 3,
+        "funnel": 3,
+        "mobile": 3
+      },
+      "weighted": 2.8,
+      "weak_axes": [
+        "readability"
+      ],
+      "qualitative_comment": "導入・網羅・note導線とも良好で末尾はimportant Calloutで締める。文体はですます統一だが文末3連続の単調(15-1 MEDIUM)が1件。全体は合格水準。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "sentaku-kamoku-kakiwake": {
+      "slug": "pe-construction-sentaku-kamoku-kakiwake",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 3,
+        "volume": 3,
+        "funnel": 2,
+        "mobile": 3
+      },
+      "weighted": 2.8,
+      "weak_axes": [
+        "funnel"
+      ],
+      "qualitative_comment": "悩み直撃リード＋結論ファースト、全H2に導入文、lintクリーン、本文3501字と質が高い。末尾はMagazineCardで終わりSeeAlsoや次のステップ節が無く§20承認パターンが未整備な点のみ弱い。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "toan-kousei-template": {
+      "slug": "pe-construction-toan-kousei-template",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 1,
+        "volume": 2,
+        "funnel": 2,
+        "mobile": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "readability",
+        "volume",
+        "funnel"
+      ],
+      "qualitative_comment": "導入良好で次のステップ節あり。だが本文3115字と下限ギリで薄め。である調が4件混在し文体不統一。次のステップ節が実リンク無くMagazineCardのみで導線も弱い。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    }
+  }
+}

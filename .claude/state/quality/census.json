@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-07-09T21:28:28.361Z",
+  "generated_at": "2026-07-09T21:37:33.391Z",
   "thresholds": {
     "fail": 2,
     "thin_chars": 3000,
@@ -12,11 +12,11 @@
   },
   "totals": {
     "total": 1064,
-    "scored": 714,
-    "unscored": 350,
+    "scored": 725,
+    "unscored": 339,
     "failed": 0,
     "thin": 377,
-    "coverage_pct": 67.1
+    "coverage_pct": 68.1
   },
   "by_category": {
     "civil-construction-1": {
@@ -179,11 +179,11 @@
       "groups": {
         "guide": {
           "total": 11,
-          "scored": 0,
-          "unscored": 11,
+          "scored": 11,
+          "unscored": 0,
           "failed": 0,
           "thin": 0,
-          "avg_weighted": null
+          "avg_weighted": 2.55
         },
         "keyword": {
           "total": 35,
@@ -204,8 +204,8 @@
       },
       "totals": {
         "total": 130,
-        "scored": 0,
-        "unscored": 130,
+        "scored": 11,
+        "unscored": 119,
         "failed": 0,
         "thin": 16
       }
@@ -5123,7 +5123,7 @@
       "slug": "concrete-chief-engineer-guide-essay",
       "category": "concrete-chief-engineer",
       "group": "guide",
-      "body_chars": 3478,
+      "body_chars": 4794,
       "scored": false,
       "weighted": null,
       "scored_at": null,
@@ -13341,9 +13341,9 @@
       "category": "pe-construction",
       "group": "guide",
       "body_chars": 3265,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
+      "scored": true,
+      "weighted": 2.2,
+      "scored_at": "2026-07-10T00:00:00.000Z",
       "failed": false,
       "thin": false
     },
@@ -13407,9 +13407,9 @@
       "category": "pe-construction",
       "group": "guide",
       "body_chars": 3208,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
+      "scored": true,
+      "weighted": 2.6,
+      "scored_at": "2026-07-10T00:00:00.000Z",
       "failed": false,
       "thin": false
     },
@@ -13429,9 +13429,9 @@
       "category": "pe-construction",
       "group": "guide",
       "body_chars": 3186,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
+      "scored": true,
+      "weighted": 2.8,
+      "scored_at": "2026-07-10T00:00:00.000Z",
       "failed": false,
       "thin": false
     },
@@ -13440,9 +13440,9 @@
       "category": "pe-construction",
       "group": "guide",
       "body_chars": 5518,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
+      "scored": true,
+      "weighted": 2.4,
+      "scored_at": "2026-07-10T00:00:00.000Z",
       "failed": false,
       "thin": false
     },
@@ -13451,9 +13451,9 @@
       "category": "pe-construction",
       "group": "guide",
       "body_chars": 3663,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
+      "scored": true,
+      "weighted": 2.6,
+      "scored_at": "2026-07-10T00:00:00.000Z",
       "failed": false,
       "thin": false
     },
@@ -13462,9 +13462,9 @@
       "category": "pe-construction",
       "group": "guide",
       "body_chars": 3982,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
+      "scored": true,
+      "weighted": 3,
+      "scored_at": "2026-07-10T00:00:00.000Z",
       "failed": false,
       "thin": false
     },
@@ -13517,9 +13517,9 @@
       "category": "pe-construction",
       "group": "guide",
       "body_chars": 3460,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
+      "scored": true,
+      "weighted": 2.4,
+      "scored_at": "2026-07-10T00:00:00.000Z",
       "failed": false,
       "thin": false
     },
@@ -13550,9 +13550,9 @@
       "category": "pe-construction",
       "group": "guide",
       "body_chars": 4314,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
+      "scored": true,
+      "weighted": 2.2,
+      "scored_at": "2026-07-10T00:00:00.000Z",
       "failed": false,
       "thin": false
     },
@@ -14606,9 +14606,9 @@
       "category": "pe-construction",
       "group": "guide",
       "body_chars": 3859,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
+      "scored": true,
+      "weighted": 2.8,
+      "scored_at": "2026-07-10T00:00:00.000Z",
       "failed": false,
       "thin": false
     },
@@ -14617,9 +14617,9 @@
       "category": "pe-construction",
       "group": "guide",
       "body_chars": 3501,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
+      "scored": true,
+      "weighted": 2.8,
+      "scored_at": "2026-07-10T00:00:00.000Z",
       "failed": false,
       "thin": false
     },
@@ -14672,9 +14672,9 @@
       "category": "pe-construction",
       "group": "guide",
       "body_chars": 3115,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
+      "scored": true,
+      "weighted": 2.2,
+      "scored_at": "2026-07-10T00:00:00.000Z",
       "failed": false,
       "thin": false
     },
