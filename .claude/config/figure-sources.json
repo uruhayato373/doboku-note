@@ -184,6 +184,12 @@
       "needs": "ok",
       "reason": "本文2行写り込み・左行番号・図2.5キャプションを除去、断面図と全ラベル保持で再クロップ 2026-07-09",
       "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-49",
+      "needs": "ok",
+      "reason": "上部プローズ・左カラム本文写り込み・図2.49キャプションを除去、①〜④図と手順凡例保持で再クロップ 2026-07-09",
+      "verified": "2026-07-09"
     }
   ],
   "categories": {
