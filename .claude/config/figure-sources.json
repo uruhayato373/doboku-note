@@ -166,6 +166,12 @@
       "needs": "ok",
       "reason": "本文2行写り込み・左余白・右行番号・図2.59キャプションを除去、縦断面+土積図+集計表保持で再クロップ 2026-07-09",
       "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-11",
+      "needs": "ok",
+      "reason": "本文4行写り込み・図2.11キャプションを除去、概念図(P_A-ΔP注記含む)保持で再クロップ 2026-07-09",
+      "verified": "2026-07-09"
     }
   ],
   "categories": {
