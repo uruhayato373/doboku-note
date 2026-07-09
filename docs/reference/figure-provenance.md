@@ -51,8 +51,12 @@ OCR/シャープネスでは検出できない欠陥がある。最重要は **�
 
 ## 現状の分布（2026-07-09）
 
-591 図: `ok:322 / recrop-review:190 / recrop:37 / rescan:33 / rescan-need-source:5 / recrop-urgent:4`。うち**公開×掲載（ライブで要改善）= recrop-review:163 / recrop:10 / rescan:17 / rescan-need-source:5 / recrop-urgent:1**。
-`rescan` 33 は**全て concrete系**（コンクリート主任技師＝PDF無し・書籍スキャン低品質）。civil/pe はゼロ（鮮明）。`rescan-need-source:5` は `manual_needs` 上書き分＝civil-1 のネットワーク工程表の見切れ図（r04-b-fig-02 / r05-b-fig-02 / r01-b-fig-03 が答え/図要素欠落の重症、r07-b-fig-02 が作業ラベル欠落で答えに影響、r06-b-fig-02 がラベルのみ欠落で解答は可能）。civil-1 の工程表10図を全数目視し、残5図（h28-b/h29-b/h30-b/r02-b/r03-b）は完全と確認。
+> **数値はスナップショット（点在させない）。ライブの残数は必ず管理画面ギャラリー（記事図版タブ）＝台帳 JSON を見る。** 下記は 2026-07-09 大量処理後の census。
+
+586 図: `ok:454 / recrop-review:26 / recrop:28 / rescan:33 / rescan-need-source:45`。うち**公開×掲載（ライブ）= ok:438 / rescan-need-source:45 / rescan:17 / recrop:1**。
+- **recrop-review 26 は全て concrete-diagnostician（`published:false` 著作権凍結ドラフト）**＝図クロップ著作権方針の決定待ちで保留。**非ドラフト全資格の recrop-review は 0**（2026-07-09 に手作業＋並列workflow 4本で写り込み除去クロップ→親目視QA。civil-1 94→0、他資格 48図処理。詳細 → `docs/todo/backlog.md`「過去問図の品質」）。
+- `rescan-need-source 45` は `manual_needs` 上書き分＝図本体が原典スキャンで画像端に見切れ（クロップ不能・要再スキャン or SVG再作図）。内訳 civil-1 32 / pe-first-stage 6 / pe-construction 4 / civil-2 2 / pe-comprehensive 1。
+- `rescan 33` は**全て concrete系**（コンクリート主任技師＝PDF無し・書籍スキャン低品質）。civil/pe はゼロ（鮮明）。
 
 ## 運用（管理画面ギャラリー）
 
