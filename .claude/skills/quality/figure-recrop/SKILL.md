@@ -72,9 +72,31 @@ npm run audit-figures                              # 監査/provenance を最新
 - **1 ページ 1 commit**・明示 pathspec（`git add -A` 禁止）。
 - 見切れ/画質不足は本スキール対象外 → provenance の rescan / `manual_needs` へ。
 
+## 大量処理（並列 workflow）モード
+
+recrop-review が数十件ある時は、逐次 `figure-recrop.mjs` の代わりに**並列 workflow**で回す（2026-07-09 確立。civil-1 94→0＋他資格 48 図を計 4 本の workflow で処理）。**視覚判定はサブエージェント `figure-crop-worker`（Generator・sonnet）が各図で実行し、親（メイン）が全 crop 図を最終目視 QA してから MDX 寸法・台帳を直列適用する**。
+
+**なぜ並列でも安全か**: PNG/webp は図ごとに別ファイル＝競合なし＝真に並列。**直列でないと壊れるのは 2 つだけ**＝①共有台帳 3 種（provenance/sources/text-audit）②同一記事の `article.mdx`（1 ファイルに複数図）。この 2 つは worker に触らせず親が直列で適用する。
+
+### 手順
+
+1. **worklist を作る**（`figure-provenance.json` の `needs=recrop-review` を対象）。各図 `{figKey, name, img(相対 .png|.webp), kind, imgSize:[w,h]}`。**除外**: `published:false` ドラフト（例 concrete-diagnostician＝著作権凍結）／機材写真 `.jpg`（OCR 偽陽性＝別途 `manual_needs:ok`）。webp-only 図も対象（worker が sharp extract で直接クロップ）。
+2. **workflow 起動**: `Workflow({ scriptPath: ".claude/skills/quality/figure-recrop/scripts/figure-crop-batch.workflow.mjs", args: <worklist> })`。各図を `figure-crop-worker` が並列にクロップ→自己検証→`{action, cropBox, newWidth/Height, removed, reason, selfVerify}` を返す。
+3. **親が全 crop 図を最終目視 QA**（Read）。実績で worker は微妙な写り込み残り・切り過ぎを取りこぼす（下記「QA で捕捉した実例」）。**crop 図は必ず全数目視**、needs-source は疑わしいものをスポット確認。
+4. **MDX 寸法＋台帳を直列適用**（親）。crop 後の実寸を読み、記事ごとに `<img width/height>` を置換（`<ArticleImage>` は寸法属性なし＝更新不要）。`figure-sources.json` の `manual_needs` に crop→`ok`／ok→`ok`／needs-source→`rescan-need-source` を記録し、provenance/text-audit も同期。**MDX は `newline=''` で読み書き**して CRLF/LF を保存（混在を作らない）。
+5. **commit（明示 pathspec・`git add -A` 禁止）** → 完了後 `figure-provenance.md` の census が陳腐化するので更新（SSOT）。
+
+### QA で捕捉した実例（親目視ゲートの価値）
+
+- **写り込み残り**: worker が上部プローズ／下部キャプションを残した（fig-2-55・fig-3-9）→ 親が該当帯を再クロップ。
+- **フォーム切り過ぎ**: 台帳フォームの下部行を「脚注」と誤認して切った（fig-4-12）→ **原画を `git checkout HEAD -- <png> <webp>` で復元→正しい境界で再クロップ**（脚注が本体と横並びで矩形分離不能なら脚注ごと残す）。
+- **見切れ見落とし**: worker が crop 判定したが原画も上端で入力ラベル/見出しを切っていた（q35-fig・fig05）→ **crop→needs-source に是正・原画復元**。判定は「原画（`git show HEAD:<path>`）の端インク」で確認する。
+- **SVG 版使用の図**: 記事が `.svg` を参照し scanned `.png` は不使用のオーファン → MDX 参照が無い＝寸法更新不要（無害）。
+- **無関係な未コミット削除**（別セッションの孤立画像 D）は巻き込まない（テリトリ不可侵）。
+
 ## 連携
 
 - 対象選定＝`figure-provenance.json`（needs）／品質＝`figure-text-audit.json`。真実源 [figure-provenance.md](../../../../docs/reference/figure-provenance.md)。
-- 機械化ヘルパ＝`scripts/figure-recrop.mjs`（crop+webp+MDX+OCR）。
+- 機械化ヘルパ＝`scripts/figure-recrop.mjs`（逐次・crop+webp+MDX+OCR）／並列ワーカー＝`figure-crop-worker`（`scripts/figure-crop-batch.workflow.mjs` が spawn）。
 - 別物＝`civil-figure-rework`（問題PDFから抽出・過去問では図なしで不成立）／`scanned-figure-crop-auditor`（スキャン教材の bbox 監査）。
 - 大量処理時は本スキルの手順を `civil-exam-figure-auditor` 等の Evaluator で採点させながら回してもよい（Generator/Evaluator 分離）。

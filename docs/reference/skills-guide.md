@@ -56,7 +56,7 @@ title: スキル ナビゲーションガイド
 | `/pe-essay-review` | 総監記述式模範論文を 3 視点で採点（**サイト** r0X-essay ページ。note 有料マガジンは `cem-essay-qa`） | `記述式採点`, `模範論文レビュー`, `/pe-essay-review` |
 | `/keiken-charcount` | 1級・2級土木 施工経験記述マガジン答案を解答欄しきい値で字数チェック（決定論的・暫定値） | `経験記述の字数確認`, `答案の字数オーバー検出`, `/keiken-charcount` |
 | `/civil-figure-rework` | 1級土木 過去問1次の図クロップ品質ループ（extractor → auditor 最大3反復、1ページ単位 commit） | `過去問図再抽出`, `テキスト写り込み修正`, `/civil-figure-rework {exam-slug\|--all}` |
-| `/figure-recrop` | 既存の記事図クロップを**タイト再クロップ**して写り込み（答え/本文/問題文）を除去。provenance の needs=recrop を対象・視覚で切り位置を決め `scripts/figure-recrop.mjs`（crop+webp+MDX+OCR）で機械適用。画質不足(ボケ)は対象外＝rescan。civil-figure-rework(問題PDF抽出)とは別 | `図の写り込みを除く`, `図を再クロップ`, `/figure-recrop` |
+| `/figure-recrop` | 既存の記事図クロップを**タイト再クロップ**して写り込み（答え/本文/問題文）を除去。provenance の needs=recrop を対象・視覚で切り位置を決め `scripts/figure-recrop.mjs`（crop+webp+MDX+OCR）で機械適用。画質不足(ボケ)は対象外＝rescan。**大量処理（並列 workflow）モード**＝`figure-crop-worker`（Generator）を図ごとに spawn し親が最終目視QA→MDX/台帳を直列適用（png/webp両対応・2026-07-09 確立）。civil-figure-rework(問題PDF抽出)とは別 | `図の写り込みを除く`, `図を再クロップ`, `大量の図をまとめて再クロップ`, `/figure-recrop` |
 | `/audit-pe-first-stage` | 技術士第一次試験全21ページの正答照合・原典視覚突合・構造検査（3軸監査） | `pe-first-stage監査`, `技術士第一次試験QA`, `/audit-pe-first-stage [--year R07] [--sub aptitude]` |
 
 ### SNS 運用（social）
