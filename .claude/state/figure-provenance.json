@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-09T12:57:43.501Z",
+  "generated_at": "2026-07-09T13:30:29.243Z",
   "note": "図provenance。needs=次アクション。真実源: figure-sources.json(台帳)+figure-text-audit.json(品質)。再生成可。",
   "figure_count": 589,
   "summary": {
-    "ok": 467,
-    "rescan-need-source": 35,
+    "ok": 479,
+    "rescan-need-source": 23,
     "recrop": 28,
     "rescan": 33,
     "recrop-review": 26
@@ -3608,8 +3608,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source",
-      "manualReason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09"
+      "needs": "ok",
+      "manualReason": "元PDF(p.10)からフル再抽出＝管渠断面図。旧画像は下半分(管渠円・基礎・寸法)が欠落。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。"
     },
     "civil-construction-1/secondary-r04/img/i-5-compaction-curve": {
       "category": "civil-construction-1",
@@ -3697,8 +3697,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source",
-      "manualReason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09"
+      "needs": "ok",
+      "manualReason": "元PDF(p.9)からフル再抽出＝土留め支保工断面。旧画像は左右見切れ＋前問文写り込み。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。"
     },
     "civil-construction-1/secondary-r07/img/i-10-machinery-scene": {
       "category": "civil-construction-1",
@@ -3712,8 +3712,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source",
-      "manualReason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09"
+      "needs": "ok",
+      "manualReason": "元PDF(p.10)からフル再抽出＝車両系機械作業図。旧画像は運転席左端と合図者足元が見切れ。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。"
     },
     "civil-construction-1/secondary-r07/img/i-11-l-retaining-wall": {
       "category": "civil-construction-1",
@@ -4953,8 +4953,8 @@
       "source_dir": "docs/textbook/２級土木施工管理技士",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "rescan-need-source",
-      "manualReason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09"
+      "needs": "ok",
+      "manualReason": "元PDF(p.3)からフル再抽出＝3サウンディング試験図。旧画像は右端キャプションが見切れ。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。"
     },
     "civil-construction-2/primary-r07-zenki/img/q03-fig": {
       "category": "civil-construction-2",
@@ -4996,8 +4996,8 @@
       "source_dir": "docs/textbook/２級土木施工管理技士",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "rescan-need-source",
-      "manualReason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09"
+      "needs": "ok",
+      "manualReason": "元PDF(p.6)からフル再抽出＝ベルヌーイの定理図。旧画像は下部キャプションが見切れ。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。"
     },
     "civil-construction-2/primary-r07-zenki/img/q16-fig": {
       "category": "civil-construction-2",
@@ -6710,8 +6710,8 @@
       "source_dir": "docs/textbook/技術士（総監）",
       "figure_origin": "unknown",
       "rescannable": "na",
-      "needs": "rescan-need-source",
-      "manualReason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09"
+      "needs": "ok",
+      "manualReason": "元PDF(p.17)からフル再抽出＝FN曲線+統計表(与件)。旧画像は図表見出しが欠落。設問選択肢は図の上にあり非混入。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。"
     },
     "pe-comprehensive-management/h28-primary/img/i-1-5-pert-network": {
       "category": "pe-comprehensive-management",
@@ -7556,8 +7556,8 @@
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "rescan-need-source",
-      "manualReason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09"
+      "needs": "ok",
+      "manualReason": "元PDF(p.11)からフル再抽出＝水槽オリフィス図。旧画像は水面線・水槽ラベルが欠落。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。"
     },
     "pe-first-stage/r02-aptitude/img/q7-fig": {
       "category": "pe-first-stage",
@@ -7614,8 +7614,8 @@
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "rescan-need-source",
-      "manualReason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09"
+      "needs": "ok",
+      "manualReason": "元PDF(p.12)からフル再抽出＝△ABC・点P図。旧画像は頂点A上部が見切れ＋選択肢写り込み。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。"
     },
     "pe-first-stage/r02-basic/img/q35-fig": {
       "category": "pe-first-stage",
@@ -8142,8 +8142,8 @@
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "rescan-need-source",
-      "manualReason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09"
+      "needs": "ok",
+      "manualReason": "元PDF(p.11)からフル再抽出＝水槽オリフィス図。旧画像は水槽上部と水面が見切れ。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。"
     },
     "pe-first-stage/r06-aptitude/img/q12-fig": {
       "category": "pe-first-stage",
@@ -8241,8 +8241,8 @@
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "rescan-need-source",
-      "manualReason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09"
+      "needs": "ok",
+      "manualReason": "元PDF(p.19)からフル再抽出＝CO2排出量積み上げ棒グラフ。旧画像は右端凡例D/C/B/Aが欠落。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。"
     },
     "pe-first-stage/r06-construction/img/q05-fig": {
       "category": "pe-first-stage",
@@ -8354,8 +8354,8 @@
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "rescan-need-source",
-      "manualReason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09"
+      "needs": "ok",
+      "manualReason": "元PDF(p.11)からフル再抽出＝正四面体回路(a)(b)(c)。旧画像は入力矢印Iが途切れ。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。"
     },
     "pe-first-stage/r07-basic/img/q36-fig": {
       "category": "pe-first-stage",
@@ -8369,8 +8369,8 @@
       "source_dir": "docs/textbook/技術士第一次試験",
       "figure_origin": "question-pdf",
       "rescannable": "na",
-      "needs": "rescan-need-source",
-      "manualReason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09"
+      "needs": "ok",
+      "manualReason": "元PDF(p.12)からフル再抽出＝平行導線・導体ab図。旧画像は右端の滑車と重りMが欠落。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。"
     },
     "pe-first-stage/r07-construction/img/q01-fig": {
       "category": "pe-first-stage",

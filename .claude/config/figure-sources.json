@@ -733,9 +733,12 @@
     },
     {
       "figure": "civil-construction-1/secondary-r03/img/i-11-culvert-section",
-      "needs": "rescan-need-source",
-      "reason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09",
-      "verified": "2026-07-09"
+      "needs": "ok",
+      "reason": "元PDF(p.10)からフル再抽出＝管渠断面図。旧画像は下半分(管渠円・基礎・寸法)が欠落。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。",
+      "verified": "2026-07-09",
+      "source_pdf": "docs/textbook/１級土木施工管理技士/過去問/R03/R03_第二次検定.pdf",
+      "page": 10,
+      "dpi": 300
     },
     {
       "figure": "civil-construction-1/secondary-quality-management-basics/img/fig-5-2",
@@ -751,9 +754,12 @@
     },
     {
       "figure": "civil-construction-1/secondary-r07/img/i-10-machinery-scene",
-      "needs": "rescan-need-source",
-      "reason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09",
-      "verified": "2026-07-09"
+      "needs": "ok",
+      "reason": "元PDF(p.10)からフル再抽出＝車両系機械作業図。旧画像は運転席左端と合図者足元が見切れ。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。",
+      "verified": "2026-07-09",
+      "source_pdf": "docs/textbook/１級土木施工管理技士/過去問/R07/R07_第二次検定.pdf",
+      "page": 10,
+      "dpi": 300
     },
     {
       "figure": "civil-construction-1/textbook-demolition/img/fig-6-2",
@@ -763,9 +769,12 @@
     },
     {
       "figure": "civil-construction-1/secondary-r06/img/i-8-shoring-section",
-      "needs": "rescan-need-source",
-      "reason": "workflow判定=図本体が画像端で見切れ/内部汚損・原典再スキャン要（親スポットQA確認）2026-07-09",
-      "verified": "2026-07-09"
+      "needs": "ok",
+      "reason": "元PDF(p.9)からフル再抽出＝土留め支保工断面。旧画像は左右見切れ＋前問文写り込み。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。",
+      "verified": "2026-07-09",
+      "source_pdf": "docs/textbook/１級土木施工管理技士/過去問/R06/R06_第二次検定.pdf",
+      "page": 9,
+      "dpi": 300
     },
     {
       "figure": "civil-construction-1/primary-r03-b/img/r03-b-fig-01",
@@ -997,15 +1006,21 @@
     },
     {
       "figure": "civil-construction-2/primary-r07-zenki/img/q05-fig",
-      "needs": "rescan-need-source",
-      "reason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09",
-      "verified": "2026-07-09"
+      "needs": "ok",
+      "reason": "元PDF(p.6)からフル再抽出＝ベルヌーイの定理図。旧画像は下部キャプションが見切れ。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。",
+      "verified": "2026-07-09",
+      "source_pdf": "docs/textbook/２級土木施工管理技士/過去問/R07/R07_第一次検定_前期.pdf",
+      "page": 6,
+      "dpi": 300
     },
     {
       "figure": "civil-construction-2/primary-r07-zenki/img/q02-fig",
-      "needs": "rescan-need-source",
-      "reason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09",
-      "verified": "2026-07-09"
+      "needs": "ok",
+      "reason": "元PDF(p.3)からフル再抽出＝3サウンディング試験図。旧画像は右端キャプションが見切れ。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。",
+      "verified": "2026-07-09",
+      "source_pdf": "docs/textbook/２級土木施工管理技士/過去問/R07/R07_第一次検定_前期.pdf",
+      "page": 3,
+      "dpi": 300
     },
     {
       "figure": "pe-construction/ninaite-dx-ronbun-keyword/img/fig22",
@@ -1021,9 +1036,12 @@
     },
     {
       "figure": "pe-comprehensive-management/h28-primary/img/i-1-29-fn-curve",
-      "needs": "rescan-need-source",
-      "reason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09",
-      "verified": "2026-07-09"
+      "needs": "ok",
+      "reason": "元PDF(p.17)からフル再抽出＝FN曲線+統計表(与件)。旧画像は図表見出しが欠落。設問選択肢は図の上にあり非混入。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。",
+      "verified": "2026-07-09",
+      "source_pdf": "docs/textbook/技術士（総監）/過去問/H28/H28_試験問題_択一式.pdf",
+      "page": 17,
+      "dpi": 300
     },
     {
       "figure": "pe-construction/shakai-shihon-ronbun-keyword/img/fig04",
@@ -1033,39 +1051,57 @@
     },
     {
       "figure": "pe-first-stage/r01-construction/img/q17-fig",
-      "needs": "rescan-need-source",
-      "reason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09",
-      "verified": "2026-07-09"
+      "needs": "ok",
+      "reason": "元PDF(p.11)からフル再抽出＝水槽オリフィス図。旧画像は水面線・水槽ラベルが欠落。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。",
+      "verified": "2026-07-09",
+      "source_pdf": "docs/textbook/技術士第一次試験/R01/R01-建設.pdf",
+      "page": 11,
+      "dpi": 300
     },
     {
       "figure": "pe-first-stage/r02-basic/img/q34-fig",
-      "needs": "rescan-need-source",
-      "reason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09",
-      "verified": "2026-07-09"
+      "needs": "ok",
+      "reason": "元PDF(p.12)からフル再抽出＝△ABC・点P図。旧画像は頂点A上部が見切れ＋選択肢写り込み。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。",
+      "verified": "2026-07-09",
+      "source_pdf": "docs/textbook/技術士第一次試験/R02/R02-基礎.pdf",
+      "page": 12,
+      "dpi": 300
     },
     {
       "figure": "pe-first-stage/r05-construction/img/q17-fig",
-      "needs": "rescan-need-source",
-      "reason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09",
-      "verified": "2026-07-09"
+      "needs": "ok",
+      "reason": "元PDF(p.11)からフル再抽出＝水槽オリフィス図。旧画像は水槽上部と水面が見切れ。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。",
+      "verified": "2026-07-09",
+      "source_pdf": "docs/textbook/技術士第一次試験/R05/R05-建設.pdf",
+      "page": 11,
+      "dpi": 300
     },
     {
       "figure": "pe-first-stage/r06-basic/img/q5-3-fig",
-      "needs": "rescan-need-source",
-      "reason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09",
-      "verified": "2026-07-09"
+      "needs": "ok",
+      "reason": "元PDF(p.19)からフル再抽出＝CO2排出量積み上げ棒グラフ。旧画像は右端凡例D/C/B/Aが欠落。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。",
+      "verified": "2026-07-09",
+      "source_pdf": "docs/textbook/技術士第一次試験/R06/R06-基礎.pdf",
+      "page": 19,
+      "dpi": 300
     },
     {
       "figure": "pe-first-stage/r07-basic/img/q36-fig",
-      "needs": "rescan-need-source",
-      "reason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09",
-      "verified": "2026-07-09"
+      "needs": "ok",
+      "reason": "元PDF(p.12)からフル再抽出＝平行導線・導体ab図。旧画像は右端の滑車と重りMが欠落。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。",
+      "verified": "2026-07-09",
+      "source_pdf": "docs/textbook/技術士第一次試験/R07/R07-基礎.pdf",
+      "page": 12,
+      "dpi": 300
     },
     {
       "figure": "pe-first-stage/r07-basic/img/q35-fig",
-      "needs": "rescan-need-source",
-      "reason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09",
-      "verified": "2026-07-09"
+      "needs": "ok",
+      "reason": "元PDF(p.11)からフル再抽出＝正四面体回路(a)(b)(c)。旧画像は入力矢印Iが途切れ。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。",
+      "verified": "2026-07-09",
+      "source_pdf": "docs/textbook/技術士第一次試験/R07/R07-基礎.pdf",
+      "page": 11,
+      "dpi": 300
     },
     {
       "figure": "pe-construction/shakai-shihon-ronbun-keyword/img/fig05",
