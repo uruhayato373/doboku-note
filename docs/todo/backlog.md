@@ -56,10 +56,12 @@
 
 > 注（完了・2026-07-10）: **rescan-need-source を 45→6 に削減（39図フル再抽出）**。「要ソース再取得＝クロップ不能」は誤りで、元PDF（過去問/テキスト/問題集）が大半実在し**フル再抽出可能**と判明（ユーザー指摘起点）。並行workflow 5本＋**親の新旧比較目視QA**で復元し、各 manual_needs に `source_pdf`/`page`/`dpi` を記録（繰り返し可能化）。QAで h29-b-fig-02 の問題集版=2図劣化を検出し除外（旧4図維持）。commit `b3dd2e567`/`dda9e86a9`/`218c64474`/`0b9324923`/`2fe13b647`。詳細 → [[civil1-figure-answer-leak-remediation]]。
 
+> 注（完了・2026-07-10続き）: **コンクリート主任技士のライブ rescan 17図を完結（rescan 33→16）**。ユーザーが書籍（項目別過去問解説）を高品質再スキャン→`docs/textbook/コンクリート主任技師2024/スキャンした書類 14-18.pdf`（p24-221連続・git追跡外）。100見開きを回転90°+左右分割→200頁化し、並行workflow（17worker・vision自己検証）＋親の新旧比較QAで**14図差替**（sharpness 18-118→330-1855＝全図sharp化・指写り込み/見切れ解消）。3図（steel-carbon-h29/bingham-flow-h30/bingham-shear-r04）は**書籍が項目別抜粋のため非収録**＝rescan-need-source へ・旧維持。別途、未参照の答え漏らし残骸3図（h26-a-fig-01/05・r01-a-fig-04）を git rm（recrop-urgent 0）。commit `4effe26ed`・**main deploy 済**。
+
 **残（2026-07-10・優先度順）**:
-1. 🟡 **rescan-need-source 6図**（真にローカルPDF再抽出不可・要外部/別原典）＝h29-b-fig-02（旧4図完全・タイトルのみ上端切れ→要H29第2次B原典で補完）/h27-a-fig-01（問題集にH27非収録→要H27原典）/pe-construction 4（fig22/27/04/05＝スキャン書籍の白書グラフ再録→要白書PDF等の外部ソース）。台帳に理由記録済。
+1. 🟡 **rescan-need-source 9図**（真にローカル再抽出不可・要外部/別原典）＝h29-b-fig-02（旧4図完全・タイトルのみ上端切れ→要H29第2次B原典）/h27-a-fig-01（問題集にH27非収録→要H27原典）/pe-construction 4（fig22/27/04/05＝スキャン書籍の白書グラフ再録→要白書PDF等）/concrete-chief 3（steel-carbon-h29・bingham-flow-h30・bingham-shear-r04＝再スキャン書籍が項目別抜粋で当該設問非収録→要該当年度原典）。台帳に理由記録済。
 2. 🟢 **concrete-diagnostician recrop-review 26**（`published:false` 著作権凍結ドラフト内）。図クロップ著作権方針（L597）が決まるまで保留＝方針決定後にまとめて workflow 処理可。
-3. 🟢 **rescan 33**（concrete-chief 等・書籍スキャン低品質）＝物理再スキャン要（PDF無し・ユーザー作業）。
+3. 🟢 **rescan 16**（全て concrete-diagnostician＝`published:false` 凍結ドラフト内・書籍スキャン低品質）。ライブの rescan は 0 に完結。診断士の公開方針決定時にスキャンPDF（保持済）から同パイプラインで処理可。
 4. ✅ **h30-a-fig-12 確認・是正完了（2026-07-10）**。目視で「見切れ」以上の欠陥を発見＝**【正解】(1)の答え漏らし＋No.11設問文写り込み＋4図下端見切れの三重欠陥**。元PDF(H30第一次A p.5)から側圧分布模式図4図のみを再抽出し公開中ページの答え漏らしを解消（commit `33db07972`）。fig-04 は既済（2026-07-09）。
 5. 🟢 1級 textbook 10本の `civil-construction-qa` 品質監査（低優先・合格マージン大）。H28-A fig-02/07/08/09 は元 PDF に図が無く（問題用紙テキスト形式）修正不能で確定。
 
