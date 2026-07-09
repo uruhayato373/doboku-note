@@ -1213,6 +1213,1026 @@
       ],
       "qualitative_comment": "都市及び地方計画、法令名・制度名を含め全設問忠実収録(archive設計)。リンク健全性のみ弱点。",
       "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r03-construction-planning": {
+      "slug": "pe-construction-r03-construction-planning",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r03-environment": {
+      "slug": "pe-construction-r03-environment",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r03-geotechnical": {
+      "slug": "pe-construction-r03-geotechnical",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r03-port-airport": {
+      "slug": "pe-construction-r03-port-airport",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r03-power-civil": {
+      "slug": "pe-construction-r03-power-civil",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r03-railway": {
+      "slug": "pe-construction-r03-railway",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r03-required": {
+      "slug": "pe-construction-r03-required",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r03-river-coast": {
+      "slug": "pe-construction-r03-river-coast",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r03-road": {
+      "slug": "pe-construction-r03-road",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r03-steel-concrete": {
+      "slug": "pe-construction-r03-steel-concrete",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r03-tunnel": {
+      "slug": "pe-construction-r03-tunnel",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r03-urban-planning": {
+      "slug": "pe-construction-r03-urban-planning",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r04-construction-planning": {
+      "slug": "pe-construction-r04-construction-planning",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r04-environment": {
+      "slug": "pe-construction-r04-environment",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r04-geotechnical": {
+      "slug": "pe-construction-r04-geotechnical",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r04-port-airport": {
+      "slug": "pe-construction-r04-port-airport",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r04-power-civil": {
+      "slug": "pe-construction-r04-power-civil",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r04-railway": {
+      "slug": "pe-construction-r04-railway",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r04-required": {
+      "slug": "pe-construction-r04-required",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r04-river-coast": {
+      "slug": "pe-construction-r04-river-coast",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r04-road": {
+      "slug": "pe-construction-r04-road",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r04-steel-concrete": {
+      "slug": "pe-construction-r04-steel-concrete",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r04-tunnel": {
+      "slug": "pe-construction-r04-tunnel",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r04-urban-planning": {
+      "slug": "pe-construction-r04-urban-planning",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r05-construction-planning": {
+      "slug": "pe-construction-r05-construction-planning",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r05-environment": {
+      "slug": "pe-construction-r05-environment",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r05-geotechnical": {
+      "slug": "pe-construction-r05-geotechnical",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r05-port-airport": {
+      "slug": "pe-construction-r05-port-airport",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r05-power-civil": {
+      "slug": "pe-construction-r05-power-civil",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r05-railway": {
+      "slug": "pe-construction-r05-railway",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r05-required": {
+      "slug": "pe-construction-r05-required",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r05-river-coast": {
+      "slug": "pe-construction-r05-river-coast",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r05-road": {
+      "slug": "pe-construction-r05-road",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r05-steel-concrete": {
+      "slug": "pe-construction-r05-steel-concrete",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r05-tunnel": {
+      "slug": "pe-construction-r05-tunnel",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r05-urban-planning": {
+      "slug": "pe-construction-r05-urban-planning",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r06-construction-planning": {
+      "slug": "pe-construction-r06-construction-planning",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r06-environment": {
+      "slug": "pe-construction-r06-environment",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r06-geotechnical": {
+      "slug": "pe-construction-r06-geotechnical",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r06-port-airport": {
+      "slug": "pe-construction-r06-port-airport",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r06-power-civil": {
+      "slug": "pe-construction-r06-power-civil",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r06-railway": {
+      "slug": "pe-construction-r06-railway",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r06-required": {
+      "slug": "pe-construction-r06-required",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r06-river-coast": {
+      "slug": "pe-construction-r06-river-coast",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r06-road": {
+      "slug": "pe-construction-r06-road",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r06-steel-concrete": {
+      "slug": "pe-construction-r06-steel-concrete",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r06-tunnel": {
+      "slug": "pe-construction-r06-tunnel",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r06-urban-planning": {
+      "slug": "pe-construction-r06-urban-planning",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r07-construction-planning": {
+      "slug": "pe-construction-r07-construction-planning",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r07-environment": {
+      "slug": "pe-construction-r07-environment",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r07-geotechnical": {
+      "slug": "pe-construction-r07-geotechnical",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r07-port-airport": {
+      "slug": "pe-construction-r07-port-airport",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r07-power-civil": {
+      "slug": "pe-construction-r07-power-civil",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r07-railway": {
+      "slug": "pe-construction-r07-railway",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r07-required": {
+      "slug": "pe-construction-r07-required",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r07-river-coast": {
+      "slug": "pe-construction-r07-river-coast",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r07-road": {
+      "slug": "pe-construction-r07-road",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r07-steel-concrete": {
+      "slug": "pe-construction-r07-steel-concrete",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r07-tunnel": {
+      "slug": "pe-construction-r07-tunnel",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r07-urban-planning": {
+      "slug": "pe-construction-r07-urban-planning",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 1,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "related_keywords"
+      ],
+      "qualitative_comment": "問題文アーカイブ設計(意図的模範解答非掲載+note誘導)。全設問を忠実転記・網羅、RelatedKeywords未配線のみ共通の弱点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
     }
   }
 }
