@@ -46,13 +46,15 @@
 
 **進捗の生きたビュー＝管理画面ギャラリー**（`npm run admin`→記事図版タブ→上部「進捗（公開×掲載）」バー＋「対応」フィルタ）。真実源 `docs/reference/figure-provenance.md`、手順スキル `/figure-recrop`、機械台帳 `.claude/config/figure-sources.json`（`manual_needs` 含む）。**この項目は逐一列挙せずギャラリーで残数を見る**運用に移行。
 
-**完了（2026-06〜07）**: 1級/2級 primary・pe-first-stage の図クロップ欠落補完＋答え漏らし/問題文・選択肢写り込みの再クロップ（civil-1 answer-leak 系・pe-first-stage 8図 等）。**公開×掲載の recrop/recrop-urgent はほぼ0**（2026-07-09 時点 各1）。旧「完了済み」記述はこの再クロップ作業で更新。
+**完了（2026-06〜07）**: 1級/2級 primary・pe-first-stage の図クロップ欠落補完＋答え漏らし/問題文・選択肢写り込みの再クロップ（civil-1 answer-leak 系・pe-first-stage 8図 等）。旧「完了済み」記述はこの再クロップ作業で更新。
+
+> 注（完了・2026-07-09）: **recrop-urgent（答え漏らし）を 0 に**。唯一の公開×掲載＝h30-a-fig-04（圧密試験図の上に設問(3)正答文「(3)は適当でない」＋隣図断片＋次問(4)文が写り込み）を図のみに再クロップ（762×774→411×409、commit beb24b934）。残る3件（h26-a-fig-01/05・r01-a-fig-04）は**どの記事からも未参照の git 追跡外ローカル残骸**と判明→削除。台帳(figure-provenance/text-audit)を同期（recrop-urgent 4→0・leak 4→0、commit ba84ff43b、tesseract不在のため目視検証ベース＝次回 audit-figure-text で再確認）。
 
 **残（2026-07-09・優先度順）**:
 1. 🟡 **見切れ5図**（civil-1 工程表 r04-b/r05-b/r01-b/r07-b/r06-b-fig-02＝作業/ノード/ラベル欠落）。needs-source 棚上げ中（`manual_needs`登録済）。完全な元スキャン入手 or 工程表SVG再作図で解消。
-2. 🟢 **recrop-review 163**（公開×掲載）＝句点ありだが多くは図の凡例。目視トリアージし凡例なら `manual_needs` で ok 上書き・写り込みなら再クロップ。
+2. 🟢 **recrop-review 190**（句点ありだが多くは図の凡例）。目視トリアージし凡例なら `manual_needs` で ok 上書き・写り込みなら再クロップ。
 3. 🟢 **rescan 17**（全て concrete-chief・書籍スキャン低品質）＝物理再スキャン要（PDF無し・ユーザー作業）。
-4. 🟢 **h30-a 系の見切れ再確認**（handoff は fig-04、旧メモは fig-12 で食い違い・未検証）。
+4. 🟢 **h30-a-fig-12 の確認**（旧メモの「見切れ」候補・未検証）。fig-04 は答え漏らしとして再クロップ済み（2026-07-09）＝旧メモとの食い違いは fig-04 で解消、残る fig-12 のみ目視確認要。
 5. 🟢 1級 textbook 10本の `civil-construction-qa` 品質監査（低優先・合格マージン大）。H28-A fig-02/07/08/09 は元 PDF に図が無く（問題用紙テキスト形式）修正不能で確定。
 
 **ソース/手順**: `docs/textbook/{１級,２級}土木施工管理技士/`。手順=pdftoppm 200dpi→magick crop+trim→webp(q80)。**過去問の問題図に解答情報を入れない**（[[exam-problem-figure-no-answer]]）。**過去問データグラフのSVG化禁止**（幾何が答え＝誤答誘発）。[[civil1-figure-answer-leak-remediation]] / [[figure-provenance-system]]
