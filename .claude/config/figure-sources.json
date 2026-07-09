@@ -130,6 +130,12 @@
       "needs": "ok",
       "reason": "図2.48キャプション写り込み除去・手順凡例保持で再クロップ 2026-07-09",
       "verified": "2026-07-09"
+    },
+    {
+      "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-47",
+      "needs": "rescan-need-source",
+      "reason": "上端でリーダー/マンドレル装置が見切れ・原典PDF再スキャン要 2026-07-09",
+      "verified": "2026-07-09"
     }
   ],
   "categories": {

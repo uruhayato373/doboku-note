@@ -4,8 +4,8 @@
   "figure_count": 586,
   "summary": {
     "ok": 339,
-    "recrop-review": 178,
-    "rescan-need-source": 8,
+    "recrop-review": 177,
+    "rescan-need-source": 9,
     "recrop": 28,
     "rescan": 33
   },
@@ -2827,7 +2827,7 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "rescan-need-source"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-48": {
       "category": "civil-construction-1",
