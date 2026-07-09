@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-07-09T21:37:33.391Z",
+  "generated_at": "2026-07-09T21:44:39.162Z",
   "thresholds": {
     "fail": 2,
     "thin_chars": 3000,
@@ -12,11 +12,11 @@
   },
   "totals": {
     "total": 1064,
-    "scored": 725,
-    "unscored": 339,
-    "failed": 0,
+    "scored": 744,
+    "unscored": 320,
+    "failed": 8,
     "thin": 377,
-    "coverage_pct": 68.1
+    "coverage_pct": 69.9
   },
   "by_category": {
     "civil-construction-1": {
@@ -101,34 +101,34 @@
       "groups": {
         "guide": {
           "total": 3,
-          "scored": 0,
-          "unscored": 3,
+          "scored": 3,
+          "unscored": 0,
           "failed": 0,
           "thin": 0,
-          "avg_weighted": null
+          "avg_weighted": 2.6
         },
         "primary": {
           "total": 8,
-          "scored": 0,
-          "unscored": 8,
-          "failed": 0,
+          "scored": 8,
+          "unscored": 0,
+          "failed": 8,
           "thin": 0,
-          "avg_weighted": null
+          "avg_weighted": 1
         },
         "textbook": {
           "total": 8,
-          "scored": 0,
-          "unscored": 8,
+          "scored": 8,
+          "unscored": 0,
           "failed": 0,
           "thin": 1,
-          "avg_weighted": null
+          "avg_weighted": 2.55
         }
       },
       "totals": {
         "total": 19,
-        "scored": 0,
-        "unscored": 19,
-        "failed": 0,
+        "scored": 19,
+        "unscored": 0,
+        "failed": 8,
         "thin": 1
       }
     },
@@ -232,11 +232,75 @@
   },
   "rewrite_queue": [
     {
+      "slug": "concrete-chief-engineer-primary-construction",
+      "category": "concrete-chief-engineer",
+      "group": "primary",
+      "reason": "failed",
+      "weighted": 1,
+      "body_chars": 30843
+    },
+    {
+      "slug": "concrete-chief-engineer-primary-durability",
+      "category": "concrete-chief-engineer",
+      "group": "primary",
+      "reason": "failed",
+      "weighted": 1,
+      "body_chars": 8145
+    },
+    {
+      "slug": "concrete-chief-engineer-primary-materials",
+      "category": "concrete-chief-engineer",
+      "group": "primary",
+      "reason": "failed",
+      "weighted": 1,
+      "body_chars": 18693
+    },
+    {
+      "slug": "concrete-chief-engineer-primary-mix-design",
+      "category": "concrete-chief-engineer",
+      "group": "primary",
+      "reason": "failed",
+      "weighted": 1,
+      "body_chars": 6220
+    },
+    {
+      "slug": "concrete-chief-engineer-primary-production-qc",
+      "category": "concrete-chief-engineer",
+      "group": "primary",
+      "reason": "failed",
+      "weighted": 1,
+      "body_chars": 20479
+    },
+    {
+      "slug": "concrete-chief-engineer-primary-products",
+      "category": "concrete-chief-engineer",
+      "group": "primary",
+      "reason": "failed",
+      "weighted": 1,
+      "body_chars": 3025
+    },
+    {
+      "slug": "concrete-chief-engineer-primary-properties",
+      "category": "concrete-chief-engineer",
+      "group": "primary",
+      "reason": "failed",
+      "weighted": 1,
+      "body_chars": 15778
+    },
+    {
+      "slug": "concrete-chief-engineer-primary-structural-design",
+      "category": "concrete-chief-engineer",
+      "group": "primary",
+      "reason": "failed",
+      "weighted": 1,
+      "body_chars": 4144
+    },
+    {
       "slug": "concrete-chief-engineer-textbook-products",
       "category": "concrete-chief-engineer",
       "group": "textbook",
       "reason": "thin",
-      "weighted": null,
+      "weighted": 2.25,
       "body_chars": 2405
     },
     {
@@ -5124,9 +5188,9 @@
       "category": "concrete-chief-engineer",
       "group": "guide",
       "body_chars": 4794,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
+      "scored": true,
+      "weighted": 2.8,
+      "scored_at": "2026-07-10T00:00:00.000Z",
       "failed": false,
       "thin": false
     },
@@ -5135,9 +5199,9 @@
       "category": "concrete-chief-engineer",
       "group": "guide",
       "body_chars": 3045,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
+      "scored": true,
+      "weighted": 2.4,
+      "scored_at": "2026-07-10T00:00:00.000Z",
       "failed": false,
       "thin": false
     },
@@ -5146,9 +5210,9 @@
       "category": "concrete-chief-engineer",
       "group": "guide",
       "body_chars": 3937,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
+      "scored": true,
+      "weighted": 2.6,
+      "scored_at": "2026-07-10T00:00:00.000Z",
       "failed": false,
       "thin": false
     },
@@ -5157,10 +5221,10 @@
       "category": "concrete-chief-engineer",
       "group": "primary",
       "body_chars": 30843,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
-      "failed": false,
+      "scored": true,
+      "weighted": 1,
+      "scored_at": "2026-07-10T00:00:00.000Z",
+      "failed": true,
       "thin": false
     },
     {
@@ -5168,10 +5232,10 @@
       "category": "concrete-chief-engineer",
       "group": "primary",
       "body_chars": 8145,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
-      "failed": false,
+      "scored": true,
+      "weighted": 1,
+      "scored_at": "2026-07-10T00:00:00.000Z",
+      "failed": true,
       "thin": false
     },
     {
@@ -5179,10 +5243,10 @@
       "category": "concrete-chief-engineer",
       "group": "primary",
       "body_chars": 18693,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
-      "failed": false,
+      "scored": true,
+      "weighted": 1,
+      "scored_at": "2026-07-10T00:00:00.000Z",
+      "failed": true,
       "thin": false
     },
     {
@@ -5190,10 +5254,10 @@
       "category": "concrete-chief-engineer",
       "group": "primary",
       "body_chars": 6220,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
-      "failed": false,
+      "scored": true,
+      "weighted": 1,
+      "scored_at": "2026-07-10T00:00:00.000Z",
+      "failed": true,
       "thin": false
     },
     {
@@ -5201,10 +5265,10 @@
       "category": "concrete-chief-engineer",
       "group": "primary",
       "body_chars": 20479,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
-      "failed": false,
+      "scored": true,
+      "weighted": 1,
+      "scored_at": "2026-07-10T00:00:00.000Z",
+      "failed": true,
       "thin": false
     },
     {
@@ -5212,10 +5276,10 @@
       "category": "concrete-chief-engineer",
       "group": "primary",
       "body_chars": 3025,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
-      "failed": false,
+      "scored": true,
+      "weighted": 1,
+      "scored_at": "2026-07-10T00:00:00.000Z",
+      "failed": true,
       "thin": false
     },
     {
@@ -5223,10 +5287,10 @@
       "category": "concrete-chief-engineer",
       "group": "primary",
       "body_chars": 15778,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
-      "failed": false,
+      "scored": true,
+      "weighted": 1,
+      "scored_at": "2026-07-10T00:00:00.000Z",
+      "failed": true,
       "thin": false
     },
     {
@@ -5234,10 +5298,10 @@
       "category": "concrete-chief-engineer",
       "group": "primary",
       "body_chars": 4144,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
-      "failed": false,
+      "scored": true,
+      "weighted": 1,
+      "scored_at": "2026-07-10T00:00:00.000Z",
+      "failed": true,
       "thin": false
     },
     {
@@ -5245,9 +5309,9 @@
       "category": "concrete-chief-engineer",
       "group": "textbook",
       "body_chars": 7628,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
+      "scored": true,
+      "weighted": 2.25,
+      "scored_at": "2026-07-10T00:00:00.000Z",
       "failed": false,
       "thin": false
     },
@@ -5256,9 +5320,9 @@
       "category": "concrete-chief-engineer",
       "group": "textbook",
       "body_chars": 5233,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
+      "scored": true,
+      "weighted": 2.4,
+      "scored_at": "2026-07-10T00:00:00.000Z",
       "failed": false,
       "thin": false
     },
@@ -5267,9 +5331,9 @@
       "category": "concrete-chief-engineer",
       "group": "textbook",
       "body_chars": 6374,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
+      "scored": true,
+      "weighted": 2.7,
+      "scored_at": "2026-07-10T00:00:00.000Z",
       "failed": false,
       "thin": false
     },
@@ -5278,9 +5342,9 @@
       "category": "concrete-chief-engineer",
       "group": "textbook",
       "body_chars": 4294,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
+      "scored": true,
+      "weighted": 2.7,
+      "scored_at": "2026-07-10T00:00:00.000Z",
       "failed": false,
       "thin": false
     },
@@ -5289,9 +5353,9 @@
       "category": "concrete-chief-engineer",
       "group": "textbook",
       "body_chars": 5427,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
+      "scored": true,
+      "weighted": 2.7,
+      "scored_at": "2026-07-10T00:00:00.000Z",
       "failed": false,
       "thin": false
     },
@@ -5300,9 +5364,9 @@
       "category": "concrete-chief-engineer",
       "group": "textbook",
       "body_chars": 2405,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
+      "scored": true,
+      "weighted": 2.25,
+      "scored_at": "2026-07-10T00:00:00.000Z",
       "failed": false,
       "thin": true
     },
@@ -5311,9 +5375,9 @@
       "category": "concrete-chief-engineer",
       "group": "textbook",
       "body_chars": 6281,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
+      "scored": true,
+      "weighted": 2.7,
+      "scored_at": "2026-07-10T00:00:00.000Z",
       "failed": false,
       "thin": false
     },
@@ -5322,9 +5386,9 @@
       "category": "concrete-chief-engineer",
       "group": "textbook",
       "body_chars": 3813,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
+      "scored": true,
+      "weighted": 2.7,
+      "scored_at": "2026-07-10T00:00:00.000Z",
       "failed": false,
       "thin": false
     },
