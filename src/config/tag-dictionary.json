@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated_at": "2026-07-08T22:04:39.612Z",
+  "generated_at": "2026-07-09T20:38:14.644Z",
   "summary": {
-    "total_mdx_files": 1098,
-    "total_unique_tags": 172,
+    "total_mdx_files": 1106,
+    "total_unique_tags": 173,
     "allowlist_size": 149,
-    "known_count": 82,
+    "known_count": 83,
     "unknown_count": 90,
     "typo_candidates_count": 5
   },
@@ -1252,7 +1252,7 @@
     },
     {
       "name": "guide",
-      "count": 121,
+      "count": 129,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1344,7 +1344,9 @@
         "pe-construction-carbon-neutral-kensetsu",
         "pe-construction-chiiki-dukuri-ronbun-keyword",
         "pe-construction-competency-revision-r8",
+        "pe-construction-construction-environment-ronbun-keyword",
         "pe-construction-construction-planning-exam-themes",
+        "pe-construction-construction-planning-ronbun-keyword",
         "pe-construction-datsutanso-kankyo-ronbun-keyword",
         "pe-construction-environment-exam-themes",
         "pe-construction-gakushuu-jikan-schedule",
@@ -1361,8 +1363,11 @@
         "pe-construction-ninaite-kakuho-seisansei",
         "pe-construction-pe-secondary-essay-guide",
         "pe-construction-port-airport-exam-themes",
+        "pe-construction-port-airport-ronbun-keyword",
         "pe-construction-power-civil-exam-themes",
+        "pe-construction-power-civil-ronbun-keyword",
         "pe-construction-railway-exam-themes",
+        "pe-construction-railway-ronbun-keyword",
         "pe-construction-required-exam-themes",
         "pe-construction-river-coast-exam-themes",
         "pe-construction-river-coast-ronbun-keyword",
@@ -1371,23 +1376,28 @@
         "pe-construction-secondary-study-method",
         "pe-construction-sentaku-kamoku-kakiwake",
         "pe-construction-shakai-shihon-ronbun-keyword",
+        "pe-construction-soil-foundation-ronbun-keyword",
         "pe-construction-steel-concrete-exam-themes",
+        "pe-construction-steel-concrete-ronbun-keyword",
         "pe-construction-toan-kousei-template",
         "pe-construction-tunnel-exam-themes",
+        "pe-construction-tunnel-ronbun-keyword",
         "pe-construction-urban-planning-exam-themes",
         "pe-construction-urban-planning-ronbun-keyword"
       ]
     },
     {
       "name": "建設部門",
-      "count": 120,
+      "count": 128,
       "inAllowlist": false,
       "usedIn": [
         "pe-construction-bosai-kokudo-kyoujinka",
         "pe-construction-bousai-genseigai-ronbun-keyword",
         "pe-construction-carbon-neutral-kensetsu",
         "pe-construction-chiiki-dukuri-ronbun-keyword",
+        "pe-construction-construction-environment-ronbun-keyword",
         "pe-construction-construction-planning-exam-themes",
+        "pe-construction-construction-planning-ronbun-keyword",
         "pe-construction-datsutanso-kankyo-ronbun-keyword",
         "pe-construction-environment-exam-themes",
         "pe-construction-gakushuu-jikan-schedule",
@@ -1404,7 +1414,9 @@
         "pe-construction-ninaite-kakuho-seisansei",
         "pe-construction-pe-secondary-essay-guide",
         "pe-construction-port-airport-exam-themes",
+        "pe-construction-port-airport-ronbun-keyword",
         "pe-construction-power-civil-exam-themes",
+        "pe-construction-power-civil-ronbun-keyword",
         "pe-construction-r01-construction-planning",
         "pe-construction-r01-environment",
         "pe-construction-r01-geotechnical",
@@ -1490,6 +1502,7 @@
         "pe-construction-r07-tunnel",
         "pe-construction-r07-urban-planning",
         "pe-construction-railway-exam-themes",
+        "pe-construction-railway-ronbun-keyword",
         "pe-construction-required-exam-themes",
         "pe-construction-river-coast-exam-themes",
         "pe-construction-river-coast-ronbun-keyword",
@@ -1498,16 +1511,19 @@
         "pe-construction-secondary-study-method",
         "pe-construction-sentaku-kamoku-kakiwake",
         "pe-construction-shakai-shihon-ronbun-keyword",
+        "pe-construction-soil-foundation-ronbun-keyword",
         "pe-construction-steel-concrete-exam-themes",
+        "pe-construction-steel-concrete-ronbun-keyword",
         "pe-construction-toan-kousei-template",
         "pe-construction-tunnel-exam-themes",
+        "pe-construction-tunnel-ronbun-keyword",
         "pe-construction-urban-planning-exam-themes",
         "pe-construction-urban-planning-ronbun-keyword"
       ]
     },
     {
       "name": "技術士（第二次試験）",
-      "count": 120,
+      "count": 128,
       "inAllowlist": false,
       "usedIn": [
         "pe-construction-bosai-kokudo-kyoujinka",
@@ -1515,7 +1531,9 @@
         "pe-construction-carbon-neutral-kensetsu",
         "pe-construction-chiiki-dukuri-ronbun-keyword",
         "pe-construction-competency-revision-r8",
+        "pe-construction-construction-environment-ronbun-keyword",
         "pe-construction-construction-planning-exam-themes",
+        "pe-construction-construction-planning-ronbun-keyword",
         "pe-construction-datsutanso-kankyo-ronbun-keyword",
         "pe-construction-environment-exam-themes",
         "pe-construction-gakushuu-jikan-schedule",
@@ -1531,7 +1549,9 @@
         "pe-construction-ninaite-kakuho-seisansei",
         "pe-construction-pe-secondary-essay-guide",
         "pe-construction-port-airport-exam-themes",
+        "pe-construction-port-airport-ronbun-keyword",
         "pe-construction-power-civil-exam-themes",
+        "pe-construction-power-civil-ronbun-keyword",
         "pe-construction-r01-construction-planning",
         "pe-construction-r01-environment",
         "pe-construction-r01-geotechnical",
@@ -1617,6 +1637,7 @@
         "pe-construction-r07-tunnel",
         "pe-construction-r07-urban-planning",
         "pe-construction-railway-exam-themes",
+        "pe-construction-railway-ronbun-keyword",
         "pe-construction-required-exam-themes",
         "pe-construction-river-coast-exam-themes",
         "pe-construction-river-coast-ronbun-keyword",
@@ -1625,9 +1646,12 @@
         "pe-construction-secondary-study-method",
         "pe-construction-sentaku-kamoku-kakiwake",
         "pe-construction-shakai-shihon-ronbun-keyword",
+        "pe-construction-soil-foundation-ronbun-keyword",
         "pe-construction-steel-concrete-exam-themes",
+        "pe-construction-steel-concrete-ronbun-keyword",
         "pe-construction-toan-kousei-template",
         "pe-construction-tunnel-exam-themes",
+        "pe-construction-tunnel-ronbun-keyword",
         "pe-construction-urban-planning-exam-themes",
         "pe-construction-urban-planning-ronbun-keyword"
       ]
@@ -1699,6 +1723,68 @@
       ]
     },
     {
+      "name": "記述式対策",
+      "count": 55,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-essay-pattern-cross-year-application",
+        "pe-comprehensive-management-essay-persona-guide",
+        "pe-comprehensive-management-management-tradeoffs",
+        "pe-comprehensive-management-pattern-essay-general-contractor",
+        "pe-comprehensive-management-pattern-essay-river-consultant",
+        "pe-comprehensive-management-pattern-essay-road-municipality",
+        "pe-comprehensive-management-r03-essay-general-contractor",
+        "pe-comprehensive-management-r03-essay-river-consultant",
+        "pe-comprehensive-management-r03-essay-road-municipality",
+        "pe-comprehensive-management-r04-essay-general-contractor",
+        "pe-comprehensive-management-r04-essay-river-consultant",
+        "pe-comprehensive-management-r04-essay-road-municipality",
+        "pe-comprehensive-management-r05-essay-general-contractor",
+        "pe-comprehensive-management-r05-essay-river-consultant",
+        "pe-comprehensive-management-r05-essay-road-municipality",
+        "pe-comprehensive-management-r06-essay-general-contractor",
+        "pe-comprehensive-management-r06-essay-river-consultant",
+        "pe-comprehensive-management-r06-essay-road-municipality",
+        "pe-comprehensive-management-r07-essay-general-contractor",
+        "pe-comprehensive-management-r07-essay-river-consultant",
+        "pe-comprehensive-management-r07-essay-road-municipality",
+        "pe-comprehensive-management-r8-essay-keyword-forecast",
+        "pe-comprehensive-management-r8-essay-theme-ai-governance",
+        "pe-comprehensive-management-r8-essay-theme-circular-economy",
+        "pe-comprehensive-management-r8-essay-theme-climate-adaptation",
+        "pe-comprehensive-management-r8-essay-theme-disaster-recovery",
+        "pe-comprehensive-management-r8-essay-theme-economic-security",
+        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
+        "pe-construction-bosai-kokudo-kyoujinka",
+        "pe-construction-bousai-genseigai-ronbun-keyword",
+        "pe-construction-carbon-neutral-kensetsu",
+        "pe-construction-chiiki-dukuri-ronbun-keyword",
+        "pe-construction-construction-environment-ronbun-keyword",
+        "pe-construction-construction-planning-ronbun-keyword",
+        "pe-construction-datsutanso-kankyo-ronbun-keyword",
+        "pe-construction-hissu-kamoku-kaitourei",
+        "pe-construction-iji-kanri-ronbun-keyword",
+        "pe-construction-infra-roukyuuka-iji",
+        "pe-construction-kensetsu-dx",
+        "pe-construction-kokudo-keisei-chiiki",
+        "pe-construction-ninaite-dx-ronbun-keyword",
+        "pe-construction-ninaite-kakuho-seisansei",
+        "pe-construction-port-airport-ronbun-keyword",
+        "pe-construction-power-civil-ronbun-keyword",
+        "pe-construction-railway-ronbun-keyword",
+        "pe-construction-river-coast-ronbun-keyword",
+        "pe-construction-road-ronbun-keyword",
+        "pe-construction-secondary-study-method",
+        "pe-construction-sentaku-kamoku-kakiwake",
+        "pe-construction-shakai-shihon-ronbun-keyword",
+        "pe-construction-soil-foundation-ronbun-keyword",
+        "pe-construction-steel-concrete-ronbun-keyword",
+        "pe-construction-toan-kousei-template",
+        "pe-construction-tunnel-ronbun-keyword",
+        "pe-construction-urban-planning-ronbun-keyword"
+      ]
+    },
+    {
       "name": "primary",
       "count": 52,
       "inAllowlist": true,
@@ -1755,60 +1841,6 @@
         "concrete-diagnostician-primary-exercise-06",
         "concrete-diagnostician-primary-exercise-07",
         "concrete-diagnostician-primary-exercise-08"
-      ]
-    },
-    {
-      "name": "記述式対策",
-      "count": 47,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-essay-pattern-cross-year-application",
-        "pe-comprehensive-management-essay-persona-guide",
-        "pe-comprehensive-management-management-tradeoffs",
-        "pe-comprehensive-management-pattern-essay-general-contractor",
-        "pe-comprehensive-management-pattern-essay-river-consultant",
-        "pe-comprehensive-management-pattern-essay-road-municipality",
-        "pe-comprehensive-management-r03-essay-general-contractor",
-        "pe-comprehensive-management-r03-essay-river-consultant",
-        "pe-comprehensive-management-r03-essay-road-municipality",
-        "pe-comprehensive-management-r04-essay-general-contractor",
-        "pe-comprehensive-management-r04-essay-river-consultant",
-        "pe-comprehensive-management-r04-essay-road-municipality",
-        "pe-comprehensive-management-r05-essay-general-contractor",
-        "pe-comprehensive-management-r05-essay-river-consultant",
-        "pe-comprehensive-management-r05-essay-road-municipality",
-        "pe-comprehensive-management-r06-essay-general-contractor",
-        "pe-comprehensive-management-r06-essay-river-consultant",
-        "pe-comprehensive-management-r06-essay-road-municipality",
-        "pe-comprehensive-management-r07-essay-general-contractor",
-        "pe-comprehensive-management-r07-essay-river-consultant",
-        "pe-comprehensive-management-r07-essay-road-municipality",
-        "pe-comprehensive-management-r8-essay-keyword-forecast",
-        "pe-comprehensive-management-r8-essay-theme-ai-governance",
-        "pe-comprehensive-management-r8-essay-theme-circular-economy",
-        "pe-comprehensive-management-r8-essay-theme-climate-adaptation",
-        "pe-comprehensive-management-r8-essay-theme-disaster-recovery",
-        "pe-comprehensive-management-r8-essay-theme-economic-security",
-        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
-        "pe-construction-bosai-kokudo-kyoujinka",
-        "pe-construction-bousai-genseigai-ronbun-keyword",
-        "pe-construction-carbon-neutral-kensetsu",
-        "pe-construction-chiiki-dukuri-ronbun-keyword",
-        "pe-construction-datsutanso-kankyo-ronbun-keyword",
-        "pe-construction-hissu-kamoku-kaitourei",
-        "pe-construction-iji-kanri-ronbun-keyword",
-        "pe-construction-infra-roukyuuka-iji",
-        "pe-construction-kensetsu-dx",
-        "pe-construction-kokudo-keisei-chiiki",
-        "pe-construction-ninaite-dx-ronbun-keyword",
-        "pe-construction-ninaite-kakuho-seisansei",
-        "pe-construction-river-coast-ronbun-keyword",
-        "pe-construction-road-ronbun-keyword",
-        "pe-construction-secondary-study-method",
-        "pe-construction-sentaku-kamoku-kakiwake",
-        "pe-construction-shakai-shihon-ronbun-keyword",
-        "pe-construction-toan-kousei-template",
-        "pe-construction-urban-planning-ronbun-keyword"
       ]
     },
     {
@@ -2387,6 +2419,23 @@
       ]
     },
     {
+      "name": "選択科目",
+      "count": 10,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-construction-construction-environment-ronbun-keyword",
+        "pe-construction-construction-planning-ronbun-keyword",
+        "pe-construction-port-airport-ronbun-keyword",
+        "pe-construction-power-civil-ronbun-keyword",
+        "pe-construction-railway-ronbun-keyword",
+        "pe-construction-road-ronbun-keyword",
+        "pe-construction-sentaku-kamoku-kakiwake",
+        "pe-construction-soil-foundation-ronbun-keyword",
+        "pe-construction-steel-concrete-ronbun-keyword",
+        "pe-construction-tunnel-ronbun-keyword"
+      ]
+    },
+    {
       "name": "5管理",
       "count": 9,
       "inAllowlist": true,
@@ -2436,7 +2485,7 @@
     },
     {
       "name": "トンネル",
-      "count": 8,
+      "count": 9,
       "inAllowlist": true,
       "usedIn": [
         "pe-construction-r01-tunnel",
@@ -2446,12 +2495,13 @@
         "pe-construction-r05-tunnel",
         "pe-construction-r06-tunnel",
         "pe-construction-r07-tunnel",
-        "pe-construction-tunnel-exam-themes"
+        "pe-construction-tunnel-exam-themes",
+        "pe-construction-tunnel-ronbun-keyword"
       ]
     },
     {
       "name": "土質及び基礎",
-      "count": 8,
+      "count": 9,
       "inAllowlist": false,
       "usedIn": [
         "pe-construction-geotechnical-exam-themes",
@@ -2461,14 +2511,16 @@
         "pe-construction-r04-geotechnical",
         "pe-construction-r05-geotechnical",
         "pe-construction-r06-geotechnical",
-        "pe-construction-r07-geotechnical"
+        "pe-construction-r07-geotechnical",
+        "pe-construction-soil-foundation-ronbun-keyword"
       ]
     },
     {
       "name": "建設環境",
-      "count": 8,
+      "count": 9,
       "inAllowlist": false,
       "usedIn": [
+        "pe-construction-construction-environment-ronbun-keyword",
         "pe-construction-environment-exam-themes",
         "pe-construction-r01-environment",
         "pe-construction-r02-environment",
@@ -2477,6 +2529,86 @@
         "pe-construction-r05-environment",
         "pe-construction-r06-environment",
         "pe-construction-r07-environment"
+      ]
+    },
+    {
+      "name": "港湾及び空港",
+      "count": 9,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-construction-port-airport-exam-themes",
+        "pe-construction-port-airport-ronbun-keyword",
+        "pe-construction-r01-port-airport",
+        "pe-construction-r02-port-airport",
+        "pe-construction-r03-port-airport",
+        "pe-construction-r04-port-airport",
+        "pe-construction-r05-port-airport",
+        "pe-construction-r06-port-airport",
+        "pe-construction-r07-port-airport"
+      ]
+    },
+    {
+      "name": "鉄道",
+      "count": 9,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-construction-r01-railway",
+        "pe-construction-r02-railway",
+        "pe-construction-r03-railway",
+        "pe-construction-r04-railway",
+        "pe-construction-r05-railway",
+        "pe-construction-r06-railway",
+        "pe-construction-r07-railway",
+        "pe-construction-railway-exam-themes",
+        "pe-construction-railway-ronbun-keyword"
+      ]
+    },
+    {
+      "name": "鋼構造及びコンクリート",
+      "count": 9,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-construction-r01-steel-concrete",
+        "pe-construction-r02-steel-concrete",
+        "pe-construction-r03-steel-concrete",
+        "pe-construction-r04-steel-concrete",
+        "pe-construction-r05-steel-concrete",
+        "pe-construction-r06-steel-concrete",
+        "pe-construction-r07-steel-concrete",
+        "pe-construction-steel-concrete-exam-themes",
+        "pe-construction-steel-concrete-ronbun-keyword"
+      ]
+    },
+    {
+      "name": "電力土木",
+      "count": 9,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-construction-power-civil-exam-themes",
+        "pe-construction-power-civil-ronbun-keyword",
+        "pe-construction-r01-power-civil",
+        "pe-construction-r02-power-civil",
+        "pe-construction-r03-power-civil",
+        "pe-construction-r04-power-civil",
+        "pe-construction-r05-power-civil",
+        "pe-construction-r06-power-civil",
+        "pe-construction-r07-power-civil"
+      ]
+    },
+    {
+      "name": "頻出テーマ",
+      "count": 9,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-construction-construction-environment-ronbun-keyword",
+        "pe-construction-construction-planning-ronbun-keyword",
+        "pe-construction-port-airport-ronbun-keyword",
+        "pe-construction-power-civil-ronbun-keyword",
+        "pe-construction-railway-ronbun-keyword",
+        "pe-construction-road-ronbun-keyword",
+        "pe-construction-soil-foundation-ronbun-keyword",
+        "pe-construction-steel-concrete-ronbun-keyword",
+        "pe-construction-tunnel-ronbun-keyword"
       ]
     },
     {
@@ -2507,21 +2639,6 @@
         "pe-construction-r06-river-coast",
         "pe-construction-r07-river-coast",
         "pe-construction-river-coast-exam-themes"
-      ]
-    },
-    {
-      "name": "港湾及び空港",
-      "count": 8,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-construction-port-airport-exam-themes",
-        "pe-construction-r01-port-airport",
-        "pe-construction-r02-port-airport",
-        "pe-construction-r03-port-airport",
-        "pe-construction-r04-port-airport",
-        "pe-construction-r05-port-airport",
-        "pe-construction-r06-port-airport",
-        "pe-construction-r07-port-airport"
       ]
     },
     {
@@ -2567,51 +2684,6 @@
         "pe-construction-r06-urban-planning",
         "pe-construction-r07-urban-planning",
         "pe-construction-urban-planning-exam-themes"
-      ]
-    },
-    {
-      "name": "鉄道",
-      "count": 8,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-construction-r01-railway",
-        "pe-construction-r02-railway",
-        "pe-construction-r03-railway",
-        "pe-construction-r04-railway",
-        "pe-construction-r05-railway",
-        "pe-construction-r06-railway",
-        "pe-construction-r07-railway",
-        "pe-construction-railway-exam-themes"
-      ]
-    },
-    {
-      "name": "鋼構造及びコンクリート",
-      "count": 8,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-construction-r01-steel-concrete",
-        "pe-construction-r02-steel-concrete",
-        "pe-construction-r03-steel-concrete",
-        "pe-construction-r04-steel-concrete",
-        "pe-construction-r05-steel-concrete",
-        "pe-construction-r06-steel-concrete",
-        "pe-construction-r07-steel-concrete",
-        "pe-construction-steel-concrete-exam-themes"
-      ]
-    },
-    {
-      "name": "電力土木",
-      "count": 8,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-construction-power-civil-exam-themes",
-        "pe-construction-r01-power-civil",
-        "pe-construction-r02-power-civil",
-        "pe-construction-r03-power-civil",
-        "pe-construction-r04-power-civil",
-        "pe-construction-r05-power-civil",
-        "pe-construction-r06-power-civil",
-        "pe-construction-r07-power-civil"
       ]
     },
     {
@@ -3143,15 +3215,6 @@
       ]
     },
     {
-      "name": "選択科目",
-      "count": 2,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-construction-road-ronbun-keyword",
-        "pe-construction-sentaku-kamoku-kakiwake"
-      ]
-    },
-    {
       "name": "防災",
       "count": 2,
       "inAllowlist": false,
@@ -3537,6 +3600,14 @@
       ]
     },
     {
+      "name": "施工計画",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-construction-construction-planning-ronbun-keyword"
+      ]
+    },
+    {
       "name": "業務内容の詳細",
       "count": 1,
       "inAllowlist": false,
@@ -3751,14 +3822,6 @@
       "usedIn": [
         "pe-construction-nanido-goukakuritsu"
       ]
-    },
-    {
-      "name": "頻出テーマ",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-construction-road-ronbun-keyword"
-      ]
     }
   ],
   "unknown": [
@@ -3769,15 +3832,17 @@
     "必須科目",
     "令和8年度",
     "過去問分析",
+    "選択科目",
     "土質及び基礎",
     "建設環境",
-    "施工計画、施工設備及び積算",
-    "河川、砂防及び海岸・海洋",
     "港湾及び空港",
-    "都市及び地方計画",
     "鉄道",
     "鋼構造及びコンクリート",
     "電力土木",
+    "頻出テーマ",
+    "施工計画、施工設備及び積算",
+    "河川、砂防及び海岸・海洋",
+    "都市及び地方計画",
     "地方公共団体",
     "砂防",
     "ゼネコン",
@@ -3802,7 +3867,6 @@
     "立地適正化",
     "維持管理",
     "脱炭素",
-    "選択科目",
     "防災",
     "2026年版",
     "AI ガバナンス",
@@ -3850,8 +3914,7 @@
     "論述の型",
     "論述対策",
     "都市計画",
-    "難易度",
-    "頻出テーマ"
+    "難易度"
   ],
   "typo_candidates": [
     {
