@@ -36,13 +36,25 @@
 
 **基盤は整備済み（Phase 0 完了・2026-07-10・commit 42a32723c）**: `npm run quality-census` が published 全 1,064 本 × 全 `*quality-scores.json` を突合し、資格 × group × {採点済み/未採点/不合格/薄層} を `.claude/state/quality/census.json` に出力。admin 品質タブ冒頭に表示。**5軸ルーブリックは本文分量軸を持たず Google demote と直交する**ため body_chars で薄層を機械補完（真実源 → `docs/reference/gsc-management.md` 2026-07-10 RCA）。
 
-現況: 採点 **714/1,064（67.1%）** / 未採点 350 / 不合格 0 / 薄層 377。
+**Phase 1（全数採点）完了・2026-07-10**: published 全 1,064 本の採点カバレッジ **100%** 達成（6資格×全group・commit 60812601d 他）。以降は Phase 2（校正）と Phase 3（恒久化）。
 
-- **Phase 1（未採点 350 の全数採点）**: census の unscored を母集団に、既存 Evaluator（guide→`guide-qa` / 過去問→`past-exam-qa` / textbook→`civil-construction-review`）で score。結果は `.claude/state/quality/{profile}-scores.json`（**top-level `categories:["<cat>"]` 必須**・既存2ファイルと同型）へ。バッチごとに即 commit → census 再生成でカバレッジ%単調増加を確認。
-  - 未採点内訳: pe-construction 130（past-exam 84/keyword 35/guide 11）· civil-2 39 · concrete-chief-engineer 19 · civil-1 過去問 40（primary 24/secondary 16）· 総監 非keyword 65（past-exam 34/guide 26/pillar 5）· pe-first-stage 21
-- **Phase 2（不合格 ∪ 薄層のリライト）**: census `rewrite_queue`（現 377・大半は総監 keyword 薄層 360）を母集団に群別 Generator でリライト → verify 2.0以上＋（keyword/guide/textbook のみ）3,000字以上 → 1記事即 commit。demote 実績のある総監薄層13本（tbm-toolbox-meeting 等）は queue に自動包含。7月の112本バッチ（散文増補）の続き。
-- **Phase 3（恒久化）**: 月次 `/gsc-review` と同タイミングで census 再生成 → 新規公開の未採点・薄層逆戻りを surface。
-- **注意**: 総監 keyword 662本（5/29採点）は再採点しない。concrete-diagnostician 18本は published:false（下書き）で census 対象外。薄層3,000字は raw MDX（component タグ込み）計測＝実 prose はより短いので下限として妥当。
+現況: 採点 **1,064/1,064（100%）** / 不合格 75 / 薄層 377 / rewrite_queue 452。
+
+**Phase 2 の rewrite_queue 452 は性質で4分類（優先度順）。一括で回さず分類ごとに対応**:
+
+1. **🔴 真の内容バグ（最優先・少数）** — 過去問解説の実欠陥。個別修正（`past-exam-rewriter` / `civil-secondary-exam-writer`）:
+   - civil-1 `primary-r04-a`・`primary-r05-a`: 大多数の設問で正答肢のみ解説し**誤答肢3つの正誤理由が丸ごと欠落**（19✅/45❌・13✅/51❌）＝過去問の核心要件を欠く。全面書き直し級
+   - civil-1 `primary-r06-a` L433-438: ❌マークなのに解説が肯定文の矛盾。`primary-r06-b`/`r07-b`: 穴埋め誤答肢が「誤りを含む記述❌」プレースホルダーのみ
+   - civil-1 `secondary-construction-plan-past-problems` No.9(1): 解答欄記述が省略
+   - civil-2 `primary-r06-kouki` No.12/32/33: 「出題側の正解は」と正答・解説が矛盾。`secondary-r06` 問8: 画像が `{/* TODO */}` 未挿入で本文欠落
+   - 総監 `h21-primary` Ⅱ-1-31（自己矛盾）・`h22-primary` Ⅱ-1-22（下書き跡）・`h28-primary` I-1-9/25/28（正答数不一致を「解釈もあり得る」で誤魔化し）・`h30-primary` I-1-24（思考過程露出）
+   - pe-first-stage `r03-construction` Ⅲ-2/Ⅲ-18（正答矛盾）・`r04-basic` Ⅰ-2-4（ハミング距離解説破綻）
+2. **🟡 構造規約ギャップ（バルク機械修正・約53本）** — 内容は健全（正答精度2-3）だが `<ExamPoint>`/`<RelatedKeywords>` コンポーネント未実装で weighted 1.0 クランプ。**新設 vertical と旧式 civil-1 primary が対象**: pe-first-stage primary 21・concrete primary 8・civil-1 primary 21・civil-2 primary 3。散文リライトでなく**コンポーネント一括付与**で解消（`civil-exampoint-restorer` 等）。pe-construction past-exam 84 も RelatedKeywords 未配線（related=1）だが note 誘導設計として許容
+3. **⚪ ルーブリック不適合＝非欠陥（対応不要）** — pillar 5本（である調ハブ・ガイド軸ミスマッチ）・総監 secondary h28-30（意図的問題文アーカイブ）・pe-construction 二次 84本（問題文アーカイブ設計）。census 上は低スコアだが仕様通り。**将来 group 別に閾値/軸を分けるなら census 側で除外**
+4. **🟢 薄層 377（既存トラックと合流）** — 総監 keyword 360＝5/17 demote 源流コホート、[[project_adsense_low_value_2026_07]] の続き。pe-construction keyword 16（書籍全文収録の長文）・concrete textbook 1。3,000字下限へ散文増補（7月112本バッチの継続）
+
+- **Phase 3（恒久化）**: 月次 `/gsc-review` と同タイミングで `npm run quality-census` 再生成 → 新規公開の未採点・薄層逆戻り・スコア低下を surface。
+- **注意**: 総監 keyword 662本（5/29採点）は再採点しない。concrete-diagnostician 18本は published:false（下書き）で census 対象外。薄層3,000字は raw MDX（component タグ込み）計測＝実 prose はより短いので下限として妥当。採点は Evaluator エージェント間で 0軸クランプ運用にブレがあるため **weighted は scores から決定論的に再計算**（0軸→1.0クランプ、集約スクリプトで実施）。
 
 ---
 
