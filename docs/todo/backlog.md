@@ -32,6 +32,20 @@
 
 ## 1. コンテンツ品質
 
+### 全資格 品質採点カバレッジ トラック（census 駆動）🟡
+
+**基盤は整備済み（Phase 0 完了・2026-07-10・commit 42a32723c）**: `npm run quality-census` が published 全 1,064 本 × 全 `*quality-scores.json` を突合し、資格 × group × {採点済み/未採点/不合格/薄層} を `.claude/state/quality/census.json` に出力。admin 品質タブ冒頭に表示。**5軸ルーブリックは本文分量軸を持たず Google demote と直交する**ため body_chars で薄層を機械補完（真実源 → `docs/reference/gsc-management.md` 2026-07-10 RCA）。
+
+現況: 採点 **714/1,064（67.1%）** / 未採点 350 / 不合格 0 / 薄層 377。
+
+- **Phase 1（未採点 350 の全数採点）**: census の unscored を母集団に、既存 Evaluator（guide→`guide-qa` / 過去問→`past-exam-qa` / textbook→`civil-construction-review`）で score。結果は `.claude/state/quality/{profile}-scores.json`（**top-level `categories:["<cat>"]` 必須**・既存2ファイルと同型）へ。バッチごとに即 commit → census 再生成でカバレッジ%単調増加を確認。
+  - 未採点内訳: pe-construction 130（past-exam 84/keyword 35/guide 11）· civil-2 39 · concrete-chief-engineer 19 · civil-1 過去問 40（primary 24/secondary 16）· 総監 非keyword 65（past-exam 34/guide 26/pillar 5）· pe-first-stage 21
+- **Phase 2（不合格 ∪ 薄層のリライト）**: census `rewrite_queue`（現 377・大半は総監 keyword 薄層 360）を母集団に群別 Generator でリライト → verify 2.0以上＋（keyword/guide/textbook のみ）3,000字以上 → 1記事即 commit。demote 実績のある総監薄層13本（tbm-toolbox-meeting 等）は queue に自動包含。7月の112本バッチ（散文増補）の続き。
+- **Phase 3（恒久化）**: 月次 `/gsc-review` と同タイミングで census 再生成 → 新規公開の未採点・薄層逆戻りを surface。
+- **注意**: 総監 keyword 662本（5/29採点）は再採点しない。concrete-diagnostician 18本は published:false（下書き）で census 対象外。薄層3,000字は raw MDX（component タグ込み）計測＝実 prose はより短いので下限として妥当。
+
+---
+
 ### モバイル可読性リライト 第1弾（表・入れ子・長段落の既存違反）🟡
 
 機械ラチェット基盤は整備済み（`content-rules.json` ＋ `lint-mdx-mobile.mjs --all` ＋ 週次 `check-content-quality`、パイロット=`pe-construction/river-coast-exam-themes`）。baseline に grandfather された既存違反を、`.claude/state/quality/latest-report.md` の **GA4 人気度順**上位から実際にリライトして漸減させる。
