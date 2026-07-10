@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-07-09T21:44:39.162Z",
+  "generated_at": "2026-07-10T00:02:57.595Z",
   "thresholds": {
     "fail": 2,
     "thin_chars": 3000,
@@ -12,11 +12,11 @@
   },
   "totals": {
     "total": 1064,
-    "scored": 744,
-    "unscored": 320,
+    "scored": 746,
+    "unscored": 318,
     "failed": 8,
     "thin": 377,
-    "coverage_pct": 69.9
+    "coverage_pct": 70.1
   },
   "by_category": {
     "civil-construction-1": {
@@ -31,11 +31,11 @@
         },
         "primary": {
           "total": 24,
-          "scored": 0,
-          "unscored": 24,
+          "scored": 2,
+          "unscored": 22,
           "failed": 0,
           "thin": 0,
-          "avg_weighted": null
+          "avg_weighted": 2.9
         },
         "secondary": {
           "total": 16,
@@ -56,8 +56,8 @@
       },
       "totals": {
         "total": 131,
-        "scored": 55,
-        "unscored": 76,
+        "scored": 57,
+        "unscored": 74,
         "failed": 0,
         "thin": 0
       }
@@ -3999,10 +3999,10 @@
       "slug": "civil-construction-1-primary-r04-a",
       "category": "civil-construction-1",
       "group": "primary",
-      "body_chars": 28432,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
+      "body_chars": 39996,
+      "scored": true,
+      "weighted": 2.9,
+      "scored_at": "2026-07-10T00:00:00.000Z",
       "failed": false,
       "thin": false
     },
@@ -4021,10 +4021,10 @@
       "slug": "civil-construction-1-primary-r05-a",
       "category": "civil-construction-1",
       "group": "primary",
-      "body_chars": 28610,
-      "scored": false,
-      "weighted": null,
-      "scored_at": null,
+      "body_chars": 36989,
+      "scored": true,
+      "weighted": 2.9,
+      "scored_at": "2026-07-10T00:00:00.000Z",
       "failed": false,
       "thin": false
     },

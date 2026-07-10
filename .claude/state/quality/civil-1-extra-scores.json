@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "categories": [
+    "civil-construction-1"
+  ],
+  "scored_at": "2026-07-10T00:00:00.000Z",
+  "note": "civil-construction-1 primary（一次過去問）は ExamPoint/RelatedKeywords コンポーネントを使わない既存規約（末尾に関連リンクを配置）。past-exam-qa の折衷案ルーブリックのうち ExamPoint 軸は非該当のため、civil primary 用 4 軸（構造 25% / 解答完結性 40% / リンク健全性 25% / モバイル文体 10%）で weighted を算出している。",
+  "pages": {
+    "primary-r04-a": {
+      "slug": "civil-construction-1-primary-r04-a",
+      "group": "primary",
+      "scores": {
+        "structure": 3,
+        "answer_completeness": 3,
+        "link_health": 3,
+        "mobile": 2
+      },
+      "weighted": 2.9,
+      "weak_axes": [
+        "mobile"
+      ],
+      "qualitative_comment": "全61問244肢に正誤理由(✅/❌)を補完し、正誤検証で判明した転記ミスを是正（No.36 設問極性反転、No.52/No.59 正答キー誤り）。✅/❌と正答番号・極性の矛盾は0件。解説行がやや長い点のみ軽微。ExamPoint/RelatedKeywords 不使用は civil primary の既存規約で逸脱ではない。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "primary-r05-a": {
+      "slug": "civil-construction-1-primary-r05-a",
+      "group": "primary",
+      "scores": {
+        "structure": 3,
+        "answer_completeness": 3,
+        "link_health": 3,
+        "mobile": 2
+      },
+      "weighted": 2.9,
+      "weak_axes": [
+        "mobile"
+      ],
+      "qualitative_comment": "全61問244肢に正誤理由(✅/❌)を補完し、正誤検証で判明した正答キー誤りを是正（No.24 砂防堰堤 2→1、No.46 上水道配水管 2→3）、No.41 の壊れた太字ネストも修正。✅/❌の矛盾は0件。埋込画像 r05-a-fig-01.webp が未生成（既存の別課題）。ExamPoint/RelatedKeywords 不使用は civil primary の既存規約。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    }
+  }
+}
