@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-07-09T22:12:41.621Z",
+  "generated_at": "2026-07-10T08:47:20.120Z",
   "thresholds": {
     "fail": 2,
     "thin_chars": 3000,
@@ -14,7 +14,7 @@
     "total": 1064,
     "scored": 1064,
     "unscored": 0,
-    "failed": 75,
+    "failed": 69,
     "thin": 377,
     "coverage_pct": 100
   },
@@ -33,9 +33,9 @@
           "total": 24,
           "scored": 24,
           "unscored": 0,
-          "failed": 21,
+          "failed": 15,
           "thin": 0,
-          "avg_weighted": 1.35
+          "avg_weighted": 1.74
         },
         "secondary": {
           "total": 16,
@@ -58,7 +58,7 @@
         "total": 131,
         "scored": 131,
         "unscored": 0,
-        "failed": 29,
+        "failed": 23,
         "thin": 0
       }
     },
@@ -232,14 +232,6 @@
   },
   "rewrite_queue": [
     {
-      "slug": "civil-construction-1-primary-h26-a",
-      "category": "civil-construction-1",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 40284
-    },
-    {
       "slug": "civil-construction-1-primary-h26-b",
       "category": "civil-construction-1",
       "group": "primary",
@@ -253,7 +245,7 @@
       "group": "primary",
       "reason": "failed",
       "weighted": 1,
-      "body_chars": 35558
+      "body_chars": 36801
     },
     {
       "slug": "civil-construction-1-primary-h27-b",
@@ -269,7 +261,7 @@
       "group": "primary",
       "reason": "failed",
       "weighted": 1,
-      "body_chars": 38924
+      "body_chars": 40121
     },
     {
       "slug": "civil-construction-1-primary-h28-b",
@@ -280,28 +272,12 @@
       "body_chars": 26386
     },
     {
-      "slug": "civil-construction-1-primary-h29-a",
-      "category": "civil-construction-1",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 38159
-    },
-    {
       "slug": "civil-construction-1-primary-h29-b",
       "category": "civil-construction-1",
       "group": "primary",
       "reason": "failed",
       "weighted": 1,
       "body_chars": 22759
-    },
-    {
-      "slug": "civil-construction-1-primary-h30-a",
-      "category": "civil-construction-1",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 41559
     },
     {
       "slug": "civil-construction-1-primary-h30-b",
@@ -312,28 +288,12 @@
       "body_chars": 24464
     },
     {
-      "slug": "civil-construction-1-primary-r01-a",
-      "category": "civil-construction-1",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 41070
-    },
-    {
       "slug": "civil-construction-1-primary-r01-b",
       "category": "civil-construction-1",
       "group": "primary",
       "reason": "failed",
       "weighted": 1,
       "body_chars": 23764
-    },
-    {
-      "slug": "civil-construction-1-primary-r02-a",
-      "category": "civil-construction-1",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1.8,
-      "body_chars": 43696
     },
     {
       "slug": "civil-construction-1-primary-r02-b",
@@ -374,14 +334,6 @@
       "reason": "failed",
       "weighted": 1,
       "body_chars": 28610
-    },
-    {
-      "slug": "civil-construction-1-primary-r06-a",
-      "category": "civil-construction-1",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1.8,
-      "body_chars": 47056
     },
     {
       "slug": "civil-construction-1-primary-r06-b",
@@ -525,7 +477,7 @@
       "group": "primary",
       "reason": "failed",
       "weighted": 1,
-      "body_chars": 18693
+      "body_chars": 23990
     },
     {
       "slug": "concrete-chief-engineer-primary-mix-design",
@@ -4359,11 +4311,11 @@
       "slug": "civil-construction-1-primary-h26-a",
       "category": "civil-construction-1",
       "group": "primary",
-      "body_chars": 40284,
+      "body_chars": 41501,
       "scored": true,
-      "weighted": 1,
+      "weighted": 3,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
@@ -4381,7 +4333,7 @@
       "slug": "civil-construction-1-primary-h27-a",
       "category": "civil-construction-1",
       "group": "primary",
-      "body_chars": 35558,
+      "body_chars": 36801,
       "scored": true,
       "weighted": 1,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -4403,7 +4355,7 @@
       "slug": "civil-construction-1-primary-h28-a",
       "category": "civil-construction-1",
       "group": "primary",
-      "body_chars": 38924,
+      "body_chars": 40121,
       "scored": true,
       "weighted": 1,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -4425,11 +4377,11 @@
       "slug": "civil-construction-1-primary-h29-a",
       "category": "civil-construction-1",
       "group": "primary",
-      "body_chars": 38159,
+      "body_chars": 39379,
       "scored": true,
-      "weighted": 1,
+      "weighted": 3,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
@@ -4447,11 +4399,11 @@
       "slug": "civil-construction-1-primary-h30-a",
       "category": "civil-construction-1",
       "group": "primary",
-      "body_chars": 41559,
+      "body_chars": 42747,
       "scored": true,
-      "weighted": 1,
+      "weighted": 3,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
@@ -4469,11 +4421,11 @@
       "slug": "civil-construction-1-primary-r01-a",
       "category": "civil-construction-1",
       "group": "primary",
-      "body_chars": 41070,
+      "body_chars": 42269,
       "scored": true,
-      "weighted": 1,
+      "weighted": 3,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
@@ -4491,11 +4443,11 @@
       "slug": "civil-construction-1-primary-r02-a",
       "category": "civil-construction-1",
       "group": "primary",
-      "body_chars": 43696,
+      "body_chars": 44844,
       "scored": true,
-      "weighted": 1.8,
+      "weighted": 3,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
@@ -4579,11 +4531,11 @@
       "slug": "civil-construction-1-primary-r06-a",
       "category": "civil-construction-1",
       "group": "primary",
-      "body_chars": 47056,
+      "body_chars": 48283,
       "scored": true,
-      "weighted": 1.8,
+      "weighted": 2.05,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
@@ -5778,7 +5730,7 @@
       "slug": "concrete-chief-engineer-primary-materials",
       "category": "concrete-chief-engineer",
       "group": "primary",
-      "body_chars": 18693,
+      "body_chars": 23990,
       "scored": true,
       "weighted": 1,
       "scored_at": "2026-07-10T00:00:00.000Z",

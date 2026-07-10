@@ -597,18 +597,15 @@
       "slug": "civil-construction-1-primary-h26-a",
       "group": "primary",
       "scores": {
-        "answer_accuracy": 2,
-        "option_verification": 2,
-        "exampoint": 0,
-        "related_keywords": 1,
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 3,
         "mobile": 3
       },
-      "weighted": 1,
-      "weak_axes": [
-        "exampoint",
-        "related_keywords"
-      ],
-      "qualitative_comment": "ExamPoint未実装・RelatedKeywordsもプレーンリンクのみ。検証本文は概ね良好。",
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "ExamPoint8個+RelatedKeywords追加。折衷案構造完全準拠、正答・選択肢解説とも一貫。",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "primary-h26-b": {
@@ -633,18 +630,17 @@
       "slug": "civil-construction-1-primary-h27-a",
       "group": "primary",
       "scores": {
-        "answer_accuracy": 2,
+        "answer_accuracy": 0,
         "option_verification": 2,
-        "exampoint": 0,
-        "related_keywords": 1,
+        "exampoint": 3,
+        "related_keywords": 3,
         "mobile": 3
       },
       "weighted": 1,
       "weak_axes": [
-        "exampoint",
-        "related_keywords"
+        "answer_accuracy"
       ],
-      "qualitative_comment": "ExamPoint未実装。折衷案構造未移行の旧フォーマット。",
+      "qualitative_comment": "No.60/61で公式正答は2とされる等の自己不信記述が混入し軸1が0点。要解説修正。",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "primary-h27-b": {
@@ -669,18 +665,17 @@
       "slug": "civil-construction-1-primary-h28-a",
       "group": "primary",
       "scores": {
-        "answer_accuracy": 2,
+        "answer_accuracy": 0,
         "option_verification": 2,
-        "exampoint": 0,
-        "related_keywords": 1,
+        "exampoint": 3,
+        "related_keywords": 3,
         "mobile": 3
       },
       "weighted": 1,
       "weak_axes": [
-        "exampoint",
-        "related_keywords"
+        "answer_accuracy"
       ],
-      "qualitative_comment": "ExamPoint未実装。選択肢解説は誤り理由を明示できている。",
+      "qualitative_comment": "No.61で公式正答は1とされる（確認推奨）と正答根拠が不確定。要解説修正。",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "primary-h28-b": {
@@ -705,18 +700,15 @@
       "slug": "civil-construction-1-primary-h29-a",
       "group": "primary",
       "scores": {
-        "answer_accuracy": 2,
-        "option_verification": 2,
-        "exampoint": 0,
-        "related_keywords": 1,
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 3,
         "mobile": 3
       },
-      "weighted": 1,
-      "weak_axes": [
-        "exampoint",
-        "related_keywords"
-      ],
-      "qualitative_comment": "原位置試験の組合せ表は設問本体で対象外。ExamPoint未実装。",
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "ExamPoint8個+RelatedKeywords追加。折衷案構造完全準拠、矛盾なし。",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "primary-h29-b": {
@@ -741,18 +733,15 @@
       "slug": "civil-construction-1-primary-h30-a",
       "group": "primary",
       "scores": {
-        "answer_accuracy": 2,
-        "option_verification": 2,
-        "exampoint": 0,
-        "related_keywords": 1,
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 3,
         "mobile": 3
       },
-      "weighted": 1,
-      "weak_axes": [
-        "exampoint",
-        "related_keywords"
-      ],
-      "qualitative_comment": "土質試験の組合せ表は設問本体で対象外。ExamPoint未実装。",
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "ExamPoint+RelatedKeywords追加。全61問で正答・選択肢解説が整合。",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "primary-h30-b": {
@@ -777,18 +766,15 @@
       "slug": "civil-construction-1-primary-r01-a",
       "group": "primary",
       "scores": {
-        "answer_accuracy": 2,
-        "option_verification": 2,
-        "exampoint": 0,
-        "related_keywords": 1,
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 3,
         "mobile": 3
       },
-      "weighted": 1,
-      "weak_axes": [
-        "exampoint",
-        "related_keywords"
-      ],
-      "qualitative_comment": "ExamPoint未実装。全61問の検証は概ね妥当。",
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "ExamPoint+RelatedKeywords追加。全61問で整合、引っかけ特定も的確。",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "primary-r01-b": {
@@ -813,18 +799,15 @@
       "slug": "civil-construction-1-primary-r02-a",
       "group": "primary",
       "scores": {
-        "answer_accuracy": 2,
-        "option_verification": 2,
-        "exampoint": 1,
-        "related_keywords": 1,
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 3,
         "mobile": 3
       },
-      "weighted": 1.8,
-      "weak_axes": [
-        "exampoint",
-        "related_keywords"
-      ],
-      "qualitative_comment": "全選択肢に正誤理由ありだが構造が旧式(ExamPoint無・素リンク)。r02系で解説一部省略。",
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "ExamPoint+RelatedKeywords追加。全61問で整合、折衷案準拠。",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "primary-r02-b": {
@@ -960,17 +943,16 @@
       "group": "primary",
       "scores": {
         "answer_accuracy": 2,
-        "option_verification": 2,
-        "exampoint": 1,
-        "related_keywords": 1,
+        "option_verification": 1,
+        "exampoint": 3,
+        "related_keywords": 3,
         "mobile": 3
       },
-      "weighted": 1.8,
+      "weighted": 2.05,
       "weak_axes": [
-        "exampoint",
-        "related_keywords"
+        "option_verification"
       ],
-      "qualitative_comment": "概ね良好だがNo.17選択肢4で正誤マーク❌なのに解説内容は肯定文という矛盾あり(要修正)。",
+      "qualitative_comment": "No.17正答矛盾を修正(2→4)しExamPoint+RK追加で合格。ただしNo.52で選択肢3/4のマーク矛盾が残存、要追加修正。",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "primary-r06-b": {
