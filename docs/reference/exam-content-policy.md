@@ -170,7 +170,7 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 
 - groups = guide / textbook / primary。variant=civil / order=2.6 / **visible:false**（下書き段階）。
 - **テキスト**: 原典（技報堂スキャン）の文を写さず独自散文で合成し、図・写真のみクロップ→webp 埋込（`<ArticleImage>`）。図は当面ラフな頁領域クロップ。公開前に精密トリミング/SVG化＋著作権差替が前提。
-- **過去問（択一・厳選101問）**: スキャンが頁により回転不統一・約6割が図依存・逐語誤り頻発のため、**rotate→transcribe→verify→self-repair（自己修復ループ）＋図依存問題の図クロップ＋正答は頁内解説＋独立解答で確定** という正攻法で整備（98問・図59点、`primary-exercise-01〜08`, 全 `published:false`）。低確度正答は記事冒頭の下書き注記 Callout に明示。**原典＝技報堂の問題は JCI 過去問の再録のため、公開には権利確認が必須＝当面 draft 固定**。低確度問題の人手校正・欠番(48/56/85)補完・図トリミングが公開前の残課題（生きたタスクは `docs/todo/backlog.md §7`）。詳細 → `docs/handoffs/_archive/2026-05-30-concrete-diagnostician.md`。
+- **過去問（択一・厳選101問）**: スキャンが頁により回転不統一・約6割が図依存・逐語誤り頻発のため、**rotate→transcribe→verify→self-repair（自己修復ループ）＋図依存問題の図クロップ＋正答は頁内解説＋独立解答で確定** という正攻法で整備（98問・図59点、`primary-exercise-01〜08`, 全 `published:false`）。低確度正答は記事冒頭の下書き注記 Callout に明示。**原典＝技報堂の問題は JCI 過去問の再録のため、公開には権利確認が必須＝当面 draft 固定**。低確度問題の人手校正・欠番(48/56/85)補完・図トリミングが公開前の残課題（生きたタスクは `docs/todo/backlog.md` の「🟣 判断待ち」＝「コンクリート診断士 — 著作権方針の決定」）。整備経緯の詳細は git 履歴の旧 handoff `2026-05-30-concrete-diagnostician.md`（削除済み）。
 - スキャンは頁により回転が不統一（問題頁90°回転 / 解答頁正立）。
 
 ### 新資格メモ: コンクリート主任技師（`concrete-chief-engineer`、2026-05-30 公開）

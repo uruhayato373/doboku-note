@@ -86,7 +86,7 @@ model: sonnet
 
 > [!note] Phase 1 は既存 C モード（notebook-* 型）を再利用＝レンダリング可能
 > 角度型は **Phase 1 では既存の「C 単独 KW モード」スライド型（`notebook-cover` / `notebook-board` / `notebook-cta`）を再利用**して slide-data.json を組む。これらは汎用の見出し＋本文を描画するため **renderer のコード改修なしで PNG 化できる**（`ig-post-create --slug` 系の C モードで描画）。`meta.angle` は caption 生成と QA が読むメタ情報。
-> 角度ごとに専用ビジュアル（`counter` の通説/反証コントラスト、`number` の大数字 hero 等）が必要になった場合のみ、専用ビルダー追加を **Phase 2** とする。2 段階の実装設計とローカル検証手順 → `docs/handoffs/_archive/2026-06-09-content-angle-implementation.md`。
+> 角度ごとに専用ビジュアル（`counter` の通説/反証コントラスト、`number` の大数字 hero 等）が必要になった場合のみ、専用ビルダー追加を **Phase 2** とする。Phase 2 の要点は `docs/todo/backlog.md`「content-angle P-1 カルーセルパイロット」に集約（詳細設計は git 履歴の旧 handoff `2026-06-09-content-angle-implementation.md`・削除済み）。
 
 進め方:
 

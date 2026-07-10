@@ -62,4 +62,4 @@ npm run note-magazine-add -- --target m171222175fac --notes nXXXXXXXX --commit
 
 - 読み取り照合: `npm run verify-note-magazines`（[note-api-verification.md](../../../docs/reference/note-api-verification.md)）
 - ログイン入口: `npm run note-edit-session` ／ 設定・価格編集: `note-edit-magazine`
-- 文脈: 2段ラダー リローンチ [docs/handoffs/_archive/2026-06-15-essay-pack-2tier-relaunch.md](../../../docs/handoffs/_archive/2026-06-15-essay-pack-2tier-relaunch.md)（archive 済）・決定 [総監マガジン構成_決定2026.md](../../../docs/note/技術士総監/総監マガジン構成_決定2026.md)
+- 文脈: 2段ラダー リローンチ（経緯は git 履歴の旧 handoff `2026-06-15-essay-pack-2tier-relaunch.md`・削除済み）・決定 [総監マガジン構成_決定2026.md](../../../docs/note/技術士総監/総監マガジン構成_決定2026.md)

@@ -67,6 +67,9 @@ function showBlob(ref, path) {
 // 次の「トップレベル key:」または frontmatter 終端(---)までを値とみなし、空白を畳んで返す。
 function extractDescription(content) {
   if (!content) return null;
+  // BOM(U+FEFF) 付きファイル（Windows 由来・例 ig-carousel-writer.md）で /^---/ が外れて
+  // 「description 取得失敗→安全側で常に変更あり」と誤検知する false positive を防ぐ（2026-07-11）
+  content = content.replace(/^﻿/, '');
   const fm = content.match(/^---\n([\s\S]*?)\n---/);
   if (!fm) return null;
   const lines = fm[1].split('\n');
