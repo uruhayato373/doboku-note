@@ -38,7 +38,7 @@
 
 **Phase 1（全数採点）完了・2026-07-10**: published 全 1,064 本の採点カバレッジ **100%** 達成（6資格×全group・commit 60812601d 他）。以降は Phase 2（校正）と Phase 3（恒久化）。
 
-現況: 採点 **1,064/1,064（100%）** / 不合格 **8**（75→60→27→15→14→8・2026-07-10 セッションで消化）/ 薄層 377。
+現況: 採点 **1,064/1,064（100%）** / 不合格 **5**（75→…→8→5・2026-07-10 セッションで消化）/ 薄層 377。**残5は全て公式解答照合が要る過去問マーク矛盾＝2つの spawned 検証タスクが所有（LLM推測禁止）**: task_87198744（civil-1 h27-a/h28-a No.61 港則法）・task_5900f862（civil-1 r06-b/r07-b・civil-2 r06-kouki の正答マーク矛盾）。**総監 h28-30-secondary は authoring せず解決**＝現物照合で「全17 secondary が解答本体0の同一設計（旧形式は論点抽出用・答案練習は令和期へ誘導）」と判明し、h29 は3950字で passing h27(3897字)より長く answer_accuracy=1 は Evaluator の run 間ブレ。同一設計 modal 基準 [2,2,2,2,3]=2.2 へ整合（earlier「thin」仮説を §8 で撤回）。
 
 **Phase 2 進捗（2026-07-10）**: (A) 構造規約ギャップの機械修正を完遂 — **pe-first-stage 21・concrete-chief 8・civil-2 4** を RelatedKeywords 一括付与＋ExamPoint 折衷案化で全合格（全 slug 検証・欠落0）。(B) **ルーブリック不適合 17本をユーザー決定「正しい Evaluator で再採点」で処理** — pillar 5・keyword-2026・frequent-topics を `cem-qa`（ハブ/キーワード軸）、essay-pattern-cross-year を `cem-qa`（模範論文ハブ＝§20例外）、getting-started を `civil-construction-review` で再採点し **9本が正当に合格**（である調ハブ・データページは linking/reference 軸が適合）。exam-application-guide は `guide-rewriter` でリード/funnel/表を実修正し合格。commit `63d57f457`〜`cce2ebbea`、PR #387。**残 15 は再採点でも消えない＝真の内容欠陥 or 多軸リライト要**に純化。
 
