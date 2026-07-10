@@ -977,18 +977,19 @@
       "slug": "civil-construction-1-primary-r07-b",
       "group": "primary",
       "scores": {
-        "answer_accuracy": 2,
-        "option_verification": 0,
+        "answer_accuracy": 3,
+        "option_verification": 3,
         "exampoint": 2,
         "related_keywords": 2,
         "mobile": 3
       },
-      "weighted": 1,
+      "weighted": 2.7,
       "weak_axes": [
-        "option_verification"
+        "exampoint",
+        "related_keywords"
       ],
-      "qualitative_comment": "ExamPoint8+RK+穴埋め補筆済。ただし①②③④形式設問(No.24-35)でマーク矛盾12箇所が残存し要追加修正。",
-      "scored_at": "2026-07-10T00:00:00.000Z"
+      "qualitative_comment": "公式正答肢(touhokugiken=JCTC再掲 r7_doboku1Q_1stexam_answer)で全35問を突合。正答番号ずれ9問(No.1/6/11/16/18/22/27/31/33)と数/組合せ設問のマーク矛盾7問(No.24/25/28/30/32/34/35)を是正。No.1はTS鉛直角観測1視準1読定1対回、No.16は電磁誘導法は単位水量推定不可、No.18は既製杭は既設構造物に近い地点から打設、No.27は①〜④全て適当、No.33は土質が日々変わる材料には適さない等、各肢をkakomonn官報解説で確認。ExamPoint陳腐化(No.1/16/33)も是正。全マークが公式正答と整合。",
+      "scored_at": "2026-07-10T13:30:00.000Z"
     },
     "secondary-concrete-basics": {
       "slug": "civil-construction-1-secondary-concrete-basics",
