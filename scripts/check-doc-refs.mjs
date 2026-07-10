@@ -17,7 +17,7 @@
 // broken が 1 件でもあれば exit 1。同名ファイルが他所に在れば移動先候補を提案する。
 //
 // 例示パスはプレースホルダで書けば自動スキップされる:
-//   {slug} / {magazine} / <year> / YYYY-Www / r0X / R0X / ... / *（ワイルドカード）
+//   {slug} / {magazine} / <year> / YYYY-Www / r0X / R0X / d-xx（Kindle 本 ID）/ ... / *（ワイルドカード）
 // 廃止台帳・移行履歴など「死んだパスを記録として残す」行は行末に <!-- doc-ref:ignore --> を付ける。
 
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
@@ -46,6 +46,9 @@ function isPlaceholder(p) {
   if (/\.\.\.|…/.test(p)) return true;
   if (/YYYY|Www|<year>|<slug>/.test(p)) return true;
   if (/(?:^|[/_-])(?:r0X|R0X|R0Y|rXX|RXX|NN|XX)(?:[/_.-]|$)/.test(p)) return true;
+  // Kindle 本 ID のプレースホルダ（例: docs/kindle/d-xx/front-matter.md）。
+  // D 系（技術士一次・科目別）は d-NN の連番、未確定枠は d-xx で書かれる。
+  if (/(?:^|[/_-])[a-d]-(?:xx|nn)(?:[/_.-]|$)/i.test(p)) return true;
   return false;
 }
 
