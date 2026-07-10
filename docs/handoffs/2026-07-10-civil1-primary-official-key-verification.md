@@ -101,3 +101,36 @@ h27-b(1):  No.23 4→1                      h29-a(1): No.38 4→3
 
 - memory: [[civil1-primary-answer-key-errors]]（r04-a/r05-a の先行事例）、[[reference_quality_census]]
 - 先行 commit: r04-a/r05-a 是正は別ブランチ `claude/intelligent-volhard-0cd641`（`152d69c6e` 他、develop 未マージ）。本作業と別ファイルなので競合なし。
+
+---
+
+## 【重大更新 2026-07-10 後半セッション】pre-H30は「再構成バンク」と判明・方針転換
+
+上記の「32キー反転」計画は **一部で誤りと判明**。H26〜H29 の official.json キーは JCTC 公式正答表と完全一致（画像正答表を `pdftoppm`→Read 再OCRで検証済＝official.json は信頼可）。**だが記事の問題文は逐語の公式過去問ではなく「再構成/言い換えバンク」** で、diff-keys の「キー不一致」の正体は主に **別問題への差し替え** だった。
+
+**3種の破損が混在**: ①別論点スロット（そのスロットに全く別の問題。h28-a 約40/61問・h26-a/b・h27-a等）②解説プレースホルダ破損（`**記述は適当である ❌**` 等・pre-H30に約48件）③キー/極性誤り。逐語化には全380問再転記が必要（当初の6-10倍）。
+
+**ユーザー判断＝方針「有害な誤りのみ一掃」**: 別論点スロットは公式問題へ全文置換／解説破損は補完／キー・極性誤りは是正／**妥当な言い換え問題は残す**（全逐語再転記はしない）。**別問題にキー反転すると自己整合していた問題が壊れる**ため単純キー反転は不可。h28-b 等「キー0件」の記事も選択肢は非逐語（妥当な言い換え・正答は正しい＝残す）。
+
+### 有害問題の検出（信頼できるシグナル）
+- `check-contradict`（`❌ but text says CORRECT`）＝プレースホルダ＋「正しい記述だが…」型の強弁justification（No.14型の隠れ別問題）を捕捉。**最重要**。
+- `diff-keys`（キー不一致）＋ placeholder grep `**記述は` ＋ topic-diff。
+- **自動 topic/option 類似度はノイズ大で使えない**（h28-b の健全問題も誤検出）＝**目視照合必須**。
+- 「〜でなく〜が正しい ❌」は check-contradict の誤検知（正当な解説）。
+
+### 公式原典の取得
+- pre-H30 学科A/B問題PDF = touhokugiken: `https://www.touhokugiken.com/answer/h26/h26-1doboku-a.pdf`(・`-b`)、h27同、**h28=`answer/h28/1doboku-a.pdf`(・`-b`)**。正答表 = `https://doboku-torisetsu.com/pastproblems/1doboku/{H26..H29}_kaitou.pdf`（画像＝`pdftoppm -r200`→Read）。
+- **h29 学科A/B は JCTC 消滅・touhokugiken 無し** → kakomonn(過去問ドットコム)等 別ソース要。
+- 抽出: `pdftotext -layout` → `.tmp/civil-keys/extract-blocks.py`／`build-ref.py`（正答キー付き `official-clean/{rec}.txt`）。図問題はフッタ雑音で崩れるので **生PDFページを `pdftoppm`→Read**。
+- 記事の図が公式と別物のことがある（h27-b No.3=記事図D19/外形3800 が誤り→公式S1・S2 D16/外形3700 に差替）。図差替は公式ページを `magick ... -crop` →webp。
+
+### 進捗（後半セッション・4記事完遂）
+- **h27-a**(7問・commit 525d69ab4): No.2極性/No.18図欠落→公式4ブロック+新規図fig-02/No.20解説/No.27キー/No.53・58・61 別問題置換。
+- **h27-b**(6問・commit 0278ba609): No.3 誤図差替+極性(頂版下面主鉄筋は8×300=300mmで250mmは誤り・正答2)/No.13・16・18解説/No.14別問題/No.23キー。
+- **h26-b**(commit 203ea3d0a): No.28/29 の内容スワップを公式配置へ是正。
+- **h26-a**(commit f31db1189): No.10(型枠養生→公式寒中暑中コン・正答4)/No.11(加工組立→公式鉄筋継手・正答4) 別問題置換。foreign図fig-06除去。
+
+### 残（次セッション）
+- **h29-a/b**: No.38(a・記事key4だが公式key3で相違)/No.3・12・17・21(b)＋解説破損 No.6・57(a)・No.3・28(b)。**JCTC消滅で原典未入手→kakomonn等で各問取得してから是正**。
+- **h28-a**: ~40/61問が別論点の最重症。公式PDF `.tmp/civil-keys/h28a.txt` 取得済（touhokugiken）。全別論点スロットを公式へ全文置換する大規模作業＝**専用セッション推奨**。
+- 完了後: `npm run refresh-indexes` → past-exam-qa 再採点 → quality-census。
