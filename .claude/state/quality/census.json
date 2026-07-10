@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-07-10T10:23:57.540Z",
+  "generated_at": "2026-07-10T10:50:23.501Z",
   "thresholds": {
     "fail": 2,
     "thin_chars": 3000,
@@ -14,7 +14,7 @@
     "total": 1064,
     "scored": 1064,
     "unscored": 0,
-    "failed": 14,
+    "failed": 8,
     "thin": 377,
     "coverage_pct": 100
   },
@@ -41,9 +41,9 @@
           "total": 16,
           "scored": 16,
           "unscored": 0,
-          "failed": 6,
+          "failed": 0,
           "thin": 0,
-          "avg_weighted": 2.08
+          "avg_weighted": 2.54
         },
         "textbook": {
           "total": 45,
@@ -58,7 +58,7 @@
         "total": 131,
         "scored": 131,
         "unscored": 0,
-        "failed": 10,
+        "failed": 4,
         "thin": 0
       }
     },
@@ -262,54 +262,6 @@
       "reason": "failed",
       "weighted": 1,
       "body_chars": 22148
-    },
-    {
-      "slug": "civil-construction-1-secondary-concrete-basics",
-      "category": "civil-construction-1",
-      "group": "secondary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 40388
-    },
-    {
-      "slug": "civil-construction-1-secondary-construction-plan-basics",
-      "category": "civil-construction-1",
-      "group": "secondary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 17132
-    },
-    {
-      "slug": "civil-construction-1-secondary-earthwork-basics",
-      "category": "civil-construction-1",
-      "group": "secondary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 43382
-    },
-    {
-      "slug": "civil-construction-1-secondary-experience-writing-guide",
-      "category": "civil-construction-1",
-      "group": "secondary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 16527
-    },
-    {
-      "slug": "civil-construction-1-secondary-quality-management-basics",
-      "category": "civil-construction-1",
-      "group": "secondary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 14429
-    },
-    {
-      "slug": "civil-construction-1-secondary-quality-management-past-problems",
-      "category": "civil-construction-1",
-      "group": "secondary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 13591
     },
     {
       "slug": "civil-construction-2-primary-r06-kouki",
@@ -4135,11 +4087,11 @@
       "slug": "civil-construction-1-secondary-concrete-basics",
       "category": "civil-construction-1",
       "group": "secondary",
-      "body_chars": 40388,
+      "body_chars": 40597,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.2,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
@@ -4157,11 +4109,11 @@
       "slug": "civil-construction-1-secondary-construction-plan-basics",
       "category": "civil-construction-1",
       "group": "secondary",
-      "body_chars": 17132,
+      "body_chars": 17378,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.2,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
@@ -4179,11 +4131,11 @@
       "slug": "civil-construction-1-secondary-earthwork-basics",
       "category": "civil-construction-1",
       "group": "secondary",
-      "body_chars": 43382,
+      "body_chars": 44010,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.05,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
@@ -4201,7 +4153,7 @@
       "slug": "civil-construction-1-secondary-experience-writing-examples",
       "category": "civil-construction-1",
       "group": "secondary",
-      "body_chars": 13993,
+      "body_chars": 13989,
       "scored": true,
       "weighted": 2.1,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -4212,11 +4164,11 @@
       "slug": "civil-construction-1-secondary-experience-writing-guide",
       "category": "civil-construction-1",
       "group": "secondary",
-      "body_chars": 16527,
+      "body_chars": 16399,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.3,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
@@ -4234,22 +4186,22 @@
       "slug": "civil-construction-1-secondary-quality-management-basics",
       "category": "civil-construction-1",
       "group": "secondary",
-      "body_chars": 14429,
+      "body_chars": 14488,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.35,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
       "slug": "civil-construction-1-secondary-quality-management-past-problems",
       "category": "civil-construction-1",
       "group": "secondary",
-      "body_chars": 13591,
+      "body_chars": 13623,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.35,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
@@ -4344,7 +4296,7 @@
       "slug": "civil-construction-1-textbook-construction-mgmt-overview",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 4563,
+      "body_chars": 4559,
       "scored": true,
       "weighted": 2.85,
       "scored_at": "2026-04-20T05:46:29.772Z",
@@ -5268,7 +5220,7 @@
       "slug": "concrete-chief-engineer-primary-construction",
       "category": "concrete-chief-engineer",
       "group": "primary",
-      "body_chars": 49692,
+      "body_chars": 65945,
       "scored": true,
       "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -5279,7 +5231,7 @@
       "slug": "concrete-chief-engineer-primary-durability",
       "category": "concrete-chief-engineer",
       "group": "primary",
-      "body_chars": 12726,
+      "body_chars": 15997,
       "scored": true,
       "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -5290,7 +5242,7 @@
       "slug": "concrete-chief-engineer-primary-materials",
       "category": "concrete-chief-engineer",
       "group": "primary",
-      "body_chars": 33742,
+      "body_chars": 37874,
       "scored": true,
       "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -5301,7 +5253,7 @@
       "slug": "concrete-chief-engineer-primary-mix-design",
       "category": "concrete-chief-engineer",
       "group": "primary",
-      "body_chars": 15532,
+      "body_chars": 19822,
       "scored": true,
       "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -5312,7 +5264,7 @@
       "slug": "concrete-chief-engineer-primary-production-qc",
       "category": "concrete-chief-engineer",
       "group": "primary",
-      "body_chars": 34614,
+      "body_chars": 41597,
       "scored": true,
       "weighted": 2.6,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -5323,7 +5275,7 @@
       "slug": "concrete-chief-engineer-primary-products",
       "category": "concrete-chief-engineer",
       "group": "primary",
-      "body_chars": 4812,
+      "body_chars": 5604,
       "scored": true,
       "weighted": 2.6,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -5334,7 +5286,7 @@
       "slug": "concrete-chief-engineer-primary-properties",
       "category": "concrete-chief-engineer",
       "group": "primary",
-      "body_chars": 22373,
+      "body_chars": 25228,
       "scored": true,
       "weighted": 2.6,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -5345,7 +5297,7 @@
       "slug": "concrete-chief-engineer-primary-structural-design",
       "category": "concrete-chief-engineer",
       "group": "primary",
-      "body_chars": 13235,
+      "body_chars": 18197,
       "scored": true,
       "weighted": 2.6,
       "scored_at": "2026-07-10T00:00:00.000Z",

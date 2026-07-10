@@ -994,19 +994,16 @@
       "group": "secondary",
       "scores": {
         "structure": 3,
-        "principle": 1,
-        "mobile": 0,
-        "figures": 0,
-        "reference": 1
+        "principle": 2,
+        "mobile": 1,
+        "figures": 3,
+        "reference": 3
       },
-      "weighted": 1,
+      "weighted": 2.2,
       "weak_axes": [
-        "principle",
-        "mobile",
-        "figures",
-        "reference"
+        "mobile"
       ],
-      "qualitative_comment": "参考資料節追加＋表3.4等一部箇条書き化済。残: JIS A5308 17列表(L331-339)等の広幅規格表4件・説明文詰込3列表2件・生img27枚。principle=1(太字/長段落)・figures=0で2重クランプ。要: 規格表exemption判断or変換",
+      "qualitative_comment": "最終再採点で合格2.2。規格表はoverride免除・ArticleImage 27枚移行・散文詰込表解体済。残: 入れ子リスト14クラスタ・表タイトル太字4箇所・圧接表の出典(follow-up)",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "secondary-concrete-past-problems": {
@@ -1030,16 +1027,15 @@
       "scores": {
         "structure": 3,
         "principle": 2,
-        "mobile": 0,
-        "figures": 1,
+        "mobile": 1,
+        "figures": 3,
         "reference": 3
       },
-      "weighted": 1,
+      "weighted": 2.2,
       "weak_axes": [
-        "mobile",
-        "figures"
+        "mobile"
       ],
-      "qualitative_comment": "参考資料節(reference=3)良好。残: 工事数量/機械/品質管理の5-7列表8箇所(施工計画帳票＝正当な表構造)・生img15枚。mobile=0",
+      "qualitative_comment": "最終再採点で合格2.2。帳票様式表はoverride免除・ArticleImage 15枚・参考資料満点。壊れていた建設発生土表は優先順位箇条書き化+原典照合TODOを記録。残: 入れ子リスト12・factual table出典6",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "secondary-construction-plan-past-problems": {
@@ -1063,19 +1059,17 @@
       "slug": "civil-construction-1-secondary-earthwork-basics",
       "group": "secondary",
       "scores": {
-        "structure": 2,
-        "principle": 1,
-        "mobile": 0,
-        "figures": 1,
+        "structure": 3,
+        "principle": 2,
+        "mobile": 1,
+        "figures": 3,
         "reference": 2
       },
-      "weighted": 1,
+      "weighted": 2.05,
       "weak_axes": [
-        "principle",
-        "mobile",
-        "figures"
+        "mobile"
       ],
-      "qualitative_comment": "参考資料節追加。残: 表2.1/2.3(7列)・表2.5(10列)・表2.11(12列)の広幅データ表・生img66枚。**要精査: Evaluatorがp595-613で文章破綻/論理矛盾を指摘(rewrite regression疑い)** principle=1",
+      "qualitative_comment": "最終再採点で合格2.05。OCR崩れ計9修復(採点後にL520/526/521追修)・表2.11列崩壊を算術検証で14列に是正・死リンクjiban.co.jp除去。残: 表2.9散文詰込13セル(要解体・優先follow-up)・表2.1/2.3出典",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "secondary-earthwork-past-problems": {
@@ -1115,18 +1109,15 @@
       "slug": "civil-construction-1-secondary-experience-writing-guide",
       "group": "secondary",
       "scores": {
-        "structure": 3,
+        "structure": 2,
         "principle": 2,
-        "mobile": 0,
-        "figures": 1,
-        "reference": 2
+        "mobile": 2,
+        "figures": 3,
+        "reference": 3
       },
-      "weighted": 1,
-      "weak_axes": [
-        "mobile",
-        "figures"
-      ],
-      "qualitative_comment": "参考資料節+4列表解消済。残: 実務ヒント3列表4箇所で列3に40-206字詰込(mobile=0)。要セル圧縮",
+      "weighted": 2.3,
+      "weak_axes": [],
+      "qualitative_comment": "最終再採点で合格2.3。ヒント表5点解体・参考資料満点。残: tags空行記法・空セル表1・太字2",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "secondary-getting-started": {
@@ -1151,17 +1142,14 @@
       "group": "secondary",
       "scores": {
         "structure": 3,
-        "principle": 3,
-        "mobile": 0,
-        "figures": 1,
+        "principle": 2,
+        "mobile": 2,
+        "figures": 3,
         "reference": 2
       },
-      "weighted": 1,
-      "weak_axes": [
-        "mobile",
-        "figures"
-      ],
-      "qualitative_comment": "単一H2を5節へ再構成+セル内KaTeX外出しでHIGH9件解消(structure3/principle3)。残: 表5.1(7列)/5.2(6列)/5.5(5列)の基準値表・生img7枚。mobile=0",
+      "weighted": 2.35,
+      "weak_axes": [],
+      "qualitative_comment": "最終再採点で合格2.35。H2再構成+KaTeX外出し+ArticleImage 7枚。残: 締固め試験リスト階層・入れ子7・民間ソース不在",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "secondary-quality-management-past-problems": {
@@ -1169,18 +1157,14 @@
       "group": "secondary",
       "scores": {
         "structure": 3,
-        "principle": 3,
-        "mobile": 0,
-        "figures": 1,
-        "reference": 1
+        "principle": 2,
+        "mobile": 2,
+        "figures": 3,
+        "reference": 2
       },
-      "weighted": 1,
-      "weak_axes": [
-        "mobile",
-        "figures",
-        "reference"
-      ],
-      "qualitative_comment": "参考資料+6解答表を箇条書き化済。残: 出題傾向10列表(L26-34)・締固め6列表・各解答3列の列3セル超過。mobile=0",
+      "weighted": 2.35,
+      "weak_axes": [],
+      "qualitative_comment": "最終再採点で合格2.35。解答表箇条書き化+ArticleImage 4枚。残: 除外指定(a)(b)の視覚分離・出典9件",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "secondary-r03": {
