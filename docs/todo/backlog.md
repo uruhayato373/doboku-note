@@ -38,7 +38,7 @@
 
 **Phase 1（全数採点）完了・2026-07-10**: published 全 1,064 本の採点カバレッジ **100%** 達成（6資格×全group・commit 60812601d 他）。以降は Phase 2（校正）と Phase 3（恒久化）。
 
-現況: 採点 **1,064/1,064（100%）** / 不合格 **15**（75→60→27→15・2026-07-10 セッションで消化）/ 薄層 377。
+現況: 採点 **1,064/1,064（100%）** / 不合格 **14**（75→60→27→15→14・2026-07-10 セッションで消化）/ 薄層 377。
 
 **Phase 2 進捗（2026-07-10）**: (A) 構造規約ギャップの機械修正を完遂 — **pe-first-stage 21・concrete-chief 8・civil-2 4** を RelatedKeywords 一括付与＋ExamPoint 折衷案化で全合格（全 slug 検証・欠落0）。(B) **ルーブリック不適合 17本をユーザー決定「正しい Evaluator で再採点」で処理** — pillar 5・keyword-2026・frequent-topics を `cem-qa`（ハブ/キーワード軸）、essay-pattern-cross-year を `cem-qa`（模範論文ハブ＝§20例外）、getting-started を `civil-construction-review` で再採点し **9本が正当に合格**（である調ハブ・データページは linking/reference 軸が適合）。exam-application-guide は `guide-rewriter` でリード/funnel/表を実修正し合格。commit `63d57f457`〜`cce2ebbea`、PR #387。**残 15 は再採点でも消えない＝真の内容欠陥 or 多軸リライト要**に純化。
 
@@ -57,7 +57,7 @@
    - **別セッション進行中（重複禁止）**: civil-1 `primary-h27-a`/`h28-a` No.61 港則法（task_5a0a5d01・原典PDF照合）／civil-1 `primary-r04-a`/`r05-a` 誤答肢解説補完（task_7d253597）
    - 総監 `h28-secondary`/`h29-secondary`/`h30-secondary`: 姉妹年（h27 等）は解答方向性が充実（answer_accuracy=3）だが本記事は薄い（=1・2590字 vs 3897字）。**RK付与のみでの数値通過は不誠実**＝h27 水準の解答方向性 authoring 要（白書事実は factcheck 必須）
    - 総監 `h21-primary` Ⅱ-1-31・`h22-primary` Ⅱ-1-22・`h28-primary` I-1-9/25/28・`h30-primary` I-1-24（既掲）／pe-first-stage 数本の answer_accuracy=1（official key 照合要・数値上は合格域）
-   - **civil-1 secondary 7本**（concrete-basics/construction-plan-basics/earthwork-basics/quality-management-basics/quality-management-past-problems/experience-writing-guide/experience-writing-examples）＝**多軸リライト要**。`civil-construction-review` 再採点で全て reference=0 クランプ判明。合格には (a)`## 参考資料`節を passing textbook 同型（e-Gov 法令検索ポータル＋官公庁トップ＋試験元 全国建設研修センターの**実在安定 URL**のみ・deep-link 捏造禁止）で追加 (b)4列超表の分割/散文化（earthwork-basics L423-435 は135字セル等が最悪）(c)生img→ArticleImage 移行。1本=多軸ゆえ per-article rewrite。※getting-started は再採点で合格済（ですます調ガイド）
+   - **civil-1 secondary（残6本・2026-07-10 部分対応）** — 7本に検証済みパレット URL のみで `## 参考資料` 節を追加（reference 軸 0→1〜3 改善・commit `f4a532c22`）、名指しした広幅表を箇条書き化。**experience-writing-examples は合格 2.1**。残 6（concrete-basics/construction-plan-basics/earthwork-basics/quality-management-basics/quality-management-past-problems/experience-writing-guide）は再採点でも mobile=0 クランプ＝**名指し以外の広幅規格表が多数残存**（JIS A5308 **17列**呼び強度マトリクス・土量計算書 **12列**・締固め機種 **10列**・工事数量/品質管理 7列 等）＋生img多数(figures=1、concrete は figures=0)。要判断3点: **(1)広幅規格表の扱い**＝[[civil textbook 規格表 override 除外]]の前例に倣い mobile 免除するか・画像化するか・分割するか（17列マトリクスの箇条書き化は可読性を損なうため機械的変換は不可） (2)生img→ArticleImage 移行（earthwork 66枚・concrete 27枚） (3)**earthwork/concrete のOCR崩れ文**（例 earthwork「載荷して…残る。」「軽量盛土工法は…軽量盛土工法は」＝スキャン原典由来・rewrite regression ではない）のクリーンアップ。=多面プロジェクトゆえ per-article で継続。※getting-started は再採点で合格済
 2. **✅ 構造規約ギャップ（機械修正・完了）** — pe-first-stage 21・concrete 8・civil-2 4 を消化。pe-construction past-exam 84 は RelatedKeywords 未配線だが note 誘導設計として許容（対応不要）
 3. **✅ ルーブリック不適合＝再採点で解消（完了・2026-07-10）** — pillar 5・keyword-2026・frequent-topics・essay-pattern-cross-year・getting-started の**9本を正しい Evaluator で再採点し合格化**（内容 mangling せず）。である調ハブ・データページ・模範論文ハブは linking/reference 軸が適合し 2.2〜2.7。真実源＝各 `*-scores.json` の qualitative_comment。**将来 census を group 別の Evaluator ルーティングに拡張するのが Phase 3 の宿題**（今回は手動で正しい Evaluator を当てた）
 4. **🟢 薄層 377（既存トラックと合流）** — 総監 keyword 360＝5/17 demote 源流コホート、[[project_adsense_low_value_2026_07]] の続き。pe-construction keyword 16（書籍全文収録の長文）・concrete textbook 1。3,000字下限へ散文増補（7月112本バッチの継続）
