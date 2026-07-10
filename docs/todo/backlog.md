@@ -52,7 +52,7 @@
   - **要補完7本（誤答肢理由が欠落・マーク数<問数×4）**: `h28-a`(243/244)・`h30-a`(242/244)・`h30-b`(138/140)・`r01-a`(240/244)・`r02-a`(242/244)・`r02-b`(134/140)・`r07-b`(119/140＝穴埋め型で欠落最多)
   - **要検証17本（マーク数は充足だが正答キー未照合）**: h26-a/b・h27-a/b・h28-b・h29-a/b・h30… の残り＋r01-b・r03-a/b・r04-b・r05-b・r06-a/b・r07-a。r04-a/r05-a も survey 上は「充足」だったが実際は誤キー5件が潜んでいた＝**充足でも内部矛盾スキャン＋kakomonn照合が必須**
   - backlog旧記載の r06-a L433-438（❌と肯定解説の矛盾）・r06-b/r07-b（穴埋め誤答肢がプレースホルダー）はこの残22本に含む
-- **照合手順**: kakomonn question id = base + 問番号（R05 base=74716・R04 base=67670。他年度は既知2問から base 実測）。労安法/騒音規制法/水道等の数値は施行令別表を一次確認
+- **照合手順**: kakomonn question id = base + 問番号（R05 base=74716・R04 base=67670。他年度は既知2問から base 実測）。労安法/騒音規制法/水道等の数値は施行令別表を一次確認。**pre-H30 原典（過去問フォルダは H30〜R07 のみ）＝ touhokugiken.com 公開の問題A/B PDF＋公式正答肢表**（問題 `/answer/{h27|h28…}/…-1doboku-a.pdf`〔命名ゆれ有〕・正答 `…-kaitou.pdf`・索引 `/answer.html`）。WebFetch はPDF不可→保存PDFを `pdftotext -layout`、正答肢表は画像→`pdftoppm`→目視。条文は e-Gov(SPA不可)より hourei.net/lawplayer の静的ミラー。**正答キーだけでなく設問文・全選択肢の本文化けも照合**（h27-a/h28-a No.61 実証）。詳細手順は `docs/reference/exam-content-policy.md` Part 2「過去問の原典照合」
 
 ---
 

@@ -27,8 +27,9 @@ model: sonnet
 - 品質スコアリング → `past-exam-qa`
 - PDF→MDX 新規変換 → `/pdf-to-mdx` 系
 - キーワードページ / textbook → `keyword-rewriter` / `civil-textbook-rewriter`
+- **設問文・選択肢本文そのものが原典と別問題に化けている**（単一正答が成立しない／複数正答／正答キーは合うのに本文が別問題）→ **対象外**。統計・条文からの推測で本文を書き直すと捏造になる。findings に「原典PDF照合が必要」と記録して**親へエスカレーション**する（親が試験問題PDFと照合して本文を差し替える。手順は `exam-content-policy.md` Part 2「過去問の原典照合」）。
 
-> CEM（総監）primary の ExamPoint 圧縮・構造統一が主戦場。civil 固有の専用 Generator がある領域（図・二次解答・大量 ExamPoint 復元）はそちらに委ねる。
+> CEM（総監）primary の ExamPoint 圧縮・構造統一が主戦場。civil 固有の専用 Generator がある領域（図・二次解答・大量 ExamPoint 復元）はそちらに委ねる。**本文の別問題化けは統計・条文推測で直さず必ず原典照合＝親の担当**。
 
 ## 入力
 

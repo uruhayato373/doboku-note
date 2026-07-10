@@ -125,6 +125,15 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 
 **機械ルールの資格×種別マトリクス**: 上表の「表」「モバイル視認性」行など機械検知可能なルールの重大度・資格別の有効/無効は **`.claude/config/content-rules.json`** が SSOT（実装は `lint-mdx-mobile.mjs`）。例: 上表の「1級土木 textbook＝規格表・配合表など4列以上も許容」は同 config の `overrides.civil-construction-{1,2}.textbook` で 1-3/1-4 を無効化して機械化済み。全量ラチェット（`npm run check-content-quality` / 週次 `r2-audit.yml`）が `fullScan` ルール群で新規違反を赤落ちさせ、既存違反は baseline で grandfather する。リライト優先度は `.claude/state/quality/latest-report.md`（GA4 人気度順）。
 
+### 過去問の原典照合（単一正答が崩れたとき）
+
+過去問（primary）で**単一正答が成立しない／複数正答に見える**ときは、`past-exam-qa` の内部照合（条文・統計ロジック）だけで断定せず、**必ず原典（実際の試験問題PDF）と照合**する。転記ミスは正答キーだけでなく、**設問文・全選択肢の本文そのものが別問題に化けている**ことがある（答え番号は合っているのに本文が別物＝civil-1 `primary-h27-a`/`primary-h28-a` の No.61 港則法で実証、2026-07-10）。`past-exam-rewriter` は本文化けを直せない（統計・条文推測での書き直しは捏造）ので、**親が原典照合して本文を差し替える**。
+
+- **原典（civil-1 一次）**: `docs/textbook/１級土木施工管理技士/過去問/` は **H30〜R07 のみ**。H26〜H29 の問題A/B原本と**公式正答肢表**は touhokugiken.com が無料公開（問題=`/answer/{h27|h28…}/…-1doboku-a.pdf`〔H27は`h27-1doboku-a.pdf`・H28は`1doboku-a.pdf`と命名ゆれ〕、正答=`…-kaitou.pdf`、索引=`/answer.html`）。
+- **PDFの読み方**: WebFetch はPDFバイナリを読めない → 保存された PDF を `pdftotext -layout` で直読み。**正答肢表は画像テーブル** → `pdftoppm -png` で PNG 化して目視。
+- **条文の許可/届出**: e-Gov はSPAで WebFetch 不可 → `hourei.net` / `lawplayer.com` の静的ミラーで条番号を確認。
+- 詳細な失敗モードと入手経路は memory [[civil1-primary-answer-key-errors]]、進捗は `docs/todo/backlog.md`「全資格 品質採点カバレッジ トラック」Phase2分類1。
+
 ---
 
 ## Part 3: 全試験で共通のデザイン制約
