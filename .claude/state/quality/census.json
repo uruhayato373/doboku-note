@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-07-10T08:54:07.336Z",
+  "generated_at": "2026-07-10T09:32:17.902Z",
   "thresholds": {
     "fail": 2,
     "thin_chars": 3000,
@@ -14,7 +14,7 @@
     "total": 1064,
     "scored": 1064,
     "unscored": 0,
-    "failed": 60,
+    "failed": 27,
     "thin": 377,
     "coverage_pct": 100
   },
@@ -76,24 +76,24 @@
           "total": 10,
           "scored": 10,
           "unscored": 0,
-          "failed": 3,
+          "failed": 1,
           "thin": 0,
-          "avg_weighted": 1.86
+          "avg_weighted": 2.2
         },
         "secondary": {
           "total": 8,
           "scored": 8,
           "unscored": 0,
-          "failed": 2,
+          "failed": 0,
           "thin": 0,
-          "avg_weighted": 2.13
+          "avg_weighted": 2.42
         }
       },
       "totals": {
         "total": 39,
         "scored": 39,
         "unscored": 0,
-        "failed": 5,
+        "failed": 1,
         "thin": 0
       }
     },
@@ -111,9 +111,9 @@
           "total": 8,
           "scored": 8,
           "unscored": 0,
-          "failed": 8,
+          "failed": 0,
           "thin": 0,
-          "avg_weighted": 1
+          "avg_weighted": 2.5
         },
         "textbook": {
           "total": 8,
@@ -128,7 +128,7 @@
         "total": 19,
         "scored": 19,
         "unscored": 0,
-        "failed": 8,
+        "failed": 0,
         "thin": 1
       }
     },
@@ -216,16 +216,16 @@
           "total": 21,
           "scored": 21,
           "unscored": 0,
-          "failed": 21,
+          "failed": 0,
           "thin": 0,
-          "avg_weighted": 1
+          "avg_weighted": 2.61
         }
       },
       "totals": {
         "total": 21,
         "scored": 21,
         "unscored": 0,
-        "failed": 21,
+        "failed": 0,
         "thin": 0
       }
     }
@@ -350,102 +350,6 @@
       "reason": "failed",
       "weighted": 1.8,
       "body_chars": 31472
-    },
-    {
-      "slug": "civil-construction-2-primary-r07-kouki",
-      "category": "civil-construction-2",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 30687
-    },
-    {
-      "slug": "civil-construction-2-primary-r07-zenki",
-      "category": "civil-construction-2",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 27910
-    },
-    {
-      "slug": "civil-construction-2-secondary-getting-started",
-      "category": "civil-construction-2",
-      "group": "secondary",
-      "reason": "failed",
-      "weighted": 1.85,
-      "body_chars": 2394
-    },
-    {
-      "slug": "civil-construction-2-secondary-r06",
-      "category": "civil-construction-2",
-      "group": "secondary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 9688
-    },
-    {
-      "slug": "concrete-chief-engineer-primary-construction",
-      "category": "concrete-chief-engineer",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 37667
-    },
-    {
-      "slug": "concrete-chief-engineer-primary-durability",
-      "category": "concrete-chief-engineer",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 9766
-    },
-    {
-      "slug": "concrete-chief-engineer-primary-materials",
-      "category": "concrete-chief-engineer",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 23990
-    },
-    {
-      "slug": "concrete-chief-engineer-primary-mix-design",
-      "category": "concrete-chief-engineer",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 9228
-    },
-    {
-      "slug": "concrete-chief-engineer-primary-production-qc",
-      "category": "concrete-chief-engineer",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 25949
-    },
-    {
-      "slug": "concrete-chief-engineer-primary-products",
-      "category": "concrete-chief-engineer",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 3025
-    },
-    {
-      "slug": "concrete-chief-engineer-primary-properties",
-      "category": "concrete-chief-engineer",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 17432
-    },
-    {
-      "slug": "concrete-chief-engineer-primary-structural-design",
-      "category": "concrete-chief-engineer",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 6406
     },
     {
       "slug": "concrete-chief-engineer-textbook-products",
@@ -3558,174 +3462,6 @@
       "reason": "thin",
       "weighted": 2.4,
       "body_chars": 2417
-    },
-    {
-      "slug": "pe-first-stage-r01-aptitude",
-      "category": "pe-first-stage",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 17252
-    },
-    {
-      "slug": "pe-first-stage-r01-basic",
-      "category": "pe-first-stage",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 30005
-    },
-    {
-      "slug": "pe-first-stage-r01-construction",
-      "category": "pe-first-stage",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 29558
-    },
-    {
-      "slug": "pe-first-stage-r02-aptitude",
-      "category": "pe-first-stage",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 17866
-    },
-    {
-      "slug": "pe-first-stage-r02-basic",
-      "category": "pe-first-stage",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 31292
-    },
-    {
-      "slug": "pe-first-stage-r02-construction",
-      "category": "pe-first-stage",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 28017
-    },
-    {
-      "slug": "pe-first-stage-r03-aptitude",
-      "category": "pe-first-stage",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 17523
-    },
-    {
-      "slug": "pe-first-stage-r03-basic",
-      "category": "pe-first-stage",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 28946
-    },
-    {
-      "slug": "pe-first-stage-r03-construction",
-      "category": "pe-first-stage",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 28852
-    },
-    {
-      "slug": "pe-first-stage-r04-aptitude",
-      "category": "pe-first-stage",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 18317
-    },
-    {
-      "slug": "pe-first-stage-r04-basic",
-      "category": "pe-first-stage",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 27970
-    },
-    {
-      "slug": "pe-first-stage-r04-construction",
-      "category": "pe-first-stage",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 29742
-    },
-    {
-      "slug": "pe-first-stage-r05-aptitude",
-      "category": "pe-first-stage",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 17401
-    },
-    {
-      "slug": "pe-first-stage-r05-basic",
-      "category": "pe-first-stage",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 26118
-    },
-    {
-      "slug": "pe-first-stage-r05-construction",
-      "category": "pe-first-stage",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 29775
-    },
-    {
-      "slug": "pe-first-stage-r06-aptitude",
-      "category": "pe-first-stage",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 19505
-    },
-    {
-      "slug": "pe-first-stage-r06-basic",
-      "category": "pe-first-stage",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 30353
-    },
-    {
-      "slug": "pe-first-stage-r06-construction",
-      "category": "pe-first-stage",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 28827
-    },
-    {
-      "slug": "pe-first-stage-r07-aptitude",
-      "category": "pe-first-stage",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 16124
-    },
-    {
-      "slug": "pe-first-stage-r07-basic",
-      "category": "pe-first-stage",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 27530
-    },
-    {
-      "slug": "pe-first-stage-r07-construction",
-      "category": "pe-first-stage",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 31385
     }
   ],
   "articles": [
@@ -5493,22 +5229,22 @@
       "slug": "civil-construction-2-primary-r07-kouki",
       "category": "civil-construction-2",
       "group": "primary",
-      "body_chars": 30687,
+      "body_chars": 31088,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.8,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
       "slug": "civil-construction-2-primary-r07-zenki",
       "category": "civil-construction-2",
       "group": "primary",
-      "body_chars": 27910,
+      "body_chars": 31283,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.6,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
@@ -5537,11 +5273,11 @@
       "slug": "civil-construction-2-secondary-getting-started",
       "category": "civil-construction-2",
       "group": "secondary",
-      "body_chars": 2394,
+      "body_chars": 2785,
       "scored": true,
-      "weighted": 1.85,
+      "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
@@ -5581,11 +5317,11 @@
       "slug": "civil-construction-2-secondary-r06",
       "category": "civil-construction-2",
       "group": "secondary",
-      "body_chars": 9688,
+      "body_chars": 9965,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.8,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
@@ -5636,88 +5372,88 @@
       "slug": "concrete-chief-engineer-primary-construction",
       "category": "concrete-chief-engineer",
       "group": "primary",
-      "body_chars": 37667,
+      "body_chars": 49692,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
       "slug": "concrete-chief-engineer-primary-durability",
       "category": "concrete-chief-engineer",
       "group": "primary",
-      "body_chars": 9766,
+      "body_chars": 12726,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
       "slug": "concrete-chief-engineer-primary-materials",
       "category": "concrete-chief-engineer",
       "group": "primary",
-      "body_chars": 23990,
+      "body_chars": 33742,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
       "slug": "concrete-chief-engineer-primary-mix-design",
       "category": "concrete-chief-engineer",
       "group": "primary",
-      "body_chars": 9228,
+      "body_chars": 15532,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
       "slug": "concrete-chief-engineer-primary-production-qc",
       "category": "concrete-chief-engineer",
       "group": "primary",
-      "body_chars": 25949,
+      "body_chars": 34614,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.6,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
       "slug": "concrete-chief-engineer-primary-products",
       "category": "concrete-chief-engineer",
       "group": "primary",
-      "body_chars": 3025,
+      "body_chars": 4812,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.6,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
       "slug": "concrete-chief-engineer-primary-properties",
       "category": "concrete-chief-engineer",
       "group": "primary",
-      "body_chars": 17432,
+      "body_chars": 22373,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.6,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
       "slug": "concrete-chief-engineer-primary-structural-design",
       "category": "concrete-chief-engineer",
       "group": "primary",
-      "body_chars": 6406,
+      "body_chars": 13235,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.6,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
@@ -15206,231 +14942,231 @@
       "slug": "pe-first-stage-r01-aptitude",
       "category": "pe-first-stage",
       "group": "primary",
-      "body_chars": 17252,
+      "body_chars": 17615,
       "scored": true,
-      "weighted": 1,
+      "weighted": 3,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
       "slug": "pe-first-stage-r01-basic",
       "category": "pe-first-stage",
       "group": "primary",
-      "body_chars": 30005,
+      "body_chars": 30359,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.6,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
       "slug": "pe-first-stage-r01-construction",
       "category": "pe-first-stage",
       "group": "primary",
-      "body_chars": 29558,
+      "body_chars": 29945,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.6,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
       "slug": "pe-first-stage-r02-aptitude",
       "category": "pe-first-stage",
       "group": "primary",
-      "body_chars": 17866,
+      "body_chars": 18229,
       "scored": true,
-      "weighted": 1,
+      "weighted": 3,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
       "slug": "pe-first-stage-r02-basic",
       "category": "pe-first-stage",
       "group": "primary",
-      "body_chars": 31292,
+      "body_chars": 31646,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.6,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
       "slug": "pe-first-stage-r02-construction",
       "category": "pe-first-stage",
       "group": "primary",
-      "body_chars": 28017,
+      "body_chars": 28404,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
       "slug": "pe-first-stage-r03-aptitude",
       "category": "pe-first-stage",
       "group": "primary",
-      "body_chars": 17523,
+      "body_chars": 17886,
       "scored": true,
-      "weighted": 1,
+      "weighted": 3,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
       "slug": "pe-first-stage-r03-basic",
       "category": "pe-first-stage",
       "group": "primary",
-      "body_chars": 28946,
+      "body_chars": 29300,
       "scored": true,
-      "weighted": 1,
+      "weighted": 3,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
       "slug": "pe-first-stage-r03-construction",
       "category": "pe-first-stage",
       "group": "primary",
-      "body_chars": 28852,
+      "body_chars": 29239,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
       "slug": "pe-first-stage-r04-aptitude",
       "category": "pe-first-stage",
       "group": "primary",
-      "body_chars": 18317,
+      "body_chars": 18680,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.8,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
       "slug": "pe-first-stage-r04-basic",
       "category": "pe-first-stage",
       "group": "primary",
-      "body_chars": 27970,
+      "body_chars": 28324,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
       "slug": "pe-first-stage-r04-construction",
       "category": "pe-first-stage",
       "group": "primary",
-      "body_chars": 29742,
+      "body_chars": 30129,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.6,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
       "slug": "pe-first-stage-r05-aptitude",
       "category": "pe-first-stage",
       "group": "primary",
-      "body_chars": 17401,
+      "body_chars": 17764,
       "scored": true,
-      "weighted": 1,
+      "weighted": 3,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
       "slug": "pe-first-stage-r05-basic",
       "category": "pe-first-stage",
       "group": "primary",
-      "body_chars": 26118,
+      "body_chars": 26472,
       "scored": true,
-      "weighted": 1,
+      "weighted": 3,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
       "slug": "pe-first-stage-r05-construction",
       "category": "pe-first-stage",
       "group": "primary",
-      "body_chars": 29775,
+      "body_chars": 30162,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.2,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
       "slug": "pe-first-stage-r06-aptitude",
       "category": "pe-first-stage",
       "group": "primary",
-      "body_chars": 19505,
+      "body_chars": 19868,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.6,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
       "slug": "pe-first-stage-r06-basic",
       "category": "pe-first-stage",
       "group": "primary",
-      "body_chars": 30353,
+      "body_chars": 30707,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.6,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
       "slug": "pe-first-stage-r06-construction",
       "category": "pe-first-stage",
       "group": "primary",
-      "body_chars": 28827,
+      "body_chars": 29214,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.2,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
       "slug": "pe-first-stage-r07-aptitude",
       "category": "pe-first-stage",
       "group": "primary",
-      "body_chars": 16124,
+      "body_chars": 16487,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.6,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
       "slug": "pe-first-stage-r07-basic",
       "category": "pe-first-stage",
       "group": "primary",
-      "body_chars": 27530,
+      "body_chars": 27884,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.6,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
       "slug": "pe-first-stage-r07-construction",
       "category": "pe-first-stage",
       "group": "primary",
-      "body_chars": 31385,
+      "body_chars": 31772,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     }
   ]
