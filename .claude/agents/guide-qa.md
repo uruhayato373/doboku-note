@@ -107,7 +107,7 @@ type: Type-1 / Type-2（§20）
 
 ## 連携パターン
 
-ガイド品質サイクル: `guide-qa`（評価）→ 指摘を `civil-textbook-rewriter`（リライト）→ 再評価。3,000 字下限の加筆は §25 バーンダウン（`docs/todo/backlog.md`）と連動する。
+ガイド品質サイクル: `guide-qa`（評価）→ 指摘を `civil-textbook-rewriter`（リライト）→ 再評価。3,000 字下限の加筆は `docs/todo/backlog.md` の「薄層 377本の散文増補（3,000字下限）」タスクと連動する。
 
 ## 参照ドキュメント
 

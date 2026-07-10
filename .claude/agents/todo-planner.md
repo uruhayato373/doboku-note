@@ -79,7 +79,7 @@ model: sonnet
 ## 手順
 
 1. **コンテキスト収集**（並列で Read）
-   - `docs/todo/backlog.md` — タスクマスタ（全量プール・カテゴリ別）
+   - `docs/todo/backlog.md` — タスクマスタ（全量プール・優先度tier別 🔴🟡🟢🟣・カテゴリは各タスクの `タグ:` 行）
    - `docs/todo/annual.md` — 試験カレンダー・年間優先
    - `docs/todo/monthly.md` — 今月ゴール・タスク状態
    - `docs/todo/weekly.md` — 前週の完了・未完了・メモ

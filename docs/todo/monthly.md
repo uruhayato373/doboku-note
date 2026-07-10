@@ -25,8 +25,7 @@
 | 完全パック ¥9,800 の直前妥当性判断（10月リローンチ向き） | 判断待ち |
 | AdSense 再申請完遂 | 進行中（外部承認） |
 | pe-construction visible:true 化（noteURL 確定後） | 待機中 |
-| ✅ 建設部門CTA修復 PR #329 → 本番反映済（origin/main 入り確認）| 2026-07-02 merged |
-| 🔴 総監マガジンの歩き方（17ペルソナ診断ハブ）公開＋L1/もくじ配線（原稿完成済・note実機）| 7/10前が理想（backlog §3）|
+| 🟡 総監マガジンの歩き方 残=L1配線のみ（公開＋もくじ配線は完了） | backlog 🟡 |
 | 🟡 総監ハブ2枚（keyword-2026/category）直前テコ入れ（Fable P2・試験前7/10窓）| 当方コード |
 
 ### 試験後（7月中旬〜・🔴 制作再開）
@@ -34,20 +33,20 @@
 | タスク | 出典/backlog | 備考 |
 |---|---|---|
 | 解答速報（当年度 I-1/I-2 解答方針）を note 無料 / IG で発信 | annual §7月 | 翌年受験生の早期囲い込み |
-| BK-09 電力土木 / BK-10 鉄道 R08予想 各3記事 生成→factcheck→QA | backlog §8 | クラウド実行（factcheck=WebSearch 必須） |
-| reference-materials 5記事 精度向上 → 再公開 | backlog §1 | EXP-002 cancelled・GSC 資産を活かす |
-| **読み方ガイド 横展開（建設部門＋土木）2本** | backlog §3 🔴 | 売上TOP3独占の型を横展開（収益診断 2026-06 の次の一手） |
+| BK-09 電力土木 / BK-10 鉄道 R08予想 各3記事 生成→factcheck→QA | backlog 🟡 | クラウド実行（factcheck=WebSearch 必須） |
+| reference-materials 5記事 精度向上 → 再公開 | backlog 🟢 | EXP-002 cancelled・GSC 資産を活かす |
+| **読み方ガイド 横展開（建設部門＋土木）2本** | backlog 🔴 | 売上TOP3独占の型を横展開（収益診断 2026-06 の次の一手） |
 | 1級土木 二次対策の仕込み（施工経験記述） | annual §8-9月 | 8月末の一次合格発表に先行 |
-| 一次→二次 季節CTA切替（1級土木高流入面 guide-strategy 271人）| backlog §3 | Fable P2・CTA変換0.4%を二次向けへ |
-| 建設→総監ブリッジ記事（合格者→総監 来季見込み客）| backlog §3 | Fable P1(d)・建設もくじ＋L1へ |
+| 一次→二次 季節CTA切替（1級土木高流入面 guide-strategy 271人）| backlog 🟡 | Fable P2・CTA変換0.4%を二次向けへ |
+| 建設→総監ブリッジ記事（合格者→総監 来季見込み客）| backlog 🟡 | Fable P1(d)・建設もくじ＋L1へ |
 
 ### 低優先・時間が余れば（🟢）
 
 | タスク | backlog |
 |---|---|
-| 1級 textbook 図クロップ品質監査（10本） / textbook 画像カラー化（Gemini・要確認） | §1 |
-| 総監キーワード cem-qa 2.2–2.5帯 40本リライト | §8 |
-| Kindle KDP 準備（A-02 法規 THEMES・表紙・W-8BEN） | §3 |
+| 1級 textbook 図クロップ品質監査（10本） / textbook 画像カラー化（対象B・Gemini・要確認） | 🟢 |
+| 総監キーワード cem-qa 2.2–2.5帯 40本リライト | 🟢 |
+| Kindle D-02 適性（composer 前付け → /kindle-build） | 🟢 |
 | GSC index率 8月再測定（7/1 に 74.6% へ揺り戻し・回帰継続なら総監KW統合検討・on-pageはしない）| gsc-management 2026-07-02 |
 
 ---

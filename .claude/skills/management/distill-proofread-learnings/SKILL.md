@@ -97,7 +97,7 @@ description: >
 | **既存原則の精緻化** | 既存ルールの境界・例外・適用手順が明確化された | `content-principles.md` を修正 |
 | **ユーザー嗜好** | 一般化しにくい個別の好み／ワークスタイル | `memory/` （feedback 型） |
 | **ワークフロー改善** | 校正の進め方・順序・ツール使い方の改善 | 関連 SKILL.md / `workflows.md` |
-| **採点・リライト議論候補** | 採点ルーブリック（cem-qa 5 軸）・リライト方法論（4 視点 × Phase 対応）の改修候補。議論を要するため **即適用せず判断を仰ぐ** | `docs/todo/backlog.md` §7「ユーザー判断待ち」に起票 |
+| **採点・リライト議論候補** | 採点ルーブリック（cem-qa 5 軸）・リライト方法論（4 視点 × Phase 対応）の改修候補。議論を要するため **即適用せず判断を仰ぐ** | `docs/todo/backlog.md` の「🟣 判断待ち」セクションに起票 |
 
 **採点・リライト議論候補の判定基準**:
 
@@ -105,7 +105,7 @@ description: >
   - 反映先（ユーザー承認後）: `cem-qa.md` + `content-principles.md` + `templates/cem.md` の **3 ファイル同期更新が必要**
 - **リライト側候補**: 視点タグ追加・Phase 対応の見直し・拡張パターン A-G 改修・NLM 照合プロンプト調整など
   - 反映先（ユーザー承認後）: `exam-keyword-cycle/SKILL.md` ほか該当 SKILL.md の修正
-- **議論の置き場**: 採点・リライト方法論の改修は即適用せず、`docs/todo/backlog.md` §7「ユーザー判断待ち」に1件として起票してユーザーの判断を仰ぐ。タスク・判断の単一正源は `docs/todo/`（**GitHub Issue は使わない**＝真実源 `docs/reference/information-architecture.md`）
+- **議論の置き場**: 採点・リライト方法論の改修は即適用せず、`docs/todo/backlog.md` の「🟣 判断待ち」セクションに1件として起票してユーザーの判断を仰ぐ。タスク・判断の単一正源は `docs/todo/`（**GitHub Issue は使わない**＝真実源 `docs/reference/information-architecture.md`）
 - **2 回ルール**: 1 回限りの違和感は次サイクル再観察、2 回以上浮上したパターンのみ起票推奨
 
 ### Phase 3: 候補の surface
@@ -212,7 +212,7 @@ surface した候補を Markdown レポート形式で会話に出力し、ユ�
 - 採点側の場合: `.claude/agents/cem-qa.md` + `docs/reference/content-principles.md` + `templates/cem.md`（3 ファイル同期）
 - リライト側の場合: `.claude/skills/quality/quality-cycle/SKILL.md` ほか該当 SKILL.md
 
-**起票先**: `docs/todo/backlog.md` §7「ユーザー判断待ち」に1件として記録し、ユーザーの判断を仰ぐ（即適用しない）。
+**起票先**: `docs/todo/backlog.md` の「🟣 判断待ち」セクションに1件として記録し、ユーザーの判断を仰ぐ（即適用しない）。
 
 ---
 
