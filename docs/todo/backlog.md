@@ -93,9 +93,11 @@
 
 **ソース/手順**: `docs/textbook/{１級,２級}土木施工管理技士/`。手順=pdftoppm 200dpi→magick crop+trim→webp(q80)。**過去問の問題図に解答情報を入れない**（[[exam-problem-figure-no-answer]]）。**過去問データグラフのSVG化禁止**（幾何が答え＝誤答誘発）。[[civil1-figure-answer-leak-remediation]] / [[figure-provenance-system]]
 
-### コンクリート主任技師 年度別過去問 H26-H28 転記 🟡
+> 注（完了・2026-07-10）: **コンクリート主任技師 年度別過去問 H26-H28 転記は完遂**。H28/H27/H26 各30問＝計90問を並行workflow転記→親が正答マップ全数突合＋計算問題全数検算→解説は親執筆→図12点クロップ（答え漏らしなし）→年度単位で3コミット。8分野の被覆が平成26〜令和5年度化。handoff は `docs/handoffs/_archive/2026-07-10-cce-nendo-transcription.md` へ退避。残余力枠だった H29/H30 の未収録6分野（materials/properties 以外・約40問）は下記へ分離。
 
-**背景**: ユーザーが原典書籍を追加スキャン→`docs/textbook/コンクリート主任技師2024/スキャンした書類{2-9}.pdf`（年度別全問H26-30＋小論文章・git追跡外）。既存primary 8分野は R01-R05 中心でH26-28未収録。約90問（H26/H27/H28 各30問）を転記して被覆を H26-R05 化する。**年度別パートは解説なし＝問題文原典転記＋解説自作＋親検算**（既存118問と同方式）。図差替2枚(H30/H29)・小論文ガイド増補は**完了・deploy済**（今回）。**手順・正答マップ（H28確定）・ページ範囲・リスクは真実源 → `docs/handoffs/2026-07-10-cce-nendo-transcription.md`**。規模大につき継続セッションで年度単位に実行。[[project_concrete_chief_engineer]]
+### コンクリート主任技師 H29/H30 未収録6分野の転記（余力枠・約40問）🟢
+
+**背景**: materials/properties は H29-H30 収録済みだが，durability/mix-design/production-qc/construction/products/structural-design の6分野は H29・H30 が未収録（既存被覆は R01-R05＋今回の H26-28）。原典スキャン（`スキャンした書類 2.pdf`=H29 p218-237・`3.pdf`=H30 p202-221）とページ分割手順・転記パイプライン（workflow転記→正答一覧突合→解説親執筆→図クロップ）は H26-28 転記と同一で再現可能。正答一覧: H29=d2-s000-R付近・H30=d3末尾。低優先（受験者需要は直近年度で充足済み）。[[project_concrete_chief_engineer]]
 
 ---
 
