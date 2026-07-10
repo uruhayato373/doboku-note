@@ -38,19 +38,29 @@
 
 **Phase 1（全数採点）完了・2026-07-10**: published 全 1,064 本の採点カバレッジ **100%** 達成（6資格×全group・commit 60812601d 他）。以降は Phase 2（校正）と Phase 3（恒久化）。
 
-現況: 採点 **1,064/1,064（100%）** / 不合格 75 / 薄層 377 / rewrite_queue 452。
+現況: 採点 **1,064/1,064（100%）** / 不合格 **27**（75→60→27・2026-07-10 セッションで消化）/ 薄層 377。
 
-**Phase 2 の rewrite_queue 452 は性質で4分類（優先度順）。一括で回さず分類ごとに対応**:
+**Phase 2 進捗（2026-07-10）**: 🟡構造規約ギャップの機械修正クラスタを完遂 — **pe-first-stage primary 21・concrete-chief primary 8・civil-2 過去問4本（r07-kouki/r07-zenki/secondary-r06/getting-started）を全合格化**（RelatedKeywords 一括付与＋concrete/civil-2 の ExamPoint 折衷案化。全 slug 参照検証・欠落0）。commit `63d57f457`/`b334fba58`/`1f15a0da1`/`617d3b667`/`4f20b9efa`、PR #387。**残 27 は機械修正で消えない**＝下記 🔴（source照合/authoring 要）と ⚪（ルーブリック不適合＝要 group 別スコープ判断）に純化した。
 
-1. **🔴 真の内容バグ（最優先・少数）** — 過去問解説の実欠陥。個別修正（`past-exam-rewriter` / `civil-secondary-exam-writer`）:
+**残 27 の分類（一括で回さない・分類ごとに対応）**:
+
+1. **🔴 真の内容バグ（10本・source照合 or authoring 要・LLM推測厳禁）** — 過去問解説の実欠陥。個別修正（`past-exam-rewriter` / `civil-secondary-exam-writer`）:
    - civil-1 `primary-r04-a`・`primary-r05-a`: 大多数の設問で正答肢のみ解説し**誤答肢3つの正誤理由が丸ごと欠落**（19✅/45❌・13✅/51❌）＝過去問の核心要件を欠く。全面書き直し級
    - civil-1 `primary-r06-a` L433-438: ❌マークなのに解説が肯定文の矛盾。`primary-r06-b`/`r07-b`: 穴埋め誤答肢が「誤りを含む記述❌」プレースホルダーのみ
    - civil-1 `secondary-construction-plan-past-problems` No.9(1): 解答欄記述が省略
    - civil-2 `primary-r06-kouki` No.12/32/33: 「出題側の正解は」と正答・解説が矛盾。`secondary-r06` 問8: 画像が `{/* TODO */}` 未挿入で本文欠落
    - 総監 `h21-primary` Ⅱ-1-31（自己矛盾）・`h22-primary` Ⅱ-1-22（下書き跡）・`h28-primary` I-1-9/25/28（正答数不一致を「解釈もあり得る」で誤魔化し）・`h30-primary` I-1-24（思考過程露出）
    - pe-first-stage `r03-construction` Ⅲ-2/Ⅲ-18（正答矛盾）・`r04-basic` Ⅰ-2-4（ハミング距離解説破綻）
-2. **🟡 構造規約ギャップ（バルク機械修正・約53本）** — 内容は健全（正答精度2-3）だが `<ExamPoint>`/`<RelatedKeywords>` コンポーネント未実装で weighted 1.0 クランプ。**新設 vertical と旧式 civil-1 primary が対象**: pe-first-stage primary 21・concrete primary 8・civil-1 primary 21・civil-2 primary 3。散文リライトでなく**コンポーネント一括付与**で解消（`civil-exampoint-restorer` 等）。pe-construction past-exam 84 も RelatedKeywords 未配線（related=1）だが note 誘導設計として許容
-3. **⚪ ルーブリック不適合＝非欠陥（対応不要）** — pillar 5本（である調ハブ・ガイド軸ミスマッチ）・総監 secondary h28-30（意図的問題文アーカイブ）・pe-construction 二次 84本（問題文アーカイブ設計）。census 上は低スコアだが仕様通り。**将来 group 別に閾値/軸を分けるなら census 側で除外**
+   - civil-1 `primary-r06-b`/`r07-b`: 穴埋め①②③④マーク矛盾（正しい記述に❌）16/12箇所。ExamPoint/RK は追加済だが option_verification=0 で 1.0 据置＝要マーク精査
+   - **別セッション進行中（重複禁止）**: civil-1 `primary-h27-a`/`h28-a` No.61 港則法（task_5a0a5d01・原典PDF照合）／civil-1 `primary-r04-a`/`r05-a` 誤答肢解説補完（task_7d253597）
+   - 総監 `h28-secondary`/`h29-secondary`/`h30-secondary`: 姉妹年（h27 等）は解答方向性が充実（answer_accuracy=3）だが本記事は薄い（=1・2590字 vs 3897字）。**RK付与のみでの数値通過は不誠実**＝h27 水準の解答方向性 authoring 要（白書事実は factcheck 必須）
+   - 総監 `h21-primary` Ⅱ-1-31・`h22-primary` Ⅱ-1-22・`h28-primary` I-1-9/25/28・`h30-primary` I-1-24（既掲）／pe-first-stage 数本の answer_accuracy=1（official key 照合要・数値上は合格域）
+2. **✅ 構造規約ギャップ（機械修正・完了）** — 内容健全だが component 未実装で 1.0 クランプだった群を 2026-07-10 に消化: pe-first-stage 21・concrete 8・civil-2 4。pe-construction past-exam 84 は RelatedKeywords 未配線（related=1）だが note 誘導設計として許容（対応不要）
+3. **⚪ ルーブリック不適合＝非欠陥（17本・要 group 別スコープ判断・内容 mangling 禁止）** — 過去問/ガイド軸の適用ミスマッチで低スコア。**§7/§12: 意図設計を崩して強引に合格化しない**:
+   - **pillar 5本**（economic/human-resource/information/safety/social-environment-management-pillar）＝である調の 5管理ハブ。ですます散文軸で readability=1 だが**ハブ設計として正しい**（[[project_pillar_architecture]]）
+   - **civil-1 secondary 8本**（concrete/construction-plan/earthwork/quality-management-basics・experience-writing-guide/examples・getting-started・quality-management-past-problems）＝過去問でなく**解説/学習ガイド**なのに過去問 ExamPoint 軸で 0クランプ。真の解＝正しい Evaluator（guide-qa/civil-construction-review）で再採点 or group 是正
+   - **pe-comp guide 4本**（frequent-topics/keyword-2026/exam-application-guide/essay-pattern-cross-year）＝ランキング表・キーワード集の**データページ**。一部は 4列超表（実 CLAUDE.md 違反=修正可）だが guide 散文軸は本質ミスマッチ
+   - **判断待ち**: census を group 別の閾値/軸に分けて除外するか、上記を正しい Evaluator で再採点するか（Phase 3 のスコープ設計）。総監 secondary h28-30 は「問題文アーカイブ」でなく**実際に薄い**と判明したので 🔴 へ移動済
 4. **🟢 薄層 377（既存トラックと合流）** — 総監 keyword 360＝5/17 demote 源流コホート、[[project_adsense_low_value_2026_07]] の続き。pe-construction keyword 16（書籍全文収録の長文）・concrete textbook 1。3,000字下限へ散文増補（7月112本バッチの継続）
 
 - **Phase 3（恒久化）**: 月次 `/gsc-review` と同タイミングで `npm run quality-census` 再生成 → 新規公開の未採点・薄層逆戻り・スコア低下を surface。
