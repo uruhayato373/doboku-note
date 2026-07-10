@@ -53,15 +53,15 @@ doboku-note プロジェクトにおけるドキュメント・データの置�
 
 タスクマスタは `backlog.md`（上表は backlog から pull される下流の3層）。
 
-## handoff のライフサイクル（2026-06-23〜「extract→即 archive」）
+## handoff のライフサイクル（2026-07-11〜「extract→削除」・archive 廃止）
 
 `docs/handoffs/YYYY-MM-DD-{context}.md` は**セッション引き継ぎの途中記録**。溜めない運用に統一する:
 
-1. handoff の**生きたタスクは `docs/todo/backlog.md` へ抽出**（出典に退避後の `_archive/` パスを明記）。
-2. handoff 本体は**即 `docs/handoffs/_archive/` へ退避**（runbook・手順・経緯は記録として保全・参照可能）。**退避≠削除**。
-3. 参照は同一 commit で `_archive/` パスへ張り替える（`check-doc-refs`）。
+1. handoff の**生きたタスク・恒久ノウハウは然るべき SSOT へ抽出**（タスク→`docs/todo/backlog.md`／手順・runbook→`docs/reference/` の該当 doc／個人知見→memory）。
+2. 抽出が終わった handoff 本体は**削除**（`git rm`）。**記録は git 履歴が持つ**＝いつでも復元可能。旧 `_archive/` ディレクトリは廃止（2026-07-11 に77本を削除・ユーザー決定）。
+3. 過去 handoff への出典引用（`docs/handoffs/**` パス）は削除後も正当（point-in-time 記録）。`check-doc-refs` は `docs/handoffs/**` を参照先チェックから除外する。
 
-**残作業の有無は `handoffs/` に残す理由にならない**（タスクは backlog が持ち、月初→`monthly`・週初→`weekly` へ落ちる）。`handoffs/` は原則ほぼ空。週次 PDCA（`/weekly-review` の Agent H）が退避漏れを surface し、`/doc-declutter`（`doc-curator`）が外部実体を検証して抽出→退避を適用する。
+**残作業の有無は `handoffs/` に残す理由にならない**（タスクは backlog が持ち、月初→`monthly`・週初→`weekly` へ落ちる）。`handoffs/` は原則ほぼ空。週次 PDCA（`/weekly-review` の Agent H）が抽出漏れを surface し、`/doc-declutter`（`doc-curator`）が外部実体を検証して抽出→削除を適用する。**鉄則＝外部実体（PR merged・published:true・deploy・ファイル実在）を検証してから削除・未確認なら削除しない**。
 
 ## .claude/ の残留ファイル
 

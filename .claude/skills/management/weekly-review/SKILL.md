@@ -266,22 +266,22 @@ B. 実験進捗レポート:
 
 出力形式: 「## ドキュメント棚卸し（handoff 退避候補）」セクションに以下を埋め込む
 
-## ドキュメント棚卸し（handoff 退避候補）
+## ドキュメント棚卸し（handoff 抽出→削除候補）
 
 ### active handoff 候補（{m} 件）
 | handoff | 経過 | tracked(todo) | 完了シグナル(PR/SHA) | 推奨 |
 |---|---|---|---|---|
-| 2026-MM-DD-xxx.md | 21d | あり | #123 | /doc-declutter で退避判定 |
+| 2026-MM-DD-xxx.md | 21d | あり | #123 | /doc-declutter で削除判定 |
 
-- 既定方針: handoff は「extract→即 ARCHIVE」（残作業があっても KEEP しない・handoffs/ は溜めない。真実源=information-architecture.md「handoff のライフサイクル」）
-- tracked=あり: 生きたタスクは backlog 済み → そのまま ARCHIVE 候補
-- tracked=なし: backlog へタスク抽出してから ARCHIVE（抽出漏れ注意）
+- 既定方針: handoff は「extract→削除」（残作業があっても KEEP しない・handoffs/ は溜めない・記録は git 履歴・`_archive/` は 2026-07-11 廃止。真実源=information-architecture.md「handoff のライフサイクル」）
+- tracked=あり: 生きたタスクは backlog 済み → そのまま削除候補
+- tracked=なし: backlog へタスク抽出してから削除（抽出漏れ注意）
 
 ### アクション提案
-- 候補が 1 件以上 → 次のローカルセッションで `/doc-declutter` を実行（外部実体を検証して抽出/退避）
+- 候補が 1 件以上 → 次のローカルセッションで `/doc-declutter` を実行（外部実体を検証して抽出→削除）
 
 注意:
-- 本エージェントは surface のみ。archive/抽出/commit はしない（判定・適用は doc-curator + /doc-declutter）
+- 本エージェントは surface のみ。削除/抽出/commit はしない（判定・適用は doc-curator + /doc-declutter）
 - 候補 0 件なら「棚卸し不要」と記録し次節をスキップ
 - _archive 内は対象外（check-doc-lifecycle が既に除外済み）
 ```

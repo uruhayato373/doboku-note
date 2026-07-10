@@ -103,7 +103,7 @@ title: スキル ナビゲーションガイド
 | `/monitor` | バックグラウンド監視 | `監視`, `/monitor` |
 | `/zenn-audit` | Zenn 本番 CSS との差分検出 | `Zenn差分`, `/zenn-audit` |
 | `/doc-sync` | コード/設定変更 diff × 候補 doc を `doc-sync-auditor` で突合し prose 陳腐化を検出→適用（機械ガード check-doc-refs/coupling の意味的な補完） | `ドキュメント同期`, `doc同期`, `仕様ズレ確認`, `/doc-sync` |
-| `/doc-declutter` | doc の肥大化棚卸し（完了 handoff 退避/古い行 trim/重複統廃合）。機械 surfacer `check-doc-lifecycle` で候補→外部実体を検証→`doc-curator` が処分判定→退避/参照更新/memory 同期まで適用 | `ドキュメント棚卸し`, `handoff 整理`, `doc 肥大化`, `/doc-declutter` |
+| `/doc-declutter` | doc の肥大化棚卸し（完了 handoff の抽出→削除/古い行 trim/重複統廃合・記録は git 履歴＝2026-07-11 archive 廃止）。機械 surfacer `check-doc-lifecycle` で候補→外部実体を検証→`doc-curator` が処分判定→削除/参照更新/memory 同期まで適用 | `ドキュメント棚卸し`, `handoff 整理`, `doc 肥大化`, `/doc-declutter` |
 
 ### 分析（analytics）
 

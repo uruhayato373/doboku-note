@@ -116,6 +116,9 @@ for (const f of files) {
       //   .claude/plans/**   = Claude Code の一時プランファイル
       //   .claude/projects/**= memory（各 PC ローカル、リポジトリ管理外）
       if (/^\.claude\/(state|plans|projects)\//.test(ref)) continue;
+      // docs/handoffs/** = point-in-time 記録（extract→削除の運用・2026-07-11〜）。
+      // 過去 handoff への出典引用は削除済みでも正当（記録は git 履歴）。information-architecture.md「handoff のライフサイクル」と整合。
+      if (/^docs\/handoffs\//.test(ref)) continue;
       const base = basename(ref);
       const cand = GENERIC_BASENAMES.has(base) ? [] : (byBasename.get(base) || []);
       const hint = cand.length === 1 ? `→ 移動先候補: ${cand[0]}`

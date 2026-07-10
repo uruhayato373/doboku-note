@@ -4,7 +4,7 @@
  *
  * 役割（2 層の機械側）:
  *   機械（本スクリプト）= 「棚卸しすべき doc 候補」を鮮度・orphan・完了マーカーで列挙する。
- *   LLM（doc-curator + /doc-declutter）= その候補を読んで KEEP/TRIM/ARCHIVE/DELETE/CONSOLIDATE を判定・適用する。
+ *   LLM（doc-curator + /doc-declutter）= その候補を読んで KEEP/TRIM/DELETE/CONSOLIDATE を判定・適用する（handoff は extract→削除が既定・2026-07-11 archive 廃止）。
  * 本スクリプトは**判定しない**（age や orphan は「古い＝不要」を意味しない）。あくまで人間/curator が
  * 見るべき候補を絞るだけ。**非ブロッキング**（常に exit 0）。
  *
@@ -13,7 +13,7 @@
  * シグナル:
  *   - age: ファイル名 YYYY-MM-DD-*.md から経過日数を算出（>= --days で stale-age 候補）。
  *   - orphan: その handoff の basename を参照している active doc が 0 件（追跡されていない）。
- *   - tracked: docs/todo/** から参照されている（＝意図的に追跡中＝退避は慎重に）。
+ *   - tracked: docs/todo/** から参照されている（＝意図的に追跡中＝削除は慎重に）。
  *   - refs: 本文が言及する PR(#NNN)・commit SHA（完了照合のヒント。親が gh/git で実体確認する）。
  *
  * 使い方:
@@ -106,7 +106,7 @@ for (const f of handoffs) {
   results.push({ path: rel, age, flags, refs, trackedBy, prs, commits });
 }
 
-// 候補（flag が付いたもの）を優先表示。tracked-by-todo は「退避は慎重に」マーク。
+// 候補（flag が付いたもの）を優先表示。tracked-by-todo は「削除は慎重に」マーク。
 const candidates = results.filter((r) => r.flags.some((x) => x.startsWith('stale-age') || x === 'orphan'));
 
 if (JSON_OUT) {
@@ -115,7 +115,7 @@ if (JSON_OUT) {
 }
 
 console.log(`[check-doc-lifecycle] active handoff: ${results.length} 本 / 棚卸し候補(age>=${STALE_DAYS}d or orphan): ${candidates.length} 本`);
-console.log('  （機械は候補を surface するだけ。KEEP/ARCHIVE/DELETE の判定は /doc-declutter → doc-curator）\n');
+console.log('  （機械は候補を surface するだけ。KEEP/TRIM/DELETE の判定は /doc-declutter → doc-curator）\n');
 
 if (candidates.length === 0) {
   console.log('  候補なし。');
@@ -131,5 +131,5 @@ for (const r of candidates.sort((a, b) => (b.age ?? 0) - (a.age ?? 0))) {
   console.log('');
 }
 
-console.log('次の一手: `/doc-declutter` で候補を doc-curator に判定させ、承認の上で退避/trim/統廃合する。');
+console.log('次の一手: `/doc-declutter` で候補を doc-curator に判定させ、承認の上で抽出→削除/trim/統廃合する（記録は git 履歴）。');
 process.exit(0);
