@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-07-10T11:15:35.689Z",
+  "generated_at": "2026-07-10T11:35:51.289Z",
   "thresholds": {
     "fail": 2,
     "thin_chars": 3000,
@@ -14,7 +14,7 @@
     "total": 1064,
     "scored": 1064,
     "unscored": 0,
-    "failed": 24,
+    "failed": 23,
     "thin": 377,
     "coverage_pct": 100
   },
@@ -33,9 +33,9 @@
           "total": 24,
           "scored": 24,
           "unscored": 0,
-          "failed": 4,
+          "failed": 3,
           "thin": 0,
-          "avg_weighted": 2.44
+          "avg_weighted": 2.51
         },
         "secondary": {
           "total": 16,
@@ -58,7 +58,7 @@
         "total": 131,
         "scored": 131,
         "unscored": 0,
-        "failed": 12,
+        "failed": 11,
         "thin": 0
       }
     },
@@ -246,14 +246,6 @@
       "reason": "failed",
       "weighted": 1,
       "body_chars": 40121
-    },
-    {
-      "slug": "civil-construction-1-primary-r06-b",
-      "category": "civil-construction-1",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 27142
     },
     {
       "slug": "civil-construction-1-primary-r07-b",
@@ -4182,11 +4174,11 @@
       "slug": "civil-construction-1-primary-r06-b",
       "category": "civil-construction-1",
       "group": "primary",
-      "body_chars": 27142,
+      "body_chars": 27146,
       "scored": true,
-      "weighted": 1,
-      "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "weighted": 2.7,
+      "scored_at": "2026-07-10T13:00:00.000Z",
+      "failed": false,
       "thin": false
     },
     {

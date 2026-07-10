@@ -942,18 +942,19 @@
       "slug": "civil-construction-1-primary-r06-b",
       "group": "primary",
       "scores": {
-        "answer_accuracy": 2,
-        "option_verification": 0,
+        "answer_accuracy": 3,
+        "option_verification": 3,
         "exampoint": 2,
         "related_keywords": 2,
         "mobile": 3
       },
-      "weighted": 1,
+      "weighted": 2.7,
       "weak_axes": [
-        "option_verification"
+        "exampoint",
+        "related_keywords"
       ],
-      "qualitative_comment": "ExamPoint8+RK+穴埋め補筆済。ただし①②③④形式設問(No.30-35)で正しい記述に❌が付くマーク矛盾16箇所が残存し要追加修正。",
-      "scored_at": "2026-07-10T00:00:00.000Z"
+      "qualitative_comment": "公式正答肢(touhokugiken=JCTC再掲 r6_doboku1Q_1stexam_answer)で全35問の正答一致を確認。数/組合せ・図問題12問(No.3/6/22/24/25/27/28/30/31/32/34/35)の正答番号と✅❌マーク矛盾を是正。No.3/6はkakomonn官報解説で図読取(側壁内面D13/作業K最早22日)、No.22は道路占用=道路管理者・特殊車両通行許可=道路管理者で適当2つ=正答2へ是正。全マークが公式正答と整合。",
+      "scored_at": "2026-07-10T13:00:00.000Z"
     },
     "primary-r07-a": {
       "slug": "civil-construction-1-primary-r07-a",
