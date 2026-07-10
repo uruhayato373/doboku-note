@@ -993,17 +993,17 @@
       "slug": "civil-construction-1-secondary-concrete-basics",
       "group": "secondary",
       "scores": {
-        "answer_accuracy": 3,
-        "option_verification": 2,
-        "exampoint": 0,
-        "related_keywords": 3,
-        "mobile": 2
+        "structure": 3,
+        "principle": 2,
+        "mobile": 1,
+        "figures": 3,
+        "reference": 3
       },
-      "weighted": 1,
+      "weighted": 2.2,
       "weak_axes": [
-        "option_verification"
+        "mobile"
       ],
-      "qualitative_comment": "基礎解説記事で正答/ExamPointは非該当。表が多く4列超の一部あり。関連リンク健全。",
+      "qualitative_comment": "最終再採点で合格2.2。規格表はoverride免除・ArticleImage 27枚移行・散文詰込表解体済。残: 入れ子リスト14クラスタ・表タイトル太字4箇所・圧接表の出典(follow-up)",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "secondary-concrete-past-problems": {
@@ -1025,17 +1025,17 @@
       "slug": "civil-construction-1-secondary-construction-plan-basics",
       "group": "secondary",
       "scores": {
-        "answer_accuracy": 3,
-        "option_verification": 2,
-        "exampoint": 0,
-        "related_keywords": 3,
-        "mobile": 2
+        "structure": 3,
+        "principle": 2,
+        "mobile": 1,
+        "figures": 3,
+        "reference": 3
       },
-      "weighted": 1,
+      "weighted": 2.2,
       "weak_axes": [
-        "option_verification"
+        "mobile"
       ],
-      "qualitative_comment": "基礎解説記事。frontmatterにogpタイトル二行の軽微な崩れあり。関連リンク健全。",
+      "qualitative_comment": "最終再採点で合格2.2。帳票様式表はoverride免除・ArticleImage 15枚・参考資料満点。壊れていた建設発生土表は優先順位箇条書き化+原典照合TODOを記録。残: 入れ子リスト12・factual table出典6",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "secondary-construction-plan-past-problems": {
@@ -1059,17 +1059,17 @@
       "slug": "civil-construction-1-secondary-earthwork-basics",
       "group": "secondary",
       "scores": {
-        "answer_accuracy": 3,
-        "option_verification": 2,
-        "exampoint": 0,
-        "related_keywords": 3,
-        "mobile": 2
+        "structure": 3,
+        "principle": 2,
+        "mobile": 1,
+        "figures": 3,
+        "reference": 2
       },
-      "weighted": 1,
+      "weighted": 2.05,
       "weak_axes": [
-        "option_verification"
+        "mobile"
       ],
-      "qualitative_comment": "基礎解説記事で正答/ExamPoint非該当。表内容は充実、複数の広範な表あり視認性やや圧迫。",
+      "qualitative_comment": "最終再採点で合格2.05。OCR崩れ計9修復(採点後にL520/526/521追修)・表2.11列崩壊を算術検証で14列に是正・死リンクjiban.co.jp除去。残: 表2.9散文詰込13セル(要解体・優先follow-up)・表2.1/2.3出典",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "secondary-earthwork-past-problems": {
@@ -1091,85 +1091,80 @@
       "slug": "civil-construction-1-secondary-experience-writing-examples",
       "group": "secondary",
       "scores": {
-        "answer_accuracy": 2,
-        "option_verification": 3,
-        "exampoint": 0,
-        "related_keywords": 3,
-        "mobile": 3
+        "structure": 3,
+        "principle": 3,
+        "mobile": 1,
+        "figures": 3,
+        "reference": 1
       },
-      "weighted": 1,
+      "weighted": 2.1,
       "weak_axes": [
-        "answer_accuracy"
+        "mobile",
+        "reference"
       ],
-      "qualitative_comment": "改善前例と改善ポイントの併記形式。模範解答自体は意図的に非掲載(note誘導)のため解答完結性はやや弱い。",
+      "qualitative_comment": "**合格2.10**。参考資料追加・表ほぼ解消。残軽微(L82-84 6列表1件・出典コメント)。sekokan-net要リンク再確認",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "secondary-experience-writing-guide": {
       "slug": "civil-construction-1-secondary-experience-writing-guide",
       "group": "secondary",
       "scores": {
-        "answer_accuracy": 3,
-        "option_verification": 3,
-        "exampoint": 0,
-        "related_keywords": 3,
-        "mobile": 3
+        "structure": 2,
+        "principle": 2,
+        "mobile": 2,
+        "figures": 3,
+        "reference": 3
       },
-      "weighted": 1,
+      "weighted": 2.3,
       "weak_axes": [],
-      "qualitative_comment": "出題傾向・R6形式変更・記述留意点を体系的に解説。文字数チェッカー導線もあり充実度高い。",
+      "qualitative_comment": "最終再採点で合格2.3。ヒント表5点解体・参考資料満点。残: tags空行記法・空セル表1・太字2",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "secondary-getting-started": {
       "slug": "civil-construction-1-secondary-getting-started",
       "group": "secondary",
       "scores": {
-        "answer_accuracy": 2,
-        "option_verification": 1,
-        "exampoint": 1,
-        "related_keywords": 2,
-        "mobile": 3
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 1
       },
-      "weighted": 1.8,
+      "weighted": 2.7,
       "weak_axes": [
-        "option_verification",
-        "exampoint"
+        "reference"
       ],
-      "qualitative_comment": "過去問でなく学習ガイド記事。設問/解答構造がなくルーブリック対象外に近い。関連リンクはSeeAlso1本のみで薄い。",
+      "qualitative_comment": "civil-construction-review再採点で合格2.7。ですます調ガイドで構造/読みやすさ良好（旧past-exam ExamPoint軸は非該当だった）",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "secondary-quality-management-basics": {
       "slug": "civil-construction-1-secondary-quality-management-basics",
       "group": "secondary",
       "scores": {
-        "answer_accuracy": 2,
-        "option_verification": 1,
-        "exampoint": 0,
-        "related_keywords": 2,
-        "mobile": 2
+        "structure": 3,
+        "principle": 2,
+        "mobile": 2,
+        "figures": 3,
+        "reference": 2
       },
-      "weighted": 1,
-      "weak_axes": [
-        "exampoint",
-        "option_verification"
-      ],
-      "qualitative_comment": "基礎解説記事で過去問の設問/解答構造がない。4列以上の表が複数あり、ExamPoint皆無。",
+      "weighted": 2.35,
+      "weak_axes": [],
+      "qualitative_comment": "最終再採点で合格2.35。H2再構成+KaTeX外出し+ArticleImage 7枚。残: 締固め試験リスト階層・入れ子7・民間ソース不在",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "secondary-quality-management-past-problems": {
       "slug": "civil-construction-1-secondary-quality-management-past-problems",
       "group": "secondary",
       "scores": {
-        "answer_accuracy": 2,
-        "option_verification": 2,
-        "exampoint": 1,
-        "related_keywords": 2,
-        "mobile": 2
+        "structure": 3,
+        "principle": 2,
+        "mobile": 2,
+        "figures": 3,
+        "reference": 2
       },
-      "weighted": 1.8,
-      "weak_axes": [
-        "exampoint"
-      ],
-      "qualitative_comment": "全16問の正誤列が常に⭕で情報価値が低い。ポイント欄は薄く、r03以降のExamPoint構造と不統一。",
+      "weighted": 2.35,
+      "weak_axes": [],
+      "qualitative_comment": "最終再採点で合格2.35。解答表箇条書き化+ArticleImage 4枚。残: 除外指定(a)(b)の視覚分離・出典9件",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "secondary-r03": {

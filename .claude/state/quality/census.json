@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-07-10T09:32:17.902Z",
+  "generated_at": "2026-07-10T10:59:38.548Z",
   "thresholds": {
     "fail": 2,
     "thin_chars": 3000,
@@ -14,7 +14,7 @@
     "total": 1064,
     "scored": 1064,
     "unscored": 0,
-    "failed": 27,
+    "failed": 5,
     "thin": 377,
     "coverage_pct": 100
   },
@@ -33,17 +33,17 @@
           "total": 24,
           "scored": 24,
           "unscored": 0,
-          "failed": 6,
+          "failed": 4,
           "thin": 0,
-          "avg_weighted": 2.29
+          "avg_weighted": 2.44
         },
         "secondary": {
           "total": 16,
           "scored": 16,
           "unscored": 0,
-          "failed": 8,
+          "failed": 0,
           "thin": 0,
-          "avg_weighted": 2
+          "avg_weighted": 2.54
         },
         "textbook": {
           "total": 45,
@@ -58,7 +58,7 @@
         "total": 131,
         "scored": 131,
         "unscored": 0,
-        "failed": 14,
+        "failed": 4,
         "thin": 0
       }
     },
@@ -138,9 +138,9 @@
           "total": 26,
           "scored": 26,
           "unscored": 0,
-          "failed": 4,
+          "failed": 0,
           "thin": 0,
-          "avg_weighted": 2.38
+          "avg_weighted": 2.52
         },
         "keyword": {
           "total": 659,
@@ -154,24 +154,24 @@
           "total": 34,
           "scored": 34,
           "unscored": 0,
-          "failed": 3,
+          "failed": 0,
           "thin": 0,
-          "avg_weighted": 2.55
+          "avg_weighted": 2.59
         },
         "pillar": {
           "total": 5,
           "scored": 5,
           "unscored": 0,
-          "failed": 5,
+          "failed": 0,
           "thin": 0,
-          "avg_weighted": 1.8
+          "avg_weighted": 2.36
         }
       },
       "totals": {
         "total": 724,
         "scored": 724,
         "unscored": 0,
-        "failed": 12,
+        "failed": 0,
         "thin": 360
       }
     },
@@ -248,22 +248,6 @@
       "body_chars": 40121
     },
     {
-      "slug": "civil-construction-1-primary-r04-a",
-      "category": "civil-construction-1",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 28432
-    },
-    {
-      "slug": "civil-construction-1-primary-r05-a",
-      "category": "civil-construction-1",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 28610
-    },
-    {
       "slug": "civil-construction-1-primary-r06-b",
       "category": "civil-construction-1",
       "group": "primary",
@@ -278,70 +262,6 @@
       "reason": "failed",
       "weighted": 1,
       "body_chars": 22148
-    },
-    {
-      "slug": "civil-construction-1-secondary-concrete-basics",
-      "category": "civil-construction-1",
-      "group": "secondary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 39588
-    },
-    {
-      "slug": "civil-construction-1-secondary-construction-plan-basics",
-      "category": "civil-construction-1",
-      "group": "secondary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 16713
-    },
-    {
-      "slug": "civil-construction-1-secondary-earthwork-basics",
-      "category": "civil-construction-1",
-      "group": "secondary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 42993
-    },
-    {
-      "slug": "civil-construction-1-secondary-experience-writing-examples",
-      "category": "civil-construction-1",
-      "group": "secondary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 13795
-    },
-    {
-      "slug": "civil-construction-1-secondary-experience-writing-guide",
-      "category": "civil-construction-1",
-      "group": "secondary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 16264
-    },
-    {
-      "slug": "civil-construction-1-secondary-getting-started",
-      "category": "civil-construction-1",
-      "group": "secondary",
-      "reason": "failed",
-      "weighted": 1.8,
-      "body_chars": 2507
-    },
-    {
-      "slug": "civil-construction-1-secondary-quality-management-basics",
-      "category": "civil-construction-1",
-      "group": "secondary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 13892
-    },
-    {
-      "slug": "civil-construction-1-secondary-quality-management-past-problems",
-      "category": "civil-construction-1",
-      "group": "secondary",
-      "reason": "failed",
-      "weighted": 1.8,
-      "body_chars": 14064
     },
     {
       "slug": "civil-construction-2-primary-r06-kouki",
@@ -992,14 +912,6 @@
       "body_chars": 1995
     },
     {
-      "slug": "pe-comprehensive-management-economic-management-pillar",
-      "category": "pe-comprehensive-management",
-      "group": "pillar",
-      "reason": "failed",
-      "weighted": 1.8,
-      "body_chars": 9523
-    },
-    {
       "slug": "pe-comprehensive-management-ecosystem-services",
       "category": "pe-comprehensive-management",
       "group": "keyword",
@@ -1144,22 +1056,6 @@
       "body_chars": 2944
     },
     {
-      "slug": "pe-comprehensive-management-essay-pattern-cross-year-application",
-      "category": "pe-comprehensive-management",
-      "group": "guide",
-      "reason": "failed",
-      "weighted": 1.8,
-      "body_chars": 5844
-    },
-    {
-      "slug": "pe-comprehensive-management-exam-application-guide",
-      "category": "pe-comprehensive-management",
-      "group": "guide",
-      "reason": "failed",
-      "weighted": 1.8,
-      "body_chars": 8388
-    },
-    {
       "slug": "pe-comprehensive-management-extreme-events",
       "category": "pe-comprehensive-management",
       "group": "keyword",
@@ -1256,14 +1152,6 @@
       "body_chars": 2422
     },
     {
-      "slug": "pe-comprehensive-management-frequent-topics",
-      "category": "pe-comprehensive-management",
-      "group": "guide",
-      "reason": "failed",
-      "weighted": 1.2,
-      "body_chars": 7793
-    },
-    {
       "slug": "pe-comprehensive-management-front-loading",
       "category": "pe-comprehensive-management",
       "group": "keyword",
@@ -1342,30 +1230,6 @@
       "reason": "thin",
       "weighted": 2.55,
       "body_chars": 2097
-    },
-    {
-      "slug": "pe-comprehensive-management-h28-secondary",
-      "category": "pe-comprehensive-management",
-      "group": "past-exam",
-      "reason": "failed",
-      "weighted": 1.8,
-      "body_chars": 2113
-    },
-    {
-      "slug": "pe-comprehensive-management-h29-secondary",
-      "category": "pe-comprehensive-management",
-      "group": "past-exam",
-      "reason": "failed",
-      "weighted": 1.8,
-      "body_chars": 3473
-    },
-    {
-      "slug": "pe-comprehensive-management-h30-secondary",
-      "category": "pe-comprehensive-management",
-      "group": "past-exam",
-      "reason": "failed",
-      "weighted": 1.8,
-      "body_chars": 2389
     },
     {
       "slug": "pe-comprehensive-management-halo-effect-errors",
@@ -1456,14 +1320,6 @@
       "body_chars": 2775
     },
     {
-      "slug": "pe-comprehensive-management-human-resource-management-pillar",
-      "category": "pe-comprehensive-management",
-      "group": "pillar",
-      "reason": "failed",
-      "weighted": 1.8,
-      "body_chars": 10890
-    },
-    {
       "slug": "pe-comprehensive-management-ics",
       "category": "pe-comprehensive-management",
       "group": "keyword",
@@ -1518,14 +1374,6 @@
       "reason": "thin",
       "weighted": 2.25,
       "body_chars": 2147
-    },
-    {
-      "slug": "pe-comprehensive-management-information-management-pillar",
-      "category": "pe-comprehensive-management",
-      "group": "pillar",
-      "reason": "failed",
-      "weighted": 1.8,
-      "body_chars": 12981
     },
     {
       "slug": "pe-comprehensive-management-information-retrieval",
@@ -1734,14 +1582,6 @@
       "reason": "thin",
       "weighted": 3,
       "body_chars": 2522
-    },
-    {
-      "slug": "pe-comprehensive-management-keyword-2026",
-      "category": "pe-comprehensive-management",
-      "group": "guide",
-      "reason": "failed",
-      "weighted": 1.6,
-      "body_chars": 56623
     },
     {
       "slug": "pe-comprehensive-management-kyt",
@@ -2760,14 +2600,6 @@
       "body_chars": 2753
     },
     {
-      "slug": "pe-comprehensive-management-safety-management-pillar",
-      "category": "pe-comprehensive-management",
-      "group": "pillar",
-      "reason": "failed",
-      "weighted": 1.8,
-      "body_chars": 14842
-    },
-    {
       "slug": "pe-comprehensive-management-safety-management-system",
       "category": "pe-comprehensive-management",
       "group": "keyword",
@@ -2926,14 +2758,6 @@
       "reason": "thin",
       "weighted": 2.35,
       "body_chars": 2463
-    },
-    {
-      "slug": "pe-comprehensive-management-social-environment-management-pillar",
-      "category": "pe-comprehensive-management",
-      "group": "pillar",
-      "reason": "failed",
-      "weighted": 1.8,
-      "body_chars": 13340
     },
     {
       "slug": "pe-comprehensive-management-soil-contamination-act",
@@ -4151,11 +3975,11 @@
       "slug": "civil-construction-1-primary-r04-a",
       "category": "civil-construction-1",
       "group": "primary",
-      "body_chars": 28432,
+      "body_chars": 39996,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.9,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
@@ -4173,11 +3997,11 @@
       "slug": "civil-construction-1-primary-r05-a",
       "category": "civil-construction-1",
       "group": "primary",
-      "body_chars": 28610,
+      "body_chars": 36989,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.9,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
@@ -4239,11 +4063,11 @@
       "slug": "civil-construction-1-secondary-concrete-basics",
       "category": "civil-construction-1",
       "group": "secondary",
-      "body_chars": 39588,
+      "body_chars": 40597,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.2,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
@@ -4261,11 +4085,11 @@
       "slug": "civil-construction-1-secondary-construction-plan-basics",
       "category": "civil-construction-1",
       "group": "secondary",
-      "body_chars": 16713,
+      "body_chars": 17378,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.2,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
@@ -4283,11 +4107,11 @@
       "slug": "civil-construction-1-secondary-earthwork-basics",
       "category": "civil-construction-1",
       "group": "secondary",
-      "body_chars": 42993,
+      "body_chars": 44010,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.05,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
@@ -4305,22 +4129,22 @@
       "slug": "civil-construction-1-secondary-experience-writing-examples",
       "category": "civil-construction-1",
       "group": "secondary",
-      "body_chars": 13795,
+      "body_chars": 13989,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.1,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
       "slug": "civil-construction-1-secondary-experience-writing-guide",
       "category": "civil-construction-1",
       "group": "secondary",
-      "body_chars": 16264,
+      "body_chars": 16399,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.3,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
@@ -4329,31 +4153,31 @@
       "group": "secondary",
       "body_chars": 2507,
       "scored": true,
-      "weighted": 1.8,
+      "weighted": 2.7,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
       "slug": "civil-construction-1-secondary-quality-management-basics",
       "category": "civil-construction-1",
       "group": "secondary",
-      "body_chars": 13892,
+      "body_chars": 14488,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.35,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
       "slug": "civil-construction-1-secondary-quality-management-past-problems",
       "category": "civil-construction-1",
       "group": "secondary",
-      "body_chars": 14064,
+      "body_chars": 13623,
       "scored": true,
-      "weighted": 1.8,
+      "weighted": 2.35,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
@@ -4448,7 +4272,7 @@
       "slug": "civil-construction-1-textbook-construction-mgmt-overview",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 4563,
+      "body_chars": 4559,
       "scored": true,
       "weighted": 2.85,
       "scored_at": "2026-04-20T05:46:29.772Z",
@@ -5372,7 +5196,7 @@
       "slug": "concrete-chief-engineer-primary-construction",
       "category": "concrete-chief-engineer",
       "group": "primary",
-      "body_chars": 49692,
+      "body_chars": 65868,
       "scored": true,
       "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -5383,7 +5207,7 @@
       "slug": "concrete-chief-engineer-primary-durability",
       "category": "concrete-chief-engineer",
       "group": "primary",
-      "body_chars": 12726,
+      "body_chars": 15997,
       "scored": true,
       "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -5394,7 +5218,7 @@
       "slug": "concrete-chief-engineer-primary-materials",
       "category": "concrete-chief-engineer",
       "group": "primary",
-      "body_chars": 33742,
+      "body_chars": 37874,
       "scored": true,
       "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -5405,7 +5229,7 @@
       "slug": "concrete-chief-engineer-primary-mix-design",
       "category": "concrete-chief-engineer",
       "group": "primary",
-      "body_chars": 15532,
+      "body_chars": 19819,
       "scored": true,
       "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -5416,7 +5240,7 @@
       "slug": "concrete-chief-engineer-primary-production-qc",
       "category": "concrete-chief-engineer",
       "group": "primary",
-      "body_chars": 34614,
+      "body_chars": 41597,
       "scored": true,
       "weighted": 2.6,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -5427,7 +5251,7 @@
       "slug": "concrete-chief-engineer-primary-products",
       "category": "concrete-chief-engineer",
       "group": "primary",
-      "body_chars": 4812,
+      "body_chars": 5604,
       "scored": true,
       "weighted": 2.6,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -5438,7 +5262,7 @@
       "slug": "concrete-chief-engineer-primary-properties",
       "category": "concrete-chief-engineer",
       "group": "primary",
-      "body_chars": 22373,
+      "body_chars": 25228,
       "scored": true,
       "weighted": 2.6,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -5449,7 +5273,7 @@
       "slug": "concrete-chief-engineer-primary-structural-design",
       "category": "concrete-chief-engineer",
       "group": "primary",
-      "body_chars": 13235,
+      "body_chars": 18197,
       "scored": true,
       "weighted": 2.6,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -7365,9 +7189,9 @@
       "group": "pillar",
       "body_chars": 9523,
       "scored": true,
-      "weighted": 1.8,
+      "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
@@ -7772,9 +7596,9 @@
       "group": "guide",
       "body_chars": 5844,
       "scored": true,
-      "weighted": 1.8,
+      "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
@@ -7825,11 +7649,11 @@
       "slug": "pe-comprehensive-management-exam-application-guide",
       "category": "pe-comprehensive-management",
       "group": "guide",
-      "body_chars": 8388,
+      "body_chars": 9368,
       "scored": true,
-      "weighted": 1.8,
+      "weighted": 2.8,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
@@ -8146,9 +7970,9 @@
       "group": "guide",
       "body_chars": 7793,
       "scored": true,
-      "weighted": 1.2,
+      "weighted": 2.2,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
@@ -8531,9 +8355,9 @@
       "group": "past-exam",
       "body_chars": 2113,
       "scored": true,
-      "weighted": 1.8,
+      "weighted": 2.2,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
@@ -8553,9 +8377,9 @@
       "group": "past-exam",
       "body_chars": 3473,
       "scored": true,
-      "weighted": 1.8,
+      "weighted": 2.2,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
@@ -8575,9 +8399,9 @@
       "group": "past-exam",
       "body_chars": 2389,
       "scored": true,
-      "weighted": 1.8,
+      "weighted": 2.2,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
@@ -8828,9 +8652,9 @@
       "group": "pillar",
       "body_chars": 10890,
       "scored": true,
-      "weighted": 1.8,
+      "weighted": 2.2,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
@@ -9015,9 +8839,9 @@
       "group": "pillar",
       "body_chars": 12981,
       "scored": true,
-      "weighted": 1.8,
+      "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
@@ -9466,9 +9290,9 @@
       "group": "guide",
       "body_chars": 56623,
       "scored": true,
-      "weighted": 1.6,
+      "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
@@ -12194,9 +12018,9 @@
       "group": "pillar",
       "body_chars": 14842,
       "scored": true,
-      "weighted": 1.8,
+      "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
@@ -12502,9 +12326,9 @@
       "group": "pillar",
       "body_chars": 13340,
       "scored": true,
-      "weighted": 1.8,
+      "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {

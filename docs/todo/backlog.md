@@ -38,19 +38,28 @@
 
 **Phase 1（全数採点）完了・2026-07-10**: published 全 1,064 本の採点カバレッジ **100%** 達成（6資格×全group・commit 60812601d 他）。以降は Phase 2（校正）と Phase 3（恒久化）。
 
-現況: 採点 **1,064/1,064（100%）** / 不合格 75 / 薄層 377 / rewrite_queue 452。
+現況: 採点 **1,064/1,064（100%）** / 不合格 **5**（75→…→8→5・2026-07-10 セッションで消化）/ 薄層 377。**残5は全て公式解答照合が要る過去問マーク矛盾＝2つの spawned 検証タスクが所有（LLM推測禁止）**: task_87198744（civil-1 h27-a/h28-a No.61 港則法）・task_5900f862（civil-1 r06-b/r07-b・civil-2 r06-kouki の正答マーク矛盾）。**総監 h28-30-secondary は authoring せず解決**＝現物照合で「全17 secondary が解答本体0の同一設計（旧形式は論点抽出用・答案練習は令和期へ誘導）」と判明し、h29 は3950字で passing h27(3897字)より長く answer_accuracy=1 は Evaluator の run 間ブレ。同一設計 modal 基準 [2,2,2,2,3]=2.2 へ整合（earlier「thin」仮説を §8 で撤回）。
 
-**Phase 2 の rewrite_queue 452 は性質で4分類（優先度順）。一括で回さず分類ごとに対応**:
+**Phase 2 進捗（2026-07-10）**: (A) 構造規約ギャップの機械修正を完遂 — **pe-first-stage 21・concrete-chief 8・civil-2 4** を RelatedKeywords 一括付与＋ExamPoint 折衷案化で全合格（全 slug 検証・欠落0）。(B) **ルーブリック不適合 17本をユーザー決定「正しい Evaluator で再採点」で処理** — pillar 5・keyword-2026・frequent-topics を `cem-qa`（ハブ/キーワード軸）、essay-pattern-cross-year を `cem-qa`（模範論文ハブ＝§20例外）、getting-started を `civil-construction-review` で再採点し **9本が正当に合格**（である調ハブ・データページは linking/reference 軸が適合）。exam-application-guide は `guide-rewriter` でリード/funnel/表を実修正し合格。commit `63d57f457`〜`cce2ebbea`、PR #387。**残 15 は再採点でも消えない＝真の内容欠陥 or 多軸リライト要**に純化。
 
-1. **🔴 真の内容バグ（最優先・少数）** — 過去問解説の実欠陥。個別修正（`past-exam-rewriter` / `civil-secondary-exam-writer`）:
+**重要な発見**: 「ルーブリック不適合」と仮分類した 17本のうち **civil-1 secondary 7本は誤分類**だった — `civil-construction-review`（textbook 軸）で再採点しても不合格＝**参考資料節/外部リンク皆無(reference=0)＋4列超表＋生img** の**真の多軸ギャップ**。misfit ではなく実リライト対象（下記1へ移送）。
+
+**残 15 の分類（一括で回さない・分類ごとに対応）**:
+
+1. **🔴 真の内容バグ（10本・source照合 or authoring 要・LLM推測厳禁）** — 過去問解説の実欠陥。個別修正（`past-exam-rewriter` / `civil-secondary-exam-writer`）:
    - civil-1 `primary-r04-a`・`primary-r05-a`: 大多数の設問で正答肢のみ解説し**誤答肢3つの正誤理由が丸ごと欠落**（19✅/45❌・13✅/51❌）＝過去問の核心要件を欠く。全面書き直し級
    - civil-1 `primary-r06-a` L433-438: ❌マークなのに解説が肯定文の矛盾。`primary-r06-b`/`r07-b`: 穴埋め誤答肢が「誤りを含む記述❌」プレースホルダーのみ
    - civil-1 `secondary-construction-plan-past-problems` No.9(1): 解答欄記述が省略
    - civil-2 `primary-r06-kouki` No.12/32/33: 「出題側の正解は」と正答・解説が矛盾。`secondary-r06` 問8: 画像が `{/* TODO */}` 未挿入で本文欠落
    - 総監 `h21-primary` Ⅱ-1-31（自己矛盾）・`h22-primary` Ⅱ-1-22（下書き跡）・`h28-primary` I-1-9/25/28（正答数不一致を「解釈もあり得る」で誤魔化し）・`h30-primary` I-1-24（思考過程露出）
    - pe-first-stage `r03-construction` Ⅲ-2/Ⅲ-18（正答矛盾）・`r04-basic` Ⅰ-2-4（ハミング距離解説破綻）
-2. **🟡 構造規約ギャップ（バルク機械修正・約53本）** — 内容は健全（正答精度2-3）だが `<ExamPoint>`/`<RelatedKeywords>` コンポーネント未実装で weighted 1.0 クランプ。**新設 vertical と旧式 civil-1 primary が対象**: pe-first-stage primary 21・concrete primary 8・civil-1 primary 21・civil-2 primary 3。散文リライトでなく**コンポーネント一括付与**で解消（`civil-exampoint-restorer` 等）。pe-construction past-exam 84 も RelatedKeywords 未配線（related=1）だが note 誘導設計として許容
-3. **⚪ ルーブリック不適合＝非欠陥（対応不要）** — pillar 5本（である調ハブ・ガイド軸ミスマッチ）・総監 secondary h28-30（意図的問題文アーカイブ）・pe-construction 二次 84本（問題文アーカイブ設計）。census 上は低スコアだが仕様通り。**将来 group 別に閾値/軸を分けるなら census 側で除外**
+   - civil-1 `primary-r06-b`/`r07-b`: 穴埋め①②③④マーク矛盾（正しい記述に❌）16/12箇所。ExamPoint/RK は追加済だが option_verification=0 で 1.0 据置＝要マーク精査
+   - **別セッション進行中（重複禁止）**: civil-1 `primary-h27-a`/`h28-a` No.61 港則法（task_5a0a5d01・原典PDF照合）／civil-1 `primary-r04-a`/`r05-a` 誤答肢解説補完（task_7d253597）
+   - 総監 `h28-secondary`/`h29-secondary`/`h30-secondary`: 姉妹年（h27 等）は解答方向性が充実（answer_accuracy=3）だが本記事は薄い（=1・2590字 vs 3897字）。**RK付与のみでの数値通過は不誠実**＝h27 水準の解答方向性 authoring 要（白書事実は factcheck 必須）
+   - 総監 `h21-primary` Ⅱ-1-31・`h22-primary` Ⅱ-1-22・`h28-primary` I-1-9/25/28・`h30-primary` I-1-24（既掲）／pe-first-stage 数本の answer_accuracy=1（official key 照合要・数値上は合格域）
+   - **✅ civil-1 secondary 8本（完了・2026-07-10）** — ユーザー決定 (A)規格表 override 免除で全合格化。実施: ①`content-rules.json` の `overrides.civil-construction-1.secondary` に 1-3/1-4 免除追加（真実源 exam-content-policy.md Part 2 に追記・散文詰込表は対象外の但し書き） ②検証済みパレットURLのみで `## 参考資料` 全追加 ③生img→ArticleImage **121枚**移行 ④死リンク sekokan-net.jp(NXDOMAIN)→ejcm.or.jp(200実測)・jiban.co.jp(web到達不能)除去 ⑤earthwork OCR崩れ計9修復＋**表2.11土量計算書の列崩壊を算術照合で14列是正**（平均×距離=土量・差引・累加が全行一致＝数値発明なし） ⑥concrete/guide の散文詰込表解体 ⑦construction-plan の壊れ表（右列無意味反復）を実在断片の箇条書き化+原典照合TODO。Evaluator最終採点 2.05〜2.35 で 8/8 合格。**残存 follow-up**（合格済だが記録・各 scores.json の qualitative_comment 参照）: earthwork 表2.9 の散文詰込13セル解体（最優先）・入れ子リスト群・factual table のインライン出典・qm-basics/past-problems の民間ソース不在
+2. **✅ 構造規約ギャップ（機械修正・完了）** — pe-first-stage 21・concrete 8・civil-2 4 を消化。pe-construction past-exam 84 は RelatedKeywords 未配線だが note 誘導設計として許容（対応不要）
+3. **✅ ルーブリック不適合＝再採点で解消（完了・2026-07-10）** — pillar 5・keyword-2026・frequent-topics・essay-pattern-cross-year・getting-started の**9本を正しい Evaluator で再採点し合格化**（内容 mangling せず）。である調ハブ・データページ・模範論文ハブは linking/reference 軸が適合し 2.2〜2.7。真実源＝各 `*-scores.json` の qualitative_comment。**将来 census を group 別の Evaluator ルーティングに拡張するのが Phase 3 の宿題**（今回は手動で正しい Evaluator を当てた）
 4. **🟢 薄層 377（既存トラックと合流）** — 総監 keyword 360＝5/17 demote 源流コホート、[[project_adsense_low_value_2026_07]] の続き。pe-construction keyword 16（書籍全文収録の長文）・concrete textbook 1。3,000字下限へ散文増補（7月112本バッチの継続）
 
 - **Phase 3（恒久化）**: 月次 `/gsc-review` と同タイミングで `npm run quality-census` 再生成 → 新規公開の未採点・薄層逆戻り・スコア低下を surface。
@@ -104,9 +113,7 @@
 
 > 注（完了・2026-07-10）: **コンクリート主任技師 年度別過去問 H26-H28 転記は完遂**。H28/H27/H26 各30問＝計90問を並行workflow転記→親が正答マップ全数突合＋計算問題全数検算→解説は親執筆→図12点クロップ（答え漏らしなし）→年度単位で3コミット。8分野の被覆が平成26〜令和5年度化。handoff は `docs/handoffs/_archive/2026-07-10-cce-nendo-transcription.md` へ退避。残余力枠だった H29/H30 の未収録6分野（materials/properties 以外・約40問）は下記へ分離。
 
-### コンクリート主任技師 H29/H30 未収録6分野の転記（余力枠・約40問）🟢
-
-**背景**: materials/properties は H29-H30 収録済みだが，durability/mix-design/production-qc/construction/products/structural-design の6分野は H29・H30 が未収録（既存被覆は R01-R05＋今回の H26-28）。原典スキャン（`スキャンした書類 2.pdf`=H29 p218-237・`3.pdf`=H30 p202-221）とページ分割手順・転記パイプライン（workflow転記→正答一覧突合→解説親執筆→図クロップ）は H26-28 転記と同一で再現可能。正答一覧: H29=d2-s000-R付近・H30=d3末尾。低優先（受験者需要は直近年度で充足済み）。[[project_concrete_chief_engineer]]
+> 注（完了・2026-07-10）: **コンクリート主任技師 H29/H30 転記も同日完遂**。H29 26問＋H30 23問（既収録8問を除く全問・当初想定の6分野に加え materials/properties の未収録分も含む）を全8分野へ挿入。正答は原典解答一覧と全数突合（既収録8問の正答一致で一覧読取りも交差検証）、計算問題は親が全数検算（H29問16 は JIS A 5308 の計量誤差「四捨五入で整数に丸める」規定まで検証）。図12点クロップ＋台帳記録。これでコンクリート主任技師の年度別被覆は**平成26〜令和5年度の全問（計257問）**となり完結。
 
 ---
 

@@ -1316,6 +1316,114 @@
       "needs": "rescan-need-source",
       "reason": "R.04問題9(高流動)。書籍②/01のR4収録は問題14(テキスト設問)のみで本設問は非収録(p56-66精査・R.01問題9は選択肢が別物のため不採用)。旧画像維持。要R4原典。",
       "verified": "2026-07-10"
+    },
+    {
+      "figure": "concrete-chief-engineer/primary-materials/img/sand-surface-test-h29",
+      "needs": "ok",
+      "reason": "年度別過去問転記(H29/H30 未収録6分野+材料/性質)で新規クロップ＝H29問3 表面水率試験の器具写真4点(ア-エ)。並列subagentクロップ+親の全数目視QA(答え情報なし・選択肢/指写り込みなし確認)。2026-07-10。",
+      "verified": "2026-07-10",
+      "source_pdf": "docs/textbook/コンクリート主任技師2024/スキャンした書類 2.pdf",
+      "page": 220,
+      "dpi": 0
+    },
+    {
+      "figure": "concrete-chief-engineer/primary-properties/img/creep-strain-h29",
+      "needs": "ok",
+      "reason": "年度別過去問転記(H29/H30 未収録6分野+材料/性質)で新規クロップ＝H29問13 クリープ試験の時間-ひずみグラフ(εa/εe/εs)。並列subagentクロップ+親の全数目視QA(答え情報なし・選択肢/指写り込みなし確認)。2026-07-10。",
+      "verified": "2026-07-10",
+      "source_pdf": "docs/textbook/コンクリート主任技師2024/スキャンした書類 2.pdf",
+      "page": 225,
+      "dpi": 0
+    },
+    {
+      "figure": "concrete-chief-engineer/primary-construction/img/form-pressure-h29",
+      "needs": "ok",
+      "reason": "年度別過去問転記(H29/H30 未収録6分野+材料/性質)で新規クロップ＝H29問22 柱型枠の側圧分布図(実線/点線・H1・Pmax)。並列subagentクロップ+親の全数目視QA(答え情報なし・選択肢/指写り込みなし確認)。2026-07-10。",
+      "verified": "2026-07-10",
+      "source_pdf": "docs/textbook/コンクリート主任技師2024/スキャンした書類 2.pdf",
+      "page": 231,
+      "dpi": 0
+    },
+    {
+      "figure": "concrete-chief-engineer/primary-construction/img/mass-slab-stress-h29",
+      "needs": "ok",
+      "reason": "年度別過去問転記(H29/H30 未収録6分野+材料/性質)で新規クロップ＝H29問25 スラブ状マスコン断面図+温度応力分布候補a-d。並列subagentクロップ+親の全数目視QA(答え情報なし・選択肢/指写り込みなし確認)。2026-07-10。",
+      "verified": "2026-07-10",
+      "source_pdf": "docs/textbook/コンクリート主任技師2024/スキャンした書類 2.pdf",
+      "page": 233,
+      "dpi": 0
+    },
+    {
+      "figure": "concrete-chief-engineer/primary-structural-design/img/beam-design-h29",
+      "needs": "ok",
+      "reason": "年度別過去問転記(H29/H30 未収録6分野+材料/性質)で新規クロップ＝H29問28 RC梁の断面図+側面図(主筋①②・スターラップS)。並列subagentクロップ+親の全数目視QA(答え情報なし・選択肢/指写り込みなし確認)。2026-07-10。",
+      "verified": "2026-07-10",
+      "source_pdf": "docs/textbook/コンクリート主任技師2024/スキャンした書類 2.pdf",
+      "page": 234,
+      "dpi": 0
+    },
+    {
+      "figure": "concrete-chief-engineer/primary-structural-design/img/column-hoop-h29",
+      "needs": "ok",
+      "reason": "年度別過去問転記(H29/H30 未収録6分野+材料/性質)で新規クロップ＝H29問29 帯筋量の異なる4本のRC柱a-d+断面図。並列subagentクロップ+親の全数目視QA(答え情報なし・選択肢/指写り込みなし確認)。2026-07-10。",
+      "verified": "2026-07-10",
+      "source_pdf": "docs/textbook/コンクリート主任技師2024/スキャンした書類 2.pdf",
+      "page": 235,
+      "dpi": 0
+    },
+    {
+      "figure": "concrete-chief-engineer/primary-structural-design/img/pc-beam-load-h29",
+      "needs": "ok",
+      "reason": "年度別過去問転記(H29/H30 未収録6分野+材料/性質)で新規クロップ＝H29問30 PC梁 図1(側面/断面・A点B点)+図2(荷重-載荷点変位①-⑤)。並列subagentクロップ+親の全数目視QA(答え情報なし・選択肢/指写り込みなし確認)。2026-07-10。",
+      "verified": "2026-07-10",
+      "source_pdf": "docs/textbook/コンクリート主任技師2024/スキャンした書類 2.pdf",
+      "page": 236,
+      "dpi": 0
+    },
+    {
+      "figure": "concrete-chief-engineer/primary-properties/img/strain-unload-h30",
+      "needs": "ok",
+      "reason": "年度別過去問転記(H29/H30 未収録6分野+材料/性質)で新規クロップ＝H30問9 載荷-除荷の時間-ひずみ変化候補a-d。並列subagentクロップ+親の全数目視QA(答え情報なし・選択肢/指写り込みなし確認)。2026-07-10。",
+      "verified": "2026-07-10",
+      "source_pdf": "docs/textbook/コンクリート主任技師2024/スキャンした書類 3.pdf",
+      "page": 208,
+      "dpi": 0
+    },
+    {
+      "figure": "concrete-chief-engineer/primary-construction/img/pump-pressure-h30",
+      "needs": "ok",
+      "reason": "年度別過去問転記(H29/H30 未収録6分野+材料/性質)で新規クロップ＝H30問14 図1配管状況+図2吐出量-管内圧力損失(スランプ別)。並列subagentクロップ+親の全数目視QA(答え情報なし・選択肢/指写り込みなし確認)。2026-07-10。",
+      "verified": "2026-07-10",
+      "source_pdf": "docs/textbook/コンクリート主任技師2024/スキャンした書類 3.pdf",
+      "page": 211,
+      "dpi": 0
+    },
+    {
+      "figure": "concrete-chief-engineer/primary-mix-design/img/mix-volume-rccp-h30",
+      "needs": "ok",
+      "reason": "年度別過去問転記(H29/H30 未収録6分野+材料/性質)で新規クロップ＝H30問19 配合の容積百分率 帯グラフ(一般+a-d)。並列subagentクロップ+親の全数目視QA(答え情報なし・選択肢/指写り込みなし確認)。2026-07-10。",
+      "verified": "2026-07-10",
+      "source_pdf": "docs/textbook/コンクリート主任技師2024/スキャンした書類 3.pdf",
+      "page": 213,
+      "dpi": 0
+    },
+    {
+      "figure": "concrete-chief-engineer/primary-construction/img/mass-thermal-history-h30",
+      "needs": "ok",
+      "reason": "年度別過去問転記(H29/H30 未収録6分野+材料/性質)で新規クロップ＝H30問21 岩盤上スラブ断面図+温度応力履歴候補a-d。並列subagentクロップ+親の全数目視QA(答え情報なし・選択肢/指写り込みなし確認)。2026-07-10。",
+      "verified": "2026-07-10",
+      "source_pdf": "docs/textbook/コンクリート主任技師2024/スキャンした書類 3.pdf",
+      "page": 214,
+      "dpi": 0
+    },
+    {
+      "figure": "concrete-chief-engineer/primary-structural-design/img/cantilever-rebar-h30",
+      "needs": "ok",
+      "reason": "年度別過去問転記(H29/H30 未収録6分野+材料/性質)で新規クロップ＝H30問25 片持ち梁の引張主筋配置候補a-d。並列subagentクロップ+親の全数目視QA(答え情報なし・選択肢/指写り込みなし確認)。2026-07-10。",
+      "verified": "2026-07-10",
+      "source_pdf": "docs/textbook/コンクリート主任技師2024/スキャンした書類 3.pdf",
+      "page": 216,
+      "dpi": 0
     }
   ],
   "categories": {
