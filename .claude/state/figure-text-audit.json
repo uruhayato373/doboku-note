@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-07-10T11:17:47.078Z",
+  "generated_at": "2026-07-10T11:29:54.212Z",
   "tool": "tesseract jpn --psm 6",
   "base_count": 616,
   "file_count": 1046,
   "summary": {
     "leak": 0,
     "writein": 35,
-    "maybe": 149,
-    "clean": 432
+    "maybe": 148,
+    "clean": 433
   },
   "quality_summary": {
     "sharp": 599,
@@ -2873,10 +2873,10 @@
       "variants": 1
     },
     "concrete-chief-engineer/primary-construction/img/pump-longdistance-h27": {
-      "status": "maybe",
-      "periods": 1,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
-      "sharpness": 709.03,
+      "sharpness": 832.32,
       "quality": "sharp",
       "variants": 1
     },

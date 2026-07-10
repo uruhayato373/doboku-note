@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-07-10T11:17:47.524Z",
+  "generated_at": "2026-07-10T11:29:54.617Z",
   "note": "図provenance。needs=次アクション。真実源: figure-sources.json(台帳)+figure-text-audit.json(品質)。再生成可。",
   "figure_count": 616,
   "summary": {
-    "ok": 537,
+    "ok": 539,
     "rescan-need-source": 7,
-    "recrop-review": 28,
     "recrop": 28,
+    "recrop-review": 26,
     "rescan": 16
   },
   "figures": {
@@ -5153,12 +5153,12 @@
       "published": true,
       "referenced": true,
       "quality": "sharp",
-      "sharpness": 709.03,
-      "textStatus": "maybe",
+      "sharpness": 832.32,
+      "textStatus": "clean",
       "source_dir": "docs/textbook/コンクリート主任技師2024",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "concrete-chief-engineer/primary-construction/img/pump-piping-h26": {
       "category": "concrete-chief-engineer",
@@ -5408,7 +5408,8 @@
       "source_dir": "docs/textbook/コンクリート主任技師2024",
       "figure_origin": "textbook-scan",
       "rescannable": "true",
-      "needs": "recrop-review"
+      "needs": "ok",
+      "manualReason": "H28 X̄管理図(A群〜D群)。管理図はデータそのもの＝答え漏らし無し・本文/選択肢の写り込み無しを親目視で確認。OCRが軸ラベル『UCL』を『UCL5。』と誤読し句点1つ→maybe(recrop-review)偽陽性化していたため ok で確定。2026-07-10。"
     },
     "concrete-chief-engineer/primary-properties/img/beam-thermal-stress-h28": {
       "category": "concrete-chief-engineer",

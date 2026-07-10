@@ -1,6 +1,6 @@
 {
   "_comment": "図ソース台帳（SSOT）。資格(category slug)ごとに、記事図クロップの元素材の所在・種別・品質・再スキャン要否を1度記録する。build-figure-provenance.mjs が図の provenance を組むときに参照。図の実ソースを毎回手で辿らないための恒久記録。更新: docs/textbook 実体 + 図品質監査(sharpness) を根拠に随時。",
-  "_updated": "2026-07-09",
+  "_updated": "2026-07-10",
   "_fields": {
     "source_dir": "元素材のディレクトリ（docs/textbook 配下）",
     "source_kind": "pdf-vector(図がPDFにベクター/画像で入る) | pdf-textonly(問題PDFは図なしテキスト版) | scan-image(書籍スキャンpngのみ・PDF無し) | mixed",
@@ -1423,6 +1423,15 @@
       "verified": "2026-07-10",
       "source_pdf": "docs/textbook/コンクリート主任技師2024/スキャンした書類 3.pdf",
       "page": 216,
+      "dpi": 0
+    },
+    {
+      "figure": "concrete-chief-engineer/primary-production-qc/img/xbar-control-chart-h28",
+      "needs": "ok",
+      "reason": "H28 X̄管理図(A群〜D群)。管理図はデータそのもの＝答え漏らし無し・本文/選択肢の写り込み無しを親目視で確認。OCRが軸ラベル『UCL』を『UCL5。』と誤読し句点1つ→maybe(recrop-review)偽陽性化していたため ok で確定。2026-07-10。",
+      "verified": "2026-07-10",
+      "source_pdf": "docs/textbook/コンクリート主任技師2024/スキャンした書類 4.pdf",
+      "page": 0,
       "dpi": 0
     }
   ],
