@@ -109,7 +109,7 @@ export default function AuthorProfile({
         aria-label="運営者プロフィール"
         className="overflow-hidden rounded-card-section border border-[var(--rule-soft)] bg-[var(--paper)] shadow-soft"
       >
-        <span aria-hidden className="block h-[3px] w-full bg-[var(--color-brand)] opacity-70" />
+        <span aria-hidden className="block h-[3px] w-full bg-[var(--accent)] opacity-70" />
         <div className="p-6 sm:p-8">
           <div className="mb-5 font-mono text-[10px] tracking-[0.2em] text-[var(--ink-muted)]">
             {eyebrow}
@@ -154,7 +154,7 @@ export default function AuthorProfile({
       aria-label="運営者プロフィール"
       className="overflow-hidden rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)]"
     >
-      <span aria-hidden className="block h-[3px] w-full bg-[var(--color-brand)] opacity-70" />
+      <span aria-hidden className="block h-[3px] w-full bg-[var(--accent)] opacity-70" />
       <div className="p-5">
         <div className="mb-3 font-mono text-[10px] tracking-[0.2em] text-[var(--ink-muted)]">
           {eyebrow}

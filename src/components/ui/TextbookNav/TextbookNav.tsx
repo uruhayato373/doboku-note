@@ -34,7 +34,7 @@ export default function TextbookNav({ currentSlug, categoryArticles }: TextbookN
         {prev ? (
           <Link
             href={`/docs/${prev.slug}`}
-            className="block rounded-sm border border-[var(--rule-soft)] p-4 hover:border-[var(--accent)] transition-colors"
+            className="block rounded-card-content border border-[var(--rule-soft)] p-4 transition-colors hover:border-[var(--accent)]"
           >
             <div className="text-xs text-[var(--ink-muted)] mb-1">← 前の章</div>
             <div className="text-sm font-semibold text-[var(--accent)]">{prev.title}</div>
@@ -45,7 +45,7 @@ export default function TextbookNav({ currentSlug, categoryArticles }: TextbookN
         {next ? (
           <Link
             href={`/docs/${next.slug}`}
-            className="block rounded-sm border border-[var(--rule-soft)] p-4 hover:border-[var(--accent)] transition-colors text-right"
+            className="block rounded-card-content border border-[var(--rule-soft)] p-4 text-right transition-colors hover:border-[var(--accent)]"
           >
             <div className="text-xs text-[var(--ink-muted)] mb-1">次の章 →</div>
             <div className="text-sm font-semibold text-[var(--accent)]">{next.title}</div>

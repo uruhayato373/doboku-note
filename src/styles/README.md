@@ -1,113 +1,22 @@
 # doboku-note スタイルシート
 
-このディレクトリには、doboku-noteの全てのCSSスタイルシートが含まれています。
+サイト全体のスタイルは `globals.css` に集約し、`src/app/layout.tsx` から一度だけ読み込みます。
 
-## ファイル構成
+## 設計方針
 
-### `globals.css`
-- グローバルスタイル
-- 基本タイポグラフィ
-- カスタムコンポーネント
-- アニメーション
-- レスポンシブデザイン
-- ダークモード対応
+- UIの基本色は Editorial tokens（`--accent`、`--paper`、`--ink-*`、`--rule-*`）を使う
+- 状態色は `--color-positive-*`、`--color-warn-*`、`--color-danger-*` を使う
+- 試験固有色は `--exam-*`、Calloutは `--ct-*` を使う
+- `--color-ink-*` と `--color-brand-*` は図版・SNS・既存コンテンツとの共有パレットであり、新規UIでは使わない
+- カードの角丸は `rounded-card-inline/content/section/hero` を用途に応じて使う
+- カード外枠は `card-surface-content` または `card-surface-section` を使う
+- クリック可能なカードには `card-interactive` を追加する
 
-### `blog-headings.css`
-- ブログ記事専用の見出しスタイル
-- カテゴリ別の色分け
-- 箇条書きスタイル
-- 表のスタイリング
-- レスポンシブ対応
+## 読み込み
 
-### `list-styles.css`
-- リストコンポーネント用のカスタムスタイル
-- box28、modern、minimalスタイル
-- バリアント別の色分け
-- ダークモード対応
-
-### `linkcard.css`
-- LinkCardコンポーネント専用スタイル
-- タイトルのカスタムスタイリング
-- カテゴリ別の色分け
-- レスポンシブ対応
-- フォントサイズ・ウェイトのバリエーション
-
-### `index.css`
-- 全てのCSSファイルをインポートするインデックスファイル
-- 一括読み込み用
-
-## 使用方法
-
-### 全スタイルを読み込む場合
-```tsx
-import '../styles/index.css';
-```
-
-### 個別のスタイルを読み込む場合
-```tsx
-import '../styles/globals.css';
-import '../styles/blog-headings.css';
-import '../styles/list-styles.css';
-import '../styles/linkcard.css';
-```
-
-### レイアウトファイルでの使用例
 ```tsx
 // src/app/layout.tsx
-import "../styles/globals.css";
+import '../styles/globals.css';
 ```
 
-### ブログ記事ページでの使用例
-```tsx
-// src/app/blog/[id]/page.tsx
-import "../../../styles/blog-headings.css";
-import "../../../styles/list-styles.css";
-```
-
-### LinkCardコンポーネントでの使用例
-```tsx
-// LinkCardコンポーネントを使用する場合
-import "../styles/linkcard.css";
-```
-
-## スタイルの追加・修正
-
-新しいスタイルを追加する場合は、適切なファイルに追加するか、新しいファイルを作成してください。
-
-### 新しいスタイルファイルを作成する場合
-1. `src/styles/`ディレクトリに新しいCSSファイルを作成
-2. `src/styles/index.css`にインポート文を追加
-3. 使用するページでインポート
-
-### 例：新しいコンポーネントスタイル
-```css
-/* src/styles/component-styles.css */
-.my-component {
-  @apply bg-white dark:bg-gray-800 rounded-lg shadow-md;
-}
-```
-
-```css
-/* src/styles/index.css に追加 */
-@import './component-styles.css';
-```
-
-## ベストプラクティス
-
-1. **命名規則**: ファイル名は用途を明確に表現
-2. **コメント**: 各セクションに適切なコメントを追加
-3. **レスポンシブ**: モバイルファーストのアプローチ
-4. **ダークモード**: 全てのスタイルでダークモード対応
-5. **パフォーマンス**: 必要最小限のスタイルのみ読み込み
-
-## トラブルシューティング
-
-### スタイルが適用されない場合
-1. インポートパスが正しいか確認
-2. CSSファイルが正しい場所にあるか確認
-3. ブラウザのキャッシュをクリア
-
-### スタイルの競合が発生する場合
-1. より具体的なセレクタを使用
-2. `!important`の使用は避ける
-3. CSSの優先順位を確認 
+コンポーネントやページから個別にグローバルCSSをimportしないでください。新しい共通値はトークンとして `:root` と必要に応じて `.dark` に定義します。

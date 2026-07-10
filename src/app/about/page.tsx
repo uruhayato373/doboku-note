@@ -148,7 +148,7 @@ export default function AboutPage() {
               <div className="space-y-4">
                 <div className="bg-[var(--bg)] border border-[var(--rule-soft)] rounded-card-content p-4">
                   <div className="flex items-center gap-4">
-                    <div className="bg-[var(--accent)] w-12 h-12 rounded-sm flex items-center justify-center flex-shrink-0">
+                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-card-inline bg-[var(--accent)]">
                       <BookOpen className="w-6 h-6 text-white" />
                     </div>
                     <div>
@@ -163,7 +163,7 @@ export default function AboutPage() {
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--rule-soft)] rounded-card-content p-4">
                   <div className="flex items-center gap-4">
-                    <div className="bg-[var(--accent)] w-12 h-12 rounded-sm flex items-center justify-center flex-shrink-0">
+                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-card-inline bg-[var(--accent)]">
                       <FileText className="w-6 h-6 text-white" />
                     </div>
                     <div>
@@ -178,7 +178,7 @@ export default function AboutPage() {
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--rule-soft)] rounded-card-content p-4">
                   <div className="flex items-center gap-4">
-                    <div className="bg-[var(--accent)] w-12 h-12 rounded-sm flex items-center justify-center flex-shrink-0">
+                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-card-inline bg-[var(--accent)]">
                       <GraduationCap className="w-6 h-6 text-white" />
                     </div>
                     <div>
@@ -202,7 +202,7 @@ export default function AboutPage() {
               <div className="space-y-4">
                 <div className="bg-[var(--bg)] border border-[var(--rule-soft)] rounded-card-content p-4">
                   <div className="flex items-center gap-4">
-                    <div className="bg-[var(--accent)] w-12 h-12 rounded-sm flex items-center justify-center flex-shrink-0">
+                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-card-inline bg-[var(--accent)]">
                       <Target className="w-6 h-6 text-white" />
                     </div>
                     <div>
@@ -217,7 +217,7 @@ export default function AboutPage() {
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--rule-soft)] rounded-card-content p-4">
                   <div className="flex items-center gap-4">
-                    <div className="bg-[var(--accent)] w-12 h-12 rounded-sm flex items-center justify-center flex-shrink-0">
+                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-card-inline bg-[var(--accent)]">
                       <Search className="w-6 h-6 text-white" />
                     </div>
                     <div>
@@ -232,7 +232,7 @@ export default function AboutPage() {
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--rule-soft)] rounded-card-content p-4">
                   <div className="flex items-center gap-4">
-                    <div className="bg-[var(--accent)] w-12 h-12 rounded-sm flex items-center justify-center flex-shrink-0">
+                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-card-inline bg-[var(--accent)]">
                       <CheckCircle className="w-6 h-6 text-white" />
                     </div>
                     <div>

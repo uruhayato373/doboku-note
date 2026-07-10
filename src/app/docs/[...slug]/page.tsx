@@ -101,7 +101,7 @@ async function SafeMDXRemote({
     const message = error instanceof Error ? error.message : String(error);
     console.error('MDX compile error:', message.slice(0, 200));
     return (
-      <div className="p-4 border border-[var(--color-warn)] rounded-sm bg-[var(--color-warn-fill)]">
+      <div className="rounded-card-content border border-[var(--color-warn)] bg-[var(--color-warn-fill)] p-4">
         <p className="text-[var(--color-warn)] font-semibold">
           このページのコンテンツにフォーマットエラーがあります。
         </p>

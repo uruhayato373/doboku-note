@@ -50,7 +50,7 @@ const PADDINGS: Record<NonNullable<MetaCardProps['padding']>, string> = {
 };
 
 const BASE_CLASSES =
-  'bg-[var(--paper)] rounded-card-section shadow-card-section border border-[var(--rule-soft)]';
+  'card-surface-section';
 
 export default function MetaCard({
   as = 'section',

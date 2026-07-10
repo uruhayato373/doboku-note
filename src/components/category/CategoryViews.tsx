@@ -238,7 +238,7 @@ export function PeComprehensiveView({ groups, mobileCareerAds = [] }: { groups: 
             href="/sitemap-keywords"
             className="group flex items-center gap-4 p-5 rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] hover:border-[var(--accent)] hover:shadow-card-hover transition-all"
           >
-            <div className="flex-shrink-0 w-10 h-10 rounded-sm bg-[var(--accent)] flex items-center justify-center text-white font-bold text-lg">
+            <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-card-inline bg-[var(--accent)] text-lg font-bold text-white">
               ≡
             </div>
             <div className="flex-1">

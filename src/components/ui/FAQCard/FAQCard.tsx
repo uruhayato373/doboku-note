@@ -23,7 +23,7 @@ export default function FAQCard({ faqs }: FAQCardProps) {
       <ul className="space-y-2">
         {faqs.map((entry, idx) => (
           <li key={idx}>
-            <details className="group rounded-sm border border-[var(--rule-soft)] px-4 py-3 open:border-[var(--accent)] transition-colors">
+            <details className="group rounded-card-content border border-[var(--rule-soft)] px-4 py-3 transition-colors open:border-[var(--accent)]">
               <summary className="flex items-start gap-2 cursor-pointer list-none text-sm font-semibold text-[var(--ink)] marker:hidden">
                 <span
                   aria-hidden="true"

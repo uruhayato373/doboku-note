@@ -32,108 +32,6 @@ function CellLink({ slug, label, currentSlug }: { slug: string | undefined; labe
   );
 }
 
-/* ━━━ 試験概要カード ━━━ */
-function GuideCard({ variant, currentSlug, categoryArticles }: { variant: 'sidebar' | 'mobile'; currentSlug: string; categoryArticles: DocMeta[] }) {
-  const guides = categoryArticles
-    .filter((m) => classifyDoc(m) === 'guide')
-    .sort((a, b) => {
-      const oa = a.guide_order ?? 999;
-      const ob = b.guide_order ?? 999;
-      return oa - ob;
-    });
-
-  if (guides.length === 0) return null;
-
-  if (variant === 'sidebar') {
-    return (
-      <SidebarWrapper title="試験概要">
-        <ul>
-          {guides.map((g) => (
-            <li key={g.slug} className="border-b border-[var(--rule-soft)] last:border-b-0">
-              {g.slug === currentSlug ? (
-                <span className="block py-2 text-sm font-bold text-[var(--ink)]">{g.sidebar_label || g.shortTitle || g.title}</span>
-              ) : (
-                <Link href={`/docs/${g.slug}`} className="block py-2 text-sm text-brand underline decoration-brand/30 underline-offset-2 hover:text-brand-deep hover:decoration-brand transition-colors">
-                  {g.sidebar_label || g.shortTitle || g.title}
-                </Link>
-              )}
-            </li>
-          ))}
-        </ul>
-      </SidebarWrapper>
-    );
-  }
-
-  return (
-    <MobileWrapper title="試験概要">
-      <ul className="space-y-2">
-        {guides.map((g) => (
-          <li key={g.slug} className={`rounded-sm border px-4 py-3 transition-colors ${g.slug === currentSlug ? 'bg-[var(--accent-fill)] border-[var(--accent)]' : 'border-[var(--rule-soft)] hover:border-[var(--accent)]'}`}>
-            {g.slug === currentSlug ? (
-              <span className="text-sm font-bold text-[var(--ink)]">{g.title}</span>
-            ) : (
-              <Link href={`/docs/${g.slug}`} className="text-sm text-brand hover:underline">
-                {g.title}
-              </Link>
-            )}
-          </li>
-        ))}
-      </ul>
-    </MobileWrapper>
-  );
-}
-
-/* ━━━ 5 管理学習ガイド（pillar）カード ━━━ */
-function PillarCard({ variant, currentSlug, categoryArticles }: { variant: 'sidebar' | 'mobile'; currentSlug: string; categoryArticles: DocMeta[] }) {
-  const pillars = categoryArticles
-    .filter((m) => classifyDoc(m) === 'pillar')
-    .sort((a, b) => {
-      const sa = parseFloat(a.section ?? '99');
-      const sb = parseFloat(b.section ?? '99');
-      return sa - sb;
-    });
-
-  if (pillars.length === 0) return null;
-
-  if (variant === 'sidebar') {
-    return (
-      <SidebarWrapper title="5 管理学習ガイド">
-        <ul>
-          {pillars.map((p) => (
-            <li key={p.slug} className="border-b border-[var(--rule-soft)] last:border-b-0">
-              {p.slug === currentSlug ? (
-                <span className="block py-2 text-sm font-bold text-[var(--ink)]">{p.sidebar_label || p.shortTitle || p.title}</span>
-              ) : (
-                <Link href={`/docs/${p.slug}`} className="block py-2 text-sm text-brand underline decoration-brand/30 underline-offset-2 hover:text-brand-deep hover:decoration-brand transition-colors">
-                  {p.sidebar_label || p.shortTitle || p.title}
-                </Link>
-              )}
-            </li>
-          ))}
-        </ul>
-      </SidebarWrapper>
-    );
-  }
-
-  return (
-    <MobileWrapper title="5 管理学習ガイド">
-      <ul className="space-y-2">
-        {pillars.map((p) => (
-          <li key={p.slug} className={`rounded-sm border px-4 py-3 transition-colors ${p.slug === currentSlug ? 'bg-[var(--accent-fill)] border-[var(--accent)]' : 'border-[var(--rule-soft)] hover:border-[var(--accent)]'}`}>
-            {p.slug === currentSlug ? (
-              <span className="text-sm font-bold text-[var(--ink)]">{p.sidebar_label || p.shortTitle || p.title}</span>
-            ) : (
-              <Link href={`/docs/${p.slug}`} className="text-sm text-brand hover:underline">
-                {p.sidebar_label || p.shortTitle || p.title}
-              </Link>
-            )}
-          </li>
-        ))}
-      </ul>
-    </MobileWrapper>
-  );
-}
-
 /* ━━━ 過去問カード ━━━ */
 function PastExamCard({ variant, currentSlug, categoryArticles, category }: { variant: 'sidebar' | 'mobile'; currentSlug: string; categoryArticles: DocMeta[]; category: string }) {
   const data = buildPastExamNavData(category, categoryArticles);
@@ -326,7 +224,7 @@ function LinkListCard({ variant, title, currentSlug, docs }: { variant: 'sidebar
     <MobileWrapper title={title}>
       <ul className="space-y-2">
         {docs.map((d) => (
-          <li key={d.slug} className={`rounded-sm border px-4 py-3 transition-colors ${d.slug === currentSlug ? 'bg-[var(--accent-fill)] border-[var(--accent)]' : 'border-[var(--rule-soft)] hover:border-[var(--accent)]'}`}>
+          <li key={d.slug} className={`rounded-card-content border px-4 py-3 transition-colors ${d.slug === currentSlug ? 'bg-[var(--accent-fill)] border-[var(--accent)]' : 'border-[var(--rule-soft)] hover:border-[var(--accent)]'}`}>
             {d.slug === currentSlug ? (
               <span className="text-sm font-bold text-[var(--ink)]">{d.title}</span>
             ) : (
@@ -348,17 +246,25 @@ export default function CategoryNavCard({ variant, category, currentSlug, docGro
     const currentSection = currentDoc?.section as string | undefined;
 
     switch (docGroup) {
-      case 'guide':
-        return <GuideCard variant={variant} currentSlug={currentSlug} categoryArticles={categoryArticles} />;
-      case 'pillar':
+      case 'guide': {
+        const guides = categoryArticles
+          .filter((m) => classifyDoc(m) === 'guide')
+          .sort((a, b) => (a.guide_order ?? 999) - (b.guide_order ?? 999));
+        return <LinkListCard variant={variant} title="試験概要" currentSlug={currentSlug} docs={guides} />;
+      }
+      case 'pillar': {
+        const pillars = categoryArticles
+          .filter((m) => classifyDoc(m) === 'pillar')
+          .sort((a, b) => parseFloat(a.section ?? '99') - parseFloat(b.section ?? '99'));
         return (
           <>
-            <PillarCard variant={variant} currentSlug={currentSlug} categoryArticles={categoryArticles} />
+            <LinkListCard variant={variant} title="5 管理学習ガイド" currentSlug={currentSlug} docs={pillars} />
             <div className={variant === 'sidebar' ? 'mt-3' : 'mt-6'}>
               <PastExamCard variant={variant} currentSlug={currentSlug} categoryArticles={categoryArticles} category={category} />
             </div>
           </>
         );
+      }
       case 'pastExam':
         return <PastExamCard variant={variant} currentSlug={currentSlug} categoryArticles={categoryArticles} category={category} />;
       case 'keyword':

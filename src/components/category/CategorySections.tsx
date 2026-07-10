@@ -20,11 +20,11 @@ export function DocCard({ doc }: { doc: DocMeta }) {
       href={`/docs/${doc.slug}`}
       data-cta="nav"
       data-cta-label="category-card"
-      className="group relative flex flex-col overflow-hidden rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] hover:border-[var(--accent)] hover:shadow-soft transition-all"
+      className="card-surface-content group relative flex flex-col overflow-hidden transition-[border-color,box-shadow] hover:border-[var(--accent)] hover:shadow-soft"
     >
       {/* ブランド色の上端アクセント（mockup の category band を mono 化＝硬質エディトリアル維持）。
           ガイドカバー写真（guide-cover.ts）は dormant: メタガイドに literal 機械写真が不一致のため撤回（PR #276→revert）。 */}
-      <span aria-hidden className="block h-[3px] w-full bg-[var(--color-brand)] opacity-70 group-hover:opacity-100 transition-opacity" />
+      <span aria-hidden className="block h-[3px] w-full bg-[var(--accent)] opacity-70 transition-opacity group-hover:opacity-100" />
       <div className="flex flex-1 flex-col gap-1.5 p-5">
         <h3 className="font-serif text-lg font-bold text-[var(--ink)] group-hover:text-[var(--accent)] line-clamp-2 transition-colors">
           {displayTitle}

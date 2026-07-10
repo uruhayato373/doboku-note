@@ -43,7 +43,7 @@ export default function Timeline({ items, className = "" }: TimelineProps) {
                   {item.description}
                 </p>
                 {item.time && (
-                  <span className="mt-2 inline-block text-sm font-semibold text-[var(--accent)] bg-[var(--accent-fill)] px-2 py-1 rounded-sm">
+                  <span className="mt-2 inline-block rounded-card-inline bg-[var(--accent-fill)] px-2 py-1 text-sm font-semibold text-[var(--accent)]">
                     {item.time}
                   </span>
                 )}

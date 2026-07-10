@@ -40,13 +40,12 @@
     --dur-base: 200ms;
     --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
 
-    /* Color tokens — single source of truth for UI + SVG figures */
+    /* 図版・SNSと共有する固定パレット。UI の基本色は下の Editorial palette を正規系とする。 */
     --color-ink-strong: #222222;
     --color-ink-body: #555555;
     --color-ink-muted: #8a8a8a;
     --color-border: #d7d7d7;
     --color-surface: #f5f5f5;
-
     --color-brand: #2e6da4;
     --color-brand-fill: #e8f0fe;
     --color-brand-deep: #1a3a5c;
@@ -84,6 +83,16 @@
     --ink-muted: #697080;
     --rule: #23252b;
     --rule-soft: #e7e9ef;
+
+    /* 写真上のHero専用トークン。背景画像差し替え時の調整点をここに限定する。 */
+    --hero-ink: #0f172a;
+    --hero-ink-soft: #334155;
+    --hero-rule: rgb(100 116 139 / 0.6);
+    --hero-overlay-top: rgb(255 255 255 / 0.55);
+    --hero-overlay-mid: rgb(255 255 255 / 0.10);
+    --hero-overlay-bottom: rgb(255 255 255 / 0.35);
+    --hero-shadow-soft: 0 1px 8px rgb(255 255 255 / 0.6);
+    --hero-shadow-strong: 0 2px 14px rgb(255 255 255 / 0.6);
 
     /* Callout palette (12 kinds × bg / border / foreground) */
     --ct-note-bg: #eff6ff;     --ct-note-bd: #3b82f6;     --ct-note-fg: #1d4ed8;
@@ -123,13 +132,12 @@
     --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.25);
     --shadow-lift: 0 2px 8px rgba(0, 0, 0, 0.3), 0 12px 32px rgba(0, 0, 0, 0.4);
 
-    /* Color tokens — dark mode */
+    /* 図版・旧コンテンツの共有パレット — dark mode */
     --color-ink-strong: #f3f4f6;
     --color-ink-body: #cbd5e1;
     --color-ink-muted: #94a3b8;
     --color-border: #374151;
     --color-surface: #1f2937;
-
     --color-brand: #60a5fa;
     --color-brand-fill: #1e3a5f;
     --color-brand-deep: #bfdbfe;
@@ -217,6 +225,36 @@
     box-shadow: var(--shadow-card-hover);
     transform: translateY(-2px);
   }
+
+  /* 再利用可能なカード外観。構造は React、見た目はこの層に集約する。 */
+  .card-surface-content {
+    background: var(--paper);
+    border: 1px solid var(--rule-soft);
+    border-radius: var(--radius-card-content);
+    box-shadow: var(--shadow-card-content);
+  }
+
+  .card-surface-section {
+    background: var(--paper);
+    border: 1px solid var(--rule-soft);
+    border-radius: var(--radius-card-section);
+    box-shadow: var(--shadow-card-section);
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      to bottom,
+      var(--hero-overlay-top),
+      var(--hero-overlay-mid),
+      var(--hero-overlay-bottom)
+    );
+  }
+
+  .hero-ink { color: var(--hero-ink); }
+  .hero-ink-soft { color: var(--hero-ink-soft); }
+  .hero-rule { background: var(--hero-rule); }
+  .hero-shadow-soft { text-shadow: var(--hero-shadow-soft); }
+  .hero-shadow-strong { text-shadow: var(--hero-shadow-strong); }
 
   /* ===== prose-blog: kakkom から継承 ===== */
   .prose-blog {

@@ -34,7 +34,7 @@ export default function SidebarAdBanner({
       <div className="relative overflow-hidden rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] p-2 shadow-card-content">
         <span
           className="absolute right-2 top-2 z-10 inline-flex items-center rounded px-1.5 py-0.5 text-[10px] font-bold tracking-wider text-white"
-          style={{ background: "var(--color-ink-muted)" }}
+          style={{ background: "var(--ink-muted)" }}
           aria-label="広告"
         >
           PR

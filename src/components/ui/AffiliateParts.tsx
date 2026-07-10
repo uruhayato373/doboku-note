@@ -7,7 +7,7 @@ export function AffiliatePrBadge({ className = "" }: { readonly className?: stri
   return (
     <span
       className={`inline-flex items-center rounded px-1.5 py-0.5 text-[10px] font-bold tracking-wider text-white ${className}`}
-      style={{ background: "var(--color-ink-muted)" }}
+      style={{ background: "var(--ink-muted)" }}
       aria-label="広告"
     >
       PR

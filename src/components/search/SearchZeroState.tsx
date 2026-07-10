@@ -45,7 +45,7 @@ export function SearchZeroState({ categories, popular }: SearchZeroStateProps) {
                   href={`/docs/${item.doc.slug}`}
                   className="group flex gap-3 px-4 py-3 border-b border-[var(--rule-soft)] last:border-b-0 hover:bg-[var(--accent-fill)] transition-colors"
                 >
-                  <span className="shrink-0 w-6 h-6 flex items-center justify-center font-mono text-xs font-bold text-[var(--accent)] bg-[var(--accent-fill)] rounded-sm">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-card-inline bg-[var(--accent-fill)] font-mono text-xs font-bold text-[var(--accent)]">
                     {item.rank}
                   </span>
                   <span className="font-serif text-[14px] font-bold leading-tight text-[var(--ink)] group-hover:text-[var(--accent)] transition-colors line-clamp-2">

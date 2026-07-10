@@ -80,7 +80,7 @@ export default function SearchPageClient({ categories, popular }: SearchPageClie
 
       {/* 検索結果 */}
       {error && (
-        <div className="bg-[var(--color-danger-fill)] border border-[var(--color-danger)] rounded-sm p-4 mb-6">
+        <div className="mb-6 rounded-card-content border border-[var(--color-danger)] bg-[var(--color-danger-fill)] p-4">
           <p className="text-[var(--color-danger)]">{error}</p>
         </div>
       )}

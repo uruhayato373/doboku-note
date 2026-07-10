@@ -48,14 +48,14 @@ module.exports = {
         },
         // Semantic color tokens — UI・SVG 共通（globals.css の CSS 変数を参照）
         ink: {
-          strong: 'var(--color-ink-strong)',
-          body: 'var(--color-ink-body)',
-          muted: 'var(--color-ink-muted)',
+          strong: 'var(--ink)',
+          body: 'var(--ink-body)',
+          muted: 'var(--ink-muted)',
         },
         brand: {
-          DEFAULT: 'var(--color-brand)',
-          fill: 'var(--color-brand-fill)',
-          deep: 'var(--color-brand-deep)',
+          DEFAULT: 'var(--accent)',
+          fill: 'var(--accent-fill)',
+          deep: 'var(--accent)',
         },
         positive: {
           DEFAULT: 'var(--color-positive)',
@@ -69,8 +69,8 @@ module.exports = {
           DEFAULT: 'var(--color-danger)',
           fill: 'var(--color-danger-fill)',
         },
-        surface: 'var(--color-surface)',
-        'token-border': 'var(--color-border)',
+        surface: 'var(--bg)',
+        'token-border': 'var(--rule-soft)',
         // Editorial tokens (handoff)
         editorial: {
           accent: 'var(--accent)',

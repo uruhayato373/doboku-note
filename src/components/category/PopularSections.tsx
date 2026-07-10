@@ -14,7 +14,7 @@ function windowLabel(): string | null {
 
 function RankBadge({ rank }: { rank: number }) {
   return (
-    <span className="inline-flex items-center gap-1 font-mono text-[10px] font-bold uppercase tracking-widest text-[var(--accent)] px-2 py-0.5 bg-[var(--accent-fill)] rounded-sm">
+    <span className="inline-flex items-center gap-1 rounded-card-inline bg-[var(--accent-fill)] px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest text-[var(--accent)]">
       人気 #{rank}
     </span>
   );
@@ -27,9 +27,9 @@ function ShowcaseCard({ item, lead = false }: { item: PopularDoc; lead?: boolean
   return (
     <Link
       href={`/docs/${doc.slug}`}
-      className="group relative flex flex-col overflow-hidden rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] hover:border-[var(--accent)] hover:shadow-soft transition-all"
+      className="card-surface-content group relative flex flex-col overflow-hidden transition-[border-color,box-shadow] hover:border-[var(--accent)] hover:shadow-soft"
     >
-      <span aria-hidden className="block h-[3px] w-full bg-[var(--color-brand)] opacity-70 group-hover:opacity-100 transition-opacity" />
+      <span aria-hidden className="block h-[3px] w-full bg-[var(--accent)] opacity-70 transition-opacity group-hover:opacity-100" />
       <div className="flex flex-1 flex-col gap-2 p-5">
         <RankBadge rank={rank} />
         <h3
@@ -90,7 +90,7 @@ export function PopularRanking({ items }: { items: PopularDoc[] }) {
   if (items.length === 0) return null;
   const label = windowLabel();
   return (
-    <div data-cta="nav" data-cta-label="popular-ranking" className="rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] overflow-hidden">
+    <div data-cta="nav" data-cta-label="popular-ranking" className="card-surface-content overflow-hidden shadow-none">
       <div className="px-4 py-3 border-b border-[var(--rule-soft)] flex items-baseline justify-between gap-2">
         <h3 className="font-serif font-bold text-[var(--ink)] text-sm">人気記事</h3>
         {label && <span className="font-mono text-[10px] text-[var(--ink-muted)] tabular-nums">{label}</span>}
@@ -102,7 +102,7 @@ export function PopularRanking({ items }: { items: PopularDoc[] }) {
               href={`/docs/${item.doc.slug}`}
               className="group flex gap-3 px-4 py-3 border-b border-[var(--rule-soft)] last:border-b-0 hover:bg-[var(--accent-fill)] transition-colors"
             >
-              <span className="shrink-0 w-6 h-6 flex items-center justify-center font-mono text-xs font-bold text-[var(--accent)] bg-[var(--accent-fill)] rounded-sm">
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-card-inline bg-[var(--accent-fill)] font-mono text-xs font-bold text-[var(--accent)]">
                 {item.rank}
               </span>
               <span className="font-serif text-[13px] font-bold leading-tight text-[var(--ink)] group-hover:text-[var(--accent)] transition-colors line-clamp-2">

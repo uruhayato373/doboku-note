@@ -89,8 +89,7 @@ export default function NoteLink({
               sizes="(max-width: 640px) 100vw, 240px"
             />
             <div
-              className="absolute top-1.5 left-1.5 px-1.5 py-0.5 text-[10px] font-medium text-white rounded-sm shadow-sm"
-              style={{ background: "var(--color-brand)" }}
+              className="absolute left-1.5 top-1.5 rounded-card-inline bg-brand px-1.5 py-0.5 text-[10px] font-medium text-white shadow-sm"
             >
               note 解説記事
             </div>

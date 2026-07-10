@@ -149,7 +149,7 @@ export default function RelatedTextbooks({ currentMeta, categoryArticles }: Rela
           <li key={doc.slug}>
             <Link
               href={`/docs/${doc.slug}`}
-              className="block rounded-sm border border-[var(--rule-soft)] px-4 py-3 hover:border-[var(--accent)] transition-colors"
+              className="block rounded-card-content border border-[var(--rule-soft)] px-4 py-3 transition-colors hover:border-[var(--accent)]"
             >
               <div className="text-sm font-semibold text-[var(--accent)]">{doc.title}</div>
               {doc.description && (

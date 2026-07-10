@@ -5,6 +5,7 @@ export { default as ArticleImage } from './ArticleImage';
 export { default as Callout } from './Callout';
 export { default as SpecSheetList } from './SpecSheetList';
 export { default as ThemeToggle } from './ThemeToggle';
+export { default as NavLinkCard } from './NavLinkCard';
 
 
 // 型定義のエクスポート

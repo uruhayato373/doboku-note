@@ -207,7 +207,6 @@ export function CareerSection({
             data-cta-label={smallBanner.trackLabel}
             className="inline-block"
           >
-            {/* eslint-disable-next-line @next/next/no-img-element -- A8 外部バナーは next/image 不可 */}
             <img
               src={smallBanner.imageSrc}
               alt={smallBanner.alt}

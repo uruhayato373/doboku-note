@@ -84,7 +84,7 @@ export default function PillarNavCard({ variant, currentSection }: PillarNavCard
           return (
             <li
               key={p.slug}
-              className={`rounded-sm border px-4 py-3 transition-colors ${
+              className={`rounded-card-content border px-4 py-3 transition-colors ${
                 isActive
                   ? "bg-[var(--accent-fill)] border-[var(--accent)]"
                   : "border-[var(--rule-soft)] hover:border-[var(--accent)]"

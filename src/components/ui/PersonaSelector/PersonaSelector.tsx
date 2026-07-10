@@ -90,7 +90,7 @@ function PersonaCardInner({ personaName, caption, isLink }: PersonaCardInnerProp
     <>
       <span
         className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-white"
-        style={{ background: "var(--color-brand)" }}
+        style={{ background: "var(--accent)" }}
         aria-hidden
       >
         <User className="h-4 w-4" />

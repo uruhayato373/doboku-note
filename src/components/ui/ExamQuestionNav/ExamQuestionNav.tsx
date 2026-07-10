@@ -41,7 +41,7 @@ export default function ExamQuestionNav({ headings, variant = 'sidebar' }: ExamQ
         <a
           key={q.id}
           href={`#${q.id}`}
-          className="flex h-9 min-w-9 items-center justify-center rounded-sm border border-[var(--rule-soft)] px-2 text-sm tabular-nums text-brand transition-colors hover:border-brand hover:bg-brand-fill hover:text-brand-deep dark:hover:border-brand"
+          className="flex h-9 min-w-9 items-center justify-center rounded-card-inline border border-[var(--rule-soft)] px-2 text-sm tabular-nums text-brand transition-colors hover:border-brand hover:bg-brand-fill hover:text-brand-deep"
           aria-label={`問題 ${q.no} へ移動`}
         >
           {q.no}

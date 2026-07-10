@@ -60,7 +60,7 @@ export default function LatestArticles({ articles }: LatestArticlesProps) {
               <div className="p-5 sm:p-6">
                 <div className="flex items-center gap-2 mb-2 flex-wrap">
                   {a.categoryLabel && (
-                    <span className="font-mono text-[10px] tracking-widest uppercase text-[var(--accent)] px-2 py-0.5 bg-[var(--accent-fill)] rounded-sm">
+                    <span className="rounded-card-inline bg-[var(--accent-fill)] px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-[var(--accent)]">
                       {a.categoryLabel}
                     </span>
                   )}

@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { ArrowRight, BookOpenCheck } from "lucide-react";
+import { BookOpenCheck } from "lucide-react";
+import NavLinkCard from '@/components/ui/NavLinkCard';
 
 interface SeeAlsoProps {
   readonly href: string;
@@ -23,37 +23,12 @@ interface SeeAlsoProps {
  */
 export default function SeeAlso({ href, title, reason }: SeeAlsoProps) {
   return (
-    <Link
+    <NavLinkCard
       href={href}
-      className="not-prose group my-5 flex items-start gap-3 rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] px-4 py-3.5 shadow-card-content hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow"
-      style={{ textDecoration: "none" }}
-    >
-      <span
-        className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-white"
-        style={{ background: "var(--color-brand)" }}
-        aria-hidden
-      >
-        <BookOpenCheck className="h-4 w-4" />
-      </span>
-
-      <div className="min-w-0 flex-1">
-        <div className="text-[11px] font-bold tracking-wider text-brand-deep dark:text-brand uppercase">
-          あわせて読みたい
-        </div>
-        <div className="mt-0.5 text-[15px] font-bold text-ink-strong group-hover:underline">
-          {title}
-        </div>
-        {reason && (
-          <div className="mt-1 text-sm leading-6 text-ink-body">
-            {reason}
-          </div>
-        )}
-      </div>
-
-      <ArrowRight
-        className="mt-1 h-4 w-4 shrink-0 text-ink-muted group-hover:text-brand transition-colors"
-        aria-hidden
-      />
-    </Link>
+      eyebrow="あわせて読みたい"
+      title={title}
+      description={reason}
+      icon={BookOpenCheck}
+    />
   );
 }

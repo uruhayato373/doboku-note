@@ -80,7 +80,7 @@ export default function PrivacyPage() {
             title="収集する情報"
           >
             <div className="grid sm:grid-cols-2 gap-4">
-              <div className="bg-[var(--bg)] rounded-sm p-4">
+              <div className="rounded-card-content bg-[var(--bg)] p-4">
                 <h3 className="font-semibold text-[var(--ink)] mb-2 text-sm">自動的に収集される情報</h3>
                 <ul className="space-y-1 text-sm">
                   <li className="flex items-center gap-2"><span className="w-1 h-1 bg-[var(--accent)] rounded-full flex-shrink-0" />IPアドレス</li>
@@ -90,7 +90,7 @@ export default function PrivacyPage() {
                   <li className="flex items-center gap-2"><span className="w-1 h-1 bg-[var(--accent)] rounded-full flex-shrink-0" />デバイスの種類</li>
                 </ul>
               </div>
-              <div className="bg-[var(--bg)] rounded-sm p-4">
+              <div className="rounded-card-content bg-[var(--bg)] p-4">
                 <h3 className="font-semibold text-[var(--ink)] mb-2 text-sm">ユーザーが提供する情報</h3>
                 <ul className="space-y-1 text-sm">
                   <li className="flex items-center gap-2"><span className="w-1 h-1 bg-[var(--accent)] rounded-full flex-shrink-0" />お問い合わせフォームからの情報</li>
@@ -116,7 +116,7 @@ export default function PrivacyPage() {
                 '統計データの作成（個人を特定できない形式）',
                 '法的義務の履行',
               ].map((item) => (
-                <div key={item} className="flex items-center gap-2 bg-[var(--bg)] rounded-sm px-3 py-2 text-sm">
+                <div key={item} className="flex items-center gap-2 rounded-card-content bg-[var(--bg)] px-3 py-2 text-sm">
                   <span className="w-1.5 h-1.5 bg-[var(--accent)] rounded-full flex-shrink-0" />
                   {item}
                 </div>
@@ -161,14 +161,14 @@ export default function PrivacyPage() {
                 { label: '分析クッキー', desc: 'サイトの利用状況を分析' },
                 { label: '機能クッキー', desc: 'ユーザーの設定を記憶' },
               ].map((cookie) => (
-                <div key={cookie.label} className="bg-[var(--bg)] rounded-sm p-3 text-center">
+                <div key={cookie.label} className="rounded-card-content bg-[var(--bg)] p-3 text-center">
                   <div className="font-semibold text-sm text-[var(--ink)]">{cookie.label}</div>
                   <div className="text-xs text-[var(--ink-muted)] mt-1">{cookie.desc}</div>
                 </div>
               ))}
             </div>
 
-            <div className="bg-[var(--accent-fill)] border border-[var(--rule-soft)] rounded-sm p-4">
+            <div className="rounded-card-content border border-[var(--rule-soft)] bg-[var(--accent-fill)] p-4">
               <h3 className="font-semibold text-[var(--ink)] text-sm mb-2">広告配信におけるクッキーの使用</h3>
               <p className="text-sm mb-2">
                 当サイトでは、第三者配信の広告サービス「Google AdSense」を利用しています。
@@ -239,7 +239,7 @@ export default function PrivacyPage() {
                 '個人情報の利用停止・消去請求',
                 '個人情報の第三者提供の停止請求',
               ].map((item) => (
-                <div key={item} className="flex items-center gap-2 bg-[var(--bg)] rounded-sm px-3 py-2 text-sm">
+                <div key={item} className="flex items-center gap-2 rounded-card-content bg-[var(--bg)] px-3 py-2 text-sm">
                   <span className="w-1.5 h-1.5 bg-[var(--accent)] rounded-full flex-shrink-0" />
                   {item}
                 </div>
@@ -266,8 +266,8 @@ export default function PrivacyPage() {
             <p className="mb-4">
               本プライバシーポリシーに関するお問い合わせは、以下の方法でお願いします：
             </p>
-            <div className="bg-[var(--bg)] rounded-sm p-4 flex items-center gap-4">
-              <div className="bg-[var(--accent)] w-10 h-10 rounded-sm flex items-center justify-center flex-shrink-0">
+            <div className="flex items-center gap-4 rounded-card-content bg-[var(--bg)] p-4">
+              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-card-inline bg-[var(--accent)]">
                 <Mail className="w-5 h-5 text-white" />
               </div>
               <div>

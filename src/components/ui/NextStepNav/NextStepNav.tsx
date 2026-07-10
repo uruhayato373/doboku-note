@@ -24,7 +24,7 @@ export default function NextStepNav({ category }: { category: string }) {
           <li key={s.href}>
             <Link
               href={s.href}
-              className="block h-full rounded-sm border border-[var(--rule-soft)] px-4 py-3 transition-colors hover:border-brand dark:hover:border-brand"
+              className="block h-full rounded-card-content border border-[var(--rule-soft)] px-4 py-3 transition-colors hover:border-brand"
             >
               <span className="block text-[15px] font-medium text-[var(--ink)]">{s.label}</span>
               <span className="mt-0.5 block text-[13px] text-[var(--ink-muted)]">{s.hint}</span>

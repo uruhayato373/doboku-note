@@ -17,32 +17,32 @@ export default function Hero() {
       {/* 明るい写真の上でダーク文字を読みやすくする淡い白ベール（テーマ非依存＝白固定）。 */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-b from-white/55 via-white/10 to-white/35"
+        className="hero-overlay absolute inset-0"
       />
       {/* テキストは元バナーの文言を踏襲。背景写真は常に明色（テーマ非依存）のため、反転する
           --ink/--accent を避け固定 slate＋白テキストシャドウで両テーマの可読性を担保。 */}
       <div className="relative z-10 mx-auto flex min-h-[460px] sm:min-h-[520px] lg:min-h-[600px] max-w-[1280px] flex-col items-center justify-center px-4 sm:px-6 lg:px-10 text-center">
         <h1 className="flex flex-col items-center gap-2.5 sm:gap-3.5">
-          <span className="font-sans text-[12px] sm:text-[15px] tracking-[0.15em] text-slate-700 [text-shadow:0_1px_8px_rgba(255,255,255,0.6)]">
+          <span className="hero-ink-soft hero-shadow-soft font-sans text-[12px] tracking-[0.15em] sm:text-[15px]">
             合格に必要な知識を、わかりやすく。
           </span>
-          <span className="font-serif font-black leading-none tracking-tight text-slate-900 text-[42px] sm:text-[64px] lg:text-[80px] [text-shadow:0_2px_14px_rgba(255,255,255,0.6)]">
+          <span className="hero-ink hero-shadow-strong font-serif text-[42px] font-black leading-none tracking-tight sm:text-[64px] lg:text-[80px]">
             doboku-note
           </span>
-          <span className="flex items-center gap-3 sm:gap-4 text-slate-800 [text-shadow:0_1px_8px_rgba(255,255,255,0.6)]">
-            <span aria-hidden="true" className="h-px w-6 sm:w-10 bg-slate-500/60" />
+          <span className="hero-ink hero-shadow-soft flex items-center gap-3 sm:gap-4">
+            <span aria-hidden="true" className="hero-rule h-px w-6 sm:w-10" />
             <span className="font-sans text-[14px] sm:text-[19px] tracking-[0.25em] pl-[0.25em]">
               土木・建設資格の学習ノート
             </span>
-            <span aria-hidden="true" className="h-px w-6 sm:w-10 bg-slate-500/60" />
+            <span aria-hidden="true" className="hero-rule h-px w-6 sm:w-10" />
           </span>
         </h1>
-        <p className="mt-4 sm:mt-5 font-sans text-[13px] sm:text-[16px] text-slate-700 [text-shadow:0_1px_8px_rgba(255,255,255,0.6)]">
+        <p className="hero-ink-soft hero-shadow-soft mt-4 font-sans text-[13px] sm:mt-5 sm:text-[16px]">
           学ぶ人の『理解』を支え、『合格』へつなぐ。
         </p>
         <a
           href="#exams"
-          className="mt-7 sm:mt-9 inline-flex items-center gap-2.5 font-mono text-[13px] sm:text-[15px] font-bold tracking-wider uppercase text-slate-900 bg-[var(--color-warn)] px-7 sm:px-9 py-3.5 sm:py-4 rounded-full shadow-lift hover:brightness-105 hover:-translate-y-0.5 transition-all"
+          className="hero-ink mt-7 inline-flex items-center gap-2.5 rounded-full bg-warn px-7 py-3.5 font-mono text-[13px] font-bold uppercase tracking-wider shadow-lift transition-[filter,transform] hover:-translate-y-0.5 hover:brightness-105 sm:mt-9 sm:px-9 sm:py-4 sm:text-[15px]"
         >
           <span>資格を選んで学ぶ</span>
           <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={2.5} />
