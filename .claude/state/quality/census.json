@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-07-10T09:54:19.639Z",
+  "generated_at": "2026-07-10T10:03:03.416Z",
   "thresholds": {
     "fail": 2,
     "thin_chars": 3000,
@@ -14,7 +14,7 @@
     "total": 1064,
     "scored": 1064,
     "unscored": 0,
-    "failed": 17,
+    "failed": 15,
     "thin": 377,
     "coverage_pct": 100
   },
@@ -138,9 +138,9 @@
           "total": 26,
           "scored": 26,
           "unscored": 0,
-          "failed": 2,
+          "failed": 0,
           "thin": 0,
-          "avg_weighted": 2.45
+          "avg_weighted": 2.52
         },
         "keyword": {
           "total": 659,
@@ -171,7 +171,7 @@
         "total": 724,
         "scored": 724,
         "unscored": 0,
-        "failed": 5,
+        "failed": 3,
         "thin": 360
       }
     },
@@ -1110,22 +1110,6 @@
       "reason": "thin",
       "weighted": 2.75,
       "body_chars": 2944
-    },
-    {
-      "slug": "pe-comprehensive-management-essay-pattern-cross-year-application",
-      "category": "pe-comprehensive-management",
-      "group": "guide",
-      "reason": "failed",
-      "weighted": 1.8,
-      "body_chars": 5844
-    },
-    {
-      "slug": "pe-comprehensive-management-exam-application-guide",
-      "category": "pe-comprehensive-management",
-      "group": "guide",
-      "reason": "failed",
-      "weighted": 1.8,
-      "body_chars": 8388
     },
     {
       "slug": "pe-comprehensive-management-extreme-events",
@@ -7692,9 +7676,9 @@
       "group": "guide",
       "body_chars": 5844,
       "scored": true,
-      "weighted": 1.8,
+      "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
@@ -7745,11 +7729,11 @@
       "slug": "pe-comprehensive-management-exam-application-guide",
       "category": "pe-comprehensive-management",
       "group": "guide",
-      "body_chars": 8388,
+      "body_chars": 9368,
       "scored": true,
-      "weighted": 1.8,
+      "weighted": 2.8,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {

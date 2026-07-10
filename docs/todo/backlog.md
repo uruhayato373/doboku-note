@@ -38,11 +38,13 @@
 
 **Phase 1（全数採点）完了・2026-07-10**: published 全 1,064 本の採点カバレッジ **100%** 達成（6資格×全group・commit 60812601d 他）。以降は Phase 2（校正）と Phase 3（恒久化）。
 
-現況: 採点 **1,064/1,064（100%）** / 不合格 **27**（75→60→27・2026-07-10 セッションで消化）/ 薄層 377。
+現況: 採点 **1,064/1,064（100%）** / 不合格 **15**（75→60→27→15・2026-07-10 セッションで消化）/ 薄層 377。
 
-**Phase 2 進捗（2026-07-10）**: 🟡構造規約ギャップの機械修正クラスタを完遂 — **pe-first-stage primary 21・concrete-chief primary 8・civil-2 過去問4本（r07-kouki/r07-zenki/secondary-r06/getting-started）を全合格化**（RelatedKeywords 一括付与＋concrete/civil-2 の ExamPoint 折衷案化。全 slug 参照検証・欠落0）。commit `63d57f457`/`b334fba58`/`1f15a0da1`/`617d3b667`/`4f20b9efa`、PR #387。**残 27 は機械修正で消えない**＝下記 🔴（source照合/authoring 要）と ⚪（ルーブリック不適合＝要 group 別スコープ判断）に純化した。
+**Phase 2 進捗（2026-07-10）**: (A) 構造規約ギャップの機械修正を完遂 — **pe-first-stage 21・concrete-chief 8・civil-2 4** を RelatedKeywords 一括付与＋ExamPoint 折衷案化で全合格（全 slug 検証・欠落0）。(B) **ルーブリック不適合 17本をユーザー決定「正しい Evaluator で再採点」で処理** — pillar 5・keyword-2026・frequent-topics を `cem-qa`（ハブ/キーワード軸）、essay-pattern-cross-year を `cem-qa`（模範論文ハブ＝§20例外）、getting-started を `civil-construction-review` で再採点し **9本が正当に合格**（である調ハブ・データページは linking/reference 軸が適合）。exam-application-guide は `guide-rewriter` でリード/funnel/表を実修正し合格。commit `63d57f457`〜`cce2ebbea`、PR #387。**残 15 は再採点でも消えない＝真の内容欠陥 or 多軸リライト要**に純化。
 
-**残 27 の分類（一括で回さない・分類ごとに対応）**:
+**重要な発見**: 「ルーブリック不適合」と仮分類した 17本のうち **civil-1 secondary 7本は誤分類**だった — `civil-construction-review`（textbook 軸）で再採点しても不合格＝**参考資料節/外部リンク皆無(reference=0)＋4列超表＋生img** の**真の多軸ギャップ**。misfit ではなく実リライト対象（下記1へ移送）。
+
+**残 15 の分類（一括で回さない・分類ごとに対応）**:
 
 1. **🔴 真の内容バグ（10本・source照合 or authoring 要・LLM推測厳禁）** — 過去問解説の実欠陥。個別修正（`past-exam-rewriter` / `civil-secondary-exam-writer`）:
    - civil-1 `primary-r04-a`・`primary-r05-a`: 大多数の設問で正答肢のみ解説し**誤答肢3つの正誤理由が丸ごと欠落**（19✅/45❌・13✅/51❌）＝過去問の核心要件を欠く。全面書き直し級
@@ -55,12 +57,9 @@
    - **別セッション進行中（重複禁止）**: civil-1 `primary-h27-a`/`h28-a` No.61 港則法（task_5a0a5d01・原典PDF照合）／civil-1 `primary-r04-a`/`r05-a` 誤答肢解説補完（task_7d253597）
    - 総監 `h28-secondary`/`h29-secondary`/`h30-secondary`: 姉妹年（h27 等）は解答方向性が充実（answer_accuracy=3）だが本記事は薄い（=1・2590字 vs 3897字）。**RK付与のみでの数値通過は不誠実**＝h27 水準の解答方向性 authoring 要（白書事実は factcheck 必須）
    - 総監 `h21-primary` Ⅱ-1-31・`h22-primary` Ⅱ-1-22・`h28-primary` I-1-9/25/28・`h30-primary` I-1-24（既掲）／pe-first-stage 数本の answer_accuracy=1（official key 照合要・数値上は合格域）
-2. **✅ 構造規約ギャップ（機械修正・完了）** — 内容健全だが component 未実装で 1.0 クランプだった群を 2026-07-10 に消化: pe-first-stage 21・concrete 8・civil-2 4。pe-construction past-exam 84 は RelatedKeywords 未配線（related=1）だが note 誘導設計として許容（対応不要）
-3. **⚪ ルーブリック不適合＝非欠陥（17本・要 group 別スコープ判断・内容 mangling 禁止）** — 過去問/ガイド軸の適用ミスマッチで低スコア。**§7/§12: 意図設計を崩して強引に合格化しない**:
-   - **pillar 5本**（economic/human-resource/information/safety/social-environment-management-pillar）＝である調の 5管理ハブ。ですます散文軸で readability=1 だが**ハブ設計として正しい**（[[project_pillar_architecture]]）
-   - **civil-1 secondary 8本**（concrete/construction-plan/earthwork/quality-management-basics・experience-writing-guide/examples・getting-started・quality-management-past-problems）＝過去問でなく**解説/学習ガイド**なのに過去問 ExamPoint 軸で 0クランプ。真の解＝正しい Evaluator（guide-qa/civil-construction-review）で再採点 or group 是正
-   - **pe-comp guide 4本**（frequent-topics/keyword-2026/exam-application-guide/essay-pattern-cross-year）＝ランキング表・キーワード集の**データページ**。一部は 4列超表（実 CLAUDE.md 違反=修正可）だが guide 散文軸は本質ミスマッチ
-   - **判断待ち**: census を group 別の閾値/軸に分けて除外するか、上記を正しい Evaluator で再採点するか（Phase 3 のスコープ設計）。総監 secondary h28-30 は「問題文アーカイブ」でなく**実際に薄い**と判明したので 🔴 へ移動済
+   - **civil-1 secondary 7本**（concrete-basics/construction-plan-basics/earthwork-basics/quality-management-basics/quality-management-past-problems/experience-writing-guide/experience-writing-examples）＝**多軸リライト要**。`civil-construction-review` 再採点で全て reference=0 クランプ判明。合格には (a)`## 参考資料`節を passing textbook 同型（e-Gov 法令検索ポータル＋官公庁トップ＋試験元 全国建設研修センターの**実在安定 URL**のみ・deep-link 捏造禁止）で追加 (b)4列超表の分割/散文化（earthwork-basics L423-435 は135字セル等が最悪）(c)生img→ArticleImage 移行。1本=多軸ゆえ per-article rewrite。※getting-started は再採点で合格済（ですます調ガイド）
+2. **✅ 構造規約ギャップ（機械修正・完了）** — pe-first-stage 21・concrete 8・civil-2 4 を消化。pe-construction past-exam 84 は RelatedKeywords 未配線だが note 誘導設計として許容（対応不要）
+3. **✅ ルーブリック不適合＝再採点で解消（完了・2026-07-10）** — pillar 5・keyword-2026・frequent-topics・essay-pattern-cross-year・getting-started の**9本を正しい Evaluator で再採点し合格化**（内容 mangling せず）。である調ハブ・データページ・模範論文ハブは linking/reference 軸が適合し 2.2〜2.7。真実源＝各 `*-scores.json` の qualitative_comment。**将来 census を group 別の Evaluator ルーティングに拡張するのが Phase 3 の宿題**（今回は手動で正しい Evaluator を当てた）
 4. **🟢 薄層 377（既存トラックと合流）** — 総監 keyword 360＝5/17 demote 源流コホート、[[project_adsense_low_value_2026_07]] の続き。pe-construction keyword 16（書籍全文収録の長文）・concrete textbook 1。3,000字下限へ散文増補（7月112本バッチの継続）
 
 - **Phase 3（恒久化）**: 月次 `/gsc-review` と同タイミングで `npm run quality-census` 再生成 → 新規公開の未採点・薄層逆戻り・スコア低下を surface。
