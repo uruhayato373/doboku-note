@@ -30,6 +30,7 @@ import { ACTIONS, startJob, jobStatus } from "./lib/jobs.mjs";
 import { articlesIndex, magazines, noteArticles } from "./lib/content.mjs";
 import { salesSummary } from "./lib/sales.mjs";
 import { qualitySummary, qualityCensus } from "./lib/quality.mjs";
+import { todoBoard } from "./lib/todo.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const PUBLIC = resolve(join(HERE, "public"));
@@ -87,6 +88,8 @@ async function handleApi(req, res, url) {
         return sendJson(res, 200, await cached("quality", qualitySummary, refresh));
       case "/api/quality-census":
         return sendJson(res, 200, await cached("quality-census", qualityCensus, refresh));
+      case "/api/todo":
+        return sendJson(res, 200, await cached("todo", todoBoard, refresh));
       case "/api/actions":
         return sendJson(res, 200, {
           actions: Object.entries(ACTIONS).map(([id, a]) => ({

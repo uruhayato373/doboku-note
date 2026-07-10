@@ -11,7 +11,7 @@ npm run admin        # → http://127.0.0.1:3021
 
 `127.0.0.1` バインドのみ（LAN 非公開）。依存追加ゼロ（node:http のみ）。
 
-## タブ（Phase 0〜6 実装済み）
+## タブ（Phase 0〜7 実装済み）
 
 | タブ | 内容 | データソース |
 |---|---|---|
@@ -24,6 +24,7 @@ npm run admin        # → http://127.0.0.1:3021
 | 記事/note/マガジン | サイト記事 / note 原稿 / マガジンの一覧・公開状態（読み取り専用） | `doc-meta-index.json`、`docs/note/**/article*.md`、`note-magazines.ts`（`lib/content.mjs`） |
 | 品質 | 冒頭に**採点カバレッジ census**（資格 × group の採点済み/未採点/不合格/薄層・`npm run quality-census` 生成）、続けてモバイル可読性ラチェットの違反を GA4 人気度順に一覧（資格×分類×ルールでフィルタ）・ルール別集計・違反バーンダウン（読み取り専用） | `census.json`（`/api/quality-census`）× `lint-baseline.json` × `popular-pages.json` × `content-rules.json` × `doc-meta-index.json` × `history.jsonl`（`lib/quality.mjs`） |
 | 売上 | 月次売上推移（インライン SVG 棒グラフ）+ 商品別内訳・¥15k マイルストーン | `.claude/state/sales/sales-log.json`（`lib/sales.mjs`） |
+| TODO | `docs/todo/*.md` の read-only 統合ビュー。backlog（tier-first: `## 🔴/🟡/🟢/🟣` × `### タスク`＋`タグ:` 行=カテゴリ/Codex候補）と weekly/monthly/annual/計測基盤 等をカード化し、優先度別色バッジ（既存 .badge.high/medium/low＋新設 .badge.hold=🟣）・ファイル/カテゴリ/Codex フィルタ・クリック展開・`vscode://` 行リンクで目視管理（読み取り専用・編集はエディタ/Claude 経由） | `docs/todo/*.md`（`lib/todo.mjs`・`/api/todo`） |
 
 件数は既存スクリプト（`ogp-gallery` / `note-cover-gallery` / `svg-gallery` / `sales-summary`）と一致する。
 
@@ -55,10 +56,11 @@ tools/admin/
   lib/content.mjs    記事/note/マガジン一覧（P4）
   lib/sales.mjs      売上集計（P5）
   lib/quality.mjs    品質ラチェット集計（P6・読み取り専用）
+  lib/todo.mjs       docs/todo 統合ビュー（P7・読み取り専用）
   public/            Vanilla JS SPA（no-build）
 ```
 
-Phase 0〜6 実装済み。
+Phase 0〜7 実装済み。
 
 **品質タブ（P6）の補足**: データは全て live 読み（UI に状態を持たない）。表示の鮮度は
 `npm run check-content-quality` →（リライト後は）`npm run update-content-quality-baseline`
@@ -67,5 +69,5 @@ Phase 0〜6 実装済み。
 `.claude/scripts/lint-mdx-mobile.mjs` / `.claude/config/content-rules.json`。
 
 追加候補: 品質タブに「再スキャンボタン」（`lib/jobs.mjs` の CSRF/SSE パターンで
-`check-content-quality` を実行）、`/quality-cycle` リライト起動、TODO（`docs/todo/*.md`）の
-read-only 統合ビュー、計測ダッシュボード統合（GA4/GSC weekly-metrics）。
+`check-content-quality` を実行）、`/quality-cycle` リライト起動、計測ダッシュボード統合
+（GA4/GSC weekly-metrics）。※TODO 統合ビューは P7 で実装済み。

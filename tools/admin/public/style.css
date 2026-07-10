@@ -156,6 +156,7 @@ main { padding: 16px; }
 .badge.orphan { background: #d47a17; }
 .badge.pub { background: #16365c; }
 .badge.draft { background: #9aa0aa; }
+.badge.hold { background: #7d3fb5; } /* TODO タブ: 🟣 判断待ち */
 /* 図テキスト品質（答え漏らし=最優先赤 / 写り込み=橙 / 要確認=琥珀） */
 .badge.tq-leak { background: #d33; }
 .badge.tq-prose { background: #e0742a; }
@@ -362,3 +363,26 @@ table.summary.listing a { color: #16365c; }
 .pub-log .log-ng { color: #ff8a7a; font-weight: 700; }
 .pub-log .log-out { color: #d6deeb; }
 .pub-log:empty::before { content: "（ここに実行ログが表示されます）"; color: #55627a; }
+
+/* ── TODO タブ（docs/todo 統合ビュー）────────────────────── */
+.tcard { padding: 10px 12px; cursor: pointer; }
+.tcard .thead { display: flex; align-items: center; gap: 4px; margin-bottom: 6px; }
+.tcard .tfile { margin-left: auto; font-size: 10px; color: #999; }
+.tcard .ttitle { font-weight: 700; font-size: 13px; margin-bottom: 6px; line-height: 1.4; }
+.tcard .tbody { font-size: 11.5px; color: #444; line-height: 1.55; max-height: 200px; overflow: hidden; position: relative; }
+.tcard .tbody::after { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 28px; background: linear-gradient(transparent, #fff); }
+.tcard.open .tbody { max-height: none; }
+.tcard.open .tbody::after { display: none; }
+.tcard.open .tmore { visibility: hidden; }
+.tcard .tp { margin: 3px 0; }
+.tcard .tli { margin: 2px 0 2px 6px; }
+.tcard .tli.sub { margin-left: 18px; }
+.tcard .th4 { font-weight: 700; margin: 6px 0 2px; }
+.tcard .ttbl { font-family: ui-monospace, monospace; font-size: 10.5px; white-space: nowrap; overflow-x: auto; }
+.tcard .tquote { border-left: 3px solid #e0e0e0; padding-left: 8px; color: #777; margin: 3px 0; }
+.tcard .tpath { font-family: ui-monospace, monospace; font-size: 10.5px; color: #16365c; background: #f0f4f8; border-radius: 3px; padding: 0 3px; word-break: break-all; }
+.tcard code { font-family: ui-monospace, monospace; font-size: 10.5px; background: #f4f4f4; border-radius: 3px; padding: 0 3px; }
+.tcard .tfoot { display: flex; align-items: center; margin-top: 8px; padding-top: 6px; border-top: 1px solid #f0f0f0; font-size: 10.5px; }
+.tcard .tfoot a { color: #16365c; text-decoration: none; word-break: break-all; }
+.tcard .tfoot a:hover { text-decoration: underline; }
+.tcard .tmore { margin-left: auto; color: #bbb; white-space: nowrap; }

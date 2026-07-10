@@ -108,7 +108,7 @@ npm run admin             # 運営管理画面（ローカル専用・http://127
 | [docs/ui/speclist-gallery.md](docs/ui/speclist-gallery.md) | SpecSheetList 5 バリエーションの視覚ギャラリー（ordered / unordered × dot/dash/square） | MDX で `<SpecSheetList>` を選ぶとき |
 | [src/components/ui/Callout/README.md](src/components/ui/Callout/README.md) | Callout コンポーネント直下リファレンス（12 種一覧表・デザイン仕様・旧 type 移行表） | Callout を実装・改修・MDX で使うとき |
 | [src/components/ui/SpecSheetList/README.md](src/components/ui/SpecSheetList/README.md) | SpecSheetList コンポーネント直下リファレンス（仕様書調リスト、旧 CustomList 統合） | SpecSheetList を実装・改修・MDX で使うとき |
-| [tools/admin/README.md](tools/admin/README.md) | 運営管理画面（ローカル専用ダッシュボード）の起動・タブ構成・設計方針。`npm run admin` で `http://127.0.0.1:3021`。SNS 投稿/予約・画像ギャラリー（OGP/記事図版/note）・記事/note/マガジン一覧・売上を1画面で。デプロイなし（`node:http` のみ・依存追加ゼロ）。投稿は既存 CLI を child_process 実行しガードは CLI 側に残す | 管理画面を起動・改修するとき／SNS 投稿や画像・売上を目視管理するとき |
+| [tools/admin/README.md](tools/admin/README.md) | 運営管理画面（ローカル専用ダッシュボード）の起動・タブ構成・設計方針。`npm run admin` で `http://127.0.0.1:3021`。SNS 投稿/予約・画像ギャラリー（OGP/記事図版/note）・記事/note/マガジン一覧・売上・**TODO（docs/todo 統合ビュー・優先度別カード）**を1画面で。デプロイなし（`node:http` のみ・依存追加ゼロ）。投稿は既存 CLI を child_process 実行しガードは CLI 側に残す | 管理画面を起動・改修するとき／SNS 投稿や画像・売上・TODO を目視管理するとき |
 | `.claude/config/` | ツール設定（OGP テンプレ/ルール/改行設定、PSI しきい値・URL リスト等、エージェント編集領域） | OGP・PSI・自動化ツールのルール・閾値を調整するとき |
 | [docs/project/01_戦略/README.md](docs/project/01_戦略/README.md) | 戦略の入口・索引（トピック軸＝何の戦略か × 資格軸＝どの資格か の2軸ナビ、横断戦略 ↔ 各 noteコンテンツ計画.md の相互リンク） | 「この戦略はどこ？」と迷ったとき・各資格の戦略入口を辿るとき |
 | `docs/project/01_戦略/01_プロダクト戦略.md` | 5問フレームワーク（顧客・問題・解決策・体験・成功指標）の one-page 北極星文書。全戦略の出発点 | 戦略の全体像を把握したいとき・意思決定の根拠を確認するとき |
