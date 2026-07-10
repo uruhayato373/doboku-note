@@ -1,0 +1,141 @@
+{
+  "meta": {
+    "startDate": "2026-06-25",
+    "endDate": "2026-07-08",
+    "minUsers": 5,
+    "threshold": 0.8
+  },
+  "totals": {
+    "allUsers": 2802,
+    "jpUsers": 2691,
+    "foreignUsers": 113
+  },
+  "rows": [
+    {
+      "source": "bing",
+      "totalUsers": 2026,
+      "jpUsers": 2013,
+      "foreignUsers": 13,
+      "foreignRatio": 0.006416584402764067,
+      "engagementRate": 0.646817895400126,
+      "flagged": false
+    },
+    {
+      "source": "(direct)",
+      "totalUsers": 346,
+      "jpUsers": 269,
+      "foreignUsers": 78,
+      "foreignRatio": 0.2254335260115607,
+      "engagementRate": 0.48554913294797686,
+      "flagged": false
+    },
+    {
+      "source": "google",
+      "totalUsers": 99,
+      "jpUsers": 98,
+      "foreignUsers": 1,
+      "foreignRatio": 0.010101010101010102,
+      "engagementRate": 0.7078189300411523,
+      "flagged": false
+    },
+    {
+      "source": "note.com",
+      "totalUsers": 70,
+      "jpUsers": 70,
+      "foreignUsers": 1,
+      "foreignRatio": 0.014285714285714285,
+      "engagementRate": 0.5772058823529411,
+      "flagged": false
+    },
+    {
+      "source": "copilot.com",
+      "totalUsers": 58,
+      "jpUsers": 58,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.4810126582278481,
+      "flagged": false
+    },
+    {
+      "source": "m.facebook.com",
+      "totalUsers": 44,
+      "jpUsers": 36,
+      "foreignUsers": 8,
+      "foreignRatio": 0.18181818181818182,
+      "engagementRate": 0.17777777777777778,
+      "flagged": false
+    },
+    {
+      "source": "yahoo",
+      "totalUsers": 36,
+      "jpUsers": 36,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.6213592233009708,
+      "flagged": false
+    },
+    {
+      "source": "facebook.com",
+      "totalUsers": 28,
+      "jpUsers": 27,
+      "foreignUsers": 1,
+      "foreignRatio": 0.03571428571428571,
+      "engagementRate": 0.42857142857142855,
+      "flagged": false
+    },
+    {
+      "source": "note",
+      "totalUsers": 28,
+      "jpUsers": 20,
+      "foreignUsers": 8,
+      "foreignRatio": 0.2857142857142857,
+      "engagementRate": 0.6339285714285714,
+      "flagged": false
+    },
+    {
+      "source": "lm.facebook.com",
+      "totalUsers": 17,
+      "jpUsers": 17,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.4444444444444444,
+      "flagged": false
+    },
+    {
+      "source": "openai",
+      "totalUsers": 11,
+      "jpUsers": 11,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.8181818181818182,
+      "flagged": false
+    },
+    {
+      "source": "(not set)",
+      "totalUsers": 7,
+      "jpUsers": 7,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0,
+      "flagged": false
+    },
+    {
+      "source": "chatgpt.com",
+      "totalUsers": 6,
+      "jpUsers": 6,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.5714285714285714,
+      "flagged": false
+    },
+    {
+      "source": "duckduckgo",
+      "totalUsers": 6,
+      "jpUsers": 6,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.125,
+      "flagged": false
+    }
+  ]
+}

@@ -53,7 +53,7 @@ OCR/シャープネスでは検出できない欠陥がある。最重要は **�
 
 > **数値はスナップショット（点在させない）。ライブの残数は必ず管理画面ギャラリー（記事図版タブ）＝台帳 JSON を見る。** 下記は 2026-07-10 大量処理後の census。
 
-589 図: `ok:507 / recrop:28 / recrop-review:26 / rescan:16 / rescan-need-source:9`。うち**公開×掲載（ライブ）= rescan-need-source:9 / recrop:1**（**ライブの rescan は 0＝完結**）。
+604 図: `ok:527 / recrop:28 / recrop-review:26 / rescan:16 / rescan-need-source:7`。うち**公開×掲載（ライブ）= rescan-need-source:7 / recrop:1**（**ライブの rescan は 0＝完結**）。rescan-need-source 7 = bingham-shear-r04（要R4原典）・civil h27-a/h29-b（要別原典）・pe-construction 論文図4（要白書外部）。2026-07-10 に cce 年度別過去問 H26-28 の図12点＋H30/H29差替2点を ok で追加。
 - **recrop-review 26 は全て concrete-diagnostician（`published:false` 著作権凍結ドラフト）**＝図クロップ著作権方針の決定待ちで保留。**非ドラフト全資格の recrop-review は 0**（2026-07-09 に手作業＋並列workflow 4本で写り込み除去クロップ→親目視QA。civil-1 94→0、他資格 48図処理。詳細 → `docs/todo/backlog.md`「過去問図の品質」）。
 - **`rescan-need-source` は 45→6 に削減（2026-07-10）**。「要ソース再取得＝クロップ不能」は誤りで、元 PDF（過去問/テキスト/問題集）は大半が実在し**フル再抽出可能**と判明。並行workflow 5本＋親の新旧比較目視QAで **39図を元PDFから再抽出・復元**（各 manual_needs に `source_pdf`/`page`/`dpi` を記録＝繰り返し可能）。**残 6** は真にローカル不可＝h29-b-fig-02（旧4図完全でタイトルのみ切れ・問題集版は2図劣化のため旧維持）/h27-a-fig-01（問題集にH27非収録）＝要別原典、pe-construction 4（スキャン書籍の白書グラフ再録・要白書外部）。詳細 → `docs/todo/backlog.md`。
 - **`rescan` は 33→16 に削減（2026-07-10）**: コンクリート主任技士のライブ17図を、ユーザーの高品質再スキャン（`docs/textbook/コンクリート主任技師2024/スキャンした書類 14-18.pdf`）から14図差替（sharpness 全図 sharp 化）＋3図は書籍抜粋非収録で rescan-need-source へ。残16は**全て concrete-diagnostician（`published:false` 凍結ドラフト）**。civil/pe はゼロ（鮮明）。
