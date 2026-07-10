@@ -517,14 +517,12 @@
         "answer_accuracy": 3,
         "option_verification": 3,
         "exampoint": 2,
-        "related_keywords": 0,
+        "related_keywords": 3,
         "mobile": 3
       },
-      "weighted": 1,
-      "weak_axes": [
-        "related_keywords"
-      ],
-      "qualitative_comment": "正答・検証は良好でExamPoint1行形式も適切。RelatedKeywordsが文末に一切なく関連リンク欠落のため0軸クランプ。",
+      "weighted": 2.8,
+      "weak_axes": [],
+      "qualitative_comment": "RelatedKeywords 5件追加でRK軸是正（ExamPointは既存インライン形式）",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "secondary-experience-writing-examples": {
@@ -564,14 +562,12 @@
         "answer_accuracy": 2,
         "option_verification": 2,
         "exampoint": 2,
-        "related_keywords": 1,
+        "related_keywords": 3,
         "mobile": 3
       },
-      "weighted": 1.85,
-      "weak_axes": [
-        "related_keywords"
-      ],
-      "qualitative_comment": "導入ガイドとして良質だがSeeAlsoリンクが1件のみで関連コンテンツセクション自体が薄い。",
+      "weighted": 2.4,
+      "weak_axes": [],
+      "qualitative_comment": "RelatedKeywords 5件追加でSeeAlso1本の薄さを解消",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "secondary-r03": {
@@ -630,14 +626,12 @@
         "answer_accuracy": 3,
         "option_verification": 3,
         "exampoint": 2,
-        "related_keywords": 0,
+        "related_keywords": 3,
         "mobile": 3
       },
-      "weighted": 1,
-      "weak_axes": [
-        "related_keywords"
-      ],
-      "qualitative_comment": "問8は図がTODO image未挿入で本文欠落。関連コンテンツも自己参照重複で0点クランプ。",
+      "weighted": 2.8,
+      "weak_axes": [],
+      "qualitative_comment": "壊れた自己参照リンクを正しいRelatedKeywords 5件へ置換。問8の土止め支保工図はTODOのまま（要PDFクロップ・解答完結性には非影響）",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "secondary-r07": {
