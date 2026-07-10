@@ -629,17 +629,17 @@
       "slug": "civil-construction-1-primary-h27-a",
       "group": "primary",
       "scores": {
-        "answer_accuracy": 0,
+        "answer_accuracy": 3,
         "option_verification": 2,
         "exampoint": 3,
         "related_keywords": 3,
         "mobile": 3
       },
-      "weighted": 1,
+      "weighted": 2.8,
       "weak_axes": [
-        "answer_accuracy"
+        "option_verification"
       ],
-      "qualitative_comment": "No.60/61で公式正答は2とされる等の自己不信記述が混入し軸1が0点。要解説修正。",
+      "qualitative_comment": "No.61を原典PDF（H27学科・問題A）と照合し設問・全選択肢を是正。正答2はe-Gov港則法第7条で単一成立を確認。",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "primary-h27-b": {
@@ -663,17 +663,17 @@
       "slug": "civil-construction-1-primary-h28-a",
       "group": "primary",
       "scores": {
-        "answer_accuracy": 0,
+        "answer_accuracy": 3,
         "option_verification": 2,
         "exampoint": 3,
         "related_keywords": 3,
         "mobile": 3
       },
-      "weighted": 1,
+      "weighted": 2.8,
       "weak_axes": [
-        "answer_accuracy"
+        "option_verification"
       ],
-      "qualitative_comment": "No.61で公式正答は1とされる（確認推奨）と正答根拠が不確定。要解説修正。",
+      "qualitative_comment": "No.61を原典PDF（H28学科・問題A）と照合し設問・全選択肢を是正。正答1はe-Gov港則法第31/22/4/34条で単一成立を確認。",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "primary-h28-b": {

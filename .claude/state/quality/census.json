@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-07-10T10:59:38.548Z",
+  "generated_at": "2026-07-10T11:13:39.716Z",
   "thresholds": {
     "fail": 2,
     "thin_chars": 3000,
@@ -14,7 +14,7 @@
     "total": 1064,
     "scored": 1064,
     "unscored": 0,
-    "failed": 5,
+    "failed": 3,
     "thin": 377,
     "coverage_pct": 100
   },
@@ -33,9 +33,9 @@
           "total": 24,
           "scored": 24,
           "unscored": 0,
-          "failed": 4,
+          "failed": 2,
           "thin": 0,
-          "avg_weighted": 2.44
+          "avg_weighted": 2.59
         },
         "secondary": {
           "total": 16,
@@ -58,7 +58,7 @@
         "total": 131,
         "scored": 131,
         "unscored": 0,
-        "failed": 4,
+        "failed": 2,
         "thin": 0
       }
     },
@@ -231,22 +231,6 @@
     }
   },
   "rewrite_queue": [
-    {
-      "slug": "civil-construction-1-primary-h27-a",
-      "category": "civil-construction-1",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 36801
-    },
-    {
-      "slug": "civil-construction-1-primary-h28-a",
-      "category": "civil-construction-1",
-      "group": "primary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 40121
-    },
     {
       "slug": "civil-construction-1-primary-r06-b",
       "category": "civil-construction-1",
@@ -3821,11 +3805,11 @@
       "slug": "civil-construction-1-primary-h27-a",
       "category": "civil-construction-1",
       "group": "primary",
-      "body_chars": 36801,
+      "body_chars": 36836,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.8,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
@@ -3843,11 +3827,11 @@
       "slug": "civil-construction-1-primary-h28-a",
       "category": "civil-construction-1",
       "group": "primary",
-      "body_chars": 40121,
+      "body_chars": 40082,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.8,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
