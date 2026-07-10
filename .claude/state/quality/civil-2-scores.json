@@ -499,15 +499,13 @@
       "scores": {
         "answer_accuracy": 3,
         "option_verification": 3,
-        "exampoint": 0,
+        "exampoint": 2,
         "related_keywords": 2,
         "mobile": 3
       },
-      "weighted": 1,
-      "weak_axes": [
-        "exampoint"
-      ],
-      "qualitative_comment": "正誤理由は明確で正答に矛盾なし。ExamPointコンポーネント不使用（bold強調のみ）で折衷案構造未準拠のため0軸クランプ。",
+      "weighted": 2.6,
+      "weak_axes": [],
+      "qualitative_comment": "各設問にインラインExamPoint 66件を追加しexampoint軸是正（RKは既存5件）",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "primary-r07-kouki": {
