@@ -45,17 +45,16 @@
       "scores": {
         "intro": 2,
         "readability": 1,
-        "volume": 2,
-        "funnel": 3,
+        "volume": 3,
+        "funnel": 2,
         "mobile": 1
       },
       "weighted": 1.8,
       "weak_axes": [
         "readability",
-        "mobile",
-        "volume"
+        "mobile"
       ],
-      "qualitative_comment": "本文が全面である調でガイド文体違反。年度別マトリクスが5列表でモバイル4列超違反。導線はSeeAlso3件で優秀だが文体と表構造が減点。",
+      "qualitative_comment": "guide-qa再採点でも不合格1.8。SeeAlso導線は正しいが本文である調(readability=1)＋5列マトリクス表2本(mobile=1)。要ですます化orハブ扱い判断+表カード化",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "essay-persona-guide": {
@@ -83,18 +82,18 @@
       "group": "guide",
       "scores": {
         "intro": 1,
-        "readability": 2,
+        "readability": 3,
         "volume": 3,
-        "funnel": 2,
+        "funnel": 1,
         "mobile": 1
       },
       "weighted": 1.8,
       "weak_axes": [
         "intro",
-        "mobile",
-        "funnel"
+        "funnel",
+        "mobile"
       ],
-      "qualitative_comment": "冒頭がリードなしでCallout開始。5管理整理表が7列でモバイル重大違反。本文量は充実するがSeeAlso等の承認末尾導線が弱い。",
+      "qualitative_comment": "guide-qa再採点でも不合格1.8＝真の内容ギャップ。要: 冒頭リード追加(§26 Callout先頭禁止)・note有料CTA/SeeAlso追加(funnel)・4/7列表の分割",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "exam-index": {
@@ -135,20 +134,17 @@
       "slug": "pe-comprehensive-management-frequent-topics",
       "group": "guide",
       "scores": {
-        "intro": 2,
-        "readability": 1,
-        "volume": 1,
-        "funnel": 1,
-        "mobile": 1
+        "structure": 3,
+        "principle": 2,
+        "mobile": 1,
+        "reference": 2,
+        "linking": 3
       },
-      "weighted": 1.2,
+      "weighted": 2.2,
       "weak_axes": [
-        "readability",
-        "volume",
-        "funnel",
         "mobile"
       ],
-      "qualitative_comment": "ランキング表主体で散文が極薄、である調混在。5列表がモバイル違反。SeeAlso無く承認末尾も弱い。データページゆえガイド軸では総じて低評価。",
+      "qualitative_comment": "cem-qa再採点で合格2.2。17年680問独自集計ランキング。5列表6箇所は要3列化(mobile=1)だがデータページとして表存在は妥当",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "general-vs-comprehensive": {
@@ -172,19 +168,17 @@
       "slug": "pe-comprehensive-management-keyword-2026",
       "group": "guide",
       "scores": {
-        "intro": 1,
-        "readability": 2,
-        "volume": 3,
-        "funnel": 1,
-        "mobile": 1
+        "structure": 3,
+        "principle": 2,
+        "mobile": 1,
+        "reference": 3,
+        "linking": 3
       },
-      "weighted": 1.6,
+      "weighted": 2.4,
       "weak_axes": [
-        "intro",
-        "funnel",
         "mobile"
       ],
-      "qualitative_comment": "キーワード集全文をguide化。冒頭が使い方Calloutで概念定義型リード欠如、末尾H2が非承認、入れ子リンク多数。網羅量は最大。",
+      "qualitative_comment": "cem-qa(キーワード軸)再採点で合格2.4。MEXTキーワード集全文Web化・source_pdf+出典Callout・pillar誘導模範。ネスト箇条書きは原典分類保持の意図的選択",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "last-minute-2026": {
@@ -485,100 +479,85 @@
       "slug": "pe-comprehensive-management-economic-management-pillar",
       "group": "pillar",
       "scores": {
-        "intro": 2,
-        "readability": 1,
-        "volume": 2,
-        "funnel": 2,
-        "mobile": 2
+        "structure": 3,
+        "principle": 3,
+        "mobile": 2,
+        "reference": 1,
+        "linking": 3
       },
-      "weighted": 1.8,
+      "weighted": 2.4,
       "weak_axes": [
-        "readability",
-        "volume",
-        "funnel",
-        "mobile"
+        "reference"
       ],
-      "qualitative_comment": "5管理ハブ。である調で統一されガイドですます軸と不整合、主要KW節はリンク箇条書き中心で散文比率低い。冒頭Callout有料誘導が導入直後。SeeAlso導線・参考資料なし。",
+      "qualitative_comment": "cem-qa(ハブ軸)再採点で合格2.4。である調5管理ハブは設計意図として正当・linking密度良好。参考資料節欠落のみ軽微(reference=1)",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "human-resource-management-pillar": {
       "slug": "pe-comprehensive-management-human-resource-management-pillar",
       "group": "pillar",
       "scores": {
-        "intro": 2,
-        "readability": 1,
-        "volume": 2,
-        "funnel": 2,
-        "mobile": 2
+        "structure": 3,
+        "principle": 2,
+        "mobile": 2,
+        "reference": 1,
+        "linking": 3
       },
-      "weighted": 1.8,
+      "weighted": 2.2,
       "weak_axes": [
-        "readability",
-        "volume",
-        "funnel",
-        "mobile"
+        "reference"
       ],
-      "qualitative_comment": "人的資源ハブ。である調・リンク列挙主体で散文が痩せる。冒頭直後に有料Callout。出題傾向と学習導線の散文は妥当。SeeAlso2件・参考資料なし。",
+      "qualitative_comment": "cem-qa再採点で合格2.2。ハブ構造良好。表直前導入文/インライン出典が軽微減点",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "information-management-pillar": {
       "slug": "pe-comprehensive-management-information-management-pillar",
       "group": "pillar",
       "scores": {
-        "intro": 2,
-        "readability": 1,
-        "volume": 2,
-        "funnel": 2,
-        "mobile": 2
+        "structure": 3,
+        "principle": 3,
+        "mobile": 2,
+        "reference": 1,
+        "linking": 3
       },
-      "weighted": 1.8,
+      "weighted": 2.4,
       "weak_axes": [
-        "readability",
-        "volume",
-        "funnel",
-        "mobile"
+        "reference"
       ],
-      "qualitative_comment": "情報管理ハブ。である調・5カテゴリのKWリンク箇条書きが大半で散文比率低。冒頭直後に有料Callout。導入・出題傾向散文は妥当。SeeAlso導線・参考資料なし。",
+      "qualitative_comment": "cem-qa再採点で合格2.4。情報管理ハブ・交差点リンク充実",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "safety-management-pillar": {
       "slug": "pe-comprehensive-management-safety-management-pillar",
       "group": "pillar",
       "scores": {
-        "intro": 2,
-        "readability": 1,
-        "volume": 2,
-        "funnel": 2,
-        "mobile": 2
+        "structure": 3,
+        "principle": 3,
+        "mobile": 2,
+        "reference": 1,
+        "linking": 3
       },
-      "weighted": 1.8,
+      "weighted": 2.4,
       "weak_axes": [
-        "readability",
-        "volume",
-        "funnel",
-        "mobile"
+        "reference"
       ],
-      "qualitative_comment": "安全管理ハブ。6カテゴリでKWリンク最密・である調。図解1点あり視認補助。散文比率低く冒頭直後に有料Callout。SeeAlso導線良好、参考資料なし。",
+      "qualitative_comment": "cem-qa再採点で合格2.4。SVG図解あり・6サブカテゴリ体系化",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "social-environment-management-pillar": {
       "slug": "pe-comprehensive-management-social-environment-management-pillar",
       "group": "pillar",
       "scores": {
-        "intro": 2,
-        "readability": 1,
-        "volume": 2,
-        "funnel": 2,
-        "mobile": 2
+        "structure": 3,
+        "principle": 3,
+        "mobile": 2,
+        "reference": 1,
+        "linking": 3
       },
-      "weighted": 1.8,
+      "weighted": 2.4,
       "weak_axes": [
-        "readability",
-        "volume",
-        "funnel",
-        "mobile"
+        "reference"
       ],
-      "qualitative_comment": "社会環境ハブ。条約・法令のKWリンク列挙が極めて密でである調、散文が埋もれる。冒頭直後に有料Callout。出題傾向・コラム散文は妥当。SeeAlso導線・参考資料なし。",
+      "qualitative_comment": "cem-qa再採点で合格2.4。条約/法令の粒度階層が明快",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "h21-primary": {
