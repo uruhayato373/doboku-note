@@ -948,20 +948,17 @@
       "slug": "civil-construction-1-primary-r06-b",
       "group": "primary",
       "scores": {
-        "answer_accuracy": 1,
-        "option_verification": 1,
-        "exampoint": 1,
-        "related_keywords": 1,
+        "answer_accuracy": 2,
+        "option_verification": 0,
+        "exampoint": 2,
+        "related_keywords": 2,
         "mobile": 3
       },
-      "weighted": 1.4,
+      "weighted": 1,
       "weak_axes": [
-        "answer_accuracy",
-        "option_verification",
-        "exampoint",
-        "related_keywords"
+        "option_verification"
       ],
-      "qualitative_comment": "穴埋め問題5問(No.21,23,26,29,33)で誤答肢が誤りを含む記述❌のみでどこが誤りか不明。",
+      "qualitative_comment": "ExamPoint8+RK+穴埋め補筆済。ただし①②③④形式設問(No.30-35)で正しい記述に❌が付くマーク矛盾16箇所が残存し要追加修正。",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "primary-r07-a": {
@@ -985,19 +982,17 @@
       "slug": "civil-construction-1-primary-r07-b",
       "group": "primary",
       "scores": {
-        "answer_accuracy": 1,
-        "option_verification": 1,
-        "exampoint": 1,
+        "answer_accuracy": 2,
+        "option_verification": 0,
+        "exampoint": 2,
         "related_keywords": 2,
         "mobile": 3
       },
-      "weighted": 1.6,
+      "weighted": 1,
       "weak_axes": [
-        "answer_accuracy",
-        "option_verification",
-        "exampoint"
+        "option_verification"
       ],
-      "qualitative_comment": "穴埋め問題(No.21,23,26,29,33)が正答のみ解説で誤答肢理由なし。RelatedKeywordsは良好。",
+      "qualitative_comment": "ExamPoint8+RK+穴埋め補筆済。ただし①②③④形式設問(No.24-35)でマーク矛盾12箇所が残存し要追加修正。",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "secondary-concrete-basics": {
