@@ -479,19 +479,19 @@
       "slug": "civil-construction-2-primary-r06-kouki",
       "group": "primary",
       "scores": {
-        "answer_accuracy": 1,
-        "option_verification": 1,
+        "answer_accuracy": 3,
+        "option_verification": 3,
         "exampoint": 2,
         "related_keywords": 2,
         "mobile": 3
       },
-      "weighted": 1.8,
+      "weighted": 2.6,
       "weak_axes": [
-        "answer_accuracy",
-        "option_verification"
+        "exampoint",
+        "related_keywords"
       ],
-      "qualitative_comment": "No.12/32/33で出題側の正解は～と正答・解説が矛盾したまま強引に正解化する記述あり、正答の正確性に疑義。ExamPointは1行形式で簡潔。",
-      "scored_at": "2026-07-10T00:00:00.000Z"
+      "qualitative_comment": "No.12/32/33の本文化けを公式問題・正答PDF(種別:土木)で是正。No.12は設問を「適当なもの」へ、⑴を膨張コンクリートへ復元。No.32⑵カントは「外側レールを低くする」、No.33⑵は「接触を避けて作業を行う」と原典どおり誤り肢を復元し、出題側解釈のヘッジ文を削除。全66問の正答が公式正答肢と一致。",
+      "scored_at": "2026-07-10T12:00:00.000Z"
     },
     "primary-r07-zenki": {
       "slug": "civil-construction-2-primary-r07-zenki",
