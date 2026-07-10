@@ -858,19 +858,16 @@
       "slug": "civil-construction-1-primary-r04-a",
       "group": "primary",
       "scores": {
-        "answer_accuracy": 1,
-        "option_verification": 0,
-        "exampoint": 1,
-        "related_keywords": 1,
-        "mobile": 3
+        "structure": 3,
+        "answer_completeness": 3,
+        "link_health": 3,
+        "mobile": 2
       },
-      "weighted": 1,
+      "weighted": 2.9,
       "weak_axes": [
-        "option_verification",
-        "exampoint",
-        "related_keywords"
+        "mobile"
       ],
-      "qualitative_comment": "大多数の設問で正答のみ解説・誤答肢の正誤理由が皆無(19✅/45❌)。全面書き直し級のリライトが必要。",
+      "qualitative_comment": "全61問244肢に正誤理由(✅/❌)を補完し、正誤検証で判明した転記ミスを是正（No.36 設問極性反転、No.52/No.59 正答キー誤り）。✅/❌と正答番号・極性の矛盾は0件。解説行がやや長い点のみ軽微。ExamPoint/RelatedKeywords 不使用は civil primary の既存規約で逸脱ではない。",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "primary-r04-b": {
@@ -894,19 +891,16 @@
       "slug": "civil-construction-1-primary-r05-a",
       "group": "primary",
       "scores": {
-        "answer_accuracy": 1,
-        "option_verification": 0,
-        "exampoint": 1,
-        "related_keywords": 1,
-        "mobile": 3
+        "structure": 3,
+        "answer_completeness": 3,
+        "link_health": 3,
+        "mobile": 2
       },
-      "weighted": 1,
+      "weighted": 2.9,
       "weak_axes": [
-        "option_verification",
-        "exampoint",
-        "related_keywords"
+        "mobile"
       ],
-      "qualitative_comment": "r04-aと同様、正答のみ解説が支配的(13✅/51❌)で誤答肢の検証がほぼ欠落。優先リライト対象。",
+      "qualitative_comment": "全61問244肢に正誤理由(✅/❌)を補完し、正誤検証で判明した正答キー誤りを是正（No.24 砂防堰堤 2→1、No.46 上水道配水管 2→3）、No.41 の壊れた太字ネストも修正。✅/❌の矛盾は0件。埋込画像 r05-a-fig-01.webp が未生成（既存の別課題）。ExamPoint/RelatedKeywords 不使用は civil primary の既存規約。",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "primary-r05-b": {
@@ -1253,5 +1247,6 @@
       "qualitative_comment": "最新年度。経験記述問題にもExamPoint付与し他年度と統一構造を維持、品質安定。",
       "scored_at": "2026-07-10T00:00:00.000Z"
     }
-  }
+  },
+  "note": "civil-construction-1 primary（一次過去問）は ExamPoint/RelatedKeywords コンポーネントを使わない既存規約（末尾に関連リンクを配置）。past-exam-qa の折衷案ルーブリックのうち ExamPoint 軸は非該当のため、civil primary 用 4 軸（構造 25% / 解答完結性 40% / リンク健全性 25% / モバイル文体 10%）で weighted を算出している。"
 }
