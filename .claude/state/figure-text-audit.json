@@ -1,32 +1,21 @@
 {
-  "generated_at": "2026-07-09T20:34:32.907Z",
+  "generated_at": "2026-07-10T11:29:54.212Z",
   "tool": "tesseract jpn --psm 6",
-  "base_count": 589,
-  "file_count": 1022,
+  "base_count": 616,
+  "file_count": 1046,
   "summary": {
-    "leak": 3,
+    "leak": 0,
     "writein": 35,
-    "maybe": 145,
-    "clean": 406
+    "maybe": 148,
+    "clean": 433
   },
   "quality_summary": {
-    "sharp": 570,
-    "soft": 17,
-    "blurry": 2,
+    "sharp": 599,
+    "soft": 16,
+    "blurry": 1,
     "unknown": 0
   },
   "figures": {
-    "civil-construction-1/primary-h26-a/img/h26-a-fig-01": {
-      "status": "leak",
-      "periods": 4,
-      "markers": [
-        "したがって",
-        "は適当"
-      ],
-      "sharpness": 2216.46,
-      "quality": "sharp",
-      "variants": 2
-    },
     "civil-construction-1/primary-h26-a/img/h26-a-fig-02": {
       "status": "clean",
       "periods": 0,
@@ -48,16 +37,6 @@
       "periods": 0,
       "markers": [],
       "sharpness": 1889.82,
-      "quality": "sharp",
-      "variants": 2
-    },
-    "civil-construction-1/primary-h26-a/img/h26-a-fig-05": {
-      "status": "leak",
-      "periods": 1,
-      "markers": [
-        "正解"
-      ],
-      "sharpness": 1446.13,
       "quality": "sharp",
       "variants": 2
     },
@@ -514,17 +493,6 @@
       "periods": 0,
       "markers": [],
       "sharpness": 2793.58,
-      "quality": "sharp",
-      "variants": 2
-    },
-    "civil-construction-1/primary-r01-a/img/r01-a-fig-04": {
-      "status": "leak",
-      "periods": 2,
-      "markers": [
-        "したがって",
-        "は適当"
-      ],
-      "sharpness": 2445.43,
       "quality": "sharp",
       "variants": 2
     },
@@ -2848,6 +2816,22 @@
       "quality": "blurry",
       "variants": 1
     },
+    "concrete-chief-engineer/primary-construction/img/form-pressure-h27": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1472.59,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-construction/img/form-pressure-h29": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 474.48,
+      "quality": "sharp",
+      "variants": 1
+    },
     "concrete-chief-engineer/primary-construction/img/form-pressure-r02": {
       "status": "clean",
       "periods": 0,
@@ -2861,6 +2845,54 @@
       "periods": 0,
       "markers": [],
       "sharpness": 661.53,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-construction/img/mass-slab-stress-h29": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 869.42,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-construction/img/mass-thermal-history-h30": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 498.95,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-construction/img/placing-order-coldjoint-h28": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2829.55,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-construction/img/pump-longdistance-h27": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 832.32,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-construction/img/pump-piping-h26": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1120.53,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-construction/img/pump-pressure-h30": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2269.5,
       "quality": "sharp",
       "variants": 1
     },
@@ -2904,12 +2936,52 @@
       "quality": "sharp",
       "variants": 1
     },
-    "concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29": {
-      "status": "maybe",
-      "periods": 4,
+    "concrete-chief-engineer/primary-materials/img/materials-clinker-strength-h28": {
+      "status": "clean",
+      "periods": 0,
       "markers": [],
-      "sharpness": 86.18,
-      "quality": "soft",
+      "sharpness": 1276.5,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-materials/img/sand-surface-test-h29": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 357.35,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 719.87,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-mix-design/img/mix-volume-rccp-h30": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 822.08,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-mix-design/img/mix-volume-slump-h26": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2054.35,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-mix-design/img/mix-volume-slump-h28": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1376.43,
+      "quality": "sharp",
       "variants": 1
     },
     "concrete-chief-engineer/primary-mix-design/img/volume-ratio-r03": {
@@ -2936,12 +3008,36 @@
       "quality": "sharp",
       "variants": 1
     },
+    "concrete-chief-engineer/primary-production-qc/img/xbar-control-chart-h28": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 2169.06,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-properties/img/beam-thermal-stress-h28": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2353.81,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-properties/img/bingham-flow-h26": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1806.72,
+      "quality": "sharp",
+      "variants": 1
+    },
     "concrete-chief-engineer/primary-properties/img/bingham-flow-h30": {
       "status": "maybe",
-      "periods": 2,
+      "periods": 1,
       "markers": [],
-      "sharpness": 37.01,
-      "quality": "blurry",
+      "sharpness": 273.68,
+      "quality": "sharp",
       "variants": 1
     },
     "concrete-chief-engineer/primary-properties/img/bingham-flow-r01": {
@@ -2952,11 +3048,67 @@
       "quality": "sharp",
       "variants": 1
     },
+    "concrete-chief-engineer/primary-properties/img/creep-strain-h29": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 490.27,
+      "quality": "sharp",
+      "variants": 1
+    },
     "concrete-chief-engineer/primary-properties/img/creep-strain-r04": {
       "status": "maybe",
       "periods": 1,
       "markers": [],
       "sharpness": 762.49,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-properties/img/strain-unload-h30": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 659.22,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-structural-design/img/beam-design-h29": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1014.13,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-structural-design/img/beam-flexure-h26": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1176.15,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-structural-design/img/cantilever-rebar-h30": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 697.04,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-structural-design/img/cantilever-section-h27": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1141.44,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-structural-design/img/column-hoop-h29": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1633.52,
       "quality": "sharp",
       "variants": 1
     },
@@ -2973,6 +3125,62 @@
       "periods": 0,
       "markers": [],
       "sharpness": 417.01,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-structural-design/img/load-displacement-h26": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 862.28,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-structural-design/img/pc-beam-load-h26": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 882.15,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-structural-design/img/pc-beam-load-h29": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 896.51,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-structural-design/img/pc-section-h27": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1265.02,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-structural-design/img/rc-frame-crack-h27": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1416.56,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-structural-design/img/slab-joint-position-h27": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1112.83,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-structural-design/img/wall-crack-pattern-h28": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3096.98,
       "quality": "sharp",
       "variants": 1
     },
