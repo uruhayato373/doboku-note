@@ -993,19 +993,20 @@
       "slug": "civil-construction-1-secondary-concrete-basics",
       "group": "secondary",
       "scores": {
-        "structure": 2,
-        "principle": 2,
-        "mobile": 1,
-        "figures": 1,
-        "reference": 0
+        "structure": 3,
+        "principle": 1,
+        "mobile": 0,
+        "figures": 0,
+        "reference": 1
       },
       "weighted": 1,
       "weak_axes": [
+        "principle",
         "mobile",
         "figures",
         "reference"
       ],
-      "qualitative_comment": "civil-construction-review再採点＝旧past-exam軸のミスフィット解消。ただし参考資料セクション/外部リンク皆無(reference=0)で0クランプ＝真の内容ギャップ。要: 参考資料節+e-Govリンク追加、4列超表の分割",
+      "qualitative_comment": "参考資料節追加＋表3.4等一部箇条書き化済。残: JIS A5308 17列表(L331-339)等の広幅規格表4件・説明文詰込3列表2件・生img27枚。principle=1(太字/長段落)・figures=0で2重クランプ。要: 規格表exemption判断or変換",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "secondary-concrete-past-problems": {
@@ -1027,18 +1028,18 @@
       "slug": "civil-construction-1-secondary-construction-plan-basics",
       "group": "secondary",
       "scores": {
-        "structure": 2,
+        "structure": 3,
         "principle": 2,
-        "mobile": 2,
+        "mobile": 0,
         "figures": 1,
-        "reference": 0
+        "reference": 3
       },
       "weighted": 1,
       "weak_axes": [
-        "figures",
-        "reference"
+        "mobile",
+        "figures"
       ],
-      "qualitative_comment": "civil-construction-review再採点＝旧past-exam軸のミスフィット解消。ただし参考資料セクション/外部リンク皆無(reference=0)で0クランプ＝真の内容ギャップ。要: 参考資料節+e-Govリンク追加、4列超表の分割",
+      "qualitative_comment": "参考資料節(reference=3)良好。残: 工事数量/機械/品質管理の5-7列表8箇所(施工計画帳票＝正当な表構造)・生img15枚。mobile=0",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "secondary-construction-plan-past-problems": {
@@ -1063,18 +1064,18 @@
       "group": "secondary",
       "scores": {
         "structure": 2,
-        "principle": 2,
+        "principle": 1,
         "mobile": 0,
         "figures": 1,
-        "reference": 0
+        "reference": 2
       },
       "weighted": 1,
       "weak_axes": [
+        "principle",
         "mobile",
-        "figures",
-        "reference"
+        "figures"
       ],
-      "qualitative_comment": "civil-construction-review再採点＝旧past-exam軸のミスフィット解消。ただし参考資料セクション/外部リンク皆無(reference=0)で0クランプ＝真の内容ギャップ。要: 参考資料節+e-Govリンク追加、4列超表の分割",
+      "qualitative_comment": "参考資料節追加。残: 表2.1/2.3(7列)・表2.5(10列)・表2.11(12列)の広幅データ表・生img66枚。**要精査: Evaluatorがp595-613で文章破綻/論理矛盾を指摘(rewrite regression疑い)** principle=1",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "secondary-earthwork-past-problems": {
@@ -1097,16 +1098,17 @@
       "group": "secondary",
       "scores": {
         "structure": 3,
-        "principle": 2,
-        "mobile": 3,
+        "principle": 3,
+        "mobile": 1,
         "figures": 3,
-        "reference": 0
+        "reference": 1
       },
-      "weighted": 1,
+      "weighted": 2.1,
       "weak_axes": [
+        "mobile",
         "reference"
       ],
-      "qualitative_comment": "civil-construction-review再採点＝旧past-exam軸のミスフィット解消。ただし参考資料セクション/外部リンク皆無(reference=0)で0クランプ＝真の内容ギャップ。要: 参考資料節+e-Govリンク追加、4列超表の分割",
+      "qualitative_comment": "**合格2.10**。参考資料追加・表ほぼ解消。残軽微(L82-84 6列表1件・出典コメント)。sekokan-net要リンク再確認",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "secondary-experience-writing-guide": {
@@ -1115,16 +1117,16 @@
       "scores": {
         "structure": 3,
         "principle": 2,
-        "mobile": 2,
+        "mobile": 0,
         "figures": 1,
-        "reference": 0
+        "reference": 2
       },
       "weighted": 1,
       "weak_axes": [
-        "figures",
-        "reference"
+        "mobile",
+        "figures"
       ],
-      "qualitative_comment": "civil-construction-review再採点＝旧past-exam軸のミスフィット解消。ただし参考資料セクション/外部リンク皆無(reference=0)で0クランプ＝真の内容ギャップ。要: 参考資料節+e-Govリンク追加、4列超表の分割",
+      "qualitative_comment": "参考資料節+4列表解消済。残: 実務ヒント3列表4箇所で列3に40-206字詰込(mobile=0)。要セル圧縮",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "secondary-getting-started": {
@@ -1148,39 +1150,37 @@
       "slug": "civil-construction-1-secondary-quality-management-basics",
       "group": "secondary",
       "scores": {
-        "structure": 1,
-        "principle": 1,
+        "structure": 3,
+        "principle": 3,
         "mobile": 0,
         "figures": 1,
-        "reference": 0
+        "reference": 2
       },
       "weighted": 1,
       "weak_axes": [
-        "structure",
-        "principle",
         "mobile",
-        "figures",
-        "reference"
+        "figures"
       ],
-      "qualitative_comment": "civil-construction-review再採点＝旧past-exam軸のミスフィット解消。ただし参考資料セクション/外部リンク皆無(reference=0)で0クランプ＝真の内容ギャップ。要: 参考資料節+e-Govリンク追加、4列超表の分割",
+      "qualitative_comment": "単一H2を5節へ再構成+セル内KaTeX外出しでHIGH9件解消(structure3/principle3)。残: 表5.1(7列)/5.2(6列)/5.5(5列)の基準値表・生img7枚。mobile=0",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "secondary-quality-management-past-problems": {
       "slug": "civil-construction-1-secondary-quality-management-past-problems",
       "group": "secondary",
       "scores": {
-        "structure": 2,
-        "principle": 2,
-        "mobile": 1,
-        "figures": 2,
-        "reference": 0
+        "structure": 3,
+        "principle": 3,
+        "mobile": 0,
+        "figures": 1,
+        "reference": 1
       },
       "weighted": 1,
       "weak_axes": [
         "mobile",
+        "figures",
         "reference"
       ],
-      "qualitative_comment": "civil-construction-review再採点＝旧past-exam軸のミスフィット解消。ただし参考資料セクション/外部リンク皆無(reference=0)で0クランプ＝真の内容ギャップ。要: 参考資料節+e-Govリンク追加、4列超表の分割",
+      "qualitative_comment": "参考資料+6解答表を箇条書き化済。残: 出題傾向10列表(L26-34)・締固め6列表・各解答3列の列3セル超過。mobile=0",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "secondary-r03": {

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-07-10T10:03:03.416Z",
+  "generated_at": "2026-07-10T10:23:57.540Z",
   "thresholds": {
     "fail": 2,
     "thin_chars": 3000,
@@ -14,7 +14,7 @@
     "total": 1064,
     "scored": 1064,
     "unscored": 0,
-    "failed": 15,
+    "failed": 14,
     "thin": 377,
     "coverage_pct": 100
   },
@@ -41,9 +41,9 @@
           "total": 16,
           "scored": 16,
           "unscored": 0,
-          "failed": 7,
+          "failed": 6,
           "thin": 0,
-          "avg_weighted": 2.01
+          "avg_weighted": 2.08
         },
         "textbook": {
           "total": 45,
@@ -58,7 +58,7 @@
         "total": 131,
         "scored": 131,
         "unscored": 0,
-        "failed": 11,
+        "failed": 10,
         "thin": 0
       }
     },
@@ -269,7 +269,7 @@
       "group": "secondary",
       "reason": "failed",
       "weighted": 1,
-      "body_chars": 39588
+      "body_chars": 40388
     },
     {
       "slug": "civil-construction-1-secondary-construction-plan-basics",
@@ -277,7 +277,7 @@
       "group": "secondary",
       "reason": "failed",
       "weighted": 1,
-      "body_chars": 16713
+      "body_chars": 17132
     },
     {
       "slug": "civil-construction-1-secondary-earthwork-basics",
@@ -285,15 +285,7 @@
       "group": "secondary",
       "reason": "failed",
       "weighted": 1,
-      "body_chars": 42993
-    },
-    {
-      "slug": "civil-construction-1-secondary-experience-writing-examples",
-      "category": "civil-construction-1",
-      "group": "secondary",
-      "reason": "failed",
-      "weighted": 1,
-      "body_chars": 13795
+      "body_chars": 43382
     },
     {
       "slug": "civil-construction-1-secondary-experience-writing-guide",
@@ -301,7 +293,7 @@
       "group": "secondary",
       "reason": "failed",
       "weighted": 1,
-      "body_chars": 16264
+      "body_chars": 16527
     },
     {
       "slug": "civil-construction-1-secondary-quality-management-basics",
@@ -309,7 +301,7 @@
       "group": "secondary",
       "reason": "failed",
       "weighted": 1,
-      "body_chars": 13892
+      "body_chars": 14429
     },
     {
       "slug": "civil-construction-1-secondary-quality-management-past-problems",
@@ -317,7 +309,7 @@
       "group": "secondary",
       "reason": "failed",
       "weighted": 1,
-      "body_chars": 14064
+      "body_chars": 13591
     },
     {
       "slug": "civil-construction-2-primary-r06-kouki",
@@ -4143,7 +4135,7 @@
       "slug": "civil-construction-1-secondary-concrete-basics",
       "category": "civil-construction-1",
       "group": "secondary",
-      "body_chars": 39588,
+      "body_chars": 40388,
       "scored": true,
       "weighted": 1,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -4165,7 +4157,7 @@
       "slug": "civil-construction-1-secondary-construction-plan-basics",
       "category": "civil-construction-1",
       "group": "secondary",
-      "body_chars": 16713,
+      "body_chars": 17132,
       "scored": true,
       "weighted": 1,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -4187,7 +4179,7 @@
       "slug": "civil-construction-1-secondary-earthwork-basics",
       "category": "civil-construction-1",
       "group": "secondary",
-      "body_chars": 42993,
+      "body_chars": 43382,
       "scored": true,
       "weighted": 1,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -4209,18 +4201,18 @@
       "slug": "civil-construction-1-secondary-experience-writing-examples",
       "category": "civil-construction-1",
       "group": "secondary",
-      "body_chars": 13795,
+      "body_chars": 13993,
       "scored": true,
-      "weighted": 1,
+      "weighted": 2.1,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
       "slug": "civil-construction-1-secondary-experience-writing-guide",
       "category": "civil-construction-1",
       "group": "secondary",
-      "body_chars": 16264,
+      "body_chars": 16527,
       "scored": true,
       "weighted": 1,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -4242,7 +4234,7 @@
       "slug": "civil-construction-1-secondary-quality-management-basics",
       "category": "civil-construction-1",
       "group": "secondary",
-      "body_chars": 13892,
+      "body_chars": 14429,
       "scored": true,
       "weighted": 1,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -4253,7 +4245,7 @@
       "slug": "civil-construction-1-secondary-quality-management-past-problems",
       "category": "civil-construction-1",
       "group": "secondary",
-      "body_chars": 14064,
+      "body_chars": 13591,
       "scored": true,
       "weighted": 1,
       "scored_at": "2026-07-10T00:00:00.000Z",
