@@ -43,18 +43,17 @@
       "slug": "pe-comprehensive-management-essay-pattern-cross-year-application",
       "group": "guide",
       "scores": {
-        "intro": 2,
-        "readability": 1,
-        "volume": 3,
-        "funnel": 2,
-        "mobile": 1
+        "structure": 3,
+        "principle": 3,
+        "mobile": 2,
+        "reference": 1,
+        "linking": 3
       },
-      "weighted": 1.8,
+      "weighted": 2.4,
       "weak_axes": [
-        "readability",
-        "mobile"
+        "reference"
       ],
-      "qualitative_comment": "guide-qa再採点でも不合格1.8。SeeAlso導線は正しいが本文である調(readability=1)＋5列マトリクス表2本(mobile=1)。要ですます化orハブ扱い判断+表カード化",
+      "qualitative_comment": "cem-qa(ハブ軸)再採点で合格2.4。模範論文ハブ=である調/年度別マトリクスは§20例外パターンとして正当（guide散文軸ではミスフィットだった）。5列マトリクスのセル字数超過は要凝縮だがmobile=2。SeeAlso重複(L130/L186)の統合は軽微改善余地",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "essay-persona-guide": {
@@ -81,19 +80,15 @@
       "slug": "pe-comprehensive-management-exam-application-guide",
       "group": "guide",
       "scores": {
-        "intro": 1,
+        "intro": 3,
         "readability": 3,
         "volume": 3,
-        "funnel": 1,
-        "mobile": 1
+        "funnel": 3,
+        "mobile": 2
       },
-      "weighted": 1.8,
-      "weak_axes": [
-        "intro",
-        "funnel",
-        "mobile"
-      ],
-      "qualitative_comment": "guide-qa再採点でも不合格1.8＝真の内容ギャップ。要: 冒頭リード追加(§26 Callout先頭禁止)・note有料CTA/SeeAlso追加(funnel)・4/7列表の分割",
+      "weighted": 2.8,
+      "weak_axes": [],
+      "qualitative_comment": "guide-rewriterでリライト後 guide-qa基準で合格2.8。冒頭リード追加(§26)・実在slug 2件へSeeAlso(funnel)・7列/4列表8箇所を箇条書き化(データ保持)。残MEDIUM2件(16字セル/ExamPoint位置)は軽微",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "exam-index": {
