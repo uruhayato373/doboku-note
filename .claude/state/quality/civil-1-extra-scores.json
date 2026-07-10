@@ -612,18 +612,17 @@
       "slug": "civil-construction-1-primary-h26-b",
       "group": "primary",
       "scores": {
-        "answer_accuracy": 2,
+        "answer_accuracy": 3,
         "option_verification": 2,
-        "exampoint": 0,
-        "related_keywords": 1,
+        "exampoint": 3,
+        "related_keywords": 3,
         "mobile": 3
       },
-      "weighted": 1,
+      "weighted": 2.85,
       "weak_axes": [
-        "exampoint",
-        "related_keywords"
+        "option_verification"
       ],
-      "qualitative_comment": "ExamPoint未実装。マスカーブ・NW工程表の計算問題は式なしだが定性説明で対応。",
+      "qualitative_comment": "ExamPoint8+RK追加で合格。No.13選択肢3理由薄い以外は正答明示・断定的。自己不信記述なし。",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "primary-h27-a": {
@@ -647,18 +646,17 @@
       "slug": "civil-construction-1-primary-h27-b",
       "group": "primary",
       "scores": {
-        "answer_accuracy": 2,
+        "answer_accuracy": 3,
         "option_verification": 2,
-        "exampoint": 0,
-        "related_keywords": 1,
+        "exampoint": 3,
+        "related_keywords": 3,
         "mobile": 3
       },
-      "weighted": 1,
+      "weighted": 2.85,
       "weak_axes": [
-        "exampoint",
-        "related_keywords"
+        "option_verification"
       ],
-      "qualitative_comment": "品質特性の表は設問本体で軸5対象外。ExamPoint未実装。",
+      "qualitative_comment": "ExamPoint8+RK追加で合格。No.14選択肢2の説明が循環論法気味。正答は断定的。",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "primary-h28-a": {
@@ -682,18 +680,17 @@
       "slug": "civil-construction-1-primary-h28-b",
       "group": "primary",
       "scores": {
-        "answer_accuracy": 2,
-        "option_verification": 2,
-        "exampoint": 0,
-        "related_keywords": 1,
+        "answer_accuracy": 3,
+        "option_verification": 1,
+        "exampoint": 3,
+        "related_keywords": 3,
         "mobile": 3
       },
-      "weighted": 1,
+      "weighted": 2.65,
       "weak_axes": [
-        "exampoint",
-        "related_keywords"
+        "option_verification"
       ],
-      "qualitative_comment": "組合せ表2件は設問本体で軸5対象外。ExamPoint未実装。",
+      "qualitative_comment": "ExamPoint8+RK追加で合格。No.16で選択肢2・3の正誤理由が欠落（要補筆）。自己不信記述なし。",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "primary-h29-a": {
@@ -715,18 +712,15 @@
       "slug": "civil-construction-1-primary-h29-b",
       "group": "primary",
       "scores": {
-        "answer_accuracy": 2,
-        "option_verification": 2,
-        "exampoint": 0,
-        "related_keywords": 1,
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 3,
         "mobile": 3
       },
-      "weighted": 1,
-      "weak_axes": [
-        "exampoint",
-        "related_keywords"
-      ],
-      "qualitative_comment": "ExamPoint未実装。検証本文は各選択肢に理由明記。",
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "ExamPoint8+RK追加で合格。全35問で正誤理由が明確・完結。",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "primary-h30-a": {
@@ -748,18 +742,17 @@
       "slug": "civil-construction-1-primary-h30-b",
       "group": "primary",
       "scores": {
-        "answer_accuracy": 2,
-        "option_verification": 2,
-        "exampoint": 0,
-        "related_keywords": 1,
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 2,
+        "related_keywords": 3,
         "mobile": 3
       },
-      "weighted": 1,
+      "weighted": 2.85,
       "weak_axes": [
-        "exampoint",
-        "related_keywords"
+        "exampoint"
       ],
-      "qualitative_comment": "工程表・品質特性の組合せ表2件は設問本体で対象外。ExamPoint未実装。",
+      "qualitative_comment": "ExamPoint8+RK追加で合格。No.6 ExamPoint summaryが二重否定的でやや不明瞭。正答は断定的。",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "primary-r01-a": {
@@ -781,18 +774,17 @@
       "slug": "civil-construction-1-primary-r01-b",
       "group": "primary",
       "scores": {
-        "answer_accuracy": 2,
+        "answer_accuracy": 3,
         "option_verification": 2,
-        "exampoint": 0,
-        "related_keywords": 1,
+        "exampoint": 3,
+        "related_keywords": 3,
         "mobile": 3
       },
-      "weighted": 1,
+      "weighted": 2.8,
       "weak_axes": [
-        "exampoint",
-        "related_keywords"
+        "option_verification"
       ],
-      "qualitative_comment": "品質特性の組合せ表は設問本体で対象外。ExamPoint未実装。",
+      "qualitative_comment": "ExamPoint8+RK追加で合格。矛盾・曖昧表現なし。No.2選択肢解説が根拠圧縮でやや簡素。",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "primary-r02-a": {
@@ -814,18 +806,17 @@
       "slug": "civil-construction-1-primary-r02-b",
       "group": "primary",
       "scores": {
-        "answer_accuracy": 2,
+        "answer_accuracy": 3,
         "option_verification": 2,
-        "exampoint": 1,
-        "related_keywords": 1,
+        "exampoint": 3,
+        "related_keywords": 3,
         "mobile": 3
       },
-      "weighted": 1.8,
+      "weighted": 2.8,
       "weak_axes": [
-        "exampoint",
-        "related_keywords"
+        "option_verification"
       ],
-      "qualitative_comment": "No.6/No.8で選択肢説明が一部省略。RelatedKeywords未コンポーネント化。",
+      "qualitative_comment": "ExamPoint8+RK追加で合格。No.8選択肢2・No.13選択肢3の解説欠落で検証やや不完全。",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "primary-r03-a": {
@@ -850,18 +841,17 @@
       "slug": "civil-construction-1-primary-r03-b",
       "group": "primary",
       "scores": {
-        "answer_accuracy": 2,
+        "answer_accuracy": 3,
         "option_verification": 2,
-        "exampoint": 1,
-        "related_keywords": 1,
+        "exampoint": 3,
+        "related_keywords": 3,
         "mobile": 3
       },
-      "weighted": 1.8,
+      "weighted": 2.8,
       "weak_axes": [
-        "exampoint",
-        "related_keywords"
+        "option_verification"
       ],
-      "qualitative_comment": "No.3配筋図問題で誤答肢の理由が薄い。他は良好。構造は旧式。",
+      "qualitative_comment": "ExamPoint7+RK追加で合格。空欄補充問題が多く誤答肢解説が簡潔。",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "primary-r04-a": {
@@ -887,18 +877,17 @@
       "slug": "civil-construction-1-primary-r04-b",
       "group": "primary",
       "scores": {
-        "answer_accuracy": 2,
+        "answer_accuracy": 3,
         "option_verification": 2,
-        "exampoint": 1,
-        "related_keywords": 1,
+        "exampoint": 3,
+        "related_keywords": 3,
         "mobile": 3
       },
-      "weighted": 1.8,
+      "weighted": 2.8,
       "weak_axes": [
-        "exampoint",
-        "related_keywords"
+        "option_verification"
       ],
-      "qualitative_comment": "労働安全衛生系は各肢に理由あり良好だが穴埋め問題の一部で正答のみ解説。",
+      "qualitative_comment": "ExamPoint6+RK追加で合格。No.7選択肢1解説がやや冗長。",
       "scored_at": "2026-07-10T00:00:00.000Z"
     },
     "primary-r05-a": {
