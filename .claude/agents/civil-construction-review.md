@@ -34,11 +34,11 @@ model: inherit
 
 ## スコープ
 
-**対象**: `category: civil-construction-1` または `category: civil-construction-2` かつ `group: textbook` or `group: guide` の MDX のみ
+**対象**: `category: civil-construction-1` または `category: civil-construction-2` かつ、`group: textbook` / `group: guide`、**または設問-解答構造を持たない解説系 secondary（`secondary-*-basics`・`secondary-experience-writing-*`・`secondary-getting-started` 等の基礎解説/学習ガイド）** の MDX。※`group: secondary` は heterogeneous＝過去問記録（`secondary-r0X` の設問→解答）と解説ページが混在する。前者は本エージェント対象外（下記）、後者（教科書調の explanatory）は本エージェントで校正する（2026-07-10 品質サイクルで明確化）。
 
 **対象外**:
 - 総監ページ → `cem-qa`
-- 過去問ページ（`group: primary` / `secondary` / `past-exam`）→ `content-qa`
+- **設問-解答構造の過去問**（`group: primary`、または `secondary-r0X` 等の記述過去問）→ `past-exam-qa`（PDF照合直後の網羅性は `content-qa`）
 - その他カテゴリ → 該当エージェントを案内
 
 ## 担当スキル・ツール
