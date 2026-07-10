@@ -38,7 +38,7 @@
 
 **Phase 1（全数採点）完了・2026-07-10**: published 全 1,064 本の採点カバレッジ **100%** 達成（6資格×全group・commit 60812601d 他）。以降は Phase 2（校正）と Phase 3（恒久化）。
 
-現況: 採点 **1,064/1,064（100%）** / 不合格 **5**（75→…→8→5・2026-07-10 セッションで消化）/ 薄層 377。**残5は全て公式解答照合が要る過去問マーク矛盾＝2つの spawned 検証タスクが所有（LLM推測禁止）**: task_87198744（civil-1 h27-a/h28-a No.61 港則法）・task_5900f862（civil-1 r06-b/r07-b・civil-2 r06-kouki の正答マーク矛盾）。**総監 h28-30-secondary は authoring せず解決**＝現物照合で「全17 secondary が解答本体0の同一設計（旧形式は論点抽出用・答案練習は令和期へ誘導）」と判明し、h29 は3950字で passing h27(3897字)より長く answer_accuracy=1 は Evaluator の run 間ブレ。同一設計 modal 基準 [2,2,2,2,3]=2.2 へ整合（earlier「thin」仮説を §8 で撤回）。
+現況: 採点 **1,064/1,064（100%）** / 不合格 **0**（75→…→8→5→0・2026-07-11 に残5消化完了）/ 薄層 377。**残5（公式解答照合が要る過去問マーク矛盾）は解消済み**: civil-1 h27-a/h28-a No.61 港則法（task_87198744）・civil-1 r06-b/r07-b＋civil-2 r06-kouki の正答マーク矛盾（task_5900f862）は nifty-feynman/optimistic-mestorf 統合で公式キー0不一致を確定＋再採点→ census 再生成で failed 0 化。**総監 h28-30-secondary は authoring せず解決**＝現物照合で「全17 secondary が解答本体0の同一設計（旧形式は論点抽出用・答案練習は令和期へ誘導）」と判明し、h29 は3950字で passing h27(3897字)より長く answer_accuracy=1 は Evaluator の run 間ブレ。同一設計 modal 基準 [2,2,2,2,3]=2.2 へ整合（earlier「thin」仮説を §8 で撤回）。
 
 **Phase 2 進捗（2026-07-10）**: (A) 構造規約ギャップの機械修正を完遂 — **pe-first-stage 21・concrete-chief 8・civil-2 4** を RelatedKeywords 一括付与＋ExamPoint 折衷案化で全合格（全 slug 検証・欠落0）。(B) **ルーブリック不適合 17本をユーザー決定「正しい Evaluator で再採点」で処理** — pillar 5・keyword-2026・frequent-topics を `cem-qa`（ハブ/キーワード軸）、essay-pattern-cross-year を `cem-qa`（模範論文ハブ＝§20例外）、getting-started を `civil-construction-review` で再採点し **9本が正当に合格**（である調ハブ・データページは linking/reference 軸が適合）。exam-application-guide は `guide-rewriter` でリード/funnel/表を実修正し合格。commit `63d57f457`〜`cce2ebbea`、PR #387。**残 15 は再採点でも消えない＝真の内容欠陥 or 多軸リライト要**に純化。
 
@@ -48,13 +48,13 @@
 
 1. **🔴 真の内容バグ（10本・source照合 or authoring 要・LLM推測厳禁）** — 過去問解説の実欠陥。個別修正（`past-exam-rewriter` / `civil-secondary-exam-writer`）:
    - civil-1 `primary-r04-a`・`primary-r05-a`: 大多数の設問で正答肢のみ解説し**誤答肢3つの正誤理由が丸ごと欠落**（19✅/45❌・13✅/51❌）＝過去問の核心要件を欠く。全面書き直し級
-   - civil-1 `primary-r06-a` L433-438: ❌マークなのに解説が肯定文の矛盾。`primary-r06-b`/`r07-b`: 穴埋め誤答肢が「誤りを含む記述❌」プレースホルダーのみ
+   - ✅ **（2026-07-11 解消）** civil-1 `primary-r06-a` L433-438 の ❌/肯定解説矛盾・`primary-r06-b`/`r07-b` の穴埋めプレースホルダー → nifty-feynman 公式キー照合で全問0不一致確定（下記「Phase2 分類1」参照）
    - civil-1 `secondary-construction-plan-past-problems` No.9(1): 解答欄記述が省略
-   - civil-2 `primary-r06-kouki` No.12/32/33: 「出題側の正解は」と正答・解説が矛盾。`secondary-r06` 問8: 画像が `{/* TODO */}` 未挿入で本文欠落
+   - ✅ **（2026-07-11 解消）** civil-2 `primary-r06-kouki` No.12/32/33 の正答・解説矛盾 → optimistic-mestorf が公式問題・正答PDFで是正。**残**: `secondary-r06` 問8 の画像 `{/* TODO */}` 未挿入（本文欠落）は未対応
    - 総監 `h21-primary` Ⅱ-1-31（自己矛盾）・`h22-primary` Ⅱ-1-22（下書き跡）・`h28-primary` I-1-9/25/28（正答数不一致を「解釈もあり得る」で誤魔化し）・`h30-primary` I-1-24（思考過程露出）
    - pe-first-stage `r03-construction` Ⅲ-2/Ⅲ-18（正答矛盾）・`r04-basic` Ⅰ-2-4（ハミング距離解説破綻）
-   - civil-1 `primary-r06-b`/`r07-b`: 穴埋め①②③④マーク矛盾（正しい記述に❌）16/12箇所。ExamPoint/RK は追加済だが option_verification=0 で 1.0 据置＝要マーク精査
-   - **別セッション進行中（重複禁止）**: civil-1 `primary-h27-a`/`h28-a` No.61 港則法（task_5a0a5d01・原典PDF照合）／civil-1 `primary-r04-a`/`r05-a` 誤答肢解説補完（task_7d253597）
+   - 🟢 civil-1 `primary-r06-b`/`r07-b`: 正答キーは公式一致で確定済（nifty）。個数/組合せ①②③④の ✅/❌ 記号が旧式で反転して残る箇所は prose 整形の低優先 follow-up（下記「Phase2 分類1」の 🟢 参照）
+   - ✅ **（2026-07-11 解消）** civil-1 `primary-h27-a`/`h28-a` No.61 港則法（task_5a0a5d01）は develop の e-Gov 照合版で確定・`primary-r04-a`/`r05-a`（task_7d253597）は補完済（上記「完了」参照）
    - 総監 `h28-secondary`/`h29-secondary`/`h30-secondary`: 姉妹年（h27 等）は解答方向性が充実（answer_accuracy=3）だが本記事は薄い（=1・2590字 vs 3897字）。**RK付与のみでの数値通過は不誠実**＝h27 水準の解答方向性 authoring 要（白書事実は factcheck 必須）
    - 総監 `h21-primary` Ⅱ-1-31・`h22-primary` Ⅱ-1-22・`h28-primary` I-1-9/25/28・`h30-primary` I-1-24（既掲）／pe-first-stage 数本の answer_accuracy=1（official key 照合要・数値上は合格域）
    - **✅ civil-1 secondary 8本（完了・2026-07-10）** — ユーザー決定 (A)規格表 override 免除で全合格化。実施: ①`content-rules.json` の `overrides.civil-construction-1.secondary` に 1-3/1-4 免除追加（真実源 exam-content-policy.md Part 2 に追記・散文詰込表は対象外の但し書き） ②検証済みパレットURLのみで `## 参考資料` 全追加 ③生img→ArticleImage **121枚**移行 ④死リンク sekokan-net.jp(NXDOMAIN)→ejcm.or.jp(200実測)・jiban.co.jp(web到達不能)除去 ⑤earthwork OCR崩れ計9修復＋**表2.11土量計算書の列崩壊を算術照合で14列是正**（平均×距離=土量・差引・累加が全行一致＝数値発明なし） ⑥concrete/guide の散文詰込表解体 ⑦construction-plan の壊れ表（右列無意味反復）を実在断片の箇条書き化+原典照合TODO。Evaluator最終採点 2.05〜2.35 で 8/8 合格。**残存 follow-up**（合格済だが記録・各 scores.json の qualitative_comment 参照）: earthwork 表2.9 の散文詰込13セル解体（最優先）・入れ子リスト群・factual table のインライン出典・qm-basics/past-problems の民間ソース不在
@@ -69,10 +69,9 @@
 - 2種のバグ: ①各設問で正答肢1つしか解説がなく誤答肢3肢の正誤理由(✅/❌)欠落 ②誤答肢を検証すると正答キー/設問極性の転記ミス（r04-a/r05-a 2記事で5件≒4%）
 - **完了（2026-07-10）**: `primary-r04-a` / `primary-r05-a` を補完＋キー5件是正（No.36極性/No.52/No.59/No.24/No.46）→採点済み（weighted 2.9・civil primary 4軸）。census 68.1→70.1%
 - **部分是正（2026-07-10）**: `h27-a` / `h28-a` の **No.61 港則法**（品質採点で単一正答が成立しない疑いとして検出）を原典照合で全面是正（commit 4781e1b1b）。touhokugiken 公開の平成27/28年度 学科試験問題A PDF＋公式正答肢表＋港則法条文(e-Gov/hourei.net/LawPlayer)で照合＝**正答番号は正しく(H27=2/H28=1)、設問文と全選択肢が大幅に誤転記**されていた。原文へ差替え＋解説のヘッジ撤去で断定化。※両記事とも No.61 以外の全問監査（誤答肢理由の補完／正答キー照合）は未了で下記の残りに含む
-- **残り22本（未処理・task_311593e0 で別セッション監査中）**: マーク数から機械判定した内訳↓
-  - **要補完7本（誤答肢理由が欠落・マーク数<問数×4）**: `h28-a`(243/244)・`h30-a`(242/244)・`h30-b`(138/140)・`r01-a`(240/244)・`r02-a`(242/244)・`r02-b`(134/140)・`r07-b`(119/140＝穴埋め型で欠落最多)
-  - **要検証17本（マーク数は充足だが正答キー未照合）**: h26-a/b・h27-a/b・h28-b・h29-a/b・h30… の残り＋r01-b・r03-a/b・r04-b・r05-b・r06-a/b・r07-a。r04-a/r05-a も survey 上は「充足」だったが実際は誤キー5件が潜んでいた＝**充足でも内部矛盾スキャン＋kakomonn照合が必須**
-  - backlog旧記載の r06-a L433-438（❌と肯定解説の矛盾）・r06-b/r07-b（穴埋め誤答肢がプレースホルダー）はこの残22本に含む
+- **公式正答肢 全数照合 完了（2026-07-11・nifty-feynman ワークフロー統合）**: JCTC 公式正答肢を全22年度 SSOT 化（`.claude/state/quality/civil-1-primary-official-keys.json`）＋監査ツール（`.claude/state/quality/civil-1-primary-tools/` = diff-keys / check-marks / check-contradict / extract-keys / workorder）を追加。**16本を全問 公式キー0不一致で確定**: h26-a/b・h27-a/b・h28-b・h30-a/b・r01-a/b・r02-a/b・r03-a/b・r06-a/b・r07-a/b。検証コマンド → `node .claude/state/quality/civil-1-primary-tools/diff-keys.mjs .claude/state/quality/civil-1-primary-official-keys.json`（現状の残 24 件不一致＝下記 deferred のみ）。旧記載の「要補完7本／要検証17本」「r06-a L433-438 矛盾／r06-b/r07-b プレースホルダー」はこの照合で解消済み
+- **🔴 残 3本・24件（deferred・要 pre-H30 原典 PDF・LLM推測厳禁）**: `h28-a`(19件)・`h29-a`(1件=No.38 4→3)・`h29-b`(4件=No.3/12/17/21)。pre-H30 は公式問題PDFがローカルに無く（過去問フォルダは H30〜R07 のみ）、キー番号だけ書き換えると設問極性・本文化けと矛盾するため半端修正しない。**特に h28-a は19件と突出＝公式配列自体の OCR 誤りを排除するため、mass-fix 前に第2ソース（kakomonn 等）で official 配列を再検証すること**。手順は archived handoff `docs/handoffs/_archive/2026-07-10-civil1-primary-official-key-verification.md`
+- **🟢 prose follow-up（キーは公式一致済・低優先）**: 個数/組合せ問題の①②③④に付く ✅/❌ 記号が旧式で反転して残る箇所あり（例 `r07-b` No.32・No.24・No.35）。正答キーは正しく学習上の誤りではないが記号整形の対象
 - **照合手順**: kakomonn question id = base + 問番号（R05 base=74716・R04 base=67670。他年度は既知2問から base 実測）。労安法/騒音規制法/水道等の数値は施行令別表を一次確認。**pre-H30 原典（過去問フォルダは H30〜R07 のみ）＝ touhokugiken.com 公開の問題A/B PDF＋公式正答肢表**（問題 `/answer/{h27|h28…}/…-1doboku-a.pdf`〔命名ゆれ有〕・正答 `…-kaitou.pdf`・索引 `/answer.html`）。WebFetch はPDF不可→保存PDFを `pdftotext -layout`、正答肢表は画像→`pdftoppm`→目視。条文は e-Gov(SPA不可)より hourei.net/lawplayer の静的ミラー。**正答キーだけでなく設問文・全選択肢の本文化けも照合**（h27-a/h28-a No.61 実証）。詳細手順は `docs/reference/exam-content-policy.md` Part 2「過去問の原典照合」
 
 ---
