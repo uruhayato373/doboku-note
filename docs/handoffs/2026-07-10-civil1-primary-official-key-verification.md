@@ -1,0 +1,82 @@
+# 1級土木 一次過去問(primary) 公式正答肢の全問突合と是正
+
+> [!info] 状態
+> 進行中（マルチセッション）。2026-07-10 開始。r07-a 完了・commit 済み。残 21 記事。
+
+## 1行サマリ
+
+civil-construction-1 の一次過去問 primary 22 本を「r04-a/r05-a と同じ手順」で監査するタスクだったが、**bug1（誤答肢解説の欠落）は既にほぼ全記事で解消済み**と判明。真の欠陥は **公式正答肢との突合で見つかる 81 件の誤キー（正答転記ミス＋設問極性の反転）** ＋ 一部のプレースホルダ解説・穴埋め未展開だった。JCTC 公式正答肢を全年度入手して突合し、**r07-a の 10 件を是正・commit 完了**。残 71 件（21 記事）が本 handoff の対象。
+
+## 決定的な前提（必読）
+
+- **採点方針＝「every key vs official」**（ユーザー選択）: 全 ~1,100 問のキーを公式正答肢と content で突合する。優先＝most-flagged first。
+- **マーク規約（SSOT, fixed r05-a 由来）**: ✅＝その選択肢の記述が適当/正しい、❌＝不適当/誤り。「適当でないもの」設問では正答肢のみ ❌（他3つ ✅）、「適当なもの」設問では正答肢のみ ✅（他3つ ❌）。個数問題は①〜④各文の適/不適をマーク。
+- **誤りは2種**:
+  1. **正答キー転記ミス**: `正答：N` の数字だけ誤り。選択肢本文・極性は正しく、解説の真偽判定も概ね正しいことが多い → キー＋マークを是正。
+  2. **設問極性の反転**: 設問が「適当な⇄適当でない」で転記ミス。この場合 ✅/❌ が全反転する。解説本文が「◯◯は正しい」と言っているのに ❌ が付く等の内部矛盾が出る。**必ず公式(kakomonn)で設問極性を確認**してから極性語を書き換える。r07-a では No.13・No.36 がこれ。
+- **図問題は画像を必ず開いて判定**（BMD 図・ひび割れ図等）。選択肢本文が図と食い違う mis-transcription もある（r07-a No.25 は選択肢説明の鉛直/水平が図と逆だった）。**サブエージェントに図問題を丸投げ禁止**（盲目でハルシネートする）。
+- civil primary は **ExamPoint/RelatedKeywords 不使用**が既存規約（末尾リンクのみ）＝採点は4軸(構造/解答/リンク/モバイル)。secondary 記事は対象外。
+
+## データとツール（永続化済み）
+
+- **公式正答肢データ**: `.claude/state/quality/civil-1-primary-official-keys.json`（全22本 `{"r07-a":[No.1の答,No.2,...], ...}`）。出所＝JCTC 公式正答肢PDF。H26-H29 は画像PDFを pdftoppm→Read でOCR、H30-R07 はテキスト層/クリーンPDF から抽出。
+- **監査スクリプト**: `.claude/state/quality/civil-1-primary-tools/`
+  - `diff-keys.mjs official.json` … 現行記事キー vs 公式の差分（全22本一括）。
+  - `workorder.mjs official.json <rec>` … 1記事の作業指示（公式キー全列・誤キー・プレースホルダ/マーク欠落/穴埋めの一覧）。
+  - `check-marks.mjs <file>` … 各設問の ✅/❌ 個数が4か、プレースホルダ有無。
+  - `check-contradict.mjs <file>...` … ❌なのに本文「正しい」等の内部矛盾検出（「〜でなく〜が正しい ❌」は偽陽性なので無視）。
+  - `extract-keys.mjs <file>...` … 現行記事キー抽出。
+  - 実行例: `node .claude/state/quality/civil-1-primary-tools/diff-keys.mjs .claude/state/quality/civil-1-primary-official-keys.json`
+- **公式PDF入手先**: doboku-torisetsu.com `/pastproblems/1doboku/{H26..R7}_kaitou.pdf`（＝JCTC 正答肢の再掲）。JCTC本家 `jctc.jp/mondai/` は当年度のみ掲載（過年度はローテーションで消える）。curl は本環境で疎通する（会社PCプロキシとは別）。
+- **kakomonn 個別問題**（設問極性・選択肢本文・正答の一次確認に使用）: `https://1dobokusekou.kakomonn.com/questions/{ID}`。R07問題Aは ID ≈ **86604 + 問番号**（No.1=86605, No.13=86617, No.33=86637, No.36=86640 で検証、ただしユニット境界で線形が崩れる可能性ありなので content で照合）。他年度の base は未実測（既知2問から実測してから使う）。
+
+## 進捗
+
+- [x] 全22本の公式正答肢入手・突合 → **81 件の誤キー検出**（commit `9fc72255c`）
+- [x] **r07-a** 10件是正＋プレースホルダ2件（No.23/33）＋図2問（No.3/25）（commit `857c79186`）。kakomonn で No.13/33/36 裏取り済み。
+- [ ] 残 21 記事（下記 71 件）
+
+## 残りの誤キー一覧（71件・most-flagged 順で処理推奨）
+
+优先: r03-a(11) → r07-b(9) → r06-a(8) → r06-b(6) → r03-b(5) → h29-b(4) → h27-a(3) → h26-a(2)/h26-b(2) → h27-b(1)/h29-a(1)。
+
+```
+r03-a(11): No.18 2→3 / No.20 4→2 / No.25 2→3 / No.27 2→4 / No.28 4→1 / No.34 3→4 / No.41 1→4 / No.43 4→1 / No.48 3→1 / No.49 4→2 / No.53 3→4
+r03-b(5):  No.1 4→2 / No.3 4→2 / No.6 1→2 / No.11 1→2 / No.30 4→1
+r06-a(8):  No.17 2→4 / No.25 2→3 / No.26 4→2 / No.27 2→4 / No.34 3→2 / No.48 3→1 / No.51 2→4 / No.52 3→1
+r06-b(6):  No.3 4→3 / No.6 1→2 / No.22 1→2 / No.24 2→3 / No.25 1→2 / No.28 4→3
+r07-b(9):  No.1 4→1 / No.6 4→3 / No.11 2→1 / No.16 3→2 / No.18 1→4 / No.22 2→1 / No.27 1→4 / No.31 4→3 / No.33 2→3
+h29-b(4):  No.3 2→3 / No.12 1→2 / No.17 3→1 / No.21 4→1
+h27-a(3):  No.2 3→2 / No.27 3→4 / No.58 1→4
+h26-a(2):  No.10 1→4 / No.11 3→4        h26-b(2): No.28 2→3 / No.29 3→2 (隣接スワップ)
+h27-b(1):  No.23 4→1                      h29-a(1): No.38 4→3
+```
+
+> [!warning] h28-a は 19 件 = 要 OCR 再検証
+> h28-a だけ 31%(19/61) と突出。誤キーが No.4-15 に密集。picture PDF の OCR ミスの可能性を排除するため、**mass-fix 前に H28-A 正答肢を第2ソース（kakomonn 等）で再確認**すること。h28-b は突合0件で H28-B の OCR は正。h28-a の official 配列は `.claude/state/quality/civil-1-primary-official-keys.json` の `h28-a`（要 double-check）。
+
+> [!note] 7本は突合0件（キー健全）
+> h28-b / h30-a / h30-b / r01-a / r01-b / r02-a / r02-b。これらは**キー修正不要**だが、プレースホルダ解説やマーク欠落（個数/穴埋め）が残る場合あり（`check-marks.mjs` で確認）。穴埋め placeholder は r06-b/r07-b に多い。
+
+## 1記事の処理手順（r07-a で実証済み）
+
+1. `node .../workorder.mjs official.json <rec>` で誤キー＋プレースホルダを一覧。
+2. 各誤キー設問: 記事の設問文・選択肢・現行解説を読む。公式キーが指す選択肢が
+   - 設問極性に整合（例: 適当でない設問で公式キー肢が「誤りの記述」）→ **キー数字＋マークのみ是正**、解説を真偽に合わせて書き直し。
+   - 極性と逆（記事極性「適当な」だが公式キー肢が「誤りの記述」）→ **設問極性語を反転**＋キー＋マーク＋解説。kakomonn で極性を裏取り。
+   - 図問題 → 画像(`img/*.webp`)を Read して図と照合。選択肢説明が図と食い違えば選択肢本文も是正。
+   - 判定不能/選択肢本文が公式と食い違う疑い → kakomonn で一次確認、なお不明なら handoff に FLAG。
+3. プレースホルダ解説（"記述は適当である"/"正しい記述 ❌"/"誤りを含む記述"/"穴埋め問題である"）→ 選択肢ごとの実質理由に書き換え。穴埋めは各誤答肢で「どの空欄がどう違うか」を書く。個数問題は①〜④各文の適/不適。
+4. 検証: `diff-keys`（該当記事 0 件）＋`check-marks`（全4マーク）＋`check-contradict`（"〜でなく〜が正しい"以外の矛盾0）＋ `grep -c $'�'`＋CRLFなし。
+5. 1記事ずつ `git add <明示パス>` → commit。
+
+## タスク完了後（全21記事終了時）
+
+- `npm run refresh-indexes`（timestamp のみ変化なら config は restore）。
+- `past-exam-qa` で再採点し `.claude/state/quality/civil-1-extra-scores.json` に pages 追記 → `npm run quality-census` でカバレッジ確認。
+- memory `[[civil1-primary-answer-key-errors]]` を更新（81→残数、完了記事）。
+
+## 関連
+
+- memory: [[civil1-primary-answer-key-errors]]（r04-a/r05-a の先行事例）、[[reference_quality_census]]
+- 先行 commit: r04-a/r05-a 是正は別ブランチ `claude/intelligent-volhard-0cd641`（`152d69c6e` 他、develop 未マージ）。本作業と別ファイルなので競合なし。
