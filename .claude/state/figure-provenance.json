@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-10T08:48:01.968Z",
+  "generated_at": "2026-07-10T09:09:56.113Z",
   "note": "図provenance。needs=次アクション。真実源: figure-sources.json(台帳)+figure-text-audit.json(品質)。再生成可。",
-  "figure_count": 592,
+  "figure_count": 598,
   "summary": {
-    "ok": 515,
+    "ok": 521,
     "rescan-need-source": 7,
     "recrop": 28,
     "recrop-review": 26,
@@ -5043,6 +5043,20 @@
       "needs": "rescan-need-source",
       "manualReason": "R.04問題9(高流動)。書籍②/01のR4収録は問題14(テキスト設問)のみで本設問は非収録(p56-66精査・R.01問題9は選択肢が別物のため不採用)。旧画像維持。要R4原典。"
     },
+    "concrete-chief-engineer/primary-construction/img/form-pressure-h27": {
+      "category": "concrete-chief-engineer",
+      "slug": "concrete-chief-engineer/primary-construction",
+      "year": "h27",
+      "published": true,
+      "referenced": true,
+      "quality": "unknown",
+      "sharpness": null,
+      "textStatus": "unaudited",
+      "source_dir": "docs/textbook/コンクリート主任技師2024",
+      "figure_origin": "textbook-scan",
+      "rescannable": "true",
+      "needs": "ok"
+    },
     "concrete-chief-engineer/primary-construction/img/form-pressure-r02": {
       "category": "concrete-chief-engineer",
       "slug": "concrete-chief-engineer/primary-construction",
@@ -5077,6 +5091,20 @@
       "category": "concrete-chief-engineer",
       "slug": "concrete-chief-engineer/primary-construction",
       "year": "h28",
+      "published": true,
+      "referenced": true,
+      "quality": "unknown",
+      "sharpness": null,
+      "textStatus": "unaudited",
+      "source_dir": "docs/textbook/コンクリート主任技師2024",
+      "figure_origin": "textbook-scan",
+      "rescannable": "true",
+      "needs": "ok"
+    },
+    "concrete-chief-engineer/primary-construction/img/pump-longdistance-h27": {
+      "category": "concrete-chief-engineer",
+      "slug": "concrete-chief-engineer/primary-construction",
+      "year": "h27",
       "published": true,
       "referenced": true,
       "quality": "unknown",
@@ -5323,6 +5351,20 @@
       "needs": "ok",
       "manualReason": "高品質再スキャン(スキャンした書類 15.pdf・書籍p.69)からフル再抽出＝旧は全体ボケ→載荷/除荷/数値鮮明化。並行workflow+親の新旧比較QA。差替済 2026-07-10。"
     },
+    "concrete-chief-engineer/primary-structural-design/img/cantilever-section-h27": {
+      "category": "concrete-chief-engineer",
+      "slug": "concrete-chief-engineer/primary-structural-design",
+      "year": "h27",
+      "published": true,
+      "referenced": true,
+      "quality": "unknown",
+      "sharpness": null,
+      "textStatus": "unaudited",
+      "source_dir": "docs/textbook/コンクリート主任技師2024",
+      "figure_origin": "textbook-scan",
+      "rescannable": "true",
+      "needs": "ok"
+    },
     "concrete-chief-engineer/primary-structural-design/img/crack-pattern-r02": {
       "category": "concrete-chief-engineer",
       "slug": "concrete-chief-engineer/primary-structural-design",
@@ -5352,6 +5394,48 @@
       "rescannable": "true",
       "needs": "ok",
       "manualReason": "高品質再スキャン(スキャンした書類 18.pdf・書籍p.196)からフル再抽出＝旧は(a)(b)のみ不鮮明→(a)-(d)全4図復元。並行workflow+親の新旧比較QA。差替済 2026-07-10。"
+    },
+    "concrete-chief-engineer/primary-structural-design/img/pc-section-h27": {
+      "category": "concrete-chief-engineer",
+      "slug": "concrete-chief-engineer/primary-structural-design",
+      "year": "h27",
+      "published": true,
+      "referenced": true,
+      "quality": "unknown",
+      "sharpness": null,
+      "textStatus": "unaudited",
+      "source_dir": "docs/textbook/コンクリート主任技師2024",
+      "figure_origin": "textbook-scan",
+      "rescannable": "true",
+      "needs": "ok"
+    },
+    "concrete-chief-engineer/primary-structural-design/img/rc-frame-crack-h27": {
+      "category": "concrete-chief-engineer",
+      "slug": "concrete-chief-engineer/primary-structural-design",
+      "year": "h27",
+      "published": true,
+      "referenced": true,
+      "quality": "unknown",
+      "sharpness": null,
+      "textStatus": "unaudited",
+      "source_dir": "docs/textbook/コンクリート主任技師2024",
+      "figure_origin": "textbook-scan",
+      "rescannable": "true",
+      "needs": "ok"
+    },
+    "concrete-chief-engineer/primary-structural-design/img/slab-joint-position-h27": {
+      "category": "concrete-chief-engineer",
+      "slug": "concrete-chief-engineer/primary-structural-design",
+      "year": "h27",
+      "published": true,
+      "referenced": true,
+      "quality": "unknown",
+      "sharpness": null,
+      "textStatus": "unaudited",
+      "source_dir": "docs/textbook/コンクリート主任技師2024",
+      "figure_origin": "textbook-scan",
+      "rescannable": "true",
+      "needs": "ok"
     },
     "concrete-chief-engineer/primary-structural-design/img/wall-crack-pattern-h28": {
       "category": "concrete-chief-engineer",
