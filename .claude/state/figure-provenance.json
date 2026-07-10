@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-10T09:09:56.113Z",
+  "generated_at": "2026-07-10T09:22:46.177Z",
   "note": "図provenance。needs=次アクション。真実源: figure-sources.json(台帳)+figure-text-audit.json(品質)。再生成可。",
-  "figure_count": 598,
+  "figure_count": 604,
   "summary": {
-    "ok": 521,
+    "ok": 527,
     "rescan-need-source": 7,
     "recrop": 28,
     "recrop-review": 26,
@@ -5115,6 +5115,20 @@
       "rescannable": "true",
       "needs": "ok"
     },
+    "concrete-chief-engineer/primary-construction/img/pump-piping-h26": {
+      "category": "concrete-chief-engineer",
+      "slug": "concrete-chief-engineer/primary-construction",
+      "year": "h26",
+      "published": true,
+      "referenced": true,
+      "quality": "unknown",
+      "sharpness": null,
+      "textStatus": "unaudited",
+      "source_dir": "docs/textbook/コンクリート主任技師2024",
+      "figure_origin": "textbook-scan",
+      "rescannable": "true",
+      "needs": "ok"
+    },
     "concrete-chief-engineer/primary-construction/img/pump-pressure-r01": {
       "category": "concrete-chief-engineer",
       "slug": "concrete-chief-engineer/primary-construction",
@@ -5219,6 +5233,20 @@
       "needs": "ok",
       "manualReason": "追加再スキャン(年度別パート)からフル再抽出＝H29問7 含有炭素量-引張強さ/降伏点/伸びグラフ(A-C)。旧画像は横倒し+手書きの答え書込み(答え漏らし)+設問文/選択肢表混入→グラフのみ正立で抽出。親目視QA。差替済 2026-07-10。"
     },
+    "concrete-chief-engineer/primary-mix-design/img/mix-volume-slump-h26": {
+      "category": "concrete-chief-engineer",
+      "slug": "concrete-chief-engineer/primary-mix-design",
+      "year": "h26",
+      "published": true,
+      "referenced": true,
+      "quality": "unknown",
+      "sharpness": null,
+      "textStatus": "unaudited",
+      "source_dir": "docs/textbook/コンクリート主任技師2024",
+      "figure_origin": "textbook-scan",
+      "rescannable": "true",
+      "needs": "ok"
+    },
     "concrete-chief-engineer/primary-mix-design/img/mix-volume-slump-h28": {
       "category": "concrete-chief-engineer",
       "slug": "concrete-chief-engineer/primary-mix-design",
@@ -5306,6 +5334,20 @@
       "rescannable": "true",
       "needs": "ok"
     },
+    "concrete-chief-engineer/primary-properties/img/bingham-flow-h26": {
+      "category": "concrete-chief-engineer",
+      "slug": "concrete-chief-engineer/primary-properties",
+      "year": "h26",
+      "published": true,
+      "referenced": true,
+      "quality": "unknown",
+      "sharpness": null,
+      "textStatus": "unaudited",
+      "source_dir": "docs/textbook/コンクリート主任技師2024",
+      "figure_origin": "textbook-scan",
+      "rescannable": "true",
+      "needs": "ok"
+    },
     "concrete-chief-engineer/primary-properties/img/bingham-flow-h30": {
       "category": "concrete-chief-engineer",
       "slug": "concrete-chief-engineer/primary-properties",
@@ -5351,6 +5393,20 @@
       "needs": "ok",
       "manualReason": "高品質再スキャン(スキャンした書類 15.pdf・書籍p.69)からフル再抽出＝旧は全体ボケ→載荷/除荷/数値鮮明化。並行workflow+親の新旧比較QA。差替済 2026-07-10。"
     },
+    "concrete-chief-engineer/primary-structural-design/img/beam-flexure-h26": {
+      "category": "concrete-chief-engineer",
+      "slug": "concrete-chief-engineer/primary-structural-design",
+      "year": "h26",
+      "published": true,
+      "referenced": true,
+      "quality": "unknown",
+      "sharpness": null,
+      "textStatus": "unaudited",
+      "source_dir": "docs/textbook/コンクリート主任技師2024",
+      "figure_origin": "textbook-scan",
+      "rescannable": "true",
+      "needs": "ok"
+    },
     "concrete-chief-engineer/primary-structural-design/img/cantilever-section-h27": {
       "category": "concrete-chief-engineer",
       "slug": "concrete-chief-engineer/primary-structural-design",
@@ -5394,6 +5450,34 @@
       "rescannable": "true",
       "needs": "ok",
       "manualReason": "高品質再スキャン(スキャンした書類 18.pdf・書籍p.196)からフル再抽出＝旧は(a)(b)のみ不鮮明→(a)-(d)全4図復元。並行workflow+親の新旧比較QA。差替済 2026-07-10。"
+    },
+    "concrete-chief-engineer/primary-structural-design/img/load-displacement-h26": {
+      "category": "concrete-chief-engineer",
+      "slug": "concrete-chief-engineer/primary-structural-design",
+      "year": "h26",
+      "published": true,
+      "referenced": true,
+      "quality": "unknown",
+      "sharpness": null,
+      "textStatus": "unaudited",
+      "source_dir": "docs/textbook/コンクリート主任技師2024",
+      "figure_origin": "textbook-scan",
+      "rescannable": "true",
+      "needs": "ok"
+    },
+    "concrete-chief-engineer/primary-structural-design/img/pc-beam-load-h26": {
+      "category": "concrete-chief-engineer",
+      "slug": "concrete-chief-engineer/primary-structural-design",
+      "year": "h26",
+      "published": true,
+      "referenced": true,
+      "quality": "unknown",
+      "sharpness": null,
+      "textStatus": "unaudited",
+      "source_dir": "docs/textbook/コンクリート主任技師2024",
+      "figure_origin": "textbook-scan",
+      "rescannable": "true",
+      "needs": "ok"
     },
     "concrete-chief-engineer/primary-structural-design/img/pc-section-h27": {
       "category": "concrete-chief-engineer",
