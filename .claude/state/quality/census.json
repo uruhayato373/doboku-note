@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-07-10T10:50:23.501Z",
+  "generated_at": "2026-07-10T10:59:38.548Z",
   "thresholds": {
     "fail": 2,
     "thin_chars": 3000,
@@ -14,7 +14,7 @@
     "total": 1064,
     "scored": 1064,
     "unscored": 0,
-    "failed": 8,
+    "failed": 5,
     "thin": 377,
     "coverage_pct": 100
   },
@@ -154,9 +154,9 @@
           "total": 34,
           "scored": 34,
           "unscored": 0,
-          "failed": 3,
+          "failed": 0,
           "thin": 0,
-          "avg_weighted": 2.55
+          "avg_weighted": 2.59
         },
         "pillar": {
           "total": 5,
@@ -171,7 +171,7 @@
         "total": 724,
         "scored": 724,
         "unscored": 0,
-        "failed": 3,
+        "failed": 0,
         "thin": 360
       }
     },
@@ -1230,30 +1230,6 @@
       "reason": "thin",
       "weighted": 2.55,
       "body_chars": 2097
-    },
-    {
-      "slug": "pe-comprehensive-management-h28-secondary",
-      "category": "pe-comprehensive-management",
-      "group": "past-exam",
-      "reason": "failed",
-      "weighted": 1.8,
-      "body_chars": 2113
-    },
-    {
-      "slug": "pe-comprehensive-management-h29-secondary",
-      "category": "pe-comprehensive-management",
-      "group": "past-exam",
-      "reason": "failed",
-      "weighted": 1.8,
-      "body_chars": 3473
-    },
-    {
-      "slug": "pe-comprehensive-management-h30-secondary",
-      "category": "pe-comprehensive-management",
-      "group": "past-exam",
-      "reason": "failed",
-      "weighted": 1.8,
-      "body_chars": 2389
     },
     {
       "slug": "pe-comprehensive-management-halo-effect-errors",
@@ -5220,7 +5196,7 @@
       "slug": "concrete-chief-engineer-primary-construction",
       "category": "concrete-chief-engineer",
       "group": "primary",
-      "body_chars": 65945,
+      "body_chars": 65868,
       "scored": true,
       "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -5253,7 +5229,7 @@
       "slug": "concrete-chief-engineer-primary-mix-design",
       "category": "concrete-chief-engineer",
       "group": "primary",
-      "body_chars": 19822,
+      "body_chars": 19819,
       "scored": true,
       "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -8379,9 +8355,9 @@
       "group": "past-exam",
       "body_chars": 2113,
       "scored": true,
-      "weighted": 1.8,
+      "weighted": 2.2,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
@@ -8401,9 +8377,9 @@
       "group": "past-exam",
       "body_chars": 3473,
       "scored": true,
-      "weighted": 1.8,
+      "weighted": 2.2,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
@@ -8423,9 +8399,9 @@
       "group": "past-exam",
       "body_chars": 2389,
       "scored": true,
-      "weighted": 1.8,
+      "weighted": 2.2,
       "scored_at": "2026-07-10T00:00:00.000Z",
-      "failed": true,
+      "failed": false,
       "thin": false
     },
     {
