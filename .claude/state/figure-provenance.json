@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-09T21:28:33.703Z",
+  "generated_at": "2026-07-10T08:48:01.968Z",
   "note": "図provenance。needs=次アクション。真実源: figure-sources.json(台帳)+figure-text-audit.json(品質)。再生成可。",
-  "figure_count": 586,
+  "figure_count": 592,
   "summary": {
-    "ok": 509,
+    "ok": 515,
     "rescan-need-source": 7,
     "recrop": 28,
     "recrop-review": 26,
@@ -5073,6 +5073,20 @@
       "needs": "ok",
       "manualReason": "高品質再スキャン(スキャンした書類 17.pdf・書籍p.179)からフル再抽出＝旧はボケ→橋脚/打継目a-d/潮位鮮明。並行workflow+親の新旧比較QA。差替済 2026-07-10。"
     },
+    "concrete-chief-engineer/primary-construction/img/placing-order-coldjoint-h28": {
+      "category": "concrete-chief-engineer",
+      "slug": "concrete-chief-engineer/primary-construction",
+      "year": "h28",
+      "published": true,
+      "referenced": true,
+      "quality": "unknown",
+      "sharpness": null,
+      "textStatus": "unaudited",
+      "source_dir": "docs/textbook/コンクリート主任技師2024",
+      "figure_origin": "textbook-scan",
+      "rescannable": "true",
+      "needs": "ok"
+    },
     "concrete-chief-engineer/primary-construction/img/pump-pressure-r01": {
       "category": "concrete-chief-engineer",
       "slug": "concrete-chief-engineer/primary-construction",
@@ -5148,6 +5162,20 @@
       "needs": "ok",
       "manualReason": "高品質再スキャン(スキャンした書類 14.pdf・書籍p.34)からフル再抽出＝旧は指で左端隠れ+ボケ→5棒+凡例完全。並行workflow+親の新旧比較QA。差替済 2026-07-10。"
     },
+    "concrete-chief-engineer/primary-materials/img/materials-clinker-strength-h28": {
+      "category": "concrete-chief-engineer",
+      "slug": "concrete-chief-engineer/primary-materials",
+      "year": "h28",
+      "published": true,
+      "referenced": true,
+      "quality": "unknown",
+      "sharpness": null,
+      "textStatus": "unaudited",
+      "source_dir": "docs/textbook/コンクリート主任技師2024",
+      "figure_origin": "textbook-scan",
+      "rescannable": "true",
+      "needs": "ok"
+    },
     "concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29": {
       "category": "concrete-chief-engineer",
       "slug": "concrete-chief-engineer/primary-materials",
@@ -5162,6 +5190,20 @@
       "rescannable": "true",
       "needs": "ok",
       "manualReason": "追加再スキャン(年度別パート)からフル再抽出＝H29問7 含有炭素量-引張強さ/降伏点/伸びグラフ(A-C)。旧画像は横倒し+手書きの答え書込み(答え漏らし)+設問文/選択肢表混入→グラフのみ正立で抽出。親目視QA。差替済 2026-07-10。"
+    },
+    "concrete-chief-engineer/primary-mix-design/img/mix-volume-slump-h28": {
+      "category": "concrete-chief-engineer",
+      "slug": "concrete-chief-engineer/primary-mix-design",
+      "year": "h28",
+      "published": true,
+      "referenced": true,
+      "quality": "unknown",
+      "sharpness": null,
+      "textStatus": "unaudited",
+      "source_dir": "docs/textbook/コンクリート主任技師2024",
+      "figure_origin": "textbook-scan",
+      "rescannable": "true",
+      "needs": "ok"
     },
     "concrete-chief-engineer/primary-mix-design/img/volume-ratio-r03": {
       "category": "concrete-chief-engineer",
@@ -5207,6 +5249,34 @@
       "rescannable": "true",
       "needs": "ok",
       "manualReason": "高品質再スキャン(スキャンした書類 16.pdf・書籍p.120)からフル再抽出＝旧は左端見切れ(ε斜線部)+ボケ→完全。並行workflow+親の新旧比較QA。差替済 2026-07-10。"
+    },
+    "concrete-chief-engineer/primary-production-qc/img/xbar-control-chart-h28": {
+      "category": "concrete-chief-engineer",
+      "slug": "concrete-chief-engineer/primary-production-qc",
+      "year": "h28",
+      "published": true,
+      "referenced": true,
+      "quality": "unknown",
+      "sharpness": null,
+      "textStatus": "unaudited",
+      "source_dir": "docs/textbook/コンクリート主任技師2024",
+      "figure_origin": "textbook-scan",
+      "rescannable": "true",
+      "needs": "ok"
+    },
+    "concrete-chief-engineer/primary-properties/img/beam-thermal-stress-h28": {
+      "category": "concrete-chief-engineer",
+      "slug": "concrete-chief-engineer/primary-properties",
+      "year": "h28",
+      "published": true,
+      "referenced": true,
+      "quality": "unknown",
+      "sharpness": null,
+      "textStatus": "unaudited",
+      "source_dir": "docs/textbook/コンクリート主任技師2024",
+      "figure_origin": "textbook-scan",
+      "rescannable": "true",
+      "needs": "ok"
     },
     "concrete-chief-engineer/primary-properties/img/bingham-flow-h30": {
       "category": "concrete-chief-engineer",
@@ -5282,6 +5352,20 @@
       "rescannable": "true",
       "needs": "ok",
       "manualReason": "高品質再スキャン(スキャンした書類 18.pdf・書籍p.196)からフル再抽出＝旧は(a)(b)のみ不鮮明→(a)-(d)全4図復元。並行workflow+親の新旧比較QA。差替済 2026-07-10。"
+    },
+    "concrete-chief-engineer/primary-structural-design/img/wall-crack-pattern-h28": {
+      "category": "concrete-chief-engineer",
+      "slug": "concrete-chief-engineer/primary-structural-design",
+      "year": "h28",
+      "published": true,
+      "referenced": true,
+      "quality": "unknown",
+      "sharpness": null,
+      "textStatus": "unaudited",
+      "source_dir": "docs/textbook/コンクリート主任技師2024",
+      "figure_origin": "textbook-scan",
+      "rescannable": "true",
+      "needs": "ok"
     },
     "concrete-diagnostician/primary-exercise-01/img/q1-fig": {
       "category": "concrete-diagnostician",
