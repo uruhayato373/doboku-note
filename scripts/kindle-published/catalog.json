@@ -1,0 +1,166 @@
+{
+  "_comment": "KDP 出版済み Kindle 本の機械可読 SSOT。ASIN・価格・状態・版(version)の真実源。markdown の出版済み一覧(docs/project/01_戦略/08_Kindle出版戦略.md)と README.md の表はここから派生させる。ASIN は Amazon 恒久 ID。版を更新して EPUB を再アップしたら version を上げ versionHistory に1行足す。リビルドは builder + --theme buildTheme で再現できる。",
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-11",
+  "books": [
+    {
+      "id": "A-00",
+      "asin": null,
+      "title": "1級土木施工管理技士 一次検定 全6科目 論点別過去問 完全版",
+      "subtitle": "平成26〜令和7年度 12年分・全422問を6科目39論点に再構成",
+      "series": "1級土木施工管理技士 第1次検定 論点別過去問",
+      "seriesVolume": 0,
+      "priceJpy": 1200,
+      "royalty": 0.7,
+      "questionCount": 422,
+      "rontenCount": 39,
+      "status": "live",
+      "publishedDate": "2026-07-11",
+      "builder": "scripts/build-takuitsu-reconstruct.mjs",
+      "buildTheme": "goubon",
+      "epub": "kindle-A-00-goubon.epub",
+      "cover": "kindle-cover-a-00.jpg",
+      "kdpMemo": "KDP入力メモ_A-00全科目合本.txt",
+      "version": "1.0",
+      "versionHistory": [
+        { "version": "1.0", "date": "2026-07-11", "change": "初版公開（A-01〜A-06 の全422問を合本・6部立て・章番号通し）" }
+      ],
+      "notes": "ASIN 未取得（公開直後・KDP ダッシュボードで確認して追記）。分冊 A-01〜A-06 との重複コンテンツ規約は初回審査で実態確認。"
+    },
+    {
+      "id": "A-01",
+      "asin": "B0H8B1HYRY",
+      "title": "1級土木施工管理技士 一次検定 安全管理 論点別過去問",
+      "subtitle": "平成26〜令和7年度 12年分・127問を9論点に再構成",
+      "series": "1級土木施工管理技士 第1次検定 論点別過去問",
+      "seriesVolume": 1,
+      "priceJpy": 390,
+      "royalty": 0.7,
+      "questionCount": 127,
+      "rontenCount": 9,
+      "status": "live",
+      "publishedDate": "2026-07-08",
+      "builder": "scripts/build-takuitsu-reconstruct.mjs",
+      "buildTheme": "anzen",
+      "epub": "kindle-A-01-anzen-updated.epub",
+      "cover": "kindle-cover-A-01.jpg",
+      "kdpMemo": "KDP入力メモ_A-01安全管理.txt",
+      "version": "1.1",
+      "versionHistory": [
+        { "version": "1.0", "date": "2026-07-08", "change": "初版公開（第1弾）" },
+        { "version": "1.1", "date": "2026-07-09", "change": "尻切れ解説の恒久補完後の更新版 EPUB を再アップ" }
+      ]
+    },
+    {
+      "id": "A-02",
+      "asin": "B0H8CY453L",
+      "title": "1級土木施工管理技士 一次検定 法規 論点別過去問",
+      "subtitle": "平成26〜令和7年度 12年分・126問を論点別に再構成",
+      "series": "1級土木施工管理技士 第1次検定 論点別過去問",
+      "seriesVolume": 2,
+      "priceJpy": 390,
+      "royalty": 0.7,
+      "questionCount": 126,
+      "status": "live",
+      "publishedDate": "2026-07-10",
+      "builder": "scripts/build-takuitsu-reconstruct.mjs",
+      "buildTheme": "hoki",
+      "epub": "kindle-A-02-hoki.epub",
+      "cover": "kindle-cover-a-02.jpg",
+      "kdpMemo": null,
+      "version": "1.0",
+      "versionHistory": [
+        { "version": "1.0", "date": "2026-07-10", "change": "初版公開" }
+      ]
+    },
+    {
+      "id": "A-03",
+      "asin": "B0H8D25H93",
+      "title": "1級土木施工管理技士 一次検定 施工計画 論点別過去問",
+      "subtitle": "平成26〜令和7年度 12年分・42問を論点別に再構成",
+      "series": "1級土木施工管理技士 第1次検定 論点別過去問",
+      "seriesVolume": 3,
+      "priceJpy": 350,
+      "royalty": 0.7,
+      "questionCount": 42,
+      "status": "live",
+      "publishedDate": "2026-07-10",
+      "builder": "scripts/build-takuitsu-reconstruct.mjs",
+      "buildTheme": "sekokeikaku",
+      "epub": "kindle-A-03-sekokeikaku.epub",
+      "cover": "kindle-cover-a-03.jpg",
+      "kdpMemo": "KDP入力メモ_A-03施工計画.txt",
+      "version": "1.0",
+      "versionHistory": [
+        { "version": "1.0", "date": "2026-07-10", "change": "初版公開" }
+      ]
+    },
+    {
+      "id": "A-04",
+      "asin": "B0H8CXKX6Q",
+      "title": "1級土木施工管理技士 一次検定 環境管理 論点別過去問",
+      "subtitle": "平成26〜令和7年度 12年分・31問を論点別に再構成",
+      "series": "1級土木施工管理技士 第1次検定 論点別過去問",
+      "seriesVolume": 4,
+      "priceJpy": 350,
+      "royalty": 0.7,
+      "questionCount": 31,
+      "status": "live",
+      "publishedDate": "2026-07-10",
+      "builder": "scripts/build-takuitsu-reconstruct.mjs",
+      "buildTheme": "kankyo",
+      "epub": "kindle-A-04-kankyo.epub",
+      "cover": "kindle-cover-a-04.jpg",
+      "kdpMemo": "KDP入力メモ_A-04環境管理.txt",
+      "version": "1.0",
+      "versionHistory": [
+        { "version": "1.0", "date": "2026-07-10", "change": "初版公開" }
+      ]
+    },
+    {
+      "id": "A-05",
+      "asin": "B0H8FQ4L2T",
+      "title": "1級土木施工管理技士 一次検定 品質管理 論点別過去問",
+      "subtitle": "平成26〜令和7年度 12年分・65問を論点別に再構成",
+      "series": "1級土木施工管理技士 第1次検定 論点別過去問",
+      "seriesVolume": 5,
+      "priceJpy": 350,
+      "royalty": 0.7,
+      "questionCount": 65,
+      "status": "live",
+      "publishedDate": "2026-07-10",
+      "builder": "scripts/build-takuitsu-reconstruct.mjs",
+      "buildTheme": "hinshitsu",
+      "epub": "kindle-A-05-hinshitsu.epub",
+      "cover": "kindle-cover-a-05.jpg",
+      "kdpMemo": "KDP入力メモ_A-05品質管理.txt",
+      "version": "1.0",
+      "versionHistory": [
+        { "version": "1.0", "date": "2026-07-10", "change": "初版公開" }
+      ]
+    },
+    {
+      "id": "A-06",
+      "asin": "B0H8FQ7QQL",
+      "title": "1級土木施工管理技士 一次検定 工程管理 論点別過去問",
+      "subtitle": "平成26〜令和7年度 12年分・31問を4論点に再構成",
+      "series": "1級土木施工管理技士 第1次検定 論点別過去問",
+      "seriesVolume": 6,
+      "priceJpy": 350,
+      "royalty": 0.7,
+      "questionCount": 31,
+      "rontenCount": 4,
+      "status": "live",
+      "publishedDate": "2026-07-10",
+      "builder": "scripts/build-takuitsu-reconstruct.mjs",
+      "buildTheme": "koutei",
+      "epub": "kindle-A-06-koutei.epub",
+      "cover": "kindle-cover-a-06.jpg",
+      "kdpMemo": "KDP入力メモ_A-06工程管理.txt",
+      "version": "1.0",
+      "versionHistory": [
+        { "version": "1.0", "date": "2026-07-10", "change": "初版公開" }
+      ]
+    }
+  ]
+}
