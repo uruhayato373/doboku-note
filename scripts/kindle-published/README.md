@@ -16,6 +16,17 @@ KDP で**公開済み（LIVE）**の Kindle 実物アーカイブ。実際に出
 
 EPUB を更新して KDP に再アップしたら、`catalog.json` の当該本の `version` を上げ `versionHistory` に1行足す（例: A-01 は解説補完後の再アップで `1.0 → 1.1`）。リビルドは `node <builder> --theme <buildTheme>` で再現できる（両フィールドは catalog に記録済み）。実物 EPUB もここへ上書き保存して追跡する。
 
+## 書式インバリアント検査（全シリーズ共通）
+
+`npm run check-kindle-format`（`scripts/check-kindle-format.mjs`）で、ビルド済み EPUB が書式ハウスルールを満たすか機械検査する（読み取り専用）。`epubcheck`（EPUB 仕様の妥当性）の上に乗る意味層で、**入稿前チェックの必須ゲート**。
+
+検査する UX 不変条件（CSS 文字列ではなく outcome ベース）:
+- **R1 可読性**: `style.css` の body に font-family と `line-height >= 1.5`
+- **R2 章の分離**: 各章が改ページ境界で始まる（章別 spine ファイル or 見出しに `break-before:page`）
+- **R3 解答の分離**: 解答が改ページ境界で始まる（別 `*a.xhtml` spine or `.ans` に `break-before:page`）
+
+A（問題/解答を別 XHTML に分割＝構造的改ページ）と D（`.ans` の CSS 改ページ）は実装が違うが、同じ UX 不変条件で両方を検証する。ビルド直後の入稿前は `node scripts/check-kindle-format.mjs .tmp/kindle-<id>/*.epub` で個別検査できる。
+
 | 品番 | ASIN | 版 | EPUB | 表紙 | KDP メモ |
 |---|---|---|---|---|---|
 | A-00 全科目合本【審査中】 | （審査中・未取得） | 1.0 | `kindle-A-00-goubon.epub` | `kindle-cover-a-00.jpg` | `KDP入力メモ_A-00全科目合本.txt` |

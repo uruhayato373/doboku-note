@@ -79,6 +79,7 @@
     "check-cta-density": "node scripts/check-cta-density.mjs",
     "check-ogp-coverage": "node scripts/check-ogp-coverage.mjs",
     "check-orphan-ogp": "node scripts/check-orphan-ogp.mjs",
+    "check-kindle-format": "node scripts/check-kindle-format.mjs",
     "check-ogp-design": "node scripts/check-ogp-design.mjs",
     "check-ogp-title-fit": "node scripts/check-ogp-title-fit.mjs",
     "check-note-cover-fit": "node scripts/check-note-cover-fit.mjs",
