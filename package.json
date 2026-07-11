@@ -125,7 +125,8 @@
     "check-ig-cover": "node scripts/check-ig-cover.mjs",
     "check-ig-cta": "node scripts/check-ig-cta.mjs",
     "character-extract": "node scripts/character-extract.mjs",
-    "character-icons": "node scripts/generate-character-icons.mjs"
+    "character-icons": "node scripts/generate-character-icons.mjs",
+    "gen-kdp-memo": "node scripts/gen-kdp-memo.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.908.0",
