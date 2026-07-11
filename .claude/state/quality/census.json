@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-07-10T22:07:36.087Z",
+  "generated_at": "2026-07-11T11:27:24.649Z",
   "thresholds": {
     "fail": 2,
     "thin_chars": 3000,
@@ -15,7 +15,7 @@
     "scored": 1064,
     "unscored": 0,
     "failed": 0,
-    "thin": 377,
+    "thin": 361,
     "coverage_pct": 100
   },
   "by_category": {
@@ -147,7 +147,7 @@
           "scored": 659,
           "unscored": 0,
           "failed": 0,
-          "thin": 360,
+          "thin": 344,
           "avg_weighted": 2.71
         },
         "past-exam": {
@@ -172,7 +172,7 @@
         "scored": 724,
         "unscored": 0,
         "failed": 0,
-        "thin": 360
+        "thin": 344
       }
     },
     "pe-construction": {
@@ -408,14 +408,6 @@
       "body_chars": 2570
     },
     {
-      "slug": "pe-comprehensive-management-budget-planning",
-      "category": "pe-comprehensive-management",
-      "group": "keyword",
-      "reason": "thin",
-      "weighted": 3,
-      "body_chars": 1607
-    },
-    {
       "slug": "pe-comprehensive-management-capacity-management",
       "category": "pe-comprehensive-management",
       "group": "keyword",
@@ -430,14 +422,6 @@
       "reason": "thin",
       "weighted": 2.7,
       "body_chars": 2866
-    },
-    {
-      "slug": "pe-comprehensive-management-career-ownership",
-      "category": "pe-comprehensive-management",
-      "group": "keyword",
-      "reason": "thin",
-      "weighted": 2.75,
-      "body_chars": 1644
     },
     {
       "slug": "pe-comprehensive-management-career-path",
@@ -470,14 +454,6 @@
       "reason": "thin",
       "weighted": 2.5,
       "body_chars": 2072
-    },
-    {
-      "slug": "pe-comprehensive-management-cdp-sbt-re100",
-      "category": "pe-comprehensive-management",
-      "group": "keyword",
-      "reason": "thin",
-      "weighted": 2.75,
-      "body_chars": 1652
     },
     {
       "slug": "pe-comprehensive-management-centralization-decentralization",
@@ -582,22 +558,6 @@
       "reason": "thin",
       "weighted": 2.65,
       "body_chars": 2265
-    },
-    {
-      "slug": "pe-comprehensive-management-cost-driver",
-      "category": "pe-comprehensive-management",
-      "group": "keyword",
-      "reason": "thin",
-      "weighted": 2.85,
-      "body_chars": 1618
-    },
-    {
-      "slug": "pe-comprehensive-management-cost-maintenance",
-      "category": "pe-comprehensive-management",
-      "group": "keyword",
-      "reason": "thin",
-      "weighted": 2.55,
-      "body_chars": 1503
     },
     {
       "slug": "pe-comprehensive-management-cost-variance-analysis",
@@ -734,14 +694,6 @@
       "reason": "thin",
       "weighted": 2.4,
       "body_chars": 1833
-    },
-    {
-      "slug": "pe-comprehensive-management-design-quality",
-      "category": "pe-comprehensive-management",
-      "group": "keyword",
-      "reason": "thin",
-      "weighted": 2.55,
-      "body_chars": 1650
     },
     {
       "slug": "pe-comprehensive-management-design-thinking",
@@ -894,14 +846,6 @@
       "reason": "thin",
       "weighted": 2.35,
       "body_chars": 2822
-    },
-    {
-      "slug": "pe-comprehensive-management-emergency",
-      "category": "pe-comprehensive-management",
-      "group": "keyword",
-      "reason": "thin",
-      "weighted": 2.8,
-      "body_chars": 1597
     },
     {
       "slug": "pe-comprehensive-management-emergency-info-processing",
@@ -1208,14 +1152,6 @@
       "body_chars": 2804
     },
     {
-      "slug": "pe-comprehensive-management-hazard",
-      "category": "pe-comprehensive-management",
-      "group": "keyword",
-      "reason": "thin",
-      "weighted": 2.75,
-      "body_chars": 1567
-    },
-    {
       "slug": "pe-comprehensive-management-hazardous-facility-disaster-prevention",
       "category": "pe-comprehensive-management",
       "group": "keyword",
@@ -1286,14 +1222,6 @@
       "reason": "thin",
       "weighted": 3,
       "body_chars": 2011
-    },
-    {
-      "slug": "pe-comprehensive-management-idea-generation-methods",
-      "category": "pe-comprehensive-management",
-      "group": "keyword",
-      "reason": "thin",
-      "weighted": 2.8,
-      "body_chars": 1690
     },
     {
       "slug": "pe-comprehensive-management-improvement-maintenance",
@@ -1664,14 +1592,6 @@
       "body_chars": 2111
     },
     {
-      "slug": "pe-comprehensive-management-location-limited-employee",
-      "category": "pe-comprehensive-management",
-      "group": "keyword",
-      "reason": "thin",
-      "weighted": 2.5,
-      "body_chars": 1669
-    },
-    {
       "slug": "pe-comprehensive-management-lopa",
       "category": "pe-comprehensive-management",
       "group": "keyword",
@@ -1992,14 +1912,6 @@
       "body_chars": 2616
     },
     {
-      "slug": "pe-comprehensive-management-parametric-estimation",
-      "category": "pe-comprehensive-management",
-      "group": "keyword",
-      "reason": "thin",
-      "weighted": 2.75,
-      "body_chars": 1553
-    },
-    {
       "slug": "pe-comprehensive-management-part-time-fixed-term-act",
       "category": "pe-comprehensive-management",
       "group": "keyword",
@@ -2086,14 +1998,6 @@
       "reason": "thin",
       "weighted": 2.5,
       "body_chars": 2974
-    },
-    {
-      "slug": "pe-comprehensive-management-planned-usage-period",
-      "category": "pe-comprehensive-management",
-      "group": "keyword",
-      "reason": "thin",
-      "weighted": 2.75,
-      "body_chars": 1599
     },
     {
       "slug": "pe-comprehensive-management-polluter-pays-principle",
@@ -2480,14 +2384,6 @@
       "body_chars": 2019
     },
     {
-      "slug": "pe-comprehensive-management-role-grade-system",
-      "category": "pe-comprehensive-management",
-      "group": "keyword",
-      "reason": "thin",
-      "weighted": 2.5,
-      "body_chars": 1599
-    },
-    {
       "slug": "pe-comprehensive-management-rpa",
       "category": "pe-comprehensive-management",
       "group": "keyword",
@@ -2574,14 +2470,6 @@
       "reason": "thin",
       "weighted": 2.5,
       "body_chars": 1808
-    },
-    {
-      "slug": "pe-comprehensive-management-safety-patrol",
-      "category": "pe-comprehensive-management",
-      "group": "keyword",
-      "reason": "thin",
-      "weighted": 2.75,
-      "body_chars": 1711
     },
     {
       "slug": "pe-comprehensive-management-sales-management-system",
@@ -2672,14 +2560,6 @@
       "body_chars": 2139
     },
     {
-      "slug": "pe-comprehensive-management-skill-qualification-system",
-      "category": "pe-comprehensive-management",
-      "group": "keyword",
-      "reason": "thin",
-      "weighted": 2.5,
-      "body_chars": 1681
-    },
-    {
       "slug": "pe-comprehensive-management-skill-standards",
       "category": "pe-comprehensive-management",
       "group": "keyword",
@@ -2702,14 +2582,6 @@
       "reason": "thin",
       "weighted": 2.75,
       "body_chars": 2402
-    },
-    {
-      "slug": "pe-comprehensive-management-smart-safety",
-      "category": "pe-comprehensive-management",
-      "group": "keyword",
-      "reason": "thin",
-      "weighted": 2.5,
-      "body_chars": 1674
     },
     {
       "slug": "pe-comprehensive-management-social-engineering",
@@ -4980,7 +4852,7 @@
       "slug": "civil-construction-2-primary-r05-zenki",
       "category": "civil-construction-2",
       "group": "primary",
-      "body_chars": 25331,
+      "body_chars": 25298,
       "scored": true,
       "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -5827,12 +5699,12 @@
       "slug": "pe-comprehensive-management-budget-planning",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 1607,
+      "body_chars": 3652,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-06-20T01:46:02.221Z",
       "failed": false,
-      "thin": true
+      "thin": false
     },
     {
       "slug": "pe-comprehensive-management-business-continuity-plan",
@@ -5893,12 +5765,12 @@
       "slug": "pe-comprehensive-management-career-ownership",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 1644,
+      "body_chars": 3810,
       "scored": true,
       "weighted": 2.75,
       "scored_at": "2026-06-20T01:46:02.371Z",
       "failed": false,
-      "thin": true
+      "thin": false
     },
     {
       "slug": "pe-comprehensive-management-career-path",
@@ -5959,12 +5831,12 @@
       "slug": "pe-comprehensive-management-cdp-sbt-re100",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 1652,
+      "body_chars": 3938,
       "scored": true,
       "weighted": 2.75,
       "scored_at": "2026-06-20T01:46:02.547Z",
       "failed": false,
-      "thin": true
+      "thin": false
     },
     {
       "slug": "pe-comprehensive-management-centralization-decentralization",
@@ -6377,12 +6249,12 @@
       "slug": "pe-comprehensive-management-cost-driver",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 1618,
+      "body_chars": 3998,
       "scored": true,
       "weighted": 2.85,
       "scored_at": "2026-05-16T08:22:15.997Z",
       "failed": false,
-      "thin": true
+      "thin": false
     },
     {
       "slug": "pe-comprehensive-management-cost-effectiveness-analysis",
@@ -6399,12 +6271,12 @@
       "slug": "pe-comprehensive-management-cost-maintenance",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 1503,
+      "body_chars": 3149,
       "scored": true,
       "weighted": 2.55,
       "scored_at": "2026-05-16T08:22:15.997Z",
       "failed": false,
-      "thin": true
+      "thin": false
     },
     {
       "slug": "pe-comprehensive-management-cost-variance-analysis",
@@ -6784,12 +6656,12 @@
       "slug": "pe-comprehensive-management-design-quality",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 1650,
+      "body_chars": 4009,
       "scored": true,
       "weighted": 2.55,
       "scored_at": "2026-05-29T05:50:43.342Z",
       "failed": false,
-      "thin": true
+      "thin": false
     },
     {
       "slug": "pe-comprehensive-management-design-review",
@@ -7213,12 +7085,12 @@
       "slug": "pe-comprehensive-management-emergency",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 1597,
+      "body_chars": 3122,
       "scored": true,
       "weighted": 2.8,
       "scored_at": "2026-05-29T05:50:43.342Z",
       "failed": false,
-      "thin": true
+      "thin": false
     },
     {
       "slug": "pe-comprehensive-management-emergency-info-processing",
@@ -8401,12 +8273,12 @@
       "slug": "pe-comprehensive-management-hazard",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 1567,
+      "body_chars": 3175,
       "scored": true,
       "weighted": 2.75,
       "scored_at": "2026-06-20T01:46:06.787Z",
       "failed": false,
-      "thin": true
+      "thin": false
     },
     {
       "slug": "pe-comprehensive-management-hazard-map",
@@ -8632,12 +8504,12 @@
       "slug": "pe-comprehensive-management-idea-generation-methods",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 1690,
+      "body_chars": 3812,
       "scored": true,
       "weighted": 2.8,
       "scored_at": "2026-06-20T01:46:07.141Z",
       "failed": false,
-      "thin": true
+      "thin": false
     },
     {
       "slug": "pe-comprehensive-management-ifrs",
@@ -9545,12 +9417,12 @@
       "slug": "pe-comprehensive-management-location-limited-employee",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 1669,
+      "body_chars": 4065,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-06-20T01:46:08.917Z",
       "failed": false,
-      "thin": true
+      "thin": false
     },
     {
       "slug": "pe-comprehensive-management-logistic-regression",
@@ -10271,12 +10143,12 @@
       "slug": "pe-comprehensive-management-parametric-estimation",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 1553,
+      "body_chars": 3129,
       "scored": true,
       "weighted": 2.75,
       "scored_at": "2026-06-20T01:46:10.464Z",
       "failed": false,
-      "thin": true
+      "thin": false
     },
     {
       "slug": "pe-comprehensive-management-part-time-fixed-term-act",
@@ -10590,12 +10462,12 @@
       "slug": "pe-comprehensive-management-planned-usage-period",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 1599,
+      "body_chars": 3996,
       "scored": true,
       "weighted": 2.75,
       "scored_at": "2026-06-20T01:46:11.084Z",
       "failed": false,
-      "thin": true
+      "thin": false
     },
     {
       "slug": "pe-comprehensive-management-pm-theory",
@@ -11789,12 +11661,12 @@
       "slug": "pe-comprehensive-management-role-grade-system",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 1599,
+      "body_chars": 4065,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-06-20T01:46:13.406Z",
       "failed": false,
-      "thin": true
+      "thin": false
     },
     {
       "slug": "pe-comprehensive-management-root-cause-analysis",
@@ -12009,12 +11881,12 @@
       "slug": "pe-comprehensive-management-safety-patrol",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 1711,
+      "body_chars": 4185,
       "scored": true,
       "weighted": 2.75,
       "scored_at": "2026-06-20T01:46:13.915Z",
       "failed": false,
-      "thin": true
+      "thin": false
     },
     {
       "slug": "pe-comprehensive-management-sales-management-system",
@@ -12218,12 +12090,12 @@
       "slug": "pe-comprehensive-management-skill-qualification-system",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 1681,
+      "body_chars": 4062,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-06-20T01:46:14.469Z",
       "failed": false,
-      "thin": true
+      "thin": false
     },
     {
       "slug": "pe-comprehensive-management-skill-standards",
@@ -12262,12 +12134,12 @@
       "slug": "pe-comprehensive-management-smart-safety",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 1674,
+      "body_chars": 4172,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-06-20T01:46:14.558Z",
       "failed": false,
-      "thin": true
+      "thin": false
     },
     {
       "slug": "pe-comprehensive-management-social-engineering",
