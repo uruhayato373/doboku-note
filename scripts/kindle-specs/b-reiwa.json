@@ -1,0 +1,18 @@
+{
+  "bookId": "b-reiwa",
+  "title": "技術士総合技術監理部門 択一過去問 令和元〜令和7年度完全解説【合本】",
+  "subtitle": "令和元〜令和7年度 280問",
+  "price": 490,
+  "description": "技術士第二次試験 総合技術監理部門の択一式過去問（令和元〜7年度・7年分・280問）を全問収録し、正答と選択肢ごとの正誤理由を完全解説。経済性管理・人的資源管理・情報管理・安全管理・社会環境管理の5管理を横断演習できる合本で、総監択一に頻出の論点（技術士法・労働安全衛生法・リスクマネジメント・カーボンニュートラル・SDGs等）を7年分まとめて対策できる一冊。",
+  "sources": [
+    ".local/r2/posts/pe-comprehensive-management/r01-primary/article.mdx",
+    ".local/r2/posts/pe-comprehensive-management/r02-primary/article.mdx",
+    ".local/r2/posts/pe-comprehensive-management/r03-primary/article.mdx",
+    ".local/r2/posts/pe-comprehensive-management/r04-primary/article.mdx",
+    ".local/r2/posts/pe-comprehensive-management/r05-primary/article.mdx",
+    ".local/r2/posts/pe-comprehensive-management/r06-primary/article.mdx",
+    ".local/r2/posts/pe-comprehensive-management/r07-primary/article.mdx"
+  ],
+  "frontMatter": "docs/kindle/b-reiwa/front-matter.md",
+  "examName": "技術士第二次試験"
+}

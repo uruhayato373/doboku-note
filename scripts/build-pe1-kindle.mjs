@@ -28,9 +28,10 @@ const REPO = resolve(import.meta.dirname, '..')
 
 const AUTHOR = '架（かける）'
 const PUBLISHER = 'doboku-note'
-// 技術士第一次試験は日本技術士会のクレジット表示で過去問を使用する
-const CREDIT_BODY =
-  '公益社団法人 日本技術士会が実施する技術士第一次試験の過去問題を出典としています。問題文の著作権は同会に帰属します。解答・解説および科目別・複数年度の編集・再構成は著者によるものです。'
+// 出典クレジットの試験名は spec.examName で切替（総監択一は技術士第二次試験・一次科目は第一次試験）。
+const DEFAULT_EXAM = '技術士第一次試験'
+const creditBody = (examName) =>
+  `公益社団法人 日本技術士会が実施する${examName}の過去問題を出典としています。問題文の著作権は同会に帰属します。解答・解説および科目別・複数年度の編集・再構成は著者によるものです。`
 const DISCLAIMER =
   '本書は正確を期して作成していますが、内容を保証するものではありません。法令・制度は改正されることがあるため、受験にあたっては必ず最新の一次情報をご確認ください。'
 
@@ -70,6 +71,10 @@ function sanitizeMathml(html) {
     //     <mo> はテキストのみ許容。内側のタグを剥がしてテキスト化する（例: mod）。
     .replace(/<mo([^>]*)>\s*<mrow>([\s\S]*?)<\/mrow>\s*<\/mo>/g,
       (_, attrs, inner) => `<mo${attrs}>${inner.replace(/<[^>]+>/g, '')}</mo>`)
+    // (3) mtable/mtd の width 属性は EPUB3 MathML の content model で不許可（RSC-005）。
+    //     KaTeX が \begin{array} 等で width="100%" を出す。除去（レイアウトは CSS 側）。
+    //     width が正当な mspace には触れない。
+    .replace(/(<(?:mtable|mtd)\b[^>]*?)\s+width="[^"]*"/g, '$1')
 }
 async function mathToMathml(src, displayMode) {
   if (!katexMod) katexMod = (await import('katex')).default
@@ -89,6 +94,11 @@ async function preprocess(body, articleDir, images, imageSrc) {
   }
 
   let out = body
+
+  // サイト専用 MDX コンポーネントで Kindle に不要なものは丸ごと除去。
+  // RelatedKeywords（関連キーワードリンク）は items={[...]} を含む自己完結タグで、
+  // 未処理だと解説末尾に生の JSX/JSON が露出する（全 D/B 本で漏出を QA が検出）。
+  out = out.replace(/<RelatedKeywords[\s\S]*?\/>/g, '')
 
   // ArticleImage → img（webp は sharp で JPEG 化して同梱）
   const imgRe = /<ArticleImage\s+([\s\S]*?)\/>/g
@@ -279,7 +289,7 @@ async function main() {
     id: 'p-credit', href: 'p-credit.xhtml', label: '出典・免責',
     content: xhtmlDoc('出典・免責',
       `<div class="front"><h1>出典・免責</h1>
-<p class="credit"><strong>出典</strong><br/>${xesc(CREDIT_BODY)}</p>
+<p class="credit"><strong>出典</strong><br/>${xesc(creditBody(spec.examName || DEFAULT_EXAM))}</p>
 <p class="credit"><strong>免責</strong><br/>${xesc(DISCLAIMER)}</p>
 <p class="credit"><strong>著者</strong>　${xesc(AUTHOR)}<br/>
 <strong>発行</strong>　${xesc(PUBLISHER)}</p></div>`),
@@ -341,8 +351,8 @@ async function main() {
         author: AUTHOR,
         publisher: PUBLISHER,
         description: spec.description ||
-          `技術士第一次試験「${spec.subtitle}」の過去問を複数年度収録し全問解説した演習書。`,
-        rights: CREDIT_BODY,
+          `${spec.examName || DEFAULT_EXAM}「${spec.subtitle}」の過去問を複数年度収録し全問解説した演習書。`,
+        rights: creditBody(spec.examName || DEFAULT_EXAM),
       },
       css: EPUB_CSS,
       pages,
