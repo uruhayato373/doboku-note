@@ -1,0 +1,20 @@
+{
+  "bookId": "d-02",
+  "background": "scripts/kindle-covers/backgrounds/a-03.png",
+  "accent": "#16365C",
+  "kicker": "技術士第一次試験",
+  "titleLines": [
+    {
+      "text": "適性科目",
+      "size": 300
+    },
+    {
+      "text": "過去問7年分完全解説",
+      "size": 135
+    }
+  ],
+  "subLines": [
+    "令和元〜7年度 105問"
+  ],
+  "brand": "doboku-note"
+}
