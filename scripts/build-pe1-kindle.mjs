@@ -28,10 +28,12 @@ const REPO = resolve(import.meta.dirname, '..')
 
 const AUTHOR = '架（かける）'
 const PUBLISHER = 'doboku-note'
-// 出典クレジットの試験名は spec.examName で切替（総監択一は技術士第二次試験・一次科目は第一次試験）。
+// 出典クレジットは spec.examName（試験名）と spec.creditIssuer（実施団体）で切替。
+// 技術士系＝日本技術士会・第一次/第二次試験、施工管理技士＝全国建設研修センター等。
 const DEFAULT_EXAM = '技術士第一次試験'
-const creditBody = (examName) =>
-  `公益社団法人 日本技術士会が実施する${examName}の過去問題を出典としています。問題文の著作権は同会に帰属します。解答・解説および科目別・複数年度の編集・再構成は著者によるものです。`
+const DEFAULT_ISSUER = '公益社団法人 日本技術士会'
+const creditBody = (examName, issuer = DEFAULT_ISSUER) =>
+  `${issuer}が実施する${examName}の過去問題を出典としています。問題文の著作権は出典元に帰属します。解答・解説および科目別・複数年度の編集・再構成は著者によるものです。`
 const DISCLAIMER =
   '本書は正確を期して作成していますが、内容を保証するものではありません。法令・制度は改正されることがあるため、受験にあたっては必ず最新の一次情報をご確認ください。'
 
@@ -118,7 +120,12 @@ async function preprocess(body, articleDir, images, imageSrc) {
     return push(`<div class="fig"><img src="${href}" alt="${xesc(alt)}"/></div>`)
   })
 
-  // ExamPoint → 要点ボックス
+  // ExamPoint（インライン型 <ExamPoint>一文</ExamPoint>）→ 要点ボックス。
+  // 2級土木 primary 等で使用。props 自己終了型より先に処理し greedy 誤マッチを防ぐ。
+  out = out.replace(/<ExamPoint>([\s\S]*?)<\/ExamPoint>/g, (whole, text) =>
+    push(`<div class="exampoint"><p class="ep-head"><strong>要点</strong>　${xesc(text.trim())}</p></div>`))
+
+  // ExamPoint（自己終了 props 型 <ExamPoint summary= items= />）→ 要点ボックス
   out = out.replace(/<ExamPoint([\s\S]*?)\/>/g, (whole, props) => {
     const summary = (props.match(/summary="((?:[^"\\]|\\.)*)"/) || [])[1] || ''
     const itemsSrc = (props.match(/items=\{\[([\s\S]*?)\]\}/) || [])[1] || ''
@@ -289,7 +296,7 @@ async function main() {
     id: 'p-credit', href: 'p-credit.xhtml', label: '出典・免責',
     content: xhtmlDoc('出典・免責',
       `<div class="front"><h1>出典・免責</h1>
-<p class="credit"><strong>出典</strong><br/>${xesc(creditBody(spec.examName || DEFAULT_EXAM))}</p>
+<p class="credit"><strong>出典</strong><br/>${xesc(creditBody(spec.examName || DEFAULT_EXAM, spec.creditIssuer))}</p>
 <p class="credit"><strong>免責</strong><br/>${xesc(DISCLAIMER)}</p>
 <p class="credit"><strong>著者</strong>　${xesc(AUTHOR)}<br/>
 <strong>発行</strong>　${xesc(PUBLISHER)}</p></div>`),
@@ -352,7 +359,7 @@ async function main() {
         publisher: PUBLISHER,
         description: spec.description ||
           `${spec.examName || DEFAULT_EXAM}「${spec.subtitle}」の過去問を複数年度収録し全問解説した演習書。`,
-        rights: creditBody(spec.examName || DEFAULT_EXAM),
+        rights: creditBody(spec.examName || DEFAULT_EXAM, spec.creditIssuer),
       },
       css: EPUB_CSS,
       pages,
