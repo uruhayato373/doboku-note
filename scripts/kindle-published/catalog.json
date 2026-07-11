@@ -14,8 +14,9 @@
       "royalty": 0.7,
       "questionCount": 422,
       "rontenCount": 39,
-      "status": "live",
-      "publishedDate": "2026-07-11",
+      "status": "in_review",
+      "submittedDate": "2026-07-11",
+      "publishedDate": null,
       "builder": "scripts/build-takuitsu-reconstruct.mjs",
       "buildTheme": "goubon",
       "epub": "kindle-A-00-goubon.epub",
@@ -23,9 +24,9 @@
       "kdpMemo": "KDP入力メモ_A-00全科目合本.txt",
       "version": "1.0",
       "versionHistory": [
-        { "version": "1.0", "date": "2026-07-11", "change": "初版公開（A-01〜A-06 の全422問を合本・6部立て・章番号通し）" }
+        { "version": "1.0", "date": "2026-07-11", "change": "KDP へ入稿・審査中（A-01〜A-06 の全422問を合本・6部立て・章番号通し）" }
       ],
-      "notes": "ASIN 未取得（公開直後・KDP ダッシュボードで確認して追記）。分冊 A-01〜A-06 との重複コンテンツ規約は初回審査で実態確認。"
+      "notes": "KDP 審査中（未公開・公開までに時間がかかる）。LIVE 化・ASIN 取得後に status=live/publishedDate/asin を更新。分冊 A-01〜A-06 との重複コンテンツ規約はこの審査で実態確認。"
     },
     {
       "id": "A-01",
