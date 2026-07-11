@@ -21,7 +21,7 @@
 //   markdown（見出し/番号付き選択肢/箇条書き/表/引用）→ 最小レンダラで XHTML 化
 
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs'
-import { join, resolve, basename } from 'node:path'
+import { join, resolve, basename, dirname } from 'node:path'
 import { writeEpub, xhtmlDoc, xesc } from './lib/epub-writer.mjs'
 
 const REPO = resolve(import.meta.dirname, '..')
@@ -81,7 +81,7 @@ async function mathToMathml(src, displayMode) {
 // トークンは私用領域文字で挟み、xesc を素通りさせた後に実マークアップへ復元する
 const TOK = (i) => `${i}`
 
-async function preprocess(body, articleDir, images) {
+async function preprocess(body, articleDir, images, imageSrc) {
   const tokens = []
   const push = (html) => {
     tokens.push(html)
@@ -98,8 +98,12 @@ async function preprocess(body, articleDir, images) {
     const alt = (props.match(/alt="([^"]*)"/) || [])[1] || ''
     // src は /posts/... のサイト絶対パス → .local/r2 配下の実ファイルへ解決
     const local = resolve(REPO, '.local/r2', src.replace(/^\//, ''))
+    // 年度スコープ付き href。合本/科目別合本は年度をまたいで同名の別図（q3-5-fig.jpg 等）を
+    // 持つため、basename のみだと後年度の図が先年度の図に黙って差し替わる（実害を QA で検出）。
+    // 記事ディレクトリ名（r01-basic 等）を前置して一意化する。
+    const artId = basename(dirname(dirname(local))) // .../r01-basic/img/x.webp → r01-basic
     const jpgName = basename(local).replace(/\.(webp|png|jpg|jpeg)$/i, '.jpg')
-    const href = `img/${jpgName}`
+    const href = `img/${artId}-${jpgName}`
     imgTasks.push({ local, href })
     return push(`<div class="fig"><img src="${href}" alt="${xesc(alt)}"/></div>`)
   })
@@ -134,13 +138,21 @@ async function preprocess(body, articleDir, images) {
     out = out.replace(m[0], push(await mathToMathml(m[1], false)))
   }
 
-  // 画像変換（sharp・重複 href は1回だけ）
+  // 画像変換（sharp・重複 href は1回だけ）。href は年度スコープ付きで一意なので、
+  // 同一 href の再登場は同一図の再参照のみ。異なる実ファイルが同一 href に来たら
+  // 衝突事故なので停止して機械検知する（無音上書きの再発防止）。
   for (const t of imgTasks) {
-    if (images.has(t.href)) continue
+    if (images.has(t.href)) {
+      if (imageSrc.get(t.href) !== t.local) {
+        throw new Error(`画像 href 衝突: ${t.href} に別ファイルが写像 (${imageSrc.get(t.href)} vs ${t.local})`)
+      }
+      continue
+    }
     if (!existsSync(t.local)) throw new Error(`画像が見つからない: ${t.local}`)
     const { default: sharp } = await import('sharp')
     const buf = await sharp(t.local).flatten({ background: '#ffffff' }).jpeg({ quality: 88 }).toBuffer()
     images.set(t.href, buf)
+    imageSrc.set(t.href, t.local)
   }
 
   return { text: out, tokens, hasMath }
@@ -171,9 +183,18 @@ function mdToXhtml(text) {
   }
   const flush = () => { flushP(); flushUl(); flushOl(); flushTable() }
 
-  for (const raw of lines) {
+  for (let i = 0; i < lines.length; i++) {
+    const raw = lines[i]
     const line = raw.replace(/\s+$/, '')
-    if (!line.trim()) flush()
+    if (!line.trim()) {
+      // 空行: 段落・表は閉じる。ただしリスト(ol/ul)は次の非空行が同種リストの続きなら
+      // 閉じない。原稿は選択肢間に空行を挟む loose list で、閉じると各項目が別 <ol> 化し
+      // 番号が毎回 1 にリセットされる（全選択肢が「1.」表示になる実害を QA で検出）。
+      const next = lines.slice(i + 1).map((l) => l.replace(/\s+$/, '')).find((l) => l.trim())
+      flushP(); flushTable()
+      if (!(next && /^\d+\.\s/.test(next))) flushOl()
+      if (!(next && /^- /.test(next))) flushUl()
+    }
     else if (/^\d+$/.test(line.trim())) { flush(); html.push(line.trim()) } // トークン単独行
     else if (/^### /.test(line)) { flush(); html.push(`<h3>${inlineMd(line.slice(4))}</h3>`) }
     else if (/^## /.test(line)) { flush(); html.push(`<h2>${inlineMd(line.slice(3))}</h2>`) }
@@ -243,6 +264,7 @@ async function main() {
   mkdirSync(outDir, { recursive: true })
 
   const images = new Map() // href -> Buffer(JPEG)
+  const imageSrc = new Map() // href -> local path（衝突検知用）
   const pages = []
 
   // 扉・出典
@@ -268,7 +290,7 @@ async function main() {
     const fmPath = resolve(REPO, spec.frontMatter)
     if (existsSync(fmPath)) {
       const { body } = splitFrontmatter(readFileSync(fmPath, 'utf8'))
-      const pre = await preprocess(body, null, images)
+      const pre = await preprocess(body, null, images, imageSrc)
       pages.push({
         id: 'p-front', href: 'p-front.xhtml', label: 'はじめに・出題傾向と学習ガイド',
         content: xhtmlDoc('はじめに', `<div class="front">${restoreTokens(mdToXhtml(pre.text), pre.tokens)}</div>`),
@@ -290,7 +312,7 @@ async function main() {
     const label = fm.shortTitle || fm.title || basename(srcRel)
     const articleDir = resolve(srcPath, '..')
 
-    const pre = await preprocess(body, articleDir, images)
+    const pre = await preprocess(body, articleDir, images, imageSrc)
     const qCount = (body.match(/^## /gm) || []).length
     qTotal += qCount
     if (pre.hasMath) mathPages++

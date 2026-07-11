@@ -80,6 +80,18 @@ function checkEpub(epub) {
     fails.push('R2: 章が改ページ境界で始まっていない（章別 spine も h2 の break-before:page も無い）')
   }
 
+  // --- R4 選択肢の連番（loose list 崩れ検出）----------------------------
+  // 原稿が選択肢間に空行を挟む loose list のとき、パーサーが各選択肢を別 <ol> にすると
+  // 番号が毎回 1 にリセットされ全選択肢が「1.」表示になる（epubcheck は通る沈黙バグ）。
+  // 症状＝単一 <li> の <ol class="opts"> が連続する。正常時はこの連鎖は起きない。
+  const optRun = /(?:<ol class="opts"><li>[^<]*<\/li><\/ol>\s*){4,}/
+  for (const e of xhtmls) {
+    if (optRun.test(readEntry(epub, e))) {
+      fails.push(`R4: ${basename(e)} で単一項目の <ol class="opts"> が連続（選択肢番号が全て「1.」にリセットされる loose list 崩れ）`)
+      break
+    }
+  }
+
   // --- R3 解答の分離（ネタバレ防止）-------------------------------------
   let answerSeparated = false
   let mode = ''
