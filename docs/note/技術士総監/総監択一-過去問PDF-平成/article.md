@@ -1,7 +1,10 @@
 ---
 notePricing: paid
-noteStatus: draft
+noteStatus: published
 utmCampaign: tankan-takuitsu-heisei-pdf
+notePublishedAt: "2026-07-11"
+noteId: "na3ad4130a85f"
+noteUrl: "https://note.com/dobokunote/n/na3ad4130a85f"
 price: 980
 paidBoundary: "PDF のダウンロードと使い方"
 coverTitle: ["技術士 総合技術監理", "択一 過去問PDF 平成 全400問"]

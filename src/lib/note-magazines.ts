@@ -831,8 +831,8 @@ const MAGAZINES_RAW = {
   // 対象本は KDP Select 非加入で提出し、Kindle と note を同時併売する（08_Kindle出版戦略.md）。
   'civil-2-takuitsu-pdf': {
     id: 'civil-2-takuitsu-pdf',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/n/n4963f45bd6f8',
     title: '2級土木 第1次検定｜過去問PDF（令和3〜7年度 前期後期 全630問・全選択肢解説）',
     description:
       '2級土木施工管理技士 第1次検定の令和3〜7年度 前期・後期 全630問を、4つの選択肢すべてに正誤の理由を付けて解説したA4印刷用PDF。組合せ問題は表で整理、計算問題は途中式つき。印刷して直前期に紙で高速反復できる過去問演習教材。',
@@ -841,8 +841,8 @@ const MAGAZINES_RAW = {
   },
   'pe1-takuitsu-pdf': {
     id: 'pe1-takuitsu-pdf',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/n/n466132e6fd74',
     title: '技術士 第一次試験｜過去問PDF 合本（基礎・適性・専門 令和元〜7年度 全560問・全選択肢解説）',
     description:
       '技術士 第一次試験（建設部門）の令和元〜7年度 全7年分・基礎科目210問＋適性科目105問＋専門科目245問＝全560問を、各選択肢に正誤の理由を付けて解説したA4印刷用PDF。3科目を一冊で通しで回せる過去問演習教材。',
@@ -851,8 +851,8 @@ const MAGAZINES_RAW = {
   },
   'tankan-takuitsu-reiwa-pdf': {
     id: 'tankan-takuitsu-reiwa-pdf',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/n/nb5ebacb3e6c0',
     title: '技術士 総合技術監理部門｜択一 過去問PDF 令和（令和元〜7年度 全280問・全選択肢解説）',
     description:
       '総合技術監理部門の択一式（令和元〜7年度 全280問）を、5つの管理を横断しつつ各選択肢に正誤の理由を付けて解説したA4印刷用PDF。直近ガイドラインを踏まえた出題にも対応した過去問演習教材。',
@@ -861,8 +861,8 @@ const MAGAZINES_RAW = {
   },
   'tankan-takuitsu-heisei-pdf': {
     id: 'tankan-takuitsu-heisei-pdf',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/n/na3ad4130a85f',
     title: '技術士 総合技術監理部門｜択一 過去問PDF 平成（平成21〜30年度 全400問・全選択肢解説）',
     description:
       '総合技術監理部門の択一式（平成21〜30年度 全400問）を、5つの管理を横断しつつ各選択肢に正誤の理由を付けて解説したA4印刷用PDF。管理の原則を問う平成期の良問で5管理の基礎を固める過去問演習教材。令和分と合わせて10年超を回せる。',

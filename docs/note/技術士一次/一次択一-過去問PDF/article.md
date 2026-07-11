@@ -1,7 +1,10 @@
 ---
 notePricing: paid
-noteStatus: draft
+noteStatus: published
 utmCampaign: pe1-takuitsu-pdf
+notePublishedAt: "2026-07-11"
+noteId: "n466132e6fd74"
+noteUrl: "https://note.com/dobokunote/n/n466132e6fd74"
 price: 1480
 paidBoundary: "PDF のダウンロードと使い方"
 coverTitle: ["技術士 第一次試験", "過去問PDF 合本 全560問"]

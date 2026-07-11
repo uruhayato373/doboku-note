@@ -1,7 +1,10 @@
 ---
 notePricing: paid
-noteStatus: draft
+noteStatus: published
 utmCampaign: tankan-takuitsu-reiwa-pdf
+notePublishedAt: "2026-07-11"
+noteId: "nb5ebacb3e6c0"
+noteUrl: "https://note.com/dobokunote/n/nb5ebacb3e6c0"
 price: 980
 paidBoundary: "PDF のダウンロードと使い方"
 coverTitle: ["技術士 総合技術監理", "択一 過去問PDF 令和 全280問"]
