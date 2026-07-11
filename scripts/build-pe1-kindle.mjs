@@ -58,9 +58,23 @@ function splitFrontmatter(raw) {
 
 // ---- KaTeX → MathML（遅延 import: 数式ゼロの科目では katex 不要）----------
 let katexMod = null
+// KaTeX は関数適用（\max, \log 等）の後ろに不可視演算子 U+2061(⁡)/U+2062(⁢) を挿入する。
+// これが msub/msup（子は正確に2つ）の3つ目の子になると MathML が構文不正になり
+// epubcheck RSC-005（"要素 mrow/mo をここに書いてはいけません"）で落ちる（D-01 で実発生）。
+// 不可視演算子は視覚的に無なので除去する＝子数が正され、レンダリングは不変。
+function sanitizeMathml(html) {
+  return html
+    // (1) 不可視演算子 U+2061..2064 を除去（msub/msup の3つ目の子で構文不正になる）
+    .replace(/<mo[^>]*>[⁡⁢⁣⁤]<\/mo>/g, '')
+    // (2) 多文字演算子（\bmod 等）で KaTeX が <mo><mrow><mi>..</mi>..</mrow></mo> を出すが
+    //     <mo> はテキストのみ許容。内側のタグを剥がしてテキスト化する（例: mod）。
+    .replace(/<mo([^>]*)>\s*<mrow>([\s\S]*?)<\/mrow>\s*<\/mo>/g,
+      (_, attrs, inner) => `<mo${attrs}>${inner.replace(/<[^>]+>/g, '')}</mo>`)
+}
 async function mathToMathml(src, displayMode) {
   if (!katexMod) katexMod = (await import('katex')).default
-  return katexMod.renderToString(src, { output: 'mathml', displayMode, throwOnError: false })
+  const html = katexMod.renderToString(src, { output: 'mathml', displayMode, throwOnError: false })
+  return sanitizeMathml(html)
 }
 
 // ---- MDX 前処理: コンポーネント・数式をトークン化 --------------------------
