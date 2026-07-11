@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-07-11T11:27:24.649Z",
+  "generated_at": "2026-07-11T11:58:22.065Z",
   "thresholds": {
     "fail": 2,
     "thin_chars": 3000,
@@ -15,7 +15,7 @@
     "scored": 1064,
     "unscored": 0,
     "failed": 0,
-    "thin": 361,
+    "thin": 345,
     "coverage_pct": 100
   },
   "by_category": {
@@ -147,7 +147,7 @@
           "scored": 659,
           "unscored": 0,
           "failed": 0,
-          "thin": 344,
+          "thin": 328,
           "avg_weighted": 2.71
         },
         "past-exam": {
@@ -172,7 +172,7 @@
         "scored": 724,
         "unscored": 0,
         "failed": 0,
-        "thin": 344
+        "thin": 328
       }
     },
     "pe-construction": {
@@ -576,14 +576,6 @@
       "body_chars": 2714
     },
     {
-      "slug": "pe-comprehensive-management-crisis-priority",
-      "category": "pe-comprehensive-management",
-      "group": "keyword",
-      "reason": "thin",
-      "weighted": 2.55,
-      "body_chars": 1757
-    },
-    {
       "slug": "pe-comprehensive-management-crm-system",
       "category": "pe-comprehensive-management",
       "group": "keyword",
@@ -638,14 +630,6 @@
       "reason": "thin",
       "weighted": 2.75,
       "body_chars": 1956
-    },
-    {
-      "slug": "pe-comprehensive-management-dcf-method",
-      "category": "pe-comprehensive-management",
-      "group": "keyword",
-      "reason": "thin",
-      "weighted": 3,
-      "body_chars": 1781
     },
     {
       "slug": "pe-comprehensive-management-decision-tree-analysis",
@@ -990,14 +974,6 @@
       "reason": "thin",
       "weighted": 2.75,
       "body_chars": 2258
-    },
-    {
-      "slug": "pe-comprehensive-management-fault-tolerance",
-      "category": "pe-comprehensive-management",
-      "group": "keyword",
-      "reason": "thin",
-      "weighted": 2.75,
-      "body_chars": 1792
     },
     {
       "slug": "pe-comprehensive-management-firewall-ids",
@@ -1352,14 +1328,6 @@
       "body_chars": 2142
     },
     {
-      "slug": "pe-comprehensive-management-interpersonal-skills",
-      "category": "pe-comprehensive-management",
-      "group": "keyword",
-      "reason": "thin",
-      "weighted": 2.25,
-      "body_chars": 1794
-    },
-    {
       "slug": "pe-comprehensive-management-intrinsic-motivation",
       "category": "pe-comprehensive-management",
       "group": "keyword",
@@ -1454,14 +1422,6 @@
       "reason": "thin",
       "weighted": 3,
       "body_chars": 2317
-    },
-    {
-      "slug": "pe-comprehensive-management-job-order-costing",
-      "category": "pe-comprehensive-management",
-      "group": "keyword",
-      "reason": "thin",
-      "weighted": 2.25,
-      "body_chars": 1746
     },
     {
       "slug": "pe-comprehensive-management-key-performance-indicators",
@@ -1640,14 +1600,6 @@
       "body_chars": 1954
     },
     {
-      "slug": "pe-comprehensive-management-manufacturing-quality",
-      "category": "pe-comprehensive-management",
-      "group": "keyword",
-      "reason": "thin",
-      "weighted": 2.55,
-      "body_chars": 1787
-    },
-    {
       "slug": "pe-comprehensive-management-maslow-hierarchy-of-needs",
       "category": "pe-comprehensive-management",
       "group": "keyword",
@@ -1760,14 +1712,6 @@
       "body_chars": 2819
     },
     {
-      "slug": "pe-comprehensive-management-multi-track-hr-system",
-      "category": "pe-comprehensive-management",
-      "group": "keyword",
-      "reason": "thin",
-      "weighted": 2.5,
-      "body_chars": 1750
-    },
-    {
       "slug": "pe-comprehensive-management-my-number-act",
       "category": "pe-comprehensive-management",
       "group": "keyword",
@@ -1790,22 +1734,6 @@
       "reason": "thin",
       "weighted": 2.85,
       "body_chars": 2984
-    },
-    {
-      "slug": "pe-comprehensive-management-natural-parks-act",
-      "category": "pe-comprehensive-management",
-      "group": "keyword",
-      "reason": "thin",
-      "weighted": 2.75,
-      "body_chars": 1774
-    },
-    {
-      "slug": "pe-comprehensive-management-nature-conservation-act",
-      "category": "pe-comprehensive-management",
-      "group": "keyword",
-      "reason": "thin",
-      "weighted": 2.5,
-      "body_chars": 1788
     },
     {
       "slug": "pe-comprehensive-management-nature-restoration-act",
@@ -2144,14 +2072,6 @@
       "body_chars": 2235
     },
     {
-      "slug": "pe-comprehensive-management-public-safety",
-      "category": "pe-comprehensive-management",
-      "group": "keyword",
-      "reason": "thin",
-      "weighted": 2.35,
-      "body_chars": 1722
-    },
-    {
       "slug": "pe-comprehensive-management-pull-production",
       "category": "pe-comprehensive-management",
       "group": "keyword",
@@ -2200,14 +2120,6 @@
       "body_chars": 2417
     },
     {
-      "slug": "pe-comprehensive-management-quality-costing",
-      "category": "pe-comprehensive-management",
-      "group": "keyword",
-      "reason": "thin",
-      "weighted": 2.8,
-      "body_chars": 1754
-    },
-    {
       "slug": "pe-comprehensive-management-quality-improvement",
       "category": "pe-comprehensive-management",
       "group": "keyword",
@@ -2216,28 +2128,12 @@
       "body_chars": 2676
     },
     {
-      "slug": "pe-comprehensive-management-quality-objectives",
-      "category": "pe-comprehensive-management",
-      "group": "keyword",
-      "reason": "thin",
-      "weighted": 3,
-      "body_chars": 1759
-    },
-    {
       "slug": "pe-comprehensive-management-quality-planning",
       "category": "pe-comprehensive-management",
       "group": "keyword",
       "reason": "thin",
       "weighted": 2.75,
       "body_chars": 2048
-    },
-    {
-      "slug": "pe-comprehensive-management-quality-policy",
-      "category": "pe-comprehensive-management",
-      "group": "keyword",
-      "reason": "thin",
-      "weighted": 2.75,
-      "body_chars": 1737
     },
     {
       "slug": "pe-comprehensive-management-radioactive-decontamination-act",
@@ -2302,22 +2198,6 @@
       "reason": "thin",
       "weighted": 2.75,
       "body_chars": 2318
-    },
-    {
-      "slug": "pe-comprehensive-management-replacement-cost",
-      "category": "pe-comprehensive-management",
-      "group": "keyword",
-      "reason": "thin",
-      "weighted": 2.35,
-      "body_chars": 1717
-    },
-    {
-      "slug": "pe-comprehensive-management-required-quality",
-      "category": "pe-comprehensive-management",
-      "group": "keyword",
-      "reason": "thin",
-      "weighted": 2.6,
-      "body_chars": 1759
     },
     {
       "slug": "pe-comprehensive-management-residual-risk",
@@ -2710,14 +2590,6 @@
       "reason": "thin",
       "weighted": 3,
       "body_chars": 1881
-    },
-    {
-      "slug": "pe-comprehensive-management-tbm-toolbox-meeting",
-      "category": "pe-comprehensive-management",
-      "group": "keyword",
-      "reason": "thin",
-      "weighted": 2.5,
-      "body_chars": 1772
     },
     {
       "slug": "pe-comprehensive-management-tcfd",
@@ -6337,12 +6209,12 @@
       "slug": "pe-comprehensive-management-crisis-priority",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 1757,
+      "body_chars": 3220,
       "scored": true,
       "weighted": 2.55,
       "scored_at": "2026-05-16T08:22:15.997Z",
       "failed": false,
-      "thin": true
+      "thin": false
     },
     {
       "slug": "pe-comprehensive-management-crm-system",
@@ -6502,12 +6374,12 @@
       "slug": "pe-comprehensive-management-dcf-method",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 1781,
+      "body_chars": 3273,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-06-20T01:46:03.894Z",
       "failed": false,
-      "thin": true
+      "thin": false
     },
     {
       "slug": "pe-comprehensive-management-de-facto-standard",
@@ -7591,12 +7463,12 @@
       "slug": "pe-comprehensive-management-fault-tolerance",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 1792,
+      "body_chars": 3523,
       "scored": true,
       "weighted": 2.75,
       "scored_at": "2026-06-20T01:46:05.837Z",
       "failed": false,
-      "thin": true
+      "thin": false
     },
     {
       "slug": "pe-comprehensive-management-fire-service-act",
@@ -8834,12 +8706,12 @@
       "slug": "pe-comprehensive-management-interpersonal-skills",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 1794,
+      "body_chars": 3323,
       "scored": true,
       "weighted": 2.25,
       "scored_at": "2026-05-29T05:50:43.342Z",
       "failed": false,
-      "thin": true
+      "thin": false
     },
     {
       "slug": "pe-comprehensive-management-intrinsic-motivation",
@@ -9076,12 +8948,12 @@
       "slug": "pe-comprehensive-management-job-order-costing",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 1746,
+      "body_chars": 3360,
       "scored": true,
       "weighted": 2.25,
       "scored_at": "2026-05-29T05:50:43.342Z",
       "failed": false,
-      "thin": true
+      "thin": false
     },
     {
       "slug": "pe-comprehensive-management-job-rotation",
@@ -9538,12 +9410,12 @@
       "slug": "pe-comprehensive-management-manufacturing-quality",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 1787,
+      "body_chars": 3790,
       "scored": true,
       "weighted": 2.55,
       "scored_at": "2026-05-29T05:50:43.342Z",
       "failed": false,
-      "thin": true
+      "thin": false
     },
     {
       "slug": "pe-comprehensive-management-market-research",
@@ -9780,12 +9652,12 @@
       "slug": "pe-comprehensive-management-multi-track-hr-system",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 1750,
+      "body_chars": 3334,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-06-20T01:46:09.683Z",
       "failed": false,
-      "thin": true
+      "thin": false
     },
     {
       "slug": "pe-comprehensive-management-my-number-act",
@@ -9835,23 +9707,23 @@
       "slug": "pe-comprehensive-management-natural-parks-act",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 1774,
+      "body_chars": 3257,
       "scored": true,
       "weighted": 2.75,
       "scored_at": "2026-06-20T01:46:09.810Z",
       "failed": false,
-      "thin": true
+      "thin": false
     },
     {
       "slug": "pe-comprehensive-management-nature-conservation-act",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 1788,
+      "body_chars": 3235,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-06-20T01:46:09.839Z",
       "failed": false,
-      "thin": true
+      "thin": false
     },
     {
       "slug": "pe-comprehensive-management-nature-positive",
@@ -10891,12 +10763,12 @@
       "slug": "pe-comprehensive-management-public-safety",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 1722,
+      "body_chars": 3431,
       "scored": true,
       "weighted": 2.35,
       "scored_at": "2026-06-20T01:46:12.124Z",
       "failed": false,
-      "thin": true
+      "thin": false
     },
     {
       "slug": "pe-comprehensive-management-public-servant-comprehensive-merit",
@@ -10990,12 +10862,12 @@
       "slug": "pe-comprehensive-management-quality-costing",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 1754,
+      "body_chars": 3302,
       "scored": true,
       "weighted": 2.8,
       "scored_at": "2026-05-29T05:50:43.342Z",
       "failed": false,
-      "thin": true
+      "thin": false
     },
     {
       "slug": "pe-comprehensive-management-quality-improvement",
@@ -11012,12 +10884,12 @@
       "slug": "pe-comprehensive-management-quality-objectives",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 1759,
+      "body_chars": 3344,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-06-20T01:46:12.393Z",
       "failed": false,
-      "thin": true
+      "thin": false
     },
     {
       "slug": "pe-comprehensive-management-quality-planning",
@@ -11034,12 +10906,12 @@
       "slug": "pe-comprehensive-management-quality-policy",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 1737,
+      "body_chars": 3214,
       "scored": true,
       "weighted": 2.75,
       "scored_at": "2026-06-20T01:46:12.451Z",
       "failed": false,
-      "thin": true
+      "thin": false
     },
     {
       "slug": "pe-comprehensive-management-r01-primary",
@@ -11430,23 +11302,23 @@
       "slug": "pe-comprehensive-management-replacement-cost",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 1717,
+      "body_chars": 3479,
       "scored": true,
       "weighted": 2.35,
       "scored_at": "2026-06-20T01:46:12.880Z",
       "failed": false,
-      "thin": true
+      "thin": false
     },
     {
       "slug": "pe-comprehensive-management-required-quality",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 1759,
+      "body_chars": 3182,
       "scored": true,
       "weighted": 2.6,
       "scored_at": "2026-06-20T01:46:12.916Z",
       "failed": false,
-      "thin": true
+      "thin": false
     },
     {
       "slug": "pe-comprehensive-management-residual-risk",
@@ -12519,12 +12391,12 @@
       "slug": "pe-comprehensive-management-tbm-toolbox-meeting",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 1772,
+      "body_chars": 3240,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-06-20T01:46:15.377Z",
       "failed": false,
-      "thin": true
+      "thin": false
     },
     {
       "slug": "pe-comprehensive-management-tcfd",
