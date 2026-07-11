@@ -20,7 +20,7 @@ import { writeEpub, xhtmlDoc, xesc } from './lib/epub-writer.mjs'
 import { mdToXhtml } from './lib/kindle-md.mjs'
 
 const REPO = resolve(import.meta.dirname, '..')
-const AUTHOR = '架（かける）'
+const AUTHOR = 'doboku-note'
 const PUBLISHER = 'doboku-note'
 const DEFAULT_EXAM = '技術士第二次試験'
 const creditBody = (examName) =>

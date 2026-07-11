@@ -26,7 +26,7 @@ import { writeEpub, xhtmlDoc, xesc } from './lib/epub-writer.mjs'
 
 const REPO = resolve(import.meta.dirname, '..')
 
-const AUTHOR = '架（かける）'
+const AUTHOR = 'doboku-note'
 const PUBLISHER = 'doboku-note'
 // 出典クレジットは spec.examName（試験名）と spec.creditIssuer（実施団体）で切替。
 // 技術士系＝日本技術士会・第一次/第二次試験、施工管理技士＝全国建設研修センター等。
