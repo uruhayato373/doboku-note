@@ -52,12 +52,24 @@ function splitFrontmatter(raw) {
   return { fm, body: raw.slice(m[0].length) }
 }
 
-// インライン markdown リンクをテキスト化。note.com 等の外部ストア誘導は KDP 上載せられず、
-// そもそも共有レンダラはリンク未対応で生の [text](url) が露出する。text だけ残し URL を捨てる。
-// 併せて剥き身の URL（https://... 単独）も除去する。
+// essay 中のインライン markdown リンクは大半がサイト(doboku-note.com / 相対 /docs, /posts)への
+// クロス参照で、Kindle では死にリンク。旧実装は https しか処理せず①相対リンクが生漏れ②「詳しくは
+// [X](url)をご覧ください。」型がテキスト断片として残る、を QA で検出。以下で網羅的に除去する。
+// サイト判定 = doboku-note.com の絶対 URL、または / で始まる相対パス（/docs, /posts 等）。
+// essay の inline リンクは全て doboku-note サイトへのクロス参照（絶対 https / 相対 /docs /posts /
+// 裸スラッグ pe-construction-… の3形式が混在）で、Kindle では死にリンク。URL 形式で判定すると裸
+// スラッグを取りこぼす（R05-R07 で QA 検出）ため、URL は問わず「リンクを含む文」を対象に除去する。
 function stripLinks(body) {
   return body
-    .replace(/\[([^\]]*)\]\((https?:[^)]+)\)/g, '$1')
+    // (1) 誘導の一文（「…[X](url)をご覧ください/を参照/で詳述/で解説…。」）を文ごと除去
+    .replace(/[^。\n]*!?\[[^\]]*\]\([^)]*\)[^。\n]*(?:をご覧ください|を参照|ご参照|で詳述|で解説)[^。\n]*。/g, '')
+    // (2) 文末 trailing 参照（「…。[X](url)」）は句点で閉じる
+    .replace(/。\s*!?\[[^\]]*\]\([^)]*\)/g, '。')
+    // (3) 画像リンク !\[alt](url) は essay レンダラ非対応 → 丸ごと除去（先頭 ! も含む）
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
+    // (4) 残るインライン markdown リンクはテキスト化
+    .replace(/!?\[([^\]]*)\]\([^)]*\)/g, '$1')
+    // (5) 剥き身 URL 除去
     .replace(/(^|\s)https?:\/\/\S+/g, '$1')
 }
 
