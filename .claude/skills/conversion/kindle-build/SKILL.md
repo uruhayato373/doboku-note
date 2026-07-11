@@ -1,11 +1,12 @@
 ---
 name: kindle-build
 description: >
-  Kindle(KDP)入稿用 EPUB を書籍IDから生成し、epubcheck 機械検証と kindle-book-qa の5軸監査まで実行する。
-  A系（A-01〜A-06=1級土木択一・論点別再構成）は build-takuitsu-reconstruct.mjs、D系（D-01〜D-03=技術士一次・
-  科目別7年分合本）は build-pe1-kindle.mjs + kindle-specs/{id}.json で決定論的にビルドする。構成定義（THEMES/spec）が
-  未整備の書籍は kindle-book-composer に構成設計を委譲する。表紙画像・KDPアカウント操作は対象外（ユーザー作業）。
-  Use when user asks to [Kindle本を作って, EPUBを生成, KDP入稿ファイル, A-01をビルド, Kindle出版の原稿, /kindle-build].
+  Kindle(KDP)入稿用 EPUB を書籍IDから生成し、epubcheck＋check-kindle-format 機械検証と kindle-book-qa の5軸監査まで実行する。
+  択一系（A=1級土木論点別 build-takuitsu-reconstruct / B=総監択一・D=技術士一次・E=2級土木択一 build-pe1-kindle）は spec で、
+  記述式 essay 系（C=建設二次模範解答・F=総監記述式）は build-essay-kindle.mjs で決定論的にビルドする。構成定義/前付けが
+  未整備の書籍は kindle-book-composer に委譲。全書籍の状態は catalog.json（マスター登録簿）、成果物は kindle-dist/ を git 追跡。
+  表紙画像・KDPアカウント操作は対象外（ユーザー作業）。
+  Use when user asks to [Kindle本を作って, EPUBを生成, KDP入稿ファイル, A-01をビルド, essay模範解答本, Kindle出版の原稿, /kindle-build].
 user-invocable: true
 ---
 
@@ -31,16 +32,23 @@ Kindle 出版戦略（[08_Kindle出版戦略.md](../../../../docs/project/01_戦
 
 | 書籍ID | シリーズ | ビルド | 構成定義 | 状態 |
 |---|---|---|---|---|
-| A-01 安全管理 | A: 1級土木択一 | `node scripts/build-takuitsu-reconstruct.mjs --theme anzen --format both` | THEMES 実装済み（lead判定＋exclude） | **出版済み**（127問・9論点。解説補完後の更新版EPUB再アップ推奨） |
-| A-02 法規〜A-06 工程管理 | A | 同上 `--theme {hoki\|sekokeikaku\|kankyo\|hinshitsu\|koutei}` | THEMES 全定義済み（2026-07-08）。lead判定＋exclude＋**parts フィルタ**（A/B問題で lead 同文の設問を試験構成で切り分け。hinshitsu=Bのみ） | EPUB完成（126/42/31/65/31問・epubcheck 0/0・QA済み） |
-| A-00 全科目合本 | A | 同上 `--theme goubon`（EPUB のみ生成・md/print なし） | 6テーマを部立て結合・章番号通し（GOUBON.order） | EPUB完成（422問・39論点・¥1,200） |
-| D-01 基礎 / D-02 適性 / D-03 専門(建設) | D: 技術士一次 合本 | `node scripts/build-pe1-kindle.mjs --spec scripts/kindle-specs/{id}.json` | spec + 書き下ろし前付け | D-02 spec から整備 |
+| A-01〜A-06 / A-00 | A: 1級土木択一・論点別 | `node scripts/build-takuitsu-reconstruct.mjs --theme {anzen\|hoki\|sekokeikaku\|kankyo\|hinshitsu\|koutei\|goubon}` | THEMES（lead判定＋exclude＋parts フィルタ） | LIVE（A-01〜06）/ A-00 審査中 |
+| D-01/02/03 / D-00 | D: 技術士一次 合本 | `node scripts/build-pe1-kindle.mjs --spec scripts/kindle-specs/{id}.json` | spec + 書き下ろし前付け | EPUB完成・提出待ち |
+| E-01 | E: 2級土木択一 全期合本 | `build-pe1-kindle.mjs --spec kindle-specs/e-01.json` | spec + 前付け（出典=全国建設研修センター） | 提出待ち（630問¥990） |
+| b-reiwa/b-heisei | B: 総監択一 合本 | `build-pe1-kindle.mjs --spec kindle-specs/{id}.json` | spec + 前付け（出典=第二次試験・spec.examName） | 提出待ち |
+| c-01〜c-11/c-I | C: 建設二次 模範解答 essay | `node scripts/build-essay-kindle.mjs --spec scripts/kindle-specs/{id}.json` | spec（sources=模範解答 md）+ 前付け | 提出待ち（過去問R03-R07 evergreen） |
+| f-01〜f-16 | F: 総監 記述式 essay | `build-essay-kindle.mjs --spec kindle-specs/{id}.json` | spec + 前付け | 提出待ち |
 
-表紙は全冊 spec 駆動で再生成可能（`scripts/kindle-covers/specs/a-0*.json`＋`backgrounds/a-0*.png`、下記「表紙」参照）。
+表紙は全冊 spec 駆動で再生成可能（`scripts/kindle-covers/specs/<id>.json`＋`backgrounds/`、下記「表紙」参照）。全書籍の状態・ASIN は [`scripts/kindle-published/catalog.json`](../../../../scripts/kindle-published/catalog.json)（マスター登録簿）が真実源。
 
-- A系入力: `src/config/civil-1-exam-questions.json`（H26-R07 構造化 1,162 問）
-- D系入力: `.local/r2/posts/pe-first-stage/{r01..r07}-{basic,aptitude,construction}/article.mdx`（全問完全解説つき）
-- 出力: A系 `.tmp/takuitsu-{theme}/{theme}.epub` / D系 spec の `outDir`（既定 `.tmp/kindle-{id}/`）
+- A系入力: `src/config/civil-1-exam-questions.json`（1,162問）。D/E系入力: 各 `.local/r2/posts/**/article.mdx`（択一・全問完全解説）。C/F系入力: `docs/note/**/article*.md`（記述式模範解答）
+- 出力: `.tmp/kindle-{id}/{id}.epub`。git 追跡の配布物は `scripts/kindle-dist/<id>.epub` + `<id>.jpg`（`npm run sync-kindle-dist` で spec から再生成）
+
+### ビルダー別の要点（2026-07-11 拡張）
+
+- **build-pe1-kindle**（択一・D/E/B）: `spec.examName`/`spec.creditIssuer` で出典切替。インライン `<ExamPoint>文</ExamPoint>`（2級形式）と props 型の両対応。画像は年度スコープ href（`img/{articleId}-{name}`）で年度間衝突を防止、`sanitizeMathml` で KaTeX の不可視演算子/mtable width/多文字演算子の epubcheck エラーを除去。選択肢 loose list の番号リセットは空行先読みで回避
+- **build-essay-kindle**（記述式・C/F）: 純散文用。`stripNoteSections`（## CTA節）+ `stripNoteCta`（`**bold**` 疑似見出しフッター＋インライン note CTA）+ `stripLinks`（サイトへの全リンク形式=https/相対/裸スラッグの誘導文を除去）。**R8予想は spec の sources から除外して evergreen 化**（来年度受験者向け）
+- markdown レンダラは両者とも `scripts/lib/kindle-md.mjs` を共有（essay 側）。pe1 は自前 mdToXhtml（統合は回帰実績ありで保留）
 
 ## 実行手順
 
@@ -70,7 +78,9 @@ Kindle 出版戦略（[08_Kindle出版戦略.md](../../../../docs/project/01_戦
 ## 検証
 
 - epubcheck エラー0/警告0（EPUB 3.3 ルール）
+- **`npm run check-kindle-format <epub>`**（書式インバリアント検査 R1-R4: 可読性/章改ページ/解答改ページ/選択肢連番。epubcheck が見ない書式ハウスルールを検査）
 - 収録問題数 = 08 期待値との突合（統計行）
+- essay系の漏れ検査: 展開 xhtml に `note.com`・`](` 生リンク・`をご覧ください`誘導・`R8予想`/`令和8`予想問題文脈 の残存 = 0
 - `U+FFFD` grep = 0（展開した xhtml に対して）
 - Kindle Previewer 3 の目視（目次遷移・改ページ・数式）は GUI のためユーザー作業として報告に明記
 
@@ -105,10 +115,20 @@ Kindle 出版戦略（[08_Kindle出版戦略.md](../../../../docs/project/01_戦
 
 **表紙（git 管理下・spec 駆動で再生成可能）**: `scripts/kindle-covers/build-kindle-cover.mjs --spec scripts/kindle-covers/specs/<id>.json`。背景（Codex 生成・文字なし・上部余白ゾーン）は `scripts/kindle-covers/backgrounds/<id>.png`、文言は spec に。日本語タイトルは satori + NotoSansJP-Bold で後合成（画像モデルは日本語を崩すため文字は必ずコードで乗せる）。詳細 → `scripts/kindle-covers/README.md`
 
+## KDP 提出運用（分割提出・catalog 管理）
+
+- **KDP 新規/実績浅アカウントは本の作成数制限あり**（2026-07-11、d-03 提出時に到達）。数日〜で枠回復・売上/審査通過で緩和。**分割提出運用**が前提
+- **入稿メモ**: `npm run gen-kdp-memo <id...>` で共通テンプレ生成（共通項=著者 doboku-note/レーベル/AI申告/カテゴリ/フローを gen-kdp-memo.mjs に一元化、固有値は `.claude/config/kdp-memo.json`、title/price/issuer は spec 自動取得）→ `scripts/kindle-published/KDP入力メモ_<id>.txt`
+- **配布物 git 追跡**: `npm run sync-kindle-dist -- --downloads` で ready 全冊を再ビルド→`kindle-dist/`＋`~/Downloads/kindle-<id>.(epub|cover.jpg)`
+- **提出後**: catalog.json の `asin`＋`status=live` を更新、08 の該当シリーズ表に ASIN/出版日を追記
+
 ## 参照
 
 - 戦略・価格・チェックリストの真実源: [08_Kindle出版戦略.md](../../../../docs/project/01_戦略/08_Kindle出版戦略.md)
-- A系ビルダー: `scripts/build-takuitsu-reconstruct.mjs`（THEMES スキーマは先頭コメント）
-- D系ビルダー: `scripts/build-pe1-kindle.mjs` + `scripts/kindle-specs/*.json`
+- マスター登録簿（全書籍の状態/ASIN）: `scripts/kindle-published/catalog.json` ／ 配布物: `scripts/kindle-dist/`（README あり）
+- 択一ビルダー: `scripts/build-takuitsu-reconstruct.mjs`（A・THEMES）/ `scripts/build-pe1-kindle.mjs`（D/E/B・spec）
+- essay ビルダー: `scripts/build-essay-kindle.mjs`（C/F・spec）＋共有レンダラ `scripts/lib/kindle-md.mjs`
+- 書式検査: `scripts/check-kindle-format.mjs`（`npm run check-kindle-format`）
+- メモ生成/配布同期: `scripts/gen-kdp-memo.mjs` / `scripts/sync-kindle-dist.mjs`
 - 試作の経緯・既知の限界: `docs/note/1級・2級土木/1級土木/takuitsu-pdf-prototype.md`
 - サブエージェント: `kindle-book-composer`（構成設計）/ `kindle-book-qa`（5軸監査）→ [agents-registry.md](../../../../docs/reference/agents-registry.md)

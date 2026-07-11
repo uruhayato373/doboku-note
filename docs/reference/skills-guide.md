@@ -37,7 +37,7 @@ title: スキル ナビゲーションガイド
 | `/ogp-create` | サイト OGP（mono-tag・全幅＋資格別テーマ色外枠）＋ note 記事カバー（G2・試験色分け）生成。デザイン SSOT は `docs/reference/ogp-prompts.md`、一括目視 QA は `npm run ogp-gallery` | `OGP画像`, `noteカバー`, `/ogp-create` |
 | `/ogp-design-explore` | OGP 意匠の**新方向を aidesigner / Canva の MCP で素案として試作**し、採用案を `/ogp-create` の satori テンプレに落として量産につなぐ。試作専用（量産・per-article 生成は `/ogp-create`）。MCP は外部クレジット消費 | `OGPデザイン検討`, `OGP素案`, `OGPリデザイン試作`, `/ogp-design-explore` |
 | `/magazine-to-pdf` | note マガジンの article.md →「問題文＋解答」中心の紙用 PDF（spec 駆動・A/B案両収録） | `マガジンをPDF`, `記事を紙で`, `模範論文PDF`, `/magazine-to-pdf --spec scripts/pdf-specs/{name}.json [--desktop]` |
-| `/kindle-build` | Kindle(KDP)入稿用 EPUB を書籍IDから生成→epubcheck→`kindle-book-qa` 5軸監査まで一気通貫（A系=1級土木択一 論点別 / D系=技術士一次 科目別合本。構成未定義は `kindle-book-composer` へ委譲。真実源 08_Kindle出版戦略.md） | `Kindle本を作って`, `EPUBを生成`, `KDP入稿ファイル`, `/kindle-build {A-01\|D-02}` |
+| `/kindle-build` | Kindle(KDP)入稿用 EPUB を書籍IDから生成→epubcheck＋check-kindle-format→`kindle-book-qa` 5軸監査まで一気通貫。択一系（A=1級土木論点別 / B=総監・D=技術士一次・E=2級土木 は build-pe1-kindle）と記述式 essay 系（C=建設二次模範解答・F=総監記述式 は build-essay-kindle）に対応。構成未定義は `kindle-book-composer` へ委譲。全書籍の状態は catalog.json、配布物は kindle-dist/ を git 追跡。真実源 08_Kindle出版戦略.md | `Kindle本を作って`, `EPUBを生成`, `KDP入稿ファイル`, `essay模範解答本`, `/kindle-build {A-01\|E-01\|c-01}` |
 
 ### 品質管理（quality）
 
