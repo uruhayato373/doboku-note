@@ -1,5 +1,5 @@
 {
-  "_comment": "KDP 出版済み Kindle 本の機械可読 SSOT。ASIN・価格・状態・版(version)の真実源。markdown の出版済み一覧(docs/project/01_戦略/08_Kindle出版戦略.md)と README.md の表はここから派生させる。ASIN は Amazon 恒久 ID。版を更新して EPUB を再アップしたら version を上げ versionHistory に1行足す。リビルドは builder + --theme buildTheme で再現できる。",
+  "_comment": "Kindle 全書籍のマスター登録簿。status=ready(制作完了・提出待ち)/in_review(KDP審査中)/live(公開). epub/cover は git 追跡(A系=kindle-published/・B-F=kindle-dist/). 提出後 ASIN と status=live を更新。再生成は npm run sync-kindle-dist。",
   "schemaVersion": 1,
   "updatedAt": "2026-07-11",
   "books": [
@@ -24,9 +24,14 @@
       "kdpMemo": "KDP入力メモ_A-00全科目合本.txt",
       "version": "1.0",
       "versionHistory": [
-        { "version": "1.0", "date": "2026-07-11", "change": "KDP へ入稿・審査中（A-01〜A-06 の全422問を合本・6部立て・章番号通し）" }
+        {
+          "version": "1.0",
+          "date": "2026-07-11",
+          "change": "KDP へ入稿・審査中（A-01〜A-06 の全422問を合本・6部立て・章番号通し）"
+        }
       ],
-      "notes": "KDP 審査中（未公開・公開までに時間がかかる）。LIVE 化・ASIN 取得後に status=live/publishedDate/asin を更新。分冊 A-01〜A-06 との重複コンテンツ規約はこの審査で実態確認。"
+      "notes": "KDP 審査中（未公開・公開までに時間がかかる）。LIVE 化・ASIN 取得後に status=live/publishedDate/asin を更新。分冊 A-01〜A-06 との重複コンテンツ規約はこの審査で実態確認。",
+      "dist": "kindle-published/kindle-A-00-goubon.epub"
     },
     {
       "id": "A-01",
@@ -48,9 +53,18 @@
       "kdpMemo": "KDP入力メモ_A-01安全管理.txt",
       "version": "1.1",
       "versionHistory": [
-        { "version": "1.0", "date": "2026-07-08", "change": "初版公開（第1弾）" },
-        { "version": "1.1", "date": "2026-07-09", "change": "尻切れ解説の恒久補完後の更新版 EPUB を再アップ" }
-      ]
+        {
+          "version": "1.0",
+          "date": "2026-07-08",
+          "change": "初版公開（第1弾）"
+        },
+        {
+          "version": "1.1",
+          "date": "2026-07-09",
+          "change": "尻切れ解説の恒久補完後の更新版 EPUB を再アップ"
+        }
+      ],
+      "dist": "kindle-published/kindle-A-01-anzen-updated.epub"
     },
     {
       "id": "A-02",
@@ -71,8 +85,13 @@
       "kdpMemo": null,
       "version": "1.0",
       "versionHistory": [
-        { "version": "1.0", "date": "2026-07-10", "change": "初版公開" }
-      ]
+        {
+          "version": "1.0",
+          "date": "2026-07-10",
+          "change": "初版公開"
+        }
+      ],
+      "dist": "kindle-published/kindle-A-02-hoki.epub"
     },
     {
       "id": "A-03",
@@ -93,8 +112,13 @@
       "kdpMemo": "KDP入力メモ_A-03施工計画.txt",
       "version": "1.0",
       "versionHistory": [
-        { "version": "1.0", "date": "2026-07-10", "change": "初版公開" }
-      ]
+        {
+          "version": "1.0",
+          "date": "2026-07-10",
+          "change": "初版公開"
+        }
+      ],
+      "dist": "kindle-published/kindle-A-03-sekokeikaku.epub"
     },
     {
       "id": "A-04",
@@ -115,8 +139,13 @@
       "kdpMemo": "KDP入力メモ_A-04環境管理.txt",
       "version": "1.0",
       "versionHistory": [
-        { "version": "1.0", "date": "2026-07-10", "change": "初版公開" }
-      ]
+        {
+          "version": "1.0",
+          "date": "2026-07-10",
+          "change": "初版公開"
+        }
+      ],
+      "dist": "kindle-published/kindle-A-04-kankyo.epub"
     },
     {
       "id": "A-05",
@@ -137,8 +166,13 @@
       "kdpMemo": "KDP入力メモ_A-05品質管理.txt",
       "version": "1.0",
       "versionHistory": [
-        { "version": "1.0", "date": "2026-07-10", "change": "初版公開" }
-      ]
+        {
+          "version": "1.0",
+          "date": "2026-07-10",
+          "change": "初版公開"
+        }
+      ],
+      "dist": "kindle-published/kindle-A-05-hinshitsu.epub"
     },
     {
       "id": "A-06",
@@ -160,7 +194,817 @@
       "kdpMemo": "KDP入力メモ_A-06工程管理.txt",
       "version": "1.0",
       "versionHistory": [
-        { "version": "1.0", "date": "2026-07-10", "change": "初版公開" }
+        {
+          "version": "1.0",
+          "date": "2026-07-10",
+          "change": "初版公開"
+        }
+      ],
+      "dist": "kindle-published/kindle-A-06-koutei.epub"
+    },
+    {
+      "id": "e-01",
+      "asin": null,
+      "title": "2級土木施工管理技士 第1次検定 過去問完全解説【令和3〜7年度 全期】",
+      "subtitle": "令和3〜7年度 前期・後期 全630問",
+      "series": "E 2級土木施工管理技士 択一",
+      "priceJpy": 990,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-pe1-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/e-01.json",
+      "epub": "kindle-dist/e-01.epub",
+      "cover": "kindle-dist/e-01.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_e-01.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-07-11",
+          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        }
+      ]
+    },
+    {
+      "id": "b-reiwa",
+      "asin": null,
+      "title": "技術士総合技術監理部門 択一過去問 令和元〜令和7年度完全解説【合本】",
+      "subtitle": "令和元〜令和7年度 280問",
+      "series": "B 技術士総監 択一",
+      "priceJpy": 490,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-pe1-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/b-reiwa.json",
+      "epub": "kindle-dist/b-reiwa.epub",
+      "cover": "kindle-dist/b-reiwa.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_b-reiwa.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-07-11",
+          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        }
+      ]
+    },
+    {
+      "id": "b-heisei",
+      "asin": null,
+      "title": "技術士総合技術監理部門 択一過去問 平成21〜平成30年度完全解説【合本】",
+      "subtitle": "平成21〜平成30年度 400問",
+      "series": "B 技術士総監 択一",
+      "priceJpy": 490,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-pe1-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/b-heisei.json",
+      "epub": "kindle-dist/b-heisei.epub",
+      "cover": "kindle-dist/b-heisei.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_b-heisei.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-07-11",
+          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        }
+      ]
+    },
+    {
+      "id": "d-01",
+      "asin": null,
+      "title": "技術士第一次試験 基礎科目 過去問7年分完全解説",
+      "subtitle": "令和元〜7年度 210問",
+      "series": "D 技術士一次 科目別",
+      "priceJpy": 490,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-pe1-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/d-01.json",
+      "epub": "kindle-dist/d-01.epub",
+      "cover": "kindle-dist/d-01.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_d-01.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-07-11",
+          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        }
+      ]
+    },
+    {
+      "id": "d-02",
+      "asin": null,
+      "title": "技術士第一次試験 適性科目 過去問7年分完全解説",
+      "subtitle": "令和元〜7年度 105問",
+      "series": "D 技術士一次 科目別",
+      "priceJpy": 390,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-pe1-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/d-02.json",
+      "epub": "kindle-dist/d-02.epub",
+      "cover": "kindle-dist/d-02.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_d-02.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-07-11",
+          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        }
+      ]
+    },
+    {
+      "id": "d-03",
+      "asin": null,
+      "title": "技術士第一次試験 専門科目（建設部門）過去問7年分完全解説",
+      "subtitle": "令和元〜7年度 245問",
+      "series": "D 技術士一次 科目別",
+      "priceJpy": 490,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-pe1-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/d-03.json",
+      "epub": "kindle-dist/d-03.epub",
+      "cover": "kindle-dist/d-03.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_d-03.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-07-11",
+          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        }
+      ]
+    },
+    {
+      "id": "d-00",
+      "asin": null,
+      "title": "技術士第一次試験 基礎・適性・専門（建設部門）過去問7年分完全解説【合本】",
+      "subtitle": "令和元〜7年度 基礎210問＋適性105問＋専門245問 計560問",
+      "series": "D 技術士一次 科目別",
+      "priceJpy": 990,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-pe1-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/d-00.json",
+      "epub": "kindle-dist/d-00.epub",
+      "cover": "kindle-dist/d-00.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_d-00.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-07-11",
+          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        }
+      ]
+    },
+    {
+      "id": "c-01",
+      "asin": null,
+      "title": "技術士 建設部門 道路 二次 模範解答集",
+      "subtitle": "過去問 R03-R07 全15記事",
+      "series": "C 技術士建設部門 二次 模範解答",
+      "priceJpy": 690,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/c-01.json",
+      "epub": "kindle-dist/c-01.epub",
+      "cover": "kindle-dist/c-01.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-01.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-07-11",
+          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        }
+      ]
+    },
+    {
+      "id": "c-02",
+      "asin": null,
+      "title": "技術士 建設部門 河川砂防 二次 模範解答集",
+      "subtitle": "過去問 R03-R07 全15記事",
+      "series": "C 技術士建設部門 二次 模範解答",
+      "priceJpy": 690,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/c-02.json",
+      "epub": "kindle-dist/c-02.epub",
+      "cover": "kindle-dist/c-02.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-02.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-07-11",
+          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        }
+      ]
+    },
+    {
+      "id": "c-03",
+      "asin": null,
+      "title": "技術士 建設部門 都市計画 二次 模範解答集",
+      "subtitle": "過去問 R03-R07 全15記事",
+      "series": "C 技術士建設部門 二次 模範解答",
+      "priceJpy": 690,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/c-03.json",
+      "epub": "kindle-dist/c-03.epub",
+      "cover": "kindle-dist/c-03.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-03.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-07-11",
+          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        }
+      ]
+    },
+    {
+      "id": "c-04",
+      "asin": null,
+      "title": "技術士 建設部門 土質及び基礎 二次 模範解答集",
+      "subtitle": "過去問 R03-R07 全15記事",
+      "series": "C 技術士建設部門 二次 模範解答",
+      "priceJpy": 690,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/c-04.json",
+      "epub": "kindle-dist/c-04.epub",
+      "cover": "kindle-dist/c-04.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-04.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-07-11",
+          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        }
+      ]
+    },
+    {
+      "id": "c-05",
+      "asin": null,
+      "title": "技術士 建設部門 鋼構造及びコンクリート 二次 模範解答集",
+      "subtitle": "過去問 R03-R07 全15記事",
+      "series": "C 技術士建設部門 二次 模範解答",
+      "priceJpy": 690,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/c-05.json",
+      "epub": "kindle-dist/c-05.epub",
+      "cover": "kindle-dist/c-05.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-05.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-07-11",
+          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        }
+      ]
+    },
+    {
+      "id": "c-06",
+      "asin": null,
+      "title": "技術士 建設部門 施工計画 二次 模範解答集",
+      "subtitle": "過去問 R03-R07 全15記事",
+      "series": "C 技術士建設部門 二次 模範解答",
+      "priceJpy": 690,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/c-06.json",
+      "epub": "kindle-dist/c-06.epub",
+      "cover": "kindle-dist/c-06.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-06.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-07-11",
+          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        }
+      ]
+    },
+    {
+      "id": "c-07",
+      "asin": null,
+      "title": "技術士 建設部門 建設環境 二次 模範解答集",
+      "subtitle": "過去問 R03-R07 全15記事",
+      "series": "C 技術士建設部門 二次 模範解答",
+      "priceJpy": 690,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/c-07.json",
+      "epub": "kindle-dist/c-07.epub",
+      "cover": "kindle-dist/c-07.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-07.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-07-11",
+          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        }
+      ]
+    },
+    {
+      "id": "c-08",
+      "asin": null,
+      "title": "技術士 建設部門 港湾及び空港 二次 模範解答集",
+      "subtitle": "過去問 R03-R07 全15記事",
+      "series": "C 技術士建設部門 二次 模範解答",
+      "priceJpy": 690,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/c-08.json",
+      "epub": "kindle-dist/c-08.epub",
+      "cover": "kindle-dist/c-08.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-08.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-07-11",
+          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        }
+      ]
+    },
+    {
+      "id": "c-09",
+      "asin": null,
+      "title": "技術士 建設部門 電力土木 二次 模範解答集",
+      "subtitle": "過去問 R03-R07 全15記事",
+      "series": "C 技術士建設部門 二次 模範解答",
+      "priceJpy": 690,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/c-09.json",
+      "epub": "kindle-dist/c-09.epub",
+      "cover": "kindle-dist/c-09.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-09.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-07-11",
+          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        }
+      ]
+    },
+    {
+      "id": "c-10",
+      "asin": null,
+      "title": "技術士 建設部門 鉄道 二次 模範解答集",
+      "subtitle": "過去問 R03-R07 全15記事",
+      "series": "C 技術士建設部門 二次 模範解答",
+      "priceJpy": 690,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/c-10.json",
+      "epub": "kindle-dist/c-10.epub",
+      "cover": "kindle-dist/c-10.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-10.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-07-11",
+          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        }
+      ]
+    },
+    {
+      "id": "c-11",
+      "asin": null,
+      "title": "技術士 建設部門 トンネル 二次 模範解答集",
+      "subtitle": "過去問 R03-R07 全15記事",
+      "series": "C 技術士建設部門 二次 模範解答",
+      "priceJpy": 690,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/c-11.json",
+      "epub": "kindle-dist/c-11.epub",
+      "cover": "kindle-dist/c-11.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-11.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-07-11",
+          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        }
+      ]
+    },
+    {
+      "id": "c-I",
+      "asin": null,
+      "title": "技術士 建設部門 必須科目I 二次 模範解答集",
+      "subtitle": "過去問 R03-R07 全5記事",
+      "series": "C 技術士建設部門 二次 模範解答",
+      "priceJpy": 690,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/c-I.json",
+      "epub": "kindle-dist/c-I.epub",
+      "cover": "kindle-dist/c-I.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-I.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-07-11",
+          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        }
+      ]
+    },
+    {
+      "id": "f-01",
+      "asin": null,
+      "title": "技術士 総合技術監理部門 記述式 模範論文 ゼネコン編（令和3〜7年度）",
+      "subtitle": "令和3〜7年度 必須科目 模範論文 全5本",
+      "series": "F 技術士総監 記述式",
+      "priceJpy": 690,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/f-01.json",
+      "epub": "kindle-dist/f-01.epub",
+      "cover": "kindle-dist/f-01.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-01.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-07-11",
+          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        }
+      ]
+    },
+    {
+      "id": "f-02",
+      "asin": null,
+      "title": "技術士 総合技術監理部門 記述式 模範論文 河川コンサル編（令和3〜7年度）",
+      "subtitle": "令和3〜7年度 必須科目 模範論文 全5本",
+      "series": "F 技術士総監 記述式",
+      "priceJpy": 690,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/f-02.json",
+      "epub": "kindle-dist/f-02.epub",
+      "cover": "kindle-dist/f-02.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-02.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-07-11",
+          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        }
+      ]
+    },
+    {
+      "id": "f-03",
+      "asin": null,
+      "title": "技術士 総合技術監理部門 記述式 模範論文 自治体上水道担当編（令和3〜7年度）",
+      "subtitle": "令和3〜7年度 必須科目 模範論文 全5本",
+      "series": "F 技術士総監 記述式",
+      "priceJpy": 690,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/f-03.json",
+      "epub": "kindle-dist/f-03.epub",
+      "cover": "kindle-dist/f-03.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-03.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-07-11",
+          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        }
+      ]
+    },
+    {
+      "id": "f-04",
+      "asin": null,
+      "title": "技術士 総合技術監理部門 記述式 模範論文 自治体下水道担当編（令和3〜7年度）",
+      "subtitle": "令和3〜7年度 必須科目 模範論文 全5本",
+      "series": "F 技術士総監 記述式",
+      "priceJpy": 690,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/f-04.json",
+      "epub": "kindle-dist/f-04.epub",
+      "cover": "kindle-dist/f-04.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-04.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-07-11",
+          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        }
+      ]
+    },
+    {
+      "id": "f-05",
+      "asin": null,
+      "title": "技術士 総合技術監理部門 記述式 模範論文 自治体公園緑地担当編（令和3〜7年度）",
+      "subtitle": "令和3〜7年度 必須科目 模範論文 全5本",
+      "series": "F 技術士総監 記述式",
+      "priceJpy": 690,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/f-05.json",
+      "epub": "kindle-dist/f-05.epub",
+      "cover": "kindle-dist/f-05.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-05.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-07-11",
+          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        }
+      ]
+    },
+    {
+      "id": "f-06",
+      "asin": null,
+      "title": "技術士 総合技術監理部門 記述式 模範論文 自治体契約調達担当編（令和3〜7年度）",
+      "subtitle": "令和3〜7年度 必須科目 模範論文 全5本",
+      "series": "F 技術士総監 記述式",
+      "priceJpy": 690,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/f-06.json",
+      "epub": "kindle-dist/f-06.epub",
+      "cover": "kindle-dist/f-06.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-06.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-07-11",
+          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        }
+      ]
+    },
+    {
+      "id": "f-07",
+      "asin": null,
+      "title": "技術士 総合技術監理部門 記述式 模範論文 自治体技術基準担当編（令和3〜7年度）",
+      "subtitle": "令和3〜7年度 必須科目 模範論文 全5本",
+      "series": "F 技術士総監 記述式",
+      "priceJpy": 690,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/f-07.json",
+      "epub": "kindle-dist/f-07.epub",
+      "cover": "kindle-dist/f-07.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-07.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-07-11",
+          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        }
+      ]
+    },
+    {
+      "id": "f-08",
+      "asin": null,
+      "title": "技術士 総合技術監理部門 記述式 模範論文 自治体河川担当編（令和3〜7年度）",
+      "subtitle": "令和3〜7年度 必須科目 模範論文 全5本",
+      "series": "F 技術士総監 記述式",
+      "priceJpy": 690,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/f-08.json",
+      "epub": "kindle-dist/f-08.epub",
+      "cover": "kindle-dist/f-08.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-08.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-07-11",
+          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        }
+      ]
+    },
+    {
+      "id": "f-09",
+      "asin": null,
+      "title": "技術士 総合技術監理部門 記述式 模範論文 自治体港湾担当編（令和3〜7年度）",
+      "subtitle": "令和3〜7年度 必須科目 模範論文 全5本",
+      "series": "F 技術士総監 記述式",
+      "priceJpy": 690,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/f-09.json",
+      "epub": "kindle-dist/f-09.epub",
+      "cover": "kindle-dist/f-09.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-09.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-07-11",
+          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        }
+      ]
+    },
+    {
+      "id": "f-10",
+      "asin": null,
+      "title": "技術士 総合技術監理部門 記述式 模範論文 自治体砂防担当編（令和3〜7年度）",
+      "subtitle": "令和3〜7年度 必須科目 模範論文 全5本",
+      "series": "F 技術士総監 記述式",
+      "priceJpy": 690,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/f-10.json",
+      "epub": "kindle-dist/f-10.epub",
+      "cover": "kindle-dist/f-10.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-10.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-07-11",
+          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        }
+      ]
+    },
+    {
+      "id": "f-11",
+      "asin": null,
+      "title": "技術士 総合技術監理部門 記述式 模範論文 自治体道路担当編（令和3〜7年度）",
+      "subtitle": "令和3〜7年度 必須科目 模範論文 全5本",
+      "series": "F 技術士総監 記述式",
+      "priceJpy": 690,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/f-11.json",
+      "epub": "kindle-dist/f-11.epub",
+      "cover": "kindle-dist/f-11.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-11.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-07-11",
+          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        }
+      ]
+    },
+    {
+      "id": "f-12",
+      "asin": null,
+      "title": "技術士 総合技術監理部門 記述式 模範論文 自治体都市計画担当編（令和3〜7年度）",
+      "subtitle": "令和3〜7年度 必須科目 模範論文 全5本",
+      "series": "F 技術士総監 記述式",
+      "priceJpy": 690,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/f-12.json",
+      "epub": "kindle-dist/f-12.epub",
+      "cover": "kindle-dist/f-12.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-12.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-07-11",
+          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        }
+      ]
+    },
+    {
+      "id": "f-13",
+      "asin": null,
+      "title": "技術士 総合技術監理部門 記述式 模範論文 道路橋梁コンサル編（令和3〜7年度）",
+      "subtitle": "令和3〜7年度 必須科目 模範論文 全5本",
+      "series": "F 技術士総監 記述式",
+      "priceJpy": 690,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/f-13.json",
+      "epub": "kindle-dist/f-13.epub",
+      "cover": "kindle-dist/f-13.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-13.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-07-11",
+          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        }
+      ]
+    },
+    {
+      "id": "f-14",
+      "asin": null,
+      "title": "技術士 総合技術監理部門 記述式 模範論文 都市計画コンサル編（令和3〜7年度）",
+      "subtitle": "令和3〜7年度 必須科目 模範論文 全5本",
+      "series": "F 技術士総監 記述式",
+      "priceJpy": 690,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/f-14.json",
+      "epub": "kindle-dist/f-14.epub",
+      "cover": "kindle-dist/f-14.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-14.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-07-11",
+          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        }
+      ]
+    },
+    {
+      "id": "f-15",
+      "asin": null,
+      "title": "技術士 総合技術監理部門 記述式 5管理クロストレードオフ論文集",
+      "subtitle": "5管理のトレードオフ設計 全5本",
+      "series": "F 技術士総監 記述式",
+      "priceJpy": 690,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/f-15.json",
+      "epub": "kindle-dist/f-15.epub",
+      "cover": "kindle-dist/f-15.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-15.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-07-11",
+          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        }
+      ]
+    },
+    {
+      "id": "f-16",
+      "asin": null,
+      "title": "技術士 総合技術監理部門 記述式 設問3 国家施策バンク（11テーマ）",
+      "subtitle": "設問(3)の国家施策 全11テーマ",
+      "series": "F 技術士総監 記述式",
+      "priceJpy": 990,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-essay-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/f-16.json",
+      "epub": "kindle-dist/f-16.epub",
+      "cover": "kindle-dist/f-16.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-16.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-07-11",
+          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        }
       ]
     }
   ]
