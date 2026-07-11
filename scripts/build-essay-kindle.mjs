@@ -73,6 +73,23 @@ function stripLinks(body) {
     .replace(/(^|\s)https?:\/\/\S+/g, '$1')
 }
 
+// 総監模範論文は note マーケ CTA を本文に混在させる（## 見出しでなく **bold** 疑似見出しの
+// 末尾フッター＋インライン CTA 文）ため、dropSections(##)/stripLinks(リンク) では拾えない。
+// フッター切り詰め＋CTA 行除去で対処する（QA が全 F 70ファイルで検出）。
+function stripNoteCta(body) {
+  let out = body
+  // (1) 末尾の note 商品フッター（**doboku-note の関連ガイド**〜 以降）を切り詰め
+  const m = out.match(/\n?(?:---[^\S\n]*\n[^\S\n]*)?\*\*(?:doboku-note の関連ガイド|magazine セット販売|あわせて揃えたい共通装備)/)
+  if (m) out = out.slice(0, m.index)
+  // (2) インライン note CTA 行を除去（価格・完全パック・R8予想誘導・magazine 案内・note.com）
+  out = out.split('\n').filter((l) =>
+    !/もあわせてご覧ください|「完全パック」|magazine ¥|magazine セット|単品[^\S\n]*[:：]|21%OFF|｜note|note\.com/.test(l),
+  ).join('\n')
+  // (3) CTA 除去で生じた連続区切り/空行を整理し、末尾の孤立区切りを落とす
+  out = out.replace(/(?:^|\n)---[^\S\n]*(?=\n[^\S\n]*---)/g, '').replace(/\n{3,}/g, '\n\n').replace(/(?:\n[^\S\n]*---[^\S\n]*)+[\s]*$/, '\n')
+  return out
+}
+
 // note 専用 CTA 節を除去。## 見出しが drop パターンに一致したら次の ## / # / EOF まで捨てる。
 function stripNoteSections(body, dropRes) {
   const lines = body.split('\n')
@@ -135,7 +152,7 @@ function main() {
   for (const srcRel of spec.sources) {
     const srcPath = resolve(REPO, srcRel)
     const { fm, body } = splitFrontmatter(readFileSync(srcPath, 'utf8'))
-    const cleaned = stripLinks(stripNoteSections(body, dropRes))
+    const cleaned = stripLinks(stripNoteCta(stripNoteSections(body, dropRes)))
     chap++
     const id = `chap-${String(chap).padStart(2, '0')}`
     const label = fm.theme || fm.coverTitle || basename(resolve(srcPath, '..'))
