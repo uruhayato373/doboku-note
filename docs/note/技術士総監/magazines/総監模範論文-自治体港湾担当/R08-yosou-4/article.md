@@ -3,10 +3,10 @@ notePricing: paid
 noteSeries: 総監模範論文-自治体港湾担当ペルソナ
 utmCampaign: essay-port-muni-r08-4
 noteMagazine: 総監模範論文-自治体港湾担当
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/nb7a64004ce1c"
+noteId: "nb7a64004ce1c"
+notePublishedAt: "2026-07-12"
+noteStatus: published
 price: 780
 cover:
   leadIn: "令和8年度 R8予想"

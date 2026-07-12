@@ -2,10 +2,10 @@
 notePricing: paid
 noteSeries: 総監模範論文-都市計画コンサルペルソナ
 utmCampaign: essay-urban-consul-r08-yosou-4
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/n476eb143b4c7"
+noteId: "n476eb143b4c7"
+notePublishedAt: "2026-07-12"
+noteStatus: published
 noteMagazine: 総監模範論文-都市計画コンサル
 price: 780
 cover:
