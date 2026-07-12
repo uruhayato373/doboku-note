@@ -3,10 +3,10 @@ notePricing: paid
 noteSeries: 総監模範論文-自治体上水道担当ペルソナ
 utmCampaign: essay-water-muni-r08-3
 noteMagazine: 総監模範論文-自治体上水道担当
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/n39bd33d5eb84"
+noteId: "n39bd33d5eb84"
+notePublishedAt: "2026-07-12"
+noteStatus: published
 price: 780
 cover:
   leadIn: "令和8年度 R8予想"

@@ -2,10 +2,10 @@
 notePricing: paid
 noteSeries: 総監模範論文-自治体公園緑地担当ペルソナ
 utmCampaign: essay-park-muni-r08-yosou-3
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/n7e23e873ed99"
+noteId: "n7e23e873ed99"
+notePublishedAt: "2026-07-12"
+noteStatus: published
 noteMagazine: 総監模範論文-自治体公園緑地担当
 price: 780
 cover:

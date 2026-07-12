@@ -3,10 +3,10 @@ notePricing: paid
 noteSeries: 総監模範論文-自治体契約調達担当ペルソナ
 utmCampaign: essay-procurement-muni-r08-yosou-3
 noteMagazine: 総監模範論文-自治体契約調達担当
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/n2824ec7bc54a"
+noteId: "n2824ec7bc54a"
+notePublishedAt: "2026-07-12"
+noteStatus: published
 price: 780
 cover:
   leadIn: "令和8年度 R8予想"

@@ -3,10 +3,10 @@ notePricing: paid
 noteSeries: 総監模範論文-ゼネコンペルソナ
 utmCampaign: essay-general-contractor-r08-yosou-3
 noteMagazine: 総監模範論文-ゼネコン
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/n69b8fc564255"
+noteId: "n69b8fc564255"
+notePublishedAt: "2026-07-12"
+noteStatus: published
 price: 780
 cover:
   leadIn: "令和8年度 R8予想"
