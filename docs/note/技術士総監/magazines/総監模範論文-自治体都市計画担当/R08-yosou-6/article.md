@@ -2,11 +2,11 @@
 notePricing: paid
 noteSeries: 総監模範論文-自治体都市計画担当ペルソナ
 utmCampaign: essay-urban-muni-r08-6
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/nbbc3f1c537f1"
+noteId: "nbbc3f1c537f1"
+notePublishedAt: "2026-07-12"
 noteMagazine: 総監模範論文-自治体都市計画担当
-noteStatus: draft
+noteStatus: published
 price: 780
 cover:
   leadIn: "令和8年度 R8予想"
