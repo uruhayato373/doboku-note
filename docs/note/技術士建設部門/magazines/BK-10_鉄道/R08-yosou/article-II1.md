@@ -5,10 +5,10 @@ year: "R08-yosou"
 forecast: true
 subject: railway
 exam_type: II-1
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/n44418c163b26"
+noteId: "n44418c163b26"
+notePublishedAt: "2026-07-12"
+noteStatus: published
 price: 780
 theme: "レール摩耗管理・鉄道橋梁の非破壊検査・駅バリアフリー化・鉄道盛土の耐震対策"
 coverTitle: "技術士 建設部門｜鉄道 R8予想 選択科目II-1 予想問題＋模範解答"

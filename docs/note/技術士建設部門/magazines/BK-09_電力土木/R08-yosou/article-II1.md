@@ -5,10 +5,10 @@ year: "R08-yosou"
 forecast: true
 subject: power-civil
 exam_type: II-1
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/n925da9ad94e0"
+noteId: "n925da9ad94e0"
+notePublishedAt: "2026-07-12"
+noteStatus: published
 price: 780
 theme: "原子力耐震・揚水発電水圧管路・洋上風力基礎構造・電力土木構造物のASR劣化"
 coverTitle: "技術士 建設部門｜電力土木 R8予想 選択科目II-1 予想問題＋模範解答"

@@ -5,10 +5,10 @@ year: "R08-yosou"
 forecast: true
 subject: railway
 exam_type: III
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/n31042910b6fa"
+noteId: "n31042910b6fa"
+notePublishedAt: "2026-07-12"
+noteStatus: published
 price: 780
 theme: "自然災害の激甚化に対する鉄道防災力の強化・地方鉄道の維持管理と保守の省力化DX"
 coverTitle: "技術士 建設部門｜鉄道 R8予想 選択科目III 予想問題＋模範解答"

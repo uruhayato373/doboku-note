@@ -6,10 +6,10 @@ subject: power-civil
 exam_type: II-2
 forecast: true
 theme: "既設水力発電所の地震・水害防災対策計画／水力発電所の設備更新・出力増強リニューアル計画"
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/na4eeb78b55b0"
+noteId: "na4eeb78b55b0"
+notePublishedAt: "2026-07-12"
+noteStatus: published
 price: 780
 coverTitle: "技術士 建設部門｜電力土木 R8予想 選択科目II-2 模範解答"
 cover:

@@ -5,10 +5,10 @@ year: "R08-yosou"
 forecast: true
 subject: railway
 exam_type: II-2
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/ncf693e43a180"
+noteId: "ncf693e43a180"
+notePublishedAt: "2026-07-12"
+noteStatus: published
 price: 780
 theme: "短時間豪雨による盛土・切土等の鉄道施設の被災復旧・営業線近接の鉄道高架橋耐震補強"
 coverTitle: "技術士 建設部門｜鉄道 R8予想 選択科目II-2 予想問題＋模範解答"
