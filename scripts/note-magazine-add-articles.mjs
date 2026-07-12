@@ -96,7 +96,7 @@ function fetchMagazineNotes(key) {
   return out;
 }
 function magazineMeta(key) {
-  for (let p = 1; p <= 6; p++) {
+  for (let p = 1; p <= 20; p++) {
     const d = curlJson(`https://note.com/api/v2/creators/${CREATOR}/contents?kind=magazine&page=${p}`);
     const c = d?.data?.contents ?? [];
     const hit = c.find((m) => m.key === key);
