@@ -127,6 +127,10 @@ productId は `article:<slug>` 形式。slug は商品名から推定:
 | `技術士 建設部門｜{他科目} R8予想 選択科目{II-1/II-2/III}` | `article:bk-{subject}-r8-yosou-{ii1\|ii2\|iii}`（例: `bk-steel-concrete-r8-yosou-ii1` / `bk-port-airport-r8-yosou-ii2` / `bk-urban-planning-r8-yosou-ii2` / `bk-environment-r8-yosou-iii`） |
 | `技術士 建設部門｜{他科目} R0{N} 選択科目{II-1/II-2/III}`（過去問単品） | `article:bk-{subject}-r0{N}-{ii1\|ii2\|iii}`（例: `bk-tunnel-r06-ii2`） |
 | `老朽化インフラ × 予防保全`（総監R8予想） | `article:r8-aging-infra-preventive` |
+| `2級土木 第1次検定｜過去問PDF` / `2級土木 一次 過去問PDF`（Kindle択一の従チャネル・¥1,480） | `article:civil-2-takuitsu-pdf` |
+| `技術士 第一次試験｜過去問PDF 合本` / `技術士一次 過去問PDF`（¥1,480） | `article:pe1-takuitsu-pdf` |
+| `技術士 総合技術監理部門｜択一 過去問PDF 令和` / `総監 択一過去問PDF 令和`（¥980） | `article:tankan-takuitsu-reiwa-pdf` |
+| `技術士 総合技術監理部門｜択一 過去問PDF 平成` / `総監 択一過去問PDF 平成`（¥980） | `article:tankan-takuitsu-heisei-pdf` |
 
 **推定できない場合**: `article:unknown-{YYYYMMDD}-{index}` として記録し、後でユーザーが修正。
 
