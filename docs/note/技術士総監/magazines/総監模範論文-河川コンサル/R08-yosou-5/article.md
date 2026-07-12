@@ -3,10 +3,10 @@ notePricing: paid
 noteSeries: 総監模範論文-河川コンサルペルソナ
 utmCampaign: essay-river-consultant-r08-yosou-5
 noteMagazine: 総監模範論文-河川コンサル
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/n75f2c90096e5"
+noteId: "n75f2c90096e5"
+notePublishedAt: "2026-07-12"
+noteStatus: published
 price: 780
 cover:
   leadIn: "令和8年度 R8予想"
