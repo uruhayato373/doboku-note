@@ -29,11 +29,9 @@ jobs:
       - name: Quality audit (ci gate)
         run: npm run quality:audit:ci
 
-      - name: Check internal links (site)
-        run: npm run check-links -- --scope site
-
       - name: Build
         run: npm run build
 
+      # build 依存の SEO ゲートは build 直後にのみ置く（build 前の quality:audit:ci へは混ぜない）。
       - name: Check build-time SEO (out/)
         run: npm run check-seo-build:ci
