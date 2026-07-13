@@ -19,6 +19,9 @@
  *   P11: 概念名タイトル（最上部中央の大見出し）＝図内タイトル禁止（figure-canvas-policy §2.4）
  *   P12: 試験ポイント/引っかけ 注記（受験対策テキスト）＝概念図に入れない（content-principles §5。
  *        HIGH＝pre-commit ブロック。試験原図は audit.mjs が h*-primary を除外）
+ *   P13: <foreignObject> 使用（SVG→PNG 変換で描画されない非互換要素）＝HIGH
+ *   P14: @font-face / 外部 URL href 参照（ビルド時に解決されず表示崩れ）＝HIGH。xmlns 名前空間は除外
+ *   P15: viewBox 欠落（レスポンシブ縮尺・幾何監査が不能）＝MEDIUM
  *
  * 制限事項:
  *   - 正規表現ベースのため、ネストされた <tspan> や transform 付き <text> は
@@ -274,7 +277,15 @@ export function detectSvgIssues(svg, opts = {}) {
     });
   }
 
-  if (!svg.viewBox) return findings;
+  // P15: viewBox 欠落。レスポンシブ表示不能・以降の幾何チェックも不能なので記録して早期 return。
+  if (!svg.viewBox) {
+    findings.push({
+      pattern: "P15-missing-viewbox",
+      severity: "MEDIUM",
+      detail: "viewBox 属性が無い（width/height 依存の固定表示になりレスポンシブ縮尺・幾何監査が不能）",
+    });
+    return findings;
+  }
 
   // P1: テキスト clip, P4: font-size
   const bboxes = svg.texts.map(textBBox);
@@ -591,6 +602,40 @@ function detectMarkerDirectionIssues(content) {
   return findings;
 }
 
+/**
+ * P13/P14: SVG→PNG 変換・ビルドで壊れる構造を content 全文走査で検出する。
+ *   P13 foreignObject: resvg 等のラスタライザで描画されない（HTML を SVG に埋める非互換要素）。
+ *   P14 外部フォント/外部参照: @font-face や http(s) href はビルド時に解決されず表示が崩れる。
+ *     xmlns 名前空間宣言（xmlns=... で href ではない）は対象外。
+ */
+export function detectStructuralIssues(content) {
+  const findings = [];
+  if (/<foreignObject\b/.test(content)) {
+    findings.push({
+      pattern: "P13-foreign-object",
+      severity: "HIGH",
+      detail: "<foreignObject> は SVG→PNG 変換で描画されない。純粋な SVG 要素（text/rect 等）へ置換すること",
+    });
+  }
+  if (/@font-face/.test(content)) {
+    findings.push({
+      pattern: "P14-external-font",
+      severity: "HIGH",
+      detail: "@font-face の外部フォント読込はビルド時に解決されない。svg-tokens 準拠の system/serif 指定にすること",
+    });
+  }
+  const extHrefRe = /(?:xlink:)?href\s*=\s*["']https?:\/\/[^"']+["']/g;
+  let m;
+  while ((m = extHrefRe.exec(content)) !== null) {
+    findings.push({
+      pattern: "P14-external-ref",
+      severity: "HIGH",
+      detail: `外部 URL 参照 ${m[0].slice(0, 60)} はビルド時に解決されない。アセットを inline 化すること`,
+    });
+  }
+  return findings;
+}
+
 /** ファイルパスから監査結果を取得する便利関数 */
 export function auditSvgFile(path) {
   const content = readFileSync(path, "utf-8");
@@ -600,5 +645,7 @@ export function auditSvgFile(path) {
   findings.push(...detectColorAndFontIssues(content));
   // P10: marker 方向バグ
   findings.push(...detectMarkerDirectionIssues(content));
+  // P13/P14: 構造互換性
+  findings.push(...detectStructuralIssues(content));
   return findings;
 }
