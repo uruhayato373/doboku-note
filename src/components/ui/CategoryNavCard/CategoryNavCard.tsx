@@ -10,6 +10,7 @@ import { buildPastExamNavData } from '@/components/ui/PastExamNav/exam-nav-utils
 import peChaptersData from '@/config/pe-chapters.json';
 import type { PeChapter } from '@/config/pe-chapters';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
+import { peKeywordPageExists } from '@/lib/pe-keyword-nav';
 
 const peChapters = peChaptersData.chapters as PeChapter[];
 
@@ -106,8 +107,12 @@ function SectionCard({ variant, currentSlug, currentSection }: { variant: 'sideb
   if (variant === 'sidebar') {
     const chapter = chapters.find(c => c.id === currentChapterId);
     const section = chapter?.sections.find(s => s.id === currentSection);
-    const keywords = section?.keywords;
     const currentSuffix = currentSlug.replace('pe-comprehensive-management-', '');
+    // 実在ページ（＋現在ページ）だけを残す。pe-chapters.json の phantom slug への
+    // 内部リンク切れを防ぐ（build 後 SEO ゲートと整合）。
+    const keywords = section?.keywords?.filter(
+      kw => kw.slug === currentSuffix || peKeywordPageExists(kw.slug),
+    );
 
     if (!section || !keywords || keywords.length === 0) return null;
 

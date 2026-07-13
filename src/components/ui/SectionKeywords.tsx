@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import peChaptersData from '@/config/pe-chapters.json';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
+import { peKeywordPageExists } from '@/lib/pe-keyword-nav';
 
 interface SectionKeywordsProps {
   currentSlug: string;
@@ -19,9 +20,12 @@ export default function SectionKeywords({ currentSlug, section }: SectionKeyword
   const sec = chapter.sections.find(s => s.id === section);
   if (!sec || !sec.keywords) return null;
 
-  // 現在のページを除外
+  // 現在のページを除外し、ページが実在するキーワードだけをリンク対象にする
+  // （pe-chapters.json の phantom slug への内部リンク切れを防ぐ）。
   const currentSlugSuffix = currentSlug.replace('pe-comprehensive-management-', '');
-  const others = sec.keywords.filter(k => k.slug !== currentSlugSuffix);
+  const others = sec.keywords.filter(
+    k => k.slug !== currentSlugSuffix && peKeywordPageExists(k.slug),
+  );
   if (others.length === 0) return null;
 
   return (
