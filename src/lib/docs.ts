@@ -1,10 +1,9 @@
-import fs from 'fs';
-import path from 'path';
 import matter from 'gray-matter';
 import { cache } from 'react';
 import { parseCallouts } from './mdx-callout-parser';
 import { GetObjectCommand, ListObjectsV2Command } from '@aws-sdk/client-s3';
 import { getS3Client } from './r2-client';
+import { readLocalPost, findLocalMdxFiles } from './local-post-reader';
 import docMetaIndex from '@/config/doc-meta-index.json';
 
 type DocMetaIndex = {
@@ -106,8 +105,6 @@ function preprocessMDX(content: string): string {
   return lines.join('\n');
 }
 
-const localContentDirectory = path.join(process.cwd(), '.local', 'r2', 'posts');
-
 /**
  * Metadata for a documentation page.
  */
@@ -157,45 +154,6 @@ export type Doc = {
 let slugToKeyMap: Map<string, string> | null = null;
 
 /**
- * Recursively find all .mdx files in a directory and return slug + relative path pairs.
- * Converts path segments to hyphen-separated slug strings for flat URL structure.
- *
- * Two naming conventions:
- * - article.mdx: directory path becomes the slug (e.g., followership/article.mdx → followership)
- * - Individual files: filename included in slug (e.g., guide/strategy.mdx → guide-strategy)
- */
-function findMdxFiles(dir: string, basePath: string[] = []): { slug: string; relativePath: string }[] {
-  const results: { slug: string; relativePath: string }[] = [];
-
-  if (!fs.existsSync(dir)) {
-    return results;
-  }
-
-  const entries = fs.readdirSync(dir, { withFileTypes: true });
-
-  for (const entry of entries) {
-    const fullPath = path.join(dir, entry.name);
-    const fileName = entry.name.replace(/\.mdx$/, '');
-
-    if (entry.isDirectory()) {
-      const newPath = [...basePath, fileName];
-      results.push(...findMdxFiles(fullPath, newPath));
-    } else if (entry.isFile() && entry.name.endsWith('.mdx')) {
-      // For article.mdx, use the directory path as slug (convention: {slug}/article.mdx → {slug})
-      // For other .mdx files, include the filename in the slug
-      const slugPath = fileName === 'article' ? basePath : [...basePath, fileName];
-      if (slugPath.length > 0) {
-        const slug = slugPath.join('-');
-        const relativePath = [...basePath, entry.name].join('/');
-        results.push({ slug, relativePath });
-      }
-    }
-  }
-
-  return results;
-}
-
-/**
  * Reads only the frontmatter metadata of an MDX file (no content processing).
  * Primary: static JSON lookup from doc-meta-index.json (zero I/O).
  * Fallback: filesystem read for newly created files not yet in the index.
@@ -214,21 +172,18 @@ export async function getDocMeta(slug: string): Promise<DocMeta | null> {
   const relativePath = slugToKeyMap?.get(slug);
   if (!relativePath) return null;
 
-  if (fs.existsSync(localContentDirectory)) {
-    const filePath = path.join(localContentDirectory, relativePath);
-    if (fs.existsSync(filePath)) {
-      const fileContents = fs.readFileSync(filePath, 'utf8');
-      const matterResult = matter(fileContents);
-      if (matterResult.data.published === false) return null;
+  const fileContents = readLocalPost(relativePath);
+  if (fileContents !== null) {
+    const matterResult = matter(fileContents);
+    if (matterResult.data.published === false) return null;
 
-      return {
-        slug,
-        title: matterResult.data.title || '',
-        description: matterResult.data.description || '',
-        published: matterResult.data.published !== false,
-        ...matterResult.data,
-      } as DocMeta;
-    }
+    return {
+      slug,
+      title: matterResult.data.title || '',
+      description: matterResult.data.description || '',
+      published: matterResult.data.published !== false,
+      ...matterResult.data,
+    } as DocMeta;
   }
 
   return null;
@@ -253,35 +208,32 @@ export const getDoc = cache(async function getDoc(slug: string): Promise<Doc | n
   }
 
   // Prefer local filesystem when available
-  if (fs.existsSync(localContentDirectory)) {
-    const localFilePath = path.join(localContentDirectory, relativePath);
-    if (fs.existsSync(localFilePath)) {
-      const fileContents = fs.readFileSync(localFilePath, 'utf8');
-      const matterResult = matter(fileContents);
+  const localFileContents = readLocalPost(relativePath);
+  if (localFileContents !== null) {
+    const matterResult = matter(localFileContents);
 
-      // Filter out unpublished documents
-      if (matterResult.data.published === false) {
-        return null;
-      }
-
-      const processedContent = preprocessMDX(parseCallouts(matterResult.content));
-
-      return {
-        meta: {
-          slug,
-          title: matterResult.data.title || '',
-          description: matterResult.data.description || '',
-          category: matterResult.data.category,
-          tags: matterResult.data.tags,
-          sidebar_label: matterResult.data.sidebar_label,
-          toc_min_heading_level: matterResult.data.toc_min_heading_level,
-          toc_max_heading_level: matterResult.data.toc_max_heading_level,
-          published: matterResult.data.published !== false,
-          ...matterResult.data,
-        },
-        content: processedContent,
-      };
+    // Filter out unpublished documents
+    if (matterResult.data.published === false) {
+      return null;
     }
+
+    const processedContent = preprocessMDX(parseCallouts(matterResult.content));
+
+    return {
+      meta: {
+        slug,
+        title: matterResult.data.title || '',
+        description: matterResult.data.description || '',
+        category: matterResult.data.category,
+        tags: matterResult.data.tags,
+        sidebar_label: matterResult.data.sidebar_label,
+        toc_min_heading_level: matterResult.data.toc_min_heading_level,
+        toc_max_heading_level: matterResult.data.toc_max_heading_level,
+        published: matterResult.data.published !== false,
+        ...matterResult.data,
+      },
+      content: processedContent,
+    };
   }
 
   // Fallback: Fetch from R2
@@ -343,16 +295,14 @@ export const getDoc = cache(async function getDoc(slug: string): Promise<Doc | n
  */
 export async function getAllDocSlugs(): Promise<string[]> {
   // Prefer local filesystem when available (works for both dev and static export build)
-  if (fs.existsSync(localContentDirectory)) {
-    const results = findMdxFiles(localContentDirectory);
-    if (results.length > 0) {
-      // Build slug-to-key map for R2 fallback
-      slugToKeyMap = new Map();
-      for (const { slug, relativePath } of results) {
-        slugToKeyMap.set(slug, relativePath);
-      }
-      return results.map(r => r.slug);
+  const results = findLocalMdxFiles();
+  if (results.length > 0) {
+    // Build slug-to-key map for R2 fallback
+    slugToKeyMap = new Map();
+    for (const { slug, relativePath } of results) {
+      slugToKeyMap.set(slug, relativePath);
     }
+    return results.map(r => r.slug);
   }
 
   // Fallback: List objects from R2 (CI environment where local files don't exist)
