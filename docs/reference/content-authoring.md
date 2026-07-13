@@ -131,6 +131,20 @@ $$\text{価値} = \frac{\text{機能}}{\text{コスト}}$$
 
 **自動検出**: `lint-mdx-mobile.mjs` のカテゴリ 11-1（MEDIUM）で、`\frac{}` 内に `\text{}` を含む箇所が検出され警告される。pre-commit で警告表示、commit はブロックしない（MEDIUM のため）。本ルールの継続改善が必要になったら `.claude/state/task-queue.json` に `category: quality` で登録する。
 
+### KaTeX strict 警告を出さない記法（全角記号・% ・CJK）
+
+**ルール**: 数式（`$...$` / `$$...$$`）の**内側**では、以下を守る。build（rehype-katex 既定 `strict:'warn'`）が警告を出す＝将来の表示崩れリスク。
+
+- **全角演算子は半角に**: `＝→=` `＜→<` `＞→>` `＋→+` `／→/`。全角のままだと `unicodeTextInMathMode` 警告。
+- **`−`(U+2212) は半角ハイフン `-` に**: `unknownSymbol` 警告になる。
+- **数式内の `%` は `\%`**: 素の `%` は KaTeX でコメント開始と解釈され `commentAtEnd` 警告＋以降が消える。
+- **日本語（CJK）は `\text{...}` で包む**: `\dfrac{\text{せん断抵抗力}}{\text{滑動力}}` のように。素の CJK は `unicodeTextInMathMode` 警告。
+- **通貨などの `$` は数式ではない**: 本文の「最小値 `\$100` / 最大値 `\$75,000`」のように `\$` エスケープする。エスケープしないと remark-math が `$100 〜 $75,000` を数式と誤解釈し、間の日本語まで math mode に入って警告になる。
+
+**プロ側（数式の外）の全角記号は変えない**: `［rad／s］` のような単位表記や散文の `＞` はそのままで良い（警告は数式内のみ）。
+
+**自動検出**: `npm run audit-katex`（レポート）/ `audit-katex:ci`（`--strict`・警告 > 0 で exit 1）。build と同じ remark-math パイプラインでファイル/行/数式/警告コード単位に一覧化。低リスク置換（全角演算子・U+2212・%）は `--fix-safe` で数式スパン内のみ一括修正できる（CJK・通貨 `$` は手修正）。CI では `quality:audit:ci` が 0 件を enforce。
+
 ## モバイル視認性（詳細ルール）
 
 CLAUDE.md 本体にも要点を置いているが、詳細はここで扱う。
