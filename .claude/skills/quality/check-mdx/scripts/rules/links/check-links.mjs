@@ -23,6 +23,7 @@
 import fs from 'fs';
 import path from 'path';
 import { generateHeadingId, extractHeadings } from '#lib/heading-id.mjs';
+import { buildKeywordHref } from '#src/lib/keyword-href.mjs';
 
 const ROOT = process.cwd();
 const SITE_DIR = path.join(ROOT, '.local', 'r2', 'posts');
@@ -44,20 +45,10 @@ const KNOWN_STATIC = new Set(['/', '/about', '/privacy', '/search']);
 // 「静的ページリンク」として検査するプレフィックス（元 check-links.mjs の挙動を踏襲）
 const STATIC_PREFIX_RE = /^\/(about|privacy|search|blog|contact)(\/|$)/;
 
-// JSX <RelatedKeywords> 内 slug の URL 生成（RelatedKeywords.tsx L18-23 と同等）
-// 真実源は RelatedKeywords.tsx の KNOWN_CATEGORY_PREFIXES（3 件）。ここが欠けると
-// 該当カテゴリの RelatedKeywords slug に pe- が誤前置され偽 BROKEN_SLUG を量産する。
-const KNOWN_CATEGORY_PREFIXES = [
-  'pe-comprehensive-management-',
-  'civil-construction-1-',
-  'civil-construction-2-',
-];
-function buildRelatedKeywordHref(slug) {
-  if (KNOWN_CATEGORY_PREFIXES.some((p) => slug.startsWith(p))) {
-    return `/docs/${slug}`;
-  }
-  return `/docs/pe-comprehensive-management-${slug}`;
-}
+// JSX <RelatedKeywords> 内 slug の URL 生成。解決規則は src/lib/keyword-href.mjs を
+// RelatedKeywords.tsx と共有する（真実源の一元化）。カテゴリ接頭辞は categories.json から
+// 供給し、ここでロジックを複製しない（複製すると表示とチェッカーがドリフトして
+// 実在ページへのリンクが偽 BROKEN_SLUG になる。2026-07 の 166 件事故の再発防止）。
 
 // --- Step 1: 有効 slug 集合と slug -> ファイルパス対応を構築 ---
 function findSiteMdxFiles(dir, basePath = []) {
@@ -84,9 +75,11 @@ const validSlugs = new Set(siteFiles.map((f) => f.slug));
 const slugToFile = new Map(siteFiles.map((f) => [f.slug, f.filePath]));
 
 const validCategories = new Set();
+const categorySlugs = [];
 if (fs.existsSync(CATEGORIES_PATH)) {
   for (const cat of JSON.parse(fs.readFileSync(CATEGORIES_PATH, 'utf8'))) {
     validCategories.add(cat.slug);
+    categorySlugs.push(cat.slug);
   }
 }
 
@@ -169,7 +162,7 @@ function extractLinks(content) {
       );
       const label = labelMatch ? labelMatch[1] : '';
       const lineOffset = block.slice(0, sm.index).split('\n').length - 1;
-      const href = buildRelatedKeywordHref(slug);
+      const href = buildKeywordHref(slug, categorySlugs);
       links.push({
         text: label,
         raw: `RelatedKeywords slug="${slug}"`,

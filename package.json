@@ -4,7 +4,8 @@
   "private": true,
   "imports": {
     "#lib/*": "./.claude/scripts/lib/*",
-    "#shared/*": "./.claude/scripts/*"
+    "#shared/*": "./.claude/scripts/*",
+    "#src/*": "./src/*"
   },
   "scripts": {
     "prepare": "node scripts/install-pre-commit.mjs",
