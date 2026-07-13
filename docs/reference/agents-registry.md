@@ -6,7 +6,7 @@ title: サブエージェント詳細レジストリ
 
 `.claude/agents/` に定義されたサブエージェント群の詳細。Generator/Evaluator 分離の原則に基づき設計。
 
-> **件数の SSOT**: エージェント数の真実源は `.claude/agents/*.md` の実数（`find .claude/agents -maxdepth 1 -name '*.md' | wc -l`＝現在 **63**）と下記「エージェント一覧」表。CLAUDE.md など他 doc は件数を重複記載せずここを指す。追加/削除は同一 commit でこの表を更新する。
+> **件数の SSOT**: エージェント数の真実源は `.claude/agents/*.md` の実数（`find .claude/agents -maxdepth 1 -name '*.md' | wc -l`＝現在 **66**）と下記「エージェント一覧」表。CLAUDE.md など他 doc は件数を重複記載せずここを指す。追加/削除は同一 commit でこの表を更新する。
 
 **いつ読むか**: サブエージェントを呼び出すときに担当範囲を確認するとき、連携設計時、新規エージェント追加時の命名・責務設計時。
 
@@ -34,6 +34,7 @@ title: サブエージェント詳細レジストリ
 | `/weekly-improve`                         | `metrics-analyzer`                                               | 計測データから改善機会抽出（performance）      |
 | `/psi-audit`                              | `performance-auditor`                                            | CWV 違反・回帰検出        |
 | `/gsc-review`                             | `gsc-index-auditor`                                              | index coverage 診断（coverage_state 分類・indexed_ratio・原因バケット） |
+| `/seo-growth-review`                      | `technical-seo-auditor`, `search-intent-auditor`, `gsc-index-auditor`, `metrics-analyzer`, `performance-auditor` | SEO 4面（技術/coverage/performance/意図）の Evaluator を束ねる（機械検出→意味評価→統合・修正なし） |
 | `/plan-weekly`                            | `todo-planner`                                                          | docs/todo/ 週次計画の軽量更新（Sonnet 1回） |
 | `/weekly-review`, `/weekly-plan`          | `strategy-advisor`（オーケストレータ）                                     | 戦略的な PDCA 統括       |
 | `/magazine-to-pdf`                        | `magazine-pdf-builder`                                           | 新規マガジンの PDF 抽出 spec 作成・変換実行 |
@@ -82,6 +83,8 @@ title: サブエージェント詳細レジストリ
 | `gsc-index-auditor`            | GSC URL Inspection から **index coverage** を診断（coverage_state 7バケット分類・indexed_ratio・履歴差分・原因バケット〔権威性/技術/hygiene〕・hygiene URL surface）。performance を見る metrics-analyzer と直交・audit-only | Evaluator    | sonnet  | gsc-review                                                            | ✅ 運用中（2026-06-19 起動）                     |
 | `metrics-analyzer`             | GSC/GA4 計測データから改善機会を8パターン抽出（High-Impr-Low-CTR 等＋SNS-Source-Shift〔SNS 流入の急変〕＋Cannibalization/Content-Decay〔page×query〕。index 済みページの **performance** ＋ SNS 流入。coverage は gsc-index-auditor。メタ改善は少数 URL の 14〜28 日実験に限る）                                                     | Evaluator    | sonnet  | weekly-improve                                                        | ✅ 運用中                                     |
 | `performance-auditor`          | PSI 計測データからしきい値違反・回帰を検出し、LCP 肥大・CLS 発生等の既知パターンに改善候補をマッピング                                            | Evaluator    | sonnet  | psi-audit                                                             | ✅ 運用中                                     |
+| `technical-seo-auditor`        | check-seo-build / check-seo-meta / index-coverage 履歴 / sitemap の**機械出力を統合**して技術 SEO レポートにまとめる。canonical/og:url 不一致・sitemap hygiene・SSR・内部リンク到達性を、機械が判定済みの findings を引用して束ねる（決定的判定を再実行しない）。audit-only | Evaluator | sonnet | seo-growth-review | ✅ 運用中（2026-07-13 起動） |
+| `search-intent-auditor`        | 機械抽出（metrics-analyzer）が surface した**最大 20 URL のみ**を対象に、各ページが対象クエリの検索意図に合致するかを意味評価（意図タイプ/タイトル応答/網羅/ミスマッチ型）。計測値は作り直さず引用。改善は少数 URL の実験へ橋渡し。audit-only | Evaluator | sonnet | seo-growth-review | ✅ 運用中（2026-07-13 起動） |
 | `content-planner`              | コンテンツ企画（Phase 2 で復活）                                                                                 | Generator    | sonnet  | discover-exam-season, exam-demand, keyword-gap                        | ⏸️ Phase 2 で復活                            |
 | `keyword-rewriter`             | CEM キーワードページのバルクリライト                                                                                 | Generator    | sonnet  | quality-cycle 連携                                                      | ✅ 運用中                                     |
 | `civil-textbook-rewriter`      | 1級土木 textbook/guide ページのバルクリライト                                                                      | Generator    | sonnet  | civil-textbook-cycle 連携                                               | ✅ 運用中                                     |
