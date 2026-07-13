@@ -1,7 +1,10 @@
 ---
 notePricing: free
-noteStatus: draft
+noteStatus: published
 utmCampaign: civil-keiken-funnel-mock-practice
+notePublishedAt: "2026-07-13"
+noteId: "n1a0cef1de78b"
+noteUrl: "https://note.com/dobokunote/n/n1a0cef1de78b"
 coverTitle: ["過去問の暗記では受からない", "予想テーマで書く練習法"]
 cover:
   leadIn: "1級・2級土木施工管理技士 二次"

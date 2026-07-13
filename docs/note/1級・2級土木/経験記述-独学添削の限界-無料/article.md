@@ -1,7 +1,10 @@
 ---
 notePricing: free
-noteStatus: draft
+noteStatus: published
 utmCampaign: civil-keiken-funnel-self-review
+notePublishedAt: "2026-07-13"
+noteId: "nb9b9a20106f0"
+noteUrl: "https://note.com/dobokunote/n/nb9b9a20106f0"
 coverTitle: ["経験記述は独学で詰む", "自分の答案を採点できない問題"]
 cover:
   leadIn: "1級・2級土木施工管理技士 二次"

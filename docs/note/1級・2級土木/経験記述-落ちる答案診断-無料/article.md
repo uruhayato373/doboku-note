@@ -1,7 +1,10 @@
 ---
 notePricing: free
-noteStatus: draft
+noteStatus: published
 utmCampaign: civil-keiken-leadmagnet
+notePublishedAt: "2026-07-13"
+noteId: "nd1c0e564ef10"
+noteUrl: "https://note.com/dobokunote/n/nd1c0e564ef10"
 coverTitle: ["落ちる施工経験記述 診断", "1級・2級 模範解答サンプル"]
 cover:
   leadIn: "1級・2級土木施工管理技士 二次"
@@ -125,9 +128,9 @@ https://note.com/dobokunote/m/m8290970a7f05
 
 書き方の基本と工種別の記入例は、サイトで無料公開しています。
 
-[1級 施工経験記述 出題傾向と対策](https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-guide?utm_source=note&utm_medium=inline&utm_campaign=civil-keiken-leadmagnet&utm_content=guide-civil-1)
+[1級 施工経験記述 出題傾向と対策](https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil-keiken-leadmagnet&utm_content=guide-civil-1)
 
-[2級 施工経験記述 出題傾向と書き方](https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-guide?utm_source=note&utm_medium=inline&utm_campaign=civil-keiken-leadmagnet&utm_content=guide-civil-2)
+[2級 施工経験記述 出題傾向と書き方](https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil-keiken-leadmagnet&utm_content=guide-civil-2)
 
 ---
 
