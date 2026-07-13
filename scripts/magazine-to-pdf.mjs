@@ -161,6 +161,11 @@ async function main() {
         '--no-pdf-header-footer',
         '--no-first-run',
         '--no-default-browser-check',
+        // 非 Windows（Mac/CI）では sandbox/常駐 Chrome との衝突で print-to-pdf が
+        // ハングするため、無効化フラグを付与する（Windows 会社 PC の挙動は不変）。
+        ...(process.platform === 'win32'
+          ? []
+          : ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--disable-extensions', '--disable-background-networking']),
         `--user-data-dir=${userDataDir}`,
         `--print-to-pdf=${pdfTmp}`,
         pathToFileURL(htmlPath).href,
