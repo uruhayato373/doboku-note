@@ -29,5 +29,11 @@ jobs:
       - name: Quality audit (ci gate)
         run: npm run quality:audit:ci
 
+      - name: Check internal links (site)
+        run: npm run check-links -- --scope site
+
       - name: Build
         run: npm run build
+
+      - name: Check build-time SEO (out/)
+        run: npm run check-seo-build:ci
