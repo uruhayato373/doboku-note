@@ -8,6 +8,7 @@ import {
   safeFixMath,
   applySafeFix,
   stripFrontmatter,
+  detectSingleDollarBlocks,
 } from '../.claude/scripts/lib/katex-audit.mjs';
 
 test('extractMathNodes: inline と display の両方を抽出', () => {
@@ -73,6 +74,23 @@ test('applySafeFix: 数式スパン内のみ置換し prose は不変', () => {
 
 test('applySafeFix: 変更が無ければ null', () => {
   assert.equal(applySafeFix('正常な $x = 1$ 本文。'), null);
+});
+
+test('detectSingleDollarBlocks: 単独 $ 行を検出（$$ にすべき誤記）', () => {
+  const body = 'text\n$\nx = 1\n$\nmore';
+  const f = detectSingleDollarBlocks(body);
+  assert.equal(f.length, 2);
+  assert.equal(f[0].code, 'singleDollarBlock');
+});
+
+test('auditContent: 単独 $ ブロックを警告として拾う', () => {
+  const raw = '---\ntitle: t\n---\n本文\n$\nx=1\n$';
+  const codes = auditContent(raw).map((x) => x.code);
+  assert.ok(codes.includes('singleDollarBlock'));
+});
+
+test('detectSingleDollarBlocks: 正常な $$ 区切りは検出しない', () => {
+  assert.equal(detectSingleDollarBlocks('$$\nx=1\n$$').length, 0);
 });
 
 test('stripFrontmatter: fmLineCount を正しく数える', () => {

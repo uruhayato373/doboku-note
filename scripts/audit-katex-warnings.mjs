@@ -44,6 +44,8 @@ const suggestionFor = (code) => {
       return 'U+2212(−) 等の未対応記号は半角 - などへ置換';
     case 'commentAtEnd':
       return '数式内の % は \\% にエスケープ（% はコメント開始扱い）';
+    case 'singleDollarBlock':
+      return 'ブロック数式の区切り単独 $ を $$ に（開始・終了とも別行の $$）';
     case 'newLineInDisplayMode':
       return '表示数式内の改行は \\\\ または適切な環境を使う';
     default:

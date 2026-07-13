@@ -98,14 +98,47 @@ export function auditMathValue(value, displayMode) {
 }
 
 /**
+ * 単独 `$` 1 文字だけの行（ブロック数式の区切りに single `$` を使っている）を検出する。
+ * これは `$$` にすべき誤記で、build の preprocessMDX が中身の `{ }` をエスケープして
+ * `\text{...}` / `\frac{...}` を壊し、CJK が math mode に露出する（remark 抽出では
+ * 見えないため本監査の死角になる）。行が正確に `$` のときのみ検出（コードフェンス除外）。
+ * @param {string} body
+ * @returns {{ line: number, code: string, message: string, math: string }[]}
+ */
+export function detectSingleDollarBlocks(body) {
+  const lines = body.split('\n');
+  const findings = [];
+  let inFence = false;
+  for (let i = 0; i < lines.length; i++) {
+    if (/^\s*```/.test(lines[i])) { inFence = !inFence; continue; }
+    if (inFence) continue;
+    if (lines[i].trim() === '$') {
+      findings.push({
+        line: i + 1,
+        code: 'singleDollarBlock',
+        message: 'ブロック数式の区切りに単独 $ を使用（$$ にすること。build が中身の {} をエスケープして \\text{} を壊す）',
+        math: '$',
+      });
+    }
+  }
+  return findings;
+}
+
+/**
  * MDX raw 全体を検査し、警告の一覧を返す（行番号は元ファイル基準）。
  * @param {string} raw
  * @returns {{ line: number, displayMode: boolean, code: string, message: string, math: string }[]}
  */
 export function auditContent(raw) {
   const { body, fmLineCount } = stripFrontmatter(raw);
-  const nodes = extractMathNodes(body);
   const findings = [];
+
+  // 単独 $ ブロック区切り（build の preprocessMDX 破壊クラス。remark 抽出の死角を補う）
+  for (const d of detectSingleDollarBlocks(body)) {
+    findings.push({ line: fmLineCount + d.line, displayMode: true, code: d.code, message: d.message, math: d.math });
+  }
+
+  const nodes = extractMathNodes(body);
   for (const node of nodes) {
     const displayMode = node.type === 'math';
     const warnings = auditMathValue(node.value, displayMode);
