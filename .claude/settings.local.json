@@ -100,7 +100,10 @@
       "Bash(mkdir -p \"C:\\\\Users\\\\m004195\\\\Downloads\\\\herzberg-two-factor-theory\")",
       "Bash(cp \"C:\\\\Users\\\\m004195\\\\doboku-note\\\\docs\\\\sns\\\\instagram\\\\herzberg-two-factor-theory\\\\carousel\\\\img\\\\00-cover.png\" \"C:\\\\Users\\\\m004195\\\\Downloads\\\\herzberg-two-factor-theory\\\\\" && cp \"C:\\\\Users\\\\m004195\\\\doboku-note\\\\docs\\\\sns\\\\instagram\\\\herzberg-two-factor-theory\\\\carousel\\\\img\\\\01-figure.png\" \"C:\\\\Users\\\\m004195\\\\Downloads\\\\herzberg-two-factor-theory\\\\\")",
       "Bash(cp \"C:\\\\Users\\\\m004195\\\\doboku-note\\\\docs\\\\sns\\\\instagram\\\\herzberg-two-factor-theory\\\\carousel\\\\img\\\\02-text.png\" \"C:\\\\Users\\\\m004195\\\\Downloads\\\\herzberg-two-factor-theory\\\\\" && cp \"C:\\\\Users\\\\m004195\\\\doboku-note\\\\docs\\\\sns\\\\instagram\\\\herzberg-two-factor-theory\\\\carousel\\\\img\\\\03-cta.png\" \"C:\\\\Users\\\\m004195\\\\Downloads\\\\herzberg-two-factor-theory\\\\\")",
-      "Bash(cp \"C:\\\\Users\\\\m004195\\\\doboku-note\\\\docs\\\\sns\\\\instagram\\\\herzberg-two-factor-theory\\\\carousel\\\\caption.txt\" \"C:\\\\Users\\\\m004195\\\\Downloads\\\\herzberg-two-factor-theory\\\\\" && rm \"C:\\\\Users\\\\m004195\\\\Downloads\\\\00-cover.png\" \"C:\\\\Users\\\\m004195\\\\Downloads\\\\01-figure.png\" \"C:\\\\Users\\\\m004195\\\\Downloads\\\\02-text.png\" \"C:\\\\Users\\\\m004195\\\\Downloads\\\\03-cta.png\" 2>/dev/null; ls \"C:\\\\Users\\\\m004195\\\\Downloads\\\\herzberg-two-factor-theory\\\\\")"
+      "Bash(cp \"C:\\\\Users\\\\m004195\\\\doboku-note\\\\docs\\\\sns\\\\instagram\\\\herzberg-two-factor-theory\\\\carousel\\\\caption.txt\" \"C:\\\\Users\\\\m004195\\\\Downloads\\\\herzberg-two-factor-theory\\\\\" && rm \"C:\\\\Users\\\\m004195\\\\Downloads\\\\00-cover.png\" \"C:\\\\Users\\\\m004195\\\\Downloads\\\\01-figure.png\" \"C:\\\\Users\\\\m004195\\\\Downloads\\\\02-text.png\" \"C:\\\\Users\\\\m004195\\\\Downloads\\\\03-cta.png\" 2>/dev/null; ls \"C:\\\\Users\\\\m004195\\\\Downloads\\\\herzberg-two-factor-theory\\\\\")",
+      "mcp__bf7c680d-5fdc-5ef4-b4a0-abadb619bf0a__send_later",
+      "mcp__bf7c680d-5fdc-5ef4-b4a0-abadb619bf0a__create_trigger",
+      "mcp__bf7c680d-5fdc-5ef4-b4a0-abadb619bf0a__delete_trigger"
     ],
     "defaultMode": "bypassPermissions"
   }
