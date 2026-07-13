@@ -20,7 +20,7 @@
 //   {slug} / {magazine} / <year> / YYYY-Www / r0X / R0X / d-xx（Kindle 本 ID）/ ... / *（ワイルドカード）
 // 廃止台帳・移行履歴など「死んだパスを記録として残す」行は行末に <!-- doc-ref:ignore --> を付ける。
 
-import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
+import { readFileSync, readdirSync, lstatSync, existsSync } from 'node:fs';
 import { join, basename } from 'node:path';
 import { execFileSync } from 'node:child_process';
 
@@ -52,11 +52,19 @@ function isPlaceholder(p) {
   return false;
 }
 
+// 別チェックアウト（git worktree）は歩かない。実体の重複インデックス化に加え、
+// 内部の Chrome ランタイム等の壊れた symlink を statSync が辿って ENOENT で落ちる。
+const WALK_IGNORE = new Set(['node_modules', '.git', '.claude/worktrees']);
+
 function walk(dir, out = [], re = /\.md$/) {
   if (!existsSync(dir)) return out;
   for (const e of readdirSync(dir)) {
     const p = join(dir, e);
-    if (statSync(p).isDirectory()) walk(p, out, re);
+    if (WALK_IGNORE.has(p.split('\\').join('/'))) continue;
+    // lstat で symlink を辿らない（壊れた symlink でも落ちない）
+    const st = lstatSync(p);
+    if (st.isSymbolicLink()) continue;
+    if (st.isDirectory()) walk(p, out, re);
     else if (re.test(e)) out.push(p.split('\\').join('/'));
   }
   return out;
