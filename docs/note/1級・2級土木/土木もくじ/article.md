@@ -33,6 +33,8 @@ cover:
 なお、収録している完成答案は「そのまま写す」ものではなく、自分の工事概要に合わせて改変する前提の「型」です。
 
 > 他資格（技術士総監・建設部門ほか）も含めた全体の入口は、[doboku-note 総合案内](https://note.com/dobokunote/n/n296a88f64ac2)からどうぞ。
+>
+> 過去問の解説・テキストは、サイト [doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-mokuji&utm_content=intro) で無料公開しています。
 
 ---
 
@@ -90,12 +92,19 @@ https://note.com/dobokunote/m/m1881a9578027
 
 - [施工経験記述 過去問 模範答案集（R03-R07）](https://note.com/dobokunote/m/md3aa0f9a37d7) — 出題された年度の設問でそのまま演習したい人向け
 - [二次学科記述 テーマ別 出る順（問題2〜9）](https://note.com/dobokunote/m/m9a09a8982734) — 経験記述以外の学科記述も出る順で固めたい人向け
+- [第1次検定 過去問PDF（R03-R07 前期後期 全630問・全選択肢解説）](https://note.com/dobokunote/n/n4963f45bd6f8) — まず一次を過去問演習で突破したい人向け
 
 ---
 
 ## 無料で全体像をつかむ
 
 買う前に、まず無料記事で試験の全体像と答案の考え方をつかめます。
+
+### まず読む（1級・2級共通）
+
+- [落ちる施工経験記述 診断｜模範解答サンプル](https://note.com/dobokunote/n/nd1c0e564ef10) — 落ちる答案の型を採点者視点で診断＋1級・2級の模範解答サンプル
+- [経験記述は予想問題で書く練習をする](https://note.com/dobokunote/n/n1a0cef1de78b) — 読むだけで終わらせず、手を動かして書けるようにする進め方
+- [独学の経験記述添削、その限界](https://note.com/dobokunote/n/nb9b9a20106f0) — 自己採点で直せる所と、第三者の添削でしか直らない所の切り分け
 
 ### 1級土木
 
@@ -118,6 +127,21 @@ https://note.com/dobokunote/m/m1881a9578027
 - [2級 経験記述 R6新形式](https://note.com/dobokunote/n/n3a5866854425)
 - [2級 経験記述を自分の現場に置換する方法](https://note.com/dobokunote/n/nc60854accc56)
 - [2級 経験記述 テーマ選び](https://note.com/dobokunote/n/n26e51803f01b)
+
+---
+
+## キャリア・転職の無料記事
+
+資格は「取ったあと」に効きます。年収・働き方・転職のタイミングまで、発注者側を経験した運営者の視点でまとめた無料記事です。
+
+- [ホワイトな建設会社の見分け方](https://note.com/dobokunote/n/ne7284dacf78b) — 残業・休日・離職率でチェックする
+- [施工管理の転職はいつ動くべきか](https://note.com/dobokunote/n/n401905648243) — 在職中の進め方と円満退職
+- [転職した方がいい施工管理の見極め](https://note.com/dobokunote/n/n85d4b322898b) — 発注者視点で見た「動くべきサイン」
+- [年収を上げる人の違い](https://note.com/dobokunote/n/nfbff7b1469b6) — 資格・役割・現場の選び方
+- [転職エージェントの使い方](https://note.com/dobokunote/n/n5a823955985c) — 施工管理職の失敗しない進め方
+- [1級土木で市場価値がどう変わるか](https://note.com/dobokunote/n/n6c68d022a56a) — 資格取得後のキャリア
+- [公務員土木か民間か](https://note.com/dobokunote/n/n8b03a7de0c6b) — 発注者側・受注者側それぞれの実際
+- [施工管理の失敗談と教訓](https://note.com/dobokunote/n/n96f94252c128) — 現場で効く学び
 
 ---
 

@@ -97,9 +97,11 @@ https://www.jctc.jp/exam/guide/dbk-2/
 
 https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=2c-eligibility
 
-**施工経験記述 出題傾向と対策**（無料・doboku-note）
+**2級土木 第1次検定 過去問PDF**（令和3〜7年度 前期後期 全630問・全選択肢解説）— まず一次を突破したい人の演習教材
 
-https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-guide
+https://note.com/dobokunote/n/n4963f45bd6f8
+
+[施工経験記述 出題傾向と対策（無料・doboku-note）](https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=2c-eligibility&utm_content=secondary-writing-guide)
 
 **2級土木 施工経験記述 完成答案集**（二次の経験記述フル答案）
 
