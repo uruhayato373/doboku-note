@@ -32,9 +32,9 @@ cover:
 
 なお、収録している完成答案は「そのまま写す」ものではなく、自分の工事概要に合わせて改変する前提の「型」です。
 
-> 他資格（技術士総監・建設部門ほか）も含めた全体の入口は、[doboku-note 総合案内](https://note.com/dobokunote/n/n296a88f64ac2)からどうぞ。
->
-> 過去問の解説・テキストは、サイト [doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-mokuji&utm_content=intro) で無料公開しています。
+他資格（技術士総監・建設部門ほか）も含めた全体の入口は、[doboku-note 総合案内](https://note.com/dobokunote/n/n296a88f64ac2)からどうぞ。
+
+過去問の解説・テキストは、サイト [doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-mokuji&utm_content=intro) で無料公開しています。
 
 ---
 
