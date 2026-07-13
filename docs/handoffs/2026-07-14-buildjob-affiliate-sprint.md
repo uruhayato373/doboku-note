@@ -127,6 +127,36 @@ civil-1 の指名/比較記事に対応する civil-2 版を 2 本新設。**2�
 - 追加リンクは UTM `utm_medium=referral`。リンク先はサイト側デプロイ済み（本番200確認済み）なので、再push すれば即 live 動線になる。
 - **site デプロイは不要**（note SoT は doboku-note.com のビルド対象外＝note.com にのみ住む）。
 
+## 🟡 戦略転換：note ドメインパワー活用（note 記事作成タスク・2026-07-14 ユーザー指示）
+
+**方針変更**: これまで「note=送客層／サイト=着地・カニバリ回避」としていたが、**ユーザー判断で「カニバリよりも note のドメインパワーを優先活用する」方向へ転換**。note.com は DA が高く新規サイトページより早く上位化しやすいため、BuildJob/キャリア系の指名・比較・顕在クエリを **note 記事自体でも取りに行く**（多少のサイトとの共食いは許容）。
+
+### 作成する note 記事（候補・すべて `docs/note/1級・2級土木/` 配下・notePricing:free）
+
+サイトの高意図記事に対応する note 版を作る（note ネイティブの発注者/合格者ボイスで執筆）:
+
+| note 新記事（案） | 狙うクエリ | 対応するサイト記事（相互リンク） |
+|---|---|---|
+| ビルドジョブの評判（元自治体土木=発注者目線） | 「ビルドジョブ 評判」指名 | civil-construction-1-guide-buildjob-review |
+| 施工管理 転職エージェント おすすめ比較 | 「施工管理 転職エージェント おすすめ」比較 | civil-construction-1-guide-career-agent-comparison |
+| 施工管理を辞める前に確認すること | 「施工管理 辞める」顕在 | civil-construction-1-guide-career-consultation-before-quit |
+
+### 制約（必ず守る）
+
+- **数値は載せない**: BuildJob の「163万/50,529人/4.8」は fact-check で不一致・裏取り不能と判定済み（§外部調査メモ warning）。note 記事でも具体数値は使わず定性記述。公開前に `guide-fact-checker` 相当の照合を通す。
+- **note はコンポーネント非対応** → BuildJob は生 A8 リンク（**note 専用 mat `4B5OO5+FHBA2+5B0Y+NTJWY`**＝既存8本と同じ）。**PR 表記必須**（「**PR**：以下はアフィリエイト広告を含みます。」既存パターン踏襲）。
+- **note 有料商品（学習意図＝経験記述/模範論文）とはカニバらない**: 今回はキャリア意図なので財布が別＝OK。学習意図の note 有料をキャリア記事から侵食しないこと。
+- **note↔サイト相互リンク**で権威を渡し合う（純粋な競合でなく、note が上位化→サイトへ送客／サイトが note へ被リンク）。UTM は `utm_medium=referral`。
+- **公開は手動ゲート**: ドラフトは `docs/note/**` に作成（このPCで可）→ push →**別PCで `npm run note-publish`（新規）/ `note-update-body`（既存）で note.com へ投稿**（note ログイン済み環境）。
+- **SSOT 更新**: 実際に作成・公開したら、`docs/project/04_運営/08_転職アフィリ記事ビルド計画.md` §note 記事（現 N1〜N6）と `02_アフィリエイト提携状況.md` に追記して戦略転換を反映（この転換は現状ハンドオフのみ記録＝doc 08/02 はまだ旧「送客一本」前提）。
+
+### 進め方（次セッション）
+
+1. まず既存8本の note キャリア記事（発注者ボイス資産）と重複しない角度を確認（`docs/note/1級・2級土木/*-無料/`）。
+2. 上記3案を `docs/note/1級・2級土木/{テーマ}-無料/article.md` で執筆（free・draft）。cover frontmatter も付ける。
+3. `guide-fact-checker` 相当で数値照合 → PR 表記・生 mat NTJWY・UTM referral を確認 → note-lint。
+4. push → 別PCで note.com 投稿。投稿後 `verify-note-status` で SoT と突合。
+
 ## 残りの次アクション（時間差）
 
 - **A8 成果の月末入力**：`.claude/state/metrics/affiliate/a8-results.json` に BuildJob/建設JOBs の成果を手入力すると `npm run report-buildjob-affiliate` で EPC が出る（A8 は API 無し）。
