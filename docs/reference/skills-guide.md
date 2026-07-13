@@ -52,7 +52,7 @@ title: スキル ナビゲーションガイド
 | `/review-mobile` | モバイル視認性・可読性レビュー | `モバイルチェック`, `スマホで見て`, `/review-mobile` |
 | `/consolidate-duplicate-keyword` | 総監キーワード集の重複スラグ統合 | `重複スラグ統合`, `/consolidate-duplicate-keyword` |
 | `/note-prepublish-review` | note 公開前の統合品質ゲート | `note公開前チェック`, `公開準備`, `/note-prepublish-review` |
-| `/check-seo-meta` | title/description/OGP/canonical の検査 | `SEOメタ検査`, `OGP確認`, `/check-seo-meta` |
+| `/check-seo-meta` | out/ 全 URL の title/description/self canonical/self og:url/robots/JSON-LD/SSR を検査（seo-checks 共有・母集合ガード） | `SEOメタ検査`, `OGP確認`, `/check-seo-meta` |
 | `/pe-essay-review` | 総監記述式模範論文を 3 視点で採点（**サイト** r0X-essay ページ。note 有料マガジンは `cem-essay-qa`） | `記述式採点`, `模範論文レビュー`, `/pe-essay-review` |
 | `/keiken-charcount` | 1級・2級土木 施工経験記述マガジン答案を解答欄しきい値で字数チェック（決定論的・暫定値） | `経験記述の字数確認`, `答案の字数オーバー検出`, `/keiken-charcount` |
 | `/civil-figure-rework` | 1級土木 過去問1次の図クロップ品質ループ（extractor → auditor 最大3反復、1ページ単位 commit） | `過去問図再抽出`, `テキスト写り込み修正`, `/civil-figure-rework {exam-slug\|--all}` |

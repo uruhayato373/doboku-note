@@ -1,15 +1,16 @@
 ---
 name: check-seo-meta
 description: >
-  サイトの全 URL（/docs/* + 静的ルート）を巡回して title・description・OGP・twitter card・canonical・JSON-LD
-  の重複・欠落・長さ違反を検出する。`.claude/config/seo-meta-config.json` の閾値で評価し、
-  結果を `.claude/state/metrics/seo-meta/` に時系列保存。Issue #125 の implementation。
+  build 済み out/ の全 URL（/docs/* + 静的ルート）を検査して title・description・self canonical・
+  self og:url・robots・JSON-LD・SSR の欠落/不一致を検出する。canonical は self URL 完全一致で判定。
+  検査ロジックは build 後 SEO スキャナ（scripts/lib/seo-checks.mjs）を再利用。母集合は
+  doc-meta-index.json（published のみ）で、収集不足時は監査失敗にする。dev server は不要（out/ 直接検査が主経路・HTTP は --base-url）。
   Use when user asks to [SEO meta 監査, OGP 検証, title 重複チェック, 構造化データ検証, /check-seo-meta].
 ---
 
 # /check-seo-meta — SEO meta タグ・OGP・JSON-LD 監査
 
-サイト全 URL の HTML から `<title>`, `<meta>`, `<link rel="canonical">`, `<script type="application/ld+json">` を抽出し、閾値違反を検出するスキル。
+build 済み out/ の全 URL の HTML から `<title>`, `<meta>`, `<link rel="canonical">`, `og:url`, `robots`, `<script type="application/ld+json">`, `<main>`/`<h1>`/本文 を構造化パーサ（node-html-parser）で抽出し、self canonical/og:url 一致・title 重複・欠落を検出するスキル。検査関数は build 後 SEO スキャナ（`scripts/lib/seo-checks.mjs`）と共有し、`npm run check-seo-build` と同じ判定を単一 URL 群にも適用する。
 
 ## 設計の真実源
 
@@ -17,37 +18,43 @@ description: >
 
 | 項目 | 初期値 | 変更する時 |
 |---|---|---|
-| base_url | `http://localhost:3020` | 本番計測時は `--base-url https://doboku-note.com` で上書き |
-| 巡回 URL ソース | `src/config/doc-meta-index.json` + `include_routes` | 静的ルート追加・除外時 |
-| concurrency | 8 | dev サーバーが詰まったら下げる |
-| title 上限 | 70 文字 / `doboku-note` 出現 ≤ 1 | サイト名変更時 |
-| description | 50〜160 文字 | SEO 方針変更時 |
-| canonical | 必須 / `https://doboku-note.com/` で始まる | ドメイン変更時 |
-| og 必須キー | title, description, image, url, type | OGP 戦略変更時 |
-| twitter 必須キー | card | 廃止時 |
-| JSON-LD | ≥1 件、BreadcrumbList または WebSite を含む | 構造化データ戦略変更時 |
-| FAQ 検証 | mainEntity ≥1、Q ≥5 文字、A ≥10 文字 | FAQ 規約変更時 |
+| 検査対象 | build 済み `out/`（主経路） | HTTP は `--base-url https://doboku-note.com` |
+| 巡回 URL ソース | `src/config/doc-meta-index.json`（`docs` object・published/noindex で絞る）+ `include_routes` | 静的ルート追加・除外時 |
+| 母集合ガード | doc URL ≥ max(1000, published×0.9) | 記事総数が大きく変わった時 |
+| concurrency | 8（HTTP モードのみ） | 本番巡回で詰まったら下げる |
+| title | `doboku-note` 出現 ≤ 1（重複検出） | サイト名変更時 |
+| description | 160 文字超は警告のみ | SEO 方針変更時 |
+| canonical / og:url | **self URL 完全一致**（seo-checks 共通） | ドメイン変更時 |
+| JSON-LD | parse 可能・Article 系は headline 整合（参考） | 構造化データ戦略変更時 |
+
+> [!note]
+> 判定ロジック（閾値含む）の実体は `scripts/lib/seo-checks.mjs`。config の `thresholds`/`severity` は
+> HTTP 巡回の互換用に残るが、canonical/og:url/title/SSR の実判定は seo-checks 側が真実源。
 
 ## 前提
 
-- **ローカル `npm run dev` 起動中**（既定 port 3020）が必須
-  - 本番（`https://doboku-note.com`）は Cloudflare Bot 保護で外部巡回が制限される（Issue #159 既知）
-  - `--base-url` で本番指定も可能だが現状は localhost 推奨
-- Node 20+ の native `fetch` のみ依存（cheerio・puppeteer 不要）
+- **主経路は out/ 直接検査（dev server 不要）**。先に `npm run build` で out/ を生成しておく
+  - HTTP 巡回が必要な場合のみ `--base-url https://doboku-note.com`（本番は Cloudflare Bot 保護で制限され得る・Issue #159）
+- **母集合ガード**: doc-meta-index.json（`published !== false && noindex !== true`）から doc URL を全収集し、
+  収集数が published の 90%（かつ最低 1,000）を下回ると監査失敗（exit 1）。母集合不足を「違反ゼロ＝成功」と誤認しない
+- Node 20+ / node-html-parser（`seo-checks.mjs` 経由）に依存
 
 ## 実行フロー
 
-### 巡回 + 検証（一発で実行）
+### 検査（一発で実行）
 
 ```bash
-# 全 URL（数百ページ、所要 30〜90 秒）
+# 全 URL（out/ 直接・1,000+ ページ）
 npm run check-seo-meta
 
-# 先頭 10 URL のみ（dry-run、所要 5〜10 秒）
-npm run check-seo-meta -- --limit 10
+# 先頭 20 URL のみ（dry-run・母集合ガードはスキップ）
+npm run check-seo-meta -- --limit 20
 
 # 結果 JSON を stdout に流す
 npm run check-seo-meta -- --json
+
+# HTTP 巡回（本番・Bot 注意）
+npm run check-seo-meta -- --base-url https://doboku-note.com
 ```
 
 結果は `.claude/state/metrics/seo-meta/seo-meta-{timestamp}.json` に時系列保存。
@@ -72,60 +79,66 @@ npm run check-seo-meta:check -- --exit-on-violation
 
 ```json
 {
-  "version": 1,
-  "generated_at": "2026-04-26T12:00:00.000Z",
-  "base_url": "http://localhost:3020",
+  "version": 2,
+  "generated_at": "2026-07-13T22:00:00.000Z",
+  "base_url": "out/ (static export)",
+  "mode": "out",
   "summary": {
-    "urls_checked": 783,
-    "urls_with_violations": 0,
-    "by_severity": { "HIGH": 0, "MEDIUM": 0, "LOW": 0 },
-    "by_type": {},
-    "duration_ms": 45123
+    "urls_checked": 1073,
+    "doc_urls_collected": 1064,
+    "published_total": 1064,
+    "urls_with_violations": 74,
+    "by_severity": { "HIGH": 0, "MEDIUM": 81, "LOW": 0 },
+    "by_type": { "jsonld_headline_mismatch": 55, "description_long": 24, "ssr_thin_body": 2 },
+    "duration_ms": 73300
   },
   "results": [
     {
       "url": "/docs/...",
-      "title": { "value": "...", "length": 45, "doboku_note_count": 1 },
+      "title": { "value": "...", "length": 45 },
       "description": { "value": "...", "length": 120 },
-      "canonical": "https://doboku-note.com/...",
-      "og": { "title": "...", "description": "...", "image": "...", "url": "...", "type": "article" },
-      "twitter": { "card": "summary_large_image" },
-      "json_ld": { "count": 4, "types": ["WebSite", "Organization", "TechArticle", "BreadcrumbList"], "faq_count": 0 },
+      "canonical": "https://doboku-note.com/docs/...",
+      "og_url": "https://doboku-note.com/docs/...",
+      "robots": "index, follow",
+      "json_ld": { "count": 5 },
       "violations": []
     }
   ],
-  "violations_by_type": { "title_site_name_duplicate": ["/category/civil-construction-1"] }
+  "violations_by_type": { "description_long": ["/docs/..."] }
 }
 ```
 
 ## 違反タイプと Severity
 
+seo-checks.mjs の findings を写像（`error → HIGH` / `warn → MEDIUM` / `info → LOW`）。
+
 | type | severity | 内容 |
 |---|---|---|
 | `title_missing` | HIGH | `<title>` 自体が無い |
-| `title_too_long` | MEDIUM | 70 文字超 |
-| `title_site_name_duplicate` | **HIGH** | `doboku-note` が title 内で 2 回以上出現（template 重複の検出） |
+| `title_sitename_dup` | **HIGH** | `doboku-note` が title 内で 2 回以上出現（template 重複の検出） |
 | `description_missing` | HIGH | meta description が無い |
-| `description_too_short` | LOW | 50 文字未満 |
-| `description_too_long` | MEDIUM | 160 文字超 |
-| `canonical_missing` | MEDIUM | `<link rel="canonical">` が無い |
-| `canonical_invalid` | MEDIUM | URL が `https://doboku-note.com/` で始まらない |
-| `og_key_missing` | MEDIUM | og:title / og:description / og:image / og:url / og:type のいずれかが無い |
-| `twitter_card_missing` | LOW | twitter:card 未設定 |
-| `json_ld_missing` | MEDIUM | `<script type="application/ld+json">` が 1 つも無い |
-| `json_ld_required_type_missing` | LOW | BreadcrumbList / WebSite のいずれも JSON-LD type に無い |
-| `faq_main_entity_empty` | LOW | FAQPage の mainEntity が空 |
-| `faq_qa_too_short` | LOW | FAQ の Q が 5 文字未満 / A が 10 文字未満 |
-| `fetch_error` | HIGH | URL の取得自体が失敗 |
+| `description_long` | MEDIUM | 160 文字超（**警告のみ・CI は落とさない**） |
+| `canonical_missing` | HIGH | `<link rel="canonical">` が無い |
+| `canonical_mismatch` | HIGH | canonical が self URL と**完全一致しない**（ドメイン接頭辞だけでは判定しない） |
+| `og_url_missing` | HIGH | og:url が無い |
+| `og_url_mismatch` | HIGH | og:url が self URL と一致しない |
+| `unexpected_noindex` | HIGH | indexable 期待ページに robots noindex |
+| `jsonld_parse_error` | HIGH | JSON-LD が JSON.parse できない |
+| `jsonld_missing` | MEDIUM | `<script type="application/ld+json">` が 1 つも無い |
+| `jsonld_headline_mismatch` | MEDIUM | Article 系 JSON-LD headline が可視 H1/title と乖離（seoTitle と H1 の設計差は許容範囲・参考） |
+| `ssr_no_main` / `ssr_no_h1` | HIGH | `<main>` / `<h1>` が無い（SSR 破壊） |
+| `ssr_thin_body` | MEDIUM | 本文が薄い（main/H1 は在る・hidden カテゴリ等は正当） |
+| `html_missing` | HIGH | out に対応 HTML が無い |
+| `fetch_error` | HIGH | （HTTP モード）URL の取得自体が失敗 |
 
 ## ワークフロー
 
-1. `npm run dev`（別ターミナル）でローカル開発サーバーを起動
-2. `npm run check-seo-meta -- --limit 10` で動作確認
-3. 全 URL 計測: `npm run check-seo-meta`
+1. `npm run build` で out/ を生成
+2. `npm run check-seo-meta -- --limit 20` で動作確認
+3. 全 URL 検査: `npm run check-seo-meta`（1,000+ URL・母集合ガード有効）
 4. レポート確認: `npm run check-seo-meta:check`
-5. HIGH 違反があれば修正 → 再計測
-6. （任意）GitHub Actions に組み込んで日次で計測（PSI と同じパターン）
+5. HIGH 違反があれば修正 → 再ビルド → 再検査
+6. build 直後の常設ゲートは `npm run check-seo-build:ci`（CI 配線済み）。本スキルは母集合全体の定点観測・履歴保存用
 
 ## 関連スキル
 
@@ -134,6 +147,6 @@ npm run check-seo-meta:check -- --exit-on-violation
 
 ## 既知の制約
 
-- **本番巡回時の Cloudflare Bot 保護**（Issue #159）— 短時間の高頻度アクセスで遮断される可能性。`concurrency: 4` 程度に下げ、`User-Agent` ヘッダ追加が必要なら fetch オプションを追加
-- **dev サーバーの初回コンパイル遅延** — 783 URL 巡回前に `npm run build` で生成した静的 `out/` を任意の静的サーバ（例 `npx serve out`）で配信して巡回する選択肢もあり（より速く・本番に近い）
-- **JSON-LD 構造の深い検証は対象外** — Google Rich Results Test での目視確認で補完する
+- **out/ 直接検査が主経路**（dev server 不要・本番に一致）。`--base-url` の HTTP 巡回は Cloudflare Bot 保護（Issue #159）で遮断され得る
+- **JSON-LD 構造の深い検証は対象外** — parse と headline の基本整合まで。Rich Results は FAQ 施策 KPI にしない（Google Rich Results Test で目視補完）
+- **description 160 文字超は警告のみ**（CI を落とさない）。title/description の一括変更はしない方針（GSC 管理 SSOT の 2026-07-10 教訓）

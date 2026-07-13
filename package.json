@@ -5,7 +5,8 @@
   "imports": {
     "#lib/*": "./.claude/scripts/lib/*",
     "#shared/*": "./.claude/scripts/*",
-    "#src/*": "./src/*"
+    "#src/*": "./src/*",
+    "#seo/*": "./scripts/lib/*"
   },
   "scripts": {
     "prepare": "node scripts/install-pre-commit.mjs",
@@ -114,8 +115,8 @@
     "validate-mdx": "node .claude/scripts/validate-mdx.mjs",
     "pre-commit:install": "node scripts/install-pre-commit.mjs",
     "pre-push:install": "node scripts/install-pre-push.mjs",
-    "test": "node --test tests/",
-    "test:watch": "node --test --watch tests/",
+    "test": "node --test tests/*.test.mjs",
+    "test:watch": "node --test --watch tests/*.test.mjs",
     "check-guide-length": "node scripts/check-guide-length.mjs",
     "quality-census": "node .claude/scripts/build-quality-census.mjs",
     "check-note-site-utm": "node scripts/check-note-site-utm.mjs",
