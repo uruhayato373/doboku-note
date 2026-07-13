@@ -113,6 +113,8 @@ npm run sales-summary -- 2026-06   # 指定月（位置引数。--month フラ�
 | 建設部門 他科目 R8予想単品 | `article:bk-{subject}-r8-yosou-{ii1\|ii2\|iii}`（例: `bk-steel-concrete-r8-yosou-ii1` / `bk-port-airport-r8-yosou-ii2` / `bk-environment-r8-yosou-iii`） |
 | 建設部門 過去問単品 | `article:bk-i-r07-required`（必須科目I R07 等） |
 | 総監 R8予想 老朽化インフラ | `article:r8-aging-infra-preventive` |
+| 総監 ペルソナ別 R8予想単品（③老朽化/④災害復旧/⑤AI社会/⑥経済安保・¥780） | `article:essay-{persona}-r08-{3..6}`（例: `essay-sabo-municipality-r08-3` / `essay-general-contractor-r08-6`。persona はマガジン id `essay-{persona}-magazine` に合わせる） |
+| 建設部門 電力土木/鉄道 R8予想単品 | `article:bk-power-civil-r8-yosou-{ii1\|ii2\|iii}` / `article:bk-railway-r8-yosou-{ii1\|ii2\|iii}` |
 | 1級2級土木 学科記述 直前暗記ノート | `article:civil-1-anki-note`（¥980）/ `article:civil-2-anki-note`（¥580）。noteUrl は `/n/…` 単品（マガジン非収録） |
 
 ### 新商品の追加

@@ -124,9 +124,10 @@ productId は `article:<slug>` 形式。slug は商品名から推定:
 | `技術士 建設部門｜必須科目I R8予想` | `article:bk-i-r8-yosou-*` |
 | `技術士 建設部門｜必須科目I R0{N} 模範解答`（過去問単品） | `article:bk-i-r0{N}-required` |
 | `技術士 建設部門｜土質及び基礎` | `article:bk-04-dositu-*` |
-| `技術士 建設部門｜{他科目} R8予想 選択科目{II-1/II-2/III}` | `article:bk-{subject}-r8-yosou-{ii1\|ii2\|iii}`（例: `bk-steel-concrete-r8-yosou-ii1` / `bk-port-airport-r8-yosou-ii2` / `bk-urban-planning-r8-yosou-ii2` / `bk-environment-r8-yosou-iii`） |
+| `技術士 建設部門｜{他科目} R8予想 選択科目{II-1/II-2/III}` | `article:bk-{subject}-r8-yosou-{ii1\|ii2\|iii}`（例: `bk-steel-concrete-r8-yosou-ii1` / `bk-port-airport-r8-yosou-ii2` / `bk-urban-planning-r8-yosou-ii2` / `bk-environment-r8-yosou-iii` / `bk-power-civil-r8-yosou-ii1` / `bk-railway-r8-yosou-iii`） |
 | `技術士 建設部門｜{他科目} R0{N} 選択科目{II-1/II-2/III}`（過去問単品） | `article:bk-{subject}-r0{N}-{ii1\|ii2\|iii}`（例: `bk-tunnel-r06-ii2`） |
 | `老朽化インフラ × 予防保全`（総監R8予想） | `article:r8-aging-infra-preventive` |
+| `令和8年度 総監記述式 模範論文｜{ペルソナ}版（{テーマ}／R8予想{③..⑥}）`（ペルソナ別R8予想単品¥780） | `article:essay-{persona}-r08-{3..6}`（persona はマガジン id `essay-{persona}-magazine` に合わせる。例: `essay-sabo-municipality-r08-3` / `essay-general-contractor-r08-6` / `essay-road-consultant-r08-5`） |
 | `2級土木 第1次検定｜過去問PDF` / `2級土木 一次 過去問PDF`（Kindle択一の従チャネル・¥1,480） | `article:civil-2-takuitsu-pdf` |
 | `技術士 第一次試験｜過去問PDF 合本` / `技術士一次 過去問PDF`（¥1,480） | `article:pe1-takuitsu-pdf` |
 | `技術士 総合技術監理部門｜択一 過去問PDF 令和` / `総監 択一過去問PDF 令和`（¥980） | `article:tankan-takuitsu-reiwa-pdf` |
