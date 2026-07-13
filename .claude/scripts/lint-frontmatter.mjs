@@ -38,6 +38,14 @@ const DESC_MAX = 200;
 const PUBLISHED_AT_YEAR_MIN = 2020;
 const PUBLISHED_AT_YEAR_MAX = 2030;
 
+// title/seoTitle 長（G4）: レンダリング後 <title> の目安。seo-meta-config.json の title.max_length を再利用。
+const TITLE_SUFFIX = '｜doboku-note';
+let TITLE_MAX = 70;
+try {
+  const _seo = JSON.parse(readFileSync(join(ROOT, '.claude/config/seo-meta-config.json'), 'utf8'));
+  if (_seo?.thresholds?.title?.max_length) TITLE_MAX = _seo.thresholds.title.max_length;
+} catch { /* seo-meta-config が無ければ 70 でフォールバック */ }
+
 // ── 引数パース ─────────────────────────────────────────────────
 
 function parseArgs(argv) {
@@ -135,6 +143,17 @@ export function lintFrontmatter(filePath, data, allowlist) {
   }
   if (desc && desc.length > DESC_MAX) {
     push('LOW', 'desc-long', `description が長い: ${desc.length} 文字（推奨 <= 160、上限 ${DESC_MAX}）`);
+  }
+
+  // --- MEDIUM: title/seoTitle 長（G4・静的近似）---
+  // title は "｜doboku-note" 付与でレンダリングされるため換算長で判定。seoTitle は <title> 直挿し想定。
+  const title = typeof data.title === 'string' ? data.title : '';
+  if (title && title.length + TITLE_SUFFIX.length > TITLE_MAX) {
+    push('MEDIUM', 'title-long', `title が長い: 換算 ${title.length + TITLE_SUFFIX.length} 文字（<title> 上限 ${TITLE_MAX}。検索結果で末尾が切れる）`);
+  }
+  const seoTitle = typeof data.seoTitle === 'string' ? data.seoTitle : '';
+  if (seoTitle && seoTitle.length > TITLE_MAX) {
+    push('MEDIUM', 'seoTitle-long', `seoTitle が長い: ${seoTitle.length} 文字（<title> 上限 ${TITLE_MAX}）`);
   }
 
   // --- MEDIUM: publishedAt 欠落（published=true 時）---

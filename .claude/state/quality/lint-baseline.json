@@ -27,7 +27,8 @@
       "15-3": 1
     },
     ".local/r2/posts/civil-construction-1/guide-concrete-maintenance/article.mdx": {
-      "3-1": 7
+      "3-1": 7,
+      "2-4": 7
     },
     ".local/r2/posts/civil-construction-1/guide-construction-plan/article.mdx": {
       "15-3": 4
@@ -170,6 +171,7 @@
       "1-4": 4
     },
     ".local/r2/posts/civil-construction-1/secondary-concrete-basics/article.mdx": {
+      "2-4": 12,
       "15-2": 4
     },
     ".local/r2/posts/civil-construction-1/secondary-concrete-past-problems/article.mdx": {
@@ -178,6 +180,7 @@
     },
     ".local/r2/posts/civil-construction-1/secondary-construction-plan-basics/article.mdx": {
       "3-1": 11,
+      "0-4": 1,
       "15-2": 2
     },
     ".local/r2/posts/civil-construction-1/secondary-construction-plan-past-problems/article.mdx": {
@@ -185,14 +188,17 @@
     },
     ".local/r2/posts/civil-construction-1/secondary-earthwork-basics/article.mdx": {
       "3-1": 1,
-      "15-3": 1
+      "15-3": 1,
+      "2-4": 1
     },
     ".local/r2/posts/civil-construction-1/secondary-earthwork-past-problems/article.mdx": {
-      "6-1": 1
+      "6-1": 1,
+      "2-4": 6
     },
     ".local/r2/posts/civil-construction-1/secondary-experience-writing-examples/article.mdx": {
       "6-1": 3,
-      "3-1": 1
+      "3-1": 1,
+      "2-4": 41
     },
     ".local/r2/posts/civil-construction-1/secondary-getting-started/article.mdx": {
       "15-1": 2
@@ -202,25 +208,31 @@
     },
     ".local/r2/posts/civil-construction-1/secondary-quality-management-past-problems/article.mdx": {
       "6-1": 1,
+      "2-4": 6,
       "3-1": 1
     },
     ".local/r2/posts/civil-construction-1/secondary-r03/article.mdx": {
+      "2-4": 19,
       "6-1": 10,
       "15-2": 3
     },
     ".local/r2/posts/civil-construction-1/secondary-r04/article.mdx": {
       "3-1": 2,
+      "2-4": 19,
       "6-1": 10
     },
     ".local/r2/posts/civil-construction-1/secondary-r05/article.mdx": {
+      "2-4": 20,
       "6-1": 10
     },
     ".local/r2/posts/civil-construction-1/secondary-r06/article.mdx": {
       "3-1": 1,
+      "2-4": 15,
       "6-1": 5
     },
     ".local/r2/posts/civil-construction-1/secondary-r07/article.mdx": {
       "3-1": 1,
+      "2-4": 15,
       "6-1": 5
     },
     ".local/r2/posts/civil-construction-1/textbook-building-standards/article.mdx": {
@@ -235,6 +247,12 @@
     },
     ".local/r2/posts/civil-construction-1/textbook-crane/article.mdx": {
       "3-1": 2
+    },
+    ".local/r2/posts/civil-construction-1/textbook-demolition/article.mdx": {
+      "2-4": 2
+    },
+    ".local/r2/posts/civil-construction-1/textbook-distance-angle/article.mdx": {
+      "2-4": 3
     },
     ".local/r2/posts/civil-construction-1/textbook-explosives-act/article.mdx": {
       "3-1": 2
@@ -363,18 +381,22 @@
     ".local/r2/posts/civil-construction-2/secondary-r03/article.mdx": {
       "3-1": 1,
       "1-3": 4,
+      "2-4": 12,
       "1-4": 20,
-      "6-1": 4
+      "6-1": 4,
+      "0-4": 1
     },
     ".local/r2/posts/civil-construction-2/secondary-r04/article.mdx": {
       "3-1": 1,
       "1-3": 4,
+      "2-4": 14,
       "1-4": 33,
       "6-1": 4
     },
     ".local/r2/posts/civil-construction-2/secondary-r05/article.mdx": {
       "3-1": 1,
       "1-3": 5,
+      "2-4": 13,
       "1-4": 42,
       "6-1": 2,
       "15-2": 1
@@ -382,12 +404,15 @@
     ".local/r2/posts/civil-construction-2/secondary-r06/article.mdx": {
       "3-1": 1,
       "1-3": 4,
+      "2-4": 14,
       "1-4": 36,
-      "6-1": 4
+      "6-1": 4,
+      "0-4": 1
     },
     ".local/r2/posts/civil-construction-2/secondary-r07/article.mdx": {
       "3-1": 1,
       "1-3": 5,
+      "2-4": 14,
       "1-4": 36,
       "6-1": 3
     },
@@ -590,6 +615,9 @@
     ".local/r2/posts/pe-comprehensive-management/csv/article.mdx": {
       "3-1": 2
     },
+    ".local/r2/posts/pe-comprehensive-management/customer-satisfaction/article.mdx": {
+      "2-4": 1
+    },
     ".local/r2/posts/pe-comprehensive-management/cyber-security/article.mdx": {
       "2-3": 1
     },
@@ -605,7 +633,8 @@
     },
     ".local/r2/posts/pe-comprehensive-management/data-leak-tampering-loss/article.mdx": {
       "1-4": 3,
-      "6-1": 2
+      "6-1": 2,
+      "2-4": 2
     },
     ".local/r2/posts/pe-comprehensive-management/data-mining/article.mdx": {
       "1-4": 3
@@ -749,7 +778,8 @@
     ".local/r2/posts/pe-comprehensive-management/essay-pattern-cross-year-application/article.mdx": {
       "1-3": 2,
       "6-1": 2,
-      "1-4": 27
+      "1-4": 27,
+      "2-4": 3
     },
     ".local/r2/posts/pe-comprehensive-management/essay-persona-guide/article.mdx": {
       "1-4": 10

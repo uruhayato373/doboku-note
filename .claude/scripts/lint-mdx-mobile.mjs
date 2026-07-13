@@ -69,6 +69,11 @@
  *  15-1 MEDIUM 散文で同一の丁寧体文末（です／ます／ました）が3文以上連続（単調、§24。である調は対象外）
  *  15-2 LOW    散文の1文が長すぎる（句点区切りで140字超、目安60〜80字、§24）
  *  15-3 MEDIUM 1段落が長すぎる（300字超、目安200字、§24。全資格共通。note は〜120字で別系統）
+ *   0-3 HIGH   U+FFFD 文字化けを検出（mdx-hygiene-rules.mjs）
+ *   0-4 MEDIUM MDX コメント（波括弧スラッシュ形式）内に TODO/FIXME/TBD の未処理マーカー（本文の「仮置き」等は対象外）
+ *   2-4 MEDIUM 見出しアンカー ID の重複（ページ内リンク衝突。generateHeadingId 基準）
+ *   7-3 MEDIUM 装飾絵文字（💡🔑📌⚠️等。❌✅⭕★↔ 等の過去問/強調記号は対象外。7-1/7-2 は太字ルール）
+ *  10-6 MEDIUM 画像 alt が空 or 一般語（画像/写真/図/image 等。80字超は 10-3 が担当）
  *
  * ルールの重大度・資格×種別の有効/無効は `.claude/config/content-rules.json` が SSOT。
  * config 不在/破損時は各ルール function 内のハードコード severity へフォールバックする。
@@ -77,6 +82,7 @@ import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, existsSy
 import { join, resolve, dirname, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
+import { lintMdxHygiene } from '#lib/mdx-hygiene-rules.mjs';
 
 const CELL_MAX = 15;
 
@@ -1888,6 +1894,9 @@ function lintFile(filePath) {
 
   // カテゴリ15: 文体（1文の長さ・文末の単調回避）（content-principles.md §24）
   lintProseStyle(lines, findings);
+
+  // 追加衛生ルール: 0-3 文字化け / 0-4 TODO残存 / 2-4 アンカー重複 / 7-1 装飾絵文字 / 10-6 alt品質
+  lintMdxHygiene(lines, findings);
 
   // config（content-rules.json）の重大度・資格×種別の有効/無効を適用
   const scoped = applyContentRules(findings, parseScope(raw));
