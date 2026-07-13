@@ -226,6 +226,19 @@
     transform: translateY(-2px);
   }
 
+  /* キーボード操作の現在位置を全UIで揃える共通フォーカス表現。
+     `focus-visible` のみで発火させ、マウスクリック時の不要なリングを避ける。 */
+  .focus-ring {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+  .focus-ring:focus-visible {
+    outline-color: var(--accent);
+    box-shadow:
+      0 0 0 2px var(--bg),
+      0 0 0 4px color-mix(in srgb, var(--accent) 70%, transparent);
+  }
+
   /* 再利用可能なカード外観。構造は React、見た目はこの層に集約する。 */
   .card-surface-content {
     background: var(--paper);

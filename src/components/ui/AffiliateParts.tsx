@@ -17,7 +17,7 @@ export function AffiliatePrBadge({ className = "" }: { readonly className?: stri
 
 export function AffiliateCta({ children }: { readonly children: ReactNode }) {
   return (
-    <div className="mt-2.5 inline-flex items-center gap-1 text-sm font-bold text-brand dark:text-brand group-hover:gap-2 transition-all">
+    <div className="mt-2.5 inline-flex items-center gap-1 text-sm font-bold text-brand transition-[gap] group-hover:gap-2 dark:text-brand">
       {children}
       <ArrowRight className="h-4 w-4" aria-hidden />
     </div>

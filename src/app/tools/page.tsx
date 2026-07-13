@@ -57,7 +57,7 @@ export default function ToolsIndexPage() {
             <Link
               key={t.href}
               href={t.href}
-              className="group block rounded-card-section border border-[var(--rule-soft)] bg-[var(--paper)] shadow-soft p-5 hover:border-[var(--accent)] transition-colors"
+              className="focus-ring card-surface-section group block p-5 transition-colors hover:border-[var(--accent)]"
             >
               <div className="inline-flex items-center font-mono text-[10px] uppercase tracking-wider text-[var(--accent)] px-2 py-0.5 bg-[var(--accent-fill)] rounded-full mb-3">
                 {t.tag}

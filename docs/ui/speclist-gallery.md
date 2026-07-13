@@ -11,12 +11,13 @@ doboku-note の `<SpecSheetList>` コンポーネントは、2026-04-22 の Clau
 
 ## 共通デザイン仕様
 
-- 上罫 **2px 実線**（`--color-ink-strong`）+ 下罫 1px（`--color-border`）
-- ヘッダー: タイトル（15px bold）+ 右にモノスペースで「`05 ITEMS`」カウント
-- 各行: `grid-template-columns: 38px 1fr` — 左マーカー + 右本文
+- 上罫 **2px 実線**（`--ink`、`accent="brand"` 時は `--accent`）+ 外枠 1px（`--rule-soft`）
+- 背景は `--paper`、角丸は `--radius-card-content`
+- ヘッダー: タイトル（15px bold）
+- 各行: `grid-template-columns: 20px 1fr` — 左マーカー + 右本文
 - 行間の区切りは **破線 1px**（最終行のみ破線なし）
-- 連番: `JetBrains Mono` `01` `02` でブランドカラー（`--color-brand`）
-- ダークモードは `.dark` 自動切替（既存機構）
+- 連番: system mono stack の `01` `02` でアクセントカラー（`--accent`）
+- ダークモードは Editorial token の `.dark` 上書きで自動切替
 
 ---
 

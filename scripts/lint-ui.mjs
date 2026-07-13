@@ -1,17 +1,20 @@
 /**
  * UI lint — ダークモードボーダー + デザイントークン検証
  *
- * ステージされた .tsx ファイル（または --all で全ファイル）を走査し、
+ * ステージされた UI ファイル（または --all で全ファイル）を走査し、
  * UI 品質ルール違反を検出する。
  *
  * 検出対象:
  *   1. border-gray-{100,200,300} があるのに dark:border が無い
  *   2. インラインの borderColor 指定（dark クラスを上書きするため禁止）
  *   3. カード要素で生の rounded-{xl,2xl,3xl} + shadow を使用（デザイントークンを使うべき）
+ *   4. focus:outline-none があるのに focus-ring / ring / outline の代替が無い
+ *   5. SpecSheetList が旧図版トークン・生 radius・未導入フォントへ戻っていない
+ *   6. transition-all を使用している
  *
  * Usage:
- *   node scripts/lint-ui.mjs          # ステージされた .tsx のみ
- *   node scripts/lint-ui.mjs --all    # src/ 配下の全 .tsx
+ *   node scripts/lint-ui.mjs          # ステージされた UI ファイルのみ
+ *   node scripts/lint-ui.mjs --all    # src/ 配下の全 UI ファイル
  */
 
 import { execSync } from "child_process";
@@ -39,8 +42,19 @@ const RAW_CARD_PATTERNS = [
 // デザイントークンを既に使っている行は除外
 const CARD_TOKEN_PATTERN = /rounded-card-/;
 
+// --- Check 4: focus outline removed without visible replacement ---
+const FOCUS_OUTLINE_NONE = /focus(?:-visible)?:outline-none/;
+const FOCUS_REPLACEMENT = /focus-ring|focus(?:-visible)?:ring-|focus(?:-visible)?:outline-(?!none)|focus(?:-visible)?:shadow|focus-visible:/;
+
+// --- Check 5: SpecSheetList should use Editorial tokens, not legacy figure tokens ---
+const LEGACY_SPEC_SHEET_PATTERN = /--color-(ink|border|brand)|JetBrains Mono|border-radius:\s*2px/;
+
+// --- Check 6: transition-all should be narrowed to the properties that actually move ---
+const TRANSITION_ALL_PATTERN = /\btransition-all\b/;
+
 // Storybook ファイルは除外
 const EXCLUDE_PATTERN = /\.stories\.tsx$/;
+const UI_FILE_PATTERN = /\.(tsx|css)$/;
 
 // 誤検出を避けるための除外パターン（コメント行、import 文）
 const SKIP_LINE_PATTERN = /^\s*(\/\/|\/\*|\*|import )/;
@@ -53,7 +67,7 @@ function getTargetFiles() {
 
   if (allMode) {
     try {
-      const output = execSync('find src -name "*.tsx" -not -name "*.stories.tsx"', {
+      const output = execSync('find src \\( -name "*.tsx" -o -name "*.css" \\) -not -name "*.stories.tsx"', {
         encoding: "utf-8",
       });
       return output.trim().split("\n").filter(Boolean);
@@ -62,16 +76,16 @@ function getTargetFiles() {
     }
   }
 
-  // ステージされた .tsx ファイル
+  // ステージされた UI ファイル
   try {
     const output = execSync(
-      'git diff --cached --name-only --diff-filter=ACM -- "*.tsx"',
+      'git diff --cached --name-only --diff-filter=ACM -- "*.tsx" "*.css"',
       { encoding: "utf-8" }
     );
     return output
       .trim()
       .split("\n")
-      .filter((f) => f && existsSync(f) && !EXCLUDE_PATTERN.test(f));
+      .filter((f) => f && existsSync(f) && UI_FILE_PATTERN.test(f) && !EXCLUDE_PATTERN.test(f));
   } catch {
     return [];
   }
@@ -130,6 +144,44 @@ function lintFile(filePath) {
         }
       }
     }
+
+    // Check 4: focus:outline-none must have a visible replacement nearby
+    if (FOCUS_OUTLINE_NONE.test(line) && !FOCUS_REPLACEMENT.test(line)) {
+      const start = Math.max(0, i - NEARBY_WINDOW);
+      const end = Math.min(lines.length - 1, i + NEARBY_WINDOW);
+      let hasReplacementNearby = false;
+      for (let j = start; j <= end; j++) {
+        if (j !== i && FOCUS_REPLACEMENT.test(lines[j])) {
+          hasReplacementNearby = true;
+          break;
+        }
+      }
+      if (!hasReplacementNearby) {
+        violations.push({
+          line: i + 1,
+          rule: "focus-outline-missing",
+          message: `focus:outline-none without a visible focus replacement — use focus-ring or focus-visible:ring-*`,
+        });
+      }
+    }
+
+    // Check 5: SpecSheetList CSS should stay on Editorial tokens
+    if (filePath.includes("SpecSheetList") && LEGACY_SPEC_SHEET_PATTERN.test(line)) {
+      violations.push({
+        line: i + 1,
+        rule: "legacy-spec-sheet-token",
+        message: `SpecSheetList must use Editorial tokens (--ink / --rule-soft / --accent / --radius-card-content)`,
+      });
+    }
+
+    // Check 6: transition-all should be explicit
+    if (TRANSITION_ALL_PATTERN.test(line)) {
+      violations.push({
+        line: i + 1,
+        rule: "transition-all",
+        message: `avoid transition-all — use transition-colors, transition-shadow, or transition-[property]`,
+      });
+    }
   }
 
   return violations;
@@ -140,14 +192,14 @@ function main() {
 
   if (files.length === 0) {
     if (process.argv.includes("--all")) {
-      console.log("lint-ui: No .tsx files found.");
+      console.log("lint-ui: No UI files found.");
     }
     process.exit(0);
   }
 
   const allMode = process.argv.includes("--all");
   console.log(
-    `lint-ui: Checking ${files.length} .tsx file(s)${allMode ? " (--all)" : ""}...`
+    `lint-ui: Checking ${files.length} UI file(s)${allMode ? " (--all)" : ""}...`
   );
 
   let totalViolations = 0;

@@ -32,7 +32,7 @@ export function SearchResults({
         </p>
         <button
           onClick={() => window.location.reload()}
-          className="px-4 py-2 bg-[var(--accent)] text-white rounded-card-content hover:opacity-90 transition-opacity"
+          className="focus-ring rounded-card-content bg-[var(--accent)] px-4 py-2 text-white transition-opacity hover:opacity-90"
         >
           再試行
         </button>
@@ -75,11 +75,13 @@ export function SearchResults({
         {results.posts.map((post) => (
           <article
             key={post.id}
-            className="bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-section shadow-soft p-6 hover:border-[var(--accent)] hover:shadow-card-hover transition-all"
+            className="card-surface-section p-6 transition-[border-color,box-shadow] hover:border-[var(--accent)] hover:shadow-card-hover"
           >
             <div className="flex-1 min-w-0">
               <h3 className="text-lg font-bold text-[var(--ink)] mb-2 hover:text-[var(--accent)] transition-colors">
-                <Link href={post.path}>{post.title}</Link>
+                <Link href={post.path} className="focus-ring rounded-card-inline">
+                  {post.title}
+                </Link>
               </h3>
 
               {post.excerpt && (

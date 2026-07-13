@@ -100,7 +100,7 @@ export default function JukenShikakuClient() {
   );
   const secondAnyMet = condResults.some((c) => c.met);
 
-  const btn = "px-3 py-1.5 rounded-card-content text-sm font-bold border transition-colors";
+  const btn = "focus-ring px-3 py-1.5 rounded-card-content text-sm font-bold border transition-colors";
   const on = "border-[var(--accent)] text-[var(--accent)] bg-[var(--accent-fill)]";
   const off = "border-[var(--rule-soft)] text-[var(--ink-body)] hover:border-[var(--accent)]";
 
@@ -112,7 +112,7 @@ export default function JukenShikakuClient() {
 
   return (
     <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-8 sm:py-10">
-      <div className="rounded-card-section border border-[var(--rule-soft)] bg-[var(--paper)] shadow-soft p-5 sm:p-6">
+      <div className="card-surface-section p-5 sm:p-6">
         {/* 級 */}
         <div className="mb-4">
           <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)] mb-2">級</div>
@@ -151,7 +151,7 @@ export default function JukenShikakuClient() {
               value={age}
               onChange={(e) => setAge(e.target.value)}
               placeholder={`例: ${FIRST_AGE[grade]}`}
-              className="w-32 rounded-card-content border border-[var(--rule-soft)] bg-[var(--bg)] px-3 py-2 text-[15px] text-[var(--ink)] focus:border-[var(--accent)] focus:outline-none"
+              className="focus-ring w-32 rounded-card-content border border-[var(--rule-soft)] bg-[var(--bg)] px-3 py-2 text-[15px] text-[var(--ink)] focus:border-[var(--accent)]"
             />
             <span className="ml-2 text-sm text-[var(--ink-body)]">歳</span>
           </div>
@@ -180,7 +180,7 @@ export default function JukenShikakuClient() {
                 value={years}
                 onChange={(e) => setYears(e.target.value)}
                 placeholder="例: 5"
-                className="w-32 rounded-card-content border border-[var(--rule-soft)] bg-[var(--bg)] px-3 py-2 text-[15px] text-[var(--ink)] focus:border-[var(--accent)] focus:outline-none"
+                className="focus-ring w-32 rounded-card-content border border-[var(--rule-soft)] bg-[var(--bg)] px-3 py-2 text-[15px] text-[var(--ink)] focus:border-[var(--accent)]"
               />
               <span className="ml-2 text-sm text-[var(--ink-body)]">年</span>
             </div>
@@ -189,7 +189,7 @@ export default function JukenShikakuClient() {
       </div>
 
       {/* 結果 */}
-      <div className="mt-4 rounded-card-section border border-[var(--rule-soft)] bg-[var(--paper)] shadow-soft p-5 sm:p-6">
+      <div className="card-surface-section mt-4 p-5 sm:p-6">
         {exam === "first" ? (
           <div>
             <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)] mb-1">第一次検定 受験可否</div>
@@ -252,11 +252,11 @@ export default function JukenShikakuClient() {
       <div className="mt-6">
         <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)] mb-3">試験の全体像を知る</div>
         <div className="grid gap-3 sm:grid-cols-2">
-          <Link href="/docs/civil-construction-1-guide-exam-overview" className="block rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] p-4 hover:border-[var(--accent)] transition-colors">
+          <Link href="/docs/civil-construction-1-guide-exam-overview" className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]">
             <div className="font-bold text-[var(--ink)]">1級土木 試験概要</div>
             <div className="text-sm text-[var(--ink-body)] mt-1">受験資格・科目・合格率・日程をまとめて解説</div>
           </Link>
-          <Link href="/docs/civil-construction-2-guide-exam-overview" className="block rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] p-4 hover:border-[var(--accent)] transition-colors">
+          <Link href="/docs/civil-construction-2-guide-exam-overview" className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]">
             <div className="font-bold text-[var(--ink)]">2級土木 試験概要</div>
             <div className="text-sm text-[var(--ink-body)] mt-1">受験資格・科目・合格率・日程をまとめて解説</div>
           </Link>

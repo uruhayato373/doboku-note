@@ -100,8 +100,12 @@
 | `--shadow-soft` / `--shadow-lift` | editorial 影 | 帯・浮き |
 | `--dur-fast` / `--dur-base` | `150ms` / `200ms` | transition duration |
 | `--ease-soft` | `cubic-bezier(.22,1,.36,1)` | イージング |
+| `.focus-ring` | 共通 focus-visible | キーボード操作時の現在位置表示 |
 
 > クリック可能カードの hover 演出は共通クラス `.card-interactive`（影の深化＋`translateY(-2px)`）を使う。`prefers-reduced-motion: reduce` で transition/animation を無効化済み。**scale・色反転・長い duration は禁止**（§8）。
+> `transition-all` は禁止。hover で変わる対象だけを `transition-colors` / `transition-shadow` / `transition-[border-color,box-shadow]` / `transition-[width]` のように明示する。
+>
+> キーボードフォーカスは共通クラス `.focus-ring` を使う。`focus-visible` のみで `--accent` リングを出し、マウスクリック時の不要なリングを避ける。`focus:outline-none` を使う場合は、同じ要素に `.focus-ring` または明示的な `focus-visible:ring-*` を必ず併用する。
 
 ### 2.5 タイポグラフィスケール（2026-07 Soft Editorial 改訂）
 
@@ -211,6 +215,7 @@
 - 表の `<th>` に `scope="col"|"row"`。
 - リンクテキストは行き先が分かる文言（「こちら」「ここ」単独は不可）。
 - タッチターゲット 44px 以上。
+- **フォーカス表示**: リンク・ボタン・入力欄・textarea・select などの操作要素は、ブラウザ既定 outline を残すか `.focus-ring` を付ける。
 - **ダークモード**: bare な border は既定で `--rule-soft` に追従するが、明示的に色を付けた border には必ず `dark:border-*` を併記する。
 
 ---
@@ -222,8 +227,10 @@ CLAUDE.md §7 と一致:
 - デザイントークン使用（`rounded-card-*` / `shadow-card-*`）。生値 `rounded-xl shadow-md` 直書き禁止。
 - 色は token / Tailwind semantic（`brand`/`ink-strong`/`ink-body`/`ink-muted`/`positive`/`warn`/`danger`）または editorial 変数（`var(--accent)` 等）。
 - `dark:border-*` を必ず書く。インライン `style={{ borderColor }}` 禁止（`dark:` クラスを上書きするため）。
+- 操作要素には `.focus-ring` を付ける。`focus:outline-none` 単独は禁止。
+- `transition-all` 禁止。変化するプロパティだけを明示する。
 - 新規ページ・改修は §3 のレイアウト体系（PageShell / PageHeader / SectionCard）に乗せる。
-- 機械検出: `node scripts/lint-ui.mjs`（`border-gray-*` の dark 欠落 / `rounded-* + shadow-*` 直書き / インライン borderColor を HIGH 検出）。
+- 機械検出: `node scripts/lint-ui.mjs`（`border-gray-*` の dark 欠落 / `rounded-* + shadow-*` 直書き / インライン borderColor / focus outline 代替欠如 / `transition-all` を検出）。
 
 ---
 

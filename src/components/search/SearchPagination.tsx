@@ -8,7 +8,7 @@ interface SearchPaginationProps {
   onPageChange: (page: number) => void;
 }
 
-const BTN_BASE = "px-3 py-2 text-sm font-medium rounded-card-inline border transition-colors";
+const BTN_BASE = "focus-ring px-3 py-2 text-sm font-medium rounded-card-inline border transition-colors";
 const BTN_INACTIVE =
   "text-[var(--ink-body)] border-[var(--rule-soft)] hover:bg-[var(--accent-fill)] hover:text-[var(--accent)]";
 const BTN_ACTIVE = "bg-[var(--accent)] text-white border-[var(--accent)]";

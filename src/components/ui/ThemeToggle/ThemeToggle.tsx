@@ -96,7 +96,7 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={cycleTheme}
-      className="flex flex-col items-center space-y-1 rounded-card-inline bg-[var(--bg)] px-3 py-2 transition-colors duration-200 hover:bg-[var(--accent-fill)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-offset-2"
+      className="focus-ring flex flex-col items-center space-y-1 rounded-card-inline bg-[var(--bg)] px-3 py-2 transition-colors duration-200 hover:bg-[var(--accent-fill)]"
       aria-label={getAriaLabel()}
       title={`現在: ${theme === 'dark' ? 'dark' : 'light'}モード`}
     >

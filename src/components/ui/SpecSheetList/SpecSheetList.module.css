@@ -1,30 +1,25 @@
 /* =============================================================================
    SpecSheetList.module.css
-   土木ノート仕様書調リスト — design system tokens (globals.css) 準拠
-
-   必要なトークン:
-     --color-ink-strong / --color-ink-body / --color-ink-muted
-     --color-border
-     --color-brand
-   ダークモードは .dark スコープで自動切替 (doboku-note の既存機構に乗る)
+   土木ノート仕様書調リスト — Editorial tokens (globals.css) 準拠
    ============================================================================= */
 
 .root {
-  border: 1px solid var(--color-border);
-  border-top: 2px solid var(--color-ink-strong);
-  border-radius: 2px;
+  border: 1px solid var(--rule-soft);
+  border-top: 2px solid var(--ink);
+  border-radius: var(--radius-card-content);
   padding: 4px 16px;
   margin: 1.5rem 0;
+  background: var(--paper);
 }
 
 /* アクセント: ブランド色上罫線（ExamPoint など用） */
 .rootAccentBrand {
-  border-top-color: var(--color-brand);
+  border-top-color: var(--accent);
 }
 
 .head {
   padding: 12px 0 10px;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--rule-soft);
 }
 
 .headRow {
@@ -37,7 +32,7 @@
   margin: 0;
   font-size: var(--font-size-secondary);
   font-weight: 700;
-  color: var(--color-ink-strong);
+  color: var(--ink);
   letter-spacing: 0.02em;
 }
 
@@ -46,14 +41,14 @@
   margin: 6px 0 0;
   font-size: var(--font-size-small);
   line-height: 1.6;
-  color: var(--color-ink-body);
+  color: var(--ink-body);
   font-weight: 600;
 }
 
 .subtitleHighlight {
   background: linear-gradient(
     transparent 60%,
-    var(--color-brand-fill) 60%
+    var(--accent-fill) 60%
   );
   padding: 0 2px;
 }
@@ -75,7 +70,7 @@
   align-items: baseline;
   padding: 6px 0;
   margin: 0;
-  border-bottom: 1px dashed var(--color-border);
+  border-bottom: 1px dashed var(--rule-soft);
 }
 
 .root .row:last-child {
@@ -83,10 +78,10 @@
 }
 
 .idx {
-  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: var(--font-size-xsmall);
   letter-spacing: 0.08em;
-  color: var(--color-brand);
+  color: var(--accent);
   font-weight: 600;
   display: inline-flex;
   align-items: center;
@@ -96,7 +91,7 @@
 
 .idxGlyph {
   font-family: inherit;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1;
 }
 
@@ -110,12 +105,12 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--color-brand);
+  background: var(--accent);
   margin-left: 2px;
 }
 
 .text {
-  color: var(--color-ink-body);
+  color: var(--ink-body);
   font-size: 1em;
   line-height: 1.8;
 }

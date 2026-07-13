@@ -23,7 +23,7 @@ export function SearchZeroState({ categories, popular }: SearchZeroStateProps) {
             <Link
               key={cat.slug}
               href={`/category/${cat.slug}`}
-              className="group flex flex-col gap-1 rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] p-4 hover:border-[var(--accent)] hover:shadow-soft transition-all"
+              className="focus-ring card-surface-content group flex flex-col gap-1 p-4 transition-[border-color,box-shadow] hover:border-[var(--accent)] hover:shadow-soft"
             >
               <span className="font-serif font-bold text-[var(--ink)] group-hover:text-[var(--accent)] transition-colors">
                 {cat.label}
@@ -38,12 +38,12 @@ export function SearchZeroState({ categories, popular }: SearchZeroStateProps) {
         <section>
           <h2 className="font-serif text-lg font-bold text-[var(--ink)] mb-1">よく読まれている記事</h2>
           <p className="text-sm text-[var(--ink-muted)] mb-4">アクセスの多い記事から</p>
-          <ol className="rounded-card-content border border-[var(--rule-soft)] overflow-hidden">
+          <ol className="card-surface-content overflow-hidden shadow-none">
             {popular.map((item) => (
               <li key={item.doc.slug}>
                 <Link
                   href={`/docs/${item.doc.slug}`}
-                  className="group flex gap-3 px-4 py-3 border-b border-[var(--rule-soft)] last:border-b-0 hover:bg-[var(--accent-fill)] transition-colors"
+                  className="focus-ring group flex gap-3 border-b border-[var(--rule-soft)] px-4 py-3 transition-colors last:border-b-0 hover:bg-[var(--accent-fill)]"
                 >
                   <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-card-inline bg-[var(--accent-fill)] font-mono text-xs font-bold text-[var(--accent)]">
                     {item.rank}

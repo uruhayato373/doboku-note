@@ -181,8 +181,8 @@ function MagazineCard({
       rel="noopener noreferrer"
       className={
         accent
-          ? "block bg-[var(--accent)] text-white rounded-card-content px-4 py-3.5 hover:opacity-95 transition-opacity shadow-soft"
-          : "block bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-content px-4 py-3 hover:border-[var(--accent)] hover:shadow-soft transition-all"
+          ? "focus-ring block rounded-card-content bg-[var(--accent)] px-4 py-3.5 text-white shadow-soft transition-opacity hover:opacity-95"
+          : "focus-ring card-surface-content block px-4 py-3 shadow-none transition-[border-color,box-shadow] hover:border-[var(--accent)] hover:shadow-soft"
       }
     >
       <div className="flex items-start justify-between gap-3">
@@ -243,7 +243,7 @@ function PersonaAggregateCard({ count }: { count: number }) {
       href={NOTE_MAGAZINE_LIST_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex items-center justify-between bg-[var(--paper)] border border-dashed border-[var(--rule-soft)] rounded-card-content px-4 py-3 hover:border-[var(--accent)] hover:shadow-soft transition-all"
+      className="focus-ring card-surface-content flex items-center justify-between border-dashed px-4 py-3 shadow-none transition-[border-color,box-shadow] hover:border-[var(--accent)] hover:shadow-soft"
     >
       <div className="min-w-0 flex-1 pr-3">
         <div className="font-serif font-bold text-[var(--ink)] text-sm sm:text-base">
@@ -264,7 +264,7 @@ function PersonaAggregateCard({ count }: { count: number }) {
 // 無料入口（サイトガイド・無料note）。accent ボーダーで「無料」を識別させる。
 function FreeLinkCard({ link }: { link: FreeLink }) {
   const cls =
-    "flex items-center justify-between bg-[var(--accent-fill)] border border-[var(--accent)] rounded-card-content px-4 py-3 hover:shadow-soft transition-all";
+    "focus-ring flex items-center justify-between rounded-card-content border border-[var(--accent)] bg-[var(--accent-fill)] px-4 py-3 transition-shadow hover:shadow-soft";
   const body = (
     <>
       <div className="min-w-0 flex-1 pr-3">
@@ -411,7 +411,7 @@ export default function LinksPage() {
     <PageShell variant="default" className="py-10 sm:py-14">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           {/* Hero band: アバター + 名乗り + キャッチ + 試験チップ（ジャンプ） */}
-          <section className="mb-8 rounded-card-section border border-[var(--rule-soft)] bg-[var(--paper)] p-6 sm:p-8">
+          <section className="card-surface-section mb-8 p-6 shadow-none sm:p-8">
             <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-7">
               <img
                 src={AUTHOR.imageUrl}
@@ -451,7 +451,7 @@ export default function LinksPage() {
 
           {/* 価値提案 — なぜここで合格できるのか（中身） */}
           <section className="mb-12">
-            <div className="max-w-3xl mx-auto bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-section p-5 mb-5">
+            <div className="card-surface-section mx-auto mb-5 max-w-3xl p-5 shadow-none">
               <p className="text-sm text-[var(--ink-body)] leading-relaxed mb-3">
                 市販のテキストや過去問演習だけでは、記述式・経験記述の
                 <strong className="text-[var(--ink)]">「合格答案の型」</strong>
@@ -477,7 +477,7 @@ export default function LinksPage() {
                 return (
                   <div
                     key={p.title}
-                    className="flex sm:flex-col items-start gap-3 bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-content px-4 py-3"
+                    className="card-surface-content flex items-start gap-3 px-4 py-3 shadow-none sm:flex-col"
                   >
                     <div className="w-9 h-9 rounded-full bg-[var(--accent-fill)] flex items-center justify-center shrink-0">
                       <Icon
@@ -524,7 +524,7 @@ export default function LinksPage() {
               </p>
               <Link
                 href="/about"
-                className="flex items-center justify-between bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-content px-4 py-3 hover:border-[var(--accent)] hover:shadow-soft transition-all"
+                className="focus-ring card-surface-content flex items-center justify-between px-4 py-3 shadow-none transition-[border-color,box-shadow] hover:border-[var(--accent)] hover:shadow-soft"
               >
                 <div className="min-w-0 flex-1 pr-3">
                   <div className="font-serif font-bold text-[var(--ink)] text-sm sm:text-base">
@@ -552,7 +552,7 @@ export default function LinksPage() {
                 href={AUTHOR.twitterUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-content px-4 py-3 hover:border-[var(--accent)] hover:shadow-soft transition-all"
+                className="focus-ring card-surface-content flex items-center justify-between px-4 py-3 shadow-none transition-[border-color,box-shadow] hover:border-[var(--accent)] hover:shadow-soft"
               >
                 <div>
                   <div className="font-serif font-bold text-[var(--ink)] text-sm sm:text-base">

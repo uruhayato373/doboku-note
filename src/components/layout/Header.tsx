@@ -147,7 +147,7 @@ export default function Header() {
             <div className="flex items-center">
               <Link
                 href="/"
-                className="flex items-baseline gap-2 sm:gap-3 hover:opacity-80 transition-opacity"
+                className="focus-ring flex items-baseline gap-2 sm:gap-3 rounded-card-inline hover:opacity-80 transition-opacity"
                 aria-label="doboku-note ホーム"
               >
                 <span className="font-serif text-[26px] sm:text-[32px] font-black tracking-tight leading-none text-[var(--ink)]">
@@ -162,14 +162,14 @@ export default function Header() {
             <div className="flex items-center gap-2 md:hidden">
               <Link
                 href="/search"
-                className="p-2 rounded-card-inline hover:bg-[var(--accent-fill)] transition-colors"
+                className="focus-ring p-2 rounded-card-inline hover:bg-[var(--accent-fill)] transition-colors"
                 aria-label="検索"
               >
                 <Search className="w-6 h-6 text-[var(--ink-body)]" />
               </Link>
               <button
                 onClick={toggleMenu}
-                className="p-2 rounded-card-inline hover:bg-[var(--accent-fill)] transition-colors"
+                className="focus-ring p-2 rounded-card-inline hover:bg-[var(--accent-fill)] transition-colors"
                 aria-label="メニューを開く"
                 aria-expanded={isMenuOpen}
                 aria-haspopup="true"
@@ -182,7 +182,7 @@ export default function Header() {
             <nav className="hidden md:flex items-center gap-1">
               <Link
                 href="/search"
-                className="flex flex-col items-center gap-1 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2 rounded-card-inline transition-colors"
+                className="focus-ring flex flex-col items-center gap-1 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2 rounded-card-inline transition-colors"
               >
                 <Search className="w-5 h-5" />
                 <span className="text-[11px] font-medium">検索</span>
@@ -194,7 +194,7 @@ export default function Header() {
                   onClick={toggleCategoryDropdown}
                   aria-expanded={isCategoryOpen}
                   aria-haspopup="true"
-                  className="flex flex-col items-center gap-1 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2 rounded-card-inline transition-colors"
+                  className="focus-ring flex flex-col items-center gap-1 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2 rounded-card-inline transition-colors"
                 >
                   <GraduationCap className="w-5 h-5" />
                   <span className="flex items-center gap-0.5 text-[11px] font-medium">
@@ -209,7 +209,7 @@ export default function Header() {
                         key={cat.slug}
                         href={`/category/${cat.slug}`}
                         onClick={closeCategoryDropdown}
-                        className="flex items-center gap-3 px-4 py-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] transition-colors"
+                        className="focus-ring flex items-center gap-3 px-4 py-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] transition-colors"
                       >
                         <CategoryIcon variant={cat.variant} className="w-4 h-4 shrink-0" />
                         <span className="text-sm">{cat.label}</span>
@@ -221,7 +221,7 @@ export default function Header() {
 
               <Link
                 href="/links"
-                className="flex flex-col items-center gap-1 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2 rounded-card-inline transition-colors"
+                className="focus-ring flex flex-col items-center gap-1 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2 rounded-card-inline transition-colors"
               >
                 <Layers className="w-5 h-5" />
                 <span className="text-[11px] font-medium">教材</span>
@@ -229,7 +229,7 @@ export default function Header() {
 
               <Link
                 href="/about"
-                className="flex flex-col items-center gap-1 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2 rounded-card-inline transition-colors"
+                className="focus-ring flex flex-col items-center gap-1 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2 rounded-card-inline transition-colors"
               >
                 <User className="w-5 h-5" />
                 <span className="text-[11px] font-medium">About</span>
@@ -263,7 +263,7 @@ export default function Header() {
           {/* 閉じるボタン */}
           <button
             onClick={closeMenu}
-            className="absolute top-4 right-4 p-2 rounded-card-inline hover:bg-[var(--accent-fill)] text-[var(--ink-body)]"
+            className="focus-ring absolute top-4 right-4 p-2 rounded-card-inline hover:bg-[var(--accent-fill)] text-[var(--ink-body)]"
             aria-label="メニューを閉じる"
           >
             <X className="w-6 h-6" />
@@ -275,7 +275,7 @@ export default function Header() {
             <Link
               href="/search"
               onClick={closeMenu}
-              className="flex items-center gap-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2.5 rounded-card-inline transition-colors"
+              className="focus-ring flex items-center gap-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2.5 rounded-card-inline transition-colors"
             >
               <Search className="w-5 h-5" />
               <span className="font-medium">検索</span>
@@ -286,7 +286,7 @@ export default function Header() {
                 key={cat.slug}
                 href={`/category/${cat.slug}`}
                 onClick={closeMenu}
-                className="flex items-center gap-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2.5 rounded-card-inline transition-colors"
+                className="focus-ring flex items-center gap-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2.5 rounded-card-inline transition-colors"
               >
                 <CategoryIcon variant={cat.variant} />
                 <span className="font-medium">{cat.label}</span>
@@ -297,7 +297,7 @@ export default function Header() {
             <Link
               href="/links"
               onClick={closeMenu}
-              className="flex items-center gap-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2.5 rounded-card-inline transition-colors"
+              className="focus-ring flex items-center gap-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2.5 rounded-card-inline transition-colors"
             >
               <Layers className="w-5 h-5" />
               <span className="font-medium">教材</span>
@@ -307,7 +307,7 @@ export default function Header() {
             <Link
               href="/about"
               onClick={closeMenu}
-              className="flex items-center gap-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2.5 rounded-card-inline transition-colors"
+              className="focus-ring flex items-center gap-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2.5 rounded-card-inline transition-colors"
             >
               <User className="w-5 h-5" />
               <span className="font-medium">About</span>

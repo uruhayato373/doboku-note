@@ -39,16 +39,17 @@ doboku-note の記事本文中で使う**仕様書調リスト**。点検項目�
 
 ## デザイン仕様
 
-- 上罫 **2px 実線**（`--color-ink-strong`、または `accent="brand"` で `--color-brand`）+ 下罫 1px（`--color-border`）
-- `subtitle` 指定時: title 下に 14px semibold で表示、背景に `--color-brand-fill` のマーカーペン風グラデ
-- ヘッダー: タイトル（15px bold）+ 右にモノスペースで「`05 items`」カウント
-- 各行: `grid-template-columns: 38px 1fr` — 左マーカー + 右本文
+- 外枠は `--rule-soft`、上罫は **2px 実線**（`--ink`、または `accent="brand"` で `--accent`）
+- 背景は `--paper`、角丸は `--radius-card-content`
+- `subtitle` 指定時: title 下に 14px semibold で表示、背景に `--accent-fill` のマーカーペン風グラデ
+- ヘッダー: タイトル（15px bold）
+- 各行: `grid-template-columns: 20px 1fr` — 左マーカー + 右本文
 - 行間の区切りは **破線 1px**（最終行のみ破線なし）
-- 連番: `JetBrains Mono` `01` `02` でブランドカラー（`--color-brand`）
+- 連番: system mono stack の `01` `02` でアクセントカラー（`--accent`）
 - マーカー 3 種: `dot`（6px 円）/ `dash`（—）/ `square`（▪）
-- ダークモードは `.dark` クラス上書きで自動切替（既存機構）
+- ダークモードは Editorial token の `.dark` 上書きで自動切替
 
-デザイントークン（`src/styles/globals.css`）を利用: `--color-ink-strong` / `--color-ink-body` / `--color-ink-muted` / `--color-border` / `--color-brand`
+デザイントークン（`src/styles/globals.css`）を利用: `--ink` / `--ink-body` / `--rule-soft` / `--accent` / `--paper` / `--accent-fill` / `--radius-card-content`
 
 視覚的イメージは [`docs/ui/speclist-gallery.md`](../../../../docs/ui/speclist-gallery.md) を参照（各バリエーションのスクリーンショット付き）。
 

@@ -112,7 +112,7 @@ export default function KeikenCharcountClient() {
   const pct = Math.min(100, Math.round((chars / max) * 100));
 
   const btnBase =
-    "px-3 py-1.5 rounded-card-content text-sm font-bold border transition-colors";
+    "focus-ring px-3 py-1.5 rounded-card-content text-sm font-bold border transition-colors";
   const on =
     "border-[var(--accent)] text-[var(--accent)] bg-[var(--accent-fill)]";
   const off =
@@ -121,7 +121,7 @@ export default function KeikenCharcountClient() {
   return (
     <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-8 sm:py-10">
       {/* コントロール */}
-      <div className="rounded-card-section border border-[var(--rule-soft)] bg-[var(--paper)] shadow-soft p-5 sm:p-6">
+      <div className="card-surface-section p-5 sm:p-6">
         <div className="flex flex-col gap-4">
           <div>
             <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)] mb-2">
@@ -195,12 +195,12 @@ export default function KeikenCharcountClient() {
           onChange={(e) => setText(e.target.value)}
           placeholder="ここに施工経験記述の答案を貼り付け／入力してください。&#10;（数値プレースホルダ〇は受験時に同桁の数値へ置換される前提で1字として数えます）"
           rows={10}
-          className="mt-5 w-full resize-y rounded-card-content border border-[var(--rule-soft)] bg-[var(--bg)] p-4 text-[15px] leading-[1.9] text-[var(--ink)] focus:border-[var(--accent)] focus:outline-none"
+          className="focus-ring mt-5 w-full resize-y rounded-card-content border border-[var(--rule-soft)] bg-[var(--bg)] p-4 text-[15px] leading-[1.9] text-[var(--ink)] focus:border-[var(--accent)]"
         />
       </div>
 
       {/* 結果 */}
-      <div className="mt-4 rounded-card-section border border-[var(--rule-soft)] bg-[var(--paper)] shadow-soft p-5 sm:p-6">
+      <div className="card-surface-section mt-4 p-5 sm:p-6">
         <div className="flex items-end justify-between gap-4 flex-wrap">
           <div>
             <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)]">
@@ -222,7 +222,7 @@ export default function KeikenCharcountClient() {
         {/* プログレスバー */}
         <div className="mt-4 h-2.5 w-full overflow-hidden rounded-full bg-[var(--rule-soft)]">
           <div
-            className="h-full rounded-full transition-all"
+            className="h-full rounded-full transition-[width]"
             style={{ width: `${pct}%`, background: meta.color }}
           />
         </div>
@@ -267,14 +267,14 @@ export default function KeikenCharcountClient() {
         <div className="grid gap-3 sm:grid-cols-2">
           <Link
             href="/docs/civil-construction-1-secondary-experience-writing-guide"
-            className="block rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] p-4 hover:border-[var(--accent)] transition-colors"
+            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]"
           >
             <div className="font-bold text-[var(--ink)]">1級土木 施工経験記述の書き方</div>
             <div className="text-sm text-[var(--ink-body)] mt-1">課題→検討→対応の型と頻出テーマを解説</div>
           </Link>
           <Link
             href="/docs/civil-construction-2-secondary-experience-writing-guide"
-            className="block rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] p-4 hover:border-[var(--accent)] transition-colors"
+            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]"
           >
             <div className="font-bold text-[var(--ink)]">2級土木 施工経験記述の書き方</div>
             <div className="text-sm text-[var(--ink-body)] mt-1">2級の解答欄・テーマ別の書き分けを解説</div>

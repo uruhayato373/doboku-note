@@ -27,6 +27,7 @@ export function SearchFilters({
         onClick={() => onCategoryChange("")}
         className={cn(
           "px-3 py-1.5 text-sm rounded-full border transition-colors",
+          "focus-ring",
           !category
             ? "bg-[var(--accent)] text-white border-[var(--accent)]"
             : "bg-[var(--paper)] text-[var(--ink-body)] border-[var(--rule-soft)] hover:bg-[var(--accent-fill)] hover:text-[var(--accent)]"
@@ -40,6 +41,7 @@ export function SearchFilters({
           onClick={() => onCategoryChange(cat.value)}
           className={cn(
             "px-3 py-1.5 text-sm rounded-full border transition-colors",
+            "focus-ring",
             category === cat.value
               ? "bg-[var(--accent)] text-white border-[var(--accent)]"
               : "bg-[var(--paper)] text-[var(--ink-body)] border-[var(--rule-soft)] hover:bg-[var(--accent-fill)] hover:text-[var(--accent)]"
@@ -51,7 +53,7 @@ export function SearchFilters({
       {category && (
         <button
           onClick={onReset}
-          className="px-3 py-1.5 text-sm text-[var(--ink-muted)] hover:text-[var(--ink)] transition-colors"
+          className="focus-ring rounded-card-inline px-3 py-1.5 text-sm text-[var(--ink-muted)] hover:text-[var(--ink)] transition-colors"
         >
           リセット
         </button>

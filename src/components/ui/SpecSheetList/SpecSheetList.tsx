@@ -1,15 +1,12 @@
-"use client";
-
 /**
  * SpecSheetList — 土木ノート仕様書調リストコンポーネント
  *
  * doboku-note の CustomUnorderedList / CustomOrderedList を統合するための
  * 単一コンポーネント案。ordered / unordered 両対応。
  *
- * design system tokens (globals.css) 準拠:
- *   --color-ink-strong / body / muted
- *   --color-border
- *   --color-brand
+ * Editorial tokens (globals.css) 準拠:
+ *   --ink / --ink-body / --rule-soft / --accent
+ *   --paper / --accent-fill / --radius-card-content
  *
  * @example
  * ```tsx
@@ -29,7 +26,7 @@
  */
 
 import katex from "katex";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import styles from "./SpecSheetList.module.css";
 
 type ListItem = { content: ReactNode } | string | ReactNode;
@@ -45,7 +42,7 @@ export type SpecSheetListProps = {
   ordered?: boolean;
   /** unordered 時のマーカー形状。ordered 時は無視される。 */
   marker?: "dot" | "dash" | "square";
-  /** 上罫線の色アクセント。default（既定=ink-strong）または brand（ブランド色）。 */
+  /** 上罫線の色アクセント。default（既定=ink）または brand（accent）。 */
   accent?: "default" | "brand";
   /** 追加クラス名。 */
   className?: string;

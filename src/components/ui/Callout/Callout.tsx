@@ -1,6 +1,4 @@
-"use client";
-
-import { ReactNode, useMemo } from "react";
+import type { ReactNode } from "react";
 import {
   Info,
   Lightbulb,
@@ -72,14 +70,8 @@ const CALLOUT_CONFIG: Record<CalloutKind, ToneConfig> = {
 };
 
 export default function Callout({ type = "note", title, children }: CalloutProps) {
-  const resolved = useMemo<CalloutKind>((): CalloutKind => {
-    const t = String(type);
-    const alias = LEGACY_ALIASES[t];
-    if (alias) return alias;
-    if (t in CALLOUT_CONFIG) return t as CalloutKind;
-    return "note";
-  }, [type]);
-
+  const t = String(type);
+  const resolved = LEGACY_ALIASES[t] ?? (t in CALLOUT_CONFIG ? (t as CalloutKind) : "note");
   const config = CALLOUT_CONFIG[resolved];
   const IconComponent = config.icon;
 

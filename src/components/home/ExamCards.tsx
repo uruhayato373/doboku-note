@@ -46,7 +46,7 @@ function ExamCard({ e }: { e: ExamData }) {
     // 画像前面カード: 背景画像＋下部スクリム＋テーマ色ライン、左下にライブ文字を重ねる。カード全体＝カテゴリへのリンク。
     <Link
       href={`/category/${e.slug}`}
-      className={`group relative block overflow-hidden rounded-card-section border border-[var(--rule-soft)] aspect-[3/2] transition-all hover:shadow-lift hover:-translate-y-0.5 ${t.hoverBorder}`}
+      className={`focus-ring group relative block aspect-[3/2] overflow-hidden rounded-card-section border border-[var(--rule-soft)] transition-[border-color,box-shadow,transform] hover:-translate-y-0.5 hover:shadow-lift ${t.hoverBorder}`}
     >
       {img ? (
         <img

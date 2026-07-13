@@ -147,7 +147,7 @@ export function SearchBox({
           placeholder={placeholder}
           className={cn(
             "block w-full bg-[var(--paper)] text-[var(--ink)] border border-[var(--rule-soft)] rounded-card-content",
-            "focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-[var(--accent)]",
+            "focus-ring focus:border-[var(--accent)]",
             "placeholder:text-[var(--ink-muted)]",
             "transition-colors duration-200",
             compact ? "pl-8 pr-8 py-2 text-sm" : "pl-10 pr-10 py-2"
@@ -158,7 +158,7 @@ export function SearchBox({
           <button
             onClick={handleClear}
             className={cn(
-              "absolute inset-y-0 right-0 flex items-center",
+              "focus-ring absolute inset-y-0 right-0 flex items-center rounded-card-inline",
               compact ? "pr-2" : "pr-3"
             )}
           >
@@ -186,7 +186,7 @@ export function SearchBox({
       {showSuggestions && suggestions.length > 0 && (
         <div
           ref={suggestionsRef}
-          className="absolute z-50 w-full mt-1 bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-content shadow-lift"
+          className="card-surface-content absolute z-50 mt-1 w-full shadow-lift"
         >
           <ul className="py-1">
             {suggestions.map((suggestion, index) => (
@@ -196,7 +196,7 @@ export function SearchBox({
                   className={cn(
                     "w-full px-4 py-2 text-left text-sm text-[var(--ink-body)]",
                     "hover:bg-[var(--accent-fill)] hover:text-[var(--accent)]",
-                    "focus:bg-[var(--accent-fill)] focus:outline-none",
+                    "focus-ring focus:bg-[var(--accent-fill)]",
                     "transition-colors duration-150"
                   )}
                 >

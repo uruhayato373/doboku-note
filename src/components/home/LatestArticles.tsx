@@ -39,7 +39,7 @@ export default function LatestArticles({ articles }: LatestArticlesProps) {
             <Link
               key={a.slug}
               href={`/docs/${a.slug}`}
-              className="group flex flex-col overflow-hidden bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-section hover:border-[var(--accent)] hover:shadow-soft transition-all"
+              className="focus-ring card-surface-section group flex flex-col overflow-hidden transition-[border-color,box-shadow] hover:border-[var(--accent)] hover:shadow-soft"
             >
               {/* サムネ（記事別 OGP＝1200:630・資格別テーマ色＋タグ焼き込み。RelatedArticleCard と同系統）。
                   資格別写真プール（guide-covers）は猫/場違い画像の混入により 2026-07-07 に廃止し OGP へ一本化。 */}

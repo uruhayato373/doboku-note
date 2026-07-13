@@ -262,19 +262,19 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <Link
             href="/category/civil-construction-1"
-            className="block bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-section p-5 hover:border-[var(--accent)] hover:shadow-soft transition-all font-serif font-bold text-[var(--ink)] text-lg"
+            className="focus-ring card-surface-section block p-5 font-serif text-lg font-bold text-[var(--ink)] transition-[border-color,box-shadow] hover:border-[var(--accent)] hover:shadow-soft"
           >
             1級土木施工管理技士 →
           </Link>
           <Link
             href="/category/civil-construction-2"
-            className="block bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-section p-5 hover:border-[var(--accent)] hover:shadow-soft transition-all font-serif font-bold text-[var(--ink)] text-lg"
+            className="focus-ring card-surface-section block p-5 font-serif text-lg font-bold text-[var(--ink)] transition-[border-color,box-shadow] hover:border-[var(--accent)] hover:shadow-soft"
           >
             2級土木施工管理技士 →
           </Link>
           <Link
             href="/category/pe-comprehensive-management"
-            className="block bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-section p-5 hover:border-[var(--accent)] hover:shadow-soft transition-all font-serif font-bold text-[var(--ink)] text-lg"
+            className="focus-ring card-surface-section block p-5 font-serif text-lg font-bold text-[var(--ink)] transition-[border-color,box-shadow] hover:border-[var(--accent)] hover:shadow-soft"
           >
             技術士（総合技術監理部門） →
           </Link>
