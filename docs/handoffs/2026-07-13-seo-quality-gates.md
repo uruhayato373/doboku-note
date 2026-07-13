@@ -88,12 +88,28 @@ build 後 SEO ゲートを CI に常設、GSC 取得を page×query に強化、
 - `ssr_thin_body` 2: `/category/concrete-diagnostician`・`/category/reference-materials`
   （visible:false の hidden カテゴリで正当に疎。main/H1 は在り SSR 破壊ではない）。
 
-## 未完了 / 保留事項
+## リベースと CI 統合（重要）
 
-- **push・PR・deploy は本 handoff 時点で未実施**（ユーザー確認事項）。作業は develop ベースの
-  feature ブランチに 7 コミット。draft PR を作成予定（robots.txt / Cloudflare 変更はしない）。
+着手時のローカル base は origin/develop より **33 コミット遅れ**ており（別セッションが
+UI 刷新・`scripts/quality-audit.mjs` 統合 CHECKS レジストリ・v2 監査 doc 追加を先行）、
+実装後に **origin/develop（feec232e）へリベース**して統合した。
+
+- リベースで自動マージ（ci.yml / package.json / about / links の 4 ファイルは非重複ハンク）。
+- develop の CI は `quality:audit:ci`（build 前・CHECKS ci:true サブセット）→ `build` 構成。
+  そこへ合わせ **生の check-links ステップを撤去し、`quality-audit.mjs` の `internal-links` を
+  `ci:false`→`ci:true`（`--scope site`）へ昇格**（v2 §5.1「166→0 後に CI gate 昇格」/§9）。
+- `check-seo-build:ci` は build 直後の独立ステップに維持（build 前 gate へ混ぜない）。
+- リベース後の再検証: type-check/lint exit 0・test 157 pass 0 fail・build exit 0・
+  `check-seo-build:ci` **error 0**・1,088 URL 検査（母集合 100%）。
+
+## 完了 / 保留事項
+
+- **push 済み**: `claude/doboku-note-seo-quality-bfi3x7`（origin）。**draft PR #390**（base: develop）作成済み。
+  - 注記: 環境の git relay（127.0.0.1:41729）は最初 413 で push 不能だったが、リモート branch を
+    develop tip で先に作成し共通祖先を確定させることで最小パックの push が通った。
+- **deploy / robots.txt / Cloudflare 変更は未実施**（意図的・ユーザー承認事項）。
 - **build が再生成する index JSON はコミットしていない**（`doc-meta-index.json` 等の
-  timestamp/git-date churn は別セッション/環境由来。CI が build 前に refresh-indexes で再生成）。
+  timestamp/git-date churn。CI が build 前に refresh-indexes で再生成）。
 - **orphan/unreachable の gate 昇格は保留**（現状 warn）。R8 essay-theme の導線設計が固まったら
   gate 化を再検討。
 - **GSC page×query の実データ生成は CI 待ち**（ローカルは creds 無し・会社 PC プロキシ遮断＝
