@@ -334,3 +334,13 @@ account ゲート/ClipboardEvent paste/リンクカード化/ブラウザ起動�
 literal 写真はメタ記事と不一致で撤回済（PR #277）。dormant 資産（再課金なしで再利用可・develop 存置）: `scripts/generate-guide-covers.mjs`・`src/config/guide-cover-photos.json`・`src/lib/guide-cover.ts`・Imagen 生成35枚。
 
 **有望な未検証案**: 記事別の**概念イメージ**生成（キャリア=上昇/階段、勉強法=学習机 等）。**まず5本パイロット（~$0.10・[[gemini-cost-confirm]]）→ :3020 で判断 → 良ければ123本**。ダメなら dormant 維持。
+
+### 建設BK-09/10 R8予想 印刷用PDF添付（Windows専用）
+タグ: [収益化] [試験前 7/20]
+
+R8予想62本は2026-07-13に全公開・収録・導線検証済（[[project_r8_yosou_full_matrix_2026_07]]）。残りは建設BK-09電力土木/BK-10鉄道の6記事のみ本文が「印刷用PDF付き」を約束しており、**Mac生成不可が実測確定**（Chrome常駐との衝突で ETIMEDOUT）。spec は R08-yosou 追記済み。
+
+**Windows で実行**:
+1. `node scripts/magazine-to-pdf.mjs --spec scripts/pdf-specs/BK-09_電力土木.json --in-place`（BK-10 も同様）
+2. `note-attach-pdf` で6記事へ添付（1日100件上限に注意）
+3. 生成PDFを pathspec commit
