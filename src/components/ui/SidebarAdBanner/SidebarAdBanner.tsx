@@ -31,7 +31,7 @@ export default function SidebarAdBanner({
 }: SidebarAdBannerProps) {
   return (
     <div className="not-prose mt-3">
-      <div className="relative overflow-hidden rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] p-2 shadow-card-content">
+      <div className="card-surface-content relative overflow-hidden p-2">
         <span
           className="absolute right-2 top-2 z-10 inline-flex items-center rounded px-1.5 py-0.5 text-[10px] font-bold tracking-wider text-white"
           style={{ background: "var(--ink-muted)" }}

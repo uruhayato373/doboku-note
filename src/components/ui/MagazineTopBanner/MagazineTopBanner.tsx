@@ -32,7 +32,7 @@ export default function MagazineTopBanner({
       rel="noopener noreferrer"
       data-cta="note"
       data-cta-label={trackLabel}
-      className="not-prose group mb-8 flex items-center gap-2.5 rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] px-4 py-2.5 shadow-card-content hover:border-brand dark:hover:border-brand transition-shadow"
+      className="card-surface-content focus-ring not-prose group mb-8 flex items-center gap-2.5 px-4 py-2.5 hover:border-brand dark:hover:border-brand transition-shadow"
     >
       <span className="shrink-0 rounded-card-inline bg-brand px-1.5 py-0.5 text-[10px] font-medium text-white">
         {badge}

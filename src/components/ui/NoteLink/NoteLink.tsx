@@ -75,7 +75,7 @@ export default function NoteLink({
       rel="noopener noreferrer"
       data-cta="note-article"
       data-cta-label={trackLabel ?? trackLabelFromUrl(url)}
-      className="not-prose group my-6 block max-w-2xl rounded-card-content overflow-hidden border border-[var(--rule-soft)] bg-[var(--paper)] shadow-card-content hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow"
+      className="card-surface-content focus-ring not-prose group my-6 block max-w-2xl overflow-hidden hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow"
     >
       <div className="flex flex-col sm:flex-row">
         {imageUrl && (

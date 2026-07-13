@@ -17,7 +17,7 @@ export default function RelatedArticleCard({ doc }: RelatedArticleCardProps) {
   return (
     <Link
       href={`/docs/${doc.slug}`}
-      className="card-interactive not-prose group flex h-full flex-col overflow-hidden rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] shadow-card-content hover:border-brand dark:hover:border-brand"
+      className="card-interactive card-surface-content focus-ring not-prose group flex h-full flex-col overflow-hidden hover:border-brand dark:hover:border-brand"
     >
       <div className="relative aspect-[1200/630] w-full overflow-hidden bg-[var(--bg)]">
         <Image

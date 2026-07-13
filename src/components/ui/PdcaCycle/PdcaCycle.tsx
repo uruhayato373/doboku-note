@@ -133,7 +133,7 @@ export default function PdcaCycle({ items }: PdcaCycleProps) {
           return (
             <div
               key={i}
-              className="flex items-start gap-3 p-3 rounded-card-content shadow-card-content border border-[var(--rule-soft)] bg-[var(--paper)]"
+              className="card-surface-content flex items-start gap-3 p-3"
             >
               <div
                 className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm"

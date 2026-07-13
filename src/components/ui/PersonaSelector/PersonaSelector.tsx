@@ -74,10 +74,10 @@ function resolveItems(
 }
 
 const CARD_BASE_CLASS =
-  "not-prose flex items-start gap-3 rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] px-3 py-3 shadow-card-content";
+  "card-surface-content not-prose flex items-start gap-3 px-3 py-3";
 
 const CARD_LINK_CLASS =
-  "group hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow";
+  "focus-ring group hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow";
 
 interface PersonaCardInnerProps {
   readonly personaName: string;

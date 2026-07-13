@@ -17,7 +17,7 @@ export default function HubCtaBanner({ cta }: { cta: ResolvedHubCta }) {
       rel="noopener noreferrer"
       data-cta="note"
       data-cta-label={cta.trackLabel}
-      className="group block w-full max-w-[360px] overflow-hidden rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] p-2 shadow-card-content transition-shadow hover:shadow-card-hover"
+      className="card-surface-content focus-ring group block w-full max-w-[360px] overflow-hidden p-2 transition-shadow hover:shadow-card-hover"
     >
       {/* 白カード枠（bg-paper + p-2）で囲む＝転職アフィリ SidebarAdBanner とカード意匠を統一。画像は内側に inset。 */}
       <div className="relative aspect-[6/5] w-full overflow-hidden rounded-[6px]">

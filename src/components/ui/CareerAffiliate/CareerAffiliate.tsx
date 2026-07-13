@@ -102,7 +102,7 @@ export default function CareerAffiliate({
         target="_blank"
         data-cta="affiliate"
         data-cta-label={effService}
-        className="group relative flex flex-col sm:flex-row items-stretch gap-4 rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] p-4 shadow-card-content hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow"
+        className="card-surface-content focus-ring group relative flex flex-col sm:flex-row items-stretch gap-4 p-4 hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow"
         style={{ textDecoration: "none" }}
       >
         <AffiliatePrBadge className="absolute right-3 top-3" />

@@ -17,7 +17,7 @@ export default function LinksHubTile({
       href="/links"
       data-cta="note"
       data-cta-label={trackLabel}
-      className="not-prose group flex items-center gap-3 rounded-card-content border border-[var(--rule-soft)] bg-[var(--accent-fill)] px-4 py-3.5 shadow-card-content transition-shadow hover:border-brand dark:hover:border-brand hover:shadow-card-hover"
+      className="focus-ring not-prose group flex items-center gap-3 rounded-card-content border border-[var(--rule-soft)] bg-[var(--accent-fill)] px-4 py-3.5 shadow-card-content transition-shadow hover:border-brand dark:hover:border-brand hover:shadow-card-hover"
     >
       <div className="min-w-0 flex-1">
         <div className="text-[11px] font-extrabold uppercase tracking-wide text-[var(--accent)]">
