@@ -9,8 +9,15 @@
       "15-1": 5,
       "15-3": 1
     },
+    ".local/r2/posts/civil-construction-1/guide-career-agent-comparison/article.mdx": {
+      "15-1": 3,
+      "1-4": 1
+    },
     ".local/r2/posts/civil-construction-1/guide-career-cases/article.mdx": {
       "1-4": 2
+    },
+    ".local/r2/posts/civil-construction-1/guide-career-consultation-before-quit/article.mdx": {
+      "15-1": 3
     },
     ".local/r2/posts/civil-construction-1/guide-company-types/article.mdx": {
       "15-1": 3,
@@ -163,92 +170,58 @@
       "1-4": 4
     },
     ".local/r2/posts/civil-construction-1/secondary-concrete-basics/article.mdx": {
-      "1-4": 79,
-      "1-3": 9,
-      "3-1": 6,
-      "15-3": 2,
       "15-2": 4
     },
     ".local/r2/posts/civil-construction-1/secondary-concrete-past-problems/article.mdx": {
-      "1-3": 10,
       "6-1": 1,
-      "1-4": 87,
       "15-2": 2
     },
     ".local/r2/posts/civil-construction-1/secondary-construction-plan-basics/article.mdx": {
       "3-1": 11,
-      "1-3": 9,
-      "1-4": 4,
-      "6-1": 1,
       "15-2": 2
     },
     ".local/r2/posts/civil-construction-1/secondary-construction-plan-past-problems/article.mdx": {
-      "1-3": 6,
-      "6-1": 1,
-      "1-4": 56
+      "6-1": 1
     },
     ".local/r2/posts/civil-construction-1/secondary-earthwork-basics/article.mdx": {
       "3-1": 1,
-      "1-3": 8,
-      "1-4": 108,
       "15-3": 1
     },
     ".local/r2/posts/civil-construction-1/secondary-earthwork-past-problems/article.mdx": {
-      "1-3": 11,
-      "6-1": 1,
-      "1-4": 89
+      "6-1": 1
     },
     ".local/r2/posts/civil-construction-1/secondary-experience-writing-examples/article.mdx": {
       "6-1": 3,
-      "1-3": 1,
       "3-1": 1
-    },
-    ".local/r2/posts/civil-construction-1/secondary-experience-writing-guide/article.mdx": {
-      "1-4": 48,
-      "6-1": 1,
-      "1-3": 1
     },
     ".local/r2/posts/civil-construction-1/secondary-getting-started/article.mdx": {
       "15-1": 2
     },
     ".local/r2/posts/civil-construction-1/secondary-quality-management-basics/article.mdx": {
-      "1-5": 2,
-      "1-3": 5,
-      "1-4": 27,
       "3-1": 7
     },
     ".local/r2/posts/civil-construction-1/secondary-quality-management-past-problems/article.mdx": {
-      "1-3": 8,
       "6-1": 1,
-      "1-4": 75,
       "3-1": 1
     },
     ".local/r2/posts/civil-construction-1/secondary-r03/article.mdx": {
       "6-1": 10,
-      "1-4": 46,
-      "1-3": 1,
       "15-2": 3
     },
     ".local/r2/posts/civil-construction-1/secondary-r04/article.mdx": {
       "3-1": 2,
-      "6-1": 10,
-      "1-4": 49,
-      "1-3": 2
+      "6-1": 10
     },
     ".local/r2/posts/civil-construction-1/secondary-r05/article.mdx": {
-      "6-1": 10,
-      "1-4": 36
+      "6-1": 10
     },
     ".local/r2/posts/civil-construction-1/secondary-r06/article.mdx": {
       "3-1": 1,
-      "1-4": 47,
       "6-1": 5
     },
     ".local/r2/posts/civil-construction-1/secondary-r07/article.mdx": {
       "3-1": 1,
-      "1-4": 45,
-      "6-1": 5,
-      "1-3": 1
+      "6-1": 5
     },
     ".local/r2/posts/civil-construction-1/textbook-building-standards/article.mdx": {
       "3-1": 2
@@ -422,30 +395,13 @@
       "15-2": 1
     },
     ".local/r2/posts/concrete-chief-engineer/primary-construction/article.mdx": {
-      "11-1": 3,
-      "1-3": 1,
-      "1-4": 2
+      "11-1": 3
     },
     ".local/r2/posts/concrete-chief-engineer/primary-durability/article.mdx": {
       "2-3": 1
     },
-    ".local/r2/posts/concrete-chief-engineer/primary-materials/article.mdx": {
-      "1-3": 1
-    },
-    ".local/r2/posts/concrete-chief-engineer/primary-mix-design/article.mdx": {
-      "15-3": 1,
-      "15-2": 1
-    },
-    ".local/r2/posts/concrete-chief-engineer/primary-production-qc/article.mdx": {
-      "1-3": 7,
-      "15-2": 2
-    },
     ".local/r2/posts/concrete-chief-engineer/primary-products/article.mdx": {
       "15-1": 1
-    },
-    ".local/r2/posts/concrete-chief-engineer/primary-properties/article.mdx": {
-      "1-3": 1,
-      "15-2": 3
     },
     ".local/r2/posts/concrete-chief-engineer/primary-structural-design/article.mdx": {
       "2-3": 1
@@ -802,9 +758,7 @@
       "3-1": 5
     },
     ".local/r2/posts/pe-comprehensive-management/exam-application-guide/article.mdx": {
-      "6-1": 1,
-      "1-4": 32,
-      "1-3": 8
+      "1-4": 1
     },
     ".local/r2/posts/pe-comprehensive-management/exam-index/article.mdx": {
       "1-3": 1,
@@ -1144,8 +1098,7 @@
       "15-3": 1
     },
     ".local/r2/posts/pe-comprehensive-management/location-limited-employee/article.mdx": {
-      "3-1": 3,
-      "6-1": 1
+      "3-1": 3
     },
     ".local/r2/posts/pe-comprehensive-management/long-term-strategy-2050/article.mdx": {
       "15-2": 1
@@ -1156,9 +1109,6 @@
     },
     ".local/r2/posts/pe-comprehensive-management/mandatory-management-retirement/article.mdx": {
       "3-1": 2
-    },
-    ".local/r2/posts/pe-comprehensive-management/manufacturing-quality/article.mdx": {
-      "1-4": 1
     },
     ".local/r2/posts/pe-comprehensive-management/mass-communication/article.mdx": {
       "2-3": 1
@@ -1717,10 +1667,6 @@
     },
     ".local/r2/posts/pe-comprehensive-management/targeted-attack/article.mdx": {
       "15-2": 1
-    },
-    ".local/r2/posts/pe-comprehensive-management/tbm-toolbox-meeting/article.mdx": {
-      "1-5": 1,
-      "6-1": 1
     },
     ".local/r2/posts/pe-comprehensive-management/tcfd/article.mdx": {
       "1-5": 1,
