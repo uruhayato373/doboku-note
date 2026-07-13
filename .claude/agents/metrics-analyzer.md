@@ -1,6 +1,6 @@
 ---
 name: metrics-analyzer
-description: GSC/GA4 の計測データから改善機会パターンを抽出する Evaluator エージェント。High-Impr-Low-CTR・Rank-Stuck・Traffic-Drop・Hidden-Winner・Orphan-Query・SNS-Source-Shift の6パターンで surface し、`/nsm-experiment propose` の入力を生成する。
+description: GSC/GA4 の計測データから改善機会パターンを抽出する Evaluator エージェント。High-Impr-Low-CTR・Rank-Stuck・Traffic-Drop・Hidden-Winner・Orphan-Query・SNS-Source-Shift・Cannibalization・Content-Decay の8パターンで surface し、`/nsm-experiment propose` の入力を生成する。
 model: sonnet
 ---
 
@@ -33,6 +33,7 @@ GSC/GA4 の JSON データを読み込み、**改善候補のパターン検出*
 |---|---|
 | `.claude/state/metrics/gsc/gsc-query-*.json`（最新） | `/fetch-gsc-data` |
 | `.claude/state/metrics/gsc/gsc-page-*.json`（最新） | `/fetch-gsc-data --dimension page` |
+| `.claude/state/metrics/gsc/gsc-page-query-*.json`（最新・前週があれば 2 件） | `/fetch-gsc-data --dimensions page,query --all`（Pattern 7/8 用・週次 CI 生成） |
 | `.claude/state/metrics/ga4/ga4-page-*.json`（最新） | GA4 page dimension |
 | `.claude/state/metrics/ga4/ga4-date-*.json`（最新） | GA4 date dimension（トレンド判定用） |
 | `.claude/state/metrics/ga4/ga4-sourceMedium-sns-*.json`（最新 2 件） | GA4 SNS 流入 source×medium（Pattern 6 用・`fetch-ga4-data --sns-only`） |
@@ -98,6 +99,29 @@ GSC/GA4 の JSON データを読み込み、**改善候補のパターン検出*
 
 **前提**: `ga4-sourceMedium-sns-*.json` が 2 ファイル未満（初週・未生成）なら本パターンはスキップし「SNS 流入データ不足（1 週分のみ）」と記録。ファイル自体が無ければ「SNS breakdown 未生成」と 1 行。
 
+### Pattern 7: Cannibalization（同一クエリの共食い）
+
+**条件**: `gsc-page-query-*.json`（最新）で、同一 query に対して impressions ≥ 5 の page が **2 つ以上**あり、いずれも position ≤ 30。
+
+**理由**: 1 つのクエリに複数の自ページが競合して表示され、クリック・順位が分散している疑い。統合・内部リンクでの主従整理（canonical 的に 1 ページへ寄せる）候補。**新規ページ追加ではなく既存の統合方向**で surface する（[[no-new-keyword-pages]] と整合）。
+
+**出力項目**: query、競合 page 群（URL / impr / clicks / position）、主候補（最も clicks/position の良い page）
+
+**前提**: `gsc-page-query-*.json` が無ければ本パターンをスキップし「page×query 未生成」と 1 行。
+
+### Pattern 8: Content-Decay（順位/クリックの継続悪化）
+
+**条件**: `gsc-page-query-*.json` の最新と前週スナップショットで**同一 (page, query) ペア**を追跡し、clicks が −30% 以上 かつ position が +3 以上悪化しているペア（前週 clicks ≥ 3）。
+
+**理由**: 一度上位だったページの品質再評価・鮮度劣化・競合台頭のシグナル。コアアップデート demote の早期検知にも効く（gsc-management.md 2026-07-10 の教訓）。
+
+**出力項目**: page、query、前週→今週の clicks / position、悪化幅
+
+**前提**: 前週スナップショットが無ければスキップし「decay 判定はデータ不足（1 週分のみ）」と記録。
+
+> [!important]
+> **メタ改善の提案は少数 URL の実験に限る**。Pattern 1/7/8 で surface した候補について title/description の**一括変更は提案しない**（2026-07-10 の 723 件一括変更が年度クエリ喪失＋再クロール churn を招きコアアップデート demote を増幅した教訓）。メタ改善は**〜5 URL を 14〜28 日の実験**（`/nsm-experiment propose`）として提案し、効果測定後に横展開の可否を判断する。
+
 ## 出力フォーマット
 
 `.claude/state/improvements/{YYYY-MM-DD}.md` に以下を書き出す:
@@ -119,6 +143,8 @@ total_candidates: N
 - Hidden-Winner: N 件
 - Orphan-Query: N 件
 - SNS-Source-Shift: N 件
+- Cannibalization: N 件
+- Content-Decay: N 件
 
 ## Pattern 1: High-Impr-Low-CTR（タイトル改善候補）
 
@@ -145,7 +171,7 @@ total_candidates: N
 
 1. **入力ファイル特定**: `.claude/state/metrics/gsc/` と `.claude/state/metrics/ga4/` を `Glob` で探索し、各 dimension ごとに最新ファイルを選ぶ
 2. **読み込み**: JSON を Read で取得（容量が大きければ `rows` の上位 N 件に絞る）
-3. **パターン抽出**: 6 つの条件式で該当行を抽出（Pattern 6 は SNS 流入・要 `ga4-sourceMedium-sns-*.json`）
+3. **パターン抽出**: 8 つの条件式で該当行を抽出（Pattern 6 は SNS 流入・要 `ga4-sourceMedium-sns-*.json`／Pattern 7/8 は `gsc-page-query-*.json`・前週スナップショット）
 4. **存在判定（Pattern 5 のみ）**: `.local/r2/posts/` に対して Grep で slug 主要語検索
 5. **出力書き出し**: `.claude/state/improvements/{YYYY-MM-DD}.md` を Write
 6. **サマリーを標準出力に返す**: 件数のみ。詳細はファイル経由で呼び出し元が Read する

@@ -109,7 +109,7 @@ title: スキル ナビゲーションガイド
 
 | スキル | 一言説明 | 呼ぶとき |
 |---|---|---|
-| `/fetch-gsc-data` | Google Search Console データ取得 | `GSCデータ`, `検索データ取得`, `/fetch-gsc-data` |
+| `/fetch-gsc-data` | Google Search Console データ取得（単一/複数ディメンション・page×query・25,000 件ページング） | `GSCデータ`, `検索データ取得`, `page×query`, `/fetch-gsc-data` |
 | `/psi-audit` | PSI で代表ページ日次計測、CWV しきい値違反を surface | `PSI計測`, `Core Web Vitals`, `/psi-audit` |
 | `/record-sales` | note 販売履歴を SSOT（sales-log.json）に記録・集計 | `売上記録`, `販売履歴を記録`, `note売上`, `/record-sales` |
 
