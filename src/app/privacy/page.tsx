@@ -20,6 +20,8 @@ import {
 export const metadata: Metadata = {
   title: 'プライバシーポリシー',
   description: 'doboku-noteのプライバシーポリシーについて説明します。個人情報の収集、利用、管理について詳しく記載しています。',
+  // self canonical（root 継承事故の防止。og:url は既に self 指定済み）
+  alternates: { canonical: '/privacy' },
   openGraph: {
     type: 'website',
     title: 'プライバシーポリシー | doboku-note',

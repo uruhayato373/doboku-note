@@ -19,7 +19,9 @@ import {
 import { examKeyOf } from "@/lib/exam-brand";
 
 export const metadata: Metadata = {
-  title: "Links — doboku-note の入口",
+  // title テンプレート "%s | doboku-note" がサイト名を付与するため、ここでは重ねない
+  // （旧: "Links — doboku-note の入口" + テンプレ = サイト名二重だった）。
+  title: "Links — SNS・note・サイトの入口",
   description:
     "発注者視点で土木・建設系資格の合格を支援。技術士総監・建設部門・1級／2級土木施工管理技士の無料サイト解説と、模範論文・施工経験記述・記述解答のフル教材（note）への入口まとめ。",
   alternates: {
