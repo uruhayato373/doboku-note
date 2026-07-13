@@ -6,7 +6,7 @@
 
 | ファイル | 変更内容 |
 |---|---|
-| `src/config/affiliate-creatives.ts` | `HIGH_INTENT_CAREER_SLUGS`（31 slug）・`isKensetsuJobsArmEffective()`・`resolveBuildJobCopy(slug)` を追加。`resolveCareerSidebarAbArm` / `resolveCareerArticleEndCard` / `resolveCareerTextLink` を実効 arm 判定に切替。`CareerTextLink` に `lead`（安心コピー）追加 |
+| `src/config/affiliate-creatives.ts` | `HIGH_INTENT_CAREER_SLUGS`（P0 時点 31 slug・後述 P1 で計 36 に増加）・`isKensetsuJobsArmEffective()`・`resolveBuildJobCopy(slug)` を追加。`resolveCareerSidebarAbArm` / `resolveCareerArticleEndCard` / `resolveCareerTextLink` を実効 arm 判定に切替。`CareerTextLink` に `lead`（安心コピー）追加 |
 | `src/components/ui/MidArticleCta/MidArticleCta.tsx` | career モードに `lead?` prop を追加しリンク直前に安心コピーを表示 |
 | `src/app/docs/[...slug]/page.tsx` | `careerMidLink.lead` を `MidArticleCta` へ渡す 1 行追加 |
 | `docs/project/04_運営/02_アフィリエイト提携状況.md` | 「高意図キャリア slug の BuildJob 優先表示」節を追記 |
@@ -50,8 +50,8 @@ MDX 変更なしのため refresh-indexes / ogp / validate-mdx は対象外。
 | `guide-career-consultation-before-quit` | 辞める前顕在層（求人相場/年収/働き方の確認手順） | 3,154 | BuildJob（「辞める前に」テーマ CTA） |
 
 - 3 slug を `HIGH_INTENT_CAREER_SLUGS` に追加 → SSG 出力で建設JOBs mat=0・BuildJob mat 検出・pixel `<img>` 各 1・`rel="nofollow sponsored noopener"`・PR バッジ確認済み。
-- BuildJob 公式値（年収アップ平均163万円・満足度4.8・累計50,529人・内定率77%）は WebSearch 照合のうえ「サービス公表値」明記、保証表現なし。「向かない人」（未経験・地方求人・都市部中心）も正直に記載。
-- 年収（約600万/ピーク720万・全国平均460万）・担い手不足（29歳以下 約12%）統計は doc 08 検証済みファクトパック（2026-06 WebSearch 一次照合・再利用前提）。
+- BuildJob の具体数値（163万/50,529人/4.8/77% 等）は当初カード/本文に入れたが、後述「ファクトチェック是正」で**全削除→定性記述に統一**（現行公式値との不一致・裏取り不能のため）。「向かない人」（未経験・地方求人・都市部中心）は正直に記載。
+- 年収・担い手不足（29歳以下 約12%）統計は doc 08 検証済みファクトパック由来だが、job tag 年収は現行に合わせ「600万円台」に是正・ピーク720万/全国平均460万の出典混同も是正（後述の是正表参照）。
 - `guide-career-agent-comparison` は既存 `guide-career-agents`（選び方の枠組み）と角度差別化（具体サービス比較）＋相互リンク（keep-differentiate-not-delete）。
 - OGP 生成済み（`npm run ogp <slug>`）・`refresh-indexes` 実行済み・`validate-mdx` / `check-ogp-coverage` / `check-links`（新規3記事に壊れリンクなし）通過。
 

@@ -92,6 +92,8 @@ BuildJob（ビルドジョブ）の成果報酬が 2026-08-31 まで高単価（
 
 ### 2. CTA は「無料相談」より「何がわかるか」を前面に出す
 
+> 以下は企画時の初期案。**確定した CTA 文言の真実源は `resolveBuildJobCopy()`（`src/config/affiliate-creatives.ts` の `BUILDJOB_CTA_BY_THEME` 6 パターン＋既定「資格・経験で狙える求人を無料で聞く」）**。文言を変えるときはコード側を編集する。
+
 BuildJob の成果点は無料キャリア面談である。単に「無料相談」と言うと心理的ハードルが残るため、読者のジョブに合わせて「自分の市場価値」「求人相場」「年収の損得」「働き方の選択肢」を確認できる表現へ寄せる。
 
 推奨 CTA:
@@ -112,15 +114,12 @@ BuildJob の成果点は無料キャリア面談である。単に「無料相�
 - 応募するかどうかは、紹介求人と条件を見てから決められます。
 - 会社を辞める前に、今の経験が外でどう評価されるかだけ確認しておくと判断しやすくなります。
 
-### 4. 公式数値は「サービス公表値」として限定的に使う
+### 4. 公式数値は原則使わない（2026-07-14 是正）
 
-公式 LP の数値は強いが、景表法・ステマ規制・LP 更新リスクがある。本文の編集文では断定しすぎず、PR カードまたは補足文に「サービス公表値」として使う。
+> [!warning]
+> **当初この節は「163万円/50,529人/4.8 をサービス公表値として使用可」としていたが撤回**。§外部調査メモの warning のとおり、これらは現行公式値（124万円・2万名以上）と不一致 or 裏取り不能で、guide-fact-checker が景表法リスクと判定。**新規記事では具体数値を掲載せず定性記述に統一済み（実装からも削除）**。
 
-使用可能な表現:
-
-- 年収アップ平均金額 163万円（サービス公表値）
-- 累計支援数 50,529人（サービス公表値）
-- 利用者満足度 4.8以上（サービス公表値）
+公式 LP の数値は景表法・ステマ規制・LP 更新リスクがあるため、**本文・PR カードとも具体数値は原則載せない**。どうしても使う場合のみ、公式 LP の現行値をその都度目視確認し（JS 描画のため要ブラウザレンダリング）、PR カード内に「サービス公表値」明記＋日付付きで限定する。過去の企画メモ値（163万/50,529人/4.8）は使わない。
 
 禁止:
 
@@ -442,7 +441,7 @@ doboku-note の BuildJob アフィリエイト収益最大化スプリントを�
 
 ### 2026-07-14 P0 実装完了
 
-- **高意図 slug の BuildJob 優先表示**: `HIGH_INTENT_CAREER_SLUGS`（31 slug・全ファイル実在確認済み）を `src/config/affiliate-creatives.ts` に追加。`isKensetsuJobsArmEffective()` がキャンペーン中のみ arm B を無効化し、サイドバー・記事末カード・本文中間テキストの 3 面を共有判定で BuildJob に固定。うち 17 本が建設JOBs arm からの切替、14 本は元から BuildJob（コピー強化のみ）。9/1 以降は `isCampaignActive()`=false で自動復帰（コード削除不要）。
+- **高意図 slug の BuildJob 優先表示**: `HIGH_INTENT_CAREER_SLUGS`（P0 時点 31 slug・全ファイル実在確認済み。P1 で 5 本追加し**現在は 36 slug**＝件数の真実源はコード）を `src/config/affiliate-creatives.ts` に追加。`isKensetsuJobsArmEffective()` がキャンペーン中のみ arm B を無効化し、サイドバー・記事末カード・本文中間テキストの 3 面を共有判定で BuildJob に固定。うち 17 本が建設JOBs arm からの切替、14 本は元から BuildJob（コピー強化のみ）。9/1 以降は `isCampaignActive()`=false で自動復帰（コード削除不要）。
 - **カードコピー改善**: `resolveBuildJobCopy(slug)` 新設。description に安心コピーを常時内蔵、CTA は記事テーマ別 6 パターン＋既定「資格・経験で狙える求人を無料で聞く」。`resolveCareerArticleEndCard` の BuildJob 分岐と inline `CareerAffiliate program="gks"`（163 枚）に自動反映。公式数値（163万円等）は保証表現リスク回避のためカードでは不使用。
 - **本文中間テキスト CTA**: `CareerTextLink` に `lead`（安心コピー）を追加し `MidArticleCta` career モードでリンク直前に表示。A8 公式テキストリンク文言自体は不変。
 - **検証**: check-affiliate-mats / check-affiliate-prose / check-cta-density / lint / type-check / build すべて通過。
@@ -454,7 +453,7 @@ doboku-note の BuildJob アフィリエイト収益最大化スプリントを�
   - `guide-buildjob-review`（ビルドジョブ指名検索の受け皿・向く人/向かない人を正直に併記）
   - `guide-career-agent-comparison`（比較検索・特化型/求人サイト/総合型を軸で公平比較・既存 guide-career-agents と角度差別化+相互リンク）
   - `guide-career-consultation-before-quit`（辞める前顕在層・求人相場/年収/働き方の確認手順）
-  - 3 slug は `HIGH_INTENT_CAREER_SLUGS` に追加（サイドバー/記事末/inline とも BuildJob 固定・SSG 出力で建設JOBs mat=0・1 ページ 1 ピクセル・PR/nofollow sponsored 確認済み）。BuildJob 公式値（年収アップ平均163万円・満足度4.8・内定率77% 等）は WebSearch 照合のうえ「サービス公表値」明記、保証表現なし。年収/担い手統計は doc 08 検証済みファクトパック再利用。
+  - 3 slug は `HIGH_INTENT_CAREER_SLUGS` に追加（サイドバー/記事末/inline とも BuildJob 固定・SSG 出力で建設JOBs mat=0・1 ページ 1 ピクセル・PR/nofollow sponsored 確認済み）。**BuildJob の具体数値（163万/50,529人/4.8 等）は当初掲載したが、同日の a0315a677 で guide-fact-checker 検出により削除し定性記述に統一**（現行公式値との不一致・裏取り不能のため。詳細は §外部調査メモの warning・handoff の是正表）。年収/担い手統計は doc 08 検証済みファクトパック再利用（job tag は「600万円台」に統一）。
 - **P1 note 送客強化**: `転職エージェントの使い方`→比較記事、`転職した方がいい施工管理`/`転職のベストタイミング`→辞める前相談記事へ UTM 付きインラインリンクを 1 本ずつ追加（大量リライトなし・note-lint 通過）。
 - **P2 クリック集計レポート**: `npm run report-buildjob-affiliate`（`.claude/scripts/report-buildjob-affiliate.mjs`）を新設。最新 GA4 by-label + page 別 + a8-results.json を束ね、プログラム別クリック/BuildJob 面別内訳/上位ページ/推定 EPC を `.claude/state/metrics/affiliate/buildjob-report-latest.md` に出力。**訂正（2026-07-14）: event_label カスタムディメンションは「CTA label」として 2026-07-07 に登録済み**（当初「未登録」と誤診）。既存 by-label スナップショット（期間〜07-08）が `(not set)` に集約されていたのは、取得期間の大半が登録日 07-07 より前でカスタムディメンションが遡及しないため。**追加の GA4 設定は不要**。deploy 後にクリックが溜まり、07-07 以降を含む期間で `npm run fetch-ga4-cta-clicks -- --by-label` を取り直せば面別に分解される。
 - **未実施**: P1「既存キャリア記事の本文文脈強化」は、安心コピーが `resolveBuildJobCopy`/`resolveCareerTextLink.lead` により全 career カードへコード側で自動反映されたため、個別 MDX の手編集は不要と判断（大量リライト禁止の制約も踏まえ見送り）。deploy・note 実投稿・A8 操作は未実施（ユーザーゲート）。
