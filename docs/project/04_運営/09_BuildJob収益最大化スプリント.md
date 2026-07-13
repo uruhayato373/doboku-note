@@ -438,8 +438,18 @@ doboku-note の BuildJob アフィリエイト収益最大化スプリントを�
 - **カードコピー改善**: `resolveBuildJobCopy(slug)` 新設。description に安心コピーを常時内蔵、CTA は記事テーマ別 6 パターン＋既定「資格・経験で狙える求人を無料で聞く」。`resolveCareerArticleEndCard` の BuildJob 分岐と inline `CareerAffiliate program="gks"`（163 枚）に自動反映。公式数値（163万円等）は保証表現リスク回避のためカードでは不使用。
 - **本文中間テキスト CTA**: `CareerTextLink` に `lead`（安心コピー）を追加し `MidArticleCta` career モードでリンク直前に表示。A8 公式テキストリンク文言自体は不変。
 - **検証**: check-affiliate-mats / check-affiliate-prose / check-cta-density / lint / type-check / build すべて通過。
-- **P1（評判・比較記事の新規作成、既存記事の本文リライト、note 送客強化）と P2（クリック集計レポート）は未着手**。
 - 作業ログ: `docs/handoffs/2026-07-14-buildjob-affiliate-sprint.md`
+
+### 2026-07-14 P1/P2 実装完了（同日・Opus）
+
+- **P1 新規記事 3 本**（civil-construction-1・group=guide・career・published:true・本文 3,000 字以上・OGP 生成済み）:
+  - `guide-buildjob-review`（ビルドジョブ指名検索の受け皿・向く人/向かない人を正直に併記）
+  - `guide-career-agent-comparison`（比較検索・特化型/求人サイト/総合型を軸で公平比較・既存 guide-career-agents と角度差別化+相互リンク）
+  - `guide-career-consultation-before-quit`（辞める前顕在層・求人相場/年収/働き方の確認手順）
+  - 3 slug は `HIGH_INTENT_CAREER_SLUGS` に追加（サイドバー/記事末/inline とも BuildJob 固定・SSG 出力で建設JOBs mat=0・1 ページ 1 ピクセル・PR/nofollow sponsored 確認済み）。BuildJob 公式値（年収アップ平均163万円・満足度4.8・内定率77% 等）は WebSearch 照合のうえ「サービス公表値」明記、保証表現なし。年収/担い手統計は doc 08 検証済みファクトパック再利用。
+- **P1 note 送客強化**: `転職エージェントの使い方`→比較記事、`転職した方がいい施工管理`/`転職のベストタイミング`→辞める前相談記事へ UTM 付きインラインリンクを 1 本ずつ追加（大量リライトなし・note-lint 通過）。
+- **P2 クリック集計レポート**: `npm run report-buildjob-affiliate`（`.claude/scripts/report-buildjob-affiliate.mjs`）を新設。最新 GA4 by-label + page 別 + a8-results.json を束ね、プログラム別クリック/BuildJob 面別内訳/上位ページ/推定 EPC を `.claude/state/metrics/affiliate/buildjob-report-latest.md` に出力。**現状 GA4 の event_label カスタムディメンションが未登録で面別は `(not set)` に集約＝手動アクション必要**（GA4 管理画面で登録→`npm run fetch-ga4-cta-clicks -- --by-label` 再取得）。
+- **未実施**: P1「既存キャリア記事の本文文脈強化」は、安心コピーが `resolveBuildJobCopy`/`resolveCareerTextLink.lead` により全 career カードへコード側で自動反映されたため、個別 MDX の手編集は不要と判断（大量リライト禁止の制約も踏まえ見送り）。deploy・note 実投稿・A8 操作は未実施（ユーザーゲート）。
 
 ## 期待する成果
 

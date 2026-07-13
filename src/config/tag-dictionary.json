@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-07-13T11:57:38.854Z",
+  "generated_at": "2026-07-13T19:54:05.488Z",
   "summary": {
-    "total_mdx_files": 1106,
+    "total_mdx_files": 1109,
     "total_unique_tags": 173,
     "allowlist_size": 149,
     "known_count": 83,
@@ -1252,14 +1252,17 @@
     },
     {
       "name": "guide",
-      "count": 129,
+      "count": 132,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
         "civil-construction-1-guide-age-career",
         "civil-construction-1-guide-allowance",
+        "civil-construction-1-guide-buildjob-review",
+        "civil-construction-1-guide-career-agent-comparison",
         "civil-construction-1-guide-career-agents",
         "civil-construction-1-guide-career-cases",
+        "civil-construction-1-guide-career-consultation-before-quit",
         "civil-construction-1-guide-career-path",
         "civil-construction-1-guide-career-salary",
         "civil-construction-1-guide-company-types",
@@ -1941,13 +1944,16 @@
     },
     {
       "name": "career",
-      "count": 32,
+      "count": 35,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-age-career",
         "civil-construction-1-guide-allowance",
+        "civil-construction-1-guide-buildjob-review",
+        "civil-construction-1-guide-career-agent-comparison",
         "civil-construction-1-guide-career-agents",
         "civil-construction-1-guide-career-cases",
+        "civil-construction-1-guide-career-consultation-before-quit",
         "civil-construction-1-guide-career-path",
         "civil-construction-1-guide-career-salary",
         "civil-construction-1-guide-company-types",

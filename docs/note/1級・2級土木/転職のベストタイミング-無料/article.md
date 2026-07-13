@@ -75,7 +75,7 @@ https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHBA2+5B0Y+NTJWY
 
 完璧なタイミングを待ち続けて動けなくなるのも考えものです。大切なのは、おおまかな見通しを立てたうえで、情報収集だけは早めに始めておくこと。実際に動くかは後で決めればよく、準備しておくこと自体に損はありません。
 
-応募前の準備として[職務経歴書の書き方](https://doboku-note.com/docs/civil-construction-1-guide-resume?utm_source=note&utm_medium=referral&utm_campaign=civil-career-timing&utm_content=resume)や[面接でよく聞かれること](https://doboku-note.com/docs/civil-construction-1-guide-interview?utm_source=note&utm_medium=referral&utm_campaign=civil-career-timing&utm_content=interview)も合わせて読んでおくと、いざ動くときにスムーズです。
+応募前の準備として[職務経歴書の書き方](https://doboku-note.com/docs/civil-construction-1-guide-resume?utm_source=note&utm_medium=referral&utm_campaign=civil-career-timing&utm_content=resume)や[面接でよく聞かれること](https://doboku-note.com/docs/civil-construction-1-guide-interview?utm_source=note&utm_medium=referral&utm_campaign=civil-career-timing&utm_content=interview)も合わせて読んでおくと、いざ動くときにスムーズです。まだ辞めると決めていない段階でも、[辞める前に相談すべきこと](https://doboku-note.com/docs/civil-construction-1-guide-career-consultation-before-quit?utm_source=note&utm_medium=referral&utm_campaign=civil-career-timing&utm_content=before-quit)で市場価値と相場だけ確認しておくと、判断の精度が上がります。
 
 ---
 

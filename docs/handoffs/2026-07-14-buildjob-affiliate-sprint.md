@@ -39,6 +39,41 @@
 
 MDX 変更なしのため refresh-indexes / ogp / validate-mdx は対象外。
 
+## P1/P2 実装（同日追加・Opus）
+
+### P1: 新規記事 3 本（civil-construction-1・guide・career・published:true）
+
+| slug | 位置づけ | 本文字数 | CTA |
+|---|---|--:|---|
+| `guide-buildjob-review` | ビルドジョブ指名検索の受け皿（向く人/向かない人を正直に併記） | 3,174 | BuildJob（既定） |
+| `guide-career-agent-comparison` | 比較検索の受け皿（特化型/求人サイト/総合型を軸で公平比較） | 3,210 | BuildJob（既定） |
+| `guide-career-consultation-before-quit` | 辞める前顕在層（求人相場/年収/働き方の確認手順） | 3,154 | BuildJob（「辞める前に」テーマ CTA） |
+
+- 3 slug を `HIGH_INTENT_CAREER_SLUGS` に追加 → SSG 出力で建設JOBs mat=0・BuildJob mat 検出・pixel `<img>` 各 1・`rel="nofollow sponsored noopener"`・PR バッジ確認済み。
+- BuildJob 公式値（年収アップ平均163万円・満足度4.8・累計50,529人・内定率77%）は WebSearch 照合のうえ「サービス公表値」明記、保証表現なし。「向かない人」（未経験・地方求人・都市部中心）も正直に記載。
+- 年収（約600万/ピーク720万・全国平均460万）・担い手不足（29歳以下 約12%）統計は doc 08 検証済みファクトパック（2026-06 WebSearch 一次照合・再利用前提）。
+- `guide-career-agent-comparison` は既存 `guide-career-agents`（選び方の枠組み）と角度差別化（具体サービス比較）＋相互リンク（keep-differentiate-not-delete）。
+- OGP 生成済み（`npm run ogp <slug>`）・`refresh-indexes` 実行済み・`validate-mdx` / `check-ogp-coverage` / `check-links`（新規3記事に壊れリンクなし）通過。
+
+### P1: note 送客強化（UTM インラインリンク 1 本ずつ追加・大量リライトなし）
+
+- `転職エージェントの使い方-無料` → `guide-career-agent-comparison`（utm_content=agent-comparison）
+- `転職した方がいい施工管理-発注者視点-無料` → `guide-career-consultation-before-quit`（utm_content=before-quit）
+- `転職のベストタイミング-無料` → `guide-career-consultation-before-quit`（utm_content=before-quit）
+- note-lint 通過。既存 UTM パターン（doboku-note.com/docs/...?utm_source=note...）を踏襲。
+
+### P2: BuildJob クリック集計レポート
+
+- `npm run report-buildjob-affiliate`（`.claude/scripts/report-buildjob-affiliate.mjs`）新設。オフライン集計。
+- 出力: `.claude/state/metrics/affiliate/buildjob-report-latest.md`（プログラム別クリック・BuildJob 面別内訳・上位ページ・推定 EPC）。
+- **判明したブロッカー**: GA4 の `event_label` カスタムディメンションが未登録で、面別クリックが全て `(not set)` に集約されている。面別内訳を取るには GA4 管理画面でイベントスコープの `event_label` を登録 → `npm run fetch-ga4-cta-clicks -- --by-label` で再取得が必要（レポートは警告表示のうえ page 別のみで継続）。
+
+### P1「既存記事の本文文脈強化」を見送った理由
+
+- 安心コピー（「今すぐ転職すると決めていなくても〜」）は `resolveBuildJobCopy` の description と `resolveCareerTextLink.lead` により、全 career カード/中間テキストにコード側で自動反映される。
+- 既存キャリア記事の多くは inline `CareerAffiliate program="gks"` を持ち、そのコピーも同 resolver で BuildJob 新コピーに統一される。
+- したがって個別 MDX の手編集は不要（制約「大量リライト禁止」とも整合）。テーマ別 CTA も slug 一致で自動適用。
+
 ## 未実施・次アクション
 
 - **P1**: BuildJob 評判・比較記事 3 本の新規作成／既存キャリア記事上位 9 本の本文 CTA 文脈強化／note 無料 6 記事からの UTM 送客強化

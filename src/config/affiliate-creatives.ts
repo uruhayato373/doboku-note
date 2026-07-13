@@ -158,6 +158,11 @@ const HIGH_INTENT_CAREER_SLUGS: ReadonlySet<string> = new Set([
   "civil-construction-2-guide-salary",
   "civil-construction-2-guide-job-reality",
   "pe-construction-guide-career",
+  // BuildJob 収益最大化スプリント P1 で新設した指名/比較/顕在層記事（2026-07-14）。
+  // 指名検索（ビルドジョブ 評判）・比較検索・辞める前顕在層＝いずれも高意図で BuildJob 固定が妥当。
+  "civil-construction-1-guide-buildjob-review",
+  "civil-construction-1-guide-career-agent-comparison",
+  "civil-construction-1-guide-career-consultation-before-quit",
 ]);
 
 /**

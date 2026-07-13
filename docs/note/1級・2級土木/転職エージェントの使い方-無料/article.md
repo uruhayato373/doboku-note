@@ -44,6 +44,8 @@ https://note.com/dobokunote/m/m8290970a7f05
 
 エージェントを活かすコツは、**希望を具体的に、正直に伝える**ことです。年収・勤務地・働き方・避けたい条件などを明確に伝えるほど、紹介の精度が上がります。逆に遠慮して曖昧にすると、ミスマッチな求人が増えてしまいます。
 
+どのエージェントに登録するか迷うなら、[施工管理に強い転職エージェントの比較](https://doboku-note.com/docs/civil-construction-1-guide-career-agent-comparison?utm_source=note&utm_medium=referral&utm_campaign=civil-career-agent-howto&utm_content=agent-comparison)で、建設特化型・求人サイト・総合型を資格・年収・働き方の軸で整理しています。目的を1つに絞ると選びやすくなります。
+
 また、応募書類の添削や面接対策も積極的に頼みましょう。施工管理に詳しいアドバイザーは、「この工種ならこの実績を前に出すべき」といった具体的なアドバイスをくれます。職務経歴書の書き方は[こちら](https://doboku-note.com/docs/civil-construction-1-guide-resume?utm_source=note&utm_medium=inline&utm_campaign=civil-career-agent-howto&utm_content=resume)、面接で聞かれることは[こちら](https://doboku-note.com/docs/civil-construction-1-guide-interview?utm_source=note&utm_medium=inline&utm_campaign=civil-career-agent-howto&utm_content=interview)で解説しているので、エージェントの添削と合わせて使うと効果的です。
 
 **PR**：以下はアフィリエイト広告を含みます。
