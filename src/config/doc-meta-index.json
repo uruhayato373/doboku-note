@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-07-13T19:54:02.025Z",
+  "generated_at": "2026-07-13T21:28:34.212Z",
   "summary": {
-    "total": 1109,
-    "published": 1067,
+    "total": 1111,
+    "published": 1069,
     "unpublished": 42,
     "by_category": {
       "civil-construction-1": 134,
-      "civil-construction-2": 39,
+      "civil-construction-2": 41,
       "concrete-chief-engineer": 19,
       "pe-comprehensive-management": 724,
       "pe-construction": 130,
@@ -133,8 +133,8 @@
       "publishedAt": "2026-07-14",
       "seoTitle": "ビルドジョブの評判｜施工管理に向く？メリットと注意点【土木目線】",
       "reviewStatus": "needs-review",
-      "created": "2026-07-14T00:00:00.000Z",
-      "dateModified": "2026-07-14T00:00:00.000Z",
+      "created": "2026-07-14",
+      "dateModified": "2026-07-14",
       "faqs": [
         {
           "q": "ビルドジョブはどんな人に向いていますか？",
@@ -165,8 +165,8 @@
       "publishedAt": "2026-07-14",
       "seoTitle": "施工管理 転職エージェント比較｜資格・年収・働き方で選ぶ【2026】",
       "reviewStatus": "needs-review",
-      "created": "2026-07-14T00:00:00.000Z",
-      "dateModified": "2026-07-14T00:00:00.000Z",
+      "created": "2026-07-14",
+      "dateModified": "2026-07-14",
       "faqs": [
         {
           "q": "施工管理の転職エージェントは1社に絞るべきですか？",
@@ -247,8 +247,8 @@
       "publishedAt": "2026-07-14",
       "seoTitle": "施工管理を辞める前に相談すべきこと｜求人相場・年収の確認手順",
       "reviewStatus": "needs-review",
-      "created": "2026-07-14T00:00:00.000Z",
-      "dateModified": "2026-07-14T00:00:00.000Z",
+      "created": "2026-07-14",
+      "dateModified": "2026-07-14",
       "faqs": [
         {
           "q": "辞める前に何を確認すればいいですか？",
@@ -2259,7 +2259,7 @@
       "publishedAt": "2026-04-15",
       "seoTitle": "コンクリート工 基礎解説｜材料・配合・施工・鉄筋・品質管理【1級土木 第 2 次検定】",
       "created": "2026-04-15",
-      "dateModified": "2026-07-10",
+      "dateModified": "2026-07-14",
       "reviewStatus": "needs-review",
       "lastRewrittenAt": "2026-07-10",
       "revisionCycle": 1
@@ -4555,6 +4555,38 @@
         }
       ]
     },
+    "civil-construction-2-guide-buildjob-review": {
+      "title": "2級・経験浅めでビルドジョブは使える？ — 向き不向きを正直に整理",
+      "description": "建設業界特化の転職エージェント「ビルドジョブ」を、2級土木施工管理技士・経験の浅い施工管理の目線でフラットに整理。使える人・使わない方がいい人、未経験の場合の併用先、資格・経験の伝え方を、正直に解説します。",
+      "shortTitle": "2級でビルドジョブは使える？",
+      "subtitle": "経験者寄りのサービスを、2級・若手がどう使い分けるか",
+      "category": "civil-construction-2",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "career"
+      ],
+      "published": true,
+      "publishedAt": "2026-07-14",
+      "seoTitle": "2級でビルドジョブは使える？向き不向きを正直に整理【施工管理】",
+      "reviewStatus": "needs-review",
+      "created": "2026-07-14T00:00:00.000Z",
+      "dateModified": "2026-07-14T00:00:00.000Z",
+      "faqs": [
+        {
+          "q": "2級で実務経験が浅くてもビルドジョブは使えますか？",
+          "a": "実務経験が数年あれば候補になります。ビルドジョブは経験者・有資格者向けの色が強いため、完全未経験だと紹介できる求人が限られることがあります。その場合は20代/未経験に強いエージェントと併用する方が安全です。"
+        },
+        {
+          "q": "未経験の場合はどうすればいいですか？",
+          "a": "未経験・第二新卒なら、まず若手/未経験に強いエージェントを主軸にし、建設特化のビルドジョブは「経験を積んでから」または併用で使うのが現実的です。無理に経験者向けサービス一本に絞ると求人が出てこないことがあります。"
+        },
+        {
+          "q": "2級の資格は転職でどう伝えればいいですか？",
+          "a": "担当した工種・工事規模・役割（主任技術者など）と、2級取得済み・1級を目指しているといった意欲を具体的に伝えると、ポテンシャルと実務の両面が評価されやすくなります。"
+        }
+      ]
+    },
     "civil-construction-2-guide-career": {
       "title": "2級土木施工管理技士を取ると何ができる？ — 年収・転職・1級への道",
       "description": "2級土木施工管理技士を取得すると何ができるのかを、建設業法の技術者制度（主任技術者）に基づいて整理。受検者数・合格率の動向、若年層に開かれた受験資格、就職・転職での評価、そして1級へのステップアップという次の一手を、誇張なく解説する。",
@@ -4588,6 +4620,38 @@
         {
           "q": "2級の次は何を目指すべきですか？",
           "a": "実務経験を積んで1級土木施工管理技士を目指すのが王道です。1級は監理技術者になれ、経営事項審査でも高く評価されるため、企業からの需要が大きく、転職市場での評価も上がります。"
+        }
+      ]
+    },
+    "civil-construction-2-guide-career-agent-comparison": {
+      "title": "2級・若手の施工管理に合う転職エージェントの選び方 — 経験の有無で使い分ける",
+      "description": "2級土木施工管理技士や経験の浅い施工管理が転職を考えるときの、転職エージェント・求人サイトの選び方を整理。未経験/若手向け・建設特化・総合型・求人サイトの違いを、経験の有無という軸で使い分ける方法を示します。",
+      "shortTitle": "2級・若手のエージェント選び",
+      "subtitle": "未経験/若手・経験あり・まず求人を見たい、で最適なサービスは変わる",
+      "category": "civil-construction-2",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "career"
+      ],
+      "published": true,
+      "publishedAt": "2026-07-14",
+      "seoTitle": "2級・若手施工管理の転職エージェント選び｜経験の有無で使い分け",
+      "reviewStatus": "needs-review",
+      "created": "2026-07-14T00:00:00.000Z",
+      "dateModified": "2026-07-14T00:00:00.000Z",
+      "faqs": [
+        {
+          "q": "2級や経験が浅くても転職エージェントは使えますか？",
+          "a": "使えます。ただしサービスによって得意な層が違います。未経験・若手は20代/未経験に強いエージェント、実務経験がある2級保有者は建設業界特化エージェントが噛み合いやすいです。まず求人を眺めたいだけなら会員登録型の求人サイトが向きます。"
+        },
+        {
+          "q": "未経験に強いエージェントと建設特化エージェントはどう違いますか？",
+          "a": "未経験に強いエージェントは、経験の浅い人でも応募できる求人やポテンシャル採用を多く扱い、育成前提の企業とつなぎます。建設特化エージェントは資格・現場経験を評価する企業に強く、実務経験がある人ほど条件を引き出しやすい傾向です。"
+        },
+        {
+          "q": "エージェントは1社に絞るべきですか？",
+          "a": "絞る必要はありません。経験の有無に合ったエージェント1社と、自分でも求人を眺められる求人サイト1つの2本立てが、機会を狭めずに進める現実的な使い方です。"
         }
       ]
     },
@@ -7008,7 +7072,7 @@
       "revisionCycle": 2,
       "seoTitle": "キャリアオーナーシップ ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-07-11"
+      "dateModified": "2026-07-14"
     },
     "pe-comprehensive-management-career-path": {
       "title": "キャリアパス",
@@ -7132,7 +7196,7 @@
       "revisionCycle": 2,
       "seoTitle": "CDP・SBT・RE100 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-07-11"
+      "dateModified": "2026-07-14"
     },
     "pe-comprehensive-management-centralization-decentralization": {
       "title": "集中化と分散化",
@@ -7913,7 +7977,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "原価維持 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-07-11"
+      "dateModified": "2026-07-14"
     },
     "pe-comprehensive-management-cost-variance-analysis": {
       "title": "原価差異分析",
@@ -8027,7 +8091,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "優先順位 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-07-11",
+      "dateModified": "2026-07-14",
       "reviewStatus": "needs-review",
       "lastRewrittenAt": "2026-07-11T13:05:00Z",
       "revisionCycle": 2
@@ -8562,7 +8626,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "設計品質 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-07-11",
+      "dateModified": "2026-07-14",
       "reviewStatus": "needs-review",
       "lastRewrittenAt": "2026-07-11T11:15:15Z",
       "revisionCycle": 2
@@ -9311,7 +9375,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "緊急事態 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-07-11",
+      "dateModified": "2026-07-14",
       "reviewStatus": "needs-review",
       "lastRewrittenAt": "2026-07-11T11:10:21Z",
       "revisionCycle": 2
@@ -11553,7 +11617,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "ハザード ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-07-11"
+      "dateModified": "2026-07-14"
     },
     "pe-comprehensive-management-hazard-map": {
       "title": "ハザードマップ",
@@ -13557,7 +13621,7 @@
       "lastRewrittenAt": "2026-07-11T11:15:15Z",
       "revisionCycle": 2,
       "created": "2026-04-05",
-      "dateModified": "2026-07-11"
+      "dateModified": "2026-07-14"
     },
     "pe-comprehensive-management-logistic-regression": {
       "title": "ロジスティック回帰",
@@ -13786,7 +13850,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "製造品質 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-07-11",
+      "dateModified": "2026-07-14",
       "reviewStatus": "needs-review",
       "lastRewrittenAt": "2026-07-11T00:00:00Z",
       "revisionCycle": 2
@@ -14193,7 +14257,7 @@
       "lastRewrittenAt": "2026-07-11T11:35:40Z",
       "revisionCycle": 2,
       "created": "2026-04-05",
-      "dateModified": "2026-07-11"
+      "dateModified": "2026-07-14"
     },
     "pe-comprehensive-management-my-number-act": {
       "title": "マイナンバー法",
@@ -14305,7 +14369,7 @@
       "lastRewrittenAt": "2026-07-11T13:05:00Z",
       "revisionCycle": 1,
       "created": "2026-04-05",
-      "dateModified": "2026-07-11"
+      "dateModified": "2026-07-14"
     },
     "pe-comprehensive-management-nature-positive": {
       "title": "ネイチャーポジティブ",
@@ -14801,7 +14865,7 @@
       "lastRewrittenAt": "2026-07-11T11:10:21Z",
       "revisionCycle": 3,
       "created": "2026-04-05",
-      "dateModified": "2026-07-11"
+      "dateModified": "2026-07-14"
     },
     "pe-comprehensive-management-part-time-fixed-term-act": {
       "title": "パートタイム・有期雇用労働法",
@@ -16185,7 +16249,7 @@
       "revisionCycle": 2,
       "seoTitle": "公衆安全 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-07-11"
+      "dateModified": "2026-07-14"
     },
     "pe-comprehensive-management-public-servant-comprehensive-merit": {
       "title": "自治体の技術職員が総監を取る意味 — 発注者視点のメリット",
@@ -16365,7 +16429,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "品質原価計算 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-07-11"
+      "dateModified": "2026-07-14"
     },
     "pe-comprehensive-management-quality-improvement": {
       "title": "品質改善活動",
@@ -16398,7 +16462,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "品質目標 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-07-11",
+      "dateModified": "2026-07-14",
       "reviewStatus": "needs-review",
       "lastRewrittenAt": "2026-07-11T13:05:00Z",
       "revisionCycle": 2
@@ -17311,7 +17375,7 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "取替費用 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-07-11"
+      "dateModified": "2026-07-14"
     },
     "pe-comprehensive-management-required-quality": {
       "title": "要求品質",
@@ -17329,7 +17393,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "要求品質 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-07-11"
+      "dateModified": "2026-07-14"
     },
     "pe-comprehensive-management-residual-risk": {
       "title": "残留リスク",

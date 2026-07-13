@@ -163,6 +163,10 @@ const HIGH_INTENT_CAREER_SLUGS: ReadonlySet<string> = new Set([
   "civil-construction-1-guide-buildjob-review",
   "civil-construction-1-guide-career-agent-comparison",
   "civil-construction-1-guide-career-consultation-before-quit",
+  // civil-2 版の指名/比較（2026-07-14）。2級は未経験/若手寄りだが、実務経験ありの 2級保有者は
+  // BuildJob 適合＝指名/比較検索の高意図面ゆえ campaign 中は BuildJob 固定（本文は経験段階で正直に出し分け）。
+  "civil-construction-2-guide-buildjob-review",
+  "civil-construction-2-guide-career-agent-comparison",
 ]);
 
 /**

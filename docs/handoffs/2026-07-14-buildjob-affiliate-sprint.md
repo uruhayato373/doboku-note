@@ -91,6 +91,20 @@ MDX 変更なしのため refresh-indexes / ogp / validate-mdx は対象外。
 - 企画時メモ（doc 09 §外部調査メモ）の数値も公開流用しないよう doc 09 に warning 追記。
 - **教訓**: 検証済みファクトパック（doc 08）の再利用でも、年度更新（job tag 600→625）や企画メモの LP 版差（BuildJob 163→124）で陳腐化する。ガイド新規公開前は `guide-fact-checker` を必ず通す（memory `factcheck-guide-facts-required`）。
 
+## 2026-07-14 civil-2 版 指名/比較記事を追加（ユーザー指示）
+
+civil-1 の指名/比較記事に対応する civil-2 版を 2 本新設。**2級読者は未経験/若手が中心**のため、civil-1（経験者前提）とは角度を差別化し、BuildJob が経験者寄りである点を正直に扱った。
+
+| slug | 角度 | 本文字数 |
+|---|---|--:|
+| `civil-construction-2-guide-career-agent-comparison` | 経験の有無で使い分け（未経験/若手→若手特化・2級＋経験→建設特化・まず眺める→求人サイト） | 3,059 |
+| `civil-construction-2-guide-buildjob-review` | 2級・経験浅めでビルドジョブは使えるか（経験者寄りを正直に・完全未経験は若手特化と併用） | 3,074 |
+
+- 2 slug を `HIGH_INTENT_CAREER_SLUGS` に追加（campaign 中 BuildJob 固定・本文は経験段階で正直に出し分け）。
+- civil-1 版と相互リンク（RelatedKeywords）で束ねた。既存 civil-2 career 記事（career-change/young-career/haken-seishain/salary/resume）とも相互リンク。
+- **fact-check（guide-fact-checker）: suspicious 0 / unverifiable 1**。civil-1 の教訓を反映し具体数値（163万/50,529人/4.8 等）は最初から不掲載＝定性記述に統一。定性主張（経験者寄り・都市部中心・建設特化・2級=主任技術者の入口）は全て VERIFIED。unverifiable だった「専任アドバイザー」の語は civil-1/2 の buildjob-review 両方で「建設業界に詳しいアドバイザー」に軟化（断定回避）。
+- OGP 生成済み・refresh-indexes・validate-mdx（1111件）・check-guide-length（112件全3,000字以上）・check-ogp-coverage・affiliate3種・type-check・lint 全通過。
+
 ## 未実施・次アクション
 
 - **P1**: BuildJob 評判・比較記事 3 本の新規作成／既存キャリア記事上位 9 本の本文 CTA 文脈強化／note 無料 6 記事からの UTM 送客強化
