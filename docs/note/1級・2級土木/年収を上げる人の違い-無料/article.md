@@ -44,7 +44,7 @@ https://note.com/dobokunote/m/m8290970a7f05
 
 これらの違いは、才能ではなく「動き方」の差です。つまり、誰でも今日から変えられます。まず、自分の年収が役職や会社規模に対して妥当かを知ること。その仕組みは[役職・会社規模別の年収](https://doboku-note.com/docs/civil-construction-1-guide-salary-by-role?utm_source=note&utm_medium=inline&utm_campaign=civil-career-salary-difference&utm_content=salary-by-role)で整理しています。
 
-そのうえで、年収を上げる具体的なルートを知りたい方は、[土木施工管理技士が年収を上げる方法](https://doboku-note.com/docs/civil-construction-1-guide-salary-up?utm_source=note&utm_medium=inline&utm_campaign=civil-career-salary-difference&utm_content=salary-up)で、昇進・資格・転職・独立の4ルートを解説しています。自分に合うルートを見つけてください。
+そのうえで、年収を上げる具体的なルートを知りたい方は、[土木施工管理技士が年収を上げる方法](https://doboku-note.com/docs/civil-construction-1-guide-salary-up?utm_source=note&utm_medium=inline&utm_campaign=civil-career-salary-difference&utm_content=salary-up)で、昇進・資格・転職・独立の4ルートを解説しています。自分に合うルートを見つけてください。転職で上げるなら、資格・経験を評価するサービスを選ぶのが近道です。タイプ別の選び方は[施工管理に強い転職エージェントの比較](https://doboku-note.com/docs/civil-construction-1-guide-career-agent-comparison?utm_source=note&utm_medium=referral&utm_campaign=civil-career-salary-difference&utm_content=agent-comparison)で整理しています。
 
 **PR**：以下はアフィリエイト広告を含みます。
 

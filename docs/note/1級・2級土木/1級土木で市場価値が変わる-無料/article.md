@@ -44,7 +44,7 @@ https://note.com/dobokunote/m/m8290970a7f05
 
 ただし、1級を取っただけで自動的に年収が跳ね上がるわけではありません。大切なのは、その資格を**正当に評価してくれる環境で活かす**ことです。同じ1級でも、会社によって評価のされ方は大きく違います。
 
-いまの会社で1級が十分に評価されていないと感じるなら、それは能力の問題ではなく、環境の問題かもしれません。自分の資格と経験が他社でどう評価されるかは、[1級土木の市場価値（転職・年収・独立）](https://doboku-note.com/docs/civil-construction-1-guide-market-value?utm_source=note&utm_medium=inline&utm_campaign=civil-career-1kyu-value&utm_content=market-value)で整理しています。年収の上げ方そのものは[土木施工管理技士が年収を上げる方法](https://doboku-note.com/docs/civil-construction-1-guide-salary-up?utm_source=note&utm_medium=inline&utm_campaign=civil-career-1kyu-value&utm_content=salary-up)をご覧ください。
+いまの会社で1級が十分に評価されていないと感じるなら、それは能力の問題ではなく、環境の問題かもしれません。自分の資格と経験が他社でどう評価されるかは、[1級土木の市場価値（転職・年収・独立）](https://doboku-note.com/docs/civil-construction-1-guide-market-value?utm_source=note&utm_medium=inline&utm_campaign=civil-career-1kyu-value&utm_content=market-value)で整理しています。年収の上げ方そのものは[土木施工管理技士が年収を上げる方法](https://doboku-note.com/docs/civil-construction-1-guide-salary-up?utm_source=note&utm_medium=inline&utm_campaign=civil-career-1kyu-value&utm_content=salary-up)をご覧ください。資格・経験を実際にどのタイプのサービスで活かすかは、[施工管理に強い転職エージェントの比較](https://doboku-note.com/docs/civil-construction-1-guide-career-agent-comparison?utm_source=note&utm_medium=referral&utm_campaign=civil-career-1kyu-value&utm_content=agent-comparison)で、経験の有無に応じた選び方を整理しています。
 
 **PR**：以下はアフィリエイト広告を含みます。
 

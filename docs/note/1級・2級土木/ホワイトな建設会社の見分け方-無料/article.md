@@ -75,7 +75,7 @@ https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHBA2+5B0Y+NTJWY
 
 完璧な会社を探すより、自分が譲れない条件を満たし、明らかな地雷を避けるのが現実的なゴールです。一人での見極めが難しければ、内部事情に詳しいエージェントを頼るのも有効です。
 
-会社の業態による違いは[ゼネコン・サブコンなどの違い](https://doboku-note.com/docs/civil-construction-1-guide-company-types?utm_source=note&utm_medium=referral&utm_campaign=civil-career-white-company&utm_content=company-types)も参考になります。基準を持って丁寧に見極め、納得のいく転職につなげましょう。
+会社の業態による違いは[ゼネコン・サブコンなどの違い](https://doboku-note.com/docs/civil-construction-1-guide-company-types?utm_source=note&utm_medium=referral&utm_campaign=civil-career-white-company&utm_content=company-types)も参考になります。基準を持って丁寧に見極め、納得のいく転職につなげましょう。辞めるかどうかを決める前に、残業・休日条件のよい求人が実際にあるかだけ確認しておくと判断しやすくなります。その手順は[施工管理を辞める前に相談すべきこと](https://doboku-note.com/docs/civil-construction-1-guide-career-consultation-before-quit?utm_source=note&utm_medium=referral&utm_campaign=civil-career-white-company&utm_content=before-quit)にまとめました。
 
 ---
 
