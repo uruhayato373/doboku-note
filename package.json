@@ -131,6 +131,8 @@
     "update-image-baseline": "node scripts/check-image-assets.mjs --update-baseline",
     "audit-svg": "node .claude/skills/quality/check-mdx/scripts/rules/svg/audit.mjs",
     "audit-svg:ci": "node .claude/skills/quality/check-mdx/scripts/rules/svg/audit.mjs --fail-on=HIGH",
+    "audit-katex": "node scripts/audit-katex-warnings.mjs",
+    "audit-katex:ci": "node scripts/audit-katex-warnings.mjs --strict",
     "check-orphan-figures": "node scripts/check-orphan-figures.mjs",
     "check-ig-cover": "node scripts/check-ig-cover.mjs",
     "check-ig-cta": "node scripts/check-ig-cta.mjs",

@@ -75,6 +75,7 @@ const CHECKS = [
   // 既存の未解消問題のため report-only（gate に入れると既存債務で CI が赤になる）:
   //   internal-links = concrete-chief 等の RelatedKeywords に存在しない slug（定期監査は link-audit.yml が担当）
   //   note-meta-lint = note:fs/promises の glob import が Node20 で未提供（スクリプト側の既存バグ・要修正）
+  { id: 'katex-warnings', npm: 'audit-katex:ci', timeout: 240_000, ci: false, note: 'build の KaTeX strict 警告を数式単位で検出。0 件化後に ci:true 昇格予定' },
   { id: 'internal-links', npm: 'check-links', timeout: 180_000, ci: false, note: 'ローカル slug 照合。既存 BROKEN_SLUG 債務あり（link-audit.yml が定期監査）' },
   { id: 'note-meta-lint', npm: 'note-meta-lint', timeout: 60_000, ci: false, note: '既存バグ: node:fs/promises glob が Node20 未提供でクラッシュ（要修正）' },
   { id: 'doc-lifecycle', npm: 'check-doc-lifecycle', timeout: 90_000, ci: false },
