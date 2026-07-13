@@ -1,4 +1,4 @@
-name: Pre-merge check (type + test + build)
+name: Pre-merge check (quality audit + build)
 
 on:
   pull_request:
@@ -23,17 +23,11 @@ jobs:
       - name: Install Dependencies
         run: npm ci --legacy-peer-deps
 
-      - name: Type Check
-        run: npm run type-check
-
-      - name: Check homepage exam coverage
-        run: npm run check-home-exam-coverage
-
-      - name: Unit Tests
-        run: npm test
-
-      - name: Validate MDX
-        run: npm run validate-mdx
+      # 機械品質チェックを横断実行（type-check / test / validate-mdx / eslint /
+      # ラチェット / frontmatter / svg / image / links / 台帳整合 等を1ステップに集約）。
+      # 個別ステップの真実源は scripts/quality-audit.mjs の CHECKS(ci:true)。
+      - name: Quality audit (ci gate)
+        run: npm run quality:audit:ci
 
       - name: Build
         run: npm run build

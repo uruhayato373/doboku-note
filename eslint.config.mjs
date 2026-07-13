@@ -17,6 +17,8 @@ export default tseslint.config(
       ...hooksPlugin.configs.recommended.rules,
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+      // 本番 src/ に console.log を残さない（warn/error は運用ログとして許容）
+      'no-console': ['error', { allow: ['warn', 'error'] }],
       'react-hooks/error-boundaries': 'warn',
       'react-hooks/set-state-in-effect': 'warn',
       'react-hooks/static-components': 'warn',
