@@ -105,9 +105,32 @@ civil-1 の指名/比較記事に対応する civil-2 版を 2 本新設。**2�
 - **fact-check（guide-fact-checker）: suspicious 0 / unverifiable 1**。civil-1 の教訓を反映し具体数値（163万/50,529人/4.8 等）は最初から不掲載＝定性記述に統一。定性主張（経験者寄り・都市部中心・建設特化・2級=主任技術者の入口）は全て VERIFIED。unverifiable だった「専任アドバイザー」の語は civil-1/2 の buildjob-review 両方で「建設業界に詳しいアドバイザー」に軟化（断定回避）。
 - OGP 生成済み・refresh-indexes・validate-mdx（1111件）・check-guide-length（112件全3,000字以上）・check-ogp-coverage・affiliate3種・type-check・lint 全通過。
 
-## 未実施・次アクション
+## 完了済み（2026-07-14・本セッション）
 
-- **P1**: BuildJob 評判・比較記事 3 本の新規作成／既存キャリア記事上位 9 本の本文 CTA 文脈強化／note 無料 6 記事からの UTM 送客強化
-- **P2**: BuildJob クリック集計レポート（GA4 `affiliate_cta_click` label 別週次）／9/1 以降の EPC 再配分判断
-- **手動確認**: deploy は `/deploy` スキル経由でユーザー判断（本作業では未実施）。デプロイ後、高意図ページ（例 `/docs/civil-construction-1-guide-quit-or-stay`＝切替対象）のサイドバーが BuildJob になっていることを目視確認
-- **計測上の注意**: 期間中は高意図 17 本が A/B 母集団から抜けるため、建設JOBs vs BuildJob の恒久 EPC 比較は低意図面のみで解釈する
+- **P0/P1/P2 実装＋ファクトチェック是正＋GA4 誤診訂正＋doc-sync 是正**：完了・commit 済み。
+- **本番デプロイ完了**：`git push origin develop:main`（FF・作業ツリー非接触）で develop→main、Cloudflare Pages CI 成功。本番で新規5記事 HTTP 200・高意図ページで BuildJob mat 発火／建設JOBs mat=0 を curl 検証済み。origin/main = 3932bb671。
+- **note→サイト送客強化（SoT 完成）**：note キャリア8本すべてが新高意図サイト記事へリンク（うち5本を本セッションで追加）。
+
+## 🔴 別PCで実施するタスク（note.com 再push・手動ゲート）
+
+**下記5本の note 記事は SoT（`docs/note/**`）を更新済みだが、live の note.com 本文は旧内容のまま。** サイト送客リンクを反映するには、note ログイン済みの別PCで `npm run note-update-body`（Playwright）で再push が必要。**まず `git pull origin develop` で本コミット（f902d6fa2）を取得してから実行すること。**
+
+| note 記事（`docs/note/1級・2級土木/…-無料/`） | 追加した送客先 |
+|---|---|
+| 1級土木で市場価値が変わる | civil-construction-1-guide-career-agent-comparison |
+| 年収を上げる人の違い | civil-construction-1-guide-career-agent-comparison |
+| ホワイトな建設会社の見分け方 | civil-construction-1-guide-career-consultation-before-quit |
+| 公務員土木か民間か | civil-construction-1-guide-career-consultation-before-quit |
+| 施工管理の失敗談と教訓 | civil-construction-1-guide-career-consultation-before-quit |
+
+- 再push の罠は memory `note-update-body-gotchas`（複数行 blockquote 脱落等）を参照。今回の追加は既存段落末尾への1文インラインリンクのみ＝低リスク。
+- 追加リンクは UTM `utm_medium=referral`。リンク先はサイト側デプロイ済み（本番200確認済み）なので、再push すれば即 live 動線になる。
+- **site デプロイは不要**（note SoT は doboku-note.com のビルド対象外＝note.com にのみ住む）。
+
+## 残りの次アクション（時間差）
+
+- **A8 成果の月末入力**：`.claude/state/metrics/affiliate/a8-results.json` に BuildJob/建設JOBs の成果を手入力すると `npm run report-buildjob-affiliate` で EPC が出る（A8 は API 無し）。
+- **GA4 面別クリック**：event_label は登録済み（2026-07-07）。deploy 後クリックが溜まったら `npm run fetch-ga4-cta-clicks -- --by-label`（07-07 以降を含む期間）→ `report-buildjob-affiliate` で面別内訳。
+- **9/1 以降**：最初の本番再ビルドで `isCampaignActive()`=false → 高意図 slug が slug ハッシュ A/B（GKS/建設JOBs）へ自動復帰。EPC 実績で再配分判断。
+- **計測上の注意**：期間中は高意図 slug が A/B 母集団から抜けるため、建設JOBs vs BuildJob の恒久 EPC 比較は低意図面・hub のみで解釈する。
+- **別セッションのデザイン刷新**：本作業ツリーに未コミットで進行中（Soft Editorial）。担当セッションがコミット後、同じ FF push でデプロイ可能。本セッションは非接触。
