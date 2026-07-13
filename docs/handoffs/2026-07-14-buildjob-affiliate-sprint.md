@@ -66,7 +66,7 @@ MDX 変更なしのため refresh-indexes / ogp / validate-mdx は対象外。
 
 - `npm run report-buildjob-affiliate`（`.claude/scripts/report-buildjob-affiliate.mjs`）新設。オフライン集計。
 - 出力: `.claude/state/metrics/affiliate/buildjob-report-latest.md`（プログラム別クリック・BuildJob 面別内訳・上位ページ・推定 EPC）。
-- **判明したブロッカー**: GA4 の `event_label` カスタムディメンションが未登録で、面別クリックが全て `(not set)` に集約されている。面別内訳を取るには GA4 管理画面でイベントスコープの `event_label` を登録 → `npm run fetch-ga4-cta-clicks -- --by-label` で再取得が必要（レポートは警告表示のうえ page 別のみで継続）。
+- **当初「未登録ブロッカー」と報告→訂正（2026-07-14・ユーザーの GA4 画面で確認）**: `event_label` カスタムディメンションは「CTA label」として **2026-07-07 に登録済み**（パラメータ名 `event_label`・実装 `gtag.ts` と一致）。既存 by-label スナップショット（期間 06-11〜07-08）が `(not set)` だったのは、取得期間の大半が登録日 07-07 より前で**カスタムディメンションが遡及しない**ため。**追加の GA4 設定は不要**。deploy 後にクリックが溜まり、07-07 以降を含む期間で `fetch-ga4-cta-clicks --by-label` を取り直せば面別に分解される。レポートスクリプトの警告文言も実態に合わせ修正済み。
 
 ### P1「既存記事の本文文脈強化」を見送った理由
 

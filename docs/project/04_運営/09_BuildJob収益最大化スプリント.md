@@ -456,7 +456,7 @@ doboku-note の BuildJob アフィリエイト収益最大化スプリントを�
   - `guide-career-consultation-before-quit`（辞める前顕在層・求人相場/年収/働き方の確認手順）
   - 3 slug は `HIGH_INTENT_CAREER_SLUGS` に追加（サイドバー/記事末/inline とも BuildJob 固定・SSG 出力で建設JOBs mat=0・1 ページ 1 ピクセル・PR/nofollow sponsored 確認済み）。BuildJob 公式値（年収アップ平均163万円・満足度4.8・内定率77% 等）は WebSearch 照合のうえ「サービス公表値」明記、保証表現なし。年収/担い手統計は doc 08 検証済みファクトパック再利用。
 - **P1 note 送客強化**: `転職エージェントの使い方`→比較記事、`転職した方がいい施工管理`/`転職のベストタイミング`→辞める前相談記事へ UTM 付きインラインリンクを 1 本ずつ追加（大量リライトなし・note-lint 通過）。
-- **P2 クリック集計レポート**: `npm run report-buildjob-affiliate`（`.claude/scripts/report-buildjob-affiliate.mjs`）を新設。最新 GA4 by-label + page 別 + a8-results.json を束ね、プログラム別クリック/BuildJob 面別内訳/上位ページ/推定 EPC を `.claude/state/metrics/affiliate/buildjob-report-latest.md` に出力。**現状 GA4 の event_label カスタムディメンションが未登録で面別は `(not set)` に集約＝手動アクション必要**（GA4 管理画面で登録→`npm run fetch-ga4-cta-clicks -- --by-label` 再取得）。
+- **P2 クリック集計レポート**: `npm run report-buildjob-affiliate`（`.claude/scripts/report-buildjob-affiliate.mjs`）を新設。最新 GA4 by-label + page 別 + a8-results.json を束ね、プログラム別クリック/BuildJob 面別内訳/上位ページ/推定 EPC を `.claude/state/metrics/affiliate/buildjob-report-latest.md` に出力。**訂正（2026-07-14）: event_label カスタムディメンションは「CTA label」として 2026-07-07 に登録済み**（当初「未登録」と誤診）。既存 by-label スナップショット（期間〜07-08）が `(not set)` に集約されていたのは、取得期間の大半が登録日 07-07 より前でカスタムディメンションが遡及しないため。**追加の GA4 設定は不要**。deploy 後にクリックが溜まり、07-07 以降を含む期間で `npm run fetch-ga4-cta-clicks -- --by-label` を取り直せば面別に分解される。
 - **未実施**: P1「既存キャリア記事の本文文脈強化」は、安心コピーが `resolveBuildJobCopy`/`resolveCareerTextLink.lead` により全 career カードへコード側で自動反映されたため、個別 MDX の手編集は不要と判断（大量リライト禁止の制約も踏まえ見送り）。deploy・note 実投稿・A8 操作は未実施（ユーザーゲート）。
 
 ## 期待する成果

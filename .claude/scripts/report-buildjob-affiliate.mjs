@@ -149,9 +149,12 @@ lines.push("## プログラム別クリック（affiliate_cta_click）");
 lines.push("");
 if (labelUnavailable) {
   lines.push("> [!warning]");
-  lines.push("> GA4 の面別ラベルが全て `(not set)`。event_label カスタムディメンション（イベントスコープ）が");
-  lines.push("> 未登録のため面別内訳を出せません。GA4 管理画面で登録後、`npm run fetch-ga4-cta-clicks -- --by-label`");
-  lines.push("> を再取得してください。以下はページ別のみ有効です。");
+  lines.push("> GA4 の面別ラベルが全て `(not set)`。原因は次のいずれか:");
+  lines.push("> 1. 取得期間の大半が event_label カスタムディメンションの登録日（doboku-note は 2026-07-07 に");
+  lines.push(">    「CTA label」= パラメータ `event_label` で登録済み）**より前**＝カスタムディメンションは遡及しないため。");
+  lines.push(">    → 登録日以降を含む期間で `npm run fetch-ga4-cta-clicks -- --by-label` を取り直せば面別に分解される。");
+  lines.push("> 2. 本番クリックがまだ少ない（デプロイ後に蓄積してから面別内訳が埋まる）。");
+  lines.push("> いずれも追加の GA4 設定は不要（登録は完了済み）。以下はページ別のみ有効。");
   lines.push("");
 }
 if (byProgram.size > 0) {
@@ -226,7 +229,7 @@ console.log("[report-buildjob-affiliate]");
 console.log(`  面別スナップショット: ${labelFile ?? "なし"}`);
 console.log(`  ページ別スナップショット: ${pageFile ?? "なし"}`);
 if (labelUnavailable) {
-  console.log("  ⚠ GA4 面別ラベルが (not set) のみ＝event_label カスタムディメンション未登録");
+  console.log("  ⚠ GA4 面別ラベルが (not set) のみ＝取得期間が event_label 登録日(2026-07-07)より前 or クリック蓄積不足");
 }
 const bj = byProgram.get("buildjob") ?? 0;
 const kj = byProgram.get("kensetsu-jobs") ?? 0;
