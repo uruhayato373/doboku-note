@@ -17,9 +17,13 @@ title: 推奨ワークフロー
 1. 06:00 JST  fetch-metrics.yml（自動）<- GSC + GA4 取得
 2. PM         /weekly-review          <- 実績を振り返る（進捗・コンテンツ品質・PSI 推移）
 3. PM         /weekly-plan            <- 来週の計画を立てる（PDF→MDX 変換・オープン Issue 対応）
+月曜:
+4. 11:17 JST  weekly-review-guard.yml（自動）<- 先週分の *-review.md 欠落を赤落ちで検知
 ```
 
 詳細は `.claude/skills/management/weekly-review/SKILL.md` と `.claude/skills/management/weekly-plan/SKILL.md` を参照。
+
+**発火の信頼性（サイレント欠落の防止）**: 手順 2-3 は**クラウドルーティン**（正典 = `doboku-note weekly PDCA`・`/schedule` で作成）が金曜 PM に発火して回す。状態はクラウド側にしか無く repo からは見えないため、停止・無効・cron ズレで**発火しなくなっても気づけない**（実際 2026-W27/W28 の 2 週分が silent 欠落）。これを防ぐため `weekly-review-guard.yml`（`npm run check-weekly-review`＝`scripts/check-weekly-review.mjs`）が毎週月曜に「先週分の `docs/reviews/weekly/YYYY-Www-review.md` が生成済みか」を検査し、無ければ赤落ちさせる（生成はしない＝ルーティンの責務、ガードは欠落検知のみ）。赤落ち時は対話セッションで `/routines`（list-first）→ 無ければ `/schedule` 再作成、cron ズレなら `update`。ルーティン監査の真実源は [.claude/skills/management/routines/SKILL.md](../../.claude/skills/management/routines/SKILL.md)。
 
 ### 継続的改善ループ（計測→検知→対応→再計測）
 

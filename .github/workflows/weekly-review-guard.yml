@@ -1,0 +1,38 @@
+name: Guard weekly-review cycle
+
+# 週次レビュー（/weekly-review）を回すクラウドルーティン（正典 = doboku-note weekly PDCA）が
+# 停止・無効・cron ズレで発火しなくなっても、状態はクラウド側にしかなく repo からは見えない。
+# 実際 2026-W27/W28 の 2 週分が silent に欠落した（docs/reviews/weekly が W26 で止まっていた）。
+#
+# 本ガードは毎週月曜に「先週分の *-review.md が生成済みか」を決定的に検査し、無ければ赤落ちさせて
+# ルーティン停止を可視化する（r2-audit / check-ogp-coverage と同じ backstop 思想。レビューの生成は
+# しない＝生成はクラウドルーティンの責務、本ガードは発火の欠落検知のみ）。
+#
+# 赤落ち時の対処: 対話セッション（デスクトップ/web アプリ）で /routines（list-first）→ 無ければ
+#   /schedule で再作成、cron ズレなら update。真実源: .claude/skills/management/routines/SKILL.md
+
+on:
+  schedule:
+    - cron: "17 2 * * 1" # 毎週月曜 11:17 JST（月曜 02:17 UTC）。先週分の review 生成を検査
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+
+      # 先週分の docs/reviews/weekly/YYYY-Www-review.md が無ければ exit 1（赤落ち）。
+      # 依存パッケージ不要（fs のみ）なので npm ci はスキップ。
+      - name: Check last week's review exists
+        run: node scripts/check-weekly-review.mjs
