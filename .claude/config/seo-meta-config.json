@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "description": "SEO meta タグ・OGP・JSON-LD 監査の設定。閾値・対象 URL の真実源。Issue #125。",
+  "description": "SEO meta 監査の対象 URL（include_routes）と HTTP 巡回互換設定。canonical/og:url/title/SSR の実判定ロジックは scripts/lib/seo-checks.mjs が真実源（主経路は out/ 直接検査・dev server 不要）。base_url/thresholds/severity は --base-url の HTTP 巡回モード互換用。Issue #125。",
   "base_url": "http://localhost:3020",
   "production_url": "https://doboku-note.com",
   "url_source": "src/config/doc-meta-index.json",
