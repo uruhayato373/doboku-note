@@ -355,6 +355,7 @@ export default async function DocPage({
         href={careerMidLink.href}
         text={careerMidLink.text}
         trackLabel={careerMidLink.trackLabel}
+        lead={careerMidLink.lead}
       />
     );
   } else if (midEnabled) {

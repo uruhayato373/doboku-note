@@ -272,7 +272,7 @@ CLAUDE.md §7 と一致:
 | note 要素の総数（footer 含む・暴走検知の緩い上限） | ≤ 30 | **機械**（旗艦ハブは意図的に多数収録＝22 程度まで） |
 | 同一 a8mat のインプレッションピクセル（`<img …0.gif?a8mat=MAT>`） | ≤ 1 /ページ | **機械**（同一 MAT 二重発火を検知。別 MAT の併置＝カテゴリ hub の補完 2 案件 は正当で許可） |
 | note もくじタイル（`HubCtaBanner`／L2 索引） | 全 HUB 資格（civil-1/2・総監・建設）の docs 記事末尾＋サイドバーに各 1 枚（`-docs-sb`／`-footer`）＋カテゴリ hub に sidebar/mobile 各 1 枚。個別マガジンタイル（旧・最大 3 誌）は 2026-07 廃止し個別導線は冒頭/中間 CTA・MDX 内 MagazineCard に一本化。非 HUB 資格・career タグ記事は非表示 | コード（page.tsx 導出・`resolveHubCta`） |
-| 本文中間 CTA（`MidArticleCta`） | 1 記事 1 個。**note/related モード**=guide/pillar/textbook・h2≥5・8,000字以上。**career モード**（転職テキスト・affiliate）=career タグ・h2≥4・2,500字以上（career 記事は 3〜4k 字で 8,000字に届かないため専用ゲート）＋ `resolveCareerTextLink` 非 null（arm A・campaign 中のみ＝arm B/9月以降は非表示） | コード（挿入条件） |
+| 本文中間 CTA（`MidArticleCta`） | 1 記事 1 個。**note/related モード**=guide/pillar/textbook・h2≥5・8,000字以上。**career モード**（転職テキスト・affiliate）=career タグ・h2≥4・2,500字以上（career 記事は 3〜4k 字で 8,000字に届かないため専用ゲート）＋ `resolveCareerTextLink` 非 null（実効 arm A・campaign 中のみ＝arm B/9月以降は非表示。高意図キャリア slug は campaign 中 arm B でも BuildJob 固定で表示＝`isKensetsuJobsArmEffective`・2026-07-14）。リンク直前に安心コピー（`lead`）を併記 | コード（挿入条件） |
 | 記事末尾 footer カード | ≤ 7 目安（旗艦セールスハブは例外的に超過可） | 手動 |
 | AdSense 自動広告 | コードで除外指定不可 → 管理画面「広告掲載率」＋`google-auto-placed` 出現数を週次監査 | 手動 |
 

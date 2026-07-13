@@ -27,6 +27,8 @@ type MidArticleCtaProps =
       readonly href: string;
       readonly text: string;
       readonly trackLabel: string;
+      /** リンク直前の安心コピー（編集文言・任意）。転職エージェントへの心理的ハードルを解消する。 */
+      readonly lead?: string;
     }
   | {
       readonly mode: 'related';
@@ -52,6 +54,9 @@ export default function MidArticleCta(props: MidArticleCtaProps) {
     return (
       <div className="not-prose my-8 max-w-2xl rounded-card-content border border-[var(--rule-soft)] bg-[var(--accent-fill)] px-4 py-3.5">
         <AffiliatePrBadge className="mb-1.5" />
+        {props.lead && (
+          <p className="mb-1.5 text-sm leading-6 text-ink-body">{props.lead}</p>
+        )}
         <a
           href={props.href}
           target="_blank"

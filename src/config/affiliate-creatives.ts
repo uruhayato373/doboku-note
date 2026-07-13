@@ -119,17 +119,74 @@ function isKensetsuJobsArm(slug: string | undefined): boolean {
 }
 
 /**
+ * 高意図キャリア slug（キャリア/転職/年収/働き方 intent のガイド記事）。
+ * ビルドジョブ増額キャンペーン（〜2026-08-31・面談 ¥50,000/件）期間中は、これらのページを
+ * 建設JOBs A/B（arm B）から除外してビルドジョブ 100% 表示に寄せる（機会損失の回避）。
+ * 9/1 以降は `isCampaignActive()` が false になり、自動で通常の slug ハッシュ A/B に復帰する。
+ * 学習 intent（過去問・textbook・keyword）と総監（PE_CONSULTING）は含めない。
+ * 真実源: docs/project/04_運営/09_BuildJob収益最大化スプリント.md（P0）。
+ */
+const HIGH_INTENT_CAREER_SLUGS: ReadonlySet<string> = new Set([
+  "civil-construction-1-guide-quit-or-stay",
+  "civil-construction-1-guide-resume",
+  "civil-construction-1-guide-interview",
+  "civil-construction-1-guide-hatchu-shien",
+  "civil-construction-1-guide-quit-honne",
+  "civil-construction-1-guide-future",
+  "civil-construction-1-guide-salary-by-role",
+  "civil-construction-1-guide-age-career",
+  "civil-construction-1-guide-public-servant",
+  "civil-construction-1-guide-consultant",
+  "civil-construction-1-guide-allowance",
+  "civil-construction-1-guide-timing",
+  "civil-construction-1-guide-white-company",
+  "civil-construction-1-guide-company-types",
+  "civil-construction-1-guide-women",
+  "civil-construction-1-guide-dx-jobs",
+  "civil-construction-1-guide-career-agents",
+  "civil-construction-1-guide-career-cases",
+  "civil-construction-1-guide-career-path",
+  "civil-construction-1-guide-career-salary",
+  "civil-construction-1-guide-salary-up",
+  "civil-construction-1-guide-market-value",
+  "civil-construction-2-guide-quit-or-stay",
+  "civil-construction-2-guide-young-career",
+  "civil-construction-2-guide-haken-seishain",
+  "civil-construction-2-guide-resume",
+  "civil-construction-2-guide-career-change",
+  "civil-construction-2-guide-career",
+  "civil-construction-2-guide-salary",
+  "civil-construction-2-guide-job-reality",
+  "pe-construction-guide-career",
+]);
+
+/**
+ * 実効 arm 判定: キャンペーン期間中の高意図キャリア slug は arm B（建設JOBs）を使わず
+ * arm A（ビルドジョブ）に固定する。それ以外は従来の slug ハッシュ A/B のまま。
+ * サイドバー・記事末カード・本文中間テキストの全サーフェスがこの 1 関数を共有するため、
+ * 同一ページ内で案件が食い違わない（ピクセルも常にサイドバー 1 発火＝1 ページ 1 ピクセル維持）。
+ */
+function isKensetsuJobsArmEffective(slug: string | undefined): boolean {
+  if (isCampaignActive() && slug && HIGH_INTENT_CAREER_SLUGS.has(slug)) {
+    return false;
+  }
+  return isKensetsuJobsArm(slug);
+}
+
+/**
  * 施工管理/建設セグメントのサイドバー転職枠を slug ハッシュで A/B 振り分ける（2026-06-29〜）。
  * - arm B（約50%）: 建設JOBs（登録 ¥4,500・低摩擦）。trackLabel=KensetsuJobs-sidebar。
  * - arm A（約50%）: 既定 `resolveCareerSidebarAd()`（〜8/31 ビルドジョブ ¥50,000 ／ 9/1 GKS）。
  * EPC（報酬 × 成約率）で勝者を決めるための恒久 A/B。総監（PE_CONSULTING）は対象外。
  * 注: 各 arm は自前の pixelSrc を持つ＝ページごとに 1 ピクセル（1 ページ 1 ピクセル維持）。
+ * 例外: キャンペーン期間中の高意図キャリア slug は arm B を使わずビルドジョブ固定
+ * （isKensetsuJobsArmEffective・〜2026-08-31 の短期収益施策）。
  */
 function resolveCareerSidebarAbArm(slug: string | undefined): {
   creative: SidebarAdCreative;
   trackLabel: string;
 } {
-  if (isKensetsuJobsArm(slug)) {
+  if (isKensetsuJobsArmEffective(slug)) {
     return { creative: KENSETSU_JOBS_CAREER_AD, trackLabel: "KensetsuJobs-sidebar" };
   }
   return resolveCareerSidebarAd();
@@ -175,6 +232,59 @@ export type CareerArticleEndCard = {
 };
 
 /**
+ * ビルドジョブ カードの記事テーマ別 CTA。slug の部分一致で数パターンに出し分ける
+ * （過度に細分化しない・先勝ち）。マッチしない slug と slug 不明（inline preset 経由）は
+ * 既定 CTA「資格・経験で狙える求人を無料で聞く」に倒す。
+ * 方針: 「無料相談」の一般訴求ではなく「何がわかるか（求人/年収相場/働き方の選択肢）」を前面に出す。
+ * 真実源: docs/project/04_運営/09_BuildJob収益最大化スプリント.md（P0 カードコピー改善）。
+ */
+const BUILDJOB_CTA_BY_THEME: ReadonlyArray<{
+  readonly pattern: RegExp;
+  readonly cta: string;
+}> = [
+  { pattern: /quit/, cta: "辞める前に、外で評価される条件を確認する" },
+  { pattern: /salary|allowance|market-value/, cta: "今の年収で損していないか確認する" },
+  { pattern: /resume|interview/, cta: "職務経歴書・面接対策を無料で相談する" },
+  {
+    pattern: /hatchu-shien|consultant|public-servant/,
+    cta: "発注者支援・別職種の選択肢を相談する",
+  },
+  { pattern: /white-company|job-reality|timing/, cta: "残業・休日条件のよい求人を相談する" },
+  {
+    pattern: /women|young|haken-seishain|age-career/,
+    cta: "年齢・経歴に合う求人を無料で聞く",
+  },
+];
+
+/**
+ * ビルドジョブの記事末/inline カードコピーを解決する。
+ * - description に安心コピー（「今すぐ転職すると決めていなくても〜確認できる」）を常時内蔵し、
+ *   転職エージェントへの心理的ハードル（応募を急かされそう・断りづらい）を先回りで解消する。
+ * - CTA は記事テーマ別に出し分け（BUILDJOB_CTA_BY_THEME）。
+ * - 数値訴求（年収アップ額等の広告主公称値）は本文/カードとも使わない（景表法・LP 更新リスク回避。
+ *   使う場合は「サービス公表値」明記が必須＝docs/project/04_運営/09 §戦略判断4）。
+ * - service 名は既存 GA4 ラベル（data-cta-label="ビルドジョブ"）との継続性のため変えない。
+ */
+function resolveBuildJobCopy(slug?: string): CareerArticleEndCard {
+  const themed = slug
+    ? BUILDJOB_CTA_BY_THEME.find(({ pattern }) => pattern.test(slug))
+    : undefined;
+  return {
+    service: "ビルドジョブ",
+    category: "建設業界特化 転職エージェント",
+    description:
+      "今すぐ転職すると決めていなくても、資格・経験で狙える求人や年収相場を無料キャリア面談で確認できます。",
+    href: BUILDJOB_CAREER_AD.href,
+    points: [
+      "建設業界に特化した求人紹介",
+      "書類作成・面接対策・条件交渉までサポート",
+      "登録・相談はすべて無料",
+    ],
+    cta: themed?.cta ?? "資格・経験で狙える求人を無料で聞く",
+  };
+}
+
+/**
  * civil（1級/2級）記事末・モバイル限定の転職ネイティブカードを解決する。
  *
  * 背景: サイドバー転職枠（`resolveCareerSidebarAd`）は PC（≥993px）のみ表示のため、
@@ -190,9 +300,10 @@ export type CareerArticleEndCard = {
  * （未確認の数値は記載しない）。
  */
 export function resolveCareerArticleEndCard(slug?: string): CareerArticleEndCard {
-  // A/B arm B（建設JOBs・登録 ¥4,500）。サイドバーと同じ slug ハッシュで一致させ、同一ページは
+  // A/B arm B（建設JOBs・登録 ¥4,500）。サイドバーと同じ実効 arm 判定で一致させ、同一ページは
   // PC サイドバーと記事末カードが必ず同じ案件になる（href のみ＝ピクセルはサイドバー arm B が源）。
-  if (isKensetsuJobsArm(slug)) {
+  // キャンペーン中の高意図キャリア slug は arm B を使わずビルドジョブ固定（isKensetsuJobsArmEffective）。
+  if (isKensetsuJobsArmEffective(slug)) {
     return {
       service: "建設JOBs",
       category: "施工管理・建設業界の転職サイト",
@@ -208,19 +319,7 @@ export function resolveCareerArticleEndCard(slug?: string): CareerArticleEndCard
     };
   }
   if (resolveCareerSidebarAd().trackLabel === "BuildJob-sidebar") {
-    return {
-      service: "ビルドジョブ",
-      category: "建設業界特化 転職エージェント",
-      description:
-        "資格取得後のキャリアも視野に。建設・施工管理に特化した求人を、専任アドバイザーの無料キャリア面談で相談できます。",
-      href: BUILDJOB_CAREER_AD.href,
-      points: [
-        "建設業界に特化した求人紹介",
-        "専任アドバイザーによる無料キャリア面談",
-        "登録・相談はすべて無料",
-      ],
-      cta: "無料でキャリア相談する",
-    };
+    return resolveBuildJobCopy(slug);
   }
   return {
     service: "GKSキャリア",
@@ -326,24 +425,30 @@ export type CareerTextLink = {
   readonly href: string;
   readonly text: string;
   readonly trackLabel: string;
+  /** リンク直前に置く安心コピー（編集文言・A8 creative 本文ではない）。 */
+  readonly lead: string;
 };
 
 /**
  * career 記事の本文中間テキスト CTA を解決する（2026-07・ビルドジョブ増額キャンペーン限定）。
  * 300×250 バナーが置けない本文フローに、テキストリンクで露出する（テキストは一般にバナーより CTR 高）。
- * - arm B（建設JOBs slug ハッシュ）: **null**。建設JOBs のテキスト mat が無く、arm B に別ブランドの
- *   テキストを混ぜると恒久 A/B の EPC 比較が汚れるため、面を出さず related fallback に委ねる。
+ * - arm B（建設JOBs slug ハッシュ・高意図 slug の campaign 中固定を除く）: **null**。建設JOBs の
+ *   テキスト mat が無く、arm B に別ブランドのテキストを混ぜると恒久 A/B の EPC 比較が汚れるため、
+ *   面を出さず related fallback に委ねる。
  * - arm A かつ campaign 中: ビルドジョブ テキストリンク（NTRMQ）。label=BuildJob-midtext。
+ *   リンク文言は A8 発行の公式テキストのまま変えず、直前の安心コピー（lead・編集文言）で
+ *   「今すぐ転職しなくても相場確認だけできる」ハードル解消を補う。
  * - 2026-09-01 以降: null（GKS のテキスト mat 未提供＝面ごと自動消滅）。
  * href のみ（1 ページ 1 ピクセル維持）。表示側で PR 開示を必ず付ける。
  */
 export function resolveCareerTextLink(slug?: string): CareerTextLink | null {
-  if (isKensetsuJobsArm(slug)) return null;
+  if (isKensetsuJobsArmEffective(slug)) return null;
   if (isCampaignActive()) {
     return {
       href: BUILDJOB_TEXT_AD.href,
       text: BUILDJOB_TEXT_AD.text,
       trackLabel: "BuildJob-midtext",
+      lead: "今すぐ転職すると決めていなくても、求人相場と自分の評価だけ確認できます。",
     };
   }
   return null;
