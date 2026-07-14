@@ -107,6 +107,18 @@ https://note.com/dobokunote/n/n4963f45bd6f8
 
 https://note.com/dobokunote/m/m1881a9578027
 
+## 資格を取ったら市場価値はどう変わる？
+
+受験資格の次に多いのが「取ったら何が変わるのか」という疑問です。2級土木を取得すると主任技術者として配置できる立場になり、年収・役職・1級へのステップに直結します。詳しくは[2級土木を取ると何ができる？（年収・転職・1級への道）](https://doboku-note.com/docs/civil-construction-2-guide-career?utm_source=note&utm_medium=referral&utm_campaign=2c-eligibility&utm_content=career)にまとめました。
+
+経験が浅いうちからキャリアの選択肢を知っておきたい人は、建設特化の転職エージェントの向き不向きを整理した[経験浅めでビルドジョブは使えるか](https://doboku-note.com/docs/civil-construction-2-guide-buildjob-review?utm_source=note&utm_medium=referral&utm_campaign=2c-eligibility&utm_content=buildjob-review)も参考になります。
+
+**PR**：以下はアフィリエイト広告を含みます。
+
+すでに実務経験があり、資格取得を機に条件を見直したい方は、建設・施工管理に特化した転職エージェントの無料キャリア面談で、いまの経験・資格で狙える求人と想定年収を確認できます。登録・相談は無料で、在職中でも動くかは提示された条件を見てから決められます。
+
+https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHBA2+5B0Y+NTJWY
+
 ---
 
 <!-- cta:civil-mokuji -->
