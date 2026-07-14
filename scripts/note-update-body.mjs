@@ -17,7 +17,13 @@
  * 追加オプション:
  *   --probe "<文字列>"        paste 成功検証に使う必須文字列（単一記事時のみ。省略時は本文から自動導出）
  *   --keep-boundary           有料記事: 既存の有料境界を動かさず保持して更新（試験問題 H2 が無い記事用）
- *   --boundary-h2 "<regex>"   有料境界の基準にする H2 先頭一致パターン（既定 = 試験問題|予想問題）
+ *   --boundary-h2 "<regex>"   有料境界の基準にする H2 先頭一致パターン（既定 = frontmatter paidBoundary → 試験問題|予想問題）
+ *   --images-only             全文置換せず、SoT の各画像を既存本文のアンカー直後に追加挿入するのみ
+ *                             （PDF 添付カード・有料境界・本文を触らない＝有料PDF記事の画像欠落修復用）
+ *   --img-lenient             本文画像アップロードが一部失敗しても中断せず続行（既定は保存せず ABORT）
+ *
+ * 本文画像: SoT の `![alt](img/xxx.png)` は除去せず、paste 後に「＋」メニュー→画像アップロードで
+ *   live に反映する（lib/note-images.mjs）。トークン残存/挿入失敗時は保存せず中断する。
  *
  * 処理:
  *   1. account ゲート（dobokunote 確認）
@@ -48,7 +54,9 @@ import { chromium } from 'playwright';
 import { readFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { cardifyBareUrls, repairUrlHeadings, listUrlHeadingsInEditor, assertNoUrlHeadings } from './lib/note-cardify.mjs';
+import { cardifyBareUrls, repairUrlHeadings, listUrlHeadingsInEditor } from './lib/note-cardify.mjs';
+import { extractBodyImages, insertImagesAtPlaceholders, insertImagesAfterAnchors, countEditorImages } from './lib/note-images.mjs';
+import { assertLiveBody } from './lib/note-live-check.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = join(ROOT, '.local/playwright-note-profile');
@@ -62,7 +70,9 @@ const PROBE_ARG = getArg('--probe');             // 単一記事時の明示 pro
 const COMMIT = argv.includes('--commit');         // 実ライブ反映（既定は dry-run）
 const PAUSE = argv.includes('--pause');           // 反映直前で停止＝タイトル変更＋更新確定を手動に委ねる
 const KEEP_BOUNDARY = argv.includes('--keep-boundary'); // 有料: 境界を動かさず保持
-const BOUNDARY_RE = getArg('--boundary-h2') || '試験問題|予想問題';
+const BOUNDARY_ARG = getArg('--boundary-h2');      // 明示指定は frontmatter paidBoundary より優先
+const IMAGES_ONLY = argv.includes('--images-only'); // 全文置換せず画像だけ追加（PDF添付カード保護）
+const IMG_LENIENT = argv.includes('--img-lenient'); // 画像挿入 failed でも続行（既定は ABORT）
 
 // 目次が「最初のh2より後」に入って直せなかった記事（バッチ末尾サマリで失敗として可視化する）
 const tocProblems = [];
@@ -91,10 +101,37 @@ function parseArticle(articlePath) {
   const noteId = fmField('noteId');
   if (!noteId || !/^n[0-9a-f]{6,}$/.test(noteId)) { throw new Error('noteId missing or invalid: ' + noteId); }
   const title = fmField('title'); // --pause 時にユーザーへ提示する新タイトル（本文には出さない）
+  const notePricing = fmField('notePricing');
+  const isPaid = notePricing === 'paid';
+  // 有料境界の解決順（note-publish と統一）: --boundary-h2 明示 > frontmatter paidBoundary > 既定
+  const boundary = BOUNDARY_ARG || fmField('paidBoundary') || '試験問題|予想問題';
   let body = raw.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n*/, '');
-  // note-publish.mjs と同じ前処理: コメント・画像・H1行を除去
-  body = body.replace(/<!--[\s\S]*?-->\r?\n?/g, '').replace(/!\[.*?\]\(.*?\)\r?\n?/g, '').trim().replace(/^#\s+.*(?:\r?\n)+/, '').trim();
-  return { abs, noteId, title, body };
+  // 前処理: コメント・H1行を除去（画像は除去せずトークン化して残す＝本文画像の live 反映）
+  body = body.replace(/<!--[\s\S]*?-->\r?\n?/g, '').trim().replace(/^#\s+.*(?:\r?\n)+/, '').trim();
+  // 画像行 → トークン化。images[].anchor（直前非空・非画像行の正規化先頭30字）を付与（--images-only 用）。
+  const dir = dirname(abs);
+  const bodyLines = body.split('\n');
+  const anchors = [];
+  for (let i = 0; i < bodyLines.length; i++) {
+    if (!/^\s*!\[[^\]]*\]\([^)]+\)\s*$/.test(bodyLines[i])) continue;
+    let anchor = '';
+    for (let j = i - 1; j >= 0; j--) {
+      const s = bodyLines[j].trim();
+      if (s && !/^!\[/.test(s) && !/^<!--/.test(s)) { anchor = s.replace(/\[([^\]]*)\]\([^)]*\)/g, '$1').replace(/[#>*_`]/g, '').replace(/\s+/g, '').slice(0, 30); break; }
+    }
+    anchors.push(anchor);
+  }
+  const { body: tokenBody, images, missing } = extractBodyImages(body, dir);
+  images.forEach((im, idx) => { im.anchor = anchors[idx] || ''; });
+  if (missing.length) console.log(`[img] WARN 除去した画像行: ${missing.join(' / ')}`);
+  // 有料記事は API 本文が paywall で切断されるため、live 検証の期待画像数は「境界より前の画像枚数」。
+  let expectedImgs = images.length;
+  if (isPaid) {
+    const bre = new RegExp('^##\\s+(' + boundary + ')');
+    const bIdx = tokenBody.split('\n').findIndex((l) => bre.test(l.trim()));
+    if (bIdx >= 0) expectedImgs = (tokenBody.split('\n').slice(0, bIdx).join('\n').match(/〔〔IMG:\d+〕〕/g) || []).length;
+  }
+  return { abs, noteId, title, body: tokenBody, images, isPaid, boundary, expectedImgs };
 }
 
 /**
@@ -247,7 +284,7 @@ async function insertTocBlock(page, noteId) {
  * 5(commit). 公開に進む →（有料なら境界保持）→ 更新する → 更新通知「いいえ」
  * note-append-cta.mjs:144-219 を移植。戻り値 = 成否。
  */
-async function publishLive(page, noteId) {
+async function publishLive(page, noteId, boundary = '試験問題|予想問題') {
   // 公開に進む（自動保存の落ち着きを待ってからクリックし、設定ページ到達を polling）
   await sleep(3000);
   const next = page.getByRole('button', { name: '公開に進む' });
@@ -288,7 +325,7 @@ async function publishLive(page, noteId) {
       if (!btn) return { ok: false, reason: 'no preceding line-button' };
       document.querySelectorAll('[data-np-target]').forEach((e) => e.removeAttribute('data-np-target')); btn.setAttribute('data-np-target', '1');
       return { ok: true, heading: (seq[hIdx].innerText || '').slice(0, 24) };
-    }, BOUNDARY_RE);
+    }, boundary);
     console.log('[5b] boundary target:', JSON.stringify(t));
     if (!t.ok) { console.error('[5b] ABORT: 有料境界の基準(試験/予想問題 H2)を特定できず。保存せず中断。--keep-boundary か --boundary-h2 を検討。'); await page.screenshot({ path: join(ROOT, `.tmp/nu-boundary-${noteId}.png`) }); return false; }
     // 「ラインをこの場所に変更」ボタンは note 側の再描画で detach しやすく、Playwright の
@@ -311,7 +348,7 @@ async function publishLive(page, noteId) {
       const hIdx = seq.findIndex((el) => el.tagName === 'H2' && RE.test((el.innerText || '').trim()));
       let between = 0; if (lineIdx >= 0 && hIdx > lineIdx) for (let i = lineIdx + 1; i < hIdx; i++) { const tx = (seq[i].innerText || '').trim(); if (tx && !/ラインをこの場所に変更|このラインより先/.test(tx)) between++; }
       return { lineIdx, hIdx, between, boundaryBeforeExam: lineIdx >= 0 && hIdx > lineIdx && between === 0 };
-    }, BOUNDARY_RE);
+    }, boundary);
     console.log('[5b] boundary verify:', JSON.stringify(v));
     await page.screenshot({ path: join(ROOT, `.tmp/nu-boundary-${noteId}.png`) });
     if (!v.boundaryBeforeExam) { console.error('[5b] ABORT: 有料境界が「予想問題/試験問題」直前に揃わない。保存せず中断（paywall 保護）。'); return false; }
@@ -341,7 +378,7 @@ async function publishLive(page, noteId) {
   return true;
 }
 
-async function updateArticle(page, { abs, noteId, title, body }, probe) {
+async function updateArticle(page, { abs, noteId, title, body, images, isPaid, boundary, expectedImgs }, probe) {
   console.log(`\n[article] ${noteId} — ${abs.split(/[/\\]/).slice(-2).join('/')}`);
 
   // 2. 編集 URL へ遷移
@@ -358,6 +395,25 @@ async function updateArticle(page, { abs, noteId, title, body }, probe) {
   await sleep(2000);
   console.log(`[2] editor loaded: ${page.url()}`);
 
+  // --images-only: 全文置換せず既存本文の各画像アンカー直後に画像を追加するのみ。
+  //   PDF 添付カード・有料境界・本文に一切触らない（過去問PDF 有料記事の画像欠落修復用）。
+  if (IMAGES_ONLY) {
+    if (!images.length) { console.log('[img-only] SoT に画像なし → skip'); return true; }
+    const liveImgs = await countEditorImages(page);
+    if (liveImgs >= images.length) { console.log(`[img-only] 既に img=${liveImgs}>=${images.length} → 冪等skip`); return true; }
+    if (!COMMIT) { console.log('[img-only] dry-run（--commit で実挿入）'); return true; }
+    const r = await insertImagesAfterAnchors(page, images, { tag: '[4.4]' });
+    if (r.failed.length && !IMG_LENIENT) { console.error(`[4.4] ABORT: 画像挿入に失敗（${r.failed.length}件）→ 保存しない（--img-lenient で続行可）`); await page.screenshot({ path: join(ROOT, `.tmp/nu-imgfail-${noteId}.png`) }); return false; }
+    const live = await publishLive(page, noteId, boundary);
+    if (!live) { console.error(`[FAIL] ライブ反映に失敗: ${noteId}`); return false; }
+    const chk = await assertLiveBody(noteId, { expectedImgs });
+    if (chk.fetchError) console.log(`[5e] WARN: API検証未達（${chk.fetchError}）→ 手動確認`);
+    else if (!chk.ok) { console.error(`[5e] FAIL: live不整合 ${liveIssues(chk)} → 手動確認`); return false; }
+    else console.log(`[5e] API 実体検証 OK（img=${chk.imgLive} 空引用0 URL見出し0）`);
+    console.log(`[OK] ${noteId} 画像のみ反映完了`);
+    return true;
+  }
+
   // 3. 全文置換（empty→paste→probe 検証）
   const hasProbe = await emptyAndPaste(page, body, probe);
   if (!hasProbe) {
@@ -366,11 +422,29 @@ async function updateArticle(page, { abs, noteId, title, body }, probe) {
     return false;
   }
 
+  // 3d. 画像トークン数 assert（paste で本文が化けていないか）
+  if (images.length) {
+    const tokCount = await page.evaluate(() => ((document.querySelector('[contenteditable=true]')?.innerText || '').match(/〔〔IMG:\d+〕〕/g) || []).length);
+    console.log(`[3d] 画像トークン: editor=${tokCount} / SoT=${images.length}`);
+    if (tokCount !== images.length) {
+      console.error(`[FAIL] 画像トークン数不一致（paste 化け疑い）→ 保存せず中断: ${noteId}`);
+      await page.screenshot({ path: join(ROOT, `.tmp/nu-tokenfail-${noteId}.png`) });
+      return false;
+    }
+  }
+
   // 4. リンクカード化（URL見出し残存時は保存せず中断＝壊れた本文を絶対に反映しない）
   const cardOk = await cardify(page);
   if (!cardOk) {
     await page.screenshot({ path: join(ROOT, `.tmp/nu-urlheading-${noteId}.png`) });
     return false;
+  }
+
+  // 4.4 本文画像アップロード（トークン段落 → 実画像）。leftover 残存/失敗は保存せず中断。
+  if (images.length) {
+    const r = await insertImagesAtPlaceholders(page, images, { tag: '[4.4]' });
+    if (r.leftover.length) { console.error(`[4.4] ABORT: 画像トークン残存（${r.leftover.join(' ')}）→ 保存しない`); await page.screenshot({ path: join(ROOT, `.tmp/nu-imgleft-${noteId}.png`) }); return false; }
+    if (r.failed.length && !IMG_LENIENT) { console.error(`[4.4] ABORT: 画像挿入に失敗（${r.failed.length}件）→ 保存しない（--img-lenient で続行可）`); await page.screenshot({ path: join(ROOT, `.tmp/nu-imgfail-${noteId}.png`) }); return false; }
   }
 
   // 4.5 目次ブロック（H2>=3・最初のh2直前・--no-toc で抑止）。全文置換で消えるため再挿入。
@@ -426,22 +500,31 @@ async function updateArticle(page, { abs, noteId, title, body }, probe) {
     console.log(`[dry-run] paste まで成功（未反映）。スクショ: .tmp/nu-dry-${noteId}.png。実反映は --commit。`);
     return true;
   }
-  const live = await publishLive(page, noteId);
+  const live = await publishLive(page, noteId, boundary);
   if (!live) { console.error(`[FAIL] ライブ反映に失敗: ${noteId}`); return false; }
 
-  // 5e. 公開後 API 実体検証（自動化）: 本文見出しに URL が混入していないか。
-  //     ネットワーク失敗は WARN（手動確認へフォールバック）、URL見出し検出は FAIL。
-  const chk = await assertNoUrlHeadings(noteId);
+  // 5e. 公開後 API 実体検証（自動化・3検査）: URL見出し / 空引用 / 画像欠落。
+  //     ネットワーク失敗は WARN（手動確認へフォールバック）、検出は FAIL。
+  const chk = await assertLiveBody(noteId, { expectedImgs });
   if (chk.fetchError) {
     console.log(`[5e] WARN: API検証がネットワークで未達（${chk.fetchError}）→ 手動確認: curl --ssl-no-revoke https://note.com/api/v3/notes/${noteId}`);
   } else if (!chk.ok) {
-    console.error(`[5e] FAIL: 公開本文に URL 見出しが残存: ${chk.bad.join(' / ')} → 再実行 or note エディタで手動修正`);
+    console.error(`[5e] FAIL: 公開本文に不整合: ${liveIssues(chk)} → 再実行 or note エディタで手動修正`);
     return false;
   } else {
-    console.log('[5e] API 実体検証 OK（URL見出しなし）');
+    console.log(`[5e] API 実体検証 OK（URL見出し0 空引用0 img=${chk.imgLive}）`);
   }
   console.log(`[OK] ${noteId} ライブ反映完了`);
   return true;
+}
+
+// assertLiveBody の不整合を1行に整形する。
+function liveIssues(chk) {
+  const parts = [];
+  if (chk.urlHeadings.length) parts.push(`URL見出し[${chk.urlHeadings.join(' / ')}]`);
+  if (chk.emptyBq) parts.push(`空引用${chk.emptyBq}件`);
+  if (chk.imgShort) parts.push(`画像欠落(live=${chk.imgLive})`);
+  return parts.join(' / ') || 'なし';
 }
 
 const articles = loadArticles();

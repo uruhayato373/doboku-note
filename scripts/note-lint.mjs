@@ -19,6 +19,8 @@
  *      → 手作業でなく `npm run note-inject-magazine-url -- <persona> <url>` を使う（CRLF保持・冪等）
  *   6. 廃止セクション見出し — 「## …からのコメント」（合格者／元公務員からのコメント節、2026-06-10 廃止）
  *   7. ツール呼び出しXML残骸 — antml: / <invoke> / <parameter> / <function> / <content>（生成時混入）
+ *   8. 段落長（無料記事のみ）— 地の文 200 字以上（回避: SKIP_NOTE_PARA=1）
+ *   9. 複数行 blockquote — `>` 連続2行以上は note paste で中身脱落（回避: SKIP_NOTE_BQ=1）
  *   8. 段落長（無料記事のみ） — notePricing: free の地の文段落が表示 200 字以上でブロック
  *      （B5 基準 = 1段落2-3文。模範論文など有料は散文答案が仕様のため対象外。SKIP_NOTE_PARA=1 で回避）
  *
@@ -229,6 +231,29 @@ function checkParagraphLength(file, content) {
   });
   return out;
 }
+// 9. 複数行 blockquote（`>` 行が2行以上連続）。note の paste は複数行引用の中身を脱落させ、
+//    live に「空の引用」だけ残す既知バグ（2026-07-15、過去問PDF等5本で実測）。1行に統合するか、
+//    空行で区切った単一行引用に分割する。回避: SKIP_NOTE_BQ=1（既存62本のバーンダウン用）。
+function checkMultilineBlockquote(content) {
+  if (process.env.SKIP_NOTE_BQ === '1') return [];
+  const out = [];
+  let inFence = false;
+  let runStart = -1;
+  let runLen = 0;
+  const lines = content.split('\n');
+  const flush = () => {
+    if (runLen >= 2) out.push({ line: runStart + 1, msg: `複数行blockquote（> 連続${runLen}行）は note paste で中身が脱落し「空の引用」になる。1行に統合するか空行区切りの単一行引用へ（回避: SKIP_NOTE_BQ=1）` });
+    runStart = -1; runLen = 0;
+  };
+  lines.forEach((l, i) => {
+    if (/^\s*```/.test(l)) { inFence = !inFence; flush(); return; }
+    if (inFence) return;
+    if (/^\s*>/.test(l)) { if (runStart < 0) runStart = i; runLen++; }
+    else flush();
+  });
+  flush();
+  return out;
+}
 // ツール呼び出しXMLの残骸（生成時にエージェントの function-call 断片が本文へ混入）。
 // note 試験対策記事にこれらのタグが正当に出ることはまずない＝100% 削除対象（契約調達R07事故、2026-06-11）。
 function checkToolArtifact(content) {
@@ -260,7 +285,7 @@ const partialState = buildPartialInjectionState(files);
 let violations = 0;
 for (const f of files) {
   const content = readFileSync(f, 'utf8');
-  const issues = [...checkPipeTable(content), ...checkMojibake(content), ...checkMagazineLinkCard(content), ...checkMagazineCta(f), ...checkNote3set(f), ...checkBoldParen(f), ...checkPartialInjection(f, partialState), ...checkDeprecatedSection(content), ...checkToolArtifact(content), ...checkParagraphLength(f, content)];
+  const issues = [...checkPipeTable(content), ...checkMojibake(content), ...checkMagazineLinkCard(content), ...checkMagazineCta(f), ...checkNote3set(f), ...checkBoldParen(f), ...checkPartialInjection(f, partialState), ...checkDeprecatedSection(content), ...checkToolArtifact(content), ...checkParagraphLength(f, content), ...checkMultilineBlockquote(content)];
   if (issues.length) {
     violations += issues.length;
     const rel = f.replace(ROOT + '\\', '').replace(ROOT + '/', '').replace(/\\/g, '/');

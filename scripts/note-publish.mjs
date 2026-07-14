@@ -38,7 +38,9 @@ import { chromium } from 'playwright';
 import { readFileSync, existsSync, writeFileSync } from 'node:fs';
 import { join, dirname, basename, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { cardifyBareUrls, repairUrlHeadings, listUrlHeadingsInEditor, assertNoUrlHeadings } from './lib/note-cardify.mjs';
+import { cardifyBareUrls, repairUrlHeadings, listUrlHeadingsInEditor } from './lib/note-cardify.mjs';
+import { extractBodyImages, insertImagesAtPlaceholders } from './lib/note-images.mjs';
+import { assertLiveBody } from './lib/note-live-check.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = join(ROOT, '.local/playwright-note-profile');
@@ -70,9 +72,14 @@ const notePricing = fmField('notePricing');
 const price = parseInt(fmField('price') || '0', 10);
 let body = raw.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n*/, '');
 const title = (body.match(/^#\s+(.+)$/m)?.[1] || fmField('coverTitle')).trim();
-body = body.replace(/<!--[\s\S]*?-->\r?\n?/g, '').replace(/!\[.*?\]\(.*?\)\r?\n?/g, '').trim().replace(/^#\s+.*(?:\r?\n)+/, '').trim();
+// コメント・H1 を除去（画像は除去せずトークン化して残す＝本文画像の live 反映）
+body = body.replace(/<!--[\s\S]*?-->\r?\n?/g, '').trim().replace(/^#\s+.*(?:\r?\n)+/, '').trim();
 // cover / hashtags を type サフィックスで解決（article-II1.md → cover-II1.png / hashtags-II1.txt）
 const dir = dirname(articleAbs);
+// 画像行 → トークン化（paste 後に「＋」メニューでアップロード。lib/note-images.mjs）
+const { body: tokenBody, images: bodyImages, missing: imgMissing } = extractBodyImages(body, dir);
+body = tokenBody;
+if (imgMissing.length) console.log(`[img] WARN 除去した画像行: ${imgMissing.join(' / ')}`);
 const typeSuffix = (basename(articleAbs).match(/article-([^.]+)\.md$/) || [])[1] || '';
 const coverCandidates = [typeSuffix && join(dir, `img/cover-${typeSuffix}.png`), join(dir, 'img/cover.png')].filter(Boolean);
 const cover = coverCandidates.find(existsSync) || null;
@@ -87,6 +94,13 @@ const wantToc = !argv.includes('--no-toc') && h2count >= 3;
 // 有料境界の見出し regex（H2 の innerText 先頭一致）。既定=総監/建設の「試験問題/予想問題」。
 // 他コンテンツ型は frontmatter `paidBoundary` か `--boundary-regex` で上書き（例: 1級土木 工事別パック=「品質管理」）。
 const BOUNDARY = getArg('--boundary-regex') || fmField('paidBoundary') || '試験問題|予想問題';
+// live 検証の期待画像数。有料は API 本文が paywall 切断されるため「境界より前の画像枚数」。
+let expectedImgs = bodyImages.length;
+if (isPaid) {
+  const bre = new RegExp('^##\\s+(' + BOUNDARY + ')');
+  const bIdx = body.split('\n').findIndex((l) => bre.test(l.trim()));
+  if (bIdx >= 0) expectedImgs = (body.split('\n').slice(0, bIdx).join('\n').match(/〔〔IMG:\d+〕〕/g) || []).length;
+}
 
 // ガード: プレースホルダ残・空タイトル
 if (/\{\{|※note\s*公開後|MAGAZINE_URL/.test(body)) { console.error('ABORT: プレースホルダが本文に残存'); process.exit(1); }
@@ -166,6 +180,16 @@ try {
     urlHeadingsLeft = await listUrlHeadingsInEditor(page);
     if (urlHeadingsLeft.length) console.error(`[6b] ★URL見出しが残存（公開ゲートで中断予定）: ${urlHeadingsLeft.join(' / ')}★`);
   } catch (e) { console.log('[6] cardify skip:', e.message.split('\n')[0]); }
+
+  // 6.4 本文画像アップロード（トークン段落 → 実画像）。leftover/failed は公開ゲート [12] で下書き退避。
+  let imgLeftover = [], imgFailed = [];
+  if (bodyImages.length) {
+    try {
+      const r = await insertImagesAtPlaceholders(page, bodyImages, { tag: '[6.4]' });
+      imgLeftover = r.leftover; imgFailed = r.failed;
+      if (imgLeftover.length || imgFailed.length) console.error(`[6.4] ★画像未完（leftover=${imgLeftover.length} failed=${imgFailed.length}）→ 公開ゲートで中断予定★`);
+    } catch (e) { console.log('[6.4] 画像挿入 skip:', e.message.split('\n')[0]); imgFailed = [{ reason: e.message.split('\n')[0] }]; }
+  }
 
   // 6.5 目次ブロック挿入（H2>=3・最初のh2直前）。note ネイティブ目次（button#toc-setting）。
   //     手順: 最初の h2 に caret→Enter→ArrowUp で直前に空段落を作る→ caret に最も近い「+」メニュー
@@ -373,6 +397,10 @@ try {
     // URL見出し残存 → 公開せず下書き退避（壊れた本文＝目次にURL露出を本番に出さない）
     await saveDraftExit(`★中断: URL見出しが残存（${urlHeadingsLeft.join(' / ')}）→ 公開しない★`);
     process.exitCode = 3;
+  } else if (COMMIT && (imgLeftover.length || imgFailed.length)) {
+    // 本文画像トークン残存/挿入失敗 → 公開せず下書き退避（トークン露出・図欠落を本番に出さない）
+    await saveDraftExit(`★中断: 本文画像が未完（leftover=${imgLeftover.length} failed=${imgFailed.length}）→ 公開しない★`);
+    process.exitCode = 3;
   } else if (COMMIT && boundaryOk && sched) {
     // --- 予約投稿フロー（--schedule 指定時。selector は scheduling.md 由来・first-run 要検証）---
     // 安全弁: 日時が UI に反映できないときは即時公開せず下書きへ退避（誤即時公開を防止）
@@ -417,13 +445,18 @@ try {
       publishedUrl = page.url();
       console.log('[12] 投稿する clicked → published:', publishedUrl);
       writeBack(publishedUrl, new Date().toISOString().slice(0, 10));
-      // [13] 公開後 API 実体検証: 本文見出しに URL が混入していないか（偽成功ガードの一部）
+      // [13] 公開後 API 実体検証（3検査）: URL見出し / 空引用 / 画像欠落（偽成功ガードの一部）
       const pubId = (publishedUrl.match(/n[0-9a-f]{12}/) || [])[0];
       if (pubId) {
-        const chk = await assertNoUrlHeadings(pubId);
+        const chk = await assertLiveBody(pubId, { expectedImgs });
         if (chk.fetchError) console.log(`[13] WARN: API検証未達（${chk.fetchError}）→ 手動確認: curl --ssl-no-revoke https://note.com/api/v3/notes/${pubId}`);
-        else if (!chk.ok) { console.error(`[13] FAIL: 公開本文に URL 見出し: ${chk.bad.join(' / ')} → note-update-body --commit で修復`); process.exitCode = 2; }
-        else console.log('[13] API 実体検証 OK（URL見出しなし）');
+        else if (!chk.ok) {
+          const parts = [];
+          if (chk.urlHeadings.length) parts.push(`URL見出し[${chk.urlHeadings.join(' / ')}]`);
+          if (chk.emptyBq) parts.push(`空引用${chk.emptyBq}件`);
+          if (chk.imgShort) parts.push(`画像欠落(live=${chk.imgLive}/期待=${expectedImgs})`);
+          console.error(`[13] FAIL: 公開本文に不整合: ${parts.join(' / ')} → note-update-body --commit で修復`); process.exitCode = 2;
+        } else console.log(`[13] API 実体検証 OK（URL見出し0 空引用0 img=${chk.imgLive}）`);
       }
     } else console.log('[12] 投稿する 未検出');
   } else {

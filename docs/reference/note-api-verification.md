@@ -136,20 +136,31 @@ node scripts/note-update-body.mjs --list   <list.txt>   --commit    # 複数記�
 ### PDF 生成の環境依存（2026-07-04 訂正）
 - **Mac でハングするのは `magazine-to-pdf.mjs` の Chrome `--print-to-pdf` 経路だけ**。**Playwright `chromium.launch({headless:true})` → `page.pdf()` は Mac で正常動作**する（実例 `scripts/generate-anki-pdf.mjs`＝A5赤シートPDF・`--sample` で見本PNG）。カスタムHTML→PDF は magazine-to-pdf でなく `page.pdf()` を使う。
 
-## live 見出しURL検査: check-note-live-headings（URL見出し化グリッチの検知網）
+## live 本文整合性検査: check-note-live-headings（URL見出し/空引用/画像欠落の検知網）
 
-note-publish / note-update-body の旧リンクカード化には、**URL 単独行が h2 見出しに化けて note ネイティブ目次に URL が露出する**非決定的グリッチがあった（2026-07-14 に published 291 本中 7 本で発覚）。原因は (1) Enter 後の embed 変換が非同期なのに盲目 4500ms 待ちで、変換中の DOM 再構築により次 URL の Range 選択が壊れて隣接見出しに typed されるレース、(2) `Set` dedup による同一 URL 2 箇所目の未処理、(3) 選択先ブロック種の無検査。共有実装 `scripts/lib/note-cardify.mjs` で根治済み（毎回 DOM 再クエリ・段落限定選択・カード生成の実測待ち）。
+note-publish / note-update-body には、SoT どおりに live が反映されない 3 系統の破損があった:
+
+- **URL 見出し化**（2026-07-14・291 本中 7 本）— 旧リンクカード化で URL 単独行が h2 見出しに化けて note ネイティブ目次に URL 露出。原因は (1) Enter 後の embed 変換が非同期なのに盲目 4500ms 待ちのレース、(2) `Set` dedup による重複 URL 未処理、(3) 選択先ブロック種の無検査。共有実装 `scripts/lib/note-cardify.mjs` で根治（毎回 DOM 再クエリ・段落限定選択・カード生成の実測待ち）。
+- **空引用**（2026-07-15・5 本）— 複数行 blockquote が paste で中身脱落し「空の引用」だけ残る。note-lint ルール 9（`>` 連続 2 行以上をブロック・`SKIP_NOTE_BQ=1` で回避）で予防し、修復は SoT を単一行 blockquote／平文へ書き換えて再貼付。
+- **本文画像欠落**（2026-07-15・33 本）— paste 前処理が `![](img/xxx.png)` を除去していたため図が live に載らなかった。`scripts/lib/note-images.mjs` で、画像行を一意トークン `〔〔IMG:n〕〕` へ置換して paste→「＋」メニューで実画像アップロード（キャプション=alt）する方式に変更。トークン残存/挿入失敗は保存/公開せず中断。
 
 3 層の防衛網:
 
-1. **書き込みスクリプト内蔵ゲート**: `note-publish.mjs` / `note-update-body.mjs` はカード化後に URL 見出しを修復（`repairUrlHeadings`）し、残存すれば**保存/公開せず中断**（exit≠0）。公開/更新後は public API で本文を自動検証（`assertNoUrlHeadings`）し、URL 見出しがあれば FAIL。ネットワーク未達は WARN（手動確認コマンドを表示）。
-2. **横断スイープ**: `npm run check-note-live-headings` — SoT frontmatter の noteStatus=published 全記事（約 291 本）の live 本文を並列 8 で取得し、URL 入り見出しを列挙。BAD≥1 で exit 1。引数でパス部分一致の絞り込み可。修復は `note-update-body --commit` の再貼付。
-3. **段落長 lint**（note-lint ルール 8）: 無料記事の地の文 200 字以上段落をブロック（表示文字数で計測・`SKIP_NOTE_PARA=1` で回避）。有料模範論文は散文答案が仕様のため対象外。
+1. **書き込みスクリプト内蔵ゲート**: `note-publish.mjs` / `note-update-body.mjs` はカード化後に URL 見出しを修復（`repairUrlHeadings`）・本文画像をアップロード（`insertImagesAtPlaceholders`）し、残存/失敗すれば**保存/公開せず中断**。公開/更新後は public API で本文を自動検証（`assertLiveBody`＝URL見出し/空引用/画像欠落の 3 検査）。ネットワーク未達は WARN（手動確認コマンド表示）。共有実装は `scripts/lib/note-live-check.mjs`。
+2. **横断スイープ**: `npm run check-note-live-headings` — noteStatus=published 全記事（約 291 本）の live 本文を並列 8 で取得し、3 検査で不整合を列挙。BAD≥1 で exit 1。有料記事は API 本文が paywall で切断されるため画像期待値は「有料境界より前の枚数」、境界が SoT に無い有料は画像検査 skip（PARTIAL）。`--paths` で BAD の article.md パスのみ出力（修復 list 生成用）。
+3. **lint 予防**（note-lint）: ルール 8＝無料記事の地の文 200 字以上段落（`SKIP_NOTE_PARA=1`）、ルール 9＝複数行 blockquote（`SKIP_NOTE_BQ=1`）。既存違反はバーンダウン（触った記事から漸次是正）。
 
 ```bash
-npm run check-note-live-headings                          # 全 published をスイープ
+npm run check-note-live-headings                          # 全 published を 3 検査でスイープ
 node scripts/check-note-live-headings.mjs docs/note/共通  # パス絞り込み
+node scripts/check-note-live-headings.mjs --paths         # BAD パスのみ（list 生成）
 ```
+
+### 本文画像・PDF 添付の修復手順
+
+- **無料記事の画像欠落**: `node scripts/note-update-body.mjs --article <path> --commit`。全文再貼付＋画像アップロードで一括反映。
+- **有料 PDF 記事**（`paidBoundary` あり・paid 領域に PDF 添付カード）: 全文置換は PDF 添付カードを破壊するため **`--images-only`**（本文アンカー直後に画像だけ追加・境界/カード不変）を使う。空引用も直す必要がある場合のみ全文 `--commit`（`paidBoundary` で境界保持）→ 破壊された PDF は `note-attach-file.mjs --note <key> --file <pdf> --commit` で再添付。
+- 画像挿入が一部失敗しても続行したいときは `--img-lenient`（既定は保存せず ABORT）。
 
 ## 記事 frontmatter への公開URL backfill: backfill-note-article-meta
 
