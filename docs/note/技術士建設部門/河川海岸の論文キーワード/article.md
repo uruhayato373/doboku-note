@@ -46,7 +46,7 @@ cover:
 この記事は、河川・砂防・海岸で頻出のキーワードを論文化の切り口として並べ直すための入口です。年度別の出題一覧や答案の書き方そのものには深入りせず、「どのキーワードを、どの論点に乗せるか」だけに絞って解説します。
 
 <!-- cta:pack-top -->
-> 建設部門は「必須科目I＋選択科目」の組み合わせで合否が決まります。全受験者共通の[必須科目I 模範解答集（R03-R07＋R8予想・¥3,480）](https://note.com/dobokunote/m/m0f3bc3933454)がまず1冊目。あなたの選択科目の模範解答集は[建設部門もくじ](https://note.com/dobokunote/n/n7279ca0d926f)から選べます（単品を1本ずつ買うより約8割お得）。
+> 建設部門は「必須科目I＋選択科目」の組み合わせで合否が決まります。全受験者共通の[必須科目I 模範解答集（R03-R07＋R8予想）](https://note.com/dobokunote/m/m0f3bc3933454)がまず1冊目。あなたの選択科目の模範解答集は[建設部門もくじ](https://note.com/dobokunote/n/n7279ca0d926f)から選べます（単品を1本ずつ買うより約8割お得）。
 
 ## 河川・砂防・海岸で頻出のキーワードを3層で整理する
 
@@ -102,13 +102,13 @@ cover:
 
 気候変動という共通の外力に対し、技術と制度の両輪で答える構成を意識してください。
 
-河川・砂防・海岸の出題テーマを年度別に確認したい場合は、サイト側の<https://doboku-note.com/docs/pe-construction-river-coast-exam-themes>に出題テーマ分析(R01〜R07)を、令和8年度の改訂点は<https://doboku-note.com/docs/pe-construction-competency-revision-r8>にまとめています。
+河川・砂防・海岸の出題テーマを年度別に確認したい場合は、[出題テーマ分析（R01〜R07）](https://doboku-note.com/docs/pe-construction-river-coast-exam-themes?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-river-coast-keyword&utm_content=exam-themes)を、令和8年度の改訂点は[令和8年度の改訂点まとめ](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-river-coast-keyword&utm_content=competency-revision-r8)にまとめています。
 
 ## 論文化の最初の一手
 
 頻出キーワードを把握したら、次は「どの年度に、どのキーワードが、どの設問種別で問われたか」を確認し、過去問で骨子を起こす段階に進みます。
 
-記述式そのものの組み立て方は<https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide>の書き方ガイドで詳述しています。
+記述式そのものの組み立て方は[記述式の書き方ガイド](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-river-coast-keyword&utm_content=essay-guide)で詳述しています。
 
 ここまでで、河川・砂防・海岸の論文の幹となるキーワードと、発注者視点の厚みづけまでの全体像はつかめたはずです。あとは、この幹に過去問の具体を肉付けして、答案として完成させる段階に進みます。
 
@@ -120,7 +120,9 @@ cover:
 
 https://note.com/dobokunote/m/mba17c3f8b894
 
-あわせて、河川・砂防・海岸と地続きの必須科目Iも押さえておきたいところです。過去5年分と令和8年度の予想問題について、設問分解からフル模範解答までを収録しました。流域治水や防災・減災といった、河川・砂防・海岸とも重なる論点の書き方を発注者視点で示します。
+あわせて、河川・砂防・海岸と地続きの必須科目Iも押さえておきたいところです。過去5年分と令和8年度の予想問題について、設問分解からフル模範解答までを収録しました。
+
+流域治水や防災・減災といった、河川・砂防・海岸とも重なる論点の書き方を発注者視点で示します。
 
 https://note.com/dobokunote/m/m0f3bc3933454
 
