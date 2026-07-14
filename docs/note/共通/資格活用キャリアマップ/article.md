@@ -2,13 +2,13 @@
 notePricing: free
 noteSeries: 資格キャリア戦略
 utmCampaign: 97-qualification-career-map
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/nd2f697ffbc4a"
+noteId: "nd2f697ffbc4a"
+notePublishedAt: "2026-07-14"
 coverTitle:
   - 土木・建設の資格は
   - 「取った後」どう得するか
-noteStatus: draft
+noteStatus: published
 cover:
   leadIn: "土木・建設の資格は取った後"
   hi: "お金"
@@ -65,11 +65,19 @@ cover:
 
 部門合格後の上位資格で、**②キャリアの上限引き上げ**（管理・統括ポジション）と権威性が中心。受験層は支払い意思が高く、**取得の損得**（ROI）を冷静に見極めたい資格です。
 
-総監の在職メリット・ROI・独立の実態は、それぞれ深掘り記事があります（M11 公開後に各 URL を反映）。
+総監の在職メリット・ROI・独立の実態は、それぞれ深掘り記事があります。
 
-- 民間建設技術者の総監メリット（個人手当／会社価値／市場価値の3レイヤー）— 公開後に URL 反映
-- 総監受験は投資としてペイするか（年代別 ROI 計算）— 公開後に URL 反映
-- 総監を取って独立した技術者の収入実態（公開情報5ケース）— 公開後に URL 反映
+**民間建設技術者の総監メリット**（個人手当／会社価値／市場価値の3レイヤー）
+
+https://note.com/dobokunote/n/n05800ac28d27
+
+**総監受験は投資としてペイするか**（年代別 ROI 計算）
+
+https://note.com/dobokunote/n/n9376aac312df
+
+**総監を取って独立した技術者の収入実態**（公開情報5ケース）
+
+https://note.com/dobokunote/n/n700c51ea6f00
 
 ## 公務員・発注者の視点（筆者の本領）
 
@@ -83,12 +91,25 @@ https://note.com/dobokunote/n/nb052deac97b1
 
 ## 「取る前」の判断 — 受験コストと出口の見合い
 
-資格は受験料・学習時間という先行投資です。出口（①〜⑤）のどれを狙うかを決めてから、その出口に見合うコストかを判断する——これが後悔しない選び方です。総監については年代別の ROI を試算した記事を用意しています（M11 公開後に URL 反映）。
+資格は受験料・学習時間という先行投資です。出口（①〜⑤）のどれを狙うかを決めてから、その出口に見合うコストかを判断する——これが後悔しない選び方です。総監については[年代別の ROI を試算した記事](https://note.com/dobokunote/n/n9376aac312df)を用意しています。
 
 ## おわりに — 資格は「働き方の選択肢」を増やす
 
 資格の本当のリターンは手当の額面だけではありません。**激務の現場から発注者・管理側へ移る**選択肢が持てること（働き方・生活）、**専門家として認められ対等に渡り合える**こと（信頼・人間関係）も、長く働くうえで効いてきます。出口を意識して、自分の立場と年代に合う一手を選んでください。
 
+## 出口を試すなら — キャリアの深掘りと相談先
+
+「取った後」を具体化するには、資格別のキャリア記事で相場観をつかむのが早道です。1級土木施工管理技士の市場価値は[1級土木施工管理技士の市場価値（転職・年収・独立）](https://doboku-note.com/docs/civil-construction-1-guide-market-value?utm_source=note&utm_medium=referral&utm_campaign=97-qualification-career-map&utm_content=civil1-market-value)に、技術士（建設部門）取得後のキャリアは[技術士（建設部門）取得後の転職・年収](https://doboku-note.com/docs/pe-construction-guide-career?utm_source=note&utm_medium=referral&utm_campaign=97-qualification-career-map&utm_content=pe-construction-career)にまとめています。
+
+**PR**：以下はアフィリエイト広告を含みます。
+
+施工管理・建設業界で「資格を待遇に反映させたい」「いまの市場価値を知りたい」という段階なら、建設・施工管理に特化した転職エージェントの無料キャリア面談で、経験・資格で狙える求人と想定年収を確認できます。登録・相談は無料で、在職中でも動くかは提示された条件を見てから決められます。
+
+https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHBA2+5B0Y+NTJWY
+
 ---
 
-（参考書籍・転職/学習サービスのリンクは公開時に末尾へ配置予定）
+<!-- cta:content-guide -->
+doboku-note の無料記事・有料マガジンの全体像は「コンテンツ総合案内」から一覧できます。
+
+https://note.com/dobokunote/n/n296a88f64ac2
