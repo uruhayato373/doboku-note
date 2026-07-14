@@ -187,6 +187,7 @@ try {
     try {
       const r = await insertImagesAtPlaceholders(page, bodyImages, { tag: '[6.4]' });
       imgLeftover = r.leftover; imgFailed = r.failed;
+      if (!r.settled) imgFailed = imgFailed.concat([{ reason: 'CDN確定せず' }]); // 未確定は公開ゲートで中断
       if (imgLeftover.length || imgFailed.length) console.error(`[6.4] ★画像未完（leftover=${imgLeftover.length} failed=${imgFailed.length}）→ 公開ゲートで中断予定★`);
     } catch (e) { console.log('[6.4] 画像挿入 skip:', e.message.split('\n')[0]); imgFailed = [{ reason: e.message.split('\n')[0] }]; }
   }

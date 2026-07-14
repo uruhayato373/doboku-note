@@ -404,6 +404,7 @@ async function updateArticle(page, { abs, noteId, title, body, images, isPaid, b
     if (!COMMIT) { console.log('[img-only] dry-run（--commit で実挿入）'); return true; }
     const r = await insertImagesAfterAnchors(page, images, { tag: '[4.4]' });
     if (r.failed.length && !IMG_LENIENT) { console.error(`[4.4] ABORT: 画像挿入に失敗（${r.failed.length}件）→ 保存しない（--img-lenient で続行可）`); await page.screenshot({ path: join(ROOT, `.tmp/nu-imgfail-${noteId}.png`) }); return false; }
+    if (!r.settled && !IMG_LENIENT) { console.error('[4.4] ABORT: 画像が CDN 確定せず（保存すると live で欠落）→ 再実行'); await page.screenshot({ path: join(ROOT, `.tmp/nu-imgsettle-${noteId}.png`) }); return false; }
     const live = await publishLive(page, noteId, boundary);
     if (!live) { console.error(`[FAIL] ライブ反映に失敗: ${noteId}`); return false; }
     const chk = await assertLiveBody(noteId, { expectedImgs });
@@ -445,6 +446,7 @@ async function updateArticle(page, { abs, noteId, title, body, images, isPaid, b
     const r = await insertImagesAtPlaceholders(page, images, { tag: '[4.4]' });
     if (r.leftover.length) { console.error(`[4.4] ABORT: 画像トークン残存（${r.leftover.join(' ')}）→ 保存しない`); await page.screenshot({ path: join(ROOT, `.tmp/nu-imgleft-${noteId}.png`) }); return false; }
     if (r.failed.length && !IMG_LENIENT) { console.error(`[4.4] ABORT: 画像挿入に失敗（${r.failed.length}件）→ 保存しない（--img-lenient で続行可）`); await page.screenshot({ path: join(ROOT, `.tmp/nu-imgfail-${noteId}.png`) }); return false; }
+    if (!r.settled && !IMG_LENIENT) { console.error('[4.4] ABORT: 画像が CDN 確定せず（保存すると live で欠落）→ 再実行'); await page.screenshot({ path: join(ROOT, `.tmp/nu-imgsettle-${noteId}.png`) }); return false; }
   }
 
   // 4.5 目次ブロック（H2>=3・最初のh2直前・--no-toc で抑止）。全文置換で消えるため再挿入。

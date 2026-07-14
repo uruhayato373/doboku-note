@@ -106,6 +106,23 @@ async function uploadAtCaret(page, abs, { uploadMs = 40000 } = {}) {
   return { ok: false, reason: `アップロード滞留（>${uploadMs}ms）` };
 }
 
+/**
+ * 挿入画像の CDN 確定を待つ。target 枚の非 blob `<img>` が揃うまで（または timeout）。
+ * blob: プレビューが CDN URL に差し替わって初めて保存で live に載る。
+ */
+async function settleUploads(page, target, timeoutMs, tag = '[img]') {
+  const t0 = Date.now();
+  let confirmed = 0;
+  while (Date.now() - t0 < timeoutMs) {
+    const c = await page.evaluate(() => document.querySelectorAll('[contenteditable=true] img:not([src^="blob:"])').length);
+    confirmed = c;
+    if (c >= target) return { ok: true, confirmed: c };
+    await sleep(1500);
+  }
+  console.log(`${tag} ⚠ CDN確定待ちタイムアウト（確定=${confirmed}/${target}）`);
+  return { ok: false, confirmed };
+}
+
 /** 直近挿入 figure のキャプションへ alt を best-effort 入力（失敗は無害）。 */
 async function captionLast(page, alt) {
   try {
@@ -135,28 +152,34 @@ async function captionLast(page, alt) {
 export async function insertImagesAtPlaceholders(page, images, { tag = '[img]', captionize = true, uploadMs = 40000 } = {}) {
   let inserted = 0;
   const failed = [];
-  for (const { token, abs, alt } of images) {
-    // (a) トークン段落を選択（cardify と同型: 毎回 DOM 再クエリ）
-    const found = await page.evaluate((tk) => {
-      const ed = document.querySelector('[contenteditable=true]');
-      if (!ed) return false;
-      for (const b of ed.querySelectorAll('p, div')) {
-        if (b.closest('figure, [embedded-service], h1, h2, h3, h4, h5, h6')) continue;
-        if (b.querySelector('p, h1, h2, h3, h4, h5, h6, figure')) continue;
-        if ((b.innerText || '').trim() !== tk) continue;
-        b.scrollIntoView({ block: 'center' });
-        const r = document.createRange();
-        r.selectNodeContents(b);
-        const s = window.getSelection();
-        s.removeAllRanges();
-        s.addRange(r);
-        return true;
-      }
-      return false;
-    }, token);
-    if (!found) { failed.push({ token, reason: 'token段落を特定できず' }); continue; }
+  const startImgs = await countEditorImages(page);
+  const tokenPresent = (tk) => page.evaluate((t) => ((document.querySelector('[contenteditable=true]')?.innerText || '').includes(t)), tk);
+  const selectToken = (tk) => page.evaluate((t) => {
+    const ed = document.querySelector('[contenteditable=true]');
+    if (!ed) return false;
+    for (const b of ed.querySelectorAll('p, div')) {
+      if (b.closest('figure, [embedded-service], h1, h2, h3, h4, h5, h6')) continue;
+      if (b.querySelector('p, h1, h2, h3, h4, h5, h6, figure')) continue;
+      if ((b.innerText || '').trim() !== t) continue;
+      b.scrollIntoView({ block: 'center' });
+      const r = document.createRange(); r.selectNodeContents(b);
+      const s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      return true;
+    }
+    return false;
+  }, tk);
 
-    await page.keyboard.press('Delete'); await sleep(400); // トークン消去＝空段落＋caret
+  for (const { token, abs, alt } of images) {
+    // (a) トークン段落を選択→Delete。ProseMirror 再描画で selection が失われ Delete 空振りする
+    //     ことがあるため、トークンが消えるまで最大3回 再選択+Delete（消えないと leftover ABORT になる）。
+    if (!(await selectToken(token))) { failed.push({ token, reason: 'token段落を特定できず' }); continue; }
+    let deleted = false;
+    for (let attempt = 0; attempt < 3; attempt++) {
+      await page.keyboard.press('Delete'); await sleep(400);
+      if (!(await tokenPresent(token))) { deleted = true; break; }
+      await selectToken(token); await sleep(200);
+    }
+    if (!deleted) { failed.push({ token, reason: 'token削除に失敗（selection race）' }); continue; }
 
     // (b-d) caret にアップロード
     const up = await uploadAtCaret(page, abs, { uploadMs });
@@ -167,18 +190,14 @@ export async function insertImagesAtPlaceholders(page, images, { tag = '[img]', 
     inserted++;
   }
 
-  // (f) settle: blob: プレビューが消える（アップロード確定）まで最大 15s
-  const s0 = Date.now();
-  while (Date.now() - s0 < 15000) {
-    const pending = await page.evaluate(() => document.querySelectorAll('[contenteditable=true] img[src^="blob:"]').length);
-    if (!pending) break;
-    await sleep(1000);
-  }
+  // (f) settle: 挿入した全画像が CDN 確定（src が blob: でない）になるまで待つ。
+  //     保存前に確定していないと live に載らず img 欠落になる（枚数比例の待ち・最低30s）。
+  const settled = await settleUploads(page, startImgs + inserted, Math.max(30000, inserted * 8000), tag);
 
   const leftover = await listLeftoverTokens(page);
-  console.log(`${tag} 画像挿入: inserted=${inserted}/${images.length} failed=${failed.length} leftover=${leftover.length}`);
+  console.log(`${tag} 画像挿入: inserted=${inserted}/${images.length} failed=${failed.length} leftover=${leftover.length} 確定=${settled.confirmed}/${startImgs + inserted}`);
   if (failed.length) console.log(`${tag} 失敗: ${failed.map((f) => f.reason).join(' / ')}`);
-  return { inserted, failed, leftover };
+  return { inserted, failed, leftover, settled: settled.ok };
 }
 
 /**
@@ -191,6 +210,7 @@ export async function insertImagesAtPlaceholders(page, images, { tag = '[img]', 
 export async function insertImagesAfterAnchors(page, images, { tag = '[img-only]', captionize = true, uploadMs = 40000 } = {}) {
   let inserted = 0;
   const failed = [];
+  const startImgs = await countEditorImages(page);
   for (const { abs, alt, anchor } of images) {
     // アンカー段落を特定し、その末尾に空段落を作って caret を置く。
     const placed = await page.evaluate((a) => {
@@ -217,14 +237,8 @@ export async function insertImagesAfterAnchors(page, images, { tag = '[img-only]
     if (captionize && alt) await captionLast(page, alt);
     inserted++;
   }
-  // settle
-  const s0 = Date.now();
-  while (Date.now() - s0 < 15000) {
-    const pending = await page.evaluate(() => document.querySelectorAll('[contenteditable=true] img[src^="blob:"]').length);
-    if (!pending) break;
-    await sleep(1000);
-  }
-  console.log(`${tag} 画像挿入(anchor): inserted=${inserted}/${images.length} failed=${failed.length}`);
+  const settled = await settleUploads(page, startImgs + inserted, Math.max(30000, inserted * 8000), tag);
+  console.log(`${tag} 画像挿入(anchor): inserted=${inserted}/${images.length} failed=${failed.length} 確定=${settled.confirmed}/${startImgs + inserted}`);
   if (failed.length) console.log(`${tag} 失敗: ${failed.map((f) => f.reason).join(' / ')}`);
   return { inserted, failed };
 }
