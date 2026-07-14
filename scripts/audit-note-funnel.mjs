@@ -111,7 +111,10 @@ for (const [key, ex] of Object.entries(CONFIG.exams)) {
     const raw = readFileSync(f, 'utf8');
     const url = fm(raw, 'noteUrl');
     if (!url || url === 'TBD') continue; // 未公開は対象外
-    const name = adir.slice(baseDir.length + 1) || adir;
+    // Windows のパス区切り(\)を / に正規化。config の topCtaOverrides.dirPrefix /
+    // topCtaExcludeDirs は前方スラッシュ前提のため、正規化しないと Windows で
+    // 2級土木/ override が不発→誤ドリフト（1級完全パックを期待）になる。
+    const name = (adir.slice(baseDir.length + 1) || adir).replaceAll('\\', '/');
     // ナビ/入口記事は冒頭パック CTA を意図的に付けない（topCtaExcludeDirs）
     const topExcluded = (ex.topCtaExcludeDirs || []).some(x => name === x || name.endsWith('/' + x));
     const miss = [];
