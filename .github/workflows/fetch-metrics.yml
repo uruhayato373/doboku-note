@@ -81,6 +81,14 @@ jobs:
           GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
         run: npm run fetch-gsc-data -- --dimension page
 
+      # cannibalization / content-decay 分析用: page×query の全行スナップショット
+      # （gsc-page-query-*.json）。25,000 件単位でページングし --all で全取得。
+      # metrics-analyzer が同一 query に複数 page が競合する状況・順位/CTR の継続悪化を検出する。
+      - name: Fetch GSC (page x query, for cannibalization/decay)
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+        run: npm run fetch-gsc-data -- --dimensions page,query --days 28 --all
+
       # 収益カバレッジ ダッシュボード用: ページ別流入（report-monetization-coverage.mts が
       # 最新 ga4-page-*.json を読む）。
       - name: Fetch GA4 (page, for monetization coverage)

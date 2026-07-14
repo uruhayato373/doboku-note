@@ -20,7 +20,7 @@ title: スキル ガバナンス記録
 ├── authoring/       # 11 — 記事を作る
 ├── conversion/      # 6 — 形式変換（MDX / OGP 画像 / 紙用 PDF / Kindle EPUB）＋ OGP 意匠の素案試作
 ├── quality/         # 15 — MDX・note 公開前品質検査
-├── management/      # 14 — 計画・分析・戦略
+├── management/      # 15 — 計画・分析・戦略
 ├── dev/             # 13 — 開発・CI/CD
 ├── analytics/       # 2 — サイト分析
 ├── social/          # 22 — SNS 投稿
@@ -28,10 +28,12 @@ title: スキル ガバナンス記録
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **85 スキル**（9 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+合計 **86 スキル**（9 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
 
 > 2026-07-11 改定（handoff ライフサイクル＝archive 廃止）: `dev/doc-declutter`＋`doc-curator` の処分体系から **ARCHIVE を廃止し KEEP/TRIM/DELETE/CONSOLIDATE の4分類へ**（handoff の既定処分は「タスク→backlog・手順→reference・知見→memory へ抽出→本体 `git rm`」＝記録は git 履歴）。`docs/handoffs/_archive/` 77本を削除（ユーザー決定）。`check-doc-refs` に `docs/handoffs/**` の参照先除外を追加（point-in-time 記録＝削除済みでも出典引用は正当）。2026-06-17 追加エントリ（下記）の安全則②③「退避≠削除・_archive パス張り替え」は本改定で失効。真実源 `docs/reference/information-architecture.md`「handoff のライフサイクル」。スキル/エージェント件数は不変。
 > 2026-07-08 新設（図品質・再クロップ）: `quality/figure-recrop`（既存の記事図クロップを**タイト再クロップ**して写り込み〔答え漏らし/本文/問題文〕を除く user-invocable オーケストレータ）。機械化ヘルパ `scripts/figure-recrop.mjs`（切り位置指定→crop+`-trim`外周整形+webp再生成+MDXの width/height 更新+OCR残存報告を1発）。対象選定は provenance の needs=recrop、視覚で切り位置決定（自動OCR帯検出は凡例を切りすぎるため不使用）。**civil-figure-rework とは別物**＝あちらは問題PDFから抽出だが過去問PDFは図なしテキスト版で不成立。画質不足(ボケ)は対象外＝再スキャン。真実源 `docs/reference/figure-provenance.md`。合計 `84→85`・quality `14→15`。[[project_civil1_figure_answer_leak]]
+
+> 2026-07-13 新設（SEO グロースレビュー分業）: `management/seo-growth-review`（SEO を技術/coverage/performance/意図の4面で束ねる user-invocable オーケストレータ。機械検出→意味評価→統合・**修正なし**）。あわせて**新エージェント 2 体**＝`technical-seo-auditor`（Evaluator・sonnet・audit-only。check-seo-build/check-seo-meta/index-coverage/sitemap の機械出力を統合。決定的判定を再実行しない）と `search-intent-auditor`（Evaluator・sonnet・audit-only。機械抽出の最大 20 URL のみ検索意図を意味評価）。機械検出は `scripts/check-seo-build.mjs`（build 後 SEO ゲート・CI 配線済み）と再設計版 `check-seo-meta`。**旧 catch-all `seo-auditor`（2026-06-19 退役）は復活させない**・自動修正エージェントは作らない。合計 `85→86`・management `14→15`、agents `64→66`（+2・実数 `find` と突合）。
 
 > 2026-07-08 新設（Kindle 出版パイプライン）: `conversion/kindle-build`（Kindle(KDP) 入稿用 EPUB を書籍IDから生成→epubcheck→5軸監査まで一気通貫のオーケストレータ・user-invocable）。あわせて**新エージェント 2 体**＝`kindle-book-composer`（Generator・sonnet。A系 THEMES 論点分類設計 / D系 spec + 書き下ろし前付け執筆）と `kindle-book-qa`（Evaluator・sonnet・audit-only。原稿完全性/構成整合/EPUB技術/KDP規約適合/商品性の5軸）。ビルドは決定的スクリプト（A系=`scripts/build-takuitsu-reconstruct.mjs`・D系=`scripts/build-pe1-kindle.mjs`+`scripts/kindle-specs/*.json`）で LLM 不使用（§5 準拠）。戦略・価格の真実源は `docs/project/01_戦略/08_Kindle出版戦略.md`。合計 `83→84`・conversion `5→6`、agents `+2`。
 

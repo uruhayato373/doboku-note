@@ -22,9 +22,9 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 | 担当 | 種別 | 責務 | 入力 → 出力 |
 |---|---|---|---|
 | `index-coverage.yml` | CI（月次・JST 11:00 毎月1日） | 全 sitemap URL の URL Inspection + 履歴追記 | API/sitemap → `url-inspection/*.json` + `index-coverage-history.json`（develop） |
-| `fetch-metrics.yml` | CI（週次・金 JST 6:00） | GSC query/date + GA4 | API → `.claude/state/metrics/{gsc,ga4}/` |
+| `fetch-metrics.yml` | CI（週次・金 JST 6:00） | GSC query/date/page/page×query + GA4 | API → `.claude/state/metrics/{gsc,ga4}/` |
 | `gsc-index-auditor` | Evaluator（sonnet） | coverage 分類・indexed_ratio・履歴差分・原因バケット・hygiene URL surface | url-inspection + history → 診断テキスト（audit-only） |
-| `metrics-analyzer` | Evaluator（sonnet） | index 済みページの performance 6 パターン（SNS-Source-Shift 含む） | gsc/ga4 → `improvements/*.md` |
+| `metrics-analyzer` | Evaluator（sonnet） | index 済みページの performance 8 パターン（SNS-Source-Shift＋page×query の Cannibalization/Content-Decay 含む） | gsc/ga4（`gsc-page-query-*` 含む）→ `improvements/*.md` |
 | `performance-auditor` | Evaluator（sonnet） | CWV / PSI | psi → improvements |
 | `/gsc-review` | Skill（月次） | CI データ確認 → gsc-index-auditor 起動 → 観測ログ追記 | — |
 | `/weekly-improve` | Skill（週次） | metrics-analyzer 起動（performance） | — |

@@ -14,6 +14,8 @@ import {
 export const metadata: Metadata = {
   title: '利用規約',
   description: 'doboku-noteの利用規約について。コンテンツの利用条件、免責事項、知的財産権についてご案内します。',
+  // self canonical（root 継承事故の防止。og:url は既に self 指定済み）
+  alternates: { canonical: '/terms' },
   openGraph: {
     type: 'website',
     title: '利用規約 | doboku-note',

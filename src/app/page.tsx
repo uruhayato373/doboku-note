@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import PageShell from "@/components/layout/PageShell";
 import { Hero, ExamCards, LatestArticles, AboutSection, PremiumNoteHero } from "@/components/home";
 import type { LatestArticle } from "@/components/home";
@@ -6,6 +7,14 @@ import { getOgpImageUrl } from "@/lib/r2-image-loader";
 import categoriesData from "@/config/categories.json";
 import homeExamCardsData from "@/config/home-exam-cards.json";
 import { CategoryDef } from "@/lib/categories";
+
+// ホームの自己 canonical / og:url。root（getCommonSeoData）は継承事故防止のため
+// canonical/og:url を持たないので、ホーム自身がここで "/" を明示する。
+// title/description は root の default をそのまま継承する。
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+  openGraph: { url: "/" },
+};
 
 // 2026-04-26 #84 LCP 追加改善（Task B-2 revert）:
 // LatestArticles / AboutSection を next/dynamic でラップしたが、これらは React Server Component

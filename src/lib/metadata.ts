@@ -1,3 +1,51 @@
+import type { Metadata } from "next";
+
+const SITE_URL = "https://doboku-note.com";
+const DEFAULT_OG_IMAGE = `${SITE_URL}/images/og-default.png`;
+const DEFAULT_OG_ALT = "doboku-note - 土木系資格試験 専門技術ノート";
+
+/**
+ * ページ自己参照メタデータの生成ヘルパー。
+ *
+ * self canonical と self og:url を必ず同一 path で対にして生成し、
+ * root レイアウトのメタデータ継承事故（子が canonical/og:url を省略すると
+ * root の homepage 値を継承してしまう）を構造的に防ぐ。root（getCommonSeoData）は
+ * canonical/og:url を持たない設計なので、各ページはこのヘルパー（または同等の
+ * 明示指定）で必ず自己 URL を設定する。
+ *
+ * @param path 先頭スラッシュ付きの自己パス（例 "/about"）。canonical と og:url に共通使用。
+ *             metadataBase（https://doboku-note.com）に対して絶対 URL へ解決される。
+ * @param absoluteTitle true のとき title テンプレート（"%s | doboku-note"）を回避する。
+ */
+export function buildPageMetadata({
+  title,
+  description,
+  path,
+  noindex = false,
+  absoluteTitle = false,
+}: {
+  title: string;
+  description?: string;
+  path: string;
+  noindex?: boolean;
+  absoluteTitle?: boolean;
+}): Metadata {
+  return {
+    title: absoluteTitle ? { absolute: title } : title,
+    ...(description !== undefined ? { description } : {}),
+    ...(noindex ? { robots: { index: false, follow: true } } : {}),
+    alternates: { canonical: path },
+    openGraph: {
+      url: path,
+      title,
+      ...(description !== undefined ? { description } : {}),
+      images: [
+        { url: DEFAULT_OG_IMAGE, width: 1200, height: 630, alt: DEFAULT_OG_ALT },
+      ],
+    },
+  };
+}
+
 export const getCommonSeoData = () => ({
   title: {
     default: "doboku-note - 土木系資格試験 専門技術ノート",
@@ -25,8 +73,10 @@ export const getCommonSeoData = () => ({
     telephone: false,
   },
   metadataBase: new URL("https://doboku-note.com"),
+  // canonical は root に置かない（子ページが省略すると homepage canonical を継承する
+  // 事故構造になるため）。各ページが buildPageMetadata 等で自己 canonical を明示する。
+  // ホーム自身の canonical は src/app/page.tsx が設定する。
   alternates: {
-    canonical: "/",
     types: {
       "application/rss+xml": [
         { url: "/feed.xml", title: "doboku-note RSS フィード" },
@@ -50,7 +100,7 @@ export const getCommonSeoData = () => ({
   openGraph: {
     type: "website",
     locale: "ja_JP",
-    url: "https://doboku-note.com",
+    // og:url も root に置かない（canonical と同じ継承事故を避ける）。各ページが自己 og:url を明示。
     title: "doboku-note - 土木系資格試験 専門技術ノート",
     description:
       "1級土木施工管理技士・技術士（総合技術監理部門）の試験対策サイト。体系的な技術解説と過去問で合格をサポート。",

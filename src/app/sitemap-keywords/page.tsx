@@ -10,10 +10,18 @@ import type { PeChapter } from '@/config/pe-chapters';
 const PE_CHAPTERS: PeChapter[] = peChaptersData.chapters;
 
 export const metadata: Metadata = {
-  title: '総合技術監理 キーワード索引 | doboku-note',
+  // title テンプレート "%s | doboku-note" が自動付与するため "| doboku-note" を重ねない
+  // （旧: "… キーワード索引 | doboku-note" + テンプレ = 二重サイト名だった）。
+  title: '総合技術監理 キーワード索引',
   description: '技術士・総合技術監理部門のキーワード集 2026（5 管理 × 26 セクション）の全キーワード索引。経済性管理・人的資源管理・情報管理・安全管理・社会環境管理の体系で整理。',
   alternates: {
     canonical: 'https://doboku-note.com/sitemap-keywords',
+  },
+  // og:url を明示（未設定だと root の homepage og:url を継承してしまう）。
+  openGraph: {
+    url: 'https://doboku-note.com/sitemap-keywords',
+    title: '総合技術監理 キーワード索引',
+    description: '技術士・総合技術監理部門のキーワード集 2026 の全キーワード索引。',
   },
   robots: {
     index: true,

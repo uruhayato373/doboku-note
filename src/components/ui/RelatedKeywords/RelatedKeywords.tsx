@@ -1,4 +1,6 @@
 import Link from "next/link";
+import categoriesData from "@/config/categories.json";
+import { buildKeywordHref } from "@/lib/keyword-href.mjs";
 import Callout from "../Callout/Callout";
 
 interface KeywordItem {
@@ -10,17 +12,10 @@ interface RelatedKeywordsProps {
   items: KeywordItem[];
 }
 
-const KNOWN_CATEGORY_PREFIXES = [
-  "pe-comprehensive-management-",
-  "civil-construction-1-",
-  "civil-construction-2-",
-];
+const CATEGORY_SLUGS = categoriesData.map((c) => c.slug);
 
 function buildHref(slug: string): string {
-  if (KNOWN_CATEGORY_PREFIXES.some((p) => slug.startsWith(p))) {
-    return `/docs/${slug}`;
-  }
-  return `/docs/pe-comprehensive-management-${slug}`;
+  return buildKeywordHref(slug, CATEGORY_SLUGS);
 }
 
 /**
@@ -31,9 +26,9 @@ function buildHref(slug: string): string {
  * 視覚的に整理。旧実装のハードコード色とモバイル余白を廃止。
  *
  * API（items: { label, slug? }[]）は 666 MDX 呼び出しと完全互換。
- * slug が既知のカテゴリ接頭辞（pe-comprehensive-management- / civil-construction-1- /
- * civil-construction-2-）で始まる場合はそのまま /docs/{slug} を生成、それ以外は
- * legacy bare slug として pe-comprehensive-management- を補完する（後方互換）。
+ * slug → /docs URL の解決規則は src/lib/keyword-href.mjs（check-links チェッカーと共有）。
+ * categories.json の全カテゴリ接頭辞を許可し、接頭辞なしの bare slug のみ
+ * legacy 総監（pe-comprehensive-management-）を補完する。
  */
 export default function RelatedKeywords({ items }: RelatedKeywordsProps) {
   if (!items || items.length === 0) return null;
