@@ -14,8 +14,8 @@ function windowLabel(): string | null {
   return `${fmt(popularWindow.start)}〜${fmt(popularWindow.end)}`;
 }
 
-/** 人気記事リストの1行（サムネ左＋タイトル/抜粋右のブログ型）。OGP を 1200:630 サムネにし、
- *  行の高さは line-clamp で揃える。ランクは左上バッジ。 */
+/** 人気記事リストの1行（サムネ左＋ランク番号＋タイトル/抜粋のブログ型）。OGP を 1200:630 サムネにし、
+ *  行の高さは line-clamp で揃える。ランクは OGP のタイトル焼込みと重ならないようタイトル側に置く。 */
 function PopularListRow({ item }: { item: PopularDoc }) {
   const { doc, rank } = item;
   const title = doc.shortTitle || doc.title;
@@ -24,7 +24,7 @@ function PopularListRow({ item }: { item: PopularDoc }) {
     <li className="border-b border-[var(--rule-soft)] last:border-b-0">
       <Link
         href={`/docs/${doc.slug}`}
-        className="group flex gap-4 py-4 first:pt-0"
+        className="group flex gap-3 sm:gap-4 py-4 first:pt-0"
       >
         <div className="relative aspect-[1200/630] w-[124px] sm:w-[168px] shrink-0 overflow-hidden border border-[var(--rule-soft)] bg-[var(--bg)]">
           <Image
@@ -37,17 +37,19 @@ function PopularListRow({ item }: { item: PopularDoc }) {
             sizes="(max-width: 640px) 124px, 168px"
             className="h-full w-full object-cover"
           />
-          <span className="absolute left-1.5 top-1.5 inline-flex h-5 min-w-5 items-center justify-center rounded-card-inline bg-[var(--accent)] px-1 font-mono text-[10px] font-bold tabular-nums text-white">
+        </div>
+        <div className="flex min-w-0 flex-1 gap-2.5">
+          <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-card-inline bg-[var(--accent-fill)] font-mono text-xs font-bold tabular-nums text-[var(--accent)]">
             {rank}
           </span>
-        </div>
-        <div className="flex min-w-0 flex-col gap-1 pt-0.5">
-          <h3 className="font-serif text-[15px] sm:text-lg font-bold leading-snug text-[var(--ink)] group-hover:text-[var(--accent)] transition-colors line-clamp-2">
-            {title}
-          </h3>
-          {excerpt && (
-            <p className="text-[13px] sm:text-sm text-[var(--ink-muted)] line-clamp-2">{excerpt}</p>
-          )}
+          <div className="flex min-w-0 flex-col gap-1">
+            <h3 className="font-serif text-[15px] sm:text-lg font-bold leading-snug text-[var(--ink)] group-hover:text-[var(--accent)] transition-colors line-clamp-2">
+              {title}
+            </h3>
+            {excerpt && (
+              <p className="text-[13px] sm:text-sm text-[var(--ink-muted)] line-clamp-2">{excerpt}</p>
+            )}
+          </div>
         </div>
       </Link>
     </li>
