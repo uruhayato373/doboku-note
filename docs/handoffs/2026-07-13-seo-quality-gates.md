@@ -104,17 +104,22 @@ UI 刷新・`scripts/quality-audit.mjs` 統合 CHECKS レジストリ・v2 監�
 
 ## 完了 / 保留事項
 
-- **push 済み**: `claude/doboku-note-seo-quality-bfi3x7`（origin）。**draft PR #390**（base: develop）作成済み。
+- **マージ済み**: **PR #390**（merge commit `2aa8ab23`・base: develop）。CI green（`quality:audit:ci`
+  → `build` → `check-seo-build:ci` 全通過）。
+  - マージ直前に develop 由来の既存 ratchet drift（BuildJob アフィリ3記事の rule 15-1 文末単調・
+    私の変更外）を解消して CI を green 化（`guide-buildjob-review` / `guide-career-consultation-before-quit`
+    / `guide-career-agent-comparison` の文末表現のみ調整・事実/数値/リンク不変）。
   - 注記: 環境の git relay（127.0.0.1:41729）は最初 413 で push 不能だったが、リモート branch を
     develop tip で先に作成し共通祖先を確定させることで最小パックの push が通った。
-- **deploy / robots.txt / Cloudflare 変更は未実施**（意図的・ユーザー承認事項）。
+- **deploy / robots.txt / Cloudflare 変更は未実施**（意図的・ユーザー承認事項）。canonical/OGP 修正の
+  本番反映は `develop→main` の deploy 後。サイト全ページ canonical 一斉更新＝再クロールが走るため、
+  **コアアップデート期を避け直後2週間は GSC 日次監視**（gsc-management.md 2026-07-10 の教訓）。
 - **build が再生成する index JSON はコミットしていない**（`doc-meta-index.json` 等の
   timestamp/git-date churn。CI が build 前に refresh-indexes で再生成）。
-- **orphan/unreachable の gate 昇格は保留**（現状 warn）。R8 essay-theme の導線設計が固まったら
-  gate 化を再検討。
+- **orphan/unreachable の gate 昇格は保留**（現状 warn）→ `docs/todo/backlog.md`「SEO 品質ゲート後続」へ起票。
 - **GSC page×query の実データ生成は CI 待ち**（ローカルは creds 無し・会社 PC プロキシ遮断＝
-  measurement-incidents.md）。次回 `fetch-metrics.yml`（週次金曜）で `gsc-page-query-*.json`
-  が初生成される。metrics-analyzer の Pattern 7/8 はそれ以降に有効。
+  measurement-incidents.md）→ 同 backlog へ起票。次回 `fetch-metrics.yml`（週次金曜）で
+  `gsc-page-query-*.json` が初生成され、metrics-analyzer の Pattern 7/8 はそれ以降に有効。
 - **Node バージョン差**: ローカル Node 22 では旧 `node --test tests/`（dir 引数）が回帰するため
   `tests/*.test.mjs` に変更済み。CI（Node 20）でも同一 glob で全テスト discovery される。
 
