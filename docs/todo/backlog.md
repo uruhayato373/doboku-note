@@ -196,10 +196,11 @@ P1-P3（GA4 計測基盤・NextStepNav・季節モード note CTA）は実装済
 
 100本公開＋マガジン収録＋SKU published:true は完了。残 = ①PDF添付（civil 用 pdf-spec 設計→`magazine-to-pdf.mjs`→`note-attach-magazine-pdfs.mjs --commit`・Windows必須）②各記事へネイティブ目次挿入 ③無料23本へ冒頭CTA live 反映（`note-append-cta.mjs`・ソース配線済）④`note-publish.mjs --schedule` の予約投稿 selector 修復 ⑤stray 下書き3件削除（n3e2475d0b6d5/na5b4cef4fcfe/nfc608702b477）。
 
-### note A系記事の生URL→キーワードリンク live反映
+### note 公開記事の bare /docs/ URL インライン化（実残: draft のみ）
 タグ: [収益化]
 
-SoT（ローカルmd）は確定済。note.com 公開6本（防災/担い手/GX/老朽化/国土形成/建設DX）へのブラウザ反映が未着手。他7記事も同じ生URL問題。326件バーンダウンの codemod は別途。
+**2026-07-14 実体照合で旧「A系6本（防災/担い手/GX/老朽化/国土形成/建設DX）」は陳腐化と判明**（当該記事の source は修正済み＝現 `check-note-site-utm` 違反リストに不在）。公開/free の唯一の実残だった **立場別模範論文の選び方**（essay-persona-guide の bare URL）は同日インライン化＋live反映完了（na030d9cb3060）。
+残 = **draft 3本**（再受験対策・口頭試験対策・記述式の書き方）の bare/utm-missing /docs/ URL。**未公開＝live反映不要**、公開時に是正（検出＝`node scripts/check-note-site-utm.mjs`）。別枠の「note→サイト bare-url UTM バーンダウン(442件)」とは独立。
 
 ### note→サイト bare-url の UTM バーンダウン（442件）
 タグ: [SNS・マーケ] [Codex候補]

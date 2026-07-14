@@ -133,9 +133,7 @@ https://note.com/dobokunote/m/m55b930cbfcf9
 
 ## もっと詳しく / 全体像
 
-分野別の早見表とよくある質問は、サイトの案内ページにまとめています。
-
-https://doboku-note.com/docs/pe-comprehensive-management-essay-persona-guide
+分野別の早見表とよくある質問は、[立場別・専門分野別の模範論文 案内ページ](https://doboku-note.com/docs/pe-comprehensive-management-essay-persona-guide?utm_source=note&utm_medium=referral&utm_campaign=persona-selector-intro&utm_content=essay-persona-guide)にまとめています。
 
 各マガジンの全体像と「どれから読むか」は、はじめての方向けのロードマップにまとめています。
 
