@@ -114,6 +114,13 @@ page/category の合成ロジック共通化（2026-06-25 アセスメント起�
 - **手順**: レポート上位を group 対応の `/quality-cycle` へ。表→非表・入れ子→フラット・長段落→改段。1バッチ 10-20 記事、完了ごとに `npm run update-content-quality-baseline`
 - **注意**: civil textbook の規格表・配合表は override 除外済み。過去問の年度×選択肢表は無理に崩さない
 
+### guide-career / アフィリ記事の文末単調（rule 15-1）copy リライト
+タグ: [コンテンツ品質]
+
+BuildJob アフィリスプリントで注入された copy が rule 15-1（文末「〜です。/〜ます。」の連続）に触れている。mechanical-only 範囲外で copy 文言変更が必要（SSOT の残課題= `docs/reviews/2026-07-14-mechanical-quality-audit.md:75`）。現状（`node .claude/scripts/lint-mdx-mobile.mjs <file>` で 15-1 実測）:
+- `civil-construction-1-guide-age-career`（5件）／`civil-construction-1-guide-career-agent-comparison`（3件）／`civil-construction-2-guide-young-career`（3件）
+- **手順**: 各記事の該当段落の語尾に変化をつける（体言止め・接続で連結・「〜ます。」→「〜ます」等）。数値・主張・アフィリ配線は不変。完了後 `npm run update-content-quality-baseline` で baseline 更新。要再計測（他 career 記事にも波及の可能性）
+
 ### 過去問図 rescan-need-source 9図（要外部/別原典）
 タグ: [コンテンツ品質]
 
