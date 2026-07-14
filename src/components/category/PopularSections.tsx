@@ -63,16 +63,9 @@ function PopularListRow({ item }: { item: PopularDoc }) {
  */
 export function PopularShowcase({ items }: { items: PopularDoc[] }) {
   if (items.length === 0) return null;
-  const label = windowLabel();
   return (
     <section data-cta="nav" data-cta-label="popular-showcase">
-      <div className="mb-5">
-        <div className="flex items-baseline justify-between gap-2 flex-wrap">
-          <h2 className="font-serif text-[22px] sm:text-[26px] font-black text-[var(--ink)]">よく読まれている記事</h2>
-          {label && <span className="font-mono text-[11px] text-[var(--ink-muted)] tabular-nums">{label}</span>}
-        </div>
-        <p className="text-[14px] text-[var(--ink-muted)] mt-1">アクセスの多い記事から探す</p>
-      </div>
+      <h2 className="font-serif text-[22px] sm:text-[26px] font-black text-[var(--ink)] mb-5">よく読まれている記事</h2>
       <ol className="flex flex-col">
         {items.map((item) => (
           <PopularListRow key={item.doc.slug} item={item} />

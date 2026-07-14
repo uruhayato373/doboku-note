@@ -482,10 +482,7 @@ export function DocSection({ group, layout, secondaryDocs }: { group: DocGroup; 
   return (
     <section id={`sec-${group.key}`} className="scroll-mt-24">
       <div className="mb-6">
-        <div className="flex items-baseline justify-between gap-2 flex-wrap">
-          <h2 className="font-serif text-[22px] sm:text-[26px] font-black text-[var(--ink)]">{group.title}</h2>
-          <span className="font-mono text-[11px] text-[var(--ink-muted)]">{group.docs.length} docs</span>
-        </div>
+        <h2 className="font-serif text-[22px] sm:text-[26px] font-black text-[var(--ink)]">{group.title}</h2>
         <p className="text-[14px] text-[var(--ink-muted)] mt-1">{group.description}</p>
       </div>
       {layout === 'exam-table' ? (

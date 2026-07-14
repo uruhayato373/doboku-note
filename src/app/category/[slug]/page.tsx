@@ -140,9 +140,6 @@ export default async function CategoryPage({
                 {cat.label}
               </h1>
               <p className="text-[15px] leading-[1.8] text-[var(--ink-body)] max-w-[60ch]">{cat.subtitle}</p>
-              <div className="mt-3 flex gap-4 flex-wrap font-mono text-[11px] text-[var(--ink-muted)] tabular-nums">
-                <span>{docs.length.toLocaleString()} docs</span>
-              </div>
             </div>
             <div className="pt-8 text-[17px] leading-[1.9]">
           {/* よく読まれている記事 特集（GA4 上位 top3・グループ別セクションの上）。データ無しなら描画されない。 */}
