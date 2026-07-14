@@ -269,6 +269,11 @@ PR #269（カタログ）/#270（SNSレンダラー）済。残 = Phase4 記事�
 
 ## 🟢 低 — 時期未定
 
+### Tailwind transform 変種が本 build で無効な件の根因調査
+タグ: [UI・UX]
+
+`group-open:rotate-90`（合成 transform が `--tw-rotate` リセットに潰れる）も `[transform:…]` arbitrary variant（JIT 未生成）も回転が効かない（2026-07-14・アコーディオンで発覚、[[reference_tailwind_transform_broken]]）。今回は globals.css の素 CSS `.disclosure-chevron` で回避済み。根因は `@layer` 順・PostCSS 設定・Tailwind の base reset が unlayered で utilities を上書きしている疑い。放置すると将来 `rotate-*`/`translate-*`/`scale-*` を変種で使うたび同じ罠。tailwind.config / globals.css の layer 構成を点検し、直れば独自 CSS を Tailwind へ戻せる。急がない（回避策が機能中）。
+
 ### 総監キーワード cem-qa 2.2–2.5帯 40本リライト
 タグ: [コンテンツ品質] [Codex候補]
 
