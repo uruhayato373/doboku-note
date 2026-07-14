@@ -88,7 +88,9 @@ const title = (bodyForTitle.match(/^#\s+(.+)$/m)?.[1] ?? fmField('title')).trim(
 if (!title) { console.error('ABORT: タイトル（先頭 # H1）が見つからない。'); process.exit(3); }
 let body = raw.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n*/, '');
 body = body.replace(/<!--[\s\S]*?-->\n?/g, '');   // HTML コメント除去
-body = body.replace(/!\[.*?\]\(.*?\)\n?/g, '');   // 画像参照除去（無料記事は通常なし）
+// 本文画像 ![](img/) は除去せず一意トークン化して残し、paste 後に「＋」メニューでアップロードする
+// （2026-07-15〜。真実源: lib/note-images.mjs extractBodyImages / insertImagesAtPlaceholders）
+// const { body: b2, images } = extractBodyImages(body, articleDir); body = b2;
 body = body.replace(/^---$/gm, '');               // 水平線除去
 body = body.replace(/^#\s+.*\n+/, '');            // 先頭 H1 除去（タイトル欄へ入れるため）
 body = body.trim();
