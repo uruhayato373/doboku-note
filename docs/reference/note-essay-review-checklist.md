@@ -38,7 +38,7 @@ title: note 模範論文レビュー手順書
 | 異業種・民間 | 電力会社土木（民間ダム/発電）・NEXCO（高速道路会社）・鉄道・民間プラント 等 | **不採用**（2026-06-09 電力/NEXCO 除去 commit fc433b7ad） |
 | 受注者系 | ゼネコン・各種コンサル（受注者の座） | **GO（2026-06-10 ユーザー決定＝売る）**。ただし著者の真実経験座（発注者）ではないため、受注者視点を厳守（発注者権限の施策＝仕様書義務化/条例改正/補助金/税制は書かない。受注者は施工・調査設計の高度化/技術開発/社内体制/提言まで）。一人称の実体験は捏造せず一般専門知識・白書ベースで credible に描く |
 
-着手前にこの判定を通し、異業種は作らない。受注者系は売るが受注者視点の制約を厳守（詳細は引き継ぎ `docs/handoffs/_archive/2026-06-10-pe-essay-contractor-personas-cloud.md` §1）。
+着手前にこの判定を通し、異業種は作らない。受注者系は売るが受注者視点の制約を厳守（詳細は引き継ぎ `docs/handoffs/2026-06-10-pe-essay-contractor-personas-cloud.md` §1）。
 
 ### Step 0b: 専門分野ラベルの正確性（技術士選択科目との対応）
 
@@ -344,7 +344,7 @@ note でマガジンを作成する際は、**マガジン名・説明・価格�
 | 自治体（公開済） | 道路 | ✅ R03-R07 公開済（published:true・構造ベンチマーク）。R8予想は現状デモ1本（気候変動適応×グリーンインフラ）のみ＝**2026-06-16 方針転換により `R08-yosou-1`/`-2` の2記事へ拡充が残作業**。旧 `_meta.yaml` の整理も残る |
 | 不採用（削除済） | 建築営繕 | ❌ 著者の真実の経験座（元自治体土木職＝発注者）の対象外（建築職領域）のため削除（2026-06-10、`eb51f1388`）。電力会社土木・NEXCO と同じ基準 |
 | 受注者系（公開品質化 完了） | 都市計画コンサル | ✅ **公開品質化完了（2026-06-11）**。R08二記事化（気候変動適応/資源循環）・全ゲートGREEN（600字超0/答案箇条書き0/blockquote0/文体0/note-lint OK/U+FFFD0/見出し0/meta-lint0）・7記事アセット完備（cover/hashtags/PDF＋PDF訴求）。受注者視点厳守（設問2＝自社の調査設計高度化/提案、設問3＝国家施策はOK）。残=note実投稿→URL反映→published:true（user/Mac側） |
-| 受注者系（公開品質化 完了・repo） | ゼネコン / 河川コンサル / 道路橋梁コンサル | ✅ **repo 公開品質化完了（2026-06-15 検証）**: 全ゲートGREEN（charcount --strict 通過＝600字超0／答案箇条書き0／blockquote0／文体0）。ゼネコン・河川コンサルは per-persona R08 を**決定2026で撤回**しR8予想問題集フラッグシップへ集約＝過去問evergreen 5記事で確定。道路橋梁コンサルは R08二記事化済（7記事）。受注者視点厳守。残=note実投稿（ゼネコン/河川コンサル=既存マガジン再投稿で de-blockquote/掲載文反映・道路橋梁コンサル=新規投稿）→URL反映→published:true（user/Mac側）。実行記録＝`docs/handoffs/_archive/2026-06-10-pe-essay-contractor-personas-cloud.md` |
+| 受注者系（公開品質化 完了・repo） | ゼネコン / 河川コンサル / 道路橋梁コンサル | ✅ **repo 公開品質化完了（2026-06-15 検証）**: 全ゲートGREEN（charcount --strict 通過＝600字超0／答案箇条書き0／blockquote0／文体0）。ゼネコン・河川コンサルは per-persona R08 を**決定2026で撤回**しR8予想問題集フラッグシップへ集約＝過去問evergreen 5記事で確定。道路橋梁コンサルは R08二記事化済（7記事）。受注者視点厳守。残=note実投稿（ゼネコン/河川コンサル=既存マガジン再投稿で de-blockquote/掲載文反映・道路橋梁コンサル=新規投稿）→URL反映→published:true（user/Mac側）。実行記録＝`docs/handoffs/2026-06-10-pe-essay-contractor-personas-cloud.md` |
 
 進捗メモリ: `project_essay_persona_water_municipality`（上水道）、`feedback_essay_magazine_meta_yaml_retired`（掲載文/価格規約）、`feedback_essay_persona_authentic_seat`（採否）。
 

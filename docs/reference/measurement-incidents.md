@@ -94,7 +94,7 @@ title: 計測・検証事故の記録
 - `.github/workflows/r2-sync.yml` - main push 時の R2 同期
 - `.github/workflows/r2-audit.yml` - 週次 diff-r2 監査（新設）
 - `.claude/skills/dev/diff-r2/scripts/diff-r2.mjs` - 差分監査
-- handoff `docs/handoffs/_archive/2026-05-29-r2-content-fallback-removal.md`
+- handoff `docs/handoffs/2026-05-29-r2-content-fallback-removal.md`
 
 ## 2026-06-12: OGP 画像が r2-sync の path フィルタ外で 404 → note 外部リンクカード生成不能
 

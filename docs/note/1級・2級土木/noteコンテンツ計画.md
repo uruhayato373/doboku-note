@@ -352,7 +352,7 @@
 - **SoT**: 旗艦 SKU `civil-1-keiken-complete-pack`（`note-magazines.ts`）。単品価格の SoT は各工事 frontmatter `price: 1280`。
 
 > [!note] 実装（2026-06-30 完了）
-> 設計時の「既存60想定工事の束ね＋補充」から**工事別100記事×5管理＝500答案の新規制作**へ拡張して完成（背骨＝[1級土木-想定工事台帳100.md](1級土木/1級土木-想定工事台帳100.md)・上表は当初設計で実体は台帳100が真実源）。note マガジン公開済み（`m8290970a7f05`）・各工事に冒頭パックCTA＋`price:1280`＋公開URL書戻し用フィールド整備済み。**100工事は ¥1,280 で個別公開予定 → 収録完了後に SKU `published: true`**。公開手順は [docs/handoffs/_archive/2026-06-30-civil1-flagship-publish.md](../../handoffs/_archive/2026-06-30-civil1-flagship-publish.md)。
+> 設計時の「既存60想定工事の束ね＋補充」から**工事別100記事×5管理＝500答案の新規制作**へ拡張して完成（背骨＝[1級土木-想定工事台帳100.md](1級土木/1級土木-想定工事台帳100.md)・上表は当初設計で実体は台帳100が真実源）。note マガジン公開済み（`m8290970a7f05`）・各工事に冒頭パックCTA＋`price:1280`＋公開URL書戻し用フィールド整備済み。**100工事は ¥1,280 で個別公開予定 → 収録完了後に SKU `published: true`**。公開手順は [docs/handoffs/2026-06-30-civil1-flagship-publish.md](../../handoffs/2026-06-30-civil1-flagship-publish.md)。
 
 ### 8.3 会員の再ポジション（§2.1 の前提補正）
 
