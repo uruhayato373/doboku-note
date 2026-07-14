@@ -131,25 +131,15 @@ export function CurriculumList({
             )}
             {collapsible && block.label ? (
               <details className="group rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] open:border-[var(--accent)] transition-colors">
-                {/* E-1: 章番号(mono accent) + タイトル&トピックプレビュー1行 + N記事 + 右端シェブロン。
-                    トピックは本文記事タイトル（無ければ要点 guide）を自動連結し、開かずに中身を示す。 */}
+                {/* E-1: 章番号(mono accent) + タイトル + N記事 + 右端シェブロン（1行）。
+                    章の中身は開いて確認する（閉状態のトピックプレビューは冗長のため撤去）。 */}
                 <summary className="flex cursor-pointer list-none items-center gap-3 px-4 py-3 marker:hidden">
                   {block.chapterNo && (
                     <span className="shrink-0 font-mono text-[11px] font-bold tracking-wider text-[var(--accent)]">
                       {block.chapterNo}
                     </span>
                   )}
-                  <span className="flex min-w-0 flex-1 flex-col gap-0.5">
-                    <span className="font-serif text-lg font-bold text-[var(--ink)]">{block.label}</span>
-                    {(() => {
-                      const preview = (block.docs.length > 0 ? block.docs : (block.intro ?? []))
-                        .map((d) => d.shortTitle || d.title)
-                        .join('・');
-                      return preview ? (
-                        <span className="truncate text-[12px] text-[var(--ink-muted)]">{preview}</span>
-                      ) : null;
-                    })()}
-                  </span>
+                  <span className="min-w-0 flex-1 truncate font-serif text-lg font-bold text-[var(--ink)]">{block.label}</span>
                   <span className="shrink-0 font-mono text-[11px] tabular-nums text-[var(--ink-muted)]">{count}記事</span>
                   <DisclosureChevron className="text-[var(--ink-muted)]" />
                 </summary>
