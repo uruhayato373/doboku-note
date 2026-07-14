@@ -50,14 +50,16 @@ function CurriculumRow({ doc, marker }: { doc: DocMeta; marker: React.ReactNode 
         <span className="shrink-0 flex items-center justify-center min-w-6" aria-hidden>
           {marker}
         </span>
-        <span className="text-[15px] sm:text-base font-medium text-[var(--ink)] group-hover:text-[var(--accent)] transition-colors">
-          {doc.shortTitle || doc.title}
-        </span>
-        {doc.subtitle && (
-          <span className="hidden sm:inline ml-auto max-w-[40%] truncate text-right text-[13px] text-[var(--ink-muted)]">
-            {doc.subtitle}
+        {/* タイトル下に subtitle を縦積み（旧: 右寄せ truncate はデスクトップで途切れ・
+            モバイル非表示だった）。全文・全デバイス表示で記事選択の手がかりを保つ（2026-07 C-2）。 */}
+        <span className="flex min-w-0 flex-col gap-0.5">
+          <span className="text-[15px] sm:text-base font-medium text-[var(--ink)] group-hover:text-[var(--accent)] transition-colors">
+            {doc.shortTitle || doc.title}
           </span>
-        )}
+          {doc.subtitle && (
+            <span className="text-[13px] text-[var(--ink-muted)]">{doc.subtitle}</span>
+          )}
+        </span>
       </Link>
     </li>
   );
