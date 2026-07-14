@@ -1,7 +1,10 @@
 ---
 notePricing: free
-noteStatus: draft
+noteStatus: published
 utmCampaign: civil-career-before-quit
+notePublishedAt: "2026-07-14"
+noteId: "n7a81ebf1cdc5"
+noteUrl: "https://note.com/dobokunote/n/n7a81ebf1cdc5"
 coverTitle: ["施工管理を辞める前に", "確認すること"]
 cover:
   leadIn: "勢いで退職届を出す前に"

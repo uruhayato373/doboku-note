@@ -1,7 +1,10 @@
 ---
 notePricing: free
-noteStatus: draft
+noteStatus: published
 utmCampaign: civil-career-buildjob-review
+notePublishedAt: "2026-07-14"
+noteId: "na0f42fd52a51"
+noteUrl: "https://note.com/dobokunote/n/na0f42fd52a51"
 coverTitle: ["ビルドジョブは", "施工管理に向くか"]
 cover:
   leadIn: "元公務員土木（発注者）の視点"

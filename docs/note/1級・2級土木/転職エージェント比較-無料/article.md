@@ -1,7 +1,10 @@
 ---
 notePricing: free
-noteStatus: draft
+noteStatus: published
 utmCampaign: civil-career-agent-comparison
+notePublishedAt: "2026-07-14"
+noteId: "ne49853deac96"
+noteUrl: "https://note.com/dobokunote/n/ne49853deac96"
 coverTitle: ["転職エージェントを", "軸で選ぶ"]
 cover:
   leadIn: "特化型・求人サイト・総合型"
