@@ -89,11 +89,21 @@ https://note.com/dobokunote/m/m8554e87ca6ec
 
 **2級土木施工管理技士の過去問解説・テキスト**（無料・doboku-note）
 
-https://doboku-note.com/docs/civil-construction-2-guide-exam-overview
+[過去問解説・テキストの一覧を見る](https://doboku-note.com/docs/civil-construction-2-guide-exam-overview?utm_source=note&utm_medium=referral&utm_campaign=2c-vs-1c-order&utm_content=exam-overview)
 
 **2級土木 受験資格の全体像**（実務経験・経過措置）
 
 https://note.com/dobokunote/n/n6e6db14f4dfc
+
+## 資格を取ったら市場価値はどう変わる？
+
+級の順番と並んで気になるのが「取った後どう効くか」です。2級を取ると主任技術者として配置でき、1級（監理技術者）まで進むと扱える工事の規模と待遇の上限が大きく変わります。1級取得後の市場価値は[1級土木施工管理技士の市場価値（転職・年収・独立）](https://doboku-note.com/docs/civil-construction-1-guide-market-value?utm_source=note&utm_medium=referral&utm_campaign=2c-vs-1c-order&utm_content=market-value)に、2級取得でできることは[2級土木を取ると何ができる？（年収・転職・1級への道）](https://doboku-note.com/docs/civil-construction-2-guide-career?utm_source=note&utm_medium=referral&utm_campaign=2c-vs-1c-order&utm_content=career)にまとめました。
+
+**PR**：以下はアフィリエイト広告を含みます。
+
+すでに実務経験があり、級の取得を機に条件を見直したい方は、建設・施工管理に特化した転職エージェントの無料キャリア面談で、いまの経験・資格で狙える求人と想定年収を確認できます。登録・相談は無料で、在職中でも動くかは提示された条件を見てから決められます。
+
+https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHBA2+5B0Y+NTJWY
 
 ---
 
