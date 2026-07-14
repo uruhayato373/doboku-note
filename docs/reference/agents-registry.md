@@ -6,7 +6,7 @@ title: サブエージェント詳細レジストリ
 
 `.claude/agents/` に定義されたサブエージェント群の詳細。Generator/Evaluator 分離の原則に基づき設計。
 
-> **件数の SSOT**: エージェント数の真実源は `.claude/agents/*.md` の実数（`find .claude/agents -maxdepth 1 -name '*.md' | wc -l`＝現在 **63**）と下記「エージェント一覧」表。CLAUDE.md など他 doc は件数を重複記載せずここを指す。追加/削除は同一 commit でこの表を更新する。
+> **件数の SSOT**: エージェント数の真実源は `.claude/agents/*.md` の実数（`find .claude/agents -maxdepth 1 -name '*.md' | wc -l`＝現在 **66**）と下記「エージェント一覧」表。CLAUDE.md など他 doc は件数を重複記載せずここを指す。追加/削除は同一 commit でこの表を更新する。
 
 **いつ読むか**: サブエージェントを呼び出すときに担当範囲を確認するとき、連携設計時、新規エージェント追加時の命名・責務設計時。
 
@@ -34,6 +34,7 @@ title: サブエージェント詳細レジストリ
 | `/weekly-improve`                         | `metrics-analyzer`                                               | 計測データから改善機会抽出（performance）      |
 | `/psi-audit`                              | `performance-auditor`                                            | CWV 違反・回帰検出        |
 | `/gsc-review`                             | `gsc-index-auditor`                                              | index coverage 診断（coverage_state 分類・indexed_ratio・原因バケット） |
+| `/seo-growth-review`                      | `technical-seo-auditor`, `search-intent-auditor`, `gsc-index-auditor`, `metrics-analyzer`, `performance-auditor` | SEO 4面（技術/coverage/performance/意図）の Evaluator を束ねる（機械検出→意味評価→統合・修正なし） |
 | `/plan-weekly`                            | `todo-planner`                                                          | docs/todo/ 週次計画の軽量更新（Sonnet 1回） |
 | `/weekly-review`, `/weekly-plan`          | `strategy-advisor`（オーケストレータ）                                     | 戦略的な PDCA 統括       |
 | `/magazine-to-pdf`                        | `magazine-pdf-builder`                                           | 新規マガジンの PDF 抽出 spec 作成・変換実行 |
@@ -80,8 +81,10 @@ title: サブエージェント詳細レジストリ
 | `todo-planner`                 | docs/todo/{backlog,annual,monthly,weekly}.md + git log を読み、今週の優先タスクを決定して weekly.md を直接更新する軽量プランナー。月初は backlog.md から monthly.md へ pull も担う（Codex候補ラベル付き）  | Generator    | sonnet  | plan-weekly                                                           | ✅ 運用中（2026-06-19 backlog.md 対応）            |
 | `strategy-advisor`             | 戦略・PDCA・レビュールーティング・収益化戦略を統括するオーケストレーター                                                               | Orchestrator | inherit | weekly-plan, weekly-review, critical-review, pre-mortem               | ✅ 運用中（⏸️ 競合分析・keyword-gap 等は Phase 2 で復活） |
 | `gsc-index-auditor`            | GSC URL Inspection から **index coverage** を診断（coverage_state 7バケット分類・indexed_ratio・履歴差分・原因バケット〔権威性/技術/hygiene〕・hygiene URL surface）。performance を見る metrics-analyzer と直交・audit-only | Evaluator    | sonnet  | gsc-review                                                            | ✅ 運用中（2026-06-19 起動）                     |
-| `metrics-analyzer`             | GSC/GA4 計測データから改善機会を6パターン抽出（High-Impr-Low-CTR 等＋SNS-Source-Shift〔SNS 流入の急変〕。index 済みページの **performance** ＋ SNS 流入。coverage は gsc-index-auditor）                                                     | Evaluator    | sonnet  | weekly-improve                                                        | ✅ 運用中                                     |
+| `metrics-analyzer`             | GSC/GA4 計測データから改善機会を8パターン抽出（High-Impr-Low-CTR 等＋SNS-Source-Shift〔SNS 流入の急変〕＋Cannibalization/Content-Decay〔page×query〕。index 済みページの **performance** ＋ SNS 流入。coverage は gsc-index-auditor。メタ改善は少数 URL の 14〜28 日実験に限る）                                                     | Evaluator    | sonnet  | weekly-improve                                                        | ✅ 運用中                                     |
 | `performance-auditor`          | PSI 計測データからしきい値違反・回帰を検出し、LCP 肥大・CLS 発生等の既知パターンに改善候補をマッピング                                            | Evaluator    | sonnet  | psi-audit                                                             | ✅ 運用中                                     |
+| `technical-seo-auditor`        | check-seo-build / check-seo-meta / index-coverage 履歴 / sitemap の**機械出力を統合**して技術 SEO レポートにまとめる。canonical/og:url 不一致・sitemap hygiene・SSR・内部リンク到達性を、機械が判定済みの findings を引用して束ねる（決定的判定を再実行しない）。audit-only | Evaluator | sonnet | seo-growth-review | ✅ 運用中（2026-07-13 起動） |
+| `search-intent-auditor`        | 機械抽出（metrics-analyzer）が surface した**最大 20 URL のみ**を対象に、各ページが対象クエリの検索意図に合致するかを意味評価（意図タイプ/タイトル応答/網羅/ミスマッチ型）。計測値は作り直さず引用。改善は少数 URL の実験へ橋渡し。audit-only | Evaluator | sonnet | seo-growth-review | ✅ 運用中（2026-07-13 起動） |
 | `content-planner`              | コンテンツ企画（Phase 2 で復活）                                                                                 | Generator    | sonnet  | discover-exam-season, exam-demand, keyword-gap                        | ⏸️ Phase 2 で復活                            |
 | `keyword-rewriter`             | CEM キーワードページのバルクリライト                                                                                 | Generator    | sonnet  | quality-cycle 連携                                                      | ✅ 運用中                                     |
 | `civil-textbook-rewriter`      | 1級土木 textbook/guide ページのバルクリライト                                                                      | Generator    | sonnet  | civil-textbook-cycle 連携                                               | ✅ 運用中                                     |
@@ -166,7 +169,7 @@ title: サブエージェント詳細レジストリ
 | **guide-qa** | `.mdx`（`group: guide`・全資格横断） | ガイド軸5軸（導入/リード文§26・読みやすさ§24・ボリューム§25・コンバージョン導線§20・モバイル） | ガイド記事の品質監査・加筆後の再評価 |
 | **guide-rewriter** | `.mdx`（`group: guide`・全資格横断） | §17/§26/§24/§2/§20 準拠リライト＋密度向上＋事実是正（正値で） | guide-qa/guide-fact-checker の指摘適用・加筆・密度向上 |
 | **guide-fact-checker** | `.mdx`（`group: guide`・全資格横断）の検証可能な事実 | WebSearch で国交省/JCTC/技術士会/JCI/e-Gov 等の一次情報に照合 | ガイド加筆・密度向上リライトの直後（公開前） |
-| **metrics-analyzer** | `.claude/state/metrics/gsc/*.json`, `.claude/state/metrics/ga4/*.json`（`ga4-sourceMedium-sns-*` 含む） | 6パターン抽出（High-Impr-Low-CTR, Rank-Stuck, Traffic-Drop, Hidden-Winner, Orphan-Query, SNS-Source-Shift）＝index 済みページの performance ＋ SNS 流入 | `/weekly-improve` 実行時 |
+| **metrics-analyzer** | `.claude/state/metrics/gsc/*.json`（`gsc-page-query-*` 含む）, `.claude/state/metrics/ga4/*.json`（`ga4-sourceMedium-sns-*` 含む） | 8パターン抽出（High-Impr-Low-CTR, Rank-Stuck, Traffic-Drop, Hidden-Winner, Orphan-Query, SNS-Source-Shift, Cannibalization, Content-Decay）＝index 済みページの performance ＋ SNS 流入 | `/weekly-improve` 実行時 |
 | **gsc-index-auditor** | `.claude/state/metrics/url-inspection/*.json` + `.claude/state/metrics/gsc/index-coverage-history.json` | coverage_state 7バケット分類・`indexed_ratio`・履歴差分・原因バケット（権威性/技術/hygiene）・hygiene URL surface（**coverage 専任**＝performance は metrics-analyzer） | `/gsc-review` 実行時（月次 CI 後） |
 | **performance-auditor** | `.claude/state/metrics/psi/*.json` | しきい値違反＋回帰検出（LCP/CLS/INP/TBT/TTFB/Scores）＋既知パターンマッピング | `/psi-audit` 実行時 / 日次 workflow 後 |
 | **exam-keyword-mapping-auditor** | `.claude/state/exam-keyword-map.json` の anchor 1 件単位 | 紐づけ精度の 2 段階 semantic 評価（Stage 1=現紐づけのカバレッジ、Stage 2=候補発見）＋ 3 階層 confidence（auto_apply / needs_review / reject） | `/audit-exam-mapping audit-year` 実行時に各 anchor へ分配 |

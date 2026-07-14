@@ -1,9 +1,9 @@
 # コンテンツ品質 全量スキャンレポート
 
 - 対象: published MDX（.local/r2/posts）
-- 違反合計: HIGH 23 / MEDIUM 3298 / LOW 454
-- 違反のある記事数: 602
-- **baseline 比の新規違反: 3 件（下記）**
+- 違反合計: HIGH 23 / MEDIUM 3291 / LOW 454
+- 違反のある記事数: 599
+- baseline 比の新規違反: 0 件
 
 優先度 = 違反数 × GA4 人気度（activeUsers）。人気ページの違反を上位に。
 
@@ -70,12 +70,4 @@
 | 59 | pe-first-stage-r07-basic | — | 29 | 11-2:24 11-1:2 15-3:2 1-3:1 |
 | 60 | civil-construction-1-textbook-work-scheduling | 28 / #42 | 1 | 3-1:1 |
 
-※ 上位 60 件のみ表示（違反記事 602 件中 542 件を省略）。全量は --update-baseline 後の baseline JSON を参照。
-
-## baseline 比の新規違反（ラチェット逆行）
-
-| 記事 | rule | baseline | 現在 | 増加 |
-|---|---|---|---|---|
-| .local/r2/posts/civil-construction-2/guide-buildjob-review/article.mdx | 15-1 | 0 | 2 | +2 |
-| .local/r2/posts/civil-construction-1/guide-career-consultation-before-quit/article.mdx | 15-1 | 3 | 4 | +1 |
-| .local/r2/posts/civil-construction-2/guide-career-agent-comparison/article.mdx | 15-1 | 0 | 1 | +1 |
+※ 上位 60 件のみ表示（違反記事 599 件中 539 件を省略）。全量は --update-baseline 後の baseline JSON を参照。

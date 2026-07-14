@@ -20,6 +20,8 @@ export const metadata: Metadata = {
   title: "1級土木施工管理技士・技術士 試験対策サイトについて",
   description:
     "doboku-noteは1級土木施工管理技士・技術士の受験者向け技術ノート・試験対策サイトです。過去問解説・キーワード解説・勉強方法を提供。",
+  // self canonical（root 継承事故の防止。og:url は既に self 指定済み）
+  alternates: { canonical: "/about" },
   openGraph: {
     type: "website",
     title: "doboku-noteについて — 1級土木施工管理技士・技術士 試験対策サイト",

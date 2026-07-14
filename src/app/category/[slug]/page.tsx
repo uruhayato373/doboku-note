@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import Link from 'next/link';
+import { buildPageMetadata } from '@/lib/metadata';
 import PageShell from '@/components/layout/PageShell';
 import { getAllCategories, getCategoryBySlug } from '@/lib/categories';
 import { getDocsMetaByCategory } from '@/lib/docs';
@@ -43,10 +44,13 @@ export async function generateMetadata({
   }
   // SEO description は cat.description（50〜160 文字）を優先、未指定なら subtitle に fallback。
   // UI の <p> は subtitle を使うため、SEO 用の description と分離している。
-  return {
+  // self canonical / og:url を必ず設定する（root 継承事故の防止）。title はテンプレート
+  // "%s | doboku-note" を活かすため absolute にしない。
+  return buildPageMetadata({
     title: cat.label,
     description: cat.description ?? cat.subtitle,
-  };
+    path: `/category/${slug}`,
+  });
 }
 
 // グループ化レイアウトを持つカテゴリ（持たないものは従来どおりフラットグリッド）。

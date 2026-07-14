@@ -52,7 +52,7 @@ title: スキル ナビゲーションガイド
 | `/review-mobile` | モバイル視認性・可読性レビュー | `モバイルチェック`, `スマホで見て`, `/review-mobile` |
 | `/consolidate-duplicate-keyword` | 総監キーワード集の重複スラグ統合 | `重複スラグ統合`, `/consolidate-duplicate-keyword` |
 | `/note-prepublish-review` | note 公開前の統合品質ゲート | `note公開前チェック`, `公開準備`, `/note-prepublish-review` |
-| `/check-seo-meta` | title/description/OGP/canonical の検査 | `SEOメタ検査`, `OGP確認`, `/check-seo-meta` |
+| `/check-seo-meta` | out/ 全 URL の title/description/self canonical/self og:url/robots/JSON-LD/SSR を検査（seo-checks 共有・母集合ガード） | `SEOメタ検査`, `OGP確認`, `/check-seo-meta` |
 | `/pe-essay-review` | 総監記述式模範論文を 3 視点で採点（**サイト** r0X-essay ページ。note 有料マガジンは `cem-essay-qa`） | `記述式採点`, `模範論文レビュー`, `/pe-essay-review` |
 | `/keiken-charcount` | 1級・2級土木 施工経験記述マガジン答案を解答欄しきい値で字数チェック（決定論的・暫定値） | `経験記述の字数確認`, `答案の字数オーバー検出`, `/keiken-charcount` |
 | `/civil-figure-rework` | 1級土木 過去問1次の図クロップ品質ループ（extractor → auditor 最大3反復、1ページ単位 commit） | `過去問図再抽出`, `テキスト写り込み修正`, `/civil-figure-rework {exam-slug\|--all}` |
@@ -109,7 +109,7 @@ title: スキル ナビゲーションガイド
 
 | スキル | 一言説明 | 呼ぶとき |
 |---|---|---|
-| `/fetch-gsc-data` | Google Search Console データ取得 | `GSCデータ`, `検索データ取得`, `/fetch-gsc-data` |
+| `/fetch-gsc-data` | Google Search Console データ取得（単一/複数ディメンション・page×query・25,000 件ページング） | `GSCデータ`, `検索データ取得`, `page×query`, `/fetch-gsc-data` |
 | `/psi-audit` | PSI で代表ページ日次計測、CWV しきい値違反を surface | `PSI計測`, `Core Web Vitals`, `/psi-audit` |
 | `/record-sales` | note 販売履歴を SSOT（sales-log.json）に記録・集計 | `売上記録`, `販売履歴を記録`, `note売上`, `/record-sales` |
 
@@ -120,6 +120,7 @@ title: スキル ナビゲーションガイド
 | `/plan-weekly` | docs/todo/ を読んで今週の優先タスクを決め weekly.md を直接更新（Sonnet 1回・軽量。※戦略計画は /weekly-plan） | `今週のタスクを決めて`, `今週何をすべきか`, `weekly.md更新`, `/plan-weekly` |
 | `/weekly-improve` | 計測→改善候補抽出→実験登録の軽量オーケストレータ（performance 側） | `今週の改善`, `PDCA`, `/weekly-improve` |
 | `/gsc-review` | 月次 GSC index coverage レビュー（gsc-index-auditor 起動→判断ログ追記） | `GSC月次レビュー`, `インデックス率`, `index coverage`, `/gsc-review` |
+| `/seo-growth-review` | SEO 4面（技術/coverage/performance/意図）の Evaluator を束ねる（機械検出→意味評価→統合・修正なし） | `SEO総合レビュー`, `技術SEO監査`, `SEOグロース`, `/seo-growth-review` |
 | `/weekly-review` | 週次レビューを生成 | `週次レビュー`, `今週の振り返り`, `/weekly-review` |
 | `/weekly-plan` | 週次計画を生成（NSM・メトリクス連動・重め） | `戦略的週次計画`, `NSM込みの計画`, `/weekly-plan` |
 | `/nsm-experiment` | NSM 改善の実験ライフサイクル管理 | `実験登録`, `NSM実験`, `/nsm-experiment` |

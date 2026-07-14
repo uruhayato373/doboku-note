@@ -1,10 +1,23 @@
 import { Suspense } from "react";
+import type { Metadata } from "next";
 import PageShell from "@/components/layout/PageShell";
 import PageHeader from "@/components/layout/PageHeader";
 import { getAllCategories } from "@/lib/categories";
 import { getAllDocsMeta } from "@/lib/docs";
 import { getPopularDocs } from "@/lib/popular";
+import { buildPageMetadata } from "@/lib/metadata";
 import SearchPageClient from "./SearchPageClient";
+
+// 検索結果ページはクエリ依存で無数の URL を生む（薄い/重複ページ）ため noindex,follow。
+// 固有 title と self canonical を持たせ、root の汎用 title / homepage canonical 継承を断つ。
+// sitemap からは generate-sitemap.mjs 側で既に除外済み。
+export const metadata: Metadata = buildPageMetadata({
+  title: "サイト内検索",
+  description:
+    "doboku-note のサイト内検索。1級土木施工管理技士・技術士の過去問解説・キーワードページをキーワードで探せます。",
+  path: "/search",
+  noindex: true,
+});
 
 export default function SearchPage() {
   // ゼロステート（検索語未入力時）の回遊導線用データを server で用意。
