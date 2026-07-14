@@ -36,6 +36,14 @@ npx tsx .claude/skills/social/publish-x/publish-x.ts 004 --tweet 1 2026-05-09T08
 - 失敗: `schedule-mode-not-confirmed.png` を確認してセレクタ修正
 - **dry-run 成功後**に `--dry-run` を外して本番実行
 
+## 🧵 スレッド（[thread] マーカー・2026-07-14 追加）
+
+**X ネイティブ予約はスレッド非対応**（実機プローブ 2026-07-14: composer に `tweetTextarea_1` を追加すると `scheduleOption` が `aria-disabled=true`）。本スクリプトは次の分業で対応する（真実源 `x-post-policy.md` §5.2.1）:
+
+- **書式**: `## Tweet NN: タイトル [thread]`、本文内を `--- リプライ ---` 行で区切る（1部目=ヘッド、以降=リプライ）。各部が独立に 280 weighted 判定される（`check-x-length` が part 別検査）。マーカーなしブロックの `--- リプライ ---` 以降は従来どおり投稿対象外（レガシー注記互換）。
+- **即時投稿**（`--immediate`）: composer で全部組んで一括投稿（`addButton` trusted click → `tweetTextarea_1..N` 入力・各部の空読み戻し検証つき）。
+- **予約投稿**: **ヘッドのみ**ネイティブ予約し、リプライ本文を status.json の `thread: {parts, replies_posted_at: null}` に記録。予約時刻経過後に `node scripts/x-thread-replies.mjs --run` でライブのヘッドを特定しリプライをチェーン投稿する（`--list`=pending 確認 / `--dry-run`=ヘッド特定まで）。cron 常駐はしない（§11.3 自動化フットプリント最小化）。
+
 ## ⚠️ 重要: 「予約投稿完了」ログを信用せず予約キューを実体検証（2026-05-29）
 
 `✅ 予約投稿完了` ログは投稿成功の証拠にならない。実際に X 予約キュー（`https://x.com/compose/post/unsent/scheduled`）を開き、仮想スクロールで全セルをロードして本文・送信時刻の実在を確認するまで「完了」と報告しない。プロフィール（`x.com/<handle>`）のポスト数で即時投稿の誤爆も併せて確認する。検証パターンは [[feedback_publish_x_false_success]] / `.tmp/verify-final.mjs`（cellInnerDiv 末尾 scrollIntoView で全件ロード→regex マッチ＋時刻ヒストグラム）。

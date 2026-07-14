@@ -53,8 +53,13 @@ async function saveScreenshot(page: Page, label: string): Promise<void> {
 interface TweetBlock {
   number: number;    // 1-based
   title: string;     // "定義編" など
-  text: string;      // 投稿テキスト（ヘッダ行除く、trim済み）
+  text: string;      // 投稿テキスト（ヘッダ行除く、trim済み）＝スレッド時はヘッド（1本目）
   imagePath: string | null;
+  threadParts: string[]; // [thread] マーカー時のみ: "--- リプライ ---" 区切りの2本目以降。
+                         // X ネイティブ予約はスレッド非対応（2026-07-14 実機プローブ:
+                         // tweetTextarea_1 追加で scheduleOption が aria-disabled=true）。
+                         // → 即時投稿は composer で全部組んで一括投稿、予約はヘッドのみ予約し
+                         //   リプライは scripts/x-thread-replies.mjs が予約時刻経過後にぶら下げる。
 }
 
 function parseTweetMd(draftDir: string): TweetBlock[] {
@@ -74,15 +79,27 @@ function parseTweetMd(draftDir: string): TweetBlock[] {
 
     const num = parseInt(headMatch[1], 10);
     const title = headMatch[2].trim();
+    const isThread = /\[thread\]/i.test(headMatch[2]);
 
-    // ヘッダ行を除いた残り。HTML コメント（投稿予定注記等）・リプライ部分・末尾 "---" は除去
-    const body = block
+    // ヘッダ行を除いた残り。HTML コメント（投稿予定注記等）・末尾 "---" は除去
+    const rawBody = block
       .replace(/^## Tweet \d+:.+\n/, "")
       .replace(/<!--[\s\S]*?-->/g, "")
-      .replace(/\n--- リプライ ---[\s\S]*/, "")
       .replace(/\n---\s*$/, "")
       .replace(/^\n+/, "")
       .trim();
+
+    // [thread] マーカー時: "--- リプライ ---" 区切りでヘッド＋リプライ部に分割。
+    // マーカーなしの場合は従来どおりリプライ部を捨てる（レガシー注記互換）。
+    let body: string;
+    let threadParts: string[] = [];
+    if (isThread) {
+      const parts = rawBody.split(/^--- リプライ ---$/m).map((p) => p.trim()).filter(Boolean);
+      body = parts[0] ?? "";
+      threadParts = parts.slice(1);
+    } else {
+      body = rawBody.replace(/\n--- リプライ ---[\s\S]*/, "").trim();
+    }
 
     // 画像: tweet-{NN}-{*.png} を探す（svg より png 優先）
     let imagePath: string | null = null;
@@ -97,7 +114,7 @@ function parseTweetMd(draftDir: string): TweetBlock[] {
       }
     }
 
-    results.push({ number: num, title, text: body, imagePath });
+    results.push({ number: num, title, text: body, imagePath, threadParts });
   }
 
   if (results.length === 0) throw new Error(`ツイートブロックが見つかりません (## Tweet N: 形式を確認): ${mdPath}`);
@@ -142,6 +159,11 @@ interface TweetStatus {
   status: "pending" | "scheduled" | "posted";
   scheduled_at?: string | null;
   posted_at?: string | null;
+  text?: string; // x-schedule-guard の near-dup 判定用（ビルダー生成分に存在）
+  thread?: {
+    parts: string[];               // ヘッドにぶら下げるリプライ本文（順番どおり）
+    replies_posted_at: string | null; // null = 未投稿（x-thread-replies.mjs の対象）
+  };
 }
 
 interface StatusJson {
@@ -179,6 +201,15 @@ function updateStatus(
     data.tweets[key] = { ...data.tweets[key], status: "scheduled", scheduled_at: scheduledJst, posted_at: null };
   } else {
     data.tweets[key] = { ...data.tweets[key], status: "posted", posted_at: nowJst };
+  }
+
+  // スレッド記録: 予約＝リプライ未投稿（x-thread-replies.mjs が拾う）/ 即時＝一括投稿済み
+  const tb = tweets.find((t) => t.number === tweetNum);
+  if (tb && tb.threadParts.length > 0) {
+    data.tweets[key].thread = {
+      parts: tb.threadParts,
+      replies_posted_at: scheduledDate ? null : nowJst,
+    };
   }
 
   data.updated_at = nowJst;
@@ -295,6 +326,14 @@ async function publishTweet(page: Page, job: PostJob, index: number, total: numb
     console.error(`   X Premium 利用中なら本 guard をスキップする実装に変更してください`);
     return false;
   }
+  for (let p = 0; p < tweet.threadParts.length; p++) {
+    const w = countXWeighted(tweet.threadParts[p]);
+    console.log(`スレッド${p + 2}本目 文字数: ${w}/${X_FREE_LIMIT}（重み付き）`);
+    if (w > X_FREE_LIMIT) {
+      console.error(`🚨 スレッド${p + 2}本目が文字数オーバー: ${w} > ${X_FREE_LIMIT} — 投稿を中止します`);
+      return false;
+    }
+  }
 
   await page.goto("https://x.com/compose/post", { waitUntil: "domcontentloaded" });
   await page.waitForTimeout(3000);
@@ -353,6 +392,48 @@ async function publishTweet(page: Page, job: PostJob, index: number, total: numb
   }
   console.log(`⌨️  本文入力確認OK（${typedLen} 文字）`);
   await page.waitForTimeout(500);
+
+  // ─── スレッド組成（[thread] 時）───
+  // X ネイティブ予約はスレッド非対応（2026-07-14 プローブ: textarea_1 追加で scheduleOption が
+  // aria-disabled）。予約時はヘッドのみ予約し、リプライは x-thread-replies.mjs に委ねる。
+  // 即時投稿時のみ composer で全部組んで一括投稿する（プローブで textarea_1 追加成功を確認済み）。
+  if (tweet.threadParts.length > 0) {
+    if (scheduledDate) {
+      console.log(`🧵 スレッド ${tweet.threadParts.length} 本のリプライは X 予約非対応のためヘッドのみ予約します`);
+      console.log(`   予約時刻の経過後に: node scripts/x-thread-replies.mjs --run`);
+    } else {
+      for (let p = 0; p < tweet.threadParts.length; p++) {
+        const part = tweet.threadParts[p];
+        // trusted click 必須（DOM .click() では React onClick 不発 = textarea_1 が出ない。プローブ実証）
+        const addBtn = page.locator('[data-testid="addButton"]').first();
+        await addBtn.click({ timeout: 10000 });
+        const nextBox = page.locator(`[data-testid="tweetTextarea_${p + 1}"]`);
+        try {
+          await nextBox.waitFor({ state: "visible", timeout: 10000 });
+        } catch {
+          console.error(`🚨 スレッド ${p + 2} 本目の textarea が出現しません（UI 変更の可能性）— 投稿を中止します`);
+          await saveScreenshot(page, `${label}-thread-textarea-${p + 1}-missing`);
+          await page.keyboard.press("Escape").catch(() => {});
+          return false;
+        }
+        await nextBox.click();
+        await page.waitForTimeout(300);
+        await page.keyboard.insertText(part);
+        await page.waitForTimeout(800);
+        const len = (await nextBox.innerText().catch(() => "")).replace(/\s+/g, "").length;
+        if (len === 0) {
+          console.error(`🚨 スレッド ${p + 2} 本目の入力失敗（textarea が空）— 投稿を中止します`);
+          await saveScreenshot(page, `${label}-thread-part-${p + 2}-empty`);
+          await page.keyboard.press("Escape").catch(() => {});
+          return false;
+        }
+        console.log(`🧵 スレッド ${p + 2}/${tweet.threadParts.length + 1} 本目入力OK（${len} 文字）`);
+      }
+      // 一括投稿前にフォーカスをヘッドへ戻す（Ctrl+Enter は「すべてポスト」）
+      await page.locator('[data-testid="tweetTextarea_0"]').click();
+      await page.waitForTimeout(300);
+    }
+  }
 
   // 予約設定
   if (scheduledDate) {

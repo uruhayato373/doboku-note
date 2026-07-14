@@ -65,20 +65,34 @@ export function tweetLength(text) {
 
 function splitTweets(md) {
   const blocks = md.split(/^## Tweet /m).filter((_, i) => i > 0);
-  return blocks.map((b, i) => {
+  const rows = [];
+  for (let i = 0; i < blocks.length; i++) {
+    const b = blocks[i];
     const lines = b.split("\n");
     const header = lines[0].trim();
     const numMatch = header.match(/^(\d+)/);
     const num = numMatch ? parseInt(numMatch[1], 10) : i + 1;
     const longform = /\[longform\]/i.test(header);
+    const thread = /\[thread\]/i.test(header);
     // Body = block 内、`---` 区切り線で終端
-    const body = lines
+    const rawBody = lines
       .slice(1)
       .join("\n")
       .replace(/\n---\s*\n[\s\S]*$/m, "")
       .trim();
-    return { num, header, body, longform };
-  });
+    if (thread) {
+      // [thread]: "--- リプライ ---" 区切りの各部が独立ツイート → 個別判定（policy §5.2.1）
+      const parts = rawBody.split(/^--- リプライ ---$/m).map((p) => p.trim()).filter(Boolean);
+      parts.forEach((part, pi) => {
+        rows.push({ num, header: `${header} [part ${pi + 1}/${parts.length}]`, body: part, longform });
+      });
+    } else {
+      // 非 thread: リプライ注記（レガシー）は投稿対象外 → 除外（publish-x のパースと一致）
+      const body = rawBody.replace(/\n--- リプライ ---[\s\S]*/, "").trim();
+      rows.push({ num, header, body, longform });
+    }
+  }
+  return rows;
 }
 
 function checkDraft(folder) {
