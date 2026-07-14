@@ -16,19 +16,11 @@
         "guide-last-minute-2026"
       ]
     },
-    "fields": {
-      "title": "分野別対策（土木一般）",
-      "description": "テキスト章の無い土木一般（土工・コンクリート・基礎工）の要点。他分野の要点は各テキスト章の入口に収録",
-      "blocks": [
-        {
-          "id": "doboku-ippan",
-          "label": "土木一般（土工・コンクリート・基礎工）",
-          "slugs": ["guide-earthwork-key-points", "guide-concrete-key-points", "guide-concrete-maintenance", "guide-foundation"]
-        }
-      ]
-    },
     "textbookChapters": [
+      { "volume": "土木一般・共通工学編", "label": "土工", "min": 1, "max": 49, "introGuides": ["guide-earthwork-key-points"] },
       { "volume": "土木一般・共通工学編", "label": "建設機械", "min": 100, "max": 149, "introGuides": ["guide-machinery"] },
+      { "volume": "土木一般・共通工学編", "label": "コンクリート工", "min": 50, "max": 79, "introGuides": ["guide-concrete-key-points", "guide-concrete-maintenance"] },
+      { "volume": "土木一般・共通工学編", "label": "基礎工", "min": 80, "max": 99, "introGuides": ["guide-foundation"] },
       { "volume": "土木一般・共通工学編", "label": "測量", "min": 150, "max": 169, "introGuides": ["guide-surveying"] },
       { "volume": "土木一般・共通工学編", "label": "解体工事", "min": 170, "max": 199, "introGuides": ["guide-demolition"] },
       { "volume": "施工管理・法規編", "label": "施工管理・施工計画", "min": 200, "max": 249, "introGuides": ["guide-construction-plan"] },

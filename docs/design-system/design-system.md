@@ -86,14 +86,14 @@
 
 ### 2.4 カード・影・モーショントークン
 
-**2026-07 Soft Editorial 改訂**: 角丸を小→大で段階化し、影を 2 層ソフトシャドウ（slate 寒色 `rgb(15 23 42)`）へ。値のみ変更で `rounded-card-*`/`shadow-*` 経由の全カードが自動追従。
+**2026-07 改訂**: カードは直角（角丸ゼロ）。inline（バッジ・チップ・インラインコード）のみ `6px` を維持。影は 2 層ソフトシャドウ（slate 寒色 `rgb(15 23 42)`）。値のみ変更で `rounded-card-*`/`shadow-*` 経由の全カードが自動追従。
 
 | 変数 | 値 | 用途 |
 |---|---|---|
 | `--radius-card-inline` | `6px` | バッジ・チップ・インラインコード |
-| `--radius-card-content` | `10px` | 標準カード・表・details・pre・KaTeX display |
-| `--radius-card-section` | `14px` | SectionCard 等の大カード |
-| `--radius-card-hero` | `20px` | トップ hero |
+| `--radius-card-content` | `0` | 標準カード・表・details・pre・KaTeX display |
+| `--radius-card-section` | `0` | SectionCard 等の大カード |
+| `--radius-card-hero` | `0` | トップ hero |
 | `--shadow-card-content` | `0 1px 2px /.04, 0 2px 8px /.05` | カード影（2 層）。Tailwind `shadow-card-*` |
 | `--shadow-card-section` | `0 1px 3px /.04, 0 6px 20px /.06` | 大カード影 |
 | `--shadow-card-hover` | `0 2px 4px /.06, 0 12px 32px /.10` | hover lift |

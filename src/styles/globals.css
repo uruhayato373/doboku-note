@@ -19,12 +19,12 @@
 @layer base {
   /* Card design tokens — single source of truth */
   :root {
-    /* Card radius — Soft Editorial (2026-07). 小→大で段階化（旧: 一律 2px）。
+    /* Card radius — カードは直角（2026-07 角丸ゼロ化）。inline のみ 6px 維持。
        値のみ変更で rounded-card-* 経由の全カードが自動追従する。 */
     --radius-card-inline: 6px;   /* バッジ・チップ・インラインコード */
-    --radius-card-content: 10px; /* 標準カード・表・details・pre・KaTeX display */
-    --radius-card-section: 14px; /* SectionCard 等の大カード */
-    --radius-card-hero: 20px;    /* トップ hero */
+    --radius-card-content: 0;    /* 標準カード・表・details・pre・KaTeX display */
+    --radius-card-section: 0;    /* SectionCard 等の大カード */
+    --radius-card-hero: 0;       /* トップ hero */
 
     /* 影 — 2 層ソフトシャドウ（slate 寒色 rgb(15 23 42) で紙面に馴染ませる） */
     --shadow-card-content: 0 1px 2px rgb(15 23 42 / 0.04), 0 2px 8px rgb(15 23 42 / 0.05);

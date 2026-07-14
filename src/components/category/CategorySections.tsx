@@ -20,7 +20,7 @@ export function DocCard({ doc }: { doc: DocMeta }) {
       href={`/docs/${doc.slug}`}
       data-cta="nav"
       data-cta-label="category-card"
-      className="card-surface-content group relative flex flex-col overflow-hidden transition-[border-color,box-shadow] hover:border-[var(--accent)] hover:shadow-soft"
+      className="group relative flex flex-col overflow-hidden border border-[var(--rule-soft)] bg-[var(--paper)] transition-colors hover:border-[var(--accent)] hover:bg-[var(--accent-fill)]"
     >
       {/* ブランド色の上端アクセント（mockup の category band を mono 化＝硬質エディトリアル維持）。
           ガイドカバー写真（guide-cover.ts）は dormant: メタガイドに literal 機械写真が不一致のため撤回（PR #276→revert）。 */}
@@ -482,10 +482,7 @@ export function DocSection({ group, layout, secondaryDocs }: { group: DocGroup; 
   return (
     <section id={`sec-${group.key}`} className="scroll-mt-24">
       <div className="mb-6">
-        <div className="flex items-baseline justify-between gap-2 flex-wrap">
-          <h2 className="font-serif text-[22px] sm:text-[26px] font-black text-[var(--ink)]">{group.title}</h2>
-          <span className="font-mono text-[11px] text-[var(--ink-muted)]">{group.docs.length} docs</span>
-        </div>
+        <h2 className="font-serif text-[22px] sm:text-[26px] font-black text-[var(--ink)]">{group.title}</h2>
         <p className="text-[14px] text-[var(--ink-muted)] mt-1">{group.description}</p>
       </div>
       {layout === 'exam-table' ? (

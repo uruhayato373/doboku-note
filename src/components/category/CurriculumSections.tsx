@@ -23,24 +23,19 @@ export function CurriculumSection({
   id,
   title,
   description,
-  count,
   children,
 }: {
   id: string;
   title: string;
   description?: string | undefined;
+  /** 呼び出し側の互換のため残置（表示はしない）。件数バッジは 2026-07 撤去。 */
   count?: number | undefined;
   children: React.ReactNode;
 }) {
   return (
     <section id={`sec-${id}`} className="scroll-mt-24">
       <div className="mb-6">
-        <div className="flex items-baseline justify-between gap-2 flex-wrap">
-          <h2 className="font-serif text-[22px] sm:text-[26px] font-black text-[var(--ink)]">{title}</h2>
-          {typeof count === 'number' && (
-            <span className="font-mono text-[11px] text-[var(--ink-muted)]">{count} docs</span>
-          )}
-        </div>
+        <h2 className="font-serif text-[22px] sm:text-[26px] font-black text-[var(--ink)]">{title}</h2>
         {description && <p className="text-[14px] text-[var(--ink-muted)] mt-1">{description}</p>}
       </div>
       {children}
@@ -55,14 +50,16 @@ function CurriculumRow({ doc, marker }: { doc: DocMeta; marker: React.ReactNode 
         <span className="shrink-0 flex items-center justify-center min-w-6" aria-hidden>
           {marker}
         </span>
-        <span className="text-[15px] sm:text-base font-medium text-[var(--ink)] group-hover:text-[var(--accent)] transition-colors">
-          {doc.shortTitle || doc.title}
-        </span>
-        {doc.subtitle && (
-          <span className="hidden sm:inline ml-auto max-w-[40%] truncate text-right text-[13px] text-[var(--ink-muted)]">
-            {doc.subtitle}
+        {/* タイトル下に subtitle を縦積み（旧: 右寄せ truncate はデスクトップで途切れ・
+            モバイル非表示だった）。全文・全デバイス表示で記事選択の手がかりを保つ（2026-07 C-2）。 */}
+        <span className="flex min-w-0 flex-col gap-0.5">
+          <span className="text-[15px] sm:text-base font-medium text-[var(--ink)] group-hover:text-[var(--accent)] transition-colors">
+            {doc.shortTitle || doc.title}
           </span>
-        )}
+          {doc.subtitle && (
+            <span className="text-[13px] text-[var(--ink-muted)]">{doc.subtitle}</span>
+          )}
+        </span>
       </Link>
     </li>
   );
