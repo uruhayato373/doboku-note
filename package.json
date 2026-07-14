@@ -106,6 +106,7 @@
     "check-seo-build:ci": "node scripts/check-seo-build.mjs --ci",
     "check-doc-refs": "node scripts/check-doc-refs.mjs",
     "check-doc-coupling": "node scripts/check-doc-coupling.mjs --staged",
+    "check-handoff-extraction": "node scripts/check-handoff-extraction.mjs --staged",
     "check-sales-mapping": "node scripts/check-sales-mapping.mjs",
     "check-doc-lifecycle": "node scripts/check-doc-lifecycle.mjs",
     "check-policy-anchors": "node scripts/check-policy-anchors.mjs",

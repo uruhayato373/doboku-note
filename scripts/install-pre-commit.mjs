@@ -86,6 +86,12 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# handoff の削除/退避で残タスクの backlog 抽出もれ・_archive 復活を検証（2026-07-14 退避事故の再発防止・SKIP_HANDOFF_EXTRACT=1 で回避）
+node scripts/check-handoff-extraction.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
 # sales-log.json の productId が sales-recorder.md の mapping に文書化されているか検証（売上mapping陳腐化の再発防止）
 node scripts/check-sales-mapping.mjs --staged
 if [ $? -ne 0 ]; then

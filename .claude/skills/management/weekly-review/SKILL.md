@@ -261,10 +261,10 @@ B. 実験進捗レポート:
 調査項目:
 - node scripts/check-doc-lifecycle.mjs --json   （age>=14d / orphan / tracked / 本文の PR#・SHA 言及）
 - 各候補が docs/todo/ から参照されているか
-  （tracked=あり → 生きたタスクは backlog 済みで ARCHIVE 候補 /
+  （tracked=あり → 生きたタスクは backlog 済みで DELETE 候補（抽出済みの見込み） /
    tracked=なし → backlog へのタスク抽出漏れの疑い）
 
-出力形式: 「## ドキュメント棚卸し（handoff 退避候補）」セクションに以下を埋め込む
+出力形式: 「## ドキュメント棚卸し（handoff 抽出→削除候補）」セクションに以下を埋め込む
 
 ## ドキュメント棚卸し（handoff 抽出→削除候補）
 

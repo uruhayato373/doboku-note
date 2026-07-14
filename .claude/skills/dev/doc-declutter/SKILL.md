@@ -123,5 +123,6 @@ git status --short            # 並行セッションの変更が手つかずか
 - Evaluator: `doc-curator`（処分判定）
 - 機械 surfacer: `scripts/check-doc-lifecycle.mjs`（`npm run check-doc-lifecycle`）
 - 削除後の検証: `scripts/check-doc-refs.mjs` / `scripts/check-doc-coupling.mjs`（pre-commit）
+- 抽出もれガード: `scripts/check-handoff-extraction.mjs`（pre-commit）＝handoff 直下 `*.md` を前送りマーカー付きで削除するのに backlog を同梱していない／`_archive/` へ追加すると止める。本スキルの「抽出が先・削除が後」を機械で担保する最終網（回避 `SKIP_HANDOFF_EXTRACT=1`）
 - 別系統: `/doc-sync`（コード変更起点の prose 陳腐化）
 - ルール真実源: CLAUDE.md §8 / `docs/reference/information-architecture.md`「SSOT と参照規律」「handoff のライフサイクル」

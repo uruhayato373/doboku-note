@@ -129,6 +129,13 @@ page/category の合成ロジック共通化（2026-06-25 アセスメント起�
 - **手順**: レポート上位を group 対応の `/quality-cycle` へ。表→非表・入れ子→フラット・長段落→改段。1バッチ 10-20 記事、完了ごとに `npm run update-content-quality-baseline`
 - **注意**: civil textbook の規格表・配合表は override 除外済み。過去問の年度×選択肢表は無理に崩さない
 
+### guide-career / アフィリ記事の文末単調（rule 15-1）copy リライト
+タグ: [コンテンツ品質]
+
+BuildJob アフィリスプリントで注入された copy が rule 15-1（文末「〜です。/〜ます。」の連続）に触れている。mechanical-only 範囲外で copy 文言変更が必要（SSOT の残課題= `docs/reviews/2026-07-14-mechanical-quality-audit.md:75`）。現状（`node .claude/scripts/lint-mdx-mobile.mjs <file>` で 15-1 実測）:
+- `civil-construction-1-guide-age-career`（5件）／`civil-construction-1-guide-career-agent-comparison`（3件）／`civil-construction-2-guide-young-career`（3件）
+- **手順**: 各記事の該当段落の語尾に変化をつける（体言止め・接続で連結・「〜ます。」→「〜ます」等）。数値・主張・アフィリ配線は不変。完了後 `npm run update-content-quality-baseline` で baseline 更新。要再計測（他 career 記事にも波及の可能性）
+
 ### 過去問図 rescan-need-source 9図（要外部/別原典）
 タグ: [コンテンツ品質]
 
@@ -220,7 +227,7 @@ on-page は全数検証済みで健全＝追加微修正はしない（真実源
 ### SEO 品質ゲート後続（PR #390 マージ後の残タスク）
 タグ: [インフラ・計測]
 
-SEO 品質ゲート実装（PR #390・`docs/handoffs/_archive/2026-07-13-seo-quality-gates.md`）の後続。ゲート本体は develop 済み。残:
+SEO 品質ゲート実装（PR #390・handoff `2026-07-13-seo-quality-gates.md` は削除済・git 履歴参照）の後続。ゲート本体は develop 済み。残:
 1. **deploy 後の GSC 監視**: `develop→main` deploy で canonical/OGP 修正が本番反映＝サイト全ページ canonical 一斉更新の再クロールが走る。**コアアップデート期を避け、直後2週間は GSC 日次を監視**（gsc-management.md 2026-07-10 の教訓）。
 2. **GSC page×query 実データ確認**: 週次 `fetch-metrics.yml`（金）初回実行後、`gsc-page-query-*.json` を `metrics-analyzer` に渡し Pattern 7/8（cannibalization/content-decay）を初検証。メタ改善は少数 URL の 14〜28 日実験に限る。
 3. **orphan/unreachable 6本の gate 昇格**: `pe-comprehensive-management-r8-essay-theme-*` 6本は現状 warn（意図的未リンク）。導線設計を決めたら check-seo-build の gate へ昇格。

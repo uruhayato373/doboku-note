@@ -2,7 +2,7 @@
 
 技術士・総合技術監理キーワードの Instagram カルーセル（`slide-data.json` v2）を、agent が1本ずつ執筆・採点するための品質基準。`ig-carousel-writer`（Generator）と `ig-carousel-qa`（Evaluator）の両方がこの文書を真実源とする。
 
-関連: 設計・パイプライン全体は `docs/handoffs/_archive/2026-05-20-ig-carousel-quality-design.md`。
+関連: 設計・パイプライン全体は `docs/handoffs/2026-05-20-ig-carousel-quality-design.md`。
 
 ## slide-data.json v2 スキーマ
 
