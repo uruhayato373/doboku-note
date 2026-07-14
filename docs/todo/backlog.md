@@ -148,11 +148,6 @@ BuildJob アフィリスプリントで注入された copy が rule 15-1（文�
 
 8本全合格済みだが scores.json の qualitative_comment に記録した改善余地: earthwork 表2.9 の散文詰込13セル解体（最優先）・入れ子リスト群のフラット化・factual table のインライン出典・qm-basics/past-problems の民間ソース不在。
 
-### トップページ下部3セクションの統合デザイン
-タグ: [UI・UX]
-
-note 教材（LinksHubTile）・アフィリ（SchoolAffiliate）・参考書籍（非表示中）が後付けで積み重なりデザイン不整合（`src/app/page.tsx` L142-172）。**1つの「教材・リソース」セクション**に統合し、デザイントークン・見出し階層を他セクションと揃える。デザイン反復は develop/:3020 でユーザー確認後 push。
-
 ### 性能: CI PSI 再計測（mobile 追加）
 タグ: [UI・UX]
 
@@ -171,7 +166,7 @@ P1-P3（GA4 計測基盤・NextStepNav・季節モード note CTA）は実装済
 ### 総監マガジンの歩き方 L1配線 ほか
 タグ: [収益化]
 
-公開（nc874692256bb）＋総監もくじ冒頭配線は完了。残 = ①L1（全資格サイトマップ n296a88f64ac2）へ総監セクション狙い（`--after <総監needle>`）で配線（グローバル冒頭 append は総監偏重になるため不採用）②孤児下書き nbf2a6de8f9c9 の手動削除。
+公開（nc874692256bb）＋総監もくじ冒頭配線＋**L1配線（2026-07-14 commit 6eeccae62・`docs/note/共通/コンテンツ総合案内/article.md` へ配線＋live反映済）**は完了。残 = 孤児下書き nbf2a6de8f9c9 の手動削除のみ（note.com ダッシュボード・下書き削除ツール制約で手動）。
 
 ### note 導線 後続配線（Fable P1 残）
 タグ: [収益化]
@@ -348,11 +343,6 @@ A-01〜A-06 個別本6冊は KDP 公開済（LIVE）。残:
 タグ: [インフラ・計測]
 
 GitHub Secrets: `CLOUDFLARE_API_TOKEN`/R2 キー=90日・`PSI_API_KEY`/`YOUTUBE_CLIENT_SECRET`=180日。①期限確認・更新 ②Cloudflare token の権限スコープ最小化 ③`.mcp.json` の MCP サーバー棚卸し ④更新サイクルを Calendar/schedule hook に登録。
-
-### IG ディレクトリ資格軸再編の残ファイル更新
-タグ: [SNS・マーケ]
-
-`.claude/` 配下19ファイルの旧 `_exam-packs` パス参照更新（sns-config.mjs→パック生成2/スキル実行5/その他5/エージェント.md 8）。完了確認 = `rg "_exam-packs" .claude/` が0件。
 
 ### OGP タイトル改行 per-page 手動チューニング（81件）
 タグ: [コンテンツ品質] [Codex候補]
