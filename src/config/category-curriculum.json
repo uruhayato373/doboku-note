@@ -17,18 +17,18 @@
       ]
     },
     "textbookChapters": [
-      { "volume": "土木一般・共通工学編", "label": "土工", "min": 1, "max": 49, "introGuides": ["guide-earthwork-key-points"] },
-      { "volume": "土木一般・共通工学編", "label": "建設機械", "min": 100, "max": 149, "introGuides": ["guide-machinery"] },
-      { "volume": "土木一般・共通工学編", "label": "コンクリート工", "min": 50, "max": 79, "introGuides": ["guide-concrete-key-points", "guide-concrete-maintenance"] },
-      { "volume": "土木一般・共通工学編", "label": "基礎工", "min": 80, "max": 99, "introGuides": ["guide-foundation"] },
-      { "volume": "土木一般・共通工学編", "label": "測量", "min": 150, "max": 169, "introGuides": ["guide-surveying"] },
-      { "volume": "土木一般・共通工学編", "label": "解体工事", "min": 170, "max": 199, "introGuides": ["guide-demolition"] },
-      { "volume": "施工管理・法規編", "label": "施工管理・施工計画", "min": 200, "max": 249, "introGuides": ["guide-construction-plan"] },
-      { "volume": "施工管理・法規編", "label": "工程管理", "min": 250, "max": 299, "introGuides": ["guide-schedule-management"] },
-      { "volume": "施工管理・法規編", "label": "品質管理", "min": 300, "max": 399, "introGuides": ["guide-quality-management"] },
-      { "volume": "施工管理・法規編", "label": "関係法規", "min": 400, "max": 499, "introGuides": ["guide-law-key-points"] },
-      { "volume": "施工管理・法規編", "label": "安全管理", "min": 500, "max": 599, "introGuides": ["guide-safety-management"] },
-      { "volume": "施工管理・法規編", "label": "環境保全・建設副産物", "min": 600, "max": 699, "introGuides": ["guide-environment-management"] }
+      { "volume": "土木一般・共通工学編", "chapterNo": "第1章", "label": "土工", "min": 1, "max": 49, "introGuides": ["guide-earthwork-key-points"] },
+      { "volume": "土木一般・共通工学編", "chapterNo": "第2章", "label": "建設機械", "min": 100, "max": 149, "introGuides": ["guide-machinery"] },
+      { "volume": "土木一般・共通工学編", "chapterNo": "第3章", "label": "コンクリート工", "min": 50, "max": 79, "introGuides": ["guide-concrete-key-points", "guide-concrete-maintenance"] },
+      { "volume": "土木一般・共通工学編", "chapterNo": "第4章", "label": "基礎工", "min": 80, "max": 99, "introGuides": ["guide-foundation"] },
+      { "volume": "土木一般・共通工学編", "chapterNo": "第5章", "label": "測量", "min": 150, "max": 169, "introGuides": ["guide-surveying"] },
+      { "volume": "土木一般・共通工学編", "chapterNo": "第6章", "label": "解体工事", "min": 170, "max": 199, "introGuides": ["guide-demolition"] },
+      { "volume": "施工管理・法規編", "chapterNo": "第1-2章", "label": "施工管理・施工計画", "min": 200, "max": 249, "introGuides": ["guide-construction-plan"] },
+      { "volume": "施工管理・法規編", "chapterNo": "第3章", "label": "工程管理", "min": 250, "max": 299, "introGuides": ["guide-schedule-management"] },
+      { "volume": "施工管理・法規編", "chapterNo": "第4章", "label": "品質管理", "min": 300, "max": 399, "introGuides": ["guide-quality-management"] },
+      { "volume": "施工管理・法規編", "chapterNo": "第5章", "label": "安全管理", "min": 500, "max": 599, "introGuides": ["guide-safety-management"] },
+      { "volume": "施工管理・法規編", "chapterNo": "第6章", "label": "環境保全・建設副産物", "min": 600, "max": 699, "introGuides": ["guide-environment-management"] },
+      { "volume": "施工管理・法規編", "chapterNo": "第7章", "label": "関係法規", "min": 400, "max": 499, "introGuides": ["guide-law-key-points"] }
     ],
     "careerFeatured": ["guide-career-salary", "guide-career-agents", "guide-quit-or-stay", "guide-timing"]
   },

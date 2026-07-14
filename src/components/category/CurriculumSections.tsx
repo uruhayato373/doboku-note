@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { type DocMeta } from '@/lib/docs';
 import { DocCard } from '@/components/category/CategorySections';
 import { AFFILIATE_LINK_REL, AffiliatePrBadge } from '@/components/ui/AffiliateParts';
+import DisclosureChevron from '@/components/ui/DisclosureChevron';
 import { type SmallBannerCreative } from '@/config/affiliate-creatives';
 
 // カテゴリページの「体系（受験ガイド / 分野別 / テキスト章）」をテキスト目次調のリストで見せる共有コンポーネント群。
@@ -14,6 +15,8 @@ export type CurriculumBlockView = {
   id?: string | undefined;
   label?: string | undefined;
   volume?: string | undefined;
+  /** 紙テキストの章番号ラベル（例 "第1章"）。collapsible 章の summary 左に表示。省略時は非表示。 */
+  chapterNo?: string | undefined;
   intro?: DocMeta[] | undefined;
   docs: DocMeta[];
 };
@@ -128,15 +131,27 @@ export function CurriculumList({
             )}
             {collapsible && block.label ? (
               <details className="group rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] open:border-[var(--accent)] transition-colors">
+                {/* E-1: 章番号(mono accent) + タイトル&トピックプレビュー1行 + N記事 + 右端シェブロン。
+                    トピックは本文記事タイトル（無ければ要点 guide）を自動連結し、開かずに中身を示す。 */}
                 <summary className="flex cursor-pointer list-none items-center gap-3 px-4 py-3 marker:hidden">
-                  <span
-                    aria-hidden="true"
-                    className="inline-block w-4 h-4 shrink-0 text-[var(--ink-muted)] transition-transform group-open:rotate-90"
-                  >
-                    ▶
+                  {block.chapterNo && (
+                    <span className="shrink-0 font-mono text-[11px] font-bold tracking-wider text-[var(--accent)]">
+                      {block.chapterNo}
+                    </span>
+                  )}
+                  <span className="flex min-w-0 flex-1 flex-col gap-0.5">
+                    <span className="font-serif text-lg font-bold text-[var(--ink)]">{block.label}</span>
+                    {(() => {
+                      const preview = (block.docs.length > 0 ? block.docs : (block.intro ?? []))
+                        .map((d) => d.shortTitle || d.title)
+                        .join('・');
+                      return preview ? (
+                        <span className="truncate text-[12px] text-[var(--ink-muted)]">{preview}</span>
+                      ) : null;
+                    })()}
                   </span>
-                  <span className="font-serif text-lg font-bold text-[var(--ink)]">{block.label}</span>
-                  <span className="ml-auto font-mono text-[11px] tabular-nums text-[var(--ink-muted)]">{count}</span>
+                  <span className="shrink-0 font-mono text-[11px] tabular-nums text-[var(--ink-muted)]">{count}記事</span>
+                  <DisclosureChevron className="text-[var(--ink-muted)]" />
                 </summary>
                 <div className="border-t border-[var(--rule-soft)] px-4">
                   <ChapterRows block={block} numbered={numbered} />

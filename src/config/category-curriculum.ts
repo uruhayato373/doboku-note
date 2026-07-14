@@ -25,6 +25,8 @@ export type FieldsDef = {
 export type TextbookChapterDef = {
   volume?: string;
   label: string;
+  /** 紙テキストの章番号ラベル（例 "第1章"）。合併章は "第1-2章" 等。省略時は非表示。 */
+  chapterNo?: string;
   min: number;
   max: number;
   /** 章の入口に据える要点 guide（suffix）。分野別対策から章頭へ移した「要点まとめ」記事。 */
