@@ -42,7 +42,7 @@ doboku-note をご覧いただきありがとうございます。まず、あ�
 
 https://note.com/dobokunote/m/m6e7de5e4ea3d
 
-総監の全教材（無料記事＋有料マガジン＋立場別14ペルソナ＋パック）は、[総監もくじ](https://note.com/dobokunote/n/n3ed4c77ceed6)に学習段階で逆引きできるようまとめています。
+総監の全教材（無料記事＋有料マガジン＋立場別14ペルソナ＋パック）は、[総監もくじ](https://note.com/dobokunote/n/n3ed4c77ceed6)に学習段階で逆引きできるようまとめています。どのマガジンから読むか迷ったら、[総監マガジンの歩き方](https://note.com/dobokunote/n/nc874692256bb)が3つの質問であなたに必要な1冊を案内します。
 
 ---
 
