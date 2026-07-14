@@ -125,8 +125,12 @@ export function CurriculumList({
         return (
           <div key={block.id ?? block.label ?? bi}>
             {showVolume && (
-              <div className="font-mono text-[11px] uppercase tracking-widest text-[var(--ink-muted)] mb-2 mt-1">
-                {block.volume}
+              /* 分冊見出し（章をまとめる上位区切り）。章タイトル(18px)より一段控えめな
+                 13px 太字＋区切り罫線で「ここから別の分冊」を示す（旧: mono 11px muted で
+                 章より弱く階層が逆転していた）。2 冊目以降は上に余白を足す。 */
+              <div className={`mb-3 flex items-center gap-3${bi > 0 ? ' mt-6' : ''}`}>
+                <span className="shrink-0 text-[13px] font-bold text-[var(--ink-body)]">{block.volume}</span>
+                <span aria-hidden="true" className="h-px flex-1 bg-[var(--rule-soft)]" />
               </div>
             )}
             {collapsible && block.label ? (
