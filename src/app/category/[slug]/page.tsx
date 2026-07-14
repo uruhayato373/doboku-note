@@ -123,10 +123,14 @@ export default async function CategoryPage({
             カテゴリ見出しは全幅ヒーロー帯を廃し、左カラム上部にコンパクト配置（2026-06-26）。
             これにより右サイドバー（転職枠）がファーストビューへ繰り上がる。 */}
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 flex gap-8 relative">
-          <main className="flex-1 min-w-0">
+          <main className="flex-1 min-w-0 pt-8 sm:pt-10 pb-10">
+            {/* 左メインカラム全体を 1 枚の白カードに統一（グレー地に白サーフェス・角丸ゼロの
+                エディトリアル面）。見出し・人気記事・各セクションを同一カード内に載せ、内側は
+                リスト/テーブル/フラットタイルで構成してカード内カードを避ける（2026-07 A-1）。 */}
+            <div className="card-surface-section px-5 sm:px-8 lg:px-10 pb-8 sm:pb-10">
             {/* カテゴリ見出し（縮小版・H1/パンくず/説明は SEO のため維持。CATEGORY チップは
                 パンくずと重複のため削除） */}
-            <div className="pt-8 sm:pt-10 pb-5 border-b border-[var(--rule-soft)]">
+            <div className="pt-6 sm:pt-8 pb-5 border-b border-[var(--rule-soft)]">
               <nav aria-label="breadcrumb" className="font-mono text-[11px] text-[var(--ink-muted)] uppercase tracking-widest mb-2 flex items-center gap-2">
                 <Link href="/" className="hover:text-[var(--accent)] transition-colors">Home</Link>
                 <span aria-hidden className="opacity-60">›</span>
@@ -140,7 +144,7 @@ export default async function CategoryPage({
                 <span>{docs.length.toLocaleString()} docs</span>
               </div>
             </div>
-            <div className="pt-8 sm:pt-10 pb-10 sm:pb-12 text-[17px] leading-[1.9]">
+            <div className="pt-8 text-[17px] leading-[1.9]">
           {/* よく読まれている記事 特集（GA4 上位 top3・グループ別セクションの上）。データ無しなら描画されない。 */}
           {popularDocs.length > 0 && (
             <div className="mb-16">
@@ -181,6 +185,7 @@ export default async function CategoryPage({
               ))}
             </div>
           )}
+            </div>
             </div>
 
             {/* note もくじ CTA（モバイル＜993px のみ）。PC は右サイドバーへ集約。 */}

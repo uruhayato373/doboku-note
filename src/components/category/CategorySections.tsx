@@ -20,7 +20,7 @@ export function DocCard({ doc }: { doc: DocMeta }) {
       href={`/docs/${doc.slug}`}
       data-cta="nav"
       data-cta-label="category-card"
-      className="card-surface-content group relative flex flex-col overflow-hidden transition-[border-color,box-shadow] hover:border-[var(--accent)] hover:shadow-soft"
+      className="group relative flex flex-col overflow-hidden border border-[var(--rule-soft)] bg-[var(--paper)] transition-colors hover:border-[var(--accent)] hover:bg-[var(--accent-fill)]"
     >
       {/* ブランド色の上端アクセント（mockup の category band を mono 化＝硬質エディトリアル維持）。
           ガイドカバー写真（guide-cover.ts）は dormant: メタガイドに literal 機械写真が不一致のため撤回（PR #276→revert）。 */}
