@@ -20,14 +20,13 @@
 
 ## 🔴 高 — 来月中に着手
 
-### BuildJob note展開の残作業（note実機・別PC）
+### BuildJob note展開の残作業（時間差・手動）
 タグ: [収益化]
 
-BuildJob キャンペーン（〜2026-08-31）の note ドメインパワー活用。SoT・ドラフトは develop 済、**note.com 実機作業（note ログイン済み別PC）が残**。参照: `docs/handoffs/_archive/2026-07-14-buildjob-affiliate-sprint.md`「🟡 戦略転換」・doc 08 §note記事。
+BuildJob キャンペーン（〜2026-08-31）の note ドメインパワー活用。**2026-07-14 に note 実公開まで完了**（N7-N9 新規3本公開＝na0f42fd52a51/ne49853deac96/n7a81ebf1cdc5、既存キャリア note 8本の本文再push＝サイト送客リンク live 反映、いずれも note API で実体検証済）。残:
 
-1. **既存キャリア note 8本の本文再push**（SoT にサイト送客リンク追加済・live 未反映）: 別PCで `git pull origin develop` → `npm run note-update-body`。対象 = f902d6fa2 の5本（1級土木で市場価値/年収を上げる人の違い/ホワイトな建設会社の見分け方/公務員土木か民間か/施工管理の失敗談と教訓）＋ 8411e333f の3本（転職した方がいい施工管理-発注者視点/転職のベストタイミング/転職エージェントの使い方）。罠は memory `note-update-body-gotchas`（複数行 blockquote 脱落等）参照。追加は段落末尾の1文インラインリンクのみ＝低リスク
-2. **N7-N9 新規 note 3本の実公開**（ドラフト済＝2026-07-14）: `ビルドジョブの評判-発注者目線-無料`／`転職エージェント比較-無料`／`辞める前に確認すること-無料`（いずれも noteStatus:draft・3点セット＋カバー完備）。`npm run note-publish` → `verify-note-status` 突合 → frontmatter noteUrl/noteId writeback → doc 08 の N7-N9 を ☐→☑・`02_アフィリエイト提携状況.md` に戦略転換を追記
-3. **（時間差）** A8 成果の月末手入力（`.claude/state/metrics/affiliate/a8-results.json`）→ `npm run report-buildjob-affiliate` で EPC。GA4 面別は event_label 登録済（2026-07-07）＝deploy 後クリック蓄積後に `fetch-ga4-cta-clicks --by-label`
+1. **（時間差）A8 成果の月末手入力**（`.claude/state/metrics/affiliate/a8-results.json`）→ `npm run report-buildjob-affiliate` で EPC。GA4 面別は event_label 登録済（2026-07-07）＝deploy 後クリック蓄積後に `fetch-ga4-cta-clicks --by-label`
+2. **stray 下書き手動削除**: `nf2316420abd0`（N7 公開検証の dry-run が作った孤児下書き・「ビルドジョブは施工管理に向くか」の下書き 11:51）。note.com/notes ダッシュボードで**公開済みの双子（11:58・同一タイトル）と取り違えないよう手動で**（`note-delete-note` は下書きカードの href を key で拾えず自動削除不可）
 
 ### 1級土木 二次10/4 直前スプリント（死守コア3つ）
 タグ: [収益化]
