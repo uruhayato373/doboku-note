@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { type DocMeta } from '@/lib/docs';
 import { type DocGroup } from '@/lib/category-groups';
+import ExamMatrix, { ExamChipLink, type ExamMatrixRow } from '@/components/category/ExamMatrix';
 
 /** カード表示用の更新日を YYYY.MM.DD で返す（取れなければ null）。LatestArticles と同じ整形。 */
 function cardDate(doc: DocMeta): string | null {
@@ -93,56 +94,21 @@ function PrimaryExamTable2({ docs, secondaryDocs = [] }: { docs: DocMeta[]; seco
 
   const hasSecondary = secondaryMap.size > 0;
 
-  return (
-    <div className="overflow-x-auto">
-      <table className="w-full text-base border-collapse">
-        <thead>
-          <tr className="border-b-2 border-[var(--rule-soft)]">
-            <th className="text-left py-3 px-4 font-semibold text-[var(--ink-body)]">年度</th>
-            <th className="text-center py-3 px-4 font-semibold text-[var(--ink-body)]">第1次 前期（6月）</th>
-            <th className="text-center py-3 px-4 font-semibold text-[var(--ink-body)]">第1次 後期（10月）</th>
-            {hasSecondary && (
-              <th className="text-center py-3 px-4 font-semibold text-[var(--ink-body)]">第2次検定</th>
-            )}
-          </tr>
-        </thead>
-        <tbody>
-          {years.map(yearCode => {
-            const pair = yearMap.get(yearCode)!;
-            const secondary = secondaryMap.get(yearCode);
-            return (
-              <tr key={yearCode} className="border-b border-[var(--rule-soft)] hover:bg-[var(--accent-fill)] transition-colors">
-                <td className="py-3 px-4 font-medium text-[var(--ink)]">{yearLabel(yearCode)}</td>
-                <td className="py-3 px-4 text-center">
-                  {pair.zenki ? (
-                    <Link href={`/docs/${pair.zenki.slug}`} className="text-[var(--accent)] hover:underline">
-                      前期
-                    </Link>
-                  ) : <span className="text-[var(--ink-muted)] opacity-50">—</span>}
-                </td>
-                <td className="py-3 px-4 text-center">
-                  {pair.kouki ? (
-                    <Link href={`/docs/${pair.kouki.slug}`} className="text-[var(--accent)] hover:underline">
-                      後期
-                    </Link>
-                  ) : <span className="text-[var(--ink-muted)] opacity-50">—</span>}
-                </td>
-                {hasSecondary && (
-                  <td className="py-3 px-4 text-center">
-                    {secondary ? (
-                      <Link href={`/docs/${secondary.slug}`} className="text-[var(--accent)] hover:underline">
-                        第2次
-                      </Link>
-                    ) : <span className="text-[var(--ink-muted)] opacity-50">—</span>}
-                  </td>
-                )}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    </div>
-  );
+  const columns = ['第1次 前期（6月）', '第1次 後期（10月）', ...(hasSecondary ? ['第2次検定'] : [])];
+  const rows: ExamMatrixRow[] = years.map((yearCode) => {
+    const pair = yearMap.get(yearCode)!;
+    return {
+      key: yearCode,
+      label: yearLabel(yearCode),
+      cells: [
+        { label: '前期', doc: pair.zenki },
+        { label: '後期', doc: pair.kouki },
+        ...(hasSecondary ? [{ label: '第2次', doc: secondaryMap.get(yearCode) }] : []),
+      ],
+    };
+  });
+
+  return <ExamMatrix columns={columns} rows={rows} />;
 }
 
 /**
@@ -181,56 +147,21 @@ function PrimaryExamTable({ docs, secondaryDocs = [] }: { docs: DocMeta[]; secon
 
   const hasSecondary = secondaryMap.size > 0;
 
-  return (
-    <div className="overflow-x-auto">
-      <table className="w-full text-base border-collapse">
-        <thead>
-          <tr className="border-b-2 border-[var(--rule-soft)]">
-            <th className="text-left py-3 px-4 font-semibold text-[var(--ink-body)]">年度</th>
-            <th className="text-center py-3 px-4 font-semibold text-[var(--ink-body)]">第1次 問題A</th>
-            <th className="text-center py-3 px-4 font-semibold text-[var(--ink-body)]">第1次 問題B</th>
-            {hasSecondary && (
-              <th className="text-center py-3 px-4 font-semibold text-[var(--ink-body)]">第2次検定</th>
-            )}
-          </tr>
-        </thead>
-        <tbody>
-          {years.map(yearCode => {
-            const pair = yearMap.get(yearCode)!;
-            const secondary = secondaryMap.get(yearCode);
-            return (
-              <tr key={yearCode} className="border-b border-[var(--rule-soft)] hover:bg-[var(--accent-fill)] transition-colors">
-                <td className="py-3 px-4 font-medium text-[var(--ink)]">{yearLabel(yearCode)}</td>
-                <td className="py-3 px-4 text-center">
-                  {pair.a ? (
-                    <Link href={`/docs/${pair.a.slug}`} className="text-[var(--accent)] hover:underline">
-                      問題A
-                    </Link>
-                  ) : <span className="text-[var(--ink-muted)] opacity-50">—</span>}
-                </td>
-                <td className="py-3 px-4 text-center">
-                  {pair.b ? (
-                    <Link href={`/docs/${pair.b.slug}`} className="text-[var(--accent)] hover:underline">
-                      問題B
-                    </Link>
-                  ) : <span className="text-[var(--ink-muted)] opacity-50">—</span>}
-                </td>
-                {hasSecondary && (
-                  <td className="py-3 px-4 text-center">
-                    {secondary ? (
-                      <Link href={`/docs/${secondary.slug}`} className="text-[var(--accent)] hover:underline">
-                        第2次
-                      </Link>
-                    ) : <span className="text-[var(--ink-muted)] opacity-50">—</span>}
-                  </td>
-                )}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    </div>
-  );
+  const columns = ['第1次 問題A', '第1次 問題B', ...(hasSecondary ? ['第2次検定'] : [])];
+  const rows: ExamMatrixRow[] = years.map((yearCode) => {
+    const pair = yearMap.get(yearCode)!;
+    return {
+      key: yearCode,
+      label: yearLabel(yearCode),
+      cells: [
+        { label: '問題A', doc: pair.a },
+        { label: '問題B', doc: pair.b },
+        ...(hasSecondary ? [{ label: '第2次', doc: secondaryMap.get(yearCode) }] : []),
+      ],
+    };
+  });
+
+  return <ExamMatrix columns={columns} rows={rows} />;
 }
 
 /**
@@ -258,48 +189,25 @@ function PeExamTable({ docs }: { docs: DocMeta[] }) {
     return toWesternYear(b) - toWesternYear(a);
   });
 
-  return (
-    <div className="overflow-x-auto">
-      <table className="w-full text-base border-collapse">
-        <thead>
-          <tr className="border-b-2 border-[var(--rule-soft)]">
-            <th className="text-left py-3 px-4 font-semibold text-[var(--ink-body)]">年度</th>
-            <th className="text-center py-3 px-4 font-semibold text-[var(--ink-body)]">択一式</th>
-            <th className="text-center py-3 px-4 font-semibold text-[var(--ink-body)]">記述式</th>
-          </tr>
-        </thead>
-        <tbody>
-          {years.map(yearCode => {
-            const pair = yearMap.get(yearCode)!;
-            const era = yearCode[0];
-            const yearNum = parseInt(yearCode.slice(1));
-            const label = era === 'r'
-              ? (yearNum === 1 ? '令和元年度' : `令和${yearNum}年度`)
-              : `平成${yearNum}年度`;
-            return (
-              <tr key={yearCode} className="border-b border-[var(--rule-soft)] hover:bg-[var(--accent-fill)] transition-colors">
-                <td className="py-3 px-4 font-medium text-[var(--ink)]">{label}</td>
-                <td className="py-3 px-4 text-center">
-                  {pair.primary ? (
-                    <Link href={`/docs/${pair.primary.slug}`} className="text-[var(--accent)] hover:underline">
-                      択一式
-                    </Link>
-                  ) : <span className="text-[var(--ink-muted)] opacity-50">—</span>}
-                </td>
-                <td className="py-3 px-4 text-center">
-                  {pair.secondary ? (
-                    <Link href={`/docs/${pair.secondary.slug}`} className="text-[var(--accent)] hover:underline">
-                      記述式
-                    </Link>
-                  ) : <span className="text-[var(--ink-muted)] opacity-50">—</span>}
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    </div>
-  );
+  const columns = ['択一式', '記述式'];
+  const rows: ExamMatrixRow[] = years.map((yearCode) => {
+    const pair = yearMap.get(yearCode)!;
+    const era = yearCode[0];
+    const yearNum = parseInt(yearCode.slice(1));
+    const label = era === 'r'
+      ? (yearNum === 1 ? '令和元年度' : `令和${yearNum}年度`)
+      : `平成${yearNum}年度`;
+    return {
+      key: yearCode,
+      label,
+      cells: [
+        { label: '択一式', doc: pair.primary },
+        { label: '記述式', doc: pair.secondary },
+      ],
+    };
+  });
+
+  return <ExamMatrix columns={columns} rows={rows} />;
 }
 
 /**
@@ -323,51 +231,21 @@ function PeFirstStageExamTable({ docs }: { docs: DocMeta[] }) {
     return valB - valA;
   });
 
-  return (
-    <div className="overflow-x-auto">
-      <table className="w-full text-base border-collapse">
-        <thead>
-          <tr className="border-b-2 border-[var(--rule-soft)]">
-            <th className="text-left py-3 px-4 font-semibold text-[var(--ink-body)]">年度</th>
-            <th className="text-center py-3 px-4 font-semibold text-[var(--ink-body)]">適性科目</th>
-            <th className="text-center py-3 px-4 font-semibold text-[var(--ink-body)]">基礎科目</th>
-            <th className="text-center py-3 px-4 font-semibold text-[var(--ink-body)]">専門科目（建設）</th>
-          </tr>
-        </thead>
-        <tbody>
-          {years.map(yearCode => {
-            const row = yearMap.get(yearCode)!;
-            return (
-              <tr key={yearCode} className="border-b border-[var(--rule-soft)] hover:bg-[var(--accent-fill)] transition-colors">
-                <td className="py-3 px-4 font-medium text-[var(--ink)]">{yearLabel(yearCode)}</td>
-                <td className="py-3 px-4 text-center">
-                  {row.aptitude ? (
-                    <Link href={`/docs/${row.aptitude.slug}`} className="text-[var(--accent)] hover:underline">
-                      適性科目
-                    </Link>
-                  ) : <span className="text-[var(--ink-muted)] opacity-50">—</span>}
-                </td>
-                <td className="py-3 px-4 text-center">
-                  {row.basic ? (
-                    <Link href={`/docs/${row.basic.slug}`} className="text-[var(--accent)] hover:underline">
-                      基礎科目
-                    </Link>
-                  ) : <span className="text-[var(--ink-muted)] opacity-50">—</span>}
-                </td>
-                <td className="py-3 px-4 text-center">
-                  {row.construction ? (
-                    <Link href={`/docs/${row.construction.slug}`} className="text-[var(--accent)] hover:underline">
-                      専門科目
-                    </Link>
-                  ) : <span className="text-[var(--ink-muted)] opacity-50">—</span>}
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    </div>
-  );
+  const columns = ['適性科目', '基礎科目', '専門科目（建設）'];
+  const rows: ExamMatrixRow[] = years.map((yearCode) => {
+    const row = yearMap.get(yearCode)!;
+    return {
+      key: yearCode,
+      label: yearLabel(yearCode),
+      cells: [
+        { label: '適性', doc: row.aptitude },
+        { label: '基礎', doc: row.basic },
+        { label: '専門', doc: row.construction },
+      ],
+    };
+  });
+
+  return <ExamMatrix columns={columns} rows={rows} />;
 }
 
 /**
@@ -427,13 +305,9 @@ function PeConstructionExamTable({ docs }: { docs: DocMeta[] }) {
                 {years.map(y => {
                   const doc = yearMap.get(y);
                   return doc ? (
-                    <Link
-                      key={y}
-                      href={`/docs/${doc.slug}`}
-                      className="inline-flex items-center rounded-card-inline border border-[var(--rule-soft)] bg-[var(--accent-fill)] px-3 py-2 text-sm font-medium text-[var(--accent)] hover:border-[var(--accent)] transition-colors"
-                    >
+                    <ExamChipLink key={y} href={`/docs/${doc.slug}`}>
                       {colLabel(y)}
-                    </Link>
+                    </ExamChipLink>
                   ) : null;
                 })}
               </div>
