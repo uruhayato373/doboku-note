@@ -1,10 +1,11 @@
 ---
 notePricing: free
-noteStatus: draft
-noteUrl:
-noteId:
+noteStatus: published
+noteUrl: "https://note.com/dobokunote/n/n700c51ea6f00"
+noteId: "n700c51ea6f00"
 noteSeries: 民間技術者受験
 utmCampaign: 96-independence-income
+notePublishedAt: "2026-07-14"
 coverTitle:
   - 総監を取って独立した
   - 技術者の収入実態
@@ -290,6 +291,10 @@ https://doboku-note.com
 - 17年分の択一式過去問（全問解答解説つき）
 - キーワード集2026の全項目をWeb検索可能
 - 650以上のキーワード解説ページ（スマホ対応）
+
+**サイトの深掘り解説**（無料・doboku-note）
+
+[民間建設技術者が総監を取るメリット（経審・受注・キャリア）](https://doboku-note.com/docs/pe-comprehensive-management-private-engineer-comprehensive-merit?utm_source=note&utm_medium=referral&utm_campaign=96-independence-income&utm_content=private-engineer-merit)
 
 **note のおすすめ記事**
 

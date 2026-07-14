@@ -1,10 +1,11 @@
 ---
 notePricing: free
-noteStatus: draft
-noteUrl:
-noteId:
+noteStatus: published
+noteUrl: "https://note.com/dobokunote/n/n9376aac312df"
+noteId: "n9376aac312df"
 noteSeries: 民間技術者受験
 utmCampaign: 95-roi-calculator
+notePublishedAt: "2026-07-14"
 coverTitle:
   - 総監受験は
   - 投資としてペイするか
@@ -340,6 +341,10 @@ https://doboku-note.com
 - 17年分の択一式過去問（全問解答解説つき）
 - キーワード集2026の全項目をWeb検索可能
 - 650以上のキーワード解説ページ（スマホ対応）
+
+**サイトの深掘り解説**（無料・doboku-note）
+
+[民間建設技術者が総監を取るメリット（経審・受注・キャリア）](https://doboku-note.com/docs/pe-comprehensive-management-private-engineer-comprehensive-merit?utm_source=note&utm_medium=referral&utm_campaign=95-roi-calculator&utm_content=private-engineer-merit)
 
 **note のおすすめ記事**
 
