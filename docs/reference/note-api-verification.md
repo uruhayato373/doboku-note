@@ -120,8 +120,8 @@ node scripts/note-update-body.mjs --list   <list.txt>   --commit    # 複数記�
 - **paste 直後に probe 文字列が `contenteditable.innerText` に入ったか必ず検証**。無ければ保存せず中断（無音失敗による空更新事故を防止）。probe は `--probe "<文字列>"` で明示、省略時は本文の素の散文行から自動導出（`--list` 時は各記事ごと自動）
 - **ライブ反映は `--commit` 必須**（既定は dry-run でスクショのみ）。**「下書き保存」だけでは公開済み記事に一切反映されない**（autosave 下書きは browser close で破棄→再オープンで公開版ロード）。`--commit` で **公開に進む →（有料記事なら有料境界保持）→ 更新する → 更新通知は必ず「いいえ」**まで実行（`note-append-cta.mjs:144-219` を移植）
 - **有料記事**: 全文置換で paywall 境界が消えるため、`試験問題|予想問題` H2 直前へ境界を再設定し検証（NG なら保存せず中断＝paywall 保護）。試験 H2 が無い有料記事は `--keep-boundary`、別パターンは `--boundary-h2 "<regex>"`。**無料記事は境界処理を飛ばす**（有料エリア設定ボタンの有無で自動判定）
-- URL 行のリンクカード化（type→Enter）まで自動。カバー画像・タイトル・タグは変更しない。BOM 付きファイル対応済み
-- **4.5 目次再挿入**（2026-07-02 / 2026-07-04 更新）: 全文置換で note ネイティブ目次が消えるため、H2 見出しが 3 つ以上の記事は**最初の h2 の直前**に目次ブロック（`#toc-setting`）を自動で再挿入する（`--no-toc` で抑止）。**body 先頭に入れると導入段落を分断する**ため h2 直前にする。挿入後に `目次 < 最初のh2` を DOM 自己チェックし、**不一致なら誤配置分を除去して 1 回再挿入**。再挿入しても直らなければ末尾サマリに `目次位置NG` として計上し **exit 1**（バッチでも見逃せない）。`.tmp/nu-toc-*.png` スクショ併用、公開後は API body で `pos(<table-of-contents) < pos(<h2)` を実査。**無料記事のライブ更新は publishLive の「更新する」ボタン検出が未対応（既知の残課題）**＝無料記事は本文差し替えのみで更新確定に至らない場合がある（有料記事は自動化済）
+- URL 行のリンクカード化（type→Enter・共有実装 `scripts/lib/note-cardify.mjs`）まで自動。**URL 見出し残存時は保存せず中断（[4b] ABORT）・ライブ反映後は API で URL 見出しを自動検証（[5e]）**＝詳細は下記「live 見出しURL検査」節。カバー画像・タグは変更しない（タイトルは frontmatter `title` があれば差し替え）。BOM 付きファイル対応済み
+- **4.5 目次再挿入**（2026-07-02 / 2026-07-04 更新）: 全文置換で note ネイティブ目次が消えるため、H2 見出しが 3 つ以上の記事は**最初の h2 の直前**に目次ブロック（`#toc-setting`）を自動で再挿入する（`--no-toc` で抑止）。**body 先頭に入れると導入段落を分断する**ため h2 直前にする。挿入後に `目次 < 最初のh2` を DOM 自己チェックし、**不一致なら誤配置分を除去して 1 回再挿入**。再挿入しても直らなければ末尾サマリに `目次位置NG` として計上し **exit 1**（バッチでも見逃せない）。`.tmp/nu-toc-*.png` スクショ併用、公開後は API body で `pos(<table-of-contents) < pos(<h2)` を実査。~~無料記事のライブ更新は publishLive の「更新する」ボタン検出が未対応~~（**2026-07-14 実測で解消確認**: 無料記事の `--commit` は「更新する」まで自動完走する。当日 10 本以上のライブ反映＋API 実査で確認済み）
 - 検証: 反映後に `curl --ssl-no-revoke https://note.com/api/v3/notes/{noteId}` の `data.body` で新文字列の出現・旧文字列の消失を実体確認
 - 実証: 2026-06-24 1級・2級土木 導線 5 記事をライブ反映し note API で全件 in-sync 確認（旧 `.tmp/note-retype-body.mjs` ＝無料専用の使い捨て版で先行実証）
 - 実行はローカル（note ログイン済みプロファイルのある Windows/Mac）限定。会社 PC で可（`channel:'chrome'`）
@@ -135,6 +135,21 @@ node scripts/note-update-body.mjs --list   <list.txt>   --commit    # 複数記�
 
 ### PDF 生成の環境依存（2026-07-04 訂正）
 - **Mac でハングするのは `magazine-to-pdf.mjs` の Chrome `--print-to-pdf` 経路だけ**。**Playwright `chromium.launch({headless:true})` → `page.pdf()` は Mac で正常動作**する（実例 `scripts/generate-anki-pdf.mjs`＝A5赤シートPDF・`--sample` で見本PNG）。カスタムHTML→PDF は magazine-to-pdf でなく `page.pdf()` を使う。
+
+## live 見出しURL検査: check-note-live-headings（URL見出し化グリッチの検知網）
+
+note-publish / note-update-body の旧リンクカード化には、**URL 単独行が h2 見出しに化けて note ネイティブ目次に URL が露出する**非決定的グリッチがあった（2026-07-14 に published 291 本中 7 本で発覚）。原因は (1) Enter 後の embed 変換が非同期なのに盲目 4500ms 待ちで、変換中の DOM 再構築により次 URL の Range 選択が壊れて隣接見出しに typed されるレース、(2) `Set` dedup による同一 URL 2 箇所目の未処理、(3) 選択先ブロック種の無検査。共有実装 `scripts/lib/note-cardify.mjs` で根治済み（毎回 DOM 再クエリ・段落限定選択・カード生成の実測待ち）。
+
+3 層の防衛網:
+
+1. **書き込みスクリプト内蔵ゲート**: `note-publish.mjs` / `note-update-body.mjs` はカード化後に URL 見出しを修復（`repairUrlHeadings`）し、残存すれば**保存/公開せず中断**（exit≠0）。公開/更新後は public API で本文を自動検証（`assertNoUrlHeadings`）し、URL 見出しがあれば FAIL。ネットワーク未達は WARN（手動確認コマンドを表示）。
+2. **横断スイープ**: `npm run check-note-live-headings` — SoT frontmatter の noteStatus=published 全記事（約 291 本）の live 本文を並列 8 で取得し、URL 入り見出しを列挙。BAD≥1 で exit 1。引数でパス部分一致の絞り込み可。修復は `note-update-body --commit` の再貼付。
+3. **段落長 lint**（note-lint ルール 8）: 無料記事の地の文 200 字以上段落をブロック（表示文字数で計測・`SKIP_NOTE_PARA=1` で回避）。有料模範論文は散文答案が仕様のため対象外。
+
+```bash
+npm run check-note-live-headings                          # 全 published をスイープ
+node scripts/check-note-live-headings.mjs docs/note/共通  # パス絞り込み
+```
 
 ## 記事 frontmatter への公開URL backfill: backfill-note-article-meta
 

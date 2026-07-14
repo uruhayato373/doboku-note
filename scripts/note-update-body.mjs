@@ -27,7 +27,7 @@
  *      ※ macOS で Ctrl+A は行頭移動(emacs binding)で全選択にならず空化に失敗→本文二重化するため Meta+A 必須。
  *      paste 直後に probe 文字列が contenteditable.innerText に入ったか検証。
  *      無ければ保存せず中断（無音失敗による空更新事故を防止）。
- *   4. URL 行のリンクカード化（type→Enter）
+ *   4. URL 行のリンクカード化（lib/note-cardify.mjs 共有実装。URL見出し化レース根治・保存前ゲート＋公開後 API assert 付き）
  *   4.5 目次ブロック再挿入（H2>=3・最初のh2直前・--no-toc で抑止）。全文置換で目次が消えるため note-publish と同手順で再挿入。
  *   5. ライブ反映:
  *        --commit なし = dry-run（スクショのみ・更新しない）
@@ -48,6 +48,7 @@ import { chromium } from 'playwright';
 import { readFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { cardifyBareUrls, repairUrlHeadings, listUrlHeadingsInEditor, assertNoUrlHeadings } from './lib/note-cardify.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = join(ROOT, '.local/playwright-note-profile');
@@ -148,36 +149,18 @@ async function emptyAndPaste(page, body, probe) {
 }
 
 async function cardify(page) {
-  // 4. リンクカード化（note-publish.mjs §6: URL 単独行を type→Enter で OGP カード化）
+  // 4. リンクカード化（共有実装 lib/note-cardify.mjs。旧実装の URL見出し化レースは根治済み）
+  //    4b. 万一 URL が見出しに化けていたら修復し、残存すれば false（保存させない）。
   try {
-    const urls = await page.evaluate(() => {
-      const o = [];
-      for (const b of document.querySelectorAll('[contenteditable=true] p, [contenteditable=true] div')) {
-        const t = (b.innerText || '').trim();
-        if (/^https?:\/\/\S+$/.test(t)) o.push(t);
-      }
-      return [...new Set(o)];
-    });
-    let made = 0;
-    for (const u of urls) {
-      const ok = await page.evaluate((url) => {
-        const ed = document.querySelector('[contenteditable=true]'); ed.focus();
-        const w = document.createTreeWalker(ed, NodeFilter.SHOW_TEXT); let node = null, n;
-        while ((n = w.nextNode())) { if ((n.textContent || '').trim() === url) { node = n; break; } }
-        if (!node) return false;
-        const r = document.createRange(); r.selectNodeContents(node);
-        const s = window.getSelection(); s.removeAllRanges(); s.addRange(r); return true;
-      }, u);
-      if (ok) {
-        await page.keyboard.press('Delete'); await sleep(450);
-        await page.keyboard.type(u, { delay: 10 }); await sleep(700);
-        await page.keyboard.press('Enter'); await sleep(4500);
-        made++;
-      }
+    await cardifyBareUrls(page, { tag: '[4]' });
+    await repairUrlHeadings(page, { tag: '[4b]' });
+    const leftover = await listUrlHeadingsInEditor(page);
+    if (leftover.length) {
+      console.error(`[4b] ABORT: URL見出しが残存（保存せず中断）: ${leftover.join(' / ')}`);
+      return false;
     }
-    const cards = await page.evaluate(() => document.querySelectorAll('[contenteditable=true] figure, [contenteditable=true] [embedded-service]').length);
-    console.log(`[4] cardify: urls=${urls.length} processed=${made} cards=${cards}`);
-  } catch (e) { console.log('[4] cardify skip:', e.message.split('\n')[0]); }
+    return true;
+  } catch (e) { console.log('[4] cardify skip:', e.message.split('\n')[0]); return true; }
 }
 
 /**
@@ -383,8 +366,12 @@ async function updateArticle(page, { abs, noteId, title, body }, probe) {
     return false;
   }
 
-  // 4. リンクカード化
-  await cardify(page);
+  // 4. リンクカード化（URL見出し残存時は保存せず中断＝壊れた本文を絶対に反映しない）
+  const cardOk = await cardify(page);
+  if (!cardOk) {
+    await page.screenshot({ path: join(ROOT, `.tmp/nu-urlheading-${noteId}.png`) });
+    return false;
+  }
 
   // 4.5 目次ブロック（H2>=3・最初のh2直前・--no-toc で抑止）。全文置換で消えるため再挿入。
   const h2count = (body.match(/^##\s+/gm) || []).length;
@@ -441,7 +428,19 @@ async function updateArticle(page, { abs, noteId, title, body }, probe) {
   }
   const live = await publishLive(page, noteId);
   if (!live) { console.error(`[FAIL] ライブ反映に失敗: ${noteId}`); return false; }
-  console.log(`[OK] ${noteId} ライブ反映完了（要 API 実体検証: curl --ssl-no-revoke https://note.com/api/v3/notes/${noteId}）`);
+
+  // 5e. 公開後 API 実体検証（自動化）: 本文見出しに URL が混入していないか。
+  //     ネットワーク失敗は WARN（手動確認へフォールバック）、URL見出し検出は FAIL。
+  const chk = await assertNoUrlHeadings(noteId);
+  if (chk.fetchError) {
+    console.log(`[5e] WARN: API検証がネットワークで未達（${chk.fetchError}）→ 手動確認: curl --ssl-no-revoke https://note.com/api/v3/notes/${noteId}`);
+  } else if (!chk.ok) {
+    console.error(`[5e] FAIL: 公開本文に URL 見出しが残存: ${chk.bad.join(' / ')} → 再実行 or note エディタで手動修正`);
+    return false;
+  } else {
+    console.log('[5e] API 実体検証 OK（URL見出しなし）');
+  }
+  console.log(`[OK] ${noteId} ライブ反映完了`);
   return true;
 }
 

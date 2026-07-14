@@ -87,6 +87,7 @@
     "check-ogp-design": "node scripts/check-ogp-design.mjs",
     "check-ogp-title-fit": "node scripts/check-ogp-title-fit.mjs",
     "check-note-cover-fit": "node scripts/check-note-cover-fit.mjs",
+    "check-note-live-headings": "node scripts/check-note-live-headings.mjs",
     "check-home-exam-coverage": "node scripts/check-home-exam-coverage.mjs",
     "check-category-curriculum": "node scripts/check-category-curriculum.mjs",
     "check-affiliate-mats": "node scripts/check-affiliate-mats.mjs",

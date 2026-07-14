@@ -38,6 +38,7 @@ import { chromium } from 'playwright';
 import { readFileSync, existsSync, writeFileSync } from 'node:fs';
 import { join, dirname, basename, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { cardifyBareUrls, repairUrlHeadings, listUrlHeadingsInEditor, assertNoUrlHeadings } from './lib/note-cardify.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = join(ROOT, '.local/playwright-note-profile');
@@ -155,24 +156,15 @@ try {
   const edChars = await page.evaluate(() => (document.querySelector('[contenteditable=true]')?.innerText || '').length);
   console.log('[5] body pasted, editor chars=' + edChars);
 
-  // 6. リンクカード化: 各 URL 行を Range選択→Delete→type→Enter。
+  // 6. リンクカード化（共有実装 lib/note-cardify.mjs）: URL 単独段落を type→Enter でカード化。
   //    note の埋め込み検出は keyboard.type（実入力）で起動する（synthetic paste では起動しない＝v1-v5失敗・v6/v7で確定）。
+  //    旧実装の「URL が見出しに化けるレース」は根治済み。6b で残存を修復し、残れば公開を止める（下記 [12] ゲート）。
+  let urlHeadingsLeft = [];
   try {
-    const urls = await page.evaluate(() => { const o = []; for (const b of document.querySelectorAll('[contenteditable=true] p, [contenteditable=true] div')) { const t = (b.innerText || '').trim(); if (/^https?:\/\/\S+$/.test(t)) o.push(t); } return [...new Set(o)]; });
-    let made = 0;
-    for (const u of urls) {
-      const ok = await page.evaluate((url) => {
-        const ed = document.querySelector('[contenteditable=true]'); ed.focus();
-        const w = document.createTreeWalker(ed, NodeFilter.SHOW_TEXT); let node = null, n;
-        while ((n = w.nextNode())) { if ((n.textContent || '').trim() === url) { node = n; break; } }
-        if (!node) return false;
-        const r = document.createRange(); r.selectNodeContents(node);
-        const s = window.getSelection(); s.removeAllRanges(); s.addRange(r); return true;
-      }, u);
-      if (ok) { await page.keyboard.press('Delete'); await sleep(450); await page.keyboard.type(u, { delay: 10 }); await sleep(700); await page.keyboard.press('Enter'); await sleep(4500); made++; }
-    }
-    const cards = await page.evaluate(() => document.querySelectorAll('[contenteditable=true] figure, [contenteditable=true] [embedded-service]').length);
-    console.log(`[6] cardify(type method): urls=${urls.length} processed=${made} cards=${cards}`);
+    await cardifyBareUrls(page, { tag: '[6]' });
+    await repairUrlHeadings(page, { tag: '[6b]' });
+    urlHeadingsLeft = await listUrlHeadingsInEditor(page);
+    if (urlHeadingsLeft.length) console.error(`[6b] ★URL見出しが残存（公開ゲートで中断予定）: ${urlHeadingsLeft.join(' / ')}★`);
   } catch (e) { console.log('[6] cardify skip:', e.message.split('\n')[0]); }
 
   // 6.5 目次ブロック挿入（H2>=3・最初のh2直前）。note ネイティブ目次（button#toc-setting）。
@@ -377,7 +369,11 @@ try {
     const d2 = page.getByRole('button', { name: '下書き保存' }); if (await d2.count()) { await d2.first().click(); await sleep(2500); }
   };
 
-  if (COMMIT && boundaryOk && sched) {
+  if (COMMIT && urlHeadingsLeft.length) {
+    // URL見出し残存 → 公開せず下書き退避（壊れた本文＝目次にURL露出を本番に出さない）
+    await saveDraftExit(`★中断: URL見出しが残存（${urlHeadingsLeft.join(' / ')}）→ 公開しない★`);
+    process.exitCode = 3;
+  } else if (COMMIT && boundaryOk && sched) {
     // --- 予約投稿フロー（--schedule 指定時。selector は scheduling.md 由来・first-run 要検証）---
     // 安全弁: 日時が UI に反映できないときは即時公開せず下書きへ退避（誤即時公開を防止）
     const pad = (n) => String(n).padStart(2, '0');
@@ -421,6 +417,14 @@ try {
       publishedUrl = page.url();
       console.log('[12] 投稿する clicked → published:', publishedUrl);
       writeBack(publishedUrl, new Date().toISOString().slice(0, 10));
+      // [13] 公開後 API 実体検証: 本文見出しに URL が混入していないか（偽成功ガードの一部）
+      const pubId = (publishedUrl.match(/n[0-9a-f]{12}/) || [])[0];
+      if (pubId) {
+        const chk = await assertNoUrlHeadings(pubId);
+        if (chk.fetchError) console.log(`[13] WARN: API検証未達（${chk.fetchError}）→ 手動確認: curl --ssl-no-revoke https://note.com/api/v3/notes/${pubId}`);
+        else if (!chk.ok) { console.error(`[13] FAIL: 公開本文に URL 見出し: ${chk.bad.join(' / ')} → note-update-body --commit で修復`); process.exitCode = 2; }
+        else console.log('[13] API 実体検証 OK（URL見出しなし）');
+      }
     } else console.log('[12] 投稿する 未検出');
   } else {
     if (COMMIT && !boundaryOk) console.log('[12] ★中断: 境界検証 NG（boundaryBeforeExam=false）→ 公開しない★');

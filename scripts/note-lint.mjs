@@ -19,6 +19,8 @@
  *      → 手作業でなく `npm run note-inject-magazine-url -- <persona> <url>` を使う（CRLF保持・冪等）
  *   6. 廃止セクション見出し — 「## …からのコメント」（合格者／元公務員からのコメント節、2026-06-10 廃止）
  *   7. ツール呼び出しXML残骸 — antml: / <invoke> / <parameter> / <function> / <content>（生成時混入）
+ *   8. 段落長（無料記事のみ） — notePricing: free の地の文段落が表示 200 字以上でブロック
+ *      （B5 基準 = 1段落2-3文。模範論文など有料は散文答案が仕様のため対象外。SKIP_NOTE_PARA=1 で回避）
  *
  * 使い方:
  *   node scripts/note-lint.mjs                       # staged の docs/note 配下の article.md を検査（pre-commit 用）
@@ -201,6 +203,32 @@ function checkDeprecatedSection(content) {
   });
   return out;
 }
+// 8. 段落長（無料記事のみブロック・2026-07-14 ユーザー決定）。
+//    note はスマホ読者が主で、地の文 1 段落は 2-3 文・3 行以内が基準（note-publish-enhancement.md B5）。
+//    無料（notePricing: free）の集客記事で 200 字以上の地の文段落を検出したらブロックする。
+//    有料・membership は対象外（模範論文は散文答案が仕様＝箇条書き禁止・各施策600字）。
+//    計測はリンク URL を除いた表示文字数（[text](url) → text）。回避: SKIP_NOTE_PARA=1（バーンダウン用）。
+function checkParagraphLength(file, content) {
+  if (process.env.SKIP_NOTE_PARA === '1') return [];
+  if (!content.startsWith('---')) return [];
+  const fm = content.split('---')[1] || '';
+  if (!/notePricing:\s*"?free"?/.test(fm)) return [];
+  const out = [];
+  let inFence = false;
+  content.split('\n').forEach((l, i) => {
+    const s = l.trim();
+    if (s.startsWith('```')) { inFence = !inFence; return; }
+    if (inFence || !s) return;
+    // 地の文以外（見出し/リスト/引用/画像/コメント/表/URL単独行/frontmatter区切り）は対象外
+    if (/^(#|[-*+]\s|>|!\[|<|\||https?:\/\/|---$|\d+\.\s)/.test(s)) return;
+    // 表示文字数で計測（markdown リンクは URL を除きテキストのみ数える）
+    const display = s.replace(/\[([^\]]*)\]\([^)]*\)/g, '$1');
+    if (display.length >= 200) {
+      out.push({ line: i + 1, msg: `段落が長すぎる（表示${display.length}字 ≥200字）。1段落2-3文に分割（B5: note-publish-enhancement.md）: ${display.slice(0, 30)}…` });
+    }
+  });
+  return out;
+}
 // ツール呼び出しXMLの残骸（生成時にエージェントの function-call 断片が本文へ混入）。
 // note 試験対策記事にこれらのタグが正当に出ることはまずない＝100% 削除対象（契約調達R07事故、2026-06-11）。
 function checkToolArtifact(content) {
@@ -232,7 +260,7 @@ const partialState = buildPartialInjectionState(files);
 let violations = 0;
 for (const f of files) {
   const content = readFileSync(f, 'utf8');
-  const issues = [...checkPipeTable(content), ...checkMojibake(content), ...checkMagazineLinkCard(content), ...checkMagazineCta(f), ...checkNote3set(f), ...checkBoldParen(f), ...checkPartialInjection(f, partialState), ...checkDeprecatedSection(content), ...checkToolArtifact(content)];
+  const issues = [...checkPipeTable(content), ...checkMojibake(content), ...checkMagazineLinkCard(content), ...checkMagazineCta(f), ...checkNote3set(f), ...checkBoldParen(f), ...checkPartialInjection(f, partialState), ...checkDeprecatedSection(content), ...checkToolArtifact(content), ...checkParagraphLength(f, content)];
   if (issues.length) {
     violations += issues.length;
     const rel = f.replace(ROOT + '\\', '').replace(ROOT + '/', '').replace(/\\/g, '/');
