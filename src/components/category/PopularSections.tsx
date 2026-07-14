@@ -1,5 +1,7 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { type PopularDoc, popularWindow } from '@/lib/popular';
+import { getOgpImageUrl } from '@/lib/r2-image-loader';
 
 /** 集計窓を「YYYY.MM.DD–MM.DD」で短く表示。窓不明なら null。 */
 function windowLabel(): string | null {
@@ -12,72 +14,63 @@ function windowLabel(): string | null {
   return `${fmt(popularWindow.start)}〜${fmt(popularWindow.end)}`;
 }
 
-function RankBadge({ rank }: { rank: number }) {
-  return (
-    <span className="inline-flex items-center gap-1 rounded-card-inline bg-[var(--accent-fill)] px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest text-[var(--accent)]">
-      人気 #{rank}
-    </span>
-  );
-}
-
-function ShowcaseCard({ item, lead = false }: { item: PopularDoc; lead?: boolean }) {
+/** 人気記事リストの1行（サムネ左＋ランク番号＋タイトル/抜粋のブログ型）。OGP を 1200:630 サムネにし、
+ *  行の高さは line-clamp で揃える。ランクは OGP のタイトル焼込みと重ならないようタイトル側に置く。 */
+function PopularListRow({ item }: { item: PopularDoc }) {
   const { doc, rank } = item;
   const title = doc.shortTitle || doc.title;
   const excerpt = doc.subtitle || doc.description;
   return (
-    <Link
-      href={`/docs/${doc.slug}`}
-      className="card-surface-content group relative flex flex-col overflow-hidden transition-[border-color,box-shadow] hover:border-[var(--accent)] hover:shadow-soft"
-    >
-      <span aria-hidden className="block h-[3px] w-full bg-[var(--accent)] opacity-70 transition-opacity group-hover:opacity-100" />
-      <div className="flex flex-1 flex-col gap-2 p-5">
-        <RankBadge rank={rank} />
-        <h3
-          className={`font-serif font-bold text-[var(--ink)] group-hover:text-[var(--accent)] transition-colors leading-snug ${
-            lead ? 'text-xl sm:text-2xl line-clamp-3' : 'text-lg line-clamp-2'
-          }`}
-        >
-          {title}
-        </h3>
-        {excerpt && (
-          <p className={`text-sm text-[var(--ink-muted)] ${lead ? 'line-clamp-3' : 'line-clamp-2'}`}>{excerpt}</p>
-        )}
-        <div className="mt-auto pt-3 inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-widest text-[var(--ink-muted)] group-hover:text-[var(--accent)] transition-colors">
-          Read <span aria-hidden>→</span>
+    <li className="border-b border-[var(--rule-soft)] last:border-b-0">
+      <Link
+        href={`/docs/${doc.slug}`}
+        className="group flex gap-3 sm:gap-4 py-4"
+      >
+        <div className="relative aspect-[1200/630] w-[124px] sm:w-[168px] shrink-0 overflow-hidden border border-[var(--rule-soft)] bg-[var(--bg)]">
+          <Image
+            src={getOgpImageUrl(doc.slug)}
+            alt=""
+            width={336}
+            height={176}
+            unoptimized
+            loading="lazy"
+            sizes="(max-width: 640px) 124px, 168px"
+            className="h-full w-full object-cover"
+          />
         </div>
-      </div>
-    </Link>
+        <div className="flex min-w-0 flex-1 gap-2.5">
+          <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-card-inline bg-[var(--accent-fill)] font-mono text-xs font-bold tabular-nums text-[var(--accent)]">
+            {rank}
+          </span>
+          <div className="flex min-w-0 flex-col gap-1">
+            <h3 className="font-serif text-[15px] sm:text-lg font-bold leading-snug text-[var(--ink)] group-hover:text-[var(--accent)] transition-colors line-clamp-2">
+              {title}
+            </h3>
+            {excerpt && (
+              <p className="text-[13px] sm:text-sm text-[var(--ink-muted)] line-clamp-2">{excerpt}</p>
+            )}
+          </div>
+        </div>
+      </Link>
+    </li>
   );
 }
 
 /**
  * カテゴリ hub 上部の「よく読まれている記事」特集。GA4 実アクセス上位（直近 28 日）を提示する。
- * 注目フラグでなく実シグナル駆動。OGP がタイトル焼込み済のため画像でなくランクバッジ＋タイポで構成。
- * items が空なら描画しない（graceful）。socialplus 参考の image-led showcase を資産現実に合わせた版。
+ * 注目フラグでなく実シグナル駆動。各記事の OGP（R2 配信・全 published で CI 実在保証）をサムネにした
+ * ブログ型の縦リストで、サイズを揃えて回遊させる。items が空なら描画しない（graceful）。
  */
 export function PopularShowcase({ items }: { items: PopularDoc[] }) {
-  const [lead, ...rest] = items;
-  if (!lead) return null;
-  const label = windowLabel();
+  if (items.length === 0) return null;
   return (
     <section data-cta="nav" data-cta-label="popular-showcase">
-      <div className="mb-6">
-        <div className="flex items-baseline justify-between gap-2 flex-wrap">
-          <h2 className="font-serif text-[22px] sm:text-[26px] font-black text-[var(--ink)]">よく読まれている記事</h2>
-          {label && <span className="font-mono text-[11px] text-[var(--ink-muted)] tabular-nums">{label}</span>}
-        </div>
-        <p className="text-[14px] text-[var(--ink-muted)] mt-1">アクセスの多い記事から探す</p>
-      </div>
-      <div className="grid gap-4 md:grid-cols-3">
-        <div className="md:col-span-1 md:row-span-2">
-          <ShowcaseCard item={lead} lead />
-        </div>
-        {rest.map((item) => (
-          <div key={item.doc.slug} className="md:col-span-2">
-            <ShowcaseCard item={item} />
-          </div>
+      <h2 className="font-serif text-[22px] sm:text-[26px] font-black text-[var(--ink)] mb-5">よく読まれている記事</h2>
+      <ol className="flex flex-col">
+        {items.map((item) => (
+          <PopularListRow key={item.doc.slug} item={item} />
         ))}
-      </div>
+      </ol>
     </section>
   );
 }

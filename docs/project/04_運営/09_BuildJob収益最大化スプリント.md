@@ -445,7 +445,7 @@ doboku-note の BuildJob アフィリエイト収益最大化スプリントを�
 - **カードコピー改善**: `resolveBuildJobCopy(slug)` 新設。description に安心コピーを常時内蔵、CTA は記事テーマ別 6 パターン＋既定「資格・経験で狙える求人を無料で聞く」。`resolveCareerArticleEndCard` の BuildJob 分岐と inline `CareerAffiliate program="gks"`（163 枚）に自動反映。公式数値（163万円等）は保証表現リスク回避のためカードでは不使用。
 - **本文中間テキスト CTA**: `CareerTextLink` に `lead`（安心コピー）を追加し `MidArticleCta` career モードでリンク直前に表示。A8 公式テキストリンク文言自体は不変。
 - **検証**: check-affiliate-mats / check-affiliate-prose / check-cta-density / lint / type-check / build すべて通過。
-- 作業ログ: `docs/handoffs/2026-07-14-buildjob-affiliate-sprint.md`
+- 作業ログ: handoff `2026-07-14-buildjob-affiliate-sprint.md`（削除済・git 履歴参照）
 
 ### 2026-07-14 P1/P2 実装完了（同日・Opus）
 

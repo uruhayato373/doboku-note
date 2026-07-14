@@ -109,7 +109,7 @@ GSC ページ単位（2026-04-27〜05-25）で striking-distance を実査した
 - A1–A5・B1 を 1 セッションで実装（A2/A5/B1 は workflow で並行生成 → 親が QA・hub配線・索引・コミット統合）。
 - QA で検出・修正: guide-1-vs-2 の資格手当具体額 → site 方針（一律相場なし）へ／guide-1-vs-2 の太字崩れ（経審）→ 括弧外出し／guide-vs-pe 誤字。
 - 全6新ページ dev curl HTTP200・コンパイル/太字/文字化けなしを確認。
-- B2/C: 近接重複は削除でなく「保持＋差別化＋クラスタ化」へ方針転換（guide-1-vs-2 を一旦削除→復活し差別化）。詳細は [handoff 2026-06-02](../../handoffs/_archive/2026-06-02-seo-note-synergy.md)。
+- B2/C: 近接重複は削除でなく「保持＋差別化＋クラスタ化」へ方針転換（guide-1-vs-2 を一旦削除→復活し差別化）。詳細は [handoff 2026-06-02](../../handoffs/2026-06-02-seo-note-synergy.md)。
 - **デプロイ済（2026-06-02、develop→main→Cloudflare Pages, run 26779764413）**。本番 .pages.dev で全ページ HTTP200 確認。commit: cd5641935 / b3cd98922 / 31ee0bf35 / d2eed393a / 059e5137d / 3117379ee。
 
 ## 参照

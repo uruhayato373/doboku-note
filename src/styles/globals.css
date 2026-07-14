@@ -19,12 +19,12 @@
 @layer base {
   /* Card design tokens — single source of truth */
   :root {
-    /* Card radius — Soft Editorial (2026-07). 小→大で段階化（旧: 一律 2px）。
+    /* Card radius — カードは直角（2026-07 角丸ゼロ化）。inline のみ 6px 維持。
        値のみ変更で rounded-card-* 経由の全カードが自動追従する。 */
     --radius-card-inline: 6px;   /* バッジ・チップ・インラインコード */
-    --radius-card-content: 10px; /* 標準カード・表・details・pre・KaTeX display */
-    --radius-card-section: 14px; /* SectionCard 等の大カード */
-    --radius-card-hero: 20px;    /* トップ hero */
+    --radius-card-content: 0;    /* 標準カード・表・details・pre・KaTeX display */
+    --radius-card-section: 0;    /* SectionCard 等の大カード */
+    --radius-card-hero: 0;       /* トップ hero */
 
     /* 影 — 2 層ソフトシャドウ（slate 寒色 rgb(15 23 42) で紙面に馴染ませる） */
     --shadow-card-content: 0 1px 2px rgb(15 23 42 / 0.04), 0 2px 8px rgb(15 23 42 / 0.05);
@@ -39,6 +39,9 @@
     --dur-fast: 150ms;
     --dur-base: 200ms;
     --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+    /* アコーディオン開閉シェブロン（prose details の mask 用・DisclosureChevron.tsx と同一 path）。 */
+    --disclosure-chevron: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%20fill='none'%20stroke='black'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpath%20d='M6%203.5%2010.5%208%206%2012.5'/%3E%3C/svg%3E");
 
     /* 図版・SNSと共有する固定パレット。UI の基本色は下の Editorial palette を正規系とする。 */
     --color-ink-strong: #222222;
@@ -237,6 +240,16 @@
     box-shadow:
       0 0 0 2px var(--bg),
       0 0 0 4px color-mix(in srgb, var(--accent) 70%, transparent);
+  }
+
+  /* アコーディオン開閉シェブロン（DisclosureChevron）。Tailwind の transform 変種が本 build で
+     効かないため、開閉回転はここで行う（.card-interactive 等と同じく見た目を集約）。閉=右向き、
+     親 details[open] で 90°回転して下向き。FAQCard・CurriculumList（テキスト章）共通。 */
+  .disclosure-chevron {
+    transition: transform var(--dur-base) var(--ease-soft);
+  }
+  details[open] > summary .disclosure-chevron {
+    transform: rotate(90deg);
   }
 
   /* 再利用可能なカード外観。構造は React、見た目はこの層に集約する。 */
@@ -494,14 +507,21 @@
     display: none;
   }
 
+  /* 開閉アイコン: 細線シェブロン（右向き→開くと90°回転）。DisclosureChevron.tsx と同一 path の
+     mask（content グリフ差替えでなく回転式に統一・2026-07）。色は summary の currentColor(--accent) を継承。 */
   .prose-blog details summary::before {
-    content: "▶ ";
-    @apply text-xs mr-1.5 inline-block;
+    content: "";
+    @apply mr-1.5 inline-block align-middle;
+    width: 0.75em;
+    height: 0.75em;
+    background-color: currentColor;
+    -webkit-mask: var(--disclosure-chevron) no-repeat center / contain;
+    mask: var(--disclosure-chevron) no-repeat center / contain;
     transition: transform 0.2s;
   }
 
   .prose-blog details[open] summary::before {
-    content: "▼ ";
+    transform: rotate(90deg);
   }
 
   .prose-blog details[open] summary {

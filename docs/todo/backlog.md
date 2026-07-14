@@ -20,6 +20,14 @@
 
 ## 🔴 高 — 来月中に着手
 
+### BuildJob note展開の残作業（時間差・手動）
+タグ: [収益化]
+
+BuildJob キャンペーン（〜2026-08-31）の note ドメインパワー活用。**2026-07-14 に note 実公開まで完了**（N7-N9 新規3本公開＝na0f42fd52a51/ne49853deac96/n7a81ebf1cdc5、既存キャリア note 8本の本文再push＝サイト送客リンク live 反映、いずれも note API で実体検証済）。残:
+
+1. **（時間差）A8 成果の月末手入力**（`.claude/state/metrics/affiliate/a8-results.json`）→ `npm run report-buildjob-affiliate` で EPC。GA4 面別は event_label 登録済（2026-07-07）＝deploy 後クリック蓄積後に `fetch-ga4-cta-clicks --by-label`
+2. **stray 下書き手動削除**: `nf2316420abd0`（N7 公開検証の dry-run が作った孤児下書き・「ビルドジョブは施工管理に向くか」の下書き 11:51）。note.com/notes ダッシュボードで**公開済みの双子（11:58・同一タイトル）と取り違えないよう手動で**（`note-delete-note` は下書きカードの href を key で拾えず自動削除不可）
+
 ### 1級土木 二次10/4 直前スプリント（死守コア3つ）
 タグ: [収益化]
 
@@ -78,6 +86,21 @@ page/category の合成ロジック共通化（2026-06-25 アセスメント起�
 
 ## 🟡 中 — 2〜3ヶ月以内
 
+### civil-1 土木一般編 テキスト章 本文変換（土工/コンクリート工/基礎工 ~19記事）
+タグ: [コンテンツ品質]
+
+**Phase 1（config 統合）は完了・PR #395 で develop マージ済**（2026-07-14）。`src/config/category-curriculum.json` の civil-1 に 土工(order 1-49)・コンクリート工(50-79)・基礎工(80-99) を textbookChapters 新設し、配列順を PDF 章順（土工→建設機械→コンクリート工→基礎工→測量→解体工事）に再構成、受け皿だった「分野別対策」fields は廃止。要点ガイド4本は各章 introGuides へ移設済。→ カテゴリページの該当3章は現在「要点ガイド1〜2行」だけ表示（本文記事が空）。
+
+**残（Phase 2-4）= OCR 済み md → textbook site 記事（MDX）の忠実変換**。変換元は `docs/textbook/１級土木施工管理技士/テキスト（土木一般編）/` の第1/3/4章。order レンジは確保済みなので、記事 frontmatter に `textbook_order` を割り当てれば自動的に該当章へ収まる。
+
+- **Phase 2: 第１章_土工.md（4,209行・最大）→ 約8記事（order 1-49・5刻み）**: 土質調査(概説+原位置/室内試験+土/岩分類, 行22-591) / 盛土(592-1456) / 切土・法面保護(1457-1897) / 軟弱地盤対策・排水工法(1898-2353) / 土工計画・建設機械の作業能力(2354-2863) / 道路土工・路盤(2864-3324) / アスファルト舗装(3325-3888) / 舗装補修・品質管理(3889-end)
+- **Phase 3: 第３章_コンクリート工.md（2,646行）→ 約6記事（order 50-79）**: 材料 / コンクリートの性質 / 配合設計・レディーミクスト / 施工(運搬・打込み・締固め・打継目・養生) / 鉄筋工・型枠支保工 / 特別なコンクリート・品質管理検査
+- **Phase 4: 第４章_基礎工.md（1,561行）→ 約5記事（order 80-99）**: 概説・地質調査 / 土留め・仮締切り / 直接基礎 / 杭基礎(既製杭) / 場所打ち杭
+
+**手順**: 見本 = `.local/r2/posts/civil-construction-1/textbook-demolition/article.mdx`（frontmatter・リード・Callout・ArticleImage・RelatedKeywords・CareerAffiliate・参考資料を踏襲）。変換ツール = `/pdf-to-mdx --exam civil-construction-1` textbook モード（テンプレ `.claude/skills/conversion/pdf-to-mdx/templates/civil-construction-1.md`）。図は元 md 隣の `img/01-YY.png` を記事 `img/` へコピー → `<ArticleImage src=".../{name}.webp">` → `npm run generate-webp`。網羅率95%+・KaTeX（$$は複数行）・表4列以下・参考URLは実在確認済のみ（捏造禁止）。1記事=`/check-mdx`→QA(civil-construction-qa ≥2.0)→即 commit。仕上げ = `npm run refresh-indexes` + `npm run ogp`（check-ogp-coverage 対策）。
+
+**進め方**: 1章=1セッション目安（トークン大）。develop 上で通常コンテンツフロー。関連 = [[project_civil1_textbook_transcription]]（既に両編 OCR→MD 完了・条文数値は原典照合）。既存の「土木一般編（スキャン教材）図タイト化・素材活用」タスクとは別スコープ（あちらは図タイト化＋guide/note展開、こちらは textbook 章本文の site 記事化）。
+
 ### civil-1 一次過去問 公式キー deferred 24件（要 pre-H30 原典）
 タグ: [コンテンツ品質]
 
@@ -106,6 +129,13 @@ page/category の合成ロジック共通化（2026-06-25 アセスメント起�
 - **手順**: レポート上位を group 対応の `/quality-cycle` へ。表→非表・入れ子→フラット・長段落→改段。1バッチ 10-20 記事、完了ごとに `npm run update-content-quality-baseline`
 - **注意**: civil textbook の規格表・配合表は override 除外済み。過去問の年度×選択肢表は無理に崩さない
 
+### guide-career / アフィリ記事の文末単調（rule 15-1）copy リライト
+タグ: [コンテンツ品質]
+
+BuildJob アフィリスプリントで注入された copy が rule 15-1（文末「〜です。/〜ます。」の連続）に触れている。mechanical-only 範囲外で copy 文言変更が必要（SSOT の残課題= `docs/reviews/2026-07-14-mechanical-quality-audit.md:75`）。現状（`node .claude/scripts/lint-mdx-mobile.mjs <file>` で 15-1 実測）:
+- `civil-construction-1-guide-age-career`（5件）／`civil-construction-1-guide-career-agent-comparison`（3件）／`civil-construction-2-guide-young-career`（3件）
+- **手順**: 各記事の該当段落の語尾に変化をつける（体言止め・接続で連結・「〜ます。」→「〜ます」等）。数値・主張・アフィリ配線は不変。完了後 `npm run update-content-quality-baseline` で baseline 更新。要再計測（他 career 記事にも波及の可能性）
+
 ### 過去問図 rescan-need-source 9図（要外部/別原典）
 タグ: [コンテンツ品質]
 
@@ -117,11 +147,6 @@ page/category の合成ロジック共通化（2026-06-25 アセスメント起�
 タグ: [コンテンツ品質]
 
 8本全合格済みだが scores.json の qualitative_comment に記録した改善余地: earthwork 表2.9 の散文詰込13セル解体（最優先）・入れ子リスト群のフラット化・factual table のインライン出典・qm-basics/past-problems の民間ソース不在。
-
-### トップページ下部3セクションの統合デザイン
-タグ: [UI・UX]
-
-note 教材（LinksHubTile）・アフィリ（SchoolAffiliate）・参考書籍（非表示中）が後付けで積み重なりデザイン不整合（`src/app/page.tsx` L142-172）。**1つの「教材・リソース」セクション**に統合し、デザイントークン・見出し階層を他セクションと揃える。デザイン反復は develop/:3020 でユーザー確認後 push。
 
 ### 性能: CI PSI 再計測（mobile 追加）
 タグ: [UI・UX]
@@ -141,7 +166,7 @@ P1-P3（GA4 計測基盤・NextStepNav・季節モード note CTA）は実装済
 ### 総監マガジンの歩き方 L1配線 ほか
 タグ: [収益化]
 
-公開（nc874692256bb）＋総監もくじ冒頭配線は完了。残 = ①L1（全資格サイトマップ n296a88f64ac2）へ総監セクション狙い（`--after <総監needle>`）で配線（グローバル冒頭 append は総監偏重になるため不採用）②孤児下書き nbf2a6de8f9c9 の手動削除。
+公開（nc874692256bb）＋総監もくじ冒頭配線＋**L1配線（2026-07-14 commit 6eeccae62・`docs/note/共通/コンテンツ総合案内/article.md` へ配線＋live反映済）**は完了。残 = 孤児下書き nbf2a6de8f9c9 の手動削除のみ（note.com ダッシュボード・下書き削除ツール制約で手動）。
 
 ### note 導線 後続配線（Fable P1 残）
 タグ: [収益化]
@@ -164,12 +189,13 @@ P1-P3（GA4 計測基盤・NextStepNav・季節モード note CTA）は実装済
 ### 1級 完全攻略パック 公開後の仕上げ（note実機）
 タグ: [収益化]
 
-100本公開＋マガジン収録＋SKU published:true は完了。残 = ①PDF添付（civil 用 pdf-spec 設計→`magazine-to-pdf.mjs`→`note-attach-magazine-pdfs.mjs --commit`・Windows必須）②各記事へネイティブ目次挿入 ③無料23本へ冒頭CTA live 反映（`note-append-cta.mjs`・ソース配線済）④`note-publish.mjs --schedule` の予約投稿 selector 修復 ⑤stray 下書き3件削除（n3e2475d0b6d5/na5b4cef4fcfe/nfc608702b477）。
+100本公開＋マガジン収録＋SKU published:true＋**無料23本への冒頭CTA live反映**（2026-07-14 funnel audit `--live` で civil 冒頭ドリフト0・サンプル3本 API 反映 True 確認）は完了。残 = ①PDF添付（civil 用 pdf-spec 設計→`magazine-to-pdf.mjs`→`note-attach-magazine-pdfs.mjs --commit`・Windows必須）②各記事へネイティブ目次挿入 ③`note-publish.mjs --schedule` の予約投稿 selector 修復 ④stray 下書き3件削除（n3e2475d0b6d5/na5b4cef4fcfe/nfc608702b477）。
 
-### note A系記事の生URL→キーワードリンク live反映
+### note 公開記事の bare /docs/ URL インライン化（実残: draft のみ）
 タグ: [収益化]
 
-SoT（ローカルmd）は確定済。note.com 公開6本（防災/担い手/GX/老朽化/国土形成/建設DX）へのブラウザ反映が未着手。他7記事も同じ生URL問題。326件バーンダウンの codemod は別途。
+**2026-07-14 実体照合で旧「A系6本（防災/担い手/GX/老朽化/国土形成/建設DX）」は陳腐化と判明**（当該記事の source は修正済み＝現 `check-note-site-utm` 違反リストに不在）。公開/free の唯一の実残だった **立場別模範論文の選び方**（essay-persona-guide の bare URL）は同日インライン化＋live反映完了（na030d9cb3060）。
+残 = **draft 3本**（再受験対策・口頭試験対策・記述式の書き方）の bare/utm-missing /docs/ URL。**未公開＝live反映不要**、公開時に是正（検出＝`node scripts/check-note-site-utm.mjs`）。別枠の「note→サイト bare-url UTM バーンダウン(442件)」とは独立。
 
 ### note→サイト bare-url の UTM バーンダウン（442件）
 タグ: [SNS・マーケ] [Codex候補]
@@ -193,6 +219,25 @@ on-page は全数検証済みで健全＝追加微修正はしない（真実源
 1. **独自データ資産化**: 1級・2級土木版 頻出論点ランキング（civil は past-exam-backlinks 未収録＝論点タグ付けが先）・被リンク獲得の外部発信（note/SNS で総監ランキング紹介）
 2. **8月に index 率再測定**: 7/1 の demote 回帰（81.6%→74.6%）が継続なら総監キーワード薄ページの統合を検討（[[no-new-keyword-pages]]＝新規でなく統合）
 3. 受験期の高インテント head クエリの GSC 監視・月次 `/gsc-review` 継続
+
+### SEO 品質ゲート後続（PR #390 マージ後の残タスク）
+タグ: [インフラ・計測]
+
+SEO 品質ゲート実装（PR #390・handoff `2026-07-13-seo-quality-gates.md` は削除済・git 履歴参照）の後続。ゲート本体は develop 済み。残:
+1. **deploy 後の GSC 監視**: `develop→main` deploy で canonical/OGP 修正が本番反映＝サイト全ページ canonical 一斉更新の再クロールが走る。**コアアップデート期を避け、直後2週間は GSC 日次を監視**（gsc-management.md 2026-07-10 の教訓）。
+2. **GSC page×query 実データ確認**: 週次 `fetch-metrics.yml`（金）初回実行後、`gsc-page-query-*.json` を `metrics-analyzer` に渡し Pattern 7/8（cannibalization/content-decay）を初検証。メタ改善は少数 URL の 14〜28 日実験に限る。
+3. **orphan/unreachable 6本の gate 昇格**: `pe-comprehensive-management-r8-essay-theme-*` 6本は現状 warn（意図的未リンク）。導線設計を決めたら check-seo-build の gate へ昇格。
+4. **robots / OAI-SearchBot の ADR**（v2監査 §8.3）: ChatGPT Search 露出を取りに行くか。training bot は block 維持、search/user bot の許可可否を ADR で決定。robots.txt/Cloudflare はユーザー承認事項。
+
+### UIコードベース静的監査 残フェーズ（Phase4 A11y ＋ P3 整理）
+タグ: [UI・UX] [Codex候補]
+
+静的監査 `docs/reviews/2026-07-11-static-ui-codebase-audit.md`（作業指示書・SSOT）のうち、Phase 1〜3（UI-002/003/004/005/006）は develop 済み。残:
+1. **UI-007 P2**: Header メニュー/drawer の dialog・focus 管理（開閉トラップ・閉状態の dialog semantics 除去）
+2. **UI-008 P2**: `Callout` type を閉じた union へ変更＋未知 type を content lint で検出
+3. **UI-009 P2**: Knip 報告のデッド UI/依存整理（`LinksHubTile`・`next-themes`・`date-fns`・fontsource は要個別確認、一括削除しない）
+4. **UI-010〜012 P3** ＋ **UI-001 完了確認**（仕様書と現行実装の残ズレ同期）
+- 実装順・完了条件は監査文書の各節参照。
 
 ### 計測基盤 Tier 2/3 ＋ GA4 UI 設定
 タグ: [インフラ・計測]
@@ -298,11 +343,6 @@ A-01〜A-06 個別本6冊は KDP 公開済（LIVE）。残:
 タグ: [インフラ・計測]
 
 GitHub Secrets: `CLOUDFLARE_API_TOKEN`/R2 キー=90日・`PSI_API_KEY`/`YOUTUBE_CLIENT_SECRET`=180日。①期限確認・更新 ②Cloudflare token の権限スコープ最小化 ③`.mcp.json` の MCP サーバー棚卸し ④更新サイクルを Calendar/schedule hook に登録。
-
-### IG ディレクトリ資格軸再編の残ファイル更新
-タグ: [SNS・マーケ]
-
-`.claude/` 配下19ファイルの旧 `_exam-packs` パス参照更新（sns-config.mjs→パック生成2/スキル実行5/その他5/エージェント.md 8）。完了確認 = `rg "_exam-packs" .claude/` が0件。
 
 ### OGP タイトル改行 per-page 手動チューニング（81件）
 タグ: [コンテンツ品質] [Codex候補]

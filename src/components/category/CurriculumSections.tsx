@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { type DocMeta } from '@/lib/docs';
 import { DocCard } from '@/components/category/CategorySections';
 import { AFFILIATE_LINK_REL, AffiliatePrBadge } from '@/components/ui/AffiliateParts';
+import DisclosureChevron from '@/components/ui/DisclosureChevron';
 import { type SmallBannerCreative } from '@/config/affiliate-creatives';
 
 // カテゴリページの「体系（受験ガイド / 分野別 / テキスト章）」をテキスト目次調のリストで見せる共有コンポーネント群。
@@ -14,6 +15,8 @@ export type CurriculumBlockView = {
   id?: string | undefined;
   label?: string | undefined;
   volume?: string | undefined;
+  /** 紙テキストの章番号ラベル（例 "第1章"）。collapsible 章の summary 左に表示。省略時は非表示。 */
+  chapterNo?: string | undefined;
   intro?: DocMeta[] | undefined;
   docs: DocMeta[];
 };
@@ -23,24 +26,19 @@ export function CurriculumSection({
   id,
   title,
   description,
-  count,
   children,
 }: {
   id: string;
   title: string;
   description?: string | undefined;
+  /** 呼び出し側の互換のため残置（表示はしない）。件数バッジは 2026-07 撤去。 */
   count?: number | undefined;
   children: React.ReactNode;
 }) {
   return (
     <section id={`sec-${id}`} className="scroll-mt-24">
       <div className="mb-6">
-        <div className="flex items-baseline justify-between gap-2 flex-wrap">
-          <h2 className="font-serif text-[22px] sm:text-[26px] font-black text-[var(--ink)]">{title}</h2>
-          {typeof count === 'number' && (
-            <span className="font-mono text-[11px] text-[var(--ink-muted)]">{count} docs</span>
-          )}
-        </div>
+        <h2 className="font-serif text-[22px] sm:text-[26px] font-black text-[var(--ink)]">{title}</h2>
         {description && <p className="text-[14px] text-[var(--ink-muted)] mt-1">{description}</p>}
       </div>
       {children}
@@ -55,14 +53,16 @@ function CurriculumRow({ doc, marker }: { doc: DocMeta; marker: React.ReactNode 
         <span className="shrink-0 flex items-center justify-center min-w-6" aria-hidden>
           {marker}
         </span>
-        <span className="text-[15px] sm:text-base font-medium text-[var(--ink)] group-hover:text-[var(--accent)] transition-colors">
-          {doc.shortTitle || doc.title}
-        </span>
-        {doc.subtitle && (
-          <span className="hidden sm:inline ml-auto max-w-[40%] truncate text-right text-[13px] text-[var(--ink-muted)]">
-            {doc.subtitle}
+        {/* タイトル下に subtitle を縦積み（旧: 右寄せ truncate はデスクトップで途切れ・
+            モバイル非表示だった）。全文・全デバイス表示で記事選択の手がかりを保つ（2026-07 C-2）。 */}
+        <span className="flex min-w-0 flex-col gap-0.5">
+          <span className="text-[15px] sm:text-base font-medium text-[var(--ink)] group-hover:text-[var(--accent)] transition-colors">
+            {doc.shortTitle || doc.title}
           </span>
-        )}
+          {doc.subtitle && (
+            <span className="text-[13px] text-[var(--ink-muted)]">{doc.subtitle}</span>
+          )}
+        </span>
       </Link>
     </li>
   );
@@ -125,21 +125,27 @@ export function CurriculumList({
         return (
           <div key={block.id ?? block.label ?? bi}>
             {showVolume && (
-              <div className="font-mono text-[11px] uppercase tracking-widest text-[var(--ink-muted)] mb-2 mt-1">
-                {block.volume}
+              /* 分冊見出し（章をまとめる上位区切り）。章タイトル(18px)より一段控えめな
+                 13px 太字＋区切り罫線で「ここから別の分冊」を示す（旧: mono 11px muted で
+                 章より弱く階層が逆転していた）。2 冊目以降は上に余白を足す。 */
+              <div className={`mb-3 flex items-center gap-3${bi > 0 ? ' mt-6' : ''}`}>
+                <span className="shrink-0 text-[13px] font-bold text-[var(--ink-body)]">{block.volume}</span>
+                <span aria-hidden="true" className="h-px flex-1 bg-[var(--rule-soft)]" />
               </div>
             )}
             {collapsible && block.label ? (
               <details className="group rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] open:border-[var(--accent)] transition-colors">
+                {/* E-1: 章番号(mono accent) + タイトル + N記事 + 右端シェブロン（1行）。
+                    章の中身は開いて確認する（閉状態のトピックプレビューは冗長のため撤去）。 */}
                 <summary className="flex cursor-pointer list-none items-center gap-3 px-4 py-3 marker:hidden">
-                  <span
-                    aria-hidden="true"
-                    className="inline-block w-4 h-4 shrink-0 text-[var(--ink-muted)] transition-transform group-open:rotate-90"
-                  >
-                    ▶
-                  </span>
-                  <span className="font-serif text-lg font-bold text-[var(--ink)]">{block.label}</span>
-                  <span className="ml-auto font-mono text-[11px] tabular-nums text-[var(--ink-muted)]">{count}</span>
+                  {block.chapterNo && (
+                    <span className="shrink-0 font-mono text-[11px] font-bold tracking-wider text-[var(--accent)]">
+                      {block.chapterNo}
+                    </span>
+                  )}
+                  <span className="min-w-0 flex-1 truncate font-serif text-lg font-bold text-[var(--ink)]">{block.label}</span>
+                  <span className="shrink-0 font-mono text-[11px] tabular-nums text-[var(--ink-muted)]">{count}記事</span>
+                  <DisclosureChevron className="text-[var(--ink-muted)]" />
                 </summary>
                 <div className="border-t border-[var(--rule-soft)] px-4">
                   <ChapterRows block={block} numbered={numbered} />

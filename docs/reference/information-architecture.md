@@ -63,6 +63,8 @@ doboku-note プロジェクトにおけるドキュメント・データの置�
 
 **残作業の有無は `handoffs/` に残す理由にならない**（タスクは backlog が持ち、月初→`monthly`・週初→`weekly` へ落ちる）。`handoffs/` は原則ほぼ空。週次 PDCA（`/weekly-review` の Agent H）が抽出漏れを surface し、`/doc-declutter`（`doc-curator`）が外部実体を検証して抽出→削除を適用する。**鉄則＝外部実体（PR merged・published:true・deploy・ファイル実在）を検証してから削除・未確認なら削除しない**。
 
+**機械ゲート**（`scripts/check-handoff-extraction.mjs`・pre-commit）: この規律の「無意識の素通り」だけを塞ぐ。handoff 直下 `*.md` の削除コミットで前送りマーカー（🔴🟡/残タスク/次アクション/別PC 等）を検出し backlog が同一コミットに無ければ止める／`_archive/` への追加を無条件で止める。backlog 同梱は「抽出の証明」でなく「思い出させる強制注意」で、判定の質は `/doc-declutter`（`doc-curator`）が担う。回避は `SKIP_HANDOFF_EXTRACT=1`（2026-07-14 の退避事故＝未抽出のまま `_archive` 復活の再発防止・[[feedback_handoff_extract_before_delete]]）。
+
 ## .claude/ の残留ファイル
 
 `.claude/` には Claude の実行能力と機械データのみを置く：
@@ -102,6 +104,7 @@ doboku-note プロジェクトにおけるドキュメント・データの置�
 |---|---|---|---|
 | 参照 | `scripts/check-doc-refs.mjs` | 壊れた `.md`/`.mdx` パス参照 | pre-commit（機械） |
 | 台帳 | `scripts/check-doc-coupling.mjs` | スキル/エージェントの追加・削除・description 変更に対する skills-guide/registry・agents-registry の更新もれ（capability ドリフト） | pre-commit（機械） |
+| handoff | `scripts/check-handoff-extraction.mjs` | handoff 直下 `*.md` を削除するコミットで前送りマーカー（🔴🟡/残タスク/次アクション/別PC 等）があるのに backlog 未同梱＝残タスク抽出もれ／`_archive/` への追加＝廃止機構の復活（2026-07-14 退避事故の再発防止） | pre-commit（機械） |
 | 配線 | `scripts/check-magazine-wiring.mjs` | 新 keiken マガジンが字数ツール（`keiken-charcount`）の探索対象に配線されず字数ゲートを素通りする漏れ（content-line 配線ドリフト） | pre-commit（機械） |
 | クラスタ | `scripts/check-policy-anchors.mjs` ＋ `decision-doc-checkpoint.sh` | 1つの決定が複数文書（ADR/skill/checklist/戦略SoT）に散在し片方だけ更新する横展開もれ（policy ドリフト） | commit フック（機械・advisory）＋ PreCompact/SessionEnd（締め切り） |
 | 意味 | `/doc-sync` ＋ `doc-sync-auditor` | コード変更で prose・表・コマンド・件数・閾値が旧仕様化（semantic staleness） | 節目に手動（LLM・sonnet） |

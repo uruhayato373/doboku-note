@@ -96,6 +96,8 @@ function textbookSortKey(d: DocMeta): number {
 export type TextbookChapterResolved = {
   volume?: string | undefined;
   label: string;
+  /** 紙テキストの章番号ラベル（例 "第1章"）。config 未指定なら undefined（非表示）。 */
+  chapterNo?: string | undefined;
   /** 章の入口に据える要点 guide（分野別対策から移した「要点まとめ」）。本文の前に表示する。 */
   intro: DocMeta[];
   docs: DocMeta[];
@@ -131,6 +133,7 @@ export function resolveTextbookChapters(
   const chapters: TextbookChapterResolved[] = ranges.map((r) => ({
     volume: r.volume,
     label: r.label,
+    chapterNo: r.chapterNo,
     intro: (r.introGuides ?? [])
       .map((s) => guideBySuffix.get(s))
       .filter((d): d is DocMeta => Boolean(d)),
