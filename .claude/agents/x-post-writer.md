@@ -54,6 +54,7 @@ X 投稿の下書き（`docs/sns/x/draft/<NNN>-<exam>-<topic>/tweets.md`）を**
 3. `docs/sns/x/draft/<NNN>-<exam>-<topic>/tweets.md` を執筆：
    - **既定は各ツイート 280 weighted 以下の短文**（日本語×2・URL=23）。本文 ≒ 117 字 + URL 1 本が目安。短文がリーチ最適なのでこれをデフォルトにする。
    - **長文（longform）型は opt-in**（policy §2.1）：詳しい解説・合格体験ストーリー・制度解説など短文で足りない内容に限る。`## Tweet NN:` 見出しに **`[longform]`** を付けると `check-x-length` が上限 25,000 に緩和する。**冒頭 1 文で結論／フック**（タイムラインは折りたたまれる）・段落空行・末尾 CTA 1 本。**週 1〜2 本まで**、凍結回避（§11）は長文でも同等適用（詰め込み厳禁）。
+   - **スレッド（2連投）型は `[thread]` マーカー**（policy §5.2.1）：`## Tweet NN: タイトル [thread]` ＋ 本文内を `--- リプライ ---` 行で区切る（1部目＝ヘッド／2部目以降＝リプライ）。各部が独立に 280 weighted 判定される。予約はヘッドのみ・リプライは配信後に `npm run x-thread-replies -- --run` でぶら下げる（X ネイティブ予約はスレッド非対応）。競合 Yuri 型の「工事概要→課題→検討→対応→結果」構造分解に有効。
    - **試験別ベースタグ**（policy §4）＋論点タグ 1 個まで。計 **1〜3 個**。
    - URL は 1 本・UTM `utm_source=x`。
    - **`/docs/` リンクは本番フラット slug ＝「カテゴリ-ディレクトリ」を必ず使う（404 防止・最重要）**。ネタ源のローカルパス `.local/r2/posts/{category}/{dir}/` の `{dir}` をそのまま使うと 404（誤 `/docs/primary-r03-kouki` → 正 `/docs/civil-construction-2-primary-r03-kouki`）。正しい slug は `src/config/doc-meta-index.json` の `docs` キーに存在するものに限る。曖昧な共通 dir 名（`keyword-2026` 等）は試験文脈で接頭辞を確定する。詳細は policy §6。
