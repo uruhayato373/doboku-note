@@ -24,7 +24,7 @@ function PopularListRow({ item }: { item: PopularDoc }) {
     <li className="border-b border-[var(--rule-soft)] last:border-b-0">
       <Link
         href={`/docs/${doc.slug}`}
-        className="group flex gap-3 sm:gap-4 py-4 first:pt-0"
+        className="group flex gap-3 sm:gap-4 py-4"
       >
         <div className="relative aspect-[1200/630] w-[124px] sm:w-[168px] shrink-0 overflow-hidden border border-[var(--rule-soft)] bg-[var(--bg)]">
           <Image
