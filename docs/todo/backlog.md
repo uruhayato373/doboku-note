@@ -189,7 +189,7 @@ P1-P3（GA4 計測基盤・NextStepNav・季節モード note CTA）は実装済
 ### 1級 完全攻略パック 公開後の仕上げ（note実機）
 タグ: [収益化]
 
-100本公開＋マガジン収録＋SKU published:true は完了。残 = ①PDF添付（civil 用 pdf-spec 設計→`magazine-to-pdf.mjs`→`note-attach-magazine-pdfs.mjs --commit`・Windows必須）②各記事へネイティブ目次挿入 ③無料23本へ冒頭CTA live 反映（`note-append-cta.mjs`・ソース配線済）④`note-publish.mjs --schedule` の予約投稿 selector 修復 ⑤stray 下書き3件削除（n3e2475d0b6d5/na5b4cef4fcfe/nfc608702b477）。
+100本公開＋マガジン収録＋SKU published:true＋**無料23本への冒頭CTA live反映**（2026-07-14 funnel audit `--live` で civil 冒頭ドリフト0・サンプル3本 API 反映 True 確認）は完了。残 = ①PDF添付（civil 用 pdf-spec 設計→`magazine-to-pdf.mjs`→`note-attach-magazine-pdfs.mjs --commit`・Windows必須）②各記事へネイティブ目次挿入 ③`note-publish.mjs --schedule` の予約投稿 selector 修復 ④stray 下書き3件削除（n3e2475d0b6d5/na5b4cef4fcfe/nfc608702b477）。
 
 ### note 公開記事の bare /docs/ URL インライン化（実残: draft のみ）
 タグ: [収益化]
