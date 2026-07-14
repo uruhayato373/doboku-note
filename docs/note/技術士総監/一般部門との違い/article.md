@@ -2,6 +2,7 @@
 notePublishedAt: 2026-05-07
 noteUrl: https://note.com/dobokunote/n/n7fb7f92f7841
 noteId: n7fb7f92f7841
+utmCampaign: 12-general-vs-comprehensive
 notePricing: free
 noteStatus: published
 cover:
@@ -18,10 +19,11 @@ cover:
 ---
 # 【一般部門の合格者が落ちる】総監で通用しない3つの理由｜合格率10%の壁を超える4つの対策
 
-> **この記事でわかること**
-> - 総監部門が一般部門と根本的に異なる3つのポイント
-> - 「専門技術の深さ」では合格できない理由
-> - トレードオフ思考を身につけるための具体的な対策
+**この記事でわかること**
+
+- 総監部門が一般部門と根本的に異なる3つのポイント
+- 「専門技術の深さ」では合格できない理由
+- トレードオフ思考を身につけるための具体的な対策
 
 ---
 
@@ -53,7 +55,7 @@ https://note.com/dobokunote/m/m6e7de5e4ea3d
 
 つまり、一般部門のように「学会基準を読み込めば得点できる」という戦略が通用しないのです。キーワード集を軸に、関連する法令・ガイドライン・省庁資料を自分で体系的に整理していく必要があります。
 
-> 自分で整理する負荷を下げるため、doboku-note ではキーワード集 2026 の 650+ 全項目を Web で読める形に整備しました → [キーワード集 2026 全項目（doboku-note）](https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026)
+> 自分で整理する負荷を下げるため、doboku-note ではキーワード集 2026 の 650+ 全項目を Web で読める形に整備しました → [キーワード集 2026 全項目（doboku-note）](https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026?utm_source=note&utm_medium=referral&utm_campaign=12-general-vs-comprehensive&utm_content=keyword-2026)
 
 ## 理由2: 管理技術の広さと統合力が問われる
 
@@ -67,13 +69,15 @@ https://note.com/dobokunote/m/m6e7de5e4ea3d
 - **安全管理** -- リスクマネジメント・労働安全衛生・危機管理
 - **社会環境管理** -- 環境法規・LCA・社会的責任
 
-択一式では、この5分野から **各 8 問ずつ均等に** 出題されます（問 1〜8 が経済性管理、問 9〜16 が人的資源管理、問 17〜24 が情報管理、問 25〜32 が安全管理、問 33〜40 が社会環境管理）。境界的な問題で年度により ±1〜2 問の揺らぎはありますが、ブロック構造は 17 年間ほぼ共通です。一般部門のように「得意分野で得点を稼いで苦手分野をカバーする」戦略が取りにくい構造になっています。
+択一式では、この5分野から **各 8 問ずつ均等に** 出題されます（問 1〜8 が経済性管理、問 9〜16 が人的資源管理、問 17〜24 が情報管理、問 25〜32 が安全管理、問 33〜40 が社会環境管理）。境界的な問題で年度により ±1〜2 問の揺らぎはありますが、ブロック構造は 17 年間ほぼ共通です。
+
+一般部門のように「得意分野で得点を稼いで苦手分野をカバーする」戦略が取りにくい構造になっています。
 
 ![択一式 40 問の出題配分](img/figure-2-distribution.png)
 
 専門的に正しい解決策であっても、他の管理への影響を考慮していなければ、総監では不十分とみなされます。この「視野の切り替え」が、一般部門の合格者にとって最大の壁になるのです。
 
-> 5 管理それぞれの守備範囲・典型キーワード・過去問頻度は doboku-note の試験概要ページに整理しています → [総合技術監理部門とは（5 管理の構造）](https://doboku-note.com/docs/pe-comprehensive-management-general-overview)
+> 5 管理それぞれの守備範囲・典型キーワード・過去問頻度は doboku-note の試験概要ページに整理しています → [総合技術監理部門とは（5 管理の構造）](https://doboku-note.com/docs/pe-comprehensive-management-general-overview?utm_source=note&utm_medium=referral&utm_campaign=12-general-vs-comprehensive&utm_content=general-overview)
 
 ## 理由3: 記述式でトレードオフの視点がないと評価されない
 
@@ -91,7 +95,7 @@ https://note.com/dobokunote/m/m6e7de5e4ea3d
 
 一般部門の記述に慣れた受験者は、つい「技術的に最善の解決策」だけを書いてしまいがちです。しかしそれでは「他の管理への影響を考慮していない」として、総監の記述式では評価されにくくなってしまいます。
 
-> 10 ペアそれぞれの典型対立と解決フレーム（ALARP・LCA・段階的実施 等）は doboku-note の解説ページにまとめています → [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs)
+> 10 ペアそれぞれの典型対立と解決フレーム（ALARP・LCA・段階的実施 等）は doboku-note の解説ページにまとめています → [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=12-general-vs-comprehensive&utm_content=management-tradeoffs)
 
 ## 対策: 5管理の俯瞰的理解とトレードオフマトリクスの活用
 
@@ -99,7 +103,7 @@ https://note.com/dobokunote/m/m6e7de5e4ea3d
 
 **1. キーワード集を3周読む**
 
-1周目は通読して全体像を把握しましょう。2周目はキーワード間の関連性を意識して読みます。3周目は弱点分野を重点的に補強します。5分野すべてにわたる広範な知識が前提となるため、偏りのない学習が重要になります。紙の冊子だけで進めにくい場合は、[Web 化された全項目](https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026)を通勤時間にスマホで眺めるのも有効です。
+1周目は通読して全体像を把握しましょう。2周目はキーワード間の関連性を意識して読みます。3周目は弱点分野を重点的に補強します。5分野すべてにわたる広範な知識が前提となるため、偏りのない学習が重要になります。紙の冊子だけで進めにくい場合は、[Web 化された全項目](https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026?utm_source=note&utm_medium=referral&utm_campaign=12-general-vs-comprehensive&utm_content=keyword-2026)を通勤時間にスマホで眺めるのも有効です。
 
 **2. 5管理間のトレードオフを日常業務で意識する**
 
@@ -107,11 +111,11 @@ https://note.com/dobokunote/m/m6e7de5e4ea3d
 
 **3. トレードオフマトリクスを活用する**
 
-5管理の全組み合わせ（経済性×人的資源、経済性×情報、経済性×安全、経済性×社会環境、人的資源×情報、...）について、典型的な対立構造と調整策を整理したマトリクスを作ってみましょう。自分の業務経験から具体例を書き込んでおくと、記述式の解答の引き出しになります。一からゼロベースで作るのが負担なら、[頻出 10 ペアの解決フレーム集](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs)をベースに自分の業務事例を上書きしていく形が効率的です。
+5管理の全組み合わせ（経済性×人的資源、経済性×情報、経済性×安全、経済性×社会環境、人的資源×情報、...）について、典型的な対立構造と調整策を整理したマトリクスを作ってみましょう。自分の業務経験から具体例を書き込んでおくと、記述式の解答の引き出しになります。一からゼロベースで作るのが負担なら、[頻出 10 ペアの解決フレーム集](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=12-general-vs-comprehensive&utm_content=management-tradeoffs)をベースに自分の業務事例を上書きしていく形が効率的です。
 
 **4. 択一式と記述式をバランスよく対策する**
 
-筆記試験は択一式・記述式の合計で60%以上が必要です。択一式だけ、記述式だけに偏った対策ではリスクが高くなります。過去問を5年分以上解き、出題パターンと自分の弱点を把握したうえで、両方を並行して対策していきましょう。doboku-note には[H21〜R07 の 17 年分の択一式過去問](https://doboku-note.com/docs/pe-comprehensive-management-exam-index)を解説付きで掲載しているので、まずは直近 5 年（R03〜R07）から手を付けるのがおすすめです。
+筆記試験は択一式・記述式の合計で60%以上が必要です。択一式だけ、記述式だけに偏った対策ではリスクが高くなります。過去問を5年分以上解き、出題パターンと自分の弱点を把握したうえで、両方を並行して対策していきましょう。doboku-note には[H21〜R07 の 17 年分の択一式過去問](https://doboku-note.com/docs/pe-comprehensive-management-exam-index?utm_source=note&utm_medium=referral&utm_campaign=12-general-vs-comprehensive&utm_content=exam-index)を解説付きで掲載しているので、まずは直近 5 年（R03〜R07）から手を付けるのがおすすめです。
 
 ---
 
