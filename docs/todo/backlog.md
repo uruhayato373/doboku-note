@@ -269,6 +269,13 @@ PR #269（カタログ）/#270（SNSレンダラー）済。残 = Phase4 記事�
 
 ## 🟢 低 — 時期未定
 
+### lint 9-16（Callout 密度超過）22記事のバーンダウン
+タグ: [コンテンツ品質] [Codex候補]
+
+構造品質ルール一括設計（2026-07-15）で新設した lint `9-16`（Callout 個数が guide/pillar>12・その他>3）の既存違反22記事を baseline 登録済み（`.claude/state/quality/lint-baseline.json`・漸減対象）。内訳: 建設部門 exam-themes 13・コンクリート主任 textbook 3・経験記述系4・総監2。
+
+処置は記事ごとに「個別ハイライトに絞り、残りを散文・SpecSheetList・表へ統合」（content-principles §7.1-5）。**仕様が固まったバルク＝Codex/サブエージェント一括候補**。対象一覧は `node .claude/scripts/lint-mdx-mobile.mjs --all --report` → latest-report の 9-16 行、または baseline JSON。着手時は各記事 lint 個別実行で 9-16 と 15-1 を 0 に、`check-content-quality:ci` 緑を確認。
+
 ### Tailwind transform 変種が本 build で無効な件の根因調査
 タグ: [UI・UX]
 
