@@ -94,7 +94,7 @@ function PrimaryExamTable2({ docs, secondaryDocs = [] }: { docs: DocMeta[]; seco
 
   const hasSecondary = secondaryMap.size > 0;
 
-  const columns = ['第1次 前期（6月）', '第1次 後期（10月）', ...(hasSecondary ? ['第2次検定'] : [])];
+  const columns = ['前期（6月）', '後期（10月）', ...(hasSecondary ? ['第2次'] : [])];
   const rows: ExamMatrixRow[] = years.map((yearCode) => {
     const pair = yearMap.get(yearCode)!;
     return {
@@ -147,7 +147,7 @@ function PrimaryExamTable({ docs, secondaryDocs = [] }: { docs: DocMeta[]; secon
 
   const hasSecondary = secondaryMap.size > 0;
 
-  const columns = ['第1次 問題A', '第1次 問題B', ...(hasSecondary ? ['第2次検定'] : [])];
+  const columns = ['問題A', '問題B', ...(hasSecondary ? ['第2次'] : [])];
   const rows: ExamMatrixRow[] = years.map((yearCode) => {
     const pair = yearMap.get(yearCode)!;
     return {
