@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-07-09T22:16:04.482Z",
+  "generated_at": "2026-07-15T05:53:57.387Z",
   "weeks": [
     {
       "week_id": "2026-W16",
@@ -21,6 +21,11 @@
       "week_id": "2026-W28",
       "path": ".claude/state/weekly-metrics/2026-W28.json",
       "generated_at": "2026-07-09T22:16:04.475Z"
+    },
+    {
+      "week_id": "2026-W29",
+      "path": ".claude/state/weekly-metrics/2026-W29.json",
+      "generated_at": "2026-07-15T05:53:57.380Z"
     }
   ]
 }
