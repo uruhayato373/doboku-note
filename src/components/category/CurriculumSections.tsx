@@ -168,9 +168,14 @@ export function CurriculumList({
   );
 }
 
+/** キャリアレールに出す最大枚数。超過分は <details> の目次リストに畳む（内部リンクは保持）。 */
+const CAREER_RAIL_MAX = 10;
+
 /**
- * キャリア・転職セクション。注目記事（数本）を DocCard で強調し、残りを目次リストで密度高く見せる。
+ * キャリア・転職セクション。注目→残りの順の横スクロールカードレール（全カテゴリ共通）。
  * featured/rest は resolveCurriculum が career タグから解決済み（画像は使わない）。
+ * ハブは入口数本の役割に留め、テールの発見は記事ページの RelatedArticles / 検索が担う
+ * （キャリア記事は career タグ共有で関連モジュールが自動相互リンクする）。
  */
 export function CareerSection({
   featured,
@@ -188,15 +193,32 @@ export function CareerSection({
 }) {
   // 注目→残りの順で 1 本の横スクロールカードレールに統合（全カテゴリ共通）。
   // 二次的な回遊セクションのため全件を縦積みせず、次カードを覗かせる rail で畳む。
+  // 大量カテゴリ（1級=26本等）はレールを CAREER_RAIL_MAX で打ち切り、超過分を
+  // <details> の目次リストへ（リンクは DOM に残る＝クロール/内部リンク維持）。
   const cards = [...featured, ...rest];
   if (cards.length === 0) return null;
+  const railCards = cards.slice(0, CAREER_RAIL_MAX);
+  const overflow = cards.slice(CAREER_RAIL_MAX);
   return (
     <CurriculumSection id="career" title={title} description={description} count={cards.length}>
       <div className="card-rail">
-        {cards.map((doc) => (
+        {railCards.map((doc) => (
           <DocCard key={doc.slug} doc={doc} />
         ))}
       </div>
+      {overflow.length > 0 && (
+        <details className="group mt-4 rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] open:border-[var(--accent)] transition-colors">
+          {/* テキスト章アコーディオン（CurriculumList collapsible）と同型の 1 行 summary */}
+          <summary className="flex cursor-pointer list-none items-center gap-3 px-4 py-3 marker:hidden">
+            <span className="min-w-0 flex-1 truncate font-serif text-lg font-bold text-[var(--ink)]">その他のキャリア記事</span>
+            <span className="shrink-0 font-mono text-[11px] tabular-nums text-[var(--ink-muted)]">{overflow.length}記事</span>
+            <DisclosureChevron className="text-[var(--ink-muted)]" />
+          </summary>
+          <div className="border-t border-[var(--rule-soft)] px-4">
+            <CurriculumList blocks={[{ docs: overflow }]} />
+          </div>
+        </details>
+      )}
       {smallBanner && (
         // 転職アフィリ小バナー（PR 表記・href のみ・width/height 属性で自然サイズ＝引き伸ばしなし）。
         // 計測ピクセルは持たない（hub のサイドバー枠が発火源）。景表法: rel=nofollow sponsored。
