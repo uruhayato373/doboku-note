@@ -3,6 +3,7 @@ import { type DocMeta } from '@/lib/docs';
 import { DocCard } from '@/components/category/CategorySections';
 import { AFFILIATE_LINK_REL, AffiliatePrBadge } from '@/components/ui/AffiliateParts';
 import DisclosureChevron from '@/components/ui/DisclosureChevron';
+import CardRail from '@/components/ui/CardRail';
 import { type SmallBannerCreative } from '@/config/affiliate-creatives';
 
 // カテゴリページの「体系（受験ガイド / 分野別 / テキスト章）」をテキスト目次調のリストで見せる共有コンポーネント群。
@@ -201,11 +202,11 @@ export function CareerSection({
   const overflow = cards.slice(CAREER_RAIL_MAX);
   return (
     <CurriculumSection id="career" title={title} description={description} count={cards.length}>
-      <div className="card-rail">
+      <CardRail ariaLabel="キャリア記事カード">
         {railCards.map((doc) => (
           <DocCard key={doc.slug} doc={doc} />
         ))}
-      </div>
+      </CardRail>
       {overflow.length > 0 && (
         <details className="group mt-4 rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] open:border-[var(--accent)] transition-colors">
           {/* テキスト章アコーディオン（CurriculumList collapsible）と同型の 1 行 summary */}
