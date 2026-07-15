@@ -103,6 +103,8 @@ GSC/GA4 の JSON データを読み込み、**改善候補のパターン検出*
 
 **条件**: `gsc-page-query-*.json`（最新）で、同一 query に対して impressions ≥ 5 の page が **2 つ以上**あり、いずれも position ≤ 30。
 
+**正規化（必須）**: グルーピング前に page URL の `#fragment` を除去して正規化する（同一ページのアンカー付き URL 行が「複数ページ競合」に見える誤検出防止。2026-07-15 初回実測では site-wide 検出 3 件すべてがこの誤検出だった）。正規化後に同一 page となった行は impressions/clicks を合算し、position は impressions 加重平均で代表させる。
+
 **理由**: 1 つのクエリに複数の自ページが競合して表示され、クリック・順位が分散している疑い。統合・内部リンクでの主従整理（canonical 的に 1 ページへ寄せる）候補。**新規ページ追加ではなく既存の統合方向**で surface する（[[no-new-keyword-pages]] と整合）。
 
 **出力項目**: query、競合 page 群（URL / impr / clicks / position）、主候補（最も clicks/position の良い page）
@@ -111,7 +113,7 @@ GSC/GA4 の JSON データを読み込み、**改善候補のパターン検出*
 
 ### Pattern 8: Content-Decay（順位/クリックの継続悪化）
 
-**条件**: `gsc-page-query-*.json` の最新と前週スナップショットで**同一 (page, query) ペア**を追跡し、clicks が −30% 以上 かつ position が +3 以上悪化しているペア（前週 clicks ≥ 3）。
+**条件**: `gsc-page-query-*.json` の最新と前週スナップショットで**同一 (page, query) ペア**を追跡し、clicks が −30% 以上 かつ position が +3 以上悪化しているペア（前週 clicks ≥ 3）。page は Pattern 7 と同じく `#fragment` 除去で正規化してからペア突合する（アンカー行の分散で clicks が割れる／週によって fragment が変わりペアが不一致になるのを防ぐ）。
 
 **理由**: 一度上位だったページの品質再評価・鮮度劣化・競合台頭のシグナル。コアアップデート demote の早期検知にも効く（gsc-management.md 2026-07-10 の教訓）。
 
