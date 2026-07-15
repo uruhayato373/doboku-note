@@ -19,7 +19,9 @@ cover:
 ---
 # 公務員土木か、民間か｜元公務員が考える後悔しない選び方【無料】
 
-私は自治体の土木職員として、発注者の立場で公共インフラに関わってきました。その経験から、「施工管理として民間で働き続けるか、公務員（土木職）に転じるか」で迷う方の気持ちは、よく分かります。どちらにも良さがあり、どちらかが一方的に優れているわけではないからです。
+私は自治体の土木職員として、発注者の立場で公共インフラに関わってきました。その経験から、「施工管理として民間で働き続けるか、公務員（土木職）に転じるか」で迷う方の気持ちは、よく分かります。
+
+どちらにも良さがあり、どちらかが一方的に優れているわけではないからです。
 
 この記事では、両方の世界を見てきた立場から、公務員土木と民間施工管理の違いを正直に整理します。安定か、年収か、やりがいか——あなたが何を優先したいのかを考える材料にしてください。
 
@@ -30,9 +32,13 @@ https://note.com/dobokunote/m/m8290970a7f05
 
 ## 公務員土木の良さと、物足りなさ
 
-公務員土木の最大の魅力は、やはり**労働環境と雇用の安定**です。号給に基づいて年収が着実に上がり、会社の業績に左右されることが少ない。土日や勤務時間も比較的安定しやすく、生活設計が立てやすいのは確かです。地域のインフラを発注者の立場で支える公共性に、やりがいを感じる人も多いでしょう。
+公務員土木の最大の魅力は、やはり**労働環境と雇用の安定**です。号給に基づいて年収が着実に上がり、会社の業績に左右されることが少ない。土日や勤務時間も比較的安定しやすく、生活設計が立てやすいのは確かです。
 
-一方で、物足りなさを感じる人もいます。年収の上限は民間の大手ほど高くはなりにくく、自ら現場でものを作る達成感とは少し距離があります。予算や住民対応など、行政ならではの業務に時間を取られる場面も多い。「安定」と引き換えに、ダイナミックさは抑えめになる——これが正直なところです。
+地域のインフラを発注者の立場で支える公共性に、やりがいを感じる人も多いでしょう。
+
+一方で、物足りなさを感じる人もいます。年収の上限は民間の大手ほど高くはなりにくく、自ら現場でものを作る達成感とは少し距離があります。予算や住民対応など、行政ならではの業務に時間を取られる場面も多い。
+
+「安定」と引き換えに、ダイナミックさは抑えめになる——これが正直なところです。
 
 ## 民間施工管理の良さと、しんどさ
 
@@ -44,7 +50,13 @@ https://note.com/dobokunote/m/m8290970a7f05
 
 私が伝えたいのは、**公務員と民間を同じ天秤に乗せて比べてほしい**ということです。公務員だけを見て「安定が一番」と決めるのも、民間だけを見て「年収が大事」と決めるのも、どちらも判断材料が足りません。
 
-公務員土木への転職を具体的に知りたい方は、[施工管理から公務員（土木職）への転職](https://doboku-note.com/docs/civil-construction-1-guide-public-servant?utm_source=note&utm_medium=inline&utm_campaign=civil-career-public-vs-private&utm_content=public-servant)で、仕事内容・働き方・ルートを整理しています。一方で、民間側の年収がどう決まるかは[役職・会社規模別の年収](https://doboku-note.com/docs/civil-construction-1-guide-salary-by-role?utm_source=note&utm_medium=inline&utm_campaign=civil-career-public-vs-private&utm_content=salary-by-role)で解説しています。両方を読んで、自分にとっての優先順位を見極めてください。どちらに進むか決める前に、いまの経験が民間の転職市場でどう評価されるかを確認しておくと選びやすくなります。その手順は[施工管理を辞める前に相談すべきこと](https://doboku-note.com/docs/civil-construction-1-guide-career-consultation-before-quit?utm_source=note&utm_medium=referral&utm_campaign=civil-career-public-vs-private&utm_content=before-quit)で整理しています。
+公務員土木への転職を具体的に知りたい方は、[施工管理から公務員（土木職）への転職](https://doboku-note.com/docs/civil-construction-1-guide-public-servant?utm_source=note&utm_medium=referral&utm_campaign=civil-career-public-vs-private&utm_content=public-servant)で、仕事内容・働き方・ルートを整理しています。
+
+一方で、民間側の年収がどう決まるかは[役職・会社規模別の年収](https://doboku-note.com/docs/civil-construction-1-guide-salary-by-role?utm_source=note&utm_medium=referral&utm_campaign=civil-career-public-vs-private&utm_content=salary-by-role)で解説しています。
+
+両方を読んで、自分にとっての優先順位を見極めてください。どちらに進むか決める前に、いまの経験が民間の転職市場でどう評価されるかを確認しておくと選びやすくなります。
+
+その手順は[施工管理を辞める前に相談すべきこと](https://doboku-note.com/docs/civil-construction-1-guide-career-consultation-before-quit?utm_source=note&utm_medium=referral&utm_campaign=civil-career-public-vs-private&utm_content=before-quit)で整理しています。
 
 **PR**：以下はアフィリエイト広告を含みます。
 
