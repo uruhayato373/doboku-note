@@ -38,6 +38,10 @@
  *   6-3 MEDIUM 見出し直下にいきなり図（導入文なし、§8、group:guide限定）
  *   6-4 MEDIUM 見出し直下にいきなり <SpecSheetList>（導入文なし、§2/§17-2、group:guide限定）
  *   6-5 MEDIUM 見出し直下にいきなり <Callout>（導入文なし、§5「見出しとCallout直結禁止」、group:guide限定）
+ *   6-6 MEDIUM 記事冒頭がリード散文なしで構造物直始まり（§5/§17-2、group:guide/secondary/textbook・過去問除外）
+ *   9-14 MEDIUM Callout 連続（間に地の文なし、§7.1-5、過去問除外）
+ *   9-15 MEDIUM 例題・計算例タイトルの Callout（本文化、§7.1-1、過去問除外）
+ *   9-16 MEDIUM Callout 密度超過（guide/pillar >12・他 >3、§5/§7、過去問除外）
  *   8-1 MEDIUM 末尾の「関連キーワード:」列挙行
  *   8-2 LOW    法令条文の未リンク
  *   8-3 MEDIUM note 記事リンクが <NoteLink> 外（生 markdown・Callout・LinkCard）
@@ -781,6 +785,118 @@ function lintHeadingBeforeBlock(lines, raw, filePath, findings) {
         message: `見出し直下にいきなり <Callout>（導入文なし。1〜2文リードを挟む。直前見出し: ${trimPreview(line, 30)}）`,
       });
     }
+  }
+}
+
+/**
+ * 過去問アーカイブの厳密判定（構造系ルール 6-6 / 9-14〜9-16 用）。
+ * isExamArchive は civil の `secondary-` を丸ごと除外する過剰マッチで、経験記述ガイド等の
+ * 内容ページまで漏れるため、こちらは年度コード付き・past-problems 系のみをアーカイブ扱いする。
+ */
+function isExamArchiveStrict(filePath) {
+  if (/[\\\/](?:r|h)\d{2}-(?:primary|secondary|essay)/.test(filePath)) return true;
+  if (/(?:primary|secondary)-(?:r|h)\d{2}/.test(filePath)) return true;
+  if (/-past-problems[\\\/]/.test(filePath)) return true;
+  if (/concrete-(?:chief-engineer|diagnostician)[\\\/]primary-/.test(filePath)) return true;
+  return false;
+}
+
+/**
+ * 6-6: 記事冒頭（frontmatter 直後）がリード散文でなく構造物で始まる
+ *
+ * content-principles.md §5「見出しと Callout を直結しない」・§17-2 の記事レベル版。
+ * タイトル→（冒頭 note バナー）→構造物 と地の文ゼロで枠が連続する読み味の段差を検出。
+ * 2026-07-15 全数調査: 該当は guide 5 / secondary 20 / textbook 3。keyword は
+ * 「## ○○とは → 定義散文」が確立様式（§1）のため対象外。past-exam/primary も過去問様式で対象外。
+ */
+function lintArticleOpening(lines, raw, filePath, findings) {
+  if (!/^group:\s*["']?(guide|secondary|textbook)["']?\s*$/m.test(raw)) return;
+  if (isExamArchiveStrict(filePath)) return;
+  let inFence = false;
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    if (/^\s*```/.test(line)) { inFence = !inFence; continue; }
+    if (inFence) continue;
+    if (line.trim() === '' || /^\s*\{\/\*/.test(line)) continue;
+    // 最初の実コンテンツ行だけを判定して終了
+    let kind = null;
+    if (/^<Callout\b/.test(line)) kind = '<Callout>';
+    else if (/^#{2,}\s/.test(line)) kind = `見出し「${line.trim().slice(0, 16)}」`;
+    else if (/^\s*\|/.test(line)) kind = '表';
+    else if (/^\s*([-*+]|\d+\.)\s+\S/.test(line)) kind = '箇条書き';
+    else if (/^\s*(<ArticleImage|<img\b|!\[)/.test(line)) kind = '画像';
+    else if (/^\s*<[A-Z]/.test(line)) kind = 'コンポーネント';
+    if (kind) {
+      findings.push({
+        severity: 'MEDIUM',
+        rule: '6-6',
+        line: i + 1,
+        endLine: i + 1,
+        message: `記事冒頭にリード散文がない（最初のコンテンツが ${kind}）。2〜3文の導入を frontmatter 直後に置く（§5/§17-2）`,
+      });
+    }
+    return;
+  }
+}
+
+/**
+ * 9-14 / 9-15 / 9-16: Callout の構造運用（content-principles.md §5・§7.1）
+ *
+ * 9-14 MEDIUM Callout 連続（</Callout> → 空行のみ → <Callout>。§7.1-5「同種連続は箇条書きの代替」）
+ * 9-15 MEDIUM title に 例題/計算例 を含む Callout（本文コンテンツの Callout 化、§7.1-1。#### 見出し＋地の文へ）
+ * 9-16 MEDIUM Callout 密度超過（guide/pillar >12=§5 ベンチマーク上限、その他 >3=§7 の 3 個以内）
+ *
+ * 過去問アーカイブ（isExamArchiveStrict）は除外。
+ */
+function lintCalloutStructure(lines, raw, filePath, findings) {
+  if (isExamArchiveStrict(filePath)) return;
+  const isGuideLike = /^group:\s*["']?(guide|pillar)["']?\s*$/m.test(raw);
+  let inFence = false;
+  let count = 0;
+  let lastClose = -99;
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    if (/^\s*```/.test(line)) { inFence = !inFence; continue; }
+    if (inFence) continue;
+    if (/^<Callout\b/.test(line)) {
+      count++;
+      const title = (line.match(/title="([^"]*)"/) || [])[1] || '';
+      if (/例題|計算例/.test(title)) {
+        findings.push({
+          severity: 'MEDIUM',
+          rule: '9-15',
+          line: i + 1,
+          endLine: i + 1,
+          message: `例題・計算例は Callout に入れない（本文の Callout 化、§7.1-1）。#### 見出し＋地の文へ: title="${title.slice(0, 24)}"`,
+        });
+      }
+      if (lastClose >= 0 && i - lastClose <= 3) {
+        let onlyBlank = true;
+        for (let k = lastClose + 1; k < i; k++) {
+          if (lines[k].trim() !== '') { onlyBlank = false; break; }
+        }
+        if (onlyBlank) {
+          findings.push({
+            severity: 'MEDIUM',
+            rule: '9-14',
+            line: i + 1,
+            endLine: i + 1,
+            message: 'Callout が連続している（間に地の文がない）。統合するか散文を挟む（§7.1-5）',
+          });
+        }
+      }
+    }
+    if (/<\/Callout>/.test(line)) lastClose = i;
+  }
+  const limit = isGuideLike ? 12 : 3;
+  if (count > limit) {
+    findings.push({
+      severity: 'MEDIUM',
+      rule: '9-16',
+      line: 1,
+      endLine: 1,
+      message: `Callout が ${count} 個（上限目安 ${limit}）。個別ハイライトに絞り、他は散文・SpecSheetList へ（${isGuideLike ? '§5' : '§7'}）`,
+    });
   }
 }
 
@@ -1878,6 +1994,8 @@ function lintFile(filePath) {
     if (!isGuide) lintInlineSource(t, lines, findings);
   }
   lintHeadingBeforeBlock(lines, raw, filePath, findings);
+  lintArticleOpening(lines, raw, filePath, findings);
+  lintCalloutStructure(lines, raw, filePath, findings);
 
   lintRelatedKeywordList(lines, findings);
   lintLegalCitations(lines, findings);
