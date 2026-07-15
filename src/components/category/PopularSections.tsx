@@ -26,7 +26,9 @@ function PopularListRow({ item }: { item: PopularDoc }) {
         href={`/docs/${doc.slug}`}
         className="group flex gap-3 sm:gap-4 py-4"
       >
-        <div className="relative aspect-[1200/630] w-[124px] sm:w-[168px] shrink-0 overflow-hidden border border-[var(--rule-soft)] bg-[var(--bg)]">
+        {/* 幅・self-start・aspect は .ogp-row-thumb（globals.css）で確定。
+            sm:w-[168px] が本 build の CSS 順序で効かない＋align-items:stretch の縦伸びを素 CSS で根治 */}
+        <div className="ogp-row-thumb relative shrink-0 overflow-hidden border border-[var(--rule-soft)] bg-[var(--bg)]">
           <Image
             src={getOgpImageUrl(doc.slug)}
             alt=""
