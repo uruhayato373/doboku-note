@@ -37,6 +37,7 @@
  *   6-2 MEDIUM 見出し直下にいきなり箇条書き（導入文なし、§2/§17-2、group:guide限定）
  *   6-3 MEDIUM 見出し直下にいきなり図（導入文なし、§8、group:guide限定）
  *   6-4 MEDIUM 見出し直下にいきなり <SpecSheetList>（導入文なし、§2/§17-2、group:guide限定）
+ *   6-5 MEDIUM 見出し直下にいきなり <Callout>（導入文なし、§5「見出しとCallout直結禁止」、group:guide限定）
  *   8-1 MEDIUM 末尾の「関連キーワード:」列挙行
  *   8-2 LOW    法令条文の未リンク
  *   8-3 MEDIUM note 記事リンクが <NoteLink> 外（生 markdown・Callout・LinkCard）
@@ -708,7 +709,7 @@ function lintHeadingBeforeTable(table, lines, findings) {
  *
  * content-principles.md §2「表・箇条書きの前に文脈」/ §8「図の前に導入文」/ §17-2
  * 「H2 直下に表・箇条書き・コンポーネントから始めない」の機械強制。
- * 表は 6-1 が担当。Callout は §5 のガイド「試験のポイント」例外があるため対象外。
+ * 表は 6-1 が担当。
  *
  * スコープ: group: guide のみ。ガイドは ですます調・散文中心の入口/コンバージョン記事で
  * 導入文が読者の意思決定に直結する。キーワードページ（である調・簡潔技術文）は許容度が
@@ -717,6 +718,8 @@ function lintHeadingBeforeTable(table, lines, findings) {
  * 6-2 MEDIUM 見出し直下が箇条書き（- / * / + / 数字.）
  * 6-3 MEDIUM 見出し直下が画像（<ArticleImage / <img / ![）
  * 6-4 MEDIUM 見出し直下が <SpecSheetList>（実質スタイル付き箇条書き）
+ * 6-5 MEDIUM 見出し直下が <Callout>（導入文なし。§5「見出しと Callout を直結しない」。
+ *            「試験のポイント」予告 Callout も見出しの直後に置かず 1〜2 文リードを挟む）
  */
 function lintHeadingBeforeBlock(lines, raw, filePath, findings) {
   // ガイド記事専用。過去問・キーワード・textbook は対象外。
@@ -765,6 +768,17 @@ function lintHeadingBeforeBlock(lines, raw, filePath, findings) {
         line: j + 1,
         endLine: j + 1,
         message: `見出し直下にいきなり <SpecSheetList>（導入文なし。直前見出し: ${trimPreview(line, 30)}）`,
+      });
+      continue;
+    }
+    // Callout（試験のポイント予告等も含め、見出しの直後に地の文なしで置かない。§5）
+    if (/^\s*<Callout\b/.test(next)) {
+      findings.push({
+        severity: 'MEDIUM',
+        rule: '6-5',
+        line: j + 1,
+        endLine: j + 1,
+        message: `見出し直下にいきなり <Callout>（導入文なし。1〜2文リードを挟む。直前見出し: ${trimPreview(line, 30)}）`,
       });
     }
   }
