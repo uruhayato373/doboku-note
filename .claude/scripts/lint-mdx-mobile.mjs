@@ -842,7 +842,8 @@ function lintArticleOpening(lines, raw, filePath, findings) {
 /**
  * 9-14 / 9-15 / 9-16: Callout の構造運用（content-principles.md §5・§7.1）
  *
- * 9-14 MEDIUM Callout 連続（</Callout> → 空行のみ → <Callout>。§7.1-5「同種連続は箇条書きの代替」）
+ * 9-14 MEDIUM Callout 連続（</Callout> → 空行のみ → <Callout>。§7.1-5「同種連続は箇条書きの代替」。
+ *      type="faq" 同士の連続は FAQ リスト形式として正当なため除外）
  * 9-15 MEDIUM title に 例題/計算例 を含む Callout（本文コンテンツの Callout 化、§7.1-1。#### 見出し＋地の文へ）
  * 9-16 MEDIUM Callout 密度超過（guide/pillar >12=§5 ベンチマーク上限、その他 >3=§7 の 3 個以内）
  *
@@ -854,6 +855,7 @@ function lintCalloutStructure(lines, raw, filePath, findings) {
   let inFence = false;
   let count = 0;
   let lastClose = -99;
+  let lastType = '';
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
     if (/^\s*```/.test(line)) { inFence = !inFence; continue; }
@@ -861,6 +863,7 @@ function lintCalloutStructure(lines, raw, filePath, findings) {
     if (/^<Callout\b/.test(line)) {
       count++;
       const title = (line.match(/title="([^"]*)"/) || [])[1] || '';
+      const type = (line.match(/type="([^"]*)"/) || [])[1] || '';
       if (/例題|計算例/.test(title)) {
         findings.push({
           severity: 'MEDIUM',
@@ -870,7 +873,8 @@ function lintCalloutStructure(lines, raw, filePath, findings) {
           message: `例題・計算例は Callout に入れない（本文の Callout 化、§7.1-1）。#### 見出し＋地の文へ: title="${title.slice(0, 24)}"`,
         });
       }
-      if (lastClose >= 0 && i - lastClose <= 3) {
+      // faq 同士の連続は FAQ リスト形式（正当）として除外
+      if (lastClose >= 0 && i - lastClose <= 3 && !(type === 'faq' && lastType === 'faq')) {
         let onlyBlank = true;
         for (let k = lastClose + 1; k < i; k++) {
           if (lines[k].trim() !== '') { onlyBlank = false; break; }
@@ -885,6 +889,7 @@ function lintCalloutStructure(lines, raw, filePath, findings) {
           });
         }
       }
+      lastType = type;
     }
     if (/<\/Callout>/.test(line)) lastClose = i;
   }
