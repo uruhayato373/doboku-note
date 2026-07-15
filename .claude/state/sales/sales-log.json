@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-30",
+  "updatedAt": "2026-07-14",
   "currency": "JPY",
   "source": "note クリエイターダッシュボード「販売履歴」の手動転記",
   "privacyNote": "購入者名・ハンドルはプライバシー保護のため記録しない（売上分析には date / product / price で十分）。",
@@ -838,6 +838,167 @@
       "title": "建設部門2次｜鉄道 選択科目 模範解答集",
       "type": "magazine",
       "price": 1980
+    },
+    {
+      "date": "2026-07-04",
+      "productId": "article:r8-economic-security-supply-chain",
+      "title": "令和8年度 総監記述式 R8予想問題｜経済安全保障 × サプライチェーン強靱化",
+      "type": "article",
+      "price": 780
+    },
+    {
+      "date": "2026-07-04",
+      "productId": "article:bk-steel-concrete-r8-yosou-ii2",
+      "title": "技術士 建設部門｜鋼構造及びコンクリート R8予想 選択科目II-2 模範解答",
+      "type": "article",
+      "price": 780
+    },
+    {
+      "date": "2026-07-04",
+      "productId": "bk-environment-secondary-magazine",
+      "title": "建設部門2次｜建設環境 選択科目 模範解答集",
+      "type": "magazine",
+      "price": 2980
+    },
+    {
+      "date": "2026-07-05",
+      "productId": "article:bk-steel-concrete-r07-ii2",
+      "title": "技術士 建設部門｜鋼構造及びコンクリート R07 選択科目II-2 模範解答（II-2-1・II-2-2）",
+      "type": "article",
+      "price": 780
+    },
+    {
+      "date": "2026-07-06",
+      "productId": "bk-road-pack",
+      "title": "建設部門2次｜道路まるごと合格パック",
+      "type": "magazine",
+      "price": 4980
+    },
+    {
+      "date": "2026-07-06",
+      "productId": "article:bk-urban-planning-r8-yosou-ii1",
+      "title": "技術士 建設部門｜都市及び地方計画 R8予想 選択科目II-1 模範解答（全4予想設問）",
+      "type": "article",
+      "price": 780
+    },
+    {
+      "date": "2026-07-07",
+      "productId": "article:bk-port-airport-r8-yosou-iii",
+      "title": "技術士 建設部門｜港湾及び空港 R8予想 選択科目III 予想問題＋模範解答",
+      "type": "article",
+      "price": 780
+    },
+    {
+      "date": "2026-07-07",
+      "productId": "article:bk-steel-concrete-r8-yosou-iii",
+      "title": "技術士 建設部門｜鋼構造及びコンクリート R8予想 選択科目III 予想問題＋模範解答",
+      "type": "article",
+      "price": 780
+    },
+    {
+      "date": "2026-07-10",
+      "productId": "article:bk-01-road-r8-yosou-ii1",
+      "title": "技術士 建設部門｜道路 R8予想 選択科目II-1 模範解答（全4予想設問）",
+      "type": "article",
+      "price": 780
+    },
+    {
+      "date": "2026-07-10",
+      "productId": "essay-general-contractor-magazine",
+      "title": "技術士 総監｜記述式 模範論文（ゼネコン）",
+      "type": "magazine",
+      "price": 2480
+    },
+    {
+      "date": "2026-07-11",
+      "productId": "bk-i-required-essay-magazine",
+      "title": "技術士 建設部門2次｜必須科目I 模範解答集",
+      "type": "magazine",
+      "price": 3480
+    },
+    {
+      "date": "2026-07-11",
+      "productId": "article:bk-04-dositu-r8-yosou-iii",
+      "title": "技術士 建設部門｜土質及び基礎 R8予想 選択科目III 予想問題＋模範解答",
+      "type": "article",
+      "price": 780
+    },
+    {
+      "date": "2026-07-12",
+      "productId": "bk-i-required-essay-magazine",
+      "title": "技術士 建設部門2次｜必須科目I 模範解答集",
+      "type": "magazine",
+      "price": 3480
+    },
+    {
+      "date": "2026-07-12",
+      "productId": "bk-railway-secondary-magazine",
+      "title": "建設部門2次｜鉄道 選択科目 模範解答集",
+      "type": "magazine",
+      "price": 1980
+    },
+    {
+      "date": "2026-07-12",
+      "productId": "bk-power-civil-secondary-magazine",
+      "title": "建設部門2次｜電力土木 選択科目 模範解答集",
+      "type": "magazine",
+      "price": 1980
+    },
+    {
+      "date": "2026-07-12",
+      "productId": "article:r8-resource-circulation-supply-chain",
+      "title": "令和8年度 総監記述式 R8予想問題｜資源循環×サプライチェーン強靭化",
+      "type": "article",
+      "price": 780
+    },
+    {
+      "date": "2026-07-13",
+      "productId": "r8-essay-forecast",
+      "title": "技術士 総監｜記述式 R8予想問題集 2026最終予想",
+      "type": "magazine",
+      "price": 3480
+    },
+    {
+      "date": "2026-07-13",
+      "productId": "article:bk-steel-concrete-r8-yosou-iii",
+      "title": "技術士 建設部門｜鋼構造及びコンクリート R8予想 選択科目III 予想問題＋模範解答",
+      "type": "article",
+      "price": 780
+    },
+    {
+      "date": "2026-07-13",
+      "productId": "essay-road-consultant-magazine",
+      "title": "総監 模範論文｜道路橋梁コンサル R3-R7+R8予想",
+      "type": "magazine",
+      "price": 2480
+    },
+    {
+      "date": "2026-07-13",
+      "productId": "article:tankan-takuitsu-reiwa-pdf",
+      "title": "技術士 総合技術監理部門｜択一過去問PDF 令和（令和元〜7年度 全280問・全選択肢解説）",
+      "type": "article",
+      "price": 980
+    },
+    {
+      "date": "2026-07-14",
+      "productId": "article:bk-environment-r8-yosou-ii1",
+      "title": "技術士 建設部門｜建設環境 R8予想 選択科目II-1 予想問題＋模範解答",
+      "type": "article",
+      "price": 780
+    },
+    {
+      "date": "2026-07-14",
+      "productId": "civil-1-niji-marugoto-pack",
+      "title": "1級土木 二次検定まるごとパック",
+      "type": "magazine",
+      "price": 11800
+    },
+    {
+      "date": "2026-07-14",
+      "productId": "article:civil-2-koji-bank-68",
+      "title": "2級土木 施工経験記述｜上水道配水管布設開削 5管理フルカバー完成答案",
+      "type": "article",
+      "price": 980
     }
   ]
 }
