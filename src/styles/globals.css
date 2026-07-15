@@ -252,23 +252,6 @@
     transform: rotate(90deg);
   }
 
-  /* OGP サムネ行の左サムネ（PopularListRow / OgpListRow 共通）。
-     w-[124px] sm:w-[168px] は本 build の CSS 出力順で base が variant を上書きし
-     デスクトップ幅が効かないため素 CSS で確定（disclosure-chevron と同じ回避）。
-     self-start 相当も必須: 親 flex の align-items:stretch がテキスト列の高さに
-     サムネを引き伸ばし aspect-ratio 1200/630 を無効化する（縦伸び事故の根治）。 */
-  .ogp-row-thumb {
-    width: 124px;
-    min-width: 0; /* flex の min-width:auto が img 固有サイズを下限に width を押し上げるのを遮断 */
-    align-self: flex-start;
-    aspect-ratio: 1200 / 630;
-  }
-  @media (min-width: 640px) {
-    .ogp-row-thumb {
-      width: 168px;
-    }
-  }
-
   /* 再利用可能なカード外観。構造は React、見た目はこの層に集約する。 */
   .card-surface-content {
     background: var(--paper);
