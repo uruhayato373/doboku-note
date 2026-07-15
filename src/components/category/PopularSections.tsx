@@ -1,7 +1,6 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { type PopularDoc, popularWindow } from '@/lib/popular';
-import { getOgpImageUrl } from '@/lib/r2-image-loader';
+import { OgpThumbRow } from '@/components/category/CategorySections';
 
 /** 集計窓を「YYYY.MM.DD–MM.DD」で短く表示。窓不明なら null。 */
 function windowLabel(): string | null {
@@ -14,52 +13,11 @@ function windowLabel(): string | null {
   return `${fmt(popularWindow.start)}〜${fmt(popularWindow.end)}`;
 }
 
-/** 人気記事リストの1行（サムネ左＋ランク番号＋タイトル/抜粋のブログ型）。OGP を 1200:630 サムネにし、
- *  行の高さは line-clamp で揃える。ランクは OGP のタイトル焼込みと重ならないようタイトル側に置く。 */
-function PopularListRow({ item }: { item: PopularDoc }) {
-  const { doc, rank } = item;
-  const title = doc.shortTitle || doc.title;
-  const excerpt = doc.subtitle || doc.description;
-  return (
-    <li className="border-b border-[var(--rule-soft)] last:border-b-0">
-      <Link
-        href={`/docs/${doc.slug}`}
-        className="group flex gap-3 sm:gap-4 py-4"
-      >
-        <div className="relative aspect-[1200/630] w-[124px] sm:w-[168px] shrink-0 overflow-hidden border border-[var(--rule-soft)] bg-[var(--bg)]">
-          <Image
-            src={getOgpImageUrl(doc.slug)}
-            alt=""
-            width={336}
-            height={176}
-            unoptimized
-            loading="lazy"
-            sizes="(max-width: 640px) 124px, 168px"
-            className="h-full w-full object-cover"
-          />
-        </div>
-        <div className="flex min-w-0 flex-1 gap-2.5">
-          <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-card-inline bg-[var(--accent-fill)] font-mono text-xs font-bold tabular-nums text-[var(--accent)]">
-            {rank}
-          </span>
-          <div className="flex min-w-0 flex-col gap-1">
-            <h3 className="font-serif text-[15px] sm:text-lg font-bold leading-snug text-[var(--ink)] group-hover:text-[var(--accent)] transition-colors line-clamp-2">
-              {title}
-            </h3>
-            {excerpt && (
-              <p className="text-[13px] sm:text-sm text-[var(--ink-muted)] line-clamp-2">{excerpt}</p>
-            )}
-          </div>
-        </div>
-      </Link>
-    </li>
-  );
-}
-
 /**
  * カテゴリ hub 上部の「よく読まれている記事」特集。GA4 実アクセス上位（直近 28 日）を提示する。
  * 注目フラグでなく実シグナル駆動。各記事の OGP（R2 配信・全 published で CI 実在保証）をサムネにした
- * ブログ型の縦リストで、サイズを揃えて回遊させる。items が空なら描画しない（graceful）。
+ * ブログ型の縦リストで、サイズを揃えて回遊させる。行は OgpThumbRow（rank 付き）で共通化。
+ * ランクは OGP のタイトル焼込みと重ならないようタイトル側に置く。items が空なら描画しない（graceful）。
  */
 export function PopularShowcase({ items }: { items: PopularDoc[] }) {
   if (items.length === 0) return null;
@@ -68,7 +26,7 @@ export function PopularShowcase({ items }: { items: PopularDoc[] }) {
       <h2 className="font-serif text-[22px] sm:text-[26px] font-black text-[var(--ink)] mb-5">よく読まれている記事</h2>
       <ol className="flex flex-col">
         {items.map((item) => (
-          <PopularListRow key={item.doc.slug} item={item} />
+          <OgpThumbRow key={item.doc.slug} doc={item.doc} rank={item.rank} />
         ))}
       </ol>
     </section>

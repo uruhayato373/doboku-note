@@ -1,6 +1,8 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { type DocMeta } from '@/lib/docs';
 import { type DocGroup } from '@/lib/category-groups';
+import { getOgpImageUrl } from '@/lib/r2-image-loader';
 import ExamMatrix, { ExamChipLink, type ExamMatrixRow } from '@/components/category/ExamMatrix';
 
 /** カード表示用の更新日を YYYY.MM.DD で返す（取れなければ null）。LatestArticles と同じ整形。 */
@@ -94,7 +96,7 @@ function PrimaryExamTable2({ docs, secondaryDocs = [] }: { docs: DocMeta[]; seco
 
   const hasSecondary = secondaryMap.size > 0;
 
-  const columns = ['第1次 前期（6月）', '第1次 後期（10月）', ...(hasSecondary ? ['第2次検定'] : [])];
+  const columns = ['前期（6月）', '後期（10月）', ...(hasSecondary ? ['第2次'] : [])];
   const rows: ExamMatrixRow[] = years.map((yearCode) => {
     const pair = yearMap.get(yearCode)!;
     return {
@@ -147,7 +149,7 @@ function PrimaryExamTable({ docs, secondaryDocs = [] }: { docs: DocMeta[]; secon
 
   const hasSecondary = secondaryMap.size > 0;
 
-  const columns = ['第1次 問題A', '第1次 問題B', ...(hasSecondary ? ['第2次検定'] : [])];
+  const columns = ['問題A', '問題B', ...(hasSecondary ? ['第2次'] : [])];
   const rows: ExamMatrixRow[] = years.map((yearCode) => {
     const pair = yearMap.get(yearCode)!;
     return {
@@ -352,7 +354,52 @@ function PeConstructionExamTable({ docs }: { docs: DocMeta[] }) {
   );
 }
 
-export function DocSection({ group, layout, secondaryDocs }: { group: DocGroup; layout?: 'cards' | 'exam-table' | 'exam-table-2' | 'pe-exam-table' | 'pe-first-stage-table' | 'pe-construction-exam-table'; secondaryDocs?: DocMeta[] | undefined }) {
+/**
+ * OGP サムネ左＋タイトル右の1行（全資格・カテゴリ hub 共通の唯一の実装）。
+ * 「よく読まれている記事」（rank 付き）と各セクションの OGP 行（rank 無し）で共用する。
+ * サムネの縦横比は self-start で保つ（下記コメント参照）。
+ */
+export function OgpThumbRow({ doc, rank }: { doc: DocMeta; rank?: number }) {
+  const title = doc.shortTitle || doc.title;
+  const excerpt = doc.subtitle || doc.description;
+  return (
+    <li className="border-b border-[var(--rule-soft)] last:border-b-0">
+      <Link href={`/docs/${doc.slug}`} className="group flex gap-3 sm:gap-4 py-4">
+        {/* self-start 必須: 親 flex の align-items:stretch がサムネをテキスト列の高さに
+            引き伸ばし aspect-[1200/630] を無効化する（縦伸び事故の根治・2026-07-15）。 */}
+        <div className="relative aspect-[1200/630] w-[124px] sm:w-[168px] shrink-0 self-start overflow-hidden border border-[var(--rule-soft)] bg-[var(--bg)]">
+          <Image
+            src={getOgpImageUrl(doc.slug)}
+            alt=""
+            width={336}
+            height={176}
+            unoptimized
+            loading="lazy"
+            sizes="(max-width: 640px) 124px, 168px"
+            className="h-full w-full object-cover"
+          />
+        </div>
+        <div className="flex min-w-0 flex-1 gap-2.5">
+          {rank != null && (
+            <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-card-inline bg-[var(--accent-fill)] font-mono text-xs font-bold tabular-nums text-[var(--accent)]">
+              {rank}
+            </span>
+          )}
+          <div className="flex min-w-0 flex-col gap-1">
+            <h3 className="font-serif text-[15px] sm:text-lg font-bold leading-snug text-[var(--ink)] group-hover:text-[var(--accent)] transition-colors line-clamp-2">
+              {title}
+            </h3>
+            {excerpt && (
+              <p className="text-[13px] sm:text-sm text-[var(--ink-muted)] line-clamp-2">{excerpt}</p>
+            )}
+          </div>
+        </div>
+      </Link>
+    </li>
+  );
+}
+
+export function DocSection({ group, layout, secondaryDocs }: { group: DocGroup; layout?: 'cards' | 'ogp-rows' | 'exam-table' | 'exam-table-2' | 'pe-exam-table' | 'pe-first-stage-table' | 'pe-construction-exam-table'; secondaryDocs?: DocMeta[] | undefined }) {
   return (
     <section id={`sec-${group.key}`} className="scroll-mt-24">
       <div className="mb-6">
@@ -369,6 +416,12 @@ export function DocSection({ group, layout, secondaryDocs }: { group: DocGroup; 
         <PeFirstStageExamTable docs={group.docs} />
       ) : layout === 'pe-construction-exam-table' ? (
         <PeConstructionExamTable docs={group.docs} />
+      ) : layout === 'ogp-rows' ? (
+        <ul className="flex flex-col">
+          {group.docs.map(doc => (
+            <OgpThumbRow key={doc.slug} doc={doc} />
+          ))}
+        </ul>
       ) : (
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {group.docs.map(doc => (
