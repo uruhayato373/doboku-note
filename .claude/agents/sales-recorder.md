@@ -99,6 +99,7 @@ kuro
 | `建設部門2次｜建設環境 選択科目 模範解答集` | `bk-environment-secondary-magazine` |
 | `建設部門2次｜鉄道 選択科目 模範解答集` | `bk-railway-secondary-magazine` |
 | `建設部門2次｜{他科目} 選択科目 模範解答集` | `bk-{subject}-secondary-magazine`（subject は note-magazines.ts の romaji に合わせる） |
+| `建設部門2次｜{他科目} まるごと合格パック`（必須科目I＋選択科目 バンドル） | `bk-{subject}-pack`（例: `bk-road-pack` / `bk-tunnel-pack` / `bk-urban-planning-pack`。note-magazines.ts の `pe-construction-{subject}-pack` に対応） |
 
 ### 単品記事（type: article）
 
@@ -115,9 +116,9 @@ productId は `article:<slug>` 形式。slug は商品名から推定:
 | `情報管理 × 他4管理｜トレードオフ` | `article:tradeoff-information-management` |
 | `2級土木 施工経験記述｜令和{N}年度` | `article:civil-2-pastexam-essay-r0{N}` |
 | `2級土木 施工経験記述｜品質管理 完成答案集` | `article:civil-2-essay-quality-complete` |
-| `2級土木 施工経験記述｜{工種} 5管理フルカバー完成答案`（想定工事バンク単品¥980） | `article:civil-2-koji-bank-{工種}` |
-| `1級土木 二次学科記述｜{テーマ}`（テーマ別出る順 単品¥580） | `article:civil-1-gakka-kijutsu-{テーマ}` |
-| `2級土木 二次学科記述｜{テーマ}`（テーマ別出る順 単品） | `article:civil-2-gakka-kijutsu-{テーマ}` |
+| `2級土木 施工経験記述｜{工種} 5管理フルカバー完成答案`（想定工事バンク単品¥980） | `article:civil-2-koji-bank-{koshu}`（{koshu} は想定工事バンクの工事番号。例: `article:civil-2-koji-bank-68`＝工事68-上水道配水管布設開削） |
+| `1級土木 二次学科記述｜{テーマ}`（テーマ別出る順 単品¥580） | `article:civil-1-gakka-kijutsu-{theme}` |
+| `2級土木 二次学科記述｜{テーマ}`（テーマ別出る順 単品） | `article:civil-2-gakka-kijutsu-{theme}` |
 | `技術士 建設部門｜道路 R8予想 選択科目II-1` | `article:bk-01-road-r8-yosou-ii1` |
 | `技術士 建設部門｜道路 R8予想 選択科目II-2` | `article:bk-01-road-r8-yosou-ii2-*` |
 | `技術士 建設部門｜道路 R8予想 選択科目III` | `article:bk-01-road-r8-yosou-iii-*` |
@@ -127,6 +128,7 @@ productId は `article:<slug>` 形式。slug は商品名から推定:
 | `技術士 建設部門｜{他科目} R8予想 選択科目{II-1/II-2/III}` | `article:bk-{subject}-r8-yosou-{ii1\|ii2\|iii}`（例: `bk-steel-concrete-r8-yosou-ii1` / `bk-port-airport-r8-yosou-ii2` / `bk-urban-planning-r8-yosou-ii2` / `bk-environment-r8-yosou-iii` / `bk-power-civil-r8-yosou-ii1` / `bk-railway-r8-yosou-iii`） |
 | `技術士 建設部門｜{他科目} R0{N} 選択科目{II-1/II-2/III}`（過去問単品） | `article:bk-{subject}-r0{N}-{ii1\|ii2\|iii}`（例: `bk-tunnel-r06-ii2`） |
 | `老朽化インフラ × 予防保全`（総監R8予想） | `article:r8-aging-infra-preventive` |
+| `資源循環 × サプライチェーン強靱化`（総監R8予想） | `article:r8-resource-circulation-supply-chain` |
 | `令和8年度 総監記述式 模範論文｜{ペルソナ}版（{テーマ}／R8予想{③..⑥}）`（ペルソナ別R8予想単品¥780） | `article:essay-{persona}-r08-{3..6}`（persona はマガジン id `essay-{persona}-magazine` に合わせる。例: `essay-sabo-municipality-r08-3` / `essay-general-contractor-r08-6` / `essay-road-consultant-r08-5`） |
 | `2級土木 第1次検定｜過去問PDF` / `2級土木 一次 過去問PDF`（Kindle択一の従チャネル・¥1,480） | `article:civil-2-takuitsu-pdf` |
 | `技術士 第一次試験｜過去問PDF 合本` / `技術士一次 過去問PDF`（¥1,480） | `article:pe1-takuitsu-pdf` |
