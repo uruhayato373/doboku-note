@@ -65,6 +65,7 @@ export function CivilConstruction1View({ groups, mobileCareerAds = [] }: { group
             description: '経験記述・施工管理（コンクリート工・土工・品質管理・施工計画）の基礎と過去問',
             docs: secondaryTopicDocs,
           }}
+          layout="ogp-rows"
         />
       )}
       <CareerSection
@@ -133,6 +134,7 @@ export function CivilConstruction2View({ groups, mobileCareerAds = [] }: { group
             description: '経験記述・施工管理（コンクリート工・土工・品質管理・施工計画）の基礎と過去問（主任技術者視点）',
             docs: secondaryTopicDocs,
           }}
+          layout="ogp-rows"
         />
       )}
       <CareerSection
