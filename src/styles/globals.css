@@ -252,6 +252,36 @@
     transform: rotate(90deg);
   }
 
+  /* 横スクロール カードレール（キャリア等の二次セクションを全件縦積みせず畳む）。
+     全カテゴリ共通（CareerSection）。scroll-snap で1枚ずつ吸着し、カード幅を
+     clamp(…,80%,288px) にして常に次カードを覗かせる＝「まだ先がある」の主シグナル。
+     右端の subtle フェードで補強（左端は sharp＝snap-align:start の focus 位置を潰さない）。
+     overflow-x/scroll-snap は本 build で健全（壊れるのは transform 変種のみ）。
+     カードは flex 既定の align-items:stretch で等高になる。 */
+  .card-rail {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 0.75rem;
+    -webkit-mask: linear-gradient(90deg, #000 calc(100% - 24px), transparent);
+            mask: linear-gradient(90deg, #000 calc(100% - 24px), transparent);
+  }
+  .card-rail > * {
+    scroll-snap-align: start;
+    flex: 0 0 clamp(240px, 80%, 288px);
+  }
+  @media (min-width: 640px) {
+    .card-rail > * {
+      flex-basis: 288px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .card-rail {
+      scroll-behavior: auto;
+    }
+  }
+
   /* 再利用可能なカード外観。構造は React、見た目はこの層に集約する。 */
   .card-surface-content {
     background: var(--paper);

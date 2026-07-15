@@ -186,20 +186,17 @@ export function CareerSection({
   /** 転職アフィリの小バナー（120×60・href のみ）。campaign 中のみ非 null。 */
   smallBanner?: SmallBannerCreative | null;
 }) {
-  if (featured.length === 0 && rest.length === 0) return null;
+  // 注目→残りの順で 1 本の横スクロールカードレールに統合（全カテゴリ共通）。
+  // 二次的な回遊セクションのため全件を縦積みせず、次カードを覗かせる rail で畳む。
+  const cards = [...featured, ...rest];
+  if (cards.length === 0) return null;
   return (
-    <CurriculumSection id="career" title={title} description={description} count={featured.length + rest.length}>
-      {featured.length > 0 && (
-        <div className="mb-6">
-          <div className="font-mono text-[10px] uppercase tracking-widest text-[var(--accent)] mb-3">注目</div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {featured.map((doc) => (
-              <DocCard key={doc.slug} doc={doc} />
-            ))}
-          </div>
-        </div>
-      )}
-      {rest.length > 0 && <CurriculumList blocks={[{ docs: rest }]} />}
+    <CurriculumSection id="career" title={title} description={description} count={cards.length}>
+      <div className="card-rail">
+        {cards.map((doc) => (
+          <DocCard key={doc.slug} doc={doc} />
+        ))}
+      </div>
       {smallBanner && (
         // 転職アフィリ小バナー（PR 表記・href のみ・width/height 属性で自然サイズ＝引き伸ばしなし）。
         // 計測ピクセルは持たない（hub のサイドバー枠が発火源）。景表法: rel=nofollow sponsored。
