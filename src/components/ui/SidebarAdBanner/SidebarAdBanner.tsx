@@ -30,7 +30,9 @@ export default function SidebarAdBanner({
   trackLabel,
 }: SidebarAdBannerProps) {
   return (
-    <div className="not-prose mt-3">
+    // 縦スペーシングは親の責務（docs=div.mb-3 / category サイドバー=space-y-3 / category モバイル=my-10）。
+    // 自前の mt を持たせるとサイドバー先頭がメインカードより下がり上端がズレる（2026-07 上端揃え）。
+    <div className="not-prose">
       <div className="card-surface-content relative overflow-hidden p-2">
         <span
           className="absolute right-2 top-2 z-10 inline-flex items-center rounded px-1.5 py-0.5 text-[10px] font-bold tracking-wider text-white"

@@ -44,6 +44,9 @@ export default function TwoColumnShell({
 }: TwoColumnShellProps) {
   return (
     <div className={`max-w-[1280px] mx-auto ${GUTTERS[gutter]} flex gap-10 relative`}>
+      {/* 上端揃えの不変条件: aside の py-10 は main の上 padding（既定 mainClassName='py-10'、
+          category は 'pt-8 sm:pt-10'＝≥993px で 40px）と同値であること。ここが唯一の縦位置供給源。
+          main/aside の先頭要素に独自 margin-top を持たせない（先頭が下がって上端がズレる）。 */}
       <main className={`flex-1 min-w-0 ${mainClassName}`}>{children}</main>
       {aside && (
         <aside className="hidden zenn-desktop:block w-72 shrink-0 py-10">{aside}</aside>
