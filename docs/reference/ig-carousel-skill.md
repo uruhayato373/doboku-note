@@ -35,7 +35,9 @@ doboku-note の Instagram カルーセル投稿は次の系統で運用する：
 - **出力**: `docs/sns/instagram/civil-{1,2}/theme-packs/{themeKey}-{subtopicKey}/pack-NN/`
 - **cover**: `.claude/scripts/sns/templates/exam-quiz-cover-ig.mjs`（科目ピル＋論点見出し＋頻出度★＋第1問Q＋出題年度）
 - **caption**: `generate-caption.cjs`（`_meta.theme`/`subtopic` で `isThemePack` 分岐）
-- **実績（2026-07）**: 1級 94パック/39論点、2級 37パック/26論点 = 計131パック
+- **IG適性フィルタ**: 個数型（選択肢が全て「Nつ」）・解説合計>420字は固定カードで破綻（解答スライドが「ここがポイント」箱に重なる）ため generate 時に除外
+- **予約投稿（波状）**: `node .claude/scripts/sns/schedule-civil-theme-packs.mjs --count 30`（決定的プラン・status.json で予約済skip・**1セッション30件上限＝凍結回避**）。詳細 → docs/todo/backlog.md「IG 論点パック 残92件」
+- **実績（2026-07）**: 1級 85パック/39論点、2級 37パック/26論点 = 計122パック（適性フィルタ後）。うち30件予約済
 
 ## 2. 投稿ペース計画
 
