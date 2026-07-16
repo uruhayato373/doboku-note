@@ -75,6 +75,7 @@ https://note.com/dobokunote/m/m150c9db08902
 - [施工経験記述 過去問 模範答案集（R03-R07）](https://note.com/dobokunote/m/m3a578194a0a9) — 出題された年度の設問でそのまま演習したい人向け
 - [2テーマ組合せ大全（5管理 全10組合せ）](https://note.com/dobokunote/m/m74cfd7c695d6) — R6以降の「2テーマ必答」に何が出ても対応したい人向け
 - [二次学科記述 テーマ別 出る順（問題2〜11）](https://note.com/dobokunote/m/mcfe1059b3335) — 経験記述以外の学科記述も出る順で固めたい人向け
+- [出題分析と直前の重点（過去5年の実績）](https://note.com/dobokunote/n/nd68f3f6b5f9e) — まず何から手を付けるか、直前2週間の優先順位を決めたい人向け
 
 ---
 
