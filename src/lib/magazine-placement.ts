@@ -535,12 +535,13 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     };
   }
 
-  // 13. 1級土木 primary（一次過去問）→ 会員（伴走）lead＋完成答案集の軽め CTA（一次演習中に伴走へ回遊）
+  // 13. 1級土木 primary（一次過去問）→ 一次「出る順 合格ノート」lead＋会員（伴走）＋完成答案集（一次演習中の直結商品）
   if (docGroup === 'primary' && slug.startsWith('civil-construction-1-')) {
     return {
       inline: [
-        slot('civil-membership-lab', slug, 'inline-1'),
-        slot('civil-1-experience-essay', slug, 'inline-2'),
+        slot('civil-1-ichiji-ronten', slug, 'inline-1'), // 一次の出る順ノート（一次演習中に直結）
+        slot('civil-membership-lab', slug, 'inline-2'),
+        slot('civil-1-experience-essay', slug, 'inline-3'),
       ],
       sidebar: [],
     };

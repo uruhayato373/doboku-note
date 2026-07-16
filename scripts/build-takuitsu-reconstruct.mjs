@@ -21,6 +21,7 @@
 
 import { readFileSync, mkdirSync, writeFileSync } from 'node:fs'
 import { join, resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { writeEpub, xhtmlDoc, xesc, xinline } from './lib/epub-writer.mjs'
 
 const REPO = resolve(import.meta.dirname, '..')
@@ -903,7 +904,13 @@ async function main() {
   for (const o of outs) console.log(`  - ${o}`)
 }
 
-main().catch((e) => {
-  console.error('ERROR:', e.message)
-  process.exit(1)
-})
+// THEMES/分類ロジックを頻度集計等で再利用するための export（import 時は副作用なし）
+export { THEMES, assignSubtopic, lead, FIGURE_RE, normalizeQuestion }
+
+// 直接実行時のみビルドを走らせる
+if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch((e) => {
+    console.error('ERROR:', e.message)
+    process.exit(1)
+  })
+}

@@ -86,15 +86,12 @@ page/category の合成ロジック共通化（2026-06-25 アセスメント起�
 
 ## 🟡 中 — 2〜3ヶ月以内
 
-### note施策B: R8二次「出題分析・直前重点」¥980 執筆・公開（9月上旬）
+### note施策A: 1級一次択一PDF `civil-1-takuitsu-pdf` ¥1,980 を公開（10月上旬・Select 明け）
 タグ: [収益化]
 
-ココナラ実測（303geos ¥2,500×134件）実証モデルの note 版・入口商品。真実源 = [noteコンテンツ計画.md](../note/1級・2級土木/noteコンテンツ計画.md) §10.2、構成案 = `docs/note/1級・2級土木/1級土木/magazines/1級土木-R8二次-出題分析直前重点/構成案.md`（作成済）。8月下旬着手→9月上旬公開（1級二次 10/4 直前需要）。R03-R07 後ろ向き分析＋直前2週間ロードマップ。¥980・記事末 CTA でまるごとパック¥11,800・会員へ。Red Line #10 非抵触（「予想」の語を使わない）。公開時 = note-magazines.ts SKU 追記・L2 もくじ再公開・magazine-placement 配線。
-
-### note施策A: 1級一次択一PDF `civil-1-takuitsu-pdf` ¥1,980（10月上旬・Select 明け）
-タグ: [収益化]
-
-**前提 = Kindle A系の KDP Select 自動更新をユーザーが管理画面でオフ**（2026-07-08 LIVE→90日独占＝10/6頃明け。更新前に外す。真実源 = [08_Kindle出版戦略.md](../project/01_戦略/08_Kindle出版戦略.md) §KDP Select）。その後 `build-takuitsu-pdf` に civil-1 spec 追加（E/B/D 系パイプライン流用・1,162問/THEMES 39論点）→ note 単発記事 ¥1,980 公開（2級版 `civil-2-takuitsu-pdf` ¥1,480 と同型）。決定 = [noteコンテンツ計画.md](../note/1級・2級土木/noteコンテンツ計画.md) §10.1。R9 一次サイクル向け evergreen。
+**2026-07-16 に公開直前まで完了**（PDF・原稿・カバー・SKU published:false）。残はユーザー操作律速の2手のみ:
+1. **10月上旬（~10/6）に Kindle A系（A-00〜A-06）の KDP Select 自動更新を KDP 管理画面でオフ**（独占規約回避・真実源 = [08_Kindle出版戦略.md](../project/01_戦略/08_Kindle出版戦略.md) §KDP Select）
+2. その後 `node scripts/note-publish.mjs --article "docs/note/1級・2級土木/1級土木/一次択一-過去問PDF/article.md" --commit` → `node scripts/note-attach-file.mjs --note <key> --file "docs/note/1級・2級土木/1級土木/一次択一-過去問PDF/1級土木一次択一-過去問PDF.pdf" --boundary-regex "PDF のダウンロードと使い方" --commit` → `note-magazines.ts` の `civil-1-takuitsu-pdf` を published:true + noteUrl。真実源 = [noteコンテンツ計画.md](../note/1級・2級土木/noteコンテンツ計画.md) §10.1
 
 ### civil-1 土木一般編 テキスト章 本文変換（土工/コンクリート工/基礎工 ~19記事）
 タグ: [コンテンツ品質]
@@ -278,11 +275,6 @@ PR #269（カタログ）/#270（SNSレンダラー）済。残 = Phase4 記事�
 ---
 
 ## 🟢 低 — 時期未定
-
-### note施策C: 一次「頻出論点 合格ノート」書き下ろし（R9サイクル・施策Aの後）
-タグ: [収益化]
-
-textbook 45本＋頻度データを「出る順×直前確認」に再構成した書き下ろし散文教材（ひげごろー¥18,000商品の「合格ノート」相当）。既計画「一次 出る順・捨て問戦略ノート」（noteコンテンツ計画.md §9.3）と**統合して1冊**にする（別商品にしない）。問題非複製＝Select非抵触・Red Line #4 対応（逐語転載なし）。価格は統合後に再設計。決定 = [noteコンテンツ計画.md](../note/1級・2級土木/noteコンテンツ計画.md) §10.3。2027春・工数大。
 
 ### lint 9-16（Callout 密度超過）22記事のバーンダウン
 タグ: [コンテンツ品質] [Codex候補]
