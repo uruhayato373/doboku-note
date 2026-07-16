@@ -412,3 +412,12 @@ R8予想62本は2026-07-13に全公開・収録・導線検証済（[[project_r8
 1. `node scripts/magazine-to-pdf.mjs --spec scripts/pdf-specs/BK-09_電力土木.json --in-place`（BK-10 も同様）
 2. `note-attach-pdf` で6記事へ添付（1日100件上限に注意）
 3. 生成PDFを pathspec commit
+
+### 図クロップ写り込み・切断の是正（ImageMagick 搭載マシンで実施）
+タグ: [コンテンツ品質]
+
+`check-figure-crop`（2026-07-16 新設・機械ゲート）が検出した既存債務。baseline 登録済みで CI は通るが、実体は要修復。**このマシンは ImageMagick 未インストールで `figure-recrop.mjs` 実行不可**のため別マシン/セッションで実施。
+
+- **STRAY_SLIVER 29図（隣接図の切れ端＝写り込み・要 recrop）**: 一覧は `.claude/state/quality/figure-crop-report.json` の `rule=STRAY_SLIVER`。ユーザー報告の `r07-a-fig-04`（下端ルビ）を含む。各図 `node scripts/figure-recrop.mjs <img> --top/--bottom F` で除去→ `check-figure-crop --file` で clean 確認。precision ≈ 8/10 なので着手前に1枚ずつ現物 Read（alarp-carrot 等の FP は触らない）。
+- **`r07-a-fig-02`（「収縮限界」欠け・切断済み＋白枠で機械検出不能）**: 再クロップでは修復不可（画素欠損）。provenance `rescannable:needs-source` → 元スキャン（`docs/textbook/１級土木施工管理技士`）から再抽出が必要。
+- 是正後は該当図を除いて `check-figure-crop --update-baseline` で baseline を刈り込む。

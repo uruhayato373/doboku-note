@@ -67,8 +67,21 @@ if (arg("--crop")) {
   process.exit(2);
 }
 
+// 生クロップ（trim 済み・border 付加**前**）を一時生成し、切断検査を掛ける。
+// border を付けると縁接触が消えて EDGE_CUT を検出できなくなる（fig-02 型の再発）ため、
+// 「今まさに切りすぎた」を border 前に捕捉する（生クロップでは切断=縁接触が確実に成立）。
+const rawPng = path.join(dir, `.recrop-raw-${baseName}.png`);
+execSync(`magick "${srcPng}" -crop ${cropGeom} +repage -trim +repage "${rawPng}"`, { stdio: "pipe" });
+let cropWarnings = [];
+try {
+  const { analyzeImage } = await import("./check-figure-crop-integrity.mjs");
+  const a = await analyzeImage(rawPng);
+  cropWarnings = (a.violations || []).filter((v) => v.rule === "EDGE_CUT" || v.rule === "STRAY_SLIVER");
+} catch { /* 検査器が無くても recrop は続行 */ }
+
 const outPng = dryRun ? path.join(dir, `.recrop-preview-${baseName}.png`) : pngPath;
-execSync(`magick "${srcPng}" -crop ${cropGeom} +repage -trim +repage -bordercolor white -border 12 "${outPng}"`, { stdio: "pipe" });
+execSync(`magick "${rawPng}" -bordercolor white -border 12 "${outPng}"`, { stdio: "pipe" });
+fs.rmSync(rawPng, { force: true });
 const [nW, nH] = execSync(`magick identify -format "%w %h" "${outPng}"`, { encoding: "utf8" }).trim().split(" ").map(Number);
 
 // OCR で残存テキストを報告（答え語・句点）
@@ -78,7 +91,11 @@ const clean = ocr.replace(/\s+/g, "");
 const answer = (clean.match(/したがって|正\s*解/g) || []);
 const periods = (clean.match(/。/g) || []).length;
 
-const result = { figure: `${baseName}`, from: `${W}x${H}`, to: `${nW}x${nH}`, crop: cropGeom, ocr: { answer_markers: answer, periods } };
+const result = { figure: `${baseName}`, from: `${W}x${H}`, to: `${nW}x${nH}`, crop: cropGeom, ocr: { answer_markers: answer, periods }, crop_warnings: cropWarnings };
+
+if (cropWarnings.length > 0) {
+  console.error(`⚠ 切断/写り込みの疑い（生クロップ検査）: ${cropWarnings.map((v) => `${v.rule}(${v.side})`).join(", ")} — 切り位置を見直すか、意図的なら無視`);
+}
 
 if (dryRun) {
   fs.rmSync(outPng, { force: true });

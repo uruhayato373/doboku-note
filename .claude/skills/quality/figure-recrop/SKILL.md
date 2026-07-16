@@ -38,6 +38,9 @@ node scripts/figure-recrop.mjs <.local/.../img/NAME.webp> --top 0.15
 
 # ③ 検証: 出力 JSON の ocr.answer_markers が [] であること＋ Read で図が切れていない/テキスト消滅を目視。
 #         答え語が残れば切り位置を深くして再実行（例 --top 0.15 → 0.30）。
+#         さらに crop_warnings（生クロップの EDGE_CUT/STRAY_SLIVER・自動同梱）が空であること。
+#         残る場合は隣接図の切れ端が残存 or 図本体を切りすぎ → 切り位置を見直す。
+#         機械での再確認は: node scripts/check-figure-crop-integrity.mjs --file <NAME.png>（STRAY_SLIVER で exit 1）。
 ```
 
 各図の切り位置は**人（またはエージェント）が図を見て決める**。自動 OCR 帯検出は図の凡例を誤認して切りすぎるため使わない（実証済み）。

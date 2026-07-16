@@ -65,6 +65,7 @@ const CHECKS = [
   { id: 'image-assets', npm: 'check-image-assets:ci', timeout: 120_000, ci: true },
   { id: 'orphan-figures', npm: 'check-orphan-figures', timeout: 90_000, ci: true },
   { id: 'orphan-ogp', npm: 'check-orphan-ogp', timeout: 90_000, ci: true },
+  { id: 'figure-crop-integrity', npm: 'check-figure-crop:ci', timeout: 180_000, ci: true, note: '図クロップの写り込み（STRAY_SLIVER）を baseline 比の新規のみ gate。figure-crop-report.json を上書き' },
   { id: 'guide-length', npm: 'check-guide-length', timeout: 90_000, ci: true },
   { id: 'home-exam-coverage', npm: 'check-home-exam-coverage', timeout: 60_000, ci: true },
   { id: 'category-curriculum', npm: 'check-category-curriculum', timeout: 60_000, ci: true },
