@@ -29,6 +29,7 @@ model: sonnet
 | 何を見るか | ファイル |
 |---|---|
 | サービスの価格・状態・URL・受付枠 | `src/lib/coconala-services.ts`（カタログ SoT） |
+| 競合の市場実測（価格帯・上位競合） | `.claude/state/coconala/market-summary.json`（軽量 SSOT・まずこれ／深掘りは `market-research.json`） |
 | アカウント（sellerName / profileUrl） | `.claude/config/coconala-account.json` |
 | 受注実績 | `.claude/state/coconala/orders-log.json` |
 | KPI 週次 | `.claude/state/coconala/kpi-log.json` |

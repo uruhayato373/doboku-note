@@ -47,6 +47,7 @@ import { join } from 'node:path';
 const ROOT = process.cwd();
 const OUT_DIR = join(ROOT, '.claude/state/coconala');
 const OUT_PATH = join(OUT_DIR, 'market-research.json');
+const SUMMARY_PATH = join(OUT_DIR, 'market-summary.json');
 const PROFILE = join(ROOT, '.local/playwright-coconala-profile');
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 
@@ -112,6 +113,60 @@ function classify(title, catch_ = '') {
 function save(result) {
   result.updatedAt = new Date().toISOString();
   writeFileSync(OUT_PATH, JSON.stringify(result, null, 2) + '\n', 'utf-8');
+}
+
+/**
+ * エージェント参照用の軽量サマリー SSOT を生データ（market-research.json）から導出する。
+ * 生 JSON は 700KB 超でエージェントがコンテキストに載せられないため、
+ * キーワード別の価格分位・セグメント内訳・レビュー数トップ5 だけに畳む（数KB）。
+ * 生データが唯一の入力＝派生物なので、いつでも --summary-only で再生成できる。
+ */
+function buildSummary(result) {
+  const num = (a) => a.filter((x) => typeof x === 'number' && x > 0).sort((p, q) => p - q);
+  const stat = (arr) =>
+    arr.length
+      ? {
+          min: arr[0],
+          median: arr[Math.floor(arr.length / 2)],
+          mean: Math.round(arr.reduce((s, x) => s + x, 0) / arr.length),
+          max: arr[arr.length - 1],
+        }
+      : null;
+  return {
+    version: 1,
+    generatedAt: new Date().toISOString(),
+    fetchedAt: result.fetchedAt,
+    source: '.claude/state/coconala/market-research.json',
+    note: 'エージェント参照用の派生 SSOT。生データは source を read。再生成: npm run coconala-research -- --summary-only',
+    keywords: (result.queries || []).map((q) => {
+      const s = q.services || [];
+      const segments = {};
+      for (const x of s) segments[x.segment] = (segments[x.segment] || 0) + 1;
+      return {
+        keyword: q.keyword,
+        totalHits: q.totalHits,
+        collected: s.length,
+        priceYen: stat(num(s.map((x) => x.priceYen))),
+        segments,
+        topByReviews: [...s]
+          .sort((a, b) => (b.reviews || 0) - (a.reviews || 0))
+          .slice(0, 5)
+          .map((x) => ({
+            title: x.title,
+            seller: x.seller,
+            priceYen: x.priceYen,
+            rating: x.rating,
+            reviews: x.reviews,
+            segment: x.segment,
+            url: x.url,
+          })),
+      };
+    }),
+  };
+}
+
+function writeSummary(result) {
+  writeFileSync(SUMMARY_PATH, JSON.stringify(buildSummary(result), null, 2) + '\n', 'utf-8');
 }
 
 function loadPrev() {
@@ -292,11 +347,28 @@ async function main() {
 
   await ctx.close();
   save(result);
+  writeSummary(result);
   const total = result.queries.reduce((n, q) => n + q.services.length, 0);
   console.log(`[coconala-research] ✓ ${result.queries.length} クエリ / ${total} サービスを ${OUT_PATH} に保存`);
+  console.log(`[coconala-research] ✓ エージェント参照サマリーを ${SUMMARY_PATH} に生成`);
 }
 
-main().catch((e) => {
-  console.error('[coconala-research] ✗', e?.message ?? e);
-  process.exit(1);
-});
+/** Playwright を起動せず、既存の生データからサマリー SSOT だけを再生成する */
+function summaryOnly() {
+  const prev = loadPrev();
+  if (!prev) {
+    console.error(`[coconala-research] ✗ ${OUT_PATH} が無い／壊れている。先に実測を回してください（--force なしで）`);
+    process.exit(1);
+  }
+  writeSummary(prev);
+  console.log(`[coconala-research] ✓ ${SUMMARY_PATH} を生データから再生成（Playwright 不使用）`);
+}
+
+if (argv.includes('--summary-only')) {
+  summaryOnly();
+} else {
+  main().catch((e) => {
+    console.error('[coconala-research] ✗', e?.message ?? e);
+    process.exit(1);
+  });
+}
