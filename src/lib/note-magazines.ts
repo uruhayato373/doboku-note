@@ -38,7 +38,11 @@ export interface NoteMagazine {
    * - ctaButton: ボタン文言（動詞で終える）。省略時「note で詳しく見る」
    * - ctaPose: マスコットのポーズ。省略時 pointing
    *   pointing=論点提示・good-sign=完成/合格訴求・smile=伴走/入門
-   *   （実体は public/images/character/avatar-{pose}.webp・`npm run character-avatars` で生成）
+   *
+   * ctaPose の許可値の真実源は `.claude/config/character-poses.json` の `siteCta: true`
+   * （型に literal が要るためここに union を書くが、増やすときは manifest → webp 生成 → 本 union の順）。
+   * 三者の整合（manifest ⇔ public/images/character/avatar-{pose}.webp ⇔ 本 union）は
+   * `npm run check-character-avatars` が gate する＝union だけ広げると本番でアバターが 404 になるため。
    */
   readonly ctaCatch?: string;
   readonly ctaButton?: string;

@@ -68,6 +68,7 @@ const CHECKS = [
   { id: 'figure-crop-integrity', npm: 'check-figure-crop:ci', timeout: 180_000, ci: true, note: '図クロップの写り込み（STRAY_SLIVER）を baseline 比の新規のみ gate。figure-crop-report.json を上書き' },
   { id: 'guide-length', npm: 'check-guide-length', timeout: 90_000, ci: true },
   { id: 'home-exam-coverage', npm: 'check-home-exam-coverage', timeout: 60_000, ci: true },
+  { id: 'character-avatars', npm: 'check-character-avatars', timeout: 60_000, ci: true, note: 'note CTA のキャラアバター: manifest siteCta ⇔ 配信 webp ⇔ ctaPose union の三者整合（union だけ広げると本番 404）' },
   { id: 'category-curriculum', npm: 'check-category-curriculum', timeout: 60_000, ci: true },
   { id: 'note-funnel', npm: 'check-note-funnel', timeout: 90_000, ci: true },
   { id: 'doc-refs', npm: 'check-doc-refs', timeout: 90_000, ci: true },

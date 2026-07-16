@@ -26,13 +26,12 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const ICON_DIR = join(ROOT, 'docs/sns/_assets/character/icons');
 const OUT_DIR = join(ROOT, 'public/images/character');
-const POSE_SLUGS = require(join(ROOT, '.claude/config/character-poses.json')).poses.map(
-  (p) => p.slug,
-);
+const POSES = require(join(ROOT, '.claude/config/character-poses.json')).poses;
+const POSE_SLUGS = POSES.map((p) => p.slug);
 
-// サイト CTA で使うポーズ（note-magazines.ts の ctaPose と対応）。
-// pointing=論点提示・good-sign=完成/合格訴求・smile=伴走/入門。
-const SITE_POSES = ['pointing', 'good-sign', 'smile'];
+// サイト CTA で使うポーズは manifest の siteCta フラグが真実源（ここに列挙を複製しない）。
+// note-magazines.ts の ctaPose union との整合は check-character-avatars.mjs が gate する。
+const SITE_POSES = POSES.filter((p) => p.siteCta).map((p) => p.slug);
 const SIZE = 240;
 const SRC_SIZE = 400; // icons/{pose}-400.png を入力に使う（240 へ縮小）
 
