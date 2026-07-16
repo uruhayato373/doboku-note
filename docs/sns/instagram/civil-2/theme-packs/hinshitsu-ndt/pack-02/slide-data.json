@@ -1,0 +1,179 @@
+{
+  "_meta": {
+    "exam": "civil-2",
+    "examDir": "2級土木",
+    "theme": {
+      "key": "hinshitsu",
+      "label": "品質管理"
+    },
+    "subtopic": {
+      "key": "ndt",
+      "label": "鉄筋の継手・加工組立の検査・非破壊検査ほか"
+    },
+    "packNum": "02",
+    "fmtLabel": "第一次検定 過去問",
+    "management": "safety",
+    "freqStars": 3,
+    "years": [
+      "r03z",
+      "r03k"
+    ],
+    "yearsLabel": "令和3年度",
+    "questionIds": [
+      "r03z-50",
+      "r03k-08"
+    ]
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "title": "鉄筋の継手・加工組立の検査・非破壊検査ほか",
+      "themeLabel": "品質管理",
+      "subtopicLabel": "鉄筋の継手・加工組立の検査・非破壊検査ほか",
+      "stars": 3,
+      "yearsLabel": "令和3年度",
+      "firstQuestion": "工事の品質管理活動における(イ)〜(ニ)の作業内容について、品質管理のPDCA（Plan、Do、Check、Action）の手順として、適当なものは次のうちどれか。",
+      "examDir": "2級土木",
+      "exam": "civil-2",
+      "sectionTag": "頻出",
+      "pageIndex": 1,
+      "totalPages": 6
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "工事の品質管理活動における(イ)〜(ニ)の作業内容に",
+        "ついて、品質管理のPDCA（Plan、Do、Chec",
+        "k、Action）の手順として、適当なものは次のうち",
+        "どれか。",
+        "",
+        "- (イ) 異常原因を追究し、除去する処置をとる。",
+        "- (ロ) 作業標準に基づき、作業を実施する。",
+        "- (ハ) 統計的手法により、解析・検討を行う。",
+        "- (ニ) 品質特性の選定と、品質規格を決定する。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "(ロ) → (ハ) → (イ) → (ニ)"
+        },
+        {
+          "num": 2,
+          "text": "(ロ) → (イ) → (ハ) → (ニ)"
+        },
+        {
+          "num": 3,
+          "text": "(ニ) → (イ) → (ハ) → (ロ)"
+        },
+        {
+          "num": 4,
+          "text": "(ニ) → (ロ) → (ハ) → (イ)"
+        }
+      ],
+      "topic": "令和3年度前期",
+      "qNum": 1,
+      "totalQ": 2,
+      "pageIndex": 2,
+      "totalPages": 6
+    },
+    {
+      "type": "answer",
+      "correctNum": 4,
+      "correctText": "工事の品質管理活動における(イ)〜(",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "順序が(ロ)から始まり誤り",
+          "correct": false
+        },
+        {
+          "num": 2,
+          "text": "順序が(ロ)から始まり誤り",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "(イ)が2番目で誤り",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "(ニ)Plan → (ロ)Do → (ハ)Check → (イ)Actionで正しい",
+          "correct": true
+        }
+      ],
+      "pointText": "(ニ)Plan → (ロ)Do → (ハ)Check → (イ)Actionで正しい",
+      "qNum": 1,
+      "totalQ": 2,
+      "pageIndex": 3,
+      "totalPages": 6
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "鉄筋の加工及び組立てに関する次の記述のうち，適当なも",
+        "のはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "型枠に接するスペーサは，原則としてモルタル製あるいはコンクリート製を使用する。"
+        },
+        {
+          "num": 2,
+          "text": "鉄筋の継手箇所は，施工しやすいように同一の断面に集中させる。"
+        },
+        {
+          "num": 3,
+          "text": "鉄筋表面の浮きさびは，付着性向上のため，残しておく。"
+        },
+        {
+          "num": 4,
+          "text": "鉄筋は，曲げやすいように，原則として加熱して加工する。"
+        }
+      ],
+      "topic": "令和3年度後期",
+      "qNum": 2,
+      "totalQ": 2,
+      "pageIndex": 4,
+      "totalPages": 6
+    },
+    {
+      "type": "answer",
+      "correctNum": 1,
+      "correctText": "鉄筋の加工及び組立て",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "かぶり確保用スペーサは原則としてモルタル製またはコンクリート製を用い正しい",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "継手は応力集中を避けるため同一断面に集中させてはならず誤り",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "浮きさびは付着を阻害するため除去すべきで誤り",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "鉄筋は材質を損なうため原則として常温で加工し誤り <ExamPoint>かぶり確保のスペーサはモルタル製・コンクリート製が原則</ExamPoint>",
+          "correct": false
+        }
+      ],
+      "pointText": "かぶり確保用スペーサは原則としてモルタル製またはコンクリート製を用い正しい",
+      "qNum": 2,
+      "totalQ": 2,
+      "pageIndex": 5,
+      "totalPages": 6
+    },
+    {
+      "type": "cta",
+      "pageIndex": 6,
+      "totalPages": 6
+    }
+  ]
+}

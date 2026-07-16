@@ -1,0 +1,306 @@
+{
+  "_meta": {
+    "exam": "civil-2",
+    "examDir": "2級土木",
+    "theme": {
+      "key": "hinshitsu",
+      "label": "品質管理"
+    },
+    "subtopic": {
+      "key": "concrete",
+      "label": "レディーミクストコンクリートの受入検査・コンクリートの品質管理"
+    },
+    "packNum": "01",
+    "fmtLabel": "第一次検定 過去問",
+    "management": "safety",
+    "freqStars": 3,
+    "years": [
+      "r07z",
+      "r07k",
+      "r06z",
+      "r06k"
+    ],
+    "yearsLabel": "令和7・6年度",
+    "questionIds": [
+      "r07z-56",
+      "r07k-56",
+      "r06z-56",
+      "r06k-56"
+    ]
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "title": "レディーミクストコンクリートの受入検査・コンクリートの品質管理",
+      "themeLabel": "品質管理",
+      "subtopicLabel": "レディーミクストコンクリートの受入検査・コンクリートの品質管理",
+      "stars": 3,
+      "yearsLabel": "令和7・6年度",
+      "firstQuestion": "呼び強度21，スランプ12 cmと指定したレディーミクストコンクリート（JIS A 5308）の試験結果について，各回目の判定基準を満足しないものは次のうちどれか。",
+      "examDir": "2級土木",
+      "exam": "civil-2",
+      "sectionTag": "頻出",
+      "pageIndex": 1,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "呼び強度21，スランプ12 cmと指定したレディーミ",
+        "クストコンクリート（JIS A 5308）の試験結果",
+        "について，各回目の判定基準を満足しないものは次のうち",
+        "どれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "塩化物イオン量の試験結果は，0.1 kg/m³であった。"
+        },
+        {
+          "num": 2,
+          "text": "スランプ試験の結果は，15.0 cmであった。"
+        },
+        {
+          "num": 3,
+          "text": "3回の圧縮強度試験結果の平均値は，21.5 N/mm²であった。"
+        },
+        {
+          "num": 4,
+          "text": "1回の圧縮強度試験結果は，20.5 N/mm²であった。"
+        }
+      ],
+      "topic": "令和7年度前期",
+      "qNum": 1,
+      "totalQ": 4,
+      "pageIndex": 2,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 2,
+      "correctText": "呼び強度21，スランプ12 cmと指",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "塩化物イオン量は0.3 kg/m³以下が基準、0.1は合格",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "スランプは指定値±2.5 cm（12±2.5＝9.5〜14.5 cm）、15.0 cmは上限超過で基準を満足しない ",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "3回の圧縮強度の平均値は呼び強度の100%以上が基準、21.5は21以上で合格",
+          "correct": true
+        },
+        {
+          "num": 4,
+          "text": "1回の圧縮強度は呼び強度の85%以上（21×0.85＝17.85）が基準、20.5は合格 <ExamPoint>スランプは指定値±2.5cmの範囲内であることが判定基準</ExamPoint>",
+          "correct": true
+        }
+      ],
+      "pointText": "スランプは指定値±2.5 cm（12±2.5＝9.5〜14.5 cm）、15.0 cmは上限超過で基準を満足しない ",
+      "qNum": 1,
+      "totalQ": 4,
+      "pageIndex": 3,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "レディーミクストコンクリート（JIS A 5308）",
+        "の圧縮強度試験に関する次の記述のうち，適当でないもの",
+        "はどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "圧縮強度試験は，一般に材齢 28 日で行う。"
+        },
+        {
+          "num": 2,
+          "text": "1回の圧縮強度試験結果は，呼び強度の強度値の 85% 以上である。"
+        },
+        {
+          "num": 3,
+          "text": "5回の圧縮強度試験結果の平均値は，呼び強度の強度値以上である。"
+        },
+        {
+          "num": 4,
+          "text": "スランプや空気量が許容範囲内であっても，圧縮強度試験は実施する。"
+        }
+      ],
+      "topic": "令和7年度後期",
+      "qNum": 2,
+      "totalQ": 4,
+      "pageIndex": 4,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 3,
+      "correctText": "レディーミクストコンクリート（JIS",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "材齢28日試験は正しい",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "1回の試験値が呼び強度の85%以上は正しい",
+          "correct": true
+        },
+        {
+          "num": 3,
+          "text": "平均値の判定は「3回」の試験結果の平均で行い「5回」は誤り",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "スランプ・空気量と独立に圧縮強度試験を行う点は正しい <ExamPoint>圧縮強度は1回85以上3回平均で呼び強度以上</ExamPoint>",
+          "correct": true
+        }
+      ],
+      "pointText": "平均値の判定は「3回」の試験結果の平均で行い「5回」は誤り",
+      "qNum": 2,
+      "totalQ": 4,
+      "pageIndex": 5,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "レディーミクストコンクリート（JIS A 5308）",
+        "の品質管理に関する次の記述のうち，適当でないものはど",
+        "れか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "品質管理の項目は，強度，スランプ又はスランプフロー，空気量等の 3 つである。"
+        },
+        {
+          "num": 2,
+          "text": "圧縮強度試験は，一般に材齢 28 日で行う。"
+        },
+        {
+          "num": 3,
+          "text": "3 回の圧縮強度試験結果の平均値は，購入者が指定した呼び強度の強度値以上でなければならない。"
+        },
+        {
+          "num": 4,
+          "text": "1 回の圧縮強度試験結果は，購入者が指定した呼び強度の強度値の 85% 以上でなければならない。"
+        }
+      ],
+      "topic": "令和6年度前期",
+      "qNum": 3,
+      "totalQ": 4,
+      "pageIndex": 6,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 1,
+      "correctText": "レディーミクストコンクリート（JIS",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "JIS A 5308 の品質管理項目は強度・スランプ（またはスランプフロー）・空気量・塩化物含有量等の 4 項目であり、3 つとする本記述は誤り",
+          "correct": false
+        },
+        {
+          "num": 2,
+          "text": "圧縮強度試験は材齢 28 日基準で正しい",
+          "correct": true
+        },
+        {
+          "num": 3,
+          "text": "3 回の試験結果の平均値は呼び強度の強度値以上でなければならない規定で正しい",
+          "correct": true
+        },
+        {
+          "num": 4,
+          "text": "1 回試験値は呼び強度の 85% 以上で正しい",
+          "correct": true
+        }
+      ],
+      "pointText": "JIS A 5308 の品質管理項目は強度・スランプ（またはスランプフロー）・空気量・塩化物含有量等の 4 項目であり、3 つとする本記述は誤り",
+      "qNum": 3,
+      "totalQ": 4,
+      "pageIndex": 7,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "呼び強度 24，スランプ 12cm と指定した JI",
+        "S A 5308 レディーミクストコンクリートの試験",
+        "結果について，各回の判定基準を満足しないものは，次の",
+        "うちどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "塩化物イオン含有量が，0.8 kg/m³ であった。"
+        },
+        {
+          "num": 2,
+          "text": "スランプ試験の結果が，13.0cm であった。"
+        },
+        {
+          "num": 3,
+          "text": "空気量試験の結果が，4.5％ であった。"
+        },
+        {
+          "num": 4,
+          "text": "3 回の圧縮強度試験結果の平均値が，25.0 N/mm² であった。"
+        }
+      ],
+      "topic": "令和6年度後期",
+      "qNum": 4,
+      "totalQ": 4,
+      "pageIndex": 8,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 1,
+      "correctText": "呼び強度 24，スランプ 12cm ",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "塩化物イオン含有量の規格は 0.30 kg/m³ 以下で 0.8 は規格外 （満足しない＝正答）",
+          "correct": false
+        },
+        {
+          "num": 2,
+          "text": "スランプ 12cm 指定で許容範囲（±2.5cm 程度）内の 13.0cm は満足",
+          "correct": true
+        },
+        {
+          "num": 3,
+          "text": "空気量規格は 4.5±1.5％で 4.5 は満足",
+          "correct": true
+        },
+        {
+          "num": 4,
+          "text": "呼び強度 24 の平均強度規格 25 N/mm² は満足 <ExamPoint>塩化物イオン規格は原則0.30kg/m³以下</ExamPoint>",
+          "correct": true
+        }
+      ],
+      "pointText": "塩化物イオン含有量の規格は 0.30 kg/m³ 以下で 0.8 は規格外 （満足しない＝正答）",
+      "qNum": 4,
+      "totalQ": 4,
+      "pageIndex": 9,
+      "totalPages": 10
+    },
+    {
+      "type": "cta",
+      "pageIndex": 10,
+      "totalPages": 10
+    }
+  ]
+}

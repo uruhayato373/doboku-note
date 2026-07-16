@@ -1,0 +1,237 @@
+{
+  "_meta": {
+    "exam": "civil-2",
+    "examDir": "2級土木",
+    "theme": {
+      "key": "hoki",
+      "label": "法規"
+    },
+    "subtopic": {
+      "key": "vibration",
+      "label": "振動規制法（特定建設作業）"
+    },
+    "packNum": "02",
+    "fmtLabel": "第一次検定 過去問",
+    "management": "safety",
+    "freqStars": 3,
+    "years": [
+      "r05k",
+      "r03z",
+      "r03k"
+    ],
+    "yearsLabel": "令和5・3年度",
+    "questionIds": [
+      "r05k-41",
+      "r03z-41",
+      "r03k-41"
+    ]
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "title": "振動規制法（特定建設作業）",
+      "themeLabel": "法規",
+      "subtopicLabel": "振動規制法（特定建設作業）",
+      "stars": 3,
+      "yearsLabel": "令和5・3年度",
+      "firstQuestion": "振動規制法上，特定建設作業の規制基準に関する測定位置として，次の記述のうち正しいものはどれか。",
+      "examDir": "2級土木",
+      "exam": "civil-2",
+      "sectionTag": "頻出",
+      "pageIndex": 1,
+      "totalPages": 8
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "振動規制法上，特定建設作業の規制基準に関する測定位置",
+        "として，次の記述のうち正しいものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "特定建設作業の敷地内の振動発生源"
+        },
+        {
+          "num": 2,
+          "text": "特定建設作業の敷地の中心地点"
+        },
+        {
+          "num": 3,
+          "text": "特定建設作業の敷地境界"
+        },
+        {
+          "num": 4,
+          "text": "特定建設作業の敷地に最も近接した家屋内"
+        }
+      ],
+      "topic": "令和5年度後期",
+      "qNum": 1,
+      "totalQ": 3,
+      "pageIndex": 2,
+      "totalPages": 8
+    },
+    {
+      "type": "answer",
+      "correctNum": 3,
+      "correctText": "振動規制法上，特定建設作業の規制基準",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "振動規制法の測定位置は発生源ではなく敷地境界線で誤り",
+          "correct": false
+        },
+        {
+          "num": 2,
+          "text": "敷地中心地点は規制基準の測定位置として規定されない",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "特定建設作業の振動規制基準は「敷地境界線において 75dB を超えないこと」と規定され正しい",
+          "correct": true
+        },
+        {
+          "num": 4,
+          "text": "家屋内は測定位置として規定されない <ExamPoint>振動規制基準の測定位置は敷地境界線</ExamPoint>",
+          "correct": false
+        }
+      ],
+      "pointText": "特定建設作業の振動規制基準は「敷地境界線において 75dB を超えないこと」と規定され正しい",
+      "qNum": 1,
+      "totalQ": 3,
+      "pageIndex": 3,
+      "totalPages": 8
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "振動規制法上、指定地域内において特定建設作業を施工し",
+        "ようとする者が行う特定建設作業の実施に関する届出先と",
+        "して、正しいものは次のうちどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "国土交通大臣"
+        },
+        {
+          "num": 2,
+          "text": "環境大臣"
+        },
+        {
+          "num": 3,
+          "text": "都道府県知事"
+        },
+        {
+          "num": 4,
+          "text": "市町村長"
+        }
+      ],
+      "topic": "令和3年度前期",
+      "qNum": 2,
+      "totalQ": 3,
+      "pageIndex": 4,
+      "totalPages": 8
+    },
+    {
+      "type": "answer",
+      "correctNum": 4,
+      "correctText": "振動規制法上、指定地域内において特定",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "国土交通大臣は届出先ではない",
+          "correct": false
+        },
+        {
+          "num": 2,
+          "text": "環境大臣は届出先ではない",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "都道府県知事は届出先ではない",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "特定建設作業の実施の届出先は市町村長である",
+          "correct": true
+        }
+      ],
+      "pointText": "特定建設作業の実施の届出先は市町村長である",
+      "qNum": 2,
+      "totalQ": 3,
+      "pageIndex": 5,
+      "totalPages": 8
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "振動規制法上，指定地域内において行う特定建設作業に該",
+        "当するものは，次のうちどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "もんけん式くい打機を使用する作業"
+        },
+        {
+          "num": 2,
+          "text": "圧入式くい打くい抜機を使用する作業"
+        },
+        {
+          "num": 3,
+          "text": "油圧式くい抜機を使用する作業"
+        },
+        {
+          "num": 4,
+          "text": "ディーゼルハンマのくい打機を使用する作業"
+        }
+      ],
+      "topic": "令和3年度後期",
+      "qNum": 3,
+      "totalQ": 3,
+      "pageIndex": 6,
+      "totalPages": 8
+    },
+    {
+      "type": "answer",
+      "correctNum": 4,
+      "correctText": "振動規制法上，指定地域内において行う",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "もんけんは振動規制法の特定建設作業から除かれ誤り",
+          "correct": false
+        },
+        {
+          "num": 2,
+          "text": "圧入式くい打くい抜機は低振動で除外され誤り",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "油圧式くい抜機は除外され誤り",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "くい打機（もんけん・圧入式を除く）のうちディーゼルハンマは特定建設作業に該当 <ExamPoint>くい打機の特定作業はもんけん・圧入式を除いたもの</ExamPoint>",
+          "correct": true
+        }
+      ],
+      "pointText": "くい打機（もんけん・圧入式を除く）のうちディーゼルハンマは特定建設作業に該当 <ExamPoint>くい打機の特定作業はもんけん・圧入式を除いたもの</",
+      "qNum": 3,
+      "totalQ": 3,
+      "pageIndex": 7,
+      "totalPages": 8
+    },
+    {
+      "type": "cta",
+      "pageIndex": 8,
+      "totalPages": 8
+    }
+  ]
+}

@@ -1,0 +1,303 @@
+{
+  "_meta": {
+    "exam": "civil-2",
+    "examDir": "2級土木",
+    "theme": {
+      "key": "anzen",
+      "label": "安全管理"
+    },
+    "subtopic": {
+      "key": "org",
+      "label": "安全衛生管理体制・作業主任者・教育・届出"
+    },
+    "packNum": "01",
+    "fmtLabel": "第一次検定 過去問",
+    "management": "safety",
+    "freqStars": 3,
+    "years": [
+      "r07z",
+      "r07k",
+      "r05z",
+      "r04z"
+    ],
+    "yearsLabel": "令和7・5・4年度",
+    "questionIds": [
+      "r07z-39",
+      "r07k-39",
+      "r05z-34",
+      "r04z-34"
+    ]
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "title": "安全衛生管理体制・作業主任者・教育・届出",
+      "themeLabel": "安全管理",
+      "subtopicLabel": "安全衛生管理体制・作業主任者・教育・届出",
+      "stars": 3,
+      "yearsLabel": "令和7・5・4年度",
+      "firstQuestion": "事業者が労働者に対して特別の教育を行わなければならない業務に関する次の記述のうち，労働安全衛生法上，該当しないものはどれか。",
+      "examDir": "2級土木",
+      "exam": "civil-2",
+      "sectionTag": "頻出",
+      "pageIndex": 1,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "事業者が労働者に対して特別の教育を行わなければならな",
+        "い業務に関する次の記述のうち，労働安全衛生法上，該当",
+        "しないものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "つり上げ荷重が1t未満の移動式クレーンの運転の業務"
+        },
+        {
+          "num": 2,
+          "text": "型枠支保工の組立て，解体等の業務"
+        },
+        {
+          "num": 3,
+          "text": "アーク溶接作業の業務"
+        },
+        {
+          "num": 4,
+          "text": "つり上げ荷重が5t未満のクレーンの運転の業務"
+        }
+      ],
+      "topic": "令和7年度前期",
+      "qNum": 1,
+      "totalQ": 4,
+      "pageIndex": 2,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 2,
+      "correctText": "事業者が労働者に対して特別の教育を行",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "つり上げ1t未満移動式クレーンは特別教育対象、正しい",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "型枠支保工の組立・解体は技能講習修了者が必要、特別教育には該当しない ",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "アーク溶接は特別教育対象、正しい",
+          "correct": true
+        },
+        {
+          "num": 4,
+          "text": "つり上げ5t未満クレーンは特別教育対象、正しい <ExamPoint>型枠支保工の組立・解体は特別教育でなく技能講習の対象</ExamPoint>",
+          "correct": true
+        }
+      ],
+      "pointText": "型枠支保工の組立・解体は技能講習修了者が必要、特別教育には該当しない ",
+      "qNum": 1,
+      "totalQ": 4,
+      "pageIndex": 3,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "労働安全衛生法上，作業主任者の選任を必要としない作業",
+        "は，次のうちどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "型枠支保工の組立て又は解体の作業"
+        },
+        {
+          "num": 2,
+          "text": "道路のコンクリート舗装の養生の作業"
+        },
+        {
+          "num": 3,
+          "text": "掘削面の高さが 2 m 以上となる地山の掘削の作業"
+        },
+        {
+          "num": 4,
+          "text": "高さが 5 m 以上の工作物のコンクリート造の解体又は破壊の作業"
+        }
+      ],
+      "topic": "令和7年度後期",
+      "qNum": 2,
+      "totalQ": 4,
+      "pageIndex": 4,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 2,
+      "correctText": "労働安全衛生法上，作業主任者の選任を",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "型枠支保工の組立等作業主任者の選任が必要",
+          "correct": false
+        },
+        {
+          "num": 2,
+          "text": "道路コンクリート舗装の養生作業は作業主任者の選任義務はなく該当なし",
+          "correct": true
+        },
+        {
+          "num": 3,
+          "text": "2m以上の地山掘削は地山掘削作業主任者が必要",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "コンクリート造工作物解体等作業主任者が必要 <ExamPoint>作業主任者選任は危険有害作業ごとに法定で指定</ExamPoint>",
+          "correct": false
+        }
+      ],
+      "pointText": "道路コンクリート舗装の養生作業は作業主任者の選任義務はなく該当なし",
+      "qNum": 2,
+      "totalQ": 4,
+      "pageIndex": 5,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "労働安全衛生法上，事業者が，技能講習を修了した作業主",
+        "任者を選任しなければならない作業として，該当しないも",
+        "のは次のうちどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "高さが3 mのコンクリート橋梁上部構造の架設の作業"
+        },
+        {
+          "num": 2,
+          "text": "型枠支保工の組立て又は解体の作業"
+        },
+        {
+          "num": 3,
+          "text": "掘削面の高さが2 m以上となる地山の掘削の作業"
+        },
+        {
+          "num": 4,
+          "text": "土止め支保工の切りばり又は腹起こしの取付け又は取り外しの作業"
+        }
+      ],
+      "topic": "令和5年度前期",
+      "qNum": 3,
+      "totalQ": 4,
+      "pageIndex": 6,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 1,
+      "correctText": "労働安全衛生法上，事業者が，技能講習",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "コンクリート橋梁上部構造の架設は高さ5 m以上で作業主任者選任、3 mは該当しない （該当しないもの＝正答）",
+          "correct": false
+        },
+        {
+          "num": 2,
+          "text": "型枠支保工の組立・解体は作業主任者選任、該当する",
+          "correct": true
+        },
+        {
+          "num": 3,
+          "text": "掘削面2 m以上の地山掘削は作業主任者選任、該当する",
+          "correct": true
+        },
+        {
+          "num": 4,
+          "text": "土止め支保工の切りばり等は作業主任者選任、該当する",
+          "correct": true
+        }
+      ],
+      "pointText": "コンクリート橋梁上部構造の架設は高さ5 m以上で作業主任者選任、3 mは該当しない （該当しないもの＝正答）",
+      "qNum": 3,
+      "totalQ": 4,
+      "pageIndex": 7,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "事業者が、技能講習を修了した作業主任者でなければ就業",
+        "させてはならない作業に関する次の記述のうち、労働安全",
+        "衛生法上、該当しないものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "高さが3m以上のコンクリート造の工作物の解体又は破壊の作業"
+        },
+        {
+          "num": 2,
+          "text": "掘削面の高さが2m以上となる地山の掘削の作業"
+        },
+        {
+          "num": 3,
+          "text": "土止め支保工の切りばり又は腹起こしの取付け又は取外しの作業"
+        },
+        {
+          "num": 4,
+          "text": "型枠支保工の組立て又は解体の作業"
+        }
+      ],
+      "topic": "令和4年度前期",
+      "qNum": 4,
+      "totalQ": 4,
+      "pageIndex": 8,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 1,
+      "correctText": "事業者が、技能講習を修了した作業主任",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "コンクリート造工作物の解体は「高さ5m以上」で作業主任者が必要。3m以上は誤りで該当しない （該当しない）",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "掘削面の高さ2m以上の地山掘削作業は作業主任者選任が必要",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "土止め支保工切りばり等の取付け取外し作業は作業主任者選任が必要",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "型枠支保工組立解体作業は作業主任者選任が必要",
+          "correct": false
+        }
+      ],
+      "pointText": "コンクリート造工作物の解体は「高さ5m以上」で作業主任者が必要。3m以上は誤りで該当しない （該当しない）",
+      "qNum": 4,
+      "totalQ": 4,
+      "pageIndex": 9,
+      "totalPages": 10
+    },
+    {
+      "type": "cta",
+      "pageIndex": 10,
+      "totalPages": 10
+    }
+  ]
+}

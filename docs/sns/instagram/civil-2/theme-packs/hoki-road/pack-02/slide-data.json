@@ -1,0 +1,309 @@
+{
+  "_meta": {
+    "exam": "civil-2",
+    "examDir": "2級土木",
+    "theme": {
+      "key": "hoki",
+      "label": "法規"
+    },
+    "subtopic": {
+      "key": "road",
+      "label": "道路法（道路占用・車両制限令）"
+    },
+    "packNum": "02",
+    "fmtLabel": "第一次検定 過去問",
+    "management": "safety",
+    "freqStars": 3,
+    "years": [
+      "r05k",
+      "r04z",
+      "r04k",
+      "r03k"
+    ],
+    "yearsLabel": "令和5・4・3年度",
+    "questionIds": [
+      "r05k-36",
+      "r04z-36",
+      "r04k-36",
+      "r03k-36"
+    ]
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "title": "道路法（道路占用・車両制限令）",
+      "themeLabel": "法規",
+      "subtopicLabel": "道路法（道路占用・車両制限令）",
+      "stars": 3,
+      "yearsLabel": "令和5・4・3年度",
+      "firstQuestion": "車両の最高限度に関する次の記述のうち，車両制限令上，正しいものはどれか。ただし，道路管理者が道路の構造の保全及び交通の危険の防止上支障がないと認めて指定した道路を通行する車両を除く。",
+      "examDir": "2級土木",
+      "exam": "civil-2",
+      "sectionTag": "頻出",
+      "pageIndex": 1,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "車両の最高限度に関する次の記述のうち，車両制限令上，",
+        "正しいものはどれか。ただし，道路管理者が道路の構造の",
+        "保全及び交通の危険の防止上支障がないと認めて指定した",
+        "道路を通行する車両を除く。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "車両の幅は，2.5m である。"
+        },
+        {
+          "num": 2,
+          "text": "車両の輪荷重は，10t である。"
+        },
+        {
+          "num": 3,
+          "text": "車両の高さは，4.5m である。"
+        },
+        {
+          "num": 4,
+          "text": "車両の長さは，14m である。"
+        }
+      ],
+      "topic": "令和5年度後期",
+      "qNum": 1,
+      "totalQ": 4,
+      "pageIndex": 2,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 1,
+      "correctText": "車両の最高限度",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "車両幅の最高限度 2.5m は車両制限令の規定通り正しい",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "輪荷重の最高限度は 5t で 10t は誤り",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "車両高さの最高限度は 3.8m で 4.5m は誤り",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "車両長さの最高限度は 12m で 14m は誤り <ExamPoint>車両制限令の最高限度幅 2.5m 高さ 3.8m 長さ 12m</ExamPoint>",
+          "correct": false
+        }
+      ],
+      "pointText": "車両幅の最高限度 2.5m は車両制限令の規定通り正しい",
+      "qNum": 1,
+      "totalQ": 4,
+      "pageIndex": 3,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "道路に工作物又は施設を設け、継続して道路を使用する行",
+        "為に関する次の記述のうち、道路法令上、許可を必要とし",
+        "ないものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "道路の維持又は修繕に用いる機械、器具又は材料の常置場を道路に接して設置する場合"
+        },
+        {
+          "num": 2,
+          "text": "水道、下水道、ガス管を設置する場合"
+        },
+        {
+          "num": 3,
+          "text": "電柱、電線、公衆電話所を設置する場合"
+        },
+        {
+          "num": 4,
+          "text": "高架の道路の路面下に事務所、店舗、倉庫、広場、公園、運動場を設置する場合"
+        }
+      ],
+      "topic": "令和4年度前期",
+      "qNum": 2,
+      "totalQ": 4,
+      "pageIndex": 4,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 1,
+      "correctText": "道路に工作物又は施設を設け、継続して",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "道路管理者自身の維持修繕用機械置場の道路に「接した」設置は道路占用許可の対象外 （許可を必要としない）",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "水道・下水道・ガス管の設置は道路占用許可が必要",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "電柱・電線・公衆電話の設置は占用許可が必要",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "高架下の事務所・店舗等は占用許可が必要",
+          "correct": false
+        }
+      ],
+      "pointText": "道路管理者自身の維持修繕用機械置場の道路に「接した」設置は道路占用許可の対象外 （許可を必要としない）",
+      "qNum": 2,
+      "totalQ": 4,
+      "pageIndex": 5,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "車両の最高限度に関する次の記述のうち，車両制限令上，",
+        "誤っているものはどれか。",
+        "",
+        "ただし，高速自動車国道又は道路管理者が指定する道路を",
+        "通行するセミトレーラ連結車又はフルトレーラ連結車，及",
+        "び道路管理者が国際海上コンテナの運搬用のセミトレーラ",
+        "連結車の運行に支障がないと認めて指定した道路を通行す",
+        "る車両を除くものとする。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "車両の最小回転半径の最高限度は，車両の最外側のわだちについて12mである。"
+        },
+        {
+          "num": 2,
+          "text": "車両の長さの最高限度は，15mである。"
+        },
+        {
+          "num": 3,
+          "text": "車両の軸重の最高限度は，10tである。"
+        },
+        {
+          "num": 4,
+          "text": "車両の幅の最高限度は，2.5mである。"
+        }
+      ],
+      "topic": "令和4年度後期",
+      "qNum": 3,
+      "totalQ": 4,
+      "pageIndex": 6,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 2,
+      "correctText": "車両の最高限度",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "最小回転半径の最高限度は12mで正しい",
+          "correct": false
+        },
+        {
+          "num": 2,
+          "text": "車両の長さの最高限度は12mであり，15mとした記述は誤り",
+          "correct": true
+        },
+        {
+          "num": 3,
+          "text": "軸重の最高限度は10tで正しい",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "車両の幅の最高限度は2.5mで正しい <ExamPoint>車両の長さの最高限度は12m（幅2.5m・高さ3.8m・軸重10t）</ExamPoint>",
+          "correct": false
+        }
+      ],
+      "pointText": "車両の長さの最高限度は12mであり，15mとした記述は誤り",
+      "qNum": 3,
+      "totalQ": 4,
+      "pageIndex": 7,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "道路法令上，道路占用者が道路を掘削する場合に用いては",
+        "ならない方法は，次のうちどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "えぐり掘"
+        },
+        {
+          "num": 2,
+          "text": "溝掘"
+        },
+        {
+          "num": 3,
+          "text": "つぼ掘"
+        },
+        {
+          "num": 4,
+          "text": "推進工法"
+        }
+      ],
+      "topic": "令和3年度後期",
+      "qNum": 4,
+      "totalQ": 4,
+      "pageIndex": 8,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 1,
+      "correctText": "道路法令上，道路占用者が道路を掘削す",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "えぐり掘は道路の安定を損なうため用いてはならず該当",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "溝掘は認められる掘削方法で誤り",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "つぼ掘は認められる掘削方法で誤り",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "推進工法は認められる施工方法で誤り <ExamPoint>道路の掘削でえぐり掘は禁止（溝掘・つぼ掘・推進は可）</ExamPoint>",
+          "correct": false
+        }
+      ],
+      "pointText": "えぐり掘は道路の安定を損なうため用いてはならず該当",
+      "qNum": 4,
+      "totalQ": 4,
+      "pageIndex": 9,
+      "totalPages": 10
+    },
+    {
+      "type": "cta",
+      "pageIndex": 10,
+      "totalPages": 10
+    }
+  ]
+}

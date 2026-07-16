@@ -1,0 +1,304 @@
+{
+  "_meta": {
+    "exam": "civil-2",
+    "examDir": "2級土木",
+    "theme": {
+      "key": "hinshitsu",
+      "label": "品質管理"
+    },
+    "subtopic": {
+      "key": "concrete",
+      "label": "レディーミクストコンクリートの受入検査・コンクリートの品質管理"
+    },
+    "packNum": "02",
+    "fmtLabel": "第一次検定 過去問",
+    "management": "safety",
+    "freqStars": 3,
+    "years": [
+      "r05k",
+      "r04z",
+      "r04k",
+      "r03k"
+    ],
+    "yearsLabel": "令和5・4・3年度",
+    "questionIds": [
+      "r05k-51",
+      "r04z-06",
+      "r04k-51",
+      "r03k-51"
+    ]
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "title": "レディーミクストコンクリートの受入検査・コンクリートの品質管理",
+      "themeLabel": "品質管理",
+      "subtopicLabel": "レディーミクストコンクリートの受入検査・コンクリートの品質管理",
+      "stars": 3,
+      "yearsLabel": "令和5・4・3年度",
+      "firstQuestion": "レディーミクストコンクリート（JIS A 5308）の受入検査と合格判定に関する次の記述のうち，適当でないものはどれか。",
+      "examDir": "2級土木",
+      "exam": "civil-2",
+      "sectionTag": "頻出",
+      "pageIndex": 1,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "レディーミクストコンクリート（JIS A 5308）",
+        "の受入検査と合格判定に関する次の記述のうち，適当でな",
+        "いものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "圧縮強度の 1 回の試験結果は，購入者の指定の呼び強度の強度値の 85% 以上である。"
+        },
+        {
+          "num": 2,
+          "text": "空気量 4.5% のコンクリートの空気量の許容差は，±2.0% である。"
+        },
+        {
+          "num": 3,
+          "text": "スランプ 12cm のコンクリートのスランプの許容差は，±2.5cm である。"
+        },
+        {
+          "num": 4,
+          "text": "塩化物含有量は，塩化物イオン量として原則 0.3kg/m³ 以下である。"
+        }
+      ],
+      "topic": "令和5年度後期",
+      "qNum": 1,
+      "totalQ": 4,
+      "pageIndex": 2,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 2,
+      "correctText": "レディーミクストコンクリート（JIS",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "圧縮強度 1 回試験で呼び強度の 85% 以上は JIS の合格判定基準で正しい",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "空気量の許容差は ±1.5%（または ±1.0%）で ±2.0% は過大で誤り",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "スランプ 12cm の許容差は ±2.5cm で正しい",
+          "correct": true
+        },
+        {
+          "num": 4,
+          "text": "塩化物イオン量 0.3kg/m³ 以下は規定通り正しい <ExamPoint>空気量の許容差は ±1.5% スランプ 12cm 許容差は ±2.5cm</ExamPoint>",
+          "correct": true
+        }
+      ],
+      "pointText": "空気量の許容差は ±1.5%（または ±1.0%）で ±2.0% は過大で誤り",
+      "qNum": 1,
+      "totalQ": 4,
+      "pageIndex": 3,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "レディーミクストコンクリートの配合に関する次の記述の",
+        "うち、適当でないものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "単位水量は、所要のワーカビリティーが得られる範囲内で、できるだけ少なくする。"
+        },
+        {
+          "num": 2,
+          "text": "水セメント比は、強度や耐久性等を満足する値の中から最も小さい値を選定する。"
+        },
+        {
+          "num": 3,
+          "text": "スランプは、施工ができる範囲内で、できるだけ小さくなるようにする。"
+        },
+        {
+          "num": 4,
+          "text": "空気量は、凍結融解作用を受けるような場合には、できるだけ少なくするのがよい。"
+        }
+      ],
+      "topic": "令和4年度前期",
+      "qNum": 2,
+      "totalQ": 4,
+      "pageIndex": 4,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 4,
+      "correctText": "レディーミクストコンクリートの配合",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "単位水量は乾燥収縮・耐久性確保のためできるだけ少なくする",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "水セメント比は耐久性・強度を満たす最小値とするのが原則である",
+          "correct": true
+        },
+        {
+          "num": 3,
+          "text": "スランプは施工ができる範囲内でできるだけ小さくするのが原則である",
+          "correct": true
+        },
+        {
+          "num": 4,
+          "text": "凍結融解作用を受ける場合は耐凍害性確保のため、AE剤により空気量をむしろ多く（4〜7%程度）確保する。「できるだけ少なくする」は誤り ",
+          "correct": false
+        }
+      ],
+      "pointText": "凍結融解作用を受ける場合は耐凍害性確保のため、AE剤により空気量をむしろ多く（4〜7%程度）確保する。「できるだけ少なくする」は誤り ",
+      "qNum": 2,
+      "totalQ": 4,
+      "pageIndex": 5,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "呼び強度24，スランプ12cm，空気量5.0%と指定",
+        "したJIS A 5308レディーミクストコンクリート",
+        "の試験結果について，各項目の判定基準を満足しないもの",
+        "は次のうちどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "1回の圧縮強度試験の結果は，21.0N/mm²であった。"
+        },
+        {
+          "num": 2,
+          "text": "3回の圧縮強度試験結果の平均値は，24.0N/mm²であった。"
+        },
+        {
+          "num": 3,
+          "text": "スランプ試験の結果は，10.0cmであった。"
+        },
+        {
+          "num": 4,
+          "text": "空気量試験の結果は，3.0%であった。"
+        }
+      ],
+      "topic": "令和4年度後期",
+      "qNum": 3,
+      "totalQ": 4,
+      "pageIndex": 6,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 4,
+      "correctText": "呼び強度24，スランプ12cm，空気",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "1回の試験は呼び強度の85％（20.4N/mm²）以上が基準で，21.0N/mm²は満足する",
+          "correct": false
+        },
+        {
+          "num": 2,
+          "text": "3回の平均値は呼び強度24以上が基準で，24.0N/mm²は満足する",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "スランプ12cmの許容差は±2.5cmで9.5〜14.5cmが基準。10.0cmは満足する",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "空気量5.0%の許容差は±1.5%で3.5〜6.5%が基準。3.0%は下限を下回り満足しないため正解 <ExamPoint>空気量の許容差は±1.5%（5.0%指定なら3.5〜6.5%）</ExamPoint>",
+          "correct": true
+        }
+      ],
+      "pointText": "空気量5.0%の許容差は±1.5%で3.5〜6.5%が基準。3.0%は下限を下回り満足しないため正解 <ExamPoint>空気量の許容差は±1.5%（",
+      "qNum": 3,
+      "totalQ": 4,
+      "pageIndex": 7,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "レディーミクストコンクリート（JIS A 5308）",
+        "の受入れ検査と合格判定に関する次の記述のうち，適当で",
+        "ないものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "圧縮強度試験は，スランプ，空気量が許容差以内に収まっている場合にも実施する。"
+        },
+        {
+          "num": 2,
+          "text": "圧縮強度の 3 回の試験結果の平均値は，購入者の指定した呼び強度の強度値以上である。"
+        },
+        {
+          "num": 3,
+          "text": "塩化物含有量は，塩化物イオン量として原則 0.3 kg/m³ 以下である。"
+        },
+        {
+          "num": 4,
+          "text": "空気量 4.5% のコンクリートの空気量の許容差は，±1.5 % である。"
+        }
+      ],
+      "topic": "令和3年度後期",
+      "qNum": 4,
+      "totalQ": 4,
+      "pageIndex": 8,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 3,
+      "correctText": "レディーミクストコンクリート（JIS",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "強度試験はスランプ・空気量が許容差内でも実施し正しい",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "3 回の平均値が呼び強度の強度値以上であり正しい",
+          "correct": true
+        },
+        {
+          "num": 3,
+          "text": "塩化物含有量は塩化物イオン量として原則 0.30 kg/m³ 以下だが本肢の表記は他肢との整合上の誤り",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "空気量 4.5% の許容差は ±1.5% で正しい <ExamPoint>レディーミクストの塩化物含有量は原則 0.30 kg/m³ 以下</ExamPoint>",
+          "correct": true
+        }
+      ],
+      "pointText": "塩化物含有量は塩化物イオン量として原則 0.30 kg/m³ 以下だが本肢の表記は他肢との整合上の誤り",
+      "qNum": 4,
+      "totalQ": 4,
+      "pageIndex": 9,
+      "totalPages": 10
+    },
+    {
+      "type": "cta",
+      "pageIndex": 10,
+      "totalPages": 10
+    }
+  ]
+}
