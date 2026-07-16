@@ -21,6 +21,7 @@
 
 import { readFileSync, mkdirSync, writeFileSync } from 'node:fs'
 import { join, resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { writeEpub, xhtmlDoc, xesc, xinline } from './lib/epub-writer.mjs'
 
 const REPO = resolve(import.meta.dirname, '..')
@@ -63,7 +64,9 @@ const DISCLAIMER =
 // 場合、選択肢や空欄前後の説明文が body に直接埋め込まれるため、body 全体を
 // 判定対象にすると無関係な語が拾われる（例: 原価管理の設問文中に「品質・
 // 工程・安全・環境」という語句が出るだけで安全管理に誤分類される）。
-const THEMES = {
+// THEMES は IG 論点パック生成（.claude/scripts/sns/generate-civil-theme-packs.mjs）からも
+// import される。Kindle A系ビルドと IG 論点分類で同一の論点定義・regex を単一源に保つ。
+export const THEMES = {
   anzen: {
     key: 'anzen',
     label: '安全管理',
@@ -338,7 +341,7 @@ const normalizeText = (s) =>
     .replace(/｜(　*\((?:イ|ロ|ハ|ニ)\)　*)｜/g, '［$1］')
     .replace(/｜　+｜/g, '［　　］')
 
-const normalizeQuestion = (q) => ({
+export const normalizeQuestion = (q) => ({
   ...q,
   body: normalizeText(q.body),
   options: (q.options || []).map((o) => ({ ...o, text: normalizeText(o.text) })),
@@ -349,22 +352,31 @@ const normalizeQuestion = (q) => ({
 // 設問は選択肢や空欄前後の説明文が body に直接埋め込まれるため、
 // include/exclude/subtopics の判定はすべてこの lead に対して行う
 // （body 全体を対象にすると無関係な語で他分野の設問を拾ってしまう）。
-const lead = (body) => (body || '').split('\n')[0]
+export const lead = (body) => (body || '').split('\n')[0]
 
 // 図版に依存する設問（画像なしでは成立しない）を検出
-const FIGURE_RE = /下図|次図|次の図|下記の図|上図|図のように|図に示す|右図|左図|<img[\s>]/
+export const FIGURE_RE = /下図|次図|次の図|下記の図|上図|図のように|図に示す|右図|左図|<img[\s>]/
 
 // 正規化（重複検出・論点まとめの dedupe 用）
-const norm = (s) =>
+export const norm = (s) =>
   (s || '')
     .replace(/\s+/g, '')
     .replace(/[，、．。･・()（）「」『』【】［］\[\]"'`*＊]/g, '')
     .replace(/[0-9０-９]+/g, '#')
 
-function assignSubtopic(theme, q) {
+export function assignSubtopic(theme, q) {
   const hay = lead(q.body)
   for (const st of theme.subtopics) if (st.re.test(hay)) return st.key
   return theme.subtopics[theme.subtopics.length - 1].key
+}
+
+// テーマ候補判定（Kindle と同一: parts フィルタ + include/exclude on lead）
+// parts フィルタは問題A/B を持つ 1級のみ有効。part を持たない 2級は parts をスキップ
+// （2級は前期/後期の単一区分で A/B の概念がないため）。
+export function matchesTheme(theme, q) {
+  if (theme.parts && q.part && !theme.parts.includes(q.part)) return false
+  const head = lead(q.body)
+  return theme.include.test(head) && !(theme.exclude && theme.exclude.test(head))
 }
 
 // 論点まとめ: ○解説（正しい知識）を集約し、近重複を圧縮して箇条書き化
@@ -846,11 +858,7 @@ async function buildGoubon(args) {
     const data = JSON.parse(readFileSync(resolve(REPO, theme.src), 'utf8'))
     const all = []
     for (const y of data.years) for (const q of y.questions) all.push(normalizeQuestion({ ...q, year: y.year }))
-    const questions = all.filter((q) => {
-      if (theme.parts && !theme.parts.includes(q.part)) return false
-      const head = lead(q.body)
-      return theme.include.test(head) && !(theme.exclude && theme.exclude.test(head))
-    })
+    const questions = all.filter((q) => matchesTheme(theme, q))
     models.push(buildModel(theme, questions))
   }
   const epub = renderGoubonEpub(models, outDir)
@@ -871,11 +879,7 @@ async function main() {
   const data = JSON.parse(readFileSync(resolve(REPO, theme.src), 'utf8'))
   const all = []
   for (const y of data.years) for (const q of y.questions) all.push(normalizeQuestion({ ...q, year: y.year }))
-  const questions = all.filter((q) => {
-    if (theme.parts && !theme.parts.includes(q.part)) return false
-    const head = lead(q.body)
-    return theme.include.test(head) && !(theme.exclude && theme.exclude.test(head))
-  })
+  const questions = all.filter((q) => matchesTheme(theme, q))
 
   const outDir = resolve(REPO, args.outDir || `.tmp/takuitsu-${theme.key}`)
   mkdirSync(outDir, { recursive: true })
@@ -903,7 +907,11 @@ async function main() {
   for (const o of outs) console.log(`  - ${o}`)
 }
 
-main().catch((e) => {
-  console.error('ERROR:', e.message)
-  process.exit(1)
-})
+// CLI 実行時のみ build を走らせる（import されたときは THEMES 等の export だけ提供）
+const isMain = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)
+if (isMain) {
+  main().catch((e) => {
+    console.error('ERROR:', e.message)
+    process.exit(1)
+  })
+}
