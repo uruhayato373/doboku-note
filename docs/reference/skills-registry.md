@@ -19,7 +19,7 @@ title: スキル ガバナンス記録
 .claude/skills/
 ├── authoring/       # 11 — 記事を作る
 ├── conversion/      # 6 — 形式変換（MDX / OGP 画像 / 紙用 PDF / Kindle EPUB）＋ OGP 意匠の素案試作
-├── quality/         # 15 — MDX・note 公開前品質検査
+├── quality/         # 16 — MDX・note 公開前品質検査
 ├── management/      # 15 — 計画・分析・戦略
 ├── dev/             # 13 — 開発・CI/CD
 ├── analytics/       # 2 — サイト分析
@@ -28,7 +28,9 @@ title: スキル ガバナンス記録
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **86 スキル**（9 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+合計 **87 スキル**（9 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+
+> 2026-07-16 新設（顧客答案の添削パイプライン）: `quality/keiken-tensaku`（1級・2級土木 施工経験記述の**顧客提出原稿**〔合格ラボ添削層会員／ココナラ購入者〕から添削返却ドラフトを生成する統括・user-invocable）＋ **新エージェント `civil-keiken-tensaku-drafter`（Generator・sonnet）**＝添削テンプレ3ステップのうち字数判定・6軸論点抽出・チェックリスト事前判定・NG→OK赤入れ案・採点者視点一言案までを自動化し、運営者を「取捨選択＋トーン調整（目標10分/本）」に圧縮。代筆禁止（Red Line #2）＝原文の事実の範囲での書き換え提案のみ。自社マガジン答案を採点する `civil-keiken-essay-qa` とは対象が異なる（あちらは自社商品・こちらは顧客答案）。添削実測ゲート（noteコンテンツ計画 §5.1）とココナラ出品（`docs/note/1級・2級土木/ココナラ展開キット.md`）の両方で使う。合計 `86→87`・quality `15→16`・agents `66→67`。
 
 > 2026-07-11 改定（handoff ライフサイクル＝archive 廃止）: `dev/doc-declutter`＋`doc-curator` の処分体系から **ARCHIVE を廃止し KEEP/TRIM/DELETE/CONSOLIDATE の4分類へ**（handoff の既定処分は「タスク→backlog・手順→reference・知見→memory へ抽出→本体 `git rm`」＝記録は git 履歴）。`docs/handoffs/_archive/` 77本を削除（ユーザー決定）。`check-doc-refs` に `docs/handoffs/**` の参照先除外を追加（point-in-time 記録＝削除済みでも出典引用は正当）。2026-06-17 追加エントリ（下記）の安全則②③「退避≠削除・_archive パス張り替え」は本改定で失効。真実源 `docs/reference/information-architecture.md`「handoff のライフサイクル」。スキル/エージェント件数は不変。
 > 2026-07-08 新設（図品質・再クロップ）: `quality/figure-recrop`（既存の記事図クロップを**タイト再クロップ**して写り込み〔答え漏らし/本文/問題文〕を除く user-invocable オーケストレータ）。機械化ヘルパ `scripts/figure-recrop.mjs`（切り位置指定→crop+`-trim`外周整形+webp再生成+MDXの width/height 更新+OCR残存報告を1発）。対象選定は provenance の needs=recrop、視覚で切り位置決定（自動OCR帯検出は凡例を切りすぎるため不使用）。**civil-figure-rework とは別物**＝あちらは問題PDFから抽出だが過去問PDFは図なしテキスト版で不成立。画質不足(ボケ)は対象外＝再スキャン。真実源 `docs/reference/figure-provenance.md`。合計 `84→85`・quality `14→15`。[[project_civil1_figure_answer_leak]]
