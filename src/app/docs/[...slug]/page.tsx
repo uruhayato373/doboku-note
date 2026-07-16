@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { getDoc, getAllDocSlugs, getDocsMetaByCategory, type DocMeta } from '@/lib/docs';
 import PageShell from '@/components/layout/PageShell';
+import TwoColumnShell from '@/components/layout/TwoColumnShell';
 import ArticleHeader from '@/components/ui/ArticleHeader/ArticleHeader';
 import { getAllComponents } from '@/lib/component-loader';
 import { getCategoryLabel } from '@/lib/categories';
@@ -398,13 +399,29 @@ export default async function DocPage({
       className="pb-16"
       beforeHeader={<StructuredData type="article" docMeta={doc.meta} />}
     >
-        {/* Editorial Container: max-width 1280px + responsive padding（モバイル ≤576px はカードフルブリードのため padding 0） */}
-        <div className="max-w-[1280px] mx-auto zenn-sp:px-[25px] zenn-tablet:px-10 flex gap-[32px] relative">
-
-          {/* Main Content Area */}
-          <main className="flex-1 min-w-0 py-10">
-            {/* Editorial article card: 12px radius, soft border + shadow。1280 化に伴い desktop は px-16 で本文行長を抑える */}
-            <article className="bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-section shadow-soft py-12 px-12 zenn-desktop:px-16 overflow-hidden transition-colors duration-300 max-zenn-sp:rounded-none max-zenn-sp:border-x-0 max-zenn-sp:py-[35px] max-zenn-sp:px-5 max-zenn-tiny:px-[14px]">
+        {/* 2カラムシェル（max-w-1280 / gap-10 / サイドバー w-72 の真実源）。gutter=flush-mobile で
+            ≤576px は外周 0（記事カードをフルブリードさせる）。サイドバーは aside prop へ集約。 */}
+        <TwoColumnShell
+          gutter="flush-mobile"
+          aside={
+            <ArticleSidebar
+              careerSidebarAd={careerSidebarAd}
+              sidebarMokuji={sidebarMokuji}
+              headings={headings}
+              category={category}
+              docGroup={docGroup}
+              slugStr={slugStr}
+              sectionStr={sectionStr}
+              categoryArticles={categoryArticles}
+              hasCategoryNavCard={hasCategoryNavCard}
+              showPillarNav={showPillarNav}
+            />
+          }
+        >
+            {/* Editorial article card: 12px radius, soft border + shadow。
+                横 padding = タブレット40(px-10) / デスクトップ44(zenn-desktop:px-11)。
+                ≤576px は角丸・左右枠を外し px = var(--article-gutter-sp)（設問カード details のフルブリード相殺と連動） */}
+            <article className="bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-section shadow-soft py-12 px-10 zenn-desktop:px-11 overflow-hidden transition-colors duration-300 max-zenn-sp:rounded-none max-zenn-sp:border-x-0 max-zenn-sp:py-[35px] max-zenn-sp:px-[var(--article-gutter-sp)]">
               {/* 記事ヘッダー: breadcrumb + H1 + description リード + byline を集約 */}
               <ArticleHeader
                 title={doc.meta.title}
@@ -456,21 +473,7 @@ export default async function DocPage({
               hasCategoryNavCard={hasCategoryNavCard}
               authorDates={authorDates}
             />
-          </main>
-
-          <ArticleSidebar
-            careerSidebarAd={careerSidebarAd}
-            sidebarMokuji={sidebarMokuji}
-            headings={headings}
-            category={category}
-            docGroup={docGroup}
-            slugStr={slugStr}
-            sectionStr={sectionStr}
-            categoryArticles={categoryArticles}
-            hasCategoryNavCard={hasCategoryNavCard}
-            showPillarNav={showPillarNav}
-          />
-        </div>
+        </TwoColumnShell>
     </PageShell>
   );
 }

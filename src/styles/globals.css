@@ -87,6 +87,11 @@
     --rule: #23252b;
     --rule-soft: #e7e9ef;
 
+    /* レイアウト変数（light/dark 共通・theme 非依存）。
+       ≤576px の記事カード横 gutter。記事カードの max-zenn-sp:px と、設問カード .prose-blog details の
+       フルブリード相殺（margin -X ＋ 内側 padding X）が同じ値を参照し、モバイルの単層 gutter を一元管理する。 */
+    --article-gutter-sp: 16px;
+
     /* 写真上のHero専用トークン。背景画像差し替え時の調整点をここに限定する。 */
     --hero-ink: #0f172a;
     --hero-ink-soft: #334155;
@@ -665,9 +670,20 @@
       margin-left: 0;
       margin-right: 0;
     }
+    /* 設問カード（details）はモバイルで真のフルブリード化。記事カードの横 padding（--article-gutter-sp）
+       を負マージンで相殺してカード端いっぱいに広げ、内側 padding を同値の単層にする。
+       旧: カード 16px + details 内 20px の二重（設問本文が端から 36px）→ 単層 16px。 */
     .prose-blog details {
-      margin-left: 0;
-      margin-right: 0;
+      margin-left: calc(-1 * var(--article-gutter-sp));
+      margin-right: calc(-1 * var(--article-gutter-sp));
+      border-left: 0;
+      border-right: 0;
+      border-radius: 0;
+    }
+    .prose-blog details > summary,
+    .prose-blog details > :not(summary):not([data-callout]):not([data-spec-sheet-list]) {
+      padding-left: var(--article-gutter-sp);
+      padding-right: var(--article-gutter-sp);
     }
   }
 }

@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { buildPageMetadata } from '@/lib/metadata';
 import PageShell from '@/components/layout/PageShell';
+import TwoColumnShell from '@/components/layout/TwoColumnShell';
 import { getAllCategories, getCategoryBySlug } from '@/lib/categories';
 import { getDocsMetaByCategory } from '@/lib/docs';
 import { groupDocs } from '@/lib/category-groups';
@@ -115,6 +116,20 @@ export default async function CategoryPage({
     </div>
   ));
 
+  // 右サイドバー（PC ≥993px・TwoColumnShell の aside prop へ渡す）。上から
+  // 転職アフィリ（SidebarAdBanner＝当ページ唯一のピクセル発火源・各プログラム 1 回ずつ）→
+  // 運営者プロフィール（E-E-A-T）→ note もくじ CTA（PC 唯一の note 面・utm -sb）→ 人気記事ランキング。
+  const categorySidebar = (
+    <div className="space-y-3">
+      {careerAds.map((ad, i) => (
+        <SidebarAdBanner key={ad.trackLabel + i} {...ad.creative} trackLabel={ad.trackLabel} />
+      ))}
+      <AuthorSidebarCard />
+      {hubCtaSidebar && <HubCtaBanner cta={hubCtaSidebar} />}
+      <PopularRanking items={popularDocs} />
+    </div>
+  );
+
   return (
     <PageShell variant="article">
         {/* カテゴリ本文 + 右サイドバー（PC ≥993px・常に 2 カラム）。サイドバーは上から
@@ -122,8 +137,7 @@ export default async function CategoryPage({
             人気記事 → note マガジン CTA を配置。note CTA はモバイルでは記事一覧の下に出す。
             カテゴリ見出しは全幅ヒーロー帯を廃し、左カラム上部にコンパクト配置（2026-06-26）。
             これにより右サイドバー（転職枠）がファーストビューへ繰り上がる。 */}
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 flex gap-8 relative">
-          <main className="flex-1 min-w-0 pt-8 sm:pt-10 pb-10">
+        <TwoColumnShell gutter="default" mainClassName="pt-8 sm:pt-10 pb-10" aside={categorySidebar}>
             {/* 左メインカラム全体を 1 枚の白カードに統一（グレー地に白サーフェス・角丸ゼロの
                 エディトリアル面）。見出し・人気記事・各セクションを同一カード内に載せ、内側は
                 リスト/テーブル/フラットタイルで構成してカード内カードを避ける（2026-07 A-1）。 */}
@@ -191,31 +205,7 @@ export default async function CategoryPage({
                 <HubCtaBanner cta={hubCtaMobile} />
               </div>
             )}
-          </main>
-
-          <aside className="hidden zenn-desktop:block w-[300px] shrink-0 py-10 sm:py-12">
-              {/* 2026-06-27 sticky 解除: 読中に広告/著者/ランキングを追従させない */}
-              <div className="space-y-3">
-                {/* 転職アフィリ（PC 右サイドバー最上部）。当ページのピクセル発火源（各プログラム 1 回ずつ）。
-                    civil/建設部門は 建設JOBs＋ビルドジョブ の両方を縦積み（show-both）、総監は DX 単独。
-                    creative は resolveCategoryCareerAds が解決（建設JOBs ＋ resolveCareerSidebarAd の期間出し分け）。 */}
-                {careerAds.map((ad, i) => (
-                  <SidebarAdBanner
-                    key={ad.trackLabel + i}
-                    {...ad.creative}
-                    trackLabel={ad.trackLabel}
-                  />
-                ))}
-                {/* 運営者プロフィール（合格体験者＝発注者）。転職枠の直下に置き E-E-A-T を提示（2026-06-26）。 */}
-                <AuthorSidebarCard />
-                {/* note もくじ CTA（PC はこのサイドバーが唯一の note 面）。著者カード直下に繰り上げて視認性を
-                    確保（旧: 人気記事の下＝最下部で埋もれていた。本文 CTA 撤去に合わせ 2026-07-06 移動）。utm -sb。 */}
-                {hubCtaSidebar && <HubCtaBanner cta={hubCtaSidebar} />}
-                {/* 人気記事ランキング（GA4 上位 top5・直近 28 日）。データ無しなら描画されない。 */}
-                <PopularRanking items={popularDocs} />
-              </div>
-            </aside>
-        </div>
+        </TwoColumnShell>
     </PageShell>
   );
 }
