@@ -13,7 +13,12 @@ const TABS: { href: string; label: string; match: string }[] = [
   { href: '/gallery/ogp', label: 'OGP', match: '/gallery/ogp' },
   { href: '/gallery/figures', label: '記事図版', match: '/gallery/figures' },
   { href: '/gallery/note', label: 'note画像', match: '/gallery/note' },
-  { href: '/gallery/sns', label: 'SNS', match: '/gallery/sns' },
+  { href: '/gallery/sns', label: 'SNS画像', match: '/gallery/sns' },
+  { href: '/sns', label: 'SNS状態', match: '/sns' },
+  { href: '/content/articles', label: '記事', match: '/content' },
+  { href: '/sales', label: '売上', match: '/sales' },
+  { href: '/quality', label: '品質', match: '/quality' },
+  { href: '/jobs', label: 'ジョブ', match: '/jobs' },
   { href: '/todo', label: 'TODO', match: '/todo' },
 ];
 
