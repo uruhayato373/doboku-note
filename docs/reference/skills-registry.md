@@ -20,7 +20,7 @@ title: スキル ガバナンス記録
 ├── authoring/       # 11 — 記事を作る
 ├── conversion/      # 6 — 形式変換（MDX / OGP 画像 / 紙用 PDF / Kindle EPUB）＋ OGP 意匠の素案試作
 ├── quality/         # 16 — MDX・note 公開前品質検査
-├── management/      # 15 — 計画・分析・戦略
+├── management/      # 17 — 計画・分析・戦略
 ├── dev/             # 13 — 開発・CI/CD
 ├── analytics/       # 2 — サイト分析
 ├── social/          # 22 — SNS 投稿
@@ -28,7 +28,9 @@ title: スキル ガバナンス記録
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **87 スキル**（9 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+合計 **89 スキル**（9 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+
+> 2026-07-16 新設（ココナラ・チャネル管理体系）: `management/coconala-order`（受注1件のE2E＝ヒアリングシート検証→`/keiken-tensaku` で添削下書き→納品文面ドラフト→orders-log 追記）＋`management/coconala-status`（read-only 照合＝KPI 手動貼付を kpi-log へ週次正規化・カタログ↔state↔sales 突合・撤退ライン判定）＋ **新エージェント `coconala-operator`（Generator/オーケストレーター・sonnet）**。あわせて **カタログ SoT `src/lib/coconala-services.ts`**（note-magazines.ts 同型・`status:'listed'` で /links 導線が自動発火する wire-ahead）・`.claude/config/coconala-account.json`・`.claude/state/coconala/{orders,kpi}-log.json`・**機械ガード `scripts/check-coconala-wiring.mjs`**（pre-commit `--staged`・listed の serviceUrl 必須／未知 serviceId／priceYen 不一致／sales-log の `coconala:*` 実在／account profileUrl を検査）を新設。売上は `coconala:<serviceId>` 接頭辞で sales-log に統合（`channel` フィールドは新設せず既存流儀に同型）。**ココナラ UI の自動操作はしない**（規約・bot 検知）＝文面生成と記録まで・送信はユーザー。運用 SSOT は `docs/reference/coconala-operations.md`、戦略・出品文面は `docs/note/1級・2級土木/ココナラ展開キット.md`。合計 `87→89`・management `15→17`・agents `67→68`。
 
 > 2026-07-16 新設（顧客答案の添削パイプライン）: `quality/keiken-tensaku`（1級・2級土木 施工経験記述の**顧客提出原稿**〔合格ラボ添削層会員／ココナラ購入者〕から添削返却ドラフトを生成する統括・user-invocable）＋ **新エージェント `civil-keiken-tensaku-drafter`（Generator・sonnet）**＝添削テンプレ3ステップのうち字数判定・6軸論点抽出・チェックリスト事前判定・NG→OK赤入れ案・採点者視点一言案までを自動化し、運営者を「取捨選択＋トーン調整（目標10分/本）」に圧縮。代筆禁止（Red Line #2）＝原文の事実の範囲での書き換え提案のみ。自社マガジン答案を採点する `civil-keiken-essay-qa` とは対象が異なる（あちらは自社商品・こちらは顧客答案）。添削実測ゲート（noteコンテンツ計画 §5.1）とココナラ出品（`docs/note/1級・2級土木/ココナラ展開キット.md`）の両方で使う。合計 `86→87`・quality `15→16`・agents `66→67`。
 

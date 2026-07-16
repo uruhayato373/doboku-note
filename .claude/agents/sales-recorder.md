@@ -137,6 +137,22 @@ productId は `article:<slug>` 形式。slug は商品名から推定:
 
 **推定できない場合**: `article:unknown-{YYYYMMDD}-{index}` として記録し、後でユーザーが修正。
 
+### ココナラ（type: article・非 note チャネル・2026-07-16〜）
+
+productId は `coconala:<serviceId>` 形式（接頭辞でチャネル判別＝`channel` フィールドは持たない）。
+
+> **入力ソースが note と異なる**: note ダッシュボードの貼付ではなく、`.claude/state/coconala/orders-log.json`
+> （`/coconala-order` が受注時に追記）から**月次で転記**する。`status: 'closed'`（または `delivered`）の
+> レコードだけを sales-log へ移し、`price` は orders-log の `priceYen`（手数料差引前）をそのまま使う。
+
+| 商品名パターン / orders-log の serviceId | productId |
+|---|---|
+| `経験記述 合格診断` / serviceId `coconala-shindan`（¥1,500） | `coconala:coconala-shindan` |
+| `経験記述 添削（2テーマセット）` / serviceId `coconala-tensaku-set`（¥8,000） | `coconala:coconala-tensaku-set` |
+| （新サービス追加時） | `coconala:<src/lib/coconala-services.ts の id と完全一致>` |
+
+id の実在は `npm run check-coconala-wiring` が pre-commit で機械検証する（カタログに無い `coconala:*` は commit を止める）。命名規則 → `docs/reference/sales-tracking.md`、運用 SSOT → `docs/reference/coconala-operations.md`
+
 ## 重複チェック
 
 同一日・同一商品・同一価格の組み合わせで重複を判定。
