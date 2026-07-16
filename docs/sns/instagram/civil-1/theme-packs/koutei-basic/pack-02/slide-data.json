@@ -16,12 +16,10 @@
     "freqStars": 2,
     "years": [
       "h29",
-      "h29",
       "h27"
     ],
     "yearsLabel": "平成29・平成27年度",
     "questionIds": [
-      "h29-b-10",
       "h29-b-11",
       "h27-b-11"
     ]
@@ -34,74 +32,12 @@
       "subtopicLabel": "工程管理の基本・日程計画・品質工程原価",
       "stars": 2,
       "yearsLabel": "平成29・平成27年度",
-      "firstQuestion": "工程管理に関する次の記述のうち，適当でないものはどれか。",
+      "firstQuestion": "工程管理における日程計画に関する次の記述のうち，適当でないものはどれか。",
       "examDir": "1級土木",
       "exam": "civil-1",
       "sectionTag": "頻出",
       "pageIndex": 1,
-      "totalPages": 8
-    },
-    {
-      "type": "problem",
-      "bodyLines": [
-        "工程管理に関する次の記述のうち，適当でないものはどれ",
-        "か。"
-      ],
-      "options": [
-        {
-          "num": 1,
-          "text": "工程表を作成するにあたっては，工種分類に基づき，基本管理項目である工事項目（部分工事）について，施工手順を決める。"
-        },
-        {
-          "num": 2,
-          "text": "工程表の作成では，各工種別工事項目の適切な施工期間を決める。"
-        },
-        {
-          "num": 3,
-          "text": "全工期を通じて，労務，資材，機械の必要数を均し，過度の集中や待ち時間が発生しないように工程を調整する。"
-        },
-        {
-          "num": 4,
-          "text": "工程管理曲線において望ましい工程計画は，全工期に対して工期と出来高の関係が初期から終期まで一定の割合で進む直線的な曲線である。"
-        }
-      ],
-      "topic": "平成29年度",
-      "qNum": 1,
-      "totalQ": 3,
-      "pageIndex": 2,
-      "totalPages": 8
-    },
-    {
-      "type": "answer",
-      "correctNum": 4,
-      "correctText": "工程管理",
-      "optionExplanations": [
-        {
-          "num": 1,
-          "text": "記述は適当である",
-          "correct": true
-        },
-        {
-          "num": 2,
-          "text": "記述は適当である",
-          "correct": true
-        },
-        {
-          "num": 3,
-          "text": "記述は適当である",
-          "correct": true
-        },
-        {
-          "num": 4,
-          "text": "工事の円滑な進行を示すための工程計画においては，全工期に対して工期と出来高の関係が初期→中期→終期に緩→急→緩となるような工程管理曲線が望ましい",
-          "correct": false
-        }
-      ],
-      "pointText": "工事の円滑な進行を示すための工程計画においては，全工期に対して工期と出来高の関係が初期→中期→終期に緩→急→緩となるような工程管理曲線が望ましい",
-      "qNum": 1,
-      "totalQ": 3,
-      "pageIndex": 3,
-      "totalPages": 8
+      "totalPages": 6
     },
     {
       "type": "problem",
@@ -128,10 +64,10 @@
         }
       ],
       "topic": "平成29年度",
-      "qNum": 2,
-      "totalQ": 3,
-      "pageIndex": 4,
-      "totalPages": 8
+      "qNum": 1,
+      "totalQ": 2,
+      "pageIndex": 2,
+      "totalPages": 6
     },
     {
       "type": "answer",
@@ -160,10 +96,10 @@
         }
       ],
       "pointText": "作業可能日数の算出方法と所要作業日数の算出方法を混同している",
-      "qNum": 2,
-      "totalQ": 3,
-      "pageIndex": 5,
-      "totalPages": 8
+      "qNum": 1,
+      "totalQ": 2,
+      "pageIndex": 3,
+      "totalPages": 6
     },
     {
       "type": "problem",
@@ -190,10 +126,10 @@
         }
       ],
       "topic": "平成27年度",
-      "qNum": 3,
-      "totalQ": 3,
-      "pageIndex": 6,
-      "totalPages": 8
+      "qNum": 2,
+      "totalQ": 2,
+      "pageIndex": 4,
+      "totalPages": 6
     },
     {
       "type": "answer",
@@ -222,15 +158,15 @@
         }
       ],
       "pointText": "品質と工程の関係は，品質のよいものは時間がかかり，施工を速めて突貫作業をすると品質は悪くなる",
-      "qNum": 3,
-      "totalQ": 3,
-      "pageIndex": 7,
-      "totalPages": 8
+      "qNum": 2,
+      "totalQ": 2,
+      "pageIndex": 5,
+      "totalPages": 6
     },
     {
       "type": "cta",
-      "pageIndex": 8,
-      "totalPages": 8
+      "pageIndex": 6,
+      "totalPages": 6
     }
   ]
 }

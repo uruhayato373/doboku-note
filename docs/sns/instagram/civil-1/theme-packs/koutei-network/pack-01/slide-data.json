@@ -15,13 +15,11 @@
     "management": "safety",
     "freqStars": 1,
     "years": [
-      "r07",
       "h29",
       "h26"
     ],
-    "yearsLabel": "令和7・平成29・平成26年度",
+    "yearsLabel": "平成29・平成26年度",
     "questionIds": [
-      "r07-b-25",
       "h29-b-13",
       "h26-b-10"
     ]
@@ -33,93 +31,13 @@
       "themeLabel": "工程管理",
       "subtopicLabel": "ネットワーク式工程表・クリティカルパス",
       "stars": 1,
-      "yearsLabel": "令和7・平成29・平成26年度",
-      "firstQuestion": "ネットワーク式工程表作成上の留意点と特徴に関する下記の①〜④の記述のうち，適当なものの数は次のうちどれか。",
+      "yearsLabel": "平成29・平成26年度",
+      "firstQuestion": "ネットワーク式工程表に関する次の記述のうち，適当でないものはどれか。",
       "examDir": "1級土木",
       "exam": "civil-1",
       "sectionTag": "頻出",
       "pageIndex": 1,
-      "totalPages": 8
-    },
-    {
-      "type": "problem",
-      "bodyLines": [
-        "ネットワーク式工程表作成上の留意点と特徴に関する下記",
-        "の①〜④の記述のうち，適当なものの数は次のうちどれか。",
-        "",
-        "",
-        "① 工事を独立した作業（アクティビティ）に分類し，こ",
-        "れら各作業を施工順序に従って矢線（アロー）の形で，左",
-        "から右に向けて結び，工事全体を網状の矢線図（ネットワ",
-        "ーク）で表す。",
-        "",
-        "② 作業と作業の結合点及びその作業の開始，終了を示す",
-        "ものとしてマル（○）をつけイベントと呼び，○の中には",
-        "正整数を記入し，これをイベント番号という。",
-        "",
-        "③ ネットワーク手法には，日程，配員，費用の計画を行",
-        "うPERT系と，時間を費用との関連で捉えて工期短縮と",
-        "費用の増加の関係を見ながら，最適な工期と費用を設定す",
-        "るCPMがある。",
-        "",
-        "④ ダミーとは所要時間を持たない擬似作業で，アクティ",
-        "ビティ相互の関係を示すために使われるものである。"
-      ],
-      "options": [
-        {
-          "num": 1,
-          "text": "1つ"
-        },
-        {
-          "num": 2,
-          "text": "2つ"
-        },
-        {
-          "num": 3,
-          "text": "3つ"
-        },
-        {
-          "num": 4,
-          "text": "4つ"
-        }
-      ],
-      "topic": "令和7年度",
-      "qNum": 1,
-      "totalQ": 3,
-      "pageIndex": 2,
-      "totalPages": 8
-    },
-    {
-      "type": "answer",
-      "correctNum": 4,
-      "correctText": "ネットワーク式工程表作成上の留意点と特徴",
-      "optionExplanations": [
-        {
-          "num": 1,
-          "text": "アクティビティを矢線で左から右に結ぶネットワーク表現は正しい",
-          "correct": false
-        },
-        {
-          "num": 2,
-          "text": "イベント（○）と正整数のイベント番号の記述は正しい ",
-          "correct": false
-        },
-        {
-          "num": 3,
-          "text": "PERT系とCPMの説明は正しい ",
-          "correct": false
-        },
-        {
-          "num": 4,
-          "text": "ダミーは所要時間を持たない擬似作業の記述は正しい",
-          "correct": true
-        }
-      ],
-      "pointText": "ダミーは所要時間を持たない擬似作業の記述は正しい",
-      "qNum": 1,
-      "totalQ": 3,
-      "pageIndex": 3,
-      "totalPages": 8
+      "totalPages": 6
     },
     {
       "type": "problem",
@@ -146,10 +64,10 @@
         }
       ],
       "topic": "平成29年度",
-      "qNum": 2,
-      "totalQ": 3,
-      "pageIndex": 4,
-      "totalPages": 8
+      "qNum": 1,
+      "totalQ": 2,
+      "pageIndex": 2,
+      "totalPages": 6
     },
     {
       "type": "answer",
@@ -178,10 +96,10 @@
         }
       ],
       "pointText": "「完了を待たずに開始できる」という記述は誤りである ",
-      "qNum": 2,
-      "totalQ": 3,
-      "pageIndex": 5,
-      "totalPages": 8
+      "qNum": 1,
+      "totalQ": 2,
+      "pageIndex": 3,
+      "totalPages": 6
     },
     {
       "type": "problem",
@@ -208,10 +126,10 @@
         }
       ],
       "topic": "平成26年度",
-      "qNum": 3,
-      "totalQ": 3,
-      "pageIndex": 6,
-      "totalPages": 8
+      "qNum": 2,
+      "totalQ": 2,
+      "pageIndex": 4,
+      "totalPages": 6
     },
     {
       "type": "answer",
@@ -240,15 +158,15 @@
         }
       ],
       "pointText": "設問の「任意のある作業のイベントから開始すべき時刻と完了すべき時刻の差」は，余裕時間やフロートの概念であり，アクティビティの定義ではない",
-      "qNum": 3,
-      "totalQ": 3,
-      "pageIndex": 7,
-      "totalPages": 8
+      "qNum": 2,
+      "totalQ": 2,
+      "pageIndex": 5,
+      "totalPages": 6
     },
     {
       "type": "cta",
-      "pageIndex": 8,
-      "totalPages": 8
+      "pageIndex": 6,
+      "totalPages": 6
     }
   ]
 }
