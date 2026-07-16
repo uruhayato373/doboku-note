@@ -134,7 +134,8 @@
 
 | コンポーネント | 役割 | 主な API |
 |---|---|---|
-| `PageShell`（`layout/PageShell.tsx`） | 全ページの chrome（Header/main/Footer）を 1 箇所に集約 | `variant`: `default`（素の main・ページ側が PageHeader+SectionBlock を構成）/ `content`（内側 content rail を持つ単カラム）/ `article`（2カラム記事・docs/category が内側で grid 構成）。`rail`: `780`(既定)/`820`/`860`。`beforeHeader` |
+| `PageShell`（`layout/PageShell.tsx`） | 全ページの chrome（Header/main/Footer）を 1 箇所に集約 | `variant`: `default`（素の main・ページ側が PageHeader+SectionBlock を構成）/ `content`（内側 content rail を持つ単カラム）/ `article`（2カラム記事・内側で `TwoColumnShell` を使う）。`rail`: `780`(既定)/`820`/`860`。`beforeHeader` |
+| `TwoColumnShell`（`layout/TwoColumnShell.tsx`） | **2カラム（本文＋右サイドバー）の単一定義**。docs 記事・category が共用（旧: 各ページが手書きコピペ）。外枠 `max-w-[1280px]`・カラム間 `gap-10`(40px)・サイドバー `w-72`(288px)・`zenn-desktop`(≥993px)でのみサイドバー表示——これらレイアウト値の**真実源はこのファイルのみ**（幅・gap・cap を変えるときはここだけ）。サイドバー中身は `aside` prop へ渡す（`<aside>` 要素・幅・表示制御はシェルが所有） | `gutter`: `flush-mobile`（docs・≤576px 外周0でカードフルブリード）/ `default`（category 等・`px-4 sm:px-6 lg:px-10`）。`mainClassName`(既定 `py-10`)。`aside` |
 | `PageHeader`（`layout/PageHeader.tsx`） | 下層ページの breadcrumb + eyebrow label + h1 + lead + meta + actions | `variant`: `band`(全幅帯)/`inline`(帯なし)。`titleSize`: `default`/`lg`。`width`: `wide`(既定)/`860`/`780`/`760` |
 | `SectionBlock`（`layout/SectionBlock.tsx`） | セクション間余白・band 背景を統一 | — |
 | `SectionCard`（`ui/SectionCard/`） | カード（radius/border/shadow を token に統一・カード内カード回避） | — |
@@ -156,11 +157,15 @@
 | 用途 | 基準 |
 |---|---|
 | Site shell（外枠） | `max-w-[1280px]` + `px-4 sm:px-6 lg:px-10` |
-| Article shell | `1280px` 寄せ（docs は 2 カラム） |
+| Article shell（2カラム） | `max-w-[1280px]` + カラム間 `gap-10`(40px)。真実源 = `TwoColumnShell` |
 | Content rail（読み幅） | `max-w-[780px]`〜`860px`（PageShell `rail`） |
-| Sidebar | `300px` |
+| Sidebar | `288px`（`w-72`・`TwoColumnShell` 所有・≥993px でのみ表示） |
+| 記事カード 横 padding | ≤576px `16px`（`--article-gutter-sp`）/ 577–992px `40px`（`px-10`）/ ≥993px `44px`（`zenn-desktop:px-11`） |
 
 単カラムページでも外枠は変えず、読み幅は内側 content rail で制御する。
+2カラム（docs/category）は必ず `TwoColumnShell` を使い、コンテナ・サイドバー幅・gap を手書きしない。
+モバイル（≤576px）は記事カードを外周0でフルブリードし、設問カード（`.prose-blog details`）は
+`--article-gutter-sp` を負マージンで相殺して真の全幅化＋内側同値 padding の単層にする（二重 padding 回避）。
 
 ### 3.3 Hero / PageHeader
 
@@ -199,7 +204,7 @@
 - **リンク**: `color: var(--accent)` + 半透明 accent アンダーライン（offset 4px、hover で濃く）。
 - **表**: soft border（`--rule-soft`）+ thead 背景 `--accent-fill` + th はモノスペース・大文字・11px・letter-spacing。`rounded-card-content`。最初列（ラベル列慣習）は `white-space: nowrap`。
 - **details / blockquote / code / pre**: editorial soft rule（`--rule-soft`）。インラインコードは `--accent-fill` 背景 + `--accent` 文字。
-- **モバイル（≤576px）**: 本文 16px、見出しは em 比例で縮小、table/blockquote/pre/details はフルブリード化（左右 margin 0）。
+- **モバイル（≤576px）**: 本文 16px、見出しは em 比例で縮小、table/blockquote/pre はフルブリード化（左右 margin 0）。details（設問カード）は `--article-gutter-sp` を負マージンで相殺して記事カード端まで真の全幅化＋内側同値 padding の単層構成（table 等の単純 margin 0 とは別メカニズム・詳細 → §3.2）。
 - **KaTeX**: 本文サイズに揃える（`.katex { font-size: inherit }`）。display 式は `--color-surface` 背景 + `overflow-x: auto`。長い式は横スクロール。
 
 ---

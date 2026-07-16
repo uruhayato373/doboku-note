@@ -56,7 +56,9 @@ export default function ArticleSidebar({
       ? docGroup === 'primary' || hasCategoryNavCard || showPillarNav
       : true;
   return (
-    <aside className="hidden zenn-desktop:block w-[300px] shrink-0 py-10">
+    // 根の <aside> 要素・幅（w-72）・表示制御（≥993px）・py-10 は TwoColumnShell が所有する。
+    // ここは中身のみを返す（aside 入れ子の意味論を回避）。
+    <>
       {/* ブロック1: 通常フロー（追従させない）——転職ピクセル・note・著者 */}
       {/* 転職アフィリを全 docs サイドバー最上部に常設（唯一のピクセル発火源・ファーストビュー）。 */}
       <div className="mb-3">
@@ -102,6 +104,6 @@ export default function ArticleSidebar({
           )}
         </div>
       )}
-    </aside>
+    </>
   );
 }

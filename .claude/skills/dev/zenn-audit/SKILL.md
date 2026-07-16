@@ -142,19 +142,22 @@ for m in re.finditer(r'@media[^{]+\{(?:[^{}]|\{[^{}]*\})*\}', css):
 
 複数ファイルから値を抜き取る:
 
-1. **`src/app/docs/[...slug]/page.tsx`** を Read:
+1. **`src/components/layout/TwoColumnShell.tsx`**（2カラムレイアウト値の真実源）を Read:
    - `max-w-\[(\d+)px\]` → コンテナ max-width
-   - `w-\[(\d+)px\]` on `<aside>` → サイドバー幅
-   - `gap-(\d+)` または `gap-\[(\d+)px\]` → ギャップ
-   - `hidden (xl|lg|md|zenn-\w+):block` → サイドバー可視化境界
-   - `<article>` の `rounded-`, `shadow-`, `p-`, `py-`, `px-`, `max-*:*` → カードデザイン
+   - `<aside>` の幅ユーティリティ（現行 `w-72`=288px） → サイドバー幅
+   - `gap-(\d+)` または `gap-\[(\d+)px\]`（現行 `gap-10`=40px） → カラム間ギャップ
+   - `zenn-desktop:block` → サイドバー可視化境界（≥993px）
+
+2. **`src/app/docs/[...slug]/page.tsx`** を Read:
+   - `<article>` の `rounded-`, `shadow-`, `py-`, `px-`, `zenn-desktop:px-`, `max-zenn-*:*` → カードデザイン（現行 `px-10` / `zenn-desktop:px-11` / `max-zenn-sp:px-[var(--article-gutter-sp)]`）
    - `pb-(\d+)` on `flex-grow` → ページ下部余白
 
-2. **`tailwind.config.js`** を Read:
+3. **`tailwind.config.js`** を Read:
    - `extend.screens` → Zenn ブレイクポイント確認（`zenn-tiny` 401, `zenn-sp` 577, `zenn-tablet` 769, `zenn-desktop` 993）
 
-3. **`src/styles/globals.css`** を Read:
+4. **`src/styles/globals.css`** を Read:
    - `.prose-blog h1` → `max-width` 値
+   - `--article-gutter-sp` → モバイル記事カード横 gutter（現行 16px・details のフルブリード相殺と連動）
 
 ### Step 6: レイアウト差分を分類
 
@@ -231,7 +234,7 @@ for m in re.finditer(r'@media[^{]+\{(?:[^{}]|\{[^{}]*\})*\}', css):
 
 ### ✅ Matches
 - container max-width: 1200px
-- sidebar width: 300px
+- sidebar width: 288px (w-72)
 - sidebar visibility: ≥993px (zenn-desktop)
 - gap: 30px
 - card border-radius: 4px
@@ -239,8 +242,7 @@ for m in re.finditer(r'@media[^{]+\{(?:[^{}]|\{[^{}]*\})*\}', css):
 - card shadow: none
 - card padding: py-10 px-10 (40px)
 - mobile full-bleed at ≤576px (max-zenn-sp)
-- mobile card padding: 35px vertical / 20px horizontal
-- tiny padding: 14px at ≤400px (max-zenn-tiny)
+- mobile card padding: 35px vertical / 16px horizontal (--article-gutter-sp, ≤576px 統一)
 - container responsive padding: 14/20/25/40px at Zenn breakpoints
 - H1 max-width: 780px
 - page bottom padding: pb-16 (64px ≒ 4rem)

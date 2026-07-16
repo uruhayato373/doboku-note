@@ -9,7 +9,7 @@
  * variant:
  * - `default` : 素の <main className="flex-grow">。ページ側が PageHeader(band) + SectionBlock を内側で構成する。
  * - `content` : <main> 自体に内側 content rail（max-w + 左右/上下 padding）を持たせる単一カラム用。
- * - `article` : コンテナを一切持たない <div>。docs/category が内側で 2カラム grid と自前 <main> を維持する。
+ * - `article` : コンテナを一切持たない <div>。docs/category は内側で TwoColumnShell（2カラム本文＋右サイドバー）を使う。
  *
  * not-found は Header/Footer を持たない設計のため、本シェルは使わない（意図的な例外）。
  */
