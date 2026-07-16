@@ -355,18 +355,26 @@
       "series": "D 技術士一次 科目別",
       "priceJpy": 490,
       "royalty": 0.7,
-      "status": "ready",
+      "status": "in_review",
+      "submittedDate": "2026-07-16",
+      "publishedDate": null,
       "builder": "scripts/build-pe1-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/d-03.json",
       "epub": "kindle-dist/d-03.epub",
       "cover": "kindle-dist/d-03.jpg",
       "kdpMemo": "scripts/kindle-published/KDP入力メモ_d-03.txt",
       "version": "1.0",
+      "notes": "2026-07-16 KDP 新規提出・レビュー中（ASIN 未表示）。LIVE 化後に asin/status=live/publishedDate を更新。",
       "versionHistory": [
         {
           "version": "1.0",
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-07-16",
+          "change": "KDP 新規提出・レビュー中"
         }
       ]
     },
