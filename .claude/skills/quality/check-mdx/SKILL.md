@@ -243,7 +243,7 @@ node .claude/skills/quality/check-mdx/scripts/rules/legal-citations/fix-legal-ci
 
 note.com 記事へのリンク（`note.com/dobokunote/n/`）は `<NoteLink>` コンポーネントに統一する規約（→ `docs/reference/content-authoring.md`「リンク系コンポーネントの使い分け」）。生 markdown リンク・`<Callout type="reference">` 内・`<LinkCard>` で note 記事リンクを書いている箇所を MEDIUM で検出する。
 
-- magazine リンク（`note.com/dobokunote/m/`）は `<MagazineInlineCard>` 担当のため対象外
+- magazine リンク（`note.com/dobokunote/m/`）は `<MagazineCard>`（SoT 解決・既定 hero）担当のため対象外
 - フェンスコードブロック内は対象外
 - 修正は Generator 側（`<NoteLink>` への置換）が行う。Evaluator は検出のみ
 

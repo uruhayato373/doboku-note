@@ -50,6 +50,7 @@ AIは「透過」「同一人物9体」を守れないため、**1ポーズ=1画
 | チャネル | 使い所 | 備考 |
 |---|---|---|
 | サイト | プロフィール画像・記事内吹き出し・アイキャッチ・FAQ | 吹き出しは表情系（smile/thinking/surprised）＋ gesture の explaining |
+| **サイト note CTA** | ヒーロー CTA バナー（`MagazineHeroCta`）の円形アバター | `npm run character-avatars` で `public/images/character/avatar-{pose}.webp` を派生。pose は商品ごとに `note-magazines.ts` の `ctaPose` で指定（pointing=論点提示／good-sign=完成・合格訴求／smile=伴走・入門） |
 | YouTube | チャンネルアイコン・サムネ・解説ナビ・Shorts 立ち絵・冒頭/締め | サムネは指差し系＋文字スペース確保 |
 | Instagram | カルーセル・まとめ・過去問解説・暗記ポイント | カルーセルは管理別色テーマと併用 |
 | **IG/YT リール** | 角度駆動リールにキャラを合成（登場演出） | beat（hook/point/cta）に応じ pose を選ぶ。詳細 → [ig-reels-policy.md](ig-reels-policy.md) §7 |
@@ -65,6 +66,10 @@ AIは「透過」「同一人物9体」を守れないため、**1ポーズ=1画
 | ポーズ一覧・分類・beat・file 配線（機械可読） | `.claude/config/character-poses.json` |
 | 保存場所・命名・生成/抽出手順・チャネル運用 | 本ドキュメント |
 | 透過抽出（追加ポーズ） | `scripts/character-extract.mjs`（`npm run character-extract`） |
+| 円形アイコン（紺グラデ背景・SNS プロフィール用マスター） | `scripts/generate-character-icons.mjs`（`npm run character-icons`）→ `icons/{pose}-{800,400,180}.png` |
+| サイト CTA 配信アバター（上記アイコンの派生） | `scripts/build-character-avatars.mjs`（`npm run character-avatars`）→ `public/images/character/avatar-{pose}.webp` |
+
+- 円の意匠（トリミング・紺グラデ）の真実源は `generate-character-icons.mjs` に一本化し、`build-character-avatars.mjs` は**サイズ/形式を落とす派生層**に徹する（意匠の二重管理を避ける）。新ポーズをサイト CTA で使うときは icons → avatars の順に実行して両方 commit。
 
 - **エージェントは作らない**: pose 選択・抽出はいずれも決定的処理（manifest 引き＋スクリプト）。[[mechanical-task-direct]] に従い、判断不要の処理をエージェントに委ねない。生成（ChatGPT）と切り抜き（magick/aidesigner）が成果物を作り、本 SSOT が配線する。
 - 採用品質の主観評価が要るとき（新ポーズが設定書 §11 の NG に触れないか等）のみ、人手 or 既存の画像系 Evaluator を都度使う。
