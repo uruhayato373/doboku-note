@@ -1445,8 +1445,8 @@
       "source_dir": "docs/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "ok",
-      "manualReason": "workflow判定=既にクリーン（親QA確認・写り込みなし）2026-07-09"
+      "needs": "rescan-need-source",
+      "manualReason": "下端切断で収縮限界/塑性限界/液性限界の名称ラベル＋範囲ブラケットが欠落。2026-07-09 QA が写り込みのみ見て切断を見落とし ok 誤記録→2026-07-16 是正。answer-booklet 版入手 or textbook 第1章から再抽出。"
     },
     "civil-construction-1/primary-r07-a/img/r07-a-fig-03": {
       "category": "civil-construction-1",

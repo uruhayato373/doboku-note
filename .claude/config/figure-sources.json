@@ -671,9 +671,9 @@
     },
     {
       "figure": "civil-construction-1/primary-r07-a/img/r07-a-fig-02",
-      "needs": "ok",
-      "reason": "workflow判定=既にクリーン（親QA確認・写り込みなし）2026-07-09",
-      "verified": "2026-07-09"
+      "needs": "rescan-need-source",
+      "reason": "下端切断でX軸下の収縮限界/塑性限界/液性限界の名称ラベル＋範囲ブラケットが欠落（コンシステンシー限界図）。2026-07-09 QA は写り込みのみ確認し切断を見落とし ok と誤記録。鮮明かつ写り込みなしのため機械 needs:ok・check-figure-crop も白枠付加済みで縁接触が消え検出不能（machine-blind）。answer-booklet 版が要入手、または textbook 第1章_土工.pdf の同等図から下端まで含めて再抽出。2026-07-16 目視確認。",
+      "verified": "2026-07-16"
     },
     {
       "figure": "civil-construction-1/primary-r06-a/img/r06-a-fig-02",
