@@ -13,7 +13,7 @@
  * スナップショットが無い/壊れている場合は空データを書いて exit 0（ビルドを止めない）。
  */
 import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, basename } from 'node:path';
 
 const GA4_DIR = join(process.cwd(), '.claude', 'state', 'metrics', 'ga4');
 const OUT = join(process.cwd(), 'src', 'config', 'popular-pages.json');
@@ -63,7 +63,7 @@ function build() {
 
   const out = {
     window: data.meta ? { start: data.meta.startDate ?? null, end: data.meta.endDate ?? null } : null,
-    generatedFrom: snapshot.split('/').pop(),
+    generatedFrom: basename(snapshot),
     pages,
   };
 
