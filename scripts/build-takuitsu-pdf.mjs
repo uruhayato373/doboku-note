@@ -95,6 +95,25 @@ async function preprocess(body, images, imageSrc) {
     return push(`<div class="fig"><img src="${href}" alt="${xesc(alt)}"/></div>`)
   })
 
+  // 素の <img src="/posts/..."> （civil-1 primary は ArticleImage でなく生 img 記法で図を埋め込む）
+  // → ArticleImage と同じく sharp で JPEG base64 化。ArticleImage は既に TOKEN 化済みなので二重処理しない。
+  out = out.replace(/<img\s+([^>]*?)\/>/g, (whole, props) => {
+    const src = (props.match(/src="([^"]+)"/) || [])[1] || ''
+    if (!src.startsWith('/posts/')) return whole // 外部/相対 URL はそのまま（埋め込み対象外）
+    const alt = (props.match(/alt="([^"]*)"/) || [])[1] || ''
+    const local = resolve(REPO, '.local/r2', src.replace(/^\//, ''))
+    const artId = basename(dirname(dirname(local)))
+    const jpgName = basename(local).replace(/\.(webp|png|jpg|jpeg)$/i, '.jpg')
+    const href = `img/${artId}-${jpgName}`
+    imgTasks.push({ local, href })
+    return push(`<div class="fig"><img src="${href}" alt="${xesc(alt)}"/></div>`)
+  })
+
+  // 図キャプション等の生 <p className="..."> は最小 markdown レンダラが解釈できず生タグが漏れる
+  // → キャプション段落へ変換（civil-1 primary は図の下に <p className="text-center">図 …</p> を置く）
+  out = out.replace(/<p\s+className="[^"]*">([\s\S]*?)<\/p>/g, (whole, text) =>
+    push(`<p class="figcap">${xesc(text.trim())}</p>`))
+
   // ExamPoint（インライン型）→ 要点ボックス
   out = out.replace(/<ExamPoint>([\s\S]*?)<\/ExamPoint>/g, (whole, text) =>
     push(`<div class="exampoint"><p class="ep-head"><strong>要点</strong>　${xesc(text.trim())}</p></div>`))
@@ -212,6 +231,7 @@ ol.opts li, ul li { margin-bottom:1mm; }
 .ep-head { margin:0 0 1mm; }
 .fig { text-align:center; margin:3mm 0; break-inside:avoid; }
 .fig img { max-width:100%; }
+.figcap { text-align:center; font-size:8.5pt; color:#555; margin:1mm 0 3mm; }
 .math { text-align:center; margin:2mm 0; }
 table.tbl { border-collapse:collapse; margin:2mm 0; font-size:9.5pt; }
 table.tbl td { border:1px solid #bbb; padding:1mm 2mm; }

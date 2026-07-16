@@ -427,13 +427,14 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     return {
       top: slot('civil-1-niji-marugoto-pack', slug, 'top'),
       inline: [
-        slot('civil-1-niji-marugoto-pack', slug, 'inline-1'), // 二次まるごと（経験+学科+暗記の最上位バンドル）
-        slot('civil-1-keiken-complete-pack', slug, 'inline-2'),
-        slot('civil-1-gakka-kijutsu', slug, 'inline-3'), // 学科記述（問題2〜11）
-        slot('civil-1-pastexam-essay', slug, 'inline-4'),
-        slot('civil-1-experience-essay', slug, 'inline-5'),
-        slot('civil-1-combo-essay', slug, 'inline-6'),
-        slot('civil-membership-lab', slug, 'inline-7'),
+        slot('civil-1-r8-bunseki', slug, 'inline-1'), // 出題分析・直前重点（入口）→ 下位で上位商品へ
+        slot('civil-1-niji-marugoto-pack', slug, 'inline-2'), // 二次まるごと（経験+学科+暗記の最上位バンドル）
+        slot('civil-1-keiken-complete-pack', slug, 'inline-3'),
+        slot('civil-1-gakka-kijutsu', slug, 'inline-4'), // 学科記述（問題2〜11）
+        slot('civil-1-pastexam-essay', slug, 'inline-5'),
+        slot('civil-1-experience-essay', slug, 'inline-6'),
+        slot('civil-1-combo-essay', slug, 'inline-7'),
+        slot('civil-membership-lab', slug, 'inline-8'),
       ],
       sidebar: [slot('civil-1-pastexam-essay', slug, 'sidebar-1')],
     };
@@ -461,11 +462,12 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
       top: slot('civil-1-gakka-kijutsu', slug, 'top'),
       inline: [
         slot('civil-1-gakka-kijutsu', slug, 'inline-1'), // 学科記述 テーマ別出る順
-        slot('civil-1-niji-marugoto-pack', slug, 'inline-2'), // 二次まるごと
-        slot('civil-1-anki-note', slug, 'inline-3'), // 直前暗記ノート
-        slot('civil-1-keiken-complete-pack', slug, 'inline-4'),
-        slot('civil-1-pastexam-essay', slug, 'inline-5'),
-        slot('civil-membership-lab', slug, 'inline-6'),
+        slot('civil-1-r8-bunseki', slug, 'inline-2'), // 出題分析・直前重点（入口）
+        slot('civil-1-niji-marugoto-pack', slug, 'inline-3'), // 二次まるごと
+        slot('civil-1-anki-note', slug, 'inline-4'), // 直前暗記ノート
+        slot('civil-1-keiken-complete-pack', slug, 'inline-5'),
+        slot('civil-1-pastexam-essay', slug, 'inline-6'),
+        slot('civil-membership-lab', slug, 'inline-7'),
       ],
       sidebar: [slot('civil-1-gakka-kijutsu', slug, 'sidebar-1')],
     };

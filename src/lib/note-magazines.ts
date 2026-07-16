@@ -537,6 +537,20 @@ const MAGAZINES_RAW = {
     price: '¥980',
     badge: 'note 限定',
   },
+  // R8 二次 出題分析・直前重点（ココナラ実測に基づく入口商品。§10.2）。単発記事・後ろ向き実績分析。
+  'civil-1-r8-bunseki': {
+    id: 'civil-1-r8-bunseki',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/n/nd68f3f6b5f9e',
+    title: '1級土木 二次｜出題分析と直前の重点（過去5年の実績から攻め所を絞る）',
+    description:
+      '1級土木施工管理技士 第2次検定の令和3〜7年度を後ろ向きに分析し、経験記述テーマの出題履歴と学科記述の出る順トップ論点を横断で整理。直前2週間で「どのテーマを・どの順で・何日かけて」回すかを日割りロードマップに落とした、直前期の優先順位づけ記事。',
+    shortTitle: '1級土木 二次 出題分析・直前重点',
+    shortDescription:
+      '過去5年の出題実績から出る順トップ論点と直前2週間ロードマップを整理。',
+    price: '¥980',
+    badge: 'note 限定',
+  },
 
   // P3b: 2級 学科記述 直前暗記ノート（どぼくじら¥500×500部超の低価格エントリー枠に対抗）
   'civil-2-anki-note': {
@@ -837,6 +851,19 @@ const MAGAZINES_RAW = {
     description:
       '2級土木施工管理技士 第1次検定の令和3〜7年度 前期・後期 全630問を、4つの選択肢すべてに正誤の理由を付けて解説したA4印刷用PDF。組合せ問題は表で整理、計算問題は途中式つき。印刷して直前期に紙で高速反復できる過去問演習教材。',
     price: '¥1,480',
+    badge: 'note 限定 PDF教材',
+  },
+  // 1級版。PDF は生成済み（scripts/kindle-specs/e-02.json → build-takuitsu-pdf）。
+  // Kindle A系（A-01〜A-06）が KDP Select 加入 LIVE のため、独占明け（~2026-10-06）に
+  // Select を外してから note 公開する（08_Kindle出版戦略.md）。それまで published: false。
+  'civil-1-takuitsu-pdf': {
+    id: 'civil-1-takuitsu-pdf',
+    published: false,
+    noteUrl: '',
+    title: '1級土木 第1次検定｜過去問PDF（平成26〜令和7年度 全12年分 全1162問・全選択肢解説）',
+    description:
+      '1級土木施工管理技士 第1次検定の平成26〜令和7年度 全12年分・問題A/B 全1162問を、4つの選択肢すべてに正誤の理由を付けて解説したA4印刷用PDF。図つき問題は図版込み、計算問題は考え方つき。印刷して直前期に紙で高速反復できる過去問演習教材。',
+    price: '¥1,980',
     badge: 'note 限定 PDF教材',
   },
   'pe1-takuitsu-pdf': {
