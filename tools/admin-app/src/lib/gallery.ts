@@ -88,18 +88,59 @@ export function scanOgp(): OgpResult {
 }
 
 // ─── 記事図版（svg / raster） ───────────────────────────
+// needs トリアージは figure-provenance.json（真実源: figure-sources.json 台帳 +
+// figure-text-audit.json 品質）が published/referenced/needs/source_dir を precompute 済み。
+// 旧 admin の MDX 再ジョインは不要で、baseRel（拡張子なし）で lookup するだけ。
+export const FIGURE_NEEDS_ORDER = [
+  'recrop-urgent',
+  'recrop',
+  'recrop-review',
+  'rescan',
+  'rescan-need-source',
+  'rescan-or-svg',
+  'ok',
+] as const;
+export const FIGURE_NEEDS_LABEL: Record<string, string> = {
+  'recrop-urgent': '要再クロップ(緊急)',
+  recrop: '再クロップ',
+  'recrop-review': '再クロップ?(要目視)',
+  rescan: '要再スキャン',
+  'rescan-need-source': '要再スキャン(元入手)',
+  'rescan-or-svg': '再スキャン/SVG',
+  ok: 'OK',
+};
+
 export interface FigureItem {
   rel: string;
   category: string;
   name: string;
   kind: 'svg' | 'raster';
   url: string;
+  needs: string | null;
+  needsReason: string | null;
+  sourceDir: string | null;
+  textStatus: string | null;
+  published: boolean;
+  referenced: boolean;
+}
+
+interface ProvEntry {
+  published?: boolean;
+  referenced?: boolean;
+  textStatus?: string;
+  source_dir?: string;
+  needs?: string;
+  manualReason?: string;
 }
 
 export function scanFigures(): { items: FigureItem[] } {
   return memo('figures', () => {
     const POSTS = repoPath('.local', 'r2', 'posts');
     if (!existsSync(POSTS)) return { items: [] };
+    const prov = readJson<{ figures?: Record<string, ProvEntry> }>(
+      repoPath('.claude', 'state', 'figure-provenance.json'),
+    );
+    const figures = prov?.figures ?? {};
     const rels = readdirSync(POSTS, { recursive: true, withFileTypes: false })
       .map((p) => toPosix(String(p)))
       .filter((p) => /\/img\/[^/]+\.(svg|png|webp|jpg)$/i.test(p));
@@ -109,11 +150,65 @@ export function scanFigures(): { items: FigureItem[] } {
         const category = dirname(rel).split('/')[0] ?? 'other';
         const name = rel.split('/').pop() ?? rel;
         const kind: 'svg' | 'raster' = /\.svg$/i.test(name) ? 'svg' : 'raster';
-        return { rel, category, name, kind, url: `/media/posts/${rel}` };
+        const baseRel = rel.replace(/\.(svg|png|webp|jpg|jpeg)$/i, '');
+        const fp = figures[baseRel];
+        return {
+          rel,
+          category,
+          name,
+          kind,
+          url: `/media/posts/${rel}`,
+          needs: fp?.needs ?? null,
+          needsReason: fp?.manualReason ?? null,
+          sourceDir: fp?.source_dir ?? null,
+          textStatus: fp?.textStatus ?? null,
+          published: fp?.published ?? false,
+          referenced: fp?.referenced ?? false,
+        };
       })
       .sort((a, b) => a.rel.localeCompare(b.rel));
     return { items };
   });
+}
+
+export interface FigureProgress {
+  liveOk: number;
+  liveAction: number;
+  liveTotal: number;
+  pct: number;
+  breakdown: { needs: string; count: number }[];
+  ndCount: Record<string, number>;
+}
+
+/**
+ * 図クロップ進捗（旧 admin gallery.js の fig-progress を移植）。
+ * 「公開×掲載」（ライブで読者に見える図）だけを分母に、ok 以外を要対応として集計。
+ * png/webp ペアは basename（拡張子除去）で重複排除する。ndCount は全ラスタの needs 別。
+ */
+export function figureProgress(items: FigureItem[]): FigureProgress {
+  const ndCount: Record<string, number> = {};
+  const liveND: Record<string, number> = {};
+  const seen = new Set<string>();
+  for (const i of items) {
+    if (i.kind !== 'raster' || !i.needs) continue;
+    ndCount[i.needs] = (ndCount[i.needs] ?? 0) + 1;
+    if (i.published && i.referenced) {
+      const k = i.rel.replace(/\.(png|webp|jpg|jpeg)$/i, '');
+      if (!seen.has(k)) {
+        seen.add(k);
+        liveND[i.needs] = (liveND[i.needs] ?? 0) + 1;
+      }
+    }
+  }
+  const liveTotal = FIGURE_NEEDS_ORDER.reduce((n, s) => n + (liveND[s] ?? 0), 0);
+  const liveOk = liveND.ok ?? 0;
+  const liveAction = liveTotal - liveOk;
+  const pct = liveTotal ? Math.round((liveOk / liveTotal) * 100) : 100;
+  const breakdown = FIGURE_NEEDS_ORDER.filter((s) => s !== 'ok' && liveND[s]).map((s) => ({
+    needs: s,
+    count: liveND[s]!,
+  }));
+  return { liveOk, liveAction, liveTotal, pct, breakdown, ndCount };
 }
 
 // ─── note 画像（cover / figure） ────────────────────────
