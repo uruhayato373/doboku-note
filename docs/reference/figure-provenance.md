@@ -14,10 +14,11 @@ title: 図 provenance システム（出所・品質・次アクションの恒�
 | 層 | ファイル | 役割 | 生成 |
 |---|---|---|---|
 | ① ソース台帳（SSOT・手動） | `.claude/config/figure-sources.json` | 資格別に元素材の所在・種別・品質・**再スキャン要否**＋ machine-blind 欠陥の per-figure 上書き（`manual_needs`） | 手動更新（ソース状況が変わった・目視で見切れ等を見つけたら） |
-| ② 品質監査（機械） | `.claude/state/figure-text-audit.json` | 各図の**写り込み**(leak=答え漏らし/writein=設問・選択肢/maybe=句点あり要目視/clean)＋**画質**(sharp/soft/blurry・ラプラシアン分散) | `npm run audit-figure-text`（OCR＋magick・数分） |
+| ② 品質監査（機械・OCR） | `.claude/state/figure-text-audit.json` | 各図の**写り込み**(leak=答え漏らし/writein=設問・選択肢/maybe=句点あり要目視/clean)＋**画質**(sharp/soft/blurry・ラプラシアン分散) | `npm run audit-figure-text`（OCR＋magick・数分） |
+| ②' クロップ検査（機械・画素ジオメトリ） | `.claude/state/quality/figure-crop-report.json` | ②の OCR が見ない**画素**の不良: 隣接図の切れ端の写り込み(STRAY_SLIVER)・縁接触分類(EDGE_*)。②で `clean` でも縁の写り込みを捕捉（例 r07-a-fig-04） | `npm run check-figure-crop`。CI は STRAY_SLIVER の新規のみ gate（baseline ratchet）。詳細 → [image-policy.md](image-policy.md)「図クロップの機械検査」 |
 | ③ provenance マニフェスト（機械・join） | `.claude/state/figure-provenance.json` | ①②＋命名(年度)＋公開/掲載 を join し、各図の **needs（次アクション）** を算出 | `npm run build-figure-provenance` |
 
-**一括更新**: `npm run audit-figures`（② → ③ を順に再生成）。図を直したら実行するとギャラリーのバッジ/対応が最新化する。
+**一括更新**: `npm run audit-figures`（② → ③ を順に再生成）。図を直したら実行するとギャラリーのバッジ/対応が最新化する。②'（クロップ検査）は独立ゲートで `check-figure-crop` を別途実行（②の OCR とは検出面が直交＝内容 vs 画素）。
 
 ## needs（次アクション）の意味
 
