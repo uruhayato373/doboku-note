@@ -41,7 +41,7 @@ MDX 内で使える主要コンポーネント（`src/lib/component-loader/index
 - `<SeeAlso href="/docs/slug" title="..." reason="..." />` — 内部 doboku-note ページへの「あわせて読みたい」カード
 - `<NoteLink url="..." title="..." description="..." coverImage="..." />` — **note 記事への導線専用カード**（リンク系の使い分けは下記参照）
 - `<LinkCard url="..." title="..." description="..." siteName="..." imageUrl="..." />` — 一般外部 URL のカード（OGP 画像を左に本来比で表示する横型カード。モバイルは画像を上に縦積み）
-- `<MagazineCard id="..." utmContent="..." />` — note magazine（有料）販売ページへの本文中カード（SoT 解決版・内部で `<MagazineInlineCard>` を描画。記事末尾/サイドバーのタイルは placement 経由で自動配置）
+- `<MagazineCard id="..." utmContent="..." />` — note magazine（有料）販売ページへの本文中カード（SoT 解決版・既定は画像中心の `<MagazineHeroCta>` を描画。列挙時のみ `variant="inline"`。記事末尾/サイドバーのタイルは placement 経由で自動配置）
 
 ## リンク系コンポーネントの使い分け
 
@@ -51,7 +51,7 @@ MDX 内で使える主要コンポーネント（`src/lib/component-loader/index
 |---|---|---|
 | 内部 doboku-note ページ | `<SeeAlso>`（ブロック）/ markdown リンク（インライン） | ページ間ナビ |
 | **note 記事** | **`<NoteLink>`** | note.com 記事は必ずこれ。生 markdown・`<Callout type="reference">` で note リンクを書かない |
-| note magazine（有料）販売ページ | `<MagazineCard>`（本文中）／記事末尾・サイドバーの もくじタイル `HubCtaBanner`（全 HUB 資格で自動） | 商品導線 |
+| note magazine（有料）販売ページ | `<MagazineCard>`（本文中）／記事末尾・サイドバーの もくじタイル `HubCtaBanner`（全 HUB 資格で自動） | 商品導線。見た目の型は下記 |
 | 書籍・論文 | `<Callout type="reference">` | 参考文献。外部 URL 一般には使わない |
 | 一般外部 URL（公的機関・規格等） | `<LinkCard>` または markdown リンク | note 以外の外部サイト |
 
@@ -62,6 +62,19 @@ MDX 内で使える主要コンポーネント（`src/lib/component-loader/index
   2. `node scripts/generate-note-square-covers.mjs` で `-square.webp` を生成
   3. MDX には `/images/note-covers/{name}.webp` を渡す（`/posts/...` 等の R2 パス禁止）
   4. `public/images/note-covers/{name}.png` + `{name}-square.{png,webp}` の 3 点を git add してコミット
+
+### note 商品 CTA の見た目（hero / inline）
+
+`<MagazineCard>` の `variant` で 2 型を使い分ける。文言・URL・キャラは全て `src/lib/note-magazines.ts`（SoT）が供給するため、MDX には **id と utmContent だけ**を書く（価格・note URL の直書きは禁止）。
+
+| variant | 実体 | 使う場面 |
+|---|---|---|
+| `hero`（**既定**・省略可） | `MagazineHeroCta` — 資格別背景イラスト＋ブランド紺オーバーレイ＋白枠＋マスコット＋note 緑の大ボタン（高さ ~380px） | 単体で強く売る面。記事中間 CTA（自動挿入）と MDX 本文中の既定 |
+| `inline` | `MagazineInlineCard` — 横長の小カード（画像左＋テキスト右） | **同一記事に 3 枚以上を列挙**するとき（ペルソナ一覧等）。hero が縦に連続して読み流れを壊すのを避ける |
+
+- 商品ごとの CTA 文言は SoT の任意 3 フィールドで出し分ける: `ctaCatch`（キャッチコピー・~25字）/ `ctaButton`（ボタン文言・動詞で終える）/ `ctaPose`（`pointing` 論点提示 / `good-sign` 完成・合格訴求 / `smile` 伴走・入門）。省略時は `shortTitle` ?? `title` ／「note で詳しく見る」／`pointing` にフォールバックするため、**未設定のマガジンでも hero は描画できる**
+- キャラ画像は `public/images/character/avatar-{pose}.webp`。**どのポーズを使えるかの真実源は `.claude/config/character-poses.json` の `siteCta: true`**。増やすときは manifest → 画像生成 → 型の順（`npm run check-character-avatars` が三者整合を gate）。手順の詳細: [character-asset-policy.md](character-asset-policy.md)「サイト CTA にポーズを追加する手順」
+- 記事末尾・サイドバー・カテゴリ hub の「もくじタイル」は別系統（`HubCtaBanner`・商品単体ではない）
 
 ## 過去問 MDX の構造ルール
 

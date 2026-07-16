@@ -31,6 +31,22 @@ export interface NoteMagazine {
   readonly shortDescription?: string;
   readonly price?: string;
   readonly badge: string;
+  /**
+   * ヒーロー CTA（MagazineHeroCta）の商品別出し分け。焼き込みバナーを作らずに
+   * 「商品ごとに刺さる CTA」を出すための 3 点セット（全て任意・省略時フォールバック）。
+   * - ctaCatch: バナー見出しのキャッチコピー（読者の課題を突く 1 文）。省略時 shortTitle ?? title
+   * - ctaButton: ボタン文言（動詞で終える）。省略時「note で詳しく見る」
+   * - ctaPose: マスコットのポーズ。省略時 pointing
+   *   pointing=論点提示・good-sign=完成/合格訴求・smile=伴走/入門
+   *
+   * ctaPose の許可値の真実源は `.claude/config/character-poses.json` の `siteCta: true`
+   * （型に literal が要るためここに union を書くが、増やすときは manifest → webp 生成 → 本 union の順）。
+   * 三者の整合（manifest ⇔ public/images/character/avatar-{pose}.webp ⇔ 本 union）は
+   * `npm run check-character-avatars` が gate する＝union だけ広げると本番でアバターが 404 になるため。
+   */
+  readonly ctaCatch?: string;
+  readonly ctaButton?: string;
+  readonly ctaPose?: 'pointing' | 'good-sign' | 'smile';
 }
 // 注: 画像（imageUrl / sidebarImageUrl）は 2026-07 に廃止。CTA タイルは資格別ブランド背景
 //     （exam-brand.ts の cta-bg イラスト）＋ HTML 文字でデータ駆動する（マガジン追加時の画像生成が不要）。
@@ -64,6 +80,9 @@ const MAGAZINES_RAW = {
     shortDescription:
       '5管理ごとの頻出論点と引っかけパターンを体系化。約7万字、doboku-note 解説への直リンク付き。',
     badge: 'note 限定 教材',
+    ctaCatch: 'キーワードの丸暗記で止まっていませんか？',
+    ctaButton: '精読ガイドを見てみる',
+    ctaPose: 'pointing',
   },
 
   'essay-river-consultant-magazine': {
@@ -78,6 +97,9 @@ const MAGAZINES_RAW = {
       'R03〜R07＋R8予想4記事 = 計9記事。河川・砂防部門 部長（調査設計者）視点で 3,000 字フル論文。',
     price: '¥2,480（9本セット、単品比56%OFF）',
     badge: 'note 限定',
+    ctaCatch: '河川コンサルの立場で、3,000字フル論文を読む',
+    ctaButton: '模範論文を見てみる',
+    ctaPose: 'pointing',
   },
 
   'essay-general-contractor-magazine': {
@@ -92,6 +114,9 @@ const MAGAZINES_RAW = {
       'R03〜R07＋R8予想4記事 = 計9記事。ゼネコン土木部門（施工者）視点、安全 × 経済性 × 人的資源 が主軸。',
     price: '¥2,480（9本セット、単品比56%OFF）',
     badge: 'note 限定',
+    ctaCatch: 'ゼネコン施工者の立場で、3,000字フル論文を読む',
+    ctaButton: '模範論文を見てみる',
+    ctaPose: 'pointing',
   },
 
   'essay-road-municipality-magazine': {
@@ -106,6 +131,9 @@ const MAGAZINES_RAW = {
       'R03〜R07 過去問（全 A/B 2 案）＋ R8予想6記事＋デモ1本 = 計12記事。試験対策決定版。',
     price: '¥2,480（12本セット、単品比65%OFF）',
     badge: 'note 限定',
+    ctaCatch: '自治体 道路担当の立場で、3,000字フル論文を読む',
+    ctaButton: '模範論文を見てみる',
+    ctaPose: 'pointing',
   },
 
   'essay-procurement-municipality-magazine': {
@@ -262,6 +290,9 @@ const MAGAZINES_RAW = {
       'R8の出る6テーマを分野不問の三層骨子＋3ペルソナ早見表で攻略。道路担当フル論文を実演収録。試験直前の最終予想。',
     price: '¥3,480（6テーマセット・各¥780、単品比26%OFF）',
     badge: 'note 限定',
+    ctaCatch: 'R8で何が出るか、6テーマに絞り込みました',
+    ctaButton: '最終予想を見てみる',
+    ctaPose: 'pointing',
   },
 
   // 注: essay-template-3d「解答テンプレ 3D マトリクス」(¥2,980) は 2026-06-01 に企画中止。
@@ -319,6 +350,9 @@ const MAGAZINES_RAW = {
       '型×設問3×予想×全14ペルソナ模範論文＋精読の全部入り。記述式対策の決定版バンドル。',
     price: '¥9,800',
     badge: 'note 限定',
+    ctaCatch: '記述式の対策、これ1つで全部そろいます',
+    ctaButton: '完全パックを見てみる',
+    ctaPose: 'good-sign',
   },
 
   // ----- 記述式コアパック（下段・2026-06-15 新設・有料¥5,480で note 作成済） -----
@@ -339,6 +373,9 @@ const MAGAZINES_RAW = {
       '型×設問3×R8の横断3本セット。記述式エンジンを安く・全員に。ペルソナは別途1本追加。',
     price: '¥5,480（3本セット、31%OFF）',
     badge: 'note 限定',
+    ctaCatch: '型・弾薬・演習。記述式のエンジンを最短で',
+    ctaButton: 'コアパックを見てみる',
+    ctaPose: 'pointing',
   },
 
   // ----- 2級土木 施工経験記述ライン (2026-05-29) -----
@@ -356,6 +393,9 @@ const MAGAZINES_RAW = {
       '安全・品質・工程の3テーマ別 完成答案＋置換ガイド＋採点者視点。R6新形式対応。',
     price: '¥1,980（3本セット）',
     badge: 'note 限定',
+    ctaCatch: '経験記述は「完成答案」を見るのが最短です',
+    ctaButton: '完成答案集を見てみる',
+    ctaPose: 'pointing',
   },
 
   // ----- 1級土木 施工経験記述ライン (2026-05-29) -----
@@ -373,6 +413,9 @@ const MAGAZINES_RAW = {
       '5管理別 完成答案（監理技術者レベル）＋置換ガイド＋採点者視点。R6新形式対応。',
     price: '¥2,480（5本セット）',
     badge: 'note 限定',
+    ctaCatch: '経験記述は「完成答案」を見るのが最短です',
+    ctaButton: '完成答案集を見てみる',
+    ctaPose: 'pointing',
   },
 
   // 原稿配置: docs/note/1級・2級土木/1級土木/magazines/1級土木-施工経験記述-過去問模範答案集/
@@ -389,6 +432,9 @@ const MAGAZINES_RAW = {
       'R03-R07 年度別×各年3工事 フル模範答案（実問題文再掲・監理技術者レベル）。R6新形式対応。',
     price: '¥2,480（5本セット）',
     badge: 'note 限定',
+    ctaCatch: '過去5年、実際に出た問題で答案を仕上げる',
+    ctaButton: '過去問の答案を見てみる',
+    ctaPose: 'pointing',
   },
 
   // 原稿配置: docs/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-過去問模範答案集/
@@ -405,6 +451,9 @@ const MAGAZINES_RAW = {
       'R03-R07 年度別×各年3工事 フル模範答案（実問題文再掲・主任技術者レベル）。選択制/R6新形式対応。',
     price: '¥2,480（5本セット）',
     badge: 'note 限定',
+    ctaCatch: '過去5年、実際に出た問題で答案を仕上げる',
+    ctaButton: '過去問の答案を見てみる',
+    ctaPose: 'pointing',
   },
 
   // ----- 2級土木 想定工事バンク（工事軸・5管理フル・買い切りアンカー）(2026-07-01) -----
@@ -426,6 +475,9 @@ const MAGAZINES_RAW = {
       '工種を選んで5管理を書き分ける工事起点の完成答案集。8工種36工事フル・必出3管理＋保険2管理・R6新形式対応。',
     price: '¥5,480（36工種フル）',
     badge: 'note 限定',
+    ctaCatch: '自分の工種を選ぶだけで、3管理がそろう',
+    ctaButton: '想定工事バンクを見てみる',
+    ctaPose: 'good-sign',
   },
 
   // 注: civil-2-yosou-essay（2級 予想問題集）は 2026-06-02 退役。出題実績のない投機
@@ -451,6 +503,9 @@ const MAGAZINES_RAW = {
       '5管理の2テーマ全10組合せ × 想定工事①②③ フル模範答案。現行形式（R06+）を全網羅。',
     price: '¥3,480（10本セット、42%OFF）',
     badge: 'note 限定',
+    ctaCatch: '2テーマ、どの組合せが出ても書ける',
+    ctaButton: '全10組合せを見てみる',
+    ctaPose: 'pointing',
   },
 
   // ----- 1級土木 経験記述 完全攻略パック（旗艦・買い切り）(2026-06-30 scaffold) -----
@@ -476,6 +531,10 @@ const MAGAZINES_RAW = {
       '想定工事を選んで5管理を書き分ける工事起点の索引＋3マガジン全答案を統合。9工種網羅・R6新形式対応。',
     price: '¥9,800（完全攻略パック）',
     badge: 'note 限定',
+    // landingUrl（無料の想定工事100 索引）へ着地するため、ボタン文言も「索引を見る」に合わせる。
+    ctaCatch: '自分の現場に近い工事を選んで、5管理を書き分ける',
+    ctaButton: '想定工事100の索引を見てみる',
+    ctaPose: 'good-sign',
   },
 
   // ===== 二次 学科記述（問題2〜11）買い切りライン (2026-07-03 設計登録) =====
@@ -506,6 +565,9 @@ const MAGAZINES_RAW = {
       '問題2〜11をテーマ別に横断再編。5年分の出題頻度＋出る順＋解答の型＋頻出語句。5本セット。',
     price: '¥2,480（5本セット）',
     badge: 'note 限定',
+    ctaCatch: '問題2〜11、5年分の「出る順」で詰める',
+    ctaButton: '出る順を見てみる',
+    ctaPose: 'pointing',
   },
 
   // P2: 2級 二次学科記述 テーマ別 出る順（P1 の2級移植・5本セット）
@@ -521,6 +583,9 @@ const MAGAZINES_RAW = {
       '問題2〜9をテーマ別に横断再編。出題頻度＋出る順＋解答の型＋頻出語句。5本セット。',
     price: '¥1,980（5本セット）',
     badge: 'note 限定',
+    ctaCatch: '問題2〜9、5年分の「出る順」で詰める',
+    ctaButton: '出る順を見てみる',
+    ctaPose: 'pointing',
   },
 
   // P3a: 1級 学科記述 直前暗記ノート（P1副産物・赤シート対応PDF添付・エントリー層）
@@ -536,6 +601,9 @@ const MAGAZINES_RAW = {
       '穴埋め頻出語句の一問一答150〜250問＋赤シート対応PDF。直前・スキマ詰め込み用。',
     price: '¥980',
     badge: 'note 限定',
+    ctaCatch: '試験前日、赤シートで詰め込む一問一答',
+    ctaButton: '暗記ノートを見てみる',
+    ctaPose: 'pointing',
   },
   // 一次 出る順 合格ノート（12年頻度分析・§10.3）。施工管理法の出る順＋捨て問戦略の書き下ろし。
   'civil-1-ichiji-ronten': {
@@ -579,6 +647,9 @@ const MAGAZINES_RAW = {
       '穴埋め頻出語句の一問一答＋赤シート対応PDF。直前・スキマ詰め込み用の低価格エントリー。',
     price: '¥580',
     badge: 'note 限定',
+    ctaCatch: '試験前日、赤シートで詰め込む一問一答',
+    ctaButton: '暗記ノートを見てみる',
+    ctaPose: 'pointing',
   },
 
   // P5: 1級 二次まるごとパック（新最上位アンカー・経験記述完全攻略¥9,800＋P1＋P3aを束ね）
@@ -600,6 +671,10 @@ const MAGAZINES_RAW = {
       '経験記述 完全攻略＋学科記述 出る順＋直前暗記ノートを統合した最上位買い切りパック。',
     price: '¥11,800（二次まるごと）',
     badge: 'note 限定',
+    // landingUrl（無料の総合案内）へ着地するため、ボタン文言も「案内を見る」に合わせる。
+    ctaCatch: '経験記述も学科記述も、二次はこれ1つで',
+    ctaButton: 'まるごとパックの案内を見てみる',
+    ctaPose: 'good-sign',
   },
 
   // ----- 1級・2級土木 メンバーシップ「土木セコカン合格ラボ」(2026-06-23 配線) -----
@@ -623,6 +698,9 @@ const MAGAZINES_RAW = {
       '月例の予想問題＋経験記述マンツーマン添削で合格まで伴走。通年／添削つきの2プラン。',
     price: '月額 ¥1,480〜（2プラン）',
     badge: 'メンバーシップ',
+    ctaCatch: '独学のまま迷っていませんか？合格まで伴走します',
+    ctaButton: '合格ラボを見てみる',
+    ctaPose: 'smile',
   },
 
   // 原稿配置: docs/note/コンクリート診断士/magazines/コンクリート診断士-記述式-模範答案集/

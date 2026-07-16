@@ -20,8 +20,9 @@ interface MagazineInlineCardProps {
  * 焼き込みカバー画像（旧 imageUrl）には依存しない。イラスト無し資格はテーマ色ベタ塗りにフォールバック。
  *
  * 使い分け:
- * - NoteMagazineTile: 縦 300×250、記事末尾・サイドバー用（背景イラスト＋文字オーバーレイ）
- * - MagazineInlineCard: 横長、本文中用（画像左 + テキスト右）
+ * - MagazineHeroCta: 画像中心のヒーローバナー。単体で強く売る面（中間 CTA・MDX 本文中の既定）
+ * - MagazineInlineCard: 横長。同一記事に何枚も並べる列挙用（`<MagazineCard variant="inline">`）
+ * - HubCtaBanner: 記事末尾・サイドバー・カテゴリ hub の「もくじ」タイル（商品単体ではない）
  */
 export default function MagazineInlineCard({
   url,

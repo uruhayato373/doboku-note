@@ -74,6 +74,14 @@
     --on-image-ink-soft: #33363d;  /* サブ・資格ラベル（= light --ink-body） */
     --on-image-pill-bg: #b45309;   /* 価格ピル背景（amber-700・白文字 AA） */
 
+    /* note ヒーロー CTA（MagazineHeroCta）。背景イラストをブランド紺で暗く覆い、その上に
+       白文字＋note 緑ボタンを重ねる型。--on-image-* と同じくテーマ非追従（.dark で上書きしない）。 */
+    --hero-cta-tint: rgba(15, 39, 66, 0.8);  /* 背景イラストを覆うブランド紺（白文字 AA 確保の濃度） */
+    --hero-cta-band: #41c9b4;                /* バッジ帯＝note 緑（文字は紺 --hero-cta-band-ink） */
+    --hero-cta-band-ink: #0f2742;
+    --hero-cta-button: #12886f;              /* ボタン背景＝暗め note 緑（白文字 4.9:1） */
+    --hero-cta-button-hover: #0e6e59;
+
     /* Editorial palette — Soft Editorial (2026-07). 紺のアイデンティティを保ちつつ
        1 段明るく・寒色寄せ。全て WCAG AA 以上（accent 6.6:1 / body 11.4:1 / muted 4.9:1）。
        SVG 系 --color-*・Callout --ct-*・試験色 --exam-* は凍結（このパレット外）。 */
@@ -306,6 +314,18 @@
     border: 1px solid var(--rule-soft);
     border-radius: var(--radius-card-section);
     box-shadow: var(--shadow-card-section);
+  }
+
+  /* note ヒーロー CTA のボタン。hover はインライン style では書けないためここに集約
+     （トークンは --hero-cta-* ＝テーマ非追従・背景イラスト上の固定色）。 */
+  .hero-cta-button {
+    background: var(--hero-cta-button);
+    box-shadow:
+      inset 0 -3px 0 rgb(0 0 0 / 0.18),
+      0 2px 8px rgb(0 0 0 / 0.25);
+  }
+  .group:hover .hero-cta-button {
+    background: var(--hero-cta-button-hover);
   }
 
   .hero-overlay {
