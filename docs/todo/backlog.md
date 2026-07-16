@@ -99,9 +99,29 @@ page/category の合成ロジック共通化（2026-06-25 アセスメント起�
 ### note施策A: 1級一次択一PDF `civil-1-takuitsu-pdf` ¥1,980 を公開（10月上旬・Select 明け）
 タグ: [収益化]
 
-**2026-07-16 に公開直前まで完了**（PDF・原稿・カバー・SKU published:false）。残はユーザー操作律速の2手のみ:
-1. **10月上旬（~10/6）に Kindle A系（A-00〜A-06）の KDP Select 自動更新を KDP 管理画面でオフ**（独占規約回避・真実源 = [08_Kindle出版戦略.md](../project/01_戦略/08_Kindle出版戦略.md) §KDP Select）
-2. その後 `node scripts/note-publish.mjs --article "docs/note/1級・2級土木/1級土木/一次択一-過去問PDF/article.md" --commit` → `node scripts/note-attach-file.mjs --note <key> --file "docs/note/1級・2級土木/1級土木/一次択一-過去問PDF/1級土木一次択一-過去問PDF.pdf" --boundary-regex "PDF のダウンロードと使い方" --commit` → `note-magazines.ts` の `civil-1-takuitsu-pdf` を published:true + noteUrl。真実源 = [noteコンテンツ計画.md](../note/1級・2級土木/noteコンテンツ計画.md) §10.1
+**2026-07-16 に「公開直前」まで完了済み**。成果物は全て develop/main にコミット済:
+- PDF: `docs/note/1級・2級土木/1級土木/一次択一-過去問PDF/1級土木一次択一-過去問PDF.pdf`（全1162問・図109点・818頁・約12MB）
+- 原稿/カバー/hashtags: 同ディレクトリ（`article.md` frontmatter は `paidBoundary: "PDF のダウンロードと使い方"` / `price: 1980`）
+- SKU: `src/lib/note-magazines.ts` に `civil-1-takuitsu-pdf`（現在 `published: false` / `noteUrl: ''`）
+- ビルダー: `scripts/kindle-specs/e-02.json`（再生成する場合 `node scripts/build-takuitsu-pdf.mjs --spec scripts/kindle-specs/e-02.json`）
+
+**なぜ今公開しないか**: Kindle A系（A-00〜A-06・2026-07-08 公開）が **KDP Select 加入 LIVE＝90日独占**で、同一デジタルコンテンツを note で併売すると規約抵触。独占明けは各冊 `publishedDate + 90日`（A-01=2026-07-08→**~2026-10-06**、`scripts/kindle-published/catalog.json` で全冊の日付確認）。
+
+**実行環境**: この Mac（`/Users/minamidaisuke/doboku-note` に note ログイン済み `.local/playwright-note-profile` あり）で実行。**会社PCはプロキシで note API 遮断のため不可**。develop worktree でやる場合は `.local/playwright-note-profile` を symlink する。
+
+**次にやる手順（前提＝下記1が完了していること）**:
+1. **【ユーザー操作】10月上旬・Select 更新日の前に、KDP 管理画面で A-00〜A-06 全冊の「KDP セレクトへの自動登録」をオフ**（真実源 = [08_Kindle出版戦略.md](../project/01_戦略/08_Kindle出版戦略.md) §KDP Select）。オフにしたことを確認してから2へ。
+2. 本体公開: `node scripts/note-publish.mjs --article "docs/note/1級・2級土木/1級土木/一次択一-過去問PDF/article.md" --commit`（draft 確認したい場合は `--commit` なしで先に流す）。**成功すると frontmatter に `noteId`/`noteUrl` が自動 writeback される**＝この `noteId` を3の `<key>` に使う。
+3. PDF 添付: `node scripts/note-attach-file.mjs --note <noteId> --file "docs/note/1級・2級土木/1級土木/一次択一-過去問PDF/1級土木一次択一-過去問PDF.pdf" --boundary-regex "PDF のダウンロードと使い方" --commit`。**罠: `note-attach-file.mjs` は frontmatter の paidBoundary を読まないので `--boundary-regex` の明示が必須**（省くと既定 `試験問題|予想問題` で境界が見つからず exit 8 中断）。PDF は有料エリア末尾に添付される。
+4. SKU flip: `note-magazines.ts` の `civil-1-takuitsu-pdf` を `published: true` ＋ `noteUrl: <公開URL>` に。
+5. 検証＋配線: `npm run verify-note-status`（偽成功ガード）→ 公開ページを curl で有料ゲート確認 → `npm run check-note-funnel` → C 記事末尾やもくじに 1級PDF リンクを追加検討（C公開時は未公開だったため未リンク）。commit → push develop。
+
+真実源 = [noteコンテンツ計画.md](../note/1級・2級土木/noteコンテンツ計画.md) §10.1
+
+### note施策C フォローアップ: 一次「出る順 合格ノート」の露出調整（任意・売れ行き次第）
+タグ: [収益化]
+
+C（`civil-1-ichiji-ronten` ¥1,480・[nec34238ca6d6](https://note.com/dobokunote/n/nec34238ca6d6)）は 2026-07-16 公開済。civil primary/secondary の中間CTAは**転職アフィリ優先の既存設計**のため、C は主に L2 土木もくじ経由で露出（もくじには収録済）。**hero-cta の全体ロジックは触らない**方針（2026-07-16 ユーザー確定＝A案）。数週間の売れ行きを見て露出不足なら、相性の良い一次ガイド記事の**本文に `<MagazineCard id="civil-1-ichiji-ronten">` を個別挿入**（記事単位・転職導線と非競合の外科的調整）。B（`civil-1-r8-bunseki`）も同様の位置づけ。
 
 ### civil-1 土木一般編 テキスト章 本文変換（土工/コンクリート工/基礎工 ~19記事）
 タグ: [コンテンツ品質]
