@@ -93,6 +93,9 @@ const MAGAZINES_RAW = {
       'R03〜R07＋R8予想4記事 = 計9記事。河川・砂防部門 部長（調査設計者）視点で 3,000 字フル論文。',
     price: '¥2,480（9本セット、単品比56%OFF）',
     badge: 'note 限定',
+    ctaCatch: '河川コンサルの立場で、3,000字フル論文を読む',
+    ctaButton: '模範論文を見てみる',
+    ctaPose: 'pointing',
   },
 
   'essay-general-contractor-magazine': {
@@ -107,6 +110,9 @@ const MAGAZINES_RAW = {
       'R03〜R07＋R8予想4記事 = 計9記事。ゼネコン土木部門（施工者）視点、安全 × 経済性 × 人的資源 が主軸。',
     price: '¥2,480（9本セット、単品比56%OFF）',
     badge: 'note 限定',
+    ctaCatch: 'ゼネコン施工者の立場で、3,000字フル論文を読む',
+    ctaButton: '模範論文を見てみる',
+    ctaPose: 'pointing',
   },
 
   'essay-road-municipality-magazine': {
@@ -121,6 +127,9 @@ const MAGAZINES_RAW = {
       'R03〜R07 過去問（全 A/B 2 案）＋ R8予想6記事＋デモ1本 = 計12記事。試験対策決定版。',
     price: '¥2,480（12本セット、単品比65%OFF）',
     badge: 'note 限定',
+    ctaCatch: '自治体 道路担当の立場で、3,000字フル論文を読む',
+    ctaButton: '模範論文を見てみる',
+    ctaPose: 'pointing',
   },
 
   'essay-procurement-municipality-magazine': {
