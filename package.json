@@ -126,6 +126,8 @@
     "check-x-utm": "node scripts/check-x-utm.mjs",
     "verify-yt-status": "node .claude/scripts/youtube/verify-yt-status.mjs",
     "check-figure-canvas": "node scripts/check-figure-canvas.mjs",
+    "check-figure-crop": "node scripts/check-figure-crop-integrity.mjs",
+    "check-figure-crop:ci": "node scripts/check-figure-crop-integrity.mjs --ci",
     "check-content-quality": "node .claude/scripts/lint-mdx-mobile.mjs --all --baseline --report",
     "check-content-quality:ci": "node .claude/scripts/lint-mdx-mobile.mjs --all --baseline --report --ci",
     "update-content-quality-baseline": "node .claude/scripts/lint-mdx-mobile.mjs --all --update-baseline",

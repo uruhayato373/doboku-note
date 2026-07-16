@@ -38,6 +38,9 @@ node scripts/figure-recrop.mjs <.local/.../img/NAME.webp> --top 0.15
 
 # ③ 検証: 出力 JSON の ocr.answer_markers が [] であること＋ Read で図が切れていない/テキスト消滅を目視。
 #         答え語が残れば切り位置を深くして再実行（例 --top 0.15 → 0.30）。
+#         さらに crop_warnings（生クロップの EDGE_CUT/STRAY_SLIVER・自動同梱）が空であること。
+#         残る場合は隣接図の切れ端が残存 or 図本体を切りすぎ → 切り位置を見直す。
+#         機械での再確認は: node scripts/check-figure-crop-integrity.mjs --file <NAME.png>（STRAY_SLIVER で exit 1）。
 ```
 
 各図の切り位置は**人（またはエージェント）が図を見て決める**。自動 OCR 帯検出は図の凡例を誤認して切りすぎるため使わない（実証済み）。
@@ -68,6 +71,8 @@ npm run audit-figures                              # 監査/provenance を最新
 - **MDX の width/height は新寸法に一致必須**（figure-recrop.mjs が `<img>`／`<ArticleImage>` 両方を自動更新。アスペクト比崩れ防止）。pe 系は `<ArticleImage>`＝旧版ツールは `mdx_updated:false` になったので手動更新した（2026-07-09 に両対応化済）。
 - **二度切り厳禁**: figure-recrop.mjs は上書き適用。切り位置をやり直すときは**必ず元画像に戻してから**再適用する（既に切った画像に再度 --top を掛けると割合が二重に効いて切りすぎる）。civil-1 過去問図・pe 図は **webp のみ git 追跡**（png は untracked の一時生成物）→ 戻すのは `git checkout -- <webp>` だけ（png を pathspec に混ぜると "did not match" で checkout 全体が中断し戻らない、2026-07-09 実害）。
 - **`--top` の割合が効かない/残る時は px 直指定**: テキスト最終行が図に近いと割合推定が外れる。原寸に px グリッド（`-draw "line 0,Y w,Y"`）を重ねて境界 px を読み、`magick -crop WxH+X+Y +repage -trim +repage -bordercolor white -border 12` で直接切ってから webp 化するのが確実（q35 で実施）。ツールは白 12px 枠を足すので出力高さ＝(crop高 − trim + 24)。
+- **写真（グレー面）を含む図は figure-recrop.mjs の `-trim` が誤切りする**: 内部の `-trim` は白基準で外周を刈るため、グレーの写真が縁に接する図では**写真の上部/側部まで削られる**（2026-07-16 q8-fig の3枚写真帯で上部を誤切り実害）。写真帯を残す band クロップは figure-recrop を使わず **Pillow で明示 box crop（trim なし）**するのが確実: `python -c "from PIL import Image; im=Image.open(p).convert('RGB'); im.crop((0,Y0,W,Y1)).save(p,'WEBP',quality=82,method=6)"` → MDX の width/height を手動更新。行インク profile（`ink/W<0.01` を白行）で写真帯の Y0/Y1 を機械特定できる。
+- **ImageMagick 前提（環境）**: figure-recrop.mjs は `magick`（ImageMagick）を PATH に要求。無い環境（新規 Windows 等）では `winget install ImageMagick.ImageMagick`（GitHub DL・admin 要）で導入、または上記 Pillow（`from PIL import Image`）で代替（crop/webp とも可・node_modules 不要）。Step① の `sips` は Mac 専用＝Windows は `magick <webp> x.png` か Pillow で png 化して Read。会社PCプロキシは GitHub DL は通るが winget の msstore ソースは証明書エラー→`--source winget` を明示。
 - **periods は万能でない**: 化学構造式・図の点はOCRで句点として誤カウントされる（q42 で periods:10 だが写り込み無し）。残テキストの真偽は **必ず目視**で判定。図に残す凡例に句点があれば periods は0にならない（q-I2-5 の ● 凡例）→ その場合は再監査後 `manual_needs` の `needs:ok` で確定させる。
 - **1 ページ 1 commit**・明示 pathspec（`git add -A` 禁止）。
 - 見切れ/画質不足は本スキール対象外 → provenance の rescan / `manual_needs` へ。
