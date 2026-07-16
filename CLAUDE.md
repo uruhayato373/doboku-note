@@ -32,7 +32,8 @@ docs/project/                  # プロジェクト管理ドキュメント
 docs/reference/             # 作業マニュアル（詳細・手順）
 .claude/skills/                # スキル定義（件数の SSOT: skills-registry.md カテゴリ構造）
 .claude/agents/                # サブエージェント定義（件数の SSOT: agents-registry.md 一覧表）
-tools/admin/                   # 運営管理画面（ローカル専用ダッシュボード・npm run admin）
+tools/admin/                   # 運営管理画面（ローカル専用ダッシュボード・npm run admin・zero-dep 版）
+tools/admin-app/               # 運営管理画面 Next.js 版（ローカル専用・npm run admin-next・admin を段階置換中）
 ```
 
 **URL**: すべて `/docs/{slug}` フラット。Convention A（個別ファイル名）と Convention B（`article.mdx`）が共存。新規コンテンツは Convention B 推奨。詳細・frontmatter テンプレ → [content-authoring.md](docs/reference/content-authoring.md)
@@ -56,6 +57,7 @@ npm run lint              # ESLint チェック（no-console: warn/error のみ�
 npm run quality:audit     # コード・記事・画像/SVGの機械チェックを横断実行→.claude/state/quality/audit-latest.md（:ci でCI gate厳格版）
 npm run pages:deploy      # Cloudflare Pages に手動デプロイ
 npm run admin             # 運営管理画面（ローカル専用・http://127.0.0.1:3021・デプロイなし）
+npm run admin-next        # 運営管理画面 Next.js 版（ローカル専用・http://127.0.0.1:3022・計測/エージェント/スキル/ギャラリー/TODO・tools/admin-app）
 ```
 
 ---

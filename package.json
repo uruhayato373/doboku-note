@@ -13,6 +13,7 @@
     "predev": "node scripts/kill-port.mjs 3020",
     "dev": "next dev -p 3020",
     "admin": "node scripts/kill-port.mjs 3021 && node tools/admin/server.mjs",
+    "admin-next": "node scripts/kill-port.mjs 3022 && next dev tools/admin-app -p 3022 -H 127.0.0.1",
     "build-backlinks": "node .claude/skills/quality/exam-backlinks/scripts/build-exam-backlinks.mjs",
     "build-indexes": "node .claude/scripts/build-doc-meta-index.mjs && node .claude/scripts/build-cross-exam-keyword-index.mjs && node .claude/scripts/build-tag-index.mjs",
     "build-keyword-relations": "node .claude/skills/quality/exam-backlinks/scripts/build-keyword-relations.mjs",
