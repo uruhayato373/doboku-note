@@ -376,6 +376,18 @@
     margin: 0;
   }
 
+  /* 原典番号付き列挙（本文に (1)(2)/①… が既にある転記リスト）: disc/circle マーカーを抑制し、
+     原典の番号を唯一のマーカーにする（二重マーカー回避）。MDX 側で <div className="list-plain"> ラップ（opt-in）。
+     入れ子（①… など）の字下げは維持。details 内の list-disc list-inside（.prose-blog details ul）にも効くよう
+     詳細度 (0,2,1) > (0,1,2) で上書きする。 */
+  .prose-blog .list-plain ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  .prose-blog .list-plain ul ul {
+    padding-left: 1.25em;
+  }
+
   /* 見出し直後の段落: Zenn実測値0.3emでほぼ密着させる */
   .prose-blog h1 + p,
   .prose-blog h2 + p,

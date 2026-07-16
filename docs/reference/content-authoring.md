@@ -36,6 +36,7 @@ MDX 内で使える主要コンポーネント（`src/lib/component-loader/index
 - `<RelatedKeywords items={[{ label: "名前", slug: "slug" }]} />` — 関連キーワードリンクタグ（slug でキーワードページへリンク、slug 省略で灰色テキスト）
 - `<ArticleImage src="..." alt="..." width={N} height={N} />` — 画像（`<figure>` セマンティクス付き）。**`caption` は使わない** — [content-principles §8](../content-principles.md) 参照。詳細は「画像コンポーネントの使い分け」
 - `<details><summary>解答・解説</summary>...</details>` — 開閉式セクション（過去問で使用）
+- `<div className="list-plain">` — 原典番号付き列挙（本文に `(1)(2)`/`①…` が既にある転記リスト＝設問・選択肢正誤・論述フレーム等）を囲むと disc マーカーを抑制し、原典番号を唯一のマーカーにする（`・(1)` の二重マーカー回避）。前後に空行を空けて Markdown リストを囲む。`details` 内でも可。**原典番号のない通常の箇条書きには使わない**。番号を自前で付けたい仕様書調リストは `<SpecSheetList>`（あちらは自前マーカーを付けるため原典番号列挙には不可）
 - `<Timeline>`, `<PdcaCycle>` — 時系列・サイクル表示
 - `<SeeAlso href="/docs/slug" title="..." reason="..." />` — 内部 doboku-note ページへの「あわせて読みたい」カード
 - `<NoteLink url="..." title="..." description="..." coverImage="..." />` — **note 記事への導線専用カード**（リンク系の使い分けは下記参照）
