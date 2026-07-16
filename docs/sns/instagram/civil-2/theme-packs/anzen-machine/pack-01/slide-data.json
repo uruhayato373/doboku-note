@@ -1,0 +1,306 @@
+{
+  "_meta": {
+    "exam": "civil-2",
+    "examDir": "2級土木",
+    "theme": {
+      "key": "anzen",
+      "label": "安全管理"
+    },
+    "subtopic": {
+      "key": "machine",
+      "label": "車両系建設機械・締固め機械"
+    },
+    "packNum": "01",
+    "fmtLabel": "第一次検定 過去問",
+    "management": "safety",
+    "freqStars": 3,
+    "years": [
+      "r07k",
+      "r07k",
+      "r06z",
+      "r06k"
+    ],
+    "yearsLabel": "令和7・6年度",
+    "questionIds": [
+      "r07k-45",
+      "r07k-51",
+      "r06z-46",
+      "r06k-45"
+    ]
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "title": "車両系建設機械・締固め機械",
+      "themeLabel": "安全管理",
+      "subtopicLabel": "車両系建設機械・締固め機械",
+      "stars": 3,
+      "yearsLabel": "令和7・6年度",
+      "firstQuestion": "騒音規制法上，建設機械の規格等にかかわらず特定建設作業の対象とならない作業は次のうちどれか。ただし，当該作業がその作業を開始した日に終わるものを除く。",
+      "examDir": "2級土木",
+      "exam": "civil-2",
+      "sectionTag": "頻出",
+      "pageIndex": 1,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "騒音規制法上，建設機械の規格等にかかわらず特定建設作",
+        "業の対象とならない作業は次のうちどれか。ただし，当該",
+        "作業がその作業を開始した日に終わるものを除く。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "ブルドーザを使用する作業"
+        },
+        {
+          "num": 2,
+          "text": "空気圧縮機を使用する作業"
+        },
+        {
+          "num": 3,
+          "text": "ディーゼルハンマを使用する作業"
+        },
+        {
+          "num": 4,
+          "text": "ロードローラを使用する作業"
+        }
+      ],
+      "topic": "令和7年度後期",
+      "qNum": 1,
+      "totalQ": 4,
+      "pageIndex": 2,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 4,
+      "correctText": "騒音規制法上，建設機械の規格等にかか",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "ブルドーザ作業は規制対象",
+          "correct": false
+        },
+        {
+          "num": 2,
+          "text": "空気圧縮機作業は規制対象",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "ディーゼルハンマは規制対象",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "ロードローラ作業は特定建設作業の対象機種に含まれず該当なし <ExamPoint>ロードローラは騒音規制法の特定建設作業対象外</ExamPoint>",
+          "correct": true
+        }
+      ],
+      "pointText": "ロードローラ作業は特定建設作業の対象機種に含まれず該当なし <ExamPoint>ロードローラは騒音規制法の特定建設作業対象外</ExamPoint>",
+      "qNum": 1,
+      "totalQ": 4,
+      "pageIndex": 3,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "建設機械の特徴に関する次の記述のうち，適当でないもの",
+        "はどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "フローティングクレーンは，台船上にクレーン装置を搭載したもので，海上での橋梁架設等に用いられる。"
+        },
+        {
+          "num": 2,
+          "text": "アスファルトフィニッシャは，道路の舗装工事において，アスファルト混合物の転圧に用いられる。"
+        },
+        {
+          "num": 3,
+          "text": "ドリルジャンボは，さく岩機を移動式台車に複数搭載したもので，トンネルの大断面掘削に使用される。"
+        },
+        {
+          "num": 4,
+          "text": "トレーラは，鋼材や杭材，建設機械など質量の大きな荷物を運ぶのに使用される路上運搬機械で，セミトレーラとフルトレーラがある。"
+        }
+      ],
+      "topic": "令和7年度後期",
+      "qNum": 2,
+      "totalQ": 4,
+      "pageIndex": 4,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 2,
+      "correctText": "建設機械の特徴",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "フローティングクレーンの説明として正しい",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "アスファルトフィニッシャは混合物の敷均しに用い，転圧はローラが担うため誤り",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "ドリルジャンボの説明として正しい",
+          "correct": true
+        },
+        {
+          "num": 4,
+          "text": "トレーラの説明として正しい <ExamPoint>アスファルトフィニッシャは混合物の敷均し専用機械</ExamPoint>",
+          "correct": true
+        }
+      ],
+      "pointText": "アスファルトフィニッシャは混合物の敷均しに用い，転圧はローラが担うため誤り",
+      "qNum": 2,
+      "totalQ": 4,
+      "pageIndex": 5,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "振動規制法に定められている特定建設作業の対象となる建",
+        "設機械は，次のうちどれか。",
+        "",
+        "ただし，当該作業がその作業を開始した日に終わるものを",
+        "除き，1 日における当該作業に係る 2 地点間の最大",
+        "移動距離が 50 m を超えない作業とする。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "手持ち式ブレーカ"
+        },
+        {
+          "num": 2,
+          "text": "振動ローラ"
+        },
+        {
+          "num": 3,
+          "text": "ブルドーザ"
+        },
+        {
+          "num": 4,
+          "text": "舗装版破砕機"
+        }
+      ],
+      "topic": "令和6年度前期",
+      "qNum": 3,
+      "totalQ": 4,
+      "pageIndex": 6,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 4,
+      "correctText": "振動規制法に定められている特定建設作",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "手持ち式ブレーカは振動規制法の特定建設作業対象機械から除外",
+          "correct": false
+        },
+        {
+          "num": 2,
+          "text": "振動ローラも対象機械に該当しない",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "ブルドーザも振動規制法の特定建設作業対象機械には含まれない",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "舗装版破砕機は振動規制法の特定建設作業対象機械として明示されており正しい",
+          "correct": true
+        }
+      ],
+      "pointText": "舗装版破砕機は振動規制法の特定建設作業対象機械として明示されており正しい",
+      "qNum": 3,
+      "totalQ": 4,
+      "pageIndex": 7,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "騒音規制法上，特定建設作業の対象とならない建設機械は",
+        "，次のうちどれか。ただし，当該作業がその作業を開始し",
+        "た日に終わるものを除く。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "舗装版破砕機"
+        },
+        {
+          "num": 2,
+          "text": "ディーゼルハンマ"
+        },
+        {
+          "num": 3,
+          "text": "バックホウ"
+        },
+        {
+          "num": 4,
+          "text": "さく岩機"
+        }
+      ],
+      "topic": "令和6年度後期",
+      "qNum": 4,
+      "totalQ": 4,
+      "pageIndex": 8,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 1,
+      "correctText": "騒音規制法上，特定建設作業の対象とな",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "舗装版破砕機は騒音規制法の特定建設作業に含まれず対象外 （対象外＝正答）",
+          "correct": false
+        },
+        {
+          "num": 2,
+          "text": "ディーゼルハンマ作業は特定建設作業に該当",
+          "correct": true
+        },
+        {
+          "num": 3,
+          "text": "一定能力以上のバックホウ作業は特定建設作業に該当",
+          "correct": true
+        },
+        {
+          "num": 4,
+          "text": "さく岩機作業は特定建設作業に該当 <ExamPoint>舗装版破砕機は騒音規制法の特定建設作業から除外</ExamPoint>",
+          "correct": true
+        }
+      ],
+      "pointText": "舗装版破砕機は騒音規制法の特定建設作業に含まれず対象外 （対象外＝正答）",
+      "qNum": 4,
+      "totalQ": 4,
+      "pageIndex": 9,
+      "totalPages": 10
+    },
+    {
+      "type": "cta",
+      "pageIndex": 10,
+      "totalPages": 10
+    }
+  ]
+}

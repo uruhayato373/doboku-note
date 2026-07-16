@@ -1,0 +1,236 @@
+{
+  "_meta": {
+    "exam": "civil-2",
+    "examDir": "2級土木",
+    "theme": {
+      "key": "kankyo",
+      "label": "環境管理"
+    },
+    "subtopic": {
+      "key": "noise_vib",
+      "label": "騒音・振動対策（施工面）"
+    },
+    "packNum": "01",
+    "fmtLabel": "第一次検定 過去問",
+    "management": "safety",
+    "freqStars": 2,
+    "years": [
+      "r07k",
+      "r06k",
+      "r05z"
+    ],
+    "yearsLabel": "令和7・6・5年度",
+    "questionIds": [
+      "r07k-57",
+      "r06k-57",
+      "r05z-52"
+    ]
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "title": "騒音・振動対策（施工面）",
+      "themeLabel": "環境管理",
+      "subtopicLabel": "騒音・振動対策（施工面）",
+      "stars": 2,
+      "yearsLabel": "令和7・6・5年度",
+      "firstQuestion": "建設工事における騒音や振動に関する次の記述のうち，適当でないものはどれか。",
+      "examDir": "2級土木",
+      "exam": "civil-2",
+      "sectionTag": "頻出",
+      "pageIndex": 1,
+      "totalPages": 8
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "建設工事における騒音や振動に関する次の記述のうち，適",
+        "当でないものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "建設機械の土工板やバケット等は，できるだけ土のふるい落としの操作を避ける。"
+        },
+        {
+          "num": 2,
+          "text": "車輪式（ホイール式）の建設機械は，履帯式（クローラ式）に比べて，一般に騒音や振動はやや小さい。"
+        },
+        {
+          "num": 3,
+          "text": "土工機械の選定では，足回りの構造で振動の発生の程度が異なるので，機械と地盤との相互作用による発生振動を考慮し機種を選定する。"
+        },
+        {
+          "num": 4,
+          "text": "掘削土をバックホウ等でトラック等に積み込む場合，落下高さを高くしてスムーズに行う。"
+        }
+      ],
+      "topic": "令和7年度後期",
+      "qNum": 1,
+      "totalQ": 3,
+      "pageIndex": 2,
+      "totalPages": 8
+    },
+    {
+      "type": "answer",
+      "correctNum": 4,
+      "correctText": "建設工事における騒音や振動",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "ふるい落し操作の制限は騒音対策として正しい",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "ホイール式は履帯式より低騒音・低振動という一般則は正しい",
+          "correct": true
+        },
+        {
+          "num": 3,
+          "text": "土工機械選定の足回り考慮は正しい",
+          "correct": true
+        },
+        {
+          "num": 4,
+          "text": "落下高を低くすることが騒音対策の原則で「高くする」は逆で誤り <ExamPoint>積込み時は落下高を低くし騒音振動を抑制</ExamPoint>",
+          "correct": false
+        }
+      ],
+      "pointText": "落下高を低くすることが騒音対策の原則で「高くする」は逆で誤り <ExamPoint>積込み時は落下高を低くし騒音振動を抑制</ExamPoint>",
+      "qNum": 1,
+      "totalQ": 3,
+      "pageIndex": 3,
+      "totalPages": 8
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "建設工事における，騒音，振動対策に関する次の記述のう",
+        "ち，適当でないものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "騒音，振動の防止対策として，騒音，振動の大きさを下げるなどの発生対策の方法を検討する。"
+        },
+        {
+          "num": 2,
+          "text": "掘削土をバックホウ等でダンプトラックに積み込む場合，落下高を高くして掘削土の放出をスムーズに行う。"
+        },
+        {
+          "num": 3,
+          "text": "作業待ち時は，建設機械等のエンジンをできる限り止めるなど騒音，振動を発生させないようにする。"
+        },
+        {
+          "num": 4,
+          "text": "建設機械は，整備不良によると騒音，振動が発生しないように点検，整備を十分に行う。"
+        }
+      ],
+      "topic": "令和6年度後期",
+      "qNum": 2,
+      "totalQ": 3,
+      "pageIndex": 4,
+      "totalPages": 8
+    },
+    {
+      "type": "answer",
+      "correctNum": 2,
+      "correctText": "建設工事における，騒音，振動対策",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "発生源対策の検討は正しい",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "落下高を高くすると衝撃音・振動が増大するため低くするのが正で記述が逆",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "待機時のエンジン停止（アイドリングストップ）は正しい",
+          "correct": true
+        },
+        {
+          "num": 4,
+          "text": "整備不良防止の点検整備は正しい <ExamPoint>積込み落下高を低く保ち衝撃音と振動を抑える</ExamPoint>",
+          "correct": true
+        }
+      ],
+      "pointText": "落下高を高くすると衝撃音・振動が増大するため低くするのが正で記述が逆",
+      "qNum": 2,
+      "totalQ": 3,
+      "pageIndex": 5,
+      "totalPages": 8
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "建設工事における騒音・振動対策に関する次の記述のうち",
+        "，適当なものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "騒音や振動の防止対策では，騒音や振動の絶対値を下げること及び発生期間の延伸を検討する。"
+        },
+        {
+          "num": 2,
+          "text": "造成工事等の土工にともなう土ぼこりの防止対策には，アスファルトによる被覆養生が一般的である。"
+        },
+        {
+          "num": 3,
+          "text": "騒音の防止方法には，発生源での対策，伝搬経路での対策，受音点での対策があるが，建設工事では受音点での対策が中心に行われる。"
+        },
+        {
+          "num": 4,
+          "text": "運搬車両の騒音や振動の防止のためには，道路及び付近の状況によって，必要に応じ走行速度に制限を加える。"
+        }
+      ],
+      "topic": "令和5年度前期",
+      "qNum": 3,
+      "totalQ": 3,
+      "pageIndex": 6,
+      "totalPages": 8
+    },
+    {
+      "type": "answer",
+      "correctNum": 4,
+      "correctText": "建設工事における騒音・振動対策",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "発生期間は延伸ではなく短縮を検討する、延伸は誤り ",
+          "correct": false
+        },
+        {
+          "num": 2,
+          "text": "土ぼこりの防止対策は散水養生等が一般的、アスファルトによる被覆養生は誤り ",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "建設工事の騒音対策は発生源での対策が中心、受音点での対策が中心とするのは誤り ",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "道路・付近の状況に応じた走行速度制限、正しい",
+          "correct": true
+        }
+      ],
+      "pointText": "道路・付近の状況に応じた走行速度制限、正しい",
+      "qNum": 3,
+      "totalQ": 3,
+      "pageIndex": 7,
+      "totalPages": 8
+    },
+    {
+      "type": "cta",
+      "pageIndex": 8,
+      "totalPages": 8
+    }
+  ]
+}

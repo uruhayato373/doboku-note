@@ -29,11 +29,12 @@ note カバー v2 は既に「試験＝色」で解決済みだが、SNS は未�
 ### IG（exam-packs）
 
 ```
-docs/sns/instagram/{exam}/exam-packs/{年度}/pack-NN/
+docs/sns/instagram/{exam}/exam-packs/{年度}/pack-NN/       ← 年度括り（総監のみ）
   例) cem/exam-packs/r07/pack-01/
-      civil-1/exam-packs/r06/pack-01/
-      exam-packs/コンクリート主任技師/r05/pack-01/
+docs/sns/instagram/civil-{1,2}/theme-packs/{論点}/pack-NN/  ← 論点括り（1級/2級土木・2026-07〜）
+  例) civil-1/theme-packs/hoki-labor/pack-01/
 ```
+> 1級/2級土木は年度括り（旧 `civil-{1,2}/exam-packs`）を廃し、論点（頻出問題）括りへ移行（`ig-carousel-skill.md` シリーズ C）。
 
 - 既存の `exam-packs/{年度}/pack-NN/`（総監・試験軸なし）は `cem/exam-packs/{年度}/` へ**移行**（§7）。
 

@@ -1,0 +1,304 @@
+{
+  "_meta": {
+    "exam": "civil-2",
+    "examDir": "2級土木",
+    "theme": {
+      "key": "hoki",
+      "label": "法規"
+    },
+    "subtopic": {
+      "key": "road",
+      "label": "道路法（道路占用・車両制限令）"
+    },
+    "packNum": "01",
+    "fmtLabel": "第一次検定 過去問",
+    "management": "safety",
+    "freqStars": 3,
+    "years": [
+      "r07z",
+      "r07k",
+      "r06z",
+      "r06k"
+    ],
+    "yearsLabel": "令和7・6年度",
+    "questionIds": [
+      "r07z-44",
+      "r07k-44",
+      "r06z-44",
+      "r06k-44"
+    ]
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "title": "道路法（道路占用・車両制限令）",
+      "themeLabel": "法規",
+      "subtopicLabel": "道路法（道路占用・車両制限令）",
+      "stars": 3,
+      "yearsLabel": "令和7・6年度",
+      "firstQuestion": "道路の占用許可に関し，道路法上，道路管理者に提出すべき申請書に記載する事項に該当しないものは，次のうちどれか。",
+      "examDir": "2級土木",
+      "exam": "civil-2",
+      "sectionTag": "頻出",
+      "pageIndex": 1,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "道路の占用許可に関し，道路法上，道路管理者に提出すべ",
+        "き申請書に記載する事項に該当しないものは，次のうちど",
+        "れか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "道路の占用の目的"
+        },
+        {
+          "num": 2,
+          "text": "道路の占用の期間"
+        },
+        {
+          "num": 3,
+          "text": "工事実施の費用"
+        },
+        {
+          "num": 4,
+          "text": "工事実施の方法"
+        }
+      ],
+      "topic": "令和7年度前期",
+      "qNum": 1,
+      "totalQ": 4,
+      "pageIndex": 2,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 3,
+      "correctText": "道路の占用許可に関し，道路法上，道路",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "占用目的は記載事項、誤り",
+          "correct": false
+        },
+        {
+          "num": 2,
+          "text": "占用期間は記載事項、誤り",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "工事実施の費用は占用許可申請の記載事項に該当しない ",
+          "correct": true
+        },
+        {
+          "num": 4,
+          "text": "工事実施の方法は記載事項、誤り <ExamPoint>道路占用許可申請書に工事実施の費用は記載事項でない</ExamPoint>",
+          "correct": false
+        }
+      ],
+      "pointText": "工事実施の費用は占用許可申請の記載事項に該当しない ",
+      "qNum": 1,
+      "totalQ": 4,
+      "pageIndex": 3,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "車両の最高限度に関する次の記述のうち，車両制限令上，",
+        "誤っているものはどれか。ただし，道路管理者が道路の構",
+        "造の保全又は交通の危険の防止上，支障がないと認めて指",
+        "定した道路を通行する車両を除く。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "車両の幅は 2.5 m である。"
+        },
+        {
+          "num": 2,
+          "text": "車両の高さは 3.8 m である。"
+        },
+        {
+          "num": 3,
+          "text": "車両の長さは 15 m である。"
+        },
+        {
+          "num": 4,
+          "text": "車両の軸重は 10 t である。"
+        }
+      ],
+      "topic": "令和7年度後期",
+      "qNum": 2,
+      "totalQ": 4,
+      "pageIndex": 4,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 3,
+      "correctText": "車両の最高限度",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "車両の最大幅2.5mは正しい",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "車両の最大高さ3.8mは正しい",
+          "correct": true
+        },
+        {
+          "num": 3,
+          "text": "車両制限令の最大長は12mで15mは誤り",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "軸重の最高限度10tは正しい <ExamPoint>車両制限令の最大長は12m高さ3.8m幅2.5m軸重10t</ExamPoint>",
+          "correct": true
+        }
+      ],
+      "pointText": "車両制限令の最大長は12mで15mは誤り",
+      "qNum": 2,
+      "totalQ": 4,
+      "pageIndex": 5,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "道路に工作物又は施設を設け，継続して道路を使用する行",
+        "為に関する次の記述のうち，道路法上，占用の許可を必要",
+        "としないものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "道路標識，道路元標，里程標等その他の道路の附属物を設置する場合"
+        },
+        {
+          "num": 2,
+          "text": "水管，下水道管，ガス管，電柱，電線及び広告塔を設置する場合"
+        },
+        {
+          "num": 3,
+          "text": "看板，旗ざし，パーキング・メーター，幕及びアーチを設置する場合"
+        },
+        {
+          "num": 4,
+          "text": "工事用板囲，足場，詰所その他の工事用施設を設置する場合"
+        }
+      ],
+      "topic": "令和6年度前期",
+      "qNum": 3,
+      "totalQ": 4,
+      "pageIndex": 6,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 1,
+      "correctText": "道路に工作物又は施設を設け，継続して",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "道路標識・道路元標等の道路附属物は道路管理者自らが設置する道路施設のため占用許可は不要",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "水管・電柱・広告塔等は占用許可が必要で正しい （許可必要）",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "パーキングメーター等の設置物も占用許可対象",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "仮設の工事用施設も占用許可対象",
+          "correct": false
+        }
+      ],
+      "pointText": "道路標識・道路元標等の道路附属物は道路管理者自らが設置する道路施設のため占用許可は不要",
+      "qNum": 3,
+      "totalQ": 4,
+      "pageIndex": 7,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "道路占用者が道路を掘削した場合に，道路法上，用いては",
+        "ならない方法は，次のうちどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "つぼ掘"
+        },
+        {
+          "num": 2,
+          "text": "溝堀"
+        },
+        {
+          "num": 3,
+          "text": "えぐり掘"
+        },
+        {
+          "num": 4,
+          "text": "推進工法"
+        }
+      ],
+      "topic": "令和6年度後期",
+      "qNum": 4,
+      "totalQ": 4,
+      "pageIndex": 8,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 3,
+      "correctText": "道路占用者が道路を掘削した場合に，道",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "つぼ掘は適法な掘削方法",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "溝堀は適法な掘削方法",
+          "correct": true
+        },
+        {
+          "num": 3,
+          "text": "えぐり掘は地表の落下や舗装損壊を招くため道路法上禁止 （用いてはならない＝正答）",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "推進工法は地下埋設物布設に用いる適法な工法 <ExamPoint>えぐり掘は道路法上認められない掘削方法</ExamPoint>",
+          "correct": true
+        }
+      ],
+      "pointText": "えぐり掘は地表の落下や舗装損壊を招くため道路法上禁止 （用いてはならない＝正答）",
+      "qNum": 4,
+      "totalQ": 4,
+      "pageIndex": 9,
+      "totalPages": 10
+    },
+    {
+      "type": "cta",
+      "pageIndex": 10,
+      "totalPages": 10
+    }
+  ]
+}

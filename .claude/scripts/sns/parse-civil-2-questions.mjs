@@ -46,7 +46,16 @@ function parseArticle(dir) {
     while ((cm = choiceRe.exec(beforeDetails)) !== null) {
       options.push({ num: parseInt(cm[1], 10), text: cm[2].trim().replace(/\*\*/g, '').replace(/\s+/g, ' ') });
     }
-    const firstChoiceIdx = beforeDetails.search(/^\*{0,2}[（(]\s*1\s*[)）]/m);
+    // 現行書式: 行頭「1. 」〜「4. 」の番号リスト（前期は 2026-06 品質サイクルで
+    // （1）括弧書式から番号リストへ移行済み。civil-1 parser と同じフォールバックを持つ）
+    if (options.length === 0) {
+      const listRe = /^\*{0,2}([1-4])[.．]\*{0,2}\s+([\s\S]*?)(?=^\*{0,2}[1-4][.．]|<details>|$)/gm;
+      while ((cm = listRe.exec(beforeDetails)) !== null) {
+        options.push({ num: parseInt(cm[1], 10), text: cm[2].trim().replace(/\*\*/g, '').replace(/\s+/g, ' ') });
+      }
+    }
+    let firstChoiceIdx = beforeDetails.search(/^\*{0,2}[（(]\s*1\s*[)）]/m);
+    if (firstChoiceIdx < 0) firstChoiceIdx = beforeDetails.search(/^\*{0,2}1[.．]\s+/m);
     // No 見出し行を丸ごと除去（後期は「3 土木一般」等カテゴリ名が付くため行全体を落とす）
     let stem = (firstChoiceIdx >= 0 ? beforeDetails.slice(0, firstChoiceIdx) : beforeDetails)
       .replace(/^\s*\d+[^\n]*\n+/, '').trim();

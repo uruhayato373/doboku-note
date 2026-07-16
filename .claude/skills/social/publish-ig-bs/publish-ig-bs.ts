@@ -23,11 +23,11 @@
  *
  *   # 1) dry-run（初回・セレクタ更新後は必須。予約確定の手前まで実行しスクショ）
  *   npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
- *     "civil-1/exam-packs/r07/pack-01" --schedule 2026-06-10T07:00 --dry-run
+ *     "civil-1/theme-packs/hoki-labor/pack-01" --schedule 2026-06-10T07:00 --dry-run
  *
  *   # 2) 本番予約投稿
  *   npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
- *     "civil-1/exam-packs/r07/pack-01" --schedule 2026-06-10T07:00
+ *     "civil-1/theme-packs/hoki-labor/pack-01" --schedule 2026-06-10T07:00
  *
  *   # 3) 予約ウィジェットのセレクタを対話的に拾う（Playwright Inspector を schedule 手前で起動）
  *   npx tsx ... post "<pack>" --schedule 2026-06-10T07:00 --pause

@@ -1,0 +1,302 @@
+{
+  "_meta": {
+    "exam": "civil-2",
+    "examDir": "2級土木",
+    "theme": {
+      "key": "hoki",
+      "label": "法規"
+    },
+    "subtopic": {
+      "key": "building",
+      "label": "建築基準法（仮設建築物の制限緩和）"
+    },
+    "packNum": "01",
+    "fmtLabel": "第一次検定 過去問",
+    "management": "safety",
+    "freqStars": 3,
+    "years": [
+      "r07z",
+      "r06z",
+      "r05z",
+      "r05k"
+    ],
+    "yearsLabel": "令和7・6・5年度",
+    "questionIds": [
+      "r07z-43",
+      "r06z-43",
+      "r05z-38",
+      "r05k-38"
+    ]
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "title": "建築基準法（仮設建築物の制限緩和）",
+      "themeLabel": "法規",
+      "subtopicLabel": "建築基準法（仮設建築物の制限緩和）",
+      "stars": 3,
+      "yearsLabel": "令和7・6・5年度",
+      "firstQuestion": "建築基準法に関する次の記述のうち，誤っているものはどれか。",
+      "examDir": "2級土木",
+      "exam": "civil-2",
+      "sectionTag": "頻出",
+      "pageIndex": 1,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "建築基準法に関する次の記述のうち，誤っているものはど",
+        "れか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "建築物の延べ面積の敷地面積に対する割合を建ぺい率という。"
+        },
+        {
+          "num": 2,
+          "text": "建築物とは，土地に定着する工作物のうち，屋根及び柱若しくは壁を有するもの，これに附属する門若しくは塀を含む。"
+        },
+        {
+          "num": 3,
+          "text": "建築物の敷地は，原則として，道路に2 m以上接していなければならない。"
+        },
+        {
+          "num": 4,
+          "text": "道路とは，道路法，都市計画法，土地区画整理法等による道路で，原則として，幅員4 m以上のものをいう。"
+        }
+      ],
+      "topic": "令和7年度前期",
+      "qNum": 1,
+      "totalQ": 4,
+      "pageIndex": 2,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 1,
+      "correctText": "建築基準法",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "延べ面積／敷地面積は容積率、建ぺい率（建築面積／敷地面積）は誤り ",
+          "correct": false
+        },
+        {
+          "num": 2,
+          "text": "建築物の定義、正しい",
+          "correct": true
+        },
+        {
+          "num": 3,
+          "text": "敷地は道路に2m以上接道、正しい",
+          "correct": true
+        },
+        {
+          "num": 4,
+          "text": "道路の定義と幅員4m以上、正しい <ExamPoint>建ぺい率は建築面積／敷地面積であり容積率と混同しない</ExamPoint>",
+          "correct": true
+        }
+      ],
+      "pointText": "延べ面積／敷地面積は容積率、建ぺい率（建築面積／敷地面積）は誤り ",
+      "qNum": 1,
+      "totalQ": 4,
+      "pageIndex": 3,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "建築基準法上，主要構造部に該当しないものは，次のうち",
+        "どれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "壁"
+        },
+        {
+          "num": 2,
+          "text": "間柱"
+        },
+        {
+          "num": 3,
+          "text": "はり"
+        },
+        {
+          "num": 4,
+          "text": "屋根"
+        }
+      ],
+      "topic": "令和6年度前期",
+      "qNum": 2,
+      "totalQ": 4,
+      "pageIndex": 4,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 2,
+      "correctText": "建築基準法上，主要構造部に該当しない",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "壁は主要構造部に含まれ正しい",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "間柱は主要構造部から除外されているため、該当しないものとして本問の正解",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "はりは主要構造部に含まれ正しい",
+          "correct": true
+        },
+        {
+          "num": 4,
+          "text": "屋根も主要構造部に含まれ正しい",
+          "correct": true
+        }
+      ],
+      "pointText": "間柱は主要構造部から除外されているため、該当しないものとして本問の正解",
+      "qNum": 2,
+      "totalQ": 4,
+      "pageIndex": 5,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "建築基準法上，建築設備に該当しないものは，次のうちど",
+        "れか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "煙突"
+        },
+        {
+          "num": 2,
+          "text": "排水設備"
+        },
+        {
+          "num": 3,
+          "text": "階段"
+        },
+        {
+          "num": 4,
+          "text": "冷暖房設備"
+        }
+      ],
+      "topic": "令和5年度前期",
+      "qNum": 3,
+      "totalQ": 4,
+      "pageIndex": 6,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 3,
+      "correctText": "建築基準法上，建築設備に該当しないも",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "煙突は建築設備に該当する （該当するため正答ではない）",
+          "correct": false
+        },
+        {
+          "num": 2,
+          "text": "排水設備は建築設備に該当する",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "階段は主要構造部の一部であり建築設備に該当しない （該当しないもの＝正答）",
+          "correct": true
+        },
+        {
+          "num": 4,
+          "text": "冷暖房設備は建築設備に該当する",
+          "correct": false
+        }
+      ],
+      "pointText": "階段は主要構造部の一部であり建築設備に該当しない （該当しないもの＝正答）",
+      "qNum": 3,
+      "totalQ": 4,
+      "pageIndex": 7,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "敷地面積 1000m² の土地に，建築面積 500m",
+        "² の 2 階建ての倉庫を建築しようとする場合，建築",
+        "基準法上，建ぺい率（%）として正しいものは次のうちど",
+        "れか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "50"
+        },
+        {
+          "num": 2,
+          "text": "100"
+        },
+        {
+          "num": 3,
+          "text": "150"
+        },
+        {
+          "num": 4,
+          "text": "200"
+        }
+      ],
+      "topic": "令和5年度後期",
+      "qNum": 4,
+      "totalQ": 4,
+      "pageIndex": 8,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 1,
+      "correctText": "敷地面積 1000m² の土地に，建",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "500÷1000×100 = 50% で正しい",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "100 は容積率（延べ面積÷敷地面積）に近い誤った値",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "150 は不適切な計算結果",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "200 は不適切な計算結果 <ExamPoint>建ぺい率は建築面積÷敷地面積で階数は関与しない</ExamPoint>",
+          "correct": false
+        }
+      ],
+      "pointText": "500÷1000×100 = 50% で正しい",
+      "qNum": 4,
+      "totalQ": 4,
+      "pageIndex": 9,
+      "totalPages": 10
+    },
+    {
+      "type": "cta",
+      "pageIndex": 10,
+      "totalPages": 10
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "_meta": {
+    "exam": "civil-2",
+    "examDir": "2級土木",
+    "theme": {
+      "key": "hoki",
+      "label": "法規"
+    },
+    "subtopic": {
+      "key": "building",
+      "label": "建築基準法（仮設建築物の制限緩和）"
+    },
+    "packNum": "02",
+    "fmtLabel": "第一次検定 過去問",
+    "management": "safety",
+    "freqStars": 3,
+    "years": [
+      "r04z",
+      "r03z"
+    ],
+    "yearsLabel": "令和4・3年度",
+    "questionIds": [
+      "r04z-38",
+      "r03z-38"
+    ]
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "title": "建築基準法（仮設建築物の制限緩和）",
+      "themeLabel": "法規",
+      "subtopicLabel": "建築基準法（仮設建築物の制限緩和）",
+      "stars": 3,
+      "yearsLabel": "令和4・3年度",
+      "firstQuestion": "建築基準法の用語に関して、次の記述のうち誤っているものはどれか。",
+      "examDir": "2級土木",
+      "exam": "civil-2",
+      "sectionTag": "頻出",
+      "pageIndex": 1,
+      "totalPages": 6
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "建築基準法の用語に関して、次の記述のうち誤っているも",
+        "のはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "特殊建築物は、学校、体育館、病院、劇場、集会場、百貨店などをいう。"
+        },
+        {
+          "num": 2,
+          "text": "建築物の主要構造部は、壁、柱、床、はり、屋根又は階段をいい、局部的な小階段、屋外階段は含まない。"
+        },
+        {
+          "num": 3,
+          "text": "建築とは、建築物を新築し、増築し、改築し、又は移転することをいう。"
+        },
+        {
+          "num": 4,
+          "text": "建築主とは、建築物に関する工事の請負契約の注文者であり、請負契約によらないで自らその工事をする者は含まない。"
+        }
+      ],
+      "topic": "令和4年度前期",
+      "qNum": 1,
+      "totalQ": 2,
+      "pageIndex": 2,
+      "totalPages": 6
+    },
+    {
+      "type": "answer",
+      "correctNum": 4,
+      "correctText": "建築基準法の用語に関して、次の記述の",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "特殊建築物の定義は正しい",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "主要構造部の定義は正しい",
+          "correct": true
+        },
+        {
+          "num": 3,
+          "text": "建築の定義は正しい",
+          "correct": true
+        },
+        {
+          "num": 4,
+          "text": "建築主は請負契約の注文者だけでなく、自らその工事をする者も含む（建築基準法2条16号） ",
+          "correct": false
+        }
+      ],
+      "pointText": "建築主は請負契約の注文者だけでなく、自らその工事をする者も含む（建築基準法2条16号） ",
+      "qNum": 1,
+      "totalQ": 2,
+      "pageIndex": 3,
+      "totalPages": 6
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "建築基準法の用語の定義に関する次の記述のうち、誤って",
+        "いるものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "建築物は、土地に定着する工作物のうち、屋根及び柱若しくは壁を有するもの、これに附属する門若しくは塀などをいう。"
+        },
+        {
+          "num": 2,
+          "text": "居室は、居住のみを目的として継続的に使用する室をいう。"
+        },
+        {
+          "num": 3,
+          "text": "建築設備は、建築物に設ける電気、ガス、給水、排水、換気、冷暖房などの設備をいう。"
+        },
+        {
+          "num": 4,
+          "text": "特定行政庁は、原則として、建築主事を置く市町村の区域については当該市町村の長をいい、その他の市町村の区域については都道府県知事をいう。"
+        }
+      ],
+      "topic": "令和3年度前期",
+      "qNum": 2,
+      "totalQ": 2,
+      "pageIndex": 4,
+      "totalPages": 6
+    },
+    {
+      "type": "answer",
+      "correctNum": 2,
+      "correctText": "建築基準法の用語の定義",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "建築物の定義は正しい",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "居室は「居住、執務、作業、集会、娯楽その他これらに類する目的のために継続的に使用する室」をいい、居住のみを目的とするは誤り ",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "建築設備の定義は正しい",
+          "correct": true
+        },
+        {
+          "num": 4,
+          "text": "特定行政庁の定義は正しい",
+          "correct": true
+        }
+      ],
+      "pointText": "居室は「居住、執務、作業、集会、娯楽その他これらに類する目的のために継続的に使用する室」をいい、居住のみを目的とするは誤り ",
+      "qNum": 2,
+      "totalQ": 2,
+      "pageIndex": 5,
+      "totalPages": 6
+    },
+    {
+      "type": "cta",
+      "pageIndex": 6,
+      "totalPages": 6
+    }
+  ]
+}

@@ -1,11 +1,11 @@
 {
   "_comment": "Kindle 全書籍のマスター登録簿。status=ready(制作完了・提出待ち)/in_review(KDP審査中)/live(公開). epub/cover は git 追跡(A系=kindle-published/・B-F=kindle-dist/). 提出後 ASIN と status=live を更新。再生成は npm run sync-kindle-dist。",
   "schemaVersion": 1,
-  "updatedAt": "2026-07-11",
+  "updatedAt": "2026-07-15",
   "books": [
     {
       "id": "A-00",
-      "asin": null,
+      "asin": "B0H8HW139T",
       "title": "1級土木施工管理技士 一次検定 全6科目 論点別過去問 完全版",
       "subtitle": "平成26〜令和7年度 12年分・全422問を6科目39論点に再構成",
       "series": "1級土木施工管理技士 第1次検定 論点別過去問",
@@ -14,9 +14,9 @@
       "royalty": 0.7,
       "questionCount": 422,
       "rontenCount": 39,
-      "status": "in_review",
+      "status": "live",
       "submittedDate": "2026-07-11",
-      "publishedDate": null,
+      "publishedDate": "2026-07-11",
       "builder": "scripts/build-takuitsu-reconstruct.mjs",
       "buildTheme": "goubon",
       "epub": "kindle-A-00-goubon.epub",
@@ -27,10 +27,15 @@
         {
           "version": "1.0",
           "date": "2026-07-11",
-          "change": "KDP へ入稿・審査中（A-01〜A-06 の全422問を合本・6部立て・章番号通し）"
+          "change": "KDP へ入稿（A-01〜A-06 の全422問を合本・6部立て・章番号通し）"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-07-15",
+          "change": "KDP 本棚突合で LIVE 確認・ASIN=B0H8HW139T（審査通過・分冊との重複規約もクリア）"
         }
       ],
-      "notes": "KDP 審査中（未公開・公開までに時間がかかる）。LIVE 化・ASIN 取得後に status=live/publishedDate/asin を更新。分冊 A-01〜A-06 との重複コンテンツ規約はこの審査で実態確認。",
+      "notes": "LIVE（2026-07-15 本棚突合で確認）。分冊 A-01〜A-06 との重複コンテンツ規約は審査を通過。",
       "dist": "kindle-published/kindle-A-00-goubon.epub"
     },
     {
@@ -204,24 +209,33 @@
     },
     {
       "id": "e-01",
-      "asin": null,
+      "asin": "B0H8ZZMM7R",
       "title": "2級土木施工管理技士 第1次検定 過去問完全解説【令和3〜7年度 全期】",
       "subtitle": "令和3〜7年度 前期・後期 全630問",
       "series": "E 2級土木施工管理技士 択一",
       "priceJpy": 990,
       "royalty": 0.7,
-      "status": "ready",
+      "status": "live",
+      "submittedDate": "2026-07-15",
+      "publishedDate": "2026-07-15",
       "builder": "scripts/build-pe1-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/e-01.json",
       "epub": "kindle-dist/e-01.epub",
       "cover": "kindle-dist/e-01.jpg",
       "kdpMemo": "scripts/kindle-published/KDP入力メモ_e-01.txt",
       "version": "1.0",
+      "duplicateDraftAsin": "B0H8KH1N6G",
+      "notes": "正版 ASIN=B0H8ZZMM7R（LIVE）。7/12 に旧著者版で作った重複タイトル B0H8KH1N6G が下書き(未出版)で残存＝KDP で削除要（売上ゼロ・完全削除可）。修正版は既存タイトルへ差し替えるべきだったが新規作成して二重発番した経緯。",
       "versionHistory": [
         {
           "version": "1.0",
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-07-15",
+          "change": "KDP 公開（LIVE・販売中 ¥990）・ASIN=B0H8ZZMM7R。重複下書き B0H8KH1N6G は削除対象。"
         }
       ]
     },
@@ -233,18 +247,26 @@
       "series": "B 技術士総監 択一",
       "priceJpy": 490,
       "royalty": 0.7,
-      "status": "ready",
+      "status": "in_review",
+      "submittedDate": "2026-07-16",
+      "publishedDate": null,
       "builder": "scripts/build-pe1-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/b-reiwa.json",
       "epub": "kindle-dist/b-reiwa.epub",
       "cover": "kindle-dist/b-reiwa.jpg",
       "kdpMemo": "scripts/kindle-published/KDP入力メモ_b-reiwa.txt",
       "version": "1.0",
+      "notes": "2026-07-16 KDP 新規提出・レビュー中（ASIN 未表示）。LIVE 化後に asin/status=live/publishedDate を更新。",
       "versionHistory": [
         {
           "version": "1.0",
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-07-16",
+          "change": "KDP 新規提出・レビュー中"
         }
       ]
     },
@@ -273,47 +295,63 @@
     },
     {
       "id": "d-01",
-      "asin": null,
+      "asin": "B0H8JHYGH9",
       "title": "技術士第一次試験 基礎科目 過去問7年分完全解説",
       "subtitle": "令和元〜7年度 210問",
       "series": "D 技術士一次 科目別",
       "priceJpy": 490,
       "royalty": 0.7,
-      "status": "ready",
+      "status": "live",
+      "submittedDate": "2026-07-11",
+      "publishedDate": "2026-07-11",
       "builder": "scripts/build-pe1-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/d-01.json",
       "epub": "kindle-dist/d-01.epub",
       "cover": "kindle-dist/d-01.jpg",
       "kdpMemo": "scripts/kindle-published/KDP入力メモ_d-01.txt",
       "version": "1.0",
+      "notes": "KDP 本棚の突合で LIVE 判明(2026-07-15確認)。提出が著者統一(7/11)前後の境目のため、LIVE 版の内部 EPUB が最新 QA 版と一致するかは未確認。",
       "versionHistory": [
         {
           "version": "1.0",
           "date": "2026-07-11",
-          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-07-15",
+          "change": "KDP 本棚突合で LIVE 確認・ASIN=B0H8JHYGH9"
         }
       ]
     },
     {
       "id": "d-02",
-      "asin": null,
+      "asin": "B0H8L2WXBY",
       "title": "技術士第一次試験 適性科目 過去問7年分完全解説",
       "subtitle": "令和元〜7年度 105問",
       "series": "D 技術士一次 科目別",
       "priceJpy": 390,
       "royalty": 0.7,
-      "status": "ready",
+      "status": "live",
+      "submittedDate": "2026-07-12",
+      "publishedDate": "2026-07-12",
       "builder": "scripts/build-pe1-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/d-02.json",
       "epub": "kindle-dist/d-02.epub",
       "cover": "kindle-dist/d-02.jpg",
       "kdpMemo": "scripts/kindle-published/KDP入力メモ_d-02.txt",
       "version": "1.0",
+      "notes": "KDP 本棚の突合で LIVE 判明(2026-07-15確認)。提出が著者統一(7/11)前後の境目のため、LIVE 版の内部 EPUB が最新 QA 版と一致するかは未確認。",
       "versionHistory": [
         {
           "version": "1.0",
           "date": "2026-07-11",
-          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+          "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-07-15",
+          "change": "KDP 本棚突合で LIVE 確認・ASIN=B0H8L2WXBY"
         }
       ]
     },
@@ -325,18 +363,26 @@
       "series": "D 技術士一次 科目別",
       "priceJpy": 490,
       "royalty": 0.7,
-      "status": "ready",
+      "status": "in_review",
+      "submittedDate": "2026-07-16",
+      "publishedDate": null,
       "builder": "scripts/build-pe1-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/d-03.json",
       "epub": "kindle-dist/d-03.epub",
       "cover": "kindle-dist/d-03.jpg",
       "kdpMemo": "scripts/kindle-published/KDP入力メモ_d-03.txt",
       "version": "1.0",
+      "notes": "2026-07-16 KDP 新規提出・レビュー中（ASIN 未表示）。LIVE 化後に asin/status=live/publishedDate を更新。",
       "versionHistory": [
         {
           "version": "1.0",
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-07-16",
+          "change": "KDP 新規提出・レビュー中"
         }
       ]
     },
@@ -348,18 +394,26 @@
       "series": "D 技術士一次 科目別",
       "priceJpy": 990,
       "royalty": 0.7,
-      "status": "ready",
+      "status": "in_review",
+      "submittedDate": "2026-07-16",
+      "publishedDate": null,
       "builder": "scripts/build-pe1-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/d-00.json",
       "epub": "kindle-dist/d-00.epub",
       "cover": "kindle-dist/d-00.jpg",
       "kdpMemo": "scripts/kindle-published/KDP入力メモ_d-00.txt",
       "version": "1.0",
+      "notes": "2026-07-16 KDP 新規提出・レビュー中（ASIN 未表示）。LIVE 化後に asin/status=live/publishedDate を更新。分冊 d-01/d-02/d-03 との重複コンテンツ規約は審査で実態確認。",
       "versionHistory": [
         {
           "version": "1.0",
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-07-16",
+          "change": "KDP 新規提出・レビュー中"
         }
       ]
     },

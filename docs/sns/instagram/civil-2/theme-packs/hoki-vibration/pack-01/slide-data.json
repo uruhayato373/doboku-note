@@ -1,0 +1,305 @@
+{
+  "_meta": {
+    "exam": "civil-2",
+    "examDir": "2級土木",
+    "theme": {
+      "key": "hoki",
+      "label": "法規"
+    },
+    "subtopic": {
+      "key": "vibration",
+      "label": "振動規制法（特定建設作業）"
+    },
+    "packNum": "01",
+    "fmtLabel": "第一次検定 過去問",
+    "management": "safety",
+    "freqStars": 3,
+    "years": [
+      "r07z",
+      "r07k",
+      "r06k",
+      "r05z"
+    ],
+    "yearsLabel": "令和7・6・5年度",
+    "questionIds": [
+      "r07z-46",
+      "r07k-46",
+      "r06k-46",
+      "r05z-41"
+    ]
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "title": "振動規制法（特定建設作業）",
+      "themeLabel": "法規",
+      "subtopicLabel": "振動規制法（特定建設作業）",
+      "stars": 3,
+      "yearsLabel": "令和7・6・5年度",
+      "firstQuestion": "振動規制法上，指定地域内において特定建設作業を施工しようとする者が，市町村長に届け出なければならない事項として，該当しないものは次のうちどれか。",
+      "examDir": "2級土木",
+      "exam": "civil-2",
+      "sectionTag": "頻出",
+      "pageIndex": 1,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "振動規制法上，指定地域内において特定建設作業を施工し",
+        "ようとする者が，市町村長に届け出なければならない事項",
+        "として，該当しないものは次のうちどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "特定建設作業の施工体制表"
+        },
+        {
+          "num": 2,
+          "text": "特定建設作業の振動の防止の方法"
+        },
+        {
+          "num": 3,
+          "text": "特定建設作業の種類，場所，実施期間及び作業時間"
+        },
+        {
+          "num": 4,
+          "text": "特定建設作業の場所の付近の見取図"
+        }
+      ],
+      "topic": "令和7年度前期",
+      "qNum": 1,
+      "totalQ": 4,
+      "pageIndex": 2,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 1,
+      "correctText": "振動規制法上，指定地域内において特定",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "施工体制表は届出事項に該当しない ",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "振動防止方法は届出事項、誤り",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "種類・場所・期間・時間は届出事項、誤り",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "付近見取図は届出事項、誤り <ExamPoint>振動規制法の届出事項に施工体制表は含まれない</ExamPoint>",
+          "correct": false
+        }
+      ],
+      "pointText": "施工体制表は届出事項に該当しない ",
+      "qNum": 1,
+      "totalQ": 4,
+      "pageIndex": 3,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "振動規制法上，指定地域内における特定建設作業の規制基",
+        "準に関する次の記述のうち，正しいものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "特定建設作業の敷地境界線における振動の大きさは，75 dB を超えてはならない。"
+        },
+        {
+          "num": 2,
+          "text": "夜間・深夜作業の禁止時間帯は，午後7時から翌日の午前8時までである。"
+        },
+        {
+          "num": 3,
+          "text": "1日の作業時間は，8時間を超えてはならない。"
+        },
+        {
+          "num": 4,
+          "text": "連続作業の制限は同一の場所においては，連続して7日である。"
+        }
+      ],
+      "topic": "令和7年度後期",
+      "qNum": 2,
+      "totalQ": 4,
+      "pageIndex": 4,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 1,
+      "correctText": "振動規制法上，指定地域内における特定",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "振動規制法の特定建設作業敷地境界基準75dBは正しい",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "夜間禁止時間帯は午後7時から翌日午前7時までで「8時」は誤り",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "1日の作業時間は10時間を超えてはならない規制で「8時間」は誤り",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "連続作業の制限は同一場所6日で「7日」は誤り <ExamPoint>振動規制法の敷地境界線基準は75dB以下</ExamPoint>",
+          "correct": false
+        }
+      ],
+      "pointText": "振動規制法の特定建設作業敷地境界基準75dBは正しい",
+      "qNum": 2,
+      "totalQ": 4,
+      "pageIndex": 5,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "振動規制法上，指定地域内において行う特定建設作業に該",
+        "当するものは，次のうちどれか。ただし，当該作業がその",
+        "作業を開始した日に終わるものを除き，1 日における ",
+        "2 地点間の最大移動距離が 50m を超えない作業と",
+        "する。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "油圧式杭抜機を使用する作業"
+        },
+        {
+          "num": 2,
+          "text": "ジャイアントブレーカを使用する作業"
+        },
+        {
+          "num": 3,
+          "text": "ブルドーザを使用する作業"
+        },
+        {
+          "num": 4,
+          "text": "路面切削機を使用する作業"
+        }
+      ],
+      "topic": "令和6年度後期",
+      "qNum": 3,
+      "totalQ": 4,
+      "pageIndex": 6,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 2,
+      "correctText": "振動規制法上，指定地域内において行う",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "油圧式杭抜機は対象外作業",
+          "correct": false
+        },
+        {
+          "num": 2,
+          "text": "ジャイアントブレーカ（手持式の油圧ブレーカ等）使用は特定建設作業に該当",
+          "correct": true
+        },
+        {
+          "num": 3,
+          "text": "ブルドーザは振動規制法の特定建設作業対象外",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "路面切削機は対象外 <ExamPoint>ブレーカ使用は振動規制法の特定建設作業に該当</ExamPoint>",
+          "correct": false
+        }
+      ],
+      "pointText": "ジャイアントブレーカ（手持式の油圧ブレーカ等）使用は特定建設作業に該当",
+      "qNum": 3,
+      "totalQ": 4,
+      "pageIndex": 7,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "振動規制法上，指定地域内において特定建設作業を施工し",
+        "ようとする者が，届け出なければならない事項として，該",
+        "当しないものは次のうちどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "特定建設作業の現場付近の見取り図"
+        },
+        {
+          "num": 2,
+          "text": "特定建設作業の実施期間"
+        },
+        {
+          "num": 3,
+          "text": "特定建設作業の振動防止対策の方法"
+        },
+        {
+          "num": 4,
+          "text": "特定建設作業の現場の施工体制表"
+        }
+      ],
+      "topic": "令和5年度前期",
+      "qNum": 4,
+      "totalQ": 4,
+      "pageIndex": 8,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 4,
+      "correctText": "振動規制法上，指定地域内において特定",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "現場付近の見取り図は届出事項、該当する （正答ではない）",
+          "correct": false
+        },
+        {
+          "num": 2,
+          "text": "実施期間は届出事項、該当する",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "振動防止対策の方法は届出事項、該当する",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "施工体制表は届出事項に該当しない （該当しないもの＝正答）",
+          "correct": true
+        }
+      ],
+      "pointText": "施工体制表は届出事項に該当しない （該当しないもの＝正答）",
+      "qNum": 4,
+      "totalQ": 4,
+      "pageIndex": 9,
+      "totalPages": 10
+    },
+    {
+      "type": "cta",
+      "pageIndex": 10,
+      "totalPages": 10
+    }
+  ]
+}

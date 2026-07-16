@@ -1,0 +1,300 @@
+{
+  "_meta": {
+    "exam": "civil-2",
+    "examDir": "2級土木",
+    "theme": {
+      "key": "kankyo",
+      "label": "環境管理"
+    },
+    "subtopic": {
+      "key": "general",
+      "label": "環境保全対策・地盤沈下対策ほか"
+    },
+    "packNum": "01",
+    "fmtLabel": "第一次検定 過去問",
+    "management": "safety",
+    "freqStars": 2,
+    "years": [
+      "r07z",
+      "r06z",
+      "r04z",
+      "r03k"
+    ],
+    "yearsLabel": "令和7・6・4・3年度",
+    "questionIds": [
+      "r07z-57",
+      "r06z-57",
+      "r04z-52",
+      "r03k-52"
+    ]
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "title": "環境保全対策・地盤沈下対策ほか",
+      "themeLabel": "環境管理",
+      "subtopicLabel": "環境保全対策・地盤沈下対策ほか",
+      "stars": 2,
+      "yearsLabel": "令和7・6・4・3年度",
+      "firstQuestion": "建設工事現場周辺の環境保全対策に関する次の記述のうち，適当でないものはどれか。",
+      "examDir": "2級土木",
+      "exam": "civil-2",
+      "sectionTag": "頻出",
+      "pageIndex": 1,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "建設工事現場周辺の環境保全対策に関する次の記述のうち",
+        "，適当でないものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "運搬車両の走行速度は，道路及び付近の状況によって必要に応じ制限を加える計画を行い，騒音や振動を防止する。"
+        },
+        {
+          "num": 2,
+          "text": "ブルドーザで掘削押土を行う場合の，騒音や振動の防止対策として，無理な負荷をかけないようにし，後進時の高速走行を避けて，ていねいに運転しなければならない。"
+        },
+        {
+          "num": 3,
+          "text": "騒音の防止方法には，発生源での対策，伝搬経路での対策，受音点での対策があるが，建設工事では受音点での対策が広く行われる。"
+        },
+        {
+          "num": 4,
+          "text": "騒音や振動の防止対策では，騒音や振動の絶対値を下げること及び発生期間の短縮を検討する。"
+        }
+      ],
+      "topic": "令和7年度前期",
+      "qNum": 1,
+      "totalQ": 4,
+      "pageIndex": 2,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 3,
+      "correctText": "建設工事現場周辺の環境保全対策",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "走行速度制限による騒音・振動防止、正しい",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "ブルドーザの後進高速回避、正しい",
+          "correct": true
+        },
+        {
+          "num": 3,
+          "text": "建設工事では発生源対策が中心、受音点対策は誤り ",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "絶対値低減と期間短縮、正しい <ExamPoint>建設工事の騒音対策は受音点でなく発生源での対策が中心</ExamPoint>",
+          "correct": true
+        }
+      ],
+      "pointText": "建設工事では発生源対策が中心、受音点対策は誤り ",
+      "qNum": 1,
+      "totalQ": 4,
+      "pageIndex": 3,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "建設工事における環境保全対策に関する次の記述のうち，",
+        "適当でないものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "工事現場周辺の家屋，施設等の有無や，騒音又は振動源との距離等を事前に調査する。"
+        },
+        {
+          "num": 2,
+          "text": "施工にあたっては，井戸がれ，自然生物の保護等，近隣環境への影響を考慮する。"
+        },
+        {
+          "num": 3,
+          "text": "盛土箇所の風による塵埃の防止にあたっては，仮囲いの設置を原則とする。"
+        },
+        {
+          "num": 4,
+          "text": "掘削，積込み作業にあたっては，低騒音型建設機械の使用を原則とする。"
+        }
+      ],
+      "topic": "令和6年度前期",
+      "qNum": 2,
+      "totalQ": 4,
+      "pageIndex": 4,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 3,
+      "correctText": "建設工事における環境保全対策",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "周辺家屋・距離等の事前調査は正しい",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "井戸枯れ・自然生物保護への配慮は正しい",
+          "correct": true
+        },
+        {
+          "num": 3,
+          "text": "風による塵埃防止は散水・シート覆い・防塵ネット等が標準で、「仮囲いの設置」では塵埃防止策として適当でなく誤り",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "低騒音型建設機械の使用は正しい",
+          "correct": true
+        }
+      ],
+      "pointText": "風による塵埃防止は散水・シート覆い・防塵ネット等が標準で、「仮囲いの設置」では塵埃防止策として適当でなく誤り",
+      "qNum": 2,
+      "totalQ": 4,
+      "pageIndex": 5,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "建設工事における環境保全対策に関する次の記述のうち、",
+        "適当なものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "建設工事の騒音では、土砂、残土等を多量に運搬する場合、運搬経路は問題とならない。"
+        },
+        {
+          "num": 2,
+          "text": "騒音振動の防止対策として、騒音振動の絶対値を下げることと、発生期間の延伸を検討する。"
+        },
+        {
+          "num": 3,
+          "text": "広い土地の掘削や整地での粉塵対策では、散水やシートで覆うことは効果が低い。"
+        },
+        {
+          "num": 4,
+          "text": "土運搬による土砂の飛散防止には、過積載の防止、荷台のシート掛けを行う。"
+        }
+      ],
+      "topic": "令和4年度前期",
+      "qNum": 3,
+      "totalQ": 4,
+      "pageIndex": 6,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 4,
+      "correctText": "建設工事における環境保全対策",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "運搬経路は沿道環境への影響大で、必ず検討すべき重要事項 ",
+          "correct": false
+        },
+        {
+          "num": 2,
+          "text": "発生期間の「延伸」ではなく「短縮」が望ましい ",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "散水・シート被覆は粉塵防止に有効 ",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "過積載防止とシート掛けは飛散防止の基本対策",
+          "correct": true
+        }
+      ],
+      "pointText": "過積載防止とシート掛けは飛散防止の基本対策",
+      "qNum": 3,
+      "totalQ": 4,
+      "pageIndex": 7,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "建設工事における環境保全に関する次の記述のうち，適当",
+        "でないものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "土工機械の選定では，エンジンの回転速度に比例するので，高負荷となる運転は避ける。"
+        },
+        {
+          "num": 2,
+          "text": "ブルドーザの騒音振動の発生状況は，前進押土より後進時，速度が大きくなるほど大きい。"
+        },
+        {
+          "num": 3,
+          "text": "履帯式機械では，掘削や締固め時よりガタつきの多い走行時の方が騒音振動が大きい。"
+        },
+        {
+          "num": 4,
+          "text": "コンクリートの打込み時には，トラックミキサの不必要な空ぶかしをしないよう留意する。"
+        }
+      ],
+      "topic": "令和3年度後期",
+      "qNum": 4,
+      "totalQ": 4,
+      "pageIndex": 8,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 2,
+      "correctText": "建設工事における環境保全",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "高負荷運転を避けるのは環境保全上適切で正しい",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "ブルドーザは後進より前進押土時の方が騒音振動が大きく前後の関係が逆で誤り",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "履帯式は走行時の方が騒音振動が大きく正しい",
+          "correct": true
+        },
+        {
+          "num": 4,
+          "text": "不必要な空ぶかしを避け正しい <ExamPoint>ブルドーザは押土作業時より後進・高速走行時の騒音に留意</ExamPoint>",
+          "correct": true
+        }
+      ],
+      "pointText": "ブルドーザは後進より前進押土時の方が騒音振動が大きく前後の関係が逆で誤り",
+      "qNum": 4,
+      "totalQ": 4,
+      "pageIndex": 9,
+      "totalPages": 10
+    },
+    {
+      "type": "cta",
+      "pageIndex": 10,
+      "totalPages": 10
+    }
+  ]
+}

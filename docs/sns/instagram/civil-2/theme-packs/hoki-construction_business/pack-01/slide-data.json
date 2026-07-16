@@ -1,0 +1,300 @@
+{
+  "_meta": {
+    "exam": "civil-2",
+    "examDir": "2級土木",
+    "theme": {
+      "key": "hoki",
+      "label": "法規"
+    },
+    "subtopic": {
+      "key": "construction_business",
+      "label": "建設業法（技術者制度・元請下請・契約約款）"
+    },
+    "packNum": "01",
+    "fmtLabel": "第一次検定 過去問",
+    "management": "safety",
+    "freqStars": 3,
+    "years": [
+      "r07z",
+      "r07z",
+      "r07z",
+      "r07k"
+    ],
+    "yearsLabel": "令和7年度",
+    "questionIds": [
+      "r07z-40",
+      "r07z-41",
+      "r07z-49",
+      "r07k-41"
+    ]
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "title": "建設業法（技術者制度・元請下請・契約約款）",
+      "themeLabel": "法規",
+      "subtopicLabel": "建設業法（技術者制度・元請下請・契約約款）",
+      "stars": 3,
+      "yearsLabel": "令和7年度",
+      "firstQuestion": "建設業法に関する次の記述のうち，誤っているものはどれか。",
+      "examDir": "2級土木",
+      "exam": "civil-2",
+      "sectionTag": "頻出",
+      "pageIndex": 1,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "建設業法に関する次の記述のうち，誤っているものはどれ",
+        "か。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "工事現場における建設工事の施工に従事する者は，主任技術者又は監理技術者がその職務として行う指導に従わなければならない。"
+        },
+        {
+          "num": 2,
+          "text": "元請負人はその請負った建設工事を施工するために必要な工程の細目等，元請負人において定めるべき事項を定めようとするときは，あらかじめ下請負人の意見をきかなければならない。"
+        },
+        {
+          "num": 3,
+          "text": "発注者から直接建設工事を請け負った特定建設業者は，下請契約の請負代金の額が政令で定める金額以上になる場合，監理技術者を置かなければならない。"
+        },
+        {
+          "num": 4,
+          "text": "建設業者は，請負契約を締結するに際して，主な工種のみの材料費，労務費等の内訳により見積りを行うことができる。"
+        }
+      ],
+      "topic": "令和7年度前期",
+      "qNum": 1,
+      "totalQ": 4,
+      "pageIndex": 2,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 4,
+      "correctText": "建設業法",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "従事者は主任・監理技術者の指導に従う義務、正しい",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "元請は下請の意見聴取義務、正しい",
+          "correct": true
+        },
+        {
+          "num": 3,
+          "text": "特定建設業者の監理技術者配置、正しい",
+          "correct": true
+        },
+        {
+          "num": 4,
+          "text": "見積りは工事の種別ごとに材料費・労務費等の内訳を明らかにする必要、主な工種のみは誤り  <ExamPoint>見積りは工事種別ごとに材料費・労務費等の内訳を示す必要がある</ExamPoint>",
+          "correct": false
+        }
+      ],
+      "pointText": "見積りは工事の種別ごとに材料費・労務費等の内訳を明らかにする必要、主な工種のみは誤り  <ExamPoint>見積りは工事種別ごとに材料費・労務費等の内",
+      "qNum": 1,
+      "totalQ": 4,
+      "pageIndex": 3,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "建設業法上，主任技術者及び監理技術者の職務に関する次",
+        "の記述のうち，正しいものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "当該建設工事の見積金額の積算の作成"
+        },
+        {
+          "num": 2,
+          "text": "当該建設工事の施工計画の作成"
+        },
+        {
+          "num": 3,
+          "text": "当該建設工事の下請契約の作成"
+        },
+        {
+          "num": 4,
+          "text": "当該建設工事の資金計画の作成"
+        }
+      ],
+      "topic": "令和7年度前期",
+      "qNum": 2,
+      "totalQ": 4,
+      "pageIndex": 4,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 2,
+      "correctText": "建設業法上，主任技術者及び監理技術者の職務",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "見積積算は技術者の職務ではない ",
+          "correct": false
+        },
+        {
+          "num": 2,
+          "text": "施工計画の作成は技術者の職務、正しい",
+          "correct": true
+        },
+        {
+          "num": 3,
+          "text": "下請契約作成は経営事項、技術者職務ではない ",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "資金計画は経営者の業務  <ExamPoint>主任・監理技術者の職務は施工計画の作成であり見積・契約・資金計画は含まない</ExamPoint>",
+          "correct": false
+        }
+      ],
+      "pointText": "施工計画の作成は技術者の職務、正しい",
+      "qNum": 2,
+      "totalQ": 4,
+      "pageIndex": 5,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "公共工事標準請負契約約款に関する次の記述のうち，誤っ",
+        "ているものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "設計図書とは，図面，仕様書，現場説明書及び現場説明書に対する質問回答書をいう。"
+        },
+        {
+          "num": 2,
+          "text": "工事材料の品質については，設計図書にその品質が明示されていない場合には，上等の品質を有するものでなければならない。"
+        },
+        {
+          "num": 3,
+          "text": "発注者は，工事用地その他設計図書において定められた工事の施工上必要な用地を工事の施工上必要とする日までに確保しなければならない。"
+        },
+        {
+          "num": 4,
+          "text": "発注者は，工事完成検査において，工事目的物を最小限度破壊して検査することができる。"
+        }
+      ],
+      "topic": "令和7年度前期",
+      "qNum": 3,
+      "totalQ": 4,
+      "pageIndex": 6,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 2,
+      "correctText": "公共工事標準請負契約約款",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "設計図書の構成、正しい",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "明示なき場合は中等の品質、上等は誤り ",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "施工上必要な用地の確保、正しい",
+          "correct": true
+        },
+        {
+          "num": 4,
+          "text": "完成検査での破壊検査、正しい <ExamPoint>品質明示なき工事材料は中等の品質を有するものとする</ExamPoint>",
+          "correct": true
+        }
+      ],
+      "pointText": "明示なき場合は中等の品質、上等は誤り ",
+      "qNum": 3,
+      "totalQ": 4,
+      "pageIndex": 7,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "主任技術者及び監理技術者の職務に関する次の記述のうち",
+        "，建設業法上，正しいものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "当該建設工事の資機材の調達"
+        },
+        {
+          "num": 2,
+          "text": "当該工事下請契約の締結"
+        },
+        {
+          "num": 3,
+          "text": "当該建設工事の施工の技術上の管理"
+        },
+        {
+          "num": 4,
+          "text": "当該建設工事の下請代金の支払い"
+        }
+      ],
+      "topic": "令和7年度後期",
+      "qNum": 4,
+      "totalQ": 4,
+      "pageIndex": 8,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 3,
+      "correctText": "主任技術者及び監理技術者の職務",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "資機材調達は技術者の法定職務ではない",
+          "correct": false
+        },
+        {
+          "num": 2,
+          "text": "下請契約締結は経営事項であり技術者職務外",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "技術上の管理は法定の主任・監理技術者職務で正しい",
+          "correct": true
+        },
+        {
+          "num": 4,
+          "text": "下請代金支払も経営事項で技術者の職務ではない <ExamPoint>主任監理技術者の職務は施工技術上の管理</ExamPoint>",
+          "correct": false
+        }
+      ],
+      "pointText": "技術上の管理は法定の主任・監理技術者職務で正しい",
+      "qNum": 4,
+      "totalQ": 4,
+      "pageIndex": 9,
+      "totalPages": 10
+    },
+    {
+      "type": "cta",
+      "pageIndex": 10,
+      "totalPages": 10
+    }
+  ]
+}

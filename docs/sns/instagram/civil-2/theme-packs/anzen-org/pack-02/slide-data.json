@@ -1,0 +1,173 @@
+{
+  "_meta": {
+    "exam": "civil-2",
+    "examDir": "2級土木",
+    "theme": {
+      "key": "anzen",
+      "label": "安全管理"
+    },
+    "subtopic": {
+      "key": "org",
+      "label": "安全衛生管理体制・作業主任者・教育・届出"
+    },
+    "packNum": "02",
+    "fmtLabel": "第一次検定 過去問",
+    "management": "safety",
+    "freqStars": 3,
+    "years": [
+      "r04k",
+      "r03z"
+    ],
+    "yearsLabel": "令和4・3年度",
+    "questionIds": [
+      "r04k-34",
+      "r03z-34"
+    ]
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "title": "安全衛生管理体制・作業主任者・教育・届出",
+      "themeLabel": "安全管理",
+      "subtopicLabel": "安全衛生管理体制・作業主任者・教育・届出",
+      "stars": 3,
+      "yearsLabel": "令和4・3年度",
+      "firstQuestion": "作業主任者の選任を必要としない作業は，労働安全衛生法上，次のうちどれか。",
+      "examDir": "2級土木",
+      "exam": "civil-2",
+      "sectionTag": "頻出",
+      "pageIndex": 1,
+      "totalPages": 6
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "作業主任者の選任を必要としない作業は，労働安全衛生法",
+        "上，次のうちどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "土止め支保工の切りばり又は腹おこしの取付け又は取り外しの作業"
+        },
+        {
+          "num": 2,
+          "text": "掘削面の高さが2m以上となる地山の掘削の作業"
+        },
+        {
+          "num": 3,
+          "text": "道路のアスファルト舗装の転圧の作業"
+        },
+        {
+          "num": 4,
+          "text": "高さが5m以上のコンクリート造の工作物の解体又は破壊の作業"
+        }
+      ],
+      "topic": "令和4年度後期",
+      "qNum": 1,
+      "totalQ": 2,
+      "pageIndex": 2,
+      "totalPages": 6
+    },
+    {
+      "type": "answer",
+      "correctNum": 3,
+      "correctText": "作業主任者の選任を必要としない作業は",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "土止め支保工の取付け等は作業主任者の選任を要する作業",
+          "correct": false
+        },
+        {
+          "num": 2,
+          "text": "高さ2m以上の地山掘削は作業主任者の選任を要する作業",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "アスファルト舗装の転圧作業は作業主任者の選任を要しないため正解",
+          "correct": true
+        },
+        {
+          "num": 4,
+          "text": "高さ5m以上のコンクリート工作物の解体等は作業主任者の選任を要する作業 <ExamPoint>アスファルト舗装の転圧は作業主任者の選任対象外</ExamPoint>",
+          "correct": false
+        }
+      ],
+      "pointText": "アスファルト舗装の転圧作業は作業主任者の選任を要しないため正解",
+      "qNum": 1,
+      "totalQ": 2,
+      "pageIndex": 3,
+      "totalPages": 6
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "事業者が労働者に対して特別の教育を行わなければならな",
+        "い次の業務に関する次の記述のうち、労働安全衛生法上、",
+        "該当しないものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "エレベーターの運転の業務"
+        },
+        {
+          "num": 2,
+          "text": "つり上げ荷重が5t未満の移動式クレーンの運転の業務"
+        },
+        {
+          "num": 3,
+          "text": "つり上げ荷重が5t未満のクレーンの運転の業務"
+        },
+        {
+          "num": 4,
+          "text": "アーク溶接作業の業務"
+        }
+      ],
+      "topic": "令和3年度前期",
+      "qNum": 2,
+      "totalQ": 2,
+      "pageIndex": 4,
+      "totalPages": 6
+    },
+    {
+      "type": "answer",
+      "correctNum": 1,
+      "correctText": "事業者が労働者に対して特別の教育を行",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "エレベーターの運転は特別教育を要する業務に該当しない（巻上げ機等とは別） （該当しない）",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "つり上げ荷重5t未満の移動式クレーン運転は特別教育の対象である",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "つり上げ荷重5t未満のクレーン運転は特別教育の対象である",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "アーク溶接作業は特別教育の対象である",
+          "correct": false
+        }
+      ],
+      "pointText": "エレベーターの運転は特別教育を要する業務に該当しない（巻上げ機等とは別） （該当しない）",
+      "qNum": 2,
+      "totalQ": 2,
+      "pageIndex": 5,
+      "totalPages": 6
+    },
+    {
+      "type": "cta",
+      "pageIndex": 6,
+      "totalPages": 6
+    }
+  ]
+}
