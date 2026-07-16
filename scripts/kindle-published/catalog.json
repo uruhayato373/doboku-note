@@ -1,7 +1,7 @@
 {
   "_comment": "Kindle 全書籍のマスター登録簿。status=ready(制作完了・提出待ち)/in_review(KDP審査中)/live(公開). epub/cover は git 追跡(A系=kindle-published/・B-F=kindle-dist/). 提出後 ASIN と status=live を更新。再生成は npm run sync-kindle-dist。",
   "schemaVersion": 1,
-  "updatedAt": "2026-07-11",
+  "updatedAt": "2026-07-15",
   "books": [
     {
       "id": "A-00",
@@ -204,13 +204,15 @@
     },
     {
       "id": "e-01",
-      "asin": null,
+      "asin": "B0H8ZZMM7R",
       "title": "2級土木施工管理技士 第1次検定 過去問完全解説【令和3〜7年度 全期】",
       "subtitle": "令和3〜7年度 前期・後期 全630問",
       "series": "E 2級土木施工管理技士 択一",
       "priceJpy": 990,
       "royalty": 0.7,
-      "status": "ready",
+      "status": "live",
+      "submittedDate": "2026-07-15",
+      "publishedDate": "2026-07-15",
       "builder": "scripts/build-pe1-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/e-01.json",
       "epub": "kindle-dist/e-01.epub",
@@ -222,6 +224,11 @@
           "version": "1.0",
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-07-15",
+          "change": "KDP 公開（LIVE・販売中 ¥990）・ASIN=B0H8ZZMM7R"
         }
       ]
     },
