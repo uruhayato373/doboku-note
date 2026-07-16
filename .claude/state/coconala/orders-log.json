@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "updatedAt": "2026-07-16",
+  "currency": "JPY",
+  "source": "ココナラの受注を /coconala-order（coconala-operator）で1件ずつ追記する。手入力の転記も可。",
+  "privacyNote": "購入者名・提出原稿・トークルーム本文は記録しない（個人情報をリポジトリに残さない）。記録するのは日付・serviceId・金額・級・進捗・所要時間のみ。事例化する場合は匿名化して docs/note/1級・2級土木/メンバーシップ/添削事例アーカイブ/ へ。",
+  "howToUpdate": "/coconala-order <serviceId>（受注時）→ status を delivered/closed へ更新。serviceId は src/lib/coconala-services.ts の id と一致必須（check-coconala-wiring が検証）。",
+  "orders": []
+}

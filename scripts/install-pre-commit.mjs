@@ -98,6 +98,12 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# ココナラ カタログ(coconala-services.ts)↔state(orders/kpi)↔sales-log の配線ドリフト検証（2026-07-16）
+node scripts/check-coconala-wiring.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
 # トップの資格カード(home-exam-cards.json)と categories.json の整合（公開済み新資格のトップ未掲載の再発防止）
 node scripts/check-home-exam-coverage.mjs
 if [ $? -ne 0 ]; then

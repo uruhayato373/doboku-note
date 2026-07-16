@@ -119,9 +119,21 @@ npm run sales-summary -- 2026-06   # 指定月（位置引数。--month フラ�
 | 建設部門 電力土木/鉄道 R8予想単品 | `article:bk-power-civil-r8-yosou-{ii1\|ii2\|iii}` / `article:bk-railway-r8-yosou-{ii1\|ii2\|iii}` |
 | 1級2級土木 学科記述 直前暗記ノート | `article:civil-1-anki-note`（¥980）/ `article:civil-2-anki-note`（¥580）。noteUrl は `/n/…` 単品（マガジン非収録） |
 
+### ココナラ（非 note チャネル・2026-07-16〜）
+
+`coconala:<serviceId>` 形式。**接頭辞でチャネルを判別**する（既存の `article:` と同じ流儀。`channel` フィールドは新設しない）。
+
+| パターン | 例 |
+|---|---|
+| ココナラ 単発サービス | `coconala:<id>`（id は `src/lib/coconala-services.ts` の id と**完全一致**。例: `coconala:coconala-shindan`（¥1,500）/ `coconala:coconala-tensaku-set`（¥8,000）） |
+
+- **入力ソースが note と異なる**: note ダッシュボードの貼付ではなく `.claude/state/coconala/orders-log.json`（`/coconala-order` が受注時に追記）からの月次転記。
+- `price` は**手数料差引前の販売額**を記録する（note と同じ粒度。ココナラ手数料 約22% は集計時に別途考慮）。
+- id の実在は `npm run check-coconala-wiring` が pre-commit で検証（sales-log の `coconala:*` がカタログに無いと落ちる）。運用 SSOT → [coconala-operations.md](coconala-operations.md)
+
 ### 新商品の追加
 
-1. `src/lib/note-magazines.ts` にエントリ追加（マガジンの場合）
+1. `src/lib/note-magazines.ts` にエントリ追加（マガジンの場合）／ココナラは `src/lib/coconala-services.ts`
 2. `.claude/agents/sales-recorder.md` の productId 推定ルールに追加
 3. 本ドキュメントの命名規則テーブルに追記
 

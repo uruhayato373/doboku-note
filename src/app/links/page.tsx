@@ -16,6 +16,7 @@ import {
   NOTE_MAGAZINES,
   type MagazineId,
 } from "@/lib/note-magazines";
+import { listedCoconalaServices } from "@/lib/coconala-services";
 import { examKeyOf } from "@/lib/exam-brand";
 
 export const metadata: Metadata = {
@@ -235,6 +236,54 @@ function MagazineCard({
         </div>
       )}
     </a>
+  );
+}
+
+// ココナラ単発サービス（個別添削・診断）。coconala-services.ts の status を自動追従し、
+// listed が 0 件のあいだはセクションごと非表示（出品前の wire-ahead）。
+// ココナラ側 URL に UTM は付けない（計測がココナラ内で完結せず、パラメータが無駄に露出するため）。
+function CoconalaSection() {
+  const services = listedCoconalaServices();
+  if (services.length === 0) return null;
+
+  return (
+    <section className="mb-12">
+      <h2 className="font-serif text-base font-bold text-[var(--ink)] mb-1">
+        単発の個別サービス
+      </h2>
+      <p className="text-xs text-[var(--ink-muted)] mb-3">
+        自分の答案を1本だけプロに見てほしい方へ（ココナラ経由・受付枠あり）
+      </p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {services.map((s) => (
+          <a
+            key={s.id}
+            href={s.serviceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="focus-ring card-surface-content block px-4 py-3 shadow-none transition-[border-color,box-shadow] hover:border-[var(--accent)] hover:shadow-soft"
+          >
+            <div className="flex items-start justify-between gap-3">
+              <div className="min-w-0 flex-1">
+                <div className="font-serif font-bold text-[var(--ink)] text-sm sm:text-base">
+                  {s.shortTitle}
+                </div>
+                <div className="text-xs text-[var(--ink-muted)] mt-0.5 leading-snug">
+                  {s.description}
+                </div>
+              </div>
+              <ExternalLink
+                className="w-4 h-4 text-[var(--ink-muted)] shrink-0 mt-0.5"
+                aria-hidden="true"
+              />
+            </div>
+            <div className="text-xs font-bold text-[var(--accent)] mt-2">
+              {s.price}
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
   );
 }
 
@@ -514,6 +563,9 @@ export default function LinksPage() {
 
             <ExamSections />
           </section>
+
+          {/* 単発サービス（ココナラ）: listed が 0 件なら描画されない */}
+          <CoconalaSection />
 
           {/* 運営者 + SNS（PC では 2 カラム） */}
           <section className="grid grid-cols-1 sm:grid-cols-2 gap-8">

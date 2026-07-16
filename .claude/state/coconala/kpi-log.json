@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "updatedAt": "2026-07-16",
+  "source": "ココナラのダッシュボード数値を手動で貼り付け、/coconala-status（coconala-operator）が正規化して週次で追記する。会社PCはプロキシで外部 API を遮断するため、スクレイピング・API 取得はしない（計測は手動供給が正）。",
+  "howToUpdate": "/coconala-status に「閲覧数/お気に入り/販売数」を貼る → weekly へ1行追記 → 撤退ライン（4週で S2 3件未満）を判定。",
+  "weekly": []
+}

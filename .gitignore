@@ -69,6 +69,9 @@ public/posts
 # Playwright note 編集セッション用（ログイン cookie を含む・コミット禁止）
 .local/playwright-note-profile/
 
+# Playwright ココナラ市場調査用（read-only・未ログインだがプロファイル実体はコミットしない）
+.local/playwright-coconala-profile/
+
 # SNS 投稿スケジュール状態（ツール生成キャッシュ）
 docs/x-posts/draft/**/status.json
 /*.png
