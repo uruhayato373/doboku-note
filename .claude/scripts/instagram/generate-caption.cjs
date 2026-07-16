@@ -64,6 +64,9 @@ if (!coverTitle) {
 
 const isBundle = Boolean(_meta?.bundleId);
 const isExamPack = Boolean(_meta?.year && _meta?.packNum);
+// 論点（頻出問題）パック: 科目テーマ × 論点で括り、複数年度から4問採録
+const isThemePack = Boolean(_meta?.theme && _meta?.subtopic);
+const starStr = (n) => "★".repeat(Math.max(1, Math.min(3, n || 1))) + "☆".repeat(3 - Math.max(1, Math.min(3, n || 1)));
 const kwCount = _meta?.keywordCount
   ?? (Array.isArray(slides) ? slides.filter((s) => s.type === "board").length : 0);
 const qCount = Array.isArray(slides)
@@ -73,7 +76,11 @@ const qCount = Array.isArray(slides)
 const lines = [];
 
 // タイトル行（モード別）
-if (isExamPack) {
+if (isThemePack) {
+  const stars = starStr(_meta.freqStars);
+  lines.push(`【頻出論点】${_meta.theme.label} / ${_meta.subtopic.label}  ${stars}`);
+  if (_meta.yearsLabel) lines.push(`出題  ${_meta.yearsLabel}`);
+} else if (isExamPack) {
   // 管理混在問題を回避するため、cover-title の管理名（経済性管理など）は出さず、
   // 年度ベースの統一タイトル + パック番号で識別。
   // 年度コードは [rh]NN（総監/1級）に加え 2級の前期/後期サフィックス z/k を許容。
@@ -95,7 +102,7 @@ if (isExamPack) {
 lines.push("");
 
 // body 要約
-if (isExamPack) {
+if (isExamPack || isThemePack) {
   const problems = (slides || []).filter((s) => s.type === "problem");
   const answers = (slides || []).filter((s) => s.type === "answer");
 
@@ -148,7 +155,7 @@ if (isExamPack) {
 
 // CTA
 lines.push("─────────");
-if (formatArg === "reels" && isExamPack) {
+if (formatArg === "reels" && (isExamPack || isThemePack)) {
   // Reels はエンゲージメント喚起（IG アルゴリズム最適化: シェア・コメント・保存）
   lines.push("📌 保存して試験前日に見返す");
   lines.push("💬 「○問正解」をコメントで教えて！");
@@ -156,7 +163,8 @@ if (formatArg === "reels" && isExamPack) {
   lines.push("🔗 全問解説はプロフィールの doboku-note サイトで");
 } else {
   let saveLabel = "📌 保存して試験前日に見返す用語集";
-  if (isExamPack) saveLabel = "📌 保存して試験前日に見返す過去問パック";
+  if (isThemePack) saveLabel = "📌 保存して試験前日に見返す頻出論点パック";
+  else if (isExamPack) saveLabel = "📌 保存して試験前日に見返す過去問パック";
   else if (isBundle) saveLabel = "📌 保存して試験前日に見返すまとめ";
   lines.push(saveLabel);
   lines.push("🔗 詳細解説はプロフィールの doboku-note サイトで");

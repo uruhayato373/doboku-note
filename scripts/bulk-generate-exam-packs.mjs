@@ -24,10 +24,10 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
+// cem（総監）の年度パック専用。civil-1/civil-2 は年度括りを廃し「論点パック」へ移行済み
+// （生成: .claude/scripts/sns/generate-civil-theme-packs.mjs ＋ render-civil-theme-packs.mjs）。
 const EXAM_DIRS = {
   cem:      "cem/exam-packs",
-  "civil-1": "civil-1/exam-packs",
-  "civil-2": "civil-2/exam-packs",
 };
 const examKey = process.argv.find((a) => a.startsWith("--exam="))?.split("=")[1] || "cem";
 const BASE = join(ROOT, "docs/sns/instagram", EXAM_DIRS[examKey] ?? EXAM_DIRS.cem);

@@ -49,19 +49,19 @@ Playwright で Business Suite（business.facebook.com）のコンポーザを自
 
 ```bash
 # 1) 利用可能なパックを探す（carousel/img + carousel/caption.txt を持つもの）
-ls docs/sns/instagram/civil-1/exam-packs/r07/
+ls docs/sns/instagram/civil-1/theme-packs/
 
 # 2) dry-run（初回必須。予約確定の手前まで実行しスクショ）
 npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
-  "civil-1/exam-packs/r07/pack-01" --schedule 2026-06-10T07:00 --dry-run
+  "civil-1/theme-packs/hoki-labor/pack-01" --schedule 2026-06-10T07:00 --dry-run
 
 # 3) 予約ウィジェットのセレクタを対話採取（Inspector を schedule 手前で起動）
 npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
-  "civil-1/exam-packs/r07/pack-01" --schedule 2026-06-10T07:00 --pause
+  "civil-1/theme-packs/hoki-labor/pack-01" --schedule 2026-06-10T07:00 --pause
 
 # 4) 本番予約投稿（dry-run 成功後に --dry-run を外す）
 npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
-  "civil-1/exam-packs/r07/pack-01" --schedule 2026-06-10T07:00
+  "civil-1/theme-packs/hoki-labor/pack-01" --schedule 2026-06-10T07:00
 ```
 
 ## 引数
