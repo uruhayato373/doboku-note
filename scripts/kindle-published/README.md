@@ -30,7 +30,7 @@ A（問題/解答を別 XHTML に分割＝構造的改ページ）と D（`.ans`
 
 | 品番 | ASIN | 版 | EPUB | 表紙 | KDP メモ |
 |---|---|---|---|---|---|
-| A-00 全科目合本【審査中】 | （審査中・未取得） | 1.0 | `kindle-A-00-goubon.epub` | `kindle-cover-a-00.jpg` | `KDP入力メモ_A-00全科目合本.txt` |
+| A-00 全科目合本 | B0H8HW139T | 1.0 | `kindle-A-00-goubon.epub` | `kindle-cover-a-00.jpg` | `KDP入力メモ_A-00全科目合本.txt` |
 | A-01 安全管理 | B0H8B1HYRY | 1.1 | `A-01_安全管理_論点別過去問.epub` / `kindle-A-01-anzen-updated.epub` | `kindle-cover-A-01.jpg`（`-確認用` は校正版） | `KDP入力メモ_A-01安全管理.txt` |
 | A-02 法規 | B0H8CY453L | 1.0 | `kindle-A-02-hoki.epub` | `kindle-cover-a-02.jpg` | — |
 | A-03 施工計画 | B0H8D25H93 | 1.0 | `kindle-A-03-sekokeikaku.epub` | `kindle-cover-a-03.jpg` | `KDP入力メモ_A-03施工計画.txt` |
