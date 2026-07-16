@@ -112,6 +112,7 @@
     "check-sales-mapping": "node scripts/check-sales-mapping.mjs",
     "check-coconala-wiring": "node scripts/check-coconala-wiring.mjs",
     "coconala-research": "node scripts/coconala-research.mjs",
+    "coconala-summary": "node scripts/coconala-research.mjs --summary-only",
     "check-doc-lifecycle": "node scripts/check-doc-lifecycle.mjs",
     "check-policy-anchors": "node scripts/check-policy-anchors.mjs",
     "check-links": "node .claude/skills/quality/check-mdx/scripts/rules/links/check-links.mjs",
