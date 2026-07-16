@@ -80,6 +80,14 @@ function freqStars(unitCount, totalUnits) {
   return ratio >= 0.6 ? 3 : ratio >= 0.3 ? 2 : 1;
 }
 
+// IG カード適性フィルタ（packEligible を通っても固定キャンバスで破綻する問題を除外）。
+//   - 個数型（選択肢が全て「Nつ」）: ①〜④の長文を本文に列挙する壁テキストで訴求が弱い
+//   - 解説合計が長い問題: answer スライドは font 自動縮小がなく、解説4本+「ここがポイント」箱が
+//     縦に溢れて重なる（実測: 合計>400字で重なり発生・329字は正常）。上限420で余裕をみる
+const isKosuuType = (q) => (q.options || []).length > 0 && (q.options || []).every((o) => /^\s*\d+\s*つ\s*$/.test(o.text || ''));
+const explTotal = (q) => (q.optionExplanations || []).reduce((a, o) => a + (o.text || '').length, 0);
+const igSuitable = (q) => !isKosuuType(q) && explTotal(q) <= 420;
+
 function buildPackSlides(questions, { examDir, exam, themeLabel, subtopicLabel, stars, yearsLabel }) {
   const totalQ = questions.length;
   const totalPages = totalQ * 2 + 2;
@@ -126,8 +134,10 @@ for (const exam of exams) {
   const all = [];
   for (const y of data.years) for (const q of y.questions) all.push(normalizeQuestion({ ...q, year: y.year }));
 
-  // 分類: packEligible かつ 図依存でない問題を、テーマ先勝ちで (theme, subtopic) に割付
-  const pool = all.filter((q) => q.packEligible && !FIGURE_RE.test(q.body));
+  // 分類: packEligible かつ 図依存でない かつ IG カード適性のある問題を、テーマ先勝ちで割付
+  const poolBase = all.filter((q) => q.packEligible && !FIGURE_RE.test(q.body));
+  const pool = poolBase.filter(igSuitable);
+  const igExcluded = poolBase.length - pool.length;
   const assigned = new Map(); // id -> {themeKey, subtopicKey, q}
   const collisions = [];
   for (const themeKey of ORDER) {
@@ -200,7 +210,8 @@ for (const exam of exams) {
 
   const classified = assigned.size, poolN = pool.length;
   console.log(`\n=== ${exam} (${dryRun ? 'DRY' : 'WRITE'}) ===`);
-  console.log(`  分類: ${classified}/${poolN} packEligible（${(100 * classified / poolN).toFixed(0)}%を6管理テーマへ・残りは土木一般/専門土木でv1対象外）`);
+  console.log(`  IG適性除外: ${igExcluded}問（個数型/解説過長でカード破綻するもの）`);
+  console.log(`  分類: ${classified}/${poolN} 適性問題（${(100 * classified / poolN).toFixed(0)}%を6管理テーマへ・残りは土木一般/専門土木でv1対象外）`);
   console.log(`  論点数: ${groups.size}  パック: ${packCount}（小パック ${smallPacks} / 1問破棄 ${dropped1}）  テーマ間衝突(先勝ち): ${collisions.length}`);
   if (collisions.length) console.log(`  衝突例: ${collisions.slice(0, 8).map((c) => `${c.id}(${c.first}<${c.also})`).join(', ')}`);
   rows.sort().forEach((r) => console.log(r));
