@@ -4,7 +4,7 @@
  *
  * .local/r2/posts/**\/img/ のラスタ図（png/webp/jpg）を tesseract(jpn) で OCR し、
  * 図内の「文章テキスト写り込み」を分類して .claude/state/figure-text-audit.json に永続化する。
- * 管理画面（tools/admin）の記事図版タブが読み込み、各図に品質バッジ/フィルタを付ける。
+ * 管理画面（tools/admin-app）の記事図版タブが読み込み、各図に品質バッジ/フィルタを付ける。
  *
  * 分類:
  *   leak  … 答えを明示する語（「したがって」「正解」）を含む＝答え漏らし（最優先・image-policy 違反）
