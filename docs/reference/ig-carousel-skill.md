@@ -1,13 +1,14 @@
-﻿# Instagram カルーセル 2 シリーズ運用ガイド
+﻿# Instagram カルーセル 運用ガイド
 
-doboku-note の Instagram カルーセル投稿は **2 系統** で運用する：
+doboku-note の Instagram カルーセル投稿は次の系統で運用する：
 
 - **A. 択一クイズパック**: 運営者作問のシンプル知識クイズ
-- **B. 過去問パック**: 公式試験問題 H21-R7 全 640 問
+- **B. 過去問パック（年度括り）**: 公式試験問題 H21-R7。**総監（cem）専用**
+- **C. 論点パック（1級/2級土木）**: 頻出問題を**論点（科目×論点）で括り**、複数年度から4問採録。競合 @miyabi_labo 分析（2026-07）を受けて年度括りから移行。cover は「科目＋論点＋頻出度★＋第1問Q＋出題年度」
 
 スキル詳細: [`.claude/skills/social/ig-post-create/SKILL.md`](../../.claude/skills/social/ig-post-create/SKILL.md)
 
-最終更新: 2026-05-26（Phase 7: bundle 廃止 + 2 シリーズ整備）
+最終更新: 2026-07-16（シリーズ C 新設: 1級/2級土木を論点括りへ移行・年度括り exam-packs は総監のみに）
 
 ---
 
@@ -23,6 +24,18 @@ doboku-note の Instagram カルーセル投稿は **2 系統** で運用する�
 | **1 パック構造** | cover + 4×(Q+A) + cta = 10 枚 | cover + 4×(problem+answer) + cta = 10 枚 |
 | **量産可能性** | △ 運営者作問が必要 | ◎ 自動量産 |
 | **適した投稿時期** | 平時の「気軽に解く」入門訴求 | 試験前 6 ヶ月の高頻度配信 |
+
+## 1.5 論点パック（シリーズ C・1級/2級土木）
+
+年度括り（旧 `civil-{1,2}/exam-packs`）を廃し、**1論点 × 4問（異なる年度から採録）**で括る。分類は Kindle A系（`scripts/build-takuitsu-reconstruct.mjs` の `THEMES` = 6管理テーマ・39論点）と**同一ロジックを import**して一致させる（テーマ間の重複は GOUBON 順の先勝ちで解消）。
+
+- **対象**: 6管理テーマ（安全/法規/施工計画/環境/品質/工程）＝施工管理法＋法規ドメイン。土木一般・専門土木の技術系論点は THEMES 未定義のため対象外（別途論点設計が必要）
+- **頻出度★**: 論点の出現年数 / 総回数（1級=12・2級=10）を 0.6/0.3 で ★★★/★★☆/★☆☆
+- **生成**: `node .claude/scripts/sns/generate-civil-theme-packs.mjs --exam both`（slide-data.json・**exam-packs を総入れ替え**）→ `node .claude/scripts/sns/render-civil-theme-packs.mjs --exam both`（PNG + caption）
+- **出力**: `docs/sns/instagram/civil-{1,2}/theme-packs/{themeKey}-{subtopicKey}/pack-NN/`
+- **cover**: `.claude/scripts/sns/templates/exam-quiz-cover-ig.mjs`（科目ピル＋論点見出し＋頻出度★＋第1問Q＋出題年度）
+- **caption**: `generate-caption.cjs`（`_meta.theme`/`subtopic` で `isThemePack` 分岐）
+- **実績（2026-07）**: 1級 94パック/39論点、2級 37パック/26論点 = 計131パック
 
 ## 2. 投稿ペース計画
 
