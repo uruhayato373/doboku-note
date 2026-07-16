@@ -183,6 +183,8 @@
 以下には**追加しない**: `/links`・`/search`・`/about`・`/privacy`・`/terms`・`/tools`。
 理由 — 検索=入力と結果比較に集中 / links=試験カードを全幅で大きく / about=本文そのもので右に逃さない。
 
+**上端揃え（docs/category 共通）**: メイン本文と右サイドバーの上端は揃える。縦位置は `TwoColumnShell` の `aside py-10` ＝ main の上 padding（≥993px で 40px）が唯一の供給源で、**サイドバー先頭要素・main 先頭要素に独自の `margin-top` を持たせない**（先頭が下がって上端がズレる。例: 旧 `SidebarAdBanner` の `mt-3` を撤去して是正）。
+
 **PC 右サイドバー（`/docs`）は 2 ブロック構成**（2026-07 改訂）:
 1. **通常フロー（追従させない）**: 転職アフィリ枠（最上部・唯一のピクセル源）→ note もくじタイル（`HubCtaBanner`・転職枠直下に 1 枚・utm `-docs-sb`。HUB 対応資格 & 非 career 記事のときのみ＝`resolveHubCta` が null で自動非表示）→ 運営者プロフィール。広告・著者は追従させない（「広告が追いかけてくる」体験を避ける）。
 2. **sticky クラスタ（列の最終要素・読中に追従）**: TOC / 設問ナビ → カテゴリナビ → ピラーナビ。`sticky top-6 max-h-[calc(100vh-3rem)] overflow-y-auto`。ナビゲーションだけ追従させ長記事でも導線を視界に残す。
