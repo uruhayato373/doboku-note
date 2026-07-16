@@ -103,7 +103,9 @@
       "Bash(cp \"C:\\\\Users\\\\m004195\\\\doboku-note\\\\docs\\\\sns\\\\instagram\\\\herzberg-two-factor-theory\\\\carousel\\\\caption.txt\" \"C:\\\\Users\\\\m004195\\\\Downloads\\\\herzberg-two-factor-theory\\\\\" && rm \"C:\\\\Users\\\\m004195\\\\Downloads\\\\00-cover.png\" \"C:\\\\Users\\\\m004195\\\\Downloads\\\\01-figure.png\" \"C:\\\\Users\\\\m004195\\\\Downloads\\\\02-text.png\" \"C:\\\\Users\\\\m004195\\\\Downloads\\\\03-cta.png\" 2>/dev/null; ls \"C:\\\\Users\\\\m004195\\\\Downloads\\\\herzberg-two-factor-theory\\\\\")",
       "mcp__bf7c680d-5fdc-5ef4-b4a0-abadb619bf0a__send_later",
       "mcp__bf7c680d-5fdc-5ef4-b4a0-abadb619bf0a__create_trigger",
-      "mcp__bf7c680d-5fdc-5ef4-b4a0-abadb619bf0a__delete_trigger"
+      "mcp__bf7c680d-5fdc-5ef4-b4a0-abadb619bf0a__delete_trigger",
+      "PowerShell($scratch = \"C:\\\\Users\\\\m004195\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-m004195-doboku-note--claude-worktrees-recursing-archimedes-b0c6d1\\\\976c6f64-80bf-4acc-a597-efd4682052a0\\\\scratchpad\"; git fetch -q origin develop; $blob = git rev-parse \"e12c0547a:.claude/agents/metrics-analyzer.md\"; $parent = git rev-parse origin/develop; $env:GIT_INDEX_FILE = \"$scratch\\\\tmp-index\"; git read-tree origin/develop; git update-index --cacheinfo \"100644,$blob,.claude/agents/metrics-analyzer.md\"; $tree = git write-tree; Remove-Item env:GIT_INDEX_FILE; $commit = git commit-tree $tree -p $parent -F \"$scratch\\\\commit-msg.txt\"; Write-Output \"new commit: $commit \\(parent $parent\\)\"; git push origin \"${commit}:develop\")",
+      "PowerShell(git fetch -q origin develop; git log --oneline -2 origin/develop; git show origin/develop:.claude/agents/metrics-analyzer.md | Select-String \"fragment\" | ForEach-Object { $_.LineNumber.ToString\\(\\) + \": \" + $_.Line.Substring\\(0, [Math]::Min\\(60, $_.Line.Length\\)\\) })"
     ],
     "defaultMode": "bypassPermissions"
   }
