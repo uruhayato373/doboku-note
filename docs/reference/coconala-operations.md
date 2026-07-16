@@ -65,7 +65,25 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 > **記録しないもの**: 購入者名・提出原稿・トークルーム本文（privacyNote）。事例化は匿名化して
 > `docs/note/1級・2級土木/メンバーシップ/添削事例アーカイブ/` へ（1対多の資産化）。
 
-### 2.3 KPI: `.claude/state/coconala/kpi-log.json`
+### 2.3 市場調査: `.claude/state/coconala/market-research.json`
+
+競合の一次データ（`npm run coconala-research`＝`scripts/coconala-research.mjs`）。**公開・ログイン不要ページの read-only 調査**で、§4 の「ダッシュボードはスクレイプしない」とは**スコープが直交**する（あちらは自社 KPI＝ログイン必須・規約と bot 検知の懸念。こちらは公開検索ページを低頻度〔商品設計時＝数ヶ月に1度〕に読むだけ・書き込みは一切しない）。
+
+`{ version, fetchedAt, method, note, queries: [{ keyword, resolvedUrl, pageType, totalHits, pagesScanned, services: [...] }] }`
+
+| services[] のキー | 意味 |
+|---|---|
+| `title` / `catchphrase` / `excerpt` | 出品タイトル・キャッチ・説明抜粋 |
+| `priceYen` / `rating` / `reviews` / `seller` / `url` | 実測値（DOM から直接。WebFetch の LLM 要約ではない） |
+| `segment` | 機械分類: `daiko`（作成代行＝当社は出さない）/ `tensaku`（添削）/ `shindan`（診断）/ `soudan`（相談・指導）/ `kyozai`（教材）/ `other` |
+| `detail` | 上位N件のみ: `deliveryDays` / `totalSales` / `description` / `hasOptions` |
+
+> **ページ形式が2種類**（実測 2026-07-16）: `/search?keyword=X` は検索結果（カード `.c-serviceListItem`）。ただし
+> **「技術士」「土木施工管理技士」等カテゴリ名と完全一致するキーワードは `/categories/{a}/{b}` へ 301**（カード `.c-serviceBlockItem`・冒頭の `.c-recommendItem` はおすすめカルーセルで本体リストではない）。スクリプトは両対応。
+
+散文の分析結果は [ココナラ展開キット.md](../note/1級・2級土木/ココナラ展開キット.md) §1。
+
+### 2.4 KPI: `.claude/state/coconala/kpi-log.json`
 
 `{ version, updatedAt, source, howToUpdate, weekly: [{ weekOf, serviceId, views, favorites, orders }] }`
 
@@ -99,6 +117,10 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
    - **工数警告**: `tensakuMinutes` 平均が30分超 → `weeklyCapacity` 引き下げ
    - **満枠**: 当週受注が `weeklyCapacity` 到達 → `status: 'full'` flip を提案
 4. 売上は月次で orders-log（closed）→ sales-log へ転記（`coconala:<id>`・[sales-tracking.md](sales-tracking.md)）
+
+> **「取得しない」の正確な範囲**: 自社ダッシュボードの KPI（ログイン必須）は**手動貼付が正**。
+> 一方、**公開ページの競合調査**は `npm run coconala-research` で取得してよい（read-only・低頻度・§2.3）。
+> 両者を混同しない（前者はアカウント安全と規約、後者は商品設計の一次データ）。
 
 ## 5. 安全弁
 
