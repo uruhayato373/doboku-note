@@ -1,5 +1,6 @@
 import type { DocMeta } from '@/lib/docs';
-import MagazineInlineCard from '@/components/ui/MagazineInlineCard/MagazineInlineCard';
+import type { MagazineId } from '@/lib/note-magazines';
+import MagazineHeroCta from '@/components/ui/MagazineHeroCta/MagazineHeroCta';
 import RelatedArticleCard from '@/components/ui/RelatedArticles/RelatedArticleCard';
 import { AFFILIATE_LINK_REL, AffiliatePrBadge } from '@/components/ui/AffiliateParts';
 
@@ -8,19 +9,17 @@ import { AFFILIATE_LINK_REL, AffiliatePrBadge } from '@/components/ui/AffiliateP
  * rehype-mid-cta が置いた <midslot> を page.tsx の components マップで解決する。
  *
  * 3 モード（page.tsx 側で択一決定・props で渡す）:
- *  - note モード: MagazineInlineCard（横長・本文中用）。utmContent は -mid 済み。
+ *  - note モード: MagazineHeroCta（画像中心のヒーローバナー）。文言・リンク・キャラは
+ *    note-magazines.ts から id で解決するため、ここは id と utmContent（-mid 済み）だけ渡す。
  *  - career モード: 転職アフィリのテキスト CTA（career 記事のみ・PR 表記＋href のみ）。
  *  - related モード: RelatedArticleCard（OGP サムネ）1 枚に「この続きに読みたい」見出し。
  */
 type MidArticleCtaProps =
   | {
       readonly mode: 'note';
-      readonly url: string;
-      readonly title: string;
-      readonly description: string;
-      readonly magazineId: string;
-      readonly badge: string;
-      readonly trackLabel: string;
+      readonly id: MagazineId;
+      /** UTM 識別子（= GA4 の data-cta-label）。呼び出し側で -mid を付けて渡す。 */
+      readonly utmContent: string;
     }
   | {
       readonly mode: 'career';
@@ -37,16 +36,7 @@ type MidArticleCtaProps =
 
 export default function MidArticleCta(props: MidArticleCtaProps) {
   if (props.mode === 'note') {
-    return (
-      <MagazineInlineCard
-        url={props.url}
-        title={props.title}
-        description={props.description}
-        magazineId={props.magazineId}
-        badge={props.badge}
-        trackLabel={props.trackLabel}
-      />
-    );
+    return <MagazineHeroCta id={props.id} utmContent={props.utmContent} />;
   }
   if (props.mode === 'career') {
     // 転職アフィリのテキスト CTA（career 記事の本文中間・href のみ＝計測はサイドバー1発火）。

@@ -14,6 +14,7 @@ const commonLoaders = {
   NoteLink: () => import("@/components/ui/NoteLink/NoteLink").then((m) => m.default),
   MagazineInlineCard: () => import("@/components/ui/MagazineInlineCard/MagazineInlineCard").then((m) => m.default),
   MagazineCard: () => import("@/components/ui/MagazineCard/MagazineCard").then((m) => m.default),
+  MagazineHeroCta: () => import("@/components/ui/MagazineHeroCta/MagazineHeroCta").then((m) => m.default),
   SeeAlso: () => import("@/components/ui/SeeAlso/SeeAlso").then((m) => m.default),
   SpokeNavCard: () => import("@/components/ui/SpokeNavCard/SpokeNavCard").then((m) => m.default),
   PersonaSelector: () => import("@/components/ui/PersonaSelector").then((m) => m.default),

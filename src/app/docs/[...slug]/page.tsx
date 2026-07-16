@@ -367,16 +367,14 @@ export default async function DocPage({
     const midNoteMag = midNote?.magazine;
     const differsFromTop = midNoteMag && (!topSlot || topSlot.magazineId !== midNote.slot.magazineId);
     if (midNoteMag && differsFromTop) {
-      const url = buildMagazineUrl(midNoteMag, `${midNote.slot.utmContent}-mid`);
+      // 文言・リンク・キャラのポーズは MagazineHeroCta が note-magazines.ts から id で解決する
+      // （商品別の出し分けは SoT の ctaCatch/ctaButton/ctaPose だけで完結＝ここは配線のみ）。
+      const midSlot = midNote.slot;
       MidCtaBound = () => (
         <MidArticleCta
           mode="note"
-          url={url}
-          title={midNoteMag.shortTitle ?? midNoteMag.title}
-          description={midNoteMag.shortDescription ?? midNoteMag.description}
-          magazineId={midNoteMag.id}
-          badge={midNoteMag.badge}
-          trackLabel={`${midNote.slot.utmContent}-mid`}
+          id={midSlot.magazineId}
+          utmContent={`${midSlot.utmContent}-mid`}
         />
       );
     } else {
