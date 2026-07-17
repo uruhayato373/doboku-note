@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_at": "2026-07-03T04:04:31.607Z",
+    "generated_at": "2026-07-17T01:33:59.961Z",
     "path": ".local/r2/posts/**/img/*.svg",
     "file": null,
     "note": "exam crop dirs (h*-primary, primary-h*) are excluded — audited by civil-exam-figure-auditor instead"
   },
   "summary": {
-    "scanned_files": 244,
+    "scanned_files": 267,
     "exam_crops_skipped": 20,
     "files_with_issues": 58,
     "total_findings": 208,
@@ -24,1426 +24,1426 @@
   },
   "findings": [
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\utility-model-rights\\img\\figure-patent-vs-utility-model.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/utility-model-rights/img/figure-patent-vs-utility-model.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "高度な技術的思想",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\utility-model-rights\\img\\figure-patent-vs-utility-model.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/utility-model-rights/img/figure-patent-vs-utility-model.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "物品の形状・構造",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\utility-model-rights\\img\\figure-patent-vs-utility-model.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/utility-model-rights/img/figure-patent-vs-utility-model.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "審査請求が必要",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\utility-model-rights\\img\\figure-patent-vs-utility-model.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/utility-model-rights/img/figure-patent-vs-utility-model.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "方式審査のみ",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\utility-model-rights\\img\\figure-patent-vs-utility-model.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/utility-model-rights/img/figure-patent-vs-utility-model.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "提示・警告が前提",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\system-reliability\\img\\figure-series-parallel-formulas.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/system-reliability/img/figure-series-parallel-formulas.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "a₁",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\system-reliability\\img\\figure-series-parallel-formulas.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/system-reliability/img/figure-series-parallel-formulas.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "a₂",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\system-reliability\\img\\figure-series-parallel-configuration.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/system-reliability/img/figure-series-parallel-configuration.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "（信頼度 R₁）",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\system-reliability\\img\\figure-series-parallel-configuration.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/system-reliability/img/figure-series-parallel-configuration.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "（信頼度 R₂）",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\system-reliability\\img\\figure-series-parallel-configuration.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/system-reliability/img/figure-series-parallel-configuration.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "（信頼度 R₃）",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\system-reliability\\img\\figure-series-parallel-configuration.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/system-reliability/img/figure-series-parallel-configuration.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "（信頼度 R₄）",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\system-reliability\\img\\figure-series-parallel-configuration.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/system-reliability/img/figure-series-parallel-configuration.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "入力",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\system-reliability\\img\\figure-series-parallel-configuration.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/system-reliability/img/figure-series-parallel-configuration.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "出力",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\risk-treatment\\img\\figure-2.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/risk-treatment/img/figure-2.svg",
       "pattern": "P9-text-rect-overflow",
       "severity": "LOW",
       "detail": "「対応方針の方向」が rect(y=38,h=140) 下端 y=178 を超過（text 下端 y=183.7）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\risk-assessment\\img\\figure-risk-matrix.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/risk-assessment/img/figure-risk-matrix.svg",
       "pattern": "P11-concept-title",
       "severity": "MEDIUM",
       "text": "リスクマトリクス（生起確率 × 影響度）",
       "detail": "最上部中央の大見出し「リスクマトリクス（生起確率 × 影響度）」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\risk-assessment\\img\\figure-chemical-ra-flow.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/risk-assessment/img/figure-chemical-ra-flow.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "出典：労働安全衛生法（平成 28 年改正・SDS 交付対象 640 物質が義務）",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\risk-assessment\\img\\figure-chemical-ra-flow.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/risk-assessment/img/figure-chemical-ra-flow.svg",
       "pattern": "P11-concept-title",
       "severity": "MEDIUM",
       "text": "化学物質のリスクアセスメント 5 段階フロー",
       "detail": "最上部中央の大見出し「化学物質のリスクアセスメント 5 段階フ」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\figure-evm-chart.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/progress-management/img/figure-evm-chart.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "着工",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\figure-evm-chart.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/progress-management/img/figure-evm-chart.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "完了予定",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\figure-evm-chart.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/progress-management/img/figure-evm-chart.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "現在",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\figure-evm-chart.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/progress-management/img/figure-evm-chart.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "(計画値)",
       "detail": "font-size 9px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\figure-evm-chart.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/progress-management/img/figure-evm-chart.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "(実コスト)",
       "detail": "font-size 9px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\figure-evm-chart.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/progress-management/img/figure-evm-chart.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "(出来高)",
       "detail": "font-size 9px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\figure-evm-chart.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/progress-management/img/figure-evm-chart.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "SV",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\figure-evm-chart.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/progress-management/img/figure-evm-chart.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "(&lt; 0: 遅延)",
       "detail": "font-size 9px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\figure-evm-chart.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/progress-management/img/figure-evm-chart.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "CV",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\figure-evm-chart.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/progress-management/img/figure-evm-chart.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "(&lt; 0: 超過)",
       "detail": "font-size 9px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\figure-evm-chart.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/progress-management/img/figure-evm-chart.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "SV = EV − PV",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\figure-evm-chart.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/progress-management/img/figure-evm-chart.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "CV = EV − AC",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\figure-evm-chart.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/progress-management/img/figure-evm-chart.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "SPI = EV / PV",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\figure-evm-chart.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/progress-management/img/figure-evm-chart.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "CPI=EV/AC",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\figure-evm-chart.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/progress-management/img/figure-evm-chart.svg",
       "pattern": "P9-text-rect-overflow",
       "severity": "LOW",
       "detail": "「CPI=EV/AC」が rect(y=275,h=28) 下端 y=303 を超過（text 下端 y=305.5）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\figure-banana-curve.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/progress-management/img/figure-banana-curve.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "100",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\figure-banana-curve.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/progress-management/img/figure-banana-curve.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "50",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\figure-banana-curve.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/progress-management/img/figure-banana-curve.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "0",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\figure-banana-curve.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/progress-management/img/figure-banana-curve.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "着工",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\figure-banana-curve.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/progress-management/img/figure-banana-curve.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "竣工",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\figure-banana-curve.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/progress-management/img/figure-banana-curve.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "現在",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\figure-banana-curve.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/progress-management/img/figure-banana-curve.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "上方許容限界",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\figure-banana-curve.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/progress-management/img/figure-banana-curve.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "下方許容限界",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\figure-banana-curve.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/progress-management/img/figure-banana-curve.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "予定",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\figure-banana-curve.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/progress-management/img/figure-banana-curve.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "実績",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\process-capability-index\\img\\figure-normal-distribution-3sigma.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/process-capability-index/img/figure-normal-distribution-3sigma.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "N(μ, σ²) における標準偏差基準の包含確率",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\planetary-boundaries\\img\\figure-nine-boundaries-status.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/planetary-boundaries/img/figure-nine-boundaries-status.svg",
       "pattern": "P11-concept-title",
       "severity": "MEDIUM",
       "text": "プラネタリー・バウンダリー 9 領域の現状",
       "detail": "最上部中央の大見出し「プラネタリー・バウンダリー 9 領域の現」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\occupational-accident-prevention-plan\\img\\figure-unskilled-worker-accident-types.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/occupational-accident-prevention-plan/img/figure-unskilled-worker-accident-types.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "※動作の反動等 49.0% / 全未熟練 35.9% / 未熟練労働者 39.0",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\occupational-accident-prevention-plan\\img\\figure-unskilled-worker-accident-types.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/occupational-accident-prevention-plan/img/figure-unskilled-worker-accident-types.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "出典：厚生労働省・安全衛生教育マニュアル（平成 25 年）",
       "detail": "font-size 9px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\monte-carlo-simulation\\img\\figure-monte-carlo-s-curve.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/monte-carlo-simulation/img/figure-monte-carlo-s-curve.svg",
       "pattern": "P11-concept-title",
       "severity": "MEDIUM",
       "text": "モンテカルロシミュレーション：S 字累積確率カーブ",
       "detail": "最上部中央の大見出し「モンテカルロシミュレーション：S 字累積」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\figure-lp-graphical-method.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/linear-programming/img/figure-lp-graphical-method.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "O",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\figure-lp-graphical-method.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/linear-programming/img/figure-lp-graphical-method.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "1",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\figure-lp-graphical-method.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/linear-programming/img/figure-lp-graphical-method.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "2",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\figure-lp-graphical-method.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/linear-programming/img/figure-lp-graphical-method.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "3",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\figure-lp-graphical-method.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/linear-programming/img/figure-lp-graphical-method.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "4",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\figure-lp-graphical-method.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/linear-programming/img/figure-lp-graphical-method.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "1",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\figure-lp-graphical-method.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/linear-programming/img/figure-lp-graphical-method.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "2",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\figure-lp-graphical-method.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/linear-programming/img/figure-lp-graphical-method.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "3",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\figure-lp-graphical-method.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/linear-programming/img/figure-lp-graphical-method.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "4",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\figure-lp-graphical-method.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/linear-programming/img/figure-lp-graphical-method.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "5",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\figure-lp-graphical-method.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/linear-programming/img/figure-lp-graphical-method.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "3x₁+x₂=9",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\figure-lp-graphical-method.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/linear-programming/img/figure-lp-graphical-method.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "x₁+2x₂=8",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\figure-lp-graphical-method.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/linear-programming/img/figure-lp-graphical-method.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "z=6",
       "detail": "font-size 9px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\figure-lp-graphical-method.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/linear-programming/img/figure-lp-graphical-method.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "z=12",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\figure-lp-graphical-method.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/linear-programming/img/figure-lp-graphical-method.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "z 増加",
       "detail": "font-size 9px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\figure-lp-graphical-method.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/linear-programming/img/figure-lp-graphical-method.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "(3, 0)",
       "detail": "font-size 9px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\figure-lp-graphical-method.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/linear-programming/img/figure-lp-graphical-method.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "(0, 4)",
       "detail": "font-size 9px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\figure-lp-graphical-method.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/linear-programming/img/figure-lp-graphical-method.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "(2, 3)",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\jit-production\\img\\figure-kanban-two-types-flow.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/jit-production/img/figure-kanban-two-types-flow.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "（後工程が取りに来る指示）",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\jit-production\\img\\figure-kanban-two-types-flow.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/jit-production/img/figure-kanban-two-types-flow.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "（前工程に「作れ」指示）",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\jit-production\\img\\figure-kanban-two-types-flow.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/jit-production/img/figure-kanban-two-types-flow.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "実線: 部品（物）",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\jit-production\\img\\figure-kanban-two-types-flow.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/jit-production/img/figure-kanban-two-types-flow.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "破線: かんばん（情報）",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\jit-production\\img\\figure-kanban-two-types-flow.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/jit-production/img/figure-kanban-two-types-flow.svg",
       "pattern": "P11-concept-title",
       "severity": "MEDIUM",
       "text": "かんばん 2 種類の流れ",
       "detail": "最上部中央の大見出し「かんばん 2 種類の流れ」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\iso-26000\\img\\figure-iso-26000-7-core-subjects.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/iso-26000/img/figure-iso-26000-7-core-subjects.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "Organizational",
       "detail": "font-size 9px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\iso-26000\\img\\figure-iso-26000-7-core-subjects.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/iso-26000/img/figure-iso-26000-7-core-subjects.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "Governance",
       "detail": "font-size 9px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\iso-26000\\img\\figure-iso-26000-7-core-subjects.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/iso-26000/img/figure-iso-26000-7-core-subjects.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "Human Rights",
       "detail": "font-size 9px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\iso-26000\\img\\figure-iso-26000-7-core-subjects.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/iso-26000/img/figure-iso-26000-7-core-subjects.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "Labour Practices",
       "detail": "font-size 9px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\iso-26000\\img\\figure-iso-26000-7-core-subjects.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/iso-26000/img/figure-iso-26000-7-core-subjects.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "Environment",
       "detail": "font-size 9px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\iso-26000\\img\\figure-iso-26000-7-core-subjects.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/iso-26000/img/figure-iso-26000-7-core-subjects.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "Fair Operating",
       "detail": "font-size 9px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\iso-26000\\img\\figure-iso-26000-7-core-subjects.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/iso-26000/img/figure-iso-26000-7-core-subjects.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "Consumer Issues",
       "detail": "font-size 9px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\iso-26000\\img\\figure-iso-26000-7-core-subjects.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/iso-26000/img/figure-iso-26000-7-core-subjects.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "Community",
       "detail": "font-size 9px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\iso-26000\\img\\figure-iso-26000-7-core-subjects.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/iso-26000/img/figure-iso-26000-7-core-subjects.svg",
       "pattern": "P11-concept-title",
       "severity": "MEDIUM",
       "text": "ISO 26000 の 7 つの中核主題",
       "detail": "最上部中央の大見出し「ISO 26000 の 7 つの中核主題」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\ip-creation\\img\\figure-ip-cycle.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/ip-creation/img/figure-ip-cycle.svg",
       "pattern": "P9-text-rect-overflow",
       "severity": "MEDIUM",
       "detail": "「サイクルが回り知財が価値を生む」が rect(x=116,w=168) 右端 x=284 を超過（bbox 右端 x=291）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\industrial-property-rights\\img\\figure-1.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/industrial-property-rights/img/figure-1.svg",
       "pattern": "P9-text-rect-overflow",
       "severity": "LOW",
       "detail": "「・短期10年：実用新案権・商標」が rect(y=406,h=80) 下端 y=486 を超過（text 下端 y=487.6）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\income-statement\\img\\figure-breakeven-point.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/income-statement/img/figure-breakeven-point.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "固定費",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\income-statement\\img\\figure-breakeven-point.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/income-statement/img/figure-breakeven-point.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "総費用",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\income-statement\\img\\figure-breakeven-point.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/income-statement/img/figure-breakeven-point.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "売上高",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\income-statement\\img\\figure-breakeven-point.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/income-statement/img/figure-breakeven-point.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "BEP",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\income-statement\\img\\figure-breakeven-point.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/income-statement/img/figure-breakeven-point.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "利益",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\income-statement\\img\\figure-breakeven-point.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/income-statement/img/figure-breakeven-point.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "損失",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\incentive\\img\\figure-1.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/incentive/img/figure-1.svg",
       "pattern": "P9-text-rect-overflow",
       "severity": "LOW",
       "detail": "「Ⓑ 情緒的行動」が rect(y=354,h=38) 下端 y=392 を超過（text 下端 y=401.8）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\incentive\\img\\figure-1.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/incentive/img/figure-1.svg",
       "pattern": "P9-text-rect-overflow",
       "severity": "LOW",
       "detail": "「— 感情に支配された行動」が rect(y=354,h=38) 下端 y=392 を超過（text 下端 y=401.6）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\incentive\\img\\figure-1.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/incentive/img/figure-1.svg",
       "pattern": "P9-text-rect-overflow",
       "severity": "LOW",
       "detail": "「Ⓒ 管理的行動」が rect(y=400,h=38) 下端 y=438 を超過（text 下端 y=447.8）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\incentive\\img\\figure-1.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/incentive/img/figure-1.svg",
       "pattern": "P9-text-rect-overflow",
       "severity": "LOW",
       "detail": "「— 合理的な思考に従った行動」が rect(y=400,h=38) 下端 y=438 を超過（text 下端 y=447.6）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\hazop\\img\\figure-hazop-guidewords.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/hazop/img/figure-hazop-guidewords.svg",
       "pattern": "P11-concept-title",
       "severity": "MEDIUM",
       "text": "HAZOP の 7 ガイドワード",
       "detail": "最上部中央の大見出し「HAZOP の 7 ガイドワード」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\gantt-chart\\img\\figure-gantt-chart-example.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/gantt-chart/img/figure-gantt-chart-example.svg",
       "pattern": "P11-concept-title",
       "severity": "MEDIUM",
       "text": "ガントチャートの構成",
       "detail": "最上部中央の大見出し「ガントチャートの構成」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\fta\\img\\figure-or-and-gates.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/fta/img/figure-or-and-gates.svg",
       "pattern": "P9-text-rect-overflow",
       "severity": "LOW",
       "detail": "「AND：すべてが同時に失敗しな」が rect(y=385,h=50) 下端 y=435 を超過（text 下端 y=436.6）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\fta\\img\\figure-or-and-gates.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/fta/img/figure-or-and-gates.svg",
       "pattern": "P11-concept-title",
       "severity": "MEDIUM",
       "text": "FTA：OR ゲートと AND ゲート",
       "detail": "最上部中央の大見出し「FTA：OR ゲートと AND ゲート」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\fta\\img\\figure-fault-tree-diagram.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/fta/img/figure-fault-tree-diagram.svg",
       "pattern": "P9-text-rect-overflow",
       "severity": "LOW",
       "detail": "「原因事象」が rect(y=216,h=28) 下端 y=244 を超過（text 下端 y=253.7）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\fta\\img\\figure-fault-tree-diagram.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/fta/img/figure-fault-tree-diagram.svg",
       "pattern": "P9-text-rect-overflow",
       "severity": "LOW",
       "detail": "「原因事象」が rect(y=216,h=28) 下端 y=244 を超過（text 下端 y=253.7）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\fta\\img\\figure-fault-tree-diagram.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/fta/img/figure-fault-tree-diagram.svg",
       "pattern": "P9-text-rect-overflow",
       "severity": "LOW",
       "detail": "「原因事象」が rect(y=216,h=28) 下端 y=244 を超過（text 下端 y=253.7）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\front-loading\\img\\figure-front-loading-comparison.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/front-loading/img/figure-front-loading-comparison.svg",
       "pattern": "P11-concept-title",
       "severity": "MEDIUM",
       "text": "フロントローディングの本質",
       "detail": "最上部中央の大見出し「フロントローディングの本質」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\four-p-analysis\\img\\figure-1.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/four-p-analysis/img/figure-1.svg",
       "pattern": "P9-text-rect-overflow",
       "severity": "LOW",
       "detail": "「顧客志向の戦略では4Cでの検証」が rect(y=420,h=64) 下端 y=484 を超過（text 下端 y=487.6）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\four-e-countermeasures\\img\\figure-four-e-overview.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/four-e-countermeasures/img/figure-four-e-overview.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "4 つの観点を補完的に組み合わせて運用する",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\four-e-countermeasures\\img\\figure-four-e-overview.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/four-e-countermeasures/img/figure-four-e-overview.svg",
       "pattern": "P11-concept-title",
       "severity": "MEDIUM",
       "text": "事故の4E対策",
       "detail": "最上部中央の大見出し「事故の4E対策」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\fmea\\img\\figure-fmea-rpn-flow.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/fmea/img/figure-fmea-rpn-flow.svg",
       "pattern": "P11-concept-title",
       "severity": "MEDIUM",
       "text": "FMEA の手順と RPN 算出",
       "detail": "最上部中央の大見出し「FMEA の手順と RPN 算出」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\figure-eta-gas-leak-example.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/eta/img/figure-eta-gas-leak-example.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "早期発見",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\figure-eta-gas-leak-example.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/eta/img/figure-eta-gas-leak-example.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "計器発見",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\figure-eta-gas-leak-example.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/eta/img/figure-eta-gas-leak-example.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "検査発見",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\figure-eta-gas-leak-example.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/eta/img/figure-eta-gas-leak-example.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "着火しない",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\figure-eta-gas-leak-example.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/eta/img/figure-eta-gas-leak-example.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "成功",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\figure-eta-gas-leak-example.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/eta/img/figure-eta-gas-leak-example.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "0.9",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\figure-eta-gas-leak-example.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/eta/img/figure-eta-gas-leak-example.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "失敗",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\figure-eta-gas-leak-example.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/eta/img/figure-eta-gas-leak-example.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "0.1",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\figure-eta-gas-leak-example.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/eta/img/figure-eta-gas-leak-example.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "成功",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\figure-eta-gas-leak-example.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/eta/img/figure-eta-gas-leak-example.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "0.9",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\figure-eta-gas-leak-example.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/eta/img/figure-eta-gas-leak-example.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "失敗",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\figure-eta-gas-leak-example.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/eta/img/figure-eta-gas-leak-example.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "0.1",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\figure-eta-gas-leak-example.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/eta/img/figure-eta-gas-leak-example.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "成功",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\figure-eta-gas-leak-example.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/eta/img/figure-eta-gas-leak-example.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "0.9",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\figure-eta-gas-leak-example.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/eta/img/figure-eta-gas-leak-example.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "失敗",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\figure-eta-gas-leak-example.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/eta/img/figure-eta-gas-leak-example.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "0.1",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\figure-eta-gas-leak-example.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/eta/img/figure-eta-gas-leak-example.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "成功",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\figure-eta-gas-leak-example.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/eta/img/figure-eta-gas-leak-example.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "0.5",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\figure-eta-gas-leak-example.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/eta/img/figure-eta-gas-leak-example.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "失敗",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\figure-eta-gas-leak-example.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/eta/img/figure-eta-gas-leak-example.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "0.5",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\figure-eta-gas-leak-example.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/eta/img/figure-eta-gas-leak-example.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "（4 層のセーフガードがすべて失敗した場合のみ事故）",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\figure-eta-gas-leak-example.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/eta/img/figure-eta-gas-leak-example.svg",
       "pattern": "P11-concept-title",
       "severity": "MEDIUM",
       "text": "ETA：ガス漏れの事象進展",
       "detail": "最上部中央の大見出し「ETA：ガス漏れの事象進展」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\environmental-impact-assessment\\img\\figure-eia-target-categories.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/environmental-impact-assessment/img/figure-eia-target-categories.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "水力・火力・地熱・原子力",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\environmental-impact-assessment\\img\\figure-eia-target-categories.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/environmental-impact-assessment/img/figure-eia-target-categories.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "太陽電池・風力",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\environmental-impact-assessment\\img\\figure-eia-target-categories.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/environmental-impact-assessment/img/figure-eia-target-categories.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "（原子力はすべて対象）",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\environmental-impact-assessment\\img\\figure-eia-target-categories.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/environmental-impact-assessment/img/figure-eia-target-categories.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "最終処分場",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\environmental-impact-assessment\\img\\figure-eia-target-categories.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/environmental-impact-assessment/img/figure-eia-target-categories.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "30ha 以上が第一種事業",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\environmental-impact-assessment\\img\\figure-eia-target-categories.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/environmental-impact-assessment/img/figure-eia-target-categories.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "※ 規模基準（面積・延長・出力等）は環境省パンフレット参照",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\environmental-impact-assessment\\img\\figure-eia-target-categories.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/environmental-impact-assessment/img/figure-eia-target-categories.svg",
       "pattern": "P11-concept-title",
       "severity": "MEDIUM",
       "text": "環境影響評価法の対象 13 事業",
       "detail": "最上部中央の大見出し「環境影響評価法の対象 13 事業」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\environmental-impact-assessment\\img\\figure-eia-procedure-flow.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/environmental-impact-assessment/img/figure-eia-procedure-flow.svg",
       "pattern": "P9-text-rect-overflow",
       "severity": "LOW",
       "detail": "「▼」が rect(y=50,h=48) 下端 y=98 を超過（text 下端 y=112.1）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\environmental-impact-assessment\\img\\figure-eia-procedure-flow.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/environmental-impact-assessment/img/figure-eia-procedure-flow.svg",
       "pattern": "P9-text-rect-overflow",
       "severity": "LOW",
       "detail": "「▼」が rect(y=116,h=48) 下端 y=164 を超過（text 下端 y=178.1）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\environmental-impact-assessment\\img\\figure-eia-procedure-flow.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/environmental-impact-assessment/img/figure-eia-procedure-flow.svg",
       "pattern": "P9-text-rect-overflow",
       "severity": "LOW",
       "detail": "「▼」が rect(y=182,h=48) 下端 y=230 を超過（text 下端 y=244.1）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\environmental-impact-assessment\\img\\figure-eia-procedure-flow.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/environmental-impact-assessment/img/figure-eia-procedure-flow.svg",
       "pattern": "P9-text-rect-overflow",
       "severity": "LOW",
       "detail": "「▼」が rect(y=248,h=48) 下端 y=296 を超過（text 下端 y=310.1）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\environmental-accounting\\img\\figure-1.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/environmental-accounting/img/figure-1.svg",
       "pattern": "P9-text-rect-overflow",
       "severity": "LOW",
       "detail": "「費用便益分析の便益計測に適用さ」が rect(y=420,h=64) 下端 y=484 を超過（text 下端 y=487.6）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\ecological-footprint\\img\\figure-overshoot-concept.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/ecological-footprint/img/figure-overshoot-concept.svg",
       "pattern": "P11-concept-title",
       "severity": "MEDIUM",
       "text": "世界平均 EF と地球のバイオキャパシティ",
       "detail": "最上部中央の大見出し「世界平均 EF と地球のバイオキャパシテ」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\design-review\\img\\figure-dr-stages.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/design-review/img/figure-dr-stages.svg",
       "pattern": "P11-concept-title",
       "severity": "MEDIUM",
       "text": "デザインレビューの実施段階（DR0〜DR4）",
       "detail": "最上部中央の大見出し「デザインレビューの実施段階（DR0〜DR」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\decoupling\\img\\figure-decoupling-concept.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/decoupling/img/figure-decoupling-concept.svg",
       "pattern": "P11-concept-title",
       "severity": "MEDIUM",
       "text": "デカップリングの概念図",
       "detail": "最上部中央の大見出し「デカップリングの概念図」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\data-mining\\img\\figure-big-data-analysis-flow.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/data-mining/img/figure-big-data-analysis-flow.svg",
       "pattern": "P9-text-rect-overflow",
       "severity": "LOW",
       "detail": "「（反復学習）」が rect(y=296,h=66) 下端 y=362 を超過（text 下端 y=363.6）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\data-mining\\img\\figure-big-data-analysis-flow.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/data-mining/img/figure-big-data-analysis-flow.svg",
       "pattern": "P9-text-rect-overflow",
       "severity": "LOW",
       "detail": "「検証する」が rect(y=296,h=66) 下端 y=362 を超過（text 下端 y=363.6）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\data-mining\\img\\figure-big-data-analysis-flow.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/data-mining/img/figure-big-data-analysis-flow.svg",
       "pattern": "P11-concept-title",
       "severity": "MEDIUM",
       "text": "ビッグデータ分析の 5 段階プロセス",
       "detail": "最上部中央の大見出し「ビッグデータ分析の 5 段階プロセス」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\csr\\img\\figure-csr-csv-evolution.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/csr/img/figure-csr-csv-evolution.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "ポーター（2011）",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\csr\\img\\figure-csr-4-pillars.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/csr/img/figure-csr-4-pillars.svg",
       "pattern": "P11-concept-title",
       "severity": "MEDIUM",
       "text": "CSR（企業の社会的責任）の 4 要素",
       "detail": "最上部中央の大見出し「CSR（企業の社会的責任）の 4 要素」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\crisis-management-manual\\img\\figure-1.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/crisis-management-manual/img/figure-1.svg",
       "pattern": "P11-concept-title",
       "severity": "MEDIUM",
       "text": "危機への対応4段階",
       "detail": "最上部中央の大見出し「危機への対応4段階」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\correlation-analysis\\img\\figure-correlation-scatter-patterns.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/correlation-analysis/img/figure-correlation-scatter-patterns.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "相関係数 ≈ 1 に近い",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\correlation-analysis\\img\\figure-correlation-scatter-patterns.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/correlation-analysis/img/figure-correlation-scatter-patterns.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "相関係数 ≈ 0",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\correlation-analysis\\img\\figure-correlation-scatter-patterns.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/correlation-analysis/img/figure-correlation-scatter-patterns.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "相関係数 ≈ −1 に近い",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\control-limits\\img\\figure-control-chart.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/control-limits/img/figure-control-chart.svg",
       "pattern": "P11-concept-title",
       "severity": "MEDIUM",
       "text": "管理図と管理限界（±3σ）",
       "detail": "最上部中央の大見出し「管理図と管理限界（±3σ）」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\concurrent-engineering\\img\\figure-sequential-vs-concurrent.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/concurrent-engineering/img/figure-sequential-vs-concurrent.svg",
       "pattern": "P11-concept-title",
       "severity": "MEDIUM",
       "text": "逐次開発 vs コンカレントエンジニアリング",
       "detail": "最上部中央の大見出し「逐次開発 vs コンカレントエンジニアリ」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\climate-change-adaptation-act\\img\\figure-heavy-rainfall-trend.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/climate-change-adaptation-act/img/figure-heavy-rainfall-trend.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "1時間降水量50mm以上の年間発生回数の経年変化",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\climate-change-adaptation-act\\img\\figure-heavy-rainfall-trend.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/climate-change-adaptation-act/img/figure-heavy-rainfall-trend.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "（1976〜2021年、気象庁）",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\climate-change-adaptation-act\\img\\figure-heavy-rainfall-trend.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/climate-change-adaptation-act/img/figure-heavy-rainfall-trend.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "棒グラフ＝各年の発生件数／直線＝5 年移動平均",
       "detail": "font-size 9px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\citizen-participation\\img\\figure-arnstein-ladder.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/citizen-participation/img/figure-arnstein-ladder.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "下から上へ、市民の実質的な決定権が増える",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\citizen-participation\\img\\figure-arnstein-ladder.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/citizen-participation/img/figure-arnstein-ladder.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "Arnstein (1969) \"A Ladder of Citizen Par",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\citizen-participation\\img\\figure-arnstein-ladder.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/citizen-participation/img/figure-arnstein-ladder.svg",
       "pattern": "P11-concept-title",
       "severity": "MEDIUM",
       "text": "アーンスタインの梯子（参加の8段階）",
       "detail": "最上部中央の大見出し「アーンスタインの梯子（参加の8段階）」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\break-even-point\\img\\figure-break-even-chart.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/break-even-point/img/figure-break-even-chart.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "0",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\break-even-point\\img\\figure-break-even-chart.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/break-even-point/img/figure-break-even-chart.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "損益分岐点",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\break-even-point\\img\\figure-break-even-chart.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/break-even-point/img/figure-break-even-chart.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "売上高",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\break-even-point\\img\\figure-break-even-chart.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/break-even-point/img/figure-break-even-chart.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "総費用",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\break-even-point\\img\\figure-break-even-chart.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/break-even-point/img/figure-break-even-chart.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "固定費",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\break-even-point\\img\\figure-break-even-chart.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/break-even-point/img/figure-break-even-chart.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "変動費",
       "detail": "font-size 9px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\break-even-point\\img\\figure-break-even-chart.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/break-even-point/img/figure-break-even-chart.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "固定費",
       "detail": "font-size 9px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\analytic-hierarchy-process\\img\\figure-ahp-hierarchy.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/analytic-hierarchy-process/img/figure-ahp-hierarchy.svg",
       "pattern": "P11-concept-title",
       "severity": "MEDIUM",
       "text": "AHP の階層構造",
       "detail": "最上部中央の大見出し「AHP の階層構造」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\agile\\img\\figure-2.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/agile/img/figure-2.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "開始",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\agile\\img\\figure-2.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/agile/img/figure-2.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "完成へ",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\agile\\img\\figure-2.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/agile/img/figure-2.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "1986年",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\agile\\img\\figure-2.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/agile/img/figure-2.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "2001年",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\agile\\img\\figure-2.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/agile/img/figure-2.svg",
       "pattern": "P9-text-rect-overflow",
       "severity": "MEDIUM",
       "detail": "「開始」が rect(x=40,w=160) 右端 x=200 を超過（bbox 右端 x=211）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\agile\\img\\figure-2.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/agile/img/figure-2.svg",
       "pattern": "P9-text-rect-overflow",
       "severity": "LOW",
       "detail": "「開始」が rect(y=56,h=90) 下端 y=146 を超過（text 下端 y=150.5）"
     },
     {
-      "file": ".local\\r2\\posts\\pe-comprehensive-management\\agile\\img\\figure-2.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/agile/img/figure-2.svg",
       "pattern": "P9-text-rect-overflow",
       "severity": "LOW",
       "detail": "「完成へ」が rect(y=56,h=90) 下端 y=146 を超過（text 下端 y=151.5）"
     },
     {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-tractor-bulldozer\\img\\figure-travel-device.svg",
+      "file": ".local/r2/posts/civil-construction-1/textbook-tractor-bulldozer/img/figure-travel-device.svg",
       "pattern": "P11-concept-title",
       "severity": "MEDIUM",
       "text": "トラクタの走行装置：2 形式の比較",
       "detail": "最上部中央の大見出し「トラクタの走行装置：2 形式の比較」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
     },
     {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-8.svg",
+      "file": ".local/r2/posts/civil-construction-1/textbook-shovel-excavator/img/figure-2-8.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "ホゥ",
       "detail": "font-size 9px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-8.svg",
+      "file": ".local/r2/posts/civil-construction-1/textbook-shovel-excavator/img/figure-2-8.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "（油圧）",
       "detail": "font-size 9px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-8.svg",
+      "file": ".local/r2/posts/civil-construction-1/textbook-shovel-excavator/img/figure-2-8.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "（油圧）",
       "detail": "font-size 9px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-8.svg",
+      "file": ".local/r2/posts/civil-construction-1/textbook-shovel-excavator/img/figure-2-8.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "（機械式）",
       "detail": "font-size 9px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-8.svg",
+      "file": ".local/r2/posts/civil-construction-1/textbook-shovel-excavator/img/figure-2-8.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "油圧ショベル",
       "detail": "font-size 9px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-8.svg",
+      "file": ".local/r2/posts/civil-construction-1/textbook-shovel-excavator/img/figure-2-8.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "油圧ショベル",
       "detail": "font-size 9px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-8.svg",
+      "file": ".local/r2/posts/civil-construction-1/textbook-shovel-excavator/img/figure-2-8.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "油圧式",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-8.svg",
+      "file": ".local/r2/posts/civil-construction-1/textbook-shovel-excavator/img/figure-2-8.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "機械式",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-8.svg",
+      "file": ".local/r2/posts/civil-construction-1/textbook-shovel-excavator/img/figure-2-8.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "派生機械",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-8.svg",
+      "file": ".local/r2/posts/civil-construction-1/textbook-shovel-excavator/img/figure-2-8.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "基本分類",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-8.svg",
+      "file": ".local/r2/posts/civil-construction-1/textbook-shovel-excavator/img/figure-2-8.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "油圧式／機械式は作業動力の伝達方式による分類",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-13.svg",
+      "file": ".local/r2/posts/civil-construction-1/textbook-shovel-excavator/img/figure-2-13.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "安全装置",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-13.svg",
+      "file": ".local/r2/posts/civil-construction-1/textbook-shovel-excavator/img/figure-2-13.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "センサ",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-13.svg",
+      "file": ".local/r2/posts/civil-construction-1/textbook-shovel-excavator/img/figure-2-13.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "ブーム",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-13.svg",
+      "file": ".local/r2/posts/civil-construction-1/textbook-shovel-excavator/img/figure-2-13.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "アーム",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-13.svg",
+      "file": ".local/r2/posts/civil-construction-1/textbook-shovel-excavator/img/figure-2-13.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "バケット",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-13.svg",
+      "file": ".local/r2/posts/civil-construction-1/textbook-shovel-excavator/img/figure-2-13.svg",
       "pattern": "P9-text-rect-overflow",
       "severity": "LOW",
       "detail": "「兼用機：クレーン構造規格＋移動」が rect(y=352,h=134) 下端 y=486 を超過（text 下端 y=487.6）"
     },
     {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-10.svg",
+      "file": ".local/r2/posts/civil-construction-1/textbook-shovel-excavator/img/figure-2-10.svg",
       "pattern": "P9-text-rect-overflow",
       "severity": "LOW",
       "detail": "「油圧シリンダは作動油の押力で伸」が rect(y=350,h=132) 下端 y=482 を超過（text 下端 y=484.6）"
     },
     {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-schedule-overview\\img\\figure-cost-duration-curve.svg",
+      "file": ".local/r2/posts/civil-construction-1/textbook-schedule-overview/img/figure-cost-duration-curve.svg",
       "pattern": "P2-text-overlap",
       "severity": "MEDIUM",
       "detail": "「工期」と「長」の bbox が重複"
     },
     {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-schedule-overview\\img\\figure-cost-duration-curve.svg",
+      "file": ".local/r2/posts/civil-construction-1/textbook-schedule-overview/img/figure-cost-duration-curve.svg",
       "pattern": "P2-text-overlap",
       "severity": "MEDIUM",
       "detail": "「直接費」と「（直接＋間接の合計 最小）」の bbox が重複"
     },
     {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-schedule-overview\\img\\figure-cost-duration-curve.svg",
+      "file": ".local/r2/posts/civil-construction-1/textbook-schedule-overview/img/figure-cost-duration-curve.svg",
       "pattern": "P2-text-overlap",
       "severity": "MEDIUM",
       "detail": "「（工期短縮で急増）」と「（直接＋間接の合計 最小）」の bbox が重複"
     },
     {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-schedule-overview\\img\\figure-cost-duration-curve.svg",
+      "file": ".local/r2/posts/civil-construction-1/textbook-schedule-overview/img/figure-cost-duration-curve.svg",
       "pattern": "P11-concept-title",
       "severity": "MEDIUM",
       "text": "工事費曲線と最適工期",
       "detail": "最上部中央の大見出し「工事費曲線と最適工期」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
     },
     {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-port-regulations\\img\\figure-7-6.svg",
+      "file": ".local/r2/posts/civil-construction-1/textbook-port-regulations/img/figure-7-6.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "待機船",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-port-regulations\\img\\figure-7-6.svg",
+      "file": ".local/r2/posts/civil-construction-1/textbook-port-regulations/img/figure-7-6.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "入港船",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-port-regulations\\img\\figure-7-6.svg",
+      "file": ".local/r2/posts/civil-construction-1/textbook-port-regulations/img/figure-7-6.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "（防波堤の外で待機",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-port-regulations\\img\\figure-7-6.svg",
+      "file": ".local/r2/posts/civil-construction-1/textbook-port-regulations/img/figure-7-6.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "→右側航行）",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-port-regulations\\img\\figure-7-6.svg",
+      "file": ".local/r2/posts/civil-construction-1/textbook-port-regulations/img/figure-7-6.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "引船",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-port-regulations\\img\\figure-7-6.svg",
+      "file": ".local/r2/posts/civil-construction-1/textbook-port-regulations/img/figure-7-6.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "被えい航物件",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-network-schedule\\img\\figure-3-17.svg",
+      "file": ".local/r2/posts/civil-construction-1/textbook-network-schedule/img/figure-3-17.svg",
       "pattern": "P9-text-rect-overflow",
       "severity": "LOW",
       "detail": "「EST = Earliest 」が rect(y=295,h=180) 下端 y=475 を超過（text 下端 y=485.6）"
     },
     {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-grader-compaction\\img\\figure-compaction-classification.svg",
+      "file": ".local/r2/posts/civil-construction-1/textbook-grader-compaction/img/figure-compaction-classification.svg",
       "pattern": "P11-concept-title",
       "severity": "MEDIUM",
       "text": "締固め機械の分類と適用土質",
       "detail": "最上部中央の大見出し「締固め機械の分類と適用土質」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
     },
     {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-distance-angle\\img\\figure-error-cancellation.svg",
+      "file": ".local/r2/posts/civil-construction-1/textbook-distance-angle/img/figure-error-cancellation.svg",
       "pattern": "P11-concept-title",
       "severity": "MEDIUM",
       "text": "対回観測（正位 R ＋ 反位 L）で誤差を消去",
       "detail": "最上部中央の大見出し「対回観測（正位 R ＋ 反位 L）で誤差」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
     },
     {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-distance-angle\\img\\figure-distance-types.svg",
+      "file": ".local/r2/posts/civil-construction-1/textbook-distance-angle/img/figure-distance-types.svg",
       "pattern": "P11-concept-title",
       "severity": "MEDIUM",
       "text": "水平距離 と 斜距離",
       "detail": "最上部中央の大見出し「水平距離 と 斜距離」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
     },
     {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-distance-angle\\img\\figure-angle-types.svg",
+      "file": ".local/r2/posts/civil-construction-1/textbook-distance-angle/img/figure-angle-types.svg",
       "pattern": "P9-text-rect-overflow",
       "severity": "LOW",
       "detail": "「水平角・鉛直角ともトランシット」が rect(y=342,h=140) 下端 y=482 を超過（text 下端 y=491.6）"
     },
     {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-distance-angle\\img\\figure-angle-types.svg",
+      "file": ".local/r2/posts/civil-construction-1/textbook-distance-angle/img/figure-angle-types.svg",
       "pattern": "P11-concept-title",
       "severity": "MEDIUM",
       "text": "水平角 と 鉛直角",
       "detail": "最上部中央の大見出し「水平角 と 鉛直角」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
     },
     {
-      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-construction-mgmt-overview\\img\\figure-pdca-cycle.svg",
+      "file": ".local/r2/posts/civil-construction-1/textbook-construction-mgmt-overview/img/figure-pdca-cycle.svg",
       "pattern": "P11-concept-title",
       "severity": "MEDIUM",
       "text": "施工管理の PDCA サイクル",
@@ -1451,25 +1451,25 @@
     }
   ],
   "exam_crops": [
-    ".local\\r2\\posts\\pe-comprehensive-management\\h26-primary\\img\\event-tree-i-1-32.svg",
-    ".local\\r2\\posts\\pe-comprehensive-management\\h25-primary\\img\\fault-tree-i-1-27.svg",
-    ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
-    ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\voc-regulation-ii-1-37.svg",
-    ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\safety-org-structure-ii-1-29.svg",
-    ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\pdpc-diagram-ii-1-3.svg",
-    ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\labor-dispute-resolution-ii-1-15.svg",
-    ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\kj-method-ii-1-3.svg",
-    ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\interrelation-diagram-ii-1-3.svg",
-    ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\flextime-ii-1-11.svg",
-    ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\eia-procedure-ii-1-38.svg",
-    ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\cause-effect-diagram-ii-1-3.svg",
-    ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-unknown-ii-1-28.svg",
-    ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-known-ii-1-28.svg",
-    ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\affinity-diagram-ii-1-3.svg",
-    ".local\\r2\\posts\\civil-construction-1\\primary-h29-b\\img\\h29-b-fig-03-cp.svg",
-    ".local\\r2\\posts\\civil-construction-1\\primary-h27-b\\img\\h27-b-fig-03.svg",
-    ".local\\r2\\posts\\civil-construction-1\\primary-h27-b\\img\\h27-b-fig-03-cp.svg",
-    ".local\\r2\\posts\\civil-construction-1\\primary-h26-b\\img\\h26-b-fig-02.svg",
-    ".local\\r2\\posts\\civil-construction-1\\primary-h26-b\\img\\h26-b-fig-02-cp.svg"
+    ".local/r2/posts/pe-comprehensive-management/h26-primary/img/event-tree-i-1-32.svg",
+    ".local/r2/posts/pe-comprehensive-management/h25-primary/img/fault-tree-i-1-27.svg",
+    ".local/r2/posts/pe-comprehensive-management/h24-primary/img/xy-theory-ii-1-9.svg",
+    ".local/r2/posts/pe-comprehensive-management/h24-primary/img/voc-regulation-ii-1-37.svg",
+    ".local/r2/posts/pe-comprehensive-management/h24-primary/img/safety-org-structure-ii-1-29.svg",
+    ".local/r2/posts/pe-comprehensive-management/h24-primary/img/pdpc-diagram-ii-1-3.svg",
+    ".local/r2/posts/pe-comprehensive-management/h24-primary/img/labor-dispute-resolution-ii-1-15.svg",
+    ".local/r2/posts/pe-comprehensive-management/h24-primary/img/kj-method-ii-1-3.svg",
+    ".local/r2/posts/pe-comprehensive-management/h24-primary/img/interrelation-diagram-ii-1-3.svg",
+    ".local/r2/posts/pe-comprehensive-management/h24-primary/img/flextime-ii-1-11.svg",
+    ".local/r2/posts/pe-comprehensive-management/h24-primary/img/eia-procedure-ii-1-38.svg",
+    ".local/r2/posts/pe-comprehensive-management/h24-primary/img/cause-effect-diagram-ii-1-3.svg",
+    ".local/r2/posts/pe-comprehensive-management/h24-primary/img/bpt-distribution-unknown-ii-1-28.svg",
+    ".local/r2/posts/pe-comprehensive-management/h24-primary/img/bpt-distribution-known-ii-1-28.svg",
+    ".local/r2/posts/pe-comprehensive-management/h24-primary/img/affinity-diagram-ii-1-3.svg",
+    ".local/r2/posts/civil-construction-1/primary-h29-b/img/h29-b-fig-03-cp.svg",
+    ".local/r2/posts/civil-construction-1/primary-h27-b/img/h27-b-fig-03.svg",
+    ".local/r2/posts/civil-construction-1/primary-h27-b/img/h27-b-fig-03-cp.svg",
+    ".local/r2/posts/civil-construction-1/primary-h26-b/img/h26-b-fig-02.svg",
+    ".local/r2/posts/civil-construction-1/primary-h26-b/img/h26-b-fig-02-cp.svg"
   ]
 }

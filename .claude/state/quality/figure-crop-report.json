@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-07-16T04:09:41.804Z",
-  "scanned": 643,
+  "generated_at": "2026-07-17T01:34:05.898Z",
+  "scanned": 653,
   "skipped_photo": 28,
   "framed": 0,
   "errors": 0,
   "counts": {
-    "HIGH": 568,
+    "HIGH": 565,
     "MEDIUM": 0,
-    "LOW": 218
+    "LOW": 222
   },
   "violations": [
     {
@@ -303,20 +303,6 @@
       "severity": "HIGH",
       "side": "top",
       "detail": "top縁の極薄インク島（高さ2px・全インクの1.1%・白ギャップ97px）＝隣接図の切れ端＝写り込み"
-    },
-    {
-      "path": ".local/r2/posts/civil-construction-1/primary-r01-a/img/r01-a-fig-09.png",
-      "rule": "EDGE_CUT",
-      "severity": "HIGH",
-      "side": "top",
-      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 200%≥50%・縁幅 1%）"
-    },
-    {
-      "path": ".local/r2/posts/civil-construction-1/primary-r01-a/img/r01-a-fig-09.png",
-      "rule": "STRAY_SLIVER",
-      "severity": "HIGH",
-      "side": "top",
-      "detail": "top縁の極薄インク島（高さ1px・全インクの0.0%・白ギャップ93px）＝隣接図の切れ端＝写り込み"
     },
     {
       "path": ".local/r2/posts/civil-construction-1/primary-r01-b/img/r01-b-fig-02.png",
@@ -756,22 +742,8 @@
       "path": ".local/r2/posts/civil-construction-1/secondary-concrete-basics/img/fig-crack-alkali-silica.png",
       "rule": "EDGE_CUT",
       "severity": "HIGH",
-      "side": "top",
-      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 2057%≥50%・縁幅 7%）"
-    },
-    {
-      "path": ".local/r2/posts/civil-construction-1/secondary-concrete-basics/img/fig-crack-alkali-silica.png",
-      "rule": "EDGE_CUT",
-      "severity": "HIGH",
       "side": "bottom",
       "detail": "bottom縁でストローク中割りの疑い（縁2行/内側4行の密度比 99%≥50%・縁幅 7%）"
-    },
-    {
-      "path": ".local/r2/posts/civil-construction-1/secondary-concrete-basics/img/fig-crack-alkali-silica.png",
-      "rule": "STRAY_SLIVER",
-      "severity": "HIGH",
-      "side": "top",
-      "detail": "top縁の極薄インク島（高さ3px・全インクの1.4%・白ギャップ36px）＝隣接図の切れ端＝写り込み"
     },
     {
       "path": ".local/r2/posts/civil-construction-1/secondary-concrete-basics/img/fig-crack-drying-shrinkage.png",
@@ -1614,20 +1586,6 @@
       "detail": "白マージン 3px < 4px"
     },
     {
-      "path": ".local/r2/posts/civil-construction-1/textbook-construction-mgmt-overview/img/fig-1-2.png",
-      "rule": "EDGE_CUT",
-      "severity": "HIGH",
-      "side": "top",
-      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 200%≥50%・縁幅 4%）"
-    },
-    {
-      "path": ".local/r2/posts/civil-construction-1/textbook-construction-mgmt-overview/img/fig-1-2.png",
-      "rule": "STRAY_SLIVER",
-      "severity": "HIGH",
-      "side": "top",
-      "detail": "top縁の極薄インク島（高さ2px・全インクの0.4%・白ギャップ114px）＝隣接図の切れ端＝写り込み"
-    },
-    {
       "path": ".local/r2/posts/civil-construction-1/textbook-construction-mgmt-overview/img/fig-1-3.png",
       "rule": "EDGE_CUT",
       "severity": "HIGH",
@@ -1927,13 +1885,6 @@
       "severity": "LOW",
       "side": "right",
       "detail": "right縁の直線が内容スパンの60%＝罫線/軸/枠の bbox 一致（内容は完全）"
-    },
-    {
-      "path": ".local/r2/posts/civil-construction-1/textbook-loader/img/wheel-loader.webp",
-      "rule": "STRAY_SLIVER",
-      "severity": "HIGH",
-      "side": "top",
-      "detail": "top縁の極薄インク島（高さ11px・全インクの0.0%・白ギャップ506px）＝隣接図の切れ端＝写り込み"
     },
     {
       "path": ".local/r2/posts/civil-construction-1/textbook-scraper/img/scraper-dozer.jpg",
@@ -2517,6 +2468,69 @@
       "detail": "bottom縁の分離島（高さ15px・全インクの2.3%・白ギャップ27px）＝小見出し/軸/写り込みのいずれか（要目視）"
     },
     {
+      "path": ".local/r2/posts/concrete-chief-engineer/primary-construction/img/h24-q11.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 95%≥50%・縁幅 1%）"
+    },
+    {
+      "path": ".local/r2/posts/concrete-chief-engineer/primary-construction/img/h24-q22.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 102%≥50%・縁幅 4%）"
+    },
+    {
+      "path": ".local/r2/posts/concrete-chief-engineer/primary-construction/img/h24-q22.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "bottom",
+      "detail": "bottom縁でストローク中割りの疑い（縁2行/内側4行の密度比 108%≥50%・縁幅 14%）"
+    },
+    {
+      "path": ".local/r2/posts/concrete-chief-engineer/primary-construction/img/h24-q22.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "right縁の直線が内容スパンの82%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": ".local/r2/posts/concrete-chief-engineer/primary-construction/img/h25-q28-fig1.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 99%≥50%・縁幅 57%）"
+    },
+    {
+      "path": ".local/r2/posts/concrete-chief-engineer/primary-construction/img/h25-q28-fig1.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "bottom",
+      "detail": "bottom縁でストローク中割りの疑い（縁2行/内側4行の密度比 99%≥50%・縁幅 34%）"
+    },
+    {
+      "path": ".local/r2/posts/concrete-chief-engineer/primary-construction/img/h25-q28-fig1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "left縁の直線が内容スパンの83%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": ".local/r2/posts/concrete-chief-engineer/primary-construction/img/h25-q28-fig1.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "right",
+      "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 88%≥50%・縁幅 1%）"
+    },
+    {
+      "path": ".local/r2/posts/concrete-chief-engineer/primary-construction/img/h25-q28-fig2.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "left",
+      "detail": "left縁でストローク中割りの疑い（縁2行/内側4行の密度比 60%≥50%・縁幅 1%）"
+    },
+    {
       "path": ".local/r2/posts/concrete-chief-engineer/primary-construction/img/mass-slab-stress-h29.webp",
       "rule": "STRAY_LABEL",
       "severity": "LOW",
@@ -2559,6 +2573,20 @@
       "detail": "bottom縁の極薄インク島（高さ4px・全インクの0.9%・白ギャップ8px）＝隣接図の切れ端＝写り込み"
     },
     {
+      "path": ".local/r2/posts/concrete-chief-engineer/primary-materials/img/h24-q5.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 102%≥50%・縁幅 1%）"
+    },
+    {
+      "path": ".local/r2/posts/concrete-chief-engineer/primary-materials/img/h24-q5.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "bottom",
+      "detail": "bottom縁でストローク中割りの疑い（縁2行/内側4行の密度比 127%≥50%・縁幅 8%）"
+    },
+    {
       "path": ".local/r2/posts/concrete-chief-engineer/primary-materials/img/materials-clinker-strength-h28.webp",
       "rule": "STRAY_LABEL",
       "severity": "LOW",
@@ -2571,6 +2599,27 @@
       "severity": "LOW",
       "side": "bottom",
       "detail": "bottom縁の分離島（高さ10px・全インクの0.1%・白ギャップ23px）＝小見出し/軸/写り込みのいずれか（要目視）"
+    },
+    {
+      "path": ".local/r2/posts/concrete-chief-engineer/primary-mix-design/img/h24-q8.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 96%≥50%・縁幅 18%）"
+    },
+    {
+      "path": ".local/r2/posts/concrete-chief-engineer/primary-mix-design/img/h24-q8.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "bottom",
+      "detail": "bottom縁でストローク中割りの疑い（縁2行/内側4行の密度比 120%≥50%・縁幅 6%）"
+    },
+    {
+      "path": ".local/r2/posts/concrete-chief-engineer/primary-mix-design/img/h24-q8.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "left",
+      "detail": "left縁でストローク中割りの疑い（縁2行/内側4行の密度比 93%≥50%・縁幅 25%）"
     },
     {
       "path": ".local/r2/posts/concrete-chief-engineer/primary-properties/img/bingham-flow-h30.webp",
@@ -2587,6 +2636,34 @@
       "detail": "top縁の分離島（高さ16px・全インクの3.0%・白ギャップ39px）＝小見出し/軸/写り込みのいずれか（要目視）"
     },
     {
+      "path": ".local/r2/posts/concrete-chief-engineer/primary-properties/img/h24-q10.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "bottom",
+      "detail": "bottom縁でストローク中割りの疑い（縁2行/内側4行の密度比 173%≥50%・縁幅 1%）"
+    },
+    {
+      "path": ".local/r2/posts/concrete-chief-engineer/primary-properties/img/h24-q12.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "bottom",
+      "detail": "bottom縁でストローク中割りの疑い（縁2行/内側4行の密度比 101%≥50%・縁幅 32%）"
+    },
+    {
+      "path": ".local/r2/posts/concrete-chief-engineer/primary-properties/img/h24-q12.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "left縁の直線が内容スパンの79%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": ".local/r2/posts/concrete-chief-engineer/primary-properties/img/h24-q12.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "right",
+      "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 177%≥50%・縁幅 15%）"
+    },
+    {
       "path": ".local/r2/posts/concrete-chief-engineer/primary-structural-design/img/cantilever-rebar-h30.webp",
       "rule": "STRAY_LABEL",
       "severity": "LOW",
@@ -2594,11 +2671,39 @@
       "detail": "bottom縁の分離島（高さ16px・全インクの1.1%・白ギャップ31px）＝小見出し/軸/写り込みのいずれか（要目視）"
     },
     {
-      "path": ".local/r2/posts/concrete-chief-engineer/primary-structural-design/img/crack-pattern-r02.webp",
-      "rule": "STRAY_SLIVER",
+      "path": ".local/r2/posts/concrete-chief-engineer/primary-structural-design/img/h24-q29.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 100%≥50%・縁幅 0%）"
+    },
+    {
+      "path": ".local/r2/posts/concrete-chief-engineer/primary-structural-design/img/h24-q29.webp",
+      "rule": "EDGE_CUT",
       "severity": "HIGH",
       "side": "bottom",
-      "detail": "bottom縁の極薄インク島（高さ3px・全インクの1.2%・白ギャップ9px）＝隣接図の切れ端＝写り込み"
+      "detail": "bottom縁でストローク中割りの疑い（縁2行/内側4行の密度比 126%≥50%・縁幅 11%）"
+    },
+    {
+      "path": ".local/r2/posts/concrete-chief-engineer/primary-structural-design/img/h24-q29.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "right",
+      "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 200%≥50%・縁幅 0%）"
+    },
+    {
+      "path": ".local/r2/posts/concrete-chief-engineer/primary-structural-design/img/h25-q30-fig1.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 100%≥50%・縁幅 1%）"
+    },
+    {
+      "path": ".local/r2/posts/concrete-chief-engineer/primary-structural-design/img/h25-q30-fig1.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "bottom",
+      "detail": "bottom縁でストローク中割りの疑い（縁2行/内側4行の密度比 100%≥50%・縁幅 1%）"
     },
     {
       "path": ".local/r2/posts/concrete-chief-engineer/primary-structural-design/img/pc-beam-load-h29.webp",
@@ -2611,22 +2716,15 @@
       "path": ".local/r2/posts/concrete-diagnostician/primary-exercise-01/img/q1-fig.webp",
       "rule": "EDGE_CUT",
       "severity": "HIGH",
-      "side": "top",
-      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 6500%≥50%・縁幅 8%）"
-    },
-    {
-      "path": ".local/r2/posts/concrete-diagnostician/primary-exercise-01/img/q1-fig.webp",
-      "rule": "EDGE_CUT",
-      "severity": "HIGH",
       "side": "bottom",
-      "detail": "bottom縁でストローク中割りの疑い（縁2行/内側4行の密度比 95%≥50%・縁幅 8%）"
+      "detail": "bottom縁でストローク中割りの疑い（縁2行/内側4行の密度比 98%≥50%・縁幅 8%）"
     },
     {
       "path": ".local/r2/posts/concrete-diagnostician/primary-exercise-01/img/q1-fig.webp",
       "rule": "EDGE_CUT",
       "severity": "HIGH",
       "side": "left",
-      "detail": "left縁でストローク中割りの疑い（縁2行/内側4行の密度比 108%≥50%・縁幅 23%）"
+      "detail": "left縁でストローク中割りの疑い（縁2行/内側4行の密度比 104%≥50%・縁幅 23%）"
     },
     {
       "path": ".local/r2/posts/concrete-diagnostician/primary-exercise-01/img/q1-fig.webp",
@@ -2637,10 +2735,10 @@
     },
     {
       "path": ".local/r2/posts/concrete-diagnostician/primary-exercise-01/img/q1-fig.webp",
-      "rule": "STRAY_SLIVER",
-      "severity": "HIGH",
+      "rule": "STRAY_LABEL",
+      "severity": "LOW",
       "side": "top",
-      "detail": "top縁の極薄インク島（高さ3px・全インクの0.1%・白ギャップ10px）＝隣接図の切れ端＝写り込み"
+      "detail": "top縁の分離島（高さ21px・全インクの1.3%・白ギャップ54px）＝小見出し/軸/写り込みのいずれか（要目視）"
     },
     {
       "path": ".local/r2/posts/concrete-diagnostician/primary-exercise-01/img/q10-fig.webp",
@@ -2779,22 +2877,8 @@
       "path": ".local/r2/posts/concrete-diagnostician/primary-exercise-01/img/q8-fig.webp",
       "rule": "EDGE_CUT",
       "severity": "HIGH",
-      "side": "top",
-      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 200%≥50%・縁幅 0%）"
-    },
-    {
-      "path": ".local/r2/posts/concrete-diagnostician/primary-exercise-01/img/q8-fig.webp",
-      "rule": "EDGE_CUT",
-      "severity": "HIGH",
-      "side": "right",
-      "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 400%≥50%・縁幅 0%）"
-    },
-    {
-      "path": ".local/r2/posts/concrete-diagnostician/primary-exercise-01/img/q8-fig.webp",
-      "rule": "STRAY_SLIVER",
-      "severity": "HIGH",
       "side": "bottom",
-      "detail": "bottom縁の極薄インク島（高さ5px・全インクの0.5%・白ギャップ32px）＝隣接図の切れ端＝写り込み"
+      "detail": "bottom縁でストローク中割りの疑い（縁2行/内側4行の密度比 67%≥50%・縁幅 1%）"
     },
     {
       "path": ".local/r2/posts/concrete-diagnostician/primary-exercise-02/img/q17-fig.webp",
@@ -3424,35 +3508,7 @@
       "rule": "EDGE_CUT",
       "severity": "HIGH",
       "side": "top",
-      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 139%≥50%・縁幅 8%）"
-    },
-    {
-      "path": ".local/r2/posts/concrete-diagnostician/primary-exercise-06/img/q70-fig.webp",
-      "rule": "EDGE_CUT",
-      "severity": "HIGH",
-      "side": "bottom",
-      "detail": "bottom縁でストローク中割りの疑い（縁2行/内側4行の密度比 200%≥50%・縁幅 1%）"
-    },
-    {
-      "path": ".local/r2/posts/concrete-diagnostician/primary-exercise-06/img/q70-fig.webp",
-      "rule": "STRAY_SLIVER",
-      "severity": "HIGH",
-      "side": "bottom",
-      "detail": "bottom縁の極薄インク島（高さ1px・全インクの0.0%・白ギャップ104px）＝隣接図の切れ端＝写り込み"
-    },
-    {
-      "path": ".local/r2/posts/concrete-diagnostician/primary-exercise-06/img/q71-fig.webp",
-      "rule": "EDGE_CUT",
-      "severity": "HIGH",
-      "side": "top",
-      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 200%≥50%・縁幅 1%）"
-    },
-    {
-      "path": ".local/r2/posts/concrete-diagnostician/primary-exercise-06/img/q71-fig.webp",
-      "rule": "STRAY_SLIVER",
-      "severity": "HIGH",
-      "side": "top",
-      "detail": "top縁の極薄インク島（高さ2px・全インクの0.0%・白ギャップ21px）＝隣接図の切れ端＝写り込み"
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 137%≥50%・縁幅 8%）"
     },
     {
       "path": ".local/r2/posts/concrete-diagnostician/primary-exercise-06/img/q72-fig.webp",
@@ -4680,13 +4736,6 @@
       "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 155%≥50%・縁幅 7%）"
     },
     {
-      "path": ".local/r2/posts/pe-construction/bousai-genseigai-ronbun-keyword/img/fig13.png",
-      "rule": "STRAY_SLIVER",
-      "severity": "HIGH",
-      "side": "bottom",
-      "detail": "bottom縁の極薄インク島（高さ3px・全インクの0.0%・白ギャップ12px）＝隣接図の切れ端＝写り込み"
-    },
-    {
       "path": ".local/r2/posts/pe-construction/bousai-genseigai-ronbun-keyword/img/fig14.png",
       "rule": "EDGE_CUT",
       "severity": "HIGH",
@@ -5156,25 +5205,11 @@
       "detail": "bottom縁でストローク中割りの疑い（縁2行/内側4行の密度比 67%≥50%・縁幅 2%）"
     },
     {
-      "path": ".local/r2/posts/pe-first-stage/r02-basic/img/q36-fig.webp",
-      "rule": "STRAY_SLIVER",
-      "severity": "HIGH",
-      "side": "top",
-      "detail": "top縁の極薄インク島（高さ3px・全インクの0.1%・白ギャップ63px）＝隣接図の切れ端＝写り込み"
-    },
-    {
       "path": ".local/r2/posts/pe-first-stage/r02-construction/img/q17-fig.webp",
       "rule": "EDGE_CUT",
       "severity": "HIGH",
       "side": "left",
       "detail": "left縁でストローク中割りの疑い（縁2行/内側4行の密度比 86%≥50%・縁幅 1%）"
-    },
-    {
-      "path": ".local/r2/posts/pe-first-stage/r02-construction/img/q3-fig.webp",
-      "rule": "STRAY_SLIVER",
-      "severity": "HIGH",
-      "side": "top",
-      "detail": "top縁の極薄インク島（高さ3px・全インクの0.4%・白ギャップ77px）＝隣接図の切れ端＝写り込み"
     },
     {
       "path": ".local/r2/posts/pe-first-stage/r02-construction/img/q6-fig.webp",
@@ -5254,32 +5289,11 @@
       "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 92%≥50%・縁幅 7%）"
     },
     {
-      "path": ".local/r2/posts/pe-first-stage/r04-construction/img/q05-fig.webp",
-      "rule": "EDGE_CUT",
-      "severity": "HIGH",
-      "side": "top",
-      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 200%≥50%・縁幅 1%）"
-    },
-    {
-      "path": ".local/r2/posts/pe-first-stage/r04-construction/img/q05-fig.webp",
-      "rule": "STRAY_SLIVER",
-      "severity": "HIGH",
-      "side": "top",
-      "detail": "top縁の極薄インク島（高さ1px・全インクの0.0%・白ギャップ129px）＝隣接図の切れ端＝写り込み"
-    },
-    {
       "path": ".local/r2/posts/pe-first-stage/r04-construction/img/q17-fig.webp",
       "rule": "STRAY_SLIVER",
       "severity": "HIGH",
       "side": "top",
       "detail": "top縁の極薄インク島（高さ2px・全インクの0.1%・白ギャップ66px）＝隣接図の切れ端＝写り込み"
-    },
-    {
-      "path": ".local/r2/posts/pe-first-stage/r05-aptitude/img/q08-fig.webp",
-      "rule": "EDGE_CUT",
-      "severity": "HIGH",
-      "side": "top",
-      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 200%≥50%・縁幅 1%）"
     },
     {
       "path": ".local/r2/posts/pe-first-stage/r05-aptitude/img/q08-fig.webp",
@@ -5293,14 +5307,7 @@
       "rule": "EDGE_CUT",
       "severity": "HIGH",
       "side": "right",
-      "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 97%≥50%・縁幅 52%）"
-    },
-    {
-      "path": ".local/r2/posts/pe-first-stage/r05-aptitude/img/q08-fig.webp",
-      "rule": "STRAY_SLIVER",
-      "severity": "HIGH",
-      "side": "top",
-      "detail": "top縁の極薄インク島（高さ2px・全インクの0.0%・白ギャップ104px）＝隣接図の切れ端＝写り込み"
+      "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 97%≥50%・縁幅 60%）"
     },
     {
       "path": ".local/r2/posts/pe-first-stage/r05-basic/img/q112-fig.webp",
