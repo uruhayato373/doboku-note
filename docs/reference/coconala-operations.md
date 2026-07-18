@@ -130,20 +130,24 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 ## 3. 受注フロー（`/coconala-order`）
 
 ```
-購入通知 → ヒアリングシート送付（定型文・キット §4）
-  → 受領 → scratchpad/.tmp に .md 保存（★リポジトリに置かない）
+購入通知 → 初回挨拶＋シート送付（定型文・キット §4c → §4/§4b）
+  → 受領 → scratchpad/.tmp に .md 保存（★リポジトリに置かない・C系は不要）
   → /coconala-order <serviceId> <path>
       ├ カタログ status 確認（draft なら停止・full なら警告）
-      ├ 入力検証（級・工種・立場・テーマ・下書き）→ 欠落なら再送依頼文
-      ├ /keiken-tensaku → 添削下書き.md（civil-keiken-tensaku-drafter）
+      ├ serviceId でタイプ分岐:
+      │   S1 診断  → /keiken-tensaku --mode shindan → 診断下書き.md（A/B/C＋ワースト3・書き換え文なし）
+      │   S2 添削  → /keiken-tensaku            → 添削下書き.md（NG→OK 2点）
+      │   S3 作成  → 宣誓/素材検査→/keiken-tensaku --mode sakusei → 答案ドラフト.md（事実確認チェックリスト）
+      │   C系 PDF → ヒアリング不要・キット §4c「C系 PDF 送付」文＋該当PDF特定
       ├ 納品文面ドラフト生成
       └ orders-log へ append（status: received）
-  → ★運営者: 最終赤入れ（10〜30分）→ トークルームへ送信
+  → ★運営者: 最終赤入れ/事実確認（10〜30分・C系は送付のみ）→ トークルームへ送信
   → orders-log を delivered へ・tensakuMinutes 記録
+  → （書き直し依頼時）/keiken-tensaku を前回下書きと再実行し差分中心に再チェック → status: revised（1回まで）
   → 共通の誤りは匿名化して添削事例アーカイブへ
 ```
 
-添削3ステップ（字数→論点抽出→最終赤入れ）の真実源は [2級経験記述-添削テンプレ.md](../note/1級・2級土木/2級土木/2級経験記述-添削テンプレ.md)。納品文面のテンプレは `.claude/agents/coconala-operator.md`。
+添削3ステップ（字数→論点抽出→最終赤入れ）の真実源は [2級経験記述-添削テンプレ.md](../note/1級・2級土木/2級土木/2級経験記述-添削テンプレ.md)。トークルーム定型文（初回挨拶・シート送付・C系 PDF 送付・満枠断り・書き直し受付・S1 診断返却テンプレ）は [ココナラ展開キット.md §4c](../note/1級・2級土木/ココナラ展開キット.md)、S2 納品文面テンプレは `.claude/agents/coconala-operator.md`。
 
 ## 4. KPI 週次運用（`/coconala-status`）
 
