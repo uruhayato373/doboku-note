@@ -27,12 +27,13 @@ import {
   ROOT, launchContext, waitForLogin, assertAccount, sleep,
   readCatalog, readListings, CATALOG_PATH,
 } from './lib/coconala-session.mjs';
-import { fillServiceForm, submitForm, dismissModal } from './lib/coconala-form.mjs';
+import { fillServiceForm, submitForm, dismissModal, uploadImage } from './lib/coconala-form.mjs';
 
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
 const COMMIT = argv.includes('--commit');
 const SERVICE = getArg('--service');
+const IMAGE = getArg('--image'); // 公開フォームで商品画像も一緒にアップロード
 if (!SERVICE) { console.error('--service <id> required（例: coconala-shindan）'); process.exit(1); }
 
 const catalog = readCatalog();
@@ -114,6 +115,14 @@ try {
   const { log, warnings } = await fillServiceForm(page, fields, { tag: '[publish]' });
   log.forEach((l) => console.log('   ', l));
   if (warnings.length) { console.log('[3] ⚠ warnings:'); warnings.forEach((w) => console.log('    -', w)); }
+
+  // 3.5 商品画像（--image）を同じ内容入力ページでアップロード（公開時に一緒に保存）
+  if (IMAGE) {
+    const abs = IMAGE.startsWith('/') ? IMAGE : join(ROOT, IMAGE);
+    const ir = await uploadImage(page, abs, { tag: '[publish]' });
+    console.log('[3.5] 画像:', JSON.stringify(ir));
+    if (!ir.ok) console.log('[3.5] ⚠ 画像アップロード未確認（公開は続行・後で edit --image で補完可）');
+  }
   await page.screenshot({ path: shot(`publish-filled-${SERVICE}.png`) }).catch(() => {});
 
   // 4. 送信

@@ -48,8 +48,13 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 |---|---|
 | `coconala-shindan` | S1 合格診断。レビュー獲得フロント。診断のみ・書き換え案は出さない |
 | `coconala-tensaku-set` | S2 添削（2テーマセット）。主力。赤入れ＋書き直し1回 |
-| `coconala-bunseki-pdf` | C1 単発コンテンツ。二次 出題分析＋直前重点 PDF（provision_format=3・購入後トークルームで PDF 送付） |
-| `coconala-kanseitoan-pdf` | C2 単発コンテンツ。経験記述 完成答案集 PDF 5本（同上） |
+| `coconala-bunseki-pdf` | C1 単発コンテンツ。1級 二次 出題分析＋直前重点 PDF（provision_format=3・購入後トークルームで PDF 送付） |
+| `coconala-kanseitoan-pdf` | C2 単発コンテンツ。1級 経験記述 完成答案集 PDF 5本（同上） |
+| `coconala-2kyu-kanseitoan-pdf` | C3 2級 完成答案集 PDF 3本 |
+| `coconala-1kyu-kakomon-pdf` | C4 1級 経験記述 過去問模範答案 PDF 5本（R03-R07・年度別） |
+| `coconala-2kyu-kakomon-pdf` | C5 2級 経験記述 過去問模範答案 PDF 5本（R03-R07） |
+| `coconala-1kyu-gakka-pdf` | C6 1級 二次学科記述 攻略 PDF 5本（5論点） |
+| `coconala-2kyu-gakka-pdf` | C7 2級 二次学科記述 攻略 PDF 5本（5論点） |
 
 ### 2.1b 出品投入 SoT: `.claude/config/coconala-listings.json`
 

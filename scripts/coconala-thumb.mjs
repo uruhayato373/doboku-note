@@ -57,6 +57,36 @@ const THUMB_COPY = {
     hook: '品質・安全・工程・施工計画・環境の\n完成答案例＋NG→合格＋採点チェック',
     priceLabel: 'PDF 5本・5管理',
   },
+  'coconala-2kyu-kanseitoan-pdf': {
+    eyebrow: '2級土木施工管理技士 ／ 第2次検定 経験記述',
+    title: ['経験記述', '完成答案集 PDF'],
+    hook: '品質・安全・工程の\n完成答案例＋NG→合格＋採点チェック',
+    priceLabel: 'PDF 3本・3管理',
+  },
+  'coconala-1kyu-kakomon-pdf': {
+    eyebrow: '1級土木施工管理技士 ／ 第2次検定 経験記述',
+    title: ['経験記述 過去問', '模範答案 PDF'],
+    hook: '令和3〜7年度・年度別の\n出題テーマに沿った想定工事の模範答案',
+    priceLabel: 'PDF 5本・R03-R07',
+  },
+  'coconala-2kyu-kakomon-pdf': {
+    eyebrow: '2級土木施工管理技士 ／ 第2次検定 経験記述',
+    title: ['経験記述 過去問', '模範答案 PDF'],
+    hook: '令和3〜7年度・年度別の\n出題テーマに沿った想定工事の模範答案',
+    priceLabel: 'PDF 5本・R03-R07',
+  },
+  'coconala-1kyu-gakka-pdf': {
+    eyebrow: '1級土木施工管理技士 ／ 第2次検定 学科記述',
+    title: ['二次 学科記述', '出る順 攻略 PDF'],
+    hook: '出る順論点（頻度分析）＋書き方の型\n＋直前チェックの頻出語句',
+    priceLabel: 'PDF 5本・5論点',
+  },
+  'coconala-2kyu-gakka-pdf': {
+    eyebrow: '2級土木施工管理技士 ／ 第2次検定 学科記述',
+    title: ['二次 学科記述', '出る順 攻略 PDF'],
+    hook: '出る順論点（頻度分析）＋書き方の型\n＋直前チェックの頻出語句',
+    priceLabel: 'PDF 5本・5論点',
+  },
 };
 
 function loadFonts() {
@@ -94,10 +124,14 @@ function template(copy, priceYen, bgUri, hasOptions) {
         div({ width: 40, height: 6, backgroundColor: AMBER, marginRight: 14, display: 'flex' }),
         div({ fontSize: 26, color: NAVY, letterSpacing: 1 }, copy.eyebrow),
       ),
-      // title（2行）
-      div({ display: 'flex', flexDirection: 'column', marginBottom: 26 },
-        ...copy.title.map((line) => div({ fontSize: 92, lineHeight: 1.12, color: INK }, line)),
-      ),
+      // title（2行）。最長行の重み付き幅（半角=0.55）でフォントを自動調整（折返し崩れ防止）
+      ...(() => {
+        const w = (s) => [...s].reduce((a, c) => a + (/[ -~]/.test(c) ? 0.55 : 1), 0);
+        const maxW = Math.max(...copy.title.map(w));
+        const titleFont = maxW <= 6.5 ? 92 : maxW <= 8 ? 74 : 62;
+        return [div({ display: 'flex', flexDirection: 'column', marginBottom: 26 },
+          ...copy.title.map((line) => div({ fontSize: titleFont, lineHeight: 1.14, color: INK }, line)))];
+      })(),
       // hook
       div({ display: 'flex', flexDirection: 'column', marginBottom: 40 },
         ...copy.hook.split('\n').map((line) => div({ fontSize: 34, lineHeight: 1.5, color: SUB }, line)),

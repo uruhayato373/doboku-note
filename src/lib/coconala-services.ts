@@ -140,6 +140,86 @@ const SERVICES_RAW = {
     weeklyCapacity: 10,
     listedAt: '2026-07-18',
   },
+
+  // C3: 2級 完成答案集 PDF（3テーマ）。1級 C2 の 2級版。
+  'coconala-2kyu-kanseitoan-pdf': {
+    id: 'coconala-2kyu-kanseitoan-pdf',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4317722',
+    title: '2級土木の経験記述 完成答案集を送ります',
+    shortTitle: '2級 経験記述 完成答案集 PDF',
+    description:
+      '2級土木施工管理技士 第2次検定 施工経験記述の完成答案集 PDF 3本（品質管理・安全管理・工程管理）。各テーマ 完成答案＋NG→合格答案＋採点者視点チェックポイント。自分の工事に置き換える雛形として使えます。購入後トークルームで PDF をお送りします。代筆は行いません。',
+    price: '¥3,000（PDF 3本・3管理）',
+    priceYen: 3000,
+    examScope: ['civil-2'],
+    weeklyCapacity: 10,
+    listedAt: '2026-07-18',
+  },
+
+  // C4: 1級 過去問模範答案集 PDF（R03-R07・年度別）。C2 のテーマ別に対する年度別。
+  'coconala-1kyu-kakomon-pdf': {
+    id: 'coconala-1kyu-kakomon-pdf',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4317726',
+    title: '1級土木 経験記述の過去問模範答案を送ります',
+    shortTitle: '1級 経験記述 過去問模範答案 PDF',
+    description:
+      '1級土木施工管理技士 第2次検定 施工経験記述の過去問模範答案集 PDF 5本（令和3〜7年度・年度別）。各年度の出題テーマに沿った想定工事の模範答案＋設問の書き分け＋置換ガイド。過去問を年度単位で研究したい方向け。購入後トークルームで PDF をお送りします。',
+    price: '¥3,000（PDF 5本・R03-R07）',
+    priceYen: 3000,
+    examScope: ['civil-1'],
+    weeklyCapacity: 10,
+    listedAt: '2026-07-18',
+  },
+
+  // C5: 2級 過去問模範答案集 PDF（R03-R07・年度別）。
+  'coconala-2kyu-kakomon-pdf': {
+    id: 'coconala-2kyu-kakomon-pdf',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4317729',
+    title: '2級土木 経験記述の過去問模範答案を送ります',
+    shortTitle: '2級 経験記述 過去問模範答案 PDF',
+    description:
+      '2級土木施工管理技士 第2次検定 施工経験記述の過去問模範答案集 PDF 5本（令和3〜7年度・年度別）。各年度の出題テーマに沿った想定工事の模範答案＋置換ガイド。過去問を年度単位で研究したい方向け。購入後トークルームで PDF をお送りします。代筆は行いません。',
+    price: '¥3,000（PDF 5本・R03-R07）',
+    priceYen: 3000,
+    examScope: ['civil-2'],
+    weeklyCapacity: 10,
+    listedAt: '2026-07-18',
+  },
+
+  // C6: 1級 二次学科記述 テーマ別出る順 PDF（5論点）。経験記述以外＝学科記述の対策。
+  'coconala-1kyu-gakka-pdf': {
+    id: 'coconala-1kyu-gakka-pdf',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4317734',
+    title: '1級土木二次 学科記述の攻略PDFを送ります',
+    shortTitle: '1級 二次学科記述 攻略 PDF',
+    description:
+      '1級土木施工管理技士 第2次検定 学科記述（問題2〜11）のテーマ別 出る順攻略 PDF 5本（コンクリート工・品質管理・土工・安全管理法規・施工計画環境）。令和3〜7年度の出題頻度分析＋頻出論点の書き方の型＋直前チェック語句。購入後トークルームで PDF をお送りします。',
+    price: '¥2,500（PDF 5本・5論点）',
+    priceYen: 2500,
+    examScope: ['civil-1'],
+    weeklyCapacity: 10,
+    listedAt: '2026-07-18',
+  },
+
+  // C7: 2級 二次学科記述 テーマ別出る順 PDF（5論点）。
+  'coconala-2kyu-gakka-pdf': {
+    id: 'coconala-2kyu-gakka-pdf',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4317736',
+    title: '2級土木二次 学科記述の攻略PDFを送ります',
+    shortTitle: '2級 二次学科記述 攻略 PDF',
+    description:
+      '2級土木施工管理技士 第2次検定 学科記述のテーマ別 出る順攻略 PDF 5本（コンクリート工・品質管理・土工・安全管理法規・施工計画環境）。令和3〜7年度の出題頻度分析＋頻出論点の書き方の型＋直前チェック語句。購入後トークルームで PDF をお送りします。',
+    price: '¥2,500（PDF 5本・5論点）',
+    priceYen: 2500,
+    examScope: ['civil-2'],
+    weeklyCapacity: 10,
+    listedAt: '2026-07-18',
+  },
 } as const satisfies Record<string, CoconalaService>;
 
 export type CoconalaServiceId = keyof typeof SERVICES_RAW;

@@ -150,7 +150,12 @@ productId は `coconala:<serviceId>` 形式（接頭辞でチャネル判別＝`
 | `経験記述 合格診断` / serviceId `coconala-shindan`（¥1,500） | `coconala:coconala-shindan` |
 | `経験記述 添削（2テーマセット）` / serviceId `coconala-tensaku-set`（¥6,000） | `coconala:coconala-tensaku-set` |
 | `二次 出題分析＋直前重点 PDF` / serviceId `coconala-bunseki-pdf`（¥2,500） | `coconala:coconala-bunseki-pdf` |
-| `経験記述 完成答案集 PDF` / serviceId `coconala-kanseitoan-pdf`（¥3,500） | `coconala:coconala-kanseitoan-pdf` |
+| `1級 経験記述 完成答案集 PDF` / serviceId `coconala-kanseitoan-pdf`（¥3,500） | `coconala:coconala-kanseitoan-pdf` |
+| `2級 経験記述 完成答案集 PDF` / serviceId `coconala-2kyu-kanseitoan-pdf`（¥3,000） | `coconala:coconala-2kyu-kanseitoan-pdf` |
+| `1級 経験記述 過去問模範答案 PDF` / serviceId `coconala-1kyu-kakomon-pdf`（¥3,000） | `coconala:coconala-1kyu-kakomon-pdf` |
+| `2級 経験記述 過去問模範答案 PDF` / serviceId `coconala-2kyu-kakomon-pdf`（¥3,000） | `coconala:coconala-2kyu-kakomon-pdf` |
+| `1級 二次学科記述 攻略 PDF` / serviceId `coconala-1kyu-gakka-pdf`（¥2,500） | `coconala:coconala-1kyu-gakka-pdf` |
+| `2級 二次学科記述 攻略 PDF` / serviceId `coconala-2kyu-gakka-pdf`（¥2,500） | `coconala:coconala-2kyu-gakka-pdf` |
 | （新サービス追加時） | `coconala:<src/lib/coconala-services.ts の id と完全一致>` |
 
 id の実在は `npm run check-coconala-wiring` が pre-commit で機械検証する（カタログに無い `coconala:*` は commit を止める）。命名規則 → `docs/reference/sales-tracking.md`、運用 SSOT → `docs/reference/coconala-operations.md`

@@ -20,7 +20,10 @@ import { execFileSync } from 'node:child_process';
 import { stripNoteFunnel, assertNoFunnel } from './lib/strip-note-funnel.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const SRC_BASE = join(ROOT, 'docs/note/1級・2級土木/1級土木/magazines');
+const NOTE_BASE = join(ROOT, 'docs/note/1級・2級土木');
+// src（例 "2級土木-施工経験記述-完成答案集/品質管理/article.md"）はマガジン名の接頭辞で
+// grade dir（1級土木/2級土木）を解決する。
+const resolveSrc = (src) => join(NOTE_BASE, src.startsWith('2級') ? '2級土木' : '1級土木', 'magazines', src);
 const STAGE = join(ROOT, '.tmp/coconala-pdf-src');
 const OUT_PDF = join(ROOT, '.claude/config/coconala/assets/pdf');
 const SPEC_DIR = join(ROOT, '.tmp/coconala-specs');
@@ -47,6 +50,51 @@ const PRODUCTS = {
       includeFrom: '^## .+の答案で採点者が見るポイント',
     })),
   },
+  // C3: 2級 完成答案集（3テーマ）
+  C3: {
+    label: 'coconala-2kyu-kanseitoan-pdf',
+    articles: ['品質管理', '安全管理', '工程管理'].map((t, i) => ({
+      src: `2級土木-施工経験記述-完成答案集/${t}/article.md`,
+      out: `coconala-C3-2級完成答案-${String(i + 1).padStart(2, '0')}-${t}`,
+      includeFrom: '^## .+の答案で採点者が見るポイント',
+    })),
+  },
+  // C4: 1級 過去問模範答案集（R03-R07・年度別）
+  C4: {
+    label: 'coconala-1kyu-kakomon-pdf',
+    articles: ['R03', 'R04', 'R05', 'R06', 'R07'].map((y) => ({
+      src: `1級土木-施工経験記述-過去問模範答案集/${y}/article.md`,
+      out: `coconala-C4-1級過去問模範-${y}`,
+      includeFrom: '^## 令和.+問題1（試験問題',
+    })),
+  },
+  // C5: 2級 過去問模範答案集（R03-R07・年度別）
+  C5: {
+    label: 'coconala-2kyu-kakomon-pdf',
+    articles: ['R03', 'R04', 'R05', 'R06', 'R07'].map((y) => ({
+      src: `2級土木-施工経験記述-過去問模範答案集/${y}/article.md`,
+      out: `coconala-C5-2級過去問模範-${y}`,
+      includeFrom: '^## 令和.+問題1（試験問題',
+    })),
+  },
+  // C6: 1級 学科記述 テーマ別出る順（5論点）
+  C6: {
+    label: 'coconala-1kyu-gakka-pdf',
+    articles: ['コンクリート工', '品質管理', '土工', '安全管理・法規', '施工計画・環境'].map((t, i) => ({
+      src: `1級土木-二次学科記述-テーマ別出る順/${t}/article.md`,
+      out: `coconala-C6-1級学科記述-${String(i + 1).padStart(2, '0')}-${t}`,
+      includeFrom: '^## (?!出典)',
+    })),
+  },
+  // C7: 2級 学科記述 テーマ別出る順（5論点）
+  C7: {
+    label: 'coconala-2kyu-gakka-pdf',
+    articles: ['コンクリート工', '品質管理', '土工', '安全管理・法規', '施工計画・環境'].map((t, i) => ({
+      src: `2級土木-二次学科記述-テーマ別出る順/${t}/article.md`,
+      out: `coconala-C7-2級学科記述-${String(i + 1).padStart(2, '0')}-${t}`,
+      includeFrom: '^## (?!出典)',
+    })),
+  },
 };
 
 const CHROME = process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
@@ -62,7 +110,7 @@ for (const [key, prod] of Object.entries(PRODUCTS)) {
   console.log(`\n=== ${key} (${prod.label}) ===`);
   const specArticles = [];
   for (const a of prod.articles) {
-    const raw = readFileSync(join(SRC_BASE, a.src), 'utf8');
+    const raw = readFileSync(resolveSrc(a.src), 'utf8');
     const { clean, removed } = stripNoteFunnel(raw);
     const chk = assertNoFunnel(clean);
     if (!chk.ok) { console.error(`  ✗ ${a.out}: strip 後も funnel 残存 ${JSON.stringify(chk.hits)}`); fail++; continue; }
