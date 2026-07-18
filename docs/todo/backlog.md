@@ -315,6 +315,11 @@ PR #269（カタログ）/#270（SNSレンダラー）済。残 = Phase4 記事�
 
 ## 🟢 低 — 時期未定
 
+### ココナラ 2級版 単発コンテンツ PDF（C3/C4）＋ 売れ行き次第の横展開
+タグ: [収益化][ココナラ]
+
+2026-07-18 に 1級版の単発コンテンツ PDF を公開（C1 出題分析¥2,500 / C2 完成答案集¥3,500・[services/4317573](https://coconala.com/services/4317573)・[4317580](https://coconala.com/services/4317580)）。同型の **2級版**は spec が既存（`scripts/pdf-specs/2級土木-施工経験記述-完成答案集.json`・`2級土木-施工経験記述-過去問模範答案集.json`）で、`build-coconala-content-pdf.mjs` の `PRODUCTS` に C3/C4 を足せば横展開可能。**着手条件＝C1/C2 が2〜3件売れて需要確認できたら**（先に反応を見る）。手順は [coconala-operations.md §8](../reference/coconala-operations.md)。KDP 安全（二次経験記述は Select ロック無し）。
+
 ### コンクリート主任技師 H24/H25 skip 分の補完＋R6/R7 拡張
 タグ: [コンテンツ品質]
 
