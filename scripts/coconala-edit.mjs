@@ -20,7 +20,7 @@
 import { mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import {
-  ROOT, launchContext, waitForLogin, assertAccount, sleep, readCatalog, readListings, writeBackCatalog,
+  ROOT, launchContext, waitForLogin, assertAccount, sleep, readCatalog, readListings, writeBackCatalog, resolveImagePath,
 } from './lib/coconala-session.mjs';
 import { fillServiceForm, submitForm, uploadImage } from './lib/coconala-form.mjs';
 
@@ -34,6 +34,10 @@ const ONLY = (getArg('--fields') || '').split(',').map((s) => s.trim()).filter(B
 // listings に画像パスが無いので明示指定。省略時は .claude/config/coconala/assets/thumb-<key>.png を既定候補に。
 const IMAGE = getArg('--image');
 const FORCE_IMAGE = argv.includes('--force-image');
+// bare 名は assets 既定へ解決＋事前存在確認（publish と同じ・orphan/中断防止）。
+const imgResolved = resolveImagePath(IMAGE);
+if (!imgResolved.ok) { console.error(`ABORT: ${imgResolved.reason}（--image は bare 名なら .claude/config/coconala/assets/ に解決）`); process.exit(1); }
+const IMAGE_ABS = imgResolved.abs;
 const IMAGE_ONLY = !!IMAGE && ONLY.length === 0; // --image かつ --fields 指定なし → 画像のみ更新
 if (!SERVICE) { console.error('--service <id> required（listings/カタログの id）'); process.exit(1); }
 
@@ -87,9 +91,8 @@ try {
   if (!/\/mypage\/services\/\d+/.test(page.url())) { console.error('ABORT: 編集ページに到達できない（id 不正 or 権限）'); await ctx.close(); process.exit(3); }
 
   // 画像アップロード（--image）。IMAGE_ONLY なら本文フィールドは触らない（画像だけ更新）。
-  if (IMAGE) {
-    const abs = IMAGE.startsWith('/') ? IMAGE : join(ROOT, IMAGE);
-    const ir = await uploadImage(page, abs, { tag: '[edit]', force: FORCE_IMAGE });
+  if (IMAGE_ABS) {
+    const ir = await uploadImage(page, IMAGE_ABS, { tag: '[edit]', force: FORCE_IMAGE });
     console.log('[edit] 画像:', JSON.stringify(ir));
     if (!ir.ok) { console.error('[edit] ★画像アップロード失敗→中断（保存しない）'); await page.screenshot({ path: shot(`edit-image-fail-${SERVICE}.png`) }).catch(() => {}); await ctx.close(); process.exit(3); }
     if (!ir.added && !FORCE_IMAGE) { console.log('[edit] 画像は既存のため追加せず終了（--force-image で追加可）'); await ctx.close(); process.exit(0); }

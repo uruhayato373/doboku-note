@@ -116,6 +116,7 @@
     "coconala-discover": "node scripts/coconala-discover.mjs",
     "coconala-publish": "node scripts/coconala-publish.mjs",
     "coconala-edit": "node scripts/coconala-edit.mjs",
+    "coconala-delete-draft": "node scripts/coconala-delete-draft.mjs",
     "coconala-thumb": "node scripts/coconala-thumb.mjs",
     "coconala-cover": "node scripts/coconala-cover.mjs",
     "coconala-profile": "node scripts/coconala-profile.mjs",

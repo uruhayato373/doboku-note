@@ -38,6 +38,23 @@ export function readAccount() {
 
 export const CATALOG_PATH = join(ROOT, 'src/lib/coconala-services.ts');
 export const LISTINGS_PATH = join(ROOT, '.claude/config/coconala-listings.json');
+export const ASSETS_DIR = join(ROOT, '.claude/config/coconala/assets');
+
+/**
+ * --image の値を絶対パスへ解決する。bare 名（スラッシュ無し）は商品画像の既定ディレクトリ
+ * `.claude/config/coconala/assets/` に解決する（過去に cwd 相対で ENOENT → 下書き作成後に
+ * クラッシュ → orphan draft が残る事故があったため。2026-07-18）。
+ * @returns {{ok:boolean, abs?:string, reason?:string}}
+ */
+export function resolveImagePath(image) {
+  if (!image) return { ok: true, abs: null };
+  let abs;
+  if (image.startsWith('/')) abs = image;
+  else if (image.includes('/')) abs = join(ROOT, image);          // repo 相対（例 .claude/config/...）
+  else abs = join(ASSETS_DIR, image);                              // bare 名 → assets 既定
+  if (!existsSync(abs)) return { ok: false, reason: `画像が見つからない: ${abs}` };
+  return { ok: true, abs };
+}
 
 /**
  * カタログ SoT（coconala-services.ts）から id/status/serviceUrl/priceYen/title を抽出。

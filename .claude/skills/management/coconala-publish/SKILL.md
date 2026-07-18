@@ -51,9 +51,12 @@ AI で雰囲気写真（文字なし）を生成 → satori で日本語を正�
 ```
 npm run gen-image-gemini -- --out .claude/config/coconala/assets/bg-civil.png --prompt "..."  # 背景（Gemini API課金）
 npm run coconala-thumb                                                                          # 背景+文字を1200×900合成（THUMB_COPY）
-node scripts/coconala-publish.mjs --service <id> --commit --image <thumb.png>                   # 公開と同時に画像アップロード（1商品=1実行）
-node scripts/coconala-edit.mjs --service <id> --service-id <n> --image <png> --commit           # 既存商品へ画像だけ更新
+node scripts/coconala-publish.mjs --service <id> --commit --image thumb-<key>.png              # 公開と同時に画像アップロード（1商品=1実行）
+node scripts/coconala-edit.mjs --service <id> --service-id <n> --image thumb-<key>.png --commit # 既存商品へ画像だけ更新
 ```
+
+- `--image` は **bare 名でよい**（`.claude/config/coconala/assets/` に自動解決）。存在は**ブラウザ操作前に検査**（fail-fast）＝不正パスで orphan draft を残さない。
+- **orphan draft（出品失敗の残骸）が出たら**: `npm run coconala-delete-draft -- --id <n>`（dry-run）→ `--commit`。カタログ在籍 id はガードで拒否＝公開商品は誤爆しない。編集ページ正URL＝`/mypage/services/{id}`。
 
 素材は `.claude/config/coconala/assets/`（`bg-civil.png`/`bg-docs.png`／`thumb-<key>.png`）。詳細は [coconala-operations.md §8](../../../docs/reference/coconala-operations.md)。
 

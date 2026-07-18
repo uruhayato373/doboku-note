@@ -25,7 +25,7 @@ import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import {
   ROOT, launchContext, waitForLogin, assertAccount, sleep,
-  readCatalog, readListings, CATALOG_PATH,
+  readCatalog, readListings, CATALOG_PATH, resolveImagePath,
 } from './lib/coconala-session.mjs';
 import { fillServiceForm, submitForm, dismissModal, uploadImage } from './lib/coconala-form.mjs';
 
@@ -33,8 +33,14 @@ const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
 const COMMIT = argv.includes('--commit');
 const SERVICE = getArg('--service');
-const IMAGE = getArg('--image'); // 公開フォームで商品画像も一緒にアップロード
+const IMAGE = getArg('--image'); // 公開フォームで商品画像も一緒にアップロード（bare 名は assets 既定へ解決）
 if (!SERVICE) { console.error('--service <id> required（例: coconala-shindan）'); process.exit(1); }
+
+// ★ fail-fast: 画像パスをブラウザ操作より前に解決・存在確認する。
+//   不正パスで下書き作成後にクラッシュ→orphan draft が残る事故を防ぐ（2026-07-18）。
+const imgResolved = resolveImagePath(IMAGE);
+if (!imgResolved.ok) { console.error(`ABORT: ${imgResolved.reason}（--image は bare 名なら .claude/config/coconala/assets/ に解決）`); process.exit(1); }
+const IMAGE_ABS = imgResolved.abs;
 
 const catalog = readCatalog();
 const listings = readListings();
@@ -117,9 +123,8 @@ try {
   if (warnings.length) { console.log('[3] ⚠ warnings:'); warnings.forEach((w) => console.log('    -', w)); }
 
   // 3.5 商品画像（--image）を同じ内容入力ページでアップロード（公開時に一緒に保存）
-  if (IMAGE) {
-    const abs = IMAGE.startsWith('/') ? IMAGE : join(ROOT, IMAGE);
-    const ir = await uploadImage(page, abs, { tag: '[publish]' });
+  if (IMAGE_ABS) {
+    const ir = await uploadImage(page, IMAGE_ABS, { tag: '[publish]' });
     console.log('[3.5] 画像:', JSON.stringify(ir));
     if (!ir.ok) console.log('[3.5] ⚠ 画像アップロード未確認（公開は続行・後で edit --image で補完可）');
   }

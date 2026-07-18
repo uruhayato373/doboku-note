@@ -62,8 +62,9 @@ model: sonnet
 
 1. カタログ（価格/status/title）＋ listings（本文/カテゴリ/納期/genreFacets）を Read。価格改定なら**カタログを先に直す**（`price`＋`priceYen` 同時）。
 2. **下書きで検証**: `node scripts/coconala-publish.mjs --service <id>`（新規）or `coconala-edit.mjs --service <id>`（修正）を `--commit` なしで実行 → `ok:true`（下書き保存成功）と `.tmp/coconala/*.png` を確認。`ok:false`（記入エラー）なら公開しない。
-3. **公開**: 問題なければ `--commit` を付けて実行。publish は成功時カタログを `listed`＋`serviceUrl`＋`listedAt` に自動書き戻し。
+3. **公開**: 問題なければ `--commit` を付けて実行。publish は成功時カタログを `listed`＋`serviceUrl`＋`listedAt` に自動書き戻し。`--image` はサムネのファイル名（bare 名で可＝assets へ解決）。
 4. 出品後 `coconala-account.json` の `profileUrl` を埋め、`npm run check-coconala-wiring` グリーンを確認。
+5. **orphan draft の掃除**: 出品失敗（記入エラー・クラッシュ）で「サービスタイトル未設定・¥0・下書き中」が残ったら `npm run coconala-delete-draft -- --id <n>`（dry-run 検査）→ `--commit` で削除。カタログ在籍 id はガードで拒否＝公開商品は誤爆しない。
 
 ### ケース0.5: 受注（C系 単発コンテンツ PDF）
 
@@ -156,7 +157,7 @@ C1/C2（`provision_format=3`・PDF 納品）は**ヒアリング不要**。購�
 ## 参照
 
 - スキル: `.claude/skills/management/coconala-publish/SKILL.md`（出品・修正）/ `coconala-order/SKILL.md`（受注）/ `coconala-status/SKILL.md`（KPI）
-- 出品スクリプト: `scripts/coconala-publish.mjs`（`--image` で公開時に画像も）/ `coconala-edit.mjs` / `coconala-discover.mjs` / 共有 `scripts/lib/coconala-{session,form}.mjs`
+- 出品スクリプト: `scripts/coconala-publish.mjs`（`--image` で公開時に画像も。**bare 名は `.claude/config/coconala/assets/` に解決**＝フルパス不要・存在は fail-fast 検査）/ `coconala-edit.mjs` / `coconala-delete-draft.mjs`（空の下書き掃除・4重ガード）/ `coconala-discover.mjs` / 共有 `scripts/lib/coconala-{session,form}.mjs`
 - 商品画像/コンテンツ: `scripts/coconala-thumb.mjs`・`gen-image-gemini.mjs`・`build-coconala-content-pdf.mjs`（＋`lib/strip-note-funnel.mjs`）
 - プロフィール: `scripts/coconala-profile.mjs`（自己紹介）・`coconala-cover.mjs`（カバー）／SoT=`coconala-account.json` の `profile`・資格は `src/config/author.ts`
 - 投入 SoT: `.claude/config/coconala-listings.json`（本文/カテゴリ/納期/genreFacets/provisionFormat）／アカウント: `.claude/config/coconala-account.json`
