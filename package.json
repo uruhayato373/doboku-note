@@ -116,6 +116,8 @@
     "coconala-discover": "node scripts/coconala-discover.mjs",
     "coconala-publish": "node scripts/coconala-publish.mjs",
     "coconala-edit": "node scripts/coconala-edit.mjs",
+    "coconala-thumb": "node scripts/coconala-thumb.mjs",
+    "gen-image-gemini": "node scripts/gen-image-gemini.mjs",
     "check-doc-lifecycle": "node scripts/check-doc-lifecycle.mjs",
     "check-policy-anchors": "node scripts/check-policy-anchors.mjs",
     "check-links": "node .claude/skills/quality/check-mdx/scripts/rules/links/check-links.mjs",

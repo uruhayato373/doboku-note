@@ -1,0 +1,132 @@
+#!/usr/bin/env node
+/**
+ * coconala-thumb.mjs — ココナラ商品画像（サービスサムネ）を satori で生成
+ * ---------------------------------------------------------------------------
+ * ブランド流儀（brand-image-system）に沿い「AI 生成の雰囲気写真（文字なし）」を背景に、
+ * サービス名・訴求・価格を satori/HTML で正確に重ねる（AI に日本語を焼き込ませない）。
+ * キャンバス 1200×900（4:3・ココナラのサービス画像比率）。
+ *
+ * 使い方:
+ *   node scripts/coconala-thumb.mjs --service coconala-shindan --bg .tmp/coconala/bg-civil.png --out .tmp/coconala/thumb-shindan.png
+ *   （--service 省略時は全サービスを既定 bg で生成）
+ *
+ * テキストはカタログ（価格）＋下記 THUMB_COPY（サムネ用の短い訴求）から。
+ * ---------------------------------------------------------------------------
+ */
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import satori from 'satori';
+import sharp from 'sharp';
+import { readCatalog, readListings } from './lib/coconala-session.mjs';
+
+const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
+const FONTS_DIR = path.join(ROOT, '.claude/skills/conversion/ogp-create/assets/fonts');
+const argv = process.argv.slice(2);
+const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
+
+const W = 1200, H = 900;
+const NAVY = '#243b63';       // eyebrow / 見出し系
+const INK = '#1a1d24';        // 本文濃色
+const SUB = '#41485a';        // サブ
+const AMBER = '#d4a017';      // CTA（価格チップ・editorial CTA 色）
+
+// サムネ用の短い訴求コピー（カタログの正式タイトルとは別＝クリック訴求に最適化）
+const THUMB_COPY = {
+  'coconala-shindan': {
+    eyebrow: '1級・2級土木施工管理技士 ／ 第2次検定 経験記述',
+    title: ['経験記述', '合格診断'],
+    hook: '元自治体土木（発注者側）が\n減点ポイント ワースト3 を即指摘',
+    priceLabel: '1テーマ診断',
+  },
+  'coconala-tensaku-set': {
+    eyebrow: '1級・2級土木施工管理技士 ／ 第2次検定 経験記述',
+    title: ['経験記述 添削', '2テーマセット'],
+    hook: '工種別の完成答案100本超を書いた\n採点者視点で赤入れ＋書き直し1回',
+    priceLabel: '2テーマ・書き直し1回込み',
+  },
+};
+
+function loadFonts() {
+  return [
+    { name: 'Noto Sans JP', data: fs.readFileSync(path.join(FONTS_DIR, 'NotoSansJP-Bold.ttf')), weight: 700, style: 'normal' },
+    { name: 'Inter', data: fs.readFileSync(path.join(FONTS_DIR, 'Inter-Bold.ttf')), weight: 700, style: 'normal' },
+  ];
+}
+
+function bgDataUri(bgPath) {
+  const buf = fs.readFileSync(path.isAbsolute(bgPath) ? bgPath : path.join(ROOT, bgPath));
+  return `data:image/png;base64,${buf.toString('base64')}`;
+}
+
+/** satori 要素ツリー（軽量 JSX 相当のオブジェクト）。hasOptions=true なら価格に「〜」を付ける */
+function template(copy, priceYen, bgUri, hasOptions) {
+  const el = (type, props, ...children) => ({ type, props: { ...props, children: children.length <= 1 ? children[0] : children } });
+  const div = (style, ...ch) => el('div', { style }, ...ch);
+  const priceStr = '¥' + Number(priceYen).toLocaleString('en-US');
+
+  return div(
+    { width: W, height: H, display: 'flex', position: 'relative', fontFamily: 'Noto Sans JP' },
+    // 背景写真
+    el('img', { src: bgUri, width: W, height: H, style: { position: 'absolute', top: 0, left: 0, width: W, height: H, objectFit: 'cover' } }),
+    // 左スクリム（左を明るく＝文字可読性）
+    div({ position: 'absolute', top: 0, left: 0, width: W, height: H, display: 'flex',
+      backgroundImage: 'linear-gradient(100deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.9) 40%, rgba(255,255,255,0.55) 60%, rgba(255,255,255,0) 78%)' }),
+    // 上下アクセントバー（ブランド）
+    div({ position: 'absolute', top: 0, left: 0, width: W, height: 12, display: 'flex', backgroundColor: NAVY }),
+    // コンテンツ
+    div({ position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'center',
+      width: 760, height: H, paddingLeft: 72, paddingRight: 24 },
+      // eyebrow
+      div({ display: 'flex', alignItems: 'center', marginBottom: 22 },
+        div({ width: 40, height: 6, backgroundColor: AMBER, marginRight: 14, display: 'flex' }),
+        div({ fontSize: 26, color: NAVY, letterSpacing: 1 }, copy.eyebrow),
+      ),
+      // title（2行）
+      div({ display: 'flex', flexDirection: 'column', marginBottom: 26 },
+        ...copy.title.map((line) => div({ fontSize: 92, lineHeight: 1.12, color: INK }, line)),
+      ),
+      // hook
+      div({ display: 'flex', flexDirection: 'column', marginBottom: 40 },
+        ...copy.hook.split('\n').map((line) => div({ fontSize: 34, lineHeight: 1.5, color: SUB }, line)),
+      ),
+      // 価格チップ
+      div({ display: 'flex', alignItems: 'flex-end' },
+        div({ display: 'flex', alignItems: 'baseline', backgroundColor: AMBER, paddingTop: 12, paddingBottom: 14, paddingLeft: 28, paddingRight: 28, borderRadius: 14 },
+          div({ fontSize: 62, color: '#ffffff', fontFamily: 'Inter' }, priceStr),
+          ...(hasOptions ? [div({ fontSize: 30, color: '#ffffff', marginLeft: 10 }, '〜')] : []),
+        ),
+        div({ fontSize: 24, color: SUB, marginLeft: 20, marginBottom: 10, display: 'flex' }, copy.priceLabel),
+      ),
+      // footer
+      div({ position: 'absolute', bottom: 40, left: 72, display: 'flex', alignItems: 'center' },
+        div({ fontSize: 24, color: NAVY }, '運営：doboku-note（元自治体土木・技術士総合技術監理）'),
+      ),
+    ),
+  );
+}
+
+async function render(serviceId, bgPath, outPath, priceYen, hasOptions) {
+  const copy = THUMB_COPY[serviceId];
+  if (!copy) throw new Error('THUMB_COPY 未定義: ' + serviceId);
+  const svg = await satori(template(copy, priceYen, bgDataUri(bgPath), hasOptions), {
+    width: W, height: H, fonts: loadFonts(),
+  });
+  const abs = path.isAbsolute(outPath) ? outPath : path.join(ROOT, outPath);
+  fs.mkdirSync(path.dirname(abs), { recursive: true });
+  await sharp(Buffer.from(svg)).png().toFile(abs);
+  console.log(`[thumb] ${serviceId} → ${outPath}  (¥${priceYen})`);
+}
+
+const catalog = readCatalog();
+const listings = readListings();
+const BG = getArg('--bg') || '.claude/config/coconala/assets/bg-civil.png';
+const only = getArg('--service');
+const targets = only ? [only] : Object.keys(THUMB_COPY);
+for (const id of targets) {
+  const svc = catalog[id];
+  if (!svc) { console.error('カタログに無い: ' + id); continue; }
+  const hasOptions = (listings[id]?.options || []).length > 0;
+  const out = getArg('--out') || `.claude/config/coconala/assets/thumb-${id.replace('coconala-', '')}.png`;
+  await render(id, BG, out, svc.priceYen, hasOptions);
+}
