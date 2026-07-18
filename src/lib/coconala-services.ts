@@ -73,8 +73,8 @@ const SERVICES_RAW = {
   //   価格競争が存在しないため ¥1,500 据え置き。
   'coconala-shindan': {
     id: 'coconala-shindan',
-    status: 'draft',
-    serviceUrl: '',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4317349',
     title: '土木施工管理の経験記述を採点者目線で診断します',
     shortTitle: '経験記述 合格診断',
     description:
@@ -83,6 +83,7 @@ const SERVICES_RAW = {
     priceYen: 1500,
     examScope: ['civil-1', 'civil-2'],
     weeklyCapacity: 5,
+    listedAt: '2026-07-18',
   },
 
   // S2: 主力。実測（2026-07-16・coconala-research）: 添削の中央値 ¥6,500、実売の第2集団は
@@ -93,8 +94,8 @@ const SERVICES_RAW = {
   // 価格改定時は priceYen と price の両方＋ココナラ展開キット.md §2 の価格表を同時更新する。
   'coconala-tensaku-set': {
     id: 'coconala-tensaku-set',
-    status: 'draft',
-    serviceUrl: '',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4317375',
     title: '土木施工管理の経験記述を発注者目線で添削します',
     shortTitle: '経験記述 添削（2テーマセット）',
     description:
@@ -103,6 +104,7 @@ const SERVICES_RAW = {
     priceYen: 6000,
     examScope: ['civil-1', 'civil-2'],
     weeklyCapacity: 3,
+    listedAt: '2026-07-18',
   },
 } as const satisfies Record<string, CoconalaService>;
 

@@ -84,11 +84,11 @@ try {
   const { log, warnings } = await fillServiceForm(page, fields, { tag: '[edit]' });
   log.forEach((l) => console.log('   ', l));
   if (warnings.length) { console.log('[edit] ⚠ warnings:'); warnings.forEach((w) => console.log('    -', w)); }
-  await page.screenshot({ path: shot(`edit-filled-${SERVICE}.png`), fullPage: true });
+  await page.screenshot({ path: shot(`edit-filled-${SERVICE}.png`) }).catch(() => {});
 
   const r = await submitForm(page, { commit: COMMIT, tag: '[edit]' });
   console.log(`[edit] ${r.action}:`, JSON.stringify({ ok: r.ok, url: r.url, errors: r.errors }));
-  await page.screenshot({ path: shot(`edit-result-${SERVICE}.png`), fullPage: true });
+  await page.screenshot({ path: shot(`edit-result-${SERVICE}.png`) }).catch(() => {});
   if (!r.ok) process.exitCode = 2;
   console.log('RESULT:', JSON.stringify({ service: SERVICE, id: numericId, mode: COMMIT ? 'commit' : 'draft', ok: r.ok }));
 } finally {

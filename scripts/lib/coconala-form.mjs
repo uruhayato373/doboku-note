@@ -63,8 +63,18 @@ export async function fillServiceForm(page, fields, { tag = '[form]' } = {}) {
   const warn = [];
   await dismissModal(page);
 
-  if (fields.title !== undefined) log.push(await fillIfPresent(page, '#ServiceOverview', fields.title, { tag, label: 'title' }));
-  if (fields.catchphrase !== undefined) log.push(await fillIfPresent(page, '#ServiceCatchphrase', fields.catchphrase, { tag, label: 'catchphrase' }));
+  // タイトル: ココナラのサービスタイトル欄は末尾「ます」が固定サフィックスで自動付与される
+  // （「※『ます』は必須のため削除できません」）。カタログの「〜します」をそのまま入れると
+  // 公開表示が「〜しますます」と二重になるため、末尾の「ます」を1つ剥がして入れる。
+  if (fields.title !== undefined) {
+    const titleForForm = String(fields.title).replace(/ます$/, '');
+    log.push(await fillIfPresent(page, '#ServiceOverview', titleForForm, { tag, label: 'title(末尾ます剥がし)' }));
+  }
+  if (fields.catchphrase !== undefined) {
+    const clen = [...String(fields.catchphrase || '')].length;
+    if (fields.catchphrase && (clen < 15 || clen > 30)) warn.push(`catchphrase が15〜30字の範囲外（${clen}字）＝公開時に記入エラーになる`);
+    log.push(await fillIfPresent(page, '#ServiceCatchphrase', fields.catchphrase, { tag, label: 'catchphrase' }));
+  }
 
   // カテゴリ（cascading）: master → sub → type
   if (fields.category) {
@@ -157,10 +167,15 @@ export async function fillServiceForm(page, fields, { tag = '[form]' } = {}) {
  * @returns {Promise<{ok:boolean, action:string, url:string, reason?:string}>}
  */
 export async function submitForm(page, { commit = false, tag = '[form]' } = {}) {
-  const name = commit ? '公開する' : '下書きで保存';
-  const btn = page.getByRole('button', { name, exact: true });
-  if (!(await btn.count())) {
-    return { ok: false, action: name, url: page.url(), reason: `送信ボタン「${name}」未検出` };
+  // 新規下書き→公開は「公開する」、既に公開中サービスの更新は「更新する/サービスを更新」。
+  const candidates = commit ? ['公開する', '更新する', 'サービスを更新', '変更を保存'] : ['下書きで保存'];
+  let name = null, btn = null;
+  for (const c of candidates) {
+    const b = page.getByRole('button', { name: c, exact: true });
+    if (await b.count()) { name = c; btn = b; break; }
+  }
+  if (!btn) {
+    return { ok: false, action: candidates[0], url: page.url(), reason: `送信ボタン未検出（候補: ${candidates.join('/')}）` };
   }
   await btn.first().click();
   await sleep(4000);

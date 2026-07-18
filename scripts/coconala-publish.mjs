@@ -108,7 +108,7 @@ try {
   const { log, warnings } = await fillServiceForm(page, fields, { tag: '[publish]' });
   log.forEach((l) => console.log('   ', l));
   if (warnings.length) { console.log('[3] ⚠ warnings:'); warnings.forEach((w) => console.log('    -', w)); }
-  await page.screenshot({ path: shot(`publish-filled-${SERVICE}.png`), fullPage: true });
+  await page.screenshot({ path: shot(`publish-filled-${SERVICE}.png`) }).catch(() => {});
 
   // 4. 送信
   if (COMMIT && warnings.some((w) => /価格|category/.test(w))) {
@@ -119,7 +119,7 @@ try {
   } else {
     const r = await submitForm(page, { commit: COMMIT, tag: '[publish]' });
     console.log(`[4] ${r.action}:`, JSON.stringify({ ok: r.ok, url: r.url, errors: r.errors }));
-    await page.screenshot({ path: shot(`publish-result-${SERVICE}.png`), fullPage: true });
+    await page.screenshot({ path: shot(`publish-result-${SERVICE}.png`) }).catch(() => {});
     if (COMMIT && r.ok) {
       // 公開成功 → カタログへ書き戻し（status:'listed' + serviceUrl + listedAt）
       const pubId = sid || (r.url.match(/\/services\/(\d+)/) || [])[1] || '';
@@ -132,7 +132,7 @@ try {
       process.exitCode = 2;
     }
   }
-  await page.screenshot({ path: shot(`publish-final-${SERVICE}.png`) });
+  await page.screenshot({ path: shot(`publish-final-${SERVICE}.png`) }).catch(() => {});
   console.log('RESULT:', JSON.stringify({ service: SERVICE, mode: COMMIT ? 'commit' : 'draft', serviceId: sid }));
 } finally {
   await ctx.close();
