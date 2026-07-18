@@ -45,6 +45,12 @@ const THUMB_COPY = {
     hook: '工種別の完成答案100本超を書いた\n採点者視点で赤入れ＋書き直し1回',
     priceLabel: '2テーマ・書き直し1回込み',
   },
+  'coconala-sakusei': {
+    eyebrow: '1級・2級土木施工管理技士 ／ 第2次検定 経験記述',
+    title: ['経験記述 答案作成', 'ヒアリング→文章化'],
+    hook: '質問シートに答えるだけ。\nあなたの実工事を採点者に伝わる答案に',
+    priceLabel: '2テーマ・書き直し1回込み',
+  },
   'coconala-bunseki-pdf': {
     eyebrow: '1級土木施工管理技士 ／ 第2次検定 対策PDF',
     title: ['二次 出題分析', '＋直前重点 PDF'],

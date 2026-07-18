@@ -48,6 +48,7 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 |---|---|
 | `coconala-shindan` | S1 合格診断。レビュー獲得フロント。診断のみ・書き換え案は出さない |
 | `coconala-tensaku-set` | S2 添削（2テーマセット）。主力。赤入れ＋書き直し1回 |
+| `coconala-sakusei` | S3 答案作成（ヒアリング→文章化・2テーマ・¥8,000）。質問シートで本人の実工事を吸い上げ答案ドラフト化（捏造禁止・本人確認必須・週2枠） |
 | `coconala-bunseki-pdf` | C1 単発コンテンツ。1級 二次 出題分析＋直前重点 PDF（provision_format=3・購入後トークルームで PDF 送付） |
 | `coconala-kanseitoan-pdf` | C2 単発コンテンツ。1級 経験記述 完成答案集 PDF 5本（同上） |
 | `coconala-2kyu-kanseitoan-pdf` | C3 2級 完成答案集 PDF 3本 |
@@ -112,7 +113,7 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 |---|---|
 | `title` / `catchphrase` / `excerpt` | 出品タイトル・キャッチ・説明抜粋 |
 | `priceYen` / `rating` / `reviews` / `seller` / `url` | 実測値（DOM から直接。WebFetch の LLM 要約ではない） |
-| `segment` | 機械分類: `daiko`（作成代行＝当社は出さない）/ `tensaku`（添削）/ `shindan`（診断）/ `soudan`（相談・指導）/ `kyozai`（教材）/ `other` |
+| `segment` | 機械分類: `daiko`（答案作成＝2026-07-18〜 S3 で出品・捏造禁止の建て付け）/ `tensaku`（添削）/ `shindan`（診断）/ `soudan`（相談・指導）/ `kyozai`（教材）/ `other` |
 | `detail` | 上位N件のみ: `deliveryDays` / `totalSales` / `description` / `hasOptions` |
 
 > **ページ形式が2種類**（実測 2026-07-16）: `/search?keyword=X` は検索結果（カード `.c-serviceListItem`）。ただし
@@ -161,7 +162,7 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 
 ## 5. 安全弁
 
-1. **代筆禁止（Red Line #2）** — 本人答案への赤入れまで。作成代行は出品しない（断り文面はキット §3 FAQ）
+1. **捏造禁止（Red Line #2・2026-07-18 再定義）** — 経験していない工事・事実・数値を創作しない。答案作成（S3）は**本人の実工事のヒアリング事実のみ**から構成（宣誓＋本人の事実確認を必須・欠落数値は `〇〇` プレースホルダ）。旧「代筆禁止＝作成代行は出品しない」を改訂（真実源 → noteコンテンツ計画 §Red Line #2）
 2. **外部誘導禁止（ココナラ規約）** — ココナラ向け文面に note・doboku-note.com の URL を書かない。導線は逆向き（サイト/note → ココナラ）のみ
 3. **出品・修正は自動化・返信送信は運営者** — 出品・内容修正・価格反映は `/coconala-publish`（account assert＋draft-first＋`--commit` gate）で行う。一方**トークルームの返信送信・購入者対応は運営者（人間）**。「（購入者へ）送信した」と報告しない。バリデーションエラー時は「公開した」と言わない
 4. **価格の直書き禁止** — 真実源はカタログ。文面に価格を出すならカタログから転記し、改定はカタログ→キットの順で同一 commit
