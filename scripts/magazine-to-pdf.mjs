@@ -153,25 +153,31 @@ async function main() {
     const pdfTmp = join(workDir, `${slug}.pdf`)
     writeFileSync(htmlPath, buildHtml(title, bodyHtml), 'utf8')
 
-    execFileSync(
-      CHROME,
-      [
-        '--headless=new',
-        '--disable-gpu',
-        '--no-pdf-header-footer',
-        '--no-first-run',
-        '--no-default-browser-check',
-        // 非 Windows（Mac/CI）では sandbox/常駐 Chrome との衝突で print-to-pdf が
-        // ハングするため、無効化フラグを付与する（Windows 会社 PC の挙動は不変）。
-        ...(process.platform === 'win32'
-          ? []
-          : ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--disable-extensions', '--disable-background-networking']),
-        `--user-data-dir=${userDataDir}`,
-        `--print-to-pdf=${pdfTmp}`,
-        pathToFileURL(htmlPath).href,
-      ],
-      { stdio: 'pipe', timeout: 120000 },
-    )
+    try {
+      execFileSync(
+        CHROME,
+        [
+          '--headless=new',
+          '--disable-gpu',
+          '--no-pdf-header-footer',
+          '--no-first-run',
+          '--no-default-browser-check',
+          // 非 Windows（Mac/CI）では sandbox/常駐 Chrome との衝突で print-to-pdf が
+          // ハングするため、無効化フラグを付与する（Windows 会社 PC の挙動は不変）。
+          ...(process.platform === 'win32'
+            ? []
+            : ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--disable-extensions', '--disable-background-networking']),
+          `--user-data-dir=${userDataDir}`,
+          `--print-to-pdf=${pdfTmp}`,
+          pathToFileURL(htmlPath).href,
+        ],
+        { stdio: 'pipe', timeout: 45000 },
+      )
+    } catch (e) {
+      // Mac の新 headless Chrome は PDF を書き出しても exit しないことがあり execFileSync が
+      // timeout する。pdfTmp が生成済みなら成功扱い（それ以外は本当の失敗として再送出）。
+      if (!existsSync(pdfTmp)) throw e
+    }
     if (!existsSync(pdfTmp)) throw new Error(`PDF 生成に失敗: ${art.src}`)
 
     const finalPath = join(outDir, `${art.out}.pdf`)

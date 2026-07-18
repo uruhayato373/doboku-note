@@ -16,7 +16,7 @@
  * ---------------------------------------------------------------------------
  */
 import { chromium } from 'playwright';
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -77,6 +77,25 @@ export function readListings() {
   } catch {
     return {};
   }
+}
+
+/** カタログ（coconala-services.ts）の該当 service を status:'listed' + serviceUrl + listedAt に書き戻す */
+export function writeBackCatalog(id, url, today) {
+  try {
+    let ts = readFileSync(CATALOG_PATH, 'utf-8');
+    const day = today || new Date().toISOString().slice(0, 10);
+    const idRe = new RegExp(`(id:\\s*'${id}',[\\s\\S]*?)(\\n\\s*\\},)`);
+    const m = ts.match(idRe);
+    if (!m) return false;
+    let block = m[1];
+    block = block.replace(/status:\s*'[^']*'/, "status: 'listed'");
+    block = block.replace(/serviceUrl:\s*'[^']*'/, `serviceUrl: '${url}'`);
+    if (/listedAt:/.test(block)) block = block.replace(/listedAt:\s*'[^']*'/, `listedAt: '${day}'`);
+    else block = block.replace(/(weeklyCapacity:\s*\d+,)/, `$1\n    listedAt: '${day}',`);
+    ts = ts.replace(idRe, block + m[2]);
+    writeFileSync(CATALOG_PATH, ts);
+    return true;
+  } catch { return false; }
 }
 
 /**

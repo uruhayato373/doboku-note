@@ -117,6 +117,7 @@
     "coconala-publish": "node scripts/coconala-publish.mjs",
     "coconala-edit": "node scripts/coconala-edit.mjs",
     "coconala-thumb": "node scripts/coconala-thumb.mjs",
+    "coconala-content-pdf": "node scripts/build-coconala-content-pdf.mjs",
     "gen-image-gemini": "node scripts/gen-image-gemini.mjs",
     "check-doc-lifecycle": "node scripts/check-doc-lifecycle.mjs",
     "check-policy-anchors": "node scripts/check-policy-anchors.mjs",

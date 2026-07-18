@@ -47,6 +47,12 @@ if (svc.status === 'listed' && /^https?:\/\//.test(svc.serviceUrl || '')) {
   console.log(`[skip] 既に出品済み: ${svc.serviceUrl}（新規出品はしない。修正は coconala-edit.mjs）`);
   process.exit(0);
 }
+// 価格刻みガード（ココナラの価格は ¥10,000 以下=500円刻み / 超=1,000円刻み）
+{
+  const y = svc.priceYen;
+  const ok = y > 0 && (y <= 10000 ? y % 500 === 0 : y % 1000 === 0);
+  if (!ok) { console.error(`ABORT: priceYen ${y} はココナラの価格刻みに不一致（¥10,000以下=500円刻み/超=1,000円刻み）`); process.exit(1); }
+}
 // カテゴリ未確定ガード
 if (!lst.category || !lst.category.master || !lst.category.sub) {
   console.error(`ABORT: listings["${SERVICE}"].category が未確定（master/sub）。coconala-discover でカテゴリ確定を`);

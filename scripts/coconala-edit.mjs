@@ -20,7 +20,7 @@
 import { mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import {
-  ROOT, launchContext, waitForLogin, assertAccount, sleep, readCatalog, readListings,
+  ROOT, launchContext, waitForLogin, assertAccount, sleep, readCatalog, readListings, writeBackCatalog,
 } from './lib/coconala-session.mjs';
 import { fillServiceForm, submitForm, uploadImage } from './lib/coconala-form.mjs';
 
@@ -105,6 +105,12 @@ try {
   const r = await submitForm(page, { commit: COMMIT, tag: '[edit]' });
   console.log(`[edit] ${r.action}:`, JSON.stringify({ ok: r.ok, url: r.url, errors: r.errors }));
   await page.screenshot({ path: shot(`edit-result-${SERVICE}.png`) }).catch(() => {});
+  // 公開成功 & カタログがまだ draft → listed へ書き戻し（下書きを公開した場合）
+  if (COMMIT && r.ok && svc.status === 'draft') {
+    const publicUrl = `https://coconala.com/services/${numericId}`;
+    if (writeBackCatalog(SERVICE, publicUrl)) console.log(`[edit] カタログ書き戻し: ${SERVICE} → listed / ${publicUrl}`);
+    console.log('    ★ account.json は既設定。/links には listed で表示されます');
+  }
   if (!r.ok) process.exitCode = 2;
   console.log('RESULT:', JSON.stringify({ service: SERVICE, id: numericId, mode: COMMIT ? 'commit' : 'draft', ok: r.ok }));
 } finally {

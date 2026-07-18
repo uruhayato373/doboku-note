@@ -106,6 +106,40 @@ const SERVICES_RAW = {
     weeklyCapacity: 3,
     listedAt: '2026-07-18',
   },
+
+  // C1: 単発コンテンツ（出題分析 PDF）。競合実測（2026-07-18）: 出題分析¥2,500×134件が売れている。
+  //   note ¥980 の r8-bunseki を funnel 除去した PDF 納品（provision_format=3）。添削/診断とは別セグメント（急ぎ・自習単発）。
+  'coconala-bunseki-pdf': {
+    id: 'coconala-bunseki-pdf',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4317573',
+    title: '1級土木二次 出題分析と直前重点を送ります',
+    shortTitle: '二次 出題分析＋直前重点 PDF',
+    description:
+      '1級土木施工管理技士 第2次検定の出題分析＋直前2週間ロードマップ PDF（令和3〜7年度の実績分析・約6,000字/6ページ）。経験記述テーマの出題履歴・学科記述の出る順トップ論点・日割りの直前計画を収録。購入後トークルームで PDF をお送りします。',
+    price: '¥2,500（PDF 1本）',
+    priceYen: 2500,
+    examScope: ['civil-1'],
+    weeklyCapacity: 10,
+    listedAt: '2026-07-18',
+  },
+
+  // C2: 単発コンテンツ（完成答案集 PDF 5本）。競合実測: 解答例送付¥3,500×179件。
+  //   完成答案集（品質/安全/工程/施工計画/環境）を funnel 除去して PDF 5本で納品。
+  'coconala-kanseitoan-pdf': {
+    id: 'coconala-kanseitoan-pdf',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4317580',
+    title: '1級土木の経験記述 完成答案集を送ります',
+    shortTitle: '経験記述 完成答案集 PDF（5管理）',
+    description:
+      '1級土木施工管理技士 第2次検定 施工経験記述の完成答案集 PDF 5本（品質管理・安全管理・工程管理・施工計画・環境対策）。各テーマ 完成答案3例＋NG→合格答案＋採点者視点チェックポイント。自分の工事に置き換える雛形として使えます。購入後トークルームで PDF をお送りします。代筆は行いません。',
+    price: '¥3,500（PDF 5本・5管理）',
+    priceYen: 3500,
+    examScope: ['civil-1'],
+    weeklyCapacity: 10,
+    listedAt: '2026-07-18',
+  },
 } as const satisfies Record<string, CoconalaService>;
 
 export type CoconalaServiceId = keyof typeof SERVICES_RAW;

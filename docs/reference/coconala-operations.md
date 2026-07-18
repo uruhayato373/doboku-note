@@ -48,6 +48,8 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 |---|---|
 | `coconala-shindan` | S1 合格診断。レビュー獲得フロント。診断のみ・書き換え案は出さない |
 | `coconala-tensaku-set` | S2 添削（2テーマセット）。主力。赤入れ＋書き直し1回 |
+| `coconala-bunseki-pdf` | C1 単発コンテンツ。二次 出題分析＋直前重点 PDF（provision_format=3・購入後トークルームで PDF 送付） |
+| `coconala-kanseitoan-pdf` | C2 単発コンテンツ。経験記述 完成答案集 PDF 5本（同上） |
 
 ### 2.1b 出品投入 SoT: `.claude/config/coconala-listings.json`
 
@@ -203,6 +205,17 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 素材は `.claude/config/coconala/assets/`（`bg-civil.png`＝生成背景の保存・再生成の課金回避／`thumb-*.png`＝合成結果）。
 
 **アップロード（自動化済み・2026-07-18）**: `node scripts/coconala-edit.mjs --service <id> --service-id <n> --image <png> --commit`。「画像を追加」（`a.js_upload-…`・javascript:;）クリックで隠し file input（`data[UploadedFile][n1][image_files]`）が出現→setInputFiles→**トリミングモーダルなし**でスロットに直接入る（populated 判定＝`a.js_delete-button` の数）。既に画像があれば skip（`--force-image` で追加）。`--image` かつ `--fields` 無しなら**画像だけ更新**（本文フィールドは触らない）。
+
+**単発コンテンツ商品（C系）の納品 PDF**: note 記事を coconala 用 PDF にする再現可能ビルド。**外部誘導禁止（規約）＝アカウント防衛**のため note 導線を機械除去してから PDF 化する。
+
+| スクリプト | 役割 |
+|---|---|
+| `scripts/lib/strip-note-funnel.mjs` | note 記事から CTA コメントブロック・裸URL・note 商品誘導文・ペイウォール文を機械除去。`assertNoFunnel` で残存検査 |
+| `scripts/build-coconala-content-pdf.mjs` | `PRODUCTS` 定義（C1/C2）の源記事を strip → クリーン版を staging → `magazine-to-pdf` で PDF 生成 → **pdftotext で note.com/URL が 0件でなければ FAIL**。出力 `.claude/config/coconala/assets/pdf/*.pdf`（`CHROME_PATH=... node scripts/build-coconala-content-pdf.mjs`） |
+
+- **納品運用**: C系（`provision_format=3`・PDF・各種定型ファイル）は**ヒアリング不要**。購入通知→トークルームで PDF を送付（C1=1本 / C2=5本）＋定型文（`orders-log` へ append）。個別相談は添削（S2）へ誘導。
+- **KDP 安全**: 二次経験記述は Kindle Select ロック無し（土木 Kindle は一次のみ）。一次過去問PDF は Select 独占中＝coconala 化しない。
+- `magazine-to-pdf.mjs` は Mac の新 headless Chrome が exit しない事例に対応（PDF 生成済みなら timeout を成功扱い・2026-07-18）。
 
 **安全弁**: ①account assert（`sellerName`=dobokunote をマイページ本文で確認・不一致は即中断）②既定は「下書きで保存」・実公開は `--commit` 必須 ③価格/カテゴリ充填 warning があれば公開せず下書き退避 ④送信後の記入エラーは `ok:false` を返し「公開した」と報告しない。
 

@@ -1,8 +1,8 @@
 ---
 name: coconala-operator
 description: >
-  ココナラ（coconala.com）で出品する 1級・2級土木 経験記述サービス（S1 合格診断 / S2 添削セット）の
-  運用オーケストレーター。受注1件のE2E（ヒアリングシート受領 → /keiken-tensaku で添削下書き生成 →
+  ココナラ（coconala.com）で出品する 1級・2級土木 経験記述サービス（S1 合格診断 / S2 添削セット /
+  C1 出題分析PDF / C2 完成答案集PDF）の運用オーケストレーター。受注1件のE2E（ヒアリングシート受領 → /keiken-tensaku で添削下書き生成 →
   運営者の最終赤入れへ引き継ぎ → 納品文面ドラフト → orders-log 追記）、KPI ダッシュボード貼付の
   正規化（kpi-log 追記＋撤退ライン判定）、カタログ（src/lib/coconala-services.ts）の状態/価格/満枠 flip を担う。
   **出品・内容修正・価格反映は Playwright で自動化**（/coconala-publish＝account assert＋draft-first＋--commit gate）。
@@ -62,6 +62,10 @@ model: sonnet
 2. **下書きで検証**: `node scripts/coconala-publish.mjs --service <id>`（新規）or `coconala-edit.mjs --service <id>`（修正）を `--commit` なしで実行 → `ok:true`（下書き保存成功）と `.tmp/coconala/*.png` を確認。`ok:false`（記入エラー）なら公開しない。
 3. **公開**: 問題なければ `--commit` を付けて実行。publish は成功時カタログを `listed`＋`serviceUrl`＋`listedAt` に自動書き戻し。
 4. 出品後 `coconala-account.json` の `profileUrl` を埋め、`npm run check-coconala-wiring` グリーンを確認。
+
+### ケース0.5: 受注（C系 単発コンテンツ PDF）
+
+C1/C2（`provision_format=3`・PDF 納品）は**ヒアリング不要**。購入通知 → トークルームで PDF を送付（C1=`.claude/config/coconala/assets/pdf/coconala-C1-*.pdf` 1本 / C2=`coconala-C2-*.pdf` 5本）＋定型文 → `orders-log` へ append（`status: 'delivered'`）。個別の答案相談は S2 添削へ誘導する。PDF は note funnel 除去済み（`build-coconala-content-pdf.mjs`）＝再生成時も外部誘導 0 件を検証。
 
 ### ケース1: 受注（S2 添削セット）
 

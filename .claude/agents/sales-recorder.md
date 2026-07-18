@@ -148,7 +148,9 @@ productId は `coconala:<serviceId>` 形式（接頭辞でチャネル判別＝`
 | 商品名パターン / orders-log の serviceId | productId |
 |---|---|
 | `経験記述 合格診断` / serviceId `coconala-shindan`（¥1,500） | `coconala:coconala-shindan` |
-| `経験記述 添削（2テーマセット）` / serviceId `coconala-tensaku-set`（¥8,000） | `coconala:coconala-tensaku-set` |
+| `経験記述 添削（2テーマセット）` / serviceId `coconala-tensaku-set`（¥6,000） | `coconala:coconala-tensaku-set` |
+| `二次 出題分析＋直前重点 PDF` / serviceId `coconala-bunseki-pdf`（¥2,500） | `coconala:coconala-bunseki-pdf` |
+| `経験記述 完成答案集 PDF` / serviceId `coconala-kanseitoan-pdf`（¥3,500） | `coconala:coconala-kanseitoan-pdf` |
 | （新サービス追加時） | `coconala:<src/lib/coconala-services.ts の id と完全一致>` |
 
 id の実在は `npm run check-coconala-wiring` が pre-commit で機械検証する（カタログに無い `coconala:*` は commit を止める）。命名規則 → `docs/reference/sales-tracking.md`、運用 SSOT → `docs/reference/coconala-operations.md`

@@ -45,6 +45,18 @@ const THUMB_COPY = {
     hook: '工種別の完成答案100本超を書いた\n採点者視点で赤入れ＋書き直し1回',
     priceLabel: '2テーマ・書き直し1回込み',
   },
+  'coconala-bunseki-pdf': {
+    eyebrow: '1級土木施工管理技士 ／ 第2次検定 対策PDF',
+    title: ['二次 出題分析', '＋直前重点 PDF'],
+    hook: '令和3〜7年度の実績から\n直前2週間の攻め所を日割りで',
+    priceLabel: 'PDF・約6,000字／6ページ',
+  },
+  'coconala-kanseitoan-pdf': {
+    eyebrow: '1級土木施工管理技士 ／ 第2次検定 経験記述',
+    title: ['経験記述', '完成答案集 PDF'],
+    hook: '品質・安全・工程・施工計画・環境の\n完成答案例＋NG→合格＋採点チェック',
+    priceLabel: 'PDF 5本・5管理',
+  },
 };
 
 function loadFonts() {
