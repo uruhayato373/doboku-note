@@ -15,6 +15,8 @@
  *   4. sales-log.json の `coconala:<id>` productId の id がカタログに実在
  *   5. listed が1件でもあれば coconala-account.json の profileUrl が非空
  *   6. 一度も出品していない（status:'draft' かつ listedAt 未設定）サービスに受注/KPI 実績が無い
+ *   7. カバレッジ: 全カタログ product に listings（category/body）＋商品画像 thumb-*.png がある
+ *      （商品追加時の配線漏れ＝publish 失敗/画像なしを機械検知）
  *      ＝未出品なのに閲覧/販売が立つのは論理矛盾（ダミー値の混入・serviceId 取り違えの検知）
  *
  * 使い方:
@@ -35,6 +37,8 @@ const ACCOUNT_PATH = join(ROOT, '.claude/config/coconala-account.json');
 const ORDERS_PATH = join(ROOT, '.claude/state/coconala/orders-log.json');
 const KPI_PATH = join(ROOT, '.claude/state/coconala/kpi-log.json');
 const SALES_PATH = join(ROOT, '.claude/state/sales/sales-log.json');
+const LISTINGS_PATH = join(ROOT, '.claude/config/coconala-listings.json');
+const ASSETS_DIR = join(ROOT, '.claude/config/coconala/assets');
 
 const staged = process.argv.includes('--staged');
 if (staged) {
@@ -125,6 +129,25 @@ if (listed.length > 0) {
     violations.push(
       'listed サービスがあるのに coconala-account.json の profileUrl が空（出品済みならアカウント SSOT を埋める）'
     );
+  }
+}
+
+// 7. カバレッジ: 全カタログ product に listings エントリ＋商品画像があること
+//    （商品追加時の配線漏れ＝publish 失敗/画像なしを pre-commit で機械検知）。
+const listingsData = readJson(LISTINGS_PATH);
+if (listingsData?.__parseError) violations.push(`coconala-listings.json が JSON として壊れています: ${listingsData.__parseError}`);
+const listings = listingsData?.listings || {};
+for (const s of catalog) {
+  const l = listings[s.id];
+  if (!l) {
+    violations.push(`[${s.id}] listings（coconala-listings.json）に本文/カテゴリのエントリがありません（publish が失敗します）`);
+  } else {
+    if (!l.category?.master || !l.category?.sub) violations.push(`[${s.id}] listings.category（master/sub）が未確定です`);
+    if (!l.body) violations.push(`[${s.id}] listings.body（サービス内容本文）が空です`);
+  }
+  const thumbRel = `.claude/config/coconala/assets/thumb-${s.id.replace(/^coconala-/, '')}.png`;
+  if (!existsSync(join(ROOT, thumbRel))) {
+    violations.push(`[${s.id}] 商品画像 ${thumbRel} がありません（coconala-thumb で生成してください）`);
   }
 }
 

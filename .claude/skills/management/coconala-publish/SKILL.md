@@ -50,15 +50,37 @@ AI で雰囲気写真（文字なし）を生成 → satori で日本語を正�
 
 ```
 npm run gen-image-gemini -- --out .claude/config/coconala/assets/bg-civil.png --prompt "..."  # 背景（Gemini API課金）
-npm run coconala-thumb                                                                          # 背景+文字を1200×900合成
-node scripts/coconala-edit.mjs --service <id> --service-id <n> --image <png> --commit           # coconala へアップロード
+npm run coconala-thumb                                                                          # 背景+文字を1200×900合成（THUMB_COPY）
+node scripts/coconala-publish.mjs --service <id> --commit --image <thumb.png>                   # 公開と同時に画像アップロード（1商品=1実行）
+node scripts/coconala-edit.mjs --service <id> --service-id <n> --image <png> --commit           # 既存商品へ画像だけ更新
 ```
 
-素材は `.claude/config/coconala/assets/`（`bg-civil.png`／`thumb-<key>.png`）。詳細は [coconala-operations.md §8](../../../docs/reference/coconala-operations.md)。
+素材は `.claude/config/coconala/assets/`（`bg-civil.png`/`bg-docs.png`／`thumb-<key>.png`）。詳細は [coconala-operations.md §8](../../../docs/reference/coconala-operations.md)。
+
+## コンテンツ PDF 商品（C系・note→ココナラ）
+
+note 記事を外部誘導ゼロの PDF にして納品する単発コンテンツ商品。
+
+```
+npm run coconala-content-pdf   # build-coconala-content-pdf: PRODUCTS 定義を strip-note-funnel で
+                               #   funnel 除去→magazine-to-pdf→pdftotext で note URL 0件を検証
+```
+
+新 C系商品を足す配線: `build-coconala-content-pdf.mjs` の `PRODUCTS`（源記事）＋カタログ＋listings（`provisionFormat:"3"`）＋`coconala-thumb.mjs` の `THUMB_COPY`＋サムネ生成。**KDP Select ロック分（一次過去問）は不可**。`check-coconala-wiring` が listings/商品画像のカバレッジを機械検査する。
+
+## プロフィール（出品者・カバー/アバター/自己紹介）
+
+```
+npm run coconala-cover     # 差別化タグラインのカバーバナー（satori・1600×525≈3.05:1）
+npm run coconala-profile -- --commit   # account.json の profile(job/appeal/bio) を反映（dry=--commit なし）
+```
+
+profile の真実源は `coconala-account.json` の `profile`。**自己紹介に外部URL/SNS を書かない**（規約）。アバターはサイトの `public/img/author-avatar.png`。
 
 ## 制約（v1 未対応・手動）
 
 - **QA（よくある質問）・有料オプション**は v1 では自動投入しない（listings に `faq`/`options` は保持済み）。必要なら公開後にココナラ UI で追加。
+- **アバター/カバーの実アップロード**は本スキルの範囲外（アバター=クロッパ無し・カバー=クロッパ「決定」→保存。手順は operations.md §8 未収載＝手動 or 個別スクリプト）。
 
 ## 完了条件
 

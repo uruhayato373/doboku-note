@@ -57,15 +57,19 @@ export interface CoconalaService {
  * - coconala-{サービス種別}: ココナラ出品サービス。sales-log.json の productId は
  *   `coconala:{id}` 形式（例: coconala:coconala-tensaku-set）で接頭辞によりチャネルを判別する。
  *
- * 新サービス追加時の配線チェックリスト（capability ドリフト防止・2026-07-16）:
+ * 新サービス追加時の配線チェックリスト（capability ドリフト防止・2026-07-16 / 07-18 拡充）:
  *   本エントリ追加だけでは依存する実行系に配線されない。新サービスを足したら:
- *   1. 売上記録: .claude/agents/sales-recorder.md の productId マッピング表「ココナラ」節に追加
- *      ＋ docs/reference/sales-tracking.md の命名表に追加
- *   2. 運用スキーマ: docs/reference/coconala-operations.md のサービス表を更新
- *   3. 出品文面: docs/note/1級・2級土木/ココナラ展開キット.md §出品文面に追加
- *   4. check-coconala-wiring.mjs が pre-commit で catalog↔state↔sales の整合を機械検知する
- *      （listed なのに serviceUrl 空・未知の serviceId・priceYen 不一致で落ちる）
- *   5. 変更後は /doc-sync を1回回して prose 陳腐化を点検（CLAUDE.md §8）
+ *   1. 投入本文: .claude/config/coconala-listings.json に category/genreFacets/provisionFormat/
+ *      catchphrase(15-30字)/body(≤1000)/purchaseNote(≤500) を追加
+ *   2. 商品画像: scripts/coconala-thumb.mjs の THUMB_COPY に追加 → npm run coconala-thumb で
+ *      thumb-<id から coconala- を除いた key>.png を生成
+ *   3. コンテンツPDF商品(C系)なら: scripts/build-coconala-content-pdf.mjs の PRODUCTS に源記事を追加
+ *      → npm run coconala-content-pdf（funnel 除去＋note URL 0件検証）
+ *   4. 売上記録: .claude/agents/sales-recorder.md の productId マッピング表＋docs/reference/sales-tracking.md
+ *   5. ドキュメント: docs/reference/coconala-operations.md のサービス表＋ココナラ展開キット.md §2
+ *   6. check-coconala-wiring.mjs が pre-commit で catalog↔listings↔商品画像↔state↔sales の
+ *      整合/カバレッジを機械検知する（listings/画像の漏れ・serviceUrl 空・priceYen 不一致で落ちる）
+ *   7. 変更後は /doc-sync を1回回して prose 陳腐化を点検（CLAUDE.md §8）
  */
 const SERVICES_RAW = {
   // S1: レビュー獲得フロント。1テーマ分の診断のみ（書き換え文は提供しない＝S2 との線引き）。

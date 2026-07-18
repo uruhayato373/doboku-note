@@ -45,6 +45,8 @@ model: sonnet
 3. **KPI 記録**（`/coconala-status`）— ダッシュボード数値の貼付を正規化 → kpi-log 追記 → カタログ突合 → 撤退ライン判定
 4. **カタログ更新** — 満枠 `'full'`、季節オフ `'paused'`、価格改定（`price` と `priceYen` を同時更新→`/coconala-publish` で反映）
 5. **出品文面の改訂案** — ココナラ展開キット.md（散文）／listings.json（投入本文）を SoT として改訂（同一 commit で更新）
+6. **コンテンツ PDF 商品**（C系）— `build-coconala-content-pdf.mjs`（`strip-note-funnel`＋note URL 0件検証）で note 記事を納品 PDF 化。KDP Select ロック分（一次過去問）は不可
+7. **プロフィール整備** — `coconala-profile.mjs`（自己紹介＝account.json の `profile`・外部URL禁止）＋`coconala-cover.mjs`（差別化カバーバナー）。アバターはサイト `author-avatar.png`。差別化＝技術士（建設・総監）を持つ元発注者（資格は `author.ts` の事実に基づく）
 
 ## 担当外
 
@@ -144,9 +146,11 @@ C1/C2（`provision_format=3`・PDF 納品）は**ヒアリング不要**。購�
 ## 参照
 
 - スキル: `.claude/skills/management/coconala-publish/SKILL.md`（出品・修正）/ `coconala-order/SKILL.md`（受注）/ `coconala-status/SKILL.md`（KPI）
-- 出品スクリプト: `scripts/coconala-publish.mjs` / `coconala-edit.mjs` / `coconala-discover.mjs` / 共有 `scripts/lib/coconala-{session,form}.mjs`
-- 投入 SoT: `.claude/config/coconala-listings.json`（本文/カテゴリ/納期/genreFacets）／アカウント: `.claude/config/coconala-account.json`
+- 出品スクリプト: `scripts/coconala-publish.mjs`（`--image` で公開時に画像も）/ `coconala-edit.mjs` / `coconala-discover.mjs` / 共有 `scripts/lib/coconala-{session,form}.mjs`
+- 商品画像/コンテンツ: `scripts/coconala-thumb.mjs`・`gen-image-gemini.mjs`・`build-coconala-content-pdf.mjs`（＋`lib/strip-note-funnel.mjs`）
+- プロフィール: `scripts/coconala-profile.mjs`（自己紹介）・`coconala-cover.mjs`（カバー）／SoT=`coconala-account.json` の `profile`・資格は `src/config/author.ts`
+- 投入 SoT: `.claude/config/coconala-listings.json`（本文/カテゴリ/納期/genreFacets/provisionFormat）／アカウント: `.claude/config/coconala-account.json`
 - 添削 Generator: `.claude/agents/civil-keiken-tensaku-drafter.md`（`/keiken-tensaku`）
-- 機械ガード: `scripts/check-coconala-wiring.mjs`（`npm run check-coconala-wiring`・pre-commit）
+- 機械ガード: `scripts/check-coconala-wiring.mjs`（`npm run check-coconala-wiring`・pre-commit。カタログ↔listings↔商品画像↔state↔sales のカバレッジ検査）
 - 運用 SSOT: `docs/reference/coconala-operations.md` / 戦略・文面: `docs/note/1級・2級土木/ココナラ展開キット.md`
 - メモリ: [[project_coconala_tensaku_channel]] / [[feedback_metrics_cicd_supplied]] / [[feedback_no_price_in_mdx_body]]
