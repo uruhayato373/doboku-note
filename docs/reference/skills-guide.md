@@ -56,6 +56,7 @@ title: スキル ナビゲーションガイド
 | `/pe-essay-review` | 総監記述式模範論文を 3 視点で採点（**サイト** r0X-essay ページ。note 有料マガジンは `cem-essay-qa`） | `記述式採点`, `模範論文レビュー`, `/pe-essay-review` |
 | `/keiken-charcount` | 1級・2級土木 施工経験記述マガジン答案を解答欄しきい値で字数チェック（決定論的・暫定値） | `経験記述の字数確認`, `答案の字数オーバー検出`, `/keiken-charcount` |
 | `/keiken-tensaku` | 顧客提出の経験記述原稿から添削返却ドラフト生成（`civil-keiken-tensaku-drafter`。字数判定＋6軸論点抽出＋NG→OK赤入れ案。会員添削/ココナラ共通、代筆禁止） | `経験記述を添削`, `添削下書きを作成`, `ココナラ添削`, `/keiken-tensaku` |
+| `/coconala-publish` | ココナラ出品サービスを Playwright で新規出品・内容修正・価格反映（`coconala-operator`。カタログ＋listings SoT→フォーム充填。account assert＋draft-first＋`--commit` gate。公開成功でカタログ書き戻し） | `ココナラに出品`, `ココナラ出品を修正`, `ココナラ価格反映`, `/coconala-publish` |
 | `/coconala-order` | ココナラ受注1件のE2E（`coconala-operator`。シート検証→`/keiken-tensaku`→納品文面ドラフト→orders-log 追記。最終赤入れ・送信は運営者） | `ココナラで受注した`, `ココナラの納品文面`, `/coconala-order` |
 | `/coconala-status` | ココナラ KPI 週次記録＋カタログ↔state↔sales 照合＋撤退ライン判定（read-only・数値は手動貼付。取得も是正もしない） | `ココナラの状態を確認`, `ココナラKPIを記録`, `/coconala-status` |
 | `/civil-figure-rework` | 1級土木 過去問1次の図クロップ品質ループ（extractor → auditor 最大3反復、1ページ単位 commit） | `過去問図再抽出`, `テキスト写り込み修正`, `/civil-figure-rework {exam-slug\|--all}` |

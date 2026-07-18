@@ -25,9 +25,9 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 | `profileUrl` | 出品者プロフィール URL |
 | `listedAt` | 初出品日（ISO・未出品は null） |
 
-出品前はプレースホルダ（空文字）。**listed のサービスが1件でもあれば `profileUrl` は必須**（`check-coconala-wiring` が強制）。
+出品前はプレースホルダ（空文字）。**listed のサービスが1件でもあれば `profileUrl` は必須**（`check-coconala-wiring` が強制）。`sellerName`（=dobokunote）は出品自動化の account assert に使う。
 
-> ココナラ UI の自動操作はしないため playwright プロファイルは持たない（IG との違い）。
+> **出品・修正は Playwright で自動化する**（2026-07-18〜）。ログイン済みプロファイル `.local/playwright-coconala-profile`（gitignore）を持つ。§8 参照。KPI 自社数値のスクレイプはしない方針は不変（§4）。
 
 ## 2. 3スキーマ
 
@@ -40,6 +40,7 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 | `serviceUrl` | 出品後の URL（`https://coconala.com/services/{n}`）。listed なら必須・照合キー |
 | `price` / `priceYen` | 表示文字列 / 機械照合用。**必ず同時に更新**する |
 | `weeklyCapacity` | 週の受付枠（Red Line #1「定員なし恒久添削の禁止」の機械的表明） |
+| `title` | ココナラのサービスタイトル（**25字未満・末尾「ます」必須**＝ココナラ側バリデーション。出品自動化が使う） |
 
 現行サービス（価格の実値はカタログが真実源。ここでは id と役割のみ）:
 
@@ -47,6 +48,22 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 |---|---|
 | `coconala-shindan` | S1 合格診断。レビュー獲得フロント。診断のみ・書き換え案は出さない |
 | `coconala-tensaku-set` | S2 添削（2テーマセット）。主力。赤入れ＋書き直し1回 |
+
+### 2.1b 出品投入 SoT: `.claude/config/coconala-listings.json`
+
+出品フォームへ流し込む本文・カテゴリ・納期・ジャンルの機械可読 SoT（`coconala-publish/edit` が serviceId で引く）。**価格・タイトル・状態・URL はカタログ（2.1）が真実源＝ここに価格を書かない**（安全弁§4）。
+
+| listings[id] のキー | 意味 |
+|---|---|
+| `category` | `{ master, sub, type }`（value）。実機確定＝12 学習指導・資格・キャリア相談 / 254 資格取得・国家試験の相談 / 764 技術士・技術系資格の取得相談。`_labels` は可読メモ |
+| `genreFacets` | ジャンル facet の value 配列（※必須）。実機確定＝`["256"]` 学習方法アドバイス |
+| `provisionFormat` | 提供形式ラジオ（1=テキスト完結 / 2=制作物 / 3=PDF）。既定 1 |
+| `catchphrase` | キャッチコピー（15〜30字目安） |
+| `deliveryDays` | お届け日数 |
+| `body` / `purchaseNote` | サービス内容（≤1000字）/ 購入にあたってのお願い（≤500字・ともに※必須） |
+| `faq` / `options` | v1 では自動投入しない（保持のみ・公開後に UI 手動） |
+
+> カテゴリ/価格/facet の value が coconala 側でリニューアルされたら `node scripts/coconala-discover.mjs --advance --cat 12 --sub 254 --type 764` で現行 options を再取得して是正する。
 
 ### 2.2 受注実績: `.claude/state/coconala/orders-log.json`
 
@@ -139,7 +156,7 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 
 1. **代筆禁止（Red Line #2）** — 本人答案への赤入れまで。作成代行は出品しない（断り文面はキット §3 FAQ）
 2. **外部誘導禁止（ココナラ規約）** — ココナラ向け文面に note・doboku-note.com の URL を書かない。導線は逆向き（サイト/note → ココナラ）のみ
-3. **実操作はユーザー** — 出品・返信送信・価格変更をエージェントが行わない（文面生成と記録まで）。「送信した」と報告しない
+3. **出品・修正は自動化・返信送信は運営者** — 出品・内容修正・価格反映は `/coconala-publish`（account assert＋draft-first＋`--commit` gate）で行う。一方**トークルームの返信送信・購入者対応は運営者（人間）**。「（購入者へ）送信した」と報告しない。バリデーションエラー時は「公開した」と言わない
 4. **価格の直書き禁止** — 真実源はカタログ。文面に価格を出すならカタログから転記し、改定はカタログ→キットの順で同一 commit
 5. **個人情報の非コミット** — 提出原稿・購入者名をリポジトリに置かない
 6. **AI 下書き注記の残存禁止** — 添削下書きの注記が残った文面を納品しない
@@ -165,10 +182,27 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 
 `src/app/links/page.tsx` の `CoconalaSection` が `listedCoconalaServices()` を参照し、**listed が0件なら描画しない**（wire-ahead＝出品前に配線だけ済ませておける）。ココナラ側 URL に UTM は付けない（計測がココナラ内で完結せずパラメータが露出するだけのため）。
 
+## 8. 出品・修正の自動化（`/coconala-publish`・2026-07-18 新設）
+
+note-publish 流儀の決定的 Playwright。ログイン済みプロファイル `.local/playwright-coconala-profile`（初回のみ headed で手動ログイン）。
+
+| スクリプト | 役割 |
+|---|---|
+| `scripts/coconala-publish.mjs --service <id> [--commit]` | 新規出品。`/services/add`→種別=テキストチャット→「内容の入力に進む」で下書き生成→フォーム充填→下書き保存（既定）/公開（`--commit`）→公開時カタログへ `listed`＋`serviceUrl`＋`listedAt` 書き戻し |
+| `scripts/coconala-edit.mjs --service <id> [--fields …] [--commit]` | 既存修正。カタログ＋listings の現値でフォーム再充填。`--fields price,delivery` 等で部分更新 |
+| `scripts/coconala-discover.mjs [--advance] [--cat --sub --type]` | フォーム構造・selector・カテゴリ/価格/facet options の偵察（読み取り専用）。仕様ドリフト時の再校正用 |
+| 共有 `scripts/lib/coconala-{session,form}.mjs` | プロファイル起動・login 待ち・account assert・カタログ/listings 解析・フォーム充填 |
+
+**安全弁**: ①account assert（`sellerName`=dobokunote をマイページ本文で確認・不一致は即中断）②既定は「下書きで保存」・実公開は `--commit` 必須 ③価格/カテゴリ充填 warning があれば公開せず下書き退避 ④送信後の記入エラーは `ok:false` を返し「公開した」と報告しない。
+
+**フォーム仕様の要点**（2026-07-18 実機確定）: タイトルは**25字未満・末尾「ます」必須**。価格は select（表示テキスト「N,NNN円」で一致・カタログ priceYen 由来）。カテゴリは3段 cascading＋ジャンル facet（※必須）。QA/有料オプション/画像は v1 未対応（公開後 UI 手動）。
+
+**規約**: 2026-07-18 時点で利用規約・ルールに「出品者が自分の出品をブラウザ自動化することを禁じる明示条項」は確認できず（第13条2項22号は購入者側の自動応答が対象）。禁止行為一覧(zendesk)の1面は 403 で未確認・bot 検知の運用リスクは残るため、出品/価格改定時の**低頻度**利用に限る。
+
 ## 関連
 
 - 戦略・出品文面・ヒアリングシート・撤退ライン: [ココナラ展開キット.md](../note/1級・2級土木/ココナラ展開キット.md)
 - 添削パイプライン: `/keiken-tensaku`（`civil-keiken-tensaku-drafter`）／添削テンプレ: [2級経験記述-添削テンプレ.md](../note/1級・2級土木/2級土木/2級経験記述-添削テンプレ.md)
 - 売上: [sales-tracking.md](sales-tracking.md)（`coconala:<serviceId>` 命名）
 - 会員（主戦場）: [noteコンテンツ計画.md](../note/1級・2級土木/noteコンテンツ計画.md)（ココナラは第3チャネル・会員の価格アンカー）
-- エージェント: `.claude/agents/coconala-operator.md` ／ スキル: `/coconala-order`・`/coconala-status`
+- エージェント: `.claude/agents/coconala-operator.md` ／ スキル: `/coconala-publish`（出品・修正）・`/coconala-order`（受注）・`/coconala-status`（KPI）

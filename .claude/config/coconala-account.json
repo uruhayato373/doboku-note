@@ -1,6 +1,6 @@
 {
-  "sellerName": "",
+  "sellerName": "dobokunote",
   "profileUrl": "",
   "listedAt": null,
-  "_note": "ココナラ（coconala.com）出品アカウントの単一機械可読 SSOT。出品前はプレースホルダ（空文字）で、出品時に sellerName / profileUrl を埋める。check-coconala-wiring.mjs は src/lib/coconala-services.ts に status:'listed' のサービスが1件でもあれば profileUrl の非空を強制する（出品済みなのにアカウント SSOT が空＝ドリフト）。サービスの価格・状態・URL の真実源は src/lib/coconala-services.ts、運用スキーマは docs/reference/coconala-operations.md、戦略・出品文面は docs/note/1級・2級土木/ココナラ展開キット.md。ココナラ UI の自動操作は行わない（規約・bot 検知リスク）ため playwright プロファイルは持たない。"
+  "_note": "ココナラ（coconala.com）出品アカウントの単一機械可読 SSOT。sellerName は Playwright 自動操作（coconala-publish/edit）の account assert に使う＝マイページ本文にこの名前が含まれるかで誤アカウント操作を防ぐ（2026-07-18 実機で dobokunote を確認）。profileUrl は出品後に埋める（check-coconala-wiring は status:'listed' が1件でもあれば profileUrl 非空を強制）。サービスの価格・状態・URL の真実源は src/lib/coconala-services.ts、投入用の本文/カテゴリ/納期は .claude/config/coconala-listings.json、運用スキーマは docs/reference/coconala-operations.md、戦略・出品文面は docs/note/1級・2級土木/ココナラ展開キット.md。ログイン済みプロファイルは .local/playwright-coconala-profile（自動操作方針へ改訂・2026-07-18）。"
 }

@@ -20,7 +20,7 @@ title: スキル ガバナンス記録
 ├── authoring/       # 11 — 記事を作る
 ├── conversion/      # 6 — 形式変換（MDX / OGP 画像 / 紙用 PDF / Kindle EPUB）＋ OGP 意匠の素案試作
 ├── quality/         # 16 — MDX・note 公開前品質検査
-├── management/      # 17 — 計画・分析・戦略
+├── management/      # 18 — 計画・分析・戦略
 ├── dev/             # 13 — 開発・CI/CD
 ├── analytics/       # 2 — サイト分析
 ├── social/          # 22 — SNS 投稿
@@ -28,7 +28,9 @@ title: スキル ガバナンス記録
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **89 スキル**（9 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+合計 **90 スキル**（9 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+
+> 2026-07-18 新設（ココナラ出品の自動化）: `management/coconala-publish`（ココナラ出品サービスを Playwright で**新規出品・内容修正・価格反映**する user-invocable スキル。`coconala-operator` が起動）。決定的スクリプト `scripts/coconala-publish.mjs`（新規）／`coconala-edit.mjs`（修正）／`coconala-discover.mjs`（フォーム偵察）＋共有 `scripts/lib/coconala-{session,form}.mjs`、投入 SoT `.claude/config/coconala-listings.json`（本文/カテゴリ/納期/genreFacets・価格はカタログが真実源）を新設。note-publish 流儀＝ログイン済みプロファイル `.local/playwright-coconala-profile`＋account assert（sellerName=dobokunote）＋draft-first＋`--commit` gate、公開成功でカタログを `listed`＋`serviceUrl`＋`listedAt` に書き戻し。**2026-07-16 の「ココナラ UI の自動操作はしない」方針を出品・修正について改訂**（利用規約に自分の出品の自動化を禁じる明示条項は 2026-07-18 時点で未確認・第13条2項22号は購入者側の自動応答が対象。トークルーム返信送信は運営者のまま）。`coconala-operator` の description／`coconala-operations.md` §1/§2.1b/§5/§8／`coconala-account.json`／カタログ header を同期。合計 `89→90`・management `17→18`。agents 件数は不変（既存 `coconala-operator` の能力拡張）。
 
 > 2026-07-16 新設（ココナラ・チャネル管理体系）: `management/coconala-order`（受注1件のE2E＝ヒアリングシート検証→`/keiken-tensaku` で添削下書き→納品文面ドラフト→orders-log 追記）＋`management/coconala-status`（read-only 照合＝KPI 手動貼付を kpi-log へ週次正規化・カタログ↔state↔sales 突合・撤退ライン判定）＋ **新エージェント `coconala-operator`（Generator/オーケストレーター・sonnet）**。あわせて **カタログ SoT `src/lib/coconala-services.ts`**（note-magazines.ts 同型・`status:'listed'` で /links 導線が自動発火する wire-ahead）・`.claude/config/coconala-account.json`・`.claude/state/coconala/{orders,kpi}-log.json`・**機械ガード `scripts/check-coconala-wiring.mjs`**（pre-commit `--staged`・listed の serviceUrl 必須／未知 serviceId／priceYen 不一致／sales-log の `coconala:*` 実在／account profileUrl を検査）を新設。売上は `coconala:<serviceId>` 接頭辞で sales-log に統合（`channel` フィールドは新設せず既存流儀に同型）。**ココナラ UI の自動操作はしない**（規約・bot 検知）＝文面生成と記録まで・送信はユーザー。運用 SSOT は `docs/reference/coconala-operations.md`、戦略・出品文面は `docs/note/1級・2級土木/ココナラ展開キット.md`。合計 `87→89`・management `15→17`・agents `67→68`。
 
