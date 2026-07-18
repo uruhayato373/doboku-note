@@ -22,7 +22,7 @@ import { join } from 'node:path';
 import {
   ROOT, launchContext, waitForLogin, assertAccount, sleep, readCatalog, readListings,
 } from './lib/coconala-session.mjs';
-import { fillServiceForm, submitForm } from './lib/coconala-form.mjs';
+import { fillServiceForm, submitForm, uploadImage } from './lib/coconala-form.mjs';
 
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
@@ -30,6 +30,11 @@ const COMMIT = argv.includes('--commit');
 const SERVICE = getArg('--service');
 const SERVICE_ID = getArg('--service-id'); // 数値 id を直接指定（下書きの直接編集）
 const ONLY = (getArg('--fields') || '').split(',').map((s) => s.trim()).filter(Boolean);
+// --image <path>: 商品画像をアップロード。既定は「画像だけ追加して更新」（本文フィールドは触らない）。
+// listings に画像パスが無いので明示指定。省略時は .claude/config/coconala/assets/thumb-<key>.png を既定候補に。
+const IMAGE = getArg('--image');
+const FORCE_IMAGE = argv.includes('--force-image');
+const IMAGE_ONLY = !!IMAGE && ONLY.length === 0; // --image かつ --fields 指定なし → 画像のみ更新
 if (!SERVICE) { console.error('--service <id> required（listings/カタログの id）'); process.exit(1); }
 
 const catalog = readCatalog();
@@ -81,9 +86,20 @@ try {
   await sleep(3000);
   if (!/\/mypage\/services\/\d+/.test(page.url())) { console.error('ABORT: 編集ページに到達できない（id 不正 or 権限）'); await ctx.close(); process.exit(3); }
 
-  const { log, warnings } = await fillServiceForm(page, fields, { tag: '[edit]' });
-  log.forEach((l) => console.log('   ', l));
-  if (warnings.length) { console.log('[edit] ⚠ warnings:'); warnings.forEach((w) => console.log('    -', w)); }
+  // 画像アップロード（--image）。IMAGE_ONLY なら本文フィールドは触らない（画像だけ更新）。
+  if (IMAGE) {
+    const abs = IMAGE.startsWith('/') ? IMAGE : join(ROOT, IMAGE);
+    const ir = await uploadImage(page, abs, { tag: '[edit]', force: FORCE_IMAGE });
+    console.log('[edit] 画像:', JSON.stringify(ir));
+    if (!ir.ok) { console.error('[edit] ★画像アップロード失敗→中断（保存しない）'); await page.screenshot({ path: shot(`edit-image-fail-${SERVICE}.png`) }).catch(() => {}); await ctx.close(); process.exit(3); }
+    if (!ir.added && !FORCE_IMAGE) { console.log('[edit] 画像は既存のため追加せず終了（--force-image で追加可）'); await ctx.close(); process.exit(0); }
+  }
+
+  if (!IMAGE_ONLY) {
+    const { log, warnings } = await fillServiceForm(page, fields, { tag: '[edit]' });
+    log.forEach((l) => console.log('   ', l));
+    if (warnings.length) { console.log('[edit] ⚠ warnings:'); warnings.forEach((w) => console.log('    -', w)); }
+  }
   await page.screenshot({ path: shot(`edit-filled-${SERVICE}.png`) }).catch(() => {});
 
   const r = await submitForm(page, { commit: COMMIT, tag: '[edit]' });

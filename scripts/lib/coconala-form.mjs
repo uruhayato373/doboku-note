@@ -162,6 +162,34 @@ export async function fillServiceForm(page, fields, { tag = '[form]' } = {}) {
 }
 
 /**
+ * 商品画像をアップロードする（トリミングモーダルなし＝直接スロットに入る・2026-07-18 実機確定）。
+ * 「画像を追加」リンク（javascript:;）をクリックすると隠し file input が出現するので setInputFiles。
+ * @param {object} opts.force 既に画像がある場合も追加する（既定は skip）
+ * @returns {Promise<{ok:boolean, added:boolean, before:number, after:number, reason?:string}>}
+ */
+export async function uploadImage(page, imgPath, { tag = '[img]', force = false } = {}) {
+  await dismissModal(page);
+  // アップロード済み画像枚数。プレビューは <img> でなく、populated スロットに
+  // 削除× `a.js_delete-button`（.delete-button）が付く（2026-07-18 実機確定）。これを数える。
+  const countImgs = () => page.evaluate(() => document.querySelectorAll('a.js_delete-button, .delete-button').length);
+  const before = await countImgs();
+  if (before > 0 && !force) {
+    return { ok: true, added: false, before, after: before, reason: `既に画像 ${before} 枚あり（追加は --force-image）` };
+  }
+  const addLink = page.getByText('画像を追加', { exact: false });
+  if (!(await addLink.count())) return { ok: false, added: false, before, after: before, reason: '「画像を追加」未検出' };
+  await addLink.first().click().catch(() => {});
+  await sleep(1200);
+  const input = page.locator('input[type=file][accept*="image"]').first();
+  if (!(await input.count())) return { ok: false, added: false, before, after: before, reason: 'file input が出現しない' };
+  await input.setInputFiles(imgPath);
+  // アップロード（AJAX）完了待ち: 画像枚数が増えるまで poll
+  let after = before;
+  for (let i = 0; i < 12; i++) { await sleep(1500); after = await countImgs(); if (after > before) break; }
+  return { ok: after > before, added: after > before, before, after, reason: after > before ? undefined : 'アップロード後も画像枚数が増えない' };
+}
+
+/**
  * 送信。commit=false → 「下書きで保存」、commit=true → 「公開する」。
  * ボタンはともに button.submitButton[type=submit]。テキストで判別する。
  * @returns {Promise<{ok:boolean, action:string, url:string, reason?:string}>}

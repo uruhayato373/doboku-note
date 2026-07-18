@@ -44,10 +44,21 @@ node scripts/coconala-edit.mjs --service coconala-shindan --fields price   # 修
 - **代筆禁止・外部誘導禁止**: 出品文面の原則は `docs/reference/coconala-operations.md` §5・展開キット §2-3。
 - **フォーム仕様がドリフトしたら**: `node scripts/coconala-discover.mjs --advance --cat 12 --sub 254 --type 764` で現行 selector/選択肢を再取得し、listings の category/genreFacets を是正。
 
+## 商品画像（サービスサムネ）
+
+AI で雰囲気写真（文字なし）を生成 → satori で日本語を正確に重ねる（brand-image-system 流儀）。
+
+```
+npm run gen-image-gemini -- --out .claude/config/coconala/assets/bg-civil.png --prompt "..."  # 背景（Gemini API課金）
+npm run coconala-thumb                                                                          # 背景+文字を1200×900合成
+node scripts/coconala-edit.mjs --service <id> --service-id <n> --image <png> --commit           # coconala へアップロード
+```
+
+素材は `.claude/config/coconala/assets/`（`bg-civil.png`／`thumb-<key>.png`）。詳細は [coconala-operations.md §8](../../../docs/reference/coconala-operations.md)。
+
 ## 制約（v1 未対応・手動）
 
 - **QA（よくある質問）・有料オプション**は v1 では自動投入しない（listings に `faq`/`options` は保持済み）。必要なら公開後にココナラ UI で追加。
-- **画像**は未対応（ブランド写真プールから手動アップロード）。
 
 ## 完了条件
 
