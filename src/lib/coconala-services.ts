@@ -242,6 +242,40 @@ const SERVICES_RAW = {
     weeklyCapacity: 10,
     listedAt: '2026-07-18',
   },
+
+  // C8: 1級 二次 予想模擬試験（問題冊子＋解答解説）。唯一の未対抗セグメント「模擬試験」への参入。
+  //   源=C6 学科記述論点＋C1 出題分析から build-once 生成（新規事実ゼロ・出題保証しない）。
+  //   Red Line #10 例外運用（模試=静的1回分／会員フロー=毎月更新の予想ドリップで差別化）。
+  'coconala-1kyu-moshi-pdf': {
+    id: 'coconala-1kyu-moshi-pdf',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4317886',
+    title: '1級土木二次の予想模擬試験を送ります',
+    shortTitle: '1級 二次 予想模擬試験 PDF',
+    description:
+      '1級土木施工管理技士 第2次検定の予想模擬試験 PDF（問題冊子＋解答解説冊子）。本番形式1回分＝施工経験記述2テーマ（新形式）＋学科記述の予想問題。令和3〜7年度の出題傾向から論点を予想した自主教材で、自己採点ガイドつき。購入後トークルームで PDF をお送りします（本試験の出題を保証するものではありません）。',
+    price: '¥2,500（問題＋解答解説 PDF）',
+    priceYen: 2500,
+    examScope: ['civil-1'],
+    weeklyCapacity: 20,
+    listedAt: '2026-07-18',
+  },
+
+  // C9: 2級 二次 予想模擬試験（問題冊子＋解答解説）。C8 の2級版。
+  'coconala-2kyu-moshi-pdf': {
+    id: 'coconala-2kyu-moshi-pdf',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4317889',
+    title: '2級土木二次の予想模擬試験を送ります',
+    shortTitle: '2級 二次 予想模擬試験 PDF',
+    description:
+      '2級土木施工管理技士 第2次検定の予想模擬試験 PDF（問題冊子＋解答解説冊子）。本番形式1回分＝施工経験記述2テーマ（新形式）＋学科記述の予想問題。令和3〜7年度の出題傾向から論点を予想した自主教材で、自己採点ガイドつき。購入後トークルームで PDF をお送りします（本試験の出題を保証するものではありません）。',
+    price: '¥2,000（問題＋解答解説 PDF）',
+    priceYen: 2000,
+    examScope: ['civil-2'],
+    weeklyCapacity: 20,
+    listedAt: '2026-07-18',
+  },
 } as const satisfies Record<string, CoconalaService>;
 
 export type CoconalaServiceId = keyof typeof SERVICES_RAW;

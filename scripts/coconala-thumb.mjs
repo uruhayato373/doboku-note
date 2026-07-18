@@ -93,6 +93,18 @@ const THUMB_COPY = {
     hook: '出る順論点（頻度分析）＋書き方の型\n＋直前チェックの頻出語句',
     priceLabel: 'PDF 5本・5論点',
   },
+  'coconala-1kyu-moshi-pdf': {
+    eyebrow: '1級土木施工管理技士 ／ 第2次検定',
+    title: ['二次 予想', '模擬試験 PDF'],
+    hook: '本番形式1回分（経験記述2テーマ＋学科記述）\n＋解答解説・自己採点ガイド',
+    priceLabel: '問題＋解答解説 PDF',
+  },
+  'coconala-2kyu-moshi-pdf': {
+    eyebrow: '2級土木施工管理技士 ／ 第2次検定',
+    title: ['二次 予想', '模擬試験 PDF'],
+    hook: '本番形式1回分（経験記述2テーマ＋学科記述）\n＋解答解説・自己採点ガイド',
+    priceLabel: '問題＋解答解説 PDF',
+  },
 };
 
 function loadFonts() {

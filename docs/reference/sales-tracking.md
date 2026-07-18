@@ -125,7 +125,7 @@ npm run sales-summary -- 2026-06   # 指定月（位置引数。--month フラ�
 
 | パターン | 例 |
 |---|---|
-| ココナラ 単発サービス | `coconala:<id>`（id は `src/lib/coconala-services.ts` の id と**完全一致**）。サービス: `coconala-shindan`（¥1,500）/ `coconala-tensaku-set`（¥6,000）/ `coconala-sakusei`（¥8,000・答案作成）。コンテンツPDF: `coconala-bunseki-pdf`（¥2,500）/ `coconala-kanseitoan-pdf`（¥3,500）/ `coconala-2kyu-kanseitoan-pdf`（¥3,000）/ `coconala-1kyu-kakomon-pdf`（¥3,000）/ `coconala-2kyu-kakomon-pdf`（¥3,000）/ `coconala-1kyu-gakka-pdf`（¥2,500）/ `coconala-2kyu-gakka-pdf`（¥2,500）。全て `coconala:` 接頭辞 |
+| ココナラ 単発サービス | `coconala:<id>`（id は `src/lib/coconala-services.ts` の id と**完全一致**）。サービス: `coconala-shindan`（¥1,500）/ `coconala-tensaku-set`（¥6,000）/ `coconala-sakusei`（¥8,000・答案作成）。コンテンツPDF: `coconala-bunseki-pdf`（¥2,500）/ `coconala-kanseitoan-pdf`（¥3,500）/ `coconala-2kyu-kanseitoan-pdf`（¥3,000）/ `coconala-1kyu-kakomon-pdf`（¥3,000）/ `coconala-2kyu-kakomon-pdf`（¥3,000）/ `coconala-1kyu-gakka-pdf`（¥2,500）/ `coconala-2kyu-gakka-pdf`（¥2,500）/ `coconala-1kyu-moshi-pdf`（¥2,500・予想模試）/ `coconala-2kyu-moshi-pdf`（¥2,000・予想模試）。全て `coconala:` 接頭辞 |
 
 - **入力ソースが note と異なる**: note ダッシュボードの貼付ではなく `.claude/state/coconala/orders-log.json`（`/coconala-order` が受注時に追記）からの月次転記。
 - `price` は**手数料差引前の販売額**を記録する（note と同じ粒度。ココナラ手数料 約22% は集計時に別途考慮）。

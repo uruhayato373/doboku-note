@@ -56,6 +56,8 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 | `coconala-2kyu-kakomon-pdf` | C5 2級 経験記述 過去問模範答案 PDF 5本（R03-R07） |
 | `coconala-1kyu-gakka-pdf` | C6 1級 二次学科記述 攻略 PDF 5本（5論点） |
 | `coconala-2kyu-gakka-pdf` | C7 2級 二次学科記述 攻略 PDF 5本（5論点） |
+| `coconala-1kyu-moshi-pdf` | C8 1級 二次 予想模擬試験 PDF（問題冊子＋解答解説）。build-once の静的模試・Red Line #10 例外運用（計画 §4） |
+| `coconala-2kyu-moshi-pdf` | C9 2級 二次 予想模擬試験 PDF（問題冊子＋解答解説） |
 
 ### 2.1b 出品投入 SoT: `.claude/config/coconala-listings.json`
 
@@ -221,9 +223,9 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 | スクリプト | 役割 |
 |---|---|
 | `scripts/lib/strip-note-funnel.mjs` | note 記事から CTA コメントブロック・裸URL・note 商品誘導文・ペイウォール文を機械除去。`assertNoFunnel` で残存検査 |
-| `scripts/build-coconala-content-pdf.mjs` | `PRODUCTS` 定義（C1/C2）の源記事を strip → クリーン版を staging → `magazine-to-pdf` で PDF 生成 → **pdftotext で note.com/URL が 0件でなければ FAIL**。出力 `.claude/config/coconala/assets/pdf/*.pdf`（`CHROME_PATH=... node scripts/build-coconala-content-pdf.mjs`） |
+| `scripts/build-coconala-content-pdf.mjs` | `PRODUCTS` 定義（C1〜C9）の源を strip → クリーン版を staging → `magazine-to-pdf` で PDF 生成 → **pdftotext で note.com/URL が 0件でなければ FAIL**。出力 `.claude/config/coconala/assets/pdf/*.pdf`（`CHROME_PATH=... node scripts/build-coconala-content-pdf.mjs [--product C8]`）。C1〜C7 の源は note 記事、**C8/C9（模試）は生成 markdown**（`generated:true`・源 `.claude/config/coconala/assets/moshi-src/{C8,C9}/`・strip は冪等で二重担保） |
 
-- **納品運用**: C系（`provision_format=3`・PDF・各種定型ファイル）は**ヒアリング不要**。購入通知→トークルームで PDF を送付（C1=1本 / C2=5本）＋定型文（`orders-log` へ append）。個別相談は添削（S2）へ誘導。
+- **納品運用**: C系（`provision_format=3`・PDF・各種定型ファイル）は**ヒアリング不要**。購入通知→トークルームで PDF を送付（例: C1=1本 / C2=5本 / C8・C9 模試=問題冊子＋解答解説の2冊）＋キット §4c「C系 PDF 送付」文（`orders-log` へ append）。個別相談は添削（S2）へ誘導。
 - **KDP 安全**: 二次経験記述は Kindle Select ロック無し（土木 Kindle は一次のみ）。一次過去問PDF は Select 独占中＝coconala 化しない。
 - `magazine-to-pdf.mjs` は Mac の新 headless Chrome が exit しない事例に対応（PDF 生成済みなら timeout を成功扱い・2026-07-18）。
 

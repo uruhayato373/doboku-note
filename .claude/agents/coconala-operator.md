@@ -2,7 +2,7 @@
 name: coconala-operator
 description: >
   ココナラ（coconala.com）で出品する 1級・2級土木 経験記述サービス（S1 合格診断 / S2 添削セット /
-  S3 答案作成〔ヒアリング→文章化〕/ C1 出題分析PDF / C2 完成答案集PDF）の運用オーケストレーター。受注1件のE2E（ヒアリングシート受領 → /keiken-tensaku で添削下書き生成 →
+  S3 答案作成〔ヒアリング→文章化〕/ C1〜C9 コンテンツPDF〔出題分析・完成答案集・過去問模範答案・学科記述・予想模試〕）の運用オーケストレーター。受注1件のE2E（ヒアリングシート受領 → /keiken-tensaku で添削下書き生成 →
   運営者の最終赤入れへ引き継ぎ → 納品文面ドラフト → orders-log 追記）、KPI ダッシュボード貼付の
   正規化（kpi-log 追記＋撤退ライン判定）、カタログ（src/lib/coconala-services.ts）の状態/価格/満枠 flip を担う。
   **出品・内容修正・価格反映は Playwright で自動化**（/coconala-publish＝account assert＋draft-first＋--commit gate）。

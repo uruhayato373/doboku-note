@@ -21,9 +21,13 @@ import { stripNoteFunnel, assertNoFunnel } from './lib/strip-note-funnel.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const NOTE_BASE = join(ROOT, 'docs/note/1級・2級土木');
+// 生成物（模擬試験など note 記事を源としない商品）の markdown 置き場（＝PDF の SoT）。
+const MOSHI_BASE = join(ROOT, '.claude/config/coconala/assets/moshi-src');
 // src（例 "2級土木-施工経験記述-完成答案集/品質管理/article.md"）はマガジン名の接頭辞で
-// grade dir（1級土木/2級土木）を解決する。
-const resolveSrc = (src) => join(NOTE_BASE, src.startsWith('2級') ? '2級土木' : '1級土木', 'magazines', src);
+// grade dir（1級土木/2級土木）を解決する。generated=true は MOSHI_BASE 直下から解決。
+const resolveSrc = (src, generated) => generated
+  ? join(MOSHI_BASE, src)
+  : join(NOTE_BASE, src.startsWith('2級') ? '2級土木' : '1級土木', 'magazines', src);
 const STAGE = join(ROOT, '.tmp/coconala-pdf-src');
 const OUT_PDF = join(ROOT, '.claude/config/coconala/assets/pdf');
 const SPEC_DIR = join(ROOT, '.tmp/coconala-specs');
@@ -95,6 +99,24 @@ const PRODUCTS = {
       includeFrom: '^## (?!出典)',
     })),
   },
+  // C8: 1級 二次 予想模擬試験（問題冊子＋解答解説冊子）。源=生成 markdown（C6論点＋C1分析から）。
+  C8: {
+    label: 'coconala-1kyu-moshi-pdf',
+    generated: true,
+    articles: [
+      { src: 'C8-1級模試/問題冊子.md', out: 'coconala-C8-1級二次予想模試-問題冊子', title: '1級土木 第2次検定 予想模擬試験 問題冊子', includeFrom: '^## ' },
+      { src: 'C8-1級模試/解答解説.md', out: 'coconala-C8-1級二次予想模試-解答解説', title: '1級土木 第2次検定 予想模擬試験 解答・解説', includeFrom: '^## ' },
+    ],
+  },
+  // C9: 2級 二次 予想模擬試験（問題冊子＋解答解説冊子）。源=生成 markdown（C7論点から）。
+  C9: {
+    label: 'coconala-2kyu-moshi-pdf',
+    generated: true,
+    articles: [
+      { src: 'C9-2級模試/問題冊子.md', out: 'coconala-C9-2級二次予想模試-問題冊子', title: '2級土木 第2次検定 予想模擬試験 問題冊子', includeFrom: '^## ' },
+      { src: 'C9-2級模試/解答解説.md', out: 'coconala-C9-2級二次予想模試-解答解説', title: '2級土木 第2次検定 予想模擬試験 解答・解説', includeFrom: '^## ' },
+    ],
+  },
 };
 
 const CHROME = process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
@@ -110,7 +132,8 @@ for (const [key, prod] of Object.entries(PRODUCTS)) {
   console.log(`\n=== ${key} (${prod.label}) ===`);
   const specArticles = [];
   for (const a of prod.articles) {
-    const raw = readFileSync(resolveSrc(a.src), 'utf8');
+    const raw = readFileSync(resolveSrc(a.src, prod.generated), 'utf8');
+    // 生成物は note 導線を含まない前提だが、strip は冪等なので generated でも通して二重に担保する。
     const { clean, removed } = stripNoteFunnel(raw);
     const chk = assertNoFunnel(clean);
     if (!chk.ok) { console.error(`  ✗ ${a.out}: strip 後も funnel 残存 ${JSON.stringify(chk.hits)}`); fail++; continue; }
