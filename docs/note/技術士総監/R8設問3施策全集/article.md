@@ -14,7 +14,7 @@ cover:
   meta: "無料公開"
   chips:
     - { icon: layers, text: "a〜r 全18項目に施策" }
-    - { icon: bulb, text: "各600字・そのまま転写" }
+    - { icon: award, text: "6/1公開バンクが的中" }
     - { icon: target, text: "設問(3)の弾薬" }
 ---
 # 令和8年度 総監 記述式 設問(3) 国家施策 全集｜地方創生・全18アウトプット対応【無料】

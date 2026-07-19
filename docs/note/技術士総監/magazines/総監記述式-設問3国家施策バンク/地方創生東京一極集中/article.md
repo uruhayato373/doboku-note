@@ -15,8 +15,8 @@ cover:
       text: トレードオフ明示
     - icon: doc
       text: 答案1枚相当
-    - icon: book
-      text: 白書根拠
+    - icon: award
+      text: R8本試験で的中
   meta: '有料マガジン ／ ¥2,980'
 ---
 

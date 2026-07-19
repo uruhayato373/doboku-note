@@ -15,7 +15,7 @@ cover:
   chips:
     - { icon: bulb, text: "択一の自己採点" }
     - { icon: target, text: "記述の解答方針" }
-    - { icon: calendar, text: "来年への一歩" }
+    - { icon: award, text: "設問(3)は6/1公開で事前収録" }
 ---
 # 令和8年度 技術士総監 解答速報｜必須科目I（択一・記述）の解答方針と難易度講評【無料】
 

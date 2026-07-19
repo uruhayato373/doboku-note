@@ -15,7 +15,7 @@ cover:
   chips:
     - { icon: pen, text: "設問1〜3 全文解答" }
     - { icon: layers, text: "5管理トレードオフ" }
-    - { icon: target, text: "採点者視点つき" }
+    - { icon: award, text: "テーマは6/1公開で事前収録" }
 ---
 # 令和8年度 総監 記述式 模範解答例｜地方創生・全14立場（必須科目I-2）【無料】
 
