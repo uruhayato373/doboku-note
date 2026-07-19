@@ -42,6 +42,7 @@
       "articleGlob": "docs/note/1級・2級土木",
       "excludeDirs": ["土木もくじ", "メンバーシップ"],
       "magazineExamMatch": ["civil-1", "civil-2"],
+      "topCtaExcludeDirs": ["2級土木 受験資格と実務経験", "2級と1級どちらから受けるか", "第一次検定の独学突破"],
       "L2": { "noteId": "n4fde0f62dc20", "title": "土木もくじ", "articleDir": "docs/note/1級・2級土木/土木もくじ", "noteUrl": "https://note.com/dobokunote/n/n4fde0f62dc20" },
       "topCta": { "marker": "cta:pack-top", "text": "<!-- cta:pack-top -->\n自分の工事に近い「想定工事」を選んで5管理すべての完成答案をそろえるなら、想定工事100×5管理を全網羅した完全攻略パックが最短です。\n\nhttps://note.com/dobokunote/m/m8290970a7f05" },
       "topCtaOverrides": [

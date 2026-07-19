@@ -7,6 +7,7 @@
 //   D3 L2 もくじが L1 サイトマップから未リンク
 //   D4 L2 もくじ本文の bottomCta URL が config の L2 noteId と不一致
 //   D5 公開記事の CTA が「ライブ note に未反映」（--live のみ。ソースは正でも再投稿もれ＝今回の事故）
+//   D6 topCtaExcludeDirs 対象の記事に冒頭パック CTA マーカーが残存（除外宣言と実体のドリフト＝トピック不一致CTAの再混入）
 //
 // 真実源: .claude/config/note-funnel.json / src/lib/note-magazines.ts / docs/reference/note-funnel-architecture.md
 //
@@ -57,9 +58,16 @@ const MAGS = publishedMagazines();
 // 次行の値を拾って bleed する（未公開記事が D1/D5 をすり抜ける既存バグの修正）。
 const fm = (raw, k) => { const m = raw.match(new RegExp('^' + k + ':[ \\t]*(?:"(.*?)"|\'(.*?)\'|(.+?))[ \\t]*$', 'm')); return m ? (m[1] ?? m[2] ?? m[3] ?? '').trim() : ''; };
 
+// 冒頭パック(pack-top)は経験記述/記述式の「答案パック」を推す CTA。記事名・H1 にこれらの語が
+// 無いのに pack-top が付く＝トピック不一致の疑い。機械は relevance を断定せず surface のみ行い、
+// 最終判定は note-funnel-auditor（Evaluator）に委ねる（2026-07-19 追加。受験資格・一次段階の記事に
+// 経験記述バンク CTA が唐突に出ていた再発防止）。
+const ESSAY_SIGNALS = ['経験記述', '施工経験', '記述式', '記述', '答案', '想定工事', '5管理', '二次', '設問', 'テーマ', '工事概要', '論文', '論述', '論点', '解答', '模範', '科目', '書き分け'];
+
 const drifts = [];
 const info = [];
 const liveWarn = [];
+const reviewCandidates = [];
 let liveChecked = 0;
 
 // L1 本文（D3 用）
@@ -122,6 +130,21 @@ for (const [key, ex] of Object.entries(CONFIG.exams)) {
     if (ex.bottomCta.text && !raw.includes(ex.bottomCta.marker)) miss.push('末尾');
     if (miss.length) drifts.push(`D1 [${key}] 公開記事「${name}」に ${miss.join('・')} CTA 欠落`);
 
+    // マーカーは HTML コメント全体で厳密一致させる（bare `cta:pack-top` の部分文字列一致だと
+    // 別マーカー `cta:pack-top-light`〔ロードマップの軽量CTA〕を誤検出するため。2026-07-19）。
+    const topMarkerTag = '<!-- ' + ex.topCta.marker + ' -->';
+    // D6: 除外対象(topCtaExcludeDirs)なのに冒頭パック CTA が残存（除外宣言と実体のドリフト）
+    if (ex.topCta.text && topExcluded && raw.includes(topMarkerTag)) {
+      drifts.push(`D6 [${key}] 除外対象記事「${name}」に冒頭パック CTA が残存（topCtaExcludeDirs 指定＝ブロック除去が必要）`);
+    }
+    // surfacer（非ゲート）: 冒頭パック CTA を持つが記事名・H1 に記述系シグナル語が無い＝トピック不一致の疑い
+    if (ex.topCta.text && !topExcluded && raw.includes(topMarkerTag)) {
+      const h1 = (raw.match(/^#\s+(.+)$/m) || [])[1] || '';
+      if (!ESSAY_SIGNALS.some(s => (name + ' ' + h1).includes(s))) {
+        reviewCandidates.push(`[${key}] 「${name}」冒頭パック CTA あり・記述系シグナル語なし（→ note-funnel-auditor で要判定）`);
+      }
+    }
+
     // D5: ソースの CTA がライブ note に反映されているか（再投稿もれ検出）
     if (LIVE) {
       const noteId = fm(raw, 'noteId') || (url.match(/\/n\/([a-z0-9]+)/) || [])[1] || '';
@@ -155,6 +178,11 @@ for (const i of info) console.log('  info: ' + i);
 if (LIVE) console.log(`  live: 公開記事 ${liveChecked} 本のライブCTA反映を検証` + (liveWarn.length ? `（取得失敗 ${liveWarn.length} 本）` : ''));
 for (const w of liveWarn) console.log('  warn: ' + w);
 if (!LIVE) console.log('  hint: ライブ反映の検証は `npm run audit-note-funnel -- --live`（ソースOKでもライブ未反映=再投稿もれを検出）');
+if (reviewCandidates.length) {
+  console.log(`\n  review候補（冒頭パック CTA のトピック不一致の疑い・非ゲート／${reviewCandidates.length}件）:`);
+  for (const r of reviewCandidates) console.log('    ? ' + r);
+  console.log('    → 不一致なら該当 dir を config の topCtaExcludeDirs に追加＋<!-- cta:pack-top --> ブロックを除去（判定は note-funnel-auditor）');
+}
 if (drifts.length === 0) {
   console.log(`[audit-note-funnel] ✓ ドリフトなし（公開記事 CTA / マガジン収録 / L1-L2 リンク${LIVE ? ' / ライブ反映' : ''} 整合）`);
   process.exit(0);
@@ -163,4 +191,5 @@ console.log(`\n[audit-note-funnel] ✗ ドリフト ${drifts.length} 件:`);
 for (const d of drifts) console.log('  - ' + d);
 console.log('\n修復: D1-D4=npm run wire-note-funnel-cta -- --exam <key> --apply / L2 もくじへ追記 / L1 へ L2 リンク追記');
 console.log('      D5(ライブ未反映)=npm run note-append-cta（公開済み記事へCTA反映）/ publish-note --update');
+console.log('      D6(除外もれ)=除外対象記事から <!-- cta:pack-top --> ブロックを手動除去（config の topCtaExcludeDirs と実体を一致させる）');
 process.exit(CI ? 1 : 0);
