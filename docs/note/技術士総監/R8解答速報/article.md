@@ -1,8 +1,11 @@
 ---
 notePricing: free
-noteStatus: draft
+noteStatus: published
 noteSeries: 総監記述式
 utmCampaign: r8-sokuho
+notePublishedAt: "2026-07-19"
+noteId: "nfa8998e22a52"
+noteUrl: "https://note.com/dobokunote/n/nfa8998e22a52"
 cover:
   leadIn: "令和8年度 技術士総監"
   hi: "解答速報"

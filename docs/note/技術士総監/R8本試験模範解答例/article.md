@@ -1,8 +1,11 @@
 ---
 notePricing: free
-noteStatus: draft
+noteStatus: published
 noteSeries: 総監記述式
 utmCampaign: r8-i2-model-answer
+notePublishedAt: "2026-07-19"
+noteId: "nfe8bc37ce88e"
+noteUrl: "https://note.com/dobokunote/n/nfe8bc37ce88e"
 cover:
   leadIn: "令和8年度 技術士総監"
   hi: "模範解答例"

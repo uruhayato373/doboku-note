@@ -1,8 +1,11 @@
 ---
 notePricing: free
-noteStatus: draft
+noteStatus: published
 noteSeries: 総監記述式
 utmCampaign: r8-s3-zenshu
+notePublishedAt: "2026-07-19"
+noteId: "nce1ea1317eab"
+noteUrl: "https://note.com/dobokunote/n/nce1ea1317eab"
 cover:
   leadIn: "令和8年度 技術士総監 記述式"
   hi: "設問(3)"
