@@ -34,6 +34,8 @@ const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
 const COMMIT = argv.includes('--commit');
+const FORCE = argv.includes('--force'); // 既存PDFカードがあっても添付する（1記事に複数PDFを順に添付する用）
+let wasFreeArticle = false; // 無料記事（有料エリア設定なし）を検出したら true。後段の有料維持検証をスキップ。
 const NOTE = getArg('--note');
 const FILE = getArg('--file');
 if (!NOTE || !FILE) { console.error('--note <key> --file <pdf> required'); process.exit(1); }
@@ -86,8 +88,8 @@ try {
     console.log('PROBE のみ（--commit で添付保存）'); await ctx.close(); process.exit(0);
   }
 
-  // ===== COMMIT: （未添付なら）ファイル添付 → 再公開 =====
-  if (!already) {
+  // ===== COMMIT: （未添付 or --force なら）ファイル添付 → 再公開 =====
+  if (!already || FORCE) {
     // 3. 本文末尾へ → 空段落 →「+」→ ファイル → native filechooser で PDF
     //    ※ Control+End は Windows 専用ショートカットで Mac では効かず、caret が先頭のまま
     //      PDF が本文先頭（＝無料プレビュー内）に挿入され有料PDFが無料流出する事故になる
@@ -139,7 +141,13 @@ try {
   //     変更ボタンなら（線が無い/ズレている）クリックして直前へ寄せる。崩れたら再公開しない。
   let boundaryOk = false;
   const area = page.getByRole('button', { name: '有料エリア設定' });
-  if (!(await area.count())) { console.error('ABORT: 有料エリア設定 未検出'); await ctx.close(); process.exit(6); }
+  if (!(await area.count())) {
+    // 無料記事（notePricing: free）: 有料エリア設定が存在しない。paywall が無いため
+    // 境界検証は不要（無料漏れリスクなし）。そのまま投稿/更新へ進む（note-publish の isPaid 分岐と同型）。
+    console.log('[5b] 有料エリア設定なし＝無料記事 → 境界検証スキップ（paywall無し）');
+    boundaryOk = true;
+    wasFreeArticle = true;
+  } else {
   await area.first().click(); await sleep(3500);
   // 有料エリアビューの描画待ち（試験問題 h2 と ライン制御が両方出るまで・偽 NG 防止）
   let viewReady = false;
@@ -190,6 +198,7 @@ try {
   boundaryOk = v.boundaryBeforeExam;
   await page.screenshot({ path: join(ROOT, '.tmp/attach-boundary.png') }).catch(() => {});
   if (!boundaryOk) { console.error('[5b] ★中断: 境界検証 NG → 再公開しない（無料漏れ防止）★'); await ctx.close(); process.exit(8); }
+  } // end else（有料記事の境界検証ブロック）
 
   // 6. 投稿する/更新する（境界確定後に出現）
   await sleep(800);
@@ -208,8 +217,11 @@ try {
   await page.screenshot({ path: join(ROOT, '.tmp/attach-done.png'), fullPage: false }).catch(() => {});
 } finally { await ctx.close(); }
 
-// ===== 偽成功ガード: 公開ページで「有料のまま」を実体検証 =====
-if (COMMIT && exitCode === 0) {
+// ===== 偽成功ガード: 公開ページで「有料のまま」を実体検証（無料記事は非該当） =====
+if (COMMIT && exitCode === 0 && wasFreeArticle) {
+  console.log('\n[検証] 無料記事のため有料維持チェックはスキップ（添付＋再公開は完了）');
+}
+if (COMMIT && exitCode === 0 && !wasFreeArticle) {
   console.log('\n[検証] 公開ページで有料維持を実体確認');
   const r = spawnSync('curl', ['-sS', '-m', '40', '--ssl-no-revoke', '-L', '-H', 'User-Agent: Mozilla/5.0', `https://note.com/dobokunote/n/${NOTE}`], { encoding: 'utf-8', maxBuffer: 64 * 1024 * 1024 });
   const html = r.stdout || '';
