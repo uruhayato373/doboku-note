@@ -17,7 +17,7 @@ argument-hint: "--dir <magazineDir> [--commit]   (単記事: scripts/note-attach
 
 - **【最重要】note のファイルアップロードは 1日100件上限**（2026-06-16 実証＝建設部門BK のPDF添453 を 18×5＋10 で100に達し、以降が全 ABORT「ファイルカード未検出」）。**1マガジン=18 PDF なので 1日あたり最大5マガジン**（余裕を見て4）まで。超過分は翌日に持ち越し（done-log＋per-article 冪等で自動再開、再公開は upload を消費しない）。失敗が「embedsBefore==embedsAfter・pdfVisible=false」で連続するときは**上限到達を疑う**（PDF破損やセレクタ不良ではない）。
 - 記事本文に「**印刷用PDF｜本記事の模範解答**」節（説明文）があっても、**PDF ファイル本体は別途 note エディタで添付**しないと出ない（markdown では貼れない）。本スキルがその添付を自動化。
-- PDF は**本文末尾＝有料エリア内**（購入者のみダウンロード可）。
+- PDF は**既定で本文末尾**（有料記事なら有料エリア内＝購入者のみ可）。**`--anchor "<段落テキスト>"` で指定段落の直後に挿入**でき、無料記事で各セクション内に PDF を配置する用途に使う（未指定＝末尾／未検出＝exit 7 ABORT で誤挿入防止・複数を順に積むときは `--force` 併用）。
 - **note の公開ボタン「更新する／投稿する」は公開設定ページに無く、有料エリア設定ビューに出現する**。既存の有料線は「このラインより先を有料にする」**バー**で表示され、その位置には「ラインをこの場所に変更」ボタンが無い → **試験問題/予想問題直前の制御がバーなら触らない・変更ボタンなら寄せる**（さもないと正しい線を動かす）。
 
 ## 使い方
@@ -29,7 +29,10 @@ node scripts/note-attach-magazine-pdfs.mjs --dir <magazineDir> --commit   # 実�
 
 # 1記事だけ（単体ツール）
 node scripts/note-attach-file.mjs --note <noteKey> --file <pdf path>            # probe（挿入メニュー構造ダンプ）
-node scripts/note-attach-file.mjs --note <noteKey> --file <pdf path> --commit   # 実添付
+node scripts/note-attach-file.mjs --note <noteKey> --file <pdf path> --commit   # 実添付（既定＝本文末尾へ）
+
+# 各セクション内に配置（無料記事など）: 指定テキストを含む最小段落の直後へ挿入（未検出は exit 7 ABORT＝誤挿入防止）
+node scripts/note-attach-file.mjs --note <noteKey> --file <pdf path> --anchor "<段落の一部>" --commit --force
 ```
 
 - マッピング: `<magazineDir>/<year>/article-<type>.md` の frontmatter `noteId` と同 dir の PDF（II1→`/-II-1-/` ・II2→`/-II-2-/` ・III→`/-III-/`）を突合。noteId 無し（未公開）はスキップ。
@@ -37,7 +40,7 @@ node scripts/note-attach-file.mjs --note <noteKey> --file <pdf path> --commit   
 ## フロー（実機確定・2026-06-16）
 
 1. account=dobokunote ゲート（**ページ描画遅延に強い polling**・偽 ABORT 防止）
-2. `editor.note.com/notes/{key}/edit` → 本文末尾へ（Ctrl+End→Enter）→「+」（aria-label「メニューを開く」）→「ファイル」→ native filechooser で PDF
+2. `editor.note.com/notes/{key}/edit` → 挿入位置へ caret 移動（既定＝本文末尾を JS で選択／`--anchor` 指定時は当該段落の直後・未検出は ABORT）→ Enter →「+」（aria-label「メニューを開く」）→「ファイル」→ native filechooser で PDF
 3. アップロード成功検証（埋め込み数増 or `.pdf` 出現）→「公開に進む」
 4. 「有料エリア設定」→ **有料エリアビューの描画待ち**→ 既存境界を**非破壊検証**（試験問題/予想問題直前=between0・崩れたら中断）→「更新する」
 5. 偽成功ガード: 公開ページを curl して**有料維持**（`購入手続き` 等）を実体確認
