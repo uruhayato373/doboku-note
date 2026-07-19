@@ -36,6 +36,30 @@ try {
   await sleep(4000);
   console.log('[1] プロフィール編集:', page.url());
 
+  // セクション見出し近傍の鉛筆（.d-profileItemControlButton・32px小型ボタン）をクリックして
+  // 編集フォームを展開する（2026-07-20 UI変更対応: フィールドは初期描画に存在せず、
+  // 鉛筆クリックで input/textarea が出現するインライン編集型になった）。
+  // ナビ誤爆検知として URL 不変を assert する。
+  async function openSection(headingText) {
+    const urlBefore = page.url();
+    const r = await page.evaluate((headingText) => {
+      const head = Array.from(document.querySelectorAll('*')).find((e) => e.childElementCount === 0 && (e.innerText || '').trim() === headingText);
+      if (!head) return 'heading なし';
+      const hy = head.getBoundingClientRect().top + window.scrollY;
+      const cands = Array.from(document.querySelectorAll('button, [role="button"]'))
+        .map((b) => { const rc = b.getBoundingClientRect(); return { b, top: rc.top + window.scrollY, left: rc.left, w: rc.width, h: rc.height }; })
+        .filter((c) => c.w > 0 && c.w < 60 && c.h < 60 && c.top > hy - 10 && c.top < hy + 160)
+        .sort((a, z) => z.left - a.left);
+      if (!cands.length) return '鉛筆なし';
+      cands[0].b.scrollIntoView({ block: 'center' });
+      cands[0].b.click();
+      return 'opened';
+    }, headingText);
+    await sleep(2500);
+    if (page.url() !== urlBefore) return `ナビ誤爆 → ${page.url()}`;
+    return r;
+  }
+
   // placeholder でフィールドを特定して Vue の v-model へ反映（input/keyup/change/blur）
   async function fillByPlaceholder(tag, phPart, value) {
     const ok = await page.evaluate(({ tag, phPart, value }) => {
@@ -64,10 +88,13 @@ try {
     }, { tag, phPart });
   }
 
+  // 各セクションを鉛筆で展開してから fill（2026-07-20 UI変更対応）
+  const o1 = await openSection('職業・業務領域');
   const r1 = await fillByPlaceholder('input', '広告クリエイター', p.job);
+  const o2 = await openSection('自己紹介');
   const r2 = await fillByPlaceholder('input', '思いを伝える', p.appeal);
   const r3 = await fillByPlaceholder('textarea', 'ロゴデザインを', p.bio);
-  console.log(`[2] fill 職業=${r1} アピール=${r2} 自己紹介文=${r3}`);
+  console.log(`[2] 展開 職業=${o1} 自己紹介=${o2} / fill 職業=${r1} アピール=${r2} 自己紹介文=${r3}`);
   await sleep(800);
   await page.screenshot({ path: join(ROOT, '.tmp/coconala/profile-filled.png'), fullPage: true }).catch(() => {});
 
