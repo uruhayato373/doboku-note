@@ -232,7 +232,9 @@ async function tocInsertOnce(page) {
   await page.mouse.click(box.x, box.y); await sleep(1800);
   const toc = page.locator('#toc-setting');
   if (!(await toc.count())) { console.log('[4.5] 目次ボタン(#toc-setting) 未検出'); return false; }
-  await toc.first().click({ timeout: 8000 }); await sleep(2000);
+  // 大記事では editor 再描画で Playwright の actionability 待ちが 8s タイムアウトする。
+  // DOM native click で stability 待ちを回避（note-attach/境界処理と同型）。
+  await page.evaluate(() => document.querySelector('#toc-setting')?.click()); await sleep(2000);
   return true;
 }
 
