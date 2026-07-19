@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "generated_at": "2026-07-17T01:36:23.978Z",
+  "generated_at": "2026-07-19T11:06:18.463Z",
   "summary": {
-    "total": 1111,
-    "published": 1069,
+    "total": 1113,
+    "published": 1071,
     "unpublished": 42,
     "by_category": {
       "civil-construction-1": 134,
       "civil-construction-2": 41,
       "concrete-chief-engineer": 19,
-      "pe-comprehensive-management": 724,
+      "pe-comprehensive-management": 726,
       "pe-construction": 130,
       "pe-first-stage": 21
     }
@@ -5757,7 +5757,7 @@
       "published": true,
       "publishedAt": "2026-05-30T00:00:00.000Z",
       "created": "2026-05-30",
-      "dateModified": "2026-07-16",
+      "dateModified": "2026-07-17",
       "tags": [
         "primary",
         "past-questions"
@@ -5778,7 +5778,7 @@
       "published": true,
       "publishedAt": "2026-05-30T00:00:00.000Z",
       "created": "2026-05-30",
-      "dateModified": "2026-07-14",
+      "dateModified": "2026-07-17",
       "section": 3,
       "tags": [
         "primary",
@@ -5799,7 +5799,7 @@
       "published": true,
       "publishedAt": "2026-05-30T00:00:00.000Z",
       "created": "2026-05-29",
-      "dateModified": "2026-07-16",
+      "dateModified": "2026-07-17",
       "tags": [
         "primary",
         "past-questions"
@@ -5820,7 +5820,7 @@
       "published": true,
       "publishedAt": "2026-05-30T00:00:00.000Z",
       "created": "2026-05-30",
-      "dateModified": "2026-07-16",
+      "dateModified": "2026-07-17",
       "tags": [
         "primary",
         "past-questions"
@@ -5841,7 +5841,7 @@
       "published": true,
       "publishedAt": "2026-05-30T00:00:00.000Z",
       "created": "2026-05-30",
-      "dateModified": "2026-07-16",
+      "dateModified": "2026-07-17",
       "tags": [
         "primary",
         "past-questions"
@@ -5862,7 +5862,7 @@
       "published": true,
       "publishedAt": "2026-05-30T00:00:00.000Z",
       "created": "2026-05-30",
-      "dateModified": "2026-07-10",
+      "dateModified": "2026-07-17",
       "section": 7,
       "tags": [
         "primary",
@@ -5883,7 +5883,7 @@
       "published": true,
       "publishedAt": "2026-05-30T00:00:00.000Z",
       "created": "2026-05-30",
-      "dateModified": "2026-07-14",
+      "dateModified": "2026-07-17",
       "tags": [
         "primary",
         "past-questions"
@@ -5904,7 +5904,7 @@
       "published": true,
       "publishedAt": "2026-05-30T00:00:00.000Z",
       "created": "2026-05-30",
-      "dateModified": "2026-07-16",
+      "dateModified": "2026-07-17",
       "tags": [
         "primary",
         "past-questions"
@@ -16793,6 +16793,46 @@
       "dateModified": "2026-06-29",
       "ogp": {
         "title": "令和7年度 記述式"
+      }
+    },
+    "pe-comprehensive-management-r08-primary": {
+      "title": "技術士二次試験 総合技術監理部門 令和8年度 択一式",
+      "description": "技術士二次試験 総合技術監理部門 令和8年度 択一式（必須科目I-1）の全40問と暫定解答解説。5つの管理分野を収録。公式正答発表前の暫定版。",
+      "shortTitle": "令和8年度 択一式",
+      "type": "技術基準",
+      "category": "pe-comprehensive-management",
+      "group": "past-exam",
+      "tags": [
+        "技術士（総合技術監理部門）",
+        "択一式",
+        "令和8年度"
+      ],
+      "created": "2026-07-19T00:00:00.000Z",
+      "published": true,
+      "publishedAt": "2026-07-19T00:00:00.000Z",
+      "seoTitle": "技術士二次試験 総合技術監理部門 令和8年度 択一式 ｜ 技術士 総合技術監理部門 キーワード集",
+      "dateModified": "2026-07-19T00:00:00.000Z",
+      "ogp": {
+        "title": "令和8年度 択一式"
+      }
+    },
+    "pe-comprehensive-management-r08-secondary": {
+      "title": "技術士二次試験 総合技術監理部門 令和8年度 記述式",
+      "description": "技術士二次試験 総合技術監理部門 令和8年度 記述式（必須科目I-2）の問題文と総合技術監理の視点からの解答方針を整理。テーマは地方創生。本記事で論文対策の出題傾向を確認できる。",
+      "shortTitle": "令和8年度 記述式",
+      "type": "技術基準",
+      "category": "pe-comprehensive-management",
+      "group": "past-exam",
+      "tags": [
+        "past-questions"
+      ],
+      "created": "2026-07-19T00:00:00.000Z",
+      "published": true,
+      "publishedAt": "2026-07-19T00:00:00.000Z",
+      "seoTitle": "技術士二次試験 総合技術監理部門 令和8年度 記述式 ｜ 技術士 総合技術監理部門 キーワード集",
+      "dateModified": "2026-07-19T00:00:00.000Z",
+      "ogp": {
+        "title": "令和8年度 記述式"
       }
     },
     "pe-comprehensive-management-r8-essay-keyword-forecast": {

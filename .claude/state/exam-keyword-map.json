@@ -3930,6 +3930,163 @@
         "eco-action-21",
         "iso-26000"
       ]
+    },
+    "r08-primary": {
+      "1-1": [
+        "equipment-characteristics",
+        "ergonomic-principles"
+      ],
+      "1-2": [
+        "payback-period-method",
+        "depreciation-residual-value"
+      ],
+      "1-3": [
+        "quality-costing",
+        "standard-costing"
+      ],
+      "1-4": [
+        "service-quality",
+        "required-quality"
+      ],
+      "1-5": [
+        "cash-flow-statement"
+      ],
+      "1-6": [
+        "demand-forecasting",
+        "linear-regression"
+      ],
+      "1-7": [
+        "lead-time",
+        "load-leveling"
+      ],
+      "1-8": [
+        "pert-cpm",
+        "gantt-chart"
+      ],
+      "1-9": [
+        "worker-dispatch-act",
+        "power-harassment"
+      ],
+      "1-10": [
+        "labor-union-act",
+        "labor-relations-adjustment-act"
+      ],
+      "1-11": [
+        "side-jobs",
+        "workers-compensation-insurance"
+      ],
+      "1-12": [
+        "disability-employment-act",
+        "minimum-wage-act"
+      ],
+      "1-13": [
+        "pyramid-organization",
+        "flat-organization"
+      ],
+      "1-14": [
+        "psychological-safety",
+        "wellbeing-org"
+      ],
+      "1-15": [
+        "job-type-employment",
+        "membership-type-employment"
+      ],
+      "1-16": [
+        "ojt-off-jt",
+        "self-development"
+      ],
+      "1-17": [
+        "citizen-participation",
+        "public-acceptance"
+      ],
+      "1-18": [
+        "personal-info-protection",
+        "anonymized-information"
+      ],
+      "1-19": [
+        "cloud-on-premises",
+        "web-services"
+      ],
+      "1-20": [
+        "data-governance",
+        "business-intelligence"
+      ],
+      "1-21": [
+        "generative-ai",
+        "machine-learning"
+      ],
+      "1-22": [
+        "four-p-analysis",
+        "market-research"
+      ],
+      "1-23": [
+        "encryption-digital-signature",
+        "non-repudiation"
+      ],
+      "1-24": [
+        "digital-twin-cps",
+        "iot"
+      ],
+      "1-25": [
+        "accident-statistics"
+      ],
+      "1-26": [
+        "occupational-safety-act",
+        "health-management"
+      ],
+      "1-27": [
+        "ics"
+      ],
+      "1-28": [
+        "fmea",
+        "fta"
+      ],
+      "1-29": [
+        "risk-assessment",
+        "safety-health-org-structure"
+      ],
+      "1-30": [
+        "health-management",
+        "occupational-safety-act"
+      ],
+      "1-31": [
+        "preventive-maintenance",
+        "predictive-maintenance"
+      ],
+      "1-32": [
+        "defense-in-depth"
+      ],
+      "1-33": [
+        "un-human-environment-conf",
+        "sdgs"
+      ],
+      "1-34": [
+        "carbon-pricing",
+        "carbon-neutral"
+      ],
+      "1-35": [
+        "kunming-montreal-framework",
+        "ipbes"
+      ],
+      "1-36": [
+        "circular-society-basic-act",
+        "waste-management-act"
+      ],
+      "1-37": [
+        "pops-convention",
+        "chemical-substances-review-act"
+      ],
+      "1-38": [
+        "environmental-basic-plan",
+        "extended-producer-responsibility"
+      ],
+      "1-39": [
+        "environmental-impact-assessment"
+      ],
+      "1-40": [
+        "csr",
+        "sri"
+      ]
     }
   }
 }

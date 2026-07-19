@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-07-17T01:36:25.116Z",
+  "generated_at": "2026-07-19T11:06:19.519Z",
   "source": {
     "exam_question_keywords": "src/config/exam-question-keywords.json",
     "keyword_2026": ".local/r2/posts/pe-comprehensive-management/keyword-2026/article.mdx"
@@ -8,8 +8,112 @@
   "pillars": {
     "economic": {
       "label": "経済性管理",
-      "total": 201,
+      "total": 212,
       "by_year": [
+        {
+          "year": "r08",
+          "exam_slug": "pe-comprehensive-management-r08-primary",
+          "questions": [
+            {
+              "num": "1-1",
+              "heading": "Ⅰ-1-1",
+              "anchor": "1-1",
+              "keywords": [
+                "equipment-characteristics",
+                "ergonomic-principles"
+              ]
+            },
+            {
+              "num": "1-2",
+              "heading": "Ⅰ-1-2",
+              "anchor": "1-2",
+              "keywords": [
+                "payback-period-method",
+                "depreciation-residual-value"
+              ]
+            },
+            {
+              "num": "1-3",
+              "heading": "Ⅰ-1-3",
+              "anchor": "1-3",
+              "keywords": [
+                "quality-costing",
+                "standard-costing"
+              ]
+            },
+            {
+              "num": "1-4",
+              "heading": "Ⅰ-1-4",
+              "anchor": "1-4",
+              "keywords": [
+                "service-quality",
+                "required-quality"
+              ]
+            },
+            {
+              "num": "1-5",
+              "heading": "Ⅰ-1-5",
+              "anchor": "1-5",
+              "keywords": [
+                "cash-flow-statement"
+              ]
+            },
+            {
+              "num": "1-6",
+              "heading": "Ⅰ-1-6",
+              "anchor": "1-6",
+              "keywords": [
+                "demand-forecasting",
+                "linear-regression"
+              ]
+            },
+            {
+              "num": "1-7",
+              "heading": "Ⅰ-1-7",
+              "anchor": "1-7",
+              "keywords": [
+                "lead-time",
+                "load-leveling"
+              ]
+            },
+            {
+              "num": "1-8",
+              "heading": "Ⅰ-1-8",
+              "anchor": "1-8",
+              "keywords": [
+                "pert-cpm",
+                "gantt-chart"
+              ]
+            },
+            {
+              "num": "1-22",
+              "heading": "Ⅰ-1-22",
+              "anchor": "1-22",
+              "keywords": [
+                "four-p-analysis",
+                "market-research"
+              ]
+            },
+            {
+              "num": "1-29",
+              "heading": "Ⅰ-1-29",
+              "anchor": "1-29",
+              "keywords": [
+                "risk-assessment",
+                "safety-health-org-structure"
+              ]
+            },
+            {
+              "num": "1-31",
+              "heading": "Ⅰ-1-31",
+              "anchor": "1-31",
+              "keywords": [
+                "preventive-maintenance",
+                "predictive-maintenance"
+              ]
+            }
+          ]
+        },
         {
           "year": "r07",
           "exam_slug": "pe-comprehensive-management-r07-primary",
@@ -2273,8 +2377,104 @@
     },
     "human-resource": {
       "label": "人的資源管理",
-      "total": 174,
+      "total": 184,
       "by_year": [
+        {
+          "year": "r08",
+          "exam_slug": "pe-comprehensive-management-r08-primary",
+          "questions": [
+            {
+              "num": "1-9",
+              "heading": "Ⅰ-1-9",
+              "anchor": "1-9",
+              "keywords": [
+                "worker-dispatch-act",
+                "power-harassment"
+              ]
+            },
+            {
+              "num": "1-10",
+              "heading": "Ⅰ-1-10",
+              "anchor": "1-10",
+              "keywords": [
+                "labor-union-act",
+                "labor-relations-adjustment-act"
+              ]
+            },
+            {
+              "num": "1-11",
+              "heading": "Ⅰ-1-11",
+              "anchor": "1-11",
+              "keywords": [
+                "side-jobs",
+                "workers-compensation-insurance"
+              ]
+            },
+            {
+              "num": "1-12",
+              "heading": "Ⅰ-1-12",
+              "anchor": "1-12",
+              "keywords": [
+                "disability-employment-act",
+                "minimum-wage-act"
+              ]
+            },
+            {
+              "num": "1-13",
+              "heading": "Ⅰ-1-13",
+              "anchor": "1-13",
+              "keywords": [
+                "pyramid-organization",
+                "flat-organization"
+              ]
+            },
+            {
+              "num": "1-14",
+              "heading": "Ⅰ-1-14",
+              "anchor": "1-14",
+              "keywords": [
+                "psychological-safety",
+                "wellbeing-org"
+              ]
+            },
+            {
+              "num": "1-15",
+              "heading": "Ⅰ-1-15",
+              "anchor": "1-15",
+              "keywords": [
+                "job-type-employment",
+                "membership-type-employment"
+              ]
+            },
+            {
+              "num": "1-16",
+              "heading": "Ⅰ-1-16",
+              "anchor": "1-16",
+              "keywords": [
+                "ojt-off-jt",
+                "self-development"
+              ]
+            },
+            {
+              "num": "1-26",
+              "heading": "Ⅰ-1-26",
+              "anchor": "1-26",
+              "keywords": [
+                "occupational-safety-act",
+                "health-management"
+              ]
+            },
+            {
+              "num": "1-30",
+              "heading": "Ⅰ-1-30",
+              "anchor": "1-30",
+              "keywords": [
+                "health-management",
+                "occupational-safety-act"
+              ]
+            }
+          ]
+        },
         {
           "year": "r07",
           "exam_slug": "pe-comprehensive-management-r07-primary",
@@ -4255,8 +4455,95 @@
     },
     "information": {
       "label": "情報管理",
-      "total": 181,
+      "total": 190,
       "by_year": [
+        {
+          "year": "r08",
+          "exam_slug": "pe-comprehensive-management-r08-primary",
+          "questions": [
+            {
+              "num": "1-6",
+              "heading": "Ⅰ-1-6",
+              "anchor": "1-6",
+              "keywords": [
+                "demand-forecasting",
+                "linear-regression"
+              ]
+            },
+            {
+              "num": "1-17",
+              "heading": "Ⅰ-1-17",
+              "anchor": "1-17",
+              "keywords": [
+                "citizen-participation",
+                "public-acceptance"
+              ]
+            },
+            {
+              "num": "1-18",
+              "heading": "Ⅰ-1-18",
+              "anchor": "1-18",
+              "keywords": [
+                "personal-info-protection",
+                "anonymized-information"
+              ]
+            },
+            {
+              "num": "1-19",
+              "heading": "Ⅰ-1-19",
+              "anchor": "1-19",
+              "keywords": [
+                "cloud-on-premises",
+                "web-services"
+              ]
+            },
+            {
+              "num": "1-20",
+              "heading": "Ⅰ-1-20",
+              "anchor": "1-20",
+              "keywords": [
+                "data-governance",
+                "business-intelligence"
+              ]
+            },
+            {
+              "num": "1-21",
+              "heading": "Ⅰ-1-21",
+              "anchor": "1-21",
+              "keywords": [
+                "generative-ai",
+                "machine-learning"
+              ]
+            },
+            {
+              "num": "1-22",
+              "heading": "Ⅰ-1-22",
+              "anchor": "1-22",
+              "keywords": [
+                "four-p-analysis",
+                "market-research"
+              ]
+            },
+            {
+              "num": "1-23",
+              "heading": "Ⅰ-1-23",
+              "anchor": "1-23",
+              "keywords": [
+                "encryption-digital-signature",
+                "non-repudiation"
+              ]
+            },
+            {
+              "num": "1-24",
+              "heading": "Ⅰ-1-24",
+              "anchor": "1-24",
+              "keywords": [
+                "digital-twin-cps",
+                "iot"
+              ]
+            }
+          ]
+        },
         {
           "year": "r07",
           "exam_slug": "pe-comprehensive-management-r07-primary",
@@ -6293,8 +6580,65 @@
     },
     "safety": {
       "label": "安全管理",
-      "total": 166,
+      "total": 172,
       "by_year": [
+        {
+          "year": "r08",
+          "exam_slug": "pe-comprehensive-management-r08-primary",
+          "questions": [
+            {
+              "num": "1-1",
+              "heading": "Ⅰ-1-1",
+              "anchor": "1-1",
+              "keywords": [
+                "equipment-characteristics",
+                "ergonomic-principles"
+              ]
+            },
+            {
+              "num": "1-25",
+              "heading": "Ⅰ-1-25",
+              "anchor": "1-25",
+              "keywords": [
+                "accident-statistics"
+              ]
+            },
+            {
+              "num": "1-27",
+              "heading": "Ⅰ-1-27",
+              "anchor": "1-27",
+              "keywords": [
+                "ics"
+              ]
+            },
+            {
+              "num": "1-28",
+              "heading": "Ⅰ-1-28",
+              "anchor": "1-28",
+              "keywords": [
+                "fmea",
+                "fta"
+              ]
+            },
+            {
+              "num": "1-29",
+              "heading": "Ⅰ-1-29",
+              "anchor": "1-29",
+              "keywords": [
+                "risk-assessment",
+                "safety-health-org-structure"
+              ]
+            },
+            {
+              "num": "1-32",
+              "heading": "Ⅰ-1-32",
+              "anchor": "1-32",
+              "keywords": [
+                "defense-in-depth"
+              ]
+            }
+          ]
+        },
         {
           "year": "r07",
           "exam_slug": "pe-comprehensive-management-r07-primary",
@@ -8216,8 +8560,85 @@
     },
     "social-environment": {
       "label": "社会環境管理",
-      "total": 146,
+      "total": 154,
       "by_year": [
+        {
+          "year": "r08",
+          "exam_slug": "pe-comprehensive-management-r08-primary",
+          "questions": [
+            {
+              "num": "1-33",
+              "heading": "Ⅰ-1-33",
+              "anchor": "1-33",
+              "keywords": [
+                "un-human-environment-conf",
+                "sdgs"
+              ]
+            },
+            {
+              "num": "1-34",
+              "heading": "Ⅰ-1-34",
+              "anchor": "1-34",
+              "keywords": [
+                "carbon-pricing",
+                "carbon-neutral"
+              ]
+            },
+            {
+              "num": "1-35",
+              "heading": "Ⅰ-1-35",
+              "anchor": "1-35",
+              "keywords": [
+                "kunming-montreal-framework",
+                "ipbes"
+              ]
+            },
+            {
+              "num": "1-36",
+              "heading": "Ⅰ-1-36",
+              "anchor": "1-36",
+              "keywords": [
+                "circular-society-basic-act",
+                "waste-management-act"
+              ]
+            },
+            {
+              "num": "1-37",
+              "heading": "Ⅰ-1-37",
+              "anchor": "1-37",
+              "keywords": [
+                "pops-convention",
+                "chemical-substances-review-act"
+              ]
+            },
+            {
+              "num": "1-38",
+              "heading": "Ⅰ-1-38",
+              "anchor": "1-38",
+              "keywords": [
+                "environmental-basic-plan",
+                "extended-producer-responsibility"
+              ]
+            },
+            {
+              "num": "1-39",
+              "heading": "Ⅰ-1-39",
+              "anchor": "1-39",
+              "keywords": [
+                "environmental-impact-assessment"
+              ]
+            },
+            {
+              "num": "1-40",
+              "heading": "Ⅰ-1-40",
+              "anchor": "1-40",
+              "keywords": [
+                "csr",
+                "sri"
+              ]
+            }
+          ]
+        },
         {
           "year": "r07",
           "exam_slug": "pe-comprehensive-management-r07-primary",

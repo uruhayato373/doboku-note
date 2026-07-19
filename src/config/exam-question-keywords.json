@@ -5969,5 +5969,282 @@
         "iso-26000"
       ]
     }
+  },
+  "pe-comprehensive-management-r08-primary": {
+    "1-1": {
+      "heading": "Ⅰ-1-1",
+      "slugs": [
+        "equipment-characteristics",
+        "ergonomic-principles"
+      ]
+    },
+    "1-2": {
+      "heading": "Ⅰ-1-2",
+      "slugs": [
+        "payback-period-method",
+        "depreciation-residual-value"
+      ]
+    },
+    "1-3": {
+      "heading": "Ⅰ-1-3",
+      "slugs": [
+        "quality-costing",
+        "standard-costing"
+      ]
+    },
+    "1-4": {
+      "heading": "Ⅰ-1-4",
+      "slugs": [
+        "service-quality",
+        "required-quality"
+      ]
+    },
+    "1-5": {
+      "heading": "Ⅰ-1-5",
+      "slugs": [
+        "cash-flow-statement"
+      ]
+    },
+    "1-6": {
+      "heading": "Ⅰ-1-6",
+      "slugs": [
+        "demand-forecasting",
+        "linear-regression"
+      ]
+    },
+    "1-7": {
+      "heading": "Ⅰ-1-7",
+      "slugs": [
+        "lead-time",
+        "load-leveling"
+      ]
+    },
+    "1-8": {
+      "heading": "Ⅰ-1-8",
+      "slugs": [
+        "pert-cpm",
+        "gantt-chart"
+      ]
+    },
+    "1-9": {
+      "heading": "Ⅰ-1-9",
+      "slugs": [
+        "worker-dispatch-act",
+        "power-harassment"
+      ]
+    },
+    "1-10": {
+      "heading": "Ⅰ-1-10",
+      "slugs": [
+        "labor-union-act",
+        "labor-relations-adjustment-act"
+      ]
+    },
+    "1-11": {
+      "heading": "Ⅰ-1-11",
+      "slugs": [
+        "side-jobs",
+        "workers-compensation-insurance"
+      ]
+    },
+    "1-12": {
+      "heading": "Ⅰ-1-12",
+      "slugs": [
+        "disability-employment-act",
+        "minimum-wage-act"
+      ]
+    },
+    "1-13": {
+      "heading": "Ⅰ-1-13",
+      "slugs": [
+        "pyramid-organization",
+        "flat-organization"
+      ]
+    },
+    "1-14": {
+      "heading": "Ⅰ-1-14",
+      "slugs": [
+        "psychological-safety",
+        "wellbeing-org"
+      ]
+    },
+    "1-15": {
+      "heading": "Ⅰ-1-15",
+      "slugs": [
+        "job-type-employment",
+        "membership-type-employment"
+      ]
+    },
+    "1-16": {
+      "heading": "Ⅰ-1-16",
+      "slugs": [
+        "ojt-off-jt",
+        "self-development"
+      ]
+    },
+    "1-17": {
+      "heading": "Ⅰ-1-17",
+      "slugs": [
+        "citizen-participation",
+        "public-acceptance"
+      ]
+    },
+    "1-18": {
+      "heading": "Ⅰ-1-18",
+      "slugs": [
+        "personal-info-protection",
+        "anonymized-information"
+      ]
+    },
+    "1-19": {
+      "heading": "Ⅰ-1-19",
+      "slugs": [
+        "cloud-on-premises",
+        "web-services"
+      ]
+    },
+    "1-20": {
+      "heading": "Ⅰ-1-20",
+      "slugs": [
+        "data-governance",
+        "business-intelligence"
+      ]
+    },
+    "1-21": {
+      "heading": "Ⅰ-1-21",
+      "slugs": [
+        "generative-ai",
+        "machine-learning"
+      ]
+    },
+    "1-22": {
+      "heading": "Ⅰ-1-22",
+      "slugs": [
+        "four-p-analysis",
+        "market-research"
+      ]
+    },
+    "1-23": {
+      "heading": "Ⅰ-1-23",
+      "slugs": [
+        "encryption-digital-signature",
+        "non-repudiation"
+      ]
+    },
+    "1-24": {
+      "heading": "Ⅰ-1-24",
+      "slugs": [
+        "digital-twin-cps",
+        "iot"
+      ]
+    },
+    "1-25": {
+      "heading": "Ⅰ-1-25",
+      "slugs": [
+        "accident-statistics"
+      ]
+    },
+    "1-26": {
+      "heading": "Ⅰ-1-26",
+      "slugs": [
+        "occupational-safety-act",
+        "health-management"
+      ]
+    },
+    "1-27": {
+      "heading": "Ⅰ-1-27",
+      "slugs": [
+        "ics"
+      ]
+    },
+    "1-28": {
+      "heading": "Ⅰ-1-28",
+      "slugs": [
+        "fmea",
+        "fta"
+      ]
+    },
+    "1-29": {
+      "heading": "Ⅰ-1-29",
+      "slugs": [
+        "risk-assessment",
+        "safety-health-org-structure"
+      ]
+    },
+    "1-30": {
+      "heading": "Ⅰ-1-30",
+      "slugs": [
+        "health-management",
+        "occupational-safety-act"
+      ]
+    },
+    "1-31": {
+      "heading": "Ⅰ-1-31",
+      "slugs": [
+        "preventive-maintenance",
+        "predictive-maintenance"
+      ]
+    },
+    "1-32": {
+      "heading": "Ⅰ-1-32",
+      "slugs": [
+        "defense-in-depth"
+      ]
+    },
+    "1-33": {
+      "heading": "Ⅰ-1-33",
+      "slugs": [
+        "un-human-environment-conf",
+        "sdgs"
+      ]
+    },
+    "1-34": {
+      "heading": "Ⅰ-1-34",
+      "slugs": [
+        "carbon-pricing",
+        "carbon-neutral"
+      ]
+    },
+    "1-35": {
+      "heading": "Ⅰ-1-35",
+      "slugs": [
+        "kunming-montreal-framework",
+        "ipbes"
+      ]
+    },
+    "1-36": {
+      "heading": "Ⅰ-1-36",
+      "slugs": [
+        "circular-society-basic-act",
+        "waste-management-act"
+      ]
+    },
+    "1-37": {
+      "heading": "Ⅰ-1-37",
+      "slugs": [
+        "pops-convention",
+        "chemical-substances-review-act"
+      ]
+    },
+    "1-38": {
+      "heading": "Ⅰ-1-38",
+      "slugs": [
+        "environmental-basic-plan",
+        "extended-producer-responsibility"
+      ]
+    },
+    "1-39": {
+      "heading": "Ⅰ-1-39",
+      "slugs": [
+        "environmental-impact-assessment"
+      ]
+    },
+    "1-40": {
+      "heading": "Ⅰ-1-40",
+      "slugs": [
+        "csr",
+        "sri"
+      ]
+    }
   }
 }
