@@ -12,7 +12,12 @@
       "articleGlob": "docs/note/技術士総監",
       "excludeDirs": ["総監もくじ"],
       "magazineExamMatch": ["総監", "5管理", "設問", "tradeoff", "essay-", "tankan", "r8-essay", "setsumon"],
-      "topCtaExcludeDirs": ["総監R08合格ロードマップ"],
+      "topCtaExcludeDirs": [
+        "総監R08合格ロードマップ",
+        "総監択一-過去問PDF-令和", "総監択一-過去問PDF-平成", "キーワード集2026変更点", "計算問題パターン集",
+        "自治体技術職員の択一盲点", "公務員技術者の定年後資格戦略", "民間建設技術者の総監メリット",
+        "総監受験は投資としてペイするか", "総監を取って独立した技術者の収入実態"
+      ],
       "L2": {
         "noteId": "n3ed4c77ceed6",
         "title": "総監もくじ",
