@@ -35,6 +35,7 @@ const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
 const COMMIT = argv.includes('--commit');
 const FORCE = argv.includes('--force'); // 既存PDFカードがあっても添付する（1記事に複数PDFを順に添付する用）
+const ANCHOR = getArg('--anchor'); // 指定テキストを含む最小段落の直後へ挿入（省略時は本文末尾）。未検出は ABORT（誤挿入回避）
 let wasFreeArticle = false; // 無料記事（有料エリア設定なし）を検出したら true。後段の有料維持検証をスキップ。
 const NOTE = getArg('--note');
 const FILE = getArg('--file');
@@ -95,11 +96,24 @@ try {
     //      PDF が本文先頭（＝無料プレビュー内）に挿入され有料PDFが無料流出する事故になる
     //      （2026-07-04 実測・暗記ノート2本）。JS で contenteditable 末尾へ caret を確実に移動する。
     await page.click('[contenteditable=true]'); await sleep(500);
-    await page.evaluate(() => {
+    const posInfo = await page.evaluate((anchor) => {
       const ed = document.querySelector('[contenteditable=true]'); ed.focus();
-      const r = document.createRange(); r.selectNodeContents(ed); r.collapse(false); // false=末尾
+      let target = null;
+      if (anchor) {
+        let best = Infinity;
+        for (const b of ed.querySelectorAll('p, h1, h2, h3, h4, h5, li')) {
+          const t = (b.textContent || '');
+          if (t.includes(anchor) && t.length < best) { target = b; best = t.length; }
+        }
+        if (!target) return { ok: false };
+      }
+      const node = target || ed;
+      const r = document.createRange(); r.selectNodeContents(node); r.collapse(false); // false=末尾
       const s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
-    });
+      return { ok: true, anchored: !!target, tag: target ? target.tagName : 'END', text: target ? (target.textContent || '').slice(0, 44) : '本文末尾' };
+    }, ANCHOR);
+    if (ANCHOR && !posInfo.ok) { console.error('ABORT: --anchor 未検出 → 誤挿入回避のため中止: ' + ANCHOR); await ctx.close(); process.exit(7); }
+    console.log('[3] caret 位置:', JSON.stringify(posInfo));
     await sleep(400);
     await page.keyboard.press('Enter'); await sleep(1200);
     const embedsBefore = await page.evaluate(() => document.querySelectorAll('[contenteditable=true] figure, [contenteditable=true] [embedded-service], [contenteditable=true] [data-name]').length);
