@@ -1,0 +1,11 @@
+{
+  "outDir": "/Users/minamidaisuke/doboku-note/docs/note/技術士総監/R8本試験模範解答例/pdf",
+  "srcDir": "docs/note/技術士総監/R8本試験模範解答例",
+  "articles": [
+    {
+      "src": "全14ペルソナ模範解答集.md",
+      "out": "R8総監記述式-地方創生-模範解答例集-全14ペルソナ",
+      "include": [{ "from": "^\\*\\*doboku-note", "to": null }]
+    }
+  ]
+}
