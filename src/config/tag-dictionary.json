@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-07-19T11:06:19.014Z",
+  "generated_at": "2026-07-19T11:09:01.530Z",
   "summary": {
     "total_mdx_files": 1113,
     "total_unique_tags": 173,
-    "allowlist_size": 149,
-    "known_count": 83,
-    "unknown_count": 90,
-    "typo_candidates_count": 5
+    "allowlist_size": 151,
+    "known_count": 84,
+    "unknown_count": 89,
+    "typo_candidates_count": 4
   },
   "tags": [
     {
@@ -2357,7 +2357,7 @@
     {
       "name": "令和8年度",
       "count": 14,
-      "inAllowlist": false,
+      "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-r08-primary",
         "pe-construction-competency-revision-r8",
@@ -3844,7 +3844,6 @@
     "模範論文",
     "受験者属性別",
     "必須科目",
-    "令和8年度",
     "過去問分析",
     "選択科目",
     "建設環境",
@@ -3934,11 +3933,6 @@
     {
       "tag": "技術士（第二次試験）",
       "suggestion": "技術士（第一次試験）",
-      "distance": 1
-    },
-    {
-      "tag": "令和8年度",
-      "suggestion": "令和元年度",
       "distance": 1
     },
     {

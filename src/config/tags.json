@@ -1,77 +1,306 @@
 [
-  { "name": "試験ガイド", "slug": "guide" },
-  { "name": "第1次試験", "slug": "primary" },
-  { "name": "第2次試験", "slug": "secondary" },
-  { "name": "過去問", "slug": "past-questions" },
-  { "name": "試験対策", "slug": "exam-preparation" },
-  { "name": "コンクリート主任技師", "slug": "concrete-chief-engineer" },
-  { "name": "コンクリート診断士", "slug": "concrete-diagnostician" },
-  { "name": "学習法", "slug": "study-method" },
-  { "name": "出題傾向", "slug": "exam-trends" },
-  { "name": "キーワード", "slug": "keyword" },
-  { "name": "択一式", "slug": "multiple-choice" },
-  { "name": "記述式", "slug": "essay" },
-  { "name": "索引", "slug": "index" },
-  { "name": "総合技術監理", "slug": "comprehensive-management" },
-  { "name": "技術士（総合技術監理部門）", "slug": "pe-comprehensive-management-exam" },
-  { "name": "技術士（第一次試験）", "slug": "pe-first-stage-exam" },
-  { "name": "基礎科目", "slug": "pe-first-stage-basic" },
-  { "name": "適性科目", "slug": "pe-first-stage-aptitude" },
-  { "name": "専門科目（建設部門）", "slug": "pe-first-stage-construction" },
-  { "name": "経済性管理", "slug": "economic-management" },
-  { "name": "人的資源管理", "slug": "human-resource-management" },
-  { "name": "情報管理", "slug": "information-management" },
-  { "name": "安全管理", "slug": "safety-management" },
-  { "name": "社会環境管理", "slug": "social-environment-management" },
-  { "name": "品質管理", "slug": "quality-management" },
-  { "name": "土工", "slug": "earthwork" },
-  { "name": "コンクリート", "slug": "concrete" },
-  { "name": "施工計画", "slug": "construction-plan" },
-  { "name": "経験記述", "slug": "experience-writing" },
-  { "name": "テキスト", "slug": "textbook" },
-  { "name": "建設機械", "slug": "construction-machinery" },
-  { "name": "基礎工", "slug": "foundation-work" },
-  { "name": "測量", "slug": "surveying" },
-  { "name": "解体工事", "slug": "demolition" },
-  { "name": "工程管理", "slug": "schedule-management" },
-  { "name": "環境保全", "slug": "environmental-management" },
-  { "name": "関係法規", "slug": "related-laws" },
-  { "name": "参考資料", "slug": "reference" },
-  { "name": "近畿地整 設計便覧", "slug": "kinki-design-manual" },
-  { "name": "兵庫県 共通仕様書", "slug": "hyogo-common-specs" },
-  { "name": "港湾", "slug": "port" },
-  { "name": "材料", "slug": "materials" },
-  { "name": "河川", "slug": "river" },
-  { "name": "河川法", "slug": "river-act" },
-  { "name": "行政手続き", "slug": "administration" },
-  { "name": "河川構造物", "slug": "river-structure" },
-  { "name": "伏越工", "slug": "inverted-siphon" },
-  { "name": "水門", "slug": "floodgate" },
-  { "name": "道路", "slug": "road" },
-  { "name": "トンネル", "slug": "tunnel" },
-  { "name": "国土交通白書", "slug": "mlit-whitepaper" },
-  { "name": "5管理", "slug": "five-management" },
-  { "name": "記述式対策", "slug": "essay-preparation" },
-  { "name": "トレードオフ", "slug": "tradeoff" },
-  { "name": "インフラ老朽化", "slug": "infrastructure-aging" },
-  { "name": "2024年問題", "slug": "construction-2024-problem" },
-  { "name": "働き方改革", "slug": "work-style-reform" },
-  { "name": "流域治水", "slug": "river-basin-management" },
-  { "name": "GX", "slug": "green-transformation" },
-  { "name": "カーボンニュートラル", "slug": "carbon-neutral" },
-  { "name": "DX", "slug": "dx" },
-  { "name": "i-Construction", "slug": "i-construction" },
-  { "name": "群マネ", "slug": "infrastructure-group-mgmt" },
-  { "name": "PPP/PFI", "slug": "ppp-pfi" },
-  { "name": "外国人材", "slug": "foreign-workers" },
-  { "name": "特定技能", "slug": "specified-skilled-worker" },
-  { "name": "令和元年度", "slug": "r01" },
-  { "name": "令和2年度", "slug": "r02" },
-  { "name": "令和3年度", "slug": "r03" },
-  { "name": "令和4年度", "slug": "r04" },
-  { "name": "令和5年度", "slug": "r05" },
-  { "name": "令和6年度", "slug": "r06" },
-  { "name": "令和7年度", "slug": "r07" },
-  { "name": "pillar", "slug": "pillar" },
-  { "name": "キャリア・転職", "slug": "career" }
+  {
+    "name": "試験ガイド",
+    "slug": "guide"
+  },
+  {
+    "name": "第1次試験",
+    "slug": "primary"
+  },
+  {
+    "name": "第2次試験",
+    "slug": "secondary"
+  },
+  {
+    "name": "過去問",
+    "slug": "past-questions"
+  },
+  {
+    "name": "試験対策",
+    "slug": "exam-preparation"
+  },
+  {
+    "name": "コンクリート主任技師",
+    "slug": "concrete-chief-engineer"
+  },
+  {
+    "name": "コンクリート診断士",
+    "slug": "concrete-diagnostician"
+  },
+  {
+    "name": "学習法",
+    "slug": "study-method"
+  },
+  {
+    "name": "出題傾向",
+    "slug": "exam-trends"
+  },
+  {
+    "name": "キーワード",
+    "slug": "keyword"
+  },
+  {
+    "name": "択一式",
+    "slug": "multiple-choice"
+  },
+  {
+    "name": "記述式",
+    "slug": "essay"
+  },
+  {
+    "name": "索引",
+    "slug": "index"
+  },
+  {
+    "name": "総合技術監理",
+    "slug": "comprehensive-management"
+  },
+  {
+    "name": "技術士（総合技術監理部門）",
+    "slug": "pe-comprehensive-management-exam"
+  },
+  {
+    "name": "技術士（第一次試験）",
+    "slug": "pe-first-stage-exam"
+  },
+  {
+    "name": "基礎科目",
+    "slug": "pe-first-stage-basic"
+  },
+  {
+    "name": "適性科目",
+    "slug": "pe-first-stage-aptitude"
+  },
+  {
+    "name": "専門科目（建設部門）",
+    "slug": "pe-first-stage-construction"
+  },
+  {
+    "name": "経済性管理",
+    "slug": "economic-management"
+  },
+  {
+    "name": "人的資源管理",
+    "slug": "human-resource-management"
+  },
+  {
+    "name": "情報管理",
+    "slug": "information-management"
+  },
+  {
+    "name": "安全管理",
+    "slug": "safety-management"
+  },
+  {
+    "name": "社会環境管理",
+    "slug": "social-environment-management"
+  },
+  {
+    "name": "品質管理",
+    "slug": "quality-management"
+  },
+  {
+    "name": "土工",
+    "slug": "earthwork"
+  },
+  {
+    "name": "コンクリート",
+    "slug": "concrete"
+  },
+  {
+    "name": "施工計画",
+    "slug": "construction-plan"
+  },
+  {
+    "name": "経験記述",
+    "slug": "experience-writing"
+  },
+  {
+    "name": "テキスト",
+    "slug": "textbook"
+  },
+  {
+    "name": "建設機械",
+    "slug": "construction-machinery"
+  },
+  {
+    "name": "基礎工",
+    "slug": "foundation-work"
+  },
+  {
+    "name": "測量",
+    "slug": "surveying"
+  },
+  {
+    "name": "解体工事",
+    "slug": "demolition"
+  },
+  {
+    "name": "工程管理",
+    "slug": "schedule-management"
+  },
+  {
+    "name": "環境保全",
+    "slug": "environmental-management"
+  },
+  {
+    "name": "関係法規",
+    "slug": "related-laws"
+  },
+  {
+    "name": "参考資料",
+    "slug": "reference"
+  },
+  {
+    "name": "近畿地整 設計便覧",
+    "slug": "kinki-design-manual"
+  },
+  {
+    "name": "兵庫県 共通仕様書",
+    "slug": "hyogo-common-specs"
+  },
+  {
+    "name": "港湾",
+    "slug": "port"
+  },
+  {
+    "name": "材料",
+    "slug": "materials"
+  },
+  {
+    "name": "河川",
+    "slug": "river"
+  },
+  {
+    "name": "河川法",
+    "slug": "river-act"
+  },
+  {
+    "name": "行政手続き",
+    "slug": "administration"
+  },
+  {
+    "name": "河川構造物",
+    "slug": "river-structure"
+  },
+  {
+    "name": "伏越工",
+    "slug": "inverted-siphon"
+  },
+  {
+    "name": "水門",
+    "slug": "floodgate"
+  },
+  {
+    "name": "道路",
+    "slug": "road"
+  },
+  {
+    "name": "トンネル",
+    "slug": "tunnel"
+  },
+  {
+    "name": "国土交通白書",
+    "slug": "mlit-whitepaper"
+  },
+  {
+    "name": "5管理",
+    "slug": "five-management"
+  },
+  {
+    "name": "記述式対策",
+    "slug": "essay-preparation"
+  },
+  {
+    "name": "トレードオフ",
+    "slug": "tradeoff"
+  },
+  {
+    "name": "インフラ老朽化",
+    "slug": "infrastructure-aging"
+  },
+  {
+    "name": "2024年問題",
+    "slug": "construction-2024-problem"
+  },
+  {
+    "name": "働き方改革",
+    "slug": "work-style-reform"
+  },
+  {
+    "name": "流域治水",
+    "slug": "river-basin-management"
+  },
+  {
+    "name": "GX",
+    "slug": "green-transformation"
+  },
+  {
+    "name": "カーボンニュートラル",
+    "slug": "carbon-neutral"
+  },
+  {
+    "name": "DX",
+    "slug": "dx"
+  },
+  {
+    "name": "i-Construction",
+    "slug": "i-construction"
+  },
+  {
+    "name": "群マネ",
+    "slug": "infrastructure-group-mgmt"
+  },
+  {
+    "name": "PPP/PFI",
+    "slug": "ppp-pfi"
+  },
+  {
+    "name": "外国人材",
+    "slug": "foreign-workers"
+  },
+  {
+    "name": "特定技能",
+    "slug": "specified-skilled-worker"
+  },
+  {
+    "name": "令和元年度",
+    "slug": "r01"
+  },
+  {
+    "name": "令和2年度",
+    "slug": "r02"
+  },
+  {
+    "name": "令和3年度",
+    "slug": "r03"
+  },
+  {
+    "name": "令和4年度",
+    "slug": "r04"
+  },
+  {
+    "name": "令和5年度",
+    "slug": "r05"
+  },
+  {
+    "name": "令和6年度",
+    "slug": "r06"
+  },
+  {
+    "name": "令和8年度",
+    "slug": "r08"
+  },
+  {
+    "name": "令和7年度",
+    "slug": "r07"
+  },
+  {
+    "name": "pillar",
+    "slug": "pillar"
+  },
+  {
+    "name": "キャリア・転職",
+    "slug": "career"
+  }
 ]
