@@ -41,11 +41,6 @@ cover:
 
 制度改正で一次は実務経験なし（年齢要件のみ）で受けられるようになり、受ける人の幅も広がりました。最短で合格ラインに乗せる始め方を示します。
 
-<!-- cta:pack-top -->
-自分の工事に近い「想定工事」を選んで5管理すべての完成答案をそろえるなら、2級の想定工事×5管理をそろえた想定工事バンクが最短です。
-
-https://note.com/dobokunote/m/m8554e87ca6ec
-
 ## テキスト通読ではなく「過去問起点」で始める
 
 ![第一次検定 独学の着手順。1=過去問を解く（最初は解けなくてよい）、2=間違えた選択肢のなぜ誤りかを確認、3=頻出分野に時間を寄せ基準点超えを狙う、4=一次のうちから二次の題材を考え始める](img/figure-1-primary-steps.png)
@@ -87,9 +82,7 @@ https://note.com/dobokunote/m/m8554e87ca6ec
 
 ## 関連リソース
 
-**2級土木施工管理技士の過去問解説・テキスト**（無料・doboku-note）
-
-https://doboku-note.com/docs/civil-construction-2-guide-exam-overview
+[2級土木施工管理技士の過去問解説・テキスト（無料・doboku-note）](https://doboku-note.com/docs/civil-construction-2-guide-exam-overview?utm_source=note&utm_medium=referral&utm_campaign=2c-primary-selfstudy&utm_content=exam-overview)
 
 **2級土木 施工経験記述 完成答案集**（二次対策のフル答案）
 

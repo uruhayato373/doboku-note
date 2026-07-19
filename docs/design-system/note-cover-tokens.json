@@ -175,7 +175,7 @@
 
   "icons": {
     "comment": "チップ・ロゴで使えるアイコン名（satori で SVG data-URL として描画）。frontmatter cover.chips[].icon にこの名前を指定する。",
-    "catalog": ["pen", "clock", "doc", "edit", "calendar", "chart", "check", "target", "book", "layers", "bulb", "flag", "yen", "map"]
+    "catalog": ["pen", "clock", "doc", "edit", "calendar", "chart", "check", "target", "book", "layers", "bulb", "flag", "yen", "map", "award"]
   },
 
   "fonts": {

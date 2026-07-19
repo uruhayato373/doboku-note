@@ -348,6 +348,8 @@ async function generateOne({ fullPath, fullSlug, fonts, args, stats }) {
     mainLines,
     subLines,
     mainFont,
+    // 執筆者資格クレジット（既定=表示。frontmatter ogp.credential: false で個別抑止）
+    credential: data.ogp?.credential,
     debugSafety: args.debugSafety,
   });
 

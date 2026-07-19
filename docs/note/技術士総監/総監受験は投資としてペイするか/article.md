@@ -49,11 +49,6 @@ cover:
 
 ![総監受験の投資回収カーブ。初期コストを超えた後、手当が積み上がり続けるグラフ](img/figure-1-roi-curve.png)
 
-<!-- cta:pack-top -->
-> 本番直前の総仕上げは、出題予想6テーマ×三層骨子で「何が出ても書ける型」を最短装填できるR8予想問題集が決め手。書き方の型から固めるなら、型・設問(3)の弾薬・R8演習を1セットにした記述式コアパックが入口に最適です。
-
-https://note.com/dobokunote/m/m6854c7437d4d
-
 https://note.com/dobokunote/m/m6e7de5e4ea3d
 
 

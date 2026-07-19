@@ -32,9 +32,9 @@ note 記事・マガジンが増えると、記事末尾の CTA が場当たり�
 4. **既存 CTA 非破壊** — 配線スクリプトは追加のみ。既存の「おすすめ記事」「関連リソース」等は壊さない。
 5. **note アンカー非対応** — 記事内の見出しジャンプは markdown の `#アンカー`では効かない。L1/L2 もくじ記事には note ネイティブ目次ブロックを使う（`publish-note` Phase 4.5）。
 6. **ソース→ライブの非同期** — `article.md` 編集は次回 publish／更新まで live note に反映されない。公開済み記事への反映は type 追記方式（`publish-note` update-mode.md。paste は `/new` 専用で edit 画面では無音失敗する）。
-7. **冒頭パック CTA は「読者の購入検討度」で判断する（除外は最小限）** — 冒頭マガジン CTA は有効な定石。**購入ガイド記事（「マガジンの歩き方」「立場別模範論文の選び方」等＝どれを買うか選びに来た読者）にはむしろ最適**なので必ず付ける。除外すべきは**新規入口記事（「はじめての方へ」ロードマップ＝自記事が「まず無料で」と促す）だけ**で、それも完全除外ではなく**入口価格（コアパック ¥5,480）1 点に絞った軽量 CTA（`cta:pack-top-light`）に差し替える**。「ナビ記事＝一律除外」は誤り（2026-06-16 に一度その誤判断をして是正）。除外対象は config の `exams.{key}.topCtaExcludeDirs`。
+7. **冒頭パック CTA は「購入検討度 × トピック整合」で判断する** — 冒頭パックは経験記述/記述式の**答案パックを推す CTA**。有効な定石だが、**記事のトピックが答案づくりと地続きの読者にだけ効く**。付ける: 購入ガイド記事（「マガジンの歩き方」「立場別模範論文の選び方」等＝どれを買うか選びに来た読者）／経験記述・記述式そのものの記事／二次全体像。**除外する（config の `exams.{key}.topCtaExcludeDirs`）**: (a) 新規入口ロードマップ（「はじめての方へ」＝自記事が「まず無料で」と促す。完全除外でなく入口価格 1 点に絞った軽量 CTA `cta:pack-top-light` に差し替え）、(b) 受験資格・受験順・一次段階のみの入口ガイド（読者が答案づくりの手前）、(c) 転職・年収・キャリア系（試験勉強と intent が別）。「ナビ記事＝一律除外」は誤り（2026-06-16 是正）だが、**「全記事へ一律注入＝オプトアウト」も誤り**で、受験資格記事に経験記述バンク CTA が唐突に出ていた（2026-07-19 是正、civil で受験資格/受験順/一次独学＋転職キャリア系11本を除外、tankan で択一専用4本＋キャリア判断5本を除外・受験検討2本は橋渡し。tankan は note-funnel-auditor で意味監査）。機械補助: `audit-note-funnel` の **review surfacer**（記事名・H1 に記述系シグナル語が無い pack-top 記事を**非ゲート**で列挙）が候補を surface → 最終判定は `note-funnel-auditor`。**除外指定と実体のドリフト（除外なのにマーカー残存）は D6 が CI で検知**。マーカーは HTML コメント全体（`<!-- cta:pack-top -->`）で厳密一致させる（`cta:pack-top-light` の部分一致誤検出を避ける）。
 8. **サブ資格別で冒頭パック CTA を差し替える（`topCtaOverrides`）** — 1 資格の下に「1級／2級」のようなサブ資格が同居する場合、冒頭パックはサブ資格ごとに向き先が変わる（2級読者に1級パックを出すのはセグメント違反）。config の `exams.{key}.topCtaOverrides`（`[{dirPrefix, marker, text}]`）で**ディレクトリ接頭辞ごとに topCta 文面/URL を差し替える**。例: civil の `2級土木/` 配下は 2級 想定工事バンク（`m8554e87ca6ec`）へ。マーカーは共通（`cta:pack-top`）なので D1 監査はそのまま効き、D5 のライブ反映ターゲットは記事ごとに override 先頭 URL で判定する（2026-07-05 新設）。
-9. **`magazines/` 配下（有料単品記事）は機械監査 D1-D5 のスコープ外** — `audit-note-funnel` は `magazines/` を再帰探索から除外する（[audit-note-funnel.mjs](../../scripts/audit-note-funnel.mjs) の `collect`）。有料単品記事の回遊（冒頭カード＝所属パック／セットへの上げ）は wire では張れないため、**個別に `cta:pack-top` を本文へ直挿し＋`note-append-cta` でライブ反映**して維持する。note 側 paywall の native「マガジンで買う」は購入直前まで見えないので、無料プレビュー域の冒頭カードが実質の回遊導線（2026-07-05、1級2級 二次学科記述ライン13本で実施）。
+9. **`magazines/` 配下（有料単品記事）は機械監査 D1-D6 のスコープ外** — `audit-note-funnel` は `magazines/` を再帰探索から除外する（[audit-note-funnel.mjs](../../scripts/audit-note-funnel.mjs) の `collect`）。有料単品記事の回遊（冒頭カード＝所属パック／セットへの上げ）は wire では張れないため、**個別に `cta:pack-top` を本文へ直挿し＋`note-append-cta` でライブ反映**して維持する。note 側 paywall の native「マガジンで買う」は購入直前まで見えないので、無料プレビュー域の冒頭カードが実質の回遊導線（2026-07-05、1級2級 二次学科記述ライン13本で実施）。
 
 ## L1/L2 レジストリ
 
@@ -51,9 +51,9 @@ note 記事・マガジンが増えると、記事末尾の CTA が場当たり�
 
 | ツール | 役割 |
 |---|---|
-| `npm run audit-note-funnel` | **ソース**ドリフト検出（read-only・高速）。公開記事の CTA マーカー欠落／公開マガジンの L2 未収録／L2 の L1 未リンク／L2 URL 不一致（D1-D4） |
+| `npm run audit-note-funnel` | **ソース**ドリフト検出（read-only・高速）。公開記事の CTA マーカー欠落／公開マガジンの L2 未収録／L2 の L1 未リンク／L2 URL 不一致／**除外指定なのに冒頭パック残存**（D1-D4・D6）＋**review surfacer**（トピック不一致の疑いを非ゲートで列挙→`note-funnel-auditor` へ） |
 | `npm run audit-note-funnel -- --live` | **＋ライブ反映検証（D5）**。公開記事の CTA が live note に実反映されているかを note 公開 API（body+embedded）で機械検証。**「ソースは正でもライブ未反映＝再投稿もれ」を検出**（2026-06-18 に総監19本で実害化した事故の機械検知）。低速・network依存のため CI ゲートには含めず、月次/手動で回す |
-| `npm run check-note-funnel` | CI ゲート（`audit --ci`、**ソースのみ**でドリフト exit 1・高速）。`r2-audit.yml` で発火 |
+| `npm run check-note-funnel` | CI ゲート（`audit --ci`、**ソースのみ**でドリフト exit 1＝D1-D4・D6・高速）。review surfacer は非ゲート。`r2-audit.yml` で発火 |
 | `npm run wire-note-funnel-cta -- --exam {key} [--apply]` | 資格別に L3 冒頭/末尾 CTA を**ソースへ**冪等配線（既定は dry-run） |
 | `npm run note-append-cta -- --note {id} ...` | **公開済み記事へ CTA を live 反映**（Playwright・Windows 可・browser-use 不要）。`--after`=free プレビューへアンカー挿入／`--boundary-h2`=有料境界保持。D5 ドリフトの修復手段。詳細 → [publish-note/references/update-mode.md](../../.claude/skills/social/publish-note/references/update-mode.md) |
 | `npm run note-append-list-links -- --spec {json} [--commit]` | **公開済みもくじの既存 `<ul>` へインラインリンク項目を live 追加**（D2 ライブ反映）。type ではインラインリンクが作れない（`[text](url)` はリテラル残存・bare URL はカード化）ため `insertAdjacentHTML` で兄弟 `<li>` を挿入。spec JSON = `{note, sections:[{anchorMagId, items:[{url,title,desc}]}]}` |

@@ -41,9 +41,6 @@ H21〜R07（17 年分・520 問）の過去問を分類すると、毎年必ず�
 
 パターン 1（統計・信頼性計算）・パターン 2（BEP）は公式当てはめで即答できるため、本記事の冒頭から自然に易しいパターンから演習できます。最頻出のパターン 6（NPV）は条件の読み取りに時間がかかるため、基本を固めてから取り組みましょう。計算問題全体の出題分野・試験戦略については、[総合技術監理部門 合格戦略](https://doboku-note.com/docs/pe-comprehensive-management-exam-passing-strategy?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns) も参考にしてください。
 
-<!-- cta:pack-top -->
-> 本番直前の総仕上げは、出題予想6テーマ×三層骨子で「何が出ても書ける型」を最短装填できる[R8予想問題集（2026最終予想）](https://note.com/dobokunote/m/m6854c7437d4d)が決め手。書き方の型から固めるなら、型・設問(3)の弾薬・R8演習を1セットにした[記述式コアパック](https://note.com/dobokunote/m/m6e7de5e4ea3d)が入口に最適です。
-
 ## パターン 1: 統計・信頼性計算
 
 **出題実績: 17 年中 12 年**（H23〜R07 のほぼ毎年）

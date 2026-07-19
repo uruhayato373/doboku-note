@@ -47,11 +47,6 @@ cover:
 
 ![独立した技術士の収入実態5ケース。食える独立と食えない独立の分岐を5事例で図示](img/figure-1-independence-cases.png)
 
-<!-- cta:pack-top -->
-> 本番直前の総仕上げは、出題予想6テーマ×三層骨子で「何が出ても書ける型」を最短装填できるR8予想問題集が決め手。書き方の型から固めるなら、型・設問(3)の弾薬・R8演習を1セットにした記述式コアパックが入口に最適です。
-
-https://note.com/dobokunote/m/m6854c7437d4d
-
 https://note.com/dobokunote/m/m6e7de5e4ea3d
 
 

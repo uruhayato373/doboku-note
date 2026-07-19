@@ -186,9 +186,17 @@ function renderMonoTagDark({ examLabel, mainLines, subLines, mainFont, contentTy
   };
 }
 
+// ---- 執筆者資格クレジット（全画像共通・時事非依存） ----
+// E-E-A-T 用の資格クレジット。真実源は src/config/author.ts の qualifications（要約表記）。
+// 「R8的中」等の時事文言はテンプレに入れない（画像は陳腐化する。的中訴求は per-article の
+// cover.chips / 投稿面で行う。2026-07-20 信頼性資産化 P2 で導入）。
+// 抑止: frontmatter `ogp.credential: false`（OGP）/ `cover.credential: false`（G2）。
+export const AUTHOR_CREDENTIAL_OGP = '技術士（総監・建設）×1級土木｜元発注者';
+export const AUTHOR_CREDENTIAL_G2 = '執筆: 技術士（総監・建設）・1級土木 元発注者';
+
 // ---- テンプレート: mono-tag (T06) ----
 
-function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backgroundImage, contentType, dark, examLabel, mainLines, subLines, mainFont }, { width, height }) {
+function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backgroundImage, contentType, dark, examLabel, mainLines, subLines, mainFont, credential: credentialProp }, { width, height }) {
   // ダーク（--dark 指定時のみ・旧既定〜2026-07-02。2026-06-29 リデザイン）は資格名 kicker ＋ 主題/サブ階層へ委譲。
   // ライト（既定＝写真前面 2026-07-02〜 / note カバー mono-tag フォールバック）は全幅レイアウト＋資格別背景写真＋subtitle（以下）。
   if (dark) {
@@ -387,6 +395,29 @@ function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backg
     },
   };
 
+  // 執筆者資格クレジット（左下・flow外の絶対配置＝縦フィット計算に無干渉。wordmarkCorner と対）。
+  // 幅≈440px・ワードマーク≈180px で内寛1056px(OGP)でも衝突しない。credential:false で非表示。
+  const credential = credentialProp === false ? null : (typeof credentialProp === 'string' ? credentialProp : AUTHOR_CREDENTIAL_OGP);
+  const credentialCorner = credential
+    ? {
+        type: 'div',
+        props: {
+          style: {
+            position: 'absolute',
+            left: `${safeL}px`,
+            bottom: '52px',
+            display: 'flex',
+            fontFamily: '"Noto Sans JP", Inter, sans-serif',
+            fontSize: '21px',
+            fontWeight: 700,
+            letterSpacing: '0.5px',
+            color: 'rgba(10,20,40,0.72)',
+          },
+          children: credential,
+        },
+      }
+    : null;
+
   // タイトルの縦フィット: pickFontSize は横幅のみ合わせるため、行数が多いと固定の
   // 縦スペースを溢れて行が重なっていた（2026-06-28 修正）。縦スペースに収まるよう font を
   // 縮小し、最小サイズでも収まらない病的な長文だけ行数をクランプして省略記号を付す。
@@ -509,6 +540,8 @@ function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backg
     },
     // ワードマーク（右下・従属表記。2026-07-07 装飾ライン撤去に伴い設置）
     wordmarkCorner,
+    // 執筆者資格クレジット（左下。2026-07-20 信頼性資産化）
+    ...(credentialCorner ? [credentialCorner] : []),
     // セーフティゾーン内主コンテンツ
     {
       type: 'div',
@@ -819,6 +852,7 @@ const G2_ICON_PATHS = {
   flag: '<path d="M6 21V4"/><path d="M6 4h11l-2 4 2 4H6"/>',
   yen: '<path d="M12 13v6M8 7l4 6 4-6M8 13h8M9 16h6"/>',
   map: '<path d="M9 4 4 6v14l5-2 6 2 5-2V4l-5 2-6-2Z"/><path d="M9 4v14M15 6v14"/>',
+  award: '<circle cx="12" cy="9" r="5"/><path d="M9 13.5 7.5 21l4.5-2.5L16.5 21 15 13.5"/>',
 };
 
 function g2IconDataUrl(name, color, size = 18, stroke = 2.2) {
@@ -921,6 +955,30 @@ function renderNoteCoverG2({ cover, palette }, { width, height }) {
       ],
     },
   };
+
+  // ロゴ直下: 執筆者資格クレジット（全カバー一律・frontmatter編集ゼロ。logo=top34+30px、
+  // upper=top122px 開始の空き帯 72-95px に収まる 15px。cover.credential:false で非表示。
+  // chips 拡張（横溢れ）・meta 行拡張（character variant で折返し崩れ）は不採用＝2026-07-20 設計判断）
+  const g2Credential = c.credential === false ? null : AUTHOR_CREDENTIAL_G2;
+  const credentialRow = g2Credential
+    ? {
+        type: 'div',
+        props: {
+          style: {
+            position: 'absolute',
+            top: '72px',
+            left: '56px',
+            display: 'flex',
+            fontFamily: '"Noto Sans JP", Inter, sans-serif',
+            fontSize: '15px',
+            fontWeight: 800,
+            letterSpacing: '0.04em',
+            color: 'rgba(27,36,48,0.66)',
+          },
+          children: g2Credential,
+        },
+      }
+    : null;
 
   // 右上: メタ（試験ラベル + 任意の meta 文）
   const metaText = c.meta ? `${examLabel}　${c.meta}` : examLabel;
@@ -1048,7 +1106,7 @@ function renderNoteCoverG2({ cover, palette }, { width, height }) {
       type: 'div',
       props: { style: { position: 'absolute', left: `${colPadX}px`, bottom: '40px', display: 'flex', alignItems: 'center' }, children: chipEls },
     };
-    const vchildren = [background, logo, characterImg, upperL, bannerL];
+    const vchildren = [background, logo, ...(credentialRow ? [credentialRow] : []), characterImg, upperL, bannerL];
     if (chipEls.length > 0) vchildren.push(chipRowL);
     return {
       type: 'div',
@@ -1056,7 +1114,7 @@ function renderNoteCoverG2({ cover, palette }, { width, height }) {
     };
   }
 
-  const children = [background, logo, meta, upper, banner];
+  const children = [background, logo, ...(credentialRow ? [credentialRow] : []), meta, upper, banner];
   if (chipEls.length > 0) children.push(chipRow);
 
   return {

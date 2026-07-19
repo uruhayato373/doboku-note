@@ -1,8 +1,11 @@
 ---
 notePricing: free
-noteStatus: draft
+noteStatus: published
 noteSeries: 総監記述式
 utmCampaign: r8-sokuho
+notePublishedAt: "2026-07-19"
+noteId: "nfa8998e22a52"
+noteUrl: "https://note.com/dobokunote/n/nfa8998e22a52"
 cover:
   leadIn: "令和8年度 技術士総監"
   hi: "解答速報"
@@ -12,7 +15,7 @@ cover:
   chips:
     - { icon: bulb, text: "択一の自己採点" }
     - { icon: target, text: "記述の解答方針" }
-    - { icon: calendar, text: "来年への一歩" }
+    - { icon: award, text: "設問(3)は6/1公開で事前収録" }
 ---
 # 令和8年度 技術士総監 解答速報｜必須科目I（択一・記述）の解答方針と難易度講評【無料】
 
@@ -101,6 +104,10 @@ https://note.com/dobokunote/m/m171222175fac
 - **設問(2)**：取組ごとに、産官学金労言士などステークホルダーとの**連携方法**を具体的に書き、5管理のうち2つ以上の視点で障害と対応を論じる。ここで**異なる管理分野のトレードオフ**（例：情報管理でのデータ整備 × 経済性管理での予算制約、社会環境管理での住民合意 × 人的資源管理での技術者不足）を明示し、「どの分野の視点か」を必ず添えるのが加点の要です。
 - **設問(3)**：事業の枠を超え、国スケールの施策を2つ。ここでも**異なるアウトプット**を選び、政策・経済・社会情勢・技術革新の背景を踏まえた有効性と実現性、最も重大な障害と対応方策まで一気通貫で書きます。東京一極集中の是正、関係人口・地方移住の推進、インフラDXによる維持管理の効率化などが素材になります。
 
+なお設問(3)の国家施策については、試験7週間前の6月1日に公開した「設問(3)国家施策バンク」が、将来課題11テーマの一つとして「地方創生・東京一極集中」を収録済みでした（国家施策6案・各600字）。本試験の設問(3)に、収録済みの施策がそのまま使える内容です。
+
+https://note.com/dobokunote/n/nf3062e8f07e0
+
 テーマに依存しない骨子の作り方は[総監記述式 論文戦略](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy?utm_source=note&utm_medium=referral&utm_campaign=r8-sokuho)にまとめています。5管理のトレードオフの型を体系的に押さえたい方は、20セル（5管理×他4管理）を網羅した「5管理クロス・トレードオフ」が近道です。
 
 https://note.com/dobokunote/m/m921fbe060575
@@ -113,6 +120,14 @@ https://note.com/dobokunote/m/m921fbe060575
 - 「時間が足りなかった設問」「論点がずれたかもしれない設問」を正直にメモする
 
 合格発表は10月末です。それまでの過ごし方は[口頭試験対策](https://note.com/dobokunote/n/n3d73729e6cc7)（ロードマップ記事）も参考にしてください。
+
+記述式I-2「地方創生」を**14の立場別にどう書いたか**は、模範解答例（本文掲載＋立場別の無料PDF）で答え合わせできます。
+
+https://note.com/dobokunote/n/nfe8bc37ce88e
+
+設問(3)の国家施策を、図のアウトプットa〜r全18項目ごとに個別文案化した施策集も無料で公開しています。
+
+https://note.com/dobokunote/n/nce1ea1317eab
 
 ## 5. 来年 総監を受験する方へ — 今が一番いいスタート地点
 
