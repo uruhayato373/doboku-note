@@ -42,7 +42,13 @@
       "articleGlob": "docs/note/1級・2級土木",
       "excludeDirs": ["土木もくじ", "メンバーシップ"],
       "magazineExamMatch": ["civil-1", "civil-2"],
-      "topCtaExcludeDirs": ["2級土木 受験資格と実務経験", "2級と1級どちらから受けるか", "第一次検定の独学突破"],
+      "topCtaExcludeDirs": [
+        "2級土木 受験資格と実務経験", "2級と1級どちらから受けるか", "第一次検定の独学突破",
+        "1級土木で市場価値が変わる-無料", "公務員土木か民間か-無料", "ビルドジョブの評判-発注者目線-無料",
+        "年収を上げる人の違い-無料", "転職エージェント比較-無料", "施工管理の失敗談と教訓-無料",
+        "転職のベストタイミング-無料", "辞める前に確認すること-無料", "転職エージェントの使い方-無料",
+        "転職した方がいい施工管理-発注者視点-無料", "ホワイトな建設会社の見分け方-無料"
+      ],
       "L2": { "noteId": "n4fde0f62dc20", "title": "土木もくじ", "articleDir": "docs/note/1級・2級土木/土木もくじ", "noteUrl": "https://note.com/dobokunote/n/n4fde0f62dc20" },
       "topCta": { "marker": "cta:pack-top", "text": "<!-- cta:pack-top -->\n自分の工事に近い「想定工事」を選んで5管理すべての完成答案をそろえるなら、想定工事100×5管理を全網羅した完全攻略パックが最短です。\n\nhttps://note.com/dobokunote/m/m8290970a7f05" },
       "topCtaOverrides": [
