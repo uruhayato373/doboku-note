@@ -112,6 +112,7 @@ https://note.com/dobokunote/m/m6854c7437d4d
 - [一般部門の合格者が総監で落ちる3つの理由](https://note.com/dobokunote/n/n7fb7f92f7841)
 - [択一17年分680問を徹底分析｜分野別の頻出と学習戦略](https://note.com/dobokunote/n/n3bcb87efddad)
 - [総監記述式 出題傾向の変遷マップ（H21〜R07）](https://note.com/dobokunote/n/nc360aaa381b0)
+- [R8「地方創生」はなぜ事前に押さえられたか｜白書連動分析のプロセス公開](https://note.com/dobokunote/n/n021d95a51f24) ← R8的中の裏側とR9への備え
 - [5管理クロス・トレードオフ思考の入門](https://note.com/dobokunote/n/n1b325d339f59)
 - [国土交通白書 R7 完全対応集](https://note.com/dobokunote/n/n60efbccd728b)
 - [技術士総監をAIで勉強する（NotebookLM・Claude の使い分け）](https://note.com/dobokunote/n/n89da1120ccaa)
