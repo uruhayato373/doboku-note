@@ -254,7 +254,13 @@ cover:
 - [令和8年度 総監記述式 過去問解説（必須科目I-2）](https://doboku-note.com/docs/pe-comprehensive-management-r08-secondary?utm_source=note&utm_medium=referral&utm_campaign=r8-s3-zenshu) — 設問全文・図のアウトプット一覧・出題背景
 - [総監記述式 論文戦略](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy?utm_source=note&utm_medium=referral&utm_campaign=r8-s3-zenshu) — テーマに依存しない答案の型
 
-設問(1)(2)を含む**全14ペルソナの地方創生 模範解答**（自治体10・受注者4）は、無料PDFで配布しています（別記事「[総監もくじ](https://note.com/dobokunote/n/n3ed4c77ceed6)」から辿れます）。
+設問(1)(2)を含む**全14ペルソナの地方創生 模範解答**（自治体10・受注者4）は、本文掲載＋立場別の無料PDFで別記事にまとめています。
+
+https://note.com/dobokunote/n/nfe8bc37ce88e
+
+択一（I-1）40問の暫定解答と自己採点のしかたは、解答速報の記事で確認できます。
+
+https://note.com/dobokunote/n/nfa8998e22a52
 
 来年以降、**どのテーマが出題されても設問(3)の弾薬を引き出せるようにしておきたい**方は、この記事の元になった「設問(3)国家施策バンク」（将来課題11テーマ×国家施策の引き出し集）が近道です。
 
