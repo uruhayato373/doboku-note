@@ -1,4 +1,3112 @@
 {
   "_doc": "A8 パイプラインの案件カタログ + 状態機械 SSOT (doboku-note 版)。a8-browser.ts が upsert/遷移する機械 state。正典 = docs/reference/a8-affiliate-pipeline.md。手編集しない (状態機械は a8-scout-core.mjs が検証)。状態: candidate→applied→approved→harvested→registered→published、分岐: rejected/blocked/pending-vertical/error。初期は空 (list / import-partnered / scout で投入)。",
-  "entries": {}
+  "entries": {
+    "s00000021488002": {
+      "programId": "s00000021488002",
+      "name": "マルウェア等の脅威からデバイスを保護【Surfshark Antivirus】 New",
+      "genre": "マルウェア等の脅威からデバイスを保護【Surfshark Antivirus】 New",
+      "company": "Ｓｕｒｆｓｈａｒｋ＿Ｂ．Ｖ．",
+      "vertical": null,
+      "score": null,
+      "epcYen": 9,
+      "confirmRatePct": 100,
+      "rewardRatePct": 60,
+      "rewardType": "rate",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000016275010": {
+      "programId": "s00000016275010",
+      "name": "高速回線選ぶならコミュファ光！速度もキャッシュバックも満足度No1！【コミュファ光】 New",
+      "genre": "高速回線選ぶならコミュファ光！速度もキャッシュバックも満足度No1！【コミュファ光】 New",
+      "company": "株式会社アウンカンパニー",
+      "vertical": null,
+      "score": null,
+      "epcYen": 25,
+      "confirmRatePct": 40,
+      "rewardYen": 11000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000015770001": {
+      "programId": "s00000015770001",
+      "name": "理想の結婚式を！結婚式場探し・ブライダルフェア予約サイト【Hanayume】 New",
+      "genre": "理想の結婚式を！結婚式場探し・ブライダルフェア予約サイト【Hanayume】 New",
+      "company": "株式会社エイチームライフデザイン",
+      "vertical": null,
+      "score": null,
+      "epcYen": 6,
+      "confirmRatePct": 48.55,
+      "rewardYen": 10000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000014546021": {
+      "programId": "s00000014546021",
+      "name": "業界最速のキャッシュバック還元！更にオプション加入条件なし【auひかりサイト】 New",
+      "genre": "業界最速のキャッシュバック還元！更にオプション加入条件なし【auひかりサイト】 New",
+      "company": "株式会社ＮＥＸＴ【優良代理店表彰実績多数】",
+      "vertical": null,
+      "score": null,
+      "epcYen": 54,
+      "confirmRatePct": 39.43,
+      "rewardYen": 10000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000008903004": {
+      "programId": "s00000008903004",
+      "name": "【DMM．com証券】DMM CFD 新規ユーザー獲得プロモーション New",
+      "genre": "【DMM．com証券】DMM CFD 新規ユーザー獲得プロモーション New",
+      "company": "株式会社ＤＭＭ．ｃｏｍ証券",
+      "vertical": null,
+      "score": null,
+      "epcYen": 146,
+      "confirmRatePct": 78.21,
+      "rewardYen": 14200,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000000018037": {
+      "programId": "s00000000018037",
+      "name": "GMOとくとくBB auひかりプロモーション New",
+      "genre": "GMOとくとくBB auひかりプロモーション New",
+      "company": "ＧＭＯインターネット株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 170,
+      "confirmRatePct": 34.09,
+      "rewardYen": 9000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000010261001": {
+      "programId": "s00000010261001",
+      "name": "薬剤師の求人・派遣・転職サイト「ファルマスタッフ」 New",
+      "genre": "薬剤師の求人・派遣・転職サイト「ファルマスタッフ」 New",
+      "company": "株式会社メディカルリソース",
+      "vertical": "career",
+      "score": null,
+      "epcYen": 234,
+      "confirmRatePct": 59.63,
+      "rewardYen": 65000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000026992001": {
+      "programId": "s00000026992001",
+      "name": "工場・製造業の求人ならワールドインテック「工場求人ワールド」",
+      "genre": "工場・製造業の求人ならワールドインテック「工場求人ワールド」",
+      "company": "株式会社ワールドインテック",
+      "vertical": "career",
+      "score": null,
+      "epcYen": 47,
+      "confirmRatePct": 57.69,
+      "rewardYen": 15000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000023621003": {
+      "programId": "s00000023621003",
+      "name": "未経験からの転職 Pythonでキャリアを変える【Python Winner】",
+      "genre": "未経験からの転職 Pythonでキャリアを変える【Python Winner】",
+      "company": "Ｗｉｎスクール",
+      "vertical": "career",
+      "score": null,
+      "epcYen": 40,
+      "confirmRatePct": 20,
+      "rewardYen": 10000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000025713001": {
+      "programId": "s00000025713001",
+      "name": "【四谷学院通信講座】保育・宅建・療育・ペン字など！資格取得なら四谷学院",
+      "genre": "【四谷学院通信講座】保育・宅建・療育・ペン字など！資格取得なら四谷学院",
+      "company": "四谷学院",
+      "vertical": null,
+      "score": null,
+      "epcYen": 9,
+      "confirmRatePct": 94.31,
+      "rewardRatePct": 6.2,
+      "rewardType": "rate",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000006761001": {
+      "programId": "s00000006761001",
+      "name": "LECオンライン（東京リーガルマインド）講座・書籍",
+      "genre": "LECオンライン（東京リーガルマインド）講座・書籍",
+      "company": "株式会社東京リーガルマインド",
+      "vertical": null,
+      "score": null,
+      "epcYen": 2,
+      "confirmRatePct": 96.88,
+      "rewardRatePct": 1,
+      "rewardType": "rate",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000017136001": {
+      "programId": "s00000017136001",
+      "name": "一括査定はもう古い！より高く愛車を売却できるクルマ買取オークション【ユーカーパック】",
+      "genre": "一括査定はもう古い！より高く愛車を売却できるクルマ買取オークション【ユーカーパック】",
+      "company": "ＵｃａｒＰＡＣ株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 4,
+      "confirmRatePct": 65.21,
+      "rewardYen": 1000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000021019001": {
+      "programId": "s00000021019001",
+      "name": "不動産（マンション・戸建・土地）査定・売却なら【ミライアスのスマート仲介】",
+      "genre": "不動産（マンション・戸建・土地）査定・売却なら【ミライアスのスマート仲介】",
+      "company": "ミライアス株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 0,
+      "confirmRatePct": 55.55,
+      "rewardYen": 15000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000011537005": {
+      "programId": "s00000011537005",
+      "name": "報酬アップ！全ての悩みを全国各地の有名占い師が解決【電話占いヴェルニ】",
+      "genre": "報酬アップ！全ての悩みを全国各地の有名占い師が解決【電話占いヴェルニ】",
+      "company": "株式会社ファンフィール",
+      "vertical": null,
+      "score": null,
+      "epcYen": 45,
+      "confirmRatePct": 50,
+      "rewardYen": 17000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000022994001": {
+      "programId": "s00000022994001",
+      "name": "一生使える「ライティング思考力」を鍛える【あなたのライターキャリア講座】",
+      "genre": "一生使える「ライティング思考力」を鍛える【あなたのライターキャリア講座】",
+      "company": "株式会社ＹＯＳＣＡ",
+      "vertical": "career",
+      "score": null,
+      "epcYen": 7,
+      "confirmRatePct": 100,
+      "rewardYen": 600,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000026390001": {
+      "programId": "s00000026390001",
+      "name": "ゲーム・エンタメ業界の転職ならエニカン【AnyKan】",
+      "genre": "ゲーム・エンタメ業界の転職ならエニカン【AnyKan】",
+      "company": "ＡｎｙＫａｎ株式会社",
+      "vertical": "career",
+      "score": null,
+      "epcYen": 79,
+      "confirmRatePct": 75,
+      "rewardYen": 10000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000024757002": {
+      "programId": "s00000024757002",
+      "name": "ツインプロ｜会計士・税理士特化の転職エージェントの無料キャリア面談",
+      "genre": "ツインプロ｜会計士・税理士特化の転職エージェントの無料キャリア面談",
+      "company": "ＭｙＶｉｓｉｏｎ",
+      "vertical": "career",
+      "score": null,
+      "epcYen": 586,
+      "confirmRatePct": 30.23,
+      "rewardYen": 52500,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000021605001": {
+      "programId": "s00000021605001",
+      "name": "【IBJ加盟】オンライン結婚相談所（サブスク）【ベルロード縁結びサポート】",
+      "genre": "【IBJ加盟】オンライン結婚相談所（サブスク）【ベルロード縁結びサポート】",
+      "company": "株式会社ＩＤＭ",
+      "vertical": null,
+      "score": null,
+      "epcYen": 0,
+      "confirmRatePct": 75,
+      "rewardYen": 18500,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000024586001": {
+      "programId": "s00000024586001",
+      "name": "最短最安で国家資格者になれる！オンライン【キャリアコンサルタント養成講習】",
+      "genre": "最短最安で国家資格者になれる！オンライン【キャリアコンサルタント養成講習】",
+      "company": "一般社団法人地域連携プラットフォーム",
+      "vertical": "career",
+      "score": null,
+      "epcYen": 86,
+      "confirmRatePct": 62.87,
+      "rewardYen": 5500,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000026234001": {
+      "programId": "s00000026234001",
+      "name": "国家資格キャリアコンサルタント受講者数累計5万人を突破！【日本マンパワー】",
+      "genre": "国家資格キャリアコンサルタント受講者数累計5万人を突破！【日本マンパワー】",
+      "company": "株式会社日本マンパワー",
+      "vertical": "career",
+      "score": null,
+      "epcYen": 163,
+      "confirmRatePct": 61.31,
+      "rewardYen": 1000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000021505001": {
+      "programId": "s00000021505001",
+      "name": "フリーランスエンジニア向け案件紹介サービス【IT求人ナビ フリーランス】",
+      "genre": "フリーランスエンジニア向け案件紹介サービス【IT求人ナビ フリーランス】",
+      "company": "株式会社アクロビジョン",
+      "vertical": "career",
+      "score": null,
+      "epcYen": 43,
+      "confirmRatePct": 40,
+      "rewardYen": 20000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000015695001": {
+      "programId": "s00000015695001",
+      "name": "結果にコミット プライベートジム【RIZAP】入会申込み",
+      "genre": "結果にコミット プライベートジム【RIZAP】入会申込み",
+      "company": "ＲＩＺＡＰ株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 9,
+      "confirmRatePct": 52.77,
+      "rewardYen": 7000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000026465002": {
+      "programId": "s00000026465002",
+      "name": "ワンキャリア転職｜中の人の声を聞いて受かる転職サービス",
+      "genre": "ワンキャリア転職｜中の人の声を聞いて受かる転職サービス",
+      "company": "株式会社ワンキャリア",
+      "vertical": "career",
+      "score": null,
+      "epcYen": 15,
+      "confirmRatePct": 92.3,
+      "rewardYen": 3000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000005230001": {
+      "programId": "s00000005230001",
+      "name": "【じゃらんｎｅｔ】宿泊予約",
+      "genre": "【じゃらんｎｅｔ】宿泊予約",
+      "company": "株式会社リクルート",
+      "vertical": null,
+      "score": null,
+      "epcYen": 0,
+      "confirmRatePct": 56.07,
+      "rewardRatePct": 1,
+      "rewardType": "rate",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000023057002": {
+      "programId": "s00000023057002",
+      "name": "日本最大級 施工管理・建設業界の転職サイト「建設JOBs」",
+      "genre": "日本最大級 施工管理・建設業界の転職サイト「建設JOBs」",
+      "company": "リアルエステートＷＯＲＫＳ",
+      "vertical": "civil-career",
+      "score": null,
+      "epcYen": 709,
+      "confirmRatePct": 91.04,
+      "rewardYen": 4500,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000020839002": {
+      "programId": "s00000020839002",
+      "name": "きっかけを作る！【ティントル 不登校専門オンライン個別指導】",
+      "genre": "きっかけを作る！【ティントル 不登校専門オンライン個別指導】",
+      "company": "ＬＩＶＥ株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 0,
+      "confirmRatePct": 50,
+      "rewardYen": 5000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000015388005": {
+      "programId": "s00000015388005",
+      "name": "スタディサプリEnglish ビジネス英語コース",
+      "genre": "スタディサプリEnglish ビジネス英語コース",
+      "company": "株式会社リクルート",
+      "vertical": null,
+      "score": null,
+      "epcYen": 2,
+      "confirmRatePct": 100,
+      "rewardYen": 1589,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000015388007": {
+      "programId": "s00000015388007",
+      "name": "ビジネス英語コース 英会話セットプラン",
+      "genre": "ビジネス英語コース 英会話セットプラン",
+      "company": "株式会社リクルート",
+      "vertical": null,
+      "score": null,
+      "epcYen": 1,
+      "confirmRatePct": 100,
+      "rewardYen": 1569,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000019598001": {
+      "programId": "s00000019598001",
+      "name": "国際人になるためのオンライン英語スクール【Global Step Academy】",
+      "genre": "国際人になるためのオンライン英語スクール【Global Step Academy】",
+      "company": "Ｇｌｏｂａｌ＿Ｓｔｅｐ＿Ａｃａｄｅｍｙ株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 15,
+      "confirmRatePct": 100,
+      "rewardYen": 5000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000026218001": {
+      "programId": "s00000026218001",
+      "name": "安定した未来のため資産形成やライフリスクは【ファイナンシャルプランナーに相談】へ",
+      "genre": "安定した未来のため資産形成やライフリスクは【ファイナンシャルプランナーに相談】へ",
+      "company": "ファインドイット株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 216,
+      "confirmRatePct": 48.31,
+      "rewardYen": 13000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000024757004": {
+      "programId": "s00000024757004",
+      "name": "ビルドジョブ｜建設業界特化の転職エージェントの無料キャリア面談",
+      "genre": "ビルドジョブ｜建設業界特化の転職エージェントの無料キャリア面談",
+      "company": "ＭｙＶｉｓｉｏｎ",
+      "vertical": "civil-career",
+      "score": null,
+      "epcYen": 942,
+      "confirmRatePct": 48.97,
+      "rewardYen": 50000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000024824001": {
+      "programId": "s00000024824001",
+      "name": "完全無料で転職のプロをパーソナルマッチング【転職AGENT Navi】",
+      "genre": "完全無料で転職のプロをパーソナルマッチング【転職AGENT Navi】",
+      "company": "ｃｉｒｃｕｓ株式会社",
+      "vertical": "career",
+      "score": null,
+      "epcYen": 71,
+      "confirmRatePct": 36.73,
+      "rewardYen": 8000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000022413004": {
+      "programId": "s00000022413004",
+      "name": "コンサル・DX・スタートアップへ。CxO直結の非公開求人で年収を最大化【Groovement Agent】",
+      "genre": "コンサル・DX・スタートアップへ。CxO直結の非公開求人で年収を最大化【Groovement Agent】",
+      "company": "株式会社Ｇｒｏｏｖｅｍｅｎｔ",
+      "vertical": "career",
+      "score": null,
+      "epcYen": 139,
+      "confirmRatePct": 21.73,
+      "rewardYen": 18000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000026481001": {
+      "programId": "s00000026481001",
+      "name": "働き方に自由を/SNSマーケティングスクール【エストレ】",
+      "genre": "働き方に自由を/SNSマーケティングスクール【エストレ】",
+      "company": "株式会社ｇｉｆｔｓ",
+      "vertical": null,
+      "score": null,
+      "epcYen": 0,
+      "confirmRatePct": 14.28,
+      "rewardYen": 8500,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000018427002": {
+      "programId": "s00000018427002",
+      "name": "プロと始める「逆転就活」【新卒就職エージェントneo】",
+      "genre": "プロと始める「逆転就活」【新卒就職エージェントneo】",
+      "company": "株式会社ネオキャリア",
+      "vertical": "career",
+      "score": null,
+      "epcYen": 344,
+      "confirmRatePct": 33.15,
+      "rewardYen": 15000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000026573001": {
+      "programId": "s00000026573001",
+      "name": "明光キャリアパートナーズエンジニア転職",
+      "genre": "明光キャリアパートナーズエンジニア転職",
+      "company": "株式会社明光キャリアパートナーズ",
+      "vertical": "pe-career",
+      "score": null,
+      "epcYen": 903,
+      "confirmRatePct": 25.45,
+      "rewardYen": 78000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000016458003": {
+      "programId": "s00000016458003",
+      "name": "社内SEを目指す方必見！IT・Webエンジニアの転職なら【社内SE転職ナビ】",
+      "genre": "社内SEを目指す方必見！IT・Webエンジニアの転職なら【社内SE転職ナビ】",
+      "company": "アイムファクトリー株式会社",
+      "vertical": "career",
+      "score": null,
+      "epcYen": 185,
+      "confirmRatePct": 50.55,
+      "rewardYen": 18000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000019630003": {
+      "programId": "s00000019630003",
+      "name": "AIやデータサイエンスが学べる就労移行支援【Neuro Dive】",
+      "genre": "AIやデータサイエンスが学べる就労移行支援【Neuro Dive】",
+      "company": "パーソルダイバース株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 40,
+      "confirmRatePct": 56.7,
+      "rewardYen": 12000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000010921001": {
+      "programId": "s00000010921001",
+      "name": "合宿免許受付センター",
+      "genre": "合宿免許受付センター",
+      "company": "合宿免許受付センター",
+      "vertical": null,
+      "score": null,
+      "epcYen": 15,
+      "confirmRatePct": 15.38,
+      "rewardYen": 12000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000008903007": {
+      "programId": "s00000008903007",
+      "name": "日本株も米国株もNISAも！ポイントを貯めながらアプリで取引！【DMM 株】",
+      "genre": "日本株も米国株もNISAも！ポイントを貯めながらアプリで取引！【DMM 株】",
+      "company": "株式会社ＤＭＭ．ｃｏｍ証券",
+      "vertical": null,
+      "score": null,
+      "epcYen": 3,
+      "confirmRatePct": 37.5,
+      "rewardYen": 10000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000020552004": {
+      "programId": "s00000020552004",
+      "name": "【建設業者様特化のファクタリング】株式会社No.1",
+      "genre": "【建設業者様特化のファクタリング】株式会社No.1",
+      "company": "株式会社Ｎｏ．１",
+      "vertical": "civil-career",
+      "score": null,
+      "epcYen": 1088,
+      "confirmRatePct": 16.27,
+      "rewardYen": 20000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000022176005": {
+      "programId": "s00000022176005",
+      "name": "建設業界特化！未経験から施工管理職へ。手厚いサポートで資格取得も支援【GKSキャリア】",
+      "genre": "建設業界特化！未経験から施工管理職へ。手厚いサポートで資格取得も支援【GKSキャリア】",
+      "company": "株式会社ｆｒｅｅ＿ｍｏｖａ",
+      "vertical": "civil-career",
+      "score": null,
+      "epcYen": 457,
+      "confirmRatePct": 47.36,
+      "rewardYen": 25000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000020062001": {
+      "programId": "s00000020062001",
+      "name": "施工管理技士資格試験の受験対策通信教育講座「独学サポート事務局」",
+      "genre": "施工管理技士資格試験の受験対策通信教育講座「独学サポート事務局」",
+      "company": "株式会社ディーラーニング",
+      "vertical": "civil-career",
+      "score": null,
+      "epcYen": 23,
+      "confirmRatePct": 76.19,
+      "rewardYen": 4000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000027444001": {
+      "programId": "s00000027444001",
+      "name": "環境構築不要！AIエージェント開発を非エンジニアでも即実践【AI Agent Camp】",
+      "genre": "環境構築不要！AIエージェント開発を非エンジニアでも即実践【AI Agent Camp】",
+      "company": "ＡＩブレインパートナーズ株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 0,
+      "confirmRatePct": 100,
+      "rewardYen": 5000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000027324001": {
+      "programId": "s00000027324001",
+      "name": "Doraverse｜【BtoB向けSaaS】オフィス業務を劇的に効率化させるAIツール",
+      "genre": "Doraverse｜【BtoB向けSaaS】オフィス業務を劇的に効率化させるAIツール",
+      "company": "株式会社ＤＯＲＡＶＥＲＳＥ＿ＪＡＰＡＮ",
+      "vertical": null,
+      "score": null,
+      "epcYen": 0,
+      "confirmRatePct": 0,
+      "rewardYen": 62,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000027186001": {
+      "programId": "s00000027186001",
+      "name": "すべての人に最高の教材を【eラーニング現場系・国家資格】",
+      "genre": "すべての人に最高の教材を【eラーニング現場系・国家資格】",
+      "company": "ＳＡＴ株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 15,
+      "confirmRatePct": 94.11,
+      "rewardRatePct": 10,
+      "rewardType": "rate",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000012624009": {
+      "programId": "s00000012624009",
+      "name": "TVCM放映で知名度UP★ココナラ｜Webサイト・デザイン・動画・イラストなど発注者 募集",
+      "genre": "TVCM放映で知名度UP★ココナラ｜Webサイト・デザイン・動画・イラストなど発注者 募集",
+      "company": "株式会社ココナラ",
+      "vertical": null,
+      "score": null,
+      "epcYen": 3,
+      "confirmRatePct": 96.56,
+      "rewardYen": 100,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000007238009": {
+      "programId": "s00000007238009",
+      "name": "高品質SEO記事生成AIツール【Value AI Writer】",
+      "genre": "高品質SEO記事生成AIツール【Value AI Writer】",
+      "company": "ＧＭＯデジロック株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 0,
+      "confirmRatePct": 0,
+      "rewardRatePct": 40,
+      "rewardType": "rate",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000025896001": {
+      "programId": "s00000025896001",
+      "name": "子どもが読書にハマるオンライン習い事【ヨンデミー】",
+      "genre": "子どもが読書にハマるオンライン習い事【ヨンデミー】",
+      "company": "株式会社Ｙｏｎｄｅｍｙ",
+      "vertical": null,
+      "score": null,
+      "epcYen": 23,
+      "confirmRatePct": 65.78,
+      "rewardYen": 1300,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000026246001": {
+      "programId": "s00000026246001",
+      "name": "生命保険の無料相談サービス【マネードットコム】",
+      "genre": "生命保険の無料相談サービス【マネードットコム】",
+      "company": "ツリーファイナンシャル株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 14,
+      "confirmRatePct": 57.3,
+      "rewardYen": 5000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000016799001": {
+      "programId": "s00000016799001",
+      "name": "【全国対応】住宅用太陽光発電のNo.1見積りサイト【ソーラーパートナーズ】",
+      "genre": "【全国対応】住宅用太陽光発電のNo.1見積りサイト【ソーラーパートナーズ】",
+      "company": "株式会社ソーラーパートナーズ",
+      "vertical": null,
+      "score": null,
+      "epcYen": 184,
+      "confirmRatePct": 41.5,
+      "rewardYen": 10000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000019330001": {
+      "programId": "s00000019330001",
+      "name": "レジャー・遊び体験予約サイト『アソビュー』",
+      "genre": "レジャー・遊び体験予約サイト『アソビュー』",
+      "company": "アソビュー株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 4,
+      "confirmRatePct": 88.73,
+      "rewardRatePct": 3,
+      "rewardType": "rate",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000024258001": {
+      "programId": "s00000024258001",
+      "name": "東海3県に特化した「ぴったり転職」を実現する名古屋の転職エージェント【R4CAREER】",
+      "genre": "東海3県に特化した「ぴったり転職」を実現する名古屋の転職エージェント【R4CAREER】",
+      "company": "株式会社Ｒ４ＣＡＲＥＥＲ",
+      "vertical": "career",
+      "score": null,
+      "epcYen": 25,
+      "confirmRatePct": 40,
+      "rewardYen": 8000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000000489002": {
+      "programId": "s00000000489002",
+      "name": "自動車保険一括見積もり依頼サービス",
+      "genre": "自動車保険一括見積もり依頼サービス",
+      "company": "ウェブクルー",
+      "vertical": null,
+      "score": null,
+      "epcYen": 14,
+      "confirmRatePct": 75.42,
+      "rewardYen": 1000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000015642001": {
+      "programId": "s00000015642001",
+      "name": "引越し一括見積もりから完了まで、ワンストップでサポート【引越しラクっとNAVI 】",
+      "genre": "引越し一括見積もりから完了まで、ワンストップでサポート【引越しラクっとNAVI 】",
+      "company": "株式会社リベロ",
+      "vertical": null,
+      "score": null,
+      "epcYen": 2,
+      "confirmRatePct": 44.23,
+      "rewardYen": 1000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000022743001": {
+      "programId": "s00000022743001",
+      "name": "バーチャルオフィスを東京で格安利用するなら【ユナイテッドオフィス】",
+      "genre": "バーチャルオフィスを東京で格安利用するなら【ユナイテッドオフィス】",
+      "company": "株式会社ユナイテッド・コンサルティング・ファーム",
+      "vertical": null,
+      "score": null,
+      "epcYen": 38,
+      "confirmRatePct": 100,
+      "rewardYen": 7000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000026694001": {
+      "programId": "s00000026694001",
+      "name": "うちの子にピッタリの学校・塾と出会えるアプリ「エデュスタ」",
+      "genre": "うちの子にピッタリの学校・塾と出会えるアプリ「エデュスタ」",
+      "company": "株式会社インターエデュ・ドットコム",
+      "vertical": null,
+      "score": null,
+      "epcYen": 72,
+      "confirmRatePct": 88.29,
+      "rewardYen": 600,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000023341003": {
+      "programId": "s00000023341003",
+      "name": "がん保険の専門相談サイト【baby planet（ベビープラネット）】",
+      "genre": "がん保険の専門相談サイト【baby planet（ベビープラネット）】",
+      "company": "株式会社レガシーワークス",
+      "vertical": null,
+      "score": null,
+      "epcYen": 23,
+      "confirmRatePct": 13.88,
+      "rewardYen": 13000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000026342002": {
+      "programId": "s00000026342002",
+      "name": "SAPコンサルタント・SAPエンジニアに特化した転職サービス【SAPテンショク】",
+      "genre": "SAPコンサルタント・SAPエンジニアに特化した転職サービス【SAPテンショク】",
+      "company": "株式会社スプラッシュエンジニアリング",
+      "vertical": "career",
+      "score": null,
+      "epcYen": 91,
+      "confirmRatePct": 0,
+      "rewardYen": 15000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000007992006": {
+      "programId": "s00000007992006",
+      "name": "引越しと買取を一括で見積り【トレファク引越】",
+      "genre": "引越しと買取を一括で見積り【トレファク引越】",
+      "company": "株式会社トレジャー・ファクトリー",
+      "vertical": null,
+      "score": null,
+      "epcYen": 6,
+      "confirmRatePct": 33.33,
+      "rewardYen": 1500,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000027024001": {
+      "programId": "s00000027024001",
+      "name": "FP無料保険相談【保険マンモス】",
+      "genre": "FP無料保険相談【保険マンモス】",
+      "company": "保険マンモス株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 21,
+      "confirmRatePct": 32.63,
+      "rewardYen": 11278,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000015892023": {
+      "programId": "s00000015892023",
+      "name": "【V2H】で電気自動車・自宅の電気・太陽光の電力をつなげて活用！",
+      "genre": "【V2H】で電気自動車・自宅の電気・太陽光の電力をつなげて活用！",
+      "company": "株式会社ＧＲＡＣＥ",
+      "vertical": null,
+      "score": null,
+      "epcYen": 0,
+      "confirmRatePct": 0,
+      "rewardYen": 5000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000018427001": {
+      "programId": "s00000018427001",
+      "name": "第二/既卒/フリーター/中退/高卒の就職・転職支援【第二新卒エージェントneo】",
+      "genre": "第二/既卒/フリーター/中退/高卒の就職・転職支援【第二新卒エージェントneo】",
+      "company": "株式会社ネオキャリア",
+      "vertical": "career",
+      "score": null,
+      "epcYen": 76,
+      "confirmRatePct": 50.98,
+      "rewardYen": 15000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000027243001": {
+      "programId": "s00000027243001",
+      "name": "合法節税オンラインセミナー参加",
+      "genre": "合法節税オンラインセミナー参加",
+      "company": "株式会社キーパートナーズ",
+      "vertical": null,
+      "score": null,
+      "epcYen": 0,
+      "confirmRatePct": 33.33,
+      "rewardYen": 1000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000016807002": {
+      "programId": "s00000016807002",
+      "name": "アニメ・マンガ・ゲーム好き男女専門の結婚相談所・お見合い・婚活応援サービス 【ヲタ婚】",
+      "genre": "アニメ・マンガ・ゲーム好き男女専門の結婚相談所・お見合い・婚活応援サービス 【ヲタ婚】",
+      "company": "シュタインズ株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 1,
+      "confirmRatePct": 5.88,
+      "rewardYen": 2000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000024492001": {
+      "programId": "s00000024492001",
+      "name": "灘中合格者数日本一の浜学園が運営する幼児教室【はまキッズオルパスクラブ】",
+      "genre": "灘中合格者数日本一の浜学園が運営する幼児教室【はまキッズオルパスクラブ】",
+      "company": "幼児教室＿はまキッズオルパスクラブ",
+      "vertical": null,
+      "score": null,
+      "epcYen": 12,
+      "confirmRatePct": 100,
+      "rewardYen": 3000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000023754008": {
+      "programId": "s00000023754008",
+      "name": "不動産の訪問査定完了【持ち家売却】",
+      "genre": "不動産の訪問査定完了【持ち家売却】",
+      "company": "株式会社セレス",
+      "vertical": null,
+      "score": null,
+      "epcYen": 0,
+      "confirmRatePct": 0,
+      "rewardYen": 13000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000008444013": {
+      "programId": "s00000008444013",
+      "name": "30代以上が選ぶ恋活・婚活マッチングNO.1！【華の会メール】",
+      "genre": "30代以上が選ぶ恋活・婚活マッチングNO.1！【華の会メール】",
+      "company": "華コーポレーション",
+      "vertical": null,
+      "score": null,
+      "epcYen": 7,
+      "confirmRatePct": 53.33,
+      "rewardYen": 2500,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000008444012": {
+      "programId": "s00000008444012",
+      "name": "30歳からの恋活・婚活マッチング【hanamel（ハナメル）】",
+      "genre": "30歳からの恋活・婚活マッチング【hanamel（ハナメル）】",
+      "company": "華コーポレーション",
+      "vertical": null,
+      "score": null,
+      "epcYen": 0,
+      "confirmRatePct": 0,
+      "rewardYen": 300,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000027108001": {
+      "programId": "s00000027108001",
+      "name": "太陽光発電で電気代削減！安心の無料相談と見積り！【東京ガスの太陽光発電・蓄電池】",
+      "genre": "太陽光発電で電気代削減！安心の無料相談と見積り！【東京ガスの太陽光発電・蓄電池】",
+      "company": "東京瓦斯株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 23,
+      "confirmRatePct": 93.75,
+      "rewardYen": 10000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000008444007": {
+      "programId": "s00000008444007",
+      "name": "30代以上が選ぶ恋活・婚活マッチングNO.1！【華の会メール】無料会員登録",
+      "genre": "30代以上が選ぶ恋活・婚活マッチングNO.1！【華の会メール】無料会員登録",
+      "company": "華コーポレーション",
+      "vertical": null,
+      "score": null,
+      "epcYen": 29,
+      "confirmRatePct": 49.8,
+      "rewardYen": 4000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000022845001": {
+      "programId": "s00000022845001",
+      "name": "「スマートホーム」のベストセラー【SwitchBot公式サイト】",
+      "genre": "「スマートホーム」のベストセラー【SwitchBot公式サイト】",
+      "company": "ＳＷＩＴＣＨＢＯＴ株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 17,
+      "confirmRatePct": 98.85,
+      "rewardRatePct": 10,
+      "rewardType": "rate",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000001004013": {
+      "programId": "s00000001004013",
+      "name": "遅くならない。速度重視の新規格インターネット フレッツ光対応【ZOOT NATIVE】",
+      "genre": "遅くならない。速度重視の新規格インターネット フレッツ光対応【ZOOT NATIVE】",
+      "company": "株式会社インターリンク",
+      "vertical": null,
+      "score": null,
+      "epcYen": 24,
+      "confirmRatePct": 76.92,
+      "rewardYen": 1000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000022488001": {
+      "programId": "s00000022488001",
+      "name": "ahamo",
+      "genre": "ahamo",
+      "company": "株式会社ＮＴＴドコモ",
+      "vertical": null,
+      "score": null,
+      "epcYen": 157,
+      "confirmRatePct": 71.94,
+      "rewardYen": 3000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000014546016": {
+      "programId": "s00000014546016",
+      "name": "置くだけ簡単Wi-Fi！30,000円現金キャッシュバック！【SoftBank Airキャンペーン】",
+      "genre": "置くだけ簡単Wi-Fi！30,000円現金キャッシュバック！【SoftBank Airキャンペーン】",
+      "company": "株式会社ＮＥＸＴ【優良代理店表彰実績多数】",
+      "vertical": null,
+      "score": null,
+      "epcYen": 15,
+      "confirmRatePct": 35,
+      "rewardYen": 10000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000001004003": {
+      "programId": "s00000001004003",
+      "name": "違約金や契約期間の拘束が一切なし。最大２ヶ月無料体験のフレッツ接続【ZOOT NEXT】",
+      "genre": "違約金や契約期間の拘束が一切なし。最大２ヶ月無料体験のフレッツ接続【ZOOT NEXT】",
+      "company": "株式会社インターリンク",
+      "vertical": null,
+      "score": null,
+      "epcYen": 16,
+      "confirmRatePct": 65.38,
+      "rewardYen": 800,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000019447001": {
+      "programId": "s00000019447001",
+      "name": "スカパー!新規加入",
+      "genre": "スカパー!新規加入",
+      "company": "スカパーＪＳＡＴ株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 22,
+      "confirmRatePct": 76.34,
+      "rewardYen": 3620,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000014699001": {
+      "programId": "s00000014699001",
+      "name": "自転車通販サイト売上No.1！日本最大級の自転車通販サイト【cyma-サイマ-】",
+      "genre": "自転車通販サイト売上No.1！日本最大級の自転車通販サイト【cyma-サイマ-】",
+      "company": "株式会社ｃｙｍａイエローハット",
+      "vertical": null,
+      "score": null,
+      "epcYen": 1,
+      "confirmRatePct": 81.15,
+      "rewardYen": 500,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000023371004": {
+      "programId": "s00000023371004",
+      "name": "アウトドアに特化！簡単便利・食べきりサイズ【孤高のキャンプ飯・アルファー食品】",
+      "genre": "アウトドアに特化！簡単便利・食べきりサイズ【孤高のキャンプ飯・アルファー食品】",
+      "company": "アルファー食品株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 0,
+      "confirmRatePct": 100,
+      "rewardRatePct": 8,
+      "rewardType": "rate",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000025401001": {
+      "programId": "s00000025401001",
+      "name": "姿勢改善に特化した女性専用マシンピラティススタジオ【Repilates】",
+      "genre": "姿勢改善に特化した女性専用マシンピラティススタジオ【Repilates】",
+      "company": "ｒｅｐｉｌａｔｅｓ株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 1,
+      "confirmRatePct": 44.44,
+      "rewardYen": 3000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000010685001": {
+      "programId": "s00000010685001",
+      "name": "太陽光発電の一括無料見積り【タイナビ】",
+      "genre": "太陽光発電の一括無料見積り【タイナビ】",
+      "company": "株式会社グッドフェローズ",
+      "vertical": null,
+      "score": null,
+      "epcYen": 15,
+      "confirmRatePct": 66.66,
+      "rewardYen": 3000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000018828001": {
+      "programId": "s00000018828001",
+      "name": "【コスパと出会いが魅力のシェアハウス日本最大手オークハウスが入居者募集中】",
+      "genre": "【コスパと出会いが魅力のシェアハウス日本最大手オークハウスが入居者募集中】",
+      "company": "株式会社オークハウス",
+      "vertical": null,
+      "score": null,
+      "epcYen": 0,
+      "confirmRatePct": 100,
+      "rewardYen": 7452,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000023383001": {
+      "programId": "s00000023383001",
+      "name": "格安・便利なレンタルオフィス・コワーキングスペース「アントレサロン」",
+      "genre": "格安・便利なレンタルオフィス・コワーキングスペース「アントレサロン」",
+      "company": "銀座セカンドライフ",
+      "vertical": null,
+      "score": null,
+      "epcYen": 38,
+      "confirmRatePct": 80,
+      "rewardYen": 8000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000022171006": {
+      "programId": "s00000022171006",
+      "name": "24時間365日カンタン予約【海外ダイナミックパッケージ】",
+      "genre": "24時間365日カンタン予約【海外ダイナミックパッケージ】",
+      "company": "株式会社トラベルウエスト",
+      "vertical": null,
+      "score": null,
+      "epcYen": 0,
+      "confirmRatePct": 0,
+      "rewardYen": 2500,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000023067003": {
+      "programId": "s00000023067003",
+      "name": "【Travelist（海外格安航空券）】",
+      "genre": "【Travelist（海外格安航空券）】",
+      "company": "株式会社アップルワールド",
+      "vertical": null,
+      "score": null,
+      "epcYen": 0,
+      "confirmRatePct": 0,
+      "rewardYen": 2000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000022171004": {
+      "programId": "s00000022171004",
+      "name": "海外航空券を最安値をカンタン検索・比較・予約【トラベルウエスト】",
+      "genre": "海外航空券を最安値をカンタン検索・比較・予約【トラベルウエスト】",
+      "company": "株式会社トラベルウエスト",
+      "vertical": null,
+      "score": null,
+      "epcYen": 0,
+      "confirmRatePct": 0,
+      "rewardYen": 600,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000013995001": {
+      "programId": "s00000013995001",
+      "name": "【スーツケース/旅行用品/バッグの専門店トコー】オンラインショップ",
+      "genre": "【スーツケース/旅行用品/バッグの専門店トコー】オンラインショップ",
+      "company": "ＴＴＣ株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 0,
+      "confirmRatePct": 0,
+      "rewardRatePct": 5,
+      "rewardType": "rate",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000017980001": {
+      "programId": "s00000017980001",
+      "name": "厳選ホテル・旅館・レストラン・ 美容室の贅沢プランをお得に予約。東京女子に人気【OZmall】",
+      "genre": "厳選ホテル・旅館・レストラン・ 美容室の贅沢プランをお得に予約。東京女子に人気【OZmall】",
+      "company": "スターツ出版株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 2,
+      "confirmRatePct": 21.68,
+      "rewardYen": 300,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000027127001": {
+      "programId": "s00000027127001",
+      "name": "【通信の安定性抜群】格安海外eSIM｜ボイエグローバル（Voye Global）",
+      "genre": "【通信の安定性抜群】格安海外eSIM｜ボイエグローバル（Voye Global）",
+      "company": "Ｖｏｙｅ＿Ｇｌｏｂａｌ＿Ｃｏｎｎｅｃｔｉｖｉｔｙ＿Ｌｔｄ",
+      "vertical": null,
+      "score": null,
+      "epcYen": 0,
+      "confirmRatePct": 100,
+      "rewardRatePct": 15.3,
+      "rewardType": "rate",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000027203001": {
+      "programId": "s00000027203001",
+      "name": "人気バッグブランド正規取扱｜スーツケース＆バッグ専門OSUMAC公式ストア",
+      "genre": "人気バッグブランド正規取扱｜スーツケース＆バッグ専門OSUMAC公式ストア",
+      "company": "株式会社ＬＩＮＫＨＯＯ",
+      "vertical": null,
+      "score": null,
+      "epcYen": 0,
+      "confirmRatePct": 100,
+      "rewardRatePct": 10,
+      "rewardType": "rate",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000026491001": {
+      "programId": "s00000026491001",
+      "name": "現地旅行会社と「行きたい」を叶える海外旅行サービス【Oooh（ウー）】",
+      "genre": "現地旅行会社と「行きたい」を叶える海外旅行サービス【Oooh（ウー）】",
+      "company": "Ｏｏｏｈ株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 2,
+      "confirmRatePct": 100,
+      "rewardYen": 750,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000025659001": {
+      "programId": "s00000025659001",
+      "name": "海外旅行・出張なら手軽で便利なeSIM【JAPAN&GLOBAL eSIM】",
+      "genre": "海外旅行・出張なら手軽で便利なeSIM【JAPAN&GLOBAL eSIM】",
+      "company": "イン・プラス株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 0,
+      "confirmRatePct": 100,
+      "rewardRatePct": 15,
+      "rewardType": "rate",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000022054001": {
+      "programId": "s00000022054001",
+      "name": "【空港送迎】自宅と空港をつなぐエアポートシャトルで、次の旅がシェアでおトク になる",
+      "genre": "【空港送迎】自宅と空港をつなぐエアポートシャトルで、次の旅がシェアでおトク になる",
+      "company": "株式会社ＮｅａｒＭｅ",
+      "vertical": null,
+      "score": null,
+      "epcYen": 12,
+      "confirmRatePct": 36.99,
+      "rewardYen": 1000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000013277005": {
+      "programId": "s00000013277005",
+      "name": "”毎日を旅するように暮らす”大人へ向けたトラベルブランド【MILESTO（ミレスト）】",
+      "genre": "”毎日を旅するように暮らす”大人へ向けたトラベルブランド【MILESTO（ミレスト）】",
+      "company": "ＢＲＵＮＯ株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 0,
+      "confirmRatePct": 91.66,
+      "rewardRatePct": 5,
+      "rewardType": "rate",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000026367001": {
+      "programId": "s00000026367001",
+      "name": "海外向けeSIM！スマホ一つで旅行がもっと快適【TORA eSIM】",
+      "genre": "海外向けeSIM！スマホ一つで旅行がもっと快適【TORA eSIM】",
+      "company": "株式会社食源",
+      "vertical": null,
+      "score": null,
+      "epcYen": 0,
+      "confirmRatePct": 100,
+      "rewardRatePct": 15,
+      "rewardType": "rate",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000024017002": {
+      "programId": "s00000024017002",
+      "name": "デザイン・品質にこだわったイタリア製スーツケース通販サイト【LDUVIN】",
+      "genre": "デザイン・品質にこだわったイタリア製スーツケース通販サイト【LDUVIN】",
+      "company": "ＤＥＣＯＨＵＢ合同会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 6,
+      "confirmRatePct": 33.33,
+      "rewardRatePct": 5,
+      "rewardType": "rate",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000016470001": {
+      "programId": "s00000016470001",
+      "name": "スーツケースレンタルなら日本最大級の【アールワイレンタル】R&Y Rental",
+      "genre": "スーツケースレンタルなら日本最大級の【アールワイレンタル】R&Y Rental",
+      "company": "日本鞄材株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 12,
+      "confirmRatePct": 95.54,
+      "rewardRatePct": 10,
+      "rewardType": "rate",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000023752002": {
+      "programId": "s00000023752002",
+      "name": "MAIMO-amazonスーツケースランキング1位獲得！MAIMOで旅を豊かに。",
+      "genre": "MAIMO-amazonスーツケースランキング1位獲得！MAIMOで旅を豊かに。",
+      "company": "株式会社ＫＵＲＵＫＵＲＵ",
+      "vertical": null,
+      "score": null,
+      "epcYen": 9,
+      "confirmRatePct": 100,
+      "rewardRatePct": 10,
+      "rewardType": "rate",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000018767001": {
+      "programId": "s00000018767001",
+      "name": "JALで行く！格安国内旅行のジェイトリップ（J-TRIP）",
+      "genre": "JALで行く！格安国内旅行のジェイトリップ（J-TRIP）",
+      "company": "株式会社ジェイトリップ",
+      "vertical": null,
+      "score": null,
+      "epcYen": 0,
+      "confirmRatePct": 36,
+      "rewardYen": 1000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000027288001": {
+      "programId": "s00000027288001",
+      "name": "スキル0OK！未経験に寄り添うITエンジニア特化の転職エージェント【キャリアカンパニー】",
+      "genre": "スキル0OK！未経験に寄り添うITエンジニア特化の転職エージェント【キャリアカンパニー】",
+      "company": "株式会社エンデバース",
+      "vertical": "career",
+      "score": null,
+      "epcYen": 124,
+      "confirmRatePct": 51.72,
+      "rewardYen": 10000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000012391003": {
+      "programId": "s00000012391003",
+      "name": "自然でオシャレ、データ納品の出張撮影マッチングサービス【fotowa (フォトワ) 】",
+      "genre": "自然でオシャレ、データ納品の出張撮影マッチングサービス【fotowa (フォトワ) 】",
+      "company": "ピクスタ株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 14,
+      "confirmRatePct": 76.59,
+      "rewardYen": 3000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000023341001": {
+      "programId": "s00000023341001",
+      "name": "妊娠〜出産〜子育て中の「ママ」のための保険無料相談サービス【ベビープラネット】",
+      "genre": "妊娠〜出産〜子育て中の「ママ」のための保険無料相談サービス【ベビープラネット】",
+      "company": "株式会社レガシーワークス",
+      "vertical": null,
+      "score": null,
+      "epcYen": 42,
+      "confirmRatePct": 19.35,
+      "rewardYen": 13533,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000008903009": {
+      "programId": "s00000008903009",
+      "name": "【TOSSY】あらゆる取引がアプリひとつで完結！お得な特典が盛りだくさん！",
+      "genre": "【TOSSY】あらゆる取引がアプリひとつで完結！お得な特典が盛りだくさん！",
+      "company": "株式会社ＤＭＭ．ｃｏｍ証券",
+      "vertical": null,
+      "score": null,
+      "epcYen": 223,
+      "confirmRatePct": 36.84,
+      "rewardYen": 15000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000017807001": {
+      "programId": "s00000017807001",
+      "name": "40年の実績。夢の地球一周はピースボートクルーズで。【ピースボート】",
+      "genre": "40年の実績。夢の地球一周はピースボートクルーズで。【ピースボート】",
+      "company": "（株）ジャパングレイス",
+      "vertical": null,
+      "score": null,
+      "epcYen": 27,
+      "confirmRatePct": 47.72,
+      "rewardYen": 3000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000014894007": {
+      "programId": "s00000014894007",
+      "name": "不用品のことなら【ECOクリーン】",
+      "genre": "不用品のことなら【ECOクリーン】",
+      "company": "株式会社アシスト",
+      "vertical": null,
+      "score": null,
+      "epcYen": 19,
+      "confirmRatePct": 75.55,
+      "rewardYen": 1000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000020949005": {
+      "programId": "s00000020949005",
+      "name": "ランキング1位獲得経験あり！都内の引越が最安値級で出来る【ハコブ引っ越しサービス】",
+      "genre": "ランキング1位獲得経験あり！都内の引越が最安値級で出来る【ハコブ引っ越しサービス】",
+      "company": "ハコブ株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 37,
+      "confirmRatePct": 60,
+      "rewardYen": 3000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000004657003": {
+      "programId": "s00000004657003",
+      "name": "引越し一括見積サービス【引越し侍】",
+      "genre": "引越し一括見積サービス【引越し侍】",
+      "company": "株式会社エイチームライフデザイン",
+      "vertical": null,
+      "score": null,
+      "epcYen": 11,
+      "confirmRatePct": 100,
+      "rewardYen": 667,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000007133001": {
+      "programId": "s00000007133001",
+      "name": "【無料会員登録】お客様信頼度11年連続No.1 恋活・婚活マッチングの『concoi』",
+      "genre": "【無料会員登録】お客様信頼度11年連続No.1 恋活・婚活マッチングの『concoi』",
+      "company": "株式会社グッドウィルプランニング",
+      "vertical": null,
+      "score": null,
+      "epcYen": 3,
+      "confirmRatePct": 15.78,
+      "rewardYen": 1000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000009685003": {
+      "programId": "s00000009685003",
+      "name": "(iOS)出会いマッチングアプリ【イククル】",
+      "genre": "(iOS)出会いマッチングアプリ【イククル】",
+      "company": "イククル",
+      "vertical": null,
+      "score": null,
+      "epcYen": 2,
+      "confirmRatePct": 11.11,
+      "rewardYen": 4000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000021593001": {
+      "programId": "s00000021593001",
+      "name": "マッチングアプリ用のモテるプロフィール写真をプロが撮影代行！「マッチングフォト」",
+      "genre": "マッチングアプリ用のモテるプロフィール写真をプロが撮影代行！「マッチングフォト」",
+      "company": "株式会社ＬＩＢＥＲＴＹ",
+      "vertical": null,
+      "score": null,
+      "epcYen": 8,
+      "confirmRatePct": 81.25,
+      "rewardRatePct": 10,
+      "rewardType": "rate",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000012624008": {
+      "programId": "s00000012624008",
+      "name": "TVCM放映★実力派占い師・カウンセラー・アドバイザーにメール相談★ココナラ占い ＆お悩み相談",
+      "genre": "TVCM放映★実力派占い師・カウンセラー・アドバイザーにメール相談★ココナラ占い ＆お悩み相談",
+      "company": "株式会社ココナラ",
+      "vertical": null,
+      "score": null,
+      "epcYen": 6,
+      "confirmRatePct": 99.7,
+      "rewardYen": 2000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000009685004": {
+      "programId": "s00000009685004",
+      "name": "【Pappy】ワンランク上のマッチングサービス",
+      "genre": "【Pappy】ワンランク上のマッチングサービス",
+      "company": "イククル",
+      "vertical": null,
+      "score": null,
+      "epcYen": 1,
+      "confirmRatePct": 100,
+      "rewardYen": 10900,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000026135001": {
+      "programId": "s00000026135001",
+      "name": "【NEWサービス】メルカリアンバサダー",
+      "genre": "【NEWサービス】メルカリアンバサダー",
+      "company": "株式会社メルカリ（メルカリアフィリエイト）",
+      "vertical": null,
+      "score": null,
+      "epcYen": 1,
+      "confirmRatePct": 100,
+      "rewardRatePct": 2,
+      "rewardType": "rate",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000025671001": {
+      "programId": "s00000025671001",
+      "name": "九州のいちおしグルメ・ギフトがお買い得！【イオン九州オンライン】",
+      "genre": "九州のいちおしグルメ・ギフトがお買い得！【イオン九州オンライン】",
+      "company": "イオン九州株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 2,
+      "confirmRatePct": 100,
+      "rewardRatePct": 5,
+      "rewardType": "rate",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000027148002": {
+      "programId": "s00000027148002",
+      "name": "はたらくクルマの自動車保険",
+      "genre": "はたらくクルマの自動車保険",
+      "company": "株式会社未来保険",
+      "vertical": null,
+      "score": null,
+      "epcYen": 8,
+      "confirmRatePct": 55,
+      "rewardYen": 1000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000027148001": {
+      "programId": "s00000027148001",
+      "name": "10台以上の自動車保険（フリート契約）",
+      "genre": "10台以上の自動車保険（フリート契約）",
+      "company": "株式会社未来保険",
+      "vertical": null,
+      "score": null,
+      "epcYen": 0,
+      "confirmRatePct": 0,
+      "rewardYen": 10000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000022169001": {
+      "programId": "s00000022169001",
+      "name": "月々5,500円からの車がもらえるカーリース、 全国47都道府県対応【ニコノリ】",
+      "genre": "月々5,500円からの車がもらえるカーリース、 全国47都道府県対応【ニコノリ】",
+      "company": "株式会社ＭＩＣ",
+      "vertical": null,
+      "score": null,
+      "epcYen": 206,
+      "confirmRatePct": 32.71,
+      "rewardYen": 17500,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000000018047": {
+      "programId": "s00000000018047",
+      "name": "ブラウザだけでできる本格的なAI画像生成【ConoHa AI Canvas】",
+      "genre": "ブラウザだけでできる本格的なAI画像生成【ConoHa AI Canvas】",
+      "company": "ＧＭＯインターネット株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 5,
+      "confirmRatePct": 84.5,
+      "rewardYen": 500,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000020001003": {
+      "programId": "s00000020001003",
+      "name": "アウトドア・キャンプ用品通販【エルブレス】",
+      "genre": "アウトドア・キャンプ用品通販【エルブレス】",
+      "company": "ゼビオ株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 0,
+      "confirmRatePct": 100,
+      "rewardRatePct": 5.4,
+      "rewardType": "rate",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000018486001": {
+      "programId": "s00000018486001",
+      "name": "日本発のアウトドアブランド【WAQアウトドアストア】",
+      "genre": "日本発のアウトドアブランド【WAQアウトドアストア】",
+      "company": "ＷＡＱ株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 0,
+      "confirmRatePct": 25,
+      "rewardRatePct": 5,
+      "rewardType": "rate",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000020001001": {
+      "programId": "s00000020001001",
+      "name": "スポーツ用品の通販【スーパースポーツゼビオ】",
+      "genre": "スポーツ用品の通販【スーパースポーツゼビオ】",
+      "company": "ゼビオ株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 3,
+      "confirmRatePct": 87.38,
+      "rewardRatePct": 6.5,
+      "rewardType": "rate",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000023754006": {
+      "programId": "s00000023754006",
+      "name": "簡単60秒！投資に関するアンケート【Oh!ya（オーヤ）】",
+      "genre": "簡単60秒！投資に関するアンケート【Oh!ya（オーヤ）】",
+      "company": "株式会社セレス",
+      "vertical": null,
+      "score": null,
+      "epcYen": 0,
+      "confirmRatePct": 16.66,
+      "rewardYen": 500,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000024293001": {
+      "programId": "s00000024293001",
+      "name": "輸入車専門＆全国対応の買取案件 輸入車買取センター",
+      "genre": "輸入車専門＆全国対応の買取案件 輸入車買取センター",
+      "company": "株式会社ＹＡＭＡＩ",
+      "vertical": null,
+      "score": null,
+      "epcYen": 63,
+      "confirmRatePct": 100,
+      "rewardYen": 3000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000026504001": {
+      "programId": "s00000026504001",
+      "name": "公認心理師（国家資格）のみが登録！オンライン心理カウンセリング【Kimochi】",
+      "genre": "公認心理師（国家資格）のみが登録！オンライン心理カウンセリング【Kimochi】",
+      "company": "株式会社ｒｅｍｅｎｔａｌ",
+      "vertical": null,
+      "score": null,
+      "epcYen": 1,
+      "confirmRatePct": 63.63,
+      "rewardYen": 5500,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000026954002": {
+      "programId": "s00000026954002",
+      "name": "全国レンタカー【イオンコンパストラベルモール】",
+      "genre": "全国レンタカー【イオンコンパストラベルモール】",
+      "company": "イオンコンパス株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 0,
+      "confirmRatePct": 0,
+      "rewardRatePct": 1,
+      "rewardType": "rate",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000026954001": {
+      "programId": "s00000026954001",
+      "name": "国内宿泊（宿・ホテル）【イオンコンパストラベルモール】",
+      "genre": "国内宿泊（宿・ホテル）【イオンコンパストラベルモール】",
+      "company": "イオンコンパス株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 0,
+      "confirmRatePct": 0,
+      "rewardRatePct": 2,
+      "rewardType": "rate",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000025400001": {
+      "programId": "s00000025400001",
+      "name": "オンリーワンのカスタマイズカタログギフト【マイプレシャス】",
+      "genre": "オンリーワンのカスタマイズカタログギフト【マイプレシャス】",
+      "company": "株式会社マイプレシャス",
+      "vertical": null,
+      "score": null,
+      "epcYen": 1,
+      "confirmRatePct": 100,
+      "rewardRatePct": 10,
+      "rewardType": "rate",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000013307001": {
+      "programId": "s00000013307001",
+      "name": "マカ超えの強力パワー！精力サプリメント【クラチャイダムゴールド】",
+      "genre": "マカ超えの強力パワー！精力サプリメント【クラチャイダムゴールド】",
+      "company": "日本サプリメントフーズ株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 0,
+      "confirmRatePct": 0,
+      "rewardYen": 5800,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000000002006": {
+      "programId": "s00000000002006",
+      "name": "【A8.net】メディア会員募集",
+      "genre": "【A8.net】メディア会員募集",
+      "company": "株式会社ファンコミュニケーションズ［Ａ８．ｎｅｔ］",
+      "vertical": null,
+      "score": null,
+      "epcYen": 1,
+      "confirmRatePct": 75,
+      "rewardYen": 300,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000011623001": {
+      "programId": "s00000011623001",
+      "name": "【NEW】楽天アフィリエイト",
+      "genre": "【NEW】楽天アフィリエイト",
+      "company": "楽天株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 0,
+      "confirmRatePct": 0,
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000008903001": {
+      "programId": "s00000008903001",
+      "name": "【DMM FX】アフィリエイト初心者でも報酬GET！豪華な特典をプレゼント！",
+      "genre": "【DMM FX】アフィリエイト初心者でも報酬GET！豪華な特典をプレゼント！",
+      "company": "株式会社ＤＭＭ．ｃｏｍ証券",
+      "vertical": null,
+      "score": null,
+      "epcYen": 0,
+      "confirmRatePct": 63.59,
+      "rewardYen": 40000,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000000018015": {
+      "programId": "s00000000018015",
+      "name": "【.com/.net ０円〜】独自ドメインの取得は国内シェアNo.1の＜お名前.com＞",
+      "genre": "【.com/.net ０円〜】独自ドメインの取得は国内シェアNo.1の＜お名前.com＞",
+      "company": "ＧＭＯインターネット株式会社",
+      "vertical": null,
+      "score": null,
+      "epcYen": 0,
+      "confirmRatePct": 22.56,
+      "rewardRatePct": 11,
+      "rewardType": "rate",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000005186002": {
+      "programId": "s00000005186002",
+      "name": "【A8.net】成果反映用プログラム",
+      "genre": "【A8.net】成果反映用プログラム",
+      "company": "Ａ８セルフバック",
+      "vertical": null,
+      "score": null,
+      "epcYen": 70228,
+      "confirmRatePct": 94.87,
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000005186001": {
+      "programId": "s00000005186001",
+      "name": "【A8セルフバック】参加申請・成果反映用",
+      "genre": "【A8セルフバック】参加申請・成果反映用",
+      "company": "Ａ８セルフバック",
+      "vertical": null,
+      "score": null,
+      "epcYen": 0,
+      "confirmRatePct": 0,
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-20T01:31:26.322Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "__applying": {
+      "programId": "__applying",
+      "status": "candidate",
+      "note": "list-snapshot (審査待ち・状態機械外の記録)",
+      "items": [
+        {
+          "programId": "s00000021329001",
+          "name": "脱毛は男のたしなみ【RBL_ローランドビューティーラウンジ】"
+        },
+        {
+          "programId": "s00000025720001",
+          "name": "立川のボイトレスクール【DECO MUSIC SCHOOL】"
+        },
+        {
+          "programId": "s00000010346001",
+          "name": "女性限定・初心者専門の英会話スクール【b わたしの英会話】"
+        },
+        {
+          "programId": "s00000013449001",
+          "name": "メンズ医療脱毛なら【ゴリラ脱毛】"
+        },
+        {
+          "programId": "s00000009778002",
+          "name": "たかの友梨 ブライダルホワイトコース お試しキャンペーン"
+        },
+        {
+          "programId": "s00000020560002",
+          "name": "【増大・長茎】施術限定 ーメンズライフクリニックー"
+        },
+        {
+          "programId": "s00000024182002",
+          "name": "副業・フリーランスエンジニアプラットフォーム【エンジニアデータバンク】"
+        },
+        {
+          "programId": "s00000014289002",
+          "name": "ヒゲや全身のムダ毛のお悩みに！男性脱毛の【メンズリゼ】"
+        },
+        {
+          "programId": "s00000023687001",
+          "name": "大阪ガスのインターネット「さすガねっと」"
+        },
+        {
+          "programId": "s00000018254001",
+          "name": "資格・特技・趣味など、100以上の多彩な通信講座をご用意！【生涯学習のユーキャン】"
+        },
+        {
+          "programId": "s00000014380004",
+          "name": "電話1本で無料査定・高価買取！【トラック買取のカーネクスト】"
+        },
+        {
+          "programId": "s00000026077001",
+          "name": "廃車買取専門店【ハイシャル】"
+        },
+        {
+          "programId": "s00000025678001",
+          "name": "専門店比較で高価買取！全国対応、中古車、事故車全てOK！CTN車一括査定"
+        },
+        {
+          "programId": "s00000000076017",
+          "name": "\"車査定は新時代へ\" 中古車買取一括査定【MOTA車買取】"
+        },
+        {
+          "programId": "s00000026568002",
+          "name": "管理部門特化の転職エージェント【WARC AGENT】"
+        },
+        {
+          "programId": "s00000017938001",
+          "name": "フリーランスエンジニアの無料カウンセリング実施で20,000円！【ポテパンフリーランス】"
+        },
+        {
+          "programId": "s00000002032032",
+          "name": "恋愛相談が仕事になる！【婚活カウンセラー資格取得講座】"
+        },
+        {
+          "programId": "s00000026495001",
+          "name": "脱・短期集中。燃え尽きない英語コーチングをやってみたいなら【90 English】"
+        },
+        {
+          "programId": "s00000026577001",
+          "name": "初心者OK！デザイン＆広告スキル習得【ウェブスキ】"
+        },
+        {
+          "programId": "s00000007478007",
+          "name": "不動産投資の一括比較【ウェルスコーチ】"
+        },
+        {
+          "programId": "s00000026822001",
+          "name": "無料WEB面談参加でPayPayポイント5万円分プレゼント！AI不動産投資リノシー"
+        },
+        {
+          "programId": "s00000001248024",
+          "name": "累計登録者数100万人以上の看護師の転職支援サービス【ナース専科 転職】"
+        },
+        {
+          "programId": "s00000009027008",
+          "name": "看護師の転職支援はディップ「ナースではたらこ」"
+        },
+        {
+          "programId": "s00000021679004",
+          "name": "医療事務資格を最短1ヶ月で！合格率94.4％の実績【日本医療事務協会】"
+        },
+        {
+          "programId": "s00000025320001",
+          "name": "Dr.トレーニング｜運動の無駄をゼロにするパーソナルジム"
+        },
+        {
+          "programId": "s00000019900001",
+          "name": "若手ハイエンド向け転職サイト『ASSIGN』"
+        },
+        {
+          "programId": "s00000027402001",
+          "name": "案件探しも、報酬交渉も。フリーランスに寄り添うエージェントTECHBIZ"
+        },
+        {
+          "programId": "s00000024500001",
+          "name": "IT/Webエンジニア特化の転職支援サービス【キッカケエージェント】"
+        },
+        {
+          "programId": "s00000019900002",
+          "name": "若手ハイエンド特化の転職エージェント【ASSIGN AGENT】"
+        },
+        {
+          "programId": "s00000026731002",
+          "name": "自己分析の「質」が内定の「納得度」を変える『自己分析特化型』新卒エージェント【マイキャリ】"
+        },
+        {
+          "programId": "s00000026465001",
+          "name": "就活サイト「ワンキャリア」"
+        },
+        {
+          "programId": "s00000027279001",
+          "name": "キャリア支援のプロへ。【キャリアコンサルタント養成講習】"
+        },
+        {
+          "programId": "s00000027253001",
+          "name": "気軽に始められる音楽教室【オトノミチシルベ】"
+        },
+        {
+          "programId": "s00000025413001",
+          "name": "国内最大級の中高生向けプログラミングスクール『Life is Tech』"
+        },
+        {
+          "programId": "s00000026697001",
+          "name": "英語を話す力を伸ばしたい方に最適なAI英会話アプリ【スピーク】"
+        },
+        {
+          "programId": "s00000027398001",
+          "name": "ChatGPTなどの生成AIを学び仕事に活かす！「DMM 生成AI CAMP」"
+        },
+        {
+          "programId": "s00000024582003",
+          "name": "完全没入型英語コーチング【TEPPEN ENGLISH】"
+        },
+        {
+          "programId": "s00000025093001",
+          "name": "【メイカラ】Web（副業）スキルとAIの基礎学習ができるスクール"
+        },
+        {
+          "programId": "s00000027033001",
+          "name": "医療系転職のプロがあなたの転職を完全サポート！【クリアス看護】"
+        }
+      ],
+      "at": "2026-07-20T01:36:19.547Z"
+    }
+  },
+  "updatedAt": "2026-07-20T01:36:19.547Z"
 }

@@ -308,9 +308,14 @@ function normalizeProgram(raw: any, verticalHint?: string): any {
   };
 }
 
-/** 一覧 URL を全ページ巡回して normalizeProgram 済み配列を返す (list / import-partnered 共用)。 */
+/** 一覧 URL を全ページ巡回して normalizeProgram 済み配列を返す (list / import-partnered 共用)。
+ *  ★ programId で dedupe し、新規 programId を1件も足さないページで打ち切る。
+ *    A8 の一部タブ (例: /program/list/applying) は `?pageNo=` が効かず毎回同じ1ページを返すため、
+ *    単純な「cards<20 で break」だけだと同じ集合を30回集めて件数が水増しされる (2026-07-20 実機で判明・
+ *    申込中が uniq 39 → 39×30=1170 に膨張)。real ページネーション (partnered) では新規が尽きるまで集め続ける。 */
 async function collectList(page: Page, listUrl: string, step: string): Promise<any[] | null> {
   const all: any[] = [];
+  const seen = new Set<string>();
   for (let pageNo = 1; pageNo <= 30; pageNo++) {
     await page.goto(`${listUrl}?pageNo=${pageNo}`, { waitUntil: "networkidle", timeout: 40000 });
     await page.waitForTimeout(2500);
@@ -320,10 +325,14 @@ async function collectList(page: Page, listUrl: string, step: string): Promise<a
     }
     const cards = await scrapeCurrentPage(page);
     if (cards.length === 0) break;
+    let fresh = 0;
     for (const c of cards) {
-      if (!c.programId) continue;
+      if (!c.programId || seen.has(c.programId)) continue;
+      seen.add(c.programId);
       all.push(normalizeProgram(c));
+      fresh++;
     }
+    if (fresh === 0) break; // pageNo が進まない/最終ページ超過 = 新規なし → 打ち切り (水増し防止)
     if (cards.length < 20) break; // 最終ページ
     await page.waitForTimeout(1200);
   }
