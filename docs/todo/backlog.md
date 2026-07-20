@@ -96,6 +96,52 @@ page/category の合成ロジック共通化（2026-06-25 アセスメント起�
 
 ## 🟡 中 — 2〜3ヶ月以内
 
+### Playwright E2Eスモークテストを導入
+タグ: [品質] [E2E] [Claude Code候補]
+
+トップ、1級土木、2級土木、技術士総監の代表ページについて、描画・主要回遊・note CTA href・モバイルoverflowをPlaywrightで検査する。note.comへのログイン、購入、公開操作や全記事クロールは対象外。Fableがオーケストレーションし、Opusは設計レビュー1回、Sonnetは実装と独立QAへ限定してトークンを節約する。
+
+- **設計SSOT**: [12_Playwright_E2E導入設計.md](../project/04_運営/12_Playwright_E2E導入設計.md)
+- **Claude Code指示**: [claude-code-playwright-e2e-implementation-prompt.md](../project/04_運営/claude-code-playwright-e2e-implementation-prompt.md)
+- **既存状態**: `@playwright/test`は導入済み。設定、spec、package scripts、CI workflowは未整備。
+- **初版範囲**: Chromium desktop/mobile、代表ページ、CTAはhref検査まで。
+- **完了条件**: E2E、既存単体テスト、type-check、lint、build、doc-syncが成功し、失敗時artifactをCIで取得できる。
+
+### note カバー Clarity V3 を代表記事1件で実装・検証
+タグ: [UI・UX] [Codex候補]
+
+note一覧の小さいサムネイルで主題と読後価値を瞬時に把握できるよう、既存G2と後方互換な `cover.variant: clarity` を実装する。最初は `1級経験記述で落ちる答案` 1記事だけに適用し、中央630×630クロップと幅320px相当で可読性を確認する。全記事移行と note.com へのライブ反映は別判断。
+
+- **設計SSOT**: [note-cover-clarity-v3.md](../design-system/note-cover-clarity-v3.md)
+- **Claude Code指示**: [claude-code-note-cover-clarity-v3-prompt.md](../project/05_プロダクト/claude-code-note-cover-clarity-v3-prompt.md)
+- **著者属性の厳守**: 著者は**元発注者**であり添削者ではない。カバー訴求は `元発注者の視点で解説` とし、「添削者」「添削者視点」を使わない。
+- **完了条件**: variantなし既存G2に差分なし／主要情報が中央590pxに収まる／fit検査対応／通常版を最後に再生成してdebug枠なし／テストと目視確認完了。
+
+### Brain向け Claude Code「施工経験記述」設計キットをβ商品化
+タグ: [収益化] [Codex候補]
+
+既存のGenerator／Evaluator分離、本人経験入力、字数検査、捏造防止を汎用化し、1級・2級土木の施工経験記述を設計・検証する非公式Claude Codeスキル商品を作る。内部の有料答案・PDF・認証情報は含めず、別の非公開リポジトリで商品本体を開発する案を優先する。
+
+- **商品企画**: [00-product-spec.md](../project/05_プロダクト/brain-claude-code-essay-skill/00-product-spec.md)
+- **配布仕様**: [01-package-spec.md](../project/05_プロダクト/brain-claude-code-essay-skill/01-package-spec.md)
+- **販売原稿**: [02-brain-sales-page-draft.md](../project/05_プロダクト/brain-claude-code-essay-skill/02-brain-sales-page-draft.md)
+- **公開チェック**: [03-publication-checklist.md](../project/05_プロダクト/brain-claude-code-essay-skill/03-publication-checklist.md)
+- **制作順序**: [04-build-plan.md](../project/05_プロダクト/brain-claude-code-essay-skill/04-build-plan.md)
+- **未決定**: 初版スコープ、商品本体の作成先、サンプル問題の権利方針、動画・質問対応の有無。
+- **公開禁止条件**: 採点者・添削者・合格保証の誤認表現、本人未経験工事の自動生成、内部有料資料・秘密情報の混入が1つでも残る場合は公開しない。
+
+### Brain向け Claude Code「出題テーマ分析・国家施策バンク」スキルを商品化
+タグ: [収益化] [技術士総監] [Codex候補]
+
+R8総監記述式で出題された「地方創生」を、2026-06-01公開の設問(3)国家施策バンクへ事前収録していた実績をケーススタディにする。完成答案や的中保証ではなく、過去問・白書・政府計画から「候補抽出→採点→5管理との接続→想定設問→国家施策答案部品→独立評価→証拠保存」を行う再現可能なClaude Codeワークフローを販売する。
+
+- **商品企画**: [00-product-concept.md](../project/05_プロダクト/brain-r8-policy-prediction-skill/00-product-concept.md)
+- **既存商品との関係**: 施工経験記述キットの付録にはせず、技術士総監向けの上位／別商品とする。
+- **最優先検証**: R6～R8を、各試験日前に取得可能だった資料だけで時点再現バックテストする。
+- **実績表現**: 「設問(3)国家施策バンクで地方創生を事前収録」。R8予想問題集の本命・問題全文の完全的中とは表現しない。
+- **未決定**: 初版範囲、商品本体の作成先、β価格、年度更新方法、動画・質問対応の有無。
+- **公開禁止条件**: バックテスト未完了、判定基準未定義、外れ候補の非開示、合格・的中保証、内部有料資産・秘密情報の混入が1つでも残る場合は公開しない。
+
 ### note施策A: 1級一次択一PDF `civil-1-takuitsu-pdf` ¥1,980 を公開（10月上旬・Select 明け）
 タグ: [収益化]
 

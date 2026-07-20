@@ -114,7 +114,10 @@ async function preprocess(body, articleDir, images, imageSrc) {
     // 持つため、basename のみだと後年度の図が先年度の図に黙って差し替わる（実害を QA で検出）。
     // 記事ディレクトリ名（r01-basic 等）を前置して一意化する。
     const artId = basename(dirname(dirname(local))) // .../r01-basic/img/x.webp → r01-basic
-    const jpgName = basename(local).replace(/\.(webp|png|jpg|jpeg)$/i, '.jpg')
+    // svg も必ず .jpg に正規化する（sharp で JPEG 化するのに拡張子が .svg のまま残ると
+    // 「中身 JPEG・名前 .svg」になり、KDP 変換が拡張子で SVG 解析を試みて失敗する。epubcheck は
+    // media-type=image/jpeg と実体一致のため素通り。2026-07-20 b-heisei 出版不能の真因）
+    const jpgName = basename(local).replace(/\.(svg|webp|png|jpg|jpeg)$/i, '.jpg')
     const href = `img/${artId}-${jpgName}`
     imgTasks.push({ local, href })
     return push(`<div class="fig"><img src="${href}" alt="${xesc(alt)}"/></div>`)

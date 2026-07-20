@@ -17,8 +17,9 @@ title: スキル ガバナンス記録
 
 ```
 .claude/skills/
+├── ads/             # 1 — A8 アフィリエイト操作（承認確認/開拓/申請/コード取得）
 ├── authoring/       # 11 — 記事を作る
-├── conversion/      # 6 — 形式変換（MDX / OGP 画像 / 紙用 PDF / Kindle EPUB）＋ OGP 意匠の素案試作
+├── conversion/      # 7 — 形式変換（MDX / OGP 画像 / 紙用 PDF / Kindle EPUB）＋ KDP 入稿・出版 ＋ OGP 意匠の素案試作
 ├── quality/         # 16 — MDX・note 公開前品質検査
 ├── management/      # 18 — 計画・分析・戦略
 ├── dev/             # 13 — 開発・CI/CD
@@ -28,7 +29,9 @@ title: スキル ガバナンス記録
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **90 スキル**（9 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+合計 **92 スキル**（10 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+
+> 2026-07-20 新設（A8 アフィリ確認パイプライン・新カテゴリ ads）: `ads/scout-asp`（A8.net を Playwright で操作し**申請済みアフィリの承認確認**〔`list`〕を主用途に、提携取込〔`import-partnered`〕・転職案件の開拓/申請〔`scout`/`apply`・A8 カテゴリ09 のみ・週次上限〕・承認昇格〔`check-approval`〕・広告コード取得〔`harvest`〕まで回す user-invocable スキル。`disable-model-invocation: true`）。**新カテゴリ `ads/` を新設**。stats47 の同名 `scout-asp` を doboku=転職一本へ移植・スリム化＝(1) scout を A8 カテゴリ09(仕事)のみに限定・講座/教材/書籍/添削を blocklist 恒久除外（memory `affiliate-career-only` の Red Line 機械強制）、(2) **register は自動追記しない**（doboku の creative SSOT は手キュレーションの `src/config/affiliate-creatives.ts`＝3枠・意図配置・カニバリ回避。stats47 の `AFFILIATE_ADS[]` intent-hub は無い）→ harvest は「配置候補〔SidebarAdCreative 形 + affiliate-mats.json 追記案〕を catalog の adDraft に出力」まで・確定配置は人判断。決定的スクリプト `.claude/scripts/ads/lib/{a8-scout-core,a8-code-core}.mjs`（純関数コア）／`.claude/scripts/ads/check-a8-apply-budget.cjs`（週次申請上限）／`.claude/scripts/ads/data/a8-curated.json`（係数・blocklist・vertical・上限の SSOT）／`.claude/state/ads/a8-catalog.json`（状態機械）を新設。認証は永続プロファイル＋セッション Cookie 再注入（`.local/playwright-a8-{profile,state.json}`・`login.mjs`）。正典 SSOT は新設 `docs/reference/a8-affiliate-pipeline.md`、認証は `playwright-auth-profiles.md` に a8 profile 行を追記予定。**ローカル Mac 限定・初回のみ人間ログイン＋`list --dry-run --headed` で実機セレクタ確定**。合計 `90→91`・新カテゴリ `ads 0→1`（9→10 カテゴリ）。agents 件数は不変（Phase 3 で `affiliate-manager` を検討）。
 
 > 2026-07-18 新設（ココナラ出品の自動化）: `management/coconala-publish`（ココナラ出品サービスを Playwright で**新規出品・内容修正・価格反映**する user-invocable スキル。`coconala-operator` が起動）。決定的スクリプト `scripts/coconala-publish.mjs`（新規）／`coconala-edit.mjs`（修正）／`coconala-discover.mjs`（フォーム偵察）＋共有 `scripts/lib/coconala-{session,form}.mjs`、投入 SoT `.claude/config/coconala-listings.json`（本文/カテゴリ/納期/genreFacets・価格はカタログが真実源）を新設。note-publish 流儀＝ログイン済みプロファイル `.local/playwright-coconala-profile`＋account assert（sellerName=dobokunote）＋draft-first＋`--commit` gate、公開成功でカタログを `listed`＋`serviceUrl`＋`listedAt` に書き戻し。**2026-07-16 の「ココナラ UI の自動操作はしない」方針を出品・修正について改訂**（利用規約に自分の出品の自動化を禁じる明示条項は 2026-07-18 時点で未確認・第13条2項22号は購入者側の自動応答が対象。トークルーム返信送信は運営者のまま）。`coconala-operator` の description／`coconala-operations.md` §1/§2.1b/§5/§8／`coconala-account.json`／カタログ header を同期。合計 `89→90`・management `17→18`。agents 件数は不変（既存 `coconala-operator` の能力拡張）。
 
@@ -43,6 +46,8 @@ title: スキル ガバナンス記録
 > 2026-07-13 新設（SEO グロースレビュー分業）: `management/seo-growth-review`（SEO を技術/coverage/performance/意図の4面で束ねる user-invocable オーケストレータ。機械検出→意味評価→統合・**修正なし**）。あわせて**新エージェント 2 体**＝`technical-seo-auditor`（Evaluator・sonnet・audit-only。check-seo-build/check-seo-meta/index-coverage/sitemap の機械出力を統合。決定的判定を再実行しない）と `search-intent-auditor`（Evaluator・sonnet・audit-only。機械抽出の最大 20 URL のみ検索意図を意味評価）。機械検出は `scripts/check-seo-build.mjs`（build 後 SEO ゲート・CI 配線済み）と再設計版 `check-seo-meta`。**旧 catch-all `seo-auditor`（2026-06-19 退役）は復活させない**・自動修正エージェントは作らない。合計 `85→86`・management `14→15`、agents `64→66`（+2・実数 `find` と突合）。
 
 > 2026-07-08 新設（Kindle 出版パイプライン）: `conversion/kindle-build`（Kindle(KDP) 入稿用 EPUB を書籍IDから生成→epubcheck→5軸監査まで一気通貫のオーケストレータ・user-invocable）。あわせて**新エージェント 2 体**＝`kindle-book-composer`（Generator・sonnet。A系 THEMES 論点分類設計 / D系 spec + 書き下ろし前付け執筆）と `kindle-book-qa`（Evaluator・sonnet・audit-only。原稿完全性/構成整合/EPUB技術/KDP規約適合/商品性の5軸）。ビルドは決定的スクリプト（A系=`scripts/build-takuitsu-reconstruct.mjs`・D系=`scripts/build-pe1-kindle.mjs`+`scripts/kindle-specs/*.json`）で LLM 不使用（§5 準拠）。戦略・価格の真実源は `docs/project/01_戦略/08_Kindle出版戦略.md`。合計 `83→84`・conversion `5→6`、agents `+2`。
+
+> 2026-07-20 新設（KDP 入稿・出版の自動化）: `conversion/kdp-publish`（ビルド済み EPUB＋表紙を KDP へ入稿し下書き保存→承認後出版する Playwright パブリッシャ・user-invocable。詳細→カテゴリー→原稿/表紙アップロード→原稿処理完了待ち→AI申告→アクセシビリティ→価格→出版）。あわせて **新エージェント 1 体**＝`kdp-operator`（Orchestrator・sonnet。本棚突合による重複防止 / kdp-memo 未登録本のメタデータ生成 / 提出駆動 / LIVE 化後の ASIN 3 箇所記録）。真実源は `.claude/config/kdp-memo.json`（defaults＝共通申告/カテゴリー経路）＋読取り一元化 `scripts/lib/kdp-common.mjs`（gen-kdp-memo.mjs と共用＝共通定数の二重定義を解消）。背景＝b-heisei の「ファイルの処理中に問題」の真因＝`.svg` 拡張子の JPEG（`build-pe1-kindle.mjs:117` の拡張子正規化に `svg` を追加して修正）。合計 `91→92`・conversion `6→7`、agents `68→69`。
 
 > 2026-07-04 退役（棚卸し）: `authoring/exam-guide`（＋`authoring/templates/exam-guide/` 全5テンプレ＝`_schema.md`/`_new-exam-template.md`/`civil-construction-1.md`/`civil-construction-2.md`/`pe.md` と親 `templates/README.md`）を退役。合計 `84→83`・`authoring/ 12→11`。退役理由＝(1) テンプレが旧 Docusaurus アーキ（`:::note[]` admonition・`content/general/…` source_paths・`docs/exam/…` 旧 URL・`sidebar_slug`/`sidebar_label`）のまま死んでいた、(2) 実運用の新規ガイド生成は `group: guide` の品質サイクル（`guide-qa`／`guide-rewriter`／`guide-fact-checker`）主導のオリジナル散文フローに移行済み（2026-07-03 civil1 textbook→guide 13章展開は `/exam-guide` を経由していない＝commit `279760cb5` 等）。以後の新規ガイドは同サイクルへ一本化。退役の詳細行は「退役ログ」節も参照。
 

@@ -32,6 +32,7 @@ reels の wav/mp4 等の再生成可能バイナリは git に溜め込まず R2
 
 ## 関連ポリシー
 
+- Playwright ログインプロファイル運用（X/IG/note/ココナラの再ログイン防止）: `docs/reference/playwright-auth-profiles.md`
 - 画像仕様: `docs/reference/sns-image-policy.md`
 - バイナリ退避運用: `docs/reference/sns-archive-policy.md`
 - SNS 集客戦略: `docs/project/03_SNS/01_SNS集客戦略.md`

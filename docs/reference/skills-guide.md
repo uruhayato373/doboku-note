@@ -38,6 +38,7 @@ title: スキル ナビゲーションガイド
 | `/ogp-design-explore` | OGP 意匠の**新方向を aidesigner / Canva の MCP で素案として試作**し、採用案を `/ogp-create` の satori テンプレに落として量産につなぐ。試作専用（量産・per-article 生成は `/ogp-create`）。MCP は外部クレジット消費 | `OGPデザイン検討`, `OGP素案`, `OGPリデザイン試作`, `/ogp-design-explore` |
 | `/magazine-to-pdf` | note マガジンの article.md →「問題文＋解答」中心の紙用 PDF（spec 駆動・A/B案両収録） | `マガジンをPDF`, `記事を紙で`, `模範論文PDF`, `/magazine-to-pdf --spec scripts/pdf-specs/{name}.json [--desktop]` |
 | `/kindle-build` | Kindle(KDP)入稿用 EPUB を書籍IDから生成→epubcheck＋check-kindle-format→`kindle-book-qa` 5軸監査まで一気通貫。択一系（A=1級土木論点別 / B=総監・D=技術士一次・E=2級土木 は build-pe1-kindle）と記述式 essay 系（C=建設二次模範解答・F=総監記述式 は build-essay-kindle）に対応。構成未定義は `kindle-book-composer` へ委譲。全書籍の状態は catalog.json、配布物は kindle-dist/ を git 追跡。真実源 08_Kindle出版戦略.md | `Kindle本を作って`, `EPUBを生成`, `KDP入稿ファイル`, `essay模範解答本`, `/kindle-build {A-01\|E-01\|c-01}` |
+| `/kdp-publish` | ビルド済み EPUB＋表紙を Amazon KDP へ入稿し下書き保存→（承認後）出版する Playwright パブリッシャ（`scripts/kdp-publish.mjs`・永続プロファイルでログイン保存）。詳細→カテゴリー→原稿/表紙アップロード→原稿処理完了待ち→AI申告→アクセシビリティ→価格→出版。重複突合(`--sync-status`)・メタ生成・提出後の catalog/戦略doc/README 記録は `kdp-operator` へ委譲。真実源 .claude/config/kdp-memo.json（defaults）。/kindle-build の後工程 | `KDP出版`, `KDP提出`, `kindleを出版`, `KDPドラフト削除`, `/kdp-publish {id}`（`--commit-publish` で出版） |
 
 ### 品質管理（quality）
 
@@ -84,7 +85,7 @@ title: スキル ナビゲーションガイド
 | `/note-magazine-create` | note 有料マガジンを **`note掲載文.txt` 駆動**で新規作成（`/magazines/new`・有料単体・カテゴリ=キャリア）。`note-edit-magazine`(編集)・`note-magazine-add`(収録)と役割分離。**既定 probe・実作成は `--commit`**・作成前に fill 読み戻し検証・key 取得。Windows可（channel:chrome＋ignoreHTTPSErrors） | `noteマガジン作成`, `note有料マガジンを作る`, `/note-magazine-create --dir {magazineDir}` |
 | `/note-publish` | note 有料記事を Playwright × システム Chrome で**下書き作成→公開**（`publish-note`=browser-use の Windows 決定的版）。account=dobokunote ゲート・**既定 draft / `--commit` で公開**・カバー/タイトル/本文(markdown)/価格(`#price`)/タグ/**有料境界を「試験問題・予想問題」直前に自動設定＋公開前に `boundaryBeforeExam` 検証**まで自動。**リンクカード化は共有実装 `scripts/lib/note-cardify.mjs` で自動**（type 方式＝note の埋め込み検出は keyboard.type で起動・synthetic paste不可。URL が見出しに化けたら修復し、残存すれば保存/公開せず中断（exit 3）・公開後は public API で URL 見出しを自動検証。2026-07-14 レース根治・横断検知は `npm run check-note-live-headings`）。Windows(会社PC)動作（channel:chrome＋ignoreHTTPSErrors）。**予約投稿対応**=`--schedule "YYYY-MM-DDTHH:MM"`（note無料・即時の代わりに予約公開・日時未確定なら下書き退避）、バッチ時間ずらしは `note-publish-magazine --list <manifest> --schedule-start ... --interval-hours N` | `note記事公開`, `note有料記事を投稿`, `note自動公開`, `/note-publish --article {path} [--commit] [--schedule YYYY-MM-DDTHH:MM]` |
 | `/note-magazine-cover` | note 有料マガジンの**見出し画像（cover）**を `_cover.png`（1280×670）から設定（Playwright × システム Chrome）。`note-magazine-create` が作成時に付けない systematic 欠落を補う＝**マガジン作成パイプラインの一工程**。**既定 probe・実保存は `--commit`**・「この画像を使う」→更新・保存後 API で `cover`/`coverRectangle`（`eyecatch` でない）が実カバー（未設定時 cloudfront `default_magazine_header`＝デフォルト判定）かを検証。Windows可 | `noteマガジンのカバー設定`, `マガジン見出し画像`, `マガジン画像が未登録`, `/note-magazine-cover --key {key} --dir {magazineDir}` |
-| `/note-attach-pdf` | 公開済み note 有料記事の**本文末尾（有料エリア内）に印刷用 PDF をダウンロードカードとして添付**し再公開（Playwright × システム Chrome）。`note-publish` が扱わない「ファイル添付」（従来半手動）を自動化。1記事=`note-attach-file.mjs`／1マガジン直列バッチ=`note-attach-magazine-pdfs.mjs`（noteId↔PDF 突合・done-log 再開・最大2回試行）。**既定 dry/probe・実添付は `--commit`**・有料境界を**非破壊検証**（既定=試験問題直前を維持・**別型は `--boundary-regex "<H2先頭一致>"` で上書き**、例 暗記ノート=`コンクリート工`／`2. コンクリート工`・崩れたら中断）→更新する・偽成功ガード（公開ページで有料維持を実査）・冪等（既添付は再公開のみ）。**PDF挿入は本文末尾へJSで caret 移動**（旧 Control+End は Windows専用でMac無効→冒頭挿入=無料流出だった・2026-07-04是正）。Windows/Mac可 | `note記事にPDF添付`, `印刷用PDFを記事末尾に`, `マガジンのPDFが未添付`, `/note-attach-pdf --dir {magazineDir} [--commit] [--boundary-regex "<H2>"]` |
+| `/note-attach-pdf` | 公開済み note 有料記事の**本文末尾（有料エリア内）に印刷用 PDF をダウンロードカードとして添付**し再公開（Playwright × システム Chrome）。`note-publish` が扱わない「ファイル添付」（従来半手動）を自動化。1記事=`note-attach-file.mjs`／1マガジン直列バッチ=`note-attach-magazine-pdfs.mjs`（noteId↔PDF 突合・done-log 再開・最大2回試行）。**既定 dry/probe・実添付は `--commit`**・有料境界を**非破壊検証**（既定=試験問題直前を維持・**別型は `--boundary-regex "<H2先頭一致>"` で上書き**、例 暗記ノート=`コンクリート工`／`2. コンクリート工`・崩れたら中断）→更新する・偽成功ガード（公開ページで有料維持を実査）・冪等（既添付は再公開のみ）。**PDF挿入は既定で本文末尾へJSで caret 移動**（旧 Control+End は Windows専用でMac無効→冒頭挿入=無料流出だった・2026-07-04是正）。**`note-attach-file --anchor "<段落テキスト>"` で指定段落の直後に挿入も可**（無料記事で各セクション内に配置・未検出は ABORT・複数は `--force` 併用、2026-07-20新設）。Windows/Mac可 | `note記事にPDF添付`, `印刷用PDFを記事末尾に`, `マガジンのPDFが未添付`, `/note-attach-pdf --dir {magazineDir} [--commit] [--boundary-regex "<H2>"]` |
 | `/publish-ig-bs` | Playwright × Meta Business Suite で IG **カルーセル/リール**を**予約投稿**（`--reel` で reels/video.mp4・IG 単独化・spinbutton 時刻・dry-run 必須）。即時は `--now`（Graph API 経路は 2026-06-17 全廃＝IG 投稿は本スキルに一本化） | `IG予約投稿`, `インスタ予約`, `リール予約`, `Business Suite 投稿`, `/publish-ig-bs` |
 | `/ig-reconcile` | IG 公開状態をライブのグリッド＋プランナーと照合（`verify-ig-status`）し、posted.json/status.json のドリフトを是正・未公開を安全に予約まで運ぶ運用スキル。`ig-publish-auditor` で公開可否ゲート→`publish-ig-bs` で衝突しない時間帯へ予約→プランナー実体確認。投稿/予約は operator 確認後・削除は対象外。真実源 `docs/reference/ig-publish-reconcile.md` | `IG公開状態を確認`, `未公開を予約投稿`, `IGのSoTドリフト是正`, `IG status reconcile`, `/ig-reconcile` |
 | `/x-repost` | 高エンゲージな技術士総監/1級・2級土木ツイートを検索 → `x-repost-curator` で選別＋引用コメント生成 → Playwright で引用RP（ローカル `/loop` 運用・dry-run 必須） | `Xリポスト`, `引用リポスト`, `/x-repost` |
@@ -142,6 +143,12 @@ title: スキル ナビゲーションガイド
 | スキル | 一言説明 | 呼ぶとき |
 |---|---|---|
 | `/design-review` | デザインシステム準拠レビュー（7 カテゴリ）＋ `--visual` で視覚検証 | `デザインレビュー`, `/design-review` |
+
+### アフィリエイト運用（ads）
+
+| スキル | 一言説明 | 呼ぶとき |
+|---|---|---|
+| `/scout-asp` | A8.net を Playwright で操作（転職一本スコープ・複数サイト口座は**申請/コード取得とも doboku-note を選択**）。`list`=承認確認（主用途・口座横断）／`search`=ニッチ語で未提携案件を狙い撃ち検索／`import-partnered`=提携取込／`scout`+`apply`=開拓・週次上限申請／`check-approval`=承認昇格／`harvest`=広告コード→配置候補出力。**初回は `list --dry-run --headed`**。正典 `docs/reference/a8-affiliate-pipeline.md` | `A8確認`, `アフィリエイト承認確認`, `申請済みアフィリを見る`, `A8案件を探す`, `A8提携状況`, `/scout-asp` |
 
 ---
 

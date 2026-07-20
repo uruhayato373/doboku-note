@@ -48,7 +48,10 @@ import * as fs from "fs";
 // ─── 設定 ─────────────────────────────────────────────
 const PROJECT_ROOT = path.resolve(__dirname, "../../../..");
 const IG_DIR = path.join(PROJECT_ROOT, "docs/sns/instagram");
-const PROFILE_DIR = path.join(PROJECT_ROOT, ".local/playwright-ig-bs-profile");
+// ログインプロファイルはメインチェックアウト固定で共有する（worktree 実行時の再ログイン防止）。
+// docs/reference/playwright-auth-profiles.md
+const PROFILE_ROOT = "/Users/minamidaisuke/doboku-note";
+const PROFILE_DIR = path.join(PROFILE_ROOT, ".local/playwright-ig-bs-profile");
 const DEBUG_DIR = path.join(PROJECT_ROOT, ".local/playwright-ig-bs-debug");
 
 const IG_CAPTION_LIMIT = 2200; // Instagram キャプション上限（文字数）

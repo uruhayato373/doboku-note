@@ -5,7 +5,7 @@ description: >
   択一系（A=1級土木論点別 build-takuitsu-reconstruct / B=総監択一・D=技術士一次・E=2級土木択一 build-pe1-kindle）は spec で、
   記述式 essay 系（C=建設二次模範解答・F=総監記述式）は build-essay-kindle.mjs で決定論的にビルドする。構成定義/前付けが
   未整備の書籍は kindle-book-composer に委譲。全書籍の状態は catalog.json（マスター登録簿）、成果物は kindle-dist/ を git 追跡。
-  表紙画像・KDPアカウント操作は対象外（ユーザー作業）。
+  表紙画像は対象外。KDP への実入稿・出版は後工程の /kdp-publish（kdp-operator）が担当。
   Use when user asks to [Kindle本を作って, EPUBを生成, KDP入稿ファイル, A-01をビルド, essay模範解答本, Kindle出版の原稿, /kindle-build].
 user-invocable: true
 ---
@@ -118,7 +118,7 @@ Kindle 出版戦略（[08_Kindle出版戦略.md](../../../../docs/project/01_戦
 ## KDP 提出運用（分割提出・catalog 管理）
 
 - **KDP 新規/実績浅アカウントは本の作成数制限あり**（2026-07-11、d-03 提出時に到達）。数日〜で枠回復・売上/審査通過で緩和。**分割提出運用**が前提
-- **入稿メモ**: `npm run gen-kdp-memo <id...>` で共通テンプレ生成（共通項=著者 doboku-note/レーベル/AI申告/カテゴリ/フローを gen-kdp-memo.mjs に一元化、固有値は `.claude/config/kdp-memo.json`、title/price/issuer は spec 自動取得）→ `scripts/kindle-published/KDP入力メモ_<id>.txt`
+- **入稿メモ**: `npm run gen-kdp-memo <id...>` で共通テンプレ生成（共通項=著者 doboku-note/レーベル/AI申告/カテゴリ/フローは `.claude/config/kdp-memo.json` の defaults＝真実源、読取りは `scripts/lib/kdp-common.mjs`、固有値は books[id]、title/price/issuer は spec 自動取得）→ `scripts/kindle-published/KDP入力メモ_<id>.txt`。**KDP への実入稿・出版は後工程の `/kdp-publish`（`kdp-operator`）が自動化**
 - **配布物 git 追跡**: `npm run sync-kindle-dist -- --downloads` で ready 全冊を再ビルド→`kindle-dist/`＋`~/Downloads/kindle-<id>.(epub|cover.jpg)`
 - **提出後**: catalog.json の `asin`＋`status=live` を更新、08 の該当シリーズ表に ASIN/出版日を追記
 

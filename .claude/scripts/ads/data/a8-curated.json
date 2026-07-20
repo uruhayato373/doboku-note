@@ -1,0 +1,64 @@
+{
+  "_doc": "A8 scout パイプラインの curated SSOT (doboku-note 版)。正典 = docs/reference/a8-affiliate-pipeline.md。a8-scout-core.mjs が読む。値を変えるときはここだけ編集 (係数・上限・blocklist をハードコードしない)。doboku は『転職一本』方針のため scout 対象は A8 カテゴリ 09(仕事) のみ + 講座/教材/書籍/添削を blocklist で恒久除外する。",
+
+  "weeklyApplyMax": 5,
+  "minScore": 0.35,
+
+  "scoreWeights": {
+    "reward": 0.40,
+    "epc": 0.25,
+    "confirm": 0.15,
+    "gap": 0.20
+  },
+  "scoreNorm": {
+    "rewardCapYen": 50000,
+    "rewardRateCapPct": 50,
+    "epcCapYen": 500,
+    "gapBonus": { "gap": 1.0, "thin": 0.7, "other": 0.2 }
+  },
+
+  "_blocklist_doc": "NG ジャンル + doboku 廃止カテゴリ。プログラム名・ジャンル名に以下を含む案件は score 対象外 (status=blocked)。前半=真正のアダルト/出会い/情報商材/闇金/ギャンブル系。後半=doboku が 2026-06-25 に完全廃止した『講座/教材/書籍/添削』(note 有料商品とのカニバリ回避・memory affiliate-career-only の Red Line)。転職一本方針のため、仕事カテゴリに混ざるこれらは機械除外する。",
+  "blocklistKeywords": [
+    "アダルト", "出会い", "マッチングアプリ", "情報商材", "情報教材",
+    "副業紹介", "ネットビジネス", "投資助言", "バイナリー", "FX自動売買", "暗号資産",
+    "仮想通貨", "消費者金融", "キャッシング", "ソフト闇金", "後払い現金化",
+    "占い", "開運", "パパ活", "ギャンブル", "オンラインカジノ", "ブックメーカー",
+    "宗教", "マルチ商法", "MLM", "ネットワークビジネス",
+    "チャットレディ", "ライブチャット", "水商売", "ホストクラブ", "体験入店", "風俗",
+    "キャバクラ", "成果反映用", "テストプログラム",
+    "セルフバック", "メディア会員募集", "楽天アフィリエイト", "アフィリエイト初心者",
+    "講座", "通信講座", "資格講座", "教材", "参考書", "問題集", "添削", "予備校", "通信教育", "eラーニング"
+  ],
+
+  "_vertical_map_doc": "A8 ジャンル名 or プログラム名キーワード → doboku career vertical。scout 時に決定的解決。ヒットなしは pending-vertical (register 前に人間が判断)。resolveVertical は最長一致を採るため、civil-career/pe-career が汎用 career を先取りされない。配置セグメント: civil-career=施工管理系サイドバー(GKS/ビルドジョブ枠)、pe-career=技術士(総監)ハイクラス枠、career=汎用フォールバック。",
+  "verticalKeywords": {
+    "civil-career": ["施工管理", "現場監督", "施工管理技士", "建設転職", "土木転職", "建築転職", "ゼネコン", "建設業界", "建設キャリア", "職人", "建設業", "現場代理人", "技術者派遣"],
+    "pe-career": ["ハイクラス", "エグゼクティブ", "コンサル転職", "DXコンサル", "管理職転職", "プロフェッショナル人材", "技術士", "エンジニア転職", "IT転職", "ハイクラス転職"],
+    "career": ["転職", "求人", "キャリア", "就職", "派遣", "第二新卒"]
+  },
+
+  "_category_code_doc": "A8 新コンソール (media-console.a8.net) の primaryCategoryCode → 主 vertical。scout はこのコードのカテゴリ検索ページ (/program/search/category?primaryCategoryCode=NN) を巡回する。doboku は転職一本のため 09(仕事) のみ巡回する (他カテゴリは意図的に対象外)。最終 vertical は verticalKeywords で案件名/カテゴリ文言から精緻化する。",
+  "categoryCodeToVertical": {
+    "09": "career"
+  },
+
+  "_search_keywords_doc": "search コマンドが A8 の /program/search/keyword?keywords=… で狙い撃ち検索する語 (doboku ニッチ=施工管理/建設 civil + 技術士/ハイクラス pe)。カテゴリ検索 (scout) は1ページ目だけでニッチに弱いための補完。既提携・blocklist は自動除外。語を足すと次回 search から自動対象。",
+  "searchKeywords": ["施工管理", "建設 転職", "現場監督", "ゼネコン", "技術士", "土木 転職", "ハイクラス 転職", "測量", "プラント 転職", "設計 転職"],
+
+  "_priority_doc": "登録時の priority 決定式 (バンド式)。確定EPC = epcYen × confirmRatePct/100。バンドの理由: 連続値だと再計算で全順位が揺れる。バンドなら安定し手調整の余地も残る。doboku では register が手キュレーション (affiliate-creatives.ts) のため priority は参考値。",
+  "priorityBands": [
+    { "minConfirmedEpc": 1000, "priority": 80 },
+    { "minConfirmedEpc": 300, "priority": 60 },
+    { "minConfirmedEpc": 100, "priority": 40 },
+    { "minConfirmedEpc": 30, "priority": 20 },
+    { "minConfirmedEpc": 0, "priority": 10 }
+  ],
+  "priorityTargetBonus": 5,
+
+  "_material_pref_doc": "harvest 時のバナー素材サイズ優先順 (canonical 3種)。この順で素材を探し、いずれも無ければ adType=text に fallback。doboku の既存 creative は 300×250 (affiliate-creatives.ts)。",
+  "materialSizePref": [
+    { "width": 300, "height": 250 },
+    { "width": 250, "height": 250 },
+    { "width": 320, "height": 100 }
+  ]
+}

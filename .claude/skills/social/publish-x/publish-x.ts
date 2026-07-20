@@ -31,7 +31,10 @@ import * as fs from "fs";
 // ─── 設定 ─────────────────────────────────────────────
 const PROJECT_ROOT = path.resolve(__dirname, "../../../..");
 const DRAFTS_DIR = path.join(PROJECT_ROOT, "docs/sns/x/draft");
-const PROFILE_DIR = path.join(PROJECT_ROOT, ".local/playwright-x-profile");
+// ログインプロファイルはメインチェックアウト固定で共有する（worktree から実行しても再ログイン
+// 不要にするため。debug/drafts は worktree ローカルのまま）。docs/reference/playwright-auth-profiles.md
+const PROFILE_ROOT = "/Users/minamidaisuke/doboku-note";
+const PROFILE_DIR = path.join(PROFILE_ROOT, ".local/playwright-x-profile");
 const DEBUG_DIR = path.join(PROJECT_ROOT, ".local/playwright-x-debug");
 
 let IS_DRY_RUN = false;

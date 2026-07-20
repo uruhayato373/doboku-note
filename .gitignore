@@ -47,6 +47,11 @@ hikkei-*.pdf
 第３部_民法.pdf
 _minpo_*.png
 
+# Scanned source PDFs (docs/textbook) — archived to PRIVATE R2 bucket doboku-note-archive/textbook/.
+# Pull on demand via rclone; see docs/reference/textbook-pdf-archive.md. Untracked to keep working tree/.git lean.
+docs/textbook/**/*.pdf
+docs/textbook/**/*.PDF
+
 # Service account keys & credentials
 doboku-note-*.json
 credentials/
@@ -71,6 +76,14 @@ public/posts
 
 # Playwright ココナラ市場調査用（read-only・未ログインだがプロファイル実体はコミットしない）
 .local/playwright-coconala-profile/
+
+# Playwright KDP 入稿・出版用（KDP ログイン cookie を含む・コミット禁止）
+.local/playwright-kdp-profile/
+
+# Playwright a8/ASP 用（ASP ログイン cookie を含む・コミット禁止）
+.local/playwright-a8-profile/
+.local/playwright-a8-debug/
+.local/playwright-a8-state.json
 
 # SNS 投稿スケジュール状態（ツール生成キャッシュ）
 docs/x-posts/draft/**/status.json
