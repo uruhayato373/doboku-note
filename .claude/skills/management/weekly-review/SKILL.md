@@ -54,7 +54,7 @@ description: >
   `/ig-reconcile` を実行して posted.json backfill / 未公開を予約（真実源 `docs/reference/ig-publish-reconcile.md`）。
   ※Playwright + ログイン済みプロファイル必須＝ローカル実行限定。クラウド週次では実行不可なのでサーフェスのみ
 - note 競合再スキャン期限: `npm run check-competitor-scan-due -- --json` を実行（四半期＝90日。creds不要・ローカルhistory参照）。
-  `due:true` なら「次セッションで `/note-competitor-review`（scout→note-competitor-analyst→09反映）」をサーフェスのみ（実取得はしない）。
+  `due:true` なら「次セッションで `/competitor-review`（scout→competitor-analyst→09反映）」をサーフェスのみ（実取得はしない）。
 
 出力形式:
 - 「今週追加したページ」
