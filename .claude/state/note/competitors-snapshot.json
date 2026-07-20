@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-20T09:50:34.012Z",
+  "fetchedAt": "2026-07-20T21:59:30.274Z",
   "notePagesPerCreator": 5,
   "withMagazineContents": false,
   "caveat": "単品記事は直近ページのみのサンプル。有料記事の本文は paywall で取得不可（タイトル・価格・スキ数・投稿日まで）。",
@@ -16,8 +16,8 @@
       "note": "最大競合。総監サブスク¥9,900/月・物量最大手（6千記事超・63マガジン）",
       "profile": {
         "nickname": "小泉士郎🍷技術士【総監/建設】不条理な社会を生き抜く「知」と「理」の戦略",
-        "followerCount": 3767,
-        "noteCount": 6155,
+        "followerCount": 3765,
+        "noteCount": 6158,
         "magazineCount": 64
       },
       "counts": {
@@ -32,8 +32,8 @@
         "median": 10450,
         "max": 100000,
         "bands": {
-          "low": 15,
-          "mid": 11,
+          "low": 17,
+          "mid": 9,
           "high": 11,
           "premium": 37
         }
@@ -41,7 +41,7 @@
       "cadence": {
         "recent30": 29,
         "recent90": 30,
-        "latestPublishAt": "2026-07-20T04:46:58+09:00",
+        "latestPublishAt": "2026-07-21T04:31:00+09:00",
         "latestDaysAgo": 0
       },
       "hasMembership": true,
@@ -53,7 +53,7 @@
         },
         {
           "name": "【🌙つながりに癒されて…】ご紹介くださった皆さまへ、心からの感謝を込めて💐｜2026/7/1",
-          "likeCount": 14,
+          "likeCount": 15,
           "price": 0
         },
         {
@@ -74,16 +74,16 @@
       ],
       "paidMagazines": [
         {
-          "key": "m59fa366afaa3",
-          "name": "技術士｜口頭試験対策マガジン（全60回シリーズ）+α",
-          "price": 43070,
-          "description": "📢2026年5月より、令和８年度対策へ各記事を更新していきます。\n\n📗 令和７年度版：技術士第二次試験「口頭試験対策」に特化したパッケージです。\n\n※当マガジンは「返金不可」ですのでご注意ください。"
-        },
-        {
           "key": "m5c1a905ed780",
           "name": "S企画：至高の法塔 ― 頂点への執刀記録",
           "price": 100000,
           "description": "📅R8.4.10時点 最新法令準拠\n👔技術士（総監）の称号を背負い、頂点を目指す孤高の男・サトシ。\n 👠その野望を影で支え、怜悧な才気で夜を彩る女・ルミ。 \n⚖️二人が挑むのは、法という名の巨大な病巣「S企画」。 \n🤐このオペの全貌は、合格という名の完治をもって明かされる。"
+        },
+        {
+          "key": "m59fa366afaa3",
+          "name": "技術士｜口頭試験対策マガジン（全60回シリーズ）+α",
+          "price": 43070,
+          "description": "📢2026年5月より、令和８年度対策へ各記事を更新していきます。\n\n📗 令和７年度版：技術士第二次試験「口頭試験対策」に特化したパッケージです。\n\n※当マガジンは「返金不可」ですのでご注意ください。"
         },
         {
           "key": "m0f121ae3e4d3",
@@ -364,6 +364,27 @@
       ],
       "paidNotesSample": [
         {
+          "key": "nb6b22dca9094",
+          "name": "天邪鬼な猫🐱が古文風に毒を吐く🐾 朽ちゆく石の溝を小手先で繕う人間の見苦しさ 📜技術士第二次試験 R2_II-1-3（1203農業農村土木）",
+          "price": 500,
+          "likeCount": 7,
+          "publishAt": "2026-07-21T04:31:00+09:00"
+        },
+        {
+          "key": "ndb34ec20a74c",
+          "name": "【第175話】S企画｜至高の法塔 ― 生計の証明、胎児の権利",
+          "price": 500,
+          "likeCount": 2,
+          "publishAt": "2026-07-20T23:30:00+09:00"
+        },
+        {
+          "key": "na1dca05f6f28",
+          "name": "天邪鬼な猫🐱が古文風に毒を吐く🐾 川の淀みを強引に堰き止める人間の身勝手さ 📜技術士第二次試験 R2_II-1-2（1203農業農村土木）",
+          "price": 500,
+          "likeCount": 2,
+          "publishAt": "2026-07-20T18:51:11+09:00"
+        },
+        {
           "key": "n1807cbc02743",
           "name": "天邪鬼な猫🐱が古文風に毒を吐く🐾 水を溜め込みて出し渋る人間の姑息な器 📜技術士第二次試験 R2_II-1-1（1203農業農村土木）",
           "price": 500,
@@ -523,27 +544,6 @@
           "price": 2970,
           "likeCount": 4,
           "publishAt": "2026-07-14T11:30:00+09:00"
-        },
-        {
-          "key": "n06c346ba14cc",
-          "name": "技術士｜R08模擬試験【第6回(最終回)】選択問題Ⅱ-2-1｜0910建設部門-施工計画、施工設備及び積算｜1200字では伝えきれない！骨太論述と全詳解",
-          "price": 2970,
-          "likeCount": 5,
-          "publishAt": "2026-07-14T05:30:00+09:00"
-        },
-        {
-          "key": "n34a794274889",
-          "name": "【第169話】S企画｜至高の法塔 ― 潜水の論理、鉛の境界",
-          "price": 500,
-          "likeCount": 5,
-          "publishAt": "2026-07-13T23:30:00+09:00"
-        },
-        {
-          "key": "n5d5c6f404ad6",
-          "name": "技術士｜R08模擬試験【第6回(最終回)】選択問題Ⅱ-2-2｜0907建設部門-道路｜1200字では伝えきれない！骨太論述と全詳解",
-          "price": 2970,
-          "likeCount": 6,
-          "publishAt": "2026-07-13T17:53:16+09:00"
         }
       ]
     },
@@ -557,7 +557,7 @@
       "note": "必須6題¥5,900・A判定実績訴求",
       "profile": {
         "nickname": "技術士パパ【建設×総監】",
-        "followerCount": 148,
+        "followerCount": 149,
         "noteCount": 64,
         "magazineCount": 6
       },
@@ -588,11 +588,6 @@
       "hasMembership": false,
       "topLiked": [
         {
-          "name": "🏗️自己紹介＋ ゼネコン15年で見た土木の世界｜技術士が語る現場の魅力と未来への課題",
-          "likeCount": 37,
-          "price": 0
-        },
-        {
           "name": "中小企業診断士～中小企業経営・政策 #3　経営革新計画と経営力向上計画の違いをかりやすく整理～",
           "likeCount": 17,
           "price": 0
@@ -611,6 +606,11 @@
           "name": "「勉強時間はあるのに、何から手をつければいいか分からない」を解決する｜技術士受験 1週間の勉強メ",
           "likeCount": 12,
           "price": 0
+        },
+        {
+          "name": "【技術士二次試験】仕事しながら合格した私のリアルな勉強法12選",
+          "likeCount": 10,
+          "price": 700
         }
       ],
       "paidMagazines": [
@@ -783,7 +783,7 @@
         "recent30": 0,
         "recent90": 0,
         "latestPublishAt": "2025-02-22T22:15:58+09:00",
-        "latestDaysAgo": 512
+        "latestDaysAgo": 513
       },
       "hasMembership": false,
       "topLiked": [
@@ -1241,7 +1241,7 @@
       "note": "まとめノート¥1,000-1,500・模擬¥200-300・中規模",
       "profile": {
         "nickname": "雅@スライドで学ぶ建設工学",
-        "followerCount": 377,
+        "followerCount": 378,
         "noteCount": 29,
         "magazineCount": 4
       },
@@ -1267,7 +1267,7 @@
         "recent30": 5,
         "recent90": 8,
         "latestPublishAt": "2026-07-17T20:04:16+09:00",
-        "latestDaysAgo": 2
+        "latestDaysAgo": 3
       },
       "hasMembership": false,
       "topLiked": [
@@ -1524,7 +1524,7 @@
       "note": "¥1,500帯",
       "profile": {
         "nickname": "PEten@技術士(建設部門)",
-        "followerCount": 168,
+        "followerCount": 167,
         "noteCount": 43,
         "magazineCount": 0
       },
@@ -1796,7 +1796,7 @@
       "note": "PDF量産（185本）だが低反応の傍証",
       "profile": {
         "nickname": "スタディルーム資格ノート",
-        "followerCount": 131,
+        "followerCount": 134,
         "noteCount": 381,
         "magazineCount": 2
       },
@@ -1842,12 +1842,12 @@
           "price": 1480
         },
         {
-          "name": "【ビジネス会計検定3級】対策問題集 全250問＋解答・解説付き",
+          "name": "【アロマテラピー検定2級】対策問題集 全250問＋解答・解説付き",
           "likeCount": 1,
           "price": 980
         },
         {
-          "name": "【アロマテラピー検定2級】対策問題集 全250問＋解答・解説付き",
+          "name": "【リテールマーケティング（販売士）検定2級】対策問題集 全250問＋解答・解説付き",
           "likeCount": 1,
           "price": 980
         }
@@ -1858,7 +1858,7 @@
           "key": "n66e2de313c11",
           "name": "【ビジネス会計検定3級】対策問題集 全250問＋解答・解説付き",
           "price": 980,
-          "likeCount": 1,
+          "likeCount": 0,
           "publishAt": "2026-07-20T17:47:20+09:00"
         },
         {
@@ -2345,7 +2345,7 @@
       "profile": {
         "nickname": "P.E.Jp",
         "followerCount": 212,
-        "noteCount": 449,
+        "noteCount": 450,
         "magazineCount": 11
       },
       "counts": {
@@ -2369,7 +2369,7 @@
       "cadence": {
         "recent30": 29,
         "recent90": 29,
-        "latestPublishAt": "2026-07-20T06:19:52+09:00",
+        "latestPublishAt": "2026-07-21T06:04:17+09:00",
         "latestDaysAgo": 0
       },
       "hasMembership": false,
@@ -2777,7 +2777,7 @@
         "recent30": 0,
         "recent90": 1,
         "latestPublishAt": "2026-05-01T20:31:29+09:00",
-        "latestDaysAgo": 79
+        "latestDaysAgo": 80
       },
       "hasMembership": false,
       "topLiked": [
@@ -2910,7 +2910,7 @@
         "recent30": 2,
         "recent90": 6,
         "latestPublishAt": "2026-07-18T20:18:15+09:00",
-        "latestDaysAgo": 1
+        "latestDaysAgo": 2
       },
       "hasMembership": false,
       "topLiked": [
@@ -2937,6 +2937,158 @@
         {
           "name": "250927「XF33mmF1.4、いいじゃん！」",
           "likeCount": 10,
+          "price": 0
+        }
+      ],
+      "paidMagazines": [],
+      "paidNotesSample": []
+    },
+    {
+      "handle": "apt_lily9030",
+      "label": "yuri（1級土木経験記述）",
+      "exams": [
+        "civil"
+      ],
+      "note": "2026-07-20 検索『土木施工管理技士 経験記述』で発掘。1級土木経験記述¥980・3マガジン",
+      "profile": {
+        "nickname": "yuri｜1級土木 経験記述対策",
+        "followerCount": 21,
+        "noteCount": 61,
+        "magazineCount": 3
+      },
+      "counts": {
+        "magazinesTotal": 3,
+        "magazinesPaid": 0,
+        "notesSampled": 30,
+        "notesComplete": false,
+        "notesPaidInSample": 2
+      },
+      "price": {
+        "min": 500,
+        "median": 740,
+        "max": 980,
+        "bands": {
+          "low": 2,
+          "mid": 0,
+          "high": 0,
+          "premium": 0
+        }
+      },
+      "cadence": {
+        "recent30": 15,
+        "recent90": 30,
+        "latestPublishAt": "2026-07-05T17:21:36+09:00",
+        "latestDaysAgo": 15
+      },
+      "hasMembership": false,
+      "topLiked": [
+        {
+          "name": "2026年6月30日(火)日記",
+          "likeCount": 5,
+          "price": 0
+        },
+        {
+          "name": "講習なし・援助なし・仕事終わりの独学でも間に合わせる｜1級土木施工管理技士 第一次検定 直前30",
+          "likeCount": 5,
+          "price": 500
+        },
+        {
+          "name": "2026年6月15日(月)日記",
+          "likeCount": 4,
+          "price": 0
+        },
+        {
+          "name": "2026年6月10日(水)日記",
+          "likeCount": 4,
+          "price": 0
+        },
+        {
+          "name": "2026年6月16日(火)日記",
+          "likeCount": 3,
+          "price": 0
+        }
+      ],
+      "paidMagazines": [],
+      "paidNotesSample": [
+        {
+          "key": "n979aac4b2b8a",
+          "name": "経験記述を「答案」に変える実践教材｜1級土木 第二次検定【8シート付き】",
+          "price": 980,
+          "likeCount": 2,
+          "publishAt": "2026-07-05T17:21:36+09:00"
+        },
+        {
+          "key": "nbe9ac72f59e2",
+          "name": "講習なし・援助なし・仕事終わりの独学でも間に合わせる｜1級土木施工管理技士 第一次検定 直前30日チェックリスト",
+          "price": 500,
+          "likeCount": 5,
+          "publishAt": "2026-06-06T15:41:26+09:00"
+        }
+      ]
+    },
+    {
+      "handle": "fine_takumi296",
+      "label": "匠習作（技術士Lock-On）",
+      "exams": [
+        "pe",
+        "sokan"
+      ],
+      "note": "2026-07-20 検索『技術士二次試験』で発掘。1016F・76記事。note本体は無料でロックオン講座(有料通信)へ誘導＝07 YouTube競合と同一主体",
+      "profile": {
+        "nickname": "匠習作｜技術士試験対策｜ロックオン講座",
+        "followerCount": 1016,
+        "noteCount": 76,
+        "magazineCount": 1
+      },
+      "counts": {
+        "magazinesTotal": 1,
+        "magazinesPaid": 0,
+        "notesSampled": 30,
+        "notesComplete": false,
+        "notesPaidInSample": 0
+      },
+      "price": {
+        "min": null,
+        "median": null,
+        "max": null,
+        "bands": {
+          "low": 0,
+          "mid": 0,
+          "high": 0,
+          "premium": 0
+        }
+      },
+      "cadence": {
+        "recent30": 15,
+        "recent90": 29,
+        "latestPublishAt": "2026-07-20T06:00:00+09:00",
+        "latestDaysAgo": 1
+      },
+      "hasMembership": false,
+      "topLiked": [
+        {
+          "name": "技術士二次試験 合格思考シリーズ①｜自己紹介",
+          "likeCount": 407,
+          "price": 0
+        },
+        {
+          "name": "【新シリーズ：日本を創った不屈のエンジニアたち】",
+          "likeCount": 8,
+          "price": 0
+        },
+        {
+          "name": "【新シリーズ：日本を創った不屈のエンジニアたち】",
+          "likeCount": 7,
+          "price": 0
+        },
+        {
+          "name": "【新シリーズ：日本を創った不屈のエンジニアたち】",
+          "likeCount": 7,
+          "price": 0
+        },
+        {
+          "name": "【新シリーズ：日本を創った不屈のエンジニアたち】",
+          "likeCount": 6,
           "price": 0
         }
       ],

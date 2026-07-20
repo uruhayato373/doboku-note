@@ -16,6 +16,8 @@
     { "handle": "con_ymc",          "label": "CON（コンクリート答案倉庫）", "exams": ["concrete-chief", "concrete-diagnostician", "pe-construction"], "note": "技術士(建設コンクリート)専門・NOTEBOOKLM×コンクリート・答案倉庫81記事15マガジン・有料¥100〜" },
     { "handle": "vast_cougar3004",  "label": "まさ@土木資格",     "exams": ["concrete-diagnostician", "concrete-engineer", "civil"], "note": "診断士合格答案¥700・診断士勉強法¥400・技士/1級土木保有" },
     { "handle": "chaoconcrete",     "label": "超コンクリート主任技士への近道", "exams": ["concrete-chief", "concrete-diagnostician"], "note": "現役ゼネコン・主任技士＋診断士取得・解説ブログ（低活動）" },
-    { "handle": "chikushiken",      "label": "筑紫建",           "exams": ["concrete-chief", "concrete-diagnostician"], "note": "主任技士＋診断士＋一級建築士・104記事4マガジン（日記主体）" }
+    { "handle": "chikushiken",      "label": "筑紫建",           "exams": ["concrete-chief", "concrete-diagnostician"], "note": "主任技士＋診断士＋一級建築士・104記事4マガジン（日記主体）" },
+    { "handle": "apt_lily9030",     "label": "yuri（1級土木経験記述）", "exams": ["civil"],               "note": "2026-07-20 検索『土木施工管理技士 経験記述』で発掘。1級土木経験記述¥980・3マガジン" },
+    { "handle": "fine_takumi296",   "label": "匠習作（技術士Lock-On）", "exams": ["pe", "sokan"],         "note": "2026-07-20 検索『技術士二次試験』で発掘。1016F・76記事。note本体は無料でロックオン講座(有料通信)へ誘導＝07 YouTube競合と同一主体" }
   ]
 }
