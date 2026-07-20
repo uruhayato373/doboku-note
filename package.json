@@ -27,6 +27,7 @@
     "check-competitor-scan-due": "node scripts/check-competitor-scan-due.mjs",
     "scout-coconala-competitors": "node scripts/scout-coconala-competitors.mjs",
     "scout-x-competitors": "node scripts/scout-x-competitors.mjs",
+    "scout-ig-competitors": "node scripts/scout-ig-competitors.mjs",
     "verify-note-status": "node scripts/verify-note-status.mjs",
     "note-edit-session": "node scripts/note-edit-session.mjs",
     "note-membership-plan-edit": "node scripts/note-membership-plan-edit.mjs",

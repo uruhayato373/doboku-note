@@ -1,0 +1,50 @@
+{
+  "fetchedAt": "2026-07-20T21:47:19.898Z",
+  "platform": "ig",
+  "source": "未ログイン公開プロフィール（og:description メタ・curl）。投稿アカ@dobokunotecom の IG セッションは不使用。",
+  "caveat": "フォロワー/フォロー/投稿数は og:description 由来（clean）。個別投稿のエンゲージ（いいね/コメント）は未ログインでは取得不可＝投稿グリッドがログイン壁。投稿数の前回比増減が投稿活動の代理。伸びてる投稿の型抽出は IG では未対応。",
+  "driftBasis": null,
+  "drift": [],
+  "competitors": [
+    {
+      "handle": "chiiki.sekokan",
+      "label": "地域開発研究所(公式)",
+      "exams": [
+        "civil"
+      ],
+      "note": "施工管理技士7種・出版社公式。マンガ『4コマでわかるセコカン受検』/種目クイズ。2025-03開設",
+      "profile": {
+        "nickname": null,
+        "followerCount": 677
+      },
+      "counts": {
+        "posts": 47
+      },
+      "cadence": null,
+      "platformExtra": {
+        "following": 488,
+        "followerPerPost": 14.4
+      }
+    },
+    {
+      "handle": "kotori71621",
+      "label": "ことり・土木女子",
+      "exams": [
+        "civil"
+      ],
+      "note": "現場密着リール(重機操作等)・受験対策ではない参照枠。個別リール1-1.5万再生(2025-10報道)",
+      "profile": {
+        "nickname": null,
+        "followerCount": 6183
+      },
+      "counts": {
+        "posts": 239
+      },
+      "cadence": null,
+      "platformExtra": {
+        "following": 441,
+        "followerPerPost": 25.9
+      }
+    }
+  ]
+}

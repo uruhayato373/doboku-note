@@ -24,7 +24,7 @@ user-invocable: true
 npm run scout-note-competitors                 # note（公開API・curl --ssl-no-revoke・会社PC可）
 npm run scout-coconala-competitors              # ココナラ（Playwright・公開プロフィールの販売実績 header + market-research由来の価格・低頻度厳守）
 node scripts/scout-x-competitors.mjs            # X（実アカ Playwright・read-only・安全弁必須）
-node scripts/scout-ig-competitors.mjs           # IG（自セッション Playwright・read-only・セッション切れ時 best-effort）
+npm run scout-ig-competitors                    # IG（未ログイン curl・og:description のフォロワー/投稿数・投稿アカ不使用）
 node scripts/scout-brain-competitors.mjs        # Brain（公開ページ read-only）
 ```
 
@@ -51,7 +51,7 @@ node scripts/scout-brain-competitors.mjs        # Brain（公開ページ read-o
 - **note/Brain**: 公開ページ read-only（認証不要）
 - **ココナラ**: 公開ページ read-only・**低頻度厳守（数ヶ月に1度・operations.md §2.3）**・外部誘導しない
 - **X**: 実アカ Playwright だが **read-only 専用**（いいね/フォロー/リプライ機能を持たない）・四半期・≤15プロフィール・jitter 遅延・**challenge/captcha/凍結警告で即中断（自動リトライ禁止）**→ `probe-status.json` に記録。投稿スケジュールと実行を重ねない。方針は [x-post-policy.md](../../../../docs/reference/x-post-policy.md) §11
-- **IG**: 自セッション Playwright（投稿運用 publish-ig-bs と共有）。セッション切れ時は best-effort 格下げ＝「未取得」と明記して無理に別ルートを作らない
+- **IG**: **未ログイン公開プロフィール（og:description メタ）を curl で read**（2026-07-20 実証・投稿アカ @dobokunotecom の IG セッション不使用＝足跡ゼロ）。取れるのはフォロワー/フォロー/投稿数まで（個別投稿のエンゲージは要ログインで未対応）
 - **有料本文は全チャネルで取得しない/できない**（中身の質は「未読」扱いで断定しない）
 - **新規クラウド cron は作らない**。定期性は `check-competitor-scan-due`（weekly-review Agent B が surface）＋ annual.md 四半期定例
 
