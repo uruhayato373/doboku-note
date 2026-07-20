@@ -4,10 +4,15 @@
  * ---------------------------------------------------------------------------
  * note.com の競合クリエイターの「マガジン・単品記事・価格・スキ数・投稿日」を
  * public API（認証不要）から取得し、価格帯・品揃え・更新頻度を機械集計して
- * JSON スナップショットに落とす偵察ツール。意味的な差別化分析（価格帯マップ・
- * 品揃えギャップ）は note-competitor-analyst エージェントが本 JSON を読んで行う
- * ＝機械（本スクリプト）と判断（Evaluator）の分離。
+ * 時系列スナップショットに落とす偵察ツール。前回スナップショットとの差分
+ * （価格改定・新商品・休眠・新規参入）を機械検出して drift[] に載せる。
+ * 意味的な差別化分析（価格帯マップ・品揃えギャップ・09 反映パッチ）は
+ * note-competitor-analyst エージェントが本 JSON を読んで行う＝機械（本
+ * スクリプト）と判断（Evaluator）の分離。
  *
+ * 出力（SSOT）:
+ *   - .claude/state/note/history/competitors-YYYY-MM-DD.json … 日付つき時系列（コミット）
+ *   - .claude/state/note/competitors-snapshot.json           … 最新へのポインタ（上書き）
  * 対象ハンドルは .claude/config/note-competitors.json（--handle で ad-hoc 上書き）。
  * 分析記録の真実源は docs/project/01_戦略/09_note競合分析2026.md。
  *
@@ -19,10 +24,11 @@
  *   - magazines/{key}/notes                      … マガジン収録記事（--contents 時のみ）
  *
  * 制約（正直な明示）: 有料記事の本文は paywall で取得不可。取れるのは
- *   タイトル・価格・スキ数・投稿日・無料プレビューまで。
+ *   タイトル・価格・スキ数・投稿日・無料プレビューまで。単品記事は直近ページの
+ *   サンプル（--note-pages）＝頻度・人気は直近サンプル基準の推定。
  *
  * 使い方:
- *   npm run scout-note-competitors                     # config 全社を偵察→JSON保存
+ *   npm run scout-note-competitors                     # config 全社を偵察→時系列保存＋前回比ドリフト
  *   npm run scout-note-competitors -- --handle sosou_nino,chansato_st  # ad-hoc 指定
  *   npm run scout-note-competitors -- --note-pages 20  # 単品記事を直近20ページまで（既定5）
  *   npm run scout-note-competitors -- --contents       # 各マガジンの収録記事も取得（重い）
@@ -30,15 +36,16 @@
  */
 
 import { spawnSync } from 'node:child_process';
-import { readFileSync, mkdirSync, writeFileSync } from 'node:fs';
+import { readFileSync, readdirSync, mkdirSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const CONFIG_PATH = join(ROOT, '.claude/config/note-competitors.json');
-const SNAPSHOT_DIR = join(ROOT, '.claude/state/note');
-const SNAPSHOT_PATH = join(SNAPSHOT_DIR, 'competitors-snapshot.json');
+const STATE_DIR = join(ROOT, '.claude/state/note');
+const HISTORY_DIR = join(STATE_DIR, 'history');
+const LATEST_PATH = join(STATE_DIR, 'competitors-snapshot.json');
 
 const args = process.argv.slice(2);
 function argVal(flag, def) {
@@ -83,7 +90,7 @@ function fetchProfile(handle) {
 /** kind=magazine|note のコンテンツを取得（page 上限つき）。 */
 function fetchContents(handle, kind, maxPages) {
   const out = [];
-  let totalHint = null;
+  let complete = false;
   for (let page = 1; page <= maxPages; page++) {
     const d = curlJson(
       `https://note.com/api/v2/creators/${handle}/contents?kind=${kind}&page=${page}`
@@ -100,15 +107,14 @@ function fetchContents(handle, kind, maxPages) {
         publishAt: c.publishAt ?? null,
         description: kind === 'magazine' ? c.description ?? '' : undefined,
         isMembershipConnected: c.isMembershipConnected ?? false,
-        hashtags: Array.isArray(c.hashtags) ? c.hashtags.map((h) => h?.hashtag?.name ?? h?.name).filter(Boolean) : undefined,
       });
     }
     if (data?.isLastPage) {
-      totalHint = out.length;
+      complete = true;
       break;
     }
   }
-  return { items: out, complete: totalHint != null };
+  return { items: out, complete };
 }
 
 function fetchMagazineNotes(key) {
@@ -158,14 +164,9 @@ function analyze(comp) {
   const paidNotes = notes.items.filter((n) => n.price > 0);
   const allPaidPrices = [...paidMagazines.map((m) => m.price), ...paidNotes.map((n) => n.price)];
 
-  // 直近サンプル（notes は page 上限のため）から更新頻度・人気を推定
   const recent30 = notes.items.filter((n) => (daysAgo(n.publishAt) ?? 9999) <= 30).length;
   const recent90 = notes.items.filter((n) => (daysAgo(n.publishAt) ?? 9999) <= 90).length;
-  const latest = notes.items
-    .map((n) => n.publishAt)
-    .filter(Boolean)
-    .sort()
-    .slice(-1)[0] ?? null;
+  const latest = notes.items.map((n) => n.publishAt).filter(Boolean).sort().slice(-1)[0] ?? null;
   const topLiked = [...notes.items]
     .filter((n) => n.likeCount != null)
     .sort((a, b) => b.likeCount - a.likeCount)
@@ -210,6 +211,68 @@ function analyze(comp) {
   };
 }
 
+// --- 時系列・ドリフト -------------------------------------------------------
+
+function todayStamp() {
+  return new Date().toISOString().slice(0, 10); // YYYY-MM-DD（UTC。日単位の履歴には十分）
+}
+
+/** 今日より前の最新 history スナップショットを読む（比較対象）。 */
+function loadPreviousSnapshot(todayFile) {
+  let files = [];
+  try {
+    files = readdirSync(HISTORY_DIR).filter((f) => /^competitors-\d{4}-\d{2}-\d{2}\.json$/.test(f));
+  } catch {
+    return null;
+  }
+  const prior = files.filter((f) => f < todayFile).sort();
+  if (prior.length === 0) return null;
+  try {
+    return { file: prior[prior.length - 1], data: JSON.parse(readFileSync(join(HISTORY_DIR, prior[prior.length - 1]), 'utf-8')) };
+  } catch {
+    return null;
+  }
+}
+
+/** 前回比の差分を検出。type = new-entrant|dropped|price|new-product|dormant|revived|cadence。 */
+function computeDrift(current, previous) {
+  if (!previous) return { basis: null, entries: [] };
+  const prevBy = new Map((previous.data.competitors ?? []).map((c) => [c.handle, c]));
+  const curBy = new Map(current.map((c) => [c.handle, c]));
+  const entries = [];
+
+  for (const cur of current) {
+    const prev = prevBy.get(cur.handle);
+    if (!prev) {
+      entries.push({ handle: cur.handle, type: 'new-entrant', detail: `新規追跡対象（前回比較なし）` });
+      continue;
+    }
+    // 価格（max=フラグシップ価格の代理）
+    const pa = prev.price ?? {}, ca = cur.price ?? {};
+    if (ca.max != null && pa.max != null && ca.max !== pa.max) {
+      entries.push({ handle: cur.handle, type: 'price', field: 'max', before: pa.max, after: ca.max, detail: `フラグシップ価格 ¥${pa.max}→¥${ca.max}` });
+    }
+    if (ca.median != null && pa.median != null && ca.median !== pa.median) {
+      entries.push({ handle: cur.handle, type: 'price', field: 'median', before: pa.median, after: ca.median, detail: `価格中央値 ¥${pa.median}→¥${ca.median}` });
+    }
+    // 有料商品数（新商品/撤収の代理）
+    const pc = prev.counts?.magazinesPaid ?? 0, cc = cur.counts?.magazinesPaid ?? 0;
+    if (cc !== pc) {
+      entries.push({ handle: cur.handle, type: cc > pc ? 'new-product' : 'removed', before: pc, after: cc, detail: `有料マガジン ${pc}→${cc}本` });
+    }
+    // 休眠/復活（最終投稿日の遠近が閾値をまたいだか）
+    const pd = prev.cadence?.latestDaysAgo, cd = cur.cadence?.latestDaysAgo;
+    if (pd != null && cd != null) {
+      if (pd < 90 && cd >= 90) entries.push({ handle: cur.handle, type: 'dormant', before: pd, after: cd, detail: `休眠化（最終投稿 ${cd}日前）` });
+      if (pd >= 90 && cd < 90) entries.push({ handle: cur.handle, type: 'revived', before: pd, after: cd, detail: `更新再開（最終投稿 ${cd}日前）` });
+    }
+  }
+  for (const prev of previous.data.competitors ?? []) {
+    if (!curBy.has(prev.handle)) entries.push({ handle: prev.handle, type: 'dropped', detail: `今回取得なし（config から除外 or 非公開/疎通不可）` });
+  }
+  return { basis: previous.file, entries };
+}
+
 function fmt(n) {
   return n == null ? '—' : n.toLocaleString('ja-JP');
 }
@@ -250,18 +313,44 @@ function main() {
     console.log('');
   }
 
-  mkdirSync(SNAPSHOT_DIR, { recursive: true });
+  // 前回比ドリフト（ad-hoc --handle 時は履歴を汚さない/比較しない）
+  const stamp = todayStamp();
+  const todayFile = `competitors-${stamp}.json`;
+  const previous = HANDLE_OVERRIDE ? null : loadPreviousSnapshot(todayFile);
+  const drift = computeDrift(results, previous);
+
+  console.log('--- 前回比ドリフト ---');
+  if (!previous) {
+    console.log(HANDLE_OVERRIDE ? '  （--handle 指定のため比較・履歴保存なし）' : '  （初回＝比較対象なし。次回から差分検出）');
+  } else if (drift.entries.length === 0) {
+    console.log(`  変化なし（基準: ${drift.basis}）`);
+  } else {
+    console.log(`  基準: ${drift.basis}`);
+    for (const e of drift.entries) console.log(`  [${e.type}] ${e.handle}: ${e.detail}`);
+  }
+
   const snapshot = {
     fetchedAt: new Date().toISOString(),
     notePagesPerCreator: NOTE_PAGES,
     withMagazineContents: WANT_CONTENTS,
     caveat: '単品記事は直近ページのみのサンプル。有料記事の本文は paywall で取得不可（タイトル・価格・スキ数・投稿日まで）。',
+    driftBasis: drift.basis,
+    drift: drift.entries,
     competitors: results,
   };
-  writeFileSync(SNAPSHOT_PATH, JSON.stringify(snapshot, null, 2), 'utf-8');
-  console.log(`スナップショット保存: ${SNAPSHOT_PATH}`);
-  console.log(`完了: ${results.length} 社（失敗 ${failed} 社）`);
-  console.log('→ 差別化分析は note-competitor-analyst エージェントに本 JSON を渡す');
+
+  mkdirSync(STATE_DIR, { recursive: true });
+  // 最新ポインタは常に更新
+  writeFileSync(LATEST_PATH, JSON.stringify(snapshot, null, 2), 'utf-8');
+  // 履歴は config 対象の通常実行時のみ（ad-hoc --handle は履歴を汚さない）
+  if (!HANDLE_OVERRIDE) {
+    mkdirSync(HISTORY_DIR, { recursive: true });
+    writeFileSync(join(HISTORY_DIR, todayFile), JSON.stringify(snapshot, null, 2), 'utf-8');
+    console.log(`\n時系列保存: .claude/state/note/history/${todayFile}`);
+  }
+  console.log(`最新ポインタ: ${LATEST_PATH}`);
+  console.log(`完了: ${results.length} 社（失敗 ${failed} 社 / ドリフト ${drift.entries.length} 件）`);
+  console.log('→ 差別化分析＋09反映パッチは note-competitor-analyst エージェントに本 JSON を渡す');
   process.exit(failed === results.length ? 1 : 0);
 }
 
