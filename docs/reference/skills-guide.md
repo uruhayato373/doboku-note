@@ -132,6 +132,7 @@ title: スキル ナビゲーションガイド
 | `/north-star-metric` | NSM と Input Metrics を定義 | `NSM定義`, `北極星指標`, `/north-star-metric` |
 | `/growth-loops` | 成長ループの設計・評価 | `成長ループ`, `フライホイール設計`, `/growth-loops` |
 | `/monetization-strategy` | 収益化戦略のブレインストーム | `収益化`, `月X万円達成するには`, `/monetization-strategy` |
+| `/note-competitor-review` | note 競合の価格・品揃えを四半期で再取得（scout＋時系列drift）→ note-competitor-analyst で差別化再評価＋09反映パッチ。有料本文は取得不可 | `競合を再調査`, `note競合レビュー`, `競合の価格を再取得`, `/note-competitor-review` |
 | `/knowledge` | 過去の失敗・教訓を参照・追記 | `ナレッジ参照`, `失敗から学ぶ`, `/knowledge` |
 | `/critical-review` | 批判的レビュー | `批判的に見て`, `/critical-review` |
 | `/pre-mortem` | Pre-Mortem の実施 | `Pre-Mortem`, `リスク洗い出し`, `/pre-mortem` |
