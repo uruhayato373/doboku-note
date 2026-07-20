@@ -7,14 +7,14 @@
  * 時系列スナップショットに落とす偵察ツール。前回スナップショットとの差分
  * （価格改定・新商品・休眠・新規参入）を機械検出して drift[] に載せる。
  * 意味的な差別化分析（価格帯マップ・品揃えギャップ・09 反映パッチ）は
- * note-competitor-analyst エージェントが本 JSON を読んで行う＝機械（本
+ * competitor-analyst エージェントが本 JSON を読んで行う＝機械（本
  * スクリプト）と判断（Evaluator）の分離。
  *
  * 出力（SSOT）:
  *   - .claude/state/note/history/competitors-YYYY-MM-DD.json … 日付つき時系列（コミット）
  *   - .claude/state/note/competitors-snapshot.json           … 最新へのポインタ（上書き）
  * 対象ハンドルは .claude/config/note-competitors.json（--handle で ad-hoc 上書き）。
- * 分析記録の真実源は docs/project/01_戦略/09_note競合分析2026.md。
+ * 分析記録の真実源は docs/project/01_戦略/09_販売チャネル競合分析.md。
  *
  * 取得経路（会社 PC プロキシ対策・verify-note-magazines.mjs と同方式）:
  *   - HTTP(S)_PROXY を curl が自動利用 ／ curl に --ssl-no-revoke（失効確認回避が必須）
@@ -360,7 +360,7 @@ function main() {
   }
   console.log(`最新ポインタ: ${LATEST_PATH}`);
   console.log(`完了: ${results.length} 社（失敗 ${failed} 社 / ドリフト ${drift.entries.length} 件）`);
-  console.log('→ 差別化分析＋09反映パッチは note-competitor-analyst エージェントに本 JSON を渡す');
+  console.log('→ 差別化分析＋09反映パッチは competitor-analyst エージェントに本 JSON を渡す');
   process.exit(failed === results.length ? 1 : 0);
 }
 

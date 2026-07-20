@@ -1,5 +1,5 @@
 {
-  "_note": "note 競合クリエイターのハンドル一覧。scripts/scout-note-competitors.mjs が読む。handle = note.com/{handle} の {handle} 部分（表示名でなく urlname）。exams = sokan(総監) | pe-construction(建設部門) | pe(技術士一般) | civil(1級2級土木) | concrete-engineer(コンクリート技士) | concrete-chief(コンクリート主任技士) | concrete-diagnostician(コンクリート診断士)。1社が複数試験にまたがるのは正常（ファイル分割せず exams 配列で持つ＝重複ドリフト回避）。実行時に絞るなら scout に --exam <tag> を渡す。新規追加は note ユーザー検索 API（api/v3/searches?context=user&q=）で urlname を確認してから。真実源の分析記録は docs/project/01_戦略/09_note競合分析2026.md。",
+  "_note": "note 競合クリエイターのハンドル一覧。scripts/scout-note-competitors.mjs が読む。handle = note.com/{handle} の {handle} 部分（表示名でなく urlname）。exams = sokan(総監) | pe-construction(建設部門) | pe(技術士一般) | civil(1級2級土木) | concrete-engineer(コンクリート技士) | concrete-chief(コンクリート主任技士) | concrete-diagnostician(コンクリート診断士)。1社が複数試験にまたがるのは正常（ファイル分割せず exams 配列で持つ＝重複ドリフト回避）。実行時に絞るなら scout に --exam <tag> を渡す。新規追加は note ユーザー検索 API（api/v3/searches?context=user&q=）で urlname を確認してから。真実源の分析記録は docs/project/01_戦略/09_販売チャネル競合分析.md。",
   "competitors": [
     { "handle": "sosou_nino",       "label": "小泉士郎",         "exams": ["sokan", "pe-construction"], "note": "最大競合。総監サブスク¥9,900/月・物量最大手（6千記事超・63マガジン）" },
     { "handle": "gijyutsushi",      "label": "技術士（論文）",    "exams": ["pe", "sokan"],              "note": "必須6題¥5,900・A判定実績訴求" },

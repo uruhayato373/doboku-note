@@ -146,7 +146,7 @@
 
 | サイクル | タスク | 実行 | 前回 |
 |---|---|---|---|
-| 四半期（90日） | **note 競合再スキャン**（価格・品揃え・ポジショニングの再取得＋09反映） | `/note-competitor-review`（scout→note-competitor-analyst→09パッチ） | 2026-07-20 |
+| 四半期（90日） | **note 競合再スキャン**（価格・品揃え・ポジショニングの再取得＋09反映） | `/competitor-review`（scout→competitor-analyst→09パッチ） | 2026-07-20 |
 
 > 期限管理は `npm run check-competitor-scan-due`（weekly-review Agent B が DUE を surface）。新規クラウド cron は作らない（weekly PDCA 1本のみ稼働の方針）。時系列は `.claude/state/note/history/` に蓄積。
 

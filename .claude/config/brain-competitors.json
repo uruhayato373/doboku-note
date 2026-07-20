@@ -1,0 +1,4 @@
+{
+  "_note": "Brain(brain-market.com) 競合クリエイター一覧。scripts/scout-brain-competitors.mjs が読む（P4 probe 後に実装）。handle = brain-market.com の作者ページ識別子。exams タグは note-competitors.json と共通。現時点で競合の実在は未確認＝初回スキャン(P4)で土木/技術士/コンクリート系の販売者を発見して充填する。取得可否・出品者規約(brain-market.com/brain_terms_of_seller.pdf)は P4 probe で確認。分析真実源は 09_販売チャネル競合分析.md。",
+  "competitors": []
+}

@@ -1,0 +1,12 @@
+{
+  "_note": "X(旧Twitter) 競合アカウント一覧。scripts/scout-x-competitors.mjs が読む。handle = x.com/{handle} の {handle}（@なし）。exams タグは note-competitors.json と共通（sokan/pe/pe-construction/civil/concrete-engineer/concrete-chief/concrete-diagnostician）。シードは docs/project/01_戦略/07_競合調査.md の「SNS競合」節（2026-07-04・多くは要確認）由来＝scout 実行時にライブ検証する。取得は read-only・四半期・安全弁必須（x-post-policy.md §11）。分析真実源は 09_販売チャネル競合分析.md（価格/品揃え軸）、コンテンツ型/エンゲージ軸は 07 の SNS競合節。",
+  "competitors": [
+    { "handle": "sosou_nino",      "label": "小泉士郎",        "exams": ["sokan", "pe-construction"], "note": "最大競合。総監メンバーシップ¥9,900/月。note=sosou_nino と同一主体" },
+    { "handle": "gijutushiindex",  "label": "技術士-Index",     "exams": ["pe-construction"],          "note": "二次建設・予想問題連番シリーズ。導線=自社ブログ/BASE" },
+    { "handle": "Civil10Engineer", "label": "技術士パパ",       "exams": ["pe-construction", "sokan"], "note": "建設×総監2部門・ゼネコン15年。導線=note/YouTube" },
+    { "handle": "suger_sensei",    "label": "シュガー先生",     "exams": ["civil"],                     "note": "2級土木・工業高校教員。図解『神7』/合否ドラマ型。導線=note(セコカンLAB)" },
+    { "handle": "kaminoblog",      "label": "カミノ",           "exams": ["civil"],                     "note": "土木公務員・1級土木。職種解説/DM相談" },
+    { "handle": "miyabi_labo",     "label": "miyabi_labo",     "exams": ["civil"],                     "note": "note=miyabi_labo と同一主体。まとめノート" },
+    { "handle": "Yurii6ww",        "label": "Yurii",           "exams": ["civil"],                     "note": "07 のX投稿型エンゲージ実測(2026-07-14)対象の土木施工管理アカウント" }
+  ]
+}

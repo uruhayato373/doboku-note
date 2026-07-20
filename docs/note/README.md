@@ -14,7 +14,7 @@
 | 実価格・noteUrl・公開状態 | `src/lib/note-magazines.ts`（照合は `npm run verify-note-magazines`） |
 | 記事・マガジンへの回遊/購入導線（資格別 3 層） | `docs/reference/note-funnel-architecture.md`（監査は `npm run audit-note-funnel`、機械可読は `.claude/config/note-funnel.json`） |
 | 両資格リリース計画 | `技術士総監/noteコンテンツ計画.md` の「📅 統合リリースカレンダー 2026-07〜12」 |
-| 価格の競合対比妥当性 | `docs/project/01_戦略/09_note競合分析2026.md`（判断記録） |
+| 価格の競合対比妥当性 | `docs/project/01_戦略/09_販売チャネル競合分析.md`（判断記録） |
 
 ## 構造
 

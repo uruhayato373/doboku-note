@@ -1,0 +1,7 @@
+{
+  "_note": "Instagram 競合アカウント一覧。scripts/scout-ig-competitors.mjs が読む。handle = instagram.com/{handle} の {handle}。exams タグは note-competitors.json と共通。IG は受験対策特化が手薄（07 の所見＝先行者優位・ただし認証壁ゆえ『競合不在』は断定不可・要定点観測）。シードは 07 の SNS競合節由来。取得は自セッション Playwright 閲覧・read-only・四半期（IG セッションは投稿運用 publish-ig-bs と共有リソース＝セッション切れ時は best-effort 格下げ）。分析真実源は 09_販売チャネル競合分析.md、コンテンツ型軸は 07。",
+  "competitors": [
+    { "handle": "chiiki.sekokan", "label": "地域開発研究所(公式)", "exams": ["civil"], "note": "施工管理技士7種・出版社公式。マンガ『4コマでわかるセコカン受検』/種目クイズ。2025-03開設" },
+    { "handle": "kotori71621",    "label": "ことり・土木女子",   "exams": ["civil"], "note": "現場密着リール(重機操作等)・受験対策ではない参照枠。個別リール1-1.5万再生(2025-10報道)" }
+  ]
+}

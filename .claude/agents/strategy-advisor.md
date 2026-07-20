@@ -96,5 +96,5 @@ model: inherit
 
 - `.claude/state/weekly-reports/` — 週次計画・レビュー
 - `.claude/state/weekly-metrics/` — 週次 NSM スナップショット（時系列）
-- `docs/project/01_戦略/07_競合調査.md` — 競合調査（SEO・市場・競合サイト軸／資格別統合版）。価格・note 軸は `09_note競合分析2026.md`
+- `docs/project/01_戦略/07_競合調査.md` — 競合調査（SEO・市場・競合サイト軸／資格別統合版）。価格・note 軸は `09_販売チャネル競合分析.md`
 - `.claude/state/experiments.json` — NSM 実験の状態遷移履歴
