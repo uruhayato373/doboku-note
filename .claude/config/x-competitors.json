@@ -7,6 +7,9 @@
     { "handle": "suger_sensei",    "label": "シュガー先生",     "exams": ["civil"],                     "note": "2級土木・工業高校教員。図解『神7』/合否ドラマ型。導線=note(セコカンLAB)" },
     { "handle": "kaminoblog",      "label": "カミノ",           "exams": ["civil"],                     "note": "土木公務員・1級土木。職種解説/DM相談" },
     { "handle": "miyabi_labo",     "label": "miyabi_labo",     "exams": ["civil"],                     "note": "note=miyabi_labo と同一主体。まとめノート" },
-    { "handle": "Yurii6ww",        "label": "Yurii",           "exams": ["civil"],                     "note": "07 のX投稿型エンゲージ実測(2026-07-14)対象の土木施工管理アカウント" }
+    { "handle": "Yurii6ww",        "label": "Yurii",           "exams": ["civil"],                     "note": "07 のX投稿型エンゲージ実測(2026-07-14)対象の土木施工管理アカウント" },
+    { "handle": "dobokusekoukan",  "label": "土木ブロガー",      "exams": ["civil"],                     "note": "2026-07-20 キーワード検索『土木施工管理技士 経験記述』で発掘。1級土木二次・経験記述・YouTube連動" },
+    { "handle": "tvxq_pelican29",  "label": "ペリカン(建設業)",  "exams": ["pe", "pe-construction", "concrete-diagnostician"], "note": "2026-07-20 検索『コンクリート診断士 対策』で発掘。5206F・技術士/施工管理/建築士の多資格発信" },
+    { "handle": "PockyDay2",       "label": "Pocky(診断士)",     "exams": ["concrete-diagnostician"],    "note": "2026-07-20 検索『コンクリート診断士 対策』で発掘。診断士記述式に特化・自己採点募集型。X初の concrete 競合(白地判断の訂正根拠)" }
   ]
 }

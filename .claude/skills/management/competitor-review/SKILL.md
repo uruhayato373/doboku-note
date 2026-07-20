@@ -18,6 +18,21 @@ user-invocable: true
 
 ## 手順
 
+### 0. 競合の発掘（keyword discovery・シード追跡の弊害を潰す）
+
+**四半期に1回、シード追跡だけでなくキーワードで新規競合を発掘する**（2026-07-20 に「シードのみ追跡→concrete 系を白地と誤判定」した反省）。試験キーワード（`技術士二次試験 対策`／`土木施工管理技士 経験記述`／`1級土木施工管理技士 過去問`／`コンクリート診断士 対策`／`コンクリート主任技士` 等）で検索し、config 未登録で頻出/高エンゲージのアカウントを config に追加する。
+
+```bash
+export PATH="$HOME/.local/bin:$PATH"
+twitter -c search "コンクリート診断士 対策" -n 15 | grep -oE '@[A-Za-z0-9_]+' | sort | uniq -c | sort -rn   # X: 投稿主を集計
+# 未登録の頻出アカを twitter -c user <h> で follower/bio 確認→exam純度が高ければ config 追加
+# note: curl "https://note.com/api/v3/searches?context=user&q=<kw>"（urlname 発掘）
+# ココナラ: market-research.json の seller を集計（既にキーワード検索由来）
+```
+
+- 追加の可否は **follower 規模 × exam 純度（bio/直近投稿）** で判断。麻雀/IT/建築士等の無関係 bio は除外。
+- **「白地」と結論する前に必ずキーワード検索する**（シードに無い＝不在、ではない）。
+
 ### 1. 機械取得（scout・チャネル別）
 
 ```bash
