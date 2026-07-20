@@ -1,0 +1,304 @@
+{
+  "fetchedAt": "2026-07-20T10:58:34.934Z",
+  "platform": "x",
+  "source": "agent-reach twitter CLI（read-only: user/user-posts）・個人アカ uruhayato373 経由・投稿アカ@doboku373 不使用",
+  "caveat": "フォロワー/総投稿は公開プロフィール由来。エンゲージ/更新頻度は直近投稿サンプル基準の推定（year は投稿時刻に無く当年補正）。有料DM/限定は取得不可。",
+  "driftBasis": null,
+  "drift": [],
+  "competitors": [
+    {
+      "handle": "sosou_nino",
+      "label": "小泉士郎",
+      "exams": [
+        "sokan",
+        "pe-construction"
+      ],
+      "note": "最大競合。総監メンバーシップ¥9,900/月。note=sosou_nino と同一主体",
+      "profile": null,
+      "error": "not_found_or_auth"
+    },
+    {
+      "handle": "gijutushiindex",
+      "label": "技術士-Index",
+      "exams": [
+        "pe-construction"
+      ],
+      "note": "二次建設・予想問題連番シリーズ。導線=自社ブログ/BASE",
+      "profile": {
+        "nickname": "J-Index",
+        "screenName": "gijutushiindex",
+        "followerCount": 701
+      },
+      "counts": {
+        "tweetsTotal": 601,
+        "postsSampled": 20
+      },
+      "cadence": {
+        "recent30": 16,
+        "recent90": 20,
+        "latestDaysAgo": 0
+      },
+      "platformExtra": {
+        "following": 495,
+        "verified": false,
+        "avgEngagement": 7,
+        "medianEngagement": 6,
+        "engagementRate": 1.056,
+        "accountAgeYears": 3.4
+      },
+      "topPosts": [
+        {
+          "text": "技術士二次試験 お疲れさまでした🎊  あの長時間の筆記を終えたあなたは もう立派な“戦い抜いた技術者”です💯  今日",
+          "likes": 20,
+          "rts": 0
+        },
+        {
+          "text": "技術士試験は段取りが命  受験票はカバンへ👜 時計はアナログ⌚️ 鉛筆はB✏️ 昼食と上着も必須🧥  直前まで論文を",
+          "likes": 16,
+          "rts": 2
+        },
+        {
+          "text": "技術士二次は“型”が命。 完成論文を読むだけで構造が一気に身体化し、 本番で迷わず書けます。 直前期の最強ブースト、 今",
+          "likes": 15,
+          "rts": 2
+        }
+      ]
+    },
+    {
+      "handle": "Civil10Engineer",
+      "label": "技術士パパ",
+      "exams": [
+        "pe-construction",
+        "sokan"
+      ],
+      "note": "建設×総監2部門・ゼネコン15年。導線=note/YouTube",
+      "profile": {
+        "nickname": "技術士パパ | 建設×総監",
+        "screenName": "Civil10Engineer",
+        "followerCount": 1008
+      },
+      "counts": {
+        "tweetsTotal": 1573,
+        "postsSampled": 20
+      },
+      "cadence": {
+        "recent30": 20,
+        "recent90": 20,
+        "latestDaysAgo": 0
+      },
+      "platformExtra": {
+        "following": 318,
+        "verified": true,
+        "avgEngagement": 13,
+        "medianEngagement": 14,
+        "engagementRate": 1.334,
+        "accountAgeYears": 1.4
+      },
+      "topPosts": [
+        {
+          "text": "【技術士試験】 明日は本番！ 前日はこれまでの復習、リラックス、睡眠の確保が重要だと思います！ 技術士試験は暗記ではなく",
+          "likes": 37,
+          "rts": 2
+        },
+        {
+          "text": "【技術士試験】 総監部門の方は試験ですね！ 私はウイダーインゼリーとラムネで試験を乗り越えました🧐 行ってらっしゃい！",
+          "likes": 29,
+          "rts": 0
+        },
+        {
+          "text": "【技術士試験対策アカウント】 かなり時間はかかりましたけど、気付けばFollowersが1,000を超えていました！ め",
+          "likes": 26,
+          "rts": 2
+        }
+      ]
+    },
+    {
+      "handle": "suger_sensei",
+      "label": "シュガー先生",
+      "exams": [
+        "civil"
+      ],
+      "note": "2級土木・工業高校教員。図解『神7』/合否ドラマ型。導線=note(セコカンLAB)",
+      "profile": {
+        "nickname": "シュガー先生｜セコカンLAB",
+        "screenName": "suger_sensei",
+        "followerCount": 92
+      },
+      "counts": {
+        "tweetsTotal": 186,
+        "postsSampled": 20
+      },
+      "cadence": {
+        "recent30": 0,
+        "recent90": 1,
+        "latestDaysAgo": 83
+      },
+      "platformExtra": {
+        "following": 86,
+        "verified": false,
+        "avgEngagement": 4,
+        "medianEngagement": 3,
+        "engagementRate": 3.967,
+        "accountAgeYears": 1.8
+      },
+      "topPosts": [
+        {
+          "text": "【二級土木施工管理技士】 専門土木　コンクリート劣化  現役工業高校教員が本気で解説！ 最新まで過去問10回分を徹底分析",
+          "likes": 10,
+          "rts": 0
+        },
+        {
+          "text": "父は、じいちゃんを超える。 僕は、父に車を贈る。  あと何回、会えるだろう。 そう考えたとき、 “今やる理由”がはっきり",
+          "likes": 8,
+          "rts": 0
+        },
+        {
+          "text": "「迷っているなら、やったほうがいい」  生徒に言い続けてきたこの言葉を、 自分に課しました。  2026年、毎週「人生初",
+          "likes": 8,
+          "rts": 0
+        }
+      ]
+    },
+    {
+      "handle": "kaminoblog",
+      "label": "カミノ",
+      "exams": [
+        "civil"
+      ],
+      "note": "土木公務員・1級土木。職種解説/DM相談",
+      "profile": {
+        "nickname": "カミノ",
+        "screenName": "kaminoblog",
+        "followerCount": 8034
+      },
+      "counts": {
+        "tweetsTotal": 6544,
+        "postsSampled": 20
+      },
+      "cadence": {
+        "recent30": 20,
+        "recent90": 20,
+        "latestDaysAgo": 0
+      },
+      "platformExtra": {
+        "following": 1076,
+        "verified": false,
+        "avgEngagement": 129,
+        "medianEngagement": 48,
+        "engagementRate": 1.608,
+        "accountAgeYears": 11.6
+      },
+      "topPosts": [
+        {
+          "text": "【全国の地方公務員の皆さまへ。声を上げなければ、また市に事務負担が降りかかります】 #芦屋市長 #給付付き税額控除  給",
+          "likes": 637,
+          "rts": 119
+        },
+        {
+          "text": "機電の話みたいですけど、母数が多い土木職でも応募者不足は深刻です。早く給与上げる処方箋を出さないと死にますよ。",
+          "likes": 412,
+          "rts": 56
+        },
+        {
+          "text": "録画視聴しました。今の地方公務員はあらゆる悪条件が重なり、深刻な事態になってますね。しかも少子化により急速に崩壊が進むと",
+          "likes": 261,
+          "rts": 32
+        }
+      ]
+    },
+    {
+      "handle": "miyabi_labo",
+      "label": "miyabi_labo",
+      "exams": [
+        "civil"
+      ],
+      "note": "note=miyabi_labo と同一主体。まとめノート",
+      "profile": {
+        "nickname": "雅@スライドで学ぶ建設工学",
+        "screenName": "miyabi_labo",
+        "followerCount": 2156
+      },
+      "counts": {
+        "tweetsTotal": 758,
+        "postsSampled": 20
+      },
+      "cadence": {
+        "recent30": 20,
+        "recent90": 20,
+        "latestDaysAgo": 3
+      },
+      "platformExtra": {
+        "following": 1235,
+        "verified": true,
+        "avgEngagement": 7,
+        "medianEngagement": 3,
+        "engagementRate": 0.304,
+        "accountAgeYears": 6.3
+      },
+      "topPosts": [
+        {
+          "text": "#1級土木施工管理技士 の解答速報、再修正版をアップしました！ ※確実な解答は試験元の公開情報で確認してください。 ht",
+          "likes": 57,
+          "rts": 4
+        },
+        {
+          "text": "1級土木の専門土木の最終問題は、偶数年は「注入効果の確認方法」が鉄板で出題されています！  ■ 出題実績（専門土木・薬液",
+          "likes": 13,
+          "rts": 4
+        },
+        {
+          "text": "ウチの近くにある樋門、管理橋の下に護岸張ってないけど大丈夫そ？ https://t.co/FDN05dPGFx",
+          "likes": 15,
+          "rts": 0
+        }
+      ]
+    },
+    {
+      "handle": "Yurii6ww",
+      "label": "Yurii",
+      "exams": [
+        "civil"
+      ],
+      "note": "07 のX投稿型エンゲージ実測(2026-07-14)対象の土木施工管理アカウント",
+      "profile": {
+        "nickname": "Yuri｜1級土木・経験記述対策",
+        "screenName": "Yurii6ww",
+        "followerCount": 94
+      },
+      "counts": {
+        "tweetsTotal": 457,
+        "postsSampled": 20
+      },
+      "cadence": {
+        "recent30": 20,
+        "recent90": 20,
+        "latestDaysAgo": 5
+      },
+      "platformExtra": {
+        "following": 165,
+        "verified": false,
+        "avgEngagement": 2,
+        "medianEngagement": 1,
+        "engagementRate": 1.649,
+        "accountAgeYears": 0.2
+      },
+      "topPosts": [
+        {
+          "text": "1級土木の経験記述対策noteを公開しました。  丸写し用ではなく、自分の工事経験を答案の形へ近づける実践教材です。  ",
+          "likes": 3,
+          "rts": 1
+        },
+        {
+          "text": "1級土木の経験記述は、例文をたくさん読むほど不安になることもあります。  「自分の現場と違う」と感じるからです。  例文",
+          "likes": 4,
+          "rts": 0
+        },
+        {
+          "text": "おはようございます。 昨日は研修を受けてきました。  土工事での注意点、何に着目するのか  地下水位 土層 埋設物 周辺",
+          "likes": 3,
+          "rts": 0
+        }
+      ]
+    }
+  ]
+}
