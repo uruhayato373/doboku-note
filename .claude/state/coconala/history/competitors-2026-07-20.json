@@ -1,0 +1,133 @@
+{
+  "fetchedAt": "2026-07-20T10:37:49.759Z",
+  "platform": "coconala",
+  "caveat": "累計販売実績(totalSales)/nickname は公開プロフィール header 由来（clean）。個別サービスの価格/品揃えは market-research.json（検索由来・土木/技術士 関連のみ＝全出品でない）。プロフィールの出品カードは推薦カルーセルと同一DOM構造で他社品が混入するため使わない。投稿日は非公開＝cadence取得不可。有料本文は取得不可。",
+  "driftBasis": null,
+  "drift": [],
+  "competitors": [
+    {
+      "handle": "2442601",
+      "label": "ちゃんさと技師",
+      "exams": [
+        "civil"
+      ],
+      "note": "1級2級土木 経験記述添削の最大手(ココナラ800名超・09で最大競合の一つ)。note=chansato_st と同一主体。経験記述添削¥12,000(/services/1690708)",
+      "profile": {
+        "nickname": "ちゃんさと技師\n                出品者ランク： プラチナ 直近3ヶ月間で一定の販売実績があり、納品完了率90%以上、評価4.8以上の基準をクリアし、本人確認済みの信頼性の高い出品者です。  \n          詳しくはこちら"
+      },
+      "counts": {
+        "services": 4,
+        "servicesSource": "market-research.json（土木/技術士 検索由来・関連サービスのみ＝全出品ではない）"
+      },
+      "price": {
+        "min": 12000,
+        "median": 20000,
+        "max": 32000,
+        "bands": {
+          "low": 0,
+          "mid": 0,
+          "high": 0,
+          "premium": 4
+        }
+      },
+      "cadence": null,
+      "platformExtra": {
+        "totalSales": 866,
+        "totalReviews": 686,
+        "avgRating": 4.97
+      },
+      "services": [
+        {
+          "title": "新出題形式対応！土木の経験記述セットで添削します",
+          "priceYen": 24000,
+          "rating": 5,
+          "reviews": 133,
+          "url": "https://coconala.com/services/2280554",
+          "segment": "tensaku"
+        },
+        {
+          "title": "新出題形式対応！経験記述セットで作成代行します",
+          "priceYen": 32000,
+          "rating": 5,
+          "reviews": 132,
+          "url": "https://coconala.com/services/2196022",
+          "segment": "daiko"
+        },
+        {
+          "title": "新出題形式対応！土木施工の経験記述を添削します",
+          "priceYen": 12000,
+          "rating": 4.9,
+          "reviews": 297,
+          "url": "https://coconala.com/services/1690708",
+          "segment": "tensaku"
+        },
+        {
+          "title": "新出題形式対応！経験記述の作成代行・提案をします",
+          "priceYen": 16000,
+          "rating": 5,
+          "reviews": 124,
+          "url": "https://coconala.com/services/1930448",
+          "segment": "daiko"
+        }
+      ]
+    },
+    {
+      "handle": "804799",
+      "label": "303geos",
+      "exams": [
+        "civil"
+      ],
+      "note": "2級土木 出題分析¥2,500/経験記述解答例予想¥3,500。年度予想型",
+      "profile": {
+        "nickname": "303geos\n                出品者ランク： ブロンズ 累積の販売実績が10件以上あり、納品完了率80％以上の基準をクリアした出品者です。  \n          詳しくはこちら"
+      },
+      "counts": {
+        "services": 3,
+        "servicesSource": "market-research.json（土木/技術士 検索由来・関連サービスのみ＝全出品ではない）"
+      },
+      "price": {
+        "min": 2500,
+        "median": 2500,
+        "max": 3500,
+        "bands": {
+          "low": 0,
+          "mid": 2,
+          "high": 1,
+          "premium": 0
+        }
+      },
+      "cadence": null,
+      "platformExtra": {
+        "totalSales": 603,
+        "totalReviews": 361,
+        "avgRating": 4.7
+      },
+      "services": [
+        {
+          "title": "2026年★二次検定の出題分析と重点項目を送ります",
+          "priceYen": 2500,
+          "rating": 4.6,
+          "reviews": 134,
+          "url": "https://coconala.com/services/801208",
+          "segment": "other"
+        },
+        {
+          "title": "RCCM試験の択一、予想問題と重点項目集を送ります",
+          "priceYen": 2500,
+          "rating": 4.9,
+          "reviews": 48,
+          "url": "https://coconala.com/services/824879",
+          "segment": "other"
+        },
+        {
+          "title": "2026年★施工条件予想し経験記述の解答例送ります",
+          "priceYen": 3500,
+          "rating": 4.6,
+          "reviews": 179,
+          "url": "https://coconala.com/services/801186",
+          "segment": "other"
+        }
+      ]
+    }
+  ]
+}

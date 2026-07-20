@@ -1,6 +1,7 @@
 {
   "_note": "ココナラ(coconala.com) 競合セラー一覧。scripts/coconala-research.mjs --competitors が読む。handle = coconala.com/users/{handle} の {handle}（数値ID or slug・P1 probe で確定）。exams タグは note-competitors.json と共通。自社出品 SoT の src/lib/coconala-services.ts・投入設定 coconala-listings.json とは責務が別（あちらは自社・こちらは競合）。取得は公開ページ read-only・低頻度（数ヶ月に1度・operations.md §2.3）・外部誘導しない。生市場データは .claude/state/coconala/market-{summary,research}.json（クエリ中心）にも別途あり。分析真実源は 09_販売チャネル競合分析.md。",
   "competitors": [
-    { "handle": "TBD-chansato", "label": "ちゃんさと", "exams": ["civil"], "note": "1級2級土木 経験記述添削の最大手(ココナラ800名超・09で最大競合の一つ)。note=chansato_st と同一主体。profile URL の数値ID/slug は P1 probe で確定して handle を差し替える" }
+    { "handle": "2442601", "label": "ちゃんさと技師", "exams": ["civil"], "note": "1級2級土木 経験記述添削の最大手(ココナラ800名超・09で最大競合の一つ)。note=chansato_st と同一主体。経験記述添削¥12,000(/services/1690708)" },
+    { "handle": "804799", "label": "303geos", "exams": ["civil"], "note": "2級土木 出題分析¥2,500/経験記述解答例予想¥3,500。年度予想型" }
   ]
 }

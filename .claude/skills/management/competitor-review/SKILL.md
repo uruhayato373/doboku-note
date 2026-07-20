@@ -22,7 +22,7 @@ user-invocable: true
 
 ```bash
 npm run scout-note-competitors                 # note（公開API・curl --ssl-no-revoke・会社PC可）
-npm run coconala-research -- --competitors      # ココナラ（Playwright・公開ページ read-only・低頻度厳守）
+npm run scout-coconala-competitors              # ココナラ（Playwright・公開プロフィールの販売実績 header + market-research由来の価格・低頻度厳守）
 node scripts/scout-x-competitors.mjs            # X（実アカ Playwright・read-only・安全弁必須）
 node scripts/scout-ig-competitors.mjs           # IG（自セッション Playwright・read-only・セッション切れ時 best-effort）
 node scripts/scout-brain-competitors.mjs        # Brain（公開ページ read-only）

@@ -25,6 +25,7 @@
     "verify-note-magazines": "node scripts/verify-note-magazines.mjs",
     "scout-note-competitors": "node scripts/scout-note-competitors.mjs",
     "check-competitor-scan-due": "node scripts/check-competitor-scan-due.mjs",
+    "scout-coconala-competitors": "node scripts/scout-coconala-competitors.mjs",
     "verify-note-status": "node scripts/verify-note-status.mjs",
     "note-edit-session": "node scripts/note-edit-session.mjs",
     "note-membership-plan-edit": "node scripts/note-membership-plan-edit.mjs",
