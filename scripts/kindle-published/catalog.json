@@ -1,7 +1,7 @@
 {
   "_comment": "Kindle 全書籍のマスター登録簿。status=ready(制作完了・提出待ち)/in_review(KDP審査中)/live(公開). epub/cover は git 追跡(A系=kindle-published/・B-F=kindle-dist/). 提出後 ASIN と status=live を更新。再生成は npm run sync-kindle-dist。",
   "schemaVersion": 1,
-  "updatedAt": "2026-07-15",
+  "updatedAt": "2026-07-20",
   "books": [
     {
       "id": "A-00",
@@ -278,20 +278,27 @@
       "series": "B 技術士総監 択一",
       "priceJpy": 490,
       "royalty": 0.7,
-      "status": "ready",
+      "status": "in_review",
       "builder": "scripts/build-pe1-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/b-heisei.json",
       "epub": "kindle-dist/b-heisei.epub",
       "cover": "kindle-dist/b-heisei.jpg",
       "kdpMemo": "scripts/kindle-published/KDP入力メモ_b-heisei.txt",
-      "version": "1.0",
+      "version": "1.1",
       "versionHistory": [
         {
           "version": "1.0",
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        },
+        {
+          "version": "1.1",
+          "date": "2026-07-20",
+          "change": "図15点の拡張子バグ修正(.svg名のJPEG→.jpg正規化・build-pe1-kindle)後に再ビルドしKDP提出（kdp-publish.mjs自動フロー・¥490/70%/KDPセレクト加入）。旧EPUBはKDP変換で処理エラーになり出版不能だった"
         }
-      ]
+      ],
+      "submittedDate": "2026-07-20",
+      "notes": "2026-07-20 KDP提出（レビュー中）。LIVE化したら ASIN/publishedDate/status=live を catalog/戦略doc/README の3箇所に記録。"
     },
     {
       "id": "d-01",

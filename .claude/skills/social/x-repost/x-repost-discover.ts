@@ -21,7 +21,10 @@ import * as path from "path";
 import * as fs from "fs";
 
 const PROJECT_ROOT = path.resolve(__dirname, "../../../..");
-const PROFILE_DIR = path.join(PROJECT_ROOT, ".local/playwright-x-profile");
+// ログインプロファイルはメインチェックアウト固定で共有する（worktree 実行時の再ログイン防止）。
+// docs/reference/playwright-auth-profiles.md
+const PROFILE_ROOT = "/Users/minamidaisuke/doboku-note";
+const PROFILE_DIR = path.join(PROFILE_ROOT, ".local/playwright-x-profile");
 const DEBUG_DIR = path.join(PROJECT_ROOT, ".local/playwright-x-debug");
 const STATE_DIR = path.join(PROJECT_ROOT, ".claude/state/x-repost");
 const CONFIG_PATH = path.join(STATE_DIR, "config.json");

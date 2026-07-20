@@ -77,6 +77,14 @@ public/posts
 # Playwright ココナラ市場調査用（read-only・未ログインだがプロファイル実体はコミットしない）
 .local/playwright-coconala-profile/
 
+# Playwright KDP 入稿・出版用（KDP ログイン cookie を含む・コミット禁止）
+.local/playwright-kdp-profile/
+
+# Playwright a8/ASP 用（ASP ログイン cookie を含む・コミット禁止）
+.local/playwright-a8-profile/
+.local/playwright-a8-debug/
+.local/playwright-a8-state.json
+
 # SNS 投稿スケジュール状態（ツール生成キャッシュ）
 docs/x-posts/draft/**/status.json
 /*.png
