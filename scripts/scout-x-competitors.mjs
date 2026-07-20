@@ -130,7 +130,16 @@ function analyze(comp, now) {
       engagementRate: eng.length && user.followers ? +((eng.reduce((s, x) => s + x, 0) / eng.length / user.followers) * 100).toFixed(3) : null,
       accountAgeYears: user.createdAtISO ? +((now.getTime() - Date.parse(user.createdAtISO)) / (365.25 * 86400000)).toFixed(1) : null,
     },
-    topPosts: [...posts].sort((a, b) => (b.likes || 0) + (b.rts || 0) - ((a.likes || 0) + (a.rts || 0))).slice(0, 3).map((p) => ({ text: String(p.text || '').slice(0, 60), likes: p.likes, rts: p.rts })),
+    // エンゲージ上位（伸びてる投稿レーダー）。text は型/トピック判定に足る長さのみ保持し丸写しはしない。
+    // vsAvg = 自分の平均比（>1.5 は自アカ基準で明確に伸びた投稿＝勝ち型の候補）。
+    engagementLeaders: (() => {
+      const avg = eng.length ? eng.reduce((s, x) => s + x, 0) / eng.length : 0;
+      return [...posts]
+        .map((p) => ({ ...p, e: (p.likes || 0) + (p.rts || 0) }))
+        .sort((a, b) => b.e - a.e)
+        .slice(0, 10)
+        .map((p) => ({ text: String(p.text || '').replace(/\s+/g, ' ').slice(0, 90), likes: p.likes, rts: p.rts, engagement: p.e, vsAvg: avg ? +(p.e / avg).toFixed(1) : null }));
+    })(),
   };
 }
 
