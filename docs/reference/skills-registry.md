@@ -17,6 +17,7 @@ title: スキル ガバナンス記録
 
 ```
 .claude/skills/
+├── ads/             # 1 — A8 アフィリエイト操作（承認確認/開拓/申請/コード取得）
 ├── authoring/       # 11 — 記事を作る
 ├── conversion/      # 6 — 形式変換（MDX / OGP 画像 / 紙用 PDF / Kindle EPUB）＋ OGP 意匠の素案試作
 ├── quality/         # 16 — MDX・note 公開前品質検査
@@ -28,7 +29,9 @@ title: スキル ガバナンス記録
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **90 スキル**（9 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+合計 **91 スキル**（10 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+
+> 2026-07-20 新設（A8 アフィリ確認パイプライン・新カテゴリ ads）: `ads/scout-asp`（A8.net を Playwright で操作し**申請済みアフィリの承認確認**〔`list`〕を主用途に、提携取込〔`import-partnered`〕・転職案件の開拓/申請〔`scout`/`apply`・A8 カテゴリ09 のみ・週次上限〕・承認昇格〔`check-approval`〕・広告コード取得〔`harvest`〕まで回す user-invocable スキル。`disable-model-invocation: true`）。**新カテゴリ `ads/` を新設**。stats47 の同名 `scout-asp` を doboku=転職一本へ移植・スリム化＝(1) scout を A8 カテゴリ09(仕事)のみに限定・講座/教材/書籍/添削を blocklist 恒久除外（memory `affiliate-career-only` の Red Line 機械強制）、(2) **register は自動追記しない**（doboku の creative SSOT は手キュレーションの `src/config/affiliate-creatives.ts`＝3枠・意図配置・カニバリ回避。stats47 の `AFFILIATE_ADS[]` intent-hub は無い）→ harvest は「配置候補〔SidebarAdCreative 形 + affiliate-mats.json 追記案〕を catalog の adDraft に出力」まで・確定配置は人判断。決定的スクリプト `.claude/scripts/ads/lib/{a8-scout-core,a8-code-core}.mjs`（純関数コア）／`.claude/scripts/ads/check-a8-apply-budget.cjs`（週次申請上限）／`.claude/scripts/ads/data/a8-curated.json`（係数・blocklist・vertical・上限の SSOT）／`.claude/state/ads/a8-catalog.json`（状態機械）を新設。認証は永続プロファイル＋セッション Cookie 再注入（`.local/playwright-a8-{profile,state.json}`・`login.mjs`）。正典 SSOT は新設 `docs/reference/a8-affiliate-pipeline.md`、認証は `playwright-auth-profiles.md` に a8 profile 行を追記予定。**ローカル Mac 限定・初回のみ人間ログイン＋`list --dry-run --headed` で実機セレクタ確定**。合計 `90→91`・新カテゴリ `ads 0→1`（9→10 カテゴリ）。agents 件数は不変（Phase 3 で `affiliate-manager` を検討）。
 
 > 2026-07-18 新設（ココナラ出品の自動化）: `management/coconala-publish`（ココナラ出品サービスを Playwright で**新規出品・内容修正・価格反映**する user-invocable スキル。`coconala-operator` が起動）。決定的スクリプト `scripts/coconala-publish.mjs`（新規）／`coconala-edit.mjs`（修正）／`coconala-discover.mjs`（フォーム偵察）＋共有 `scripts/lib/coconala-{session,form}.mjs`、投入 SoT `.claude/config/coconala-listings.json`（本文/カテゴリ/納期/genreFacets・価格はカタログが真実源）を新設。note-publish 流儀＝ログイン済みプロファイル `.local/playwright-coconala-profile`＋account assert（sellerName=dobokunote）＋draft-first＋`--commit` gate、公開成功でカタログを `listed`＋`serviceUrl`＋`listedAt` に書き戻し。**2026-07-16 の「ココナラ UI の自動操作はしない」方針を出品・修正について改訂**（利用規約に自分の出品の自動化を禁じる明示条項は 2026-07-18 時点で未確認・第13条2項22号は購入者側の自動応答が対象。トークルーム返信送信は運営者のまま）。`coconala-operator` の description／`coconala-operations.md` §1/§2.1b/§5/§8／`coconala-account.json`／カタログ header を同期。合計 `89→90`・management `17→18`。agents 件数は不変（既存 `coconala-operator` の能力拡張）。
 

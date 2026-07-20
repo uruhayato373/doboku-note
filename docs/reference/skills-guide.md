@@ -143,6 +143,12 @@ title: スキル ナビゲーションガイド
 |---|---|---|
 | `/design-review` | デザインシステム準拠レビュー（7 カテゴリ）＋ `--visual` で視覚検証 | `デザインレビュー`, `/design-review` |
 
+### アフィリエイト運用（ads）
+
+| スキル | 一言説明 | 呼ぶとき |
+|---|---|---|
+| `/scout-asp` | A8.net を Playwright で操作（転職一本スコープ）。`list`=申請済みアフィリの承認確認（主用途）／`import-partnered`=提携取込／`scout`+`apply`=カテゴリ09 開拓・週次上限申請／`check-approval`=承認昇格／`harvest`=広告コード→配置候補出力。**初回は `list --dry-run --headed`**。正典 `docs/reference/a8-affiliate-pipeline.md` | `A8確認`, `アフィリエイト承認確認`, `申請済みアフィリを見る`, `A8提携状況`, `/scout-asp` |
+
 ---
 
 ## 用途別ガイド（今やること別）

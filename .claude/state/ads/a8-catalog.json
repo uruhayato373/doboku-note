@@ -1,0 +1,4 @@
+{
+  "_doc": "A8 パイプラインの案件カタログ + 状態機械 SSOT (doboku-note 版)。a8-browser.ts が upsert/遷移する機械 state。正典 = docs/reference/a8-affiliate-pipeline.md。手編集しない (状態機械は a8-scout-core.mjs が検証)。状態: candidate→applied→approved→harvested→registered→published、分岐: rejected/blocked/pending-vertical/error。初期は空 (list / import-partnered / scout で投入)。",
+  "entries": {}
+}
