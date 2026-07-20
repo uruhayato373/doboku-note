@@ -25,6 +25,17 @@ doboku=転職一本へ移植・スリム化）。
 > `categoryCodeToVertical`）、(2) `blocklistKeywords` に「講座/教材/参考書/問題集/添削/予備校/通信教育/eラーニング」を
 > 追加、の2段で非転職案件を機械除外する。
 
+## 申請サイト assert（複数サイト口座・最重要）
+
+> [!warning] 申請時は必ず webSiteId=doboku-note を選ぶ
+> この A8 口座は**複数サイト登録**（`webSiteId=001` 統計で見る都道府県〔stats47〕/ `002` doboku-note）。
+> apply の detail ページには `<select name="webSiteId">` があり、**既定は 001（口座の既定サイト）**。
+> 盲目的にボタンを押すと **stats47 のサイトで提携申請してしまう**（2026-07-20 に実機で判明）。
+> `applyToProgram` は申請前に `TARGET_SITE="doboku-note"` を selectOption し、read-back で確定を検証、
+> doboku-note が選べない場合は**申請を中止（error）**する（誤サイト提携の構造的防止＝publish-x/coconala の
+> account assert と同じ思想）。ヘッダーの「サイト名 統計で見る都道府県様」は口座の既定サイト表示で、
+> 申請フォームの webSiteId とは別軸（申請成立後も表示は 001 のまま＝正常）。
+
 ## 状態機械（a8-catalog.json）
 
 ```

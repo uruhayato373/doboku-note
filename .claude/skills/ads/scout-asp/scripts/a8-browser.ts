@@ -44,6 +44,10 @@ const PROFILE_DIR = path.join(PROFILE_ROOT, ".local/playwright-a8-profile");
 // ★A8 の認証はセッション Cookie で永続プロファイルに残らない。login.mjs が storageState に
 //   捕獲した Cookie を起動時に addCookies で再注入する (認証再利用の実体)。
 const STATE_PATH = path.join(PROFILE_ROOT, ".local/playwright-a8-state.json");
+// ★申請サイト assert: この A8 口座は複数サイト登録 (例: 統計で見る都道府県=stats47 / doboku-note)。
+//   申請 (apply) は detail ページの <select name="webSiteId"> を doboku-note に選んでから送る。
+//   選べない場合は誤サイト提携を防ぐため申請しない (publish-x / coconala の account assert と同じ思想・2026-07-20)。
+const TARGET_SITE = "doboku-note";
 const DEBUG_DIR = path.join(PROJECT_ROOT, ".local/playwright-a8-debug");
 const CATALOG_PATH = path.join(PROJECT_ROOT, ".claude/state/ads/a8-catalog.json");
 const INVENTORY_PATH = path.join(PROJECT_ROOT, ".claude/state/ads/inventory-latest.json");
@@ -386,9 +390,10 @@ async function cmdList(page: Page): Promise<void> {
   let cat = loadCatalog();
   const withVertical = partnered.map((p) => ({ ...p, vertical: core.resolveVertical(p, curated) }));
   cat = core.upsertApproved(cat, withVertical, { at: nowIso(), note: "list-partnered" });
+  // status は状態機械外の "snapshot" にする (candidate/applied 等に混ぜると apply が偽 programId を叩く)。
   cat.entries.__applying = {
     programId: "__applying",
-    status: "candidate",
+    status: "snapshot",
     note: "list-snapshot (審査待ち・状態機械外の記録)",
     items: applying.map((p) => ({ programId: p.programId, name: p.name })),
     at: nowIso(),
@@ -549,13 +554,35 @@ async function applyToProgram(page: Page, entry: any): Promise<"applied" | "skip
     recordSessionExpired("apply");
     return "error";
   }
+  // ★ 申請サイト assert (誤サイト提携の防止)。detail に <select name="webSiteId"> が在れば
+  //   TARGET_SITE (doboku-note) を選んでから申請する。doboku-note を選べないなら申請しない (error)。
+  const siteSel = page.locator("select[name=webSiteId]");
+  if ((await siteSel.count()) > 0) {
+    const opts = (await siteSel.locator("option").allTextContents()).map((o) => o.trim());
+    if (!opts.includes(TARGET_SITE)) {
+      console.error(`❌ webSiteId に "${TARGET_SITE}" が無い (${JSON.stringify(opts)})。誤サイト防止で申請中止: ${entry.name}`);
+      await saveScreenshot(page, `apply-site-missing-${entry.programId}`);
+      return "error";
+    }
+    await siteSel.selectOption({ label: TARGET_SITE });
+    await page.waitForTimeout(500);
+    const selected = await siteSel
+      .evaluate((el: HTMLSelectElement) => el.options[el.selectedIndex]?.textContent?.trim() || "")
+      .catch(() => "");
+    if (selected !== TARGET_SITE) {
+      console.error(`❌ 申請サイトを "${TARGET_SITE}" に確定できない (現: "${selected}")。申請中止: ${entry.name}`);
+      await saveScreenshot(page, `apply-site-unset-${entry.programId}`);
+      return "error";
+    }
+    console.log(`  🎯 申請サイト = ${TARGET_SITE}`);
+  }
   const applyBtn = await tryFind(page, A8.applyButton);
   if (!applyBtn) {
     // 申請ボタンが無い = 既に申込中/提携中 or 対象外。**送信していない**ので skip (error にしない)。
     await saveScreenshot(page, `apply-btn-missing-${entry.programId}`);
     return "skip";
   }
-  // ★このクリックで申請が送信される。以降は「送信済み」として扱う。
+  // ★このクリックで申請が送信される (webSiteId=doboku-note 選択済み)。以降は「送信済み」として扱う。
   await applyBtn.evaluate((el: HTMLElement) => el.click());
   await page.waitForTimeout(2500);
   const done = await page
@@ -563,11 +590,9 @@ async function applyToProgram(page: Page, entry: any): Promise<"applied" | "skip
       /提携を申請しました|提携申請完了|提携完了|申込を受け付け/.test(document.body.innerText),
     )
     .catch(() => false);
-  if (!done) {
-    // 文言未確認でもボタンは押せている = 送信された可能性が高い。誤って未送信扱いにしない。
-    // check-approval が申込中/参加中一覧で最終追認するため applied 扱いにする (スクショは残す)。
-    await saveScreenshot(page, `apply-sent-unverified-${entry.programId}`);
-  }
+  // 送信結果のスクショを常時残す (申請サイト=doboku-note の証跡・偽成功検証)。文言未確認でも
+  // ボタンは押せている = 送信された可能性が高いので applied 扱い (check-approval が最終追認)。
+  await saveScreenshot(page, `apply-result-${done ? "ok" : "unverified"}-${entry.programId}`);
   return "applied";
 }
 

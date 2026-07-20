@@ -2945,7 +2945,7 @@
     },
     "__applying": {
       "programId": "__applying",
-      "status": "candidate",
+      "status": "snapshot",
       "note": "list-snapshot (審査待ち・状態機械外の記録)",
       "items": [
         {
@@ -3106,7 +3106,95 @@
         }
       ],
       "at": "2026-07-20T01:36:19.547Z"
+    },
+    "s00000026492001": {
+      "programId": "s00000026492001",
+      "name": "日本ヘッドハンター大賞コンサル部門初代MVP【コンコードエグゼクティブグループ】",
+      "genre": "就職・転職",
+      "a8mat": null,
+      "vertical": "pe-career",
+      "score": 0.62,
+      "status": "applied",
+      "history": [
+        {
+          "from": null,
+          "to": "candidate",
+          "at": "2026-07-20T02:32:10.721Z",
+          "note": "manual-pick-2026-07-20"
+        },
+        {
+          "from": "candidate",
+          "to": "applied",
+          "at": "2026-07-20T02:38:41.944Z"
+        }
+      ]
+    },
+    "s00000019113004": {
+      "programId": "s00000019113004",
+      "name": "年収1000万円以上の転職なら【プロフェッショナル転職サービス／ランスタッド】",
+      "genre": "就職・転職",
+      "a8mat": null,
+      "vertical": "pe-career",
+      "score": 0.6,
+      "status": "applied",
+      "history": [
+        {
+          "from": null,
+          "to": "candidate",
+          "at": "2026-07-20T02:32:10.721Z",
+          "note": "manual-pick-2026-07-20"
+        },
+        {
+          "from": "candidate",
+          "to": "applied",
+          "at": "2026-07-20T02:38:52.564Z"
+        }
+      ]
+    },
+    "s00000027409001": {
+      "programId": "s00000027409001",
+      "name": "メーカー転職ならタイズ",
+      "genre": "就職・転職",
+      "a8mat": null,
+      "vertical": "pe-career",
+      "score": 0.58,
+      "status": "applied",
+      "history": [
+        {
+          "from": null,
+          "to": "candidate",
+          "at": "2026-07-20T02:32:10.721Z",
+          "note": "manual-pick-2026-07-20"
+        },
+        {
+          "from": "candidate",
+          "to": "applied",
+          "at": "2026-07-20T02:39:06.277Z"
+        }
+      ]
+    },
+    "s00000026941002": {
+      "programId": "s00000026941002",
+      "name": "年収以外にもこだわるハイクラス転職【LHH転職エージェント】",
+      "genre": "就職・転職",
+      "a8mat": null,
+      "vertical": "pe-career",
+      "score": 0.64,
+      "status": "applied",
+      "history": [
+        {
+          "from": null,
+          "to": "candidate",
+          "at": "2026-07-20T02:32:10.721Z",
+          "note": "manual-pick-2026-07-20"
+        },
+        {
+          "from": "candidate",
+          "to": "applied",
+          "at": "2026-07-20T02:34:17.669Z"
+        }
+      ]
     }
   },
-  "updatedAt": "2026-07-20T01:36:19.547Z"
+  "updatedAt": "2026-07-20T02:39:06.277Z"
 }
