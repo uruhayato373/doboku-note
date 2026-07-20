@@ -32,7 +32,7 @@ const PLATFORMS = {
   coconala: { dir: '.claude/state/coconala/history', review: '/competitor-review --platform coconala' },
   x: { dir: '.claude/state/x-competitors/history', review: '/competitor-review --platform x' },
   ig: { dir: '.claude/state/ig-competitors/history', review: '/competitor-review --platform ig' },
-  brain: { dir: '.claude/state/brain-competitors/history', review: '/competitor-review --platform brain' },
+  brain: { dir: '.claude/state/brain-competitors/history', review: '手動: WebSearch(allowed_domains:brain-market.com)で新規exam販売者確認＝白地(自動scoutなし・09§E)' },
 };
 
 const args = process.argv.slice(2);
