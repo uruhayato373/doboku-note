@@ -29,6 +29,7 @@
  *
  * 使い方:
  *   npm run scout-note-competitors                     # config 全社を偵察→時系列保存＋前回比ドリフト
+ *   npm run scout-note-competitors -- --exam concrete-chief  # 試験タグで絞って偵察（部分実行=履歴/driftなし）
  *   npm run scout-note-competitors -- --handle sosou_nino,chansato_st  # ad-hoc 指定
  *   npm run scout-note-competitors -- --note-pages 20  # 単品記事を直近20ページまで（既定5）
  *   npm run scout-note-competitors -- --contents       # 各マガジンの収録記事も取得（重い）
@@ -55,6 +56,7 @@ function argVal(flag, def) {
 const WANT_CONTENTS = args.includes('--contents');
 const NOTE_PAGES = Math.max(1, parseInt(argVal('--note-pages', '5'), 10) || 5);
 const HANDLE_OVERRIDE = argVal('--handle', null);
+const EXAM_FILTER = argVal('--exam', null); // 試験タグで config を絞る（sokan/pe/civil/concrete-* 等）
 
 /** curl で JSON を取得（プロキシ + 失効チェック無効化）。HTML/空はリトライ。 */
 function curlJson(url) {
@@ -284,14 +286,22 @@ function main() {
   } else {
     const cfg = JSON.parse(readFileSync(CONFIG_PATH, 'utf-8'));
     competitors = cfg.competitors ?? [];
+    if (EXAM_FILTER) competitors = competitors.filter((c) => (c.exams ?? []).includes(EXAM_FILTER));
   }
   if (competitors.length === 0) {
-    console.error('ERROR: 対象ハンドルがありません（config が空 or --handle 未指定）。');
+    console.error(
+      EXAM_FILTER
+        ? `ERROR: exam="${EXAM_FILTER}" に該当する競合が config にありません。`
+        : 'ERROR: 対象ハンドルがありません（config が空 or --handle 未指定）。'
+    );
     process.exit(1);
   }
 
+  // --handle / --exam は「部分実行」＝全社ベースラインの history を汚さず drift 比較もしない
+  const PARTIAL = Boolean(HANDLE_OVERRIDE || EXAM_FILTER);
+
   console.log('=== note 競合偵察 ===');
-  console.log(`対象: ${competitors.length} 社 / 単品記事 直近${NOTE_PAGES}ページ${WANT_CONTENTS ? ' / マガジン収録も取得' : ''}\n`);
+  console.log(`対象: ${competitors.length} 社${EXAM_FILTER ? `（exam=${EXAM_FILTER}）` : ''} / 単品記事 直近${NOTE_PAGES}ページ${WANT_CONTENTS ? ' / マガジン収録も取得' : ''}\n`);
 
   const results = [];
   let failed = 0;
@@ -313,15 +323,15 @@ function main() {
     console.log('');
   }
 
-  // 前回比ドリフト（ad-hoc --handle 時は履歴を汚さない/比較しない）
+  // 前回比ドリフト（部分実行 --handle/--exam 時は履歴を汚さない/比較しない）
   const stamp = todayStamp();
   const todayFile = `competitors-${stamp}.json`;
-  const previous = HANDLE_OVERRIDE ? null : loadPreviousSnapshot(todayFile);
+  const previous = PARTIAL ? null : loadPreviousSnapshot(todayFile);
   const drift = computeDrift(results, previous);
 
   console.log('--- 前回比ドリフト ---');
   if (!previous) {
-    console.log(HANDLE_OVERRIDE ? '  （--handle 指定のため比較・履歴保存なし）' : '  （初回＝比較対象なし。次回から差分検出）');
+    console.log(PARTIAL ? '  （--handle/--exam 部分実行のため比較・履歴保存なし）' : '  （初回＝比較対象なし。次回から差分検出）');
   } else if (drift.entries.length === 0) {
     console.log(`  変化なし（基準: ${drift.basis}）`);
   } else {
@@ -342,8 +352,8 @@ function main() {
   mkdirSync(STATE_DIR, { recursive: true });
   // 最新ポインタは常に更新
   writeFileSync(LATEST_PATH, JSON.stringify(snapshot, null, 2), 'utf-8');
-  // 履歴は config 対象の通常実行時のみ（ad-hoc --handle は履歴を汚さない）
-  if (!HANDLE_OVERRIDE) {
+  // 履歴は config 全社の通常実行時のみ（部分実行 --handle/--exam は全社ベースラインを汚さない）
+  if (!PARTIAL) {
     mkdirSync(HISTORY_DIR, { recursive: true });
     writeFileSync(join(HISTORY_DIR, todayFile), JSON.stringify(snapshot, null, 2), 'utf-8');
     console.log(`\n時系列保存: .claude/state/note/history/${todayFile}`);
