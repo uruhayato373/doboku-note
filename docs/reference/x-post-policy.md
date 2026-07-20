@@ -251,6 +251,15 @@ docs/sns/x/
 - **予約フロー**: `x-post-writer`（生成）→ `x-post-qa`（§11 ゲート採点）→ status.json に `scheduled_at` 記入 → **`npm run x-schedule-guard --queue` で緑**→ `publish-x` 実行 → `npm run x-sync-status`（偽成功の実査・§9＋下記 queued 昇格）。緑でない限り予約しない。
 - **状態ライフサイクル**: `scheduled`（計画・未投入）→ `queued`（X キュー投入済。`x-sync-status` がキュー実在を確認して昇格＝§9 偽成功検証を兼ねる）→ `posted`（送信時刻通過後キューから消えたら昇格）。guard / `x-schedule-view` / `x-sync-status` は `scheduled`＋`queued` を「未来予約」として扱い、**guard の `--queue` 二重チェックだけは `queued` を除外**（既にキューに在って当然なので、週次で次バッチを積むとき誤検出で赤にならない）。次バッチは未投入の `scheduled` のみを `publish-x --tweets N-M` で対象化する。
 - **アカウント境界（epoch）**: 凍結アカウントの drafts は `docs/sns/x/_archive-<handle>/` へ退避する。`_` 接頭辞ディレクトリは guard / `x-schedule-view` / `x-sync-status` のスキャン対象外＝**新アカウントは常にクリーンな台帳から始める**。旧アカの予約済み status を新アカで publish しないための物理的隔離。
+
+### 11.6 競合 read（scout-x-competitors）の安全弁
+
+> **背景（2026-07-20）**: 多チャネル競合パイプライン（[[note-competitor-intel-pipeline]]・`/competitor-review --platform x`）で X 競合のフォロワー/投稿/エンゲージを機械取得する。凍結復帰中の **@doboku373 に read 自動化の足跡を足さない**ことを構造で担保する。
+
+- **取得アカウント＝運営者個人 `uruhayato373`**（agent-reach の twitter CLI が認証済み）。**投稿アカウント @doboku373 の Playwright プロファイル（`.local/playwright-x-profile`）は競合 read に使わない**。当初方針 backlog「X は未ログイン公開読取に留める」は、X が 2023 以降ログアウト閲覧を 404 で遮断するため実行不能＝**個人アカ CLI 経由の read がその代替（投稿アカを守る目的は同じ）**。
+- **read 専用**: `scout-x-competitors.mjs` は `twitter user` / `twitter user-posts` のみ呼ぶ（コード内 allowlist で二重ガード）。**post/like/follow/retweet/reply は関数として持たない**（§11.3 の自動フォロー/いいね禁止と整合）。
+- **低頻度・少数・jitter**: 四半期（`check-competitor-scan-due` 90日）・1回 ≤15 プロフィール・呼び出し間 1.5〜3.0s の jitter。投稿スケジュール（`x-schedule-guard` 管理）と実行タイミングを重ねない。
+- **エラー時は縮退**: CLI が not_found/認証切れを返したら該当社を failed 記録して続行（自動リトライしない）。取得結果は `.claude/state/x-competitors/`（価格/品揃え軸は 09 §B、コンテンツ型/エンゲージ軸は 07 SNS競合節）。
 - **週次小分け**: 月単位で数十本を一度にキューへ積まない（§11.2）。1週間分（2本/日×7＝14本）ずつ生成→ゲート→予約し、`x-sync-status` で消化を確認してから次週分を積む。
 
 ### 11.6 publish-x 自動化再開の判定チェックリスト（縮退→通常運用への復帰ゲート）
