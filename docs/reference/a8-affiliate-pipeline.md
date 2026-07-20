@@ -35,6 +35,11 @@ doboku=転職一本へ移植・スリム化）。
 > doboku-note が選べない場合は**申請を中止（error）**する（誤サイト提携の構造的防止＝publish-x/coconala の
 > account assert と同じ思想）。ヘッダーの「サイト名 統計で見る都道府県様」は口座の既定サイト表示で、
 > 申請フォームの webSiteId とは別軸（申請成立後も表示は 001 のまま＝正常）。
+>
+> **harvest（広告コード取得）も同様**: create-link ページの `<select name="websiteId">`（**小文字 w**＝apply の
+> `webSiteId` とは別名・ラベルは "doboku-note【アピールサイト】"）を doboku-note に選んでからコードを取る。
+> 検証済み: GKS を harvest → `a8mat` が affiliate-mats.json の配置済み GKS mat と完全一致（doboku-note のコードが取れる）。
+> **`list` は口座横断**（`?webSiteId=` フィルタは A8 側で無視＝doboku-note 単独に絞れない・全サイト混在で表示）。
 
 ## 状態機械（a8-catalog.json）
 
@@ -86,8 +91,9 @@ X/IG/note/ココナラと同じ永続プロファイル方式（`docs/reference/
 - ブラウザ: `.claude/skills/ads/scout-asp/scripts/{a8-browser.ts,login.mjs}`
 - skill: `.claude/skills/ads/scout-asp/SKILL.md`（`/scout-asp`・`disable-model-invocation: true`）
 - コア（純関数）: `.claude/scripts/ads/lib/{a8-scout-core,a8-code-core}.mjs`
+- テスト（node:test・30件）: `.claude/scripts/ads/__tests__/*.test.mjs`（`npm run test:ads`）
 - 申請上限: `.claude/scripts/ads/check-a8-apply-budget.cjs`
-- curated（係数・blocklist・vertical・上限）: `.claude/scripts/ads/data/a8-curated.json`
+- curated（係数・blocklist・vertical・上限・`searchKeywords`）: `.claude/scripts/ads/data/a8-curated.json`
 - カタログ（状態機械）: `.claude/state/ads/a8-catalog.json`
 - 配置先 SSOT: `src/config/affiliate-creatives.ts` / `src/config/affiliate-mats.json` / `docs/project/04_運営/02_アフィリエイト提携状況.md`
 

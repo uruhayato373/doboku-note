@@ -68,6 +68,7 @@ const A8 = {
   // ログイン再認証にリダイレクトされていない = ログイン済み。
   reAuthPattern: /re-authentication|\/login/i,
   categorySearchUrl: (code: string) => `${BASE}/program/search/category?primaryCategoryCode=${code}`,
+  keywordSearchUrl: (kw: string) => `${BASE}/program/search/keyword?keywords=${encodeURIComponent(kw)}`,
   autoContractUrl: `${BASE}/program/search/auto-contract`, // 即時提携 (審査なし)
   partneredListUrl: `${BASE}/program/list/partnered`, // 参加中 (承認済み)
   applyingListUrl: `${BASE}/program/list/applying`, // 申込中 (審査待ち)
@@ -367,7 +368,9 @@ async function cmdList(page: Page): Promise<void> {
   const placed = loadPlacedMats();
   const curated = core.loadCurated();
 
-  console.log(`\n━━━ A8 提携状況 (${nowIso().slice(0, 10)}) ━━━`);
+  // ★ 注意: A8 の list は口座横断 (webSiteId フィルタは効かない=実機確認 2026-07-20)。
+  //   ＝doboku-note と 統計で見る都道府県(stats47) の提携が混在する。doboku-note 単独には絞れない。
+  console.log(`\n━━━ A8 提携状況 (${nowIso().slice(0, 10)}) ※口座横断・全サイト混在 ━━━`);
   console.log(`\n■ 申込中 (審査待ち): ${applying.length} 件`);
   for (const p of applying) {
     console.log(`   ⏳ ${p.name}  [${p.programId}]`);
@@ -475,6 +478,69 @@ async function cmdScout(page: Page, limit: number): Promise<void> {
   cat = core.upsertCandidates(cat, top, { at: nowIso() });
   saveCatalog(cat);
   console.log(`✅ candidate ${top.length} 件 upsert (blocked ${blocked.length} / dup ${duplicates.length})`);
+}
+
+// ─── サブコマンド: search (キーワード検索でニッチ案件を探索) ────
+// カテゴリ検索 (scout) はカテゴリ09の1ページ目だけで doboku ニッチ(施工管理/技術士)に弱い。
+// A8 の /program/search/keyword?keywords=… で狙い撃ち検索し、既提携・blocklist を除いて candidate 化する。
+async function cmdSearch(page: Page, limit: number, keywordArg?: string): Promise<void> {
+  const curated = core.loadCurated();
+  const keywords: string[] = keywordArg ? [keywordArg] : curated.searchKeywords || [];
+  if (keywords.length === 0) {
+    console.log("検索語なし。--keyword <語> を渡すか curated.searchKeywords を設定してください。");
+    return;
+  }
+  const existingAds = loadExistingAds();
+  const cat0 = loadCatalog();
+  const partneredIds = new Set(
+    Object.values(cat0.entries).filter((e: any) => e.status === "approved").map((e: any) => e.programId),
+  );
+  const raw: any[] = [];
+  const seen = new Set<string>();
+  for (const kw of keywords) {
+    const kwSeen = new Set<string>();
+    for (let pageNo = 1; pageNo <= 5; pageNo++) {
+      await page.goto(`${A8.keywordSearchUrl(kw)}&pageNo=${pageNo}`, { waitUntil: "networkidle", timeout: 40000 });
+      await page.waitForTimeout(2500);
+      if (!(await isLoggedIn(page))) return recordSessionExpired("search");
+      const cards = await scrapeCurrentPage(page);
+      if (cards.length === 0) break;
+      let fresh = 0;
+      for (const c of cards) {
+        if (!c.programId || kwSeen.has(c.programId)) continue;
+        kwSeen.add(c.programId);
+        fresh++;
+        if (seen.has(c.programId)) continue;
+        seen.add(c.programId);
+        if (c.partnered || partneredIds.has(c.programId)) continue; // 既提携は除外
+        raw.push(normalizeProgram(c, kw));
+      }
+      if (fresh === 0) break; // pageNo が進まない/最終超過 → 打ち切り
+      if (cards.length < 20) break;
+      await page.waitForTimeout(800);
+    }
+    console.log(`  [${kw}] 累計 未提携ヒット ${raw.length}`);
+  }
+  if (raw.length === 0) {
+    console.log("未提携のヒットなし。");
+    return;
+  }
+  if (IS_DRY_RUN) {
+    console.log(`🧪 dry-run: ${raw.length} 未提携ヒット (candidate 化はしない)`);
+    return;
+  }
+  const coverage = loadCoverage();
+  const { candidates, blocked, duplicates } = core.scoreAndRank(raw, { coverage, existingAds, curated });
+  const top = candidates.slice(0, Number.isFinite(limit) ? limit : candidates.length);
+  let cat = loadCatalog();
+  cat = core.upsertCandidates(cat, top, { at: nowIso(), note: "keyword-search" });
+  saveCatalog(cat);
+  console.log(`✅ candidate ${top.length} 件 upsert (blocked ${blocked.length} / dup ${duplicates.length})`);
+  const order: Record<string, number> = { "civil-career": 0, "pe-career": 1, career: 2 };
+  for (const c of [...top].sort((a, b) => (order[a.vertical] ?? 9) - (order[b.vertical] ?? 9))) {
+    console.log(`  [${c.vertical || "-"}] ${c.name}  (${c.programId})  score ${c.score?.toFixed(2)}`);
+  }
+  console.log(`→ 申請するなら apply (週上限内・doboku-note で申請)。`);
 }
 
 // ─── サブコマンド: apply ───────────────────────────
@@ -638,15 +704,19 @@ async function cmdCheckApproval(page: Page): Promise<void> {
 }
 
 // ─── サブコマンド: harvest ─────────────────────────
-async function cmdHarvest(page: Page, limit: number): Promise<void> {
+async function cmdHarvest(page: Page, limit: number, programId?: string): Promise<void> {
   let cat = loadCatalog();
   // approved のうち未 harvest を対象 (doboku は件数が少ないため select 精選は省略)。既 harvested/registered は除外。
-  const approved = core
-    .entriesByStatus(cat, "approved")
-    .filter((e: any) => !e.adDraft)
-    .slice(0, Number.isFinite(limit) ? limit : undefined);
+  // --program <pid> 指定時はその1件だけ (狙い撃ち harvest・検証にも使う)。
+  let approved = core.entriesByStatus(cat, "approved").filter((e: any) => !e.adDraft);
+  if (programId) approved = approved.filter((e: any) => e.programId === programId);
+  approved = approved.slice(0, Number.isFinite(limit) ? limit : undefined);
   if (approved.length === 0) {
-    console.log("harvest 対象 (approved かつ未 harvest) なし。先に list / import-partnered を実行。");
+    console.log(
+      programId
+        ? `harvest 対象なし (${programId} が approved かつ未 harvest でない)。`
+        : "harvest 対象 (approved かつ未 harvest) なし。先に list / import-partnered を実行。",
+    );
     return;
   }
   // ログイン確認は fetchAdCode が createLink (media-console) 上で毎回行う。
@@ -703,6 +773,20 @@ async function fetchAdCode(page: Page, entry: any): Promise<string | null> {
   if (!(await isLoggedIn(page))) {
     recordSessionExpired("harvest");
     return null;
+  }
+  // ★ create-link のサイトも doboku-note に選ぶ (select name=websiteId・小文字 w = apply の webSiteId とは別名。
+  //   ラベルは "doboku-note【アピールサイト】" 等の表記ゆれあり → includes で吸収。選べなければ誤サイトコード防止で中止)。
+  const clSite = page.locator("select[name=websiteId]");
+  if ((await clSite.count()) > 0) {
+    const opts = (await clSite.locator("option").allTextContents()).map((o) => o.trim());
+    const target = opts.find((o) => o.includes(TARGET_SITE));
+    if (!target) {
+      console.error(`❌ create-link に "${TARGET_SITE}" が無い (${JSON.stringify(opts)})。誤サイトコード防止で harvest 中止: ${entry.name}`);
+      await saveScreenshot(page, `harvest-site-missing-${entry.programId}`);
+      return null;
+    }
+    await clSite.selectOption({ label: target });
+    await page.waitForTimeout(800);
   }
   // 広告コードは「広告リンクを表示」クリックで textarea に出現する。
   await tryClick(page, A8.showAdLinkButton);
@@ -772,10 +856,14 @@ async function main() {
   };
   const limit = numAfter("--limit", Infinity);
   const max = numAfter("--max", Infinity);
+  const keywordIdx = args.indexOf("--keyword");
+  const keyword = keywordIdx >= 0 ? args[keywordIdx + 1] : undefined;
+  const programIdx = args.indexOf("--program");
+  const programId = programIdx >= 0 ? args[programIdx + 1] : undefined;
 
-  if (!["list", "scout", "apply", "check-approval", "harvest", "import-partnered"].includes(cmd)) {
+  if (!["list", "search", "scout", "apply", "check-approval", "harvest", "import-partnered"].includes(cmd)) {
     console.error(
-      "使い方: npx tsx a8-browser.ts <list|import-partnered|scout|apply|check-approval|harvest> [--dry-run] [--headed] [--limit N] [--max N]",
+      "使い方: npx tsx a8-browser.ts <list|search|import-partnered|scout|apply|check-approval|harvest> [--dry-run] [--headed] [--keyword <語>] [--limit N] [--max N]",
     );
     process.exit(1);
   }
@@ -794,11 +882,12 @@ async function main() {
 
   try {
     if (cmd === "list") await cmdList(page);
+    else if (cmd === "search") await cmdSearch(page, limit, keyword);
     else if (cmd === "import-partnered") await cmdImportPartnered(page);
     else if (cmd === "scout") await cmdScout(page, limit);
     else if (cmd === "apply") await cmdApply(page, max);
     else if (cmd === "check-approval") await cmdCheckApproval(page);
-    else if (cmd === "harvest") await cmdHarvest(page, limit);
+    else if (cmd === "harvest") await cmdHarvest(page, limit, programId);
   } catch (e) {
     console.error("エラー:", e);
     await saveScreenshot(page, `error-${cmd}`);

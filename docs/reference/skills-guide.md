@@ -147,7 +147,7 @@ title: スキル ナビゲーションガイド
 
 | スキル | 一言説明 | 呼ぶとき |
 |---|---|---|
-| `/scout-asp` | A8.net を Playwright で操作（転職一本スコープ）。`list`=申請済みアフィリの承認確認（主用途）／`import-partnered`=提携取込／`scout`+`apply`=カテゴリ09 開拓・週次上限申請／`check-approval`=承認昇格／`harvest`=広告コード→配置候補出力。**初回は `list --dry-run --headed`**。正典 `docs/reference/a8-affiliate-pipeline.md` | `A8確認`, `アフィリエイト承認確認`, `申請済みアフィリを見る`, `A8提携状況`, `/scout-asp` |
+| `/scout-asp` | A8.net を Playwright で操作（転職一本スコープ・複数サイト口座は**申請/コード取得とも doboku-note を選択**）。`list`=承認確認（主用途・口座横断）／`search`=ニッチ語で未提携案件を狙い撃ち検索／`import-partnered`=提携取込／`scout`+`apply`=開拓・週次上限申請／`check-approval`=承認昇格／`harvest`=広告コード→配置候補出力。**初回は `list --dry-run --headed`**。正典 `docs/reference/a8-affiliate-pipeline.md` | `A8確認`, `アフィリエイト承認確認`, `申請済みアフィリを見る`, `A8案件を探す`, `A8提携状況`, `/scout-asp` |
 
 ---
 

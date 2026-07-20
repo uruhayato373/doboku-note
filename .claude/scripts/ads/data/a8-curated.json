@@ -42,6 +42,9 @@
     "09": "career"
   },
 
+  "_search_keywords_doc": "search コマンドが A8 の /program/search/keyword?keywords=… で狙い撃ち検索する語 (doboku ニッチ=施工管理/建設 civil + 技術士/ハイクラス pe)。カテゴリ検索 (scout) は1ページ目だけでニッチに弱いための補完。既提携・blocklist は自動除外。語を足すと次回 search から自動対象。",
+  "searchKeywords": ["施工管理", "建設 転職", "現場監督", "ゼネコン", "技術士", "土木 転職", "ハイクラス 転職", "測量", "プラント 転職", "設計 転職"],
+
   "_priority_doc": "登録時の priority 決定式 (バンド式)。確定EPC = epcYen × confirmRatePct/100。バンドの理由: 連続値だと再計算で全順位が揺れる。バンドなら安定し手調整の余地も残る。doboku では register が手キュレーション (affiliate-creatives.ts) のため priority は参考値。",
   "priorityBands": [
     { "minConfirmedEpc": 1000, "priority": 80 },

@@ -2,13 +2,13 @@
 name: scout-asp
 description: >
   A8.net の提携アフィリエイトを Playwright で操作する（doboku-note 版・転職一本スコープ）。
-  list=申込中/参加中の承認状態を確認（主用途）、import-partnered=提携中を catalog 取込、
-  scout/apply=A8 カテゴリ09(仕事)のみ自動開拓・週次上限で申請、check-approval=承認昇格、
-  harvest=承認済みの広告コード取得→affiliate-creatives.ts への手配置候補を出力。
-  Use when user says "A8確認", "アフィリエイト承認確認", "申請済みアフィリを見る", "A8提携状況", "scout-asp".
+  list=申込中/参加中の承認状態を確認（主用途・口座横断）、search=doboku ニッチ語で未提携案件を狙い撃ち検索、
+  import-partnered=提携中を catalog 取込、scout/apply=A8 カテゴリ09(仕事)自動開拓・週次上限で申請（doboku-note で）、
+  check-approval=承認昇格、harvest=承認済みの広告コード取得（doboku-note）→affiliate-creatives.ts への手配置候補を出力。
+  Use when user says "A8確認", "アフィリエイト承認確認", "申請済みアフィリを見る", "A8案件を探す", "A8提携状況", "scout-asp".
   **初回 or セレクタ更新後は必ず `list --dry-run --headed` で実機ダンプ→セレクタ確定すること**.
 disable-model-invocation: true
-argument-hint: "<list|import-partnered|scout|apply|check-approval|harvest> [--dry-run] [--headed] [--limit N] [--max N]"
+argument-hint: "<list|search|import-partnered|scout|apply|check-approval|harvest> [--keyword <語>] [--program <pid>] [--dry-run] [--headed] [--limit N] [--max N]"
 ---
 
 A8.net メディア管理画面 (media-console.a8.net) を Playwright（永続プロファイル）で操作し、提携アフィリエイトの
@@ -46,23 +46,26 @@ A8.net メディア管理画面 (media-console.a8.net) を Playwright（永続�
 
 | モード | 動作 |
 |---|---|
-| `list` | **申込中(審査待ち) + 参加中(承認済み) を読み、配置済み mat と突合して表示**（主用途＝申請済みアフィリの承認確認）。承認済みは catalog に approved 反映 |
+| `list` | **申込中(審査待ち) + 参加中(承認済み) を読み、配置済み mat と突合して表示**（主用途＝申請済みアフィリの承認確認）。承認済みは catalog に approved 反映。**注: A8 の list は口座横断＝doboku-note と stats47 の提携が混在（webSiteId フィルタは効かない）** |
+| `search` | **doboku ニッチ語（curated `searchKeywords`）で `/program/search/keyword` を狙い撃ち検索** → 既提携/blocklist を除外 → candidate upsert。`--keyword <語>` で単発検索も可。カテゴリ検索(scout)より doboku 向き |
 | `import-partnered` | 提携中の全プログラムを全ページ巡回 → catalog に approved で取り込む（申請不要で harvest 直行） |
-| `scout` | A8 カテゴリ09検索 → scoreAndRank → catalog に candidate upsert |
-| `apply` | candidate 上位を週次上限内で自動申請 → applied（`check-a8-apply-budget` が上限強制） |
+| `scout` | A8 カテゴリ09検索(1ページ) → scoreAndRank → catalog に candidate upsert（ニッチには `search` 推奨） |
+| `apply` | candidate 上位を週次上限内で自動申請 → applied。**申請前に webSiteId=doboku-note を選択（誤サイト防止）**・`check-a8-apply-budget` が上限強制 |
 | `check-approval` | applied 全件を参加中一覧で再走査し approved に昇格 |
-| `harvest` | approved の広告コード取得 → parse → adDraft（配置候補）を catalog に出力（confirmed 配置は手判断） |
+| `harvest` | approved の広告コード取得（**websiteId=doboku-note 選択**）→ parse → adDraft（配置候補）を catalog に出力（confirmed 配置は手判断）。`--program <pid>` で狙い撃ち |
 
 ## サブコマンド直呼び
 
 ```bash
 npx tsx .claude/skills/ads/scout-asp/scripts/a8-browser.ts list [--dry-run] [--headed]
+npx tsx .claude/skills/ads/scout-asp/scripts/a8-browser.ts search [--keyword <語>] [--dry-run] [--limit N]
 npx tsx .claude/skills/ads/scout-asp/scripts/a8-browser.ts import-partnered
 npx tsx .claude/skills/ads/scout-asp/scripts/a8-browser.ts scout [--dry-run] [--limit N]
 npx tsx .claude/skills/ads/scout-asp/scripts/a8-browser.ts apply [--dry-run] [--max N]
 npx tsx .claude/skills/ads/scout-asp/scripts/a8-browser.ts check-approval [--dry-run]
-npx tsx .claude/skills/ads/scout-asp/scripts/a8-browser.ts harvest [--dry-run] [--limit N]
+npx tsx .claude/skills/ads/scout-asp/scripts/a8-browser.ts harvest [--dry-run] [--limit N] [--program <pid>]
 node .claude/scripts/ads/check-a8-apply-budget.cjs                # 今週の申請残枠
+npm run test:ads                                                 # 純関数コアのユニットテスト (node:test・30件)
 ```
 
 ## 制約 (必ず守る)

@@ -922,6 +922,11 @@
           "to": "approved",
           "at": "2026-07-20T01:31:26.322Z",
           "note": "list-partnered"
+        },
+        {
+          "from": "harvested",
+          "to": "approved",
+          "note": "revert-verification-harvest"
         }
       ]
     },
@@ -3196,5 +3201,5 @@
       ]
     }
   },
-  "updatedAt": "2026-07-20T02:39:06.277Z"
+  "updatedAt": "2026-07-20T03:05:04.653Z"
 }
