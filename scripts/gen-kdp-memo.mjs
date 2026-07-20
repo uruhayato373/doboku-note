@@ -7,20 +7,17 @@
 
 import { readFileSync, writeFileSync, existsSync } from 'node:fs'
 import { resolve } from 'node:path'
+import { getDefaults } from './lib/kdp-common.mjs'
 
 const REPO = resolve(import.meta.dirname, '..')
-// ── 共通ルール（全書籍で不変。ここを直せば全メモに反映）────────────────
-const AUTHOR = 'doboku-note'
-const AUTHOR_KANA = 'ドボクノート'
-const AUTHOR_ROMAJI = 'doboku-note'
-const LABEL = 'doboku-note 過去問シリーズ'
-const LABEL_KANA = 'ドボクノート カコモンシリーズ'
-const LABEL_ROMAJI = 'doboku-note Kakomon Series'
-const CATEGORY = '資格・検定 ＞ 技術・工学系資格'
+// ── 共通ルール（真実源 = .claude/config/kdp-memo.json の defaults。lib/kdp-common 経由で読む）──
+const DEF = getDefaults()
+const { author: AUTHOR, authorKana: AUTHOR_KANA, authorRomaji: AUTHOR_ROMAJI } = DEF
+const { label: LABEL, labelKana: LABEL_KANA, labelRomaji: LABEL_ROMAJI, category: CATEGORY } = DEF
 
 function memo(id, spec, d) {
   const price = spec.price
-  const issuer = spec.creditIssuer || '公益社団法人 日本技術士会'
+  const issuer = spec.creditIssuer || DEF.issuer
   const vol = d.volume === '' ? '（合本のため空欄、または 0）' : d.volume
   return `════════════════════════════════════════════════════════
  KDP 入稿メモ  ${id}  ${spec.title}

@@ -1,5 +1,41 @@
 {
-  "_comment": "KDP 入稿メモ生成の per-book データ。共通項(著者=doboku-note・レーベル・AI申告・カテゴリ・KDPフロー)は scripts/gen-kdp-memo.mjs 側に集約。ここは各本の固有値(フリガナ/ローマ字/キーワード/シリーズ巻/説明文/目視重点)のみ。title/subtitle/price/creditIssuer は scripts/kindle-specs/<id>.json から自動取得。生成: node scripts/gen-kdp-memo.mjs <id...>",
+  "_comment": "KDP 入稿 SSOT。defaults=全書籍共通の既定値(著者/レーベル/カテゴリ/出版申告/カテゴリー掲載経路)＝真実源。books[id]=各本の固有値(フリガナ/ローマ字/keywords/description/previewNote)＋任意 kdp override。title/subtitle/price/creditIssuer は scripts/kindle-specs/<id>.json。読取り一元化=scripts/lib/kdp-common.mjs(gen-kdp-memo.mjs と kdp-publish.mjs が共用)。メモ生成: node scripts/gen-kdp-memo.mjs <id...>",
+  "defaults": {
+    "_comment": "全書籍共通の既定。個別上書きは books[id].kdp に置く。accountEmail=本棚assert用(null なら照合スキップ・実行時に検出したアカウントをログ出力)。aiDeclaration.imageTool=表紙背景の生成元(要事実確認・per-book override 可)。categoryPaths.*.verified=実機検証済みフラグ(false は提出時に --diag-category で末端ラベルを確認)。",
+    "accountEmail": null,
+    "author": "doboku-note",
+    "authorKana": "ドボクノート",
+    "authorRomaji": "doboku-note",
+    "label": "doboku-note 過去問シリーズ",
+    "labelKana": "ドボクノート カコモンシリーズ",
+    "labelRomaji": "doboku-note Kakomon Series",
+    "category": "資格・検定 ＞ 技術・工学系資格",
+    "issuer": "公益社団法人 日本技術士会",
+    "kdpSelect": true,
+    "accessibility": "readable",
+    "aiDeclaration": {
+      "text": "NONE",
+      "images": "FEW_AND_EXTENSIVE",
+      "translations": "NONE",
+      "imageTool": "ChatGPT"
+    },
+    "categoryPaths": {
+      "gijutsushi": {
+        "dropdowns": ["Kindle本", "資格・検定・就職", "工学・技術・環境"],
+        "leaf": "技術士",
+        "verified": true
+      },
+      "dobokuSekokan": {
+        "dropdowns": ["Kindle本", "資格・検定・就職", "建築・土木"],
+        "leaf": "土木施工管理技士",
+        "verified": false
+      }
+    },
+    "categoryAssign": {
+      "dobokuSekokan": ["a-", "e-"],
+      "gijutsushi": ["b-", "c-", "d-", "f-"]
+    }
+  },
   "books": {
     "e-01": {
       "titleKana": "ニキュウドボクセコウカンリギシ ダイイチジケンテイ カコモンカンゼンカイセツ レイワサンカラナナネンド ゼンキ",

@@ -38,6 +38,7 @@ title: スキル ナビゲーションガイド
 | `/ogp-design-explore` | OGP 意匠の**新方向を aidesigner / Canva の MCP で素案として試作**し、採用案を `/ogp-create` の satori テンプレに落として量産につなぐ。試作専用（量産・per-article 生成は `/ogp-create`）。MCP は外部クレジット消費 | `OGPデザイン検討`, `OGP素案`, `OGPリデザイン試作`, `/ogp-design-explore` |
 | `/magazine-to-pdf` | note マガジンの article.md →「問題文＋解答」中心の紙用 PDF（spec 駆動・A/B案両収録） | `マガジンをPDF`, `記事を紙で`, `模範論文PDF`, `/magazine-to-pdf --spec scripts/pdf-specs/{name}.json [--desktop]` |
 | `/kindle-build` | Kindle(KDP)入稿用 EPUB を書籍IDから生成→epubcheck＋check-kindle-format→`kindle-book-qa` 5軸監査まで一気通貫。択一系（A=1級土木論点別 / B=総監・D=技術士一次・E=2級土木 は build-pe1-kindle）と記述式 essay 系（C=建設二次模範解答・F=総監記述式 は build-essay-kindle）に対応。構成未定義は `kindle-book-composer` へ委譲。全書籍の状態は catalog.json、配布物は kindle-dist/ を git 追跡。真実源 08_Kindle出版戦略.md | `Kindle本を作って`, `EPUBを生成`, `KDP入稿ファイル`, `essay模範解答本`, `/kindle-build {A-01\|E-01\|c-01}` |
+| `/kdp-publish` | ビルド済み EPUB＋表紙を Amazon KDP へ入稿し下書き保存→（承認後）出版する Playwright パブリッシャ（`scripts/kdp-publish.mjs`・永続プロファイルでログイン保存）。詳細→カテゴリー→原稿/表紙アップロード→原稿処理完了待ち→AI申告→アクセシビリティ→価格→出版。重複突合(`--sync-status`)・メタ生成・提出後の catalog/戦略doc/README 記録は `kdp-operator` へ委譲。真実源 .claude/config/kdp-memo.json（defaults）。/kindle-build の後工程 | `KDP出版`, `KDP提出`, `kindleを出版`, `KDPドラフト削除`, `/kdp-publish {id}`（`--commit-publish` で出版） |
 
 ### 品質管理（quality）
 
