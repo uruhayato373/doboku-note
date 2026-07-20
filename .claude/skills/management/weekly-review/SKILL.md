@@ -53,11 +53,14 @@ description: >
   グリッド＋プランナーを突合・read-only・★ドリフトで exit 2）。★が出たら次セッションで
   `/ig-reconcile` を実行して posted.json backfill / 未公開を予約（真実源 `docs/reference/ig-publish-reconcile.md`）。
   ※Playwright + ログイン済みプロファイル必須＝ローカル実行限定。クラウド週次では実行不可なのでサーフェスのみ
+- note 競合再スキャン期限: `npm run check-competitor-scan-due -- --json` を実行（四半期＝90日。creds不要・ローカルhistory参照）。
+  `due:true` なら「次セッションで `/note-competitor-review`（scout→note-competitor-analyst→09反映）」をサーフェスのみ（実取得はしない）。
 
 出力形式:
 - 「今週追加したページ」
 - 「更新したページ」
 - 「note 公開状態ドリフト是正（N 本）」（あれば）
+- 「競合再スキャン DUE」（`check-competitor-scan-due` が due のときのみ）
 ```
 
 #### Agent C: NSM / パフォーマンス指標 + 実験進捗
