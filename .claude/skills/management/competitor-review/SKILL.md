@@ -55,8 +55,17 @@ node scripts/scout-brain-competitors.mjs        # Brain（公開ページ read-o
 - **有料本文は全チャネルで取得しない/できない**（中身の質は「未読」扱いで断定しない）
 - **新規クラウド cron は作らない**。定期性は `check-competitor-scan-due`（weekly-review Agent B が surface）＋ annual.md 四半期定例
 
+## 勝ち型の抽出 → 原案化（伸びてる投稿レーダー）
+
+X scout は各競合の**エンゲージ上位10投稿**（`engagementLeaders`・`vsAvg`＝自アカ平均比）を時系列で蓄積する。四半期ごとに「どの投稿・切り口が伸びたか」を定点観測し、**勝ち型（フォーマット・トピック・切り口）を自社に取り込む**。
+
+- **奪うのは"型"であって"文面"ではない**: `vsAvg ≥ 2` の投稿から**フォーマット**（例: 解答速報／頻出予想「偶数年は◯◯が鉄板」／試験前後の感情訴求／現役者の劣化解説）を抽出する。**文面の丸写し・微改変での再利用は禁止**（`x-post-policy.md` §11.1 の near-duplicate BLOCK＝凍結カテゴリ spam の本丸。@dobokunotecom 凍結の再現になる）。
+- **原案化は `x-post-writer`**（ユニーク性を強制）へ橋渡しする: competitor-analyst が「転用する型」を surface → `x-post-writer` が自社の合格体験者ポジションで**原案**を生成 → `x-post-qa`（§11 ゲート）で near-duplicate を機械検査。
+- 試験対策と無関係に伸びる投稿（例: 給与・処遇批判）は**追わない**（ブランド不整合）。型の抽出は exam-prep 純度の高い勝ち投稿に限る。
+
 ## 関連
 
 - 機械: `scripts/scout-{note,x,ig,brain}-competitors.mjs`・`coconala-research.mjs --competitors`・`check-competitor-scan-due.mjs`
+- 勝ち型の原案化: `x-post-writer`（生成・ユニーク性強制）／`x-post-qa`（§11 near-duplicate ゲート）
 - Evaluator: `competitor-analyst`（[agents-registry.md](../../../../docs/reference/agents-registry.md)）
 - config: `.claude/config/{note,x,ig,coconala,brain}-competitors.json`（競合ハンドル SSOT・チャネル別）
