@@ -23,6 +23,7 @@
     "build-frequent-topics": "node scripts/build-frequent-topics.mjs",
     "sales-summary": "node scripts/sales-summary.mjs",
     "verify-note-magazines": "node scripts/verify-note-magazines.mjs",
+    "scout-note-competitors": "node scripts/scout-note-competitors.mjs",
     "verify-note-status": "node scripts/verify-note-status.mjs",
     "note-edit-session": "node scripts/note-edit-session.mjs",
     "note-membership-plan-edit": "node scripts/note-membership-plan-edit.mjs",
