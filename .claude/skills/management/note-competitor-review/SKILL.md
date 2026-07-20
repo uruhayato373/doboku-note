@@ -21,11 +21,15 @@ note 上の競合クリエイターの**公開データ（マガジン/単品記
 ### 1. 機械取得（scout）
 
 ```bash
-npm run scout-note-competitors              # config 12社・単品直近5ページ・時系列保存＋前回比drift
+npm run scout-note-competitors              # config 全社・単品直近5ページ・時系列保存＋前回比drift
+# 試験ごとに切る（部分実行＝全社ベースラインの履歴/driftは汚さない）:
+npm run scout-note-competitors -- --exam concrete-chief   # sokan|pe|pe-construction|civil|concrete-engineer|concrete-chief|concrete-diagnostician
 # 深掘りが要るとき:
 npm run scout-note-competitors -- --note-pages 20   # 単品を直近20ページまで
 npm run scout-note-competitors -- --contents        # 各有料マガジンの収録記事も
 ```
+
+- カタログは**試験でファイル分割しない**。1社が複数試験にまたがる（例: con_ymc=主任技士+診断士+建設部門）ため、`exams` 配列で持ち、切るのは実行時 `--exam`（重複ドリフト回避）。
 
 - 出力: `.claude/state/note/history/competitors-YYYY-MM-DD.json`（時系列 SSOT・コミット）＋ `.claude/state/note/competitors-snapshot.json`（最新ポインタ）。
 - コンソール末尾の**「前回比ドリフト」**を必ず読む（value 改定・新商品・休眠・新規参入）。

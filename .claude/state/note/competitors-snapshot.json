@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-20T09:15:44.668Z",
+  "fetchedAt": "2026-07-20T09:50:34.012Z",
   "notePagesPerCreator": 5,
   "withMagazineContents": false,
   "caveat": "単品記事は直近ページのみのサンプル。有料記事の本文は paywall で取得不可（タイトル・価格・スキ数・投稿日まで）。",
@@ -1832,22 +1832,22 @@
           "price": 0
         },
         {
+          "name": "【自動車整備士 3級ガソリン・エンジン（学科）】対策問題集 全250問＋解答・解説付き",
+          "likeCount": 2,
+          "price": 980
+        },
+        {
           "name": "【ITパスポート試験】対策 PDF問題集　全250問＋解答・解説付き（現行試験〈〜2026年12",
           "likeCount": 2,
           "price": 1480
         },
         {
-          "name": "【自動車整備士 3級ガソリン・エンジン（学科）】対策問題集 全250問＋解答・解説付き",
+          "name": "【ビジネス会計検定3級】対策問題集 全250問＋解答・解説付き",
           "likeCount": 1,
           "price": 980
         },
         {
           "name": "【アロマテラピー検定2級】対策問題集 全250問＋解答・解説付き",
-          "likeCount": 1,
-          "price": 980
-        },
-        {
-          "name": "【リテールマーケティング（販売士）検定2級】対策問題集 全250問＋解答・解説付き",
           "likeCount": 1,
           "price": 980
         }
@@ -1858,7 +1858,7 @@
           "key": "n66e2de313c11",
           "name": "【ビジネス会計検定3級】対策問題集 全250問＋解答・解説付き",
           "price": 980,
-          "likeCount": 0,
+          "likeCount": 1,
           "publishAt": "2026-07-20T17:47:20+09:00"
         },
         {
@@ -1872,7 +1872,7 @@
           "key": "n635967c1782f",
           "name": "【自動車整備士 3級ガソリン・エンジン（学科）】対策問題集 全250問＋解答・解説付き",
           "price": 980,
-          "likeCount": 1,
+          "likeCount": 2,
           "publishAt": "2026-07-20T05:06:59+09:00"
         },
         {
@@ -2549,6 +2549,399 @@
           "publishAt": "2025-07-28T12:56:59+09:00"
         }
       ]
+    },
+    {
+      "handle": "con_ymc",
+      "label": "CON（コンクリート答案倉庫）",
+      "exams": [
+        "concrete-chief",
+        "concrete-diagnostician",
+        "pe-construction"
+      ],
+      "note": "技術士(建設コンクリート)専門・NOTEBOOKLM×コンクリート・答案倉庫81記事15マガジン・有料¥100〜",
+      "profile": {
+        "nickname": "CON｜技術士（建設部門）コンクリート答案例の倉庫【NOTEBOOKLM×コンクリート特化！】",
+        "followerCount": 72,
+        "noteCount": 81,
+        "magazineCount": 15
+      },
+      "counts": {
+        "magazinesTotal": 15,
+        "magazinesPaid": 0,
+        "notesSampled": 30,
+        "notesComplete": false,
+        "notesPaidInSample": 17
+      },
+      "price": {
+        "min": 100,
+        "median": 100,
+        "max": 300,
+        "bands": {
+          "low": 17,
+          "mid": 0,
+          "high": 0,
+          "premium": 0
+        }
+      },
+      "cadence": {
+        "recent30": 0,
+        "recent90": 2,
+        "latestPublishAt": "2026-04-26T07:32:49+09:00",
+        "latestDaysAgo": 85
+      },
+      "hasMembership": false,
+      "topLiked": [
+        {
+          "name": "【技術士試験】「中性化」と書くと減点！？ 2022年改訂『維持管理編』で変わった論文の勝ち筋",
+          "likeCount": 11,
+          "price": 0
+        },
+        {
+          "name": "技術士二次試験対策】超頻出テーマがアップデート！「マスコンクリートのひび割れ制御指針2025」改",
+          "likeCount": 6,
+          "price": 0
+        },
+        {
+          "name": "【技術士二次試験（コンクリート）】H25以降の過去問から読み解く！絶対に押さえるべき頻出テーマT",
+          "likeCount": 5,
+          "price": 0
+        },
+        {
+          "name": "【技術士二次試験対策】R2年度に続くJIS改正出題に備えよ！「カーボンニュートラルに向けたセメン",
+          "likeCount": 4,
+          "price": 0
+        },
+        {
+          "name": "【技術士受験者必読！！】岩城先生『日本のインフラ危機』から読み解く、合格への必須視点",
+          "likeCount": 4,
+          "price": 0
+        }
+      ],
+      "paidMagazines": [],
+      "paidNotesSample": [
+        {
+          "key": "n1bf47d24f602",
+          "name": "R5(2023)_Ⅱ_1_4（寒中コン（配合、養生））",
+          "price": 100,
+          "likeCount": 0,
+          "publishAt": "2026-03-30T22:27:48+09:00"
+        },
+        {
+          "key": "nac27b89a5130",
+          "name": "R5(2023)_Ⅱ_1_4（寒中コン（材料、運搬および打ち込み））",
+          "price": 100,
+          "likeCount": 0,
+          "publishAt": "2026-03-24T22:44:07+09:00"
+        },
+        {
+          "key": "n3b30149cbe23",
+          "name": "R5(2023)_Ⅱ_１_3(プレキャスト工法の設計上の留意点と対策)",
+          "price": 100,
+          "likeCount": 1,
+          "publishAt": "2026-03-17T23:28:54+09:00"
+        },
+        {
+          "key": "n7af2dbce2cd6",
+          "name": "R6(2024)_Ⅱ_１_4(温度ひび割れ)",
+          "price": 100,
+          "likeCount": 1,
+          "publishAt": "2026-03-12T22:18:17+09:00"
+        },
+        {
+          "key": "n989bac02523b",
+          "name": "R6(2024)_Ⅱ_１_3(火害)",
+          "price": 100,
+          "likeCount": 0,
+          "publishAt": "2026-03-12T21:58:18+09:00"
+        },
+        {
+          "key": "nee826ea5c9bb",
+          "name": "R6(2024)_Ⅱ_１_3(塩害)",
+          "price": 100,
+          "likeCount": 1,
+          "publishAt": "2026-03-12T21:16:04+09:00"
+        },
+        {
+          "key": "nfa821a4cd565",
+          "name": "R6(2024)_Ⅱ_１_3(アルカリシリカ反応)",
+          "price": 100,
+          "likeCount": 2,
+          "publishAt": "2026-03-11T22:43:53+09:00"
+        },
+        {
+          "key": "nfbfca1b30ce1",
+          "name": "R4(2022)_Ⅰ_2（脱炭素）",
+          "price": 300,
+          "likeCount": 2,
+          "publishAt": "2026-03-11T21:56:54+09:00"
+        },
+        {
+          "key": "n6c1fcdbc8d31",
+          "name": "R4(2022)_Ⅱ_2_1（工期短縮の検討）",
+          "price": 150,
+          "likeCount": 1,
+          "publishAt": "2026-03-10T22:50:04+09:00"
+        },
+        {
+          "key": "n2f5f5fdbb64f",
+          "name": "R4(2022)_Ⅱ_1_4（充填不良対策）",
+          "price": 100,
+          "likeCount": 2,
+          "publishAt": "2026-03-10T22:17:01+09:00"
+        },
+        {
+          "key": "nb9e837c06113",
+          "name": "R7(2025)_Ⅱ_1_3（暑中コン（製造・運搬/打込み・締固め））",
+          "price": 100,
+          "likeCount": 0,
+          "publishAt": "2026-03-09T22:32:06+09:00"
+        },
+        {
+          "key": "nd7a39c813790",
+          "name": "R7(2025)_Ⅱ_1_3（暑中コン（材料選定/配合計画））",
+          "price": 100,
+          "likeCount": 0,
+          "publishAt": "2026-03-09T22:26:50+09:00"
+        },
+        {
+          "key": "nc44dd03cd2c1",
+          "name": "R7(2025)_Ⅱ_1_4（機械式定着）",
+          "price": 100,
+          "likeCount": 3,
+          "publishAt": "2026-02-11T22:37:21+09:00"
+        },
+        {
+          "key": "ne5bb9d9ac336",
+          "name": "R3(2021)_Ⅲ_2（予防保全への転換）",
+          "price": 200,
+          "likeCount": 1,
+          "publishAt": "2026-02-05T23:08:41+09:00"
+        },
+        {
+          "key": "n2775e490aa3b",
+          "name": "R3(2021)_Ⅱ_1_4（浮きとエフロへの非破壊検査）",
+          "price": 100,
+          "likeCount": 1,
+          "publishAt": "2026-02-04T22:04:43+09:00"
+        },
+        {
+          "key": "nafdac087cf80",
+          "name": "R3(2021)_Ⅱ_2_2（老朽化構造物の耐震補強）",
+          "price": 120,
+          "likeCount": 2,
+          "publishAt": "2026-02-02T22:17:55+09:00"
+        },
+        {
+          "key": "n2fa2aac3a31f",
+          "name": "R3(2021)_Ⅱ_1_3（高強度コンクリート）",
+          "price": 100,
+          "likeCount": 0,
+          "publishAt": "2026-01-27T22:06:56+09:00"
+        }
+      ]
+    },
+    {
+      "handle": "vast_cougar3004",
+      "label": "まさ@土木資格",
+      "exams": [
+        "concrete-diagnostician",
+        "concrete-engineer",
+        "civil"
+      ],
+      "note": "診断士合格答案¥700・診断士勉強法¥400・技士/1級土木保有",
+      "profile": {
+        "nickname": "まさ@土木資格",
+        "followerCount": 6,
+        "noteCount": 3,
+        "magazineCount": 0
+      },
+      "counts": {
+        "magazinesTotal": 0,
+        "magazinesPaid": 0,
+        "notesSampled": 3,
+        "notesComplete": true,
+        "notesPaidInSample": 2
+      },
+      "price": {
+        "min": 400,
+        "median": 550,
+        "max": 700,
+        "bands": {
+          "low": 2,
+          "mid": 0,
+          "high": 0,
+          "premium": 0
+        }
+      },
+      "cadence": {
+        "recent30": 0,
+        "recent90": 1,
+        "latestPublishAt": "2026-05-01T20:31:29+09:00",
+        "latestDaysAgo": 79
+      },
+      "hasMembership": false,
+      "topLiked": [
+        {
+          "name": "【自己紹介】初めましてのご挨拶",
+          "likeCount": 11,
+          "price": 0
+        },
+        {
+          "name": "【実体験】コンクリート診断士に一発合格した勉強法",
+          "likeCount": 3,
+          "price": 400
+        },
+        {
+          "name": "【2025年度出題論文•合格答案掲載】コンクリート診断士　土木",
+          "likeCount": 0,
+          "price": 700
+        }
+      ],
+      "paidMagazines": [],
+      "paidNotesSample": [
+        {
+          "key": "nea54fd03c47f",
+          "name": "【2025年度出題論文•合格答案掲載】コンクリート診断士　土木",
+          "price": 700,
+          "likeCount": 0,
+          "publishAt": "2026-05-01T20:31:29+09:00"
+        },
+        {
+          "key": "n502d2009698c",
+          "name": "【実体験】コンクリート診断士に一発合格した勉強法",
+          "price": 400,
+          "likeCount": 3,
+          "publishAt": "2026-02-23T19:37:56+09:00"
+        }
+      ]
+    },
+    {
+      "handle": "chaoconcrete",
+      "label": "超コンクリート主任技士への近道",
+      "exams": [
+        "concrete-chief",
+        "concrete-diagnostician"
+      ],
+      "note": "現役ゼネコン・主任技士＋診断士取得・解説ブログ（低活動）",
+      "profile": {
+        "nickname": "超コンクリート主任技士への近道",
+        "followerCount": 12,
+        "noteCount": 3,
+        "magazineCount": 0
+      },
+      "counts": {
+        "magazinesTotal": 0,
+        "magazinesPaid": 0,
+        "notesSampled": 3,
+        "notesComplete": true,
+        "notesPaidInSample": 0
+      },
+      "price": {
+        "min": null,
+        "median": null,
+        "max": null,
+        "bands": {
+          "low": 0,
+          "mid": 0,
+          "high": 0,
+          "premium": 0
+        }
+      },
+      "cadence": {
+        "recent30": 0,
+        "recent90": 0,
+        "latestPublishAt": "2025-03-16T17:27:41+09:00",
+        "latestDaysAgo": 491
+      },
+      "hasMembership": false,
+      "topLiked": [
+        {
+          "name": "#3 表面水率の求め方",
+          "likeCount": 10,
+          "price": 0
+        },
+        {
+          "name": "#2 コンクリート主任技士の合格まで",
+          "likeCount": 8,
+          "price": 0
+        },
+        {
+          "name": "#1 はじめまして",
+          "likeCount": 7,
+          "price": 0
+        }
+      ],
+      "paidMagazines": [],
+      "paidNotesSample": []
+    },
+    {
+      "handle": "chikushiken",
+      "label": "筑紫建",
+      "exams": [
+        "concrete-chief",
+        "concrete-diagnostician"
+      ],
+      "note": "主任技士＋診断士＋一級建築士・104記事4マガジン（日記主体）",
+      "profile": {
+        "nickname": "筑紫建",
+        "followerCount": 33,
+        "noteCount": 104,
+        "magazineCount": 4
+      },
+      "counts": {
+        "magazinesTotal": 4,
+        "magazinesPaid": 0,
+        "notesSampled": 30,
+        "notesComplete": false,
+        "notesPaidInSample": 0
+      },
+      "price": {
+        "min": null,
+        "median": null,
+        "max": null,
+        "bands": {
+          "low": 0,
+          "mid": 0,
+          "high": 0,
+          "premium": 0
+        }
+      },
+      "cadence": {
+        "recent30": 2,
+        "recent90": 6,
+        "latestPublishAt": "2026-07-18T20:18:15+09:00",
+        "latestDaysAgo": 1
+      },
+      "hasMembership": false,
+      "topLiked": [
+        {
+          "name": "260111「ポケモンZA M次元ラッシュをクリアした感想」",
+          "likeCount": 12,
+          "price": 0
+        },
+        {
+          "name": "260118「今のカメラ観」",
+          "likeCount": 11,
+          "price": 0
+        },
+        {
+          "name": "251014「やっぱGFX100RFってすごい」",
+          "likeCount": 11,
+          "price": 0
+        },
+        {
+          "name": "260321「GFX100RFのお勧めアクセサリー」",
+          "likeCount": 10,
+          "price": 0
+        },
+        {
+          "name": "250927「XF33mmF1.4、いいじゃん！」",
+          "likeCount": 10,
+          "price": 0
+        }
+      ],
+      "paidMagazines": [],
+      "paidNotesSample": []
     }
   ]
 }
