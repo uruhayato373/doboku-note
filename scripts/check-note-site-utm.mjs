@@ -1,12 +1,13 @@
 #!/usr/bin/env node
-// note 公開ドラフト（docs/note/**/*.md）内の「doboku-note.com/docs/ サイト送客リンク」が
-// UTM 規約に従っているかを検証する。
+// note 公開対象（docs/note/**/article.md のみ・内部の企画/設計/READMEは対象外）内の
+// 「doboku-note.com/docs/ サイト送客リンク」が UTM 規約に従っているかを検証する。
 //
-// 規約（真実源: docs/project/03_SNS/02_チャネル動線設計.md）:
-//   - サイト送客リンクは「アンカー文言付きインライン」 [テキスト](url?utm…) で張る。
-//   - インラインリンクの URL には utm_source=note を必ず付ける。
-//   - 生 URL を単独行/オートリンク（<url>）で置かない。/note-publish が自動でリンクカード化し
-//     UTM が落ちるため（note のカードは UTM 付き URL で安定生成されない）。
+// 規約（真実源: docs/project/03_SNS/02_チャネル動線設計.md／2026-07-22 改訂＝戦略的併用）:
+//   - 主要ファネルCTA（本文の地の文）は「アンカー文言付きインライン」 [テキスト](url?utm…) で張り、
+//     URL に utm_source=note と utm_medium=referral を付ける（計測対象）。
+//   - 補助・視覚的送客は「## 関連(リソース|リンク|記事|コンテンツ)」節配下、または
+//     <!-- card-ok --> マーカー直後の「単独行の生 URL」= リンクカードを許可（計測粒度は捨てる）。
+//   - それ以外の場所の生 URL は /note-publish がカード化し UTM が落ちるため不可。
 //
 // 検出する違反:
 //   [bare-url]  </? https://doboku-note.com/docs/...> もしくは裸の URL（](… でない） … カード化で UTM 消失
@@ -38,7 +39,7 @@ function walk(dir, acc) {
     const p = join(dir, name);
     const st = statSync(p);
     if (st.isDirectory()) walk(p, acc);
-    else if (/\.md$/.test(p)) acc.push(p);
+    else if (/\/article\.md$/.test(p)) acc.push(p); // note公開対象のみ(Convention B)。企画/設計/READMEの内部docは対象外
   }
   return acc;
 }
@@ -49,7 +50,7 @@ if (STAGED) {
   // startsWith('docs/note/') と existsSync に不一致→日本語パス記事が素通りする）
   files = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACM'], { encoding: 'utf8' })
     .split('\n')
-    .filter((f) => f.startsWith('docs/note/') && /\.md$/.test(f) && existsSync(f));
+    .filter((f) => f.startsWith('docs/note/') && /\/article\.md$/.test(f) && existsSync(f));
 } else {
   files = walk(ROOT, []);
 }
@@ -59,9 +60,18 @@ if (STAGED) {
 const RE = /(\]\()?<?(https?:\/\/doboku-note\.com\/docs\/[^\s)>]+)/g;
 
 const problems = [];
+// カード許可コンテキスト: 「関連リソース」等の補助節配下、または <!-- card-ok --> マーカー直後の
+// 裸URL（サイト送客）は視覚的回遊カードとして許可する（計測粒度は捨てる）。
+// 主要ファネルCTA（本文の地の文）はインライン+UTM必須。真実源: docs/project/03_SNS/02_チャネル動線設計.md
 for (const f of files) {
   const lines = readFileSync(f, 'utf8').split('\n');
+  let inCardSection = false;   // 関連リソース系の見出し配下か
+  let cardOkArmed = false;     // <!-- card-ok --> 直後か（空行は跨ぐ）
   lines.forEach((line, i) => {
+    const h = line.match(/^#{1,6}\s*(.+?)\s*$/);
+    if (h) { inCardSection = /関連(リソース|リンク|記事|コンテンツ)/.test(h[1]); }
+    if (/^\s*<!--\s*card-ok\s*-->/.test(line)) { cardOkArmed = true; return; }
+    if (line.trim() === '') return; // 空行は状態を保持（マーカー→空行→URL に対応）
     let m;
     RE.lastIndex = 0;
     while ((m = RE.exec(line)) !== null) {
@@ -75,10 +85,12 @@ for (const f of files) {
           // inline/banner 等の非標準値は Unassigned 化するため referral に統一する。
           problems.push(`${f}:${i + 1} [utm-medium] ${url}（utm_medium=referral が必要）`);
         }
-      } else {
+      } else if (!inCardSection && !cardOkArmed) {
+        // 補助節/マーカー外の裸URLは主要送客の計測を壊すため NG（インライン+UTM にする）
         problems.push(`${f}:${i + 1} [bare-url] ${url}`);
       }
     }
+    cardOkArmed = false; // コンテンツ行を処理したらマーカーを消費
   });
 }
 

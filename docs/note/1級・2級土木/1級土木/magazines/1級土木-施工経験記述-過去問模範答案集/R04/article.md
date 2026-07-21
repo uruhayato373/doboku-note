@@ -191,8 +191,8 @@ R03 と同じ安全管理でも、工種（管渠開削→擁壁）が変われ�
 
 **関連リンク**
 
-- 施工経験記述 出題傾向と対策（無料・doboku-note）: https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-guide
-- 令和4年度 第2次検定（無料・doboku-note）: https://doboku-note.com/docs/civil-construction-1-secondary-r04
+- 施工経験記述 出題傾向と対策（無料・doboku-note）: [施工経験記述 出題傾向と対策](https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil1-keiken-past-r04&utm_content=civil-construction-1-secondary-experience-writing-guide)
+- 令和4年度 第2次検定（無料・doboku-note）: [令和4年度 第2次検定](https://doboku-note.com/docs/civil-construction-1-secondary-r04?utm_source=note&utm_medium=referral&utm_campaign=civil1-keiken-past-r04&utm_content=civil-construction-1-secondary-r04)
 
 ---
 

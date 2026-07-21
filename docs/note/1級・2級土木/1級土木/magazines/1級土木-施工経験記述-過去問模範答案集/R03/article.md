@@ -189,8 +189,8 @@ R03 は安全管理の旧形式（3項目）。「現場条件 → 技術的課�
 
 **関連リンク**
 
-- 施工経験記述 出題傾向と対策（無料・doboku-note）: https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-guide
-- 令和3年度 第2次検定（無料・doboku-note）: https://doboku-note.com/docs/civil-construction-1-secondary-r03
+- 施工経験記述 出題傾向と対策（無料・doboku-note）: [施工経験記述 出題傾向と対策](https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil1-keiken-past-r03&utm_content=civil-construction-1-secondary-experience-writing-guide)
+- 令和3年度 第2次検定（無料・doboku-note）: [令和3年度 第2次検定](https://doboku-note.com/docs/civil-construction-1-secondary-r03?utm_source=note&utm_medium=referral&utm_campaign=civil1-keiken-past-r03&utm_content=civil-construction-1-secondary-r03)
 
 ---
 

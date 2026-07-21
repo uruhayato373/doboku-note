@@ -185,8 +185,8 @@ https://note.com/dobokunote/m/m8554e87ca6ec
 
 **関連リンク**
 
-- 出題傾向と書き方（無料・doboku-note）: https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-guide
-- 工種別 記入例（無料・doboku-note）: https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-examples
+- 出題傾向と書き方（無料・doboku-note）: [施工経験記述 出題傾向と対策](https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil2-keiken-process&utm_content=civil-construction-2-secondary-experience-writing-guide)
+- 工種別 記入例（無料・doboku-note）: [施工経験記述 工種別 記入例](https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-examples?utm_source=note&utm_medium=referral&utm_campaign=civil2-keiken-process&utm_content=civil-construction-2-secondary-experience-writing-examples)
 
 ---
 

@@ -189,8 +189,8 @@ R05 は品質管理の旧形式（3項目）。(2) で管理基準値を示し�
 
 **関連リンク**
 
-- 施工経験記述 出題傾向と対策（無料・doboku-note）: https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-guide
-- 令和5年度 第2次検定（無料・doboku-note）: https://doboku-note.com/docs/civil-construction-1-secondary-r05
+- 施工経験記述 出題傾向と対策（無料・doboku-note）: [施工経験記述 出題傾向と対策](https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil1-keiken-past-r05&utm_content=civil-construction-1-secondary-experience-writing-guide)
+- 令和5年度 第2次検定（無料・doboku-note）: [令和5年度 第2次検定](https://doboku-note.com/docs/civil-construction-1-secondary-r05?utm_source=note&utm_medium=referral&utm_campaign=civil1-keiken-past-r05&utm_content=civil-construction-1-secondary-r05)
 
 ---
 

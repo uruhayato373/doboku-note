@@ -202,8 +202,8 @@ R06 は **2テーマ必答**かつ**設問1と同一内容不可**。本答案�
 
 **関連リンク**
 
-- 施工経験記述 出題傾向と対策（無料・doboku-note）: https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-guide
-- 令和6年度 第2次検定（無料・doboku-note）: https://doboku-note.com/docs/civil-construction-1-secondary-r06
+- 施工経験記述 出題傾向と対策（無料・doboku-note）: [施工経験記述 出題傾向と対策](https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil1-keiken-past-r06&utm_content=civil-construction-1-secondary-experience-writing-guide)
+- 令和6年度 第2次検定（無料・doboku-note）: [令和6年度 第2次検定](https://doboku-note.com/docs/civil-construction-1-secondary-r06?utm_source=note&utm_medium=referral&utm_campaign=civil1-keiken-past-r06&utm_content=civil-construction-1-secondary-r06)
 
 ---
 

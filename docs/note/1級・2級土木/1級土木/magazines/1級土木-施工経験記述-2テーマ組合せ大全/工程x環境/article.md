@@ -228,8 +228,8 @@ https://note.com/dobokunote/m/m8290970a7f05
 
 **関連リンク**
 
-- 施工経験記述 出題傾向と対策（無料・doboku-note）: https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-guide
-- 施工経験記述 改善例（無料・doboku-note）: https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-examples
+- 施工経験記述 出題傾向と対策（無料・doboku-note）: [施工経験記述 出題傾向と対策](https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil1-keiken-combo-process-env&utm_content=civil-construction-1-secondary-experience-writing-guide)
+- 施工経験記述 改善例（無料・doboku-note）: [施工経験記述 改善例](https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-examples?utm_source=note&utm_medium=referral&utm_campaign=civil1-keiken-combo-process-env&utm_content=civil-construction-1-secondary-experience-writing-examples)
 
 ---
 
