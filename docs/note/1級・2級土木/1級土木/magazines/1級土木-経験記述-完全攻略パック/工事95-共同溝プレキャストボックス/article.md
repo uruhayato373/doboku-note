@@ -12,7 +12,7 @@ noteStatus: published
 coverTitle: ["1級土木 施工経験記述", "共同溝 プレキャストボックス", "5管理 完成答案"]
 cover:
   leadIn: "1級土木施工管理技士 二次"
-  hi: "共同溝（プレキャストボックス）"
+  hi: "共同溝"
   hiSuffix: "5管理完成答案"
   banner: "開削据付・接合・収容管取合い"
   meta: "有料マガジン"

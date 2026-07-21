@@ -13,7 +13,7 @@ coverTitle: ["1級土木 施工経験記述", "RCボックスカルバート", "
 cover:
   leadIn: "1級土木施工管理技士 二次"
   hi: "RCボックスカルバート"
-  hiSuffix: "5管理完成答案"
+  hiSuffix: ""
   banner: "現場打ち函体（底版・側壁・頂版）"
   meta: "有料マガジン"
   chips:

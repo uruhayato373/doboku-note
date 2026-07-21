@@ -13,7 +13,7 @@ coverTitle: ["1級土木 施工経験記述", "カルバート非開削（推進
 cover:
   leadIn: "1級土木施工管理技士 二次"
   hi: "カルバート非開削推進"
-  hiSuffix: "5管理完成答案"
+  hiSuffix: ""
   banner: "供用道路・鉄道直下 大断面ボックスカルバート推進"
   meta: "有料マガジン"
   chips:

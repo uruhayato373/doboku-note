@@ -11,7 +11,7 @@ coverTitle: ["1級土木 施工経験記述", "高速道路 路体・路床盛�
 cover:
   leadIn: "1級土木施工管理技士 二次"
   hi: "高速道路"
-  hiSuffix: "路体・路床盛土 5管理完成答案"
+  hiSuffix: "路体・路床盛土"
   banner: "大規模盛土×大型機械×品質基準"
   meta: "有料マガジン"
   chips:

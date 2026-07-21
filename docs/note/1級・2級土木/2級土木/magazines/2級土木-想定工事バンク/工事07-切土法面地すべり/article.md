@@ -13,7 +13,7 @@ coverTitle: ["2級土木 施工経験記述", "切土法面・地すべり対策
 cover:
   leadIn: "2級土木施工管理技士 二次"
   hi: "切土法面・地すべり対策"
-  hiSuffix: "5管理フルカバー"
+  hiSuffix: ""
   banner: "どのテーマが来ても書ける想定工事"
   meta: "有料マガジン"
   chips:
@@ -47,8 +47,7 @@ https://note.com/dobokunote/m/m8554e87ca6ec
 
 施工経験記述は「自分が経験した工事」を書く問題です。経験していない工事を書いたことが判明すると失格となります。本記事の答案はそのまま書き写すためのものではなく、**構成・表現・具体性の水準を確認し、自分の現場に置き換えるための雛形**です。数値の `〇〇` は自分の現場の値に必ず差し替えてください。
 
-> [!important] 必出は品質・安全・工程の3管理／施工計画・環境は「保険」
-> 2級 第2次検定の問題1（経験記述）で問われるのは、品質・安全・工程の3管理です（令和3〜7年度の実出題）。施工計画・環境対策はこれまで経験記述では出題されていませんが、令和6年度からの2テーマ必答化など出題範囲が広がる傾向を踏まえ、**万一に備えた「保険」として同じ工事で用意**しています。まず主となる3管理を固め、余力で施工計画・環境に目を通す使い方を推奨します。
+> **必出は品質・安全・工程の3管理／施工計画・環境は「保険」** 2級 第2次検定の問題1（経験記述）で問われるのは、品質・安全・工程の3管理です（令和3〜7年度の実出題）。施工計画・環境対策はこれまで経験記述では出題されていませんが、令和6年度からの2テーマ必答化など出題範囲が広がる傾向を踏まえ、**万一に備えた「保険」として同じ工事で用意**しています。まず主となる3管理を固め、余力で施工計画・環境に目を通す使い方を推奨します。
 
 ## 〔想定工事の概要（記入例）〕
 
@@ -184,8 +183,7 @@ https://note.com/dobokunote/m/m8554e87ca6ec
 
 # 備え：保険としての施工計画・環境（現状は経験記述では未出題）
 
-> [!note] ここからは「保険」です
-> 施工計画・環境対策は、令和3〜7年度の問題1（経験記述）では出題されていません。無理に主の3管理より先に覚える必要はありません。出題範囲が広がった場合に備え、同じ切土法面・地すべり対策工事で書けるように用意したものです。
+> **ここからは「保険」です** 施工計画・環境対策は、令和3〜7年度の問題1（経験記述）では出題されていません。無理に主の3管理より先に覚える必要はありません。出題範囲が広がった場合に備え、同じ切土法面・地すべり対策工事で書けるように用意したものです。
 
 ## 施工計画（事前地質調査・排水計画・対策工選定）
 
@@ -275,8 +273,8 @@ https://note.com/dobokunote/m/m8554e87ca6ec
 
 **関連リンク**
 
-- [出題傾向と書き方（無料・doboku-note）](https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-guide?utm_source=note&utm_medium=inline&utm_campaign=civil2-koji-bank-koji07&utm_content=guide)
-- [工種別 記入例（無料・doboku-note）](https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-examples?utm_source=note&utm_medium=inline&utm_campaign=civil2-koji-bank-koji07&utm_content=examples)
+- [出題傾向と書き方（無料・doboku-note）](https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil2-koji-bank-koji07&utm_content=guide)
+- [工種別 記入例（無料・doboku-note）](https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-examples?utm_source=note&utm_medium=referral&utm_campaign=civil2-koji-bank-koji07&utm_content=examples)
 
 ---
 

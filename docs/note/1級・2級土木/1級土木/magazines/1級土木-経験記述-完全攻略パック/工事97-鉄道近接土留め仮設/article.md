@@ -13,7 +13,7 @@ coverTitle: ["1級土木 施工経験記述", "鉄道近接 土留め・仮設�
 cover:
   leadIn: "1級土木施工管理技士 二次"
   hi: "鉄道近接"
-  hiSuffix: "土留め・仮設 5管理完成答案"
+  hiSuffix: "土留め・仮設"
   banner: "営業線近接 仮設土留め工事"
   meta: "有料マガジン"
   chips:

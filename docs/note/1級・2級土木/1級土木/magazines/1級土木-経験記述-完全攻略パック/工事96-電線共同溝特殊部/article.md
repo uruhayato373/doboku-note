@@ -7,7 +7,7 @@ noteStatus: published
 coverTitle: ["1級土木 施工経験記述", "電線共同溝（特殊部）", "5管理 完成答案"]
 cover:
   leadIn: "1級土木施工管理技士 二次"
-  hi: "電線共同溝（特殊部）"
+  hi: "電線共同溝"
   hiSuffix: "5管理完成答案"
   banner: "プレキャスト分岐桝・接続桝の施工"
   meta: "有料マガジン"

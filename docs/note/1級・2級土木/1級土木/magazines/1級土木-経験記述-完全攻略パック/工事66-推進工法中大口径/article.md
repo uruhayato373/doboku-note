@@ -12,7 +12,7 @@ noteStatus: published
 coverTitle: ["1級土木 施工経験記述", "推進工法（中大口径）", "5管理 完成答案"]
 cover:
   leadIn: "1級土木施工管理技士 二次"
-  hi: "推進工法（中大口径）"
+  hi: "推進工法"
   hiSuffix: "5管理完成答案"
   banner: "中押し設備・長距離推進・大断面坑内管理"
   meta: "有料マガジン"

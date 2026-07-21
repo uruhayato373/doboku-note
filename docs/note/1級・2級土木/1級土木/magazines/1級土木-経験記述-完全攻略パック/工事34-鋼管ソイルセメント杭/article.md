@@ -13,7 +13,7 @@ coverTitle: ["1級土木 施工経験記述", "鋼管ソイルセメント杭", 
 cover:
   leadIn: "1級土木施工管理技士 二次"
   hi: "鋼管ソイルセメント杭"
-  hiSuffix: "5管理完成答案"
+  hiSuffix: ""
   banner: "低騒音低振動の杭基礎工事"
   meta: "完全攻略パック"
   chips:

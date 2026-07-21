@@ -43,9 +43,9 @@ cover:
 
 とはいえ、勢いで動くことはおすすめしません。発注者として見てきた経験から言えるのは、**判断の前に自分の市場価値を知っておく**ことの大切さです。自分の経験と資格が他社でどう評価されるかが分かれば、「いまの会社で交渉する」「環境を変える」のどちらが得かを、感情ではなく事実で選べます。
 
-辞めるか続けるかの判断軸については、サイトの記事で詳しく整理しています。[施工管理を辞めたいと思ったら｜続ける・転職・働き方を変えるの判断軸](https://doboku-note.com/docs/civil-construction-1-guide-quit-or-stay?utm_source=note&utm_medium=inline&utm_campaign=civil-career-hatchusha-view&utm_content=quit-or-stay)で、「辞めたい」の正体を切り分ける方法を解説しています。勢いで退職届を出す前に確認しておくことは[施工管理を辞める前に相談すべきこと](https://doboku-note.com/docs/civil-construction-1-guide-career-consultation-before-quit?utm_source=note&utm_medium=referral&utm_campaign=civil-career-hatchusha-view&utm_content=before-quit)にまとめました。
+辞めるか続けるかの判断軸については、サイトの記事で詳しく整理しています。[施工管理を辞めたいと思ったら｜続ける・転職・働き方を変えるの判断軸](https://doboku-note.com/docs/civil-construction-1-guide-quit-or-stay?utm_source=note&utm_medium=referral&utm_campaign=civil-career-hatchusha-view&utm_content=quit-or-stay)で、「辞めたい」の正体を切り分ける方法を解説しています。勢いで退職届を出す前に確認しておくことは[施工管理を辞める前に相談すべきこと](https://doboku-note.com/docs/civil-construction-1-guide-career-consultation-before-quit?utm_source=note&utm_medium=referral&utm_campaign=civil-career-hatchusha-view&utm_content=before-quit)にまとめました。
 
-また、「施工管理を辞める＝建設業界を去る」ではありません。発注者支援業務のように、施工の経験を活かしながら発注者側に回る道もあります。これは私が身を置いていた世界に近く、働き方が安定しやすい選択肢です。詳しくは[施工管理から発注者支援業務への転職](https://doboku-note.com/docs/civil-construction-1-guide-hatchu-shien?utm_source=note&utm_medium=inline&utm_campaign=civil-career-hatchusha-view&utm_content=hatchu-shien)をご覧ください。
+また、「施工管理を辞める＝建設業界を去る」ではありません。発注者支援業務のように、施工の経験を活かしながら発注者側に回る道もあります。これは私が身を置いていた世界に近く、働き方が安定しやすい選択肢です。詳しくは[施工管理から発注者支援業務への転職](https://doboku-note.com/docs/civil-construction-1-guide-hatchu-shien?utm_source=note&utm_medium=referral&utm_campaign=civil-career-hatchusha-view&utm_content=hatchu-shien)をご覧ください。
 
 **PR**：以下はアフィリエイト広告を含みます。
 

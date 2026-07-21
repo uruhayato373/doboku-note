@@ -13,7 +13,7 @@ coverTitle: ["1級土木 施工経験記述", "河道掘削 しゅんせつ", "5
 cover:
   leadIn: "1級土木施工管理技士 二次"
   hi: "河道掘削・しゅんせつ"
-  hiSuffix: "5管理完成答案"
+  hiSuffix: ""
   banner: "出水期・水中掘削・濁水対策"
   meta: "有料マガジン"
   chips:

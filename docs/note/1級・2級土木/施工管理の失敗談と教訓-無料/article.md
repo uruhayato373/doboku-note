@@ -42,9 +42,9 @@ cover:
 
 ## つらさを「身の振り方」に変える
 
-失敗やつらさは、放置すれば消耗するだけですが、行動に変えれば前進の材料になります。まず、いまの状況が環境由来なのかを冷静に見極めること。その判断軸は[施工管理を辞めたいと思ったら](https://doboku-note.com/docs/civil-construction-1-guide-quit-or-stay?utm_source=note&utm_medium=inline&utm_campaign=civil-career-failure-lessons&utm_content=quit-or-stay)で整理しています。
+失敗やつらさは、放置すれば消耗するだけですが、行動に変えれば前進の材料になります。まず、いまの状況が環境由来なのかを冷静に見極めること。その判断軸は[施工管理を辞めたいと思ったら](https://doboku-note.com/docs/civil-construction-1-guide-quit-or-stay?utm_source=note&utm_medium=referral&utm_campaign=civil-career-failure-lessons&utm_content=quit-or-stay)で整理しています。
 
-そして、もし環境を変えるなら、次こそ働きやすい会社を選びたいものです。同じ失敗を繰り返さないための会社の見極め方は、[ホワイトな建設会社の見分け方](https://doboku-note.com/docs/civil-construction-1-guide-white-company?utm_source=note&utm_medium=inline&utm_campaign=civil-career-failure-lessons&utm_content=white-company)で具体的に解説しています。辞める・動くと決める前に、求人相場と自分の評価だけ確認しておくと、勢いで動いて後悔するのを避けられます。その手順は[施工管理を辞める前に相談すべきこと](https://doboku-note.com/docs/civil-construction-1-guide-career-consultation-before-quit?utm_source=note&utm_medium=referral&utm_campaign=civil-career-failure-lessons&utm_content=before-quit)にまとめました。
+そして、もし環境を変えるなら、次こそ働きやすい会社を選びたいものです。同じ失敗を繰り返さないための会社の見極め方は、[ホワイトな建設会社の見分け方](https://doboku-note.com/docs/civil-construction-1-guide-white-company?utm_source=note&utm_medium=referral&utm_campaign=civil-career-failure-lessons&utm_content=white-company)で具体的に解説しています。辞める・動くと決める前に、求人相場と自分の評価だけ確認しておくと、勢いで動いて後悔するのを避けられます。その手順は[施工管理を辞める前に相談すべきこと](https://doboku-note.com/docs/civil-construction-1-guide-career-consultation-before-quit?utm_source=note&utm_medium=referral&utm_campaign=civil-career-failure-lessons&utm_content=before-quit)にまとめました。
 
 **PR**：以下はアフィリエイト広告を含みます。
 

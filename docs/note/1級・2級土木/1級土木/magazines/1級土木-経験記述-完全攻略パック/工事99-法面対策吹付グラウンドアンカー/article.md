@@ -13,7 +13,7 @@ coverTitle: ["1級土木 施工経験記述", "法面対策 吹付・グラウ�
 cover:
   leadIn: "1級土木施工管理技士 二次"
   hi: "法面対策工"
-  hiSuffix: "吹付・アンカー 完成答案"
+  hiSuffix: "吹付・アンカー"
   banner: "急崖法面の表層保護工事"
   meta: "有料マガジン"
   chips:

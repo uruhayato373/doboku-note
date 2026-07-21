@@ -13,7 +13,7 @@ coverTitle: ["1級土木 施工経験記述", "寒中コンクリート（冬季
 cover:
   leadIn: "1級土木施工管理技士 二次"
   hi: "寒中コンクリート"
-  hiSuffix: "冬季打設・給熱養生"
+  hiSuffix: ""
   banner: "5管理 完成答案（品質・工程・安全・施工計画・環境）"
   meta: "完全攻略パック"
   chips:

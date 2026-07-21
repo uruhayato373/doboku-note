@@ -13,7 +13,7 @@ notePublishedAt: "2026-06-30"
 cover:
   leadIn: "1級土木施工管理技士 二次"
   hi: "砂防堰堤"
-  hiSuffix: "本体マスコン 5管理完成答案"
+  hiSuffix: "本体マスコン"
   banner: "山間部 大体積コンクリート"
   meta: "有料マガジン"
   chips:
