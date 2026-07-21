@@ -6,6 +6,7 @@
 import sharp from 'sharp';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { statSync } from 'node:fs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIR = join(__dirname, '..', 'docs', 'note', '共通', '著者オーソリティ', 'img');
@@ -64,9 +65,17 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" 
   <text x="${X}" y="902" font-size="22" fill="${MUTED}">doboku-note.com</text>
 </svg>`;
 
-await sharp(BASE)
+// note 用に軽量化: フル解像度で合成→1280幅（policy W≤1280）へ縮小・アルファ除去・PNG圧縮
+// （sharp は resize→composite の順で処理するため2段階。大きい PNG は note の CDN 確定が
+//  遅く note-update-body が画像欠落回避で ABORT するため軽量化する）
+const composited = await sharp(BASE)
   .composite([{ input: Buffer.from(svg), top: 0, left: 0 }])
   .png()
+  .toBuffer();
+await sharp(composited)
+  .resize({ width: 1280 })
+  .flatten({ background: '#ffffff' })
+  .png({ compressionLevel: 9, palette: true, quality: 90, effort: 10 })
   .toFile(OUT);
 
-console.log('written:', OUT);
+console.log('written:', OUT, `(${Math.round(statSync(OUT).size / 1024)}KB)`);
