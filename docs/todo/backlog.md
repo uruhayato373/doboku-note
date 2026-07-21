@@ -361,6 +361,14 @@ PR #269（カタログ）/#270（SNSレンダラー）済。残 = Phase4 記事�
 
 ## 🟢 低 — 時期未定
 
+### 管理画面に「note 要再公開」列を追加
+タグ: [インフラ・計測]
+
+`check-note-republish`（本文の再公開ドリフト検出・2026-07-22新設）は CLI＋週次PDCA で運用中。`tools/admin-app` の記事タブに「要再公開」列を出して目視管理できるようにする（任意・polish）。
+
+- **データ源**: `npm run check-note-republish -- --json`（`{synced, drift, unknown, driftFiles, unknownFiles}` を返す）。admin は既存 CLI を child_process 実行しガードは CLI 側に残す方針（tools/admin-app/README.md）に沿う
+- CLI＋週次で運用は回るため優先度低。真実源 → note-funnel-architecture.md ツール表・memory の再公開ドリフト機構
+
 ### ココナラ 単発コンテンツの追加展開（暗記ノート等・売れ行き次第）
 タグ: [収益化][ココナラ]
 
