@@ -17,13 +17,12 @@
 //
 // これは surfacer であって pre-commit ゲートではない（ソース修正→後で公開の間のドリフトは正常）。
 
-import { readFileSync, writeFileSync, readdirSync, existsSync, mkdirSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { createHash } from 'node:crypto';
+import { readFileSync, readdirSync, existsSync } from 'node:fs';
+import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { bodyHash, loadState, saveState, STATE } from './lib/note-republish-hash.mjs';
 
 const ROOT = 'docs/note';
-const STATE = '.claude/state/note-republish-hashes.json';
 const args = process.argv.slice(2);
 const JSON_OUT = args.includes('--json');
 const BASELINE = args.includes('--baseline');
@@ -38,26 +37,9 @@ function walk(dir, acc = []) {
   }
   return acc;
 }
-// 公開実体に対応する本文ハッシュ。frontmatter を除いた本文を正規化して sha256(先頭16桁)。
-export function bodyHash(raw) {
-  let s = raw.replace(/^﻿/, '');
-  s = s.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, '');
-  s = s.replace(/\r\n/g, '\n');
-  s = s.split('\n').map((l) => l.replace(/\s+$/, '')).join('\n');
-  s = s.replace(/\n{3,}/g, '\n\n').trim();
-  return createHash('sha256').update(s, 'utf8').digest('hex').slice(0, 16);
-}
 function fm(raw, key) {
   const m = raw.match(new RegExp('^' + key + ':\\s*(.*)$', 'm'));
   return m ? m[1].trim().replace(/^["']|["']$/g, '') : null;
-}
-function loadState() {
-  if (!existsSync(STATE)) return { version: 1, hashes: {} };
-  try { return JSON.parse(readFileSync(STATE, 'utf8')); } catch { return { version: 1, hashes: {} }; }
-}
-function saveState(st) {
-  mkdirSync(dirname(STATE), { recursive: true });
-  writeFileSync(STATE, JSON.stringify(st, null, 2) + '\n');
 }
 
 let changedSet = null;

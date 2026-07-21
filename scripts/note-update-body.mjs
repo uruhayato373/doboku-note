@@ -52,8 +52,9 @@
  */
 import { chromium } from 'playwright';
 import { readFileSync, existsSync, mkdirSync } from 'node:fs';
-import { join, dirname, resolve } from 'node:path';
+import { join, dirname, resolve, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { recordPublishedHash } from './lib/note-republish-hash.mjs';
 import { cardifyBareUrls, repairUrlHeadings, listUrlHeadingsInEditor } from './lib/note-cardify.mjs';
 import { extractBodyImages, insertImagesAtPlaceholders, insertImagesAfterAnchors, countEditorImages } from './lib/note-images.mjs';
 import { assertLiveBody } from './lib/note-live-check.mjs';
@@ -562,7 +563,11 @@ try {
       // probe: 単一記事は --probe 優先、それ以外は本文から自動導出（list 時は各記事ごと自動）
       const probe = (articles.length === 1 && PROBE_ARG) ? PROBE_ARG : deriveProbe(parsed.body);
       const result = await updateArticle(page, parsed, probe);
-      if (result) ok++; else fail++;
+      if (result) {
+        ok++;
+        // フル本文を live 反映できた → 再公開ドリフト検出のハッシュを in-sync 化（--commit 時のみ）。
+        if (COMMIT && recordPublishedHash(relative(ROOT, parsed.abs))) console.log(`[hash] ${relative(ROOT, parsed.abs)} 再公開ハッシュ更新`);
+      } else fail++;
     } catch (e) {
       console.error('[ERROR]', artPath, e.message);
       fail++;
