@@ -191,8 +191,9 @@ export async function insertImagesAtPlaceholders(page, images, { tag = '[img]', 
   }
 
   // (f) settle: 挿入した全画像が CDN 確定（src が blob: でない）になるまで待つ。
-  //     保存前に確定していないと live に載らず img 欠落になる（枚数比例の待ち・最低30s）。
-  const settled = await settleUploads(page, startImgs + inserted, Math.max(30000, inserted * 8000), tag);
+  //     保存前に確定していないと live に載らず img 欠落になる（枚数比例の待ち・最低90s）。
+  //     全確定で早期 return するため、遅い記事のみ長く待つ（速い記事のコストは不変）。
+  const settled = await settleUploads(page, startImgs + inserted, Math.max(90000, inserted * 20000), tag);
 
   const leftover = await listLeftoverTokens(page);
   console.log(`${tag} 画像挿入: inserted=${inserted}/${images.length} failed=${failed.length} leftover=${leftover.length} 確定=${settled.confirmed}/${startImgs + inserted}`);

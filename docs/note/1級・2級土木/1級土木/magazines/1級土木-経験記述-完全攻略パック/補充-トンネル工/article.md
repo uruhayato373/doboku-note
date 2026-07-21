@@ -17,6 +17,9 @@ cover:
 ---
 # 1級土木 施工経験記述｜トンネル工 完成答案（品質管理・安全管理・環境対策）
 
+
+![技術士（総合技術監理部門）を持つ元発注者が、施工管理技士の記述を分析して作成。総監＝上位資格の分析力、元発注者＝採点者の視点、施工管理技士＝合格した当事者](img/figure-author-authority.png)
+
 **こんな人のための記事です**
 
 - 1級土木施工管理技士 第2次検定 問題1（施工経験記述）で、山岳トンネル（NATM）の工事経験を使いたい
@@ -230,3 +233,7 @@ NATM山岳トンネルの坑内安全管理を題材にした答案。有害ガ�
 
 - [施工経験記述 出題傾向と対策（無料・doboku-note）](https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-guide?utm_source=note&utm_medium=inline&utm_campaign=civil1-keiken-pack-tunnel&utm_content=guide)
 - [施工経験記述 改善例（無料・doboku-note）](https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-examples?utm_source=note&utm_medium=inline&utm_campaign=civil1-keiken-pack-tunnel&utm_content=examples)
+
+![技術士（総合技術監理部門）を持つ元発注者が、施工管理技士の記述を分析して作成。総監＝上位資格の分析力、元発注者＝採点者の視点、施工管理技士＝合格した当事者](img/figure-author-authority.png)
+
+上位資格の分析力・発注者の採点眼・合格者の当事者性で、あなたの答案を合格ラインへ引き上げます。
