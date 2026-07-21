@@ -277,3 +277,10 @@ https://note.com/dobokunote/m/m8554e87ca6ec
 
 - [出題傾向と書き方（無料・doboku-note）](https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-guide?utm_source=note&utm_medium=inline&utm_campaign=civil2-koji-bank-koji06&utm_content=guide)
 - [工種別 記入例（無料・doboku-note）](https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-examples?utm_source=note&utm_medium=inline&utm_campaign=civil2-koji-bank-koji06&utm_content=examples)
+
+---
+
+<!-- cta:civil-mokuji -->
+1級・2級土木のほかの記事・経験記述の答案集は「土木もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n4fde0f62dc20

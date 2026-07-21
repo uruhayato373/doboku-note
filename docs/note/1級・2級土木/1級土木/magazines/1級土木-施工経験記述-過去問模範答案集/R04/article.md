@@ -55,6 +55,11 @@ https://note.com/dobokunote/m/m150c9db08902
 
 施工経験記述は「自分が経験した工事」を書く問題であり、経験していない工事を書いたことが判明すると失格となります。本記事の答案はそのまま書き写すためのものではなく、**自分の現場に合わせて改変する前提のテンプレート**（雛形）です。数値の `〇〇` は自分の現場の値に必ず差し替えてください。R03 と同じ安全管理だが、別の工事（擁壁工事）で書いている。
 
+<!-- cta:pack-top -->
+自分の工事に近い「想定工事」を選んで5管理すべての完成答案をそろえるなら、想定工事100×5管理を全網羅した完全攻略パックが最短です。
+
+https://note.com/dobokunote/m/m8290970a7f05
+
 ## 令和4年度 問題1（試験問題・再掲）
 
 **問題1**　あなたが経験した土木工事の現場において、その現場状況から特に留意した安全管理に関して、次の〔設問1〕、〔設問2〕に答えなさい。
@@ -188,3 +193,10 @@ R03 と同じ安全管理でも、工種（管渠開削→擁壁）が変われ�
 
 - 施工経験記述 出題傾向と対策（無料・doboku-note）: https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-guide
 - 令和4年度 第2次検定（無料・doboku-note）: https://doboku-note.com/docs/civil-construction-1-secondary-r04
+
+---
+
+<!-- cta:civil-mokuji -->
+1級・2級土木のほかの記事・経験記述の答案集は「土木もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n4fde0f62dc20

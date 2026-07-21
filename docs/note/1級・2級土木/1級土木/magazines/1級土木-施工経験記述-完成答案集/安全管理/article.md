@@ -57,6 +57,11 @@ https://note.com/dobokunote/m/m3a578194a0a9
 
 施工経験記述は「自分が経験した工事」を書く問題であり、経験していない工事を書いたことが判明すると失格となります。本記事の答案はそのまま書き写すためのものではなく、**自分の現場に置き換えるための雛形**です。数値の `〇〇` は自分の現場の値に必ず差し替えてください。
 
+<!-- cta:pack-top -->
+自分の工事に近い「想定工事」を選んで5管理すべての完成答案をそろえるなら、想定工事100×5管理を全網羅した完全攻略パックが最短です。
+
+https://note.com/dobokunote/m/m8290970a7f05
+
 ## 安全管理の答案で採点者が見るポイント
 
 1級の安全管理は「監理技術者として、現場で起こりうる労働災害・公衆災害を、どの計画と管理で防いだか」を問う。採点者は次を見ている。
@@ -183,3 +188,10 @@ https://note.com/dobokunote/m/m3a578194a0a9
 
 - 施工経験記述 出題傾向と対策（無料・doboku-note）: https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-guide
 - 施工経験記述 改善例（無料・doboku-note）: https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-examples
+
+---
+
+<!-- cta:civil-mokuji -->
+1級・2級土木のほかの記事・経験記述の答案集は「土木もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n4fde0f62dc20

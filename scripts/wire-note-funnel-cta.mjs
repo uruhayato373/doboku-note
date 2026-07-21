@@ -21,6 +21,10 @@ const CONFIG = JSON.parse(readFileSync(join(ROOT, '.claude/config/note-funnel.js
 
 const args = process.argv.slice(2);
 const APPLY = args.includes('--apply');
+// magazines/ 配下（有料単品記事）も配線対象に含める（既定は除外）。
+// 原則9: 有料単品の冒頭パック上げは wire 非対象で個別直挿し運用だったが、
+// URL 実体での冪等化（下記 topDup）を入れたのでバルク配線を安全に許可する。
+const INCLUDE_MAG = args.includes('--include-magazines');
 const examKey = (() => { const i = args.indexOf('--exam'); return i >= 0 ? args[i + 1] : null; })();
 
 if (!examKey || !CONFIG.exams[examKey]) {
@@ -48,7 +52,7 @@ function collectArticles(dir) {
   const out = [];
   for (const e of readdirSync(dir, { withFileTypes: true })) {
     if (e.isDirectory()) {
-      if (e.name === 'magazines' || exclude.has(e.name)) continue;
+      if ((e.name === 'magazines' && !INCLUDE_MAG) || exclude.has(e.name)) continue;
       out.push(...collectArticles(join(dir, e.name)));
     } else if (e.name === 'article.md') {
       out.push(dir);
@@ -81,7 +85,11 @@ for (const adir of articleDirs) {
   const ovr = (ex.topCtaOverrides || []).find(o => d.name.startsWith(o.dirPrefix));
   const topText = ovr ? ovr.text : ex.topCta.text;
   const topMarker = ovr ? (ovr.marker || ex.topCta.marker) : ex.topCta.marker;
-  if (topText && !topExcluded && !body.includes(topMarker)) {
+  // magazines 配下は手書きの所属パック回遊リンクを既に持つことがある。
+  // 同じパック URL が本文にあれば冒頭 CTA を二重化しない（マーカーだけでなく URL 実体でも冪等化）。
+  const topUrl = (topText.match(/https?:\/\/\S+/) || [])[0];
+  const topDup = topUrl && body.includes(topUrl);
+  if (topText && !topExcluded && !body.includes(topMarker) && !topDup) {
     const h2 = body.search(/^##\s/m);
     if (h2 >= 0) { body = body.slice(0, h2) + topText + '\n\n' + body.slice(h2); actions.push('TOP'); topN++; }
     else { actions.push('TOP-skip(noH2)'); skipTop++; }

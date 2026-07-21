@@ -54,6 +54,11 @@ https://note.com/dobokunote/m/m1881a9578027
 
 施工経験記述は「自分が経験した工事」を書く問題であり、経験していない工事を書いたことが判明すると失格となります。本記事の答案はそのまま書き写すためのものではなく、**構成・表現・具体性の水準を確認し、自分の現場に置き換えるための雛形**です。数値の `〇〇` は自分の現場の値に必ず差し替えてください。
 
+<!-- cta:pack-top -->
+自分の工事に近い「想定工事」を選んで5管理すべての完成答案をそろえるなら、2級の想定工事×5管理をそろえた想定工事バンクが最短です。
+
+https://note.com/dobokunote/m/m8554e87ca6ec
+
 ## 工程管理の答案で採点者が見るポイント
 
 工程管理は「現場特有の事情で工事が遅れた（遅れるおそれがあった）場合に、遅延をどう挽回・予防したか」を書くテーマである。採点者は次を見ている。
@@ -182,3 +187,10 @@ https://note.com/dobokunote/m/m1881a9578027
 
 - 出題傾向と書き方（無料・doboku-note）: https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-guide
 - 工種別 記入例（無料・doboku-note）: https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-examples
+
+---
+
+<!-- cta:civil-mokuji -->
+1級・2級土木のほかの記事・経験記述の答案集は「土木もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n4fde0f62dc20

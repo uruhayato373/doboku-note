@@ -58,6 +58,11 @@ https://note.com/dobokunote/m/m3a578194a0a9
 
 ---
 
+<!-- cta:pack-top -->
+自分の工事に近い「想定工事」を選んで5管理すべての完成答案をそろえるなら、想定工事100×5管理を全網羅した完全攻略パックが最短です。
+
+https://note.com/dobokunote/m/m8290970a7f05
+
 ## 基礎・杭工の答案で採点者が見るポイント
 
 ### 施工計画テーマの場合
@@ -211,3 +216,10 @@ https://note.com/dobokunote/m/m3a578194a0a9
 
 - [施工経験記述 出題傾向と対策（無料・doboku-note）](https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-guide?utm_source=note&utm_medium=inline&utm_campaign=civil1-keiken-pack-foundation&utm_content=guide)
 - [施工経験記述 改善例（無料・doboku-note）](https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-examples?utm_source=note&utm_medium=inline&utm_campaign=civil1-keiken-pack-foundation&utm_content=examples)
+
+---
+
+<!-- cta:civil-mokuji -->
+1級・2級土木のほかの記事・経験記述の答案集は「土木もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n4fde0f62dc20
