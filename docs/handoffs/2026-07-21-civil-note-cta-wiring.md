@@ -36,8 +36,10 @@
 |---|---|---|
 | 公開状態（published/noteUrl） | `note-magazines.ts` ＋ `.claude/state/note-published.json` ＋ `verify-note-magazines` | ○ |
 | CTA のソース先行/ライブ未反映 | `audit-note-funnel -- --live`（D5） | ○ |
-| 本文(blockquote/cover/UTM)のライブ未反映 | **このハンドオフのみ** | ✗ |
-| カバー画像の再生成要否 | **このハンドオフのみ** | ✗ |
+| **本文(blockquote/UTM/CTA文言)のライブ未反映** | **`npm run check-note-republish`（2026-07-22新設・source-hash dirty-flag）** | **○** |
+| カバー画像の再生成要否（frontmatter変更） | このハンドオフのみ（republish-check は本文hashで cover frontmatter は対象外・v2で noteCoverHash 追加可） | ✗ |
+
+> [!note] 今回の本文修正（CTA178/バナー/blockquote/cover本文/UTM＝計192本）は `check-note-republish` が **「要再公開」192本として機械surface** する（baseline済み）。`note-publish`／`note-update-body --commit` で live 反映すると自動で in-sync 化して drift から消える。週次PDCA（`/weekly-review`）にも配線済み。**もう「本文はハンドオフのみ」ではない**。
 
 ## 技術メモ（再発防止）
 > [!note]
