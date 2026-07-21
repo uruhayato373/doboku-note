@@ -165,3 +165,7 @@ C1/C2（`provision_format=3`・PDF 納品）は**ヒアリング不要**。購�
 - 機械ガード: `scripts/check-coconala-wiring.mjs`（`npm run check-coconala-wiring`・pre-commit。カタログ↔listings↔商品画像↔state↔sales のカバレッジ検査）
 - 運用 SSOT: `docs/reference/coconala-operations.md` / 戦略・文面: `docs/note/1級・2級土木/ココナラ展開キット.md`
 - メモリ: [[project_coconala_tensaku_channel]] / [[feedback_metrics_cicd_supplied]] / [[feedback_no_price_in_mdx_body]]
+
+## 著者オーソリティ（差別化訴求）
+
+S1/S2 出品文面・プロフィールでは、競合との差別化として**上位資格保有者による分析提供**を訴求する（総監＝分析力／元発注者＝採点者視点／施工管理技士＝当事者）。文面・画像アセット（`figure-author-authority.png`）とフレーミング（誇張禁止・資格の混同禁止）は真実源 `docs/reference/author-authority-banner.md` に従う。ココナラへの画像アップロード等の実操作はユーザー。
