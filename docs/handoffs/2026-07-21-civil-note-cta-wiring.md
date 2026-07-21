@@ -33,6 +33,7 @@
 ローカルで着手可能（ソース側）:
 
 - **P0-3 差別化の明示**：「元・地方自治体土木職（発注者）＋1級合格者本人」が [土木もくじ/article.md:27](../note/1級・2級土木/土木もくじ/article.md) にしか無い。`note-magazines.ts` の civil 6商品 description と主要記事の導入部へ展開。
+  - **更新 2026-07-21（視覚部分 完了）**: 著者オーソリティ汎用バナー（総監=分析力／元発注者=採点者視点／施工管理技士=当事者）を新設し、土木 note **195記事**（入口25＋内部170）の top/bottom へ配置済み（commit `92d9529cd`/`e565b1f31`）。真実源 [author-authority-banner.md](../reference/author-authority-banner.md)、`civil-keiken-essay-writer`/`coconala-operator`/`civil-keiken-tensaku-drafter` に配線。**残**: ①textual 展開（`note-magazines.ts` civil description・導入部の散文差別化）②カバー幅超過36本へのバナー追加（カバー短縮後 `distribute-author-authority-banner.mjs --all` 再実行）③195記事のライブ再パブリッシュ。
 - **P1 導入フック改善**：導入部が「こんな人のための記事です」の機能列挙のみ。[note-selling-structures.md:41](../reference/note-selling-structures.md) の失敗談→教訓／Before→After型へ差し替え（主力商品で型出し→バルク展開の順を推奨）。
 - **P2 無料00インデックス新設**：完成答案集・過去問模範答案集・2テーマ組合せ大全は自前のリード獲得入口が無い（koji-bank/完全攻略パックにはある）。
 - **B まとめノート型パイロット**（下記）。
