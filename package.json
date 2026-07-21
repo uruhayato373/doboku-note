@@ -18,6 +18,7 @@
     "build-keyword-relations": "node .claude/skills/quality/exam-backlinks/scripts/build-keyword-relations.mjs",
     "build-pillar-exam-questions": "node .claude/scripts/build-pillar-exam-questions.mjs",
     "build-popular-pages": "node scripts/build-popular-pages.mjs",
+    "build-quiz-data": "node scripts/build-quiz-data.mjs",
     "insert-keyword-relations": "node .claude/skills/quality/exam-backlinks/scripts/insert-keyword-relations.mjs",
     "refresh-indexes": "npm run build-backlinks && npm run build-indexes && npm run build-keyword-relations && npm run build-pillar-exam-questions && npm run build-popular-pages",
     "build-frequent-topics": "node scripts/build-frequent-topics.mjs",
