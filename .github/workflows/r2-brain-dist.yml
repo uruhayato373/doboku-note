@@ -1,0 +1,38 @@
+name: R2 Brain Dist Upload
+
+# Brain 商品配布物（.claude/config/brain/dist/）を R2 brain/dist/ へアップロードする。
+# 手動トリガー専用（workflow_dispatch）。配布URLは storage.doboku-note.com/brain/dist/<file>。
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run（アップロードせず対象一覧のみ）'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps --ignore-scripts
+
+      - name: Upload brain dist to R2
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
+          CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
+        run: |
+          ARGS=""
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then ARGS="--dry-run"; fi
+          node scripts/upload-brain-dist-r2.mjs $ARGS
