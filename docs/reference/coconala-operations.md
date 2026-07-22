@@ -58,6 +58,7 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 | `coconala-2kyu-gakka-pdf` | C7 2級 二次学科記述 攻略 PDF 5本（5論点） |
 | `coconala-1kyu-moshi-pdf` | C8 1級 二次 予想模擬試験 PDF（問題冊子＋解答解説）。build-once の静的模試・Red Line #10 例外運用（計画 §4） |
 | `coconala-2kyu-moshi-pdf` | C9 2級 二次 予想模擬試験 PDF（問題冊子＋解答解説） |
+| `coconala-civil-keiken-kit` | K1 制作物（DLキット）テスト出品。1級・2級 施工経験記述の**自作 AI 設計キット**（Claude Code＋Node.js 前提・provision_format=2）。`status:'draft'`。公開前ゲート=(1) 納品ZIPは外部URL(note/サイト)除去版へ差替（安全弁#2）、(2) `/coconala-publish --commit`。客層が限定される test 出品 |
 
 ### 2.1b 出品投入 SoT: `.claude/config/coconala-listings.json`
 

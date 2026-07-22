@@ -159,6 +159,7 @@ productId は `coconala:<serviceId>` 形式（接頭辞でチャネル判別＝`
 | `2級 二次学科記述 攻略 PDF` / serviceId `coconala-2kyu-gakka-pdf`（¥2,500） | `coconala:coconala-2kyu-gakka-pdf` |
 | `1級 二次 予想模擬試験 PDF` / serviceId `coconala-1kyu-moshi-pdf`（¥2,500） | `coconala:coconala-1kyu-moshi-pdf` |
 | `2級 二次 予想模擬試験 PDF` / serviceId `coconala-2kyu-moshi-pdf`（¥2,000） | `coconala:coconala-2kyu-moshi-pdf` |
+| `経験記述 AI設計キット（DL）` / serviceId `coconala-civil-keiken-kit`（¥2,980） | `coconala:coconala-civil-keiken-kit` |
 | （新サービス追加時） | `coconala:<src/lib/coconala-services.ts の id と完全一致>` |
 
 id の実在は `npm run check-coconala-wiring` が pre-commit で機械検証する（カタログに無い `coconala:*` は commit を止める）。命名規則 → `docs/reference/sales-tracking.md`、運用 SSOT → `docs/reference/coconala-operations.md`

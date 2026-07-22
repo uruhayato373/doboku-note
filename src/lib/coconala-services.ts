@@ -276,6 +276,22 @@ const SERVICES_RAW = {
     weeklyCapacity: 20,
     listedAt: '2026-07-18',
   },
+  // 制作物（DLキット）テスト出品。Claude Code + Node.js を要する自作ツール版＝客層が限定される
+  // ため status:'draft'（防御的非表示）で配線のみ用意。公開前ゲート: (1) 納品ZIPは外部URL(note/
+  // サイト)を除去した coconala 版に差し替える（安全弁#2 外部誘導）、(2) /coconala-publish --commit。
+  'coconala-civil-keiken-kit': {
+    id: 'coconala-civil-keiken-kit',
+    status: 'draft',
+    serviceUrl: '',
+    title: '施工経験記述を自作するAI設計キットを渡します',
+    shortTitle: '経験記述 AI設計キット（DL）',
+    description:
+      '1級・2級土木施工管理技士 第2次検定の施工経験記述を、あなた自身の工事経験からAI（Claude Code）で設計・検証するためのキット（テンプレート＋検査スクリプト＋手順）。完成答案の代筆ではなく、設問分解・不足情報の停止・字数検査・独立レビューを自分で回すための作業環境です。パソコンでのファイル操作とClaude Codeの利用が前提。購入後トークルームでキット一式をお送りします。合格を保証するものではありません。',
+    price: '¥2,980（DLキット一式）',
+    priceYen: 2980,
+    examScope: ['civil-1', 'civil-2'],
+    weeklyCapacity: 20,
+  },
 } as const satisfies Record<string, CoconalaService>;
 
 export type CoconalaServiceId = keyof typeof SERVICES_RAW;

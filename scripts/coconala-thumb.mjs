@@ -33,6 +33,12 @@ const AMBER = '#d4a017';      // CTA（価格チップ・editorial CTA 色）
 
 // サムネ用の短い訴求コピー（カタログの正式タイトルとは別＝クリック訴求に最適化）
 const THUMB_COPY = {
+  'coconala-civil-keiken-kit': {
+    eyebrow: '1級・2級土木施工管理技士 ／ 第2次検定 経験記述',
+    title: ['経験記述', 'AI設計キット'],
+    hook: '自分の工事経験から答案を組み立てる\nテンプレ＋検査スクリプト一式（要PC）',
+    priceLabel: 'DLキット一式',
+  },
   'coconala-shindan': {
     eyebrow: '1級・2級土木施工管理技士 ／ 第2次検定 経験記述',
     title: ['経験記述', '合格診断'],
