@@ -159,7 +159,7 @@ productId は `coconala:<serviceId>` 形式（接頭辞でチャネル判別＝`
 | `2級 二次学科記述 攻略 PDF` / serviceId `coconala-2kyu-gakka-pdf`（¥2,500） | `coconala:coconala-2kyu-gakka-pdf` |
 | `1級 二次 予想模擬試験 PDF` / serviceId `coconala-1kyu-moshi-pdf`（¥2,500） | `coconala:coconala-1kyu-moshi-pdf` |
 | `2級 二次 予想模擬試験 PDF` / serviceId `coconala-2kyu-moshi-pdf`（¥2,000） | `coconala:coconala-2kyu-moshi-pdf` |
-| `経験記述 AI設計キット（DL）` / serviceId `coconala-civil-keiken-kit`（¥2,980） | `coconala:coconala-civil-keiken-kit` |
+| `経験記述 AI設計キット（DL）` / serviceId `coconala-civil-keiken-kit`（¥3,000） | `coconala:coconala-civil-keiken-kit` |
 | `総監 出題テーマ分析 PDF` / serviceId `coconala-sokan-bunseki-pdf`（¥2,500） | `coconala:coconala-sokan-bunseki-pdf` |
 | （新サービス追加時） | `coconala:<src/lib/coconala-services.ts の id と完全一致>` |
 
