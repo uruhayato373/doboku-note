@@ -281,8 +281,8 @@ const SERVICES_RAW = {
   // サイト)を除去した coconala 版に差し替える（安全弁#2 外部誘導）、(2) /coconala-publish --commit。
   'coconala-civil-keiken-kit': {
     id: 'coconala-civil-keiken-kit',
-    status: 'draft',
-    serviceUrl: '',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4322659',
     title: '施工経験記述を自作するAI設計キットを渡します',
     shortTitle: '経験記述 AI設計キット（DL）',
     description:
@@ -291,6 +291,7 @@ const SERVICES_RAW = {
     priceYen: 3000,
     examScope: ['civil-1', 'civil-2'],
     weeklyCapacity: 20,
+    listedAt: '2026-07-22',
   },
   // 総監 出題テーマ分析 PDF（テスト出品）。有料note「設問3国家施策バンク」本文は転載せず、
   // 出題傾向の読み方＋R8地方創生の正直な検証に限定（非カニバリ）。PDF は外部URL0件で生成済
@@ -298,8 +299,8 @@ const SERVICES_RAW = {
   // 公開前ゲート: /coconala-publish --commit。総監はココナラ客層が薄い前提の test。
   'coconala-sokan-bunseki-pdf': {
     id: 'coconala-sokan-bunseki-pdf',
-    status: 'draft',
-    serviceUrl: '',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4322661',
     title: '技術士総監 記述式の出題テーマ分析を送ります',
     shortTitle: '総監 出題テーマ分析 PDF',
     description:
@@ -308,6 +309,7 @@ const SERVICES_RAW = {
     priceYen: 2500,
     examScope: ['pe-comprehensive-management'],
     weeklyCapacity: 20,
+    listedAt: '2026-07-22',
   },
 } as const satisfies Record<string, CoconalaService>;
 
