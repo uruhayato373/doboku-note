@@ -22,8 +22,8 @@ export const metadata: Metadata = {
 const TOOLS = [
   {
     href: "/tools/kakomon-quiz",
-    title: "1級土木 過去問ミニ演習",
-    desc: "1級土木 第一次検定の過去問を、その場で解ける4択クイズ。1問ずつ即採点＋全選択肢の解説つき。",
+    title: "1級土木 過去問 無料演習",
+    desc: "1級土木 第一次検定の過去問 全1,098問を4択で演習。年度別・ランダム・間違い復習、即採点＋全選択肢解説つき。",
     tag: "演習",
   },
   {
