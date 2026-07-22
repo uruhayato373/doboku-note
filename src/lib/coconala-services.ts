@@ -292,6 +292,23 @@ const SERVICES_RAW = {
     examScope: ['civil-1', 'civil-2'],
     weeklyCapacity: 20,
   },
+  // 総監 出題テーマ分析 PDF（テスト出品）。有料note「設問3国家施策バンク」本文は転載せず、
+  // 出題傾向の読み方＋R8地方創生の正直な検証に限定（非カニバリ）。PDF は外部URL0件で生成済
+  // （.claude/config/coconala/assets/pdf/coconala-sokan-bunseki.pdf）。status:'draft'。
+  // 公開前ゲート: /coconala-publish --commit。総監はココナラ客層が薄い前提の test。
+  'coconala-sokan-bunseki-pdf': {
+    id: 'coconala-sokan-bunseki-pdf',
+    status: 'draft',
+    serviceUrl: '',
+    title: '技術士総監 記述式の出題テーマ分析を送ります',
+    shortTitle: '総監 出題テーマ分析 PDF',
+    description:
+      '技術士総合技術監理部門（総監）記述式（必須科目I-2）の出題傾向分析 PDF。令和6〜8年度の実績（カーボン／少子高齢化／地方創生）から「社会課題×5管理のトレードオフ」系統の読み方、設問3の解答様式（課題×施策2組・各約600字・5管理2つ以上の明記）、出そうなテーマの見極め方、R8地方創生の正直な検証（本命は外し・候補群で当てた）を収録。購入後トークルームで PDF をお送りします。出題を保証するものではありません。',
+    price: '¥2,500（PDF）',
+    priceYen: 2500,
+    examScope: ['pe-comprehensive-management'],
+    weeklyCapacity: 20,
+  },
 } as const satisfies Record<string, CoconalaService>;
 
 export type CoconalaServiceId = keyof typeof SERVICES_RAW;

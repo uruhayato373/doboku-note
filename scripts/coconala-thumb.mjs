@@ -33,6 +33,12 @@ const AMBER = '#d4a017';      // CTA（価格チップ・editorial CTA 色）
 
 // サムネ用の短い訴求コピー（カタログの正式タイトルとは別＝クリック訴求に最適化）
 const THUMB_COPY = {
+  'coconala-sokan-bunseki-pdf': {
+    eyebrow: '技術士総合技術監理部門 ／ 記述式 必須科目I-2',
+    title: ['総監 出題', 'テーマ分析'],
+    hook: '令和6〜8年度の実績から\n設問3の型と出やすいテーマの読み方',
+    priceLabel: 'PDF',
+  },
   'coconala-civil-keiken-kit': {
     eyebrow: '1級・2級土木施工管理技士 ／ 第2次検定 経験記述',
     title: ['経験記述', 'AI設計キット'],
