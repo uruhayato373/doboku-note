@@ -17,6 +17,7 @@ import {
   type MagazineId,
 } from "@/lib/note-magazines";
 import { listedCoconalaServices } from "@/lib/coconala-services";
+import { listedBrainProducts } from "@/lib/brain-products";
 import { examKeyOf } from "@/lib/exam-brand";
 
 export const metadata: Metadata = {
@@ -279,6 +280,54 @@ function CoconalaSection() {
             </div>
             <div className="text-xs font-bold text-[var(--accent)] mt-2">
               {s.price}
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+// Brain の Claude Code キット（DL商品）。brain-products.ts の status を自動追従し、
+// listed が 0 件のあいだはセクションごと非表示（審査前の wire-ahead）。
+// Brain 側 URL に UTM は付けない（ココナラ同様、計測が Brain 内で完結せずパラメータが無駄に露出するため）。
+function BrainSection() {
+  const products = listedBrainProducts();
+  if (products.length === 0) return null;
+
+  return (
+    <section className="mb-12">
+      <h2 className="font-serif text-base font-bold text-[var(--ink)] mb-1">
+        Claude Code 学習キット（DL商品）
+      </h2>
+      <p className="text-xs text-[var(--ink-muted)] mb-3">
+        Claude Code で、自分の工事経験・一次資料から答案づくりを再現するダウンロードキット（Brain 経由）
+      </p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {products.map((p) => (
+          <a
+            key={p.id}
+            href={p.productUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="focus-ring card-surface-content block px-4 py-3 shadow-none transition-[border-color,box-shadow] hover:border-[var(--accent)] hover:shadow-soft"
+          >
+            <div className="flex items-start justify-between gap-3">
+              <div className="min-w-0 flex-1">
+                <div className="font-serif font-bold text-[var(--ink)] text-sm sm:text-base">
+                  {p.shortTitle}
+                </div>
+                <div className="text-xs text-[var(--ink-muted)] mt-0.5 leading-snug">
+                  {p.description}
+                </div>
+              </div>
+              <ExternalLink
+                className="w-4 h-4 text-[var(--ink-muted)] shrink-0 mt-0.5"
+                aria-hidden="true"
+              />
+            </div>
+            <div className="text-xs font-bold text-[var(--accent)] mt-2">
+              {p.price}
             </div>
           </a>
         ))}
@@ -566,6 +615,9 @@ export default function LinksPage() {
 
           {/* 単発サービス（ココナラ）: listed が 0 件なら描画されない */}
           <CoconalaSection />
+
+          {/* Claude Code キット（Brain）: listed が 0 件なら描画されない */}
+          <BrainSection />
 
           {/* 運営者 + SNS（PC では 2 カラム） */}
           <section className="grid grid-cols-1 sm:grid-cols-2 gap-8">
