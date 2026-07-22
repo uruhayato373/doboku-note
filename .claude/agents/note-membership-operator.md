@@ -120,6 +120,7 @@ note メンバーシップ「**土木セコカン合格ラボ**」（1級・2級
 | `scripts/note-magazine-create.mjs` | 特典マガジン新規作成（note掲載文.txt 駆動） | probe（`--commit`） |
 | `scripts/note-edit-session.mjs` | 記事編集 / 設定 / `/membership/settings/manage` を開いて待機（自動保存なし） | 手動編集 |
 | `scripts/note-membership-plan-edit.mjs` | 既存プランの名前/説明/**会費**/定員を編集して**保存**（非公開ドラフトのまま・可逆。**公開はしない**・account ゲート） | dry-run（`--commit` で保存） |
+| `scripts/note-update-body.mjs` | **公開済み会員限定記事の本文再反映**（試し読み3段フローに対応。入口LPの無料プレビュー復旧は `--trial-line-bottom`＝末尾-1にライン設置。手順詳細＝note-api-verification.md「本文画像・PDF 添付の修復手順」） | dry-run（`--commit`） |
 | `scripts/verify-note-magazines.mjs` | note 公開状態と SoT の整合検証（偽成功ガード） | 読み取り |
 
 ## 完了条件（DoD）

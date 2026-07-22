@@ -161,6 +161,7 @@ node scripts/check-note-live-headings.mjs --paths         # BAD パスのみ（l
 - **無料記事の画像欠落**: `node scripts/note-update-body.mjs --article <path> --commit`。全文再貼付＋画像アップロードで一括反映。
 - **有料 PDF 記事**（`paidBoundary` あり・paid 領域に PDF 添付カード）: 全文置換は PDF 添付カードを破壊するため **`--images-only`**（本文アンカー直後に画像だけ追加・境界/カード不変）を使う。空引用も直す必要がある場合のみ全文 `--commit`（`paidBoundary` で境界保持）→ 破壊された PDF は `note-attach-file.mjs --note <key> --file <pdf> --commit` で再添付。
 - 画像挿入が一部失敗しても続行したいときは `--img-lenient`（既定は保存せず ABORT）。
+- **メンバーシップ連携記事**（`price=0` だが `is_limited=true` の会員限定＝合格ラボの索引/はじめに/入口LP）: 公開設定が3段フロー（`公開に進む → 試し読みエリアを設定 → 更新する`）。`note-update-body.mjs` は `試し読みエリアを設定` を自動検出し、既定は**試し読みラインを動かさず更新**（完全会員限定＝無料プレビュー0の記事はこれで維持）。**入口LPの無料プレビューを復旧するときは `--trial-line-bottom`**（ラインを「末尾の1つ手前」に設置＝ほぼ全文を無料プレビュー化）。**罠: ラインを本文の絶対最後に置くと会員限定にする中身が0で無効化され note が全文ロック（bodyLen→0）に戻す**ため、末尾の1つ手前に置く。前後で公開API `body`（無料プレビュー量）を実査すること。
 
 ## 記事 frontmatter への公開URL backfill: backfill-note-article-meta
 
