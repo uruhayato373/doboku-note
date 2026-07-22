@@ -18,7 +18,7 @@ cover:
 noteUrl: "https://note.com/dobokunote/n/n5d9174475072"
 noteId: "n5d9174475072"
 notePublishedAt: "2026-06-30"
-price: 1280
+price: 1980
 paidBoundary: 品質管理
 ---
 # 1級土木 施工経験記述｜水路トンネル 覆工コンクリート（5管理 完成答案）

@@ -8,7 +8,7 @@ noteId: "n913f3e6076f0"
 notePublishedAt: "2026-07-01"
 noteStatus: published
 utmCampaign: civil2-koji-bank-koji13
-price: 980
+price: 1680
 coverTitle: ["2級土木 施工経験記述", "高含水比粘性土盛土", "5管理フルカバー"]
 cover:
   leadIn: "2級土木施工管理技士 二次"

@@ -18,7 +18,7 @@ cover:
 noteUrl: "https://note.com/dobokunote/n/n99401cb09ff7"
 noteId: "n99401cb09ff7"
 notePublishedAt: "2026-06-30"
-price: 1280
+price: 1980
 paidBoundary: 品質管理
 ---
 # 1級土木 施工経験記述｜PC橋上部工（場所打ち・固定支保工）5管理 完成答案

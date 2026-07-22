@@ -7,7 +7,7 @@ noteUrl: https://note.com/dobokunote/n/nb9f0937b7773
 noteId: nb9f0937b7773
 notePublishedAt: 2026-06-02
 coverTitle: ["2級土木 施工経験記述", "令和3年度 過去問"]
-price: 600
+price: 980
 cover:
   leadIn: "2級土木 施工経験記述"
   hi: "R3"

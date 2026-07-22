@@ -7,7 +7,7 @@ noteStatus: published
 noteUrl: "https://note.com/dobokunote/n/nc46a4823b2f5"
 noteId: "nc46a4823b2f5"
 notePublishedAt: "2026-06-30"
-price: 1280
+price: 1980
 paidBoundary: 品質管理
 coverTitle: ["1級土木 施工経験記述", "交差点改良（平面）", "5管理 完成答案"]
 cover:

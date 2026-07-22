@@ -8,7 +8,7 @@ noteId: "n280c47472db7"
 notePublishedAt: "2026-07-01"
 noteStatus: published
 utmCampaign: civil2-koji-bank-koji56
-price: 980
+price: 1680
 coverTitle: ["2級土木 施工経験記述", "床止め・落差工", "5管理フルカバー"]
 cover:
   leadIn: "2級土木施工管理技士 二次"

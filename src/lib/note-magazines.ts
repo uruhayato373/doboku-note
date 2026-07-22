@@ -504,7 +504,7 @@ const MAGAZINES_RAW = {
     shortTitle: '1級土木 施工経験記述 2テーマ組合せ大全',
     shortDescription:
       '5管理の2テーマ全10組合せ × 想定工事①②③ フル模範答案。現行形式（R06+）を全網羅。',
-    price: '¥3,480（10本セット、42%OFF）',
+    price: '¥3,480（10本セット、約65%OFF）',
     badge: 'note 限定',
     ctaCatch: '2テーマ、どの組合せが出ても書ける',
     ctaButton: '全10組合せを見てみる',

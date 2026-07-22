@@ -7,7 +7,7 @@ noteUrl: https://note.com/dobokunote/n/nc6c8bb7fb7d3
 noteId: nc6c8bb7fb7d3
 notePublishedAt: 2026-06-02
 coverTitle: ["1級土木 施工経験記述", "品質管理×施工計画"]
-price: 600
+price: 980
 cover:
   leadIn: "1級土木 施工経験記述"
   hi: "品質"

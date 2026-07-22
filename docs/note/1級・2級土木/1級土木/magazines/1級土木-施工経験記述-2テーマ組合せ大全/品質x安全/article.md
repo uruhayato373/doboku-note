@@ -7,7 +7,7 @@ noteUrl: https://note.com/dobokunote/n/na95474a0cbc4
 noteId: na95474a0cbc4
 notePublishedAt: 2026-06-02
 coverTitle: ["1級土木 施工経験記述", "品質管理×安全管理"]
-price: 600
+price: 980
 cover:
   leadIn: "1級土木 施工経験記述"
   hi: "品質"

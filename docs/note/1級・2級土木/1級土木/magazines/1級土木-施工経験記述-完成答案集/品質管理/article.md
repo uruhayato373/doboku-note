@@ -7,7 +7,7 @@ noteUrl: https://note.com/dobokunote/n/n00a296b3089f
 noteId: n00a296b3089f
 notePublishedAt: 2026-06-02
 coverTitle: ["1級土木 施工経験記述", "品質管理 完成答案集"]
-price: 600
+price: 980
 cover:
   leadIn: "1級土木施工管理技士 二次"
   hi: "品質"

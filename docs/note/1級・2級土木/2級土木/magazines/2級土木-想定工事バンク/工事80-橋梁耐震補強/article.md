@@ -8,7 +8,7 @@ noteId: "n19d4d63037c5"
 notePublishedAt: "2026-07-01"
 noteStatus: published
 utmCampaign: civil2-koji-bank-koji80
-price: 980
+price: 1680
 coverTitle: ["2級土木 施工経験記述", "橋梁耐震補強", "5管理フルカバー"]
 cover:
   leadIn: "2級土木施工管理技士 二次"

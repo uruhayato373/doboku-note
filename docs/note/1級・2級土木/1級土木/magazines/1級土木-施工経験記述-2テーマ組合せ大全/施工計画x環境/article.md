@@ -7,7 +7,7 @@ noteUrl: https://note.com/dobokunote/n/nce148225a46a
 noteId: nce148225a46a
 notePublishedAt: 2026-06-02
 coverTitle: ["1級土木 施工経験記述", "施工計画×環境対策"]
-price: 600
+price: 980
 cover:
   leadIn: "1級土木 施工経験記述"
   hi: "施工計画"

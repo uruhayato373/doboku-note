@@ -7,7 +7,7 @@ noteStatus: published
 noteUrl: "https://note.com/dobokunote/n/ndc8adfdfae71"
 noteId: "ndc8adfdfae71"
 notePublishedAt: "2026-06-30"
-price: 1280
+price: 1980
 paidBoundary: 品質管理
 coverTitle: ["1級土木 施工経験記述", "排水性舗装の施工", "5管理 完成答案"]
 cover:

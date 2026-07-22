@@ -7,7 +7,7 @@ noteStatus: published
 noteUrl: "https://note.com/dobokunote/n/n4760c5ab311f"
 noteId: "n4760c5ab311f"
 notePublishedAt: "2026-06-30"
-price: 1280
+price: 1980
 paidBoundary: 品質管理
 coverTitle: ["1級土木 施工経験記述", "橋面舗装（床版上）", "5管理 完成答案"]
 cover:

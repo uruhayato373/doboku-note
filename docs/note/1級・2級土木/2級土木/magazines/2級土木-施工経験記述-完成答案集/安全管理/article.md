@@ -7,7 +7,7 @@ noteUrl: https://note.com/dobokunote/n/n356ca0899c14
 noteId: n356ca0899c14
 notePublishedAt: 2026-06-03
 coverTitle: ["2級土木 施工経験記述", "安全管理 完成答案集"]
-price: 780
+price: 1180
 cover:
   leadIn: "2級土木施工管理技士 二次"
   hi: "安全"

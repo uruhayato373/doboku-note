@@ -8,7 +8,7 @@ noteId: "n540457f29c0f"
 notePublishedAt: "2026-07-01"
 noteStatus: published
 utmCampaign: civil2-koji-bank-koji53
-price: 980
+price: 1680
 coverTitle: ["2級土木 施工経験記述", "樋門・樋管設置", "5管理フルカバー"]
 cover:
   leadIn: "2級土木施工管理技士 二次"

@@ -8,7 +8,7 @@ noteId: "nb7d2b121782d"
 notePublishedAt: "2026-07-01"
 noteStatus: published
 utmCampaign: civil2-koji-bank-koji08
-price: 980
+price: 1680
 coverTitle: ["2級土木 施工経験記述", "補強土壁（テールアルメ）", "5管理フルカバー"]
 cover:
   leadIn: "2級土木施工管理技士 二次"

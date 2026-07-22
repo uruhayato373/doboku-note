@@ -7,7 +7,7 @@ noteUrl: https://note.com/dobokunote/n/n970211edffaf
 noteId: n970211edffaf
 notePublishedAt: 2026-06-02
 coverTitle: ["1級土木 施工経験記述", "令和3年度 過去問"]
-price: 600
+price: 980
 cover:
   leadIn: "1級土木 施工経験記述"
   hi: "R3"

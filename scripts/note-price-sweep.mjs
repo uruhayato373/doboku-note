@@ -15,7 +15,7 @@
  *   node scripts/note-price-sweep.mjs --dir <magazineDir> --from 1980 --to 500 --commit
  * ---------------------------------------------------------------------------
  */
-import { readFileSync, writeFileSync, existsSync, globSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -30,7 +30,16 @@ if (!DIR) { console.error('--dir <magazineDir> required'); process.exit(1); }
 const abs = join(ROOT, DIR);
 if (!existsSync(abs)) { console.error('dir not found: ' + abs); process.exit(1); }
 
-const files = globSync(`${abs.replace(/\\/g, '/')}/**/article-*.md`);
+// 再帰 walk（globSync は Node22+ のため使わない）。article.md と型別 article-<type>.md の両方を対象。
+function walk(dir, out = []) {
+  for (const e of readdirSync(dir, { withFileTypes: true })) {
+    const p = join(dir, e.name);
+    if (e.isDirectory()) walk(p, out);
+    else if (/^article(-[^/]+)?\.md$/.test(e.name)) out.push(p);
+  }
+  return out;
+}
+const files = walk(abs);
 const re = new RegExp(`^(price:[ \\t]*)${FROM}\\b`, 'm');
 let hit = 0;
 for (const f of files) {

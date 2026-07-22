@@ -18,7 +18,7 @@ cover:
 noteUrl: "https://note.com/dobokunote/n/n195e97d885ec"
 noteId: "n195e97d885ec"
 notePublishedAt: "2026-06-30"
-price: 1280
+price: 1980
 paidBoundary: 品質管理
 ---
 # 1級土木 施工経験記述｜鋼桁架設（送出し工法）5管理 完成答案

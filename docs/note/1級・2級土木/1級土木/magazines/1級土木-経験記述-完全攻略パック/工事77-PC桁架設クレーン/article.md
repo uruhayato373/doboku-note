@@ -18,7 +18,7 @@ cover:
 noteUrl: "https://note.com/dobokunote/n/n9250e3f2aa37"
 noteId: "n9250e3f2aa37"
 notePublishedAt: "2026-06-30"
-price: 1280
+price: 1980
 paidBoundary: 品質管理
 ---
 # 1級土木 施工経験記述｜PC桁架設（クレーン一括架設）5管理 完成答案

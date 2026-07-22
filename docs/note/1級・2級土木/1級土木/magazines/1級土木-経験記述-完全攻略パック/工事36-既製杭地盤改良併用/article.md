@@ -7,7 +7,7 @@ noteStatus: published
 noteUrl: "https://note.com/dobokunote/n/n3a61f3d3d8ea"
 noteId: "n3a61f3d3d8ea"
 notePublishedAt: "2026-06-30"
-price: 1280
+price: 1980
 paidBoundary: 品質管理
 coverTitle: ["1級土木 施工経験記述", "既製杭＋地盤改良 中掘り根固め", "5管理 完成答案"]
 cover:
