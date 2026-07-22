@@ -47,7 +47,7 @@ const PRODUCTS_RAW = {
   // 商品①: 1級・2級土木 施工経験記述 設計キット（2026-07-22 公開申請 → 2026-07-22 審査通過・販売中）
   'brain-civil-essay-kit': {
     id: 'brain-civil-essay-kit',
-    status: 'submitted',
+    status: 'listed',
     articleId: 'b5EDO3UjMgoTZsNWa0JXY',
     productUrl: 'https://brain-market.com/a/b5EDO3UjMgoTZsNWa0JXY',
     title: 'Claude Codeで作る 1級・2級土木「施工経験記述」設計キット｜設問整理・答案案・字数検査まで',
@@ -64,7 +64,7 @@ const PRODUCTS_RAW = {
   // 商品②: 技術士総監 出題テーマ分析・国家施策バンク 設計キット（2026-07-22 公開申請 → 2026-07-22 審査通過・販売中）
   'brain-sokan-policy-bank': {
     id: 'brain-sokan-policy-bank',
-    status: 'submitted',
+    status: 'listed',
     articleId: 'b1IDO3UjMgoTZsNWa0JXY',
     productUrl: 'https://brain-market.com/a/b1IDO3UjMgoTZsNWa0JXY',
     title: 'Claude Codeで作る 技術士総監「出題テーマ分析・国家施策バンク」設計キット｜設問3の施策を根拠つきで備蓄',
