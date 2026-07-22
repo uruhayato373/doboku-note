@@ -8,6 +8,7 @@ noteId: nf953cb5b1f09
 notePublishedAt: 2026-06-02
 coverTitle: ["1級土木 施工経験記述", "令和4年度 過去問"]
 price: 980
+paidBoundary: "想定工事①"
 cover:
   leadIn: "1級土木 施工経験記述"
   hi: "R4"

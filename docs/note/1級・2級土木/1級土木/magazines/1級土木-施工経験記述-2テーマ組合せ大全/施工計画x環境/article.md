@@ -8,6 +8,7 @@ noteId: nce148225a46a
 notePublishedAt: 2026-06-02
 coverTitle: ["1級土木 施工経験記述", "施工計画×環境対策"]
 price: 980
+paidBoundary: "施工計画と環境対策の書き分け方（採点者が見るポイント）"
 cover:
   leadIn: "1級土木 施工経験記述"
   hi: "施工計画"

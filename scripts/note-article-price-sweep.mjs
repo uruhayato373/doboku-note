@@ -5,6 +5,12 @@
  * 複数マガジンの収録記事（単品）の価格を一括変更する Playwright スクリプト。
  * note-edit-magazine.mjs の --articles ロジックを独立化・拡張。
  *
+ * ⚠ 警告（2026-07-24 実証）: 本スクリプトは「有料エリア設定」を開いてライン位置を再設定せず
+ *   「更新する」するため、**カスタム有料境界（paidBoundary）を持つ記事の境界を先頭リセット＝全ロック
+ *   化する**（civil 経験記述 58 本で発生）。カスタム境界を持つ有料記事には使わない。使用後は必ず
+ *   `npm run check-note-structure` で境界を実査し、崩れたら `note-update-body --commit` で復旧すること。
+ *   詳細: docs/reference/note-api-verification.md「有料境界（paidBoundary）のマガジン別 SSOT」。
+ *
  * 設計: 「システム Chrome（channel:'chrome'）＋永続プロファイル」方式。
  *   初回のみ手動ログイン（`npm run note-edit-session` で実施）→ セッション永続化済み前提。
  *

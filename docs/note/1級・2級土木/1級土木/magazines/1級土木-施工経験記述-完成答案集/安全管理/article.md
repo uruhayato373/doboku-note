@@ -8,6 +8,7 @@ noteId: n3c00de4e11e4
 notePublishedAt: 2026-06-02
 coverTitle: ["1級土木 施工経験記述", "安全管理 完成答案集"]
 price: 980
+paidBoundary: "安全管理の答案で採点者が見るポイント"
 cover:
   leadIn: "1級土木施工管理技士 二次"
   hi: "安全"

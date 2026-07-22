@@ -8,6 +8,7 @@ noteId: n22b442d32f7a
 notePublishedAt: 2026-06-02
 coverTitle: ["1級土木 施工経験記述", "安全管理×施工計画"]
 price: 980
+paidBoundary: "安全管理×施工計画を書き分けるポイント"
 cover:
   leadIn: "1級土木 施工経験記述"
   hi: "安全"

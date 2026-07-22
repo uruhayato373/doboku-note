@@ -8,6 +8,7 @@ noteId: n05309c70c7eb
 notePublishedAt: 2026-06-03
 coverTitle: ["2級土木 施工経験記述", "工程管理 完成答案集"]
 price: 1180
+paidBoundary: "工程管理の答案で採点者が見るポイント"
 cover:
   leadIn: "2級土木施工管理技士 二次"
   hi: "工程"

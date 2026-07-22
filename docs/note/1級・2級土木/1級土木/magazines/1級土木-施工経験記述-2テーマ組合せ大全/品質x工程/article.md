@@ -8,6 +8,7 @@ noteId: ne0073ada57cd
 notePublishedAt: 2026-06-02
 coverTitle: ["1級土木 施工経験記述", "品質管理×工程管理"]
 price: 980
+paidBoundary: "品質管理と工程管理の書き分け方（採点者が見るポイント）"
 cover:
   leadIn: "1級土木 施工経験記述"
   hi: "品質"

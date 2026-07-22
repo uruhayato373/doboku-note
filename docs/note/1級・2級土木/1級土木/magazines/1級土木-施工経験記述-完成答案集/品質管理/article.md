@@ -8,6 +8,7 @@ noteId: n00a296b3089f
 notePublishedAt: 2026-06-02
 coverTitle: ["1級土木 施工経験記述", "品質管理 完成答案集"]
 price: 980
+paidBoundary: "品質管理の答案で採点者が見るポイント"
 cover:
   leadIn: "1級土木施工管理技士 二次"
   hi: "品質"

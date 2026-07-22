@@ -8,6 +8,7 @@ noteId: "ne5ad458ebd84"
 notePublishedAt: "2026-06-01"
 coverTitle: ["5管理クロストレードオフ", "社会環境管理 × 他4管理"]
 price: 780
+paidBoundary: "社会環境 × 安全"
 noteStatus: published
 cover:
   leadIn: "社会環境 × 他4管理の衝突を"

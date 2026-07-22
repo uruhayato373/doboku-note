@@ -8,6 +8,7 @@ noteId: "n01444c9aa4a6"
 notePublishedAt: "2026-06-01"
 coverTitle: ["5管理クロストレードオフ", "経済性管理 × 他4管理"]
 price: 780
+paidBoundary: "経済性 × 安全"
 noteStatus: published
 cover:
   leadIn: "経済性 × 他4管理の衝突を"

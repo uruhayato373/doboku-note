@@ -8,6 +8,7 @@ noteId: "nc9a3d01b8129"
 notePublishedAt: "2026-06-01"
 coverTitle: ["5管理クロストレードオフ", "情報管理 × 他4管理"]
 price: 780
+paidBoundary: "情報 × 安全"
 noteStatus: published
 cover:
   leadIn: "情報 × 他4管理の衝突を"

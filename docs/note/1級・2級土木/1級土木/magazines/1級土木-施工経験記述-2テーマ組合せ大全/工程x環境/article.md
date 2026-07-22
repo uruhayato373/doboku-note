@@ -8,6 +8,7 @@ noteId: n6c5de63ee02d
 notePublishedAt: 2026-06-02
 coverTitle: ["1級土木 施工経験記述", "工程管理×環境対策"]
 price: 980
+paidBoundary: "工程管理×環境対策を書き分けるポイント"
 cover:
   leadIn: "1級土木 施工経験記述"
   hi: "工程"

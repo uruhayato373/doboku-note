@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 price: 780
+paidBoundary: "国家施策オプション"
 noteStatus: published
 noteUrl: https://note.com/dobokunote/n/n0e7f7d13133e
 noteId: n0e7f7d13133e

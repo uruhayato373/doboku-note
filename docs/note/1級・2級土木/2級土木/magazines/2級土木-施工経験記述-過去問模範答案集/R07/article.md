@@ -8,6 +8,7 @@ noteId: ncb2a47ae9ddf
 notePublishedAt: 2026-06-02
 coverTitle: ["2級土木 施工経験記述", "令和7年度 過去問"]
 price: 980
+paidBoundary: "想定工事①"
 cover:
   leadIn: "2級土木 施工経験記述"
   hi: "R7"

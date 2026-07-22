@@ -8,6 +8,7 @@ noteId: n9039d688a0fe
 notePublishedAt: 2026-06-02
 coverTitle: ["1級土木 施工経験記述", "工程管理 完成答案集"]
 price: 980
+paidBoundary: "工程管理の答案で採点者が見るポイント"
 cover:
   leadIn: "1級土木施工管理技士 二次"
   hi: "工程"

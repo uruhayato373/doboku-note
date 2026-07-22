@@ -8,6 +8,7 @@ noteId: n593e969c9dcf
 notePublishedAt: 2026-06-03
 coverTitle: ["2級土木 施工経験記述", "品質管理 完成答案集"]
 price: 1180
+paidBoundary: "品質管理の答案で採点者が見るポイント"
 cover:
   leadIn: "2級土木施工管理技士 二次"
   hi: "品質"

@@ -1,6 +1,7 @@
 ---
 notePricing: paid
 price: 780
+paidBoundary: "パターン 1: 統計・信頼性計算"
 noteSeries: 総監択一式
 utmCampaign: calc-problems-6patterns
 noteUrl: https://note.com/dobokunote/n/ne190c3ef2fca
