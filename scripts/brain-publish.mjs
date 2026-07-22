@@ -31,13 +31,16 @@
  *                                                                                # カテゴリ変更（販売設定で v-select 選択→再申請＝再審査）
  *   node scripts/brain-publish.mjs --service <id> --edit-url <url> --commit --force-resubmit --replace-body
  *                                                                                # 本文(LP)差し替え（既存を全消去→再挿入→再申請＝再審査）
+ *   node scripts/brain-publish.mjs --service <id> --edit-url <url> --commit --force-resubmit --replace-body --insert-figures figs.json
+ *                                                                                # 本文差し替え＋段落直後へ図版挿入（重複防止で --replace-body 併用必須）
  */
-import { appendFileSync, writeFileSync, existsSync } from 'node:fs';
+import { appendFileSync, writeFileSync, readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import {
   ROOT, launchContext, waitForLogin, assertAccount,
   readCatalog, readListings, writeBackCatalog, DIST_DIR, DIST_BASE_URL,
 } from './lib/brain-session.mjs';
+import { insertFigures } from './lib/brain-figures.mjs';
 
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
@@ -51,6 +54,9 @@ const FORCE = argv.includes('--force-resubmit');
 const SET_CATEGORY = getArg('--set-category');
 // --replace-body: 既存本文を全消去してから listings の bodyText を再挿入（既定は既存本文を保持）。
 const REPLACE_BODY = argv.includes('--replace-body');
+// --insert-figures <json>: 本文挿入後、[{after,image}] に従い段落直後へ画像を挿入。
+// 重複防止のため通常 --replace-body と併用（クリーン本文へ1回だけ挿入）。
+const INSERT_FIGURES = getArg('--insert-figures');
 if (!SERVICE) { console.error('--service <id> required（brain-products.ts の id）'); process.exit(1); }
 
 const OUT = join(ROOT, '.tmp', `brain-publish-${SERVICE}.log`);
@@ -136,13 +142,12 @@ try {
   } else {
     await pm.click();
     if (curBody.trim().length > 50 && REPLACE_BODY) {
-      await page.keyboard.press('Meta+A');
-      await page.waitForTimeout(400);
-      await page.keyboard.press('Backspace');
-      await page.waitForTimeout(1200);
+      // 全選択→削除を2回（画像ノードが残るケースの保険）
+      for (let k = 0; k < 2; k++) { await page.keyboard.press('Meta+A'); await page.waitForTimeout(400); await page.keyboard.press('Backspace'); await page.waitForTimeout(900); }
       const afterClear = (await pm.innerText()).trim();
-      if (afterClear.length > 50) { log(`ABORT: 本文クリア失敗（${afterClear.length}字残）→ 二重挿入防止で中断`); await page.screenshot({ path: shot('brain-pub-clearfail.png') }); process.exit(3); }
-      log(`[3] 既存本文クリア済（--replace-body・${curBody.trim().length}字→${afterClear.length}字）`);
+      const imgAfter = await pm.locator('img').count();
+      if (afterClear.length > 50 || imgAfter > 0) { log(`ABORT: 本文クリア不完全（text ${afterClear.length}字 / img ${imgAfter}枚）→ 二重挿入防止で中断`); await page.screenshot({ path: shot('brain-pub-clearfail.png') }); process.exit(3); }
+      log(`[3] 既存本文クリア済（--replace-body・${curBody.trim().length}字→0・img0）`);
     }
     for (const line of listing.bodyText.split(/\r?\n/)) {
       if (line.trim() === '') { await page.keyboard.press('Enter'); continue; }
@@ -150,6 +155,15 @@ try {
       await page.keyboard.press('Enter');
     }
     log('[3] 本文挿入');
+  }
+
+  // 3b. 本文図版の挿入（--insert-figures）。重複防止のため --replace-body 併用推奨。
+  if (INSERT_FIGURES) {
+    const figs = JSON.parse(readFileSync(INSERT_FIGURES, 'utf8'));
+    for (const f of figs) { if (!existsSync(join(ROOT, f.image))) { log(`ABORT: 図版画像が不在: ${f.image}`); process.exit(3); } }
+    try { await insertFigures(page, pm, figs, { ROOT, log }); }
+    catch (e) { log(`ABORT: 図版挿入失敗 ${e.message}`); await page.screenshot({ path: shot('brain-pub-figfail.png') }).catch(() => {}); process.exit(3); }
+    log(`[3b] 図版 ${figs.length} 点挿入`);
   }
 
   // 4. メイン画像（未設定なら。「販売設定に進む」でエラーモーダルが出るかで判定）

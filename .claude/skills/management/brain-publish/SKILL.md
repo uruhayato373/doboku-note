@@ -57,3 +57,9 @@ node scripts/brain-publish.mjs --service <id> --edit-url <editUrl> --commit --fo
 ```
 node scripts/brain-publish.mjs --service <id> --edit-url <editUrl> --commit --force-resubmit --replace-body [--set-category <label>]
 ```
+
+本文に**図版を挿入**するなら `--insert-figures <json>`（`[{after,image}]`）を併用。**重複防止のため必ず `--replace-body` と併用**（Brain は保存前でも画像を保持し、やり直すと重複する）。挿入ロジックは `scripts/lib/brain-figures.mjs`、図版は `.claude/config/brain/assets/figures/`。
+
+```
+node scripts/brain-publish.mjs --service <id> --edit-url <editUrl> --commit --force-resubmit --replace-body --insert-figures figs.json --set-category 資格
+```
