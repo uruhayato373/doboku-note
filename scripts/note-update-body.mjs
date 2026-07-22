@@ -74,6 +74,7 @@ const KEEP_BOUNDARY = argv.includes('--keep-boundary'); // 有料: 境界を動�
 const BOUNDARY_ARG = getArg('--boundary-h2');      // 明示指定は frontmatter paidBoundary より優先
 const IMAGES_ONLY = argv.includes('--images-only'); // 全文置換せず画像だけ追加（PDF添付カード保護）
 const IMG_LENIENT = argv.includes('--img-lenient'); // 画像挿入 failed でも続行（既定は ABORT）
+const TRIAL_LINE_BOTTOM = argv.includes('--trial-line-bottom'); // メンバーシップ試し読み: ラインを末尾直前に置き ほぼ全文を無料プレビュー化（入口LP復旧用）
 
 // 目次が「最初のh2より後」に入って直せなかった記事（バッチ末尾サマリで失敗として可視化する）
 const tocProblems = [];
@@ -299,7 +300,9 @@ async function publishLive(page, noteId, boundary = '試験問題|予想問題')
       await sleep(1800);
       const a = await page.getByRole('button', { name: '有料エリア設定' }).count();
       const u = await page.getByRole('button', { name: '更新する', exact: true }).count();
-      if (a || u) { onSettings = true; break; }
+      // メンバーシップ連携記事（合格ラボ等）は 有料エリア設定 でなく 試し読みエリアを設定 が出る
+      const s = await page.getByRole('button', { name: '試し読みエリアを設定', exact: true }).count();
+      if (a || u || s) { onSettings = true; break; }
     }
   }
   if (!onSettings) { console.error('[5] ABORT: 公開設定ページに到達せず。保存せず終了。'); await page.screenshot({ path: join(ROOT, `.tmp/nu-nosettings-${noteId}.png`) }); return false; }
@@ -355,6 +358,35 @@ async function publishLive(page, noteId, boundary = '試験問題|予想問題')
     console.log('[5b] boundary verify:', JSON.stringify(v));
     await page.screenshot({ path: join(ROOT, `.tmp/nu-boundary-${noteId}.png`) });
     if (!v.boundaryBeforeExam) { console.error('[5b] ABORT: 有料境界が「予想問題/試験問題」直前に揃わない。保存せず中断（paywall 保護）。'); return false; }
+  } else if (await page.getByRole('button', { name: '試し読みエリアを設定', exact: true }).count()) {
+    // メンバーシップ連携記事（合格ラボ等・price=0 だが is_limited=true の会員限定）。
+    // 「試し読みエリアを設定」を押すと「更新する」が出る。既存の試し読みライン（無料プレビュー
+    // 範囲）は保持したいので、ラインを一切動かさずビューを進めるだけにする（paywall/会員境界保護）。
+    // メンバーシップ連携記事（合格ラボ等・price=0 だが is_limited=true の会員限定）。
+    // 「試し読みエリアを設定」を押すと「更新する」が出る。既定はラインを動かさず更新へ進む（会員境界保護）。
+    console.log('[5b] メンバーシップ試し読みフロー' + (TRIAL_LINE_BOTTOM ? '（ラインを末尾直前に設置＝ほぼ全文プレビュー）' : '（ラインを動かさず更新へ進む）'));
+    await page.getByRole('button', { name: '試し読みエリアを設定', exact: true }).first().click();
+    await sleep(4000);
+    if (TRIAL_LINE_BOTTOM) {
+      // 入口LP復旧: 試し読みラインを「末尾の1つ手前」に置く。絶対最後（本文最終要素の後）だと
+      // ライン以下=会員限定にする中身が0で無効になり note が全文ロックに戻す（2026-07 まるごとパック実測）。
+      // 末尾直前なら最終要素だけが会員限定の"しっぽ"となり、それ以外＝ほぼ全文が無料プレビューになる。
+      const set = await page.evaluate(() => {
+        const btns = [...document.querySelectorAll('button,[role=button]')].filter((b) => /ラインをこの場所に変更/.test(b.innerText || ''));
+        if (btns.length < 2) return { ok: false, count: btns.length };
+        const target = btns[btns.length - 2]; // 末尾の1つ手前
+        target.scrollIntoView({ block: 'center' });
+        target.click();
+        return { ok: true, count: btns.length };
+      });
+      await sleep(3000);
+      const hasLine = await page.evaluate(() => document.querySelector('.paywall-line') !== null);
+      console.log(`[5b] 試し読みライン設置(末尾-1): buttons=${set.count} 確定line(.paywall-line)=${hasLine}`);
+      await page.screenshot({ path: join(ROOT, `.tmp/nu-trialline-${noteId}.png`) });
+      if (!set.ok || !hasLine) { console.error('[5b] ABORT: 試し読みライン設置を確認できず。保存せず中断（会員境界保護）。'); return false; }
+    } else {
+      await page.screenshot({ path: join(ROOT, `.tmp/nu-trialarea-${noteId}.png`) });
+    }
   } else {
     console.log('[5b] 無料記事（有料エリア設定ボタンなし）→ 境界処理をスキップ');
   }
