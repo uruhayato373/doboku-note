@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 660" font-family="'Hiragino Sans','Noto Sans JP',sans-serif">
+  <defs>
+    <marker id="ar" markerWidth="12" markerHeight="12" refX="8" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#2a5f96"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1200" height="660" fill="#ffffff"/>
+  <rect x="1" y="1" width="1198" height="658" fill="none" stroke="#d8dde3" stroke-width="2" rx="14"/>
+
+  <text x="48" y="64" font-size="30" font-weight="700" fill="#181a1f">施工経験記述を「設計 → 検証」する流れ</text>
+  <text x="48" y="100" font-size="20" fill="#5a5f6a">完成答案の代筆ではなく、あなたの経験を自分で答案の形に組み立てる作業環境です</text>
+
+  <!-- stage boxes -->
+  <g>
+    <!-- 1 -->
+    <rect x="48" y="160" width="248" height="150" rx="12" fill="#edf3fa" stroke="#2a5f96" stroke-width="2"/>
+    <circle cx="78" cy="192" r="16" fill="#2a5f96"/><text x="78" y="199" font-size="20" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+    <text x="106" y="199" font-size="22" font-weight="700" fill="#181a1f">工事経験を入力</text>
+    <text x="72" y="240" font-size="18" fill="#33363d">入力シートに、あなたが</text>
+    <text x="72" y="266" font-size="18" fill="#33363d">実際に担当した工事を記入</text>
+    <text x="72" y="292" font-size="18" fill="#33363d">（不明な数値は空欄のまま）</text>
+
+    <!-- 2 -->
+    <rect x="330" y="160" width="248" height="150" rx="12" fill="#fbfcfe" stroke="#c9d3df" stroke-width="2"/>
+    <circle cx="360" cy="192" r="16" fill="#2a5f96"/><text x="360" y="199" font-size="20" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+    <text x="388" y="199" font-size="22" font-weight="700" fill="#181a1f">設問の要求を固定</text>
+    <text x="354" y="240" font-size="18" fill="#33363d">問題文から「何を・何項目・</text>
+    <text x="354" y="266" font-size="18" fill="#33363d">何字以内で書くか」を</text>
+    <text x="354" y="292" font-size="18" fill="#33363d">先に抽出してから書く</text>
+
+    <!-- 3 -->
+    <rect x="612" y="160" width="248" height="150" rx="12" fill="#fbfcfe" stroke="#c9d3df" stroke-width="2"/>
+    <circle cx="642" cy="192" r="16" fill="#2a5f96"/><text x="642" y="199" font-size="20" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+    <text x="670" y="199" font-size="22" font-weight="700" fill="#181a1f">作成 ⇄ 評価を分離</text>
+    <text x="636" y="240" font-size="18" fill="#33363d">Generator が答案案を作成、</text>
+    <text x="636" y="266" font-size="18" fill="#33363d">Reviewer が矛盾・不足を</text>
+    <text x="636" y="292" font-size="18" fill="#33363d">独立レビュー（自己承認回避）</text>
+
+    <!-- 4 -->
+    <rect x="894" y="160" width="258" height="150" rx="12" fill="#edf3fa" stroke="#2a5f96" stroke-width="2"/>
+    <circle cx="924" cy="192" r="16" fill="#2a5f96"/><text x="924" y="199" font-size="20" font-weight="700" fill="#fff" text-anchor="middle">4</text>
+    <text x="952" y="199" font-size="22" font-weight="700" fill="#181a1f">字数検査 → 承認</text>
+    <text x="918" y="240" font-size="18" fill="#33363d">解答欄の字数を機械確認</text>
+    <text x="918" y="266" font-size="18" fill="#33363d">（1級200字 / 2級250字目安）</text>
+    <text x="918" y="292" font-size="18" fill="#33363d">最終判断は本人</text>
+
+    <!-- arrows -->
+    <line x1="300" y1="235" x2="326" y2="235" stroke="#2a5f96" stroke-width="3" marker-end="url(#ar)"/>
+    <line x1="582" y1="235" x2="608" y2="235" stroke="#2a5f96" stroke-width="3" marker-end="url(#ar)"/>
+    <line x1="864" y1="235" x2="890" y2="235" stroke="#2a5f96" stroke-width="3" marker-end="url(#ar)"/>
+  </g>
+
+  <!-- stop callout -->
+  <rect x="48" y="372" width="1104" height="96" rx="12" fill="#fdf2ee" stroke="#b4472e" stroke-width="2"/>
+  <text x="76" y="412" font-size="22" font-weight="700" fill="#b4472e">捏造しない設計：情報が足りなければ UNKNOWN で停止</text>
+  <text x="76" y="446" font-size="19" fill="#5a3a30">工事名・工期・施工量・役割・処置が入力に無ければ、AIは推測で埋めず止まります。経験していない工事は答案化しません。</text>
+
+  <text x="48" y="540" font-size="20" font-weight="700" fill="#181a1f">この教材が用意する3つの軸</text>
+  <text x="48" y="574" font-size="19" fill="#33363d">・設問制約を先に固定する　　・経験していないことは書かせない（UNKNOWN 停止）　　・作る役と確かめる役を分ける</text>
+
+  <text x="1152" y="628" font-size="17" fill="#98a0ac" text-anchor="end">doboku-note</text>
+</svg>
