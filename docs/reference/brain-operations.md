@@ -71,8 +71,9 @@ check-brain-wiring green → dist R2 200 確認
 
 ## 4. 審査後運用
 
-- **通過**: status を `listed` へ・`listedAt` 記録（手動 flip・brain-operator）。外部導線（note入口記事の公開・/links 掲載検討）はこの時点から。カテゴリは申請時「ビジネス」→ Brain には「資格」カテゴリがあるため変更を検討。
+- **通過**: status を `listed` へ・`listedAt` 記録（手動 flip・brain-operator）。外部導線（note入口記事の公開・/links 掲載）はこの時点から（`listedBrainProducts()` が status=listed のみ /links に描画＝submitted 中は自動非表示）。
 - **却下**: status を `rejected`・指摘を listings へ反映 → `--force-resubmit` で再申請。
+- **カテゴリ変更**: Brain はカテゴリを**申請時設定**として扱う（in-place 編集不可）＝変更は販売設定→有料エリア→**再申請**を通り、公開中でも**再審査**に入る。自動化は `node scripts/brain-publish.mjs --service <id> --edit-url <editUrl> --commit --force-resubmit --set-category <label>`（販売設定ステップ 5b でカテゴリ v-select を選択）。**カテゴリ v-select は仮想リスト**＝候補は wheel スクロールで DOM 化してから click（§6）。実測の全候補（15・2026-07-23）: ビジネス / AI / SNS / 動画編集 / マーケティング / YouTube / デザイン / お金 / ライティング / 物販 / SEO・ブログ / プログラミング / 恋愛・人間関係 / 健康・食事・美容 / **資格**。Claude Code キットは初期「ビジネス」→ 2026-07-23 に両商品を「資格」へ再申請（審査待ち）。
 - 売上記録: `/record-sales`（productId=`brain:<id>`・sales-recorder 台帳へ追加してから使う）。
 
 ## 5. 安全弁
@@ -92,7 +93,8 @@ check-brain-wiring green → dist R2 200 確認
 | 初回「記事を書く」で審査ガイドライン同意モーダル | --agree gate（§5-1） |
 | タイトル=textarea[placeholder*=タイトル]・本文=`.tiptap.ProseMirror` | 本文は行単位 `insertText`＋Enter（段落生成） |
 | メイン画像必須（無いと販売設定に進めない） | input[type=file]#0 → トリミング「**適用**」必須（押さないと overlay がブロック） |
-| **販売設定（価格等）はセッション状態＝保存されない** | --commit は価格〜申請を必ず1セッションで実行 |
+| **販売設定（価格等）はセッション状態＝保存されない** | --commit は価格〜申請を必ず1セッションで実行（未 submit なら何も保存されない＝カテゴリ選択の selector 検証は非破壊で可能） |
+| カテゴリ＝Vuetify v-select の**仮想リスト**（表示中の項目のみ DOM 化）。スクロール前の抽出は途中で切れる（12件で誤って全件と誤認した事故） | 開いた後、`.v-overlay-container .v-list` を wheel スクロールしながら目的ラベルが DOM 化されるまで探索→`.v-list-item` 厳密一致で click→field 表示テキストで assert（`--set-category` 実装） |
 | 有料ライン UI=段落間の「ラインをこの場所に変更」（非 button 要素）・現在位置は「有料ライン〜」prefix | innermost＋compareDocumentPosition で marker 直前をクリック。**assert は body.innerText（可視テキスト）**＝各コントロールに非表示代替ラベルがあり DOM 検査は誤検知（activeCount 53 事故） |
 | 公開申請は確認モーダル2段（販売設定サマリ表示） | モーダル内の価格を assert してから最終「公開申請する」 |
 | ログイン待ち中の evaluate が navigation で落ちる | waitForLogin は try/catch polling |

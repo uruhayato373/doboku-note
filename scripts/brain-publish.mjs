@@ -27,6 +27,8 @@
  *   node scripts/brain-publish.mjs --service brain-civil-essay-kit                # 下書きまで
  *   node scripts/brain-publish.mjs --service <id> --commit                        # 公開申請まで
  *   node scripts/brain-publish.mjs --service <id> --edit-url <url> [--commit]     # 既存ドラフト再開
+ *   node scripts/brain-publish.mjs --service <id> --edit-url <url> --commit --force-resubmit --set-category 資格
+ *                                                                                # カテゴリ変更（販売設定で v-select 選択→再申請＝再審査）
  */
 import { appendFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
@@ -42,6 +44,9 @@ const EDIT_URL = getArg('--edit-url');
 const COMMIT = argv.includes('--commit');
 const AGREE = argv.includes('--agree');
 const FORCE = argv.includes('--force-resubmit');
+// --set-category <label>: 販売設定でカテゴリを指定ラベルへ変更（仮想リストをスクロール探索）。
+// 指定時は commit 時にカテゴリを再選択して再申請する（Brain はカテゴリを申請時設定として扱うため）。
+const SET_CATEGORY = getArg('--set-category');
 if (!SERVICE) { console.error('--service <id> required（brain-products.ts の id）'); process.exit(1); }
 
 const OUT = join(ROOT, '.tmp', `brain-publish-${SERVICE}.log`);
@@ -167,6 +172,29 @@ try {
   const shown = (await priceInput.inputValue()).replace(/[^\d]/g, '');
   if (shown !== String(svc.priceYen)) { log(`ABORT: 価格未反映 ("${shown}")`); process.exit(3); }
   log(`[5] 販売金額 = ${svc.priceYen}`);
+
+  // 5b. カテゴリ変更（--set-category）。v-select は仮想リスト＝wheelスクロールで目的をDOM化→click→assert。
+  if (SET_CATEGORY) {
+    const esc = SET_CATEGORY.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const catField = page.locator('.v-select, .v-field, [role="combobox"]').filter({ hasText: /ビジネス|資格|カテゴリ/ }).first();
+    if (!(await catField.count())) { log('ABORT: カテゴリ field 未検出'); await page.screenshot({ path: shot('brain-pub-nocatfield.png') }); process.exit(3); }
+    await catField.click();
+    await page.waitForTimeout(1500);
+    let catFound = false;
+    for (let i = 0; i < 25 && !catFound; i++) {
+      const cur = await page.evaluate(() => { const c = document.querySelector('.v-overlay-container') || document; return [...c.querySelectorAll('.v-list-item')].map((e) => (e.textContent || '').trim()); });
+      if (cur.some((t) => t === SET_CATEGORY)) { catFound = true; break; }
+      const box = await page.evaluate(() => { const l = document.querySelector('.v-overlay-container .v-list, .v-overlay-container [class*="list"]'); if (!l) return null; const r = l.getBoundingClientRect(); return { x: r.x + r.width / 2, y: r.y + r.height / 2 }; });
+      if (box) { await page.mouse.move(box.x, box.y); await page.mouse.wheel(0, 220); } else { await page.keyboard.press('ArrowDown'); }
+      await page.waitForTimeout(500);
+    }
+    if (!catFound) { log(`ABORT: カテゴリ候補に "${SET_CATEGORY}" が無い`); await page.screenshot({ path: shot('brain-pub-nocat.png') }); process.exit(3); }
+    await page.locator('.v-overlay-container .v-list-item').filter({ hasText: new RegExp(`^${esc}$`) }).first().click({ timeout: 4000 });
+    await page.waitForTimeout(1500);
+    const catNow = (await catField.innerText().catch(() => '')).replace(/\s+/g, ' ').trim();
+    if (!catNow.includes(SET_CATEGORY)) { log(`ABORT: カテゴリ未反映 ("${catNow}")`); await page.screenshot({ path: shot('brain-pub-catfail.png') }); process.exit(3); }
+    log(`[5b] カテゴリ = ${SET_CATEGORY}`);
+  }
 
   // 6. 有料エリア: paidMarker 直前のラインコントロールをクリック
   await page.locator('button:has-text("有料エリアの設定に進む")').first().click();
