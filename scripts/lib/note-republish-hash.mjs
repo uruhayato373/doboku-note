@@ -31,9 +31,10 @@ export function saveState(st) {
 // 注意: CTA だけを追記する note-append-cta は本文全体を反映しないため呼ばない（フル反映のみ in-sync 化）。
 export function recordPublishedHash(filePath) {
   try {
-    const raw = readFileSync(filePath, 'utf8');
+    const key = String(filePath).replaceAll('\\', '/'); // Windows の \ を state キー(/)に正規化（重複キー防止）
+    const raw = readFileSync(key, 'utf8');
     const st = loadState();
-    st.hashes[filePath] = bodyHash(raw);
+    st.hashes[key] = bodyHash(raw);
     st.updatedAt = new Date().toISOString().slice(0, 10);
     saveState(st);
     return true;

@@ -31,7 +31,7 @@ const SINCE = (() => { const i = args.indexOf('--since'); return i >= 0 ? args[i
 function walk(dir, acc = []) {
   if (!existsSync(dir)) return acc;
   for (const name of readdirSync(dir, { withFileTypes: true })) {
-    const p = join(dir, name.name);
+    const p = join(dir, name.name).replaceAll('\\', '/'); // Windows の \ を state キー(/)に正規化
     if (name.isDirectory()) walk(p, acc);
     else if (name.name === 'article.md') acc.push(p);
   }
