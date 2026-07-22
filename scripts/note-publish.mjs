@@ -38,7 +38,7 @@ import { chromium } from 'playwright';
 import { readFileSync, existsSync, writeFileSync } from 'node:fs';
 import { join, dirname, basename, resolve, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { recordPublishedHash } from './lib/note-republish-hash.mjs';
+import { recordPublishedHash, recordPublishedTagHash } from './lib/note-republish-hash.mjs';
 import { cardifyBareUrls, repairUrlHeadings, listUrlHeadingsInEditor } from './lib/note-cardify.mjs';
 import { extractBodyImages, insertImagesAtPlaceholders } from './lib/note-images.mjs';
 import { assertLiveBody } from './lib/note-live-check.mjs';
@@ -388,6 +388,8 @@ try {
         console.log('[12] frontmatter 反映:', cleanUrl, publishDate, `status=${statusVal}`);
         // 再公開ドリフト検出用に「公開時点の本文ハッシュ」を記録（in-sync 化）。best-effort。
         if (recordPublishedHash(relative(ROOT, articleAbs))) console.log('[12b] 再公開ハッシュ記録');
+        // タグも公開時に適用済み（Phase 10）→ タグハッシュも in-sync 化（本文とは別トラック）。
+        if (tags.length && tagsFile && recordPublishedTagHash(relative(ROOT, tagsFile))) console.log('[12c] 再公開タグハッシュ記録');
       }
     } catch (e) { console.log('[12] frontmatter 反映 skip:', e.message.split('\n')[0]); }
   };

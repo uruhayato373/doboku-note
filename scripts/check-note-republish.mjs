@@ -20,7 +20,7 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { bodyHash, loadState, saveState, STATE } from './lib/note-republish-hash.mjs';
+import { bodyHash, tagsHashFile, tagsHashRaw, loadState, saveState, STATE } from './lib/note-republish-hash.mjs';
 
 const ROOT = 'docs/note';
 const args = process.argv.slice(2);
@@ -42,11 +42,13 @@ function fm(raw, key) {
   return m ? m[1].trim().replace(/^["']|["']$/g, '') : null;
 }
 
-let changedSet = null;
+let changedSet = null, changedTagSet = null;
 if (SINCE) {
   try {
     const out = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--name-only', `${SINCE}..HEAD`], { encoding: 'utf8' });
-    changedSet = new Set(out.split('\n').map((s) => s.trim()).filter((s) => s.endsWith('/article.md')));
+    const all = out.split('\n').map((s) => s.trim());
+    changedSet = new Set(all.filter((s) => s.endsWith('/article.md')));
+    changedTagSet = new Set(all.filter((s) => /(^|\/)hashtags(-[^/]+)?\.txt$/.test(s)));
   } catch (e) {
     console.error(`[check-note-republish] --since ${SINCE} の git diff に失敗: ${e.message}`);
     process.exit(2);
@@ -82,21 +84,75 @@ for (const f of files) {
   else drift.push(f);
 }
 
+// ---- タグ再公開ドリフト（hashtags*.txt 単位・本文とは独立トラック） ----
+function walkTags(dir, acc = []) {
+  if (!existsSync(dir)) return acc;
+  for (const name of readdirSync(dir, { withFileTypes: true })) {
+    const p = join(dir, name.name).replaceAll('\\', '/');
+    if (name.isDirectory()) walkTags(p, acc);
+    else if (/^hashtags(-[^/]+)?\.txt$/.test(name.name)) acc.push(p);
+  }
+  return acc;
+}
+// hashtags ファイル → 対応 article ファイル（hashtags-II1.txt → article-II1.md、hashtags.txt → article.md）
+function articleForTags(hp) {
+  const dir = hp.replace(/\/[^/]+$/, '');
+  const m = hp.replace(/^.*\//, '').match(/^hashtags(-[^.]+)?\.txt$/);
+  const cand = `${dir}/article${m && m[1] ? m[1] : ''}.md`;
+  return existsSync(cand) ? cand : null;
+}
+
+const tagState = (st.tagHashes ||= {});
+const tagSynced = [], tagDrift = [], tagUnknown = [];
+let tagBaselined = 0;
+for (const hp of walkTags(ROOT)) {
+  const art = articleForTags(hp);
+  if (!art) continue;
+  if (!fm(readFileSync(art, 'utf8'), 'noteUrl')) continue; // 未公開は対象外（次回公開時にタグ適用）
+  const cur = tagsHashFile(hp);
+  if (cur == null) continue;
+  const rec = tagState[hp];
+  if (BASELINE) {
+    if (SINCE && changedTagSet && changedTagSet.has(hp)) {
+      let old = null;
+      try { old = tagsHashRaw(execFileSync('git', ['show', `${SINCE}:${hp}`], { encoding: 'utf8' })); } catch { /* ref時点に無い */ }
+      if (old && old !== cur) { tagState[hp] = old; tagBaselined++; tagDrift.push(hp); }
+      else if (old) { tagState[hp] = cur; tagBaselined++; tagSynced.push(hp); }
+      else tagUnknown.push(hp);
+      continue;
+    }
+    tagState[hp] = cur; tagBaselined++; tagSynced.push(hp);
+    continue;
+  }
+  if (!rec) tagUnknown.push(hp);
+  else if (rec === cur) tagSynced.push(hp);
+  else tagDrift.push(hp);
+}
+
 if (BASELINE) { st.updatedAt = new Date().toISOString().slice(0, 10); saveState(st); }
 
 if (JSON_OUT) {
-  console.log(JSON.stringify({ synced: synced.length, drift: drift.length, unknown: unknown.length, driftFiles: drift, unknownFiles: unknown }, null, 2));
+  console.log(JSON.stringify({
+    synced: synced.length, drift: drift.length, unknown: unknown.length, driftFiles: drift, unknownFiles: unknown,
+    tagSynced: tagSynced.length, tagDrift: tagDrift.length, tagUnknown: tagUnknown.length, tagDriftFiles: tagDrift, tagUnknownFiles: tagUnknown,
+  }, null, 2));
   process.exit(0);
 }
 if (BASELINE) {
-  console.log(`[check-note-republish] baseline 記録=${baselined} → synced=${synced.length} 要再公開(drift)=${drift.length} 未初期化(新規)=${unknown.length}${SINCE ? ` (--since ${SINCE})` : ''}`);
+  console.log(`[check-note-republish] 本文 baseline=${baselined}（drift=${drift.length}）／タグ baseline=${tagBaselined}（drift=${tagDrift.length}）${SINCE ? ` (--since ${SINCE})` : ''}`);
   console.log(`  state: ${STATE}`);
   process.exit(0);
 }
-console.log(`[check-note-republish] 公開記事=${synced.length + drift.length + unknown.length}  synced=${synced.length}  要再公開(drift)=${drift.length}  未初期化=${unknown.length}`);
+console.log(`[check-note-republish] 公開記事=${synced.length + drift.length + unknown.length}  synced=${synced.length}  要再公開(本文drift)=${drift.length}  未初期化=${unknown.length}`);
+console.log(`[check-note-republish] タグ: 公開=${tagSynced.length + tagDrift.length + tagUnknown.length}  synced=${tagSynced.length}  要再公開(タグdrift)=${tagDrift.length}  未初期化=${tagUnknown.length}`);
 if (drift.length) {
-  console.log('\n■ 要再公開（ソース本文が公開時から変更されている）:');
+  console.log('\n■ 要再公開（本文が公開時から変更）:');
   for (const f of drift) console.log('  ' + f.replace(/^docs\/note\//, '').replace(/\/article\.md$/, ''));
 }
-if (unknown.length) console.log(`\n□ 未初期化 ${unknown.length}件（notePublishedHash 未記録・baseline で初期化するか要再公開判断）`);
+if (tagDrift.length) {
+  console.log('\n■ 要再公開（ハッシュタグが公開時から変更）:');
+  for (const f of tagDrift) console.log('  ' + f.replace(/^docs\/note\//, ''));
+}
+if (unknown.length) console.log(`\n□ 本文未初期化 ${unknown.length}件（baseline で初期化するか要再公開判断）`);
+if (tagUnknown.length) console.log(`□ タグ未初期化 ${tagUnknown.length}件（baseline で初期化）`);
 process.exit(0);

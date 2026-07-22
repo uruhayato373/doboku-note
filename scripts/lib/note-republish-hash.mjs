@@ -40,3 +40,41 @@ export function recordPublishedHash(filePath) {
     return true;
   } catch { return false; }
 }
+
+// ---- ハッシュタグ再公開ドリフト（本文とは別トラック。tagHashes: {hashtagsPath→hash}） ----
+// タグはハッシュタグファイル（hashtags.txt / 型別 hashtags-<type>.txt）に持ち、本文 hash には含まれない。
+// note-publish が公開時にタグを適用するため、公開時にこのタグ hash を記録し in-sync 化する。
+// note-update-body はタグを適用しないので呼ばない（本文のみ反映）。
+
+// タグ集合の正規化 hash。行/空白で分割し # 除去・重複除去・ソート（順序非依存）。
+export function tagsHashRaw(raw) {
+  const seen = new Set();
+  for (const line of String(raw).split(/\r?\n/)) {
+    for (const tok of line.split(/\s+/)) {
+      const t = tok.trim().replace(/^#/, '');
+      if (t) seen.add(t);
+    }
+  }
+  const norm = [...seen].sort().join('\n');
+  return createHash('sha256').update(norm, 'utf8').digest('hex').slice(0, 16);
+}
+
+// hashtags ファイルパス → タグ hash（読めなければ null）。
+export function tagsHashFile(hashtagsPath) {
+  try { return tagsHashRaw(readFileSync(String(hashtagsPath).replaceAll('\\', '/'), 'utf8')); }
+  catch { return null; }
+}
+
+// hashtags ファイルの現タグ hash を tagHashes に記録し in-sync 化。best-effort。
+export function recordPublishedTagHash(hashtagsPath) {
+  try {
+    const key = String(hashtagsPath).replaceAll('\\', '/');
+    const h = tagsHashFile(key);
+    if (h == null) return false;
+    const st = loadState();
+    (st.tagHashes ||= {})[key] = h;
+    st.updatedAt = new Date().toISOString().slice(0, 10);
+    saveState(st);
+    return true;
+  } catch { return false; }
+}
