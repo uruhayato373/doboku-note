@@ -117,30 +117,17 @@ note一覧の小さいサムネイルで主題と読後価値を瞬時に把握�
 - **著者属性の厳守**: 著者は**元発注者**であり添削者ではない。カバー訴求は `元発注者の視点で解説` とし、「添削者」「添削者視点」を使わない。
 - **完了条件**: variantなし既存G2に差分なし／主要情報が中央590pxに収まる／fit検査対応／通常版を最後に再生成してdebug枠なし／テストと目視確認完了。
 
-### Brain向け Claude Code「施工経験記述」設計キットをβ商品化
-タグ: [収益化] [Codex候補]
+### Brain 2商品の審査後フォローと販売運用（2026-07-22 申請済み）
+タグ: [収益化] [技術士総監] [1級2級土木]
 
-既存のGenerator／Evaluator分離、本人経験入力、字数検査、捏造防止を汎用化し、1級・2級土木の施工経験記述を設計・検証する非公式Claude Codeスキル商品を作る。内部の有料答案・PDF・認証情報は含めず、別の非公開リポジトリで商品本体を開発する案を優先する。
+両商品とも制作〜Brain公開申請まで完了（Playwright全自動・審査は原則24h・結果はメール）。旧「β商品化」「スキル商品化」タスクは完了につき本エントリへ置換（2026-07-22）。
 
-- **商品企画**: [00-product-spec.md](../project/05_プロダクト/brain-claude-code-essay-skill/00-product-spec.md)
-- **配布仕様**: [01-package-spec.md](../project/05_プロダクト/brain-claude-code-essay-skill/01-package-spec.md)
-- **販売原稿**: [02-brain-sales-page-draft.md](../project/05_プロダクト/brain-claude-code-essay-skill/02-brain-sales-page-draft.md)
-- **公開チェック**: [03-publication-checklist.md](../project/05_プロダクト/brain-claude-code-essay-skill/03-publication-checklist.md)
-- **制作順序**: [04-build-plan.md](../project/05_プロダクト/brain-claude-code-essay-skill/04-build-plan.md)
-- **未決定**: 初版スコープ、商品本体の作成先、サンプル問題の権利方針、動画・質問対応の有無。
-- **公開禁止条件**: 採点者・添削者・合格保証の誤認表現、本人未経験工事の自動生成、内部有料資料・秘密情報の混入が1つでも残る場合は公開しない。
-
-### Brain向け Claude Code「出題テーマ分析・国家施策バンク」スキルを商品化
-タグ: [収益化] [技術士総監] [Codex候補]
-
-R8総監記述式で出題された「地方創生」を、2026-06-01公開の設問(3)国家施策バンクへ事前収録していた実績をケーススタディにする。完成答案や的中保証ではなく、過去問・白書・政府計画から「候補抽出→採点→5管理との接続→想定設問→国家施策答案部品→独立評価→証拠保存」を行う再現可能なClaude Codeワークフローを販売する。
-
-- **商品企画**: [00-product-concept.md](../project/05_プロダクト/brain-r8-policy-prediction-skill/00-product-concept.md)
-- **既存商品との関係**: 施工経験記述キットの付録にはせず、技術士総監向けの上位／別商品とする。
-- **最優先検証**: R6～R8を、各試験日前に取得可能だった資料だけで時点再現バックテストする。
-- **実績表現**: 「設問(3)国家施策バンクで地方創生を事前収録」。R8予想問題集の本命・問題全文の完全的中とは表現しない。
-- **未決定**: 初版範囲、商品本体の作成先、β価格、年度更新方法、動画・質問対応の有無。
-- **公開禁止条件**: バックテスト未完了、判定基準未定義、外れ候補の非開示、合格・的中保証、内部有料資産・秘密情報の混入が1つでも残る場合は公開しない。
+- **申請済み**: ①施工経験記述キット ¥7,980（`brain-market.com/a/b5EDO3UjMgoTZsNWa0JXY`）／②総監施策バンク ¥9,800（`.../a/b1IDO3UjMgoTZsNWa0JXY`）。ココナラは両商品 listed 済（¥3,000／¥2,500PDF・/links 反映済）
+- **審査結果メールを確認**: 通過→販売開始の告知（note入口記事2本の手動公開＝`docs/note/技術士総監/出題テーマ分析-R8地方創生検証/`・`docs/note/1級・2級土木/経験記述-AI設計-無料/`、published:false のまま待機中）。却下→指摘に沿って修正・再申請（編集は `.tmp/brain-post*.mjs` のノウハウ＝memory 参照）
+- **カテゴリ変更**: 両記事とも「ビジネス」で申請。Brain には「資格」カテゴリあり→審査通過後に変更検討
+- **納品オペ**: ココナラ注文時はトークルームで送付（①=`C:\tmp\claude-code-civil-essay-kit-coconala.zip` 外部URL除去版／②=`.claude/config/coconala/assets/pdf/coconala-sokan-bunseki.pdf`）。Brain は有料エリアの R2 リンクで自動（`storage.doboku-note.com/brain/dist/`）
+- **売上記録**: 発生したら `/record-sales`（productId 規約は sales-recorder 台帳済）
+- **経緯・検証記録**: 企画〜バックテスト＝[brain-r8-policy-prediction-skill/](../project/05_プロダクト/brain-r8-policy-prediction-skill/)（00〜07・統制run結果=04§6）／①仕様=[brain-claude-code-essay-skill/](../project/05_プロダクト/brain-claude-code-essay-skill/)／出品手順=[brain-publish-playbook.md](../project/05_プロダクト/brain-publish-playbook.md)
 
 ### note施策A: 1級一次択一PDF `civil-1-takuitsu-pdf` ¥1,980 を公開（10月上旬・Select 明け）
 タグ: [収益化]
