@@ -39,3 +39,13 @@ Brain 商品の出品（下書き作成〜公開申請）。運用・スキー�
 ## 二重申請防止
 
 カタログが submitted/listed の service は ABORT する（再申請は `--force-resubmit`）。
+
+## カテゴリ変更（再審査を伴う）
+
+Brain はカテゴリを**申請時設定**として扱う（in-place 変更不可）。変更は販売設定→有料エリア→**再申請**を通り、公開中でも**再審査**に入る（審査中は status=submitted で /links から自動非表示）。
+
+```
+node scripts/brain-publish.mjs --service <id> --edit-url <editUrl> --commit --force-resubmit --set-category <label>
+```
+
+販売設定ステップ 5b でカテゴリ v-select を選択（**仮想リスト**＝候補は wheel スクロールで DOM 化してから click→assert）。全候補・注意点は [brain-operations §4/§6](../../../../docs/reference/brain-operations.md)。
