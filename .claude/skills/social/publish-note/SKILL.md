@@ -31,7 +31,7 @@ browser-use CLI（Chrome プロファイル経由）で **note.com/dobokunote** 
 | 有料フラグ | frontmatter `is_paid` / `price_jpy` | frontmatter **`notePricing: paid`** / **`price: 500`** |
 | 有料境界マーカー | 本文中 `ここから先は有料部分:` 行 | **既定＝`## 試験問題`/`## 予想問題` 行の直前**（intro・「この記事でわかること」・冒頭CTA は無料プレビュー、試験問題＋解答以降が有料）。**境界見出しはコンテンツ型ごとに上書き可**＝Windows/Playwright 版 `note-publish.mjs` が frontmatter `paidBoundary`（H2 見出しの先頭一致 regex）または `--boundary-regex` を読む。**1級土木 完全攻略パック（工事別）は `paidBoundary: 品質管理`**（導入＋冒頭CTA＋想定工事概要が無料・5管理の完成答案以降が有料）。境界が見つからなければ公開中断（boundaryBeforeExam ゲート） |
 | マガジン名/説明/価格 | 各 vertical の設定 | **`総監模範論文-<persona>/note掲載文.txt`** からコピペ |
-| ハッシュタグ | 記事内 | **`<RXX>/hashtags.txt`**（90 個前後・単一行 space 区切り） |
+| ハッシュタグ | 記事内 | **`<RXX>/hashtags.txt`**（**90 個以上必須**〜99・**1 行 1 タグ**＝`#` 接頭辞・改行区切り。space 区切り単一行は note 側で 1 タグ扱いになる不良。`npm run check-note-hashtags` が機械検査、`--staged` で pre-commit ゲート。note-publish は 99 で打ち切り） |
 | アイキャッチ | 生成画像 | **`<RXX>/img/cover.png`** |
 | 購入特典PDF | なし | **`<RXX>/模範論文-*.pdf`**（有料エリアに添付。**Windows/Playwright では `note-attach-pdf`〔`note-attach-file.mjs`〕で自動化済**＝本 browser-use 系では半自動） |
 | 公開URL記録 | `note-published.json`（items） | **各記事 frontmatter `noteUrl`/`noteId`** ＋ `src/lib/note-magazines.ts`（マガジンURL・published） |

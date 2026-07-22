@@ -149,6 +149,12 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# note 記事ハッシュタグは 90 個以上（発見性ゲート・staged の hashtags*.txt のみ）
+node scripts/check-note-hashtags.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
 # ガイド OGP 主題フォントの下限（長い題が小さく出てカード間でばらつくのを防止、ogp-prompts.md）
 node scripts/check-ogp-title-fit.mjs --staged
 if [ $? -ne 0 ]; then

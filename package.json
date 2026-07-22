@@ -141,6 +141,7 @@
     "test": "node --test tests/*.test.mjs",
     "test:watch": "node --test --watch tests/*.test.mjs",
     "check-guide-length": "node scripts/check-guide-length.mjs",
+    "check-note-hashtags": "node scripts/check-note-hashtags.mjs",
     "quality-census": "node .claude/scripts/build-quality-census.mjs",
     "check-note-site-utm": "node scripts/check-note-site-utm.mjs",
     "check-note-republish": "node scripts/check-note-republish.mjs",
