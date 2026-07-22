@@ -117,6 +117,7 @@
     "check-handoff-extraction": "node scripts/check-handoff-extraction.mjs --staged",
     "check-sales-mapping": "node scripts/check-sales-mapping.mjs",
     "check-coconala-wiring": "node scripts/check-coconala-wiring.mjs",
+    "check-brain-wiring": "node scripts/check-brain-wiring.mjs",
     "coconala-research": "node scripts/coconala-research.mjs",
     "coconala-summary": "node scripts/coconala-research.mjs --summary-only",
     "coconala-discover": "node scripts/coconala-discover.mjs",

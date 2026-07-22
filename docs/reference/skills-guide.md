@@ -58,6 +58,7 @@ title: スキル ナビゲーションガイド
 | `/keiken-charcount` | 1級・2級土木 施工経験記述マガジン答案を解答欄しきい値で字数チェック（決定論的・暫定値） | `経験記述の字数確認`, `答案の字数オーバー検出`, `/keiken-charcount` |
 | `/keiken-tensaku` | 経験記述の顧客対応ドラフト生成（`civil-keiken-tensaku-drafter`）。①添削（既定・提出原稿→赤入れ）②作成（`--mode sakusei`・ココナラ S3・ヒアリング→答案ドラフト）③診断（`--mode shindan`・ココナラ S1・A/B/C＋ワースト3・書き換え文なし）。捏造禁止（回答にない事実を作らない） | `経験記述を添削`, `添削下書きを作成`, `経験記述の答案作成`, `ヒアリングから答案`, `経験記述を診断`, `/keiken-tensaku` |
 | `/coconala-publish` | ココナラ出品サービスを Playwright で新規出品・内容修正・価格反映（`coconala-operator`。カタログ＋listings SoT→フォーム充填。account assert＋draft-first＋`--commit` gate。公開成功でカタログ書き戻し） | `ココナラに出品`, `ココナラ出品を修正`, `ココナラ価格反映`, `/coconala-publish` |
+| `/brain-publish` | Brain キット商品を Playwright で出品・公開申請（`brain-operator`。カタログ＋listings SoT→Tiptap 充填。draft-first＋`--commit` gate・有料ライン/価格/確認モーダル assert・申請成功でカタログ書き戻し） | `Brainに出品`, `Brain商品を公開申請`, `/brain-publish` |
 | `/coconala-order` | ココナラ受注1件のE2E（`coconala-operator`。シート検証→`/keiken-tensaku`→納品文面ドラフト→orders-log 追記。最終赤入れ・送信は運営者） | `ココナラで受注した`, `ココナラの納品文面`, `/coconala-order` |
 | `/coconala-status` | ココナラ KPI 週次記録＋カタログ↔state↔sales 照合＋撤退ライン判定（read-only・数値は手動貼付。取得も是正もしない） | `ココナラの状態を確認`, `ココナラKPIを記録`, `/coconala-status` |
 | `/civil-figure-rework` | 1級土木 過去問1次の図クロップ品質ループ（extractor → auditor 最大3反復、1ページ単位 commit） | `過去問図再抽出`, `テキスト写り込み修正`, `/civil-figure-rework {exam-slug\|--all}` |

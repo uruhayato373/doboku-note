@@ -104,6 +104,14 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# Brain カタログ(brain-products.ts)↔listings↔dist の配線ドリフト検証（2026-07-22。スクリプトが無いブランチではスキップ＝並行セッション安全）
+if [ -f scripts/check-brain-wiring.mjs ]; then
+  node scripts/check-brain-wiring.mjs --staged
+  if [ $? -ne 0 ]; then
+    exit 1
+  fi
+fi
+
 # トップの資格カード(home-exam-cards.json)と categories.json の整合（公開済み新資格のトップ未掲載の再発防止）
 node scripts/check-home-exam-coverage.mjs
 if [ $? -ne 0 ]; then

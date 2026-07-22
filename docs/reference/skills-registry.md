@@ -21,7 +21,7 @@ title: スキル ガバナンス記録
 ├── authoring/       # 11 — 記事を作る
 ├── conversion/      # 7 — 形式変換（MDX / OGP 画像 / 紙用 PDF / Kindle EPUB）＋ KDP 入稿・出版 ＋ OGP 意匠の素案試作
 ├── quality/         # 16 — MDX・note 公開前品質検査
-├── management/      # 19 — 計画・分析・戦略
+├── management/      # 20 — 計画・分析・戦略
 ├── dev/             # 13 — 開発・CI/CD
 ├── analytics/       # 2 — サイト分析
 ├── social/          # 22 — SNS 投稿
@@ -29,7 +29,9 @@ title: スキル ガバナンス記録
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **93 スキル**（10 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+合計 **94 スキル**（10 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+
+> 2026-07-22 新設（Brain チャネルのエージェント化）: `management/brain-publish`（Brain＝brain-market.com へ Claude Code キット商品を Playwright で出品・公開申請する user-invocable スキル）＋**新エージェント `brain-operator`（Generator/オーケストレーター・sonnet）**。同日の実出品2件（①施工経験記述キット ¥7,980／②総監施策バンク ¥9,800・いずれも公開申請済）で確立したフローを恒久実装。カタログ SoT `src/lib/brain-products.ts`（coconala-services.ts 同型・status=draft/submitted/listed/rejected）・投入 SoT `.claude/config/brain-listings.json`（本文/画像/paidMarker・価格直書き禁止・配布URLは有料エリア内必須）・`brain-account.json`・実行系 `scripts/brain-publish.mjs`＋`scripts/lib/brain-session.mjs`（draft-first＋`--commit` gate・同意モーダルは `--agree`〔ユーザー許可〕gate・販売設定はセッション状態のため価格〜申請を1セッション・有料ラインは可視テキスト assert・確認モーダル価格 assert・偽成功防止）・機械ガード `scripts/check-brain-wiring.mjs`（pre-commit `--staged`・**ファイル存在ガード付き＝brain スクリプトの無い並行ブランチを壊さない**）を新設。配布は `.claude/config/brain/dist/`→`r2-brain-dist.yml`（workflow_dispatch）→`storage.doboku-note.com/brain/dist/`（トークン付URL）。運用 SSOT は新設 `docs/reference/brain-operations.md`（Brain UI のクセ表含む）。合計 `93→94`・management `19→20`・agents `+1`（`brain-operator`）。
 
 > 2026-07-20 改名＋多チャネル化（競合インテリジェンスを全販売チャネルへ横展開）: `management/note-competitor-review`→**`management/competitor-review`**（`--platform note|x|ig|coconala|brain|all`）、エージェント `note-competitor-analyst`→**`competitor-analyst`**（全チャネル横断・同一主体の名寄せ）、SSOT `09_note競合分析2026.md`→**`09_販売チャネル競合分析.md`** <!-- doc-ref:ignore -->（§A note＋§B〜§E スケルトン・07 との軸分担=価格/品揃えは09・エンゲージ/コンテンツ型は07 を両ヘッダに明記）。config はプラットフォーム別分離（repo 慣習）＝新規 `.claude/config/{x,ig,coconala,brain}-competitors.json`。`check-competitor-scan-due.mjs` を全チャネル別 lastScan 対応に。scout は note 既存＋ `coconala-research --competitors`／`scout-{x,ig,brain}-competitors.mjs`（順次実装）。X は実アカ Playwright read-only＋安全弁（§11 準拠）。**リネーム参照は 09=15/agent=9/skill=6 ファイルを機械 grep で全置換**（`.mjs`/`.json` は check-doc-refs 対象外のため手動洗い出し）。スキル件数は不変（改名）・agents 不変（改名）。前例=svg-figure-auditor の統合改名（2026-06-18）。
 
