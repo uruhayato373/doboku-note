@@ -50,8 +50,10 @@
    - **価格チップ**（2026-06-12 追加）: 各マガジンカードに `mag.price`（note-magazines.ts が SSoT＝自動追従でドリフトなし）を accent 色チップで表示。クリック前に価格・割引率が分かり CVR を高める。
    - 各試験見出しは accent バー + 体言ヒントの sub を添え、訪問者が自分の試験を素早く判断できるようにしている。
    - 建設部門の無料サイト導線は category `visible:false` のため未掲載（公開化時に `freeLinks` へ追加）。
-4. **運営者**: About カードへ（jobTitle を sub に表示、深掘りは /about。PC では SNS と 2 カラム並置）
-5. **SNS**: X（PC では運営者と 2 カラム並置）
+4. **単発の個別サービス（ココナラ）**: `listedCoconalaServices()` を 2 カラムグリッドで自動描画（`CoconalaSection`）。listed が 0 件ならセクションごと非表示（出品前の wire-ahead）。ココナラ URL に UTM は付けない（計測が外部で完結しパラメータが無駄に露出するため）
+5. **Claude Code 学習キット（Brain・DL商品）**: `listedBrainProducts()` を 2 カラムグリッドで自動描画（`BrainSection`）。ココナラ節と同じデータ駆動・0件非表示・UTM 非付与。note教材（フル答案）・ココナラ（個別添削）とは別種の「Claude Code で自作するダウンロードキット」として独立表示
+6. **運営者**: About カードへ（jobTitle を sub に表示、深掘りは /about。PC では SNS と 2 カラム並置）
+7. **SNS**: X（PC では運営者と 2 カラム並置）
 
 ## 4. データソース（SSoT）
 
@@ -59,6 +61,8 @@
 |---|---|---|
 | 運営者情報（名前・アバター・職歴・X URL） | `src/config/author.ts` | プロフィールヒーロー + SNS セクション |
 | 有料マガジン情報（タイトル・description・URL） | `src/lib/note-magazines.ts` | note 有料マガジンセクション |
+| ココナラ単発サービス（状態・価格・URL） | `src/lib/coconala-services.ts`（`listedCoconalaServices()`） | 単発の個別サービスセクション（listed のみ自動掲載） |
+| Brain キット商品（状態・価格・URL） | `src/lib/brain-products.ts`（`listedBrainProducts()`） | Claude Code 学習キットセクション（listed のみ自動掲載） |
 | M2 完全無料記事 URL | このページ内に直書き（`EXAM_SECTIONS[tankan].freeLinks`、M2 は note-magazines.ts に含めない仕様） | 総監の無料入口 |
 
 **M2 を note-magazines.ts に含めない理由**: M2 は 2026-05-25 に「¥2,480 magazine → 完全無料リード磁石」へ戦略転換され、note 上で単独無料記事として運用されているため、`NoteMagazine` 型（badge / price フィールド前提）に乗せていない。詳細は `docs/handoffs/2026-05-25-whitepaper-r7-free-lead-magnet.md` を参照。
