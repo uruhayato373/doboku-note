@@ -49,3 +49,11 @@ node scripts/brain-publish.mjs --service <id> --edit-url <editUrl> --commit --fo
 ```
 
 販売設定ステップ 5b でカテゴリ v-select を選択（**仮想リスト**＝候補は wheel スクロールで DOM 化してから click→assert）。全候補・注意点は [brain-operations §4/§6](../../../../docs/reference/brain-operations.md)。
+
+## 本文（LP）差し替え（再審査を伴う）
+
+既定は既存本文を保持（>50字なら挿入スキップ）。listings の bodyText を書き直してライブへ反映するには **`--replace-body`**（既存を全消去→再挿入）。本文変更も再申請＝再審査。
+
+```
+node scripts/brain-publish.mjs --service <id> --edit-url <editUrl> --commit --force-resubmit --replace-body [--set-category <label>]
+```

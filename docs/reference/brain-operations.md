@@ -73,6 +73,7 @@ check-brain-wiring green → dist R2 200 確認
 
 - **通過**: status を `listed` へ・`listedAt` 記録（手動 flip・brain-operator）。外部導線（note入口記事の公開・/links 掲載）はこの時点から（`listedBrainProducts()` が status=listed のみ /links に描画＝submitted 中は自動非表示）。
 - **却下**: status を `rejected`・指摘を listings へ反映 → `--force-resubmit` で再申請。
+- **本文（LP）変更**: `brain-publish` は既定で既存本文を保持（>50字なら挿入スキップ＝二重挿入防止）。差し替えは **`--replace-body`**（既存を Meta+A→Backspace で全消去→再挿入・クリア失敗時は ABORT）。本文変更も**再審査**に入る。SoT は `.claude/config/brain-listings.json` の bodyText（価格直書き禁止・配布URLは有料ラインより後）。2026-07-23 に両商品 LP を売れ筋の型（価値3点先出し/共感/数え上げ/3ステップ/FAQ・claims-policy 準拠）へ改稿し `--replace-body --set-category 資格` で再申請。
 - **カテゴリ変更**: Brain はカテゴリを**申請時設定**として扱う（in-place 編集不可）＝変更は販売設定→有料エリア→**再申請**を通り、公開中でも**再審査**に入る。自動化は `node scripts/brain-publish.mjs --service <id> --edit-url <editUrl> --commit --force-resubmit --set-category <label>`（販売設定ステップ 5b でカテゴリ v-select を選択）。**カテゴリ v-select は仮想リスト**＝候補は wheel スクロールで DOM 化してから click（§6）。実測の全候補（15・2026-07-23）: ビジネス / AI / SNS / 動画編集 / マーケティング / YouTube / デザイン / お金 / ライティング / 物販 / SEO・ブログ / プログラミング / 恋愛・人間関係 / 健康・食事・美容 / **資格**。Claude Code キットは初期「ビジネス」→ 2026-07-23 に両商品を「資格」へ再申請（審査待ち）。
 - 売上記録: `/record-sales`（productId=`brain:<id>`・sales-recorder 台帳へ追加してから使う）。
 

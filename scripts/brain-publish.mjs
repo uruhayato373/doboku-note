@@ -29,6 +29,8 @@
  *   node scripts/brain-publish.mjs --service <id> --edit-url <url> [--commit]     # 既存ドラフト再開
  *   node scripts/brain-publish.mjs --service <id> --edit-url <url> --commit --force-resubmit --set-category 資格
  *                                                                                # カテゴリ変更（販売設定で v-select 選択→再申請＝再審査）
+ *   node scripts/brain-publish.mjs --service <id> --edit-url <url> --commit --force-resubmit --replace-body
+ *                                                                                # 本文(LP)差し替え（既存を全消去→再挿入→再申請＝再審査）
  */
 import { appendFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
@@ -47,6 +49,8 @@ const FORCE = argv.includes('--force-resubmit');
 // --set-category <label>: 販売設定でカテゴリを指定ラベルへ変更（仮想リストをスクロール探索）。
 // 指定時は commit 時にカテゴリを再選択して再申請する（Brain はカテゴリを申請時設定として扱うため）。
 const SET_CATEGORY = getArg('--set-category');
+// --replace-body: 既存本文を全消去してから listings の bodyText を再挿入（既定は既存本文を保持）。
+const REPLACE_BODY = argv.includes('--replace-body');
 if (!SERVICE) { console.error('--service <id> required（brain-products.ts の id）'); process.exit(1); }
 
 const OUT = join(ROOT, '.tmp', `brain-publish-${SERVICE}.log`);
@@ -123,12 +127,23 @@ try {
   if (!curTitle.trim()) { await titleTa.click(); await titleTa.fill(svc.title); log('[2] title set'); }
   else log(`[2] title 既存維持: "${curTitle.slice(0, 30)}..."`);
 
-  // 3. 本文（ProseMirror・実質空のときのみ＝二重挿入防止）
+  // 3. 本文（ProseMirror）。既定は既存本文>50字なら挿入スキップ（二重挿入防止）。
+  //    --replace-body 指定時は既存を全消去してから再挿入（本文差し替え＝再審査を伴う）。
   const pm = page.locator('.tiptap.ProseMirror').first();
   const curBody = await pm.innerText();
-  if (curBody.trim().length > 50) log(`[3] 本文 既存 ${curBody.trim().length} 字 → 挿入スキップ`);
-  else {
+  if (curBody.trim().length > 50 && !REPLACE_BODY) {
+    log(`[3] 本文 既存 ${curBody.trim().length} 字 → 挿入スキップ`);
+  } else {
     await pm.click();
+    if (curBody.trim().length > 50 && REPLACE_BODY) {
+      await page.keyboard.press('Meta+A');
+      await page.waitForTimeout(400);
+      await page.keyboard.press('Backspace');
+      await page.waitForTimeout(1200);
+      const afterClear = (await pm.innerText()).trim();
+      if (afterClear.length > 50) { log(`ABORT: 本文クリア失敗（${afterClear.length}字残）→ 二重挿入防止で中断`); await page.screenshot({ path: shot('brain-pub-clearfail.png') }); process.exit(3); }
+      log(`[3] 既存本文クリア済（--replace-body・${curBody.trim().length}字→${afterClear.length}字）`);
+    }
     for (const line of listing.bodyText.split(/\r?\n/)) {
       if (line.trim() === '') { await page.keyboard.press('Enter'); continue; }
       await page.keyboard.insertText(line);

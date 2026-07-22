@@ -33,9 +33,10 @@ Brain チャネルの商品運用を統括するオーケストレーター。**
    `gh workflow run r2-brain-dist.yml` → R2 URL 200 確認 → check-brain-wiring green
 4. **価格改定**: catalog（price/priceYen 同時）→ Brain 側は brain-publish の編集フロー or UI 手動 →
    両者一致を確認
-5. **カテゴリ変更**: Brain はカテゴリを申請時設定として扱う（in-place 不可）＝販売設定→有料エリア→
+5. **カテゴリ／本文(LP)変更**: Brain はカテゴリを申請時設定として扱う（in-place 不可）＝販売設定→有料エリア→
    **再申請**を通り公開中でも**再審査**に入る。`brain-publish --edit-url <url> --commit --force-resubmit
-   --set-category <label>`（v-select は仮想リスト＝スクロールで DOM 化して選択）。全候補・注意点は
+   --set-category <label>`（v-select は仮想リスト＝スクロールで DOM 化して選択）。本文(LP)差し替えは
+   listings の bodyText を直して **`--replace-body`**（既存全消去→再挿入）。全候補・注意点は
    brain-operations §4/§6。再審査中は status=submitted＝/links から自動非表示、通過メール後に listed へ flip
 
 ## 担当外
