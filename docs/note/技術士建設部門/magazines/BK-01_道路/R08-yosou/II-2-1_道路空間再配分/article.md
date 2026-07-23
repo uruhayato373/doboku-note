@@ -1,14 +1,15 @@
 ---
 notePricing: paid
 noteMagazine: BK-01
+noteStatus: published
 year: R08-yosou
 subject: road
 exam_type: II-2
 forecast: true
 theme: "新モビリティ対応の道路空間再配分計画"
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n15223b0ea869"
+noteId: "n15223b0ea869"
+notePublishedAt: "2026-07-23"
 price: 1980
 coverTitle: "技術士 建設部門｜道路 R8予想 II-2 予想① 道路空間再配分"
 cover:
