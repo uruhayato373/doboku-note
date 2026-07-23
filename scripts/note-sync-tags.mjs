@@ -164,19 +164,27 @@ try {
       console.log(`[3b] 確定=${committed}/${toAdd.length}`);
       await sleep(800);
       const afterChips = await chipCount();
-      console.log(`[3] ${p.missing.length}タグ入力 → chip ${before}→${afterChips}`);
-      if (afterChips <= before) { console.error('[3] ABORT: タグchipが増えていない（入力未反映）→ 保存せず中断'); await page.screenshot({ path: join(ROOT, `.tmp/nst-notags-${p.noteId}.png`) }); fail++; continue; }
+      console.log(`[3] ${p.missing.length}タグ入力 → chip ${before}→${afterChips}（確定=${committed}）`);
+      // ゲートは「確定=0（入力欄が一度もクリアされない＝完全未反映）」でのみ中断。chipCount(body innerText)は
+      // メンバーシップ記事等でタグ widget を拾えず偽陰性になるため主ゲートにしない。実体は保存後の
+      // API 検証([6] live≥90)で担保する。
+      if (committed === 0 && afterChips <= before) { console.error('[3] ABORT: タグが1つも確定できず（入力未反映）→ 保存せず中断'); await page.screenshot({ path: join(ROOT, `.tmp/nst-notags-${p.noteId}.png`) }); fail++; continue; }
 
       // 境界保持（本文は触っていないので、有料/試し読みは「開いて更新するを出す」だけ・ライン不動）
       const area = page.getByRole('button', { name: '有料エリア設定' });
       const trial = page.getByRole('button', { name: '試し読みエリアを設定', exact: true });
+      const directUpdate = page.getByRole('button', { name: '更新する', exact: true });
       if (await area.count()) {
         await area.first().click(); await sleep(3000);
         const hasLine = await page.evaluate(() => /このラインより先を有料にする/.test(document.body.innerText || ''));
         if (!hasLine) { console.error('[4] ABORT: 有料境界line未確認（保存せず中断）'); fail++; continue; }
         console.log('[4] 有料境界 保持OK');
+      } else if (await directUpdate.count()) {
+        // メンバーシップ等で 更新する が設定画面に既に出ている＝タグだけ保存できる。試し読みに入ると
+        // タグ入力状態が失われ live=0 のまま保存される（2026-07-23 実測）。既存ラインは不介入で保持。
+        console.log('[4] 更新する直行（試し読み不介入・既存ライン保持）');
       } else if (await trial.count()) {
-        await trial.first().click(); await sleep(4000); // メンバーシップ: ライン不動で更新するを出す
+        await trial.first().click(); await sleep(4000); // 更新する未露出のメンバーシップのみ: ライン不動で更新するを出す
         console.log('[4] 試し読みフロー（ライン不動）');
       }
 
