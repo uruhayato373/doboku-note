@@ -144,6 +144,7 @@ else
   dups=$(sort "$H" | uniq -d | wc -l | tr -d ' ')
   echo "HASHTAGS: 行数=$total / # 開始=$hashlines / 空行=$blanks / コメント=$comments / 重複=$dups"
   if [ "$hashlines" -gt 99 ]; then echo "HASHTAGS WARN: 99 個超え（$hashlines 個）"; fi
+  if [ "$hashlines" -lt 90 ]; then echo "HASHTAGS FAIL: 90 個未満（$hashlines 個）＝check-note-hashtags で赤落ち。有効レンジ 90〜99"; fi
   if [ "$blanks" -gt 0 ] || [ "$comments" -gt 0 ]; then
     echo "HASHTAGS WARN: 純粋ハッシュタグになっていない（空行/コメント混入）→ コピペで失敗する可能性"
   fi

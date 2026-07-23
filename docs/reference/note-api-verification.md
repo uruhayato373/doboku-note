@@ -145,7 +145,10 @@ node scripts/note-update-body.mjs --list   <list.txt>   --commit    # 複数記�
 | 有料PDF記事 | `PDF のダウンロードと使い方` |
 | 総監/建設部門 択一・論文 | 既定 `試験問題\|予想問題` |
 
-横断監査は `npm run check-note-structure`（公開API無料本文とソース境界を突合し FULL_LOCK/PAYWALL_LEAK/BOUNDARY_SHIFT/IMG_MISSING を検出）。
+**機械ゲート（2層）**:
+- **事前（ソース・network不要）**: `npm run check-note-boundary`（paid published の paidBoundary 解決可能性＝境界H2実在を検査）。pre-commit `--staged` ＋ quality-audit `ci` ＋ r2-audit 全量。新規paid記事の境界欠落＝RULE_GAP を止める。
+- **事後（ライブ・note API）**: `npm run check-note-structure`（公開API無料本文とソース境界を突合し FULL_LOCK/PAYWALL_LEAK/BOUNDARY_SHIFT/IMG_MISSING/PRICE_MISMATCH を検出）。`--ci` で未許可 CRITICAL>0 なら exit 1。既知の境界定義ズレ（BK/総監の偽陽性）は `.claude/config/note-structure-allow.json` の allowlist で WAIVED（backlog解消時に空にする）。CI非対象（note API依存）＝週次/月次で回す。
+- **paidProbe の注意**: 境界H2テキスト自体は note 目次（無料側）に出るため偽陽性になる→境界H2の**直後の本文段落**を probe にする（check-note-structure.mjs 実装済）。
 
 > [!warning]
 > **`note-article-price-sweep.mjs` は有料境界を破壊する**（2026-07-24 実証）: 価格変更時に「有料エリア設定」を開き**ライン位置を再設定せず**「更新する」するため、note が境界を先頭リセット→全ロック（FULL_LOCK）化する（civil 経験記述 58 本で発生）。**カスタム境界を持つ有料記事にこのスクリプトを使わない**。価格変更後は必ず `check-note-structure` で境界を実査し、崩れていれば `note-update-body --commit`（paidBoundary で境界再設定）で復旧する。

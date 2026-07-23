@@ -43,7 +43,7 @@ note.com への高レベル操作指示を受け取り、既存の決定的ス�
 
 | スクリプト | 用途 | 引数 |
 |---|---|---|
-| `note-article-price-sweep.mjs` | マガジン収録記事／単独記事の価格一括変更 | `{--pattern <id>｜--magazines <key,...>｜--notes <key,...>} --price <price> [--exclude <key,...>] [--commit]`（`--exclude`=序章/無料リード保護、`--notes`=マガジン非所属の単独note） |
+| `note-article-price-sweep.mjs` | マガジン収録記事／単独記事の価格一括変更 | `{--pattern <id>｜--magazines <key,...>｜--notes <key,...>} --price <price> [--exclude <key,...>] [--commit]`（`--exclude`=序章/無料リード保護、`--notes`=マガジン非所属の単独note）。**⚠ カスタム paidBoundary を持つ記事の境界を先頭リセット＝全ロック化する**（civil経験記述58本で実損）→ 対象にpaidBoundary持ちが含まれると既定ABORT(exit9)。`--allow-boundary-risk` で上書き時は事後に境界再設定＋実査が必須 |
 | `note-edit-magazine.mjs` | マガジン設定（タイトル/説明/価格）編集 | `--key <key> --txt <note掲載文.txt> [--articles] [--commit]` |
 
 ### マガジン操作
@@ -76,10 +76,12 @@ note.com への高レベル操作指示を受け取り、既存の決定的ス�
 
 1. **対象特定**: `note-magazines.ts` から `pe-construction-*` の published:true を抽出
 2. **現状確認**: `verify-note-magazines.mjs --contents` で現在価格を確認
-3. **dry-run**: `note-article-price-sweep.mjs --pattern pe-construction --price 780`
+3. **dry-run**: `note-article-price-sweep.mjs --pattern pe-construction --price 780`（**paidBoundary持ちが含まれるとABORT**。含まれる場合は 3a へ）
+   - 3a. **境界破壊回避**: カスタム境界記事を `--exclude` で外す、または `--allow-boundary-risk` を承知の上で付す（後者は 6b 必須）
 4. **確認**: 変更対象を親に報告、承認を得る
-5. **実行**: `note-article-price-sweep.mjs --pattern pe-construction --price 780 --commit`
+5. **実行**: `note-article-price-sweep.mjs ... --price 780 --commit`
 6. **検証**: 変更後の価格を note API で確認
+   - 6b. **境界実査（--allow-boundary-risk 使用時 必須）**: `node scripts/note-update-body.mjs --list <対象> --commit` で境界再設定 → `npm run check-note-structure` で FULL_LOCK=0 を確認
 7. **SoT 更新**: `note-magazines.ts` の price 表記を Edit で更新
 
 ### ケース2: マガジン新設

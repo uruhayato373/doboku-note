@@ -55,14 +55,16 @@ description: >
   ※Playwright + ログイン済みプロファイル必須＝ローカル実行限定。クラウド週次では実行不可なのでサーフェスのみ
 - note 競合再スキャン期限: `npm run check-competitor-scan-due -- --json` を実行（四半期＝90日。creds不要・ローカルhistory参照）。
   `due:true` なら「次セッションで `/competitor-review`（scout→competitor-analyst→09反映）」をサーフェスのみ（実取得はしない）。
-- note 再公開ドリフト: `npm run check-note-republish` を実行（公開記事のソース本文が公開時から変更＝要再公開を surface・creds不要・ローカルhash突合）。
-  「要再公開(drift)」があれば「次セッションで該当記事を `note-update-body --commit`（フル本文反映）or `note-append-cta`（CTAのみ）で live 反映」をサーフェスのみ（実反映はローカル実機＝クラウド週次では不可）。verify-note-status(公開状態) とは直交＝こちらは本文内容の変更を追う。
+- note 再公開ドリフト: `npm run check-note-republish` を実行（公開記事のソース**本文＋ハッシュタグ**が公開時から変更＝要再公開を surface・creds不要・ローカルhash突合）。
+  「要再公開(本文drift)」は `note-update-body --commit`、「要再公開(タグdrift)」は `note-sync-tags --commit`（公開済み記事へのタグ差分追加）で次セッションに live 反映をサーフェスのみ（実反映はローカル実機＝クラウド週次では不可）。verify-note-status(公開状態) とは直交。
+- note 構成監査（月次寄り・network依存）: `node scripts/check-note-structure.mjs`（公開API無料本文とソース paidBoundary を突合し FULL_LOCK/PAYWALL_LEAK/BOUNDARY_SHIFT/IMG_MISSING/PRICE_MISMATCH を検出・creds不要）。CRITICAL があれば該当記事の境界を `note-update-body --commit` で再設定するようサーフェスのみ（audit-note-funnel --live と同じ live 隔離枠）。
 
 出力形式:
 - 「今週追加したページ」
 - 「更新したページ」
 - 「note 公開状態ドリフト是正（N 本）」（あれば）
-- 「note 再公開ドリフト（要再公開 N 本）」（`check-note-republish` が drift のときのみ）
+- 「note 再公開ドリフト（本文 N 本 / タグ N 本）」（`check-note-republish` が drift のときのみ）
+- 「note 構成監査 CRITICAL（境界破損 N 本）」（`check-note-structure` が CRITICAL のときのみ）
 - 「競合再スキャン DUE」（`check-competitor-scan-due` が due のときのみ）
 ```
 

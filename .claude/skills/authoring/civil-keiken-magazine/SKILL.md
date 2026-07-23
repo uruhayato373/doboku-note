@@ -25,7 +25,7 @@ user-invocable: true
 ## 実行手順
 
 1. **既存把握（重複回避）**: 対象級の既存マガジン全 article.md ＋ サイト `secondary-experience-writing-{guide,examples}` を確認し、**使用済み工種・現場設定を「テーマ×工種マトリクス」として書き出す**（下記「量産」参照）。`pastexam` はサイト `secondary-r0X` の問題1（公式問題文）を正として用意。
-2. **生成**: `civil-keiken-essay-writer`（Generator/sonnet）を slug ごとに起動。**未使用の工種・現場設定を親が明示指定**、規格値は `〇〇`（法定・規格の固定値はリテラル）、形式は級・年度どおり、答案は **ⅰ）型完結文の散文**、複数工種は `想定工事①②…`（2級選択制は同一工事と分かる表記）、置換ガイド・失格注意を必須。**ⅰ）型は列挙マーカーも字数算入される**ので `1.`型から変えたら `--strict` 再実行。**ハッシュタグは本文でなく `hashtags.txt`**（`/note-hashtags`・単一行 space 区切り・80–90個）に生成する。
+2. **生成**: `civil-keiken-essay-writer`（Generator/sonnet）を slug ごとに起動。**未使用の工種・現場設定を親が明示指定**、規格値は `〇〇`（法定・規格の固定値はリテラル）、形式は級・年度どおり、答案は **ⅰ）型完結文の散文**、複数工種は `想定工事①②…`（2級選択制は同一工事と分かる表記）、置換ガイド・失格注意を必須。**ⅰ）型は列挙マーカーも字数算入される**ので `1.`型から変えたら `--strict` 再実行。**ハッシュタグは本文でなく `hashtags.txt`**（`/note-hashtags`・**1 行 1 タグ＝`#` 接頭辞・改行区切り**・**90 個以上必須〜99**。`npm run check-note-hashtags` がゲート。space 区切り単一行は note 側で 1 タグ扱いの不良）に生成する。
 3. **採点**: `civil-keiken-essay-qa`（Evaluator/sonnet）で5軸採点＋必須ゲート（字数 `--strict`／散文形式／inter-article 重複／固定値リテラル／構造欠落なし）。平均≥2.0 かつ全ゲート通過で合格。不合格は Generator に修正指示で再走。
 4. **配線（親）**: `note掲載文.txt`（掲載文＋機械ブロック・`npm run note-meta-lint` で文字数検査 30/400/250）/ `note-magazines.ts` エントリ / `magazine-placement.ts` / `scripts/pdf-specs/{magazine}.json` を整備（PDF は生成せず spec の JSON 妥当性＋見出し存在のみ確認＝オンデマンド方針）。マガジンカバー（note 公開時のヘッダー用）は `node scripts/generate-magazine-covers.mjs {id}` でマガジンdir `_cover.png` を生成（資格別 `fillBg` 背景塗り：1級青#155293/2級緑#1C5038）。※サイト表示用の画像は不要（サイト CTA は exam-brand.ts の cta-bg 背景＋HTML 文字でデータ駆動）。
 5. **検証・commit（親）**: `npm run type-check`、明示パスで commit（並行作業を巻き込まない）。
@@ -58,7 +58,8 @@ note でマガジンを公開し URL（`note.com/.../m/...`）を取得したら
 - 法定・規格の固定値はリテラル、現場固有値のみ `〇〇`
 - Evaluator 合格（平均≥2.0・全ゲート通過）
 - 形式が級・年度どおり（PDF spec の include 見出しと整合）、複数工種は `想定工事①②…` で対称構造
-- `hashtags.txt` に note タグ 80–90個（`/note-hashtags` 準拠・**本文には入れない**）
+- `hashtags.txt` に note タグ **90個以上〜99**（1行1タグ・`/note-hashtags` 準拠・**本文には入れない**・`check-note-hashtags` ゲート）
+- **有料記事は frontmatter `paidBoundary` 必須**（無料プレビュー範囲の境界H2先頭一致・完成答案集/過去問模範答案集等は SSOT `docs/reference/note-api-verification.md`「有料境界のマガジン別 SSOT」参照。`check-note-boundary` ゲート）
 
 ## 担当エージェント
 
