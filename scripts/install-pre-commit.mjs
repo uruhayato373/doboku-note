@@ -155,6 +155,12 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# note 有料記事の有料境界(paidBoundary)が解決可能か（全ロック/漏洩の温床＝RULE_GAP 再発防止）
+node scripts/check-note-boundary.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
 # ガイド OGP 主題フォントの下限（長い題が小さく出てカード間でばらつくのを防止、ogp-prompts.md）
 node scripts/check-ogp-title-fit.mjs --staged
 if [ $? -ne 0 ]; then

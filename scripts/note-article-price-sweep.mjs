@@ -7,8 +7,9 @@
  *
  * ⚠ 警告（2026-07-24 実証）: 本スクリプトは「有料エリア設定」を開いてライン位置を再設定せず
  *   「更新する」するため、**カスタム有料境界（paidBoundary）を持つ記事の境界を先頭リセット＝全ロック
- *   化する**（civil 経験記述 58 本で発生）。カスタム境界を持つ有料記事には使わない。使用後は必ず
- *   `npm run check-note-structure` で境界を実査し、崩れたら `note-update-body --commit` で復旧すること。
+ *   化する**（civil 経験記述 58 本で発生）。**機械ガード実装済み**: 対象 noteId をソース記事へ逆引きし
+ *   paidBoundary 持ちが含まれたら既定 ABORT（exit 9）。承知の上なら `--allow-boundary-risk`＋実行後に
+ *   必ず `note-update-body --commit` で境界再設定→`npm run check-note-structure` で FULL_LOCK=0 を実査。
  *   詳細: docs/reference/note-api-verification.md「有料境界（paidBoundary）のマガジン別 SSOT」。
  *
  * 設計: 「システム Chrome（channel:'chrome'）＋永続プロファイル」方式。
@@ -53,6 +54,7 @@ const PRICE = getArg('--price');
 const EXCLUDE = (getArg('--exclude') || '').split(',').map((s) => s.trim()).filter(Boolean); // 除外する note key（序章/無料リード等の保護）
 const NOTES_ARG = (getArg('--notes') || '').split(',').map((s) => s.trim()).filter(Boolean); // マガジン非所属の単独 note key（計算問題等）
 const COMMIT = argv.includes('--commit');
+const ALLOW_BOUNDARY_RISK = argv.includes('--allow-boundary-risk'); // カスタム paidBoundary 記事への価格変更を明示許可（境界破壊リスクを承知の上）
 
 if (!PRICE || (!MAGAZINES_ARG && !PATTERN && !NOTES_ARG.length)) {
   console.error(`使い方:
@@ -170,6 +172,41 @@ for (const a of toChange.slice(0, 20)) {
   console.log(`  ${a.key}: ¥${a.price} → ¥${PRICE}  "${a.name.slice(0, 40)}"`);
 }
 if (toChange.length > 20) console.log(`  ... 他 ${toChange.length - 20} 件`);
+
+// ---- 境界破壊ガード（2026-07-24 新設）----
+// 本スクリプトは価格変更時に「有料エリア設定」を開きライン未設定で更新するため、カスタム
+// paidBoundary を持つ記事の境界を先頭リセット＝FULL_LOCK 化する（civil 経験記述 58 本で実損）。
+// toChange の noteId をソース記事へ逆引きし、paidBoundary 持ちが含まれたら既定 ABORT。
+{
+  const { readdirSync, statSync, readFileSync, existsSync } = await import('node:fs');
+  const walkSrc = (dir, out = []) => {
+    if (!existsSync(dir)) return out;
+    for (const e of readdirSync(dir)) { const p = join(dir, e); if (statSync(p).isDirectory()) walkSrc(p, out); else if (/^article(-[^/]+)?\.md$/.test(e)) out.push(p); }
+    return out;
+  };
+  const id2pb = new Map();
+  for (const f of walkSrc(join(ROOT, 'docs/note'))) {
+    const raw = readFileSync(f, 'utf8');
+    const id = (raw.match(/^noteId:[ \t]*["']?(n[0-9a-f]+)/m) || raw.match(/note\.com\/[^/]+\/n\/(n[0-9a-f]+)/) || [])[1];
+    const pb = (raw.match(/^paidBoundary:[ \t]*(.+)$/m) || [])[1];
+    if (id && pb) id2pb.set(id, pb.trim().replace(/^["']|["']$/g, ''));
+  }
+  const risky = toChange.filter((a) => id2pb.has(a.key));
+  if (risky.length && !ALLOW_BOUNDARY_RISK) {
+    console.error(`\n[GUARD] ABORT: カスタム paidBoundary を持つ記事 ${risky.length} 件が対象に含まれます。`);
+    console.error(`  本スクリプトは価格変更時に境界を先頭リセット（FULL_LOCK 化）します（実損実績あり）。`);
+    for (const a of risky.slice(0, 10)) console.error(`    ${a.key}  paidBoundary="${id2pb.get(a.key)}"`);
+    if (risky.length > 10) console.error(`    ... 他 ${risky.length - 10} 件`);
+    console.error(`\n  対処: (a) これらを --exclude で除外する、または`);
+    console.error(`        (b) --allow-boundary-risk を付けて実行後、必ず 'node scripts/note-update-body.mjs --list <対象> --commit' で`);
+    console.error(`            境界を再設定し、'npm run check-note-structure' で FULL_LOCK=0 を実査する。`);
+    process.exit(9);
+  }
+  if (risky.length && ALLOW_BOUNDARY_RISK) {
+    console.log(`\n[GUARD] ⚠ paidBoundary 持ち ${risky.length} 件を --allow-boundary-risk で続行。`);
+    console.log(`  完了後、必ず note-update-body で境界再設定 → check-note-structure で FULL_LOCK=0 を実査すること。`);
+  }
+}
 
 if (!COMMIT) {
   console.log(`\n[dry-run] --commit を付けると実変更します。`);

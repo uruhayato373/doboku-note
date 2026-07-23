@@ -21,9 +21,15 @@ import { join } from 'node:path';
 
 const ROOT = 'docs/note';
 const JSON_OUT = process.argv.includes('--json');
+const CI = process.argv.includes('--ci'); // CRITICAL(allowlist除く)>0 で exit 1・FETCH_ERR は非fail
 const LIMIT = (() => { const i = process.argv.indexOf('--limit'); return i >= 0 ? Number(process.argv[i + 1]) : Infinity; })();
 const GOAL_TAGS = 90;
 const CONCURRENCY = 8;
+// 既知の境界定義ズレ（偽陽性・判断待ち）は WAIVED として --ci ゲートを素通し。
+const ALLOW = (() => {
+  try { return new Set((JSON.parse(readFileSync('.claude/config/note-structure-allow.json', 'utf8')).waived) || []); }
+  catch { return new Set(); }
+})();
 
 function walk(dir, acc = []) {
   if (!existsSync(dir)) return acc;
@@ -143,6 +149,9 @@ async function worker() {
 }
 await Promise.all(Array.from({ length: Math.min(CONCURRENCY, targets.length) }, worker));
 
+// allowlist 適用: CRITICAL でも WAIVED なら --ci ゲートから除外（レポートには残す）
+for (const x of findings) if (x.sev === 'CRITICAL' && ALLOW.has(x.f)) x.waived = true;
+
 // 集計・出力
 const order = { CRITICAL: 0, HIGH: 1, INFO: 2 };
 findings.sort((a, b) => order[a.sev] - order[b.sev] || a.code.localeCompare(b.code));
@@ -163,6 +172,16 @@ for (const sev of ['CRITICAL', 'HIGH', 'INFO']) {
 writeFileSync('.tmp/note-structure-audit.md', out);
 console.log(out.split('\n').slice(0, 60).join('\n'));
 console.log(`\n... 全文: .tmp/note-structure-audit.md`);
-const crit = findings.filter((x) => x.sev === 'CRITICAL').length;
+const critAll = findings.filter((x) => x.sev === 'CRITICAL');
+const critGate = critAll.filter((x) => !x.waived); // WAIVED を除いた実ゲート対象
 const high = findings.filter((x) => x.sev === 'HIGH').length;
-console.log(`\n[check-note-structure] CRITICAL=${crit} HIGH=${high} INFO=${findings.length - crit - high} / 検査${targets.length}本`);
+const waived = critAll.length - critGate.length;
+console.log(`\n[check-note-structure] CRITICAL=${critAll.length}（うちWAIVED ${waived}・要対応 ${critGate.length}） HIGH=${high} / 検査${targets.length}本`);
+if (CI) {
+  if (critGate.length) {
+    console.error(`\n[check-note-structure --ci] ✗ 未許可の CRITICAL ${critGate.length} 件:`);
+    for (const x of critGate) console.error(`     [${x.code}] ${x.f}`);
+    process.exit(1);
+  }
+  console.log(`[check-note-structure --ci] ✓ 未許可 CRITICAL 0（WAIVED ${waived} は allowlist）`);
+}

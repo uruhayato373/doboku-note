@@ -147,6 +147,7 @@
     "check-note-site-utm": "node scripts/check-note-site-utm.mjs",
     "check-note-republish": "node scripts/check-note-republish.mjs",
     "check-note-structure": "node scripts/check-note-structure.mjs",
+    "check-note-boundary": "node scripts/check-note-boundary.mjs",
     "check-x-utm": "node scripts/check-x-utm.mjs",
     "verify-yt-status": "node .claude/scripts/youtube/verify-yt-status.mjs",
     "check-figure-canvas": "node scripts/check-figure-canvas.mjs",

@@ -63,6 +63,14 @@ jobs:
       - name: Check guide article length (published guide >= 3000 chars)
         run: npm run check-guide-length
 
+      # note ハッシュタグ 90 個以上 / 有料境界 paidBoundary 解決可能性の全量 backstop。
+      # pre-commit は staged のみ＝クラウド自動生成記事を守れないため CI で docs/note 全量を検査（creds不要）。
+      - name: Check note hashtags (>=90 tags, full)
+        run: npm run check-note-hashtags
+
+      - name: Check note paid boundary (paidBoundary resolvable, full)
+        run: npm run check-note-boundary
+
       # affiliate-career-only 違反 prose（添削サービス/講座ブランド等の再提案）の全量 backstop。
       # pre-commit はローカル限定でクラウドルーティンの自動生成を守れないため CI で全 .local/r2/posts を検査。
       - name: Check affiliate-career-only prose (no abolished course/添削 re-proposals)
