@@ -88,8 +88,12 @@ function analyzeSource(raw) {
       const t = norm(lines[i]);
       if (t.length >= 8 && !/^!\[|^#|note\.com/.test(lines[i].trim())) { freeProbe = t.slice(-30); break; }
     }
-    // paid probe: 境界H2の見出しテキスト自体（＝最初の有料要素・live無料本文に出たら漏洩）
-    paidProbe = norm(lines[bIdx].replace(/^##\s+/, '')).slice(0, 30);
+    // paid probe: 境界H2の「直後の本文段落」（見出し自体は note 目次に出て free 本文にヒットし
+    //   偽陽性になるため使わない）。目次に出ない実コンテンツが live 無料本文に出たら本物の漏洩。
+    for (let i = bIdx + 1; i < lines.length; i++) {
+      const t = norm(lines[i]);
+      if (t.length >= 12 && !/^!\[|^#|note\.com/.test(lines[i].trim())) { paidProbe = t.slice(0, 30); break; }
+    }
   }
   return { pricing, price, boundary, hasBoundary: bIdx >= 0, freeProbe, paidProbe, expectedFreeImgs };
 }
