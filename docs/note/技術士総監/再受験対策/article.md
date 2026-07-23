@@ -1,7 +1,11 @@
 ---
+notePublishedAt: "2026-07-23"
+noteId: "n4b679c8da64e"
+noteUrl: "https://note.com/dobokunote/n/n4b679c8da64e"
 notePricing: paid
+price: 500
 paidBoundary: "不合格の3パターン"
-noteStatus: draft
+noteStatus: published
 cover:
   leadIn: "総監再受験者向け 不合格要因を"
   hi: "3"

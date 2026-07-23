@@ -3,10 +3,11 @@ notePricing: paid
 paidBoundary: "答案の方針"
 noteSeries: コンクリート主任技師-小論文
 utmCampaign: cce-essay-environment
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/na15f69e2dcb0"
+noteId: "na15f69e2dcb0"
+notePublishedAt: "2026-07-23"
 noteMagazine: コンクリート主任技師-小論文-模範答案集
+noteStatus: published
 price: 500
 coverTitle: "小論文 模範答案｜環境配慮（環境負荷低減への取組み）"
 cover:

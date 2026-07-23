@@ -1,12 +1,14 @@
 ---
 notePricing: paid
+price: 500
 paidBoundary: "品質管理"
 noteSeries: 1級土木-経験記述-完全攻略パック
 noteMagazine: 1級土木-経験記述-完全攻略パック
+noteStatus: published
 utmCampaign: civil1-keiken-pack-koji09
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/nf8ea3acbb97c"
+noteId: "nf8ea3acbb97c"
+notePublishedAt: "2026-07-23"
 coverTitle: ["1級土木 施工経験記述", "擁壁背面 裏込め盛土", "5管理 完成答案"]
 cover:
   leadIn: "1級土木施工管理技士 二次"

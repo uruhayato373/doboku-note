@@ -1,7 +1,11 @@
 ---
+notePublishedAt: "2026-07-23"
+noteId: "n5d0292fa4f1f"
+noteUrl: "https://note.com/dobokunote/n/n5d0292fa4f1f"
 notePricing: paid
+price: 500
 paidBoundary: "ありがちな失敗"
-noteStatus: draft
+noteStatus: published
 cover:
   leadIn: "総監記述式で差がつく"
   hi: "5管理"

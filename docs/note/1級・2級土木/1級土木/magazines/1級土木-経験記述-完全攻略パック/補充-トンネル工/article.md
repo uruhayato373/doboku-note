@@ -1,8 +1,13 @@
 ---
 notePricing: paid
+price: 500
 paidBoundary: "完成答案②"
 noteSeries: 1級土木-経験記述-完全攻略パック
 noteMagazine: 1級土木-経験記述-完全攻略パック
+noteStatus: published
+notePublishedAt: "2026-07-23"
+noteId: "n37ec4034b2d8"
+noteUrl: "https://note.com/dobokunote/n/n37ec4034b2d8"
 utmCampaign: civil1-keiken-pack-tunnel
 coverTitle: ["1級土木 施工経験記述", "トンネル工 完成答案（品質・安全・環境）"]
 cover:

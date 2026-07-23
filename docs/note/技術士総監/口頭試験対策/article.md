@@ -1,7 +1,11 @@
 ---
+notePublishedAt: "2026-07-23"
+noteId: "n8ab5e6bc2970"
+noteUrl: "https://note.com/dobokunote/n/n8ab5e6bc2970"
 notePricing: paid
+price: 500
 paidBoundary: "2. 一般部門"
-noteStatus: draft
+noteStatus: published
 cover:
   leadIn: "総監口頭試験"
   hi: "20分"

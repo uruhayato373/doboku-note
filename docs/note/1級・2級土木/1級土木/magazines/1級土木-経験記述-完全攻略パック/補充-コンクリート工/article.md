@@ -1,8 +1,13 @@
 ---
 notePricing: paid
+price: 500
 paidBoundary: "完成答案①"
 noteSeries: 1級土木-経験記述-完全攻略パック
 noteMagazine: 1級土木-経験記述-完全攻略パック
+noteStatus: published
+notePublishedAt: "2026-07-23"
+noteId: "n4be7905931d2"
+noteUrl: "https://note.com/dobokunote/n/n4be7905931d2"
 utmCampaign: civil1-keiken-pack-concrete
 coverTitle: ["1級土木 施工経験記述", "コンクリート工 補充答案集"]
 cover:

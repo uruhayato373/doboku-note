@@ -1,8 +1,13 @@
 ---
 notePricing: paid
+price: 500
 paidBoundary: "品質管理"
 noteSeries: 1級土木-経験記述-完全攻略パック
 noteMagazine: 1級土木-経験記述-完全攻略パック
+noteStatus: published
+notePublishedAt: "2026-07-23"
+noteId: "n35ec20002e2b"
+noteUrl: "https://note.com/dobokunote/n/n35ec20002e2b"
 utmCampaign: civil1-keiken-pack-koji13
 coverTitle: ["1級土木 施工経験記述", "高含水比粘性土 盛土", "5管理 完成答案"]
 cover:

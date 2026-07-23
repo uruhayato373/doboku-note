@@ -1,8 +1,13 @@
 ---
 notePricing: paid
+price: 500
 paidBoundary: "完成答案①"
 noteSeries: 1級土木-経験記述-完全攻略パック
 noteMagazine: 1級土木-経験記述-完全攻略パック
+noteStatus: published
+notePublishedAt: "2026-07-23"
+noteId: "n74c193d154e5"
+noteUrl: "https://note.com/dobokunote/n/n74c193d154e5"
 utmCampaign: civil1-keiken-pack-foundation
 coverTitle: ["1級土木 施工経験記述", "基礎・杭工 施工計画と環境対策"]
 cover:
@@ -50,8 +55,6 @@ https://note.com/dobokunote/m/m150c9db08902
 
 年度別に過去問で答案を組み立てたい場合は、別マガジン「1級土木 施工経験記述 過去問 模範答案集（R03-R07）」もあわせてご覧ください。
 
-
-![技術士（総合技術監理部門）を持つ元発注者が、施工管理技士の記述を分析して作成。総監＝上位資格の分析力、元発注者＝採点者の視点、施工管理技士＝合格した当事者](img/figure-author-authority.png)
 
 上位資格の分析力・発注者の採点眼・合格者の当事者性で、あなたの答案を合格ラインへ引き上げます。
 

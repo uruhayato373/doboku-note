@@ -1,12 +1,14 @@
 ---
 notePricing: paid
+price: 500
 paidBoundary: "品質管理"
 noteSeries: 1級土木-経験記述-完全攻略パック
 noteMagazine: 1級土木-経験記述-完全攻略パック
+noteStatus: published
 utmCampaign: civil1-keiken-pack-koji05
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n1ca01248e12f"
+noteId: "n1ca01248e12f"
+notePublishedAt: "2026-07-23"
 coverTitle: ["1級土木 施工経験記述", "サンドドレーン＋段階載荷盛土（軟弱地盤改良）", "5管理 完成答案"]
 cover:
   leadIn: "1級土木施工管理技士 二次"
