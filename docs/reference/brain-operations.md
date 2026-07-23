@@ -78,6 +78,16 @@ check-brain-wiring green → dist R2 200 確認
 - **カテゴリ変更**: Brain はカテゴリを**申請時設定**として扱う（in-place 編集不可）＝変更は販売設定→有料エリア→**再申請**を通り、公開中でも**再審査**に入る。自動化は `node scripts/brain-publish.mjs --service <id> --edit-url <editUrl> --commit --force-resubmit --set-category <label>`（販売設定ステップ 5b でカテゴリ v-select を選択）。**カテゴリ v-select は仮想リスト**＝候補は wheel スクロールで DOM 化してから click（§6）。実測の全候補（15・2026-07-23）: ビジネス / AI / SNS / 動画編集 / マーケティング / YouTube / デザイン / お金 / ライティング / 物販 / SEO・ブログ / プログラミング / 恋愛・人間関係 / 健康・食事・美容 / **資格**。Claude Code キットは初期「ビジネス」→ 2026-07-23 に両商品を「資格」へ再申請（審査待ち）。
 - 売上記録: `/record-sales`（productId=`brain:<id>`・sales-recorder 台帳へ追加してから使う）。
 
+## 4.5 プロフィール編集（アイコン・自己紹介）
+
+商品ではなく**アカウント**のプロフィール（アバター画像・自己紹介・ユーザーネーム・X リンク）を編集する。自動化は `node scripts/brain-profile-edit.mjs`（brain-publish と同思想＝draft-first＋`--commit` gate）。
+
+- **編集画面は `/profiles`（本人用管理）→「プロフィールを編集」モーダル**。公開ビュー `/u/:account`（例 `/u/doboku-note`）には編集ボタンが**無い**・`/settings/*` にもプロフィール編集は**無い**（Nuxt SPA ＝直リンク `/settings/profile` 等は全 404。ルート表は `window.$nuxt.$router.getRoutes()` で取得可）。
+- **自己紹介は 160 字上限**（`fill` で超過分は無言に切り捨て・カウンタ "160/160" で気付く）。スクリプトは起動前ゲート＋保存前に `textarea.value.length` 一致を assert して切り捨てを止める。
+- **アバターは jpeg/png のみ**（`accept="image/jpeg, image/png"` ＝ webp 不可）。`--avatar` に webp を渡すと sharp で png に自動変換。file input は hidden だが `setInputFiles` で投入 → 投入後の**クロッパーは「適用」で確定**（"保存"とは別ボタン）。ブランドは「doboku-note 先生」キャラ（`public/images/character/avatar-*.webp`・真実源 [character-asset-policy.md](character-asset-policy.md)）。
+- 使い方: `--bio-file <path>`／`--bio "..."`／`--avatar <img>`／`--username`／`--x`（1つ以上必須）。既定は入力までで**保存しない**（`.tmp/brain-profile-preflight.png` で確認）→ `--commit` で「保存」→ `/u/:account` で反映確認（"自己紹介文がありません" の消失＋`image.brain-market.com/store/...` 化で判定）。
+- **本人確認との独立性**: プロフィールに「本人確認未登録」バッジ・`/settings/identity_verification` が「完了していません」でも編集は通る（本人確認とは独立）。表示ズレは決済/出金に影響しうるためユーザー確認推奨。2026-07-23 に doboku-note のアイコン（good-sign）＋自己紹介145字を本スクリプトで設定。
+
 ## 5. 安全弁
 
 1. **同意モーダル gate** — 審査ガイドライン等への同意はユーザー明示許可事項。brain-publish は `--agree` なしでは押さず ABORT（2026-07-22 の同意はユーザー許可済み＝account.json に記録）
