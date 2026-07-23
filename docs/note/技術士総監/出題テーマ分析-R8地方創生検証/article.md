@@ -3,8 +3,25 @@ title: "令和8年度 総監で「地方創生」が出た48日前に、私が�
 notePricing: free
 noteSeries: "技術士総監 学習戦略"
 utmCampaign: "sokan-policy-forecast-note"
+noteStatus: published
+notePublishedAt: "2026-07-23"
+noteId: "n58099ccfeceb"
+noteUrl: "https://note.com/dobokunote/n/n58099ccfeceb"
 published: false
+cover:
+  leadIn: "総監R8で「地方創生」が出た"
+  hi: "48日前"
+  hiSuffix: "の記録"
+  banner: "予想の正直な検証"
+  character: good-sign
+  meta: "無料記事"
+  chips:
+    - { icon: check, text: "時系列で検証" }
+    - { icon: chart, text: "外した本命も開示" }
+    - { icon: book, text: "国家施策バンク" }
 ---
+
+# 令和8年度 総監で「地方創生」が出た48日前に、私が公開していたもの（正直な検証）
 
 2026年7月19日、技術士総合技術監理部門（総監）の必須科目I（記述式・I-2）で「地方創生」が問われました。
 

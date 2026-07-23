@@ -3,8 +3,25 @@ title: "施工経験記述をAIに丸投げすると落ちる理由と、自分�
 notePricing: free
 noteSeries: "1級・2級土木 施工経験記述"
 utmCampaign: "civil-keiken-ai-kit-note"
+noteStatus: published
+notePublishedAt: "2026-07-23"
+noteId: "n0171b3105e2d"
+noteUrl: "https://note.com/dobokunote/n/n0171b3105e2d"
 published: false
+cover:
+  leadIn: "施工経験記述を"
+  hi: "AIに丸投げ"
+  hiSuffix: "すると落ちる"
+  banner: "自分の現場から組み立てる方法"
+  character: good-sign
+  meta: "無料記事"
+  chips:
+    - { icon: warn, text: "AI丸投げの罠" }
+    - { icon: check, text: "現場から組立" }
+    - { icon: book, text: "経験記述" }
 ---
+
+# 施工経験記述をAIに丸投げすると落ちる理由と、自分の現場から組み立てる方法
 
 施工経験記述をAIに頼むと、文章はそれらしく整います。
 

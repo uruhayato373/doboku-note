@@ -2,13 +2,13 @@
 notePricing: free
 noteSeries: 学習戦略
 utmCampaign: ai-study-civil-hub
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n06ff627e32d4"
+noteId: "n06ff627e32d4"
+notePublishedAt: "2026-07-23"
 coverTitle:
   - 土木・建設資格を
   - AIで攻略する勉強法
-noteStatus: draft
+noteStatus: published
 cover:
   leadIn: "土木・建設資格を"
   hi: "AI"

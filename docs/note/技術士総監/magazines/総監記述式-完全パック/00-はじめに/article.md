@@ -1,6 +1,9 @@
 ---
+notePublishedAt: "2026-07-23"
+noteId: "n93ee41c64411"
+noteUrl: "https://note.com/dobokunote/n/n93ee41c64411"
 notePricing: free
-noteStatus: draft
+noteStatus: published
 coverTitle:
   - 総監
   - 全記事パック
