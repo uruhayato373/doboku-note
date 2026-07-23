@@ -28,6 +28,8 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 | `performance-auditor` | Evaluator（sonnet） | CWV / PSI | psi → improvements |
 | `/gsc-review` | Skill（月次） | CI データ確認 → gsc-index-auditor 起動 → 観測ログ追記 | — |
 | `/weekly-improve` | Skill（週次） | metrics-analyzer 起動（performance） | — |
+| `/google-search-growth` | Skill（月次・**ローカル手動**） | GSC 理由別 **UI CSV**（API で取れない例 URL）を Playwright 取得 → 正規化 → URL Inspection/GSC page×query/GA4/sitemap/_redirects/生成HTML と突合 → 修正アクション分類（gsc-browser-collector/gsc-csv-auditor/seo-fix-planner）→ approval gate | ブラウザ → `gsc-ui/<run>/`（gitignore）＋ `improvements/search-growth-latest.md` |
+| `check-gsc-ui-due` | Script（surfacer） | 月次 UI 取得の期限催促（30日・committed `gsc-ui/last-run.json` 参照） | weekly-review が DUE を surface |
 | 機械履歴 | `index-coverage-history.json` | indexed_ratio の時系列 | CI が append |
 | 人間判断履歴 | 本 doc「観測・判断ログ」 | 何を打ち手にしたかの意思決定記録 | `/gsc-review` がユーザーと追記 |
 
@@ -45,8 +47,16 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 
 ## cadence
 
-- **月次**: `index-coverage.yml`（CI・毎月1日 JST 11:00）→ 翌日以降に `/gsc-review` を実行 → 本 doc 観測ログへ判断追記
+- **月次（CI・自動）**: `index-coverage.yml`（毎月1日 JST 11:00）→ 翌日以降に `/gsc-review` を実行 → 本 doc 観測ログへ判断追記
+- **月次（ローカル・手動）**: `/google-search-growth` で理由別 UI CSV を取得 → 突合 → 修正計画 → 観測ログ追記。**放置防止**は `check-gsc-ui-due`（30日）を weekly-review が surface（DUE なら次セッションで実行）。`/gsc-review`（coverage 全体）の深掘り＝理由ごとの例 URL を足す層。
 - **週次**: `fetch-metrics.yml`（CI・金 JST 6:00）→ `/weekly-improve`（performance 側）
+
+> [!important] CI 例外＝ブラウザは本人セッションで通る
+> 本 doc の原則は「計測は CI/CD 供給が正・ローカル creds 不要（会社 PC はプロキシで外部 API 遮断）」。
+> だが `/google-search-growth` は **正当な例外**＝Playwright が**ユーザーの実 Google セッション**で GSC UI を
+> 開くため、サービスアカウント API が遮断される環境でも UI CSV を取得できる。ログイン/2FA/CAPTCHA は人間、
+> CI 化不可（ゆえに `check-gsc-ui-due` で月次を催促する手動儀式）。将来セッションはこれを「ローカルで計測する
+> な」ルール違反と誤認して退役させないこと（[measurement-incidents.md](measurement-incidents.md) 2026-06-05 の対象は API）。
 
 ## 判断マトリクス（原因バケット → 打ち手）
 
@@ -75,6 +85,9 @@ URL Inspection の `coverage_state` と `page_fetch_state` から真因を切り
 | indexed_ratio 時系列 | `.claude/state/metrics/gsc/index-coverage-history.json` |
 | GSC query/page/date | `.claude/state/metrics/gsc/gsc-*.json` |
 | 改善候補（performance） | `.claude/state/improvements/*.md` |
+| GSC UI 理由別 CSV（生・gitignore） | `.claude/state/metrics/gsc-ui/<run>/`（raw ZIP + manifest + `normalized/*.json`） |
+| GSC UI 取得マーカー（committed） | `.claude/state/metrics/gsc-ui/last-run.json`（`check-gsc-ui-due` が参照） |
+| 検索流入 修正計画 | `.claude/state/improvements/search-growth-latest.md`（run JSON は gitignore） |
 
 ## 観測・判断ログ（append-only・人間の意思決定記録）
 

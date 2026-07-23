@@ -55,6 +55,9 @@ description: >
   ※Playwright + ログイン済みプロファイル必須＝ローカル実行限定。クラウド週次では実行不可なのでサーフェスのみ
 - note 競合再スキャン期限: `npm run check-competitor-scan-due -- --json` を実行（四半期＝90日。creds不要・ローカルhistory参照）。
   `due:true` なら「次セッションで `/competitor-review`（scout→competitor-analyst→09反映）」をサーフェスのみ（実取得はしない）。
+- GSC UI 取得期限（月次）: `npm run check-gsc-ui-due -- --json` を実行（30日。committed `gsc-ui/last-run.json` 参照・creds不要）。
+  `due:true` なら「次セッションで `/google-search-growth`（GSC 理由別 UI CSV → API 突合 → 修正計画）」をサーフェスのみ。
+  ※Playwright + Google ログイン必須＝ローカル実行限定。クラウド週次では実行不可なのでサーフェスのみ（真実源 `docs/reference/gsc-management.md`）
 - note 再公開ドリフト: `npm run check-note-republish` を実行（公開記事のソース**本文＋ハッシュタグ**が公開時から変更＝要再公開を surface・creds不要・ローカルhash突合）。
   「要再公開(本文drift)」は `note-update-body --commit`、「要再公開(タグdrift)」は `note-sync-tags --commit`（公開済み記事へのタグ差分追加）で次セッションに live 反映をサーフェスのみ（実反映はローカル実機＝クラウド週次では不可）。verify-note-status(公開状態) とは直交。
 - note 構成監査（月次寄り・network依存）: `node scripts/check-note-structure.mjs`（公開API無料本文とソース paidBoundary を突合し FULL_LOCK/PAYWALL_LEAK/BOUNDARY_SHIFT/IMG_MISSING/PRICE_MISMATCH を検出・creds不要）。CRITICAL があれば該当記事の境界を `note-update-body --commit` で再設定するようサーフェスのみ（audit-note-funnel --live と同じ live 隔離枠）。
@@ -66,6 +69,7 @@ description: >
 - 「note 再公開ドリフト（本文 N 本 / タグ N 本）」（`check-note-republish` が drift のときのみ）
 - 「note 構成監査 CRITICAL（境界破損 N 本）」（`check-note-structure` が CRITICAL のときのみ）
 - 「競合再スキャン DUE」（`check-competitor-scan-due` が due のときのみ）
+- 「GSC UI 取得 DUE（月次）」（`check-gsc-ui-due` が due のときのみ・→ 次セッションで `/google-search-growth`）
 ```
 
 #### Agent C: NSM / パフォーマンス指標 + 実験進捗

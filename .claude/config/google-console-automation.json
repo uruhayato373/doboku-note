@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "gsc": {
+    "property": "sc-domain:doboku-note.com",
+    "siteOrigin": "https://doboku-note.com",
+    "baseUrl": "https://search.google.com/search-console",
+    "scopes": {
+      "allKnownPages": ["すべての既知のページ", "All known pages"],
+      "allSubmittedPages": ["すべての送信済みページ", "送信済みページ", "All submitted pages"]
+    },
+    "scopeParams": {
+      "allKnownPages": "",
+      "allSubmittedPages": "&pages=ALL_SUBMITTED_URLS&sitemap"
+    },
+    "issueLabels": {
+      "crawledNotIndexed": [
+        "クロール済み - インデックス未登録",
+        "Crawled - currently not indexed"
+      ],
+      "redirect": [
+        "ページにリダイレクトがあります",
+        "Page with redirect"
+      ],
+      "notFound": [
+        "見つかりませんでした（404）",
+        "見つかりませんでした (404)",
+        "Not found (404)"
+      ],
+      "alternateCanonical": [
+        "代替ページ（適切な canonical タグあり）",
+        "代替ページ (適切な canonical タグあり)",
+        "Alternate page with proper canonical tag"
+      ],
+      "forbidden": [
+        "アクセス禁止（403）が原因でブロックされました",
+        "アクセス禁止 (403) が原因でブロックされました",
+        "Blocked due to access forbidden (403)"
+      ]
+    },
+    "exportButtonLabels": ["エクスポート", "Export"],
+    "csvMenuLabels": ["CSV をダウンロード", "CSVをダウンロード", "Download CSV", "Comma-separated values"],
+    "sampleUrlCap": 1000
+  },
+  "ga4": {
+    "propertyId": "419382901",
+    "baseUrl": "https://analytics.google.com/",
+    "windowDays": 28,
+    "timezone": "Asia/Tokyo",
+    "reports": {
+      "trafficAcquisition": ["トラフィック獲得", "Traffic acquisition"],
+      "landingPage": ["ランディング ページ", "ランディングページ", "Landing page"],
+      "events": ["イベント", "Events"]
+    }
+  },
+  "browser": {
+    "channel": "chrome",
+    "headless": false,
+    "profileDir": ".local/playwright-google-profile",
+    "debugDir": ".local/playwright-google-debug",
+    "timeoutMs": 30000,
+    "statusIntervalMs": 120000,
+    "loginMaxWaitMs": 900000
+  }
+}

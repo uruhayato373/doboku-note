@@ -56,6 +56,8 @@ npm run lint              # ESLint チェック（no-console: warn/error のみ�
 npm run quality:audit     # コード・記事・画像/SVGの機械チェックを横断実行→.claude/state/quality/audit-latest.md（:ci でCI gate厳格版）
 npm run pages:deploy      # Cloudflare Pages に手動デプロイ
 npm run admin             # 運営管理画面 Next.js 版（ローカル専用・http://127.0.0.1:3021・計測/エージェント/スキル/ギャラリー/SNS状態/記事/売上/品質/ジョブ/TODO・tools/admin-app）
+npm run google-console:login   # GSC/GA4 用 Chrome プロファイルを headed で開き人間ログイン（ローカル専用・/google-search-growth の前提）
+npm run search-growth:report   # GSC UI 正規化 ∪ API データを URL 突合して修正計画を再生成（オフライン・approval gate）
 ```
 
 ---
@@ -99,6 +101,7 @@ npm run admin             # 運営管理画面 Next.js 版（ローカル専用�
 | [docs/reference/information-architecture.md](docs/reference/information-architecture.md) | 情報の 4 ゾーンモデル（docs / reference / state / skills）・判断フロー。GitHub Issue 廃止の真実源 | 新しい情報の置き場に迷うとき・CI/スキル/ドキュメント設計時 |
 | [docs/reference/measurement-incidents.md](docs/reference/measurement-incidents.md) | 計測データの欠損・誤報・不整合 + 外部検証アクセスの罠（2026-W16 BAILOUT、2026-04-25 Cloudflare Bot 等）+ **計測は CI/CD 供給が正・ローカル creds 不要の恒久ルール（2026-06-05）** | 計測スキル/エージェント設計時・外部 Validator/ボットを使う作業時・**計測やAPIをローカルで叩こうとするとき（会社 PC はプロキシで外部 API 遮断）** |
 | [docs/reference/gsc-management.md](docs/reference/gsc-management.md) | GSC 継続管理 SSOT（index coverage / performance / hygiene の分業表・閾値・cadence・判断マトリクス・観測/判断ログ）。coverage=`gsc-index-auditor`＋月次 `/gsc-review`＋CI `index-coverage.yml`、performance=`metrics-analyzer`＋週次 `/weekly-improve` | サイトのインデックス率/検索流入を診断・継続管理するとき・GSC 系スキル/エージェント設計時 |
+| [docs/project/04_運営/gsc-ga4-playwright-automation-spec.md](docs/project/04_運営/gsc-ga4-playwright-automation-spec.md) | GSC/GA4 Playwright UI CSV 取得＋既存 API 突合＋URL 分類の実装指示書（真実源）。`/google-search-growth`（`gsc-browser-collector`/`gsc-csv-auditor`/`seo-fix-planner`）・`scripts/{google-console-login,fetch-gsc-ui-csv,fetch-ga4-ui-csv,normalize-google-console-csv,report-search-growth}.mjs`・設定 `.claude/config/google-console-automation.json`。ローカル専用・approval gate・自動変更は内部リンク旧 URL 修正のみ | GSC UI CSV を Playwright で取得・正規化・突合して修正計画を作るとき／`/google-search-growth` 系を改修するとき |
 | [docs/reference/data-storage-decision.md](docs/reference/data-storage-decision.md) | データストレージ判断 ADR（D1 不採用・frontmatter + build-time JSON 継続・再検討トリガー条件） | DB 導入を検討するとき／iOS アプリ着手時／コンテンツ規模が大きく変わるとき |
 | [docs/reference/book-list.md](docs/reference/book-list.md) | Amazonアソシエイト紹介書籍リスト（手動キュレーション記録）。**書籍アフィリは2026-06-25完全廃止＝参考用の歴史資料** | 過去の書誌キュレーションを参照するとき（書籍アフィリ自体は廃止済み） |
 | [docs/reference/coconala-operations.md](docs/reference/coconala-operations.md) | ココナラ運用 SSOT（受注フロー・KPI 週次・3スキーマ〔カタログ `src/lib/coconala-services.ts`／`.claude/state/coconala/{orders,kpi}-log.json`〕・安全弁〔代筆NG・外部誘導NG・実操作はユーザー〕・ドリフト検知 `npm run check-coconala-wiring`）。`/coconala-order`→受注E2E、`/coconala-status`→KPI照合、`coconala-operator` で運用。戦略・出品文面は `docs/note/1級・2級土木/ココナラ展開キット.md` | ココナラの受注処理・KPI 記録・出品状態の変更・スキーマを触るとき |

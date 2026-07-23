@@ -48,9 +48,18 @@ user-invocable: true
 - `docs/reference/gsc-management.md` の観測・判断ログへ 1 エントリ追記（ユーザー承認後）
 - 必要なら `docs/todo/` に hygiene 修正タスク
 
+## 深掘り（理由別の例 URL が要るとき）
+
+本スキルは CI（API/sitemap）データで coverage 全体を診断する。**「クロール済み-未登録」等の理由ごとに
+どの URL がそうなっているか**は API では取れない（GSC UI のみ）。同月内に `/google-search-growth`
+（ローカル・要 Google ログイン）を併走すると、理由別 UI CSV を取得して API データと URL 突合し、
+修正アクション（FIX_TECHNICAL / REDIRECT_LEGACY / CONSOLIDATE / NOINDEX 候補）へ分類できる。
+期限は `check-gsc-ui-due`（30日）を weekly-review が surface。両者は同じ観測・判断ログを共有。
+
 ## やらないこと
 
 - GSC データの取得（CI の責務）／history.json への追記（CI の `append-coverage-history.mjs`）
+- 理由別 UI CSV の取得（`/google-search-growth`＝ローカル手動・月次）
 - performance / CWV の分析（`/weekly-improve` / `performance-auditor`）
 - 修正の自動実施（ユーザー判断 + 各 Generator）
 
