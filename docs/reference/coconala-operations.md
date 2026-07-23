@@ -61,6 +61,19 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 | `coconala-civil-keiken-kit` | K1 制作物（DLキット）テスト出品。1級・2級 施工経験記述の**自作 AI 設計キット**（Claude Code＋Node.js 前提・provision_format=2）。`status:'draft'`。公開前ゲート=(1) 納品ZIPは外部URL(note/サイト)除去版へ差替（安全弁#2）、(2) `/coconala-publish --commit`。客層が限定される test 出品 |
 | `coconala-sokan-bunseki-pdf` | K2 単発PDF（テスト出品）。**総監** 記述式I-2 出題テーマ分析（provision_format=3・PDF は write_pdf 生成＝外部URL0件・`assets/pdf/coconala-sokan-bunseki.pdf`）。有料note施策バンク本文は非転載（分析/読み方に限定＝非カニバリ）。`status:'draft'`。総監はココナラ客層が薄い前提の test |
 
+**サイト内動線（記事内 CTA）**: `/links` ハブに加え、二次系の高適合記事の末尾にサービスを文脈 CTA として出す。配線 SoT は `src/lib/offsite-cta.ts`（slug→listed サービス・note の magazine-placement.ts と直交）、描画は `OffsiteCta` コンポーネント。listed のみ発火・外部 URL に UTM 非付与・クリックは `data-cta="coconala"`（AnalyticsProvider）・1ページ最大3枚・1級/2級は slug prefix で PDF を出し分け。対応表:
+
+| 記事 | 出すサービス |
+|---|---|
+| 経験記述（`secondary-experience-writing-{guide,examples}`・1級2級） | `coconala-shindan`＋`coconala-tensaku-set`（＋Brain 経験キット） |
+| 二次 年度別過去問（`secondary-r0[3-9]`） | `{1kyu,2kyu}-kakomon-pdf`＋`{1kyu,2kyu}-gakka-pdf` |
+| 二次 学科分野別（1級 `secondary-(concrete\|construction-plan\|earthwork\|quality-management)-(basics\|past-problems)`） | `coconala-1kyu-gakka-pdf` |
+| 二次 入門・直前（1級 `secondary-getting-started`／`guide-last-minute-2026`） | `coconala-1kyu-moshi-pdf`＋`coconala-bunseki-pdf` |
+| 二次 入門（2級 `secondary-getting-started`） | `coconala-2kyu-moshi-pdf` |
+| 総監 記述系（`essay-*`／`pattern-essay-*`／`{h2X,r0X}-secondary`） | `coconala-sokan-bunseki-pdf`（＋Brain 施策バンク） |
+
+未掲載（`/links` のみ）: `coconala-sakusei`／`coconala-kanseitoan-pdf`／`coconala-2kyu-kanseitoan-pdf`／`coconala-civil-keiken-kit`（経験記述ページは診断+添削+Brain で満杯・クロップ回避のため意図的に載せない）。
+
 ### 2.1b 出品投入 SoT: `.claude/config/coconala-listings.json`
 
 出品フォームへ流し込む本文・カテゴリ・納期・ジャンルの機械可読 SoT（`coconala-publish/edit` が serviceId で引く）。**価格・タイトル・状態・URL はカタログ（2.1）が真実源＝ここに価格を書かない**（安全弁§4）。

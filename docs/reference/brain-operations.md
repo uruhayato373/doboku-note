@@ -71,7 +71,7 @@ check-brain-wiring green → dist R2 200 確認
 
 ## 4. 審査後運用
 
-- **通過**: status を `listed` へ・`listedAt` 記録（手動 flip・brain-operator）。外部導線（note入口記事の公開・/links 掲載）はこの時点から（`listedBrainProducts()` が status=listed のみ /links に描画＝submitted 中は自動非表示）。
+- **通過**: status を `listed` へ・`listedAt` 記録（手動 flip・brain-operator）。外部導線（note入口記事の公開・/links 掲載・**記事内 CTA**）はこの時点から（`listedBrainProducts()` が status=listed のみ描画＝submitted 中は自動非表示）。**サイト内動線（記事内 CTA）**: `/links` に加え、高適合記事の末尾に Brain キットを文脈 CTA として出す。配線 SoT は `src/lib/offsite-cta.ts`（`brain-civil-essay-kit`→施工経験記述記事／`brain-sokan-policy-bank`→総監 essay・二次記事）、描画は `OffsiteCta`、クリックは `data-cta="brain"`（AnalyticsProvider）。UTM 非付与。
 - **却下**: status を `rejected`・指摘を listings へ反映 → `--force-resubmit` で再申請。
 - **本文（LP）変更**: `brain-publish` は既定で既存本文を保持（>50字なら挿入スキップ＝二重挿入防止）。差し替えは **`--replace-body`**（既存を Meta+A→Backspace で**2回**全消去→再挿入・クリア後 text>50字 or img>0 なら ABORT＝画像ノード残りの保険）。本文変更も**再審査**に入る。SoT は `.claude/config/brain-listings.json` の bodyText（価格直書き禁止・配布URLは有料ラインより後）。**構成の型の真実源は [note-selling-structures.md](note-selling-structures.md)「強化コンポーネント」**（社会的証明/価値3点先出し/数え上げ/3ステップ/FAQ/図版）。2026-07-23 に両商品 LP をこの型で改稿し `--replace-body --set-category 資格` で再申請（誠実表現は §5-6 準拠）。
 - **本文への図版挿入**: `brain-publish --insert-figures <json>`（`[{after:"段落に含む文字列", image:"ROOT相対パス"}]`）で本文挿入後に段落直後へ画像を入れる。挿入ロジックは `scripts/lib/brain-figures.mjs`（段落にカーソル→行の「＋」`_addContentButton_`→メニュー「画像」→隠し `input[type=file][accept=image]`）。**重複の罠**: Brain は 一時保存前でも画像アップロードを保持するため、挿入をやり直すと前回分が残り重複する→**必ず `--replace-body` と併用**しクリーン本文へ1回だけ挿入する（`--replace-body` の img>0 ABORT がこの残留を検出）。図版は `.claude/config/brain/assets/figures/*.png`（SVG源＋sharp PNG）。単体実行は `scripts/brain-insert-figures.mjs`（同 lib・下書き保存まで）。

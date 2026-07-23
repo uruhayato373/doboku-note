@@ -26,6 +26,7 @@ import { MDXProvider } from '@mdx-js/react';
 import { extractHeadings } from '@/lib/toc';
 import { resolvePlacement } from '@/lib/magazine-placement';
 import { resolveHubCta } from '@/lib/hub-cta';
+import { resolveOffsiteCta } from '@/lib/offsite-cta';
 import { getMagazine, buildMagazineUrl, type NoteMagazine } from '@/lib/note-magazines';
 import MagazineTopBanner from '@/components/ui/MagazineTopBanner';
 import MetaRow from '@/components/ui/MetaRow/MetaRow';
@@ -304,6 +305,9 @@ export default async function DocPage({
   // 全ページ統一の一環で復活し、カテゴリ hub（sidebar -sb + mobile -mob）と同じ二面構成に揃える。
   const sidebarMokuji =
     showMokuji && category ? resolveHubCta(category, { utmSuffix: 'docs-sb' }) : null;
+  // 外部チャネル（ココナラ添削／Brain 自作キット）CTA。施工経験記述・総監記述系の高適合ページのみ非空。
+  // 商品の listed 状態は offsite-cta.ts 側で判定（未 listed は自動非表示）。
+  const offsiteCta = resolveOffsiteCta(slugStr);
   // 記事冒頭 CTA（二次系高 intent ページのみ placement.top で設定）。getMagazine() ゲートを
   // 通すため未公開マガジン（会員ラボ等）は自動非表示。末尾の画像カードと重複してよい。
   const topSlot = magazinePlacement.top;
@@ -467,6 +471,7 @@ export default async function DocPage({
               meta={doc.meta}
               categoryArticles={categoryArticles}
               footerMokuji={footerMokuji}
+              offsiteCta={offsiteCta}
               faqs={faqs}
               hasCategoryNavCard={hasCategoryNavCard}
               authorDates={authorDates}
