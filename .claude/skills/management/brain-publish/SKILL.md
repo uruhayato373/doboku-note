@@ -52,7 +52,7 @@ node scripts/brain-publish.mjs --service <id> --edit-url <editUrl> --commit --fo
 
 ## 本文（LP）差し替え（再審査を伴う）
 
-既定は既存本文を保持（>50字なら挿入スキップ）。listings の bodyText を書き直してライブへ反映するには **`--replace-body`**（既存を全消去→再挿入）。本文変更も再申請＝再審査。
+既定は既存本文を保持（>50字なら挿入スキップ）。listings の bodyText を書き直してライブへ反映するには **`--replace-body`**（既存を全消去→再挿入）。本文変更も再申請＝再審査。**書き直す際は構成の型＝[note-selling-structures.md](../../../../docs/reference/note-selling-structures.md)「強化コンポーネント」を参照**（誠実表現は brain-operations §5-6）。
 
 ```
 node scripts/brain-publish.mjs --service <id> --edit-url <editUrl> --commit --force-resubmit --replace-body [--set-category <label>]

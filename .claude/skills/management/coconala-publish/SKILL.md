@@ -42,6 +42,7 @@ node scripts/coconala-edit.mjs --service coconala-shindan --fields price   # 修
 - **偽成功を報告しない**: 送信後にフォームのバリデーションエラー（記入エラー）が出たら「公開した」と言わない（publish/edit は `ok:false` を返し下書きに退避）。
 - **価格の直書き禁止**: 価格はカタログ（`priceYen`）が真実源。listings に価格を書かない。
 - **代筆禁止・外部誘導禁止**: 出品文面の原則は `docs/reference/coconala-operations.md` §5・展開キット §2-3。
+- **構成の型**: 文面を書き直すときは `docs/reference/note-selling-structures.md`「強化コンポーネント」を参照（C系PDF=直適用／S系人力=翻案・body 1000字上限）。
 - **フォーム仕様がドリフトしたら**: `node scripts/coconala-discover.mjs --advance --cat 12 --sub 254 --type 764` で現行 selector/選択肢を再取得し、listings の category/genreFacets を是正。
 
 ## 商品画像（サービスサムネ）

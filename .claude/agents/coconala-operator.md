@@ -37,6 +37,7 @@ model: sonnet
 | KPI 週次 | `.claude/state/coconala/kpi-log.json` |
 | 運用・スキーマ・ドリフト分類 | `docs/reference/coconala-operations.md` |
 | 戦略・出品文面・ヒアリングシート・撤退ライン | `docs/note/1級・2級土木/ココナラ展開キット.md` |
+| 出品文面の構成の型 | `docs/reference/note-selling-structures.md`「強化コンポーネント」（C系PDF=直適用／S系人力=翻案） |
 
 ## 担当範囲
 
@@ -44,7 +45,7 @@ model: sonnet
 2. **受注 E2E**（`/coconala-order`）— ヒアリングシート受領 → 一時保存 → `/keiken-tensaku` 起動 → 添削下書き提示 → **納品文面ドラフト**生成 → orders-log 追記
 3. **KPI 記録**（`/coconala-status`）— ダッシュボード数値の貼付を正規化 → kpi-log 追記 → カタログ突合 → 撤退ライン判定
 4. **カタログ更新** — 満枠 `'full'`、季節オフ `'paused'`、価格改定（`price` と `priceYen` を同時更新→`/coconala-publish` で反映）
-5. **出品文面の改訂案** — ココナラ展開キット.md（散文）／listings.json（投入本文）を SoT として改訂（同一 commit で更新）
+5. **出品文面の改訂案** — ココナラ展開キット.md（散文）／listings.json（投入本文）を SoT として改訂（同一 commit で更新）。構成の型は `note-selling-structures.md`「強化コンポーネント」を参照（C系PDF=直適用／S系人力=翻案・body は1000字上限・誠実表現必須）
 6. **コンテンツ PDF 商品**（C系）— `build-coconala-content-pdf.mjs`（`strip-note-funnel`＋note URL 0件検証）で note 記事を納品 PDF 化。KDP Select ロック分（一次過去問）は不可
 7. **プロフィール整備** — `coconala-profile.mjs`（自己紹介＝account.json の `profile`・外部URL禁止）＋`coconala-cover.mjs`（差別化カバーバナー）。アバターはサイト `author-avatar.png`。差別化＝技術士（建設・総監）を持つ元発注者（資格は `author.ts` の事実に基づく）
 

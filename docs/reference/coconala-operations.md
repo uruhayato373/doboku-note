@@ -251,6 +251,7 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 ## 関連
 
 - 戦略・出品文面・ヒアリングシート・撤退ライン: [ココナラ展開キット.md](../note/1級・2級土木/ココナラ展開キット.md)
+- 出品文面の**構成の型**: [note-selling-structures.md](note-selling-structures.md)「強化コンポーネント」（C系PDF=直適用／S系人力=翻案・詳細は展開キット §3）
 - 添削パイプライン: `/keiken-tensaku`（`civil-keiken-tensaku-drafter`）／添削テンプレ: [2級経験記述-添削テンプレ.md](../note/1級・2級土木/2級土木/2級経験記述-添削テンプレ.md)
 - 売上: [sales-tracking.md](sales-tracking.md)（`coconala:<serviceId>` 命名）
 - 会員（主戦場）: [noteコンテンツ計画.md](../note/1級・2級土木/noteコンテンツ計画.md)（ココナラは第3チャネル・会員の価格アンカー）

@@ -36,7 +36,8 @@ Brain チャネルの商品運用を統括するオーケストレーター。**
 5. **カテゴリ／本文(LP)変更**: Brain はカテゴリを申請時設定として扱う（in-place 不可）＝販売設定→有料エリア→
    **再申請**を通り公開中でも**再審査**に入る。`brain-publish --edit-url <url> --commit --force-resubmit
    --set-category <label>`（v-select は仮想リスト＝スクロールで DOM 化して選択）。本文(LP)差し替えは
-   listings の bodyText を直して **`--replace-body`**（既存全消去→再挿入）。本文への図版は
+   listings の bodyText を直して **`--replace-body`**（既存全消去→再挿入）。**LP 本文の構成の型は
+   docs/reference/note-selling-structures.md「強化コンポーネント」を参照**（情報商材型で直適用・誠実表現は §5-6）。本文への図版は
    **`--insert-figures <json>`**（`_addContentButton_`→「画像」→隠し file input・`scripts/lib/brain-figures.mjs`）を
    **`--replace-body` 併用で**（Brain は保存前でも画像保持＝重複するため）。全候補・注意点は
    brain-operations §4/§6。再審査中は status=submitted＝/links から自動非表示、通過メール後に listed へ flip
