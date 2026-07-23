@@ -88,6 +88,10 @@ public/posts
 .local/playwright-a8-debug/
 .local/playwright-a8-state.json
 
+# Playwright GSC/GA4 取得用（Google ログイン cookie を含む・コミット禁止・ローカル専用）
+.local/playwright-google-profile/
+.local/playwright-google-debug/
+
 # SNS 投稿スケジュール状態（ツール生成キャッシュ）
 docs/x-posts/draft/**/status.json
 /*.png

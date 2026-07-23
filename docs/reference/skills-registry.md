@@ -21,7 +21,7 @@ title: スキル ガバナンス記録
 ├── authoring/       # 11 — 記事を作る
 ├── conversion/      # 7 — 形式変換（MDX / OGP 画像 / 紙用 PDF / Kindle EPUB）＋ KDP 入稿・出版 ＋ OGP 意匠の素案試作
 ├── quality/         # 16 — MDX・note 公開前品質検査
-├── management/      # 20 — 計画・分析・戦略
+├── management/      # 21 — 計画・分析・戦略
 ├── dev/             # 13 — 開発・CI/CD
 ├── analytics/       # 2 — サイト分析
 ├── social/          # 22 — SNS 投稿
@@ -29,7 +29,9 @@ title: スキル ガバナンス記録
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **94 スキル**（10 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+合計 **95 スキル**（10 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+
+> 2026-07-24 新設（GSC/GA4 Playwright 取得＝検索流入改善パイプライン）: `management/google-search-growth`（GSC「ページのインデックス登録」理由別詳細から Playwright の download イベントで CSV を取得→ロケール非依存 JSON へ正規化→URL Inspection/GSC page×query/GA4 page/sitemap/_redirects/生成 HTML と URL 単位で突合→修正アクション分類→approval gate で停止する user-invocable オーケストレータ。`disable-model-invocation: true`＝副作用〔ブラウザ操作〕あり）。あわせて **新エージェント 3 体**＝`gsc-browser-collector`（Generator・sonnet。UI CSV 収集の実行と property assert・manifest/debug 確認・ログイン/2FA/CAPTCHA/プロパティ不一致で停止）、`gsc-csv-auditor`（Evaluator・sonnet・audit-only。raw CSV/manifest/正規化 JSON のデータ品質＝行数/sha256/truncation/rejects/重複/前回差分/schema を PASS/WARN/FAIL）、`seo-fix-planner`（Evaluator・sonnet・audit-only。join 済み JSON の URL 分類を意味補正し impact×confidence×effort で優先順位）。決定的スクリプト＝`scripts/google-console-login.mjs`／`fetch-gsc-ui-csv.mjs`／`fetch-ga4-ui-csv.mjs`／`normalize-google-console-csv.mjs`／`report-search-growth.mjs`＋純関数 lib `scripts/lib/{url-normalization,google-console-csv,search-growth-classifier,google-console-browser}.mjs`。設定 SoT `.claude/config/google-console-automation.json`（property/issueLabels/browser・メール/Cookie/秘密鍵は書かない）。永続プロファイル `.local/playwright-google-{profile,debug}/`（gitignore・ローカル専用・CI は既存サービスアカウント API のみ）。テスト `tests/{google-console-csv,search-growth-classifier}.test.mjs`＋fixtures（BOM/CRLF/quoted-newline）。**自動変更は内部リンクの旧 URL 修正のみ**＝redirect 追加/noindex/統合/削除/deploy は approval gate。真実源は `docs/project/04_運営/gsc-ga4-playwright-automation-spec.md`。既存 `/gsc-review`（coverage）・`/seo-growth-review`（技術/意図）・`/weekly-improve`（performance）と直交（本スキルは UI CSV 取得→突合→修正計画に特化し、収集後にそれらの Evaluator を束ねる）。合計 `94→95`・management `20→21`・agents `+3`（`gsc-browser-collector`/`gsc-csv-auditor`/`seo-fix-planner`）。
 
 > 2026-07-22 新設（Brain チャネルのエージェント化）: `management/brain-publish`（Brain＝brain-market.com へ Claude Code キット商品を Playwright で出品・公開申請する user-invocable スキル）＋**新エージェント `brain-operator`（Generator/オーケストレーター・sonnet）**。同日の実出品2件（①施工経験記述キット ¥7,980／②総監施策バンク ¥9,800・いずれも公開申請済）で確立したフローを恒久実装。カタログ SoT `src/lib/brain-products.ts`（coconala-services.ts 同型・status=draft/submitted/listed/rejected）・投入 SoT `.claude/config/brain-listings.json`（本文/画像/paidMarker・価格直書き禁止・配布URLは有料エリア内必須）・`brain-account.json`・実行系 `scripts/brain-publish.mjs`＋`scripts/lib/brain-session.mjs`（draft-first＋`--commit` gate・同意モーダルは `--agree`〔ユーザー許可〕gate・販売設定はセッション状態のため価格〜申請を1セッション・有料ラインは可視テキスト assert・確認モーダル価格 assert・偽成功防止）・機械ガード `scripts/check-brain-wiring.mjs`（pre-commit `--staged`・**ファイル存在ガード付き＝brain スクリプトの無い並行ブランチを壊さない**）を新設。配布は `.claude/config/brain/dist/`→`r2-brain-dist.yml`（workflow_dispatch）→`storage.doboku-note.com/brain/dist/`（トークン付URL）。運用 SSOT は新設 `docs/reference/brain-operations.md`（Brain UI のクセ表含む）。合計 `93→94`・management `19→20`・agents `+1`（`brain-operator`）。
 
