@@ -1,0 +1,57 @@
+{
+  "meta": {
+    "startDate": "2026-06-25",
+    "endDate": "2026-07-22",
+    "eventNames": [
+      "note_cta_click",
+      "affiliate_cta_click",
+      "note_article_click"
+    ],
+    "japanOnly": true,
+    "byDevice": true,
+    "byLabel": false,
+    "propertyId": "properties/419382901"
+  },
+  "rows": [
+    {
+      "device": "desktop",
+      "eventName": "note_cta_click",
+      "eventCount": 393
+    },
+    {
+      "device": "desktop",
+      "eventName": "note_article_click",
+      "eventCount": 57
+    },
+    {
+      "device": "mobile",
+      "eventName": "note_cta_click",
+      "eventCount": 32
+    },
+    {
+      "device": "mobile",
+      "eventName": "note_article_click",
+      "eventCount": 21
+    },
+    {
+      "device": "desktop",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 9
+    },
+    {
+      "device": "mobile",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 9
+    },
+    {
+      "device": "tablet",
+      "eventName": "note_cta_click",
+      "eventCount": 9
+    },
+    {
+      "device": "tablet",
+      "eventName": "note_article_click",
+      "eventCount": 2
+    }
+  ]
+}
