@@ -20,7 +20,7 @@ export default function AnalyticsProvider() {
 
   // 収益 CTA（note 有料マガジン / アフィリエイト）・note 無料記事への送客・サイト内回遊ナビの
   // クリックを 1 つのデリゲートリスナーで計測する。各コンポーネントを client 化せず、
-  // サーバー描画の <a> に data-cta="note" | "affiliate" | "note-article" | "nav"（+ data-cta-label）
+  // サーバー描画の <a> に data-cta="note" | "affiliate" | "note-article" | "nav" | "coconala" | "brain"（+ data-cta-label）
   // を付けるだけで拾える設計。GA4 はイベントに pagePath を自動付与するため、
   // eventName × pagePath × label でページ別・ナビ別クリック数が取れる。
   // note（有料マガジン購入 CTA）と note-article（無料記事ナビ）は別イベントに分離し、
@@ -34,12 +34,16 @@ export default function AnalyticsProvider() {
       affiliate: "affiliate_cta_click",
       "note-article": "note_article_click",
       nav: "internal_nav_click",
+      coconala: "coconala_cta_click",
+      brain: "brain_cta_click",
     };
     const CATEGORY: Record<string, string> = {
       note: "note-magazine",
       affiliate: "affiliate",
       "note-article": "note-article",
       nav: "internal-nav",
+      coconala: "coconala",
+      brain: "brain",
     };
     const onClick = (e: MouseEvent) => {
       const start = e.target as Element | null;

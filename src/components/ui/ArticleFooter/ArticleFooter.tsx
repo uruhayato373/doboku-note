@@ -12,6 +12,8 @@ import PillarNavCard from '@/components/ui/PillarNavCard';
 import RelatedTextbooks from '@/components/ui/RelatedTextbooks/RelatedTextbooks';
 import HubCtaBanner from '@/components/ui/HubCtaBanner/HubCtaBanner';
 import { type ResolvedHubCta } from '@/lib/hub-cta';
+import OffsiteCta from '@/components/ui/OffsiteCta';
+import { type OffsiteCtaItem } from '@/lib/offsite-cta';
 import TextbookNav from '@/components/ui/TextbookNav/TextbookNav';
 import CategoryNavCard from '@/components/ui/CategoryNavCard/CategoryNavCard';
 import FAQCard from '@/components/ui/FAQCard/FAQCard';
@@ -30,6 +32,8 @@ interface ArticleFooterProps {
   readonly categoryArticles: DocMeta[];
   /** もくじ（L2 索引）タイル。HUB 資格 & 非 career のとき非 null。全 HUB ページの記事末尾に統一表示。 */
   readonly footerMokuji: ResolvedHubCta | null;
+  /** 外部チャネル（ココナラ/Brain）CTA。高適合ページのみ非空（offsite-cta.ts が解決）。 */
+  readonly offsiteCta: readonly OffsiteCtaItem[];
   readonly faqs: { q: string; a: string }[];
   readonly hasCategoryNavCard: boolean;
   readonly authorDates: {
@@ -53,6 +57,7 @@ export default function ArticleFooter({
   meta,
   categoryArticles,
   footerMokuji,
+  offsiteCta,
   faqs,
   hasCategoryNavCard,
   authorDates,
@@ -103,6 +108,10 @@ export default function ArticleFooter({
           </div>
         </div>
       )}
+
+      {/* 外部チャネル（ココナラ添削／Brain 自作キット）CTA。施工経験記述・総監記述系の高適合ページのみ。
+          note もくじ（フル教材）とは別種の「個別添削」「自作キット」導線として並置。listed 商品のみ描画。 */}
+      <OffsiteCta items={offsiteCta} />
 
       {/* Civil 2級 guide（キャリア記事）: 記事末 CTA なし（GKS はサイドバー上部に集約＝1 ページ 1 GKS ピクセル）。
           本文インライン CareerAffiliate（href のみ）は MDX 側で維持。 */}
