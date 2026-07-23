@@ -150,6 +150,21 @@ node scripts/note-update-body.mjs --list   <list.txt>   --commit    # 複数記�
 - **事後（ライブ・note API）**: `npm run check-note-structure`（公開API無料本文とソース境界を突合し FULL_LOCK/PAYWALL_LEAK/BOUNDARY_SHIFT/IMG_MISSING/PRICE_MISMATCH を検出）。`--ci` で未許可 CRITICAL>0 なら exit 1。既知の境界定義ズレ（BK/総監の偽陽性）は `.claude/config/note-structure-allow.json` の allowlist で WAIVED（backlog解消時に空にする）。CI非対象（note API依存）＝週次/月次で回す。
 - **paidProbe の注意**: 境界H2テキスト自体は note 目次（無料側）に出るため偽陽性になる→境界H2の**直後の本文段落**を probe にする（check-note-structure.mjs 実装済）。
 
+### 有料公開の `price:` 欄必須 と 既存無料→有料 変換: `note-convert-to-paid`（2026-07-24 新設）
+
+**note-publish の有料判定は `isPaid = notePricing==='paid' && price>0`。** `notePricing: paid` でも **frontmatter に `price:` 欄が無い（or 0）と無料で公開される**（2026-07-24、完全攻略パック工事/補充＋総監 計21本が price 欄欠落で無料公開＝値崩れ事故）。paid 記事を公開する前に `price:`(>0) を必ず確認する。完全攻略パック個別記事は ¥500（バンドル ¥2,480 と整合）。
+
+```bash
+node scripts/note-convert-to-paid.mjs --list <file> --commit    # 無料公開済みを有料化（1行1 article）
+node scripts/note-convert-to-paid.mjs --article <path> --commit
+npm run note-convert-to-paid -- --article <path> --commit
+```
+
+- **用途**: 既に**無料で公開済み**の note を有料化する。既存 note editor を開く→公開に進む→有料選択＋価格(input#price setter)→有料エリア設定で境界を `paidBoundary` 直前へ→更新する→公開API で `price>0` 検証。note-publish の有料+境界ロジックを踏襲。
+- **なぜ別ツールか**: note-publish は `noteUrl` があると冪等スキップ（新規専用）＝既存 note の有料化には使えない。price 欄を付与し直しても note-publish は再実行しない→本ツールで既存 note を有料化する。
+- **前提**: frontmatter に `price:`(>0) と `paidBoundary` が必須。境界検証(boundaryBeforeExam)が false なら保存せず中断。
+- **同一画像の2枚目アップロード失敗**: 本文に同じ画像を2回貼ると note が2枚目のアップロードに失敗し `[12] 本文画像が未完(failed=1)` で公開拒否→**重複画像は1枚に削除**（別ファイル名コピーでも失敗する場合あり）。
+
 > [!warning]
 > **`note-article-price-sweep.mjs` は有料境界を破壊する**（2026-07-24 実証）: 価格変更時に「有料エリア設定」を開き**ライン位置を再設定せず**「更新する」するため、note が境界を先頭リセット→全ロック（FULL_LOCK）化する（civil 経験記述 58 本で発生）。**カスタム境界を持つ有料記事にこのスクリプトを使わない**。価格変更後は必ず `check-note-structure` で境界を実査し、崩れていれば `note-update-body --commit`（paidBoundary で境界再設定）で復旧する。
 
