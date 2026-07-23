@@ -1,5 +1,6 @@
 ---
 notePricing: paid
+paidBoundary: "答案の方針"
 noteSeries: コンクリート主任技師-小論文
 utmCampaign: cce-essay-environment
 noteUrl: ""

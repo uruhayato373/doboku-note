@@ -1,5 +1,6 @@
 ---
 notePricing: paid
+paidBoundary: "想定工事①"
 noteSeries: 1級土木-経験記述-完全攻略パック
 noteMagazine: 1級土木-経験記述-完全攻略パック
 utmCampaign: civil1-keiken-pack-utilitytunnel

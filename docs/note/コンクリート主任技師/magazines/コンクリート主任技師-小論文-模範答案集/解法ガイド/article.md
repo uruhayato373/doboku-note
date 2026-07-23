@@ -1,5 +1,6 @@
 ---
 notePricing: paid
+paidBoundary: "採点者が見る4観点"
 noteSeries: コンクリート主任技師-小論文
 utmCampaign: cce-essay-method
 noteUrl: ""
