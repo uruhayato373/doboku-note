@@ -49,6 +49,7 @@ const MODE_LIST = argv.includes('--list-drafts');
 const MODE_DELETE = argv.includes('--delete-drafts');
 const MODE_DUMP = argv.includes('--dump');
 const MODE_DIAG_CAT = argv.includes('--diag-category');
+const MODE_PUBLISH_ONLY = argv.includes('--publish-only');
 const BOOKLESS = MODE_SYNC || MODE_LIST || MODE_DELETE;
 if (!ID && !BOOKLESS) { console.error('--id <book id> required（または --sync-status / --list-drafts / --delete-drafts）'); process.exit(1); }
 
@@ -62,7 +63,7 @@ if (ID) {
   if (errs.length && !(MODE_DUMP || MODE_DIAG_CAT)) { console.error('ABORT: メタデータ検証エラー:\n  - ' + errs.join('\n  - ')); process.exit(1); }
   book.epub = join(homedir(), 'Downloads', `kindle-${ID}.epub`);
   book.cover = join(homedir(), 'Downloads', `kindle-cover-${ID}.jpg`);
-  if (!MODE_DUMP && !MODE_DIAG_CAT) {
+  if (!MODE_DUMP && !MODE_DIAG_CAT && !MODE_PUBLISH_ONLY) {
     for (const [label, f] of [['EPUB', book.epub], ['表紙', book.cover]]) {
       if (!existsSync(f)) { console.error(`ABORT: ${label} が無い: ${f}\n（先に npm run sync-kindle-dist -- --downloads ${ID} で配置）`); process.exit(1); }
     }
@@ -250,6 +251,35 @@ try {
     await shot(page, 'diag-category');
     await ctx.close();
     process.exit(0);
+  }
+
+  // ═══ MODE: --publish-only（設定済みドラフトを価格ページ直行で出版・詳細/カテゴリーに触れない）════
+  // 用途: 下書き保存済み(price/royalty/content 完了)の draftAsin を LIVE 化。resume の
+  // 詳細/カテゴリー再操作(ハング要因)を回避。出版は不可逆ゆえ価格/ロイヤリティを検証してから押す。
+  if (MODE_PUBLISH_ONLY) {
+    const asin = getArg('--asin') || getDraftAsin(ID);
+    if (!asin) { console.error(`ABORT: --publish-only には draftAsin が必要（catalog に ${ID} の draftAsin 無し／--asin 指定可）`); await ctx.close(); process.exit(1); }
+    await page.goto(`https://kdp.amazon.co.jp/ja_JP/title-setup/kindle/${asin}/pricing`, { waitUntil: 'domcontentloaded', timeout: 60000 });
+    await page.waitForLoadState('domcontentloaded').catch(() => {});
+    await sleep(5000);
+    if (!/\/pricing/i.test(page.url())) { console.error('ABORT: 価格ページに到達できず URL=' + page.url()); await shot(page, 'pub-nav-fail'); await ctx.close(); process.exit(3); }
+    // 出版前検証（価格/ロイヤリティが期待値か。未設定なら出版せず停止＝目視で直す）
+    let st = {};
+    try { st = await page.evaluate(() => ({ roy: (document.querySelector('input[name="data[digital][royalty_rate]-radio"]:checked') || {}).value || '', price: (document.querySelector('input[name="data[digital][channels][amazon][JP][price_vat_inclusive]"]') || {}).value || '' })); } catch {}
+    console.log(`[pub] ${ID} (${asin}) 検証: ロイヤリティ=${st.roy} / JP価格=${st.price} / 期待=70_PERCENT・${book.price}`);
+    if (st.roy !== '70_PERCENT' || String(st.price) !== String(book.price)) { console.error('ABORT: 価格/ロイヤリティ不一致 → 出版せず停止（ドラフトを目視で直す）'); await shot(page, 'pub-verify-fail'); await ctx.close(); process.exit(3); }
+    // 出版（不可逆）
+    console.log('[pub] ★出版: 「Kindle本を出版」クリック…');
+    let clicked = false;
+    for (const sel of ['#save-and-publish', '#save-and-publish-announce', 'button:has-text("Kindle 本を出版")', 'button:has-text("Kindle本を出版")']) { try { const l = page.locator(sel); if (await l.count()) { await l.first().scrollIntoViewIfNeeded(); await l.first().click({ timeout: 10000 }); clicked = true; break; } } catch {} }
+    if (!clicked) { console.error('ABORT: 出版ボタンが見つからない'); await shot(page, 'pub-btn-fail'); await ctx.close(); process.exit(3); }
+    await sleep(9000);
+    await shot(page, 'pub-published');
+    let after = ''; try { after = await page.evaluate(() => document.body.innerText || ''); } catch {}
+    const okPub = /おめでとう|レビュー中|出版申請|審査|提出されました|公開されます|出版準備/.test(after);
+    console.log(`[pub] 結果: ${okPub ? 'OK 出版リクエスト送信（審査へ・通常72h）' : 'WARN 確認文言なし（要スクショ確認）'} URL=${page.url()}`);
+    await ctx.close();
+    process.exit(okPub ? 0 : 4);
   }
 
   // ═══════════════ 新規提出フロー（既定 / --commit-publish で出版）═══════════════
