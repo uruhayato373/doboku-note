@@ -1,11 +1,13 @@
 ---
 notePricing: paid
+paidBoundary: "採点者が見る4観点"
 noteSeries: コンクリート主任技師-小論文
 utmCampaign: cce-essay-method
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n6f5484b58fd4"
+noteId: "n6f5484b58fd4"
+notePublishedAt: "2026-07-23"
 noteMagazine: コンクリート主任技師-小論文-模範答案集
+noteStatus: published
 price: 500
 coverTitle: "コンクリート主任技師 小論文 突破法"
 cover:

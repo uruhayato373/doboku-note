@@ -1,10 +1,11 @@
 ---
 notePricing: free
-noteStatus: draft
-noteUrl: ""
-noteId: ""
+noteStatus: published
+noteUrl: "https://note.com/dobokunote/n/nbd425a286d1d"
+noteId: "nbd425a286d1d"
 noteSeries: 技術士建設部門-無料入口
 utmCampaign: pe-construction-datsutanso-keyword
+notePublishedAt: "2026-07-23"
 coverTitle:
   - 必須科目Iで頻出
   - 低炭素社会・環境保全の論点キーワード
@@ -56,7 +57,13 @@ cover:
 なお筆者は、地方自治体の土木職（発注者）として工事の発注・監督・積算審査に携わり、道路・河川・都市計画の3科目で建設部門に合格しています。
 
 <!-- cta:pack-top -->
-> 建設部門は「必須科目I＋選択科目」の組み合わせで合否が決まります。全受験者共通の[必須科目I 模範解答集（R03-R07＋R8予想・¥3,480）](https://note.com/dobokunote/m/m0f3bc3933454)がまず1冊目。あなたの選択科目の模範解答集は[建設部門もくじ](https://note.com/dobokunote/n/n7279ca0d926f)から選べます（単品を1本ずつ買うより約8割お得）。
+建設部門は「必須科目I＋選択科目」の組み合わせで合否が決まります。全受験者共通の「必須科目I 模範解答集（R03-R07＋R8予想）」がまず1冊目。
+
+https://note.com/dobokunote/m/m0f3bc3933454
+
+あなたの選択科目の模範解答集は「建設部門もくじ」から選べます（単品を1本ずつ買うより約8割お得）。
+
+https://note.com/dobokunote/n/n7279ca0d926f
 
 ## なぜ低炭素・環境保全が必須科目Iで問われるのか
 

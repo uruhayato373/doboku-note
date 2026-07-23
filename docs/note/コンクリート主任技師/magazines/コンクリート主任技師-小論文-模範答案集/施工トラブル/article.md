@@ -1,11 +1,13 @@
 ---
 notePricing: paid
+paidBoundary: "答案の方針"
 noteSeries: コンクリート主任技師-小論文
 utmCampaign: cce-essay-trouble
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/nfaee2b645971"
+noteId: "nfaee2b645971"
+notePublishedAt: "2026-07-23"
 noteMagazine: コンクリート主任技師-小論文-模範答案集
+noteStatus: published
 price: 500
 coverTitle: "小論文 模範答案｜施工トラブル（初期欠陥の原因と防止）"
 cover:

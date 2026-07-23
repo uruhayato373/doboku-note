@@ -1,11 +1,13 @@
 ---
 notePricing: paid
+paidBoundary: "答案の方針"
 noteSeries: コンクリート主任技師-小論文
 utmCampaign: cce-essay-durability
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n4cd2ea9e5a75"
+noteId: "n4cd2ea9e5a75"
+notePublishedAt: "2026-07-23"
 noteMagazine: コンクリート主任技師-小論文-模範答案集
+noteStatus: published
 price: 500
 coverTitle: "小論文 模範答案｜耐久性（厳しい環境下の耐久性確保）"
 cover:

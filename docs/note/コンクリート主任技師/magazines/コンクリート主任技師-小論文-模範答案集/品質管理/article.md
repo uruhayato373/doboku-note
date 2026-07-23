@@ -1,11 +1,13 @@
 ---
 notePricing: paid
+paidBoundary: "答案の方針"
 noteSeries: コンクリート主任技師-小論文
 utmCampaign: cce-essay-quality
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n879c64afeae6"
+noteId: "n879c64afeae6"
+notePublishedAt: "2026-07-23"
 noteMagazine: コンクリート主任技師-小論文-模範答案集
+noteStatus: published
 price: 500
 coverTitle: "小論文 模範答案｜品質管理（製造・受入・施工の品質確保）"
 cover:

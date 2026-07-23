@@ -1,7 +1,13 @@
 ---
 notePricing: paid
+price: 500
+paidBoundary: "品質管理"
 noteSeries: 1級土木-経験記述-完全攻略パック
 noteMagazine: 1級土木-経験記述-完全攻略パック
+noteStatus: published
+notePublishedAt: "2026-07-23"
+noteId: "nd18669cf8d79"
+noteUrl: "https://note.com/dobokunote/n/nd18669cf8d79"
 utmCampaign: civil1-keiken-pack-koji11
 coverTitle: ["1級土木 施工経験記述", "傾斜地 段切り盛土", "5管理 完成答案"]
 cover:

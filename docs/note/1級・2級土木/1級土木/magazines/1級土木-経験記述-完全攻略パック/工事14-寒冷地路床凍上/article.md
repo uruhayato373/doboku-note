@@ -1,7 +1,13 @@
 ---
 notePricing: paid
+price: 500
+paidBoundary: "品質管理"
 noteSeries: 1級土木-経験記述-完全攻略パック
 noteMagazine: 1級土木-経験記述-完全攻略パック
+noteStatus: published
+notePublishedAt: "2026-07-23"
+noteId: "n317ce2fde1b4"
+noteUrl: "https://note.com/dobokunote/n/n317ce2fde1b4"
 utmCampaign: civil1-keiken-pack-koji14
 coverTitle: ["1級土木 施工経験記述", "寒冷地路床 凍上抑制", "5管理 完成答案"]
 cover:
@@ -289,8 +295,6 @@ https://note.com/dobokunote/m/m8290970a7f05
 
 **施工計画×環境**
 設問1で「凍上抑制工法の事前比較選定と逆算工程の計画」、設問2で「農地・用水路近接の濁水流出防止と粉じん対策」を書く。施工計画段階で環境保全措置を盛り込む点を強調すると高評価。
-
-![技術士（総合技術監理部門）を持つ元発注者が、施工管理技士の記述を分析して作成。総監＝上位資格の分析力、元発注者＝採点者の視点、施工管理技士＝合格した当事者](img/figure-author-authority.png)
 
 上位資格の分析力・発注者の採点眼・合格者の当事者性で、あなたの答案を合格ラインへ引き上げます。
 
