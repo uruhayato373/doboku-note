@@ -497,6 +497,13 @@ account ゲート/ClipboardEvent paste/リンクカード化/ブラウザ起動�
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
 
+### note ハッシュタグ90+ ライブ反映の残3本（2026-07-23 の156本一括反映で残置）
+タグ: [note運用]
+
+159本のタグdrift一括反映で **156本が live≥90 完了**（`note-sync-tags` autocomplete確定バグ修正込み・drift 159→1）。残り:
+- **はじめに-合格ラボ（会員記事・`n6b66793ca20c`）**: メンバーシップ設定画面のタグwidget構造差で自動追加が保存前に安全中断（ライブ tags=0・無傷）。**手動で `docs/note/1級・2級土木/メンバーシップ/はじめに-合格ラボ/hashtags.txt`（93タグ）を編集画面で全選択コピペ→更新する**が確実。編集URL: `https://editor.note.com/notes/n6b66793ca20c/edit/`
+- **総監コスト公務員版・総監受験コスト比較**: frontmatter `noteUrl: TBD` ＝**note 未公開**。タグ以前に「公開するか」の判断が先（公開すれば hashtags.txt は既に93タグで揃っている）。`check-note-republish` は TBD を drift 対象外へ修正済（偽陽性解消）。
+
 ### 建設部門BK・総監の有料境界を実ライブに整合（構成監査の偽陽性16本）
 タグ: [エージェント・SSOT]
 
