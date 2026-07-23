@@ -1,14 +1,14 @@
 ---
-notePublishedAt: TBD
-noteUrl: TBD
-noteId: TBD
+notePublishedAt: "2026-07-23"
+noteUrl: "https://note.com/dobokunote/n/n5926a2774395"
+noteId: "n5926a2774395"
 notePricing: free
 noteSeries: 戦略・コスト分析
 utmCampaign: pe-cem-cost-comparison
 coverTitle:
   - 総監 6 回受験 ¥84,000
   - vs マガジン ¥2,480
-noteStatus: draft
+noteStatus: published
 relatedReferences:
   - docs/reference/pe-cem-pass-rate-history.md
   - docs/reference/pe-cem-school-prices.md

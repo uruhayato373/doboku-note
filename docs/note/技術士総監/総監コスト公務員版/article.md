@@ -1,14 +1,14 @@
 ---
-notePublishedAt: TBD
-noteUrl: TBD
-noteId: TBD
+notePublishedAt: "2026-07-23"
+noteUrl: "https://note.com/dobokunote/n/n6461ec60bd03"
+noteId: "n6461ec60bd03"
 notePricing: free
 noteSeries: 戦略・コスト分析
 utmCampaign: pe-cem-cost-municipality
 coverTitle:
   - 公務員が総監を取る
   - 30 年累積 ¥4.5M の return
-noteStatus: draft
+noteStatus: published
 parentArticle: docs/note/技術士総監/総監受験コスト比較/article.md
 relatedReferences:
   - docs/reference/pe-cem-pass-rate-history.md
@@ -155,12 +155,13 @@ https://note.com/dobokunote/m/m6e7de5e4ea3d
 - 30 年累積ベネフィット（手当 + 支援）：**¥4,500k** / **¥900k** / **¥1,000k**
 - 30 年 net 価値：**+¥3,494k** / **-¥116k** / **-¥416k**
 
-> **読み方の注意**: 「機会費用」は学習時間を時給換算した数字で、実際の cash out flow ではありません。財務的に純粋な現金収支は「現金支出 vs 累積ベネフィット」で比較すべきです。
->
-> **現金収支ベース** の 30 年 net 価値:
-> - 公務員（政令市・補助あり）: ¥4,500k - ¥6,480 = **+¥4.49M**
-> - 公務員（一般市・補助なし）: ¥900k - ¥16,480 = **+¥0.88M**
-> - ゼネコン勤務: ¥1,000k - ¥16,480 = **+¥0.98M**
+**読み方の注意**: 「機会費用」は学習時間を時給換算した数字で、実際の cash out flow ではありません。財務的に純粋な現金収支は「現金支出 vs 累積ベネフィット」で比較すべきです。
+
+**現金収支ベース** の 30 年 net 価値:
+
+- 公務員（政令市・補助あり）: ¥4,500k - ¥6,480 = **+¥4.49M**
+- 公務員（一般市・補助なし）: ¥900k - ¥16,480 = **+¥0.88M**
+- ゼネコン勤務: ¥1,000k - ¥16,480 = **+¥0.98M**
 
 機会費用を加味してもなお、**公務員**（政令市・補助あり）**の net 価値は +¥3.5M で圧倒的**。これが「公務員は総監を取った方がいい」と言われる経済的根拠です。
 
