@@ -300,6 +300,11 @@ try {
 
   // ── カテゴリー（ドロップダウン階層 + 末端「場所」チェックボックス）──
   const selectCategory = async () => {
+    // 既存ドラフト再開時: 既にカテゴリー設定済みなら modal を再操作しない（再操作は解除/ハングの原因）
+    try {
+      const already = await page.evaluate(() => (document.body.innerText.match(/(\d+)\s*個のカテゴリーを選択済み/) || [])[1] || '0');
+      if (already && already !== '0') { console.log(`[cat] 既に ${already} 個選択済み → スキップ`); return true; }
+    } catch {}
     for (const sel of ['button:has-text("カテゴリーを選択")', 'text=カテゴリーを選択']) { try { const l = page.locator(sel); if (await l.count()) { await l.first().click({ timeout: 8000 }); break; } } catch {} }
     await sleep(2500);
     for (let lvl = 0; lvl < book.catDropdowns.length; lvl++) {
@@ -380,15 +385,42 @@ try {
   } catch (e) { console.log('[4] AI申告 WARN: ' + e.message.split('\n')[0]); }
   await sleep(1000);
 
-  // ── アクセシビリティ（config の accessibility）──
-  try { await page.check(`input[name="data[accessibility][image_reading]"][value="${book.accessibility}"]`, { force: true }); console.log(`[4] アクセシビリティ=${book.accessibility}`); }
-  catch (e) { console.log('[4] アクセシビリティ WARN: ' + e.message.split('\n')[0]); }
-  // 新規アップロード時の affirmation checkbox（未チェックを全て）
+  // ── アクセシビリティ（画像alt questionnaire・React制御ラジオ）──
+  // value= unknown|not_readable|partially_readable|readable。既定 "unknown"（含まれているか不明）
+  // = alt未検証の正直な回答（KDPも既定で選択済み）。page.check は React state 確認で timeout するため
+  // 実行時DOM上で input.click()（React onChange 発火）する。
   try {
-    const boxes = page.locator('input[type="checkbox"]:not(:disabled)');
-    const n = await boxes.count();
-    for (let i = 0; i < n; i++) { const b = boxes.nth(i); try { if (!(await b.isChecked())) await b.check({ force: true }); } catch {} }
-  } catch {}
+    const val = book.accessibility || 'unknown';
+    const set = await page.evaluate((v) => {
+      const r = document.querySelector(`input[name="data[accessibility][image_reading]"][value="${v}"]`);
+      if (!r) return 'missing';
+      if (!r.checked) { r.click(); return 'set'; }
+      return 'already';
+    }, val);
+    console.log(`[4] アクセシビリティ=${val} (${set})`);
+  } catch (e) { console.log('[4] アクセシビリティ WARN: ' + e.message.split('\n')[0]); }
+  await sleep(400);
+  // 新規アップロード時の affirmation（「回答が正しいことを確認」）＝React動的描画。
+  // input[type=checkbox] / [role=checkbox] 両対応で文脈テキスト一致のものを click。
+  try {
+    const affirmed = await page.evaluate(() => {
+      const nodes = Array.from(document.querySelectorAll('input[type="checkbox"], [role="checkbox"]'));
+      for (const b of nodes) {
+        const ctx = (b.closest('label,div,section,li') || {}).textContent || '';
+        if (!/回答が正しいこと|確認することになります|新しい原稿または表紙/.test(ctx)) continue;
+        if (b.disabled) continue;
+        const checked = b.type === 'checkbox' ? b.checked : b.getAttribute('aria-checked') === 'true';
+        if (!checked) b.click();
+        return true;
+      }
+      return false;
+    });
+    if (!affirmed) {
+      const lbl = page.getByText('自分の回答が正しいことを確認することになります', { exact: false });
+      if (await lbl.count()) await lbl.first().click({ timeout: 4000 }).catch(() => {});
+    }
+    console.log(`[4] affirmation: ${affirmed ? 'checked' : 'fallback-label-click'}`);
+  } catch (e) { console.log('[4] affirmation WARN: ' + e.message.split('\n')[0]); }
   await sleep(1000);
   await shot(page, '05-content-final');
 
