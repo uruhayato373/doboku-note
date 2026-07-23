@@ -415,9 +415,29 @@ async function main() {
   }
 
   finalize(manifest, runDir);
+  // 継続運用マーカー（committed・URL データは含めない）。cloud 週次 PDCA の due-surfacer が読む。
+  if (!opts.dryRun) writeLastRunMarker(manifest);
   const okUnits = manifest.units.filter((u) => u.status === "downloaded").length;
   console.log(`\n完了: status=${manifest.status} / download 成功 ${okUnits}/${manifest.units.length} ユニット`);
   console.log(`manifest: ${join(runDir, "manifest.json")}`);
+}
+
+/** 最新取得マーカーを STATE_DIR 直下に書く（run 生データは gitignore・これだけ commit する）。 */
+function writeLastRunMarker(manifest) {
+  const marker = {
+    lastRun: manifest.runId,
+    collectedAt: manifest.collectedAt,
+    property: manifest.property,
+    downloadedUnits: manifest.units.filter((u) => u.status === "downloaded").length,
+    totalUnits: manifest.units.length,
+    status: manifest.status,
+    note: "GSC UI CSV 取得の最新実行マーカー（URL データは含めない）。check-gsc-ui-due が参照。",
+  };
+  try {
+    writeFileSync(join(STATE_DIR, "last-run.json"), JSON.stringify(marker, null, 2), "utf-8");
+  } catch {
+    /* マーカー書込失敗は取得本体を妨げない */
+  }
 }
 
 /** 1 スコープ×1 理由の処理。dry-run は検出のみ、通常は download。 */

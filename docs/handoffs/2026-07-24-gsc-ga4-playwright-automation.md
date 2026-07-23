@@ -73,12 +73,22 @@ URL 突合 → 修正アクション分類 → approval gate、をローカル�
   `essay-data-2026`・`r8-essay-theme-{aging-society,gx-energy-security,labor-shortage}` 等）は**完全削除・source なし・
   0 impressions**で 1:1 後継が無い。→ 404 のまま放置で可（Google が漸次ドロップ）。**redirect 追加は見送り**。
 
+## 継続運用（月次）に統合済み（2026-07-24）
+
+- **SSOT 登録**: `gsc-management.md` の分業表／cadence（月次ローカル）／データ所在／CI 例外に `/google-search-growth`
+  ＋`check-gsc-ui-due` を登録。`/gsc-review`（月次 coverage）から相補ツールとして参照。
+- **期限催促**: `check-gsc-ui-due`（30日・committed `gsc-ui/last-run.json` 参照）を **weekly-review が surface**
+  （DUE→次セッションで `/google-search-growth`）。新規 cron は作らない（クラウド最小化方針）。
+- **continuity**: skill finalize で `gsc-management.md` 観測・判断ログへ月次追記（`/gsc-review` と共有）。
+- **生成物方針**: run 生データ（`gsc-ui/<run>/`・`search-growth-*.json`）は gitignore、`last-run.json` マーカーと
+  `search-growth-latest.md` のみ追跡。
+- **CI 例外明文化**: ブラウザは本人セッションで通る＝プロキシ遮断環境でも UI CSV 取得可（measurement-incidents.md
+  にも記録）。CI 化不可ゆえ月次手動。
+
 ## 残タスク（→ `docs/todo/backlog.md`）
 
-- [ ] `/google-search-growth` を月次運用に載せる（`--scope monthly`）。approval gate の運用手順を回す
 - [ ] GA4 UI CSV（`fetch-ga4-ui-csv.mjs`）の実ラベル確定（未ログイン検証のみ・API 優先は維持）
-- [ ] 生成物（`.claude/state/metrics/gsc-ui/**` の raw ZIP/CSV）を commit するか gitignore するか方針決定
-- [ ] （任意）削除済み 14 essay slug に redirect を張るか（総監 essay ハブへ集約）＝戦略判断・実害小
+- [ ] （任意）削除済み 14 essay slug に redirect を張るか（総監 essay ハブへ集約）＝戦略判断・実害小（現状 0 imp のため見送り推奨）
 
 ## 承認が必要な次アクション（外部状態・本文は未変更）
 

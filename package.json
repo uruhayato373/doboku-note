@@ -110,6 +110,7 @@
     "google-console:normalize": "node scripts/normalize-google-console-csv.mjs",
     "search-growth:report": "node scripts/report-search-growth.mjs",
     "search-growth:audit": "npm run gsc-ui:fetch && npm run google-console:normalize && npm run search-growth:report",
+    "check-gsc-ui-due": "node scripts/check-gsc-ui-due.mjs",
     "report-buildjob-affiliate": "node .claude/scripts/report-buildjob-affiliate.mjs",
     "audit-ga4-bot-ratio": "node .claude/scripts/audit-ga4-bot-ratio.mjs",
     "fetch-psi-data": "node .claude/scripts/fetch-psi-data.mjs",

@@ -96,9 +96,13 @@ GSC/GA4 を横断して「どの URL が・なぜ検索に効いていないか�
    - 承認された「内部リンクの旧 URL 修正」だけを外科的に適用（`git add` は触ったファイルのみ）
    - redirect 追加 / noindex / 統合は、承認後に該当 Generator or 人間が別途実施
 
-10. **finalize**
-    - `npm run build`（or 影響範囲に応じて `check-seo-build`）・SEO 監査
-    - `docs/handoffs/YYYY-MM-DD-gsc-ga4-playwright-automation.md` に実施ログ（extract→削除の原則）
+10. **finalize（継続運用）**
+    - **観測・判断ログ追記**: `docs/reference/gsc-management.md` の「観測・判断ログ」へ、当月の理由別件数・
+      前月差分・決めた打ち手を 1 エントリ追記（`/gsc-review` と同じ append-only ログ＝月次で「何を見つけ→
+      直し→効いたか」を追跡し continuity を担保）。数値は当該 run の manifest / report を引用。
+    - マーカーは fetch が `gsc-ui/last-run.json` に自動更新済み（`check-gsc-ui-due` が次月の期限を surface）。
+    - 修正を適用した場合のみ `npm run build`（or `check-seo-build`）・SEO 監査
+    - 大きな設計変更時のみ `docs/handoffs/` に実施ログ（extract→削除の原則）
 
 ## 復旧（UI 変更時）
 
