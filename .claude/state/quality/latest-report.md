@@ -3,7 +3,7 @@
 - 対象: published MDX（.local/r2/posts）
 - 違反合計: HIGH 23 / MEDIUM 3330 / LOW 454
 - 違反のある記事数: 604
-- **baseline 比の新規違反: 3 件（下記）**
+- baseline 比の新規違反: 0 件
 
 優先度 = 違反数 × GA4 人気度（activeUsers）。人気ページの違反を上位に。
 
@@ -71,11 +71,3 @@
 | 60 | civil-construction-1-textbook-work-scheduling | 29 / #48 | 1 | 3-1:1 |
 
 ※ 上位 60 件のみ表示（違反記事 604 件中 544 件を省略）。全量は --update-baseline 後の baseline JSON を参照。
-
-## baseline 比の新規違反（ラチェット逆行）
-
-| 記事 | rule | baseline | 現在 | 増加 |
-|---|---|---|---|---|
-| .local/r2/posts/pe-comprehensive-management/r08-primary/article.mdx | 1-3 | 0 | 10 | +10 |
-| .local/r2/posts/pe-comprehensive-management/r08-secondary/article.mdx | 3-1 | 0 | 5 | +5 |
-| .local/r2/posts/pe-comprehensive-management/r08-secondary/article.mdx | 15-3 | 0 | 2 | +2 |
