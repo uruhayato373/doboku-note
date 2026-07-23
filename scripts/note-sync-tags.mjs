@@ -140,7 +140,28 @@ try {
       await tagInput.first().click();
       await sleep(400);
       const toAdd = p.missing.slice(0, MAX_ADD);
-      for (const t of toAdd) { await tagInput.first().type(t); await page.keyboard.press('Enter'); await sleep(320); }
+      // タグ確定は「type→Enter で入力欄が空になる＝chip化成功」。一部記事では autocomplete の
+      // サジェストポップオーバーが初回 Enter を飲み込み、未確定のまま次の type が連結して赤枠無効化に
+      // 陥る（2026-07-23 実測10本）。対策: 各タグごとに入力欄の空化を検証し、未確定なら Escape で
+      // サジェストを閉じてから Enter を再試行、それでも残れば入力をクリアして連結を断つ。
+      const inputVal = async () => (await tagInput.first().inputValue().catch(() => '')) || '';
+      let committed = 0;
+      for (const t of toAdd) {
+        await tagInput.first().click();
+        if ((await inputVal()).length) await tagInput.first().fill(''); // 前タグの残骸を除去（連結防止）
+        await tagInput.first().type(t);
+        await sleep(260); // autocomplete が出るのを待ってから確定
+        await page.keyboard.press('Enter');
+        await sleep(320);
+        if ((await inputVal()).length) { // 未確定: サジェストが Enter を飲んだ可能性
+          await page.keyboard.press('Escape'); await sleep(150);
+          await page.keyboard.press('Enter'); await sleep(300);
+        }
+        if ((await inputVal()).length) { // なお未確定: 連結を防ぐためクリアしてスキップ
+          await tagInput.first().fill(''); await sleep(120);
+        } else { committed++; }
+      }
+      console.log(`[3b] 確定=${committed}/${toAdd.length}`);
       await sleep(800);
       const afterChips = await chipCount();
       console.log(`[3] ${p.missing.length}タグ入力 → chip ${before}→${afterChips}`);
