@@ -432,7 +432,7 @@
       "series": "C 技術士建設部門 二次 模範解答",
       "priceJpy": 690,
       "royalty": 0.7,
-      "status": "ready",
+      "status": "draft",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/c-01.json",
       "epub": "kindle-dist/c-01.epub",
@@ -456,7 +456,7 @@
       "series": "C 技術士建設部門 二次 模範解答",
       "priceJpy": 690,
       "royalty": 0.7,
-      "status": "ready",
+      "status": "draft",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/c-02.json",
       "epub": "kindle-dist/c-02.epub",
@@ -469,7 +469,8 @@
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
         }
-      ]
+      ],
+      "draftAsin": "ANFZKW8QGR3IS"
     },
     {
       "id": "c-03",
@@ -479,7 +480,7 @@
       "series": "C 技術士建設部門 二次 模範解答",
       "priceJpy": 690,
       "royalty": 0.7,
-      "status": "ready",
+      "status": "draft",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/c-03.json",
       "epub": "kindle-dist/c-03.epub",
@@ -492,7 +493,8 @@
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
         }
-      ]
+      ],
+      "draftAsin": "AXP8QW1IX3HIE"
     },
     {
       "id": "c-04",
@@ -502,7 +504,7 @@
       "series": "C 技術士建設部門 二次 模範解答",
       "priceJpy": 690,
       "royalty": 0.7,
-      "status": "ready",
+      "status": "draft",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/c-04.json",
       "epub": "kindle-dist/c-04.epub",
@@ -515,7 +517,8 @@
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
         }
-      ]
+      ],
+      "draftAsin": "A1PMVSPV7WEHT4"
     },
     {
       "id": "c-05",
@@ -525,7 +528,7 @@
       "series": "C 技術士建設部門 二次 模範解答",
       "priceJpy": 690,
       "royalty": 0.7,
-      "status": "ready",
+      "status": "draft",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/c-05.json",
       "epub": "kindle-dist/c-05.epub",
@@ -538,7 +541,8 @@
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
         }
-      ]
+      ],
+      "draftAsin": "A4K870J92OVQE"
     },
     {
       "id": "c-06",
@@ -548,7 +552,7 @@
       "series": "C 技術士建設部門 二次 模範解答",
       "priceJpy": 690,
       "royalty": 0.7,
-      "status": "ready",
+      "status": "draft",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/c-06.json",
       "epub": "kindle-dist/c-06.epub",
@@ -561,7 +565,8 @@
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
         }
-      ]
+      ],
+      "draftAsin": "A2G5ZK10UFH1XK"
     },
     {
       "id": "c-07",
@@ -571,7 +576,7 @@
       "series": "C 技術士建設部門 二次 模範解答",
       "priceJpy": 690,
       "royalty": 0.7,
-      "status": "ready",
+      "status": "draft",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/c-07.json",
       "epub": "kindle-dist/c-07.epub",
@@ -584,7 +589,8 @@
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
         }
-      ]
+      ],
+      "draftAsin": "A15CW53FVTA6F3"
     },
     {
       "id": "c-08",
@@ -594,7 +600,7 @@
       "series": "C 技術士建設部門 二次 模範解答",
       "priceJpy": 690,
       "royalty": 0.7,
-      "status": "ready",
+      "status": "draft",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/c-08.json",
       "epub": "kindle-dist/c-08.epub",
@@ -607,7 +613,8 @@
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
         }
-      ]
+      ],
+      "draftAsin": "A3B7ENGI85P9X9"
     },
     {
       "id": "c-09",
@@ -617,7 +624,7 @@
       "series": "C 技術士建設部門 二次 模範解答",
       "priceJpy": 690,
       "royalty": 0.7,
-      "status": "ready",
+      "status": "draft",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/c-09.json",
       "epub": "kindle-dist/c-09.epub",
@@ -630,7 +637,8 @@
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
         }
-      ]
+      ],
+      "draftAsin": "A29YX93FNKVAJT"
     },
     {
       "id": "c-10",
