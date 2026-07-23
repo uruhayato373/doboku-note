@@ -61,7 +61,7 @@ const synced = [], drift = [], unknown = [];
 let baselined = 0;
 for (const f of files) {
   const raw = readFileSync(f, 'utf8');
-  if (!fm(raw, 'noteUrl')) continue; // 未公開ドラフトは対象外
+  { const u = fm(raw, 'noteUrl'); if (!u || u === 'TBD') continue; } // 未公開ドラフト(noteUrl 無し/TBD)は対象外
   const cur = bodyHash(raw);
   const rec = st.hashes[f];
 
@@ -108,7 +108,7 @@ let tagBaselined = 0;
 for (const hp of walkTags(ROOT)) {
   const art = articleForTags(hp);
   if (!art) continue;
-  if (!fm(readFileSync(art, 'utf8'), 'noteUrl')) continue; // 未公開は対象外（次回公開時にタグ適用）
+  { const u = fm(readFileSync(art, 'utf8'), 'noteUrl'); if (!u || u === 'TBD') continue; } // 未公開(noteUrl 無し/TBD)は対象外（次回公開時にタグ適用）
   const cur = tagsHashFile(hp);
   if (cur == null) continue;
   const rec = tagState[hp];
