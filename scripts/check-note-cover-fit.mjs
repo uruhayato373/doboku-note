@@ -4,7 +4,7 @@
  *
  * note カバー（G2「全幅バナー帯」）のテキストが**キャンバス外へ溢れて切れる**回帰を防ぐゲート。
  *
- * 設計判断（真実源: docs/design-system/note-cover.md / note-cover-tokens.json）:
+ * 設計判断（真実源: .claude/knowledge/design-system/note-cover.md / note-cover-tokens.json）:
  *   banner は「3工事名の列挙」「選択科目II-1 専門知識｜模範解答」等、意味的に縮められない
  *   descriptive テキストが正規であり、bannerFontSize は 48px まで自動縮小して**フル 1280 幅**には
  *   必ず収める。よって「7〜11字推奨」は正方形 630 クロップでの可読性目安であって、超過＝NG ではない
@@ -22,13 +22,42 @@
  *   node scripts/check-note-cover-fit.mjs --all       # 推定幅の一覧（バーンダウン・exit 0）
  */
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, dirname } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import matter from 'gray-matter';
+import { v4FitIssues } from '../.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs';
+import { MAGAZINES } from './generate-magazine-covers.mjs';
 
 const ROOT = 'docs/note';
 const STAGED = process.argv.includes('--staged');
 const ALL = process.argv.includes('--all');
+
+// PNG の IHDR からサイズを読む（sharp 非依存・pre-commit の速度維持）
+function pngSize(path) {
+  try {
+    const buf = readFileSync(path);
+    if (buf.length < 24 || buf.readUInt32BE(12) !== 0x49484452) return null; // 'IHDR'
+    return { width: buf.readUInt32BE(16), height: buf.readUInt32BE(20) };
+  } catch {
+    return null;
+  }
+}
+
+// Crop-safe V4 の検査（記事）。errors = exit 1 / warnings = 表示のみ。
+// 意味判定は v4FitIssues（renderer と同一の純関数）に委譲＝実装ミラーの二重管理をしない。
+function v4ArticleIssues(fp, cover) {
+  const { errors, warnings } = v4FitIssues(cover, 'article');
+  if (cover.visualAsset) {
+    const vpath = join(dirname(fp), cover.visualAsset);
+    if (!existsSync(vpath)) {
+      warnings.push(`visualAsset ${cover.visualAsset} が未生成（決定論的背景で生成される）`);
+    } else if (/\.png$/i.test(vpath)) {
+      const sz = pngSize(vpath);
+      if (sz && (sz.width !== 1280 || sz.height !== 670)) errors.push(`visualAsset は ${sz.width}×${sz.height}（要 1280×670）`);
+    }
+  }
+  return { errors, warnings };
+}
 
 // キャンバス幾何（renderNoteCoverG2 / note-cover-tokens.json と一致）
 const CANVAS_W = 1280;
@@ -96,28 +125,65 @@ function stagedMd() {
 
 const files = STAGED ? stagedMd() : walk(ROOT);
 const ng = [];
+const warns = [];
 let g2 = 0;
+let v4 = 0;
 for (const fp of files) {
   if (!existsSync(fp)) continue;
   let data;
   try { data = matter(readFileSync(fp, 'utf8')).data; } catch { continue; }
   const c = data.cover;
-  if (!c || !(c.banner || c.hi || c.leadIn)) continue; // G2 のみ
+  if (!c || !(c.banner || c.hi || c.leadIn || c.variant)) continue;
+  const slug = fp.replace(`${ROOT}/`, '');
+  if (c.variant === 'crop-safe-v4') {
+    // V4: キャンバス収まりでは合格にしない＝中央590px（core/list-safe内の一行）フィットをエラー検査
+    v4++;
+    const { errors, warnings } = v4ArticleIssues(fp, c);
+    if (errors.length) ng.push({ slug, issues: errors });
+    if (warnings.length) warns.push({ slug, issues: warnings });
+    continue;
+  }
+  if (c.variant) {
+    ng.push({ slug, issues: [`未知の cover.variant "${c.variant}"（対応: crop-safe-v4）`] });
+    continue;
+  }
   g2++;
   const issues = overflowsOf(c);
-  if (issues.length) ng.push({ slug: fp.replace(`${ROOT}/`, ''), issues });
+  if (issues.length) ng.push({ slug, issues });
 }
 
+// マガジン spec（generate-magazine-covers.mjs の MAGAZINES）の V4 検査。staged モードでは対象外
+// （マガジン spec はスクリプト内定義で staged 判定できないため、CI/手動フルランで検査する）。
+let magV4 = 0;
+if (!STAGED) {
+  for (const mag of MAGAZINES) {
+    if (mag.variant !== 'crop-safe-v4') continue;
+    magV4++;
+    const { errors, warnings } = v4FitIssues(mag, 'magazine');
+    if (mag.visualAsset) {
+      if (!existsSync(mag.visualAsset)) warnings.push(`visualAsset ${mag.visualAsset} が未生成（fillBg 背景で生成される）`);
+      else if (/\.png$/i.test(mag.visualAsset)) {
+        const sz = pngSize(mag.visualAsset);
+        if (sz && (sz.width !== 1280 || sz.height !== 670)) errors.push(`visualAsset は ${sz.width}×${sz.height}（要 1280×670）`);
+      }
+    }
+    if (errors.length) ng.push({ slug: `magazine:${mag.id}`, issues: errors });
+    if (warnings.length) warns.push({ slug: `magazine:${mag.id}`, issues: warnings });
+  }
+}
+
+const scopeLabel = `G2 ${g2}件 / V4 ${v4 + magV4}件`;
+warns.forEach((r) => r.issues.forEach((i) => console.warn(`  warn ${r.slug}  ${i}`)));
 if (ALL) {
-  console.log(`[check-note-cover-fit] G2 ${g2} 件 / キャンバス外溢れ ${ng.length} 件`);
+  console.log(`[check-note-cover-fit] ${scopeLabel} / 違反 ${ng.length} 件`);
   ng.forEach((r) => r.issues.forEach((i) => console.log(`  ✗ ${r.slug}  ${i}`)));
   process.exit(0);
 }
 if (ng.length === 0) {
-  console.log(`[check-note-cover-fit] ✓ ${STAGED ? 'staged ' : ''}note カバー(G2 ${g2}件) はキャンバス内に収まる`);
+  console.log(`[check-note-cover-fit] ✓ ${STAGED ? 'staged ' : ''}note カバー(${scopeLabel}) はレイアウト制約内に収まる`);
   process.exit(0);
 }
-console.error(`[check-note-cover-fit] ✗ ${ng.length} 件の note カバーがキャンバス外で切れます`);
-console.error('  真実源: docs/design-system/note-cover.md → banner/hi/hiSuffix/leadIn を短縮し再生成 (node scripts/generate-note-covers.mjs <slug>)');
+console.error(`[check-note-cover-fit] ✗ ${ng.length} 件の note カバーが制約違反です`);
+console.error('  真実源: .claude/knowledge/design-system/note-cover.md（G2）/ note-cover-crop-safe-v4.md（V4）→ 文言を短縮し再生成 (node scripts/generate-note-covers.mjs <slug>)');
 ng.forEach((r) => r.issues.forEach((i) => console.error(`  ${r.slug}  ${i}`)));
 process.exit(1);

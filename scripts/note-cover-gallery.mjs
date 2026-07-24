@@ -12,6 +12,9 @@
  * Usage:
  *   node scripts/note-cover-gallery.mjs            → .tmp/note-cover-gallery.html を生成
  *   node scripts/note-cover-gallery.mjs --open     → 生成して既定ブラウザで開く（Windows）
+ *   node scripts/note-cover-gallery.mjs --crops    → 各カバーを6表示面（full/square/list/core/card/related）で
+ *                                                    実クロップ表示（Crop-safe V4 の切断チェック用。CSS で
+ *                                                    定義済み crop 座標を実際に切り出す）。V4 フィルタと併用推奨
  */
 import { readdirSync, writeFileSync, existsSync, mkdirSync, readFileSync } from "node:fs";
 import { join, dirname } from "node:path";
@@ -25,7 +28,7 @@ const NOTE = join(ROOT, "docs", "note");
 const OUT = join(ROOT, ".tmp", "note-cover-gallery.html");
 
 // 試験区分パレット・dir の真実源
-const TOKENS = require(join(ROOT, "docs", "design-system", "note-cover-tokens.json"));
+const TOKENS = require(join(ROOT, ".claude", "knowledge", "design-system", "note-cover-tokens.json"));
 const EXAMS = TOKENS.exams;
 // 定義順（pe-comprehensive, civil-1, ...）を表示順とする
 const EXAM_KEYS = Object.keys(EXAMS).filter((k) => k !== "comment");
@@ -64,13 +67,16 @@ function collect(absDir, rel, out = []) {
       const articlePath = join(absDir, articleFile);
       let pricing = "unknown";
       let mode = "g2";
+      let variant = "";
       let inMagazine = rel.split("/").includes("magazines");
       if (existsSync(articlePath)) {
         try {
           const { data } = matter(readFileSync(articlePath, "utf8"));
           pricing = data.notePricing || "unknown";
           const cover = data.cover;
-          mode = cover && (cover.banner || cover.hi || cover.leadIn) ? "g2" : "mono";
+          variant = cover?.variant || "";
+          mode = cover && (cover.banner || cover.hi || cover.leadIn || cover.variant) ? "g2" : "mono";
+          if (variant === "crop-safe-v4") mode = "v4";
         } catch {
           /* keep defaults */
         }
@@ -82,6 +88,7 @@ function collect(absDir, rel, out = []) {
         exam: resolveExam(rel),
         pricing,
         mode,
+        variant,
         inMagazine,
       });
     }
@@ -101,10 +108,11 @@ const KIND_LABEL = {
   paid: "有料",
   free: "無料",
   g2: "G2バナー",
+  v4: "Crop-safe V4",
   mono: "mono-tag",
   magazine: "マガジン収録",
 };
-const KIND_ORDER = ["paid", "free", "g2", "mono", "magazine"];
+const KIND_ORDER = ["paid", "free", "g2", "v4", "mono", "magazine"];
 function kindsOf(i) {
   const k = [];
   if (i.pricing === "paid") k.push("paid");
@@ -113,13 +121,37 @@ function kindsOf(i) {
   if (i.inMagazine) k.push("magazine");
   return k;
 }
-// mode（g2/mono）は混在しているときだけフィルタとして出す。全カバーが G2 に統一されている
+// mode（g2/v4/mono）は混在しているときだけフィルタとして出す。全カバーが G2 に統一されている
 // 通常時は全件一致＝無意味なので隠す（将来 coverTitle-only の mono が混ざれば自動で復活）。
 const showMode = new Set(items.map((i) => i.mode)).size > 1;
 const presentKinds = KIND_ORDER.filter((k) => {
-  if ((k === "g2" || k === "mono") && !showMode) return false;
+  if ((k === "g2" || k === "mono" || k === "v4") && !showMode) return false;
   return items.some((i) => kindsOf(i).includes(k));
 });
+
+// ---- 6表示面クロップ（--crops）----
+// note の実表示面を CSS で実際に切り出す（単なる縮小ではなく crop 座標を適用）。
+// 座標 SSOT: .claude/knowledge/design-system/note-cover-crop-safe-v4.md §9
+//   full 1280×670 / square 中央630×630 / list 中央1280×454 / core 中央1280×216 /
+//   card 320×168(1.91:1=full縮小) / related 160×110(中央974×670)
+const CROPS_MODE = process.argv.includes("--crops");
+const CROPS = [
+  { id: "full", label: "full 1280×670", x: 0, y: 0, w: 1280, h: 670, dw: 300 },
+  { id: "square", label: "square 630×630", x: 325, y: 20, w: 630, h: 630, dw: 132 },
+  { id: "list", label: "list 1280×454", x: 0, y: 108, w: 1280, h: 454, dw: 300 },
+  { id: "core", label: "core 1280×216", x: 0, y: 227, w: 1280, h: 216, dw: 300 },
+  { id: "card", label: "card 320×168", x: 0, y: 0, w: 1280, h: 670, dw: 320, dh: 168 },
+  { id: "related", label: "related 160×110", x: 153, y: 0, w: 974, h: 670, dw: 160 },
+];
+function cropCell(o, c) {
+  const s = c.dw / c.w;
+  const dh = c.dh || Math.round(c.h * s);
+  const imgW = Math.round(1280 * s);
+  const ml = -Math.round(c.x * s);
+  const mt = -Math.round(c.y * s);
+  return `<div class="cropcell"><div class="croplabel">${c.label}</div>
+    <div class="cropbox" style="width:${c.dw}px;height:${dh}px"><img loading="lazy" src="file:///${o.full}" style="width:${imgW}px;max-width:none;margin-left:${ml}px;margin-top:${mt}px" alt=""></div></div>`;
+}
 
 const examBtns = [
   `<button class="cat active" data-exam="" onclick="pickExam(this,'')">全て <span class="n">${items.length}</span></button>`,
@@ -139,14 +171,20 @@ const kindBtns = [
 ].join("\n  ");
 
 const cards = items
-  .map(
-    (o) => `  <figure class="card" data-exam="${o.exam}" data-kinds="${kindsOf(o).join(" ")}">
+  .map((o) => {
+    const badge = `<span class="badge" style="background:${EXAM_BASE.get(o.exam)}">${esc(EXAMS[o.exam]?.short || o.exam)}</span>`;
+    const cap = `${badge}${o.mode === "v4" ? '<span class="badge" style="background:#8a2be2">V4</span>' : ""} ${esc(o.rel)}/${esc(o.file)}`;
+    if (CROPS_MODE) {
+      return `  <figure class="card wide" data-exam="${o.exam}" data-kinds="${kindsOf(o).join(" ")}">
+    <div class="croprow">${CROPS.map((c) => cropCell(o, c)).join("")}</div>
+    <figcaption>${cap}</figcaption>
+  </figure>`;
+    }
+    return `  <figure class="card" data-exam="${o.exam}" data-kinds="${kindsOf(o).join(" ")}">
     <img loading="lazy" src="file:///${o.full}" alt="${esc(o.rel)}/${esc(o.file)}">
-    <figcaption><span class="badge" style="background:${EXAM_BASE.get(o.exam)}">${esc(
-      EXAMS[o.exam]?.short || o.exam,
-    )}</span> ${esc(o.rel)}/${esc(o.file)}</figcaption>
-  </figure>`,
-  )
+    <figcaption>${cap}</figcaption>
+  </figure>`;
+  })
   .join("\n");
 
 const html = `<!doctype html>
@@ -168,6 +206,12 @@ const html = `<!doctype html>
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(440px,1fr));gap:16px;padding:16px}
   .card{margin:0;background:#fff;border:1px solid #e5e5e5;border-radius:8px;overflow:hidden}
   .card img{width:100%;display:block;background:#fafafa}
+  .card.wide{grid-column:1/-1}
+  .croprow{display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap;padding:10px}
+  .cropcell{display:flex;flex-direction:column;gap:4px}
+  .croplabel{font-size:10px;color:#777;font-weight:600}
+  .cropbox{position:relative;overflow:hidden;border:1px solid #ddd;background:#fafafa}
+  .cropbox img{position:absolute;top:0;left:0;display:block;width:auto}
   figcaption{font-size:11px;color:#555;padding:6px 8px;word-break:break-all}
   .badge{color:#fff;border-radius:4px;padding:1px 6px;margin-right:4px;font-size:10px;white-space:nowrap}
 </style></head>

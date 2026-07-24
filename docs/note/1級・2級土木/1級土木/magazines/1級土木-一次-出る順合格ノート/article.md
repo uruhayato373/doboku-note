@@ -10,15 +10,15 @@ price: 1480
 paidBoundary: "第1次検定の全体像と出る順の考え方"
 coverTitle: ["1級土木 第1次検定", "出る順 合格ノート"]
 cover:
-  leadIn: "1級土木施工管理技士 第1次検定"
-  hi: "出る順"
-  hiSuffix: "合格ノート"
-  banner: "過去12年1162問の頻度分析で施工管理法の攻め所を絞る"
+  variant: crop-safe-v4
+  leadIn: "1級土木｜第1次検定"
+  headline: "出る順 合格ノート"
+  hi: "1162"
+  hiSuffix: "問分析"
+  benefit: "頻度分析で攻め所がわかる"
   meta: "有料記事"
-  chips:
-    - { icon: check, text: "H26-R7 12年 頻度分析" }
-    - { icon: target, text: "施工管理法 出る順" }
-    - { icon: doc, text: "捨て問戦略つき" }
+  visualPrompt: "積み上がる問題カードと頻度を示す棒グラフの抽象背景"
+  visualAsset: "img/cover-visual.png"
 ---
 # 1級土木 第1次検定｜出る順 合格ノート（過去12年の頻度分析で施工管理法を攻める）
 

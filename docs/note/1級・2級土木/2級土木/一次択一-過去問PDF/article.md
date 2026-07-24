@@ -9,15 +9,15 @@ price: 1480
 paidBoundary: "PDF のダウンロードと使い方"
 coverTitle: ["2級土木 第1次検定", "過去問PDF 全630問"]
 cover:
-  leadIn: "2級土木施工管理技士 第1次検定"
-  hi: "過去問"
-  hiSuffix: "全630問"
-  banner: "令和3〜7年度 前期後期 全問解説PDF"
-  meta: "note 限定 PDF教材"
-  chips:
-    - { icon: check, text: "全630問 全選択肢解説" }
-    - { icon: doc, text: "A4印刷用PDF" }
-    - { icon: edit, text: "令和3〜7年 前期後期" }
+  variant: crop-safe-v4
+  leadIn: "2級土木｜第1次検定"
+  headline: "過去問PDF"
+  hi: "630"
+  hiSuffix: "問 全解説"
+  benefit: "印刷して繰り返し解ける"
+  meta: "note限定PDF"
+  visualPrompt: "印刷された問題用紙の束と鉛筆を抽象化した学習素材"
+  visualAsset: "img/cover-visual.png"
 ---
 # 2級土木 第1次検定｜過去問PDF（令和3〜7年度 前期後期 全630問・全選択肢解説）
 

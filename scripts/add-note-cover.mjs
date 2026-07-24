@@ -35,7 +35,7 @@ const matter = require('gray-matter');
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const TOKENS = require(join(ROOT, 'docs/design-system/note-cover-tokens.json'));
+const TOKENS = require(join(ROOT, '.claude/knowledge/design-system/note-cover-tokens.json'));
 const ICON_CATALOG = new Set(TOKENS.icons.catalog);
 
 const argv = process.argv.slice(2);
@@ -54,29 +54,55 @@ function yamlEscape(s) {
 // cover オブジェクト → CRLF YAML 文字列（インデント2スペース）
 function coverYaml(c) {
   const L = ['cover:'];
+  if (c.variant) L.push(`  variant: ${c.variant}`);
   L.push(`  leadIn: "${yamlEscape(c.leadIn)}"`);
+  if (c.headline) L.push(`  headline: "${yamlEscape(c.headline)}"`);
   L.push(`  hi: "${yamlEscape(c.hi)}"`);
   L.push(`  hiSuffix: "${yamlEscape(c.hiSuffix)}"`);
-  L.push(`  banner: "${yamlEscape(c.banner)}"`);
+  if (c.banner) L.push(`  banner: "${yamlEscape(c.banner)}"`);
+  if (c.benefit) L.push(`  benefit: "${yamlEscape(c.benefit)}"`);
   if (c.meta) L.push(`  meta: "${yamlEscape(c.meta)}"`);
+  if (c.visualPrompt) L.push(`  visualPrompt: "${yamlEscape(c.visualPrompt)}"`);
+  if (c.visualAsset) L.push(`  visualAsset: "${yamlEscape(c.visualAsset)}"`);
+  if (c.character) L.push(`  character: ${c.character}`);
   if (c.tone) L.push(`  tone: ${c.tone}`);
-  L.push('  chips:');
-  for (const ch of c.chips) L.push(`    - { icon: ${ch.icon}, text: "${yamlEscape(ch.text)}" }`);
+  if (Array.isArray(c.chips) && c.chips.length) {
+    L.push('  chips:');
+    for (const ch of c.chips) L.push(`    - { icon: ${ch.icon}, text: "${yamlEscape(ch.text)}" }`);
+  }
   return L.join('\r\n');
 }
 
 function validateSpec(rel, c) {
   const errs = [];
-  for (const k of ['leadIn', 'hi', 'hiSuffix', 'banner']) {
-    if (!c[k] || !String(c[k]).trim()) errs.push(`${k} が空`);
+  if (c.variant && c.variant !== 'crop-safe-v4') {
+    errs.push(`variant "${c.variant}" は未対応（crop-safe-v4 のみ）`);
+    return errs;
   }
-  if (!Array.isArray(c.chips) || c.chips.length !== 3) {
-    errs.push(`chips は3個必須（現在 ${Array.isArray(c.chips) ? c.chips.length : 0}）`);
+  if (c.variant === 'crop-safe-v4') {
+    // V4: leadIn/headline/hi/hiSuffix/benefit 必須・banner/chips 不要
+    for (const k of ['leadIn', 'headline', 'hi', 'hiSuffix', 'benefit']) {
+      if (!c[k] || !String(c[k]).trim()) errs.push(`${k} が空（V4 必須）`);
+    }
+    if (Array.isArray(c.chips) && c.chips.length) {
+      console.warn(`  warn ${rel}: V4 では chips を使用しない（描画されない）`);
+    }
+    if (c.visualAsset && /^\//.test(String(c.visualAsset))) {
+      errs.push('visualAsset は記事 dir 相対パス（例 img/cover-visual.png）で指定する');
+    }
   } else {
-    c.chips.forEach((ch, i) => {
-      if (!ICON_CATALOG.has(ch.icon)) errs.push(`chips[${i}].icon "${ch.icon}" が catalog 外`);
-      if (!ch.text || !String(ch.text).trim()) errs.push(`chips[${i}].text が空`);
-    });
+    // G2（従来）: banner 必須・chips 3個必須
+    for (const k of ['leadIn', 'hi', 'hiSuffix', 'banner']) {
+      if (!c[k] || !String(c[k]).trim()) errs.push(`${k} が空`);
+    }
+    if (!Array.isArray(c.chips) || c.chips.length !== 3) {
+      errs.push(`chips は3個必須（現在 ${Array.isArray(c.chips) ? c.chips.length : 0}）`);
+    } else {
+      c.chips.forEach((ch, i) => {
+        if (!ICON_CATALOG.has(ch.icon)) errs.push(`chips[${i}].icon "${ch.icon}" が catalog 外`);
+        if (!ch.text || !String(ch.text).trim()) errs.push(`chips[${i}].text が空`);
+      });
+    }
   }
   if (c.tone && !['deep', 'base', 'soft'].includes(c.tone)) errs.push(`tone "${c.tone}" は deep|base|soft のみ`);
   return errs;
@@ -123,10 +149,12 @@ for (const [rel, cover] of Object.entries(specs)) {
   const newFront = `---\r\n${fmBody}\r\n${coverYaml(cover)}\r\n---\r\n`;
   content = content.replace(m[0], newFront).replace(/\r?\n/g, '\r\n');
 
-  // gray-matter で再パース検証
+  // gray-matter で再パース検証（V4 は headline、G2 は banner が要）
   try {
     const parsed = matter(content);
-    if (!parsed.data.cover || !parsed.data.cover.banner) throw new Error('cover.banner 解析不可');
+    const pc = parsed.data.cover;
+    if (!pc) throw new Error('cover 解析不可');
+    if (pc.variant === 'crop-safe-v4' ? !pc.headline : !pc.banner) throw new Error(pc.variant ? 'cover.headline 解析不可' : 'cover.banner 解析不可');
   } catch (e) {
     console.error(`  FAIL ${rel}: YAML 検証失敗 ${e.message}`);
     failed++;

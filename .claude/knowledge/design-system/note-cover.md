@@ -135,10 +135,18 @@ npm run note-update-cover -- --list .tmp/list.txt --commit
 - 永続プロファイルは 1 Chrome のみ＝**並列不可・逐次**。大量は 20-28 件チャンク×background 逐次で。
 - 反映後は note API v3 で `eyecatch` 新 ID・`can_read=false`・`price` 不変 を**実体検証**する（proxy 不可）。詳細 → [note-api-verification.md](../reference/note-api-verification.md)
 
+## Crop-safe V4（`cover.variant: crop-safe-v4`・opt-in・2026-07-24〜）
+
+表示面ごとのトリミング（正方形 630×630／一覧 1280×454／狭ヘッダー 1280×216／リンクカード／関連記事）で**重要文字を切らない**opt-in variant。G2 の「長文 banner は正方形で両端切れ許容」を V4 は採用せず、`headline / hi+hiSuffix / benefit`（マガジンは `magazineName / qualifier / proof / benefit`）を三重安全領域（square/list/core-safe）の中央 590px に一行で収める（入らなければ生成エラー・chips 不使用・AI 背景素材 `visualAsset` は任意でフォールバックあり）。
+
+- **仕様 SSOT**: [`note-cover-crop-safe-v4.md`](note-cover-crop-safe-v4.md) ／ 値: [`note-cover-tokens.json`](note-cover-tokens.json) `layout.cropSafeV4`
+- **状態**: パイロット6件（総監 無料/有料/マガジン・1級/2級記事・土木マガジン）実装済み・ルーブリック 6/6 合格（2026-07-24）。**既定は引き続き G2**。一括移行はパイロットの note ライブ実査後に判断
+- 検証: `npm run check-note-cover-fit`（V4 は 590px フィットをエラー検査）／ 6 表示面プレビュー `node scripts/note-cover-gallery.mjs --crops`
+
 ## 関連
 
 - 値 SSoT: [`note-cover-tokens.json`](note-cover-tokens.json)
-- レンダラ: `.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs`（`renderNoteCoverG2`）
+- レンダラ: `.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs`（`renderNoteCoverG2` / `renderNoteCoverCropSafeV4`）
 - ジェネレータ: `scripts/generate-note-covers.mjs`
 - Skill: `.claude/skills/conversion/ogp-create/SKILL.md`
 - OGP（サイト 1200×630）は別系統の `mono-tag` テンプレ（試験色分けなし、サイト内 OGP 専用）

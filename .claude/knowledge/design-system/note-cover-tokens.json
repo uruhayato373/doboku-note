@@ -2,9 +2,9 @@
   "$schema": "https://json-schema.org/draft-07/schema#",
   "$id": "note-cover-tokens",
   "description": "note カバー画像（G2「全幅バナー帯」レイアウト）のデザイントークン単一真実源。scripts/generate-note-covers.mjs が exam→パレット解決と G2 props 組み立てに参照し、.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs の renderNoteCoverG2 が描画する。試験区分=ベース色 / 系列(notePricing)=濃淡 の二軸。src/styles/globals.css の --color-* と整合すべき（satori は CSS 変数を解釈しないため hex リテラルで埋め込む）。",
-  "version": "1.0.0",
-  "updated": "2026-05-29",
-  "source": "handoff covers-g2-all.jsx（claude.ai/design プロトタイプ G2 案）を satori 本番レンダラへ移植",
+  "version": "1.1.0",
+  "updated": "2026-07-24",
+  "source": "handoff covers-g2-all.jsx（claude.ai/design プロトタイプ G2 案）を satori 本番レンダラへ移植。1.1.0 で Crop-safe V4（opt-in variant）を追加（.claude/knowledge/design-system/note-cover-crop-safe-v4.md）",
 
   "canvas": {
     "width": 1280,
@@ -148,7 +148,7 @@
       "shadow": "0 6px 18px rgba(14,38,69,0.28)"
     },
     "banner": {
-      "comment": "全幅バナー帯。実装(renderNoteCoverG2.bannerFontSize)は中央630安全幅590pxに収まるよう48〜110pxへ連続自動縮小する。下記 fontSizeSteps は読み物用の目安(実コードは連続式)。banner は工事名列挙・科目名等の descriptive テキストが正規で 7〜11字超は許容(正方形クロップで両端が切れるがフル1280幅には収まる)。フル幅超の真の溢れは check-note-cover-fit が検出。詳細 docs/design-system/note-cover.md。",
+      "comment": "全幅バナー帯。実装(renderNoteCoverG2.bannerFontSize)は中央630安全幅590pxに収まるよう48〜110pxへ連続自動縮小する。下記 fontSizeSteps は読み物用の目安(実コードは連続式)。banner は工事名列挙・科目名等の descriptive テキストが正規で 7〜11字超は許容(正方形クロップで両端が切れるがフル1280幅には収まる)。フル幅超の真の溢れは check-note-cover-fit が検出。詳細 .claude/knowledge/design-system/note-cover.md。",
       "top": 392,
       "padY": 18,
       "letterSpacing": "0.03em",
@@ -170,6 +170,34 @@
       "border": 2,
       "radius": 999,
       "shadow": "0 3px 10px rgba(22,54,92,0.12)"
+    },
+    "cropSafeV4": {
+      "comment": "Crop-safe V4（cover.variant: crop-safe-v4 の opt-in）。表示面ごとのトリミングで重要文字を切らない三重安全領域。仕様 SSOT は .claude/knowledge/design-system/note-cover-crop-safe-v4.md。実装 renderNoteCoverCropSafeV4（ogp-templates.mjs）と check-note-cover-fit.mjs が本値をミラーする。chips は V4 では使用しない（指定時は警告）。",
+      "safeAreas": {
+        "full": { "x": [0, 1280], "y": [0, 670], "use": "背景・装飾・人物・資格クレジット・補助情報" },
+        "squareSafe": { "x": [325, 955], "y": [20, 650], "use": "正方形表示で残す範囲" },
+        "listSafe": { "x": [325, 955], "y": [108, 562], "use": "関連記事・人気記事・マガジン一覧でも残す主要情報（中央630×454）" },
+        "coreSafe": { "x": [325, 955], "y": [227, 443], "use": "全表示面で絶対に残す最重要情報（中央630×216）" },
+        "textSafe": { "x": [345, 935], "maxTextWidth": 590, "use": "主要文字の左右20px内余白。主要要素は一行590px以内・入らなければ生成エラー（切り詰めない）" }
+      },
+      "article": {
+        "hierarchy": ["headline(4-9字)", "hi+hiSuffix(計2-7字)", "leadIn(8-18字)", "benefit(8-15字)", "meta"],
+        "leadIn": { "top": 112, "height": 44, "fontSize": [26, 34] },
+        "headline": { "top": 227, "height": 216, "fontSize": [64, 104], "note": "core-safe いっぱいの flex center = 必ず core-safe 内" },
+        "hiRow": { "top": 452, "height": 52, "hiFontSize": [44, 64], "hiSuffixFontSize": 40, "gap": 12, "note": "headline 直下・list-safe 内" },
+        "benefitBand": { "top": 510, "height": 52, "left": 325, "width": 630, "fontSize": [24, 36], "note": "list-safe 下部・試験色帯＋白文字・中央630幅=正方形でも欠けない" },
+        "fitSlack": 1.04
+      },
+      "magazine": {
+        "hierarchy": ["magazineName(core-safe最大)", "qualifier(core-safe)", "proof(list-safe)", "benefit(list-safe)"],
+        "qualifier": { "top": 112, "height": 44, "fontSize": [26, 32] },
+        "magazineName": { "top": 227, "height": 216, "fontSize": [64, 104] },
+        "proof": { "top": 452, "height": 52, "fontSize": [28, 38] },
+        "benefitBand": { "top": 510, "height": 52, "left": 325, "width": 630, "fontSize": [24, 36], "note": "白地＋試験色文字の反転帯（濃色地とのコントラスト）" },
+        "rule": "価格は画像へ固定しない。記事本数など自動同期できない値も固定しない"
+      },
+      "visualAsset": { "size": [1280, 670], "rule": "文字・数字・ロゴなしの AI 背景素材。中央 630×454 は低情報量。無ければ決定論的背景へフォールバック（公開ブロッカーにしない）" },
+      "centerScrim": { "article": "rgba(244,246,249,0.84) 中央630帯（visualAsset 使用時のみ・端8%フェード）", "magazine": "fillBg の 0.80 全面（visualAsset 使用時のみ）" }
     }
   },
 
@@ -186,6 +214,33 @@
     "weightBlack": 900
   },
 
+  "coverSchemaV4": {
+    "comment": "cover.variant: crop-safe-v4 の記事 frontmatter 仕様（正規形は note-cover-crop-safe-v4.md §5.2）。V4 では chips を使用しない（指定時は lint/生成ログ警告）。",
+    "fields": {
+      "variant": "必須。'crop-safe-v4' 固定",
+      "leadIn": "必須。資格・対象読者・試験区分（8〜18字）。list-safe 上部",
+      "headline": "必須。記事の主題（4〜9字）。core-safe 中央・最大の文字",
+      "hi": "必須。数字・年度・分類の核（hi+hiSuffix 計2〜7字）。HiBox（試験色）",
+      "hiSuffix": "必須。hi に続く語。headline 直下の行",
+      "benefit": "必須。読後価値（8〜15字）。list-safe 下部の試験色帯",
+      "meta": "任意。無料記事等（full 領域の補助情報）",
+      "visualPrompt": "任意。AI 背景素材の生成指示（画像へ文字として描かない）",
+      "visualAsset": "任意。生成済み素材の記事 dir 相対パス（例 img/cover-visual.png・1280×670）。無ければ決定論的背景",
+      "character": "任意。既存キャラポーズ slug（full 領域・text-safe を侵食しない）",
+      "tone": "任意。deep|base|soft"
+    },
+    "magazineFields": {
+      "variant": "'crop-safe-v4'",
+      "qualifier": "資格・試験区分。core-safe（magazineName の上）",
+      "magazineName": "商品識別名。core-safe 中央・最大",
+      "proof": "テーマ数・年度等。list-safe。値が頻繁に変わるなら使わない",
+      "benefit": "購入後に得られる成果。list-safe 下部",
+      "visualPrompt": "任意（記事と同じ）",
+      "visualAsset": "任意。magazineDir 直下 _cover-visual.png 等",
+      "fillBg": "背景基調色（既存 magazine-banner と同系）"
+    }
+  },
+
   "coverSchema": {
     "comment": "article.md frontmatter の cover: ブロック仕様。これがあれば G2、無ければ従来 mono-tag(coverTitle) にフォールバック。",
     "fields": {
@@ -200,7 +255,7 @@
   },
 
   "references": {
-    "spec": "docs/design-system/note-cover.md",
+    "spec": ".claude/knowledge/design-system/note-cover.md",
     "renderer": ".claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs（renderNoteCoverG2）",
     "generator": "scripts/generate-note-covers.mjs",
     "skill": ".claude/skills/conversion/ogp-create/SKILL.md",

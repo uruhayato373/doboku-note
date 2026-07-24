@@ -12,8 +12,8 @@
 //   node scripts/generate-magazine-covers.mjs                 # 全件生成（magazineDir 設定分）
 //   node scripts/generate-magazine-covers.mjs river-consultant # 1件だけ生成
 
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
-import { join, dirname } from 'node:path';
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import satori from 'satori';
 import sharp from 'sharp';
@@ -43,8 +43,16 @@ function loadFonts() {
  * - lines: タイトル行 (3行構成、各行 17 文字以内推奨)
  * - category: カテゴリチップのラベル
  * - fontSize: 行高 (T06 は 32-48 が安定域)
+ *
+ * Crop-safe V4（variant: 'crop-safe-v4' 指定時のみ・opt-in）:
+ * - qualifier / magazineName / proof / benefit を使い renderNoteCoverCropSafeV4 で描画
+ *   （note のマガジン一覧 中央1280×454・狭ヘッダー 中央1280×216 でも主要文字が切れない三重安全領域）。
+ * - visualPrompt / visualAsset: AI 背景素材（文字なし・repo ルート相対）。無ければ fillBg 決定論的背景。
+ * - lines[] は後方互換のため残してよい（V4 指定時は使用されない）。
+ * - 価格・自動同期できない記事本数は画像へ入れない。
+ * 仕様 SSOT: .claude/knowledge/design-system/note-cover-crop-safe-v4.md
  */
-const MAGAZINES = [
+export const MAGAZINES = [
   {
     id: 'river-consultant',
     magazineDir: 'docs/note/技術士総監/magazines/総監模範論文-河川コンサル',
@@ -189,7 +197,15 @@ const MAGAZINES = [
   },
   {
     id: 'setsumon3-policy-bank',
+    // Crop-safe V4 パイロット（2026-07-24・magazine key: m91516dfc27ac）。lines は後方互換で残置（V4 では未使用）。
+    variant: 'crop-safe-v4',
     magazineDir: 'docs/note/技術士総監/magazines/総監記述式-設問3国家施策バンク',
+    qualifier: '技術士 総監｜記述式',
+    magazineName: '国家施策バンク',
+    proof: '11テーマ・68施策',
+    benefit: '設問3の弾薬を備蓄',
+    visualPrompt: '政策カードと日本地図を抽象化した専門教材の背景',
+    visualAsset: 'docs/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/_cover-visual.png',
     fillBg: '#16365C',
     fileBaseName: 'magazine-setsumon3-policy-bank-cover',
     lines: ['設問(3) 国家施策バンク', '将来課題 11 テーマ × 国家施策 68 案', '答案 1 枚相当・転写即戦力'],
@@ -257,8 +273,16 @@ const MAGAZINES = [
   },
   {
     id: 'civil-1-marugoto',
+    // Crop-safe V4 パイロット（2026-07-24・magazine key: md29a34906314）。lines は後方互換で残置（V4 では未使用）。
+    variant: 'crop-safe-v4',
     fileBaseName: 'civil-1-niji-marugoto-pack-cover',
     magazineDir: 'docs/note/1級・2級土木/1級土木/magazines/1級土木-二次まるごとパック',
+    qualifier: '1級土木｜第2次検定',
+    magazineName: 'まるごとパック',
+    proof: '経験記述＋学科記述＋直前暗記',
+    benefit: '二次対策はこれ一冊で完結',
+    visualPrompt: '重なり合う教材ノートと合格へ続く階段を抽象化した背景',
+    visualAsset: 'docs/note/1級・2級土木/1級土木/magazines/1級土木-二次まるごとパック/_cover-visual.png',
     lines: ['1級土木 二次検定', 'まるごとパック', '経験記述＋学科記述＋直前暗記'],
     category: '1級土木施工管理技士',
     fontSize: 42,
@@ -466,17 +490,56 @@ const MAGAZINES = [
 ];
 
 async function renderOne(mag, fonts) {
-  const element = renderTemplate(
-    'magazine-banner',
-    {
-      lines: mag.lines,
-      categoryLabel: mag.category,
-      fontSize: mag.fontSize,
-      ...(mag.accentColor ? { accentColor: mag.accentColor } : {}),
-      ...(mag.fillBg ? { fillBg: mag.fillBg } : {}),
-    },
-    { width: W, height: H },
-  );
+  let element;
+  if (mag.variant === 'crop-safe-v4') {
+    // V4: 三重安全領域レイアウト（qualifier/magazineName/proof/benefit）。lines[] は使用しない。
+    let visualSrc = null;
+    if (mag.visualAsset) {
+      const vpath = join(ROOT, mag.visualAsset);
+      if (!existsSync(vpath)) {
+        console.warn(`  warn: ${mag.id} visualAsset が見つかりません（${mag.visualAsset}）→ fillBg 決定論的背景へフォールバック`);
+      } else {
+        const vmeta = await sharp(vpath).metadata();
+        if (vmeta.width !== W || vmeta.height !== H) {
+          console.warn(`  warn: ${mag.id} visualAsset は ${vmeta.width}×${vmeta.height}（要 ${W}×${H}）→ フォールバック`);
+        } else {
+          const vbuf = readFileSync(vpath);
+          const mime = /\.webp$/i.test(vpath) ? 'image/webp' : /\.jpe?g$/i.test(vpath) ? 'image/jpeg' : 'image/png';
+          visualSrc = `data:${mime};base64,${vbuf.toString('base64')}`;
+        }
+      }
+    }
+    element = renderTemplate(
+      'note-cover-g2',
+      {
+        cover: {
+          variant: 'crop-safe-v4',
+          qualifier: mag.qualifier,
+          magazineName: mag.magazineName,
+          proof: mag.proof,
+          benefit: mag.benefit,
+          credential: mag.credential,
+        },
+        palette: { band: mag.fillBg || '#16365C', accent: mag.accentColor || mag.fillBg || '#16365C', label: mag.category || '' },
+        magazine: true,
+        visualSrc,
+        debugSafetyV4: mag.__debugSafety || false,
+      },
+      { width: W, height: H },
+    );
+  } else {
+    element = renderTemplate(
+      'magazine-banner',
+      {
+        lines: mag.lines,
+        categoryLabel: mag.category,
+        fontSize: mag.fontSize,
+        ...(mag.accentColor ? { accentColor: mag.accentColor } : {}),
+        ...(mag.fillBg ? { fillBg: mag.fillBg } : {}),
+      },
+      { width: W, height: H },
+    );
+  }
   const svg = await satori(element, { width: W, height: H, fonts });
   const pngBuffer = await sharp(Buffer.from(svg)).png().toBuffer();
   // note アップロード用の _cover.png のみ生成する（サイト用 public/images/magazines は廃止）。
@@ -491,7 +554,9 @@ async function renderOne(mag, fonts) {
 }
 
 async function main() {
-  const filter = process.argv[2];
+  const argv = process.argv.slice(2);
+  const debugSafety = argv.includes('--debug-safety');
+  const filter = argv.find((a) => !a.startsWith('--'));
   const fonts = loadFonts();
   const targets = filter ? MAGAZINES.filter((m) => m.id.includes(filter)) : MAGAZINES;
   if (targets.length === 0) {
@@ -500,12 +565,16 @@ async function main() {
   }
   console.log(`generating ${targets.length} magazine cover(s)...`);
   for (const mag of targets) {
-    await renderOne(mag, fonts);
+    await renderOne(debugSafety ? { ...mag, __debugSafety: true } : mag, fonts);
   }
   console.log(`done. output: <magazineDir>/_cover.png`);
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+// check-note-cover-fit.mjs 等から MAGAZINES を import できるよう、直接実行時のみ main を走らせる
+const __isDirectRun = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (__isDirectRun) {
+  main().catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+}

@@ -9,15 +9,15 @@ noteId: "nbc90a82503db"
 noteUrl: "https://note.com/dobokunote/n/nbc90a82503db"
 price: 500
 cover:
-  leadIn: "令和8年度 R8予想"
+  variant: crop-safe-v4
+  leadIn: "総監 記述式｜河川コンサル"
+  headline: "模範論文"
   hi: "R8"
-  hiSuffix: "河川コンサル①(気候変動)"
-  banner: "気候変動適応・流域治水の強靱化｜3,000字級フル論文"
+  hiSuffix: "予想①"
+  benefit: "気候変動テーマを答案に展開"
   meta: "R8予想問題"
-  chips:
-    - { icon: pen, text: "答案そのまま展開" }
-    - { icon: layers, text: "5管理トレードオフ" }
-    - { icon: check, text: "採点チェック付" }
+  visualPrompt: "河川と流域を俯瞰する抽象的な地形と水流のライン"
+  visualAsset: "img/cover-visual.png"
 ---
 # 令和8年度 総監記述式 模範論文｜河川コンサル版（気候変動適応・流域治水の強靱化／R8予想①）
 
