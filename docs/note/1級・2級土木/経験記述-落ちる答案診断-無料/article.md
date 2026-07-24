@@ -7,16 +7,12 @@ noteId: "nd1c0e564ef10"
 noteUrl: "https://note.com/dobokunote/n/nd1c0e564ef10"
 coverTitle: ["落ちる施工経験記述 診断", "1級・2級 模範解答サンプル"]
 cover:
-  leadIn: "1級・2級土木施工管理技士 二次"
-  hi: "落ちる経験記述"
-  hiSuffix: "診断"
-  banner: "模範解答サンプル＋NG→合格"
-  character: pointing
-  meta: "無料"
-  chips:
-    - { icon: doc, text: "模範解答サンプル" }
-    - { icon: edit, text: "NG→合格 添削" }
-    - { icon: check, text: "採点者視点" }
+  variant: crop-safe-v4
+  leadIn: "1級・2級土木｜経験記述"
+  headline: "落ちる答案診断"
+  hi: "NG"
+  hiSuffix: "→合格"
+  benefit: "模範解答サンプルが見られる"
 ---
 # 落ちる施工経験記述 診断｜1級・2級土木 安全管理・品質管理の模範解答サンプル【無料】
 

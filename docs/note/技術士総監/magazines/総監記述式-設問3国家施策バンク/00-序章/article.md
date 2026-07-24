@@ -8,18 +8,12 @@ coverTitle:
   - 総監記述式 設問(3)
   - 国家施策バンク
 cover:
-  leadIn: 総監記述式 設問(3) 専用
-  hi: '11'
-  hiSuffix: テーマ網羅
-  banner: 国家施策バンク
-  chips:
-    - icon: layers
-      text: 施策68案
-    - icon: doc
-      text: 答案1枚相当
-    - icon: book
-      text: 白書根拠
-  meta: '有料マガジン ／ ¥2,480'
+  variant: crop-safe-v4
+  leadIn: "総監 記述式｜設問3"
+  headline: "施策バンク序章"
+  hi: "11"
+  hiSuffix: "テーマ"
+  benefit: "設問3にそのまま転写できる"
 ---
 
 # 総監記述式 設問(3)国家施策バンク｜将来課題に「国の施策」で答える引き出し集【序章・無料】

@@ -11,15 +11,12 @@ noteId: "ne93129340f5e"
 notePublishedAt: "2026-06-30"
 coverTitle: ["1級土木 施工経験記述", "ニューマチックケーソン基礎", "5管理 完成答案"]
 cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "ニューマチックケーソン"
-  hiSuffix: "基礎工事"
-  banner: "高気圧作業・支持地盤確認・沈設精度管理"
-  meta: "完全攻略パック"
-  chips:
-    - { icon: doc, text: "完成答案" }
-    - { icon: edit, text: "置換ガイド" }
-    - { icon: check, text: "NG→OK添削" }
+  variant: crop-safe-v4
+  leadIn: "1級土木 経験記述｜ニューマチック"
+  headline: "ケーソン基礎"
+  hi: "5管理"
+  hiSuffix: "完成答案"
+  benefit: "書き換えてそのまま使える"
 ---
 # 1級土木 施工経験記述｜ニューマチックケーソン基礎（5管理 完成答案）
 

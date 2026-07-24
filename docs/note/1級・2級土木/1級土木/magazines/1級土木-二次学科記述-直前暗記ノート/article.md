@@ -11,15 +11,12 @@ price: 980
 paidBoundary: "コンクリート工"
 coverTitle: ["1級土木 二次学科記述", "直前暗記ノート"]
 cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "直前"
-  hiSuffix: "暗記"
-  banner: "穴埋め頻出語句 一問一答＋赤シート"
-  meta: "有料マガジン"
-  chips:
-    - { icon: check, text: "一問一答150問超" }
-    - { icon: doc, text: "赤シート対応PDF" }
-    - { icon: edit, text: "分野別" }
+  variant: crop-safe-v4
+  leadIn: "1級土木｜二次学科記述"
+  headline: "直前暗記ノート"
+  hi: "150問"
+  hiSuffix: "超"
+  benefit: "穴埋め頻出語句を一気に暗記"
 ---
 # 1級土木 二次学科記述｜直前暗記ノート（穴埋め頻出語句 一問一答）
 

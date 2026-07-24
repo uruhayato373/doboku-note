@@ -10,16 +10,12 @@ coverTitle:
   - 管理項目と題材の選び方
 noteStatus: published
 cover:
-  leadIn: "2級土木 施工経験記述"
-  hi: "題材選び"
-  hiSuffix: "で半分決まる"
-  banner: "安全・品質・工程どれで書く"
-  character: explaining
-  meta: "無料記事"
-  chips:
-    - { icon: target, text: "現場が決める" }
-    - { icon: doc, text: "書きやすい工事" }
-    - { icon: check, text: "新形式の有利" }
+  variant: crop-safe-v4
+  leadIn: "2級土木｜施工経験記述"
+  headline: "テーマ選び"
+  hi: "題材"
+  hiSuffix: "で決まる"
+  benefit: "題材選びで差がつく"
 ---
 # 【2級土木施工管理技士】施工経験記述は「安全・品質・工程」どれで書くか — 題材選びで半分決まる
 

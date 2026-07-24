@@ -10,16 +10,12 @@ coverTitle:
   - 設問1と設問2の書き分け
 noteStatus: published
 cover:
-  leadIn: "1級土木 施工経験記述"
-  hi: "設問の書き分け"
-  hiSuffix: "が1級の関門"
-  banner: "5管理から2テーマ必答"
-  character: pointing
-  meta: "無料記事"
-  chips:
-    - { icon: edit, text: "新形式" }
-    - { icon: target, text: "同一工事で2題" }
-    - { icon: check, text: "同一内容不可" }
+  variant: crop-safe-v4
+  leadIn: "1級土木｜施工経験記述"
+  headline: "設問の書き分け"
+  hi: "R6"
+  hiSuffix: "新形式"
+  benefit: "2題を書き分けられる"
 ---
 # 【1級土木施工管理技士】令和6年 新形式と「設問1・設問2の書き分け」 — 1級最大の関門
 

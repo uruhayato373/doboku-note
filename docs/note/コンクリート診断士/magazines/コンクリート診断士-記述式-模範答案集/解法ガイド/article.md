@@ -9,15 +9,12 @@ noteMagazine: コンクリート診断士-記述式-模範答案集
 price: 500
 coverTitle: "コンクリート診断士 記述式 突破法"
 cover:
-  leadIn: "コンクリート診断士"
-  hi: "記述式"
-  hiSuffix: "突破法"
-  banner: "問題A・B 答案の型と採点視点"
-  meta: "解法ガイド"
-  chips:
-    - { icon: bulb, text: "答案の型" }
-    - { icon: layers, text: "問題A/B別" }
-    - { icon: check, text: "採点視点" }
+  variant: crop-safe-v4
+  leadIn: "コンクリート診断士｜記述式"
+  headline: "記述式突破法"
+  hi: "問題A"
+  hiSuffix: "問題B"
+  benefit: "答案の型と採点視点がわかる"
 ---
 
 # コンクリート診断士 記述式 突破法｜問題A・問題Bの答案の型と採点視点

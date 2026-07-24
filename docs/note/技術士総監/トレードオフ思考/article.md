@@ -7,15 +7,12 @@ noteId: n1b325d339f59
 notePublishedAt: "2026-06-01"
 noteStatus: published
 cover:
-  leadIn: "総監の合否を分ける"
-  hi: "5管理"
-  hiSuffix: "の対立を見抜く"
-  banner: "トレードオフ思考"
-  meta: "無料記事"
-  chips:
-    - { icon: layers, text: "対立構造" }
-    - { icon: edit, text: "論文の核に" }
-    - { icon: target, text: "統合解決" }
+  variant: crop-safe-v4
+  leadIn: "総監 記述式｜思考法"
+  headline: "トレードオフ思考"
+  hi: "5"
+  hiSuffix: "管理"
+  benefit: "論文の核に据えられる"
 ---
 # 総監の合否を分ける「トレードオフ思考」完全ガイド｜5管理間の対立構造を見抜き、論文の核に据える
 

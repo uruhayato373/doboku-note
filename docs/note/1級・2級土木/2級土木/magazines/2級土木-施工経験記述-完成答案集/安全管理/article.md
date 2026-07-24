@@ -10,15 +10,12 @@ coverTitle: ["2級土木 施工経験記述", "安全管理 完成答案集"]
 price: 1180
 paidBoundary: "安全管理の答案で採点者が見るポイント"
 cover:
-  leadIn: "2級土木施工管理技士 二次"
-  hi: "安全"
-  hiSuffix: "管理"
-  banner: "完成答案と添削例"
-  meta: "有料マガジン"
-  chips:
-    - { icon: doc, text: "完成答案" }
-    - { icon: edit, text: "添削例つき" }
-    - { icon: check, text: "減点ポイント" }
+  variant: crop-safe-v4
+  leadIn: "2級土木｜施工経験記述"
+  headline: "安全管理"
+  hi: "完成"
+  hiSuffix: "答案集"
+  benefit: "書き換えてそのまま使える"
 ---
 # 2級土木 施工経験記述｜安全管理 完成答案集（河川護岸・下水道管渠 ほか）
 

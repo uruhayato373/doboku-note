@@ -7,15 +7,12 @@ price: 500
 paidBoundary: "ありがちな失敗"
 noteStatus: published
 cover:
-  leadIn: "総監記述式で差がつく"
-  hi: "5管理"
-  hiSuffix: "統合の書き方"
-  banner: "合格答案の構造"
-  meta: "有料マガジン"
-  chips:
-    - { icon: layers, text: "統合の型" }
-    - { icon: edit, text: "R7少子高齢化" }
-    - { icon: check, text: "構造を解剖" }
+  variant: crop-safe-v4
+  leadIn: "総監 記述式｜書き方"
+  headline: "5管理統合の型"
+  hi: "5"
+  hiSuffix: "管理"
+  benefit: "合格答案の構造がわかる"
 ---
 
 # 総監記述式で差がつく「5管理統合」の書き方｜令和7年度「少子高齢化」を題材に合格答案の構造を解剖

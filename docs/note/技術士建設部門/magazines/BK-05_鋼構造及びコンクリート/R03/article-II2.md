@@ -9,17 +9,14 @@ noteId: "ne22d00b0e7a2"
 notePublishedAt: "2026-06-16"
 price: 500
 coverTitle: "技術士 建設部門｜鋼構造及びコンクリート R03 選択科目II-2 模範解答"
-cover:
-  leadIn: "技術士 建設部門 2次"
-  hi: "R03"
-  hiSuffix: "鋼コンII-2"
-  banner: "選択科目II-2 問題解決｜模範解答"
-  meta: "鋼コン 模範解答"
-  chips:
-    - { icon: pen, text: "II-2-1・II-2-2 全設問フル模範解答" }
-    - { icon: layers, text: "発注者視点" }
-    - { icon: check, text: "採点ポイント付" }
 utmCampaign: pe-construction-secondary
+cover:
+  variant: crop-safe-v4
+  leadIn: "建設部門｜鋼構造及びコンクリート"
+  headline: "模範解答"
+  hi: "R03"
+  hiSuffix: "II-2 応用能力"
+  benefit: "そのまま答案に展開できる"
 ---
 
 # 技術士 建設部門｜鋼構造及びコンクリート R03 選択科目II-2 模範解答

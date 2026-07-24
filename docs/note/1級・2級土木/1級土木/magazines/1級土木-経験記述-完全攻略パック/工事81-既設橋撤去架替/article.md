@@ -5,21 +5,18 @@ noteMagazine: 1級土木-経験記述-完全攻略パック
 utmCampaign: civil1-keiken-pack-koji81
 noteStatus: published
 coverTitle: ["1級土木 施工経験記述", "既設橋 撤去・架替", "5管理 完成答案"]
-cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "既設橋撤去・架替"
-  hiSuffix: "5管理完成答案"
-  banner: "橋全体の撤去から新橋架設まで"
-  meta: "有料マガジン"
-  chips:
-    - { icon: doc, text: "完成答案" }
-    - { icon: edit, text: "置換ガイド" }
-    - { icon: check, text: "5管理一覧" }
 noteUrl: "https://note.com/dobokunote/n/n7ed27921d202"
 noteId: "n7ed27921d202"
 notePublishedAt: "2026-06-30"
 price: 1980
 paidBoundary: 品質管理
+cover:
+  variant: crop-safe-v4
+  leadIn: "1級土木 経験記述｜5管理完成答案"
+  headline: "既設橋撤去・架替"
+  hi: "5管理"
+  hiSuffix: "完成答案"
+  benefit: "書き換えてそのまま使える"
 ---
 # 1級土木 施工経験記述｜既設橋 撤去・架替（橋全体の解体から新橋架設）5管理 完成答案
 

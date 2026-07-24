@@ -9,16 +9,12 @@ coverTitle:
   - 総監の勉強を
   - AIで効率化する
 cover:
-  leadIn: "技術士総監を"
+  variant: crop-safe-v4
+  leadIn: "総監 択一記述｜AI活用"
+  headline: "AIで学習効率化"
   hi: "AI"
-  hiSuffix: "で効率化する"
-  banner: "AI学習法"
-  character: thinking
-  meta: "無料記事"
-  chips:
-    - { icon: bulb, text: "NotebookLM" }
-    - { icon: edit, text: "Claude Code" }
-    - { icon: check, text: "AI任せの限界" }
+  hiSuffix: "活用"
+  benefit: "AI任せの限界がわかる"
 ---
 # 【技術士総監】AIで勉強を効率化する｜NotebookLM・Claude Code の使い分けと「AI任せの限界」
 

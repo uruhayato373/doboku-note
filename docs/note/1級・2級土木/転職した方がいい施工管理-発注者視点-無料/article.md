@@ -6,16 +6,12 @@ noteId: n85d4b322898b
 utmCampaign: civil-career-hatchusha-view
 coverTitle: ["発注者から見た", "転職した方がいい施工管理の特徴"]
 cover:
-  leadIn: "元公務員土木（発注者）の視点"
-  hi: "転職した方がいい"
-  hiSuffix: "施工管理"
-  banner: "発注者から見えていた本音"
-  meta: "無料"
-  character: explaining
-  chips:
-    - { icon: doc, text: "発注者視点" }
-    - { icon: check, text: "判断の物差し" }
-    - { icon: edit, text: "次の一手" }
+  variant: crop-safe-v4
+  leadIn: "元公務員土木の視点"
+  headline: "転職すべき人"
+  hi: "無料"
+  hiSuffix: "公開"
+  benefit: "発注者視点の判断軸が分かる"
 ---
 # 発注者から見た「転職した方がいい施工管理」の特徴【無料】
 

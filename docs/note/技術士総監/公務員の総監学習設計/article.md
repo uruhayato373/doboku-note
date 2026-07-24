@@ -9,16 +9,12 @@ coverTitle:
   - 働きながら総監に挑む
   - 公務員の学習設計
 cover:
-  leadIn: "公務員 働きながら挑む"
+  variant: crop-safe-v4
+  leadIn: "総監 公務員｜学習設計"
+  headline: "逆算カレンダー"
   hi: "逆算"
-  hiSuffix: "カレンダー設計"
-  banner: "総監 学習設計"
-  character: explaining
-  meta: "無料記事"
-  chips:
-    - { icon: calendar, text: "繁忙期を回避" }
-    - { icon: chart, text: "逆算スケジュール" }
-    - { icon: check, text: "両立のコツ" }
+  hiSuffix: "設計"
+  benefit: "繁忙期を避けて両立できる"
 ---
 # 【公務員向け】働きながら総監に挑む学習設計｜発注者業務の繁忙期を避ける逆算カレンダー
 

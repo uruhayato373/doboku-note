@@ -7,18 +7,12 @@ noteUrl: https://note.com/dobokunote/n/nf3062e8f07e0
 noteId: nf3062e8f07e0
 notePublishedAt: 2026-06-01
 cover:
-  leadIn: 設問(3)で問われる将来課題
-  hi: '6'
-  hiSuffix: つの国家施策
-  banner: 地方創生と一極集中
-  chips:
-    - icon: check
-      text: トレードオフ明示
-    - icon: doc
-      text: 答案1枚相当
-    - icon: award
-      text: R8本試験で的中
-  meta: '有料マガジン ／ ¥2,980'
+  variant: crop-safe-v4
+  leadIn: "総監 記述式｜設問3"
+  headline: "地方創生"
+  hi: "6"
+  hiSuffix: "施策"
+  benefit: "設問3にそのまま転写できる"
 ---
 
 # 地方創生・東京一極集中｜設問(3)国家施策バンク

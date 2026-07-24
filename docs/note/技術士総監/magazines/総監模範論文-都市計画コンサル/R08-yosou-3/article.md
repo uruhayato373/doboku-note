@@ -9,15 +9,12 @@ noteStatus: published
 noteMagazine: 総監模範論文-都市計画コンサル
 price: 780
 cover:
-  leadIn: "令和8年度 R8予想"
+  variant: crop-safe-v4
+  leadIn: "総監 記述式｜都市計画コンサル"
+  headline: "予防保全"
   hi: "R8"
-  hiSuffix: "都市計画③(老朽化インフラ)"
-  banner: "予防保全・広域連携｜3,000字級フル論文"
-  meta: "R8予想問題"
-  chips:
-    - { icon: pen, text: "答案そのまま展開" }
-    - { icon: layers, text: "5管理トレードオフ" }
-    - { icon: check, text: "採点チェック付" }
+  hiSuffix: "予想③"
+  benefit: "3,000字級をそのまま展開"
 ---
 # 令和8年度 総監記述式 模範論文｜都市計画コンサル版（老朽化インフラの予防保全・広域連携／R8予想③）
 

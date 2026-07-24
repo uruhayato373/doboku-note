@@ -10,16 +10,12 @@ coverTitle:
   - 5管理のテーマ選び
 noteStatus: published
 cover:
-  leadIn: "1級土木 施工経験記述"
+  variant: crop-safe-v4
+  leadIn: "1級土木｜施工経験記述"
+  headline: "テーマ選び"
   hi: "5管理"
-  hiSuffix: "どれで書くか"
-  banner: "題材選びで半分決まる"
-  character: explaining
-  meta: "無料記事"
-  chips:
-    - { icon: target, text: "現場が決める" }
-    - { icon: doc, text: "5管理の現場" }
-    - { icon: check, text: "新形式で有利" }
+  hiSuffix: "どれで"
+  benefit: "題材選びで差がつく"
 ---
 # 【1級土木施工管理技士】施工経験記述は「5管理」どれで書くか — 題材選びで半分決まる
 

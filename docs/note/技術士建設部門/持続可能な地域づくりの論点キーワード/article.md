@@ -10,15 +10,12 @@ coverTitle:
   - 必須科目Iで頻出
   - 持続可能な地域づくりの論点キーワード
 cover:
-  leadIn: "技術士 建設部門 2次"
-  hi: "地域づくり"
-  hiSuffix: "国土形成のキーワード"
-  banner: "コンパクト＋ネットワーク・立地適正化の論点を整理"
-  meta: "無料記事"
-  chips:
-    - { icon: target, text: "必須科目I 頻出" }
-    - { icon: layers, text: "現状・背景＋計画・政策" }
-    - { icon: edit, text: "答案に引ける論点集" }
+  variant: crop-safe-v4
+  leadIn: "技術士 建設部門｜二次"
+  headline: "地域づくり"
+  hi: "立地"
+  hiSuffix: "適正化論点"
+  benefit: "答案に使える論点が揃う"
 ---
 
 # 【技術士 建設部門】持続可能で活力ある地域づくり 必須科目I 論点キーワード

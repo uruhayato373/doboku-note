@@ -6,16 +6,12 @@ utmCampaign: 12-general-vs-comprehensive
 notePricing: free
 noteStatus: published
 cover:
-  leadIn: "一般部門の合格者が落ちる"
+  variant: crop-safe-v4
+  leadIn: "総監 択一記述｜違い"
+  headline: "一般部門との違い"
   hi: "3"
-  hiSuffix: "つの理由"
-  banner: "総監で通用しない訳"
-  character: thinking
-  meta: "無料記事"
-  chips:
-    - { icon: chart, text: "合格率10%の壁" }
-    - { icon: target, text: "思考の違い" }
-    - { icon: check, text: "4つの対策" }
+  hiSuffix: "理由"
+  benefit: "合格率10%の壁を超える"
 ---
 # 【一般部門の合格者が落ちる】総監で通用しない3つの理由｜合格率10%の壁を超える4つの対策
 

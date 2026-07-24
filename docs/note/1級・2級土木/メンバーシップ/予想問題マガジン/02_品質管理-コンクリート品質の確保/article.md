@@ -6,16 +6,12 @@ membershipOnly: true
 utmCampaign: civil-membership-odai-quality
 coverTitle: ["今週のお題｜品質管理", "コンクリート品質の確保"]
 cover:
-  leadIn: "今週のお題 ｜ 品質管理"
+  variant: crop-safe-v4
+  leadIn: "今週のお題｜経験記述"
+  headline: "品質管理"
   hi: "予想"
   hiSuffix: "問題"
-  banner: "コンクリート品質の確保"
-  meta: "メンバーシップ限定"
-  tone: deep
-  chips:
-    - { icon: target, text: "予想問題" }
-    - { icon: edit, text: "模範解答" }
-    - { icon: check, text: "採点ポイント" }
+  benefit: "コンクリート品質確保が書ける"
 ---
 # 今週のお題｜品質管理 — 環境条件に左右されるコンクリート品質の確保
 

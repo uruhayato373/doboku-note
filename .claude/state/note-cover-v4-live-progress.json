@@ -1,0 +1,250 @@
+{
+ "updatedAt": "2026-07-24",
+ "total": 667,
+ "chunkSize": 25,
+ "chunks": [
+  {
+   "id": "c01",
+   "list": ".tmp/v4-live-c01.txt",
+   "count": 25,
+   "prio": 0,
+   "status": "pending",
+   "ok": 0,
+   "fail": 0
+  },
+  {
+   "id": "c02",
+   "list": ".tmp/v4-live-c02.txt",
+   "count": 25,
+   "prio": 1,
+   "status": "pending",
+   "ok": 0,
+   "fail": 0
+  },
+  {
+   "id": "c03",
+   "list": ".tmp/v4-live-c03.txt",
+   "count": 25,
+   "prio": 1,
+   "status": "pending",
+   "ok": 0,
+   "fail": 0
+  },
+  {
+   "id": "c04",
+   "list": ".tmp/v4-live-c04.txt",
+   "count": 25,
+   "prio": 1,
+   "status": "pending",
+   "ok": 0,
+   "fail": 0
+  },
+  {
+   "id": "c05",
+   "list": ".tmp/v4-live-c05.txt",
+   "count": 25,
+   "prio": 3,
+   "status": "pending",
+   "ok": 0,
+   "fail": 0
+  },
+  {
+   "id": "c06",
+   "list": ".tmp/v4-live-c06.txt",
+   "count": 25,
+   "prio": 3,
+   "status": "pending",
+   "ok": 0,
+   "fail": 0
+  },
+  {
+   "id": "c07",
+   "list": ".tmp/v4-live-c07.txt",
+   "count": 25,
+   "prio": 3,
+   "status": "pending",
+   "ok": 0,
+   "fail": 0
+  },
+  {
+   "id": "c08",
+   "list": ".tmp/v4-live-c08.txt",
+   "count": 25,
+   "prio": 4,
+   "status": "pending",
+   "ok": 0,
+   "fail": 0
+  },
+  {
+   "id": "c09",
+   "list": ".tmp/v4-live-c09.txt",
+   "count": 25,
+   "prio": 4,
+   "status": "pending",
+   "ok": 0,
+   "fail": 0
+  },
+  {
+   "id": "c10",
+   "list": ".tmp/v4-live-c10.txt",
+   "count": 25,
+   "prio": 4,
+   "status": "pending",
+   "ok": 0,
+   "fail": 0
+  },
+  {
+   "id": "c11",
+   "list": ".tmp/v4-live-c11.txt",
+   "count": 25,
+   "prio": 4,
+   "status": "pending",
+   "ok": 0,
+   "fail": 0
+  },
+  {
+   "id": "c12",
+   "list": ".tmp/v4-live-c12.txt",
+   "count": 25,
+   "prio": 4,
+   "status": "pending",
+   "ok": 0,
+   "fail": 0
+  },
+  {
+   "id": "c13",
+   "list": ".tmp/v4-live-c13.txt",
+   "count": 25,
+   "prio": 4,
+   "status": "pending",
+   "ok": 0,
+   "fail": 0
+  },
+  {
+   "id": "c14",
+   "list": ".tmp/v4-live-c14.txt",
+   "count": 25,
+   "prio": 4,
+   "status": "pending",
+   "ok": 0,
+   "fail": 0
+  },
+  {
+   "id": "c15",
+   "list": ".tmp/v4-live-c15.txt",
+   "count": 25,
+   "prio": 4,
+   "status": "pending",
+   "ok": 0,
+   "fail": 0
+  },
+  {
+   "id": "c16",
+   "list": ".tmp/v4-live-c16.txt",
+   "count": 25,
+   "prio": 4,
+   "status": "pending",
+   "ok": 0,
+   "fail": 0
+  },
+  {
+   "id": "c17",
+   "list": ".tmp/v4-live-c17.txt",
+   "count": 25,
+   "prio": 4,
+   "status": "pending",
+   "ok": 0,
+   "fail": 0
+  },
+  {
+   "id": "c18",
+   "list": ".tmp/v4-live-c18.txt",
+   "count": 25,
+   "prio": 4,
+   "status": "pending",
+   "ok": 0,
+   "fail": 0
+  },
+  {
+   "id": "c19",
+   "list": ".tmp/v4-live-c19.txt",
+   "count": 25,
+   "prio": 4,
+   "status": "pending",
+   "ok": 0,
+   "fail": 0
+  },
+  {
+   "id": "c20",
+   "list": ".tmp/v4-live-c20.txt",
+   "count": 25,
+   "prio": 4,
+   "status": "pending",
+   "ok": 0,
+   "fail": 0
+  },
+  {
+   "id": "c21",
+   "list": ".tmp/v4-live-c21.txt",
+   "count": 25,
+   "prio": 4,
+   "status": "pending",
+   "ok": 0,
+   "fail": 0
+  },
+  {
+   "id": "c22",
+   "list": ".tmp/v4-live-c22.txt",
+   "count": 25,
+   "prio": 5,
+   "status": "pending",
+   "ok": 0,
+   "fail": 0
+  },
+  {
+   "id": "c23",
+   "list": ".tmp/v4-live-c23.txt",
+   "count": 25,
+   "prio": 5,
+   "status": "pending",
+   "ok": 0,
+   "fail": 0
+  },
+  {
+   "id": "c24",
+   "list": ".tmp/v4-live-c24.txt",
+   "count": 25,
+   "prio": 5,
+   "status": "pending",
+   "ok": 0,
+   "fail": 0
+  },
+  {
+   "id": "c25",
+   "list": ".tmp/v4-live-c25.txt",
+   "count": 25,
+   "prio": 5,
+   "status": "pending",
+   "ok": 0,
+   "fail": 0
+  },
+  {
+   "id": "c26",
+   "list": ".tmp/v4-live-c26.txt",
+   "count": 25,
+   "prio": 5,
+   "status": "pending",
+   "ok": 0,
+   "fail": 0
+  },
+  {
+   "id": "c27",
+   "list": ".tmp/v4-live-c27.txt",
+   "count": 17,
+   "prio": 5,
+   "status": "pending",
+   "ok": 0,
+   "fail": 0
+  }
+ ]
+}

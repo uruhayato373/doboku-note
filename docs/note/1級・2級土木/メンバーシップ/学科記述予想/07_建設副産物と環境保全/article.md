@@ -6,16 +6,12 @@ membershipOnly: true
 utmCampaign: civil-membership-gakka-recycle
 coverTitle: ["学科記述予想｜建設副産物", "リサイクル法・騒音振動規制"]
 cover:
-  leadIn: "予想テーマ ｜ 建設副産物"
-  hi: "学科"
-  hiSuffix: "記述"
-  banner: "リサイクル法・騒音振動規制"
-  meta: "メンバーシップ限定"
-  tone: deep
-  chips:
-    - { icon: book, text: "頻出テーマ" }
-    - { icon: edit, text: "記述例" }
-    - { icon: check, text: "得点の型" }
+  variant: crop-safe-v4
+  leadIn: "学科記述予想"
+  headline: "建設副産物"
+  hi: "予想"
+  hiSuffix: "テーマ"
+  benefit: "リサイクル法が書ける"
 ---
 # 学科記述予想｜建設副産物・環境保全 — 建設リサイクル法と騒音・振動規制
 

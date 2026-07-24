@@ -10,16 +10,12 @@ coverTitle:
   - 総監 記述式 直前総仕上げ
   - 本番1ヶ月前からの逆算リスト
 cover:
-  leadIn: "技術士総監 二次（記述式）"
+  variant: crop-safe-v4
+  leadIn: "総監 記述式｜直前期"
+  headline: "直前総仕上げ"
   hi: "1"
-  hiSuffix: "ヶ月前からの逆算"
-  banner: "直前総仕上げ"
-  character: explaining
-  meta: "無料記事"
-  chips:
-    - { icon: calendar, text: "週別ロードマップ" }
-    - { icon: check, text: "やること/やらないこと" }
-    - { icon: edit, text: "答案の型" }
+  hiSuffix: "ヶ月前"
+  benefit: "答案の型が身につく"
 ---
 # 技術士総監 記述式 直前総仕上げ｜本番1ヶ月前からの逆算チェックリスト
 

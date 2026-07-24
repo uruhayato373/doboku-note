@@ -10,15 +10,12 @@ coverTitle:
   - 必須科目Iで頻出
   - インフラ維持管理・更新の論点キーワード
 cover:
-  leadIn: "技術士 建設部門 2次"
-  hi: "維持管理"
-  hiSuffix: "更新のキーワード"
-  banner: "予防保全・群マネ・メンテサイクルの論点を整理"
-  meta: "無料記事"
-  chips:
-    - { icon: target, text: "必須科目I 頻出" }
-    - { icon: layers, text: "現状・背景＋計画・政策" }
-    - { icon: edit, text: "答案に引ける論点集" }
+  variant: crop-safe-v4
+  leadIn: "技術士 建設部門｜二次"
+  headline: "予防保全"
+  hi: "群マネ"
+  hiSuffix: "更新"
+  benefit: "答案に使える論点が揃う"
 ---
 
 # 【技術士 建設部門】インフラ維持管理・更新 必須科目I 論点キーワード

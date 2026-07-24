@@ -9,15 +9,12 @@ notePublishedAt: "2026-06-01"
 coverTitle: ["5管理クロストレードオフ", "序章｜トレードオフ思考のOS"]
 noteStatus: published
 cover:
-  leadIn: "5管理の衝突を型で解く"
+  variant: crop-safe-v4
+  leadIn: "総監 記述式｜5管理"
+  headline: "クロス思考の序章"
   hi: "20"
-  hiSuffix: "セル全網羅"
-  banner: "トレードオフ思考のOS"
-  meta: "無料記事"
-  chips:
-    - { icon: layers, text: "5管理の核" }
-    - { icon: book, text: "解決フレーム辞書" }
-    - { icon: target, text: "残余リスク締め" }
+  hiSuffix: "セル"
+  benefit: "トレードオフの型がわかる"
 ---
 # 序章｜総監記述式は「5管理クロス・トレードオフ」で攻略する（無料）
 

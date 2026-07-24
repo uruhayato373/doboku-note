@@ -11,15 +11,12 @@ noteStatus: published
 price: 500
 coverTitle: "コンクリート主任技師 小論文 突破法"
 cover:
-  leadIn: "コンクリート主任技師"
-  hi: "小論文"
-  hiSuffix: "突破法"
-  banner: "評価される答案の型と時間設計"
-  meta: "解法ガイド"
-  chips:
-    - { icon: bulb, text: "答案の型" }
-    - { icon: clock, text: "時間内設計" }
-    - { icon: check, text: "採点視点" }
+  variant: crop-safe-v4
+  leadIn: "コンクリート主任技師｜小論文"
+  headline: "小論文突破法"
+  hi: "時間内"
+  hiSuffix: "設計"
+  benefit: "合格答案の型がわかる"
 ---
 
 # コンクリート主任技師 小論文 突破法｜評価される答案の型と時間内に書ききく設計

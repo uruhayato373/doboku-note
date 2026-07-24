@@ -11,15 +11,12 @@ price: 480
 paidBoundary: "出る順①"
 coverTitle: ["2級土木 二次学科記述", "品質管理 出る順"]
 cover:
-  leadIn: "2級土木施工管理技士 二次"
-  hi: "品質"
-  hiSuffix: "管理"
-  banner: "R03-R07 鉄筋型枠と受入検査の数値"
-  meta: "有料マガジン"
-  chips:
-    - { icon: doc, text: "出題頻度データ" }
-    - { icon: check, text: "受入検査の数値" }
-    - { icon: edit, text: "解答の型" }
+  variant: crop-safe-v4
+  leadIn: "2級土木｜二次学科記述"
+  headline: "品質管理"
+  hi: "5年"
+  hiSuffix: "分 出る順"
+  benefit: "鉄筋型枠と受入検査の数値"
 ---
 # 2級土木 二次学科記述｜品質管理 出る順（R03-R07 鉄筋・型枠と受入検査の数値）
 

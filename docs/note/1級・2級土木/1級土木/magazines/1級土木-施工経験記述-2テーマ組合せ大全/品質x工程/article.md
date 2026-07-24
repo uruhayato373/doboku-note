@@ -10,15 +10,12 @@ coverTitle: ["1級土木 施工経験記述", "品質管理×工程管理"]
 price: 980
 paidBoundary: "品質管理と工程管理の書き分け方（採点者が見るポイント）"
 cover:
-  leadIn: "1級土木 施工経験記述"
-  hi: "品質"
-  hiSuffix: "×工程"
-  banner: "2テーマ組合せ大全"
-  meta: "フル模範答案3工事"
-  chips:
-    - { icon: pen, text: "そのまま雛形に" }
-    - { icon: target, text: "置換ガイド付" }
-    - { icon: check, text: "採点チェック付" }
+  variant: crop-safe-v4
+  leadIn: "1級土木｜施工経験記述"
+  headline: "品質×工程"
+  hi: "2テーマ"
+  hiSuffix: "組合せ"
+  benefit: "どの組合せでも書ける"
 ---
 # 1級土木 施工経験記述｜品質管理×工程管理（プレキャストBOXカルバート・浄水場躯体・PC連続箱桁 ほか）
 

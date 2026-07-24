@@ -13,15 +13,12 @@ price: 500
 coverTitle: "技術士 建設部門｜必須科目I R8予想① 担い手×建設DX 模範解答"
 utmCampaign: pe-construction-secondary
 cover:
-  leadIn: "技術士 建設部門 2次"
-  hi: "R8予想"
+  variant: crop-safe-v4
+  leadIn: "建設部門｜必須科目I"
+  headline: "担い手×建設DX"
+  hi: "R8"
   hiSuffix: "必須I①"
-  banner: "担い手×建設DX｜予想問題＋模範解答"
-  meta: "R8予想問題"
-  chips:
-    - { icon: pen, text: "予想問題＋解答" }
-    - { icon: layers, text: "発注者視点" }
-    - { icon: check, text: "令和8改訂対応" }
+  benefit: "そのまま答案に展開できる"
 ---
 # 技術士 建設部門｜必須科目I R8予想① 担い手確保 × 建設DX・生産性革命（模範解答）
 

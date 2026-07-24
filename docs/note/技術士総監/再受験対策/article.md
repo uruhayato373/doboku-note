@@ -7,15 +7,12 @@ price: 500
 paidBoundary: "不合格の3パターン"
 noteStatus: published
 cover:
-  leadIn: "総監再受験者向け 不合格要因を"
+  variant: crop-safe-v4
+  leadIn: "総監 記述式｜再受験"
+  headline: "再受験対策"
   hi: "3"
-  hiSuffix: "パターンで特定"
-  banner: "再受験戦略"
-  meta: "有料マガジン"
-  chips:
-    - { icon: target, text: "B判定の戦略" }
-    - { icon: doc, text: "C判定の戦略" }
-    - { icon: check, text: "根本対策" }
+  hiSuffix: "パターン"
+  benefit: "不合格要因を特定できる"
 ---
 
 # 【総監再受験者向け】不合格要因を特定する3パターン分析｜B判定とC判定で根本的に異なる再受験戦略

@@ -9,15 +9,12 @@ coverTitle:
   - 河川・砂防・海岸の論文
   - 頻出キーワードを3層で
 cover:
-  leadIn: "技術士 建設部門 2次"
-  hi: "流域治水"
-  hiSuffix: "を論文の幹にする"
-  banner: "河川・砂防・海岸の頻出キーワード整理術"
-  meta: "無料記事"
-  chips:
-    - { icon: layers, text: "外力・対策・合意の3層" }
-    - { icon: target, text: "II・IIIの論点別" }
-    - { icon: flag, text: "発注者視点で厚み" }
+  variant: crop-safe-v4
+  leadIn: "技術士 建設部門｜二次"
+  headline: "流域治水"
+  hi: "河川"
+  hiSuffix: "海岸論点"
+  benefit: "答案に使える論点が揃う"
 ---
 
 # 【技術士 建設部門】河川・砂防・海岸 論文の頻出キーワードと頻出テーマ

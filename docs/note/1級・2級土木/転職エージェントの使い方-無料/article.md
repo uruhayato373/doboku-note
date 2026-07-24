@@ -6,16 +6,12 @@ noteId: n5a823955985c
 utmCampaign: civil-career-agent-howto
 coverTitle: ["転職エージェントを", "実際どう使うか"]
 cover:
+  variant: crop-safe-v4
   leadIn: "登録〜面談の流れ"
-  hi: "転職エージェント"
-  hiSuffix: "の使い方"
-  banner: "在職中でも無理なく進める"
-  character: explaining
-  meta: "無料"
-  chips:
-    - { icon: doc, text: "登録の流れ" }
-    - { icon: check, text: "賢い使い方" }
-    - { icon: edit, text: "在職中OK" }
+  headline: "エージェント活用"
+  hi: "無料"
+  hiSuffix: "公開"
+  benefit: "登録から面談まで分かる"
 ---
 # 施工管理の転職エージェントを実際どう使うか｜登録〜面談の流れ【無料】
 

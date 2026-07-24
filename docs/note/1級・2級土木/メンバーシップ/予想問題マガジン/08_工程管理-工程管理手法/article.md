@@ -6,16 +6,12 @@ membershipOnly: true
 utmCampaign: civil-membership-odai-schedule-method
 coverTitle: ["今週のお題｜工程管理", "工程管理手法の活用"]
 cover:
-  leadIn: "今週のお題 ｜ 工程管理"
+  variant: crop-safe-v4
+  leadIn: "今週のお題｜経験記述"
+  headline: "工程管理"
   hi: "予想"
   hiSuffix: "問題"
-  banner: "工程管理手法の活用"
-  meta: "メンバーシップ限定"
-  tone: deep
-  chips:
-    - { icon: target, text: "予想問題" }
-    - { icon: edit, text: "模範解答" }
-    - { icon: check, text: "採点ポイント" }
+  benefit: "工程管理手法が書ける"
 ---
 # 今週のお題｜工程管理 — 工程管理手法（ネットワーク・進捗管理）で工期を守る
 

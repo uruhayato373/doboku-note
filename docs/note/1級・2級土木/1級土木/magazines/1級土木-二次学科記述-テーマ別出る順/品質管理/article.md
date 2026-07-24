@@ -11,15 +11,12 @@ price: 580
 paidBoundary: "出る順①"
 coverTitle: ["1級土木 二次学科記述", "品質管理 出る順"]
 cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "品質"
-  hiSuffix: "管理"
-  banner: "R03-R07 品質管理試験の横断整理"
-  meta: "有料マガジン"
-  chips:
-    - { icon: doc, text: "規定方式の整理" }
-    - { icon: check, text: "試験方法カタログ" }
-    - { icon: edit, text: "解答の型" }
+  variant: crop-safe-v4
+  leadIn: "1級土木｜二次学科記述"
+  headline: "品質管理"
+  hi: "5年"
+  hiSuffix: "分 出る順"
+  benefit: "品質管理試験の横断整理"
 ---
 # 1級土木 二次学科記述｜品質管理 出る順（規定方式と試験方法の横断整理）
 

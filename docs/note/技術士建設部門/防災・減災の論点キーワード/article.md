@@ -10,15 +10,12 @@ coverTitle:
   - 必須科目Iで最頻出
   - 防災・減災／国土強靱化の論点キーワード
 cover:
-  leadIn: "技術士 建設部門 2次"
-  hi: "防災・減災"
-  hiSuffix: "国土強靱化のキーワード"
-  banner: "流域治水・事前防災の論点を整理"
-  meta: "無料記事"
-  chips:
-    - { icon: target, text: "必須科目I 最頻出" }
-    - { icon: layers, text: "現状・背景＋計画・政策" }
-    - { icon: edit, text: "答案に引ける論点集" }
+  variant: crop-safe-v4
+  leadIn: "技術士 建設部門｜二次"
+  headline: "流域治水"
+  hi: "防災"
+  hiSuffix: "減災論点"
+  benefit: "答案に使える論点が揃う"
 ---
 
 # 【技術士 建設部門】防災・減災／国土強靱化 必須科目I 論点キーワード

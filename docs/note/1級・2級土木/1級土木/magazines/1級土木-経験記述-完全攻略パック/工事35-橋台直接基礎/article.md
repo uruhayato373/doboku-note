@@ -11,15 +11,12 @@ noteId: "nc3d0593d6f35"
 notePublishedAt: "2026-06-30"
 coverTitle: ["1級土木 施工経験記述", "橋台直接基礎（支持地盤確認）5管理完成答案"]
 cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "橋台直接基礎"
-  hiSuffix: "支持地盤確認"
-  banner: "5管理 完成答案（品質・工程・安全・施工計画・環境）"
-  meta: "完全攻略パック"
-  chips:
-    - { icon: doc, text: "完成答案" }
-    - { icon: edit, text: "置換ガイド" }
-    - { icon: check, text: "NG→OK添削" }
+  variant: crop-safe-v4
+  leadIn: "1級土木 経験記述｜支持地盤確認"
+  headline: "橋台直接基礎"
+  hi: "5管理"
+  hiSuffix: "完成答案"
+  benefit: "書き換えてそのまま使える"
 ---
 # 1級土木 施工経験記述｜橋台直接基礎（支持地盤確認）の5管理 完成答案
 

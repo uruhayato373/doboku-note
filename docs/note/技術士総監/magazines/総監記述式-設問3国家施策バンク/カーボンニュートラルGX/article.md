@@ -7,18 +7,12 @@ noteUrl: https://note.com/dobokunote/n/nf6695c5741c8
 noteId: nf6695c5741c8
 notePublishedAt: 2026-06-01
 cover:
-  leadIn: 設問(3)で問われる将来課題
-  hi: '8'
-  hiSuffix: つの国家施策
-  banner: カーボンニュートラル
-  chips:
-    - icon: check
-      text: トレードオフ明示
-    - icon: doc
-      text: 答案1枚相当
-    - icon: book
-      text: 白書根拠
-  meta: '有料マガジン ／ ¥2,480'
+  variant: crop-safe-v4
+  leadIn: "総監 記述式｜設問3"
+  headline: "カーボンGX"
+  hi: "8"
+  hiSuffix: "施策"
+  benefit: "設問3にそのまま転写できる"
 ---
 
 # カーボンニュートラル・GX｜設問(3)国家施策バンク

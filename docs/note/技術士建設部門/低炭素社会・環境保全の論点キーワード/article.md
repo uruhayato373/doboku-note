@@ -10,15 +10,12 @@ coverTitle:
   - 必須科目Iで頻出
   - 低炭素社会・環境保全の論点キーワード
 cover:
-  leadIn: "技術士 建設部門 2次"
-  hi: "脱炭素"
-  hiSuffix: "環境保全のキーワード"
-  banner: "2050CN・グリーンインフラ・生物多様性の論点を整理"
-  meta: "無料記事"
-  chips:
-    - { icon: target, text: "必須科目I 頻出" }
-    - { icon: layers, text: "現状・背景＋計画・政策" }
-    - { icon: edit, text: "答案に引ける論点集" }
+  variant: crop-safe-v4
+  leadIn: "技術士 建設部門｜二次"
+  headline: "低炭素環境"
+  hi: "2050"
+  hiSuffix: "CNの論点"
+  benefit: "答案に使える論点が揃う"
 ---
 
 # 【技術士 建設部門】低炭素社会・環境保全 必須科目I 論点キーワード

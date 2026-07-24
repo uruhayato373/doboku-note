@@ -11,16 +11,12 @@ coverTitle:
   - 技術士 総監
   - 対策コンテンツもくじ
 cover:
-  leadIn: "総監の無料記事と有料教材を"
-  hi: "1ページ"
-  hiSuffix: "で迷わず探せる"
-  banner: "総監もくじ"
-  character: wave
-  meta: "無料・更新型"
-  chips:
-    - { icon: map, text: "学習段階で逆引き" }
-    - { icon: layers, text: "無料→有料の導線" }
-    - { icon: target, text: "立場別14ペルソナ" }
+  variant: crop-safe-v4
+  leadIn: "技術士 総監｜教材案内"
+  headline: "総監もくじ"
+  hi: "全"
+  hiSuffix: "教材案内"
+  benefit: "迷わず教材を選べる"
 ---
 # 【総監もくじ】技術士 総合技術監理部門の教材、どれから？状況別に「まず1冊」がわかる全案内
 

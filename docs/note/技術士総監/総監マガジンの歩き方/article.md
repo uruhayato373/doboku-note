@@ -7,16 +7,12 @@ noteId: "nc874692256bb"
 noteUrl: "https://note.com/dobokunote/n/nc874692256bb"
 noteStatus: published
 cover:
-  leadIn: "総監の記述式教材は4種類だけ"
-  hi: "3分"
-  hiSuffix: "で自分の1冊が決まる"
-  banner: "総監マガジンの歩き方"
-  character: wave
-  meta: "無料記事"
-  chips:
-    - { icon: layers, text: "型・弾薬・演習" }
-    - { icon: target, text: "立場別14ペルソナ" }
-    - { icon: check, text: "迷わない案内図" }
+  variant: crop-safe-v4
+  leadIn: "総監 択一記述｜案内"
+  headline: "マガジンの歩き方"
+  hi: "3"
+  hiSuffix: "分で決まる"
+  benefit: "自分に必要な1冊が決まる"
 ---
 # 総監マガジンの歩き方｜3つの質問で「あなたに必要な1冊」が3分で決まる案内図
 

@@ -11,15 +11,12 @@ utmCampaign: civil2-koji-bank-koji47
 price: 1680
 coverTitle: ["2級土木 施工経験記述", "交差点改良", "5管理フルカバー"]
 cover:
-  leadIn: "2級土木施工管理技士 二次"
-  hi: "交差点改良"
-  hiSuffix: "5管理フルカバー"
-  banner: "どのテーマが来ても書ける想定工事"
-  meta: "有料マガジン"
-  chips:
-    - { icon: doc, text: "完成答案" }
-    - { icon: edit, text: "置換ガイド" }
-    - { icon: check, text: "5管理フル" }
+  variant: crop-safe-v4
+  leadIn: "2級土木｜施工経験記述"
+  headline: "交差点改良"
+  hi: "5管理"
+  hiSuffix: "想定工事"
+  benefit: "どのテーマが来ても書ける"
 ---
 # 2級土木 施工経験記述｜交差点改良（供用下段階施工）5管理フルカバー完成答案
 

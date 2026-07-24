@@ -7,16 +7,12 @@ noteId: "ne7284dacf78b"
 noteUrl: "https://note.com/dobokunote/n/ne7284dacf78b"
 coverTitle: ["ホワイトな建設会社の", "見分け方"]
 cover:
-  leadIn: "残業・休日・離職率で見抜く"
-  hi: "ホワイトな会社"
-  hiSuffix: "の見分け方"
-  banner: "求人票と面接でここを確認"
-  character: pointing
-  meta: "無料"
-  chips:
-    - { icon: doc, text: "求人票の見方" }
-    - { icon: check, text: "面接の質問" }
-    - { icon: edit, text: "2024年問題" }
+  variant: crop-safe-v4
+  leadIn: "残業・休日・離職率"
+  headline: "ホワイト企業診断"
+  hi: "無料"
+  hiSuffix: "公開"
+  benefit: "求人票と面接で見抜ける"
 ---
 # ホワイトな建設会社の見分け方｜残業・休日・離職率でチェック【無料】
 

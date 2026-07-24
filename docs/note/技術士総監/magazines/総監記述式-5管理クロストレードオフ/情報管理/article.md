@@ -11,15 +11,12 @@ price: 780
 paidBoundary: "情報 × 安全"
 noteStatus: published
 cover:
-  leadIn: "情報 × 他4管理の衝突を"
+  variant: crop-safe-v4
+  leadIn: "総監 記述式｜5管理"
+  headline: "情報×他4管理"
   hi: "4"
-  hiSuffix: "ペア×3シナリオ"
-  banner: "DX時代のCIA管理"
-  meta: "有料マガジン"
-  chips:
-    - { icon: layers, text: "OTセキュリティ" }
-    - { icon: target, text: "フェールソフト" }
-    - { icon: pen, text: "答案ひな型付" }
+  hiSuffix: "セル"
+  benefit: "トレードオフの型がわかる"
 ---
 
 # 情報管理 × 他4管理｜トレードオフ構造と総監的解決策（4セル）

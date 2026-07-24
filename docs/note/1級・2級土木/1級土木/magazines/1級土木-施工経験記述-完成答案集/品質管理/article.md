@@ -10,15 +10,12 @@ coverTitle: ["1級土木 施工経験記述", "品質管理 完成答案集"]
 price: 980
 paidBoundary: "品質管理の答案で採点者が見るポイント"
 cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "品質"
-  hiSuffix: "管理"
-  banner: "完成答案と添削例"
-  meta: "有料マガジン"
-  chips:
-    - { icon: doc, text: "完成答案" }
-    - { icon: edit, text: "添削例つき" }
-    - { icon: check, text: "減点ポイント" }
+  variant: crop-safe-v4
+  leadIn: "1級土木｜施工経験記述"
+  headline: "品質管理"
+  hi: "完成"
+  hiSuffix: "答案集"
+  benefit: "書き換えてそのまま使える"
 ---
 # 1級土木 施工経験記述｜品質管理 完成答案集（場所打ち杭・高盛土 ほか）
 

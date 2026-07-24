@@ -10,15 +10,12 @@ coverTitle: ["1級土木 施工経験記述", "工程管理×施工計画"]
 price: 980
 paidBoundary: "工程管理と施工計画の書き分け方（採点者が見るポイント）"
 cover:
-  leadIn: "1級土木 施工経験記述"
-  hi: "工程"
-  hiSuffix: "×施工計画"
-  banner: "2テーマ組合せ大全"
-  meta: "フル模範答案3工事"
-  chips:
-    - { icon: pen, text: "そのまま雛形に" }
-    - { icon: target, text: "置換ガイド付" }
-    - { icon: check, text: "採点チェック付" }
+  variant: crop-safe-v4
+  leadIn: "1級土木｜施工経験記述"
+  headline: "工程×施工計画"
+  hi: "2テーマ"
+  hiSuffix: "組合せ"
+  benefit: "どの組合せでも書ける"
 ---
 # 1級土木 施工経験記述｜工程管理×施工計画（鋼橋大ブロック一括架設・山岳トンネルNATM・大規模埋立 ほか）
 

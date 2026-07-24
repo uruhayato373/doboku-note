@@ -9,15 +9,12 @@ price: 1980
 paidBoundary: "PDF のダウンロードと使い方"
 coverTitle: ["1級土木 第1次検定", "過去問PDF 全1162問"]
 cover:
-  leadIn: "1級土木施工管理技士 第1次検定"
-  hi: "過去問"
-  hiSuffix: "全1162問"
-  banner: "平成26〜令和7年度 全12年分 全問解説PDF"
-  meta: "note 限定 PDF教材"
-  chips:
-    - { icon: check, text: "全1162問 全選択肢解説" }
-    - { icon: doc, text: "A4印刷用PDF" }
-    - { icon: edit, text: "平成26〜令和7年 全12年分" }
+  variant: crop-safe-v4
+  leadIn: "1級土木施工管理技士｜第1次検定"
+  headline: "過去問PDF"
+  hi: "1162問"
+  hiSuffix: "全解説"
+  benefit: "全12年分を印刷して解ける"
 ---
 # 1級土木 第1次検定｜過去問PDF（平成26〜令和7年度 全12年分 全1162問・全選択肢解説）
 

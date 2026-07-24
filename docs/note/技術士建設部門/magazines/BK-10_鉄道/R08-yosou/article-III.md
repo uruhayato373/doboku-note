@@ -12,17 +12,14 @@ noteStatus: published
 price: 780
 theme: "自然災害の激甚化に対する鉄道防災力の強化・地方鉄道の維持管理と保守の省力化DX"
 coverTitle: "技術士 建設部門｜鉄道 R8予想 選択科目III 予想問題＋模範解答"
-cover:
-  leadIn: "技術士 建設部門 2次"
-  hi: "R8予想"
-  hiSuffix: "鉄道III"
-  banner: "防災力強化・地方鉄道維持管理｜予想問題＋模範解答"
-  meta: "鉄道 R8予想 模範解答"
-  chips:
-    - { icon: pen, text: "両問題フル模範解答" }
-    - { icon: layers, text: "発注者視点" }
-    - { icon: check, text: "予想の根拠付き" }
 utmCampaign: pe-construction-secondary
+cover:
+  variant: crop-safe-v4
+  leadIn: "建設部門｜鉄道"
+  headline: "鉄道防災DX"
+  hi: "R8"
+  hiSuffix: "III"
+  benefit: "そのまま答案に展開できる"
 ---
 
 # 技術士 建設部門｜鉄道 R8予想 選択科目III 予想問題＋模範解答

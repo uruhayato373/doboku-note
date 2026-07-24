@@ -10,15 +10,12 @@ coverTitle:
   - 必須科目Iで頻出
   - 担い手確保・生産性向上・DXの論点キーワード
 cover:
-  leadIn: "技術士 建設部門 2次"
-  hi: "担い手・DX"
-  hiSuffix: "生産性向上のキーワード"
-  banner: "2024年問題・i-Construction 2.0・担い手3法の論点"
-  meta: "無料記事"
-  chips:
-    - { icon: target, text: "必須科目I 頻出" }
-    - { icon: layers, text: "現状・背景＋計画・政策" }
-    - { icon: edit, text: "答案に引ける論点集" }
+  variant: crop-safe-v4
+  leadIn: "技術士 建設部門｜二次"
+  headline: "担い手DX"
+  hi: "3法"
+  hiSuffix: "生産性"
+  benefit: "答案に使える論点が揃う"
 ---
 
 # 【技術士 建設部門】担い手確保・生産性向上・DX 必須科目I 論点キーワード

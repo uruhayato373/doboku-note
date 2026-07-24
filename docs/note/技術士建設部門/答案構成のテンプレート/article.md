@@ -9,16 +9,12 @@ coverTitle:
   - 技術士二次 答案構成
   - 合格答案の「型」
 cover:
-  leadIn: "技術士 建設部門 2次"
-  hi: "答案構成"
-  hiSuffix: "の作り方"
-  banner: "現状→課題→解決策→効果・リスク"
-  character: pointing
-  meta: "無料記事"
-  chips:
-    - { icon: layers, text: "4ブロックの骨格" }
-    - { icon: target, text: "多面的な課題抽出" }
-    - { icon: check, text: "新たなリスクの書き方" }
+  variant: crop-safe-v4
+  leadIn: "技術士 建設部門｜二次"
+  headline: "答案構成術"
+  hi: "4ブロ"
+  hiSuffix: "骨格"
+  benefit: "課題から効果まで書ける"
 ---
 
 # 【技術士 建設部門】二次 答案構成のテンプレート｜課題抽出から効果・リスクまで
@@ -51,7 +47,7 @@ cover:
 なお、設問対応や文章作法そのものは別の[書き方ガイド](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide)に譲り、本記事はその実践編として「構成の型」に集中します。
 
 <!-- cta:pack-top -->
-> 建設部門は「必須科目I＋選択科目」の組み合わせで合否が決まります。全受験者共通の[必須科目I 模範解答集（R03-R07＋R8予想・¥3,480）](https://note.com/dobokunote/m/m0f3bc3933454)がまず1冊目。あなたの選択科目の模範解答集は[建設部門もくじ](https://note.com/dobokunote/n/n7279ca0d926f)から選べます（単品を1本ずつ買うより約8割お得）。
+> 建設部門は「必須科目I＋選択科目」の組み合わせで合否が決まります。全受験者共通の[必須科目I 模範解答集（R03-R07＋R8予想）](https://note.com/dobokunote/m/m0f3bc3933454)がまず1冊目。あなたの選択科目の模範解答集は[建設部門もくじ](https://note.com/dobokunote/n/n7279ca0d926f)から選べます（単品を1本ずつ買うより約8割お得）。
 
 ## 答案の骨格は4ブロックで固定する
 

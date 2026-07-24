@@ -8,15 +8,12 @@ notePublishedAt: 2026-06-10
 noteMagazine: 総監模範論文-自治体砂防担当
 price: 500
 cover:
-  leadIn: "令和7年度 総監記述式"
-  hi: "R07"
-  hiSuffix: "砂防担当版"
-  banner: "少子高齢化｜3,000字級フル論文"
-  meta: "フル模範論文"
-  chips:
-    - { icon: pen, text: "答案そのまま展開" }
-    - { icon: layers, text: "5管理トレードオフ" }
-    - { icon: check, text: "採点チェック付" }
+  variant: crop-safe-v4
+  leadIn: "総監 記述式｜自治体 砂防担当"
+  headline: "少子高齢化"
+  hi: "R7"
+  hiSuffix: "過去問"
+  benefit: "3,000字級をそのまま展開"
 ---
 # 令和7年度 総監記述式 模範論文｜砂防担当版（少子高齢化）
 

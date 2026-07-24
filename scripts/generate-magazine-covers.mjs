@@ -19,9 +19,14 @@ import satori from 'satori';
 import sharp from 'sharp';
 
 import { renderTemplate } from '../.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs';
+import { createRequire } from 'node:module';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
+const require = createRequire(import.meta.url);
+// Crop-safe V4 フィールドの一元マップ（id → {examKey,qualifier,magazineName,proof,benefit}）。
+// entry がある id は V4 レンダ（背景=examKey のブランド写真プール）、無い id は従来 magazine-banner。
+const V4_MAP = require(join(ROOT, '.claude/config/note-cover-magazine-v4.json'));
 const FONTS_DIR = join(ROOT, '.claude/skills/conversion/ogp-create/assets/fonts');
 
 const W = 1280;
@@ -197,15 +202,8 @@ export const MAGAZINES = [
   },
   {
     id: 'setsumon3-policy-bank',
-    // Crop-safe V4 パイロット（2026-07-24・magazine key: m91516dfc27ac）。lines は後方互換で残置（V4 では未使用）。
-    // 背景は examKey のブランド写真プール共有（2026-07-24 写真プール統一の決定・個別 visualAsset は不使用）
-    variant: 'crop-safe-v4',
-    examKey: 'pe-comprehensive',
+    // V4 フィールドは .claude/config/note-cover-magazine-v4.json（一元マップ・magazine key: m91516dfc27ac）
     magazineDir: 'docs/note/技術士総監/magazines/総監記述式-設問3国家施策バンク',
-    qualifier: '技術士 総監｜記述式',
-    magazineName: '国家施策バンク',
-    proof: '11テーマ・68施策',
-    benefit: '設問3の弾薬を備蓄',
     fillBg: '#16365C',
     fileBaseName: 'magazine-setsumon3-policy-bank-cover',
     lines: ['設問(3) 国家施策バンク', '将来課題 11 テーマ × 国家施策 68 案', '答案 1 枚相当・転写即戦力'],
@@ -273,16 +271,9 @@ export const MAGAZINES = [
   },
   {
     id: 'civil-1-marugoto',
-    // Crop-safe V4 パイロット（2026-07-24・magazine key: md29a34906314）。lines は後方互換で残置（V4 では未使用）。
-    // 背景は examKey のブランド写真プール共有（2026-07-24 写真プール統一の決定・個別 visualAsset は不使用）
-    variant: 'crop-safe-v4',
-    examKey: 'civil-1',
+    // V4 フィールドは .claude/config/note-cover-magazine-v4.json（一元マップ・magazine key: md29a34906314）
     fileBaseName: 'civil-1-niji-marugoto-pack-cover',
     magazineDir: 'docs/note/1級・2級土木/1級土木/magazines/1級土木-二次まるごとパック',
-    qualifier: '1級土木｜第2次検定',
-    magazineName: 'まるごとパック',
-    proof: '経験記述＋学科記述＋直前暗記',
-    benefit: '二次対策はこれ一冊で完結',
     lines: ['1級土木 二次検定', 'まるごとパック', '経験記述＋学科記述＋直前暗記'],
     category: '1級土木施工管理技士',
     fontSize: 42,
@@ -510,7 +501,10 @@ async function brandPoolVisual(examKey) {
   return src;
 }
 
-async function renderOne(mag, fonts) {
+async function renderOne(magIn, fonts) {
+  // V4_MAP に entry があれば variant/フィールドをマージ（$comment キーは除外）
+  const v4 = magIn.id !== '$comment' ? V4_MAP[magIn.id] : null;
+  const mag = v4 ? { ...magIn, variant: 'crop-safe-v4', ...v4 } : magIn;
   let element;
   if (mag.variant === 'crop-safe-v4') {
     // V4: 三重安全領域レイアウト（qualifier/magazineName/proof/benefit）。lines[] は使用しない。

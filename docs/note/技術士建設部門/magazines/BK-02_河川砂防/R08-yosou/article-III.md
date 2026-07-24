@@ -11,17 +11,14 @@ noteId: "n4448dca0797f"
 notePublishedAt: "2026-06-15"
 price: 500
 coverTitle: "技術士 建設部門｜河川・砂防及び海岸・海洋 R8予想 選択科目III 予想問題＋模範解答"
-cover:
-  leadIn: "技術士 建設部門 2次"
-  hi: "R8予想"
-  hiSuffix: "河川III"
-  banner: "流域治水・土砂災害防災｜予想問題＋模範解答"
-  meta: "河川 R8予想 模範解答"
-  chips:
-    - { icon: pen, text: "両問題フル模範解答" }
-    - { icon: layers, text: "発注者視点" }
-    - { icon: check, text: "予想の根拠付き" }
 utmCampaign: pe-construction-secondary
+cover:
+  variant: crop-safe-v4
+  leadIn: "建設部門｜河川砂防"
+  headline: "治水防災計画"
+  hi: "R8"
+  hiSuffix: "III"
+  benefit: "そのまま答案に展開できる"
 ---
 
 # 技術士 建設部門｜河川・砂防及び海岸・海洋 R8予想 選択科目III 予想問題＋模範解答

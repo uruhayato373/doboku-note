@@ -11,15 +11,12 @@ noteUrl: "https://note.com/dobokunote/n/n37ec4034b2d8"
 utmCampaign: civil1-keiken-pack-tunnel
 coverTitle: ["1級土木 施工経験記述", "トンネル工 完成答案（品質・安全・環境）"]
 cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "トンネル"
-  hiSuffix: "工 完成答案"
-  banner: "品質管理・安全管理・環境対策"
-  meta: "完全攻略パック 補充"
-  chips:
-    - { icon: doc, text: "完成答案3本" }
-    - { icon: target, text: "置換ガイド付" }
-    - { icon: check, text: "採点者視点" }
+  variant: crop-safe-v4
+  leadIn: "1級土木｜施工経験記述"
+  headline: "トンネル工"
+  hi: "5管理"
+  hiSuffix: "完成答案"
+  benefit: "書き換えてそのまま使える"
 ---
 # 1級土木 施工経験記述｜トンネル工 完成答案（品質管理・安全管理・環境対策）
 

@@ -10,15 +10,12 @@ coverTitle: ["1級土木 施工経験記述", "品質管理×安全管理"]
 price: 980
 paidBoundary: "想定工事①：鋼桁橋 RC床版工事"
 cover:
-  leadIn: "1級土木 施工経験記述"
-  hi: "品質"
-  hiSuffix: "×安全"
-  banner: "2テーマ組合せ 完成答案"
-  meta: "有料マガジン"
-  chips:
-    - { icon: pen, text: "3工事フル答案" }
-    - { icon: target, text: "置換ガイド付" }
-    - { icon: check, text: "採点チェック付" }
+  variant: crop-safe-v4
+  leadIn: "1級土木｜施工経験記述"
+  headline: "品質×安全"
+  hi: "2テーマ"
+  hiSuffix: "組合せ"
+  benefit: "どの組合せでも書ける"
 ---
 # 1級土木 施工経験記述｜品質管理×安全管理（鋼桁橋RC床版・重力式擁壁・鋼管推進 ほか）
 

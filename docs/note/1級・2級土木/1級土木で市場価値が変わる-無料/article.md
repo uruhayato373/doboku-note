@@ -6,16 +6,12 @@ noteId: n6c68d022a56a
 utmCampaign: civil-career-1kyu-value
 coverTitle: ["1級土木で", "市場価値はどう変わるか"]
 cover:
+  variant: crop-safe-v4
   leadIn: "資格を年収に変える"
-  hi: "1級土木で"
-  hiSuffix: "市場価値が変わる"
-  banner: "Before → After で見る"
-  character: good-sign
-  meta: "無料"
-  chips:
-    - { icon: doc, text: "資格の効き方" }
-    - { icon: check, text: "監理技術者" }
-    - { icon: edit, text: "年収への道" }
+  headline: "市場価値の変化"
+  hi: "無料"
+  hiSuffix: "公開"
+  benefit: "資格の効き方が分かる"
 ---
 # 1級土木施工管理技士で市場価値はどう変わるか【無料】
 

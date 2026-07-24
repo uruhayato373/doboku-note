@@ -6,16 +6,12 @@ membershipOnly: true
 utmCampaign: civil-membership-odai-safety
 coverTitle: ["今週のお題｜安全管理", "公衆災害・第三者災害の防止"]
 cover:
-  leadIn: "今週のお題 ｜ 安全管理"
+  variant: crop-safe-v4
+  leadIn: "今週のお題｜経験記述"
+  headline: "安全管理"
   hi: "予想"
   hiSuffix: "問題"
-  banner: "公衆災害・第三者災害の防止"
-  meta: "メンバーシップ限定"
-  tone: deep
-  chips:
-    - { icon: target, text: "予想問題" }
-    - { icon: edit, text: "模範解答" }
-    - { icon: check, text: "採点ポイント" }
+  benefit: "公衆災害の防止が書ける"
 ---
 # 今週のお題｜安全管理 — 供用中・近接施工での公衆（第三者）災害の防止
 

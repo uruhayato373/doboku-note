@@ -6,16 +6,12 @@ membershipOnly: true
 utmCampaign: civil-membership-gakka-safety
 coverTitle: ["学科記述予想｜安全管理", "型枠支保工・足場・土止め"]
 cover:
-  leadIn: "予想テーマ ｜ 安全管理"
-  hi: "学科"
-  hiSuffix: "記述"
-  banner: "型枠支保工・足場・土止め"
-  meta: "メンバーシップ限定"
-  tone: deep
-  chips:
-    - { icon: book, text: "頻出テーマ" }
-    - { icon: edit, text: "記述例" }
-    - { icon: check, text: "得点の型" }
+  variant: crop-safe-v4
+  leadIn: "学科記述予想"
+  headline: "安全管理"
+  hi: "予想"
+  hiSuffix: "テーマ"
+  benefit: "足場土止めが書ける"
 ---
 # 学科記述予想｜安全管理 — 型枠支保工・足場・土止め支保工・建設機械
 

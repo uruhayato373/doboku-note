@@ -10,16 +10,12 @@ coverTitle:
   - 令和6年 新形式の備え方
 noteStatus: published
 cover:
-  leadIn: "2級土木 施工経験記述"
-  hi: "令和6年 新形式"
-  hiSuffix: "への備え方"
-  banner: "2テーマ必答への対応"
-  character: explaining
-  meta: "無料記事"
-  chips:
-    - { icon: edit, text: "形式変更" }
-    - { icon: target, text: "持ちネタ複数化" }
-    - { icon: check, text: "密度の上げ方" }
+  variant: crop-safe-v4
+  leadIn: "2級土木｜施工経験記述"
+  headline: "R6新形式への備え"
+  hi: "2テーマ"
+  hiSuffix: "必答"
+  benefit: "準備の変化点が分かる"
 ---
 # 【2級土木施工管理技士】施工経験記述 令和6年 新形式への備え方 — 2テーマ必答で準備はどう変わるか
 

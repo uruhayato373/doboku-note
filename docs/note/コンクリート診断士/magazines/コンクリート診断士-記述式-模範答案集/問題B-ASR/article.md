@@ -9,15 +9,12 @@ noteMagazine: コンクリート診断士-記述式-模範答案集
 price: 500
 coverTitle: "問題B 模範答案｜ASR（橋脚・擁壁）"
 cover:
-  leadIn: "コンクリート診断士 記述式"
+  variant: crop-safe-v4
+  leadIn: "コンクリート診断士｜記述式"
+  headline: "ASR診断法"
   hi: "問題B"
-  hiSuffix: "模範答案"
-  banner: "ASR｜アルカリシリカ反応"
-  meta: "記述式模範答案"
-  chips:
-    - { icon: pen, text: "答案の型で解説" }
-    - { icon: layers, text: "劣化機構別" }
-    - { icon: check, text: "採点視点つき" }
+  hiSuffix: "ASR"
+  benefit: "そのまま答案に展開できる"
 ---
 
 # コンクリート診断士 記述式 問題B 模範答案｜アルカリシリカ反応（ASR）

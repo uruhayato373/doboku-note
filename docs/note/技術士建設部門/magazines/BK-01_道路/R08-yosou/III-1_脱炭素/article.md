@@ -11,17 +11,14 @@ noteId: n238cb3cc22b5
 notePublishedAt: 2026-06-11
 price: 1980
 coverTitle: "技術士 建設部門｜道路 R8予想 III 予想① 脱炭素化"
-cover:
-  leadIn: "技術士 建設部門 2次"
-  hi: "R8予想"
-  hiSuffix: "道路III 予想①"
-  banner: "選択科目III 道路の脱炭素化｜予想問題＋模範解答"
-  meta: "道路 予想問題 模範解答"
-  chips:
-    - { icon: pen, text: "予想問題＋フル模範解答" }
-    - { icon: layers, text: "改訂コンピテンシー対応" }
-    - { icon: check, text: "採点ポイント付" }
 utmCampaign: pe-construction-secondary
+cover:
+  variant: crop-safe-v4
+  leadIn: "建設部門｜道路"
+  headline: "道路の脱炭素化"
+  hi: "R8"
+  hiSuffix: "III 予想①"
+  benefit: "そのまま答案に展開できる"
 ---
 
 # 技術士 建設部門｜道路 R8予想 選択科目III 予想① 道路の脱炭素化（予想問題＋フル模範解答）

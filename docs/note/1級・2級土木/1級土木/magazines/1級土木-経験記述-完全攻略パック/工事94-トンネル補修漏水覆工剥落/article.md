@@ -11,15 +11,12 @@ notePublishedAt: "2026-06-30"
 noteStatus: published
 coverTitle: ["1級土木 施工経験記述", "トンネル補修 漏水・覆工剥落", "5管理 完成答案"]
 cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "トンネル補修"
-  hiSuffix: "漏水・覆工剥落"
-  banner: "供用中トンネルの維持補修工事"
-  meta: "完全攻略パック 工事94"
-  chips:
-    - { icon: doc, text: "5管理×完成答案" }
-    - { icon: target, text: "置換ガイド付" }
-    - { icon: check, text: "採点者視点" }
+  variant: crop-safe-v4
+  leadIn: "1級土木 経験記述｜漏水・覆工剥落"
+  headline: "トンネル補修"
+  hi: "5管理"
+  hiSuffix: "完成答案"
+  benefit: "書き換えてそのまま使える"
 ---
 # 1級土木 施工経験記述｜トンネル補修（漏水・覆工剥落）5管理 完成答案
 

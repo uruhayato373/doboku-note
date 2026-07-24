@@ -5,21 +5,18 @@ noteMagazine: 1級土木-経験記述-完全攻略パック
 utmCampaign: civil1-keiken-pack-koji96
 noteStatus: published
 coverTitle: ["1級土木 施工経験記述", "電線共同溝（特殊部）", "5管理 完成答案"]
-cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "電線共同溝"
-  hiSuffix: "5管理完成答案"
-  banner: "プレキャスト分岐桝・接続桝の施工"
-  meta: "有料マガジン"
-  chips:
-    - { icon: doc, text: "完成答案" }
-    - { icon: edit, text: "置換ガイド" }
-    - { icon: check, text: "5管理一覧" }
 noteUrl: "https://note.com/dobokunote/n/ne1b74ba128d9"
 noteId: "ne1b74ba128d9"
 notePublishedAt: "2026-06-30"
 price: 1980
 paidBoundary: 品質管理
+cover:
+  variant: crop-safe-v4
+  leadIn: "1級土木 経験記述｜5管理完成答案"
+  headline: "電線共同溝"
+  hi: "5管理"
+  hiSuffix: "完成答案"
+  benefit: "書き換えてそのまま使える"
 ---
 # 1級土木 施工経験記述｜電線共同溝（特殊部）5管理 完成答案
 

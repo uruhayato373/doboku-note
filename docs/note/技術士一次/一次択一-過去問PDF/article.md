@@ -9,15 +9,12 @@ price: 1480
 paidBoundary: "PDF のダウンロードと使い方"
 coverTitle: ["技術士 第一次試験", "過去問PDF 合本 全560問"]
 cover:
-  leadIn: "技術士 第一次試験（建設部門）"
-  hi: "過去問"
-  hiSuffix: "合本560問"
-  banner: "基礎・適性・専門 令和元〜7年 全問解説PDF"
-  meta: "note 限定 PDF教材"
-  chips:
-    - { icon: check, text: "基礎210＋適性105＋専門245＝560問" }
-    - { icon: doc, text: "A4印刷用PDF" }
-    - { icon: edit, text: "令和元〜7年度 7年分" }
+  variant: crop-safe-v4
+  leadIn: "技術士 第一次試験"
+  headline: "過去問合本"
+  hi: "全560問"
+  hiSuffix: "解説"
+  benefit: "全560問を解き切れる"
 ---
 # 技術士 第一次試験｜過去問PDF 合本（基礎・適性・専門 令和元〜7年度 全560問・全選択肢解説）
 

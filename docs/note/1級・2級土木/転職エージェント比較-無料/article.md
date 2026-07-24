@@ -7,16 +7,12 @@ noteId: "ne49853deac96"
 noteUrl: "https://note.com/dobokunote/n/ne49853deac96"
 coverTitle: ["転職エージェントを", "軸で選ぶ"]
 cover:
-  leadIn: "特化型・求人サイト・総合型"
-  hi: "転職エージェント"
-  hiSuffix: "の選び方"
-  banner: "目的から逆算して1社に絞らない"
-  character: thinking
-  meta: "無料"
-  chips:
-    - { icon: target, text: "目的で選ぶ" }
-    - { icon: check, text: "タイプ別の性格" }
-    - { icon: layers, text: "併用の勧め" }
+  variant: crop-safe-v4
+  leadIn: "特化型・総合型"
+  headline: "エージェント比較"
+  hi: "無料"
+  hiSuffix: "公開"
+  benefit: "タイプ別の選び方が分かる"
 ---
 # 施工管理の転職エージェントの選び方｜タイプ別に発注者目線で比較【無料】
 

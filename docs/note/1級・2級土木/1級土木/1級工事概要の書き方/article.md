@@ -10,16 +10,12 @@ coverTitle:
   - 工事概要の書き方
 noteStatus: published
 cover:
-  leadIn: "1級土木 施工経験記述"
-  hi: "工事概要"
-  hiSuffix: "で減点されない"
-  banner: "大規模工事の整合"
-  character: pointing
-  meta: "無料記事"
-  chips:
-    - { icon: doc, text: "概要欄の罠" }
-    - { icon: target, text: "本文との整合" }
-    - { icon: check, text: "施工量の規模感" }
+  variant: crop-safe-v4
+  leadIn: "1級土木｜施工経験記述"
+  headline: "工事概要の書き方"
+  hi: "概要欄"
+  hiSuffix: "で減点"
+  benefit: "減点されない書き方がわかる"
 ---
 # 【1級土木施工管理技士】施工経験記述「工事概要」の書き方 — なぜ概要欄で減点されるのか
 

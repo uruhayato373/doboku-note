@@ -11,15 +11,12 @@ price: 1980
 paidBoundary: 品質管理
 coverTitle: ["1級土木 施工経験記述", "既製杭＋地盤改良 中掘り根固め", "5管理 完成答案"]
 cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "既製杭"
-  hiSuffix: "中掘り根固め工法"
-  banner: "先端地盤改良併用 5管理完成答案"
-  meta: "完全攻略パック"
-  chips:
-    - { icon: doc, text: "完成答案" }
-    - { icon: edit, text: "置換ガイド" }
-    - { icon: check, text: "NG→OK添削" }
+  variant: crop-safe-v4
+  leadIn: "1級土木 経験記述｜中掘り根固め"
+  headline: "既製杭"
+  hi: "5管理"
+  hiSuffix: "完成答案"
+  benefit: "書き換えてそのまま使える"
 ---
 # 1級土木 施工経験記述｜既製杭＋地盤改良（中掘り根固め工法）橋脚基礎（5管理 完成答案）
 

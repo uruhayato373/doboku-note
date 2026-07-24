@@ -6,16 +6,12 @@ membershipOnly: true
 utmCampaign: civil-membership-odai-env-water
 coverTitle: ["今週のお題｜環境対策", "水質・濁水・近隣対応"]
 cover:
-  leadIn: "今週のお題 ｜ 環境対策"
+  variant: crop-safe-v4
+  leadIn: "今週のお題｜経験記述"
+  headline: "環境対策"
   hi: "予想"
   hiSuffix: "問題"
-  banner: "水質・濁水・近隣対応"
-  meta: "メンバーシップ限定"
-  tone: deep
-  chips:
-    - { icon: target, text: "予想問題" }
-    - { icon: edit, text: "模範解答" }
-    - { icon: check, text: "採点ポイント" }
+  benefit: "水質と近隣対応が書ける"
 ---
 # 今週のお題｜環境対策 — 濁水・地下水・近隣への影響を抑える
 

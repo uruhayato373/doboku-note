@@ -11,15 +11,12 @@ noteId: "nf8ea3acbb97c"
 notePublishedAt: "2026-07-23"
 coverTitle: ["1級土木 施工経験記述", "擁壁背面 裏込め盛土", "5管理 完成答案"]
 cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "擁壁裏込め盛土"
-  hiSuffix: "5管理 完成答案"
-  banner: "品質・工程・安全・施工計画・環境"
-  meta: "完全攻略パック 工事09"
-  chips:
-    - { icon: doc, text: "完成答案" }
-    - { icon: edit, text: "置換ガイド" }
-    - { icon: check, text: "NG→OK添削" }
+  variant: crop-safe-v4
+  leadIn: "1級土木 経験記述｜5管理 完成答案"
+  headline: "擁壁裏込め盛土"
+  hi: "5管理"
+  hiSuffix: "完成答案"
+  benefit: "書き換えてそのまま使える"
 ---
 # 1級土木 施工経験記述｜擁壁背面の裏込め盛土（5管理 完成答案）
 

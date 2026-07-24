@@ -10,15 +10,12 @@ coverTitle:
   - 国土交通白書 R7 完全対応集
   - 7大テーマ × 5管理トレードオフ
 cover:
-  leadIn: "国土交通白書 R7"
+  variant: crop-safe-v4
+  leadIn: "総監 記述式｜白書対応"
+  headline: "白書R7完全対応集"
   hi: "7"
-  hiSuffix: "大テーマ完全対応"
-  banner: "白書R7対応集"
-  meta: "無料記事"
-  chips:
-    - { icon: book, text: "白書原典つき" }
-    - { icon: target, text: "過去問適用" }
-    - { icon: chart, text: "出題確率スコア" }
+  hiSuffix: "テーマ"
+  benefit: "出題確率スコアがわかる"
 ---
 
 # 国土交通白書 R7 完全対応集

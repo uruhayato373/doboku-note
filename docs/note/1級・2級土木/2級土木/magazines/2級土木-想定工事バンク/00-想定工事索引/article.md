@@ -9,15 +9,12 @@ noteStatus: published
 utmCampaign: civil2-koji-bank-index
 coverTitle: ["2級土木 施工経験記述", "想定工事バンク 総合案内", "想定工事36 索引"]
 cover:
-  leadIn: "2級土木施工管理技士 二次"
-  hi: "想定工事36"
-  hiSuffix: "工事起点の索引"
-  banner: "自分の現場に近い工事から選ぶ"
-  meta: "無料・想定工事バンク 総合案内"
-  chips:
-    - { icon: doc, text: "36工事" }
-    - { icon: check, text: "8工種網羅" }
-    - { icon: edit, text: "5管理×置換ガイド" }
+  variant: crop-safe-v4
+  leadIn: "2級土木｜施工経験記述"
+  headline: "総合案内"
+  hi: "5管理"
+  hiSuffix: "想定工事"
+  benefit: "どのテーマが来ても書ける"
 ---
 # 2級土木 施工経験記述｜想定工事バンク 総合案内（想定工事36 索引）
 

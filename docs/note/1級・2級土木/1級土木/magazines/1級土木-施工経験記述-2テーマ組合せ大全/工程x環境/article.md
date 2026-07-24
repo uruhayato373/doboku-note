@@ -10,15 +10,12 @@ coverTitle: ["1級土木 施工経験記述", "工程管理×環境対策"]
 price: 980
 paidBoundary: "工程管理×環境対策を書き分けるポイント"
 cover:
-  leadIn: "1級土木 施工経験記述"
-  hi: "工程"
-  hiSuffix: "×環境"
-  banner: "空港夜間舗装・河川樋門・工業団地造成"
-  meta: "2テーマ組合せ大全"
-  chips:
-    - { icon: pen, text: "そのまま雛形に" }
-    - { icon: target, text: "置換ガイド付" }
-    - { icon: check, text: "採点チェック付" }
+  variant: crop-safe-v4
+  leadIn: "1級土木｜施工経験記述"
+  headline: "工程×環境"
+  hi: "2テーマ"
+  hiSuffix: "組合せ"
+  benefit: "どの組合せでも書ける"
 ---
 # 1級土木 施工経験記述｜工程管理×環境対策（空港エプロン夜間舗装・河川樋門排水機場・工業団地造成 ほか）
 

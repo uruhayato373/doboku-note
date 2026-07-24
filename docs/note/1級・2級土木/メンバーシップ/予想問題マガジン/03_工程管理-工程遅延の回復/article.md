@@ -6,16 +6,12 @@ membershipOnly: true
 utmCampaign: civil-membership-odai-schedule
 coverTitle: ["今週のお題｜工程管理", "工程遅延の予防と回復"]
 cover:
-  leadIn: "今週のお題 ｜ 工程管理"
+  variant: crop-safe-v4
+  leadIn: "今週のお題｜経験記述"
+  headline: "工程管理"
   hi: "予想"
   hiSuffix: "問題"
-  banner: "工程遅延の予防と回復"
-  meta: "メンバーシップ限定"
-  tone: deep
-  chips:
-    - { icon: target, text: "予想問題" }
-    - { icon: edit, text: "模範解答" }
-    - { icon: check, text: "採点ポイント" }
+  benefit: "工程遅延の回復が書ける"
 ---
 # 今週のお題｜工程管理 — 遅延要因への対応と工程の回復
 

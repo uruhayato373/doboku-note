@@ -11,15 +11,12 @@ noteStatus: published
 price: 500
 coverTitle: "小論文 模範答案｜環境配慮（環境負荷低減への取組み）"
 cover:
-  leadIn: "コンクリート主任技師 小論文"
-  hi: "環境配慮"
-  hiSuffix: "模範答案"
-  banner: "環境負荷低減の製造・施工"
-  meta: "小論文模範答案"
-  chips:
-    - { icon: pen, text: "答案の型で解説" }
-    - { icon: layers, text: "論点整理" }
-    - { icon: check, text: "採点視点つき" }
+  variant: crop-safe-v4
+  leadIn: "コンクリート主任技師｜小論文"
+  headline: "環境配慮"
+  hi: "答案"
+  hiSuffix: "の型"
+  benefit: "そのまま答案に展開できる"
 ---
 
 # コンクリート主任技師 小論文 模範答案｜環境負荷低減に配慮したコンクリートの製造・施工

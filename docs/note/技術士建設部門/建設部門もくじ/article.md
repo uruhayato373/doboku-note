@@ -11,16 +11,12 @@ coverTitle:
   - 技術士 建設部門(二次)
   - 模範解答もくじ
 cover:
-  leadIn: "建設部門 第二次試験の模範解答を"
+  variant: crop-safe-v4
+  leadIn: "技術士 建設部門｜二次"
+  headline: "全体もくじ"
   hi: "科目別"
-  hiSuffix: "で迷わず探せる"
-  banner: "建設部門もくじ"
-  character: wave
-  meta: "無料・更新型"
-  chips:
-    - { icon: layers, text: "必須I＋選択科目" }
-    - { icon: doc, text: "全選択肢網羅" }
-    - { icon: target, text: "発注者視点の解答" }
+  hiSuffix: "に探せる"
+  benefit: "迷わず必要な記事に行ける"
 ---
 # 【建設部門もくじ】技術士 二次 建設部門の模範解答、どれを買う？必須Iと選択科目の全案内
 

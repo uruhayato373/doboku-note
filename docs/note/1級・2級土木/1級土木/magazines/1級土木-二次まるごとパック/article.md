@@ -10,15 +10,12 @@ utmCampaign: civil1-niji-marugoto
 price: 11800
 coverTitle: ["1級土木 二次検定", "まるごとパック"]
 cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "まるごと"
-  hiSuffix: "パック"
-  banner: "経験記述＋学科記述＋直前暗記"
-  meta: "有料マガジン"
-  chips:
-    - { icon: doc, text: "経験記述 完全攻略" }
-    - { icon: check, text: "学科記述 出る順" }
-    - { icon: edit, text: "直前暗記ノート" }
+  variant: crop-safe-v4
+  leadIn: "1級土木施工管理技士｜二次"
+  headline: "まるごとパック"
+  hi: "3点"
+  hiSuffix: "セット"
+  benefit: "経験記述から直前暗記まで揃う"
 ---
 # 1級土木 二次検定まるごとパック（経験記述＋学科記述＋直前暗記）
 

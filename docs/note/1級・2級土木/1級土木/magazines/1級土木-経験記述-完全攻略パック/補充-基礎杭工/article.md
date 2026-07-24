@@ -11,15 +11,12 @@ noteUrl: "https://note.com/dobokunote/n/n74c193d154e5"
 utmCampaign: civil1-keiken-pack-foundation
 coverTitle: ["1級土木 施工経験記述", "基礎・杭工 施工計画と環境対策"]
 cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "基礎"
-  hiSuffix: "杭工"
-  banner: "施工計画・環境対策 完成答案"
-  meta: "有料マガジン"
-  chips:
-    - { icon: doc, text: "完成答案" }
-    - { icon: edit, text: "置換ガイド" }
-    - { icon: check, text: "減点ポイント" }
+  variant: crop-safe-v4
+  leadIn: "1級土木｜施工経験記述"
+  headline: "基礎・杭工"
+  hi: "5管理"
+  hiSuffix: "完成答案"
+  benefit: "書き換えてそのまま使える"
 ---
 # 1級土木 施工経験記述｜基礎・杭工の施工計画・環境対策 完成答案（PHC杭・アースドリル）
 

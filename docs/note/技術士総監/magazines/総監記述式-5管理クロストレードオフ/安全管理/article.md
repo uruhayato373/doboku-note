@@ -11,15 +11,12 @@ price: 780
 paidBoundary: "安全 × 経済性"
 noteStatus: published
 cover:
-  leadIn: "安全 × 他4管理の衝突を"
+  variant: crop-safe-v4
+  leadIn: "総監 記述式｜5管理"
+  headline: "安全×他4管理"
   hi: "4"
-  hiSuffix: "ペア×3シナリオ"
-  banner: "安全の核を守る技術"
-  meta: "有料マガジン"
-  chips:
-    - { icon: target, text: "RBM・ALARP" }
-    - { icon: layers, text: "フェールセーフ" }
-    - { icon: pen, text: "答案ひな型付" }
+  hiSuffix: "セル"
+  benefit: "トレードオフの型がわかる"
 ---
 
 # 安全管理 × 他4管理｜トレードオフ構造と総監的解決策（4セル）

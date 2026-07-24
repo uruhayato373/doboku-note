@@ -335,6 +335,9 @@ Evaluatorは生成担当と分離する。
 
 ## 14. 一括移行
 
+> [!done]
+> **2026-07-24 全量移行実施**：全 715 記事（＋パイロット4）を V4 化（G2 残 0）。inventory=`.claude/state/note-cover-v4-rollout.json`（機械draft 387＋agent執筆 328・全件 v4FitIssues PASS）。マガジン 46 は V4 フィールドを **`.claude/config/note-cover-magazine-v4.json`（一元マップ）** に集約し `generate-magazine-covers.mjs` が id マージで V4 レンダ。ライブ反映は 667 件を優先順 27 チャンク（`.claude/state/note-cover-v4-live-progress.json`・再開可能）で `note-update-cover --commit` 実行。
+
 パイロット合格後に全件inventoryを作る。
 
 各対象に次を記録する。

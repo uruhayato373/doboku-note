@@ -11,15 +11,12 @@ noteUrl: "https://note.com/dobokunote/n/n012233737721"
 noteId: "n012233737721"
 notePublishedAt: "2026-06-30"
 cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "砂防堰堤"
-  hiSuffix: "本体マスコン"
-  banner: "山間部 大体積コンクリート"
-  meta: "有料マガジン"
-  chips:
-    - { icon: doc, text: "完成答案" }
-    - { icon: edit, text: "置換ガイド" }
-    - { icon: check, text: "5管理一覧" }
+  variant: crop-safe-v4
+  leadIn: "1級土木 経験記述｜本体マスコン"
+  headline: "砂防堰堤"
+  hi: "5管理"
+  hiSuffix: "完成答案"
+  benefit: "書き換えてそのまま使える"
 ---
 # 1級土木 施工経験記述｜砂防堰堤 本体コンクリート（マスコン）5管理 完成答案
 

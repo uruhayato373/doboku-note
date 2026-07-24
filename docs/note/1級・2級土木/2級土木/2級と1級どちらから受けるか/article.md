@@ -10,16 +10,12 @@ coverTitle:
   - どちらから受けるか
 noteStatus: published
 cover:
+  variant: crop-safe-v4
   leadIn: "土木施工管理技士"
-  hi: "2級と1級"
-  hiSuffix: "どちらから"
-  banner: "受験順の判断"
-  character: thinking
-  meta: "無料記事"
-  chips:
-    - { icon: target, text: "級の違い" }
-    - { icon: check, text: "受験順" }
-    - { icon: doc, text: "現場の評価" }
+  headline: "2級と1級の受験順"
+  hi: "判断"
+  hiSuffix: "基準"
+  benefit: "自分に合う順番が分かる"
 ---
 # 【土木施工管理技士】2級と1級、どちらから受けるべきか — 受験順の判断
 

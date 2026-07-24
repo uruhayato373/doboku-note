@@ -5,21 +5,18 @@ noteMagazine: 1級土木-経験記述-完全攻略パック
 utmCampaign: civil1-keiken-pack-koji85
 noteStatus: published
 coverTitle: ["1級土木 施工経験記述", "高架橋 RC橋脚", "5管理 完成答案"]
-cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "高架橋RC橋脚"
-  hiSuffix: "5管理完成答案"
-  banner: "多基連続施工・型枠転用サイクル管理"
-  meta: "有料マガジン"
-  chips:
-    - { icon: doc, text: "完成答案" }
-    - { icon: edit, text: "置換ガイド" }
-    - { icon: check, text: "5管理一覧" }
 noteUrl: "https://note.com/dobokunote/n/nb44e8c218401"
 noteId: "nb44e8c218401"
 notePublishedAt: "2026-07-01"
 price: 1980
 paidBoundary: 品質管理
+cover:
+  variant: crop-safe-v4
+  leadIn: "1級土木 経験記述｜5管理完成答案"
+  headline: "高架橋RC橋脚"
+  hi: "5管理"
+  hiSuffix: "完成答案"
+  benefit: "書き換えてそのまま使える"
 ---
 # 1級土木 施工経験記述｜高架橋 RC橋脚（多基連続施工）5管理 完成答案
 

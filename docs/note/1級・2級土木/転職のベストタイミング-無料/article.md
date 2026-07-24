@@ -7,16 +7,12 @@ noteId: "n401905648243"
 noteUrl: "https://note.com/dobokunote/n/n401905648243"
 coverTitle: ["施工管理の転職は", "いつ動くべきか"]
 cover:
+  variant: crop-safe-v4
   leadIn: "在職中に無理なく進める"
-  hi: "転職のタイミング"
-  hiSuffix: "の見極め方"
-  banner: "現場の切れ目・資格・年度で計る"
-  character: thinking
-  meta: "無料"
-  chips:
-    - { icon: doc, text: "動きやすい時期" }
-    - { icon: check, text: "在職中の進め方" }
-    - { icon: edit, text: "円満退職のコツ" }
+  headline: "転職の適時期"
+  hi: "無料"
+  hiSuffix: "公開"
+  benefit: "在職中の進め方が分かる"
 ---
 # 施工管理の転職はいつ動くべきか｜在職中の進め方と円満退職【無料】
 

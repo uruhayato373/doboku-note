@@ -11,15 +11,12 @@ noteUrl: "https://note.com/dobokunote/n/nb4723894987b"
 utmCampaign: civil1-keiken-pack-utilitytunnel
 coverTitle: ["1級土木 施工経験記述", "共同溝 品質管理 完成答案"]
 cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "共同溝"
-  hiSuffix: "品質管理"
-  banner: "プレキャスト接合部の完成答案"
-  meta: "完全攻略パック"
-  chips:
-    - { icon: doc, text: "完成答案" }
-    - { icon: edit, text: "置換ガイド" }
-    - { icon: check, text: "接合部品質" }
+  variant: crop-safe-v4
+  leadIn: "1級土木｜施工経験記述"
+  headline: "共同溝"
+  hi: "5管理"
+  hiSuffix: "完成答案"
+  benefit: "書き換えてそのまま使える"
 ---
 # 1級土木 施工経験記述｜専門〔共同溝〕品質管理 完成答案（プレキャストボックス接合部）
 

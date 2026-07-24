@@ -11,17 +11,14 @@ noteId: "n698f232bc702"
 notePublishedAt: "2026-06-16"
 price: 500
 coverTitle: "技術士 建設部門｜建設環境 R8予想 選択科目II-2 模範解答"
-cover:
-  leadIn: "技術士 建設部門 2次"
-  hi: "R8予想"
-  hiSuffix: "建設環境II-2"
-  banner: "選択科目II-2 予想問題＋模範解答"
-  meta: "建設環境 予想模範解答"
-  chips:
-    - { icon: pen, text: "フル模範解答" }
-    - { icon: layers, text: "発注者視点" }
-    - { icon: check, text: "改訂コンピテンシー対応" }
 utmCampaign: pe-construction-secondary
+cover:
+  variant: crop-safe-v4
+  leadIn: "建設部門｜建設環境"
+  headline: "グリーン再生"
+  hi: "R8"
+  hiSuffix: "II-2"
+  benefit: "そのまま答案に展開できる"
 ---
 
 # 技術士 建設部門｜建設環境 R8予想 選択科目II-2 模範解答

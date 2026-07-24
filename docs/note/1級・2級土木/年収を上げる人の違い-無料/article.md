@@ -6,16 +6,12 @@ noteId: nfbff7b1469b6
 utmCampaign: civil-career-salary-difference
 coverTitle: ["年収を上げた人と", "上がらない人の違い"]
 cover:
+  variant: crop-safe-v4
   leadIn: "施工管理のキャリア観察"
-  hi: "年収を上げる人"
-  hiSuffix: "の違い"
-  banner: "同じ実力でも差がつく理由"
-  character: pointing
-  meta: "無料"
-  chips:
-    - { icon: doc, text: "比較で分かる" }
-    - { icon: check, text: "上がる動き方" }
-    - { icon: edit, text: "今日からの一歩" }
+  headline: "年収格差の理由"
+  hi: "無料"
+  hiSuffix: "公開"
+  benefit: "差がつく理由が分かる"
 ---
 # 施工管理で年収を上げた人・上がらない人の違い【無料】
 

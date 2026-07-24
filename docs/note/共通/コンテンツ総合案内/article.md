@@ -11,16 +11,12 @@ coverTitle:
   - doboku-note
   - コンテンツ総合案内
 cover:
-  leadIn: "土木・建設の資格対策を"
-  hi: "1ページ"
-  hiSuffix: "で迷わず探せる"
-  banner: "総合もくじ"
-  character: wave
-  meta: "無料・更新型"
-  chips:
-    - { icon: map, text: "資格別もくじ" }
-    - { icon: layers, text: "無料→有料の導線" }
-    - { icon: target, text: "目的から逆引き" }
+  variant: crop-safe-v4
+  leadIn: "土木・建設｜資格対策"
+  headline: "総合案内"
+  hi: "全資格"
+  hiSuffix: "もくじ"
+  benefit: "迷わず学べる導線がわかる"
 ---
 # 【もくじ】doboku-note 総合案内 — 土木・建設の資格対策、どこから始める？
 

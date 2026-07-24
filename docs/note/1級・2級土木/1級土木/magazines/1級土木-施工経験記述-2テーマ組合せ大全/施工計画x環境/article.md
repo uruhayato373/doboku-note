@@ -10,15 +10,12 @@ coverTitle: ["1級土木 施工経験記述", "施工計画×環境対策"]
 price: 980
 paidBoundary: "施工計画と環境対策の書き分け方（採点者が見るポイント）"
 cover:
-  leadIn: "1級土木 施工経験記述"
-  hi: "施工計画"
-  hiSuffix: "×環境"
-  banner: "地下工事・海上工事・山間部道路"
-  meta: "2テーマ組合せ大全"
-  chips:
-    - { icon: pen, text: "そのまま雛形に" }
-    - { icon: target, text: "置換ガイド付" }
-    - { icon: check, text: "採点チェック付" }
+  variant: crop-safe-v4
+  leadIn: "1級土木｜施工経験記述"
+  headline: "施工計画×環境"
+  hi: "2テーマ"
+  hiSuffix: "組合せ"
+  benefit: "どの組合せでも書ける"
 ---
 # 1級土木 施工経験記述｜施工計画×環境対策（密集市街地地下工事・港湾海上工事・山間部道路工事 ほか）
 

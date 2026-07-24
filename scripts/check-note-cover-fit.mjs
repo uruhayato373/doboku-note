@@ -25,8 +25,11 @@ import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import matter from 'gray-matter';
+import { createRequire } from 'node:module';
 import { v4FitIssues } from '../.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs';
 import { MAGAZINES } from './generate-magazine-covers.mjs';
+const require = createRequire(import.meta.url);
+const MAG_V4_MAP = require('../.claude/config/note-cover-magazine-v4.json');
 
 const ROOT = 'docs/note';
 const STAGED = process.argv.includes('--staged');
@@ -156,8 +159,10 @@ for (const fp of files) {
 // （マガジン spec はスクリプト内定義で staged 判定できないため、CI/手動フルランで検査する）。
 let magV4 = 0;
 if (!STAGED) {
-  for (const mag of MAGAZINES) {
-    if (mag.variant !== 'crop-safe-v4') continue;
+  for (const magIn of MAGAZINES) {
+    const v4 = MAG_V4_MAP[magIn.id];
+    if (!v4 && magIn.variant !== 'crop-safe-v4') continue;
+    const mag = v4 ? { ...magIn, ...v4 } : magIn;
     magV4++;
     const { errors, warnings } = v4FitIssues(mag, 'magazine');
     if (mag.visualAsset) {

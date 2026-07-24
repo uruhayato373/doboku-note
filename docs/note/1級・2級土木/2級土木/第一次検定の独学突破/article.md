@@ -10,16 +10,12 @@ coverTitle:
   - 独学突破の始め方
 noteStatus: published
 cover:
+  variant: crop-safe-v4
   leadIn: "2級土木施工管理技士"
-  hi: "第一次検定"
-  hiSuffix: "独学の始め方"
-  banner: "何から手をつけるか"
-  character: explaining
-  meta: "無料記事"
-  chips:
-    - { icon: book, text: "過去問起点" }
-    - { icon: target, text: "頻出に絞る" }
-    - { icon: check, text: "基準点超え" }
+  headline: "第一次検定"
+  hi: "過去問"
+  hiSuffix: "起点"
+  benefit: "何から手をつけるか分かる"
 ---
 # 【2級土木施工管理技士】第一次検定を独学で突破する — 何から手をつけるか
 

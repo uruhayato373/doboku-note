@@ -9,17 +9,14 @@ noteId: "n638e44301c1f"
 notePublishedAt: "2026-06-17"
 price: 780
 coverTitle: "技術士 建設部門｜港湾及び空港 R03 選択科目III 模範解答"
-cover:
-  leadIn: "技術士 建設部門 2次"
-  hi: "R03"
-  hiSuffix: "港湾・空港III"
-  banner: "選択科目III 課題解決｜模範解答"
-  meta: "港湾及び空港 模範解答"
-  chips:
-    - { icon: pen, text: "両問題フル模範解答" }
-    - { icon: layers, text: "発注者視点" }
-    - { icon: check, text: "採点ポイント付" }
 utmCampaign: pe-construction-secondary
+cover:
+  variant: crop-safe-v4
+  leadIn: "建設部門｜港湾及び空港"
+  headline: "模範解答"
+  hi: "R03"
+  hiSuffix: "III 課題解決"
+  benefit: "そのまま答案に展開できる"
 ---
 
 # 技術士 建設部門｜港湾及び空港 R03 選択科目III 模範解答（III-1・III-2）

@@ -6,15 +6,12 @@ utmCampaign: 99-safety-management
 noteUrl: https://note.com/dobokunote/n/nb68184641be8
 noteMagazine: 総監テキスト精読ガイド
 cover:
-  leadIn: "総監キーワード"
-  hi: "安全"
-  hiSuffix: "管理"
-  banner: "択一・記述に直結する精読ガイド"
-  meta: "精読ガイド"
-  chips:
-    - { icon: book, text: "解説リンク50超" }
-    - { icon: chart, text: "R3〜R7 出題例" }
-    - { icon: target, text: "優先度で仕分け" }
+  variant: crop-safe-v4
+  leadIn: "総監 択一記述｜精読"
+  headline: "安全管理"
+  hi: "50"
+  hiSuffix: "超リンク"
+  benefit: "独学の精読が最短になる"
 ---
 # 安全管理｜総監キーワード精読ガイド｜択一・記述直結リンク付き
 
