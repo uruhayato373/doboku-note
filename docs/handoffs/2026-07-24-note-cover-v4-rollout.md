@@ -38,3 +38,10 @@ date: 2026-07-24
 - CTA¥ 除去 17件の本文ライブ反映（check-note-republish が drift 追跡中。次回本文更新時に note-update-body 系で反映）
 - blockquote 30件・UTM 欠落バーンダウン（既存）
 - 未公開マガジン 10 spec（note 側にまだ無い）は公開時に `note-magazine-cover` を通常フローで
+
+## 走行ログ
+
+- c01: 24/25 done。skip 1=メンバーシップ「はじめに-合格ラボ」n6b66793ca20c（メンバーシップ特典記事は「公開に進む」後の設定ページ構造が通常記事と異なり note-update-cover 非対応）→ **note UI で手動カバー更新**（新カバーは生成済み `docs/note/1級・2級土木/メンバーシップ/はじめに-合格ラボ/img/cover.png`）
+- c02-c04: 74/75 done。skip 2件目=「1級土木-二次まるごとパック」n824a4ea20acf（`is_public_membership_connected: true`＝合格ラボ連携記事は設定ページ未到達で非対応。**ライブは旧カバーのまま無傷**）→ note UI 手動更新（エディタに新カバーが下書き済みの可能性あり＝開いて「公開に進む→更新する」だけで完了する見込み。新カバー `docs/note/1級・2級土木/1級土木/magazines/1級土木-二次まるごとパック/img/cover.png`）。membership 連携記事は全 note 中この2件のみ
+- 2026-07-24: ハーネス background task がターン境界で kill される事象が2回続いたため、記事ランナーは **nohup 常駐**（`nohup node .tmp/run-v4-live.mjs >> .tmp/v4-live-run.log 2>&1 &`）へ切替。停止=`pkill -f run-v4-live`（次回 `node .tmp/run-v4-live.mjs` で続きから）・監視=`tail -f .tmp/v4-live-run.log` と進捗 state
+- 2026-07-25 原因確定: 「設定ページ未到達」は **free × membership連携** の組合せのみ（LP系4件）。**paid × membership連携は正常**（工事01・設問3序章のプローブで実証）。過剰除外した142件のうち139件を c22-c27 に再投入。真の手動対応4件=はじめに-合格ラボ / 二次まるごとパックLP / 完全攻略ガイド索引 / 2級想定工事バンク索引（いずれもライブ旧カバー無傷・state の manualFreeMembership に記録）

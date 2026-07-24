@@ -31,7 +31,7 @@
  * 制約: 永続プロファイル(.local/playwright-note-profile)は 1 Chrome インスタンスのみ
  *   ＝複数 list を並列実行不可。大量は 20-28 件チャンク×逐次（background）で回す。
  *
- * 真実源/関連: docs/design-system/note-cover.md / docs/reference/note-api-verification.md
+ * 真実源/関連: .claude/knowledge/design-system/note-cover.md / .claude/knowledge/reference/note-api-verification.md
  * 終了コード: 0 = 全件成功 / 1 = 1件以上失敗 / 2 = account gate 失敗
  */
 import { chromium } from 'playwright';
@@ -114,7 +114,13 @@ async function doOne(page, { abs, noteId, pricing, cover }) {
   await next.first().click();
   let onSet = false;
   for (let i = 0; i < 10; i++) { await sleep(1800); if (await page.getByRole('button', { name: '有料エリア設定' }).count() || await page.getByRole('button', { name: '更新する', exact: true }).count()) { onSet = true; break; } }
-  if (!onSet) { console.error('[FAIL] 設定ページ未到達'); return false; }
+  if (!onSet) {
+    // membership 連携記事等で設定ページ構造が異なるケースの診断（2026-07-25）
+    const btns = await page.evaluate(() => [...document.querySelectorAll('button')].map((b) => (b.textContent || '').trim()).filter(Boolean).slice(0, 40));
+    console.error('[FAIL] 設定ページ未到達 buttons=' + JSON.stringify(btns));
+    await page.screenshot({ path: join(ROOT, `.tmp/nc-noset-${noteId}.png`), fullPage: false });
+    return false;
+  }
   // 4b. 有料記事 = paywall 境界の読み取り検証（line は動かさない・本文不触なので保持される）
   const area = page.getByRole('button', { name: '有料エリア設定' });
   if (await area.count()) {
