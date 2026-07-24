@@ -52,6 +52,7 @@
     "note-reflow": "node scripts/reflow-note-paragraphs.mjs",
     "audit-note-funnel": "node scripts/audit-note-funnel.mjs",
     "check-note-funnel": "node scripts/audit-note-funnel.mjs --ci",
+    "audit-pe-textbook-keyword-coverage": "node scripts/audit-pe-textbook-keyword-coverage.mjs",
     "wire-note-funnel-cta": "node scripts/wire-note-funnel-cta.mjs",
     "note-inject-magazine-url": "node .claude/scripts/note/inject-magazine-url.cjs",
     "x-sync-status": "node scripts/x-sync-status.mjs",
