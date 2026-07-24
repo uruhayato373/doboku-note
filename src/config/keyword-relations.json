@@ -1,26 +1,16 @@
 {
   "version": 1,
-  "generated_at": "2026-07-23T21:18:19.064Z",
+  "generated_at": "2026-07-24T05:07:41.097Z",
   "summary": {
-    "total_keywords": 651,
-    "published_keywords": 650,
-    "keywords_with_relations": 650,
+    "total_keywords": 660,
+    "published_keywords": 660,
+    "keywords_with_relations": 660,
     "keywords_below_target": 0,
     "isolated_keywords": [],
     "orphan_slugs_warned": [
-      "energy-conservation-act",
-      "environmental-basic-act",
-      "general-overview",
-      "human-relations-management",
-      "labor-cost-ratio",
-      "renewable-energy-act",
-      "s-plus-3e",
-      "telework",
-      "top-runner-system"
+      "general-overview"
     ],
-    "missing_mdx_slugs": [
-      "bcp-crisis-management"
-    ]
+    "missing_mdx_slugs": []
   },
   "config": {
     "top_n": 5,
@@ -208,8 +198,8 @@
         ]
       },
       {
-        "slug": "cost-effectiveness-analysis",
-        "label": "費用効果分析",
+        "slug": "cost-benefit-analysis",
+        "label": "費用便益分析（CBA）",
         "score": 10,
         "signals": [
           "section"
@@ -250,8 +240,8 @@
         ]
       },
       {
-        "slug": "cost-effectiveness-analysis",
-        "label": "費用効果分析",
+        "slug": "cost-benefit-analysis",
+        "label": "費用便益分析（CBA）",
         "score": 10,
         "signals": [
           "section"
@@ -292,8 +282,8 @@
         ]
       },
       {
-        "slug": "cost-effectiveness-analysis",
-        "label": "費用効果分析",
+        "slug": "cost-benefit-analysis",
+        "label": "費用便益分析（CBA）",
         "score": 10,
         "signals": [
           "section"
@@ -334,8 +324,8 @@
         ]
       },
       {
-        "slug": "cost-effectiveness-analysis",
-        "label": "費用効果分析",
+        "slug": "cost-benefit-analysis",
+        "label": "費用便益分析（CBA）",
         "score": 10,
         "signals": [
           "section"
@@ -743,8 +733,8 @@
         ]
       },
       {
-        "slug": "cost-effectiveness-analysis",
-        "label": "費用効果分析",
+        "slug": "cost-benefit-analysis",
+        "label": "費用便益分析（CBA）",
         "score": 10,
         "signals": [
           "section"
@@ -970,8 +960,8 @@
         ]
       },
       {
-        "slug": "cost-effectiveness-analysis",
-        "label": "費用効果分析",
+        "slug": "cost-benefit-analysis",
+        "label": "費用便益分析（CBA）",
         "score": 10,
         "signals": [
           "section"
@@ -1256,7 +1246,15 @@
         ]
       }
     ],
-    "budget-planning": [
+    "cost-benefit-analysis": [
+      {
+        "slug": "budget-planning",
+        "label": "予算計画",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
       {
         "slug": "business-continuity-plan",
         "label": "BCP・BCM",
@@ -1288,45 +1286,12 @@
         "signals": [
           "section"
         ]
-      },
-      {
-        "slug": "dcf-method",
-        "label": "DCF法",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
       }
     ],
-    "business-continuity-plan": [
+    "budget-planning": [
       {
-        "slug": "supply-chain-management",
-        "label": "サプライチェーンマネジメント（SCM）",
-        "score": 18,
-        "signals": [
-          "section",
-          "exam"
-        ]
-      },
-      {
-        "slug": "crisis-management-manual",
-        "label": "危機管理マニュアル",
-        "score": 16,
-        "signals": [
-          "exam"
-        ]
-      },
-      {
-        "slug": "emergency",
-        "label": "緊急事態",
-        "score": 12,
-        "signals": [
-          "exam"
-        ]
-      },
-      {
-        "slug": "budget-planning",
-        "label": "予算計画",
+        "slug": "business-continuity-plan",
+        "label": "BCP・BCM",
         "score": 10,
         "signals": [
           "section"
@@ -1338,6 +1303,77 @@
         "score": 10,
         "signals": [
           "section"
+        ]
+      },
+      {
+        "slug": "construction-plan",
+        "label": "工事計画",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "cost-benefit-analysis",
+        "label": "費用便益分析（CBA）",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "cost-effectiveness-analysis",
+        "label": "費用効果分析",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      }
+    ],
+    "business-continuity-plan": [
+      {
+        "slug": "crisis-management-manual",
+        "label": "危機管理マニュアル",
+        "score": 26,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
+        "slug": "emergency",
+        "label": "緊急事態",
+        "score": 22,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
+        "slug": "supply-chain-management",
+        "label": "サプライチェーンマネジメント（SCM）",
+        "score": 18,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
+        "slug": "crisis-communication",
+        "label": "危機広報",
+        "score": 16,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
+        "slug": "disaster-countermeasures-act",
+        "label": "災害対策基本法",
+        "score": 14,
+        "signals": [
+          "section",
+          "exam"
         ]
       }
     ],
@@ -7158,6 +7194,48 @@
         ]
       }
     ],
+    "telework": [
+      {
+        "slug": "annual-salary-system",
+        "label": "年俸制",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "child-rearing-support-act",
+        "label": "次世代育成支援対策推進法",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "child-support-act",
+        "label": "子ども・子育て支援法",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "childcare-nursing-leave-act",
+        "label": "育児・介護休業法",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "disability-discrimination-act",
+        "label": "障害者差別解消法",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      }
+    ],
     "part-time-fixed-term-act": [
       {
         "slug": "worker-dispatch-act",
@@ -9631,6 +9709,48 @@
         ]
       }
     ],
+    "labor-cost-ratio": [
+      {
+        "slug": "annual-salary-system",
+        "label": "年俸制",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "child-rearing-support-act",
+        "label": "次世代育成支援対策推進法",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "child-support-act",
+        "label": "子ども・子育て支援法",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "childcare-nursing-leave-act",
+        "label": "育児・介護休業法",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "disability-discrimination-act",
+        "label": "障害者差別解消法",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      }
+    ],
     "lgbtq": [
       {
         "slug": "positive-action",
@@ -10513,6 +10633,48 @@
       {
         "slug": "continued-employment-system",
         "label": "継続雇用制度",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      }
+    ],
+    "human-relations-management": [
+      {
+        "slug": "career-track-system",
+        "label": "総合職・一般職",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "continued-employment-system",
+        "label": "継続雇用制度",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "disability-employment",
+        "label": "障害者雇用",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "formal-informal-organization",
+        "label": "公式組織・非公式組織",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "gender-gap",
+        "label": "ジェンダーギャップ",
         "score": 10,
         "signals": [
           "section"
@@ -19073,6 +19235,15 @@
     ],
     "resilience": [
       {
+        "slug": "business-continuity-plan",
+        "label": "BCP・BCM",
+        "score": 13,
+        "signals": [
+          "chapter",
+          "exam"
+        ]
+      },
+      {
         "slug": "all-hazard-approach",
         "label": "オールハザードアプローチ",
         "score": 12,
@@ -19100,14 +19271,6 @@
       {
         "slug": "consumer-safety",
         "label": "消費者安全",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "cybersecurity-safety",
-        "label": "サイバーセキュリティ",
         "score": 10,
         "signals": [
           "section"
@@ -22706,6 +22869,14 @@
         ]
       },
       {
+        "slug": "business-continuity-plan",
+        "label": "BCP・BCM",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
         "slug": "civil-protection-act",
         "label": "国民保護法",
         "score": 10,
@@ -22724,14 +22895,6 @@
       {
         "slug": "crisis-communication",
         "label": "危機広報",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "crisis-management-manual",
-        "label": "危機管理マニュアル",
         "score": 10,
         "signals": [
           "section"
@@ -22776,8 +22939,8 @@
         ]
       },
       {
-        "slug": "civil-protection-act",
-        "label": "国民保護法",
+        "slug": "business-continuity-plan",
+        "label": "BCP・BCM",
         "score": 10,
         "signals": [
           "section"
@@ -22785,6 +22948,15 @@
       }
     ],
     "terrorism": [
+      {
+        "slug": "business-continuity-plan",
+        "label": "BCP・BCM",
+        "score": 12,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
       {
         "slug": "crisis-management-manual",
         "label": "危機管理マニュアル",
@@ -22814,14 +22986,6 @@
       {
         "slug": "civil-protection-act",
         "label": "国民保護法",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "contingency",
-        "label": "不測事態",
         "score": 10,
         "signals": [
           "section"
@@ -22856,16 +23020,16 @@
         ]
       },
       {
-        "slug": "civil-protection-act",
-        "label": "国民保護法",
+        "slug": "business-continuity-plan",
+        "label": "BCP・BCM",
         "score": 10,
         "signals": [
           "section"
         ]
       },
       {
-        "slug": "contingency",
-        "label": "不測事態",
+        "slug": "civil-protection-act",
+        "label": "国民保護法",
         "score": 10,
         "signals": [
           "section"
@@ -22891,6 +23055,14 @@
         ]
       },
       {
+        "slug": "business-continuity-plan",
+        "label": "BCP・BCM",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
         "slug": "civil-protection-act",
         "label": "国民保護法",
         "score": 10,
@@ -22901,14 +23073,6 @@
       {
         "slug": "contingency",
         "label": "不測事態",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "crisis-communication",
-        "label": "危機広報",
         "score": 10,
         "signals": [
           "section"
@@ -22925,6 +23089,14 @@
         ]
       },
       {
+        "slug": "business-continuity-plan",
+        "label": "BCP・BCM",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
         "slug": "civil-protection-act",
         "label": "国民保護法",
         "score": 10,
@@ -22947,17 +23119,18 @@
         "signals": [
           "section"
         ]
-      },
-      {
-        "slug": "crisis-management-manual",
-        "label": "危機管理マニュアル",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
       }
     ],
     "crisis-management-manual": [
+      {
+        "slug": "business-continuity-plan",
+        "label": "BCP・BCM",
+        "score": 26,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
       {
         "slug": "emergency",
         "label": "緊急事態",
@@ -22973,14 +23146,6 @@
         "score": 18,
         "signals": [
           "section",
-          "exam"
-        ]
-      },
-      {
-        "slug": "business-continuity-plan",
-        "label": "BCP・BCM",
-        "score": 16,
-        "signals": [
           "exam"
         ]
       },
@@ -23014,6 +23179,15 @@
         ]
       },
       {
+        "slug": "business-continuity-plan",
+        "label": "BCP・BCM",
+        "score": 16,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
         "slug": "emergency",
         "label": "緊急事態",
         "score": 14,
@@ -23039,7 +23213,9 @@
           "chapter",
           "exam"
         ]
-      },
+      }
+    ],
+    "hazardous-facility-disaster-prevention": [
       {
         "slug": "alert-levels",
         "label": "警戒レベル",
@@ -23047,12 +23223,10 @@
         "signals": [
           "section"
         ]
-      }
-    ],
-    "hazardous-facility-disaster-prevention": [
+      },
       {
-        "slug": "alert-levels",
-        "label": "警戒レベル",
+        "slug": "business-continuity-plan",
+        "label": "BCP・BCM",
         "score": 10,
         "signals": [
           "section"
@@ -23077,14 +23251,6 @@
       {
         "slug": "crisis-communication",
         "label": "危機広報",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "crisis-management-manual",
-        "label": "危機管理マニュアル",
         "score": 10,
         "signals": [
           "section"
@@ -23120,16 +23286,16 @@
         ]
       },
       {
-        "slug": "civil-protection-act",
-        "label": "国民保護法",
+        "slug": "business-continuity-plan",
+        "label": "BCP・BCM",
         "score": 10,
         "signals": [
           "section"
         ]
       },
       {
-        "slug": "contingency",
-        "label": "不測事態",
+        "slug": "civil-protection-act",
+        "label": "国民保護法",
         "score": 10,
         "signals": [
           "section"
@@ -23137,6 +23303,15 @@
       }
     ],
     "emergency": [
+      {
+        "slug": "business-continuity-plan",
+        "label": "BCP・BCM",
+        "score": 22,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
       {
         "slug": "crisis-management-manual",
         "label": "危機管理マニュアル",
@@ -23167,15 +23342,6 @@
       {
         "slug": "contingency",
         "label": "不測事態",
-        "score": 12,
-        "signals": [
-          "section",
-          "exam"
-        ]
-      },
-      {
-        "slug": "crisis-priority",
-        "label": "優先順位",
         "score": 12,
         "signals": [
           "section",
@@ -23232,6 +23398,15 @@
     ],
     "national-resilience-act": [
       {
+        "slug": "business-continuity-plan",
+        "label": "BCP・BCM",
+        "score": 12,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
         "slug": "crisis-management-manual",
         "label": "危機管理マニュアル",
         "score": 12,
@@ -23264,14 +23439,6 @@
         "signals": [
           "section"
         ]
-      },
-      {
-        "slug": "contingency",
-        "label": "不測事態",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
       }
     ],
     "civil-protection-act": [
@@ -23293,6 +23460,14 @@
         ]
       },
       {
+        "slug": "business-continuity-plan",
+        "label": "BCP・BCM",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
         "slug": "contingency",
         "label": "不測事態",
         "score": 10,
@@ -23303,14 +23478,6 @@
       {
         "slug": "crisis-communication",
         "label": "危機広報",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "crisis-management-manual",
-        "label": "危機管理マニュアル",
         "score": 10,
         "signals": [
           "section"
@@ -23337,6 +23504,15 @@
         ]
       },
       {
+        "slug": "business-continuity-plan",
+        "label": "BCP・BCM",
+        "score": 14,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
         "slug": "timeline-disaster",
         "label": "タイムライン",
         "score": 14,
@@ -23353,18 +23529,18 @@
           "section",
           "exam"
         ]
-      },
+      }
+    ],
+    "natech": [
       {
-        "slug": "crisis-management-manual",
-        "label": "危機管理マニュアル",
+        "slug": "business-continuity-plan",
+        "label": "BCP・BCM",
         "score": 12,
         "signals": [
           "section",
           "exam"
         ]
-      }
-    ],
-    "natech": [
+      },
       {
         "slug": "disaster-countermeasures-act",
         "label": "災害対策基本法",
@@ -23399,20 +23575,20 @@
         "signals": [
           "section"
         ]
-      },
-      {
-        "slug": "civil-protection-act",
-        "label": "国民保護法",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
       }
     ],
     "defense-in-depth": [
       {
         "slug": "alert-levels",
         "label": "警戒レベル",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "business-continuity-plan",
+        "label": "BCP・BCM",
         "score": 10,
         "signals": [
           "section"
@@ -23441,17 +23617,18 @@
         "signals": [
           "section"
         ]
-      },
-      {
-        "slug": "crisis-management-manual",
-        "label": "危機管理マニュアル",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
       }
     ],
     "contingency": [
+      {
+        "slug": "business-continuity-plan",
+        "label": "BCP・BCM",
+        "score": 12,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
       {
         "slug": "crisis-management-manual",
         "label": "危機管理マニュアル",
@@ -23481,14 +23658,6 @@
       {
         "slug": "civil-protection-act",
         "label": "国民保護法",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "crisis-communication",
-        "label": "危機広報",
         "score": 10,
         "signals": [
           "section"
@@ -23544,6 +23713,15 @@
     ],
     "crisis-priority": [
       {
+        "slug": "business-continuity-plan",
+        "label": "BCP・BCM",
+        "score": 12,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
         "slug": "crisis-management-manual",
         "label": "危機管理マニュアル",
         "score": 12,
@@ -23572,14 +23750,6 @@
       {
         "slug": "civil-protection-act",
         "label": "国民保護法",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "contingency",
-        "label": "不測事態",
         "score": 10,
         "signals": [
           "section"
@@ -24401,6 +24571,48 @@
         ]
       }
     ],
+    "s-plus-3e": [
+      {
+        "slug": "acid-rain",
+        "label": "酸性雨",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "agenda-21",
+        "label": "アジェンダ21",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "biodiversity-basic-act",
+        "label": "生物多様性基本法",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "biosafety",
+        "label": "バイオセーフティ",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "carbon-neutral",
+        "label": "カーボンニュートラル",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      }
+    ],
     "satoyama-initiative": [
       {
         "slug": "convention-on-biodiversity",
@@ -24703,6 +24915,48 @@
       }
     ],
     "doughnut-economics": [
+      {
+        "slug": "acid-rain",
+        "label": "酸性雨",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "agenda-21",
+        "label": "アジェンダ21",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "biodiversity-basic-act",
+        "label": "生物多様性基本法",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "biosafety",
+        "label": "バイオセーフティ",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "carbon-neutral",
+        "label": "カーボンニュートラル",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      }
+    ],
+    "top-runner-system": [
       {
         "slug": "acid-rain",
         "label": "酸性雨",
@@ -25190,6 +25444,90 @@
         "signals": [
           "section",
           "exam"
+        ]
+      }
+    ],
+    "renewable-energy-act": [
+      {
+        "slug": "acid-rain",
+        "label": "酸性雨",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "agenda-21",
+        "label": "アジェンダ21",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "biodiversity-basic-act",
+        "label": "生物多様性基本法",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "biosafety",
+        "label": "バイオセーフティ",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "carbon-neutral",
+        "label": "カーボンニュートラル",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      }
+    ],
+    "energy-conservation-act": [
+      {
+        "slug": "acid-rain",
+        "label": "酸性雨",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "agenda-21",
+        "label": "アジェンダ21",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "biodiversity-basic-act",
+        "label": "生物多様性基本法",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "biosafety",
+        "label": "バイオセーフティ",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "carbon-neutral",
+        "label": "カーボンニュートラル",
+        "score": 10,
+        "signals": [
+          "section"
         ]
       }
     ],
@@ -27037,6 +27375,48 @@
         ]
       }
     ],
+    "landscape-act": [
+      {
+        "slug": "air-pollution-control-act",
+        "label": "大気汚染防止法",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "alps-treated-water",
+        "label": "ALPS処理水",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "asbestos-issue",
+        "label": "アスベスト問題",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "basel-convention",
+        "label": "バーゼル条約",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "chemical-substances-review-act",
+        "label": "化審法",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      }
+    ],
     "sound-water-cycle": [
       {
         "slug": "air-pollution-control-act",
@@ -28356,6 +28736,48 @@
         "signals": [
           "section",
           "exam"
+        ]
+      }
+    ],
+    "environmental-basic-act": [
+      {
+        "slug": "backcasting",
+        "label": "バックキャスティング",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "behavioral-regulation",
+        "label": "行為規制",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "carbon-pricing",
+        "label": "環境税・カーボンプライシング",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "consensus-instruments",
+        "label": "合意的手法",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "deposit-system",
+        "label": "デポジット制度",
+        "score": 10,
+        "signals": [
+          "section"
         ]
       }
     ],

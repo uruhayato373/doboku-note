@@ -82,6 +82,7 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 - **コンポーネント原則**: ExamPoint 最大 2 個、参考資料は公的 + 民間の両方必須、過去問への双方向バックリンク
 - **図**: 原則ゼロ。テキストとコンポーネントで表現
 - **執筆ツール**: `/keyword-page` スキル
+- **反映状況の監査**: 総監標準テキスト5管理と公開ページ（ハブ＋個別）の反映（A〜G）を突合する再監査は `npm run audit-pe-textbook-keyword-coverage`（read-only・決定的）。完全対応表 `.claude/state/pe-textbook-keyword-coverage.json`、補強(D)/新規(E)バックログと方針は [pe-textbook-keyword-coverage-report.md](../reviews/pe-textbook-keyword-coverage-report.md)
 
 #### 総監ガイド（`group: guide`）
 

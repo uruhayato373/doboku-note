@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "generated_at": "2026-07-23T21:18:18.321Z",
+  "generated_at": "2026-07-24T02:53:54.852Z",
   "summary": {
-    "total": 1113,
-    "published": 1071,
+    "total": 1115,
+    "published": 1073,
     "unpublished": 42,
     "by_category": {
       "civil-construction-1": 134,
       "civil-construction-2": 41,
       "concrete-chief-engineer": 19,
-      "pe-comprehensive-management": 726,
+      "pe-comprehensive-management": 728,
       "pe-construction": 130,
       "pe-first-stage": 21
     }
@@ -7911,6 +7911,23 @@
       "created": "2026-04-05",
       "dateModified": "2026-06-23"
     },
+    "pe-comprehensive-management-cost-benefit-analysis": {
+      "title": "費用便益分析（CBA）",
+      "description": "公共政策の効果を貨幣額で表し費用と比較する費用便益分析の考え方、B/C比と純便益による判断、社会的割引率の影響、手法の限界を整理する。",
+      "category": "pe-comprehensive-management",
+      "group": "keyword",
+      "section": "2.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "published": true,
+      "publishedAt": "2026-07-24",
+      "seoTitle": "費用便益分析（CBA） ｜ 技術士 総合技術監理部門 キーワード集",
+      "reviewStatus": "needs-review",
+      "created": "2026-07-24",
+      "dateModified": "2026-07-24"
+    },
     "pe-comprehensive-management-cost-driver": {
       "title": "コストドライバー",
       "description": "cost driver（コストドライバー）はABC（活動基準原価計算）で間接費を配賦する際の基準となる活動量指標。取引・期間・強度の3種類の違いと選定基準を、技術士総合技術監理の視点で解説。",
@@ -7959,7 +7976,7 @@
       "revisionCycle": 1,
       "seoTitle": "費用効果分析 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-26"
+      "dateModified": "2026-07-24"
     },
     "pe-comprehensive-management-cost-maintenance": {
       "title": "原価維持",
@@ -8575,7 +8592,7 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "記述統計 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-06-29"
+      "dateModified": "2026-07-24"
     },
     "pe-comprehensive-management-design-for-environment": {
       "title": "環境適合設計",
@@ -9187,7 +9204,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "環境ラベル ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-06-20"
+      "dateModified": "2026-07-24"
     },
     "pe-comprehensive-management-ecological-footprint": {
       "title": "エコロジカル・フットプリント",
@@ -9341,7 +9358,7 @@
       "lastRewrittenAt": "2026-04-17",
       "revisionCycle": 1,
       "created": "2026-04-05",
-      "dateModified": "2026-05-26"
+      "dateModified": "2026-07-24"
     },
     "pe-comprehensive-management-elsi": {
       "title": "ELSI",
@@ -9685,7 +9702,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "環境コミュニケーション ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-26",
+      "dateModified": "2026-07-24",
       "lastRewrittenAt": "2026-05-17T03:04:37Z",
       "revisionCycle": 1,
       "reviewStatus": "needs-review"
@@ -9706,7 +9723,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "環境影響評価法 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-06-30"
+      "dateModified": "2026-07-24"
     },
     "pe-comprehensive-management-environmental-standards": {
       "title": "環境基準",
@@ -9890,7 +9907,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "ESD ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-06-20",
+      "dateModified": "2026-07-24",
       "reviewStatus": "needs-review",
       "lastRewrittenAt": "2026-06-20T00:00:00Z",
       "revisionCycle": 2
@@ -12273,7 +12290,7 @@
       "revisionCycle": 2,
       "seoTitle": "情報開示 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-07-04"
+      "dateModified": "2026-07-24"
     },
     "pe-comprehensive-management-information-disclosure-act": {
       "title": "情報公開法",
@@ -13073,7 +13090,7 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "ジョブ型 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-07-04",
+      "dateModified": "2026-07-24",
       "reviewStatus": "needs-review",
       "lastRewrittenAt": "2026-07-04T12:43:18Z",
       "revisionCycle": 1
@@ -13367,6 +13384,23 @@
       "created": "2026-04-05",
       "dateModified": "2026-06-29"
     },
+    "pe-comprehensive-management-landscape-act": {
+      "title": "景観法",
+      "description": "良好な景観を国民共通の資産と位置づけた景観法の基本理念、景観行政団体と景観計画の仕組み、届出・勧告制と景観地区による規制手法を整理する。",
+      "category": "pe-comprehensive-management",
+      "group": "keyword",
+      "section": "6.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "published": true,
+      "publishedAt": "2026-07-24",
+      "seoTitle": "景観法 ｜ 技術士 総合技術監理部門 キーワード集",
+      "reviewStatus": "needs-review",
+      "created": "2026-07-24",
+      "dateModified": "2026-07-24"
+    },
     "pe-comprehensive-management-last-minute-2026": {
       "title": "総合技術監理 記述式試験 直前対策2026",
       "description": "技術士総合技術監理部門 2026年度 記述式試験の直前対策。R05〜R07の三層分析から抽出した6つの思考パターン、直近テーマ傾向、択一式の重点分野、9週間スケジュールを凝縮。7月試験まで最短距離で合格答案を書くための実践ガイド。",
@@ -13529,7 +13563,7 @@
       "revisionCycle": 1,
       "seoTitle": "線形計画法 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-06-23"
+      "dateModified": "2026-07-24"
     },
     "pe-comprehensive-management-linear-regression": {
       "title": "線形回帰と最小二乗法",
@@ -14573,7 +14607,7 @@
       "revisionCycle": 2,
       "seoTitle": "労働安全衛生法 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-06-30"
+      "dateModified": "2026-07-24"
     },
     "pe-comprehensive-management-ocean-plastic": {
       "title": "海洋プラスチック問題",
@@ -16047,7 +16081,7 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "製造物責任法 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-26"
+      "dateModified": "2026-07-24"
     },
     "pe-comprehensive-management-product-safety": {
       "title": "製品安全",
@@ -17600,7 +17634,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "リスク評価 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-03",
-      "dateModified": "2026-06-23"
+      "dateModified": "2026-07-24"
     },
     "pe-comprehensive-management-risk-criteria": {
       "title": "リスク基準",
@@ -18465,7 +18499,7 @@
       "lastRewrittenAt": "2026-07-04T12:00:00+09:00",
       "revisionCycle": 2,
       "created": "2026-04-03",
-      "dateModified": "2026-07-04"
+      "dateModified": "2026-07-24"
     },
     "pe-comprehensive-management-seven-types-of-pollution": {
       "title": "典型７公害",
@@ -20348,7 +20382,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "作業計画 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-06-23",
+      "dateModified": "2026-07-24",
       "reviewStatus": "needs-review",
       "lastRewrittenAt": "2026-05-17T08:37:51Z",
       "revisionCycle": 2

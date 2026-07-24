@@ -49,6 +49,7 @@ cover:
 - **1級で、経験記述の完成答案を一式そろえたい** → 施工経験記述 完全攻略パック
 - **2級で、経験記述を書けるようにしたい** → 想定工事バンク（工種×5管理フル）
 - **過去問の年度別模範答案で演習したい** → 施工経験記述 過去問 模範答案集（1級／2級）
+- **まず一次を過去問で突破したい** → 第1次検定 過去問PDF（1級／2級）
 - **まだ買わずに全体像だけつかみたい** → 下の「無料で全体像をつかむ」から
 
 各教材の中身は、このあとのセクションで順に説明します。
@@ -80,6 +81,7 @@ https://note.com/dobokunote/m/m150c9db08902
 - [二次学科記述 テーマ別 出る順（問題2〜11）](https://note.com/dobokunote/m/mcfe1059b3335) — 経験記述以外の学科記述も出る順で固めたい人向け
 - [出題分析と直前の重点（過去5年の実績）](https://note.com/dobokunote/n/nd68f3f6b5f9e) — まず何から手を付けるか、直前2週間の優先順位を決めたい人向け
 - [第1次検定 出る順 合格ノート（12年頻度分析）](https://note.com/dobokunote/n/nec34238ca6d6) — 一次の施工管理法を出る順で優先度づけしたい人向け
+- [第1次検定 過去問PDF（H26-R7 全1162問・全選択肢解説）](https://note.com/dobokunote/n/n155093f42183) — まず一次を過去問演習で突破したい人向け
 
 ---
 
@@ -174,6 +176,7 @@ https://note.com/dobokunote/m/m1881a9578027
 - **1級をこれから始める** → [1級土木をAIで勉強する](https://note.com/dobokunote/n/n8b0e42784742)
 - **2級をこれから始める** → [二次検定の全体像](https://note.com/dobokunote/n/n27455b88bcd5)＋[独学の学習設計](https://note.com/dobokunote/n/n0d6a78c48cef)
 - **落ちる答案のパターンを知りたい** → [1級版](https://note.com/dobokunote/n/nfea4a39cf108)／[2級版](https://note.com/dobokunote/n/na5e045a1c6f8)
+- **一次を過去問で突破したい** → [1級](https://note.com/dobokunote/n/n155093f42183)／[2級](https://note.com/dobokunote/n/n4963f45bd6f8) 第1次検定 過去問PDF
 - **経験記述の完成答案がほしい** → [1級](https://note.com/dobokunote/m/m150c9db08902)／[2級](https://note.com/dobokunote/m/m1881a9578027) 完成答案集
 - **過去問の年度別模範答案がほしい** → [1級](https://note.com/dobokunote/m/m3a578194a0a9)／[2級](https://note.com/dobokunote/m/md3aa0f9a37d7) 過去問模範答案集
 - **複数テーマに備えたい**（1級） → [2テーマ組合せ大全](https://note.com/dobokunote/m/m74cfd7c695d6)

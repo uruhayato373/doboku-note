@@ -117,6 +117,10 @@
               "title": "費用効果分析"
             },
             {
+              "slug": "cost-benefit-analysis",
+              "title": "費用便益分析（CBA）"
+            },
+            {
               "slug": "budget-planning",
               "title": "予算計画"
             },
@@ -691,6 +695,10 @@
               "title": "セクシャルハラスメント"
             },
             {
+              "slug": "telework",
+              "title": "テレワーク"
+            },
+            {
               "slug": "part-time-fixed-term-act",
               "title": "パートタイム・有期雇用労働法"
             },
@@ -905,6 +913,10 @@
             {
               "slug": "labor-share-ratio",
               "title": "労働分配率"
+            },
+            {
+              "slug": "labor-cost-ratio",
+              "title": "労務費率"
             }
           ]
         },
@@ -995,6 +1007,10 @@
             {
               "slug": "job-analysis",
               "title": "職務分析"
+            },
+            {
+              "slug": "human-relations-management",
+              "title": "人間関係管理"
             },
             {
               "slug": "personnel-management",
@@ -2183,7 +2199,7 @@
           "title": "危機管理",
           "keywords": [
             {
-              "slug": "bcp-crisis-management",
+              "slug": "business-continuity-plan",
               "title": "BCP・BCM"
             },
             {
@@ -2357,6 +2373,10 @@
               "title": "IPBES"
             },
             {
+              "slug": "s-plus-3e",
+              "title": "S+3E"
+            },
+            {
               "slug": "satoyama-initiative",
               "title": "SATOYAMAイニシアティブ"
             },
@@ -2387,6 +2407,10 @@
             {
               "slug": "doughnut-economics",
               "title": "ドーナツ経済"
+            },
+            {
+              "slug": "top-runner-system",
+              "title": "トップランナー制度"
             },
             {
               "slug": "nature-positive",
@@ -2427,6 +2451,14 @@
             {
               "slug": "climate-change-international",
               "title": "気候変動・国際対応"
+            },
+            {
+              "slug": "renewable-energy-act",
+              "title": "再生可能エネルギー特別措置法"
+            },
+            {
+              "slug": "energy-conservation-act",
+              "title": "省エネ法"
             },
             {
               "slug": "global-warming-countermeasures-act",
@@ -2599,6 +2631,10 @@
               "title": "海洋プラスチック問題"
             },
             {
+              "slug": "landscape-act",
+              "title": "景観法"
+            },
+            {
               "slug": "sound-water-cycle",
               "title": "健全な水循環系"
             },
@@ -2719,6 +2755,10 @@
             {
               "slug": "environmental-basic-plan",
               "title": "環境基本計画"
+            },
+            {
+              "slug": "environmental-basic-act",
+              "title": "環境基本法"
             },
             {
               "slug": "carbon-pricing",
