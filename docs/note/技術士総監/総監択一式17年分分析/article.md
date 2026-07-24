@@ -16,6 +16,7 @@ cover:
   meta: "無料記事"
   visualPrompt: "データ分析を象徴する抽象的なカードと棒グラフ"
   visualAsset: "img/cover-visual.png"
+  character: thinking
   tone: base
 ---
 # 【学習優先順位がわかる】総監択一式17年分680問を徹底分析｜5管理分野別の頻出テーマと学習戦略
