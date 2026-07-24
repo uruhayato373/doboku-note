@@ -12,7 +12,7 @@ coverTitle: ["1級土木 第1次検定", "出る順 合格ノート"]
 cover:
   variant: crop-safe-v4
   leadIn: "1級土木｜第1次検定"
-  headline: "出る順 合格ノート"
+  headline: "出る順合格ノート"
   hi: "1162"
   hiSuffix: "問分析"
   benefit: "頻度分析で攻め所がわかる"

@@ -6,7 +6,7 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { renderTemplate, v4FitFontSize, v4FitIssues, V4_SAFE } from '../.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs';
+import { renderTemplate, v4FitFontSize, v4FitIssues, V4_SAFE, V4_FONT, AUTHOR_CREDENTIAL_G2 } from '../.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs';
 
 const SIZE = { width: 1280, height: 670 };
 const PALETTE = { band: '#16365C', accent: '#1E73C8', label: '技術士（総合技術監理部門）' };
@@ -88,6 +88,27 @@ test('v4FitFontSize: 範囲クランプと不適合 null', () => {
   assert.equal(v4FitFontSize('これはとても長すぎて入らないヘッドライン', { min: 64, max: 104 }), null, '長文は null');
   const mid = v4FitFontSize('七字の見出し語', { min: 64, max: 104 }); // 7字 → 590/(7×1.04)=81px
   assert.ok(mid >= 64 && mid < 104, '中間はレンジ内で縮小');
+});
+
+test('フォント統一: headline は字数に関わらず固定サイズで描画（2026-07-24 FB）', () => {
+  const short = JSON.stringify(renderTemplate('note-cover-g2', { cover: V4_COVER, palette: PALETTE }, SIZE)); // 5字
+  const long = JSON.stringify(
+    renderTemplate('note-cover-g2', { cover: { ...V4_COVER, headline: '出る順合格ノート' }, palette: PALETTE }, SIZE), // 8字
+  );
+  assert.ok(short.includes(`"fontSize":"${V4_FONT.headline}px"`), `短い headline も固定 ${V4_FONT.headline}px`);
+  assert.ok(long.includes(`"fontSize":"${V4_FONT.headline}px"`), `8字 headline も固定 ${V4_FONT.headline}px`);
+  // 8.1字を超える headline は固定サイズに入らない → 生成エラー
+  assert.throws(
+    () => renderTemplate('note-cover-g2', { cover: { ...V4_COVER, headline: '出る順 合格ノート' }, palette: PALETTE }, SIZE), // 8.55字
+    /フィット検証失敗/,
+  );
+});
+
+test('V4 は資格クレジット・右上メタ（無料記事等）を描画しない（2026-07-24 FB）', () => {
+  const s = JSON.stringify(renderTemplate('note-cover-g2', { cover: { ...V4_COVER, meta: '無料記事' }, palette: PALETTE }, SIZE));
+  assert.ok(!s.includes(AUTHOR_CREDENTIAL_G2), '執筆者クレジットなし');
+  assert.ok(!s.includes('無料記事'), 'meta 文言なし');
+  assert.ok(!s.includes(PALETTE.label), '右上 examLabel なし（資格は leadIn が担う）');
 });
 
 test('v4FitIssues: chips 警告 / hi+hiSuffix 合計超過エラー / マガジン価格警告', () => {

@@ -180,20 +180,29 @@
         "coreSafe": { "x": [325, 955], "y": [227, 443], "use": "全表示面で絶対に残す最重要情報（中央630×216）" },
         "textSafe": { "x": [345, 935], "maxTextWidth": 590, "use": "主要文字の左右20px内余白。主要要素は一行590px以内・入らなければ生成エラー（切り詰めない）" }
       },
+      "fontsFixed": {
+        "comment": "V4 は全フォント固定＝カバー間でタイトルサイズを統一（2026-07-24 ユーザーFB）。固定サイズで中央590px（benefit は帯内560px）に入る実効字数上限: headline 8.1 / leadIn 18.9 / proof 17.7 / benefit 19.2。入らない文言は縮小せず生成エラー（コピーを短くする）。V4 では執筆者クレジット・右上メタ（examLabel/無料記事等）を描画しない（資格情報は leadIn/qualifier が担う）。",
+        "headline": 70,
+        "leadIn": 30,
+        "hi": 44,
+        "hiSuffix": 34,
+        "proof": 32,
+        "benefit": 28
+      },
       "article": {
-        "hierarchy": ["headline(4-9字)", "hi+hiSuffix(計2-7字)", "leadIn(8-18字)", "benefit(8-15字)", "meta"],
-        "leadIn": { "top": 112, "height": 44, "fontSize": [26, 34] },
-        "headline": { "top": 227, "height": 216, "fontSize": [64, 104], "note": "core-safe いっぱいの flex center = 必ず core-safe 内" },
-        "hiRow": { "top": 452, "height": 52, "hiFontSize": [44, 64], "hiSuffixFontSize": 40, "gap": 12, "note": "headline 直下・list-safe 内" },
-        "benefitBand": { "top": 510, "height": 52, "left": 325, "width": 630, "fontSize": [24, 36], "note": "list-safe 下部・試験色帯＋白文字・中央630幅=正方形でも欠けない" },
+        "hierarchy": ["headline(4-8字)", "hi+hiSuffix(計2-7字)", "leadIn(8-18字)", "benefit(8-15字)"],
+        "leadIn": { "top": 112, "height": 44 },
+        "headline": { "top": 227, "height": 216, "note": "core-safe いっぱいの flex center = 必ず core-safe 内" },
+        "hiRow": { "top": 450, "height": 48, "gap": 12, "hiBoxPadX": 16, "note": "headline 直下・list-safe 内。HiBox 枠48px×文字44px=上下余白を確保" },
+        "benefitBand": { "top": 510, "height": 52, "left": 325, "width": 630, "note": "list-safe 下部・試験色帯＋白文字・帯52px×文字28px=上下余白12px" },
         "fitSlack": 1.04
       },
       "magazine": {
         "hierarchy": ["magazineName(core-safe最大)", "qualifier(core-safe)", "proof(list-safe)", "benefit(list-safe)"],
-        "qualifier": { "top": 112, "height": 44, "fontSize": [26, 32] },
-        "magazineName": { "top": 227, "height": 216, "fontSize": [64, 104] },
-        "proof": { "top": 452, "height": 52, "fontSize": [28, 38] },
-        "benefitBand": { "top": 510, "height": 52, "left": 325, "width": 630, "fontSize": [24, 36], "note": "白地＋試験色文字の反転帯（濃色地とのコントラスト）" },
+        "qualifier": { "top": 112, "height": 44 },
+        "magazineName": { "top": 227, "height": 216 },
+        "proof": { "top": 450, "height": 48 },
+        "benefitBand": { "top": 510, "height": 52, "left": 325, "width": 630, "note": "白地＋試験色文字の反転帯（濃色地とのコントラスト）" },
         "rule": "価格は画像へ固定しない。記事本数など自動同期できない値も固定しない"
       },
       "visualAsset": { "size": [1280, 670], "rule": "文字・数字・ロゴなしの AI 背景素材。中央 630×454 は低情報量。無ければ決定論的背景へフォールバック（公開ブロッカーにしない）" },

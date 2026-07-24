@@ -1158,10 +1158,22 @@ export const V4_SAFE = {
 const V4_POS = {
   leadIn: { top: 112, height: 44 },
   headline: { top: 227, height: 216 }, // = core-safe。flex center なので必ず内側
-  hiRow: { top: 452, height: 52 },
+  hiRow: { top: 450, height: 48 },
   benefit: { top: 510, height: 52 }, // 下端 562 = list-safe 下端
 };
 const V4_SLACK = 1.04; // 日本語フォント誤差の余裕（clarity V3 仕様 §6 を継承）
+// V4 フォントは全件固定＝カバー間でタイトルサイズを統一する（2026-07-24 ユーザーFB反映）。
+// 固定サイズで中央590px（benefit は帯内560px）に入る実効字数上限:
+//   headline/magazineName 8.1字 / leadIn・qualifier 18.9字 / proof 17.7字 / benefit 19.2字。
+// 入らない文言は縮小せず生成エラー（コピー側を短くする）。
+export const V4_FONT = {
+  headline: 70, // 記事 headline / マガジン magazineName（コピー目安 4〜8字）
+  leadIn: 30, // 記事 leadIn / マガジン qualifier（8〜18字）
+  hi: 44, // HiBox 文字（枠48px内・上下余白を確保）
+  hiSuffix: 34,
+  proof: 32,
+  benefit: 28, // 帯52px内・上下余白12px
+};
 
 /**
  * V4 の一行フィット純関数。text が maxWidth(既定590)px に収まるフォントサイズを
@@ -1195,10 +1207,10 @@ export function v4FitIssues(cover, kind = 'article') {
     need('magazineName');
     need('qualifier');
     need('benefit');
-    fitOrError('magazineName', c.magazineName, { min: 64, max: 104 });
-    fitOrError('qualifier', c.qualifier, { min: 26, max: 32 });
-    fitOrError('proof', c.proof, { min: 28, max: 38 });
-    fitOrError('benefit', c.benefit, { min: 24, max: 36, maxWidth: 560 });
+    fitOrError('magazineName', c.magazineName, { min: V4_FONT.headline, max: V4_FONT.headline });
+    fitOrError('qualifier', c.qualifier, { min: V4_FONT.leadIn, max: V4_FONT.leadIn });
+    fitOrError('proof', c.proof, { min: V4_FONT.proof, max: V4_FONT.proof });
+    fitOrError('benefit', c.benefit, { min: V4_FONT.benefit, max: V4_FONT.benefit, maxWidth: 560 });
     if (/[¥￥]|円/.test(String(c.proof || '') + String(c.benefit || '') + String(c.magazineName || ''))) {
       warnings.push('価格らしき表記（¥/円）が含まれる。価格は画像へ固定しない（V4 §6.1）');
     }
@@ -1208,14 +1220,13 @@ export function v4FitIssues(cover, kind = 'article') {
     need('hi');
     need('hiSuffix');
     need('benefit');
-    fitOrError('headline', c.headline, { min: 64, max: 104 });
-    fitOrError('leadIn', c.leadIn, { min: 26, max: 34 });
-    fitOrError('benefit', c.benefit, { min: 24, max: 36, maxWidth: 560 });
+    fitOrError('headline', c.headline, { min: V4_FONT.headline, max: V4_FONT.headline });
+    fitOrError('leadIn', c.leadIn, { min: V4_FONT.leadIn, max: V4_FONT.leadIn });
+    fitOrError('benefit', c.benefit, { min: V4_FONT.benefit, max: V4_FONT.benefit, maxWidth: 560 });
     if (c.hi || c.hiSuffix) {
-      // hi(HiBox: padding 0 14×2) + gap12 + hiSuffix(40px) の合計幅が 590 に収まるか
-      const hiSize = v4HiFontSize(c.hi);
-      const hiW = c.hi ? effectiveCharCount(c.hi) * hiSize * V4_SLACK + 28 : 0;
-      const sufW = c.hiSuffix ? effectiveCharCount(c.hiSuffix) * 40 * V4_SLACK : 0;
+      // hi(HiBox: padding 0 16×2) + gap12 + hiSuffix(34px) の合計幅が 590 に収まるか
+      const hiW = c.hi ? effectiveCharCount(c.hi) * V4_FONT.hi * V4_SLACK + 32 : 0;
+      const sufW = c.hiSuffix ? effectiveCharCount(c.hiSuffix) * V4_FONT.hiSuffix * V4_SLACK : 0;
       const total = hiW + (c.hi && c.hiSuffix ? 12 : 0) + sufW;
       if (total > V4_SAFE.textWidth) {
         errors.push(`hi+hiSuffix 推定 ${Math.round(total)}px > ${V4_SAFE.textWidth}px（合計 2〜7 字に短縮する）`);
@@ -1226,14 +1237,6 @@ export function v4FitIssues(cover, kind = 'article') {
     }
   }
   return { errors, warnings };
-}
-
-// V4 HiBox フォント（hi は数字・年度など 1〜4 字想定）
-function v4HiFontSize(text) {
-  const ecw = effectiveCharCount(text) || 1;
-  if (ecw <= 2) return 64;
-  if (ecw <= 4) return 56;
-  return 44;
 }
 
 // V4 debug 用の三重安全領域オーバーレイ（square=赤 / list=橙 / core=緑 / text-safe=青破線）
@@ -1371,26 +1374,11 @@ function renderNoteCoverCropSafeV4({ cover, palette, magazine, visualSrc, debugS
       ],
     },
   };
-  const credentialText = c.credential === false ? null : AUTHOR_CREDENTIAL_G2;
-  const credentialRow = credentialText
-    ? {
-        type: 'div',
-        props: {
-          style: { position: 'absolute', top: '72px', left: '56px', display: 'flex', fontFamily: '"Noto Sans JP", Inter, sans-serif', fontSize: '15px', fontWeight: 800, letterSpacing: '0.04em', color: magazine ? 'rgba(255,255,255,0.78)' : 'rgba(27,36,48,0.66)' },
-          children: credentialText,
-        },
-      }
-    : null;
-  const metaText = c.meta ? `${examLabel}　${c.meta}` : examLabel;
-  const meta = metaText
-    ? {
-        type: 'div',
-        props: {
-          style: { position: 'absolute', top: '42px', right: '56px', display: 'flex', fontWeight: 800, fontSize: '16px', letterSpacing: '0.1em', color: magazine ? 'rgba(255,255,255,0.9)' : band, fontFamily: '"Noto Sans JP", Inter, sans-serif' },
-          children: metaText,
-        },
-      }
-    : null;
+  // V4 では資格クレジット（執筆:…）と右上メタ（examLabel／無料記事等）を描画しない
+  // （2026-07-24 ユーザーFB: 補助テキストがノイズ。資格情報は leadIn/qualifier が担う）。
+  // cover.meta は frontmatter 互換のため受け付けるが V4 では未使用。
+  const credentialRow = null;
+  const meta = null;
 
   // ---- キャラクター（full 領域・右端。text-safe(x≤935)を侵食しない位置に制限）----
   let characterImg = null;
@@ -1410,7 +1398,7 @@ function renderNoteCoverCropSafeV4({ cover, palette, magazine, visualSrc, debugS
     {
       type: 'div',
       props: {
-        style: { display: 'flex', fontSize: `${v4FitFontSize(leadInText, magazine ? { min: 26, max: 32 } : { min: 26, max: 34 })}px`, fontWeight: 800, color: inkSub, letterSpacing: '0.02em' },
+        style: { display: 'flex', fontSize: `${V4_FONT.leadIn}px`, fontWeight: 800, color: inkSub, letterSpacing: '0.02em' },
         children: leadInText || '',
       },
     },
@@ -1421,7 +1409,7 @@ function renderNoteCoverCropSafeV4({ cover, palette, magazine, visualSrc, debugS
     {
       type: 'div',
       props: {
-        style: { display: 'flex', fontSize: `${v4FitFontSize(headlineText, { min: 64, max: 104 })}px`, fontWeight: 900, lineHeight: 1.04, color: inkMain, letterSpacing: '-0.5px', textAlign: 'center' },
+        style: { display: 'flex', fontSize: `${V4_FONT.headline}px`, fontWeight: 900, lineHeight: 1.04, color: inkMain, letterSpacing: '-0.5px', textAlign: 'center' },
         children: headlineText || '',
       },
     },
@@ -1435,27 +1423,26 @@ function renderNoteCoverCropSafeV4({ cover, palette, magazine, visualSrc, debugS
         {
           type: 'div',
           props: {
-            style: { display: 'flex', fontSize: `${v4FitFontSize(c.proof, { min: 28, max: 38 })}px`, fontWeight: 800, color: 'rgba(255,255,255,0.94)', letterSpacing: '0.03em' },
+            style: { display: 'flex', fontSize: `${V4_FONT.proof}px`, fontWeight: 800, color: 'rgba(255,255,255,0.94)', letterSpacing: '0.03em' },
             children: c.proof,
           },
         },
       ]);
     }
   } else {
-    const hiSize = v4HiFontSize(c.hi);
     midRowEl = centerBand(V4_POS.hiRow.top, V4_POS.hiRow.height, [
       {
         type: 'div',
         props: {
           style: {
             display: 'flex', alignItems: 'center', justifyContent: 'center', background: band, color: '#fff', borderRadius: '9px',
-            fontWeight: 900, fontSize: `${hiSize}px`, lineHeight: 1, padding: '0 14px', height: `${Math.min(V4_POS.hiRow.height, Math.round(hiSize * 1.08))}px`,
+            fontWeight: 900, fontSize: `${V4_FONT.hi}px`, lineHeight: 1, padding: '0 16px', height: `${V4_POS.hiRow.height}px`,
             boxShadow: '0 5px 14px rgba(14,38,69,0.28)', marginRight: '12px',
           },
           children: c.hi || '',
         },
       },
-      { type: 'div', props: { style: { display: 'flex', fontSize: '40px', fontWeight: 900, color: inkMain }, children: c.hiSuffix || '' } },
+      { type: 'div', props: { style: { display: 'flex', fontSize: `${V4_FONT.hiSuffix}px`, fontWeight: 900, color: inkMain }, children: c.hiSuffix || '' } },
     ]);
   }
 
@@ -1467,7 +1454,7 @@ function renderNoteCoverCropSafeV4({ cover, palette, magazine, visualSrc, debugS
       {
         type: 'div',
         props: {
-          style: { display: 'flex', fontSize: `${v4FitFontSize(c.benefit, { min: 24, max: 36, maxWidth: 560 })}px`, fontWeight: 900, color: magazine ? band : '#ffffff', letterSpacing: '0.02em' },
+          style: { display: 'flex', fontSize: `${V4_FONT.benefit}px`, fontWeight: 900, color: magazine ? band : '#ffffff', letterSpacing: '0.02em' },
           children: c.benefit || '',
         },
       },
