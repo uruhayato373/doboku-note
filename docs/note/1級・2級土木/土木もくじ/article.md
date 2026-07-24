@@ -80,6 +80,7 @@ https://note.com/dobokunote/m/m150c9db08902
 - [二次学科記述 テーマ別 出る順（問題2〜11）](https://note.com/dobokunote/m/mcfe1059b3335) — 経験記述以外の学科記述も出る順で固めたい人向け
 - [出題分析と直前の重点（過去5年の実績）](https://note.com/dobokunote/n/nd68f3f6b5f9e) — まず何から手を付けるか、直前2週間の優先順位を決めたい人向け
 - [第1次検定 出る順 合格ノート（12年頻度分析）](https://note.com/dobokunote/n/nec34238ca6d6) — 一次の施工管理法を出る順で優先度づけしたい人向け
+- [第1次検定 過去問PDF（H26-R7 全1162問・全選択肢解説）](https://note.com/dobokunote/n/n155093f42183) — まず一次を過去問演習で突破したい人向け
 
 ---
 
