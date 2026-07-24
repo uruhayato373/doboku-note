@@ -2,7 +2,7 @@
   "schema": "pe-textbook-keyword-coverage-candidates/v1",
   "note": "機械抽出の候補データ。statusHint は暫定（末尾 ? 付き）で確定 A〜G ではない。A〜G は Evaluator が判定する。",
   "generatedAt": null,
-  "inputsHash": "e81337fd65c6625f",
+  "inputsHash": "364e3538c10a43a5",
   "source": {
     "textbookDir": "docs/textbook/技術士（総監）/テキスト/総監標準テキスト",
     "hubPath": ".local/r2/posts/pe-comprehensive-management/keyword-2026/article.mdx",
@@ -24,22 +24,22 @@
     },
     "structureHeadings": 25,
     "statusHintDistribution": {
-      "D?": 48,
+      "D?": 47,
       "B?": 11,
-      "A?": 118,
-      "E?": 133,
-      "C?": 83,
+      "A?": 121,
+      "E?": 130,
+      "C?": 84,
       "F?": 5
     },
     "hub": {
-      "linkSlugs": 655,
-      "auxiliaryTerms": 125,
+      "linkSlugs": 658,
+      "auxiliaryTerms": 121,
       "phantomHubLinks": 0,
       "duplicateSlugRegistrations": 9,
       "registryPhantoms": 1,
-      "hubMissingKeywordLinks": 5
+      "hubMissingKeywordLinks": 4
     },
-    "pagePoolSize": 726,
+    "pagePoolSize": 728,
     "crossAreaConcepts": 1
   },
   "concepts": [
@@ -274,13 +274,24 @@
       "englishTokens": [],
       "structureLike": false,
       "match": {
-        "matchCandidates": [],
-        "bestSlug": null,
+        "matchCandidates": [
+          {
+            "slug": "cost-benefit-analysis",
+            "matchType": "exact-title",
+            "via": "費用便益分析"
+          },
+          {
+            "slug": "cost-benefit-analysis",
+            "matchType": "containment",
+            "via": "費用便益分析cba"
+          }
+        ],
+        "bestSlug": "cost-benefit-analysis",
         "linkedInHub": false,
         "auxInHub": false,
         "mentionedInHub": false,
-        "statusHint": "E?",
-        "hintReason": "独立ページ・別名ページ・ハブ言及いずれも機械検出できず"
+        "statusHint": "A?",
+        "hintReason": "独立ページ cost-benefit-analysis に名称一致"
       }
     },
     {
@@ -4403,8 +4414,8 @@
           }
         ],
         "bestSlug": "telework",
-        "linkedInHub": false,
-        "auxInHub": true,
+        "linkedInHub": true,
+        "auxInHub": false,
         "mentionedInHub": true,
         "statusHint": "A?",
         "hintReason": "独立ページ telework に名称一致"
@@ -4461,8 +4472,8 @@
           }
         ],
         "bestSlug": "human-relations-management",
-        "linkedInHub": false,
-        "auxInHub": true,
+        "linkedInHub": true,
+        "auxInHub": false,
         "mentionedInHub": true,
         "statusHint": "A?",
         "hintReason": "独立ページ human-relations-management に名称一致"
@@ -5384,11 +5395,11 @@
       "match": {
         "matchCandidates": [],
         "bestSlug": null,
-        "linkedInHub": false,
-        "auxInHub": true,
+        "linkedInHub": true,
+        "auxInHub": false,
         "mentionedInHub": true,
-        "statusHint": "D?",
-        "hintReason": "ハブ本文に補助語/言及あり（独立ページなし）"
+        "statusHint": "A?",
+        "hintReason": "ハブでリンク済み"
       }
     },
     {
@@ -10141,13 +10152,19 @@
       "englishTokens": [],
       "structureLike": false,
       "match": {
-        "matchCandidates": [],
-        "bestSlug": null,
+        "matchCandidates": [
+          {
+            "slug": "landscape-act",
+            "matchType": "exact-title",
+            "via": "景観法"
+          }
+        ],
+        "bestSlug": "landscape-act",
         "linkedInHub": false,
         "auxInHub": false,
         "mentionedInHub": false,
-        "statusHint": "E?",
-        "hintReason": "独立ページ・別名ページ・ハブ言及いずれも機械検出できず"
+        "statusHint": "A?",
+        "hintReason": "独立ページ landscape-act に名称一致"
       }
     },
     {
@@ -10172,8 +10189,8 @@
           }
         ],
         "bestSlug": "environmental-basic-act",
-        "linkedInHub": false,
-        "auxInHub": true,
+        "linkedInHub": true,
+        "auxInHub": false,
         "mentionedInHub": true,
         "statusHint": "A?",
         "hintReason": "独立ページ environmental-basic-act に名称一致"
@@ -10201,7 +10218,7 @@
           }
         ],
         "bestSlug": "environmental-basic-act",
-        "linkedInHub": false,
+        "linkedInHub": true,
         "auxInHub": false,
         "mentionedInHub": false,
         "statusHint": "C?",
@@ -10269,7 +10286,7 @@
           }
         ],
         "bestSlug": "environmental-basic-act",
-        "linkedInHub": false,
+        "linkedInHub": true,
         "auxInHub": false,
         "mentionedInHub": false,
         "statusHint": "C?",
@@ -10436,7 +10453,7 @@
           }
         ],
         "bestSlug": "environmental-basic-act",
-        "linkedInHub": false,
+        "linkedInHub": true,
         "auxInHub": false,
         "mentionedInHub": false,
         "statusHint": "C?",
@@ -10465,7 +10482,7 @@
           }
         ],
         "bestSlug": "environmental-basic-act",
-        "linkedInHub": false,
+        "linkedInHub": true,
         "auxInHub": false,
         "mentionedInHub": false,
         "statusHint": "C?",
@@ -10528,7 +10545,7 @@
           }
         ],
         "bestSlug": "environmental-basic-act",
-        "linkedInHub": false,
+        "linkedInHub": true,
         "auxInHub": true,
         "mentionedInHub": true,
         "statusHint": "C?",
@@ -10959,13 +10976,19 @@
       "englishTokens": [],
       "structureLike": false,
       "match": {
-        "matchCandidates": [],
-        "bestSlug": null,
-        "linkedInHub": false,
+        "matchCandidates": [
+          {
+            "slug": "environmental-impact-assessment",
+            "matchType": "body-heading",
+            "via": "地方自治体の環境アセスメント制度"
+          }
+        ],
+        "bestSlug": "environmental-impact-assessment",
+        "linkedInHub": true,
         "auxInHub": false,
         "mentionedInHub": false,
-        "statusHint": "E?",
-        "hintReason": "独立ページ・別名ページ・ハブ言及いずれも機械検出できず"
+        "statusHint": "C?",
+        "hintReason": "上位ページ environmental-impact-assessment の本文見出しに一致（内包の可能性）"
       }
     },
     {
@@ -11517,6 +11540,7 @@
       "energy-conservation-act",
       "enterprise-portal-intranet",
       "environmental-accounting",
+      "environmental-basic-act",
       "environmental-basic-plan",
       "environmental-communication",
       "environmental-impact-assessment",
@@ -11599,6 +11623,7 @@
       "human-development-index",
       "human-error-probability",
       "human-factors",
+      "human-relations-management",
       "human-resource-assessment",
       "ics",
       "idea-generation-methods",
@@ -11937,6 +11962,7 @@
       "teal-organization",
       "technical-nontechnical-skills",
       "technology-licensing",
+      "telework",
       "temporary-works-plan",
       "terrorism",
       "theory-of-constraints",
@@ -12003,10 +12029,8 @@
       "システム開発プロセス",
       "シミュレーション",
       "ダイバーシティ・マネジメント",
-      "テレワーク",
       "デジタルトランスフォーメーション（DX）の技術",
       "デジタル・コミュニケーション・ツール",
-      "ナレッジマネジメント",
       "ハラスメント",
       "ヒヤリハット",
       "ヒューマンエラー分析（人的過誤分析）",
@@ -12026,7 +12050,6 @@
       "人工知能（AI）",
       "人的資本経営",
       "人的資源開発（HRD）",
-      "人間関係管理",
       "企業会計基準",
       "個人情報保護法",
       "個別キーワードを深掘りしたいとき",
@@ -12079,7 +12102,6 @@
       "減価償却",
       "災害対策関係法等",
       "独占禁止法",
-      "環境基本法",
       "環境教育",
       "生物多様性",
       "生産方式",
@@ -12188,24 +12210,20 @@
     ],
     "hubMissingKeywordLinks": [
       {
-        "slug": "environmental-basic-act",
-        "title": "環境基本法"
+        "slug": "cost-benefit-analysis",
+        "title": "費用便益分析（CBA）"
       },
       {
         "slug": "general-overview",
         "title": "総合技術監理の概要"
       },
       {
-        "slug": "human-relations-management",
-        "title": "人間関係管理"
-      },
-      {
         "slug": "labor-cost-ratio",
         "title": "労務費率"
       },
       {
-        "slug": "telework",
-        "title": "テレワーク"
+        "slug": "landscape-act",
+        "title": "景観法"
       }
     ]
   },
@@ -13875,6 +13893,20 @@
         "参考資料"
       ]
     },
+    "cost-benefit-analysis": {
+      "title": "費用便益分析（CBA）",
+      "shortTitle": null,
+      "description": "公共政策の効果を貨幣額で表し費用と比較する費用便益分析の考え方、B/C比と純便益による判断、社会的割引率の影響、手法の限界を整理する。",
+      "section": "2.1",
+      "group": "keyword",
+      "headings": [
+        "費用便益分析とは",
+        "評価指標と判断基準",
+        "手法の限界",
+        "総合技術監理における位置づけ",
+        "参考資料"
+      ]
+    },
     "cost-driver": {
       "title": "コストドライバー",
       "shortTitle": null,
@@ -14456,6 +14488,7 @@
         "散布度",
         "四分位数と箱ひげ図",
         "尺度水準と適切な統計量",
+        "平滑化と指数化",
         "総合技術監理における位置づけ",
         "参考資料"
       ]
@@ -15473,6 +15506,7 @@
         "環境影響評価法とは",
         "対象事業",
         "手続きの流れ",
+        "地方自治体の環境アセスメント制度",
         "総合技術監理における位置づけ",
         "関連テーマ記事",
         "参考資料"
@@ -18609,6 +18643,7 @@
         "ジョブ型雇用とは",
         "メンバーシップ型との比較",
         "日本企業の導入動向",
+        "複線型人事制度と勤務地限定制",
         "導入時の課題",
         "試験での問われ方",
         "図解",
@@ -18898,6 +18933,20 @@
         "参考資料"
       ]
     },
+    "landscape-act": {
+      "title": "景観法",
+      "shortTitle": null,
+      "description": "良好な景観を国民共通の資産と位置づけた景観法の基本理念、景観行政団体と景観計画の仕組み、届出・勧告制と景観地区による規制手法を整理する。",
+      "section": "6.2",
+      "group": "keyword",
+      "headings": [
+        "景観法とは",
+        "景観行政団体と景観計画",
+        "届出・勧告制と景観地区",
+        "総合技術監理における位置づけ",
+        "参考資料"
+      ]
+    },
     "last-minute-2026": {
       "title": "総合技術監理 記述式試験 直前対策2026",
       "shortTitle": "記述式直前対策2026",
@@ -19045,6 +19094,7 @@
         "定式化の手順",
         "解法",
         "図解法の例",
+        "最適化手法のなかでの位置づけ",
         "総合技術監理における位置づけ",
         "参考資料"
       ]
@@ -19969,6 +20019,7 @@
         "健康管理",
         "メンタルヘルス対策",
         "墜落制止用器具",
+        "その他の重要規制",
         "公益通報者保護法",
         "総合技術監理における位置づけ",
         "参考資料"
@@ -21250,6 +21301,7 @@
         "欠陥の 3 類型",
         "免責事由",
         "被害者の立証要件",
+        "製造業者等の責任主体",
         "消滅時効",
         "対象・非対象の範囲",
         "民法との関係",
@@ -23436,6 +23488,7 @@
       "headings": [
         "サーバントリーダーシップとは",
         "従来型リーダーシップとの比較",
+        "リーダーシップ理論のなかの位置づけ",
         "サーバントリーダーの10の特性",
         "実務への適用",
         "試験での問われ方",
@@ -25109,6 +25162,7 @@
       "group": "keyword",
       "headings": [
         "作業計画とは",
+        "手順計画の目的",
         "作業計画の構成要素",
         "作業標準書との関係",
         "標準時間の構成と生産の 4M",

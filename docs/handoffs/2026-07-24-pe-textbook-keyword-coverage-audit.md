@@ -62,17 +62,27 @@ node .tmp/patch-pe-cov.mjs                            # 親再検証オーバー
 
 4件・いずれも判定一致（矛盾なし）: 警戒レベル（安全291/社会環境356＝両A）、ウォーターフォール053・アジャイル056（経済性⇔情報のwaterfall/agile＝C）。`conflictResolutions` に記録。
 
-## 未解決事項（Phase 2 以降で判断）
+## Phase 2 実装（2026-07-24 同日・ユーザー指示「記事本文の修正・新規作成・公開」）
 
-- **記事本文の実装は未着手**（Phase 1 は分析のみ）。実装はユーザーの明示指示待ち。
-- 重複 slug 登録9件の正規セクション寄せは要判断（意図的な分野横断重複が大半）。
-- `keyword-relations.json` は他セッションの未コミット変更中。registry phantom の整理は所有権解消後。
-- G 2件（エネルギー基本計画・環境基本計画）は**テキストが古くページが新しい**。実装時はページを旧版へ下げない（最新一次情報でページ側を維持）。
-- Evaluator が付けた低confidence 61件は Phase 2 実装時に現物再確認（多くは D の内包充足度）。
+ユーザー決定: 全バックログ一括／CBA=独立ページ新規／チェックリスト=既存手法ページへ統合。
 
-## 次フェーズの開始方法
+- **新規2ページ**（published:true・OGP生成済・pe-chapters登録済・cem-qa 両方 **2.90/3.00 合格**）: `landscape-act`（景観法・6.2・E-362）／`cost-benefit-analysis`（費用便益分析・2.1・D-009。CEA と SeeAlso/RelatedKeywords 相互リンク・NPV/割引率にも逆リンク）。
+- **補強17箇所/15ページ**: EIA自治体条例H2・esd促進法・eco-labelグリーン購入法・env-comm条文・info-disclosure環境アカ／安衛法（特定機械等+受動喫煙68条の2+特別改善計画78条）・PL法製造業者等3類型・risk-assessmentチェックリスト法（E-297統合）／work-planning手順計画目的・linear-programming最適化位置づけ／servant-leadership 3手法・高年法8条・job-type複線型・descriptive-statistics平滑化指数化。
+- **現物確認で既に十分（編集不要）14件**: 002/003/015/040/219/252/259/260/343/347/348/378/379/195 → verified-covered として D→C。**Plan探索の重要発見＝Evaluator 低confidence の D は半分近くが既カバーだった**。
+- **G 2件解決**: energy=第7次エネ基明記・environmental-basic-plan=第六次を主題化（ページが現行版・旧版へ戻さない）→ C/A。
+- **ハブ配線**: 原文既存語のリンク化のみ4件（テレワーク/人間関係管理/ナレッジマネジメント→knowledge-sharing/環境基本法）。links 655→658。労務費率・景観法・CBAは**原文に語なし＝追記せず**（pe-chapters登録でナビ到達）。coverage JSON `hubWiring` に記録。
+- **法令照合**: 景観法416AC0000000110・環境教育等促進法415AC1000000130・グリーン購入法**412AC1000000100（議員立法=AC1。閣法と推測すると誤る）**・PL法406AC0000000085 を WebSearch/WebFetch で検証してからリンク。
+- **インデックス**: refresh-indexes は使わず安全サブセット（build-backlinks/build-indexes/build-pillar-exam-questions/build-popular-pages）。`build-keyword-relations` は**他セッションが keyword-relations.json 未コミット編集中のためスキップ**（下記残課題）。
+- **最終分布**: A=134 / B=19 / C=181 / **D=0 / E=0** / F=64 / **G=0**（検証0エラー・phase2 36項目に action/commit 記録）。
+- **実装 commit**: `5e6de564b9`（社会環境）→`a7f3073009`（安全）→`c0013fcc14`（経済性）→`318a6b4c80`（人的・情報）→ バッチ5（配線・本 handoff 更新）。
 
-1. `.claude/state/pe-textbook-keyword-coverage.json` の `status:"D"`/`"E"` を優先度順に読む。
-2. レポート §12 の推奨バッチ（社会環境補強→安全法令細目→経済性）を1管理分野ずつ 5〜15件で実装。
-3. 各バッチ: 既存ページ補強 or 新規（E のみ）→ 独立 Evaluator 監査 → ハブ/pe-chapters/keyword-relations 同期 → `npm run refresh-indexes` → lint/リンク/ビルド → 対応表更新 → handoff。標準テキストは転載・出典掲出しない。
-4. 再監査は `npm run audit-pe-textbook-keyword-coverage` で candidates を再生成し差分確認。
+## 未解決事項（Phase 3 以降）
+
+- **keyword-relations 同期の保留**: 新規2 slug の関連語自動生成（`npm run build-keyword-relations`）は、他セッションの keyword-relations.json 未コミット変更が解消してから実行（backlog 登録済み）。ページ内の手動 RelatedKeywords は完備なので利用者影響は軽微。
+- **deploy は別指示**: commit/PR まで。サイト実公開は `/deploy`（develop→main）でユーザー判断。R2 の OGP 同期は main push 時に CI が実施。
+- 重複 slug 登録9件の正規セクション寄せは引き続き要判断（意図的な分野横断重複が大半）。
+- registry phantom `bcp-crisis-management` の整理も keyword-relations 所有権解消後。
+
+## 再監査の回し方
+
+`npm run audit-pe-textbook-keyword-coverage` で candidates を再生成し差分確認（Phase 2 後の再実行で新規2ページが A? 検出・phantom 0 を確認済み）。

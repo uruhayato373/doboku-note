@@ -1,6 +1,9 @@
-# 総監標準テキスト → キーワード集2026 反映状況 完全監査レポート（Phase 1）
+# 総監標準テキスト → キーワード集2026 反映状況 完全監査レポート
 
-実行日: 2026-07-24 / Phase 1（分析・計画のみ・記事本文は未変更）
+実行日: 2026-07-24 / Phase 1（完全対応表）＋ **Phase 2（同日実装済み）**
+
+> [!note]
+> **Phase 2 実装完了（2026-07-24）**: 本レポートの D/E/G バックログは同日中に全件処理された。最終分布 **A=134 / B=19 / C=181 / D=0 / E=0 / F=64 / G=0**。内訳＝新規2ページ（`landscape-act` 景観法・`cost-benefit-analysis` 費用便益分析、いずれも cem-qa **2.90/3.00 合格**）／既存15ページへ17箇所の補強／現物確認で既に十分だった14件は verified-covered として D→C／G 2件はページが現行版（第7次エネ基・第六次環境基本計画）を確認して解決。ハブは原文に存在する未リンク4語（テレワーク・人間関係管理・ナレッジマネジメント・環境基本法）をリンク化（655→658 slug）。労務費率・景観法・費用便益分析はハブ原文に語が無いため**原文準拠でハブ追記せず**、pe-chapters 登録でナビ到達を確保（詳細は coverage JSON の `hubWiring`）。各項目の実装 commit は `phase2.commit` を参照。以下 §4〜§13 は Phase 1 時点の分析記録として保存する。
 
 > [!note]
 > 基準文書は [`docs/reviews/2026-07-24-pe-textbook-keyword-coverage-audit.md`](2026-07-24-pe-textbook-keyword-coverage-audit.md)、実行計画は `.claude/plans/pe-textbook-keyword-coverage-remediation-2026-07-24.md`。本レポートは予備監査（機械照合のみ）を **完全対応表**（機械抽出 → 5管理分野 Evaluator の意味判定 → 親の再検証）へ確定させたもの。機械可読の真実源は [`.claude/state/pe-textbook-keyword-coverage.json`](../../.claude/state/pe-textbook-keyword-coverage.json)、機械候補は同 `-candidates.json`。
