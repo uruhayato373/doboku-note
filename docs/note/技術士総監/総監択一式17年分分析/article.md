@@ -14,8 +14,6 @@ cover:
   hiSuffix: "問分析"
   benefit: "学習の優先順位がわかる"
   meta: "無料記事"
-  visualPrompt: "データ分析を象徴する抽象的なカードと棒グラフ"
-  visualAsset: "img/cover-visual.png"
   character: thinking
   tone: base
 ---

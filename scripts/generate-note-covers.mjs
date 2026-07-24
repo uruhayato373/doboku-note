@@ -83,6 +83,27 @@ function loadFonts() {
   ];
 }
 
+// 資格別ブランド写真プール（サイト OGP 背景と共有・brand-image-system.md §3）。
+// V4 の visualAsset 未指定時の既定背景。1280×670 へ center cover crop して dataURL 化。
+const OGP_BG_DIR = join(ROOT, '.claude/config/ogp/backgrounds');
+const BG_EXAM_ALIAS = { 'civil-1-2': 'civil-1' }; // 1級・2級横断は 1級のプールを流用（色スキームと同じ規約）
+const brandPoolCache = new Map();
+async function brandPoolVisual(examKey) {
+  const key = BG_EXAM_ALIAS[examKey] || examKey;
+  if (brandPoolCache.has(key)) return brandPoolCache.get(key);
+  let src = null;
+  for (const ext of ['png', 'webp', 'jpg']) {
+    const p = join(OGP_BG_DIR, `${key}.${ext}`);
+    if (existsSync(p)) {
+      const buf = await sharp(p).resize({ width: W, height: H, fit: 'cover', position: 'centre' }).png().toBuffer();
+      src = `data:image/png;base64,${buf.toString('base64')}`;
+      break;
+    }
+  }
+  brandPoolCache.set(key, src); // 無い資格は null キャッシュ（決定論的背景へ）
+  return src;
+}
+
 /**
  * H1 行から表示用タイトルを抽出する。
  * 旧仕様の「【フック】メイン｜サブ」装飾はすべて剥がしてメイン部分だけ残す。
@@ -108,22 +129,29 @@ async function renderCover({ dirName, title, coverTitle, cover, category, examKe
     if (isV4 && Array.isArray(cover.chips) && cover.chips.length) {
       console.warn(`  warn: ${dirName} は V4 のため chips は描画されません（cover から削除を推奨）`);
     }
-    // V4: visualAsset（記事 dir 相対）を読み込み。無い/サイズ不正なら決定論的背景へフォールバック
+    // V4 背景の解決順（2026-07-24 写真プール統一の決定）:
+    //   1. cover.visualAsset（記事 dir 相対・個別上書き opt-in）
+    //   2. 資格別ブランド写真プール（.claude/config/ogp/backgrounds/<exam-key>.png・サイト OGP と共有）
+    //   3. 決定論的背景（紙面グラデ＋グリッド）
+    // 真実源: brand-image-system.md §3「note カバー背景 = wide 原版」
     let visualSrc = null;
     if (isV4 && cover.visualAsset) {
       const vpath = join(NOTE_DIR, dirName, cover.visualAsset);
       if (!existsSync(vpath)) {
-        console.warn(`  warn: visualAsset が見つかりません（${cover.visualAsset}）→ 決定論的背景へフォールバック`);
+        console.warn(`  warn: visualAsset が見つかりません（${cover.visualAsset}）→ ブランド写真プールへフォールバック`);
       } else {
         const vmeta = await sharp(vpath).metadata();
         if (vmeta.width !== W || vmeta.height !== H) {
-          console.warn(`  warn: visualAsset は ${vmeta.width}×${vmeta.height}（要 ${W}×${H}）→ 決定論的背景へフォールバック`);
+          console.warn(`  warn: visualAsset は ${vmeta.width}×${vmeta.height}（要 ${W}×${H}）→ ブランド写真プールへフォールバック`);
         } else {
           const vbuf = readFileSync(vpath);
           const mime = /\.webp$/i.test(vpath) ? 'image/webp' : /\.jpe?g$/i.test(vpath) ? 'image/jpeg' : 'image/png';
           visualSrc = `data:${mime};base64,${vbuf.toString('base64')}`;
         }
       }
+    }
+    if (isV4 && !visualSrc) {
+      visualSrc = await brandPoolVisual(examKey);
     }
     // cover.character（ポーズ slug）指定時はキャラ立ち絵を data URL 化して合成（opt-in）
     if (cover.character) {

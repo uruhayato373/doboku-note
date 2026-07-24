@@ -16,8 +16,6 @@ cover:
   hiSuffix: "予想①"
   benefit: "気候変動テーマを答案に展開"
   meta: "R8予想問題"
-  visualPrompt: "河川と流域を俯瞰する抽象的な地形と水流のライン"
-  visualAsset: "img/cover-visual.png"
 ---
 # 令和8年度 総監記述式 模範論文｜河川コンサル版（気候変動適応・流域治水の強靱化／R8予想①）
 

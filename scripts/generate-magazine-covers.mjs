@@ -198,14 +198,14 @@ export const MAGAZINES = [
   {
     id: 'setsumon3-policy-bank',
     // Crop-safe V4 パイロット（2026-07-24・magazine key: m91516dfc27ac）。lines は後方互換で残置（V4 では未使用）。
+    // 背景は examKey のブランド写真プール共有（2026-07-24 写真プール統一の決定・個別 visualAsset は不使用）
     variant: 'crop-safe-v4',
+    examKey: 'pe-comprehensive',
     magazineDir: 'docs/note/技術士総監/magazines/総監記述式-設問3国家施策バンク',
     qualifier: '技術士 総監｜記述式',
     magazineName: '国家施策バンク',
     proof: '11テーマ・68施策',
     benefit: '設問3の弾薬を備蓄',
-    visualPrompt: '政策カードと日本地図を抽象化した専門教材の背景',
-    visualAsset: 'docs/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/_cover-visual.png',
     fillBg: '#16365C',
     fileBaseName: 'magazine-setsumon3-policy-bank-cover',
     lines: ['設問(3) 国家施策バンク', '将来課題 11 テーマ × 国家施策 68 案', '答案 1 枚相当・転写即戦力'],
@@ -274,15 +274,15 @@ export const MAGAZINES = [
   {
     id: 'civil-1-marugoto',
     // Crop-safe V4 パイロット（2026-07-24・magazine key: md29a34906314）。lines は後方互換で残置（V4 では未使用）。
+    // 背景は examKey のブランド写真プール共有（2026-07-24 写真プール統一の決定・個別 visualAsset は不使用）
     variant: 'crop-safe-v4',
+    examKey: 'civil-1',
     fileBaseName: 'civil-1-niji-marugoto-pack-cover',
     magazineDir: 'docs/note/1級・2級土木/1級土木/magazines/1級土木-二次まるごとパック',
     qualifier: '1級土木｜第2次検定',
     magazineName: 'まるごとパック',
     proof: '経験記述＋学科記述＋直前暗記',
     benefit: '二次対策はこれ一冊で完結',
-    visualPrompt: '重なり合う教材ノートと合格へ続く階段を抽象化した背景',
-    visualAsset: 'docs/note/1級・2級土木/1級土木/magazines/1級土木-二次まるごとパック/_cover-visual.png',
     lines: ['1級土木 二次検定', 'まるごとパック', '経験記述＋学科記述＋直前暗記'],
     category: '1級土木施工管理技士',
     fontSize: 42,
@@ -489,15 +489,37 @@ export const MAGAZINES = [
   },
 ];
 
+// 資格別ブランド写真プール（サイト OGP と共有・brand-image-system.md §3。generate-note-covers.mjs と対）
+const OGP_BG_DIR = join(ROOT, '.claude/config/ogp/backgrounds');
+const BG_EXAM_ALIAS = { 'civil-1-2': 'civil-1' };
+const brandPoolCache = new Map();
+async function brandPoolVisual(examKey) {
+  if (!examKey) return null;
+  const key = BG_EXAM_ALIAS[examKey] || examKey;
+  if (brandPoolCache.has(key)) return brandPoolCache.get(key);
+  let src = null;
+  for (const ext of ['png', 'webp', 'jpg']) {
+    const p = join(OGP_BG_DIR, `${key}.${ext}`);
+    if (existsSync(p)) {
+      const buf = await sharp(p).resize({ width: W, height: H, fit: 'cover', position: 'centre' }).png().toBuffer();
+      src = `data:image/png;base64,${buf.toString('base64')}`;
+      break;
+    }
+  }
+  brandPoolCache.set(key, src);
+  return src;
+}
+
 async function renderOne(mag, fonts) {
   let element;
   if (mag.variant === 'crop-safe-v4') {
     // V4: 三重安全領域レイアウト（qualifier/magazineName/proof/benefit）。lines[] は使用しない。
+    // 背景解決順: visualAsset（個別 opt-in）→ ブランド写真プール（spec.examKey）→ fillBg 決定論的背景
     let visualSrc = null;
     if (mag.visualAsset) {
       const vpath = join(ROOT, mag.visualAsset);
       if (!existsSync(vpath)) {
-        console.warn(`  warn: ${mag.id} visualAsset が見つかりません（${mag.visualAsset}）→ fillBg 決定論的背景へフォールバック`);
+        console.warn(`  warn: ${mag.id} visualAsset が見つかりません（${mag.visualAsset}）→ ブランド写真プールへフォールバック`);
       } else {
         const vmeta = await sharp(vpath).metadata();
         if (vmeta.width !== W || vmeta.height !== H) {
@@ -508,6 +530,9 @@ async function renderOne(mag, fonts) {
           visualSrc = `data:${mime};base64,${vbuf.toString('base64')}`;
         }
       }
+    }
+    if (!visualSrc) {
+      visualSrc = await brandPoolVisual(mag.examKey);
     }
     element = renderTemplate(
       'note-cover-g2',

@@ -107,6 +107,9 @@ cover:
 
 `visualPrompt`は画像生成の指示元、`visualAsset`は生成済み素材の相対パス。公開画像へ文字として描画しない。
 
+> [!important]
+> **背景は資格別ブランド写真プールへ統一（2026-07-24 決定）**。V4 の既定背景は `visualAsset` ではなく、サイト OGP と共有する `.claude/config/ogp/backgrounds/<exam-key>.png`（brand-image-system.md §3 の wide 原版）を generator が自動で敷く＝**サイトと note の視覚言語を統一**する。`visualPrompt`/`visualAsset` は「記事固有モチーフでの個別上書き」の opt-in として仕様に残すが、パイロットでは不使用（Codex 個別素材6枚は撤去・manifest は superseded 記録）。プールに無い資格は決定論的背景（紙面グラデ＋グリッド）へフォールバック。
+
 ### 5.3 レイアウト
 
 - `leadIn`：list-safe上部

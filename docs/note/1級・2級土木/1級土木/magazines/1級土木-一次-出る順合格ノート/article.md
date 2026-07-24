@@ -17,8 +17,6 @@ cover:
   hiSuffix: "問分析"
   benefit: "頻度分析で攻め所がわかる"
   meta: "有料記事"
-  visualPrompt: "積み上がる問題カードと頻度を示す棒グラフの抽象背景"
-  visualAsset: "img/cover-visual.png"
 ---
 # 1級土木 第1次検定｜出る順 合格ノート（過去12年の頻度分析で施工管理法を攻める）
 

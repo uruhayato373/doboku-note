@@ -16,8 +16,6 @@ cover:
   hiSuffix: "問 全解説"
   benefit: "印刷して繰り返し解ける"
   meta: "note限定PDF"
-  visualPrompt: "印刷された問題用紙の束と鉛筆を抽象化した学習素材"
-  visualAsset: "img/cover-visual.png"
 ---
 # 2級土木 第1次検定｜過去問PDF（令和3〜7年度 前期後期 全630問・全選択肢解説）
 
