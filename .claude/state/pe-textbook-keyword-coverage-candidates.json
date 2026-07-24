@@ -2,7 +2,7 @@
   "schema": "pe-textbook-keyword-coverage-candidates/v1",
   "note": "機械抽出の候補データ。statusHint は暫定（末尾 ? 付き）で確定 A〜G ではない。A〜G は Evaluator が判定する。",
   "generatedAt": null,
-  "inputsHash": "364e3538c10a43a5",
+  "inputsHash": "f03eb802027e739d",
   "source": {
     "textbookDir": "docs/textbook/技術士（総監）/テキスト/総監標準テキスト",
     "hubPath": ".local/r2/posts/pe-comprehensive-management/keyword-2026/article.mdx",
@@ -35,8 +35,8 @@
       "linkSlugs": 658,
       "auxiliaryTerms": 121,
       "phantomHubLinks": 0,
-      "duplicateSlugRegistrations": 9,
-      "registryPhantoms": 1,
+      "duplicateSlugRegistrations": 10,
+      "registryPhantoms": 0,
       "hubMissingKeywordLinks": 4
     },
     "pagePoolSize": 728,
@@ -12156,6 +12156,13 @@
         ]
       },
       {
+        "slug": "business-continuity-plan",
+        "sections": [
+          "2.1",
+          "5.5"
+        ]
+      },
+      {
         "slug": "product-safety",
         "sections": [
           "2.2",
@@ -12205,9 +12212,7 @@
         ]
       }
     ],
-    "registryPhantoms": [
-      "bcp-crisis-management"
-    ],
+    "registryPhantoms": [],
     "hubMissingKeywordLinks": [
       {
         "slug": "cost-benefit-analysis",

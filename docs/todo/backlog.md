@@ -96,16 +96,6 @@ page/category の合成ロジック共通化（2026-06-25 アセスメント起�
 
 ## 🟡 中 — 2〜3ヶ月以内
 
-### 総監キーワード網羅 Phase 3（keyword-relations 同期＋残整理）
-タグ: [総監] [コンテンツ] [設定]
-
-Phase 1-2（2026-07-24 完了・A=134/B=19/C=181/F=64・D/E/G=0）の残タスク。前提＝**他セッションの `src/config/keyword-relations.json` 未コミット変更の解消**（現在は末尾改行のみの差分。所有権確認のうえ）。
-
-- `npm run build-keyword-relations` を実行し、新規2 slug（`landscape-act`・`cost-benefit-analysis`）の関連語を自動生成（現状はページ内手動 RelatedKeywords のみで機能は充足）
-- registry phantom `bcp-crisis-management` を pe-chapters.json 5.5 と keyword-relations.json から整理（実体は `business-continuity-plan` に統合済み・ハブ非リンクで利用者影響なし）
-- 重複 slug 登録9件（`risk-assessment` 2.1/5.2 等）の正規セクション寄せ要否を判断（意図的な分野横断が大半・対応表 `.claude/state/pe-textbook-keyword-coverage.json` linkIntegrity 参照）
-- 完了条件: check系グリーン＋`npm run audit-pe-textbook-keyword-coverage` で registry phantom 0
-
 ### Playwright E2Eスモークテストを導入
 タグ: [品質] [E2E] [Claude Code候補]
 

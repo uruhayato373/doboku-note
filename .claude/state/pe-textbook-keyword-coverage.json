@@ -145,9 +145,7 @@
         ]
       }
     ],
-    "registryPhantoms": [
-      "bcp-crisis-management"
-    ],
+    "registryPhantoms": [],
     "hubMissingKeywordLinks": [
       {
         "slug": "environmental-basic-act",
@@ -169,7 +167,9 @@
         "slug": "telework",
         "title": "テレワーク"
       }
-    ]
+    ],
+    "registryPhantomsResolvedNote": "bcp-crisis-management は 2026-07-24 Phase3 で business-continuity-plan へ差し替え解消（phase3.registryPhantom 参照）",
+    "duplicateSlugRegistrationsDecision": "KEEP（原文の複数節掲載の忠実反映・phase3.duplicateSlugDecision 参照）"
   },
   "conflictResolutions": [
     {
@@ -10820,5 +10820,65 @@
       }
     ]
   },
-  "phase2Note": "Phase 2（2026-07-24）: D/E バックログを実装。implemented-new=新規2ページ / implemented-edit=補強15箇所 / verified-covered=現物確認で既に十分 / verified-current=Gはページが現行版。commit は phase2.commit を参照。"
+  "phase2Note": "Phase 2（2026-07-24）: D/E バックログを実装。implemented-new=新規2ページ / implemented-edit=補強15箇所 / verified-covered=現物確認で既に十分 / verified-current=Gはページが現行版。commit は phase2.commit を参照。",
+  "phase3": {
+    "date": "2026-07-24",
+    "keywordRelationsSync": {
+      "done": true,
+      "note": "他セッションの keyword-relations.json 未コミット差分は末尾改行のみ（意味的に空）と確認のうえ build-keyword-relations を実行。660 keywords・全 slug 関連5件・isolated 0。新規 landscape-act / cost-benefit-analysis を含む。"
+    },
+    "registryPhantom": {
+      "resolved": "bcp-crisis-management",
+      "action": "pe-chapters 5.5 の phantom slug を実体 business-continuity-plan へ差し替え（キーワード集原文 L1237 が 5.5 で同ページへリンク済みのため削除でなく差し替えが正）。pe-keyword-nav.ts のコメントも過去例へ更新。",
+      "remaining": 0
+    },
+    "orphanRegistration": {
+      "registered": [
+        {
+          "slug": "s-plus-3e",
+          "section": "6.1"
+        },
+        {
+          "slug": "energy-conservation-act",
+          "section": "6.1"
+        },
+        {
+          "slug": "renewable-energy-act",
+          "section": "6.1"
+        },
+        {
+          "slug": "top-runner-system",
+          "section": "6.1"
+        },
+        {
+          "slug": "telework",
+          "section": "3.2"
+        },
+        {
+          "slug": "labor-cost-ratio",
+          "section": "3.2"
+        },
+        {
+          "slug": "human-relations-management",
+          "section": "3.3"
+        },
+        {
+          "slug": "environmental-basic-act",
+          "section": "6.3"
+        }
+      ],
+      "note": "build-keyword-relations の orphan 警告 9 件のうち 8 件を pe-chapters へ登録（エネルギー4件はハブ原文リンク済みなのに未登録という既存ドリフト）。ナビ（SectionKeywords）到達と関連語生成が回復。",
+      "intentionallyExcluded": [
+        {
+          "slug": "general-overview",
+          "reason": "第1章総論。pe-chapters は 2〜6 章構成で構造上対象外（カテゴリ導線から到達）"
+        }
+      ]
+    },
+    "duplicateSlugDecision": {
+      "decision": "KEEP（維持）",
+      "count": 10,
+      "rationale": "キーワード集2026原文が同一キーワードを複数節に掲載している（実測: 労働安全衛生法=ハブL502(3.2)+L1107(5.3)、労働基準法=L481+L1106、リスク評価=L129(2.1)+L1061(5.2)、BCP・BCM=L137(2.1)+L1237(5.5)）。pe-chapters の重複登録は原文への忠実反映であり正規セクション寄せは行わない。"
+    }
+  }
 }

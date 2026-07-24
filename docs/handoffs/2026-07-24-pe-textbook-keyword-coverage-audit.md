@@ -76,12 +76,17 @@ node .tmp/patch-pe-cov.mjs                            # 親再検証オーバー
 - **最終分布**: A=134 / B=19 / C=181 / **D=0 / E=0** / F=64 / **G=0**（検証0エラー・phase2 36項目に action/commit 記録）。
 - **実装 commit**: `5e6de564b9`（社会環境）→`a7f3073009`（安全）→`c0013fcc14`（経済性）→`318a6b4c80`（人的・情報）→ バッチ5（配線・本 handoff 更新）。
 
-## 未解決事項（Phase 3 以降）
+## Phase 3 実装（2026-07-24 同日・keyword-relations 同期＋registry phantom 整理）
 
-- **keyword-relations 同期の保留**: 新規2 slug の関連語自動生成（`npm run build-keyword-relations`）は、他セッションの keyword-relations.json 未コミット変更が解消してから実行（backlog 登録済み）。ページ内の手動 RelatedKeywords は完備なので利用者影響は軽微。
+- **keyword-relations 同期完了**: 他セッションの未コミット差分が末尾改行のみ（意味的に空・生成物）と確認のうえ `build-keyword-relations` 実行。660 keywords・全 slug 関連5件・isolated 0・新規2 slug 生成。
+- **registry phantom 解消**: `bcp-crisis-management` は削除でなく **実体 `business-continuity-plan` へ差し替え**（キーワード集原文がハブ L1237＝5.5 危機管理で同ページへリンク済みのため。削除だと 5.5 ナビから BCP が消える）。`pe-keyword-nav.ts` のコメント例も過去例へ更新。**audit 再実行で registry phantom 0**。
+- **orphan 8件を pe-chapters へ登録**（ビルド警告 9→1）: エネルギー4件（s-plus-3e/省エネ法/再エネ特措法/トップランナー＝**ハブ原文リンク済みなのに未登録という既存ドリフト**）＋telework/labor-cost-ratio(3.2)・human-relations-management(3.3)・environmental-basic-act(6.3)。ナビ到達と関連語生成が回復。general-overview は第1章総論で構造上対象外（意図的除外）。
+- **重複 slug 登録の判断=KEEP（10件）**: キーワード集原文が同一キーワードを複数節に掲載していることをハブ実測で裏取り（労働安全衛生法 L502/L1107・労働基準法 L481/L1106・リスク評価 L129/L1061・BCP L137/L1237）。原文忠実の意図的重複であり正規セクション寄せは行わない。
+- 検証: pe-chapters/keyword-relations/coverage JSON すべて valid・type-check クリア・audit で phantom 0 / registry phantom 0 / links 658 維持。coverage JSON `phase3` に全記録。
+
+## 未解決事項
+
 - **deploy は別指示**: commit/PR まで。サイト実公開は `/deploy`（develop→main）でユーザー判断。R2 の OGP 同期は main push 時に CI が実施。
-- 重複 slug 登録9件の正規セクション寄せは引き続き要判断（意図的な分野横断重複が大半）。
-- registry phantom `bcp-crisis-management` の整理も keyword-relations 所有権解消後。
 
 ## 再監査の回し方
 
