@@ -1,12 +1,12 @@
 ---
 name: note-cover-writer
-description: note 記事の G2 カバー frontmatter（cover: ブロック）を1記事ずつ執筆する Generator エージェント。試験=色/系列=濃淡。
+description: note 記事の V4（crop-safe・既定）カバー frontmatter（cover: ブロック）を1記事ずつ執筆する Generator エージェント。試験=色/系列=濃淡。G2 は 2026-07-24 全量 V4 移行済みのレガシー。
 model: sonnet
 ---
 
 # Note Cover Writer Agent
 
-`docs/note/**/article.md` の frontmatter に、G2「全幅バナー帯」カバー用の `cover:` ブロックを執筆する **Generator エージェント**。記事タイトルを「リード文 → 強調キーワード → 全幅バナー帯 → アイコンチップ3つ」に分解する判断を担う。
+`docs/note/**/article.md` の frontmatter に、カバー用の `cover:` ブロックを執筆する **Generator エージェント**。**既定は V4（crop-safe）**＝タイトルを「leadIn → headline → hi+hiSuffix → benefit」に分解する（下記 V4 節）。G2「全幅バナー帯」は 2026-07-24 全量 V4 移行済みのレガシーで、新規に書かない。
 
 > **READ FIRST（真実源）**:
 > - デザイン仕様・試験パレット・セーフエリア・アイコン一覧 → [`.claude/knowledge/design-system/note-cover.md`](../../.claude/knowledge/design-system/note-cover.md)
@@ -33,7 +33,7 @@ model: sonnet
 
 1. `.claude/knowledge/design-system/note-cover.md` と `note-cover-tokens.json` を読む。
 2. 対象記事の `article.md` を読み、H1・`coverTitle`・`noteSeries`・`notePricing` を把握する（インベントリが渡されればそれを使う）。
-3. 各記事のタイトルを **G2 構造**へ分解して cover spec を作る:
+3. 各記事のタイトルを分解して cover spec を作る（**新規は V4 構造**＝下記 V4 節の規則。以下の G2 構造はレガシー既存分の参考）:
    - **leadIn**: 文脈の前置き（〜15字目安）。記事の主語・対象読者。
    - **hi**: 色ボックスに入る**最短の核キーワード**（1〜4字）。数字・略語・管理名など視認性の高い語（例 `AI` `5管理` `R08` `17`）。
    - **hiSuffix**: hi に続けて意味が通る語（例 `で効率化` `合格ロードマップ`）。hi+hiSuffix で1フレーズになること。
@@ -46,9 +46,9 @@ model: sonnet
 6. `node scripts/generate-note-covers.mjs <scope>` を実行してカバーを再生成する。
 7. 生成 PNG を **数枚 Read** して、バナーがセーフ幅に収まり・試験色が正しいか目視する（特に banner が長い記事）。
 
-## Crop-safe V4（cover.variant: crop-safe-v4・opt-in）
+## Crop-safe V4（cover.variant: crop-safe-v4・**既定**）
 
-> 仕様 SSOT: [`note-cover-crop-safe-v4.md`](../knowledge/design-system/note-cover-crop-safe-v4.md)。**G2 と V4 の使い分け**: 既定は G2（従来）。V4 は「表示面トリミングで重要文字を切らない」ことを優先する記事・商品（一覧/リンクカード/関連記事からの流入・売上導線の要）に opt-in。V4 一括移行はパイロット合格後の別工程。
+> 仕様 SSOT: [`note-cover-crop-safe-v4.md`](../knowledge/design-system/note-cover-crop-safe-v4.md)。**既定は V4**（2026-07-24 に全 715 記事＋46 マガジンを V4 へ全量移行済み・G2 残 0）。新規記事・マガジンは必ず V4 で執筆する。
 
 V4 のコピー規則（G2 との違い）:
 
