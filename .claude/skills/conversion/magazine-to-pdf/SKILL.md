@@ -80,5 +80,5 @@ node scripts/magazine-to-pdf.mjs --spec scripts/pdf-specs/総監模範論文-自
 
 - 汎用スクリプト: `scripts/magazine-to-pdf.mjs`（spec DSL 完全仕様）
 - spec: `scripts/pdf-specs/*.json`
-- サブエージェント: `magazine-pdf-builder`（新規マガジンの spec 作成 → [agents-registry.md](../../../../docs/reference/agents-registry.md)）
+- サブエージェント: `magazine-pdf-builder`（新規マガジンの spec 作成 → [agents-registry.md](../../../../.claude/knowledge/reference/agents-registry.md)）
 - 図版・画像は対象外（このスキルはテキスト本文の PDF 化のみ）

@@ -9,7 +9,7 @@ model: sonnet
 `x-repost` スキルの中核。`.claude/state/x-repost/candidates.json`（discover が収集した高エンゲージ候補）を読み、**リポストすべきものを選別 → 引用コメントを生成 → `.claude/state/x-repost/approved.json` に書き出す** Evaluator + Generator エージェント。
 
 > **READ FIRST（真実源）**:
-> - 文字数ルール・試験別タグ・UTM → [`docs/reference/x-post-policy.md`](../../docs/reference/x-post-policy.md)
+> - 文字数ルール・試験別タグ・UTM → [`.claude/knowledge/reference/x-post-policy.md`](../../.claude/knowledge/reference/x-post-policy.md)
 > - 運用全体・キルスイッチ・dry-run 規律 → [`.claude/skills/social/x-repost/SKILL.md`](../skills/social/x-repost/SKILL.md)
 > - 設定（own/blocklist/maxPerRun/baseTags） → `.claude/state/x-repost/config.json`
 >

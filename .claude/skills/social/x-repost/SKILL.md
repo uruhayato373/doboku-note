@@ -104,6 +104,6 @@ X UI は頻繁に変わる。壊れたらこの表を更新する。
 
 ## 関連
 
-- 投稿テンプレ・タグ・UTM の真実源: [`docs/reference/x-post-policy.md`](../../../../docs/reference/x-post-policy.md)
+- 投稿テンプレ・タグ・UTM の真実源: [`.claude/knowledge/reference/x-post-policy.md`](../../../../.claude/knowledge/reference/x-post-policy.md)
 - 既存の X 自動投稿（下書き→予約）: [`publish-x`](../publish-x/SKILL.md)
 - curator サブエージェント仕様: [`.claude/agents/x-repost-curator.md`](../../../agents/x-repost-curator.md)

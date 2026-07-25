@@ -1,8 +1,8 @@
 ---
-title: docs/reference/ 索引
+title: .claude/knowledge/reference/ 索引
 ---
 
-# docs/reference/ 索引
+# .claude/knowledge/reference/ 索引
 
 CLAUDE.md 本体に載せるには詳細すぎるが、特定の作業時に参照したいドキュメント群。CLAUDE.md は「判断の土台」、このディレクトリは「作業マニュアル」という役割分担。
 
@@ -28,7 +28,7 @@ CLAUDE.md 本体に載せるには詳細すぎるが、特定の作業時に参�
 - **新スキル追加時** → `skills-registry.md` を更新、必要なら `workflows.md` も
 - **新エージェント追加時** → `agents-registry.md` と CLAUDE.md のモデル指定クイックリファレンス表の両方を更新
 - **新資格追加時** → `exam-content-policy.md` の整備方針差分表・レビュー視点表の両方に列を追加
-- **コンテンツ品質ルール変更時** → `docs/reference/content-principles.md`（真実源）をまず更新し、`content-authoring.md` は参照として揃える
+- **コンテンツ品質ルール変更時** → `.claude/knowledge/reference/content-principles.md`（真実源）をまず更新し、`content-authoring.md` は参照として揃える
 
 ## CLAUDE.md との関係
 
@@ -36,7 +36,7 @@ CLAUDE.md の「リファレンス索引」セクションから各ファイル�
 
 ## frontmatter スキーマ
 
-`docs/reference/*.md` には YAML frontmatter を必ず付与する。Obsidian の Front Matter Title プラグインがこの `title:` を読み、ファイルツリー・タブ・グラフ・検索の表示名を日本語化する。
+`.claude/knowledge/reference/*.md` には YAML frontmatter を必ず付与する。Obsidian の Front Matter Title プラグインがこの `title:` を読み、ファイルツリー・タブ・グラフ・検索の表示名を日本語化する。
 
 ### 必須フィールド
 

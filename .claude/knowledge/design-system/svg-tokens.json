@@ -80,8 +80,8 @@
   },
   "references": {
     "cssVars":          "src/styles/globals.css の --color-* と整合",
-    "designPrinciples": "docs/design-system/design-system.md",
-    "prohibitedRules":  "docs/design-system/design-system.md",
+    "designPrinciples": ".claude/knowledge/design-system/design-system.md",
+    "prohibitedRules":  ".claude/knowledge/design-system/design-system.md",
     "createSkill":      ".claude/skills/authoring/create-svg/SKILL.md",
     "auditSkill":       ".claude/skills/quality/check-mdx/SKILL.md"
   }

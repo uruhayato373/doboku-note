@@ -7,7 +7,7 @@
 //   - 行は「しやすさ」順（高→低）: 経済性管理・社会環境管理・情報管理・安全管理・人的資源管理
 //   - 2列目はテキストが長いので列幅を十分取り、必要なら2行折り返し
 //
-// 設計ルール（docs/reference/note-svg-policy.md 準拠）:
+// 設計ルール（.claude/knowledge/reference/note-svg-policy.md 準拠）:
 //   - キャンバス幅 W=1200（同一記事内で統一）
 //   - フォント ≥ 22px（補足を含めて 18px 以上）
 //   - 色トークン（src/styles/globals.css と整合）のみ使用

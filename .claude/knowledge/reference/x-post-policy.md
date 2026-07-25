@@ -15,7 +15,7 @@ Evaluator（`x-post-qa`）が共通参照する。
 
 ## 2. 文字数ルール（短文デフォルト＋長文 opt-in）
 
-**既定は 280 weighted chars 以下の短文**。運用アカウントは **@doboku373**（旧 @dobokunotecom は 2026-06-12 凍結）。Premium 加入時は技術上限が約 25,000 字まで拡張されるが、**タイムラインは長文でも「さらに表示」で折りたたまれ、リーチ・エンゲージメントは短文＋強いフックが有利**。よって **280 短文を全投稿のデフォルト**に保ち、長文は「詳しい解説／合格体験ストーリー／制度解説」に限って §2.1 の opt-in で使う。
+**既定は 280 weighted chars 以下の短文**。運用アカウントとプロフィール値の機械可読SSOTは **`.claude/config/x-account.json`**（現在 `@doboku373`、旧 @dobokunotecom は 2026-06-12 凍結）。Premium 加入時は技術上限が約 25,000 字まで拡張されるが、**タイムラインは長文でも「さらに表示」で折りたたまれ、リーチ・エンゲージメントは短文＋強いフックが有利**。よって **280 短文を全投稿のデフォルト**に保ち、長文は「詳しい解説／合格体験ストーリー／制度解説」に限って §2.1 の opt-in で使う。
 
 > **旧記述の訂正（2026-07-02・X Premium 加入）**: 以前は「280 超は `publish-x` 予約時に X 側で reject される」としていたが、これは Premium 加入前の前提。**Premium では 280 超も投稿可能**（reject されない）。ただし上記リーチ理由から短文をデフォルトに保つ。長さは伸びの要因ではない——効くのはフックと文面のユニーク性（§11）。
 
@@ -93,7 +93,7 @@ docs/sns/x/
 
 ### 5.1 切り口分割（angle-slice）型の作法
 
-→ **真実源**: [`docs/reference/sns-repurpose-policy.md`](./sns-repurpose-policy.md)（X / IG / YT 全チャネル共通）
+→ **真実源**: [`.claude/knowledge/reference/sns-repurpose-policy.md`](./sns-repurpose-policy.md)（X / IG / YT 全チャネル共通）
 
 1 テーマを 6 切り口に刻み、単発投稿 ×6（1 日 1 本で約 1 週間分のネタ）として量産する。総監はキーワード 740+ ページと note 記事が厚く、最も効く。`angle=all` を指定すると6切り口すべてを生成する。`type` パラメータとは直交するため、`question` 型でも `keyword` 型でも任意の切り口で書ける。
 
@@ -152,7 +152,7 @@ docs/sns/x/
 
 ## 5.5 リパーパス戦略（同一コアを6切り口で展開）
 
-→ §5.1 の angle-slice 型を参照。X / IG / YT 全チャネル共通の戦略詳細は [`docs/reference/sns-repurpose-policy.md`](./sns-repurpose-policy.md) を参照。投稿型↔角度（`angle`）の全対応表は [`docs/reference/content-angle-policy.md`](./content-angle-policy.md) §6.3 参照。
+→ §5.1 の angle-slice 型を参照。X / IG / YT 全チャネル共通の戦略詳細は [`.claude/knowledge/reference/sns-repurpose-policy.md`](./sns-repurpose-policy.md) を参照。投稿型↔角度（`angle`）の全対応表は [`.claude/knowledge/reference/content-angle-policy.md`](./content-angle-policy.md) §6.3 参照。
 
 ## 6. URL / UTM
 
@@ -175,8 +175,13 @@ docs/sns/x/
 | 1級土木 | 「1級土木 過去問 #N」 | 試験色 青（`exam-palette` civil-1） |
 | 2級土木 | 「2級土木 過去問 #N」 | 試験色 緑（`exam-palette` civil-2） |
 
-- 色の真実源は `docs/design-system/note-cover-tokens.json` の `exams`（`exam-palette.mjs` 経由）。総監の管理分野色のみ従来維持。
+- 色の真実源は `.claude/knowledge/design-system/note-cover-tokens.json` の `exams`（`exam-palette.mjs` 経由）。総監の管理分野色のみ従来維持。
+- 1級・2級カードはスマートフォン可読性を優先し、主題52px・本文35px・最大6行とする。本文は要点パネル内で縦中央に置き、下半分が無目的な空白にならないようにする。総監カードは既存レイアウトを維持する。
 - カードは任意（テキスト投稿でも可）。画像添付はエンゲージメントを上げるが必須ではない。
+
+### 試験日の参照規則
+
+1級・2級土木の試験日は `.claude/config/exam-calendar.json` を唯一の機械可読SSOTとする。投稿本文、カウントダウン、カード、販売計画へ日付を書く前に同ファイルを参照し、年度更新時は全国建設研修センターの公式ページで再確認する。`npm run check-exam-calendar` が既知の誤日付とSSOT破損を検出する。
 
 ## 8. 5 軸ルーブリック（`x-post-qa` 採点）
 
@@ -237,7 +242,7 @@ docs/sns/x/
 
 **SSOT**: `docs/sns/x/{draft,published}/<NNN>-*/status.json` が「いつ・何を予約/投稿したか」の唯一の台帳。tweet ごとに `status`（`scheduled`/`posted`）・`scheduled_at`・`text` を持つ。予約・投稿の事実はここにしか書かない。
 
-**門番**: `npm run x-schedule-guard`（[scripts/x-schedule-guard.mjs](../../scripts/x-schedule-guard.mjs)）。全 status.json を読み、以下を判定して **BLOCK があれば exit 1**（文字数 280 超・リンク 404 と同格のブロッキング）。
+**門番**: `npm run x-schedule-guard`（[scripts/x-schedule-guard.mjs](../../../scripts/x-schedule-guard.mjs)）。全 status.json を読み、以下を判定して **BLOCK があれば exit 1**（文字数 280 超・リンク 404 と同格のブロッキング）。
 
 | 検査 | 判定 | 対応する §11 / 事故 |
 |---|---|---|
@@ -266,7 +271,7 @@ docs/sns/x/
 
 > **現況（2026-07-07 更新）**: `publish-x` の**予約運用は再開済み**（@doboku373）。運用者判断で、凍結の実因＝「同一/類似文面の連続予約」を `x-schedule-guard`（近似重複<0.62・同時刻衝突・1 日 3 本上限）で機械的に潰す前提で予約補助を再開した。**再開後も §11.5 のガード付きフロー（writer→guard 緑→--dry-run→--queue 緑→本番→x-sync-status）を必須とし、ガードが赤なら予約しない・1 週間分ずつ**。下の 3 段階チェックリストは「フットプリントをどこまで広げてよいか」の観測ベース目安として残す（例: 1 日上限を 3→緩和してよいか等）。安全 posture を勘で広げないための枠組みは引き続き有効。
 >
-> **背景（経緯）**: 2026-06-12 凍結後、いったん完全手動・低頻度に縮退した（[01_SNS集客戦略 §凍結縮退](../project/03_SNS/01_SNS集客戦略.md)）。**このチェックリストは §11.2/11.5 の運用値を変更しない**（頻度・間隔・機械ゲートの数値はそれぞれの節が真実源）。
+> **背景（経緯）**: 2026-06-12 凍結後、いったん完全手動・低頻度に縮退した（[01_SNS集客戦略 §凍結縮退](../../../docs/project/03_SNS/01_SNS集客戦略.md)）。**このチェックリストは §11.2/11.5 の運用値を変更しない**（頻度・間隔・機械ゲートの数値はそれぞれの節が真実源）。
 
 復帰は 3 段階。**各段の全項目を満たすまで次段に進まない**。判断根拠（アカウント状態・投稿実績）は observable な事実で確認する（推測で先に進めない → [[no-overstate-external-specs]]）。
 

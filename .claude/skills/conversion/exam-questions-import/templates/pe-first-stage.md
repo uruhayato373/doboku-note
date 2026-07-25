@@ -105,7 +105,7 @@ toc_max_heading_level: 2
 
 ## 必須コンポーネント
 
-- `<ExamPoint>` — 1 問あたり 1 個、論点総括（`docs/reference/content-principles.md` §5）。
+- `<ExamPoint>` — 1 問あたり 1 個、論点総括（`.claude/knowledge/reference/content-principles.md` §5）。
 
 ## RelatedKeywords の扱い
 
@@ -146,5 +146,5 @@ python3 -c "import fitz,os; os.makedirs('/tmp/verify',exist_ok=True); d=fitz.ope
 ## 参照
 
 - `docs/textbook/技術士第一次試験/` — ソース PDF ディレクトリ
-- `docs/reference/content-principles.md` — コンテンツ原則
-- `docs/reference/exam-content-policy.md` — 試験別整備方針（pe-first-stage 列）
+- `.claude/knowledge/reference/content-principles.md` — コンテンツ原則
+- `.claude/knowledge/reference/exam-content-policy.md` — 試験別整備方針（pe-first-stage 列）

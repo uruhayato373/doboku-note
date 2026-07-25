@@ -38,7 +38,7 @@ import { dirname, resolve } from "path";
 // svg-tokens.json の colorsAllowList をロード（P6 用）
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const TOKENS_PATH = resolve(__dirname, "../../../../../../../docs/design-system/svg-tokens.json");
+const TOKENS_PATH = resolve(__dirname, "../../../../../../../.claude/knowledge/design-system/svg-tokens.json");
 let SVG_TOKENS = null;
 try {
   SVG_TOKENS = JSON.parse(readFileSync(TOKENS_PATH, "utf-8"));

@@ -44,9 +44,9 @@ const templatesConfig = require(path.join(process.cwd(), '.claude/config/ogp/tem
 const rulesConfig = require(path.join(process.cwd(), '.claude/config/ogp/rules.json'));
 const textConfig = require(path.join(process.cwd(), '.claude/config/ogp/text.json'));
 
-// 試験区分→テーマ色（外枠・チップ）。色の真実源は docs/design-system/note-cover-tokens.json (base)。
+// 試験区分→テーマ色（外枠・チップ）。色の真実源は .claude/knowledge/design-system/note-cover-tokens.json (base)。
 // ここは category(フルslug) → exam キー(short) の対応のみを持つ（色は重複させない）。
-const coverTokens = require(path.join(process.cwd(), 'docs/design-system/note-cover-tokens.json'));
+const coverTokens = require(path.join(process.cwd(), '.claude/knowledge/design-system/note-cover-tokens.json'));
 const CATEGORY_TO_EXAM_KEY = {
   'pe-comprehensive-management': 'pe-comprehensive',
   'civil-construction-1': 'civil-1',

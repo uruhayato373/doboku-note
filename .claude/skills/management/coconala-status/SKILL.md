@@ -54,5 +54,5 @@ user-invocable: true
 
 - エージェント: `.claude/agents/coconala-operator.md`
 - 機械ガード: `scripts/check-coconala-wiring.mjs`（`npm run check-coconala-wiring`）
-- 運用 SSOT: `docs/reference/coconala-operations.md` / KPI・撤退ライン: `docs/note/1級・2級土木/ココナラ展開キット.md` §6
+- 運用 SSOT: `.claude/knowledge/reference/coconala-operations.md` / KPI・撤退ライン: `docs/note/1級・2級土木/ココナラ展開キット.md` §6
 - 受注処理は `/coconala-order`

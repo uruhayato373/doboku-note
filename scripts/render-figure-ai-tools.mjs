@@ -13,7 +13,7 @@
 //   - 右（danger系）: AIでは埋まらない3項目
 //   - 右カラム下部に brand 帯で「教材が埋める」CTA
 //
-// 設計ルール（docs/reference/note-svg-policy.md 準拠）:
+// 設計ルール（.claude/knowledge/reference/note-svg-policy.md 準拠）:
 //   - キャンバス幅 1200（同一記事内で統一）
 //   - フォント ≥ 22px（補足を含めて 18px 以上）
 //   - 色トークン（src/styles/globals.css と整合）のみ使用

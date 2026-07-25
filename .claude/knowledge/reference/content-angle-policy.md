@@ -62,9 +62,9 @@ SNS 投稿の **編集角度（content angle）** の真実源。過去問クイ
 
 1. **体験角度は「断片・フック」まで** — 受験記・解答再現の一次情報は note 有料（E-1〜E-4）の囲い込み資産。SNS の `experience` 投稿でフル放出しない（X policy の「思考・体験の断片」と同方針）。フル展開は note 有料へ誘導する。
 2. **数字角度は捏造厳禁・出典明記** — `number` 投稿の数値は出典（白書年度・統計名）を必ず添え、`note-fact-checker` 相当の数値突合を通す。曖昧な概数を権威付けに使わない。
-3. **verbatim 重複の回避** — note/サイト本文をそのまま転記しない。SNS は検索インデックス上の競合にはなりにくいが、note 有料の中身を割らないこと・角度を変えて要約することを守る（[note コンテンツ計画の Red Line #4](../note/技術士総監/noteコンテンツ計画.md)）。
+3. **verbatim 重複の回避** — note/サイト本文をそのまま転記しない。SNS は検索インデックス上の競合にはなりにくいが、note 有料の中身を割らないこと・角度を変えて要約することを守る（[note コンテンツ計画の Red Line #4](../../../docs/note/技術士総監/noteコンテンツ計画.md)）。
 4. **絵文字禁止** — 全媒体共通（CLAUDE.md §2）。強調は媒体のテンプレ意匠で表現する。
-5. **送客整合** — 角度に応じた送客先を守る。`howto`/`reason` はサイト（体系解説）、`experience`/`conclusion`（メリット）は note へ。UTM は [02_チャネル動線設計.md §4](../project/03_SNS/02_チャネル動線設計.md) 準拠。
+5. **送客整合** — 角度に応じた送客先を守る。`howto`/`reason` はサイト（体系解説）、`experience`/`conclusion`（メリット）は note へ。UTM は [02_チャネル動線設計.md §4](../../../docs/project/03_SNS/02_チャネル動線設計.md) 準拠。
 
 ## 6. `angle` パラメータ分業の設計
 
@@ -94,7 +94,7 @@ SNS 投稿の **編集角度（content angle）** の真実源。過去問クイ
 | `howto` | 「〜の手順／コツ」 | 手順 N ステップ → 注意点 → サイト誘導 |
 
 > [!warning] cover CTA のモード分岐
-> Reels では cover CTA を Reels モードで分岐させる（カルーセル流用 CTA の禁止。[01_SNS集客戦略.md §6](../project/03_SNS/01_SNS集客戦略.md)）。角度型でも同じ分岐を踏襲する。
+> Reels では cover CTA を Reels モードで分岐させる（カルーセル流用 CTA の禁止。[01_SNS集客戦略.md §6](../../../docs/project/03_SNS/01_SNS集客戦略.md)）。角度型でも同じ分岐を踏襲する。
 
 ### 6.3 X 投稿型との対応
 
@@ -138,7 +138,7 @@ SNS 投稿の **編集角度（content angle）** の真実源。過去問クイ
 
 ## 参照
 
-- 戦略: [01_SNS集客戦略.md](../project/03_SNS/01_SNS集客戦略.md)（コンテンツ角度フレームワーク節）/ [02_チャネル動線設計.md](../project/03_SNS/02_チャネル動線設計.md)（UTM・季節）
+- 戦略: [01_SNS集客戦略.md](../../../docs/project/03_SNS/01_SNS集客戦略.md)（コンテンツ角度フレームワーク節）/ [02_チャネル動線設計.md](../../../docs/project/03_SNS/02_チャネル動線設計.md)（UTM・季節）
 - パラレルポリシー: [x-post-policy.md](./x-post-policy.md) / [ig-carousel-skill.md](./ig-carousel-skill.md) / [ig-reels-policy.md](./ig-reels-policy.md) / [ig-stories-policy.md](./ig-stories-policy.md)
-- 資産源: [note 技術士総監コンテンツ計画](../note/技術士総監/noteコンテンツ計画.md) / [1級土木集客記事クラスター](../note/1級・2級土木/1級土木/1級土木-集客記事クラスター.md)
+- 資産源: [note 技術士総監コンテンツ計画](../../../docs/note/技術士総監/noteコンテンツ計画.md) / [1級土木集客記事クラスター](../../../docs/note/1級・2級土木/1級土木/1級土木-集客記事クラスター.md)
 - 数値検証: `note-fact-checker` エージェント（数字角度の突合）

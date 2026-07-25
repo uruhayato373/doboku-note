@@ -97,7 +97,7 @@ GSC/GA4 を横断して「どの URL が・なぜ検索に効いていないか�
    - redirect 追加 / noindex / 統合は、承認後に該当 Generator or 人間が別途実施
 
 10. **finalize（継続運用）**
-    - **観測・判断ログ追記**: `docs/reference/gsc-management.md` の「観測・判断ログ」へ、当月の理由別件数・
+    - **観測・判断ログ追記**: `.claude/knowledge/reference/gsc-management.md` の「観測・判断ログ」へ、当月の理由別件数・
       前月差分・決めた打ち手を 1 エントリ追記（`/gsc-review` と同じ append-only ログ＝月次で「何を見つけ→
       直し→効いたか」を追跡し continuity を担保）。数値は当該 run の manifest / report を引用。
     - マーカーは fetch が `gsc-ui/last-run.json` に自動更新済み（`check-gsc-ui-due` が次月の期限を surface）。
@@ -115,6 +115,6 @@ UI 変更点を特定し、role/label/text ベースで selector を更新して
 - 実装指示書: `docs/project/04_運営/gsc-ga4-playwright-automation-spec.md`
 - CSV schema: `references/csv-schema.md`
 - 復旧手順: `references/recovery.md`
-- GSC 管理 SSOT: `docs/reference/gsc-management.md`
-- Playwright 認証: `docs/reference/playwright-auth-profiles.md`
-- 計測の原則: `docs/reference/measurement-incidents.md`（CI 供給が正・外部検証の罠）
+- GSC 管理 SSOT: `.claude/knowledge/reference/gsc-management.md`
+- Playwright 認証: `.claude/knowledge/reference/playwright-auth-profiles.md`
+- 計測の原則: `.claude/knowledge/reference/measurement-incidents.md`（CI 供給が正・外部検証の罠）

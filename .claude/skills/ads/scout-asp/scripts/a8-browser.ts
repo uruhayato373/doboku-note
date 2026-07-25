@@ -38,7 +38,7 @@ const applyBudget = require("../../../../scripts/ads/check-a8-apply-budget.cjs")
 
 // ─── 設定 ──────────────────────────────────────────
 const PROJECT_ROOT = path.resolve(__dirname, "../../../../..");
-// ログインプロファイルはメインチェックアウト固定 (docs/reference/playwright-auth-profiles.md)。
+// ログインプロファイルはメインチェックアウト固定 (.claude/knowledge/reference/playwright-auth-profiles.md)。
 const PROFILE_ROOT = "/Users/minamidaisuke/doboku-note";
 const PROFILE_DIR = path.join(PROFILE_ROOT, ".local/playwright-a8-profile");
 // ★A8 の認証はセッション Cookie で永続プロファイルに残らない。login.mjs が storageState に

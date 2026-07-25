@@ -16,7 +16,7 @@
  *       ＝ lib/note-cardify.mjs（URL 行カード化）と同型。
  *     - アップロード完了は `<img>` 数増加を最大 40s ポーリング（note の遅延対策）。
  *
- * 真実源: docs/reference/note-api-verification.md「live 本文整合性検査」
+ * 真実源: .claude/knowledge/reference/note-api-verification.md「live 本文整合性検査」
  */
 import { existsSync } from 'node:fs';
 import { resolve } from 'node:path';

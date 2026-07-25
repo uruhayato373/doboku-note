@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // docs/note/技術士総監/magazines/総監模範論文-ゼネコン/img/ にペルソナ・プロファイル図版 1 枚を生成する。
 //
-// 設計ルール（docs/reference/note-svg-policy.md 準拠）:
+// 設計ルール（.claude/knowledge/reference/note-svg-policy.md 準拠）:
 //   - キャンバス幅 1200 固定
 //   - フォント ≥ 22px（補足 18px まで許容）
 //   - カラートークン（src/styles/globals.css と整合）のみ使用

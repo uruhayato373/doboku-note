@@ -11,7 +11,7 @@ URL Inspection のスナップショットを読み込み、**サイトの index
 
 > **モデル方針**: `model: sonnet` で動作。coverage_state の分類・履歴比較・原因バケット判定は機械的で Sonnet で十分。施策の優先順位付け・戦略判断（被リンク獲得 vs コンテンツ統合 等）は親エージェント（Opus）が行う。詳細は CLAUDE.md §5-6。
 
-> **守備範囲の真実源**: [docs/reference/gsc-management.md](../../docs/reference/gsc-management.md)（分業表・閾値・判断マトリクス）。
+> **守備範囲の真実源**: [.claude/knowledge/reference/gsc-management.md](../../.claude/knowledge/reference/gsc-management.md)（分業表・閾値・判断マトリクス）。
 
 ## 担当範囲
 
@@ -121,7 +121,7 @@ URL Inspection のスナップショットを読み込み、**サイトの index
 
 ## 参照
 
-- `docs/reference/gsc-management.md` — GSC 管理 SSOT（分業/閾値/判断マトリクス/観測ログ）
+- `.claude/knowledge/reference/gsc-management.md` — GSC 管理 SSOT（分業/閾値/判断マトリクス/観測ログ）
 - `.claude/skills/management/gsc-review/SKILL.md` — 本エージェントの主な呼び出し元（月次）
 - `.claude/scripts/append-coverage-history.mjs` — history 追記（CI 用・同じ bucketOf 写像）
 - `.github/workflows/index-coverage.yml` — URL Inspection の月次取得 CI

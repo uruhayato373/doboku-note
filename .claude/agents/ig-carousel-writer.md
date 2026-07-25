@@ -9,10 +9,10 @@ model: sonnet
 技術士・総合技術監理キーワードの Instagram カルーセル設定ファイル（`slide-data.json` v2）を、1キーワードずつ丁寧に執筆する **Generator エージェント**。
 
 > **READ FIRST（真実源）**:
-> - スキーマ・字数ルール・figure 判断基準・5 軸の意図 → [`docs/reference/ig-carousel-policy.md`](../../docs/reference/ig-carousel-policy.md)
-> - 6切り口リパーパス戦略（全チャネル共通） → [`docs/reference/sns-repurpose-policy.md`](../../docs/reference/sns-repurpose-policy.md)
-> - 過去問パック（B シリーズ・exam-packs）のデザイン仕様 → [`docs/design-system/instagram-carousel.md`](../../docs/design-system/instagram-carousel.md)
-> - **角度型（angle モード）の 6 切り口・資産マッピング・Red Line** → [`docs/reference/content-angle-policy.md`](../../docs/reference/content-angle-policy.md)
+> - スキーマ・字数ルール・figure 判断基準・5 軸の意図 → [`.claude/knowledge/reference/ig-carousel-policy.md`](../../.claude/knowledge/reference/ig-carousel-policy.md)
+> - 6切り口リパーパス戦略（全チャネル共通） → [`.claude/knowledge/reference/sns-repurpose-policy.md`](../../.claude/knowledge/reference/sns-repurpose-policy.md)
+> - 過去問パック（B シリーズ・exam-packs）のデザイン仕様 → [`.claude/knowledge/design-system/instagram-carousel.md`](../../.claude/knowledge/design-system/instagram-carousel.md)
+> - **角度型（angle モード）の 6 切り口・資産マッピング・Red Line** → [`.claude/knowledge/reference/content-angle-policy.md`](../../.claude/knowledge/reference/content-angle-policy.md)
 >
 > 本ファイルは運用スペック（モデル・I/O・進め方）のみ。
 >
@@ -40,7 +40,7 @@ model: sonnet
 
 ## 進め方
 
-1. `docs/reference/ig-carousel-policy.md` と `docs/reference/sns-repurpose-policy.md` を読む。
+1. `.claude/knowledge/reference/ig-carousel-policy.md` と `.claude/knowledge/reference/sns-repurpose-policy.md` を読む。
 2. `angle` が指定されていれば、その切り口でカバーの `hook` とスライド構成を設計する（repurpose-policy §2 カルーセル欄参照）。未指定なら文脈から最適な切り口を選ぶ。いずれの切り口でも必ず1パック作れる。
 3. キーワード MDX `.local/r2/posts/{category}/{slug}/article.mdx` を読み、定義・試験ポイント・関連キーワード・管理区分を把握する。
 3. 既存 SVG `.local/r2/posts/{category}/{slug}/img/*.svg` の有無を確認する。あれば figure スライドでの再利用を検討する。
@@ -82,7 +82,7 @@ model: sonnet
 
 ### 角度型カルーセル（angle モード）の執筆ルール【草案】
 
-過去問偏重から脱し、**角度が立った既存 note 記事を源に** 6 切り口で展開するモード（[content-angle-policy.md](../../docs/reference/content-angle-policy.md)）。パイロットは `counter`（反論）→ 保存狙い。
+過去問偏重から脱し、**角度が立った既存 note 記事を源に** 6 切り口で展開するモード（[content-angle-policy.md](../../.claude/knowledge/reference/content-angle-policy.md)）。パイロットは `counter`（反論）→ 保存狙い。
 
 > [!note] Phase 1 は既存 C モード（notebook-* 型）を再利用＝レンダリング可能
 > 角度型は **Phase 1 では既存の「C 単独 KW モード」スライド型（`notebook-cover` / `notebook-board` / `notebook-cta`）を再利用**して slide-data.json を組む。これらは汎用の見出し＋本文を描画するため **renderer のコード改修なしで PNG 化できる**（`ig-post-create --slug` 系の C モードで描画）。`meta.angle` は caption 生成と QA が読むメタ情報。
@@ -120,7 +120,7 @@ model: sonnet
   - **markdown 表**（`| col | col |` 形式）→ `table: { headers: [...], rows: [...] }` フィールドへ
   - これらを bodyLines に散文で書くと PNG 上で読みにくく、しかも lint で E1/E2 エラーになる
 - 執筆後は必ず `node scripts/lint-exam-pack-structure.mjs r07/pack-NN` を実行して構造違反 0 を確認する
-- **色・フォント・余白を本文に書かない**。デザインは `docs/design-system/instagram-carousel-tokens.json` が真実源で、`quiz-slides.mjs` が tokens から塗る。slide-data.json には文字列・数値・選択肢のみを書く。
+- **色・フォント・余白を本文に書かない**。デザインは `.claude/knowledge/design-system/instagram-carousel-tokens.json` が真実源で、`quiz-slides.mjs` が tokens から塗る。slide-data.json には文字列・数値・選択肢のみを書く。
 - 過去問パック（exam モード）の `cover.title` は管理名（経済性管理／人的資源管理／情報管理／安全管理／社会環境管理）のうち 1 つ。156px で 1 行に収まる長さ。
 - 過去問パックで 5管理別配色を意識する記述（`color`, `theme`, `mgmtColor` 等のキー）を slide-data.json に書かない。**5管理別配色は廃止済み**で、識別は cover-title のテキストのみ。
 

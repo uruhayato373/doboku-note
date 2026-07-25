@@ -23,7 +23,7 @@
  *   損ねない）」に従い markdown リンクを意図的に用いる（①は対象外）。価格（②）は staleness ゆえ CTA でも
  *   禁止（価格は note 販売ページ＝src/lib/note-magazines.ts が SoT）。マーカー〜次の空行までを CTA 域とみなす。
  *
- * 真実源: docs/reference/content-principles.md §14-c
+ * 真実源: .claude/knowledge/reference/content-principles.md §14-c
  * 呼出元: scripts/note-lint.mjs（pre-commit ゲート）/ /note-prepublish-review Phase 1
  * 兄弟:   .claude/scripts/check-note-bold-paren.mjs（同じ「1チェッカー×2呼出元」パターン）
  *

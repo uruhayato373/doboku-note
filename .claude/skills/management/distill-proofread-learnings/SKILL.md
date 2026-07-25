@@ -64,7 +64,7 @@ description: >
 このスキルは以下を読み取れる環境で動く:
 - 会話履歴（ユーザーの指示・修正指示・補足情報）
 - `git log` / `git diff`（`.local/r2/posts/` 配下の MDX/SVG 変更）
-- `docs/reference/content-principles.md`（現状のルールセット）
+- `.claude/knowledge/reference/content-principles.md`（現状のルールセット）
 - `.claude/skills/` 配下の関連 SKILL.md
 
 ## 実行手順
@@ -83,7 +83,7 @@ description: >
    - ユーザーの肯定（「それで進めて」「良い」と認められたパターン）
 
 3. **既存原則の読み込み**:
-   - `docs/reference/content-principles.md` 全文
+   - `.claude/knowledge/reference/content-principles.md` 全文
    - 対象範囲のスキル（keyword-page, create-svg, review-mobile 等）
 
 ### Phase 2: 分類
@@ -105,7 +105,7 @@ description: >
   - 反映先（ユーザー承認後）: `cem-qa.md` + `content-principles.md` + `templates/cem.md` の **3 ファイル同期更新が必要**
 - **リライト側候補**: 視点タグ追加・Phase 対応の見直し・拡張パターン A-G 改修・NLM 照合プロンプト調整など
   - 反映先（ユーザー承認後）: `exam-keyword-cycle/SKILL.md` ほか該当 SKILL.md の修正
-- **議論の置き場**: 採点・リライト方法論の改修は即適用せず、`docs/todo/backlog.md` の「🟣 判断待ち」セクションに1件として起票してユーザーの判断を仰ぐ。タスク・判断の単一正源は `docs/todo/`（**GitHub Issue は使わない**＝真実源 `docs/reference/information-architecture.md`）
+- **議論の置き場**: 採点・リライト方法論の改修は即適用せず、`docs/todo/backlog.md` の「🟣 判断待ち」セクションに1件として起票してユーザーの判断を仰ぐ。タスク・判断の単一正源は `docs/todo/`（**GitHub Issue は使わない**＝真実源 `.claude/knowledge/reference/information-architecture.md`）
 - **2 回ルール**: 1 回限りの違和感は次サイクル再観察、2 回以上浮上したパターンのみ起票推奨
 
 ### Phase 3: 候補の surface
@@ -157,7 +157,7 @@ surface した候補を Markdown レポート形式で会話に出力し、ユ�
 
 ### 1. [ルール名]
 
-**対象**: `docs/reference/content-principles.md` §X
+**対象**: `.claude/knowledge/reference/content-principles.md` §X
 **根拠**: 
 - 今回 eco-label・csr の 2 件で同パターンを適用
 - ユーザー指示: 「タイプI に統一して」（発話: 2026-04-20）
@@ -209,7 +209,7 @@ surface した候補を Markdown レポート形式で会話に出力し、ユ�
 **観察**: [両サイクルで共通して見られた現象]
 **仮説**: [採点軸の改修案 or リライト方法論の改修案]
 **反映先（ユーザー承認後、Claude が同期更新）**:
-- 採点側の場合: `.claude/agents/cem-qa.md` + `docs/reference/content-principles.md` + `templates/cem.md`（3 ファイル同期）
+- 採点側の場合: `.claude/agents/cem-qa.md` + `.claude/knowledge/reference/content-principles.md` + `templates/cem.md`（3 ファイル同期）
 - リライト側の場合: `.claude/skills/quality/quality-cycle/SKILL.md` ほか該当 SKILL.md
 
 **起票先**: `docs/todo/backlog.md` の「🟣 判断待ち」セクションに1件として記録し、ユーザーの判断を仰ぐ（即適用しない）。
@@ -245,8 +245,8 @@ CLAUDE.md「ハーネス設計原則」との整合:
 
 ## 参照
 
-- `docs/reference/content-principles.md` — 校正ルールの真実源（主な更新対象）
-- `docs/reference/skills-design-guide.md` — スキル改訂のガイドライン
+- `.claude/knowledge/reference/content-principles.md` — 校正ルールの真実源（主な更新対象）
+- `.claude/knowledge/reference/skills-design-guide.md` — スキル改訂のガイドライン
 - `.claude/skills/authoring/keyword-page/SKILL.md` — 総監キーワードの校正ルールを参照
 - `.claude/skills/authoring/improve-article/SKILL.md` — 校正オーケストレータ
 - `.claude/skills/quality/review-mobile/SKILL.md` — モバイル視認性ルール

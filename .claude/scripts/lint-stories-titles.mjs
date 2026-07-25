@@ -5,7 +5,7 @@
  * 大型タイトル（過去問 cover / Stories ハイライト hero）の visualLength を計測し、
  * fit-title.mjs の 4 段階閾値（OK/WARN/NOTICE/ERROR）で判定する。
  *
- * 真実源: docs/reference/ig-highlight-design-policy.md §4
+ * 真実源: .claude/knowledge/reference/ig-highlight-design-policy.md §4
  * util:   .claude/scripts/lib/sns-common/fit-title.mjs
  *
  * スキャン対象:
@@ -36,7 +36,7 @@ const EXAM_PACKS_DIRS = ['cem', 'civil-1', 'civil-2', 'pe-construction'].map(
 
 // tokens.json から閾値を読む
 const tokens = JSON.parse(
-  readFileSync(resolve(ROOT, 'docs/design-system/instagram-carousel-tokens.json'), 'utf8'),
+  readFileSync(resolve(ROOT, '.claude/knowledge/design-system/instagram-carousel-tokens.json'), 'utf8'),
 );
 
 // Stories ハイライト用 (highlightStories.typography)

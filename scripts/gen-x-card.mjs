@@ -112,6 +112,20 @@ function parseTweetsFile(content, exam = "pe-comprehensive") {
       let keywordName = "";
       const kwMatch = allText.match(cfg.titleRe);
       if (kwMatch) keywordName = kwMatch[1].trim();
+      if (!keywordName && exam !== "pe-comprehensive") {
+        keywordName = sectionTitle
+          .replace(/[（(][^）)]*[）)]\s*$/, "")
+          .split("・")[0]
+          .trim();
+      }
+      const headerLabel =
+        exam !== "pe-comprehensive" && !kwMatch && allText.includes("#経験記述")
+          ? `${cfg.badge} 経験記述`
+          : cfg.headerLabel;
+      const displaySectionTitle =
+        exam !== "pe-comprehensive" && allText.includes("#経験記述")
+          ? "施工経験記述のコツ"
+          : sectionTitle.replace(/\s*[（(][^）)]*[）)]\s*$/, "");
 
       // 本文コンテンツ（先頭ヘッダ行・URL・ハッシュタグ・区切り線を除外）
       const contentLines = lines.slice(1).filter((l) => {
@@ -119,53 +133,64 @@ function parseTweetsFile(content, exam = "pe-comprehensive") {
         if (!t) return false;
         if (t === "---") return false;
         if (/^【/.test(t)) return false; // 試験ラベル行（【…】）を除外
-        if (/^#[^\d]/.test(t)) return false;
+        if (/^#/.test(t)) return false;
         if (/^https?:\/\//.test(t)) return false;
         if (/^(解説|詳しい解説|全解説) →/.test(t)) return false;
         return true;
       });
+      if (exam !== "pe-comprehensive" && contentLines[0]) {
+        const firstSentence = contentLines[0].split("。")[0];
+        const focusMatch =
+          firstSentence.match(/最初に迷うのが(.+)$/) ||
+          firstSentence.match(/、(.+?)と感じる人/) ||
+          firstSentence.match(/覚える枠は(.+)$/);
+        if (focusMatch) keywordName = focusMatch[1].replace(/[「」]/g, "").trim();
+      }
 
-      return { num, sectionTitle, keywordName, category, contentLines, exam };
+      return {
+        num,
+        sectionTitle: displaySectionTitle,
+        keywordName,
+        category,
+        contentLines,
+        exam,
+        headerLabel,
+      };
     })
     .filter(Boolean);
 }
 
 // ─── SVG 生成 ────────────────────────────────────────────────────────────────
 
-function buildSvg({ num, sectionTitle, keywordName, category, contentLines, exam = "pe-comprehensive" }) {
+function buildSvg({ num, sectionTitle, keywordName, category, contentLines, exam = "pe-comprehensive", headerLabel: parsedHeaderLabel }) {
   const cfg = EXAM_CONFIG[exam] || EXAM_CONFIG["pe-comprehensive"];
   // 1級/2級は試験色固定、総監は管理分野色（無ければデフォルト）
   const { bg, fill } = cfg.colors || CATEGORY_COLORS[category] || DEFAULT_COLORS;
-  const headerLabel = cfg.headerLabel;
+  const headerLabel = parsedHeaderLabel || cfg.headerLabel;
   const catLabel = cfg.badge || category || "総合技術監理";
   const badgeW = Math.max(100, catLabel.length * 23 + 40);
   const badgeX = 1160 - badgeW;
 
-  const CONTENT_START_Y = 252;
-  const MAX_CONTENT_Y = 612;
-  const LINE_HEIGHT = 38;
-
-  const tspans = [];
-  let currentY = CONTENT_START_Y;
-  let first = true;
-
-  for (const line of contentLines.slice(0, 8)) {
-    if (currentY > MAX_CONTENT_Y) break;
-    for (const wline of wrapJa(line)) {
-      if (currentY > MAX_CONTENT_Y) break;
-      if (first) {
-        tspans.push(
-          `<tspan x="60" y="${currentY}">${escapeXml(wline)}</tspan>`
-        );
-        first = false;
-      } else {
-        tspans.push(
-          `<tspan x="60" dy="${LINE_HEIGHT}">${escapeXml(wline)}</tspan>`
-        );
-      }
-      currentY += LINE_HEIGHT;
-    }
-  }
+  const isCivil = exam !== "pe-comprehensive";
+  const bodySize = isCivil ? 35 : 27;
+  const lineHeight = isCivil ? 49 : 38;
+  const maxChars = isCivil ? 27 : 32;
+  const maxLines = isCivil ? 6 : 10;
+  const wrappedLines = contentLines
+    .slice(0, 8)
+    .flatMap((line) => wrapJa(line, maxChars))
+    .slice(0, maxLines);
+  const panelTop = 232;
+  const panelBottom = 600;
+  const textBlockHeight = Math.max(bodySize, wrappedLines.length * lineHeight);
+  const contentStartY = isCivil
+    ? Math.round(panelTop + (panelBottom - panelTop - textBlockHeight) / 2 + bodySize)
+    : 252;
+  const tspans = wrappedLines.map((line, index) =>
+    index === 0
+      ? `<tspan x="${isCivil ? 82 : 60}" y="${contentStartY}">${escapeXml(line)}</tspan>`
+      : `<tspan x="${isCivil ? 82 : 60}" dy="${lineHeight}">${escapeXml(line)}</tspan>`
+  );
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
@@ -181,7 +206,7 @@ function buildSvg({ num, sectionTitle, keywordName, category, contentLines, exam
   <text x="${badgeX + Math.round(badgeW / 2)}" y="40" font-family="${FONT}" font-size="21" font-weight="700" fill="${bg}" text-anchor="middle" dominant-baseline="middle">${escapeXml(catLabel)}</text>
 
   <!-- Keyword name -->
-  <text x="60" y="148" font-family="${FONT}" font-size="44" font-weight="800" fill="#222222">${escapeXml(keywordName)}</text>
+  <text x="60" y="148" font-family="${FONT}" font-size="${isCivil ? 52 : 44}" font-weight="800" fill="#222222">${escapeXml(keywordName)}</text>
 
   <!-- Section title -->
   <text x="60" y="194" font-family="${FONT}" font-size="28" font-weight="400" fill="#555555">${escapeXml(sectionTitle)}</text>
@@ -189,8 +214,10 @@ function buildSvg({ num, sectionTitle, keywordName, category, contentLines, exam
   <!-- Divider -->
   <line x1="60" y1="212" x2="1140" y2="212" stroke="${bg}" stroke-width="2" opacity="0.35"/>
 
+  ${isCivil ? `<rect x="60" y="${panelTop}" width="1080" height="${panelBottom - panelTop}" rx="22" fill="white" opacity="0.58"/>` : ""}
+
   <!-- Content lines -->
-  <text font-family="${FONT}" font-size="27" fill="#333333">${tspans.join("")}</text>
+  <text font-family="${FONT}" font-size="${bodySize}" font-weight="${isCivil ? 600 : 400}" fill="#333333">${tspans.join("")}</text>
 
   <!-- Footer band -->
   <rect y="625" width="1200" height="50" fill="${bg}"/>
@@ -241,14 +268,18 @@ async function generateForDraft(draftId, force = false) {
 
   for (const tweet of tweets) {
     const nn = String(tweet.num).padStart(2, "0");
-    const pngPath = join(imgDir, `tweet-${nn}-${slug}.png`);
+    const existingName = readdirSync(imgDir)
+      .filter((name) => name.startsWith(`tweet-${nn}-`) && name.endsWith(".png"))
+      .sort()[0];
+    const outputName = existingName || `tweet-${nn}-${slug}.png`;
+    const pngPath = join(imgDir, outputName);
     if (existsSync(pngPath) && !force) {
       console.log(`  ⏭  ${nn} 既存スキップ`);
       continue;
     }
     const svg = buildSvg(tweet);
     await sharp(Buffer.from(svg)).png().toFile(pngPath);
-    console.log(`  ✅ ${nn} → tweet-${nn}-${slug}.png`);
+    console.log(`  ✅ ${nn} → ${outputName}`);
   }
 }
 

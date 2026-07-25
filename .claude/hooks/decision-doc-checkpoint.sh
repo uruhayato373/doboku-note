@@ -4,7 +4,7 @@
 # 未コミットの決定/ポリシー文書変更があれば、並行SoTの整合確認を促す（advisory・非ブロック）。
 
 CHANGED=$(git status --porcelain 2>/dev/null | sed 's/^...//' \
-  | grep -E "決定.*\.md$|ADR.*\.md$|^docs/reference/|noteコンテンツ計画\.md$|^\.claude/(skills|agents)/|note-magazines\.ts$")
+  | grep -E "決定.*\.md$|ADR.*\.md$|^.claude/knowledge/reference/|noteコンテンツ計画\.md$|^\.claude/(skills|agents)/|note-magazines\.ts$")
 
 if [ -n "$CHANGED" ]; then
   echo ""

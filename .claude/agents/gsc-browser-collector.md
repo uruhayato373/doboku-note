@@ -83,6 +83,6 @@ GSC/GA4 の UI CSV を取得する既存スクリプトを実行し、生成物�
 ## 参照
 
 - `docs/project/04_運営/gsc-ga4-playwright-automation-spec.md` — 実装指示書（真実源）
-- `docs/reference/playwright-auth-profiles.md` — 永続プロファイル運用
-- `docs/reference/measurement-incidents.md` — 計測は CI 供給が正・外部検証の罠
+- `.claude/knowledge/reference/playwright-auth-profiles.md` — 永続プロファイル運用
+- `.claude/knowledge/reference/measurement-incidents.md` — 計測は CI 供給が正・外部検証の罠
 - `.claude/skills/management/google-search-growth/SKILL.md` — 主な呼び出し元

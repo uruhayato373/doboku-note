@@ -1,5 +1,5 @@
 {
-  "_note": "ココナラ出品の『投入用』機械可読 SoT。coconala-publish.mjs / coconala-edit.mjs が serviceId で引いてフォームへ流し込む。価格・タイトル・状態・URL は src/lib/coconala-services.ts（カタログ SoT）が真実源＝ここには価格を書かない（安全弁§4「価格の直書き禁止」）。散文の戦略・文面の設計意図は docs/note/1級・2級土木/ココナラ展開キット.md §3。category(master/sub/type)・genreFacets の value は 2026-07-18 実機確定。coconala 側でカテゴリ/facet がリニューアルされたら `node scripts/coconala-discover.mjs --advance --cat 12 --sub 254 --type 764` で現行 options を再取得して是正する。スキーマは docs/reference/coconala-operations.md §2.1b。",
+  "_note": "ココナラ出品の『投入用』機械可読 SoT。coconala-publish.mjs / coconala-edit.mjs が serviceId で引いてフォームへ流し込む。価格・タイトル・状態・URL は src/lib/coconala-services.ts（カタログ SoT）が真実源＝ここには価格を書かない（安全弁§4「価格の直書き禁止」）。散文の戦略・文面の設計意図は docs/note/1級・2級土木/ココナラ展開キット.md §3。category(master/sub/type)・genreFacets の value は 2026-07-18 実機確定。coconala 側でカテゴリ/facet がリニューアルされたら `node scripts/coconala-discover.mjs --advance --cat 12 --sub 254 --type 764` で現行 options を再取得して是正する。スキーマは .claude/knowledge/reference/coconala-operations.md §2.1b。",
   "listings": {
     "coconala-shindan": {
       "category": {

@@ -2,7 +2,7 @@
 /**
  * check-image-assets.mjs — 画像アセットの品質ガード（サイズ上限・危険ファイル名・未参照・webp 欠落）。
  *
- * 閾値 SSOT: .claude/config/image-limits.json（真実源 docs/reference/image-policy.md）。
+ * 閾値 SSOT: .claude/config/image-limits.json（真実源 .claude/knowledge/reference/image-policy.md）。
  * baseline: .claude/state/quality/image-baseline.json（既存超過を grandfather）。
  *
  * チェック:

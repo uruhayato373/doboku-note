@@ -163,7 +163,7 @@ productId は `coconala:<serviceId>` 形式（接頭辞でチャネル判別＝`
 | `総監 出題テーマ分析 PDF` / serviceId `coconala-sokan-bunseki-pdf`（¥2,500） | `coconala:coconala-sokan-bunseki-pdf` |
 | （新サービス追加時） | `coconala:<src/lib/coconala-services.ts の id と完全一致>` |
 
-id の実在は `npm run check-coconala-wiring` が pre-commit で機械検証する（カタログに無い `coconala:*` は commit を止める）。命名規則 → `docs/reference/sales-tracking.md`、運用 SSOT → `docs/reference/coconala-operations.md`
+id の実在は `npm run check-coconala-wiring` が pre-commit で機械検証する（カタログに無い `coconala:*` は commit を止める）。命名規則 → `.claude/knowledge/reference/sales-tracking.md`、運用 SSOT → `.claude/knowledge/reference/coconala-operations.md`
 
 ## 重複チェック
 
@@ -208,5 +208,5 @@ id の実在は `npm run check-coconala-wiring` が pre-commit で機械検証�
 
 - `.claude/state/sales/sales-log.json` — SSOT（販売履歴データ）
 - `src/lib/note-magazines.ts` — マガジン ID マスター
-- `docs/reference/sales-tracking.md` — 運用手順書
+- `.claude/knowledge/reference/sales-tracking.md` — 運用手順書
 - `.claude/skills/metrics/record-sales/SKILL.md` — 本エージェントの呼び出し元スキル

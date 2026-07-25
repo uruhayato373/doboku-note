@@ -245,7 +245,7 @@ mcp__claude_ai_Google_Drive__create_file(
 - **IG 予約投稿** → `publish-ig-bs`（`figure-reel-create` 出力の `reels/cover.png` を編集ステップでサムネ設定）
 - **品質採点** → `ig-carousel-qa`
 - **過去問 H21-R7 全網羅パック** → `ig-carousel-restyle`
-- **figure-*.svg を Stories / Reels の 9:16 キャンバスに配置する静止画変換** → `docs/reference/sns-image-policy.md §13`（本スキルが生成した 4:5 PNG はそのまま 9:16 中央に配置できる）
+- **figure-*.svg を Stories / Reels の 9:16 キャンバスに配置する静止画変換** → `.claude/knowledge/reference/sns-image-policy.md §13`（本スキルが生成した 4:5 PNG はそのまま 9:16 中央に配置できる）
 
 ## 注意
 

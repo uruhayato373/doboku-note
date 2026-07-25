@@ -10,7 +10,7 @@ user-invocable: true
 
 **実行環境**: ライブ fetch を伴うため **macOS（creds + 外部到達性あり）専用**。会社 PC（社内プロキシで Google API 遮断）では Phase 1 の取得が通らない。
 
-> その環境では本スキルではなく `/weekly-review` を使う（CI がコミットした `.claude/state/metrics/` のスナップショットを読む＝既定経路）。計測自体は CI/CD 供給が正で、ローカル creds 未設定は「計測基盤未整備」ではない。恒久ルール: `docs/reference/measurement-incidents.md`（2026-06-05）。
+> その環境では本スキルではなく `/weekly-review` を使う（CI がコミットした `.claude/state/metrics/` のスナップショットを読む＝既定経路）。計測自体は CI/CD 供給が正で、ローカル creds 未設定は「計測基盤未整備」ではない。恒久ルール: `.claude/knowledge/reference/measurement-incidents.md`（2026-06-05）。
 > なお `--no-fetch` を付ければ本スキルもコミット済み最新メトリクスで動く。
 
 ## なぜこのスキルがあるのか

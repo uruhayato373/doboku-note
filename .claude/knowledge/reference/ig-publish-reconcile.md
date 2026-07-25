@@ -10,7 +10,7 @@ Instagram カルーセルの「実際に公開されているか（現状確認�
 
 ## 1. アカウント SSOT（混乱の根本原因を断つ）
 
-実 IG アカウントは **`@dobokunotecom`**（X と同一ハンドル）。機械可読の真実源は `.claude/config/ig-account.json`。`docs/sns/instagram/profile.md` は人間向けプロフィール文案 SoT で、旧版の「`@doboku_note` 想定（未開設）」は**誤り**（是正済み）。スクリプトがハンドルを誤ると空振りするため、必ず config 経由で参照する（2026-06-25、誤ハンドルで照合が空振りした再発防止）。
+実 IG アカウントは **`@dobokunotecom`**。アカウントとプロフィール表示値の機械可読SSOTは `.claude/config/ig-account.json`。`docs/sns/instagram/profile.md` は設計理由・変更履歴であり、実値と競合した場合はconfigを正とする。Xは別アカウント `@doboku373`（`.claude/config/x-account.json`）。スクリプトがハンドルを誤ると空振りするため、必ずconfig経由で参照する。
 
 ## 2. SoT スキーマ（3 種）
 
@@ -93,6 +93,6 @@ Instagram カルーセルの「実際に公開されているか（現状確認�
 
 ## 関連
 
-- `docs/reference/ig-carousel-skill.md` — IG カルーセル運用全体
+- `.claude/knowledge/reference/ig-carousel-skill.md` — IG カルーセル運用全体
 - `.claude/skills/social/publish-ig-bs/SKILL.md` — 予約投稿エンジン（偽成功検証・セレクタ表）
-- `docs/reference/note-api-verification.md` — 同系統の note 版 reconciler（設計の手本）
+- `.claude/knowledge/reference/note-api-verification.md` — 同系統の note 版 reconciler（設計の手本）

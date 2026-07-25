@@ -82,7 +82,7 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 - **コンポーネント原則**: ExamPoint 最大 2 個、参考資料は公的 + 民間の両方必須、過去問への双方向バックリンク
 - **図**: 原則ゼロ。テキストとコンポーネントで表現
 - **執筆ツール**: `/keyword-page` スキル
-- **反映状況の監査**: 総監標準テキスト5管理と公開ページ（ハブ＋個別）の反映（A〜G）を突合する再監査は `npm run audit-pe-textbook-keyword-coverage`（read-only・決定的）。完全対応表 `.claude/state/pe-textbook-keyword-coverage.json`、補強(D)/新規(E)バックログと方針は [pe-textbook-keyword-coverage-report.md](../reviews/pe-textbook-keyword-coverage-report.md)
+- **反映状況の監査**: 総監標準テキスト5管理と公開ページ（ハブ＋個別）の反映（A〜G）を突合する再監査は `npm run audit-pe-textbook-keyword-coverage`（read-only・決定的）。完全対応表と実装判断は `.claude/state/pe-textbook-keyword-coverage.json` を真実源とする
 
 #### 総監ガイド（`group: guide`）
 
@@ -101,7 +101,7 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 - **網羅率**: 設問単位で 100%（漏らさない）
 - **構造**: 設問ごとに H2、解答・解説は `<details>` で開閉式。`<RelatedKeywords>` で関連キーワードへ
 - **執筆ツール**: `/pdf-to-mdx` `/pdf-to-mdx --exam cem` `/pdf-to-mdx --exam civil-construction-1`
-- **図版反映時の caption / alt**: **問題文に無い情報を一切追加しない**。構造・関係・分類など受験者が判断すべき情報を漏らさない。詳細・NG/OK 例は [docs/reference/image-policy.md §過去問図の caption / alt](./image-policy.md#過去問図の-caption--alt--問題文に無い情報を絶対に追加しない) 参照（2026-04-26 追加、Issue #128 起因）
+- **図版反映時の caption / alt**: **問題文に無い情報を一切追加しない**。構造・関係・分類など受験者が判断すべき情報を漏らさない。詳細・NG/OK 例は [.claude/knowledge/reference/image-policy.md §過去問図の caption / alt](./image-policy.md#過去問図の-caption--alt--問題文に無い情報を絶対に追加しない) 参照（2026-04-26 追加、Issue #128 起因）
 
 ---
 
@@ -198,4 +198,4 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 
 ---
 
-**真実源参照**: このファイル内の情報が他のドキュメント（CLAUDE.md・SKILL.md・エージェント定義）と矛盾した場合、`docs/reference/content-principles.md` > このファイル > 他 の優先順位で判断する。
+**真実源参照**: このファイル内の情報が他のドキュメント（CLAUDE.md・SKILL.md・エージェント定義）と矛盾した場合、`.claude/knowledge/reference/content-principles.md` > このファイル > 他 の優先順位で判断する。

@@ -2,7 +2,7 @@
 // sales-log.json に出現する productId が sales-recorder エージェントの mapping テーブルに
 // 文書化されているかを検証する（capability ドリフトの再発防止）。
 //
-// 背景: docs/reference/sales-tracking.md「新商品の追加」手順② は「新商品を売ったら
+// 背景: .claude/knowledge/reference/sales-tracking.md「新商品の追加」手順② は「新商品を売ったら
 // .claude/agents/sales-recorder.md の productId 推定ルールに追加する」と定めるが、
 // 人手の規律のため取りこぼす（2026-06、建設部門2次 選択科目マガジン・他科目R8予想 等が
 // mapping に1件も無く、エージェントに任せると半数が article:unknown-* に落ちて手作業化した）。
@@ -23,7 +23,7 @@
 //   node scripts/check-sales-mapping.mjs --staged   # pre-commit 用
 //   npm run check-sales-mapping
 //
-// 真実源: docs/reference/sales-tracking.md / .claude/agents/sales-recorder.md
+// 真実源: .claude/knowledge/reference/sales-tracking.md / .claude/agents/sales-recorder.md
 
 import { readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
@@ -137,6 +137,6 @@ for (const v of violations) {
 }
 console.error('');
 console.error('対処: .claude/agents/sales-recorder.md の productId 推定テーブルに該当行を追加し');
-console.error('      （命名規則は docs/reference/sales-tracking.md）、同一コミットに含めてください。');
+console.error('      （命名規則は .claude/knowledge/reference/sales-tracking.md）、同一コミットに含めてください。');
 console.error('      slug 自体が誤りなら sales-log.json を修正。緊急回避は SKIP_SALES_MAPPING=1。');
 process.exit(1);

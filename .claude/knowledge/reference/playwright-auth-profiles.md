@@ -11,7 +11,7 @@ Cookie・localStorage をディレクトリごと保持する。**一度ログ�
 
 | プロファイル (`.local/` 配下) | サービス | アカウント (SSOT) | 使用スクリプト | 状態 |
 |---|---|---|---|---|
-| `playwright-x-profile` | X (Twitter) | `@dobokunotecom` | `.claude/skills/social/x-repost/{x-repost-exec,x-repost-discover}.ts`, `.claude/skills/social/publish-x/publish-x.ts` | ✅ 稼働中 |
+| `playwright-x-profile` | X (Twitter) | `@doboku373` — `.claude/config/x-account.json` | `.claude/skills/social/x-repost/{x-repost-exec,x-repost-discover}.ts`, `.claude/skills/social/publish-x/publish-x.ts` | ✅ 稼働中 |
 | `playwright-ig-bs-profile` | Instagram（FB Business Suite 経由） | `@dobokunotecom` — `.claude/config/ig-account.json` | `.claude/skills/social/publish-ig-bs/publish-ig-bs.ts` | ✅ 稼働中 |
 | `playwright-note-profile` | note.com | note アカウント | note 投稿系スクリプト | ✅ 稼働中 |
 | `playwright-coconala-profile` | ココナラ | `dobokunote` / users/6197366 — `.claude/config/coconala-account.json` | `coconala-publish` / `coconala-edit` 系 | ✅ 稼働中 |
@@ -70,8 +70,9 @@ node login.mjs .local/playwright-coconala-profile https://coconala.com/login
 
 ## 関連ドキュメント
 
-- Instagram: `.claude/config/ig-account.json`（アカウント SSOT）, `docs/sns/instagram/`
-- ココナラ: `.claude/config/coconala-account.json`, `docs/reference/coconala-operations.md`, `src/lib/coconala-services.ts`
+- X: `.claude/config/x-account.json`（アカウント・プロフィール SSOT）, `docs/sns/x/`
+- Instagram: `.claude/config/ig-account.json`（アカウント・プロフィール SSOT）, `docs/sns/instagram/`
+- ココナラ: `.claude/config/coconala-account.json`, `.claude/knowledge/reference/coconala-operations.md`, `src/lib/coconala-services.ts`
 - X: `docs/sns/x/`
 - `.playwright-mcp/`（Playwright MCP のログ／ページダンプ。認証情報ではない）
 

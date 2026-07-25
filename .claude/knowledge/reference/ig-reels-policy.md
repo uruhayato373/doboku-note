@@ -3,11 +3,11 @@
 技術士・総合技術監理および 1 級土木施工管理技士の **Instagram Reels**（`reels/script.json` + `reels/caption.txt` + `reels/video.mp4`）を、agent が 1 パックずつ執筆・採点するための品質基準。`ig-reels-writer`（Generator）と `ig-reels-qa`（Evaluator）の両方がこの文書を真実源とする。
 
 関連:
-- SNS 戦略 v7（IG 一次・YT 派生） → [`docs/project/03_SNS/01_SNS集客戦略.md`](../project/03_SNS/01_SNS集客戦略.md)
-- カルーセル側の真実源 → [`docs/reference/ig-carousel-policy.md`](./ig-carousel-policy.md)
-- パック構造・ファイル配置 → [`docs/reference/ig-carousel-skill.md`](./ig-carousel-skill.md)
-- Reels モード分岐の設計 → [`docs/design-system/instagram-carousel-tokens.json`](../design-system/instagram-carousel-tokens.json) の `slides.cover.swipeTextReels`
-- **figure-*.svg 静止画を Reels に流用する場合**（過去問パック動画とは別ルート） → [`docs/reference/sns-image-policy.md §13`](./sns-image-policy.md)（4:5 figure を 9:16 中央配置）
+- SNS 戦略 v7（IG 一次・YT 派生） → [`docs/project/03_SNS/01_SNS集客戦略.md`](../../../docs/project/03_SNS/01_SNS集客戦略.md)
+- カルーセル側の真実源 → [`.claude/knowledge/reference/ig-carousel-policy.md`](./ig-carousel-policy.md)
+- パック構造・ファイル配置 → [`.claude/knowledge/reference/ig-carousel-skill.md`](./ig-carousel-skill.md)
+- Reels モード分岐の設計 → [`.claude/knowledge/design-system/instagram-carousel-tokens.json`](../design-system/instagram-carousel-tokens.json) の `slides.cover.swipeTextReels`
+- **figure-*.svg 静止画を Reels に流用する場合**（過去問パック動画とは別ルート） → [`.claude/knowledge/reference/sns-image-policy.md §13`](./sns-image-policy.md)（4:5 figure を 9:16 中央配置）
 - **figure カルーセルパックを「ナレーション付き解説リール」動画化する場合** → `node scripts/figure-reel-create.mjs --pack <topic>`（carousel/img の 4:5 PNG を 9:16 白パディング＋`reels/script.txt`を VOICEVOX TTS＋ffmpeg 合成）。**ただし「カルーセル貼り＋読み上げ」は discovery リールとしては薄く、§7（角度駆動リール）方針で量産停止**＝同テーマの重複回避はリール側を角度駆動に振る。本ルートは限定利用（2026-06-24 新設・2026-06-26 §7 で量産停止）。
 - **6 切り口の角度でフックを立てる discovery リールを作る場合**（推奨・新方針） → 本ドキュメント §7（`ig-reels-writer` を `mode:"angle"` で流用・記事資産起点）。
 
@@ -103,7 +103,7 @@ VOICEVOX の読み上げ速度を基準に **1 文字あたり 0.18-0.22 秒**�
 
 ### cover の swipeTextReels（v7 で追加）
 
-`docs/design-system/instagram-carousel-tokens.json` の `slides.cover.swipeTextReels` で **「答えは動画内で発表」**（または相当文言）を定義。`quiz-slides.mjs` の `buildQuizCover` が `height >= 1920`（Reels サイズ）の場合に自動分岐する。
+`.claude/knowledge/design-system/instagram-carousel-tokens.json` の `slides.cover.swipeTextReels` で **「答えは動画内で発表」**（または相当文言）を定義。`quiz-slides.mjs` の `buildQuizCover` が `height >= 1920`（Reels サイズ）の場合に自動分岐する。
 
 **禁忌**: narration や caption.txt に「スワイプで4問にチャレンジ」「スワイプで答えを見る」等のカルーセル前提 CTA を残してはいけない。Reels はスワイプではなく自動再生のため、視聴者の行動と矛盾する。
 
@@ -208,7 +208,7 @@ node .claude/skills/social/yt-shorts-create/scripts/per-problem-shorts.mjs \
 - **hook**: `chip`（上部チップ）/ `lead`（白の前振り）/ `punch`（アクセント＋下線の決め句）/ `sub`（灰の緊張サブ）/ `anchor`（巨大な薄い1字＝視線誘導, 例 `?`）
 - **point**: `label`（小見出し, 例「答え」）/ `big`（アクセントの reveal 語, 例「安全管理」）/ `onScreen`（本文・濃色）
 - **cta**: `onScreen`（行・URL は書かない）＋ フォローボタン自動。`\n` で改行。
-- **共通（任意）**: `character`（ブランドマスコット合成）= slug 文字列 `"pointing"` か `{ "pose":"explaining", "side":"left"|"right", "scale":0.42 }`。下隅にフェードイン＋せり上がりで登場。slug は [`.claude/config/character-poses.json`](../../.claude/config/character-poses.json)（真実源 [character-asset-policy.md](character-asset-policy.md)）。テキスト密度の高い point は片側・控えめ scale、hook はキネティック干渉を避け原則なし。
+- **共通（任意）**: `character`（ブランドマスコット合成）= slug 文字列 `"pointing"` か `{ "pose":"explaining", "side":"left"|"right", "scale":0.42 }`。下隅にフェードイン＋せり上がりで登場。slug は [`.claude/config/character-poses.json`](../../config/character-poses.json)（真実源 [character-asset-policy.md](character-asset-policy.md)）。テキスト密度の高い point は片側・控えめ scale、hook はキネティック干渉を避け原則なし。
 
 ```jsonc
 {
@@ -238,7 +238,7 @@ node .claude/skills/social/yt-shorts-create/scripts/per-problem-shorts.mjs \
 - **キネティック・フック**: hook に `lead` と `punch` が揃うとき、**lead 先行→ punch/anchor が reveal 時刻（ナレの約42%・最大2.2秒）に α フェードイン**する段階表示を自動適用（base/punch を別レイヤーで描画し overlay）。カバーは punch まで入った完成フック。
 - **声（speaker）**: 優先順 `--speaker` > script.json の `speaker` > 既定 **13（青山龍星・成熟男性）**。一人称の体験談には男性声が合う。VOICEVOX エンジンは `~/voicevox_engine_dl/macos-arm64/run`（Docker/アプリ無し環境のローカル起動）。
 - **VOICEVOX 未起動なら `--png-only`** でビジュアルだけ先に確認できる。
-- **キャラ合成（doboku-note 先生）**: スライドに `character: "<pose>"` を指定するとブランドマスコットを重ねられる（登場演出）。pose は [`.claude/config/character-poses.json`](../../.claude/config/character-poses.json) の slug、beat（hook/point/cta）に合うものを選ぶ。素材・追加手順・不変条件は [character-asset-policy.md](character-asset-policy.md)。声は同キャラの speaker 13 で統一。
+- **キャラ合成（doboku-note 先生）**: スライドに `character: "<pose>"` を指定するとブランドマスコットを重ねられる（登場演出）。pose は [`.claude/config/character-poses.json`](../../config/character-poses.json) の slug、beat（hook/point/cta）に合うものを選ぶ。素材・追加手順・不変条件は [character-asset-policy.md](character-asset-policy.md)。声は同キャラの speaker 13 で統一。
 
 ### 採点（ig-reels-qa・本タイプの軸読み替え）
 

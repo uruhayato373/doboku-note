@@ -131,7 +131,7 @@ note 販売は記事単位のため、article.md 単体では公開不可。次�
 
 - `.claude/agents/pe-secondary-exam-writer.md`（対の Generator）
 - `docs/textbook/技術士論文の書き方/技術士論文の書き方.pdf`（論述メソッドの真実源・非公開・原則抽出のみ）
-- `docs/reference/content-principles.md` — コンテンツ品質ルール
+- `.claude/knowledge/reference/content-principles.md` — コンテンツ品質ルール
 - `.local/r2/posts/pe-construction/{year}-{subject}/article.mdx` — 設問の真実源
 - `docs/note/技術士建設部門/noteコンテンツ計画.md` — 商品戦略・Red Line
 - `scripts/note-lint.mjs` — note 互換ゲート

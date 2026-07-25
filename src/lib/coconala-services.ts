@@ -16,7 +16,7 @@
  * セクションごと出ない）。満枠時は 'full'、季節オフは 'paused' へ flip する。
  *
  * 戦略・出品文面の真実源: docs/note/1級・2級土木/ココナラ展開キット.md
- * 運用・スキーマの真実源: docs/reference/coconala-operations.md
+ * 運用・スキーマの真実源: .claude/knowledge/reference/coconala-operations.md
  */
 
 export type CoconalaStatus = 'draft' | 'listed' | 'paused' | 'full';
@@ -65,8 +65,8 @@ export interface CoconalaService {
  *      thumb-<id から coconala- を除いた key>.png を生成
  *   3. コンテンツPDF商品(C系)なら: scripts/build-coconala-content-pdf.mjs の PRODUCTS に源記事を追加
  *      → npm run coconala-content-pdf（funnel 除去＋note URL 0件検証）
- *   4. 売上記録: .claude/agents/sales-recorder.md の productId マッピング表＋docs/reference/sales-tracking.md
- *   5. ドキュメント: docs/reference/coconala-operations.md のサービス表＋ココナラ展開キット.md §2
+ *   4. 売上記録: .claude/agents/sales-recorder.md の productId マッピング表＋.claude/knowledge/reference/sales-tracking.md
+ *   5. ドキュメント: .claude/knowledge/reference/coconala-operations.md のサービス表＋ココナラ展開キット.md §2
  *   6. check-coconala-wiring.mjs が pre-commit で catalog↔listings↔商品画像↔state↔sales の
  *      整合/カバレッジを機械検知する（listings/画像の漏れ・serviceUrl 空・priceYen 不一致で落ちる）
  *   7. 変更後は /doc-sync を1回回して prose 陳腐化を点検（CLAUDE.md §8）

@@ -135,7 +135,7 @@ Discovery で **全概念が有用候補 0 件** の場合は、その旨を報�
 />
 ```
 
-**重要**: `caption` 属性は絶対に使わない（`docs/reference/content-principles.md` 141 行目「`<ArticleImage>` の caption は使わない」ルール、過去に指摘済み）。図の説明は本文で行う。
+**重要**: `caption` 属性は絶対に使わない（`.claude/knowledge/reference/content-principles.md` 141 行目「`<ArticleImage>` の caption は使わない」ルール、過去に指摘済み）。図の説明は本文で行う。
 
 #### Step 9: 後処理 & コミット案内
 
@@ -166,7 +166,7 @@ Step 2/3/5 は **必ず 1 メッセージで複数ツール呼出** して並行
 ## 著作権・出典ポリシー（必読）
 
 - 取得画像は **構図・視覚メタファーの着想源のみ** として使用
-- **トレース・再現は禁止**。形状・配色・レイアウトは `docs/design-system/design-system.md` のデザイントークンに基づき独自作図
+- **トレース・再現は禁止**。形状・配色・レイアウトは `.claude/knowledge/design-system/design-system.md` のデザイントークンに基づき独自作図
 - 出典 URL は 2 箇所に必ず記録:
   1. SVG ファイル冒頭の `<!-- source: {URL} (構図着想のみ・独自作図) -->` コメント
   2. git コミットメッセージ本文
@@ -225,7 +225,7 @@ Step 2/3/5 は **必ず 1 メッセージで複数ツール呼出** して並行
 ## 参照
 
 - `.claude/skills/authoring/create-svg/SKILL.md` — SVG 作図ルール・デザイントークン
-- `docs/design-system/design-system.md` — コントラスト比 4.5:1・禁止パターン
-- `docs/reference/content-principles.md` — `<ArticleImage>` の caption 禁止ルールなど真実源
-- `docs/reference/content-authoring.md` — MDX コンポーネント・画像配信規約
+- `.claude/knowledge/design-system/design-system.md` — コントラスト比 4.5:1・禁止パターン
+- `.claude/knowledge/reference/content-principles.md` — `<ArticleImage>` の caption 禁止ルールなど真実源
+- `.claude/knowledge/reference/content-authoring.md` — MDX コンポーネント・画像配信規約
 - `CLAUDE.md` § 「コンテンツ編集時のコミット運用」 — 1 記事 = 1 コミット原則

@@ -5,7 +5,7 @@ title: OGP デザインリファレンス
 # OGP デザインリファレンス
 
 doboku-note のサイト OGP / note カバー共通テンプレ T06 Mono Tag の **デザイン真実源（SSOT）**。
-OGP デザインはここで継続的に検討・改善する。レイアウト・配色・フォント・テーマ色・変更履歴をこのファイルに記録し、実装（`ogp-templates.mjs`）と常に一致させる。コマンド・引数・トラブルシューティングなど運用面は [`ogp-create` SKILL.md](../../.claude/skills/conversion/ogp-create/SKILL.md) を参照。
+OGP デザインはここで継続的に検討・改善する。レイアウト・配色・フォント・テーマ色・変更履歴をこのファイルに記録し、実装（`ogp-templates.mjs`）と常に一致させる。コマンド・引数・トラブルシューティングなど運用面は [`ogp-create` SKILL.md](../../skills/conversion/ogp-create/SKILL.md) を参照。
 
 - **OGP サイズ**: 1200×630（doboku-note サイト用）
 - **note カバーサイズ**: 1280×670（note 公開用ドラフト用、同テンプレを再利用）
@@ -97,7 +97,7 @@ mono-tag は資格ごとに **AI 生成の背景画像**を任意で敷ける（
 
 ## テーマ色（資格別外枠）
 
-外枠の色は資格区分から自動解決する。**値の真実源は [`docs/design-system/note-cover-tokens.json`](../design-system/note-cover-tokens.json) の `exams[].base`**（note カバーと共通。色の二重管理をしない）。
+外枠の色は資格区分から自動解決する。**値の真実源は [`.claude/knowledge/design-system/note-cover-tokens.json`](../design-system/note-cover-tokens.json) の `exams[].base`**（note カバーと共通。色の二重管理をしない）。
 
 | カテゴリ（frontmatter `category`） | exam key | テーマ色 |
 |---|---|---|
@@ -149,7 +149,7 @@ npm run ogp-gallery -- --open  # .tmp/ogp-gallery.html を生成しブラウザ�
 | 二軸カラー | **試験区分=ベース色**（1級土木=青 `#1E73C8` / 2級土木=緑 `#2A7050` / 総監=濃紺 `#16365C` / 共通=ブロンズ `#9A6B1E`）、**系列=濃淡**（notePricing paid→deep / free→base、`cover.tone` で上書き可） |
 | レイアウト | 紙面背景（グラデ＋グリッド＋同心円）／左上ロゴ・右上メタ／リード文→強調キーワード(HiBox)→**全幅バナー帯**→アイコンチップ3つ |
 | クロップ耐性 | mono-tag と異なり**中央 630×630 セーフ幅(590px)を厳守**（note フィードの 1:1 クロップ対策）。バナー帯テキストは 590px に自動フィット |
-| 真実源 | `docs/design-system/note-cover-tokens.json`（値）/ `docs/design-system/note-cover.md`（仕様） |
+| 真実源 | `.claude/knowledge/design-system/note-cover-tokens.json`（値）/ `.claude/knowledge/design-system/note-cover.md`（仕様） |
 | 実装 | `ogp-templates.mjs` の `renderNoteCoverG2` |
 
 ## 変更履歴

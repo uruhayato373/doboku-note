@@ -79,5 +79,5 @@ tools: Read, Glob, Grep, Bash
 
 - `scripts/lib/search-growth-classifier.mjs` — 機械分類ルール（真実源）
 - `docs/project/04_運営/gsc-ga4-playwright-automation-spec.md` §7 — 分類定義
-- `docs/reference/gsc-management.md` — GSC 管理 SSOT（閾値・判断マトリクス）
+- `.claude/knowledge/reference/gsc-management.md` — GSC 管理 SSOT（閾値・判断マトリクス）
 - `.claude/agents/gsc-index-auditor.md` / `.claude/agents/metrics-analyzer.md` — 直交する Evaluator

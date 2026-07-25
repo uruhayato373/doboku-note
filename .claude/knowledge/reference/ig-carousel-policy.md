@@ -58,7 +58,7 @@
 ## 過去問パック（exam モード）専用スキーマ
 
 `docs/sns/instagram/{exam}/exam-packs/<year>/pack-<NN>/slide-data.json` は別構造。
-デザイン真実源は [`docs/design-system/instagram-carousel-tokens.json`](../design-system/instagram-carousel-tokens.json)、仕様書は [`docs/design-system/instagram-carousel.md`](../design-system/instagram-carousel.md)。
+デザイン真実源は [`.claude/knowledge/design-system/instagram-carousel-tokens.json`](../design-system/instagram-carousel-tokens.json)、仕様書は [`.claude/knowledge/design-system/instagram-carousel.md`](../design-system/instagram-carousel.md)。
 
 ```jsonc
 {
@@ -75,7 +75,7 @@
 
 ### exam-cover
 
-> **試験識別カバー（多資格・2026-06-02 刷新）**: `_meta.exam` がある過去問パックは `exam-cover-ig.mjs` で描画する（`quiz-slides` の旧 quiz-cover ではない）。**年度を主役（大）**にし、試験色帯＋正式名称（1 行）＋形式ラベルで構成。試験別に色が変わる（総監=紺 / 1級=青 / 2級=緑、`exam-palette.mjs` 経由）。carousel(1080×1350)/reels(1080×1920)/stories(1080×1920) の 3 フォーマットに対応（`format` 引数で Y レイアウト分岐、CTA/ブランドは共通寸法）。レイアウトは左基準 mx=96・タグ左 72・形式右 120 のインデント体系。真実源は `docs/reference/x-post-policy.md` ではなく本 § と `exam-cover-ig.mjs`。
+> **試験識別カバー（多資格・2026-06-02 刷新）**: `_meta.exam` がある過去問パックは `exam-cover-ig.mjs` で描画する（`quiz-slides` の旧 quiz-cover ではない）。**年度を主役（大）**にし、試験色帯＋正式名称（1 行）＋形式ラベルで構成。試験別に色が変わる（総監=紺 / 1級=青 / 2級=緑、`exam-palette.mjs` 経由）。carousel(1080×1350)/reels(1080×1920)/stories(1080×1920) の 3 フォーマットに対応（`format` 引数で Y レイアウト分岐、CTA/ブランドは共通寸法）。レイアウトは左基準 mx=96・タグ左 72・形式右 120 のインデント体系。真実源は `.claude/knowledge/reference/x-post-policy.md` ではなく本 § と `exam-cover-ig.mjs`。
 
 | フィールド | 内容 | ルール |
 |---|---|---|

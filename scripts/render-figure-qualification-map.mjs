@@ -6,7 +6,7 @@
 //   - 上ほど強調色（brand 濃→中→薄）
 //   - 右側に下→上の縦矢印 + ラベル「上の層ほど広く俯瞰する」
 //
-// 設計ルール（docs/reference/note-svg-policy.md 準拠）:
+// 設計ルール（.claude/knowledge/reference/note-svg-policy.md 準拠）:
 //   - キャンバス幅 1200（同一記事内で統一）
 //   - フォント ≥ 22px（補足 18px 以上）
 //   - 帯間隔 24px 以上、カード内パディング 20px

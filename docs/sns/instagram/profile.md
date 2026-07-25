@@ -1,6 +1,6 @@
 ﻿---
 title: Instagram プロフィール文案
-purpose: Instagram アカウント (`@dobokunotecom`) のプロフィール欄に貼り付ける本文の SSoT。ハンドル等の機械可読 SSOT は `.claude/config/ig-account.json`
+purpose: Instagramプロフィールの設計理由・変更履歴。実際の表示名・bio・URLは `.claude/config/ig-account.json` がSSOT。
 characterLimit: 150
 lastUpdated: 2026-05-26
 appliesTo: Instagram のプロフィール欄（自己紹介）
@@ -19,10 +19,10 @@ relatedDocs:
 
 # Instagram プロフィール文案
 
-Instagram アカウント `@dobokunotecom`（運用中・X と同一ハンドル）のプロフィール欄に貼り付ける本文を管理する。
+Instagram アカウント `@dobokunotecom` のプロフィール設計理由と変更履歴を管理する。
 
 > [!note]
-> **ハンドルの真実源**: 実アカウントは `@dobokunotecom`。機械可読 SSOT は [`.claude/config/ig-account.json`](../../../.claude/config/ig-account.json)（スクリプト/スキルはここを読む）。本ファイルは人間向けのプロフィール文案 SoT。旧版の「`@doboku_note` 想定（未開設）」は誤りで、`verify-ig-status`/`publish-ig-bs` は `dobokunotecom` を使う。
+> **プロフィール全項目の真実源**: [`.claude/config/ig-account.json`](../../../.claude/config/ig-account.json)。エージェント、スキル、Playwrightは `handle`、`profile.displayName`、`profile.bio`、`profile.websiteUrl`、固定投稿、ハイライトをJSONから読む。本ファイルのコードブロックは履歴・説明用であり、実値と競合した場合はJSONを正とする。
 
 ## 仕様
 
@@ -59,7 +59,7 @@ doboku-note｜技術士総監・1級土木 対策
 @dobokunotecom
 ```
 
-X と同一ハンドルで統一済み（運用中アカウント）。機械可読 SSOT は `.claude/config/ig-account.json`。
+Instagramの機械可読SSOTは `.claude/config/ig-account.json`。Xは別アカウント `@doboku373` で、`.claude/config/x-account.json` を正とする。
 
 ### リンク欄
 
@@ -67,26 +67,21 @@ X と同一ハンドルで統一済み（運用中アカウント）。機械可
 https://doboku-note.com/links
 ```
 
-自前リンクハブ（2026-05-26 リリース）。doboku-note ドメインパワー集約・GA4 完全分析。詳細: `docs/reference/links-hub.md`。
+自前リンクハブ（2026-05-26 リリース）。doboku-note ドメインパワー集約・GA4 完全分析。詳細: `.claude/knowledge/reference/links-hub.md`。
 
 ---
 
-## Bio 採用版（107 字・2026-07-20〜 R8的中実績入り）
+## Bio 採用版
 
 ```
-保存して試験前に見返す｜技術士総監・1級土木の図解カルーセル
-発注者視点で「ここだけで合格」を支援
-元・地方自治体土木職（発注者）退職、6資格保有
-R8総監の記述テーマは6/1公開教材で事前収録
-詳細はリンクから↓
+技術士・1級土木の答案づくりを図解
+元・自治体土木職｜発注者視点
+技術士〈建設・総監〉・1級土木ほか
+過去問／記述式／経験記述
+保存して試験前に見返す教材↓
 ```
 
-**構成**:
-1. キャッチコピー（保存価値 + 提供物）
-2. 提供価値（差別化）
-3. 経歴 + 資格数（信頼根拠）
-4. 的中実績（帰属は6/1公開教材＝設問(3)バンク。「予想問題集が的中」とは書かない＝虚偽帰属禁止）
-5. リンク誘導
+現在値は `.claude/config/ig-account.json` の `profile.bio` を参照する。
 
 ### 旧採用版（案A・138 字・資格列挙型・〜2026-07-19）
 
@@ -181,7 +176,7 @@ node .claude/scripts/instagram/build-stories.mjs --pack r07-pack-01
 **パターン A**（年度入口）: 年度ごとに目次 cover 1 枚をストーリー投稿 → リンクスタンプで目次カルーセル投稿へ → 9 パックから選ぶ 3 階層誘導。  
 **パターン B**（個別パック宣伝）: パックごとに 4 枚連投 → リンクスタンプで該当カルーセル投稿へ。試験直前の高頻度配信期はこちら。
 
-両者を組み合わせてハイライト ② に追加。詳細: `docs/reference/ig-carousel-skill.md` §10
+両者を組み合わせてハイライト ② に追加。詳細: `.claude/knowledge/reference/ig-carousel-skill.md` §10
 
 ### カバー画像作成
 

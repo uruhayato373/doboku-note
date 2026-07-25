@@ -10,7 +10,7 @@
  *   化する**（civil 経験記述 58 本で発生）。**機械ガード実装済み**: 対象 noteId をソース記事へ逆引きし
  *   paidBoundary 持ちが含まれたら既定 ABORT（exit 9）。承知の上なら `--allow-boundary-risk`＋実行後に
  *   必ず `note-update-body --commit` で境界再設定→`npm run check-note-structure` で FULL_LOCK=0 を実査。
- *   詳細: docs/reference/note-api-verification.md「有料境界（paidBoundary）のマガジン別 SSOT」。
+ *   詳細: .claude/knowledge/reference/note-api-verification.md「有料境界（paidBoundary）のマガジン別 SSOT」。
  *
  * 設計: 「システム Chrome（channel:'chrome'）＋永続プロファイル」方式。
  *   初回のみ手動ログイン（`npm run note-edit-session` で実施）→ セッション永続化済み前提。

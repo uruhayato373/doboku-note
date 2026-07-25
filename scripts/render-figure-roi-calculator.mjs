@@ -6,7 +6,7 @@
 //   - 年代別カード 3 枚を縦に積む
 //   - 左: 年代ラベル / 中央: コスト→回収→累積リターン / 右: 評価バッジ
 //
-// 設計ルール（docs/reference/note-svg-policy.md 準拠）:
+// 設計ルール（.claude/knowledge/reference/note-svg-policy.md 準拠）:
 //   - キャンバス幅 1200、高さ 920 固定（末尾余白 80px 確保）
 //   - フォント ≥ 18px（補足含む）
 //   - タイトル下 40px → コンテンツ開始

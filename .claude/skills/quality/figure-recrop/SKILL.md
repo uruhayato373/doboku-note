@@ -17,7 +17,7 @@ user-invocable: true
 > [!warning] このスキルが直せないもの
 > - **画質不足（ボケ/低解像度）**は切り直しでは直らない → `figure-provenance` の needs=rescan（要再スキャン）。
 > - **元クロップ時点で図が見切れ**ているものは復元不可 → 再スキャン or SVG。
-> - **過去問データグラフの SVG 化は禁止**（幾何が答え＝誤答誘発）。真実源 [figure-provenance.md](../../../../docs/reference/figure-provenance.md)。
+> - **過去問データグラフの SVG 化は禁止**（幾何が答え＝誤答誘発）。真実源 [figure-provenance.md](../../../../.claude/knowledge/reference/figure-provenance.md)。
 
 ## 対象の選び方
 
@@ -101,7 +101,7 @@ recrop-review が数十件ある時は、逐次 `figure-recrop.mjs` の代わり
 
 ## 連携
 
-- 対象選定＝`figure-provenance.json`（needs）／品質＝`figure-text-audit.json`。真実源 [figure-provenance.md](../../../../docs/reference/figure-provenance.md)。
+- 対象選定＝`figure-provenance.json`（needs）／品質＝`figure-text-audit.json`。真実源 [figure-provenance.md](../../../../.claude/knowledge/reference/figure-provenance.md)。
 - 機械化ヘルパ＝`scripts/figure-recrop.mjs`（逐次・crop+webp+MDX+OCR）／並列ワーカー＝`figure-crop-worker`（`scripts/figure-crop-batch.workflow.mjs` が spawn）。
 - 別物＝`civil-figure-rework`（問題PDFから抽出・過去問では図なしで不成立）／`scanned-figure-crop-auditor`（スキャン教材の bbox 監査）。
 - 大量処理時は本スキルの手順を `civil-exam-figure-auditor` 等の Evaluator で採点させながら回してもよい（Generator/Evaluator 分離）。

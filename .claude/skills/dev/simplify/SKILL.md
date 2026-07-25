@@ -154,7 +154,7 @@ src/components/ui/Callout/Callout.tsx
 ## 参照
 
 - `CLAUDE.md` ── 「実装時の行動原則」（Karpathy 4 原則）とハーネス設計原則
-- `docs/reference/content-authoring.md` ── MDX コンポーネント・frontmatter 規約
+- `.claude/knowledge/reference/content-authoring.md` ── MDX コンポーネント・frontmatter 規約
 - `.claude/skills/dev/code-review/SKILL.md` ── コード品質レビュー（観点が重複するため、/simplify は「修正提案型」、/code-review は「批判型」と使い分け）
 - `.claude/skills/dev/pr-create/SKILL.md` ── Step 6 で呼び出す PR 作成スキル
 - `scripts/lint-ui.mjs` ── UI 静的 lint（Step 5-1 で呼ぶ）

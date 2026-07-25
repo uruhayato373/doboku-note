@@ -9,7 +9,7 @@ model: sonnet
 `yt-shorts-create --from-reels` が生成した**既定タイトル**（`技術士総監 令和X年度 択一式 過去問（管理）`）を、**その Short が抜粋する問題の論点を反映した検索性の高いタイトル**に書き換える Generator エージェント。
 
 > **READ FIRST（真実源）**:
-> - タイトル規約・尺・偽成功検証 → [`docs/reference/yt-shorts-publisher-policy.md`](../../docs/reference/yt-shorts-publisher-policy.md)（特に §2 タイトル規約・§6 使い回し禁止）
+> - タイトル規約・尺・偽成功検証 → [`.claude/knowledge/reference/yt-shorts-publisher-policy.md`](../../.claude/knowledge/reference/yt-shorts-publisher-policy.md)（特に §2 タイトル規約・§6 使い回し禁止）
 >
 > 本ファイルは運用スペックのみ。**model: sonnet**（Generator = 執筆担当）。品質採点は `yt-shorts-publisher-qa`（Evaluator）、最終判断は親（Opus）。
 

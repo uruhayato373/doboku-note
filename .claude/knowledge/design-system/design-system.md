@@ -18,9 +18,9 @@
 | SVG 図版の色・禁止 | 本ファイル §2.2（`--color-*`）+ `svg-tokens.json` | 図版は同値をリテラル hex で書く（→ `create-svg`） |
 | Instagram カルーセル | `instagram-carousel.md` + `instagram-carousel-tokens.json` | **別サブシステム**（1080×1350 ラスター）。本ファイルの対象外、§9 でリンク |
 | note カバー画像 | `note-cover.md` + `note-cover-tokens.json` | **別サブシステム**。§9 でリンク |
-| サイト OGP | `docs/reference/ogp-prompts.md` | **別サブシステム**。§9 でリンク |
+| サイト OGP | `.claude/knowledge/reference/ogp-prompts.md` | **別サブシステム**。§9 でリンク |
 
-> 旧 `principles.md` / `quick-reference.md` / `prohibited.md`（melta-ui 系）と過去のリデザイン検討案（2026-05-25 multi-option・2026-06-27 proposals）は本ファイルへ統合のうえ削除した。必要時は git 履歴から復元できる（`git log --diff-filter=D -- docs/design-system/`）。
+> 旧 `principles.md` / `quick-reference.md` / `prohibited.md`（melta-ui 系）と過去のリデザイン検討案（2026-05-25 multi-option・2026-06-27 proposals）は本ファイルへ統合のうえ削除した。必要時は git 履歴から復元できる（`git log --diff-filter=D -- .claude/knowledge/design-system/`）。
 
 ---
 
@@ -309,9 +309,9 @@ CLAUDE.md §7 と一致:
 | サブシステム | 真実源 | 入口 |
 |---|---|---|
 | SVG 図版（記事内） | `svg-tokens.json`（§2.2 の `--color-*` をリテラル hex で） | `.claude/skills/authoring/create-svg/SKILL.md` |
-| Instagram カルーセル | `instagram-carousel-tokens.json` | `instagram-carousel.md` / `docs/reference/ig-carousel-policy.md` |
+| Instagram カルーセル | `instagram-carousel-tokens.json` | `instagram-carousel.md` / `.claude/knowledge/reference/ig-carousel-policy.md` |
 | note カバー画像 | `note-cover-tokens.json` | `note-cover.md` |
-| サイト OGP | — | `docs/reference/ogp-prompts.md` |
+| サイト OGP | — | `.claude/knowledge/reference/ogp-prompts.md` |
 | Callout / SpecSheetList ギャラリー | コンポーネント README | `docs/ui/callout-gallery.md` / `docs/ui/speclist-gallery.md` |
 
 ---

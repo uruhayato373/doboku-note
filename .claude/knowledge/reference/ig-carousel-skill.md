@@ -6,7 +6,7 @@ doboku-note の Instagram カルーセル投稿は次の系統で運用する：
 - **B. 過去問パック（年度括り）**: 公式試験問題 H21-R7。**総監（cem）専用**
 - **C. 論点パック（1級/2級土木）**: 頻出問題を**論点（科目×論点）で括り**、複数年度から4問採録。競合 @miyabi_labo 分析（2026-07）を受けて年度括りから移行。cover は「科目＋論点＋頻出度★＋第1問Q＋出題年度」
 
-スキル詳細: [`.claude/skills/social/ig-post-create/SKILL.md`](../../.claude/skills/social/ig-post-create/SKILL.md)
+スキル詳細: [`.claude/skills/social/ig-post-create/SKILL.md`](../../skills/social/ig-post-create/SKILL.md)
 
 最終更新: 2026-07-16（シリーズ C 新設: 1級/2級土木を論点括りへ移行・年度括り exam-packs は総監のみに）
 
@@ -217,7 +217,7 @@ node .claude/scripts/sns/render-quiz-pack.mjs docs/sns/instagram/_quiz-sample
 
 ### B 過去問パック（AIDesigner 新意匠）
 
-> **真実源**: [`docs/design-system/instagram-carousel-tokens.json`](../design-system/instagram-carousel-tokens.json) + [`docs/design-system/instagram-carousel.md`](../design-system/instagram-carousel.md)
+> **真実源**: [`.claude/knowledge/design-system/instagram-carousel-tokens.json`](../design-system/instagram-carousel-tokens.json) + [`.claude/knowledge/design-system/instagram-carousel.md`](../design-system/instagram-carousel.md)
 
 | 要素 | 仕様 | tokens path |
 |---|---|---|
@@ -379,8 +379,8 @@ slide-data.json
 - `.claude/skills/social/ig-carousel-restyle/SKILL.md` — 一括再生成
 - `.claude/skills/social/ig-reel-create/SKILL.md` — Reels 動画生成
 - `.claude/skills/social/publish-ig-bs/SKILL.md` — Business Suite 予約投稿エンジン
-- `docs/reference/ig-publish-reconcile.md` — **公開状態の照合＋未公開の予約投稿の運用 SSOT**（`verify-ig-status` でライブ↔SoT 突合・`/ig-reconcile` スキル・`ig-publish-auditor` ゲート。投稿後の posted.json ドリフトを定期是正）
+- `.claude/knowledge/reference/ig-publish-reconcile.md` — **公開状態の照合＋未公開の予約投稿の運用 SSOT**（`verify-ig-status` でライブ↔SoT 突合・`/ig-reconcile` スキル・`ig-publish-auditor` ゲート。投稿後の posted.json ドリフトを定期是正）
 - `scripts/lint-exam-pack-structure.mjs` — 構造違反 lint
-- `docs/design-system/instagram-carousel.md` — デザイン仕様
-- `docs/design-system/instagram-carousel-tokens.json` — トークン真実源
-- `docs/reference/links-hub.md` — `/links` SNS bio 中継ページ
+- `.claude/knowledge/design-system/instagram-carousel.md` — デザイン仕様
+- `.claude/knowledge/design-system/instagram-carousel-tokens.json` — トークン真実源
+- `.claude/knowledge/reference/links-hub.md` — `/links` SNS bio 中継ページ

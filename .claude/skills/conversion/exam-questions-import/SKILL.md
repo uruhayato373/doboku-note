@@ -196,5 +196,5 @@ python -c "import fitz,os; os.makedirs('/tmp/verify',exist_ok=True); d=fitz.open
 ## 参照
 
 - `.claude/skills/conversion/exam-questions-import/templates/` — 試験別テンプレート
-- `docs/reference/exam-content-policy.md` — 試験別コンテンツ整備方針
-- `docs/reference/content-principles.md` — コンテンツ原則
+- `.claude/knowledge/reference/exam-content-policy.md` — 試験別コンテンツ整備方針
+- `.claude/knowledge/reference/content-principles.md` — コンテンツ原則

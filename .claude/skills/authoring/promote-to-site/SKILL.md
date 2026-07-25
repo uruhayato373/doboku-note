@@ -130,7 +130,7 @@ published: true
 npm run refresh-indexes
 ```
 
-本番 `npm run build` では自動実行されるが、開発中は手動で実行すること。詳細は `docs/reference/workflows.md` を参照。
+本番 `npm run build` では自動実行されるが、開発中は手動で実行すること。詳細は `.claude/knowledge/reference/workflows.md` を参照。
 
 ## 出力フォーマット
 

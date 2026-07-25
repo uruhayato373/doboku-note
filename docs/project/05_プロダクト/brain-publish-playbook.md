@@ -56,4 +56,4 @@
 
 - 商品①仕様：`brain-claude-code-essay-skill/00〜04`
 - 商品②仕様：`brain-r8-policy-prediction-skill/00〜07`
-- ココナラ版（公開済）：`docs/reference/coconala-operations.md`（K1 キット・K2 総監PDF）
+- ココナラ版（公開済）：`.claude/knowledge/reference/coconala-operations.md`（K1 キット・K2 総監PDF）

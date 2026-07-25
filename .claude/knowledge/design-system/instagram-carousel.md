@@ -184,7 +184,7 @@ import { dirname, resolve } from 'node:path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const TOKENS = JSON.parse(
-  readFileSync(resolve(__dirname, '../../../../docs/design-system/instagram-carousel-tokens.json'), 'utf8')
+  readFileSync(resolve(__dirname, '../../../../.claude/knowledge/design-system/instagram-carousel-tokens.json'), 'utf8')
 );
 
 const brand = TOKENS.colors.brand.presets[TOKENS.colors.brand.active];
@@ -192,12 +192,12 @@ const ty    = TOKENS.typography;
 const geo   = TOKENS.geometry;
 ```
 
-### Generator エージェント（[ig-carousel-writer](../../.claude/agents/ig-carousel-writer.md)）
+### Generator エージェント（[ig-carousel-writer](../../agents/ig-carousel-writer.md)）
 
 - slide-data.json 作成時、色を **本文に書かない**（quiz-slides.mjs が tokens から塗る）
 - 管理タグは `meta.management: 'economic' | 'human' | 'info' | 'safety' | 'social'` で持つが、これは cover-title 表示用ラベル決定だけに使う（色決定には使わない）
 
-### Evaluator エージェント（[ig-carousel-qa](../../.claude/agents/ig-carousel-qa.md)）
+### Evaluator エージェント（[ig-carousel-qa](../../agents/ig-carousel-qa.md)）
 
 第 6 軸「デザイン統一性」で以下を確認:
 1. cover 背景が `#FFFFFF`、cover-big-q `#EDF3FB`、cover-title 文字が ink-strong
@@ -227,7 +227,7 @@ const geo   = TOKENS.geometry;
 ## 10. 関連ドキュメント
 
 - [`instagram-carousel-tokens.json`](./instagram-carousel-tokens.json) — 真実源 JSON
-- [`docs/reference/ig-carousel-skill.md`](../reference/ig-carousel-skill.md) — 運用方針・2 シリーズ全体像
-- [`docs/reference/ig-carousel-policy.md`](../reference/ig-carousel-policy.md) — slide-data.json v2 スキーマ・ルーブリック
-- [`.claude/skills/social/ig-post-create/SKILL.md`](../../.claude/skills/social/ig-post-create/SKILL.md) — 単発生成
-- [`.claude/skills/social/ig-carousel-restyle/SKILL.md`](../../.claude/skills/social/ig-carousel-restyle/SKILL.md) — 統一再生成
+- [`.claude/knowledge/reference/ig-carousel-skill.md`](../reference/ig-carousel-skill.md) — 運用方針・2 シリーズ全体像
+- [`.claude/knowledge/reference/ig-carousel-policy.md`](../reference/ig-carousel-policy.md) — slide-data.json v2 スキーマ・ルーブリック
+- [`.claude/skills/social/ig-post-create/SKILL.md`](../../skills/social/ig-post-create/SKILL.md) — 単発生成
+- [`.claude/skills/social/ig-carousel-restyle/SKILL.md`](../../skills/social/ig-carousel-restyle/SKILL.md) — 統一再生成

@@ -4,7 +4,7 @@ name: Index coverage audit (URL Inspection)
 # URL Inspection API で月次取得し、.claude/state/metrics/url-inspection/ と
 # index-coverage-history.json（時系列）に commit する。
 # ローカルは creds 未設定で叩けない（計測は CI/CD 供給が正・measurement-incidents.md 2026-06-05）ため CI で実行。
-# 設計の真実源: docs/reference/gsc-management.md / 分業: gsc-index-auditor + /gsc-review。
+# 設計の真実源: .claude/knowledge/reference/gsc-management.md / 分業: gsc-index-auditor + /gsc-review。
 # URL Inspection は 2,000 URL/日/property が上限。月次なら quota 余裕（現在 ~1030 URL）。
 
 on:

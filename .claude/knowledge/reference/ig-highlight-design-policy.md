@@ -3,10 +3,10 @@
 技術士・総合技術監理および 1 級土木施工管理技士の **Instagram ハイライト系統 A 6 種**（`docs/sns/instagram/highlights/NN_*/`）の Stories 用 slide-data.json + 生成 PNG を、agent が 1 ハイライトずつ設計・採点するための品質基準。`ig-highlight-designer`（Generator）と `ig-highlight-qa`（Evaluator）の両方がこの文書を真実源とする。
 
 関連:
-- 戦略 v7.1 §2 ハイライト 6 種 → [`docs/project/03_SNS/01_SNS集客戦略.md`](../project/03_SNS/01_SNS集客戦略.md)
-- デザイントークン → [`docs/design-system/instagram-carousel-tokens.json`](../design-system/instagram-carousel-tokens.json) の `highlightStories`
+- 戦略 v7.1 §2 ハイライト 6 種 → [`docs/project/03_SNS/01_SNS集客戦略.md`](../../../docs/project/03_SNS/01_SNS集客戦略.md)
+- デザイントークン → [`.claude/knowledge/design-system/instagram-carousel-tokens.json`](../design-system/instagram-carousel-tokens.json) の `highlightStories`
 - builder → `.claude/scripts/lib/sns-common/highlight-stories-slides.mjs`
-- 過去問パック Stories の運用 → [`docs/reference/ig-stories-policy.md`](./ig-stories-policy.md)（別文脈）
+- 過去問パック Stories の運用 → [`.claude/knowledge/reference/ig-stories-policy.md`](./ig-stories-policy.md)（別文脈）
 
 最終更新: 2026-05-28（v1: ユーザー指摘「Stories が過去問デザインを引きずっている」に対応、モダンシック意匠で新設）
 
@@ -98,7 +98,7 @@ Instagram は Stories 再生中、画像の上に独自 UI を重ねる。この
     "size": { "width": 1080, "height": 1920 },
     "slidesCount": 5,
     "purpose": "...",
-    "policy": "docs/reference/ig-highlight-design-policy.md",
+    "policy": ".claude/knowledge/reference/ig-highlight-design-policy.md",
     "strategy": "docs/project/03_SNS/01_SNS集客戦略.md v7.1 §2"
   },
   "slides": [

@@ -14,7 +14,7 @@ argument-hint: "<list|search|import-partnered|scout|apply|check-approval|harvest
 A8.net メディア管理画面 (media-console.a8.net) を Playwright（永続プロファイル）で操作し、提携アフィリエイトの
 **確認 → 開拓 → 申請 → 承認 → コード取得** を回す。判定はすべて決定的コアに委譲し、SSOT（配置）判断だけ人が持つ。
 
-> **正典は `docs/reference/a8-affiliate-pipeline.md`**。本 skill は手順のみ。スコア式・blocklist・vertical 写像・
+> **正典は `.claude/knowledge/reference/a8-affiliate-pipeline.md`**。本 skill は手順のみ。スコア式・blocklist・vertical 写像・
 > 申請上限は `.claude/scripts/ads/data/a8-curated.json`、状態機械は `a8-scout-core.mjs`、抽出仕様は
 > `a8-code-core.mjs` が SSOT。stats47 の `scout-asp` を doboku（転職一本）へ移植・スリム化したもの。
 
@@ -80,8 +80,8 @@ npm run test:ads                                                 # 純関数コ�
 
 ## 関連
 
-- 正典ルール: `docs/reference/a8-affiliate-pipeline.md`
-- 認証方式: `docs/reference/playwright-auth-profiles.md`（a8 profile）
+- 正典ルール: `.claude/knowledge/reference/a8-affiliate-pipeline.md`
+- 認証方式: `.claude/knowledge/reference/playwright-auth-profiles.md`（a8 profile）
 - コア: `.claude/scripts/ads/lib/{a8-scout-core,a8-code-core}.mjs` / 申請上限 `.claude/scripts/ads/check-a8-apply-budget.cjs`
 - ブラウザ: `.claude/skills/ads/scout-asp/scripts/{a8-browser.ts,login.mjs}`
 - カタログ: `.claude/state/ads/a8-catalog.json`（状態機械）/ curated: `.claude/scripts/ads/data/a8-curated.json`

@@ -10,7 +10,7 @@ description: >
 user-invocable: true
 ---
 
-SEO を4面（技術健全性 / index coverage / performance / 検索意図）で束ねるオーケストレータ。各面は既存の分業体制（`docs/reference/gsc-management.md` の分業表）に乗り、**決定的な検出は機械スクリプト、意味的な評価は audit-only Evaluator、修正はしない**という原則を通す。
+SEO を4面（技術健全性 / index coverage / performance / 検索意図）で束ねるオーケストレータ。各面は既存の分業体制（`.claude/knowledge/reference/gsc-management.md` の分業表）に乗り、**決定的な検出は機械スクリプト、意味的な評価は audit-only Evaluator、修正はしない**という原則を通す。
 
 ## 設計原則（守る）
 
@@ -57,7 +57,7 @@ SEO を4面（技術健全性 / index coverage / performance / 検索意図）�
 
 ## 参照
 
-- `docs/reference/gsc-management.md` — GSC 管理 SSOT（分業表・閾値・判断マトリクス）
+- `.claude/knowledge/reference/gsc-management.md` — GSC 管理 SSOT（分業表・閾値・判断マトリクス）
 - `.claude/agents/technical-seo-auditor.md` / `search-intent-auditor.md` — 本スキルが新設した Evaluator
 - `.claude/agents/{gsc-index-auditor,metrics-analyzer,performance-auditor}.md` — 既存 Evaluator（本スキルが束ねる）
 - `scripts/check-seo-build.mjs` / `.claude/skills/quality/check-seo-meta/` — 決定的検出（機械）

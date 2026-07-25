@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // docs/note/技術士総監/総監受験コスト比較/img/ に本文用 PNG 図版を生成する。
 //
-// 設計ルールは docs/reference/note-svg-policy.md 準拠:
+// 設計ルールは .claude/knowledge/reference/note-svg-policy.md 準拠:
 // - キャンバス 1200×720
 // - 最低 font-size 22px（本文）/ 18px（補足）
 // - 右下 doboku-note.com ブランディングのみ
@@ -18,7 +18,7 @@ const ROOT = join(__dirname, '..');
 const OUT_DIR = join(ROOT, 'docs/note/技術士総監/総監受験コスト比較/img');
 mkdirSync(OUT_DIR, { recursive: true });
 
-// ブランドトークン（docs/reference/note-svg-policy.md §4 と整合）
+// ブランドトークン（.claude/knowledge/reference/note-svg-policy.md §4 と整合）
 const BRAND = '#2e6da4';
 const BRAND_FILL = '#e8f0fe';
 const BRAND_DEEP = '#1a3a5c';

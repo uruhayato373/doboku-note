@@ -1,5 +1,5 @@
 {
-  "_doc": "note 導線（ファネル）アーキテクチャの機械可読 SSOT。真実源の文章は docs/reference/note-funnel-architecture.md。URL/価格の真実源は src/lib/note-magazines.ts。scripts/wire-note-funnel-cta.mjs と scripts/audit-note-funnel.mjs と check-note-funnel が参照する。",
+  "_doc": "note 導線（ファネル）アーキテクチャの機械可読 SSOT。真実源の文章は .claude/knowledge/reference/note-funnel-architecture.md。URL/価格の真実源は src/lib/note-magazines.ts。scripts/wire-note-funnel-cta.mjs と scripts/audit-note-funnel.mjs と check-note-funnel が参照する。",
   "L1": {
     "noteId": "n296a88f64ac2",
     "title": "コンテンツ総合案内（全資格サイトマップ）",

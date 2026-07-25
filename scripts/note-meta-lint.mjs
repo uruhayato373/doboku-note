@@ -6,7 +6,7 @@
  *
  * note の制限を超えると編集画面の「更新」が無効化＝保存不可になるため、push 前のゲート。
  *   npm run note-meta-lint            # 検査（違反があれば exit 2）
- * 真実源: docs/reference/note-api-verification.md
+ * 真実源: .claude/knowledge/reference/note-api-verification.md
  */
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';

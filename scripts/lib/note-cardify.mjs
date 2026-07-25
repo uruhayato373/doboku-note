@@ -11,7 +11,7 @@
  *   (3) ブロック種の無検査 — 選択先が段落か見出しかを確認しない
  *   本実装は「毎回 DOM を再クエリ→段落ブロック限定で選択→カード生成完了を実測で待つ」ループに
  *   置き換え、(1)(2)(3) を同時に解消する。検知の最終防衛は check-note-live-headings.mjs（横断）と
- *   各スクリプトの公開後 API assert（assertNoUrlHeadings）。真実源: docs/reference/note-api-verification.md
+ *   各スクリプトの公開後 API assert（assertNoUrlHeadings）。真実源: .claude/knowledge/reference/note-api-verification.md
  */
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

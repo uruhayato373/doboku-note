@@ -74,6 +74,18 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# 1級・2級土木の公式試験日SSOTと既知の誤日付を検証
+node scripts/check-exam-calendar.mjs
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
+# X月間キャンペーン計画の日付・導線・URL・販売投稿間隔を検証
+node scripts/check-x-campaign-plan.mjs
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
 # スキル/エージェント/docs の .md 参照がリポジトリ内に実在するか検証（SSOT ポインタ破損の再発防止）
 node scripts/check-doc-refs.mjs --staged
 if [ $? -ne 0 ]; then

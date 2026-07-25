@@ -1,7 +1,7 @@
 /**
  * 図版キャンバス標準ガード — figure-*.svg の viewBox が固定キャンバスに一致するか検証する。
  *
- * 真実源: .claude/config/figure-canvas.json（人間向け: docs/reference/figure-canvas-policy.md）
+ * 真実源: .claude/config/figure-canvas.json（人間向け: .claude/knowledge/reference/figure-canvas-policy.md）
  *   - figure-N.svg          → feed      viewBox == 400 500 (4:5)
  *   - figure-N--wide.svg    → landscape viewBox == 640 360 (16:9)
  *
@@ -121,7 +121,7 @@ if (namingErrors.length) {
   console.error(`\n[check-figure-canvas] ${namingErrors.length} 件の命名規則違反（figure-*.svg にしてください）:\n`);
   for (const e of namingErrors) console.error("  " + e);
   console.error(`\n  修正: ファイル名に figure- プレフィックスを付け、MDX 参照も更新する。`);
-  console.error(`  真実源: docs/reference/figure-canvas-policy.md\n`);
+  console.error(`  真実源: .claude/knowledge/reference/figure-canvas-policy.md\n`);
   process.exit(1);
 }
 
@@ -164,7 +164,7 @@ if (errors.length) {
     `\n  修正: viewBox を ${FEED[0]}×${FEED[1]}(figure-N.svg) / ${WIDE[0]}×${WIDE[1]}(figure-N--wide.svg) に。`
   );
   console.error(`  移行待ちなら .claude/config/figure-canvas.json の guard.migrationAllowlist に追加。`);
-  console.error(`  真実源: docs/reference/figure-canvas-policy.md\n`);
+  console.error(`  真実源: .claude/knowledge/reference/figure-canvas-policy.md\n`);
   process.exit(1);
 }
 

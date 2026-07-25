@@ -59,7 +59,7 @@ note でマガジンを公開し URL（`note.com/.../m/...`）を取得したら
 - Evaluator 合格（平均≥2.0・全ゲート通過）
 - 形式が級・年度どおり（PDF spec の include 見出しと整合）、複数工種は `想定工事①②…` で対称構造
 - `hashtags.txt` に note タグ **90個以上〜99**（1行1タグ・`/note-hashtags` 準拠・**本文には入れない**・`check-note-hashtags` ゲート）
-- **有料記事は frontmatter `paidBoundary` 必須**（無料プレビュー範囲の境界H2先頭一致・完成答案集/過去問模範答案集等は SSOT `docs/reference/note-api-verification.md`「有料境界のマガジン別 SSOT」参照。`check-note-boundary` ゲート）
+- **有料記事は frontmatter `paidBoundary` 必須**（無料プレビュー範囲の境界H2先頭一致・完成答案集/過去問模範答案集等は SSOT `.claude/knowledge/reference/note-api-verification.md`「有料境界のマガジン別 SSOT」参照。`check-note-boundary` ゲート）
 
 ## 担当エージェント
 

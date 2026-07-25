@@ -92,7 +92,7 @@ model: sonnet
 - ❌ 既存の関連リンクを削除する
 - ❌ 過去問判定記号（❌、✅、正答：）を本文に書く
 - ❌ 装飾絵文字（💡📌⚠️ 等）を本文に残す（P パターン適用時は除去対象）
-- ❌ `<ArticleImage>` の caption に長文の説明を書く（真実源: `docs/reference/content-principles.md` §8、`auto memory/feedback_article_image_caption.md`）
+- ❌ `<ArticleImage>` の caption に長文の説明を書く（真実源: `.claude/knowledge/reference/content-principles.md` §8、`auto memory/feedback_article_image_caption.md`）
 
 ### 品質ガード
 
@@ -173,9 +173,9 @@ civil-construction-review で再評価
 
 ## 参照ドキュメント
 
-- `docs/reference/content-principles.md` — コンテンツ原則の真実源（特に §5: ExamPoint, §8: ArticleImage caption, §9: 参考資料）
-- `docs/reference/content-authoring.md` — MDX 実装規約
-- `docs/reference/image-policy.md` — 画像出典ポリシー
+- `.claude/knowledge/reference/content-principles.md` — コンテンツ原則の真実源（特に §5: ExamPoint, §8: ArticleImage caption, §9: 参考資料）
+- `.claude/knowledge/reference/content-authoring.md` — MDX 実装規約
+- `.claude/knowledge/reference/image-policy.md` — 画像出典ポリシー
 - `.claude/agents/civil-construction-review.md` — Evaluator 側の評価ルーブリック
 - `.claude/agents/keyword-rewriter.md` — CEM 側の姉妹 Generator（パターン設計の参照）
 - `.claude/scripts/lib/mdx-io.mjs` — ファイル I/O（改行コード保持）

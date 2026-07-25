@@ -117,4 +117,4 @@ publishedAt: "YYYY-MM-DD"
 ## 参照
 
 - `.claude/pdfs/１級土木施工管理技士/` — ソース PDF ディレクトリ
-- `docs/reference/content-authoring.md` — MDX 構造ルール
+- `.claude/knowledge/reference/content-authoring.md` — MDX 構造ルール

@@ -57,7 +57,7 @@ model: sonnet
 
 ### Step 4: alt の生成
 
-- **答え漏らし禁止**（`docs/reference/image-policy.md` L165-177 準拠）
+- **答え漏らし禁止**（`.claude/knowledge/reference/image-policy.md` L165-177 準拠）
 - 図内容を **5〜25字** で簡潔に表現（例: 「土の粒径加積曲線と三角座標」「単純梁に集中荷重Pが作用」）
 - 「適当なもの」「正しいもの」等の問題文の選択肢誘導は **絶対に含めない**
 - 「図」「グラフ」だけの抽象的 alt は不可
@@ -114,7 +114,7 @@ model: sonnet
 
 ## 参照ドキュメント
 
-- `docs/reference/image-policy.md` — 画像ポリシー（特に L165-177 過去問図 caption/alt 厳格ルール）
-- `docs/reference/content-principles.md` §8 — 図の配置原則
-- `docs/reference/exam-content-policy.md` — 過去問品質基準
+- `.claude/knowledge/reference/image-policy.md` — 画像ポリシー（特に L165-177 過去問図 caption/alt 厳格ルール）
+- `.claude/knowledge/reference/content-principles.md` §8 — 図の配置原則
+- `.claude/knowledge/reference/exam-content-policy.md` — 過去問品質基準
 - `.claude/agents/civil-exam-figure-auditor.md` — Evaluator 側のルーブリック（合格条件を逆算するため）

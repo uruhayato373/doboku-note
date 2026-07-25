@@ -56,7 +56,7 @@ $ARGUMENTS — レビュー対象のファイルパスまたはディレクト�
 **修正提案パターン**:
 - KaTeX入り表 → 箇条書き + テキスト数式に分離（例: `- **性能稼働率** = 基準CT × 数量 / 稼働時間`）
 - 計算手順の表 → 番号付きリストに変換
-- 4列以上 → 横スクロールで延命せず、表以外へ変換（分野別 H3＋箇条書き / `<SpecSheetList>` / 年度キーのフラット箇条書き）。早見表は [content-authoring.md](../../../../docs/reference/content-authoring.md) の「表 → 非表 変換パターンカタログ」
+- 4列以上 → 横スクロールで延命せず、表以外へ変換（分野別 H3＋箇条書き / `<SpecSheetList>` / 年度キーのフラット箇条書き）。早見表は [content-authoring.md](../../../../.claude/knowledge/reference/content-authoring.md) の「表 → 非表 変換パターンカタログ」
 - 長いセル → セル内容の短縮、または備考を括弧表記に統合
 - キーバリュー表（1-5） → 冒頭散文に統合。表を削除し、情報を既存段落に追記
 - 独立定義表（1-6） → 箇条書き + 太字ターム: `- **用語**: 説明`
@@ -93,7 +93,7 @@ $ARGUMENTS — レビュー対象のファイルパスまたはディレクト�
 
 **修正提案パターン**:
 - 入れ子リスト（4-3） → 親項目を太字リードの見出し的な独立行にし、子項目をフラットな1階層へ。仕様的な列挙は `<SpecSheetList>`
-- 長い段落（4-4） → 論点ごとに改段。表・年度マトリクスを段落に詰め込まない（[content-authoring.md](../../../../docs/reference/content-authoring.md) の表→非表 変換カタログ参照）
+- 長い段落（4-4） → 論点ごとに改段。表・年度マトリクスを段落に詰め込まない（[content-authoring.md](../../../../.claude/knowledge/reference/content-authoring.md) の表→非表 変換カタログ参照）
 
 ### 5. コンポーネント使用
 
@@ -194,7 +194,7 @@ keyword-page スキルのテンプレートで定義された必須セクショ�
 - 9-4: WebSearch→WebFetch で民間記事（Wikipedia/技術ブログ/note等）を1件追加
 - 9-6: ❌✅などの記号を削除し、解説的な文言に書き換え
 
-**ルール根拠**: `docs/reference/content-principles.md` §5「ExamPointは文脈の後に配置」・§9「参考資料の構成」
+**ルール根拠**: `.claude/knowledge/reference/content-principles.md` §5「ExamPointは文脈の後に配置」・§9「参考資料の構成」
 | 7-3 | `## 過去問での出題` セクションが存在するか | MEDIUM | `## 過去問` 見出しの有無 |
 | 7-4 | `## 総合技術監理における位置づけ` セクションが存在するか | MEDIUM | 見出しの有無 |
 
@@ -275,7 +275,7 @@ Category 10: SVG 追加候補検出 — 0 件（既存図でカバー済み、�
 - タイプ A 反例（`pdca-cycle/article.mdx`、`four-m-of-production/article.mdx`）と類似していないか
 - タイプ B 模範（`business-continuity-plan/article.mdx`、`cash-flow-statement/article.mdx`）の段落構成と比較
 
-**ルール根拠**: `docs/reference/content-principles.md` §17「散文中心・表と図は補足」・§18「末尾コンポーネント塊化の禁止」
+**ルール根拠**: `.claude/knowledge/reference/content-principles.md` §17「散文中心・表と図は補足」・§18「末尾コンポーネント塊化の禁止」
 
 ### 15. 文体: 1 文の長さ・文末の単調回避（content-principles.md §24 機械化）
 
@@ -290,7 +290,7 @@ Category 10: SVG 追加候補検出 — 0 件（既存図でカバー済み、�
 - 15-1（文末の単調） → 語尾に変化をつける（「〜です」「〜ます」「〜でしょう」「体言止め」を混ぜる）。ですます調のガイドが主対象
 - 15-2（長文） → 句点で自然に切れる箇所で2文に分割する。法令・技術概念の定義文は100字前後まで許容
 
-**ルール根拠**: `docs/reference/content-principles.md` §24「文体: 1 文の長さと文末の単調回避」
+**ルール根拠**: `.claude/knowledge/reference/content-principles.md` §24「文体: 1 文の長さと文末の単調回避」
 
 ## 手順
 
@@ -349,7 +349,7 @@ HIGHが1件以上ある場合は修正を促すメッセージを追加する。
 
 ## 参照
 
-- `docs/reference/content-principles.md` — ペルソナ定義、コンテンツ原則（7項目）
-- `docs/reference/content-authoring.md` — MDX 作成詳細ルール（モバイル視認性セクション）
+- `.claude/knowledge/reference/content-principles.md` — ペルソナ定義、コンテンツ原則（7項目）
+- `.claude/knowledge/reference/content-authoring.md` — MDX 作成詳細ルール（モバイル視認性セクション）
 - `.claude/skills/authoring/keyword-page/SKILL.md` — モバイル視認性ルール、コンポーネント使用ガイドライン
 - `.claude/skills/quality/check-mdx/SKILL.md` — MDX 検査統合スキル（本スキルとは別レイヤー、`--rules syntax` で構文チェック）

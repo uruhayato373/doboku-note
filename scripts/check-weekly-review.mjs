@@ -9,7 +9,7 @@
 //
 // 修正方法（赤落ち時）: クラウドルーティンを対話セッション（デスクトップ/web アプリ）で
 //   list-first（/routines）→ 無ければ /schedule で再作成、cron ズレなら update。
-//   真実源: docs/reference/workflows.md「週次運用」/ .claude/skills/management/routines/SKILL.md
+//   真実源: .claude/knowledge/reference/workflows.md「週次運用」/ .claude/skills/management/routines/SKILL.md
 //
 // exit 0 = 先週分あり（OK）/ exit 1 = 欠落（ルーティン要確認）。
 

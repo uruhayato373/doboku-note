@@ -146,7 +146,7 @@ function renderReport(filePath, series, anomalies) {
   lines.push("### 関連");
   lines.push("- Issue #130 計測基盤のデータ品質ガード導入");
   lines.push("- `.claude/scripts/check-data-integrity.mjs`（補完的。欠損期間の検出に特化）");
-  lines.push("- `docs/reference/measurement-incidents.md`（2026-W16 事件の教訓）");
+  lines.push("- `.claude/knowledge/reference/measurement-incidents.md`（2026-W16 事件の教訓）");
   return lines.join("\n");
 }
 

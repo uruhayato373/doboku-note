@@ -94,4 +94,4 @@ npm run check-doc-coupling    # 台帳更新もれゼロ（staged 前提）
 
 - Evaluator: `doc-sync-auditor`（判定）
 - 機械ガード: `scripts/check-doc-refs.mjs` / `scripts/check-doc-coupling.mjs`（pre-commit）
-- ルール真実源: CLAUDE.md §8 / `docs/reference/information-architecture.md`「SSOT と参照規律」
+- ルール真実源: CLAUDE.md §8 / `.claude/knowledge/reference/information-architecture.md`「SSOT と参照規律」

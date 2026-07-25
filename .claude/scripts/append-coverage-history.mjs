@@ -4,7 +4,7 @@
  *
  * GSC 管理 SSOT の機械履歴部分（時系列の indexed_ratio）を維持する。
  * creds 不要（既存 JSON を読んで集計するだけ）＝ローカルでもテスト可能。
- * index-coverage.yml（CI・月次）が URL Inspection 後に呼ぶ。設計の真実源は docs/reference/gsc-management.md。
+ * index-coverage.yml（CI・月次）が URL Inspection 後に呼ぶ。設計の真実源は .claude/knowledge/reference/gsc-management.md。
  *
  * Usage:
  *   node .claude/scripts/append-coverage-history.mjs \

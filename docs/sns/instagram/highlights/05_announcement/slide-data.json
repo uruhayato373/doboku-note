@@ -5,7 +5,7 @@
     "size": { "width": 1080, "height": 1920 },
     "slidesCount": 3,
     "purpose": "ハイライト系統 A 5 種目「お知らせ」用テンプレート。フロー型で随時更新。雛形 3 枚を提供し、実運用では運営者が title / body / chipCta を書き換える",
-    "policy": "docs/reference/ig-stories-policy.md §5 系統 A",
+    "policy": ".claude/knowledge/reference/ig-stories-policy.md §5 系統 A",
     "strategy": "docs/project/03_SNS/01_SNS集客戦略.md v7.1 §2 Highlight 5 種目「お知らせ」",
     "_note": "テンプレ運用: 新記事公開・キャンペーン・受験期スポット情報の都度、本 JSON の title / body を編集して build-highlight で再生成。ハイライトに上書き追加（古い Stories はアーカイブ）"
   },

@@ -21,7 +21,7 @@ user-invocable: true
 
 ## 商品タイプ別フロー（coconala-operator が実行）
 
-まず `serviceId` からタイプを判定し、分岐する（真実源 → [coconala-operations.md §3](../../../../docs/reference/coconala-operations.md)）。
+まず `serviceId` からタイプを判定し、分岐する（真実源 → [coconala-operations.md §3](../../../../.claude/knowledge/reference/coconala-operations.md)）。
 
 **共通の前段**
 1. **カタログ確認**: `serviceId` の `status` を Read。`draft`（未出品）なら停止。`full` なら受付枠超過を警告。
@@ -70,5 +70,5 @@ user-invocable: true
 ## 参照
 
 - エージェント: `.claude/agents/coconala-operator.md` / `.claude/agents/civil-keiken-tensaku-drafter.md`
-- 運用 SSOT: `docs/reference/coconala-operations.md` / 戦略・文面: `docs/note/1級・2級土木/ココナラ展開キット.md`
+- 運用 SSOT: `.claude/knowledge/reference/coconala-operations.md` / 戦略・文面: `docs/note/1級・2級土木/ココナラ展開キット.md`
 - KPI 記録は `/coconala-status`

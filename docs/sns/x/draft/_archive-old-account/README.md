@@ -9,4 +9,4 @@ X ドラフト群。`_` 接頭辞のため `x-schedule-guard` / `x-schedule-view
 - **tweets.md の文面はネタとして再利用可**。ただし新アカウントで使う際は
   near-duplicate にならないようフック・語順・CTA を作り変える（`x-post-policy.md` §11.1）。
 
-詳細 → `docs/reference/x-post-policy.md` §11.5（アカウント境界 epoch）。
+詳細 → `.claude/knowledge/reference/x-post-policy.md` §11.5（アカウント境界 epoch）。

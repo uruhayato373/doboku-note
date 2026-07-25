@@ -2,7 +2,7 @@
 // docs/note/技術士総監/出題傾向変遷マップ/img/ に本文用 PNG 図版を生成する。
 //
 // 元の markdown 表（17 行 × 5 列の年度別出題テーマ表）は note でレンダーされない
-// ため、SVG で描画して PNG に書き出す。設計ルールは docs/reference/note-svg-policy.md
+// ため、SVG で描画して PNG に書き出す。設計ルールは .claude/knowledge/reference/note-svg-policy.md
 // に準拠（フォント ≥22px、キャンバス幅 1200、左 brand アクセント縦線、
 // 右下 doboku-note.com ブランディング）。
 //

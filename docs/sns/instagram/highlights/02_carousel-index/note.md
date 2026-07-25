@@ -43,7 +43,7 @@
 
 | 情報 | 参照先 |
 |---|---|
-| 5 管理の定義 | `docs/reference/content-principles.md` |
+| 5 管理の定義 | `.claude/knowledge/reference/content-principles.md` |
 | 各管理の代表キーワード | `src/config/management-pillars.json`（または `pillar-exam-questions.json`） |
 | カルーセル投稿の SoT | `docs/sns/instagram/{exam}/exam-packs/<year>/pack-NN/`（過去問パック）/ ig-carousel-writer 経由のキーワードパック |
 

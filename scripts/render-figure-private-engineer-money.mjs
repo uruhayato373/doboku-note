@@ -5,7 +5,7 @@
 //   - 3枚のカードを横並び（左→右）に矢印で結ぶ連鎖図
 //   - 各カード: ヘッダ + 中央メイン数値 + 補足2行 + カード下ラベル2行
 //
-// 設計ルール（docs/reference/note-svg-policy.md 準拠）:
+// 設計ルール（.claude/knowledge/reference/note-svg-policy.md 準拠）:
 //   - キャンバス 1200×720 固定
 //   - フォント ≥ 22px（補足 22px、ヘッダ 24px、中央 30px）
 //   - タイトル下 40px → コンテンツ開始

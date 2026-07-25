@@ -20,7 +20,7 @@ import * as fs from "fs";
 
 const PROJECT_ROOT = path.resolve(__dirname, "../../../..");
 // ログインプロファイルはメインチェックアウト固定で共有する（worktree 実行時の再ログイン防止）。
-// docs/reference/playwright-auth-profiles.md
+// .claude/knowledge/reference/playwright-auth-profiles.md
 const PROFILE_ROOT = "/Users/minamidaisuke/doboku-note";
 const PROFILE_DIR = path.join(PROFILE_ROOT, ".local/playwright-x-profile");
 const DEBUG_DIR = path.join(PROJECT_ROOT, ".local/playwright-x-debug");

@@ -54,7 +54,7 @@ jobs:
 
       # note 導線（ファネル）ドリフトの能動検知（creds 不要のローカル検査）。
       # 公開記事の CTA 欠落・公開マガジンの L2 もくじ未収録・L2 の L1 未リンクを
-      # 赤落ちで捕捉する。真実源: docs/reference/note-funnel-architecture.md
+      # 赤落ちで捕捉する。真実源: .claude/knowledge/reference/note-funnel-architecture.md
       - name: Check note funnel drift (CTA / mokuji / L1-L2 links)
         run: npm run check-note-funnel
 

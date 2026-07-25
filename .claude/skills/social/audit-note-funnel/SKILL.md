@@ -1,6 +1,6 @@
 ---
 name: audit-note-funnel
-description: note 導線（ファネル）の資格別 3 層モデル（L1 全資格サイトマップ / L2 資格別もくじ / L3 記事内 CTA）のドリフトを監査・修復する。ソース監査（D1-D4＝CTA 欠落・L2 未収録・L1 未リンク）に加え --live でライブ反映（D5＝配線後に再投稿せず live が死ぬドリフト）を検出し、wire-note-funnel-cta（ソース配線）／note-append-cta（公開済み記事へ live 反映）で修復する。Use when user says "note導線の見直し", "もくじ整備", "CTA配線", "ファネル監査". 真実源は docs/reference/note-funnel-architecture.md。
+description: note 導線（ファネル）の資格別 3 層モデル（L1 全資格サイトマップ / L2 資格別もくじ / L3 記事内 CTA）のドリフトを監査・修復する。ソース監査（D1-D4＝CTA 欠落・L2 未収録・L1 未リンク）に加え --live でライブ反映（D5＝配線後に再投稿せず live が死ぬドリフト）を検出し、wire-note-funnel-cta（ソース配線）／note-append-cta（公開済み記事へ live 反映）で修復する。Use when user says "note導線の見直し", "もくじ整備", "CTA配線", "ファネル監査". 真実源は .claude/knowledge/reference/note-funnel-architecture.md。
 disable-model-invocation: false
 user-invocable: true
 argument-hint: "[--exam tankan|pe-construction|civil] [--apply] | --semantic"
@@ -8,7 +8,7 @@ argument-hint: "[--exam tankan|pe-construction|civil] [--apply] | --semantic"
 
 # /audit-note-funnel — note 導線の監査・修復
 
-note 記事・マガジンの**回遊と購入の動線**（資格別 3 層モデル）を定期的に見直し、ドリフトを修復するスキル。真実源は [docs/reference/note-funnel-architecture.md](../../../../docs/reference/note-funnel-architecture.md)、機械可読 config は `.claude/config/note-funnel.json`。
+note 記事・マガジンの**回遊と購入の動線**（資格別 3 層モデル）を定期的に見直し、ドリフトを修復するスキル。真実源は [.claude/knowledge/reference/note-funnel-architecture.md](../../../../.claude/knowledge/reference/note-funnel-architecture.md)、機械可読 config は `.claude/config/note-funnel.json`。
 
 ## 3 層モデル（要約）
 
@@ -45,11 +45,11 @@ npm run audit-note-funnel -- --live  # ＋ライブ反映検証（D5）
 
 ## 新規 L2 を増やす標準手順
 
-真実源 [note-funnel-architecture.md](../../../../docs/reference/note-funnel-architecture.md)「標準フロー（新規 L2 を増やすとき）」を参照。要点: もくじ記事作成 → カバー/ハッシュタグ → `publish-note --free`（Phase 4.5 目次）→ config に noteId/CTA 文面記入 → L1 へリンク → `wire-note-funnel-cta --apply` → `audit-note-funnel` でゼロ確認。
+真実源 [note-funnel-architecture.md](../../../../.claude/knowledge/reference/note-funnel-architecture.md)「標準フロー（新規 L2 を増やすとき）」を参照。要点: もくじ記事作成 → カバー/ハッシュタグ → `publish-note --free`（Phase 4.5 目次）→ config に noteId/CTA 文面記入 → L1 へリンク → `wire-note-funnel-cta --apply` → `audit-note-funnel` でゼロ確認。
 
 ## 見直しサイクル
 
-- 新規マガジン/記事公開時・週次レビュー（[workflows.md](../../../../docs/reference/workflows.md)）・月次クラウドルーティン（`note-funnel-auditor`）・CI（`check-note-funnel`）。
+- 新規マガジン/記事公開時・週次レビュー（[workflows.md](../../../../.claude/knowledge/reference/workflows.md)）・月次クラウドルーティン（`note-funnel-auditor`）・CI（`check-note-funnel`）。
 
 ## 関連
 

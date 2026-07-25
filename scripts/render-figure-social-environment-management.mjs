@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // docs/note/技術士総監/magazines/総監テキスト精読ガイド/5管理-社会環境管理/img/ に本文用 PNG/SVG 図版 8 枚を生成する。
 //
-// 設計ルール（docs/reference/note-svg-policy.md 準拠）:
+// 設計ルール（.claude/knowledge/reference/note-svg-policy.md 準拠）:
 //   - キャンバス幅 1200（同一記事内で統一）
 //   - フォント ≥ 18px（必須読み取りは 22px 以上）
 //   - 色トークンのみ使用

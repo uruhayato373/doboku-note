@@ -59,7 +59,7 @@ node scripts/note-publish-magazine.mjs --list <manifest.txt> --schedule-start 20
 
 ### リンクカード化の仕組み（type 方式・2026-06-15 確定）
 
-note の埋め込み検出は **`keyboard.type`（実入力）で起動し、synthetic な `ClipboardEvent` paste では起動しない**（v1〜v5 の paste/Enter 系は全失敗、v6/v7 の type で確定。真実源 `docs/reference/note-api-verification.md` L101「URL単独行で入力→Enterでリンクカード化」）。
+note の埋め込み検出は **`keyboard.type`（実入力）で起動し、synthetic な `ClipboardEvent` paste では起動しない**（v1〜v5 の paste/Enter 系は全失敗、v6/v7 の type で確定。真実源 `.claude/knowledge/reference/note-api-verification.md` L101「URL単独行で入力→Enterでリンクカード化」）。
 
 実装（step 6）: 本文を bulk paste すると URL はプレーン文字列になるので、各 URL 行を **Range API で選択 → `Delete` → `keyboard.type(url)` → `Enter`** で「その場」をカードへ置換（周囲テキストは保持）。[[feedback_note_link_card]] 準拠（カードの方が CTR 高い）。
 
@@ -75,4 +75,4 @@ note の埋め込み検出は **`keyboard.type`（実入力）で起動し、syn
 - `scripts/note-publish.mjs` — 本体
 - `.claude/skills/social/publish-note/` — browser-use 版（Mac・手順の元）。本スキルはその Windows Playwright 版
 - `.claude/skills/social/note-magazine-add/` — 公開後のマガジン収録（別操作）
-- `docs/reference/note-api-verification.md` — 公開状態の実体検証
+- `.claude/knowledge/reference/note-api-verification.md` — 公開状態の実体検証

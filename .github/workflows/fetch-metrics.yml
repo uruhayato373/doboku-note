@@ -133,6 +133,17 @@ jobs:
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
         run: npm run fetch-ga4-cta-clicks -- --by-label
 
+      # アフィリ面改善用: 配置別（cta_placement）の可視 impression / click。
+      # article-mid / article-end-mobile / category-sidebar など配置単位の CTR を出す。
+      # 要 GA4 カスタムディメンション（イベントスコープ・cta_placement）。登録前データは遡及しない。
+      # 未反映期は script が手順を出して exit 0。ga4-cta-clicks-by-placement-*.json。
+      - name: Fetch GA4 (affiliate impressions/clicks by placement, for placement CTR)
+        continue-on-error: true
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+        run: npm run fetch-ga4-cta-clicks -- --by-placement
+
       # 週次 NSM スナップショット（.claude/state/weekly-metrics/YYYY-Www.json）。
       # 2026-W18 でローカル手動実行が途絶したのを CI 供給へ移行（measurement-incidents.md
       # 「計測は CI/CD 供給が正」2026-06-05）。metrics-reader が NSM+SNS流入(source別WoW)を

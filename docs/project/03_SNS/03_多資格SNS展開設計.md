@@ -21,7 +21,7 @@ note カバー v2 は既に「試験＝色」で解決済みだが、SNS は未�
 | コンクリート診断士 | concrete-diagnosis | （未割当・teal/green 被り回避で plum 系等） | TBD | **要色割当** |
 | 共通 | common | bronze | `#9A6B1E` | 既存 |
 
-- 色相は `docs/design-system/note-cover-tokens.json` の `exams` を**唯一のパレット真実源**とし、note カバー・IG・X・Shorts が同じ token を解決する（1回追加で全チャネル伝播）。
+- 色相は `.claude/knowledge/design-system/note-cover-tokens.json` の `exams` を**唯一のパレット真実源**とし、note カバー・IG・X・Shorts が同じ token を解決する（1回追加で全チャネル伝播）。
 - **コンクリート2資格は色が近接しやすい**。主任技師=teal なら診断士は青緑から離す（plum/indigo 等）。
 
 ## 3. ディレクトリ構成（試験軸を追加）
@@ -72,7 +72,7 @@ docs/sns/x/draft/{連番}-{試験}-{名前}/
 
 ## 5. パレット SoT 拡張
 
-`docs/design-system/note-cover-tokens.json` の `exams` に下記を追加し、SNS 生成器からも解決する。
+`.claude/knowledge/design-system/note-cover-tokens.json` の `exams` に下記を追加し、SNS 生成器からも解決する。
 
 - `concrete-chief`（dir: コンクリート主任技師, hue: teal, base `#0F6E6E`, deep `#0A4F4F`）
 - `concrete-diagnosis`（dir: コンクリート診断士, hue: 要割当, base TBD）

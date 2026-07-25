@@ -27,7 +27,7 @@ argument-hint: "[handoffs|reference|all] (既定: handoffs)"
 
 ## 鉄則（安全則）
 
-> **handoff の既定処分は extract→削除（2026-07-11 改定・archive 廃止）**: handoff は溜めない。生きたタスクは `docs/todo/backlog.md` へ、手順・runbook は `docs/reference/` の該当 SSOT へ、個人知見は memory へ抽出し、本体は**残作業の有無に関わらず** `git rm`（**記録は git 履歴が持つ**＝復元可能）。**残作業がある＝KEEP ではない**（タスクは backlog が持つ）。KEEP は「当該セッションで今まさに編集中・未だ backlog 未抽出」のごく直近に限る。真実源 → `docs/reference/information-architecture.md`「handoff のライフサイクル」。reference/project doc は従来どおり完了判定で KEEP/TRIM/DELETE。
+> **handoff の既定処分は extract→削除（2026-07-11 改定・archive 廃止）**: handoff は溜めない。生きたタスクは `docs/todo/backlog.md` へ、手順・runbook は `.claude/knowledge/reference/` の該当 SSOT へ、個人知見は memory へ抽出し、本体は**残作業の有無に関わらず** `git rm`（**記録は git 履歴が持つ**＝復元可能）。**残作業がある＝KEEP ではない**（タスクは backlog が持つ）。KEEP は「当該セッションで今まさに編集中・未だ backlog 未抽出」のごく直近に限る。真実源 → `.claude/knowledge/reference/information-architecture.md`「handoff のライフサイクル」。reference/project doc は従来どおり完了判定で KEEP/TRIM/DELETE。
 
 1. **自己申告で完了と決めない**。doc が「完了」と書いていても、**外部実体を git/grep で検証**してから処分する（PR が merged か・成果物が `published:true`／noteUrl 付きか・参照 commit が develop/main に入っているか・ファイルが実在するか）。**検証できない残作業・外部尻尾がある handoff は、残作業を backlog に「未確認」として抽出してから削除**（情報を落とさない）。判断に迷う場合は KEEP でユーザーへ。
 2. **抽出が先・削除が後**。タスク／手順／知見の抽出漏れがないことを確認してから `git rm`。削除は git 履歴から復元可能だが、抽出漏れは気づけない。
@@ -125,4 +125,4 @@ git status --short            # 並行セッションの変更が手つかずか
 - 削除後の検証: `scripts/check-doc-refs.mjs` / `scripts/check-doc-coupling.mjs`（pre-commit）
 - 抽出もれガード: `scripts/check-handoff-extraction.mjs`（pre-commit）＝handoff 直下 `*.md` を前送りマーカー付きで削除するのに backlog を同梱していない／`_archive/` へ追加すると止める。本スキルの「抽出が先・削除が後」を機械で担保する最終網（回避 `SKIP_HANDOFF_EXTRACT=1`）
 - 別系統: `/doc-sync`（コード変更起点の prose 陳腐化）
-- ルール真実源: CLAUDE.md §8 / `docs/reference/information-architecture.md`「SSOT と参照規律」「handoff のライフサイクル」
+- ルール真実源: CLAUDE.md §8 / `.claude/knowledge/reference/information-architecture.md`「SSOT と参照規律」「handoff のライフサイクル」

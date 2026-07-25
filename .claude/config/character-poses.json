@@ -1,7 +1,7 @@
 {
   "character": "doboku-note-sensei",
   "spec": "docs/sns/_assets/character/CHARACTER-SPEC.md",
-  "policy": "docs/reference/character-asset-policy.md",
+  "policy": ".claude/knowledge/reference/character-asset-policy.md",
   "assetsDir": "docs/sns/_assets/character",
   "identity": {
     "name": "doboku-note 先生",

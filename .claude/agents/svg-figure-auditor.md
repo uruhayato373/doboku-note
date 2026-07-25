@@ -36,8 +36,8 @@ doboku-note の図版 SVG を **site・note 横断**で監査する **Evaluator 
 | 項目 | 内容 |
 |---|---|
 | 入力 | 単一 SVG のフルパス、または `article.{mdx,md}` のフルパス（本文の図版参照を抽出） |
-| site 枝 真実源 | `docs/design-system/svg-tokens.json` / `docs/reference/image-policy.md` / `docs/design-system/design-system.md` |
-| note 枝 真実源 | `docs/reference/note-svg-policy.md` |
+| site 枝 真実源 | `.claude/knowledge/design-system/svg-tokens.json` / `.claude/knowledge/reference/image-policy.md` / `.claude/knowledge/design-system/design-system.md` |
+| note 枝 真実源 | `.claude/knowledge/reference/note-svg-policy.md` |
 | 操作 | Read のみ（**Edit / Write 禁止**） |
 | 範囲外 | `cover.{svg,png}` / `ogp.png`（別スキル管轄）、図クロップ PNG（civil-exam-figure-auditor 管轄）、UI コンポーネント内インライン SVG（design-review 管轄） |
 
@@ -49,7 +49,7 @@ doboku-note の図版 SVG を **site・note 横断**で監査する **Evaluator 
 |---|---|---|---|---|---|
 | **キャンバス＆トークン適合** | 25% | viewBox 横幅 ≤ 400 / `style="max-width:{vb}px;width:100%"` あり / 色は全て colorsAllowList 内 / 矢印 marker が svg-tokens 定義形 | viewBox ≤ 400 / 軽微なトークン外 1 箇所 | viewBox 401〜500（理由コメント無し）/ allowlist 外 hex 複数 | viewBox > 500 / max-width 欠落 / 濃色背景+白文字（prohibited） |
 
-> **figure-*.svg（dual-use 図）の追加判定**: ファイル名が `figure-*.svg` のときは固定キャンバス標準（[figure-canvas-policy.md](../../docs/reference/figure-canvas-policy.md)）も併せて見る。
+> **figure-*.svg（dual-use 図）の追加判定**: ファイル名が `figure-*.svg` のときは固定キャンバス標準（[figure-canvas-policy.md](../../.claude/knowledge/reference/figure-canvas-policy.md)）も併せて見る。
 > - viewBox が **`400 500`（feed）/ `640 360`（--wide=landscape）に正確一致**しているか（不一致は `check-figure-canvas` が機械検出。再レイアウトは svg-canvas-fitter）。
 > - 固定枠を**使い切れているか**——大きな空白で間延びしていないか（要素拡大・サマリー・凡例で埋めるべき）、逆に詰め込みすぎて窮屈/クリップしていないか。
 > - 4:5 に収めると可読性が壊れている図は **cannot-fit** として指摘し、2 段スタック化 or landscape 専用化を推奨する。

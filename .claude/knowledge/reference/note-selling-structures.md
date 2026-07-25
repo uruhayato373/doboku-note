@@ -128,7 +128,7 @@ note 記事を「読まれて・買われる」状態に組み上げるための
 > [!warning]
 > **試験対策 note 特有の制約と両立させる**
 > - 誇大表現・断定的な合否約束はしない（型は「読者の現在地理解」までで、過剰なセールスにしない）
-> - フックは過去問・出題傾向・基準など**検証可能な事実**に立脚させる（[note-fact-checker](../../.claude/agents/note-fact-checker.md) 連携）
+> - フックは過去問・出題傾向・基準など**検証可能な事実**に立脚させる（[note-fact-checker](../../agents/note-fact-checker.md) 連携）
 > - 無料部分で売り切ろうとして本編（解答・解説）の信頼を損ねない。冒頭 CTA は[funnel 原則 2](note-funnel-architecture.md)「冒頭=軽く・末尾=回遊」に従う
 > - 外部の販売実績エピソード（金額・体験談）は**運営者自身の経験座でない限り本文に流用しない**（一人称で語れるかを確認）
 
@@ -146,7 +146,7 @@ note 記事の**作成・リライト経路**ごとに、本書がどこから�
 | 総監テキスト精読ガイド（note） | 親駆動（専任 writer なし） | [note-publish-enhancement.md](note-publish-enhancement.md) B1 から橋渡し |
 | 全 note 下書きの公開前ゲート | `/note-prepublish-review` | Phase 1 で無料部分の5ステップ骨格を report-only 観点喚起（自動判定・BLOCK しない） |
 | Brain キット LP（brain-market） | `brain-operator`・`/brain-publish`（`--replace-body`） | [brain-operations.md](brain-operations.md) §4 から本書「強化コンポーネント」を参照（LP 本文の型）。誠実表現は brain-operations 安全弁6 |
-| ココナラ 出品文面 | `coconala-operator`・`/coconala-publish` | [ココナラ展開キット.md](../note/1級・2級土木/ココナラ展開キット.md) §3 から本書「強化コンポーネント」を参照（C系PDF=直適用／S系人力=翻案） |
+| ココナラ 出品文面 | `coconala-operator`・`/coconala-publish` | [ココナラ展開キット.md](../../../docs/note/1級・2級土木/ココナラ展開キット.md) §3 から本書「強化コンポーネント」を参照（C系PDF=直適用／S系人力=翻案） |
 
 - **対象外（意図的）**: サイトの無料 SEO／参考ページ（キーワードページ・`/pe-essay-draft` の総監模範論文**サイト**ページ・過去問 MDX・textbook）。これらは販売ファネルでないため自動配線しない。検索流入の悩み直撃・勘違い破壊を SEO 記事の導入にも効かせたい場合は、別途その判断で早見表「無料 SEO 記事」行を適用する。
 - 新しい記事タイプ・経路を増やすときは、上表と早見表に 1 行追記してから書く（その場のアドリブで型を増やさない）。

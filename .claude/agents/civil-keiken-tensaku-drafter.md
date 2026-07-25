@@ -125,4 +125,4 @@ model: sonnet
 - 添削実測ゲート: `docs/note/1級・2級土木/メンバーシップ/添削実測/README.md`
 - ココナラ運用: `docs/note/1級・2級土木/ココナラ展開キット.md`
 - メモリ: [[feedback_essay_char_limit]] / [[project_keiken_charcount_gate]]
-- 著者オーソリティ（差別化の根拠＝総監の分析力／元発注者の採点眼／施工管理技士の当事者性）: `docs/reference/author-authority-banner.md`
+- 著者オーソリティ（差別化の根拠＝総監の分析力／元発注者の採点眼／施工管理技士の当事者性）: `.claude/knowledge/reference/author-authority-banner.md`

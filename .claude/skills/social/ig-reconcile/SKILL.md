@@ -11,7 +11,7 @@ disable-model-invocation: true
 argument-hint: "[--backfill] [--schedule-unpublished] [--exam=cem]"
 ---
 
-IG カルーセルの「実際に公開されているか（現状確認）」と「未公開の予約投稿」を、毎回ゼロから手作業せず**反復実行**するためのオーケストレーションスキル。設計の真実源は [docs/reference/ig-publish-reconcile.md](../../../../docs/reference/ig-publish-reconcile.md)。
+IG カルーセルの「実際に公開されているか（現状確認）」と「未公開の予約投稿」を、毎回ゼロから手作業せず**反復実行**するためのオーケストレーションスキル。設計の真実源は [.claude/knowledge/reference/ig-publish-reconcile.md](../../../../.claude/knowledge/reference/ig-publish-reconcile.md)。
 
 ## なぜ必要か（このスキルが生まれた経緯）
 
@@ -19,7 +19,7 @@ IG カルーセルの「実際に公開されているか（現状確認）」�
 
 ## アカウント SSOT
 
-実アカウントは **`@dobokunotecom`**（X と同一）。機械可読 SSOT は [`.claude/config/ig-account.json`](../../../config/ig-account.json)。`docs/sns/instagram/profile.md` の旧「`@doboku_note` 想定」は誤り（是正済み）。スクリプトはハンドルを誤ると空振りするので、必ず config 経由で参照する。
+実アカウントは **`@dobokunotecom`**。アカウントとプロフィール表示値の機械可読SSOTは [`.claude/config/ig-account.json`](../../../config/ig-account.json)。Xは別アカウント `@doboku373`（`.claude/config/x-account.json`）。スクリプトはハンドルを誤ると空振りするので、必ずconfig経由で参照する。
 
 ## フロー
 

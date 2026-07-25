@@ -56,4 +56,4 @@ node scripts/note-attach-file.mjs --note <noteKey> --file <pdf path> --anchor "<
 
 - `scripts/note-attach-file.mjs`（1記事）／`scripts/note-attach-magazine-pdfs.mjs`（マガジン直列バッチ）
 - 記事公開: `note-publish` ／ マガジンカバー: `note-magazine-cover` ／ 収録: `note-magazine-add`
-- 印刷用 PDF 生成: `scripts/magazine-to-pdf.mjs`（`magazine-pdf-builder`）／真実源 `docs/reference/note-api-verification.md`・[[project_note_write_automation]]
+- 印刷用 PDF 生成: `scripts/magazine-to-pdf.mjs`（`magazine-pdf-builder`）／真実源 `.claude/knowledge/reference/note-api-verification.md`・[[project_note_write_automation]]

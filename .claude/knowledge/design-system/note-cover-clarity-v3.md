@@ -154,7 +154,7 @@ clarityAlertFontSize(text)    // 26..34px、ラベル内幅に収める
    - `renderNoteCoverClarity` を追加
    - `renderNoteCoverG2` 冒頭で opt-in 分岐
    - 既存アイコン、背景、文字幅 helper を再利用
-2. `docs/design-system/note-cover-tokens.json`
+2. `.claude/knowledge/design-system/note-cover-tokens.json`
    - version を minor update
    - `layout.clarity` と `coverSchema` のフィールドを追加
 3. `scripts/add-note-cover.mjs`
@@ -166,7 +166,7 @@ clarityAlertFontSize(text)    // 26..34px、ラベル内幅に収める
    - headline、count row、banner、alert を検査
 5. `.claude/agents/note-cover-writer.md`
    - G2既定とClarity V3 opt-inを区別
-6. `docs/design-system/note-cover.md`
+6. `.claude/knowledge/design-system/note-cover.md`
    - variantへの導線と採用条件を追記
 
 ### 代表記事

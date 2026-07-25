@@ -16,7 +16,7 @@ user-invocable: true
 ## 用途
 
 Brain 商品の出品（下書き作成〜公開申請）。運用・スキーマ・挙動のクセの真実源は
-[docs/reference/brain-operations.md](../../../../docs/reference/brain-operations.md)。
+[.claude/knowledge/reference/brain-operations.md](../../../../.claude/knowledge/reference/brain-operations.md)。
 
 ## 手順
 
@@ -48,11 +48,11 @@ Brain はカテゴリを**申請時設定**として扱う（in-place 変更不�
 node scripts/brain-publish.mjs --service <id> --edit-url <editUrl> --commit --force-resubmit --set-category <label>
 ```
 
-販売設定ステップ 5b でカテゴリ v-select を選択（**仮想リスト**＝候補は wheel スクロールで DOM 化してから click→assert）。全候補・注意点は [brain-operations §4/§6](../../../../docs/reference/brain-operations.md)。
+販売設定ステップ 5b でカテゴリ v-select を選択（**仮想リスト**＝候補は wheel スクロールで DOM 化してから click→assert）。全候補・注意点は [brain-operations §4/§6](../../../../.claude/knowledge/reference/brain-operations.md)。
 
 ## 本文（LP）差し替え（再審査を伴う）
 
-既定は既存本文を保持（>50字なら挿入スキップ）。listings の bodyText を書き直してライブへ反映するには **`--replace-body`**（既存を全消去→再挿入）。本文変更も再申請＝再審査。**書き直す際は構成の型＝[note-selling-structures.md](../../../../docs/reference/note-selling-structures.md)「強化コンポーネント」を参照**（誠実表現は brain-operations §5-6）。
+既定は既存本文を保持（>50字なら挿入スキップ）。listings の bodyText を書き直してライブへ反映するには **`--replace-body`**（既存を全消去→再挿入）。本文変更も再申請＝再審査。**書き直す際は構成の型＝[note-selling-structures.md](../../../../.claude/knowledge/reference/note-selling-structures.md)「強化コンポーネント」を参照**（誠実表現は brain-operations §5-6）。
 
 ```
 node scripts/brain-publish.mjs --service <id> --edit-url <editUrl> --commit --force-resubmit --replace-body [--set-category <label>]

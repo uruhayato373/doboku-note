@@ -4,7 +4,7 @@ title: SNS 投稿画像 ポリシー
 
 # SNS 投稿画像 ポリシー
 
-`docs/sns/{x,instagram,youtube}/` に出力する SNS 用画像（IG カルーセル / X 投稿 / YT Shorts）の真実源。`docs/reference/note-svg-policy.md` の SNS 版。
+`docs/sns/{x,instagram,youtube}/` に出力する SNS 用画像（IG カルーセル / X 投稿 / YT Shorts）の真実源。`.claude/knowledge/reference/note-svg-policy.md` の SNS 版。
 
 ## 適用範囲
 
@@ -13,7 +13,7 @@ title: SNS 投稿画像 ポリシー
 - `docs/sns/youtube/**/*.{mp4,png}` — YT Shorts 動画・サムネ
 - 生成スクリプト: `.tmp/gen-sns-{NNN}.mjs`
 
-note 用図解（`docs/note/**/img/figure-*`）は対象外、`docs/reference/note-svg-policy.md` 参照。doboku-note 本体（`.local/r2/posts/**/img/*.svg`）も対象外。
+note 用図解（`docs/note/**/img/figure-*`）は対象外、`.claude/knowledge/reference/note-svg-policy.md` 参照。doboku-note 本体（`.local/r2/posts/**/img/*.svg`）も対象外。
 
 ## なぜ SNS 専用ルールが必要か
 
@@ -221,11 +221,11 @@ PNG だけ修正することは絶対にしない（再生成で消える）。S
 
 ## 12. 試験識別レイヤー（多資格展開）
 
-複数試験（技術士総監 / 1級土木 / コンクリート主任技師 等）を同一アカウントで展開する際、フィード/グリッドで「どの試験の投稿か」を即判別させるためのルール。設計の真実源は [docs/project/03_SNS/03_多資格SNS展開設計.md](../project/03_SNS/03_多資格SNS展開設計.md)。
+複数試験（技術士総監 / 1級土木 / コンクリート主任技師 等）を同一アカウントで展開する際、フィード/グリッドで「どの試験の投稿か」を即判別させるためのルール。設計の真実源は [docs/project/03_SNS/03_多資格SNS展開設計.md](../../../docs/project/03_SNS/03_多資格SNS展開設計.md)。
 
 ### 12.1 2軸の色設計（試験＝色相 / サブテーマ＝アクセント）
 
-- **第1軸＝試験**：パレット真実源 `docs/design-system/note-cover-tokens.json` の `exams` から **base 色を解決**（総監=navy / 1級土木=azure / コンクリ主任=teal / コンクリ診断=plum）。これがカバーの**上部色帯＝試験識別**。
+- **第1軸＝試験**：パレット真実源 `.claude/knowledge/design-system/note-cover-tokens.json` の `exams` から **base 色を解決**（総監=navy / 1級土木=azure / コンクリ主任=teal / コンクリ診断=plum）。これがカバーの**上部色帯＝試験識別**。
 - **第2軸＝サブテーマ**：総監の 5 管理色は原則として試験色帯を侵さず内部アクセントに置くが、**過去問パックのカバーは管理分野を主役にするため上部色帯を 5 管理別色にする**（2026-06-17。管理色は淡色のため帯上テキスト〔試験名・ページ番号〕は暗色へ切替えて可読性を確保）。試験識別が主のサムネ等は従来どおり試験色帯を優先。
 - note カバー・IG・X・Shorts は**同じ token を解決**してチャネル間で色を統一する。
 

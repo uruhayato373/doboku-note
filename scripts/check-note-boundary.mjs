@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // note 有料記事の「有料境界（paidBoundary）」事前ゲート。network 不要・creds 不要。
 //
-// ルール（真実源: docs/reference/note-api-verification.md「有料境界（paidBoundary）のマガジン別 SSOT」）:
+// ルール（真実源: .claude/knowledge/reference/note-api-verification.md「有料境界（paidBoundary）のマガジン別 SSOT」）:
 //   notePricing: paid かつ published（noteUrl/noteId あり）の記事は、有料境界が一意に解決できること。
 //   境界解決順（note-publish/note-update-body/check-note-structure と統一）:
 //     frontmatter `paidBoundary` があり、そのH2が本文に prefix 一致で実在する
@@ -91,5 +91,5 @@ if (!violations.length) {
 }
 console.error(`[check-note-boundary] ✗ 有料境界が未解決の記事 ${violations.length} 件（${scope}${checked} 件中）:`);
 for (const v of violations) console.error(`     ${v.f}\n       ${v.reason}`);
-console.error(`\n  frontmatter に paidBoundary（境界H2の先頭一致）を付与してください。SSOT: docs/reference/note-api-verification.md`);
+console.error(`\n  frontmatter に paidBoundary（境界H2の先頭一致）を付与してください。SSOT: .claude/knowledge/reference/note-api-verification.md`);
 process.exit(1);

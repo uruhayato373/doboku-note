@@ -39,7 +39,7 @@ doboku-note は土木工学に関するドキュメントサイト（Next.js 16 
 | **RPM**（広告） | 1,000 PV あたり AdSense 収益 | 収益 ÷ PV × 1000 | AdSense（ページ別取り込みは measurement-infra #13＝**未実装**・現状は手動概算） |
 | **EPC**（アフィリ） | 1 クリックあたり報酬 | A8 成果報酬 ÷ アフィリクリック | `a8-results.json`（月次手動）÷ GA4 `affiliate_cta_click` by-label（`fetch-ga4-cta-clicks --by-label`・カスタムディメンション `event_label` 登録済 2026-07-07） |
 | **CTA 転換率** | 収益 CTA のクリック率 | CTA クリック ÷ ページ流入 | GA4 `affiliate_cta_click`/`note_cta_click` ÷ `ga4-page`（`report-monetization-coverage`・週次 CI） |
-| **note ファネル効率** | note 送客 → 購入 | 売上件数 ÷ `note_cta_click` | `sales-log.json`（`docs/reference/sales-tracking.md`）÷ GA4（厳密 attribution は measurement-infra #14/#15） |
+| **note ファネル効率** | note 送客 → 購入 | 売上件数 ÷ `note_cta_click` | `sales-log.json`（`.claude/knowledge/reference/sales-tracking.md`）÷ GA4（厳密 attribution は measurement-infra #14/#15） |
 
 - **EPC で案件を選ぶ**: 転職アフィリは BuildJob（無料面談 ¥50,000〜8/31 増額）/ GKS（¥25,000）/ 建設JOBs（登録 ¥4,500）が **EPC＝報酬 × 成約率**で優劣が決まる。低摩擦・低単価が高 EPC のこともある。~2026-09 に判定（backlog P5・[[project_buildjob_impressions_campaign]]）。
 - **カニバリ境界（不可侵）**: 学習・受験意図は **note（自社・高粗利）が独占**、キャリア意図は**転職アフィリ**。両者は財布が別＝競合しない。この境界を崩す施策（学習導線への外部講座/教材送客等）は**提案しない**（[[affiliate-career-only]]）。
@@ -150,7 +150,7 @@ doboku-note に適した収益化モデルを 3-5 案生成する。以下のカ
 ## 参照
 
 - `docs/project/04_運営/02_アフィリエイト提携状況.md` — 転職アフィリの配置面・EPC・a8-results 運用の真実源
-- `docs/reference/sales-tracking.md` — note 売上 SSOT（sales-log.json・productId 命名）
+- `.claude/knowledge/reference/sales-tracking.md` — note 売上 SSOT（sales-log.json・productId 命名）
 - `docs/todo/measurement-infra-enhancement.md` — 計測基盤タスク（RPM 取り込み #13・attribution #14/#15 は未実装）
 - `docs/project/01_戦略/04_収益化戦略.md` — 収益化戦略の恒久文書（結論はここへ）
 - `.claude/skills/management/growth-loops/SKILL.md` — 成長ループ分析

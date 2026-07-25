@@ -47,10 +47,10 @@ SVG は**全体の流れ・構造を一目で把握させる**ためのもの。
 > [!important] 記事＋SNS 両用の図（`figure-N.svg`）は固定キャンバス必須
 > SNS（記事・Instagram）にも使う図は **viewBox を `400 500`（4:5・feed）に固定**する（高さ可変は不可）。
 > YouTube 用の横長は別ファイル `figure-N--wide.svg`（viewBox `640 360`・16:9・記事非埋込）として作る。
-> 真実源 → [figure-canvas-policy.md](../../../../docs/reference/figure-canvas-policy.md) / `.claude/config/figure-canvas.json`。
+> 真実源 → [figure-canvas-policy.md](../../../../.claude/knowledge/reference/figure-canvas-policy.md) / `.claude/config/figure-canvas.json`。
 > ガード `npm run check-figure-canvas` が逸脱を pre-commit で止める。縦の余白は要素拡大・サマリー・凡例で埋めて使い切る。
 >
-> **Stories / Reels 流用**: 4:5（400×500）で作った figure-*.svg は、9:16 キャンバス中央に配置するだけで IG Stories / Reels の静止画スライドとして使える（SVG 修正不要）。配置ルール → [sns-image-policy.md §13](../../../../docs/reference/sns-image-policy.md)。
+> **Stories / Reels 流用**: 4:5（400×500）で作った figure-*.svg は、9:16 キャンバス中央に配置するだけで IG Stories / Reels の静止画スライドとして使える（SVG 修正不要）。配置ルール → [sns-image-policy.md §13](../../../../.claude/knowledge/reference/sns-image-policy.md)。
 >
 > 以下の「横幅 ≤400・高さ可変」ルールは **SNS に使わない記事専用の図**にのみ適用する。
 
@@ -122,7 +122,7 @@ SVG は**全体の流れ・構造を一目で把握させる**ためのもの。
 
 ### コントラスト比（WCAG 2.1 AA 準拠）
 
-`docs/design-system/design-system.md` に従い、**テキストと背景のコントラスト比は 4.5:1 以上**を必須とする。
+`.claude/knowledge/design-system/design-system.md` に従い、**テキストと背景のコントラスト比は 4.5:1 以上**を必須とする。
 
 - **濃色背景は使用しない**。すべてのボックスは上記の淡色 fill（`brand-fill` / `positive-fill` / `warn-fill` / `danger-fill`）を使う
 - テキストは `#1a3a5c`（見出し）または `#555`（本文）
@@ -288,7 +288,7 @@ node .claude/skills/quality/check-mdx/scripts/rules/svg/audit.mjs --severity=HIG
 />
 ```
 
-**`caption` 属性は使用しない。** `docs/reference/content-principles.md` 「`<ArticleImage>` の caption は使わない」ルールに従い、`alt` のみ設定する。図の内容は本文で説明する。
+**`caption` 属性は使用しない。** `.claude/knowledge/reference/content-principles.md` 「`<ArticleImage>` の caption は使わない」ルールに従い、`alt` のみ設定する。図の内容は本文で説明する。
 
 ### Step 5: コミット
 
@@ -296,7 +296,7 @@ node .claude/skills/quality/check-mdx/scripts/rules/svg/audit.mjs --severity=HIG
 
 ## 参照
 
-- `docs/design-system/design-system.md` — デザイン原則（コントラスト比 4.5:1 の根拠）
-- `docs/design-system/design-system.md §8` — 禁止パターン（純黒禁止・ライトグレー禁止等）
-- `docs/reference/content-authoring.md` — MDX コンポーネント・画像配信規約
-- `docs/reference/content-principles.md` — コンテンツ品質ルールの真実源
+- `.claude/knowledge/design-system/design-system.md` — デザイン原則（コントラスト比 4.5:1 の根拠）
+- `.claude/knowledge/design-system/design-system.md §8` — 禁止パターン（純黒禁止・ライトグレー禁止等）
+- `.claude/knowledge/reference/content-authoring.md` — MDX コンポーネント・画像配信規約
+- `.claude/knowledge/reference/content-principles.md` — コンテンツ品質ルールの真実源

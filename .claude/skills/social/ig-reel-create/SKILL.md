@@ -50,7 +50,7 @@ node .claude/skills/social/ig-reel-create/scripts/ig-reel-create.mjs \
 > [!warning]
 > **カバー/テンプレ刷新時は `--skip-png` を付けない。** カバーPNGテンプレ（`exam-cover-ig`）や 09-cta テンプレを更新した後は、PNG から再生成しないと旧テンプレが動画に残る。`--skip-png` は「PNG が現行テンプレと一致している」と確信できる時だけ使う。カバーPNGだけ別途更新して動画を再生成しない運用は **desync を生むため禁止**（`yt-shorts-create` の `assertCoverInSync` ガードが派生時に SSIM<0.90 で検知・中断する）。
 
-> **コミット方針**: `reels/script.txt` と `caption.txt` のみコミット。`video.mp4` / `wav/` / `slide-NN.mp4` / `_combined.mp4` / `_empty.ass` / `concat.txt` は再生成可能な派生物で `.gitignore` 済み。wav は R2 退避（`npm run upload-sns-r2`）、手元に無ければ script.txt から VOICEVOX で再生成（真実源 `docs/reference/sns-archive-policy.md`）。
+> **コミット方針**: `reels/script.txt` と `caption.txt` のみコミット。`video.mp4` / `wav/` / `slide-NN.mp4` / `_combined.mp4` / `_empty.ass` / `concat.txt` は再生成可能な派生物で `.gitignore` 済み。wav は R2 退避（`npm run upload-sns-r2`）、手元に無ければ script.txt から VOICEVOX で再生成（真実源 `.claude/knowledge/reference/sns-archive-policy.md`）。
 
 ## 出力
 
@@ -75,10 +75,10 @@ docs/sns/instagram/{exam}/exam-packs/<year>/pack-<NN>/reels/
 
 | スライド | 台本 |
 |---|---|
-| **cover** | 技術士総監:「令和{年度}年度の択一式過去問、{N}番です。全 4 問、答えは動画内で発表します」／土木:「{令和\|平成}{年度}年度{前期\|後期}の第一次検定 過去問、{N}番です。全 4 問、答えは動画内で発表します」（Reels は自動再生のため「スワイプ」表現は使わない → [ig-reels-policy.md](../../../../docs/reference/ig-reels-policy.md)） |
+| **cover** | 技術士総監:「令和{年度}年度の択一式過去問、{N}番です。全 4 問、答えは動画内で発表します」／土木:「{令和\|平成}{年度}年度{前期\|後期}の第一次検定 過去問、{N}番です。全 4 問、答えは動画内で発表します」（Reels は自動再生のため「スワイプ」表現は使わない → [ig-reels-policy.md](../../../../.claude/knowledge/reference/ig-reels-policy.md)） |
 | **problem** | 「問題{N}。{bodyLines}」 |
 | **answer** | 「正答は{N}番。{correctText}。{pointText}」 |
-| **cta** | 「フォローすると毎週、過去問解説が届きます。全問解説はドボクノートでチェック」（Reels はリーチ獲得器のため保存より新規フォロー誘導を主にする → [ig-reels-policy.md](../../../../docs/reference/ig-reels-policy.md)） |
+| **cta** | 「フォローすると毎週、過去問解説が届きます。全問解説はドボクノートでチェック」（Reels はリーチ獲得器のため保存より新規フォロー誘導を主にする → [ig-reels-policy.md](../../../../.claude/knowledge/reference/ig-reels-policy.md)） |
 
 選択肢は読み上げない（時間制約のため、視聴者は画面で読む）。
 

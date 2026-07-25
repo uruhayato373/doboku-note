@@ -1,16 +1,16 @@
 /**
  * exam-palette.mjs — 試験パレット解決（多資格SNS展開の試験識別レイヤー用）
  *
- * 真実源: docs/design-system/note-cover-tokens.json の `exams`。
+ * 真実源: .claude/knowledge/design-system/note-cover-tokens.json の `exams`。
  * note カバー・IG・X・Shorts が同一 token を解決し、試験＝色相 をチャネル横断で統一する。
- * 設計: docs/project/03_SNS/03_多資格SNS展開設計.md ／ docs/reference/sns-image-policy.md §12
+ * 設計: docs/project/03_SNS/03_多資格SNS展開設計.md ／ .claude/knowledge/reference/sns-image-policy.md §12
  */
 import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../../../..');
-const TOKENS = JSON.parse(readFileSync(join(ROOT, 'docs/design-system/note-cover-tokens.json'), 'utf8'));
+const TOKENS = JSON.parse(readFileSync(join(ROOT, '.claude/knowledge/design-system/note-cover-tokens.json'), 'utf8'));
 
 /** slug / 日本語dir のどちらでも試験エントリを引く */
 export function resolveExam(key) {

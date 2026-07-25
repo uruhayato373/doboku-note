@@ -32,7 +32,7 @@ model: sonnet
 | `.claude/config/kdp-memo.json` | KDP 入稿 SSOT（defaults＝共通申告/カテゴリー経路、books[id]＝固有メタ） |
 | `scripts/kindle-published/catalog.json` | 全 42 冊の status/ASIN/draftAsin（提出後の更新先） |
 | `scripts/kindle-specs/<id>.json` | title/subtitle/price/sources（ビルド入力） |
-| `docs/reference/kindle-dup-prevention`（memory） | 修正版は既存差し替え・新規作成禁止／提出後 ASIN 即記録 |
+| `.claude/knowledge/reference/kindle-dup-prevention`（memory） | 修正版は既存差し替え・新規作成禁止／提出後 ASIN 即記録 |
 | `docs/project/01_戦略/08_Kindle出版戦略.md` | 出版済み一覧（LIVE 化後の記録先の1つ） |
 
 ## 担当範囲

@@ -10,7 +10,7 @@ title: docs/ 内 Markdown ドキュメントの執筆スタイル
 
 - `docs/handoffs/YYYY-MM-DD-{context}.md` — セッション引き継ぎ
 - `docs/project/**/*.md` — 戦略・設計・進捗
-- `docs/reference/*.md` — 運用ポリシー（このファイルもここに属する）
+- `.claude/knowledge/reference/*.md` — 運用ポリシー（このファイルもここに属する）
 
 **対象外**: `docs/note/**/article.md`（note プラットフォームが Obsidian callout 記法を解釈しないため）
 
@@ -103,7 +103,7 @@ callout 内に通常 markdown（リスト・表・コードブロック・リン
 |---|---|---|---|
 | `docs/handoffs/` | ◎ 積極利用 | `[!todo]` 残課題 / `[!important]` 着手手順 / `[!warning]` 注意 | 次セッション Claude が読む。視認性が直接生産性に効く |
 | `docs/project/` | ○ 限定利用 | `[!important]` 決定事項 / `[!warning]` 制約 | 戦略文書。決定事項を強調したいが、装飾過多は避ける |
-| `docs/reference/` | △ 慎重利用 | `[!warning]` 例外・落とし穴のみ | 運用ポリシーは本文で淡々と書く。例外だけ強調 |
+| `.claude/knowledge/reference/` | △ 慎重利用 | `[!warning]` 例外・落とし穴のみ | 運用ポリシーは本文で淡々と書く。例外だけ強調 |
 | `docs/note/` | ✗ 使用不可 | （該当なし） | note プラットフォームが解釈しない |
 
 ---

@@ -23,7 +23,7 @@
  *   node scripts/check-coconala-wiring.mjs            # 全検査
  *   node scripts/check-coconala-wiring.mjs --staged   # 関連 staged がある時だけ検査（pre-commit 用）
  *
- * 真実源: docs/reference/coconala-operations.md（運用・スキーマ）
+ * 真実源: .claude/knowledge/reference/coconala-operations.md（運用・スキーマ）
  *        docs/note/1級・2級土木/ココナラ展開キット.md（戦略・出品文面）
  * ---------------------------------------------------------------------------
  */
@@ -229,7 +229,7 @@ if (violations.length) {
   console.error('');
   console.error('対処: src/lib/coconala-services.ts（カタログ SoT）と .claude/state/coconala/*.json、');
   console.error('      .claude/state/sales/sales-log.json の整合を取ってください。');
-  console.error('      運用・スキーマの真実源: docs/reference/coconala-operations.md');
+  console.error('      運用・スキーマの真実源: .claude/knowledge/reference/coconala-operations.md');
   process.exit(1);
 }
 

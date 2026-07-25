@@ -1,5 +1,5 @@
 {
-  "$comment": "カテゴリページの体系（受験ガイド / 分野別 / テキスト章 / キャリア注目）の編成 SSOT。slugs はカテゴリ prefix を抜いた suffix。並び順は slugs 記載順（明示編成）。真実源の詳細は docs/design-system/design-system.md §3 と docs/reference の各方針。resolver=src/lib/category-curriculum.ts。未割当 guide は resolver が unassigned で必ず表示に回す（silent drop 禁止）。",
+  "$comment": "カテゴリページの体系（受験ガイド / 分野別 / テキスト章 / キャリア注目）の編成 SSOT。slugs はカテゴリ prefix を抜いた suffix。並び順は slugs 記載順（明示編成）。真実源の詳細は .claude/knowledge/design-system/design-system.md §3 と .claude/knowledge/reference の各方針。resolver=src/lib/category-curriculum.ts。未割当 guide は resolver が unassigned で必ず表示に回す（silent drop 禁止）。",
   "civil-construction-1": {
     "examGuide": {
       "title": "受験ガイド",

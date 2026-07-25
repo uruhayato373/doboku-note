@@ -46,11 +46,14 @@ export const event = ({
   category,
   label,
   value,
+  params,
 }: {
   action: string;
   category: string;
   label: string;
   value?: number;
+  /** イベント固有の追加パラメータ。個人情報は渡さないこと。 */
+  params?: GtagConfig;
 }) => {
   // NODE_ENV: 本番環境でのみイベントを送信
   // 開発環境ではGoogle Analyticsイベントを無効化
@@ -60,6 +63,7 @@ export const event = ({
   const eventParams: GtagConfig = {
     event_category: category,
     event_label: label,
+    ...params,
   };
 
   if (value !== undefined) {

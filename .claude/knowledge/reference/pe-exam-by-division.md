@@ -13,7 +13,7 @@ appliesTo:
   - docs/note/技術士建設部門/**
   - docs/sns/**（カルーセル・Reels・X）
 related:
-  - docs/reference/pe-cem-pass-rate-history.md（総監単独の年度別 時系列）
+  - .claude/knowledge/reference/pe-cem-pass-rate-history.md（総監単独の年度別 時系列）
 ---
 
 # 技術士第二次試験 技術部門別 受験者数・合格率
@@ -109,6 +109,6 @@ related:
 
 ## 6. 関連ファイル
 
-- `docs/reference/pe-cem-pass-rate-history.md` — 総監単独の年度別 時系列（H26-R7）
+- `.claude/knowledge/reference/pe-cem-pass-rate-history.md` — 総監単独の年度別 時系列（H26-R7）
 - `docs/note/技術士総監/**`・`docs/note/技術士建設部門/**` — 部門規模・合格率を引用する note 記事
 - `.local/r2/posts/pe-construction/**`・`.local/r2/posts/pe-comprehensive-management/**` — サイト側の対策記事

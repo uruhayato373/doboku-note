@@ -91,7 +91,7 @@ grep -rn "B-slug" src/ .local/r2/posts/ public/_redirects
 ### フェーズ 1: 正規ページ (A) の統合リライト
 
 - B のコンテンツから独自価値のある部分を A に統合
-- 長い表はモバイル視認性のため箇条書きに変換（`docs/reference/content-authoring.md` の「モバイル視認性（詳細ルール）」参照）
+- 長い表はモバイル視認性のため箇条書きに変換（`.claude/knowledge/reference/content-authoring.md` の「モバイル視認性（詳細ルール）」参照）
 - frontmatter は A の既存値を維持（`section` は 1 つだけ保持）
 - 「総合技術監理における位置づけ」セクションで **両セクションへの横断的登場** を明記
 - `<ExamPoint>` に「キーワード集では X.Y と M.N の両方に登場する」という項目を追加
@@ -242,4 +242,4 @@ npm run lint
 - `.claude/skills/quality/consolidate-duplicate-keyword/scripts/find-duplicate-keywords.mjs` — 重複検出（本スキルの入口）
 - `.claude/skills/quality/exam-backlinks/scripts/build-exam-backlinks.mjs` — 自動生成スクリプト
 - `public/_redirects` — Cloudflare Pages リダイレクト定義
-- `docs/reference/content-authoring.md` — モバイル視認性ルール（表 → 箇条書きの判断基準）
+- `.claude/knowledge/reference/content-authoring.md` — モバイル視認性ルール（表 → 箇条書きの判断基準）

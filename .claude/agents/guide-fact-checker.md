@@ -82,5 +82,5 @@ suspiciousCount: N
 
 ## 参照ドキュメント
 
-- `docs/reference/content-principles.md` §25（字数ゲートは質を保証しない・事実は一次照合）
-- `docs/reference/content-authoring.md`「ガイド記事固有ルール」
+- `.claude/knowledge/reference/content-principles.md` §25（字数ゲートは質を保証しない・事実は一次照合）
+- `.claude/knowledge/reference/content-authoring.md`「ガイド記事固有ルール」

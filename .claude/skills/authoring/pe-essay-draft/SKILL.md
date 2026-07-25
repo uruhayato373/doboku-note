@@ -188,7 +188,7 @@ faqs:                    # 3〜4 問。属性 × テーマの最頻出論点を 
 - `.local/r2/posts/pe-comprehensive-management/r0X-secondary/article.mdx` — 年度別設問（入力）
 - `.local/r2/posts/pe-comprehensive-management/management-tradeoffs/article.mdx` — 解決フレーム
 - `.claude/scripts/lib/mdx-io.mjs` — CRLF 保持 I/O（書き込み時必須）
-- `docs/reference/content-authoring.md` — MDX コンポーネント・リンク系の使い分け（note 記事リンクは `<NoteLink>`）
+- `.claude/knowledge/reference/content-authoring.md` — MDX コンポーネント・リンク系の使い分け（note 記事リンクは `<NoteLink>`）
 
 ## バージョン履歴
 

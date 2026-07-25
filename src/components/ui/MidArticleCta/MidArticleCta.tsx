@@ -53,6 +53,7 @@ export default function MidArticleCta(props: MidArticleCtaProps) {
           rel={AFFILIATE_LINK_REL}
           data-cta="affiliate"
           data-cta-label={props.trackLabel}
+          data-cta-placement="article-mid"
           className="group inline-flex items-center gap-1 text-[14px] sm:text-[15px] font-bold text-[var(--accent)] hover:underline"
         >
           {props.text}

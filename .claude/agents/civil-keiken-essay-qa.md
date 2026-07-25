@@ -67,6 +67,6 @@ model: sonnet
 ## 参照
 
 - `.claude/agents/civil-keiken-essay-writer.md`（対の Generator）
-- `docs/reference/content-principles.md`
+- `.claude/knowledge/reference/content-principles.md`
 - 字数ゲート: `/keiken-charcount`（`scripts/keiken-charcount.mjs` + `.claude/config/keiken-answer-sheet-limits.json`）
 - メモリ: [[feedback_exam_pdf_cross_reference]] / [[feedback_no_price_in_mdx_body]] / [[feedback_essay_char_limit]]

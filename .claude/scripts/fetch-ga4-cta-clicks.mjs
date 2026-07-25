@@ -32,11 +32,22 @@ dotenv.config({ path: ".env.local" });
 
 const OUTPUT_DIR = ".claude/state/metrics/ga4";
 const DEFAULT_DAYS = 28;
-const EVENT_NAMES = ["note_cta_click", "affiliate_cta_click", "note_article_click"];
+const EVENT_NAMES = [
+  "note_cta_click",
+  "affiliate_cta_click",
+  "affiliate_cta_impression",
+  "note_article_click",
+];
 
 function parseArgs() {
   const args = process.argv.slice(2);
-  const opts = { days: DEFAULT_DAYS, japanOnly: true, byDevice: false, byLabel: false };
+  const opts = {
+    days: DEFAULT_DAYS,
+    japanOnly: true,
+    byDevice: false,
+    byLabel: false,
+    byPlacement: false,
+  };
   for (let i = 0; i < args.length; i++) {
     switch (args[i]) {
       case "--days":
@@ -56,6 +67,11 @@ function parseArgs() {
         // BuildJob-sidebar / KensetsuJobs-sidebar / BuildJob-midtext / ビルドジョブ 等のプログラム×面別
         // クリック内訳を取り、アフィリ EPC 判定（建設JOBs vs BuildJob）の分子にする。別ファイル・非破壊。
         opts.byLabel = true;
+        break;
+      case "--by-placement":
+        // アフィリエイトの可視 impression / click を配置別に取得する。
+        // GA4 にイベントスコープの cta_placement カスタムディメンション登録が必要。
+        opts.byPlacement = true;
         break;
     }
   }
@@ -116,12 +132,20 @@ async function fetchCtaClicks(client, propertyId, opts) {
 
   // event_label は GA4 のイベントスコープ カスタムディメンション（パラメータ event_label）として
   // 管理画面で登録済みの場合のみ customEvent:event_label で取得できる（未登録なら API がエラー）。
-  const firstDim = opts.byLabel
+  const firstDim = opts.byPlacement
+    ? "customEvent:cta_placement"
+    : opts.byLabel
     ? "customEvent:event_label"
     : opts.byDevice
       ? "deviceCategory"
       : "pagePath";
-  const rowKey = opts.byLabel ? "label" : opts.byDevice ? "device" : "page";
+  const rowKey = opts.byPlacement
+    ? "placement"
+    : opts.byLabel
+      ? "label"
+      : opts.byDevice
+        ? "device"
+        : "page";
   const request = {
     property: propertyId,
     dateRanges: [{ startDate, endDate }],
@@ -147,6 +171,7 @@ async function fetchCtaClicks(client, propertyId, opts) {
       japanOnly: opts.japanOnly,
       byDevice: opts.byDevice,
       byLabel: opts.byLabel,
+      byPlacement: opts.byPlacement,
       propertyId,
     },
     rows,
@@ -160,7 +185,13 @@ async function main() {
 
   if (!existsSync(OUTPUT_DIR)) mkdirSync(OUTPUT_DIR, { recursive: true });
   const stamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
-  const variant = opts.byLabel ? "-by-label" : opts.byDevice ? "-by-device" : "";
+  const variant = opts.byPlacement
+    ? "-by-placement"
+    : opts.byLabel
+      ? "-by-label"
+      : opts.byDevice
+        ? "-by-device"
+        : "";
   const outPath = join(OUTPUT_DIR, `ga4-cta-clicks${variant}-${stamp}.json`);
   writeFileSync(outPath, JSON.stringify(data, null, 2));
 
@@ -176,7 +207,10 @@ async function main() {
     const note = data.rows
       .filter((r) => r.eventName === "note_cta_click")
       .reduce((s, r) => s + r.eventCount, 0);
-    console.log(`合計クリック: ${total}（note ${note} / affiliate ${total - note}）`);
+    const impressions = data.rows
+      .filter((r) => r.eventName === "affiliate_cta_impression")
+      .reduce((s, r) => s + r.eventCount, 0);
+    console.log(`合計イベント: ${total}（note click ${note} / affiliate impression ${impressions}）`);
   }
   console.log(`出力: ${outPath}`);
 }
@@ -185,11 +219,12 @@ main().catch((e) => {
   // --by-label はカスタムディメンション未登録だと GA4 が「customEvent:event_label」不明で失敗する。
   // その場合は登録手順を示して exit 0（CI の他 step を止めない・continue-on-error 前提だが明示）。
   const msg = String(e?.message || e);
-  if (/customEvent:event_label|not.*valid.*dimension|did not match/i.test(msg)) {
+  if (/customEvent:(event_label|cta_placement)|not.*valid.*dimension|did not match/i.test(msg)) {
+    const parameter = process.argv.includes("--by-placement") ? "cta_placement" : "event_label";
     console.warn(
-      "[fetch-ga4-cta-clicks] --by-label は GA4 カスタムディメンション未登録のためスキップ。\n" +
+      `[fetch-ga4-cta-clicks] ${parameter} は GA4 カスタムディメンション未登録のためスキップ。\n` +
         "  GA4 管理画面 → 管理 → データ表示 → カスタム定義 → カスタムディメンション作成:\n" +
-        "    範囲=イベント / イベントパラメータ=event_label / 表示名=event_label\n" +
+        `    範囲=イベント / イベントパラメータ=${parameter} / 表示名=${parameter}\n` +
         "  登録後 最大 48h で反映し、以降の by-label 取得が有効になる（登録前データは遡及不可）。",
     );
     process.exit(0);

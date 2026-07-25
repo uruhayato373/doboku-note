@@ -307,11 +307,11 @@ scripts/check-seo-production.mjs
 
 同一commitで必須更新:
 
-- `docs/reference/agents-registry.md`
-- `docs/reference/skills-guide.md`
-- `docs/reference/skills-registry.md`
-- `docs/reference/workflows.md`
-- 必要なら `docs/reference/gsc-management.md`
+- `.claude/knowledge/reference/agents-registry.md`
+- `.claude/knowledge/reference/skills-guide.md`
+- `.claude/knowledge/reference/skills-registry.md`
+- `.claude/knowledge/reference/workflows.md`
+- 必要なら `.claude/knowledge/reference/gsc-management.md`
 
 検証:
 
@@ -371,10 +371,10 @@ buildログの既存Turbopack / KaTeX warningは別計画の対象。SEO変更�
 ```text
 doboku-noteのSEO品質改善を実装してください。最初に次の2ファイルを最後まで読んでください。
 
-- docs/reviews/2026-07-14-seo-access-audit-v2.md
+- `.claude/knowledge/reference/gsc-management.md`
 - docs/project/04_運営/11_SEO品質ゲートとClaude分業実装計画.md
 
-また、CLAUDE.md、docs/reference/gsc-management.md、docs/reviews/2026-07-14-mechanical-quality-audit.mdを読み、既存の責務分離とCI設計を守ってください。
+また、CLAUDE.md、`.claude/knowledge/reference/gsc-management.md`、`.claude/knowledge/reference/information-architecture.md`を読み、既存の責務分離とCI設計を守ってください。
 
 今回は一度に全Phaseを混ぜず、Phase 1から順に実装・検証してください。各Phase完了時に、変更ファイル、検証結果、残課題を短く報告してから次へ進んでください。
 

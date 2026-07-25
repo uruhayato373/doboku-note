@@ -311,4 +311,4 @@ dev server: http://localhost:3020 ✓
 - `.claude/skills/quality/review-mobile/SKILL.md` ── モバイル視認性の詳細ルール（guide モードで使用）
 - `.claude/skills/quality/check-mdx/SKILL.md` ── MDX 検査統合スキル（`--rules syntax` で構文チェック）
 - `.claude/skills/conversion/pdf-to-mdx/scripts/verify-pdf-mdx.mjs` ── 決定論的前処理スクリプト
-- `docs/reference/exam-content-policy.md` ── 試験別コンテンツ整備方針＋コンテンツ別レビュー視点
+- `.claude/knowledge/reference/exam-content-policy.md` ── 試験別コンテンツ整備方針＋コンテンツ別レビュー視点

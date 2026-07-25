@@ -112,6 +112,7 @@ export default async function CategoryPage({
         width={ad.creative.width}
         height={ad.creative.height}
         trackLabel={ad.trackLabel}
+        placement="category-mobile"
       />
     </div>
   ));
@@ -122,7 +123,12 @@ export default async function CategoryPage({
   const categorySidebar = (
     <div className="space-y-3">
       {careerAds.map((ad, i) => (
-        <SidebarAdBanner key={ad.trackLabel + i} {...ad.creative} trackLabel={ad.trackLabel} />
+        <SidebarAdBanner
+          key={ad.trackLabel + i}
+          {...ad.creative}
+          trackLabel={ad.trackLabel}
+          placement="category-sidebar"
+        />
       ))}
       <AuthorSidebarCard />
       {hubCtaSidebar && <HubCtaBanner cta={hubCtaSidebar} />}

@@ -15,7 +15,7 @@ interface ExamCardsProps {
   exams: ExamData[];
 }
 
-// 試験別テーマ色（SSOT: globals.css --exam-* / docs/reference/ogp-prompts.md テーマ色表）。
+// 試験別テーマ色（SSOT: globals.css --exam-* / .claude/knowledge/reference/ogp-prompts.md テーマ色表）。
 // カラーライン・hover 枠へ展開し note カバー/OGP と色を揃える。JIT が拾えるよう完全なクラス文字列で保持。
 type ExamTheme = { bar: string; hoverBorder: string };
 const EXAM_THEME: Record<string, ExamTheme> = {

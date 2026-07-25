@@ -35,7 +35,7 @@ note メンバーシップ「**土木セコカン合格ラボ**」（1級・2級
 | 会員専用コンテンツの構成・配信カレンダー（週1ドリップ） | `docs/note/1級・2級土木/メンバーシップ/README.md` |
 | プラン名・説明文・免責（貼付用） | `docs/note/1級・2級土木/メンバーシップ説明文.md` |
 | 機械可読 SoT（会員エントリ `civil-membership-lab`） | `src/lib/note-magazines.ts` |
-| ブラウザ操作の手順・selector 由来 | `docs/reference/note-api-verification.md` |
+| ブラウザ操作の手順・selector 由来 | `.claude/knowledge/reference/note-api-verification.md` |
 
 ## 担当範囲
 

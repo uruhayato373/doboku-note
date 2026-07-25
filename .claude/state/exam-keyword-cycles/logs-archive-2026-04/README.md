@@ -48,5 +48,5 @@ keywords_count: 6
 
 - `.claude/skills/content/exam-keyword-cycle/SKILL.md` — 本サイクルの実行スキル
 - `.claude/state/exam-keyword-cycles/progress.json` — カバー状況の永続化
-- `docs/reference/content-principles.md` — 校正ルールの真実源
-- `docs/reference/workflows.md` — 継続改善ループの位置づけ
+- `.claude/knowledge/reference/content-principles.md` — 校正ルールの真実源
+- `.claude/knowledge/reference/workflows.md` — 継続改善ループの位置づけ

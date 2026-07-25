@@ -9,7 +9,7 @@
 //   D5 公開記事の CTA が「ライブ note に未反映」（--live のみ。ソースは正でも再投稿もれ＝今回の事故）
 //   D6 topCtaExcludeDirs 対象の記事に冒頭パック CTA マーカーが残存（除外宣言と実体のドリフト＝トピック不一致CTAの再混入）
 //
-// 真実源: .claude/config/note-funnel.json / src/lib/note-magazines.ts / docs/reference/note-funnel-architecture.md
+// 真実源: .claude/config/note-funnel.json / src/lib/note-magazines.ts / .claude/knowledge/reference/note-funnel-architecture.md
 //
 // 使い方:
 //   node scripts/audit-note-funnel.mjs          # ソース監査レポート（exit 0）

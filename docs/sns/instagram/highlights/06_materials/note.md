@@ -3,7 +3,7 @@
 ## 位置づけ
 
 - 戦略 v7.1 §2 Highlight 6 種目「教材」に対応
-- ハイライト系統 C（`docs/reference/ig-stories-policy.md` §5）
+- ハイライト系統 C（`.claude/knowledge/reference/ig-stories-policy.md` §5）
 - **note プロフィール → 無料記事 → 有料マガジンの二段ロケット動線**
 
 ## 着地点ルール（最重要）

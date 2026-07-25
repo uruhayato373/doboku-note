@@ -11,10 +11,10 @@ model: sonnet
 > **モデル方針**: `model: sonnet`（Generator = 実行担当）。品質採点は `cem-essay-qa`（Evaluator）、最終採否は親（Opus）。CLAUDE.md ハーネス原則の Gen/Eval 分離に従う。
 >
 > **真実源（必読・本書は重複させず参照する）**:
-> - **工程・評価軸・公開ゲートの SSOT** = `docs/reference/note-essay-review-checklist.md`（Step 0〜6f＋横展開ランブック）。字数→散文性→監理可能性→専門度→白書根拠 の順。
+> - **工程・評価軸・公開ゲートの SSOT** = `.claude/knowledge/reference/note-essay-review-checklist.md`（Step 0〜6f＋横展開ランブック）。字数→散文性→監理可能性→専門度→白書根拠 の順。
 > - **論述ルールの再利用元** = `.claude/skills/authoring/pe-essay-draft/SKILL.md`（5管理の正式名/禁止語・設問3国家スケール・トレードオフ軸の多様性・である調）。あちらは**サイト** essay 生成スキルだが論述原則は共通。
 > - **構成決定（ペルソナ数・R8二記事化等）** = `docs/note/技術士総監/総監マガジン構成_決定2026.md`。
-> - **導入・無料部分・販売導線の構成** = `docs/reference/note-selling-structures.md`（売れる9型）。論文本文の外枠（フック〜導線）にのみ適用、本文の字数・散文・専門度は上の評価軸が優先。
+> - **導入・無料部分・販売導線の構成** = `.claude/knowledge/reference/note-selling-structures.md`（売れる9型）。論文本文の外枠（フック〜導線）にのみ適用、本文の字数・散文・専門度は上の評価軸が優先。
 
 ## 背景（必読）
 
@@ -92,9 +92,9 @@ node scripts/note-lint.mjs "<書いた article.md の絶対パス>"             
 
 ## 参照
 
-- `docs/reference/note-essay-review-checklist.md`（工程・評価軸・公開ゲートの SSOT）
+- `.claude/knowledge/reference/note-essay-review-checklist.md`（工程・評価軸・公開ゲートの SSOT）
 - `.claude/skills/authoring/pe-essay-draft/SKILL.md`（論述ルールの再利用元・サイト版）
 - `docs/note/技術士総監/総監マガジン構成_決定2026.md`（構成決定）
-- `docs/reference/note-selling-structures.md`（導入・無料部分・販売導線の9型）
+- `.claude/knowledge/reference/note-selling-structures.md`（導入・無料部分・販売導線の9型）
 - `.claude/agents/cem-essay-qa.md`（対の Evaluator）
 - メモリ: [[feedback_essay_char_limit]] / [[feedback_essay_q2_prose]] / [[feedback_essay_q3_general_level]] / [[feedback_essay_persona_authentic_seat]] / [[feedback_essay_persona_field_label]] / [[feedback_no_price_in_mdx_body]] / [[feedback_whitepaper_source_check]]

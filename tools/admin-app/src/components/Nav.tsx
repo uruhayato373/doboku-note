@@ -10,6 +10,7 @@ const TABS: { href: string; label: string; match: string }[] = [
   { href: '/metrics/psi', label: 'PSI', match: '/metrics/psi' },
   { href: '/agents', label: 'エージェント', match: '/agents' },
   { href: '/skills', label: 'スキル', match: '/skills' },
+  { href: '/knowledge', label: 'ナレッジ', match: '/knowledge' },
   { href: '/gallery/ogp', label: 'OGP', match: '/gallery/ogp' },
   { href: '/gallery/figures', label: '記事図版', match: '/gallery/figures' },
   { href: '/gallery/note', label: 'note画像', match: '/gallery/note' },
@@ -33,7 +34,7 @@ export default function Nav() {
   return (
     <nav className="app-nav">
       <span className="brand">
-        doboku admin<small>local · :3022</small>
+        doboku admin<small>local · :3021</small>
       </span>
       {TABS.map((t) => (
         <Link

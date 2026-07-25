@@ -83,7 +83,7 @@ git checkout {作業ブランチ}
 
 ### Step 7.5: 本番 SSR 検証
 
-**注意**: 検証は `.pages.dev`（デプロイ直後のビルド成果物）で行う。`doboku-note.com`（Cloudflare 経由の本番ドメイン）でも可だが、Cloudflare のキャッシュ反映ラグや（設定変更時の）Bot 保護の影響を避けるため `.pages.dev` を一次確認に使う。なお 2026-06-12 時点では `doboku-note.com` は `curl` 既定 UA・`facebookexternalhit` 等の bot UA でも 200 を返す（旧記載「bot で必ず 403」は実測と不一致＝Bot Fight Mode は現状緩和。外部 Validator の IP ベース挑戦は別問題で残りうる→ [measurement-incidents.md](../../../../docs/reference/measurement-incidents.md) 2026-04-25）。
+**注意**: 検証は `.pages.dev`（デプロイ直後のビルド成果物）で行う。`doboku-note.com`（Cloudflare 経由の本番ドメイン）でも可だが、Cloudflare のキャッシュ反映ラグや（設定変更時の）Bot 保護の影響を避けるため `.pages.dev` を一次確認に使う。なお 2026-06-12 時点では `doboku-note.com` は `curl` 既定 UA・`facebookexternalhit` 等の bot UA でも 200 を返す（旧記載「bot で必ず 403」は実測と不一致＝Bot Fight Mode は現状緩和。外部 Validator の IP ベース挑戦は別問題で残りうる→ [measurement-incidents.md](../../../../.claude/knowledge/reference/measurement-incidents.md) 2026-04-25）。
 
 ```bash
 # HTTP ステータス確認

@@ -5,7 +5,7 @@
  *   - carousel: 1080×1350、セーフゾーン(中央1080²)対応
  *   - reels:    1080×1920（動画 1 枚目。bottom はキャプション域を避ける）
  *   - stories:  1080×1920（上下に IG Stories UI 域を確保）
- * 真実源: docs/reference/sns-image-policy.md §12 ／ docs/project/03_SNS/03_多資格SNS展開設計.md
+ * 真実源: .claude/knowledge/reference/sns-image-policy.md §12 ／ docs/project/03_SNS/03_多資格SNS展開設計.md
  *
  * レイアウト思想（2026-06-02 洗練）:
  *   左マージン mx=96 を基準に、タグピルのみ左へ(tagX=72)・形式ラベルのみ右へ(fmtX=120)

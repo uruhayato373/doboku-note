@@ -81,7 +81,7 @@ candidate → applied → approved → harvested → registered → published
 
 ## 認証方式（永続プロファイル + セッション Cookie 再注入）
 
-X/IG/note/ココナラと同じ永続プロファイル方式（`docs/reference/playwright-auth-profiles.md`）。ただし **A8 の認証は
+X/IG/note/ココナラと同じ永続プロファイル方式（`.claude/knowledge/reference/playwright-auth-profiles.md`）。ただし **A8 の認証は
 揮発性セッション Cookie で永続プロファイルに残らない**ため、`login.mjs` が `storageState`（Cookie 含む JSON）を
 `.local/playwright-a8-state.json` に捕獲し、`a8-browser.ts` が起動時に `addCookies` で再注入する（これが認証再利用の実体）。
 `PROFILE_ROOT` は本体チェックアウト固定（`/Users/minamidaisuke/doboku-note`）＝worktree からでも同一ログインを共有。

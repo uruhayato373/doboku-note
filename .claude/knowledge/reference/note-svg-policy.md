@@ -15,7 +15,7 @@ doboku-note 本体（`.local/r2/posts/**/img/*.svg`）は本ポリシー対象�
 
 ## cover.png のセーフティゾーン（参考）
 
-`docs/note/**/img/cover.png` は `scripts/generate-note-covers.mjs` が `.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs` のテンプレで生成する。サイズは note 推奨の 1280×670。frontmatter に `cover:` ブロックがあれば **note-cover-g2**（試験色分け・全幅バナー帯）、無ければ **mono-tag** にフォールバック（仕様は `docs/design-system/note-cover.md`）。
+`docs/note/**/img/cover.png` は `scripts/generate-note-covers.mjs` が `.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs` のテンプレで生成する。サイズは note 推奨の 1280×670。frontmatter に `cover:` ブロックがあれば **note-cover-g2**（試験色分け・全幅バナー帯）、無ければ **mono-tag** にフォールバック（仕様は `.claude/knowledge/design-system/note-cover.md`）。
 
 **セーフティゾーン**: 中央 **630×630** 厳守（SAFE_L=325〜SAFE_R=955）。G2 ではバナー帯テキスト・強調キーワード(HiBox)・リード文がこの内側（バナーは自動で 590px 幅にフィット）。mono-tag ではタイトル・カテゴリチップ・ワードマーク・下部メタがこの内側。装飾（グリッド・同心円・ロゴ・右上メタ・両端チップ）は全幅 OK（クロップで欠けても問題なし）。
 

@@ -1,7 +1,7 @@
 # Playwright E2E導入設計
 
-> [!todo]
-> **実装待ち**。本書はdoboku-note本体へ最小構成のE2Eテストを導入するための設計SSOT。実装はClaude Codeで行う。Playwright自体はdevDependencyへ導入済みだが、設定・サイト用spec・実行コマンド・CI配線は未整備。
+> [!done]
+> **2026-07-25 実装・検証完了**。本書はdoboku-note本体のPlaywright E2E設計SSOT。実装は `playwright.config.ts`、`e2e/`、`.github/workflows/e2e.yml` に配置している。
 
 ## 1. 目的
 
@@ -29,13 +29,17 @@
 - リンク、SEO、CTA、noteファネル等の決定的検査
 - 本番監視：`.github/workflows/uptime-ping.yml`
 
-### 未整備
+### 実装済み
 
 - `playwright.config.ts`
-- サイト用E2E spec
-- `test:e2e`／`test:e2e:ui`コマンド
-- PlaywrightブラウザのCIセットアップ
-- 失敗時のtrace／screenshot／report保存
+- `e2e/smoke.spec.ts`
+- `e2e/navigation.spec.ts`
+- `e2e/cta.spec.ts`
+- `e2e/mobile.spec.ts`
+- `e2e/fixtures.ts`（ブラウザエラー監視）
+- `test:e2e`／`test:e2e:ui`／`test:e2e:headed`／`test:e2e:report`
+- `.github/workflows/e2e.yml`
+- 失敗時のtrace／screenshot／HTML report保存
 
 E2Eは既存検査を置き換えず、ブラウザ操作が必要な部分だけを補完する。
 
@@ -200,7 +204,7 @@ CTA期待値をspecへ大量に直書きしない。既存の`src/lib/note-magaz
 実行順。
 
 1. checkout
-2. Node 22セットアップ
+2. Node 20セットアップ
 3. `npm ci --legacy-peer-deps --ignore-scripts`
 4. `npx playwright install --with-deps chromium`
 5. `npm run type-check`
@@ -222,18 +226,18 @@ CI時間を抑えるため、E2E workflow内で全量の`npm run build`や既存
 
 ## 10. 完了条件
 
-- [ ] `playwright.config.ts`が追加されている
-- [ ] `e2e/`にsmoke、navigation、cta、mobileのテストがある
-- [ ] Chromium desktop／mobileがローカルで通る
-- [ ] `npm test`が従来どおり通る
-- [ ] `npm run type-check`が通る
-- [ ] `npm run lint`が通る
-- [ ] `npm run build`が通る
-- [ ] CI workflowが追加され、失敗artifactを取得できる
-- [ ] noteへのログイン・購入・公開を行わない
-- [ ] 不要な`data-testid`や製品コード変更がない
-- [ ] `git diff --check`が通る
-- [ ] コード変更後に`/doc-sync`を実行し、関連文書の陳腐化がない
+- [x] `playwright.config.ts`が追加されている
+- [x] `e2e/`にsmoke、navigation、cta、mobileのテストがある
+- [x] Chromium desktop／mobileがローカルで通る（28成功、4対象外スキップ）
+- [x] `npm test`が従来どおり通る（204成功、3スキップ）
+- [x] `npm run type-check`が通る
+- [x] `npm run lint`が通る
+- [x] `npm run build`が通る
+- [x] CI workflowが追加され、失敗artifactを取得できる
+- [x] noteへのログイン・購入・公開を行わない
+- [x] 不要な`data-testid`や製品コード変更がない
+- [x] `git diff --check`が通る
+- [x] 実装状態を本SSOTへ反映し、完了済みTODOと一時指示書を削除する
 
 ## 11. 導入後の拡張条件
 
@@ -246,4 +250,3 @@ CI時間を抑えるため、E2E workflow内で全量の`npm run build`や既存
 - 計測停止が発生した：同意状態を含むGAイベント発火テストを別suiteで検討
 
 テスト数をKPIにしない。過去に実際に壊れた、または壊れると収益・利用者影響が大きい経路を優先する。
-

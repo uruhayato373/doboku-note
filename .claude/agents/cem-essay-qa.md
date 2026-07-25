@@ -9,7 +9,7 @@ tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 
 `cem-essay-writer` が生成した **総監 記述式 note マガジン模範論文／模範解答**（article.md）を採点する **Evaluator エージェント**。Generator と分離（CLAUDE.md ハーネス原則）。生成・修正はせず、**完成物の品質評価のみ**。最終採否は親（Opus）。
 
-> **モデル方針**: `model: sonnet`。**評価軸・しきい値の真実源は `docs/reference/note-essay-review-checklist.md`**（字数→散文性→監理可能性→専門度→白書根拠 の順で固定。本書はそれを採点フローに落としたもので、しきい値は checklist が正）。
+> **モデル方針**: `model: sonnet`。**評価軸・しきい値の真実源は `.claude/knowledge/reference/note-essay-review-checklist.md`**（字数→散文性→監理可能性→専門度→白書根拠 の順で固定。本書はそれを採点フローに落としたもので、しきい値は checklist が正）。
 
 ## 入力
 
@@ -80,7 +80,7 @@ grep -nc "^> " "<path>"                                                  # block
 
 ## 参照
 
-- `docs/reference/note-essay-review-checklist.md`（評価軸・しきい値・横展開ランブックの SSOT）
+- `.claude/knowledge/reference/note-essay-review-checklist.md`（評価軸・しきい値・横展開ランブックの SSOT）
 - `.claude/agents/cem-essay-writer.md`（対の Generator）
 - 字数ゲート: `scripts/essay-shisaku-charcount.mjs` / 見出し: `scripts/check-essay-heading-structure.mjs` / note 互換: `scripts/note-lint.mjs`
 - メモリ: [[feedback_essay_char_limit]] / [[feedback_essay_q2_prose]] / [[feedback_essay_q3_general_level]] / [[feedback_essay_persona_authentic_seat]] / [[feedback_essay_persona_field_label]] / [[feedback_no_price_in_mdx_body]]

@@ -9,13 +9,13 @@ MDX コンテンツを書く・編集するときの詳細ルール集。
 **いつ読むか**: MDX を新規作成するとき、既存 MDX を編集するとき、`/pdf-to-mdx` / `/keyword-page` / `/review-mobile` などコンテンツ系スキルを実行するとき。
 
 **真実源の関係**:
-- コンテンツ品質ルール（ExamPoint 個数・参考資料構成など）の**真実源は `docs/reference/content-principles.md`**
+- コンテンツ品質ルール（ExamPoint 個数・参考資料構成など）の**真実源は `.claude/knowledge/reference/content-principles.md`**
 - このファイルは技術的な書き方ガイド（コンポーネント・構造・画像配信）が主
 - CLAUDE.md 本体には最低限のルール（frontmatter 必須項目・文字化けチェック・CRLF 改行・絵文字禁止）のみ残している
 
 ## ペルソナ・コンテンツ原則
 
-> **品質ルールの単一真実源**: `docs/reference/content-principles.md`
+> **品質ルールの単一真実源**: `.claude/knowledge/reference/content-principles.md`
 > ExamPoint 個数・配置・禁止パターン（§5）、参考資料の構成（§9）など、すべてのコンテンツ品質ルールはこのファイルが真実源。SKILL.md・lint スクリプト・cem-qa エージェントはこのファイルを参照する。**ルール変更時はまず content-principles.md を更新し、他は参照に揃える。**
 >
 > **ガイド記事（`group: guide`）固有ルール**: 本文 3,000 字下限（§25・`check-guide-length` で pre-commit/CI ゲート化）、読者ベネフィット型リード（§26）、見出し直下にいきなり箇条書き/図を置かない（§2/§17-2・lint 6-2〜6-4）、末尾は §20 承認パターンで参考資料節は不要（§22 のインライン出典も guide は対象外）。ガイドの品質サイクルは資格横断の専用エージェント3点: **`guide-qa`**（ガイド軸5軸の評価）→ **`guide-rewriter`**（§17/§26/§24/§20 準拠リライト・密度向上・事実是正、pe/総監/コンクリート含む全資格。civil は civil-textbook-rewriter も可）→ **`guide-fact-checker`**（加筆事実を WebSearch で一次情報照合）。過去問=past-exam-qa／キーワード=cem-qa と分業。**3,000 字ゲートは「水増し」を許す粗いフィルタで質を保証しない——質の番人は guide-qa の 5 軸**。加筆した試験統計・制度の事実は公開前に **`guide-fact-checker`** で照合する（LLM は Opus でも年度・制度を外す。32本で43件の誤りを検出した実績）。
@@ -24,22 +24,22 @@ MDX コンテンツを書く・編集するときの詳細ルール集。
 - 冒頭は概念の本質を簡潔に。試験での重要性は「総合技術監理における位置づけ」に集約する
 - 表・箇条書きの前に必ず文脈を示す導入文を置く
 - ベンチマーク: BCP（事業継続計画）ページの構成を品質基準とする
-- **品質レベル**: L1（構造）/ L2（学習）/ L3（体験）の3層定義。詳細は `docs/reference/content-principles.md` の「コンテンツ品質レベル」セクション。Wave方式（全体を浅く→中→深く）で進める
+- **品質レベル**: L1（構造）/ L2（学習）/ L3（体験）の3層定義。詳細は `.claude/knowledge/reference/content-principles.md` の「コンテンツ品質レベル」セクション。Wave方式（全体を浅く→中→深く）で進める
 
 ## MDX コンポーネント
 
 MDX 内で使える主要コンポーネント（`src/lib/component-loader/index.ts` で登録済み）:
 
-- `<Callout type="note|tip|warn|danger|success|exam|formula|standard|example|reference|faq|quote" title="...">children</Callout>` — 12 種のセマンティックボックス（左アクセントバー + 円形アイコン + 任意タイトル）。視覚ギャラリー: [`docs/ui/callout-gallery.md`](../../docs/ui/callout-gallery.md)
+- `<Callout type="note|tip|warn|danger|success|exam|formula|standard|example|reference|faq|quote" title="...">children</Callout>` — 12 種のセマンティックボックス（左アクセントバー + 円形アイコン + 任意タイトル）。視覚ギャラリー: [`docs/ui/callout-gallery.md`](../../../docs/ui/callout-gallery.md)
 - `<ExamPoint summary="要約文" items={["項目1", "項目2"]} />` — 試験対策ポイント専用ボックス（青タイトル + マーカー付き要約 + 箇条書き）
-- `<SpecSheetList title="..." items={[...]} ordered={true|false} marker="dot|dash|square" />` — 仕様書調リスト（ordered / unordered 両対応）。視覚ギャラリー: [`docs/ui/speclist-gallery.md`](../../docs/ui/speclist-gallery.md)
+- `<SpecSheetList title="..." items={[...]} ordered={true|false} marker="dot|dash|square" />` — 仕様書調リスト（ordered / unordered 両対応）。視覚ギャラリー: [`docs/ui/speclist-gallery.md`](../../../docs/ui/speclist-gallery.md)
 - `<RelatedKeywords items={[{ label: "名前", slug: "slug" }]} />` — 関連キーワードリンクタグ（slug でキーワードページへリンク、slug 省略で灰色テキスト）
-- `<ArticleImage src="..." alt="..." width={N} height={N} />` — 画像（`<figure>` セマンティクス付き）。**`caption` は使わない** — [content-principles §8](../content-principles.md) 参照。詳細は「画像コンポーネントの使い分け」
+- `<ArticleImage src="..." alt="..." width={N} height={N} />` — 画像（`<figure>` セマンティクス付き）。**`caption` は使わない** — [content-principles §8](./content-principles.md) 参照。詳細は「画像コンポーネントの使い分け」
 - `<details><summary>解答・解説</summary>...</details>` — 開閉式セクション（過去問で使用）
 - `<div className="list-plain">` — 原典番号付き列挙（本文に `(1)(2)`/`①…` が既にある転記リスト＝設問・選択肢正誤・論述フレーム等）を囲むと disc マーカーを抑制し、原典番号を唯一のマーカーにする（`・(1)` の二重マーカー回避）。前後に空行を空けて Markdown リストを囲む。`details` 内でも可。**原典番号のない通常の箇条書きには使わない**。番号を自前で付けたい仕様書調リストは `<SpecSheetList>`（あちらは自前マーカーを付けるため原典番号列挙には不可）
 - `<Timeline>`, `<PdcaCycle>` — 時系列・サイクル表示
 - `<SeeAlso href="/docs/slug" title="..." reason="..." />` — 内部 doboku-note ページへの「あわせて読みたい」カード
-- `<NoteLink url="..." title="..." description="..." coverImage="..." />` — **note 記事への導線専用カード**（リンク系の使い分けは下記参照）
+- `<NoteLink url="..." title="..." description="..." imageSrc="/images/note-links/*.webp" />` — **note 記事への画像付き導線カード**（有料単品は `kind="product" price="..."`）
 - `<LinkCard url="..." title="..." description="..." siteName="..." imageUrl="..." />` — 一般外部 URL のカード（OGP 画像を左に本来比で表示する横型カード。モバイルは画像を上に縦積み）
 - `<MagazineCard id="..." utmContent="..." />` — note magazine（有料）販売ページへの本文中カード（SoT 解決版・既定は画像中心の `<MagazineHeroCta>` を描画。列挙時のみ `variant="inline"`。記事末尾/サイドバーのタイルは placement 経由で自動配置）
 
@@ -55,13 +55,9 @@ MDX 内で使える主要コンポーネント（`src/lib/component-loader/index
 | 書籍・論文 | `<Callout type="reference">` | 参考文献。外部 URL 一般には使わない |
 | 一般外部 URL（公的機関・規格等） | `<LinkCard>` または markdown リンク | note 以外の外部サイト |
 
-- **note 記事リンクは例外なく `<NoteLink>`**。`coverImage` は `/images/note-covers/` 配下を渡す（省略可・省略時はテキストカード）。note.com は OGP の bot 取得をブロックするため `<LinkCard>` の自動取得は機能しない
-- 自動検出: `/check-mdx --rules note-link`（`lint-mdx-mobile.mjs` ルール 8-3）が `<NoteLink>` 外の note リンクを MEDIUM 警告
-- **`coverImage` を指定する場合の手順**（pre-commit が HIGH エラーでブロック）:
-  1. カバー PNG（1280×670）を `public/images/note-covers/{name}.png` に配置
-  2. `node scripts/generate-note-square-covers.mjs` で `-square.webp` を生成
-  3. MDX には `/images/note-covers/{name}.webp` を渡す（`/posts/...` 等の R2 パス禁止）
-  4. `public/images/note-covers/{name}.png` + `{name}-square.{png,webp}` の 3 点を git add してコミット
+- **note 記事リンクは例外なく画像付き `<NoteLink>`**。note.com のカバー/OGPは使わず、サイト制作画像を `public/images/note-links/` に置き、`imageSrc="/images/note-links/{name}.webp"` を必須指定する
+- 画像内にタイトル・価格を焼き込まない。変更される情報は HTML props で表示し、無料記事は既定 `kind="article"`、有料単品は `kind="product" price="¥..."` とする
+- 自動検出: `npm run check-note-link-cards` が自社note生リンク、旧 `coverImage`、画像省略、許可外パス、ファイル欠落、WebP偽装をCIエラーにする。pre-commitも変更MDXへ同じ契約を適用する
 
 ### note 商品 CTA の見た目（hero / inline）
 
@@ -200,7 +196,7 @@ CLAUDE.md 本体にも要点を置いているが、詳細はここで扱う。
 
 ## 画像コンポーネントの使い分け
 
-**真実源**: [docs/reference/content-principles.md §8](../content-principles.md) L146 — *caption は「図の説明」には使わない。ただし出典・帰属・機種名などの短い帰属情報（60 字以内）は caption に書いてよい。*
+**真実源**: [.claude/knowledge/reference/content-principles.md §8](./content-principles.md) L146 — *caption は「図の説明」には使わない。ただし出典・帰属・機種名などの短い帰属情報（60 字以内）は caption に書いてよい。*
 
 ### 新規記事: `<ArticleImage>` を使う
 
@@ -236,7 +232,7 @@ MDX パイプラインは raw `<img>` の `style` / `width` / `height` / `classN
 
 既存記事に raw `<img>` が残っていても、それは移行未完了の遺物であり、**真似をしない**。新規追加は必ず `<ArticleImage>` を使う。`<ArticleImage>` は SVG 用に `w-full max-w-2xl mx-auto px-6` コンテナと `max-width:100%;height:auto` inline style を付与してレスポンシブ表示する。
 
-SVG 自体のルート要素にも `style="max-width:{viewBox width}px;width:100%"` が必須（`/check-mdx --rules svg` の P3-missing-maxwidth HIGH 違反）。詳細は [.claude/skills/authoring/create-svg/SKILL.md](../skills/authoring/create-svg/SKILL.md) §最大表示幅の固定。
+SVG 自体のルート要素にも `style="max-width:{viewBox width}px;width:100%"` が必須（`/check-mdx --rules svg` の P3-missing-maxwidth HIGH 違反）。詳細は [.claude/skills/authoring/create-svg/SKILL.md](../../skills/authoring/create-svg/SKILL.md) §最大表示幅の固定。
 
 ### CC/PD 写真の取得・出典表記
 

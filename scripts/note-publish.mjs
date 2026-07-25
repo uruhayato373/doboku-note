@@ -31,7 +31,7 @@
  *   - 安全弁: 日時を UI で確定できないときは即時公開せず下書きに退避する（誤即時公開を防止）。
  *   - selector は scheduling.md 由来。初回実走で .tmp/np-sched-*.png を確認し必要なら調整すること。
  *
- * 真実源: docs/reference/note-api-verification.md / publish-note/SKILL.md（手順の元）
+ * 真実源: .claude/knowledge/reference/note-api-verification.md / publish-note/SKILL.md（手順の元）
  * ---------------------------------------------------------------------------
  */
 import { chromium } from 'playwright';

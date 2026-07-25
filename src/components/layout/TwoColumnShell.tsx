@@ -8,9 +8,9 @@
  * レイアウト値の真実源はこのファイルのみ:
  * - 外枠 cap: max-w-[1280px]
  * - カラム間 gap: gap-10（40px）
- * - サイドバー: w-72（288px）・zenn-desktop（≥993px）でのみ表示
+ * - サイドバー: w-[316px]（300px バナー + 内側 padding 16px を等倍で収める）・zenn-desktop（≥993px）でのみ表示
  * サイドバー幅・gap・外枠 cap を変えるときはここだけを変更する（各ページに複製しない）。
- * ドキュメント: docs/design-system/design-system.md §3
+ * ドキュメント: .claude/knowledge/design-system/design-system.md §3
  *
  * gutter（外周余白）は 2 系統:
  * - 'flush-mobile' : docs 記事用。≤576px は外周 0（記事カードをフルブリードさせるため）
@@ -31,7 +31,7 @@ interface TwoColumnShellProps {
   gutter?: Gutter;
   /** <main> への追加クラス（縦 padding の差分吸収用）。既定 'py-10' */
   mainClassName?: string;
-  /** 右サイドバーの中身。<aside> 要素・幅（w-72）・表示制御（≥993px）はシェルが所有する */
+  /** 右サイドバーの中身。<aside> 要素・幅（w-[316px]）・表示制御（≥993px）はシェルが所有する */
   aside?: ReactNode;
   children: ReactNode;
 }
@@ -49,7 +49,7 @@ export default function TwoColumnShell({
           main/aside の先頭要素に独自 margin-top を持たせない（先頭が下がって上端がズレる）。 */}
       <main className={`flex-1 min-w-0 ${mainClassName}`}>{children}</main>
       {aside && (
-        <aside className="hidden zenn-desktop:block w-72 shrink-0 py-10">{aside}</aside>
+        <aside className="hidden zenn-desktop:block w-[316px] shrink-0 py-10">{aside}</aside>
       )}
     </div>
   );

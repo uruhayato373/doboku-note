@@ -10,8 +10,8 @@ doboku-note の記事に図・写真を載せるときのルール集。PDF ス�
 
 **関連文書**:
 - 図版作成スキル: `.claude/skills/authoring/create-svg/SKILL.md`
-- 画像配信フロー: `docs/reference/content-authoring.md` § 画像配信
-- デザイン原則: `docs/design-system/design-system.md`
+- 画像配信フロー: `.claude/knowledge/reference/content-authoring.md` § 画像配信
+- デザイン原則: `.claude/knowledge/design-system/design-system.md`
 
 ## 判定フロー
 
@@ -131,7 +131,7 @@ SVG は自前制作が前提のため、出典コメントは不要。代わり�
 
 ### caption の使い方
 
-**真実源**: [docs/reference/content-principles.md §8](../content-principles.md) L146
+**真実源**: [.claude/knowledge/reference/content-principles.md §8](./content-principles.md) L146
 
 > `<ArticleImage>` の caption は「図の説明」には使わない。ただし、**出典・著作権帰属・機種名などの短い帰属情報**（目安 60 字以内）は caption に書いてよい。
 

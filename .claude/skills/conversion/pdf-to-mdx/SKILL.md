@@ -200,9 +200,9 @@ magick raw.png -fill white -draw "rectangle 0,0 300,700" out.png
 .local/r2/posts/{category}/{slug}/img/fig-X-Y.png
 ```
 
-MDX での参照は `<ArticleImage src="/posts/{category}/{slug}/img/fig-X-Y.png" alt="..." />`（raw `<img>` は禁止、`docs/reference/content-authoring.md` 参照）。
+MDX での参照は `<ArticleImage src="/posts/{category}/{slug}/img/fig-X-Y.png" alt="..." />`（raw `<img>` は禁止、`.claude/knowledge/reference/content-authoring.md` 参照）。
 
-**過去問図の場合は caption / alt に注意**: 問題文に無い情報（構造説明、並列/直列、PDCA など）を絶対に書かない。受験者の判断材料を奪わない。詳細は [docs/reference/image-policy.md §過去問図の caption / alt](../../reference/image-policy.md#過去問図の-caption--alt--問題文に無い情報を絶対に追加しない) 参照。
+**過去問図の場合は caption / alt に注意**: 問題文に無い情報（構造説明、並列/直列、PDCA など）を絶対に書かない。受験者の判断材料を奪わない。詳細は [.claude/knowledge/reference/image-policy.md §過去問図の caption / alt](../../reference/image-policy.md#過去問図の-caption--alt--問題文に無い情報を絶対に追加しない) 参照。
 
 #### Step F: R2 アップロード
 
@@ -252,7 +252,7 @@ node .claude/scripts/upload-images-to-r2.mjs --prefix {category}/{slug}
 
 ## 参照
 
-- `docs/reference/content-authoring.md` — MDX 作成詳細ルール
+- `.claude/knowledge/reference/content-authoring.md` — MDX 作成詳細ルール
 - `.claude/skills/conversion/pdf-to-mdx/templates/` — 試験別テンプレート
 - `.claude/skills/conversion/pdf-to-mdx/references/clean-pdf-artifacts.md` — PDF 残骸除去詳細
 - `.claude/skills/conversion/pdf-to-mdx/references/scanned-image-pipeline.md` — `--scanned` 手順書（経路A/B）

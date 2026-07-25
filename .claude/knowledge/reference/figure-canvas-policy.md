@@ -4,7 +4,7 @@
 新規作図のサイズ規約・既存図の移行方針・ガード・カタログ管理・エージェント分業をここで定義する。
 
 機械可読版（レンダラー・ガード・カタログ・Generator が参照）は `.claude/config/figure-canvas.json`。
-色トークンは `docs/design-system/svg-tokens.json`、作図手順は `.claude/skills/authoring/create-svg/SKILL.md`。
+色トークンは `.claude/knowledge/design-system/svg-tokens.json`、作図手順は `.claude/skills/authoring/create-svg/SKILL.md`。
 
 > [!note] 確定事項（2026-06-22）
 > - **全図版のマスターは 4:5（feed）に固定**。サイト記事と Instagram フィードはこの 1 枚を使う。

@@ -23,7 +23,7 @@ title: 推奨ワークフロー
 
 詳細は `.claude/skills/management/weekly-review/SKILL.md` と `.claude/skills/management/weekly-plan/SKILL.md` を参照。
 
-**発火の信頼性（サイレント欠落の防止）**: 手順 2-3 は**クラウドルーティン**（正典 = `doboku-note weekly PDCA`・`/schedule` で作成）が金曜 PM に発火して回す。状態はクラウド側にしか無く repo からは見えないため、停止・無効・cron ズレで**発火しなくなっても気づけない**（実際 2026-W27/W28 の 2 週分が silent 欠落）。これを防ぐため `weekly-review-guard.yml`（`npm run check-weekly-review`＝`scripts/check-weekly-review.mjs`）が毎週月曜に「先週分の `docs/reviews/weekly/YYYY-Www-review.md` が生成済みか」を検査し、無ければ赤落ちさせる（生成はしない＝ルーティンの責務、ガードは欠落検知のみ）。赤落ち時は対話セッションで `/routines`（list-first）→ 無ければ `/schedule` 再作成、cron ズレなら `update`。ルーティン監査の真実源は [.claude/skills/management/routines/SKILL.md](../../.claude/skills/management/routines/SKILL.md)。
+**発火の信頼性（サイレント欠落の防止）**: 手順 2-3 は**クラウドルーティン**（正典 = `doboku-note weekly PDCA`・`/schedule` で作成）が金曜 PM に発火して回す。状態はクラウド側にしか無く repo からは見えないため、停止・無効・cron ズレで**発火しなくなっても気づけない**（実際 2026-W27/W28 の 2 週分が silent 欠落）。これを防ぐため `weekly-review-guard.yml`（`npm run check-weekly-review`＝`scripts/check-weekly-review.mjs`）が毎週月曜に「先週分の `docs/reviews/weekly/YYYY-Www-review.md` が生成済みか」を検査し、無ければ赤落ちさせる（生成はしない＝ルーティンの責務、ガードは欠落検知のみ）。赤落ち時は対話セッションで `/routines`（list-first）→ 無ければ `/schedule` 再作成、cron ズレなら `update`。ルーティン監査の真実源は [.claude/skills/management/routines/SKILL.md](../../skills/management/routines/SKILL.md)。
 
 ### 継続的改善ループ（計測→検知→対応→再計測）
 
@@ -106,7 +106,7 @@ title: 推奨ワークフロー
 **原則**（3 層モデル）:
 - **Tier 3 機械可読データ** → `.claude/state/metrics/*.json`（develop に CI が直接 commit）
 - **Tier 1 状態あり・アクション item** → GitHub Issue（`performance`, `weekly-pdca`, `session-handoff`, `queue`, `task`, `umbrella` 等のラベルで分類）
-- **Tier 2 固定的知識・設計** → `docs/project/*.md`, `docs/reference/*.md`
+- **Tier 2 固定的知識・設計** → `docs/project/*.md`, `.claude/knowledge/reference/*.md`
 - 週次 PDCA は `[PDCA] YYYY-Www` Issue に計画とレビューを集約（旧 `docs/reviews/weekly/` は 2026-04-27 に削除）
 - Issue は対応して close → 次週の review で「解消」として記録
 
@@ -118,7 +118,7 @@ title: 推奨ワークフロー
 
 週次レビューでは **`npm run check-note-republish`**（公開記事の本文＋ハッシュタグの再公開ドリフト・creds不要）も回し、要再公開を surface する（本文drift→`note-update-body --commit`／タグdrift→`note-sync-tags --commit`）。**有料境界の構成監査は `node scripts/check-note-structure.mjs`（公開API依存・月次寄り）**で FULL_LOCK/漏洩/画像/価格を検出（真実源 [note-api-verification.md](note-api-verification.md)「有料境界のマガジン別 SSOT」）。ソース側の境界欠落は `npm run check-note-boundary`（pre-commit＋CI）が事前に止める。
 
-転職アフィリの週次監視は **`/weekly-improve` の Phase 3.5**（`affiliate_cta_click` の by-label CTR・BuildJob 期限・EPC 布石）。**2026-09-01（= 8/31 15:00 UTC）に BuildJob ¥50,000 キャンペーンが終了し全 BuildJob 面が GKS へ自動復帰する（SSG・ビルド時刻確定）**。9 月最初の本番ビルド後の週次で、hub / サイドバー / 記事末 / 本文中間の BuildJob 面が消え GKS へ戻ったかを curl で 1 回検証する（未復帰なら creative 定数を手動 revert）。配置・期限の真実源は [../project/04_運営/02_アフィリエイト提携状況.md](../project/04_運営/02_アフィリエイト提携状況.md)。
+転職アフィリの週次監視は **`/weekly-improve` の Phase 3.5**（`affiliate_cta_click` の by-label CTR・BuildJob 期限・EPC 布石）。**2026-09-01（= 8/31 15:00 UTC）に BuildJob ¥50,000 キャンペーンが終了し全 BuildJob 面が GKS へ自動復帰する（SSG・ビルド時刻確定）**。9 月最初の本番ビルド後の週次で、hub / サイドバー / 記事末 / 本文中間の BuildJob 面が消え GKS へ戻ったかを curl で 1 回検証する（未復帰なら creative 定数を手動 revert）。配置・期限の真実源は [../project/04_運営/02_アフィリエイト提携状況.md](../../../docs/project/04_運営/02_アフィリエイト提携状況.md)。
 
 ---
 
@@ -176,7 +176,7 @@ title: 推奨ワークフロー
 
 **重要**:
 - ステップ 3 の `cem-qa` を**省略してはならない**（自己評価バイアス回避のため）
-- 品質ルールの真実源は `docs/reference/content-principles.md`。ルール変更時はまずここを更新
+- 品質ルールの真実源は `.claude/knowledge/reference/content-principles.md`。ルール変更時はまずここを更新
 - リンターのカテゴリ9（ExamPoint 個数・位置・誤り選択肢パターン・参考資料多様性）は HIGH なのでブロッカー
 
 ---

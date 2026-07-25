@@ -22,7 +22,7 @@
 - `src/styles/**/*`
 - `tailwind.config.js`
 - `src/lib/component-loader/`
-- `docs/design-system/design-system.md`
+- `.claude/knowledge/design-system/design-system.md`
 - `docs/ui/`
 - `src/components/**/README.md`
 - `package.json`・`knip.json`
@@ -78,7 +78,7 @@ node scripts/lint-ui.mjs --all
 - `docs/ui/callout-gallery.md:218`は旧typeが`note`へフォールバックすると一括記載するが、実装は`warning/caution → warn`、`point → tip`、`error → danger`。
 - `src/components/ui/SeeAlso/README.md:24`は`dark:bg-gray-*`を記載するが、共通`NavLinkCard`とEditorial tokensへ移行済み。
 - `src/components/README.md`の「現在の構造」は実際に存在しない`blog/`・`mdx/`や旧配置を示す。
-- `docs/design-system/design-system.md`はフォントをInter/Noto Sans JP、テーマをnext-themesと記載するが、実装はsystem fontと独自`ThemeProvider`。
+- `.claude/knowledge/design-system/design-system.md`はフォントをInter/Noto Sans JP、テーマをnext-themesと記載するが、実装はsystem fontと独自`ThemeProvider`。
 
 #### 影響
 
@@ -86,7 +86,7 @@ Claude Codeや開発者が文書を信頼して、廃止済み色、存在しな
 
 #### 推奨修正
 
-1. `docs/design-system/design-system.md`を最上位の概念SSOT、`globals.css`を値SSOTと再確認する。
+1. `.claude/knowledge/design-system/design-system.md`を最上位の概念SSOT、`globals.css`を値SSOTと再確認する。
 2. `docs/ui/*.md`は実装から確認できる仕様だけを記載し、履歴・旧移行説明はarchiveまたは短い注記へ移す。
 3. `src/components/README.md`を現行ディレクトリ一覧、配置判断、barrel import方針へ全面更新する。
 4. コンポーネントREADMEは実クラス名の羅列を減らし、利用契約・props・用途を中心にする。
@@ -467,7 +467,7 @@ Knipの主なUI関連報告：
 
 ## 8. 主要参照ファイル
 
-- `docs/design-system/design-system.md`
+- `.claude/knowledge/design-system/design-system.md`
 - `src/styles/globals.css`
 - `src/styles/README.md`
 - `scripts/lint-ui.mjs`

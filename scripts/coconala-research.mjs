@@ -6,7 +6,7 @@
  *   公開検索ページから実測して `.claude/state/coconala/market-research.json` に永続化する。
  *   WebFetch の要約（概算・LLM 経由）ではなく、DOM から直接取った実数値を SoT にする。
  *
- * スコープの注意（docs/reference/coconala-operations.md §4 と直交）:
+ * スコープの注意（.claude/knowledge/reference/coconala-operations.md §4 と直交）:
  *   運用 SSOT の「スクレイピングしない」は **自社ダッシュボードの KPI 取得**の話（ログイン必須・
  *   規約と bot 検知の懸念）。本スクリプトは **公開・ログイン不要の検索/カテゴリページの read-only 調査**で、
  *   低頻度（数ヶ月に1度の商品設計時）に限る。投稿・出品・購入等の書き込みは一切しない。

@@ -23,7 +23,7 @@ note 記事・有料マガジンの**回遊と購入の動線**（資格別 3 �
 
 ## 真実源（着手前に Read）
 
-- `docs/reference/note-funnel-architecture.md` — 3 層モデル・原則・見直しサイクル（SSOT）
+- `.claude/knowledge/reference/note-funnel-architecture.md` — 3 層モデル・原則・見直しサイクル（SSOT）
 - `.claude/config/note-funnel.json` — L1/L2 レジストリ・資格別 CTA 文面
 - `src/lib/note-magazines.ts` — マガジン URL/価格/公開状態
 - 対象 L1/L2 もくじ記事（`共通/コンテンツ総合案内`・`{試験}/もくじ`）と数本の L3 記事

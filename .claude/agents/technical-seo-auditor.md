@@ -77,5 +77,5 @@ tools: Read, Glob, Grep, Bash
 
 - `scripts/check-seo-build.mjs` / `scripts/lib/seo-checks.mjs` — 検出の機械実装（真実源）
 - `.claude/skills/quality/check-seo-meta/` — 母集合検査
-- `docs/reference/gsc-management.md` — GSC 管理 SSOT（coverage は gsc-index-auditor）
+- `.claude/knowledge/reference/gsc-management.md` — GSC 管理 SSOT（coverage は gsc-index-auditor）
 - `.claude/skills/management/seo-growth-review/SKILL.md` — 本エージェントの呼び出し元

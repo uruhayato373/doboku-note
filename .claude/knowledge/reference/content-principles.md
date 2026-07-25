@@ -396,7 +396,7 @@ textbook（個別概念ページ）では原則 ExamPoint を 1 個末尾配置�
 
 `<RelatedKeywords>` はブロックレベルUI（ボーダー付きdiv）であり、文中にインラインで使うと視覚的に不自然になる。また、MDXプリプロセッサとの相性問題でコンパイルエラーが発生する場合がある。
 
-`<SeeAlso>` は「ここで深掘りせず別記事に集約している論点」を本文中で目立たせる用途。`reason` には「なぜそのページを併読すべきか」を 1〜2 行で書く。Callout の 1 記事 3 個ルールから独立しているが、過剰使用を避けるため 1 記事 5 個以内に抑える。詳細は [`src/components/ui/SeeAlso/README.md`](../src/components/ui/SeeAlso/README.md)。
+`<SeeAlso>` は「ここで深掘りせず別記事に集約している論点」を本文中で目立たせる用途。`reason` には「なぜそのページを併読すべきか」を 1〜2 行で書く。Callout の 1 記事 3 個ルールから独立しているが、過剰使用を避けるため 1 記事 5 個以内に抑える。詳細は [`src/components/ui/SeeAlso/README.md`](../../../src/components/ui/SeeAlso/README.md)。
 
 ### 12. 参考資料の構成
 
@@ -1129,4 +1129,4 @@ def count_between(path, start, end):
 5. [ ] ペルソナ立場ラベルが越権施策を生まないシンプルな肩書きか
 6. [ ] 白書出典の章構成・原表現を WebSearch で確認したか
 
-詳細な実施手順は `docs/reference/note-essay-review-checklist.md` を参照。
+詳細な実施手順は `.claude/knowledge/reference/note-essay-review-checklist.md` を参照。

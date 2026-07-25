@@ -15,7 +15,7 @@
  * 2) アフィリ「1 ページ 1 ピクセル」（同一 a8mat の二重発火）
  *    A8 のインプレッション ピクセルは `<img src="…0.gif?a8mat=MAT" width="1" height="1">`。
  *    **同一ページで同じ MAT を 2 回以上 発火させない**のが規律（memory affiliate-slot-move-pixel /
- *    docs/reference/measurement-incidents.md）。異なる MAT（別プログラム）の併置は正当（カテゴリ
+ *    .claude/knowledge/reference/measurement-incidents.md）。異なる MAT（別プログラム）の併置は正当（カテゴリ
  *    hub の補完 2 案件など）なので、重複するのは「同一 MAT が 2+」のときだけ違反とする。
  *    注意: 素朴な substring カウント（`px.a8.net` や `0.gif` の出現数）は Next.js の RSC ペイロード
  *    （props の JSON 直列化）で ~2 倍に膨らむため使わない。**レンダリング済み `<img>` タグだけ**を

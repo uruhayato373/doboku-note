@@ -3,9 +3,9 @@
 戦略 v7（Instagram 一次・YouTube 二次展開）における **YouTube Shorts 派生 mp4 + meta.json の品質基準**。`yt-shorts-publisher-qa` Evaluator がこの文書を真実源とする。
 
 関連:
-- SNS 戦略 v7 → [`docs/project/03_SNS/01_SNS集客戦略.md`](../project/03_SNS/01_SNS集客戦略.md)
-- 派生スキル → [`.claude/skills/social/yt-shorts-create/SKILL.md`](../../.claude/skills/social/yt-shorts-create/SKILL.md)
-- IG Reels 側真実源 → [`docs/reference/ig-reels-policy.md`](./ig-reels-policy.md)
+- SNS 戦略 v7 → [`docs/project/03_SNS/01_SNS集客戦略.md`](../../../docs/project/03_SNS/01_SNS集客戦略.md)
+- 派生スキル → [`.claude/skills/social/yt-shorts-create/SKILL.md`](../../skills/social/yt-shorts-create/SKILL.md)
+- IG Reels 側真実源 → [`.claude/knowledge/reference/ig-reels-policy.md`](./ig-reels-policy.md)
 
 最終更新: 2026-05-28（v1: 戦略 v7 化に伴う新設）
 

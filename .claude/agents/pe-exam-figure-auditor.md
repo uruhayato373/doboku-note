@@ -159,6 +159,6 @@ tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 ## 参照ドキュメント
 
 - `.claude/agents/civil-exam-figure-auditor.md` — 参照モデル（4軸ルーブリック構造）
-- `docs/reference/content-principles.md` §8 — 図の配置原則
-- `docs/reference/agents-registry.md` — Generator/Evaluator 分業原則
+- `.claude/knowledge/reference/content-principles.md` §8 — 図の配置原則
+- `.claude/knowledge/reference/agents-registry.md` — Generator/Evaluator 分業原則
 - `.claude/state/svg-audit.json` `.exam_crops` — 対象 SVG パスの一覧

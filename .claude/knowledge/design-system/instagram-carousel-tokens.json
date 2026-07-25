@@ -8,7 +8,7 @@
       ".claude/skills/social/ig-post-create/scripts/ig-post-create.mjs",
       ".claude/scripts/lib/sns-common/sns-config.mjs"
     ],
-    "spec": "docs/design-system/instagram-carousel.md",
+    "spec": ".claude/knowledge/design-system/instagram-carousel.md",
     "note": "5管理別カラーテーマは廃止。管理識別は cover-title (156px) のテキストで行う。"
   },
 
@@ -176,7 +176,7 @@
     "_meta": {
       "purpose": "IG Stories ハイライト用モダンシック意匠。docs/sns/instagram/highlights/** で使用。過去問パック (1080×1350) と意匠を切り分け、サムネ識別性とジャンル別カラーで 3 秒判断通過を狙う。",
       "consumedBy": [".claude/scripts/lib/sns-common/highlight-stories-slides.mjs"],
-      "policy": "docs/reference/ig-highlight-design-policy.md",
+      "policy": ".claude/knowledge/reference/ig-highlight-design-policy.md",
       "canvas": "1080×1920 Stories sizes"
     },
     "_paletteNote": "ハイライト 6 種を背景色面で識別。低彩度のトーンで信頼感を保ちつつ、ジャンル別に視覚区別。背景は -50 系の淡色、アクセントは -600 系の濃色、テキストは ink.strong (#14191F) で共通。",

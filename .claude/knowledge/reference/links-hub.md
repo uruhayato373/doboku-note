@@ -111,7 +111,7 @@ GA4 で SNS bio → /links → 各送客先の流入経路を区別するため�
 - **Header navigation に出さない** — SNS bio 専用の中継ページなので、サイト内回遊からは原則アクセスしない設計。Header に出すと一般訪問者の目に入り「リンク集だけのページ」と誤認されサイトの体系性が薄まる
 - **同じ文章を /about と両方に書かない** — Red Line #4（重複コンテンツ）回避。/links の価値提案・導入文は要約に留め、編集方針・保有資格一覧などの深掘りは `/about` への送客で対応
 - **価格・ID を直書きしない** — 価格チップは必ず `note-magazines.ts` の `mag.price`（SSoT）から描画し、page.tsx にハードコードしない（改訂追従不能・ドリフトの原因。`feedback_no_price_in_mdx_body` と同趣旨）
-- **アフィリエイトリンクを並べない** — このページは運営者の自社商品（note・サイト）のハブ。書籍紹介などのアフィリエイトは `docs/reference/book-list.md` 経由で別ページにする
+- **アフィリエイトリンクを並べない** — このページは運営者の自社商品（note・サイト）のハブ。書籍紹介などのアフィリエイトは `.claude/knowledge/reference/book-list.md` 経由で別ページにする
 
 ## 8. 計測 KPI（提案）
 
@@ -130,4 +130,4 @@ GA4 で SNS bio → /links → 各送客先の流入経路を区別するため�
 - `docs/note/技術士総監/noteコンテンツ計画.md` — note 商品ラインナップとマガジン進捗
 - `src/lib/note-magazines.ts` — 有料マガジン SSoT
 - `src/config/author.ts` — 運営者情報 SSoT
-- `docs/reference/content-authoring.md` — MDX/コンテンツ執筆ルール
+- `.claude/knowledge/reference/content-authoring.md` — MDX/コンテンツ執筆ルール

@@ -9,9 +9,9 @@ model: sonnet
 技術士・総合技術監理および 1 級土木施工管理技士の **Instagram Stories**（4 枚連投）用の重ねるテキスト・リンクスタンプ・投票/質問ステッカーの文言を、1 パックずつキュレーションする **Generator エージェント**。
 
 > **READ FIRST（真実源）**:
-> - 3 軸ルーブリック・キャプションルール・ステッカー運用は [`docs/reference/ig-stories-policy.md`](../../docs/reference/ig-stories-policy.md)
-> - 6切り口リパーパス戦略（全チャネル共通） → [`docs/reference/sns-repurpose-policy.md`](../../docs/reference/sns-repurpose-policy.md)
-> - パック構造・4 枚選別の機械処理は [`docs/reference/ig-carousel-skill.md`](../../docs/reference/ig-carousel-skill.md)
+> - 3 軸ルーブリック・キャプションルール・ステッカー運用は [`.claude/knowledge/reference/ig-stories-policy.md`](../../.claude/knowledge/reference/ig-stories-policy.md)
+> - 6切り口リパーパス戦略（全チャネル共通） → [`.claude/knowledge/reference/sns-repurpose-policy.md`](../../.claude/knowledge/reference/sns-repurpose-policy.md)
+> - パック構造・4 枚選別の機械処理は [`.claude/knowledge/reference/ig-carousel-skill.md`](../../.claude/knowledge/reference/ig-carousel-skill.md)
 > - SNS 戦略 v7 → [`docs/project/03_SNS/01_SNS集客戦略.md`](../../docs/project/03_SNS/01_SNS集客戦略.md)
 >
 > **モデル方針**: `model: sonnet`（Generator = 実行担当）。品質判定は `ig-stories-qa` Evaluator、最終判断は親エージェント（Opus）。
@@ -34,7 +34,7 @@ model: sonnet
 
 ## 進め方
 
-1. `docs/reference/ig-stories-policy.md` と `docs/reference/sns-repurpose-policy.md` を読む。
+1. `.claude/knowledge/reference/ig-stories-policy.md` と `.claude/knowledge/reference/sns-repurpose-policy.md` を読む。
 2. `angle` が指定されていれば、その切り口で4枚のストーリー弧を設計する（repurpose-policy §2 Stories 欄参照）。未指定なら文脈から最適な切り口を選ぶ。いずれの切り口でも必ず1パック作れる。
 3. 対象パックの `slide-data.json`、`stories/img/*.png`、`stories/caption.txt`（初版）、`stories/note.md`（初版）を読む。
 3. `stories/caption.txt` を **パック固有の文言**に書き直す。

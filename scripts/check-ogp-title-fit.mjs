@@ -4,7 +4,7 @@
  *
  * ガイド（group: guide）OGP の主題フォントを揃えるためのゲート。
  *
- * ルール（真実源: docs/reference/ogp-prompts.md「ガイドOGPタイトルの統一」）:
+ * ルール（真実源: .claude/knowledge/reference/ogp-prompts.md「ガイドOGPタイトルの統一」）:
  *   OGP の主題は横幅にフォントを auto-fit するため、主題が長い／多行ほど小さく
  *   出てカード間でばらつく。ガイドは題が一本ずつ違うので、**手動 `ogp.title` で
  *   短い主題（≤2行・詳細は `ogp.subtitle` へ）**にして大きめフォントに揃える。
@@ -94,6 +94,6 @@ if (ALL) {
 }
 if (ng.length === 0) { console.log(`[check-ogp-title-fit] ✓ ${STAGED ? 'staged ' : ''}guide の OGP 主題フォントは全て ${FLOOR}px 以上（均一）`); process.exit(0); }
 console.error(`[check-ogp-title-fit] ✗ ${ng.length} 件のガイド OGP 主題が ${FLOOR}px 未満で小さく出ます`);
-console.error('  真実源: docs/reference/ogp-prompts.md「ガイドOGPタイトルの統一」→ ogp.title を短い2行に・詳細は subtitle へ');
+console.error('  真実源: .claude/knowledge/reference/ogp-prompts.md「ガイドOGPタイトルの統一」→ ogp.title を短い2行に・詳細は subtitle へ');
 ng.forEach((r) => console.error(`  ${r.font}px  ${r.slug}  「${r.preview}」`));
 process.exit(1);

@@ -142,6 +142,11 @@ page/category の合成ロジック共通化（2026-06-25 アセスメント起�
 
 ## 🟡 中 — 2〜3ヶ月以内
 
+### Brain 施工経験記述キットの検証残（handoff 2026-07-19 抽出）
+タグ: [収益化]
+
+Brain「Claude Code 施工経験記述設計キット」の配布物検証が未実施のまま出品済み: ①実スキル `quick_validate.py` の動作確認 ②字数検査 ③Windows/macOS 両環境での動作確認。審査結果反映（status flip）は memory `Brainチャネル2026-07` 側で追跡中。仕様 SSOT: `docs/project/05_プロダクト/brain-claude-code-essay-skill/`
+
 ### note カバー Crop-safe V4＋Clarityを代表6件で実装・検証
 タグ: [UI・UX] [Codex候補]
 

@@ -119,7 +119,7 @@ publishedAt: "YYYY-MM-DD"
 
 ## 参照
 
-- `docs/reference/exam-content-policy.md` — 試験別コンテンツ整備方針
-- `docs/reference/content-authoring.md` — MDX コンポーネント仕様
+- `.claude/knowledge/reference/exam-content-policy.md` — 試験別コンテンツ整備方針
+- `.claude/knowledge/reference/content-authoring.md` — MDX コンポーネント仕様
 - `.claude/agents/civil-construction-qa.md` — 視覚検証・網羅率評価の真実源
 - `.claude/agents/civil-construction-review.md` — 既存 MDX 校正の真実源

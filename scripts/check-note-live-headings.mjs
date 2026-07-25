@@ -18,7 +18,7 @@
  *   node scripts/check-note-live-headings.mjs --paths  # BAD の article.md パスのみ出力（修復list生成用）
  *
  * 終了コード: BAD 1件以上 → exit 1。FETCH_ERR は WARN 扱い（ネットワーク偽陰性と区別）。
- * 真実源: docs/reference/note-api-verification.md「live 本文整合性検査」
+ * 真実源: .claude/knowledge/reference/note-api-verification.md「live 本文整合性検査」
  */
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, dirname } from 'node:path';

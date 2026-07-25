@@ -40,7 +40,7 @@ user-invocable: true
   │   ├ 文字数バンド: free 2,000〜3,000 / paid 4,000〜6,000
   │   ├ 3点セット: img/cover.png + hashtags.txt 存在（4e・--require で BLOCK）+ ハッシュタグ形式（99 行以下 / 純粋 / 重複なし＝WARN）
   │   ├ 段落長: >120 字の段落を WARN（4f・note 可読性。reflow ツールで文境界分割を適用）
-  │   ├ 売れる構成（観点喚起・report-only・自動判定/BLOCK しない）: 無料部分が `docs/reference/note-selling-structures.md` の5ステップ骨格（悩み→原因→解決→読後の変化→次の行動）を満たし、記事タイプに合う型（悩み直撃/Before→After 等）が機能しているか目視確認を喚起
+  │   ├ 売れる構成（観点喚起・report-only・自動判定/BLOCK しない）: 無料部分が `.claude/knowledge/reference/note-selling-structures.md` の5ステップ骨格（悩み→原因→解決→読後の変化→次の行動）を満たし、記事タイプに合う型（悩み直撃/Before→After 等）が機能しているか目視確認を喚起
   │   └ マガジン模範論文（magazines/ 配下のみ）: 試験問題セクション存在 / トレードオフ再掲節の不在 / 設問別解答字数（上限超過=NG・健全帯 85〜100%）/ 答案本文の散文化 / 図版なし / 設問(3) スコープ（国家施策設問の目視）
   │
   ├─ Phase 2: 3 エージェント並列実行
@@ -330,7 +330,7 @@ node .claude/scripts/build-note-published-index.mjs
 | `note-link-injector` agent | リンク注入の Generator |
 | `svg-figure-auditor` agent | 図版品質の Evaluator |
 | `note-fact-checker` agent | 事実性の Evaluator |
-| `docs/reference/note-svg-policy.md` | 図版品質ルールの真実源 |
+| `.claude/knowledge/reference/note-svg-policy.md` | 図版品質ルールの真実源 |
 | `.claude/skills/social/social-post/SKILL.md` | リンク注入ルールの真実源 |
 
 ## 実行例

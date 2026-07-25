@@ -90,4 +90,4 @@ note の段階投下は `docs/note/技術士総監/noteコンテンツ計画.md`
 - `.claude/skills/authoring/pe-essay-cycle/SKILL.md` — 統括オーケストレーター（`--mode plan` から本スキルを呼ぶ）
 - `.claude/skills/authoring/pe-essay-draft/SKILL.md` — 提案後に実際の記事を作る Generator
 - `.claude/skills/quality/note-prepublish-review/SKILL.md` — 公開前ゲート
-- `docs/reference/note-publish-enhancement.md` — note 公開引き上げ工程
+- `.claude/knowledge/reference/note-publish-enhancement.md` — note 公開引き上げ工程

@@ -1,5 +1,5 @@
 {
-  "_doc": "サイト記事(.local/r2/posts/**)の機械品質ルールの重大度・適用範囲マトリクス。人間可読の根拠は docs/reference/content-principles.md(資格共通)と docs/reference/exam-content-policy.md(試験別差分)。ルールの検出ロジックの実装は .claude/scripts/lint-mdx-mobile.mjs が唯一の真実源。本ファイルは『どのルールをどの重大度で・どの資格×種別に適用するか』の SSOT。figure-canvas.json / note-funnel.json と同じ policy.md ↔ config.json ↔ guard script パターン。",
+  "_doc": "サイト記事(.local/r2/posts/**)の機械品質ルールの重大度・適用範囲マトリクス。人間可読の根拠は .claude/knowledge/reference/content-principles.md(資格共通)と .claude/knowledge/reference/exam-content-policy.md(試験別差分)。ルールの検出ロジックの実装は .claude/scripts/lint-mdx-mobile.mjs が唯一の真実源。本ファイルは『どのルールをどの重大度で・どの資格×種別に適用するか』の SSOT。figure-canvas.json / note-funnel.json と同じ policy.md ↔ config.json ↔ guard script パターン。",
   "_usage": "lint-mdx-mobile.mjs はファイルの frontmatter から exam(=category)/docGroup(=group) を判定し、(1)defaults で各ルールの基準重大度を引き、(2)overrides[exam][docGroup] で enabled:false=無効化 / severity 上書き を適用する。本ファイルが存在しない/壊れている場合はスクリプト内ハードコード値へフォールバックする。",
   "defaults": {
     "0-1": "HIGH",

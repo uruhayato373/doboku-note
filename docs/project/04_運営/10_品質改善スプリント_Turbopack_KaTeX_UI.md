@@ -169,7 +169,7 @@ LaTeX-incompatible input and strict mode is set to 'warn':
 
 既存ルール:
 
-- `docs/reference/content-authoring.md`
+- `.claude/knowledge/reference/content-authoring.md`
   - ブロック数式は開始 `$$` と終了 `$$` を別行に置く
   - CJKを含む分数は `\frac` ではなく `\dfrac`
 - `.claude/scripts/lint-mdx-mobile.mjs`
@@ -245,7 +245,7 @@ KaTeX warnings: 128
 4. 低リスク置換だけを `--fix-safe` として実装する。
 5. `--fix-safe` 後に再監査。
 6. 残りは手修正または専用fixerを追加。
-7. `docs/reference/content-authoring.md` に実例を追記。
+7. `.claude/knowledge/reference/content-authoring.md` に実例を追記。
 8. 可能なら `pre-commit-mdx.mjs` に staged ファイル限定の KaTeX strict warning 監査を追加する。ただし既存記事に大量warningがある間は commit blocking しない。
 
 ### 2.5 完了条件

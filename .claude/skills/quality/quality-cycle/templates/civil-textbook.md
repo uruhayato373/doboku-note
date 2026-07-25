@@ -94,5 +94,5 @@ node .claude/skills/quality/quality-cycle/scripts-civil-textbook/merge-scores.mj
 - `.claude/agents/civil-construction-review.md` — Evaluator の真実源
 - `.claude/agents/civil-textbook-rewriter.md` — Generator の真実源
 - `.claude/agents/civil-construction-qa.md` — PDF 照合 Evaluator（別系統）
-- `docs/reference/content-principles.md` — 品質ルールの真実源
-- `docs/reference/content-authoring.md` — MDX 実装規約
+- `.claude/knowledge/reference/content-principles.md` — 品質ルールの真実源
+- `.claude/knowledge/reference/content-authoring.md` — MDX 実装規約

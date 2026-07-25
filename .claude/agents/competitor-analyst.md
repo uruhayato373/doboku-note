@@ -46,7 +46,7 @@ tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 
 - `docs/project/01_戦略/09_販売チャネル競合分析.md` … 前回分析・2 軸マップ・価格結論の記録
 - `src/lib/note-magazines.ts` … 自社の**実価格**（企画価格でなく確定値）
-- `docs/reference/note-funnel-architecture.md` … 自社の導線モデル（差別化の実装面）
+- `.claude/knowledge/reference/note-funnel-architecture.md` … 自社の導線モデル（差別化の実装面）
 
 ## スナップショットの読み方（制約の理解）
 

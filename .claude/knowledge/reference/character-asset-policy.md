@@ -1,6 +1,6 @@
 # キャラクター素材ポリシー（doboku-note 先生）
 
-ブランドマスコット **「doboku-note 先生」** の素材ライブラリ運用 SSOT。アイデンティティ（人格・外見・ブランド）の真実源は [CHARACTER-SPEC.md](../sns/_assets/character/CHARACTER-SPEC.md)、ポーズ素材の機械可読な真実源は [`.claude/config/character-poses.json`](../../.claude/config/character-poses.json)。本ドキュメントは「どこに・どう保存し・どう生成/抽出し・どのチャネルでどう使うか」を集約する。
+ブランドマスコット **「doboku-note 先生」** の素材ライブラリ運用 SSOT。アイデンティティ（人格・外見・ブランド）の真実源は [CHARACTER-SPEC.md](../../../docs/sns/_assets/character/CHARACTER-SPEC.md)、ポーズ素材の機械可読な真実源は [`.claude/config/character-poses.json`](../../config/character-poses.json)。本ドキュメントは「どこに・どう保存し・どう生成/抽出し・どのチャネルでどう使うか」を集約する。
 
 - **アイデンティティ（不変条件）の SoT** → `docs/sns/_assets/character/CHARACTER-SPEC.md`（設定書）
 - **ポーズ素材の機械可読 SoT** → `.claude/config/character-poses.json`（manifest）
@@ -95,4 +95,4 @@ AIは「透過」「同一人物9体」を守れないため、**1ポーズ=1画
 
 ---
 
-関連: [CHARACTER-SPEC.md](../sns/_assets/character/CHARACTER-SPEC.md)（設定書）／[ig-reels-policy.md](ig-reels-policy.md)（リール合成）／[sns-image-policy.md](sns-image-policy.md)（SNS 画像）
+関連: [CHARACTER-SPEC.md](../../../docs/sns/_assets/character/CHARACTER-SPEC.md)（設定書）／[ig-reels-policy.md](ig-reels-policy.md)（リール合成）／[sns-image-policy.md](sns-image-policy.md)（SNS 画像）

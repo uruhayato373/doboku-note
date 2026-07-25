@@ -3,11 +3,11 @@
 技術士・総合技術監理および 1 級土木施工管理技士の **Instagram Stories**（4 枚連投 + ハイライト集約）を、agent が 1 パックずつキュレーション・採点するための品質基準。`ig-stories-writer`（Generator）と `ig-stories-qa`（Evaluator）の両方がこの文書を真実源とする。
 
 関連:
-- SNS 戦略 v7（IG 一次・YT 派生） → [`docs/project/03_SNS/01_SNS集客戦略.md`](../project/03_SNS/01_SNS集客戦略.md)
-- パック構造・4 枚選別の機械処理 → [`docs/reference/ig-carousel-skill.md`](./ig-carousel-skill.md)
-- Reels 側真実源 → [`docs/reference/ig-reels-policy.md`](./ig-reels-policy.md)
-- カルーセル側真実源 → [`docs/reference/ig-carousel-policy.md`](./ig-carousel-policy.md)
-- **figure-*.svg 静止画を Stories に直接使う場合**（Reels 派生の 02-04 枚とは別ルート） → [`docs/reference/sns-image-policy.md §13`](./sns-image-policy.md)（4:5 figure を 9:16 中央配置）
+- SNS 戦略 v7（IG 一次・YT 派生） → [`docs/project/03_SNS/01_SNS集客戦略.md`](../../../docs/project/03_SNS/01_SNS集客戦略.md)
+- パック構造・4 枚選別の機械処理 → [`.claude/knowledge/reference/ig-carousel-skill.md`](./ig-carousel-skill.md)
+- Reels 側真実源 → [`.claude/knowledge/reference/ig-reels-policy.md`](./ig-reels-policy.md)
+- カルーセル側真実源 → [`.claude/knowledge/reference/ig-carousel-policy.md`](./ig-carousel-policy.md)
+- **figure-*.svg 静止画を Stories に直接使う場合**（Reels 派生の 02-04 枚とは別ルート） → [`.claude/knowledge/reference/sns-image-policy.md §13`](./sns-image-policy.md)（4:5 figure を 9:16 中央配置）
 
 最終更新: 2026-05-28（v1: 戦略 v7 化に伴う新設）
 

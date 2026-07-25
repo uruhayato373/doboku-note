@@ -155,6 +155,6 @@ pdftoppm -png -r 150 -f {開始P} -l {終了P} '{PDFパス}' /tmp/exam-2-2k-p
 ## 参照
 
 - `docs/textbook/２級土木施工管理技士/過去問/` — ソース PDF ディレクトリ
-- `docs/reference/content-authoring.md` — MDX 構造ルール
+- `.claude/knowledge/reference/content-authoring.md` — MDX 構造ルール
 - `.claude/skills/conversion/exam-questions-import/templates/civil-secondary.md` — 1級テンプレ（共通フォーマットの真実源）
 - `.claude/agents/civil-secondary-exam-writer.md` — 経験記述解答補完の真実源

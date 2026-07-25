@@ -437,6 +437,7 @@ export default async function DocPage({
               {/* 記事冒頭 CTA（二次系高 intent ページのみ・1 行テキスト）。未公開は topMagazine=null で非表示 */}
               {topSlot && topMagazine && (
                 <MagazineTopBanner
+                  magazineId={topSlot.magazineId}
                   url={buildMagazineUrl(topMagazine, topSlot.utmContent)}
                   title={topMagazine.shortTitle ?? topMagazine.title}
                   price={topMagazine.price}

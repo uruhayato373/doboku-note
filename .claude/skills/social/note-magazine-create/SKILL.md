@@ -49,4 +49,4 @@ node scripts/note-magazine-create.mjs --dir <magazineDir> --commit   # 実作成
 - `.claude/skills/social/note-attach-pdf/` — 各記事末尾への印刷用 PDF 添付
 - `.claude/skills/social/note-edit-magazine/` — 既存マガジンの設定編集（別操作）
 - `.claude/skills/social/note-magazine-add/` — 記事の収録（別操作）
-- 真実源 `docs/reference/note-api-verification.md` / [[project_note_write_automation]]
+- 真実源 `.claude/knowledge/reference/note-api-verification.md` / [[project_note_write_automation]]

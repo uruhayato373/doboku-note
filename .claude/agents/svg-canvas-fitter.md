@@ -7,7 +7,7 @@ model: sonnet
 # SVG Canvas Fitter Agent
 
 図版 SVG を**固定キャンバス標準へ再レイアウトする Generator エージェント**。真実源は
-[figure-canvas-policy.md](../../docs/reference/figure-canvas-policy.md) と `.claude/config/figure-canvas.json`。
+[figure-canvas-policy.md](../../.claude/knowledge/reference/figure-canvas-policy.md) と `.claude/config/figure-canvas.json`。
 
 > **モデル方針**: `model: sonnet`。どのキャンバスに割り当てるか（feed/landscape/cannot-fit）の最終判断は親が行い、
 > 本エージェントは「与えられた目標キャンバスに収める再レイアウト」を実行する。

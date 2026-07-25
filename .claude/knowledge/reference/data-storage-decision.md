@@ -4,7 +4,7 @@ title: データストレージ判断 — D1 不採用と再検討トリガー
 
 # データストレージ判断 — D1 不採用と再検討トリガー
 
-複数試験追加時に「タグ・キーワード管理を Cloudflare D1（SQLite）に寄せるか」という論点に対する ADR の圧縮版。元 ADR は `docs/reference/data-storage-decision.md`（commit `5613b76a`）にあり、2026-04-27 に本ファイルへ集約・移管した。
+複数試験追加時に「タグ・キーワード管理を Cloudflare D1（SQLite）に寄せるか」という論点に対する ADR の圧縮版。元 ADR は `.claude/knowledge/reference/data-storage-decision.md`（commit `5613b76a`）にあり、2026-04-27 に本ファイルへ集約・移管した。
 
 ## 決定（2026-04-14）
 
@@ -69,5 +69,5 @@ frontmatter 検査ルールの追加・変更手順は `.claude/skills/quality/c
 
 ## 改訂履歴
 
-- 2026-04-14: 元 ADR `docs/reference/data-storage-decision.md` 初版（commit `5613b76a`）。複数試験対応の議論を経て D1 不採用を決定
+- 2026-04-14: 元 ADR `.claude/knowledge/reference/data-storage-decision.md` 初版（commit `5613b76a`）。複数試験対応の議論を経て D1 不採用を決定
 - 2026-04-27: ADR を圧縮し本ファイルへ移管。元ファイル削除。詳細経緯は git history 参照

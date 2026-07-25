@@ -204,6 +204,6 @@ Phase C: 記録書き出し — JSON 記録 + docs/handoffs/ に Markdown レポ
 
 ## 参照
 
-- `docs/reference/exam-content-policy.md` — pe-first-stage の整備方針
+- `.claude/knowledge/reference/exam-content-policy.md` — pe-first-stage の整備方針
 - `.claude/skills/conversion/exam-questions-import/templates/pe-first-stage.md` — インポート仕様
 - `docs/textbook/技術士第一次試験/` — ソース PDF
