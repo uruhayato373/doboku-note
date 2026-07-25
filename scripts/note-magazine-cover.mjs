@@ -55,7 +55,8 @@ function curlJson(url) {
 const isDefaultCover = (url) => !url || /\/assets\/default\/default_magazine_header/.test(url);
 function magazineCover(key) {
   // note の「マガジン画像」は API では cover / coverRectangle フィールド（eyecatch ではない）
-  for (let p = 1; p <= 4; p++) {
+  // マガジン数増加で 4 ページ超過 → 未発見の false negative が出た（2026-07-25 BK-I が page5）。isLastPage まで走査
+  for (let p = 1; p <= 12; p++) {
     const d = curlJson(`https://note.com/api/v2/creators/${CREATOR}/contents?kind=magazine&page=${p}`);
     const c = d?.data?.contents ?? [];
     const hit = c.find((m) => m.key === key);
