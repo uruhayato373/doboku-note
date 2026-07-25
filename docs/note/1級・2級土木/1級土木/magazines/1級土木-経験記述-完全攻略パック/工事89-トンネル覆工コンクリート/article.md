@@ -5,21 +5,18 @@ noteMagazine: 1級土木-経験記述-完全攻略パック
 utmCampaign: civil1-keiken-pack-koji89
 noteStatus: published
 coverTitle: ["1級土木 施工経験記述", "道路トンネル 覆工コンクリート", "5管理 完成答案"]
-cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "道路トンネル"
-  hiSuffix: "覆工コンクリート"
-  banner: "セントル施工・背面空洞充填・うき検査"
-  meta: "完全攻略パック 工事89"
-  chips:
-    - { icon: doc, text: "5管理×完成答案" }
-    - { icon: target, text: "置換ガイド付" }
-    - { icon: check, text: "採点者視点" }
 noteUrl: "https://note.com/dobokunote/n/n1508fe92f8e7"
 noteId: "n1508fe92f8e7"
 notePublishedAt: "2026-06-30"
 price: 1980
 paidBoundary: 品質管理
+cover:
+  variant: crop-safe-v4
+  leadIn: "1級土木 経験記述｜覆工コンクリート"
+  headline: "道路トンネル"
+  hi: "5管理"
+  hiSuffix: "完成答案"
+  benefit: "書き換えてそのまま使える"
 ---
 # 1級土木 施工経験記述｜道路トンネル 覆工コンクリート（セントル施工）5管理 完成答案
 

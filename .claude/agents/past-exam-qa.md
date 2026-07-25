@@ -173,9 +173,9 @@ Read で各設問ブロックを読み、lint が拾えない品質を判定:
 
 ## 参照ドキュメント
 
-- `docs/reference/content-principles.md` §5（ExamPoint・過去問特例）/§7.1 / §9（参考資料）
-- `docs/reference/content-authoring.md`「過去問 MDX の構造ルール」
-- `docs/reference/exam-content-policy.md` — 試験別コンテンツ整備・コンテンツ別レビュー視点
+- `.claude/knowledge/reference/content-principles.md` §5（ExamPoint・過去問特例）/§7.1 / §9（参考資料）
+- `.claude/knowledge/reference/content-authoring.md`「過去問 MDX の構造ルール」
+- `.claude/knowledge/reference/exam-content-policy.md` — 試験別コンテンツ整備・コンテンツ別レビュー視点
 - `.claude/scripts/lint-mdx-mobile.mjs` — 機械チェッカー（9-11 ほか）
 - `.claude/agents/past-exam-rewriter.md` — 対の Generator（指摘適用）
 - `.claude/agents/civil-construction-review.md` — ルーブリック設計の参考

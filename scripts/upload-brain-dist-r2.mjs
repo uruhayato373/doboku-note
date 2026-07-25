@@ -6,7 +6,7 @@
  * 配布URL: https://storage.doboku-note.com/brain/dist/<filename>
  * ファイル名に推測不能トークンを含める運用（リンクを知る人のみアクセス＝Driveリンク共有と同等）。
  * 実行は CI（r2-brain-dist.yml・workflow_dispatch）。ローカルは creds 無しの前提
- * （計測/アップロード系は CI/CD 供給が正: docs/reference/measurement-incidents.md）。
+ * （計測/アップロード系は CI/CD 供給が正: .claude/knowledge/reference/measurement-incidents.md）。
  *
  * 使い方: node scripts/upload-brain-dist-r2.mjs [--dry-run]
  */

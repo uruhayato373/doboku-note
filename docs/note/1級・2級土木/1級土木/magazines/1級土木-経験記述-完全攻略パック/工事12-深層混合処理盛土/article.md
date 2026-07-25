@@ -11,15 +11,12 @@ noteUrl: "https://note.com/dobokunote/n/nd18367af9008"
 utmCampaign: civil1-keiken-pack-koji12
 coverTitle: ["1級土木 施工経験記述", "深層混合処理＋盛土", "5管理 完成答案"]
 cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "深層混合処理＋盛土"
-  hiSuffix: "5管理完成答案"
-  banner: "軟弱地盤の深層混合処理と盛土"
-  meta: "有料マガジン"
-  chips:
-    - { icon: doc, text: "完成答案" }
-    - { icon: edit, text: "置換ガイド" }
-    - { icon: check, text: "5管理一覧" }
+  variant: crop-safe-v4
+  leadIn: "1級土木｜施工経験記述"
+  headline: "深層混合処理盛土"
+  hi: "5管理"
+  hiSuffix: "完成答案"
+  benefit: "書き換えてそのまま使える"
 ---
 # 1級土木 施工経験記述｜深層混合処理＋盛土（軟弱地盤改良）5管理 完成答案
 

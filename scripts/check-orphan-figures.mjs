@@ -152,7 +152,7 @@ if (orphans.length) {
   );
   console.error(`  別拡張子（figure-N.png 等）で参照していれば許容されます。`);
   console.error(`  記事内容と合致しない古い図なら、図を削除するか記事を作成して結線してください。`);
-  console.error(`  真実源: docs/reference/figure-canvas-policy.md / content-authoring.md\n`);
+  console.error(`  真実源: .claude/knowledge/reference/figure-canvas-policy.md / content-authoring.md\n`);
   process.exit(1);
 }
 

@@ -4,7 +4,7 @@
  * マガジンURLプレースホルダを、実際の note マガジン URL に一括置換する。
  *
  * note マガジンを作成して URL が判明したら実行する（公開後 URL 反映フローの一部。
- * docs/reference/note-essay-review-checklist.md Step 10）。
+ * .claude/knowledge/reference/note-essay-review-checklist.md Step 10）。
  *
  * Usage:
  *   node .claude/scripts/note/inject-magazine-url.cjs <persona> <マガジンURL>

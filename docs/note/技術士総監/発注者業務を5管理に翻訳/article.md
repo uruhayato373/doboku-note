@@ -9,16 +9,12 @@ coverTitle:
   - 発注者の日常を
   - 総監5管理に翻訳する
 cover:
-  leadIn: "発注者の日常業務を"
-  hi: "5管理"
-  hiSuffix: "に翻訳する"
-  banner: "自分の仕事で腹落ち"
-  character: explaining
-  meta: "無料記事"
-  chips:
-    - { icon: layers, text: "日常業務の例" }
-    - { icon: edit, text: "5管理マッピング" }
-    - { icon: check, text: "論文ネタに" }
+  variant: crop-safe-v4
+  leadIn: "総監 発注者｜学習法"
+  headline: "5管理に翻訳する"
+  hi: "5"
+  hiSuffix: "管理"
+  benefit: "自分の仕事で腹落ちする"
 ---
 # 【総監対策】発注者の日常を5管理に翻訳する｜「自分の仕事」で総監を腹落ちさせる
 

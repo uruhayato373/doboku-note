@@ -6,7 +6,7 @@
  * 月次サイクル（既定30日）に対して期限切れかを機械判定する surfacer。
  *
  * なぜ surfacer か: 本取得は Playwright + Google ログイン必須の **ローカル専用・人間 in the loop**
- * ＝CI cron 化できない（`docs/reference/gsc-management.md` の CI 例外）。よって「自動で回る」のでは
+ * ＝CI cron 化できない（`.claude/knowledge/reference/gsc-management.md` の CI 例外）。よって「自動で回る」のでは
  * なく **手動の月次儀式**にするしかなく、放置防止のため weekly-review（唯一稼働のクラウド PDCA）
  * から「そろそろ月次 GSC UI 取得の時期」を思い出させる。新規 cron は作らない（クラウド最小化方針）。
  *

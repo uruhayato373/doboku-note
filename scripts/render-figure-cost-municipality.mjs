@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // docs/note/技術士総監/総監コスト公務員版/img/ に本文用 PNG 図版を生成する。
 //
-// 設計ルールは docs/reference/note-svg-policy.md 準拠:
+// 設計ルールは .claude/knowledge/reference/note-svg-policy.md 準拠:
 // - キャンバス 1200×720
 // - 最低 font-size 22px（本文）/ 18px（補足）
 // - 右下 doboku-note.com ブランディングのみ

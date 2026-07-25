@@ -2,7 +2,7 @@
 
 > 型: 実績・社会的証明（x-post-policy §5.2）。投稿日=2026-07-21以降（077=7/19択一速報・079=7/20模範解答例の翌日。§11.2 同日集中回避）。
 > §11.1 順守: 077(速報・自己採点フック)/079(模範解答・全14立場フック)と別文面・別フック（的中実績＝分析力の証明）。
-> 帰属ガード: 的中の主語は「設問(3)国家施策バンク（6/1公開）」。**「R8予想問題集が的中」とは書かない**（6テーマに地方創生は無い＝虚偽帰属禁止。真実源: docs/reference/note-funnel-architecture.md 表現ガイド・plans/r8-codex-twinkling-ritchie.md）。
+> 帰属ガード: 的中の主語は「設問(3)国家施策バンク（6/1公開）」。**「R8予想問題集が的中」とは書かない**（6テーマに地方創生は無い＝虚偽帰属禁止。真実源: .claude/knowledge/reference/note-funnel-architecture.md 表現ガイド・plans/r8-codex-twinkling-ritchie.md）。
 > URL: 無料の設問(3)全集（nce1ea1317eab・live確認済）→有料バンクへの送客は記事内導線に任せる。
 > bio 更新: この投稿と同日に @doboku373 の bio を予備版B（docs/note/プロフィール.md）へ差し替え（操作1回にまとめる）。
 > 投稿は手動（自動投稿停止中・x-post-policy §11）。

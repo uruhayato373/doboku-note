@@ -13,7 +13,7 @@
  *
  * 試験色は exam-palette.mjs（note-cover-tokens.json）＝ 試験=色相の2軸色設計に準拠。
  * miyabi の「科目=色相」方式はサイト色スキームと衝突するため採らず、科目はピル表示に留める。
- * 真実源: docs/reference/sns-image-policy.md §12 / docs/reference/ig-carousel-skill.md
+ * 真実源: .claude/knowledge/reference/sns-image-policy.md §12 / .claude/knowledge/reference/ig-carousel-skill.md
  */
 import { COLORS, rect, text } from '../lib/svg-base.mjs';
 import { examColor } from '../lib/exam-palette.mjs';

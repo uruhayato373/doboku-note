@@ -12,17 +12,14 @@ noteStatus: published
 price: 780
 theme: "短時間豪雨による盛土・切土等の鉄道施設の被災復旧・営業線近接の鉄道高架橋耐震補強"
 coverTitle: "技術士 建設部門｜鉄道 R8予想 選択科目II-2 予想問題＋模範解答"
-cover:
-  leadIn: "技術士 建設部門 2次"
-  hi: "R8予想"
-  hiSuffix: "鉄道II-2"
-  banner: "選択科目II-2 予想問題＋模範解答"
-  meta: "鉄道 予想模範解答"
-  chips:
-    - { icon: pen, text: "フル模範解答" }
-    - { icon: layers, text: "発注者視点" }
-    - { icon: check, text: "改訂コンピテンシー対応" }
 utmCampaign: pe-construction-secondary
+cover:
+  variant: crop-safe-v4
+  leadIn: "建設部門｜鉄道"
+  headline: "鉄道被災復旧"
+  hi: "R8"
+  hiSuffix: "II-2"
+  benefit: "そのまま答案に展開できる"
 ---
 
 # 技術士 建設部門｜鉄道 R8予想 選択科目II-2 予想問題＋模範解答

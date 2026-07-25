@@ -8,7 +8,7 @@
 //   - 右: 収入指標（positive/warn）
 //   - ケース5（アンケート）のみ warn 色バッジ
 //
-// 設計ルール（docs/reference/note-svg-policy.md 準拠）:
+// 設計ルール（.claude/knowledge/reference/note-svg-policy.md 準拠）:
 //   - キャンバス幅 1200
 //   - フォント ≥ 22px（補足を含めて 18px 以上）
 //   - タイトル下 40px → コンテンツ開始

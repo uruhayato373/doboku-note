@@ -8,7 +8,7 @@ import { type SmallBannerCreative } from '@/config/affiliate-creatives';
 
 // カテゴリページの「体系（受験ガイド / 分野別 / テキスト章）」をテキスト目次調のリストで見せる共有コンポーネント群。
 // カード（DocCard）でなくリストにすることで、章立て・出題分野の体系が一目で分かり情報密度を上げる。
-// editorial トークンのみ使用（生 hex なし・rounded/shadow 直書きなし）。真実源: docs/design-system/design-system.md §3。
+// editorial トークンのみ使用（生 hex なし・rounded/shadow 直書きなし）。真実源: .claude/knowledge/design-system/design-system.md §3。
 
 /** 目次リストの1ブロック（見出し＋所属記事）。volume は冊（テキスト2分冊）をまとめる eyebrow。
  *  intro は章の入口に据える「要点」記事（本文 docs の前・「要点」マーカーで区別して表示）。 */
@@ -231,6 +231,7 @@ export function CareerSection({
             rel={AFFILIATE_LINK_REL}
             data-cta="affiliate"
             data-cta-label={smallBanner.trackLabel}
+            data-cta-placement="category-career-section"
             className="inline-block"
           >
             <img

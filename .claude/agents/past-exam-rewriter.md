@@ -121,8 +121,8 @@ past-exam-qa（評価・指摘）
 
 ## 参照ドキュメント
 
-- `docs/reference/content-principles.md` §5 — ExamPoint・過去問特例・§5 分業
-- `docs/reference/content-authoring.md`「過去問 MDX の構造ルール」
+- `.claude/knowledge/reference/content-principles.md` §5 — ExamPoint・過去問特例・§5 分業
+- `.claude/knowledge/reference/content-authoring.md`「過去問 MDX の構造ルール」
 - `.claude/scripts/lint-mdx-mobile.mjs` — lint 9-11（ExamPoint items 句読点）
 - `.claude/agents/past-exam-qa.md` — 対の Evaluator（指摘の出し手）
 - `.claude/agents/civil-exampoint-restorer.md` — civil 一次の壊れ ExamPoint 再生成（委譲先）

@@ -7,15 +7,15 @@ noteSeries: 総監択一式分析
 utmCampaign: 90-soukan-analysis
 noteStatus: published
 cover:
-  leadIn: "総監択一式 17年分"
+  variant: crop-safe-v4
+  leadIn: "技術士 総監｜択一式"
+  headline: "頻出テーマ"
   hi: "680"
-  hiSuffix: "問を徹底分析"
-  banner: "頻出テーマ分析"
+  hiSuffix: "問分析"
+  benefit: "学習の優先順位がわかる"
   meta: "無料記事"
-  chips:
-    - { icon: chart, text: "5管理分野別" }
-    - { icon: target, text: "頻出テーマ" }
-    - { icon: check, text: "学習優先順位" }
+  character: thinking
+  tone: base
 ---
 # 【学習優先順位がわかる】総監択一式17年分680問を徹底分析｜5管理分野別の頻出テーマと学習戦略
 
@@ -34,7 +34,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 ---
 
 <!-- cta:pack-top -->
-> 本番直前の総仕上げは、出題予想6テーマ×三層骨子で「何が出ても書ける型」を最短装填できる[R8予想問題集（2026最終予想・¥3,480）](https://note.com/dobokunote/m/m6854c7437d4d)が決め手。書き方の型から固めるなら、型・設問(3)の弾薬・R8演習を1セットにした[記述式コアパック（¥5,480）](https://note.com/dobokunote/m/m6e7de5e4ea3d)が入口に最適です。
+> 本番直前の総仕上げは、出題予想6テーマ×三層骨子で「何が出ても書ける型」を最短装填できる[R8予想問題集（2026最終予想）](https://note.com/dobokunote/m/m6854c7437d4d)が決め手。書き方の型から固めるなら、型・設問(3)の弾薬・R8演習を1セットにした[記述式コアパック](https://note.com/dobokunote/m/m6e7de5e4ea3d)が入口に最適です。
 
 ## はじめに
 

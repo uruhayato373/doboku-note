@@ -11,15 +11,12 @@ noteId: "n859527f1749e"
 notePublishedAt: "2026-06-30"
 coverTitle: ["1級土木 施工経験記述", "橋台躯体 逆T式", "5管理 完成答案"]
 cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "橋台躯体"
-  hiSuffix: "5管理 完成答案"
-  banner: "逆T式橋台の躯体施工total"
-  meta: "完全攻略パック 工事75"
-  chips:
-    - { icon: doc, text: "完成答案" }
-    - { icon: edit, text: "置換ガイド" }
-    - { icon: check, text: "NG→OK添削" }
+  variant: crop-safe-v4
+  leadIn: "1級土木 経験記述｜5管理 完成答案"
+  headline: "橋台躯体"
+  hi: "5管理"
+  hiSuffix: "完成答案"
+  benefit: "書き換えてそのまま使える"
 ---
 # 1級土木 施工経験記述｜橋台躯体（逆T式）5管理 完成答案
 

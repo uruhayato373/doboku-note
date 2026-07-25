@@ -131,4 +131,4 @@ Kindle 出版戦略（[08_Kindle出版戦略.md](../../../../docs/project/01_戦
 - 書式検査: `scripts/check-kindle-format.mjs`（`npm run check-kindle-format`）
 - メモ生成/配布同期: `scripts/gen-kdp-memo.mjs` / `scripts/sync-kindle-dist.mjs`
 - 試作の経緯・既知の限界: `docs/note/1級・2級土木/1級土木/takuitsu-pdf-prototype.md`
-- サブエージェント: `kindle-book-composer`（構成設計）/ `kindle-book-qa`（5軸監査）→ [agents-registry.md](../../../../docs/reference/agents-registry.md)
+- サブエージェント: `kindle-book-composer`（構成設計）/ `kindle-book-qa`（5軸監査）→ [agents-registry.md](../../../../.claude/knowledge/reference/agents-registry.md)

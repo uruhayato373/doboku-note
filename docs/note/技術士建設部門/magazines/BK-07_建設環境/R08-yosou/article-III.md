@@ -11,17 +11,14 @@ noteId: "n885b35a0de4c"
 notePublishedAt: "2026-06-16"
 price: 500
 coverTitle: "技術士 建設部門｜建設環境 R8予想 選択科目III 予想問題＋模範解答"
-cover:
-  leadIn: "技術士 建設部門 2次"
-  hi: "R8予想"
-  hiSuffix: "建設環境III"
-  banner: "生物多様性・脱炭素｜予想問題＋模範解答"
-  meta: "建設環境 R8予想 模範解答"
-  chips:
-    - { icon: pen, text: "両問題フル模範解答" }
-    - { icon: layers, text: "発注者視点" }
-    - { icon: check, text: "予想の根拠付き" }
 utmCampaign: pe-construction-secondary
+cover:
+  variant: crop-safe-v4
+  leadIn: "建設部門｜建設環境"
+  headline: "生物多様性"
+  hi: "R8"
+  hiSuffix: "III"
+  benefit: "そのまま答案に展開できる"
 ---
 
 # 技術士 建設部門｜建設環境 R8予想 選択科目III 予想問題＋模範解答

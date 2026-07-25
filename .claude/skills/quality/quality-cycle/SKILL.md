@@ -225,5 +225,5 @@ unscored → scored → rewriting → needs-review → verified → approved
 - `.claude/agents/cem-qa.md` — CEM Evaluator
 - `.claude/agents/keyword-rewriter.md` — CEM Generator
 - `.claude/agents/civil-construction-review.md` — 1級土木 Evaluator
-- `docs/reference/content-principles.md` — §1-18 コンテンツ原則
+- `.claude/knowledge/reference/content-principles.md` — §1-18 コンテンツ原則
 - `.claude/scripts/lib/mdx-io.mjs` — CRLF 保持 I/O（リライト時に必須）

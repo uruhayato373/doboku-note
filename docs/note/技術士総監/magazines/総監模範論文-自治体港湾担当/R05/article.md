@@ -8,15 +8,12 @@ notePublishedAt: 2026-06-10
 noteMagazine: 総監模範論文-自治体港湾担当
 price: 500
 cover:
-  leadIn: "令和5年度 総監記述式"
-  hi: "R05"
-  hiSuffix: "港湾担当版"
-  banner: "SWOT・戦略立案｜3,000字級フル論文"
-  meta: "フル模範論文"
-  chips:
-    - { icon: pen, text: "答案そのまま展開" }
-    - { icon: layers, text: "5管理トレードオフ" }
-    - { icon: check, text: "採点チェック付" }
+  variant: crop-safe-v4
+  leadIn: "総監 記述式｜自治体 港湾担当"
+  headline: "SWOT・戦略立案"
+  hi: "R5"
+  hiSuffix: "過去問"
+  benefit: "3,000字級をそのまま展開"
 ---
 # 令和5年度 総監記述式 模範論文｜港湾担当版（SWOT・戦略立案）
 

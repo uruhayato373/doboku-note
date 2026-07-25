@@ -11,15 +11,12 @@ noteUrl: "https://note.com/dobokunote/n/n4be7905931d2"
 utmCampaign: civil1-keiken-pack-concrete
 coverTitle: ["1級土木 施工経験記述", "コンクリート工 補充答案集"]
 cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "コンクリート工"
-  hiSuffix: "補充答案"
-  banner: "工程・安全・施工計画"
-  meta: "完全攻略パック"
-  chips:
-    - { icon: doc, text: "完成答案3テーマ" }
-    - { icon: edit, text: "置換ガイド付" }
-    - { icon: check, text: "減点ポイント" }
+  variant: crop-safe-v4
+  leadIn: "1級土木｜施工経験記述"
+  headline: "コンクリート工"
+  hi: "5管理"
+  hiSuffix: "完成答案"
+  benefit: "書き換えてそのまま使える"
 ---
 # 1級土木 施工経験記述｜コンクリート工 補充答案集（工程管理・安全管理・施工計画）
 

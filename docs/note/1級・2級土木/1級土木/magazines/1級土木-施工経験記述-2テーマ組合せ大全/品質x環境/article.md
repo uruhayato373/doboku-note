@@ -10,15 +10,12 @@ coverTitle: ["1級土木 施工経験記述", "品質管理×環境対策"]
 price: 980
 paidBoundary: "品質管理×環境対策を書き分けるポイント"
 cover:
-  leadIn: "1級土木 施工経験記述"
-  hi: "品質"
-  hiSuffix: "×環境"
-  banner: "重力式ダム・床版舗装・漁港被覆ブロック"
-  meta: "2テーマ組合せ大全"
-  chips:
-    - { icon: pen, text: "3工事フル答案" }
-    - { icon: target, text: "置換ガイド付" }
-    - { icon: check, text: "採点チェック付" }
+  variant: crop-safe-v4
+  leadIn: "1級土木｜施工経験記述"
+  headline: "品質×環境"
+  hi: "2テーマ"
+  hiSuffix: "組合せ"
+  benefit: "どの組合せでも書ける"
 ---
 # 1級土木 施工経験記述｜品質管理×環境対策（重力式ダム本体・橋面床版舗装・漁港被覆ブロック ほか）
 

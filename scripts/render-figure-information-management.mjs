@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // docs/note/技術士総監/magazines/総監テキスト精読ガイド/5管理-情報管理/img/ に本文用 PNG/SVG 図版 10 枚を生成する。
 //
-// 設計ルール（docs/reference/note-svg-policy.md 準拠）:
+// 設計ルール（.claude/knowledge/reference/note-svg-policy.md 準拠）:
 //   - キャンバス幅 1200（同一記事内で統一）
 //   - フォント ≥ 22px（本文）、補足 18px 以上、16px 未満は絶対禁止
 //   - 末尾余白 80px 以上

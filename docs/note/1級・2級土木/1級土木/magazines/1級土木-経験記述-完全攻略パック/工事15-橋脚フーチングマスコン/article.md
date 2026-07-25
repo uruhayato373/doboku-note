@@ -11,15 +11,12 @@ notePublishedAt: "2026-06-30"
 noteStatus: published
 coverTitle: ["1級土木 施工経験記述", "橋脚フーチング マスコン", "5管理 完成答案"]
 cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "マスコンクリート"
-  hiSuffix: "5管理完成答案"
-  banner: "橋脚フーチングの温度ひび割れ制御"
-  meta: "有料マガジン"
-  chips:
-    - { icon: doc, text: "完成答案" }
-    - { icon: edit, text: "置換ガイド" }
-    - { icon: check, text: "5管理一覧" }
+  variant: crop-safe-v4
+  leadIn: "1級土木 経験記述｜5管理完成答案"
+  headline: "マスコンクリート"
+  hi: "5管理"
+  hiSuffix: "完成答案"
+  benefit: "書き換えてそのまま使える"
 ---
 # 1級土木 施工経験記述｜橋脚フーチング マスコンクリート（5管理 完成答案）
 

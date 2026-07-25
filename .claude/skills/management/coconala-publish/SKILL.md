@@ -41,8 +41,8 @@ node scripts/coconala-edit.mjs --service coconala-shindan --fields price   # 修
 - **draft-first**: 既定は「下書きで保存」。公開は `--commit` を明示したときだけ。
 - **偽成功を報告しない**: 送信後にフォームのバリデーションエラー（記入エラー）が出たら「公開した」と言わない（publish/edit は `ok:false` を返し下書きに退避）。
 - **価格の直書き禁止**: 価格はカタログ（`priceYen`）が真実源。listings に価格を書かない。
-- **代筆禁止・外部誘導禁止**: 出品文面の原則は `docs/reference/coconala-operations.md` §5・展開キット §2-3。
-- **構成の型**: 文面を書き直すときは `docs/reference/note-selling-structures.md`「強化コンポーネント」を参照（C系PDF=直適用／S系人力=翻案・body 1000字上限）。
+- **代筆禁止・外部誘導禁止**: 出品文面の原則は `.claude/knowledge/reference/coconala-operations.md` §5・展開キット §2-3。
+- **構成の型**: 文面を書き直すときは `.claude/knowledge/reference/note-selling-structures.md`「強化コンポーネント」を参照（C系PDF=直適用／S系人力=翻案・body 1000字上限）。
 - **フォーム仕様がドリフトしたら**: `node scripts/coconala-discover.mjs --advance --cat 12 --sub 254 --type 764` で現行 selector/選択肢を再取得し、listings の category/genreFacets を是正。
 
 ## 商品画像（サービスサムネ）
@@ -59,7 +59,7 @@ node scripts/coconala-edit.mjs --service <id> --service-id <n> --image thumb-<ke
 - `--image` は **bare 名でよい**（`.claude/config/coconala/assets/` に自動解決）。存在は**ブラウザ操作前に検査**（fail-fast）＝不正パスで orphan draft を残さない。
 - **orphan draft（出品失敗の残骸）が出たら**: `npm run coconala-delete-draft -- --id <n>`（dry-run）→ `--commit`。カタログ在籍 id はガードで拒否＝公開商品は誤爆しない。編集ページ正URL＝`/mypage/services/{id}`。
 
-素材は `.claude/config/coconala/assets/`（`bg-civil.png`/`bg-docs.png`／`thumb-<key>.png`）。詳細は [coconala-operations.md §8](../../../docs/reference/coconala-operations.md)。
+素材は `.claude/config/coconala/assets/`（`bg-civil.png`/`bg-docs.png`／`thumb-<key>.png`）。詳細は [coconala-operations.md §8](../../../.claude/knowledge/reference/coconala-operations.md)。
 
 ## コンテンツ PDF 商品（C系・note→ココナラ）
 
@@ -96,5 +96,5 @@ profile の真実源は `coconala-account.json` の `profile`。**自己紹介�
 - スクリプト: `scripts/coconala-publish.mjs` / `scripts/coconala-edit.mjs` / 共有 `scripts/lib/coconala-{session,form}.mjs`
 - 投入 SoT: `.claude/config/coconala-listings.json`（本文/カテゴリ/納期/genreFacets）
 - 価格/状態 SoT: `src/lib/coconala-services.ts` ／ アカウント: `.claude/config/coconala-account.json`
-- 運用 SSOT: `docs/reference/coconala-operations.md` ／ 戦略・文面: `docs/note/1級・2級土木/ココナラ展開キット.md`
+- 運用 SSOT: `.claude/knowledge/reference/coconala-operations.md` ／ 戦略・文面: `docs/note/1級・2級土木/ココナラ展開キット.md`
 - エージェント: `.claude/agents/coconala-operator.md` ／ KPI 照合: `/coconala-status` ／ 受注: `/coconala-order`

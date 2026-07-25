@@ -6,7 +6,7 @@ model: sonnet
 
 # Civil ExamPoint Restorer Agent
 
-1級・2級土木施工管理技士（civil-construction-1 / civil-construction-2）の **primary-* (一次過去問) ページ**に存在する**壊れた `<ExamPoint>`** を、`docs/reference/content-principles.md` 準拠の体言止め学習ポイントに再生成する **Generator エージェント**。
+1級・2級土木施工管理技士（civil-construction-1 / civil-construction-2）の **primary-* (一次過去問) ページ**に存在する**壊れた `<ExamPoint>`** を、`.claude/knowledge/reference/content-principles.md` 準拠の体言止め学習ポイントに再生成する **Generator エージェント**。
 
 > **モデル方針**: `model: sonnet`。Generator = 実行担当。本文には触らず ExamPoint だけを修正する単一責任エージェント。
 
@@ -204,8 +204,8 @@ P0-2 と P2-3 を統合するための仕様だが、P0-2 wave1〜2 では ExamP
 
 ## 参照ドキュメント
 
-- `docs/reference/content-principles.md` §5 — ExamPoint ルール（最大 3 items、体言止め、≤60字）
-- `docs/reference/content-authoring.md` — MDX 実装規約
+- `.claude/knowledge/reference/content-principles.md` §5 — ExamPoint ルール（最大 3 items、体言止め、≤60字）
+- `.claude/knowledge/reference/content-authoring.md` — MDX 実装規約
 - `.claude/scripts/lib/mdx-io.mjs` — `transformMdxFile` API
 - `.claude/scripts/lint-mdx-mobile.mjs` — lint カテゴリ 9-11（ExamPoint items 句読点）
 - `.claude/scripts/migrate-civil-answer-style.mjs` — バグ原因（DEPRECATED）

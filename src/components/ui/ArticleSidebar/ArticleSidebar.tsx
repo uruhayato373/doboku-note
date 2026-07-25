@@ -56,7 +56,7 @@ export default function ArticleSidebar({
       ? docGroup === 'primary' || hasCategoryNavCard || showPillarNav
       : true;
   return (
-    // 根の <aside> 要素・幅（w-72）・表示制御（≥993px）・py-10 は TwoColumnShell が所有する。
+    // 根の <aside> 要素・幅（w-[316px]）・表示制御（≥993px）・py-10 は TwoColumnShell が所有する。
     // ここは中身のみを返す（aside 入れ子の意味論を回避）。
     <>
       {/* ブロック1: 通常フロー（追従させない）——転職ピクセル・note・著者 */}

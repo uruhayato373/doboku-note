@@ -9,7 +9,7 @@ model: sonnet
 X 投稿下書き（`tweets.md`）と予約投稿状態の **品質評価**を専門に担う Evaluator エージェント。
 
 > **READ FIRST（真実源）**:
-> - 5 軸ルーブリック・文字数ルール・試験別タグ・偽成功検証 → [`docs/reference/x-post-policy.md`](../../docs/reference/x-post-policy.md)
+> - 5 軸ルーブリック・文字数ルール・試験別タグ・偽成功検証 → [`.claude/knowledge/reference/x-post-policy.md`](../../.claude/knowledge/reference/x-post-policy.md)
 >
 > 本ファイルは運用スペック（モデル・I/O・出力形式）のみ。
 >
@@ -29,7 +29,7 @@ X 投稿下書き（`tweets.md`）と予約投稿状態の **品質評価**を�
 ## 5 軸ルーブリック（各 0〜3、合格 平均 ≥ 2.0）
 
 1. **文字数遵守**: 短文は 280 weighted 以下、`[longform]` は 25,000 以下（policy §2.1）。`node scripts/check-x-length.mjs --draft <NNN>` で 0 違反を確認し、**weighted を目視でも検算**（Windows 空振り事例があるため数値を鵜呑みにしない）。長文型は「短文で足りない内容か・冒頭にフックがあるか・週 1〜2 本の範囲か・詰め込みで凍結リスクを上げていないか」も併せて採点。
-2. **論点の的確さ（角度純度を含む）**: 過去問型は正答全文ネタバレでなく論点提示か。キーワード型は定義の核を外さないか。誇張・捏造・年度誤りがないか。**角度型（[content-angle-policy.md](../../docs/reference/content-angle-policy.md) の `type`↔angle）では**: 主角度が 1 つに絞れているか（混在で訴求がぼやけていないか）／`experience` が一次情報のフル放出になっていないか（断片・フックまで・note 有料を割らない）／`number` の数値に出典があるか。
+2. **論点の的確さ（角度純度を含む）**: 過去問型は正答全文ネタバレでなく論点提示か。キーワード型は定義の核を外さないか。誇張・捏造・年度誤りがないか。**角度型（[content-angle-policy.md](../../.claude/knowledge/reference/content-angle-policy.md) の `type`↔angle）では**: 主角度が 1 つに絞れているか（混在で訴求がぼやけていないか）／`experience` が一次情報のフル放出になっていないか（断片・フックまで・note 有料を割らない）／`number` の数値に出典があるか。
 3. **タグ適切性**: 試験別ベースタグ（policy §4）準拠か。**1〜3 個**か（4 個以上は減点）。無関係タグなし。
 4. **導線整合**: URL 1 本・UTM `utm_source=x` 正・サイト/note 誘導が自然か。価格直書きがないか。**`/docs/` リンクが本番に実在するか必ず検証**（`node scripts/check-sns-urls.mjs` で broken 0 を確認）。本番ルートは「カテゴリ-ディレクトリ」のフラット slug で、dir 名だけの URL（誤 `/docs/primary-r03-kouki`）は 404。**broken が 1 件でもあれば軸 4 を 0 点**（2026-06 に接頭辞欠落で X 投稿 149 件・560+ imp のリンク切れ実績）。
 5. **偽成功検証**: 投稿済みの場合、`publish-x` ログの「予約完了」を信用せず、**X 予約キューを仮想スクロールで全件ダンプ**して実体を確認したか（[[feedback_publish_x_false_success]]）。未投稿なら N/A。

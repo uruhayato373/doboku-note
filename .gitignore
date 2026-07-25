@@ -48,7 +48,7 @@ hikkei-*.pdf
 _minpo_*.png
 
 # Scanned source PDFs (docs/textbook) — archived to PRIVATE R2 bucket doboku-note-archive/textbook/.
-# Pull on demand via rclone; see docs/reference/textbook-pdf-archive.md. Untracked to keep working tree/.git lean.
+# Pull on demand via rclone; see .claude/knowledge/reference/textbook-pdf-archive.md. Untracked to keep working tree/.git lean.
 docs/textbook/**/*.pdf
 docs/textbook/**/*.PDF
 

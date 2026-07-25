@@ -11,15 +11,12 @@ noteUrl: "https://note.com/dobokunote/n/nd18669cf8d79"
 utmCampaign: civil1-keiken-pack-koji11
 coverTitle: ["1級土木 施工経験記述", "傾斜地 段切り盛土", "5管理 完成答案"]
 cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "段切り盛土"
-  hiSuffix: "5管理完成答案"
-  banner: "急傾斜地の段切り施工"
-  meta: "有料マガジン"
-  chips:
-    - { icon: doc, text: "完成答案" }
-    - { icon: edit, text: "置換ガイド" }
-    - { icon: check, text: "5管理一覧" }
+  variant: crop-safe-v4
+  leadIn: "1級土木 経験記述｜5管理完成答案"
+  headline: "段切り盛土"
+  hi: "5管理"
+  hiSuffix: "完成答案"
+  benefit: "書き換えてそのまま使える"
 ---
 # 1級土木 施工経験記述｜傾斜地 段切り盛土 5管理 完成答案
 

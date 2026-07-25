@@ -6,7 +6,7 @@
       "anchor": "docs/note/技術士総監/総監マガジン構成_決定2026.md",
       "files": [
         "docs/note/技術士総監/総監マガジン構成_決定2026.md",
-        "docs/reference/note-essay-review-checklist.md",
+        ".claude/knowledge/reference/note-essay-review-checklist.md",
         ".claude/skills/authoring/pe-essay-cycle/SKILL.md",
         "docs/note/技術士総監/noteコンテンツ計画.md"
       ]
@@ -22,9 +22,9 @@
     },
     "guide-min-3000-chars": {
       "decision": "ガイド記事（group: guide）は本文（frontmatter除外・空白除去後）3,000字以上が必須下限（2026-06-21）。過去問/キーワード/textbookは対象外。既存32本の加筆バーンダウン完了済、check-guide-length を pre-commit(--staged)＋CI(r2-audit.yml 全published)へ配線済（2026-06-21）",
-      "anchor": "docs/reference/content-principles.md",
+      "anchor": ".claude/knowledge/reference/content-principles.md",
       "files": [
-        "docs/reference/content-principles.md",
+        ".claude/knowledge/reference/content-principles.md",
         "scripts/check-guide-length.mjs",
         "scripts/install-pre-commit.mjs",
         ".github/workflows/r2-audit.yml",

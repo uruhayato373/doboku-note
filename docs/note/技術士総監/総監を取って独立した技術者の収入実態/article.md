@@ -10,16 +10,12 @@ coverTitle:
   - 総監を取って独立した
   - 技術者の収入実態
 cover:
-  leadIn: "総監を取って独立した技術士の"
+  variant: crop-safe-v4
+  leadIn: "総監 独立｜収入実態"
+  headline: "独立後の収入実態"
   hi: "5"
-  hiSuffix: "つのリアルケース"
-  banner: "独立後の収入実態"
-  character: good-sign
-  meta: "無料記事"
-  chips:
-    - { icon: chart, text: "公開情報分析" }
-    - { icon: target, text: "独立の現実" }
-    - { icon: yen, text: "5ケース" }
+  hiSuffix: "ケース"
+  benefit: "公開情報から現実が見える"
 ---
 # 総監を取って独立した技術士の収入実態 — 公開情報から見える5つのリアルケース
 

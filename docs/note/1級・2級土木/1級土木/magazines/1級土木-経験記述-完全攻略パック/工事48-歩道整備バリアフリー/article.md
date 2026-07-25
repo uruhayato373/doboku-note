@@ -11,15 +11,12 @@ noteId: "n9319d225e6b4"
 notePublishedAt: "2026-06-30"
 coverTitle: ["1級土木 施工経験記述", "歩道整備 バリアフリー化", "5管理 完成答案"]
 cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "歩道整備"
-  hiSuffix: "バリアフリー化 完成答案"
-  banner: "市街地の歩道整備・バリアフリー化工事"
-  meta: "完全攻略パック 工事48"
-  chips:
-    - { icon: doc, text: "完成答案" }
-    - { icon: edit, text: "置換ガイド" }
-    - { icon: check, text: "NG→OK添削" }
+  variant: crop-safe-v4
+  leadIn: "1級土木｜施工経験記述"
+  headline: "歩道整備"
+  hi: "5管理"
+  hiSuffix: "完成答案"
+  benefit: "書き換えてそのまま使える"
 ---
 # 1級土木 施工経験記述｜歩道整備・バリアフリー化（5管理 完成答案）
 

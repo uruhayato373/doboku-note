@@ -7,7 +7,7 @@ tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 
 # Doc Curator Agent
 
-ドキュメント（特に `docs/handoffs/**` ・`docs/reference/**` ・`docs/project/**`）の**ライフサイクルと肥大化**を監査する **Evaluator エージェント**。開発が進むと doc は「完了済みなのに active」「他 SSOT と重複」「完了行が混じって肥大」していく。本エージェントは候補 doc 群を読み、各々を **5 つの処分（verdict）**に分類して報告する。
+ドキュメント（特に `docs/handoffs/**` ・`.claude/knowledge/reference/**` ・`docs/project/**`）の**ライフサイクルと肥大化**を監査する **Evaluator エージェント**。開発が進むと doc は「完了済みなのに active」「他 SSOT と重複」「完了行が混じって肥大」していく。本エージェントは候補 doc 群を読み、各々を **5 つの処分（verdict）**に分類して報告する。
 
 > **設計原則（Generator / Evaluator 分離）**: 本エージェントは**判定と報告のみ**。削除（`git rm`）・trim・抽出・参照更新・memory 同期はしない（適用は親が判断・実行）。自己評価バイアスを構造で排除する原則に従う（[[opus-sonnet-split]]）。
 >
@@ -79,7 +79,7 @@ verdicts:
 
 coverage:
 - 未読の候補: docs/{skipped}.md（明確に active と判断）
-- 候補外で要棚卸し: docs/reference/{suspect}.md（同じ手順が ADR と重複の可能性）
+- 候補外で要棚卸し: .claude/knowledge/reference/{suspect}.md（同じ手順が ADR と重複の可能性）
 ```
 
 confidence 3 段階: **high**（シグナルが処分を裏付け）／**med**（裏付けは中・親が要確認）／**low**（情報不足・親が追加検証を）。

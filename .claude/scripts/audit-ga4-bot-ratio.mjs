@@ -16,7 +16,7 @@
  *   .claude/state/metrics/ga4/bot-audit-YYYY-MM-DDTHH-MM-SS.json
  *   STDOUT に上位 30 件と「除外推奨」リスト
  *
- * incident: docs/reference/measurement-incidents.md 2026-04-26
+ * incident: .claude/knowledge/reference/measurement-incidents.md 2026-04-26
  */
 
 import { BetaAnalyticsDataClient } from "@google-analytics/data";

@@ -3,7 +3,7 @@
 // （2026-05-25 まで docs/note/技術士総監/magazines/essay-template-3d/img/ に配置していたが、
 //  単独記事の standard 配置〔docs/note/技術士総監/{日本語名}/〕へ移動）
 //
-// 設計ルール（docs/reference/note-svg-policy.md 準拠）:
+// 設計ルール（.claude/knowledge/reference/note-svg-policy.md 準拠）:
 //   - キャンバス幅 1200（同一記事内で統一）
 //   - フォント ≥ 22px（補足キャプションを含めて統一）
 //   - 色トークン（src/styles/globals.css と整合）のみ使用

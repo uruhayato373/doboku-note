@@ -4,7 +4,7 @@
 // ハッシュ（中央state: .claude/state/note-republish-hashes.json・path→hash）と突合し、
 // 変わっていれば「要再公開」を surface する。CTA に限らず全本文変更を捕捉。
 //
-// 運用の真実源: docs/reference/note-funnel-architecture.md（ソース→ライブ非同期）。
+// 運用の真実源: .claude/knowledge/reference/note-funnel-architecture.md（ソース→ライブ非同期）。
 //   funnel D5(CTAのlive反映) を補完し、blockquote/cover-body/UTM 等の本文変更も追う。
 // 限界: note.com 上で直接編集した変更（ソース経由でない）は捕捉外＝verify-note-status/D5(live)の領域。
 //

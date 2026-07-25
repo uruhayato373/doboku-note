@@ -11,15 +11,12 @@ notePublishedAt: "2026-06-30"
 noteStatus: published
 coverTitle: ["1級土木 施工経験記述", "橋梁耐震補強", "5管理 完成答案"]
 cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "橋梁耐震補強"
-  hiSuffix: "5管理完成答案"
-  banner: "供用下・既設橋脚の巻立て・落橋防止"
-  meta: "有料マガジン"
-  chips:
-    - { icon: doc, text: "完成答案" }
-    - { icon: edit, text: "置換ガイド" }
-    - { icon: check, text: "5管理一覧" }
+  variant: crop-safe-v4
+  leadIn: "1級土木 経験記述｜5管理完成答案"
+  headline: "橋梁耐震補強"
+  hi: "5管理"
+  hiSuffix: "完成答案"
+  benefit: "書き換えてそのまま使える"
 ---
 # 1級土木 施工経験記述｜橋梁耐震補強（供用下 巻立て・落橋防止）5管理 完成答案
 

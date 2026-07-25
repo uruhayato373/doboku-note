@@ -7,18 +7,12 @@ noteUrl: https://note.com/dobokunote/n/n6ddec1db901b
 noteId: n6ddec1db901b
 notePublishedAt: 2026-06-01
 cover:
-  leadIn: 設問(3)で問われる将来課題
-  hi: '7'
-  hiSuffix: つの国家施策
-  banner: 経済安全保障
-  chips:
-    - icon: check
-      text: トレードオフ明示
-    - icon: doc
-      text: 答案1枚相当
-    - icon: book
-      text: 白書根拠
-  meta: '有料マガジン ／ ¥2,480'
+  variant: crop-safe-v4
+  leadIn: "総監 記述式｜設問3"
+  headline: "経済安全保障"
+  hi: "7"
+  hiSuffix: "施策"
+  benefit: "設問3にそのまま転写できる"
 ---
 
 # 経済安全保障・サプライチェーン強靱化｜設問(3)国家施策バンク

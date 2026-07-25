@@ -2,7 +2,7 @@
 // 総監模範論文ペルソナ記事の「導入部」散文段落を文(。)単位の短い段落へ分割する（note 可読性）。
 // 対象は frontmatter 後 〜 最初の「## 試験問題 / ## 予想問題 / ## A 案」直前まで。
 // 答案本文・見出し・箇条書き・URL・引用・括弧内の。は分割しない（連体形/連結語の誤分割も回避）。
-// 真実源: docs/reference/note-essay-review-checklist.md Step 3c
+// 真実源: .claude/knowledge/reference/note-essay-review-checklist.md Step 3c
 //
 // 使い方:
 //   node scripts/split-essay-intro-paragraphs.mjs 自治体下水道担当         # ペルソナ配下の全 article.md

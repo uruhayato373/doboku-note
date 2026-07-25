@@ -7,18 +7,12 @@ noteUrl: https://note.com/dobokunote/n/nbd44ef090572
 noteId: nbd44ef090572
 notePublishedAt: 2026-06-01
 cover:
-  leadIn: 設問(3)で問われる将来課題
-  hi: '5'
-  hiSuffix: つの国家施策
-  banner: 物流2024年問題
-  chips:
-    - icon: check
-      text: トレードオフ明示
-    - icon: doc
-      text: 答案1枚相当
-    - icon: book
-      text: 白書根拠
-  meta: '有料マガジン ／ ¥2,480'
+  variant: crop-safe-v4
+  leadIn: "総監 記述式｜設問3"
+  headline: "物流2024年問題"
+  hi: "5"
+  hiSuffix: "施策"
+  benefit: "設問3にそのまま転写できる"
 ---
 
 # 物流危機（2024年問題・自動物流道路）｜設問(3)国家施策バンク

@@ -11,17 +11,14 @@ noteId: "n76a35d3c2113"
 notePublishedAt: "2026-06-16"
 price: 500
 coverTitle: "技術士 建設部門｜施工計画、施工設備及び積算 R8予想 選択科目III 予想問題＋模範解答"
-cover:
-  leadIn: "技術士 建設部門 2次"
-  hi: "R8予想"
-  hiSuffix: "施工計画III"
-  banner: "建設DX・生産性向上と担い手確保｜予想問題＋模範解答"
-  meta: "施工計画 R8予想 模範解答"
-  chips:
-    - { icon: pen, text: "両問題フル模範解答" }
-    - { icon: layers, text: "発注者視点" }
-    - { icon: check, text: "予想の根拠付き" }
 utmCampaign: pe-construction-secondary
+cover:
+  variant: crop-safe-v4
+  leadIn: "建設部門｜施工計画"
+  headline: "担い手DX"
+  hi: "R8"
+  hiSuffix: "III"
+  benefit: "そのまま答案に展開できる"
 ---
 
 # 技術士 建設部門｜施工計画、施工設備及び積算 R8予想 選択科目III 予想問題＋模範解答

@@ -10,15 +10,12 @@ notePublishedAt: 2026-05-21
 noteUrl: https://note.com/dobokunote/n/n14c71f3b4d72
 noteId: n14c71f3b4d72
 cover:
-  leadIn: "キーワード集を1周したのに"
+  variant: crop-safe-v4
+  leadIn: "総監 択一式｜学習法"
+  headline: "点にならない理由"
   hi: "3"
-  hiSuffix: "つの点が取れない理由"
-  banner: "キーワードの罠"
-  meta: "無料記事"
-  chips:
-    - { icon: target, text: "出題視点で読む" }
-    - { icon: doc, text: "暗記の落とし穴" }
-    - { icon: check, text: "5管理で再構成" }
+  hiSuffix: "理由"
+  benefit: "出題視点で読み直せる"
 ---
 # 【総監択一】キーワード集を1周したのに点が取れない3つの理由｜5管理を「出題視点」で読み直す
 
@@ -46,7 +43,7 @@ cover:
 https://note.com/dobokunote/m/m607bf095b02a
 
 <!-- cta:pack-top -->
-> 本番直前の総仕上げは、出題予想6テーマ×三層骨子で「何が出ても書ける型」を最短装填できる[R8予想問題集（2026最終予想・¥3,480）](https://note.com/dobokunote/m/m6854c7437d4d)が決め手。書き方の型から固めるなら、型・設問(3)の弾薬・R8演習を1セットにした[記述式コアパック（¥5,480）](https://note.com/dobokunote/m/m6e7de5e4ea3d)が入口に最適です。
+> 本番直前の総仕上げは、出題予想6テーマ×三層骨子で「何が出ても書ける型」を最短装填できる[R8予想問題集（2026最終予想）](https://note.com/dobokunote/m/m6854c7437d4d)が決め手。書き方の型から固めるなら、型・設問(3)の弾薬・R8演習を1セットにした[記述式コアパック](https://note.com/dobokunote/m/m6e7de5e4ea3d)が入口に最適です。
 
 ## 理由1：キーワード集は「出題頻度順」に並んでいない
 

@@ -13,7 +13,7 @@ Playwright（永続プロファイル）で X のコンポーザを自動操作�
 
 ## ⚠️ 予約運用は再開（ガード必須・2026-07-07〜）
 
-> **凍結の経緯と実因**: 旧アカウント @dobokunotecom が「platform manipulation and spam」で凍結（異議却下）。実因は**同一/類似文面の連続予約というスケジューリング失敗**。運用は新アカウント **@doboku373** で継続中（`disable-model-invocation: true` は維持＝Skill 自動起動はせず、人／明示コマンドで実行する）。
+> **アカウントSSOT**: `.claude/config/x-account.json`。旧アカウント @dobokunotecom が「platform manipulation and spam」で凍結（異議却下）。実因は**同一/類似文面の連続予約というスケジューリング失敗**。運用は新アカウント **@doboku373** で継続中（`disable-model-invocation: true` は維持＝Skill 自動起動はせず、人／明示コマンドで実行する）。
 >
 > **現行フロー（2026-07-07 再開）**: 予約は再開したが、凍結実因（連続・重複）を機械的に潰すため **必ず以下のガード付きフローを通す**（真実源 `x-post-policy.md` §11.5）:
 > 1. `x-post-writer` で下書き（文面ユニーク・URL 分散・同一 URL ≤2）
@@ -52,7 +52,7 @@ npx tsx .claude/skills/social/publish-x/publish-x.ts 004 --tweet 1 2026-05-09T08
 
 ## ⚠️ 重要: 凍結回避（投稿頻度・間隔・自動化フットプリント）
 
-> **2026-06-12 凍結事故**: 運用 X アカウントが「platform manipulation and spam」で凍結された。Playwright 自動投稿は本質的に bot 的で、一括予約・同時刻・連投・重複文面・同一リンク反復は spam/自動化として検知されやすい。真実源は [`x-post-policy.md` §11](../../../../docs/reference/x-post-policy.md)。本スキルは予約**補助**であり、全量を機械投稿に寄せない。
+> **2026-06-12 凍結事故**: 運用 X アカウントが「platform manipulation and spam」で凍結された。Playwright 自動投稿は本質的に bot 的で、一括予約・同時刻・連投・重複文面・同一リンク反復は spam/自動化として検知されやすい。真実源は [`x-post-policy.md` §11](../../../../.claude/knowledge/reference/x-post-policy.md)。本スキルは予約**補助**であり、全量を機械投稿に寄せない。
 
 予約・投稿の前に必ず守る（policy §11）:
 
@@ -66,7 +66,7 @@ npx tsx .claude/skills/social/publish-x/publish-x.ts 004 --tweet 1 2026-05-09T08
 
 ## 🛡 予約前ゲート / 予約後の実査（必須・機械検査）
 
-`x-post-qa`（人/エージェント採点）に加え、**予約実行の直前後に機械ゲートを必ず通す**（真実源 [`x-post-policy.md` §11.5](../../../../docs/reference/x-post-policy.md)）:
+`x-post-qa`（人/エージェント採点）に加え、**予約実行の直前後に機械ゲートを必ず通す**（真実源 [`x-post-policy.md` §11.5](../../../../.claude/knowledge/reference/x-post-policy.md)）:
 
 ```bash
 # ① 予約前: 同時刻衝突・near-dup・1日上限・古い予約残存を機械 BLOCK。緑でなければ予約しない

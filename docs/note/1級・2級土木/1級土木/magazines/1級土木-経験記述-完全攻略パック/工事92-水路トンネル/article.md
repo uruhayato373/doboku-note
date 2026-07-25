@@ -5,21 +5,18 @@ noteMagazine: 1級土木-経験記述-完全攻略パック
 utmCampaign: civil1-keiken-pack-koji92
 noteStatus: published
 coverTitle: ["1級土木 施工経験記述", "水路トンネル", "5管理 完成答案"]
-cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "水路トンネル"
-  hiSuffix: "掘削〜覆工 完成答案"
-  banner: "湧水対策・通水断面確保 5管理"
-  meta: "完全攻略パック 工事92"
-  chips:
-    - { icon: doc, text: "5管理×完成答案" }
-    - { icon: target, text: "置換ガイド付" }
-    - { icon: check, text: "採点者視点" }
 noteUrl: "https://note.com/dobokunote/n/ne97861cf9e95"
 noteId: "ne97861cf9e95"
 notePublishedAt: "2026-06-30"
 price: 1980
 paidBoundary: 品質管理
+cover:
+  variant: crop-safe-v4
+  leadIn: "1級土木 経験記述｜掘削〜覆工 完成答案"
+  headline: "水路トンネル"
+  hi: "5管理"
+  hiSuffix: "完成答案"
+  benefit: "書き換えてそのまま使える"
 ---
 # 1級土木 施工経験記述｜水路トンネル（掘削〜覆工・湧水対策）5管理 完成答案
 

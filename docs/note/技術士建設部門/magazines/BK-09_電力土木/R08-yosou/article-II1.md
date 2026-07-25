@@ -12,17 +12,14 @@ noteStatus: published
 price: 780
 theme: "原子力耐震・揚水発電水圧管路・洋上風力基礎構造・電力土木構造物のASR劣化"
 coverTitle: "技術士 建設部門｜電力土木 R8予想 選択科目II-1 予想問題＋模範解答"
-cover:
-  leadIn: "技術士 建設部門 2次"
-  hi: "R8予想"
-  hiSuffix: "電力土木II-1"
-  banner: "選択科目II-1 専門知識｜予想問題＋模範解答"
-  meta: "電力土木 R8予想 模範解答"
-  chips:
-    - { icon: pen, text: "予想問題＋全4設問フル模範解答" }
-    - { icon: layers, text: "発注者視点" }
-    - { icon: check, text: "改訂コンピテンシー対応" }
 utmCampaign: pe-construction-secondary
+cover:
+  variant: crop-safe-v4
+  leadIn: "建設部門｜電力土木"
+  headline: "1 専門知識"
+  hi: "R8"
+  hiSuffix: "II-1"
+  benefit: "そのまま答案に展開できる"
 ---
 
 # 技術士 建設部門｜電力土木 R8予想 選択科目II-1 予想問題＋模範解答

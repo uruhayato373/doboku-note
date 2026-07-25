@@ -7,15 +7,12 @@ notePublishedAt: "2026-07-19"
 noteId: "nfe8bc37ce88e"
 noteUrl: "https://note.com/dobokunote/n/nfe8bc37ce88e"
 cover:
-  leadIn: "令和8年度 技術士総監"
-  hi: "模範解答例"
-  hiSuffix: "必須科目I-2"
-  banner: "地方創生｜記述式フル解答"
-  meta: "無料公開"
-  chips:
-    - { icon: pen, text: "設問1〜3 全文解答" }
-    - { icon: layers, text: "5管理トレードオフ" }
-    - { icon: award, text: "テーマは6/1公開で事前収録" }
+  variant: crop-safe-v4
+  leadIn: "総監 記述式｜模範解答"
+  headline: "地方創生 全解答"
+  hi: "14"
+  hiSuffix: "立場"
+  benefit: "設問1〜3を全文で読める"
 ---
 # 令和8年度 総監 記述式 模範解答例｜地方創生・全14立場（必須科目I-2）【無料】
 

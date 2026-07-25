@@ -11,17 +11,14 @@ noteId: nabb335218302
 notePublishedAt: 2026-06-11
 price: 1980
 coverTitle: "技術士 建設部門｜道路 R8予想 選択科目II-1 模範解答"
-cover:
-  leadIn: "技術士 建設部門 2次"
-  hi: "R8予想"
-  hiSuffix: "道路II-1"
-  banner: "選択科目II-1 専門知識｜予想問題＋模範解答"
-  meta: "道路 R8予想 模範解答"
-  chips:
-    - { icon: pen, text: "全4予想設問フル模範解答" }
-    - { icon: layers, text: "発注者視点" }
-    - { icon: check, text: "改訂コンピテンシー対応" }
 utmCampaign: pe-construction-secondary
+cover:
+  variant: crop-safe-v4
+  leadIn: "建設部門｜道路"
+  headline: "1 専門知識"
+  hi: "R8"
+  hiSuffix: "II-1"
+  benefit: "そのまま答案に展開できる"
 ---
 
 # 技術士 建設部門｜道路 R8予想 選択科目II-1 模範解答（全4予想設問）

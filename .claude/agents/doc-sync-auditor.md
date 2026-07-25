@@ -52,7 +52,7 @@ tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 読んだ候補: N 件 / 渡された M 件
 
 findings: K 件
-- [must-fix] docs/reference/skills-guide.md
+- [must-fix] .claude/knowledge/reference/skills-guide.md
   該当: 「.claude/skills/ … 44スキル」
   矛盾: 本変更で dev/doc-sync を新設（+1）。件数とカテゴリ内訳が旧値。
   修正案: 「44スキル」→「45スキル」、dev 行に /doc-sync を追加
@@ -60,7 +60,7 @@ findings: K 件
   該当: 「| `npm run upload-images-r2` | 画像を R2 にアップロード |」
   矛盾: 本変更で当該 script を削除。
   修正案: 頻用コマンド表から当該行を削除
-- [maybe] docs/reference/workflows.md
+- [maybe] .claude/knowledge/reference/workflows.md
   該当: 「…」
   矛盾: …（確証は中）
   修正案: …

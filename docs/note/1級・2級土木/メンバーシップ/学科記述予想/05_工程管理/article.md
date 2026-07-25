@@ -6,16 +6,12 @@ membershipOnly: true
 utmCampaign: civil-membership-gakka-schedule
 coverTitle: ["学科記述予想｜工程管理", "工程表の特徴とネットワーク"]
 cover:
-  leadIn: "予想テーマ ｜ 工程管理"
-  hi: "学科"
-  hiSuffix: "記述"
-  banner: "工程表の特徴とネットワーク"
-  meta: "メンバーシップ限定"
-  tone: deep
-  chips:
-    - { icon: book, text: "頻出テーマ" }
-    - { icon: edit, text: "記述例" }
-    - { icon: check, text: "得点の型" }
+  variant: crop-safe-v4
+  leadIn: "学科記述予想"
+  headline: "工程管理"
+  hi: "予想"
+  hiSuffix: "テーマ"
+  benefit: "ネットワーク式が書ける"
 ---
 # 学科記述予想｜工程管理 — 各種工程表の特徴とネットワーク式工程表
 

@@ -6,15 +6,12 @@ noteUrl: "https://note.com/dobokunote/n/n30d34b67a8c5"
 noteMagazine: 総監模範論文-自治体道路担当
 price: 500
 cover:
-  leadIn: "令和8年度 R8予想"
+  variant: crop-safe-v4
+  leadIn: "総監 記述式｜自治体 道路担当"
+  headline: "気候変動適応"
   hi: "R8"
-  hiSuffix: "道路①(気候変動)"
-  banner: "気候変動適応｜3,000字級フル論文"
-  meta: "R8予想問題"
-  chips:
-    - { icon: pen, text: "答案そのまま展開" }
-    - { icon: layers, text: "5管理トレードオフ" }
-    - { icon: check, text: "採点チェック付" }
+  hiSuffix: "予想①"
+  benefit: "3,000字級をそのまま展開"
 ---
 # 令和8年度 総監記述式 模範論文｜自治体 道路担当版（気候変動適応・グリーンインフラ／R8予想①）
 

@@ -9,16 +9,12 @@ coverTitle:
   - 技術士 建設部門 二次
   - 独学の進め方
 cover:
-  leadIn: "技術士 建設部門 2次"
-  hi: "独学"
-  hiSuffix: "ロードマップ"
-  banner: "型とネタの二本柱で記述式を攻略する"
-  character: wave
-  meta: "無料記事"
-  chips:
-    - { icon: pen, text: "記述式の型" }
-    - { icon: layers, text: "科目別の順序" }
-    - { icon: flag, text: "4ステップ計画" }
+  variant: crop-safe-v4
+  leadIn: "技術士 建設部門｜二次"
+  headline: "独学ロードマップ"
+  hi: "型と"
+  hiSuffix: "ネタ"
+  benefit: "学習の進め方が定まる"
 ---
 
 # 【技術士 建設部門】二次試験の勉強法｜独学の進め方と学習ロードマップ
@@ -47,7 +43,7 @@ cover:
 それでも出題は国土交通省の重点施策や白書から繰り返されるため、独学でも対策の方向は十分に絞り込めます。
 
 <!-- cta:pack-top -->
-> 建設部門は「必須科目I＋選択科目」の組み合わせで合否が決まります。全受験者共通の[必須科目I 模範解答集（R03-R07＋R8予想・¥3,480）](https://note.com/dobokunote/m/m0f3bc3933454)がまず1冊目。あなたの選択科目の模範解答集は[建設部門もくじ](https://note.com/dobokunote/n/n7279ca0d926f)から選べます（単品を1本ずつ買うより約8割お得）。
+> 建設部門は「必須科目I＋選択科目」の組み合わせで合否が決まります。全受験者共通の[必須科目I 模範解答集（R03-R07＋R8予想）](https://note.com/dobokunote/m/m0f3bc3933454)がまず1冊目。あなたの選択科目の模範解答集は[建設部門もくじ](https://note.com/dobokunote/n/n7279ca0d926f)から選べます（単品を1本ずつ買うより約8割お得）。
 
 ## 二次試験の勉強法は「型」と「ネタ」の二本柱
 

@@ -237,9 +237,9 @@ transformMdxFile(path, (raw) => modified);
 
 ## 参照ドキュメント
 
-- `docs/reference/content-principles.md` §5 — ExamPoint ルール
-- `docs/reference/content-authoring.md` — MDX 実装規約
-- `docs/reference/exam-content-policy.md` — Civil secondary 整備方針
+- `.claude/knowledge/reference/content-principles.md` §5 — ExamPoint ルール
+- `.claude/knowledge/reference/content-authoring.md` — MDX 実装規約
+- `.claude/knowledge/reference/exam-content-policy.md` — Civil secondary 整備方針
 - `.local/r2/posts/civil-construction-1/secondary-concrete-past-problems/article.mdx` — 解答スタイルの参考実装
 - `.local/r2/posts/civil-construction-1/secondary-earthwork-past-problems/article.mdx` — 解答スタイルの参考実装
 - `.claude/scripts/lib/mdx-io.mjs` — `transformMdxFile` API

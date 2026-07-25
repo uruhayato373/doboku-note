@@ -10,19 +10,15 @@ coverTitle:
   - vs マガジン ¥2,480
 noteStatus: published
 relatedReferences:
-  - docs/reference/pe-cem-pass-rate-history.md
-  - docs/reference/pe-cem-school-prices.md
+  - .claude/knowledge/reference/pe-cem-pass-rate-history.md
+  - .claude/knowledge/reference/pe-cem-school-prices.md
 cover:
-  leadIn: "6回受験・スクール・独学の"
-  hi: "コスト"
-  hiSuffix: "を徹底比較"
-  banner: "最安ルートを試算"
-  character: good-sign
-  meta: "無料記事"
-  chips:
-    - { icon: chart, text: "公式統計" }
-    - { icon: book, text: "スクール価格" }
-    - { icon: check, text: "最安ルート" }
+  variant: crop-safe-v4
+  leadIn: "総監 択一記述｜コスト比較"
+  headline: "6回受験の比較"
+  hi: "6"
+  hiSuffix: "回受験"
+  benefit: "最安ルートが計算できる"
 ---
 
 # 総監 6 回受験 vs スクール vs ¥2,480 マガジン｜公式統計と主要スクール価格で算出した "本当のコスト"
@@ -283,7 +279,7 @@ doboku-note の総監向けマガジンの中で **最も汎用性が高いの�
 - [新技術開発センター 技術士試験対策](https://pe.techno-con.co.jp/)
 - [日本技術サービス（JES）総合技術監理部門コース](https://ejes.jp/course_sogo)
 
-> 価格データは 2026 年 5 月 27 日時点で取得。各社の最新キャンペーン・改定は購入時に公式サイトでご確認ください。doboku-note の社内 SSoT は `docs/reference/pe-cem-school-prices.md` および `docs/reference/pe-cem-pass-rate-history.md` で管理しています。
+> 価格データは 2026 年 5 月 27 日時点で取得。各社の最新キャンペーン・改定は購入時に公式サイトでご確認ください。doboku-note の社内 SSoT は `.claude/knowledge/reference/pe-cem-school-prices.md` および `.claude/knowledge/reference/pe-cem-pass-rate-history.md` で管理しています。
 
 ---
 

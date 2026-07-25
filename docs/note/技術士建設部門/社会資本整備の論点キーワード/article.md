@@ -10,15 +10,12 @@ coverTitle:
   - 必須科目Iの土台
   - 社会資本整備の論点キーワード
 cover:
-  leadIn: "技術士 建設部門 2次"
-  hi: "社会資本整備"
-  hiSuffix: "のキーワード"
-  banner: "PPP/PFI・重点計画・国土形成計画の論点を整理"
-  meta: "無料記事"
-  chips:
-    - { icon: target, text: "全テーマの土台" }
-    - { icon: layers, text: "現状・背景＋計画・政策" }
-    - { icon: edit, text: "答案に引ける論点集" }
+  variant: crop-safe-v4
+  leadIn: "技術士 建設部門｜二次"
+  headline: "社会資本整備"
+  hi: "全テーマ"
+  hiSuffix: "の土台"
+  benefit: "答案に使える論点が揃う"
 ---
 
 # 【技術士 建設部門】社会資本整備 必須科目I 論点キーワード

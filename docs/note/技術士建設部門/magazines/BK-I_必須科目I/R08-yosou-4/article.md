@@ -13,15 +13,12 @@ price: 500
 coverTitle: "技術士 建設部門｜必須科目I R8予想④ カーボンニュートラル・GX 模範解答"
 utmCampaign: pe-construction-secondary
 cover:
-  leadIn: "技術士 建設部門 2次"
-  hi: "R8予想"
-  hiSuffix: "必須I④"
-  banner: "カーボンニュートラル・GX｜予想問題＋模範解答"
-  meta: "R8予想問題"
-  chips:
-    - { icon: pen, text: "予想問題＋解答" }
-    - { icon: layers, text: "発注者視点" }
-    - { icon: check, text: "令和8改訂対応" }
+  variant: crop-safe-v4
+  leadIn: "建設部門｜必須科目I"
+  headline: "脱炭素GX"
+  hi: "R8"
+  hiSuffix: "予想④"
+  benefit: "そのまま答案に展開できる"
 ---
 # 技術士 建設部門｜必須科目I R8予想④ カーボンニュートラル・GX（建設分野の脱炭素）（模範解答）
 

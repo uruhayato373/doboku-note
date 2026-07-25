@@ -5,7 +5,7 @@
  * 全 MDX の frontmatter `exams` 配列を走査し、試験別インデックスと
  * 真のクロス試験エントリ (exams.length >= 2) を src/config/cross-exam-keywords.json に出力する。
  *
- * 参照: docs/reference/data-storage-decision.md
+ * 参照: .claude/knowledge/reference/data-storage-decision.md
  *
  * Usage:
  *   node .claude/scripts/build-cross-exam-keyword-index.mjs

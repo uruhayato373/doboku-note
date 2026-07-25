@@ -7,16 +7,12 @@ noteId: "n1a0cef1de78b"
 noteUrl: "https://note.com/dobokunote/n/n1a0cef1de78b"
 coverTitle: ["過去問の暗記では受からない", "予想テーマで書く練習法"]
 cover:
-  leadIn: "1級・2級土木施工管理技士 二次"
-  hi: "書く練習"
-  hiSuffix: "で受かる"
-  banner: "過去問暗記からの脱出"
-  character: explaining
-  meta: "無料"
-  chips:
-    - { icon: doc, text: "練習サイクル" }
-    - { icon: edit, text: "お題の作り方" }
-    - { icon: check, text: "週次ルーティン" }
+  variant: crop-safe-v4
+  leadIn: "1級・2級土木｜経験記述"
+  headline: "書く練習で受かる"
+  hi: "週次"
+  hiSuffix: "練習"
+  benefit: "暗記からの脱出法が分かる"
 ---
 # 過去問の暗記では受からない｜経験記述は「予想テーマで書く練習」で伸びる【無料】
 

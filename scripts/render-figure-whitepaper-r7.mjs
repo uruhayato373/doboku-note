@@ -3,7 +3,7 @@
 // （2026-05-25 まで docs/note/技術士総監/magazines/whitepaper-r7-strategy/img/ に配置していたが、
 //  M2 を ¥2,480 magazine → 完全無料リード磁石へ転換した際に単独記事配置へ移動）
 //
-// 設計ルール（docs/reference/note-svg-policy.md 準拠）:
+// 設計ルール（.claude/knowledge/reference/note-svg-policy.md 準拠）:
 //   - キャンバス幅 1200（同一記事内で統一）
 //   - フォント ≥ 22px（補足キャプションを含めて統一）
 //   - 色トークン（src/styles/globals.css と整合）のみ使用

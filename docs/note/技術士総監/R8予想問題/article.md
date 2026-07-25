@@ -9,16 +9,12 @@ coverTitle:
   - 総監記述式 R8予想問題
   - 出題予想6テーマと解答の型
 cover:
-  leadIn: "令和8年度 総監記述式"
+  variant: crop-safe-v4
+  leadIn: "総監 記述式｜R8予想"
+  headline: "6大テーマ予想"
   hi: "6"
-  hiSuffix: "大テーマを予想"
-  banner: "R8予想問題"
-  character: pointing
-  meta: "無料記事"
-  chips:
-    - { icon: layers, text: "三層構造" }
-    - { icon: edit, text: "解答の型" }
-    - { icon: flag, text: "出題予想根拠" }
+  hiSuffix: "テーマ"
+  benefit: "三層構造で書き切れる"
 ---
 # 令和8年度 総監記述式 R8予想問題｜出題予想6大テーマと三層構造で書き切る解答型
 

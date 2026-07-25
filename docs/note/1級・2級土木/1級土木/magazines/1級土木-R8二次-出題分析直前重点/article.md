@@ -11,15 +11,12 @@ price: 980
 paidBoundary: "経験記述で問われてきたテーマ"
 coverTitle: ["1級土木 二次", "出題分析と直前の重点"]
 cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "出題分析"
+  variant: crop-safe-v4
+  leadIn: "1級土木施工管理技士｜二次"
+  headline: "出題分析"
+  hi: "R8"
   hiSuffix: "直前重点"
-  banner: "過去5年の実績から直前2週間の攻め所を絞る"
-  meta: "有料記事"
-  chips:
-    - { icon: check, text: "R03-R07 実績分析" }
-    - { icon: target, text: "出る順トップ論点" }
-    - { icon: doc, text: "直前2週間ロードマップ" }
+  benefit: "攻め所が絞り込める"
 ---
 # 1級土木 二次｜出題分析と直前の重点（過去5年の実績から攻め所を絞る）
 

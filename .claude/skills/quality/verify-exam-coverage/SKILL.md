@@ -189,6 +189,6 @@ user-invocable: true
 ## 参照
 
 - `CLAUDE.md` — ハーネス設計原則、実装時の行動原則
-- `docs/reference/content-principles.md` — コンテンツ原則 §5（ExamPoint 配置）、§9（参考資料）
-- `docs/reference/content-authoring.md` — MDX コンポーネント・過去問構造
+- `.claude/knowledge/reference/content-principles.md` — コンテンツ原則 §5（ExamPoint 配置）、§9（参考資料）
+- `.claude/knowledge/reference/content-authoring.md` — MDX コンポーネント・過去問構造
 - memory: `feedback_no_new_keyword_pages` — 新規ページ作成しない方針（本スキルは既存ページの補強のみ）

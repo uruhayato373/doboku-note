@@ -11,15 +11,12 @@ noteUrl: "https://note.com/dobokunote/n/n699aff3478f4"
 utmCampaign: civil1-keiken-pack-koji07
 coverTitle: ["1級土木 施工経験記述", "山間部切土法面 地すべり対策", "5管理 完成答案"]
 cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "切土法面"
-  hiSuffix: "地すべり対策 完成答案"
-  banner: "山間部の切土法面工事"
-  meta: "有料マガジン"
-  chips:
-    - { icon: doc, text: "完成答案" }
-    - { icon: edit, text: "置換ガイド" }
-    - { icon: check, text: "5管理一覧" }
+  variant: crop-safe-v4
+  leadIn: "1級土木｜施工経験記述"
+  headline: "切土法面"
+  hi: "5管理"
+  hiSuffix: "完成答案"
+  benefit: "書き換えてそのまま使える"
 ---
 # 1級土木 施工経験記述｜山間部切土法面（地すべり対策）5管理 完成答案
 

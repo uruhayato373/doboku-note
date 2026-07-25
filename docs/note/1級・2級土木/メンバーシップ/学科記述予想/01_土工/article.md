@@ -6,16 +6,12 @@ membershipOnly: true
 utmCampaign: civil-membership-gakka-earthwork
 coverTitle: ["学科記述予想｜土工", "盛土の施工と軟弱地盤対策"]
 cover:
-  leadIn: "予想テーマ ｜ 土工"
-  hi: "学科"
-  hiSuffix: "記述"
-  banner: "盛土の施工と軟弱地盤対策"
-  meta: "メンバーシップ限定"
-  tone: deep
-  chips:
-    - { icon: book, text: "頻出テーマ" }
-    - { icon: edit, text: "記述例" }
-    - { icon: check, text: "得点の型" }
+  variant: crop-safe-v4
+  leadIn: "学科記述予想"
+  headline: "土工"
+  hi: "予想"
+  hiSuffix: "テーマ"
+  benefit: "軟弱地盤対策が書ける"
 ---
 # 学科記述予想｜土工 — 盛土の締固め・軟弱地盤対策・法面保護
 

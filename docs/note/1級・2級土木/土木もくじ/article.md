@@ -11,16 +11,12 @@ coverTitle:
   - 1級・2級土木施工管理
   - 経験記述もくじ
 cover:
-  leadIn: "施工管理技士の経験記述を"
-  hi: "型から"
-  hiSuffix: "迷わず仕上げる"
-  banner: "土木もくじ"
-  character: wave
-  meta: "無料・更新型"
-  chips:
-    - { icon: pen, text: "経験記述の完成答案" }
-    - { icon: layers, text: "1級・2級対応" }
-    - { icon: target, text: "過去問×テーマ別" }
+  variant: crop-safe-v4
+  leadIn: "1級・2級土木｜教材案内"
+  headline: "土木もくじ"
+  hi: "全"
+  hiSuffix: "教材案内"
+  benefit: "まず1冊が状況別に分かる"
 ---
 # 【土木もくじ】1級・2級土木の教材、どれを買う？状況別に「まず1冊」がわかる全案内
 

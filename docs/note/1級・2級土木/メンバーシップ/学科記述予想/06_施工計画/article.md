@@ -6,16 +6,12 @@ membershipOnly: true
 utmCampaign: civil-membership-gakka-plan
 coverTitle: ["学科記述予想｜施工計画", "仮設備と建設機械の選定"]
 cover:
-  leadIn: "予想テーマ ｜ 施工計画"
-  hi: "学科"
-  hiSuffix: "記述"
-  banner: "仮設備と建設機械の選定"
-  meta: "メンバーシップ限定"
-  tone: deep
-  chips:
-    - { icon: book, text: "頻出テーマ" }
-    - { icon: edit, text: "記述例" }
-    - { icon: check, text: "得点の型" }
+  variant: crop-safe-v4
+  leadIn: "学科記述予想"
+  headline: "施工計画"
+  hi: "予想"
+  hiSuffix: "テーマ"
+  benefit: "仮設備選定が書ける"
 ---
 # 学科記述予想｜施工計画 — 施工計画の立案・仮設備・建設機械の選定
 

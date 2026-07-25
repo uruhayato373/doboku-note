@@ -10,16 +10,12 @@ coverTitle:
   - 技術士総監・R08合格のための
   - noteロードマップ
 cover:
-  leadIn: "はじめての方へ"
+  variant: crop-safe-v4
+  leadIn: "総監 択一記述｜入門"
+  headline: "合格ロードマップ"
   hi: "R08"
-  hiSuffix: "合格ロードマップ"
-  banner: "noteの道しるべ"
-  character: wave
-  meta: "無料記事"
-  chips:
-    - { icon: flag, text: "どこから読む" }
-    - { icon: book, text: "無料記事ガイド" }
-    - { icon: target, text: "有料マガジン" }
+  hiSuffix: "版"
+  benefit: "どこから読むかがわかる"
 ---
 # 【はじめての方へ】技術士総監・R08 合格のための note ロードマップ
 

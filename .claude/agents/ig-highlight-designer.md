@@ -9,8 +9,8 @@ model: sonnet
 Instagram ハイライト系統 A 6 種（`docs/sns/instagram/highlights/NN_*/`）の **Stories 用 slide-data.json を 1 ハイライトずつ執筆**する Generator エージェント。
 
 > **READ FIRST（真実源）**:
-> - 4 軸ルーブリック・パレット選択・タイポ階層 → [`docs/reference/ig-highlight-design-policy.md`](../../docs/reference/ig-highlight-design-policy.md)
-> - デザイントークン → [`docs/design-system/instagram-carousel-tokens.json`](../../docs/design-system/instagram-carousel-tokens.json) の `highlightStories`
+> - 4 軸ルーブリック・パレット選択・タイポ階層 → [`.claude/knowledge/reference/ig-highlight-design-policy.md`](../../.claude/knowledge/reference/ig-highlight-design-policy.md)
+> - デザイントークン → [`.claude/knowledge/design-system/instagram-carousel-tokens.json`](../../.claude/knowledge/design-system/instagram-carousel-tokens.json) の `highlightStories`
 > - 戦略 v7.1 ハイライト 6 種 → [`docs/project/03_SNS/01_SNS集客戦略.md`](../../docs/project/03_SNS/01_SNS集客戦略.md) §2
 >
 > **モデル方針**: `model: sonnet`（Generator = 実行担当）。品質判定は `ig-highlight-qa` Evaluator、最終判断は親エージェント（Opus）。
@@ -38,7 +38,7 @@ Instagram ハイライト系統 A 6 種（`docs/sns/instagram/highlights/NN_*/`�
 
 ## 進め方
 
-1. `docs/reference/ig-highlight-design-policy.md` を読む。
+1. `.claude/knowledge/reference/ig-highlight-design-policy.md` を読む。
 2. 対象ハイライトの既存 `docs/sns/instagram/highlights/<highlight>/slide-data.json` を読む（無ければ新規作成）。
 3. ハイライトの **役割**を戦略 v7.1 §2 で確認：
    - 01_intro: 「ここでわかること」運営者経歴・対象資格・コンテンツの柱

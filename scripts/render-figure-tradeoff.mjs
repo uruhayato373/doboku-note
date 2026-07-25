@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // docs/note/技術士総監/トレードオフ思考/img/ に本文用 PNG/SVG 図版を生成する。
 //
-// 設計ルール（docs/reference/note-svg-policy.md 準拠）:
+// 設計ルール（.claude/knowledge/reference/note-svg-policy.md 準拠）:
 //   - キャンバス幅 1200（同一記事内で統一）
 //   - フォント ≥ 22px（補足キャプションを含めて統一）
 //   - 色トークン（src/styles/globals.css と整合）のみ使用

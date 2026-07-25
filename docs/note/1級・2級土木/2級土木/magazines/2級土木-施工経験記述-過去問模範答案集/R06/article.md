@@ -10,15 +10,12 @@ coverTitle: ["2級土木 施工経験記述", "令和6年度 過去問"]
 price: 980
 paidBoundary: "想定工事①"
 cover:
-  leadIn: "2級土木 施工経験記述"
-  hi: "R6"
+  variant: crop-safe-v4
+  leadIn: "2級土木｜施工経験記述"
+  headline: "模範答案"
+  hi: "R06"
   hiSuffix: "過去問"
-  banner: "品質管理＋工程管理"
-  meta: "過去問模範答案"
-  chips:
-    - { icon: pen, text: "そのまま雛形に" }
-    - { icon: target, text: "置換ガイド付" }
-    - { icon: check, text: "採点チェック付" }
+  benefit: "品質・工程管理がそのまま見られる"
 ---
 # 2級土木 施工経験記述｜令和6年度 過去問 模範答案（品質管理＋工程管理）
 

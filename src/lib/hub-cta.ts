@@ -1,4 +1,5 @@
 import { getMagazine, buildMagazineUrl, type MagazineId } from '@/lib/note-magazines';
+import examCalendar from '../../.claude/config/exam-calendar.json';
 
 // カテゴリ hub 本文の note CTA（資格別リッチ背景×HTML文字）を解決する。
 // 方針（2026-07-05 決定）: マガジンが多いので幅広面は「もくじ(L2索引)」へ集約し、直前期だけ特定商品へ直リンク。
@@ -13,20 +14,39 @@ type HubCtaSpec = {
   seasonal?: { switchUtcMs: number; product: MagazineId; sub: string };
 };
 
+type CivilExamId = 'civil-construction-1' | 'civil-construction-2';
+
+function examDayEndUtcMs(examId: CivilExamId, eventId: 'second'): number {
+  const date = examCalendar.exams[examId].events[eventId].date;
+  const timestamp = Date.parse(`${date}T23:59:59+09:00`);
+  if (!Number.isFinite(timestamp)) {
+    throw new Error(`Invalid exam date in .claude/config/exam-calendar.json: ${examId}.${eventId}`);
+  }
+  return timestamp;
+}
+
 const HUB: Partial<Record<string, HubCtaSpec>> = {
   'civil-construction-1': {
     bg: '/images/cta-bg/civil-1.webp',
     themeVar: '--exam-civil-1',
     qual: '1級土木',
     mokuji: { url: 'https://note.com/dobokunote/n/n4fde0f62dc20', title1: 'note教材', title2: 'もくじ・まとめ', sub: '経験記述・学科記述・暗記' },
-    seasonal: { switchUtcMs: Date.UTC(2026, 9, 5), product: 'civil-1-anki-note', sub: '赤シート対応PDF付' },
+    seasonal: {
+      switchUtcMs: examDayEndUtcMs('civil-construction-1', 'second'),
+      product: 'civil-1-anki-note',
+      sub: '赤シート対応PDF付',
+    },
   },
   'civil-construction-2': {
     bg: '/images/cta-bg/civil-2.webp',
     themeVar: '--exam-civil-2',
     qual: '2級土木',
     mokuji: { url: 'https://note.com/dobokunote/n/n4fde0f62dc20', title1: 'note教材', title2: 'もくじ・まとめ', sub: '経験記述・学科記述・暗記' },
-    seasonal: { switchUtcMs: Date.UTC(2026, 9, 5), product: 'civil-2-anki-note', sub: '赤シート対応PDF付' },
+    seasonal: {
+      switchUtcMs: examDayEndUtcMs('civil-construction-2', 'second'),
+      product: 'civil-2-anki-note',
+      sub: '赤シート対応PDF付',
+    },
   },
   'pe-comprehensive-management': {
     bg: '/images/cta-bg/pe-comprehensive.webp',

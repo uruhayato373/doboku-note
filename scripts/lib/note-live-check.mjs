@@ -8,7 +8,7 @@
  *
  * 各スクリプトの公開後 assert（note-update-body [5e] / note-publish [13]）と横断スイープ
  * （check-note-live-headings.mjs）の双方から使う。ネットワーク失敗は fetchError で区別し
- * 偽陰性でジョブを落とさない。真実源: docs/reference/note-api-verification.md
+ * 偽陰性でジョブを落とさない。真実源: .claude/knowledge/reference/note-api-verification.md
  */
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 

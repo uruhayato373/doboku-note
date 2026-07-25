@@ -5,21 +5,18 @@ noteMagazine: 1級土木-経験記述-完全攻略パック
 utmCampaign: civil1-keiken-pack-koji91
 noteStatus: published
 coverTitle: ["1級土木 施工経験記述", "都市部トンネル 開削工事", "5管理 完成答案"]
-cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "都市部トンネル"
-  hiSuffix: "開削工事 完成答案"
-  banner: "品質・工程・安全・施工計画・環境 5管理"
-  meta: "完全攻略パック 工事91"
-  chips:
-    - { icon: doc, text: "5管理×完成答案" }
-    - { icon: target, text: "置換ガイド付" }
-    - { icon: check, text: "採点者視点" }
 noteUrl: "https://note.com/dobokunote/n/nc6b40febb3b5"
 noteId: "nc6b40febb3b5"
 notePublishedAt: "2026-06-30"
 price: 1980
 paidBoundary: 品質管理
+cover:
+  variant: crop-safe-v4
+  leadIn: "1級土木 経験記述｜開削工事 完成答案"
+  headline: "都市部トンネル"
+  hi: "5管理"
+  hiSuffix: "完成答案"
+  benefit: "書き換えてそのまま使える"
 ---
 # 1級土木 施工経験記述｜都市部トンネル（開削工事）5管理 完成答案
 

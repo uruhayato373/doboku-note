@@ -6,16 +6,12 @@ noteId: n96f94252c128
 utmCampaign: civil-career-failure-lessons
 coverTitle: ["施工管理のリアルな失敗", "そこから学ぶ身の振り方"]
 cover:
-  leadIn: "発注者として見てきた現場"
-  hi: "施工管理の失敗"
-  hiSuffix: "と教訓"
-  banner: "つらさを次に活かす"
-  character: thinking
-  meta: "無料"
-  chips:
-    - { icon: doc, text: "ありがちな失敗" }
-    - { icon: check, text: "教訓" }
-    - { icon: edit, text: "身の振り方" }
+  variant: crop-safe-v4
+  leadIn: "発注者が見てきた現場"
+  headline: "失敗と教訓"
+  hi: "無料"
+  hiSuffix: "公開"
+  benefit: "次に活かす学びが分かる"
 ---
 # 施工管理のリアルな失敗と、そこから学ぶ身の振り方【無料】
 

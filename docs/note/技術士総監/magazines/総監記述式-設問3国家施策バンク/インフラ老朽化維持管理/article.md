@@ -7,18 +7,12 @@ noteUrl: https://note.com/dobokunote/n/n702de2881929
 noteId: n702de2881929
 notePublishedAt: 2026-06-01
 cover:
-  leadIn: 設問(3)で問われる将来課題
-  hi: '6'
-  hiSuffix: つの国家施策
-  banner: インフラ老朽化
-  chips:
-    - icon: check
-      text: トレードオフ明示
-    - icon: doc
-      text: 答案1枚相当
-    - icon: book
-      text: 白書根拠
-  meta: '有料マガジン ／ ¥2,480'
+  variant: crop-safe-v4
+  leadIn: "総監 記述式｜設問3"
+  headline: "インフラ老朽化"
+  hi: "6"
+  hiSuffix: "施策"
+  benefit: "設問3にそのまま転写できる"
 ---
 
 # インフラ老朽化・維持管理｜設問(3)国家施策バンク

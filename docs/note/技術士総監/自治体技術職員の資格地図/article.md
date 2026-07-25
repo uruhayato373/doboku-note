@@ -9,16 +9,12 @@ coverTitle:
   - 自治体の技術職員の
   - キャリアと資格地図
 cover:
-  leadIn: "自治体の技術職員"
-  hi: "資格"
-  hiSuffix: "とキャリアの地図"
-  banner: "資格の位置づけ"
-  character: wave
-  meta: "無料記事"
-  chips:
-    - { icon: target, text: "1級土木" }
-    - { icon: flag, text: "技術士・総監" }
-    - { icon: check, text: "RCCM" }
+  variant: crop-safe-v4
+  leadIn: "総監 公務員｜資格地図"
+  headline: "資格の地図"
+  hi: "4"
+  hiSuffix: "資格"
+  benefit: "資格の位置づけがわかる"
 ---
 # 【自治体の技術職員】キャリアと資格の地図｜1級土木施工管理技士・技術士・総監・RCCMの位置づけ
 

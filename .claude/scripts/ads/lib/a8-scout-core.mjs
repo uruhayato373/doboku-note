@@ -9,7 +9,7 @@
  *   - 状態機械の遷移検証
  *
  * curated 値 (係数・上限・blocklist・vertical map) は data/a8-curated.json を読む
- * (ハードコードしない)。正典 = docs/reference/a8-affiliate-pipeline.md。
+ * (ハードコードしない)。正典 = .claude/knowledge/reference/a8-affiliate-pipeline.md。
  */
 
 import { createRequire } from "node:module";

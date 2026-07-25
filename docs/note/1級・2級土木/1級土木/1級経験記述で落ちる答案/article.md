@@ -10,16 +10,12 @@ coverTitle:
   - 落ちる答案の共通点
 noteStatus: published
 cover:
-  leadIn: "1級土木 施工経験記述"
-  hi: "落ちる答案"
-  hiSuffix: "の4つの型"
-  banner: "発注者・添削視点"
-  character: thinking
-  meta: "無料記事"
-  chips:
-    - { icon: doc, text: "落ちる型" }
-    - { icon: target, text: "課題と対応" }
-    - { icon: check, text: "監理技術者級" }
+  variant: crop-safe-v4
+  leadIn: "1級土木｜施工経験記述"
+  headline: "落ちる答案の型"
+  hi: "4つ"
+  hiSuffix: "の型"
+  benefit: "添削視点で分かる"
 ---
 # 【1級土木施工管理技士】施工経験記述で落ちる答案の共通点 — 添削する側から見た4つの型
 

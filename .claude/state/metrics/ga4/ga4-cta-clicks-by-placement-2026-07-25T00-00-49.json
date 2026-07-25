@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "startDate": "2026-07-18",
+    "endDate": "2026-07-24",
+    "eventNames": [
+      "note_cta_click",
+      "affiliate_cta_click",
+      "affiliate_cta_impression",
+      "note_article_click"
+    ],
+    "japanOnly": true,
+    "byDevice": false,
+    "byLabel": false,
+    "byPlacement": true,
+    "propertyId": "properties/419382901"
+  },
+  "rows": [
+    {
+      "placement": "(not set)",
+      "eventName": "note_cta_click",
+      "eventCount": 94
+    },
+    {
+      "placement": "(not set)",
+      "eventName": "note_article_click",
+      "eventCount": 24
+    },
+    {
+      "placement": "(not set)",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 8
+    }
+  ]
+}

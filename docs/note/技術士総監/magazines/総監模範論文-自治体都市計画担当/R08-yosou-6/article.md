@@ -9,15 +9,12 @@ noteMagazine: 総監模範論文-自治体都市計画担当
 noteStatus: published
 price: 780
 cover:
-  leadIn: "令和8年度 R8予想"
+  variant: crop-safe-v4
+  leadIn: "総監 記述式｜自治体 都市計画"
+  headline: "経済安保"
   hi: "R8"
-  hiSuffix: "都計⑥(経済安保)"
-  banner: "経済安保・供給網強靱化｜3,000字級フル論文"
-  meta: "R8予想問題"
-  chips:
-    - { icon: pen, text: "答案そのまま展開" }
-    - { icon: layers, text: "5管理トレードオフ" }
-    - { icon: check, text: "採点チェック付" }
+  hiSuffix: "予想⑥"
+  benefit: "3,000字級をそのまま展開"
 ---
 # 令和8年度 総監記述式 模範論文｜自治体 都市計画担当版（経済安保・供給網強靱化／R8予想⑥）
 

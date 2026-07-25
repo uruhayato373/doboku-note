@@ -6,16 +6,12 @@ membershipOnly: true
 utmCampaign: civil-membership-gakka-structure
 coverTitle: ["学科記述予想｜専門土木", "コンクリート構造物・基礎工"]
 cover:
-  leadIn: "予想テーマ ｜ 専門土木"
-  hi: "学科"
-  hiSuffix: "記述"
-  banner: "コンクリート構造物・基礎工"
-  meta: "メンバーシップ限定"
-  tone: deep
-  chips:
-    - { icon: book, text: "頻出テーマ" }
-    - { icon: edit, text: "記述例" }
-    - { icon: check, text: "得点の型" }
+  variant: crop-safe-v4
+  leadIn: "学科記述予想"
+  headline: "コンクリ構造物"
+  hi: "予想"
+  hiSuffix: "テーマ"
+  benefit: "鉄筋基礎工が書ける"
 ---
 # 学科記述予想｜専門土木・コンクリート構造物 — 鉄筋の組立と基礎杭の施工
 

@@ -158,4 +158,4 @@ SVG audit: HIGH 0件
 - `.claude/skills/authoring/illustrate-concept/SKILL.md` — Discovery First 方式（--ref 未指定時の自動Web検索手順）
 - `.claude/skills/authoring/create-svg/SKILL.md` — SVG 作図ルール・デザイントークン
 - `.claude/skills/authoring/notebooklm-research/SKILL.md` — notebooklm-cross-query の詳細
-- `docs/reference/content-principles.md` — `<ArticleImage>` caption 禁止ルール
+- `.claude/knowledge/reference/content-principles.md` — `<ArticleImage>` caption 禁止ルール

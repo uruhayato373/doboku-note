@@ -65,7 +65,7 @@ node scripts/scout-brain-competitors.mjs        # Brain（公開ページ read-o
 
 - **note/Brain**: 公開ページ read-only（認証不要）
 - **ココナラ**: 公開ページ read-only・**低頻度厳守（数ヶ月に1度・operations.md §2.3）**・外部誘導しない
-- **X**: 実アカ Playwright だが **read-only 専用**（いいね/フォロー/リプライ機能を持たない）・四半期・≤15プロフィール・jitter 遅延・**challenge/captcha/凍結警告で即中断（自動リトライ禁止）**→ `probe-status.json` に記録。投稿スケジュールと実行を重ねない。方針は [x-post-policy.md](../../../../docs/reference/x-post-policy.md) §11
+- **X**: 実アカ Playwright だが **read-only 専用**（いいね/フォロー/リプライ機能を持たない）・四半期・≤15プロフィール・jitter 遅延・**challenge/captcha/凍結警告で即中断（自動リトライ禁止）**→ `probe-status.json` に記録。投稿スケジュールと実行を重ねない。方針は [x-post-policy.md](../../../../.claude/knowledge/reference/x-post-policy.md) §11
 - **IG**: **未ログイン公開プロフィール（og:description メタ）を curl で read**（2026-07-20 実証・投稿アカ @dobokunotecom の IG セッション不使用＝足跡ゼロ）。取れるのはフォロワー/フォロー/投稿数まで（個別投稿のエンゲージは要ログインで未対応）
 - **有料本文は全チャネルで取得しない/できない**（中身の質は「未読」扱いで断定しない）
 - **新規クラウド cron は作らない**。定期性は `check-competitor-scan-due`（weekly-review Agent B が surface）＋ annual.md 四半期定例
@@ -82,5 +82,5 @@ X scout は各競合の**エンゲージ上位10投稿**（`engagementLeaders`�
 
 - 機械: `scripts/scout-{note,x,ig,brain}-competitors.mjs`・`coconala-research.mjs --competitors`・`check-competitor-scan-due.mjs`
 - 勝ち型の原案化: `x-post-writer`（生成・ユニーク性強制）／`x-post-qa`（§11 near-duplicate ゲート）
-- Evaluator: `competitor-analyst`（[agents-registry.md](../../../../docs/reference/agents-registry.md)）
+- Evaluator: `competitor-analyst`（[agents-registry.md](../../../../.claude/knowledge/reference/agents-registry.md)）
 - config: `.claude/config/{note,x,ig,coconala,brain}-competitors.json`（競合ハンドル SSOT・チャネル別）

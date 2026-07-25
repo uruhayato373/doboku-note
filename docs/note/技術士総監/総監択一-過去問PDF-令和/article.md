@@ -9,15 +9,12 @@ price: 980
 paidBoundary: "PDF のダウンロードと使い方"
 coverTitle: ["技術士 総合技術監理", "択一 過去問PDF 令和 全280問"]
 cover:
-  leadIn: "技術士 総合技術監理部門 択一式"
-  hi: "過去問"
-  hiSuffix: "令和280問"
-  banner: "令和元〜7年度 全問解説PDF（5管理別）"
-  meta: "note 限定 PDF教材"
-  chips:
-    - { icon: check, text: "全280問 全選択肢解説" }
-    - { icon: doc, text: "A4印刷用PDF" }
-    - { icon: edit, text: "令和元〜7年度 7年分" }
+  variant: crop-safe-v4
+  leadIn: "総監 択一式｜過去問PDF"
+  headline: "過去問PDF 令和"
+  hi: "280"
+  hiSuffix: "問 全解説"
+  benefit: "印刷して繰り返し解ける"
 ---
 # 技術士 総合技術監理部門｜択一 過去問PDF 令和（令和元〜7年度 全280問・全選択肢解説）
 

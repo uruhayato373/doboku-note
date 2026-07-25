@@ -11,15 +11,12 @@ noteId: "nf7acd3284c3b"
 notePublishedAt: "2026-06-30"
 coverTitle: ["1級土木 施工経験記述", "高流動コンクリート 過密配筋部充填", "5管理 完成答案"]
 cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "高流動コンクリート"
-  hiSuffix: "過密配筋部充填"
-  banner: "鉄道高架橋橋脚への自己充填施工"
-  meta: "完全攻略パック"
-  chips:
-    - { icon: doc, text: "完成答案" }
-    - { icon: edit, text: "置換ガイド" }
-    - { icon: check, text: "NG→OK添削" }
+  variant: crop-safe-v4
+  leadIn: "1級土木 経験記述｜過密配筋部充填"
+  headline: "高流動コンクリ"
+  hi: "5管理"
+  hiSuffix: "完成答案"
+  benefit: "書き換えてそのまま使える"
 ---
 # 1級土木 施工経験記述｜高流動コンクリート充填（過密配筋部）5管理 完成答案
 

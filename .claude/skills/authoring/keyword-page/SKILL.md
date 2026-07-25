@@ -10,7 +10,7 @@ description: >
 総合技術監理（CEM）キーワードページを新規作成または既存の空ページを仕上げるスキル。
 総合技術監理キーワード集2026に基づき、試験対策として必要十分な概要ページを作成する。
 
-**対象スコープ**: `group: keyword`（または group 未設定）のキーワードページのみ。`group: guide` の **ガイド記事は対象外**（受験戦略・学習計画・俯瞰ハブはコンバージョン地点として別構造）。ガイド記事の末尾構成・禁止セクションは [content-principles.md §20](../../../../docs/reference/content-principles.md) を参照。ガイド記事の生成・改善は `group: guide` 品質サイクル（`guide-rewriter`／`guide-qa`／`guide-fact-checker`）経由。
+**対象スコープ**: `group: keyword`（または group 未設定）のキーワードページのみ。`group: guide` の **ガイド記事は対象外**（受験戦略・学習計画・俯瞰ハブはコンバージョン地点として別構造）。ガイド記事の末尾構成・禁止セクションは [content-principles.md §20](../../../../.claude/knowledge/reference/content-principles.md) を参照。ガイド記事の生成・改善は `group: guide` 品質サイクル（`guide-rewriter`／`guide-qa`／`guide-fact-checker`）経由。
 
 ## 引数
 
@@ -152,7 +152,7 @@ description: >
 
 | コンポーネント | 用途 | 使用基準 |
 |---|---|---|
-| `<ExamPoint>` | 試験対策ポイント | **詳細ルールは `docs/reference/content-principles.md` §5 を参照**（個数は原則1個・最大2個、3個以上禁止、総括位置必須、「誤り選択肢パターン」など過去問解説に属する内容は禁止） |
+| `<ExamPoint>` | 試験対策ポイント | **詳細ルールは `.claude/knowledge/reference/content-principles.md` §5 を参照**（個数は原則1個・最大2個、3個以上禁止、総括位置必須、「誤り選択肢パターン」など過去問解説に属する内容は禁止） |
 | `<Timeline>` | プロセス・手順 | 順序が重要なステップがある場合。`time` は省略してシンプルに |
 | 表（Markdown table） | **2軸の比較のみ** | 2次元で比較する場合のみ。定義・説明リストには使わない。4列以上は原則禁止。セル15文字以内 |
 | `<Callout>` | 注意・補足 | 誤解しやすいポイントや重要な注意事項がある場合のみ |
@@ -181,7 +181,7 @@ description: >
 
 #### 参考資料の記載ルール
 
-**詳細ルールは `docs/reference/content-principles.md` §9「参考資料の構成」を参照**（公的資料＋民間記事 各最低1件、WebSearch→WebFetch検証必須、e-Gov法令リンク形式）。
+**詳細ルールは `.claude/knowledge/reference/content-principles.md` §9「参考資料の構成」を参照**（公的資料＋民間記事 各最低1件、WebSearch→WebFetch検証必須、e-Gov法令リンク形式）。
 
 要点のみ：
 - 公的資料 **最低1件** ＋ 民間解説記事（Wikipedia/note/技術ブログ等）**最低1件** が必須
@@ -237,7 +237,7 @@ publishedAt: "{YYYY-MM-DD}"
 3. **加重スコア < 2.0 なら指摘事項リストに沿って修正 → Step 5a に戻る**
 4. **加重スコア ≥ 2.0 で完了**
 5. いずれかの軸が 0 点なら即不合格
-6. 参考資料軸の合格には `docs/reference/content-principles.md` §9 準拠（公的＋民間 各1件以上）が必要
+6. 参考資料軸の合格には `.claude/knowledge/reference/content-principles.md` §9 準拠（公的＋民間 各1件以上）が必要
 
 ## 品質基準
 
@@ -255,12 +255,12 @@ publishedAt: "{YYYY-MM-DD}"
 
 ## コンテンツ変更後のインデックス再生成
 
-開発中にキーワードページを作成・改訂した後は `npm run refresh-indexes` で静的インデックスを更新すること（本番 `npm run build` では自動）。詳細は `docs/reference/workflows.md`「コンテンツ変更後の静的インデックス再生成」を参照。
+開発中にキーワードページを作成・改訂した後は `npm run refresh-indexes` で静的インデックスを更新すること（本番 `npm run build` では自動）。詳細は `.claude/knowledge/reference/workflows.md`「コンテンツ変更後の静的インデックス再生成」を参照。
 
 ## 参照
 
-- `docs/reference/content-principles.md` — ペルソナ定義、コンテンツ原則（7項目）
-- `docs/reference/content-authoring.md` — MDX 作成詳細ルール、MDXコンポーネント一覧
+- `.claude/knowledge/reference/content-principles.md` — ペルソナ定義、コンテンツ原則（7項目）
+- `.claude/knowledge/reference/content-authoring.md` — MDX 作成詳細ルール、MDXコンポーネント一覧
 - `src/config/pe-chapters.json` — 章・節構造
 - `.claude/skills/conversion/pdf-to-mdx/templates/cem.md` — 過去問MDXの構造ルール（RelatedKeywords の仕様）
 - `.claude/skills/quality/check-mdx/SKILL.md` — MDX 検査統合スキル（`--rules syntax` で作成後に実行推奨）

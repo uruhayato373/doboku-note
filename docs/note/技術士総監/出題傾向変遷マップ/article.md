@@ -7,15 +7,12 @@ noteSeries: 総監記述式
 utmCampaign: 13-trend-map
 noteStatus: published
 cover:
-  leadIn: "総監記述式 H21〜R07"
+  variant: crop-safe-v4
+  leadIn: "総監 記述式｜傾向分析"
+  headline: "出題傾向マップ"
   hi: "17"
-  hiSuffix: "年分を読み解く"
-  banner: "出題傾向マップ"
-  meta: "無料記事"
-  chips:
-    - { icon: chart, text: "3期に区分" }
-    - { icon: calendar, text: "17年分" }
-    - { icon: target, text: "次の出題予測" }
+  hiSuffix: "年分"
+  benefit: "次の出題を予測できる"
 ---
 # 総監記述式 出題傾向の変遷マップ｜H21〜R07 17年分を3期に区分して読み解く完全ガイド
 

@@ -15,7 +15,7 @@ user-invocable: true
 Generator (`civil-exam-figure-extractor`) と Evaluator (`civil-exam-figure-auditor`) を 1 ページごとに最大 3 反復ループし、合格したら commit。
 
 > [!warning] 適用限界（2026-07-08 確認）
-> 本スキルは**問題PDF（問題A/B）に図が存在する**ことが前提。しかし確認した年度（H30/R01/R02/R07）の問題PDFは **"DHP-A.smd" テキスト起こし版で埋め込み画像0・図なし**（`pdfimages -list` / `pdftoppm` で確認）、**H26/H27 は問題PDF自体なし**。これらのページでは extractor が**空 spec を返す**（図は問題PDFでなく解答・解説資料側にしか存在しない）。既存クロップの「答え漏らし写り込み」是正は本スキルでなく**既存画像の手動タイト切り直し**で行う。経緯の詳細は git 履歴の旧 handoff `2026-07-08-civil1-figure-answer-leak.md`（handoffs は 2026-07-11 に extract→削除運用へ移行・生きた運用は [figure-provenance.md](../../../docs/reference/figure-provenance.md) と memory [[civil1-figure-answer-leak-remediation]]）。
+> 本スキルは**問題PDF（問題A/B）に図が存在する**ことが前提。しかし確認した年度（H30/R01/R02/R07）の問題PDFは **"DHP-A.smd" テキスト起こし版で埋め込み画像0・図なし**（`pdfimages -list` / `pdftoppm` で確認）、**H26/H27 は問題PDF自体なし**。これらのページでは extractor が**空 spec を返す**（図は問題PDFでなく解答・解説資料側にしか存在しない）。既存クロップの「答え漏らし写り込み」是正は本スキルでなく**既存画像の手動タイト切り直し**で行う。経緯の詳細は git 履歴の旧 handoff `2026-07-08-civil1-figure-answer-leak.md`（handoffs は 2026-07-11 に extract→削除運用へ移行・生きた運用は [figure-provenance.md](../../../.claude/knowledge/reference/figure-provenance.md) と memory [[civil1-figure-answer-leak-remediation]]）。
 
 ## 引数
 
@@ -243,6 +243,6 @@ skip: `r03-a`, `r04-a`（PDF原本に図参照なし）
 - `.claude/agents/civil-exam-figure-auditor.md` — Evaluator agent
 - `.claude/scripts/audit-exam-figures.mjs` — 既存整合監査スクリプト
 - `.claude/scripts/lib/mdx-io.mjs` — writeMdxFile（CRLF 保持必須）
-- `docs/reference/image-policy.md` L165-177 — 過去問図 caption/alt 厳格ルール
-- `docs/reference/agents-registry.md` L71-96 — Generator/Evaluator 分業原則
+- `.claude/knowledge/reference/image-policy.md` L165-177 — 過去問図 caption/alt 厳格ルール
+- `.claude/knowledge/reference/agents-registry.md` L71-96 — Generator/Evaluator 分業原則
 - CLAUDE.md §3, §4, §8, §10 — MDX 書き込み・refresh-indexes・レジストリ更新・並行エージェント commit ルール

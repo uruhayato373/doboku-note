@@ -10,16 +10,12 @@ coverTitle:
   - 独学合格の学習設計
 noteStatus: published
 cover:
+  variant: crop-safe-v4
   leadIn: "2級土木施工管理技士"
-  hi: "独学合格"
-  hiSuffix: "の学習設計"
-  banner: "働きながらの逆算"
-  character: explaining
-  meta: "無料記事"
-  chips:
-    - { icon: calendar, text: "逆算" }
-    - { icon: book, text: "一次の絞り方" }
-    - { icon: edit, text: "二次が先" }
+  headline: "独学の学習設計"
+  hi: "逆算"
+  hiSuffix: "型"
+  benefit: "働きながらの時間配分が分かる"
 ---
 # 【2級土木施工管理技士】働きながら独学で合格する学習設計 — 一次・二次の時間配分
 

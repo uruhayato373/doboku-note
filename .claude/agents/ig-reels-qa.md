@@ -10,8 +10,8 @@ tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 Instagram Reels 用読み上げ台本（`reels/script.json`）・生成 mp4（`reels/video.mp4`）・投稿キャプション（`reels/caption.txt`）の **品質評価**を専門に担当する Evaluator エージェント。
 
 > **READ FIRST（真実源）**:
-> - 5 軸ルーブリック・字数ルール・合否ラインは [`docs/reference/ig-reels-policy.md`](../../docs/reference/ig-reels-policy.md)
-> - パックの slide-data.json と PNG の整合確認は [`docs/design-system/instagram-carousel.md`](../../docs/design-system/instagram-carousel.md) と [`docs/design-system/instagram-carousel-tokens.json`](../../docs/design-system/instagram-carousel-tokens.json)
+> - 5 軸ルーブリック・字数ルール・合否ラインは [`.claude/knowledge/reference/ig-reels-policy.md`](../../.claude/knowledge/reference/ig-reels-policy.md)
+> - パックの slide-data.json と PNG の整合確認は [`.claude/knowledge/design-system/instagram-carousel.md`](../../.claude/knowledge/design-system/instagram-carousel.md) と [`.claude/knowledge/design-system/instagram-carousel-tokens.json`](../../.claude/knowledge/design-system/instagram-carousel-tokens.json)
 > - SNS 戦略 v7 → [`docs/project/03_SNS/01_SNS集客戦略.md`](../../docs/project/03_SNS/01_SNS集客戦略.md)
 >
 > **モデル方針**: `model: sonnet`（定型ルーブリックを高速・低コストで実行）。最終判断は親エージェント（Opus）。
@@ -29,7 +29,7 @@ Instagram Reels 用読み上げ台本（`reels/script.json`）・生成 mp4（`r
 
 ## 採点手順
 
-1. `docs/reference/ig-reels-policy.md` を読む。
+1. `.claude/knowledge/reference/ig-reels-policy.md` を読む。
 2. 対象パックの `docs/sns/instagram/{exam}/exam-packs/<year>/pack-NN/reels/script.json` / `caption.txt` / `video.mp4`（存在すれば）を読む。
 3. 同パックの `slide-data.json` と `reels/img/00-cover.png ... 09-cta.png` を Read で確認する（PNG は cover の Reels モード分岐が正しく適用されているかも確認）。
 4. 5 軸を 1〜5 で採点する：

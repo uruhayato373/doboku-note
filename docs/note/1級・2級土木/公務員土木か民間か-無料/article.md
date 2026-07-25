@@ -6,16 +6,12 @@ noteId: n8b03a7de0c6b
 utmCampaign: civil-career-public-vs-private
 coverTitle: ["公務員土木か、民間か", "元公務員が考える選び方"]
 cover:
+  variant: crop-safe-v4
   leadIn: "元自治体土木職員の視点"
-  hi: "公務員土木か"
-  hiSuffix: "民間か"
-  banner: "両方を知る立場からの比較"
-  character: thinking
-  meta: "無料"
-  chips:
-    - { icon: doc, text: "安定 vs 年収" }
-    - { icon: check, text: "向き不向き" }
-    - { icon: edit, text: "後悔しない選び方" }
+  headline: "公務員か民間か"
+  hi: "無料"
+  hiSuffix: "公開"
+  benefit: "後悔しない選び方が分かる"
 ---
 # 公務員土木か、民間か｜元公務員が考える後悔しない選び方【無料】
 

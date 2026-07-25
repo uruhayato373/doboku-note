@@ -7,15 +7,12 @@ notePublishedAt: "2026-07-19"
 noteId: "nfa8998e22a52"
 noteUrl: "https://note.com/dobokunote/n/nfa8998e22a52"
 cover:
-  leadIn: "令和8年度 技術士総監"
-  hi: "解答速報"
-  hiSuffix: "必須科目I"
-  banner: "択一・記述の解答方針と講評"
-  meta: "無料速報"
-  chips:
-    - { icon: bulb, text: "択一の自己採点" }
-    - { icon: target, text: "記述の解答方針" }
-    - { icon: award, text: "設問(3)は6/1公開で事前収録" }
+  variant: crop-safe-v4
+  leadIn: "総監 択一記述｜速報"
+  headline: "R8解答速報"
+  hi: "R8"
+  hiSuffix: "速報"
+  benefit: "自己採点の方針がわかる"
 ---
 # 令和8年度 技術士総監 解答速報｜必須科目I（択一・記述）の解答方針と難易度講評【無料】
 

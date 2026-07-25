@@ -11,15 +11,12 @@ noteStatus: published
 price: 500
 coverTitle: "小論文 模範答案｜施工トラブル（初期欠陥の原因と防止）"
 cover:
-  leadIn: "コンクリート主任技師 小論文"
-  hi: "初期欠陥"
-  hiSuffix: "模範答案"
-  banner: "施工中の初期欠陥 原因と防止"
-  meta: "小論文模範答案"
-  chips:
-    - { icon: pen, text: "答案の型で解説" }
-    - { icon: layers, text: "論点整理" }
-    - { icon: check, text: "採点視点つき" }
+  variant: crop-safe-v4
+  leadIn: "コンクリート主任技師｜小論文"
+  headline: "初期欠陥"
+  hi: "答案"
+  hiSuffix: "の型"
+  benefit: "そのまま答案に展開できる"
 ---
 
 # コンクリート主任技師 小論文 模範答案｜施工中に生じる初期欠陥の原因と防止対策

@@ -11,15 +11,12 @@ price: 780
 paidBoundary: "社会環境 × 安全"
 noteStatus: published
 cover:
-  leadIn: "社会環境 × 他4管理の衝突を"
+  variant: crop-safe-v4
+  leadIn: "総監 記述式｜5管理"
+  headline: "社会環境×4管理"
   hi: "4"
-  hiSuffix: "ペア×3シナリオ"
-  banner: "合意と環境の両立術"
-  meta: "有料マガジン"
-  chips:
-    - { icon: map, text: "ミティゲーション" }
-    - { icon: bulb, text: "PI・LCA" }
-    - { icon: pen, text: "答案ひな型付" }
+  hiSuffix: "セル"
+  benefit: "トレードオフの型がわかる"
 ---
 
 # 社会環境管理 × 他4管理｜トレードオフ構造と総監的解決策（4セル）

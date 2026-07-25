@@ -11,15 +11,12 @@ noteId: "na4e520d3137d"
 notePublishedAt: "2026-06-30"
 coverTitle: ["1級土木 施工経験記述", "軟弱地盤 薬液注入工法", "5管理 完成答案"]
 cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "薬液注入工法"
-  hiSuffix: "軟弱地盤改良 5管理"
-  banner: "品質・工程・安全・施工計画・環境対策 完成答案"
-  meta: "完全攻略パック 工事100"
-  chips:
-    - { icon: doc, text: "5管理×完成答案" }
-    - { icon: edit, text: "置換ガイド付" }
-    - { icon: check, text: "採点者視点" }
+  variant: crop-safe-v4
+  leadIn: "1級土木 経験記述｜軟弱地盤改良 5管理"
+  headline: "薬液注入工法"
+  hi: "5管理"
+  hiSuffix: "完成答案"
+  benefit: "書き換えてそのまま使える"
 ---
 # 1級土木 施工経験記述｜軟弱地盤 地盤改良（薬液注入工法）5管理 完成答案
 

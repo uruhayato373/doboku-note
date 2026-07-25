@@ -116,7 +116,7 @@ kuro
 |---|---|
 | `.claude/state/sales/sales-log.json` | 販売履歴データ（手動転記） |
 | `src/lib/note-magazines.ts` | マガジン ID マスター（価格・URL） |
-| `docs/reference/sales-tracking.md` | 運用手順書 |
+| `.claude/knowledge/reference/sales-tracking.md` | 運用手順書 |
 
 ## トラブルシューティング
 
@@ -140,4 +140,4 @@ kuro
 
 - `.claude/agents/sales-recorder.md` — 正規化・追記を担当するエージェント
 - `scripts/sales-summary.mjs` — 集計スクリプト
-- `docs/reference/sales-tracking.md` — 運用手順・ポリシー
+- `.claude/knowledge/reference/sales-tracking.md` — 運用手順・ポリシー

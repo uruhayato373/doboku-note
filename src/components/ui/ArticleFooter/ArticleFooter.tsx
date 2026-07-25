@@ -173,13 +173,13 @@ export default function ArticleFooter({
         category === 'concrete-diagnostician' ||
         category === 'pe-first-stage') && (
         <div className="mt-8 zenn-desktop:hidden">
-          <CareerAffiliate {...resolveCareerArticleEndCard(slugStr)} />
+          <CareerAffiliate {...resolveCareerArticleEndCard(slugStr)} placement="article-end-mobile" />
         </div>
       )}
       {/* 総監はシニア技術者・管理職層＝施工管理系がミスマッチのため PE_CONSULTING(ハイクラスDX/コンサル)で出す。 */}
       {category === 'pe-comprehensive-management' && (
         <div className="mt-8 zenn-desktop:hidden">
-          <CareerAffiliate {...resolvePeConsultingArticleEndCard()} />
+          <CareerAffiliate {...resolvePeConsultingArticleEndCard()} placement="article-end-mobile" />
         </div>
       )}
 

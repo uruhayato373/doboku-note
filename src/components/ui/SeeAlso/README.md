@@ -42,4 +42,4 @@
 ## 関連ファイル
 
 - 実装: [`SeeAlso.tsx`](./SeeAlso.tsx)
-- 使用ガイド: [`docs/reference/content-principles.md`](../../../../docs/reference/content-principles.md)
+- 使用ガイド: [`.claude/knowledge/reference/content-principles.md`](../../../../.claude/knowledge/reference/content-principles.md)

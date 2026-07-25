@@ -77,7 +77,7 @@ publishedAt: "YYYY-MM-DD"
 
 ### 必須コンポーネント
 
-- `<ExamPoint summary="..." items={["...", "..."]} />` — 試験対策ポイント（原則 1-2 個、総括位置、詳細は `docs/reference/content-principles.md` §5）
+- `<ExamPoint summary="..." items={["...", "..."]} />` — 試験対策ポイント（原則 1-2 個、総括位置、詳細は `.claude/knowledge/reference/content-principles.md` §5）
 - `<Callout type="note|tip|warn|...">` — 注意・補足（1 記事 1-3 個、詳細は [docs/ui/callout-gallery.md](../../../../../docs/ui/callout-gallery.md)）
 
 ### 禁止事項
@@ -120,7 +120,7 @@ publishedAt: "YYYY-MM-DD"
 
 ## 参照
 
-- `docs/reference/content-principles.md` — コンテンツ原則（真実源）
-- `docs/reference/content-authoring.md` — MDX コンポーネント仕様
+- `.claude/knowledge/reference/content-principles.md` — コンテンツ原則（真実源）
+- `.claude/knowledge/reference/content-authoring.md` — MDX コンポーネント仕様
 - `src/config/pe-chapters.json` — 5 管理体系の章・節構造
 - `.claude/skills/authoring/keyword-page/SKILL.md` — キーワードページ作成（PDF 変換ではなく対話型作成）

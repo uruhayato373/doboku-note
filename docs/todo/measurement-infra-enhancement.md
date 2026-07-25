@@ -31,7 +31,7 @@ referral 統一の policy+check は完了。**残＝既存 inline リンク 94 �
 
 ### サーバ側（GA4 管理画面・ユーザー手作業）
 
-- **未解決の bing bot 疑いの確定**（bing 252 > google 77 の逆転・`docs/reference/measurement-incidents.md` 参照）— これのみ残。内部トラフィック/参照除外・既知ボット除外・カスタムディメンションは登録済み。
+- **未解決の bing bot 疑いの確定**（bing 252 > google 77 の逆転・`.claude/knowledge/reference/measurement-incidents.md` 参照）— これのみ残。内部トラフィック/参照除外・既知ボット除外・カスタムディメンションは登録済み。
 
 ## 進め方
 

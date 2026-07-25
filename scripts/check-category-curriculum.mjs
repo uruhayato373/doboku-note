@@ -4,7 +4,7 @@
 // - HARD FAIL: careerFeatured に career タグでない記事を指定
 // - WARN: config 未割当の非キャリア guide 記事（resolver が unassigned で拾うが、編成漏れの気づき用）
 // - WARN: textbookChapters のレンジ外にある textbook 記事（resolver は「その他」章へ回す）
-// 真実源: src/lib/category-curriculum.ts（resolver）/ docs/design-system/design-system.md §3。
+// 真実源: src/lib/category-curriculum.ts（resolver）/ .claude/knowledge/design-system/design-system.md §3。
 
 import fs from 'node:fs';
 import path from 'node:path';

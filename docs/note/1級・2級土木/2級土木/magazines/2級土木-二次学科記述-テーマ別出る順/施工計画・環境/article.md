@@ -11,15 +11,12 @@ price: 480
 paidBoundary: "出る順①"
 coverTitle: ["2級土木 二次学科記述", "施工計画・環境 出る順"]
 cover:
-  leadIn: "2級土木施工管理技士 二次"
-  hi: "施工計画"
-  hiSuffix: "・環境"
-  banner: "R03-R07 工程表と頻出論点"
-  meta: "有料マガジン"
-  chips:
-    - { icon: doc, text: "工程表の特徴" }
-    - { icon: check, text: "頻出穴埋め語句" }
-    - { icon: edit, text: "作図・日数計算" }
+  variant: crop-safe-v4
+  leadIn: "2級土木｜二次学科記述"
+  headline: "施工計画・環境"
+  hi: "5年"
+  hiSuffix: "分 出る順"
+  benefit: "工程表と頻出論点"
 ---
 # 2級土木 二次学科記述｜施工計画・環境 出る順（R03-R07 工程表と頻出論点）
 

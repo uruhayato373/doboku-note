@@ -10,16 +10,12 @@ coverTitle:
   - 総監受験は
   - 投資としてペイするか
 cover:
-  leadIn: "総監受験は投資として"
-  hi: "ペイ"
-  hiSuffix: "するのか?"
-  banner: "コスト試算シート"
-  character: good-sign
-  meta: "無料記事"
-  chips:
-    - { icon: chart, text: "2026最新数値" }
-    - { icon: yen, text: "受験料補助" }
-    - { icon: check, text: "回収年数" }
+  variant: crop-safe-v4
+  leadIn: "総監 択一記述｜投資判断"
+  headline: "投資はペイするか"
+  hi: "2026"
+  hiSuffix: "最新"
+  benefit: "回収年数まで計算できる"
 ---
 # 総監受験は「投資」としてペイするか — 2026年最新数値で計算するコスト vs リターン完全シート
 

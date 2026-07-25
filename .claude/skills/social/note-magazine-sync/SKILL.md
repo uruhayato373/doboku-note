@@ -11,7 +11,7 @@ argument-hint: "[--contents]（収録記事の詳細まで確認する場合）"
 
 # note マガジン同期チェック＋SoT 自動修正
 
-**真実源**: `docs/reference/note-api-verification.md`
+**真実源**: `.claude/knowledge/reference/note-api-verification.md`
 
 ---
 
@@ -114,6 +114,6 @@ note.com 側の操作は `npm run note-edit-session -- {key}` でブラウザを
 
 ## 関連
 
-- 検証スクリプト参照: `docs/reference/note-api-verification.md`
+- 検証スクリプト参照: `.claude/knowledge/reference/note-api-verification.md`
 - note.com 書き込み: `/note-edit-magazine`（note掲載文.txt 駆動）
 - セッション起動: `npm run note-edit-session`

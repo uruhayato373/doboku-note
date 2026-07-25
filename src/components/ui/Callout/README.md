@@ -60,11 +60,11 @@ doboku-note の記事本文中に表示される、色 + アイコン + 任意�
 - **絵文字は使わない**（❌✅💡🔑 等は禁止、Callout で表現する）
 - **`<ExamPoint>` との使い分け**: ExamPoint は記事末尾の構造化総括、`<Callout type="exam">` は本文中の単発アクセント
 
-詳細な使用ガイド（どの論点にどの type を使うか）は [`docs/reference/content-principles.md`](../../../../docs/reference/content-principles.md) の「過剰装飾を避ける」節を参照。
+詳細な使用ガイド（どの論点にどの type を使うか）は [`.claude/knowledge/reference/content-principles.md`](../../../../.claude/knowledge/reference/content-principles.md) の「過剰装飾を避ける」節を参照。
 
 ## 関連ファイル
 
 - 実装: [`Callout.tsx`](./Callout.tsx)
 - ギャラリー（PNG スクショ付き）: [`docs/ui/callout-gallery.md`](../../../../docs/ui/callout-gallery.md)
-- 使用ガイド: [`docs/reference/content-principles.md`](../../../../docs/reference/content-principles.md)
+- 使用ガイド: [`.claude/knowledge/reference/content-principles.md`](../../../../.claude/knowledge/reference/content-principles.md)
 - 型移行スクリプト: [`.claude/scripts/migrate-callout-types.mjs`](../../../../.claude/scripts/migrate-callout-types.mjs)

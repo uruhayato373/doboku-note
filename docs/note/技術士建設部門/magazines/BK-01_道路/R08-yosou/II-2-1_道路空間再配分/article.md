@@ -12,17 +12,14 @@ noteId: "n15223b0ea869"
 notePublishedAt: "2026-07-23"
 price: 1980
 coverTitle: "技術士 建設部門｜道路 R8予想 II-2 予想① 道路空間再配分"
-cover:
-  leadIn: "技術士 建設部門 2次"
-  hi: "R8予想"
-  hiSuffix: "道路II-2 予想①"
-  banner: "選択科目II-2 道路空間再配分｜予想問題＋模範解答"
-  meta: "道路 予想問題 模範解答"
-  chips:
-    - { icon: pen, text: "予想問題＋フル模範解答" }
-    - { icon: layers, text: "発注者視点" }
-    - { icon: check, text: "改訂コンピテンシー対応" }
 utmCampaign: pe-construction-secondary
+cover:
+  variant: crop-safe-v4
+  leadIn: "建設部門｜道路"
+  headline: "2 道路空間再配分"
+  hi: "R8"
+  hiSuffix: "II-2 予想①"
+  benefit: "そのまま答案に展開できる"
 ---
 
 # 技術士 建設部門｜道路 R8予想 選択科目II-2 予想① 新モビリティ対応の道路空間再配分計画（予想問題＋フル模範解答）

@@ -44,4 +44,4 @@ node scripts/note-magazine-cover.mjs --key <magKey> --image <path.png> --commit 
 
 - `scripts/note-magazine-cover.mjs` — 本体 / `node` 直呼び or `npm run note-magazine-cover`
 - 新規作成: `note-magazine-create` ／ 設定・価格編集: `note-edit-magazine` ／ 収録: `note-magazine-add`
-- 真実源 `docs/reference/note-api-verification.md` ・[[project_note_write_automation]]
+- 真実源 `.claude/knowledge/reference/note-api-verification.md` ・[[project_note_write_automation]]

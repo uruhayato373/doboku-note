@@ -4,7 +4,7 @@
  *
  * review-mobile スキルのチェック項目のうち、機械判定可能なものを強制する。
  *
- * ルール根拠の単一真実源: `docs/reference/content-principles.md`
+ * ルール根拠の単一真実源: `.claude/knowledge/reference/content-principles.md`
  *   - §4 表は2軸比較にのみ使う        → カテゴリ1 (1-1〜1-7)
  *   - §24 文体（1文の長さ・文末の単調回避） → カテゴリ15 (15-1, 15-2)
  *   - §5 ExamPointは文脈の後に配置    → カテゴリ9 (9-1〜9-6)
@@ -1212,7 +1212,7 @@ function lintRelatedKeywordsComponent(lines, findings) {
  * 10-3 MEDIUM alt 属性が 80 字超過
  * 10-5 HIGH   画像ファイル不在 or mime が拡張子と不一致（HTML エラーページ偽 JPG 等）
  *
- * 真実源: docs/reference/content-principles.md §8
+ * 真実源: .claude/knowledge/reference/content-principles.md §8
  *   「caption は『図の説明』には使わない。ただし出典・帰属・機種名などの
  *   短い帰属情報（60字以内）は caption に書いてよい」
  */

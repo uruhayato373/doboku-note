@@ -6,16 +6,12 @@ membershipOnly: true
 utmCampaign: civil-membership-odai-quality-earthwork
 coverTitle: ["今週のお題｜品質管理", "土工・盛土の締固め"]
 cover:
-  leadIn: "今週のお題 ｜ 品質管理"
+  variant: crop-safe-v4
+  leadIn: "今週のお題｜経験記述"
+  headline: "品質管理"
   hi: "予想"
   hiSuffix: "問題"
-  banner: "土工・盛土の締固め"
-  meta: "メンバーシップ限定"
-  tone: deep
-  chips:
-    - { icon: target, text: "予想問題" }
-    - { icon: edit, text: "模範解答" }
-    - { icon: check, text: "採点ポイント" }
+  benefit: "土工の締固めが書ける"
 ---
 # 今週のお題｜品質管理 — 土工（盛土・路体路床）の締固め品質の確保
 

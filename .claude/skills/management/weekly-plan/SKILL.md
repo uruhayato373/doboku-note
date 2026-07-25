@@ -32,7 +32,7 @@ node .claude/scripts/snapshot-weekly-metrics.mjs        # 現在の週（既存�
 
 会社 PC のプロキシ配下などライブ取得できない環境では実行しない。Agent C（および weekly-review の SNS フェーズ）は **CI がコミットした `.claude/state/{weekly-metrics,metrics/{ga4,gsc}}/` のスナップショットを直接読む**（既定経路）。
 
-> 計測は CI/CD 供給が正（`fetch-metrics.yml` 金 06:00 JST / `psi-audit.yml` 日次）。ローカル creds は設計上不要で「計測基盤未整備」とは扱わない。恒久ルール: `docs/reference/measurement-incidents.md`（2026-06-05）。
+> 計測は CI/CD 供給が正（`fetch-metrics.yml` 金 06:00 JST / `psi-audit.yml` 日次）。ローカル creds は設計上不要で「計測基盤未整備」とは扱わない。恒久ルール: `.claude/knowledge/reference/measurement-incidents.md`（2026-06-05）。
 
 ### Phase 0.5: 閾値違反の抽出（docs/todo/ 反映候補）
 

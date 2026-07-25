@@ -126,5 +126,5 @@ user-invocable: true
 - `.claude/agents/pe-secondary-exam-writer.md`（Generator・forecast モード）
 - `.claude/agents/pe-secondary-exam-factcheck.md`（外部事実照合・WebSearch）
 - `.claude/agents/pe-secondary-exam-qa.md`（6軸構造採点・forecast ゲート）
-- `docs/reference/agents-registry.md` / `docs/reference/skills-guide.md`
+- `.claude/knowledge/reference/agents-registry.md` / `.claude/knowledge/reference/skills-guide.md`
 - メモリ: [[project_pe_construction_bk_magazines]] / [[feedback_essay_persona_authentic_seat]] / [[feedback_shared_index_commit_safety]] / [[feedback_no_price_in_mdx_body]]

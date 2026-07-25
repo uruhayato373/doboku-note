@@ -1,6 +1,6 @@
 # X(Twitter) 投稿テンプレ規約
 
-> **多資格運用の真実源は [docs/reference/x-post-policy.md](../../reference/x-post-policy.md)**（試験別テンプレ/タグ・投稿型・5 軸ルーブリック・偽成功検証）。本ファイルは文字数ルール等の現場規約。執筆は `x-post-writer`（Generator）、採点は `x-post-qa`（Evaluator）が担う。
+> **多資格運用の真実源は [.claude/knowledge/reference/x-post-policy.md](../../reference/x-post-policy.md)**（試験別テンプレ/タグ・投稿型・5 軸ルーブリック・偽成功検証）。本ファイルは文字数ルール等の現場規約。執筆は `x-post-writer`（Generator）、採点は `x-post-qa`（Evaluator）が担う。
 
 このディレクトリの `draft/<NNN>-*/tweets.md` は全て **280 weighted chars 以下** で書く。
 超過すると `publish-x` (Playwright) の予約投稿時に X 側で reject される（2026-05-17 発覚: 208/216 ツイート違反）。

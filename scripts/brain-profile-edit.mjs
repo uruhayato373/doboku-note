@@ -6,7 +6,7 @@
  * 商品ではなくアカウントのプロフィールを対象にする点だけが異なる。
  *
  * 編集画面は /profiles（本人用管理ページ）→「プロフィールを編集」モーダル。
- * 公開ビュー /u/:account には編集ボタンが無い（真実源: docs/reference/brain-operations.md §プロフィール編集）。
+ * 公開ビュー /u/:account には編集ボタンが無い（真実源: .claude/knowledge/reference/brain-operations.md §プロフィール編集）。
  *
  * 工程: ログイン待ち → account assert → /profiles → 「プロフィールを編集」
  *   → アバター（hidden input[type=file] へ setInputFiles → クロッパー「適用」）

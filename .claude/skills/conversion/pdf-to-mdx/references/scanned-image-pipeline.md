@@ -12,7 +12,7 @@
 | 図 | image-policy 準拠で別途 | **PDF から精密クロップして `img/figNN.png` 埋め込み** |
 
 > **著作権**: 市販書籍のスキャンは**原則**、内部リファレンス（論述/二次 writer の参照元 SSOT）専用で、**公開（MDX 化・note 転載）はしない**旨を README に明記する（[[project_pe_construction_secondary]] 等の writer が参照）。
-> **例外（2026-07-03・運営者権利保有書籍）**: 運営者が著作権を保有する書籍は公開派生可。技術士建設部門『論文対策キーワード』は逐語本文＋スキャン図を `.local/r2/posts/pe-construction/*-ronbun-keyword/` へ公開している（機械スプライス＋図クロップ埋込）。真実源＝`docs/textbook/技術士（建設部門）/論文対策キーワード/README.md` 方針ブロック＋`docs/reference/image-policy.md`「運営者権利保有書籍の例外」。1級土木テキスト等・権利未確認の書籍は原則どおり内部リファレンス専用。
+> **例外（2026-07-03・運営者権利保有書籍）**: 運営者が著作権を保有する書籍は公開派生可。技術士建設部門『論文対策キーワード』は逐語本文＋スキャン図を `.local/r2/posts/pe-construction/*-ronbun-keyword/` へ公開している（機械スプライス＋図クロップ埋込）。真実源＝`docs/textbook/技術士（建設部門）/論文対策キーワード/README.md` 方針ブロック＋`.claude/knowledge/reference/image-policy.md`「運営者権利保有書籍の例外」。1級土木テキスト等・権利未確認の書籍は原則どおり内部リファレンス専用。
 
 ワーカー: 本文 OCR = `scanned-textbook-transcriber`（Generator）／図 bbox = `civil-exam-figure-extractor` と同型の Generator（教材はキャプション照合のため本手順では inline Workflow で実行）。
 

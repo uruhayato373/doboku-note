@@ -204,7 +204,7 @@ NLM MED 残存: 1 件（alt 属性 88字 → 要短縮）
 
 1. **各 HIGH 項目は個別に方針を確認してから実行**。関連項目（例: 「見出し順序入れ替え + 表構造修正」）はまとめて確認してよい
 2. **LOW 項目は自動スキップ**。必要なら最後にまとめて「他に LOW が N 件あります」と報告
-3. **図版の扱い**: 視覚 HIGH/MED で SVG 化候補が出たら、**原 PNG を Read で目視確認**してから SVG 化すべきかを判断する。写真は SVG 化禁止（`docs/reference/image-policy.md`）
+3. **図版の扱い**: 視覚 HIGH/MED で SVG 化候補が出たら、**原 PNG を Read で目視確認**してから SVG 化すべきかを判断する。写真は SVG 化禁止（`.claude/knowledge/reference/image-policy.md`）
 4. **--auto でも破壊的操作は確認**: 画像ファイルの削除、多数ファイルの一括リネーム、他記事への影響がある変更は必ず確認
 
 ## --mode verify（旧 `/verify-pdf-mdx` / `/qa-pdf-mdx` 吸収）
@@ -329,5 +329,5 @@ JSON 出力をパースして以下を取得:
 - [.claude/skills/conversion/pdf-to-mdx/scripts/verify-pdf-mdx.mjs](../../conversion/pdf-to-mdx/scripts/verify-pdf-mdx.mjs) — verify mode の決定論的前処理スクリプト
 - [.claude/skills/authoring/create-svg/SKILL.md](../create-svg/SKILL.md) — SVG 図版作成
 - [.claude/skills/quality/quality-cycle/SKILL.md](../quality-cycle/SKILL.md) — CEM バルク処理（本スキルと補完関係）
-- [docs/reference/image-policy.md](../../../reference/image-policy.md) — 図/写真の判定フロー
+- [.claude/knowledge/reference/image-policy.md](../../../reference/image-policy.md) — 図/写真の判定フロー
 - [CLAUDE.md](../../../../CLAUDE.md) — MDX 書き込み規約・コミット運用

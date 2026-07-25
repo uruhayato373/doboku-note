@@ -47,7 +47,7 @@ tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 
 ## 品質ルーブリック（ガイド5軸）
 
-5軸で 0〜3 点（0=不合格、1=要修正、2=合格、3=優秀）。**加重合計 ≥ 2.0 / 3.0 で合格**。各軸の真実源は `docs/reference/content-principles.md`。
+5軸で 0〜3 点（0=不合格、1=要修正、2=合格、3=優秀）。**加重合計 ≥ 2.0 / 3.0 で合格**。各軸の真実源は `.claude/knowledge/reference/content-principles.md`。
 
 | 軸 | 重み | 3点 | 2点 | 1点 | 0点 |
 |---|---|---|---|---|---|
@@ -111,6 +111,6 @@ type: Type-1 / Type-2（§20）
 
 ## 参照ドキュメント
 
-- `docs/reference/content-principles.md` — §1/§2/§7.1/§17/§20/§24/§25/§26（ガイド軸の真実源）
-- `docs/reference/content-authoring.md` — MDX 実装規約
+- `.claude/knowledge/reference/content-principles.md` — §1/§2/§7.1/§17/§20/§24/§25/§26（ガイド軸の真実源）
+- `.claude/knowledge/reference/content-authoring.md` — MDX 実装規約
 - `.claude/agents/civil-construction-review.md` — 共用校正ルーブリックの参考

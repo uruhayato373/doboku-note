@@ -6,16 +6,12 @@ membershipOnly: true
 utmCampaign: civil-membership-gakka-concrete
 coverTitle: ["学科記述予想｜コンクリート工", "打込み・養生・暑中寒中"]
 cover:
-  leadIn: "予想テーマ ｜ コンクリート工"
-  hi: "学科"
-  hiSuffix: "記述"
-  banner: "打込み・養生・暑中寒中"
-  meta: "メンバーシップ限定"
-  tone: deep
-  chips:
-    - { icon: book, text: "頻出テーマ" }
-    - { icon: edit, text: "記述例" }
-    - { icon: check, text: "得点の型" }
+  variant: crop-safe-v4
+  leadIn: "学科記述予想"
+  headline: "コンクリート工"
+  hi: "予想"
+  hiSuffix: "テーマ"
+  benefit: "打込み養生が書ける"
 ---
 # 学科記述予想｜コンクリート工 — 打込み・締固め・養生と暑中寒中対策
 

@@ -14,7 +14,7 @@
  *
  * 関連:
  *   - 修正ツール: `.tmp/fix-note-bold-paren.mjs`（同 stateful 論理で transform）
- *   - SSoT: `docs/reference/content-principles.md` §14-b
+ *   - SSoT: `.claude/knowledge/reference/content-principles.md` §14-b
  *
  * 終了コード: 0 = 違反なし / 1 = 違反あり / 2 = 引数エラー
  */

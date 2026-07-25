@@ -18,7 +18,7 @@
  * フィルタ既定動作（2026-05-17 以降）:
  *   - country = Japan に絞る（海外 direct/bing bot 排除）
  *   - source = (not set) を除外（GA4 計測ノイズ）
- *   - bot 典型の参照スパムを除外（`docs/reference/measurement-incidents.md` 2026-04-26 参照）
+ *   - bot 典型の参照スパムを除外（`.claude/knowledge/reference/measurement-incidents.md` 2026-04-26 参照）
  *   過去データ仕様に戻すには `--include-all` を付与。
  *
  * 必要な環境変数 (.env.local):

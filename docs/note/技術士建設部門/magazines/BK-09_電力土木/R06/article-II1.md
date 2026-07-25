@@ -9,17 +9,14 @@ noteId: "n1984e17eeb54"
 notePublishedAt: "2026-06-17"
 price: 780
 coverTitle: "技術士 建設部門｜電力土木 R06 選択科目II-1 模範解答"
-cover:
-  leadIn: "技術士 建設部門 2次"
-  hi: "R06"
-  hiSuffix: "電力土木II-1"
-  banner: "選択科目II-1 専門知識｜模範解答"
-  meta: "電力土木 模範解答"
-  chips:
-    - { icon: pen, text: "全4設問フル模範解答" }
-    - { icon: layers, text: "発注者視点" }
-    - { icon: check, text: "採点ポイント付" }
 utmCampaign: pe-construction-secondary
+cover:
+  variant: crop-safe-v4
+  leadIn: "建設部門｜電力土木"
+  headline: "模範解答"
+  hi: "R06"
+  hiSuffix: "II-1 専門知識"
+  benefit: "そのまま答案に展開できる"
 ---
 
 # 技術士 建設部門｜電力土木 R06 選択科目II-1 模範解答（全4設問）

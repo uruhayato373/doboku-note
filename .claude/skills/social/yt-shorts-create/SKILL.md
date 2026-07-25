@@ -8,7 +8,7 @@ allowed-tools: Bash, Read, Write
 
 `docs/sns/instagram/{exam}/exam-packs/<year>/pack-NN/reels/` の **IG Reels mp4 から、1080×1920 縦型 30-60 秒の YouTube Shorts を派生生成**する。本スキルは mp4 + thumbnail.png + meta.json の生成まで担当。YouTube への投稿は `post-from-schedule.cjs`（台帳 CI 運用）が担う。
 
-**v7 で MDX 直結モード（旧 `--slug`）は廃止**。詳細は [`docs/project/03_SNS/01_SNS集客戦略.md`](../../../../docs/project/03_SNS/01_SNS集客戦略.md) v7、品質ルーブリックは [`docs/reference/yt-shorts-publisher-policy.md`](../../../../docs/reference/yt-shorts-publisher-policy.md)。
+**v7 で MDX 直結モード（旧 `--slug`）は廃止**。詳細は [`docs/project/03_SNS/01_SNS集客戦略.md`](../../../../docs/project/03_SNS/01_SNS集客戦略.md) v7、品質ルーブリックは [`.claude/knowledge/reference/yt-shorts-publisher-policy.md`](../../../../.claude/knowledge/reference/yt-shorts-publisher-policy.md)。
 
 ## 前提
 
@@ -126,7 +126,7 @@ node .../per-problem-shorts.mjs --ig-mode --year r07 --pack r07-pack-01 [--quest
 | 尺ガード | ≤60秒（厳格） | ≤90秒 |
 | 公開 | YT API | `publish-ig-bs --reel <q-dir>`（無改修）/ JIT は `scripts/publish-reel-jit.mjs` |
 
-`--questions 1,2` で問番を限定（既定=全4問）。詳細・運用は [ig-reels-policy.md §6](../../../../docs/reference/ig-reels-policy.md)。
+`--questions 1,2` で問番を限定（既定=全4問）。詳細・運用は [ig-reels-policy.md §6](../../../../.claude/knowledge/reference/ig-reels-policy.md)。
 
 ### YT 専用描画（`ytMode`）— IG 流用をやめた理由
 
@@ -191,7 +191,7 @@ ls docs/sns/youtube/$(date +%Y-%m-%d)-r03-pack-01/
 ## 関連
 
 - 戦略: [`docs/project/03_SNS/01_SNS集客戦略.md`](../../../../docs/project/03_SNS/01_SNS集客戦略.md) v7
-- 品質ルーブリック: [`docs/reference/yt-shorts-publisher-policy.md`](../../../../docs/reference/yt-shorts-publisher-policy.md)
+- 品質ルーブリック: [`.claude/knowledge/reference/yt-shorts-publisher-policy.md`](../../../../.claude/knowledge/reference/yt-shorts-publisher-policy.md)
 - 上流: `ig-reel-create` スキル（IG Reels mp4 を生成）+ `ig-reels-writer` エージェント（script.json 執筆）
 - 親タスク: YT 派生スクリプト + Evaluator（v7 Phase D。docs/todo/ で追跡）
 

@@ -9,16 +9,12 @@ coverTitle:
   - 道路担当の
   - 総監記述式テーマ選び
 cover:
-  leadIn: "自治体 道路担当の"
-  hi: "お題"
-  hiSuffix: "選びで半分決まる"
-  banner: "記述式テーマ選び"
-  character: pointing
-  meta: "無料記事"
-  chips:
-    - { icon: target, text: "題材の選び方" }
-    - { icon: doc, text: "NG題材" }
-    - { icon: check, text: "5管理の絡め方" }
+  variant: crop-safe-v4
+  leadIn: "総監 記述式｜テーマ選び"
+  headline: "お題選びが半分"
+  hi: "NG"
+  hiSuffix: "題材"
+  benefit: "5管理の絡め方がわかる"
 ---
 # 【総監記述式】自治体 道路担当が記述式の「お題」をどう選ぶか｜題材選びで答案は半分決まる
 

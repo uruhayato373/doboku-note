@@ -22,7 +22,7 @@
 
 ## スキルレジストリへの登録
 
-スキル作成後、`docs/reference/skills-registry.md` の該当カテゴリ表に追加する:
+スキル作成後、`.claude/knowledge/reference/skills-registry.md` の該当カテゴリ表に追加する:
 
 ```markdown
 | `/skill-name` | 用途の説明 | `.claude/skills/<category>/<name>/SKILL.md` |

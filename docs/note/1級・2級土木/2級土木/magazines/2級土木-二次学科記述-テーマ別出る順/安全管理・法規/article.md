@@ -11,15 +11,12 @@ price: 480
 paidBoundary: "出る順①"
 coverTitle: ["2級土木 二次学科記述", "安全管理・法規 出る順"]
 cover:
-  leadIn: "2級土木施工管理技士 二次"
-  hi: "安全"
-  hiSuffix: "・法規"
-  banner: "R03-R07 頻出論点と条文の型"
-  meta: "有料マガジン"
-  chips:
-    - { icon: doc, text: "出題頻度データ" }
-    - { icon: check, text: "頻出条文・数値" }
-    - { icon: edit, text: "解答の型" }
+  variant: crop-safe-v4
+  leadIn: "2級土木｜二次学科記述"
+  headline: "安全・法規"
+  hi: "5年"
+  hiSuffix: "分 出る順"
+  benefit: "頻出論点と条文の型"
 ---
 # 2級土木 二次学科記述｜安全管理・法規 出る順（R03-R07 頻出論点と条文の型）
 

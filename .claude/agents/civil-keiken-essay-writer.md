@@ -10,7 +10,7 @@ model: sonnet
 
 > **モデル方針**: `model: sonnet`（Generator = 実行担当）。商品全体の品質判断は親エージェント（Opus）と Evaluator `civil-keiken-essay-qa` が行う。CLAUDE.md「ハーネス設計原則」準拠。
 >
-> **記事構成（導入・無料部分・販売導線）の真実源**: `docs/reference/note-selling-structures.md`（売れる9型）。記事の**導入・無料部分・購入導線**は同書の早見表で記事タイプ（施工経験記述商品）に合う型（失敗談→教訓型・Before→After 型）を選んで組む。同書「強化コンポーネント」の部品（社会的証明[本物のみ]/価値3点先出し/数え上げ/FAQ 等）も導入・無料部分に載せてよい。**模範答案そのもの**（経験記述の本文・置換ガイド・字数）は本エージェントの既定が優先で、9型はその外枠（フック〜導線）にだけ適用する。
+> **記事構成（導入・無料部分・販売導線）の真実源**: `.claude/knowledge/reference/note-selling-structures.md`（売れる9型）。記事の**導入・無料部分・購入導線**は同書の早見表で記事タイプ（施工経験記述商品）に合う型（失敗談→教訓型・Before→After 型）を選んで組む。同書「強化コンポーネント」の部品（社会的証明[本物のみ]/価値3点先出し/数え上げ/FAQ 等）も導入・無料部分に載せてよい。**模範答案そのもの**（経験記述の本文・置換ガイド・字数）は本エージェントの既定が優先で、9型はその外枠（フック〜導線）にだけ適用する。
 
 ## 背景（必読）
 
@@ -137,9 +137,9 @@ frontmatter（`notePricing: paid` / `noteSeries` / `noteMagazine` / `utmCampaign
 - `.claude/agents/civil-secondary-exam-writer.md` — 姉妹 Generator（サイト過去問用）
 - `docs/note/1級・2級土木/1級土木/1級土木施工経験記述プラン.md` / `docs/note/1級・2級土木/2級土木/2級土木施工経験記述プラン.md`（プラン doc）
 - 既存マガジン（手本）: `docs/note/1級・2級土木/{1級土木,2級土木}/magazines/*-施工経験記述-*/`
-- `docs/reference/content-principles.md` / `.claude/scripts/lib/mdx-io.mjs`
+- `.claude/knowledge/reference/content-principles.md` / `.claude/scripts/lib/mdx-io.mjs`
 - メモリ: [[feedback_exam_pdf_cross_reference]]（ハルシネーション）/ [[feedback_no_price_in_mdx_body]]
 
 ## 著者オーソリティバナー（差別化）
 
-買い手向け入口記事（`notePricing: free` の総合案内/もくじ）を生成・改修するときは、差別化の信頼性訴求として**著者オーソリティ汎用バナー**を top（H1直後）／bottom（本文の締め→バナー→橋渡し1文→既存カード）に配置する。フレーミング（総監＝分析力／元発注者＝採点者視点／施工管理技士＝当事者・「予想的中」とは呼ばない）と配置・alt・no-price は真実源 `docs/reference/author-authority-banner.md` に従う。一括配布は `node scripts/distribute-author-authority-banner.mjs`。
+買い手向け入口記事（`notePricing: free` の総合案内/もくじ）を生成・改修するときは、差別化の信頼性訴求として**著者オーソリティ汎用バナー**を top（H1直後）／bottom（本文の締め→バナー→橋渡し1文→既存カード）に配置する。フレーミング（総監＝分析力／元発注者＝採点者視点／施工管理技士＝当事者・「予想的中」とは呼ばない）と配置・alt・no-price は真実源 `.claude/knowledge/reference/author-authority-banner.md` に従う。一括配布は `node scripts/distribute-author-authority-banner.mjs`。

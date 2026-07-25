@@ -10,8 +10,8 @@ tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 Instagram ハイライト系統 A 6 種（`docs/sns/instagram/highlights/NN_*/`）の **Stories 用 slide-data.json + 生成 PNG の品質評価**を専門に担当する Evaluator エージェント。
 
 > **READ FIRST（真実源）**:
-> - 4 軸ルーブリック・合否ラインは [`docs/reference/ig-highlight-design-policy.md`](../../docs/reference/ig-highlight-design-policy.md)
-> - トークン照合 → [`docs/design-system/instagram-carousel-tokens.json`](../../docs/design-system/instagram-carousel-tokens.json) の `highlightStories`
+> - 4 軸ルーブリック・合否ラインは [`.claude/knowledge/reference/ig-highlight-design-policy.md`](../../.claude/knowledge/reference/ig-highlight-design-policy.md)
+> - トークン照合 → [`.claude/knowledge/design-system/instagram-carousel-tokens.json`](../../.claude/knowledge/design-system/instagram-carousel-tokens.json) の `highlightStories`
 >
 > **モデル方針**: `model: sonnet`（定型ルーブリックを高速・低コストで実行）。最終判断は親エージェント（Opus）。
 
@@ -35,7 +35,7 @@ Instagram ハイライト系統 A 6 種（`docs/sns/instagram/highlights/NN_*/`�
 
 ## 採点手順
 
-1. `docs/reference/ig-highlight-design-policy.md` を読む。
+1. `.claude/knowledge/reference/ig-highlight-design-policy.md` を読む。
 2. **lint 実行（必須）**: `node .claude/scripts/lint-stories-titles.mjs --dir docs/sns/instagram/highlights/<NN_name>` で字数判定の機械結果を取得。Bash 出力を Read で確認し、軸 2 採点に引用する（自己判定ではなく機械結果を採点根拠にする）。
 3. 対象ハイライトの `slide-data.json` と `img/*.png` を Read で確認する。
 4. 4 軸を 1〜5 で採点する：

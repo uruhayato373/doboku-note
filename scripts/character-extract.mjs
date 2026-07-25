@@ -3,7 +3,7 @@
  * character-extract — ChatGPT 等で「1ポーズ=1画像・無地背景」生成したキャラ画像群を
  * 透過 PNG（背景除去＋トリム）に変換し、ポーズ名で素材ライブラリへ保存する。
  *
- * 真実源/運用: docs/reference/character-asset-policy.md
+ * 真実源/運用: .claude/knowledge/reference/character-asset-policy.md
  * マニフェスト: .claude/config/character-poses.json
  *
  * 使い方:

@@ -8,15 +8,12 @@ notePublishedAt: 2026-05-21
 noteMagazine: 総監模範論文-河川コンサル
 price: 500
 cover:
-  leadIn: "令和5年度 総監記述式"
+  variant: crop-safe-v4
+  leadIn: "総監 記述式｜河川コンサル"
+  headline: "SWOT分析"
   hi: "R5"
-  hiSuffix: "河川コンサル版"
-  banner: "SWOT分析｜3,000字級フル論文"
-  meta: "フル模範論文"
-  chips:
-    - { icon: pen, text: "答案そのまま展開" }
-    - { icon: layers, text: "5管理トレードオフ" }
-    - { icon: check, text: "採点チェック付" }
+  hiSuffix: "過去問"
+  benefit: "3,000字級をそのまま展開"
 ---
 # 令和5年度 総監記述式 模範論文｜河川コンサル版（SWOT 分析）
 

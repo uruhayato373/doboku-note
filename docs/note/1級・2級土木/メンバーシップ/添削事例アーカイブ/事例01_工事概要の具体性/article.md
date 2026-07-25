@@ -6,16 +6,12 @@ membershipOnly: true
 utmCampaign: civil-membership-addelta-01
 coverTitle: ["添削事例アーカイブ 01", "工事概要の具体性で落ちる"]
 cover:
-  leadIn: "よくある失敗パターン"
-  hi: "添削"
-  hiSuffix: "事例 01"
-  banner: "工事概要の具体性で落ちる"
-  meta: "メンバーシップ限定"
-  tone: deep
-  chips:
-    - { icon: edit, text: "添削事例" }
-    - { icon: layers, text: "Before→After" }
-    - { icon: check, text: "改善ポイント" }
+  variant: crop-safe-v4
+  leadIn: "添削事例アーカイブ"
+  headline: "工事概要の具体性"
+  hi: "事例"
+  hiSuffix: "01"
+  benefit: "Before→Afterで改善点が分かる"
 ---
 # 添削事例アーカイブ 01｜工事概要の「具体性」で減点される
 

@@ -2,14 +2,14 @@
  * OGP テンプレートレンダラ（T06 Mono Tag 統一版）。
  *
  * 各テンプレは (props, sizeOpts) を受け取って satori element を返す純関数。
- * テンプレ追加時は 1) renderers に関数追加 2) .claude/config/ogp/templates.json に定義追加 3) docs/reference/ogp-prompts.md に出典記録 の3点セット。
+ * テンプレ追加時は 1) renderers に関数追加 2) .claude/config/ogp/templates.json に定義追加 3) .claude/knowledge/reference/ogp-prompts.md に出典記録 の3点セット。
  *
  * レイアウト方針（2026-06-16〜）:
  *   - mono-tag（サイト OGP / cover 無し note カバー）は全幅レイアウト。左右 72px パディング内に
  *     ワードマーク・カテゴリチップ・タイトル（縦中央寄せ・最大76px）を置き、資格別テーマ色の 16px 外枠を描く。
  *   - magazine-banner / note-cover-g2 は中央 630×630 セーフティゾーン（1:1 クロップ耐性）を厳守する別系統。
  *   装飾要素（グリッド・アクセントバー）は全幅 OK。
- *   デザイン真実源: docs/reference/ogp-prompts.md。
+ *   デザイン真実源: .claude/knowledge/reference/ogp-prompts.md。
  *
  * サイズパラメータ: renderTemplate(id, props, { width, height }) で OGP=1200×630 と
  *   note カバー=1280×670 の両方をサポート。SAFETY_ZONE_WIDTH=630 は g2/banner 系のセーフ幅算出に使う。
@@ -825,7 +825,7 @@ function renderMagazineBanner({ lines, categoryLabel: cat, fontSize, accentColor
 //
 // 出典: handoff covers-g2-all.jsx（claude.ai/design「G2 案」）を satori へ移植。
 // 試験区分=ベース色 / 系列(notePricing)=濃淡 の二軸。値の SSoT は
-// docs/design-system/note-cover-tokens.json（呼び出し側 generate-note-covers.mjs が
+// .claude/knowledge/design-system/note-cover-tokens.json（呼び出し側 generate-note-covers.mjs が
 // exam→パレット解決し props.palette として渡す）。mono-tag（OGP・正方形クロップ前提）
 // とは別系統で、1280×670 フル活用しつつ中央 630×630 に最重要テキストを収める。
 
@@ -905,7 +905,17 @@ function hiFontSize(text) {
   return 76;
 }
 
-function renderNoteCoverG2({ cover, palette }, { width, height }) {
+function renderNoteCoverG2(props, { width, height }) {
+  const { cover, palette } = props;
+  const c0 = cover || {};
+  // ---- Crop-safe V4 opt-in 分岐（variant なしの既存 G2 は一切変更しない）----
+  if (c0.variant === 'crop-safe-v4') {
+    return renderNoteCoverCropSafeV4(props, { width, height });
+  }
+  if (c0.variant) {
+    // 未知 variant は黙って G2 へフォールバックせず生成エラーにする（clarity V3 方針を継承）
+    throw new Error(`未知の cover.variant "${c0.variant}"（対応: crop-safe-v4）`);
+  }
   const band = palette.band; // 系列トーン解決済みの試験色
   const accent = palette.accent || band;
   const examLabel = palette.label || '';
@@ -1121,6 +1131,354 @@ function renderNoteCoverG2({ cover, palette }, { width, height }) {
     type: 'div',
     props: {
       style: { width: `${width}px`, height: `${height}px`, display: 'flex', position: 'relative', background: G2_PAPER_FROM, color: G2_INK, fontFamily: '"Noto Sans JP", Inter, sans-serif' },
+      children,
+    },
+  };
+}
+
+// ---- テンプレート: note-cover Crop-safe V4 (cover.variant: crop-safe-v4 の opt-in) ----
+//
+// 仕様 SSOT: .claude/knowledge/design-system/note-cover-crop-safe-v4.md / 値: note-cover-tokens.json layout.cropSafeV4。
+// note の表示面はフル 1280×670 / 正方形(中央630×630) / 一覧(中央1280×454) / 狭ヘッダー(中央1280×216) /
+// リンクカード / 関連記事 とトリミングが異なる。V4 は三重安全領域（square/list/core-safe）に情報階層を
+// 固定配置し、主要文字（headline / hi+hiSuffix / benefit / magazineName）を中央 590px 一行に必ず収める。
+// G2 の「長文 banner は正方形で両端切れ許容」を V4 では採用しない＝最小フォントでも入らない文字列は
+// 切り詰めず生成エラーにする。chips は使用しない（呼び出し側が警告）。
+// AI 背景素材（visualSrc）は満载時のみ敷き、中央帯スクリムで text-safe の可読性を決定論的に守る。
+// 素材が無ければ G2 と同じ決定論的背景へフォールバック（素材無しを公開ブロッカーにしない）。
+
+// V4 三重安全領域（1280×670 基準・tokens.json layout.cropSafeV4.safeAreas と一致）
+export const V4_SAFE = {
+  square: { x: [325, 955], y: [20, 650] },
+  list: { x: [325, 955], y: [108, 562] },
+  core: { x: [325, 955], y: [227, 443] },
+  textWidth: 590, // text-safe: x=345..935
+};
+// V4 レイアウト座標（tokens.json layout.cropSafeV4.{article,magazine} と一致）
+const V4_POS = {
+  leadIn: { top: 112, height: 44 },
+  headline: { top: 227, height: 216 }, // = core-safe。flex center なので必ず内側
+  hiRow: { top: 450, height: 48 },
+  benefit: { top: 510, height: 52 }, // 下端 562 = list-safe 下端
+};
+const V4_SLACK = 1.04; // 日本語フォント誤差の余裕（clarity V3 仕様 §6 を継承）
+// V4 フォントは全件固定＝カバー間でタイトルサイズを統一する（2026-07-24 ユーザーFB反映）。
+// 固定サイズで中央590px（benefit は帯内560px）に入る実効字数上限:
+//   headline/magazineName 8.1字 / leadIn・qualifier 18.9字 / proof 17.7字 / benefit 19.2字。
+// 入らない文言は縮小せず生成エラー（コピー側を短くする）。
+export const V4_FONT = {
+  headline: 70, // 記事 headline / マガジン magazineName（コピー目安 4〜8字）
+  leadIn: 30, // 記事 leadIn / マガジン qualifier（8〜18字）
+  hi: 44, // HiBox 文字（枠48px内・上下余白を確保）
+  hiSuffix: 34,
+  proof: 32,
+  benefit: 28, // 帯52px内・上下余白12px
+};
+
+/**
+ * V4 の一行フィット純関数。text が maxWidth(既定590)px に収まるフォントサイズを
+ * [min..max] から返す。min でも入らなければ null（呼び出し側がエラー/issue 化）。
+ */
+export function v4FitFontSize(text, { min, max, maxWidth = V4_SAFE.textWidth } = {}) {
+  const ecw = effectiveCharCount(text) || 1;
+  const fit = Math.floor(maxWidth / (ecw * V4_SLACK));
+  if (fit < min) return null;
+  return Math.min(max, fit);
+}
+
+/**
+ * V4 の主要要素フィット検査（check-note-cover-fit / renderer 共用の純関数）。
+ * kind: 'article' | 'magazine'。errors（=生成エラー相当）と warnings を返す。
+ */
+export function v4FitIssues(cover, kind = 'article') {
+  const c = cover || {};
+  const errors = [];
+  const warnings = [];
+  const need = (k) => {
+    if (!c[k] || !String(c[k]).trim()) errors.push(`${k} が空（V4 必須）`);
+  };
+  const fitOrError = (label, text, range) => {
+    if (!text) return;
+    if (v4FitFontSize(text, range) === null) {
+      errors.push(`${label} "${text}" が最小 ${range.min}px でも中央 ${range.maxWidth || V4_SAFE.textWidth}px に収まらない（切り詰めず短縮する）`);
+    }
+  };
+  if (kind === 'magazine') {
+    need('magazineName');
+    need('qualifier');
+    need('benefit');
+    fitOrError('magazineName', c.magazineName, { min: V4_FONT.headline, max: V4_FONT.headline });
+    fitOrError('qualifier', c.qualifier, { min: V4_FONT.leadIn, max: V4_FONT.leadIn });
+    fitOrError('proof', c.proof, { min: V4_FONT.proof, max: V4_FONT.proof });
+    fitOrError('benefit', c.benefit, { min: V4_FONT.benefit, max: V4_FONT.benefit, maxWidth: 560 });
+    if (/[¥￥]|円/.test(String(c.proof || '') + String(c.benefit || '') + String(c.magazineName || ''))) {
+      warnings.push('価格らしき表記（¥/円）が含まれる。価格は画像へ固定しない（V4 §6.1）');
+    }
+  } else {
+    need('leadIn');
+    need('headline');
+    need('hi');
+    need('hiSuffix');
+    need('benefit');
+    fitOrError('headline', c.headline, { min: V4_FONT.headline, max: V4_FONT.headline });
+    fitOrError('leadIn', c.leadIn, { min: V4_FONT.leadIn, max: V4_FONT.leadIn });
+    fitOrError('benefit', c.benefit, { min: V4_FONT.benefit, max: V4_FONT.benefit, maxWidth: 560 });
+    if (c.hi || c.hiSuffix) {
+      // hi(HiBox: padding 0 16×2) + gap12 + hiSuffix(34px) の合計幅が 590 に収まるか
+      const hiW = c.hi ? effectiveCharCount(c.hi) * V4_FONT.hi * V4_SLACK + 32 : 0;
+      const sufW = c.hiSuffix ? effectiveCharCount(c.hiSuffix) * V4_FONT.hiSuffix * V4_SLACK : 0;
+      const total = hiW + (c.hi && c.hiSuffix ? 12 : 0) + sufW;
+      if (total > V4_SAFE.textWidth) {
+        errors.push(`hi+hiSuffix 推定 ${Math.round(total)}px > ${V4_SAFE.textWidth}px（合計 2〜7 字に短縮する）`);
+      }
+    }
+    if (Array.isArray(c.chips) && c.chips.length) {
+      warnings.push('V4 では chips を使用しない（描画されない・cover から削除を推奨）');
+    }
+  }
+  return { errors, warnings };
+}
+
+// V4 debug 用の三重安全領域オーバーレイ（square=赤 / list=橙 / core=緑 / text-safe=青破線）
+function v4DebugOverlay() {
+  const rect = (area, color, dashed = false) => ({
+    type: 'div',
+    props: {
+      style: {
+        position: 'absolute',
+        left: `${area.x[0]}px`,
+        top: `${area.y[0]}px`,
+        width: `${area.x[1] - area.x[0]}px`,
+        height: `${area.y[1] - area.y[0]}px`,
+        display: 'flex',
+        border: `3px ${dashed ? 'dashed' : 'solid'} ${color}`,
+        boxSizing: 'border-box',
+      },
+      children: [],
+    },
+  });
+  return [
+    rect(V4_SAFE.square, '#ff0000'),
+    rect(V4_SAFE.list, '#ff9900'),
+    rect(V4_SAFE.core, '#00aa00'),
+    rect({ x: [345, 935], y: [20, 650] }, '#3388ff', true),
+  ];
+}
+
+function renderNoteCoverCropSafeV4({ cover, palette, magazine, visualSrc, debugSafetyV4 }, { width, height }) {
+  const c = cover || {};
+  const kind = magazine ? 'magazine' : 'article';
+  const { errors } = v4FitIssues(c, kind);
+  if (errors.length) {
+    throw new Error(`crop-safe-v4 フィット検証失敗: ${errors.join(' / ')}`);
+  }
+  const band = palette.band;
+  const examLabel = palette.label || '';
+
+  // 中央帯コンテナ（left 325 / width 630）に flex center で置く＝x 方向は常に square/list/core-safe 内
+  const centerBand = (top, h, children, extraStyle = {}) => ({
+    type: 'div',
+    props: {
+      style: {
+        position: 'absolute',
+        left: `${V4_SAFE.square.x[0]}px`,
+        top: `${top}px`,
+        width: `${V4_SAFE.square.x[1] - V4_SAFE.square.x[0]}px`,
+        height: `${h}px`,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontFamily: '"Noto Sans JP", Inter, sans-serif',
+        ...extraStyle,
+      },
+      children,
+    },
+  });
+
+  // ---- 背景（full 領域）----
+  let backgroundEls;
+  if (visualSrc) {
+    // AI 背景素材（文字なし・中央低情報量前提）＋中央帯スクリム＝text-safe の可読性を決定論的に確保
+    const scrim = magazine
+      ? { background: `linear-gradient(90deg, rgba(0,0,0,0) 0%, ${band}D9 7%, ${band}D9 93%, rgba(0,0,0,0) 100%)` }
+      : { background: 'linear-gradient(90deg, rgba(244,246,249,0) 0%, rgba(244,246,249,0.84) 7%, rgba(244,246,249,0.84) 93%, rgba(244,246,249,0) 100%)' };
+    backgroundEls = [
+      {
+        type: 'img',
+        props: { src: visualSrc, width, height, style: { position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' } },
+      },
+      {
+        type: 'div',
+        props: { style: { position: 'absolute', top: 0, left: `${V4_SAFE.square.x[0] - 40}px`, width: `${V4_SAFE.square.x[1] - V4_SAFE.square.x[0] + 80}px`, height: '100%', display: 'flex', ...scrim }, children: [] },
+      },
+    ];
+  } else if (magazine) {
+    // マガジン・素材なし: fillBg（band）単色＋白グリッド（magazine-banner filled と同系の決定論的背景）
+    const fineGridUrl = gridDataUrl(30, 'rgba(255,255,255,0.06)', 1);
+    const majorGridUrl = gridDataUrl(120, 'rgba(255,255,255,0.12)', 1.25);
+    backgroundEls = [
+      {
+        type: 'div',
+        props: {
+          style: { position: 'absolute', inset: 0, display: 'flex', background: band, backgroundImage: `url(${majorGridUrl}), url(${fineGridUrl})`, backgroundRepeat: 'repeat, repeat' },
+          children: [],
+        },
+      },
+    ];
+  } else {
+    // 記事・素材なし: G2 と同じ紙面グラデ＋2層グリッド＋同心円装飾（決定論的フォールバック）
+    const fineGridUrl = gridDataUrl(8, 'rgba(22,54,92,0.04)', 1);
+    const majorGridUrl = gridDataUrl(32, 'rgba(22,54,92,0.06)', 1);
+    backgroundEls = [
+      {
+        type: 'div',
+        props: {
+          style: {
+            position: 'absolute', inset: 0, display: 'flex',
+            backgroundImage: `url(${g2DecorDataUrl(width, height)}), url(${fineGridUrl}), url(${majorGridUrl}), linear-gradient(135deg, ${G2_PAPER_FROM} 0%, ${G2_PAPER_TO} 100%)`,
+            backgroundRepeat: 'no-repeat, repeat, repeat, no-repeat',
+          },
+          children: [],
+        },
+      },
+    ];
+  }
+
+  const inkMain = magazine ? '#ffffff' : G2_INK;
+  const inkSub = magazine ? 'rgba(255,255,255,0.85)' : 'rgba(27,36,48,0.82)';
+
+  // ---- full 領域: ロゴ / 資格クレジット / メタ（正方形クロップで切れて良い補助情報）----
+  const logo = {
+    type: 'div',
+    props: {
+      style: { position: 'absolute', top: '34px', left: '56px', display: 'flex', alignItems: 'center', fontFamily: 'Inter, "Noto Sans JP", sans-serif' },
+      children: [
+        {
+          type: 'div',
+          props: {
+            style: { display: 'flex', width: '30px', height: '30px', borderRadius: '7px', background: magazine ? '#ffffff' : G2_WORDMARK_INK, alignItems: 'center', justifyContent: 'center', marginRight: '9px' },
+            children: [g2IconImg('book', magazine ? band : '#fff', 18, 2.2)],
+          },
+        },
+        {
+          type: 'div',
+          props: {
+            style: { display: 'flex', fontSize: '21px', fontWeight: 800, letterSpacing: '-0.4px', color: magazine ? '#ffffff' : G2_WORDMARK_INK },
+            children: [
+              { type: 'span', props: { style: { display: 'flex' }, children: 'doboku' } },
+              { type: 'span', props: { style: { display: 'flex', color: magazine ? 'rgba(255,255,255,0.7)' : G2_WORDMARK_ACCENT }, children: '-' } },
+              { type: 'span', props: { style: { display: 'flex' }, children: 'note' } },
+            ],
+          },
+        },
+      ],
+    },
+  };
+  // V4 では資格クレジット（執筆:…）と右上メタ（examLabel／無料記事等）を描画しない
+  // （2026-07-24 ユーザーFB: 補助テキストがノイズ。資格情報は leadIn/qualifier が担う）。
+  // cover.meta は frontmatter 互換のため受け付けるが V4 では未使用。
+  const credentialRow = null;
+  const meta = null;
+
+  // ---- キャラクター（full 領域・右端。text-safe(x≤935)を侵食しない位置に制限）----
+  let characterImg = null;
+  if (c.characterSrc && !magazine) {
+    const dispH = 560;
+    const dispW = c.characterW && c.characterH ? Math.round((c.characterW * dispH) / c.characterH) : 240;
+    const cx = Math.max(990, width - dispW - 16); // x>=990 = square-safe 外・装飾扱い
+    characterImg = {
+      type: 'img',
+      props: { src: c.characterSrc, width: dispW, height: dispH, style: { position: 'absolute', left: `${cx}px`, top: `${height - dispH + 6}px`, display: 'flex' } },
+    };
+  }
+
+  // ---- 中央帯の情報階層 ----
+  const leadInText = magazine ? c.qualifier : c.leadIn;
+  const leadInEl = centerBand(V4_POS.leadIn.top, V4_POS.leadIn.height, [
+    {
+      type: 'div',
+      props: {
+        style: { display: 'flex', fontSize: `${V4_FONT.leadIn}px`, fontWeight: 800, color: inkSub, letterSpacing: '0.02em' },
+        children: leadInText || '',
+      },
+    },
+  ]);
+
+  const headlineText = magazine ? c.magazineName : c.headline;
+  const headlineEl = centerBand(V4_POS.headline.top, V4_POS.headline.height, [
+    {
+      type: 'div',
+      props: {
+        style: { display: 'flex', fontSize: `${V4_FONT.headline}px`, fontWeight: 900, lineHeight: 1.04, color: inkMain, letterSpacing: '-0.5px', textAlign: 'center' },
+        children: headlineText || '',
+      },
+    },
+  ]);
+
+  // 記事: hi(HiBox)+hiSuffix ／ マガジン: proof（純テキスト行）
+  let midRowEl = null;
+  if (magazine) {
+    if (c.proof) {
+      midRowEl = centerBand(V4_POS.hiRow.top, V4_POS.hiRow.height, [
+        {
+          type: 'div',
+          props: {
+            style: { display: 'flex', fontSize: `${V4_FONT.proof}px`, fontWeight: 800, color: 'rgba(255,255,255,0.94)', letterSpacing: '0.03em' },
+            children: c.proof,
+          },
+        },
+      ]);
+    }
+  } else {
+    midRowEl = centerBand(V4_POS.hiRow.top, V4_POS.hiRow.height, [
+      {
+        type: 'div',
+        props: {
+          style: {
+            display: 'flex', alignItems: 'center', justifyContent: 'center', background: band, color: '#fff', borderRadius: '9px',
+            fontWeight: 900, fontSize: `${V4_FONT.hi}px`, lineHeight: 1, padding: '0 16px', height: `${V4_POS.hiRow.height}px`,
+            boxShadow: '0 5px 14px rgba(14,38,69,0.28)', marginRight: '12px',
+          },
+          children: c.hi || '',
+        },
+      },
+      { type: 'div', props: { style: { display: 'flex', fontSize: `${V4_FONT.hiSuffix}px`, fontWeight: 900, color: inkMain }, children: c.hiSuffix || '' } },
+    ]);
+  }
+
+  // benefit 帯（中央630幅＝正方形クロップでも欠けない）。記事=試験色地＋白文字 / マガジン=白地＋試験色文字
+  const benefitEl = centerBand(
+    V4_POS.benefit.top,
+    V4_POS.benefit.height,
+    [
+      {
+        type: 'div',
+        props: {
+          style: { display: 'flex', fontSize: `${V4_FONT.benefit}px`, fontWeight: 900, color: magazine ? band : '#ffffff', letterSpacing: '0.02em' },
+          children: c.benefit || '',
+        },
+      },
+    ],
+    { background: magazine ? '#ffffff' : band, borderRadius: '10px', boxShadow: '0 6px 18px rgba(14,38,69,0.22)' },
+  );
+
+  const children = [
+    ...backgroundEls,
+    logo,
+    ...(credentialRow ? [credentialRow] : []),
+    ...(meta ? [meta] : []),
+    ...(characterImg ? [characterImg] : []),
+    leadInEl,
+    headlineEl,
+    ...(midRowEl ? [midRowEl] : []),
+    benefitEl,
+    ...(debugSafetyV4 ? v4DebugOverlay() : []),
+  ];
+
+  return {
+    type: 'div',
+    props: {
+      style: { width: `${width}px`, height: `${height}px`, display: 'flex', position: 'relative', background: magazine ? band : G2_PAPER_FROM, color: inkMain, fontFamily: '"Noto Sans JP", Inter, sans-serif' },
       children,
     },
   };

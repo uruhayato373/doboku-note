@@ -93,5 +93,5 @@ OCR テキスト層を持たないスキャン書籍（教材・参考書・基�
 ## 参照ドキュメント
 
 - `.claude/skills/conversion/pdf-to-mdx/references/scanned-image-pipeline.md` — 親側の抽出・回転・分割・連結・章分割・図埋め込み手順
-- `docs/reference/content-authoring.md` — MDX/見出し規約
+- `.claude/knowledge/reference/content-authoring.md` — MDX/見出し規約
 - `.claude/agents/content-qa.md` — 変換品質の Evaluator

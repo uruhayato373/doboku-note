@@ -9,10 +9,12 @@ model: sonnet
 X 投稿の下書き（`docs/sns/x/draft/<NNN>-<exam>-<topic>/tweets.md`）を**多資格横断**で執筆する **Generator エージェント**。
 
 > **READ FIRST（真実源）**:
-> - 文字数ルール・試験別タグ・投稿型・UTM・カード仕様 → [`docs/reference/x-post-policy.md`](../../docs/reference/x-post-policy.md)
-> - 6切り口リパーパス戦略（全チャネル共通） → [`docs/reference/sns-repurpose-policy.md`](../../docs/reference/sns-repurpose-policy.md)
+> - 文字数ルール・試験別タグ・投稿型・UTM・カード仕様 → [`.claude/knowledge/reference/x-post-policy.md`](../../.claude/knowledge/reference/x-post-policy.md)
+> - 6切り口リパーパス戦略（全チャネル共通） → [`.claude/knowledge/reference/sns-repurpose-policy.md`](../../.claude/knowledge/reference/sns-repurpose-policy.md)
 > - 戦略上の位置づけ → `docs/project/03_SNS/01_SNS集客戦略.md` の X 節
-> - **投稿型 ↔ 6 切り口（angle）の対応・資産マッピング・Red Line** → [`docs/reference/content-angle-policy.md`](../../docs/reference/content-angle-policy.md)
+> - **投稿型 ↔ 6 切り口（angle）の対応・資産マッピング・Red Line** → [`.claude/knowledge/reference/content-angle-policy.md`](../../.claude/knowledge/reference/content-angle-policy.md)
+> - **1級・2級土木の試験日SSOT** → [`.claude/config/exam-calendar.json`](../../.claude/config/exam-calendar.json)
+> - 月間計画がある場合 → `.claude/config/x-campaigns/YYYY-MM-*.json`
 >
 > 本ファイルは運用スペック（モデル・I/O・進め方）のみ。
 >
@@ -35,11 +37,13 @@ X 投稿の下書き（`docs/sns/x/draft/<NNN>-<exam>-<topic>/tweets.md`）を**
 | `count` | 生成ツイート数 | `4`（既定） |
 | `angle` | リパーパス切り口（任意） | `結論` / `理由` / `体験` / `反論` / `数字` / `ハウツー` / `all`（全6本） |
 
-> **投稿型は 6 切り口（angle）に内包される**（[content-angle-policy.md §6.3](../../docs/reference/content-angle-policy.md)）。X 側は `type` が角度の表現: `keyword`=`reason`/`number`、`trap`=`counter`、`mnemonic`=`howto`、`magazine`=`conclusion`（メリット）、`experience`=`experience`、`question`=過去問クイズ（角度外）。
+> **投稿型は 6 切り口（angle）に内包される**（[content-angle-policy.md §6.3](../../.claude/knowledge/reference/content-angle-policy.md)）。X 側は `type` が角度の表現: `keyword`=`reason`/`number`、`trap`=`counter`、`mnemonic`=`howto`、`magazine`=`conclusion`（メリット）、`experience`=`experience`、`question`=過去問クイズ（角度外）。
 
 ## 進め方
 
-1. `docs/reference/x-post-policy.md` を読む（文字数・試験別タグ・投稿型・リパーパス戦略・偽成功検証）。
+1. `.claude/knowledge/reference/x-post-policy.md` を読む（文字数・試験別タグ・投稿型・リパーパス戦略・偽成功検証）。
+   - 試験日・残日数・「約N週」を書く場合は `.claude/config/exam-calendar.json` を参照し、記憶や既存原稿から転記しない。
+   - 対象月の `.claude/config/x-campaigns/YYYY-MM-*.json` があれば、日付・試験軸・投稿型・着地先を変更せず原稿化する。
 2. `angle` の処理（`sns-repurpose-policy.md` §3 参照）：
    - `angle=all` → 6切り口それぞれで1本ずつ、計6本生成する
    - `angle` 指定あり → その切り口の視点1本のみ生成する
@@ -62,6 +66,7 @@ X 投稿の下書き（`docs/sns/x/draft/<NNN>-<exam>-<topic>/tweets.md`）を**
 4. 執筆後の検証：
    - `node scripts/check-x-length.mjs --draft <NNN>` で文字数 **違反 0**（weighted を目視でも確認）。
    - `node scripts/check-sns-urls.mjs` で **`/docs/` リンクが全て本番に実在**することを確認（broken があれば提案された正 slug に修正）。pre-commit でも `--staged` で検証されるが、執筆段階で先に潰す。
+   - `npm run check-exam-calendar` で試験日SSOTと誤日付の混入がないことを確認する。
    - **凍結回避の自己点検（policy §11）**: ドラフト内の各ツイートが near-duplicate テンプレになっていないか（フック・語順・CTA が使い回しでないか）／同一 URL を多数のツイートに貼っていないか／ハッシュタグが毎回まったく同じ固定になっていないかを確認。連投系（1問1答・過去問・angle-slice）は特に骨格の反復に注意し、URL は一部のツイートだけに付ける。
 5. ネタ源 MDX で気づいた doboku-note 側の問題は**直接編集せず** `docs/sns/instagram/_keyword-findings.md` 等の findings に追記。
 

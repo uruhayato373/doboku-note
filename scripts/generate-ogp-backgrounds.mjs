@@ -37,7 +37,7 @@ const ROOT = process.cwd();
 // .env.local（GEMINI_API_KEY 等）を読み込む。既存スクリプトの慣習に合わせる。
 dotenv.config({ path: path.join(ROOT, '.env.local') });
 const BACKGROUNDS_DIR = path.join(ROOT, '.claude', 'config', 'ogp', 'backgrounds');
-const coverTokens = require(path.join(ROOT, 'docs/design-system/note-cover-tokens.json'));
+const coverTokens = require(path.join(ROOT, '.claude/knowledge/design-system/note-cover-tokens.json'));
 
 const W = 1200, H = 630;
 const API_KEY = process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY || null;

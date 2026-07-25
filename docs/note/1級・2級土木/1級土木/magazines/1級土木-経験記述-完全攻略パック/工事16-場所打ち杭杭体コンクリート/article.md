@@ -11,15 +11,12 @@ noteId: "n5845dba48847"
 notePublishedAt: "2026-06-30"
 coverTitle: ["1級土木 施工経験記述", "場所打ち杭 杭体コンクリート打設", "5管理 完成答案"]
 cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "場所打ち杭"
-  hiSuffix: ""
-  banner: "5管理 完成答案（品質・工程・安全・施工計画・環境）"
-  meta: "完全攻略パック"
-  chips:
-    - { icon: doc, text: "完成答案" }
-    - { icon: edit, text: "置換ガイド" }
-    - { icon: check, text: "NG→OK添削" }
+  variant: crop-safe-v4
+  leadIn: "1級土木｜施工経験記述"
+  headline: "場所打ち杭"
+  hi: "5管理"
+  hiSuffix: "完成答案"
+  benefit: "書き換えてそのまま使える"
 ---
 # 1級土木 施工経験記述｜場所打ち杭 杭体コンクリート打設（5管理 完成答案）
 

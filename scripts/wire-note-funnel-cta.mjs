@@ -4,7 +4,7 @@
 // 各記事の「冒頭（最初の H2 の前）」にパック動線、「末尾」に同資格 L2 もくじへの
 // 回遊 CTA を冪等マーカー付きで挿入する。再実行しても重複しない。
 //
-// 真実源: .claude/config/note-funnel.json / docs/reference/note-funnel-architecture.md
+// 真実源: .claude/config/note-funnel.json / .claude/knowledge/reference/note-funnel-architecture.md
 //
 // 使い方:
 //   node scripts/wire-note-funnel-cta.mjs --exam tankan            # dry-run（既定）

@@ -9,15 +9,12 @@ noteStatus: published
 noteUrl: https://note.com/dobokunote/n/nb2acfecc2df7
 noteId: nb2acfecc2df7
 cover:
-  leadIn: "自治体の技術職員がつまずく"
+  variant: crop-safe-v4
+  leadIn: "総監 択一式｜盲点"
+  headline: "自治体職員の盲点"
   hi: "3"
-  hiSuffix: "つの択一盲点"
-  banner: "発注者業務のズレ"
-  meta: "無料記事"
-  chips:
-    - { icon: target, text: "試験範囲のズレ" }
-    - { icon: doc, text: "盲点の正体" }
-    - { icon: check, text: "対策法" }
+  hiSuffix: "つの盲点"
+  benefit: "試験範囲のズレがわかる"
 ---
 # 【総監択一】自治体の技術職員が総監択一でつまずく3つの盲点｜発注者業務と試験範囲のズレ
 

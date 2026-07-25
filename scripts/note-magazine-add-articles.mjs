@@ -40,7 +40,7 @@
  *   node scripts/note-magazine-add-articles.mjs --target m171222175fac \
  *     --notes nXXXXXXXX,nYYYYYYYY --commit
  *
- * 真実源: docs/reference/note-api-verification.md / 決定: 総監マガジン構成_決定2026.md
+ * 真実源: .claude/knowledge/reference/note-api-verification.md / 決定: 総監マガジン構成_決定2026.md
  * ---------------------------------------------------------------------------
  */
 import { chromium } from 'playwright';

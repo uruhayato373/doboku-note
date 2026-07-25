@@ -11,7 +11,7 @@
  * 使い方 (本体リポジトリ ~/doboku-note で実行。worktree 不可 — プロファイルは .local/ で gitignore):
  *   node .claude/skills/ads/scout-asp/scripts/login.mjs
  *
- * 参照: docs/reference/playwright-auth-profiles.md / docs/reference/a8-affiliate-pipeline.md
+ * 参照: .claude/knowledge/reference/playwright-auth-profiles.md / .claude/knowledge/reference/a8-affiliate-pipeline.md
  */
 import { chromium } from "playwright";
 

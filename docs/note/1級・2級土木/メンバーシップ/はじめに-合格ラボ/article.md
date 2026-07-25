@@ -7,15 +7,12 @@ noteId: "n6b66793ca20c"
 notePublishedAt: "2026-07-01"
 coverTitle: ["土木セコカン合格ラボ", "はじめます"]
 cover:
-  leadIn: "1級・2級土木施工管理技士 二次"
-  hi: "合格ラボ"
-  hiSuffix: "はじめます"
-  banner: "「また来年」を、今年で終わりにする"
-  meta: "メンバーシップ・はじめに"
-  chips:
-    - { icon: edit, text: "月例予想" }
-    - { icon: check, text: "マンツーマン添削" }
-    - { icon: doc, text: "完成答案ライブラリ" }
+  variant: crop-safe-v4
+  leadIn: "1級・2級土木｜二次対策"
+  headline: "合格ラボ"
+  hi: "会員"
+  hiSuffix: "限定"
+  benefit: "また来年を今年で終わらせる"
 ---
 # 「土木セコカン合格ラボ」をはじめます｜もう一度、受験料と1年を払いたくないあなたへ
 

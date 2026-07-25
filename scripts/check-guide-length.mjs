@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // ガイド記事（group: guide）の本文ボリューム下限ゲート。
 //
-// ルール（真実源: docs/reference/content-principles.md §25）:
+// ルール（真実源: .claude/knowledge/reference/content-principles.md §25）:
 //   published かつ group: guide の記事は、本文（frontmatter を除き空白除去後）
 //   3,000 字以上を必須とする。下回るものは「薄い記事（thin content）」として赤落ち。
 //
@@ -102,7 +102,7 @@ if (fails.length === 0) {
 }
 
 console.error(`[check-guide-length] ✗ ${fails.length} 件のガイド記事が本文 ${THRESHOLD} 字未満（薄い記事）`);
-console.error(`  真実源: docs/reference/content-principles.md §25`);
+console.error(`  真実源: .claude/knowledge/reference/content-principles.md §25`);
 for (const r of fails) {
   const short = THRESHOLD - r.len;
   console.error(`  ${String(r.len).padStart(5)} 字（あと ${short} 字）  ${r.f}`);

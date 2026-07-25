@@ -11,15 +11,12 @@ notePublishedAt: "2026-06-30"
 noteStatus: published
 coverTitle: ["1級土木 施工経験記述", "河川護岸 ブロック張", "5管理 完成答案"]
 cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "河川護岸"
-  hiSuffix: "5管理完成答案"
-  banner: "河川護岸ブロック張工事"
-  meta: "有料マガジン"
-  chips:
-    - { icon: doc, text: "完成答案" }
-    - { icon: edit, text: "置換ガイド" }
-    - { icon: check, text: "5管理一覧" }
+  variant: crop-safe-v4
+  leadIn: "1級土木 経験記述｜5管理完成答案"
+  headline: "河川護岸"
+  hi: "5管理"
+  hiSuffix: "完成答案"
+  benefit: "書き換えてそのまま使える"
 ---
 # 1級土木 施工経験記述｜河川護岸 ブロック張（5管理 完成答案）
 

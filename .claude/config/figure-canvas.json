@@ -1,6 +1,6 @@
 {
   "$schema": "https://doboku-note.com/schema/figure-canvas.json",
-  "description": "図版SVGの固定キャンバス標準（機械可読SSOT）。人間向け真実源は docs/reference/figure-canvas-policy.md。レンダラー(render-figure-sns)・ガード(check-figure-canvas)・カタログ(build-svg-catalog)・Generator(svg-canvas-fitter) が参照する。",
+  "description": "図版SVGの固定キャンバス標準（機械可読SSOT）。人間向け真実源は .claude/knowledge/reference/figure-canvas-policy.md。レンダラー(render-figure-sns)・ガード(check-figure-canvas)・カタログ(build-svg-catalog)・Generator(svg-canvas-fitter) が参照する。",
   "version": "1.0.0",
   "updated": "2026-06-22",
   "canvases": {
@@ -75,8 +75,8 @@
     "migrationAllowlist": []
   },
   "references": {
-    "policy": "docs/reference/figure-canvas-policy.md",
-    "colorTokens": "docs/design-system/svg-tokens.json",
+    "policy": ".claude/knowledge/reference/figure-canvas-policy.md",
+    "colorTokens": ".claude/knowledge/design-system/svg-tokens.json",
     "authoring": ".claude/skills/authoring/create-svg/SKILL.md",
     "renderer": ".claude/scripts/sns/render-figure-sns.mjs",
     "catalog": ".claude/state/svg-catalog.json"

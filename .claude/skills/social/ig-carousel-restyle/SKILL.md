@@ -6,7 +6,7 @@ allowed-tools: Bash, Read
 
 # IG Carousel Restyle スキル（3 フォーマット対応）
 
-`docs/design-system/instagram-carousel-tokens.json` または `quiz-slides.mjs` を変更した後に、既存 `cem/exam-packs/**` の PNG を **3 フォーマット（Carousel + Reels + Stories）すべてで統一再生成**するためのラッパー。
+`.claude/knowledge/design-system/instagram-carousel-tokens.json` または `quiz-slides.mjs` を変更した後に、既存 `cem/exam-packs/**` の PNG を **3 フォーマット（Carousel + Reels + Stories）すべてで統一再生成**するためのラッパー。
 
 ## いつ使うか
 
@@ -44,7 +44,7 @@ cover の swipeText 系トークンや `quiz-slides.mjs` の `buildQuizCover` �
 
 1. tokens.json の JSON 妥当性を確認:
    ```bash
-   node -e "JSON.parse(require('fs').readFileSync('docs/design-system/instagram-carousel-tokens.json'))" && echo OK
+   node -e "JSON.parse(require('fs').readFileSync('.claude/knowledge/design-system/instagram-carousel-tokens.json'))" && echo OK
    ```
 2. 範囲を決定（変数 RANGE）:
    - `--pack r07-pack-01` → RANGE=`--only r07-pack-01`

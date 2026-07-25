@@ -52,7 +52,7 @@
 
 | 情報 | 参照先 |
 |---|---|
-| 総監の制度・5 管理の定義 | `docs/reference/content-principles.md` / 文科省総監キーワード集 |
+| 総監の制度・5 管理の定義 | `.claude/knowledge/reference/content-principles.md` / 文科省総監キーワード集 |
 | 過去問範囲 | `src/config/exam-questions.json` |
 | 口頭試験対策 | `.local/r2/posts/pe-comprehensive-management/oral-exam/article.mdx`（あれば）/ note E-4 |
 

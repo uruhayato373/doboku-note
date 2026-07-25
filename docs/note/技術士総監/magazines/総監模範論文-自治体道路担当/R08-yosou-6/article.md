@@ -9,15 +9,12 @@ noteStatus: published
 noteMagazine: 総監模範論文-自治体道路担当
 price: 780
 cover:
-  leadIn: "令和8年度 R8予想"
+  variant: crop-safe-v4
+  leadIn: "総監 記述式｜自治体 道路担当"
+  headline: "経済安全保障"
   hi: "R8"
-  hiSuffix: "道路⑥(経済安保)"
-  banner: "経済安全保障｜3,000字級フル論文"
-  meta: "R8予想問題"
-  chips:
-    - { icon: pen, text: "答案そのまま展開" }
-    - { icon: layers, text: "5管理トレードオフ" }
-    - { icon: check, text: "採点チェック付" }
+  hiSuffix: "予想⑥"
+  benefit: "3,000字級をそのまま展開"
 ---
 
 # 令和8年度 総監記述式 模範論文｜自治体 道路担当版（経済安全保障・サプライチェーン強靱化／R8予想⑥）

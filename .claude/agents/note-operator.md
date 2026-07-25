@@ -143,5 +143,5 @@ note.com への高レベル操作指示を受け取り、既存の決定的ス�
 - `scripts/note-magazine-create.mjs` — マガジン新規作成
 - `scripts/note-magazine-add-articles.mjs` — 記事収録
 - `scripts/verify-note-magazines.mjs` — 同期検証
-- `docs/reference/note-api-verification.md` — note API 仕様・真実源
+- `.claude/knowledge/reference/note-api-verification.md` — note API 仕様・真実源
 - `src/lib/note-magazines.ts` — SoT（マガジン定義）

@@ -7,19 +7,16 @@ noteMagazine: 1級土木-経験記述-完全攻略パック
 utmCampaign: civil1-keiken-pack-koji54
 noteStatus: published
 coverTitle: ["1級土木 施工経験記述", "水門設置工事", "5管理 完成答案"]
-cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "水門設置"
-  hiSuffix: "5管理完成答案"
-  banner: "ゲート据付精度・戸当り芯出し・機械設備工程調整"
-  meta: "有料マガジン"
-  chips:
-    - { icon: doc, text: "完成答案" }
-    - { icon: edit, text: "置換ガイド" }
-    - { icon: check, text: "5管理一覧" }
 noteUrl: "https://note.com/dobokunote/n/n7f8c31699672"
 noteId: "n7f8c31699672"
 notePublishedAt: "2026-06-30"
+cover:
+  variant: crop-safe-v4
+  leadIn: "1級土木 経験記述｜5管理完成答案"
+  headline: "水門設置"
+  hi: "5管理"
+  hiSuffix: "完成答案"
+  benefit: "書き換えてそのまま使える"
 ---
 # 1級土木 施工経験記述｜水門設置工事（5管理 完成答案）
 

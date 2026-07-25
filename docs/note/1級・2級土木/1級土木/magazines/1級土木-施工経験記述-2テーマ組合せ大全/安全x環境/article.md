@@ -10,15 +10,12 @@ coverTitle: ["1級土木 施工経験記述", "安全管理×環境対策"]
 price: 980
 paidBoundary: "安全管理×環境対策を書き分けるポイント"
 cover:
-  leadIn: "1級土木 施工経験記述"
-  hi: "安全"
-  hiSuffix: "×環境"
-  banner: "電線共同溝・河川しゅんせつ・建築物解体"
-  meta: "2テーマ組合せ大全"
-  chips:
-    - { icon: pen, text: "そのまま雛形に" }
-    - { icon: target, text: "置換ガイド付" }
-    - { icon: check, text: "採点チェック付" }
+  variant: crop-safe-v4
+  leadIn: "1級土木｜施工経験記述"
+  headline: "安全×環境"
+  hi: "2テーマ"
+  hiSuffix: "組合せ"
+  benefit: "どの組合せでも書ける"
 ---
 # 1級土木 施工経験記述｜安全管理×環境対策（市街地電線共同溝・河川しゅんせつ・建築物解体改築 ほか）
 

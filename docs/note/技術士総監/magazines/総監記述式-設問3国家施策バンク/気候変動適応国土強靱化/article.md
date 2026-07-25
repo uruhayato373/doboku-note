@@ -7,18 +7,12 @@ noteUrl: https://note.com/dobokunote/n/n02a538c2edc8
 noteId: n02a538c2edc8
 notePublishedAt: 2026-06-01
 cover:
-  leadIn: 設問(3)で問われる将来課題
-  hi: '7'
-  hiSuffix: つの国家施策
-  banner: 気候変動適応
-  chips:
-    - icon: check
-      text: トレードオフ明示
-    - icon: doc
-      text: 答案1枚相当
-    - icon: book
-      text: 白書根拠
-  meta: '有料マガジン ／ ¥2,480'
+  variant: crop-safe-v4
+  leadIn: "総監 記述式｜設問3"
+  headline: "気候変動適応"
+  hi: "7"
+  hiSuffix: "施策"
+  benefit: "設問3にそのまま転写できる"
 ---
 
 # 気候変動適応・国土強靱化｜設問(3)国家施策バンク

@@ -11,15 +11,12 @@ utmCampaign: civil2-koji-bank-koji05
 price: 1680
 coverTitle: ["2級土木 施工経験記述", "サンドドレーン盛土", "5管理フルカバー"]
 cover:
-  leadIn: "2級土木施工管理技士 二次"
-  hi: "サンドドレーン盛土"
-  hiSuffix: ""
-  banner: "どのテーマが来ても書ける想定工事"
-  meta: "有料マガジン"
-  chips:
-    - { icon: doc, text: "完成答案" }
-    - { icon: edit, text: "置換ガイド" }
-    - { icon: check, text: "5管理フル" }
+  variant: crop-safe-v4
+  leadIn: "2級土木 経験記述｜段階載荷盛土"
+  headline: "サンドドレーン工"
+  hi: "5管理"
+  hiSuffix: "想定工事"
+  benefit: "どのテーマが来ても書ける"
 ---
 # 2級土木 施工経験記述｜サンドドレーン＋段階載荷盛土 5管理フルカバー完成答案
 

@@ -8,7 +8,7 @@
 //   - 右列: 本文テキスト（折り返し対応）
 //   - 行は白/薄グレー交互
 //
-// 設計ルール（docs/reference/note-svg-policy.md 準拠）:
+// 設計ルール（.claude/knowledge/reference/note-svg-policy.md 準拠）:
 //   - キャンバス幅 1200（同一記事内で統一）
 //   - フォント ≥ 22px（補足を含めて 18px 以上）
 //   - タイトル下 40px 確保 → コンテンツ開始

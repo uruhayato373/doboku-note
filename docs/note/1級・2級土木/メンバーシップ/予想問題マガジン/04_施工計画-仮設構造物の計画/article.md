@@ -6,16 +6,12 @@ membershipOnly: true
 utmCampaign: civil-membership-odai-plan-temporary
 coverTitle: ["今週のお題｜施工計画", "仮設構造物の計画と施工"]
 cover:
-  leadIn: "今週のお題 ｜ 施工計画"
+  variant: crop-safe-v4
+  leadIn: "今週のお題｜経験記述"
+  headline: "施工計画"
   hi: "予想"
   hiSuffix: "問題"
-  banner: "仮設構造物の計画と施工"
-  meta: "メンバーシップ限定"
-  tone: deep
-  chips:
-    - { icon: target, text: "予想問題" }
-    - { icon: edit, text: "模範解答" }
-    - { icon: check, text: "採点ポイント" }
+  benefit: "仮設構造物の計画が書ける"
 ---
 # 今週のお題｜施工計画 — 仮設構造物（土留め・支保工・仮締切）の計画と施工
 

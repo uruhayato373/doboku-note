@@ -7,16 +7,12 @@ noteId: "na0f42fd52a51"
 noteUrl: "https://note.com/dobokunote/n/na0f42fd52a51"
 coverTitle: ["ビルドジョブは", "施工管理に向くか"]
 cover:
-  leadIn: "元公務員土木（発注者）の視点"
-  hi: "ビルドジョブ"
-  hiSuffix: "の評判と使いどころ"
-  banner: "使うべき人・使わない方がいい人"
-  character: explaining
-  meta: "無料"
-  chips:
-    - { icon: doc, text: "建設特化の実態" }
-    - { icon: check, text: "向き不向き" }
-    - { icon: edit, text: "相談前の準備" }
+  variant: crop-safe-v4
+  leadIn: "発注者視点の評判"
+  headline: "ビルドジョブ評判"
+  hi: "無料"
+  hiSuffix: "公開"
+  benefit: "使うべき人が分かる"
 ---
 # ビルドジョブは施工管理に向くか｜発注者から見た使いどころ【無料】
 

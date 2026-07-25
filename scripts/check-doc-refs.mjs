@@ -8,7 +8,8 @@
 // 分割だけでなく 00_プロジェクト管理/ 等の旧トップ階層も含む）。
 // 人手で追うと必ず漏れるため、壊れた doc 参照を機械検知してコミットを止める。
 //
-// 検査対象（ソース側）: .claude/skills/**/*.md, .claude/agents/**/*.md, docs/**/*.md, CLAUDE.md
+// 検査対象（ソース側）: .claude/skills/**/*.md, .claude/agents/**/*.md,
+//                        .claude/knowledge/**/*.md, docs/**/*.md, CLAUDE.md
 // 検査対象（参照先）  : docs/... .claude/... src/... で始まり拡張子を持つファイルパス
 //
 // 使い方:
@@ -78,6 +79,7 @@ if (STAGED) {
   files = staged.filter((f) => existsSync(f) && /\.md$/.test(f) && (
     f.startsWith('.claude/skills/') ||
     f.startsWith('.claude/agents/') ||
+    f.startsWith('.claude/knowledge/') ||
     f.startsWith('docs/') ||
     f === 'CLAUDE.md'
   ));
@@ -85,6 +87,7 @@ if (STAGED) {
   files = [
     ...walk('.claude/skills'),
     ...walk('.claude/agents'),
+    ...walk('.claude/knowledge'),
     ...walk('docs'),
     ...(existsSync('CLAUDE.md') ? ['CLAUDE.md'] : []),
   ];
@@ -142,7 +145,7 @@ if (problems.length) {
   for (const p of problems) console.error('  ' + p);
   console.error('\n対処: 移動先へ参照を更新するか、削除済みなら参照を除去する。');
   console.error('      例示パスは {slug} / YYYY-Www / r0X 等のプレースホルダで書けばスキップされる。');
-  console.error('      ルール: docs/reference/information-architecture.md「SSOT と参照規律」');
+  console.error('      ルール: .claude/knowledge/reference/information-architecture.md「SSOT と参照規律」');
   process.exit(1);
 }
 console.log(`[check-doc-refs] ✓ ${files.length} ファイルのリポジトリ内パス参照は全て実在`);

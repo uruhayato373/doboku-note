@@ -25,7 +25,7 @@
 //   npm run check-handoff-extraction
 // 違反が 1 件でもあれば exit 1。
 //
-// 真実源: docs/reference/information-architecture.md「handoff のライフサイクル」。
+// 真実源: .claude/knowledge/reference/information-architecture.md「handoff のライフサイクル」。
 
 import { execFileSync } from 'node:child_process';
 
@@ -87,7 +87,7 @@ for (const { status, path } of staged) {
       `[archive-banned] ${path}\n` +
         `  docs/handoffs/_archive/ は 2026-07-11 に廃止（77本削除・ユーザー決定）。\n` +
         `  handoff の正しい処分は「残タスクを backlog へ抽出 → 本体を git rm 削除（記録は git 履歴）」。\n` +
-        `  真実源: docs/reference/information-architecture.md「handoff のライフサイクル」`
+        `  真実源: .claude/knowledge/reference/information-architecture.md「handoff のライフサイクル」`
     );
   }
 }

@@ -3,7 +3,7 @@
  * gen-image-gemini.mjs — Gemini 画像生成 API（gemini-2.5-flash-image / nano-banana）
  * ---------------------------------------------------------------------------
  * .env.local の GEMINI_API_KEY を使い、プロンプトから画像を1枚生成して保存する。
- * ブランド写真プール（docs/reference/brand-image-system.md §5）と同じ「文字なし雰囲気写真」
+ * ブランド写真プール（.claude/knowledge/reference/brand-image-system.md §5）と同じ「文字なし雰囲気写真」
  * を生成する用途。文字は satori/HTML で別途重ねる（AI に日本語を焼き込ませない）。
  *
  * 使い方:

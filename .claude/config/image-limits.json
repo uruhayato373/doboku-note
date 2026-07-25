@@ -1,5 +1,5 @@
 {
-  "_doc": "画像アセット品質ガード(check-image-assets.mjs)の閾値 SSOT。真実源は docs/reference/image-policy.md のサイズ目安(SVG 10KB/JPG 200KB/PNG 100KB)。既存の超過分(2026-07-14 実測 PNG 102 / JPG 15 / SVG 1 / WebP 17)は .claude/state/quality/image-baseline.json で grandfather し、--ci は baseline に無い新規超過とバイト増のみブロックする。figure-*.svg の孤立は check-orphan-figures、ogp.* は check-orphan-ogp、figure 寸法は check-figure-canvas が担当（本ガードは対象外）。",
+  "_doc": "画像アセット品質ガード(check-image-assets.mjs)の閾値 SSOT。真実源は .claude/knowledge/reference/image-policy.md のサイズ目安(SVG 10KB/JPG 200KB/PNG 100KB)。既存の超過分(2026-07-14 実測 PNG 102 / JPG 15 / SVG 1 / WebP 17)は .claude/state/quality/image-baseline.json で grandfather し、--ci は baseline に無い新規超過とバイト増のみブロックする。figure-*.svg の孤立は check-orphan-figures、ogp.* は check-orphan-ogp、figure 寸法は check-figure-canvas が担当（本ガードは対象外）。",
   "roots": [
     { "dir": ".local/r2/posts", "match": "img" },
     { "dir": "public/images" }

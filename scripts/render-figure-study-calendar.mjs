@@ -8,7 +8,7 @@
 //   - 行2（1〜3月 年度末）: warn 系色で繁忙期を強調
 //   - 行5（7月 筆記試験）: brand-deep 色で到達点を強調
 //
-// 設計ルール（docs/reference/note-svg-policy.md 準拠）:
+// 設計ルール（.claude/knowledge/reference/note-svg-policy.md 準拠）:
 //   - キャンバス幅 1200
 //   - フォント ≥ 22px（補足を含めて 18px 以上）
 //   - タイトル下 40px → コンテンツ開始

@@ -11,15 +11,12 @@ notePublishedAt: "2026-06-30"
 noteStatus: published
 coverTitle: ["1級土木 施工経験記述", "橋脚躯体（張出し）", "5管理 完成答案"]
 cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "橋脚躯体（張出し）"
-  hiSuffix: "5管理完成答案"
-  banner: "張出しはり・柱部の型枠支保・支承据付"
-  meta: "有料マガジン"
-  chips:
-    - { icon: doc, text: "完成答案" }
-    - { icon: edit, text: "置換ガイド" }
-    - { icon: check, text: "5管理一覧" }
+  variant: crop-safe-v4
+  leadIn: "1級土木 経験記述｜張出し施工"
+  headline: "橋脚躯体"
+  hi: "5管理"
+  hiSuffix: "完成答案"
+  benefit: "書き換えてそのまま使える"
 ---
 # 1級土木 施工経験記述｜橋脚躯体（張出し）5管理 完成答案
 

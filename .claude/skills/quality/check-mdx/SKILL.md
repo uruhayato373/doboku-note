@@ -241,7 +241,7 @@ node .claude/skills/quality/check-mdx/scripts/rules/legal-citations/fix-legal-ci
 
 ### note-link — note 記事リンクのコンポーネント統一（`lint-mdx-mobile.mjs` ルール 8-3）
 
-note.com 記事へのリンク（`note.com/dobokunote/n/`）は `<NoteLink>` コンポーネントに統一する規約（→ `docs/reference/content-authoring.md`「リンク系コンポーネントの使い分け」）。生 markdown リンク・`<Callout type="reference">` 内・`<LinkCard>` で note 記事リンクを書いている箇所を MEDIUM で検出する。
+note.com 記事へのリンク（`note.com/dobokunote/n/`）は `<NoteLink>` コンポーネントに統一する規約（→ `.claude/knowledge/reference/content-authoring.md`「リンク系コンポーネントの使い分け」）。生 markdown リンク・`<Callout type="reference">` 内・`<LinkCard>` で note 記事リンクを書いている箇所を MEDIUM で検出する。
 
 - magazine リンク（`note.com/dobokunote/m/`）は `<MagazineCard>`（SoT 解決・既定 hero）担当のため対象外
 - フェンスコードブロック内は対象外
@@ -328,6 +328,6 @@ OK: 6 files
 - `.claude/scripts/lib/mdx-io.mjs` — CRLF 保持 I/O（`--fix` 系で使用）
 - `scripts/rules/{rule}/` — rule 別スクリプト実装
 - `scripts/pre-commit-mdx.mjs` — pre-commit hook 連動
-- `docs/reference/content-authoring.md` — MDX 作成詳細ルール
+- `.claude/knowledge/reference/content-authoring.md` — MDX 作成詳細ルール
 - `.claude/skills/authoring/keyword-page/SKILL.md` — 関連 Generator（作成規約）
 - `.claude/skills/authoring/improve-article/SKILL.md` — 関連 Generator（対話型修復）

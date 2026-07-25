@@ -27,7 +27,7 @@ doboku-note の Instagram カルーセル投稿用 PNG を生成する。**2 シ
 | 過去問 SoT | `src/config/exam-questions.json` (640 問) |
 | 過去問 slide-data SoT | `docs/sns/instagram/{exam}/exam-packs/<year>/pack-<NN>/slide-data.json` |
 | 過去問スライドビルダー | `.claude/scripts/lib/sns-common/quiz-slides.mjs`（tokens.json 参照） |
-| 過去問デザイン真実源 | `docs/design-system/instagram-carousel-tokens.json` + `docs/design-system/instagram-carousel.md` |
+| 過去問デザイン真実源 | `.claude/knowledge/design-system/instagram-carousel-tokens.json` + `.claude/knowledge/design-system/instagram-carousel.md` |
 | 択一クイズパック生成 (A) | `.claude/scripts/sns/render-quiz-pack.mjs` |
 | 択一クイズ source パーサ | `.claude/scripts/sns/lib/quiz-parser.mjs` |
 | 択一クイズテンプレ | `.claude/scripts/sns/templates/quiz-ig.mjs` |
@@ -38,7 +38,7 @@ doboku-note の Instagram カルーセル投稿用 PNG を生成する。**2 シ
 
 ## B. 過去問パック（AIDesigner 新意匠・現行主軸）
 
-> **デザイン真実源**: [`docs/design-system/instagram-carousel-tokens.json`](../../../../docs/design-system/instagram-carousel-tokens.json) と [`docs/design-system/instagram-carousel.md`](../../../../docs/design-system/instagram-carousel.md)。色・フォント・余白・スライド種別仕様はすべて tokens.json が真実源。`quiz-slides.mjs` はここから値を import する。
+> **デザイン真実源**: [`.claude/knowledge/design-system/instagram-carousel-tokens.json`](../../../../.claude/knowledge/design-system/instagram-carousel-tokens.json) と [`.claude/knowledge/design-system/instagram-carousel.md`](../../../../.claude/knowledge/design-system/instagram-carousel.md)。色・フォント・余白・スライド種別仕様はすべて tokens.json が真実源。`quiz-slides.mjs` はここから値を import する。
 >
 > **配色方針**: 単一 brand 色（デフォルト `#1858B5`）+ semantic（green 正答 / coral 誤答 / navy CTA）。**5 管理別配色は廃止**。管理識別は cover-title の 156px テキスト（例「経済性管理」）で行う。
 >

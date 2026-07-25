@@ -402,8 +402,8 @@ allowed-tools: Read, Glob, Grep, Bash, Task
 
 最初に必ず次を全文で読んでください。
 - docs/project/04_運営/gsc-ga4-playwright-automation-spec.md
-- docs/reference/gsc-management.md
-- docs/reference/playwright-auth-profiles.md
+- .claude/knowledge/reference/gsc-management.md
+- .claude/knowledge/reference/playwright-auth-profiles.md
 - .claude/skills/management/gsc-review/SKILL.md
 - .claude/agents/gsc-index-auditor.md
 - .github/workflows/fetch-metrics.yml

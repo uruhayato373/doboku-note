@@ -198,39 +198,60 @@ function checkBoldEndingParen(file, content) {
 }
 
 /**
- * NoteLink の coverImage パスを検証する。
+ * NoteLink のサイト管理画像と自社 note リンク表記を検証する。
  *
- * 2 つの HIGH エラーを検出してコミットをブロックする:
- *   (a) パスが /images/note-covers/ 以外（/posts/... 等のR2パス誤用）
- *   (b) public/ 以下に {stem}-square.webp が存在しない
- *
- * 過去事例: exam-passing-strategy で /posts/ パスを使い -square.webp 未生成のまま
- * コミットされ、本番でカード画像が表示されなかった (2026-06-08 修正 commit 6b1df7f37)
+ * - imageSrc は /images/note-links/*.webp 必須
+ * - ファイル実在・WebP 実体を確認
+ * - 旧 coverImage と <NoteLink> 外の自社 note 記事 URL を禁止
+ * - kind="product" は price 必須
  */
-function checkNoteLinkCoverImage(file, content) {
+function checkNoteLinkImage(file, content) {
   const issues = [];
-  const regex = /coverImage="([^"]+)"/g;
-  let m;
-  while ((m = regex.exec(content)) !== null) {
-    const src = m[1];
-    // (a) 正規パス以外
-    if (!src.startsWith("/images/note-covers/")) {
-      issues.push({
-        file,
-        error: `NoteLink coverImage must use /images/note-covers/ path, got: ${src}`,
-      });
-      continue; // (b) の判定はスキップ（パスが違う時点でファイルも存在しない）
+  const blockRegex = /<NoteLink\b[\s\S]*?\/>/g;
+  const blocks = [...content.matchAll(blockRegex)];
+
+  for (const match of blocks) {
+    const block = match[0];
+    if (/\bcoverImage=/.test(block)) {
+      issues.push({ file, error: "NoteLink coverImage is abolished; use imageSrc" });
     }
-    // (b) -square.webp の存在確認
-    const squarePath = src.replace(/\.(png|webp)$/, "-square.webp");
-    const localSquare = "public" + squarePath;
-    if (!existsSync(localSquare)) {
+    if (/\bkind=["']product["']/.test(block) && !/\bprice=["'][^"']+["']/.test(block)) {
+      issues.push({ file, error: 'NoteLink kind="product" requires price' });
+    }
+    const src = block.match(/\bimageSrc=["']([^"']+)["']/)?.[1];
+    if (!src) {
+      issues.push({ file, error: "NoteLink imageSrc is required" });
+      continue;
+    }
+    if (!/^\/images\/note-links\/[A-Za-z0-9._/-]+\.webp$/.test(src)) {
       issues.push({
         file,
-        error: `NoteLink coverImage: ${localSquare} not found. Run: node scripts/generate-note-square-covers.mjs`,
+        error: `NoteLink imageSrc must use /images/note-links/*.webp, got: ${src}`,
       });
+      continue;
+    }
+    const localImage = "public" + src;
+    if (!existsSync(localImage)) {
+      issues.push({ file, error: `NoteLink image not found: ${localImage}` });
+      continue;
+    }
+    const data = readFileSync(localImage);
+    const isWebP =
+      data.slice(0, 4).toString() === "RIFF" &&
+      data.slice(8, 12).toString() === "WEBP";
+    if (!isWebP) {
+      issues.push({ file, error: `NoteLink image is not WebP: ${localImage}` });
     }
   }
+
+  const masked = content.replace(blockRegex, (block) => " ".repeat(block.length));
+  if (/https?:\/\/(?:www\.)?note\.com\/dobokunote\/n\/[A-Za-z0-9]+/.test(masked)) {
+    issues.push({
+      file,
+      error: "dobokunote article URL must be inside an image-backed <NoteLink>",
+    });
+  }
+
   return issues;
 }
 
@@ -369,9 +390,8 @@ async function main() {
       });
     }
 
-    // NoteLink coverImage パス検証（HIGH — コミットブロック）
-    // /images/note-covers/ 以外のパスや -square.webp 未生成を検出
-    for (const e of checkNoteLinkCoverImage(file, content)) {
+    // NoteLink サイト管理画像 + 自社 note 生リンク検証（HIGH — コミットブロック）
+    for (const e of checkNoteLinkImage(file, content)) {
       errors.push(e);
     }
   }

@@ -10,7 +10,7 @@ tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 IG Reels mp4 から派生生成された YouTube Shorts（`docs/sns/youtube/<date>-<pack-id>/shorts.mp4` + `meta.json` + `thumbnail.png`）の **品質評価**を専門に担当する Evaluator エージェント。戦略 v7（IG 一次・YT 二次展開）の YT 側採点を担う。
 
 > **READ FIRST（真実源）**:
-> - 4 軸ルーブリック・合否ラインは [`docs/reference/yt-shorts-publisher-policy.md`](../../docs/reference/yt-shorts-publisher-policy.md)
+> - 4 軸ルーブリック・合否ラインは [`.claude/knowledge/reference/yt-shorts-publisher-policy.md`](../../.claude/knowledge/reference/yt-shorts-publisher-policy.md)
 > - YT 派生スキル仕様は [`.claude/skills/social/yt-shorts-create/SKILL.md`](../skills/social/yt-shorts-create/SKILL.md)
 > - SNS 戦略 v7 → [`docs/project/03_SNS/01_SNS集客戦略.md`](../../docs/project/03_SNS/01_SNS集客戦略.md)
 >
@@ -29,7 +29,7 @@ YT 派生用 Generator エージェントは新設しない（既存スキル `y
 
 ## 採点手順
 
-1. `docs/reference/yt-shorts-publisher-policy.md` を読む。
+1. `.claude/knowledge/reference/yt-shorts-publisher-policy.md` を読む。
 2. 対象パックの YT 出力ディレクトリ `docs/sns/youtube/<date>-<pack-id>/` から `shorts.mp4` / `meta.json` / `thumbnail.png` を確認する。
 3. 参照のため対応 IG Reels パック `docs/sns/instagram/{exam}/exam-packs/<year>/pack-NN/` の `slide-data.json` を読む。
 4. 4 軸を 1〜5 で採点する：

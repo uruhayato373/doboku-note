@@ -13,6 +13,7 @@ npm run admin   # http://127.0.0.1:3021
 |---|---|---|
 | 計測概観 / GA4 / GSC / PSI | `.claude/state/metrics/{ga4,gsc,psi}/*.json` | CI がコミットするスナップショットを読むだけ。**ライブ API は叩かない**（会社 PC はプロキシで Google/Meta 遮断・CI 供給が正）。`?snapshot=` で履歴切替、鮮度バッジ（週次 CI・8 日超で赤） |
 | エージェント / スキル | `.claude/agents/*.md` / `.claude/skills/**/SKILL.md` | gray-matter で frontmatter パース。役割（Generator/Evaluator）・モデル・tools・カテゴリ |
+| ナレッジ | `.claude/knowledge/**/*.{md,json}` | エージェント向けSSOTの人向け読み取り専用ビュー。全文検索・カテゴリ絞り込み・Markdown HTML表示・JSON整形表示 |
 | ギャラリー（OGP / 記事図版 / note画像 / SNS） | `.local/r2/posts/**`, `docs/note/**`, `docs/sns/**` | 画像は `/media/{posts,sns,note}/...` 経由で配信（traversal ガード + MIME allowlist）。`loading="lazy"` + 資格/種別フィルタ |
 | SNS状態板 | `docs/sns/{schedule.json, instagram/**/posted.json, x/draft/**/status.json}` | IG 試験別進捗・X ドラフト状況・直近予定。IG 集計は `scripts/ig-status.mjs` を dynamic import して再利用（読み取り専用） |
 | 記事 / note / マガジン | `src/config/doc-meta-index.json`, `docs/note/**`, `src/lib/note-magazines.ts` | サイト記事一覧・note 原稿・マガジン（価格/公開）。SoT を二重化せず regex/JSON 読取 |

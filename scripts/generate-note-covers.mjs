@@ -34,7 +34,7 @@ const CHAR_DIR = join(ROOT, 'docs/sns/_assets/character');
 const FONTS_DIR = join(ROOT, '.claude/skills/conversion/ogp-create/assets/fonts');
 const TEXT_CONFIG = require(join(ROOT, '.claude/config/ogp/text.json'));
 // note カバー G2 デザイントークン（試験パレット・系列濃淡）の真実源
-const COVER_TOKENS = require(join(ROOT, 'docs/design-system/note-cover-tokens.json'));
+const COVER_TOKENS = require(join(ROOT, '.claude/knowledge/design-system/note-cover-tokens.json'));
 
 // note カバーは 1280×670（note 推奨）
 const W = 1280;
@@ -83,6 +83,27 @@ function loadFonts() {
   ];
 }
 
+// 資格別ブランド写真プール（サイト OGP 背景と共有・brand-image-system.md §3）。
+// V4 の visualAsset 未指定時の既定背景。1280×670 へ center cover crop して dataURL 化。
+const OGP_BG_DIR = join(ROOT, '.claude/config/ogp/backgrounds');
+const BG_EXAM_ALIAS = { 'civil-1-2': 'civil-1' }; // 1級・2級横断は 1級のプールを流用（色スキームと同じ規約）
+const brandPoolCache = new Map();
+async function brandPoolVisual(examKey) {
+  const key = BG_EXAM_ALIAS[examKey] || examKey;
+  if (brandPoolCache.has(key)) return brandPoolCache.get(key);
+  let src = null;
+  for (const ext of ['png', 'webp', 'jpg']) {
+    const p = join(OGP_BG_DIR, `${key}.${ext}`);
+    if (existsSync(p)) {
+      const buf = await sharp(p).resize({ width: W, height: H, fit: 'cover', position: 'centre' }).png().toBuffer();
+      src = `data:image/png;base64,${buf.toString('base64')}`;
+      break;
+    }
+  }
+  brandPoolCache.set(key, src); // 無い資格は null キャッシュ（決定論的背景へ）
+  return src;
+}
+
 /**
  * H1 行から表示用タイトルを抽出する。
  * 旧仕様の「【フック】メイン｜サブ」装飾はすべて剥がしてメイン部分だけ残す。
@@ -99,24 +120,55 @@ function extractTitle(h1) {
 
 async function renderCover({ dirName, title, coverTitle, cover, category, examKey, pricing, debugSafety, fonts, outName = 'cover' }) {
   let element;
-  // cover: ブロックがあれば G2（試験色分け・全幅バナー帯）、無ければ従来 mono-tag にフォールバック
-  if (cover && (cover.banner || cover.hi || cover.leadIn)) {
+  // cover: ブロックがあれば G2/V4（試験色分け）、無ければ従来 mono-tag にフォールバック
+  if (cover && (cover.banner || cover.hi || cover.leadIn || cover.variant)) {
     const palette = resolvePalette(examKey, { tone: cover.tone, pricing });
     let coverProps = cover;
+    const isV4 = cover.variant === 'crop-safe-v4';
+    // V4: chips は描画されない（後方互換のため残置は可・警告のみ）
+    if (isV4 && Array.isArray(cover.chips) && cover.chips.length) {
+      console.warn(`  warn: ${dirName} は V4 のため chips は描画されません（cover から削除を推奨）`);
+    }
+    // V4 背景の解決順（2026-07-24 写真プール統一の決定）:
+    //   1. cover.visualAsset（記事 dir 相対・個別上書き opt-in）
+    //   2. 資格別ブランド写真プール（.claude/config/ogp/backgrounds/<exam-key>.png・サイト OGP と共有）
+    //   3. 決定論的背景（紙面グラデ＋グリッド）
+    // 真実源: brand-image-system.md §3「note カバー背景 = wide 原版」
+    let visualSrc = null;
+    if (isV4 && cover.visualAsset) {
+      const vpath = join(NOTE_DIR, dirName, cover.visualAsset);
+      if (!existsSync(vpath)) {
+        console.warn(`  warn: visualAsset が見つかりません（${cover.visualAsset}）→ ブランド写真プールへフォールバック`);
+      } else {
+        const vmeta = await sharp(vpath).metadata();
+        if (vmeta.width !== W || vmeta.height !== H) {
+          console.warn(`  warn: visualAsset は ${vmeta.width}×${vmeta.height}（要 ${W}×${H}）→ ブランド写真プールへフォールバック`);
+        } else {
+          const vbuf = readFileSync(vpath);
+          const mime = /\.webp$/i.test(vpath) ? 'image/webp' : /\.jpe?g$/i.test(vpath) ? 'image/jpeg' : 'image/png';
+          visualSrc = `data:${mime};base64,${vbuf.toString('base64')}`;
+        }
+      }
+    }
+    if (isV4 && !visualSrc) {
+      visualSrc = await brandPoolVisual(examKey);
+    }
     // cover.character（ポーズ slug）指定時はキャラ立ち絵を data URL 化して合成（opt-in）
     if (cover.character) {
       const cpath = join(CHAR_DIR, `${cover.character}.png`);
       if (existsSync(cpath)) {
         const cmeta = await sharp(cpath).metadata();
         const cbuf = readFileSync(cpath);
-        coverProps = { ...cover, characterSrc: `data:image/png;base64,${cbuf.toString('base64')}`, characterW: cmeta.width, characterH: cmeta.height };
+        coverProps = { ...coverProps, characterSrc: `data:image/png;base64,${cbuf.toString('base64')}`, characterW: cmeta.width, characterH: cmeta.height };
       } else {
         console.warn(`  warn: cover.character "${cover.character}" の画像が見つかりません（${cpath}）`);
       }
     }
     element = renderTemplate(
       'note-cover-g2',
-      { cover: coverProps, palette, debugSafety },
+      isV4
+        ? { cover: coverProps, palette, visualSrc, debugSafetyV4: debugSafety } // V4 は三重安全領域オーバーレイ（共通の630赤枠は使わない）
+        : { cover: coverProps, palette, debugSafety },
       { width: W, height: H },
     );
   } else {

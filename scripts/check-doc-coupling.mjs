@@ -21,13 +21,13 @@
 //   npm run check-doc-coupling
 // 違反が 1 件でもあれば exit 1。
 //
-// 真実源ルール: docs/reference/information-architecture.md「SSOT と参照規律」/ CLAUDE.md §8。
+// 真実源ルール: .claude/knowledge/reference/information-architecture.md「SSOT と参照規律」/ CLAUDE.md §8。
 
 import { execFileSync } from 'node:child_process';
 
-const SKILLS_GUIDE = 'docs/reference/skills-guide.md';
-const SKILLS_REGISTRY = 'docs/reference/skills-registry.md';
-const AGENTS_REGISTRY = 'docs/reference/agents-registry.md';
+const SKILLS_GUIDE = '.claude/knowledge/reference/skills-guide.md';
+const SKILLS_REGISTRY = '.claude/knowledge/reference/skills-registry.md';
+const AGENTS_REGISTRY = '.claude/knowledge/reference/agents-registry.md';
 
 if (process.env.SKIP_DOC_COUPLING === '1') {
   console.log('[check-doc-coupling] スキップ（SKIP_DOC_COUPLING=1）');
@@ -135,7 +135,7 @@ if (violations.length) {
   console.error('\n対処: スキル/エージェントの追加・削除・description 変更は、同一コミットで対応台帳も更新する。');
   console.error('      skills → skills-guide.md（一覧）＋ skills-registry.md（退役/追加ログ） / agents → agents-registry.md');
   console.error('      正当に台帳更新が不要なら SKIP_DOC_COUPLING=1 または git commit --no-verify で回避。');
-  console.error('      ルール: CLAUDE.md §8 / docs/reference/information-architecture.md「SSOT と参照規律」');
+  console.error('      ルール: CLAUDE.md §8 / .claude/knowledge/reference/information-architecture.md「SSOT と参照規律」');
   process.exit(1);
 }
 

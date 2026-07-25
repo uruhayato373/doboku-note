@@ -3,13 +3,13 @@ name: gsc-review
 description: >
   月次 GSC index coverage レビューのオーケストレータ。CI（index-coverage.yml）が更新した
   url-inspection スナップショットと index-coverage-history.json を gsc-index-auditor で診断し、
-  docs/reference/gsc-management.md の「観測・判断ログ」へユーザー判断つきで追記する流れを統括する。
+  .claude/knowledge/reference/gsc-management.md の「観測・判断ログ」へユーザー判断つきで追記する流れを統括する。
   performance（CTR/rank）は /weekly-improve（metrics-analyzer）、CWV は performance-auditor の担当で直交。
   Use when user asks to [GSC月次レビュー, index coverage確認, インデックス率, /gsc-review].
 user-invocable: true
 ---
 
-月次の GSC **index coverage** レビューを回すオーケストレータ。「サイトの何割が Google に登録され、未登録の原因は何か」を継続管理する。設計・閾値・判断マトリクスの真実源は [docs/reference/gsc-management.md](../../../../docs/reference/gsc-management.md)。
+月次の GSC **index coverage** レビューを回すオーケストレータ。「サイトの何割が Google に登録され、未登録の原因は何か」を継続管理する。設計・閾値・判断マトリクスの真実源は [.claude/knowledge/reference/gsc-management.md](../../../../.claude/knowledge/reference/gsc-management.md)。
 
 ## いつ使うか
 
@@ -34,7 +34,7 @@ user-invocable: true
    - 返ってくる診断（indexed_ratio・前回差分・原因バケット・hygiene URL・データ健全性フラグ）を受け取る
 
 3. **観測・判断ログ追記の下書き提示**
-   - `docs/reference/gsc-management.md` 末尾の「観測・判断ログ」セクションに追記する Markdown 下書きを作る（日付・数値・診断・**推奨アクション**）
+   - `.claude/knowledge/reference/gsc-management.md` 末尾の「観測・判断ログ」セクションに追記する Markdown 下書きを作る（日付・数値・診断・**推奨アクション**）
    - 数値は history.json を引用。原因バケットは auditor の判定を踏襲
 
 4. **ユーザー判断 → 確定**
@@ -45,7 +45,7 @@ user-invocable: true
 ## 出力
 
 - 会話内に diagnosis サマリー
-- `docs/reference/gsc-management.md` の観測・判断ログへ 1 エントリ追記（ユーザー承認後）
+- `.claude/knowledge/reference/gsc-management.md` の観測・判断ログへ 1 エントリ追記（ユーザー承認後）
 - 必要なら `docs/todo/` に hygiene 修正タスク
 
 ## 深掘り（理由別の例 URL が要るとき）
@@ -65,7 +65,7 @@ user-invocable: true
 
 ## 参照
 
-- `docs/reference/gsc-management.md` — GSC 管理 SSOT（分業/閾値/判断マトリクス/観測ログ）
+- `.claude/knowledge/reference/gsc-management.md` — GSC 管理 SSOT（分業/閾値/判断マトリクス/観測ログ）
 - `.claude/agents/gsc-index-auditor.md` — 診断 Evaluator（本スキルが起動）
 - `.github/workflows/index-coverage.yml` — 月次取得 CI
 - `.claude/skills/management/weekly-improve/SKILL.md` — performance 側（直交・補完）

@@ -10,15 +10,12 @@ coverTitle: ["1級土木 施工経験記述", "安全管理×施工計画"]
 price: 980
 paidBoundary: "安全管理×施工計画を書き分けるポイント"
 cover:
-  leadIn: "1級土木 施工経験記述"
-  hi: "安全"
-  hiSuffix: "×施工計画"
-  banner: "鉄道近接・急傾斜地・海上浚渫"
-  meta: "2テーマ組合せ大全"
-  chips:
-    - { icon: pen, text: "そのまま雛形に" }
-    - { icon: target, text: "置換ガイド付" }
-    - { icon: check, text: "採点チェック付" }
+  variant: crop-safe-v4
+  leadIn: "1級土木｜施工経験記述"
+  headline: "安全×施工計画"
+  hi: "2テーマ"
+  hiSuffix: "組合せ"
+  benefit: "どの組合せでも書ける"
 ---
 # 1級土木 施工経験記述｜安全管理×施工計画（鉄道近接工事・急傾斜地道路改良・海上浚渫 ほか）
 

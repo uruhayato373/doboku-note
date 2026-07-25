@@ -1,6 +1,6 @@
 # 074 2級土木 二次(経験記述) Week1（7/19-7/26）
 
-> 主軸: 2級 第2次検定・施工経験記述。後期二次=2026-10-27・受検申込開始7/8。著者ボイス＝総監合格・元地方自治体土木職（発注者）。
+> 主軸: 2級 第2次検定・施工経験記述。後期一次・二次=2026-10-25（SSOT: `.claude/config/exam-calendar.json`）・受検申込開始7/8。著者ボイス＝総監合格・元地方自治体土木職（発注者）。
 > §11.1 順守: 073(1級)と別文面・別具体例。競合分析(x-post-policy §5.2)由来の型＝朝共感(申込フック)/要点圧縮/Before→After/反論/カウントダウン数字/工種選び/現場つぶやき。
 > URL: 同一URL≤2/短期間。反論・要点圧縮・現場つぶやきはURLなし。campaign=civil-secondary-2026。
 
@@ -36,7 +36,7 @@ https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-e
 
 ## Tweet 05: カウントダウン・数字（水 7/23 20:35）
 
-2級土木の二次は10月27日、今日から数えて約13週。経験記述は一夜漬けが効かない唯一の分野で、書いて直す反復が要る。週1本ずつでも今から積めば直前に慌てない。傾向と型の整理はこちら→
+2級土木の二次は10月25日、今日から数えて約13週。経験記述は一夜漬けが効かない唯一の分野で、書いて直す反復が要る。週1本ずつでも今から積めば直前に慌てない。傾向と型の整理はこちら→
 https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-guide?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026
 #2級土木施工管理技士 #施工管理技士 #経験記述
 

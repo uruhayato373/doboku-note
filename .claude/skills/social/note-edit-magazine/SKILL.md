@@ -19,7 +19,7 @@ note の有料マガジンを `note掲載文.txt`（マガジン設定の単一S
 npm run note-edit-session -- <magazineKey>   # 開いた画面でログイン → 閉じる（セッション保存）
 ```
 
-ログイン後は本スキルがそのセッションを再利用する。組み込み Chromium だと「安全でないブラウザ」で弾かれるため `channel:'chrome'` 必須（真実源: `docs/reference/note-api-verification.md`）。
+ログイン後は本スキルがそのセッションを再利用する。組み込み Chromium だと「安全でないブラウザ」で弾かれるため `channel:'chrome'` 必須（真実源: `.claude/knowledge/reference/note-api-verification.md`）。
 
 ## ⚠️ 重要: note の文字数制限（超過すると「更新」ボタンが無効＝保存不可）
 
@@ -58,6 +58,6 @@ npm run note-edit-magazine -- --key m6854c7437d4d --dir "<magazineDir>" --articl
 
 ## 関連
 
-- 読み取り照合: `npm run verify-note-magazines`（[note-api-verification.md](../../../docs/reference/note-api-verification.md)）
+- 読み取り照合: `npm run verify-note-magazines`（[note-api-verification.md](../../../.claude/knowledge/reference/note-api-verification.md)）
 - ログイン入口: `npm run note-edit-session`
 - 兄弟スキル: `publish-x`（同方式の X 投稿）

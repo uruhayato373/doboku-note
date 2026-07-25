@@ -7,10 +7,10 @@ note記事カバーに「Clarity V3」を実装してください。
 
 最初に必ず次を全文読んでください。
 - CLAUDE.md（存在する場合）
-- docs/design-system/note-cover-clarity-v3.md
-- docs/design-system/note-cover.md
-- docs/design-system/note-cover-tokens.json
-- docs/reference/note-svg-policy.md
+- .claude/knowledge/design-system/note-cover-clarity-v3.md
+- .claude/knowledge/design-system/note-cover.md
+- .claude/knowledge/design-system/note-cover-tokens.json
+- .claude/knowledge/reference/note-svg-policy.md
 - .claude/skills/conversion/ogp-create/SKILL.md
 - .claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs の note-cover-g2 実装
 - scripts/generate-note-covers.mjs
@@ -48,7 +48,7 @@ cover:
 3. Clarity V3の主要情報 headline / hi+hiSuffix / banner は中央630×630の内側、実用幅590pxに全文を収める。
 4. chipsはClarity V3では使用しない。既存G2では引き続き3個必須。
 5. 文字を切り詰めたり暗黙に二行化しない。最小フォントで収まらない場合は検証エラーにする。
-6. 色、座標、フォントサイズは docs/design-system/note-cover-tokens.json をSSoTにする。rendererへの重複直書きを最小化する。
+6. 色、座標、フォントサイズは .claude/knowledge/design-system/note-cover-tokens.json をSSoTにする。rendererへの重複直書きを最小化する。
 7. 既存キャラクター素材を使い、新しい画像生成はしない。キャラクターは補助装飾で、主見出しより目立たせない。
 8. article.mdの本文とcover以外のfrontmatterを変更しない。改行コードを壊さない。
 9. dirty worktreeの既存変更はユーザーのものとして保持し、無関係な整形・削除・巻き戻しをしない。
@@ -56,11 +56,11 @@ cover:
 
 変更対象:
 - .claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs
-- docs/design-system/note-cover-tokens.json
+- .claude/knowledge/design-system/note-cover-tokens.json
 - scripts/add-note-cover.mjs
 - scripts/check-note-cover-fit.mjs
 - .claude/agents/note-cover-writer.md
-- docs/design-system/note-cover.md
+- .claude/knowledge/design-system/note-cover.md
 - 代表記事のarticle.mdとimg/cover.svg、img/cover.png
 
 設計書に書かれた座標・優先順位・フィット関数・検証条件を実装してください。実装中に設計書と現行コードが衝突した場合は、後方互換と中央クロップ安全性を優先し、勝手にスコープを広げず差異を報告してください。

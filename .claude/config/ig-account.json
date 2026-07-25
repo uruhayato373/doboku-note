@@ -1,8 +1,51 @@
 {
+  "schemaVersion": 1,
+  "platform": "instagram",
   "handle": "dobokunotecom",
   "fbPageName": "Doboku-note",
   "profileUrl": "https://www.instagram.com/dobokunotecom/",
   "plannerUrl": "https://business.facebook.com/latest/content_calendar",
   "playwrightProfile": ".local/playwright-ig-bs-profile",
-  "_note": "Instagram アカウントの単一機械可読 SSOT。実アカウントは @dobokunotecom（X と同一ハンドル）。docs/sns/instagram/profile.md の旧『@doboku_note 想定』は誤りで本ファイルが真実源。publish-ig-bs.ts は IG_BS_IG_ACCOUNT 既定が dobokunotecom で整合済み。verify-ig-status.mjs はここを読む。"
+  "profile": {
+    "displayName": "架｜技術士・1級土木の試験対策",
+    "bio": "技術士・1級土木の答案づくりを図解\n元・自治体土木職｜発注者視点\n技術士〈建設・総監〉・1級土木ほか\n過去問／記述式／経験記述\n保存して試験前に見返す教材↓",
+    "websiteUrl": "https://doboku-note.com/links",
+    "pinnedPosts": [
+      {
+        "order": 1,
+        "key": "account-value",
+        "title": "このアカウントで学べること",
+        "status": "planned"
+      },
+      {
+        "order": 2,
+        "key": "author-profile",
+        "title": "誰が発信しているの？",
+        "status": "planned"
+      },
+      {
+        "order": 3,
+        "key": "start-guide",
+        "title": "初めての方へ｜試験別スタートガイド",
+        "status": "planned"
+      }
+    ],
+    "highlights": [
+      "はじめに",
+      "技術士総監",
+      "1級土木",
+      "無料教材",
+      "答案・添削"
+    ]
+  },
+  "limits": {
+    "displayName": 30,
+    "bio": 150
+  },
+  "references": {
+    "author": "src/config/author.ts",
+    "profileGuide": "docs/sns/instagram/profile.md",
+    "linkHub": ".claude/knowledge/reference/links-hub.md"
+  },
+  "_note": "Instagram運用アカウントとプロフィール表示値の単一機械可読SSOT。スキル・エージェント・Playwrightはhandle/displayName/bio/websiteUrl/pinnedPosts/highlightsを本ファイルから読む。docs/sns/instagram/profile.mdは設計理由と履歴の人間向け資料であり表示値の真実源ではない。publish-ig-bs.tsとverify-ig-status.mjsもhandleは本configを正とする。"
 }

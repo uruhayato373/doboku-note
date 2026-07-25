@@ -17,7 +17,7 @@
  *     small:  TOKENS.highlightStories.typography.heroSm,  // _maxLen: 16
  *   });
  *
- * 真実源: docs/reference/ig-highlight-design-policy.md §4
+ * 真実源: .claude/knowledge/reference/ig-highlight-design-policy.md §4
  */
 
 /**

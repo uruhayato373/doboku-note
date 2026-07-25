@@ -8,15 +8,12 @@ notePublishedAt: 2026-06-11
 noteMagazine: 総監模範論文-道路橋梁コンサル
 price: 500
 cover:
-  leadIn: "令和8年度 R8予想"
+  variant: crop-safe-v4
+  leadIn: "総監 記述式｜道路橋梁コンサル"
+  headline: "気候変動適応"
   hi: "R8"
-  hiSuffix: "道路橋梁コンサル①(気候変動適応)"
-  banner: "気候変動適応・道路防災｜3,000字級フル論文"
-  meta: "R8予想問題"
-  chips:
-    - { icon: pen, text: "答案そのまま展開" }
-    - { icon: layers, text: "5管理トレードオフ" }
-    - { icon: check, text: "採点チェック付" }
+  hiSuffix: "予想①"
+  benefit: "3,000字級をそのまま展開"
 ---
 # 令和8年度 総監記述式 模範論文｜道路橋梁コンサル版（気候変動適応・道路防災と橋梁の適応設計／R8予想①）
 

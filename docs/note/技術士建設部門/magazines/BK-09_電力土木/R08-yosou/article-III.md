@@ -12,17 +12,14 @@ notePublishedAt: "2026-07-12"
 noteStatus: published
 price: 780
 coverTitle: "技術士 建設部門｜電力土木 R8予想 選択科目III 予想問題＋模範解答"
-cover:
-  leadIn: "技術士 建設部門 2次"
-  hi: "R8予想"
-  hiSuffix: "電力土木III"
-  banner: "選択科目III 課題解決｜予想問題＋模範解答"
-  meta: "電力土木 R8予想 模範解答"
-  chips:
-    - { icon: pen, text: "両問題フル模範解答" }
-    - { icon: layers, text: "発注者視点" }
-    - { icon: check, text: "予想の根拠付き" }
 utmCampaign: pe-construction-secondary
+cover:
+  variant: crop-safe-v4
+  leadIn: "建設部門｜電力土木"
+  headline: "課題解決"
+  hi: "R8"
+  hiSuffix: "III"
+  benefit: "そのまま答案に展開できる"
 ---
 
 # 技術士 建設部門｜電力土木 R8予想 選択科目III 予想問題＋模範解答

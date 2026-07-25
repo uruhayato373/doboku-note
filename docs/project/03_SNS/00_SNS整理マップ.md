@@ -12,13 +12,13 @@
 | `03_多資格SNS展開設計.md` | 実装完了 | 2026-06-02 | 試験軸（総監/1級/2級/建設部門）ディレクトリ・カバー色の多資格対応 |
 | `05_YouTube戦略_技術士総監.md` | v1 | 2026-06-12 | **総監 YT の独立 SSOT**（01 を上書き）。Tier1 Shorts＋Tier2 通常動画 |
 | `05a_YouTube競合分析_技術士総監_2026-06.md` | 定点 | 2026-06 | 競合分析の根拠資料（年次更新で差分比較） |
-| `docs/reference/x-post-policy.md` | — | — | X 投稿規約＋**凍結ガードレール §11**（doc本体より詳細） |
-| `docs/reference/content-angle-policy.md` | v1 | 2026-06-09 | **6切り口**（結論/理由/体験/反論/数字/ハウツー）の SSOT・Red Line 1-5 |
-| `docs/reference/sns-repurpose-policy.md` | — | — | 6切り口のチャネル別適用 |
-| `docs/reference/ig-{carousel-skill,reels-policy,stories-policy,highlight-design-policy,publish-reconcile}.md` | — | — | IG 各コンテンツ型の規約 |
-| `docs/reference/yt-shorts-publisher-policy.md` | — | — | YT Shorts 品質基準（4軸） |
-| `docs/reference/{sns-image-policy,sns-archive-policy,character-asset-policy}.md` | — | — | 画像/退避/マスコットの共通ポリシー |
-| `docs/reference/note-funnel-architecture.md` | v1 | 2026-06-16 | note 導線 3層モデルの SSOT（機械可読は `.claude/config/note-funnel.json`） |
+| `.claude/knowledge/reference/x-post-policy.md` | — | — | X 投稿規約＋**凍結ガードレール §11**（doc本体より詳細） |
+| `.claude/knowledge/reference/content-angle-policy.md` | v1 | 2026-06-09 | **6切り口**（結論/理由/体験/反論/数字/ハウツー）の SSOT・Red Line 1-5 |
+| `.claude/knowledge/reference/sns-repurpose-policy.md` | — | — | 6切り口のチャネル別適用 |
+| `.claude/knowledge/reference/ig-{carousel-skill,reels-policy,stories-policy,highlight-design-policy,publish-reconcile}.md` | — | — | IG 各コンテンツ型の規約 |
+| `.claude/knowledge/reference/yt-shorts-publisher-policy.md` | — | — | YT Shorts 品質基準（4軸） |
+| `.claude/knowledge/reference/{sns-image-policy,sns-archive-policy,character-asset-policy}.md` | — | — | 画像/退避/マスコットの共通ポリシー |
+| `.claude/knowledge/reference/note-funnel-architecture.md` | v1 | 2026-06-16 | note 導線 3層モデルの SSOT（機械可読は `.claude/config/note-funnel.json`） |
 
 > [!note] 版の注意
 > 01 の H1 は v7 だが本文に X 凍結（2026-06-12）対応の追記が入っている。凍結運用の詳細は `x-post-policy §11` 側が真実源。総監 YT は 01 でなく 05 が独立 SSOT である点を混同しない。
@@ -61,7 +61,7 @@
 
 ## 5. 関連台帳・config
 
-- エージェント詳細＝`docs/reference/agents-registry.md`／スキル早引き＝`docs/reference/skills-guide.md`／退役ログ＝`docs/reference/skills-registry.md`
+- エージェント詳細＝`.claude/knowledge/reference/agents-registry.md`／スキル早引き＝`.claude/knowledge/reference/skills-guide.md`／退役ログ＝`.claude/knowledge/reference/skills-registry.md`
 - config＝`.claude/config/{note-funnel.json, ig-account.json, character-poses.json, figure-canvas.json, utm-templates.json}`
 
 ## 6. 投稿型・雛形カタログ（量産の索引）

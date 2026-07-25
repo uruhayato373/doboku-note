@@ -42,7 +42,7 @@
 | 情報 | 参照先 |
 |---|---|
 | Reels の真実源 | `docs/sns/instagram/{exam}/exam-packs/<year>/pack-NN/reels/`（過去問パック）/ 将来の単独 Reels ディレクトリ |
-| Reels 台本ポリシー | `docs/reference/ig-reels-policy.md` |
+| Reels 台本ポリシー | `.claude/knowledge/reference/ig-reels-policy.md` |
 | Reels と Carousel/YT の役割分担 | `docs/project/03_SNS/01_SNS集客戦略.md` v7.1 §2 役割棲み分け表 |
 
 ## UTM 設計

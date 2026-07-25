@@ -11,15 +11,12 @@ noteId: "ncf908593ba9c"
 notePublishedAt: "2026-07-23"
 coverTitle: ["1級土木 施工経験記述", "セメント改良土盛土", "5管理 完成答案"]
 cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "セメント改良土盛土"
-  hiSuffix: "5管理完成答案"
-  banner: "現地発生土の改良利用"
-  meta: "有料マガジン"
-  chips:
-    - { icon: doc, text: "完成答案" }
-    - { icon: edit, text: "置換ガイド" }
-    - { icon: check, text: "5管理一覧" }
+  variant: crop-safe-v4
+  leadIn: "1級土木｜施工経験記述"
+  headline: "セメント改良土"
+  hi: "5管理"
+  hiSuffix: "完成答案"
+  benefit: "書き換えてそのまま使える"
 ---
 # 1級土木 施工経験記述｜セメント安定処理（改良土）による盛土工事（5管理 完成答案）
 

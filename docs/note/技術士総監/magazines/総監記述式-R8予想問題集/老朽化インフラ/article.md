@@ -9,15 +9,12 @@ notePublishedAt: 2026-05-25
 coverTitle: ["R8予想問題", "老朽化インフラの予防保全"]
 price: 780
 cover:
-  leadIn: "令和8年度 総監記述式"
+  variant: crop-safe-v4
+  leadIn: "総監 記述式｜設問3"
+  headline: "老朽化インフラ"
   hi: "R8"
-  hiSuffix: "予想問題"
-  banner: "老朽化インフラ × 予防保全"
-  meta: "R8予想問題"
-  chips:
-    - { icon: flag, text: "出題根拠つき" }
-    - { icon: pen, text: "3,000字級フル論文" }
-    - { icon: layers, text: "3ペルソナ早見表" }
+  hiSuffix: "予想"
+  benefit: "本番前に型を装填できる"
 ---
 # 令和8年度 総監記述式 R8予想問題｜老朽化インフラ × 予防保全（自治体 道路担当フル模範論文）
 

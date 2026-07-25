@@ -11,15 +11,12 @@ utmCampaign: civil2-koji-bank-koji22
 price: 1680
 coverTitle: ["2級土木 施工経験記述", "暑中コンクリート", "5管理フルカバー"]
 cover:
-  leadIn: "2級土木施工管理技士 二次"
-  hi: "暑中コンクリート"
-  hiSuffix: "5管理フルカバー"
-  banner: "どのテーマが来ても書ける想定工事"
-  meta: "有料マガジン"
-  chips:
-    - { icon: doc, text: "完成答案" }
-    - { icon: edit, text: "置換ガイド" }
-    - { icon: check, text: "5管理フル" }
+  variant: crop-safe-v4
+  leadIn: "2級土木｜施工経験記述"
+  headline: "暑中コンクリート"
+  hi: "5管理"
+  hiSuffix: "想定工事"
+  benefit: "どのテーマが来ても書ける"
 ---
 # 2級土木 施工経験記述｜暑中コンクリート打設工事 5管理フルカバー完成答案
 

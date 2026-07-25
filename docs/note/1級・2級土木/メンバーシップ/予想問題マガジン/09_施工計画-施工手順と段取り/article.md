@@ -6,16 +6,12 @@ membershipOnly: true
 utmCampaign: civil-membership-odai-plan-procedure
 coverTitle: ["今週のお題｜施工計画", "施工手順と段取り"]
 cover:
-  leadIn: "今週のお題 ｜ 施工計画"
+  variant: crop-safe-v4
+  leadIn: "今週のお題｜経験記述"
+  headline: "施工計画"
   hi: "予想"
   hiSuffix: "問題"
-  banner: "施工手順と段取り"
-  meta: "メンバーシップ限定"
-  tone: deep
-  chips:
-    - { icon: target, text: "予想問題" }
-    - { icon: edit, text: "模範解答" }
-    - { icon: check, text: "採点ポイント" }
+  benefit: "施工手順と段取りが書ける"
 ---
 # 今週のお題｜施工計画 — 施工手順・段取り・資源配分で工事を円滑に進める
 

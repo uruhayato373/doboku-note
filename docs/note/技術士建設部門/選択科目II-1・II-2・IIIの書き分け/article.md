@@ -9,16 +9,12 @@ coverTitle:
   - 選択科目II-1/II-2/III
   - 評価軸別の書き分け
 cover:
-  leadIn: "技術士 建設部門 2次"
-  hi: "書き分け"
-  hiSuffix: "II-1・II-2・III"
-  banner: "3つの設問が測る力を見抜く"
-  character: thinking
-  meta: "無料記事"
-  chips:
-    - { icon: layers, text: "評価軸の違い" }
-    - { icon: edit, text: "骨子の型" }
-    - { icon: target, text: "発注者視点" }
+  variant: crop-safe-v4
+  leadIn: "技術士 建設部門｜二次"
+  headline: "書き分け戦略"
+  hi: "II-1"
+  hiSuffix: "II-2/III"
+  benefit: "評価軸別の対策がわかる"
 ---
 
 # 【技術士 建設部門】選択科目 II-1・II-2・III の違いと書き分け｜評価軸別の戦略
@@ -49,7 +45,7 @@ cover:
 発注者の現場で見てきた視点も交えて解説します。
 
 <!-- cta:pack-top -->
-> 建設部門は「必須科目I＋選択科目」の組み合わせで合否が決まります。全受験者共通の[必須科目I 模範解答集（R03-R07＋R8予想・¥3,480）](https://note.com/dobokunote/m/m0f3bc3933454)がまず1冊目。あなたの選択科目の模範解答集は[建設部門もくじ](https://note.com/dobokunote/n/n7279ca0d926f)から選べます（単品を1本ずつ買うより約8割お得）。
+> 建設部門は「必須科目I＋選択科目」の組み合わせで合否が決まります。全受験者共通の[必須科目I 模範解答集（R03-R07＋R8予想）](https://note.com/dobokunote/m/m0f3bc3933454)がまず1冊目。あなたの選択科目の模範解答集は[建設部門もくじ](https://note.com/dobokunote/n/n7279ca0d926f)から選べます（単品を1本ずつ買うより約8割お得）。
 
 ## 答案分量と評価軸の違いを先につかむ
 

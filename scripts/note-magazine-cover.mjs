@@ -20,7 +20,7 @@
  *
  * 安全弁（収益アカウント）: account=dobokunote を assert / 既定 probe /
  *   保存後に note API で eyecatch!=null を実体検証（偽成功ガード）。
- * 真実源: docs/reference/note-api-verification.md
+ * 真実源: .claude/knowledge/reference/note-api-verification.md
  * ---------------------------------------------------------------------------
  */
 import { chromium } from 'playwright';
@@ -55,7 +55,8 @@ function curlJson(url) {
 const isDefaultCover = (url) => !url || /\/assets\/default\/default_magazine_header/.test(url);
 function magazineCover(key) {
   // note の「マガジン画像」は API では cover / coverRectangle フィールド（eyecatch ではない）
-  for (let p = 1; p <= 4; p++) {
+  // マガジン数増加で 4 ページ超過 → 未発見の false negative が出た（2026-07-25 BK-I が page5）。isLastPage まで走査
+  for (let p = 1; p <= 12; p++) {
     const d = curlJson(`https://note.com/api/v2/creators/${CREATOR}/contents?kind=magazine&page=${p}`);
     const c = d?.data?.contents ?? [];
     const hit = c.find((m) => m.key === key);
@@ -132,14 +133,29 @@ try {
   }
   if (clicked) await sleep(3000); else console.log('[5] crop 確定ボタン未検出（ダイアログ無し?）');
 
+  // (3b) 新カバーのプレビュー実体出現を待つ（アップロード完了前に「更新」を押すと画像なし保存になる: 2026-07-25）
+  let previewOk = false;
+  for (let i = 0; i < 20 && !previewOk; i++) {
+    previewOk = await page.evaluate(() => [...document.querySelectorAll('img')].some((im) => /blob:|st-note|uploads/.test(im.src || '') && !/default_magazine/.test(im.src || '') && im.width > 100));
+    if (!previewOk) await sleep(1500);
+  }
+  console.log('[5b] カバープレビュー実体=' + previewOk);
+  if (!previewOk) { console.error('ABORT: プレビュー未出現→保存せず中断'); await page.screenshot({ path: join(ROOT, '.tmp/mag-cover-nopreview.png') }).catch(() => {}); await ctx.close(); process.exit(5); }
+
   // (4) マガジン設定の「更新」保存
   const upd = page.locator('button:has-text("更新")').first();
   if (await upd.count()) {
     const disabled = await upd.isDisabled();
     console.log('[6] 更新ボタン disabled=' + disabled);
-    if (!disabled) { await upd.click(); await sleep(5000); console.log('[6] 更新クリック'); }
+    if (!disabled) { await upd.click(); await sleep(3000); console.log('[6] 更新クリック'); }
     else { console.log('[6] 更新無効（変更未検出の疑い）— 画像のみで保存不要の可能性'); }
   } else { console.log('[6] 更新ボタン未検出'); }
+  // (4b) 反映を API ポーリングで待ってからブラウザを閉じる（送信中クローズによる保存ロスト防止）
+  for (let i = 0; i < 12; i++) {
+    const m = magazineCover(KEY);
+    if (m?.cover) { console.log('[6b] API 反映確認 (' + (i + 1) + '回目)'); break; }
+    await sleep(2500);
+  }
   await page.screenshot({ path: join(ROOT, '.tmp/mag-cover-saved.png'), fullPage: true }).catch(() => {});
 } finally { await ctx.close(); }
 

@@ -11,15 +11,12 @@ noteId: "nb8b8b9533bcc"
 notePublishedAt: "2026-07-01"
 coverTitle: ["1級土木 施工経験記述", "横断歩道橋設置", "5管理 完成答案"]
 cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "横断歩道橋"
-  hiSuffix: "設置工事 5管理完成答案"
-  banner: "都市部幹線道路の横断歩道橋設置"
-  meta: "完全攻略パック 工事83"
-  chips:
-    - { icon: doc, text: "完成答案" }
-    - { icon: edit, text: "置換ガイド" }
-    - { icon: check, text: "NG→OK添削" }
+  variant: crop-safe-v4
+  leadIn: "1級土木｜施工経験記述"
+  headline: "横断歩道橋"
+  hi: "5管理"
+  hiSuffix: "完成答案"
+  benefit: "書き換えてそのまま使える"
 ---
 # 1級土木 施工経験記述｜横断歩道橋設置（5管理 完成答案）
 

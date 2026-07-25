@@ -7,16 +7,12 @@ noteId: "n7a81ebf1cdc5"
 noteUrl: "https://note.com/dobokunote/n/n7a81ebf1cdc5"
 coverTitle: ["施工管理を辞める前に", "確認すること"]
 cover:
-  leadIn: "勢いで退職届を出す前に"
-  hi: "辞める前に"
-  hiSuffix: "確認すること"
-  banner: "市場価値・年収・働き方の3点"
-  character: pointing
-  meta: "無料"
-  chips:
-    - { icon: check, text: "市場価値を知る" }
-    - { icon: yen, text: "年収の現在地" }
-    - { icon: layers, text: "働き方の選択肢" }
+  variant: crop-safe-v4
+  leadIn: "退職届を出す前に"
+  headline: "退職前チェック"
+  hi: "無料"
+  hiSuffix: "公開"
+  benefit: "市場価値と年収が分かる"
 ---
 # 施工管理を辞める前に確認すること｜勢いで退職届を出す前に【無料】
 

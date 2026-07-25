@@ -11,17 +11,14 @@ noteId: n2795047de750
 notePublishedAt: 2026-06-11
 price: 1980
 coverTitle: "技術士 建設部門｜道路 R8予想 III 予想② 4車線化"
-cover:
-  leadIn: "技術士 建設部門 2次"
-  hi: "R8予想"
-  hiSuffix: "道路III 予想②"
-  banner: "選択科目III 暫定2車線の4車線化｜予想問題＋模範解答"
-  meta: "道路 予想問題 模範解答"
-  chips:
-    - { icon: pen, text: "予想問題＋フル模範解答" }
-    - { icon: layers, text: "改訂コンピテンシー対応" }
-    - { icon: check, text: "採点ポイント付" }
 utmCampaign: pe-construction-secondary
+cover:
+  variant: crop-safe-v4
+  leadIn: "建設部門｜道路"
+  headline: "4車線化計画"
+  hi: "R8"
+  hiSuffix: "予想②"
+  benefit: "そのまま答案に展開できる"
 ---
 
 # 技術士 建設部門｜道路 R8予想 選択科目III 予想② 高速道路 暫定2車線の4車線化（予想問題＋フル模範解答）

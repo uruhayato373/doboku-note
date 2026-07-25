@@ -11,15 +11,12 @@ noteId: "nf9367ea2132d"
 notePublishedAt: "2026-06-30"
 coverTitle: ["1級土木 施工経験記述", "鋼管ソイルセメント杭", "5管理 完成答案"]
 cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "鋼管ソイルセメント杭"
-  hiSuffix: ""
-  banner: "低騒音低振動の杭基礎工事"
-  meta: "完全攻略パック"
-  chips:
-    - { icon: doc, text: "完成答案" }
-    - { icon: edit, text: "置換ガイド" }
-    - { icon: check, text: "NG→OK添削" }
+  variant: crop-safe-v4
+  leadIn: "1級土木 経験記述｜鋼管"
+  headline: "ソイルセメント杭"
+  hi: "5管理"
+  hiSuffix: "完成答案"
+  benefit: "書き換えてそのまま使える"
 ---
 # 1級土木 施工経験記述｜鋼管ソイルセメント杭（低騒音・低振動 杭基礎）5管理 完成答案
 

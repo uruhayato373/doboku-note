@@ -94,7 +94,7 @@ toc_max_heading_level: 2
 
 ## 必須コンポーネント
 
-- `<ExamPoint>` — 1 問あたり 1 個、論点総括（詳細は `docs/reference/content-principles.md` §5）
+- `<ExamPoint>` — 1 問あたり 1 個、論点総括（詳細は `.claude/knowledge/reference/content-principles.md` §5）
 - `<RelatedKeywords>` — キーワードページへの双方向リンク（全件に設置）
 
 ## 禁止事項
@@ -122,5 +122,5 @@ toc_max_heading_level: 2
 ## 参照
 
 - `.claude/pdfs/技術士総合技術監理部門/` — ソース PDF ディレクトリ（要配置）
-- `docs/reference/content-principles.md` — コンテンツ原則
+- `.claude/knowledge/reference/content-principles.md` — コンテンツ原則
 - `src/config/pe-chapters.json` — 5 管理体系の章・節構造

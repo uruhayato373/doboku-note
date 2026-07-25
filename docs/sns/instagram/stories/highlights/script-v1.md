@@ -3,13 +3,13 @@ title: Instagram ストーリーズ ハイライト 原稿 v1
 purpose: bio 直下に固定する 5 ハイライトの Story コピー + 視覚スペック（Level 2 仕様）
 canvasCover: 1080x1080 (円形トリミング前提)
 canvasStory: 1080x1920 (9:16)
-designTokens: docs/design-system/instagram-carousel-tokens.json
+designTokens: .claude/knowledge/design-system/instagram-carousel-tokens.json
 appliesTo: Instagram @dobokunotecom プロフィールのハイライト 5 枠
 lastUpdated: 2026-05-27
 relatedDocs:
   - docs/sns/instagram/profile.md
-  - docs/reference/sns-image-policy.md
-  - docs/reference/links-hub.md
+  - .claude/knowledge/reference/sns-image-policy.md
+  - .claude/knowledge/reference/links-hub.md
 ---
 
 # Instagram ストーリーズ ハイライト 原稿 v1
@@ -27,7 +27,7 @@ bio から流入したユーザーに「目的別」の入口を提供する 5 �
 | 安全領域（Story） | y: 250–1620（上 250 = プロフィール表示、下 300 = DM/反応バー） |
 | 日本語フォント | NotoSansJP（500/700/800/900） |
 | 英数フォント | Manrope（500/700/800） |
-| カラートークン | `docs/design-system/instagram-carousel-tokens.json` の `brand.presets` / `ink` / `surface` を使用 |
+| カラートークン | `.claude/knowledge/design-system/instagram-carousel-tokens.json` の `brand.presets` / `ink` / `surface` を使用 |
 
 ### ハイライトごとの brand-color 割当
 

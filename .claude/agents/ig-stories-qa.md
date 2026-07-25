@@ -10,8 +10,8 @@ tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 Instagram Stories 用 `stories/caption.txt` と `stories/note.md` の **品質評価**を専門に担当する Evaluator エージェント。
 
 > **READ FIRST（真実源）**:
-> - 3 軸ルーブリック・合否ラインは [`docs/reference/ig-stories-policy.md`](../../docs/reference/ig-stories-policy.md)
-> - パック構造・4 枚の役割は [`docs/reference/ig-carousel-skill.md`](../../docs/reference/ig-carousel-skill.md)
+> - 3 軸ルーブリック・合否ラインは [`.claude/knowledge/reference/ig-stories-policy.md`](../../.claude/knowledge/reference/ig-stories-policy.md)
+> - パック構造・4 枚の役割は [`.claude/knowledge/reference/ig-carousel-skill.md`](../../.claude/knowledge/reference/ig-carousel-skill.md)
 >
 > **モデル方針**: `model: sonnet`（定型ルーブリックを高速・低コストで実行）。最終判断は親エージェント（Opus）。
 
@@ -28,7 +28,7 @@ Instagram Stories 用 `stories/caption.txt` と `stories/note.md` の **品質�
 
 ## 採点手順
 
-1. `docs/reference/ig-stories-policy.md` を読む。
+1. `.claude/knowledge/reference/ig-stories-policy.md` を読む。
 2. 対象パックの `stories/caption.txt`・`stories/note.md`・`stories/img/01-cover.png ... 04-cta.png` を読む。
 3. 3 軸を 1〜5 で採点する：
 

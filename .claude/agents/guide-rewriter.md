@@ -53,6 +53,6 @@ model: sonnet
 
 ## 参照ドキュメント
 
-- `docs/reference/content-principles.md` §2/§17/§20/§22/§24/§25/§26
-- `docs/reference/content-authoring.md`「ガイド記事固有ルール」
+- `.claude/knowledge/reference/content-principles.md` §2/§17/§20/§22/§24/§25/§26
+- `.claude/knowledge/reference/content-authoring.md`「ガイド記事固有ルール」
 - `.claude/agents/guide-qa.md`（Evaluator・対）/ `.claude/agents/guide-fact-checker.md`（事実検出）

@@ -10,16 +10,12 @@ coverTitle:
   - 民間建設技術者が
   - 総監を取る金銭インセンティブ
 cover:
-  leadIn: "コンサル・建設会社の技術者へ"
-  hi: "いくら"
-  hiSuffix: "稼げるか?"
-  banner: "総監の金銭価値"
-  character: wave
-  meta: "無料記事"
-  chips:
-    - { icon: chart, text: "2026最新データ" }
-    - { icon: flag, text: "会社・市場価値" }
-    - { icon: yen, text: "資格手当" }
+  variant: crop-safe-v4
+  leadIn: "総監 建設技術者｜価値"
+  headline: "総監の金銭価値"
+  hi: "2026"
+  hiSuffix: "最新"
+  benefit: "会社と市場でいくら稼げるか"
 ---
 # 【建設コンサル・建設会社の技術者へ】総監を取ると、会社・自分・市場でいくら稼げるか — 2026年最新データで検証する金銭インセンティブ完全マップ
 

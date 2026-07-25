@@ -6,16 +6,12 @@ membershipOnly: true
 utmCampaign: civil-membership-odai-final-check
 coverTitle: ["直前総点検｜経験記述", "2テーマ組合せとヤマ予想"]
 cover:
-  leadIn: "直前総点検 ｜ 経験記述"
-  hi: "予想"
-  hiSuffix: "問題"
-  banner: "2テーマ組合せとヤマ予想"
-  meta: "メンバーシップ限定"
-  tone: deep
-  chips:
-    - { icon: target, text: "予想問題" }
-    - { icon: edit, text: "模範解答" }
-    - { icon: check, text: "採点ポイント" }
+  variant: crop-safe-v4
+  leadIn: "今週のお題｜経験記述"
+  headline: "直前総点検"
+  hi: "ヤマ"
+  hiSuffix: "予想"
+  benefit: "提出前の総点検ができる"
 ---
 # 直前総点検｜経験記述 — 2テーマ必答の組合せ・ヤマ予想・提出前チェック
 

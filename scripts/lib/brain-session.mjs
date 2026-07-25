@@ -10,7 +10,7 @@
  *   - assertAccount: sellerName（brain-account.json）が可視テキストに現れるか best-effort 確認
  *   - readCatalog / readListings / writeBackCatalog: SoT の読み書き
  * 挙動のクセ（同意モーダル・セッション状態・可視テキスト assert 等）は
- * docs/reference/brain-operations.md が真実源。
+ * .claude/knowledge/reference/brain-operations.md が真実源。
  */
 import { chromium } from 'playwright';
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';

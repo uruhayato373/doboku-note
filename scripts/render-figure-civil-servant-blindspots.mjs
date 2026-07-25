@@ -6,7 +6,7 @@
 //   - 盲点3行（経済性管理・人的資源管理・安全管理）は danger 系薄背景でハイライト
 //   - 「択一の出題」列は全行「8問」で均等であることを視覚化
 //
-// 設計ルール（docs/reference/note-svg-policy.md 準拠）:
+// 設計ルール（.claude/knowledge/reference/note-svg-policy.md 準拠）:
 //   - キャンバス幅 1200（同一記事内で統一）
 //   - フォント ≥ 22px（補足を含めて 18px 以上）
 //   - 色トークン（src/styles/globals.css と整合）のみ使用

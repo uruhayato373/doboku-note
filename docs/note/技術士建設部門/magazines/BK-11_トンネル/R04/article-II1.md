@@ -9,17 +9,14 @@ noteId: "nffa65bb2f698"
 notePublishedAt: "2026-06-17"
 price: 780
 coverTitle: "技術士 建設部門｜トンネル R04 選択科目II-1 模範解答"
-cover:
-  leadIn: "技術士 建設部門 2次"
-  hi: "R04"
-  hiSuffix: "トンネルII-1"
-  banner: "選択科目II-1 専門知識｜模範解答"
-  meta: "トンネル 模範解答"
-  chips:
-    - { icon: pen, text: "全4設問フル模範解答" }
-    - { icon: layers, text: "発注者視点" }
-    - { icon: check, text: "採点ポイント付" }
 utmCampaign: pe-construction-secondary
+cover:
+  variant: crop-safe-v4
+  leadIn: "建設部門｜トンネル"
+  headline: "模範解答"
+  hi: "R04"
+  hiSuffix: "II-1 専門知識"
+  benefit: "そのまま答案に展開できる"
 ---
 
 # 技術士 建設部門｜トンネル R04 選択科目II-1 模範解答（全4設問）

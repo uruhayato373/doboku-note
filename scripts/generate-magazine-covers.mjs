@@ -12,16 +12,21 @@
 //   node scripts/generate-magazine-covers.mjs                 # 全件生成（magazineDir 設定分）
 //   node scripts/generate-magazine-covers.mjs river-consultant # 1件だけ生成
 
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
-import { join, dirname } from 'node:path';
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import satori from 'satori';
 import sharp from 'sharp';
 
 import { renderTemplate } from '../.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs';
+import { createRequire } from 'node:module';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
+const require = createRequire(import.meta.url);
+// Crop-safe V4 フィールドの一元マップ（id → {examKey,qualifier,magazineName,proof,benefit}）。
+// entry がある id は V4 レンダ（背景=examKey のブランド写真プール）、無い id は従来 magazine-banner。
+const V4_MAP = require(join(ROOT, '.claude/config/note-cover-magazine-v4.json'));
 const FONTS_DIR = join(ROOT, '.claude/skills/conversion/ogp-create/assets/fonts');
 
 const W = 1280;
@@ -43,8 +48,16 @@ function loadFonts() {
  * - lines: タイトル行 (3行構成、各行 17 文字以内推奨)
  * - category: カテゴリチップのラベル
  * - fontSize: 行高 (T06 は 32-48 が安定域)
+ *
+ * Crop-safe V4（variant: 'crop-safe-v4' 指定時のみ・opt-in）:
+ * - qualifier / magazineName / proof / benefit を使い renderNoteCoverCropSafeV4 で描画
+ *   （note のマガジン一覧 中央1280×454・狭ヘッダー 中央1280×216 でも主要文字が切れない三重安全領域）。
+ * - visualPrompt / visualAsset: AI 背景素材（文字なし・repo ルート相対）。無ければ fillBg 決定論的背景。
+ * - lines[] は後方互換のため残してよい（V4 指定時は使用されない）。
+ * - 価格・自動同期できない記事本数は画像へ入れない。
+ * 仕様 SSOT: .claude/knowledge/design-system/note-cover-crop-safe-v4.md
  */
-const MAGAZINES = [
+export const MAGAZINES = [
   {
     id: 'river-consultant',
     magazineDir: 'docs/note/技術士総監/magazines/総監模範論文-河川コンサル',
@@ -189,6 +202,7 @@ const MAGAZINES = [
   },
   {
     id: 'setsumon3-policy-bank',
+    // V4 フィールドは .claude/config/note-cover-magazine-v4.json（一元マップ・magazine key: m91516dfc27ac）
     magazineDir: 'docs/note/技術士総監/magazines/総監記述式-設問3国家施策バンク',
     fillBg: '#16365C',
     fileBaseName: 'magazine-setsumon3-policy-bank-cover',
@@ -257,6 +271,7 @@ const MAGAZINES = [
   },
   {
     id: 'civil-1-marugoto',
+    // V4 フィールドは .claude/config/note-cover-magazine-v4.json（一元マップ・magazine key: md29a34906314）
     fileBaseName: 'civil-1-niji-marugoto-pack-cover',
     magazineDir: 'docs/note/1級・2級土木/1級土木/magazines/1級土木-二次まるごとパック',
     lines: ['1級土木 二次検定', 'まるごとパック', '経験記述＋学科記述＋直前暗記'],
@@ -465,18 +480,85 @@ const MAGAZINES = [
   },
 ];
 
-async function renderOne(mag, fonts) {
-  const element = renderTemplate(
-    'magazine-banner',
-    {
-      lines: mag.lines,
-      categoryLabel: mag.category,
-      fontSize: mag.fontSize,
-      ...(mag.accentColor ? { accentColor: mag.accentColor } : {}),
-      ...(mag.fillBg ? { fillBg: mag.fillBg } : {}),
-    },
-    { width: W, height: H },
-  );
+// 資格別ブランド写真プール（サイト OGP と共有・brand-image-system.md §3。generate-note-covers.mjs と対）
+const OGP_BG_DIR = join(ROOT, '.claude/config/ogp/backgrounds');
+const BG_EXAM_ALIAS = { 'civil-1-2': 'civil-1' };
+const brandPoolCache = new Map();
+async function brandPoolVisual(examKey) {
+  if (!examKey) return null;
+  const key = BG_EXAM_ALIAS[examKey] || examKey;
+  if (brandPoolCache.has(key)) return brandPoolCache.get(key);
+  let src = null;
+  for (const ext of ['png', 'webp', 'jpg']) {
+    const p = join(OGP_BG_DIR, `${key}.${ext}`);
+    if (existsSync(p)) {
+      const buf = await sharp(p).resize({ width: W, height: H, fit: 'cover', position: 'centre' }).png().toBuffer();
+      src = `data:image/png;base64,${buf.toString('base64')}`;
+      break;
+    }
+  }
+  brandPoolCache.set(key, src);
+  return src;
+}
+
+async function renderOne(magIn, fonts) {
+  // V4_MAP に entry があれば variant/フィールドをマージ（$comment キーは除外）
+  const v4 = magIn.id !== '$comment' ? V4_MAP[magIn.id] : null;
+  const mag = v4 ? { ...magIn, variant: 'crop-safe-v4', ...v4 } : magIn;
+  let element;
+  if (mag.variant === 'crop-safe-v4') {
+    // V4: 三重安全領域レイアウト（qualifier/magazineName/proof/benefit）。lines[] は使用しない。
+    // 背景解決順: visualAsset（個別 opt-in）→ ブランド写真プール（spec.examKey）→ fillBg 決定論的背景
+    let visualSrc = null;
+    if (mag.visualAsset) {
+      const vpath = join(ROOT, mag.visualAsset);
+      if (!existsSync(vpath)) {
+        console.warn(`  warn: ${mag.id} visualAsset が見つかりません（${mag.visualAsset}）→ ブランド写真プールへフォールバック`);
+      } else {
+        const vmeta = await sharp(vpath).metadata();
+        if (vmeta.width !== W || vmeta.height !== H) {
+          console.warn(`  warn: ${mag.id} visualAsset は ${vmeta.width}×${vmeta.height}（要 ${W}×${H}）→ フォールバック`);
+        } else {
+          const vbuf = readFileSync(vpath);
+          const mime = /\.webp$/i.test(vpath) ? 'image/webp' : /\.jpe?g$/i.test(vpath) ? 'image/jpeg' : 'image/png';
+          visualSrc = `data:${mime};base64,${vbuf.toString('base64')}`;
+        }
+      }
+    }
+    if (!visualSrc) {
+      visualSrc = await brandPoolVisual(mag.examKey);
+    }
+    element = renderTemplate(
+      'note-cover-g2',
+      {
+        cover: {
+          variant: 'crop-safe-v4',
+          qualifier: mag.qualifier,
+          magazineName: mag.magazineName,
+          proof: mag.proof,
+          benefit: mag.benefit,
+          credential: mag.credential,
+        },
+        palette: { band: mag.fillBg || '#16365C', accent: mag.accentColor || mag.fillBg || '#16365C', label: mag.category || '' },
+        magazine: true,
+        visualSrc,
+        debugSafetyV4: mag.__debugSafety || false,
+      },
+      { width: W, height: H },
+    );
+  } else {
+    element = renderTemplate(
+      'magazine-banner',
+      {
+        lines: mag.lines,
+        categoryLabel: mag.category,
+        fontSize: mag.fontSize,
+        ...(mag.accentColor ? { accentColor: mag.accentColor } : {}),
+        ...(mag.fillBg ? { fillBg: mag.fillBg } : {}),
+      },
+      { width: W, height: H },
+    );
+  }
   const svg = await satori(element, { width: W, height: H, fonts });
   const pngBuffer = await sharp(Buffer.from(svg)).png().toBuffer();
   // note アップロード用の _cover.png のみ生成する（サイト用 public/images/magazines は廃止）。
@@ -491,7 +573,9 @@ async function renderOne(mag, fonts) {
 }
 
 async function main() {
-  const filter = process.argv[2];
+  const argv = process.argv.slice(2);
+  const debugSafety = argv.includes('--debug-safety');
+  const filter = argv.find((a) => !a.startsWith('--'));
   const fonts = loadFonts();
   const targets = filter ? MAGAZINES.filter((m) => m.id.includes(filter)) : MAGAZINES;
   if (targets.length === 0) {
@@ -500,12 +584,16 @@ async function main() {
   }
   console.log(`generating ${targets.length} magazine cover(s)...`);
   for (const mag of targets) {
-    await renderOne(mag, fonts);
+    await renderOne(debugSafety ? { ...mag, __debugSafety: true } : mag, fonts);
   }
   console.log(`done. output: <magazineDir>/_cover.png`);
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+// check-note-cover-fit.mjs 等から MAGAZINES を import できるよう、直接実行時のみ main を走らせる
+const __isDirectRun = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (__isDirectRun) {
+  main().catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+}

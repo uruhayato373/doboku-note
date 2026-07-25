@@ -9,15 +9,12 @@ coverTitle:
   - 建設DXを
   - 論文でどう論じるか
 cover:
-  leadIn: "技術士 建設部門 2次"
-  hi: "DX"
-  hiSuffix: "を論文でどう論じるか"
-  banner: "i-Construction・BIM/CIM の論点と書き方"
-  meta: "無料記事"
-  chips:
-    - { icon: target, text: "目的から手段へ" }
-    - { icon: layers, text: "手段を階層整理" }
-    - { icon: edit, text: "必須Iの型に落とす" }
+  variant: crop-safe-v4
+  leadIn: "技術士 建設部門｜二次"
+  headline: "建設DX"
+  hi: "BIM"
+  hiSuffix: "CIMの論点"
+  benefit: "答案に使える論点が揃う"
 ---
 
 # 【技術士 建設部門】建設DX・i-Construction を論文でどう論じるか
@@ -48,7 +45,7 @@ cover:
 この記事では、建設DXを論文で論じるための骨組みを、目的から手段、必須科目Iの設問構成への落とし込みまで一気通貫で示します。
 
 <!-- cta:pack-top -->
-> 建設部門は「必須科目I＋選択科目」の組み合わせで合否が決まります。全受験者共通の[必須科目I 模範解答集（R03-R07＋R8予想・¥3,480）](https://note.com/dobokunote/m/m0f3bc3933454)がまず1冊目。あなたの選択科目の模範解答集は[建設部門もくじ](https://note.com/dobokunote/n/n7279ca0d926f)から選べます（単品を1本ずつ買うより約8割お得）。
+> 建設部門は「必須科目I＋選択科目」の組み合わせで合否が決まります。全受験者共通の[必須科目I 模範解答集（R03-R07＋R8予想）](https://note.com/dobokunote/m/m0f3bc3933454)がまず1冊目。あなたの選択科目の模範解答集は[建設部門もくじ](https://note.com/dobokunote/n/n7279ca0d926f)から選べます（単品を1本ずつ買うより約8割お得）。
 
 ## まず「目的」から押さえる
 

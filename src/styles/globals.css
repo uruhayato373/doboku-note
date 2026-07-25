@@ -60,7 +60,7 @@
     --color-danger: #b22234;
     --color-danger-fill: #f8d7da;
 
-    /* 試験別テーマ色（SSOT: docs/reference/ogp-prompts.md「テーマ色」表）。
+    /* 試験別テーマ色（SSOT: .claude/knowledge/reference/ogp-prompts.md「テーマ色」表）。
        note カバー／OGP／X カードと同一の資格アイデンティティ色をサイトにも展開。 */
     --exam-civil-1: #1e73c8;         /* 1級土木＝青 */
     --exam-civil-2: #2a7050;         /* 2級土木＝緑 */

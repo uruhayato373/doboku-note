@@ -6,16 +6,12 @@ membershipOnly: true
 utmCampaign: civil-membership-gakka-quality
 coverTitle: ["学科記述予想｜品質管理", "管理図・試験・品質特性"]
 cover:
-  leadIn: "予想テーマ ｜ 品質管理"
-  hi: "学科"
-  hiSuffix: "記述"
-  banner: "管理図・試験・品質特性"
-  meta: "メンバーシップ限定"
-  tone: deep
-  chips:
-    - { icon: book, text: "頻出テーマ" }
-    - { icon: edit, text: "記述例" }
-    - { icon: check, text: "得点の型" }
+  variant: crop-safe-v4
+  leadIn: "学科記述予想"
+  headline: "品質管理"
+  hi: "予想"
+  hiSuffix: "テーマ"
+  benefit: "品質特性が書ける"
 ---
 # 学科記述予想｜品質管理 — 品質特性・各種試験・管理図の活用
 

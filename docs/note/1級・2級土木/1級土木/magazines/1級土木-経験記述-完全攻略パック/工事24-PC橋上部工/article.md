@@ -5,21 +5,18 @@ noteMagazine: 1級土木-経験記述-完全攻略パック
 utmCampaign: civil1-keiken-pack-koji24
 noteStatus: published
 coverTitle: ["1級土木 施工経験記述", "PC橋上部工（場所打ち）", "5管理 完成答案"]
-cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "PC橋上部工"
-  hiSuffix: "5管理完成答案"
-  banner: "固定支保工方式 場所打ちPC橋"
-  meta: "有料マガジン"
-  chips:
-    - { icon: doc, text: "完成答案" }
-    - { icon: edit, text: "置換ガイド" }
-    - { icon: check, text: "5管理一覧" }
 noteUrl: "https://note.com/dobokunote/n/n99401cb09ff7"
 noteId: "n99401cb09ff7"
 notePublishedAt: "2026-06-30"
 price: 1980
 paidBoundary: 品質管理
+cover:
+  variant: crop-safe-v4
+  leadIn: "1級土木 経験記述｜5管理完成答案"
+  headline: "PC橋上部工"
+  hi: "5管理"
+  hiSuffix: "完成答案"
+  benefit: "書き換えてそのまま使える"
 ---
 # 1級土木 施工経験記述｜PC橋上部工（場所打ち・固定支保工）5管理 完成答案
 

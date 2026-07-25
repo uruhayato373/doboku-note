@@ -6,7 +6,7 @@
 //   - 左に番号バッジ（1〜3、brand色 #2e6da4 の円）
 //   - 右に「条件（太字）」＋「説明」＋「道路担当の例（補足色）」
 //
-// 設計ルール（docs/reference/note-svg-policy.md 準拠）:
+// 設計ルール（.claude/knowledge/reference/note-svg-policy.md 準拠）:
 //   - キャンバス幅 1200
 //   - フォント ≥ 22px（補足は 18px 以上）
 //   - 色トークン（src/styles/globals.css と整合）のみ使用

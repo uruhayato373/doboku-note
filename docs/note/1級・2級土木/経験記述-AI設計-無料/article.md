@@ -9,16 +9,12 @@ noteId: "n0171b3105e2d"
 noteUrl: "https://note.com/dobokunote/n/n0171b3105e2d"
 published: false
 cover:
-  leadIn: "施工経験記述を"
-  hi: "AIに丸投げ"
-  hiSuffix: "すると落ちる"
-  banner: "自分の現場から組み立てる方法"
-  character: good-sign
-  meta: "無料記事"
-  chips:
-    - { icon: warn, text: "AI丸投げの罠" }
-    - { icon: check, text: "現場から組立" }
-    - { icon: book, text: "経験記述" }
+  variant: crop-safe-v4
+  leadIn: "施工経験記述"
+  headline: "AI丸投げ注意"
+  hi: "現場"
+  hiSuffix: "から組立"
+  benefit: "自分の経験から組み立てられる"
 ---
 
 # 施工経験記述をAIに丸投げすると落ちる理由と、自分の現場から組み立てる方法

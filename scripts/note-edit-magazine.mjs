@@ -23,7 +23,7 @@
  *     --articles 収録記事の単品価格も articlePrice へ揃える（公開フロー経由）
  *     --dry-run  入力・検証・スクショまで（保存しない）
  *
- * 真実源: docs/reference/note-api-verification.md
+ * 真実源: .claude/knowledge/reference/note-api-verification.md
  * ---------------------------------------------------------------------------
  */
 import { chromium } from 'playwright';

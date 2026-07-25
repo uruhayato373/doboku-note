@@ -30,7 +30,7 @@
  *   # 名前・説明も上書き（任意）
  *   node scripts/note-membership-plan-edit.mjs --plan <id> --name "…" --desc "…" --commit
  *
- * 真実源: docs/reference/note-api-verification.md / エージェント: note-membership-operator
+ * 真実源: .claude/knowledge/reference/note-api-verification.md / エージェント: note-membership-operator
  * ---------------------------------------------------------------------------
  */
 import { chromium } from 'playwright';

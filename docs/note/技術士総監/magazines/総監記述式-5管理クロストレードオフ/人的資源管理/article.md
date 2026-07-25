@@ -11,15 +11,12 @@ price: 780
 paidBoundary: "人的資源 × 安全"
 noteStatus: published
 cover:
-  leadIn: "人的資源 × 他4管理の衝突を"
+  variant: crop-safe-v4
+  leadIn: "総監 記述式｜5管理"
+  headline: "人的資源×4管理"
   hi: "4"
-  hiSuffix: "ペア×3シナリオ"
-  banner: "担い手不足への処方箋"
-  meta: "有料マガジン"
-  chips:
-    - { icon: flag, text: "多能工・CCUS" }
-    - { icon: bulb, text: "VR/AR訓練" }
-    - { icon: pen, text: "答案ひな型付" }
+  hiSuffix: "セル"
+  benefit: "トレードオフの型がわかる"
 ---
 
 # 人的資源管理 × 他4管理｜トレードオフ構造と総監的解決策（4セル）

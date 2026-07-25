@@ -7,6 +7,8 @@ interface SidebarAdBannerProps {
   readonly pixelSrc?: string;
   /** GA4 クリック計測ラベル（例: "GKS" / "SAT"）。AnalyticsProvider のデリゲートリスナーが拾う。 */
   readonly trackLabel?: string;
+  /** GA4 の表示位置。category-mobile など呼び出し側で面を分離する。 */
+  readonly placement?: string;
 }
 
 /**
@@ -28,6 +30,7 @@ export default function SidebarAdBanner({
   height,
   pixelSrc,
   trackLabel,
+  placement = "sidebar",
 }: SidebarAdBannerProps) {
   return (
     // 縦スペーシングは親の責務（docs=div.mb-3 / category サイドバー=space-y-3 / category モバイル=my-10）。
@@ -47,6 +50,7 @@ export default function SidebarAdBanner({
           target="_blank"
           data-cta="affiliate"
           data-cta-label={trackLabel}
+          data-cta-placement={placement}
           className="block"
         >
           <img
@@ -55,7 +59,7 @@ export default function SidebarAdBanner({
             width={width}
             height={height}
             loading="lazy"
-            className="block h-auto w-full"
+            className="mx-auto block h-auto w-full max-w-[300px]"
           />
         </a>
       </div>

@@ -35,9 +35,9 @@ model: sonnet
 | アカウント（sellerName / profileUrl） | `.claude/config/coconala-account.json` |
 | 受注実績 | `.claude/state/coconala/orders-log.json` |
 | KPI 週次 | `.claude/state/coconala/kpi-log.json` |
-| 運用・スキーマ・ドリフト分類 | `docs/reference/coconala-operations.md` |
+| 運用・スキーマ・ドリフト分類 | `.claude/knowledge/reference/coconala-operations.md` |
 | 戦略・出品文面・ヒアリングシート・撤退ライン | `docs/note/1級・2級土木/ココナラ展開キット.md` |
-| 出品文面の構成の型 | `docs/reference/note-selling-structures.md`「強化コンポーネント」（C系PDF=直適用／S系人力=翻案） |
+| 出品文面の構成の型 | `.claude/knowledge/reference/note-selling-structures.md`「強化コンポーネント」（C系PDF=直適用／S系人力=翻案） |
 
 ## 担当範囲
 
@@ -164,9 +164,9 @@ C1/C2（`provision_format=3`・PDF 納品）は**ヒアリング不要**。購�
 - 投入 SoT: `.claude/config/coconala-listings.json`（本文/カテゴリ/納期/genreFacets/provisionFormat）／アカウント: `.claude/config/coconala-account.json`
 - 添削 Generator: `.claude/agents/civil-keiken-tensaku-drafter.md`（`/keiken-tensaku`）
 - 機械ガード: `scripts/check-coconala-wiring.mjs`（`npm run check-coconala-wiring`・pre-commit。カタログ↔listings↔商品画像↔state↔sales のカバレッジ検査）
-- 運用 SSOT: `docs/reference/coconala-operations.md` / 戦略・文面: `docs/note/1級・2級土木/ココナラ展開キット.md`
+- 運用 SSOT: `.claude/knowledge/reference/coconala-operations.md` / 戦略・文面: `docs/note/1級・2級土木/ココナラ展開キット.md`
 - メモリ: [[project_coconala_tensaku_channel]] / [[feedback_metrics_cicd_supplied]] / [[feedback_no_price_in_mdx_body]]
 
 ## 著者オーソリティ（差別化訴求）
 
-S1/S2 出品文面・プロフィールでは、競合との差別化として**上位資格保有者による分析提供**を訴求する（総監＝分析力／元発注者＝採点者視点／施工管理技士＝当事者）。文面・画像アセット（`figure-author-authority.png`）とフレーミング（誇張禁止・資格の混同禁止）は真実源 `docs/reference/author-authority-banner.md` に従う。ココナラへの画像アップロード等の実操作はユーザー。
+S1/S2 出品文面・プロフィールでは、競合との差別化として**上位資格保有者による分析提供**を訴求する（総監＝分析力／元発注者＝採点者視点／施工管理技士＝当事者）。文面・画像アセット（`figure-author-authority.png`）とフレーミング（誇張禁止・資格の混同禁止）は真実源 `.claude/knowledge/reference/author-authority-banner.md` に従う。ココナラへの画像アップロード等の実操作はユーザー。

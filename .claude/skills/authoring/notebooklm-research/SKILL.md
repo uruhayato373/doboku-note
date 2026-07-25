@@ -147,7 +147,7 @@ content(pe): {slug} を NotebookLM で内容補強
 
 ## 参照
 
-- `docs/reference/content-principles.md` — コンテンツ品質ルール
+- `.claude/knowledge/reference/content-principles.md` — コンテンツ品質ルール
 - `.claude/skills/authoring/improve-article/SKILL.md` — 構造修正（先に実施済みであること）
 - `.claude/skills/quality/quality-cycle/SKILL.md` — 過去問起点の横断校正
 - `docs/textbook/技術士（総監）/テキスト/総監標準テキスト/` — テキスト PDF 群（ノートブック登録元）

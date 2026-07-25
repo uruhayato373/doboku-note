@@ -10,16 +10,12 @@ coverTitle:
   - 何が問われるか
 noteStatus: published
 cover:
+  variant: crop-safe-v4
   leadIn: "2級土木施工管理技士"
-  hi: "第二次検定"
-  hiSuffix: "の全体像"
-  banner: "対策の順番"
-  character: explaining
-  meta: "無料記事"
-  chips:
-    - { icon: edit, text: "経験記述が核" }
-    - { icon: doc, text: "知識の記述" }
-    - { icon: target, text: "対策順" }
+  headline: "二次検定の全体像"
+  hi: "対策"
+  hiSuffix: "順"
+  benefit: "何から手をつけるか分かる"
 ---
 # 【2級土木施工管理技士】第二次検定は何が問われるか — 全体像と対策の順番
 

@@ -10,15 +10,12 @@ coverTitle: ["1級土木 施工経験記述", "安全管理×工程管理"]
 price: 980
 paidBoundary: "安全管理×工程管理を書き分けるポイント"
 cover:
-  leadIn: "1級土木 施工経験記述"
-  hi: "安全"
-  hiSuffix: "×工程"
-  banner: "2テーマ組合せ大全"
-  meta: "フル模範答案3工事"
-  chips:
-    - { icon: pen, text: "そのまま雛形に" }
-    - { icon: target, text: "置換ガイド付" }
-    - { icon: check, text: "採点チェック付" }
+  variant: crop-safe-v4
+  leadIn: "1級土木｜施工経験記述"
+  headline: "安全×工程"
+  hi: "2テーマ"
+  hiSuffix: "組合せ"
+  benefit: "どの組合せでも書ける"
 ---
 # 1級土木 施工経験記述｜安全管理×工程管理（鋼橋夜間架設・開削地下構造物・高架橋下部工 ほか）
 

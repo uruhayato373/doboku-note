@@ -7,18 +7,12 @@ noteUrl: https://note.com/dobokunote/n/n0e7f7d13133e
 noteId: n0e7f7d13133e
 notePublishedAt: 2026-06-01
 cover:
-  leadIn: 設問(3)で問われる将来課題
-  hi: '6'
-  hiSuffix: つの国家施策
-  banner: AIガバナンス
-  chips:
-    - icon: check
-      text: トレードオフ明示
-    - icon: doc
-      text: 答案1枚相当
-    - icon: book
-      text: 白書根拠
-  meta: '有料マガジン ／ ¥2,480'
+  variant: crop-safe-v4
+  leadIn: "総監 記述式｜設問3"
+  headline: "AIガバナンス"
+  hi: "6"
+  hiSuffix: "施策"
+  benefit: "設問3にそのまま転写できる"
 ---
 
 # Society 5.0・AIガバナンス｜設問(3)国家施策バンク

@@ -7,18 +7,12 @@ noteUrl: https://note.com/dobokunote/n/n6ebf5d6e340b
 noteId: n6ebf5d6e340b
 notePublishedAt: 2026-06-01
 cover:
-  leadIn: 設問(3)で問われる将来課題
-  hi: '7'
-  hiSuffix: つの国家施策
-  banner: 人口減少・少子高齢化
-  chips:
-    - icon: check
-      text: トレードオフ明示
-    - icon: doc
-      text: 答案1枚相当
-    - icon: book
-      text: 白書根拠
-  meta: '有料マガジン ／ ¥2,480'
+  variant: crop-safe-v4
+  leadIn: "総監 記述式｜設問3"
+  headline: "人口減少・高齢化"
+  hi: "7"
+  hiSuffix: "施策"
+  benefit: "設問3にそのまま転写できる"
 ---
 
 # 人口減少・少子高齢化｜設問(3)国家施策バンク

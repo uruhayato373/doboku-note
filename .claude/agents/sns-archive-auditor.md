@@ -9,7 +9,7 @@ tools: Read, Glob, Grep
 
 `docs/sns/` のバイナリ退避（R2 アーカイブ + ローカル削除）の**前段で、どのパックを安全に手放せるか**を判定する **Evaluator エージェント**。**audit-only**（R2 アップロード・ローカル削除・git 操作は一切しない）。
 
-退避運用の真実源は [docs/reference/sns-archive-policy.md](../../docs/reference/sns-archive-policy.md)、実行スクリプトは `npm run upload-sns-r2`（`.claude/scripts/upload-sns-r2.mjs`）。
+退避運用の真実源は [.claude/knowledge/reference/sns-archive-policy.md](../../.claude/knowledge/reference/sns-archive-policy.md)、実行スクリプトは `npm run upload-sns-r2`（`.claude/scripts/upload-sns-r2.mjs`）。
 
 > **モデル方針**: `model: sonnet`（定型の分類判定を高速・低コストで）。最終判断・実行（`upload-sns-r2` の起動）は親（Opus）。詳細は CLAUDE.md「ハーネス設計原則」§5。
 

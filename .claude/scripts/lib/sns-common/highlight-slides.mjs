@@ -1,9 +1,9 @@
 /**
  * 教材ハイライト用 Stories スライドビルダー（v7.1）。
  *
- * 真実源: docs/design-system/instagram-carousel-tokens.json
+ * 真実源: .claude/knowledge/design-system/instagram-carousel-tokens.json
  * 戦略: docs/project/03_SNS/01_SNS集客戦略.md v7.1 §2 Highlight 6 種目「教材」
- * ポリシー: docs/reference/ig-stories-policy.md §5 系統 C
+ * ポリシー: .claude/knowledge/reference/ig-stories-policy.md §5 系統 C
  *
  * 6 枚構成（slide-data.json の slides[].role に対応）:
  *   1. cover     興味喚起・中立フレーミング「合格者の本棚」
@@ -30,7 +30,7 @@ import { dirname, resolve } from 'node:path';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const TOKENS = JSON.parse(
   readFileSync(
-    resolve(__dirname, '../../../../docs/design-system/instagram-carousel-tokens.json'),
+    resolve(__dirname, '../../../../.claude/knowledge/design-system/instagram-carousel-tokens.json'),
     'utf8',
   ),
 );

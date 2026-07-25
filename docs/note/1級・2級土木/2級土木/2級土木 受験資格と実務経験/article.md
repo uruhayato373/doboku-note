@@ -10,16 +10,12 @@ coverTitle:
   - 受験資格と実務経験
 noteStatus: published
 cover:
+  variant: crop-safe-v4
   leadIn: "2級土木施工管理技士"
-  hi: "受験資格"
-  hiSuffix: "はこう変わった"
-  banner: "一次は17歳から"
-  character: explaining
-  meta: "無料記事"
-  chips:
-    - { icon: check, text: "一次は実務不要" }
-    - { icon: calendar, text: "経過措置" }
-    - { icon: doc, text: "実務経験" }
+  headline: "受験資格"
+  hi: "17歳"
+  hiSuffix: "から可"
+  benefit: "自分の受験資格が分かる"
 ---
 # 【2級土木施工管理技士】受験資格はこう変わった — 一次は17歳から、二次は実務経験で
 

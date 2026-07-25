@@ -8,15 +8,12 @@ notePublishedAt: 2026-06-10
 noteMagazine: 総監模範論文-自治体上水道担当
 price: 500
 cover:
-  leadIn: "令和3年度 総監記述式"
-  hi: "R03"
-  hiSuffix: "上水道担当版"
-  banner: "データ利活用｜3,000字級フル論文"
-  meta: "フル模範論文"
-  chips:
-    - { icon: pen, text: "答案そのまま展開" }
-    - { icon: layers, text: "5管理トレードオフ" }
-    - { icon: check, text: "採点チェック付" }
+  variant: crop-safe-v4
+  leadIn: "総監 記述式｜自治体 上水道担当"
+  headline: "データ利活用"
+  hi: "R3"
+  hiSuffix: "過去問"
+  benefit: "3,000字級をそのまま展開"
 ---
 # 令和3年度 総監記述式 模範論文｜上水道担当版（データ利活用）
 

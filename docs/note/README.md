@@ -12,7 +12,7 @@
 | 建設部門 note 戦略・価格企画 | `技術士建設部門/noteコンテンツ計画.md` |
 | 1級・2級土木 note 戦略（メンバーシップ含む） | `1級・2級土木/noteコンテンツ計画.md`（買い切りマガジンの実装詳細は各級プランへ委譲） |
 | 実価格・noteUrl・公開状態 | `src/lib/note-magazines.ts`（照合は `npm run verify-note-magazines`） |
-| 記事・マガジンへの回遊/購入導線（資格別 3 層） | `docs/reference/note-funnel-architecture.md`（監査は `npm run audit-note-funnel`、機械可読は `.claude/config/note-funnel.json`） |
+| 記事・マガジンへの回遊/購入導線（資格別 3 層） | `.claude/knowledge/reference/note-funnel-architecture.md`（監査は `npm run audit-note-funnel`、機械可読は `.claude/config/note-funnel.json`） |
 | 両資格リリース計画 | `技術士総監/noteコンテンツ計画.md` の「📅 統合リリースカレンダー 2026-07〜12」 |
 | 価格の競合対比妥当性 | `docs/project/01_戦略/09_販売チャネル競合分析.md`（判断記録） |
 
@@ -114,10 +114,10 @@ published: true | false   # 単発記事。マガジン記事は noteUrl の有�
 - note.com への反映は手動コピー（HTML 未対応のため Markdown をそのまま貼り付け）
 - 公開済み記事は `published: true`（単発）/ `noteUrl` 設定済み（マガジン）で識別
 - 投下スケジュールは「📅 統合リリースカレンダー」（`技術士総監/noteコンテンツ計画.md`）と各試験 SSOT を参照
-- 図版ポリシーは `docs/reference/note-svg-policy.md` を参照
-- 公開前チェックリストは `docs/reference/note-publish-enhancement.md` を参照
-- 模範論文（総監記述式）のレビュー手順は `docs/reference/note-essay-review-checklist.md` を参照
-- note 公開状態の SoT 突合は `docs/reference/note-api-verification.md`（`npm run verify-note-magazines`）
+- 図版ポリシーは `.claude/knowledge/reference/note-svg-policy.md` を参照
+- 公開前チェックリストは `.claude/knowledge/reference/note-publish-enhancement.md` を参照
+- 模範論文（総監記述式）のレビュー手順は `.claude/knowledge/reference/note-essay-review-checklist.md` を参照
+- note 公開状態の SoT 突合は `.claude/knowledge/reference/note-api-verification.md`（`npm run verify-note-magazines`）
 
 ## 関連ツール（パス前提）
 

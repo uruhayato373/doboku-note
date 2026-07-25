@@ -12,7 +12,7 @@ user-invocable: true
 
 **実行環境**: ライブ計測（baseline/current の取得）を伴う操作は **creds + 外部到達性がある環境（macOS 等）専用**。会社 PC（社内プロキシで Google API 遮断）では `metrics-reader.mjs` のライブ呼び出しは通らない。
 
-> その場合は CI がコミットした `.claude/state/metrics/{ga4,gsc}/` のスナップショットを読んで baseline/current を比較する（既定経路）。計測は CI/CD 供給が正で、ローカル creds 未設定は「計測基盤未整備」ではない。恒久ルール: `docs/reference/measurement-incidents.md`（2026-06-05）。
+> その場合は CI がコミットした `.claude/state/metrics/{ga4,gsc}/` のスナップショットを読んで baseline/current を比較する（既定経路）。計測は CI/CD 供給が正で、ローカル creds 未設定は「計測基盤未整備」ではない。恒久ルール: `.claude/knowledge/reference/measurement-incidents.md`（2026-06-05）。
 
 ## なぜこのスキルがあるのか
 

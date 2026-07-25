@@ -6,16 +6,12 @@ membershipOnly: true
 utmCampaign: civil-membership-gakka-pavement
 coverTitle: ["学科記述予想｜専門土木", "道路・アスファルト舗装"]
 cover:
-  leadIn: "予想テーマ ｜ 専門土木"
-  hi: "学科"
-  hiSuffix: "記述"
-  banner: "道路・アスファルト舗装"
-  meta: "メンバーシップ限定"
-  tone: deep
-  chips:
-    - { icon: book, text: "頻出テーマ" }
-    - { icon: edit, text: "記述例" }
-    - { icon: check, text: "得点の型" }
+  variant: crop-safe-v4
+  leadIn: "学科記述予想"
+  headline: "道路・舗装"
+  hi: "予想"
+  hiSuffix: "テーマ"
+  benefit: "アスファルト舗装が書ける"
 ---
 # 学科記述予想｜専門土木・道路 — アスファルト舗装の構成と施工
 

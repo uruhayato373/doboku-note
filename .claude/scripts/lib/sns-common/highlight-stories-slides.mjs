@@ -1,8 +1,8 @@
 /**
  * IG Stories ハイライト用モダンシック意匠 ビルダー (v7.1)。
  *
- * 真実源: docs/design-system/instagram-carousel-tokens.json の highlightStories
- * ポリシー: docs/reference/ig-highlight-design-policy.md
+ * 真実源: .claude/knowledge/design-system/instagram-carousel-tokens.json の highlightStories
+ * ポリシー: .claude/knowledge/reference/ig-highlight-design-policy.md
  * 戦略: docs/project/03_SNS/01_SNS集客戦略.md v7.1 §2 Highlight 6 種
  *
  * 設計意図:
@@ -40,7 +40,7 @@ import { pickTitleSize } from './fit-title.mjs';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const TOKENS = JSON.parse(
   readFileSync(
-    resolve(__dirname, '../../../../docs/design-system/instagram-carousel-tokens.json'),
+    resolve(__dirname, '../../../../.claude/knowledge/design-system/instagram-carousel-tokens.json'),
     'utf8',
   ),
 );
@@ -114,7 +114,7 @@ export function buildHighlightStoriesSlide({ width, height, data }) {
   const centerChildren = [];
 
   // hero title (auto-fit: title の visualLength に応じて hero / heroMid / heroSm を自動選択)
-  // 8 字以上の不適切改行を構造的に防ぐ。詳細: docs/reference/ig-highlight-design-policy.md §4
+  // 8 字以上の不適切改行を構造的に防ぐ。詳細: .claude/knowledge/reference/ig-highlight-design-policy.md §4
   let heroStyle = null;
   if (data.title) {
     heroStyle = pickTitleSize(data.title, HERO_SIZES);

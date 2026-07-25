@@ -11,19 +11,15 @@ coverTitle:
 noteStatus: published
 parentArticle: docs/note/技術士総監/総監受験コスト比較/article.md
 relatedReferences:
-  - docs/reference/pe-cem-pass-rate-history.md
-  - docs/reference/pe-cem-school-prices.md
+  - .claude/knowledge/reference/pe-cem-pass-rate-history.md
+  - .claude/knowledge/reference/pe-cem-school-prices.md
 cover:
-  leadIn: "地方自治体 土木職の"
+  variant: crop-safe-v4
+  leadIn: "総監 公務員｜コスト試算"
+  headline: "公務員版コスト"
   hi: "総監"
-  hiSuffix: "コスト計算"
-  banner: "公務員版 試算"
-  character: good-sign
-  meta: "無料記事"
-  chips:
-    - { icon: yen, text: "受験料補助" }
-    - { icon: chart, text: "昇進加点" }
-    - { icon: check, text: "自己啓発支援" }
+  hiSuffix: "試算"
+  benefit: "昇進加点まで織り込める"
 ---
 
 # 地方自治体土木職が総監を取るコスト計算 — 受験料補助・自己啓発支援・課長級昇進加点を織り込む
@@ -234,8 +230,8 @@ doboku-note の総監向けマガジンの中で、**最も公務員**（特に�
 - 母記事: [総監 6 回受験 vs スクール vs ¥2,480 マガジン](../総監受験コスト比較/article.md)
 - [技術士第二次試験 統計情報（IPEJ 公式）](https://www.engineer.or.jp/c_topics/010/010868.html)
 - doboku-note 内部リファレンス:
-  - `docs/reference/pe-cem-pass-rate-history.md` — 合格率 12 年データ
-  - `docs/reference/pe-cem-school-prices.md` — スクール価格データ
+  - `.claude/knowledge/reference/pe-cem-pass-rate-history.md` — 合格率 12 年データ
+  - `.claude/knowledge/reference/pe-cem-school-prices.md` — スクール価格データ
 
 > ⚠️ 自治体の補助制度・資格手当は所属自治体の人事規程によります。本記事の数字は一般的な傾向を示すもので、運営者の経験 + 公開情報からの推定値です。正確な金額は所属自治体の人事課に確認してください。
 

@@ -10,16 +10,12 @@ coverTitle:
   - 自分の現場に置き換える
 noteStatus: published
 cover:
-  leadIn: "2級土木 施工経験記述"
-  hi: "自分の現場"
-  hiSuffix: "への置き換え方"
-  banner: "丸写し失格を避ける"
-  character: pointing
-  meta: "無料記事"
-  chips:
-    - { icon: edit, text: "改変前提" }
-    - { icon: target, text: "置換4手順" }
-    - { icon: check, text: "残す骨格" }
+  variant: crop-safe-v4
+  leadIn: "2級土木｜施工経験記述"
+  headline: "自分の現場に置換"
+  hi: "置換"
+  hiSuffix: "4手順"
+  benefit: "丸写し失格を避けられる"
 ---
 # 【2級土木施工管理技士】完成答案を「自分の現場」に置き換える手順 — 丸写しが失格になる理由
 

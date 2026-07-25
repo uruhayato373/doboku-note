@@ -15,7 +15,7 @@
  *
  * cover:    <dir>/img/cover.png または <dir>/../img/cover.png（マガジン共用図に対応）
  * hashtags: <dir>/hashtags.txt
- * 真実源: docs/reference/content-principles.md §14-d
+ * 真実源: .claude/knowledge/reference/content-principles.md §14-d
  * 兄弟:   check-note-bold-paren.mjs / check-note-magazine-cta.mjs（1チェッカー×2呼出元パターン）
  *
  * 終了コード: 0 = 充足 / 1 = 欠落あり / 2 = 引数エラー
@@ -56,10 +56,16 @@ for (const file of args) {
   const front = fm ? fm[1] : "";
   if (!requireAll && !isPublished(front)) continue; // 下書き → 対象外
   const dir = dirname(file);
+  // サフィックス記事（BK 選択科目等の article-II1.md 形式）はアセットも同サフィックス
+  // （img/cover-II1.png / hashtags-II1.txt = generate-note-covers.mjs の outName 規約）。
+  // 固定名だけ見ると suffix 記事が全て偽陽性になる（2026-07-24 全量 staged で顕在化）。
+  const sfx = (file.match(/article-([A-Za-z0-9][A-Za-z0-9-]*)\.md$/) || [])[1];
+  const coverName = sfx ? `cover-${sfx}.png` : "cover.png";
   const hasCover =
-    existsSync(join(dir, "img", "cover.png")) ||
+    existsSync(join(dir, "img", coverName)) ||
+    existsSync(join(dir, "..", "img", coverName)) ||
     existsSync(join(dir, "..", "img", "cover.png"));
-  const tagsPath = join(dir, "hashtags.txt");
+  const tagsPath = join(dir, sfx ? `hashtags-${sfx}.txt` : "hashtags.txt");
   const hasTags = existsSync(tagsPath);
   const miss = [];
   if (!hasCover) miss.push("img/cover.png");

@@ -7,16 +7,12 @@ noteId: "nb9b9a20106f0"
 noteUrl: "https://note.com/dobokunote/n/nb9b9a20106f0"
 coverTitle: ["経験記述は独学で詰む", "自分の答案を採点できない問題"]
 cover:
-  leadIn: "1級・2級土木施工管理技士 二次"
-  hi: "独学で詰む"
-  hiSuffix: "経験記述"
-  banner: "自己採点の限界と抜け道"
-  character: thinking
-  meta: "無料"
-  chips:
-    - { icon: edit, text: "添削の要点" }
-    - { icon: check, text: "自己点検リスト" }
-    - { icon: doc, text: "採点者視点" }
+  variant: crop-safe-v4
+  leadIn: "1級・2級土木｜経験記述"
+  headline: "独学添削の限界"
+  hi: "自己"
+  hiSuffix: "採点不可"
+  benefit: "自己採点の抜け道が分かる"
 ---
 # 経験記述は独学で詰む｜「自分の答案を採点できない」問題と、その抜け道【無料】
 

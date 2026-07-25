@@ -8,18 +8,12 @@ coverTitle:
   - 総監
   - 全記事パック
 cover:
-  leadIn: 合格に必要な全部を1パックで
-  hi: '21'
-  hiSuffix: マガジン全部入り
-  banner: 全記事パック 2026年版
-  chips:
-    - icon: layers
-      text: 択一×記述式×模範論文
-    - icon: doc
-      text: 全17ペルソナ
-    - icon: yen
-      text: 受験料より安い
-  meta: 有料マガジン
+  variant: crop-safe-v4
+  leadIn: "総監 択一記述｜全部入り"
+  headline: "全記事パック"
+  hi: "21"
+  hiSuffix: "マガジン"
+  benefit: "受験料より安くそろう"
 ---
 
 # 総監 全記事パック 2026年版｜「また受験料を払う」より、合格に必要な全部をそろえる【案内・無料】

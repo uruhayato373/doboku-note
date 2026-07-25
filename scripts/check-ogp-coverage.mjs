@@ -5,7 +5,7 @@
  * `published: true` のサイト記事（`.local/r2/posts/**`）すべてに OGP 画像（`ogp.png`）が
  * 生成されているかを検査する。1 件でも欠落していれば exit 1（CI を赤くする）。
  *
- * 背景（2026-06-12 OGP 404 incident, docs/reference/measurement-incidents.md）:
+ * 背景（2026-06-12 OGP 404 incident, .claude/knowledge/reference/measurement-incidents.md）:
  *   OGP 画像は `npm run ogp`（ogp-create）で手動生成する。新規カテゴリで未実行だと 0 枚のまま
  *   `og:image` が R2 で 404 になり、note / X / Facebook 等の外部リンクカードが生成されない。
  *   `r2-audit`（diff-r2）は「local にあるが R2 に無い」しか検知できず「そもそも未生成」は素通り
@@ -101,7 +101,7 @@ if (missing.length) {
     console.error(
       '\n対応: npm run ogp -- --all で生成し ogp.png を commit（main push で r2-sync が R2 同期）。',
     );
-    console.error('詳細: docs/reference/measurement-incidents.md「2026-06-12 OGP 404」');
+    console.error('詳細: .claude/knowledge/reference/measurement-incidents.md「2026-06-12 OGP 404」');
   }
   process.exit(1);
 }

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "timezone": "Asia/Tokyo",
+  "verifiedAt": "2026-07-25",
+  "policy": "試験日を本文・投稿・計画へ記載する前に本ファイルを参照する。年度更新時は公式ページで確認し、verifiedAtとsourceを同時更新する。",
+  "exams": {
+    "civil-construction-1": {
+      "label": "1級土木施工管理技術検定",
+      "year": 2026,
+      "source": "https://www.jctc.jp/exam/doboku-1/",
+      "events": {
+        "first": {
+          "label": "第一次検定",
+          "date": "2026-07-05"
+        },
+        "second": {
+          "label": "第二次検定",
+          "date": "2026-10-04"
+        }
+      }
+    },
+    "civil-construction-2": {
+      "label": "2級土木施工管理技術検定",
+      "year": 2026,
+      "source": "https://www.jctc.jp/exam/doboku-2/",
+      "events": {
+        "firstEarly": {
+          "label": "第一次検定（前期）",
+          "date": "2026-06-07"
+        },
+        "firstLate": {
+          "label": "第一次検定（後期）",
+          "date": "2026-10-25"
+        },
+        "second": {
+          "label": "第二次検定",
+          "date": "2026-10-25"
+        }
+      }
+    }
+  }
+}

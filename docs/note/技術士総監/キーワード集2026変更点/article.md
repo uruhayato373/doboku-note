@@ -6,15 +6,12 @@ noteStatus: published
 noteUrl: https://note.com/dobokunote/n/n3923cbfb651b
 noteId: n3923cbfb651b
 cover:
-  leadIn: "2026最新 総監キーワード集の"
-  hi: "変更点"
-  hiSuffix: "と優先順位"
-  banner: "キーワード変更点"
-  meta: "無料記事"
-  chips:
-    - { icon: book, text: "2024版と比較" }
-    - { icon: target, text: "学び直し順位" }
-    - { icon: check, text: "追加語句" }
+  variant: crop-safe-v4
+  leadIn: "総監 択一式｜2026版"
+  headline: "キーワード変更点"
+  hi: "2026"
+  hiSuffix: "最新"
+  benefit: "学び直す優先順位がわかる"
 ---
 # 【2026年最新】総監キーワード集の変更点と学び直す優先順位｜2024版から何が変わったか徹底解剖
 

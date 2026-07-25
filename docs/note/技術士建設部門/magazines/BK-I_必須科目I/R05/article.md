@@ -9,17 +9,14 @@ noteId: "n7c4de5d27342"
 notePublishedAt: "2026-06-09"
 price: 780
 coverTitle: "技術士 建設部門｜必須科目 I R05 模範解答"
+utmCampaign: pe-construction-secondary
 cover:
-  leadIn: "技術士 建設部門 2次"
+  variant: crop-safe-v4
+  leadIn: "建設部門｜必須科目I"
+  headline: "模範解答"
   hi: "R05"
   hiSuffix: "必須科目I"
-  banner: "防災・インフラメンテ｜模範解答"
-  meta: "必須科目I 模範解答"
-  chips:
-    - { icon: pen, text: "フル模範解答" }
-    - { icon: layers, text: "発注者視点" }
-    - { icon: check, text: "令和8改訂対応" }
-utmCampaign: pe-construction-secondary
+  benefit: "防災・インフラメンテ"
 ---
 
 # 技術士 建設部門｜必須科目 I R05 模範解答

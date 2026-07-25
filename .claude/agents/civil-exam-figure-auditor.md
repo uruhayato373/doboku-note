@@ -166,6 +166,6 @@ PDF 図要問題数: M
 
 - `.claude/agents/civil-exam-figure-extractor.md` — Generator 側の bbox spec フォーマット
 - `.claude/agents/svg-figure-auditor.md` — 4軸ルーブリックの参照モデル
-- `docs/reference/image-policy.md` — 画像ポリシー（答え漏らし禁止 L165-177）
-- `docs/reference/content-principles.md` §8 — 図の配置原則
-- `docs/reference/agents-registry.md` — Generator/Evaluator 分業原則（L71-96）
+- `.claude/knowledge/reference/image-policy.md` — 画像ポリシー（答え漏らし禁止 L165-177）
+- `.claude/knowledge/reference/content-principles.md` §8 — 図の配置原則
+- `.claude/knowledge/reference/agents-registry.md` — Generator/Evaluator 分業原則（L71-96）

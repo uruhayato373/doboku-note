@@ -7,15 +7,12 @@ notePublishedAt: "2026-07-19"
 noteId: "nce1ea1317eab"
 noteUrl: "https://note.com/dobokunote/n/nce1ea1317eab"
 cover:
-  leadIn: "令和8年度 技術士総監 記述式"
-  hi: "設問(3)"
-  hiSuffix: "国家施策 全集"
-  banner: "地方創生・全18アウトプット対応"
-  meta: "無料公開"
-  chips:
-    - { icon: layers, text: "a〜r 全18項目に施策" }
-    - { icon: award, text: "6/1公開バンクが的中" }
-    - { icon: target, text: "設問(3)の弾薬" }
+  variant: crop-safe-v4
+  leadIn: "総監 記述式｜設問3"
+  headline: "国家施策 全集"
+  hi: "18"
+  hiSuffix: "項目"
+  benefit: "設問3にそのまま転写できる"
 ---
 # 令和8年度 総監 記述式 設問(3) 国家施策 全集｜地方創生・全18アウトプット対応【無料】
 

@@ -21,6 +21,8 @@ description: >
 > **出力方式: md ファイル保存（GitHub Issue は使わない）**
 > CLAUDE.md §8 準拠で、レビューは `docs/reviews/weekly/YYYY-Www-review.md` に保存する（旧「Issue 一本化」方式は廃止）。
 > なお、サブエージェントは Bash 不可（記憶 `feedback_agent_bash.md`）なため、データ収集は親が Bash で実行し、抽出済みテキストを分析に使う。
+>
+> **保持方針**: `docs/reviews/weekly/` は最新レビュー＋次週計画だけを保持する。新しい週次レビューを確定したら、旧週ファイルの未完タスクを `docs/todo/backlog.md`、恒久知見を `.claude/knowledge/` へ抽出済みか確認して旧週ファイルを削除する。履歴目的では残さない（git履歴が記録を持つ）。
 
 ## 手順
 
@@ -51,13 +53,13 @@ description: >
   ※予約投稿は go-live がサーバ側後刻で writeback できず draft 取り残しが起きるため週次で自己修復する
 - IG 公開状態ドリフト: `npm run verify-ig-status` を実行（posted.json/status.json ↔ ライブ
   グリッド＋プランナーを突合・read-only・★ドリフトで exit 2）。★が出たら次セッションで
-  `/ig-reconcile` を実行して posted.json backfill / 未公開を予約（真実源 `docs/reference/ig-publish-reconcile.md`）。
+  `/ig-reconcile` を実行して posted.json backfill / 未公開を予約（真実源 `.claude/knowledge/reference/ig-publish-reconcile.md`）。
   ※Playwright + ログイン済みプロファイル必須＝ローカル実行限定。クラウド週次では実行不可なのでサーフェスのみ
 - note 競合再スキャン期限: `npm run check-competitor-scan-due -- --json` を実行（四半期＝90日。creds不要・ローカルhistory参照）。
   `due:true` なら「次セッションで `/competitor-review`（scout→competitor-analyst→09反映）」をサーフェスのみ（実取得はしない）。
 - GSC UI 取得期限（月次）: `npm run check-gsc-ui-due -- --json` を実行（30日。committed `gsc-ui/last-run.json` 参照・creds不要）。
   `due:true` なら「次セッションで `/google-search-growth`（GSC 理由別 UI CSV → API 突合 → 修正計画）」をサーフェスのみ。
-  ※Playwright + Google ログイン必須＝ローカル実行限定。クラウド週次では実行不可なのでサーフェスのみ（真実源 `docs/reference/gsc-management.md`）
+  ※Playwright + Google ログイン必須＝ローカル実行限定。クラウド週次では実行不可なのでサーフェスのみ（真実源 `.claude/knowledge/reference/gsc-management.md`）
 - note 再公開ドリフト: `npm run check-note-republish` を実行（公開記事のソース**本文＋ハッシュタグ**が公開時から変更＝要再公開を surface・creds不要・ローカルhash突合）。
   「要再公開(本文drift)」は `note-update-body --commit`、「要再公開(タグdrift)」は `note-sync-tags --commit`（公開済み記事へのタグ差分追加）で次セッションに live 反映をサーフェスのみ（実反映はローカル実機＝クラウド週次では不可）。verify-note-status(公開状態) とは直交。
 - note 構成監査（月次寄り・network依存）: `node scripts/check-note-structure.mjs`（公開API無料本文とソース paidBoundary を突合し FULL_LOCK/PAYWALL_LEAK/BOUNDARY_SHIFT/IMG_MISSING/PRICE_MISMATCH を検出・creds不要）。CRITICAL があれば該当記事の境界を `note-update-body --commit` で再設定するようサーフェスのみ（audit-note-funnel --live と同じ live 隔離枠）。
@@ -82,7 +84,7 @@ description: >
 > 日次 commit する。**コミット済みスナップショットを読むのが既定の取得元**であり、ローカル
 > creds は設計上不要。「creds 未設定＝計測基盤未整備」と扱わない。会社 PC は社内プロキシで
 > 外部 API（Google/Meta）が遮断されるため、ライブ fetch は基本通らない。
-> 詳細・恒久ルール: `docs/reference/measurement-incidents.md`（2026-06-05 エントリ）
+> 詳細・恒久ルール: `.claude/knowledge/reference/measurement-incidents.md`（2026-06-05 エントリ）
 
 A. NSM 指標取得（既定 = スナップショット読み）:
 - まず後述「スナップショット読み」でコミット済み JSON から WoW を算出するのが既定。
@@ -491,7 +493,7 @@ B. 実験進捗レポート:
 - レビューは `docs/reviews/weekly/YYYY-Www-review.md` に保存（GitHub Issue は使わない）
 - レビュー完了後に `/weekly-plan` が自動実行され、翌週の計画を `docs/reviews/weekly/YYYY-Www.md` に保存する
 - 未完了アクションは「来週への申し送り」→ 次週計画へ引き継ぐ
-- 履歴は `docs/reviews/weekly/` 配下の md と git history で参照（旧 Issue 一本化方式・W16 以前の旧 md archive は廃止済み）
+- 最新レビュー＋次週計画だけを `docs/reviews/weekly/` に保持する。旧週は未完タスク・恒久知見を抽出後に削除し、履歴はgitで参照する
 
 ## 参照
 

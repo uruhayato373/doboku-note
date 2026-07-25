@@ -52,6 +52,8 @@ interface CareerAffiliateProps {
   readonly points?: readonly string[];
   /** CTA ボタンテキスト（デフォルト「無料で相談する」） */
   readonly cta?: string;
+  /** GA4 の表示位置。MDX 直書きは article-inline、記事末は呼び出し側で article-end。 */
+  readonly placement?: string;
 }
 
 /**
@@ -79,6 +81,7 @@ export default function CareerAffiliate({
   trackingPixelUrl,
   points,
   cta = "無料で相談する",
+  placement = "article-inline",
 }: CareerAffiliateProps) {
   // 期間連動プリセット（program="gks"）: 施工管理/建設の inline 転職枠を、記事末モバイルカードと
   // 同じ period 解決（resolveCareerArticleEndCard）で href・コピーごと出し分ける。
@@ -102,6 +105,7 @@ export default function CareerAffiliate({
         target="_blank"
         data-cta="affiliate"
         data-cta-label={effService}
+        data-cta-placement={placement}
         className="card-surface-content focus-ring group relative flex flex-col sm:flex-row items-stretch gap-4 p-4 hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow"
         style={{ textDecoration: "none" }}
       >

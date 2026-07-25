@@ -11,15 +11,12 @@ notePublishedAt: "2026-06-30"
 noteStatus: published
 coverTitle: ["1級土木 施工経験記述", "鉄道近接 土留め・仮設工事", "5管理 完成答案"]
 cover:
-  leadIn: "1級土木施工管理技士 二次"
-  hi: "鉄道近接"
-  hiSuffix: "土留め・仮設"
-  banner: "営業線近接 仮設土留め工事"
-  meta: "有料マガジン"
-  chips:
-    - { icon: doc, text: "完成答案" }
-    - { icon: edit, text: "置換ガイド" }
-    - { icon: check, text: "5管理一覧" }
+  variant: crop-safe-v4
+  leadIn: "1級土木 経験記述｜土留め・仮設"
+  headline: "鉄道近接"
+  hi: "5管理"
+  hiSuffix: "完成答案"
+  benefit: "書き換えてそのまま使える"
 ---
 # 1級土木 施工経験記述｜鉄道近接 土留め・仮設工事（営業線防護・矢板変位管理）5管理 完成答案
 

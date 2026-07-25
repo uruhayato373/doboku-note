@@ -10,16 +10,12 @@ coverTitle:
   - R8「地方創生」的中
   - 白書連動分析のプロセス公開
 cover:
-  leadIn: "R8本試験「地方創生」"
-  hi: "的中"
-  hiSuffix: "の分析プロセス"
-  banner: "白書連動分析はこう当てた"
-  character: explaining
-  meta: "無料記事"
-  chips:
-    - { icon: chart, text: "9年で6〜7割の連動実績" }
-    - { icon: doc, text: "外した予想も開示" }
-    - { icon: calendar, text: "R9へ続く年次分析" }
+  variant: crop-safe-v4
+  leadIn: "総監 記述式｜的中分析"
+  headline: "白書連動の的中"
+  hi: "6"
+  hiSuffix: "割連動"
+  benefit: "外した予想も含め全公開"
 ---
 # R8総監「地方創生」はなぜ事前に押さえられたか — 白書連動分析のプロセスを全公開【無料】
 
