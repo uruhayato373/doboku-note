@@ -20,6 +20,52 @@
 
 ## 🔴 高 — 来月中に着手
 
+### noteカバーV4 残4件の手動更新（free×メンバーシップ連携LP）
+タグ: [収益化] [SNS・マーケ]
+
+Crop-safe V4 全量移行（記事702/706＋マガジン36/36 反映済み）の残り。free×メンバーシップ連携記事のみ note-update-cover の公開フロー非対応（設定ページ構造が特殊）のため、note UI で手動更新する。エディタに新カバーが下書き済みの可能性が高く「公開に進む→更新する→通知いいえ」だけで済む見込み。
+
+1. メンバーシップ「はじめに-合格ラボ」（`docs/note/1級・2級土木/メンバーシップ/はじめに-合格ラボ/`）
+2. 「1級土木-二次まるごとパック」LP（`docs/note/1級・2級土木/1級土木/magazines/1級土木-二次まるごとパック/`）
+3. 「完全攻略ガイド・想定工事索引」（`docs/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/00-完全攻略ガイド-想定工事索引/`)
+4. 「2級 想定工事バンク索引」（`docs/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/00-想定工事索引/`）
+
+いずれもライブは旧カバーのまま無傷。新カバーは各 dir の `img/cover.png`。知見 SSOT: memory `reference_note_cover_live_gotchas`
+
+### 土木note 195記事の著者オーソリティバナー live反映
+タグ: [収益化] [SNS・マーケ]
+
+ソース配置は195記事で完了済みだが、公開noteへの反映は約12記事のみ。ログイン済みChromeのあるPCで、公開済み約156記事を冪等な `note-update-body` で複数パス実行し、CDN待ちABORTが0になるまで収束させる。
+
+- 対象抽出: `docs/note/1級・2級土木/**/article.md` のうち `figure-author-authority.png` と `noteId` を持つもの
+- 実行: `node scripts/note-update-body.mjs --list .tmp/nu-list.txt --commit`
+- 安全弁: `--img-lenient` 禁止。ABORTは保存せず再実行する。完了後に公開noteを数本目視
+- 未公開約38件は公開後に同処理。幅超過記事は `check-note-cover-fit --all` → frontmatter短縮 → 再配布
+- SSOT: `.claude/knowledge/reference/author-authority-banner.md`
+
+### 土木note ソース変更192本のlive同期と商品導線強化
+タグ: [収益化] [Codex候補]
+
+CTA・著者バナー・blockquote・cover文言・UTMを直したソースと公開noteの差分を解消する。
+
+1. `npm run check-note-republish` と `npm run audit-note-funnel -- --live` で対象を再確定
+2. CTAは `npm run note-append-cta`、本文変更は `publish-note --update` / `note-update-body --commit`
+3. frontmatterを短縮した36記事のカバーを再生成・R2反映し、note UIで差し替える
+4. 完全攻略パック `工事03/05/06/08/09` の購入リンク生存を実査し、切れていれば索引修正または公開
+5. civil 6商品のdescriptionと主要記事導入部へ「元・地方自治体土木職（発注者）＋1級合格者本人」を展開
+
+主力商品の導入フック改善、無料00インデックス、2級安全管理・法規まとめノートは上記の同期後に売上を見て判断する。著者を添削者・採点者と表現しない。
+
+### 総監標準テキスト→キーワード集 実装分を本番deploy
+タグ: [コンテンツ品質] [インフラ・計測]
+
+完全監査とPhase 2/3実装は完了済み（D/E/G=0、新規 `landscape-act` / `cost-benefit-analysis`、補強・ナビ・keyword-relations同期・cem-qa合格）。未完はdevelop→mainのdeployと公開確認のみ。
+
+- `/deploy` の通常手順でmainへ反映
+- 新規2ページとキーワード集ハブをHTTP確認
+- main push時のR2 OGP同期を確認
+- 再監査: `npm run audit-pe-textbook-keyword-coverage`
+
 ### IG 論点パック 残92件の波状予約（1セッション約30件）
 タグ: [SNS]
 
@@ -96,26 +142,17 @@ page/category の合成ロジック共通化（2026-06-25 アセスメント起�
 
 ## 🟡 中 — 2〜3ヶ月以内
 
-### Playwright E2Eスモークテストを導入
-タグ: [品質] [E2E] [Claude Code候補]
-
-トップ、1級土木、2級土木、技術士総監の代表ページについて、描画・主要回遊・note CTA href・モバイルoverflowをPlaywrightで検査する。note.comへのログイン、購入、公開操作や全記事クロールは対象外。Fableがオーケストレーションし、Opusは設計レビュー1回、Sonnetは実装と独立QAへ限定してトークンを節約する。
-
-- **設計SSOT**: [12_Playwright_E2E導入設計.md](../project/04_運営/12_Playwright_E2E導入設計.md)
-- **Claude Code指示**: [claude-code-playwright-e2e-implementation-prompt.md](../project/04_運営/claude-code-playwright-e2e-implementation-prompt.md)
-- **既存状態**: `@playwright/test`は導入済み。設定、spec、package scripts、CI workflowは未整備。
-- **初版範囲**: Chromium desktop/mobile、代表ページ、CTAはhref検査まで。
-- **完了条件**: E2E、既存単体テスト、type-check、lint、build、doc-syncが成功し、失敗時artifactをCIで取得できる。
-
-### note カバー Clarity V3 を代表記事1件で実装・検証
+### note カバー Crop-safe V4＋Clarityを代表6件で実装・検証
 タグ: [UI・UX] [Codex候補]
 
-note一覧の小さいサムネイルで主題と読後価値を瞬時に把握できるよう、既存G2と後方互換な `cover.variant: clarity` を実装する。最初は `1級経験記述で落ちる答案` 1記事だけに適用し、中央630×630クロップと幅320px相当で可読性を確認する。全記事移行と note.com へのライブ反映は別判断。
+note一覧・リンクカード・関連記事・人気記事・マガジンで異なるクロップに耐えつつ、主題と読後価値を小サムネイルで把握できるようにする。既存G2と後方互換なopt-in実装とし、記事・マガジン代表6件だけでパイロットする。日本語は決定論的レンダラー、Codex画像生成は文字なし素材だけに使う。
 
-- **設計SSOT**: [note-cover-clarity-v3.md](../design-system/note-cover-clarity-v3.md)
-- **Claude Code指示**: [claude-code-note-cover-clarity-v3-prompt.md](../project/05_プロダクト/claude-code-note-cover-clarity-v3-prompt.md)
+- **主設計SSOT**: `.claude/knowledge/design-system/note-cover-crop-safe-v4.md`
+- **視覚階層の補助仕様**: `.claude/knowledge/design-system/note-cover-clarity-v3.md`
+- **実装計画・指示**: `.claude/plans/note-cover-crop-safe-v4-implementation.md` / `.claude/prompts/note-cover-crop-safe-v4-implementation.md`
 - **著者属性の厳守**: 著者は**元発注者**であり添削者ではない。カバー訴求は `元発注者の視点で解説` とし、「添削者」「添削者視点」を使わない。
-- **完了条件**: variantなし既存G2に差分なし／主要情報が中央590pxに収まる／fit検査対応／通常版を最後に再生成してdebug枠なし／テストと目視確認完了。
+- **完了条件**: variantなし既存G2に差分なし／中央630×454・630×216を含む6cropギャラリー合格／幅320px相当で可読／fit検査対応／通常版を最後に再生成してdebug枠なし。
+- note.comはパイロット中dry-runまで。公開差し替えは目視承認後の別工程。
 
 ### Brain 2商品の審査後フォローと販売運用（2026-07-22 申請済み）
 タグ: [収益化] [技術士総監] [1級2級土木]
@@ -178,7 +215,7 @@ C（`civil-1-ichiji-ronten` ¥1,480・[nec34238ca6d6](https://note.com/dobokunot
 
 - **h28-a は mass-fix 前に official 配列自体を第2ソース（kakomonn 等）で OCR 再検証**（19件と突出＝OCR誤りの疑い）
 - pre-H30 原典PDFの入手: touhokugiken.com / dobokujira.com（h29 学科A/Bは両者に無し→kakomonn等別ソース要）
-- 手順SSOT: `docs/reference/exam-content-policy.md` Part 2「過去問の原典照合」＋監査ツール `.claude/state/quality/civil-1-primary-tools/`（diff-keys/check-marks/check-contradict）
+- 手順SSOT: `.claude/knowledge/reference/exam-content-policy.md` Part 2「過去問の原典照合」＋監査ツール `.claude/state/quality/civil-1-primary-tools/`（diff-keys/check-marks/check-contradict）
 
 ### 過去問 解説品質の残指摘クラスタ（数値上合格・要照合）
 タグ: [コンテンツ品質]
@@ -202,14 +239,14 @@ C（`civil-1-ichiji-ronten` ¥1,480・[nec34238ca6d6](https://note.com/dobokunot
 ### guide-career / アフィリ記事の文末単調（rule 15-1）copy リライト
 タグ: [コンテンツ品質]
 
-BuildJob アフィリスプリントで注入された copy が rule 15-1（文末「〜です。/〜ます。」の連続）に触れている。mechanical-only 範囲外で copy 文言変更が必要（SSOT の残課題= `docs/reviews/2026-07-14-mechanical-quality-audit.md:75`）。現状（`node .claude/scripts/lint-mdx-mobile.mjs <file>` で 15-1 実測）:
+BuildJob アフィリスプリントで注入された copy が rule 15-1（文末「〜です。/〜ます。」の連続）に触れている。mechanical-only 範囲外で copy 文言変更が必要。現状（`node .claude/scripts/lint-mdx-mobile.mjs <file>` で 15-1 実測）:
 - `civil-construction-1-guide-age-career`（5件）／`civil-construction-1-guide-career-agent-comparison`（3件）／`civil-construction-2-guide-young-career`（3件）
 - **手順**: 各記事の該当段落の語尾に変化をつける（体言止め・接続で連結・「〜ます。」→「〜ます」等）。数値・主張・アフィリ配線は不変。完了後 `npm run update-content-quality-baseline` で baseline 更新。要再計測（他 career 記事にも波及の可能性）
 
 ### 過去問図 rescan-need-source 9図（要外部/別原典）
 タグ: [コンテンツ品質]
 
-進捗の生きたビュー＝管理画面ギャラリー（`npm run admin`→記事図版タブ→「対応」フィルタ）で残数を見る運用。真実源 `docs/reference/figure-provenance.md`、手順 `/figure-recrop`。
+進捗の生きたビュー＝管理画面ギャラリー（`npm run admin`→記事図版タブ→「対応」フィルタ）で残数を見る運用。真実源 `.claude/knowledge/reference/figure-provenance.md`、手順 `/figure-recrop`。
 
 残 = h29-b-fig-02（要H29第2次B原典）／h27-a-fig-01（要H27原典）／pe-construction 4（fig22/27/04/05＝要白書PDF等）／concrete-chief 3（steel-carbon-h29・bingham-flow-h30・bingham-shear-r04＝要該当年度原典）。台帳に理由記録済。
 
@@ -222,6 +259,8 @@ BuildJob アフィリスプリントで注入された copy が rule 15-1（文�
 タグ: [UI・UX]
 
 ①`pe-comprehensive-management-exam-index` desktop Perf 56・TBT 2521ms の再現確認（Mermaid 出現0の軽構成＝計測スパイク疑い。再現なら client JS を profiling）②**モバイル PSI が未計測**→CI 供給で計測開始（外部Google API＝ローカル不可）③CLS 超過2ページ＝AdSense 枠の width/height 明示。実装: `.claude/config/psi-urls.txt`・`psi-config.json`。
+
+**EXP-005を同時に正式start**: `.claude/state/experiments.json` では2026-06-26から `proposed` のまま。worst 3（6,452 / 6,226 / 5,776ms）のLCP要素を特定し、代表1ページへ外科的施策を適用→モバイルLCP 2,500ms未満を確認してから共通docsテンプレートへ展開する。RSCへの安易な`next/dynamic`適用は禁止。
 
 ### 回遊・note 動線 P4-P7
 タグ: [UI・UX]
@@ -315,6 +354,7 @@ SEO 品質ゲート実装（PR #390・handoff `2026-07-13-seo-quality-gates.md` 
 Tier 1（NoteLink 計測・cadence 化・bot 監査 CI 等）は実装完了。残:
 - **Tier 2/3**: カスタムパラメータ・検索/scroll イベント・アフィリA/B の label 取得・GA4↔GSC 突合／AdSense RPM 取込・sales×流入 attribution・送客リダイレクタ・A8 EPC
 - **GA4 UI（ユーザー手作業）**: 内部トラフィック除外・参照除外・既知ボット除外 ON・カスタムディメンション登録確認
+- **Playwright UI CSV**: `fetch-ga4-ui-csv.mjs` は未ログイン検証のみ。ログイン済み実UIでレポート名・ディメンション・指標・ダウンロードメニューの正式ラベルを確定し、fixtureと回帰テストへ反映（API優先方針は維持）
 - 真実源（file:line・Tier 詳細）: [measurement-infra-enhancement.md](measurement-infra-enhancement.md)
 
 ### サイトアクセス×収益化 戦略の深掘り論点
@@ -330,10 +370,19 @@ PR #269（カタログ）/#270（SNSレンダラー）済。残 = Phase4 記事�
 ### 記事構成ルールの SSOT 化 + サブエージェント管理
 タグ: [エージェント・SSOT]
 
-1. `docs/reference/article-structure-guide.md`（新設予定）<!-- doc-ref:ignore --> を起草 — 基本構成・文字数目標・Callout 使い方・見出し構成・CTA の型（たけブログの知見反映 → reference-sites.md）
-2. `docs/reference/todo-writing-guide.md`（新設予定）<!-- doc-ref:ignore --> を起草 — todo 記述フォーマット・優先度表記
+1. `.claude/knowledge/reference/article-structure-guide.md`（新設予定）<!-- doc-ref:ignore --> を起草 — 基本構成・文字数目標・Callout 使い方・見出し構成・CTA の型（たけブログの知見反映 → reference-sites.md）
+2. `.claude/knowledge/reference/todo-writing-guide.md`（新設予定）<!-- doc-ref:ignore --> を起草 — todo 記述フォーマット・優先度表記
 3. `civil-guide-writer` エージェント新設（article-structure-guide を真実源に）
 4. `todo-planner` に todo-writing-guide と backlog の参照を追加
+
+### `note-meta-lint` をNode 18/20対応へ修正
+タグ: [インフラ・計測] [Codex候補]
+
+`scripts/note-meta-lint.mjs` が `node:fs/promises` の `glob` を直接importしており、Node v20.19.0で起動時にSyntaxErrorとなる。`package.json` のサポート範囲はNode 18以上なので、再帰`readdir`または既存依存へ置換する。
+
+- 再現: `node scripts/note-meta-lint.mjs --help`
+- 完了条件: Node 18/20で起動、対象探索結果が現行意図と一致、fixtureまたは純関数テスト追加、既存lint/type-check成功
+- 新たなglob依存を追加する場合は既存依存との重複を確認する
 
 ### 過去問データ整合: 総監 JSON h30 欠落 + docs 数値不整合の是正
 タグ: [コンテンツ品質] [エージェント・SSOT]
@@ -347,6 +396,16 @@ PR #269（カタログ）/#270（SNSレンダラー）済。残 = Phase4 記事�
 ---
 
 ## 🟢 低 — 時期未定
+
+### 既存画像 grandfather 135件の圧縮バーンダウン
+タグ: [UI・UX] [Codex候補]
+
+画像品質ゲート導入前から残る大容量PNG/JPG/WebPを、アクセス数と削減可能容量の高い順に段階処理する。新規画像は既存ゲートで防止済み。
+
+- `quality:audit` の画像レポートを起点に対象を再計測
+- noteマガジンカバー、販売画像、外部参照画像など誤検知を除外
+- `generate-webp`または既存の用途別変換経路を使用し、寸法・透過・OGP参照を維持
+- 1バッチごとにbuild・画像参照・差分容量を検証し、baselineを漸減
 
 ### 管理画面に「note 要再公開」列を追加
 タグ: [インフラ・計測]
@@ -522,7 +581,7 @@ account ゲート/ClipboardEvent paste/リンクカード化/ブラウザ起動�
 
 モデルは「ライブラリ内包」へ転換済み（2026-07-01・SSOT [docs/note/1級・2級土木/noteコンテンツ計画.md](../note/1級・2級土木/noteコンテンツ計画.md)）。全24記事＋週次お題11週＋無料導線2本は下書き仕込み完了・サイトCTA配線 PR #271 MERGED。
 
-**残**: ①**添削実測**（1本30分以内→定員/価格確定・募集前必須・ユーザーのみ）②**note実機**（会員作成・2プラン・完成答案ライブラリ内包の同時配置検証）③フロー在庫8週分（当方制作）④無料集客16本公開（`note-publish-magazine --commit`）→ `civil-membership-lab` の noteUrl SoT 記入＋published:true ⑤特典マガジン会員配信（週次ドリップ）開始 ⑥2級後期の公式試験日確認。
+**残**: ①**添削実測**（1本30分以内→定員/価格確定・募集前必須・ユーザーのみ）②**note実機**（会員作成・2プラン・完成答案ライブラリ内包の同時配置検証）③フロー在庫8週分（当方制作）④無料集客16本公開（`note-publish-magazine --commit`）→ `civil-membership-lab` の noteUrl SoT 記入＋published:true ⑤特典マガジン会員配信（週次ドリップ）開始。2級後期は2026-10-25で公式確認済み（SSOT: `.claude/config/exam-calendar.json`）。
 
 ### コンクリート診断士 — 著作権方針の決定（3択）
 タグ: [コンテンツ品質]
