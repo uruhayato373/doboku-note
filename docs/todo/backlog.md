@@ -638,6 +638,6 @@ R8予想62本は2026-07-13に全公開・収録・導線検証済（[[project_r8
 **やること**:
 1. `fetch-psi-data.mjs` の `fetchPsi()` に 5xx のみリトライ（1〜2回・数秒バックオフ。4xx はリトライしない＝設定ミスを隠さないため）
 2. 欠測が残った場合に備え、`performance-auditor` の中央値計算で「その URL が測れているバッチのみ」を母数にする旨を明記
-3. 反映は `main` deploy 後（scheduled workflow は default branch で走る → [[measurement-incidents]]「scheduled workflow は main で走る」）
+3. 反映は `main` deploy 後（`psi-audit.yml` は `ref:` 指定が無いため main のコードで実行される。実行ブランチは workflow ごとに違うので `npm run check-scheduled-exec-branch` か [[measurement-incidents]]「定期ジョブの実行ブランチは workflow ごとに違う」の実測表で確認すること）
 
 **注意**: ローカルでの live PSI 検証は不可（`.env.local` に `PSI_API_KEY` 無し・キー無しは匿名共有枠で即 429）。キーは GitHub Secrets 側にあり、計測は CI 供給が正。動作確認は deploy 後の psi-batch で行う。
