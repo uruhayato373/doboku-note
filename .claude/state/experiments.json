@@ -639,6 +639,63 @@
       "target_metric": "mobile_LCP_ms_worst3",
       "target_delta": "6452/6226/5776 -> <2500 (good)",
       "baseline": {
+        "source": "psi-batch 2026-07-22〜07-26 mobile (median of 5 daily runs)",
+        "captured_at": "2026-07-26T21:06:47.000Z",
+        "metric": "mobile lab LCP_ms (worst-of-worst3)",
+        "note": "lab LCP はノイズ極大（h26-a 2026〜7201ms・four-management 2101〜6376ms が日次で振れる）。field_data(CrUX) は全ページ p75 797〜822ms=FAST で実害なし。判定は単発でなく複数バッチ中央値のトレンドで行う。",
+        "pages": {
+          "civil-construction-1-primary-r07-a": {
+            "mobile_lcp_ms_median": 5653,
+            "perf_range": "65-71",
+            "field_lcp_p75": 822,
+            "field_cat": "FAST"
+          },
+          "civil-construction-1-guide-strategy": {
+            "mobile_lcp_ms_median": 6001,
+            "perf_range": "65-86",
+            "field_lcp_p75": 822,
+            "field_cat": "FAST"
+          },
+          "civil-construction-1-primary-h26-a": {
+            "mobile_lcp_ms_median": 4890,
+            "perf_range": "57-98",
+            "field_lcp_p75": 822,
+            "field_cat": "FAST"
+          },
+          "civil-construction-1-guide-four-management": {
+            "mobile_lcp_ms_median": 2551,
+            "perf_range": "56-99",
+            "field_lcp_p75": 822,
+            "field_cat": "FAST"
+          }
+        }
+      },
+      "status": "running",
+      "created_at": "2026-06-26T23:07:43.668Z",
+      "started_at": "2026-07-26T21:06:47.000Z",
+      "result": null,
+      "learnings": null,
+      "closed_at": null,
+      "actions": [
+        "1. 診断: PSI batch JSON の lcp_element を worst3ページで抽出し LCP要素(text/img/heading)を特定。lab_data の TBT/main-thread を併読",
+        "2. LCP要素が above-fold 画像なら next/image priority+sizes、text block なら render-blocking CSS/JS 除去を検討",
+        "3. 注意: #84 の教訓で RSC への next/dynamic ラッパーは LCP を悪化(+62%)。dynamic import を安易に当てない(memory: dynamic-server-component)",
+        "4. テンプレ共通に1施策適用→まず r07-a で PSI 再計測→改善確認後に横展開",
+        "5. lab PSI で即時判定可(field CrUX を待たない)"
+      ],
+      "history": [
+        {
+          "date": "2026-06-26T23:07:43.668Z",
+          "action": "proposed",
+          "summary": "W26 Must#3。mobile LCP 3-6s が content-heavy docs ページに集中・LCP要素未特定。font/AdSense 後の残LCP を診断起点で。"
+        },
+        {
+          "date": "2026-07-26T21:06:47.000Z",
+          "action": "started",
+          "summary": "W32 Must（4週 proposed を終結）。start-baseline を 07-22〜26 の mobile lab LCP 中央値で確定。lab ノイズ極大・field は全FAST を明記。次アクション=worst3 の LCP要素特定（診断）。"
+        }
+      ],
+      "initial_baseline_2026_06_26": {
         "source": "psi-batch-2026-06-26T17-54-40.json (latest-report.md)",
         "pages": {
           "civil-construction-1-primary-r07-a": {
@@ -660,27 +717,7 @@
           }
         },
         "desktop_note": "同ページ desktop は LCP 0.9-1.5s で good=モバイル固有の問題"
-      },
-      "status": "proposed",
-      "created_at": "2026-06-26T23:07:43.668Z",
-      "started_at": null,
-      "result": null,
-      "learnings": null,
-      "closed_at": null,
-      "actions": [
-        "1. 診断: PSI batch JSON の lcp_element を worst3ページで抽出し LCP要素(text/img/heading)を特定。lab_data の TBT/main-thread を併読",
-        "2. LCP要素が above-fold 画像なら next/image priority+sizes、text block なら render-blocking CSS/JS 除去を検討",
-        "3. 注意: #84 の教訓で RSC への next/dynamic ラッパーは LCP を悪化(+62%)。dynamic import を安易に当てない(memory: dynamic-server-component)",
-        "4. テンプレ共通に1施策適用→まず r07-a で PSI 再計測→改善確認後に横展開",
-        "5. lab PSI で即時判定可(field CrUX を待たない)"
-      ],
-      "history": [
-        {
-          "date": "2026-06-26T23:07:43.668Z",
-          "action": "proposed",
-          "summary": "W26 Must#3。mobile LCP 3-6s が content-heavy docs ページに集中・LCP要素未特定。font/AdSense 後の残LCP を診断起点で。"
-        }
-      ]
+      }
     }
   ]
 }
