@@ -15,7 +15,9 @@ title: 計測・検証事故の記録
 EXP-005 の作業報告で、**未検証の理由を 2 つとも誤って述べた**。
 
 1. 「PSI API が本日クォータ超過（429）のため live 検証は未了」→ **誤り**。実際は**ローカルに `PSI_API_KEY` が無い**ため、キー無しリクエストが Google の匿名共有枠に載って即 429 になっただけ。CI（Secrets にキーあり）は 44 クエリ/日を正常処理しており、日次収集は健全だった。
-2. 「CI の次回実行で確認する」→ **誤り**。GitHub の scheduled workflow は**デフォルトブランチ（`main`）で走る**。変更は `develop` にあり、しかも未 push だった。**deploy を経るまで新コードは 1 度も実行されない**。
+2. 「CI の次回実行で確認する」→ **誤り**。当該 workflow（`psi-audit.yml`）は checkout に `ref:` が無く**デフォルトブランチ（`main`）で走る**。変更は `develop` にあり、しかも未 push だった。**deploy を経るまで新コードは 1 度も実行されない**。
+
+3. （**同日、本記事の初版でも同型の誤りを犯した**）再発防止としてこの記事に「計測 5 ジョブは全て `main` で走る」と書いたが、`link-audit` / `verify-yt-status` は `ref: develop` 指定で **develop のコードが走る**。「push 先が develop だから main で走るのだろう」と推論し、`with: ref:` を確認しなかった。さらに scheduled workflow は 5 本ではなく **9 本**あった。→ 下記「実務上の要注意事実」の表は訂正済み。
 
 ### 根本原因
 
@@ -35,24 +37,33 @@ EXP-005 の作業報告で、**未検証の理由を 2 つとも誤って述べ�
 - **エラーコードを原因として引用しない。** サーバの応答は症状。自環境（creds / proxy / ブランチ / 権限）を先に疑う。
 - **ローカルで計測 API が 429 / 403 / 503 を返したら、まず自環境を疑う**（→ 2026-06-05 の恒久ルール「計測は CI/CD 供給が正」。ローカル live fetch はそもそも正規手順ではない）。CI 側は健全な可能性が高いので、「計測基盤の障害」と報告しない。
 
-### 実務上の要注意事実: scheduled workflow は `main` で走る
+### 実務上の要注意事実: 定期ジョブの実行ブランチは workflow ごとに違う
 
-以下の 5 つの定期ジョブは **`main`（デフォルトブランチ）のコードで実行され、結果だけを `develop` に push する**構造。**計測スクリプトを `develop` で直しても、`main` へ deploy するまで収集内容は変わらない。**
+> **この節は 2026-07-27 に訂正済み。** 初版では「計測 5 ジョブは全て `main` で走る」と書いたが、**2 件が誤り**だった（`link-audit` / `verify-yt-status` は `ref: develop` 指定で develop のコードが走る）。「結果を `develop` に push している」ことから実行ブランチを推論し、各 yml の `with: ref:` を確認しなかったため。**再発防止を書いたこの記事自体が、同じ「未確認の断定」で汚染されていた**。以下は全 yml を実読して作成した表。
 
-| workflow | 収集対象 |
-|---|---|
-| `psi-audit.yml` | PSI / Core Web Vitals（日次） |
-| `fetch-metrics.yml` | GA4 / GSC（週次 金 06:00 JST） |
-| `index-coverage.yml` | GSC index coverage |
-| `link-audit.yml` | リンク切れ |
-| `verify-yt-status.yml` | YouTube 公開状態 |
+**`push 先` と `実行ブランチ` は別物**。checkout に `ref:` があればそのブランチ、無ければデフォルトブランチ（`main`）のコードが走る。
 
-計測スクリプト（`.claude/scripts/fetch-*.mjs` 等）を変更したら、**「いつから新しいデータが入るか」は deploy 日を基準に答える**こと。
+| workflow | cron | **実行ブランチ** | push 先 | 対象 |
+|---|---|---|---|---|
+| `psi-audit.yml` | `0 17 * * *` | **main**（ref 無し） | develop | PSI / Core Web Vitals |
+| `fetch-metrics.yml` | `0 21 * * 4` | **main**（ref 無し） | develop | GA4 / GSC 週次 |
+| `index-coverage.yml` | `0 2 1 * *` | **main**（ref 無し） | develop | GSC index coverage |
+| `weekly-review-guard.yml` | `17 2 * * 1` | **main**（ref 無し） | なし | 週次レビュー実施の督促 |
+| `r2-audit.yml` | `0 22 * * 0` | **main**（明示） | なし | R2 / OGP / 品質ゲート |
+| `post-youtube-scheduled.yml` | `0 19 * * *` | **main**（明示） | main | YouTube 予約投稿 |
+| `link-audit.yml` | `0 22 * * 4` | **develop**（明示） | develop | リンク切れ |
+| `verify-yt-status.yml` | `0 20 * * 4` | **develop**（明示） | develop | YouTube 公開状態 |
+| `uptime-ping.yml` | `0 23,5,11 * * *` | **develop**（明示） | なし | 死活監視（shell のみ） |
+
+**計測スクリプトを変更したら、「いつから新しいデータが入るか」は該当 workflow の実行ブランチを見て答えること。** `main` 実行のジョブなら deploy 日が基準になる。
+
+**機械チェック**: `npm run check-scheduled-exec-branch`（pre-commit で staged を WARN）。staged のファイルがどの定期ジョブにどのブランチで実行されるかを yml を実読して答えるので、**この表を記憶や推論で語る必要はない**。
 
 ### 教訓
 
 - 報告の中で**最も検証が甘くなるのは「できなかったこと」の説明**。成果は疑われるので裏を取るが、制約は疑われないので素通りする。ここが誤情報の入口になる。
 - 誤った制約説明は「やらなくてよい理由」を作り、次の担当者の判断を歪める。今回は「CI が勝手に検証してくれる」という誤った安心を残しかけた。
+- **再発防止の文書を書く行為自体が、同じ誤りから免れない**（上記 3.）。「A だから B だろう」という推論は、防止策を書いている最中でも走る。だから**規律の文書化だけでは足りず、事実を機械に答えさせる**必要がある（→ `check-scheduled-exec-branch`）。人が表を維持する限り、その表は次の推論で汚染される。
 
 ---
 

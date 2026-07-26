@@ -137,9 +137,52 @@ async function fetchPsi(url, opts) {
   const res = await fetch(endpoint);
   if (!res.ok) {
     const body = await res.text();
+    if (res.status === 429) explain429();
     throw new Error(`PSI API ${res.status}: ${body.slice(0, 300)}`);
   }
   return res.json();
+}
+
+// 429 の説明は 1 回だけ（22 URL 分繰り返さない）
+let explained429 = false;
+
+/**
+ * 429 の原因をその場で明示する。キー無しの 429 は「PSI の障害」でも「クォータ枯渇」でもなく
+ * ローカル環境の状態（匿名共有枠）であり、そう書かないと誤って障害報告される
+ * （2026-07-27 に実際に誤報告した。真実源: measurement-incidents.md）。
+ * 呼び出し側は e.message を 200 字で切るため、Error に載せず直接出力する。
+ */
+function explain429() {
+  if (explained429) return;
+  explained429 = true;
+
+  if (!process.env.PSI_API_KEY) {
+    console.error(
+      [
+        "",
+        "  ── 429 の原因 ─────────────────────────────────",
+        "  PSI_API_KEY が未設定です。キー無しリクエストは Google の匿名共有枠に載るため、",
+        "  他者の利用も含めて日常的に枯れています。",
+        "  これは「PSI の障害」でも「このプロジェクトのクォータ枯渇」でもありません。",
+        "",
+        "  計測は CI/CD 供給が正（キーは GitHub Secrets にあり、日次ジョブは正常に動いています）。",
+        "  → 既存データ: .claude/state/metrics/psi/psi-batch-*.json",
+        "  → 真実源: .claude/knowledge/reference/measurement-incidents.md",
+        "  ───────────────────────────────────────────────",
+      ].join("\n"),
+    );
+    return;
+  }
+
+  console.error(
+    [
+      "",
+      "  ── 429 の原因 ─────────────────────────────────",
+      "  PSI_API_KEY は設定済みのため、本当に日次クォータを使い切っています。",
+      "  Google Cloud Console の PageSpeed Insights API のクォータを確認してください。",
+      "  ───────────────────────────────────────────────",
+    ].join("\n"),
+  );
 }
 
 // ── 結果整形 ──
@@ -268,6 +311,15 @@ async function main() {
   urls = [...new Set(urls)];
 
   console.log(`PSI 計測対象: ${urls.length} URL (strategy: ${opts.strategy})`);
+
+  // キー無しでも PSI は動くが匿名共有枠のため 429 になりやすい。先に断っておかないと
+  // 429 を「PSI の障害」と誤読させる（2026-07-27 に実際に誤報告した）。CI は Secrets 供給なので黙る。
+  if (!process.env.PSI_API_KEY && !process.env.CI) {
+    console.warn(
+      "[fetch-psi-data] WARN PSI_API_KEY 未設定。キー無しは匿名共有枠に載るため 429 になりやすい\n" +
+        "  計測は CI/CD 供給が正。既存データ: .claude/state/metrics/psi/psi-batch-*.json",
+    );
+  }
 
   // 各 URL を順次計測（PSI はレスポンス時間が長い、並列は避ける）
   const summaries = [];

@@ -167,6 +167,15 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# 定期ジョブが実行するファイルを実行対象外のブランチで変更していないか（WARN・非ブロッキング）
+# 「push 先 ≠ 実行ブランチ」の取り違え防止。検査の故障時のみ exit 1 なので判定は付ける。
+if [ -f scripts/check-scheduled-exec-branch.mjs ]; then
+  node scripts/check-scheduled-exec-branch.mjs --staged
+  if [ $? -ne 0 ]; then
+    exit 1
+  fi
+fi
+
 # note 記事ハッシュタグは 90 個以上（発見性ゲート・staged の hashtags*.txt のみ）
 node scripts/check-note-hashtags.mjs --staged
 if [ $? -ne 0 ]; then
