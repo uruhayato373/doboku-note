@@ -107,6 +107,9 @@ CC/PD 写真を使うときは、**画像直前の MDX コメント** で出典�
 />
 ```
 
+> [!important]
+> `loading="lazy"` は **2 枚目以降**の書き方。**本文 1 枚目（先頭 2,000 文字以内）は `loading="eager" fetchpriority="high"`** にする（フォールド内＝LCP 要素になるため）。機械ゲート `npm run check-lcp-image-hints` が pre-commit / CI で検査する。詳細: [content-authoring.md](./content-authoring.md)「読み込み優先度（LCP ゲート・必読）」
+
 ### 写真（政府機関画像ライブラリ）
 
 ```mdx

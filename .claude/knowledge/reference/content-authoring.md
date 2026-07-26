@@ -194,6 +194,23 @@ CLAUDE.md 本体にも要点を置いているが、詳細はここで扱う。
 - **R2 からのダウンロード（新規 PC 初期化時のフォールバック）**: `/sync-r2-images` または `npm run download-images`
 - `static/img/` はサイト共通素材（favicon, logo 等）専用
 
+### 読み込み優先度（LCP ゲート・必読）
+
+**本文の 1 枚目の図版（先頭 2,000 文字以内にあるもの）は `loading="eager" fetchpriority="high"` にする。2 枚目以降は `loading="lazy"`。**
+
+```mdx
+{/* 1枚目＝モバイルのフォールド内に入る＝LCP 要素 */}
+<img src="/posts/{slug}/img/fig-01.webp" alt="..." loading="eager" fetchpriority="high" width={740} height={401} />
+
+{/* 2枚目以降 */}
+<img src="/posts/{slug}/img/fig-02.webp" alt="..." loading="lazy" width={756} height={496} />
+```
+
+- **なぜ**: 1 枚目はモバイル（390×844）のフォールド内に入り LCP 要素になる。ここに `loading="lazy"` が付くと低速回線で取得がレイアウト確定まで遅延し、**LCP が数秒伸びる**（2026-07-27 の EXP-005 で実測。PSI lab 5〜7s の主因）
+- **なぜ MDX 側で書くのか**: MDX の**リテラル JSX `<img>` は components マップを経由しない**（マップされるのは markdown 記法 `![]()` 由来の要素のみ）。そのため `src/lib/component-loader` では強制できず、記事ソースが真実源になる
+- **機械ゲート**: `npm run check-lcp-image-hints`（pre-commit で staged / `quality:audit` と CI で全量）。違反は `-- --fix` で自動修正できる
+- 詳細・背景: [measurement-incidents.md](./measurement-incidents.md)「2026-07-27: lab と field の判定原則」
+
 ## 画像コンポーネントの使い分け
 
 **真実源**: [.claude/knowledge/reference/content-principles.md §8](./content-principles.md) L146 — *caption は「図の説明」には使わない。ただし出典・帰属・機種名などの短い帰属情報（60 字以内）は caption に書いてよい。*

@@ -45,11 +45,16 @@ Phase 0 の snapshot 直後、`.claude/state/weekly-metrics/YYYY-Www.json` を�
 | GA4 | チャネル別 sessions 前週比 | -20% 以上 かつ 前週 ≥10 | **High** (Traffic-Drop) |
 | GSC | 全体 CTR 前週比 | -30% 以上 | Medium |
 | GSC | position ≤ 3 クエリの CTR | < 5% | Medium |
-| PSI | LCP (lab) | > 2500ms | **Critical** |
-| PSI | CLS (lab) | > 0.1 | **Critical** |
-| PSI | Performance スコア | < 70 | High |
-| PSI | 前回比 Performance | -10 以上 | **Critical**（回帰） |
-| PSI | 前回比 LCP | +500ms 以上 | **Critical**（回帰） |
+| PSI | **field LCP / INP / CLS の category** | AVERAGE または SLOW | **Critical**（実害） |
+| PSI | LCP (lab) 直近5バッチ中央値 | > 2500ms | Medium（field が FAST のとき）／High（field も悪いとき） |
+| PSI | CLS (lab) 直近5バッチ中央値 | > 0.1 | Medium／High（同上） |
+| PSI | Performance スコア (lab) 中央値 | < 70 | Medium |
+| PSI | 中央値比 Performance | -10 以上 | High（回帰） |
+| PSI | 中央値比 LCP | +500ms 以上 | High（回帰） |
+
+> **PSI の判定原則（誤報防止・必読）**: **実害＝Critical は field(CrUX 実ユーザー p75) が AVERAGE/SLOW のときだけ**。lab は合成スロットリング値で日次の振れが大きく（同一ページが同一週内に 2,026〜7,201ms を往復）、**単発値・単発差分で Critical を立ててはいけない**。field が FAST なら lab がどれだけ悪くても最大 Medium（改善余地であって障害ではない）。回帰は前回比ではなく**直近5バッチ中央値**で見る。
+> 真実源: [measurement-incidents.md](../../../knowledge/reference/measurement-incidents.md)「2026-07-27: lab と field の判定原則」／機械可読: `.claude/config/psi-config.json` の `judgment`。
+> ※ 2026-07-27（W30）に lab の単発スパイクを CRITICAL と報告し、実際は field p75 822ms=FAST で実害ゼロだった。1週間分の優先順位が歪んだ。
 
 詳細な条件式は `.claude/agents/metrics-analyzer.md` および `.claude/agents/performance-auditor.md` 参照。
 

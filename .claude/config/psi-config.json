@@ -6,6 +6,14 @@
   "categories": ["performance", "accessibility", "best-practices", "seo"],
   "url_list_file": ".claude/config/psi-urls.txt",
   "output_dir": ".claude/state/metrics/psi",
+  "judgment": {
+    "doc": ".claude/knowledge/reference/measurement-incidents.md「2026-07-27: lab と field の判定原則」",
+    "primary_source": "field",
+    "note": "実害＝対応要否は field(CrUX 実ユーザー p75)で判定する。lab は合成スロットリング値で日次の振れが大きく、単発値・単発差分での CRITICAL 判定は誤警報を生む（2026-07-27 W30 の誤報）。lab は改善余地の診断と施策の前後比較に使う。",
+    "critical_requires_field_slow": true,
+    "lab_regression_uses_median_of": 5,
+    "lab_max_severity_when_field_fast": "medium"
+  },
   "thresholds": {
     "performance_score_min": 70,
     "accessibility_score_min": 90,
@@ -16,9 +24,17 @@
     "INP_ms_max": 200,
     "FCP_ms_max": 1800,
     "TTFB_ms_max": 800,
-    "TBT_ms_max": 300
+    "TBT_ms_max": 300,
+    "_scope": "lab 値の目標線。超過は『改善余地』であって障害ではない。障害判定は field_thresholds を使う"
+  },
+  "field_thresholds": {
+    "_scope": "実ユーザー(CrUX)。ここが AVERAGE/SLOW のときだけ Critical に上げる",
+    "LCP_category_min": "FAST",
+    "INP_category_min": "FAST",
+    "CLS_category_min": "FAST"
   },
   "regression": {
+    "_scope": "lab の回帰判定。単発バッチ差分ではなく直近 lab_regression_uses_median_of バッチの中央値で比較する",
     "performance_score_drop": 10,
     "LCP_ms_increase": 500,
     "CLS_increase": 0.05

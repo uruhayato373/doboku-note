@@ -64,9 +64,11 @@ npm run psi-audit:check -- --output /tmp/psi-report.md
 計測後、`performance-auditor` エージェントを呼び出して違反パターンを surface する:
 
 1. 最新の `psi-batch-*.json` を読み込み
-2. `.claude/config/psi-config.json` のしきい値と比較
-3. 違反メトリクスごとに既知パターン（LCP 肥大・CLS 発生・INP 悪化等）にマッピング
+2. `.claude/config/psi-config.json` の `judgment` に従って判定する（**field(CrUX) が実害の判定源・lab は診断**）
+3. 違反メトリクスごとに既知パターン（LCP 肥大・CLS 発生・INP 悪化等）にマッピング。**`lcp_element`（selector/snippet）から LCP 要素を特定して打ち手を分岐**する（`<img loading="lazy">` なら `check-lcp-image-hints`／テキストなら render-blocking 側）
 4. `.claude/state/improvements/psi-{YYYY-MM-DD}.md` に優先度付きで出力
+
+> **判定原則（誤報防止）**: Critical は **field が AVERAGE/SLOW のときだけ**。lab は日次の振れが大きく、単発値・単発差分で Critical を立てない（field が FAST なら最大 Medium・回帰は直近5バッチ中央値）。真実源: [measurement-incidents.md](../../../knowledge/reference/measurement-incidents.md)「2026-07-27: lab と field の判定原則」。詳細な分業は [performance-auditor.md](../../../agents/performance-auditor.md)。
 
 ## 本スキルの実行手順
 

@@ -8,6 +8,51 @@ title: 計測・検証事故の記録
 
 個別事例は時系列の逆順（新しい順）で追記する。各事例は「現象 / 根本原因 / 気づきの遅延理由（or 検出経緯）/ 適用した対策 / 教訓」を明記する。
 
+## 2026-07-27: PSI の lab スパイクを CRITICAL と誤判定 — lab と field の判定原則（恒久ルール）
+
+### 現象
+
+W30 週次レビューで homepage の PSI を見て「Performance 59 / LCP 10,158ms、**CRITICAL REGRESSION**、W31 即対応必須」と警報を上げた。W31 で `psi-batch-*.json` を時系列で精査したところ、その値は 07-21 の**単一バッチのスパイク**で、lab Performance はその後 67〜69 で安定。**実ユーザー（CrUX field_data）の LCP p75 は 810→822ms で一貫して FAST**、実害はゼロだった。存在しない障害に緊急 bisect の工数を割きかけた。
+
+### 根本原因
+
+1. **判定の主源を lab に置いていた**: `psi-config.json` の `LCP_ms_max: 2500` が lab 値へフラットに適用され、`regression.LCP_ms_increase: 500` も lab の**単発差分**で発火する設計だった。lab は低速回線 + CPU 4x スロットリングの合成値で日次の振れが大きい（実測: `primary-h26-a` は 2,026〜7,201ms、`guide-four-management` は 2,101〜6,376ms が同一週内で往復）。この設計では毎日どれかが CRITICAL を踏む。
+2. **field を判定に使っていなかった**: `performance-auditor` の閾値表は LCP/CLS/FCP/TBT を「lab」、field は INP と TTFB のみ。**LCP の field（実害の唯一の証拠）が判定経路に無かった**。
+
+### 正しいモデル（恒久ルール）
+
+| 用途 | 使う値 | 根拠 |
+|---|---|---|
+| **実害の有無＝対応要否の判定** | `field_data.LCP.category`（FAST/AVERAGE/SLOW） | CrUX は実ユーザーの p75。SEO 評価も field |
+| 改善余地の**診断**・施策の当たり判定 | `lab_data.LCP_ms` の**複数バッチ中央値** | lab は再現条件が固定で施策の前後比較に向く |
+| **やってはいけない** | lab の単発値・単発差分での CRITICAL 判定 | 日次の振れをインシデントと誤認する |
+
+- **CRITICAL は field が SLOW/AVERAGE のときだけ**。field が FAST なら、lab がどれだけ悪くても「改善余地（優先度 Medium 以下）」であって障害ではない。
+- lab で回帰を見るときは**単発差分でなく直近 3〜5 バッチの中央値**を比較する。
+- field は CrUX の 28 日ローリングなので、施策直後には動かない。**deploy 直後の効果確認は lab、恒久判定は field** と役割を分ける。
+
+### 適用した対策
+
+- 本節を真実源として制定（2026-07-27）
+- `psi-config.json` を field-primary / lab-secondary に構造化（`judgment` セクション）
+- `performance-auditor` の判定を field-first に改訂し、`lcp_element` を消費して「何が LCP か」まで surface させる
+- `fetch-psi-data.mjs` が PSI の `audits['largest-contentful-paint-element']` を保存するよう修正（従来は破棄していたため、原因特定に Playwright での別計測が必要だった）
+- `scripts/check-lcp-image-hints.mjs` を新設し pre-commit ゲート化（下記の実害側の再発防止）
+- `weekly-review` の Agent C2 を本原則に整合
+
+### 併せて判明した実害（EXP-005 の本体）
+
+lab が恒常的に悪い理由自体は本物だった。Playwright + `PerformanceObserver('largest-contentful-paint')` で本番を実測した結果、`civil-construction-1-primary-r07-a` の LCP 要素は**本文1枚目の図版**（top 617px、モバイル viewport 844px の**フォールド内**）でありながら `loading="lazy"` が付いていた。低速回線では取得がレイアウト確定まで遅延し LCP が数秒伸びる。高速回線の実ユーザーでは顕在化しないため、**lab と field の乖離はこれで完全に説明がつく**。
+
+- MDX のリテラル JSX `<img>` は **components マップを経由しない**（マップされるのは markdown 記法 `![]()` 由来の要素のみ）。そのため `src/lib/component-loader` の `img:` は当該コーパスに対してデッドコードで、MDX ソース側を直す必要がある
+- 対象 24 本を `loading="eager" fetchpriority="high"` へ修正し、再発は `check-lcp-image-hints` が pre-commit で防ぐ
+
+### 教訓
+
+- **合成計測（lab）の単発値は「症状の疑い」であって「実害」ではない**。実ユーザー計測（field）で裏を取ってから重大度を決める。計測が2系統あるとき、どちらが実害の証拠かを設計時に決めておかないと、ノイズがインシデントに化ける。
+- **「遅い」までしか記録しない計測は原因を教えない**。PSI は LCP 要素を返していたのに保存していなかったため、原因特定に別ツールでの再計測が必要になった。指標だけでなく**原因を指す属性**を保存する。
+- 誤警報は 1 週間分の優先順位を歪める。W30 の Must #1 は実在しない障害だった。
+
 ## 2026-06-05: 計測は CI/CD 供給が正 — 「ローカル creds 未設定＝ブロッカー」は誤り（恒久ルール）
 
 ### 現象

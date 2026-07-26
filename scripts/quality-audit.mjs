@@ -67,6 +67,7 @@ const CHECKS = [
   { id: 'orphan-ogp', npm: 'check-orphan-ogp', timeout: 90_000, ci: true },
   { id: 'figure-crop-integrity', npm: 'check-figure-crop:ci', timeout: 180_000, ci: true, note: '図クロップの写り込み（STRAY_SLIVER）を baseline 比の新規のみ gate。figure-crop-report.json を上書き' },
   { id: 'guide-length', npm: 'check-guide-length', timeout: 90_000, ci: true },
+  { id: 'lcp-image-hints', npm: 'check-lcp-image-hints', timeout: 60_000, ci: true, note: '本文フォールド内1枚目の図版は eager+fetchpriority=high（lazy だと低速回線で LCP が数秒伸びる・EXP-005）' },
   { id: 'home-exam-coverage', npm: 'check-home-exam-coverage', timeout: 60_000, ci: true },
   { id: 'character-avatars', npm: 'check-character-avatars', timeout: 60_000, ci: true, note: 'note CTA のキャラアバター: manifest siteCta ⇔ 配信 webp ⇔ ctaPose union の三者整合（union だけ広げると本番 404）' },
   { id: 'category-curriculum', npm: 'check-category-curriculum', timeout: 60_000, ci: true },

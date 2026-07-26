@@ -36,16 +36,32 @@ PSI 計測結果（`.claude/state/metrics/psi/` 配下 JSON）を読み込み、
 
 ## しきい値違反検出
 
-`psi-config.json` の `thresholds` に従う:
+### 大原則: field で実害を判定し、lab で原因を診断する（最重要）
 
-| メトリクス | 閾値（初期値） | 影響 |
+> 真実源: [.claude/knowledge/reference/measurement-incidents.md](../knowledge/reference/measurement-incidents.md)「2026-07-27: lab と field の判定原則」。機械可読は `psi-config.json` の `judgment`。
+
+| 用途 | 使う値 |
+|---|---|
+| **実害の有無＝重大度の決定** | `field_data.LCP/INP/CLS` の `category`（FAST/AVERAGE/SLOW） |
+| 改善余地の診断・施策の前後比較 | `lab_data.*` の**直近 5 バッチ中央値** |
+
+**禁止事項（誤警報の再発防止）**:
+- lab の**単発値・単発差分**で Critical を立てない。lab は低速回線 + CPU スロットリングの合成値で日次の振れが大きい（実測: 同一ページが同一週内に 2,026〜7,201ms を往復）
+- **field が FAST のとき、lab がどれだけ悪くても最大 Medium**（`judgment.lab_max_severity_when_field_fast`）。「改善余地」であって障害ではない
+- Critical は `field` が AVERAGE/SLOW のときだけ（`judgment.critical_requires_field_slow`）
+
+> 2026-07-27 の W30 レビューで、lab の単発スパイク（LCP 10,158ms）を CRITICAL と報告し、実際は field p75 822ms=FAST で実害ゼロだった。1 週間分の優先順位が歪んだ。
+
+### 閾値
+
+| メトリクス | 閾値 | 用途 |
 |---|---|---|
-| Performance スコア | ≥ 70 | ユーザー体感・SEO |
-| LCP (lab) | ≤ 2500ms | Core Web Vitals |
-| CLS (lab) | ≤ 0.1 | Core Web Vitals |
-| INP (field) | ≤ 200ms | Core Web Vitals（実ユーザー） |
-| FCP (lab) | ≤ 1800ms | 初期表示 |
-| TBT (lab) | ≤ 300ms | JS ブロッキング |
+| **field LCP / INP / CLS** | **category = FAST** | **実害判定（Critical の唯一の根拠）** |
+| Performance スコア (lab) | ≥ 70 | 改善余地 |
+| LCP (lab) | ≤ 2500ms | 改善余地・施策の前後比較 |
+| CLS (lab) | ≤ 0.1 | 改善余地 |
+| FCP (lab) | ≤ 1800ms | 初期表示の診断 |
+| TBT (lab) | ≤ 300ms | JS ブロッキングの診断 |
 | TTFB (field) | ≤ 800ms | サーバー応答 |
 | Accessibility | ≥ 90 | アクセシビリティ |
 | Best Practices | ≥ 85 | セキュリティ・ベストプラクティス |
@@ -53,24 +69,39 @@ PSI 計測結果（`.claude/state/metrics/psi/` 配下 JSON）を読み込み、
 
 ## 回帰検出
 
-`regression` 設定（同 config）を使い、前回と比較:
-- Performance スコアが 10 以上低下
-- LCP が 500ms 以上増加
-- CLS が 0.05 以上増加
+`regression` 設定（同 config）を使う。**単発の前回比ではなく直近 5 バッチの中央値**で比較する（`judgment.lab_regression_uses_median_of`）:
+- Performance スコア中央値が 10 以上低下
+- LCP 中央値が 500ms 以上増加
+- CLS 中央値が 0.05 以上増加
 
-いずれも対象: 急な劣化は新規デプロイまたは外部要因の兆候。
+中央値でも劣化していれば新規デプロイまたは外部要因の兆候。**単発バッチだけが外れているならノイズとして報告しない**（1 行で「単発スパイクあり・中央値は横ばい」と添えるに留める）。
+
+## LCP 要素の特定（原因まで surface する）
+
+`psi-batch-*.json` の各行は `lcp_element`（`selector` / `snippet` / `node_label`）を持つ。**「LCP が遅い」で止めず、必ず「何が LCP か」まで報告する**。
+
+- `lcp_element.snippet` に `<img` があり `loading="lazy"` が含まれる → **フォールド内画像の遅延読込**を疑う。`npm run check-lcp-image-hints` で機械検出できる（pre-commit ゲート済み）
+- `lcp_element` が `<p>` / `<h1>` 等のテキスト → 画像最適化は効かない。render-blocking CSS/JS 側の施策へ誘導する
+- `lcp_element` が `null`（旧バッチ or 抽出失敗）→ 「LCP 要素 不明」と明記し、Playwright + `PerformanceObserver('largest-contentful-paint', {buffered:true})` での実測を親に提案する
+
+> ページ型で打ち手が異なる。過去問（primary）は図版が LCP、ガイド（guide）は画像を持たずテキストが LCP になりやすい。一律の施策提案をしない。
 
 ## 既知パターンへのマッピング（違反→改善候補）
 
-### LCP 肥大（LCP > 2500ms）
+### LCP 肥大（lab LCP > 2500ms）
 
-**候補**:
-- Hero 画像の `priority` 指定・`next/image` 利用確認
-- Cloudflare R2 の `storage.doboku-note.com` 画像が適切な fetchpriority か
-- フォントの `font-display: swap` / `display: swap`
-- Critical CSS のインライン化が必要かチェック
+**まず `lcp_element` を見て打ち手を分岐する**（見ずに一律の候補を並べない）:
 
-**参照**: `src/app/layout.tsx`, `src/components/**/Hero*`, `next.config.*`
+| lcp_element | 打ち手 |
+|---|---|
+| `<img>` かつ `loading="lazy"` | **フォールド内画像の遅延読込**。`npm run check-lcp-image-hints` で検出・`--fix` で修正。記事 MDX 側の属性が真実源（component-loader では強制できない） |
+| `<img>` かつ eager | 画像そのものの重量・R2 配信・`width/height` 欠落・優先度競合（不要な `preload` が帯域を奪っていないか） |
+| `<p>` / `<h1>` 等テキスト | 画像施策は無効。render-blocking CSS/JS の削減、フォント、Critical CSS を見る |
+| `null` | 「LCP 要素 不明」と明記し、Playwright での実測を提案 |
+
+**注意**: field が FAST ならこれは Medium 止まり（障害ではなく改善余地）。
+
+**参照**: `src/app/layout.tsx`, `src/app/docs/[...slug]/page.tsx`, `scripts/check-lcp-image-hints.mjs`, `next.config.*`
 
 ### CLS 発生（CLS > 0.1）
 
@@ -140,12 +171,13 @@ regressions: N
 
 ### 1. LCP 肥大: /docs/... (mobile)
 
-- 現状: LCP = 4200ms（閾値 2500ms）
-- 推定原因パターン: Hero 画像未最適化
+- **field**: LCP p75 = 3,400ms（**AVERAGE**）← Critical の根拠。field が FAST なら Medium へ落とす
+- lab: LCP 中央値 = 4,200ms（直近 5 バッチ / 単発ではない・閾値 2,500ms）
+- **LCP 要素**: `<img src="...fig-01.webp" loading="lazy">`（`lcp_element.snippet` より）
+- 推定原因パターン: フォールド内画像の遅延読込
 - 改善候補:
-  - [ ] Hero 画像に `priority` を指定
-  - [ ] `next/image` の `sizes` 属性を適正化
-- 参考ファイル: `src/components/CategoryHeader.tsx:42`
+  - [ ] `npm run check-lcp-image-hints -- --fix` で eager+fetchpriority=high を付与
+- 参考ファイル: `.local/r2/posts/.../article.mdx:25`
 
 （...以下同様）
 

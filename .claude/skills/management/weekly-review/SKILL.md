@@ -158,12 +158,24 @@ B. 実験進捗レポート:
 - .claude/config/psi-config.json のしきい値
 - （廃止: `gh issue list --label performance,weekly-pdca` は GitHub Issue 廃止〔CLAUDE.md §8〕で無効。違反の追跡は上記 psi-batch JSON の時系列＋しきい値比較のみで行う）
 
+> **大原則（誤報防止）**: **実害は field_data(CrUX 実ユーザー p75) で判定し、lab は診断に使う**。
+> lab は合成スロットリング値で日次の振れが大きく（同一ページが同一週内に 2,026〜7,201ms を往復）、
+> **単発値・単発差分で CRITICAL を立てない**。field が FAST なら lab がどれだけ悪くても
+> 「改善余地（Medium 以下）」であって障害ではない。lab の回帰は**直近 5 バッチの中央値**で見る。
+> 真実源: `.claude/knowledge/reference/measurement-incidents.md`「2026-07-27: lab と field の判定原則」。
+> 機械可読は `.claude/config/psi-config.json` の `judgment`。
+> ※ 2026-07-27（W30）に lab の単発スパイクを CRITICAL と報告し、実際は field p75 822ms=FAST で
+> 実害ゼロだった。1 週間分の優先順位が歪んだ。
+
 分析項目:
-- 今週の違反件数 vs 先週（psi-batch JSON の時系列から算出）
-- 各 URL の Performance スコア・LCP の前週比
+- **field_data.LCP/INP/CLS の category**（FAST/AVERAGE/SLOW）を先に見る＝実害の有無
+- lab の Performance / LCP は**直近 5 バッチ中央値**で前週比（単発バッチの外れ値は「スパイクあり・中央値横ばい」と 1 行添えるに留める）
+- 違反 URL の **`lcp_element`**（何が LCP か）を必ず併記する。`<img loading="lazy">` なら
+  `npm run check-lcp-image-hints` で機械検出できる（pre-commit ゲート済み）
 - 今週新規発生した違反 / 今週しきい値内に戻った違反
 
-出力形式: 以下の「## PSI パフォーマンス推移」セクションに埋め込む
+出力形式: 以下の「## PSI パフォーマンス推移」セクションに埋め込む。
+**表には field と lab を並記し、どちらで判定したかを明示する**。
 ```
 
 #### Agent C3: 収益カバレッジ ダッシュボード

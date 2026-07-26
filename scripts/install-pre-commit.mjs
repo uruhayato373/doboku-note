@@ -161,6 +161,12 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# 本文フォールド内1枚目の図版は eager+fetchpriority=high（LCP 遅延の再発防止・EXP-005）
+node scripts/check-lcp-image-hints.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
 # note 記事ハッシュタグは 90 個以上（発見性ゲート・staged の hashtags*.txt のみ）
 node scripts/check-note-hashtags.mjs --staged
 if [ $? -ne 0 ]; then
