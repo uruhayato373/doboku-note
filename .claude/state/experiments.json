@@ -693,6 +693,11 @@
           "date": "2026-07-26T21:06:47.000Z",
           "action": "started",
           "summary": "W32 Must（4週 proposed を終結）。start-baseline を 07-22〜26 の mobile lab LCP 中央値で確定。lab ノイズ極大・field は全FAST を明記。次アクション=worst3 の LCP要素特定（診断）。"
+        },
+        {
+          "date": "2026-07-26T21:18:16.000Z",
+          "action": "diagnosed_and_intervened",
+          "summary": "LCP要素を Playwright で特定=本文1枚目図版の lazy 読込。24本を eager+fetchpriority=high 化（介入1）。deploy 後に PSI で判定。"
         }
       ],
       "initial_baseline_2026_06_26": {
@@ -717,7 +722,43 @@
           }
         },
         "desktop_note": "同ページ desktop は LCP 0.9-1.5s で good=モバイル固有の問題"
-      }
+      },
+      "diagnosis": {
+        "date": "2026-07-26T21:18:16.000Z",
+        "method": "Playwright MCP + PerformanceObserver('largest-contentful-paint', buffered) を本番 doboku-note.com に対しモバイル幅 390x844 で実行",
+        "lcp_element": {
+          "page": "civil-construction-1-primary-r07-a",
+          "element": "IMG /posts/civil-construction-1/primary-r07-a/img/r07-a-fig-01.webp",
+          "position_top_px": 617,
+          "viewport_h_px": 844,
+          "in_fold": true,
+          "attrs_before": "loading=\"lazy\" / fetchpriority=none / next-image=no"
+        },
+        "root_cause": "本文1枚目の図版がモバイルのフォールド内(top 617px < 844px)にあるのに loading=\"lazy\"。低速回線スロットリング下(PSI lab)ではレイアウト確定まで取得が遅延し LCP が 5-7s に伸びる。実ユーザー(field/CrUX)は高速回線のため遅延が顕在化せず p75 822ms=FAST。lab と field の乖離はこれで説明がつく。",
+        "secondary_findings": [
+          "component-loader の img: マップ（loading lazy 強制）はデッドコード。MDX のリテラル JSX <img> は components マップを経由しない（markdown 記法 ![]() のみ経由）。そのため MDX ソース側に loading=\"lazy\" が直書きされている",
+          "guide-four-management / guide-strategy は画像を持たない=LCP はテキストブロック。ページ型で打ち手が異なる（画像系=優先度付け / テキスト系=render-blocking 削減）",
+          "記事ページで /images/hero-home.webp（トップ用hero）を preload しており無駄。A8 計測gif 3件も preload as=image",
+          "PSI API は audits['largest-contentful-paint-element'] を返すが fetch-psi-data.mjs が破棄している（lab_data は numericValue 6指標のみ）"
+        ]
+      },
+      "interventions": [
+        {
+          "date": "2026-07-26T21:18:16.000Z",
+          "n": 1,
+          "change": "フォールド内1枚目の図版 24本を loading=\"lazy\" -> loading=\"eager\" fetchpriority=\"high\"（本文先頭2000文字以内の最初の1枚のみ・2枚目以降は lazy 維持）",
+          "scope": "24 articles (civil-construction-1 primary 17 / concrete-chief-engineer 4 / reference-materials 3)",
+          "verified": "dev サーバーの実レンダリングで eager+fetchpriority=high を確認。SSR(<main>+キーワード)健全",
+          "not_yet": "本番 deploy 前のため lab LCP 改善は未計測。deploy 後の psi-batch で判定する"
+        }
+      ],
+      "pending_user_actions": [
+        {
+          "action": "deploy 後に r07-a の mobile lab LCP を再計測して効果判定",
+          "detail": "/deploy 実行 -> 翌日以降の psi-batch で civil-construction-1-primary-r07-a の lab LCP 中央値を baseline 5653ms と比較",
+          "reference": "docs/reviews/weekly/2026-W31-review.md"
+        }
+      ]
     }
   ]
 }
