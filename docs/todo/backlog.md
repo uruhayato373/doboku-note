@@ -627,3 +627,17 @@ R8予想62本は2026-07-13に全公開・収録・導線検証済（[[project_r8
 - **STRAY_SLIVER 29図（隣接図の切れ端＝写り込み・要 recrop）**: 一覧は `.claude/state/quality/figure-crop-report.json` の `rule=STRAY_SLIVER`。ユーザー報告の `r07-a-fig-04`（下端ルビ）を含む。各図 `node scripts/figure-recrop.mjs <img> --top/--bottom F` で除去→ `check-figure-crop --file` で clean 確認。precision ≈ 8/10 なので着手前に1枚ずつ現物 Read（alarp-carrot 等の FP は触らない）。
 - **`r07-a-fig-02`（「収縮限界」欠け・切断済み＋白枠で機械検出不能）**: 再クロップでは修復不可（画素欠損）。provenance `rescannable:needs-source` → 元スキャン（`docs/textbook/１級土木施工管理技士`）から再抽出が必要。
 - 是正後は該当図を除いて `check-figure-crop --update-baseline` で baseline を刈り込む。
+
+### PSI 収集の欠測 6.8% にリトライを入れる
+タグ: [計測]
+
+`fetch-psi-data.mjs` が PSI の一時障害（`500 Lighthouse returned error: Something went wrong`）をそのまま記録して次へ進むため、日次バッチに欠測が出ている。直近14バッチ 308 計測中 21 失敗＝**欠測率 6.8%**（429 は 0 件＝クォータ問題ではない）。1バッチで最大 6/22 が欠けた日もある（2026-07-24 desktop）。
+
+**なぜ困るか**: ある日「違反が消えた」ように見えても、実は測れていないだけという誤読が起きる。バッチごとに件数が 18〜22 と揺れるのはこれが原因。`performance-auditor` は直近5バッチ中央値で判定する設計にしたが、**欠測を考慮していない**。
+
+**やること**:
+1. `fetch-psi-data.mjs` の `fetchPsi()` に 5xx のみリトライ（1〜2回・数秒バックオフ。4xx はリトライしない＝設定ミスを隠さないため）
+2. 欠測が残った場合に備え、`performance-auditor` の中央値計算で「その URL が測れているバッチのみ」を母数にする旨を明記
+3. 反映は `main` deploy 後（scheduled workflow は default branch で走る → [[measurement-incidents]]「scheduled workflow は main で走る」）
+
+**注意**: ローカルでの live PSI 検証は不可（`.env.local` に `PSI_API_KEY` 無し・キー無しは匿名共有枠で即 429）。キーは GitHub Secrets 側にあり、計測は CI 供給が正。動作確認は deploy 後の psi-batch で行う。
