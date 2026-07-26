@@ -188,8 +188,26 @@ function extractSummary(data, url, strategy) {
       FCP: field("FIRST_CONTENTFUL_PAINT_MS"),
       TTFB: field("EXPERIMENTAL_TIME_TO_FIRST_BYTE"),
     },
+    // LCP 要素（どの DOM 要素が LCP なのか）。PSI が返す監査をそのまま保持する。
+    // これが無いと「LCP が遅い」までしか分からず、原因特定に別途ブラウザ計測が要る
+    // （EXP-005 で実際に Playwright での再計測が必要になった。2026-07-27）
+    lcp_element: extractLcpElement(audits),
     analysis_utc: lighthouse.fetchTime || null,
     final_url: lighthouse.finalUrl || url,
+  };
+}
+
+/**
+ * audits['largest-contentful-paint-element'] から LCP 要素の情報を取り出す。
+ * 監査は details.items[].items[] に node（snippet/selector）を持つ構造。
+ */
+function extractLcpElement(audits) {
+  const node = audits["largest-contentful-paint-element"]?.details?.items?.[0]?.items?.[0]?.node;
+  if (!node) return null;
+  return {
+    selector: node.selector ?? null,
+    snippet: node.snippet ? node.snippet.slice(0, 300) : null,
+    node_label: node.nodeLabel ?? null,
   };
 }
 
