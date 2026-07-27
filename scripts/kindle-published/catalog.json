@@ -427,13 +427,13 @@
     },
     {
       "id": "c-01",
-      "asin": null,
+      "asin": "B0HB3374VL",
       "title": "技術士 建設部門 道路 二次 模範解答集",
       "subtitle": "過去問 R03-R07 全15記事",
       "series": "C 技術士建設部門 二次 模範解答",
       "priceJpy": 690,
       "royalty": 0.7,
-      "status": "in_review",
+      "status": "live",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/c-01.json",
       "epub": "kindle-dist/c-01.epub",
@@ -448,17 +448,18 @@
         }
       ],
       "draftAsin": "A167LTUP60LEJL",
-      "submittedAt": "2026-07-23"
+      "submittedAt": "2026-07-23",
+      "publishedDate": "2026-07-27"
     },
     {
       "id": "c-02",
-      "asin": null,
+      "asin": "B0HB3JF9QZ",
       "title": "技術士 建設部門 河川砂防 二次 模範解答集",
       "subtitle": "過去問 R03-R07 全15記事",
       "series": "C 技術士建設部門 二次 模範解答",
       "priceJpy": 690,
       "royalty": 0.7,
-      "status": "in_review",
+      "status": "live",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/c-02.json",
       "epub": "kindle-dist/c-02.epub",
@@ -473,17 +474,18 @@
         }
       ],
       "draftAsin": "ANFZKW8QGR3IS",
-      "submittedAt": "2026-07-23"
+      "submittedAt": "2026-07-23",
+      "publishedDate": "2026-07-27"
     },
     {
       "id": "c-03",
-      "asin": null,
+      "asin": "B0HB3BLV94",
       "title": "技術士 建設部門 都市計画 二次 模範解答集",
       "subtitle": "過去問 R03-R07 全15記事",
       "series": "C 技術士建設部門 二次 模範解答",
       "priceJpy": 690,
       "royalty": 0.7,
-      "status": "in_review",
+      "status": "live",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/c-03.json",
       "epub": "kindle-dist/c-03.epub",
@@ -498,17 +500,18 @@
         }
       ],
       "draftAsin": "AXP8QW1IX3HIE",
-      "submittedAt": "2026-07-23"
+      "submittedAt": "2026-07-23",
+      "publishedDate": "2026-07-27"
     },
     {
       "id": "c-04",
-      "asin": null,
+      "asin": "B0HB3KWZBD",
       "title": "技術士 建設部門 土質及び基礎 二次 模範解答集",
       "subtitle": "過去問 R03-R07 全15記事",
       "series": "C 技術士建設部門 二次 模範解答",
       "priceJpy": 690,
       "royalty": 0.7,
-      "status": "in_review",
+      "status": "live",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/c-04.json",
       "epub": "kindle-dist/c-04.epub",
@@ -523,17 +526,18 @@
         }
       ],
       "draftAsin": "A1PMVSPV7WEHT4",
-      "submittedAt": "2026-07-23"
+      "submittedAt": "2026-07-23",
+      "publishedDate": "2026-07-27"
     },
     {
       "id": "c-05",
-      "asin": null,
+      "asin": "B0HB3CL6C7",
       "title": "技術士 建設部門 鋼構造及びコンクリート 二次 模範解答集",
       "subtitle": "過去問 R03-R07 全15記事",
       "series": "C 技術士建設部門 二次 模範解答",
       "priceJpy": 690,
       "royalty": 0.7,
-      "status": "in_review",
+      "status": "live",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/c-05.json",
       "epub": "kindle-dist/c-05.epub",
@@ -548,17 +552,18 @@
         }
       ],
       "draftAsin": "A4K870J92OVQE",
-      "submittedAt": "2026-07-23"
+      "submittedAt": "2026-07-23",
+      "publishedDate": "2026-07-27"
     },
     {
       "id": "c-06",
-      "asin": null,
+      "asin": "B0HB37CTYN",
       "title": "技術士 建設部門 施工計画 二次 模範解答集",
       "subtitle": "過去問 R03-R07 全15記事",
       "series": "C 技術士建設部門 二次 模範解答",
       "priceJpy": 690,
       "royalty": 0.7,
-      "status": "in_review",
+      "status": "live",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/c-06.json",
       "epub": "kindle-dist/c-06.epub",
@@ -573,17 +578,18 @@
         }
       ],
       "draftAsin": "A2G5ZK10UFH1XK",
-      "submittedAt": "2026-07-23"
+      "submittedAt": "2026-07-23",
+      "publishedDate": "2026-07-27"
     },
     {
       "id": "c-07",
-      "asin": null,
+      "asin": "B0HB3585PD",
       "title": "技術士 建設部門 建設環境 二次 模範解答集",
       "subtitle": "過去問 R03-R07 全15記事",
       "series": "C 技術士建設部門 二次 模範解答",
       "priceJpy": 690,
       "royalty": 0.7,
-      "status": "in_review",
+      "status": "live",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/c-07.json",
       "epub": "kindle-dist/c-07.epub",
@@ -598,17 +604,18 @@
         }
       ],
       "draftAsin": "A15CW53FVTA6F3",
-      "submittedAt": "2026-07-23"
+      "submittedAt": "2026-07-23",
+      "publishedDate": "2026-07-27"
     },
     {
       "id": "c-08",
-      "asin": null,
+      "asin": "B0HB3H3N7Y",
       "title": "技術士 建設部門 港湾及び空港 二次 模範解答集",
       "subtitle": "過去問 R03-R07 全15記事",
       "series": "C 技術士建設部門 二次 模範解答",
       "priceJpy": 690,
       "royalty": 0.7,
-      "status": "in_review",
+      "status": "live",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/c-08.json",
       "epub": "kindle-dist/c-08.epub",
@@ -623,17 +630,18 @@
         }
       ],
       "draftAsin": "A3B7ENGI85P9X9",
-      "submittedAt": "2026-07-23"
+      "submittedAt": "2026-07-23",
+      "publishedDate": "2026-07-27"
     },
     {
       "id": "c-09",
-      "asin": null,
+      "asin": "B0HB34VG8C",
       "title": "技術士 建設部門 電力土木 二次 模範解答集",
       "subtitle": "過去問 R03-R07 全15記事",
       "series": "C 技術士建設部門 二次 模範解答",
       "priceJpy": 690,
       "royalty": 0.7,
-      "status": "in_review",
+      "status": "live",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/c-09.json",
       "epub": "kindle-dist/c-09.epub",
@@ -648,7 +656,8 @@
         }
       ],
       "draftAsin": "A29YX93FNKVAJT",
-      "submittedAt": "2026-07-23"
+      "submittedAt": "2026-07-23",
+      "publishedDate": "2026-07-27"
     },
     {
       "id": "c-10",
@@ -658,7 +667,7 @@
       "series": "C 技術士建設部門 二次 模範解答",
       "priceJpy": 690,
       "royalty": 0.7,
-      "status": "ready",
+      "status": "in_review",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/c-10.json",
       "epub": "kindle-dist/c-10.epub",
@@ -671,7 +680,9 @@
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
         }
-      ]
+      ],
+      "draftAsin": "A34L0KL0IGXXYF",
+      "submittedDate": "2026-07-27"
     },
     {
       "id": "c-11",
@@ -681,7 +692,7 @@
       "series": "C 技術士建設部門 二次 模範解答",
       "priceJpy": 690,
       "royalty": 0.7,
-      "status": "ready",
+      "status": "in_review",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/c-11.json",
       "epub": "kindle-dist/c-11.epub",
@@ -694,7 +705,9 @@
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
         }
-      ]
+      ],
+      "draftAsin": "A20UU4L5GAS3QJ",
+      "submittedDate": "2026-07-27"
     },
     {
       "id": "c-I",
@@ -704,7 +717,7 @@
       "series": "C 技術士建設部門 二次 模範解答",
       "priceJpy": 690,
       "royalty": 0.7,
-      "status": "ready",
+      "status": "in_review",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/c-I.json",
       "epub": "kindle-dist/c-I.epub",
@@ -717,7 +730,9 @@
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
         }
-      ]
+      ],
+      "draftAsin": "A4JJHSD8B2DQN",
+      "submittedDate": "2026-07-27"
     },
     {
       "id": "f-01",
