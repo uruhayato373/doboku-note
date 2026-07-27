@@ -80,6 +80,10 @@ NSM を駆動する 3-5 の Input Metrics を定義する。
 
 ## 出力フォーマット
 
+> **分量バジェット**（真実源: `.claude/knowledge/reference/docs-markdown-style.md`「長さの既定」）:
+> 結論を先頭に。**各案・各項目は 12 行以内**、表は上位 5 行＋「他 N 件」。
+> 検討したが採らなかった案は 1 行で理由だけ書く（比較表を作らない）。
+
 ```markdown
 # doboku-note North Star Metric
 

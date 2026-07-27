@@ -1,7 +1,7 @@
 ---
 name: weekly-plan
 description: >
-  週次レビュー（/weekly-review）後に翌週の実行計画を並列サブエージェントで生成し、同週の `docs/reviews/weekly/YYYY-Www.md` に「来週の計画」セクションとして追記する（NSM/メトリクス連動・重め・weekly-review Phase 4 から自動起動）。docs/todo/weekly.md のタスク選定・優先度付けは /plan-weekly の担当で別物。Use when user asks to [戦略的週次計画, NSM込みの来週計画, weekly-review後の計画生成, /weekly-plan].
+  週次レビュー（/weekly-review）後に翌週の実行計画を並列サブエージェントで生成し、同週の `docs/reviews/weekly/YYYY-Www.md` に「来週の計画」セクションとして追記する（NSM/メトリクス連動・重め・weekly-review 完了後に自動起動）。docs/todo/weekly.md のタスク選定・優先度付けは /plan-weekly の担当で別物。Use when user asks to [戦略的週次計画, NSM込みの来週計画, weekly-review後の計画生成, /weekly-plan].
 ---
 
 プロジェクトの現状を調査し、戦略的な週次計画を生成する。
@@ -62,7 +62,7 @@ Phase 0 の snapshot 直後、`.claude/state/weekly-metrics/YYYY-Www.json` を�
 
 1. 上記閾値に該当する違反を一覧化する（URL × メトリクス）
 2. 前週の `docs/todo/weekly.md` と照合し、既に起票済みの項目は「継続」、新規のみ「今週新規」とする（重複起票を避ける）
-3. 抽出結果を Phase 1 Agent C の出力に含める（「閾値違反: 新規 N 件 / 継続 M 件」）。Phase 5 で `docs/todo/weekly.md` への反映候補として提示する
+3. 抽出結果を Phase 1 Agent C の出力に含める（「閾値違反: 新規 N 件 / 継続 M 件」）。Phase 4 で `docs/todo/weekly.md` への反映候補として提示する
 
 **違反なしの場合**: 「閾値違反なし」と明示的にログに残す。
 
@@ -187,6 +187,12 @@ Phase 0 の snapshot 直後、`.claude/state/weekly-metrics/YYYY-Www.json` を�
 
 ### Phase 3: 優先度提案
 
+**選定基準**（タスクを Must/Should/Could に振るときの判断軸。この3点を満たさないものは格下げする）:
+
+1. **収益・PV に直結するか** — 「技術的に面白い」だけのタスクを Must に入れない
+2. **前週と同じ失敗の繰り返しでないか** — 前週の計画・申し送りと照合する
+3. **今週やらないと機会損失か** — 試験シーズン・受験期などのタイミング依存を優先
+
 #### Must（必ずやる: 2-3件）
 - 各タスクに: 理由, 成功基準, 推定工数(S/M/L)
 
@@ -194,13 +200,7 @@ Phase 0 の snapshot 直後、`.claude/state/weekly-metrics/YYYY-Www.json` を�
 
 #### Could（余力があれば: 1-2件）
 
-### Phase 4: 批判的レビュー（セルフレビュー）
-
-1. 「技術的に楽しいだけでは？」— 収益・PV に直結しないタスクが Must に入っていないか
-2. 「先週と同じ失敗を繰り返してないか？」— 前週の計画と照合
-3. 「今週やらないと機会損失になるものは？」— 試験シーズン等のタイミング
-
-### Phase 5: 出力（週次 PDCA md に追記）
+### Phase 4: 出力（週次 PDCA md に追記）
 
 生成した markdown を、同週の `docs/reviews/weekly/YYYY-Www.md` に「---」区切りで追記する。
 
@@ -217,6 +217,11 @@ PDCA_FILE=docs/reviews/weekly/YYYY-Www.md
 `docs/reviews/weekly/YYYY-Www.md` が存在しない場合は計画のみで新規作成してよい（この場合ファイル冒頭に `# 週次 PDCA YYYY-Www` の H1 を追加）。
 
 ## 出力フォーマット（週次 PDCA md の追記セクション）
+
+> **分量バジェット**（真実源: [docs-markdown-style.md](../../../knowledge/reference/docs-markdown-style.md)「長さの既定」）:
+> 各表は**上位 5 行＋「他 N 件」**。タスクの理由は 1〜2 文。批判的レビューは**最大 4 点**。
+> 該当ゼロのセクションは「なし」の 1 行で閉じ、見出しごと空欄で残さない。
+> **検出と表示は別**: 閾値違反は全件抽出したうえで、載せきれない分は件数と参照先を必ず書く。
 
 ```markdown
 ## 来週の計画

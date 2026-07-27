@@ -36,7 +36,7 @@ note 販売履歴を `.claude/state/sales/sales-log.json` に記録し、月次�
 ```
 
 1. ユーザーから販売履歴テキストを受け取る
-2. `sales-recorder` エージェントを起動し、正規化・追記を依頼
+2. 親が直接、正規化して `.claude/state/sales/sales-log.json` に追記する（テキスト整形＋JSON 追記は決定的な小作業なので委譲しない。productId の対応表は [sales-tracking.md](../../../knowledge/reference/sales-tracking.md)）
 3. 結果（追加件数・スキップ件数・不明 productId）を表示
 4. 月次集計テーブルを表示
 
