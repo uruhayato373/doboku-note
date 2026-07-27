@@ -8,8 +8,9 @@ doboku=転職一本へ移植・スリム化）。
 
 - A8.net は **公開 API が無い**（`.claude/state/metrics/affiliate/a8-results.json` も「月1手入力」）。提携状況の確認・
   広告コード取得は管理画面の手作業しかなく、Playwright 自動操作が唯一の機械化手段。
-- doboku の提携は `.claude/knowledge/reference/affiliate-operations.md` に**人手で記録**しているため、A8 実機との
-  ドリフト（申請したが承認されたか／却下されたか）を人が追えていなかった。`list` で機械照合する。
+- doboku の提携は当初ドキュメントへ人手で記録していたため、A8 実機とのドリフト（申請したが承認されたか／
+  却下されたか）を人が追えていなかった。現在は `.claude/state/ads/affiliate-catalog.json`（機械可読）が
+  真実源で、`list` と `npm run affiliate:status` が機械照合する。運用 → [affiliate-operations.md](affiliate-operations.md)
 
 ## doboku 固有の設計（stats47 との違い）
 
@@ -211,4 +212,5 @@ append すると同じ期間が二重に積まれるため、SSOT は `period+si
 
 - [playwright-auth-profiles.md](playwright-auth-profiles.md) — 永続プロファイル運用（a8 profile もここに登録）
 - [measurement-incidents.md](measurement-incidents.md) — 会社 PC はプロキシで外部 API 遮断（ローカル自宅端末で実行）
-- `.claude/knowledge/reference/affiliate-operations.md` — 提携状況の人間向け真実源（`list` の突合先）
+- [affiliate-operations.md](affiliate-operations.md) — 3 ASP 横断のアフィリ運用 SSOT（方針・配置・整合ゲート）
+- `.claude/state/ads/affiliate-catalog.json` — 提携状態の機械可読な真実源（`list` の突合先）

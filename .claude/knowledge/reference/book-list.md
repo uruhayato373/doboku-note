@@ -22,7 +22,7 @@ doboku-note のコンテンツから紹介する書籍の手動キュレーシ�
 
 **ASIN 蓄積に専念し、リンク生成は後回し**。理由は以下:
 
-- もしも経由「Amazon.co.jp 商品購入」は 2026-05-16 申請、**承認待ち**（→ `.claude/knowledge/reference/affiliate-operations.md`）
+- もしも経由「Amazon.co.jp 商品購入」は 2026-05-16 申請。**現在の提携状態は未確定**（2026-07-27 実機調査で doboku-note の提携中一覧に出ず、解除か『かんたんリンク』が別枠かは未確認。書籍アフィリ自体が廃止済みなので実害なし）→ `.claude/state/ads/affiliate-catalog.json` の `_openQuestions`
 - Amazon直接アソシエイトは未申請
 - 承認結果が出るまでリンクURL形式（もしも経由 vs Amazon直接）が確定しない
 
