@@ -8,7 +8,7 @@ doboku=転職一本へ移植・スリム化）。
 
 - A8.net は **公開 API が無い**（`.claude/state/metrics/affiliate/a8-results.json` も「月1手入力」）。提携状況の確認・
   広告コード取得は管理画面の手作業しかなく、Playwright 自動操作が唯一の機械化手段。
-- doboku の提携は `docs/project/04_運営/02_アフィリエイト提携状況.md` に**人手で記録**しているため、A8 実機との
+- doboku の提携は `.claude/knowledge/reference/affiliate-operations.md` に**人手で記録**しているため、A8 実機との
   ドリフト（申請したが承認されたか／却下されたか）を人が追えていなかった。`list` で機械照合する。
 
 ## doboku 固有の設計（stats47 との違い）
@@ -205,10 +205,10 @@ append すると同じ期間が二重に積まれるため、SSOT は `period+si
 - 申請上限: `.claude/scripts/ads/check-a8-apply-budget.cjs`
 - curated（係数・blocklist・vertical・上限・`searchKeywords`）: `.claude/scripts/ads/data/a8-curated.json`
 - カタログ（状態機械）: `.claude/state/ads/a8-catalog.json`
-- 配置先 SSOT: `src/config/affiliate-creatives.ts` / `src/config/affiliate-mats.json` / `docs/project/04_運営/02_アフィリエイト提携状況.md`
+- 配置先 SSOT: `src/config/affiliate-creatives.ts` / `src/config/affiliate-mats.json` / `.claude/knowledge/reference/affiliate-operations.md`
 
 ## 関連
 
 - [playwright-auth-profiles.md](playwright-auth-profiles.md) — 永続プロファイル運用（a8 profile もここに登録）
 - [measurement-incidents.md](measurement-incidents.md) — 会社 PC はプロキシで外部 API 遮断（ローカル自宅端末で実行）
-- `docs/project/04_運営/02_アフィリエイト提携状況.md` — 提携状況の人間向け真実源（`list` の突合先）
+- `.claude/knowledge/reference/affiliate-operations.md` — 提携状況の人間向け真実源（`list` の突合先）

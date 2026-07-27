@@ -8,7 +8,7 @@ status: クローズ（書籍・講座アフィリは2026-06-25廃止／転職�
 # 1級土木 アフィリエイト拡張 ＆ SEO 改善
 
 > [!warning] 2026-06-25: 書籍・講座アフィリは廃止
-> 本計画の **BookCard（書籍）配置・SAT/独学サポート（講座/教材/添削）配置は完全廃止**（note 有料商品とのカニバリ回避）。以下の `[x]` 完了ログのうち書籍・講座に関する項目は歴史記録。**転職アフィリ（GKS インライン・サイドバー）部分は現行も継続**。真実源は `02_アフィリエイト提携状況.md`。
+> 本計画の **BookCard（書籍）配置・SAT/独学サポート（講座/教材/添削）配置は完全廃止**（note 有料商品とのカニバリ回避）。以下の `[x]` 完了ログのうち書籍・講座に関する項目は歴史記録。**転職アフィリ（GKS インライン・サイドバー）部分は現行も継続**。真実源は `.claude/knowledge/reference/affiliate-operations.md`。
 
 ## 背景（2026-05-25 計測）
 
@@ -98,7 +98,7 @@ GKS（施工管理 転職支援・無料登録/面談で成果）への導線を
 - [x] 1.4.e `civil-construction-2-guide-career-change` — 未経験から施工管理への転職（GKS の未経験・資格支援訴求と直結）
 - [x] 1.4.f `refresh-indexes` 実行＋ dev サーバー curl 検証（全 5 ページ HTTP 200 / `<main>` / インライン+末尾 CTA の nofollow sponsored・PR 表示・「無料で」訴求を確認）
 
-配置方針の転換（旧「1 ページ 1 広告」→ guide は 2 点導線）と creative 詳細は [02_アフィリエイト提携状況.md](./02_アフィリエイト提携状況.md) の「転職・キャリア」節が真実源。
+配置方針は [affiliate-operations.md](../../../.claude/knowledge/reference/affiliate-operations.md)「6. 配置ポリシー」が真実源。creative の mat・URL・出し分け条件は `src/config/affiliate-mats.json` と `src/config/affiliate-creatives.ts`。
 
 - [x] 1.4.g カード `points` に GKS 公称値を掲載し数値訴求を強化（2026-06-01）— 提携3,000社以上・内定率86%・定着率97%（全 5 カード）＋ 未経験記事のみ 入社2年後 平均年収470万円。末尾「（サービス公表値）」明示・本文編集記述には不掲載（広告/編集分離）
 - [x] 1.4.h guide 追加 3 本（2026-06-01・同じインライン CareerAffiliate 数値訴求版）— `civil-construction-2-guide-study-plan`（2級 勉強法・母数）/ `civil-construction-1-guide-study-plan`（1級 勉強法・guide-strategy と差別化）/ `civil-construction-2-guide-job-reality`（施工管理の仕事・将来性・きつい？＝未経験/転職 intent）。計 8 guide にインライン導線
@@ -170,7 +170,7 @@ GSC で `primary-r07-a` は **impr 119 / CTR 0.8% / pos 7.4** ＝ guide より�
 ---
 
 ## 関連ドキュメント
-- アフィリエイト提携状況: [02_アフィリエイト提携状況.md](./02_アフィリエイト提携状況.md)
+- アフィリエイト提携状況: [affiliate-operations.md](../../../.claude/knowledge/reference/affiliate-operations.md)
 - 書籍台帳: [.claude/knowledge/reference/book-list.md](../../reference/book-list.md)
 - 収益化戦略: [01_戦略/04_収益化戦略.md](../01_戦略/04_収益化戦略.md)
 - note コンテンツ計画: [docs/note/技術士総監/noteコンテンツ計画.md](../../note/技術士総監/noteコンテンツ計画.md)

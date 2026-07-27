@@ -118,7 +118,7 @@ title: 推奨ワークフロー
 
 週次レビューでは **`npm run check-note-republish`**（公開記事の本文＋ハッシュタグの再公開ドリフト・creds不要）も回し、要再公開を surface する（本文drift→`note-update-body --commit`／タグdrift→`note-sync-tags --commit`）。**有料境界の構成監査は `node scripts/check-note-structure.mjs`（公開API依存・月次寄り）**で FULL_LOCK/漏洩/画像/価格を検出（真実源 [note-api-verification.md](note-api-verification.md)「有料境界のマガジン別 SSOT」）。ソース側の境界欠落は `npm run check-note-boundary`（pre-commit＋CI）が事前に止める。
 
-転職アフィリの週次監視は **`/weekly-improve` の Phase 3.5**（`affiliate_cta_click` の by-label CTR・BuildJob 期限・EPC 布石）。**2026-09-01（= 8/31 15:00 UTC）に BuildJob ¥50,000 キャンペーンが終了し全 BuildJob 面が GKS へ自動復帰する（SSG・ビルド時刻確定）**。9 月最初の本番ビルド後の週次で、hub / サイドバー / 記事末 / 本文中間の BuildJob 面が消え GKS へ戻ったかを curl で 1 回検証する（未復帰なら creative 定数を手動 revert）。配置・期限の真実源は [../project/04_運営/02_アフィリエイト提携状況.md](../../../docs/project/04_運営/02_アフィリエイト提携状況.md)。
+転職アフィリの週次監視は **`/weekly-improve` の Phase 3.5**（`affiliate_cta_click` の by-label CTR・BuildJob 期限・EPC 布石）。**2026-09-01（= 8/31 15:00 UTC）に BuildJob ¥50,000 キャンペーンが終了し全 BuildJob 面が GKS へ自動復帰する（SSG・ビルド時刻確定）**。9 月最初の本番ビルド後の週次で、hub / サイドバー / 記事末 / 本文中間の BuildJob 面が消え GKS へ戻ったかを curl で 1 回検証する（未復帰なら creative 定数を手動 revert）。配置・期限の真実源は [affiliate-operations.md](../../../.claude/knowledge/reference/affiliate-operations.md)。
 
 ---
 

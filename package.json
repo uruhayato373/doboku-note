@@ -116,6 +116,8 @@
     "check-affiliate-wiring": "node scripts/check-affiliate-wiring.mjs",
     "check-a8-report-due": "node scripts/check-a8-report-due.mjs",
     "afb:scan": "node scripts/afb-scan.mjs",
+    "affiliate:status": "node scripts/affiliate-status.mjs",
+    "affiliate:apply": "node scripts/affiliate-apply.mjs",
     "search-growth:report": "node scripts/report-search-growth.mjs",
     "search-growth:audit": "npm run gsc-ui:fetch && npm run google-console:normalize && npm run search-growth:report",
     "check-gsc-ui-due": "node scripts/check-gsc-ui-due.mjs",

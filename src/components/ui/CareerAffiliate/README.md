@@ -54,4 +54,4 @@
 - **ファーストビュー（記事冒頭）禁止** — メイン導線と矛盾するため
 - 配置対象は「年収・キャリア・転職」を扱うガイド記事を優先（受験対策本文に押し込まない）
 
-詳細: `docs/project/04_運営/02_アフィリエイト提携状況.md`
+詳細: `.claude/knowledge/reference/affiliate-operations.md`

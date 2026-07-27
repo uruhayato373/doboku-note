@@ -37,4 +37,4 @@ docs ページ右サイドバーに表示するアフィリエイト バナー�
 
 - 右サイドバーはデスクトップ（≥993px）のみ表示。モバイルには出ない
 - アフィは補完ポジション。owned 商品（note 有料マガジン CTA）より下に置く
-- 詳細・配置スコープ: `docs/project/04_運営/02_アフィリエイト提携状況.md`
+- 詳細・配置スコープ: `.claude/knowledge/reference/affiliate-operations.md`

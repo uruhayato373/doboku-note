@@ -153,6 +153,8 @@ title: スキル ナビゲーションガイド
 |---|---|---|
 | `/scout-asp` | A8.net を Playwright で操作（転職一本スコープ・複数サイト口座は**申請/コード取得とも doboku-note を選択**）。`list`=承認確認（主用途・口座横断）／`search`=ニッチ語で未提携案件を狙い撃ち検索／`import-partnered`=提携取込／`scout`+`apply`=開拓・週次上限申請／`check-approval`=承認昇格／`harvest`=広告コード→配置候補出力。**初回は `list --dry-run --headed`**。**出力は candidate 以外（blocked/dup/vertical未解決/閾値未満）も必ず表示＝「candidate 0 件」を「該当なし」と誤読しない**（2026-07-27 修正）。正典 `.claude/knowledge/reference/a8-affiliate-pipeline.md` | `A8確認`, `アフィリエイト承認確認`, `申請済みアフィリを見る`, `A8案件を探す`, `A8提携状況`, `/scout-asp` |
 | `/a8-report` | A8 の**成果レポート CSV** を取得→正規化→SSOT upsert（サイト別/プログラム別詳細/期間別 月別・日別）。EPC 判定の分母を供給し `report-buildjob-affiliate` を動かす。**stats47 と口座共用で A8 にサイト切替は無い**ため、口座 assert＋「サイト別レポートだけが doboku 分離の真実源・他は allowlist 抽出＋検算」で運用。提携運用の `/scout-asp` とは別（あちらは申請/素材） | `A8レポート`, `アフィリ成果を取り込む`, `A8のCSVを取得`, `EPCを更新`, `/a8-report` |
+| `/affiliate-status` | **A8 / もしも / afb の 3 ASP 横断**で提携状態を実機照合しカタログとのドリフトを報告（read-only）。**3 ASP とも doboku-note と stats47 が同一口座に同居し既定は stats47 側**のため、サイト帰属 assert（不一致は例外で停止）を通してから読む。**取得できなかった ASP を「提携なし」と混同しない**（`unknown` と `none` を分ける）。運用 SSOT `.claude/knowledge/reference/affiliate-operations.md` | `アフィリ提携状況`, `提携状態を確認`, `ASP 横断で確認`, `/affiliate-status` |
+| `/affiliate-apply` | もしも / afb で**提携申請**（dry-run 既定・`--commit` gate）。規約同意を伴う不可逆操作なので `--commit` は毎回ユーザーの明示許可を取る。サイト帰属 assert・申請フォームのサイト select 検証・**「一括提携申請へ」の除外**・Red Line 案件の拒否を機械で強制。A8 の申請は `/scout-asp` が担当 | `提携申請`, `アフィリを申請`, `もしもで申請`, `/affiliate-apply` |
 
 ---
 

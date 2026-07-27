@@ -23,7 +23,7 @@ GSC/GA4 の JSON データを読み込み、**改善候補のパターン検出*
 - **実験登録**: `/nsm-experiment start`
 - **GSC/GA4 データ取得**: CI（`fetch-metrics.yml`）/ `/fetch-gsc-data` / `/fetch-ga4-data`（本エージェントは既に取得済みのデータを読むのみ）
 - **index coverage の診断**（登録/未登録）: `gsc-index-auditor`（本エージェントは index 済みページの performance 専任）
-- **アフィリエイト CTA の CTR 監視**（`affiliate_cta_click` の by-label 集計・BuildJob 期限/EPC）: `/weekly-improve` の Phase 3.5 で親が直接読む（単純な算術のため本 Evaluator には委譲しない）。真実源は `docs/project/04_運営/02_アフィリエイト提携状況.md`
+- **アフィリエイト CTA の CTR 監視**（`affiliate_cta_click` の by-label 集計・BuildJob 期限/EPC）: `/weekly-improve` の Phase 3.5 で親が直接読む（単純な算術のため本 Evaluator には委譲しない）。真実源は `.claude/knowledge/reference/affiliate-operations.md`
 
 ## 入力
 

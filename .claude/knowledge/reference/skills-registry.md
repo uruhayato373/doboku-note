@@ -17,7 +17,7 @@ title: スキル ガバナンス記録
 
 ```
 .claude/skills/
-├── ads/             # 2 — A8 アフィリエイト操作（承認確認/開拓/申請/コード取得）＋ 成果レポート取込
+├── ads/             # 4 — A8 開拓/成果取込 ＋ 3 ASP（A8/もしも/afb）横断の提携状態照合・提携申請
 ├── authoring/       # 11 — 記事を作る
 ├── conversion/      # 7 — 形式変換（MDX / OGP 画像 / 紙用 PDF / Kindle EPUB）＋ KDP 入稿・出版 ＋ OGP 意匠の素案試作
 ├── quality/         # 16 — MDX・note 公開前品質検査
@@ -29,7 +29,9 @@ title: スキル ガバナンス記録
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **96 スキル**（10 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+合計 **98 スキル**（10 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+
+> 2026-07-27 新設（3 ASP 横断の提携運用基盤 ＋ SSOT の `.claude` 集約）: `ads/affiliate-status`（A8/もしも/afb の提携状態を実機照合しカタログとのドリフトを報告・read-only）と `ads/affiliate-apply`（もしも/afb の提携申請・dry-run 既定＋`--commit` gate）。いずれも `disable-model-invocation: true`。あわせて **新エージェント `affiliate-operator`**（Generator/オーケストレーター・sonnet。3 ASP の状態照合・ドリフト是正・**ASP 間比較**〔同一案件の単価/確定率/EPC〕・申請の実行計画）。**設計の中核＝サイト帰属を機械で強制する**: 3 ASP すべてで doboku-note と stats47 が同一口座に同居し、**afb は既定が stats47**。実際に afb の走査で SID 不一致を*警告して続行*し stats47 の一覧を読んで「建設系 0 件」と誤報告した事故が起きたため、判定を純関数 `scripts/lib/asp-site-guard.mjs` に集約し **戻り値ではなく例外**（`assertSiteOrThrow`）にした（＝呼び出し側が握り潰せない・`--force` 相当も作らない）。回帰テスト `tests/asp-site-guard.test.mjs`（11 ケース・事故そのものを固定）。ブラウザ層 `scripts/lib/asp-browser.mjs`（**汎用部は `google-console-browser.mjs` を import 再利用しコピーしない**）＋設定 SoT `.claude/config/affiliate-asp.json`（実機確定値のみ）＋カタログ `.claude/state/ads/affiliate-catalog.json`（9 件・`_statusVocab` で **`none`〔未提携と確認〕と `unknown`〔調べていない〕を分ける**）。決定的スクリプト `scripts/affiliate-status.mjs`（`affiliate:status`）／`affiliate-apply.mjs`（`affiliate:apply`）／`afb-scan.mjs`（`afb:scan`）、配線ガード `scripts/check-affiliate-wiring.mjs`（`check-a8-wiring` を改名・3 ASP 横断の 4 点突合へ拡張・pre-commit。初回実行で dx-consulting の programIdMap 漏れ＝実際の収益突合の穴を検出）。**運用 SSOT を `.claude/knowledge/reference/affiliate-operations.md` に新設し、`docs/project/04_運営/02_アフィリエイト提携状況.md` <!-- doc-ref:ignore -->（470 行・約 4 割が廃止済みの歴史記録）を解体・削除**（ユーザー方針＝SSOT は `.claude` 内で管理）。参照 30 箇所を付け替え（`check-doc-refs` が見るフルパスは 12 箇所だけで、相対リンク・ファイル名のみ・コード/JSON 内の 18 箇所は機械検知されないため手動 sweep）。歴史記録は git 履歴に残す。既存 `ads/scout-asp`（A8 の案件開拓）・`ads/a8-report`（A8 の成果取込）とは守備範囲が直交。合計 `96→98`・ads `2→4`・agents `+1`。
 
 > 2026-07-27 修正（`ads/scout-asp` の可搬化＋黙殺の解消）: 建設転職アフィリの追加案件調査で 5 件の欠陥が判明し修正。(1) `a8-browser.ts`/`login.mjs` の `PROFILE_ROOT` が Mac 絶対パス固定でフォールバック無し＝**Windows 機では別ドライブに空プロファイルを掘り「ログイン済みなのに未ログイン」**になっていた（google-console-browser.mjs と同じ「実在しなければリポジトリルート」へ）。(2) **`scoreAndRank` が閾値未満をどのバケットにも入れず破棄**しており、出力の `candidate 0 件 (blocked 0 / dup 0)` が**ヒット 0 と区別できなかった**（実際は施工管理 2 件・建設 転職 4 件がヒット。この欠陥のまま調査すると「新規案件なし」と誤結論する）→ `belowThreshold` バケットを返し search/scout とも score/報酬/EPC 付きで必ず表示。(3) 状態機械に定義済みの `pending-vertical` が未配線で、**IT フリーランス/フリーコンサルの案件が建設サイトの candidate として登録**されていた → `pendingVertical` バケットへ分離＋既存 3 件を是正。(4) Red Line（転職一本・講座系廃止）の blocklist に **スクール/学習塾** の穴（「学習スクール【能セン】」が civil-career で通過）→ 2 語追加。**`資格取得` 等は足さない**（GKS 名称「資格取得も支援」を誤ブロック）。(5) **`test:ads` がディレクトリ指定で MODULE_NOT_FOUND＝テストが 1 本も走っていなかった** → glob へ修正し初めて実走（30→35 件・「入力は必ずいずれかのバケットに現れる」不変条件と過剰ブロック防止を固定）。スキル件数は不変。
 

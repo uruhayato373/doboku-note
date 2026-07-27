@@ -23,7 +23,7 @@ doboku-note は土木工学に関するドキュメントサイト（Next.js 16 
 
 - **プロダクト**: 土木工学・施工管理・河川・道路・法律の技術ノートを無料提供
 - **ユーザー**: 土木系技術者、施工管理技士受験者、技術士受験者、公務員試験受験者、行政書士受験者、土木系学生
-- **現在の収益（3 本柱）**: ① **note 有料記事**（実証済みの主エンジン・月¥114k 規模・高 CTR＝学習意図の財布を自社・高粗利で独占）／② **Google AdSense**（ページ別 RPM に最適化余地）／③ **転職アフィリ一本**（建設・施工管理特化＝BuildJob・GKS・建設JOBs。講座/教材/添削/書籍は 2026-06-25 廃止＝note とカニバるため。真実源: `docs/project/04_運営/02_アフィリエイト提携状況.md`・[[affiliate-career-only]]）。**将来**: PWA 過去問アプリ（買い切り・Web 月¥15k 達成後に着手 [[project_ios_app_design]]）
+- **現在の収益（3 本柱）**: ① **note 有料記事**（実証済みの主エンジン・月¥114k 規模・高 CTR＝学習意図の財布を自社・高粗利で独占）／② **Google AdSense**（ページ別 RPM に最適化余地）／③ **転職アフィリ一本**（建設・施工管理特化＝BuildJob・GKS・建設JOBs。講座/教材/添削/書籍は 2026-06-25 廃止＝note とカニバるため。真実源: `.claude/knowledge/reference/affiliate-operations.md`・[[affiliate-career-only]]）。**将来**: PWA 過去問アプリ（買い切り・Web 月¥15k 達成後に着手 [[project_ios_app_design]]）
 - **トラフィック**: SEO 経由（検索流入が主）＋ note/SNS 送客
 - **技術基盤**: Next.js 16 + next-mdx-remote + Cloudflare Pages（サーバーコスト極小）
 - **運営**: 個人開発
@@ -149,7 +149,7 @@ doboku-note に適した収益化モデルを 3-5 案生成する。以下のカ
 
 ## 参照
 
-- `docs/project/04_運営/02_アフィリエイト提携状況.md` — 転職アフィリの配置面・EPC・a8-results 運用の真実源
+- `.claude/knowledge/reference/affiliate-operations.md` — 転職アフィリの配置面・EPC・a8-results 運用の真実源
 - `.claude/knowledge/reference/sales-tracking.md` — note 売上 SSOT（sales-log.json・productId 命名）
 - `docs/todo/measurement-infra-enhancement.md` — 計測基盤タスク（RPM 取り込み #13・attribution #14/#15 は未実装）
 - `docs/project/01_戦略/04_収益化戦略.md` — 収益化戦略の恒久文書（結論はここへ）

@@ -1,5 +1,5 @@
 {
-  "_comment": "アフィリエイト A8 mat の SSOT 許可リスト。scripts/check-affiliate-mats.mjs が src/** と .local/r2/posts/** に出現する a8mat= 値を本リストと突合し、未登録 mat（タイポ/新規未申告）を fail させる。expiresAt が過去日で、かつ src/MDX に出現する mat は WARN（失効 creative の配置放置を検知）。creative の URL 実体は src/config/affiliate-creatives.ts・各コンポーネント・docs/project/04_運営/02_アフィリエイト提携状況.md を参照。mat を追加/変更したら本ファイルも更新する。2026-06-25: 講座/教材/添削（SAT・独学サポート）と書籍アフィリを完全廃止（note 有料商品とのカニバリ回避）。残すアフィリは転職のみ。",
+  "_comment": "アフィリエイト A8 mat の SSOT 許可リスト。scripts/check-affiliate-mats.mjs が src/** と .local/r2/posts/** に出現する a8mat= 値を本リストと突合し、未登録 mat（タイポ/新規未申告）を fail させる。expiresAt が過去日で、かつ src/MDX に出現する mat は WARN（失効 creative の配置放置を検知）。creative の URL 実体は src/config/affiliate-creatives.ts・各コンポーネント・.claude/knowledge/reference/affiliate-operations.md を参照。mat を追加/変更したら本ファイルも更新する。2026-06-25: 講座/教材/添削（SAT・独学サポート）と書籍アフィリを完全廃止（note 有料商品とのカニバリ回避）。残すアフィリは転職のみ。",
   "mats": [
     {
       "mat": "4B3VR8+F0LMU2+4R40+TSBE9",

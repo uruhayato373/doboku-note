@@ -8,7 +8,7 @@
  * 1 ページ 1 ピクセルの原則: 同一ページで同じ a8mat のピクセルを 2 回発火させない。
  * カテゴリ/トップは現状アフィリ枠ゼロなので、各ページに 1 creative = 1 pixel で追加する。
  *
- * creative 情報の人間向け真実源: docs/project/04_運営/02_アフィリエイト提携状況.md
+ * creative 情報の人間向け真実源: .claude/knowledge/reference/affiliate-operations.md
  */
 
 /** サイドバー転職バナーの共通 creative 型（GKS / ビルドジョブ で出し分けるため）。 */
@@ -208,7 +208,7 @@ function resolveCareerSidebarAbArm(slug: string | undefined): {
  * 注: SSG のためビルド時刻で固定される。9/1 以降の最初の本番再ビルドで自動的に GKS へ戻る。
  *     キャンペーン期間中は GKS の唯一のピクセル源（このサイドバー枠）が止まるため、GKS の
  *     「表示回数」は計測されなくなる（クリック・成果は href 経由で従来どおり計測される）。
- * 人間向け真実源: docs/project/04_運営/02_アフィリエイト提携状況.md
+ * 人間向け真実源: .claude/knowledge/reference/affiliate-operations.md
  */
 /**
  * ビルドジョブ増額キャンペーン期間中か（ビルド時=SSG 評価）。
@@ -305,7 +305,7 @@ function resolveBuildJobCopy(slug?: string): CareerArticleEndCard {
  *
  * creative は `resolveCareerSidebarAd()` と同じ期間境界で出し分ける
  * （〜2026-08-31 ビルドジョブ ¥50,000 ／ 9-01 以降 GKS に自動復帰）。
- * 文言は docs/project/04_運営/02_アフィリエイト提携状況.md の保管庫の公称値に基づく
+ * 文言は .claude/knowledge/reference/affiliate-operations.md の保管庫の公称値に基づく
  * （未確認の数値は記載しない）。
  */
 export function resolveCareerArticleEndCard(slug?: string): CareerArticleEndCard {
@@ -369,7 +369,7 @@ export function resolveDocsCareerSidebarAd(
  * 総監 docs 記事末（モバイル限定）ネイティブカード用の PE_CONSULTING（ハイクラス DX/コンサル）creative。
  * href のみ（計測ピクセルなし）＝総監 docs サイドバー側の PE_CONSULTING 1 発火を唯一の源として維持
  * （1 ページ 1 ピクセル）。文言は creative の公称ターゲティング（シニア技術者・管理職・DX/コンサル・無料相談）
- * に限定し、未確認のブランド名・数値は記載しない（真実源: docs/project/04_運営/02_アフィリエイト提携状況.md）。
+ * に限定し、未確認のブランド名・数値は記載しない（真実源: .claude/knowledge/reference/affiliate-operations.md）。
  */
 export function resolvePeConsultingArticleEndCard(): CareerArticleEndCard {
   return {
@@ -400,7 +400,7 @@ export function resolvePeConsultingArticleEndCard(): CareerArticleEndCard {
  *   GA4 流入 2 位の高トラフィックページの収益導線ゼロも解消。
  * - それ以外 → null（カテゴリ hub に転職枠なし）。
  *
- * 真実源: docs/project/04_運営/02_アフィリエイト提携状況.md。
+ * 真実源: .claude/knowledge/reference/affiliate-operations.md。
  */
 export function resolveCategoryCareerAds(
   category: string,

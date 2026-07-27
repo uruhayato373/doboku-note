@@ -20,7 +20,7 @@ import {
  * 9/1 以降は GKS（¥25,000）へ href・コピーごと自動で切り替わる（`resolveCareerArticleEndCard`
  * と同一 period 境界・ビルド時 SSG 確定）。この preset 指定時、MDX の service/description/points/cta は
  * resolver の文言で上書きされ無視される（景表法: 表示コピーと遷移先サービスを常に一致させるため）。
- * 真実源: docs/project/04_運営/02_アフィリエイト提携状況.md。
+ * 真実源: .claude/knowledge/reference/affiliate-operations.md。
  */
 const CAREER_PRESETS = {
   gks: CIVIL_CAREER_AD.href,

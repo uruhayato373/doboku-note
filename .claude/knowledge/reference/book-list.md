@@ -7,7 +7,7 @@ title: 紹介書籍リスト（Amazonアソシエイト用）
 doboku-note のコンテンツから紹介する書籍の手動キュレーション台帳。資格別×用途別に整理し、後日 PA-API 通過後に `src/config/amazon-books.json` へ機械可読化する前段の真実源。
 
 > [!warning]
-> **書籍アフィリエイトは 2026-06-25 に完全廃止**（note 有料商品とのカニバリ回避）。`BookCard` / `BookSection` コンポーネント・`affiliate-flags.ts` / `affiliate-books.json`・MDX 内の `<BookCard>` / `BOOKCARD-TODO` は全て撤去済み。本ファイルは**過去の手動キュレーション記録（参考用の歴史資料）**として残すが、再有効化の予定はない。再開する場合は新規に配線し直す。決定の背景は `docs/project/04_運営/02_アフィリエイト提携状況.md`。
+> **書籍アフィリエイトは 2026-06-25 に完全廃止**（note 有料商品とのカニバリ回避）。`BookCard` / `BookSection` コンポーネント・`affiliate-flags.ts` / `affiliate-books.json`・MDX 内の `<BookCard>` / `BOOKCARD-TODO` は全て撤去済み。本ファイルは**過去の手動キュレーション記録（参考用の歴史資料）**として残すが、再有効化の予定はない。再開する場合は新規に配線し直す。決定の背景は `.claude/knowledge/reference/affiliate-operations.md`。
 
 ## 運用ルール
 
@@ -22,7 +22,7 @@ doboku-note のコンテンツから紹介する書籍の手動キュレーシ�
 
 **ASIN 蓄積に専念し、リンク生成は後回し**。理由は以下:
 
-- もしも経由「Amazon.co.jp 商品購入」は 2026-05-16 申請、**承認待ち**（→ `docs/project/04_運営/02_アフィリエイト提携状況.md`）
+- もしも経由「Amazon.co.jp 商品購入」は 2026-05-16 申請、**承認待ち**（→ `.claude/knowledge/reference/affiliate-operations.md`）
 - Amazon直接アソシエイトは未申請
 - 承認結果が出るまでリンクURL形式（もしも経由 vs Amazon直接）が確定しない
 

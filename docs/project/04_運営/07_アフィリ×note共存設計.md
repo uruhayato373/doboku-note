@@ -5,14 +5,14 @@
 各サーフェスでどう併置するかの設計書。実装は Sonnet サブエージェント（下記 WP1〜WP6）。
 
 > [!warning] 2026-06-25 改定で前提が変わった
-> **講座/教材/添削（SAT・独学サポート）と書籍（BookCard）アフィリは完全廃止**（note 有料商品とのカニバリ回避）。本書の「書籍 → 講座/SAT CTA」を含む併置設計のうち、講座・書籍に関する記述は**歴史記録**。現行は「学習意図＝note 独占／キャリア意図＝転職アフィリ（GKS・ビルドジョブ・DXコンサル）のみ」。note CTA を他より前に置く note 優先原則は転職アフィリに対して引き続き有効。真実源は `02_アフィリエイト提携状況.md`。
+> **講座/教材/添削（SAT・独学サポート）と書籍（BookCard）アフィリは完全廃止**（note 有料商品とのカニバリ回避）。本書の「書籍 → 講座/SAT CTA」を含む併置設計のうち、講座・書籍に関する記述は**歴史記録**。現行は「学習意図＝note 独占／キャリア意図＝転職アフィリ（GKS・ビルドジョブ・DXコンサル）のみ」。note CTA を他より前に置く note 優先原則は転職アフィリに対して引き続き有効。真実源は `.claude/knowledge/reference/affiliate-operations.md`。
 
 > [!note] 実装ステータス（2026-06-11）
 > WP1〜WP6 すべて実施済み。GA4 自然実験（S1: PE サイドバー差し替え）は 2026-06-11 を起点に
 > 4 週間測定中。2026-07-09 前後の weekly-review で差の差を評価する（§4 参照）。
-> 残タスク: `02_アフィリエイト提携状況.md` の SAT サイドバー記述更新（WP1-4）。
+> 残タスク: なし（WP1-4 の「SAT サイドバー記述更新」は 2026-06-25 の SAT 完全廃止で消滅）。
 
-関連: `02_アフィリエイト提携状況.md`（creative 台帳）/ `src/lib/magazine-placement.ts`（note 配置 SoT）/
+関連: `.claude/knowledge/reference/affiliate-operations.md`（アフィリ運用 SSOT）/ `src/config/affiliate-mats.json`（mat レジストリ）/ `src/lib/magazine-placement.ts`（note 配置 SoT）/
 `docs/note/技術士総監/noteコンテンツ計画.md`
 
 ---
@@ -70,7 +70,7 @@
 | S3 | essay-exam-strategy 本文の SAT カード | CourseAffiliate(SAT) | ✅ **変更** | カード削除 → management-tradeoffs への内部リンク段落に差し替え（S5 公開後は course-selection-guide リンクへ更新予定） |
 | S4 | exam-application-guide 本文の SAT カード | CourseAffiliate(SAT) | ✅ **変更** | 文言修正で暫定維持（「総監部門の添削対応可否は資料請求で確認を」を明記、断定表現を除去）。アガルート承認後に総監対応講座へ差し替え |
 | S5 | course-selection-guide（独学か講座か） | draft 未公開 | ✅ **新規（公開）** | 「総監対応講座の現状」セクションを追加し published:true（2026-06-11）。note CTA を placement.ts に配線。末尾の SAT カード（実在しない総監講座名）は削除。アガルート承認後のアフィリ受け皿 |
-| S6 | docs サイドバー GKS（全 docs 常設） | GKS 300×250 | **維持**（〜2026-08-31 はビルドジョブに期間切替） | 別 mat・note CTA より下位置。PE での CTR を 4 週間測定し、極端に低ければ PE のみ抑制を再検討。**2026-06-16: サイドバー転職枠を `resolveCareerSidebarAd()` で期間出し分け（〜8/31 ビルドジョブ ¥50,000 増額キャンペーン、9/1 以降 GKS 自動復帰）。真実源は `02_アフィリエイト提携状況.md`「ビルドジョブ creative 保管庫」** |
+| S6 | docs サイドバー GKS（全 docs 常設） | GKS 300×250 | **維持**（〜2026-08-31 はビルドジョブに期間切替） | 別 mat・note CTA より下位置。PE での CTR を 4 週間測定し、極端に低ければ PE のみ抑制を再検討。**2026-06-16: サイドバー転職枠を `resolveCareerSidebarAd()` で期間出し分け（〜8/31 ビルドジョブ ¥50,000 増額キャンペーン、9/1 以降 GKS 自動復帰）。creative の mat・出し分けの真実源は `src/config/affiliate-mats.json` と `src/config/affiliate-creatives.ts`、方針は `.claude/knowledge/reference/affiliate-operations.md`** |
 
 ### Civil（1級・2級）
 
@@ -189,7 +189,7 @@ note 側は utm_content がスロット位置を既に符号化しているた�
    `data-cta-label="SAT"` → `"SAT-end"`。`SchoolAffiliate` / `CareerAffiliate` / `DokugakuBanner` /
    `SatTextLink` の data-cta-label 出力を監査し §4 の表に合わせる（コンポーネント側に surface prop が
    なければ呼び出し側で渡せるよう最小追加）。
-4. `02_アフィリエイト提携状況.md` の SAT サイドバー記述を更新（「PE 専用」→「2026-06 撤去。総監講座
+4. `.claude/knowledge/reference/affiliate-operations.md` の SAT サイドバー記述を更新（「PE 専用」→「2026-06 撤去。総監講座
    非提供のため note /links バナーへ差し替え」）。
 
 ### ✅ WP2: PE カテゴリ hub SAT 削除（S2）
@@ -201,7 +201,7 @@ note 側は utm_content がスロット位置を既に符号化しているた�
 2. `HOME_AFFILIATE`（トップ）は変更しない。
 
 > [!note] 2026-06-16 更新（PR #256）— この WP2 は後続で上書き
-> 「SAT カード削除」自体は有効だが、その後の**無アフィリ状態は解消**した。`resolveCategoryAffiliate` は撤去し `resolveCategoryCareerAd`（資格別 creative セグメント）に一本化。pe-comprehensive は `return null` ではなく**ハイクラス DX/コンサル転職**（`PE_CONSULTING_CAREER_AD`, mat `4B5OO5+NTCZ6+4SXU+NUES1`）を返す＝カテゴリ hub の収益導線ゼロを解消（総監＝シニア技術者層に適合。GKS の 20代未経験/施工管理ミスマッチを回避）。詳細: `02_アフィリエイト提携状況.md` カテゴリ hub 節。
+> 「SAT カード削除」自体は有効だが、その後の**無アフィリ状態は解消**した。`resolveCategoryAffiliate` は撤去し `resolveCategoryCareerAd`（資格別 creative セグメント）に一本化。pe-comprehensive は `return null` ではなく**ハイクラス DX/コンサル転職**（`PE_CONSULTING_CAREER_AD`, mat `4B5OO5+NTCZ6+4SXU+NUES1`）を返す＝カテゴリ hub の収益導線ゼロを解消（総監＝シニア技術者層に適合。GKS の 20代未経験/施工管理ミスマッチを回避）。詳細: `.claude/knowledge/reference/affiliate-operations.md`「6. 配置ポリシー」。
 
 ### ✅ WP3: PE MDX 3 ページの SAT 表記是正（S3/S4/S5 前半）
 

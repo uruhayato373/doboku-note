@@ -85,7 +85,7 @@ if (violations.length > 0) {
   console.error(
     `[check-affiliate-prose] ✗ 廃止アフィリの推奨 prose を ${violations.length} 件検出（affiliate-career-only 違反）`,
   );
-  console.error('  真実源: docs/project/04_運営/02_アフィリエイト提携状況.md / memory affiliate-career-only');
+  console.error('  真実源: .claude/knowledge/reference/affiliate-operations.md / memory affiliate-career-only');
   for (const v of violations) {
     console.error(`  ${v.file}:${v.line}  「${v.term}」  ${v.text}`);
   }

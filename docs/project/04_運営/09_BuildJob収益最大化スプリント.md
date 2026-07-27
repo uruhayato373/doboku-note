@@ -14,7 +14,7 @@ BuildJob（ビルドジョブ）の成果報酬が 2026-08-31 まで高単価（
 
 既存の真実源:
 
-- `docs/project/04_運営/02_アフィリエイト提携状況.md`
+- `.claude/knowledge/reference/affiliate-operations.md`
 - `docs/project/04_運営/08_転職アフィリ記事ビルド計画.md`
 - `src/config/affiliate-creatives.ts`
 - `src/components/ui/CareerAffiliate/CareerAffiliate.tsx`
@@ -318,7 +318,7 @@ cta: "資格・経験で狙える求人を無料で聞く"
 
 BuildJob 100% 寄せは短期収益施策であり、恒久設計ではない。実装したら以下に明記する。
 
-- `docs/project/04_運営/02_アフィリエイト提携状況.md`
+- `.claude/knowledge/reference/affiliate-operations.md`
 - `docs/project/04_運営/08_転職アフィリ記事ビルド計画.md`
 - 本ファイル
 
@@ -378,7 +378,7 @@ doboku-note の BuildJob アフィリエイト収益最大化スプリントを�
 
 最初に読むこと:
 - CLAUDE.md
-- docs/project/04_運営/02_アフィリエイト提携状況.md
+- .claude/knowledge/reference/affiliate-operations.md
 - docs/project/04_運営/08_転職アフィリ記事ビルド計画.md
 - docs/project/04_運営/09_BuildJob収益最大化スプリント.md
 - src/config/affiliate-creatives.ts
@@ -401,7 +401,7 @@ doboku-note の BuildJob アフィリエイト収益最大化スプリントを�
 6. BuildJob CTA 直前またはカード description に、「今すぐ転職すると決めていなくても、求人相場と自分の評価だけ確認できる」趣旨の安心コピーを入れてください。
 7. BuildJob 公式数値を使う場合は「サービス公表値」と明記し、保証表現にしないでください。
 8. 必要ならキャリア記事のうち優先度上位数本にだけ、本文文脈に合う小さなCTA/安心コピーを追加してください。大量リライトは禁止です。
-9. 変更した仕様を docs/project/04_運営/02_アフィリエイト提携状況.md と docs/project/04_運営/08_転職アフィリ記事ビルド計画.md に追記してください。
+9. 変更した仕様を .claude/knowledge/reference/affiliate-operations.md と docs/project/04_運営/08_転職アフィリ記事ビルド計画.md に追記してください。
 10. 作業ログを docs/handoffs/YYYY-MM-DD-buildjob-affiliate-sprint.md に残してください。
 
 制約:
