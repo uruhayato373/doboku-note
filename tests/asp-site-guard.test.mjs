@@ -37,15 +37,17 @@ test("verifySite: 空文字の ID も read-back 失敗として扱う", () => {
   assert.equal(r.ok, false);
 });
 
-test("verifySite: ID 一致でも他サイト名が同居していれば落とす（口座横断画面）", () => {
+test("verifySite: ID が一致していれば他サイト名が画面にあっても通す", () => {
+  // **サイト切替 UI 自体が全サイト名を列挙する**ので、ここで禁止文字列を見ると必ず誤検知する。
+  // afb で実際に「SID は 984453 で正しいのに停止」した。ID の read-back が最も強い証拠なので信じる。
   const r = verifySite({
     actualSiteId: DOBOKU_AFB,
     expectedSiteId: DOBOKU_AFB,
-    visibleText: "doboku-note と 統計で見る都道府県 の両方が並ぶ一覧",
+    visibleText: "サイト切替: 統計で見る都道府県 / doboku-note（選択中）",
     forbiddenText: FORBIDDEN,
   });
-  assert.equal(r.ok, false);
-  assert.match(r.reason, /口座横断/);
+  assert.equal(r.ok, true);
+  assert.equal(r.matchedBy, "id");
 });
 
 test("verifySite: ID が無い ASP は表示名で判定できる", () => {

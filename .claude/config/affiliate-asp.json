@@ -75,6 +75,8 @@
       "chosenOption": ".chzn-drop li",
       "_siteSwitchNote": "**Chosen.js のウィジェット。URL パラメータ（sid= / site_id=）も、非表示 select に JS で値を入れて change を発火する方法も効かない**。`.chzn-container` をクリック →ドロップダウン項目をクリック、という実 UI 操作だけが有効。既定は stats47 なので切替必須。",
       "readyMarker": "#top_site_select",
+      "readyPath": "/pa/promolist/?rel=non",
+      "_readyPathNote": "**readyMarker（サイト切替ウィジェット）は /pa/ ホームには存在せず、一覧ページにしかない**。ホームで判定するとログイン済みでも永久に検知できない（実際に待機ループが空回りした）。判定はこのページで行う。",
       "_readyNote": "ログイン判定を可視テキストの部分一致でやると**読み込み途中のページを通してしまう**（実際に誤検知して以降の処理が全て空振りした）。管理画面固有の DOM（この selector）の実在を条件にする。",
       "unpartneredPath": "/pa/promolist/?rel=non",
       "partneredPath": "/pa/promolist/?rel=rel",
@@ -96,7 +98,9 @@
         "_headlessNote": "**headless: true だと requiredlogin へ飛ばされる**（headless 検知の疑い）。常に headed。",
         "sessionPersistsAcrossProcesses": false,
         "_sessionNote": "storageState を保存しても**別プロセスでは復元できない**。ログインから作業完了までを 1 プロセス内で完結させる。",
-        "timeoutMs": 30000,
+        "timeoutMs": 90000,
+        "siteSwitchWaitMs": 90000,
+        "_timeoutNote": "2026-07-27 実測で **1 ページの読み込みに 1〜1.5 分**かかった（回線由来）。既定 30 秒だとサイト切替もページ送りも取りこぼす。切替はページ再読込を伴うため siteSwitchWaitMs も同等に取る。",
         "loginMaxWaitMs": 600000
       }
     }

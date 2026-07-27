@@ -50,19 +50,14 @@ export function verifySite({
   }
 
   // 1) ID の read-back が最優先。取れているなら完全一致だけを通す。
+  //
+  //    ここで禁止文字列（他サイト名）は見ない。**サイト切替 UI 自体が全サイト名を列挙する**ため、
+  //    見ると必ず誤検知する（afb で実際に「ID は 984453 で正しいのに停止」した）。
+  //    ID の read-back が取れている時点でそれが最も強い証拠なので、それを信じる。
+  //    禁止文字列は「ID を確認できない弱い判定」のときだけ効かせる（下の 2 番）。
   if (actualSiteId != null && String(actualSiteId).trim() !== "") {
     const a = String(actualSiteId).trim();
     if (a === String(expectedSiteId)) {
-      // ID が一致していても、他サイト名が同居していれば口座横断画面の疑い → 呼び出し側へ伝える
-      const bad = forbiddenText.filter((f) => f && visibleText.includes(f));
-      if (bad.length > 0) {
-        return {
-          ok: false,
-          reason: `サイト ID は一致(${a})だが、他サイトの識別子が同一画面に存在する: ${bad.join(", ")}（口座横断画面の疑い）`,
-          actualSiteId: a,
-          matchedBy: "id",
-        };
-      }
       return { ok: true, reason: `サイト ID 一致 (${a})`, actualSiteId: a, matchedBy: "id" };
     }
     return {
