@@ -96,6 +96,10 @@ public/posts
 .local/playwright-moshimo-profile/
 .local/playwright-moshimo-debug/
 .local/playwright-moshimo-state.json
+# afb（アフィリエイトB・2026-07-27 調査用に作成）
+.local/playwright-afb-profile/
+.local/playwright-afb-debug/
+.local/playwright-afb-state.json
 
 # GSC UI 生取得データ（run 単位・URL 一覧/ZIP を含む・regenerable）はコミットしない。
 # 直下の last-run.json（取得日マーカー・URL 非含有）だけは due-surfacer 用に追跡する。
