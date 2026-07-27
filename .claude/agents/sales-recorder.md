@@ -11,7 +11,7 @@ model: sonnet
 
 note クリエイターダッシュボードからコピーした販売履歴テキストを受け取り、`.claude/state/sales/sales-log.json` に追記する Generator エージェント。
 
-> **モデル方針**: このエージェントは `model: sonnet` で動作します。テキスト解析・productId 推定は Sonnet で十分。売上戦略の判断は親エージェント（Opus）が行う。詳細は CLAUDE.md「ハーネス設計原則」§6 参照。
+> **モデル方針**: このエージェントは `model: sonnet` で動作します。テキスト解析・productId 推定は Sonnet で十分。売上戦略の判断は親エージェント（Opus）が行う。詳細は CLAUDE.md「ハーネス設計原則」§5 参照。
 
 ## 担当範囲
 

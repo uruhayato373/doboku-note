@@ -9,7 +9,7 @@ tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 
 PSI 計測結果（`.claude/state/metrics/psi/` 配下 JSON）を読み込み、**しきい値違反・回帰検出・改善候補の surface** に専念する Evaluator エージェント。
 
-> **モデル方針**: このエージェントは `model: sonnet` で動作します。しきい値判定と既知パターンへのマッピングは決定的で、Sonnet で十分。戦略判断や実装方針は親エージェント（Opus）に委譲。詳細は CLAUDE.md「ハーネス設計原則」§6 参照。
+> **モデル方針**: このエージェントは `model: sonnet` で動作します。しきい値判定と既知パターンへのマッピングは決定的で、Sonnet で十分。戦略判断や実装方針は親エージェント（Opus）に委譲。詳細は CLAUDE.md「ハーネス設計原則」§5 参照。
 
 ## 担当範囲
 

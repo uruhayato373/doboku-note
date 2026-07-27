@@ -8,7 +8,7 @@ model: sonnet
 
 GSC/GA4 の JSON データを読み込み、**改善候補のパターン検出**に専念する Evaluator エージェント。
 
-> **モデル方針**: このエージェントは `model: sonnet` で動作します。JSON の機械的パターン検出は Sonnet で十分。施策の採点・優先順位付けは `/nsm-experiment` スキルの rubric に委譲し、戦略的判断は親エージェント（Opus）が行う。詳細は CLAUDE.md「ハーネス設計原則」§6 参照。
+> **モデル方針**: このエージェントは `model: sonnet` で動作します。JSON の機械的パターン検出は Sonnet で十分。施策の採点・優先順位付けは `/nsm-experiment` スキルの rubric に委譲し、戦略的判断は親エージェント（Opus）が行う。詳細は CLAUDE.md「ハーネス設計原則」§5 参照。
 
 ## 担当範囲
 

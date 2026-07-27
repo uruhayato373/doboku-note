@@ -10,7 +10,7 @@ title: サブエージェント詳細レジストリ
 
 **いつ読むか**: サブエージェントを呼び出すときに担当範囲を確認するとき、連携設計時、新規エージェント追加時の命名・責務設計時。
 
-**モデル指定のクイックリファレンス**は CLAUDE.md 本体「ハーネス設計原則」§6 にある（判断の土台として毎ターン読めるようにするため）。このファイルには詳細な担当範囲・Phase 対応・連携パターンを集約。
+**モデル指定のクイックリファレンス**は CLAUDE.md 本体「ハーネス設計原則」§5 にある（判断の土台として毎ターン読めるようにするため）。このファイルには詳細な担当範囲・Phase 対応・連携パターンを集約。
 
 **audit-only の tools 制限（2026-07-03）**: 「audit-only（修正しない）」を明示宣言する Evaluator（`*-qa` / `*-auditor` / `*-fact-checker` 等）は frontmatter に `tools:` allowlist を持ち、変更ツール（`Edit`/`Write`/`NotebookEdit`）を機構的に除外する（`Read, Glob, Grep, Bash, WebSearch, WebFetch`。`sns-archive-auditor` は「Bash 不可」宣言に従い `Read, Glob, Grep`）。`defaultMode: bypassPermissions` 下でも監査エージェントが誤ってファイルを書き換えないための多層防御。Generator（`*-writer`/`*-rewriter`/`*-restorer` 等）は `tools:` 無指定＝全ツールで従来どおり。新規 Evaluator を追加するときは同じ allowlist を付与する。
 
@@ -244,7 +244,7 @@ title: サブエージェント詳細レジストリ
 
 1. `.claude/agents/{agent-name}.md` を作成
 2. frontmatter に `name` / `description` / `model` を必ず指定
-   - model 選択ルールは `.claude/skills/dev/create-skill/SKILL.md` の「サブエージェント作成時の model 指定ルール」または CLAUDE.md「ハーネス設計原則」§6 を参照
+   - model 選択ルールは `.claude/skills/dev/create-skill/SKILL.md` の「サブエージェント作成時の model 指定ルール」または CLAUDE.md「ハーネス設計原則」§5 を参照
 3. Generator か Evaluator かを明記（混在禁止）
 4. 本文に「モデル方針」欄を設け、`model: sonnet/inherit` を選んだ理由を 1-2 文で記載
 5. このファイル（agents-registry.md）の「エージェント一覧」表・「スキル → エージェント呼出マップ」・（Evaluator なら）「Evaluator エージェントの区別」表・件数 SSOT を**同一 commit で**更新（`check-doc-coupling` が機械検知）

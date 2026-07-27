@@ -164,9 +164,12 @@ npm run search-growth:report   # GSC UI 正規化 ∪ API データを URL 突�
 - **OGP 画像**: 新規記事・**新カテゴリは `npm run ogp`**（未生成のみ生成）で `ogp.png` を作り commit。忘れると `og:image` が R2 で 404 → note/X 等の外部リンクカードが生成されない（2026-06-12 pe-construction 全114本）。CI ゲート `npm run check-ogp-coverage`（`r2-audit.yml`）が published 記事の欠落を赤落ちで検知。**OGP デザインの真実源は [.claude/knowledge/reference/ogp-prompts.md](.claude/knowledge/reference/ogp-prompts.md)**（mono-tag 全幅＋資格別テーマ色外枠、2026-06-16〜）。一括再生成 `npm run ogp -- --all --force` 後の目視 QA は `npm run ogp-gallery`（全 OGP を 1 枚の HTML で確認）
 - **deploy**: `develop` → `main` は `/deploy` スキル経由（タイミングはユーザー判断）
 
-### 5. モデルは判断が必要な場面だけに使う
+### 5. モデルは判断が必要な場面だけに使う（＝ハーネス設計原則）
+
+> 他ドキュメントから「CLAUDE.md『ハーネス設計原則』」として参照されるのはこの §5。
 
 - **サブエージェント**: `model: sonnet` 既定。Opus は親エージェントのみ（詳細 → [agents-registry.md](.claude/knowledge/reference/agents-registry.md)）
+- **同時起動は原則 3 体まで**。それを超える規模は分割して順に回す（`/doc-declutter` の「12 件超は 1 体 5〜8 件に分割」が具体例）。Workflow の並行は 2 本まで
 - **worktree 原則禁止**。2エージェント同時実行・30分以上の条件を両方満たすときのみ例外（詳細 → [workflows.md](.claude/knowledge/reference/workflows.md)）
 - ルーティング・リトライ・ステータスコード処理など、コードで決定できるものはサブエージェントに委ねない
 - **委任基準**: サブエージェントに任せるのは「大きく・独立・並列化できる」作業のみ（例: 複数ファイル横断の調査）。数回のツールコールで終わる作業は委任しない。**自分のインライン作業を検証させるためだけのサブエージェント起動はしない**（モデルは自律検証するので二重になる）。※商品品質の Generator/Evaluator 分離パイプライン（`*-writer` ↔ `*-qa`）は自己評価バイアスを構造で断つ設計なので別物・維持
@@ -199,7 +202,7 @@ npm run search-growth:report   # GSC UI 正規化 ∪ API データを URL 突�
 ### 9. テストは挙動だけでなく意図を検証する
 
 - **なぜ `curl` でチェックするか**: Lighthouse スコアは SSR 破壊を捕捉できない（[measurement-incidents.md](.claude/knowledge/reference/measurement-incidents.md) 2026-W16 BAILOUT）。`<main>` タグと主要キーワードの存在確認が最短の意図検証
-- **なぜ `writeMdxFile` 経由か**: 直接 `writeFileSync` は CRLF 混在を引き起こし pre-commit で reject される。検証ステップを省略するときは「なぜその検証が必要か」を自問してから判断する
+- **なぜ `writeMdxFile` 経由か**: 直接 `writeFileSync` は CRLF 混在を引き起こし pre-commit で reject される
 - **汎用の検証指示を足さない**: 「必ず最後に検証ステップを入れる」「ダブルチェックしてから答える」「サブエージェントで検証させる」といった**汎用**の指示は、モデル自身の自律検証と重複して過剰検証になる（トークンだけ増えて品質は上がらない）。**書いてよい検証は決定的ゲートだけ**＝実行するコマンドと合格条件が特定できるもの（`curl` で `<main>`、`npm run refresh-indexes`、lint 9-11、`U+FFFD` 走査、`check-*` スクリプト）。スキル・エージェントを書くときも同じ
 
 ### 10. 重要なステップごとにチェックポイントを置く
@@ -207,7 +210,6 @@ npm run search-growth:report   # GSC UI 正規化 ∪ API データを URL 突�
 - **複数セッションは worktree で分離する（最重要）**: 別の Claude Code セッションが同じリポジトリで並行作業するのが常態（2026-06-11 確認）。同一ワークツリーを共有すると、あるセッションの `git reset --hard`／`checkout` が他セッションの未 push コミット・作業ツリーを破壊する（**pathspec commit・push 前確認でも防げない**＝reset が HEAD・index・作業ツリーを丸ごと書き換えるため。2026-06-11 実証：commit が別セッションの reset で消失→gc 復旧不能）。各セッションは `git worktree add <別dir> -b <feature> origin/develop` で独立した HEAD／index／作業ツリーを持ち、`develop` へは PR で集約する（`.git` オブジェクトは共有）。**§5「worktree 原則禁止」は複数セッション常態下では非適用**。
 - **同一ワークツリーで並行せざるを得ないとき**: reflog・`develop` 先頭・未コミットが自分の操作と無関係に動くのは正常（共有 `.git/logs/HEAD` に全プロセス混在記録）。push 前に `git log origin/develop..HEAD` で巻き込み確認。commit は `git commit -- <pathspec>`（`git add -A` 禁止）。他テリトリ不可侵。重要な変更は feature ブランチへ即 push して保全。
 - **並行エージェント（同一セッション内）**: 各エージェントが編集したファイルを即 commit（`git status` で staged 確認）。
-- 長いタスクでは「何を完了し・何を検証し・何が残っているか」を都度整理してから次に進む
 
 ### 11. コードベースの規約に合わせる
 
@@ -219,7 +221,7 @@ npm run search-growth:report   # GSC UI 正規化 ∪ API データを URL 突�
 ### 12. 失敗や不確実性を隠さない
 
 - 未検証の部分やスキップした処理がある場合は「完了」と言わずに明示する
-- **deploy 後**: 500 の場合は Cloudflare API token 期限切れを仮説1番に確認（GitHub Secrets で再発行）。着手前にも token の有効期限を確認する
+- **deploy 後**: 500 の場合は Cloudflare API token 期限切れを仮説1番に確認（GitHub Secrets で再発行）
 - 計測データに異常がある場合は [measurement-incidents.md](.claude/knowledge/reference/measurement-incidents.md) を先に確認してから結論を出す
 
 ---

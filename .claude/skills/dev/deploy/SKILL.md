@@ -23,6 +23,7 @@ Cloudflare Pages へデプロイする。
 ```bash
 git branch --show-current
 git status
+gh secret list | grep -i cloudflare   # token が登録されているか（deploy 500 の主因は期限切れ）
 ```
 
 - 未コミットの変更がある場合 → ユーザーに確認

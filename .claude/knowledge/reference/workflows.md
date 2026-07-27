@@ -16,7 +16,7 @@ title: 推奨ワークフロー
 金曜:
 1. 06:00 JST  fetch-metrics.yml（自動）<- GSC + GA4 取得
 2. PM         /weekly-review          <- 実績を振り返る（進捗・コンテンツ品質・PSI 推移）
-3. PM         /weekly-plan            <- 来週の計画を立てる（PDF→MDX 変換・オープン Issue 対応）
+3. PM         /weekly-plan            <- 来週の計画を立てる（前週の申し送り・backlog から選定）
 月曜:
 4. 11:17 JST  weekly-review-guard.yml（自動）<- 先週分の *-review.md 欠落を赤落ちで検知
 ```
@@ -36,8 +36,8 @@ title: 推奨ワークフロー
 │    ▼                                                            │
 │  develop: .claude/state/metrics/psi/ に JSON 蓄積 [skip ci]     │
 │    │                                                            │
-│    ├─ しきい値違反あり ──► GitHub Issue 自動起票                  │
-│    │                        (label: performance, auto-generated) │
+│    ├─ しきい値違反あり ──► task-queue.json に append             │
+│    │                        (dedupe_key で重複防止)              │
 │    │                                                            │
 │    └─ しきい値違反なし ──► 記録のみ（通知しない）                  │
 └─────────────────────────────────────────────────────────────────┘
@@ -59,18 +59,17 @@ title: 推奨ワークフロー
 │                                                                 │
 │  /weekly-review                                                 │
 │    │ Agent C2: .claude/state/metrics/psi/ の 7 日分を読み         │
-│    │            前週比を出力                                     │
-│    │            gh issue list で解消/継続 Issue を surface       │
+│    │            field(実害)→lab(診断)の順で前週比を出力          │
 │    │ Agent E:  /distill-proofread-learnings を呼び出し           │
 │    │            校正学習（新ルール・精緻化・嗜好等）を抽出        │
 │    ▼                                                            │
-│  GitHub Issue: [PDCA] YYYY-Www (label: weekly-pdca)            │
-│    │ PSI 推移 + 校正学習候補 + 計画を Issue body に統合           │
+│  docs/reviews/weekly/YYYY-Www-review.md                         │
+│    │ PSI 推移 + 校正学習候補 + 申し送りを 1 本の md に統合         │
 │                                                                 │
 │  /weekly-plan                                                   │
-│    │ Agent C2: open の performance Issue を Must/Should に組込   │
+│    │ 前週の申し送りを Must/Should に組込                          │
 │    ▼                                                            │
-│  同じ [PDCA] Issue の body 更新 or コメント追記                   │
+│  docs/reviews/weekly/YYYY-Www.md（計画は別ファイル）              │
 │    │ 対応タスクを計画として明示                                  │
 │                                                                 │
 │  ユーザーが校正学習候補を承認 → 適用                              │
@@ -83,10 +82,11 @@ title: 推奨ワークフロー
 ┌─────────────────────────────────────────────────────────────────┐
 │ 実装（ユーザー or Claude Code）                                  │
 │                                                                 │
-│  Issue を参照しながら修正 → PR → main merge → 本番反映            │
+│  週次レビューの申し送りを見ながら修正 → PR → main merge → 本番反映 │
 │    │                                                            │
 │    ▼                                                            │
-│  翌日の psi-audit で効果を測定 → 改善なら Issue close             │
+│  翌日以降の psi-audit で効果を測定（※ scheduled workflow の       │
+│  実行ブランチは workflow ごとに違う → measurement-incidents.md）  │
 └─────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────┐
@@ -105,10 +105,10 @@ title: 推奨ワークフロー
 
 **原則**（3 層モデル）:
 - **Tier 3 機械可読データ** → `.claude/state/metrics/*.json`（develop に CI が直接 commit）
-- **Tier 1 状態あり・アクション item** → GitHub Issue（`performance`, `weekly-pdca`, `session-handoff`, `queue`, `task`, `umbrella` 等のラベルで分類）
+- **Tier 1 状態あり・アクション item** → `docs/todo/`（backlog / annual / monthly / weekly の 4 層）。**GitHub Issue は使わない**（CLAUDE.md §8・真実源 [information-architecture.md](information-architecture.md)）
 - **Tier 2 固定的知識・設計** → `docs/project/*.md`, `.claude/knowledge/reference/*.md`
-- 週次 PDCA は `[PDCA] YYYY-Www` Issue に計画とレビューを集約（旧 `docs/reviews/weekly/` は 2026-04-27 に削除）
-- Issue は対応して close → 次週の review で「解消」として記録
+- 週次 PDCA は `docs/reviews/weekly/YYYY-Www-review.md`（レビュー）と `YYYY-Www.md`（計画）の 2 本に保存。最新週のみ保持し、旧週は未完タスクを `docs/todo/backlog.md` へ抽出してから削除（履歴は git）
+- 申し送りは次週の計画へ引き継ぎ → 解消したら次の review で「完了」として記録
 
 オンデマンド分析が必要な時は `/psi-audit` スキルで `performance-auditor` エージェントを呼び、`.claude/state/improvements/psi-{YYYY-MM-DD}.md` に詳細レポートを出す。
 
