@@ -137,6 +137,15 @@ export function scoreAndRank(programs, { coverage, existingAds, curated }) {
   const candidates = [];
   const blocked = [];
   const duplicates = [];
+  // 閾値未満も**捨てずに返す**。以前は continue で黙って消えており、呼び出し側の
+  // 「candidate 0 件 (blocked 0 / dup 0)」が「該当なし」に見えていた（実際はヒットしていた）。
+  // 判断材料（何がいくつで、スコアはいくらだったか）を人に見せるための第4バケット。
+  const belowThreshold = [];
+  // vertical を doboku の 3 軸（civil-career / pe-career / career）に写像できないものは
+  // candidate にしない。状態機械には pending-vertical という分岐が定義されているのに
+  // 実際には未解決のまま candidate 化されており、IT フリーランスや薬剤師の案件が
+  // 建設サイトの候補として並んでいた（2026-07-27 の scout 実行で発覚）。
+  const pendingVertical = [];
   for (const p of programs) {
     if (isBlocked(p, curated)) {
       blocked.push({ ...p, reason: "blocklist" });
@@ -148,11 +157,20 @@ export function scoreAndRank(programs, { coverage, existingAds, curated }) {
     }
     const vertical = resolveVertical(p, curated);
     const score = scoreProgram(p, vertical, coverage, curated);
-    if (score < curated.minScore) continue; // 閾値未満は候補にしない
+    if (!vertical) {
+      pendingVertical.push({ ...p, vertical: null, score, reason: "pending-vertical" });
+      continue;
+    }
+    if (score < curated.minScore) {
+      belowThreshold.push({ ...p, vertical, score, reason: "below-min-score" });
+      continue;
+    }
     candidates.push({ ...p, vertical, score });
   }
   candidates.sort((a, b) => b.score - a.score);
-  return { candidates, blocked, duplicates };
+  belowThreshold.sort((a, b) => b.score - a.score);
+  pendingVertical.sort((a, b) => b.score - a.score);
+  return { candidates, blocked, duplicates, belowThreshold, pendingVertical };
 }
 
 // ---------- 状態機械 ----------

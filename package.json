@@ -76,7 +76,7 @@
     "start": "next start -p 3020",
     "lint": "eslint src/",
     "type-check": "tsc --noEmit",
-    "test:ads": "node --test .claude/scripts/ads/__tests__/",
+    "test:ads": "node --test .claude/scripts/ads/__tests__/*.test.mjs",
     "knip": "knip",
     "pages:deploy": "npx wrangler pages deploy out --project-name=doboku-note",
     "upload-images-r2": "tsx .claude/scripts/upload-images-to-r2.mjs",

@@ -7,9 +7,26 @@ description: >
   check-approval=承認昇格、harvest=承認済みの広告コード取得（doboku-note）→affiliate-creatives.ts への手配置候補を出力。
   Use when user says "A8確認", "アフィリエイト承認確認", "申請済みアフィリを見る", "A8案件を探す", "A8提携状況", "scout-asp".
   **初回 or セレクタ更新後は必ず `list --dry-run --headed` で実機ダンプ→セレクタ確定すること**.
+  **search/scout の出力は candidate 以外（blocked / dup / vertical未解決 / 閾値未満）も必ず表示する**
+  ＝「candidate 0 件」を「該当なし」と誤読しないこと.
 disable-model-invocation: true
 argument-hint: "<list|search|import-partnered|scout|apply|check-approval|harvest> [--keyword <語>] [--program <pid>] [--dry-run] [--headed] [--limit N] [--max N]"
 ---
+
+> [!important] candidate 0 件 ≠ 該当なし
+> `search` / `scout` は候補にならなかったものも**必ず内訳を出す**（2026-07-27 修正）。
+>
+> | バケット | 意味 | catalog |
+> |---|---|---|
+> | `candidate` | 3軸に写像でき、閾値以上 | 登録 |
+> | `blocked` | blocklist（Red Line: 転職一本・講座/教材/スクール系は不可） | 登録しない |
+> | `dup` | 既存 creative と重複 | 登録しない |
+> | `vertical未解決` | doboku の 3軸（civil-career / pe-career / career）に写像できない | `pending-vertical` |
+> | `閾値未満` | score < `minScore`（既定 0.35） | 登録しない・**表示はする** |
+>
+> 以前は「閾値未満」と「vertical 未解決」が黙って捨てられており、`candidate 0 件 (blocked 0 / dup 0)` が
+> ヒット 0 と区別できなかった。実際には施工管理 2 件・建設 転職 4 件がヒットしていた
+> （2026-07-27 の建設案件調査で発覚）。**拾うかどうかは人が決める**ので、機械は必ず見せる。
 
 A8.net メディア管理画面 (media-console.a8.net) を Playwright（永続プロファイル）で操作し、提携アフィリエイトの
 **確認 → 開拓 → 申請 → 承認 → コード取得** を回す。判定はすべて決定的コアに委譲し、SSOT（配置）判断だけ人が持つ。

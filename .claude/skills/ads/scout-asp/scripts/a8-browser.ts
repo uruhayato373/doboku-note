@@ -39,7 +39,11 @@ const applyBudget = require("../../../../scripts/ads/check-a8-apply-budget.cjs")
 // ─── 設定 ──────────────────────────────────────────
 const PROJECT_ROOT = path.resolve(__dirname, "../../../../..");
 // ログインプロファイルはメインチェックアウト固定 (.claude/knowledge/reference/playwright-auth-profiles.md)。
-const PROFILE_ROOT = "/Users/minamidaisuke/doboku-note";
+// メインチェックアウト固定（worktree 共有）。ただし実在しない環境（Windows 機等）では
+// cwd にフォールバックする＝Mac パス直書きだと別ドライブ配下に空プロファイルを掘って
+// 「ログイン済みなのに未ログイン」になる（google-console-browser.mjs と同じ解決）。
+const MAC_PROFILE_ROOT = "/Users/minamidaisuke/doboku-note";
+const PROFILE_ROOT = fs.existsSync(MAC_PROFILE_ROOT) ? MAC_PROFILE_ROOT : PROJECT_ROOT;
 const PROFILE_DIR = path.join(PROFILE_ROOT, ".local/playwright-a8-profile");
 // ★A8 の認証はセッション Cookie で永続プロファイルに残らない。login.mjs が storageState に
 //   捕獲した Cookie を起動時に addCookies で再注入する (認証再利用の実体)。
@@ -472,12 +476,50 @@ async function cmdScout(page: Page, limit: number): Promise<void> {
 
   const coverage = loadCoverage();
   const existingAds = loadExistingAds();
-  const { candidates, blocked, duplicates } = core.scoreAndRank(raw, { coverage, existingAds, curated });
+  const {
+    candidates,
+    blocked,
+    duplicates,
+    belowThreshold = [],
+    pendingVertical = [],
+  } = core.scoreAndRank(raw, { coverage, existingAds, curated });
   const top = candidates.slice(0, Number.isFinite(limit) ? limit : candidates.length);
   let cat = loadCatalog();
   cat = core.upsertCandidates(cat, top, { at: nowIso() });
   saveCatalog(cat);
-  console.log(`✅ candidate ${top.length} 件 upsert (blocked ${blocked.length} / dup ${duplicates.length})`);
+  console.log(
+    `✅ candidate ${top.length} 件 upsert (blocked ${blocked.length} / dup ${duplicates.length} / ` +
+      `vertical未解決 ${pendingVertical.length} / 閾値未満 ${belowThreshold.length})`,
+  );
+  reportDropped({ belowThreshold, pendingVertical, minScore: curated.minScore });
+}
+
+/**
+ * candidate にならなかったものを必ず表示する。
+ * 黙って捨てると「ヒット 0」と区別できず、「新規案件なし」と誤って結論づけてしまう
+ * （2026-07-27 の建設案件調査で実際に発生: 施工管理 2 件・建設 転職 4 件が不可視だった）。
+ */
+function reportDropped({
+  belowThreshold,
+  pendingVertical,
+  minScore,
+}: {
+  belowThreshold: any[];
+  pendingVertical: any[];
+  minScore: number;
+}): void {
+  const line = (b: any) => {
+    const reward = b.rewardYen ? `¥${b.rewardYen}` : b.rewardRatePct ? `${b.rewardRatePct}%` : "-";
+    return `    [${b.vertical || "-"}] ${b.name}  (${b.programId})  score ${b.score?.toFixed?.(2) ?? "-"}  報酬 ${reward}  EPC ${b.epcYen ?? "-"}`;
+  };
+  if (pendingVertical.length > 0) {
+    console.log(`  — vertical 未解決（doboku の 3 軸に写像できず・catalog は pending-vertical）:`);
+    for (const b of pendingVertical.slice(0, 10)) console.log(line(b));
+  }
+  if (belowThreshold.length > 0) {
+    console.log(`  — 閾値 ${minScore} 未満（catalog 未登録・要人判断）:`);
+    for (const b of belowThreshold.slice(0, 10)) console.log(line(b));
+  }
 }
 
 // ─── サブコマンド: search (キーワード検索でニッチ案件を探索) ────
@@ -530,12 +572,22 @@ async function cmdSearch(page: Page, limit: number, keywordArg?: string): Promis
     return;
   }
   const coverage = loadCoverage();
-  const { candidates, blocked, duplicates } = core.scoreAndRank(raw, { coverage, existingAds, curated });
+  const {
+    candidates,
+    blocked,
+    duplicates,
+    belowThreshold = [],
+    pendingVertical = [],
+  } = core.scoreAndRank(raw, { coverage, existingAds, curated });
   const top = candidates.slice(0, Number.isFinite(limit) ? limit : candidates.length);
   let cat = loadCatalog();
   cat = core.upsertCandidates(cat, top, { at: nowIso(), note: "keyword-search" });
   saveCatalog(cat);
-  console.log(`✅ candidate ${top.length} 件 upsert (blocked ${blocked.length} / dup ${duplicates.length})`);
+  console.log(
+    `✅ candidate ${top.length} 件 upsert (blocked ${blocked.length} / dup ${duplicates.length} / ` +
+      `vertical未解決 ${pendingVertical.length} / 閾値未満 ${belowThreshold.length})`,
+  );
+  reportDropped({ belowThreshold, pendingVertical, minScore: curated.minScore });
   const order: Record<string, number> = { "civil-career": 0, "pe-career": 1, career: 2 };
   for (const c of [...top].sort((a, b) => (order[a.vertical] ?? 9) - (order[b.vertical] ?? 9))) {
     console.log(`  [${c.vertical || "-"}] ${c.name}  (${c.programId})  score ${c.score?.toFixed(2)}`);

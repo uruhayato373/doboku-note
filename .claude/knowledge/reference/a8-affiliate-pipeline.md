@@ -66,10 +66,12 @@ candidate → applied → approved → harvested → registered → published
 | 規律 | 手段 |
 |---|---|
 | 申請は週 `weeklyApplyMax`（初期 5）件まで | `check-a8-apply-budget.cjs` が apply 前に判定 |
-| NG ジャンル + 講座/教材/書籍/添削は申請しない | curated `blocklistKeywords` → status=blocked |
+| NG ジャンル + 講座/教材/書籍/添削/**スクール/学習塾**は申請しない | curated `blocklistKeywords` → status=blocked。**`資格取得` 等の語は足さない**（GKS の名称「資格取得も支援」を誤ブロックする・テストで固定済み） |
 | 既存 creative と重複する案件は候補にしない | `isDuplicate`（a8mat / title 一致・`affiliate-creatives.ts` + `affiliate-mats.json` を突合） |
 | canonical 4 種以外のサイズは harvest しない | `parseA8Code` が non-canonical を弾く |
 | セッション失効でパイプラインを壊さない | isLoggedIn 失敗は catalog に error 記録して exit 0。再ログインは人間 |
+| 候補にしなかったものを黙って捨てない | `scoreAndRank` は `belowThreshold` / `pendingVertical` も返し、search/scout が必ず表示（2026-07-27） |
+| doboku の 3 軸に写像できない案件を候補にしない | vertical 未解決は `pending-vertical`（IT フリーランス・薬剤師が建設サイトの候補に並んでいた事故の再発防止） |
 
 ## 実行形態（ローカル Mac 限定）
 
@@ -77,6 +79,9 @@ candidate → applied → approved → harvested → registered → published
 - **初回のみ人間**: `login.mjs` で A8 手動ログイン（credential は env に置かない）→ `list --dry-run --headed` で A8 の
   DOM をダンプしてセレクタ実機調整。これが済むまで実操作しない。
 - A8 の自動操作は会員規約上のリスクがあるため件数を保守的に開始する（`weeklyApplyMax` 初期 5）。
+- **プロファイル root は可搬**: Mac パスが実在しなければリポジトリルートへフォールバックする
+  （`a8-browser.ts` / `login.mjs` とも 2026-07-27 修正）。以前は Mac 絶対パス固定で、Windows 機では
+  別ドライブ配下に空プロファイルを掘り「ログイン済みなのに未ログイン」になっていた。
 - **node_modules 不在時は先に `npm install --legacy-peer-deps`**（tsx/playwright に必要。memory `npm-ci-broken-use-legacy-peer-deps`）。
 
 ## 認証方式（永続プロファイル + セッション Cookie 再注入）

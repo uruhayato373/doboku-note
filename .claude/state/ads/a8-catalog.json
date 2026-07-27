@@ -2954,8 +2954,20 @@
       "note": "list-snapshot (審査待ち・状態機械外の記録)",
       "items": [
         {
-          "programId": "s00000021329001",
-          "name": "脱毛は男のたしなみ【RBL_ローランドビューティーラウンジ】"
+          "programId": "s00000027409001",
+          "name": "メーカー転職ならタイズ"
+        },
+        {
+          "programId": "s00000019113004",
+          "name": "年収1000万円以上の転職なら【プロフェッショナル転職サービス／ランスタッド】"
+        },
+        {
+          "programId": "s00000026492001",
+          "name": "日本ヘッドハンター大賞コンサル部門初代MVP【コンコードエグゼクティブグループ】"
+        },
+        {
+          "programId": "s00000026941002",
+          "name": "年収以外にもこだわるハイクラス転職【LHH転職エージェント】"
         },
         {
           "programId": "s00000025720001",
@@ -2986,20 +2998,12 @@
           "name": "ヒゲや全身のムダ毛のお悩みに！男性脱毛の【メンズリゼ】"
         },
         {
-          "programId": "s00000023687001",
-          "name": "大阪ガスのインターネット「さすガねっと」"
-        },
-        {
           "programId": "s00000018254001",
           "name": "資格・特技・趣味など、100以上の多彩な通信講座をご用意！【生涯学習のユーキャン】"
         },
         {
           "programId": "s00000014380004",
           "name": "電話1本で無料査定・高価買取！【トラック買取のカーネクスト】"
-        },
-        {
-          "programId": "s00000026077001",
-          "name": "廃車買取専門店【ハイシャル】"
         },
         {
           "programId": "s00000025678001",
@@ -3044,10 +3048,6 @@
         {
           "programId": "s00000009027008",
           "name": "看護師の転職支援はディップ「ナースではたらこ」"
-        },
-        {
-          "programId": "s00000021679004",
-          "name": "医療事務資格を最短1ヶ月で！合格率94.4％の実績【日本医療事務協会】"
         },
         {
           "programId": "s00000025320001",
@@ -3110,7 +3110,7 @@
           "name": "医療系転職のプロがあなたの転職を完全サポート！【クリアス看護】"
         }
       ],
-      "at": "2026-07-20T01:36:19.547Z"
+      "at": "2026-07-27T02:52:10.524Z"
     },
     "s00000026492001": {
       "programId": "s00000026492001",
@@ -3199,7 +3199,108 @@
           "at": "2026-07-20T02:34:17.669Z"
         }
       ]
+    },
+    "s00000026077001": {
+      "programId": "s00000026077001",
+      "name": "廃車買取専門店【ハイシャル】 New",
+      "genre": "廃車買取専門店【ハイシャル】 New",
+      "company": "ハイシャル",
+      "vertical": null,
+      "score": null,
+      "epcYen": 47,
+      "confirmRatePct": 75,
+      "rewardYen": 3383,
+      "rewardType": "fixed",
+      "status": "approved",
+      "source": "existing-partnership",
+      "history": [
+        {
+          "from": null,
+          "to": "approved",
+          "at": "2026-07-27T02:52:10.524Z",
+          "note": "list-partnered"
+        }
+      ]
+    },
+    "s00000024196001": {
+      "programId": "s00000024196001",
+      "name": "ITフリーランスエンジニアの案件(仕事)探しなら実績20年のエージェント【techadapt】",
+      "genre": "career ITフリーランスエンジニアの案件(仕事)探しなら実績20年のエージェント【techadapt】",
+      "a8mat": null,
+      "vertical": null,
+      "score": 0.6900000000000001,
+      "status": "pending-vertical",
+      "history": [
+        {
+          "from": null,
+          "to": "candidate",
+          "at": "2026-07-27T03:00:26.771Z"
+        },
+        {
+          "at": "2026-07-27T03:03:44.728Z",
+          "to": "pending-vertical",
+          "note": "scoreAndRank の vertical 未解決バグで candidate 化されていたものを是正（2026-07-27）"
+        }
+      ]
+    },
+    "s00000017390001": {
+      "programId": "s00000017390001",
+      "name": "大手調剤チェーンの経営で安心♪【薬剤師の派遣・転職 お仕事ラボ】",
+      "genre": "career 大手調剤チェーンの経営で安心♪【薬剤師の派遣・転職 お仕事ラボ】",
+      "a8mat": null,
+      "vertical": "career",
+      "score": 0.43649000000000004,
+      "status": "candidate",
+      "history": [
+        {
+          "from": null,
+          "to": "candidate",
+          "at": "2026-07-27T03:00:26.771Z"
+        }
+      ]
+    },
+    "s00000024182002": {
+      "programId": "s00000024182002",
+      "name": "副業・フリーランスエンジニアプラットフォーム【エンジニアデータバンク】",
+      "genre": "career 副業・フリーランスエンジニアプラットフォーム【エンジニアデータバンク】",
+      "a8mat": null,
+      "vertical": null,
+      "score": 0.418675,
+      "status": "pending-vertical",
+      "history": [
+        {
+          "from": null,
+          "to": "candidate",
+          "at": "2026-07-27T03:00:26.771Z"
+        },
+        {
+          "at": "2026-07-27T03:03:44.731Z",
+          "to": "pending-vertical",
+          "note": "scoreAndRank の vertical 未解決バグで candidate 化されていたものを是正（2026-07-27）"
+        }
+      ]
+    },
+    "s00000026477001": {
+      "programId": "s00000026477001",
+      "name": "フリーコンサルタントのための案件紹介サービス【フリーコンサルタント.jp】",
+      "genre": "career フリーコンサルタントのための案件紹介サービス【フリーコンサルタント.jp】",
+      "a8mat": null,
+      "vertical": null,
+      "score": 0.3945000000000001,
+      "status": "pending-vertical",
+      "history": [
+        {
+          "from": null,
+          "to": "candidate",
+          "at": "2026-07-27T03:00:26.771Z"
+        },
+        {
+          "at": "2026-07-27T03:03:44.731Z",
+          "to": "pending-vertical",
+          "note": "scoreAndRank の vertical 未解決バグで candidate 化されていたものを是正（2026-07-27）"
+        }
+      ]
     }
   },
-  "updatedAt": "2026-07-20T03:05:04.653Z"
+  "updatedAt": "2026-07-27T03:03:44.731Z"
 }

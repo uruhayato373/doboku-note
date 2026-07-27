@@ -114,6 +114,72 @@ test("scoreAndRank: blocked/duplicate を分離し score 降順", () => {
   assert.equal(p1.vertical, "civil-career");
 });
 
+// ─── 再発防止: candidate にならなかったものを黙って捨てない ──────────────────
+// 2026-07-27、建設案件の調査で「candidate 0 件 (blocked 0 / dup 0)」＝該当なしに見えたが、
+// 実際は施工管理 2 件・建設 転職 4 件がヒットしており閾値未満で消えていた。
+// 「0 件」と「見つかったが落とした」を区別できないと調査結論そのものを誤る。
+
+test("scoreAndRank: 閾値未満を belowThreshold で返す（黙って捨てない）", () => {
+  const programs = [
+    { programId: "lo", name: "施工管理の小口案件", genre: "転職", rewardType: "fixed", rewardYen: 100, epcYen: 0, confirmRatePct: 0 },
+  ];
+  const r = scoreAndRank(programs, { coverage, existingAds: [], curated });
+  assert.equal(r.candidates.length, 0, "閾値未満なので candidate にはしない");
+  assert.equal(r.blocked.length, 0);
+  assert.equal(r.duplicates.length, 0);
+  assert.equal(r.belowThreshold.length, 1, "どのバケットにも入らず消えてはいけない");
+  assert.equal(r.belowThreshold[0].programId, "lo");
+  assert.equal(r.belowThreshold[0].reason, "below-min-score");
+  assert.ok(typeof r.belowThreshold[0].score === "number", "判断材料として score を持つ");
+});
+
+test("scoreAndRank: 入力は必ずいずれかのバケットに現れる（取りこぼしゼロ）", () => {
+  const programs = [
+    { programId: "a", name: "施工管理の転職", genre: "転職", rewardType: "fixed", rewardYen: 30000, epcYen: 300, confirmRatePct: 80 },
+    { programId: "b", name: "占いの館", genre: "占い", rewardType: "fixed", rewardYen: 9000 },
+    { programId: "c", name: "重複案件", genre: "転職", a8mat: "DUP2", rewardType: "fixed", rewardYen: 5000 },
+    { programId: "d", name: "施工管理の小口", genre: "転職", rewardType: "fixed", rewardYen: 100 },
+    { programId: "e", name: "まったく無関係なサービス", genre: "その他", rewardType: "fixed", rewardYen: 20000 },
+  ];
+  const r = scoreAndRank(programs, { coverage, existingAds: [{ title: "既存", htmlContent: "a8mat=DUP2" }], curated });
+  const seen = new Set(
+    [...r.candidates, ...r.blocked, ...r.duplicates, ...r.belowThreshold, ...r.pendingVertical].map((x) => x.programId),
+  );
+  assert.equal(seen.size, programs.length, "入力 5 件が全てどこかのバケットに現れること");
+});
+
+test("scoreAndRank: vertical 未解決は candidate にせず pendingVertical へ", () => {
+  // 実例: scout が IT フリーランス・薬剤師の案件を建設サイトの candidate として登録していた
+  const programs = [
+    { programId: "it", name: "ITフリーランスエンジニアの案件探し", genre: "その他", rewardType: "fixed", rewardYen: 30000, epcYen: 500, confirmRatePct: 80 },
+  ];
+  const r = scoreAndRank(programs, { coverage, existingAds: [], curated });
+  assert.equal(r.candidates.length, 0, "doboku の 3 軸に写像できないものを候補にしない");
+  assert.equal(r.pendingVertical.length, 1);
+  assert.equal(r.pendingVertical[0].reason, "pending-vertical");
+});
+
+test("isBlocked: 学習スクール系が Red Line（転職一本）をすり抜けない", () => {
+  // 2026-07-27、「需要の高い国家資格に特化した学習スクール【能セン】」が civil-career として
+  // 通過していた。blocklist に 講座/教材/予備校 はあったが スクール が無かった。
+  assert.equal(isBlocked({ name: "需要の高い国家資格に特化した学習スクール【能セン】", genre: "仕事" }, curated), true);
+  assert.equal(isBlocked({ name: "資格スクール◯◯", genre: "学び" }, curated), true);
+  assert.equal(isBlocked({ name: "学習塾◯◯", genre: "学び" }, curated), true);
+});
+
+test("isBlocked: 既存の建設転職パートナーを誤ブロックしない（過剰ブロック防止）", () => {
+  // 「資格取得」を blocklist に足すと GKS を巻き込む。実在名で固定しておく。
+  const partners = [
+    "建設業界特化！未経験から施工管理職へ。手厚いサポートで資格取得も支援【GKSキャリア】",
+    "ビルドジョブ｜建設業界特化の転職エージェントの無料キャリア面談",
+    "日本最大級 施工管理・建設業界の転職サイト「建設JOBs」",
+    "コンサル・DX・スタートアップへ。CxO直結の非公開求人で年収を最大化【Groovement Agent】",
+  ];
+  for (const name of partners) {
+    assert.equal(isBlocked({ name, genre: "仕事" }, curated), false, `誤ブロック: ${name}`);
+  }
+});
+
 test("canTransition: 正当な遷移のみ true", () => {
   assert.equal(canTransition(null, "candidate"), true);
   assert.equal(canTransition("candidate", "applied"), true);

@@ -14,8 +14,16 @@
  * 参照: .claude/knowledge/reference/playwright-auth-profiles.md / .claude/knowledge/reference/a8-affiliate-pipeline.md
  */
 import { chromium } from "playwright";
+import { existsSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+import { dirname, resolve } from "node:path";
 
-const PROFILE_ROOT = "/Users/minamidaisuke/doboku-note";
+// メインチェックアウト固定（worktree 共有）。ただし実在しない環境（Windows 機等）では
+// リポジトリルートへフォールバックする。Mac パス直書きだと別ドライブ配下に空プロファイルを
+// 掘ってしまい、a8-browser 側が見る storageState と食い違う（2026-07-27 に Windows で発覚）。
+const MAC_PROFILE_ROOT = "/Users/minamidaisuke/doboku-note";
+const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "../../../../..");
+const PROFILE_ROOT = existsSync(MAC_PROFILE_ROOT) ? MAC_PROFILE_ROOT : REPO_ROOT;
 const PROFILE_DIR = `${PROFILE_ROOT}/.local/playwright-a8-profile`;
 // ★A8 の認証はセッション Cookie (揮発性) で、永続プロファイルには保存されない。
 //   storageState (セッション Cookie を含む JSON) に捕獲し、a8-browser が起動時に再注入する。
