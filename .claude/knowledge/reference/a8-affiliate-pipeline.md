@@ -97,7 +97,7 @@ A/B 判断が保留になっていた。ここを自動化した。
 
 ```
 npm run a8-ui:fetch      → .claude/state/metrics/affiliate/a8-ui/<runId>/{*.csv, manifest.json}
-   （a8-report-collector が実行。サイト帰属 assert が通らなければ DL しない）
+   （a8-report-collector が実行。口座 assert が通らなければ DL しない）
 npm run a8-ui:normalize  → <runId>/normalized/*.json ＋ SSOT へ upsert
    （a8-csv-auditor が PASS/WARN/FAIL を出してから実行）
 npm run report-buildjob-affiliate → GA4 クリック × A8 成果 の EPC
@@ -117,8 +117,13 @@ npm run report-buildjob-affiliate → GA4 クリック × A8 成果 の EPC
 | `/report/program/detail` | `account-wide` | 不可。`programIdMap` の allowlist で doboku 分を抽出 |
 | `/report/period/{monthly,daily}` | `account-wide` | 不可。トレンド把握のみ（水準は doboku 単独ではない） |
 
-**検算**: allowlist 抽出の合計がサイト別の doboku-note 行を超えたら stats47 混入の疑い
-（`crossCheckAgainstSite`）。2026-07-27 実測はクリック 102/137 で範囲内。
+**検算（両方向）**: `crossCheckAgainstSite` が allowlist 抽出とサイト別 doboku-note 行を突合する。
+- **超過**（picked > site）＝ stats47 混入の疑い
+- **不足**（picked < site）＝ **自社の未登録プログラムが集計から漏れている疑い**。口座横断レポートには
+  stats47 のプログラムが 45 件並ぶので「未写像 = 取りこぼし」とは言えない。取りこぼしの客観シグナルは
+  この不足分だけで、不足があるときのみ `missingProgramCandidates`（既知 stats47 を除外）を出す
+- 2026-07-27 実測: **137/137 の完全一致**（buildjob 56 + dx-consulting 35 + gks 30 + kensetsu-jobs 16）。
+  doboku-note のクリックが 4 プログラムで過不足なく説明でき、混入も取りこぼしも無いことが数値で確認できた
 
 検討して**捨てた**代替案: `/report/material`（素材別）の「素材ID」は `001`/`003`/`999` の 3 桁で、
 `affiliate-mats.json` の a8mat 第4トークン（`TSBE9` 等）とは別物。素材による分離はできない。
@@ -136,8 +141,17 @@ A8 の既定期間＝**年初〜当月の累計**。実際の期間は CSV の�
 ### upsert である理由
 
 A8 は承認確定に伴って**過去月の数値が遡及変化**する（発生 → 確定、確定報酬の増加）。
-append すると同じ月が二重に積まれるため、SSOT は `month` / `date` / `month+programRaw` をキーに
-**最新 fetch で置換**する。確定が「減る」方向の変化は異常として auditor が拾う。
+append すると同じ期間が二重に積まれるため、SSOT は `period+site` / `month` / `date` / `period+programId` を
+キーに **最新 fetch で置換**する。確定が「減る」方向の変化は異常として auditor が拾う。
+
+### 継続運用の装備
+
+| 装備 | 実体 | いつ効くか |
+|---|---|---|
+| cadence surfacer | `npm run check-a8-report-due`（既定30日） | 週次 PDCA（`/weekly-review`）が DUE と `issues[]` を毎週 surface。A8 は API 無し＝cron 化できないので「思い出させる」方式 |
+| 配線ドリフト検知 | `npm run check-a8-wiring`（pre-commit） | `programIdMap` ↔ `affiliate-mats.json` ↔ 消費側の語彙がズレたら commit を止める。**初回実行で dx-consulting の取りこぼしを実検出** |
+| 取りこぼし検知 | `crossCheck.hasShortfall` → `missingProgramCandidates` | 掲載しているのに集計されていない広告を、サイト別との差分で炙り出す |
+| 誤アカウント防止 | 口座 assert（`mediaId`）→ exit 5 | 別口座でログインしていたら 1 バイトも取り込まない |
 
 ### レポート系ファイル
 
@@ -145,8 +159,9 @@ append すると同じ月が二重に積まれるため、SSOT は `month` / `da
   （**汎用部は `scripts/lib/google-console-browser.mjs` を import 再利用**＝launchContext / downloadTo /
   dumpFailure / findUniqueByLabels。コピーはしない）
 - 正規化: `scripts/normalize-a8-csv.mjs`（`a8-ui:normalize`）／コア `scripts/lib/a8-report-csv.mjs`
-- テスト（node:test・10件）: `tests/a8-report-csv.test.mjs`（`npm test` に含まれる）
-- 設定 SoT: `.claude/config/a8-report-automation.json`（URL・ラベル・`columnAliases`・`programIdMap`・`isolationMode`）
+- テスト（node:test・20件）: `tests/a8-report-csv.test.mjs`（`npm test` に含まれる）
+- 継続運用: `scripts/check-a8-report-due.mjs`（surfacer）／`scripts/check-a8-wiring.mjs`（pre-commit ガード）
+- 設定 SoT: `.claude/config/a8-report-automation.json`（URL・ラベル・`columnAliases`・`programIdMap`・`mediaId`・`reports[].siteScope`）
 - SSOT: `.claude/state/metrics/affiliate/a8-report-log.json`
   （`siteSummary`＝doboku 分離済みの真実源 / `programPeriod`＝allowlist 抽出 / `monthly`・`daily`＝口座横断 /
   `crossCheck` / `unmapped` / `notAttributable`）＋ `a8-results.json`（既存スキーマへ rollup・消費側は無変更）
@@ -156,8 +171,8 @@ append すると同じ月が二重に積まれるため、SSOT は `month` / `da
 
 ### つまずきポイント
 
-- **未写像プログラム**: `programIdMap` に無い A8 プログラムは `a8-results.json` へ反映されず
-  `unmapped` に出る。黙って捨てないので、出たら config に追記して再 normalize する。
+- **取りこぼし**: `crossCheck` に不足が出たら、自社の広告なのに `programIdMap` に無いプログラムがある。
+  候補は `missingProgramCandidates` に出るので config に追記して再 normalize する。
   写像キーは**プログラムID**（`s00000024757004`=buildjob / `s00000023057002`=kensetsu-jobs /
   `s00000022176005`=gks）。名前は A8 側で変わるが ID は不変
 - **文字コード**: Shift_JIS（2026-07-27 実測確定）。`decodeCsvBuffer` が U+FFFD を数えて UTF-8 へ自動フォールバック

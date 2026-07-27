@@ -23,7 +23,9 @@ tools: Read, Glob, Grep, Bash
 - `manifest.mediaId` が config の `a8.mediaId` と一致するか（口座 assert）
 - **`siteSummary`（`/report/site` 由来）に targetSite の行が 1 件あるか**＝これだけが分離済みの実績
 - **`crossCheck.exceeded` が true なら FAIL**。allowlist 抽出（programPeriod）の合計がサイト別の
-  doboku-note 行を超えている＝stats47 混入の疑い
+  doboku-note 行を**超えている**＝stats47 混入の疑い
+- **`crossCheck.hasShortfall` が true なら要対応**。allowlist が doboku-note 行に**届いていない**＝
+  自社の未登録プログラムが集計から漏れている疑い（完全一致が理想形）
 - `monthly` / `daily` の行が `accountWide: true` を持っているか（口座横断の事実が消えていないこと）。
   これらを doboku 単独の実績として扱っている箇所があれば指摘する
 - **桁違いの跳ね上がり**（前回 run 比でクリックが一桁増える等）は混入の典型症状 → 要人手判断でフラグ
@@ -42,8 +44,10 @@ tools: Read, Glob, Grep, Bash
 - `normalized/<reportKey>.json` の行数が raw の行数と整合（極端な目減りは列マッピング崩れ）
 - `<reportKey>.rejects.json` の件数と理由の内訳
 - `fatal`（必須列が見つからない）が出ていないか → 出ていれば FAIL（columnAliases の調整が必要）
-- **`a8-report-log.json` の `unmapped`**（programIdMap に無いプログラム）＝ 取りこぼし。
-  1 件でもあれば WARN、収益のある行なら FAIL 相当として扱う
+- **取りこぼしの判定は `crossCheck.hasShortfall`**（サイト別の doboku-note 行を allowlist で説明しきれていない）。
+  口座横断レポートには stats47 のプログラムが 45 件並ぶので、**未写像そのものは取りこぼしではない**。
+  shortfall があるときだけ `missingProgramCandidates`（既知 stats47 を除いた候補）を見て、
+  収益のある候補があれば FAIL 相当。`unmappedCount` は参考値（他サイト分を含む）
 - **`notAttributable`** は異常ではない（対象期間が単月でないため月次 SSOT へ写せなかった行）。
   件数と現在の期間を報告するに留める
 
@@ -56,9 +60,9 @@ tools: Read, Glob, Grep, Bash
 
 ## 判定
 
-- **PASS**: 口座一致・siteSummary に targetSite 行あり・`crossCheck` 範囲内・全レポート downloaded・fatal/unmapped なし・重複なし
+- **PASS**: 口座一致・siteSummary に targetSite 行あり・`crossCheck` が超過も不足も無し・全レポート downloaded・fatal なし・重複なし
 - **WARN**: 取り込んでよいが要フォロー（rejects 少数・encoding 自動切替・レポート一部欠落）
-- **FAIL**: 取り込んではいけない（口座不一致・siteSummary 欠落・`crossCheck.exceeded`・fatal・収益のある unmapped・重複キー）
+- **FAIL**: 取り込んではいけない（口座不一致・siteSummary 欠落・`crossCheck.exceeded`・fatal・収益のある取りこぼし候補・重複キー）
 
 ## 担当外
 
@@ -80,7 +84,7 @@ tools: Read, Glob, Grep, Bash
 
 ## 正規化
 - rejects: N 件（理由内訳）
-- unmapped: N 件（programId / programRaw・収益の有無）
+- 取りこぼし: shortfall の有無／候補 N 件（programId / programRaw・収益の有無）
 - notAttributable: N 件（期間が単月でない＝異常ではない）
 
 ## 時系列

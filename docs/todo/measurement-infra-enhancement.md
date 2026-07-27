@@ -29,10 +29,13 @@ referral 統一の policy+check は完了。**残＝既存 inline リンク 94 �
 15. **送客リダイレクタ（clean URL→302＋UTM）** — `docs/project/03_SNS/02_チャネル動線設計.md:105` の提案が `public/_redirects` で未実装。GA4 outbound click と note UTM を同一 `utm_content` で crosswalk。
 16. ~~**A8 成果/報酬の取り込み** — A8 の承認/報酬を履歴 JSON 化し EPC（報酬÷クリック）を KPI 化。~~
     **実装済み（2026-07-27）** → `/a8-report`（`npm run a8-ui:fetch` → `a8-ui:normalize`）。
-    SSOT=`a8-report-log.json`（monthly/daily/programMonthly）＋ `a8-results.json` へ rollup。
+    SSOT=`a8-report-log.json`（`siteSummary`＝doboku 分離済みの真実源／`programPeriod`／`monthly`・`daily`＝口座横断／`crossCheck`）＋ `a8-results.json` へ rollup（単月 run のみ）。
     A8 は API が無いため Playwright 取得＝**ローカル人間ログイン必須**（CI 供給にはできない例外）。
-    stats47 との口座共用に対し サイト帰属 assert（fail-closed）。真実源 → `a8-affiliate-pipeline.md`。
-    **残**: 初回実走でのセレクタ/分離方式（site-switch か site-column か）の確定。
+    stats47 との口座共用に対し **口座（mediaId）assert＋レポート別 siteScope**（A8 にサイト切替は無い）。
+    継続運用は `check-a8-wiring`（pre-commit）＋ `check-a8-report-due`（月次 surfacer・weekly-review 配線）。
+    真実源 → `a8-affiliate-pipeline.md`。
+    **2026-07-27 実走完了**: 4/4 レポート取得・reject 0・検算 137/137 完全一致。
+    **残**: 期間フォーム操作による月次内訳（backlog「A8 レポートの期間指定」）。
 
 ### サーバ側（GA4 管理画面・ユーザー手作業）
 

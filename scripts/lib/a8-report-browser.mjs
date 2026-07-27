@@ -11,7 +11,8 @@
  *   - restoreA8Session  : storageState の Cookie 再注入（A8 の認証実体）
  *   - isLoggedInA8      : ログイン判定
  *   - waitForHumanLoginA8 : 人間のログインを待つ（何も自動クリックしない）
- *   - assertDobokuSite  : サイト帰属の fail-closed assert（stats47 混入の防止）
+ *   - assertA8Account   : 口座（メディアID）の fail-closed assert（誤アカウント操作の防止）
+ *   - assertTargetSiteRow : サイト別レポートに doboku-note 行があるかの確認
  */
 import { readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";

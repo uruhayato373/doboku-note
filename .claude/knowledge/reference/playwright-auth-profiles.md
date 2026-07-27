@@ -15,6 +15,19 @@ Cookie・localStorage をディレクトリごと保持する。**一度ログ�
 | `playwright-ig-bs-profile` | Instagram（FB Business Suite 経由） | `@dobokunotecom` — `.claude/config/ig-account.json` | `.claude/skills/social/publish-ig-bs/publish-ig-bs.ts` | ✅ 稼働中 |
 | `playwright-note-profile` | note.com | note アカウント | note 投稿系スクリプト | ✅ 稼働中 |
 | `playwright-coconala-profile` | ココナラ | `dobokunote` / users/6197366 — `.claude/config/coconala-account.json` | `coconala-publish` / `coconala-edit` 系 | ✅ 稼働中 |
+| `playwright-a8-profile` ＋ **`playwright-a8-state.json`** | A8.net（メディア管理画面） | メディアID `a25050375786` — `.claude/config/a8-report-automation.json` の `a8.mediaId` | `.claude/skills/ads/scout-asp/scripts/a8-browser.ts`（提携）/ `scripts/fetch-a8-ui-csv.mjs`（成果レポート） | ✅ 稼働中 |
+
+> [!warning] A8 だけは永続プロファイルに認証が残らない
+> A8 の認証は**揮発性セッション Cookie** で、永続プロファイルには保存されない。よって `storageState`
+> （Cookie 入り JSON）を `.local/playwright-a8-state.json` に捕獲し、起動時に `addCookies` で再注入する。
+> これが認証再利用の実体。**`scripts/fetch-a8-ui-csv.mjs` は人間のログイン成功直後に自身で保存する**
+> （`saveA8Session`）ので、成果レポート経路では別途 login スクリプトを走らせる必要はない。
+> なお `scout-asp/scripts/login.mjs` は `PROFILE_ROOT` が Mac 絶対パス固定で **Windows では別の場所を掘る**
+> ため、Windows では使えない（fetch 側の自動保存を使う）。
+>
+> **アカウント assert は「サイト」ではなく「口座（メディアID）」**。A8 の管理画面にサイト切替は無く、
+> ヘッダーの「サイト名」は口座の代表サイト（統計で見る都道府県＝stats47）が常に出るだけ
+> （2026-07-27 実機確定）。doboku-note の分離はレポート単位で行う → `a8-affiliate-pipeline.md`。
 
 - `PROFILE_DIR` は各スクリプトで `path.join(PROJECT_ROOT, ".local/playwright-*-profile")` として定義。
 - アカウントの真実源（SSOT）は上表の各 config JSON。Playwright 側は「マイページ本文にこの名前が含まれるか」で

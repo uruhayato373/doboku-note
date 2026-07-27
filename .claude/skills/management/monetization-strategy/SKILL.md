@@ -37,7 +37,7 @@ doboku-note は土木工学に関するドキュメントサイト（Next.js 16 
 | KPI | 定義 | 分子 ÷ 分母 | 取得元 |
 |---|---|---|---|
 | **RPM**（広告） | 1,000 PV あたり AdSense 収益 | 収益 ÷ PV × 1000 | AdSense（ページ別取り込みは measurement-infra #13＝**未実装**・現状は手動概算） |
-| **EPC**（アフィリ） | 1 クリックあたり報酬 | A8 成果報酬 ÷ アフィリクリック | `a8-results.json`（月次手動）÷ GA4 `affiliate_cta_click` by-label（`fetch-ga4-cta-clicks --by-label`・カスタムディメンション `event_label` 登録済 2026-07-07） |
+| **EPC**（アフィリ） | 1 クリックあたり報酬 | A8 成果報酬 ÷ アフィリクリック | `a8-results.json`（`/a8-report` で自動取込・単月 run のみ反映）÷ GA4 `affiliate_cta_click` by-label（`fetch-ga4-cta-clicks --by-label`・カスタムディメンション `event_label` 登録済 2026-07-07） |
 | **CTA 転換率** | 収益 CTA のクリック率 | CTA クリック ÷ ページ流入 | GA4 `affiliate_cta_click`/`note_cta_click` ÷ `ga4-page`（`report-monetization-coverage`・週次 CI） |
 | **note ファネル効率** | note 送客 → 購入 | 売上件数 ÷ `note_cta_click` | `sales-log.json`（`.claude/knowledge/reference/sales-tracking.md`）÷ GA4（厳密 attribution は measurement-infra #14/#15） |
 

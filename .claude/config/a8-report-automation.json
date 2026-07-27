@@ -67,10 +67,11 @@
     "_columnAliasesNote": "2026-07-27 実測の CSV ヘッダー（画面の説明文つきヘッダーとは別物・CSV はクリーンな短い列名）:\n  site:    サイト,imp数,click数,CTR,発生件数,発生金額,CVR,確定件数,確定金額,確定率,キャンセル件数,キャンセル金額,未確定件数,未確定金額\n  program: プログラムID,プログラム名,imp数,click数,CTR,発生件数,発生金額,CVR,EPC,確定件数,確定金額,確定率,キャンセル件数,キャンセル金額,未確定件数,未確定金額\n**確定金額（EPC の分子）と発生金額を取り違えないこと**。未確定金額は『確定金額』を部分文字列に含むため、mapColumns は完全一致を先に全列で走査してから部分一致に落ちる。CTR/CVR/EPC/確定率 は派生値なので取り込まない（必要なら再計算する）。このキーは columnAliases の外に置く＝中に置くと mapColumns が文字列を配列として舐めて落ちる。",
 
     "programIdMap": {
-      "_note": "**プログラムID 基準**（2026-07-27 実機で確定）。プログラム名は A8 側の都合で変わるが ID は不変。名前でも部分一致で拾えるよう別名も残す。語彙は src/config/affiliate-mats.json / report-buildjob-affiliate.mjs の PROGRAM_BY_LABEL と一致させる。ここに無い ID は a8-results.json へ書かず unmapped として報告する（取りこぼしを黙って捨てない）。",
+      "_note": "**プログラムID 基準**（2026-07-27 実機で確定）。プログラムID↔自社 mat の照合は **a8mat の第2トークン**で行える（実測: programId s00000022413004 の広告リンクは全て `4B5OO5+NTCZ6+…` を吐き、affiliate-mats.json の dx-consulting `4B5OO5+NTCZ6+4SXU+NUES1` と一致。第4トークンは素材種別で複数プログラムに共通するので識別に使えない）。プログラム名は A8 側の都合で変わるが ID は不変。名前でも部分一致で拾えるよう別名も残す。語彙は src/config/affiliate-mats.json / report-buildjob-affiliate.mjs の PROGRAM_BY_LABEL と一致させる。ここに無い ID は a8-results.json へ書かず unmapped として報告する（取りこぼしを黙って捨てない）。",
       "s00000024757004": "buildjob",
       "s00000023057002": "kensetsu-jobs",
       "s00000022176005": "gks",
+      "s00000022413004": "dx-consulting",
       "ビルドジョブ": "buildjob",
       "建設JOBs": "kensetsu-jobs",
       "GKSキャリア": "gks"

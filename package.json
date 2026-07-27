@@ -113,6 +113,8 @@
     "google-console:normalize": "node scripts/normalize-google-console-csv.mjs",
     "a8-ui:fetch": "node scripts/fetch-a8-ui-csv.mjs",
     "a8-ui:normalize": "node scripts/normalize-a8-csv.mjs",
+    "check-a8-wiring": "node scripts/check-a8-wiring.mjs",
+    "check-a8-report-due": "node scripts/check-a8-report-due.mjs",
     "search-growth:report": "node scripts/report-search-growth.mjs",
     "search-growth:audit": "npm run gsc-ui:fetch && npm run google-console:normalize && npm run search-growth:report",
     "check-gsc-ui-due": "node scripts/check-gsc-ui-due.mjs",

@@ -139,6 +139,12 @@ lab が恒常的に悪い理由自体は本物だった。Playwright + `Performa
 - `weekly-review` / `weekly-plan` / `weekly-improve` / `nsm-experiment` の各 SKILL.md の「前提条件 / 条件未達→スキップ」「オフラインフォールバック」記述を、**「コミット済みスナップショットが既定の取得元。ライブ fetch は creds+到達性がある環境のみ任意」** に統一し、本ファイルへポインタを張った。
 - Meta API（旧 IG Graph 投稿経路）も同根で会社 PC 不可だった。IG 投稿は 2026-06-17 に Business Suite（`.claude/skills/social/publish-ig-bs/SKILL.md`・ローカル GUI）へ一本化し、Graph API/Actions cron 経路は全廃。
 
+> [!note] 例外レーン: A8.net は「ローカル実行が正規手順」
+> このルールは **公開 API がある計測（GA4/GSC/PSI）** の話。A8.net は公開 API が無く、
+> `ads/scout-asp`（提携）・`ads/a8-report`（成果レポート）とも **Playwright + 人間ログインのローカル実行が
+> 唯一の正規手順**で、CI 化できない（cron も作らない）。放置防止は `check-a8-report-due` が
+> 週次 PDCA へ surface する方式で担保する。「ローカルで外部を叩くのは常に誤り」と読まないこと。
+
 ### 教訓
 
 1. **「計測データが要る」≠「ローカルで API を叩く」**。本プロジェクトの計測は CI/CD 供給で、エージェントは `.claude/state/metrics/` のスナップショットを読むのが正。

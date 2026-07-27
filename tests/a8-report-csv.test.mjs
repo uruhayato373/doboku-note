@@ -15,6 +15,7 @@ import {
   resolveProgram,
   parsePeriodFromFilename,
   crossCheckAgainstSite,
+  suggestMissingPrograms,
 } from "../scripts/lib/a8-report-csv.mjs";
 
 const cfg = JSON.parse(readFileSync(".claude/config/a8-report-automation.json", "utf-8"));
@@ -147,11 +148,56 @@ test("parsePeriodFromFilename: 期間と単月判定を取り出す", () => {
   const multi = parsePeriodFromFilename("site_202601-202607_20260727105756.csv");
   assert.equal(multi.start, "2026-01");
   assert.equal(multi.end, "2026-07");
+  assert.equal(multi.granularity, "month");
   assert.equal(multi.singleMonth, null, "複数月にまたがる期間は単月ではない");
 
   const single = parsePeriodFromFilename("program_detail_monthly_202607-202607_20260727.csv");
   assert.equal(single.singleMonth, "2026-07");
   assert.equal(parsePeriodFromFilename("なんとか.csv"), null);
+});
+
+test("parsePeriodFromFilename: 日別の 8 桁レンジを 6 桁パターンに食わせない", () => {
+  // 実機の日別ファイル名。6桁を先に見ると "260701-202607" を拾い start が "2607-01" になる
+  //（実走監査で発覚した誤パース）
+  const d = parsePeriodFromFilename("period_daily_20260701-20260727_20260727110000.csv");
+  assert.equal(d.granularity, "day");
+  assert.equal(d.start, "2026-07-01");
+  assert.equal(d.end, "2026-07-27");
+  assert.equal(d.singleMonth, "2026-07", "同一月内の日別レンジは単月として扱える");
+  assert.notEqual(d.start, "2607-01");
+});
+
+test("crossCheckAgainstSite: 不足（説明しきれない doboku 活動）を検出する", () => {
+  const siteRow = { clicks: 137, conversions: 1, grossRevenueYen: 50000, approved: 0, revenueYen: 0 };
+  const short = crossCheckAgainstSite(siteRow, [{ clicks: 56 }, { clicks: 16 }, { clicks: 30 }]);
+  assert.equal(short.hasShortfall, true, "102 < 137 は未登録プログラムの疑い");
+  assert.equal(short.shortfall.clicks, 35);
+
+  const exact = crossCheckAgainstSite(siteRow, [{ clicks: 56 }, { clicks: 16 }, { clicks: 30 }, { clicks: 35 }]);
+  assert.equal(exact.hasShortfall, false, "完全一致なら取りこぼし無し");
+  assert.equal(exact.exceeded, false);
+});
+
+test("suggestMissingPrograms: 既知の他サイト分を候補から除き、実績のある順に返す", () => {
+  const rows = [
+    { programId: "s-mine", programRaw: "自社の新案件", program: null, clicks: 35, grossRevenueYen: 0 },
+    { programId: "s-other", programRaw: "stats47 の案件", program: null, clicks: 900, grossRevenueYen: 0 },
+    { programId: "s-zero", programRaw: "実績ゼロ", program: null, clicks: 0, grossRevenueYen: 0 },
+    { programId: "s-mapped", programRaw: "写像済み", program: "buildjob", clicks: 56 },
+  ];
+  const got = suggestMissingPrograms(rows, { knownOtherSiteIds: ["s-other"] });
+  assert.equal(got.length, 1, "既知他サイト・実績ゼロ・写像済みは候補にしない");
+  assert.equal(got[0].programId, "s-mine");
+});
+
+test("toResultsRecords: 絞り込み前の全行を渡せば未写像を実際に検出する（dead code 化の再発防止）", () => {
+  const rows = [
+    { programId: "s1", programRaw: "写像済み", program: "buildjob", clicks: 10 },
+    { programId: "s2", programRaw: "未写像", program: null, clicks: 5 },
+  ];
+  const { unmapped } = toResultsRecords(rows, { singleMonth: "2026-07" });
+  assert.equal(unmapped.length, 1, "program で事前フィルタして渡すと永久に 0 件になる（実走監査で発覚）");
+  assert.equal(unmapped[0].programId, "s2");
 });
 
 test("upsertBy: 同一キーは最新で置換し、行が増えない（冪等）", () => {

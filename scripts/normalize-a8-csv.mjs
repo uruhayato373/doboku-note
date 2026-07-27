@@ -15,7 +15,7 @@
  *   node scripts/normalize-a8-csv.mjs --run 2026-07-27T01-23-45-678Z
  *   node scripts/normalize-a8-csv.mjs --latest --dry-run   # SSOT を書かずに差分だけ表示
  */
-import { readFileSync, writeFileSync, readdirSync, existsSync, mkdirSync, statSync } from "node:fs";
+import { readFileSync, writeFileSync, readdirSync, existsSync, mkdirSync, statSync, rmSync } from "node:fs";
 import { join } from "node:path";
 
 import {
@@ -25,6 +25,7 @@ import {
   KEY,
   toResultsRecords,
   crossCheckAgainstSite,
+  suggestMissingPrograms,
 } from "./lib/a8-report-csv.mjs";
 
 const STATE_DIR = ".claude/state/metrics/affiliate/a8-ui";
@@ -139,8 +140,12 @@ function main() {
     for (const row of res.rows) row.period = periodRaw;
 
     writeFileSync(join(outDir, `${unit.reportKey}.json`), JSON.stringify({ reportKey: unit.reportKey, encoding: decoded.encoding, headers: res.headers, rows: res.rows }, null, 2), "utf-8");
+    const rejPath = join(outDir, `${unit.reportKey}.rejects.json`);
     if (res.rejects.length > 0) {
-      writeFileSync(join(outDir, `${unit.reportKey}.rejects.json`), JSON.stringify(res.rejects, null, 2), "utf-8");
+      writeFileSync(rejPath, JSON.stringify(res.rejects, null, 2), "utf-8");
+    } else if (existsSync(rejPath)) {
+      // 前回実行の reject が残ると次の監査で「まだ失敗している」と誤検知される（実走監査で指摘）
+      rmSync(rejPath, { force: true });
     }
     totalRejects += res.rejects.length;
 
@@ -155,21 +160,34 @@ function main() {
     console.log(`  ${unit.reportKey}: ${res.rows.length} 行 upsert（reject ${res.rejects.length}）`);
   }
 
-  // 期間（この run が実際に取れた期間。A8 の既定は年初〜当月の累計）
-  const period = (manifest.units || []).map((u) => u.period).find(Boolean) || null;
+  // 期間: 月次 rollup の根拠は **program-detail の期間**（unit 順に依存させない）。
+  // 無ければ site-summary → 任意の順で拾う。
+  const unitPeriod = (key) => (manifest.units || []).find((u) => u.reportKey === key)?.period ?? null;
+  const period = unitPeriod("program-detail") || unitPeriod("site-summary") || (manifest.units || []).map((u) => u.period).find(Boolean) || null;
   log.period = period;
 
-  // ★ 検算: 口座横断から抽出した doboku 分が、サイト別（真実源）の doboku-note 行を超えていないか
+  // ★ 検算: 口座横断から抽出した doboku 分と、サイト別（真実源）の doboku-note 行を突合
   const siteRow = (log.siteSummary || []).find((r) => String(r.site || "").includes(cfg.a8.targetSite));
-  const allowlisted = (log.programPeriod || []).filter((r) => r.program);
+  const allProgramRows = log.programPeriod || [];
+  const allowlisted = allProgramRows.filter((r) => r.program);
   log.crossCheck = crossCheckAgainstSite(siteRow, allowlisted);
 
+  // ★ 取りこぼし検知: 口座横断レポートには stats47 のプログラムも並ぶので「未写像 = 取りこぼし」ではない。
+  //   客観シグナルは **crossCheck の不足分**（サイト別 doboku-note 行を allowlist で説明しきれていない）。
+  //   不足があるときだけ、未写像行から既知 stats47 を除いた候補を出す。
+  const knownOtherSiteIds = Object.keys(cfg.a8._stats47Programs ?? {}).filter((k) => !k.startsWith("_"));
+  log.missingProgramCandidates = log.crossCheck?.hasShortfall
+    ? suggestMissingPrograms(allProgramRows, { knownOtherSiteIds })
+    : [];
+
   // program-detail から a8-results.json（既存スキーマ＝月次）へ rollup。
-  // A8 の既定期間は複数月にまたがるため、単月 run のときだけ月次へ写す。
-  const { records, unmapped, notAttributable } = toResultsRecords(allowlisted, {
+  // **絞り込み前の全行を渡す**（絞ってから渡すと unmapped 判定が構造上発火しない＝実走監査で発覚）。
+  const { records, unmapped, notAttributable } = toResultsRecords(allProgramRows, {
     singleMonth: period?.singleMonth ?? null,
   });
-  log.unmapped = unmapped;
+  // 未写像の生リスト自体は stats47 込みでノイズが大きいので件数だけ持ち、判断材料は candidates に寄せる
+  log.unmappedCount = unmapped.length;
+  log.unmapped = log.missingProgramCandidates;
   log.notAttributable = notAttributable;
   log.updatedAt = new Date().toISOString();
   log.lastRun = manifest.runId;
@@ -212,10 +230,20 @@ function main() {
         `\n  現在の期間: ${period?.raw ?? "不明"}。月次内訳には期間フォーム対応が必要（backlog 参照）。`,
     );
   }
-  if (unmapped.length > 0) {
-    console.warn(`\n[要対応] programIdMap に無いプログラムが ${unmapped.length} 件あります（a8-results.json へ未反映）:`);
-    for (const u of unmapped.slice(0, 10)) console.warn(`  - ${u.programId ?? "-"} "${u.programRaw}"`);
-    console.warn(`  → ${CONFIG_PATH} の a8.programIdMap に追記して再実行してください。`);
+  if (log.crossCheck?.hasShortfall) {
+    const sf = log.crossCheck.shortfall;
+    console.warn(
+      `\n[要対応] サイト別の ${cfg.a8.targetSite} を allowlist で説明しきれていません` +
+        `（不足 click ${sf.clicks ?? "-"} / 確定額 ${sf.revenueYen ?? "-"}）＝未登録プログラムの疑い。候補:`,
+    );
+    for (const c of log.missingProgramCandidates) {
+      console.warn(`  - ${c.programId} "${c.programRaw.slice(0, 40)}" click=${c.clicks} 発生額=${c.grossRevenueYen}`);
+    }
+    console.warn(`  → 自社のものなら ${CONFIG_PATH} の a8.programIdMap に追記して再実行してください。`);
+  } else {
+    console.log(
+      `  取りこぼし: なし（サイト別を allowlist で説明できている。口座横断の未写像 ${unmapped.length} 件は他サイト分）`,
+    );
   }
   if (totalRejects > 0) console.warn(`[要確認] reject 行 ${totalRejects} 件（normalized/*.rejects.json）`);
   if (perReport.some((r) => r.fatal)) process.exitCode = 4;

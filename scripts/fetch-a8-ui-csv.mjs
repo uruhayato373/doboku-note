@@ -74,7 +74,7 @@ function writeLastRunMarker(manifest) {
     lastRun: manifest.runId,
     collectedAt: manifest.collectedAt,
     site: manifest.site,
-    isolationMode: manifest.isolationMode,
+    mediaId: manifest.mediaId,
     downloadedUnits: manifest.units.filter((u) => u.status === "downloaded").length,
     totalUnits: manifest.units.length,
     status: manifest.status,

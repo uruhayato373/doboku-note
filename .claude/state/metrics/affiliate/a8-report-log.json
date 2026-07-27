@@ -3,7 +3,7 @@
   "_comment": "A8 レポート CSV（fetch-a8-ui-csv.mjs）の正規化 SSOT。A8 は確定処理で過去分が遡及変化するため upsert 運用（最新 fetch が正）。手で編集しない。",
   "_siteScopeNote": "siteSummary のみ doboku-note に完全分離された実績（真実源）。monthly / daily / programPeriod は **口座横断**（stats47 込み）で、programPeriod は programIdMap の allowlist で doboku 分だけを抽出したもの。crossCheck が siteSummary との突合結果。",
   "site": "doboku-note",
-  "updatedAt": "2026-07-27T02:07:11.113Z",
+  "updatedAt": "2026-07-27T02:34:17.727Z",
   "lastRun": "2026-07-27T02-05-55Z",
   "period": {
     "raw": "202601-202607",
@@ -1147,7 +1147,7 @@
     {
       "programId": "s00000022413004",
       "programRaw": "コンサル・DX・スタートアップへ。CxO直結の非公開求人で年収を最大化【Groovement Agent】",
-      "program": null,
+      "program": "dx-consulting",
       "accountWide": true,
       "impressions": 18562,
       "clicks": 35,
@@ -1490,11 +1490,16 @@
   "crossCheck": {
     "comparable": true,
     "exceeded": false,
+    "hasShortfall": false,
+    "shortfall": {
+      "clicks": 0,
+      "revenueYen": 0
+    },
     "deltas": {
       "clicks": {
         "site": 137,
-        "picked": 102,
-        "delta": -35
+        "picked": 137,
+        "delta": 0
       },
       "conversions": {
         "site": 1,
@@ -1527,6 +1532,12 @@
       "reason": "対象期間が単月でないため月次 SSOT に写せない（期間フォーム対応が必要）"
     },
     {
+      "program": "dx-consulting",
+      "programRaw": "コンサル・DX・スタートアップへ。CxO直結の非公開求人で年収を最大化【Groovement Agent】",
+      "period": "202601-202607",
+      "reason": "対象期間が単月でないため月次 SSOT に写せない（期間フォーム対応が必要）"
+    },
+    {
       "program": "kensetsu-jobs",
       "programRaw": "日本最大級 施工管理・建設業界の転職サイト「建設JOBs」",
       "period": "202601-202607",
@@ -1538,5 +1549,7 @@
       "period": "202601-202607",
       "reason": "対象期間が単月でないため月次 SSOT に写せない（期間フォーム対応が必要）"
     }
-  ]
+  ],
+  "missingProgramCandidates": [],
+  "unmappedCount": 45
 }

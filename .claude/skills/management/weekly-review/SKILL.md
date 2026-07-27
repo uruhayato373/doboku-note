@@ -60,6 +60,11 @@ description: >
 - GSC UI 取得期限（月次）: `npm run check-gsc-ui-due -- --json` を実行（30日。committed `gsc-ui/last-run.json` 参照・creds不要）。
   `due:true` なら「次セッションで `/google-search-growth`（GSC 理由別 UI CSV → API 突合 → 修正計画）」をサーフェスのみ。
   ※Playwright + Google ログイン必須＝ローカル実行限定。クラウド週次では実行不可なのでサーフェスのみ（真実源 `.claude/knowledge/reference/gsc-management.md`）
+- A8 成果取込期限（月次）: `npm run check-a8-report-due -- --json` を実行（30日。committed `affiliate/a8-ui/last-run.json` 参照・creds不要）。
+  `due:true` なら「次セッションで `/a8-report`（A8 レポート CSV → 正規化 → EPC 分母）」をサーフェスのみ。
+  併せて `issues[]` も surface する＝`unmapped`（掲載中の広告が集計されていない）と `crossCheckExceeded`（stats47 混入の疑い）は
+  期限に関係なく要対応。※Playwright + A8 ログイン必須＝ローカル実行限定。A8 は公開 API 無しでクラウド週次では実行不可
+  （真実源 `.claude/knowledge/reference/a8-affiliate-pipeline.md`）
 - note 再公開ドリフト: `npm run check-note-republish` を実行（公開記事のソース**本文＋ハッシュタグ**が公開時から変更＝要再公開を surface・creds不要・ローカルhash突合）。
   「要再公開(本文drift)」は `note-update-body --commit`、「要再公開(タグdrift)」は `note-sync-tags --commit`（公開済み記事へのタグ差分追加）で次セッションに live 反映をサーフェスのみ（実反映はローカル実機＝クラウド週次では不可）。verify-note-status(公開状態) とは直交。
 - note 構成監査（月次寄り・network依存）: `node scripts/check-note-structure.mjs`（公開API無料本文とソース paidBoundary を突合し FULL_LOCK/PAYWALL_LEAK/BOUNDARY_SHIFT/IMG_MISSING/PRICE_MISMATCH を検出・creds不要）。CRITICAL があれば該当記事の境界を `note-update-body --commit` で再設定するようサーフェスのみ（audit-note-funnel --live と同じ live 隔離枠）。
@@ -72,6 +77,8 @@ description: >
 - 「note 構成監査 CRITICAL（境界破損 N 本）」（`check-note-structure` が CRITICAL のときのみ）
 - 「競合再スキャン DUE」（`check-competitor-scan-due` が due のときのみ）
 - 「GSC UI 取得 DUE（月次）」（`check-gsc-ui-due` が due のときのみ・→ 次セッションで `/google-search-growth`）
+- 「A8 成果取込 DUE（月次）」（`check-a8-report-due` が due のときのみ・→ 次セッションで `/a8-report`）
+- 「A8 集計の取りこぼし / 混入疑い」（`check-a8-report-due` の `issues[]` が空でないとき・due でなくても出す）
 ```
 
 #### Agent C: NSM / パフォーマンス指標 + 実験進捗

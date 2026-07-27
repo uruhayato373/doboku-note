@@ -233,7 +233,36 @@ export function crossCheckAgainstSite(siteRow, allowlistedRows) {
     deltas[f] = { site, picked, delta: site == null ? null : picked - site };
     if (site != null && picked > site) exceeded = true;
   }
-  return { comparable: true, exceeded, deltas };
+  // 不足（site > picked）= allowlist で説明できない doboku の活動＝**未登録プログラムの疑い**。
+  // 口座横断レポートには stats47 のプログラムも並ぶため「未写像 = 取りこぼし」とは言えない。
+  // 取りこぼしの唯一の客観シグナルがこの不足分。
+  const shortfall = {
+    clicks: deltas.clicks.site == null ? null : deltas.clicks.site - deltas.clicks.picked,
+    revenueYen: deltas.revenueYen.site == null ? null : deltas.revenueYen.site - deltas.revenueYen.picked,
+  };
+  const hasShortfall = (shortfall.clicks ?? 0) > 0 || (shortfall.revenueYen ?? 0) > 0;
+  return { comparable: true, exceeded, hasShortfall, shortfall, deltas };
+}
+
+/**
+ * 不足分があるときに「未登録プログラムの候補」を絞り込む。
+ * 口座横断の未写像行から、既知の stats47 プログラム（config の `_stats47Programs`）を除き、
+ * クリックの多い順に返す。不足が無ければ空（stats47 の 45 件を毎回ノイズとして出さない）。
+ */
+export function suggestMissingPrograms(programRows, { knownOtherSiteIds = [], limit = 5 } = {}) {
+  const known = new Set(knownOtherSiteIds);
+  return programRows
+    .filter((r) => !r.program)
+    .filter((r) => !known.has(r.programId))
+    .filter((r) => (r.clicks ?? 0) > 0 || (r.grossRevenueYen ?? 0) > 0)
+    .sort((a, b) => (b.clicks ?? 0) - (a.clicks ?? 0))
+    .slice(0, limit)
+    .map((r) => ({
+      programId: r.programId ?? null,
+      programRaw: r.programRaw,
+      clicks: r.clicks ?? 0,
+      grossRevenueYen: r.grossRevenueYen ?? 0,
+    }));
 }
 
 /**
@@ -261,12 +290,23 @@ export const KEY = {
  * 期間が 1 ヶ月に閉じているときだけ singleMonth に "YYYY-MM" が入る（月次 SSOT へ写せる条件）。
  */
 export function parsePeriodFromFilename(name) {
-  const m = String(name ?? "").match(/(\d{6})-(\d{6})/);
+  const s = String(name ?? "");
+  // 8桁（YYYYMMDD-YYYYMMDD＝日別）を先に見る。6桁パターンで先にマッチさせると
+  // "20260701-20260727" の内側を拾って start="2607-01" になる（実走で発覚）
+  const d = s.match(/(\d{8})-(\d{8})/);
+  if (d) {
+    const fmtD = (v) => `${v.slice(0, 4)}-${v.slice(4, 6)}-${v.slice(6, 8)}`;
+    const start = fmtD(d[1]);
+    const end = fmtD(d[2]);
+    const sameMonth = start.slice(0, 7) === end.slice(0, 7);
+    return { raw: `${d[1]}-${d[2]}`, start, end, granularity: "day", singleMonth: sameMonth ? start.slice(0, 7) : null };
+  }
+  const m = s.match(/(\d{6})-(\d{6})/);
   if (!m) return null;
-  const fmt = (s) => `${s.slice(0, 4)}-${s.slice(4, 6)}`;
-  const start = fmt(m[1]);
-  const end = fmt(m[2]);
-  return { raw: `${m[1]}-${m[2]}`, start, end, singleMonth: start === end ? start : null };
+  const fmtM = (v) => `${v.slice(0, 4)}-${v.slice(4, 6)}`;
+  const start = fmtM(m[1]);
+  const end = fmtM(m[2]);
+  return { raw: `${m[1]}-${m[2]}`, start, end, granularity: "month", singleMonth: start === end ? start : null };
 }
 
 /**
