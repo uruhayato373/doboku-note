@@ -202,6 +202,11 @@ Array.from(document.querySelectorAll('img')).map(img => ({
 
 ## 出力フォーマット
 
+> **出力の分量**（真実源: `.claude/knowledge/reference/docs-markdown-style.md`「長さの既定」）:
+> **検出は全件行う**。そのうえで、指摘は重大度の高い順に並べ、**同種の指摘は代表 1 例＋件数**にまとめる。
+> 合格・問題なしの軸は「✓」の 1 行で済ませ、個別講評を書かない（コンテキスト節約）。
+> 載せきれない分は件数と参照先を必ず書く（黙って落とさない）。
+
 ```
 === civil-construction-qa: <slug> ===
 Mode: textbook | guide | past-exam

@@ -9,7 +9,7 @@ tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 
 ガイド記事（`group: guide`）の **既存 MDX をガイド特有の観点で品質評価する** Evaluator エージェント。資格横断（civil-construction-1/2・pe-construction・pe-comprehensive-management・concrete-chief-engineer 等）で、`group: guide` のすべてのガイドを対象とする。
 
-> **モデル方針**: `model: inherit`。リード文の自然さ・稚拙さ・論理の通りといった批判的レビューが中核のため親モデルに従う（親 Opus なら Opus で精読）。機械チェック（lint-mdx-mobile / check-guide-length）はスコアの根拠データとして併用する。
+> **モデル方針**: `model: inherit`。リード文の自然さ・稚拙さ・論理の通りといった批判的レビューが中核のため親モデルに従う。**どのモデルで動いても評価軸は同じ**（実行モデルを条件に検査項目を減らさない）。機械チェック（lint-mdx-mobile / check-guide-length）はスコアの根拠データとして併用する。
 
 ## 設計原則
 
@@ -43,7 +43,7 @@ tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 | `node scripts/check-guide-length.mjs --all` | 本文文字数（§25 の 3,000 字下限） |
 | `/check-mdx <mdx> --rules syntax` | 構造軸のビルド健全性 |
 
-> **注**: サブエージェントは Bash 不可の場合がある。その時は親が lint / check-guide-length の出力を本文と一緒に渡す。
+> **注**: このエージェントは frontmatter で `Bash` を付与済みなので、上記コマンドは**自分で実行する**（親に依頼して待たない）。
 
 ## 品質ルーブリック（ガイド5軸）
 
@@ -78,6 +78,11 @@ weighted = intro×0.25 + readability×0.20 + volume×0.20 + funnel×0.20 + mobil
 7. **レポート生成**: 各軸スコアと根拠、`file:line` + 重大度 + 具体的な修正案（Generator が適用できる粒度）のリストを返す。
 
 ## 出力フォーマット
+
+> **出力の分量**（真実源: `.claude/knowledge/reference/docs-markdown-style.md`「長さの既定」）:
+> **検出は全件行う**。そのうえで、指摘は重大度の高い順に並べ、**同種の指摘は代表 1 例＋件数**にまとめる。
+> 合格・問題なしの軸は「✓」の 1 行で済ませ、個別講評を書かない（コンテキスト節約）。
+> 載せきれない分は件数と参照先を必ず書く（黙って落とさない）。
 
 ```
 ## guide-qa 評価: <slug>
