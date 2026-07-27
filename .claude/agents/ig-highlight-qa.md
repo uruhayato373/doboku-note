@@ -1,4 +1,4 @@
-﻿---
+---
 name: ig-highlight-qa
 description: Instagram ハイライト (highlights/NN_*) 用 Stories の slide-data.json と生成 PNG を 4 軸ルーブリック (サムネ識別性 / リードコピー力 / ジャンル一貫性 / 余白配分) で品質評価する Evaluator エージェント。
 model: sonnet

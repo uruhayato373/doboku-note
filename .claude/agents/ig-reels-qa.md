@@ -1,4 +1,4 @@
-﻿---
+---
 name: ig-reels-qa
 description: Instagram Reels の script.json と生成 mp4・caption.txt を 5 軸ルーブリックで品質評価する Evaluator エージェント。
 model: sonnet

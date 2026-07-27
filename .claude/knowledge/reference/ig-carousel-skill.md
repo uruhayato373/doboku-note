@@ -1,4 +1,4 @@
-﻿# Instagram カルーセル 運用ガイド
+# Instagram カルーセル 運用ガイド
 
 doboku-note の Instagram カルーセル投稿は次の系統で運用する：
 

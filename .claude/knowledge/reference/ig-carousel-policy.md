@@ -1,4 +1,4 @@
-﻿# Instagram カルーセル品質ポリシー
+# Instagram カルーセル品質ポリシー
 
 技術士・総合技術監理キーワードの Instagram カルーセル（`slide-data.json` v2）を、agent が1本ずつ執筆・採点するための品質基準。`ig-carousel-writer`（Generator）と `ig-carousel-qa`（Evaluator）の両方がこの文書を真実源とする。
 

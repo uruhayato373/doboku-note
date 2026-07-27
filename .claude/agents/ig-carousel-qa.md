@@ -1,4 +1,4 @@
-﻿---
+---
 name: ig-carousel-qa
 description: Instagram カルーセル slide-data.json v2 + PNG のデザイン統一性を含む6軸ルーブリック品質評価を担当する Evaluator エージェント。
 model: sonnet

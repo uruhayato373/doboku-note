@@ -1,4 +1,4 @@
-﻿---
+---
 name: ig-highlight-designer
 description: Instagram ハイライト (highlights/NN_*) 用 Stories の slide-data.json を設計・執筆する Generator エージェント。モダンシック意匠（色面背景 + 大型タイポ + ミニマル幾何アイコン）と data 駆動レイアウトに準拠。
 model: sonnet

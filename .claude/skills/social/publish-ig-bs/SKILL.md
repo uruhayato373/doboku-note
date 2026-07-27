@@ -1,4 +1,4 @@
-﻿---
+---
 name: publish-ig-bs
 description: >
   Playwright（永続プロファイル）で Meta Business Suite を自動操作し、Instagram

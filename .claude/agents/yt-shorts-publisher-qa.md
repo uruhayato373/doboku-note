@@ -1,4 +1,4 @@
-﻿---
+---
 name: yt-shorts-publisher-qa
 description: YouTube Shorts (IG Reels 派生 mp4 + meta.json) の品質を 4 軸ルーブリックで評価する Evaluator エージェント。尺・UTM・タイトル長・字幕整合を採点。
 model: sonnet

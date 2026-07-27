@@ -1,4 +1,4 @@
-﻿---
+---
 name: ig-carousel-restyle
 description: 新意匠/tokens 更新後に Instagram 過去問パック PNG を 3 フォーマット (Carousel/Reels/Stories) へ**既存パックの一括再生成**をするスキル。--pack/--year/--all で範囲指定。内部で bulk-generate-exam-packs.mjs + build-stories.mjs を呼び出し、生成後にトークン整合性を簡易検証する。使い分け＝新規パック生成は ig-post-create、site figure SVG 変換は ig-figure-pack。
 allowed-tools: Bash, Read

@@ -1,4 +1,4 @@
-﻿---
+---
 name: ig-reels-writer
 description: Instagram Reels の読み上げ台本（reels/script.json）・キャプション・ハッシュタグを 1 パックずつ執筆する Generator エージェント。
 model: sonnet
