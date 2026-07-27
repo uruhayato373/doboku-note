@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "_note": "3 ASP（A8 / もしも / afb）の**提携運用**レイヤの接続設定。2026-07-27 の実機調査で確定した値のみを書く（推測値を置かない）。A8 の**成果取込**は別ファイル `.claude/config/a8-report-automation.json`（schemaVersion 2）が担当し、こちらとは役割が違う。運用 SSOT → .claude/knowledge/reference/affiliate-operations.md",
+
+  "_siteAttributionNote": "**3 ASP すべてで doboku-note と stats47（統計で見る都道府県）が同一口座に同居し、既定では stats47 側が選択されている**。切り替えずに読むと他サイトのデータを自分のものと誤認する。実際に afb の走査で SID 不一致を警告して続行し、stats47 の一覧を「建設系 0 件」と誤報告した事故が起きた。判定は scripts/lib/asp-site-guard.mjs に集約し、不一致は例外で落とす（警告して続行できないようにする）。",
+
+  "targetSiteName": "doboku-note",
+  "forbiddenSiteText": ["統計で見る都道府県", "stats47"],
+
+  "asps": {
+    "a8": {
+      "label": "A8.net",
+      "baseUrl": "https://media-console.a8.net",
+      "homePath": "/home",
+      "reAuthPattern": "re-authentication|/login",
+      "siteSeparation": "none",
+      "_siteSeparationNote": "**管理画面にサイト切替が存在しない**。ヘッダーの「サイト名」は口座の代表サイト（stats47）が常に出るだけ。assert 対象は口座（mediaId）で、doboku-note の分離はレポート単位（a8-report-automation.json の reports[].siteScope）で行う。",
+      "accountId": "a25050375786",
+      "accountIdPattern": "(a\\d{11})",
+      "partneredPath": "/program/list/partnered",
+      "applyingPath": "/program/list/applying",
+      "browser": {
+        "profileDir": ".local/playwright-a8-profile",
+        "stateFile": ".local/playwright-a8-state.json",
+        "debugDir": ".local/playwright-a8-debug",
+        "channel": "chrome",
+        "headless": false,
+        "sessionPersistsAcrossProcesses": true,
+        "timeoutMs": 30000,
+        "loginMaxWaitMs": 900000
+      }
+    },
+
+    "moshimo": {
+      "label": "もしもアフィリエイト",
+      "baseUrl": "https://af.moshimo.com",
+      "homePath": "/af/shop/index",
+      "reAuthPattern": "/login|signin",
+      "siteSeparation": "url-param",
+      "siteParam": "shop_site_id",
+      "sites": { "doboku-note": "672381", "stats47": "638943" },
+      "reportPath": "/af/shop/report/kpi/site",
+      "partneredPath": "/af/shop/promotion/search?apply_status=2",
+      "applyingPath": "/af/shop/promotion/search?apply_status=1",
+      "searchPath": "/af/shop/promotion/search",
+      "searchParam": "words",
+      "_searchParamNote": "**`keyword=` は無視され全件（790 件）が返る**。正しくは `words=`。これに気づかず「建設案件なし」と誤読しかけた。",
+      "applyButtonLabel": "提携申請する",
+      "bulkApplyLabel": "一括提携申請へ",
+      "_applyNote": "申請ページに **サイト select**（「メディアを選択 / 統計で見る都道府県 / doboku-note」）があり、選択せずに押すと stats47 側で提携する。さらに同一ページに「一括提携申請へ」があり、ボタン候補を部分一致で拾うと**複数案件を一度に申請**してしまう。exact 一致＋「一括」除外が必須。",
+      "statusScopeAnchor": "プロモーション詳細",
+      "_statusNote": "状態（未申請/申請中/提携中）はナビにも同じ語が出るため、本文（statusScopeAnchor 以降）の**単独行**で判定する。全文検索すると「提携中プロモーション」リンクに誤ヒットして申請を取りこぼす。",
+      "browser": {
+        "profileDir": ".local/playwright-moshimo-profile",
+        "stateFile": ".local/playwright-moshimo-state.json",
+        "debugDir": ".local/playwright-moshimo-debug",
+        "channel": "chrome",
+        "headless": false,
+        "sessionPersistsAcrossProcesses": true,
+        "timeoutMs": 30000,
+        "loginMaxWaitMs": 900000
+      }
+    },
+
+    "afb": {
+      "label": "afb（アフィリエイトB）",
+      "baseUrl": "https://www.afi-b.com",
+      "homePath": "/pa/",
+      "reAuthPattern": "requiredlogin|/login",
+      "siteSeparation": "chosen-widget",
+      "sites": { "doboku-note": "984453", "stats47": "959426" },
+      "siteIdPattern": "【SID】\\s*(\\d+)",
+      "siteSelectName": "partner_site_id",
+      "chosenContainer": "#top_site_select_chzn, .chzn-container",
+      "chosenOption": ".chzn-drop li",
+      "_siteSwitchNote": "**Chosen.js のウィジェット。URL パラメータ（sid= / site_id=）も、非表示 select に JS で値を入れて change を発火する方法も効かない**。`.chzn-container` をクリック →ドロップダウン項目をクリック、という実 UI 操作だけが有効。既定は stats47 なので切替必須。",
+      "readyMarker": "#top_site_select",
+      "_readyNote": "ログイン判定を可視テキストの部分一致でやると**読み込み途中のページを通してしまう**（実際に誤検知して以降の処理が全て空振りした）。管理画面固有の DOM（この selector）の実在を条件にする。",
+      "unpartneredPath": "/pa/promolist/?rel=non",
+      "partneredPath": "/pa/promolist/?rel=rel",
+      "applyingPath": "/pa/promolist/?rel=1",
+      "searchPath": "/pa/promolist/search/",
+      "searchParam": "pm_search",
+      "searchSubmitSelector": "input[name='search_x']",
+      "_searchNote": "送信は `<button>` ではなく **`input[name=search_x]`**（role=button で探すと見つからない）。genre[] チェックボックスは検索パネルが折りたたまれていると DOM に出ない（`submit_semi_open_form` が展開状態のヒント）。",
+      "listItemPattern": "^【PID:(\\d+)】\\s*(.*)$",
+      "_listNote": "一覧は 【PID:N】カテゴリ / 企業名 / プロモーション名 / 報酬 の 4 行ブロック。行単位の grep では取りこぼす。1 ページ 50 件・新着順なので**建設系は深いページにある**（1 ページ目だけ見て「無い」と判断しない）。",
+      "paginationMode": "click",
+      "_paginationNote": "ページャ URL は `/pa/promolist?%2Fpa%2Fpromolist%2F=&rel=non&p=N` という特殊形で、**URL を組み立てて直接叩くと一覧が出ない**（POST 状態依存の疑い）。ページ内の実リンクをクリックして辿る。表示は「1 2 3 【最後】」で『次へ』が無いため、各ページで新たに現れる番号リンクを踏む。",
+      "browser": {
+        "profileDir": ".local/playwright-afb-profile",
+        "stateFile": ".local/playwright-afb-state.json",
+        "debugDir": ".local/playwright-afb-debug",
+        "channel": "chrome",
+        "headless": false,
+        "_headlessNote": "**headless: true だと requiredlogin へ飛ばされる**（headless 検知の疑い）。常に headed。",
+        "sessionPersistsAcrossProcesses": false,
+        "_sessionNote": "storageState を保存しても**別プロセスでは復元できない**。ログインから作業完了までを 1 プロセス内で完結させる。",
+        "timeoutMs": 30000,
+        "loginMaxWaitMs": 600000
+      }
+    }
+  }
+}
