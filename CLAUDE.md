@@ -134,7 +134,7 @@ npm run search-growth:report   # GSC UI 正規化 ∪ API データを URL 突�
 
 - **作業開始前に `git branch --show-current` でブランチ確認**。指示と異なれば作業を止めてユーザーに報告する（勝手に `git checkout` しない）
 - **同時に origin との遅れ（behind）を確認**: `git fetch -q && git log --oneline main..origin/main | head`。複数セッション・worktree 常態 + CI が deploy で main に自動マージするため、ローカルが数十コミット遅れるのは高頻度（2026-06-11、43 コミット遅れの古いツリーで作業し既存作業を重複・劣化させた事故）。遅れていれば同期してから着手し、**古いベース上のコミットを push しない**（破壊的な reset/同期はユーザー確認後、独自コミットは退避ブランチで保全）。SessionStart フック `scripts/check-git-sync.mjs` が開幕で自動警告する
-- 解釈が複数あれば、黙って選ばず候補を提示してユーザーに選ばせる
+- **確認を挟むのは、解釈の違いで成果物が大きく変わるときだけ**（そのときは候補を提示してユーザーに選ばせる）。それ以外の細かい判断は自分で決めて最後まで進める。依頼に誤りがありそう・もっと良い方法があるときは一言だけ指摘してから、依頼どおりに実行する（勝手に範囲を狭めない・広げない・別のものに変えない）
 
 ### 2. シンプルさを最優先する
 
@@ -168,11 +168,15 @@ npm run search-growth:report   # GSC UI 正規化 ∪ API データを URL 突�
 - **サブエージェント**: `model: sonnet` 既定。Opus は親エージェントのみ（詳細 → [agents-registry.md](.claude/knowledge/reference/agents-registry.md)）
 - **worktree 原則禁止**。2エージェント同時実行・30分以上の条件を両方満たすときのみ例外（詳細 → [workflows.md](.claude/knowledge/reference/workflows.md)）
 - ルーティング・リトライ・ステータスコード処理など、コードで決定できるものはサブエージェントに委ねない
+- **委任基準**: サブエージェントに任せるのは「大きく・独立・並列化できる」作業のみ（例: 複数ファイル横断の調査）。数回のツールコールで終わる作業は委任しない。**自分のインライン作業を検証させるためだけのサブエージェント起動はしない**（モデルは自律検証するので二重になる）。※商品品質の Generator/Evaluator 分離パイプライン（`*-writer` ↔ `*-qa`）は自己評価バイアスを構造で断つ設計なので別物・維持
 
 ### 6. トークン予算を守る
 
 - 長時間作業の区切りに `/compact` を提案
 - セッション引き継ぎは `docs/handoffs/YYYY-MM-DD-{context}.md`
+- **応答は簡潔に**: 前置き・但し書きは最小限にして、答えそのものに文字数を使う。説明を求められたときは要点サマリを既定とし、深掘りは明示的に求められたときだけ
+- **実況の頻度**: 着手前に一文で何をするか宣言 → 作業中の報告は重要な発見・方針転換のときだけ → 完了時は結論（何をしたか／何が分かったか）から書き、詳細はその後
+- **書き出すドキュメント**（handoff・レポート・週次・`.md` 成果物）は必要な長さに収める。中身は省かなくてよいが、埋めるための章・同内容の要約の反復・定型の前置きで水増ししない（`/doc-declutter` で後から削る前に、書く時点で太らせない）
 
 ### 7. 矛盾するパターンを混ぜない
 
@@ -195,6 +199,7 @@ npm run search-growth:report   # GSC UI 正規化 ∪ API データを URL 突�
 
 - **なぜ `curl` でチェックするか**: Lighthouse スコアは SSR 破壊を捕捉できない（[measurement-incidents.md](.claude/knowledge/reference/measurement-incidents.md) 2026-W16 BAILOUT）。`<main>` タグと主要キーワードの存在確認が最短の意図検証
 - **なぜ `writeMdxFile` 経由か**: 直接 `writeFileSync` は CRLF 混在を引き起こし pre-commit で reject される。検証ステップを省略するときは「なぜその検証が必要か」を自問してから判断する
+- **汎用の検証指示を足さない**: 「必ず最後に検証ステップを入れる」「ダブルチェックしてから答える」「サブエージェントで検証させる」といった**汎用**の指示は、モデル自身の自律検証と重複して過剰検証になる（トークンだけ増えて品質は上がらない）。**書いてよい検証は決定的ゲートだけ**＝実行するコマンドと合格条件が特定できるもの（`curl` で `<main>`、`npm run refresh-indexes`、lint 9-11、`U+FFFD` 走査、`check-*` スクリプト）。スキル・エージェントを書くときも同じ
 
 ### 10. 重要なステップごとにチェックポイントを置く
 
@@ -215,3 +220,9 @@ npm run search-growth:report   # GSC UI 正規化 ∪ API データを URL 突�
 - 未検証の部分やスキップした処理がある場合は「完了」と言わずに明示する
 - **deploy 後**: 500 の場合は Cloudflare API token 期限切れを仮説1番に確認（GitHub Secrets で再発行）。着手前にも token の有効期限を確認する
 - 計測データに異常がある場合は [measurement-incidents.md](.claude/knowledge/reference/measurement-incidents.md) を先に確認してから結論を出す
+
+---
+
+<tone_preference>
+出力は簡潔に。実況は重要な発見・方針転換のときだけ。書き出すドキュメントは水増ししない。
+</tone_preference>
