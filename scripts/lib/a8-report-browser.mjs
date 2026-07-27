@@ -92,6 +92,21 @@ export async function restoreA8Session(context, cfg) {
   }
 }
 
+/**
+ * 現在のセッション Cookie を storageState として保存する（次回以降の再利用の実体）。
+ * A8 のセッション Cookie は永続プロファイルに残らないため、人間のログイン直後にこれを呼ぶ。
+ * scout-asp の login.mjs と同じファイルを共有する（あちらは Mac パス固定なのでこちらが portable 版）。
+ */
+export async function saveA8Session(context, cfg) {
+  const statePath = join(checkoutRoot(cfg), cfg.browser.stateFile);
+  try {
+    await context.storageState({ path: statePath });
+    return { ok: true, statePath };
+  } catch (e) {
+    return { ok: false, statePath, reason: String(e.message).slice(0, 120) };
+  }
+}
+
 /** 再認証/ログインへ飛ばされておらず、media-console 上でパスワード欄が無ければログイン済み。 */
 export async function isLoggedInA8(page, cfg) {
   const url = page.url();
@@ -132,52 +147,28 @@ export async function readVisibleSiteContext(page) {
 }
 
 /**
- * サイト帰属の assert（本機能の安全弁の核）。
- * doboku-note が可視 かつ 禁止テキスト（stats47 系）が不可視 のときだけ ok:true。
- * 判定できない場合は ok:false を返し、呼び出し側は **ダウンロードしない**。
+ * 口座（メディアID）の assert — 誤アカウント操作の防止。
+ *
+ * ★A8 の管理画面に**サイト切替は無い**（2026-07-27 実機確認）。ヘッダーの「サイト名」は口座の
+ * 代表サイト（stats47）が常に出るだけなので、ここで doboku-note を探しても永久に見つからない。
+ * よってログイン直後に検証すべきは「正しい口座か」＝ mediaId。doboku-note の分離は
+ * レポート単位（siteScope）で行う。
  */
-export async function assertDobokuSite(page, cfg) {
+export async function assertA8Account(page, cfg) {
   const text = await readVisibleSiteContext(page);
-  const target = cfg.a8.targetSite;
-  const forbidden = (cfg.a8.forbiddenSiteText || []).filter((f) => text.includes(f));
-  const hasTarget = text.includes(target);
-  if (hasTarget && forbidden.length === 0) return { ok: true, target, forbidden: [] };
-  return {
-    ok: false,
-    target,
-    forbidden,
-    hasTarget,
-    reason: !hasTarget
-      ? `画面に "${target}" が見当たらない`
-      : `禁止サイト文字列を検出: ${forbidden.join(", ")}`,
-  };
+  const mediaId = cfg.a8.mediaId;
+  if (!mediaId) return { ok: false, reason: "config に a8.mediaId が無い" };
+  if (text.includes(mediaId)) return { ok: true, mediaId };
+  return { ok: false, mediaId, reason: `画面にメディアID "${mediaId}" が見当たらない（別口座でログインしている可能性）` };
 }
 
 /**
- * サイトスイッチャで doboku-note を選ぶ（select / ボタン両対応・best-effort）。
- * 切替できたかどうかは呼び出し側が assertDobokuSite で検証する（ここでは成否を返すだけ）。
+ * サイト別レポートに targetSite の行があるか（site-rows レポート専用の帰属確認）。
+ * 無ければ「doboku-note の実績を取れていない」ので、呼び出し側は取り込みを中止する。
  */
-export async function switchToDobokuSite(page, cfg) {
+export async function assertTargetSiteRow(page, cfg) {
+  const text = await readVisibleSiteContext(page);
   const target = cfg.a8.targetSite;
-  // 1) <select> 形式
-  const selects = page.locator("select");
-  const n = await selects.count().catch(() => 0);
-  for (let i = 0; i < n; i++) {
-    const sel = selects.nth(i);
-    const opts = await sel.locator("option").allTextContents().catch(() => []);
-    if (opts.some((o) => o.includes(target))) {
-      const label = opts.find((o) => o.includes(target));
-      await sel.selectOption({ label }).catch(() => {});
-      await page.waitForTimeout(1500);
-      return { attempted: true, via: "select" };
-    }
-  }
-  // 2) リンク/ボタン形式（一意なときだけ押す）
-  const { locator } = await findUniqueByLabels(page, [target], { roles: ["button", "link", "option"] });
-  if (locator) {
-    await locator.click().catch(() => {});
-    await page.waitForTimeout(1500);
-    return { attempted: true, via: "click" };
-  }
-  return { attempted: false, via: null };
+  if (text.includes(target)) return { ok: true, target };
+  return { ok: false, target, reason: `サイト別レポートに "${target}" の行が見当たらない` };
 }

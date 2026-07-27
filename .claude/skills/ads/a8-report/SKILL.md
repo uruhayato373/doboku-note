@@ -3,12 +3,12 @@ name: a8-report
 description: >
   A8.net のレポート CSV を Playwright で取得し、doboku-note 分だけを正規化して SSOT
   （a8-report-log.json / a8-results.json）へ upsert する成果データパイプライン。
-  期間別（月別）・期間別（日別）・プログラム別（詳細）の 3 レポートを扱い、EPC 判定の分母を自動供給する。
-  この A8 口座は stats47（統計で見る都道府県）と共用のため、サイト帰属 assert が通らなければ取り込まない。
+  サイト別・プログラム別（詳細）・期間別（月別/日別）の 4 レポートを扱い、EPC 判定の分母を自動供給する。
+  この A8 口座は stats47（統計で見る都道府県）と共用。**サイト切替は存在せず**、分離できるのはサイト別レポートのみ。
   Use when user says "A8レポート", "アフィリ成果を取り込む", "A8のCSVを取得", "EPCを更新", "a8-report".
   **初回 or UI 変更後は必ず `--dry-run --probe-isolation` で分離方式とセレクタを確定すること**.
 disable-model-invocation: true
-argument-hint: "[--reports all|period-monthly,period-daily,program-detail] [--dry-run] [--probe-isolation] [--headed]"
+argument-hint: "[--reports all|site-summary,program-detail,period-monthly,period-daily] [--dry-run] [--probe-isolation] [--headed]"
 ---
 
 A8.net メディア管理画面（media-console.a8.net）のレポートを CSV でダウンロードし、
@@ -30,7 +30,8 @@ A8 は公開 API が無く、成果は長らく月 1 の手入力前提だった
 
 | 弁 | 実体 |
 |---|---|
-| サイト帰属 | doboku-note を assert できなければ **1 バイトも DL しない**（exit 5）。stats47 混入は事後に切り分け不能 |
+| 口座 assert | メディアID が一致しなければ **1 バイトも DL しない**（exit 5）。A8 にサイト切替は無いので、ここで見るのは口座 |
+| サイト分離 | 分離できるのは `/report/site` のみ。他は口座横断で allowlist 抽出＋サイト別との検算 |
 | ログイン | 人間。CAPTCHA/2FA を自動突破しない |
 | セレクタ | 候補が 0/複数なら推測クリックせず debug dump して停止 |
 | 取りこぼし | programIdMap 未登録のプログラムは黙って捨てず `unmapped` に出す |
@@ -41,7 +42,7 @@ A8 は公開 API が無く、成果は長らく月 1 の手入力前提だった
 ### 1. preflight
 
 - `git branch --show-current` / `git status`
-- `.claude/config/a8-report-automation.json` の `targetSite` / `isolationMode` を Read
+- `.claude/config/a8-report-automation.json` の `mediaId` / `targetSite` / `reports[].siteScope` を Read
 - 前回実行: `.claude/state/metrics/affiliate/a8-ui/last-run.json`
 
 ### 2. collect（`a8-report-collector` エージェント）
@@ -50,17 +51,14 @@ A8 は公開 API が無く、成果は長らく月 1 の手入力前提だった
 npm run a8-ui:fetch -- --dry-run
 ```
 
-初回 / UI 変更後は分離方式も確かめる:
+初回 / UI 変更後は siteScope 宣言と実機の整合も確かめる:
 
 ```bash
 npm run a8-ui:fetch -- --dry-run --probe-isolation
 ```
 
-dry-run が `not-signed-in` なら人間がログイン:
-
-```bash
-npx tsx .claude/skills/ads/scout-asp/scripts/login.mjs
-```
+dry-run が `not-signed-in` なら、開いたブラウザで人間がログインする（スクリプトが待って storageState を保存するので、
+次回以降は不要。`scout-asp/login.mjs` は Mac パス固定なのでこの経路では使わない）。
 
 問題なければ本取得:
 
@@ -70,8 +68,8 @@ npm run a8-ui:fetch
 
 ### 3. validate（`a8-csv-auditor` エージェント）
 
-manifest / raw CSV / rejects / 前回差分 / **サイト帰属** を PASS/WARN/FAIL で判定。
-FAIL なら normalize へ進まない。
+manifest / raw CSV / rejects / 前回差分 / **サイト帰属（`crossCheck` の超過＝stats47 混入の疑い）** を
+PASS/WARN/FAIL で判定。FAIL なら normalize へ進まない。
 
 ### 4. normalize + rollup（決定的）
 
@@ -80,8 +78,10 @@ npm run a8-ui:normalize -- --latest --dry-run   # 差分だけ見る
 npm run a8-ui:normalize -- --latest             # SSOT へ書く
 ```
 
-- `.claude/state/metrics/affiliate/a8-report-log.json` — monthly / daily / programMonthly を upsert
-- `.claude/state/metrics/affiliate/a8-results.json` — 既存スキーマの records へ rollup
+- `.claude/state/metrics/affiliate/a8-report-log.json` — `siteSummary`（doboku 分離済み＝真実源）/
+  `programPeriod`（allowlist 抽出）/ `monthly`・`daily`（**口座横断**）/ `crossCheck` を upsert
+- `.claude/state/metrics/affiliate/a8-results.json` — 既存スキーマの records へ rollup。
+  **単月 run のときだけ**（A8 の既定期間は年初〜当月の累計なので、通常は `notAttributable` に退避される）
 
 `unmapped` が出たら config の `a8.programIdMap` に追記して再実行する（黙って無視しない）。
 
@@ -103,8 +103,9 @@ npm run report-buildjob-affiliate
 
 | 症状 | 対処 |
 |---|---|
-| `site-mismatch` | debug の `visible-text.txt` を見て config の `siteSwitcherLabels` を調整。サイト切替が効かないなら `isolationMode: "site-column"` へ |
-| `export-button-ambiguous` | `exportButtonLabels` を実機の文言に絞る（候補を減らす） |
+| `account-mismatch` | 別口座でログインしている。config の `a8.mediaId` と実機ヘッダーのメディアIDを照合 |
+| `site-mismatch` | サイト別レポートに doboku-note 行が無い。A8 側のサイト登録状態を確認 |
+| `export-button-ambiguous` | `exportButtonLabels` は `["CSV"]` の 1 語だけにする（増やすと同一ボタンに複数ヒットして曖昧になる） |
 | `report-unreachable` | `reports.*.path` の URL が変わった。実機の URL を config へ |
 | 文字化け | `csvEncoding` を切替（normalize は U+FFFD を数えて自動フォールバックもする） |
 | `fatal: 必須列が見つからない` | `columnAliases` に実機のヘッダー文言を追記 |

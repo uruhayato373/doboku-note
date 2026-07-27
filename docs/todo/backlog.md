@@ -402,6 +402,17 @@ PR #269（カタログ）/#270（SNSレンダラー）済。残 = Phase4 記事�
 
 ## 🟢 低 — 時期未定
 
+### A8 レポートの期間指定（月次内訳の自動化）
+タグ: [インフラ・計測]
+
+`/a8-report` は実装・実走済みだが、**A8 は期間を URL クエリで制御できない**（`start_date`/`end_date` は無視される＝2026-07-27 実測）。
+現状は A8 の既定期間（年初〜当月の累計）しか取れず、`a8-results.json`（月次キー）へは書けていない（`notAttributable` に退避）。
+
+- 画面の期間フォーム（`input name=start` / `end`・月レンジと日レンジの 2 組）を操作して月を切り替える
+- 月ごとに fetch → `parsePeriodFromFilename` の `singleMonth` が埋まり、月次 rollup が自動で通る設計は実装済み
+- 対象は `site-summary`（doboku 分離済みの月次実績）と `program-detail`（プログラム別の月次内訳）
+- これが入ると `report-buildjob-affiliate` の EPC が月次で出せる＝ビルドジョブ vs 建設JOBs の A/B 判断（〜2026-09）に直結
+
 ### 画像系 pre-render ワークアラウンドの再検証（Opus 5 vision）
 タグ: [インフラ・計測]
 

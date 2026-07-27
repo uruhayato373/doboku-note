@@ -1,69 +1,87 @@
 {
-  "schemaVersion": 1,
-  "_note": "A8.net メディア管理画面（media-console.a8.net）のレポート CSV 取得設定。google-console-automation.json と対称。DOM ラベルは新管理画面の実機で確定させる前提の候補配列（ja/en 併記）。ラベルが外れたら .local/playwright-a8-debug/<runId>/ の visible-text.txt を見てここを直す（スクリプトは変更しない）。",
+  "schemaVersion": 2,
+  "_note": "A8.net メディア管理画面（media-console.a8.net）のレポート CSV 取得設定。schemaVersion 2 = 2026-07-27 の実機調査で確定した値に置換（推測値ではない）。ラベルが外れたら .local/playwright-a8-debug/<runId>/visible-text.txt を見てここを直す（スクリプトは変更しない）。",
   "a8": {
     "baseUrl": "https://media-console.a8.net",
     "homePath": "/home",
     "reAuthPattern": "re-authentication|/login",
 
     "targetSite": "doboku-note",
-    "_targetSiteNote": "この A8 口座は複数サイト登録（stats47=統計で見る都道府県 / doboku-note）。レポートは doboku-note のみを取り込む。scout-asp の apply と同じ fail-closed 思想。",
-    "forbiddenSiteText": ["統計で見る都道府県", "stats47"],
-    "siteSwitcherLabels": ["サイト名", "サイト切替", "メディアID", "Site"],
+    "mediaId": "a25050375786",
+    "_accountNote": "2026-07-27 実機確認: A8 の管理画面に **サイト切替は存在しない**。メディアID=口座で、ヘッダーの「サイト名」は口座の代表サイト（統計で見る都道府県）が常に表示されるだけ。したがって assert すべきは『正しい口座か』（mediaId）であり、doboku-note の分離はレポート単位で行う。",
 
-    "isolationMode": "site-switch",
-    "_isolationModeNote": "site-switch = サイト切替でレポート全体が doboku-note スコープになる（既定・要実機確認）。site-column = レポートが口座横断でサイト列を持つため行フィルタで分離する。A8 のプログラム一覧は webSiteId フィルタが効かない先例あり（a8-browser.ts L371）。初回 --dry-run --probe-isolation で確定してここを更新する。",
-    "siteColumnHeaders": ["サイト", "サイト名", "メディアサイト"],
+    "_isolationNote": "レポートごとに siteScope が異なる（2026-07-27 実機確認）:\n  site-rows    = サイト列があり targetSite の行だけ採れば **完全に分離できる**（/report/site のみ）。doboku-note 実績の真実源。\n  account-wide = 口座横断でサイト分離不能（program/detail・period/*）。programIdMap の allowlist で doboku 分を抽出し、site-rows と突合して混入を検算する（allowlist 合計が doboku-note 行を超えたら混入の疑い）。\n代替案の検討結果: /report/program/detail は category フィルタのみでサイト列なし。/report/material の「素材ID」は 001/003/999 の3桁で a8mat の第4トークン（TSBE9 等）とは別物のため素材による分離も不可。",
+
+    "_periodNote": "**期間は URL クエリでは制御できない**（start_date/end_date を付けても無視され既定期間が返る＝2026-07-27 実測）。画面のフォーム（input name=start / end・月レンジと日レンジの2組）を操作する必要がある。現状の取得は A8 の既定期間（年初〜当月の累計）。実際の期間は CSV のファイル名に入る（例 site_202601-202607_20260727105756.csv）ので manifest に記録する。月次分解は docs/todo/backlog.md の後続タスク。",
 
     "reports": {
-      "period-monthly": {
-        "label": "期間別（月別）",
-        "menuLabels": ["期間別（月別）", "期間別(月別)", "Monthly"],
-        "path": "/report/period/monthly",
-        "rangeMonths": 12,
-        "_note": "月次トレンドと a8-results.json の月次 rollup の突合に使う"
-      },
-      "period-daily": {
-        "label": "期間別（日別）",
-        "menuLabels": ["期間別（日別）", "期間別(日別)", "Daily"],
-        "path": "/report/period/daily",
-        "rangeDays": 62,
-        "_note": "当月＋前月の日別。日次の異常検知用"
+      "site-summary": {
+        "label": "サイト別",
+        "path": "/report/site",
+        "siteScope": "site-rows",
+        "_note": "**doboku-note 実績の真実源**。CSV は合計行を含まず、doboku-note と 統計で見る都道府県 の2行のみ"
       },
       "program-detail": {
         "label": "プログラム別（詳細）",
-        "menuLabels": ["プログラム別（詳細）", "プログラム別(詳細)", "Program detail"],
         "path": "/report/program/detail",
-        "rangeMonths": 2,
-        "_note": "プログラム×月の内訳。EPC 判定の中核（a8-results.json の records はここから作る）"
+        "siteScope": "account-wide",
+        "_note": "口座横断。programIdMap（プログラムID 基準）の allowlist で doboku 分のみ抽出し site-summary と突合。EPC 内訳の中核"
+      },
+      "period-monthly": {
+        "label": "期間別（月別）",
+        "path": "/report/period/monthly",
+        "siteScope": "account-wide",
+        "_note": "口座横断。月次トレンドの参考値（doboku 単独の月次は取れない＝期間フォーム対応後に site-summary を月ごとに取る）"
+      },
+      "period-daily": {
+        "label": "期間別（日別）",
+        "path": "/report/period/daily",
+        "siteScope": "account-wide",
+        "_note": "口座横断。日次の異常検知用（水準ではなく変化を見る）"
       }
     },
-    "reportMenuLabels": ["レポート", "Report"],
-    "exportButtonLabels": ["CSVダウンロード", "CSV ダウンロード", "CSVでダウンロード", "ダウンロード", "エクスポート", "Download CSV", "Export"],
+
+    "exportButtonLabels": ["CSV"],
+    "_exportButtonNote": "実機は <button>CSV</button> の1個だけ。findUniqueByLabels は exact:false で全ラベル分を集計し 1 件のときだけ押すため、候補語を増やすと同一ボタンに複数ヒットして『曖昧』になり押せなくなる。ここは増やさない。",
+
     "csvEncoding": "shift_jis",
-    "_csvEncodingNote": "A8 の CSV は Shift_JIS 想定。実機で UTF-8 だった場合はここを utf-8 にする（normalize は BOM/文字化けを検出して警告する）",
+    "_csvEncodingNote": "2026-07-27 実測で Shift_JIS 確定。decodeCsvBuffer は U+FFFD を数えて UTF-8 へ自動フォールバックもする。",
 
     "columnAliases": {
-      "date": ["日付", "年月日", "日", "Date"],
-      "month": ["年月", "月", "対象月", "Month"],
-      "programName": ["プログラム名", "プログラム", "広告主", "Program"],
-      "programId": ["プログラムID", "プログラム ID", "Program ID"],
-      "site": ["サイト", "サイト名", "メディアサイト", "Site"],
-      "impressions": ["インプレッション", "表示回数", "Impressions"],
-      "clicks": ["クリック数", "クリック", "Clicks"],
-      "conversions": ["発生件数", "成果件数", "注文件数", "発生", "Conversions"],
-      "approved": ["確定件数", "承認件数", "確定", "Approved"],
-      "revenueYen": ["確定報酬", "確定報酬額", "報酬額", "確定金額", "Revenue"],
-      "pendingRevenueYen": ["発生報酬", "未確定報酬", "発生報酬額", "Pending revenue"]
+      "site": ["サイト", "サイト名"],
+      "programId": ["プログラムID", "プログラム ID"],
+      "programName": ["プログラム名", "プログラム"],
+      "date": ["日付", "年月日", "Date"],
+      "month": ["年月", "対象月", "Month"],
+      "impressions": ["imp数", "インプレッション", "表示回数"],
+      "clicks": ["click数", "クリック数", "クリック"],
+      "conversions": ["発生件数", "成果件数"],
+      "grossRevenueYen": ["発生金額", "発生報酬"],
+      "approved": ["確定件数", "承認件数"],
+      "revenueYen": ["確定金額", "確定報酬"],
+      "cancelledCount": ["キャンセル件数"],
+      "cancelledYen": ["キャンセル金額"],
+      "pendingCount": ["未確定件数"],
+      "pendingRevenueYen": ["未確定金額"]
     },
+    "_columnAliasesNote": "2026-07-27 実測の CSV ヘッダー（画面の説明文つきヘッダーとは別物・CSV はクリーンな短い列名）:\n  site:    サイト,imp数,click数,CTR,発生件数,発生金額,CVR,確定件数,確定金額,確定率,キャンセル件数,キャンセル金額,未確定件数,未確定金額\n  program: プログラムID,プログラム名,imp数,click数,CTR,発生件数,発生金額,CVR,EPC,確定件数,確定金額,確定率,キャンセル件数,キャンセル金額,未確定件数,未確定金額\n**確定金額（EPC の分子）と発生金額を取り違えないこと**。未確定金額は『確定金額』を部分文字列に含むため、mapColumns は完全一致を先に全列で走査してから部分一致に落ちる。CTR/CVR/EPC/確定率 は派生値なので取り込まない（必要なら再計算する）。このキーは columnAliases の外に置く＝中に置くと mapColumns が文字列を配列として舐めて落ちる。",
 
     "programIdMap": {
-      "_note": "A8 のプログラム名（raw）→ 自社 program 語彙。語彙は src/config/affiliate-mats.json / report-buildjob-affiliate.mjs の PROGRAM_BY_LABEL と一致させる。未知の raw 名は写像せず programRaw のまま保持し、a8-results.json には書かない（取りこぼしを黙って捨てない）。実機の CSV を見て追記する。",
+      "_note": "**プログラムID 基準**（2026-07-27 実機で確定）。プログラム名は A8 側の都合で変わるが ID は不変。名前でも部分一致で拾えるよう別名も残す。語彙は src/config/affiliate-mats.json / report-buildjob-affiliate.mjs の PROGRAM_BY_LABEL と一致させる。ここに無い ID は a8-results.json へ書かず unmapped として報告する（取りこぼしを黙って捨てない）。",
+      "s00000024757004": "buildjob",
+      "s00000023057002": "kensetsu-jobs",
+      "s00000022176005": "gks",
       "ビルドジョブ": "buildjob",
-      "BuildJob": "buildjob",
       "建設JOBs": "kensetsu-jobs",
-      "GKSキャリア": "gks",
-      "GKS": "gks"
+      "GKSキャリア": "gks"
+    },
+    "_stats47Programs": {
+      "_note": "参考: 同一口座で stats47 が扱うプログラム（doboku の allowlist に入れないこと）。転職系が混ざるため名前だけで判断しない根拠。",
+      "s00000027444001": "AI Agent Camp",
+      "s00000027186001": "eラーニング現場系・国家資格",
+      "s00000026573001": "明光キャリアパートナーズエンジニア転職",
+      "s00000027288001": "キャリアカンパニー",
+      "s00000024824001": "転職AGENT Navi"
     }
   },
 

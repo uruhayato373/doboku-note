@@ -4,12 +4,25 @@ import { affiliateSummary } from '@/lib/affiliate';
 
 export const dynamic = 'force-dynamic';
 
-const yen = (n: number | null) => (n == null ? '—' : '¥' + Number(n).toLocaleString('en-US'));
-const epcFmt = (n: number | null) => (n == null ? '—' : '¥' + n.toFixed(1));
-const numFmt = (n: number | null) => (n == null ? '—' : Number(n).toLocaleString('en-US'));
+const yen = (v: number | null) => (v == null ? '—' : '¥' + Number(v).toLocaleString('en-US'));
+const num = (v: number | null) => (v == null ? '—' : Number(v).toLocaleString('en-US'));
+const epcFmt = (v: number | null) => (v == null ? '—' : '¥' + v.toFixed(1));
 
 export default function AffiliatePage() {
-  const { collected, site, updatedAt, lastRun, months, recentDays, unmapped, total } = affiliateSummary();
+  const {
+    collected,
+    site,
+    period,
+    updatedAt,
+    lastRun,
+    siteTotals,
+    programs,
+    accountWideMonths,
+    accountWideDays,
+    crossCheck,
+    unmapped,
+    notAttributable,
+  } = affiliateSummary();
 
   if (!collected) {
     return (
@@ -21,26 +34,21 @@ export default function AffiliatePage() {
             A8 レポートがまだ取り込まれていません。<code>/a8-report</code> スキル、または以下で収集してください。
           </p>
           <pre>
-            npm run a8-ui:fetch -- --dry-run{'\n'}
             npm run a8-ui:fetch{'\n'}
             npm run a8-ui:normalize -- --latest
           </pre>
-          <p className="sub">
-            A8 口座は stats47 と共用のため、doboku-note のサイト帰属を assert できない場合は
-            意図的に取り込みを中止します（stats47 の混入防止）。
-          </p>
         </div>
       </>
     );
   }
 
-  const bars: Bar[] = months.map((m) => ({ label: m.month.slice(2), value: m.revenueYen }));
+  const bars: Bar[] = accountWideMonths.map((m) => ({ label: m.month.slice(2), value: m.clicks ?? 0 }));
 
   return (
     <>
       <PageHead
         title="アフィリ"
-        sub={`${site ?? '—'} · 累計 ${yen(total.revenueYen)} / ${numFmt(total.clicks)} クリック / EPC ${epcFmt(total.epc)}`}
+        sub={`${site ?? '—'} · 期間 ${period?.start ?? '?'}〜${period?.end ?? '?'} · 最終取得 ${updatedAt?.slice(0, 16).replace('T', ' ') ?? '—'}`}
       />
 
       {unmapped.length > 0 ? (
@@ -48,7 +56,7 @@ export default function AffiliatePage() {
           <h2>
             未写像のプログラム
             <span className="sub">
-              <span className="badge warn">{unmapped.length} 件</span> a8-results.json へ未反映
+              <span className="badge warn">{unmapped.length} 件</span> 集計から漏れています
             </span>
           </h2>
           <p className="sub">
@@ -59,14 +67,14 @@ export default function AffiliatePage() {
             <table className="data">
               <thead>
                 <tr>
-                  <th>月</th>
-                  <th>プログラム名（A8 表記）</th>
+                  <th>プログラムID</th>
+                  <th>プログラム名</th>
                 </tr>
               </thead>
               <tbody>
                 {unmapped.map((u) => (
-                  <tr key={`${u.month}-${u.programRaw}`}>
-                    <td>{u.month}</td>
+                  <tr key={u.programId ?? u.programRaw}>
+                    <td>{u.programId ?? '—'}</td>
                     <td className="wrap">{u.programRaw}</td>
                   </tr>
                 ))}
@@ -76,65 +84,165 @@ export default function AffiliatePage() {
         </div>
       ) : null}
 
-      <div className="card">
-        <h2>
-          月次 確定報酬
-          <span className="sub">
-            最終更新 {updatedAt ?? '—'} · run {lastRun ?? '—'}
-          </span>
-        </h2>
-        <BarChart bars={bars} />
-      </div>
-
-      {months
-        .slice()
-        .reverse()
-        .map((m) => (
-          <div className="card" key={m.month}>
-            <h2>
-              {m.month}　{yen(m.revenueYen)}
-              <span className="sub">
-                {numFmt(m.clicks)} クリック / 発生 {numFmt(m.conversions)} / 確定 {numFmt(m.approved)} / EPC{' '}
-                {epcFmt(m.epc)}
-              </span>
-            </h2>
-            <div className="table-wrap">
-              <table className="data">
-                <thead>
-                  <tr>
-                    <th>プログラム</th>
-                    <th className="num">クリック</th>
-                    <th className="num">発生</th>
-                    <th className="num">確定</th>
-                    <th className="num">確定報酬</th>
-                    <th className="num">EPC</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {m.programs.map((p) => (
-                    <tr key={p.programRaw}>
-                      <td className="wrap">
-                        {p.programRaw}
-                        {p.program ? null : <span className="badge warn">未写像</span>}
-                      </td>
-                      <td className="num">{numFmt(p.clicks)}</td>
-                      <td className="num">{numFmt(p.conversions)}</td>
-                      <td className="num">{numFmt(p.approved)}</td>
-                      <td className="num">{yen(p.revenueYen)}</td>
-                      <td className="num">{epcFmt(p.epc)}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        ))}
-
-      {recentDays.length > 0 ? (
+      {siteTotals ? (
         <div className="card">
           <h2>
-            日別（直近 31 日）
-            <span className="sub">異常検知用</span>
+            {siteTotals.site} の実績
+            <span className="sub">
+              サイト別レポート＝<strong>doboku-note に分離された唯一の真実源</strong>
+            </span>
+          </h2>
+          <div className="table-wrap">
+            <table className="data">
+              <thead>
+                <tr>
+                  <th className="num">imp</th>
+                  <th className="num">クリック</th>
+                  <th className="num">発生</th>
+                  <th className="num">発生額</th>
+                  <th className="num">確定</th>
+                  <th className="num">確定額</th>
+                  <th className="num">キャンセル</th>
+                  <th className="num">未確定</th>
+                  <th className="num">EPC</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="num">{num(siteTotals.impressions)}</td>
+                  <td className="num">{num(siteTotals.clicks)}</td>
+                  <td className="num">{num(siteTotals.conversions)}</td>
+                  <td className="num">{yen(siteTotals.grossRevenueYen)}</td>
+                  <td className="num">{num(siteTotals.approved)}</td>
+                  <td className="num">{yen(siteTotals.revenueYen)}</td>
+                  <td className="num">
+                    {num(siteTotals.cancelledCount)} / {yen(siteTotals.cancelledYen)}
+                  </td>
+                  <td className="num">
+                    {num(siteTotals.pendingCount)} / {yen(siteTotals.pendingRevenueYen)}
+                  </td>
+                  <td className="num">{epcFmt(siteTotals.epc)}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="sub">
+            EPC は「確定額 ÷ クリック」。発生額はキャンセルされると確定額に載らないため、両者の差は要確認。
+          </p>
+        </div>
+      ) : (
+        <div className="card">
+          <h2>
+            サイト別実績なし<span className="sub"><span className="badge bad">要確認</span></span>
+          </h2>
+          <p>サイト別レポートに {site} の行がありません＝分離された実績を取れていません。</p>
+        </div>
+      )}
+
+      <div className="card">
+        <h2>
+          プログラム別
+          <span className="sub">
+            口座横断レポートから allowlist 抽出（{programs.length} 件）
+          </span>
+        </h2>
+        {crossCheck?.comparable ? (
+          <p className="sub">
+            検算: 抽出クリック {num(crossCheck.deltas?.clicks?.picked ?? null)} /{' '}
+            {num(crossCheck.deltas?.clicks?.site ?? null)}（サイト別）{' '}
+            {crossCheck.exceeded ? (
+              <span className="badge bad">超過＝stats47 混入の疑い</span>
+            ) : (
+              <span className="badge good">範囲内</span>
+            )}
+          </p>
+        ) : null}
+        <div className="table-wrap">
+          <table className="data">
+            <thead>
+              <tr>
+                <th>プログラム</th>
+                <th className="num">クリック</th>
+                <th className="num">発生</th>
+                <th className="num">発生額</th>
+                <th className="num">確定</th>
+                <th className="num">確定額</th>
+                <th className="num">EPC</th>
+              </tr>
+            </thead>
+            <tbody>
+              {programs.map((p) => (
+                <tr key={p.programId ?? p.programRaw}>
+                  <td className="wrap">
+                    <strong>{p.program}</strong>
+                    <br />
+                    <span className="sub">{p.programRaw}</span>
+                  </td>
+                  <td className="num">{num(p.clicks)}</td>
+                  <td className="num">{num(p.conversions)}</td>
+                  <td className="num">{yen(p.grossRevenueYen)}</td>
+                  <td className="num">{num(p.approved)}</td>
+                  <td className="num">{yen(p.revenueYen)}</td>
+                  <td className="num">{epcFmt(p.epc)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        {notAttributable > 0 ? (
+          <p className="sub">
+            対象期間（{period?.raw ?? '不明'}）が単月でないため、{notAttributable} 件は月次 SSOT
+            （a8-results.json）へ未反映です。月次内訳には期間フォーム対応が必要。
+          </p>
+        ) : null}
+      </div>
+
+      {accountWideMonths.length > 0 ? (
+        <div className="card">
+          <h2>
+            月次クリック（口座横断）
+            <span className="sub">
+              <span className="badge warn">stats47 込み</span> doboku 単独ではない・トレンド把握用
+            </span>
+          </h2>
+          <BarChart bars={bars} />
+          <div className="table-wrap">
+            <table className="data">
+              <thead>
+                <tr>
+                  <th>月</th>
+                  <th className="num">クリック</th>
+                  <th className="num">発生</th>
+                  <th className="num">発生額</th>
+                  <th className="num">確定額</th>
+                </tr>
+              </thead>
+              <tbody>
+                {accountWideMonths
+                  .slice()
+                  .reverse()
+                  .map((m) => (
+                    <tr key={m.month}>
+                      <td>{m.month}</td>
+                      <td className="num">{num(m.clicks)}</td>
+                      <td className="num">{num(m.conversions)}</td>
+                      <td className="num">{yen(m.grossRevenueYen)}</td>
+                      <td className="num">{yen(m.revenueYen)}</td>
+                    </tr>
+                  ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      ) : null}
+
+      {accountWideDays.length > 0 ? (
+        <div className="card">
+          <h2>
+            日別（直近 {accountWideDays.length} 日・口座横断）
+            <span className="sub">
+              <span className="badge warn">stats47 込み</span> 異常検知用
+            </span>
           </h2>
           <div className="table-wrap">
             <table className="data">
@@ -143,16 +251,16 @@ export default function AffiliatePage() {
                   <th>日付</th>
                   <th className="num">クリック</th>
                   <th className="num">発生</th>
-                  <th className="num">確定報酬</th>
+                  <th className="num">発生額</th>
                 </tr>
               </thead>
               <tbody>
-                {recentDays.map((d) => (
+                {accountWideDays.map((d) => (
                   <tr key={d.date}>
                     <td>{d.date}</td>
-                    <td className="num">{numFmt(d.clicks)}</td>
-                    <td className="num">{numFmt(d.conversions)}</td>
-                    <td className="num">{yen(d.revenueYen)}</td>
+                    <td className="num">{num(d.clicks)}</td>
+                    <td className="num">{num(d.conversions)}</td>
+                    <td className="num">{yen(d.grossRevenueYen)}</td>
                   </tr>
                 ))}
               </tbody>
@@ -160,6 +268,10 @@ export default function AffiliatePage() {
           </div>
         </div>
       ) : null}
+
+      <p className="sub">
+        run {lastRun ?? '—'} · 供給は <code>/a8-report</code>（a8-ui:fetch → a8-ui:normalize）
+      </p>
     </>
   );
 }

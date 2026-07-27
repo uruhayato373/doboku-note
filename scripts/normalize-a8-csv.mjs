@@ -24,6 +24,7 @@ import {
   upsertBy,
   KEY,
   toResultsRecords,
+  crossCheckAgainstSite,
 } from "./lib/a8-report-csv.mjs";
 
 const STATE_DIR = ".claude/state/metrics/affiliate/a8-ui";
@@ -34,9 +35,10 @@ const CONFIG_PATH = ".claude/config/a8-report-automation.json";
 
 /** reportKey → a8-report-log.json 内の配列名とキー関数。 */
 const BUCKET = {
+  "site-summary": { field: "siteSummary", key: KEY.siteSummary },
   "period-monthly": { field: "monthly", key: KEY.monthly },
   "period-daily": { field: "daily", key: KEY.daily },
-  "program-detail": { field: "programMonthly", key: KEY.programMonthly },
+  "program-detail": { field: "programPeriod", key: KEY.programPeriod },
 };
 
 function parseArgs() {
@@ -76,16 +78,22 @@ function readJson(path, fallback) {
 
 function emptyReportLog(site) {
   return {
-    schemaVersion: 1,
+    schemaVersion: 2,
     _comment:
-      "A8 レポート CSV（fetch-a8-ui-csv.mjs）の正規化 SSOT。site のデータのみ。A8 は確定処理で過去分が遡及変化するため upsert 運用（最新 fetch が正）。手で編集しない。",
+      "A8 レポート CSV（fetch-a8-ui-csv.mjs）の正規化 SSOT。A8 は確定処理で過去分が遡及変化するため upsert 運用（最新 fetch が正）。手で編集しない。",
+    _siteScopeNote:
+      "siteSummary のみ doboku-note に完全分離された実績（真実源）。monthly / daily / programPeriod は **口座横断**（stats47 込み）で、programPeriod は programIdMap の allowlist で doboku 分だけを抽出したもの。crossCheck が siteSummary との突合結果。",
     site,
     updatedAt: null,
     lastRun: null,
+    period: null,
+    siteSummary: [],
     monthly: [],
     daily: [],
-    programMonthly: [],
+    programPeriod: [],
+    crossCheck: null,
     unmapped: [],
+    notAttributable: [],
   };
 }
 
@@ -126,6 +134,9 @@ function main() {
       cfg,
       fetchedAt: manifest.collectedAt,
     });
+    // 期間は URL で制御できず CSV ファイル名にしか出ないので、行に焼き込んで upsert キーに使う
+    const periodRaw = unit.period?.raw ?? null;
+    for (const row of res.rows) row.period = periodRaw;
 
     writeFileSync(join(outDir, `${unit.reportKey}.json`), JSON.stringify({ reportKey: unit.reportKey, encoding: decoded.encoding, headers: res.headers, rows: res.rows }, null, 2), "utf-8");
     if (res.rejects.length > 0) {
@@ -144,9 +155,22 @@ function main() {
     console.log(`  ${unit.reportKey}: ${res.rows.length} 行 upsert（reject ${res.rejects.length}）`);
   }
 
-  // program-detail から a8-results.json（既存スキーマ）へ rollup
-  const { records, unmapped } = toResultsRecords(log.programMonthly || []);
+  // 期間（この run が実際に取れた期間。A8 の既定は年初〜当月の累計）
+  const period = (manifest.units || []).map((u) => u.period).find(Boolean) || null;
+  log.period = period;
+
+  // ★ 検算: 口座横断から抽出した doboku 分が、サイト別（真実源）の doboku-note 行を超えていないか
+  const siteRow = (log.siteSummary || []).find((r) => String(r.site || "").includes(cfg.a8.targetSite));
+  const allowlisted = (log.programPeriod || []).filter((r) => r.program);
+  log.crossCheck = crossCheckAgainstSite(siteRow, allowlisted);
+
+  // program-detail から a8-results.json（既存スキーマ＝月次）へ rollup。
+  // A8 の既定期間は複数月にまたがるため、単月 run のときだけ月次へ写す。
+  const { records, unmapped, notAttributable } = toResultsRecords(allowlisted, {
+    singleMonth: period?.singleMonth ?? null,
+  });
   log.unmapped = unmapped;
+  log.notAttributable = notAttributable;
   log.updatedAt = new Date().toISOString();
   log.lastRun = manifest.runId;
 
@@ -163,12 +187,34 @@ function main() {
     writeFileSync(RESULTS, JSON.stringify(results, null, 2) + "\n", "utf-8");
   }
 
-  console.log(`\nSSOT: ${REPORT_LOG}`);
-  console.log(`  monthly=${log.monthly.length} daily=${log.daily.length} programMonthly=${log.programMonthly.length}`);
+  console.log(`\nSSOT: ${REPORT_LOG}（期間 ${period?.raw ?? "不明"}）`);
+  console.log(
+    `  siteSummary=${log.siteSummary.length} monthly=${log.monthly.length} daily=${log.daily.length} programPeriod=${log.programPeriod.length}`,
+  );
+  if (siteRow) {
+    console.log(
+      `  ${cfg.a8.targetSite}: click=${siteRow.clicks} 発生=${siteRow.conversions} 発生額=${siteRow.grossRevenueYen} 確定=${siteRow.approved} 確定額=${siteRow.revenueYen} キャンセル=${siteRow.cancelledCount}`,
+    );
+  } else {
+    console.warn(`  [警告] サイト別レポートに ${cfg.a8.targetSite} 行が無い＝分離された実績を取れていない`);
+  }
+  if (log.crossCheck?.comparable) {
+    const d = log.crossCheck.deltas;
+    console.log(
+      `  検算（allowlist 抽出 vs サイト別）: click ${d.clicks.picked}/${d.clicks.site} · 確定額 ${d.revenueYen.picked}/${d.revenueYen.site}` +
+        (log.crossCheck.exceeded ? "  ← ★超過＝他サイト混入の疑い" : "  ← 範囲内"),
+    );
+  }
   console.log(`SSOT: ${RESULTS} records ${beforeCount} → ${results.records.length}`);
+  if (notAttributable.length > 0) {
+    console.warn(
+      `\n[注意] 対象期間が単月でないため ${notAttributable.length} 件を a8-results.json（月次）へ写していません。` +
+        `\n  現在の期間: ${period?.raw ?? "不明"}。月次内訳には期間フォーム対応が必要（backlog 参照）。`,
+    );
+  }
   if (unmapped.length > 0) {
     console.warn(`\n[要対応] programIdMap に無いプログラムが ${unmapped.length} 件あります（a8-results.json へ未反映）:`);
-    for (const u of unmapped.slice(0, 10)) console.warn(`  - ${u.month} "${u.programRaw}"`);
+    for (const u of unmapped.slice(0, 10)) console.warn(`  - ${u.programId ?? "-"} "${u.programRaw}"`);
     console.warn(`  → ${CONFIG_PATH} の a8.programIdMap に追記して再実行してください。`);
   }
   if (totalRejects > 0) console.warn(`[要確認] reject 行 ${totalRejects} 件（normalized/*.rejects.json）`);

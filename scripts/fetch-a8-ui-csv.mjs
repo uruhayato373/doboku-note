@@ -28,17 +28,18 @@ import {
   reportUrl,
   launchContext,
   restoreA8Session,
+  saveA8Session,
   isLoggedInA8,
   waitForHumanLoginA8,
-  assertDobokuSite,
-  switchToDobokuSite,
+  assertA8Account,
+  assertTargetSiteRow,
   readVisibleSiteContext,
   dumpFailure,
   downloadTo,
   findUniqueByLabels,
   makeRunId,
 } from "./lib/a8-report-browser.mjs";
-import { decodeCsvBuffer } from "./lib/a8-report-csv.mjs";
+import { decodeCsvBuffer, parsePeriodFromFilename } from "./lib/a8-report-csv.mjs";
 import { parseCsv } from "./lib/google-console-csv.mjs";
 
 const STATE_DIR = ".claude/state/metrics/affiliate/a8-ui";
@@ -96,22 +97,30 @@ async function openReport(page, cfg, reportKey) {
 
 /**
  * サイト分離の実機確認（--probe-isolation）。
- * A8 のプログラム一覧は webSiteId フィルタが効かない先例があるため（a8-browser.ts L371）、
- * レポートでも「サイト切替で数値が変わるか」を経験的に確かめる。
- * 判定材料を返すだけで、config は書き換えない（人間が決める）。
+ * config の siteScope 宣言が実機と合っているかを、各レポートの可視テキストで照合する。
+ * 判定材料を返すだけで config は書き換えない（人間が決める）。
  */
 async function probeIsolation(page, cfg) {
-  const key = Object.keys(cfg.a8.reports)[0];
-  await openReport(page, cfg, key);
-  const before = await readVisibleSiteContext(page);
-  const hasSiteColumn = (cfg.a8.siteColumnHeaders || []).some((h) => before.includes(h));
-  return {
-    probedReport: key,
-    siteColumnHeaderVisible: hasSiteColumn,
-    hint: hasSiteColumn
-      ? "レポートにサイト列がある可能性 → isolationMode: 'site-column' を検討"
-      : "サイト列は見当たらない → isolationMode: 'site-switch' のままサイト切替 assert で運用",
-  };
+  const out = [];
+  for (const key of Object.keys(cfg.a8.reports)) {
+    await openReport(page, cfg, key);
+    const text = await readVisibleSiteContext(page);
+    const declared = cfg.a8.reports[key].siteScope || "account-wide";
+    const targetVisible = text.includes(cfg.a8.targetSite);
+    out.push({
+      reportKey: key,
+      declaredSiteScope: declared,
+      targetSiteVisible: targetVisible,
+      consistent: declared === "site-rows" ? targetVisible : true,
+      hint:
+        declared === "site-rows" && !targetVisible
+          ? `site-rows 宣言だが "${cfg.a8.targetSite}" が見えない → siteScope の見直しが必要`
+          : declared === "account-wide" && targetVisible
+            ? "account-wide 宣言だがサイト名が見える → site-rows にできるか確認の価値あり"
+            : "宣言どおり",
+    });
+  }
+  return out;
 }
 
 /** 1 レポート分の取得。dry-run は検出のみ。 */
@@ -127,6 +136,8 @@ async function processReport(page, cfg, runId, runDir, { reportKey, dryRun }) {
     rawFile: null,
     sha256: null,
     exportButtonUnique: null,
+    siteScope: spec.siteScope || "account-wide",
+    period: null,
     status: "pending",
     error: null,
   };
@@ -135,11 +146,10 @@ async function processReport(page, cfg, runId, runDir, { reportKey, dryRun }) {
 
   // レポート画面に到達しているか（ラベルの可視で判定）
   const body = await readVisibleSiteContext(page);
-  const reachable = spec.menuLabels.some((l) => body.includes(l)) || body.includes(spec.label);
-  if (!reachable) {
+  if (!body.includes(spec.label)) {
     await dumpFailure(page, cfg, runId, {
       step: "reach-report",
-      expected: spec.menuLabels,
+      expected: [spec.label],
       message: `レポート「${spec.label}」に到達できない（URL/ラベルの UI 変更の可能性）`,
     });
     unit.status = "report-unreachable";
@@ -147,17 +157,21 @@ async function processReport(page, cfg, runId, runDir, { reportKey, dryRun }) {
     return unit;
   }
 
-  // ★ ダウンロード直前にもサイト帰属を再確認（画面遷移でコンテキストが戻る事故を防ぐ）
-  const site = await assertDobokuSite(page, cfg);
-  if (!site.ok) {
-    await dumpFailure(page, cfg, runId, {
-      step: "assert-site-before-download",
-      expected: [cfg.a8.targetSite],
-      message: `サイト帰属を確定できない: ${site.reason}`,
-    });
-    unit.status = "site-mismatch";
-    unit.error = site.reason;
-    return unit;
+  // ★ site-rows レポートは「doboku-note の行が実在すること」を DL 前に確認する。
+  //   account-wide はサイト分離できない前提なので、ここでは確認せず normalize 側の
+  //   allowlist 抽出＋site-summary 突合で担保する（A8 にサイト切替は無い＝2026-07-27 実機確認）。
+  if (unit.siteScope === "site-rows") {
+    const site = await assertTargetSiteRow(page, cfg);
+    if (!site.ok) {
+      await dumpFailure(page, cfg, runId, {
+        step: "assert-target-site-row",
+        expected: [cfg.a8.targetSite],
+        message: `サイト帰属を確定できない: ${site.reason}`,
+      });
+      unit.status = "site-mismatch";
+      unit.error = site.reason;
+      return unit;
+    }
   }
 
   // エクスポートボタン
@@ -187,6 +201,10 @@ async function processReport(page, cfg, runId, runDir, { reportKey, dryRun }) {
     const dl = await downloadTo(page, () => locator.click(), dest, { timeout: cfg.browser.timeoutMs });
     unit.rawFile = dest;
     unit.sha256 = dl.sha256;
+    // A8 はファイル名に対象期間を入れる（例 site_202601-202607_20260727105756.csv）。
+    // 期間は URL で制御できないため、実際に何の期間を取れたかはここでしか分からない。
+    unit.suggestedFilename = dl.suggested ?? null;
+    unit.period = parsePeriodFromFilename(dl.suggested);
     const decoded = decodeCsvBuffer(readFileSync(dest), cfg.a8.csvEncoding);
     unit.encoding = decoded.encoding;
     const { headers, rows } = parseCsv(decoded.text);
@@ -219,12 +237,12 @@ async function main() {
     runId,
     collectedAt: new Date().toISOString(),
     site: cfg.a8.targetSite,
-    isolationMode: cfg.a8.isolationMode,
+    mediaId: cfg.a8.mediaId,
     mode: opts.dryRun ? "dry-run" : "fetch",
     browserHeadless: !opts.headed && cfg.browser.headless,
     scriptVersion: gitCommit(),
     units: [],
-    dryRun: opts.dryRun ? { loggedIn: false, siteAsserted: false, isolation: null } : undefined,
+    dryRun: opts.dryRun ? { loggedIn: false, accountAsserted: false, isolation: null } : undefined,
   };
 
   console.log(`A8 レポート CSV 取得 [${manifest.mode}] reports=${reportKeys.join(",")}`);
@@ -247,42 +265,43 @@ async function main() {
       if (!ok) {
         await dumpFailure(page, cfg, runId, {
           step: "login",
-          message: "ログイン待ちがタイムアウト。`npx tsx .claude/skills/ads/scout-asp/scripts/login.mjs` で再ログインしてください。",
+          message: "ログイン待ちがタイムアウト。ブラウザでログインを完了してから再実行してください。",
         });
         console.error("未ログインのため停止しました。");
         manifest.status = "not-signed-in";
         finalize(manifest, runDir);
         process.exit(3);
       }
+      // A8 のセッション Cookie は永続プロファイルに残らないため、ログイン直後に storageState を保存する
+      // （これをしないと毎回ログインが必要になる）。
+      const saved = await saveA8Session(ctx, cfg);
+      console.log(saved.ok ? `セッションを保存しました: ${saved.statePath}` : `[warn] セッション保存に失敗: ${saved.reason}`);
     }
     if (manifest.dryRun) manifest.dryRun.loggedIn = true;
 
-    // ★ サイト帰属 assert（fail-closed）。まず切替を試み、確定できなければ全体停止。
-    let site = await assertDobokuSite(page, cfg);
-    if (!site.ok) {
-      const sw = await switchToDobokuSite(page, cfg);
-      if (sw.attempted) site = await assertDobokuSite(page, cfg);
-    }
-    if (!site.ok) {
+    // ★ 口座 assert（fail-closed）。A8 にサイト切替は無いので、ここで確認するのは
+    //   「正しい口座（メディアID）か」。doboku-note の分離はレポート単位で行う。
+    const account = await assertA8Account(page, cfg);
+    if (!account.ok) {
       await dumpFailure(page, cfg, runId, {
-        step: "assert-site",
-        expected: [cfg.a8.targetSite],
-        message: `サイト帰属を確定できない: ${site.reason}。stats47 のデータを取り込まないため停止。`,
+        step: "assert-account",
+        expected: [cfg.a8.mediaId],
+        message: `口座を確定できない: ${account.reason}。別口座のデータを取り込まないため停止。`,
       });
-      console.error(`サイト不一致で停止: ${site.reason}`);
-      console.error("→ .local/playwright-a8-debug/ の visible-text.txt を見て config の siteSwitcherLabels / isolationMode を調整してください。");
-      manifest.status = "site-mismatch";
+      console.error(`口座不一致で停止: ${account.reason}`);
+      console.error("→ .local/playwright-a8-debug/ の visible-text.txt を見て config の a8.mediaId を確認してください。");
+      manifest.status = "account-mismatch";
       finalize(manifest, runDir);
       process.exit(5);
     }
-    if (manifest.dryRun) manifest.dryRun.siteAsserted = true;
-    console.log(`サイト assert OK: ${cfg.a8.targetSite}`);
+    if (manifest.dryRun) manifest.dryRun.accountAsserted = true;
+    console.log(`口座 assert OK: メディアID ${cfg.a8.mediaId}（対象サイト ${cfg.a8.targetSite}）`);
 
     if (opts.probeIsolation) {
       const probe = await probeIsolation(page, cfg);
       if (manifest.dryRun) manifest.dryRun.isolation = probe;
       manifest.isolationProbe = probe;
-      console.log(`[probe] ${probe.hint}`);
+      for (const p of probe) console.log(`[probe] ${p.reportKey}: ${p.declaredSiteScope} — ${p.hint}`);
     }
 
     for (const reportKey of reportKeys) {

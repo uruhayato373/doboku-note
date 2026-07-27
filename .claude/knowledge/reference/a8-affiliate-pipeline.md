@@ -103,16 +103,35 @@ npm run a8-ui:normalize  → <runId>/normalized/*.json ＋ SSOT へ upsert
 npm run report-buildjob-affiliate → GA4 クリック × A8 成果 の EPC
 ```
 
-### サイト帰属（この機能の最重要ポイント）
+### サイト帰属（この機能の最重要ポイント・2026-07-27 実機確定）
 
-申請時の `webSiteId` assert（上記「申請サイト assert」節）と**同じ思想をレポートにも適用**する。
-stats47 の成果が混ざった SSOT は EPC 判断を丸ごと壊し、事後に切り分けられない。
+**A8 のメディア管理画面にサイト切替は存在しない。** メディアID＝口座で、ヘッダーの「サイト名」は
+口座の代表サイト（統計で見る都道府県）が常に出るだけ。したがって:
 
-- 既定は `isolationMode: "site-switch"`（サイト切替でレポート全体が doboku-note スコープになる前提）
-- ただし **A8 のプログラム一覧は `webSiteId` フィルタが効かない先例**がある（`a8-browser.ts` L371・2026-07-20 実機確認）。
-  レポートも口座横断なら `isolationMode: "site-column"` に切り替え、CSV のサイト列で行フィルタする
-- どちらも確定できなければ **`site-mismatch` で exit 5**（1 バイトも取り込まない）
-- 初回・UI 変更後は `npm run a8-ui:fetch -- --dry-run --probe-isolation` で分離方式を確かめる
+- **ログイン後に assert するのは「正しい口座か」（`mediaId`）**。ここで doboku-note を探しても永久に見つからない
+- **doboku-note の分離はレポート単位**（`reports[].siteScope`）
+
+| レポート | siteScope | 分離 |
+|---|---|---|
+| `/report/site`（サイト別） | `site-rows` | **可能**。サイト行から doboku-note だけ採る＝**実績の真実源** |
+| `/report/program/detail` | `account-wide` | 不可。`programIdMap` の allowlist で doboku 分を抽出 |
+| `/report/period/{monthly,daily}` | `account-wide` | 不可。トレンド把握のみ（水準は doboku 単独ではない） |
+
+**検算**: allowlist 抽出の合計がサイト別の doboku-note 行を超えたら stats47 混入の疑い
+（`crossCheckAgainstSite`）。2026-07-27 実測はクリック 102/137 で範囲内。
+
+検討して**捨てた**代替案: `/report/material`（素材別）の「素材ID」は `001`/`003`/`999` の 3 桁で、
+`affiliate-mats.json` の a8mat 第4トークン（`TSBE9` 等）とは別物。素材による分離はできない。
+
+### 期間（URL では制御できない）
+
+`?start_date=&end_date=` を付けても**無視される**（2026-07-27 実測）。期間は画面のフォーム
+（`input name=start` / `end`・月レンジと日レンジの 2 組）で操作する必要がある。現状の取得は
+A8 の既定期間＝**年初〜当月の累計**。実際の期間は CSV のファイル名にしか出ない
+（`site_202601-202607_20260727105756.csv`）ので manifest に記録する。
+
+そのため **`a8-results.json`（月次キー）へは単月 run のときしか書かない**。累計値を特定月の実績として
+書き込まない（`notAttributable` で理由を残す）。月次内訳は `docs/todo/backlog.md` の後続タスク。
 
 ### upsert である理由
 
@@ -128,19 +147,28 @@ append すると同じ月が二重に積まれるため、SSOT は `month` / `da
 - 正規化: `scripts/normalize-a8-csv.mjs`（`a8-ui:normalize`）／コア `scripts/lib/a8-report-csv.mjs`
 - テスト（node:test・10件）: `tests/a8-report-csv.test.mjs`（`npm test` に含まれる）
 - 設定 SoT: `.claude/config/a8-report-automation.json`（URL・ラベル・`columnAliases`・`programIdMap`・`isolationMode`）
-- SSOT: `.claude/state/metrics/affiliate/a8-report-log.json`（monthly / daily / programMonthly / unmapped）
-  ＋ `a8-results.json`（既存スキーマへ rollup・消費側は無変更）
+- SSOT: `.claude/state/metrics/affiliate/a8-report-log.json`
+  （`siteSummary`＝doboku 分離済みの真実源 / `programPeriod`＝allowlist 抽出 / `monthly`・`daily`＝口座横断 /
+  `crossCheck` / `unmapped` / `notAttributable`）＋ `a8-results.json`（既存スキーマへ rollup・消費側は無変更）
 - skill: `.claude/skills/ads/a8-report/SKILL.md`（`disable-model-invocation: true`）
 - agents: `a8-report-collector`（収集）／`a8-csv-auditor`（品質監査）
 - 管理画面: admin-app `/affiliate` タブ（月次×プログラム×EPC・未写像の警告）
 
 ### つまずきポイント
 
-- **未写像プログラム**: `programIdMap` に無い A8 プログラム名は `a8-results.json` へ反映されず
-  `unmapped` に出る。黙って捨てないので、出たら config に追記して再 normalize する
-- **文字コード**: A8 CSV は Shift_JIS 想定。`decodeCsvBuffer` が U+FFFD を数えて UTF-8 へ自動フォールバックする
+- **未写像プログラム**: `programIdMap` に無い A8 プログラムは `a8-results.json` へ反映されず
+  `unmapped` に出る。黙って捨てないので、出たら config に追記して再 normalize する。
+  写像キーは**プログラムID**（`s00000024757004`=buildjob / `s00000023057002`=kensetsu-jobs /
+  `s00000022176005`=gks）。名前は A8 側で変わるが ID は不変
+- **文字コード**: Shift_JIS（2026-07-27 実測確定）。`decodeCsvBuffer` が U+FFFD を数えて UTF-8 へ自動フォールバック
+- **CSV のヘッダーは画面と別物**: 画面は説明文つき（「広告がクリックされた回数 ※… click数」）だが
+  CSV はクリーンな短い列名（`click数`）。**`確定金額`（EPC の分子）と `発生金額` を取り違えない**。
+  `未確定金額` は `確定金額` を部分文字列に含むため、`mapColumns` は完全一致を先に全列走査する
+- **CSV に合計行は無い**（画面にはある）
+- **エクスポートは `<button>CSV</button>` 1 個だけ**。`exportButtonLabels` に候補語を足すと
+  `findUniqueByLabels` が同一ボタンに複数ヒットして「曖昧」となり押せなくなる。増やさない
 - **ラベルドリフト**: 停止したら `.local/playwright-a8-debug/<runId>/visible-text.txt` を見て
-  **config のラベル配列を直す**（スクリプト本体は触らない）
+  **config を直す**（スクリプト本体は触らない）
 
 ## ファイル一覧
 

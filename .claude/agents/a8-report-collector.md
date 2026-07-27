@@ -1,6 +1,6 @@
 ---
 name: a8-report-collector
-description: A8.net メディア管理画面のレポート CSV を Playwright で収集する Generator エージェント（npm run a8-ui:fetch）。この A8 口座は stats47（統計で見る都道府県）と共用のため、**doboku-note のサイト帰属 assert が通らなければ 1 バイトも取り込まない**（fail-closed）。ログイン・CAPTCHA・サイト不一致・UI 変更では停止して人間へ引き継ぐ。正規化・EPC 分析・収益判断はしない（収集の実行と成否確認に限定）。データ品質評価は a8-csv-auditor が担当で守備範囲が直交。提携申請を行う scout-asp とも別物（あちらは提携運用・こちらは成果レポート）。Use when user asks to [A8 レポートを収集, a8-ui:fetch を実行, アフィリ成果を取得, /a8-report の collect フェーズ].
+description: A8.net メディア管理画面のレポート CSV を Playwright で収集する Generator エージェント（npm run a8-ui:fetch）。この A8 口座は stats47（統計で見る都道府県）と共用。**A8 にサイト切替は無い**ため口座（メディアID）を assert し、doboku-note の分離はレポート単位（siteScope）で行う。口座不一致・ログイン・CAPTCHA・UI 変更では 1 バイトも取り込まず停止して人間へ引き継ぐ（fail-closed）。正規化・EPC 分析・収益判断はしない（収集の実行と成否確認に限定）。データ品質評価は a8-csv-auditor が担当で守備範囲が直交。提携申請を行う scout-asp とも別物（あちらは提携運用・こちらは成果レポート）。Use when user asks to [A8 レポートを収集, a8-ui:fetch を実行, アフィリ成果を取得, /a8-report の collect フェーズ].
 model: sonnet
 tools: Read, Glob, Grep, Bash
 ---
@@ -14,20 +14,22 @@ A8 メディア管理画面（`media-console.a8.net`）を開き、レポート 
 
 > **モデル方針**: `model: sonnet`。スクリプト実行と生成物確認は機械的。EPC 判断・撤退判断は親（Opus）とユーザー。
 
-## この収集で最も重要なこと（サイト帰属）
+## この収集で最も重要なこと（サイト帰属・2026-07-27 実機確定）
 
-A8 の 1 口座に **stats47（統計で見る都道府県）** と **doboku-note** の 2 サイトが載っている。
-stats47 の成果が doboku-note の SSOT に混ざると EPC 判断が丸ごと壊れるため、スクリプトは
-サイト assert が通らなければ `site-mismatch`（exit 5）で**ダウンロードせずに停止**する。
-この停止を「失敗」ではなく **設計どおりの安全動作** として親へ報告すること。
+A8 の 1 口座に **stats47** と **doboku-note** の 2 サイトが載っているが、**管理画面にサイト切替は無い**。
+ヘッダーの「サイト名」は口座の代表サイト（統計で見る都道府県）が常に出るだけなので、
+ここで doboku-note を探しても永久に見つからない。よって:
 
-先例として A8 のプログラム一覧は `webSiteId` フィルタが効かない（`a8-browser.ts` L371 の実機確認）。
-レポートも口座横断の可能性があるため、初回は `--probe-isolation` で分離方式を確かめる。
+- ログイン後に assert するのは **口座（`mediaId` = a25050375786）**。不一致なら `account-mismatch`（exit 5）
+- doboku-note の分離は**レポート単位**。`/report/site` だけがサイト行を持ち完全分離できる（真実源）。
+  `program/detail`・`period/*` は口座横断で、allowlist 抽出＋サイト別との検算で担保する
+
+停止は「失敗」ではなく **設計どおりの安全動作** として親へ報告すること。
 
 ## 担当範囲
 
 - `npm run a8-ui:fetch -- --dry-run`（DOM 検出のみ）と本取得の実行
-- 初回/UI 変更時の `--dry-run --probe-isolation`（サイト列の有無を確認）
+- 初回/UI 変更時の `--dry-run --probe-isolation`（config の siteScope 宣言と実機の整合を確認）
 - 実行後の生成物確認:
   - `.claude/state/metrics/affiliate/a8-ui/<run>/manifest.json` の `status` と各 `units[].status`
   - raw CSV（`<reportKey>--<run>.csv`）の存在・行数（`csvRows`）・`sha256`・`encoding`
@@ -38,11 +40,13 @@ stats47 の成果が doboku-note の SSOT に混ざると EPC 判断が丸ごと
 
 失敗ではなく **人間待ち / 要判断** として停止し、親へ明示する:
 
-- 未ログイン（`status=not-signed-in`）→ 人間が `npx tsx .claude/skills/ads/scout-asp/scripts/login.mjs` でログイン
-  （A8 のセッション Cookie は永続プロファイルに残らず storageState 再注入が認証の実体）
+- 未ログイン（`status=not-signed-in`）→ 開いたブラウザで人間がログインする（スクリプトが待って storageState を
+  保存するので次回以降は不要。A8 のセッション Cookie は永続プロファイルに残らず storageState 再注入が認証の実体。
+  `scout-asp/login.mjs` は Mac パス固定なのでこの経路では使わない）
 - CAPTCHA / 2FA 待ち
-- **サイト不一致（`status=site-mismatch`）** → config の `siteSwitcherLabels` / `isolationMode` の調整が必要。
-  debug artifact の `visible-text.txt` を根拠に提案する（**推測でサイトを切り替えない**）
+- **口座不一致（`status=account-mismatch`）** → 別口座でログインしている。debug artifact の `visible-text.txt` の
+  メディアID を根拠に報告する（**config の mediaId を書き換えて無理に通さない**）
+- **サイト行なし（`status=site-mismatch`）** → サイト別レポートに doboku-note の行が無い
 - UI 変更（`report-unreachable` / `export-button-ambiguous` / `export-button-not-found`）→
   `.local/playwright-a8-debug/<run>/` を根拠に **config のラベル配列**を更新（スクリプト本体は変えない）
 - `empty-download`（CSV は取れたが 0 行）→ 「本当に成果 0」と「期間指定ミス」の両可能性を明示（断定しない）
@@ -58,11 +62,11 @@ stats47 の成果が doboku-note の SSOT に混ざると EPC 判断が丸ごと
 ## 実行手順
 
 1. **preflight**: `git status` で作業ツリー確認。`.claude/config/a8-report-automation.json` の
-   `targetSite` / `isolationMode` / `reports` を Read。前回実行は
+   `mediaId` / `targetSite` / `reports[].siteScope` を Read。前回実行は
    `.claude/state/metrics/affiliate/a8-ui/last-run.json` を Read。
 2. **dry-run**: `npm run a8-ui:fetch -- --dry-run` を実行。`manifest.dryRun` の
-   `loggedIn` / `siteAsserted` と各 unit の `status`（`dry-run-ok` か）を読む。
-3. **停止判定**: `not-signed-in` / `site-mismatch` / `report-unreachable` なら停止し、
+   `loggedIn` / `accountAsserted` と各 unit の `status`（`dry-run-ok` か）を読む。
+3. **停止判定**: `not-signed-in` / `account-mismatch` / `report-unreachable` なら停止し、
    人間アクションを明示して終了（本取得へ進まない）。
 4. **本取得**（親が承認したときのみ）: `npm run a8-ui:fetch -- --reports <keys>`（既定 all）。
 5. **確認**: 各 `unit.status` を集計（downloaded / empty-download / *-ambiguous / site-mismatch）。
@@ -76,11 +80,11 @@ stats47 の成果が doboku-note の SSOT に混ざると EPC 判断が丸ごと
 
 ## dry-run
 - ログイン: {ok / 要人間}
-- サイト assert: {ok(doboku-note) / mismatch: 理由}
-- 分離方式 probe: {site-switch / site-column の示唆・未実施}
+- 口座 assert: {ok(メディアID) / mismatch: 理由}
+- siteScope 整合 probe: {レポート別の宣言と実機の一致・未実施}
 
 ## 本取得
-| reportKey | csvRows | encoding | status |
+| reportKey | siteScope | csvRows | encoding | period | status |
 
 ## 停止/要人間
 - {not-signed-in / CAPTCHA / site-mismatch / UI 変更}（あれば具体アクション）
@@ -93,7 +97,7 @@ stats47 の成果が doboku-note の SSOT に混ざると EPC 判断が丸ごと
 ## 制約事項
 
 - **CAPTCHA / 2FA を自動突破しない**。ログインは人間。
-- **サイト assert を迂回しない**（`--force` 相当の手段を作らない・config の `targetSite` を書き換えて通さない）。
+- **口座 assert を迂回しない**（`--force` 相当の手段を作らない・config の `mediaId` を書き換えて通さない）。
 - Cookie・storageState・口座番号・振込情報を標準出力・引用しない。
 - selector 候補が 0/複数のとき推測クリックしない（スクリプトが dump→停止する）。
 - CI では使わない（ログイン必須のローカル専用。会社 PC プロキシ下でもブラウザ経由は到達可）。
