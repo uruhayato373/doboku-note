@@ -3,6 +3,7 @@ import test from "node:test";
 
 import {
   isBlocked,
+  isOffTarget,
   resolveVertical,
   isDuplicate,
   rewardNorm,
@@ -143,7 +144,7 @@ test("scoreAndRank: 入力は必ずいずれかのバケットに現れる（取
   ];
   const r = scoreAndRank(programs, { coverage, existingAds: [{ title: "既存", htmlContent: "a8mat=DUP2" }], curated });
   const seen = new Set(
-    [...r.candidates, ...r.blocked, ...r.duplicates, ...r.belowThreshold, ...r.pendingVertical].map((x) => x.programId),
+    [...r.candidates, ...r.blocked, ...r.duplicates, ...r.belowThreshold, ...r.pendingVertical, ...r.offTarget].map((x) => x.programId),
   );
   assert.equal(seen.size, programs.length, "入力 5 件が全てどこかのバケットに現れること");
 });
@@ -165,6 +166,38 @@ test("isBlocked: 学習スクール系が Red Line（転職一本）をすり抜
   assert.equal(isBlocked({ name: "需要の高い国家資格に特化した学習スクール【能セン】", genre: "仕事" }, curated), true);
   assert.equal(isBlocked({ name: "資格スクール◯◯", genre: "学び" }, curated), true);
   assert.equal(isBlocked({ name: "学習塾◯◯", genre: "学び" }, curated), true);
+});
+
+test("isOffTarget: 規約NGではないが読者と無関係な業種を候補にしない", () => {
+  // 2026-07-27、薬剤師の転職エージェントが generic career として candidate 化された。
+  // 転職案件なので Red Line（blocklist）には触れないが、土木・建設の読者には無価値。
+  assert.equal(isOffTarget({ name: "大手調剤チェーンの経営で安心♪【薬剤師の派遣・転職 お仕事ラボ】", genre: "仕事" }, curated), true);
+  assert.equal(isOffTarget({ name: "看護師の転職なら◯◯", genre: "仕事" }, curated), true);
+  // blocklist とは別枠であること（Red Line の意味を濁らせない）
+  assert.equal(isBlocked({ name: "薬剤師の転職", genre: "仕事" }, curated), false, "薬剤師は規約NGではない");
+});
+
+test("isOffTarget: 建設転職パートナーを誤って対象外にしない", () => {
+  const partners = [
+    "建設業界特化！未経験から施工管理職へ。手厚いサポートで資格取得も支援【GKSキャリア】",
+    "ビルドジョブ｜建設業界特化の転職エージェントの無料キャリア面談",
+    "日本最大級 施工管理・建設業界の転職サイト「建設JOBs」",
+    "コンサル・DX・スタートアップへ。CxO直結の非公開求人で年収を最大化【Groovement Agent】",
+  ];
+  for (const name of partners) {
+    assert.equal(isOffTarget({ name, genre: "仕事" }, curated), false, `誤って対象外: ${name}`);
+  }
+});
+
+test("scoreAndRank: 対象外業種は offTarget バケットへ（candidate にしない）", () => {
+  const programs = [
+    { programId: "ph", name: "薬剤師の派遣・転職 お仕事ラボ", genre: "転職", rewardType: "fixed", rewardYen: 30000, epcYen: 500, confirmRatePct: 80 },
+  ];
+  const r = scoreAndRank(programs, { coverage, existingAds: [], curated });
+  assert.equal(r.candidates.length, 0);
+  assert.equal(r.blocked.length, 0, "Red Line ではない");
+  assert.equal(r.offTarget.length, 1);
+  assert.equal(r.offTarget[0].reason, "off-target-industry");
 });
 
 test("isBlocked: 既存の建設転職パートナーを誤ブロックしない（過剰ブロック防止）", () => {

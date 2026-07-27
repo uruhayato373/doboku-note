@@ -32,6 +32,18 @@ export function isBlocked(program, curated) {
   return curated.blocklistKeywords.some((kw) => hay.includes(kw));
 }
 
+/**
+ * 規約上は問題ないが doboku の読者（土木・建設の有資格者/受験者）と無関係な業種か。
+ * blocklist（Red Line＝規約NG・note 有料商品とのカニバリ）とは意味が違うので分けている。
+ * 例: 薬剤師の転職エージェントは「転職案件」なので Red Line には触れないが、この読者には無価値。
+ */
+export function isOffTarget(program, curated) {
+  const list = curated.offTargetKeywords || [];
+  if (list.length === 0) return false;
+  const hay = `${program.name ?? ""} ${program.genre ?? ""} ${program.subGenre ?? ""}`;
+  return list.some((kw) => hay.includes(kw));
+}
+
 // ---------- vertical 解決 ----------
 
 /**
@@ -146,6 +158,8 @@ export function scoreAndRank(programs, { coverage, existingAds, curated }) {
   // 実際には未解決のまま candidate 化されており、IT フリーランスや薬剤師の案件が
   // 建設サイトの候補として並んでいた（2026-07-27 の scout 実行で発覚）。
   const pendingVertical = [];
+  // 規約NGではないが読者と無関係な業種（薬剤師・看護・介護 等）。blocklist と分けて数える。
+  const offTarget = [];
   for (const p of programs) {
     if (isBlocked(p, curated)) {
       blocked.push({ ...p, reason: "blocklist" });
@@ -153,6 +167,10 @@ export function scoreAndRank(programs, { coverage, existingAds, curated }) {
     }
     if (isDuplicate(p, existingAds)) {
       duplicates.push({ ...p, reason: "duplicate" });
+      continue;
+    }
+    if (isOffTarget(p, curated)) {
+      offTarget.push({ ...p, reason: "off-target-industry" });
       continue;
     }
     const vertical = resolveVertical(p, curated);
@@ -170,7 +188,7 @@ export function scoreAndRank(programs, { coverage, existingAds, curated }) {
   candidates.sort((a, b) => b.score - a.score);
   belowThreshold.sort((a, b) => b.score - a.score);
   pendingVertical.sort((a, b) => b.score - a.score);
-  return { candidates, blocked, duplicates, belowThreshold, pendingVertical };
+  return { candidates, blocked, duplicates, belowThreshold, pendingVertical, offTarget };
 }
 
 // ---------- 状態機械 ----------

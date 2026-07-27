@@ -482,6 +482,7 @@ async function cmdScout(page: Page, limit: number): Promise<void> {
     duplicates,
     belowThreshold = [],
     pendingVertical = [],
+    offTarget = [],
   } = core.scoreAndRank(raw, { coverage, existingAds, curated });
   const top = candidates.slice(0, Number.isFinite(limit) ? limit : candidates.length);
   let cat = loadCatalog();
@@ -489,9 +490,9 @@ async function cmdScout(page: Page, limit: number): Promise<void> {
   saveCatalog(cat);
   console.log(
     `✅ candidate ${top.length} 件 upsert (blocked ${blocked.length} / dup ${duplicates.length} / ` +
-      `vertical未解決 ${pendingVertical.length} / 閾値未満 ${belowThreshold.length})`,
+      `対象外業種 ${offTarget.length} / vertical未解決 ${pendingVertical.length} / 閾値未満 ${belowThreshold.length})`,
   );
-  reportDropped({ belowThreshold, pendingVertical, minScore: curated.minScore });
+  reportDropped({ belowThreshold, pendingVertical, offTarget, minScore: curated.minScore });
 }
 
 /**
@@ -502,16 +503,22 @@ async function cmdScout(page: Page, limit: number): Promise<void> {
 function reportDropped({
   belowThreshold,
   pendingVertical,
+  offTarget = [],
   minScore,
 }: {
   belowThreshold: any[];
   pendingVertical: any[];
+  offTarget?: any[];
   minScore: number;
 }): void {
   const line = (b: any) => {
     const reward = b.rewardYen ? `¥${b.rewardYen}` : b.rewardRatePct ? `${b.rewardRatePct}%` : "-";
     return `    [${b.vertical || "-"}] ${b.name}  (${b.programId})  score ${b.score?.toFixed?.(2) ?? "-"}  報酬 ${reward}  EPC ${b.epcYen ?? "-"}`;
   };
+  if (offTarget.length > 0) {
+    console.log(`  — 対象外業種（規約NGではないが読者と無関係・curated.offTargetKeywords）:`);
+    for (const b of offTarget.slice(0, 10)) console.log(line(b));
+  }
   if (pendingVertical.length > 0) {
     console.log(`  — vertical 未解決（doboku の 3 軸に写像できず・catalog は pending-vertical）:`);
     for (const b of pendingVertical.slice(0, 10)) console.log(line(b));
@@ -578,6 +585,7 @@ async function cmdSearch(page: Page, limit: number, keywordArg?: string): Promis
     duplicates,
     belowThreshold = [],
     pendingVertical = [],
+    offTarget = [],
   } = core.scoreAndRank(raw, { coverage, existingAds, curated });
   const top = candidates.slice(0, Number.isFinite(limit) ? limit : candidates.length);
   let cat = loadCatalog();
@@ -585,9 +593,9 @@ async function cmdSearch(page: Page, limit: number, keywordArg?: string): Promis
   saveCatalog(cat);
   console.log(
     `✅ candidate ${top.length} 件 upsert (blocked ${blocked.length} / dup ${duplicates.length} / ` +
-      `vertical未解決 ${pendingVertical.length} / 閾値未満 ${belowThreshold.length})`,
+      `対象外業種 ${offTarget.length} / vertical未解決 ${pendingVertical.length} / 閾値未満 ${belowThreshold.length})`,
   );
-  reportDropped({ belowThreshold, pendingVertical, minScore: curated.minScore });
+  reportDropped({ belowThreshold, pendingVertical, offTarget, minScore: curated.minScore });
   const order: Record<string, number> = { "civil-career": 0, "pe-career": 1, career: 2 };
   for (const c of [...top].sort((a, b) => (order[a.vertical] ?? 9) - (order[b.vertical] ?? 9))) {
     console.log(`  [${c.vertical || "-"}] ${c.name}  (${c.programId})  score ${c.score?.toFixed(2)}`);

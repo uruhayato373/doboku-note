@@ -20,6 +20,7 @@ argument-hint: "<list|search|import-partnered|scout|apply|check-approval|harvest
 > |---|---|---|
 > | `candidate` | 3軸に写像でき、閾値以上 | 登録 |
 > | `blocked` | blocklist（Red Line: 転職一本・講座/教材/スクール系は不可） | 登録しない |
+> | `対象外業種` | `offTargetKeywords`（薬剤師/看護/介護 等）＝**規約NGではないが読者と無関係** | 登録しない |
 > | `dup` | 既存 creative と重複 | 登録しない |
 > | `vertical未解決` | doboku の 3軸（civil-career / pe-career / career）に写像できない | `pending-vertical` |
 > | `閾値未満` | score < `minScore`（既定 0.35） | 登録しない・**表示はする** |
@@ -87,7 +88,7 @@ npm run test:ads                                                 # 純関数コ�
 
 ## 制約 (必ず守る)
 
-- **ローカル Mac 限定**（プロファイルは `.local/`・GitHub Actions では動かない）。
+- **ローカル限定**（プロファイルは `.local/`・GitHub Actions では動かない）。OS は問わない＝Mac パスが実在しなければリポジトリルートへフォールバック（2026-07-27 可搬化・Windows 実走確認済み）。
 - **セッション失効 (isLoggedIn 失敗) は catalog に error 記録して正常終了** — パイプラインを壊さない。再ログインは人間。
 - **審査落ち (rejected) は再申請しない**。
 - **申請は週 `weeklyApplyMax` 件まで**（`a8-curated.json`。A8 スパム判定回避。初期 5）。

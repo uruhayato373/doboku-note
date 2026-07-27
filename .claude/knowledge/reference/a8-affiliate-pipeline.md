@@ -22,8 +22,9 @@ doboku=転職一本へ移植・スリム化）。
 > [!warning] 転職一本の Red Line を機械強制
 > doboku は 2026-06-25 に講座/教材/書籍/添削アフィリを完全廃止（note 有料商品とのカニバリ回避・memory
 > `affiliate-career-only`）。本パイプラインは (1) scout を A8 カテゴリ **09(仕事) のみ**に限定（curated
-> `categoryCodeToVertical`）、(2) `blocklistKeywords` に「講座/教材/参考書/問題集/添削/予備校/通信教育/eラーニング」を
-> 追加、の2段で非転職案件を機械除外する。
+> `categoryCodeToVertical`）、(2) `blocklistKeywords` に「講座/教材/参考書/問題集/添削/予備校/通信教育/eラーニング/**スクール/学習塾**」を
+> 追加、の2段で非転職案件を機械除外する。さらに (3) `offTargetKeywords`（薬剤師/看護/介護 等）は
+> **規約NGではないが読者と無関係**な業種として別枠で除外する（Red Line の意味を濁らせないため）。
 
 ## 申請サイト assert（複数サイト口座・最重要）
 
@@ -71,11 +72,13 @@ candidate → applied → approved → harvested → registered → published
 | canonical 4 種以外のサイズは harvest しない | `parseA8Code` が non-canonical を弾く |
 | セッション失効でパイプラインを壊さない | isLoggedIn 失敗は catalog に error 記録して exit 0。再ログインは人間 |
 | 候補にしなかったものを黙って捨てない | `scoreAndRank` は `belowThreshold` / `pendingVertical` も返し、search/scout が必ず表示（2026-07-27） |
-| doboku の 3 軸に写像できない案件を候補にしない | vertical 未解決は `pending-vertical`（IT フリーランス・薬剤師が建設サイトの候補に並んでいた事故の再発防止） |
+| doboku の 3 軸に写像できない案件を候補にしない | vertical 未解決は `pending-vertical`（IT フリーランスが建設サイトの候補に並んでいた事故の再発防止） |
+| 読者と無関係な業種を候補にしない | curated `offTargetKeywords`（薬剤師/看護/介護 等）→ `offTarget`。**blocklist（Red Line＝規約NG・カニバリ）とは別枠**にして Red Line の意味を濁らせない |
 
-## 実行形態（ローカル Mac 限定）
+## 実行形態（ローカル限定・OS は問わない）
 
 - Playwright プロファイル（`.local/playwright-a8-profile`）がローカルにあるため **GitHub Actions では動かない**。
+  ローカルであれば Mac / Windows どちらでも動く（2026-07-27 に可搬化・Windows で実走確認）。
 - **初回のみ人間**: `login.mjs` で A8 手動ログイン（credential は env に置かない）→ `list --dry-run --headed` で A8 の
   DOM をダンプしてセレクタ実機調整。これが済むまで実操作しない。
 - A8 の自動操作は会員規約上のリスクがあるため件数を保守的に開始する（`weeklyApplyMax` 初期 5）。
@@ -89,7 +92,10 @@ candidate → applied → approved → harvested → registered → published
 X/IG/note/ココナラと同じ永続プロファイル方式（`.claude/knowledge/reference/playwright-auth-profiles.md`）。ただし **A8 の認証は
 揮発性セッション Cookie で永続プロファイルに残らない**ため、`login.mjs` が `storageState`（Cookie 含む JSON）を
 `.local/playwright-a8-state.json` に捕獲し、`a8-browser.ts` が起動時に `addCookies` で再注入する（これが認証再利用の実体）。
-`PROFILE_ROOT` は本体チェックアウト固定（`/Users/minamidaisuke/doboku-note`）＝worktree からでも同一ログインを共有。
+`PROFILE_ROOT` は本体チェックアウト固定（Mac では `/Users/minamidaisuke/doboku-note`）＝worktree からでも同一ログインを共有。
+**そのパスが実在しない環境（Windows 機等）ではリポジトリルートへフォールバックする**（2026-07-27）。
+なお成果レポート側（`fetch-a8-ui-csv.mjs`）は人間のログイン直後に自分で `storageState` を保存するため、
+`login.mjs` を別途走らせる必要はない。
 
 ## 成果レポート パイプライン（`/a8-report`・2026-07-27 新設）
 
