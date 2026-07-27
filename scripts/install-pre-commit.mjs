@@ -145,10 +145,10 @@ fi
 # affiliate-career-only 違反 prose（添削サービス/講座ブランド等の再提案）を検知（PR#272 取りこぼしの再発防止）
 node scripts/check-affiliate-prose.mjs --staged
 
-if [ -f scripts/check-a8-wiring.mjs ]; then
-  node scripts/check-a8-wiring.mjs --staged
+if [ -f scripts/check-affiliate-wiring.mjs ]; then
+  node scripts/check-affiliate-wiring.mjs --staged
   if [ $? -ne 0 ]; then
-    echo "[pre-commit] A8 レポート配線に不整合。commit を中止しました。"
+    echo "[pre-commit] アフィリ配線（3 ASP）に不整合。commit を中止しました。"
     exit 1
   fi
 fi

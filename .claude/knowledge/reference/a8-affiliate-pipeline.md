@@ -160,7 +160,7 @@ append すると同じ期間が二重に積まれるため、SSOT は `period+si
 | 装備 | 実体 | いつ効くか |
 |---|---|---|
 | cadence surfacer | `npm run check-a8-report-due`（既定30日） | 週次 PDCA（`/weekly-review`）が DUE と `issues[]` を毎週 surface。A8 は API 無し＝cron 化できないので「思い出させる」方式 |
-| 配線ドリフト検知 | `npm run check-a8-wiring`（pre-commit） | `programIdMap` ↔ `affiliate-mats.json` ↔ 消費側の語彙がズレたら commit を止める。**初回実行で dx-consulting の取りこぼしを実検出** |
+| 配線ドリフト検知 | `npm run check-affiliate-wiring`（pre-commit） | `affiliate-mats.json` ↔ `affiliate-catalog.json` ↔ `programIdMap` ↔ 消費側の 4 点がズレたら commit を止める。**初回実行で dx-consulting の取りこぼしを実検出**（2026-07-27 に 3 ASP 横断へ拡張・旧 `check-a8-wiring` を統合） |
 | 取りこぼし検知 | `crossCheck.hasShortfall` → `missingProgramCandidates` | 掲載しているのに集計されていない広告を、サイト別との差分で炙り出す |
 | 誤アカウント防止 | 口座 assert（`mediaId`）→ exit 5 | 別口座でログインしていたら 1 バイトも取り込まない |
 
@@ -171,7 +171,7 @@ append すると同じ期間が二重に積まれるため、SSOT は `period+si
   dumpFailure / findUniqueByLabels。コピーはしない）
 - 正規化: `scripts/normalize-a8-csv.mjs`（`a8-ui:normalize`）／コア `scripts/lib/a8-report-csv.mjs`
 - テスト（node:test・20件）: `tests/a8-report-csv.test.mjs`（`npm test` に含まれる）
-- 継続運用: `scripts/check-a8-report-due.mjs`（surfacer）／`scripts/check-a8-wiring.mjs`（pre-commit ガード）
+- 継続運用: `scripts/check-a8-report-due.mjs`（surfacer）／`scripts/check-affiliate-wiring.mjs`（pre-commit ガード・3 ASP 横断）
 - 設定 SoT: `.claude/config/a8-report-automation.json`（URL・ラベル・`columnAliases`・`programIdMap`・`mediaId`・`reports[].siteScope`）
 - SSOT: `.claude/state/metrics/affiliate/a8-report-log.json`
   （`siteSummary`＝doboku 分離済みの真実源 / `programPeriod`＝allowlist 抽出 / `monthly`・`daily`＝口座横断 /
