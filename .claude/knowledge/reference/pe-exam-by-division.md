@@ -12,6 +12,7 @@ appliesTo:
   - docs/note/技術士総監/**
   - docs/note/技術士建設部門/**
   - docs/sns/**（カルーセル・Reels・X）
+machineReadable: .claude/config/exam-stats.json
 related:
   - .claude/knowledge/reference/pe-cem-pass-rate-history.md（総監単独の年度別 時系列）
 ---
@@ -19,6 +20,9 @@ related:
 # 技術士第二次試験 技術部門別 受験者数・合格率
 
 全21部門（20 技術部門 + 総合技術監理部門）の **部門別内訳**。IPEJ（公益社団法人 日本技術士会）・文部科学省の公表統計から抽出したもの。記事・SNS・マガジンでの数値引用の SSoT として使う。総監単独の**年度別時系列**は `pe-cem-pass-rate-history.md` が担当し、本ファイルは**単年度の部門別カット**を担う（役割が直交）。
+
+> [!important] 機械可読 SSOT は `.claude/config/exam-stats.json`
+> 受験者数・合格率を**エージェント／スキル／スクリプトが読むときは [`.claude/config/exam-stats.json`](../../config/exam-stats.json) を参照する**（本 md は人間向けの解説・引用テンプレ）。同ファイルは技術士21部門に加えて **1級/2級土木・コンクリート技士/主任技士/診断士**も収録した全資格カタログで、試験日 SSOT の `exam-calendar.json` と対になる。数値を書く前に必ず参照し、記憶・既存原稿から転記しない。更新時は md と json の両方を同一コミットで更新する。
 
 > [!warning] 段階の違いに注意
 > - **R6（令和6年度）= 最終合格**（筆記＋口頭の通算・確定値）。合格者合計 2,395。
