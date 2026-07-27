@@ -91,6 +91,11 @@ public/posts
 # Playwright GSC/GA4 取得用（Google ログイン cookie を含む・コミット禁止・ローカル専用）
 .local/playwright-google-profile/
 .local/playwright-google-debug/
+# もしもアフィリエイト（2026-07-27 調査用に作成）。A8 と同じくログイン済みプロファイル＋
+# storageState をローカルに置く。認証情報なので絶対にコミットしない。
+.local/playwright-moshimo-profile/
+.local/playwright-moshimo-debug/
+.local/playwright-moshimo-state.json
 
 # GSC UI 生取得データ（run 単位・URL 一覧/ZIP を含む・regenerable）はコミットしない。
 # 直下の last-run.json（取得日マーカー・URL 非含有）だけは due-surfacer 用に追跡する。
