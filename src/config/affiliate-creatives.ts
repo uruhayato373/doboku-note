@@ -305,8 +305,9 @@ function resolveBuildJobCopy(slug?: string): CareerArticleEndCard {
  *
  * creative は `resolveCareerSidebarAd()` と同じ期間境界で出し分ける
  * （〜2026-08-31 ビルドジョブ ¥50,000 ／ 9-01 以降 GKS に自動復帰）。
- * 文言は .claude/knowledge/reference/affiliate-operations.md の保管庫の公称値に基づく
- * （未確認の数値は記載しない）。
+ * 文言は .claude/knowledge/reference/affiliate-operations.md「6. 配置ポリシー」に従う
+ * （広告主の公称値は PR バッジ付きカード内の points に限定し、未確認の数値は記載しない）。
+ * 公称値の実体は各 creative 定義の points / CAREER_PRESETS が真実源。
  */
 export function resolveCareerArticleEndCard(slug?: string): CareerArticleEndCard {
   // A/B arm B（建設JOBs・登録 ¥4,500）。サイドバーと同じ実効 arm 判定で一致させ、同一ページは

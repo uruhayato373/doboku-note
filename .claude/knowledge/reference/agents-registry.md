@@ -6,7 +6,7 @@ title: サブエージェント詳細レジストリ
 
 `.claude/agents/` に定義されたサブエージェント群の詳細。Generator/Evaluator 分離の原則に基づき設計。
 
-> **件数の SSOT**: エージェント数の真実源は `.claude/agents/*.md` の実数（`find .claude/agents -maxdepth 1 -name '*.md' | wc -l`＝現在 **69**）と下記「エージェント一覧」表。CLAUDE.md など他 doc は件数を重複記載せずここを指す。追加/削除は同一 commit でこの表を更新する。
+> **件数の SSOT**: エージェント数の真実源は `.claude/agents/*.md` の実数（`find .claude/agents -maxdepth 1 -name '*.md' | wc -l`＝現在 **77**）と下記「エージェント一覧」表。CLAUDE.md など他 doc は件数を重複記載せずここを指す。追加/削除は同一 commit でこの表を更新する。
 
 **いつ読むか**: サブエージェントを呼び出すときに担当範囲を確認するとき、連携設計時、新規エージェント追加時の命名・責務設計時。
 
