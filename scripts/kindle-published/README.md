@@ -46,6 +46,16 @@ A（問題/解答を別 XHTML に分割＝構造的改ページ）と D（`.ans`
 | C-07 建設環境 | B0HB3585PD | 1.0 | `kindle-dist/c-07.epub` | `kindle-dist/c-07.jpg` | kdp-memo.json |
 | C-08 港湾及び空港 | B0HB3H3N7Y | 1.0 | `kindle-dist/c-08.epub` | `kindle-dist/c-08.jpg` | kdp-memo.json |
 | C-09 電力土木 | B0HB34VG8C | 1.0 | `kindle-dist/c-09.epub` | `kindle-dist/c-09.jpg` | kdp-memo.json |
+| C-10 鉄道 | B0HBQSYKZ6 | 1.0 | `kindle-dist/c-10.epub` | `kindle-dist/c-10.jpg` | kdp-memo.json |
+| C-11 トンネル | B0HBR397N3 | 1.0 | `kindle-dist/c-11.epub` | `kindle-dist/c-11.jpg` | kdp-memo.json |
+| C-I 必須科目I | B0HBR2F6KZ | 1.0 | `kindle-dist/c-I.epub` | `kindle-dist/c-I.jpg` | kdp-memo.json |
+| F-01 ゼネコン | B0HBQTCDXR | 1.0 | `kindle-dist/f-01.epub` | `kindle-dist/f-01.jpg` | kdp-memo.json |
+| F-02 河川コンサル | B0HBQVW3G9 | 1.0 | `kindle-dist/f-02.epub` | `kindle-dist/f-02.jpg` | kdp-memo.json |
+| F-03 自治体上水道 | B0H9X5WMX7 | 1.0 | `kindle-dist/f-03.epub` | `kindle-dist/f-03.jpg` | kdp-memo.json |
+| F-04 自治体下水道 | B0H1DTYCNG | 1.0 | `kindle-dist/f-04.epub` | `kindle-dist/f-04.jpg` | kdp-memo.json |
+| F-05 自治体公園緑地 | B0GYJ94CWB | 1.0 | `kindle-dist/f-05.epub` | `kindle-dist/f-05.jpg` | kdp-memo.json |
+| F-06 自治体契約調達 | B0GZKYXZP7 | 1.0 | `kindle-dist/f-06.epub` | `kindle-dist/f-06.jpg` | kdp-memo.json |
+| F-07 自治体技術基準 | B0HBR87S59 | 1.0 | `kindle-dist/f-07.epub` | `kindle-dist/f-07.jpg` | kdp-memo.json |
 
 > ASIN の真実源は `scripts/kindle-published/catalog.json`（`asin` フィールド）。この表と
 > `docs/project/01_戦略/08_Kindle出版戦略.md` は人が読む索引で、**3 箇所とも同時に更新する**

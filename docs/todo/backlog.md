@@ -678,4 +678,4 @@ npm run kdp-batch -- f-08 f-09 f-10 f-11 f-12 f-13 f-14 f-15 f-16
 
 driver が「配置→下書き→プロファイル掃除→出版→catalog更新」を1冊約3.5分で回し、制限に再到達したら即中断する。手順と罠の真実源は `.claude/skills/conversion/kdp-publish/SKILL.md`。
 
-**あわせて**: 2026-07-27 提出の10冊が LIVE 化したら ASIN を **3箇所**（`catalog.json` / `docs/project/01_戦略/08_Kindle出版戦略.md` / `scripts/kindle-published/README.md`）に記録する。ASIN は `node scripts/kdp-publish.mjs --sync-status` の保存する `.tmp/kdp-bookshelf.html` から draftAsin と対応づけて取得できる（本棚リストは20件で切れるため JSON 出力だけでは足りない）。
+**ASIN 記録は完了済み**（2026-07-27 提出の10冊は同日中に LIVE 化し、3箇所へ記録済み）。f-08〜f-16 も出版後は同様に ASIN を **3箇所**（`catalog.json` / `docs/project/01_戦略/08_Kindle出版戦略.md` / `scripts/kindle-published/README.md`）に記録する。ASIN は `node scripts/kdp-publish.mjs --sync-status` の保存する `.tmp/kdp-bookshelf.html` から draftAsin と対応づけて取得できる（本棚リストは20件で切れるため JSON 出力だけでは足りない）。

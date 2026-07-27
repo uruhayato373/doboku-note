@@ -661,13 +661,13 @@
     },
     {
       "id": "c-10",
-      "asin": null,
+      "asin": "B0HBQSYKZ6",
       "title": "技術士 建設部門 鉄道 二次 模範解答集",
       "subtitle": "過去問 R03-R07 全15記事",
       "series": "C 技術士建設部門 二次 模範解答",
       "priceJpy": 690,
       "royalty": 0.7,
-      "status": "in_review",
+      "status": "live",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/c-10.json",
       "epub": "kindle-dist/c-10.epub",
@@ -682,17 +682,18 @@
         }
       ],
       "draftAsin": "A34L0KL0IGXXYF",
-      "submittedDate": "2026-07-27"
+      "submittedDate": "2026-07-27",
+      "publishedDate": "2026-07-27"
     },
     {
       "id": "c-11",
-      "asin": null,
+      "asin": "B0HBR397N3",
       "title": "技術士 建設部門 トンネル 二次 模範解答集",
       "subtitle": "過去問 R03-R07 全15記事",
       "series": "C 技術士建設部門 二次 模範解答",
       "priceJpy": 690,
       "royalty": 0.7,
-      "status": "in_review",
+      "status": "live",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/c-11.json",
       "epub": "kindle-dist/c-11.epub",
@@ -707,17 +708,18 @@
         }
       ],
       "draftAsin": "A20UU4L5GAS3QJ",
-      "submittedDate": "2026-07-27"
+      "submittedDate": "2026-07-27",
+      "publishedDate": "2026-07-27"
     },
     {
       "id": "c-I",
-      "asin": null,
+      "asin": "B0HBR2F6KZ",
       "title": "技術士 建設部門 必須科目I 二次 模範解答集",
       "subtitle": "過去問 R03-R07 全5記事",
       "series": "C 技術士建設部門 二次 模範解答",
       "priceJpy": 690,
       "royalty": 0.7,
-      "status": "in_review",
+      "status": "live",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/c-I.json",
       "epub": "kindle-dist/c-I.epub",
@@ -732,17 +734,18 @@
         }
       ],
       "draftAsin": "A4JJHSD8B2DQN",
-      "submittedDate": "2026-07-27"
+      "submittedDate": "2026-07-27",
+      "publishedDate": "2026-07-27"
     },
     {
       "id": "f-01",
-      "asin": null,
+      "asin": "B0HBQTCDXR",
       "title": "技術士 総合技術監理部門 記述式 模範論文 ゼネコン編（令和3〜7年度）",
       "subtitle": "令和3〜7年度 必須科目 模範論文 全5本",
       "series": "F 技術士総監 記述式",
       "priceJpy": 690,
       "royalty": 0.7,
-      "status": "in_review",
+      "status": "live",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/f-01.json",
       "epub": "kindle-dist/f-01.epub",
@@ -757,17 +760,18 @@
         }
       ],
       "draftAsin": "AZQ24V18B5OKN",
-      "submittedDate": "2026-07-27"
+      "submittedDate": "2026-07-27",
+      "publishedDate": "2026-07-27"
     },
     {
       "id": "f-02",
-      "asin": null,
+      "asin": "B0HBQVW3G9",
       "title": "技術士 総合技術監理部門 記述式 模範論文 河川コンサル編（令和3〜7年度）",
       "subtitle": "令和3〜7年度 必須科目 模範論文 全5本",
       "series": "F 技術士総監 記述式",
       "priceJpy": 690,
       "royalty": 0.7,
-      "status": "in_review",
+      "status": "live",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/f-02.json",
       "epub": "kindle-dist/f-02.epub",
@@ -782,17 +786,18 @@
         }
       ],
       "draftAsin": "A19DA1FEU42JLG",
-      "submittedDate": "2026-07-27"
+      "submittedDate": "2026-07-27",
+      "publishedDate": "2026-07-27"
     },
     {
       "id": "f-03",
-      "asin": null,
+      "asin": "B0H9X5WMX7",
       "title": "技術士 総合技術監理部門 記述式 模範論文 自治体上水道担当編（令和3〜7年度）",
       "subtitle": "令和3〜7年度 必須科目 模範論文 全5本",
       "series": "F 技術士総監 記述式",
       "priceJpy": 690,
       "royalty": 0.7,
-      "status": "in_review",
+      "status": "live",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/f-03.json",
       "epub": "kindle-dist/f-03.epub",
@@ -807,17 +812,18 @@
         }
       ],
       "draftAsin": "A2GZNUK12SE3C3",
-      "submittedDate": "2026-07-27"
+      "submittedDate": "2026-07-27",
+      "publishedDate": "2026-07-27"
     },
     {
       "id": "f-04",
-      "asin": null,
+      "asin": "B0H1DTYCNG",
       "title": "技術士 総合技術監理部門 記述式 模範論文 自治体下水道担当編（令和3〜7年度）",
       "subtitle": "令和3〜7年度 必須科目 模範論文 全5本",
       "series": "F 技術士総監 記述式",
       "priceJpy": 690,
       "royalty": 0.7,
-      "status": "in_review",
+      "status": "live",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/f-04.json",
       "epub": "kindle-dist/f-04.epub",
@@ -832,17 +838,18 @@
         }
       ],
       "draftAsin": "AF2FX6X693HN6",
-      "submittedDate": "2026-07-27"
+      "submittedDate": "2026-07-27",
+      "publishedDate": "2026-07-27"
     },
     {
       "id": "f-05",
-      "asin": null,
+      "asin": "B0GYJ94CWB",
       "title": "技術士 総合技術監理部門 記述式 模範論文 自治体公園緑地担当編（令和3〜7年度）",
       "subtitle": "令和3〜7年度 必須科目 模範論文 全5本",
       "series": "F 技術士総監 記述式",
       "priceJpy": 690,
       "royalty": 0.7,
-      "status": "in_review",
+      "status": "live",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/f-05.json",
       "epub": "kindle-dist/f-05.epub",
@@ -857,17 +864,18 @@
         }
       ],
       "draftAsin": "A1XSZ6C2OWIWDD",
-      "submittedDate": "2026-07-27"
+      "submittedDate": "2026-07-27",
+      "publishedDate": "2026-07-27"
     },
     {
       "id": "f-06",
-      "asin": null,
+      "asin": "B0GZKYXZP7",
       "title": "技術士 総合技術監理部門 記述式 模範論文 自治体契約調達担当編（令和3〜7年度）",
       "subtitle": "令和3〜7年度 必須科目 模範論文 全5本",
       "series": "F 技術士総監 記述式",
       "priceJpy": 690,
       "royalty": 0.7,
-      "status": "in_review",
+      "status": "live",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/f-06.json",
       "epub": "kindle-dist/f-06.epub",
@@ -882,17 +890,18 @@
         }
       ],
       "draftAsin": "A3FDLXGX4XWXNI",
-      "submittedDate": "2026-07-27"
+      "submittedDate": "2026-07-27",
+      "publishedDate": "2026-07-27"
     },
     {
       "id": "f-07",
-      "asin": null,
+      "asin": "B0HBR87S59",
       "title": "技術士 総合技術監理部門 記述式 模範論文 自治体技術基準担当編（令和3〜7年度）",
       "subtitle": "令和3〜7年度 必須科目 模範論文 全5本",
       "series": "F 技術士総監 記述式",
       "priceJpy": 690,
       "royalty": 0.7,
-      "status": "in_review",
+      "status": "live",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/f-07.json",
       "epub": "kindle-dist/f-07.epub",
@@ -907,7 +916,8 @@
         }
       ],
       "draftAsin": "A139HU0RSV7SW",
-      "submittedDate": "2026-07-27"
+      "submittedDate": "2026-07-27",
+      "publishedDate": "2026-07-27"
     },
     {
       "id": "f-08",
