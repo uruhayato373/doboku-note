@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "_note": "A8.net メディア管理画面（media-console.a8.net）のレポート CSV 取得設定。google-console-automation.json と対称。DOM ラベルは新管理画面の実機で確定させる前提の候補配列（ja/en 併記）。ラベルが外れたら .local/playwright-a8-debug/<runId>/ の visible-text.txt を見てここを直す（スクリプトは変更しない）。",
+  "a8": {
+    "baseUrl": "https://media-console.a8.net",
+    "homePath": "/home",
+    "reAuthPattern": "re-authentication|/login",
+
+    "targetSite": "doboku-note",
+    "_targetSiteNote": "この A8 口座は複数サイト登録（stats47=統計で見る都道府県 / doboku-note）。レポートは doboku-note のみを取り込む。scout-asp の apply と同じ fail-closed 思想。",
+    "forbiddenSiteText": ["統計で見る都道府県", "stats47"],
+    "siteSwitcherLabels": ["サイト名", "サイト切替", "メディアID", "Site"],
+
+    "isolationMode": "site-switch",
+    "_isolationModeNote": "site-switch = サイト切替でレポート全体が doboku-note スコープになる（既定・要実機確認）。site-column = レポートが口座横断でサイト列を持つため行フィルタで分離する。A8 のプログラム一覧は webSiteId フィルタが効かない先例あり（a8-browser.ts L371）。初回 --dry-run --probe-isolation で確定してここを更新する。",
+    "siteColumnHeaders": ["サイト", "サイト名", "メディアサイト"],
+
+    "reports": {
+      "period-monthly": {
+        "label": "期間別（月別）",
+        "menuLabels": ["期間別（月別）", "期間別(月別)", "Monthly"],
+        "path": "/report/period/monthly",
+        "rangeMonths": 12,
+        "_note": "月次トレンドと a8-results.json の月次 rollup の突合に使う"
+      },
+      "period-daily": {
+        "label": "期間別（日別）",
+        "menuLabels": ["期間別（日別）", "期間別(日別)", "Daily"],
+        "path": "/report/period/daily",
+        "rangeDays": 62,
+        "_note": "当月＋前月の日別。日次の異常検知用"
+      },
+      "program-detail": {
+        "label": "プログラム別（詳細）",
+        "menuLabels": ["プログラム別（詳細）", "プログラム別(詳細)", "Program detail"],
+        "path": "/report/program/detail",
+        "rangeMonths": 2,
+        "_note": "プログラム×月の内訳。EPC 判定の中核（a8-results.json の records はここから作る）"
+      }
+    },
+    "reportMenuLabels": ["レポート", "Report"],
+    "exportButtonLabels": ["CSVダウンロード", "CSV ダウンロード", "CSVでダウンロード", "ダウンロード", "エクスポート", "Download CSV", "Export"],
+    "csvEncoding": "shift_jis",
+    "_csvEncodingNote": "A8 の CSV は Shift_JIS 想定。実機で UTF-8 だった場合はここを utf-8 にする（normalize は BOM/文字化けを検出して警告する）",
+
+    "columnAliases": {
+      "date": ["日付", "年月日", "日", "Date"],
+      "month": ["年月", "月", "対象月", "Month"],
+      "programName": ["プログラム名", "プログラム", "広告主", "Program"],
+      "programId": ["プログラムID", "プログラム ID", "Program ID"],
+      "site": ["サイト", "サイト名", "メディアサイト", "Site"],
+      "impressions": ["インプレッション", "表示回数", "Impressions"],
+      "clicks": ["クリック数", "クリック", "Clicks"],
+      "conversions": ["発生件数", "成果件数", "注文件数", "発生", "Conversions"],
+      "approved": ["確定件数", "承認件数", "確定", "Approved"],
+      "revenueYen": ["確定報酬", "確定報酬額", "報酬額", "確定金額", "Revenue"],
+      "pendingRevenueYen": ["発生報酬", "未確定報酬", "発生報酬額", "Pending revenue"]
+    },
+
+    "programIdMap": {
+      "_note": "A8 のプログラム名（raw）→ 自社 program 語彙。語彙は src/config/affiliate-mats.json / report-buildjob-affiliate.mjs の PROGRAM_BY_LABEL と一致させる。未知の raw 名は写像せず programRaw のまま保持し、a8-results.json には書かない（取りこぼしを黙って捨てない）。実機の CSV を見て追記する。",
+      "ビルドジョブ": "buildjob",
+      "BuildJob": "buildjob",
+      "建設JOBs": "kensetsu-jobs",
+      "GKSキャリア": "gks",
+      "GKS": "gks"
+    }
+  },
+
+  "browser": {
+    "channel": "chrome",
+    "headless": false,
+    "profileDir": ".local/playwright-a8-profile",
+    "stateFile": ".local/playwright-a8-state.json",
+    "debugDir": ".local/playwright-a8-debug",
+    "timeoutMs": 30000,
+    "statusIntervalMs": 120000,
+    "loginMaxWaitMs": 900000
+  }
+}

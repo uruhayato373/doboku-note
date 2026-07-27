@@ -95,6 +95,9 @@ public/posts
 # GSC UI 生取得データ（run 単位・URL 一覧/ZIP を含む・regenerable）はコミットしない。
 # 直下の last-run.json（取得日マーカー・URL 非含有）だけは due-surfacer 用に追跡する。
 .claude/state/metrics/gsc-ui/*/
+# A8 レポート生取得データ（run 単位・raw CSV）。正規化後の a8-report-log.json / a8-results.json が
+# 追跡対象の SSOT で、raw は再取得可能。直下の last-run.json は取得マーカーとして追跡する。
+.claude/state/metrics/affiliate/a8-ui/*/
 # 突合レポートの run 単位 JSON（regenerable）。latest.md は残す。
 .claude/state/improvements/search-growth-*.json
 

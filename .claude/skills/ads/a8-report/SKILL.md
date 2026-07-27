@@ -1,0 +1,118 @@
+---
+name: a8-report
+description: >
+  A8.net のレポート CSV を Playwright で取得し、doboku-note 分だけを正規化して SSOT
+  （a8-report-log.json / a8-results.json）へ upsert する成果データパイプライン。
+  期間別（月別）・期間別（日別）・プログラム別（詳細）の 3 レポートを扱い、EPC 判定の分母を自動供給する。
+  この A8 口座は stats47（統計で見る都道府県）と共用のため、サイト帰属 assert が通らなければ取り込まない。
+  Use when user says "A8レポート", "アフィリ成果を取り込む", "A8のCSVを取得", "EPCを更新", "a8-report".
+  **初回 or UI 変更後は必ず `--dry-run --probe-isolation` で分離方式とセレクタを確定すること**.
+disable-model-invocation: true
+argument-hint: "[--reports all|period-monthly,period-daily,program-detail] [--dry-run] [--probe-isolation] [--headed]"
+---
+
+A8.net メディア管理画面（media-console.a8.net）のレポートを CSV でダウンロードし、
+**収集 → 検証 → 正規化 → SSOT → 分析** を回す。判定はすべて決定的スクリプトに委譲し、
+「伸ばす/畳む」の意思決定だけ人が持つ。
+
+> **正典は `.claude/knowledge/reference/a8-affiliate-pipeline.md`**（レポート節）。本 skill は手順のみ。
+> ラベル・URL・列名・プログラム写像は `.claude/config/a8-report-automation.json` が SSOT、
+> 解析ロジックは `scripts/lib/a8-report-csv.mjs`（node:test 済み）が SSOT。
+> 提携申請を回す `/scout-asp` とは別サブシステム（あちらは提携運用・こちらは成果レポート）。
+
+## なぜ必要か
+
+A8 は公開 API が無く、成果は長らく月 1 の手入力前提だった（`a8-results.json` は空のまま）。
+その結果、消費側の `report-buildjob-affiliate.mjs`（GA4 クリック × A8 成果 → EPC）が
+**分母を持てず**、ビルドジョブ vs 建設JOBs の A/B 勝者判断が保留になっていた。ここを埋める。
+
+## 安全弁（迂回しない）
+
+| 弁 | 実体 |
+|---|---|
+| サイト帰属 | doboku-note を assert できなければ **1 バイトも DL しない**（exit 5）。stats47 混入は事後に切り分け不能 |
+| ログイン | 人間。CAPTCHA/2FA を自動突破しない |
+| セレクタ | 候補が 0/複数なら推測クリックせず debug dump して停止 |
+| 取りこぼし | programIdMap 未登録のプログラムは黙って捨てず `unmapped` に出す |
+| 生データ | raw CSV と manifest は書き換えない（append-only・監査可能性） |
+
+## フェーズ
+
+### 1. preflight
+
+- `git branch --show-current` / `git status`
+- `.claude/config/a8-report-automation.json` の `targetSite` / `isolationMode` を Read
+- 前回実行: `.claude/state/metrics/affiliate/a8-ui/last-run.json`
+
+### 2. collect（`a8-report-collector` エージェント）
+
+```bash
+npm run a8-ui:fetch -- --dry-run
+```
+
+初回 / UI 変更後は分離方式も確かめる:
+
+```bash
+npm run a8-ui:fetch -- --dry-run --probe-isolation
+```
+
+dry-run が `not-signed-in` なら人間がログイン:
+
+```bash
+npx tsx .claude/skills/ads/scout-asp/scripts/login.mjs
+```
+
+問題なければ本取得:
+
+```bash
+npm run a8-ui:fetch
+```
+
+### 3. validate（`a8-csv-auditor` エージェント）
+
+manifest / raw CSV / rejects / 前回差分 / **サイト帰属** を PASS/WARN/FAIL で判定。
+FAIL なら normalize へ進まない。
+
+### 4. normalize + rollup（決定的）
+
+```bash
+npm run a8-ui:normalize -- --latest --dry-run   # 差分だけ見る
+npm run a8-ui:normalize -- --latest             # SSOT へ書く
+```
+
+- `.claude/state/metrics/affiliate/a8-report-log.json` — monthly / daily / programMonthly を upsert
+- `.claude/state/metrics/affiliate/a8-results.json` — 既存スキーマの records へ rollup
+
+`unmapped` が出たら config の `a8.programIdMap` に追記して再実行する（黙って無視しない）。
+
+### 5. analyze（親が実施）
+
+```bash
+npm run report-buildjob-affiliate
+```
+
+正規化 JSON と併せて読み、プログラム別 EPC・面別クリックの伸び・撤退候補を surface する。
+**判断（伸ばす/畳む/価格改定）はユーザー**。「数値がこう動いた」と「だから何をすべきか」を分けて出す。
+
+### 6. finalize
+
+- SSOT の差分を確認して commit（raw run は gitignore・`last-run.json` のみ commit）
+- 大きな変化があれば `docs/todo/weekly.md` の週次レビューに 1 行残す
+
+## トラブルシューティング
+
+| 症状 | 対処 |
+|---|---|
+| `site-mismatch` | debug の `visible-text.txt` を見て config の `siteSwitcherLabels` を調整。サイト切替が効かないなら `isolationMode: "site-column"` へ |
+| `export-button-ambiguous` | `exportButtonLabels` を実機の文言に絞る（候補を減らす） |
+| `report-unreachable` | `reports.*.path` の URL が変わった。実機の URL を config へ |
+| 文字化け | `csvEncoding` を切替（normalize は U+FFFD を数えて自動フォールバックもする） |
+| `fatal: 必須列が見つからない` | `columnAliases` に実機のヘッダー文言を追記 |
+| `unmapped` | `programIdMap` に raw 名を追記 |
+
+## 参照
+
+- `.claude/knowledge/reference/a8-affiliate-pipeline.md` — A8 運用 SSOT
+- `.claude/config/a8-report-automation.json` — ラベル/URL/列名/写像
+- `scripts/lib/a8-report-csv.mjs` — 解析コア（`tests/a8-report-csv.test.mjs`・`npm test` に含まれる）
+- `.claude/scripts/report-buildjob-affiliate.mjs` — EPC 消費側

@@ -17,7 +17,7 @@ title: スキル ガバナンス記録
 
 ```
 .claude/skills/
-├── ads/             # 1 — A8 アフィリエイト操作（承認確認/開拓/申請/コード取得）
+├── ads/             # 2 — A8 アフィリエイト操作（承認確認/開拓/申請/コード取得）＋ 成果レポート取込
 ├── authoring/       # 11 — 記事を作る
 ├── conversion/      # 7 — 形式変換（MDX / OGP 画像 / 紙用 PDF / Kindle EPUB）＋ KDP 入稿・出版 ＋ OGP 意匠の素案試作
 ├── quality/         # 16 — MDX・note 公開前品質検査
@@ -29,7 +29,9 @@ title: スキル ガバナンス記録
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **95 スキル**（10 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+合計 **96 スキル**（10 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+
+> 2026-07-27 新設（A8 成果レポートの自動取込＝EPC の分母供給）: `ads/a8-report`（A8.net のレポート CSV を Playwright で取得し **doboku-note 分だけ**を正規化して SSOT へ upsert する user-invocable スキル。`disable-model-invocation: true`）。あわせて **新エージェント 2 体**＝`a8-report-collector`（Generator・sonnet。収集実行とサイト帰属 assert・manifest/debug 確認）、`a8-csv-auditor`（Evaluator・sonnet・audit-only。サイト帰属を最優先軸に PASS/WARN/FAIL）。決定的スクリプト `scripts/fetch-a8-ui-csv.mjs`（`a8-ui:fetch`）／`scripts/normalize-a8-csv.mjs`（`a8-ui:normalize`）＋純関数コア `scripts/lib/a8-report-csv.mjs`（Shift_JIS デコード・列写像・upsert・rollup／`tests/a8-report-csv.test.mjs` で 10 ケース・`npm test` に同梱）＋ブラウザ層 `scripts/lib/a8-report-browser.mjs`（**汎用部は `google-console-browser.mjs` を import 再利用しコピーしない**＝launchContext/downloadTo/dumpFailure/findUniqueByLabels）。設定 SoT `.claude/config/a8-report-automation.json`（URL/ラベル/columnAliases/programIdMap/isolationMode）。**最重要の安全弁＝サイト帰属**: この A8 口座は stats47（統計で見る都道府県）と共用で、A8 のプログラム一覧は `webSiteId` フィルタが効かない先例がある（`a8-browser.ts` L371）ため、doboku-note を assert できなければ 1 バイトも DL しない（exit 5）／口座横断だった場合は `isolationMode: "site-column"` で行フィルタへ切替。SSOT は `.claude/state/metrics/affiliate/a8-report-log.json`（新設・monthly/daily/programMonthly）＋既存 `a8-results.json` へ rollup（**消費側 `report-buildjob-affiliate.mjs` は無変更**）。**A8 は確定処理で過去月が遡及変化するため append でなく upsert**。raw run は gitignore・`last-run.json` のみ追跡。admin-app に `/affiliate` タブを追加（月次×プログラム×EPC・未写像の警告）。これにより `a8-results.json` の月次手入力運用（`measurement-infra-enhancement.md` #16）を自動化。提携運用の `ads/scout-asp` とは別サブシステム（あちらは申請/素材・こちらは成果）。合計 `95→96`・ads `1→2`・agents `+2`。
 
 > 2026-07-24 新設（GSC/GA4 Playwright 取得＝検索流入改善パイプライン）: `management/google-search-growth`（GSC「ページのインデックス登録」理由別詳細から Playwright の download イベントで CSV を取得→ロケール非依存 JSON へ正規化→URL Inspection/GSC page×query/GA4 page/sitemap/_redirects/生成 HTML と URL 単位で突合→修正アクション分類→approval gate で停止する user-invocable オーケストレータ。`disable-model-invocation: true`＝副作用〔ブラウザ操作〕あり）。あわせて **新エージェント 3 体**＝`gsc-browser-collector`（Generator・sonnet。UI CSV 収集の実行と property assert・manifest/debug 確認・ログイン/2FA/CAPTCHA/プロパティ不一致で停止）、`gsc-csv-auditor`（Evaluator・sonnet・audit-only。raw CSV/manifest/正規化 JSON のデータ品質＝行数/sha256/truncation/rejects/重複/前回差分/schema を PASS/WARN/FAIL）、`seo-fix-planner`（Evaluator・sonnet・audit-only。join 済み JSON の URL 分類を意味補正し impact×confidence×effort で優先順位）。決定的スクリプト＝`scripts/google-console-login.mjs`／`fetch-gsc-ui-csv.mjs`／`fetch-ga4-ui-csv.mjs`／`normalize-google-console-csv.mjs`／`report-search-growth.mjs`＋純関数 lib `scripts/lib/{url-normalization,google-console-csv,search-growth-classifier,google-console-browser}.mjs`。設定 SoT `.claude/config/google-console-automation.json`（property/issueLabels/browser・メール/Cookie/秘密鍵は書かない）。永続プロファイル `.local/playwright-google-{profile,debug}/`（gitignore・ローカル専用・CI は既存サービスアカウント API のみ）。テスト `tests/{google-console-csv,search-growth-classifier}.test.mjs`＋fixtures（BOM/CRLF/quoted-newline）。**自動変更は内部リンクの旧 URL 修正のみ**＝redirect 追加/noindex/統合/削除/deploy は approval gate。真実源は `docs/project/04_運営/gsc-ga4-playwright-automation-spec.md`。既存 `/gsc-review`（coverage）・`/seo-growth-review`（技術/意図）・`/weekly-improve`（performance）と直交（本スキルは UI CSV 取得→突合→修正計画に特化し、収集後にそれらの Evaluator を束ねる）。合計 `94→95`・management `20→21`・agents `+3`（`gsc-browser-collector`/`gsc-csv-auditor`/`seo-fix-planner`）。
 

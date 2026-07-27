@@ -11,7 +11,7 @@
  *   - .claude/state/metrics/ga4/ga4-cta-clicks-by-label-*.json  （label × eventName × eventCount）
  *       ※ 面別ラベルは fetch-ga4-cta-clicks --by-label で取得（要 GA4 event_label カスタムディメンション）。
  *   - .claude/state/metrics/ga4/ga4-cta-clicks-*.json           （pagePath × eventName × eventCount・page 別）
- *   - .claude/state/metrics/affiliate/a8-results.json           （A8 成果の月次手動スナップショット）
+ *   - .claude/state/metrics/affiliate/a8-results.json           （A8 成果。`/a8-report` が自動取込）
  *
  * 出力:
  *   - .claude/state/metrics/affiliate/buildjob-report-latest.md  （面別/ページ別/EPC サマリ）
@@ -142,7 +142,7 @@ lines.push("");
 lines.push(`生成時のスナップショット期間: 面別=${labelPeriod ?? "N/A"} / ページ別=${pagePeriod ?? "N/A"}`);
 lines.push("");
 lines.push("> 生成: `npm run report-buildjob-affiliate`（オフライン集計）。GA4 クリックが真実源（分子）、");
-lines.push("> A8 成果は月次手動スナップショット（`a8-results.json`）。計測は本番のみ発火＝デプロイ後に蓄積。");
+lines.push("> A8 成果（`a8-results.json`）は `/a8-report` が自動取込（`a8-ui:fetch` → `a8-ui:normalize`）。計測は本番のみ発火＝デプロイ後に蓄積。");
 lines.push("");
 
 lines.push("## プログラム別クリック（affiliate_cta_click）");
@@ -215,7 +215,7 @@ lines.push("## 注記");
 lines.push("");
 lines.push("- 高意図 31 slug は 〜2026-08-31 の間 BuildJob 100%（`HIGH_INTENT_CAREER_SLUGS`）。9/1 以降は slug ハッシュ A/B へ自動復帰。");
 lines.push("- 期間中は高意図面が A/B 母集団から抜けるため、**建設JOBs vs BuildJob の EPC 比較は低意図面・hub のみで解釈**する。");
-lines.push("- 推定 EPC は `a8-results.json` に月次成果を手入力してから有効（A8 は API 無し）。");
+lines.push("- 推定 EPC は `a8-results.json` に成果が入ってから有効。A8 は API 無しのため `/a8-report`（Playwright・要ローカルログイン）で取り込む。");
 lines.push("- 面別内訳には GA4 の `event_label` カスタムディメンション登録が必要（未登録なら `(not set)` に集約）。");
 lines.push("");
 

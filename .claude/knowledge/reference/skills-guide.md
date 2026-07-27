@@ -152,6 +152,7 @@ title: スキル ナビゲーションガイド
 | スキル | 一言説明 | 呼ぶとき |
 |---|---|---|
 | `/scout-asp` | A8.net を Playwright で操作（転職一本スコープ・複数サイト口座は**申請/コード取得とも doboku-note を選択**）。`list`=承認確認（主用途・口座横断）／`search`=ニッチ語で未提携案件を狙い撃ち検索／`import-partnered`=提携取込／`scout`+`apply`=開拓・週次上限申請／`check-approval`=承認昇格／`harvest`=広告コード→配置候補出力。**初回は `list --dry-run --headed`**。正典 `.claude/knowledge/reference/a8-affiliate-pipeline.md` | `A8確認`, `アフィリエイト承認確認`, `申請済みアフィリを見る`, `A8案件を探す`, `A8提携状況`, `/scout-asp` |
+| `/a8-report` | A8 の**成果レポート CSV** を取得→doboku-note 分だけ正規化→SSOT upsert（月別/日別/プログラム別詳細）。EPC 判定の分母を供給し `report-buildjob-affiliate` を動かす。**stats47 と口座共用のためサイト帰属 assert が通らなければ取り込まない**。初回は `--dry-run --probe-isolation`。提携運用の `/scout-asp` とは別（あちらは申請/素材） | `A8レポート`, `アフィリ成果を取り込む`, `A8のCSVを取得`, `EPCを更新`, `/a8-report` |
 
 ---
 

@@ -27,7 +27,12 @@ referral 統一の policy+check は完了。**残＝既存 inline リンク 94 �
 13. **AdSense ページ別収益（RPM）取り込み** — AdSense Management API で page/日別 estimated_earnings＋RPM を取得する fetch を新設（fetch-ga4-* と同じ CI 供給パターン）。coverage dashboard に RPM 列追加。
 14. **sales-log × 流入の attribution** — productId→記事 slug マッピングを追加し、CTA クリック数と売上件数を突合する「note ファネル効率」レポート。厳密 attribution は #15 が前提。
 15. **送客リダイレクタ（clean URL→302＋UTM）** — `docs/project/03_SNS/02_チャネル動線設計.md:105` の提案が `public/_redirects` で未実装。GA4 outbound click と note UTM を同一 `utm_content` で crosswalk。
-16. **A8 成果/報酬の取り込み** — A8 の承認/報酬を履歴 JSON 化し EPC（報酬÷クリック）を KPI 化。
+16. ~~**A8 成果/報酬の取り込み** — A8 の承認/報酬を履歴 JSON 化し EPC（報酬÷クリック）を KPI 化。~~
+    **実装済み（2026-07-27）** → `/a8-report`（`npm run a8-ui:fetch` → `a8-ui:normalize`）。
+    SSOT=`a8-report-log.json`（monthly/daily/programMonthly）＋ `a8-results.json` へ rollup。
+    A8 は API が無いため Playwright 取得＝**ローカル人間ログイン必須**（CI 供給にはできない例外）。
+    stats47 との口座共用に対し サイト帰属 assert（fail-closed）。真実源 → `a8-affiliate-pipeline.md`。
+    **残**: 初回実走でのセレクタ/分離方式（site-switch か site-column か）の確定。
 
 ### サーバ側（GA4 管理画面・ユーザー手作業）
 

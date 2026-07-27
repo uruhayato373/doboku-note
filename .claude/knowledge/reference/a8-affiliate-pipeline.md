@@ -86,6 +86,62 @@ X/IG/note/ココナラと同じ永続プロファイル方式（`.claude/knowled
 `.local/playwright-a8-state.json` に捕獲し、`a8-browser.ts` が起動時に `addCookies` で再注入する（これが認証再利用の実体）。
 `PROFILE_ROOT` は本体チェックアウト固定（`/Users/minamidaisuke/doboku-note`）＝worktree からでも同一ログインを共有。
 
+## 成果レポート パイプライン（`/a8-report`・2026-07-27 新設）
+
+提携運用（上記＝申請・素材）とは**別サブシステム**。A8 のレポート CSV を取り込んで
+**EPC 判定の分母**（成果・確定報酬）を供給する。従来 `a8-results.json` は月1手入力の前提で
+空のままだったため、`report-buildjob-affiliate.mjs` が EPC を出せずビルドジョブ vs 建設JOBs の
+A/B 判断が保留になっていた。ここを自動化した。
+
+### 流れ
+
+```
+npm run a8-ui:fetch      → .claude/state/metrics/affiliate/a8-ui/<runId>/{*.csv, manifest.json}
+   （a8-report-collector が実行。サイト帰属 assert が通らなければ DL しない）
+npm run a8-ui:normalize  → <runId>/normalized/*.json ＋ SSOT へ upsert
+   （a8-csv-auditor が PASS/WARN/FAIL を出してから実行）
+npm run report-buildjob-affiliate → GA4 クリック × A8 成果 の EPC
+```
+
+### サイト帰属（この機能の最重要ポイント）
+
+申請時の `webSiteId` assert（上記「申請サイト assert」節）と**同じ思想をレポートにも適用**する。
+stats47 の成果が混ざった SSOT は EPC 判断を丸ごと壊し、事後に切り分けられない。
+
+- 既定は `isolationMode: "site-switch"`（サイト切替でレポート全体が doboku-note スコープになる前提）
+- ただし **A8 のプログラム一覧は `webSiteId` フィルタが効かない先例**がある（`a8-browser.ts` L371・2026-07-20 実機確認）。
+  レポートも口座横断なら `isolationMode: "site-column"` に切り替え、CSV のサイト列で行フィルタする
+- どちらも確定できなければ **`site-mismatch` で exit 5**（1 バイトも取り込まない）
+- 初回・UI 変更後は `npm run a8-ui:fetch -- --dry-run --probe-isolation` で分離方式を確かめる
+
+### upsert である理由
+
+A8 は承認確定に伴って**過去月の数値が遡及変化**する（発生 → 確定、確定報酬の増加）。
+append すると同じ月が二重に積まれるため、SSOT は `month` / `date` / `month+programRaw` をキーに
+**最新 fetch で置換**する。確定が「減る」方向の変化は異常として auditor が拾う。
+
+### レポート系ファイル
+
+- ブラウザ: `scripts/fetch-a8-ui-csv.mjs`（`a8-ui:fetch`）／`scripts/lib/a8-report-browser.mjs`
+  （**汎用部は `scripts/lib/google-console-browser.mjs` を import 再利用**＝launchContext / downloadTo /
+  dumpFailure / findUniqueByLabels。コピーはしない）
+- 正規化: `scripts/normalize-a8-csv.mjs`（`a8-ui:normalize`）／コア `scripts/lib/a8-report-csv.mjs`
+- テスト（node:test・10件）: `tests/a8-report-csv.test.mjs`（`npm test` に含まれる）
+- 設定 SoT: `.claude/config/a8-report-automation.json`（URL・ラベル・`columnAliases`・`programIdMap`・`isolationMode`）
+- SSOT: `.claude/state/metrics/affiliate/a8-report-log.json`（monthly / daily / programMonthly / unmapped）
+  ＋ `a8-results.json`（既存スキーマへ rollup・消費側は無変更）
+- skill: `.claude/skills/ads/a8-report/SKILL.md`（`disable-model-invocation: true`）
+- agents: `a8-report-collector`（収集）／`a8-csv-auditor`（品質監査）
+- 管理画面: admin-app `/affiliate` タブ（月次×プログラム×EPC・未写像の警告）
+
+### つまずきポイント
+
+- **未写像プログラム**: `programIdMap` に無い A8 プログラム名は `a8-results.json` へ反映されず
+  `unmapped` に出る。黙って捨てないので、出たら config に追記して再 normalize する
+- **文字コード**: A8 CSV は Shift_JIS 想定。`decodeCsvBuffer` が U+FFFD を数えて UTF-8 へ自動フォールバックする
+- **ラベルドリフト**: 停止したら `.local/playwright-a8-debug/<runId>/visible-text.txt` を見て
+  **config のラベル配列を直す**（スクリプト本体は触らない）
+
 ## ファイル一覧
 
 - ブラウザ: `.claude/skills/ads/scout-asp/scripts/{a8-browser.ts,login.mjs}`

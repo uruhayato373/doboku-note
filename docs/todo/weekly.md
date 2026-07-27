@@ -17,7 +17,9 @@
 
 ### 手動キュー（ユーザー/Mac・時間差で可）
 - BuildJob stray 下書き `nf2316420abd0` を note.com ダッシュボードで手動削除（公開済み双子 11:58 と取り違えない）
-- A8 成果は月末に `a8-results.json` へ手入力 → `report-buildjob-affiliate` で EPC
+- A8 成果は `/a8-report`（`npm run a8-ui:fetch` → `a8-ui:normalize`）で取り込む → `report-buildjob-affiliate` で EPC。
+  手入力は不要になった（2026-07-27 自動化）。**初回のみ** ブラウザで A8 ログイン＋`--dry-run --probe-isolation` で
+  セレクタと分離方式を確定する必要がある
 
 ---
 

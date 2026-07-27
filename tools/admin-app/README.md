@@ -18,6 +18,7 @@ npm run admin   # http://127.0.0.1:3021
 | SNS状態板 | `docs/sns/{schedule.json, instagram/**/posted.json, x/draft/**/status.json}` | IG 試験別進捗・X ドラフト状況・直近予定。IG 集計は `scripts/ig-status.mjs` を dynamic import して再利用（読み取り専用） |
 | 記事 / note / マガジン | `src/config/doc-meta-index.json`, `docs/note/**`, `src/lib/note-magazines.ts` | サイト記事一覧・note 原稿・マガジン（価格/公開）。SoT を二重化せず regex/JSON 読取 |
 | 売上 | `.claude/state/sales/sales-log.json` | 月次集計 + inline SVG 棒グラフ（¥15k マイルストーン線） |
+| アフィリ | `.claude/state/metrics/affiliate/a8-report-log.json` | A8 成果の月次×プログラム集計＋EPC（確定報酬÷クリック）・日別直近31日。データ供給は `/a8-report`（`a8-ui:fetch` → `a8-ui:normalize`）。未収集時は取得コマンドを案内。`programIdMap` 未写像があれば警告表示 |
 | 品質 | `.claude/state/quality/{lint-baseline,history,census}.json`, `src/config/popular-pages.json` | 違反 × 人気の優先度・ルール別・バーンダウン・採点カバレッジ census（読み取り専用） |
 | 投稿ジョブ | 既存 CLI（ig-status / x-schedule-guard / publish-x / publish-ig-bs / note-publish） | ホワイトリスト 7 アクション・dry-run 既定・本番は明示ゲート。`POST /api/job/run` は SSE + CSRF（Origin + `X-Admin:1`・127.0.0.1 限定）。ガードは CLI 側に残す（UI は child_process 実行だけ） |
 | TODO | `docs/todo/*.md` | tier 別カード（read-only・編集は VS Code リンク） |

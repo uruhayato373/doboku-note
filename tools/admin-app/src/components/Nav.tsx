@@ -18,6 +18,7 @@ const TABS: { href: string; label: string; match: string }[] = [
   { href: '/sns', label: 'SNS状態', match: '/sns' },
   { href: '/content/articles', label: '記事', match: '/content' },
   { href: '/sales', label: '売上', match: '/sales' },
+  { href: '/affiliate', label: 'アフィリ', match: '/affiliate' },
   { href: '/quality', label: '品質', match: '/quality' },
   { href: '/jobs', label: 'ジョブ', match: '/jobs' },
   { href: '/todo', label: 'TODO', match: '/todo' },

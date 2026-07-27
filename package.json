@@ -111,6 +111,8 @@
     "gsc-ui:fetch": "node scripts/fetch-gsc-ui-csv.mjs",
     "ga4-ui:fetch": "node scripts/fetch-ga4-ui-csv.mjs",
     "google-console:normalize": "node scripts/normalize-google-console-csv.mjs",
+    "a8-ui:fetch": "node scripts/fetch-a8-ui-csv.mjs",
+    "a8-ui:normalize": "node scripts/normalize-a8-csv.mjs",
     "search-growth:report": "node scripts/report-search-growth.mjs",
     "search-growth:audit": "npm run gsc-ui:fetch && npm run google-console:normalize && npm run search-growth:report",
     "check-gsc-ui-due": "node scripts/check-gsc-ui-due.mjs",
