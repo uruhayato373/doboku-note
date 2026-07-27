@@ -37,6 +37,20 @@ A（問題/解答を別 XHTML に分割＝構造的改ページ）と D（`.ans`
 | A-04 環境管理 | B0H8CXKX6Q | 1.0 | `kindle-A-04-kankyo.epub` | `kindle-cover-a-04.jpg` | `KDP入力メモ_A-04環境管理.txt` |
 | A-05 品質管理 | B0H8FQ4L2T | 1.0 | `kindle-A-05-hinshitsu.epub` | `kindle-cover-a-05.jpg` | `KDP入力メモ_A-05品質管理.txt` |
 | A-06 工程管理 | B0H8FQ7QQL | 1.0 | `kindle-A-06-koutei.epub` | `kindle-cover-a-06.jpg` | `KDP入力メモ_A-06工程管理.txt` |
+| C-01 道路 | B0HB3374VL | 1.0 | `kindle-dist/c-01.epub` | `kindle-dist/c-01.jpg` | kdp-memo.json |
+| C-02 河川砂防 | B0HB3JF9QZ | 1.0 | `kindle-dist/c-02.epub` | `kindle-dist/c-02.jpg` | kdp-memo.json |
+| C-03 都市計画 | B0HB3BLV94 | 1.0 | `kindle-dist/c-03.epub` | `kindle-dist/c-03.jpg` | kdp-memo.json |
+| C-04 土質及び基礎 | B0HB3KWZBD | 1.0 | `kindle-dist/c-04.epub` | `kindle-dist/c-04.jpg` | kdp-memo.json |
+| C-05 鋼構造及びコンクリート | B0HB3CL6C7 | 1.0 | `kindle-dist/c-05.epub` | `kindle-dist/c-05.jpg` | kdp-memo.json |
+| C-06 施工計画 | B0HB37CTYN | 1.0 | `kindle-dist/c-06.epub` | `kindle-dist/c-06.jpg` | kdp-memo.json |
+| C-07 建設環境 | B0HB3585PD | 1.0 | `kindle-dist/c-07.epub` | `kindle-dist/c-07.jpg` | kdp-memo.json |
+| C-08 港湾及び空港 | B0HB3H3N7Y | 1.0 | `kindle-dist/c-08.epub` | `kindle-dist/c-08.jpg` | kdp-memo.json |
+| C-09 電力土木 | B0HB34VG8C | 1.0 | `kindle-dist/c-09.epub` | `kindle-dist/c-09.jpg` | kdp-memo.json |
+
+> ASIN の真実源は `scripts/kindle-published/catalog.json`（`asin` フィールド）。この表と
+> `docs/project/01_戦略/08_Kindle出版戦略.md` は人が読む索引で、**3 箇所とも同時に更新する**
+> （LIVE 化のたびに漏れやすい。2026-07-27 に C-01〜C-09 で本 README だけ記録漏れが発生した）。
+> 審査中で ASIN 未発番の本は catalog の `draftAsin` のみを持ち、この表には載せない。
 
 ## cover-designs/
 

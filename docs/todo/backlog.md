@@ -664,3 +664,18 @@ R8予想62本は2026-07-13に全公開・収録・導線検証済（[[project_r8
 3. 反映は `main` deploy 後（`psi-audit.yml` は `ref:` 指定が無いため main のコードで実行される。実行ブランチは workflow ごとに違うので `npm run check-scheduled-exec-branch` か [[measurement-incidents]]「定期ジョブの実行ブランチは workflow ごとに違う」の実測表で確認すること）
 
 **注意**: ローカルでの live PSI 検証は不可（`.env.local` に `PSI_API_KEY` 無し・キー無しは匿名共有枠で即 429）。キーは GitHub Secrets 側にあり、計測は CI 供給が正。動作確認は deploy 後の psi-batch で行う。
+
+### KDP: F系 残り9冊（f-08〜f-16）を提出（枠回復後）
+タグ: [収益化] [KDP]
+
+2026-07-27 に10冊（c-10/c-11/c-I ＋ f-01〜f-07）を出版し、**f-08 で KDP の作成数制限に到達**して中断（モーダル「本の作成数制限を超えました」）。数日で枠が回復する。
+
+**やること**: 枠の回復を確認して残り9冊を流すだけ。EPUB・表紙・`kdp-memo.json` のメタデータは全て配置済み。
+
+```bash
+npm run kdp-batch -- f-08 f-09 f-10 f-11 f-12 f-13 f-14 f-15 f-16
+```
+
+driver が「配置→下書き→プロファイル掃除→出版→catalog更新」を1冊約3.5分で回し、制限に再到達したら即中断する。手順と罠の真実源は `.claude/skills/conversion/kdp-publish/SKILL.md`。
+
+**あわせて**: 2026-07-27 提出の10冊が LIVE 化したら ASIN を **3箇所**（`catalog.json` / `docs/project/01_戦略/08_Kindle出版戦略.md` / `scripts/kindle-published/README.md`）に記録する。ASIN は `node scripts/kdp-publish.mjs --sync-status` の保存する `.tmp/kdp-bookshelf.html` から draftAsin と対応づけて取得できる（本棚リストは20件で切れるため JSON 出力だけでは足りない）。

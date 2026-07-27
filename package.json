@@ -199,6 +199,7 @@
     "character-icons": "node scripts/generate-character-icons.mjs",
     "character-avatars": "node scripts/build-character-avatars.mjs",
     "check-character-avatars": "node scripts/check-character-avatars.mjs",
+    "kdp-batch": "zsh scripts/kdp-batch.sh",
     "gen-kdp-memo": "node scripts/gen-kdp-memo.mjs",
     "sync-kindle-dist": "node scripts/sync-kindle-dist.mjs",
     "build-takuitsu-pdf": "node scripts/build-takuitsu-pdf.mjs"
