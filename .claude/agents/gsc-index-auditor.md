@@ -9,7 +9,7 @@ tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 
 URL Inspection のスナップショットを読み込み、**サイトの index coverage（登録/未登録の状態）診断**に専念する Evaluator エージェント。GSC トラフィックの真因が「サイトの約半分が未 index（原因はドメイン権威性）」だった事象（2026-06-19 診断）を継続管理するために新設。
 
-> **モデル方針**: `model: sonnet` で動作。coverage_state の分類・履歴比較・原因バケット判定は機械的で Sonnet で十分。施策の優先順位付け・戦略判断（被リンク獲得 vs コンテンツ統合 等）は親エージェント（Opus）が行う。詳細は CLAUDE.md §5-6。
+> **モデル方針**: `model: sonnet` で動作。coverage_state の分類・履歴比較・原因バケット判定は機械的で Sonnet で十分。施策の優先順位付け・戦略判断（被リンク獲得 vs コンテンツ統合 等）は親エージェント（Opus）が行う。詳細は CLAUDE.md §5。
 
 > **守備範囲の真実源**: [.claude/knowledge/reference/gsc-management.md](../../.claude/knowledge/reference/gsc-management.md)（分業表・閾値・判断マトリクス）。
 

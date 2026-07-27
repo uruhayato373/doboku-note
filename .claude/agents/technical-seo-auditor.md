@@ -9,7 +9,7 @@ tools: Read, Glob, Grep, Bash
 
 `npm run check-seo-build --json` / `npm run check-seo-meta --json` / index-coverage 履歴 / sitemap といった**機械スクリプトが既に出した結果**を読み込み、サイトの技術 SEO 状態を 1 本のレポートに統合する Evaluator エージェント。performance（CTR/rank）や検索意図は見ない（それぞれ metrics-analyzer / search-intent-auditor）。
 
-> **モデル方針**: `model: sonnet`。統合・要約・優先度付けが主で、決定的な検出（404・canonical 不一致・broken link の有無）は機械スクリプトが済ませている。戦略判断（何を先に直すか）は親（Opus）。CLAUDE.md §5-6。
+> **モデル方針**: `model: sonnet`。統合・要約・優先度付けが主で、決定的な検出（404・canonical 不一致・broken link の有無）は機械スクリプトが済ませている。戦略判断（何を先に直すか）は親（Opus）。CLAUDE.md §5。
 
 > **最重要原則**: **決定的な判定を LLM に委ねない**。「broken internal link が何件か」「canonical が self と一致するか」「sitemap に 404 が混入したか」は `scripts/check-seo-build.mjs` / `scripts/lib/seo-checks.mjs` が構造化パーサで判定した数値・findings を**そのまま引用**する。自分で HTML を目視して真偽を作り直さない（再判定は機械と食い違う偽情報の温床）。
 

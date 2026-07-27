@@ -104,6 +104,6 @@ cd "C:/Users/m004195/doboku-note" && node -e "const s=require('sharp');s('REL.we
 ## 連携・差別化
 
 - **呼出元**: `/figure-recrop` の「大量処理（並列 workflow）モード」＝`.claude/skills/quality/figure-recrop/scripts/figure-crop-batch.workflow.mjs` が figKey 単位で spawn。
-- **親の後工程**: 全 crop 図の最終目視 QA →（over-crop は原画 `git checkout` 復元→再クロップ、見切れ見落としは `crop`→`needs-source` 是正）→ MDX 寸法・台帳3種を直列更新→ページ/バッチ単位 commit。
+- **親の後工程**: 機械ゲート（`check-figure-crop-integrity.mjs`）で全数検査 → fail した図と selfVerify が怪しい図・`removed` が大きい図に絞った目視 QA →（over-crop は原画 `git checkout` 復元→再クロップ、見切れ見落としは `crop`→`needs-source` 是正）→ MDX 寸法・台帳3種を直列更新→ページ/バッチ単位 commit。
 - **別物**: `civil-exam-figure-extractor`（PDF ページ画像から bbox spec を返すのみ・crop しない）／`scanned-figure-crop-auditor`（スキャン教材の bbox 監査 Evaluator）／`civil-exam-figure-auditor`（過去問図クロップの 4 軸採点 Evaluator）。本エージェントは**埋め込み済み画像を実際に切る**唯一の Generator。
 - **真実源**: `.claude/knowledge/reference/figure-provenance.md`。逐次型は `scripts/figure-recrop.mjs`。

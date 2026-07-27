@@ -59,7 +59,7 @@ title: サブエージェント詳細レジストリ
 | UI/ページデザイン（親が起動）                    | `page-design-builder` → `/design-review`                        | design-system.md 準拠でページ/レイアウト/UI コンポーネント実装 → 視覚回帰採点（Generator/Evaluator 分離） |
 | `/doc-sync`（コード変更面の完了時に親が起動）          | `doc-sync-auditor`                                              | 変更 diff × 候補 doc を突合し prose・表・コマンド・件数・閾値の意味的陳腐化を検出（適用は親） |
 | `/doc-declutter`（doc 棚卸し時に親が起動）            | `doc-curator`                                                  | 候補 doc を KEEP/TRIM/DELETE/CONSOLIDATE に分類（親が渡す外部実体の検証済みシグナルに基づく・適用は親・handoff は extract→削除が既定） |
-| `/record-sales`                                      | `sales-recorder`                                                | 販売履歴テキスト正規化・productId 推定・重複チェック・JSON 追記 |
+| `/record-sales`                                      | （委譲なし・親が直接処理）                                       | 正規化＋JSON 追記は決定的な小作業のため 2026-07-27 に委譲を廃止。`sales-recorder` は他経路向けに残置 |
 | note 価格変更・マガジン操作（親が起動）                    | `note-operator`                                                 | 高レベル指示→スクリプト組み合わせ実行→SoT更新 |
 | メンバーシップ運用（親が起動 / `/note-membership`）            | `note-membership-operator`                                      | 会員特典記事の配信（公開→特典マガジン収録＝会員へ自動配信）・記事/プラン設定編集の起動・公開後 SoT 反映。ライブラリ内包モデル（完成答案は会員内包・FLOWは買い切りに出さない一線）・収益アカウント安全弁内蔵。ローカル実行限定 |
 | SNS バイナリ退避（親が起動 / `upload-sns-r2` 連携）        | `sns-archive-auditor`                                          | 退避候補パックを OFFLOAD/ARCHIVE_KEEP/KEEP_LOCAL/BLOCK に分類（SoT 無傷＝再生成可否を判定・実行は親＋スクリプト） |
@@ -249,5 +249,5 @@ title: サブエージェント詳細レジストリ
 4. 本文に「モデル方針」欄を設け、`model: sonnet/inherit` を選んだ理由を 1-2 文で記載
 5. このファイル（agents-registry.md）の「エージェント一覧」表・「スキル → エージェント呼出マップ」・（Evaluator なら）「Evaluator エージェントの区別」表・件数 SSOT を**同一 commit で**更新（`check-doc-coupling` が機械検知）
 6. **`.claude/knowledge/reference/skills-guide.md` も更新**（ユーザーが起動しうるエージェントなら早引き表＋用途別ガイドに行を追加。CLAUDE.md §8 の要件だが `check-doc-coupling` は agents-registry しか見ないため**手動で忘れない**＝2026-06-18 に cem-essay ペアで取りこぼした再発防止）
-7. CLAUDE.md は per-agent の表を持たず件数・詳細を agents-registry.md に委譲する（CLAUDE.md 本体の編集は不要。`model:` 方針の一文は §6 にある）
+7. CLAUDE.md は per-agent の表を持たず件数・詳細を agents-registry.md に委譲する（CLAUDE.md 本体の編集は不要。`model:` 方針の一文は §5 にある）
 8. 関連する Generator/Evaluator スキルを新設・改廃したら `skills-registry.md`（退役ログ）も更新

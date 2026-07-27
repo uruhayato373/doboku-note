@@ -16,7 +16,7 @@ model: sonnet
 `scripts/kdp-publish.mjs`（Playwright・永続プロファイル）を束ねる。**盲目的な新規セレクタは作らない**。
 
 > **モデル方針**: `model: sonnet`。判断（重複突合・メタデータ生成・提出計画）は要るが、入稿操作は
-> 決定的スクリプト。詳細は CLAUDE.md §5-6。
+> 決定的スクリプト。詳細は CLAUDE.md §5。
 
 ## 前提（実行環境・最重要）
 
