@@ -197,10 +197,10 @@ function ExamCardView({ card }: { card: ExamCard }) {
 
   return (
     <div className="card-surface-content overflow-hidden p-0">
-      {/* 資格名は写真の上に直接置くと（cta-bg はいずれも明色イラスト）読めないため、
-          トップページの ExamCards と同じ「下部フロストパネル＋上端テーマ色ライン」に揃える。 */}
-      {/* 高さは単一値（tagline が 2 行になるモバイルでも写真が残る 120px）。sm 分岐は増やさない。 */}
-      <div className="relative h-[120px]" style={{ backgroundColor: `var(${brand.themeVar})` }}>
+      {/* cta-bg は明色イラストのため、写真の上に白文字を載せる方式（スクリムでもフロストパネルでも）
+          は濃い覆いが要り、帯が重く濁って見えた。写真は装飾の帯に徹し、資格名はカード面に
+          通常の本文色で置く（可読性の議論が発生しない）。上端のテーマ色ラインで資格を識別する。 */}
+      <div className="relative h-[72px]" style={{ backgroundColor: `var(${brand.themeVar})` }}>
         {brand.ctaBg && (
           <Image
             src={brand.ctaBg}
@@ -212,18 +212,13 @@ function ExamCardView({ card }: { card: ExamCard }) {
         )}
         <span
           aria-hidden="true"
-          className="absolute inset-x-0 top-0 z-10 h-1"
+          className="absolute inset-x-0 top-0 h-1"
           style={{ backgroundColor: `var(${brand.themeVar})` }}
         />
-        <div className="absolute inset-x-0 bottom-0">
-          <div aria-hidden="true" className="h-5 bg-gradient-to-t from-black/40 to-transparent" />
-          {/* black/45 ではなく /55。トップの ExamCards は暗い現場写真だが cta-bg は明色イラストで、
-              同じ濃度だと白文字のコントラストが 4.5:1 を切る。 */}
-          <div className="border-t border-white/10 bg-black/55 px-3 py-2 text-white backdrop-blur-md">
-            <div className="font-serif text-[15px] font-bold leading-tight">{card.heading}</div>
-            <div className="mt-0.5 line-clamp-2 text-[11px] leading-snug text-white/90">{card.tagline}</div>
-          </div>
-        </div>
+      </div>
+      <div className="border-b border-[var(--rule-soft)] px-3 py-2">
+        <div className="font-serif text-[15px] font-bold leading-tight text-[var(--ink)]">{card.heading}</div>
+        <div className="mt-0.5 text-[11px] leading-snug text-[var(--ink-muted)]">{card.tagline}</div>
       </div>
       <div className="px-3 py-1">
         <CardRow channel="site" label={card.site.label} sub={card.site.sub} href={card.site.href} />
