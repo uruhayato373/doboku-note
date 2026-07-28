@@ -1,0 +1,65 @@
+name: Audit note live structure
+
+# note の公開記事について、ライブの無料プレビューとソースの有料境界・価格を突合する。
+# FULL_LOCK（無料プレビューが空＝購入前に何も読めない）・PAYWALL_LEAK（有料内容の露出）・
+# PRICE_MISMATCH（frontmatter と live の価格不一致）を検出する。
+#
+# 背景: この監査は長らくローカル専用で、かつ会社 PC では Node の fetch がプロキシに
+#   遮断され 675/675 が FETCH_ERR でも exit 0 を返していた（検査ゼロの偽 PASS）。
+#   2026-07-28 に curl 経路化＋「取得失敗率 20% 超で exit 1」を入れ、初回の実検査で
+#   FULL_LOCK 2 件（¥980・¥1,980 の有料記事が無料プレビュー 0 字）を検出している。
+#   ローカル実行は「回すのを忘れる」リスクが残るため CI へ載せる。
+#
+# note API への到達性: Actions ランナーから note.com に届くかは未実証だったため、
+#   本体の前に疎通確認ステップを置く（届かなければそこで落ちて原因が一目で分かる）。
+#   同リポジトリでは doboku-note.com が Cloudflare Bot Protection で Actions の IP を
+#   403 する既知例がある（uptime-ping.yml）が、note.com は別サービス。
+#
+# 注: cron は既定ブランチ（main）の定義で走るため、develop での変更は main へマージ
+#   されるまで週次に効かない。検証は workflow_dispatch に ref を指定して行う。
+
+on:
+  schedule:
+    - cron: "30 22 * * 0" # 毎週月曜 07:30 JST（r2-audit の 30 分後にずらす）
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25 # 675 本 × (250ms スロットル + 取得) で 10 分前後を見込む
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: note API 疎通確認（届かなければここで落とす）
+        run: |
+          set -euo pipefail
+          code=$(curl -s -o /tmp/note-probe.json -w '%{http_code}' -m 30 \
+            -H 'User-Agent: Mozilla/5.0' -H 'Accept: application/json' \
+            https://note.com/api/v3/notes/n252fdfb14e54)
+          echo "HTTP $code"
+          head -c 300 /tmp/note-probe.json || true
+          echo
+          if [ "$code" != "200" ]; then
+            echo "::error::note API に到達できません（HTTP $code）。Actions の IP がブロックされている可能性があります。"
+            exit 1
+          fi
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Audit note live structure
+        run: node scripts/check-note-structure.mjs --ci
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: note-structure-audit
+          path: .tmp/note-structure-audit.md
+          if-no-files-found: ignore
