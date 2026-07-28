@@ -9,7 +9,7 @@ theme: "流域治水・河川管理施設長寿命化"
 noteUrl: "https://note.com/dobokunote/n/n11815f9d9ce2"
 noteId: "n11815f9d9ce2"
 notePublishedAt: "2026-06-15"
-price: 500
+price: 780
 coverTitle: "技術士 建設部門｜河川砂防 R8予想 選択科目II-2 模範解答"
 utmCampaign: pe-construction-secondary
 cover:

@@ -7,7 +7,7 @@ exam_type: II-1
 noteUrl: "https://note.com/dobokunote/n/nab1fa68c9d5e"
 noteId: "nab1fa68c9d5e"
 notePublishedAt: "2026-06-15"
-price: 500
+price: 780
 coverTitle: "技術士 建設部門｜河川・砂防及び海岸・海洋 R06 選択科目II-1 模範解答"
 utmCampaign: pe-construction-secondary
 cover:

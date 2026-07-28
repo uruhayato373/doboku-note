@@ -9,7 +9,7 @@ theme: "既設インフラの予防保全・長寿命化とデジタル技術活
 noteUrl: "https://note.com/dobokunote/n/n4863a5b0659b"
 noteId: "n4863a5b0659b"
 notePublishedAt: "2026-06-16"
-price: 500
+price: 780
 coverTitle: "技術士 建設部門｜鋼構造及びコンクリート R8予想 選択科目III 予想問題＋模範解答"
 utmCampaign: pe-construction-secondary
 cover:

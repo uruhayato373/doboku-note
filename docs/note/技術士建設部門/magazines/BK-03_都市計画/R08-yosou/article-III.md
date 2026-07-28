@@ -9,7 +9,7 @@ theme: "コンパクト+ネットワーク・防災都市づくり"
 noteUrl: "https://note.com/dobokunote/n/n6cadab07edf8"
 noteId: "n6cadab07edf8"
 notePublishedAt: "2026-06-15"
-price: 500
+price: 780
 coverTitle: "技術士 建設部門｜都市及び地方計画 R8予想 選択科目III 予想問題＋模範解答"
 utmCampaign: pe-construction-secondary
 cover:

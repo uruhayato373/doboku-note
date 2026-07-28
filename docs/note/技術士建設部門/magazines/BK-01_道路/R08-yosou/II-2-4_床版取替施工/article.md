@@ -9,7 +9,7 @@ theme: "供用下の橋梁RC床版取替えの施工計画"
 noteUrl: https://note.com/dobokunote/n/n08c5223cca00
 noteId: n08c5223cca00
 notePublishedAt: 2026-06-11
-price: 1980
+price: 780
 coverTitle: "技術士 建設部門｜道路 R8予想 II-2 予想④ 橋梁RC床版取替"
 utmCampaign: pe-construction-secondary
 cover:

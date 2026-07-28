@@ -10,7 +10,7 @@ theme: "新モビリティ対応の道路空間再配分計画"
 noteUrl: "https://note.com/dobokunote/n/n15223b0ea869"
 noteId: "n15223b0ea869"
 notePublishedAt: "2026-07-23"
-price: 1980
+price: 780
 coverTitle: "技術士 建設部門｜道路 R8予想 II-2 予想① 道路空間再配分"
 utmCampaign: pe-construction-secondary
 cover:

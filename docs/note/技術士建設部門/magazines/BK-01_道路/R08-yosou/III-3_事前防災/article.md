@@ -9,7 +9,7 @@ theme: "能登半島地震を踏まえた道路ネットワークの事前防災
 noteUrl: https://note.com/dobokunote/n/n54e5dfb2866d
 noteId: n54e5dfb2866d
 notePublishedAt: 2026-06-11
-price: 1980
+price: 780
 coverTitle: "技術士 建設部門｜道路 R8予想 III 予想③ 事前防災・強靱化"
 utmCampaign: pe-construction-secondary
 cover:

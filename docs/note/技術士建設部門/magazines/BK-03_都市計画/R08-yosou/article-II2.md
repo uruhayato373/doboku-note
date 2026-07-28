@@ -8,7 +8,7 @@ exam_type: II-2
 noteUrl: "https://note.com/dobokunote/n/n7d0ea9365639"
 noteId: "n7d0ea9365639"
 notePublishedAt: "2026-06-15"
-price: 500
+price: 780
 theme: "立地適正化計画の策定と市街地再開発・拠点整備"
 coverTitle: "技術士 建設部門｜都市及び地方計画 R8予想 選択科目II-2 予想問題＋模範解答"
 utmCampaign: pe-construction-secondary

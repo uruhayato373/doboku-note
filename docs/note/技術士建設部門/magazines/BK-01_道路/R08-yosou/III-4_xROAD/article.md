@@ -9,7 +9,7 @@ theme: "xROADを核とした道路管理のDX深化"
 noteUrl: https://note.com/dobokunote/n/ne6c57911349b
 noteId: ne6c57911349b
 notePublishedAt: 2026-06-11
-price: 1980
+price: 780
 coverTitle: "技術士 建設部門｜道路 R8予想 III 予想④ xROAD DX深化"
 utmCampaign: pe-construction-secondary
 cover:

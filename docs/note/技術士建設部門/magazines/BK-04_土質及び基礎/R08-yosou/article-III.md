@@ -9,7 +9,7 @@ theme: "大規模地震への地盤防災（斜面崩壊・液状化）と既設
 noteUrl: "https://note.com/dobokunote/n/n341b0076f917"
 noteId: "n341b0076f917"
 notePublishedAt: "2026-06-16"
-price: 500
+price: 780
 coverTitle: "技術士 建設部門｜土質及び基礎 R8予想 選択科目III 予想問題＋模範解答"
 utmCampaign: pe-construction-secondary
 cover:

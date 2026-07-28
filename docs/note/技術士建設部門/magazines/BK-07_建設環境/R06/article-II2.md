@@ -7,7 +7,7 @@ exam_type: II-2
 noteUrl: "https://note.com/dobokunote/n/n9fa06c4c2c43"
 noteId: "n9fa06c4c2c43"
 notePublishedAt: "2026-06-16"
-price: 500
+price: 780
 coverTitle: "技術士 建設部門｜建設環境 R06 選択科目II-2 模範解答"
 utmCampaign: pe-construction-secondary
 cover:

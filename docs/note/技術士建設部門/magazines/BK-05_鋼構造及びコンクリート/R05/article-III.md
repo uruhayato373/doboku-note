@@ -7,7 +7,7 @@ exam_type: III
 noteUrl: "https://note.com/dobokunote/n/n6d8b1caa8f10"
 noteId: "n6d8b1caa8f10"
 notePublishedAt: "2026-06-16"
-price: 500
+price: 780
 coverTitle: "技術士 建設部門｜鋼構造及びコンクリート R05 選択科目III 模範解答"
 utmCampaign: pe-construction-secondary
 cover:

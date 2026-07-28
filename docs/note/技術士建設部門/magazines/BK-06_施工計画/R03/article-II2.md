@@ -7,7 +7,7 @@ exam_type: II-2
 noteUrl: "https://note.com/dobokunote/n/n783dce3314e0"
 noteId: "n783dce3314e0"
 notePublishedAt: "2026-06-16"
-price: 500
+price: 780
 coverTitle: "技術士 建設部門｜施工計画、施工設備及び積算 R03 選択科目II-2 模範解答"
 utmCampaign: pe-construction-secondary
 cover:

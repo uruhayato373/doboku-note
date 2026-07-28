@@ -9,7 +9,7 @@ theme: "建設DX・生産性向上（i-Construction 2.0）と担い手確保・�
 noteUrl: "https://note.com/dobokunote/n/n76a35d3c2113"
 noteId: "n76a35d3c2113"
 notePublishedAt: "2026-06-16"
-price: 500
+price: 780
 coverTitle: "技術士 建設部門｜施工計画、施工設備及び積算 R8予想 選択科目III 予想問題＋模範解答"
 utmCampaign: pe-construction-secondary
 cover:

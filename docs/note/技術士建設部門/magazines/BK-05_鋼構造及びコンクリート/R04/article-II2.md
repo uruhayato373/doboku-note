@@ -7,7 +7,7 @@ exam_type: II-2
 noteUrl: "https://note.com/dobokunote/n/nab991d6a3cd5"
 noteId: "nab991d6a3cd5"
 notePublishedAt: "2026-06-16"
-price: 500
+price: 780
 coverTitle: "技術士 建設部門｜鋼構造及びコンクリート R04 選択科目II-2 模範解答"
 utmCampaign: pe-construction-secondary
 cover:

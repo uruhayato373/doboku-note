@@ -9,7 +9,7 @@ theme: "R08予想問題・道路II-1"
 noteUrl: https://note.com/dobokunote/n/nabb335218302
 noteId: nabb335218302
 notePublishedAt: 2026-06-11
-price: 1980
+price: 780
 coverTitle: "技術士 建設部門｜道路 R8予想 選択科目II-1 模範解答"
 utmCampaign: pe-construction-secondary
 cover:

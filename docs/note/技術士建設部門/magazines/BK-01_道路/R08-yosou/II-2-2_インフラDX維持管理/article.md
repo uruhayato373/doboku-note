@@ -9,7 +9,7 @@ theme: "インフラDXを活用した道路維持管理計画"
 noteUrl: https://note.com/dobokunote/n/n1b9ad659acd3
 noteId: n1b9ad659acd3
 notePublishedAt: 2026-06-11
-price: 1980
+price: 780
 coverTitle: "技術士 建設部門｜道路 R8予想 II-2 予想② インフラDX維持管理"
 utmCampaign: pe-construction-secondary
 cover:

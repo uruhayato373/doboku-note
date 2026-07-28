@@ -7,7 +7,7 @@ exam_type: III
 noteUrl: "https://note.com/dobokunote/n/n254c1194a46c"
 noteId: "n254c1194a46c"
 notePublishedAt: "2026-06-16"
-price: 500
+price: 780
 coverTitle: "技術士 建設部門｜土質及び基礎 R06 選択科目III 模範解答"
 utmCampaign: pe-construction-secondary
 cover:

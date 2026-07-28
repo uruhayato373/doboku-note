@@ -9,7 +9,7 @@ theme: "能登半島地震を踏まえた道路啓開・災害復旧の施工計
 noteUrl: https://note.com/dobokunote/n/n6363519b0a28
 noteId: n6363519b0a28
 notePublishedAt: 2026-06-11
-price: 1980
+price: 780
 coverTitle: "技術士 建設部門｜道路 R8予想 II-2 予想③ 道路啓開・災害復旧"
 utmCampaign: pe-construction-secondary
 cover:

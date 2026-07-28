@@ -8,7 +8,7 @@ exam_type: II-1
 noteUrl: "https://note.com/dobokunote/n/n9187e7396ccb"
 noteId: "n9187e7396ccb"
 notePublishedAt: "2026-06-16"
-price: 500
+price: 780
 theme: "盛土締固め管理・液状化判定・圧密沈下算定・基礎形式選定"
 coverTitle: "技術士 建設部門｜土質及び基礎 R8予想 選択科目II-1 予想問題＋模範解答"
 utmCampaign: pe-construction-secondary

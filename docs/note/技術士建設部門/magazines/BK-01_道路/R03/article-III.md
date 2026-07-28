@@ -7,7 +7,7 @@ exam_type: III
 noteUrl: ""
 noteId: ""
 notePublishedAt: ""
-price: 1980
+price: 780
 coverTitle: "技術士 建設部門｜道路 R03 選択科目III 模範解答"
 utmCampaign: pe-construction-secondary
 cover:

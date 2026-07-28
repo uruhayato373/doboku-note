@@ -7,7 +7,7 @@ exam_type: II-1
 noteUrl: "https://note.com/dobokunote/n/nd1e7dd450821"
 noteId: "nd1e7dd450821"
 notePublishedAt: "2026-06-15"
-price: 500
+price: 780
 coverTitle: "技術士 建設部門｜都市及び地方計画 R06 選択科目II-1 模範解答"
 utmCampaign: pe-construction-secondary
 cover:

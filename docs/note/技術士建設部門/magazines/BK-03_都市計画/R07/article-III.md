@@ -7,7 +7,7 @@ exam_type: III
 noteUrl: "https://note.com/dobokunote/n/n4a06fc8dbc31"
 noteId: "n4a06fc8dbc31"
 notePublishedAt: "2026-06-15"
-price: 500
+price: 780
 coverTitle: "技術士 建設部門｜都市及び地方計画 R07 選択科目III 模範解答"
 utmCampaign: pe-construction-secondary
 cover:

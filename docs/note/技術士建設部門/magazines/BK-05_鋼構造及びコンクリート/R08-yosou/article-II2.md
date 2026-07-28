@@ -9,7 +9,7 @@ theme: "橋梁長寿命化修繕・補修補強（鋼橋疲労亀裂防食／コ
 noteUrl: "https://note.com/dobokunote/n/n2b0f92897bf5"
 noteId: "n2b0f92897bf5"
 notePublishedAt: "2026-06-16"
-price: 500
+price: 780
 coverTitle: "技術士 建設部門｜鋼構造及びコンクリート R8予想 選択科目II-2 模範解答"
 utmCampaign: pe-construction-secondary
 cover:

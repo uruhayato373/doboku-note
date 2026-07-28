@@ -7,7 +7,7 @@ exam_type: III
 noteUrl: "https://note.com/dobokunote/n/n7629b91a741e"
 noteId: "n7629b91a741e"
 notePublishedAt: "2026-06-16"
-price: 500
+price: 780
 coverTitle: "技術士 建設部門｜建設環境 R05 選択科目III 模範解答"
 utmCampaign: pe-construction-secondary
 cover:
