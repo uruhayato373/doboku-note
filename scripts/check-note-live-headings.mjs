@@ -107,4 +107,13 @@ if (bad.length) {
   console.error(`[check-note-live-headings] ✗ live 本文に不整合 ${bad.length} 件（URL見出し/空引用/画像欠落）。修復: node scripts/note-update-body.mjs --article <path> --commit`);
   process.exit(1);
 }
+
+// 検査不成立を PASS にしない: 取得できていないなら「不整合なし」ではなく「検査できていない」。
+// （2026-07-28 まで、全件 FETCH_ERR でも「✓ 0 件検査・不整合なし」と出て緑になっていた）
+const failRate = targets.length ? errs.length / targets.length : 0;
+if (targets.length > 0 && failRate > 0.2) {
+  console.error(`\n[check-note-live-headings] ✗ 検査不成立: ${targets.length}本中${errs.length}本が取得失敗（${Math.round(failRate * 100)}%）`);
+  console.error('  live を取得できていないため「不整合なし」は成立しない。curl が使えるか・プロキシ env・レート制限を確認する。');
+  process.exit(1);
+}
 console.log(`[check-note-live-headings] ✓ ${results.length - errs.length} 件検査・不整合なし${partials.length ? `（PARTIAL ${partials.length}）` : ''}${errs.length ? `（未達 ${errs.length} 件は要再実行）` : ''}`);

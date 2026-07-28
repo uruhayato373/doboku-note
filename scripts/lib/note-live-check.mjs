@@ -9,21 +9,37 @@
  * 各スクリプトの公開後 assert（note-update-body [5e] / note-publish [13]）と横断スイープ
  * （check-note-live-headings.mjs）の双方から使う。ネットワーク失敗は fetchError で区別し
  * 偽陰性でジョブを落とさない。真実源: .claude/knowledge/reference/note-api-verification.md
+ *
+ * 取得は curl 経路（2026-07-28 修正）: Node の fetch は HTTP(S)_PROXY を見ないため会社 PC では
+ *   **全件失敗し、公開後 assert が一度も機能していなかった**（note-update-body 実行時に
+ *   「[5e] API検証がネットワークで未達」が毎回出ていた）。curl はプロキシ env を自動利用し
+ *   --ssl-no-revoke で schannel の失効確認エラーを回避する。
+ *   なお「fetchError では落とさない」のは publish/update 側の話（公開自体は成功しているため）。
+ *   横断スイープ側は取得失敗が支配的なら落とすこと＝検査ゼロを PASS と呼ばないため。
  */
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+import { spawnSync } from 'node:child_process';
+
+// Windows でも動く同期 sleep（Unix の `sleep` バイナリに依存しない）。
+const sleepSync = (ms) => spawnSync(process.execPath, ['-e', `setTimeout(()=>{},${ms})`]);
 
 export async function fetchNoteBody(noteId, { retries = 2, delayMs = 3000 } = {}) {
-  let lastErr = null;
+  let lastErr = 'unknown';
   for (let i = 0; i <= retries; i++) {
-    try {
-      const res = await fetch(`https://note.com/api/v3/notes/${noteId}`, { signal: AbortSignal.timeout(20000) });
-      return { body: (await res.json())?.data?.body || '', error: null };
-    } catch (e) {
-      lastErr = e;
-      await sleep(delayMs);
+    const r = spawnSync('curl', [
+      '-sS', '-m', '30', '--ssl-no-revoke',
+      '-H', 'User-Agent: Mozilla/5.0', '-H', 'Accept: application/json',
+      `https://note.com/api/v3/notes/${noteId}`,
+    ], { encoding: 'utf-8', maxBuffer: 32 * 1024 * 1024 });
+    const out = (r.stdout || '').trim();
+    if (out.startsWith('{')) {
+      try { return { body: JSON.parse(out)?.data?.body || '', error: null }; }
+      catch (e) { lastErr = `parse: ${String(e.message || e)}`; }
+    } else {
+      lastErr = (r.stderr || '').trim().split('\n')[0] || `non-json (${out.slice(0, 40)})`;
     }
+    if (i < retries) sleepSync(delayMs);
   }
-  return { body: '', error: String(lastErr?.message || lastErr) };
+  return { body: '', error: String(lastErr) };
 }
 
 /** <h1-6> 内に URL を含む見出しのテキスト一覧。 */
