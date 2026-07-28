@@ -158,10 +158,29 @@ pre-commit は `--staged` なので当該ファイルを触るまで止まらな
 
 ソースを直しても note ライブには反映されない点に注意（反映するなら `note-update-body --commit`）。
 
-### note 記事本文のライブ反映バックログ（建設部門 UTM/リンク切れ 176件）
+### note 記事本文のライブ反映（建設部門 UTM 欠落分 残99件）
 タグ: [運用基盤]
 
-2026-07-28 に建設部門 note の送客リンク 176 件（UTM 欠落 112・相対パス 41・裸 slug 23）をソース側で是正したが、**ライブ反映は一部のみ**。相対パス・裸 slug の 64 件は note 上で実際にリンク切れのままなので優先度が高い。反映は `scripts/note-update-body.mjs --commit`（全文置換・有料境界は既定 `試験問題|予想問題` で自動再設定）。1本ずつ検証しながら進め、`npm run check-note-structure` で FULL_LOCK/PAYWALL_LEAK が出ないことを確認する。
+2026-07-28 に建設部門 note の送客リンク 176 件（UTM 欠落 112・相対パス 41・裸 slug 23）をソース側で是正。うち**ライブでも実際にリンク切れだった 64 件は反映済み**（64/64 実査・`check-note-structure` で要対応 CRITICAL 0）。UTM 欠落のみの 132 件は **33 件まで反映して中断**、残 99 件。リンク自体は機能するため実害は計測欠落（GA4 で Unassigned 化）に限られる。
+
+**再開手順**: 対象リストは `.claude/state/note-utm-live-remaining.txt`（noteId 突合で生成済み・反映済みは除外済み）。
+
+```bash
+node scripts/note-update-body.mjs --list .claude/state/note-utm-live-remaining.txt --commit
+```
+
+全文置換・有料境界は既定 `試験問題|予想問題` で自動再設定。約 50 秒/件（99件で約80分）。1本ずつ完結するので途中で止めても安全。**反映後は `npm run check-note-structure` で FULL_LOCK/PAYWALL_LEAK が出ないことを確認し、`.claude/state/note-republish-hashes.json` をコミットする**（次回の対象リスト再生成にも効く）。
+
+### note ライブ本文の画像欠落3件を修復
+タグ: [運用基盤]
+
+`check-note-live-headings` を curl 経路化して初めて検査が成立した結果（2026-07-28）、341本中3本で本文画像が live に載っていないことが判明（`[画像欠落 live=0/sot=2]`）。図が表示されない状態。
+
+- `1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/00-完全攻略ガイド-想定工事索引`（n9cf7e60661fa）
+- `1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/00-想定工事索引`（ned33a34bc42f）
+- `1級・2級土木/メンバーシップ/はじめに-合格ラボ`（n6b66793ca20c）
+
+修復は `node scripts/note-update-body.mjs --article <path> --commit`。画像は CDN 確定待ちでタイムアウトすることがあるが、その場合は保存せず中断する安全弁が働くので再実行すればよい。修復後 `node scripts/check-note-live-headings.mjs` で 0 件になることを確認する。
 
 ### search-growth 修正計画の裁定セッション（判断待ち 2,077 URL の消化）
 タグ: [運用基盤]
