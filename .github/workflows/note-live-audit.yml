@@ -15,8 +15,13 @@ name: Audit note live structure
 #   同リポジトリでは doboku-note.com が Cloudflare Bot Protection で Actions の IP を
 #   403 する既知例がある（uptime-ping.yml）が、note.com は別サービス。
 #
-# 注: cron は既定ブランチ（main）の定義で走るため、develop での変更は main へマージ
-#   されるまで週次に効かない。検証は workflow_dispatch に ref を指定して行う。
+# 注: cron も workflow_dispatch も**既定ブランチ（main）にファイルが存在すること**が前提。
+#   develop に置いただけでは `gh workflow run --ref develop` すら 404 になる（2026-07-28 実測）。
+#   したがって疎通確認は main へマージした後にしか行えない。マージ後、最初に
+#   workflow_dispatch で手動実行し、「note API 疎通確認」ステップの結果を必ず見ること。
+#   もし 403/404 で落ちるなら Actions の IP がブロックされている＝CI 化は断念し、
+#   その事実を .claude/knowledge/reference/measurement-incidents.md に記録して
+#   ローカル運用（npm run check-note-structure）へ戻す。
 
 on:
   schedule:
