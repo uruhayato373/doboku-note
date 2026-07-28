@@ -23,7 +23,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：老朽化・氾濫シミュレーション等のデータ活用による課題定義（データ活用）、住民・自治体・関係機関との合意形成（ステークホルダー）、社会・経済・環境の三側面での施設維持と防災（持続可能な成果）。[コンピテンシー改訂の解説](/docs/pe-construction-competency-revision-r8)
+反映点：老朽化・氾濫シミュレーション等のデータ活用による課題定義（データ活用）、住民・自治体・関係機関との合意形成（ステークホルダー）、社会・経済・環境の三側面での施設維持と防災（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

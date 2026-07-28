@@ -23,7 +23,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：施工計画・品質管理に関するデータ・モニタリング技術の活用（データ活用）、施工者・住民・関係機関との多角的な合意形成（ステークホルダー対応）、安全・環境・社会経済の三側面からみた持続可能な成果の達成。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8)
+反映点：施工計画・品質管理に関するデータ・モニタリング技術の活用（データ活用）、施工者・住民・関係機関との多角的な合意形成（ステークホルダー対応）、安全・環境・社会経済の三側面からみた持続可能な成果の達成。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

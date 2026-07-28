@@ -86,7 +86,7 @@ cover:
 
 古い業務であっても、関係者との合意形成の過程や、経済・環境・社会の面から成果の持続性に触れられる余地がないかを見直すと、改訂後の評価軸に沿った詳細に仕上がります。
 
-この改訂の中身は別記事の[令和8年度 コンピテンシー改訂のポイント](https://doboku-note.com/docs/pe-construction-competency-revision-r8)で詳しく整理しています。
+この改訂の中身は別記事の[令和8年度 コンピテンシー改訂のポイント](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-gyoumu-keireki-hyou)で詳しく整理しています。
 
 ## 発注者（自治体土木職）の業務も技術士の経歴になる
 

@@ -23,7 +23,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：被災施設データ・観測情報の収集と活用（データ活用）、応急措置・住民避難における関係機関・住民との合意形成（合意形成）、安全・経済・環境の三側面による持続可能な応急対応（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8)
+反映点：被災施設データ・観測情報の収集と活用（データ活用）、応急措置・住民避難における関係機関・住民との合意形成（合意形成）、安全・経済・環境の三側面による持続可能な応急対応（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

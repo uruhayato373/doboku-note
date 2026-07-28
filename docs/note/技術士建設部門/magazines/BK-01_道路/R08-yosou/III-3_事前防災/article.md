@@ -25,7 +25,7 @@ cover:
 
 本記事は令和8年度の出題傾向・国土交通行政の重点施策・改訂コンピテンシーから導出した**予想問題＋フル模範解答**です。的中を保証するものではありません。
 
-**令和8年度の改訂コンピテンシーに対応した模範解答です。** データ活用・ステークホルダー合意形成・持続可能な成果の三側面・文化的価値の尊重を答案に反映しています。改訂の詳細は[技術士第二次試験 コンピテンシー改訂（令和8年度）の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8)をご覧ください。
+**令和8年度の改訂コンピテンシーに対応した模範解答です。** データ活用・ステークホルダー合意形成・持続可能な成果の三側面・文化的価値の尊重を答案に反映しています。改訂の詳細は[技術士第二次試験 コンピテンシー改訂（令和8年度）の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)をご覧ください。
 
 ---
 

@@ -29,7 +29,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：点検・交通・路面データの活用（データ活用）、ステークホルダーへの配慮と多角的な視点による解決策の設計（多角的視点）、社会・経済・環境三側面の持続的確保（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8)
+反映点：点検・交通・路面データの活用（データ活用）、ステークホルダーへの配慮と多角的な視点による解決策の設計（多角的視点）、社会・経済・環境三側面の持続的確保（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

@@ -23,7 +23,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：交通量・点検・品質などの各種データ／センシング技術の活用（データ活用）、設計合理化・防災・資源循環による社会・経済・環境三側面の持続的確保（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8)
+反映点：交通量・点検・品質などの各種データ／センシング技術の活用（データ活用）、設計合理化・防災・資源循環による社会・経済・環境三側面の持続的確保（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

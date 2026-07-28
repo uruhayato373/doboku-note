@@ -36,7 +36,7 @@ cover:
 - **持続可能な成果の達成**：社会・経済・環境の三側面から懸念事項・リスクを論じ、持続可能な都市形成を軸にする
 - **文化的価値の尊重**：歴史的市街地・地域景観・生態系が持つ文化的・自然的価値を計画に組み込む
 
-改訂コンピテンシーの詳細は[技術士第二次試験 コンピテンシー改訂（令和8年度）の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8)をご覧ください。
+改訂コンピテンシーの詳細は[技術士第二次試験 コンピテンシー改訂（令和8年度）の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)をご覧ください。
 
 ---
 

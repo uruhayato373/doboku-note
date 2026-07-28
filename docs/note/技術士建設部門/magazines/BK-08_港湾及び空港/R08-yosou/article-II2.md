@@ -31,7 +31,7 @@ cover:
 
 反映ポイント：点検データ・モニタリング技術の活用（データ活用）・港湾管理者・施設利用者・航空会社等ステークホルダーとの合意形成（ステークホルダー）・安全・経済・環境の三側面。
 
-改訂の詳細は [技術士 コンピテンシー改訂 令和8年度｜新旧対照と二次試験への影響](https://doboku-note.com/docs/pe-construction-competency-revision-r8) をご参照ください。
+改訂の詳細は [技術士 コンピテンシー改訂 令和8年度｜新旧対照と二次試験への影響](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary) をご参照ください。
 
 **こんな人のための記事です**
 

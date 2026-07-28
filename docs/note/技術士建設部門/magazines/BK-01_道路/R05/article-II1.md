@@ -23,7 +23,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：路肩の状態モニタリング・地質調査・点検データの活用（データ活用）、用地制約・排水・防災・環境を統合した社会・経済・環境三側面の持続的確保（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8)
+反映点：路肩の状態モニタリング・地質調査・点検データの活用（データ活用）、用地制約・排水・防災・環境を統合した社会・経済・環境三側面の持続的確保（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

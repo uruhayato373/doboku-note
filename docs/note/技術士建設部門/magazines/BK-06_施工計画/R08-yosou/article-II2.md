@@ -31,7 +31,7 @@ cover:
 
 反映ポイント：施工データ・センサー計測値に基づく課題定義（データ活用）・発注者・施工者・住民・関係機関との合意形成（ステークホルダー）・安全・経済・環境の三側面の持続可能な成果。
 
-改訂の詳細は [技術士 コンピテンシー改訂 令和8年度｜新旧対照と二次試験への影響](https://doboku-note.com/docs/pe-construction-competency-revision-r8) をご参照ください。
+改訂の詳細は [技術士 コンピテンシー改訂 令和8年度｜新旧対照と二次試験への影響](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary) をご参照ください。
 
 **こんな人のための記事です**
 

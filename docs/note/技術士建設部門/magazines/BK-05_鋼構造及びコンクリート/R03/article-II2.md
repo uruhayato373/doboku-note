@@ -23,7 +23,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：コア試験・電磁誘導法等の計測データに基づく課題定義（データ活用）、設計・施工・発注者・住民の多角的ステークホルダーとの合意形成（ステークホルダー）、社会・経済・環境の三側面での構造物の持続的供用（持続可能な成果）。[コンピテンシー改訂の解説](/docs/pe-construction-competency-revision-r8)
+反映点：コア試験・電磁誘導法等の計測データに基づく課題定義（データ活用）、設計・施工・発注者・住民の多角的ステークホルダーとの合意形成（ステークホルダー）、社会・経済・環境の三側面での構造物の持続的供用（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

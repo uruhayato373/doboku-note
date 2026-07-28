@@ -23,7 +23,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：計測データ・地盤調査データ等の情報技術の活用（データ活用）、地元住民・関係機関・施工者との合意形成（ステークホルダー）、安全・経済・環境の三側面での持続可能な成果（三側面）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8)
+反映点：計測データ・地盤調査データ等の情報技術の活用（データ活用）、地元住民・関係機関・施工者との合意形成（ステークホルダー）、安全・経済・環境の三側面での持続可能な成果（三側面）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

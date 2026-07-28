@@ -23,7 +23,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：環境影響評価・海域再生の調査・モニタリングデータの活用（データ活用）、事業者・行政・地域住民・漁業関係者等との合意形成（ステークホルダー対応）、生態系保全・地域経済・文化的景観の三側面からみた持続可能な成果の達成。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8)
+反映点：環境影響評価・海域再生の調査・モニタリングデータの活用（データ活用）、事業者・行政・地域住民・漁業関係者等との合意形成（ステークホルダー対応）、生態系保全・地域経済・文化的景観の三側面からみた持続可能な成果の達成。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

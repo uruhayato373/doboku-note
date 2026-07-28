@@ -23,7 +23,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：静穏度検討・護岸変状調査における観測データ・数値解析の活用（データ活用）、港湾管理者・背後地利用者・行政機関・利用船舶との多者的合意形成（ステークホルダー対応）、港湾機能・地域経済・内湾環境の三側面からみた持続可能な成果の達成。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8)
+反映点：静穏度検討・護岸変状調査における観測データ・数値解析の活用（データ活用）、港湾管理者・背後地利用者・行政機関・利用船舶との多者的合意形成（ステークホルダー対応）、港湾機能・地域経済・内湾環境の三側面からみた持続可能な成果の達成。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

@@ -23,7 +23,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：被災地空間データ・管理台帳・リスクデータの活用（データ活用）、復興計画・換地設計・管理認定・公共空間整備における住民・関係者との合意形成（ステークホルダー）、社会・経済・環境の三側面での持続可能な成果（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8)
+反映点：被災地空間データ・管理台帳・リスクデータの活用（データ活用）、復興計画・換地設計・管理認定・公共空間整備における住民・関係者との合意形成（ステークホルダー）、社会・経済・環境の三側面での持続可能な成果（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

@@ -21,7 +21,7 @@ cover:
 
 # 技術士 建設部門｜施工計画、施工設備及び積算 R04 選択科目II-1 模範解答（全4設問）
 
-令和8年度の改訂コンピテンシーに対応した模範解答です。データに基づく課題定義・ステークホルダーとの合意形成・社会経済環境の三側面を踏まえた持続可能な成果の視点を答案に織り込んでいます。詳細は[コンピテンシー改訂の解説](pe-construction-competency-revision-r8)を参照してください。
+令和8年度の改訂コンピテンシーに対応した模範解答です。データに基づく課題定義・ステークホルダーとの合意形成・社会経済環境の三側面を踏まえた持続可能な成果の視点を答案に織り込んでいます。詳細は[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)を参照してください。
 
 **こんな人のための記事です**
 

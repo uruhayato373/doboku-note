@@ -23,7 +23,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：走行データ・計測記録・騒音観測データ等のデータ活用、住民・鉄道事業者・関係機関との合意形成、社会・経済・環境の三側面による持続可能な成果の達成。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8)
+反映点：走行データ・計測記録・騒音観測データ等のデータ活用、住民・鉄道事業者・関係機関との合意形成、社会・経済・環境の三側面による持続可能な成果の達成。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

@@ -35,7 +35,7 @@ cover:
 - **ステークホルダーの意見の取り入れと合意形成**：港湾管理者・荷主・海運・倉庫・エネルギー事業者・地域住民との協議プロセスを解決策に明示する
 - **持続可能な成果の達成**：安全・経済・環境の三側面から残余リスクを論じ、文化的価値を含む持続可能な成果を志向する
 
-改訂コンピテンシーの詳細は[技術士第二次試験 コンピテンシー改訂（令和8年度）の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8)をご覧ください。
+改訂コンピテンシーの詳細は[技術士第二次試験 コンピテンシー改訂（令和8年度）の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)をご覧ください。
 
 ---
 

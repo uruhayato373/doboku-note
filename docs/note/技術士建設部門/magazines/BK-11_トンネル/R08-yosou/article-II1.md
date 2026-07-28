@@ -27,7 +27,7 @@ cover:
 
 的中を保証するものではありません。
 
-令和8年度から改訂コンピテンシーが適用されます。反映点：計測データ・モニタリングデータの活用（データ活用）、発注者・施工者・近隣住民等との合意形成（ステークホルダー）、安全・経済・環境の三側面での持続可能な成果の達成（三側面）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8)
+令和8年度から改訂コンピテンシーが適用されます。反映点：計測データ・モニタリングデータの活用（データ活用）、発注者・施工者・近隣住民等との合意形成（ステークホルダー）、安全・経済・環境の三側面での持続可能な成果の達成（三側面）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

@@ -29,7 +29,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：居住誘導データ・GIS・人口動態データの活用（データ活用）、地権者・施設誘導事業者・住民・都市再生推進法人等のステークホルダーとの包摂的な合意形成（ステークホルダー）、都市の経済・社会・環境の三側面と地域文化の持続可能な成果（持続可能な成果・三側面・文化的価値）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8)
+反映点：居住誘導データ・GIS・人口動態データの活用（データ活用）、地権者・施設誘導事業者・住民・都市再生推進法人等のステークホルダーとの包摂的な合意形成（ステークホルダー）、都市の経済・社会・環境の三側面と地域文化の持続可能な成果（持続可能な成果・三側面・文化的価値）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

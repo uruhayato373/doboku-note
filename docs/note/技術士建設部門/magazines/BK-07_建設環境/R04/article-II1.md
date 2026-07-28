@@ -23,7 +23,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：騒音計測データ・猛禽類調査記録・生態系観測データ・建設副産物発生量データ等のデータ活用、住民・関係機関・発注者との多角的な合意形成、社会・経済・環境の三側面による持続可能な成果の達成、文化的価値・生態系の価値を含む環境保全の視点。[コンピテンシー改訂の解説](pe-construction-competency-revision-r8)
+反映点：騒音計測データ・猛禽類調査記録・生態系観測データ・建設副産物発生量データ等のデータ活用、住民・関係機関・発注者との多角的な合意形成、社会・経済・環境の三側面による持続可能な成果の達成、文化的価値・生態系の価値を含む環境保全の視点。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

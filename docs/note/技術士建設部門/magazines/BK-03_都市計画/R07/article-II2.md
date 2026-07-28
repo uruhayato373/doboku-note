@@ -23,7 +23,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：3D都市モデル・PLATEAUデータの活用と景観データ・現況調査データの活用（データ活用）、鉄道事業者・公安委員会・住民・商業者・景観行政団体等のステークホルダーとの包摂的な合意形成（ステークホルダー）、都市空間・景観・地域文化の持続可能な保全と更新（持続可能な成果・文化的価値）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8)
+反映点：3D都市モデル・PLATEAUデータの活用と景観データ・現況調査データの活用（データ活用）、鉄道事業者・公安委員会・住民・商業者・景観行政団体等のステークホルダーとの包摂的な合意形成（ステークホルダー）、都市空間・景観・地域文化の持続可能な保全と更新（持続可能な成果・文化的価値）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

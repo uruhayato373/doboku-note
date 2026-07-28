@@ -33,13 +33,21 @@ if (process.env.SKIP_NOTE_UTM === '1') {
 const STAGED = process.argv.includes('--staged');
 const ROOT = 'docs/note';
 
+// note 公開対象のファイル名（Convention B の article.md と、型別の article-II1.md 等）。
+// 企画/設計/README の内部 doc は対象外。他の note 系ゲート（check-note-structure /
+// check-note-price-consistency）と同じパターンに揃える。
+const ARTICLE_RE = /^article(-[^/\\]+)?\.md$/;
+
 function walk(dir, acc) {
   if (!existsSync(dir)) return acc;
   for (const name of readdirSync(dir)) {
     const p = join(dir, name);
     const st = statSync(p);
     if (st.isDirectory()) walk(p, acc);
-    else if (/\/article\.md$/.test(p)) acc.push(p); // note公開対象のみ(Convention B)。企画/設計/READMEの内部docは対象外
+    // ★ パス全体ではなくファイル名で判定する。join() は Windows で "\" 区切りを返すため、
+    //   従来の /\/article\.md$/ はローカルで**一件もマッチせず全量実行が常に0件＝偽PASS**だった
+    //   （--staged は git の "/" 区切り出力なので動いていた・2026-07-28 修正）。
+    else if (ARTICLE_RE.test(name)) acc.push(p);
   }
   return acc;
 }
@@ -50,7 +58,7 @@ if (STAGED) {
   // startsWith('docs/note/') と existsSync に不一致→日本語パス記事が素通りする）
   files = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACM'], { encoding: 'utf8' })
     .split('\n')
-    .filter((f) => f.startsWith('docs/note/') && /\/article\.md$/.test(f) && existsSync(f));
+    .filter((f) => f.startsWith('docs/note/') && ARTICLE_RE.test(f.split('/').pop() || '') && existsSync(f));
 } else {
   files = walk(ROOT, []);
 }
@@ -58,6 +66,11 @@ if (STAGED) {
 // `](url)` のインライン / それ以外（裸 or <url>）を 1 パスで分類する。
 // group1 = "](" があればインライン、無ければ裸URL（<url> 含む）。
 const RE = /(\]\()?<?(https?:\/\/doboku-note\.com\/docs\/[^\s)>]+)/g;
+
+// note 記事内でサイトへ送客するリンクは**絶対URLでなければ届かない**。相対パス `](/docs/slug)`
+// や裸 slug `](slug)` は note.com 上で解決されリンク切れになる（2026-07-28、建設部門で
+// 相対41件・裸slug23件を実測）。UTM 以前の到達性の問題なのでこのゲートで一緒に止める。
+const BROKEN_RE = /\]\((\/docs\/[^\s)]+|(?!https?:|mailto:|tel:|#|\/|\.)[a-z][a-z0-9]*(?:-[a-z0-9]+){2,})\)/g;
 
 const problems = [];
 // カード許可コンテキスト: 「関連リソース」等の補助節配下、または <!-- card-ok --> マーカー直後の
@@ -72,6 +85,11 @@ for (const f of files) {
     if (h) { inCardSection = /関連(リソース|リンク|記事|コンテンツ)/.test(h[1]); }
     if (/^\s*<!--\s*card-ok\s*-->/.test(line)) { cardOkArmed = true; return; }
     if (line.trim() === '') return; // 空行は状態を保持（マーカー→空行→URL に対応）
+    let b;
+    BROKEN_RE.lastIndex = 0;
+    while ((b = BROKEN_RE.exec(line)) !== null) {
+      problems.push(`${f}:${i + 1} [broken-link] ](${b[1]}) は note 上で解決できない（絶対URL https://doboku-note.com/docs/... にする）`);
+    }
     let m;
     RE.lastIndex = 0;
     while ((m = RE.exec(line)) !== null) {

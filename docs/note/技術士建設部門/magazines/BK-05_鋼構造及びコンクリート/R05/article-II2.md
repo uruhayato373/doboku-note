@@ -23,7 +23,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：構造物の維持管理・点検に関するデータ・非破壊検査技術の活用（データ活用）、道路管理者・学識経験者・住民との合意形成（ステークホルダー対応）、安全・経済・環境の三側面からみた持続可能な成果の達成。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8)
+反映点：構造物の維持管理・点検に関するデータ・非破壊検査技術の活用（データ活用）、道路管理者・学識経験者・住民との合意形成（ステークホルダー対応）、安全・経済・環境の三側面からみた持続可能な成果の達成。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

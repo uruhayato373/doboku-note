@@ -23,7 +23,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：降雨・流入量データや計測データの活用（データ活用）、電力事業者・行政・地域住民を包摂した合意形成（ステークホルダー）、電力安定供給・防災・環境保全の三側面による持続可能な成果の達成。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8)
+反映点：降雨・流入量データや計測データの活用（データ活用）、電力事業者・行政・地域住民を包摂した合意形成（ステークホルダー）、電力安定供給・防災・環境保全の三側面による持続可能な成果の達成。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

@@ -23,7 +23,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：谷部盛土崩落・開削トンネルに関するモニタリングデータ・動態観測の活用（データ活用）、工場所有企業・行政機関・住民・ライフライン管理者との多層的な合意形成（ステークホルダー対応）、安全・経済・環境の三側面および地域の歴史的土地利用に配慮した持続可能な成果の達成。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8)
+反映点：谷部盛土崩落・開削トンネルに関するモニタリングデータ・動態観測の活用（データ活用）、工場所有企業・行政機関・住民・ライフライン管理者との多層的な合意形成（ステークホルダー対応）、安全・経済・環境の三側面および地域の歴史的土地利用に配慮した持続可能な成果の達成。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

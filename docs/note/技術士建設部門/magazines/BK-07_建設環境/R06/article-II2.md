@@ -25,7 +25,7 @@ cover:
 
 データ活用による課題定義・ステークホルダーとの合意形成・社会経済環境の三側面と文化的価値への配慮を各解答に織り込んでいます。
 
-[コンピテンシー改訂の解説](pe-construction-competency-revision-r8)
+[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 **こんな人のための記事です**
 

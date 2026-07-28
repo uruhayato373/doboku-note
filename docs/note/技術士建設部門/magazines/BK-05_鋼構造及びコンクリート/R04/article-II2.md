@@ -23,7 +23,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：構造物データ・非破壊検査情報の体系的収集と活用（データ活用）、発注者・設計者・施工者・保険会社等の多主体との合意形成（合意形成）、安全・経済・環境の三側面による持続可能な施設管理（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8)
+反映点：構造物データ・非破壊検査情報の体系的収集と活用（データ活用）、発注者・設計者・施工者・保険会社等の多主体との合意形成（合意形成）、安全・経済・環境の三側面による持続可能な施設管理（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

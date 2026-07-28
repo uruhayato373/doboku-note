@@ -23,7 +23,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：需要予測データ・施設台帳等の情報技術活用（データ活用）、鉄道事業者・開発事業者・行政・住民との合意形成（ステークホルダー）、安全・経済・環境・文化的価値の多側面での持続可能な成果（三側面）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8)
+反映点：需要予測データ・施設台帳等の情報技術活用（データ活用）、鉄道事業者・開発事業者・行政・住民との合意形成（ステークホルダー）、安全・経済・環境・文化的価値の多側面での持続可能な成果（三側面）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

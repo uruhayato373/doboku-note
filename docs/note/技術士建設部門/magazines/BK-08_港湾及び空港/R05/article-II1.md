@@ -23,7 +23,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：港湾計画・施設管理に関するデータ・センシング技術の活用（データ活用）、港湾利用者・関係機関・地域住民との合意形成（ステークホルダー対応）、安全・環境・経済の三側面からみた持続可能な成果の達成。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8)
+反映点：港湾計画・施設管理に関するデータ・センシング技術の活用（データ活用）、港湾利用者・関係機関・地域住民との合意形成（ステークホルダー対応）、安全・環境・経済の三側面からみた持続可能な成果の達成。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

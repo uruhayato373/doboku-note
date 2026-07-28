@@ -123,7 +123,7 @@ cover:
 
 令和8年度のコンピテンシー改訂では、データ活用・ステークホルダーとの合意形成・持続可能な成果・文化的価値の尊重が明文化されており、合意形成や持続可能性に触れる答案がより評価されやすくなる見込みです。
 
-詳細は[令和8年度コンピテンシー改訂](https://doboku-note.com/docs/pe-construction-competency-revision-r8)を参照してください。
+詳細は[令和8年度コンピテンシー改訂](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-toan-kousei)を参照してください。
 
 このテンプレートは「破綻させないための型」です。型に当てはめれば合格答案になるわけではなく、各ブロックに入れる中身（具体的な施策名・地域事情・専門知識）の質が最終的な評価を決めます。
 

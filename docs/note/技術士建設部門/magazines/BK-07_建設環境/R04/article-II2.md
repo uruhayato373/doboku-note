@@ -23,7 +23,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：環境影響評価データ・事後調査結果の体系的な収集と活用（データ活用）、環境保全措置の実施における地域住民・関係行政機関・専門家との合意形成（合意形成）、社会・経済・環境の三側面および地域の自然的・文化的価値を踏まえた持続可能な環境保全の実現（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8)
+反映点：環境影響評価データ・事後調査結果の体系的な収集と活用（データ活用）、環境保全措置の実施における地域住民・関係行政機関・専門家との合意形成（合意形成）、社会・経済・環境の三側面および地域の自然的・文化的価値を踏まえた持続可能な環境保全の実現（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

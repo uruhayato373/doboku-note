@@ -31,7 +31,7 @@ cover:
 
 反映ポイント：点検データ・非破壊検査データに基づく劣化課題の定義（データ活用）・道路管理者・施設利用者・専門機関等との合意形成（ステークホルダー）・安全・経済・環境の三側面による持続可能な成果の達成。
 
-改訂の詳細は [技術士 コンピテンシー改訂 令和8年度｜新旧対照と二次試験への影響](https://doboku-note.com/docs/pe-construction-competency-revision-r8) をご参照ください。
+改訂の詳細は [技術士 コンピテンシー改訂 令和8年度｜新旧対照と二次試験への影響](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary) をご参照ください。
 
 **こんな人のための記事です**
 

@@ -23,7 +23,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：計測データ・交通量データ等に基づく課題定義（データ活用）、道路管理者・警察・住民・鉄道事業者等との合意形成（ステークホルダー）、社会・経済・環境の三側面での施工品質確保と地域共生（持続可能な成果）。[コンピテンシー改訂の解説](/docs/pe-construction-competency-revision-r8)
+反映点：計測データ・交通量データ等に基づく課題定義（データ活用）、道路管理者・警察・住民・鉄道事業者等との合意形成（ステークホルダー）、社会・経済・環境の三側面での施工品質確保と地域共生（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

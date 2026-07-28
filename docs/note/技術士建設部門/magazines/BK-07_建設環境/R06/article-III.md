@@ -29,7 +29,7 @@ cover:
 - **ステークホルダーの意見の取り入れと合意形成**：住民・土地所有者・NPO・農業者・研究機関・関係行政機関との協議プロセスを解決策に明示する
 - **持続可能な成果の達成**：社会・経済・環境の三側面から残余リスクを論じ、文化的価値（歴史的環境・農地・自然景観）の保全にも配慮する
 
-改訂コンピテンシーの詳細は[技術士第二次試験 コンピテンシー改訂（令和8年度）の解説](pe-construction-competency-revision-r8)をご覧ください。
+改訂コンピテンシーの詳細は[技術士第二次試験 コンピテンシー改訂（令和8年度）の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)をご覧ください。
 
 ---
 

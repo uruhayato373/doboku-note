@@ -23,7 +23,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：損傷・劣化データの活用と点検記録の積み重ね（データ活用）、関係機関・施工者・道路利用者への説明と合意形成（ステークホルダー対応）、耐久性・安全・環境の三側面からみた持続可能な成果の達成（社会経済環境三側面）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8)
+反映点：損傷・劣化データの活用と点検記録の積み重ね（データ活用）、関係機関・施工者・道路利用者への説明と合意形成（ステークホルダー対応）、耐久性・安全・環境の三側面からみた持続可能な成果の達成（社会経済環境三側面）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

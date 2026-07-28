@@ -29,7 +29,7 @@ cover:
 - **ステークホルダーの意見の取り入れと合意形成**：鉄道事業者・地権者・住民・マンション管理組合・NPO等との協議プロセスを解決策に明示する
 - **持続可能な成果の達成**：社会・経済・環境・文化的価値の各側面から残余リスクを論じ、持続可能な整備水準の確保を軸にする
 
-改訂コンピテンシーの詳細は[技術士第二次試験 コンピテンシー改訂（令和8年度）の解説](/docs/pe-construction-competency-revision-r8)をご覧ください。
+改訂コンピテンシーの詳細は[技術士第二次試験 コンピテンシー改訂（令和8年度）の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)をご覧ください。
 
 ---
 

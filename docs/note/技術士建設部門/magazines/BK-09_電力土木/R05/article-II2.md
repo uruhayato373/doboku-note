@@ -23,7 +23,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：電力土木施設の維持管理・水力発電計画に関するモニタリングデータ・センシング技術の活用（データ活用）、電力事業者・行政・地域住民との合意形成（ステークホルダー対応）、エネルギー安定供給・経済性・環境保全の三側面からみた持続可能な成果の達成。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8)
+反映点：電力土木施設の維持管理・水力発電計画に関するモニタリングデータ・センシング技術の活用（データ活用）、電力事業者・行政・地域住民との合意形成（ステークホルダー対応）、エネルギー安定供給・経済性・環境保全の三側面からみた持続可能な成果の達成。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

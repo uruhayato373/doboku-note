@@ -21,7 +21,7 @@ cover:
 
 # 技術士 建設部門｜電力土木 R04 選択科目II-2 模範解答
 
-令和8年度の改訂コンピテンシーに対応した模範解答です。データ活用・ステークホルダーとの合意形成・社会経済環境の三側面と文化的価値の尊重を答案に織り込んでいます。詳細は[コンピテンシー改訂の解説](pe-construction-competency-revision-r8)をご参照ください。
+令和8年度の改訂コンピテンシーに対応した模範解答です。データ活用・ステークホルダーとの合意形成・社会経済環境の三側面と文化的価値の尊重を答案に織り込んでいます。詳細は[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)をご参照ください。
 
 **こんな人のための記事です**
 

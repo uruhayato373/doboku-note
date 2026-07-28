@@ -25,7 +25,7 @@ cover:
 
 反映点：ハザードデータ・交通量調査・農地台帳などのデータに基づく課題定義（データ活用）、住民・事業者・農業委員会・関係機関との合意形成（ステークホルダー）、社会・経済・環境の三側面からの持続可能な成果の確保。
 
-[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8)
+[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

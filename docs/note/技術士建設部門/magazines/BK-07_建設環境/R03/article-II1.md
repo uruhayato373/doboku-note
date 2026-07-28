@@ -23,7 +23,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：環境調査・モニタリングデータの活用（データ活用）、住民・関係機関・ステークホルダーとの合意形成（ステークホルダー）、社会・経済・環境の三側面での持続可能な成果。[コンピテンシー改訂の解説](/docs/pe-construction-competency-revision-r8)
+反映点：環境調査・モニタリングデータの活用（データ活用）、住民・関係機関・ステークホルダーとの合意形成（ステークホルダー）、社会・経済・環境の三側面での持続可能な成果。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

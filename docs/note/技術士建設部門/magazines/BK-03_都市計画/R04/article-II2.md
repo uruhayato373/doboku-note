@@ -25,7 +25,7 @@ cover:
 
 反映点：建築物調査データ・指定管理業績記録などのデータに基づく課題定義（データ活用）、地権者・住民・商店会・関係行政機関・民間事業者などステークホルダーの意見の取り入れと合意形成、社会・経済・環境・文化的価値の三側面以上からの持続可能な成果の確保。
 
-[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8)
+[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

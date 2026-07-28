@@ -23,7 +23,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：点検計測データ・腐食診断記録・座屈解析データ等のデータ活用、設計・施工・維持管理関係者との合意形成、社会・経済・環境の三側面による持続可能な成果の達成。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8)
+反映点：点検計測データ・腐食診断記録・座屈解析データ等のデータ活用、設計・施工・維持管理関係者との合意形成、社会・経済・環境の三側面による持続可能な成果の達成。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

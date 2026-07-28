@@ -23,7 +23,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：補助工法の実施記録データや計測データの収集・活用（データ活用）、設計者・施工者・近接施設管理者・住民との合意形成（合意形成）、安全・経済・環境の三側面による持続可能なトンネル施工の実現（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8)
+反映点：補助工法の実施記録データや計測データの収集・活用（データ活用）、設計者・施工者・近接施設管理者・住民との合意形成（合意形成）、安全・経済・環境の三側面による持続可能なトンネル施工の実現（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

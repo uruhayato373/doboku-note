@@ -23,7 +23,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：施設利用データ・点検診断データの収集と活用（データ活用）、港湾管理者・施設利用者・関係機関との合意形成（合意形成）、安全・経済・環境の三側面による持続可能な計画策定（持続可能な成果）。[コンピテンシー改訂の解説](pe-construction-competency-revision-r8)
+反映点：施設利用データ・点検診断データの収集と活用（データ活用）、港湾管理者・施設利用者・関係機関との合意形成（合意形成）、安全・経済・環境の三側面による持続可能な計画策定（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

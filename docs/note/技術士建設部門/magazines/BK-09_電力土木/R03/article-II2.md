@@ -23,7 +23,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：計測データ・点検記録のデジタル活用による課題定義（データ活用）、施設管理者・設計者・施工者・地域住民・行政機関との合意形成（ステークホルダー）、社会・経済・環境の三側面を踏まえた施設の持続的運用と安全確保（持続可能な成果）。[コンピテンシー改訂の解説](/docs/pe-construction-competency-revision-r8)
+反映点：計測データ・点検記録のデジタル活用による課題定義（データ活用）、施設管理者・設計者・施工者・地域住民・行政機関との合意形成（ステークホルダー）、社会・経済・環境の三側面を踏まえた施設の持続的運用と安全確保（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

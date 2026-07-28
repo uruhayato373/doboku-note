@@ -23,7 +23,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：流域土砂管理・災害復旧に関するデータ・モニタリング技術の活用（データ活用）、砂防・ダム・河川・海岸の関係機関・住民との合意形成（ステークホルダー対応）、治水・環境・地域生活の三側面からみた持続可能な成果の達成。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8)
+反映点：流域土砂管理・災害復旧に関するデータ・モニタリング技術の活用（データ活用）、砂防・ダム・河川・海岸の関係機関・住民との合意形成（ステークホルダー対応）、治水・環境・地域生活の三側面からみた持続可能な成果の達成。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

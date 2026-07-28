@@ -25,7 +25,7 @@ cover:
 
 本記事はデータ活用・多角的視点によるステークホルダー合意形成・社会経済環境の三側面と文化的価値を踏まえた持続可能な成果という改訂コンピテンシーの観点を論述に織り込んでいます。
 
-改訂の詳細は [コンピテンシー改訂の解説](pe-construction-competency-revision-r8) をご覧ください。
+改訂の詳細は [コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary) をご覧ください。
 
 **こんな人のための記事です**
 

@@ -23,7 +23,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：施工データ・計測記録のデジタル活用（データ活用）、発注者・設計者・施工者・地域住民等を巻き込んだ合意形成（ステークホルダー）、社会・経済・環境の三側面を考慮した持続可能な構造物性能の確保（持続可能な成果）。[コンピテンシー改訂の解説](pe-construction-competency-revision-r8)
+反映点：施工データ・計測記録のデジタル活用（データ活用）、発注者・設計者・施工者・地域住民等を巻き込んだ合意形成（ステークホルダー）、社会・経済・環境の三側面を考慮した持続可能な構造物性能の確保（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

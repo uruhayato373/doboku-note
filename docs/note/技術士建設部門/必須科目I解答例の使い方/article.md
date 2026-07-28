@@ -77,7 +77,7 @@ cover:
 
 古い解答例を読むときは、これらの新しい観点が骨子に組み込まれているかを自分で補う視点が要ります。
 
-改訂の詳細は[令和8年度コンピテンシー改訂の解説記事](https://doboku-note.com/docs/pe-construction-competency-revision-r8)にまとめています。
+改訂の詳細は[令和8年度コンピテンシー改訂の解説記事](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-hissu-kaitourei)にまとめています。
 
 骨子を箇条書きにしたら、各論点の横に対応するコンピテンシーを書き添えてみてください。「評価」や「技術者倫理」に対応する論点が薄ければ、それが本番で失点しやすい弱点です。
 

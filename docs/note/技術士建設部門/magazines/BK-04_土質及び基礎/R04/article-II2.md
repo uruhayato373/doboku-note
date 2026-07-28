@@ -23,7 +23,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：ボーリング・傾斜計・間隙水圧計等の観測データと既存調査記録の活用（データ活用）、道路管理者・近隣住民・関係機関との合意形成（合意形成）、安全確保・経済効率・環境影響の三側面による持続可能な復旧・補強対策（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8)
+反映点：ボーリング・傾斜計・間隙水圧計等の観測データと既存調査記録の活用（データ活用）、道路管理者・近隣住民・関係機関との合意形成（合意形成）、安全確保・経済効率・環境影響の三側面による持続可能な復旧・補強対策（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

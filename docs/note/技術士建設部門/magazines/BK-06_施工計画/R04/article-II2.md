@@ -23,7 +23,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：品質記録・計測データの収集と意思決定への活用（データ活用）、発注者・鉄道事業者・施工者・住民など関係者との合意形成と意見の取り込み（ステークホルダー合意形成）、安全・経済・環境の三側面による持続可能な施工マネジメント（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8)
+反映点：品質記録・計測データの収集と意思決定への活用（データ活用）、発注者・鉄道事業者・施工者・住民など関係者との合意形成と意見の取り込み（ステークホルダー合意形成）、安全・経済・環境の三側面による持続可能な施工マネジメント（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

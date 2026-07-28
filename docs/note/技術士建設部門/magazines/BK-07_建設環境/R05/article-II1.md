@@ -23,7 +23,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：水循環・太陽光パネル・道路緑化・景観計画に関するデータ・モニタリング技術の活用（データ活用）、地域住民・関係機関・事業者との合意形成（ステークホルダー対応）、社会・経済・環境の三側面および文化的価値を踏まえた持続可能な成果の達成。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8)
+反映点：水循環・太陽光パネル・道路緑化・景観計画に関するデータ・モニタリング技術の活用（データ活用）、地域住民・関係機関・事業者との合意形成（ステークホルダー対応）、社会・経済・環境の三側面および文化的価値を踏まえた持続可能な成果の達成。[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
 
 ---
 

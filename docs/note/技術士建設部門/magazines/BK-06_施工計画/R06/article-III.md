@@ -29,7 +29,7 @@ cover:
 - **ステークホルダーの意見の取り入れと合意形成**：建設就労者・下請業者・発注者・住民・関係行政機関との協議・調整プロセスを解決策に明示する
 - **持続可能な成果の達成**：社会・経済・環境の三側面から残余リスクを論じ、建設産業の文化的・社会的価値の持続にも配慮する
 
-改訂コンピテンシーの詳細は[技術士第二次試験 コンピテンシー改訂（令和8年度）の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8)をご覧ください。
+改訂コンピテンシーの詳細は[技術士第二次試験 コンピテンシー改訂（令和8年度）の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)をご覧ください。
 
 ---
 
