@@ -238,14 +238,14 @@ try {
       const nextBtn = page.locator('button:has-text("公開に進む")').first();
       if (await nextBtn.count() === 0) { throw new Error('公開に進む ボタン未検出'); }
       await nextBtn.click();
-      await page.waitForTimeout(3000);
+      await page.waitForURL(/\/publish\/?$/, { timeout: 30000 }).catch(() => {});
 
-      // 価格入力欄を探す（input[placeholder="300"] or input#price）
-      let priceInput = page.locator('input[placeholder="300"]').first();
-      if (await priceInput.count() === 0) {
-        priceInput = page.locator('input#price').first();
-      }
-      if (await priceInput.count() === 0) { throw new Error('価格入力欄 未検出'); }
+      // 価格入力欄を待つ（2026-07-28: 固定 3s sleep では販売設定の描画に間に合わず
+      // 「価格入力欄 未検出」で全件失敗した。DOM 実査で input#price は存在＝待ち不足が原因）
+      const priceInput = page.locator('input#price, input[placeholder="300"]').first();
+      try {
+        await priceInput.waitFor({ state: 'visible', timeout: 30000 });
+      } catch { throw new Error('価格入力欄 未検出（30s 待機後）'); }
 
       // 価格をクリア＆入力（既存値の全選択は OS 依存: Mac=Meta+A / その他=Control+A）
       await priceInput.click();
@@ -269,11 +269,12 @@ try {
         await page.waitForTimeout(2500);
       }
 
-      // 更新するボタンをクリック
+      // 更新するボタンをクリック（描画待ちは固定 sleep でなく明示待機・上記と同根）
       const updateBtn = page.locator('button:has-text("更新する")').first();
-      if (await updateBtn.count() === 0 || await updateBtn.isDisabled()) {
-        throw new Error('更新ボタン 無し/無効');
-      }
+      try {
+        await updateBtn.waitFor({ state: 'visible', timeout: 30000 });
+      } catch { throw new Error('更新ボタン 未検出（30s 待機後）'); }
+      if (await updateBtn.isDisabled()) { throw new Error('更新ボタン 無効'); }
       await updateBtn.click();
       await page.waitForTimeout(4500);
 

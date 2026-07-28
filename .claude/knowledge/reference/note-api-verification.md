@@ -148,11 +148,16 @@ node scripts/note-update-body.mjs --list   <list.txt>   --commit    # 複数記�
 **機械ゲート（2層）**:
 - **事前（ソース・network不要）**: `npm run check-note-boundary`（paid published の paidBoundary 解決可能性＝境界H2実在を検査）。pre-commit `--staged` ＋ quality-audit `ci` ＋ r2-audit 全量。新規paid記事の境界欠落＝RULE_GAP を止める。
 - **事後（ライブ・note API）**: `npm run check-note-structure`（公開API無料本文とソース境界を突合し FULL_LOCK/PAYWALL_LEAK/BOUNDARY_SHIFT/IMG_MISSING/PRICE_MISMATCH を検出）。`--ci` で未許可 CRITICAL>0 なら exit 1。既知の境界定義ズレ（BK/総監の偽陽性）は `.claude/config/note-structure-allow.json` の allowlist で WAIVED（backlog解消時に空にする）。CI非対象（note API依存）＝週次/月次で回す。
+  **会社 PC では機能しない（2026-07-28 実測）**: 本スクリプトは Node の `fetch` を使うためプロキシで全件遮断され、675/675 が `FETCH_ERR`（=検査ゼロ）で **exit 0 を返す＝偽の PASS**。本文冒頭§「環境の罠」の `curl --ssl-no-revoke` 経路でしか live 検証はできない。ローカルで境界を実査するときは curl でライブ無料本文を取り、**ソースの `paidBoundary` 直前の末尾と末尾一致で突合**する（FULL_LOCK は無料本文が極端に短いことで検出）。
 - **paidProbe の注意**: 境界H2テキスト自体は note 目次（無料側）に出るため偽陽性になる→境界H2の**直後の本文段落**を probe にする（check-note-structure.mjs 実装済）。
 
 ### 有料公開の `price:` 欄必須 と 既存無料→有料 変換: `note-convert-to-paid`（2026-07-24 新設）
 
-**note-publish の有料判定は `isPaid = notePricing==='paid' && price>0`。** `notePricing: paid` でも **frontmatter に `price:` 欄が無い（or 0）と無料で公開される**（2026-07-24、完全攻略パック工事/補充＋総監 計21本が price 欄欠落で無料公開＝値崩れ事故）。paid 記事を公開する前に `price:`(>0) を必ず確認する。完全攻略パック個別記事は ¥500（バンドル ¥2,480 と整合）。
+**note-publish の有料判定は `isPaid = notePricing==='paid' && price>0`。** `notePricing: paid` でも **frontmatter に `price:` 欄が無い（or 0）と無料で公開される**（2026-07-24、完全攻略パック工事/補充＋総監 計21本が price 欄欠落で無料公開＝値崩れ事故）。paid 記事を公開する前に `price:`(>0) を必ず確認する。
+
+> [!warning] 欠落是正で既定値をハードコードしない（2026-07-28 追記）
+> 上記の是正時、本節に書かれていた「完全攻略パック個別記事は ¥500」を既定値として 18 本へ一律付与したが、**その前日（07-23 `524f3f010`）に同パックは ¥1,280 → ¥1,980 へ改定済み**だった。結果、工事01〜14＋補充4本だけが ¥500 で公開され索引の入口帯が値崩れした（07-28 に ¥1,980 へ復旧）。
+> **価格欠落の是正では doc の数値を信じず、同一マガジンの現行価格を note API で実測してから揃える。** 単品価格の真実源は各記事 frontmatter `price:`（完全攻略パック＝現行 **¥1,980**）、商品設計は [noteコンテンツ計画.md](../../../docs/note/1級・2級土木/noteコンテンツ計画.md) §8。
 
 ```bash
 node scripts/note-convert-to-paid.mjs --list <file> --commit    # 無料公開済みを有料化（1行1 article）

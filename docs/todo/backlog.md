@@ -142,6 +142,11 @@ page/category の合成ロジック共通化（2026-06-25 アセスメント起�
 
 ## 🟡 中 — 2〜3ヶ月以内
 
+### note ライブ有料境界の検査を curl 経路で恒久化
+タグ: [運用基盤]
+
+`npm run check-note-structure` は Node の `fetch` を使うため会社 PC のプロキシで全件 `FETCH_ERR`（2026-07-28 実測 675/675）になり、**検査ゼロのまま exit 0＝偽 PASS** を返す。`curl --ssl-no-revoke` でライブ無料本文を取り、ソースの `paidBoundary` 直前の末尾と末尾一致で突合する検査を committed スクリプト化する（プロトタイプは同日の作業で `.tmp/verify-note-boundary.mjs` として実証・18/18 判定成功。`.tmp` は残らないので再実装が要る）。あわせて FETCH_ERR が支配的なとき exit 0 を返さないよう `check-note-structure` 側もガードする。真実源: [note-api-verification.md](../../.claude/knowledge/reference/note-api-verification.md)
+
 ### Brain 施工経験記述キットの検証残（handoff 2026-07-19 抽出）
 タグ: [収益化]
 

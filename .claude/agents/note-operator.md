@@ -82,7 +82,8 @@ note.com への高レベル操作指示を受け取り、既存の決定的ス�
 4. **確認**: 変更対象を親に報告、承認を得る
 5. **実行**: `note-article-price-sweep.mjs ... --price 780 --commit`
 6. **検証**: 変更後の価格を note API で確認
-   - 6b. **境界実査（--allow-boundary-risk 使用時 必須）**: `node scripts/note-update-body.mjs --list <対象> --commit` で境界再設定 → `npm run check-note-structure` で FULL_LOCK=0 を確認
+   - 6b. **境界実査（--allow-boundary-risk 使用時 必須）**: **まず実査、再設定は壊れていた場合のみ**。`npm run check-note-structure` は会社 PC では Node fetch がプロキシで遮断され全件 FETCH_ERR でも exit 0＝偽 PASS になるため、`curl --ssl-no-revoke` でライブ無料本文を取り **ソースの paidBoundary 直前の末尾と末尾一致**で突合する（手順 → note-api-verification.md）。壊れていた記事だけ `node scripts/note-update-body.mjs --list <対象> --commit` で再設定する（無事な記事への本文全文再送は別の事故要因になるので回さない）。
+     - 2026-07-28 実測: 完全攻略パック 18 本を `--allow-boundary-risk` で ¥500→¥1,980 に変更したが、境界破壊は **18/18 で再現せず**（無料プレビュー末尾が全件一致）。ただし 07-24 の実損 58 本は事実なので**ガードは維持**し、実査は毎回行う。
 7. **SoT 更新**: `note-magazines.ts` の price 表記を Edit で更新
 
 ### ケース2: マガジン新設
