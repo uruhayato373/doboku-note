@@ -29,10 +29,11 @@ export default function HubCtaBanner({ cta }: { cta: ResolvedHubCta }) {
             ＼ {cta.badge ?? 'note限定'} ／
           </span>
           <span className="text-[12px] font-extrabold text-[var(--on-image-ink-soft)]" style={HALO}>{cta.qual}</span>
-          {/* サイズは「もくじ・まとめ」(7字) が狭い面でも 1 行に収まる上限。21px だと必要幅 147px に対し
-              カード幅 320px 未満の面（サイドバー等）で列幅が足りず「もくじ・まと/め」と割れる。 */}
-          <span className="text-[17px] font-black leading-tight" style={HALO}>{cta.title1}</span>
-          {cta.title2 && <span className="text-[19px] font-black leading-tight" style={HALO}>{cta.title2}</span>}
+          {/* mokuji モードでは 2 行そろって「何が買えるか」の見出しなので同サイズにする
+              （旧: title1=ラベル / title2=主題 で 17/19px の差を付けていた）。
+              18px は最長「必須I・選択科目」がカード幅 300px の面でも 1 行に収まる上限。 */}
+          <span className="text-[18px] font-black leading-tight" style={HALO}>{cta.title1}</span>
+          {cta.title2 && <span className="text-[18px] font-black leading-tight" style={HALO}>{cta.title2}</span>}
           <span className="mt-0.5 text-[11px] font-bold text-[var(--on-image-ink-soft)]" style={HALO}>{cta.sub}</span>
           <span className="mt-2 inline-flex items-center gap-1 rounded-full bg-[var(--on-image-pill-bg)] px-3 py-1 text-[13px] font-black text-white shadow-card-content">
             {cta.price ?? cta.cta}

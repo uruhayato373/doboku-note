@@ -10,9 +10,15 @@ type HubCtaSpec = {
   bg: string;
   themeVar: string; // globals.css の --exam-* トークン名
   qual: string;
-  mokuji: { url: string; title1: string; title2: string; sub: string };
+  /** 見出し 2 行は「何が買えるか」を主役にする（旧「note教材 / もくじ・まとめ」は
+   *  タイル内の 3 箇所が同じ「一覧がある」を言い換えるだけでクリック動機が無かった）。
+   *  一覧であることは CTA ボタンの「教材一覧を見る」が担う。 */
+  mokuji: { url: string; title1: string; title2: string };
   seasonal?: { switchUtcMs: number; product: MagazineId; sub: string };
 };
+
+/** もくじタイルの補足行。資格によらず「この先が有料教材の一覧」であることだけを示す。 */
+const MOKUJI_SUB = '有料教材をまとめて確認';
 
 type CivilExamId = 'civil-construction-1' | 'civil-construction-2';
 
@@ -30,7 +36,7 @@ const HUB: Partial<Record<string, HubCtaSpec>> = {
     bg: '/images/cta-bg/civil-1.webp',
     themeVar: '--exam-civil-1',
     qual: '1級土木',
-    mokuji: { url: 'https://note.com/dobokunote/n/n4fde0f62dc20', title1: 'note教材', title2: 'もくじ・まとめ', sub: '経験記述・学科記述・暗記' },
+    mokuji: { url: 'https://note.com/dobokunote/n/n4fde0f62dc20', title1: '施工経験記述', title2: '学科記述・暗記' },
     seasonal: {
       switchUtcMs: examDayEndUtcMs('civil-construction-1', 'second'),
       product: 'civil-1-anki-note',
@@ -41,7 +47,7 @@ const HUB: Partial<Record<string, HubCtaSpec>> = {
     bg: '/images/cta-bg/civil-2.webp',
     themeVar: '--exam-civil-2',
     qual: '2級土木',
-    mokuji: { url: 'https://note.com/dobokunote/n/n4fde0f62dc20', title1: 'note教材', title2: 'もくじ・まとめ', sub: '経験記述・学科記述・暗記' },
+    mokuji: { url: 'https://note.com/dobokunote/n/n4fde0f62dc20', title1: '施工経験記述', title2: '学科記述・暗記' },
     seasonal: {
       switchUtcMs: examDayEndUtcMs('civil-construction-2', 'second'),
       product: 'civil-2-anki-note',
@@ -52,14 +58,14 @@ const HUB: Partial<Record<string, HubCtaSpec>> = {
     bg: '/images/cta-bg/pe-comprehensive.webp',
     themeVar: '--exam-pe',
     qual: '技術士 総監',
-    mokuji: { url: 'https://note.com/dobokunote/n/n3ed4c77ceed6', title1: 'note教材', title2: 'もくじ・まとめ', sub: '記述式・R8予想・キーワード' },
+    mokuji: { url: 'https://note.com/dobokunote/n/n3ed4c77ceed6', title1: '記述式・R8予想', title2: 'キーワード対策' },
     seasonal: { switchUtcMs: Date.UTC(2026, 6, 19), product: 'r8-essay-forecast', sub: '出る6テーマ×専門' },
   },
   'pe-construction': {
     bg: '/images/cta-bg/pe-construction.webp',
     themeVar: '--exam-pe-construction',
     qual: '技術士 建設部門',
-    mokuji: { url: 'https://note.com/dobokunote/n/n7279ca0d926f', title1: 'note教材', title2: 'もくじ・まとめ', sub: '必須I・選択科目 模範解答' },
+    mokuji: { url: 'https://note.com/dobokunote/n/n7279ca0d926f', title1: '必須I・選択科目', title2: '模範解答集' },
     seasonal: { switchUtcMs: Date.UTC(2026, 6, 20), product: 'pe-construction-required-magazine', sub: 'R03-R07＋R8予想' },
   },
 };
@@ -142,7 +148,7 @@ export function resolveHubCta(
     qual: spec.qual,
     title1: spec.mokuji.title1,
     title2: spec.mokuji.title2,
-    sub: spec.mokuji.sub,
+    sub: MOKUJI_SUB,
     cta: '教材一覧を見る',
     url: appendUtm(spec.mokuji.url, utm),
     trackLabel: utm,
