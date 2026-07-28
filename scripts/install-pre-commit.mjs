@@ -202,6 +202,12 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# 有料 note 記事の無料プレビュー内に「この記事でわかること」があるか（購入判断材料の欠落防止）
+node scripts/check-note-intro-benefit.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
 # PDF 配布を約束している note 記事に、添付すべき PDF 実体があるか（購入者に届かない事故の source 側）
 node scripts/check-note-attachments.mjs --staged
 if [ $? -ne 0 ]; then

@@ -72,6 +72,13 @@ const GATES = [
     min: 400,
     note: '公開済み note 記事数。walk() や frontmatter 読取が壊れると急減する',
   },
+  {
+    name: 'check-note-intro-benefit',
+    cmd: ['node', 'scripts/check-note-intro-benefit.mjs'],
+    re: /実検査 有料\s*(\d+)\s*件/,
+    min: 400,
+    note: '有料 note 記事数。notePricing 判定や walk() が壊れると急減する',
+  },
 ];
 
 const results = [];

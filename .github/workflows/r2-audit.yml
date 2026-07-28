@@ -100,6 +100,12 @@ jobs:
       - name: Check note attachments (promised PDFs exist on disk)
         run: npm run check-note-attachments
 
+      # 有料記事の無料部分に「この記事でわかること」があるか。無料部分は購入判断のすべてで、
+      # 何が得られるかが無いと読者は代金に見合うか判断できない。実測で 580/580 が境界前に
+      # 置く例外のない慣行、欠落は最高価格帯の PDF 商品5本のみだった。2026-07-28 新設。
+      - name: Check note intro benefit (paid articles state what buyer gets, before paywall)
+        run: npm run check-note-intro-benefit
+
       # メタゲート: ゲート自身が壊れて「1件も検査せずに緑」を返していないかを検査する。
       # 2026-07-28 に4つのゲートが同時にこの状態だった（走査ロジック / 取得経路の故障）。
       - name: Check gate coverage (gates are actually inspecting)
