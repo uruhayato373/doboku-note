@@ -2,11 +2,9 @@ import PageShell from "@/components/layout/PageShell";
 import Link from "next/link";
 import Image from "next/image";
 import {
-  ExternalLink,
   Compass,
   FileText,
   Layers,
-  ArrowRight,
 } from "lucide-react";
 import type { Metadata } from "next";
 import { AUTHOR } from "@/config/author";
@@ -14,6 +12,7 @@ import { EXAM_BRAND, type ExamKey } from "@/lib/exam-brand";
 import { pickCoconalaFor, pickBrainFor } from "@/lib/exam-key-bridge";
 import { mokujiFor } from "@/lib/note-mokuji";
 import ServiceIcon, { type ServiceChannel } from "@/components/icons/ServiceIcon";
+import AuthorProfile from "@/components/ui/AuthorProfile/AuthorProfile";
 
 export const metadata: Metadata = {
   // title テンプレート "%s | doboku-note" がサイト名を付与するため、ここでは重ねない
@@ -346,7 +345,9 @@ export default function LinksPage() {
 
           {/* 価値提案 — なぜここで合格できるのか（中身） */}
           <section className="mb-12">
-            <div className="card-surface-section mx-auto mb-5 max-w-3xl p-5 shadow-none">
+            {/* 幅は他セクション（ヒーロー・資格カード・凡例）と揃える。
+                旧 max-w-3xl(768px) だとここだけ内側に寄って段が崩れていた（2026-07-28 是正）。 */}
+            <div className="card-surface-section mb-5 p-5 shadow-none">
               <p className="text-sm text-[var(--ink-body)] leading-relaxed mb-3">
                 市販のテキストや過去問演習だけでは、記述式・経験記述の
                 <strong className="text-[var(--ink)]">「合格答案の型」</strong>
@@ -420,61 +421,12 @@ export default function LinksPage() {
             <ChannelLegend />
           </section>
 
-          {/* 運営者 + SNS（PC では 2 カラム） */}
-          <section className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-            <div>
-              <h2 className="font-serif text-base font-bold text-[var(--ink)] mb-1">
-                運営者
-              </h2>
-              <p className="text-xs text-[var(--ink-muted)] mb-3">
-                どんな人が運営しているか知りたい方へ
-              </p>
-              <Link
-                href="/about"
-                className="focus-ring card-surface-content flex items-center justify-between px-4 py-3 shadow-none transition-[border-color,box-shadow] hover:border-[var(--accent)] hover:shadow-soft"
-              >
-                <div className="min-w-0 flex-1 pr-3">
-                  <div className="font-serif font-bold text-[var(--ink)] text-sm sm:text-base">
-                    運営者プロフィール
-                  </div>
-                  <div className="text-xs text-[var(--ink-muted)] mt-0.5 leading-snug">
-                    {AUTHOR.jobTitle}。編集方針・保有資格の詳細はこちら
-                  </div>
-                </div>
-                <ArrowRight
-                  className="w-4 h-4 text-[var(--ink-muted)] shrink-0"
-                  aria-hidden="true"
-                />
-              </Link>
-            </div>
-
-            <div>
-              <h2 className="font-serif text-base font-bold text-[var(--ink)] mb-1">
-                SNS
-              </h2>
-              <p className="text-xs text-[var(--ink-muted)] mb-3">
-                学習仲間との交流や最新情報・試験季節リマインダーが欲しい方へ
-              </p>
-              <a
-                href={AUTHOR.twitterUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="focus-ring card-surface-content flex items-center justify-between px-4 py-3 shadow-none transition-[border-color,box-shadow] hover:border-[var(--accent)] hover:shadow-soft"
-              >
-                <div>
-                  <div className="font-serif font-bold text-[var(--ink)] text-sm sm:text-base">
-                    X (旧 Twitter)
-                  </div>
-                  <div className="text-xs text-[var(--ink-muted)] mt-0.5 leading-snug">
-                    @dobokunotecom｜試験対策・受験生コミュニティ
-                  </div>
-                </div>
-                <ExternalLink
-                  className="w-4 h-4 text-[var(--ink-muted)] shrink-0"
-                  aria-hidden="true"
-                />
-              </a>
-            </div>
+          {/* 運営者: トップ（AboutSection）と同じ AuthorProfile variant="wide" を再利用する。
+              旧実装は「運営者カード + X カード」を独自マークアップで 2 カラムに置いていたが、
+              経歴・保有資格・X リンクはすべて AuthorProfile が SSOT として持っており重複していた
+              （2026-07-28 に統合）。note CTA は上の資格カードと重複するため出さない。 */}
+          <section>
+            <AuthorProfile variant="wide" showNoteCta={false} />
           </section>
         </div>
     </PageShell>
