@@ -14,6 +14,7 @@
 // 安全弁: account=dobokunote assert・不足0なら冪等skip・更新後にAPIで全タグ実在を検証してから記録。
 
 import { readFileSync, existsSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
 import { join, dirname, relative } from 'node:path';
 import { chromium } from 'playwright';
 import { recordPublishedTagHash } from './lib/note-republish-hash.mjs';
@@ -64,22 +65,39 @@ function resolve(inputPath) {
   return { noteId, tagsFile, desired: dtags };
 }
 
-async function liveTags(noteId) {
-  try {
-    const res = await fetch(`https://note.com/api/v3/notes/${noteId}`, { signal: AbortSignal.timeout(20000) });
-    const j = await res.json();
-    return (j?.data?.hashtag_notes || []).map((h) => (h?.hashtag?.name || '').replace(/^#/, '')).filter(Boolean);
-  } catch { return null; }
+// 取得は curl 経路（2026-07-28 修正）: Node の fetch はプロキシ env を見ないため会社 PC では
+//   全件失敗し、全記事が [skip] API 取得失敗 → 「追加すべきタグなし（全て in-sync）」と表示して
+//   **exit 0＝同期したつもりで1件も同期していない偽 PASS** になっていた。
+async function liveTags(noteId, retries = 3) {
+  for (let a = 0; a <= retries; a++) {
+    const r = spawnSync('curl', [
+      '-sS', '-m', '30', '--ssl-no-revoke',
+      '-H', 'User-Agent: Mozilla/5.0', '-H', 'Accept: application/json',
+      `https://note.com/api/v3/notes/${noteId}`,
+    ], { encoding: 'utf-8', maxBuffer: 32 * 1024 * 1024 });
+    const out = (r.stdout || '').trim();
+    if (out.startsWith('{')) {
+      try {
+        const j = JSON.parse(out);
+        return (j?.data?.hashtag_notes || []).map((h) => (h?.hashtag?.name || '').replace(/^#/, '')).filter(Boolean);
+      } catch { /* retry */ }
+    }
+    if (a < retries) spawnSync(process.execPath, ['-e', `setTimeout(()=>{},${1200 * (a + 1)})`]);
+  }
+  return null;
 }
 
 // ---- dry-run: 差分だけ表示 ----
 const plans = [];
+let fetchFail = 0;
+let considered = 0;
 for (const a of articles) {
   const { noteId, tagsFile, desired, err } = resolve(a);
   if (err) { console.log(`[skip] ${err}: ${a}`); continue; }
   if (!noteId) { console.log(`[skip] noteId なし（未公開?）: ${a}`); continue; }
+  considered++;
   const live = await liveTags(noteId);
-  if (live == null) { console.log(`[skip] API 取得失敗: ${noteId}`); continue; }
+  if (live == null) { console.log(`[skip] API 取得失敗: ${noteId}`); fetchFail++; continue; }
   const liveSet = new Set(live);
   const missing = desired.filter((t) => !liveSet.has(t));
   // note 上限を超えると更新が全体拒否されるため、追加は (99 - live) までにキャップ。
@@ -89,6 +107,13 @@ for (const a of articles) {
   const note = missing.length > addable.length ? ` (上限99で${missing.length - addable.length}件は追加不可)` : '';
   console.log(`[plan] ${noteId} live=${live.length} desired=${desired.length} 不足=${missing.length} → 追加${addable.length}で live=${willBe}${willBe < GOAL ? ' ⚠<90' : ''}${note}  ${a.replace(/^docs\/note\//, '')}`);
   if (addable.length) plans.push({ a, noteId, tagsFile, desired, missing: addable, liveCount: live.length });
+}
+
+// 取得できていないなら「in-sync」ではなく「判定できていない」。緑を返さない（偽 PASS の封じ）。
+if (considered > 0 && fetchFail / considered > 0.2) {
+  console.error(`\n[note-sync-tags] ✗ 判定不成立: ${considered}本中${fetchFail}本が live タグを取得できず（${Math.round((fetchFail / considered) * 100)}%）。`);
+  console.error('  live を読めないと「不足なし」は成立しない。curl が使えるか／プロキシ env／レート制限を確認する。');
+  process.exit(1);
 }
 
 if (!COMMIT) { console.log(`\n[dry-run] 追加対象 ${plans.length} 記事（--commit で実適用）。`); process.exit(0); }
