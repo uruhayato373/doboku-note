@@ -40,32 +40,36 @@
 
 ## 3. セクション構成（上から下）
 
-**レスポンシブ方針（PC ランディング化、2026-06-14）**: モバイルは 1 カラム（Linktree 風）を維持しつつ、PC（`max-w-5xl`）では横幅を活かす。①ヒーローを**バンド化**（アバター横並び + 試験チップ＝該当セクションへジャンプ。`sectionHasContent()` で実コンテンツのある試験のみ描画）、②差別化3本柱を **3 カラムグリッド**（`sm:grid-cols-3`）、③試験別は総監を**主力パネル**（フル幅・内部 `sm:grid-cols-2`）+ 建設/1級/2級を**均等グリッド**（描画は `ExamPanel` に共通化、各 `id="exam-{key}"` + `scroll-mt-24`）、④運営者 + SNS を **2 カラム**並置。中身（データ駆動描画・UTM・funnel・価格チップ・3本柱コピー）は不変で、変えたのはレイアウトのみ。
+**資格カード化（2026-07-28 再設計）**: 旧構成は「試験別にマガジンを全件列挙 → ページ末尾にココナラ14件・Brain2件を独立セクション」で、チャネルが資格から切り離されて並び、SNS bio から来た人が自分に関係する導線を選べなかった。**資格でカードを立て、その中に役割固定の3行を置く**形に畳んだ。
 
-1. **ヒーローバンド**: アバター + アカウント名 + **キャッチコピー1行**（「発注者の視点で、土木・建設系資格の『合格』へ最短ルートを。」）+ 名乗り + **試験チップ**（ジャンプ動線）
-2. **価値提案（中身）**（2026-06-12 新設）: 「市販テキスト/過去問だけでは埋まらない合格答案の型を、発注者×有資格者が逆算して教材化」+「無料サイトで土台→note フル教材で得点」の2段構え導入文。続けて**差別化3本柱**（`VALUE_PILLARS`: ①発注者・採点者の目線 ②骨子でなくフル答案 ③過去問を全網羅）をアイコン付きカードで提示。各柱は既存有料商品の共通価値（発注者視点・置換ガイド・A案/B案・印刷用PDF）を言語化したもので、個々のカードに繰り返さず済ませる役割。
-3. **試験別コンテンツ**（試験ファースト・データ駆動、2026-06-11 funnel 化 / 2026-06-12 視認性・価格強化）: 各試験を〈**無料入口 → 有料マガジン**〉の funnel で構成。**旧グローバル Featured 白書を廃止**し、白書は総監の無料リードへ格下げ（多試験ハブで総監バイアスを排除）。
-   - **無料入口** (`freeLinks`): 各試験のサイト試験ガイド（`/category/*`）。総監はさらに白書R7完全対応集（無料 note）を併置。**accent ボーダー + accent-fill 背景**で「無料」を強く識別。
-   - **有料マガジン**: `note-magazines.ts` の `published` を `examKeyOf()`（`src/lib/exam-brand.ts`・id prefix・導線タイルと共有 SSOT）で試験別に自動描画（**ハードコード配列を廃止＝公開すれば自動掲載**）。総監はコア商品個別（**完全パックを accent 先頭＋「いちばん人気・全部入り」pill**）＋職種別**模範論文ペルソナを「全N本」1エントリに集約**（`isPersonaEssay()`、14職種をボタン化すると長くなるため）。建設部門/1級/2級は個別表示。
-   - **価格チップ**（2026-06-12 追加）: 各マガジンカードに `mag.price`（note-magazines.ts が SSoT＝自動追従でドリフトなし）を accent 色チップで表示。クリック前に価格・割引率が分かり CVR を高める。
-   - 各試験見出しは accent バー + 体言ヒントの sub を添え、訪問者が自分の試験を素早く判断できるようにしている。
-   - 建設部門の無料サイト導線は category `visible:false` のため未掲載（公開化時に `freeLinks` へ追加）。
-4. **単発の個別サービス（ココナラ）**: `listedCoconalaServices()` を 2 カラムグリッドで自動描画（`CoconalaSection`）。listed が 0 件ならセクションごと非表示（出品前の wire-ahead）。ココナラ URL に UTM は付けない（計測が外部で完結しパラメータが無駄に露出するため）
-5. **Claude Code 学習キット（Brain・DL商品）**: `listedBrainProducts()` を 2 カラムグリッドで自動描画（`BrainSection`）。ココナラ節と同じデータ駆動・0件非表示・UTM 非付与。note教材（フル答案）・ココナラ（個別添削）とは別種の「Claude Code で自作するダウンロードキット」として独立表示
-6. **運営者**: About カードへ（jobTitle を sub に表示、深掘りは /about。PC では SNS と 2 カラム並置）
-7. **SNS**: X（PC では運営者と 2 カラム並置）
+1. **ヒーローバンド**: アバター + アカウント名 + キャッチコピー1行 + 名乗り + **試験チップ**（`#exam-{key}` へジャンプ。チップは `EXAM_CARDS` から導出）
+2. **価値提案（中身）**: 導入2段落 + **差別化3本柱**（`VALUE_PILLARS`）
+3. **資格カード**（`ExamCardView`・`sm:grid-cols-2`）: 1 枚 = 資格ブランド帯（`EXAM_BRAND.ctaBg` の cta-bg イラスト、無ければ `themeVar` のベタ塗り）+ 見出し + tagline + **役割固定の3行**。
+   - ①**サイトで無料学習** → `/category/{...}`（内部リンク）
+   - ②**note もくじ（L2）** → `.claude/config/note-funnel.json` の `exams.{key}.L2` を参照（**URL をページに直書きしない**）。1級・2級は L2 が 1 本（土木もくじ）のため同一 URL を指し、`utm_content` で流入元を分ける
+   - ③**個別サービス** → 資格に紐づく listed のココナラ（無ければ Brain）から**代表 1 件**。`pickCoconalaFor` / `pickBrainFor`（`src/lib/exam-key-bridge.ts`）が選ぶ。**0 件なら行ごと省略**（建設部門はココナラ・Brain とも 0 件なので 2 行になる）
+   - 各行はアイコン（`ServiceIcon`）+ リンク名 + チャネル小ラベル + 特徴 1 行。特徴は `line-clamp: 2`（商品 `description` は 170〜210 字あり、素で出すと 1 行だけ 220px になる）
+   - **マガジンの個別列挙は廃止**し L2 もくじへ集約した。商品を追加しても /links の改修は不要
+4. **チャネル凡例**（`ChannelLegend`）: サイト／note／ココナラ／Brain が「何をくれるか」をページ内で 1 度だけ示す。カード内はアイコンと小ラベルだけなので、意味づけはここで担保する
+5. **運営者**: About カードへ（PC では SNS と 2 カラム並置）
+6. **SNS**: X（PC では運営者と 2 カラム並置）
+
+> **ロゴの扱い**: チャネル識別は `src/components/icons/ServiceIcon.tsx` が担う。公式ロゴを `public/images/brand/{note,coconala,brain}.svg` に置けば自動でロゴ表示へ切り替わり、未配置の間は lucide の汎用アイコンにフォールバックする（素材待ちで表示が壊れない）。ロゴは商標なので**改変・着色をせず原寸比で出す**。
+> なお handoff 2026-07-25 の「note ロゴを使わない」は **note リンクカードのサムネ画像に焼き込まない**という文脈の方針で、`check-note-link-cards` も `/images/note-links/*.webp` だけを検査する。ここで扱うサービス識別バッジは対象外（2026-07-28 にユーザー判断で方針確認済み）。
 
 ## 4. データソース（SSoT）
 
 | データ | 真実源 | 用途 |
 |---|---|---|
 | 運営者情報（名前・アバター・職歴・X URL） | `src/config/author.ts` | プロフィールヒーロー + SNS セクション |
-| 有料マガジン情報（タイトル・description・URL） | `src/lib/note-magazines.ts` | note 有料マガジンセクション |
-| ココナラ単発サービス（状態・価格・URL） | `src/lib/coconala-services.ts`（`listedCoconalaServices()`） | 単発の個別サービスセクション（listed のみ自動掲載） |
-| Brain キット商品（状態・価格・URL） | `src/lib/brain-products.ts`（`listedBrainProducts()`） | Claude Code 学習キットセクション（listed のみ自動掲載） |
-| M2 完全無料記事 URL | このページ内に直書き（`EXAM_SECTIONS[tankan].freeLinks`、M2 は note-magazines.ts に含めない仕様） | 総監の無料入口 |
+| **note もくじ（L2）の URL** | `.claude/config/note-funnel.json` の `exams.{key}.L2`（読み出しは `src/lib/note-mokuji.ts`） | 各資格カードの② note 行 |
+| **資格ブランド（ラベル・テーマ色・背景イラスト）** | `src/lib/exam-brand.ts`（`EXAM_BRAND` / `examKeyOf`） | カード頭の帯 |
+| ココナラ単発サービス（状態・価格・URL） | `src/lib/coconala-services.ts`（`listedCoconalaServices()`） | 各資格カードの③ 行（`pickCoconalaFor` が代表 1 件を選ぶ） |
+| Brain キット商品（状態・価格・URL） | `src/lib/brain-products.ts`（`listedBrainProducts()`） | 同上（ココナラが 0 件の資格でのみ `pickBrainFor`） |
+| 資格キーの対応（`ExamKey` ⇄ 商品カタログの `examScope`） | `src/lib/exam-key-bridge.ts` | ③ 行の突合（`tankan` ⇄ `pe-comprehensive-management` 等） |
+| 有料マガジン情報（タイトル・description・URL） | `src/lib/note-magazines.ts` | **/links からは直接参照しない**（もくじへ集約したため）。記事内 CTA・サイドバーでは引き続き使用 |
 
-**M2 を note-magazines.ts に含めない理由**: M2 は 2026-05-25 に「¥2,480 magazine → 完全無料リード磁石」へ戦略転換され、note 上で単独無料記事として運用されているため、`NoteMagazine` 型（badge / price フィールド前提）に乗せていない。詳細は `docs/handoffs/2026-05-25-whitepaper-r7-free-lead-magnet.md` を参照。
+**M2（白書R7 完全対応集）の現在地**: 2026-05-25 に「¥2,480 magazine → 完全無料リード磁石」へ転換され、`NoteMagazine` 型（badge / price 前提）に乗せていない単独無料記事。**資格カード化（2026-07-28）で /links からの直リンクは外し、総監もくじ（L2）経由の導線に一本化した**（カードを 3 行に保つため）。M2 自体は note 上で稼働中。経緯は `docs/handoffs/2026-05-25-whitepaper-r7-free-lead-magnet.md`。
 
 ## 5. UTM 設計
 
@@ -73,8 +77,13 @@ GA4 で SNS bio → /links → 各送客先の流入経路を区別するため�
 
 | 区分 | utm_source | utm_medium | utm_campaign | utm_content |
 |---|---|---|---|---|
+| **note もくじ（L2）**（2026-07-28〜） | `links` | `referral` | `link-hub` | `mokuji-{examKey}` |
 | M2 完全無料 | `links` | `referral` | `link-hub` | `m2-free-whitepaper` |
-| M9/M5/M6/M8/M3 有料マガジン | `doboku-note` | `referral` | `note-magazine` | `link-hub-{magazine-id}` |
+| 有料マガジン（現在 /links からは直リンクしない） | `doboku-note` | `referral` | `note-magazine` | `link-hub-{magazine-id}` |
+
+**`utm_content` に `link-hub-` 接頭辞を使わない理由**: 下の「有料マガジン全体」クエリが `utm_content LIKE 'link-hub-%'` で集計しているため、もくじを `link-hub-mokuji-*` にすると既存 KPI に混ざる。もくじは別系統として `mokuji-{examKey}` にした。1級・2級は同じ L2 記事を指すので、この `utm_content` だけが流入元を区別する手段になる。
+
+**有料マガジン行の現状**: 資格カード化（2026-07-28）でマガジンの個別列挙を廃止したため、/links からマガジンへの直リンクは無くなった。`buildMagazineUrl` の規約自体はサイト内の他面（記事内 CTA・サイドバー）で生きているので表は残す。
 
 **utm_source が異なる理由**: 有料マガジンは `note-magazines.ts` の `buildMagazineUrl()` を共通利用しており、サイト内の他箇所（記事内 CTA・サイドバー）からの送客と統一規約で扱う方が分析しやすい。M2 だけが /links 独自の UTM になっている。
 

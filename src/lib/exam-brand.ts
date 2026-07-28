@@ -13,6 +13,7 @@
 export type ExamKey =
   | 'tankan'
   | 'pe-construction'
+  | 'pe-first-stage'
   | 'civil-1'
   | 'civil-2'
   | 'concrete';
@@ -25,6 +26,10 @@ export type ExamKey =
  */
 export function examKeyOf(id: string): ExamKey {
   if (id.startsWith('pe-construction')) return 'pe-construction';
+  // 技術士「第一次」試験（pe1-*）。総監（tankan）へ落ちる fallback より先に判定する。
+  // これが無いと pe1-takuitsu-pdf が総監として扱われ、資格別に束ねる面（/links のカード等）で
+  // 一次の過去問 PDF が総監に混ざる（2026-07-28 に /links のカード化で顕在化）。
+  if (id.startsWith('pe1-')) return 'pe-first-stage';
   if (id.startsWith('civil-1') || id === 'civil-membership-lab') return 'civil-1';
   if (id.startsWith('civil-2')) return 'civil-2';
   if (id.startsWith('cd-') || id.startsWith('cce-')) return 'concrete';
@@ -53,6 +58,12 @@ export const EXAM_BRAND: Record<ExamKey, ExamBrand> = {
     label: '技術士 建設部門',
     themeVar: '--exam-pe-construction',
     ctaBg: '/images/cta-bg/pe-construction.webp',
+  },
+  // 第一次試験は総監と同じ濃紺（globals.css の --exam-pe が「総監・第一次」共用）。
+  // 専用の背景イラストは未整備のためベタ塗りにフォールバックする。
+  'pe-first-stage': {
+    label: '技術士 第一次',
+    themeVar: '--exam-pe',
   },
   'civil-1': {
     label: '1級土木',

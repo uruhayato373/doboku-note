@@ -1,24 +1,19 @@
 import PageShell from "@/components/layout/PageShell";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ExternalLink,
   Compass,
   FileText,
   Layers,
-  Sparkles,
   ArrowRight,
 } from "lucide-react";
 import type { Metadata } from "next";
 import { AUTHOR } from "@/config/author";
-import {
-  getMagazine,
-  buildMagazineUrl,
-  NOTE_MAGAZINES,
-  type MagazineId,
-} from "@/lib/note-magazines";
-import { listedCoconalaServices } from "@/lib/coconala-services";
-import { listedBrainProducts } from "@/lib/brain-products";
-import { examKeyOf } from "@/lib/exam-brand";
+import { EXAM_BRAND, type ExamKey } from "@/lib/exam-brand";
+import { pickCoconalaFor, pickBrainFor } from "@/lib/exam-key-bridge";
+import { mokujiFor } from "@/lib/note-mokuji";
+import ServiceIcon, { type ServiceChannel } from "@/components/icons/ServiceIcon";
 
 export const metadata: Metadata = {
   // title テンプレート "%s | doboku-note" がサイト名を付与するため、ここでは重ねない
@@ -53,100 +48,69 @@ function withUtm(url: string, content: string): string {
   return `${url}${sep}${UTM_BASE}&utm_content=${content}`;
 }
 
-const M2_FREE_NOTE_URL = withUtm(
-  "https://note.com/dobokunote/n/n60efbccd728b",
-  "m2-free-whitepaper",
-);
-
-const NOTE_MAGAZINE_LIST_URL = withUtm(
-  "https://note.com/dobokunote/magazines",
-  "all-magazines",
-);
-
-type FreeLink = {
-  label: string;
-  sub: string;
-  href: string;
-  external?: boolean;
+/**
+ * 資格カード（2026-07-28 再設計）。
+ *
+ * 旧構成は「試験別にマガジンを全件列挙 → ページ末尾にココナラ14件・Brain2件を独立セクション」で、
+ * チャネルが資格から切り離されて混在し、SNS bio から来た人が自分に関係する導線を選べなかった。
+ * カードは **役割を固定した 3 行**（①サイトで無料学習 ②note もくじ ③個別サービス）に畳む。
+ * 関与度の順に並ぶので、資格をまたいでも同じ位置に同じ性質のリンクが来る。
+ *
+ * マガジンの個別列挙は **note の L2 もくじへ集約して廃止**した（商品が増えても改修不要）。
+ */
+type ExamCard = {
+  /** exam-brand.ts の ExamKey（ラベル・テーマ色・背景イラストの解決に使う）。 */
+  key: ExamKey;
+  /** カード見出し（EXAM_BRAND.label より具体的な正式名）。 */
+  heading: string;
+  /** 見出し下の 1 行。誰向け・何が置いてあるか。 */
+  tagline: string;
+  /** ①「サイトで無料学習」の行。 */
+  site: { label: string; sub: string; href: string };
 };
 
-// 試験別グルーピング: note-magazines.ts の published を自動追従（ハードコード配列を廃し陳腐化を防止）。
-// 各試験は「無料入口(freeLinks) → 有料マガジン」の funnel で構成（試験ファースト）。
-const EXAM_SECTIONS: {
-  key: string;
-  heading: string;
-  sub: string;
-  freeLinks: FreeLink[];
-}[] = [
+const EXAM_CARDS: ExamCard[] = [
   {
     key: "tankan",
     heading: "技術士（総合技術監理部門）",
-    sub: "650+語の無料キーワード辞書で土台を固め、記述式は型・設問3・予想・模範論文で仕上げる",
-    freeLinks: [
-      {
-        label: "サイト試験ガイド（無料）",
-        sub: "5管理 × 650+ キーワード解説、過去問 H21-R7 全 680 問",
-        href: "/category/pe-comprehensive-management",
-      },
-      {
-        label: "白書R7完全対応集（無料・note）",
-        sub: "約34,000字、R08 総合復習の決定版",
-        href: M2_FREE_NOTE_URL,
-        external: true,
-      },
-    ],
+    tagline: "択一・記述・口頭の全体を、無料キーワード集から仕上げまで",
+    site: {
+      label: "キーワード集を読む",
+      sub: "650+ 語の解説と過去問 H21-R7 を全問公開",
+      href: "/category/pe-comprehensive-management",
+    },
   },
   {
     key: "pe-construction",
     heading: "技術士（建設部門）第二次試験",
-    sub: "必須科目I・選択科目を発注者視点で全選択肢フル解答（設問全文の再掲つき）",
-    freeLinks: [],
+    tagline: "必須科目I・選択科目を発注者視点でフル解答",
+    site: {
+      label: "サイトで無料学習",
+      sub: "出題テーマの整理と論述の型",
+      href: "/category/pe-construction",
+    },
   },
   {
     key: "civil-1",
     heading: "1級土木施工管理技士",
-    sub: "第1次・第2次の無料ガイドで全体像、施工経験記述はフル完成答案集で確実に",
-    freeLinks: [
-      {
-        label: "サイト試験ガイド（無料）",
-        sub: "第1次・第2次検定対策、過去問解説、教科書範囲の網羅",
-        href: "/category/civil-construction-1",
-      },
-    ],
+    tagline: "一次・二次の対策と、施工経験記述の完成答案",
+    site: {
+      label: "サイトで無料学習",
+      sub: "過去問・テキスト・要点を全公開",
+      href: "/category/civil-construction-1",
+    },
   },
   {
     key: "civil-2",
     heading: "2級土木施工管理技士",
-    sub: "受験資格緩和で増えた若手向け。無料ガイド＋経験記述の完成答案集で初挑戦を支える",
-    freeLinks: [
-      {
-        label: "サイト試験ガイド（無料）",
-        sub: "受験資格緩和後の若手向け、過去問解説、経験記述ガイド",
-        href: "/category/civil-construction-2",
-      },
-    ],
+    tagline: "受験資格の緩和で増えた若手の初挑戦を支える",
+    site: {
+      label: "サイトで無料学習",
+      sub: "過去問解説と経験記述の書き方",
+      href: "/category/civil-construction-2",
+    },
   },
 ];
-
-
-// 総監の模範論文（職種別ペルソナ）は1エントリに集約。コア商品は個別表示。
-function isPersonaEssay(id: string): boolean {
-  return (
-    /^essay-.+-(consultant|municipality)-magazine$/.test(id) ||
-    id === "essay-general-contractor-magazine"
-  );
-}
-
-// 総監コア商品の表示順（完全パックを先頭の強訴求に）。未定義は末尾。
-const TANKAN_CORE_ORDER: string[] = [
-  "essay-complete-pack",
-  "tankan-reading-guide",
-  "r8-essay-forecast",
-  "setsumon3-policy-bank",
-  "tradeoff-5kanri",
-];
-
-type PublishedMagazine = NonNullable<ReturnType<typeof getMagazine>>;
 
 // 教材の「中身」を語る3本柱（差別化軸）。既存有料商品の共通価値を言語化。
 const VALUE_PILLARS: {
@@ -171,329 +135,160 @@ const VALUE_PILLARS: {
   },
 ];
 
-function MagazineCard({
-  mag,
-  accent = false,
+/** カード内の 1 行（アイコン + リンク名 + チャネル小ラベル + 特徴 1 行）。 */
+function CardRow({
+  channel,
+  label,
+  sub,
+  href,
+  external,
+  channelLabel,
 }: {
-  mag: PublishedMagazine;
-  accent?: boolean;
+  channel: ServiceChannel;
+  label: string;
+  sub: string;
+  href: string;
+  external?: boolean;
+  channelLabel?: string;
 }) {
-  return (
-    <a
-      href={buildMagazineUrl(mag, `link-hub-${mag.id}`)}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={
-        accent
-          ? "focus-ring block rounded-card-content bg-[var(--accent)] px-4 py-3.5 text-white shadow-soft transition-opacity hover:opacity-95"
-          : "focus-ring card-surface-content block px-4 py-3 shadow-none transition-[border-color,box-shadow] hover:border-[var(--accent)] hover:shadow-soft"
-      }
-    >
-      <div className="flex items-start justify-between gap-3">
-        <div className="min-w-0 flex-1">
-          {accent && (
-            <div className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider bg-white/20 rounded-full px-2 py-0.5 mb-1.5">
-              <Sparkles className="w-3 h-3" aria-hidden="true" />
-              いちばん人気・全部入り
-            </div>
-          )}
-          <div
-            className={
-              accent
-                ? "font-serif font-bold text-sm sm:text-base"
-                : "font-serif font-bold text-[var(--ink)] text-sm sm:text-base"
-            }
-          >
-            {mag.shortTitle ?? mag.title}
-          </div>
-          <div
-            className={
-              accent
-                ? "text-xs opacity-95 mt-0.5 leading-snug"
-                : "text-xs text-[var(--ink-muted)] mt-0.5 leading-snug"
-            }
-          >
-            {mag.shortDescription ?? mag.description}
-          </div>
-        </div>
-        <ExternalLink
-          className={
-            accent
-              ? "w-4 h-4 shrink-0 mt-0.5"
-              : "w-4 h-4 text-[var(--ink-muted)] shrink-0 mt-0.5"
-          }
-          aria-hidden="true"
-        />
-      </div>
-      {mag.price && (
-        <div
-          className={
-            accent
-              ? "text-xs font-bold mt-2"
-              : "text-xs font-bold text-[var(--accent)] mt-2"
-          }
-        >
-          {mag.price}
-        </div>
-      )}
-    </a>
-  );
-}
-
-// ココナラ単発サービス（個別添削・診断）。coconala-services.ts の status を自動追従し、
-// listed が 0 件のあいだはセクションごと非表示（出品前の wire-ahead）。
-// ココナラ側 URL に UTM は付けない（計測がココナラ内で完結せず、パラメータが無駄に露出するため）。
-function CoconalaSection() {
-  const services = listedCoconalaServices();
-  if (services.length === 0) return null;
-
-  return (
-    <section className="mb-12">
-      <h2 className="font-serif text-base font-bold text-[var(--ink)] mb-1">
-        単発の個別サービス
-      </h2>
-      <p className="text-xs text-[var(--ink-muted)] mb-3">
-        自分の答案を1本だけプロに見てほしい方へ（ココナラ経由・受付枠あり）
-      </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        {services.map((s) => (
-          <a
-            key={s.id}
-            href={s.serviceUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="focus-ring card-surface-content block px-4 py-3 shadow-none transition-[border-color,box-shadow] hover:border-[var(--accent)] hover:shadow-soft"
-          >
-            <div className="flex items-start justify-between gap-3">
-              <div className="min-w-0 flex-1">
-                <div className="font-serif font-bold text-[var(--ink)] text-sm sm:text-base">
-                  {s.shortTitle}
-                </div>
-                <div className="text-xs text-[var(--ink-muted)] mt-0.5 leading-snug">
-                  {s.description}
-                </div>
-              </div>
-              <ExternalLink
-                className="w-4 h-4 text-[var(--ink-muted)] shrink-0 mt-0.5"
-                aria-hidden="true"
-              />
-            </div>
-            <div className="text-xs font-bold text-[var(--accent)] mt-2">
-              {s.price}
-            </div>
-          </a>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-// Brain の Claude Code キット（DL商品）。brain-products.ts の status を自動追従し、
-// listed が 0 件のあいだはセクションごと非表示（審査前の wire-ahead）。
-// Brain 側 URL に UTM は付けない（ココナラ同様、計測が Brain 内で完結せずパラメータが無駄に露出するため）。
-function BrainSection() {
-  const products = listedBrainProducts();
-  if (products.length === 0) return null;
-
-  return (
-    <section className="mb-12">
-      <h2 className="font-serif text-base font-bold text-[var(--ink)] mb-1">
-        Claude Code 学習キット（DL商品）
-      </h2>
-      <p className="text-xs text-[var(--ink-muted)] mb-3">
-        Claude Code で、自分の工事経験・一次資料から答案づくりを再現するダウンロードキット（Brain 経由）
-      </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        {products.map((p) => (
-          <a
-            key={p.id}
-            href={p.productUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="focus-ring card-surface-content block px-4 py-3 shadow-none transition-[border-color,box-shadow] hover:border-[var(--accent)] hover:shadow-soft"
-          >
-            <div className="flex items-start justify-between gap-3">
-              <div className="min-w-0 flex-1">
-                <div className="font-serif font-bold text-[var(--ink)] text-sm sm:text-base">
-                  {p.shortTitle}
-                </div>
-                <div className="text-xs text-[var(--ink-muted)] mt-0.5 leading-snug">
-                  {p.description}
-                </div>
-              </div>
-              <ExternalLink
-                className="w-4 h-4 text-[var(--ink-muted)] shrink-0 mt-0.5"
-                aria-hidden="true"
-              />
-            </div>
-            <div className="text-xs font-bold text-[var(--accent)] mt-2">
-              {p.price}
-            </div>
-          </a>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-// 模範論文ペルソナ（職種別 全N本）を1エントリに集約し note マガジン一覧へ送客
-function PersonaAggregateCard({ count }: { count: number }) {
-  return (
-    <a
-      href={NOTE_MAGAZINE_LIST_URL}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="focus-ring card-surface-content flex items-center justify-between border-dashed px-4 py-3 shadow-none transition-[border-color,box-shadow] hover:border-[var(--accent)] hover:shadow-soft"
-    >
-      <div className="min-w-0 flex-1 pr-3">
-        <div className="font-serif font-bold text-[var(--ink)] text-sm sm:text-base">
-          職種別 模範論文（全{count}本）
-        </div>
-        <div className="text-xs text-[var(--ink-muted)] mt-0.5 leading-snug">
-          ゼネコン・建設コンサル・自治体各課の発注者／受注者視点フル論文。自分の立場に最も近い1本を選べます
-        </div>
-      </div>
-      <ExternalLink
-        className="w-4 h-4 text-[var(--ink-muted)] shrink-0"
-        aria-hidden="true"
-      />
-    </a>
-  );
-}
-
-// 無料入口（サイトガイド・無料note）。accent ボーダーで「無料」を識別させる。
-function FreeLinkCard({ link }: { link: FreeLink }) {
-  const cls =
-    "focus-ring flex items-center justify-between rounded-card-content border border-[var(--accent)] bg-[var(--accent-fill)] px-4 py-3 transition-shadow hover:shadow-soft";
-  const body = (
+  const inner = (
     <>
-      <div className="min-w-0 flex-1 pr-3">
-        <div className="font-serif font-bold text-[var(--ink)] text-sm sm:text-base">
-          {link.label}
-        </div>
-        <div className="text-xs text-[var(--ink-muted)] mt-0.5 leading-snug">
-          {link.sub}
-        </div>
-      </div>
-      <ExternalLink
-        className="w-4 h-4 text-[var(--accent)] shrink-0"
-        aria-hidden="true"
-      />
+      <ServiceIcon channel={channel} />
+      <span className="min-w-0">
+        <span className="block text-sm text-brand group-hover:underline">
+          {label}
+          {channelLabel && (
+            <span className="ml-1.5 text-[10px] text-[var(--ink-muted)]">{channelLabel}</span>
+          )}
+        </span>
+        {/* 商品カタログの description は 170〜210 字あり、そのまま出すと 1 行だけ極端に高くなる
+            （実測 220px）。一覧は走査が目的なので 2 行で打ち切り、全カードの行高を揃える。 */}
+        <span
+          className="mt-0.5 block overflow-hidden text-xs leading-relaxed text-[var(--ink-muted)]"
+          style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}
+        >
+          {sub}
+        </span>
+      </span>
     </>
   );
-  return link.external ? (
-    <a href={link.href} target="_blank" rel="noopener noreferrer" className={cls}>
-      {body}
+  const cls =
+    'focus-ring group flex gap-2.5 border-b border-[var(--rule-soft)] py-2.5 last:border-b-0';
+  return external ? (
+    <a href={href} target="_blank" rel="noopener noreferrer" className={cls}>
+      {inner}
     </a>
   ) : (
-    <Link href={link.href} className={cls}>
-      {body}
+    <Link href={href} className={cls}>
+      {inner}
     </Link>
   );
 }
 
-// note-magazines.ts の published を試験別に自動グルーピング（ハードコード配列を廃し陳腐化を防止）。
-function buildByExam(): Record<string, PublishedMagazine[]> {
-  const byExam: Record<string, PublishedMagazine[]> = {};
-  (Object.keys(NOTE_MAGAZINES) as MagazineId[]).forEach((id) => {
-    const mag = getMagazine(id);
-    if (!mag) return;
-    (byExam[examKeyOf(id)] ??= []).push(mag);
-  });
-  return byExam;
-}
-
-function sectionHasContent(
-  byExam: Record<string, PublishedMagazine[]>,
-  key: string,
-): boolean {
-  const sec = EXAM_SECTIONS.find((s) => s.key === key);
-  return (byExam[key]?.length ?? 0) > 0 || (sec?.freeLinks.length ?? 0) > 0;
-}
-
-// 1 試験ぶんのパネル（見出し + サブ + 無料入口→有料カード）。featured で内部 2 カラム化（総監=主力）。
-function ExamPanel({
-  secKey,
-  byExam,
-  featured = false,
-}: {
-  secKey: string;
-  byExam: Record<string, PublishedMagazine[]>;
-  featured?: boolean;
-}) {
-  const sec = EXAM_SECTIONS.find((s) => s.key === secKey);
-  if (!sec) return null;
-  const mags = byExam[secKey] ?? [];
-  if (mags.length === 0 && sec.freeLinks.length === 0) return null;
-
-  const isTankan = secKey === "tankan";
-  const personas = isTankan ? mags.filter((m) => isPersonaEssay(m.id)) : [];
-  const core = isTankan ? mags.filter((m) => !isPersonaEssay(m.id)) : mags;
-  const ordered = isTankan
-    ? [...core].sort(
-        (a, b) =>
-          (TANKAN_CORE_ORDER.indexOf(a.id) + 1 || 99) -
-          (TANKAN_CORE_ORDER.indexOf(b.id) + 1 || 99),
-      )
-    : core;
+/**
+ * 資格カード 1 枚。頭に資格ブランドの帯（cta-bg イラスト or テーマ色）を敷き、
+ * 中身は役割固定の 3 行。③ 個別サービスは資格に紐づく listed が無ければ行ごと省略する
+ * （建設部門はココナラ・Brain とも 0 件）。
+ */
+function ExamCardView({ card }: { card: ExamCard }) {
+  const brand = EXAM_BRAND[card.key];
+  const mokuji = mokujiFor(card.key);
+  const coconala = pickCoconalaFor(card.key);
+  const brain = pickBrainFor(card.key);
 
   return (
-    <div id={`exam-${secKey}`} className="scroll-mt-24">
-      <div className="flex items-center gap-2 mb-1">
-        <span
-          className="w-1 h-4 bg-[var(--accent)] rounded-full shrink-0"
-          aria-hidden="true"
-        />
-        <h3 className="font-serif text-base font-bold text-[var(--ink)]">
-          {sec.heading}
-        </h3>
-      </div>
-      <p className="text-xs text-[var(--ink-body)] mb-3 pl-3 leading-relaxed">
-        {sec.sub}
-      </p>
-      <div className={featured ? "grid sm:grid-cols-2 gap-3" : "space-y-3"}>
-        {sec.freeLinks.map((link) => (
-          <FreeLinkCard key={link.href} link={link} />
-        ))}
-        {ordered.map((mag) => (
-          <MagazineCard
-            key={mag.id}
-            mag={mag}
-            accent={mag.id === "essay-complete-pack"}
+    <div className="card-surface-content overflow-hidden p-0">
+      <div
+        className="relative flex h-[84px] items-end p-3"
+        style={{ backgroundColor: `var(${brand.themeVar})` }}
+      >
+        {brand.ctaBg && (
+          <Image
+            src={brand.ctaBg}
+            alt=""
+            fill
+            sizes="(min-width: 640px) 360px, 100vw"
+            className="object-cover object-[center_35%] opacity-90"
           />
-        ))}
-        {personas.length > 0 && <PersonaAggregateCard count={personas.length} />}
+        )}
+        <div className="relative">
+          <div className="font-serif text-[15px] font-bold text-white drop-shadow-sm">{card.heading}</div>
+          <div className="mt-0.5 text-[11px] leading-snug text-white/90 drop-shadow-sm">{card.tagline}</div>
+        </div>
+      </div>
+      <div className="px-3 py-1">
+        <CardRow channel="site" label={card.site.label} sub={card.site.sub} href={card.site.href} />
+        {mokuji && (
+          <CardRow
+            channel="note"
+            channelLabel="note"
+            label={mokuji.title}
+            sub="有料教材の一覧。どれから読むかがわかる"
+            href={withUtm(mokuji.noteUrl, `mokuji-${card.key}`)}
+            external
+          />
+        )}
+        {coconala && (
+          <CardRow
+            channel="coconala"
+            channelLabel="ココナラ"
+            label={coconala.shortTitle ?? coconala.title}
+            sub={coconala.description}
+            href={coconala.serviceUrl}
+            external
+          />
+        )}
+        {!coconala && brain && (
+          <CardRow
+            channel="brain"
+            channelLabel="Brain"
+            label={brain.shortTitle ?? brain.title}
+            sub={brain.description}
+            href={brain.productUrl}
+            external
+          />
+        )}
       </div>
     </div>
   );
 }
 
-// 総監=主力パネル（フル幅・内部2カラム）、建設/1級/2級=均等グリッド。
-function ExamSections() {
-  const byExam = buildByExam();
-  const others = ["pe-construction", "civil-1", "civil-2"].filter((k) =>
-    sectionHasContent(byExam, k),
-  );
-  const otherCols =
-    others.length >= 3 ? "sm:grid-cols-2 lg:grid-cols-3" : "sm:grid-cols-2";
+/** チャネルが何をくれるかの凡例。ページ内に 1 度だけ置く。 */
+const CHANNEL_LEGEND: { channel: ServiceChannel; name: string; what: string }[] = [
+  { channel: 'site', name: 'サイト', what: '無料。まず読む' },
+  { channel: 'note', name: 'note', what: '答案・予想問題を読む' },
+  { channel: 'coconala', name: 'ココナラ', what: '自分の答案を見てもらう' },
+  { channel: 'brain', name: 'Brain', what: '作業キットを手に入れる' },
+];
 
+function ChannelLegend() {
   return (
-    <div className="space-y-10">
-      {sectionHasContent(byExam, "tankan") && (
-        <ExamPanel secKey="tankan" byExam={byExam} featured />
-      )}
-      {others.length > 0 && (
-        <div
-          className={`grid grid-cols-1 ${otherCols} gap-x-6 gap-y-8 items-start`}
-        >
-          {others.map((key) => (
-            <ExamPanel key={key} secKey={key} byExam={byExam} />
-          ))}
+    <div className="card-surface-content px-4 py-3">
+      {CHANNEL_LEGEND.map((c) => (
+        <div key={c.channel} className="flex items-center gap-2.5 py-1">
+          <ServiceIcon channel={c.channel} />
+          <span className="text-xs">
+            <span className="text-[var(--ink)]">{c.name}</span>
+            <span className="text-[var(--ink-muted)]"> — {c.what}</span>
+          </span>
         </div>
-      )}
+      ))}
     </div>
   );
 }
+
+function ExamSections() {
+  return (
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      {EXAM_CARDS.map((card) => (
+        <div key={card.key} id={`exam-${card.key}`} className="scroll-mt-24">
+          <ExamCardView card={card} />
+        </div>
+      ))}
+    </div>
+  );
+}
+
 
 // ヒーロー帯の試験チップ（該当セクションへジャンプ）。実コンテンツのある試験のみ描画。
 const HERO_CHIPS: { label: string; key: string }[] = [
@@ -504,8 +299,8 @@ const HERO_CHIPS: { label: string; key: string }[] = [
 ];
 
 export default function LinksPage() {
-  const byExam = buildByExam();
-  const chips = HERO_CHIPS.filter((c) => sectionHasContent(byExam, c.key));
+  // チップはカード定義から導出する（旧: マガジン件数で出し分け。カード化で常に中身があるため不要）。
+  const chips = HERO_CHIPS.filter((c) => EXAM_CARDS.some((card) => card.key === c.key));
 
   return (
     <PageShell variant="default" className="py-10 sm:py-14">
@@ -613,11 +408,17 @@ export default function LinksPage() {
             <ExamSections />
           </section>
 
-          {/* 単発サービス（ココナラ）: listed が 0 件なら描画されない */}
-          <CoconalaSection />
-
-          {/* Claude Code キット（Brain）: listed が 0 件なら描画されない */}
-          <BrainSection />
+          {/* チャネル凡例: 各サービスが何をくれるかを 1 度だけ示す。
+              カード内はアイコン＋小ラベルだけなので、意味づけはここで担保する。 */}
+          <section className="mb-12">
+            <h2 className="font-serif text-base font-bold text-[var(--ink)] mb-1">
+              それぞれで得られるもの
+            </h2>
+            <p className="text-xs text-[var(--ink-muted)] mb-3">
+              カード内のリンクは、上から「読む → 揃える → 見てもらう」の順に並んでいます
+            </p>
+            <ChannelLegend />
+          </section>
 
           {/* 運営者 + SNS（PC では 2 カラム） */}
           <section className="grid grid-cols-1 sm:grid-cols-2 gap-8">
