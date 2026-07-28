@@ -68,6 +68,12 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# note 単品価格がマガジン内・宣言済みシリーズ内で一貫しているか（値上げの当て漏れ・値崩れの再発防止・2026-07-28）
+node scripts/check-note-price-consistency.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
 # SNS 投稿（docs/sns/**）の /docs/ リンクが本番に実在するか検証（404 投稿の再発防止）
 node scripts/check-sns-urls.mjs --staged
 if [ $? -ne 0 ]; then

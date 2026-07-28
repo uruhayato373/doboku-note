@@ -171,7 +171,32 @@ npm run note-convert-to-paid -- --article <path> --commit
 - **同一画像の2枚目アップロード失敗**: 本文に同じ画像を2回貼ると note が2枚目のアップロードに失敗し `[12] 本文画像が未完(failed=1)` で公開拒否→**重複画像は1枚に削除**（別ファイル名コピーでも失敗する場合あり）。
 
 > [!warning]
-> **`note-article-price-sweep.mjs` は有料境界を破壊する**（2026-07-24 実証）: 価格変更時に「有料エリア設定」を開き**ライン位置を再設定せず**「更新する」するため、note が境界を先頭リセット→全ロック（FULL_LOCK）化する（civil 経験記述 58 本で発生）。**カスタム境界を持つ有料記事にこのスクリプトを使わない**。価格変更後は必ず `check-note-structure` で境界を実査し、崩れていれば `note-update-body --commit`（paidBoundary で境界再設定）で復旧する。
+> **`note-article-price-sweep.mjs` は有料境界を破壊しうる**（2026-07-24 実証）: 価格変更時に「有料エリア設定」を開き**ライン位置を再設定せず**「更新する」するため、note が境界を先頭リセット→全ロック（FULL_LOCK）化する（civil 経験記述 58 本で発生）。カスタム境界を持つ有料記事へ使うときは `--allow-boundary-risk` が要る（既定 ABORT）。
+> **価格変更後は必ず境界を実査する。ただし `check-note-structure` は会社 PC では偽 PASS を返す**（上記 §151）ため、`curl --ssl-no-revoke` でライブ無料本文を取り **ソースの `paidBoundary` 直前の末尾と末尾一致**で突合する。崩れていた記事だけ `note-update-body --commit` で再設定する（無事な記事への本文全文再送は別の事故要因になるので回さない）。
+> **2026-07-28 実測**: 完全攻略パック 18 本＋BK 系 7 本を価格変更したが、境界破壊は **25/25 で再現しなかった**（無料プレビュー末尾が全件一致）。07-24 の実損 58 本は事実なのでガードと実査は維持するが、「必ず壊れる」前提で全文再送するのは過剰。
+
+### 単品価格の3層と一貫性ゲート: `check-note-price-consistency`（2026-07-28 新設）
+
+単品価格は **①設計 doc の散文 / ②記事 frontmatter / ③note ライブ** の3層に分散しており、一括の値上げが一部の層・一部のマガジンにしか当たらない事故が繰り返し起きた。
+
+| 事故 | 実態 | 既存ゲートで捕まらなかった理由 |
+|---|---|---|
+| 2026-07-24 完全攻略パック | 104本中18本だけ ¥500（前日 ¥1,980 へ改定済み） | `check-note-structure` は frontmatter↔live を突合するが、**両方とも ¥500 で一致**していた |
+| 2026-07-28 建設部門 BK | frontmatter 116本が live と不一致（¥500/¥1,980 のまま） | 各マガジン**内**では価格が揃っており、マガジン単位の検査では異常に見えない |
+
+`check-note-price-consistency.mjs` は live を見ず、ソース内部の「揃っているべきものが揃っているか」だけを決定的に検査する（network 不要 → pre-commit で回る）。
+
+- **L1 マガジン内一貫性**（既定で全マガジン）: 同一 `noteMagazine` の単品価格が複数種類に割れていないか。→ 07-24 の事故を1本の値崩れでも検出。
+- **L2 シリーズ内一貫性**（opt-in）: `uniformSeries` に「全マガジン同一単品価格」と宣言したシリーズだけ、期待価格との一致を検査。→ 07-28 の事故（マガジン単位で丸ごとずれる型）を検出。シリーズ内で価格が揃うべきかは商品設計次第（1級土木は学科 ¥580／経験記述 ¥1,980／暗記 ¥980 とライン別が正）なので既定では検査しない。
+- 意図的な価格差は `.claude/config/note-price-consistency.json` の `allowMagazines` に**理由つきで**免除を書く（なぜその差があるかが記録として残る）。
+
+```bash
+npm run check-note-price-consistency            # 全 note 記事
+node scripts/check-note-price-consistency.mjs --staged   # pre-commit（関連 staged がある時だけ）
+node scripts/check-note-price-consistency.mjs --json      # 機械可読
+```
+
+**このゲートは live を検査しない。** frontmatter↔live のドリフト（07-28 の BK がまさにそれ）は curl 経路の実測でしか捕まらない → 恒久化は `docs/todo/backlog.md`「note ライブ有料境界の検査を curl 経路で恒久化」に集約。
 
 ### 記事の削除: note-delete-note（2026-07-04 実機確定）
 - **公開済み記事はエディタからは削除できない**。`editor.note.com/notes/{key}/edit` の右上「・・・」メニューは**「変更履歴」のみ**で削除項目がない（下書きでも編集画面のブロック用「削除」ボタンが紛れて誤操作しやすい）。
