@@ -455,6 +455,12 @@ export type CareerTextLink = {
 
 /**
  * career 記事の本文中間テキスト CTA を解決する（2026-07・ビルドジョブ増額キャンペーン限定）。
+ *
+ * **2026-07-28 以降、描画側からは未使用**。本文中間は 1 行テキストリンクではなく
+ * ネイティブカード（`resolveCareerArticleEndCard` → `MidArticleCta mode="career"`）に格上げした。
+ * mat NTRMQ 自体は A8 で発行済みの実体で `affiliate-mats.json` が `definedIn` で参照するため
+ * 関数ごと残す（テキストリンク面を再開するときの入口）。
+ *
  * 300×250 バナーが置けない本文フローに、テキストリンクで露出する（テキストは一般にバナーより CTR 高）。
  * - arm B（建設JOBs slug ハッシュ・高意図 slug の campaign 中固定を除く）: **null**。建設JOBs の
  *   テキスト mat が無く、arm B に別ブランドのテキストを混ぜると恒久 A/B の EPC 比較が汚れるため、

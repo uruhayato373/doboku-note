@@ -1,10 +1,7 @@
 import { type DocMeta } from '@/lib/docs';
 import { type DocGroupKey } from '@/lib/doc-classifier';
 import { type ReferenceItem } from '@/lib/extract-references';
-import {
-  resolveCareerArticleEndCard,
-  resolvePeConsultingArticleEndCard,
-} from '@/config/affiliate-creatives';
+import { resolveDocsCareerSidebarAd } from '@/config/affiliate-creatives';
 import ExternalReferences from '@/components/ui/ExternalReferences/ExternalReferences';
 import PastExamBacklinks from '@/components/ui/PastExamBacklinks/PastExamBacklinks';
 import SectionKeywords from '@/components/ui/SectionKeywords';
@@ -17,7 +14,7 @@ import { type OffsiteCtaItem } from '@/lib/offsite-cta';
 import TextbookNav from '@/components/ui/TextbookNav/TextbookNav';
 import CategoryNavCard from '@/components/ui/CategoryNavCard/CategoryNavCard';
 import FAQCard from '@/components/ui/FAQCard/FAQCard';
-import CareerAffiliate from '@/components/ui/CareerAffiliate/CareerAffiliate';
+import SidebarAdBanner from '@/components/ui/SidebarAdBanner/SidebarAdBanner';
 import RelatedArticles from '@/components/ui/RelatedArticles';
 import NextStepNav from '@/components/ui/NextStepNav/NextStepNav';
 import AuthorCard from '@/components/ui/AuthorCard/AuthorCard';
@@ -62,24 +59,36 @@ export default function ArticleFooter({
   hasCategoryNavCard,
   authorDates,
 }: ArticleFooterProps) {
-  // 記事末の転職カード。従来はモバイル限定（zenn-desktop:hidden）だったが、GA4 実測で
-  // **デスクトップが流入の 82%（8,557 sessions）を占めるのに記事末に導線が無く**、
-  // PC の唯一の枠だったサイドバーは 1 クリック（0.01%）しか取れていなかった。
-  // 同じ位置の note CTA は 393 クリック（4.6%）＝場所は効くのに広告だけ不在だったため、
-  // 全ビューポートで表示し、もくじタイルと横に並べる（2026-07-28）。
-  // ピクセルはサイドバー側のみが持ち、このカードは href のみ＝「1 ページ 1 ピクセル」は不変。
-  const careerEndCard =
+  // 記事末は **300×250 のディスプレイバナー**。訴求文言主体のテキストカード（CareerAffiliate）は
+  // 本文中間（MidArticleCta）の役割で、記事末には置かない（2026-07-28 に整理）。
+  // 隣に並ぶ note もくじタイルが 300px 幅 × aspect-[6/5]＝300×250 なので、同じ寸法の
+  // ディスプレイ枠を並べると 2 タイルが揃う。
+  //
+  // creative は resolveDocsCareerSidebarAd がサイドバーと同じ解決（キャンペーン/総監の
+  // 出し分け込み）を返す。**pixelSrc は渡さない**＝発火源はサイドバー 1 箇所のままで
+  // 「1 ページ 1 ピクセル」を維持する（同一 mat の二重発火を避ける）。
+  // trackLabel はサイドバーと分離して面別に集計できるようにする（*-sidebar → *-endbanner）。
+  const endBannerAd =
     category === 'civil-construction-1' ||
     category === 'civil-construction-2' ||
     category === 'pe-construction' ||
     category === 'concrete-chief-engineer' ||
     category === 'concrete-diagnostician' ||
-    category === 'pe-first-stage' ? (
-      <CareerAffiliate {...resolveCareerArticleEndCard(slugStr)} placement="article-end" />
-    ) : category === 'pe-comprehensive-management' ? (
-      // 総監はシニア技術者・管理職層＝施工管理系がミスマッチのため PE_CONSULTING で出す。
-      <CareerAffiliate {...resolvePeConsultingArticleEndCard()} placement="article-end" />
-    ) : null;
+    category === 'pe-first-stage' ||
+    category === 'pe-comprehensive-management'
+      ? resolveDocsCareerSidebarAd(category, slugStr)
+      : null;
+  const endBanner = endBannerAd ? (
+    <SidebarAdBanner
+      href={endBannerAd.creative.href}
+      imageSrc={endBannerAd.creative.imageSrc}
+      alt={endBannerAd.creative.alt}
+      width={endBannerAd.creative.width}
+      height={endBannerAd.creative.height}
+      trackLabel={endBannerAd.trackLabel.replace(/-sidebar$/, '-endbanner')}
+      placement="article-end"
+    />
+  ) : null;
 
   return (
     <>
@@ -120,16 +129,17 @@ export default function ArticleFooter({
       {/* note 有料マガジン CTA（記事末尾）。全 HUB 資格で「もくじ（L2 索引）」タイル 1 枚に統一（2026-07 統一）。
           個別マガジンタイル（旧・最大 3 誌）は廃止し、個別導線は冒頭/中間 CTA・MDX 内 MagazineCard に一本化。
           文言/価格/リンク先は resolveHubCta が SoT から HTML 駆動（平時=もくじ／直前期=売れ筋商品）。 */}
-      {/* もくじタイルと転職カードは横並び（2 カラム）。片方だけのときは従来どおり単独表示。
-          カラム比は 300px + 1fr（等分割だと 300px 固定のタイル側に隙間が残るため）。
-          高さは items-start で揃えない（HubCtaBanner の aspect-[6/5] を引き伸ばさないため）。 */}
-      {footerMokuji && careerEndCard ? (
-        <div className="mt-8 grid items-start gap-4 sm:grid-cols-[300px_1fr]">
-          <div className="w-full max-w-[300px] justify-self-center sm:justify-self-start">
+      {/* もくじタイル（300×250）と転職バナー（300×250）を同寸で横並び。
+          片方だけのときは従来どおり中央に 1 枚。高さは items-start で揃えない
+          （HubCtaBanner の aspect-[6/5] を引き伸ばさないため）。
+          justify-center は grid-cols を定義する sm 以上でのみ効かせる — 1 カラムの
+          モバイルで付けると暗黙カラムが内容幅に縮み、w-full の子が 18px に潰れる（実測）。 */}
+      {footerMokuji && endBanner ? (
+        <div className="mt-8 grid items-start gap-4 sm:grid-cols-[300px_300px] sm:justify-center">
+          <div className="w-full max-w-[300px]">
             <HubCtaBanner cta={footerMokuji} />
           </div>
-          {/* CareerAffiliate 本体が持つ my-6 をグリッド内では相殺（隣のタイルと天端を揃える） */}
-          <div className="[&>div]:my-0">{careerEndCard}</div>
+          <div className="w-full max-w-[300px]">{endBanner}</div>
         </div>
       ) : footerMokuji ? (
         <div className="mt-8 flex justify-center">
@@ -137,8 +147,10 @@ export default function ArticleFooter({
             <HubCtaBanner cta={footerMokuji} />
           </div>
         </div>
-      ) : careerEndCard ? (
-        <div className="mt-8">{careerEndCard}</div>
+      ) : endBanner ? (
+        <div className="mt-8 flex justify-center">
+          <div className="w-full max-w-[300px]">{endBanner}</div>
+        </div>
       ) : null}
 
       {/* 外部チャネル（ココナラ添削／Brain 自作キット）CTA。施工経験記述・総監記述系の高適合ページのみ。

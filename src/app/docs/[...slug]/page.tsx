@@ -36,24 +36,28 @@ import MidArticleCta from '@/components/ui/MidArticleCta/MidArticleCta';
 import { rankRelated } from '@/lib/related-score';
 import { extractReferencesSection } from '@/lib/extract-references';
 import type { Pluggable } from 'unified';
-import { resolveDocsCareerSidebarAd, resolveCareerTextLink } from '@/config/affiliate-creatives';
+import {
+  resolveDocsCareerSidebarAd,
+  resolveCareerArticleEndCard,
+  resolvePeConsultingArticleEndCard,
+} from '@/config/affiliate-creatives';
 import type React from 'react';
 
 
 
 /**
- * MDX コンパイルオプションを組み立てる。midCtaPosition が指定されたときのみ
- * rehypeMidCta を rehypePlugins 末尾に追加し、本文中間に <midslot> を 1 個挿入する。
+ * MDX コンパイルオプションを組み立てる。midCtaPositions が空でないときのみ
+ * rehypeMidCta を rehypePlugins 末尾に追加し、本文中間に <midslot> を挿入する（1〜3 個）。
  */
-function buildMdxOptions(midCtaPosition?: number) {
+function buildMdxOptions(midCtaPositions?: readonly number[]) {
   const rehypePlugins: Pluggable[] = [
     rehypeHeadingIds,
     rehypeKatex,
     rehypeExamReferences,
     [rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] }] satisfies Pluggable,
   ];
-  if (midCtaPosition !== undefined) {
-    rehypePlugins.push([rehypeMidCta, { afterH2Index: midCtaPosition }] satisfies Pluggable);
+  if (midCtaPositions && midCtaPositions.length > 0) {
+    rehypePlugins.push([rehypeMidCta, { positions: midCtaPositions }] satisfies Pluggable);
   }
   return {
     blockJS: false as const,
@@ -85,18 +89,18 @@ function stripLeadingH1(content: string): string {
 async function SafeMDXRemote({
   source,
   components,
-  midCtaPosition,
+  midCtaPositions,
 }: {
   source: string;
   components: React.ComponentProps<typeof MDXProvider>['components'];
-  midCtaPosition?: number | undefined;
+  midCtaPositions?: readonly number[] | undefined;
 }) {
   let content: React.ReactElement;
   try {
     // Compile once and use the result directly (avoid double compilation)
     ({ content } = await compileMDX({
       source,
-      options: buildMdxOptions(midCtaPosition),
+      options: buildMdxOptions(midCtaPositions),
       components,
     }));
   } catch (error: unknown) {
@@ -326,74 +330,92 @@ export default async function DocPage({
     doc.meta.toc_max_heading_level ?? 3,
   );
 
-  // 記事内（本文中間）CTA（2026-07）。長文ガイド系のみ・h2 境界に 1 個だけ挿入。
-  // 中身は「placement.inline[0] が冒頭 CTA と別マガジンなら note、それ以外は関連記事」。
-  // MDX ソースは書き換えず rehypeMidCta が <midslot> を挿し、components で MidCtaBound に解決する。
+  // 記事内（本文中間）CTA。**記事長に応じて 1〜3 枠**を h2 境界に挿入する（2026-07-28 に
+  // 1 枠固定から拡張）。1 枠だと長文記事で note と転職カードが枠を奪い合い、どちらかが
+  // 出せなかった。枠が複数あれば長文は両方載る（短い記事は従来どおり優先順で 1 つ）。
+  // MDX ソースは書き換えず rehypeMidCta が <midslot data-mid-index> を挿し、
+  // components の midslot が index で中身を引く。
   const midH2Count = headings.filter((h) => h.level === 2).length;
   const midBodyLen = stripLeadingH1(strippedContent).length;
   const midEligibleGroup =
     docGroup === 'guide' || docGroup === 'pillar' || docGroup === 'textbook';
   const midEnabled = midEligibleGroup && midH2Count >= 5 && midBodyLen >= 8000;
-  // career 記事（tags に career）の本文中間 転職テキスト CTA。career 記事は実測 3〜4k 字で上の
-  // midEnabled（8,000字）に届かないため、専用の軽いゲートで拾う（h2>=4・>=2,500字）。
-  // ただし既に本文へ inline <CareerAffiliate> カードがある記事は二重表示になるため除外し、
-  // 「本文に転職導線が無い career 記事」だけを埋める（＝各 career 記事の本文導線は 1 個に保つ）。
-  // resolveCareerTextLink は arm B / campaign 終了時に null＝面ごと自動非表示（EPC A/B 非汚染）。
-  const isCareerArticle =
-    docGroup === 'guide' && Array.isArray(doc.meta.tags) && doc.meta.tags.includes('career');
-  const hasInlineCareerCard = /\bCareerAffiliate\b/.test(strippedContent);
-  const careerMidLink =
-    isCareerArticle && !hasInlineCareerCard && midH2Count >= 4 && midBodyLen >= 2500
-      ? resolveCareerTextLink(slugStr)
-      : null;
-  // 中間（floor(h2/2)）だが最終 h2（まとめ）直前は避ける
-  const midCtaPosition = (midEnabled || careerMidLink)
-    ? Math.min(Math.floor(midH2Count / 2), midH2Count - 2)
-    : undefined;
 
-  let MidCtaBound: (() => React.ReactElement) | null = null;
-  if (careerMidLink) {
-    // career 記事は最優先で転職テキスト CTA（note もくじは career 除外＝二重化しない）。
-    MidCtaBound = () => (
-      <MidArticleCta
-        mode="career"
-        href={careerMidLink.href}
-        text={careerMidLink.text}
-        trackLabel={careerMidLink.trackLabel}
-        lead={careerMidLink.lead}
-      />
-    );
-  } else if (midEnabled) {
-    // 中間 CTA の note 供給源は placement.inline の先頭 1 誌（従来 footerMagazines[0] と同一＝
-    // footerMagazines は inline 起点で構成していたため挙動不変）。個別マガジンタイル廃止後も
-    // placement データは top / mid の供給源として存続する。
+  // 転職ネイティブカード。従来は career タグ記事限定だったが、記事末から本文中間へ移した分
+  // 対象を転職アフィリ対象カテゴリ全体へ広げる（学習記事の読者も受験→転職の潜在層）。
+  // 既に本文へ手書き inline <CareerAffiliate> がある記事は二重表示になるため除外する。
+  const hasInlineCareerCard = /\bCareerAffiliate\b/.test(strippedContent);
+  const careerCategory =
+    category === 'civil-construction-1' ||
+    category === 'civil-construction-2' ||
+    category === 'pe-construction' ||
+    category === 'concrete-chief-engineer' ||
+    category === 'concrete-diagnostician' ||
+    category === 'pe-first-stage';
+  const careerMidCard =
+    !hasInlineCareerCard && midH2Count >= 4 && midBodyLen >= 2500
+      ? careerCategory
+        ? resolveCareerArticleEndCard(slugStr)
+        : category === 'pe-comprehensive-management'
+          ? resolvePeConsultingArticleEndCard()
+          : null
+      : null;
+
+  // 枠数: 記事が長いほど増やす（h2 3 本ごと / 4,000 字ごとの少ない方・上限 3）。
+  // 下限ゲート（h2>=4 かつ >=2,500 字）を満たさない記事は 0 枠＝従来と同じ「出さない」。
+  const midSlotCapacity =
+    midH2Count >= 4 && midBodyLen >= 2500
+      ? Math.max(1, Math.min(3, Math.floor(midH2Count / 3), Math.floor(midBodyLen / 4000)))
+      : 0;
+
+  // 中身を優先順に用意する（各種別 1 記事 1 回まで＝同じ広告を 2 度出さない）。
+  const midRenderers: Array<() => React.ReactElement> = [];
+  // 1) note 中間 CTA（収益の主導線＝最優先）。供給源は placement.inline の先頭 1 誌で、
+  //    冒頭 CTA と別マガジンのときのみ（同じ商品を 2 度見せない）。
+  if (midEnabled) {
     const midNote = filterRenderable(magazinePlacement.inline)[0];
     const midNoteMag = midNote?.magazine;
     const differsFromTop = midNoteMag && (!topSlot || topSlot.magazineId !== midNote.slot.magazineId);
     if (midNoteMag && differsFromTop) {
-      // 文言・リンク・キャラのポーズは MagazineHeroCta が note-magazines.ts から id で解決する
-      // （商品別の出し分けは SoT の ctaCatch/ctaButton/ctaPose だけで完結＝ここは配線のみ）。
+      // 文言・リンク・キャラのポーズは MagazineHeroCta が note-magazines.ts から id で解決する。
       const midSlot = midNote.slot;
-      MidCtaBound = () => (
-        <MidArticleCta
-          mode="note"
-          id={midSlot.magazineId}
-          utmContent={`${midSlot.utmContent}-mid`}
-        />
-      );
-    } else {
-      // 関連記事モード: 同カテゴリ近傍の最上位 1 件（無ければ CTA を出さない）
-      const relatedTop = rankRelated(doc.meta, categoryArticles, 1)[0];
-      if (relatedTop) {
-        MidCtaBound = () => <MidArticleCta mode="related" doc={relatedTop} />;
-      }
+      midRenderers.push(() => (
+        <MidArticleCta mode="note" id={midSlot.magazineId} utmContent={`${midSlot.utmContent}-mid`} />
+      ));
     }
   }
-  // resolve できなかった場合は midslot を出さない（挿入位置も無効化）
-  const effectiveMidPosition = MidCtaBound ? midCtaPosition : undefined;
-  const componentsWithMid = MidCtaBound
-    ? { ...components, midslot: MidCtaBound }
-    : components;
+  // 2) 転職ネイティブカード（1 記事 1 枚まで＝広告密度を抑える）
+  if (careerMidCard) {
+    const card = careerMidCard;
+    midRenderers.push(() => <MidArticleCta mode="career" card={card} />);
+  }
+  // 3) 関連記事（枠が余ったときの回遊導線）
+  if (midEnabled && midRenderers.length < midSlotCapacity) {
+    const relatedTop = rankRelated(doc.meta, categoryArticles, 1)[0];
+    if (relatedTop) midRenderers.push(() => <MidArticleCta mode="related" doc={relatedTop} />);
+  }
+
+  // 実際に使う枠数＝用意できた中身と容量の小さい方。
+  const midSlots = midRenderers.slice(0, midSlotCapacity);
+  // 位置: h2 境界に均等配分。先頭セクション直後（0）と最終 h2（まとめ）直前は避ける。
+  const midPositions = midSlots.map((_, i) =>
+    Math.min(
+      Math.max(1, Math.round(((i + 1) * midH2Count) / (midSlots.length + 1))),
+      midH2Count - 2,
+    ),
+  );
+  const effectiveMidPositions = midSlots.length > 0 ? midPositions : [];
+  const componentsWithMid =
+    midSlots.length > 0
+      ? {
+          ...components,
+          midslot: (p: { 'data-mid-index'?: string }) => {
+            const idx = Number(p?.['data-mid-index'] ?? 0);
+            const Render = midSlots[idx] ?? midSlots[0]!;
+            return <Render />;
+          },
+        }
+      : components;
 
   return (
     <PageShell
@@ -451,7 +473,7 @@ export default async function DocPage({
                 <SafeMDXRemote
                   source={stripLeadingH1(strippedContent)}
                   components={componentsWithMid}
-                  midCtaPosition={effectiveMidPosition}
+                  midCtaPositions={effectiveMidPositions}
                 />
               </div>
               <MetaRow

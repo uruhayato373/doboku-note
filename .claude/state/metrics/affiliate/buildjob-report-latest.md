@@ -17,8 +17,9 @@
 | 面 | ラベル | クリック |
 |---|---|--:|
 | PC サイドバー（ピクセル源） | `BuildJob-sidebar` | 1 |
-| 記事末カード＋本文 inline（モバイル） | `ビルドジョブ` | 6 |
-| 本文中間テキスト | `BuildJob-midtext` | 0 |
+| 記事末 300×250 バナー | `BuildJob-endbanner` | 0 |
+| 本文中間ネイティブカード＋MDX inline | `ビルドジョブ` | 6 |
+| 本文中間テキスト（2026-07-28 以降 未使用） | `BuildJob-midtext` | 0 |
 | カテゴリ hub 小バナー | `BuildJob-hubcareer` | 0 |
 
 ## affiliate クリック上位ページ（page 別・全プログラム）
@@ -36,7 +37,7 @@
 
 ## 注記
 
-- 高意図 31 slug は 〜2026-08-31 の間 BuildJob 100%（`HIGH_INTENT_CAREER_SLUGS`）。9/1 以降は slug ハッシュ A/B へ自動復帰。
+- **2026-07-28 以降、キャンペーン中（〜08-31）は civil セグメント全ページが BuildJob 100%**（高意図 36 slug 限定をやめた。GA4 実測でその 36 slug は流入上位に 1 つも入らず、実流入の学習系ページが 50/50 A/B のまま低 EPC 側に半分流れていたため）。9/1 以降は `isCampaignActive()`=false で slug ハッシュ A/B へ自動復帰するが、GKS(457) < 建設JOBs(709) と逆転するため復帰後の arm 設計は要見直し。
 - 期間中は高意図面が A/B 母集団から抜けるため、**建設JOBs vs BuildJob の EPC 比較は低意図面・hub のみで解釈**する。
 - 推定 EPC は `a8-results.json` に成果が入ってから有効。A8 は API 無しのため `/a8-report`（Playwright・要ローカルログイン）で取り込む。
 - **EPC の分母は GA4 のラベル別クリック**（A8 の `clicks` は口座横断＝stats47 分を含むので使わない。真実源: affiliate-operations.md §6.5）。分子は A8 の確定報酬で、GA4 窓に重なる月（2026-06, 2026-07）に限定して合算する。窓外として除外した月: 2026-05。**月全体の報酬 ÷ 28 日窓のクリック**というズレが残るため EPC は概算（月次で揃えるには GA4 by-label の月次取得が要る）。

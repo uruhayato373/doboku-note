@@ -32,23 +32,28 @@ const AFF_DIR = ".claude/state/metrics/affiliate";
 const PROGRAM_BY_LABEL = new Map([
   // BuildJob（面別 trackLabel）
   ["BuildJob-sidebar", "buildjob"],
+  ["BuildJob-endbanner", "buildjob"], // 記事末 300×250（2026-07-28〜）
   ["BuildJob-midtext", "buildjob"],
   ["BuildJob-hubcareer", "buildjob"],
   // BuildJob / GKS（CareerAffiliate の service 名がラベルになる：記事末カード・inline preset）
   ["ビルドジョブ", "buildjob"],
   ["GKSキャリア", "gks"],
   ["GKS-sidebar", "gks"],
+  ["GKS-endbanner", "gks"],
   // 建設JOBs（A/B 対抗案件）
   ["KensetsuJobs-sidebar", "kensetsu-jobs"],
+  ["KensetsuJobs-endbanner", "kensetsu-jobs"],
   ["建設JOBs", "kensetsu-jobs"],
   // ハイクラス DX/コンサル（総監）
   ["DXConsulting-sidebar", "dx-consulting"],
+  ["DXConsulting-endbanner", "dx-consulting"],
   ["ハイクラス DX・コンサル転職", "dx-consulting"],
 ]);
 
 /** BuildJob の面別ラベル（面内訳の並び順を固定するため）。 */
 const BUILDJOB_SURFACE_LABELS = [
   "BuildJob-sidebar",
+  "BuildJob-endbanner",
   "ビルドジョブ",
   "BuildJob-midtext",
   "BuildJob-hubcareer",
@@ -212,8 +217,9 @@ if (surfaceRows.some((r) => r.clicks > 0)) {
   lines.push("|---|---|--:|");
   const surfaceName = {
     "BuildJob-sidebar": "PC サイドバー（ピクセル源）",
-    "ビルドジョブ": "記事末カード＋本文 inline（モバイル）",
-    "BuildJob-midtext": "本文中間テキスト",
+    "BuildJob-endbanner": "記事末 300×250 バナー",
+    "ビルドジョブ": "本文中間ネイティブカード＋MDX inline",
+    "BuildJob-midtext": "本文中間テキスト（2026-07-28 以降 未使用）",
     "BuildJob-hubcareer": "カテゴリ hub 小バナー",
   };
   for (const r of surfaceRows) {
