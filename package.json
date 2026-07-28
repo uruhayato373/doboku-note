@@ -179,6 +179,8 @@
     "check-note-price-consistency": "node scripts/check-note-price-consistency.mjs",
     "check-gate-coverage": "node scripts/check-gate-coverage.mjs",
     "check-note-live-tags": "node scripts/check-note-live-tags.mjs",
+    "check-note-attachments": "node scripts/check-note-attachments.mjs",
+    "check-note-attachments:live": "node scripts/check-note-attachments.mjs --live",
     "check-x-utm": "node scripts/check-x-utm.mjs",
     "verify-yt-status": "node .claude/scripts/youtube/verify-yt-status.mjs",
     "check-figure-canvas": "node scripts/check-figure-canvas.mjs",

@@ -216,6 +216,25 @@ node scripts/check-note-price-consistency.mjs --json      # 機械可読
 
 不足の解消は `node scripts/note-sync-tags.mjs --list <対象> --commit`（差分だけ追加・本文と有料境界は非破壊）。構造的にライブへ入らない記事（メンバーシップの `is_limited` 等）は `.claude/config/note-live-tags-allow.json` に**理由つきで**免除する。
 
+### PDF 添付は「ソース」と「ライブ」の2層 —— 全文置換で消える（2026-07-28 事故）
+
+**添付ファイルは markdown に存在しない。** note の PDF 添付はプラットフォーム機能で、SoT の `article.md` には一行も現れない。したがって「記事を公開した」と「PDF を配れる状態にした」は**別工程**で、後者を飛ばしても、飛ばしたことが SoT からは分からない。
+
+| 層 | ゲート | 見るもの | どこで |
+|---|---|---|---|
+| ソース | `npm run check-note-attachments` | PDF 配布を約束している記事に、添付すべき PDF 実体がディスク上にあるか | pre-commit（`--staged`）＋ CI 全量（r2-audit.yml） |
+| ライブ | `npm run check-note-attachments:live` | 添付リンク（`api/v2/attachments/download`）が期待本数あるか | **ローカル専用**（要 note ログイン） |
+
+live 層を CI に載せないのは、**有料エリア内の添付カードが未ログイン HTML に出ない**ため（2026-07-28 実測＝添付済み記事2本とも未ログイン取得で出現0）。Actions からは原理的に見えないので、載っているフリをさせない。
+
+**判別できなかった API フィールド**: `remained_file_num` は添付数ではない（14ファイル添付済みの記事が 0 を返す）。**添付の有無は API では判定できない**ので、著者ログインでページを開き `a[href*="api/v2/attachments/download"]` を数えるのが唯一の実測手段。
+
+> [!warning] `note-update-body` の全文置換は添付カードを消す
+> 本文差し替えは Ctrl+A → Delete → paste で、本文内の PDF 添付カードも一緒に消える。SoT の markdown に添付は無いので paste では戻らない。**2026-07-28、建設部門の送客リンク是正で 196 本を全文置換し、6/16 に添付した PDF カードを失った**（是正作業そのものが商品を壊した）。
+> 現在は `note-update-body` が置換前に本文の `*.pdf` を検出し、**既定で中断**する（`--allow-attachment-loss` で明示解除・解除したら反映後に必ず `note-attach-file` で再添付）。画像だけ直すなら `--images-only`。
+
+**きっかけの事故**: 1級土木 一次過去問PDF（¥1,980）が本文で「この記事の末尾に添付」と書きながら、ライブに添付が無いまま公開されていた。PDF 実体（12.2 MB）はビルド済みでローカルにあり、アップロードだけが漏れていた。同型が他2本（1級・2級の直前暗記ノート）。
+
 ### メタゲート: 検査ゼロで PASS を検知する `check-gate-coverage`（2026-07-28 新設）
 
 2026-07-28 に **4 つのゲートが同時に「1 件も検査しないまま緑」** を返していた。「異常0件」と「検査0件」は出力が同じ緑になり区別できないため、事故が長期間隠れる。

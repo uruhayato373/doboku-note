@@ -74,6 +74,9 @@ const KEEP_BOUNDARY = argv.includes('--keep-boundary'); // 有料: 境界を動�
 const BOUNDARY_ARG = getArg('--boundary-h2');      // 明示指定は frontmatter paidBoundary より優先
 const IMAGES_ONLY = argv.includes('--images-only'); // 全文置換せず画像だけ追加（PDF添付カード保護）
 const IMG_LENIENT = argv.includes('--img-lenient'); // 画像挿入 failed でも続行（既定は ABORT）
+// 全文置換は本文内の PDF 添付カードも消す。既定では添付を検出したら中断する（--allow-attachment-loss で明示解除）。
+// 2026-07-28: 建設部門の送客リンク是正で 196 本を全文置換し、6/16 に添付した PDF カードを消してしまった。
+const ALLOW_ATTACH_LOSS = argv.includes('--allow-attachment-loss');
 const TRIAL_LINE_BOTTOM = argv.includes('--trial-line-bottom'); // メンバーシップ試し読み: ラインを末尾直前に置き ほぼ全文を無料プレビュー化（入口LP復旧用）
 
 // 目次が「最初のh2より後」に入って直せなかった記事（バッチ末尾サマリで失敗として可視化する）
@@ -448,6 +451,20 @@ async function updateArticle(page, { abs, noteId, title, body, images, isPaid, b
     else console.log(`[5e] API 実体検証 OK（img=${chk.imgLive} 空引用0 URL見出し0）`);
     console.log(`[OK] ${noteId} 画像のみ反映完了`);
     return true;
+  }
+
+  // 3-pre. 添付ファイル保護ゲート（2026-07-28 新設）
+  // 全文置換（Ctrl+A → Delete）は本文内の PDF 添付カードごと消す。SoT の markdown には添付が
+  // 存在しないので paste では戻らず、購入者が PDF を受け取れなくなる。既存添付を検出したら
+  // 既定で中断し、意図的に消す場合だけ --allow-attachment-loss を明示させる。
+  const attachedPdfs = await page.evaluate(() => ((document.querySelector('[contenteditable=true]')?.innerText || '').match(/\S+\.pdf/gi) || []));
+  if (attachedPdfs.length && !ALLOW_ATTACH_LOSS) {
+    console.error(`[FAIL] 本文に PDF 添付カード ${attachedPdfs.length} 件を検出 → 全文置換すると消えるため中断: ${noteId}`);
+    for (const f of attachedPdfs) console.error(`         ${f}`);
+    console.error('  対処: 画像だけ直すなら --images-only（本文・添付・有料境界を触らない）。');
+    console.error('        本文を差し替えるなら --allow-attachment-loss を付け、反映後に必ず再添付する:');
+    console.error(`        node scripts/note-attach-file.mjs --note ${noteId} --file <pdf> --commit`);
+    return false;
   }
 
   // 3. 全文置換（empty→paste→probe 検証）

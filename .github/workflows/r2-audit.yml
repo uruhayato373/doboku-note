@@ -93,6 +93,13 @@ jobs:
       - name: Check note price consistency (full)
         run: npm run check-note-price-consistency
 
+      # PDF 配布を約束している note 記事に、添付すべき PDF 実体がディスク上にあるか。
+      # 「約束したのに購入者へ届かない」の source 側の網。ライブに実際に添付されているかは
+      # 有料エリアの添付カードが未ログイン HTML に出ないため CI からは原理的に見えず、
+      # ローカルの `npm run check-note-attachments:live` が担う。2026-07-28 新設。
+      - name: Check note attachments (promised PDFs exist on disk)
+        run: npm run check-note-attachments
+
       # メタゲート: ゲート自身が壊れて「1件も検査せずに緑」を返していないかを検査する。
       # 2026-07-28 に4つのゲートが同時にこの状態だった（走査ロジック / 取得経路の故障）。
       - name: Check gate coverage (gates are actually inspecting)

@@ -64,6 +64,14 @@ const GATES = [
     min: 500,
     note: 'hashtags*.txt の数。walk() が壊れると 0 になる',
   },
+  {
+    name: 'check-note-attachments',
+    cmd: ['node', 'scripts/check-note-attachments.mjs'],
+    // 違反の有無にかかわらず必ず出る「実検査 N 件（公開済み・noteId 付き）」
+    re: /実検査\s*(\d+)\s*件（公開済み/,
+    min: 400,
+    note: '公開済み note 記事数。walk() や frontmatter 読取が壊れると急減する',
+  },
 ];
 
 const results = [];

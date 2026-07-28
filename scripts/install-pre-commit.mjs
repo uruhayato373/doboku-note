@@ -202,6 +202,12 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# PDF 配布を約束している note 記事に、添付すべき PDF 実体があるか（購入者に届かない事故の source 側）
+node scripts/check-note-attachments.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
 # note 有料記事の有料境界(paidBoundary)が解決可能か（全ロック/漏洩の温床＝RULE_GAP 再発防止）
 node scripts/check-note-boundary.mjs --staged
 if [ $? -ne 0 ]; then
