@@ -152,6 +152,7 @@ export const HIGH_INTENT_CAREER_SLUGS: ReadonlySet<string> = new Set([
   "civil-construction-1-guide-career-salary",
   "civil-construction-1-guide-salary-up",
   "civil-construction-1-guide-market-value",
+  "civil-construction-1-guide-grade-comparison",
   "civil-construction-2-guide-quit-or-stay",
   "civil-construction-2-guide-young-career",
   "civil-construction-2-guide-haken-seishain",

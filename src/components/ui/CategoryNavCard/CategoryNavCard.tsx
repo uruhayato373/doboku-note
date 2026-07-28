@@ -6,6 +6,7 @@
 import Link from 'next/link';
 import type { DocMeta } from '@/lib/docs';
 import { classifyDoc, type DocGroupKey } from '@/lib/doc-classifier';
+import { resolveCurriculum } from '@/lib/category-curriculum';
 import { buildPastExamNavData } from '@/components/ui/PastExamNav/exam-nav-utils';
 import peChaptersData from '@/config/pe-chapters.json';
 import type { PeChapter } from '@/config/pe-chapters';
@@ -202,13 +203,26 @@ function MobileWrapper({ title, children }: { title: string; children: React.Rea
 }
 
 /* ━━━ リンクリストカード（汎用） ━━━ */
-function LinkListCard({ variant, title, currentSlug, docs }: { variant: 'sidebar' | 'mobile'; title: string; currentSlug: string; docs: DocMeta[] }) {
+function LinkListCard({
+  variant,
+  title,
+  currentSlug,
+  docs,
+  navList,
+}: {
+  variant: 'sidebar' | 'mobile';
+  title: string;
+  currentSlug: string;
+  docs: DocMeta[];
+  /** ビルド後検査用のマーカー（例 "exam-guide"）。check-career-separation --built が参照する。 */
+  navList?: string;
+}) {
   if (docs.length === 0) return null;
 
   if (variant === 'sidebar') {
     return (
       <SidebarWrapper title={title}>
-        <ul>
+        <ul data-nav-list={navList}>
           {docs.map((d) => (
             <li key={d.slug} className="border-b border-[var(--rule-soft)] last:border-b-0">
               {d.slug === currentSlug ? (
@@ -227,7 +241,7 @@ function LinkListCard({ variant, title, currentSlug, docs }: { variant: 'sidebar
 
   return (
     <MobileWrapper title={title}>
-      <ul className="space-y-2">
+      <ul className="space-y-2" data-nav-list={navList}>
         {docs.map((d) => (
           <li key={d.slug} className={`rounded-card-content border px-4 py-3 transition-colors ${d.slug === currentSlug ? 'bg-[var(--accent-fill)] border-[var(--accent)]' : 'border-[var(--rule-soft)] hover:border-[var(--accent)]'}`}>
             {d.slug === currentSlug ? (
@@ -282,8 +296,23 @@ export default function CategoryNavCard({ variant, category, currentSlug, docGro
   if (category === 'civil-construction-1' || category === 'civil-construction-2') {
     switch (docGroup) {
       case 'guide': {
-        const guides = categoryArticles.filter((m) => classifyDoc(m) === 'guide');
-        return <LinkListCard variant={variant} title="試験ガイド" currentSlug={currentSlug} docs={guides} />;
+        // 学習系ガイドのみを curriculum の意図順で出す。
+        // classifyDoc は career 記事も 'guide' を返すため、素で filter すると転職記事が混入する
+        // （2026-07-28 実測: civil-1 は 49 件中 26 件が転職系・並びは slug のアルファベット順）。
+        // カテゴリページと同じ resolveCurriculum に寄せることで career 除外と表示順が構造的に入る。
+        // 転職導線はサイドバーのアフィリ枠とカテゴリページの CareerSection が担当（ここには出さない）。
+        const guideDocs = categoryArticles.filter((m) => classifyDoc(m) === 'guide');
+        const curriculum = resolveCurriculum(category, guideDocs);
+        const guides = [...(curriculum.examGuide?.docs ?? []), ...curriculum.unassigned];
+        return (
+          <LinkListCard
+            variant={variant}
+            title="試験ガイド"
+            currentSlug={currentSlug}
+            docs={guides}
+            navList="exam-guide"
+          />
+        );
       }
       case 'primary':
         return <PastExamCard variant={variant} currentSlug={currentSlug} categoryArticles={categoryArticles} category={category} />;

@@ -142,6 +142,12 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# 転職・キャリア記事が学習系ナビ一覧に混ざらないことを検証（career タグ ⇔ HIGH_INTENT/careerFeatured の整合）
+node scripts/check-career-separation.mjs
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
 # アフィリエイト A8 mat が SSOT 許可リスト(affiliate-mats.json)に存在するか検証（mat タイポ/未登録/失効の取りこぼし防止）
 node scripts/check-affiliate-mats.mjs --staged
 if [ $? -ne 0 ]; then

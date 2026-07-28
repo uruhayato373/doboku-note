@@ -1,5 +1,5 @@
 import { type DocMeta } from '@/lib/docs';
-import { type DocGroupKey } from '@/lib/doc-classifier';
+import { type DocGroupKey, isCareerDoc } from '@/lib/doc-classifier';
 import { type ReferenceItem } from '@/lib/extract-references';
 import { resolveDocsCareerSidebarAd } from '@/config/affiliate-creatives';
 import ExternalReferences from '@/components/ui/ExternalReferences/ExternalReferences';
@@ -193,7 +193,7 @@ export default function ArticleFooter({
 
       {/* guide（キャリア記事を除く）: 次のステップ導線（演習・テキスト・分野へ）。全ビューポート。
           要点記事の行き止まりを解消し、カテゴリ hub の sec-* アンカー（直前期 note CTA と同居）へ送る。 */}
-      {docGroup === 'guide' && category && !meta.tags?.includes('career') && (
+      {docGroup === 'guide' && category && !isCareerDoc(meta) && (
         <div className="mt-8">
           <NextStepNav category={category} />
         </div>

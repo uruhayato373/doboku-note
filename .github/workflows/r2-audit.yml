@@ -58,6 +58,14 @@ jobs:
       - name: Check note funnel drift (CTA / mokuji / L1-L2 links)
         run: npm run check-note-funnel
 
+      # 転職・キャリア記事（tags: [career]）が学習系ナビ一覧に混ざらないことの検証。
+      # career は group: guide のため classifyDoc が 'guide' を返し、素朴な filter だと
+      # サイドバー「試験ガイド」へ混入する（2026-07-28 に civil-1 で 49 件中 26 件が混入）。
+      # ここは source 層（career タグ ⇔ HIGH_INTENT/careerFeatured の整合）。
+      # ビルド後の HTML 検査は `--built` で、build を伴う別ワークフロー側で回す。
+      - name: Check career separation (career articles not in study nav)
+        run: npm run check-career-separation
+
       # ガイド記事（group: guide）の本文 3,000 字下限（薄い記事の再発防止、content-principles §25）。
       # published guide 全件を検査。pre-commit は staged のみ検査するため、CI で全量の backstop。
       - name: Check guide article length (published guide >= 3000 chars)

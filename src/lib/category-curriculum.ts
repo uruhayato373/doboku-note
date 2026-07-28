@@ -1,5 +1,6 @@
 import { type DocMeta } from '@/lib/docs';
 import { getCategoryCurriculum } from '@/config/category-curriculum';
+import { isCareerDoc } from '@/lib/doc-classifier';
 
 // カテゴリページの「体系（受験ガイド / 分野別 / テキスト章 / キャリア）」を config から解決する純関数群。
 // 設計の最重要原則: config 未割当の記事を silent drop しない。resolveCurriculum は必ず unassigned で拾い、
@@ -23,7 +24,7 @@ export type ResolvedCurriculum = {
 
 /**
  * guide 記事群を config に従って 受験ガイド / 分野別ブロック / キャリア（注目＋残り）へ振り分ける。
- * - キャリア判定は既存踏襲（tags.includes('career')）。
+ * - キャリア判定は isCareerDoc（真実源 = frontmatter tags: [career]）。
  * - ブロック内の並びは config の slugs 記載順。config に無い非キャリア guide は unassigned。
  * - careerFeatured の欠落 slug は featured から除外し rest に残る（防御的）。
  */
@@ -33,8 +34,8 @@ export function resolveCurriculum(category: string, guideDocs: DocMeta[]): Resol
   const bySuffix = new Map<string, DocMeta>();
   for (const d of guideDocs) bySuffix.set(toSuffix(category, d.slug), d);
 
-  const career = guideDocs.filter((d) => d.tags?.includes('career'));
-  const nonCareer = guideDocs.filter((d) => !d.tags?.includes('career'));
+  const career = guideDocs.filter((d) => isCareerDoc(d));
+  const nonCareer = guideDocs.filter((d) => !isCareerDoc(d));
 
   const assigned = new Set<DocMeta>();
   const pick = (slugs: string[] | undefined): DocMeta[] => {
@@ -42,7 +43,7 @@ export function resolveCurriculum(category: string, guideDocs: DocMeta[]): Resol
     const out: DocMeta[] = [];
     for (const s of slugs) {
       const d = bySuffix.get(s);
-      if (d && !d.tags?.includes('career') && !assigned.has(d)) {
+      if (d && !isCareerDoc(d) && !assigned.has(d)) {
         assigned.add(d);
         out.push(d);
       }
@@ -76,7 +77,7 @@ export function resolveCurriculum(category: string, guideDocs: DocMeta[]): Resol
   const featuredSet = new Set<DocMeta>();
   for (const s of featuredSuffixes) {
     const d = bySuffix.get(s);
-    if (d && d.tags?.includes('career')) {
+    if (d && isCareerDoc(d)) {
       featured.push(d);
       featuredSet.add(d);
     }
@@ -127,7 +128,7 @@ export function resolveTextbookChapters(
 
   const guideBySuffix = new Map<string, DocMeta>();
   for (const d of guideDocs) {
-    if (!d.tags?.includes('career')) guideBySuffix.set(toSuffix(category, d.slug), d);
+    if (!isCareerDoc(d)) guideBySuffix.set(toSuffix(category, d.slug), d);
   }
 
   const chapters: TextbookChapterResolved[] = ranges.map((r) => ({

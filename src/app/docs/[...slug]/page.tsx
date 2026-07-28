@@ -5,7 +5,7 @@ import TwoColumnShell from '@/components/layout/TwoColumnShell';
 import ArticleHeader from '@/components/ui/ArticleHeader/ArticleHeader';
 import { getAllComponents } from '@/lib/component-loader';
 import { getCategoryLabel } from '@/lib/categories';
-import { classifyDoc, getGroupLabel } from '@/lib/doc-classifier';
+import { classifyDoc, getGroupLabel, isCareerDoc } from '@/lib/doc-classifier';
 import { Metadata } from 'next';
 import { getOgpImageUrl } from '@/lib/r2-image-loader';
 import StructuredData from '@/components/seo/StructuredData';
@@ -302,7 +302,7 @@ export default async function DocPage({
   // タイルの中身は resolveHubCta に一任: 平時=L2 もくじ、直前期 6 週間=売れ筋商品直リンク（seasonal）。
   // resolveHubCta は非 HUB 資格（一次・concrete・reference）に null を返すため、それらは自然に非表示。
   // career タグ記事は転職一本方針を継承し note もくじを出さない（転職テキスト CTA と二重化させない）。
-  const showMokuji = Boolean(category) && !doc.meta.tags?.includes('career');
+  const showMokuji = Boolean(category) && !isCareerDoc(doc.meta);
   const footerMokuji =
     showMokuji && category ? resolveHubCta(category, { utmSuffix: 'footer' }) : null;
   // 読書中サイドバー（PC）にも同じもくじを併掲（utm -docs-sb で面分離）。2026-07-06 に一旦撤去したが、

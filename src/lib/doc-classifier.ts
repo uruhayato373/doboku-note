@@ -5,7 +5,27 @@
  */
 import type { DocMeta } from './docs';
 
+/**
+ * 記事の体系グループ。
+ *
+ * 注意: `'career'` は `classifyDoc()` が **決して返さない**（career 記事は frontmatter で
+ * `group: guide` + `tags: [career]` として書かれ、classifyDoc は group を優先するため
+ * 常に `'guide'` になる）。`'career'` はカテゴリページの体系表示（careerFeatured）側で
+ * 使う語彙。「この記事は転職・キャリア意図か」の判定は必ず `isCareerDoc()` を使うこと。
+ */
 export type DocGroupKey = 'guide' | 'pillar' | 'textbook' | 'pastExam' | 'keyword' | 'primary' | 'secondary' | 'career';
+
+/**
+ * 転職・キャリア意図の記事か（真実源 = frontmatter `tags: [career]`）。
+ *
+ * classifyDoc はこれらを `'guide'` として返すため、**学習系の一覧・ナビに career を混ぜない**
+ * 用途では必ずこの述語で除外する。混在は 2026-07-28 に docs サイドバー「試験ガイド」で
+ * 実際に発生した（civil-1 は 49 件中 26 件が転職記事）。
+ * 判定を各所で `tags?.includes('career')` と直書きすると抜けが生まれるのでここへ集約する。
+ */
+export function isCareerDoc(meta: Pick<DocMeta, 'tags'>): boolean {
+  return meta.tags?.includes('career') === true;
+}
 
 /** frontmatter の group 値 → DocGroupKey のマッピング */
 const GROUP_FIELD_MAP: Record<string, DocGroupKey> = {
