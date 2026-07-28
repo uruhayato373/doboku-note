@@ -174,6 +174,20 @@ await ctx.close();
 
 const inspected = need.length - fetchFail.length;
 console.log(`\n実検査 ${inspected} 件（対象 ${need.length}・取得失敗 ${fetchFail.length}）: 充足 ${ok} / 不足 ${short.length}`);
+
+// 復旧は note の 1日100アップロード上限で複数日に分かれる。別日・別PCから再開できるよう
+// 欠落リストを state に残す（.tmp は git 管理外で、過去の添付 done-log はこれで失われている）。
+if (!ONLY) {
+  const { writeFileSync, mkdirSync } = await import('node:fs');
+  const outPath = join(ROOT, '.claude/state/note-attachments-missing.json');
+  mkdirSync(dirname(outPath), { recursive: true });
+  writeFileSync(outPath, JSON.stringify({
+    measuredAt: new Date().toISOString().slice(0, 10),
+    inspected, target: need.length, fetchFail: fetchFail.length, satisfied: ok,
+    missing: short.map((s) => ({ noteId: s.noteId, title: s.title, live: s.live, want: s.want, pdfs: s.expected })),
+  }, null, 2) + '\n');
+  console.log(`\n欠落リスト: .claude/state/note-attachments-missing.json（${short.length} 件）`);
+}
 if (short.length) {
   console.error('\n✗ ライブに PDF が添付されていない（購入者が受け取れない）:');
   for (const s of short) {
