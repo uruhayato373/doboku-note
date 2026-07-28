@@ -54,6 +54,13 @@ interface CareerAffiliateProps {
   readonly cta?: string;
   /** GA4 の表示位置。MDX 直書きは article-inline、記事末は呼び出し側で article-end。 */
   readonly placement?: string;
+  /**
+   * 強調表示（任意）。本文フローに置くとき、白背景のままだと本文カードに溶け込んで
+   * 見落とされるため、アクセント地色（`--accent-fill`・dark 定義あり）を敷く。
+   * 旧 MidArticleCta の career テキスト CTA が使っていた地色と同じ。
+   * MDX 直書き（168 箇所）は既定 false のまま＝見た目を変えない。
+   */
+  readonly emphasis?: boolean;
 }
 
 /**
@@ -82,6 +89,7 @@ export default function CareerAffiliate({
   points,
   cta = "無料で相談する",
   placement = "article-inline",
+  emphasis = false,
 }: CareerAffiliateProps) {
   // 期間連動プリセット（program="gks"）: 施工管理/建設の inline 転職枠を、記事末モバイルカードと
   // 同じ period 解決（resolveCareerArticleEndCard）で href・コピーごと出し分ける。
@@ -106,7 +114,9 @@ export default function CareerAffiliate({
         data-cta="affiliate"
         data-cta-label={effService}
         data-cta-placement={placement}
-        className="card-surface-content focus-ring group relative flex flex-col sm:flex-row items-stretch gap-4 p-4 hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow"
+        className={`card-surface-content focus-ring group relative flex flex-col sm:flex-row items-stretch gap-4 p-4 hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow${
+          emphasis ? ' border-l-4 border-l-brand bg-[var(--accent-fill)] dark:border-l-brand' : ''
+        }`}
         style={{ textDecoration: "none" }}
       >
         <AffiliatePrBadge className="absolute right-3 top-3" />

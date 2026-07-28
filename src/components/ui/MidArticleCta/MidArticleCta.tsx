@@ -40,7 +40,8 @@ export default function MidArticleCta(props: MidArticleCtaProps) {
   }
   if (props.mode === 'career') {
     // CareerAffiliate 自身が not-prose / my-6 / PR バッジ / rel="nofollow sponsored" を持つ。
-    return <CareerAffiliate {...props.card} placement="article-mid" />;
+    // emphasis: 本文フローでは白背景だと本文カードに溶け込むため地色＋左ラインで視認性を上げる。
+    return <CareerAffiliate {...props.card} placement="article-mid" emphasis />;
   }
   return (
     <div className="not-prose my-8 max-w-2xl">
