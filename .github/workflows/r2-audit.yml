@@ -66,6 +66,14 @@ jobs:
       - name: Check career separation (career articles not in study nav)
         run: npm run check-career-separation
 
+      # 共通プリミティブの迂回検知（WARN のみ・赤落ちしない）。
+      # 2026-07 に「共通機構があるのに新しい面が独自実装する」事故が 3 回起きた
+      # （resolveCurriculum 未使用で career 混入 / shortTitle 未使用で冗長表示 /
+      #  AuthorProfile 未使用で運営者カード 54 行の重複）。ページが SSOT データを
+      # 直接 import していたら迂回のサインとして surface する。判断は人。
+      - name: Check SSOT consumers (pages bypassing shared components)
+        run: npm run check-ssot-consumers
+
       # ガイド記事（group: guide）の本文 3,000 字下限（薄い記事の再発防止、content-principles §25）。
       # published guide 全件を検査。pre-commit は staged のみ検査するため、CI で全量の backstop。
       - name: Check guide article length (published guide >= 3000 chars)
