@@ -9,7 +9,7 @@ theme: インフラ老朽化のアセットマネジメント深化
 noteUrl: "https://note.com/dobokunote/n/n05deb788626f"
 noteId: "n05deb788626f"
 notePublishedAt: "2026-06-12"
-price: 500
+price: 780
 coverTitle: "技術士 建設部門｜必須科目I R8予想③ インフラ老朽化・AM 模範解答"
 utmCampaign: pe-construction-secondary
 cover:

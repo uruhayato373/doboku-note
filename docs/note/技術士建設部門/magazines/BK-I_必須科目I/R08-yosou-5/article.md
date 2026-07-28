@@ -9,7 +9,7 @@ theme: 持続可能な国土・地域づくり（人口減少・国土形成計�
 noteUrl: "https://note.com/dobokunote/n/ndcab74303a04"
 noteId: "ndcab74303a04"
 notePublishedAt: "2026-06-12"
-price: 500
+price: 780
 coverTitle: "技術士 建設部門｜必須科目I R8予想⑤ 持続可能な国土・地域づくり 模範解答"
 utmCampaign: pe-construction-secondary
 cover:
