@@ -33,7 +33,10 @@ function walk(dir, acc = []) {
   for (const name of readdirSync(dir, { withFileTypes: true })) {
     const p = join(dir, name.name).replaceAll('\\', '/'); // Windows の \ を state キー(/)に正規化
     if (name.isDirectory()) walk(p, acc);
-    else if (name.name === 'article.md') acc.push(p);
+    // 型別ファイル（article-II1.md 等）も対象。BK-02〜11 は大半がこの形式で、
+    // article.md のみを見ていた頃はドリフト検出から丸ごと漏れていた（2026-07-28 修正）。
+    // 下の articleForTags() が hashtags-II1.txt → article-II1.md を解決しているのと整合させる。
+    else if (/^article(-[^/\\]+)?\.md$/.test(name.name)) acc.push(p);
   }
   return acc;
 }
@@ -47,7 +50,7 @@ if (SINCE) {
   try {
     const out = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--name-only', `${SINCE}..HEAD`], { encoding: 'utf8' });
     const all = out.split('\n').map((s) => s.trim());
-    changedSet = new Set(all.filter((s) => s.endsWith('/article.md')));
+    changedSet = new Set(all.filter((s) => /\/article(-[^/]+)?\.md$/.test(s)));
     changedTagSet = new Set(all.filter((s) => /(^|\/)hashtags(-[^/]+)?\.txt$/.test(s)));
   } catch (e) {
     console.error(`[check-note-republish] --since ${SINCE} の git diff に失敗: ${e.message}`);
