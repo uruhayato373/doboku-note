@@ -209,6 +209,13 @@ export async function setPeriodMonth(page, cfg, { month }) {
     await page.waitForTimeout(400);
   }
   await page.waitForLoadState("networkidle", { timeout: cfg.browser.timeoutMs }).catch(() => {});
+  // 期間フォームの描画を明示的に待つ。program-detail は要素数が多く、遷移直後は
+  // 入力欄が 0 件のことがある（連続実行で「全 0 件」を実測）。networkidle だけでは足りない。
+  await page
+    .locator(`input[placeholder="${pf.startPlaceholder}"]`)
+    .first()
+    .waitFor({ state: "visible", timeout: cfg.browser.timeoutMs })
+    .catch(() => {});
 
   // 月指定タブがあり、月フォームが隠れているときだけ切り替える（既定は月指定＝通常は不要）
   const startLoc = page.locator(`input[placeholder="${pf.startPlaceholder}"]`);

@@ -171,16 +171,26 @@ function main() {
   //   サイト別 137 と比べて「混入の疑い」を誤報し、さらに累計行が当月の実績として
   //   a8-results.json へ書き込まれた（2026-07-28・単月取得の初回実走で発覚）。
   const currentPeriod = period?.raw ?? null;
-  const inCurrentPeriod = (r) => currentPeriod == null || r.period === currentPeriod;
+  const inCurrentPeriod = (r) => r.period === currentPeriod;
 
-  // ★ 検算: 口座横断から抽出した doboku 分と、サイト別（真実源）の doboku-note 行を突合
-  const siteRow = (log.siteSummary || [])
-    .filter(inCurrentPeriod)
-    .find((r) => String(r.site || "").includes(cfg.a8.targetSite));
+  // ★ 検算: 口座横断から抽出した doboku 分と、サイト別（真実源）の doboku-note 行を突合。
+  //   期間が特定できない run（DL 失敗・対象データ 0 件で CSV ボタンが出ない等）では
+  //   比較しない。ここで全期間を合算すると別期間の値が混ざって「混入の疑い」を誤報する
+  //   （2026-01/02 のバックフィル時に実測）。
+  const siteRow =
+    currentPeriod == null
+      ? null
+      : (log.siteSummary || [])
+          .filter(inCurrentPeriod)
+          .find((r) => String(r.site || "").includes(cfg.a8.targetSite));
+  if (currentPeriod == null) {
+    log.crossCheck = { comparable: false, reason: "この run では期間を特定できない（有効な CSV が無い）" };
+  } else {
+    const allowlisted = (log.programPeriod || []).filter(inCurrentPeriod).filter((r) => r.program);
+    log.crossCheck = crossCheckAgainstSite(siteRow, allowlisted);
+    if (log.crossCheck) log.crossCheck.period = currentPeriod;
+  }
   const allProgramRows = (log.programPeriod || []).filter(inCurrentPeriod);
-  const allowlisted = allProgramRows.filter((r) => r.program);
-  log.crossCheck = crossCheckAgainstSite(siteRow, allowlisted);
-  if (log.crossCheck) log.crossCheck.period = currentPeriod;
 
   // ★ 取りこぼし検知: 口座横断レポートには stats47 のプログラムも並ぶので「未写像 = 取りこぼし」ではない。
   //   客観シグナルは **crossCheck の不足分**（サイト別 doboku-note 行を allowlist で説明しきれていない）。

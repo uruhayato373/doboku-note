@@ -425,16 +425,21 @@ PR #269（カタログ）/#270（SNSレンダラー）済。残 = Phase4 記事�
 
 単月取得（`--month`）は 2026-07-28 に実装・実走完了（下の旧タスクは解決済み）。残作業は 2 つ:
 
-1. **未取込月のバックフィル**: 現在 `a8-results.json` に入っているのは 2026-06 のみ。
-   EPC の時系列を揃えるには 2026-01〜2026-07 を月ごとに取る
-   （`npm run a8-ui:fetch -- --month YYYY-MM --reports site-summary,program-detail` → `a8-ui:normalize -- --latest`）。
-   ローカル・要 A8 ログイン
-2. **不足クリック 13 の特定**: 2026-06 のサイト別 doboku-note は 74 click だが、
-   allowlist（自社 4 案件）で説明できるのは 61 click。差 13 がどのプログラムか未特定
-   （`missingProgramCandidates` の候補は Neuro Dive・合宿免許・新卒エージェント等で、
-   いずれも stats47 側に見える）。自社案件なら `programIdMap` へ追記、
-   そうでなければサイト別レポートの集計差の説明を `a8-affiliate-pipeline.md` に残す。
-   放置すると毎回 `hasShortfall` が surface され続ける
+**バックフィルは 2026-07-28 に実施済み**（2026-01〜2026-07）。判明した実態:
+01〜04 は doboku-note の成果データが実質ゼロ（01/02 は CSV ボタンすら出ない＝データ皆無、
+03/04 は自社案件のクリック 0）、**05 から稼働し 06 が最初の本格月**。
+現在 `a8-results.json` は 05〜07 の 8 records。
+
+残作業:
+
+1. **案件別クリックの帰属問題**: `a8-results.json` の `clicks` は program-detail（口座横断）由来で
+   stats47 分を含みうる。2026-07 実測で自社 4 案件 75 click > サイト別 doboku-note 56 click（超過 19）。
+   → **EPC の分母は GA4 の `affiliate_cta_click`（ラベル別）を使う**と affiliate-operations.md §6.5 に明記済み。
+   残るのは `report-buildjob-affiliate` が実際にその分母を使っているかの確認と、必要なら是正
+2. **2026-06 の不足クリック 13 の説明**: サイト別 74 に対し allowlist 合計 61。
+   候補（Neuro Dive・合宿免許・新卒エージェント等）はいずれも stats47 側に見える。
+   自社案件なら `programIdMap` へ追記、違うならサイト別と案件別の集計差の理由を
+   `a8-affiliate-pipeline.md` に記録して `hasShortfall` の毎回 surface を止める
 
 ### （解決済み）A8 レポートの期間指定（月次内訳の自動化）
 タグ: [インフラ・計測]

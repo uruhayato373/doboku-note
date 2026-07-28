@@ -3,13 +3,22 @@
   "schema": {
     "month": "YYYY-MM（A8 レポート期間）",
     "program": "buildjob | kensetsu-jobs | gks | dx-consulting",
-    "clicks": "A8 管理画面のクリック数（GA4 とは母数が異なりうる＝参考）",
+    "clicks": "A8 プログラム別レポート（**口座横断**）のクリック数。stats47 分を含みうるため EPC の分母に使わない（2026-07 実測: 自社4案件 75 vs サイト別 doboku-note 56）。案件別の分母は GA4 affiliate_cta_click が真実源＝ここは参考値。",
     "conversions": "成果発生件数（未確定含む）",
     "approved": "承認確定件数",
     "revenueYen": "確定報酬（円）",
     "note": "備考（キャンペーン期間・イレギュラー等）"
   },
   "records": [
+    {
+      "month": "2026-05",
+      "program": "gks",
+      "clicks": 1,
+      "conversions": 0,
+      "approved": 0,
+      "revenueYen": 0,
+      "note": "A8 レポート自動取込（建設業界特化！未経験から施工管理職へ。手厚いサポートで資格取得も支援【GKSキャリア】）"
+    },
     {
       "month": "2026-06",
       "program": "buildjob",
@@ -36,8 +45,44 @@
       "approved": 0,
       "revenueYen": 0,
       "note": "A8 レポート自動取込（建設業界特化！未経験から施工管理職へ。手厚いサポートで資格取得も支援【GKSキャリア】）"
+    },
+    {
+      "month": "2026-07",
+      "program": "buildjob",
+      "clicks": 36,
+      "conversions": 0,
+      "approved": 0,
+      "revenueYen": 0,
+      "note": "A8 レポート自動取込（ビルドジョブ｜建設業界特化の転職エージェントの無料キャリア面談）"
+    },
+    {
+      "month": "2026-07",
+      "program": "dx-consulting",
+      "clicks": 21,
+      "conversions": 0,
+      "approved": 0,
+      "revenueYen": 0,
+      "note": "A8 レポート自動取込（コンサル・DX・スタートアップへ。CxO直結の非公開求人で年収を最大化【Groovement Agent】）"
+    },
+    {
+      "month": "2026-07",
+      "program": "gks",
+      "clicks": 2,
+      "conversions": 0,
+      "approved": 0,
+      "revenueYen": 0,
+      "note": "A8 レポート自動取込（建設業界特化！未経験から施工管理職へ。手厚いサポートで資格取得も支援【GKSキャリア】）"
+    },
+    {
+      "month": "2026-07",
+      "program": "kensetsu-jobs",
+      "clicks": 16,
+      "conversions": 0,
+      "approved": 0,
+      "revenueYen": 0,
+      "note": "A8 レポート自動取込（日本最大級 施工管理・建設業界の転職サイト「建設JOBs」）"
     }
   ],
-  "updatedAt": "2026-07-28T02:21:51.962Z",
+  "updatedAt": "2026-07-28T02:29:31.682Z",
   "source": "fetch-a8-ui-csv.mjs → normalize-a8-csv.mjs（自動取込。手入力は不要）"
 }
