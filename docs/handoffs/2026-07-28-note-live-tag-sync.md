@@ -12,6 +12,9 @@ node scripts/note-sync-tags.mjs --list .claude/state/note-tag-sync-targets.txt -
 
 ソースの `hashtags*.txt` は既に全748ファイルへ公務員層タグを追加済み（commit `38eb42c8c`）。**note ライブへの反映だけが残っている**。上のコマンドは live に足りないタグだけを追加する（本文・有料境界・カバーには触れない）。
 
+> [!caution] PDF 添付の復旧を先に流す
+> 同じ夜に [2026-07-28-note-pdf-attachment-recovery.md](2026-07-28-note-pdf-attachment-recovery.md) の作業がある。**同じ Playwright プロファイルを使うため並行実行するとプロファイルロックで片方が落ちる**。順番に流すこと。優先はPDF添付の復旧 —— タグは流入を増やす作業だが、添付は購入者が既に払った対価が届いていない状態なので。
+
 ### 実行前に必ず確認する3点
 
 > [!warning] 別PCでは note のログインセッションが無い
