@@ -93,6 +93,12 @@ URL Inspection の `coverage_state` と `page_fetch_state` から真因を切り
 
 > 数値は `index-coverage-history.json` を正とする。ここには「何を観測し、何を打ち手に決めたか」を記す。
 
+書き手は 2 系統。見出しに区別を付けて同じ時系列に積む:
+
+- `### YYYY-MM-DD（月次・/gsc-review）` — coverage の観測と打ち手
+- `### YYYY-MM-DD（週次・/weekly-improve）` — performance 候補の裁定（採用→EXP-ID / 見送り→理由 /
+  保留→**再浮上の条件**）。`improvements/{date}.md` は候補の生データ、ここはそれが**どう裁定されたか**の記録
+
 ### 2026-04-27（初回計測）
 
 - batch: `inspection-batch-2026-04-27*.json`（756 件）

@@ -79,6 +79,8 @@ description: >
 - 「GSC UI 取得 DUE（月次）」（`check-gsc-ui-due` が due のときのみ・→ 次セッションで `/google-search-growth`）
 - 「A8 成果取込 DUE（月次）」（`check-a8-report-due` が due のときのみ・→ 次セッションで `/a8-report`）
 - 「A8 集計の取りこぼし / 混入疑い」（`check-a8-report-due` の `issues[]` が空でないとき・due でなくても出す）
+- 「実験の再測定 DUE」（`check-experiments-due` が due のときのみ・→ 次セッションで `/nsm-experiment measure <id>`）
+- 「実験の未処理の申し送り」（`check-experiments-due` の `issues[]` が空でないとき・due でなくても出す）
 ```
 
 #### Agent C: NSM / パフォーマンス指標 + 実験進捗
@@ -102,13 +104,19 @@ A. NSM 指標取得（既定 = スナップショット読み）:
 - いずれの出力も「## NSM（オーガニック検索流入）」セクションとしてレビューに埋め込む
 
 B. 実験進捗レポート:
-- `.claude/state/experiments.json` を読み、status 別にグループ化:
+- **期限判定はまず `npm run check-experiments-due -- --json` を実行し、その結果を転記する**
+  （LLM が経過日数を数え直さない。期限計算は決定的に決まる＝CLAUDE.md §5）。
+  - `dueExperiments[]` … 再測定・裁定の期限が来ている実験。各要素の `reason` をそのまま出す
+    （measure 期限超過 / next_check_date 未設定のまま滞留 / proposed のまま滞留）
+  - `issues[]` … `pending_user_actions` が残っている実験。**due でなくても必ず出す**
+    （例: 「deploy 後に LCP を再計測」＝deploy 待ちで宙吊りになっている申し送り）
+  - なぜ機械化したか: 再測定の放置が EXP-002（70日→計測不能で cancelled）・EXP-003（42日）・
+    EXP-005（proposed 4週）と 3 回実績化したため
+- 続けて `.claude/state/experiments.json` を読み、status 別にグループ化:
   - running: 経過日数、baseline との gap（metrics-reader で再取得）
   - measuring: baseline vs current の前後比較
   - 今週 close したもの: result + learnings
-- 各 running 実験について:
-  - started_at から 10 日以上経過していれば「measure 実施推奨」を明記
-  - baseline の metric が現状でどう動いたか数値表示
+- 各 running 実験について baseline の metric が現状でどう動いたかを数値表示
 - 出力を「## 実験の進捗」セクションとして埋め込む
 
 補助コマンド:

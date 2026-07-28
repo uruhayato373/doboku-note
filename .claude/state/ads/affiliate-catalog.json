@@ -63,7 +63,7 @@
       "label": "建設JOBs（施工管理・建設業界 転職サイト）",
       "vertical": "civil-career",
       "placement": "active",
-      "decision": "A8 で運用。buildjob との恒久 A/B の対抗案件（~2026-09 に勝者判定）。",
+      "decision": "A8 で運用。civil-career 面の恒久 A/B の arm B。**9/1 以降の対戦相手は buildjob ではなく gks**（buildjob は 2026-08-31 の増額キャンペーン終了で自動切替されるため）。判定基準・分母規律は affiliate-operations.md §6.5。2026-07 時点は確定成果 0 件で判定不能＝据え置き。",
       "asps": {
         "a8": {
           "programId": "s00000023057002",

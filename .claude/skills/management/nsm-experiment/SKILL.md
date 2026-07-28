@@ -64,6 +64,9 @@ abandoned  abandoned  running (re-measure)
 
 **目的**: 新セッション or 作業再開時に、中断中の実験と残作業を即座に把握する。
 
+0. 期限超過の一覧だけが欲しいときは `npm run check-experiments-due -- --json` が最短（決定的 surfacer。
+   weekly-review もこれを転記する。measure 期限超過 / next_check_date 未設定の滞留 / proposed の滞留 /
+   未処理の `pending_user_actions` を返す。判定のみで状態は書き換えない＝裁定は人）
 1. `.claude/state/experiments.json` を読み、`experiments[]` から `status` が `running` と `measuring` の実験を全件抽出（兄弟スキル weekly-review/weekly-plan/weekly-improve と同じく JSON 直読み。ヘルパーモジュールは介さない）
 2. 各 experiment について以下をチェック:
    - `pending_user_actions` フィールドが存在して配列が空でないか

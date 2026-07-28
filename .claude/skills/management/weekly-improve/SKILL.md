@@ -82,8 +82,13 @@ Traffic-Drop, Hidden-Winner, Orphan-Query, SNS-Source-Shift〔SNS 流入の急�
    - GA4 カスタムディメンション `event_label`／`event_category`（イベントスコープ）は **2026-07-07 登録済み**（遡及なし＝それ以前の窓は空が正常）。登録直後は伝播〜48h。本番クリックが蓄積するまで 0 件も正常。ファイルが無ければ by-label fetch 失敗（伝播待ち or fetch エラー）を 1 行残す。
 2. **BuildJob 期限（2026-08-31）**: 無料キャリア面談 ¥50,000 の増額キャンペーンは 8/31 まで。**残り週数を表示**し、9/1（= 8/31 15:00 UTC）で全 BuildJob 面が GKS へ自動復帰する（SSG・ビルド時刻で確定）ことを想起する。**9 月最初の本番ビルド後は本 Phase で「BuildJob 面が消えて GKS へ戻ったか」を curl で 1 回検証**（万一再ビルドが無ければ creative 定数を手動 revert）。
 3. **EPC 判定への布石**: A8 成果（`.claude/state/metrics/affiliate/a8-results.json` 。`/a8-report` で自動収集・単月 run のみ反映）÷ GA4 クリックで案件別 EPC を出し、BuildJob vs 建設JOBs vs GKS の勝者を ~2026-09 に判定（backlog P5）。本 Phase は「クリックの推移を追う」までで、成果転記と EPC 確定は月次で行う。
+   - **判定基準は `affiliate-operations.md` §6.5「成果ドリブンの見直し基準」に従う**。特に
+     (a) ASP 公開 EPC（市場平均）と自サイト実測 EPC を混同しない
+     (b) **確定成果 3 件未満は判定不能＝据え置き**（2026-07 時点で全案件が未達・累計 137click/確定 0 円）
+     (c) 9/1 以降の A/B の対戦相手は BuildJob ではなく **GKS**（キャンペーン終了で自動切替されるため）
+   - 判定不能なら「判定不能で据え置き」と §6.5 の裁定ログに 1 行残す（残さないと毎月同じ検討を繰り返す）
 
-配置・ラベル規約・a8-results 運用の真実源: `.claude/knowledge/reference/affiliate-operations.md`。
+配置・ラベル規約・a8-results 運用・EPC 判断マトリクスの真実源: `.claude/knowledge/reference/affiliate-operations.md`。
 
 ### Phase 4: 候補のランキング（`/nsm-experiment propose` 連携）
 
@@ -111,12 +116,26 @@ Traffic-Drop, Hidden-Winner, Orphan-Query, SNS-Source-Shift〔SNS 流入の急�
 
 ユーザーが採用した候補を `/nsm-experiment start` で `running` 状態に遷移。baseline が固定される。
 
+### Phase 7: 裁定の記録（append-only）
+
+今回 surface した候補それぞれの**裁定**を `.claude/knowledge/reference/gsc-management.md` の
+「観測・判断ログ」へ 3〜5 行で追記してから終了する。見出しは `### YYYY-MM-DD（週次・/weekly-improve）`。
+
+- 採用 → 実験 ID（EXP-xxx）
+- 見送り → 理由（例: impressions が母数不足・ROI 低）
+- 保留 → **再浮上の条件**（条件を書かない保留は無期限滞留する。EXP-002 の learnings）
+
+なぜ必要か: `improvements/{date}.md` は候補の生データとして残るが、**実験化されなかった候補が
+どう裁定されたかの記録が無く**、同じ候補を翌週また検討して消費されないループになっていた。
+coverage 側は同ログで判断が積み上がっている（`/gsc-review`）ので、performance 側も同じ場所に残す。
+
 ## 出力
 
 - `.claude/state/metrics/gsc/*.json` — 取得した GSC データ
 - `.claude/state/metrics/ga4/*.json` — 取得した GA4 データ
-- `.claude/state/improvements/{YYYY-MM-DD}.md` — 改善候補リスト
+- `.claude/state/improvements/{YYYY-MM-DD}.md` — 改善候補リスト（生データ）
 - `.claude/state/experiments.json` — 採用された候補が追記される（status: running）
+- `.claude/knowledge/reference/gsc-management.md` — 観測・判断ログへ裁定を追記（Phase 7）
 
 ## 運用ルール
 

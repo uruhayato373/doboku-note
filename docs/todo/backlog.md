@@ -142,6 +142,19 @@ page/category の合成ロジック共通化（2026-06-25 アセスメント起�
 
 ## 🟡 中 — 2〜3ヶ月以内
 
+### search-growth 修正計画の裁定セッション（判断待ち 2,077 URL の消化）
+タグ: [運用基盤]
+
+`/google-search-growth` の最新 run（2026-07-23・`.claude/state/improvements/search-growth-latest.md`）が
+**UNKNOWN_REVIEW 1,765 件・NOINDEX_CANDIDATE 312 件**を承認ゲート前で滞留させている
+（FIX_TECHNICAL / REDIRECT_LEGACY は 0 件＝機械適用できる技術修正は出尽くし）。
+**全件裁定は非現実的なので、上位バケットの代表を見て一括方針を決める**のがスコープ:
+①UNKNOWN_REVIEW を発生源別（GSC 未登録 / 内部リンク孤立 / パラメータ違い等）に束ね、
+バケットごとに「一括 noindex / 一括据え置き / 個別精査」を決める
+②NOINDEX 候補 312 件は代表 10 件を実 URL で確認してから一括判断
+③決めた方針を `gsc-management.md` の観測・判断ログへ記録（次 run で同じ 1,765 件を再検討しないため）。
+seo-fix-planner は audit-only なので適用は人の承認後。
+
 ### note ライブ有料境界の検査を curl 経路で恒久化
 タグ: [運用基盤]
 
@@ -278,7 +291,7 @@ BuildJob アフィリスプリントで注入された copy が rule 15-1（文�
 P1-P3（GA4 計測基盤・NextStepNav・季節モード note CTA）は実装済み。
 
 - **P4**: `keyword-relations.json`（598KB・未活用）から RelatedKeywords 未記述の keyword 記事へ build 時 top-N 自動挿入 fallback。要: 挿入品質の監査＋PE keyword 面 A/B
-- **P5**: アフィリ EPC 判定のタイムボックス化（~2026-09 に GA4 `affiliate_cta_click`×A8 成果で勝者決定・負け arm 撤去）
+- **P5**: アフィリ EPC 判定（~2026-09）。基準は `affiliate-operations.md` §6.5 に新設済。**着手前に 2 点確認**: ①現状は確定成果 0 件（累計 137click）で**分母規律未達＝判定不能**、分母供給には A8 単月取得（`a8-ui:fetch -- --month`）が前提 ②9/1 以降の対戦相手は BuildJob ではなく **GKS**（8/31 キャンペーン終了で自動切替）。期限で無理に決めず、判定不能なら §6.5 の裁定ログに据え置きを記録する
 - **P6**: 高購買意欲ページへ MDX 本文内 `<MagazineCard>` の個別商品導線補強。要: `sales-log.json` で対象ページ特定が先
 - **P7**（🟢）: concrete 系の L2 もくじ新設（note 商品拡充が前提）
 
