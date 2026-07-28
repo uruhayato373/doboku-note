@@ -4,6 +4,27 @@
 
 ---
 
+## 進捗（2026-07-28夜〜29未明・このMacで実施）
+
+PDF添付復旧（[2026-07-28-note-pdf-attachment-recovery.md](2026-07-28-note-pdf-attachment-recovery.md)）の後にドライラン→本実行。**668件中574件が実追加対象**（63件は99上限で追加不可・31件は既に充足）。
+
+`--commit` で実行し **362件成功**（安全中断6件・タイムアウト失敗6件）まで進んだところでユーザー指示により意図的に停止（`kill -TERM`）。停止直後、進行中だった残り212件は「browser closed」で見せかけの失敗になっているが**実変更なし**。
+
+`note-sync-tags` は `note-attach-batch` と違い **done-log を持たず、実行のたびに live を再測定して不足分だけ追加する冪等設計**。再開は同じコマンドをそのまま再実行するだけでよい:
+
+```bash
+node scripts/note-sync-tags.mjs --list .claude/state/note-tag-sync-targets.txt --commit > .tmp/tagsync-night.log 2>&1
+```
+
+`.claude/state/note-republish-hashes.json`（362件分のハッシュ更新）は commit 済み（`59f4381bfd`）。
+
+> [!note] 実行中にシステム負荷で大きく速度が変動した
+> `uptime` の load average が一時 27（8コア機）まで上がり、その間は timeout/ABORT が増えて 6.5分/記事まで低下した。負荷が下がると本来の速さ（数十秒/記事）に戻った。次回実行時、極端に遅い場合はまず `uptime` でシステム負荷を疑う。
+
+途中経過（このMacでの実測ペースの参考値）: 開始8時間半で217件、10時間41分で372件。負荷変動を含む数字なので目安程度に。
+
+---
+
 ## 今夜やること（1コマンド）
 
 ```bash

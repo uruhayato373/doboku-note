@@ -4,6 +4,27 @@
 
 ---
 
+## 進捗（2026-07-28夜・このMacで実施）
+
+**202件中95件解消・残107件。** 内訳:
+
+- 「先に片づける: PDF商品5本」（下記）は**完了**
+- 本体バッチ `--limit 95 --commit` で **90件成功**
+- バッチ失敗5件中4件（`na84b001e827e`・`n793523a059e5`・`ndaa4a6d2aec3`・`nf5ce8808ee55`）を個別リトライで解消。1件（`n155093f42183`）は5本セットの側で先に解消済み
+
+全量ライブ実測（`check-note-attachments.mjs --live`）で **充足172 / 不足107** を確認済み。`.claude/state/note-attach-done.json` と `.claude/state/note-attachments-missing.json` は commit 済み（`1d44c197e6`）。
+
+**実アップロード数は本日で約98件**（100件上限にほぼ到達）。**本日はこれ以上の新規添付を行わない。** 残107件は翌日以降、`note-attach-batch.mjs --commit`（`--limit`省略で既定100）をそのまま再実行すれば done-log から続きが進む。
+
+> [!warning] `note-attach-batch.mjs` は既定の境界regex（`試験問題|予想問題`）しか使わない
+> frontmatter に独自の `paidBoundary` を持つ記事（PDF単体商品・「直前暗記ノート」型）はバッチが境界検証NGで安全中断する（**アップロードはされるが再公開されない**ため実害なし）。バッチが `exit=8` または `exit=null` で失敗した記事は、個別に `--boundary-regex` を指定して手動リトライする:
+> ```bash
+> node scripts/note-attach-file.mjs --note <noteId> --file <pdf> --boundary-regex "<frontmatterのpaidBoundary>" --commit
+> ```
+> `exit=null`（タイムアウト等でクラッシュ）は再実行するだけでよい場合が多い（アップロード自体は完了しており「既存PDFカード=true」で再公開のみになる）。
+
+---
+
 ## 何が起きているか
 
 **PDF を売っている note 記事 202 本で、PDF がライブから消えている**。購入者が代金を払っても受け取れない。
@@ -72,7 +93,7 @@ node scripts/check-note-attachments.mjs --live
 
 `.claude/state/note-attachments-missing.json` が更新されるので、これも commit する。
 
-### 先に片づける: PDF商品5本の本文反映（添付より前）
+### 先に片づける: PDF商品5本の本文反映（添付より前）— 完了済み（2026-07-28）
 
 PDF商品5本に「**この記事でわかること**」を追加した（購入判断材料が無く、しかも最高価格帯に欠落が集中していた）。**ソースだけ直してライブは未反映**なので、本文を反映してから添付する。
 
