@@ -197,7 +197,24 @@ node scripts/check-note-price-consistency.mjs --staged   # pre-commit（関連 s
 node scripts/check-note-price-consistency.mjs --json      # 機械可読
 ```
 
-**このゲートは live を検査しない。** frontmatter↔live のドリフト（07-28 の BK がまさにそれ）は curl 経路の実測でしか捕まらない → 恒久化は `docs/todo/backlog.md`「note ライブ有料境界の検査を curl 経路で恒久化」に集約。
+**このゲートは live を検査しない。** frontmatter↔live のドリフトは curl 経路の実測（`check-note-structure`）でしか捕まらない。
+
+### メタゲート: 検査ゼロで PASS を検知する `check-gate-coverage`（2026-07-28 新設）
+
+2026-07-28 に **4 つのゲートが同時に「1 件も検査しないまま緑」** を返していた。「異常0件」と「検査0件」は出力が同じ緑になり区別できないため、事故が長期間隠れる。
+
+| ゲート | 故障 |
+|---|---|
+| `check-note-structure` | Node `fetch` がプロキシで全滅 → `FETCH_ERR` が INFO 扱いで exit 0（675/675 失敗でも緑） |
+| `check-note-site-utm` | `join()` の `\` 区切りをパス正規表現で判定 → Windows の全量実行が常に 0 件 |
+| `check-note-republish` / `audit-note-cards` | `article.md` 固定で型別 `article-*.md` を走査せず、建設部門の大半が対象外 |
+| `check-note-live-headings` | 全件取得失敗でも「✓ 不整合なし」 |
+
+その陰で**有料記事2本が無料プレビュー0字**、**送客リンク64件がライブでリンク切れ**のまま公開されていた。
+
+`check-gate-coverage` は個々の検査内容に立ち入らず、**ソース走査型ゲートが妥当な件数を拾えているか**だけを見る（走査が壊れれば件数が急減する）。`npm run check-gate-coverage`・r2-audit.yml の週次 CI に配線。故障注入（走査ルートを存在しないパスへ差し替え）で、壊れた側が単体 exit 0 のままメタゲートが exit 1 で捕捉することを実測済み。
+
+**ゲートを書くときの決まり**: 検査対象数と実検査数を必ず出力する／取得失敗が支配的なら exit 1／ファイル判定はパス全体でなく**ファイル名**で行う／note 記事の走査は `/^article(-[^/\\]+)?\.md$/`／外部取得は `fetch` でなく `curl --ssl-no-revoke`。
 
 ### 記事の削除: note-delete-note（2026-07-04 実機確定）
 - **公開済み記事はエディタからは削除できない**。`editor.note.com/notes/{key}/edit` の右上「・・・」メニューは**「変更履歴」のみ**で削除項目がない（下書きでも編集画面のブロック用「削除」ボタンが紛れて誤操作しやすい）。

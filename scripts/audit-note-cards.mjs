@@ -32,7 +32,9 @@ function walk(dir, acc = []) {
   for (const e of readdirSync(dir, { withFileTypes: true })) {
     const p = join(dir, e.name);
     if (e.isDirectory()) walk(p, acc);
-    else if (e.name === 'article.md') acc.push(p);
+    // 型別ファイル（article-II1.md 等）も対象。BK-02〜11 は大半がこの形式のため、
+    // article.md 固定では建設部門マガジンのカードが丸ごと監査対象外だった（2026-07-28 修正）。
+    else if (/^article(-[^/\\]+)?\.md$/.test(e.name)) acc.push(p);
   }
   return acc;
 }

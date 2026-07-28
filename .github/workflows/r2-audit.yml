@@ -79,6 +79,17 @@ jobs:
       - name: Check note paid boundary (paidBoundary resolvable, full)
         run: npm run check-note-boundary
 
+      # 単品価格の一貫性（マガジン内 L1 / 宣言済みシリーズ L2）。pre-commit は --staged のみで
+      # 「触っていないマガジンのドリフト」を拾えないため、全量の backstop をここに置く。
+      # network 不要（ソース内検査）。2026-07-28 新設。
+      - name: Check note price consistency (full)
+        run: npm run check-note-price-consistency
+
+      # メタゲート: ゲート自身が壊れて「1件も検査せずに緑」を返していないかを検査する。
+      # 2026-07-28 に4つのゲートが同時にこの状態だった（走査ロジック / 取得経路の故障）。
+      - name: Check gate coverage (gates are actually inspecting)
+        run: npm run check-gate-coverage
+
       # affiliate-career-only 違反 prose（添削サービス/講座ブランド等の再提案）の全量 backstop。
       # pre-commit はローカル限定でクラウドルーティンの自動生成を守れないため CI で全 .local/r2/posts を検査。
       - name: Check affiliate-career-only prose (no abolished course/添削 re-proposals)
