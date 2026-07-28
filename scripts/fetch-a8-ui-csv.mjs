@@ -8,7 +8,8 @@
  * CLI:
  *   node scripts/fetch-a8-ui-csv.mjs --dry-run
  *   node scripts/fetch-a8-ui-csv.mjs --dry-run --probe-isolation
- *   node scripts/fetch-a8-ui-csv.mjs --dry-run --probe-period   # 期間フォームの実機観察（単月取得の前提）
+ *   node scripts/fetch-a8-ui-csv.mjs --dry-run --probe-period   # 期間フォームの実機観察
+ *   node scripts/fetch-a8-ui-csv.mjs --month 2026-06 --reports site-summary,program-detail  # 単月取得
  *   node scripts/fetch-a8-ui-csv.mjs --reports program-detail
  *   node scripts/fetch-a8-ui-csv.mjs --reports all --headed
  *
@@ -34,6 +35,7 @@ import {
   waitForHumanLoginA8,
   assertA8Account,
   assertTargetSiteRow,
+  setPeriodMonth,
   readVisibleSiteContext,
   dumpFailure,
   downloadTo,
@@ -47,13 +49,14 @@ const STATE_DIR = ".claude/state/metrics/affiliate/a8-ui";
 
 function parseArgs() {
   const a = process.argv.slice(2);
-  const opts = { dryRun: false, headed: false, reports: "all", probeIsolation: false, probePeriod: false };
+  const opts = { dryRun: false, headed: false, reports: "all", probeIsolation: false, probePeriod: false, month: null };
   for (let i = 0; i < a.length; i++) {
     if (a[i] === "--dry-run") opts.dryRun = true;
     else if (a[i] === "--headed") opts.headed = true;
     else if (a[i] === "--probe-isolation") opts.probeIsolation = true;
     else if (a[i] === "--probe-period") opts.probePeriod = true;
     else if (a[i] === "--reports") opts.reports = a[++i];
+    else if (a[i] === "--month") opts.month = a[++i];
   }
   return opts;
 }
@@ -179,7 +182,7 @@ async function probePeriodForm(page, cfg, reportKey = "site-summary") {
 }
 
 /** 1 レポート分の取得。dry-run は検出のみ。 */
-async function processReport(page, cfg, runId, runDir, { reportKey, dryRun }) {
+async function processReport(page, cfg, runId, runDir, { reportKey, dryRun, month = null }) {
   const spec = cfg.a8.reports[reportKey];
   const unit = {
     reportKey,
@@ -193,6 +196,7 @@ async function processReport(page, cfg, runId, runDir, { reportKey, dryRun }) {
     exportButtonUnique: null,
     siteScope: spec.siteScope || "account-wide",
     period: null,
+    requestedMonth: month,
     status: "pending",
     error: null,
   };
@@ -229,6 +233,23 @@ async function processReport(page, cfg, runId, runDir, { reportKey, dryRun }) {
     }
   }
 
+  // ★ 単月指定（--month）。既定は A8 の累計期間なので、指定が無ければ何もしない。
+  //   期間を変えると表が再描画されるので、export ボタンを掴む前に済ませる。
+  if (month) {
+    const set = await setPeriodMonth(page, cfg, { month });
+    unit.periodSet = set;
+    if (!set.ok) {
+      await dumpFailure(page, cfg, runId, {
+        step: "set-period-month",
+        expected: [cfg.a8?.periodForm?.startPlaceholder, cfg.a8?.periodForm?.endPlaceholder].filter(Boolean),
+        message: `期間フォームを単月に設定できない: ${set.reason}`,
+      });
+      unit.status = "period-set-failed";
+      unit.error = set.reason;
+      return unit;
+    }
+  }
+
   // エクスポートボタン
   const { locator, count } = await findUniqueByLabels(page, cfg.a8.exportButtonLabels, {
     roles: ["button", "link"],
@@ -260,6 +281,14 @@ async function processReport(page, cfg, runId, runDir, { reportKey, dryRun }) {
     // 期間は URL で制御できないため、実際に何の期間を取れたかはここでしか分からない。
     unit.suggestedFilename = dl.suggested ?? null;
     unit.period = parsePeriodFromFilename(dl.suggested);
+    // ★ 期間の fail-closed 検証。ファイル名が実際に取れた期間の唯一の証拠なので、
+    //   要求した単月と一致しない CSV は normalize に流さない（誤った月へ upsert すると
+    //   EPC の分母が静かに壊れる）。
+    if (month && unit.period?.singleMonth !== month) {
+      unit.status = "period-mismatch";
+      unit.error = `要求 ${month} に対し取得できた期間は ${unit.period?.raw ?? "不明"}（singleMonth=${unit.period?.singleMonth ?? "null"}）`;
+      return unit;
+    }
     const decoded = decodeCsvBuffer(readFileSync(dest), cfg.a8.csvEncoding);
     unit.encoding = decoded.encoding;
     const { headers, rows } = parseCsv(decoded.text);
@@ -294,6 +323,9 @@ async function main() {
     site: cfg.a8.targetSite,
     mediaId: cfg.a8.mediaId,
     mode: opts.dryRun ? "dry-run" : "fetch",
+    // 要求した単月（null = A8 既定の累計期間）。normalize 側はこれと unit.period の
+    // 突き合わせで、誤った月への upsert を拒否できる。
+    requestedMonth: opts.month ?? null,
     browserHeadless: !opts.headed && cfg.browser.headless,
     scriptVersion: gitCommit(),
     units: [],
@@ -360,16 +392,20 @@ async function main() {
     }
 
     if (opts.probePeriod) {
-      const pp = await probePeriodForm(page, cfg);
-      manifest.periodFormProbe = pp;
-      const named = pp.fields.filter((f) => f.name || f.options);
-      console.log(`[probe-period] ${pp.reportKey} ${pp.url}`);
-      console.log(`  input/select ${pp.fields.length} 件（name または options を持つもの ${named.length} 件）:`);
-      for (const f of named) console.log(`    ${JSON.stringify(f)}`);
-      console.log("  button:");
-      for (const b of pp.buttons.filter((b) => b.visible)) console.log(`    ${JSON.stringify(b)}`);
+      manifest.periodFormProbe = [];
+      for (const key of reportKeys) {
+        const pp = await probePeriodForm(page, cfg, key);
+        manifest.periodFormProbe.push(pp);
+        // _csrf は同値が複数出るだけのノイズなので落とす
+        const named = pp.fields.filter((f) => (f.name || f.options) && f.name !== "_csrf");
+        console.log(`[probe-period] ${pp.reportKey} ${pp.url}`);
+        console.log(`  input/select ${pp.fields.length} 件（うち意味のあるもの ${named.length} 件）:`);
+        for (const f of named) console.log(`    ${JSON.stringify(f)}`);
+        console.log("  button(visible):");
+        for (const b of pp.buttons.filter((b) => b.visible)) console.log(`    ${JSON.stringify(b)}`);
+      }
       console.log("  → この出力を見て .claude/config/a8-report-automation.json の a8.periodForm を確定する");
-      console.log("     （月レンジと日レンジで同名 input が 2 組ある。どちらを操作するかは推測しない）");
+      console.log("     （レポートにより期間フォームの粒度が異なる。どれを操作するかは推測しない）");
     }
 
     for (const reportKey of reportKeys) {
@@ -377,7 +413,11 @@ async function main() {
         console.warn(`[warn] 未知の reportKey: ${reportKey}（config に無し・スキップ）`);
         continue;
       }
-      const unit = await processReport(page, cfg, runId, runDir, { reportKey, dryRun: opts.dryRun });
+      const unit = await processReport(page, cfg, runId, runDir, {
+        reportKey,
+        dryRun: opts.dryRun,
+        month: opts.month,
+      });
       manifest.units.push(unit);
       console.log(`  ${reportKey}: ${unit.status}${unit.csvRows != null ? ` (${unit.csvRows} 行)` : ""}`);
     }

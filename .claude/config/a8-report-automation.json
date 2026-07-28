@@ -12,7 +12,22 @@
 
     "_isolationNote": "レポートごとに siteScope が異なる（2026-07-27 実機確認）:\n  site-rows    = サイト列があり targetSite の行だけ採れば **完全に分離できる**（/report/site のみ）。doboku-note 実績の真実源。\n  account-wide = 口座横断でサイト分離不能（program/detail・period/*）。programIdMap の allowlist で doboku 分を抽出し、site-rows と突合して混入を検算する（allowlist 合計が doboku-note 行を超えたら混入の疑い）。\n代替案の検討結果: /report/program/detail は category フィルタのみでサイト列なし。/report/material の「素材ID」は 001/003/999 の3桁で a8mat の第4トークン（TSBE9 等）とは別物のため素材による分離も不可。",
 
-    "_periodNote": "**期間は URL クエリでは制御できない**（start_date/end_date を付けても無視され既定期間が返る＝2026-07-27 実測）。画面のフォーム（input name=start / end・月レンジと日レンジの2組）を操作する必要がある。現状の取得は A8 の既定期間（年初〜当月の累計）。実際の期間は CSV のファイル名に入る（例 site_202601-202607_20260727105756.csv）ので manifest に記録する。月次分解は docs/todo/backlog.md の後続タスク。",
+    "_periodNote": "**期間は URL クエリでは制御できない**（start_date/end_date を付けても無視され既定期間が返る＝2026-07-27 実測）。画面のフォームを操作する必要がある。既定は A8 の累計期間（年初〜当月）。実際に取れた期間は CSV のファイル名にしか出ない（例 site_202601-202607_20260727105756.csv）ので manifest に記録し、要求と一致しなければ取り込まない（fail-closed）。",
+    "periodForm": {
+      "granularity": "month",
+      "startPlaceholder": "開始月",
+      "endPlaceholder": "終了月",
+      "valueFormat": "YYYY年MM月",
+      "applyButtonLabel": "適用",
+      "monthTabLabel": "月指定",
+      "pickerRoot": ".datepicker-dropdown",
+      "monthCell": ".datepicker-cell.month",
+      "disabledCellClass": "disabled",
+      "yearSwitch": ".datepicker-picker .view-switch",
+      "prevYearLabel": "«",
+      "nextYearLabel": "»"
+    },
+    "_periodFormNote": "2026-07-28 の実機観察（--probe-period）で確定した値。推測ではない。\n**同名 input `start`/`end` を一意に選ぶ鍵は placeholder**（name では選べない）:\n  site-summary(/report/site)        … 月レンジのみ。開始月/終了月 が visible。日指定は存在しない\n  program-detail(/report/program/detail) … 月レンジ（開始月/終了月・visible・既定）と日レンジ（開始日/終了日・hidden）が併存し、\n                                          「月指定」「日指定」のタブで切り替わる。既定が月指定なので通常はタブ操作不要\n値の表記は **和暦でも ISO でもなく `2026年01月`**（日レンジは `2026年07月01日`）。入力後に「適用」ボタンで確定する。\nperiod-monthly / period-daily は単月取得の対象外（EPC に必要なのは site-summary と program-detail の 2 つ）。",
 
     "reports": {
       "site-summary": {

@@ -9,7 +9,35 @@
     "revenueYen": "確定報酬（円）",
     "note": "備考（キャンペーン期間・イレギュラー等）"
   },
-  "records": [],
-  "updatedAt": "2026-07-27T02:34:17.727Z",
+  "records": [
+    {
+      "month": "2026-06",
+      "program": "buildjob",
+      "clicks": 20,
+      "conversions": 1,
+      "approved": 0,
+      "revenueYen": 0,
+      "note": "A8 レポート自動取込（ビルドジョブ｜建設業界特化の転職エージェントの無料キャリア面談）"
+    },
+    {
+      "month": "2026-06",
+      "program": "dx-consulting",
+      "clicks": 14,
+      "conversions": 0,
+      "approved": 0,
+      "revenueYen": 0,
+      "note": "A8 レポート自動取込（コンサル・DX・スタートアップへ。CxO直結の非公開求人で年収を最大化【Groovement Agent】）"
+    },
+    {
+      "month": "2026-06",
+      "program": "gks",
+      "clicks": 27,
+      "conversions": 0,
+      "approved": 0,
+      "revenueYen": 0,
+      "note": "A8 レポート自動取込（建設業界特化！未経験から施工管理職へ。手厚いサポートで資格取得も支援【GKSキャリア】）"
+    }
+  ],
+  "updatedAt": "2026-07-28T02:21:51.962Z",
   "source": "fetch-a8-ui-csv.mjs → normalize-a8-csv.mjs（自動取込。手入力は不要）"
 }

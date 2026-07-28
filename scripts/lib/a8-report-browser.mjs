@@ -173,3 +173,142 @@ export async function assertTargetSiteRow(page, cfg) {
   if (text.includes(target)) return { ok: true, target };
   return { ok: false, target, reason: `サイト別レポートに "${target}" の行が見当たらない` };
 }
+
+/** `2026-06` → `2026年06月`（A8 の月フォームの表記。2026-07-28 実測）。 */
+export function formatA8Month(month) {
+  const m = /^(\d{4})-(\d{2})$/.exec(String(month ?? ""));
+  if (!m) throw new Error(`--month は YYYY-MM 形式で指定してください（受領: ${month}）`);
+  const mm = Number(m[2]);
+  if (mm < 1 || mm > 12) throw new Error(`月が範囲外です: ${month}`);
+  return `${m[1]}年${m[2]}月`;
+}
+
+/**
+ * 期間フォームを「単月」に設定する（開始月＝終了月＝month）。
+ *
+ * なぜ必要か: A8 は期間を URL で制御できず既定が累計（年初〜当月）なので、そのままでは
+ * `parsePeriodFromFilename` の singleMonth が埋まらず a8-results.json（月次キー）へ写せない
+ * ＝ EPC の分母が供給されない。
+ *
+ * 設計: セレクタは config の `a8.periodForm`（実機観察で確定した値）駆動。**name では選べない**
+ * （start/end は月レンジと日レンジで重複するため）ので placeholder で一意化し、
+ * 一意に定まらなければ推測操作せず失敗を返す（fail-closed）。実際に何の期間が取れたかは
+ * CSV のファイル名でしか分からないので、成否の最終判定は呼び出し側が DL 後に行う。
+ */
+export async function setPeriodMonth(page, cfg, { month }) {
+  const pf = cfg.a8?.periodForm;
+  if (!pf) return { ok: false, reason: "config に a8.periodForm が無い（--probe-period で実機を観察して確定する）" };
+
+  const value = formatA8Month(month);
+  const [targetYear, targetMonth] = month.split("-").map(Number);
+
+  // レポートを続けて処理すると前ページのピッカーが残っていて入力欄が二重に見えることがある
+  // （site-summary → program-detail の連続実行で実測）。開いていれば閉じて描画を落ち着かせる。
+  if ((await page.locator(`${pf.pickerRoot}:visible`).count().catch(() => 0)) > 0) {
+    await page.keyboard.press("Escape").catch(() => {});
+    await page.waitForTimeout(400);
+  }
+  await page.waitForLoadState("networkidle", { timeout: cfg.browser.timeoutMs }).catch(() => {});
+
+  // 月指定タブがあり、月フォームが隠れているときだけ切り替える（既定は月指定＝通常は不要）
+  const startLoc = page.locator(`input[placeholder="${pf.startPlaceholder}"]`);
+  if ((await startLoc.count().catch(() => 0)) > 0 && !(await startLoc.first().isVisible().catch(() => false))) {
+    if (pf.monthTabLabel) {
+      const tab = page.getByRole("button", { name: pf.monthTabLabel, exact: false });
+      if ((await tab.count().catch(() => 0)) === 1) {
+        await tab.click().catch(() => {});
+        await page.waitForTimeout(500);
+      }
+    }
+  }
+
+  // "1月" が "11月" に部分一致しないよう完全一致で絞る。disabled はセル自身のクラスなので
+  // CSS の :not() で除く（filter({hasNot}) は「子孫に持たない」の意味で、ここでは効かない）。
+  const cellRe = new RegExp(`^${targetMonth}月$`);
+  const cellSelector = `${pf.pickerRoot}:visible ${pf.monthCell}:not(.${pf.disabledCellClass})`;
+
+  // 開始・終了それぞれ、自分の入力欄をクリックしてピッカーを開いてから月セルを選ぶ。
+  // **input へ直接 fill してはいけない**（vanillajs-datepicker は DOM の value を書き換えても
+  // 内部の選択状態が変わらず、「適用」しても既定期間のまま CSV が出る＝2026-07-28 実測）。
+  // また開始を選ぶとピッカーが閉じるので、終了は開き直す必要がある（同上）。
+  for (const [which, placeholder] of [
+    ["開始", pf.startPlaceholder],
+    ["終了", pf.endPlaceholder],
+  ]) {
+    const input = page.locator(`input[placeholder="${placeholder}"]:visible`);
+    const inputCount = await input.count().catch(() => 0);
+    if (inputCount !== 1) {
+      const all = await page.locator(`input[placeholder="${placeholder}"]`).count().catch(() => 0);
+      return {
+        ok: false,
+        reason: `${which}月の入力欄（placeholder="${placeholder}"）が一意に定まらない（visible ${inputCount} 件 / 全 ${all} 件）`,
+      };
+    }
+    await input.first().click();
+    await page.waitForTimeout(700);
+
+    const picker = page.locator(`${pf.pickerRoot}:visible`).first();
+    if ((await picker.count().catch(() => 0)) === 0) {
+      return { ok: false, reason: `${which}月のピッカー（${pf.pickerRoot}）が開かない` };
+    }
+
+    // 表示年を目標年に合わせる（« / » を必要回数。上限つきで無限ループを防ぐ）
+    const readYear = async () => {
+      const t = await picker
+        .locator(pf.yearSwitch.split(" ").pop())
+        .first()
+        .innerText()
+        .catch(() => "");
+      const m = /(\d{4})/.exec(t || "");
+      return m ? Number(m[1]) : null;
+    };
+    for (let guard = 0; guard < 12; guard++) {
+      const shown = await readYear();
+      if (shown == null || shown === targetYear) break;
+      const label = shown > targetYear ? pf.prevYearLabel : pf.nextYearLabel;
+      const nav = picker.getByText(label, { exact: true }).first();
+      if ((await nav.count().catch(() => 0)) === 0) {
+        return { ok: false, reason: `年移動ボタン "${label}" が見つからない（表示 ${shown} / 目標 ${targetYear}）` };
+      }
+      await nav.click();
+      await page.waitForTimeout(350);
+    }
+    const shownYear = await readYear();
+    if (shownYear != null && shownYear !== targetYear) {
+      return { ok: false, reason: `表示年を ${targetYear} に合わせられない（現在 ${shownYear}）` };
+    }
+
+    const cell = page.locator(cellSelector).filter({ hasText: cellRe });
+    if ((await cell.count().catch(() => 0)) === 0) {
+      return { ok: false, reason: `${which}の月セル "${targetMonth}月" が選べない（未来月は disabled）` };
+    }
+    await cell.first().click();
+    await page.waitForTimeout(600);
+  }
+
+  const apply = page.getByRole("button", { name: pf.applyButtonLabel, exact: false });
+  const applyCount = await apply.count().catch(() => 0);
+  if (applyCount !== 1) {
+    return { ok: false, reason: `「${pf.applyButtonLabel}」ボタンが一意に定まらない（候補 ${applyCount} 件）` };
+  }
+  await apply.click();
+  await page.waitForLoadState("networkidle", { timeout: cfg.browser.timeoutMs }).catch(() => {});
+  await page.waitForTimeout(1500);
+
+  // 反映確認。ここが要求値でも CSV が同じ期間とは限らないので、最終判定は
+  // 呼び出し側が DL 後にファイル名で行う（fail-closed）。
+  const appliedStart = await page
+    .locator(`input[placeholder="${pf.startPlaceholder}"]:visible`)
+    .first()
+    .inputValue()
+    .catch(() => null);
+  const appliedEnd = await page
+    .locator(`input[placeholder="${pf.endPlaceholder}"]:visible`)
+    .first()
+    .inputValue()
+    .catch(() => null);
+  if (appliedStart !== value || appliedEnd !== value) {
+    return { ok: false, reason: `期間が単月 ${value} にならない（開始 ${appliedStart} / 終了 ${appliedEnd}）` };
+  }
+  return { ok: true, requestedMonth: month, value, appliedStart, appliedEnd };
+}

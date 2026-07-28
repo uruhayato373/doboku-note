@@ -420,7 +420,23 @@ PR #269（カタログ）/#270（SNSレンダラー）済。残 = Phase4 記事�
 
 ## 🟢 低 — 時期未定
 
-### A8 レポートの期間指定（月次内訳の自動化）
+### A8 月次バックフィルと不足クリック 13 の特定
+タグ: [インフラ・計測]
+
+単月取得（`--month`）は 2026-07-28 に実装・実走完了（下の旧タスクは解決済み）。残作業は 2 つ:
+
+1. **未取込月のバックフィル**: 現在 `a8-results.json` に入っているのは 2026-06 のみ。
+   EPC の時系列を揃えるには 2026-01〜2026-07 を月ごとに取る
+   （`npm run a8-ui:fetch -- --month YYYY-MM --reports site-summary,program-detail` → `a8-ui:normalize -- --latest`）。
+   ローカル・要 A8 ログイン
+2. **不足クリック 13 の特定**: 2026-06 のサイト別 doboku-note は 74 click だが、
+   allowlist（自社 4 案件）で説明できるのは 61 click。差 13 がどのプログラムか未特定
+   （`missingProgramCandidates` の候補は Neuro Dive・合宿免許・新卒エージェント等で、
+   いずれも stats47 側に見える）。自社案件なら `programIdMap` へ追記、
+   そうでなければサイト別レポートの集計差の説明を `a8-affiliate-pipeline.md` に残す。
+   放置すると毎回 `hasShortfall` が surface され続ける
+
+### （解決済み）A8 レポートの期間指定（月次内訳の自動化）
 タグ: [インフラ・計測]
 
 `/a8-report` は実装・実走済みだが、**A8 は期間を URL クエリで制御できない**（`start_date`/`end_date` は無視される＝2026-07-27 実測）。
