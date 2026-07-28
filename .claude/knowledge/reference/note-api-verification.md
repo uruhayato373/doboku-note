@@ -199,6 +199,23 @@ node scripts/check-note-price-consistency.mjs --json      # 機械可読
 
 **このゲートは live を検査しない。** frontmatter↔live のドリフトは curl 経路の実測（`check-note-structure`）でしか捕まらない。
 
+### ハッシュタグは「ソース」と「ライブ」の2トラック（2026-07-28 明文化）
+
+タグは `hashtags*.txt`（ソース）に持ち、note へは公開時（`note-publish`）または `note-sync-tags` で反映される。**この2つは独立して壊れる**ため、検査も2本立てにする。
+
+| トラック | ゲート | 見るもの |
+|---|---|---|
+| ソース | `npm run check-note-hashtags` | `docs/note/**/hashtags*.txt` が90個以上か。pre-commit（staged）＋ CI 全量 |
+| ライブ | `npm run check-note-live-tags` | note API の `hashtag_notes` が90個以上か。curl 経路・週次 CI（note-live-audit.yml） |
+
+**2026-07-28 の実測**: ソースは 748 件すべて 90+ で完備（欠落0）なのに、**ライブは 675 本中 250 本（37%）が 90 未満**だった（0タグ19本・30〜59が214本）。ソースだけ見ていると永遠に緑になる。
+
+`check-note-republish` の `tagDrift` はこの穴を塞がない —— あれは「ソースの hashtags が**記録時点から変わったか**」だけを見ており **live を一切見ない**（実際 `tagDrift=1` なのに live=0 の記事が19本あった）。
+
+`check-note-structure` の `TAG_SHORT` が唯一 live を実測していたが、`sev:'INFO'` 固定で `--ci` ゲート（CRITICAL のみ判定）に載らず誰も落としていなかった。**TAG_SHORT は INFO のまま残す**（レポート用）——CRITICAL に格上げすると「有料記事の全ロック・課金漏洩」と同列になり優先度が壊れるため、タグは独立ゲートで別管理にする。
+
+不足の解消は `node scripts/note-sync-tags.mjs --list <対象> --commit`（差分だけ追加・本文と有料境界は非破壊）。構造的にライブへ入らない記事（メンバーシップの `is_limited` 等）は `.claude/config/note-live-tags-allow.json` に**理由つきで**免除する。
+
 ### メタゲート: 検査ゼロで PASS を検知する `check-gate-coverage`（2026-07-28 新設）
 
 2026-07-28 に **4 つのゲートが同時に「1 件も検査しないまま緑」** を返していた。「異常0件」と「検査0件」は出力が同じ緑になり区別できないため、事故が長期間隠れる。

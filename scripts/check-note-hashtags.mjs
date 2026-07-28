@@ -79,6 +79,14 @@ if (ALL) {
   process.exit(0);
 }
 
+// 検査ゼロを PASS と呼ばない: 全量実行のはずが 0 件なら走査ロジックの故障を疑う
+// （2026-07-28、他4ゲートが「対象0件のまま緑」で事故を隠していた。--staged は 0 件が正常）。
+if (!STAGED && rows.length === 0) {
+  console.error('[check-note-hashtags] ✗ 検査対象が 0 件。走査ロジックの故障を疑う（正常時は 700 件超）。');
+  console.error(`  確認: ${ROOT} が存在するか／walk() のファイル名判定（hashtags*.txt）が壊れていないか。`);
+  process.exit(1);
+}
+
 if (!under.length) {
   console.log(`[check-note-hashtags] ✓ ${scope}${rows.length} 件の hashtags は全て ${THRESHOLD} タグ以上`);
   process.exit(0);

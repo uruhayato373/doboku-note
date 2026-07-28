@@ -177,6 +177,7 @@
     "check-note-boundary": "node scripts/check-note-boundary.mjs",
     "check-note-price-consistency": "node scripts/check-note-price-consistency.mjs",
     "check-gate-coverage": "node scripts/check-gate-coverage.mjs",
+    "check-note-live-tags": "node scripts/check-note-live-tags.mjs",
     "check-x-utm": "node scripts/check-x-utm.mjs",
     "verify-yt-status": "node .claude/scripts/youtube/verify-yt-status.mjs",
     "check-figure-canvas": "node scripts/check-figure-canvas.mjs",

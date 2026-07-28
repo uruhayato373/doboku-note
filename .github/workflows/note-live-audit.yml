@@ -61,6 +61,12 @@ jobs:
       - name: Audit note live structure
         run: node scripts/check-note-structure.mjs --ci
 
+      # ライブのハッシュタグ不足（note 検索流入の主要導線）。ソース側は check-note-hashtags が
+      # 別に見ており、こちらは live 専用。2026-07-28 に 675 本中 250 本が 90 未満だった。
+      - name: Audit note live hashtags
+        if: always() # 構造監査が落ちてもタグの状況は知りたい
+        run: node scripts/check-note-live-tags.mjs
+
       - name: Upload report
         if: always()
         uses: actions/upload-artifact@v4

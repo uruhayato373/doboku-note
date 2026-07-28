@@ -55,6 +55,15 @@ const GATES = [
     min: 100,
     note: 'paid published 記事数',
   },
+  {
+    name: 'check-note-hashtags',
+    cmd: ['node', 'scripts/check-note-hashtags.mjs'],
+    // 成功時「✓ N 件の hashtags は…」/ 違反時は列挙されるので走査は生きている
+    re: /✓\s*(\d+)\s*件の hashtags/,
+    aliveRe: /タグ未満が\s*\d+\s*件/,
+    min: 500,
+    note: 'hashtags*.txt の数。walk() が壊れると 0 になる',
+  },
 ];
 
 const results = [];

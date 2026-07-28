@@ -534,6 +534,10 @@ note 記事1本の完成条件は **3点セット**: `article.md` + `img/cover.p
 
 **ルール**: 記事が**公開状態**（frontmatter `noteUrl` 非空 OR `noteStatus` が `publish` を含む）になったら、`img/cover.png` と `hashtags.txt` は必須。**下書き（draft）は欠落して正常**（公開直前に仕上げる工程のため）。
 
+> [!warning] タグは「ソース」と「ライブ」の2トラック（2026-07-28 追記）
+> 本節のゲートが見ているのは**ソースの `hashtags.txt`** だけ。note ライブに実際に何個入っているかは別問題で、**独立して壊れる**。2026-07-28 の実測では、ソースは 748 件すべて 90+ で完備なのに **ライブは 675 本中 250 本（37%）が 90 未満**（0タグ19本）だった。ソースだけ見ていると永遠に緑になる。
+> ライブ側は `npm run check-note-live-tags`（curl 経路・週次 CI）が見る。不足は `note-sync-tags --list <対象> --commit` で差分追加（本文・有料境界は非破壊）。詳細 → [note-api-verification.md](note-api-verification.md)「タグはソースとライブの2トラック」。
+
 **hashtags.txt は「存在」だけでなく「タグ数」も検査する**（下限 `MIN_TAGS`＝既定 40・`NOTE_MIN_HASHTAGS` で調整可）。ハッシュタグは note 検索流入の主要導線で標準は**上限 99 近くの ~90 個**（`/note-hashtags`）。だが「存在だけ」を見ていた旧ゲートを、`/note-hashtags` を実行せず**手書き最小（10 個）や templ 軽量**の `hashtags.txt` が素通りしていた（2026-07-05、civil 二次学科ライン13本が10個・まるごとLP がライブ3個で発覚。バルク公開時に per-article の `/note-hashtags` を省いたのが原因）。下限未満は 3 点セット未完として BLOCK する。バルク記事を作るワークフローは**公開前に必ず `/note-hashtags` を各記事へ回す**（~90 個生成）。
 
 **機械検知**: `.claude/scripts/check-note-3set.mjs`。2 モードで運用する。

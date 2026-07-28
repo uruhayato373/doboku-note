@@ -1,0 +1,7 @@
+{
+  "_doc": "check-note-live-tags.mjs の allowlist。note ライブのタグが構造的に 90 未満のままになる記事だけを、理由つきで免除する。単に未対応なものは載せない（対応すること）。キーは docs/note/ 以降のディレクトリ（/article.md を除いた形）。真実源の解説は .claude/knowledge/reference/note-api-verification.md「タグはソースとライブの2トラック」。",
+
+  "allow": {
+    "1級・2級土木/メンバーシップ/はじめに-合格ラボ": "メンバーシップ(is_limited)記事は『試し読みエリアを設定→更新する』サブフローでタグ入力状態が破棄され、note-sync-tags では live=0 のまま保存される（2026-07-23 実測）。手動でエディタに全選択コピペするしかない。backlog に手当て手順あり。"
+  }
+}
