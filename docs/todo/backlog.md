@@ -142,6 +142,20 @@ page/category の合成ロジック共通化（2026-06-25 アセスメント起�
 
 ## 🟡 中 — 2〜3ヶ月以内
 
+### note サイト送客リンクの UTM バーンダウン（26ファイル・114件）
+タグ: [運用基盤]
+
+`check-note-site-utm` の全量実行は Windows で長らく偽 PASS（`join()` の `\` 区切りをパス正規表現で判定していたため常に0件検査）だった。2026-07-28 に修正した結果、既存違反 114 件が露出した：`utm-missing` 81 / `utm-medium`（旧 `inline` を `referral` へ）20 / `bare-url` 13。主に技術士総監の note 記事群。
+
+pre-commit は `--staged` なので当該ファイルを触るまで止まらないが、触ると止まる（`SKIP_NOTE_UTM=1` で一時回避可）。`utm_campaign` は記事 frontmatter の `utmCampaign`、`utm_content` は送客先 slug を使う。規約の真実源は [02_チャネル動線設計.md](../project/03_SNS/02_チャネル動線設計.md) §4。
+
+ソースを直しても note ライブには反映されない点に注意（反映するなら `note-update-body --commit`）。
+
+### note 記事本文のライブ反映バックログ（建設部門 UTM/リンク切れ 176件）
+タグ: [運用基盤]
+
+2026-07-28 に建設部門 note の送客リンク 176 件（UTM 欠落 112・相対パス 41・裸 slug 23）をソース側で是正したが、**ライブ反映は一部のみ**。相対パス・裸 slug の 64 件は note 上で実際にリンク切れのままなので優先度が高い。反映は `scripts/note-update-body.mjs --commit`（全文置換・有料境界は既定 `試験問題|予想問題` で自動再設定）。1本ずつ検証しながら進め、`npm run check-note-structure` で FULL_LOCK/PAYWALL_LEAK が出ないことを確認する。
+
 ### search-growth 修正計画の裁定セッション（判断待ち 2,077 URL の消化）
 タグ: [運用基盤]
 
@@ -427,10 +441,13 @@ PR #269（カタログ）/#270（SNSレンダラー）済。残 = Phase4 記事�
 
 残作業:
 
-1. **案件別クリックの帰属問題**: `a8-results.json` の `clicks` は program-detail（口座横断）由来で
-   stats47 分を含みうる。2026-07 実測で自社 4 案件 75 click > サイト別 doboku-note 56 click（超過 19）。
-   → **EPC の分母は GA4 の `affiliate_cta_click`（ラベル別）を使う**と affiliate-operations.md §6.5 に明記済み。
-   残るのは `report-buildjob-affiliate` が実際にその分母を使っているかの確認と、必要なら是正
+1. **EPC の分子と分母で期間を揃える**: `report-buildjob-affiliate` が GA4 を分母に使っているのは
+   確認済み（2026-07-28）で、窓外の月の報酬が混ざる不具合も修正した。ただし
+   **分子＝月全体の確定報酬 / 分母＝GA4 の 28 日窓クリック** というズレが残り EPC は概算のまま
+   （検証: 6月に ¥50,000 が確定した想定で EPC 7,143 円と出る。市場平均 942 円の 7.6 倍）。
+   揃えるには GA4 by-label を月次で取る必要があるが、`fetch-ga4-cta-clicks` は `--days N`
+   （N日前〜今日）しか無く、GA4 API は会社 PC のプロキシで叩けない＝**CI 供給側の対応**が要る。
+   A/B 勝者判定の前に解消しておく（誤った EPC で勝敗を決めない）
 2. **2026-06 の不足クリック 13 の説明**: サイト別 74 に対し allowlist 合計 61。
    候補（Neuro Dive・合宿免許・新卒エージェント等）はいずれも stats47 側に見える。
    自社案件なら `programIdMap` へ追記、違うならサイト別と案件別の集計差の理由を

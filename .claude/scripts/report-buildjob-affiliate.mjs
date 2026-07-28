@@ -125,8 +125,32 @@ if (pageFile) {
 // ---- 3. A8 成果スナップショットと突合（推定 EPC） --------------------------
 const a8File = join(AFF_DIR, "a8-results.json");
 const a8 = existsSync(a8File) ? readJson(a8File) : { records: [] };
+
+// ★ 分子（A8 確定報酬）と分母（GA4 クリック）の期間を揃える。
+//   揃えないと「全期間の報酬 ÷ 直近 28 日のクリック」になり EPC を過大評価する
+//   （例: 確定 ¥50,000 ÷ 28 日窓の 7 クリック = EPC 7,143 円。市場平均 942 円の 7.6 倍）。
+//   GA4 窓は月をまたぐので「窓に重なる月」を対象にする（月全体 vs 28 日窓のズレは残るため概算）。
+const monthsInWindow = (() => {
+  if (!labelPeriod) return null; // 期間不明なら絞れない
+  const [s, e] = labelPeriod.split("〜");
+  if (!s || !e) return null;
+  const out = new Set();
+  const cur = new Date(`${s.slice(0, 7)}-01T00:00:00Z`);
+  const end = new Date(`${e.slice(0, 7)}-01T00:00:00Z`);
+  for (let guard = 0; guard < 24 && cur <= end; guard++) {
+    out.add(`${cur.getUTCFullYear()}-${String(cur.getUTCMonth() + 1).padStart(2, "0")}`);
+    cur.setUTCMonth(cur.getUTCMonth() + 1);
+  }
+  return out;
+})();
+
 const a8ByProgram = new Map();
+const a8ExcludedMonths = new Set();
 for (const rec of a8.records ?? []) {
+  if (monthsInWindow && rec.month && !monthsInWindow.has(rec.month)) {
+    a8ExcludedMonths.add(rec.month);
+    continue;
+  }
   const cur = a8ByProgram.get(rec.program) ?? { conversions: 0, approved: 0, revenueYen: 0, months: [] };
   cur.conversions += rec.conversions ?? 0;
   cur.approved += rec.approved ?? 0;
@@ -158,7 +182,9 @@ if (labelUnavailable) {
   lines.push("");
 }
 if (byProgram.size > 0) {
-  lines.push("| プログラム | クリック | A8 承認 | 確定報酬(円) | 推定 EPC(円/クリック) |");
+  // EPC は分子（月全体の確定報酬）と分母（28 日窓のクリック）で期間が揃わないため概算。
+  // 表を見ただけで概算と分かるようにヘッダーに明示する（注記まで読まれない前提で守る）。
+  lines.push("| プログラム | クリック(GA4) | A8 承認 | 確定報酬(円) | 推定 EPC(概算・期間ズレあり) |");
   lines.push("|---|--:|--:|--:|--:|");
   const order = ["buildjob", "kensetsu-jobs", "gks", "dx-consulting"];
   const known = [...byProgram.keys()];
@@ -216,6 +242,12 @@ lines.push("");
 lines.push("- 高意図 31 slug は 〜2026-08-31 の間 BuildJob 100%（`HIGH_INTENT_CAREER_SLUGS`）。9/1 以降は slug ハッシュ A/B へ自動復帰。");
 lines.push("- 期間中は高意図面が A/B 母集団から抜けるため、**建設JOBs vs BuildJob の EPC 比較は低意図面・hub のみで解釈**する。");
 lines.push("- 推定 EPC は `a8-results.json` に成果が入ってから有効。A8 は API 無しのため `/a8-report`（Playwright・要ローカルログイン）で取り込む。");
+lines.push(
+  `- **EPC の分母は GA4 のラベル別クリック**（A8 の \`clicks\` は口座横断＝stats47 分を含むので使わない。真実源: affiliate-operations.md §6.5）。` +
+    `分子は A8 の確定報酬で、GA4 窓に重なる月${monthsInWindow ? `（${[...monthsInWindow].sort().join(", ")}）` : ""}に限定して合算する。` +
+    (a8ExcludedMonths.size ? `窓外として除外した月: ${[...a8ExcludedMonths].sort().join(", ")}。` : "") +
+    `**月全体の報酬 ÷ 28 日窓のクリック**というズレが残るため EPC は概算（月次で揃えるには GA4 by-label の月次取得が要る）。`,
+);
 lines.push("- 面別内訳には GA4 の `event_label` カスタムディメンション登録が必要（未登録なら `(not set)` に集約）。");
 lines.push("");
 
