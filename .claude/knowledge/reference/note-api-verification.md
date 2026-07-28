@@ -147,8 +147,9 @@ node scripts/note-update-body.mjs --list   <list.txt>   --commit    # 複数記�
 
 **機械ゲート（2層）**:
 - **事前（ソース・network不要）**: `npm run check-note-boundary`（paid published の paidBoundary 解決可能性＝境界H2実在を検査）。pre-commit `--staged` ＋ quality-audit `ci` ＋ r2-audit 全量。新規paid記事の境界欠落＝RULE_GAP を止める。
-- **事後（ライブ・note API）**: `npm run check-note-structure`（公開API無料本文とソース境界を突合し FULL_LOCK/PAYWALL_LEAK/BOUNDARY_SHIFT/IMG_MISSING/PRICE_MISMATCH を検出）。`--ci` で未許可 CRITICAL>0 なら exit 1。既知の境界定義ズレ（BK/総監の偽陽性）は `.claude/config/note-structure-allow.json` の allowlist で WAIVED（backlog解消時に空にする）。CI非対象（note API依存）＝週次/月次で回す。
-  **会社 PC では機能しない（2026-07-28 実測）**: 本スクリプトは Node の `fetch` を使うためプロキシで全件遮断され、675/675 が `FETCH_ERR`（=検査ゼロ）で **exit 0 を返す＝偽の PASS**。本文冒頭§「環境の罠」の `curl --ssl-no-revoke` 経路でしか live 検証はできない。ローカルで境界を実査するときは curl でライブ無料本文を取り、**ソースの `paidBoundary` 直前の末尾と末尾一致で突合**する（FULL_LOCK は無料本文が極端に短いことで検出）。
+- **事後（ライブ・note API）**: `npm run check-note-structure`（公開API無料本文とソース境界を突合し FULL_LOCK/PAYWALL_LEAK/BOUNDARY_SHIFT/IMG_MISSING/PRICE_MISMATCH を検出）。`--ci` で未許可 CRITICAL>0 なら exit 1。既知の境界定義ズレ（BK/総監の偽陽性）は `.claude/config/note-structure-allow.json` の allowlist で WAIVED（backlog解消時に空にする）。
+  **取得は curl 経路・偽 PASS は封じ済み（2026-07-28 修正）**: 以前は Node の `fetch` を使っていたためプロキシで全件遮断され、**675/675 が `FETCH_ERR` でも exit 0 を返す＝検査ゼロの偽 PASS** だった。`curl --ssl-no-revoke`（プロキシ env を自動利用）へ置換し、**取得失敗率が 20% を超えたら `--ci` の有無にかかわらず exit 1**（「検査不成立」）にした。出力は必ず「実検査 N本（対象M・取得失敗K）」を示す。レート制限対策として逐次＋250ms スロットル＋失敗時バックオフ（最大4回）を入れてある（対策なしに215本を短時間で2周して148本が取得失敗した実測がある）。
+  **初回の実検査結果（2026-07-28・675本すべて取得成功）**: 要対応 CRITICAL 2件＝`FULL_LOCK`（無料プレビュー 0字＝買う前に何も読めない有料記事）を検出。07-24 の境界破壊事故（58本）の復旧漏れと見られる。これは fetch 時代には**一度も検査されていなかった**もの。
 - **paidProbe の注意**: 境界H2テキスト自体は note 目次（無料側）に出るため偽陽性になる→境界H2の**直後の本文段落**を probe にする（check-note-structure.mjs 実装済）。
 
 ### 有料公開の `price:` 欄必須 と 既存無料→有料 変換: `note-convert-to-paid`（2026-07-24 新設）
