@@ -127,6 +127,51 @@ node scripts/note-attach-file.mjs --note na3ad4130a85f --file "docs/note/技術�
 
 ---
 
+## 「この記事でわかること」の本文反映（添付とは別系統・同じ夜に走る）
+
+`check-note-intro-benefit` を新設したところ、公開691本のうち **26本**に「**この記事でわかること**」が無かった。**ソースには追加済みだがライブは未反映**。
+
+| 対象 | 本数 | 反映のしかた |
+|---|---|---|
+| PDF商品（有料） | 5 | 添付を持つので上の「本文 → 添付」の順序に従う（同じ節のコマンド） |
+| 無料記事 | 21 | 添付を持たないので順序の制約なし。下のコマンドをそのまま流す |
+| 案内・索引（もくじ・歩き方・索引） | 9 | 対象外。回遊が目的で benefit 節を持たないのが正当なため allowlist に理由つきで登録済み |
+
+急ぎではないので、**添付202件の復旧が終わってから**でよい。
+
+```bash
+node scripts/note-update-body.mjs --article "docs/note/1級・2級土木/1級土木で市場価値が変わる-無料/article.md" --commit
+node scripts/note-update-body.mjs --article "docs/note/1級・2級土木/ビルドジョブの評判-発注者目線-無料/article.md" --commit
+node scripts/note-update-body.mjs --article "docs/note/1級・2級土木/ホワイトな建設会社の見分け方-無料/article.md" --commit
+node scripts/note-update-body.mjs --article "docs/note/1級・2級土木/公務員土木か民間か-無料/article.md" --commit
+node scripts/note-update-body.mjs --article "docs/note/1級・2級土木/年収を上げる人の違い-無料/article.md" --commit
+node scripts/note-update-body.mjs --article "docs/note/1級・2級土木/施工管理の失敗談と教訓-無料/article.md" --commit
+node scripts/note-update-body.mjs --article "docs/note/1級・2級土木/転職した方がいい施工管理-発注者視点-無料/article.md" --commit
+node scripts/note-update-body.mjs --article "docs/note/1級・2級土木/転職のベストタイミング-無料/article.md" --commit
+node scripts/note-update-body.mjs --article "docs/note/1級・2級土木/転職エージェントの使い方-無料/article.md" --commit
+node scripts/note-update-body.mjs --article "docs/note/1級・2級土木/転職エージェント比較-無料/article.md" --commit
+node scripts/note-update-body.mjs --article "docs/note/1級・2級土木/辞める前に確認すること-無料/article.md" --commit
+node scripts/note-update-body.mjs --article "docs/note/1級・2級土木/経験記述-AI設計-無料/article.md" --commit
+node scripts/note-update-body.mjs --article "docs/note/1級・2級土木/経験記述-予想問題で書く練習-無料/article.md" --commit
+node scripts/note-update-body.mjs --article "docs/note/1級・2級土木/経験記述-独学添削の限界-無料/article.md" --commit
+node scripts/note-update-body.mjs --article "docs/note/1級・2級土木/経験記述-落ちる答案診断-無料/article.md" --commit
+node scripts/note-update-body.mjs --article "docs/note/1級・2級土木/メンバーシップ/はじめに-合格ラボ/article.md" --commit
+node scripts/note-update-body.mjs --article "docs/note/技術士総監/magazines/総監記述式-完全パック/00-はじめに/article.md" --commit
+node scripts/note-update-body.mjs --article "docs/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/00-序章/article.md" --commit
+node scripts/note-update-body.mjs --article "docs/note/技術士総監/トレードオフ思考/article.md" --commit
+node scripts/note-update-body.mjs --article "docs/note/技術士総監/出題テーマ分析-R8地方創生検証/article.md" --commit
+node scripts/note-update-body.mjs --article "docs/note/技術士総監/白書R7完全対応集/article.md" --commit
+```
+
+> [!note] メンバーシップ記事は別フロー
+> `はじめに-合格ラボ` は `is_limited`（メンバーシップ）記事で、「試し読みエリアを設定 → 更新する」のサブフローに入る。`note-update-body` はこのフローに対応済みだが、失敗したら手動で確認する。
+
+反映後の確認:
+
+```bash
+node scripts/check-note-republish.mjs    # drift が解消しているか
+```
+
 ## 関連して残っている作業
 
 - **source層が7件検出** — BK-09電力土木・BK-10鉄道の R8予想6本と1級二次まるごとパックが「印刷用PDF」を明記しているのに PDF 実体を1つも持っていない。PDF を生成するか、記述を消すか、`.claude/config/note-attachments-allow.json` に理由付きで免除するかの判断が要る（3択なので機械化できない）

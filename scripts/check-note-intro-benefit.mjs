@@ -13,8 +13,10 @@
  *   欠落は 5 件のみ（いずれも最高価格帯の PDF 商品＝¥1,980 / ¥1,480×2 / ¥980×2）。
  *   例外のない慣行なので、機械ゲートにしてよい。
  *
- * 無料記事は対象外（もくじ・索引・「はじめに」など、構造的に benefit 節を持たない記事が
- *   正当に存在するため）。参考として件数だけ INFO で出す。
+ * 無料記事も対象にする（2026-07-28 拡張）。ただし もくじ・索引・「歩き方」など**回遊が目的で
+ *   benefit 節を持たないのが正当な案内記事**が実在するので、allowlist で理由つきに免除する。
+ *   キーワードで自動判定しない —— 「選び方」を含む読み物（転職エージェント比較 等）を誤って
+ *   免除してしまうため、1本ずつ人が判断して登録する。
  *
  * 使い方:
  *   node scripts/check-note-intro-benefit.mjs            # 全量（CI）
@@ -54,7 +56,7 @@ if (STAGED) {
   stagedSet = new Set(out.split(/\r?\n/).filter((p) => /^docs\/note\/.*\/article(-[^/]+)?\.md$/.test(p)));
 }
 
-let paid = 0; let freeMissing = 0; let free = 0;
+let paid = 0; let free = 0;
 const missing = []; const afterBoundary = [];
 for (const file of walk(BASE)) {
   const rel = relative(ROOT, file).replace(/\\/g, '/');
@@ -64,36 +66,37 @@ for (const file of walk(BASE)) {
   const noteId = fmv(fm, 'noteId');
   if (!noteId) continue;                                    // 未公開は対象外
   const isPaid = fmv(fm, 'notePricing') === 'paid';
-  if (!isPaid) { free++; if (!t.includes(MARKER)) freeMissing++; continue; }
-  paid++;
+  if (isPaid) paid++; else free++;
   if (allowSet.has(noteId)) continue;
 
-  const price = fmv(fm, 'price') || '?';
+  const price = isPaid ? (fmv(fm, 'price') || '?') : 0;
   const at = t.indexOf(MARKER);
   if (at < 0) { missing.push({ rel, noteId, price }); continue; }
+  if (!isPaid) continue;                                    // 無料は位置の制約なし
   // 無料プレビュー内（有料境界より前）にあるか
   const bre = fmv(fm, 'paidBoundary') || '試験問題|予想問題';
   const bm = t.match(new RegExp('^##\\s*(?:' + bre + ')', 'm'));
   if (bm && at > bm.index) afterBoundary.push({ rel, noteId, price });
 }
 
-console.log(`[check-note-intro-benefit${STAGED ? ' --staged' : ''}] 実検査 有料 ${paid} 件（無料 ${free} 件は対象外・うち未設置 ${freeMissing} 件）/ allowlist ${allowSet.size} 件`);
+console.log(`[check-note-intro-benefit${STAGED ? ' --staged' : ''}] 実検査 有料 ${paid} 件 / 無料 ${free} 件 / allowlist ${allowSet.size} 件`);
 
 const bad = [...missing, ...afterBoundary];
 if (bad.length) {
   if (missing.length) {
-    console.error(`\n✗ 「${MARKER}」が無い有料記事: ${missing.length} 件`);
-    for (const m of missing) console.error(`  ¥${String(m.price).padStart(5)}  ${m.noteId}  ${m.rel}`);
+    console.error(`\n✗ 「${MARKER}」が無い記事: ${missing.length} 件`);
+    for (const m of missing) console.error(`  ${m.price ? '¥' + String(m.price).padStart(5) : '  無料'}  ${m.noteId}  ${m.rel}`);
   }
   if (afterBoundary.length) {
     console.error(`\n✗ 有料エリア内にあり購入前に読めない: ${afterBoundary.length} 件`);
     for (const m of afterBoundary) console.error(`  ¥${String(m.price).padStart(5)}  ${m.noteId}  ${m.rel}`);
   }
   console.error('\n  有料記事の無料部分は購入判断のすべて。「何が得られるか」を境界より前に置く。');
-  console.error('  構造的に不要な記事（索引・はじめに等）は .claude/config/note-intro-benefit-allow.json に理由付きで登録する。');
+  console.error('  回遊が目的の案内記事（もくじ・索引・歩き方）は .claude/config/note-intro-benefit-allow.json に理由付きで登録する。');
+  console.error('  ※ キーワードで自動免除しない —— 「選び方」を含む読み物を誤って外すため、1本ずつ判断する。');
 }
 
 // 検査ゼロで PASS を返さない（--staged は note 記事を触っていないのが正常）
 if (!STAGED && paid === 0) { console.error('✗ 有料記事の検査対象が0件＝走査が壊れている疑い（検査不成立）'); process.exit(1); }
-if (!bad.length) console.log(`\n✓ 有料記事 ${paid - allowSet.size} 件すべてが無料プレビュー内に benefit 節を持つ`);
+if (!bad.length) console.log(`\n✓ 公開 ${paid + free - allowSet.size} 件すべてが benefit 節を持つ（有料は無料プレビュー内）`);
 process.exit(bad.length ? 1 : 0);
