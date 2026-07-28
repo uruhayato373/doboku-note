@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-07-27T20:59:51.224Z",
+  "generated_at": "2026-07-28T05:34:46.821Z",
   "summary": {
     "total": 1115,
     "published": 1073,
@@ -5716,6 +5716,7 @@
       "title": "コンクリート主任技師とは｜試験概要と出題分野の全体像",
       "description": "コンクリート主任技師の試験概要をJCI公式区分に沿って整理。四肢択一一問一答と小論文の2部構成、解答時間、8つの出題分野、コンクリート技士との違い、学習の進め方を体系的に解説します。",
       "shortTitle": "試験概要",
+      "subtitle": "試験概要・出題分野・解答時間と学習の全体像",
       "seoTitle": "コンクリート主任技師 試験概要｜出題分野・構成・解答時間と学習法",
       "category": "concrete-chief-engineer",
       "group": "guide",
@@ -5733,6 +5734,7 @@
       "title": "コンクリート主任技師 出題傾向と対策｜分野別頻出度と学習の優先順位",
       "description": "コンクリート主任技師の四肢択一について、平成21年度から令和5年度までの項目別出題状況をもとに、8分野の頻出度と狙いどころ、学習順序、過去問演習の活用法を整理します。",
       "shortTitle": "出題傾向と対策",
+      "subtitle": "分野別の頻出度と学習の優先順位",
       "seoTitle": "コンクリート主任技師 出題傾向｜分野別頻出度と対策ガイド",
       "category": "concrete-chief-engineer",
       "group": "guide",
@@ -16914,7 +16916,7 @@
           "a": "まず本ページで 6 テーマと選定理由を把握し、自分の業務経験に近い 2-3 本を選んだうえで note 有料マガジン「R8 予想問題集」で予想問題本文・解答骨子・フル模範論文を読み込んでください。最後に [last-minute-2026](/docs/pe-comprehensive-management-last-minute-2026) の 6 思考パターンに当てはめて答案骨子を組みます。"
         }
       ],
-      "dateModified": "2026-07-25"
+      "dateModified": "2026-07-28"
     },
     "pe-comprehensive-management-r8-essay-theme-ai-governance": {
       "title": "R8 予想問題：AI 社会と情報ガバナンス｜生成 AI・ELSI 対応・サイバーセキュリティで総監視点を統合",
@@ -21011,6 +21013,8 @@
     "pe-construction-guide-required-essay": {
       "title": "技術士第二次試験 建設部門 必須科目I 合格答案の書き方",
       "description": "技術士第二次試験 建設部門 必須科目Iの合格答案を書くための実践ガイド。プロセス型4段構成の設問構造・字数配分・観点明記のコツ・発注者視点の活かし方を元公務員（合格者）が解説。R03〜R07の出題テーマも収録。",
+      "shortTitle": "必須科目I 答案の書き方",
+      "subtitle": "設問構造・字数配分・発注者視点の活かし方",
       "seoTitle": "技術士建設部門 必須科目I 答案の書き方｜設問構造・字数配分・発注者視点",
       "category": "pe-construction",
       "group": "guide",

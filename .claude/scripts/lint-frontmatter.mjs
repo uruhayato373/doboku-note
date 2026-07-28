@@ -145,6 +145,23 @@ export function lintFrontmatter(filePath, data, allowlist) {
     push('LOW', 'desc-long', `description が長い: ${desc.length} 文字（推奨 <= 160、上限 ${DESC_MAX}）`);
   }
 
+  // --- MEDIUM: guide のナビ用短縮タイトル（サイドバー 2 行表示の供給源）---
+  // 欠けるとサイドバー/モバイル記事末ナビが title にフォールバックし、
+  // 「2級土木施工管理技士とは — 難易度・合格率・試験内容」のような長い行が並んで一覧が読めなくなる
+  // （2026-07-28 に civil-2 で実際に発生）。真実源の解決は src/lib/doc-title.ts の resolveNavTitle。
+  if (data.group === 'guide' && data.published !== false) {
+    if (!data.shortTitle) {
+      push('MEDIUM', 'nav-shortTitle-missing', 'group: guide に shortTitle が無い（ナビ一覧が長い title にフォールバックする）');
+    }
+    if (!data.subtitle) {
+      push('MEDIUM', 'nav-subtitle-missing', 'group: guide に subtitle が無い（ナビ一覧の 2 行目が出ない）');
+    }
+  }
+  // --- LOW: 廃止フィールド（Docusaurus 由来・0 件運用）---
+  if (data.sidebar_label) {
+    push('LOW', 'sidebar-label-legacy', 'sidebar_label は廃止フィールド。shortTitle を使う');
+  }
+
   // --- MEDIUM: title/seoTitle 長（G4・静的近似）---
   // title は "｜doboku-note" 付与でレンダリングされるため換算長で判定。seoTitle は <title> 直挿し想定。
   const title = typeof data.title === 'string' ? data.title : '';

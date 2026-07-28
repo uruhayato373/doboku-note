@@ -7,6 +7,7 @@ import Link from 'next/link';
 import type { DocMeta } from '@/lib/docs';
 import { classifyDoc, type DocGroupKey } from '@/lib/doc-classifier';
 import { resolveCurriculum } from '@/lib/category-curriculum';
+import { resolveNavTitle } from '@/lib/doc-title';
 import { buildPastExamNavData } from '@/components/ui/PastExamNav/exam-nav-utils';
 import peChaptersData from '@/config/pe-chapters.json';
 import type { PeChapter } from '@/config/pe-chapters';
@@ -202,6 +203,22 @@ function MobileWrapper({ title, children }: { title: string; children: React.Rea
   );
 }
 
+/**
+ * ナビ一覧の 2 行目（サブタイトル）。
+ * subtitle は平均 27 字・最大 50 字あり、サイドバー幅 288px では 3 行以上になりうるので
+ * 2 行で打ち切る（全件が「主題 1 行 + サブ 2 行」以内に収まりリストのリズムが安定する）。
+ */
+function NavSubtitle({ children }: { children: React.ReactNode }) {
+  return (
+    <span
+      className="mt-0.5 block text-[12px] leading-[1.5] text-[var(--ink-muted)] overflow-hidden"
+      style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}
+    >
+      {children}
+    </span>
+  );
+}
+
 /* ━━━ リンクリストカード（汎用） ━━━ */
 function LinkListCard({
   variant,
@@ -223,17 +240,26 @@ function LinkListCard({
     return (
       <SidebarWrapper title={title}>
         <ul data-nav-list={navList}>
-          {docs.map((d) => (
-            <li key={d.slug} className="border-b border-[var(--rule-soft)] last:border-b-0">
-              {d.slug === currentSlug ? (
-                <span className="block py-2 text-sm font-bold text-[var(--ink)]">{d.sidebar_label || d.title}</span>
-              ) : (
-                <Link href={`/docs/${d.slug}`} className="block py-2 text-sm text-brand underline decoration-brand/30 underline-offset-2 hover:text-brand-deep hover:decoration-brand transition-colors">
-                  {d.sidebar_label || d.title}
-                </Link>
-              )}
-            </li>
-          ))}
+          {docs.map((d) => {
+            const { main, sub } = resolveNavTitle(d);
+            return (
+              <li key={d.slug} className="border-b border-[var(--rule-soft)] last:border-b-0">
+                {d.slug === currentSlug ? (
+                  <span className="block py-2">
+                    <span className="block text-sm font-bold text-[var(--ink)]">{main}</span>
+                    {sub && <NavSubtitle>{sub}</NavSubtitle>}
+                  </span>
+                ) : (
+                  <Link href={`/docs/${d.slug}`} className="group block py-2">
+                    <span className="block text-sm text-brand underline decoration-brand/30 underline-offset-2 group-hover:text-brand-deep group-hover:decoration-brand transition-colors">
+                      {main}
+                    </span>
+                    {sub && <NavSubtitle>{sub}</NavSubtitle>}
+                  </Link>
+                )}
+              </li>
+            );
+          })}
         </ul>
       </SidebarWrapper>
     );
@@ -242,17 +268,24 @@ function LinkListCard({
   return (
     <MobileWrapper title={title}>
       <ul className="space-y-2" data-nav-list={navList}>
-        {docs.map((d) => (
-          <li key={d.slug} className={`rounded-card-content border px-4 py-3 transition-colors ${d.slug === currentSlug ? 'bg-[var(--accent-fill)] border-[var(--accent)]' : 'border-[var(--rule-soft)] hover:border-[var(--accent)]'}`}>
-            {d.slug === currentSlug ? (
-              <span className="text-sm font-bold text-[var(--ink)]">{d.title}</span>
-            ) : (
-              <Link href={`/docs/${d.slug}`} className="text-sm text-brand hover:underline">
-                {d.title}
-              </Link>
-            )}
-          </li>
-        ))}
+        {docs.map((d) => {
+          const { main, sub } = resolveNavTitle(d);
+          return (
+            <li key={d.slug} className={`rounded-card-content border px-4 py-3 transition-colors ${d.slug === currentSlug ? 'bg-[var(--accent-fill)] border-[var(--accent)]' : 'border-[var(--rule-soft)] hover:border-[var(--accent)]'}`}>
+              {d.slug === currentSlug ? (
+                <>
+                  <span className="block text-sm font-bold text-[var(--ink)]">{main}</span>
+                  {sub && <NavSubtitle>{sub}</NavSubtitle>}
+                </>
+              ) : (
+                <Link href={`/docs/${d.slug}`} className="group block">
+                  <span className="block text-sm text-brand group-hover:underline">{main}</span>
+                  {sub && <NavSubtitle>{sub}</NavSubtitle>}
+                </Link>
+              )}
+            </li>
+          );
+        })}
       </ul>
     </MobileWrapper>
   );

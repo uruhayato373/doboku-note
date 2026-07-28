@@ -260,12 +260,29 @@ SVG 自体のルート要素にも `style="max-width:{viewBox width}px;width:100
 ```yaml
 ---
 title: "ページタイトル"
+seoTitle: "検索結果に出す完全タイトル｜資格名・キーワードを保持"
+shortTitle: "短縮タイトル"           # ナビ・カード用（10字前後）。group: guide は必須級
+subtitle: "一覧の2行目に出る補足"     # ナビ・カード用（30字程度・2行で打ち切られる）
 description: "50〜160文字の説明"
 category: "civil-construction-1"     # 試験または分野
 tags: ["guide", "primary"]           # 分類タグ（複数可）
 published: true                      # false なら下書き・非表示
 ---
 ```
+
+**`title` / `shortTitle` / `subtitle` / `seoTitle` の使い分け**
+
+| フィールド | 出る面 | 目安 |
+|---|---|---|
+| `title` | 記事 H1・パンくず・OGP 文字・関連記事 | 概念名。資格名の繰り返しは避ける |
+| `shortTitle` | **サイドバー / モバイル記事末ナビ**・カテゴリカード・人気記事 | 10 字前後。`title` が長い記事ほど効く |
+| `subtitle` | 同上の**2 行目**（小さく・muted・2 行で打ち切り） | 30 字程度。`title` の「—」「｜」以降が概ねそのまま使える |
+| `seoTitle` | `<title>`（検索結果）のみ | 資格名・接尾辞を保持した完全形。`｜` 区切りが慣例 |
+
+> `shortTitle`/`subtitle` を省くとナビが `title` にフォールバックし、
+> 「2級土木施工管理技士とは — 難易度・合格率・試験内容」のような長い行が並んで一覧が読めなくなる。
+> **group: guide の新規記事では必ず両方書く**（`lint-frontmatter` が欠落を警告する）。
+> なお `sidebar_label` は Docusaurus 由来の廃止フィールドで**書かない**（0 件運用・lint が legacy 検出）。
 
 **category の選択肢**（真実源: `src/config/categories.json`）:
 - `civil-construction-1` — 1級土木施工管理技士

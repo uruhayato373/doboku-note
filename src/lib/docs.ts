@@ -118,7 +118,6 @@ export type DocMeta = {
   category?: string; // e.g., 'civil-construction-1' (from frontmatter)
   group?: string; // e.g., 'guide', 'past-exam', 'keyword' (explicit classification)
   tags?: string[]; // e.g., ['guide', 'primary'] (from frontmatter)
-  sidebar_label?: string;
   section?: string;
   guide_order?: number;
   textbook_order?: number;
@@ -225,9 +224,7 @@ export const getDoc = cache(async function getDoc(slug: string): Promise<Doc | n
         title: matterResult.data.title || '',
         description: matterResult.data.description || '',
         category: matterResult.data.category,
-        tags: matterResult.data.tags,
-        sidebar_label: matterResult.data.sidebar_label,
-        toc_min_heading_level: matterResult.data.toc_min_heading_level,
+        tags: matterResult.data.tags,        toc_min_heading_level: matterResult.data.toc_min_heading_level,
         toc_max_heading_level: matterResult.data.toc_max_heading_level,
         published: matterResult.data.published !== false,
         ...matterResult.data,
@@ -268,9 +265,7 @@ export const getDoc = cache(async function getDoc(slug: string): Promise<Doc | n
         title: matterResult.data.title || '',
         description: matterResult.data.description || '',
         category: matterResult.data.category,
-        tags: matterResult.data.tags,
-        sidebar_label: matterResult.data.sidebar_label,
-        toc_min_heading_level: matterResult.data.toc_min_heading_level,
+        tags: matterResult.data.tags,        toc_min_heading_level: matterResult.data.toc_min_heading_level,
         toc_max_heading_level: matterResult.data.toc_max_heading_level,
         published: matterResult.data.published !== false,
         ...matterResult.data,
