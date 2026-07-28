@@ -1,7 +1,5 @@
 ---
 notePricing: paid
-noteSeries: 1級土木-二次学科記述-テーマ別出る順
-noteMagazine: 1級土木-二次学科記述-テーマ別出る順
 notePublishedAt: "2026-07-16"
 noteId: "nd68f3f6b5f9e"
 noteUrl: "https://note.com/dobokunote/n/nd68f3f6b5f9e"

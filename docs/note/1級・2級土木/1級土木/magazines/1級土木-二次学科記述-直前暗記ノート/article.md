@@ -1,7 +1,5 @@
 ---
 notePricing: paid
-noteSeries: 1級土木-二次学科記述-テーマ別出る順
-noteMagazine: 1級土木-二次学科記述-テーマ別出る順
 noteStatus: published
 notePublishedAt: "2026-07-04"
 noteId: "na84b001e827e"

@@ -160,16 +160,6 @@ seo-fix-planner は audit-only なので適用は人の承認後。
 
 `npm run check-note-structure` は Node の `fetch` を使うため会社 PC のプロキシで全件 `FETCH_ERR`（2026-07-28 実測 675/675）になり、**検査ゼロのまま exit 0＝偽 PASS** を返す。`curl --ssl-no-revoke` でライブ無料本文を取り、ソースの `paidBoundary` 直前の末尾と末尾一致で突合する検査を committed スクリプト化する（プロトタイプは同日の作業で `.tmp/verify-note-boundary.mjs` として実証・18/18 判定成功。`.tmp` は残らないので再実装が要る）。あわせて FETCH_ERR が支配的なとき exit 0 を返さないよう `check-note-structure` 側もガードする。真実源: [note-api-verification.md](../../.claude/knowledge/reference/note-api-verification.md)
 
-### note 記事の noteMagazine ラベル共有を是正（独立 SKU が他マガジン名を名乗っている）
-タグ: [運用基盤]
-
-独立した有料 SKU が、frontmatter の `noteMagazine` に別マガジンの名前を書いている。価格が違うのは正しい（別商品）が、ラベルが同じなのでマガジン単位の集計・検査で「1つのマガジン内に複数価格が同居」に見える。
-
-- `1級土木-二次学科記述-直前暗記ノート`（¥980）と `1級土木-R8二次-出題分析直前重点`（¥980）が `noteMagazine: 1級土木-二次学科記述-テーマ別出る順`（本体5本は ¥580）を名乗る
-- `2級土木-二次学科記述-直前暗記ノート`（¥580）が `noteMagazine: 2級土木-二次学科記述-テーマ別出る順`（本体5本は ¥480）を名乗る
-
-現在は `.claude/config/note-price-consistency.json` の `allowMagazines` で免除して `check-note-price-consistency` を通しているが、これは症状の抑制であってラベル自体は誤ったまま。正しいラベルへ是正したら allowlist の該当2件を削除する。note ライブ側のマガジン所属が実際にどうなっているかを `verify-note-magazines` で確認してから直すこと。
-
 ### Brain 施工経験記述キットの検証残（handoff 2026-07-19 抽出）
 タグ: [収益化]
 
