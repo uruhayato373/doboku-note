@@ -8,7 +8,7 @@ description: >
   Use when user says "A8レポート", "アフィリ成果を取り込む", "A8のCSVを取得", "EPCを更新", "a8-report".
   **初回 or UI 変更後は必ず `--dry-run --probe-isolation` で分離方式とセレクタを確定すること**.
 disable-model-invocation: true
-argument-hint: "[--reports all|site-summary,program-detail,period-monthly,period-daily] [--dry-run] [--probe-isolation] [--headed]"
+argument-hint: "[--reports all|site-summary,program-detail,period-monthly,period-daily] [--dry-run] [--probe-isolation] [--probe-period] [--headed]"
 ---
 
 A8.net メディア管理画面（media-console.a8.net）のレポートを CSV でダウンロードし、
@@ -56,6 +56,18 @@ npm run a8-ui:fetch -- --dry-run
 ```bash
 npm run a8-ui:fetch -- --dry-run --probe-isolation
 ```
+
+**単月取得（`--month`）を実装する前提作業**として、期間フォームの実機 DOM を観察する
+（read-only＝入力もクリックもしない。`input name=start`/`end` が月レンジと日レンジの 2 組あり、
+どちらを操作するかを推測しないために必要）:
+
+```bash
+npm run a8-ui:fetch -- --dry-run --probe-period --headed
+```
+
+出力を見て `.claude/config/a8-report-automation.json` の `a8.periodForm` を人間が確定する。
+なぜ要るか: 現在は A8 既定の累計期間しか取れず `a8-results.json` が空＝**EPC の分母が無い**
+（手順は backlog「A8 レポートの期間指定」）。
 
 dry-run が `not-signed-in` なら、開いたブラウザで人間がログインする（スクリプトが待って storageState を保存するので、
 次回以降は不要。`scout-asp/login.mjs` は Mac パス固定なのでこの経路では使わない）。

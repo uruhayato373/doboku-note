@@ -8,6 +8,7 @@
  * CLI:
  *   node scripts/fetch-a8-ui-csv.mjs --dry-run
  *   node scripts/fetch-a8-ui-csv.mjs --dry-run --probe-isolation
+ *   node scripts/fetch-a8-ui-csv.mjs --dry-run --probe-period   # 期間フォームの実機観察（単月取得の前提）
  *   node scripts/fetch-a8-ui-csv.mjs --reports program-detail
  *   node scripts/fetch-a8-ui-csv.mjs --reports all --headed
  *
@@ -46,11 +47,12 @@ const STATE_DIR = ".claude/state/metrics/affiliate/a8-ui";
 
 function parseArgs() {
   const a = process.argv.slice(2);
-  const opts = { dryRun: false, headed: false, reports: "all", probeIsolation: false };
+  const opts = { dryRun: false, headed: false, reports: "all", probeIsolation: false, probePeriod: false };
   for (let i = 0; i < a.length; i++) {
     if (a[i] === "--dry-run") opts.dryRun = true;
     else if (a[i] === "--headed") opts.headed = true;
     else if (a[i] === "--probe-isolation") opts.probeIsolation = true;
+    else if (a[i] === "--probe-period") opts.probePeriod = true;
     else if (a[i] === "--reports") opts.reports = a[++i];
   }
   return opts;
@@ -121,6 +123,59 @@ async function probeIsolation(page, cfg) {
     });
   }
   return out;
+}
+
+/**
+ * 期間フォームの実機観察（--probe-period）。read-only＝入力もクリックもしない。
+ *
+ * なぜ必要か: 期間は URL クエリで制御できず（`_periodNote` の実測）、画面のフォームを
+ * 操作するしかない。しかし `input name=start / end` は**月レンジと日レンジの 2 組**あり、
+ * どちらを操作すべきかは実機を見ないと確定しない。ここで値を観察して config の
+ * `a8.periodForm` を人間が確定する（スクリプトが推測で選ばない）。
+ *
+ * 単月取得（`--month`）が入れば site-summary を月ごとに取れて、a8-results.json の
+ * 月次 records ＝ EPC の分母が埋まる（現在は累計期間しか取れず records が空）。
+ */
+async function probePeriodForm(page, cfg, reportKey = "site-summary") {
+  await openReport(page, cfg, reportKey);
+  const fields = await page.evaluate(() => {
+    const describe = (el) => {
+      const r = el.getBoundingClientRect();
+      let ctx = "";
+      let p = el.parentElement;
+      for (let i = 0; i < 4 && p; i++, p = p.parentElement) {
+        const t = (p.innerText || "").replace(/\s+/g, " ").trim();
+        if (t && t.length < 160) ctx = t;
+      }
+      return {
+        tag: el.tagName.toLowerCase(),
+        type: el.getAttribute("type"),
+        name: el.getAttribute("name"),
+        id: el.getAttribute("id"),
+        value: (el.value ?? "").slice(0, 40),
+        placeholder: el.getAttribute("placeholder"),
+        visible: r.width > 0 && r.height > 0,
+        top: Math.round(r.top),
+        options: el.tagName === "SELECT" ? [...el.options].slice(0, 14).map((o) => `${o.value}:${o.text}`) : null,
+        ctx: ctx.slice(0, 120),
+      };
+    };
+    return [...document.querySelectorAll("input, select")].map(describe);
+  });
+  const buttons = await page.evaluate(() =>
+    [...document.querySelectorAll("button, input[type=submit], a[role=button]")]
+      .map((el) => {
+        const r = el.getBoundingClientRect();
+        return {
+          text: (el.innerText || el.value || "").replace(/\s+/g, " ").trim().slice(0, 40),
+          type: el.getAttribute("type"),
+          visible: r.width > 0 && r.height > 0,
+          top: Math.round(r.top),
+        };
+      })
+      .filter((b) => b.text),
+  );
+  return { reportKey, url: page.url(), fields, buttons };
 }
 
 /** 1 レポート分の取得。dry-run は検出のみ。 */
@@ -302,6 +357,19 @@ async function main() {
       if (manifest.dryRun) manifest.dryRun.isolation = probe;
       manifest.isolationProbe = probe;
       for (const p of probe) console.log(`[probe] ${p.reportKey}: ${p.declaredSiteScope} — ${p.hint}`);
+    }
+
+    if (opts.probePeriod) {
+      const pp = await probePeriodForm(page, cfg);
+      manifest.periodFormProbe = pp;
+      const named = pp.fields.filter((f) => f.name || f.options);
+      console.log(`[probe-period] ${pp.reportKey} ${pp.url}`);
+      console.log(`  input/select ${pp.fields.length} 件（name または options を持つもの ${named.length} 件）:`);
+      for (const f of named) console.log(`    ${JSON.stringify(f)}`);
+      console.log("  button:");
+      for (const b of pp.buttons.filter((b) => b.visible)) console.log(`    ${JSON.stringify(b)}`);
+      console.log("  → この出力を見て .claude/config/a8-report-automation.json の a8.periodForm を確定する");
+      console.log("     （月レンジと日レンジで同名 input が 2 組ある。どちらを操作するかは推測しない）");
     }
 
     for (const reportKey of reportKeys) {

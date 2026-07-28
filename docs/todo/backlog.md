@@ -426,10 +426,25 @@ PR #269（カタログ）/#270（SNSレンダラー）済。残 = Phase4 記事�
 `/a8-report` は実装・実走済みだが、**A8 は期間を URL クエリで制御できない**（`start_date`/`end_date` は無視される＝2026-07-27 実測）。
 現状は A8 の既定期間（年初〜当月の累計）しか取れず、`a8-results.json`（月次キー）へは書けていない（`notAttributable` に退避）。
 
-- 画面の期間フォーム（`input name=start` / `end`・月レンジと日レンジの 2 組）を操作して月を切り替える
-- 月ごとに fetch → `parsePeriodFromFilename` の `singleMonth` が埋まり、月次 rollup が自動で通る設計は実装済み
-- 対象は `site-summary`（doboku 分離済みの月次実績）と `program-detail`（プログラム別の月次内訳）
-- これが入ると `report-buildjob-affiliate` の EPC が月次で出せる＝ビルドジョブ vs 建設JOBs の A/B 判断（〜2026-09）に直結
+**手順（1 の実機観察が未了。2026-07-28 に着手したが A8 セッション切れで停止＝ログインは人）**:
+
+1. `npm run a8-ui:fetch -- --dry-run --probe-period --headed` で期間フォームの実機 DOM を観察
+   （2026-07-28 に committed 化済み・read-only で入力もクリックもしない）。
+   `input name=start` / `end` は**月レンジと日レンジの 2 組**あるため、どちらを操作するかは
+   この出力で確定する（推測でセレクタを書かない）
+2. 観察結果を `.claude/config/a8-report-automation.json` の `a8.periodForm` として記述
+3. `scripts/lib/a8-report-browser.mjs` に `setPeriodMonth()` を追加（config 駆動・一意に定まらなければ
+   `dumpFailure` で停止）。`fetch-a8-ui-csv.mjs` に `--month YYYY-MM` を追加し、export ボタン探索の前に呼ぶ
+4. **fail-closed 検証**: DL 後に `unit.period.singleMonth !== requestedMonth` なら `period-mismatch` として
+   normalize に流さない（ファイル名が唯一の期間証拠）。`normalize-a8-csv.mjs` 側でも不一致 run の upsert を拒否
+5. 対象は `site-summary`（doboku 分離済みの月次実績）と `program-detail`（プログラム別の月次内訳）の 2 つに限定
+6. 完了条件: `npm test`（a8-report-csv）green ＋ 実走 1 回で `a8-results.json` に `2026-06::*` の records が入る
+   ＋ `npm run check-affiliate-wiring` green
+
+月ごとに fetch → `parsePeriodFromFilename` の `singleMonth` が埋まり、月次 rollup が自動で通る設計は**実装済み**
+（残作業はフォーム操作のみ）。これが入ると `report-buildjob-affiliate` の EPC が月次で出せる＝
+**アフィリの「成果→配置見直し」ループの分母がようやく供給される**（現在は確定成果 0 件で判定不能）。
+判定基準は [affiliate-operations.md](../../.claude/knowledge/reference/affiliate-operations.md) §6.5。
 
 ### 画像系 pre-render ワークアラウンドの再検証（Opus 5 vision）
 タグ: [インフラ・計測]
