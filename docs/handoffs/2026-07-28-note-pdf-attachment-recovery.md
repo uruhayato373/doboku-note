@@ -72,6 +72,34 @@ node scripts/check-note-attachments.mjs --live
 
 `.claude/state/note-attachments-missing.json` が更新されるので、これも commit する。
 
+### 先に片づける: PDF商品5本の本文反映（添付より前）
+
+PDF商品5本に「**この記事でわかること**」を追加した（購入判断材料が無く、しかも最高価格帯に欠落が集中していた）。**ソースだけ直してライブは未反映**なので、本文を反映してから添付する。
+
+順序が重要。本文反映（全文置換）は添付を消すので、**本文 → 添付**でないと二度手間になる。うち4本は現時点で添付が生きているため、`note-update-body` の添付保護ガードが作動して中断する。ここでは**意図的に消して直後に貼り直す**ので、`--allow-attachment-loss` を付ける。
+
+```bash
+# 1) 本文反映（4本は添付を意図的に落とす → 直後に必ず 2) を実行する）
+for a in "docs/note/1級・2級土木/1級土木/一次択一-過去問PDF/article.md" \
+         "docs/note/1級・2級土木/2級土木/一次択一-過去問PDF/article.md" \
+         "docs/note/技術士一次/一次択一-過去問PDF/article.md" \
+         "docs/note/技術士総監/総監択一-過去問PDF-令和/article.md" \
+         "docs/note/技術士総監/総監択一-過去問PDF-平成/article.md"; do
+  node scripts/note-update-body.mjs --article "$a" --allow-attachment-loss --commit
+done
+
+# 2) 添付し直し（note-attach-file はライブの添付リンク数を実測し、0 なら exit 9）
+node scripts/note-attach-file.mjs --note n155093f42183 --file "docs/note/1級・2級土木/1級土木/一次択一-過去問PDF/1級土木一次択一-過去問PDF.pdf" --commit
+node scripts/note-attach-file.mjs --note n4963f45bd6f8 --file "docs/note/1級・2級土木/2級土木/一次択一-過去問PDF/2級土木一次択一-過去問PDF.pdf" --commit
+node scripts/note-attach-file.mjs --note n466132e6fd74 --file "docs/note/技術士一次/一次択一-過去問PDF/技術士一次択一-過去問PDF.pdf" --commit
+node scripts/note-attach-file.mjs --note nb5ebacb3e6c0 --file "docs/note/技術士総監/総監択一-過去問PDF-令和/総監択一-過去問PDF-令和.pdf" --commit
+node scripts/note-attach-file.mjs --note na3ad4130a85f --file "docs/note/技術士総監/総監択一-過去問PDF-平成/総監択一-過去問PDF-平成.pdf" --commit
+```
+
+この5件もアップロード枠を消費するので、当夜のバッチは `--limit 95` で流す。
+
+`n155093f42183` はバッチの対象リストにも入っているが、**二重添付にはならない**。`note-attach-file` は本文に `.pdf` が既にあれば再添付せず再公開のみ行う（重ねるのは `--force` を付けたときだけ）。
+
 ### 打ち切り条件
 
 「アップロード不成立」が3連続したらバッチが自動で止まる。これは**1日100件上限に達したサイン**で、PDF 破損でもセレクタ不良でもない。翌日そのまま再実行すればよい。
