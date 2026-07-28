@@ -22,13 +22,17 @@ export default function HubCtaBanner({ cta }: { cta: ResolvedHubCta }) {
       {/* 白カード枠（bg-paper + p-2）で囲む＝転職アフィリ SidebarAdBanner とカード意匠を統一。画像は内側に inset。 */}
       <div className="relative aspect-[6/5] w-full overflow-hidden rounded-[6px]">
         <Image src={cta.bg} alt="" fill sizes="360px" className="object-cover" />
-        <div className="absolute inset-y-0 left-0 flex w-[56%] flex-col items-start justify-center pl-4 pr-1 text-[var(--on-image-ink)]">
+        {/* 文字列は左寄せなので、箱を 60% まで広げても実際の描画は 52% 程度に収まり
+            背景イラスト（右にモチーフ）には被らない。狭い面での折り返し余裕を稼ぐための幅。 */}
+        <div className="absolute inset-y-0 left-0 flex w-[60%] flex-col items-start justify-center pl-4 pr-1 text-[var(--on-image-ink)]">
           <span className="text-[12px] font-extrabold tracking-wide" style={{ color: `var(${cta.themeVar})`, ...HALO }}>
             ＼ {cta.badge ?? 'note限定'} ／
           </span>
           <span className="text-[12px] font-extrabold text-[var(--on-image-ink-soft)]" style={HALO}>{cta.qual}</span>
-          <span className="text-[19px] font-black leading-tight" style={HALO}>{cta.title1}</span>
-          {cta.title2 && <span className="text-[21px] font-black leading-tight" style={HALO}>{cta.title2}</span>}
+          {/* サイズは「もくじ・まとめ」(7字) が狭い面でも 1 行に収まる上限。21px だと必要幅 147px に対し
+              カード幅 320px 未満の面（サイドバー等）で列幅が足りず「もくじ・まと/め」と割れる。 */}
+          <span className="text-[17px] font-black leading-tight" style={HALO}>{cta.title1}</span>
+          {cta.title2 && <span className="text-[19px] font-black leading-tight" style={HALO}>{cta.title2}</span>}
           <span className="mt-0.5 text-[11px] font-bold text-[var(--on-image-ink-soft)]" style={HALO}>{cta.sub}</span>
           <span className="mt-2 inline-flex items-center gap-1 rounded-full bg-[var(--on-image-pill-bg)] px-3 py-1 text-[13px] font-black text-white shadow-card-content">
             {cta.price ?? cta.cta}
