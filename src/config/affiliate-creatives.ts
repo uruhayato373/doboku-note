@@ -119,14 +119,17 @@ function isKensetsuJobsArm(slug: string | undefined): boolean {
 }
 
 /**
- * 高意図キャリア slug（キャリア/転職/年収/働き方 intent のガイド記事）。
- * ビルドジョブ増額キャンペーン（〜2026-08-31・面談 ¥50,000/件）期間中は、これらのページを
- * 建設JOBs A/B（arm B）から除外してビルドジョブ 100% 表示に寄せる（機会損失の回避）。
- * 9/1 以降は `isCampaignActive()` が false になり、自動で通常の slug ハッシュ A/B に復帰する。
+ * 高意図キャリア slug（キャリア/転職/年収/働き方 intent のガイド記事）の一覧。
+ *
+ * **2026-07-28 以降、arm 判定には使っていない**（キャンペーン中は全ページ BuildJob 固定に
+ * 変更したため。理由は `isKensetsuJobsArmEffective` のコメント）。
+ * 「どの記事が転職高意図として作られたか」の一覧としては生きており、docs（08/09）が
+ * 件数の真実源として参照するため export したまま残す。9 月以降の arm 再設計で
+ * 「意図別に案件を出し分ける」なら再びここが起点になる。
  * 学習 intent（過去問・textbook・keyword）と総監（PE_CONSULTING）は含めない。
  * 真実源: docs/project/04_運営/09_BuildJob収益最大化スプリント.md（P0）。
  */
-const HIGH_INTENT_CAREER_SLUGS: ReadonlySet<string> = new Set([
+export const HIGH_INTENT_CAREER_SLUGS: ReadonlySet<string> = new Set([
   "civil-construction-1-guide-quit-or-stay",
   "civil-construction-1-guide-resume",
   "civil-construction-1-guide-interview",
@@ -170,15 +173,26 @@ const HIGH_INTENT_CAREER_SLUGS: ReadonlySet<string> = new Set([
 ]);
 
 /**
- * 実効 arm 判定: キャンペーン期間中の高意図キャリア slug は arm B（建設JOBs）を使わず
- * arm A（ビルドジョブ）に固定する。それ以外は従来の slug ハッシュ A/B のまま。
+ * 実効 arm 判定: キャンペーン期間中（〜2026-08-31）は civil セグメントの **全ページ** を
+ * arm A（ビルドジョブ）に固定する。9/1 以降は従来の slug ハッシュ 50/50 A/B へ自動復帰。
  * サイドバー・記事末カード・本文中間テキストの全サーフェスがこの 1 関数を共有するため、
  * 同一ページ内で案件が食い違わない（ピクセルも常にサイドバー 1 発火＝1 ページ 1 ピクセル維持）。
+ *
+ * なぜ高意図 slug 限定をやめたか（2026-07-28）:
+ * 当初は `HIGH_INTENT_CAREER_SLUGS`（36 件）だけを固定していたが、GA4 実測で
+ * **その 36 件は流入上位 100 ページに 1 つも入っていなかった**（セッション実質 0）。
+ * 実際の流入は学習系ページに集中しており（civil-construction-1-guide-strategy 641 /
+ * secondary-experience-writing-guide 359 等）、そこは 50/50 A/B のままで、
+ * 高流入ページの約半分が低 EPC 側に落ちていた（建設JOBs 側に 1,567 セッション）。
+ * A8 公開 EPC は BuildJob 942 円 / 建設JOBs 709 円で、単価差が最大の 8 月に
+ * 半分を低い側へ流す合理性が無いため、キャンペーン中は全体を寄せる。
+ *
+ * 9 月以降の注意: GKS（EPC 457 円）< 建設JOBs（709 円）と **逆転する**ため、
+ * 自動復帰後の 50/50 A/B はそのままだと不利側を含む。復帰後の arm 設計は別途見直す
+ * （docs/todo/backlog.md）。判断基準は affiliate-operations.md §6.5。
  */
 function isKensetsuJobsArmEffective(slug: string | undefined): boolean {
-  if (isCampaignActive() && slug && HIGH_INTENT_CAREER_SLUGS.has(slug)) {
-    return false;
-  }
+  if (isCampaignActive()) return false;
   return isKensetsuJobsArm(slug);
 }
 

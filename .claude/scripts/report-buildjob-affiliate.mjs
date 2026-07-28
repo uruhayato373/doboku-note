@@ -5,7 +5,7 @@
  * BuildJob 収益最大化スプリント（docs/project/04_運営/09_BuildJob収益最大化スプリント.md）P2。
  * 「どの面（サイドバー/記事末/本文中間/hub）が・どのページが BuildJob クリックを生んでいるか」を
  * オフラインで 1 レポートにまとめ、A8 成果スナップショットと突合して推定 EPC（報酬/クリック）を出す。
- * 期間中（〜2026-08-31）は高意図 slug が BuildJob 100% のため、面別クリックの伸びを毎週追える。
+ * 期間中（〜2026-08-31）は civil 全ページが BuildJob 100% のため、面別クリックの伸びを毎週追える。
  *
  * 入力（最新スナップショットを自動選択・オフライン・ネットワーク不要）:
  *   - .claude/state/metrics/ga4/ga4-cta-clicks-by-label-*.json  （label × eventName × eventCount）
@@ -239,7 +239,11 @@ lines.push("");
 
 lines.push("## 注記");
 lines.push("");
-lines.push("- 高意図 31 slug は 〜2026-08-31 の間 BuildJob 100%（`HIGH_INTENT_CAREER_SLUGS`）。9/1 以降は slug ハッシュ A/B へ自動復帰。");
+lines.push(
+  "- **2026-07-28 以降、キャンペーン中（〜08-31）は civil セグメント全ページが BuildJob 100%**（高意図 36 slug 限定をやめた。" +
+    "GA4 実測でその 36 slug は流入上位に 1 つも入らず、実流入の学習系ページが 50/50 A/B のまま低 EPC 側に半分流れていたため）。" +
+    "9/1 以降は `isCampaignActive()`=false で slug ハッシュ A/B へ自動復帰するが、GKS(457) < 建設JOBs(709) と逆転するため復帰後の arm 設計は要見直し。",
+);
 lines.push("- 期間中は高意図面が A/B 母集団から抜けるため、**建設JOBs vs BuildJob の EPC 比較は低意図面・hub のみで解釈**する。");
 lines.push("- 推定 EPC は `a8-results.json` に成果が入ってから有効。A8 は API 無しのため `/a8-report`（Playwright・要ローカルログイン）で取り込む。");
 lines.push(

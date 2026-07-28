@@ -307,6 +307,11 @@ BuildJob アフィリスプリントで注入された copy が rule 15-1（文�
 P1-P3（GA4 計測基盤・NextStepNav・季節モード note CTA）は実装済み。
 
 - **P4**: `keyword-relations.json`（598KB・未活用）から RelatedKeywords 未記述の keyword 記事へ build 時 top-N 自動挿入 fallback。要: 挿入品質の監査＋PE keyword 面 A/B
+- **P5-a（9/1 までに必須）**: **キャンペーン自動復帰後の arm 設計見直し**。8/31 に BuildJob が終了し
+  GKS へ自動切替されると、A8 公開 EPC が **GKS 457 円 < 建設JOBs 709 円**と逆転する。
+  現在の実装は 9/1 から slug ハッシュ 50/50 A/B へ自動復帰するため、放置すると
+  流入の半分が不利側（GKS）に流れる。8月中に「9月以降どちらへ寄せるか」を決めて
+  `isKensetsuJobsArmEffective` を更新する（真実源: `affiliate-operations.md` §6.5）
 - **P5**: アフィリ EPC 判定（~2026-09）。基準は `affiliate-operations.md` §6.5 に新設済。**着手前に 2 点確認**: ①現状は確定成果 0 件（累計 137click）で**分母規律未達＝判定不能**、分母供給には A8 単月取得（`a8-ui:fetch -- --month`）が前提 ②9/1 以降の対戦相手は BuildJob ではなく **GKS**（8/31 キャンペーン終了で自動切替）。期限で無理に決めず、判定不能なら §6.5 の裁定ログに据え置きを記録する
 - **P6**: 高購買意欲ページへ MDX 本文内 `<MagazineCard>` の個別商品導線補強。要: `sales-log.json` で対象ページ特定が先
 - **P7**（🟢）: concrete 系の L2 もくじ新設（note 商品拡充が前提）

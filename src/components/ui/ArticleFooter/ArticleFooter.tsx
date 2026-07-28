@@ -62,6 +62,25 @@ export default function ArticleFooter({
   hasCategoryNavCard,
   authorDates,
 }: ArticleFooterProps) {
+  // 記事末の転職カード。従来はモバイル限定（zenn-desktop:hidden）だったが、GA4 実測で
+  // **デスクトップが流入の 82%（8,557 sessions）を占めるのに記事末に導線が無く**、
+  // PC の唯一の枠だったサイドバーは 1 クリック（0.01%）しか取れていなかった。
+  // 同じ位置の note CTA は 393 クリック（4.6%）＝場所は効くのに広告だけ不在だったため、
+  // 全ビューポートで表示し、もくじタイルと横に並べる（2026-07-28）。
+  // ピクセルはサイドバー側のみが持ち、このカードは href のみ＝「1 ページ 1 ピクセル」は不変。
+  const careerEndCard =
+    category === 'civil-construction-1' ||
+    category === 'civil-construction-2' ||
+    category === 'pe-construction' ||
+    category === 'concrete-chief-engineer' ||
+    category === 'concrete-diagnostician' ||
+    category === 'pe-first-stage' ? (
+      <CareerAffiliate {...resolveCareerArticleEndCard(slugStr)} placement="article-end" />
+    ) : category === 'pe-comprehensive-management' ? (
+      // 総監はシニア技術者・管理職層＝施工管理系がミスマッチのため PE_CONSULTING で出す。
+      <CareerAffiliate {...resolvePeConsultingArticleEndCard()} placement="article-end" />
+    ) : null;
+
   return (
     <>
       {/* 参考資料カード（## 参考資料 セクションを抽出したもの。全カテゴリ共通） */}
@@ -101,13 +120,26 @@ export default function ArticleFooter({
       {/* note 有料マガジン CTA（記事末尾）。全 HUB 資格で「もくじ（L2 索引）」タイル 1 枚に統一（2026-07 統一）。
           個別マガジンタイル（旧・最大 3 誌）は廃止し、個別導線は冒頭/中間 CTA・MDX 内 MagazineCard に一本化。
           文言/価格/リンク先は resolveHubCta が SoT から HTML 駆動（平時=もくじ／直前期=売れ筋商品）。 */}
-      {footerMokuji && (
+      {/* もくじタイルと転職カードは横並び（2 カラム）。片方だけのときは従来どおり単独表示。
+          カラム比は 300px + 1fr（等分割だと 300px 固定のタイル側に隙間が残るため）。
+          高さは items-start で揃えない（HubCtaBanner の aspect-[6/5] を引き伸ばさないため）。 */}
+      {footerMokuji && careerEndCard ? (
+        <div className="mt-8 grid items-start gap-4 sm:grid-cols-[300px_1fr]">
+          <div className="w-full max-w-[300px] justify-self-center sm:justify-self-start">
+            <HubCtaBanner cta={footerMokuji} />
+          </div>
+          {/* CareerAffiliate 本体が持つ my-6 をグリッド内では相殺（隣のタイルと天端を揃える） */}
+          <div className="[&>div]:my-0">{careerEndCard}</div>
+        </div>
+      ) : footerMokuji ? (
         <div className="mt-8 flex justify-center">
           <div className="w-full max-w-[300px]">
             <HubCtaBanner cta={footerMokuji} />
           </div>
         </div>
-      )}
+      ) : careerEndCard ? (
+        <div className="mt-8">{careerEndCard}</div>
+      ) : null}
 
       {/* 外部チャネル（ココナラ添削／Brain 自作キット）CTA。施工経験記述・総監記述系の高適合ページのみ。
           note もくじ（フル教材）とは別種の「個別添削」「自作キット」導線として並置。listed 商品のみ描画。 */}
@@ -162,26 +194,8 @@ export default function ArticleFooter({
         </div>
       )}
 
-      {/* 記事末 転職 CTA（モバイル限定・施工管理/建設業界カテゴリ・FAQ 直後）。href のみ＝計測はサイドバー側 1 発火を維持。
-          creative は resolveCareerArticleEndCard が slug ハッシュ A/B（建設JOBs ↔ ビルドジョブ/GKS）で出し分け。
-          slugStr をサイドバーと共有＝同一ページは PC サイドバーと記事末カードが必ず同じ案件になる。
-          concrete/pe-first-stage も建設業界読者ゆえ 2026-07-06 に parity 追加（モバイル収益化）。 */}
-      {(category === 'civil-construction-1' ||
-        category === 'civil-construction-2' ||
-        category === 'pe-construction' ||
-        category === 'concrete-chief-engineer' ||
-        category === 'concrete-diagnostician' ||
-        category === 'pe-first-stage') && (
-        <div className="mt-8 zenn-desktop:hidden">
-          <CareerAffiliate {...resolveCareerArticleEndCard(slugStr)} placement="article-end-mobile" />
-        </div>
-      )}
-      {/* 総監はシニア技術者・管理職層＝施工管理系がミスマッチのため PE_CONSULTING(ハイクラスDX/コンサル)で出す。 */}
-      {category === 'pe-comprehensive-management' && (
-        <div className="mt-8 zenn-desktop:hidden">
-          <CareerAffiliate {...resolvePeConsultingArticleEndCard()} placement="article-end-mobile" />
-        </div>
-      )}
+      {/* 記事末の転職カードは、もくじタイルと並べるため上部（footerMokuji の位置）へ移動した
+          （2026-07-28）。FAQ 直後のこの位置には置かない。 */}
 
       {/* 関連記事（全記事共通・記事末 AuthorCard の前）。関連 2 件未満なら自動で非表示。 */}
       <div className="mt-8">
