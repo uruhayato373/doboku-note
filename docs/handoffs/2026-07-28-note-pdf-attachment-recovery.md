@@ -46,7 +46,7 @@
 ### コマンド
 
 ```bash
-node scripts/note-attach-batch.mjs --commit > .tmp/attach-night1.log 2>&1
+mkdir -p .tmp && node scripts/note-attach-batch.mjs --commit > .tmp/attach-night1.log 2>&1
 ```
 
 既定で **100件で打ち切る**。note のファイルアップロードは **1日100件が上限**で、超えると以降が全て「ファイルカード未検出」で失敗する（2026-06-16 実証）。1晩100件×3晩で202件が終わる。

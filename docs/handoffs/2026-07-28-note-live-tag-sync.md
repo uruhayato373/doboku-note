@@ -7,7 +7,7 @@
 ## 今夜やること（1コマンド）
 
 ```bash
-node scripts/note-sync-tags.mjs --list .claude/state/note-tag-sync-targets.txt --commit > .tmp/tagsync-night.log 2>&1
+mkdir -p .tmp && node scripts/note-sync-tags.mjs --list .claude/state/note-tag-sync-targets.txt --commit > .tmp/tagsync-night.log 2>&1
 ```
 
 ソースの `hashtags*.txt` は既に全748ファイルへ公務員層タグを追加済み（commit `38eb42c8c`）。**note ライブへの反映だけが残っている**。上のコマンドは live に足りないタグだけを追加する（本文・有料境界・カバーには触れない）。
