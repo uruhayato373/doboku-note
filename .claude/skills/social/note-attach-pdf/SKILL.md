@@ -47,6 +47,8 @@ node scripts/note-attach-file.mjs --note <noteKey> --file <pdf path> --anchor "<
 
 ## 完了条件（添付は「実行した」では終わらない）
 
+`note-attach-file --commit` は再公開後に**ライブの添付リンク数を実測**し、0 なら exit 9（「更新するを押せた＝添付できた」ではない）。横断確認は:
+
 ```bash
 node scripts/check-note-attachments.mjs --live   # 期待本数 vs ライブ実測
 ```

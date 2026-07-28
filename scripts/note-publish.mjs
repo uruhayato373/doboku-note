@@ -35,7 +35,7 @@
  * ---------------------------------------------------------------------------
  */
 import { chromium } from 'playwright';
-import { readFileSync, existsSync, writeFileSync } from 'node:fs';
+import { readFileSync, existsSync, writeFileSync, readdirSync } from 'node:fs';
 import { join, dirname, basename, resolve, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { recordPublishedHash, recordPublishedTagHash } from './lib/note-republish-hash.mjs';
@@ -471,5 +471,22 @@ try {
     console.log('[12] URL=' + page.url());
   }
   await page.screenshot({ path: join(ROOT, '.tmp/np-final.png') });
+
+  // [14] PDF 商品の未完成ガード（2026-07-28 新設）
+  //   note の PDF 添付はプラットフォーム機能で markdown に現れない＝「公開した」と
+  //   「PDF を配れる状態にした」が別工程。公開だけして添付を忘れても SoT からは分からず、
+  //   購入者が代金を払って PDF を受け取れない状態で売れ続ける（1級一次PDF ¥1,980 で発生）。
+  //   記事 dir に PDF があるなら、公開は「未完成」として非ゼロで終わらせる。
+  if (COMMIT && publishedUrl) {
+    const pdfDirs = [dir, join(dir, 'pdf')].filter((d) => existsSync(d));
+    const pdfs = pdfDirs.flatMap((d) => readdirSync(d).filter((f) => /\.pdf$/i.test(f)).map((f) => join(d, f)));
+    if (pdfs.length) {
+      const pubId = (publishedUrl.match(/n[0-9a-f]{12}/) || [])[0] || '<noteId>';
+      console.error(`\n[14] ★未完成: 記事 dir に PDF が ${pdfs.length} 件ある＝この記事は添付まで終えて初めて商品になる★`);
+      for (const p of pdfs) console.error(`  node scripts/note-attach-file.mjs --note ${pubId} --file "${relative(ROOT, p).replace(/\\/g, '/')}" --commit`);
+      console.error('  添付後の確認: node scripts/check-note-attachments.mjs --live --only ' + pubId);
+      process.exitCode = 9;
+    }
+  }
   console.log('RESULT:', JSON.stringify({ mode: COMMIT ? 'commit' : 'draft', boundaryOk, publishedUrl }));
 } finally { await ctx.close(); }

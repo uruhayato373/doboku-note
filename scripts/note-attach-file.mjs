@@ -229,6 +229,23 @@ try {
   const close = page.getByRole('button', { name: '閉じる' }); if (await close.count()) { await close.first().click(); await sleep(1500); }
   console.log('[6] 再公開完了:', page.url());
   await page.screenshot({ path: join(ROOT, '.tmp/attach-done.png'), fullPage: false }).catch(() => {});
+
+  // 7. 偽成功ガード: 公開ページに添付カードが**実在**するか（2026-07-28 新設）
+  //    「更新するを押せた」＝添付できた ではない。有料エリアの添付カードは未ログインでは
+  //    見えないので、ログイン済みの本コンテキストで数えるのが唯一の実測手段。
+  if (COMMIT) {
+    await page.goto(`https://note.com/dobokunote/n/${NOTE}`, { waitUntil: 'domcontentloaded' });
+    await sleep(3000);
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+    await sleep(2000);
+    const liveFiles = await page.evaluate(() => [...document.querySelectorAll('a')]
+      .filter((a) => /api\/v2\/attachments\/download/.test(a.getAttribute('href') || '')).length);
+    console.log(`[7] ライブ添付リンク数: ${liveFiles}`);
+    if (liveFiles < 1) {
+      console.error('[7] ★偽成功: 再公開できたのにライブに添付カードが無い → 添付は失敗している★');
+      exitCode = 9;
+    }
+  }
 } finally { await ctx.close(); }
 
 // ===== 偽成功ガード: 公開ページで「有料のまま」を実体検証（無料記事は非該当） =====

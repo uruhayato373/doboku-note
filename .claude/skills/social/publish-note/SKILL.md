@@ -218,6 +218,12 @@ browser-use --headed --profile "$NOTE_PROFILE" state 2>&1 > /tmp/note-acct.txt
 - **バッチ側の一次ガード（2026-07-01 実装済）**: `note-publish-magazine.mjs` は即時公開分について、書き戻した noteId が note API v3 で実在するか照合する。確定 404（幻 id）なら `fail` で停止する（予約投稿は go-live 後刻ゆえ検証しない）。
 - **バッチ後の確証ゲート（必須）**: 公開バッチ完了後・「完了」と報告する前に必ず `npm run verify-note-status` を回す。**fm=published ↔ ライブ=404** を `WARN` で列挙する reconciler で、幻 id・静かな未公開を全件で捕捉する。WARN が出たら該当記事の frontmatter（noteUrl/noteId/notePublishedAt）を空へリセット→`--commit` で再公開→再照合する。ネットワーク依存で遅いため CI ゲートには入れない（weekly-review でも定期実行）。
 
+### PDF 商品は「公開しただけ」では未完成（2026-07-28 新設）
+
+note の PDF 添付はプラットフォーム機能で **markdown に現れない**。公開と添付は別工程で、添付を忘れても SoT からは分からず、**購入者が代金を払って PDF を受け取れないまま売れ続ける**（1級土木 一次過去問PDF ¥1,980 で発生・PDF はビルド済みでアップロードだけが漏れていた）。
+
+`note-publish --commit` は記事 dir（または `<dir>/pdf/`）に PDF があると公開後に **exit 9「未完成」** で終わり、実行すべき `note-attach-file` コマンドを列挙する。緑で終わるまでが公開作業。→ `note-attach-pdf` スキル
+
 ## トラブルシューティング
 
 要素検索ヘルパー（`find_idx`）・実証済み要素パターン・clipboard paste 不発時の対処は **[references/troubleshooting.md](references/troubleshooting.md)**。既存公開記事の更新は **[references/update-mode.md](references/update-mode.md)**。
