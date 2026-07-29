@@ -13,7 +13,8 @@ doboku-note プロジェクトにおけるドキュメント・データの置�
 | Knowledge | `.claude/knowledge/` | エージェントが読む共有知識・ポリシー・設計規約 | md / JSON | Admin `/knowledge` |
 | Runtime | `.claude/state/` / `.claude/config/` | 状態・機械設定 | JSON | Admin / 各機能 |
 | Capability | `.claude/skills/` / `.claude/agents/` | Claude の実行能力 | md + scripts | Admin `/skills`, `/agents` |
-| Content | `docs/` | note・SNS・教材・計画・handoff など成果物と業務記録 | md / assets | 専用 Admin 画面 |
+| Agent Content | `.claude/content/` | Claude エージェントが管理する非公開のチャネル原稿・運用SSOT | md / assets | エージェント |
+| Content | `docs/` | note・SNS・教材・計画・handoff など人向け成果物と業務記録 | md / assets | 専用 Admin 画面 |
 
 `.claude/knowledge/` の Markdown/JSON がSSOTであり、Adminは読み取り専用の人向けHTMLビューである。HTMLを別ファイルとして保存せず、二重管理を作らない。
 
@@ -28,9 +29,15 @@ doboku-note プロジェクトにおけるドキュメント・データの置�
 2. 状態・設定として CI・エージェントが programmatic に読む → `.claude/state/` / `.claude/config/`（JSON）
 3. エージェント間で継続参照する知識・判断・手順 → `.claude/knowledge/`
 4. Claude Code の能力定義 → `.claude/skills/` / `.claude/agents/`
-5. SNS 投稿管理 → `docs/sns/{instagram,x,youtube}/`
-6. note 記事管理 → `docs/note/`
-7. 上記いずれでもない一時メモは作らない（`.tmp/` 配下のみ）
+5. Claude エージェントが閉じて管理するチャネル専用原稿・運用SSOT → `.claude/content/{channel}/`
+6. SNS 投稿管理 → `docs/sns/{instagram,x,youtube}/`
+7. note 記事管理 → `docs/note/`
+8. 上記いずれでもない一時メモは作らない（`.tmp/` 配下のみ）
+
+現在の `.claude/content/` 対象は Kindle のみ。`.claude/content/kindle/strategy.md` と
+`.claude/content/kindle/books/{id}/front-matter.md` は `kindle-book-composer` / `kdp-operator` が管理し、
+`docs/` に Kindle 専用の管理ファイルを置かない。公開コンテンツ内の Kindle 導線や、`docs/todo/` の関連タスクは
+各成果物・タスクの文脈なのでこの移管対象外。
 
 ## スキル/エージェント更新ルール
 
@@ -81,11 +88,12 @@ doboku-note プロジェクトにおけるドキュメント・データの置�
 
 ## .claude/ の構成
 
-`.claude/` には共有知識、Claude の実行能力、機械データを置く：
+`.claude/` には共有知識、Claude 管理コンテンツ、実行能力、機械データを置く：
 
 ```
 .claude/
   knowledge/        # 共有SSOT（Admin /knowledge でHTML閲覧）
+  content/          # エージェント管理の非公開チャネル原稿・運用SSOT
   skills/           # 実行能力
   agents/           # 実行能力
   state/            # 状態（JSON のみ）
@@ -106,7 +114,7 @@ doboku-note プロジェクトにおけるドキュメント・データの置�
 ### 規律
 
 1. **1 トピック = 1 SSOT**。同じ事実を複数ファイルに重複させない。重複が必要なら「正」を 1 つ決め、他は 1 行ポインタ（`→ 最新は {path} 参照`）にする。
-2. **価格・リリースカレンダー・ロードマップは指定 SSOT のみに置く**。散在させない（真実源は各 `docs/note/{試験}/noteコンテンツ計画.md`）。
+2. **価格・リリースカレンダー・ロードマップは指定 SSOT のみに置く**。散在させない（note は各 `docs/note/{試験}/noteコンテンツ計画.md`、Kindle は `.claude/content/kindle/strategy.md`）。
 3. **doc を移動・リネーム・統廃合したら、同一 commit で全参照を更新する**。検出は `npm run check-doc-refs`（下記）。
 4. **揺れやすいパスより安定したインデックスを指す**。章番号付き（`04_コンテンツロードマップ.md` 等）は再編で動きやすいので、可能なら README や本ドキュメント、内容 SSOT（`noteコンテンツ計画.md` 等）を参照する。
 5. **例示パスはプレースホルダで書く**（`{slug}` / `{magazine}` / `YYYY-Www` / `r0X` / `d-xx` 等）。実在ファイル参照と区別され、ガードが誤検知しない。

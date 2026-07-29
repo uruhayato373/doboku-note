@@ -10,7 +10,7 @@ KDP で**公開済み（LIVE）**の Kindle 実物アーカイブ。実際に出
 
 1級土木施工管理技士 論点別過去問 A シリーズ（A-01〜A-06、個別本）。合本 A-00 は未公開のため対象外。
 
-**機械可読 SSOT = [`catalog.json`](./catalog.json)**（ASIN・価格・状態・版 version の真実源）。下表と `08_Kindle出版戦略.md` の「出版済み一覧」はここから派生させる。ASIN は Amazon 恒久 ID（アフィリリンク・公開状態照合・外部導線に使用）。
+**機械可読 SSOT = [`catalog.json`](./catalog.json)**（ASIN・価格・状態・版 version の真実源）。下表と `.claude/content/kindle/strategy.md` の「出版済み一覧」はここから派生させる。ASIN は Amazon 恒久 ID（アフィリリンク・公開状態照合・外部導線に使用）。
 
 ## 版管理（継続的改善）
 
@@ -58,7 +58,7 @@ A（問題/解答を別 XHTML に分割＝構造的改ページ）と D（`.ans`
 | F-07 自治体技術基準 | B0HBR87S59 | 1.0 | `kindle-dist/f-07.epub` | `kindle-dist/f-07.jpg` | kdp-memo.json |
 
 > ASIN の真実源は `scripts/kindle-published/catalog.json`（`asin` フィールド）。この表と
-> `docs/project/01_戦略/08_Kindle出版戦略.md` は人が読む索引で、**3 箇所とも同時に更新する**
+> `.claude/content/kindle/strategy.md` は人が読む索引で、**3 箇所とも同時に更新する**
 > （LIVE 化のたびに漏れやすい。2026-07-27 に C-01〜C-09 で本 README だけ記録漏れが発生した）。
 > 審査中で ASIN 未発番の本は catalog の `draftAsin` のみを持ち、この表には載せない。
 
@@ -66,4 +66,4 @@ A（問題/解答を別 XHTML に分割＝構造的改ページ）と D（`.ans`
 
 AI生成の表紙デザイン元 PNG（Downloads から退避・7/8 生成分 8枚）。品番マッピングは付いていない生成物（採用/不採用のバリアント混在）。最終採用の表紙は上記の `kindle-cover-*.jpg`（satori 合成・1600×2560）が正。
 
-戦略・価格の真実源は `docs/project/01_戦略/08_Kindle出版戦略.md`。
+戦略・価格の真実源は `.claude/content/kindle/strategy.md`。

@@ -1,11 +1,13 @@
 # Kindle 出版戦略（KDP）
 
-**作成日**: 2026-06-09（v1）/ **更新日**: 2026-07-08（v3: Dシリーズ新設・制作パイプライン整備・ロードマップ再基準化）
-**位置付け**: [04_収益化戦略.md](./04_収益化戦略.md) の補足。note・AdSense と並ぶ第3の収益柱（立ち上げ中）。
-**生成ツール**: A系=`scripts/build-takuitsu-reconstruct.mjs` / D系=`scripts/build-pe1-kindle.mjs`（spec 駆動）。オーケストレーションは `/kindle-build` スキル（後述「制作パイプライン」）
+**作成日**: 2026-06-09（v1）/ **更新日**: 2026-07-30（Claude 管理領域へ移管）
+**位置付け**: [04_収益化戦略.md](../../../docs/project/01_戦略/04_収益化戦略.md) の補足。note・AdSense と並ぶ第3の収益柱（立ち上げ中）。
+**生成ツール**: A系=`scripts/build-takuitsu-reconstruct.mjs` / B・D・E系=`scripts/build-pe1-kindle.mjs` / C・F系=`scripts/build-essay-kindle.mjs`（spec 駆動）。オーケストレーションは `/kindle-build` スキル（後述「制作パイプライン」）
 
-> [!success] 実施状況（2026-07-08）— **第1弾 A-01 出版済み（KDP LIVE）**
-> **A-01「安全管理 論点別過去問」（¥390・127問）を KDP で公開**（著者=doboku-note・DRM有・KDP Select・税務/W-8BEN 登録完了）。制作パイプライン（`/kindle-build` スキル＋`kindle-book-composer`/`kindle-book-qa`）＋実運用の入稿手順（SKILL の「KDP 入稿の実運用メモ」）が確立し、**2冊目以降の量産体制が整った**。C シリーズの着手条件「Web 月収 ¥15k」は 2026-06 実績 ¥217,760 で達成済み。実売の主力は note 有料（[11_STP分析2026-07.md](./11_STP分析2026-07.md)）で、Kindle は 1級土木・技術士一次という**note で売上ゼロの層**（STP の「マネタイズの穴」）を Amazon 検索市場で拾う位置付け。**2026-07-08: A-02〜A-06＋A-00 合本の全 EPUB 制作完了（epubcheck 全冊 0/0）**。残り＝表紙作成＋KDP アップロード（ユーザー作業）。次の一手＝D-02 適性（書き下ろし前付け）。
+> [!success] 実施状況（2026-07-30）
+> `catalog.json` 基準で A 7冊・B 2冊・C 12冊・D 4冊・E 1冊・F 7冊が LIVE。F-08〜F-16 は
+> EPUB/表紙完成済みの `ready` で、KDP 作成数制限の回復後に提出する。制作・監査・入稿は
+> `/kindle-build` → `kindle-book-composer` / `kindle-book-qa` → `/kdp-publish` で運用する。
 
 ---
 
@@ -118,7 +120,7 @@
 > 旧 ¥1,490 は 70% ロイヤリティ帯（¥250〜¥1,250）を超過し 35% に落ちるため実収益が逆転する（¥1,490×35%≒¥522 < ¥1,250×70%≒¥875）。**¥1,250 へ改定**。
 
 > [!note] Cシリーズの着手条件（2026-07 更新）
-> note模範解答マガジンの問題文アーカイブ84ページが整備済み（2026-06-08完了）。着手条件「Web月収¥15k達成」は**達成済み（2026-06 ¥217,760）でゲートは開いている**が、実制作は未着手。詳細 → [docs/note/技術士建設部門/noteコンテンツ計画.md](../../note/技術士建設部門/noteコンテンツ計画.md)
+> note模範解答マガジンの問題文アーカイブ84ページが整備済み（2026-06-08完了）。着手条件「Web月収¥15k達成」は**達成済み（2026-06 ¥217,760）でゲートは開いている**が、実制作は未着手。詳細 → [docs/note/技術士建設部門/noteコンテンツ計画.md](../../../docs/note/技術士建設部門/noteコンテンツ計画.md)
 
 #### Dシリーズ — 技術士一次 科目別7年分合本（2026-07-08 新設）
 
@@ -204,15 +206,16 @@
 
 ## 制作パイプライン（2026-07-08 整備）
 
-構成設計（Generator）・ビルド（決定的スクリプト）・評価（Evaluator）の分業。エージェント詳細は [agents-registry.md](../../reference/agents-registry.md)。
+構成設計（Generator）・ビルド（決定的スクリプト）・評価（Evaluator）の分業。エージェント詳細は [agents-registry.md](../../knowledge/reference/agents-registry.md)。
 
 ```
 /kindle-build {書籍ID}
  ├─ 構成定義あり → 決定的ビルド（LLM不使用）
  │    A系: build-takuitsu-reconstruct.mjs --theme {key}
- │    D系: build-pe1-kindle.mjs --spec scripts/kindle-specs/{id}.json
+ │    B/D/E系: build-pe1-kindle.mjs --spec scripts/kindle-specs/{id}.json
+ │    C/F系: build-essay-kindle.mjs --spec scripts/kindle-specs/{id}.json
  ├─ 構成定義なし → kindle-book-composer（Generator）
- │    A系: THEMES 論点分類設計（件数を本書と突合） / D系: spec + 書き下ろし前付け
+ │    A系: THEMES 論点分類設計（件数を本書と突合） / B〜F系: spec + 書き下ろし前付け
  └─ ビルド後 → epubcheck → kindle-book-qa（Evaluator）5軸監査
       ①原稿完全性 ②構成整合 ③EPUB技術 ④KDP規約適合 ⑤商品性 → FAIL は修正して再ビルド（最大2周）
 ```
@@ -311,7 +314,7 @@
 ```
 [ ] 構成定義（初回のみ）
     kindle-book-composer が scripts/kindle-specs/d-xx.json と
-    書き下ろし前付け docs/kindle/d-xx/front-matter.md を作成
+    書き下ろし前付け .claude/content/kindle/books/d-xx/front-matter.md を作成
 
 [ ] EPUB生成
     node scripts/build-pe1-kindle.mjs --spec scripts/kindle-specs/d-xx.json
@@ -439,6 +442,7 @@
 
 ## 更新履歴
 
+- 2026-07-30: `docs/` から `.claude/content/kindle/` へ移管。戦略・前付けを Kindle エージェント管理に統一し、全シリーズの現行ビルド経路と公開状態を同期。
 - 2026-07-08（v3）: Dシリーズ（技術士一次・科目別7年分合本）を新設。A-01 EPUB 完成（epubcheck 通過・5軸監査）を反映しロードマップを再基準化（Phase 2 に Dパイロット=D-02 適性を組込み）。C-00 を ¥1,490→¥1,250 に改定（70%帯超過の是正）。制作パイプライン節（`/kindle-build`＋composer/qa エージェント分業）と KDP コンテンツポリシーリスク注記を追加。
 - 2026-06-09（v2）: ラインナップをA/B/Cの3シリーズ構成に再編。編集軸（論点別vs年度別）の判断基準を明文化。Cシリーズ（建設部門二次）を追加。
 - 2026-06-09（v1）: 初版作成。アカウント設定手順・ラインナップ全体設計・ロードマップを策定。

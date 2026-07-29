@@ -125,4 +125,4 @@ node scripts/kdp-publish.mjs --diag-category --asin <既存draft ASIN>
 - `.claude/config/kdp-memo.json` — KDP 入稿 SSOT
 - `scripts/kindle-published/catalog.json` — 全書籍レジストリ
 - [/kindle-build](../kindle-build/SKILL.md) — 前工程（EPUB 生成）
-- [08_Kindle出版戦略.md](../../../../docs/project/01_戦略/08_Kindle出版戦略.md) — 出版戦略・出版済み一覧
+- [strategy.md](../../../content/kindle/strategy.md) — 出版戦略・出版済み一覧

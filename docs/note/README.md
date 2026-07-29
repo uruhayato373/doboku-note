@@ -79,12 +79,12 @@ docs/note/
 
 ### 技術士一次（`技術士一次/`）— 2026-07-11 新設
 
-- **単発有料記事**: 過去問PDF 合本（基礎・適性・専門〔建設部門〕令和元〜7年度 全560問・¥1,480）。Kindle 択一（D-00 合本）と同一原稿の A4 印刷用 PDF を有料エリアに添付した **note 従チャネル**。note 売上ゼロ層を拾う位置付け（`08_Kindle出版戦略.md`）
+- **単発有料記事**: 過去問PDF 合本（基礎・適性・専門〔建設部門〕令和元〜7年度 全560問・¥1,480）。Kindle 択一（D-00 合本）と同一原稿の A4 印刷用 PDF を有料エリアに添付した **note 従チャネル**。note 売上ゼロ層を拾う位置付け（[Kindle 管理SSOT](../../.claude/content/kindle/strategy.md)）
 - **配線**: `src/lib/note-magazines.ts` の `pe1-takuitsu-pdf`（published:true・実 noteUrl）
 
 ### 択一過去問PDF 従チャネル（横断・Kindle 併売）
 
-- Kindle 択一シリーズと同一原稿の A4 PDF を有料 note 単発記事として併売する従チャネル。対象 4 商品＝2級土木一次（`civil-2-takuitsu-pdf`・上記 1級・2級土木配下）／技術士一次（`pe1-takuitsu-pdf`）／総監 令和（`tankan-takuitsu-reiwa-pdf`）／総監 平成（`tankan-takuitsu-heisei-pdf`）。**全4商品 2026-07-12 公開済**。真実源＝`docs/project/01_戦略/08_Kindle出版戦略.md`・`src/lib/note-magazines.ts`
+- Kindle 択一シリーズと同一原稿の A4 PDF を有料 note 単発記事として併売する従チャネル。対象 4 商品＝2級土木一次（`civil-2-takuitsu-pdf`・上記 1級・2級土木配下）／技術士一次（`pe1-takuitsu-pdf`）／総監 令和（`tankan-takuitsu-reiwa-pdf`）／総監 平成（`tankan-takuitsu-heisei-pdf`）。**全4商品 2026-07-12 公開済**。真実源＝`.claude/content/kindle/strategy.md`・`src/lib/note-magazines.ts`
 
 ### コンクリート主任技師（`コンクリート主任技師/`）
 

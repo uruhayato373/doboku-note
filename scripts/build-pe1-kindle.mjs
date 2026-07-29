@@ -1,6 +1,6 @@
 // 技術士第一次試験の完全解説 MDX（.local/r2/posts/pe-first-stage/**）を
 // 科目別7年分合本の Kindle 用 EPUB に変換する決定的ビルダー（Dシリーズ）。
-// 戦略・価格の真実源: docs/project/01_戦略/08_Kindle出版戦略.md
+// 戦略・価格の真実源: .claude/content/kindle/strategy.md
 //
 // 使い方:
 //   node scripts/build-pe1-kindle.mjs --spec scripts/kindle-specs/d-02.json
@@ -10,7 +10,7 @@
 //   {
 //     "bookId": "d-02", "title": "...", "subtitle": "...", "price": 390,
 //     "sources": [".local/r2/posts/pe-first-stage/r01-aptitude/article.mdx", ...],
-//     "frontMatter": "docs/kindle/d-02/front-matter.md"   // 書き下ろし前付け（任意だが出版時は必須）
+//     "frontMatter": ".claude/content/kindle/books/d-02/front-matter.md"   // 書き下ろし前付け（任意だが出版時は必須）
 //   }
 //
 // MDX → XHTML 変換:

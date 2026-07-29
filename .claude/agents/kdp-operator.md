@@ -33,7 +33,7 @@ model: sonnet
 | `scripts/kindle-published/catalog.json` | 全 42 冊の status/ASIN/draftAsin（提出後の更新先） |
 | `scripts/kindle-specs/<id>.json` | title/subtitle/price/sources（ビルド入力） |
 | `.claude/knowledge/reference/kindle-dup-prevention`（memory） | 修正版は既存差し替え・新規作成禁止／提出後 ASIN 即記録 |
-| `docs/project/01_戦略/08_Kindle出版戦略.md` | 出版済み一覧（LIVE 化後の記録先の1つ） |
+| `.claude/content/kindle/strategy.md` | 出版済み一覧（LIVE 化後の記録先の1つ） |
 
 ## 担当範囲
 
@@ -43,13 +43,13 @@ model: sonnet
    （フリガナ＝カタカナ・ローマ字・keywords 7個・description ≤4000字・previewNote）。
 3. **提出駆動**: `kdp-publish.mjs --id <id>`（下書きまで）。`--commit-publish`（出版）は**親/ユーザー承認後のみ**。
 4. **記録**: 提出後 catalog.json（status=in_review・submittedDate・draftAsin は script が自動記録）。
-   LIVE 化検知後（`--sync-status`）は ASIN を **catalog / 08戦略doc / kindle-published README の3箇所**へ。
+   LIVE 化検知後（`--sync-status`）は ASIN を **catalog / `.claude/content/kindle/strategy.md` / kindle-published README の3箇所**へ。
 
 ## 担当外
 
 - **EPUB 生成・原稿修正**: `/kindle-build`＋`kindle-book-composer`／ビルダー修正が担当。
 - **既刊 EPUB 差し替え（--update-manuscript）**: 未実装（DOM 未較正）。案件発生時に `--dump` で較正してから。
-- **出版可否の戦略判断・価格決定**: 親（Opus）／08戦略doc の責務。
+- **出版可否の戦略判断・価格決定**: 親（Opus）／`.claude/content/kindle/strategy.md` の責務。
 
 ## 利用可能なスクリプト（`scripts/kdp-publish.mjs`）
 

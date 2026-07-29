@@ -238,7 +238,7 @@ note一覧・リンクカード・関連記事・人気記事・マガジンで�
 **実行環境**: この Mac（`/Users/minamidaisuke/doboku-note` に note ログイン済み `.local/playwright-note-profile` あり）で実行。**会社PCはプロキシで note API 遮断のため不可**。develop worktree でやる場合は `.local/playwright-note-profile` を symlink する。
 
 **次にやる手順（前提＝下記1が完了していること）**:
-1. **【ユーザー操作】10月上旬・Select 更新日の前に、KDP 管理画面で A-00〜A-06 全冊の「KDP セレクトへの自動登録」をオフ**（真実源 = [08_Kindle出版戦略.md](../project/01_戦略/08_Kindle出版戦略.md) §KDP Select）。オフにしたことを確認してから2へ。
+1. **【ユーザー操作】10月上旬・Select 更新日の前に、KDP 管理画面で A-00〜A-06 全冊の「KDP セレクトへの自動登録」をオフ**（真実源 = [Kindle 管理SSOT](../../.claude/content/kindle/strategy.md) §KDP Select）。オフにしたことを確認してから2へ。
 2. 本体公開: `node scripts/note-publish.mjs --article "docs/note/1級・2級土木/1級土木/一次択一-過去問PDF/article.md" --commit`（draft 確認したい場合は `--commit` なしで先に流す）。**成功すると frontmatter に `noteId`/`noteUrl` が自動 writeback される**＝この `noteId` を3の `<key>` に使う。
 3. PDF 添付: `node scripts/note-attach-file.mjs --note <noteId> --file "docs/note/1級・2級土木/1級土木/一次択一-過去問PDF/1級土木一次択一-過去問PDF.pdf" --boundary-regex "PDF のダウンロードと使い方" --commit`。**罠: `note-attach-file.mjs` は frontmatter の paidBoundary を読まないので `--boundary-regex` の明示が必須**（省くと既定 `試験問題|予想問題` で境界が見つからず exit 8 中断）。PDF は有料エリア末尾に添付される。
 4. SKU flip: `note-magazines.ts` の `civil-1-takuitsu-pdf` を `published: true` ＋ `noteUrl: <公開URL>` に。
@@ -452,8 +452,8 @@ PR #269（カタログ）/#270（SNSレンダラー）済。残 = Phase4 記事�
 
 2026-07-17 の過去問カバレッジ調査で確定した**データ層の不整合**（サイト記事は無傷。SoT/戦略docの数字ズレ）:
 1. **総監 `src/config/exam-questions.json` が h30 欠落** — 実測 h21〜r07 のうち h30 のみ無く **16年度640問**。一方サイト記事は `h30-primary/secondary`（40問）を含む17年度。IG 論点パック SoT と Kindle B「平成合本 h21-h30 400問」宣言がこの JSON 由来なら**平成合本が実は h30 分不足の疑い**→ 要確認・補完（原典 `docs/textbook/技術士（総監）/過去問/` に h30 PDF あり）
-2. **docs 数値の三重不整合（総監）**: `ig-carousel-skill.md`＝16年度640問／`08_Kindle出版戦略.md`本文＝18年分／同表＝17年680問。物理在庫は17年度。正へ統一
-3. **技術士一次の総問数不一致**: `08_Kindle出版戦略.md` 本文「490問」 vs D-01+02+03 表・note article「560問」。実装は560問＝本文490を是正
+2. **docs 数値の三重不整合（総監）**: `ig-carousel-skill.md`＝16年度640問／`.claude/content/kindle/strategy.md` 本文＝18年分／同表＝17年680問。物理在庫は17年度。正へ統一
+3. **技術士一次の総問数不一致**: `.claude/content/kindle/strategy.md` 本文「490問」 vs D-01+02+03 表・note article「560問」。実装は560問＝本文490を是正
 真実源照合は `src/config/*-exam-questions.json` の実カウント。
 
 ---
@@ -645,7 +645,7 @@ A-01〜A-06 個別本6冊は KDP 公開済（LIVE）。残:
 - A-00 合本（422問 EPUB 完成・未公開）の公開判断（保留中）
 - B系（総監 年度別 R03-R07 各20問¥350）＝ジェネレータ設計待ち／C系（建設部門 二次模範解答）＝着手条件達成済み・未着手
 - **note PDF 販売（従チャネル）**: Kindle Select 独占90日終了後に開始（`/note-attach-pdf`・¥500〜¥1,480）
-- 真実源: `docs/project/01_戦略/08_Kindle出版戦略.md`
+- 真実源: `.claude/content/kindle/strategy.md`
 
 ### content-angle P-1 カルーセルパイロット
 タグ: [SNS・マーケ]
@@ -775,4 +775,4 @@ npm run kdp-batch -- f-08 f-09 f-10 f-11 f-12 f-13 f-14 f-15 f-16
 
 driver が「配置→下書き→プロファイル掃除→出版→catalog更新」を1冊約3.5分で回し、制限に再到達したら即中断する。手順と罠の真実源は `.claude/skills/conversion/kdp-publish/SKILL.md`。
 
-**ASIN 記録は完了済み**（2026-07-27 提出の10冊は同日中に LIVE 化し、3箇所へ記録済み）。f-08〜f-16 も出版後は同様に ASIN を **3箇所**（`catalog.json` / `docs/project/01_戦略/08_Kindle出版戦略.md` / `scripts/kindle-published/README.md`）に記録する。ASIN は `node scripts/kdp-publish.mjs --sync-status` の保存する `.tmp/kdp-bookshelf.html` から draftAsin と対応づけて取得できる（本棚リストは20件で切れるため JSON 出力だけでは足りない）。
+**ASIN 記録は完了済み**（2026-07-27 提出の10冊は同日中に LIVE 化し、3箇所へ記録済み）。f-08〜f-16 も出版後は同様に ASIN を **3箇所**（`catalog.json` / `.claude/content/kindle/strategy.md` / `scripts/kindle-published/README.md`）に記録する。ASIN は `node scripts/kdp-publish.mjs --sync-status` の保存する `.tmp/kdp-bookshelf.html` から draftAsin と対応づけて取得できる（本棚リストは20件で切れるため JSON 出力だけでは足りない）。

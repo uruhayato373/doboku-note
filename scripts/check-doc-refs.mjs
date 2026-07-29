@@ -9,7 +9,7 @@
 // 人手で追うと必ず漏れるため、壊れた doc 参照を機械検知してコミットを止める。
 //
 // 検査対象（ソース側）: .claude/skills/**/*.md, .claude/agents/**/*.md,
-//                        .claude/knowledge/**/*.md, docs/**/*.md, CLAUDE.md
+//                        .claude/knowledge/**/*.md, .claude/content/**/*.md, docs/**/*.md, CLAUDE.md
 // 検査対象（参照先）  : docs/... .claude/... src/... で始まり拡張子を持つファイルパス
 //
 // 使い方:
@@ -47,7 +47,7 @@ function isPlaceholder(p) {
   if (/\.\.\.|…/.test(p)) return true;
   if (/YYYY|Www|<year>|<slug>/.test(p)) return true;
   if (/(?:^|[/_-])(?:r0X|R0X|R0Y|rXX|RXX|NN|XX)(?:[/_.-]|$)/.test(p)) return true;
-  // Kindle 本 ID のプレースホルダ（例: docs/kindle/d-xx/front-matter.md）。
+  // Kindle 本 ID のプレースホルダ（例: .claude/content/kindle/books/d-xx/front-matter.md）。
   // D 系（技術士一次・科目別）は d-NN の連番、未確定枠は d-xx で書かれる。
   if (/(?:^|[/_-])[a-d]-(?:xx|nn)(?:[/_.-]|$)/i.test(p)) return true;
   return false;
@@ -80,6 +80,7 @@ if (STAGED) {
     f.startsWith('.claude/skills/') ||
     f.startsWith('.claude/agents/') ||
     f.startsWith('.claude/knowledge/') ||
+    f.startsWith('.claude/content/') ||
     f.startsWith('docs/') ||
     f === 'CLAUDE.md'
   ));
@@ -88,6 +89,7 @@ if (STAGED) {
     ...walk('.claude/skills'),
     ...walk('.claude/agents'),
     ...walk('.claude/knowledge'),
+    ...walk('.claude/content'),
     ...walk('docs'),
     ...(existsSync('CLAUDE.md') ? ['CLAUDE.md'] : []),
   ];

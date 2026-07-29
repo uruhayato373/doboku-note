@@ -37,7 +37,7 @@ title: スキル ナビゲーションガイド
 | `/ogp-create` | サイト OGP（mono-tag・全幅＋資格別テーマ色外枠）＋ note 記事カバー（**V4 crop-safe が既定**・試験色分け・G2 は 2026-07-24 全量移行済みレガシー）生成。デザイン SSOT は `.claude/knowledge/reference/ogp-prompts.md`（OGP）と `.claude/knowledge/design-system/note-cover-crop-safe-v4.md`（V4）、一括目視 QA は `npm run ogp-gallery` | `OGP画像`, `noteカバー`, `/ogp-create` |
 | `/ogp-design-explore` | OGP 意匠の**新方向を aidesigner / Canva の MCP で素案として試作**し、採用案を `/ogp-create` の satori テンプレに落として量産につなぐ。試作専用（量産・per-article 生成は `/ogp-create`）。MCP は外部クレジット消費 | `OGPデザイン検討`, `OGP素案`, `OGPリデザイン試作`, `/ogp-design-explore` |
 | `/magazine-to-pdf` | note マガジンの article.md →「問題文＋解答」中心の紙用 PDF（spec 駆動・A/B案両収録） | `マガジンをPDF`, `記事を紙で`, `模範論文PDF`, `/magazine-to-pdf --spec scripts/pdf-specs/{name}.json [--desktop]` |
-| `/kindle-build` | Kindle(KDP)入稿用 EPUB を書籍IDから生成→epubcheck＋check-kindle-format→`kindle-book-qa` 5軸監査まで一気通貫。択一系（A=1級土木論点別 / B=総監・D=技術士一次・E=2級土木 は build-pe1-kindle）と記述式 essay 系（C=建設二次模範解答・F=総監記述式 は build-essay-kindle）に対応。構成未定義は `kindle-book-composer` へ委譲。全書籍の状態は catalog.json、配布物は kindle-dist/ を git 追跡。真実源 08_Kindle出版戦略.md | `Kindle本を作って`, `EPUBを生成`, `KDP入稿ファイル`, `essay模範解答本`, `/kindle-build {A-01\|E-01\|c-01}` |
+| `/kindle-build` | Kindle(KDP)入稿用 EPUB を書籍IDから生成→epubcheck＋check-kindle-format→`kindle-book-qa` 5軸監査まで一気通貫。択一系（A=1級土木論点別 / B=総監・D=技術士一次・E=2級土木 は build-pe1-kindle）と記述式 essay 系（C=建設二次模範解答・F=総監記述式 は build-essay-kindle）に対応。構成未定義は `kindle-book-composer` へ委譲。非公開原稿は `.claude/content/kindle/`、全書籍の状態は catalog.json、配布物は kindle-dist/ を git 追跡 | `Kindle本を作って`, `EPUBを生成`, `KDP入稿ファイル`, `essay模範解答本`, `/kindle-build {A-01\|E-01\|c-01}` |
 | `/kdp-publish` | ビルド済み EPUB＋表紙を Amazon KDP へ入稿し下書き保存→（承認後）出版する Playwright パブリッシャ（`scripts/kdp-publish.mjs`・永続プロファイルでログイン保存）。詳細→カテゴリー→原稿/表紙アップロード→原稿処理完了待ち→AI申告→アクセシビリティ→価格→出版。重複突合(`--sync-status`)・メタ生成・提出後の catalog/戦略doc/README 記録は `kdp-operator` へ委譲。真実源 .claude/config/kdp-memo.json（defaults）。/kindle-build の後工程 | `KDP出版`, `KDP提出`, `kindleを出版`, `KDPドラフト削除`, `/kdp-publish {id}`（`--commit-publish` で出版） |
 
 ### 品質管理（quality）
@@ -218,9 +218,10 @@ title: スキル ナビゲーションガイド
    - 出力先: `.tmp/takuitsu-{key}/{key}.epub`（gitignore）。表紙は `scripts/kindle-covers/`（spec 駆動）
    - Kindle Previewer 確認後、KDP（[kdp.amazon.co.jp](https://kdp.amazon.co.jp)）にアップロード
    - 書籍ID→コマンドの解決表・KDP実運用メモの真実源 → `.claude/skills/conversion/kindle-build/SKILL.md`
-2. **Bシリーズ（技術士総監 択一・年度別）**: ジェネレータ未設計（Phase 4 着手予定）
-3. **Cシリーズ（技術士建設部門 二次・模範解答）**: 着手条件達成済み・実制作未着手
-4. 戦略全体・ラインナップ一覧 → `docs/project/01_戦略/08_Kindle出版戦略.md`
+2. **B/D/Eシリーズ（択一・合本）**: `node scripts/build-pe1-kindle.mjs --spec scripts/kindle-specs/{id}.json`
+3. **C/Fシリーズ（記述式・模範解答/論文）**: `node scripts/build-essay-kindle.mjs --spec scripts/kindle-specs/{id}.json`
+4. 非公開前付け → `.claude/content/kindle/books/{id}/front-matter.md`（`kindle-book-composer` 管理）
+5. 戦略全体・ラインナップ一覧 → `.claude/content/kindle/strategy.md`
 
 ### マガジン記事を紙用 PDF にしたい
 

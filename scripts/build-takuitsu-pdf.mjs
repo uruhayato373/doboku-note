@@ -1,6 +1,6 @@
 // 択一過去問 MDX（.local/r2/posts/**）を note 有料記事の添付用 A4 PDF に変換する決定的ビルダー。
 // Kindle 版（build-pe1-kindle.mjs / build-takuitsu-reconstruct.mjs）と同じ原稿ソースを、
-// note PDF 販売（従チャネル）向けに紙面レイアウトで書き出す。真実源: docs/project/01_戦略/08_Kindle出版戦略.md
+// note PDF 販売（従チャネル）向けに紙面レイアウトで書き出す。真実源: .claude/content/kindle/strategy.md
 //
 // 使い方:
 //   node scripts/build-takuitsu-pdf.mjs --spec scripts/kindle-specs/e-01.json [--out <path.pdf>]

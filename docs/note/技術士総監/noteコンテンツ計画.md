@@ -394,7 +394,7 @@
 **過去問解説の換金は iOS アプリが担当** — 「過去問本文・解説は iOS 独占」（[04_収益化戦略.md](../../project/01_戦略/04_収益化戦略.md) の Red Line 運用表）。サイトでは無料維持し SEO エンジンとして機能させ、換金は iOS アプリ買い切り ¥1,800（R01〜R06 が Premium）で行う。サイトの過去問解説文は運営者オリジナルのため、無料公開そのものに著作権上の懸念はない。
 
 > [!important] 択一 PDF を note 従チャネルとして併記（2026-07-11・iOS 凍結中の現実対応）
-> 上記「過去問解説の換金は iOS 担当」は**サイトの過去問解説ページ**の話。別途、Kindle 択一シリーズ（B 総監）と同一原稿から生成した **A4 印刷用 PDF を note 有料記事に添付**する従チャネルを新設した（iOS 過去問アプリが着手条件未達で凍結中のため、当面の択一換金の受け皿）。SKU（`published:false`・`src/lib/note-magazines.ts`）＝ `tankan-takuitsu-reiwa-pdf`（令和 全280問 ¥980）／`tankan-takuitsu-heisei-pdf`（平成 全400問 ¥980）。原稿 = `docs/note/技術士総監/総監択一-過去問PDF-{令和,平成}/`、生成 = `npm run build-takuitsu-pdf --spec scripts/kindle-specs/{b-reiwa,b-heisei}.json`。対象本は **KDP Select 非加入**で Kindle と同時併売（[08_Kindle出版戦略.md](../../project/01_戦略/08_Kindle出版戦略.md)）。iOS が実装され次第、演習体験は iOS・紙面反復は PDF と棲み分ける。残 = 実機 note 公開 → noteUrl 記入 + `published:true`。
+> 上記「過去問解説の換金は iOS 担当」は**サイトの過去問解説ページ**の話。別途、Kindle 択一シリーズ（B 総監）と同一原稿から生成した **A4 印刷用 PDF を note 有料記事に添付**する従チャネルを新設した（iOS 過去問アプリが着手条件未達で凍結中のため、当面の択一換金の受け皿）。SKU（`published:false`・`src/lib/note-magazines.ts`）＝ `tankan-takuitsu-reiwa-pdf`（令和 全280問 ¥980）／`tankan-takuitsu-heisei-pdf`（平成 全400問 ¥980）。原稿 = `docs/note/技術士総監/総監択一-過去問PDF-{令和,平成}/`、生成 = `npm run build-takuitsu-pdf --spec scripts/kindle-specs/{b-reiwa,b-heisei}.json`。対象本は **KDP Select 非加入**で Kindle と同時併売（[Kindle 管理SSOT](../../../.claude/content/kindle/strategy.md)）。iOS が実装され次第、演習体験は iOS・紙面反復は PDF と棲み分ける。残 = 実機 note 公開 → noteUrl 記入 + `published:true`。
 
 **将来の再検討条件** — メンバーシップ自体は否定しない。Phase R-3（2026 年 10 月末・筆記合格発表後）に、運営者が受験生でなくなり Red Line #2 の制約が外れた段階で、「合格者主宰の総監受験者コミュニティ」（白書月次更新・Q&A 等、更新で価値が出る中身）として再検討する。
 
@@ -1001,4 +1001,3 @@ note 内検索は「総監」「技術士 総監」「記述式」での発見�
 - **Red Line #7（三層分業）**: 本記事は無料＝送客装置層。型・論文・予想の中身を書かない（各 1〜2 行のリード文まで）
 - **更新運用**: ペルソナ公開・価格改定のたびに本記事のリンクと「近日公開」表記を更新する（note 記事は手動更新のため、`verify-note-magazines` 実行時のチェック項目に本記事の整合を加える）
 - **計測**: 本記事経由の各マガジン遷移は note 内リンクのため UTM 計測不可（note の制約）。代理指標は本記事のスキ・ビュー数と公開前後のパック売上比較とする（**推定ベースであることを記録**）
-

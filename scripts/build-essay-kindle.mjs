@@ -11,7 +11,7 @@
 //     "bookId": "c-01", "title": "...", "subtitle": "...", "price": 690,
 //     "examName": "技術士第二次試験",
 //     "sources": ["docs/note/技術士建設部門/magazines/BK-01_道路/R08-yosou/II-1/article.md", ...],
-//     "frontMatter": "docs/kindle/c-01/front-matter.md"  // 任意（出版時は必須）
+//     "frontMatter": ".claude/content/kindle/books/c-01/front-matter.md"  // 任意（出版時は必須）
 //   }
 
 import { readFileSync, existsSync, mkdirSync } from 'node:fs'
