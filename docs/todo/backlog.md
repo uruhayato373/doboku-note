@@ -695,7 +695,7 @@ account ゲート/ClipboardEvent paste/リンクカード化/ブラウザ起動�
 
 モデルは「ライブラリ内包」へ転換済み（2026-07-01・SSOT [docs/note/1級・2級土木/noteコンテンツ計画.md](../note/1級・2級土木/noteコンテンツ計画.md)）。全24記事＋週次お題11週＋無料導線2本は下書き仕込み完了・サイトCTA配線 PR #271 MERGED。
 
-**2026-07-30 完了**: 会員作成・2プラン公開（加入ページ `note.com/dobokunote/membership/join` 実査）・`civil-membership-lab` の noteUrl SoT 記入＋`published:true`・サイト会員CTA（二次系/経験記述/guide の本文中間）発火（代表5ページを mobile/desktop 実査）・note 送客5記事＋説明記事「はじめに-合格ラボ」へ加入URLをライブ反映（説明記事は `--trial-line-bottom` で無料プレビュー 0→約7,100字に復旧）。
+**2026-07-30 完了**: 会員作成・2プラン公開（加入ページ `note.com/dobokunote/membership/join` 実査）・`civil-membership-lab` の noteUrl SoT 記入＋`published:true`・サイト会員CTA（二次系/経験記述/guide の本文中間）発火（代表5ページを mobile/desktop 実査）・note 送客5記事＋説明記事「はじめに-合格ラボ」へ加入URLをライブ反映（説明記事は `--trial-line-bottom` で無料プレビュー 0→約7,100字に復旧）。**develop→main へ commit・本番 deploy 済み（Cloudflare Pages success・本番SSRで会員CTA実査）**。
 
 **追加完了（運営者確認 2026-07-30）**: 完成答案ライブラリの会員特典マガジン収録（入会の引き金＝ライブラリ内包）。
 

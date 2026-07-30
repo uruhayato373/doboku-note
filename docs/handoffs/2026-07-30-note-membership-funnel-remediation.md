@@ -39,7 +39,15 @@
 - **完成答案ライブラリの会員特典マガジン収録（会員特典化＝入会の引き金）**: 完了済み（運営者確認 2026-07-30）。
 - **添削実測**（1本30分以内→定員/価格確定）・**フロー在庫8週分**・**週次ドリップ配信**: ユーザー作業律速で未起動。
 - **公開中プランの設定保存が即時ライブ反映か**: 未検証（`note-membership-plan-edit` は実行せず。エージェント文書へ安全条件明記）。
-- deploy・main マージは未実施（ユーザー判断）。価格/プラン名/定員/買い切り販売状態/有料境界/PDF添付は不変。
+- 価格/プラン名/定員/買い切り販売状態/有料境界/PDF添付は不変。
+
+## 5. コミット・デプロイ（2026-07-30 実施）
+
+ユーザー承認のうえ develop へコミット → main へ fast-forward → Cloudflare Pages へデプロイ。
+- コミット: `a6081daa68`（feat・実装17ファイル）／`d95e4dfd37`（docs・作業票/プロンプト/実装計画3ファイル）。
+- develop→main は **fast-forward**（origin/main が develop の祖先・コンフリクトなし）。ローカルは main と develop のみ・両者 `d95e4dfd37`・origin と同期。
+- デプロイ: GitHub Actions「Deploy to production (Cloudflare Pages)」run 30544209593 **conclusion success**（Build ✓ / Deploy ✓）。
+- 本番検証: `doboku-note.pages.dev` / `doboku-note.com` HTTP 200・`<main>`。土木二次3ページ（1級/2級 secondary-r07・experience-writing-guide）で会員CTA（membership/join・ctaCatch）反映を実査。career記事0。※デプロイ直後の初回はエッジキャッシュ残存で0→revalidate 後にベースURLでも反映確認。
 
 ## 運用文書同期（Phase 6）
 
