@@ -356,7 +356,7 @@ allowed-tools: Read, Glob, Grep, Bash, Task
   "ga4-ui:fetch": "node scripts/fetch-ga4-ui-csv.mjs",
   "google-console:normalize": "node scripts/normalize-google-console-csv.mjs",
   "search-growth:report": "node scripts/report-search-growth.mjs",
-  "search-growth:audit": "npm run gsc-ui:fetch; npm run google-console:normalize && npm run search-growth:report && npm run check-google-ui-ssot",
+  "search-growth:audit": "node scripts/run-search-growth-audit.mjs",
   "check-gsc-ui-due": "node scripts/check-gsc-ui-due.mjs",
   "check-google-ui-ssot": "node scripts/check-google-ui-ssot.mjs",
   "ga4-admin:check": "node scripts/ga4-admin-setup.mjs",
@@ -365,13 +365,24 @@ allowed-tools: Read, Glob, Grep, Bash, Task
 }
 ```
 
-> [!warning] `search-growth:audit` の連鎖（2026-07-30 修正）
-> 修正前は `gsc-ui:fetch && google-console:normalize && search-growth:report` で、**中間の normalize が
-> 引数なし**のため `resolveRunDir` が null → 「run ディレクトリが見つかりません」で毎回 exit 2 になり、
-> report まで一度も到達していなかった。現在は (1) normalize の既定を最新 run に変更、
-> (2) 取得が**部分成功**（exit 2）でも取れた分は正規化するため `;` で繋ぎ、
-> (3) 末尾に SSOT 整合ゲートを置いて「取得したつもり」で終われないようにしている。
-> normalize 自体は downloaded 0 件なら exit 1 で止まる（検査ゼロを PASS にしない）。
+> [!warning] `search-growth:audit` の連鎖は**シェルで書けない**（2026-07-30 実走で確定）
+> 当初は `gsc-ui:fetch && google-console:normalize && search-growth:report` だったが、中間の normalize が
+> **引数なし**で呼ばれ `resolveRunDir` が null → 毎回 exit 2 で report に到達していなかった。
+> `&&` を `;` に変えると今度は **cmd.exe が `;` を区切りとして扱わず** npm が `gsc-ui:fetch;` という
+> スクリプト名を探して即死する（Windows 実測）。「失敗を許容する連鎖」は POSIX と Windows の両方で
+> 動く形にシェルでは書けないため、連鎖の意味を `scripts/run-search-growth-audit.mjs` に移した。
+>
+> | 取得の exit code | 意味 | 連鎖の挙動 |
+> |--:|---|---|
+> | 0 | 完全 | 続行 |
+> | 2 | 不完全（部分成功・全ゼロ） | **続行**（取れた分を正規化して突合する） |
+> | 3 | 未ログイン | 中断（`npm run google-console:login`） |
+> | 5 | property 不一致 | 中断 |
+> | 6 | レポート到達不能 | 中断（UI 変更の疑い） |
+>
+> 各ステップは **node で実体スクリプトを直接 spawn** する（Node 20+ は `.cmd` を shell:false で
+> spawn できず EINVAL、shell:true はクォートが OS 依存になる）。normalize は downloaded 0 件なら
+> exit 1 で止まり、末尾の SSOT ゲートで「取得したつもり」で終われないようにしている。
 
 ## 10.1 完全性と SSOT（2026-07-30 追加）
 

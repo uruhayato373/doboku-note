@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-07-30T06:52:40.499Z",
+  "updated_at": "2026-07-30T07:07:35.582Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -817,6 +817,39 @@
           "date": "2026-07-30T06:52:40.499Z",
           "action": "started",
           "summary": "GSC UI 実測で対象 20 本を確定（技術的阻害ゼロ）。リクエストを 10 本ずつ 2 日に分けて送信。next_check 2026-08-27。"
+        },
+        {
+          "date": "2026-07-30T07:07:35.579Z",
+          "action": "intervened",
+          "summary": "20本中10本にインデックス登録リクエストを送信し全件 accepted を実機確認（run 2026-07-30T06-40-03Z）。残り10本は送信上限(--limit 10)で limit-reached＝翌日送信。"
+        }
+      ],
+      "interventions": [
+        {
+          "date": "2026-07-30T07:07:35.582Z",
+          "n": 1,
+          "change": "gsc-request-indexing --commit --limit 10 で 10 本のインデックス登録をリクエスト",
+          "accepted": [
+            "civil-construction-1-textbook-road-act",
+            "civil-construction-1-textbook-demolition",
+            "civil-construction-1-textbook-port-regulations",
+            "civil-construction-1-textbook-leveling",
+            "civil-construction-1-textbook-transport-machinery",
+            "civil-construction-1-textbook-explosives-act",
+            "civil-construction-1-textbook-tractor-bulldozer",
+            "civil-construction-1-textbook-loader",
+            "civil-construction-1-textbook-schedule-overview",
+            "civil-construction-1-textbook-labor-standards"
+          ],
+          "verified": "各 URL で受理文言を確認（accepted 10/10・unconfirmed 0）。記録: .claude/state/metrics/gsc-indexing/requests-latest.json",
+          "not_yet": "残り10本（shovel-excavator, work-scheduling, grader-compaction, river-act, distance-angle, building-standards, surveying-basics, schedule-charts, management-subplans, site-investigation）"
+        }
+      ],
+      "pending_user_actions": [
+        {
+          "action": "残り10本のインデックス登録リクエスト（翌日・日次クォータ回復後）",
+          "detail": "npm run gsc-indexing:request -- --from-ssot --category civil-construction-1 --group textbook --limit 10",
+          "reference": ".claude/state/metrics/gsc-indexing/history.json の limit-reached"
         }
       ]
     }
