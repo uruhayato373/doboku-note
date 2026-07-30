@@ -25,6 +25,7 @@
  *   node scripts/report-search-growth.mjs --live-http   # 各 URL に live HEAD/GET（proxy 環境では省略推奨）
  */
 import { readdirSync, readFileSync, writeFileSync, mkdirSync, existsSync, statSync } from "node:fs";
+import { execFileSync } from "node:child_process";
 import { join } from "node:path";
 import { classifyUrl } from "./lib/search-growth-classifier.mjs";
 import { toJoinKey, toComparisonKey, slugFromKey, toAbsoluteUrl } from "./lib/url-normalization.mjs";
@@ -199,23 +200,46 @@ async function loadSitemaps() {
   }
   let live = null;
   let liveSource = null;
+
+  // 1. fetch（社内プロキシ環境では失敗する）
+  let xml = null;
   try {
     const ctrl = new AbortController();
     const t = setTimeout(() => ctrl.abort(), 8000);
     const res = await fetch(`${SITE_ORIGIN}/sitemap.xml`, { signal: ctrl.signal });
     clearTimeout(t);
     if (res.ok) {
-      const xml = await res.text();
-      live = new Set();
-      for (const loc of parseSitemap(xml)) live.add(toJoinKey(loc));
+      xml = await res.text();
       liveSource = "live";
     }
   } catch {
-    // proxy/オフライン: live 取得不可。local を live 代替に使う。
+    /* 次の curl 経路へ */
   }
-  if (!live) {
+
+  // 2. curl フォールバック。measurement-incidents.md の恒久ルール
+  //    「外部取得は fetch でなく curl --ssl-no-revoke」をここにも適用する。
+  //    out/sitemap.xml が無い環境（build 前・別マシン）で live=0 になり、
+  //    sitemap 依存の分類が総崩れするのを防ぐ（2026-07-30 実走で local=0/live=0 を踏んだ）。
+  if (xml == null) {
+    try {
+      xml = execFileSync("curl", ["-s", "--ssl-no-revoke", "--max-time", "20", `${SITE_ORIGIN}/sitemap.xml`], {
+        encoding: "utf-8",
+        maxBuffer: 64 * 1024 * 1024,
+      });
+      if (xml && xml.includes("<loc>")) liveSource = "live-curl";
+      else xml = null;
+    } catch {
+      xml = null;
+    }
+  }
+
+  if (xml != null) {
+    live = new Set();
+    for (const loc of parseSitemap(xml)) live.add(toJoinKey(loc));
+  }
+  if (!live || live.size === 0) {
     live = local;
-    liveSource = existsSync(localPath) ? "local-fallback" : "none";
+    liveSource = local.size > 0 ? "local-fallback" : "none";
   }
   return { live, local, liveSource };
 }
@@ -580,6 +604,20 @@ async function main() {
   writeFileSync(join(OUT_DIR, "search-growth-latest.md"), md, "utf-8");
 
   console.log(`[search-growth] universe=${rows.length} URL / liveSitemap=${liveSource}`);
+  // 分類は sitemap 収録の有無に強く依存する。sitemap が 1 件も読めていない状態で出した
+  // 「NOINDEX_CANDIDATE 313 / UNKNOWN_REVIEW 1890」は根拠が無い（2026-07-30 実走で踏んだ）。
+  // 退化を黙って通さず、明示して非 0 で返す（§9: 検査不成立を PASS と呼ばない）。
+  if (liveSitemap.size === 0 && localSitemap.size === 0) {
+    console.error("");
+    console.error("[search-growth] ✗ sitemap を 1 件も読めていない（live=0 / local=0）。");
+    console.error(
+      "  sitemap 収録の有無に依存する分類（KEEP_MONITOR / NOINDEX_CANDIDATE / EXPECTED_EXCLUSION）は成立しません。",
+    );
+    console.error(
+      "  対処: ネットワークが通る環境で再実行するか、npm run build で out/sitemap.xml を生成してから再実行してください。",
+    );
+    process.exitCode = 2;
+  }
   console.log(`  ` + ACTIONS.map((a) => `${a}:${counts[a]}`).join(" / "));
   console.log(`  → ${jsonPath}`);
   console.log(`  → ${join(OUT_DIR, "search-growth-latest.md")}`);
@@ -616,6 +654,13 @@ function renderMarkdown(meta, rows, top, counts, prevCounts) {
   L.push(`- 入力: inspection=\`${short(meta.sources.inspection)}\` gsc-page=\`${short(meta.sources.gscPage)}\` ga4-page=\`${short(meta.sources.ga4Page)}\``);
   L.push(`- GSC UI データ源: \`${meta.sources.gscUiSource ?? "none"}\`（ssot=追跡SSOT・どのマシン/worktree でも再現／run-normalized=このマシンの run のみ）`);
   L.push("");
+
+  if ((meta.sources.sitemapLive ?? 0) === 0 && (meta.sources.sitemapLocal ?? 0) === 0) {
+    L.push(`> [!warning] sitemap を 1 件も読めていません（live=0 / local=0）。`);
+    L.push(`> sitemap 収録の有無に依存する分類（KEEP_MONITOR / NOINDEX_CANDIDATE / EXPECTED_EXCLUSION）は**成立していません**。`);
+    L.push(`> 下のアクション別件数はこの退化を含んだ数字なので、判断の根拠に使わないでください。`);
+    L.push("");
+  }
 
   if (meta.gscUiByIssueScope?.length) {
     L.push(`## GSC UI 理由別（画面総数 vs CSV 行数 / 1,000 件上限）`);

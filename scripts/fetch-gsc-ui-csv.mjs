@@ -229,21 +229,41 @@ function unzipMemberTexts(buf) {
  * ZIP から「URL を最も多く含む CSV（＝表）」を取り出し outCsvPath へ書き出す。展開不能なら null。
  * GSC の CSV ダウンロードは 表 + チャート等の複数 CSV を ZIP で返すため、名前ではなく内容で表を選ぶ。
  */
+/** ヘッダー行が URL 表のものか（URL 列がある）。 */
+function looksLikeUrlTableHeader(headerLine) {
+  return /(^|,|")\s*"?\s*(URL|ページ|Page|最終クロール日|Last crawled)/i.test(headerLine);
+}
+/** ヘッダー行が「グラフのデータ」（日付 × 件数の時系列）か。 */
+function looksLikeChartHeader(headerLine) {
+  return /(^|,|")\s*"?\s*(日付|Date)\s*"?\s*(,|$)/i.test(headerLine) && !looksLikeUrlTableHeader(headerLine);
+}
+
+/**
+ * GSC の ZIP から **URL 表**の CSV を取り出す。
+ *
+ * 2026-07-30 の実走で判明した誤り: 旧実装は「URL 出現数が最大のシート」を選ぶだけだったため、
+ * URL 表が空（0 行）のとき全シートのスコアが 0 になり、**先頭のシート（グラフのデータ＝
+ * `日付,該当ページ` の時系列）を URL 表として採用**していた。結果 alternateCanonical×allSubmittedPages が
+ * 「85 行 reject / URL 0 件」で `downloaded` と記録され、収集できたように見えて中身が無かった。
+ *
+ * よって **ヘッダーで表を同定**する: URL 列があるシートだけを候補にし、`日付` 始まりの
+ * グラフシートは候補から除外する。URL 表が 1 つも無ければ null を返す（呼出側が zip-no-table）。
+ * URL 表が見つかりデータ行が 0 でも、それは**正常な空表**として採用する（reject の山にしない）。
+ */
 function extractTableCsvFromZip(zipPath, outCsvPath) {
   try {
     const texts = unzipMemberTexts(readFileSync(zipPath));
     if (!texts.length) return null;
-    let best = null;
-    let bestScore = -1;
+    const candidates = [];
     for (const t of texts) {
-      const score = (t.match(/https?:\/\//g) || []).length;
-      if (score > bestScore) {
-        bestScore = score;
-        best = t;
-      }
+      const headerLine = String(t).replace(/^﻿/, "").split(/\r?\n/, 1)[0] ?? "";
+      if (looksLikeChartHeader(headerLine)) continue;
+      if (!looksLikeUrlTableHeader(headerLine)) continue;
+      candidates.push({ text: t, urls: (t.match(/https?:\/\//g) || []).length });
     }
-    if (best == null) return null;
-    writeFileSync(outCsvPath, best, "utf-8");
+    if (!candidates.length) return null;
+    candidates.sort((a, b) => b.urls - a.urls);
+    writeFileSync(outCsvPath, candidates[0].text, "utf-8");
     return outCsvPath;
   } catch {
     return null;
@@ -593,10 +613,19 @@ async function processUnit(page, cfg, runId, runDir, { issueKey, labels, scopeKe
     }
     base.rawFile = csvName;
     base.sha256 = sha256File(csvPath); // 正規化が読む CSV の integrity
-    const { headers, rows } = parseCsv(readFileTextSafe(csvPath));
+    const csvText = readFileTextSafe(csvPath);
+    const { headers, rows } = parseCsv(csvText);
     base.csvRows = rows.length;
     base.csvHeaders = headers;
     if (rows.length >= cap) base.truncated = true;
+    // データ行があるのに URL が 1 件も無い＝別シート（グラフ等）を掴んだ疑い。
+    // 「収集できたのに中身が無い」を downloaded にしない（2026-07-30 の実走で実際に起きた）。
+    base.csvUrlCount = (csvText.match(/https?:\/\//g) || []).length;
+    if (rows.length > 0 && base.csvUrlCount === 0) {
+      base.status = "csv-no-urls";
+      base.error = `データ行 ${rows.length} 件だが URL 0 件（別シートを掴んだ可能性）: headers=${headers.join("|")}`;
+      return base;
+    }
     base.status = "downloaded";
   } catch (e) {
     await dumpFailure(page, cfg, runId, {

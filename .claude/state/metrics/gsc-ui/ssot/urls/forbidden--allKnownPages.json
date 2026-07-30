@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "channel": "gsc-ui",
+  "source": "gsc-ui-page-indexing",
+  "property": "sc-domain:doboku-note.com",
+  "issue": "forbidden",
+  "scope": "allKnownPages",
+  "runId": "2026-07-30T05-51-00Z",
+  "collectedAt": "2026-07-30T05:51:00.731Z",
+  "uiTotal": 5,
+  "exportedRows": 5,
+  "truncated": false,
+  "rejectCount": 0,
+  "rejects": [],
+  "previous": {
+    "runId": "2026-07-30T05-48-04Z",
+    "collectedAt": "2026-07-30T05:48:04.037Z",
+    "exportedRows": 5
+  },
+  "delta": {
+    "added": 0,
+    "removed": 0
+  },
+  "rows": [
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-textbook-machinery-overview",
+      "comparisonKey": "/docs/pe-comprehensive-management-textbook-machinery-overview",
+      "lastCrawled": "2026-06-04"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/environmental-management/air-water-pollution",
+      "comparisonKey": "/docs/general/construction-management/environmental-management/air-water-pollution",
+      "lastCrawled": "2026-06-04"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026-1",
+      "comparisonKey": "/docs/pe-comprehensive-management-keyword-2026-1",
+      "lastCrawled": "2026-06-04"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-pe-comprehensive-management-climate-change-international",
+      "comparisonKey": "/docs/pe-comprehensive-management-pe-comprehensive-management-climate-change-international",
+      "lastCrawled": "2026-06-04"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-r8-essay-theme-labor-shortage",
+      "comparisonKey": "/docs/pe-comprehensive-management-r8-essay-theme-labor-shortage",
+      "lastCrawled": "2026-06-04"
+    }
+  ]
+}

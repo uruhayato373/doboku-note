@@ -121,7 +121,7 @@
     "affiliate:status": "node scripts/affiliate-status.mjs",
     "affiliate:apply": "node scripts/affiliate-apply.mjs",
     "search-growth:report": "node scripts/report-search-growth.mjs",
-    "search-growth:audit": "npm run gsc-ui:fetch; npm run google-console:normalize && npm run search-growth:report && npm run check-google-ui-ssot",
+    "search-growth:audit": "node scripts/run-search-growth-audit.mjs",
     "check-gsc-ui-due": "node scripts/check-gsc-ui-due.mjs",
     "check-google-ui-ssot": "node scripts/check-google-ui-ssot.mjs",
     "ga4-admin:check": "node scripts/ga4-admin-setup.mjs",

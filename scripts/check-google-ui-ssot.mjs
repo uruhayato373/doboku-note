@@ -98,16 +98,22 @@ for (const ch of CHANNELS) {
   entry.lastCompleteRunId = lastComplete?.runId ?? null;
 
   if (attempt && attempt.complete === false) {
-    errors.push(
-      `[${ch.label}] 直近の実行が不完全（run=${attempt.runId ?? "?"} status=${attempt.status ?? "?"} / 失敗 ${attempt.failedUnits ?? "?"} ユニット）。再取得が必要。`,
-    );
+    // 必須チャネル（gsc-ui）は FAIL。任意チャネル（ga4-ui＝一次経路は Data API）は WARN に留める。
+    // 任意経路の不調で恒久的に赤くすると、ゲート自体が読み飛ばされるようになる。
+    const msg =
+      `[${ch.label}] 直近の実行が不完全（run=${attempt.runId ?? "?"} status=${attempt.status ?? "?"} / 失敗 ${attempt.failedUnits ?? "?"} ユニット）。` +
+      (ch.required ? "再取得が必要。" : "任意チャネルなので blocking にはしないが、UI CSV が必要になった時点で修正が必要。");
+    if (ch.required) errors.push(msg);
+    else warnings.push(msg);
   } else if (attempt && attempt.complete == null) {
     warnings.push(
       `[${ch.label}] マーカーが旧スキーマ（complete 無し・取得 ${attempt.downloadedUnits ?? "?"}/${attempt.totalUnits ?? "?"}）。次回取得で解消される。`,
     );
   }
   if (marker && marker.schemaVersion >= 3 && !lastComplete) {
-    errors.push(`[${ch.label}] 完全な取得の記録が無い（lastComplete=null）。サイクルが一度も満たされていない。`);
+    const msg = `[${ch.label}] 完全な取得の記録が無い（lastComplete=null）。サイクルが一度も満たされていない。`;
+    if (ch.required) errors.push(msg);
+    else warnings.push(msg);
   }
 
   // (2) runId 整合 — 成功した実行だけを history と突合する（失敗実行は正規化されないのが正常）。
@@ -138,6 +144,13 @@ for (const ch of CHANNELS) {
     const missingUrl = doc.rows.filter((r) => !r?.url).length;
     if (missingUrl > 0) {
       errors.push(`[${ch.label}] ${u.key}: url 欠落 ${missingUrl} 行。`);
+    }
+    // 「URL 0 件なのに reject が積まれている」＝別シート（グラフのデータ等）を正規化した疑い。
+    // 収集できたように見えて中身が無い状態を緑にしない（2026-07-30 実走で実際に発生）。
+    if (doc.rows.length === 0 && (doc.rejectCount ?? 0) > 0) {
+      errors.push(
+        `[${ch.label}] ${u.key}: URL 0 件だが reject ${doc.rejectCount} 行＝別シートを正規化した疑い（要再取得）。`,
+      );
     }
     entry.totalRows += doc.rows.length;
     if (doc.truncated) entry.truncatedUnits.push(u.key);

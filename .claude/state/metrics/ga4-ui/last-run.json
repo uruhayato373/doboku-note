@@ -1,19 +1,77 @@
 {
-  "schemaVersion": 2,
-  "lastRun": "2026-07-30T04-58-10Z",
-  "collectedAt": "2026-07-30T04:58:10.549Z",
+  "schemaVersion": 3,
+  "channel": "ga4-ui",
   "propertyId": "419382901",
   "window": {
     "startDate": "2026-07-02",
     "endDate": "2026-07-29",
     "timezone": "Asia/Tokyo"
   },
-  "status": "property-mismatch",
-  "complete": false,
-  "totalUnits": 0,
-  "downloadedUnits": 0,
-  "failedUnits": 0,
-  "failedDetail": [],
   "apiPreferred": true,
-  "note": "GA4 UI CSV 取得の最新実行マーカー。一次経路は Data API（fetch-ga4-data）で、UI は照合用バックアップ。check-gsc-ui-due が参照。"
+  "lastAttempt": {
+    "runId": "2026-07-30T05-46-47Z",
+    "collectedAt": "2026-07-30T05:46:47.070Z",
+    "status": "error",
+    "complete": false,
+    "totalUnits": 3,
+    "downloadedUnits": 0,
+    "zeroUnits": 0,
+    "failedUnits": 3,
+    "failedDetail": [
+      {
+        "unit": "trafficAcquisition:?",
+        "status": "csv-menu-ambiguous",
+        "error": null
+      },
+      {
+        "unit": "landingPage:?",
+        "status": "report-not-found",
+        "error": "候補 0"
+      },
+      {
+        "unit": "events:?",
+        "status": "report-not-found",
+        "error": "候補 11"
+      }
+    ],
+    "suspiciousScopes": [],
+    "byScope": {
+      "trafficAcquisition": {
+        "total": 1,
+        "ok": 0,
+        "zero": 0,
+        "failed": 1
+      },
+      "landingPage": {
+        "total": 1,
+        "ok": 0,
+        "zero": 0,
+        "failed": 1
+      },
+      "events": {
+        "total": 1,
+        "ok": 0,
+        "zero": 0,
+        "failed": 1
+      }
+    }
+  },
+  "lastComplete": null,
+  "legacy": {
+    "schemaVersion": 2,
+    "runId": "2026-07-30T04-58-10Z",
+    "collectedAt": "2026-07-30T04:58:10.549Z",
+    "status": "property-mismatch",
+    "complete": false,
+    "downloadedUnits": 0,
+    "totalUnits": 0,
+    "note": "旧スキーマで記録された取得。zero と failed が分離されていないため完全性は確定できない。"
+  },
+  "lastRun": "2026-07-30T05-46-47Z",
+  "collectedAt": "2026-07-30T05:46:47.070Z",
+  "status": "error",
+  "complete": false,
+  "totalUnits": 3,
+  "downloadedUnits": 0,
+  "note": "GA4 UI CSV 取得の実行マーカー。一次経路は Data API（fetch-ga4-data）で、UI は照合用バックアップ。lastAttempt=最後の実行 / lastComplete=最後に完全だった実行。check-gsc-ui-due が参照。"
 }
