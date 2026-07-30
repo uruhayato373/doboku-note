@@ -30,6 +30,7 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { spawnSync } from 'node:child_process';
+import { isUnmeasurable } from './lib/note-live-check.mjs';
 
 const ROOT = 'docs/note';
 const CONFIG = '.claude/config/note-live-tags-allow.json';
@@ -68,14 +69,18 @@ function liveTagCount(noteId, retries = 3) {
     ], { encoding: 'utf-8', maxBuffer: 32 * 1024 * 1024 });
     const out = (r.stdout || '').trim();
     if (out.startsWith('{')) {
-      try { return { n: (JSON.parse(out)?.data?.hashtag_notes || []).length, error: null }; }
-      catch (e) { lastErr = `parse: ${String(e.message || e)}`; }
+      try {
+        const d = JSON.parse(out)?.data || {};
+        // 未ログインで中身が返らない記事（メンバーシップ限定等）は tag=0 に見えるが、それは
+        // 「タグが無い」ではなく「読めない」。不足に数えると存在するタグを欠落と誤診する。
+        return { n: (d.hashtag_notes || []).length, unmeasurable: isUnmeasurable(d), error: null };
+      } catch (e) { lastErr = `parse: ${String(e.message || e)}`; }
     } else {
       lastErr = (r.stderr || '').trim().split('\n')[0] || `non-json (${out.slice(0, 40)})`;
     }
     if (a < retries) sleep(1200 * (a + 1)); // バックオフ（レート制限対策）
   }
-  return { n: null, error: lastErr };
+  return { n: null, unmeasurable: false, error: lastErr };
 }
 
 // 対象の列挙: --list があればそれ、無ければ docs/note の公開済み（noteId あり）全件。
@@ -99,29 +104,41 @@ for (const f of files) {
 
 const short = [];
 const waived = [];
+const unmeasurable = [];
 let fetchFail = 0;
 let done = 0;
 for (const t of targets) {
   if (done++) sleep(THROTTLE_MS);
   if (!JSON_OUT && done % 50 === 0) process.stderr.write(`  ...${done}/${targets.length}\n`);
-  const { n, error } = liveTagCount(t.noteId);
+  const { n, unmeasurable: unmeas, error } = liveTagCount(t.noteId);
   if (error != null && n == null) { fetchFail++; continue; }
+  // 計測不能は不足でも充足でもない。数を出さずに別枠へ（実体は著者ログインで確認する）。
+  if (unmeas) { unmeasurable.push({ ...t, n: null }); continue; }
   if (n >= GOAL) continue;
   const key = t.rel.replace(/\/article(-[^/]+)?\.md$/, '');
   if (ALLOW[key] || ALLOW[t.rel]) waived.push({ ...t, n });
   else short.push({ ...t, n });
 }
 
-const inspected = targets.length - fetchFail;
+// 実検査＝取得できて、かつ数を信用できる本数。計測不能は分母から外して別枠で出す
+// （混ぜると「検査した」ように見えてしまう＝CLAUDE.md §9）。
+const inspected = targets.length - fetchFail - unmeasurable.length;
 const failRate = targets.length ? fetchFail / targets.length : 0;
 const notConclusive = targets.length > 0 && failRate > MAX_FETCH_FAIL_RATE;
 
 if (JSON_OUT) {
-  console.log(JSON.stringify({ checked: targets.length, inspected, fetchFail, notConclusive, goal: GOAL, short, waived }, null, 2));
+  console.log(JSON.stringify({ checked: targets.length, inspected, fetchFail, unmeasurable, notConclusive, goal: GOAL, short, waived }, null, 2));
   process.exit(notConclusive || short.length ? 1 : 0);
 }
 
-console.log(`[check-note-live-tags] 実検査 ${inspected}本（対象${targets.length}・取得失敗${fetchFail}）／目標 ${GOAL} タグ`);
+console.log(`[check-note-live-tags] 実検査 ${inspected}本（対象${targets.length}・取得失敗${fetchFail}・計測不能${unmeasurable.length}）／目標 ${GOAL} タグ`);
+
+if (unmeasurable.length) {
+  console.log(`  計測不能 ${unmeasurable.length} 件（未ログイン API が中身を返さない＝メンバーシップ限定等）:`);
+  for (const u of unmeasurable.slice(0, 10)) console.log(`    ${u.rel}`);
+  if (unmeasurable.length > 10) console.log(`    … 他 ${unmeasurable.length - 10} 件`);
+  console.log('  これは「タグ不足」ではない。実体は著者ログインで確認する（詳細は note-api-verification.md）。');
+}
 
 // 検査不成立を PASS にしない（取得できていないなら「不足なし」は成立しない）
 if (notConclusive) {

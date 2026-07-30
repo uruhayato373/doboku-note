@@ -22,7 +22,29 @@ import { spawnSync } from 'node:child_process';
 // Windows でも動く同期 sleep（Unix の `sleep` バイナリに依存しない）。
 const sleepSync = (ms) => spawnSync(process.execPath, ['-e', `setTimeout(()=>{},${ms})`]);
 
-export async function fetchNoteBody(noteId, { retries = 2, delayMs = 3000 } = {}) {
+/**
+ * 未ログインの public API では中身を読めない記事か（メンバーシップ限定等）。
+ *
+ * 2026-07-30: この判定が無いために「読めない」を「欠落」と誤診していた。メンバーシップ記事3本
+ * （n9cf7e60661fa / ned33a34bc42f / n6b66793ca20c）は public API が body='' + hashtag_notes=[]
+ * + price=0 を返すため、check-note-live-tags は「タグ0」、check-note-live-headings は
+ * 「画像欠落 live=0/sot=2」と報告していた。著者ログインで実測すると **タグ99/98/98・画像2/2**
+ * で全て充足済み。存在しない不足を追う phantom タスクと、成功した書き込みの偽 FAIL を生んでいた
+ * （note-sync-tags の「試し読みフローでタグ入力が破棄される」という 2026-07-23 の結論も、
+ * 同じアーティファクトによる誤診だった）。
+ *
+ * 判別: body 空 かつ hashtag_notes 空 かつ status=published。有料記事は無料プレビューと
+ * タグを返すので該当しない。無料プレビュー0字（FULL_LOCK）の有料記事も hashtag_notes は
+ * 返るため誤判定しない。この状態は「不足」ではなく **計測不能** として扱い、実体確認は
+ * 著者ログイン経路（Playwright）に委ねる。CLAUDE.md §9 の裏返し＝取得できないものを FAIL と呼ばない。
+ */
+export function isUnmeasurable(data) {
+  const d = data || {};
+  return d.status === 'published' && !(d.body || '') && !(d.hashtag_notes || []).length;
+}
+
+/** public API の生データを取得（body/hashtags/price/status と計測可否）。 */
+export async function fetchNoteMeta(noteId, { retries = 2, delayMs = 3000 } = {}) {
   let lastErr = 'unknown';
   for (let i = 0; i <= retries; i++) {
     const r = spawnSync('curl', [
@@ -32,14 +54,25 @@ export async function fetchNoteBody(noteId, { retries = 2, delayMs = 3000 } = {}
     ], { encoding: 'utf-8', maxBuffer: 32 * 1024 * 1024 });
     const out = (r.stdout || '').trim();
     if (out.startsWith('{')) {
-      try { return { body: JSON.parse(out)?.data?.body || '', error: null }; }
-      catch (e) { lastErr = `parse: ${String(e.message || e)}`; }
+      try {
+        const d = JSON.parse(out)?.data || {};
+        return {
+          body: d.body || '', hashtags: (d.hashtag_notes || []).length,
+          price: d.price ?? null, status: d.status ?? null,
+          unmeasurable: isUnmeasurable(d), error: null,
+        };
+      } catch (e) { lastErr = `parse: ${String(e.message || e)}`; }
     } else {
       lastErr = (r.stderr || '').trim().split('\n')[0] || `non-json (${out.slice(0, 40)})`;
     }
     if (i < retries) sleepSync(delayMs);
   }
-  return { body: '', error: String(lastErr) };
+  return { body: '', hashtags: 0, price: null, status: null, unmeasurable: false, error: String(lastErr) };
+}
+
+export async function fetchNoteBody(noteId, opts = {}) {
+  const m = await fetchNoteMeta(noteId, opts);
+  return { body: m.body, error: m.error, unmeasurable: m.unmeasurable };
 }
 
 /** <h1-6> 内に URL を含む見出しのテキスト一覧。 */
@@ -71,12 +104,15 @@ export function countImgs(html) {
  * @returns {Promise<{ok:boolean, urlHeadings:string[], emptyBq:number, imgLive:number, imgShort:boolean, fetchError:string|null}>}
  */
 export async function assertLiveBody(noteId, { expectedImgs = null } = {}) {
-  const { body, error } = await fetchNoteBody(noteId);
-  if (error) return { ok: false, urlHeadings: [], emptyBq: 0, imgLive: 0, imgShort: false, fetchError: error };
+  const { body, error, unmeasurable } = await fetchNoteBody(noteId);
+  if (error) return { ok: false, urlHeadings: [], emptyBq: 0, imgLive: 0, imgShort: false, unmeasurable: false, fetchError: error };
+  // 未ログインで中身が返らない記事は「破損なし」でも「破損あり」でもなく計測不能。
+  // ここで imgShort を立てると存在する画像を欠落と誤診する（2026-07-30・isUnmeasurable 参照）。
+  if (unmeasurable) return { ok: true, urlHeadings: [], emptyBq: 0, imgLive: 0, imgShort: false, unmeasurable: true, fetchError: null };
   const urlHeadings = findUrlHeadings(body);
   const emptyBq = countEmptyBlockquotes(body);
   const imgLive = countImgs(body);
   const imgShort = expectedImgs != null && imgLive < expectedImgs;
   const ok = urlHeadings.length === 0 && emptyBq === 0 && !imgShort;
-  return { ok, urlHeadings, emptyBq, imgLive, imgShort, fetchError: null };
+  return { ok, urlHeadings, emptyBq, imgLive, imgShort, unmeasurable: false, fetchError: null };
 }

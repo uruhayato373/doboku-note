@@ -69,7 +69,46 @@
     }
   },
   "pe-construction": {
-    "$note": "出題テーマ分析・論点キーワード・論文論点（各 group:keyword・計27本）は keyword セクションで維持。ここは guide group（11本）のみ扱う。",
+    "$note": "guide group（11本）に加え、keyword group（35本）の並びも keywordSection で扱う。",
+    "keywordSection": {
+      "$note": "選択科目の行ラベルは過去問マトリクス（CategorySections の PE_CONSTRUCTION_SUBJECTS）と同一表記に揃える。config 未割当の keyword 記事は resolveKeywordSection が unassigned で拾う（silent drop 防止）。",
+      "required": {
+        "label": "必須科目I",
+        "note": "全受験者共通。出題テーマ分析で傾向をつかみ、論点キーワードで中身を仕込む。",
+        "themeSlug": "required-exam-themes",
+        "groups": [
+          {
+            "label": "論点キーワード",
+            "slugs": ["shakai-shihon-ronbun-keyword", "bousai-genseigai-ronbun-keyword", "iji-kanri-ronbun-keyword", "ninaite-dx-ronbun-keyword", "datsutanso-kankyo-ronbun-keyword", "chiiki-dukuri-ronbun-keyword"]
+          },
+          {
+            "label": "論文の書き方",
+            "slugs": ["bosai-kokudo-kyoujinka", "infra-roukyuuka-iji", "ninaite-kakuho-seisansei", "kensetsu-dx", "carbon-neutral-kensetsu", "kokudo-keisei-chiiki"]
+          }
+        ]
+      },
+      "selective": {
+        "label": "選択科目（11 分野）",
+        "note": "自分の受験科目の行だけ横に読む。行の並びは下の過去問マトリクスと同じ。",
+        "columns": [
+          { "header": "出題テーマ分析", "cell": "R01〜R07" },
+          { "header": "論文のキーワード", "cell": "論文キーワード" }
+        ],
+        "subjects": [
+          { "label": "土質及び基礎", "slugs": ["geotechnical-exam-themes", "soil-foundation-ronbun-keyword"] },
+          { "label": "鋼構造・コンクリート", "fullLabel": "鋼構造及びコンクリート", "slugs": ["steel-concrete-exam-themes", "steel-concrete-ronbun-keyword"] },
+          { "label": "都市・地方計画", "fullLabel": "都市及び地方計画", "slugs": ["urban-planning-exam-themes", "urban-planning-ronbun-keyword"] },
+          { "label": "河川・砂防・海岸", "fullLabel": "河川、砂防及び海岸・海洋", "slugs": ["river-coast-exam-themes", "river-coast-ronbun-keyword"] },
+          { "label": "港湾・空港", "fullLabel": "港湾及び空港", "slugs": ["port-airport-exam-themes", "port-airport-ronbun-keyword"] },
+          { "label": "電力土木", "slugs": ["power-civil-exam-themes", "power-civil-ronbun-keyword"] },
+          { "label": "道路", "slugs": ["road-exam-themes", "road-ronbun-keyword"] },
+          { "label": "鉄道", "slugs": ["railway-exam-themes", "railway-ronbun-keyword"] },
+          { "label": "トンネル", "slugs": ["tunnel-exam-themes", "tunnel-ronbun-keyword"] },
+          { "label": "施工計画・積算", "fullLabel": "施工計画、施工設備及び積算", "slugs": ["construction-planning-exam-themes", "construction-planning-ronbun-keyword"] },
+          { "label": "建設環境", "slugs": ["environment-exam-themes", "construction-environment-ronbun-keyword"] }
+        ]
+      }
+    },
     "examGuide": {
       "title": "受験ガイド",
       "description": "難易度・学習計画・勉強法・コンピテンシー改訂など、二次試験の全体像",

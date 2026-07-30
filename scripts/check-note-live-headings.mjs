@@ -69,8 +69,11 @@ for (const f of walk(join(ROOT, 'docs/note'), [])) {
 if (!PATHS_ONLY) console.log(`[check-note-live-headings] published ${targets.length} 件を検査`);
 
 async function check({ noteId, path, expectedImgs }) {
-  const { body, error } = await fetchNoteBody(noteId, { retries: 2, delayMs: 2000 });
+  const { body, error, unmeasurable } = await fetchNoteBody(noteId, { retries: 2, delayMs: 2000 });
   if (error) return { noteId, path, status: 'FETCH_ERR', labels: [], err: error.slice(0, 50) };
+  // 未ログインで中身が返らない記事（メンバーシップ限定等）は body='' なので、そのまま検査すると
+  // 存在する画像を「画像欠落 live=0/sot=N」と誤診する（2026-07-30 に3件の phantom を実証）。
+  if (unmeasurable) return { noteId, path, status: 'UNMEASURABLE', labels: [], urlH: [] };
   const urlH = findUrlHeadings(body);
   const emptyBq = countEmptyBlockquotes(body);
   const imgLive = countImgs(body);
@@ -90,6 +93,7 @@ for (let i = 0; i < targets.length; i += CONCURRENCY) {
 const bad = results.filter((r) => r.status === 'BAD');
 const errs = results.filter((r) => r.status === 'FETCH_ERR');
 const partials = results.filter((r) => r.status === 'PARTIAL');
+const unmeas = results.filter((r) => r.status === 'UNMEASURABLE');
 
 if (PATHS_ONLY) {
   for (const r of bad) console.log(r.path);
@@ -101,6 +105,10 @@ for (const r of bad) {
   if (r.urlH.length) console.error(`      ${r.urlH.join('\n      ')}`);
 }
 if (partials.length) console.log(`  PARTIAL: 有料で境界不明のため画像検査skip ${partials.length} 件（paywall で機械検証不能）`);
+if (unmeas.length) {
+  console.log(`  UNMEASURABLE: 未ログイン API が中身を返さない ${unmeas.length} 件（メンバーシップ限定等・不整合ではない）: ${unmeas.slice(0, 3).map((r) => r.noteId).join(', ')}${unmeas.length > 3 ? '…' : ''}`);
+  console.log('    実体は著者ログインで確認する（詳細は .claude/knowledge/reference/note-api-verification.md）。');
+}
 if (errs.length) console.log(`  WARN: FETCH_ERR ${errs.length} 件（ネットワーク未達・再実行かプロキシ外で確認）: ${errs.slice(0, 3).map((r) => r.noteId).join(', ')}${errs.length > 3 ? '…' : ''}`);
 
 if (bad.length) {
@@ -116,4 +124,4 @@ if (targets.length > 0 && failRate > 0.2) {
   console.error('  live を取得できていないため「不整合なし」は成立しない。curl が使えるか・プロキシ env・レート制限を確認する。');
   process.exit(1);
 }
-console.log(`[check-note-live-headings] ✓ ${results.length - errs.length} 件検査・不整合なし${partials.length ? `（PARTIAL ${partials.length}）` : ''}${errs.length ? `（未達 ${errs.length} 件は要再実行）` : ''}`);
+console.log(`[check-note-live-headings] ✓ ${results.length - errs.length - unmeas.length} 件検査・不整合なし${partials.length ? `（PARTIAL ${partials.length}）` : ''}${unmeas.length ? `（計測不能 ${unmeas.length}）` : ''}${errs.length ? `（未達 ${errs.length} 件は要再実行）` : ''}`);
