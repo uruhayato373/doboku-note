@@ -62,6 +62,13 @@ description: >
   `anyDue` が true なら理由（`reasons`）をそのまま列挙する。
 - GA4 管理画面 設定ドリフト: `npm run check-ga4-dimensions -- --json` を実行（オフライン。desired state ↔ 最後の実機観測の突合・creds不要）。
   `blockingMissing` が非空なら、そのあいだ **プログラム別 EPC / 配置別 CTR が CI で黙って欠測している**ので必ず surface する。
+- **実験サイクルの期限**: `npm run check-experiment-due -- --json`（オフライン・`experiments.json` 参照）。
+  これが「計測→記録→改善→**再計測**」の最後の輪。`due[]` の MEASURE_DUE / CLOSE_DUE / PENDING /
+  NO_BASELINE をそのまま列挙する。改善を打って再計測されていない実験は学びが台帳に入らず
+  サイクルが閉じない（EXP-004 は 27 日、EXP-005 は 4 日以上放置された実績がある）。
+- **内部リンク健全性**: `npm run check-internal-links-vs-gsc -- --json`（オフライン・GSC UI SSOT 参照）。
+  公開ページが 404/リダイレクト URL を指していれば ERROR。GSC の 404・リダイレクト件数を能動的に
+  減らせる唯一のレバー（旧 URL 自体は Google が再クロールをやめるまで消えない）。
   `due:true` なら「次セッションで `/google-search-growth`（GSC 理由別 UI CSV → API 突合 → 修正計画）」をサーフェスのみ。
   ※Playwright + Google ログイン必須＝ローカル実行限定。クラウド週次では実行不可なのでサーフェスのみ（真実源 `.claude/knowledge/reference/gsc-management.md`）
 - A8 成果取込期限（月次）: `npm run check-a8-report-due -- --json` を実行（30日。committed `affiliate/a8-ui/last-run.json` 参照・creds不要）。
@@ -83,6 +90,8 @@ description: >
 - 「競合再スキャン DUE」（`check-competitor-scan-due` が due のときのみ）
 - 「GSC/GA4 UI 取得 DUE（月次）」（`check-gsc-ui-due` の `anyDue` が true のときのみ・理由つき・→ 次セッションで `/google-search-growth`）
 - 「GA4 設定ドリフト」（`check-ga4-dimensions` が blockingMissing を返したときのみ・→ 次セッションで `npm run ga4-admin:apply`）
+- 「実験の再計測 DUE」（`check-experiment-due` の dueCount > 0 のときのみ・id と理由つき・→ `/nsm-experiment measure <id>`）
+- 「壊れた内部リンク」（`check-internal-links-vs-gsc` が ERROR を返したときのみ）
 - 「A8 成果取込 DUE（月次）」（`check-a8-report-due` が due のときのみ・→ 次セッションで `/a8-report`）
 - 「A8 集計の取りこぼし / 混入疑い」（`check-a8-report-due` の `issues[]` が空でないとき・due でなくても出す）
 - 「実験の再測定 DUE」（`check-experiments-due` が due のときのみ・→ 次セッションで `/nsm-experiment measure <id>`）

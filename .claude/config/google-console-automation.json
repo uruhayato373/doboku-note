@@ -5,8 +5,15 @@
     "siteOrigin": "https://doboku-note.com",
     "baseUrl": "https://search.google.com/search-console",
     "scopes": {
-      "allKnownPages": ["すべての既知のページ", "All known pages"],
-      "allSubmittedPages": ["すべての送信済みページ", "送信済みページ", "All submitted pages"]
+      "allKnownPages": [
+        "すべての既知のページ",
+        "All known pages"
+      ],
+      "allSubmittedPages": [
+        "すべての送信済みページ",
+        "送信済みページ",
+        "All submitted pages"
+      ]
     },
     "scopeParams": {
       "allKnownPages": "",
@@ -35,10 +42,33 @@
         "アクセス禁止（403）が原因でブロックされました",
         "アクセス禁止 (403) が原因でブロックされました",
         "Blocked due to access forbidden (403)"
+      ],
+      "discoveredNotIndexed": [
+        "検出 - インデックス未登録",
+        "検出 — インデックス未登録",
+        "Discovered - currently not indexed"
+      ],
+      "noindex": [
+        "noindex タグによって除外されました",
+        "「noindex」タグによって除外されました",
+        "Excluded by ‘noindex’ tag",
+        "Excluded by noindex tag"
+      ],
+      "blockedByRobots": [
+        "robots.txt によりブロックされました",
+        "Blocked by robots.txt"
       ]
     },
-    "exportButtonLabels": ["エクスポート", "Export"],
-    "csvMenuLabels": ["CSV をダウンロード", "CSVをダウンロード", "Download CSV", "Comma-separated values"],
+    "exportButtonLabels": [
+      "エクスポート",
+      "Export"
+    ],
+    "csvMenuLabels": [
+      "CSV をダウンロード",
+      "CSVをダウンロード",
+      "Download CSV",
+      "Comma-separated values"
+    ],
     "sampleUrlCap": 1000
   },
   "ga4": {
@@ -47,9 +77,19 @@
     "windowDays": 28,
     "timezone": "Asia/Tokyo",
     "reports": {
-      "trafficAcquisition": ["トラフィック獲得", "Traffic acquisition"],
-      "landingPage": ["ランディング ページ", "ランディングページ", "Landing page"],
-      "events": ["イベント", "Events"]
+      "trafficAcquisition": [
+        "トラフィック獲得",
+        "Traffic acquisition"
+      ],
+      "landingPage": [
+        "ランディング ページ",
+        "ランディングページ",
+        "Landing page"
+      ],
+      "events": [
+        "イベント",
+        "Events"
+      ]
     }
   },
   "browser": {

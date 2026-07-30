@@ -29,6 +29,27 @@ Act        : close で learnings 記録 → roadmap にフィードバック
 
 詳細は `.claude/skills/management/nsm-experiment/references/definition.md` と `.claude/pdfs/guide.pdf`（Chapter 3）を参照。
 
+## サイクルが閉じたことを機械で保証する（2026-07-30 追加）
+
+propose→start→measure→close の**仕組み**は本スキルが持つが、「期限が来たのに measure されていない」を
+思い出す仕組みが無く、実際に放置が起きていた（EXP-004: next_check_date から close まで 27 日、
+EXP-005: pending_user_actions が 4 日以上未消化）。改善を打っても再計測しなければ学びは台帳に入らず、
+サイクルは閉じない。
+
+そこで `npm run check-experiment-due`（オフライン surfacer）が台帳を読んで期限超過だけを surface し、
+**weekly-review が毎週それを列挙する**（新しい cron は作らない）。判定:
+
+| 種別 | 条件 | 次アクション |
+|---|---|---|
+| MEASURE_DUE | running かつ next_check_date 超過（未設定なら開始から 28 日） | `/nsm-experiment measure <id>` |
+| CLOSE_DUE | measuring のまま 14 日 | `/nsm-experiment close <id>` |
+| DECIDE_DUE | proposed のまま 14 日 | start か abandon を決める |
+| PENDING | pending_user_actions が残っている | 記載のアクションを実行 |
+| NO_BASELINE | running なのに baseline が無い | 前後比較が不可能＝baseline を先に確定 |
+
+`next_check_date` は start 時に必ず入れる。未設定だとフォールバック（開始から 28 日）しか効かず、
+指標の窓（GSC 28 日）とずれる。
+
 ## 引数
 
 ```

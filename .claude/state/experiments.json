@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-06-26T23:07:43.668Z",
+  "updated_at": "2026-07-30T06:52:40.499Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -757,6 +757,66 @@
           "action": "deploy 後に r07-a の mobile lab LCP を再計測して効果判定",
           "detail": "/deploy 実行 -> 翌日以降の psi-batch で civil-construction-1-primary-r07-a の lab LCP 中央値を baseline 5653ms と比較",
           "reference": "docs/reviews/weekly/2026-W31-review.md"
+        }
+      ]
+    },
+    {
+      "id": "EXP-006",
+      "title": "civil-1 textbook 未登録 20 本のインデックス登録リクエスト（crawled-not-indexed への直接レバー）",
+      "hypothesis": "GSC UI CSV(2026-07-30) と URL 検査の実測で、civil-1 textbook 45 本のうち 20 本が「クロール済み - インデックス未登録」。20 本すべて robots ALLOWED・canonical 一致・カテゴリページから直リンク有で技術的阻害はゼロ＝Google の選別のみが原因。同 group の登録済み 25 本は 1 本あたり 13.2 表示/28日を出しているため、登録されれば期待 +264 表示。残る直接レバーは URL 検査からのインデックス登録リクエストなので、これを当てて効果を測る。なお Google はリクエストが登録を保証しないと明言しており、効果が出ない可能性も高い＝どちらでも学びになる設計。",
+      "target_metric": "civil1_textbook_indexed_count",
+      "target_delta": "25/45 -> 35/45（未登録 20 -> 10 以下）",
+      "baseline": {
+        "captured_at": "2026-07-30T06:52:40.494Z",
+        "source": "gsc-ui ssot crawledNotIndexed--allKnownPages (run 2026-07-30T05-51-00Z) + URL 検査 20 件実測",
+        "civil1_textbook_total": 45,
+        "civil1_textbook_not_indexed": 20,
+        "indexed_count": 25,
+        "per_page_impressions_28d_indexed": 13.2,
+        "impressions_from_target_pages_28d": 0,
+        "inspection": "20/20 が state=not-indexed / reason=クロール済み - インデックス未登録 / crawl=true / index=true",
+        "targets": [
+          "civil-construction-1-textbook-building-standards",
+          "civil-construction-1-textbook-demolition",
+          "civil-construction-1-textbook-distance-angle",
+          "civil-construction-1-textbook-explosives-act",
+          "civil-construction-1-textbook-grader-compaction",
+          "civil-construction-1-textbook-labor-standards",
+          "civil-construction-1-textbook-leveling",
+          "civil-construction-1-textbook-loader",
+          "civil-construction-1-textbook-management-subplans",
+          "civil-construction-1-textbook-port-regulations",
+          "civil-construction-1-textbook-river-act",
+          "civil-construction-1-textbook-road-act",
+          "civil-construction-1-textbook-schedule-charts",
+          "civil-construction-1-textbook-schedule-overview",
+          "civil-construction-1-textbook-shovel-excavator",
+          "civil-construction-1-textbook-site-investigation",
+          "civil-construction-1-textbook-surveying-basics",
+          "civil-construction-1-textbook-tractor-bulldozer",
+          "civil-construction-1-textbook-transport-machinery",
+          "civil-construction-1-textbook-work-scheduling"
+        ]
+      },
+      "status": "running",
+      "created_at": "2026-07-30T06:52:40.499Z",
+      "started_at": "2026-07-30T06:52:40.499Z",
+      "result": null,
+      "learnings": null,
+      "closed_at": null,
+      "actions": [
+        "1. npm run search-growth:audit で GSC UI SSOT を取得（1,964 行・完全性 complete=true）",
+        "2. npm run gsc-indexing:check --from-ssot --category civil-construction-1 --group textbook で 20 本を URL 検査（技術的阻害ゼロを確認）",
+        "3. gsc-request-indexing --commit --limit 10 でインデックス登録をリクエスト（日次クォータ配慮で 2 日に分割）",
+        "4. 残り 10 本を翌日リクエスト"
+      ],
+      "next_check_date": "2026-08-27",
+      "measurement_method": "npm run search-growth:audit を再実行し、crawledNotIndexed--allKnownPages の SSOT から civil-1 textbook の未登録数を数える（baseline 20）。併せて gsc-page-query から対象 20 本の 28 日表示合計を見る（baseline 0）。未登録 10 以下で成功、15 以下で partial、変化なしなら『リクエストは crawled-not-indexed に効かない』を学びとして記録し、以後この施策を候補から外す。",
+      "history": [
+        {
+          "date": "2026-07-30T06:52:40.499Z",
+          "action": "started",
+          "summary": "GSC UI 実測で対象 20 本を確定（技術的阻害ゼロ）。リクエストを 10 本ずつ 2 日に分けて送信。next_check 2026-08-27。"
         }
       ]
     }
