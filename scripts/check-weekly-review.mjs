@@ -13,10 +13,9 @@
 //
 // exit 0 = 先週分あり（OK）/ exit 1 = 欠落（ルーティン要確認）。
 
-import { existsSync, appendFileSync } from "node:fs";
+import { existsSync, appendFileSync, readdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { execFileSync } from "node:child_process";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REVIEW_DIR = join(__dirname, "..", "docs", "reviews", "weekly");
@@ -53,63 +52,56 @@ const lines = [
 ];
 
 /**
- * ファイルが今存在しなくても「その週のレビューが生成されたことがあるか」を git 履歴で見る。
+ * 判定は「**存在する中で最も新しい週**が、先週以降か」で行う（2026-07-30 改訂）。
  *
- * なぜ必要か（2026-07-30 修正）: 週次レビューには **保持方針（最新週だけ残す）** があり、
+ * なぜファイル存在チェックではダメか: 週次レビューには **保持方針（最新週だけ残す）** があり、
  * W31 を作るコミットが W30 を削除する（実例: 58dfb22c1「旧W30は保持方針で削除」）。
- * 旧実装は「先週分のファイルが今あるか」だけを見ていたため、**サイクルが正常に回っていても
- * 毎週必ず赤くなる**構造だった（2026-07-20・07-27 の赤はこれが原因で、ルーティン停止ではない）。
- * 常に赤いゲートは読み飛ばされるようになり、本当の欠落を隠す。
+ * 旧実装は「先週分のファイルが今あるか」を見ていたため、**サイクルが正常に回っていても
+ * 翌週分が作られた瞬間に必ず赤くなる**構造だった（2026-07-20・07-27 の赤はこれが原因で、
+ * クラウドルーティン停止ではない）。常に赤いゲートは読み飛ばされ、本当の欠落を隠す。
  *
- * 履歴が浅い（shallow clone）と誤判定するので、取得できたかを区別して返す。
- * @returns {{ ok: boolean, reason: string }}
+ * なぜ git 履歴ではダメか: 一度は履歴（`git log --diff-filter=A`）で判定する実装にしたが、
+ * `fetch-depth: 0` が必要になり、このリポジトリ（65,000 ファイル）では checkout が job の
+ * 5 分タイムアウトを超えて **cancelled** になった（2026-07-30 実測）。判定のために CI を
+ * 重くするのは筋が悪い。
+ *
+ * 最新週だけを見る方式なら履歴も全取得も不要で、かつ「何週も止まっている」を正しく検出できる:
+ * 保持方針下でも最新週は必ず 1 つ残るので、それが先週より古ければ本物の停止。
  */
-function existedInHistory(relPath) {
-  try {
-    const out = execFileSync("git", ["log", "--all", "--diff-filter=A", "--format=%H %ad", "--date=short", "--", relPath], {
-      encoding: "utf-8",
-      stdio: ["ignore", "pipe", "ignore"],
-    }).trim();
-    if (out) return { ok: true, reason: `git 履歴に生成コミットあり（${out.split("\n")[0]}）` };
-    // 履歴が浅いと「無い」と「見えない」を区別できないので shallow を明示的に検出する
-    const shallow = execFileSync("git", ["rev-parse", "--is-shallow-repository"], { encoding: "utf-8" }).trim();
-    if (shallow === "true") {
-      return { ok: false, reason: "履歴が shallow で判定不能（checkout に fetch-depth: 0 が必要）" };
-    }
-    return { ok: false, reason: "git 履歴にも生成コミットが無い" };
-  } catch (e) {
-    return { ok: false, reason: `git 履歴を参照できなかった: ${e?.message ?? e}` };
-  }
+function latestReviewWeek() {
+  if (!existsSync(REVIEW_DIR)) return null;
+  const weeks = readdirSync(REVIEW_DIR)
+    .map((f) => f.match(/^(\d{4})-W(\d{2})-review\.md$/))
+    .filter(Boolean)
+    .map((m) => ({ year: Number(m[1]), week: Number(m[2]), id: `${m[1]}-W${m[2]}` }));
+  if (!weeks.length) return null;
+  weeks.sort((a, b) => a.year - b.year || a.week - b.week);
+  return weeks[weeks.length - 1];
 }
 
-if (existsSync(file)) {
-  lines.push(`OK: ${weekId} の週次レビューは生成済みです（ファイル実在）。`);
-  writeSummary(lines);
-  console.log(`OK: ${relFile} exists — 週次レビュー サイクルは回っています。`);
-  process.exit(0);
-}
+/** 週の新旧比較（year, week の辞書順）。 */
+const weekRank = (w) => w.year * 100 + w.week;
 
-// ファイルが無い → 保持方針で削除された可能性を git 履歴で確認する
-const hist = existedInHistory(relFile);
-if (hist.ok) {
-  lines.push(
-    `OK: ${weekId} の週次レビューは生成済みです（現在はファイル無し・**保持方針で削除**）。`,
-    "",
-    `- 根拠: ${hist.reason}`,
-    "- 週次レビューは最新週だけを残す運用のため、翌週分の生成時に前週分が削除される。",
-  );
+const latest = latestReviewWeek();
+lines.push(`- 現存する最新レビュー: **${latest ? latest.id : "なし"}**`, "");
+
+if (latest && weekRank(latest) >= weekRank(target)) {
+  const note =
+    latest.id === weekId
+      ? "先週分がそのまま残っています"
+      : `先週分（${weekId}）は保持方針で削除済みですが、より新しい ${latest.id} が存在します`;
+  lines.push(`OK: 週次レビュー サイクルは回っています（${note}）。`);
   writeSummary(lines);
-  console.log(`OK: ${relFile} は削除済みだが生成実績あり（${hist.reason}）— サイクルは回っています。`);
+  console.log(`OK: 最新レビュー ${latest.id} >= 対象週 ${weekId} — サイクルは回っています（${note}）。`);
   process.exit(0);
 }
 
 lines.push(
-  `> **欠落**: ${weekId} の週次レビューが生成された記録がありません。`,
-  ">",
-  `> 判定根拠: ファイル無し ＋ ${hist.reason}`,
+  `> **停滞**: 最新の週次レビューが ${latest ? latest.id : "存在しません"}。対象週 ${weekId} に達していません。`,
   ">",
   "> **先に切り分ける**（いきなりルーティンを作らない）:",
-  "> 1. 直近の週次レビューが誰の手で生成されているか — `git log --format='%ad %an' --date=short -- docs/reviews/weekly/`",
+  "> 1. 直近の週次レビューを誰が生成しているか確認 —",
+  ">    `git log --format='%ad %an' --date=short -5 -- docs/reviews/weekly/`",
   ">    対話セッションで回っているなら routine は不要（作ると二重生成になる）",
   "> 2. routine を確認するときは **必ず list-first**（`/routines`）。`RemoteTrigger list` は",
   ">    ページングされ全件を返さないので、不在を確認できないなら **作成しない**",
@@ -118,7 +110,7 @@ lines.push(
 );
 writeSummary(lines);
 console.error(
-  `週次レビュー欠落: ${relFile} が存在せず、git 履歴にも生成記録がありません（${hist.reason}）。` +
+  `週次レビュー停滞: 最新レビューは ${latest ? latest.id : "なし"} で、対象週 ${weekId} に達していません。` +
     `ルーティンを作る前に「誰が生成しているか」を先に切り分けてください。`
 );
 process.exit(1);
