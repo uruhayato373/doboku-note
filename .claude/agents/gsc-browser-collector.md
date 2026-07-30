@@ -72,6 +72,8 @@ GSC/GA4 の UI CSV を取得する既存スクリプトを実行し、生成物�
 - **GA4 管理画面の設定**（カスタムディメンション作成・データ保持の観測）: `scripts/ga4-admin-setup.mjs`
   （`npm run ga4-admin:check` / `:apply`）。収集ではなく**設定**の面なので本エージェントの守備範囲外。
 - SSOT 整合の判定: `npm run check-google-ui-ssot`（決定的スクリプト）。
+- **インデックス登録のリクエスト**: `scripts/gsc-request-indexing.mjs`（`npm run gsc-indexing:check` / `:request`）。
+  収集ではなく**介入**なので守備範囲外。外向き操作なので既定 dry-run・`--commit` gate で分離してある。
 
 ## 出力フォーマット（親へ返すテキスト）
 

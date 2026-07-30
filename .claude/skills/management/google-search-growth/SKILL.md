@@ -82,6 +82,15 @@ GSC/GA4 を横断して「どの URL が・なぜ検索に効いていないか�
      out HTML/GSC page/GA4 page を突合 → URL 分類）
    - 生成: `.claude/state/improvements/search-growth-<run>.json` と `search-growth-latest.md`
 
+5.5 **介入候補の抽出（crawled-not-indexed）**
+   - `npm run gsc-indexing:check -- --from-ssot --category <cat> --group <group>` で診断（読み取りのみ）
+   - `crawl=true` / `index=true` なのに `not-indexed` なら技術的阻害ゼロ＝Google の選別。残るレバーは
+     インデックス登録リクエスト（`npm run gsc-indexing:request -- … --limit 10`・外向き操作なので gate 済み）
+   - **実行したら `/nsm-experiment start` で台帳に載せる**（baseline と next_check_date を入れる）。
+     載せないと再計測されず学びが残らない（`check-experiment-due` が期限を surface する）
+   - 期待値の出し方: 同 group の登録済みページの「1 本あたり表示」× 未登録本数。件数の多さで選ばない
+     （2026-07-30 実測では textbook 20 本＝期待 +264 が keyword 190 本＝+180 を上回った）
+
 6. **evaluate**（Evaluator を並列起動）
    - `seo-fix-planner`（URL 分類の意味補正・優先順位）
    - `gsc-index-auditor`（coverage ratio・原因バケット）

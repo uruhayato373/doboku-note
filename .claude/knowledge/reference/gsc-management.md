@@ -33,6 +33,9 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 | `check-google-ui-ssot` | Script（ゲート） | 追跡 SSOT の整合（marker ↔ history ↔ urls の runId・スキーマ・truncated・**検査ゼロ**）。SSOT が空／直近実行が不完全なら exit 1 | `gsc-ui/ssot/**` → exit 0/1 |
 | `ga4-admin-setup` | Script（ローカル手動・Playwright） | GA4 管理画面の設定を desired state と突合し、**不足カスタムディメンションを作成**（既定 dry-run・`--commit` で実行）。データ保持は観測のみ | `config/ga4-admin-desired-state.json` → `metrics/ga4-admin/inventory-latest.json` |
 | `check-ga4-dimensions` | Script（ゲート・オフライン） | desired state と最後の実機観測を突合。blocking なカスタムディメンション（`event_label`/`cta_placement`）が未登録なら exit 1 | inventory-latest → exit 0/1 |
+| `check-internal-links-vs-gsc` | Script（ゲート・オフライン） | **公開ページ**が GSC の 404/リダイレクト URL を指していないか（SSOT と全 MDX/src を突合）。旧 URL 件数を能動的に減らせる唯一のレバー | `gsc-ui/ssot` + MDX → exit 0/1 |
+| `gsc-request-indexing` | Script（ローカル手動・Playwright） | 未登録 URL を URL 検査で診断し、**インデックス登録をリクエスト**（既定 dry-run・`--commit` gate・上限 10 件/回）。crawled-not-indexed への直接レバー | SSOT → `gsc-indexing/{requests-latest,history}.json` |
+| `check-experiment-due` | Script（surfacer） | 実験台帳の再計測/close 期限（サイクルの最後の輪）。weekly-review が列挙 | `experiments.json` → DUE 一覧 |
 | 機械履歴 | `index-coverage-history.json` | indexed_ratio の時系列 | CI が append |
 | 人間判断履歴 | 本 doc「観測・判断ログ」 | 何を打ち手にしたかの意思決定記録 | `/gsc-review` がユーザーと追記 |
 
@@ -103,6 +106,8 @@ URL Inspection の `coverage_state` と `page_fetch_state` から真因を切り
 | GA4 UI 取得マーカー（committed） | `.claude/state/metrics/ga4-ui/last-run.json`（任意チャネル・一次経路は Data API） |
 | GA4 管理画面 設定の期待値 | `.claude/config/ga4-admin-desired-state.json` |
 | GA4 管理画面 設定の観測（committed） | `.claude/state/metrics/ga4-admin/inventory-latest.json` ＋ `history.json` |
+| インデックス登録リクエストの記録（committed・**SSOT**） | `.claude/state/metrics/gsc-indexing/requests-latest.json` ＋ `history.json`（診断 state / reason / crawl・index 許可 / 送信結果）|
+| 実験台帳（committed） | `.claude/state/experiments.json`（`/nsm-experiment` が管理・`check-experiment-due` が期限判定）|
 | 検索流入 修正計画 | `.claude/state/improvements/search-growth-latest.md`（run JSON は gitignore） |
 
 ## 観測・判断ログ（append-only・人間の意思決定記録）

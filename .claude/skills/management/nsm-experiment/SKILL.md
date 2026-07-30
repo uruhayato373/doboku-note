@@ -29,6 +29,26 @@ Act        : close で learnings 記録 → roadmap にフィードバック
 
 詳細は `.claude/skills/management/nsm-experiment/references/definition.md` と `.claude/pdfs/guide.pdf`（Chapter 3）を参照。
 
+## GSC インデックス登録リクエストの実行と記録（2026-07-30 改訂）
+
+本スキルの Use-when に「GSC インデックスリクエスト」が入っているが、実行手段は長らく**手作業**で、
+記録も手書きの `.claude/state/metrics/notes/gsc-indexing-requests-YYYY-MM-DD.md` だった
+（`.claude/state/*.md` 新規作成禁止＝CLAUDE.md §8 に反する旧パターン）。現在は自動化してある:
+
+```bash
+npm run gsc-indexing:check -- --from-ssot --category civil-construction-1 --group textbook   # 診断のみ
+npm run gsc-indexing:request -- --from-ssot --category civil-construction-1 --group textbook --limit 10
+```
+
+- 対象は GSC UI SSOT（`crawledNotIndexed--allKnownPages.json`）から category / group で絞る。
+  published:false は自動的に除外。
+- **既定 dry-run**。送信は `--commit`（`:request`）のみ。1 回の送信上限は既定 10 件（日次クォータ配慮）。
+  上限やクォータで送れなかった分は `limit-reached` / `quota-exceeded` として記録され、次回に回る。
+- 送信後に受理文言を確認し、読めなければ `unconfirmed`＝成功にカウントしない。
+- **記録の SSOT は `.claude/state/metrics/gsc-indexing/{requests-latest,history}.json`**（追跡）。
+  手書きノートは作らない。`notes/gsc-indexing-requests-2026-04-15.md` は 2026-04 当時の履歴として残置。
+- pending 表示（上の resume 画面）は history.json の `limit-reached` / `quota-exceeded` から組む。
+
 ## サイクルが閉じたことを機械で保証する（2026-07-30 追加）
 
 propose→start→measure→close の**仕組み**は本スキルが持つが、「期限が来たのに measure されていない」を
@@ -107,7 +127,7 @@ abandoned  abandoned  running (re-measure)
      ・civil-construction-1-textbook-construction-mgmt-overview
      ・civil-construction-1-guide-earthwork-key-points
    理由: GSC 1 日クォータ上限到達
-   参照: .claude/state/metrics/notes/gsc-indexing-requests-2026-04-15.md
+   参照: .claude/state/metrics/gsc-indexing/history.json（機械記録・SSOT）
 ```
 
 5. ユーザーに「どの action から進めるか」を問う。「EXP-001 を resume して」等の返答があれば `resume` サブモードへ遷移。
