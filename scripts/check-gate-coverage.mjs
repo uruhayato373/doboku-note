@@ -31,6 +31,18 @@ const JSON_OUT = process.argv.includes('--json');
 // network 不要でソースを走査するゲートのみ対象（live 系は取得失敗率を各自が見ている）。
 const GATES = [
   {
+    name: 'check-public-bloat',
+    cmd: ['node', 'scripts/check-public-bloat.mjs'],
+    // 成功時も違反時も「実検査 N ファイル / M ディレクトリ」を先頭に出す。
+    re: /実検査\s*(\d+)\s*ファイル/,
+    // 下限は **CI 基準**で置く。public/pagefind/ は .gitignore 済みなので実数が環境で大きく違う:
+    //   ローカル 992（pagefind のローカル検索用 ~950 を含む） / CI 47（追跡ファイルのみ）。
+    // ローカル値（500 等）を置くと週次 CI（r2-audit.yml）が毎回落ちる。
+    // このメタゲートの目的は「walk が壊れて 0 件になった」の検知なので 40 で足りる。
+    min: 40,
+    note: 'public/ の総ファイル数（ローカル 992 / CI 47）。walk が壊れて 0 件になると生成物の滞留を見逃す',
+  },
+  {
     name: 'check-note-price-consistency',
     cmd: ['node', 'scripts/check-note-price-consistency.mjs'],
     // 「有料マガジン N 件の単品価格は…」
