@@ -108,5 +108,8 @@
       "PowerShell(git fetch -q origin develop; git log --oneline -2 origin/develop; git show origin/develop:.claude/agents/metrics-analyzer.md | Select-String \"fragment\" | ForEach-Object { $_.LineNumber.ToString\\(\\) + \": \" + $_.Line.Substring\\(0, [Math]::Min\\(60, $_.Line.Length\\)\\) })"
     ],
     "defaultMode": "bypassPermissions"
-  }
+  },
+  "enabledMcpjsonServers": [
+    "aidesigner"
+  ]
 }
