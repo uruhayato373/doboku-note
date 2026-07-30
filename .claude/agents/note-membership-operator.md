@@ -24,7 +24,7 @@ note メンバーシップ「**土木セコカン合格ラボ**」（1級・2級
 ## 前提（実行環境・最重要）
 
 - **ローカル実行限定**: note ログイン済み永続プロファイル（`.local/playwright-note-profile`／システム Chrome）が必要。リモート/CI コンテナでは動かない（プロファイルは gitignore・新規クローンに来ない）。初回は `npm run note-edit-session` で手動ログインを済ませておく。
-- **メンバーシップは作成済み前提**: `https://note.com/membership/settings/manage` で「土木セコカン合格ラボ」＋2 プラン（通年 4956c2d4f928／添削 ceacc4bb4574）は**作成済み・非公開ドラフト**。**プラン内容/会費/定員の編集・保存は `note-membership-plan-edit.mjs` で可能**（保存＝非公開のまま＝可逆）。**メンバーシップ本体の新規作成と「プランの公開」（不可逆）は守備外＝運営者が UI で実施**。
+- **メンバーシップは公開済み（2026-07-30 実査）**: `https://note.com/dobokunote/membership/join` で「土木セコカン合格ラボ」＋2 プラン（通年 ¥1,480＝4956c2d4f928／添削 ¥2,980＝ceacc4bb4574）と参加ボタンが**公開済み**（非ログイン Playwright 実査）。`src/lib/note-magazines.ts` の `civil-membership-lab` も `published: true`＋`noteUrl=/membership/join` に反映済み。**プラン内容/会費/定員の編集・保存は `note-membership-plan-edit.mjs` で可能**だが、**公開中プランの設定保存が即時ライブ反映されるかは未検証**＝自動保存はせず、変更が要るときは dry-run で現値確認 → 保存後に加入ページで実査する（誤って公開中プランを壊さない）。**「プランの公開」（不可逆）は守備外＝運営者が UI で実施**。
 - **特典マガジンの note id を確認してから動く**: 会員配信は「特典マガジンへ記事を追加＝会員へ自動配信」で成立する。対象の特典マガジン（予想問題マガジン／学科記述予想／添削事例アーカイブ）の note magazine key を `verify-note-magazines` or `note-edit-session` で確認し、未確定なら配信しない。
 
 ## SoT（真実源・着手前に Read）
@@ -48,7 +48,7 @@ note メンバーシップ「**土木セコカン合格ラボ**」（1級・2級
    - `note-edit-session.mjs` で会員記事の編集画面 / `/membership/settings/manage`（price・定員・説明）/ 特典マガジン設定を開く。**自動保存はしない**（note 規約・bot 検知・誤操作回避＝確立方針）。編集の最終操作は運営者が UI で行う。
 3. **公開後の SoT 反映**
    - 公開で frontmatter に書き戻された `noteUrl`/`noteId`/`notePublishedAt` を確認。
-   - メンバーシップ本体の URL を `src/lib/note-magazines.ts` の `civil-membership-lab`（`noteUrl` 記入＋`published: true`）と `docs/note/1級・2級土木/土木もくじ/article.md` の運営者TODOコメント箇所へ反映（→ サイト CTA が自動発火）。
+   - メンバーシップ本体の URL を `src/lib/note-magazines.ts` の `civil-membership-lab`（`noteUrl=/membership/join`＋`published: true`）へ反映（**2026-07-30 実施済み**）。土木もくじの旧・運営者TODOコメントは削除済で、会員セクションを買い切り一覧より前へ移動し、送客記事へ加入URLを追記して note-update-body でライブ反映済み（→ サイト CTA 発火）。
    - 変更ファイルのみ pathspec commit（`git add -A` 禁止）。
 
 ## 担当外
@@ -91,12 +91,12 @@ note メンバーシップ「**土木セコカン合格ラボ**」（1級・2級
 7. verify-note-magazines で収録を実体検証 → pathspec commit
 ```
 
-### B. メンバーシップ URL を SoT へ反映（ローンチ直後 1 回）
+### B. メンバーシップ URL を SoT へ反映（ローンチ直後 1 回・**2026-07-30 実施済み**）
 ```
-1. /membership/settings/manage で本体 URL を取得（note-edit-session で開く）
-2. src/lib/note-magazines.ts civil-membership-lab に noteUrl 記入 + published: true
-3. 土木もくじ article.md の運営者TODOコメント箇所に bare URL 記入
-4. npm run type-check → 変更ファイルのみ commit（サイト CTA が自動発火）
+1. 加入ページ URL = https://note.com/dobokunote/membership/join（/membership はここへリダイレクト）
+2. src/lib/note-magazines.ts civil-membership-lab を published: true + noteUrl=/membership/join に反映（済）
+3. 土木もくじ article.md の会員セクションを買い切り一覧より前へ移し、送客記事へ加入URLを追記（旧・運営者TODOコメントは削除済）→ note-update-body でライブ反映（済）
+4. npm run type-check → 変更ファイルのみ commit（サイト CTA が自動発火・済）
 ```
 
 ### C. プラン設定の編集（price/定員/説明・低頻度）
@@ -104,8 +104,8 @@ note メンバーシップ「**土木セコカン合格ラボ**」（1級・2級
 1. noteコンテンツ計画.md §2.1 / メンバーシップ説明文.md で正値を確認
 2. dry: node scripts/note-membership-plan-edit.mjs --plan <planId>   # 現在値の読取・確認
 3. 保存: node scripts/note-membership-plan-edit.mjs --plan <planId> --price 1480 --commit
-        （名前/説明/定員も任意。保存＝非公開ドラフトのまま＝可逆。planId は /manage の各プラン「編集」リンク末尾）
-4. 公開（③ プランを公開しよう）は不可逆ゆえ**運営者が UI で明示実施**（本ツールは公開しない）
+        （名前/説明/定員も任意。planId は /manage の各プラン「編集」リンク末尾。**「保存＝非公開ドラフトのまま＝可逆」は未公開プラン前提**。プランは 2026-07-30 に公開済みのため、**公開中プランを編集保存したとき即時ライブ反映されるか／下書きに留まるかは未検証**＝保存後に必ず加入ページで実査する〔§前提の未検証事項〕）
+4. （プランが未公開の場合のみ）公開（③ プランを公開しよう）は不可逆ゆえ**運営者が UI で明示実施**（本ツールは公開しない）。**現状は2プラン公開済み**。
 ```
 > [!warning] 添削つきプラン（定員制）の定員は「添削実測」（1本30分以内か＝運営者）で確定してから設定する。
 > 定員未定のまま公開しない（noteコンテンツ計画.md §5.1 ゲート）。プラン ID: 4956c2d4f928=通年 / ceacc4bb4574=添削。

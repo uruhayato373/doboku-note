@@ -380,12 +380,12 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     return {
       top: slot('civil-2-koji-bank', slug, 'top'),
       inline: [
-        slot('civil-2-koji-bank', slug, 'inline-1'),
-        slot('civil-2-gakka-kijutsu', slug, 'inline-2'), // 学科記述（問題2〜9）
-        slot('civil-2-anki-note', slug, 'inline-3'), // 直前暗記ノート
-        slot('civil-2-pastexam-essay', slug, 'inline-4'),
-        slot('civil-2-experience-essay', slug, 'inline-5'),
-        slot('civil-membership-lab', slug, 'inline-6'),
+        slot('civil-membership-lab', slug, 'inline-1'), // 本文中間 CTA = 会員（合格ラボ）
+        slot('civil-2-koji-bank', slug, 'inline-2'),
+        slot('civil-2-gakka-kijutsu', slug, 'inline-3'), // 学科記述（問題2〜9）
+        slot('civil-2-anki-note', slug, 'inline-4'), // 直前暗記ノート
+        slot('civil-2-pastexam-essay', slug, 'inline-5'),
+        slot('civil-2-experience-essay', slug, 'inline-6'),
       ],
       sidebar: [slot('civil-2-koji-bank', slug, 'sidebar-1')],
     };
@@ -394,10 +394,10 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     return {
       top: slot('civil-2-koji-bank', slug, 'top'),
       inline: [
-        slot('civil-2-koji-bank', slug, 'inline-1'),
-        slot('civil-2-experience-essay', slug, 'inline-2'),
-        slot('civil-2-pastexam-essay', slug, 'inline-3'),
-        slot('civil-membership-lab', slug, 'inline-4'),
+        slot('civil-membership-lab', slug, 'inline-1'), // 本文中間 CTA = 会員（合格ラボ）
+        slot('civil-2-koji-bank', slug, 'inline-2'),
+        slot('civil-2-experience-essay', slug, 'inline-3'),
+        slot('civil-2-pastexam-essay', slug, 'inline-4'),
       ],
       sidebar: [slot('civil-2-koji-bank', slug, 'sidebar-1')],
     };
@@ -408,11 +408,11 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     return {
       top: slot('civil-2-koji-bank', slug, 'top'),
       inline: [
-        slot('civil-2-koji-bank', slug, 'inline-1'),
-        slot('civil-2-experience-essay', slug, 'inline-2'),
-        slot('civil-2-gakka-kijutsu', slug, 'inline-3'),
-        slot('civil-2-anki-note', slug, 'inline-4'),
-        slot('civil-membership-lab', slug, 'inline-5'),
+        slot('civil-membership-lab', slug, 'inline-1'), // 本文中間 CTA = 会員（合格ラボ）
+        slot('civil-2-koji-bank', slug, 'inline-2'),
+        slot('civil-2-experience-essay', slug, 'inline-3'),
+        slot('civil-2-gakka-kijutsu', slug, 'inline-4'),
+        slot('civil-2-anki-note', slug, 'inline-5'),
       ],
       sidebar: [slot('civil-2-koji-bank', slug, 'sidebar-1')],
     };
@@ -427,14 +427,14 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     return {
       top: slot('civil-1-niji-marugoto-pack', slug, 'top'),
       inline: [
-        slot('civil-1-r8-bunseki', slug, 'inline-1'), // 出題分析・直前重点（入口）→ 下位で上位商品へ
-        slot('civil-1-niji-marugoto-pack', slug, 'inline-2'), // 二次まるごと（経験+学科+暗記の最上位バンドル）
-        slot('civil-1-keiken-complete-pack', slug, 'inline-3'),
-        slot('civil-1-gakka-kijutsu', slug, 'inline-4'), // 学科記述（問題2〜11）
-        slot('civil-1-pastexam-essay', slug, 'inline-5'),
-        slot('civil-1-experience-essay', slug, 'inline-6'),
-        slot('civil-1-combo-essay', slug, 'inline-7'),
-        slot('civil-membership-lab', slug, 'inline-8'),
+        slot('civil-membership-lab', slug, 'inline-1'), // 本文中間 CTA = 会員（合格ラボ）
+        slot('civil-1-r8-bunseki', slug, 'inline-2'), // 出題分析・直前重点（入口）→ 下位で上位商品へ
+        slot('civil-1-niji-marugoto-pack', slug, 'inline-3'), // 二次まるごと（経験+学科+暗記の最上位バンドル）
+        slot('civil-1-keiken-complete-pack', slug, 'inline-4'),
+        slot('civil-1-gakka-kijutsu', slug, 'inline-5'), // 学科記述（問題2〜11）
+        slot('civil-1-pastexam-essay', slug, 'inline-6'),
+        slot('civil-1-experience-essay', slug, 'inline-7'),
+        slot('civil-1-combo-essay', slug, 'inline-8'),
       ],
       sidebar: [slot('civil-1-pastexam-essay', slug, 'sidebar-1')],
     };
@@ -443,12 +443,12 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     return {
       top: slot('civil-1-keiken-complete-pack', slug, 'top'),
       inline: [
-        slot('civil-1-keiken-complete-pack', slug, 'inline-1'),
-        slot('civil-1-niji-marugoto-pack', slug, 'inline-2'), // 経験+学科+暗記の二次まるごと（upsell）
-        slot('civil-1-experience-essay', slug, 'inline-3'),
-        slot('civil-1-pastexam-essay', slug, 'inline-4'),
-        slot('civil-1-combo-essay', slug, 'inline-5'),
-        slot('civil-membership-lab', slug, 'inline-6'),
+        slot('civil-membership-lab', slug, 'inline-1'), // 本文中間 CTA = 会員（合格ラボ）
+        slot('civil-1-keiken-complete-pack', slug, 'inline-2'),
+        slot('civil-1-niji-marugoto-pack', slug, 'inline-3'), // 経験+学科+暗記の二次まるごと（upsell）
+        slot('civil-1-experience-essay', slug, 'inline-4'),
+        slot('civil-1-pastexam-essay', slug, 'inline-5'),
+        slot('civil-1-combo-essay', slug, 'inline-6'),
       ],
       sidebar: [slot('civil-1-experience-essay', slug, 'sidebar-1')],
     };
@@ -461,13 +461,13 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     return {
       top: slot('civil-1-gakka-kijutsu', slug, 'top'),
       inline: [
-        slot('civil-1-gakka-kijutsu', slug, 'inline-1'), // 学科記述 テーマ別出る順
-        slot('civil-1-r8-bunseki', slug, 'inline-2'), // 出題分析・直前重点（入口）
-        slot('civil-1-niji-marugoto-pack', slug, 'inline-3'), // 二次まるごと
-        slot('civil-1-anki-note', slug, 'inline-4'), // 直前暗記ノート
-        slot('civil-1-keiken-complete-pack', slug, 'inline-5'),
-        slot('civil-1-pastexam-essay', slug, 'inline-6'),
-        slot('civil-membership-lab', slug, 'inline-7'),
+        slot('civil-membership-lab', slug, 'inline-1'), // 本文中間 CTA = 会員（合格ラボ）
+        slot('civil-1-gakka-kijutsu', slug, 'inline-2'), // 学科記述 テーマ別出る順
+        slot('civil-1-r8-bunseki', slug, 'inline-3'), // 出題分析・直前重点（入口）
+        slot('civil-1-niji-marugoto-pack', slug, 'inline-4'), // 二次まるごと
+        slot('civil-1-anki-note', slug, 'inline-5'), // 直前暗記ノート
+        slot('civil-1-keiken-complete-pack', slug, 'inline-6'),
+        slot('civil-1-pastexam-essay', slug, 'inline-7'),
       ],
       sidebar: [slot('civil-1-gakka-kijutsu', slug, 'sidebar-1')],
     };
@@ -509,11 +509,11 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
       return {
         top: slot('civil-1-niji-marugoto-pack', slug, 'top'),
         inline: [
-          slot('civil-1-niji-marugoto-pack', slug, 'inline-1'), // 経験+学科+暗記の最上位バンドル
-          slot('civil-1-anki-note', slug, 'inline-2'), // 直前暗記ノート（赤シートPDF付）
-          slot('civil-1-gakka-kijutsu', slug, 'inline-3'), // 学科記述 テーマ別出る順
-          slot('civil-1-keiken-complete-pack', slug, 'inline-4'),
-          slot('civil-membership-lab', slug, 'inline-5'),
+          slot('civil-membership-lab', slug, 'inline-1'), // 本文中間 CTA = 会員（合格ラボ）
+          slot('civil-1-niji-marugoto-pack', slug, 'inline-2'), // 経験+学科+暗記の最上位バンドル
+          slot('civil-1-anki-note', slug, 'inline-3'), // 直前暗記ノート（赤シートPDF付）
+          slot('civil-1-gakka-kijutsu', slug, 'inline-4'), // 学科記述 テーマ別出る順
+          slot('civil-1-keiken-complete-pack', slug, 'inline-5'),
         ],
         sidebar: [],
       };

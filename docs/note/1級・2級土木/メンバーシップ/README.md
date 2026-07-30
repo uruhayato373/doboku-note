@@ -23,10 +23,11 @@
 
 会員（メンバーシップ）への**サイト導線は配線済み・自動発火待ち**（計画 §5.3 step 4 + step 5 のサイトCTA分）。
 
-- `src/lib/note-magazines.ts` に会員エントリ `civil-membership-lab`（1メンバーシップ・2プラン＝単一URL、`badge: メンバーシップ`、`price: 月額 ¥1,480〜（2プラン）`）を追加。買い切りエントリは維持＝両建て。**`published: false`／`noteUrl: ''` のプレースホルダ**で、`getMagazine()` が未公開を防御的に null 返しするため**現状サイトには表示されない**。
+- `src/lib/note-magazines.ts` に会員エントリ `civil-membership-lab`（1メンバーシップ・2プラン＝単一URL、`badge: メンバーシップ`、`price: 月額 ¥1,480〜（2プラン）`）を追加。買い切りエントリは維持＝両建て。**【2026-07-30 公開反映】`published: true`／`noteUrl: 'https://note.com/dobokunote/membership/join'`**（加入導線は実遷移先の `/membership/join`）。サイトの二次/経験記述/guide ページで会員CTAが表示済み。
 - `src/lib/magazine-placement.ts` で 1級・2級土木の **経験記述系（secondary-r0X／experience-writing guide・examples）・guide・カテゴリ入口**に会員CTAを配置（買い切りCTAは維持し、即金アンカーの後＝LTV枠として末尾に追加）。完成答案・過去問は会員特典マガジンに内包（読み放題）＝2026-07-01 転換。維持する一線は「FLOW＝予想・添削を買い切りに出さない」のみ。
-- **運営者の残作業（flip でサイトに自動表示）**: ①note でメンバーシップ「土木セコカン合格ラボ」を 2 プランで作成し URL 取得 → ②`civil-membership-lab` の `noteUrl` を埋め `published: true` に変更 → ③commit・デプロイ。これで該当 slug ページに会員CTAが自動表示される（サイト表示用のカバー画像は不要＝CTA は exam-brand の cta-bg でデータ駆動・2026-07 廃止。note 側ヘッダーが要るときのみ `generate-magazine-covers.mjs` で `_cover.png` 生成）。
-- 別系統の残作業（手動）: 添削実測ゲート（計画 §5.1）／note 上の特典マガジン設定／note公開済みの「土木もくじ」への会員セクション追記（再公開が必要）。
+- **【2026-07-30 完了】flip 実施済み**: メンバーシップ2プラン公開済み → `civil-membership-lab` を `published: true`＋`noteUrl=/membership/join` へ更新（commit のみ・deploy はユーザー判断）。サイトの代表5ページで会員CTA（本文中間）を mobile/desktop 実査済み（加入リンク各1件・career記事0件）。note の送客5記事＋説明記事「はじめに-合格ラボ」へ加入URLを note-update-body でライブ反映（説明記事は `--trial-line-bottom` で無料プレビュー 0→約7,100字に復旧）。
+- **完了（運営者確認 2026-07-30）**: note 上の会員特典マガジンへの完成答案ライブラリ収録（会員特典化＝入会の引き金）。
+- 別系統の残作業（手動・未完）: 添削実測ゲート（計画 §5.1）／会員特典22本（予想問題・学科記述予想・添削事例）の会員限定公開・週次ドリップ配信。
 
 ## 配信カレンダー（試験日まで全話仕込み済み・週1ドリップ）
 

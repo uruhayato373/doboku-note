@@ -80,8 +80,9 @@ https://doboku-note.com/tools/keiken-charcount
 
 ※本ラボは合格を保証するものではありません。合格に向けた学習の伴走を目的としています。
 
-![技術士（総合技術監理部門）を持つ元発注者が、施工管理技士の記述を分析して作成。総監＝上位資格の分析力、元発注者＝採点者の視点、施工管理技士＝合格した当事者](img/figure-author-authority.png)
-
 上位資格の分析力・発注者の採点眼・合格者の当事者性で、あなたの答案を合格ラインへ引き上げます。
 
-https://note.com/dobokunote/n/n6b66793ca20c
+<!-- cta:civil-membership-lab -->
+完成答案ライブラリ、月例予想、添削つきプランの内容と参加手続きはこちらから確認できます。
+
+https://note.com/dobokunote/membership/join

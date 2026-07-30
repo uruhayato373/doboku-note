@@ -248,11 +248,11 @@
 
 買い切りは廃止しないため、移行（非公開化・購入者移管）は不要。会員を新設する作業のみ。
 
-1. メンバーシップ「土木セコカン合格ラボ」を note で作成（2 プラン・免責明記・説明文は [メンバーシップ説明文.md](./メンバーシップ説明文.md)）
+1. **【2026-07-30 公開確認】** メンバーシップ「土木セコカン合格ラボ」を note で作成（2 プラン・免責明記・説明文は [メンバーシップ説明文.md](./メンバーシップ説明文.md)）。加入ページ `https://note.com/dobokunote/membership/join` で通年 ¥1,480／添削つき ¥2,980 の2プランと参加ボタンが公開済み（非ログイン Playwright 実査）
 2. **予想問題マガジン・添削事例マガジンを新規作成**し会員専用特典に設定。**完成答案マガジンも会員特典に内包**（単品・¥9,800 パックの販売は継続）
 3. 無料リードマグネット公開 → 無料→買い切り／会員 の分岐導線を設置
-4. **【2026-06-23 完了】** `src/lib/note-magazines.ts` に会員商品エントリ `civil-membership-lab` を追加（買い切りエントリは維持＝両建て）。`published: false`／`noteUrl: ''` のプレースホルダで、note 作成後に運営者が `noteUrl` 埋め＋`published: true` へ flip するとサイトCTAが自動発火する
-5. **【2026-06-23 サイトCTA分 完了】** `src/lib/magazine-placement.ts` で 1級・2級土木の経験記述系・guide・カテゴリ入口に会員CTAを配置（当初は既存買い切り CTA を維持・末尾に追加）。残: note 上の特典マガジン設定・note公開済み「土木もくじ」への会員セクション追記（再公開要）
+4. **【2026-07-30 flip 完了】** `src/lib/note-magazines.ts` の会員商品エントリ `civil-membership-lab` を `published: true`／`noteUrl: 'https://note.com/dobokunote/membership/join'` へ更新（買い切りエントリは維持＝両建て）。加入導線は `/membership` でなく実遷移先の `/membership/join`。サイトの 1級・2級土木 二次/経験記述/guide ページで会員CTA（本文中間・MidCta）が発火（代表5ページを mobile/desktop で実査＝加入リンク各1件・career記事0件）
+5. **【2026-06-23 サイトCTA分 完了 → 2026-07-30 二次系＋note直リンク完了】** `src/lib/magazine-placement.ts` で 1級・2級土木の経験記述系・guide・カテゴリ入口に会員CTAを配置。**2026-07-30: 二次系（secondary-r0X／experience-writing guide・examples／2級 getting-started／1級 catch-all／last-minute）の `inline[0]` を会員に切替＋`page.tsx` の本文中間CTAゲートへ土木 secondary を追加（`isCivilSecondary`）。note公開済み「土木もくじ」の会員セクションを「まず選ぶ1冊」直後・買い切り一覧より前へ移動し、送客5記事＋説明記事「はじめに-合格ラボ」（試し読み復旧＝無料プレビュー 0→約7,100字）へ加入URLを1件ずつ note-update-body でライブ反映済み**。note 上の会員特典マガジン（完成答案ライブラリの会員特典化＝入会の引き金）への収録も完了済み（運営者確認 2026-07-30）
     - **【2026-07-01 journey整合 再設計】** guide/textbook/primary の note CTA を journey stage で出し分け（`magazine-placement.ts`）。**一次/学習系 guide＋textbook＋primary は会員（伴走・低コミット）を lead に据え、¥9,800 完全攻略パック等のハード二次商品は demote**（早期の一次読者に二次を正面売りは低転換）／**二次隣接（直前 `guide-last-minute-2026`）はパック led を維持**／**career・年収・転職・比較系 guide は note 二次 CTA を撤去（EMPTY＝本文 `<CareerAffiliate>`＋サイドバー転職枠に委譲。二次経験記述¥9,800 を「辞めたい/年収」読者に正面売りは二重ミスマッチ）**。旧「買い切り CTA を末尾追加」を上書き。会員は `published:false` の間 wire-ahead（launch で自動 lead）。分類集合＝`CIVIL_EXAM_PREP_GUIDES`／`CIVIL_SECONDARY_ADJACENT_GUIDES`。真実源の 3 層モデルは [note-funnel-architecture.md](../../reference/note-funnel-architecture.md)
 6. 集客記事クラスターを「無料リードマグネット → 買い切り / 会員」の導線に整理
 

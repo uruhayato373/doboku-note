@@ -687,12 +687,13 @@ const MAGAZINES_RAW = {
   // ＝二重配置。フロー（予想・添削）だけは買い切りに出さない一線を守る
   // （noteコンテンツ計画.md §1.4 / §2.3 / Red Line #10）。
   // note 上は 1 メンバーシップ・2 プラン（通年¥1,480 / 添削つき¥2,980）＝単一 URL。
-  // 公開時: note でメンバーシップ作成 → noteUrl 埋め + cover 画像作成 + published: true。
-  // CTA は 1級・2級土木の 経験記述系・guide・カテゴリ入口で発火（magazine-placement.ts）。
+  // 2026-07-30 公開反映: note でメンバーシップ公開済み。noteUrl は加入ページ（/membership/join）、
+  // published: true。加入導線には /membership でなく実遷移先の /membership/join を使う。
+  // CTA は 1級・2級土木の 経験記述系・二次系・guide・カテゴリ入口で発火（magazine-placement.ts）。
   'civil-membership-lab': {
     id: 'civil-membership-lab',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/membership/join',
     title: '土木セコカン合格ラボ｜月例予想＋経験記述添削メンバーシップ',
     description:
       '1級・2級土木施工管理技士の合格伴走メンバーシップ。月例の予想問題（学科記述・経験記述のテーマ予想）で手を動かし、受験シーズンは施工経験記述をマンツーマン添削（NG→OK赤入れ＋採点者視点）で合格水準まで引き上げます。通年プラン（月例予想配信）と添削つきプラン（受験シーズン・定員制）の2プラン。最短ルートで一発合格を目指す人向けの伴走ラボです。過去問の完成答案は買い切りマガジンで別途販売しています。※本会員は合格を保証するものではありません。',

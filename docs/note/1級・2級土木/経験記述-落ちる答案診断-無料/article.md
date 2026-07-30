@@ -127,7 +127,10 @@ https://note.com/dobokunote/m/m8290970a7f05
 
 会員の1か月めは解約自由なので、気軽にお試しできます。
 
-各商品の詳細・お申し込みは、プロフィールまたはマガジン一覧からどうぞ。
+<!-- cta:civil-membership-lab -->
+完成答案ライブラリ、月例予想、添削つきプランの内容はこちらで確認できます。
+
+https://note.com/dobokunote/membership/join
 
 ## 無料でもっと確認する
 

@@ -337,8 +337,13 @@ export default async function DocPage({
   // components の midslot が index で中身を引く。
   const midH2Count = headings.filter((h) => h.level === 2).length;
   const midBodyLen = stripLeadingH1(strippedContent).length;
+  // 1級・2級土木の二次（secondary）ページも本文中間 CTA の対象に含める（会員「合格ラボ」を
+  // 二次高 intent 面へ出すため）。全資格の secondary を一律対象にはしない（土木のみ）。
+  const isCivilSecondary =
+    (category === 'civil-construction-1' || category === 'civil-construction-2') &&
+    docGroup === 'secondary';
   const midEligibleGroup =
-    docGroup === 'guide' || docGroup === 'pillar' || docGroup === 'textbook';
+    docGroup === 'guide' || docGroup === 'pillar' || docGroup === 'textbook' || isCivilSecondary;
   const midEnabled = midEligibleGroup && midH2Count >= 5 && midBodyLen >= 8000;
 
   // 転職ネイティブカード。従来は career タグ記事限定だったが、記事末から本文中間へ移した分
