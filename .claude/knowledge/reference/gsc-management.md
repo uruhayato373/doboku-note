@@ -57,6 +57,21 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 - **月次（ローカル・手動）**: `/google-search-growth` で理由別 UI CSV を取得 → 突合 → 修正計画 → 観測ログ追記。**放置防止**は `check-gsc-ui-due`（30日）を weekly-review が surface（DUE なら次セッションで実行）。`/gsc-review`（coverage 全体）の深掘り＝理由ごとの例 URL を足す層。
 - **週次**: `fetch-metrics.yml`（CI・金 JST 6:00）→ `/weekly-improve`（performance 側）
 
+> [!warning] 何が自動で回り、何が回らないか（2026-07-30 実査）
+> **自動（GitHub Actions cron・実績で確認）**: fetch-metrics（週次）/ psi-audit（日次）/
+> index-coverage（月次）/ link-audit / r2-audit / note-live-audit / uptime-ping。
+> **オフライン surfacer も CI 側で自動**（`weekly-review-guard.yml` が毎週月曜に実行）:
+> check-experiment-due / check-gsc-ui-due / check-google-ui-ssot / check-ga4-dimensions を
+> job summary へ出力し、check-internal-links-vs-gsc は hard fail させる。
+>
+> **自動で回っていないもの**:
+> 1. **`/weekly-review` のクラウドルーティンは停止している**。W29 までは Claude が生成していたが
+>    W30/W31 は手動、`weekly-review-guard` は 2026-07-20・07-27 と 2 週連続で赤。復旧は対話セッションで
+>    `/routines`（list-first）→ 無ければ `/schedule`。**重複作成事故を避けるため必ず list-first**。
+> 2. **Playwright 経路は原理的に CI 化不可**（Google ログインが必要）＝`search-growth:audit` /
+>    `ga4-admin:check` / `gsc-indexing:request` は月次の手動儀式。放置検知は上の surfacer が担う。
+> 3. **`/nsm-experiment measure` の実行も手動**。期限の surface は自動、判断と記録は人（セッション）。
+
 - **GA4 管理画面 設定（ローカル手動・随時＋90日で再観測）**: `npm run ga4-admin:check`（観測・dry-run）→ 不足があれば `npm run ga4-admin:apply`（`--commit`）。
   オフラインの `npm run check-ga4-dimensions` が desired state と最後の観測を突合し、blocking な未登録を FAIL にする。
 

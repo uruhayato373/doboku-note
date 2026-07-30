@@ -1,4 +1,4 @@
-name: Guard weekly-review cycle
+name: Guard PDCA cycle (weekly-review + offline surfacers)
 
 # 週次レビュー（/weekly-review）を回すクラウドルーティン（正典 = doboku-note weekly PDCA）が
 # 停止・無効・cron ズレで発火しなくなっても、状態はクラウド側にしかなく repo からは見えない。
@@ -10,6 +10,11 @@ name: Guard weekly-review cycle
 #
 # 赤落ち時の対処: 対話セッション（デスクトップ/web アプリ）で /routines（list-first）→ 無ければ
 #   /schedule で再作成、cron ズレなら update。真実源: .claude/skills/management/routines/SKILL.md
+#
+# 2026-07-30: 本 workflow は「レビュー生成の欠落検知」だけでなく、**オフラインで判定できる
+# PDCA surfacer の実行キャリア**も兼ねる。理由: surfacer を weekly-review スキルの中だけに置くと
+# ルーティン停止時に一緒に沈黙する（W30/W31 は手動生成・本ガードは 07-20/07-27 と 2 週連続赤）。
+# creds も外部到達性も要らない判定は CI 側で必ず動かす（「計測は CI/CD 供給が正」と同じ思想）。
 
 on:
   schedule:
@@ -32,7 +37,43 @@ jobs:
         with:
           node-version: "22"
 
+      # ── PDCA サイクルの surfacer（オフライン・creds 不要・依存パッケージ不要）─────────
+      # 2026-07-30 追加。これらは weekly-review（クラウドルーティン）の中で列挙する設計だったが、
+      # そのルーティンが停止しても発火しなくなる（実際 W30/W31 は手動生成・本ガードは 2 週連続赤）。
+      # 判定に creds も外部到達性も要らないので **CI 側で必ず動かす**＝ルーティン生存に依存させない。
+      # surfacer は落とさず job summary に出す（DUE があるのは正常な状態でもありうる）。
+      - name: Surface cycle state (experiments / UI collection / GA4 settings)
+        continue-on-error: true
+        run: |
+          {
+            echo "## PDCA サイクルの状態（$(date -u +%Y-%m-%dT%H:%MZ)）"
+            echo
+            echo '### 実験の再計測期限（check-experiment-due）'
+            echo '```'
+            node scripts/check-experiment-due.mjs || true
+            echo '```'
+            echo '### GSC/GA4 UI 取得の期限と完全性（check-gsc-ui-due）'
+            echo '```'
+            node scripts/check-gsc-ui-due.mjs || true
+            echo '```'
+            echo '### UI CSV SSOT の整合（check-google-ui-ssot）'
+            echo '```'
+            node scripts/check-google-ui-ssot.mjs || true
+            echo '```'
+            echo '### GA4 管理画面 設定ドリフト（check-ga4-dimensions）'
+            echo '```'
+            node scripts/check-ga4-custom-dimensions.mjs || true
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      # 決定的ゲート: 公開ページが GSC の 404/リダイレクト URL を指していたら赤。
+      # これは「0 件が正常」な検査なので surfacer と違い hard fail にする。
+      - name: Gate - internal links vs GSC 404/redirect
+        run: node scripts/check-internal-links-vs-gsc.mjs
+
       # 先週分の docs/reviews/weekly/YYYY-Www-review.md が無ければ exit 1（赤落ち）。
       # 依存パッケージ不要（fs のみ）なので npm ci はスキップ。
+      # surfacer より後に置く＝レビュー欠落で赤くても上のサマリは必ず残る。
       - name: Check last week's review exists
+        if: always()
         run: node scripts/check-weekly-review.mjs
