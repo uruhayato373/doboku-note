@@ -219,6 +219,7 @@
     "check-character-avatars": "node scripts/check-character-avatars.mjs",
     "kdp-batch": "zsh scripts/kdp-batch.sh",
     "gen-kdp-memo": "node scripts/gen-kdp-memo.mjs",
+    "kdp-report": "node scripts/kdp-report.mjs",
     "sync-kindle-dist": "node scripts/sync-kindle-dist.mjs",
     "build-takuitsu-pdf": "node scripts/build-takuitsu-pdf.mjs"
   },

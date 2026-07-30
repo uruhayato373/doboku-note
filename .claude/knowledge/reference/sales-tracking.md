@@ -176,6 +176,29 @@ npm run sales-summary -- 2026-06   # 当月内の商品別内訳を確認
 
 ---
 
+## Kindle（KDP）ロイヤリティ（非 note チャネル・2026-07-31〜）
+
+note の販売履歴が「1 購入 = 1 レコードの手動転記」なのに対し、Kindle は Amazon 側が月次で
+集計した**推計ロイヤリティ**しか出さない。粒度が違うため sales-log.json には混ぜず、
+別ファイル `.claude/state/sales/kdp-royalties.json` に月次で保存する。
+
+```bash
+npm run kdp-report                 # 当月を取得して保存
+npm run kdp-report -- --dry-run    # 保存せず表示のみ
+```
+
+| 項目 | 内容 |
+|---|---|
+| 取得元 | `kdpreports.amazon.co.jp` の `/royalties`（書籍別）＋ `/pmr`（マーケットプレイス別・KENP 既読ページ） |
+| 方式 | `scripts/kdp-report.mjs`（Playwright・読み取り専用。ログインは kdp-publish と同じ `.local/playwright-kdp-profile` を共用） |
+| 突合 | 書籍は `scripts/kindle-published/catalog.json` の `title: subtitle` で `bookId` に紐づけ（副題ドリフト時は主タイトルで再照合） |
+| 期間 | 当月と前月のみ（KDP の日付入力は React が握り潰すためカレンダーのプリセットを使う）。それ以前の確定値は `/pmr` を目視 |
+
+**運用**: 月末に当月を 1 回、翌月に前月を再取得して上書き（KENP は翌月 15 日頃に確定するため）。
+当月分は `estimated: true` で記録される。取得できなかった項目は 0 埋めせず `null` で残す。
+
+---
+
 ## プライバシーポリシー
 
 - **購入者名・ハンドルは記録しない**
@@ -192,4 +215,6 @@ npm run sales-summary -- 2026-06   # 当月内の商品別内訳を確認
 | `.claude/skills/metrics/record-sales/SKILL.md` | 記録スキル |
 | `scripts/sales-summary.mjs` | 集計スクリプト（月フィルタは位置引数。`-- 2026-06`） |
 | `scripts/check-sales-mapping.mjs` | productId が mapping に文書化されているか検証する pre-commit ガード |
+| `scripts/kdp-report.mjs` | KDP 月次ロイヤリティ取得（`npm run kdp-report`・読み取り専用） |
+| `.claude/state/sales/kdp-royalties.json` | Kindle 月次ロイヤリティ（note とは別スキーマ） |
 | `src/lib/note-magazines.ts` | マガジン ID マスター |
