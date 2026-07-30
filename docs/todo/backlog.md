@@ -171,17 +171,6 @@ node scripts/note-update-body.mjs --list .claude/state/note-utm-live-remaining.t
 
 全文置換・有料境界は既定 `試験問題|予想問題` で自動再設定。約 50 秒/件（99件で約80分）。1本ずつ完結するので途中で止めても安全。**反映後は `npm run check-note-structure` で FULL_LOCK/PAYWALL_LEAK が出ないことを確認し、`.claude/state/note-republish-hashes.json` をコミットする**（次回の対象リスト再生成にも効く）。
 
-### note ライブ本文の画像欠落3件を修復
-タグ: [運用基盤]
-
-`check-note-live-headings` を curl 経路化して初めて検査が成立した結果（2026-07-28）、341本中3本で本文画像が live に載っていないことが判明（`[画像欠落 live=0/sot=2]`）。図が表示されない状態。
-
-- `1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/00-完全攻略ガイド-想定工事索引`（n9cf7e60661fa）
-- `1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/00-想定工事索引`（ned33a34bc42f）
-- `1級・2級土木/メンバーシップ/はじめに-合格ラボ`（n6b66793ca20c）
-
-修復は `node scripts/note-update-body.mjs --article <path> --commit`。画像は CDN 確定待ちでタイムアウトすることがあるが、その場合は保存せず中断する安全弁が働くので再実行すればよい。修復後 `node scripts/check-note-live-headings.mjs` で 0 件になることを確認する。
-
 ### search-growth 修正計画の裁定セッション（判断待ち 2,077 URL の消化）
 タグ: [運用基盤]
 

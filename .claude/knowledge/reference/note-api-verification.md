@@ -214,7 +214,26 @@ node scripts/check-note-price-consistency.mjs --json      # 機械可読
 
 `check-note-structure` の `TAG_SHORT` が唯一 live を実測していたが、`sev:'INFO'` 固定で `--ci` ゲート（CRITICAL のみ判定）に載らず誰も落としていなかった。**TAG_SHORT は INFO のまま残す**（レポート用）——CRITICAL に格上げすると「有料記事の全ロック・課金漏洩」と同列になり優先度が壊れるため、タグは独立ゲートで別管理にする。
 
-不足の解消は `node scripts/note-sync-tags.mjs --list <対象> --commit`（差分だけ追加・本文と有料境界は非破壊）。構造的にライブへ入らない記事（メンバーシップの `is_limited` 等）は `.claude/config/note-live-tags-allow.json` に**理由つきで**免除する。
+不足の解消は `node scripts/note-sync-tags.mjs --list <対象> --commit`（差分だけ追加・本文と有料境界は非破壊）。構造的にライブへ入らない記事は `.claude/config/note-live-tags-allow.json` に**理由つきで**免除する。
+
+**2026-07-30 完了**: 全量ゲートで **対象675・取得失敗0・計測不能3・実検査672本すべて90以上**（`npm run check-note-live-tags` exit 0）。上表の 250 本は 07-28 夜の 362 件＋07-30 の 74 件で解消した。
+
+> [!warning] 事前に作った対象リストを「全量」と思わない
+> 07-30 の反映は `.claude/state/note-tag-sync-targets.txt`（668件・07-28 生成）を使ったが、**このリストには 総監テキスト精読ガイド 5管理の4本が入っておらず**、リスト消化後も 49〜54 タグのまま残っていた。露出したのは対象を絞らない全量ゲート（`check-note-live-tags` を `--list` なしで実行）を回したときだけ。**完了判定は必ず全量ゲートで行う**——固定リストの完走は「リストを消化した」証明にすぎない。
+
+note のタグ上限99で追加できない記事に汎用タグ退避（`--evict-generic`）を実装する案は**不要と判明した**。上限99に達している記事は定義上すでに 90 を超えているので、目標90のゲートには一度も現れない。実装するとしたら「汎用タグを専門タグへ入れ替えてタグの質を上げる」別目的になる（現時点で費用対効果は低い）。
+
+> [!warning] 未ログイン API で `0` は「無い」ではなく「読めない」——計測不能を FAIL と呼ばない
+> メンバーシップ限定記事に対し、認証なしの `/api/v3/notes/{id}` は **`body=''` / `hashtag_notes=[]` / `price=0`** を返す（`status` は `published`）。これを素朴に読むと「タグ0」「画像欠落 live=0/sot=2」に見えるが、**著者ログインで実測すると充足している**。
+>
+> 2026-07-30 に実証した誤診2件:
+>
+> - `note-sync-tags` が3記事を `[6] FAIL: ライブ件数が増えていない（0→0）` と報告 → 実際は **99 / 98 / 98 タグ**入っていた。この偽 FAIL から生まれた「試し読みサブフローでタグ入力状態が破棄される（2026-07-23 実測）」という結論と allowlist 登録も誤りだったので撤去した
+> - 「note ライブ本文の画像欠落3件を修復」という backlog タスク → 実際は **画像 2/2 で充足**。存在しない不足を追う phantom タスクだった
+>
+> 判別は `scripts/lib/note-live-check.mjs` の `isUnmeasurable()`＝`status=published` かつ `body` 空 **かつ** `hashtag_notes` 空。有料記事は無料プレビューとタグを返すので該当せず、無料プレビュー0字（FULL_LOCK）の有料記事も `hashtag_notes` は返るため誤判定しない。`check-note-live-tags` / `check-note-live-headings` は該当記事を **UNMEASURABLE として分母から外し別枠表示**する（混ぜると「検査した」ように見える）。実体確認は著者ログインの Playwright 経路（`check-note-attachments --live` と同じ手法）。
+>
+> これは [CLAUDE.md](../../../CLAUDE.md) §9「検査ゼロを PASS と呼ばない」の裏返し。**取得できないものを FAIL と呼ぶと、成功した書き込みを失敗と誤認し、存在しない作業を生む。**
 
 ### PDF 添付は「ソース」と「ライブ」の2層 —— 全文置換で消える（2026-07-28 事故）
 
