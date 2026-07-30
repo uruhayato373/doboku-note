@@ -15,7 +15,7 @@
  * 使い方:
  *   node scripts/kdp-publish.mjs --id <id>                    # 新規提出(下書き保存まで・出版せず)＋チェックリスト
  *   node scripts/kdp-publish.mjs --id <id> --commit-publish   # 上記＋出版(不可逆)＋出版後検証
- *   node scripts/kdp-publish.mjs --sync-status                # 本棚全件 {title,asin,status} を JSON 出力
+ *   node scripts/kdp-publish.mjs --sync-status                # catalog 各冊を本棚でタイトル検索し {asin,status,提出日} を突合
  *   node scripts/kdp-publish.mjs --list-drafts                # 本棚を .tmp へダンプ(読み取り)
  *   node scripts/kdp-publish.mjs --delete-drafts <ASIN,...>   # 下書きのみ削除(1件ずつ・下書きassert)
  *   node scripts/kdp-publish.mjs --dump --asin <ASIN> --page <details|content|pricing>  # UI変更時の較正
@@ -124,41 +124,91 @@ try {
     }
   }
 
-  // ═══ MODE: --sync-status（本棚全件の {title,asin,status} を JSON 出力）════
+  // ═══ MODE: --sync-status（catalog 駆動でタイトル検索し {asin,status,提出日} を取得）════
+  //
+  // 旧実装は「本棚を列挙して突合」だったが、2026-07-30 の実測で**壊れていた**:
+  //   - 本棚はページネーションで**先頭10冊しか DOM に存在しない**（live 33 冊の口座で 10 件しか拾えない）
+  //   - `title-setup/kindle/` の ID は 13〜14 桁の**内部タイトルID**（例 YJ0R3ZX4TJV）で ASIN ではない
+  //     → 出力 20 件のうち 10 件が著者ID様のゴミ・title は空文字
+  // 「全部数えて突合」をやめ「catalog の各冊について本棚に問う」へ反転する。catalog が対象の
+  // 真実源なので、ページネーションにも本棚の総数にも左右されない。
+  //
+  // 行構造（実測）: 検索後の `tr.mt-row` のうち `著:` を含む行が書籍行で、
+  //   「<タイトル> 著: doboku-note Kindle 本 <状態> 提出日: YYYY年M月D日 ¥価格 … ASIN: B0XXXXXXXX」
+  //   を1行に持つ。タイトルは UI 上「…」で省略されるため前方一致でしか照合できない。
   if (MODE_SYNC) {
-    await sleep(2000);
-    writeFileSync(join(TMP, 'kdp-bookshelf.html'), await page.content());
-    const items = await page.evaluate(() => {
-      const out = [];
-      const seen = new Set();
-      for (const link of document.querySelectorAll('a[href*="title-setup/kindle/"]')) {
-        const asin = (link.getAttribute('href').match(/kindle\/([A-Z0-9]{10,})\//) || [])[1];
-        if (!asin || seen.has(asin)) continue;
-        seen.add(asin);
-        let el = link, status = '', title = '';
-        for (let d = 0; d < 12 && el; d++) {
-          const t = el.textContent || '';
-          if (/下書き|レビュー中|販売中|ブロック|出版準備中/.test(t)) {
-            status = (t.match(/下書き|レビュー中|販売中|ブロック|出版準備中/) || [])[0];
-            title = (t.match(/[^\n]{6,80}/) || [''])[0].trim();
-            break;
-          }
-          el = el.parentElement;
-        }
-        out.push({ asin, status, title: title.slice(0, 70) });
-      }
-      // LIVE 本など title-setup リンクを持たないカードは「ASIN: B0...」表記から拾う
-      const seenLive = new Set(out.map((o) => o.asin));
-      for (const m of (document.body.innerText || '').matchAll(/ASIN:\s*(B0[0-9A-Z]{8})/g)) {
-        if (!seenLive.has(m[1])) { seenLive.add(m[1]); out.push({ asin: m[1], status: '販売中?', title: '(LIVE・title未取得)' }); }
-      }
-      return out;
-    });
-    console.log('[sync] 本棚 ' + items.length + ' 件:');
+    const cat = JSON.parse(readFileSync(CATALOG, 'utf8'));
+    const books = Array.isArray(cat) ? cat : (cat.books || Object.values(cat).find(Array.isArray));
+    if (!books || !books.length) { console.error('ABORT: catalog を読めない（検査不成立）'); await ctx.close(); process.exit(1); }
+
+    const searchOne = async (title) => {
+      const input = page.locator('#podbookshelftable-search-input');
+      if (!(await input.count())) return { err: '検索窓なし' };
+      await input.first().fill('');
+      await input.first().fill(title);
+      await page.keyboard.press('Enter');
+      await sleep(3200);
+      return await page.evaluate(() => {
+        const STAT = /下書き|レビュー中|販売中|ブロック|出版準備中|非公開/;
+        const rows = [...document.querySelectorAll('tr.mt-row')]
+          .map((tr) => (tr.textContent || '').replace(/\s+/g, ' ').trim())
+          .filter((t) => t.includes('著:') && /ASIN:\s*B0[0-9A-Z]{8}|下書き/.test(t));
+        return rows.map((t) => ({
+          shelfTitle: t.split('著:')[0].trim().slice(0, 80),
+          asin: (t.match(/ASIN:\s*(B0[0-9A-Z]{8})/) || [])[1] || null,
+          status: (t.match(STAT) || [])[0] || null,
+          submittedAt: (t.match(/提出日:\s*([0-9]{4}年[0-9]{1,2}月[0-9]{1,2}日)/) || [])[1] || null,
+        }));
+      });
+    };
+
+    // 期待値は **catalog から先に確定**させる。結果側から数えると、検索が全滅したときに
+    // 「ASIN 既知 0 件」になって不成立判定をすり抜ける（2026-07-30 の故障注入で実際に緑を返した）。
+    const expectedKnown = books.filter((b) => b.title && b.asin).length;
+
+    const items = [];
+    for (const b of books) {
+      if (!b.title) continue;
+      const rows = await searchOne(b.title);
+      if (rows.err) { items.push({ id: b.id, found: false, err: rows.err, catalogAsin: b.asin ?? null, catalogStatus: b.status }); continue; }
+      // 検索は部分一致なので複数返りうる。タイトル前方一致で自分の行を選ぶ。
+      const head = b.title.slice(0, 12);
+      const mine = rows.find((r) => r.shelfTitle.startsWith(head)) || (rows.length === 1 ? rows[0] : null);
+      items.push({
+        id: b.id, title: b.title.slice(0, 50), found: !!mine,
+        asin: mine?.asin ?? null, status: mine?.status ?? null, submittedAt: mine?.submittedAt ?? null,
+        catalogAsin: b.asin ?? null, catalogStatus: b.status,
+        asinMatch: mine?.asin && b.asin ? mine.asin === b.asin : null,
+        ambiguous: !mine && rows.length > 1 ? rows.length : undefined,
+      });
+    }
+
+    // 自己検証: catalog に ASIN がある本を検索で再現できたか。1件も再現できないなら検索経路が
+    // 壊れており「見つからない」は「存在しない」の証拠にならない＝緑を返さない（CLAUDE.md §9）。
+    const known = items.filter((i) => i.catalogAsin);
+    const repro = known.filter((i) => i.asinMatch === true);
+    const mismatch = known.filter((i) => i.asinMatch === false);
+    const errs = items.filter((i) => i.err);
+    console.log(`[sync] 検査 ${items.length} 冊（catalog 駆動）／ASIN 既知 ${expectedKnown} 件のうち再現 ${repro.length} 件${errs.length ? `／取得エラー ${errs.length} 件` : ''}`);
     console.log(JSON.stringify(items, null, 2));
     writeFileSync(join(TMP, 'kdp-sync-status.json'), JSON.stringify(items, null, 2) + '\n');
     console.log('[sync] .tmp/kdp-sync-status.json に保存（kdp-operator が catalog と突合）');
     await ctx.close();
+    // 判定は **catalog 由来の expectedKnown** で行う（items 由来だと全滅時に 0/0 で緑になる）。
+    if (expectedKnown > 0 && repro.length === 0) {
+      console.error(`\n[sync] ✗ 検査不成立: ASIN 既知 ${expectedKnown} 件を1件も再現できない＝検索経路が壊れている。`);
+      console.error('  この状態の found=false は「本棚に無い」の証拠にならないので、重複判定に使わないこと。');
+      process.exit(1);
+    }
+    if (errs.length > items.length * 0.2) {
+      console.error(`\n[sync] ✗ 検査不成立: ${items.length} 冊中 ${errs.length} 冊で取得エラー（${errs[0].err}）。`);
+      process.exit(1);
+    }
+    if (mismatch.length) {
+      console.error(`\n[sync] ✗ ASIN 不一致 ${mismatch.length} 件（catalog と本棚がずれている）:`);
+      for (const m of mismatch) console.error(`  ${m.id} catalog=${m.catalogAsin} 本棚=${m.asin}`);
+      process.exit(1);
+    }
     process.exit(0);
   }
 

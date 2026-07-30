@@ -55,7 +55,7 @@ model: sonnet
 
 | フラグ | 用途 |
 |---|---|
-| `--sync-status` | 本棚全件 {title,asin,status} を `.tmp/kdp-sync-status.json` に出力（突合・LIVE検知） |
+| `--sync-status` | catalog 各冊を本棚でタイトル検索し {asin,status,提出日,asinMatch} を `.tmp/kdp-sync-status.json` に出力（突合・LIVE検知・重複防止）。**本棚の列挙ではない**——本棚はページネーションで先頭10冊しか DOM に無く、`title-setup/kindle/` の ID は 13〜14 桁の内部IDで ASIN ではないため、列挙方式は live 33 冊の口座で 10 件しか拾えず半分がゴミだった（2026-07-30 に置換）。ASIN 既知の本を1件も再現できなければ **exit 1（検査不成立）**＝ `found:false` を「本棚に無い」の証拠にしない |
 | `--id <id>` | 新規提出（詳細→カテゴリー→原稿/表紙→処理完了待ち→AI申告→アクセシビリティ→価格→下書き保存）＋チェックリスト |
 | `--id <id> --commit-publish` | 上記＋出版（不可逆）＋出版後検証。**承認後のみ** |
 | `--list-drafts` | 本棚を `.tmp` へダンプ（読み取り） |
