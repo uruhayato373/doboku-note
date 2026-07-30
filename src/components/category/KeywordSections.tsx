@@ -87,6 +87,7 @@ export function KeywordSection({
   const matrixRows: ExamMatrixRow[] = (selective?.rows ?? []).map((row) => ({
     key: row.key,
     label: row.label,
+    labelTitle: row.labelTitle,
     cells: row.docs.map((doc, i) => ({ label: selective!.columns[i]?.cell ?? '', doc })),
   }));
 

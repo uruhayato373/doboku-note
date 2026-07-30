@@ -109,6 +109,32 @@ for (const [category, cfg] of Object.entries(curriculum)) {
       }
     }
 
+    // 建設部門のみ: キーワード節の科目行ラベルが過去問マトリクスと同一表記かを突合する。
+    // 同一ページに 2 つのマトリクスが縦に並び「同じ行を横に読む」のが設計意図なので、片方だけ
+    // 表記が変わると意図が崩れる。真実源は src/lib/pe-construction-subjects.ts。
+    // このスクリプトは .mjs で .ts を import できないため、定義行を正規表現で読む（値の抽出のみ）。
+    if (category === 'pe-construction' && ks.selective) {
+      const src = fs.readFileSync(path.join(ROOT, 'src/lib/pe-construction-subjects.ts'), 'utf8');
+      const defs = [...src.matchAll(/\{\s*key:\s*'([^']+)',\s*label:\s*'([^']+)'(?:,\s*short:\s*'([^']+)')?\s*\}/g)]
+        .map((m) => ({ key: m[1], label: m[2], short: m[3] }));
+      if (defs.length === 0) {
+        errors.push('[pe-construction] PE_CONSTRUCTION_SUBJECTS の定義行を読めなかった（正規表現と定義の書式ずれ）');
+      } else {
+        // 過去問側の表示ラベル → 正式名（短縮していなければ undefined）
+        const display = new Map(defs.map((d) => [d.short ?? d.label, d.short ? d.label : undefined]));
+        for (const subject of ks.selective.subjects ?? []) {
+          if (!display.has(subject.label)) {
+            errors.push(`[pe-construction.keywordSection.selective] "${subject.label}" が PE_CONSTRUCTION_SUBJECTS の表示ラベルに無い（過去問マトリクスと行ラベルが不一致になる）`);
+            continue;
+          }
+          const expectedFull = display.get(subject.label);
+          if ((subject.fullLabel ?? undefined) !== expectedFull) {
+            errors.push(`[pe-construction.keywordSection.selective] "${subject.label}" の fullLabel が不一致（config: ${subject.fullLabel ?? 'なし'} / 期待: ${expectedFull ?? 'なし'}）`);
+          }
+        }
+      }
+    }
+
     const kwUnassigned = keywordDocs.filter((d) => !kwAssigned.has(d.slug));
     if (kwUnassigned.length > 0) {
       warnings.push(`[${category}] keywordSection 未割当の keyword ${kwUnassigned.length} 本（「その他」で表示される）: ${kwUnassigned.map((d) => d.slug.replace(`${category}-`, '')).join(', ')}`);
