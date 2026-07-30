@@ -50,6 +50,8 @@ const MODE_DELETE = argv.includes('--delete-drafts');
 const MODE_DUMP = argv.includes('--dump');
 const MODE_DIAG_CAT = argv.includes('--diag-category');
 const MODE_PUBLISH_ONLY = argv.includes('--publish-only');
+const MODE_SET_PRICE = argv.includes('--set-price');
+const COMMIT = argv.includes('--commit');
 const BOOKLESS = MODE_SYNC || MODE_LIST || MODE_DELETE;
 if (!ID && !BOOKLESS) { console.error('--id <book id> required（または --sync-status / --list-drafts / --delete-drafts）'); process.exit(1); }
 
@@ -63,7 +65,7 @@ if (ID) {
   if (errs.length && !(MODE_DUMP || MODE_DIAG_CAT)) { console.error('ABORT: メタデータ検証エラー:\n  - ' + errs.join('\n  - ')); process.exit(1); }
   book.epub = join(homedir(), 'Downloads', `kindle-${ID}.epub`);
   book.cover = join(homedir(), 'Downloads', `kindle-cover-${ID}.jpg`);
-  if (!MODE_DUMP && !MODE_DIAG_CAT && !MODE_PUBLISH_ONLY) {
+  if (!MODE_DUMP && !MODE_DIAG_CAT && !MODE_PUBLISH_ONLY && !MODE_SET_PRICE) {
     for (const [label, f] of [['EPUB', book.epub], ['表紙', book.cover]]) {
       if (!existsSync(f)) { console.error(`ABORT: ${label} が無い: ${f}\n（先に npm run sync-kindle-dist -- --downloads ${ID} で配置）`); process.exit(1); }
     }
@@ -301,6 +303,53 @@ try {
     await shot(page, 'diag-category');
     await ctx.close();
     process.exit(0);
+  }
+
+  // ═══ MODE: --set-price（既刊の価格改定。価格ページ直行で JP 価格だけ差し替える）════
+  // 用途: LIVE 済みの本の値付けを変える。既定は dry-run（現在値と目標値を出すだけ）で、
+  //   実際の保存は --commit が要る（収益アカウントの公開価格を変えるため）。
+  // 価格の真実源は spec の price（= catalog.priceJpy と同期させて運用する）。
+  if (MODE_SET_PRICE) {
+    const cat0 = readCatalog();
+    const row = cat0?.books?.find((b) => b.id === ID);
+    const tid = getArg('--asin') || row?.draftAsin;
+    if (!tid) { console.error(`ABORT: ${ID} の draftAsin（title-setup の内部ID）が catalog に無い`); await ctx.close(); process.exit(1); }
+    await page.goto(`https://kdp.amazon.co.jp/ja_JP/title-setup/kindle/${tid}/pricing`, { waitUntil: 'domcontentloaded', timeout: 60000 });
+    await sleep(6000);
+    if (!/\/pricing/i.test(page.url())) { console.error('ABORT: 価格ページに到達できず URL=' + page.url()); await shot(page, 'price-nav-fail'); await ctx.close(); process.exit(3); }
+
+    const PRICE_SEL = 'input[name="data[digital][channels][amazon][JP][price_vat_inclusive]"]';
+    const readState = () => page.evaluate((sel) => ({
+      roy: (document.querySelector('input[name="data[digital][royalty_rate]-radio"]:checked') || {}).value || '',
+      price: (document.querySelector(sel) || {}).value || '',
+    }), PRICE_SEL);
+    const before = await readState();
+    console.log(`[price] ${ID} (${tid}) 現在: ロイヤリティ=${before.roy} / JP価格=${before.price} → 目標 ¥${book.price}`);
+    if (!before.price) { console.error('ABORT: 現在価格を読めず（UI 変更の可能性）'); await shot(page, 'price-read-fail'); await ctx.close(); process.exit(3); }
+    if (String(before.price) === String(book.price)) { console.log('[price] 既に目標価格。変更不要'); await ctx.close(); process.exit(0); }
+    if (!COMMIT) { console.log('[price] dry-run（--commit で保存）'); await ctx.close(); process.exit(0); }
+
+    const p = page.locator(PRICE_SEL);
+    await p.scrollIntoViewIfNeeded(); await p.fill(String(book.price)); await p.press('Tab');
+    await sleep(3000);
+    const after = await readState();
+    if (String(after.price) !== String(book.price) || after.roy !== '70_PERCENT') {
+      console.error(`ABORT: 入力が反映されない（価格=${after.price} ロイヤリティ=${after.roy}）→ 保存せず停止`);
+      await shot(page, 'price-fill-fail'); await ctx.close(); process.exit(3);
+    }
+    console.log('[price] 保存: 「Kindle本を出版」/「変更を保存」クリック…');
+    let clicked = false;
+    for (const sel of ['#save-and-publish', '#save-and-publish-announce', 'button:has-text("Kindle 本を出版")', 'button:has-text("Kindle本を出版")', 'button:has-text("変更を保存")']) {
+      try { const l = page.locator(sel); if (await l.count()) { await l.first().scrollIntoViewIfNeeded(); await l.first().click({ timeout: 10000 }); clicked = true; break; } } catch {}
+    }
+    if (!clicked) { console.error('ABORT: 保存ボタンが見つからない（価格は未保存）'); await shot(page, 'price-btn-fail'); await ctx.close(); process.exit(3); }
+    await sleep(9000);
+    await shot(page, 'price-saved');
+    let txt = ''; try { txt = await page.evaluate(() => document.body.innerText || ''); } catch {}
+    const okSave = /おめでとう|レビュー中|審査|提出されました|公開されます|更新|保存/.test(txt);
+    console.log(`[price] 結果: ${okSave ? `OK ¥${before.price} → ¥${book.price}（反映まで最大 72h）` : 'WARN 確認文言なし（要スクショ確認）'} URL=${page.url()}`);
+    await ctx.close();
+    process.exit(okSave ? 0 : 4);
   }
 
   // ═══ MODE: --publish-only（設定済みドラフトを価格ページ直行で出版・詳細/カテゴリーに触れない）════
