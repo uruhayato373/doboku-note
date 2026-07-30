@@ -3,7 +3,12 @@ import Image from 'next/image';
 import { type DocMeta } from '@/lib/docs';
 import { type DocGroup } from '@/lib/category-groups';
 import { getOgpImageUrl } from '@/lib/r2-image-loader';
-import ExamMatrix, { ExamChipLink, type ExamMatrixRow } from '@/components/category/ExamMatrix';
+import ExamMatrix, { type ExamMatrixRow } from '@/components/category/ExamMatrix';
+import {
+  PE_CONSTRUCTION_SUBJECTS,
+  subjectDisplayLabel,
+  subjectFullLabel,
+} from '@/lib/pe-construction-subjects';
 
 /** カード表示用の更新日を YYYY.MM.DD で返す（取れなければ null）。LatestArticles と同じ整形。 */
 function cardDate(doc: DocMeta): string | null {
@@ -253,23 +258,14 @@ function PeFirstStageExamTable({ docs }: { docs: DocMeta[] }) {
 /**
  * 技術士第二次試験（建設部門）の過去問を 科目 × 年度 のマトリクスで表示。
  * 行 = 必須科目I + 11 選択科目、列 = 令和元〜7年度。受験者は「必須 + 自分の選択科目1つ」を
- * 年度横断で追うため、年度×2-3列の他資格テーブルではなく専用マトリクスにする。
+ * 年度横断で追うため、年度×2-3列の他資格テーブルではなく科目行のマトリクスにする。
+ *
+ * 描画は全資格共通の ExamMatrix に委譲する（2026-07-30）。旧実装は独自の desktop 表＋モバイル
+ * 科目カードを持っており、(1) `w-full` の表が枠内に縮んで科目列が 64px まで潰れ最長 5 行に折返す
+ * （記事カラム 527px = 993〜1150px 帯）、(2) モバイルはカード 12 枚で 3,423px という 2 つの崩れが
+ * あった。ExamMatrix 側の `min-w-full`＋行ラベル sticky＋`dense`＋チップリストで両方を解消する。
+ * 行ラベルは PE_CONSTRUCTION_SUBJECTS（lib）が真実源＝キーワード節と同一表記・同一順。
  */
-const PE_CONSTRUCTION_SUBJECTS: { key: string; label: string }[] = [
-  { key: 'required', label: '必須科目I' },
-  { key: 'geotechnical', label: '土質及び基礎' },
-  { key: 'steel-concrete', label: '鋼構造及びコンクリート' },
-  { key: 'urban-planning', label: '都市及び地方計画' },
-  { key: 'river-coast', label: '河川、砂防及び海岸・海洋' },
-  { key: 'port-airport', label: '港湾及び空港' },
-  { key: 'power-civil', label: '電力土木' },
-  { key: 'road', label: '道路' },
-  { key: 'railway', label: '鉄道' },
-  { key: 'tunnel', label: 'トンネル' },
-  { key: 'construction-planning', label: '施工計画、施工設備及び積算' },
-  { key: 'environment', label: '建設環境' },
-];
-
 function PeConstructionExamTable({ docs }: { docs: DocMeta[] }) {
   // 科目key → 年度code → Doc
   const map = new Map<string, Map<string, DocMeta>>();
@@ -290,68 +286,31 @@ function PeConstructionExamTable({ docs }: { docs: DocMeta[] }) {
     const num = parseInt(code.slice(1));
     return num === 1 ? '令和元' : `令和${num}`;
   };
+  // モバイルチップ用の短縮年度。7 個を横に並べるため「令和7」(4字) では 3 行に折返す。
+  // R 表記はキーワード節のセル（"R01〜R07"）で既に使っている同一ページ内の語彙。
+  const chipYear = (code: string) => {
+    const num = parseInt(code.slice(1));
+    return num === 1 ? 'R元' : `R${num}`;
+  };
 
   // 定義順の科目のうちデータが存在するものだけ
-  const rows = PE_CONSTRUCTION_SUBJECTS.filter(s => map.has(s.key));
+  const subjects = PE_CONSTRUCTION_SUBJECTS.filter(s => map.has(s.key));
 
-  return (
-    <>
-      {/* モバイル: 科目カード縦積み + 年度ボタングリッド（8列テーブルの横スクロールを回避） */}
-      <div className="zenn-desktop:hidden space-y-4">
-        {rows.map(subject => {
-          const yearMap = map.get(subject.key)!;
-          return (
-            <div key={subject.key} className="rounded-card-content border border-[var(--rule-soft)] p-4">
-              <h4 className="font-semibold text-[var(--ink)] mb-3">{subject.label}</h4>
-              <div className="flex flex-wrap gap-2">
-                {years.map(y => {
-                  const doc = yearMap.get(y);
-                  return doc ? (
-                    <ExamChipLink key={y} href={`/docs/${doc.slug}`}>
-                      {colLabel(y)}
-                    </ExamChipLink>
-                  ) : null;
-                })}
-              </div>
-            </div>
-          );
-        })}
-      </div>
-      {/* デスクトップ: 現状マトリクス */}
-      <div className="hidden zenn-desktop:block overflow-x-auto">
-        <table className="w-full text-base border-collapse">
-          <thead>
-            <tr className="border-b-2 border-[var(--rule-soft)]">
-              <th className="text-left py-3 px-4 font-semibold text-[var(--ink-body)]">科目</th>
-              {years.map(y => (
-                <th key={y} className="text-center py-3 px-3 font-semibold text-[var(--ink-body)] whitespace-nowrap">{colLabel(y)}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map(subject => {
-              const yearMap = map.get(subject.key)!;
-              return (
-                <tr key={subject.key} className="border-b border-[var(--rule-soft)] hover:bg-[var(--accent-fill)] transition-colors">
-                  <td className="py-3 px-4 font-medium text-[var(--ink)]">{subject.label}</td>
-                  {years.map(y => {
-                    const doc = yearMap.get(y);
-                    return (
-                      <td key={y} className="py-3 px-3 text-center">
-                        {doc ? (
-                          <Link href={`/docs/${doc.slug}`} className="text-[var(--accent)] hover:underline">問題</Link>
-                        ) : <span className="text-[var(--ink-muted)] opacity-50">—</span>}
-                      </td>
-                    );
-                  })}
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
-    </>
-  );
+  const columns = years.map(y => colLabel(y));
+  const rows: ExamMatrixRow[] = subjects.map(subject => {
+    const yearMap = map.get(subject.key)!;
+    return {
+      key: subject.key,
+      label: subjectDisplayLabel(subject),
+      labelTitle: subjectFullLabel(subject),
+      // デスクトップは列見出しが年度を示すのでセル文字は "問題"。モバイルは見出しが無く行ラベルが
+      // 科目になるため、チップ側が年度を名乗る（chipLabel）。
+      cells: years.map(y => ({ label: '問題', chipLabel: chipYear(y), doc: yearMap.get(y) })),
+    };
+  });
+
+  // dense: 8 列（科目 + 7 年度）は既定の px-4 では狭い記事カラムで横に溢れるため余白を詰める。
+  return <ExamMatrix columns={columns} rows={rows} rowHeader="科目" rowLabelWidth="wide" dense />;
 }
 
 /**

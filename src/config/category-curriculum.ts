@@ -54,7 +54,12 @@ export type KeywordSectionDef = {
     note?: string;
     /** header = 列見出し（デスクトップ表）、cell = セル/チップのリンク文字（モバイルでも自己説明的に）。 */
     columns: { header: string; cell: string }[];
-    subjects: { label: string; slugs: (string | null)[] }[];
+    /**
+     * label は表示形（狭いカラムで折返さない短縮表記）、fullLabel は短縮したときの正式名（title 用）。
+     * 建設部門は `src/lib/pe-construction-subjects.ts` と同じ表示形にする（同一ページの過去問
+     * マトリクスと行ラベルを一致させる不変条件・ドリフトは check-category-curriculum が停止させる）。
+     */
+    subjects: { label: string; fullLabel?: string; slugs: (string | null)[] }[];
   };
 };
 

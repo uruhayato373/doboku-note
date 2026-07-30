@@ -98,7 +98,7 @@ export type ResolvedKeywordSection = {
     label: string;
     note?: string | undefined;
     columns: { header: string; cell: string }[];
-    rows: { key: string; label: string; docs: (DocMeta | undefined)[] }[];
+    rows: { key: string; label: string; labelTitle?: string | undefined; docs: (DocMeta | undefined)[] }[];
   } | null;
   /** config のどのブロックにも属さない keyword 記事。View は必ず表示する（silent drop 防止）。 */
   unassigned: DocMeta[];
@@ -144,7 +144,12 @@ export function resolveKeywordSection(
     : null;
 
   const rows = (cfg.selective?.subjects ?? [])
-    .map((s) => ({ key: s.label, label: s.label, docs: s.slugs.map((slug) => pickOne(slug)) }))
+    .map((s) => ({
+      key: s.label,
+      label: s.label,
+      labelTitle: s.fullLabel,
+      docs: s.slugs.map((slug) => pickOne(slug)),
+    }))
     .filter((r) => r.docs.some(Boolean));
   const selective = cfg.selective && rows.length > 0
     ? { label: cfg.selective.label, note: cfg.selective.note, columns: cfg.selective.columns, rows }

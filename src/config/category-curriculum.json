@@ -96,15 +96,15 @@
         ],
         "subjects": [
           { "label": "土質及び基礎", "slugs": ["geotechnical-exam-themes", "soil-foundation-ronbun-keyword"] },
-          { "label": "鋼構造及びコンクリート", "slugs": ["steel-concrete-exam-themes", "steel-concrete-ronbun-keyword"] },
-          { "label": "都市及び地方計画", "slugs": ["urban-planning-exam-themes", "urban-planning-ronbun-keyword"] },
-          { "label": "河川、砂防及び海岸・海洋", "slugs": ["river-coast-exam-themes", "river-coast-ronbun-keyword"] },
-          { "label": "港湾及び空港", "slugs": ["port-airport-exam-themes", "port-airport-ronbun-keyword"] },
+          { "label": "鋼構造・コンクリート", "fullLabel": "鋼構造及びコンクリート", "slugs": ["steel-concrete-exam-themes", "steel-concrete-ronbun-keyword"] },
+          { "label": "都市・地方計画", "fullLabel": "都市及び地方計画", "slugs": ["urban-planning-exam-themes", "urban-planning-ronbun-keyword"] },
+          { "label": "河川・砂防・海岸", "fullLabel": "河川、砂防及び海岸・海洋", "slugs": ["river-coast-exam-themes", "river-coast-ronbun-keyword"] },
+          { "label": "港湾・空港", "fullLabel": "港湾及び空港", "slugs": ["port-airport-exam-themes", "port-airport-ronbun-keyword"] },
           { "label": "電力土木", "slugs": ["power-civil-exam-themes", "power-civil-ronbun-keyword"] },
           { "label": "道路", "slugs": ["road-exam-themes", "road-ronbun-keyword"] },
           { "label": "鉄道", "slugs": ["railway-exam-themes", "railway-ronbun-keyword"] },
           { "label": "トンネル", "slugs": ["tunnel-exam-themes", "tunnel-ronbun-keyword"] },
-          { "label": "施工計画、施工設備及び積算", "slugs": ["construction-planning-exam-themes", "construction-planning-ronbun-keyword"] },
+          { "label": "施工計画・積算", "fullLabel": "施工計画、施工設備及び積算", "slugs": ["construction-planning-exam-themes", "construction-planning-ronbun-keyword"] },
           { "label": "建設環境", "slugs": ["environment-exam-themes", "construction-environment-ronbun-keyword"] }
         ]
       }
