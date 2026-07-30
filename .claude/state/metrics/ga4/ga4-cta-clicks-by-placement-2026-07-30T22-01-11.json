@@ -1,0 +1,79 @@
+{
+  "meta": {
+    "startDate": "2026-07-02",
+    "endDate": "2026-07-29",
+    "eventNames": [
+      "note_cta_click",
+      "affiliate_cta_click",
+      "affiliate_cta_impression",
+      "note_article_click"
+    ],
+    "japanOnly": true,
+    "byDevice": false,
+    "byLabel": false,
+    "byPlacement": true,
+    "propertyId": "properties/419382901"
+  },
+  "rows": [
+    {
+      "placement": "sidebar",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 1218
+    },
+    {
+      "placement": "(not set)",
+      "eventName": "note_cta_click",
+      "eventCount": 349
+    },
+    {
+      "placement": "article-inline",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 156
+    },
+    {
+      "placement": "category-sidebar",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 115
+    },
+    {
+      "placement": "(not set)",
+      "eventName": "note_article_click",
+      "eventCount": 81
+    },
+    {
+      "placement": "(unknown)",
+      "eventName": "note_cta_click",
+      "eventCount": 31
+    },
+    {
+      "placement": "category-mobile",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 20
+    },
+    {
+      "placement": "article-end-mobile",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 16
+    },
+    {
+      "placement": "(not set)",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 12
+    },
+    {
+      "placement": "(unknown)",
+      "eventName": "note_article_click",
+      "eventCount": 5
+    },
+    {
+      "placement": "article-inline",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 1
+    },
+    {
+      "placement": "article-mid",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 1
+    }
+  ]
+}

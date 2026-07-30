@@ -1,0 +1,53 @@
+{
+  "meta": {
+    "startDate": "2026-07-02",
+    "endDate": "2026-07-29",
+    "dimension": "device",
+    "dimensionApiName": "deviceCategory",
+    "metrics": [
+      "activeUsers",
+      "sessions",
+      "screenPageViewsPerSession",
+      "averageSessionDuration",
+      "engagementRate",
+      "bounceRate"
+    ],
+    "limit": 100,
+    "organicOnly": false,
+    "snsOnly": false,
+    "snsSources": [],
+    "japanOnly": true,
+    "excludeSpam": true,
+    "spamSourcesExcluded": [],
+    "propertyId": "properties/419382901"
+  },
+  "rows": [
+    {
+      "device": "desktop",
+      "activeUsers": 4788,
+      "sessions": 8115,
+      "screenPageViewsPerSession": 2.634750462107209,
+      "averageSessionDuration": 394.246277097597,
+      "engagementRate": 0.6272335181762169,
+      "bounceRate": 0.37276648182378314
+    },
+    {
+      "device": "mobile",
+      "activeUsers": 664,
+      "sessions": 1649,
+      "screenPageViewsPerSession": 3.208611279563372,
+      "averageSessionDuration": 548.3533640903578,
+      "engagementRate": 0.5433596118859915,
+      "bounceRate": 0.4566403881140085
+    },
+    {
+      "device": "tablet",
+      "activeUsers": 52,
+      "sessions": 197,
+      "screenPageViewsPerSession": 7.5126903553299496,
+      "averageSessionDuration": 621.2476261979696,
+      "engagementRate": 0.6345177664974619,
+      "bounceRate": 0.36548223350253806
+    }
+  ]
+}

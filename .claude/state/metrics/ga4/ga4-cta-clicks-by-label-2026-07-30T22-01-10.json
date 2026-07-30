@@ -1,0 +1,519 @@
+{
+  "meta": {
+    "startDate": "2026-07-02",
+    "endDate": "2026-07-29",
+    "eventNames": [
+      "note_cta_click",
+      "affiliate_cta_click",
+      "affiliate_cta_impression",
+      "note_article_click"
+    ],
+    "japanOnly": true,
+    "byDevice": false,
+    "byLabel": true,
+    "byPlacement": false,
+    "propertyId": "properties/419382901"
+  },
+  "rows": [
+    {
+      "label": "DXConsulting-sidebar",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 764
+    },
+    {
+      "label": "BuildJob-sidebar",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 325
+    },
+    {
+      "label": "KensetsuJobs-sidebar",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 264
+    },
+    {
+      "label": "ビルドジョブ",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 160
+    },
+    {
+      "label": "(not set)",
+      "eventName": "note_cta_click",
+      "eventCount": 71
+    },
+    {
+      "label": "note-n0c52cfabab78",
+      "eventName": "note_article_click",
+      "eventCount": 34
+    },
+    {
+      "label": "road-exam-themes",
+      "eventName": "note_cta_click",
+      "eventCount": 34
+    },
+    {
+      "label": "secondary-experience-guide",
+      "eventName": "note_cta_click",
+      "eventCount": 33
+    },
+    {
+      "label": "(not set)",
+      "eventName": "note_article_click",
+      "eventCount": 27
+    },
+    {
+      "label": "category-pe-comprehensive-management-hub-seasonal-footer",
+      "eventName": "note_cta_click",
+      "eventCount": 17
+    },
+    {
+      "label": "secondary-r07-q1",
+      "eventName": "note_cta_click",
+      "eventCount": 17
+    },
+    {
+      "label": "management-tradeoffs-economy-safety",
+      "eventName": "note_cta_click",
+      "eventCount": 16
+    },
+    {
+      "label": "secondary-experience-examples",
+      "eventName": "note_cta_click",
+      "eventCount": 16
+    },
+    {
+      "label": "secondary-experience-writing-guide-top",
+      "eventName": "note_cta_click",
+      "eventCount": 12
+    },
+    {
+      "label": "category-pe-construction-hub-seasonal-footer",
+      "eventName": "note_cta_click",
+      "eventCount": 11
+    },
+    {
+      "label": "category-pe-comprehensive-management-hub-seasonal-docs-sb",
+      "eventName": "note_cta_click",
+      "eventCount": 10
+    },
+    {
+      "label": "persona-guide-general-contractor",
+      "eventName": "note_cta_click",
+      "eventCount": 10
+    },
+    {
+      "label": "category-pe-comprehensive-management-hub-mokuji-footer",
+      "eventName": "note_cta_click",
+      "eventCount": 8
+    },
+    {
+      "label": "essay-exam-strategy-inline-1-mid",
+      "eventName": "note_cta_click",
+      "eventCount": 8
+    },
+    {
+      "label": "ハイクラス DX・コンサル転職",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 8
+    },
+    {
+      "label": "category-pe-comprehensive-management-hub-mokuji-docs-sb",
+      "eventName": "note_cta_click",
+      "eventCount": 7
+    },
+    {
+      "label": "hissu-kamoku-kaitourei-mid",
+      "eventName": "note_cta_click",
+      "eventCount": 7
+    },
+    {
+      "label": "management-tradeoffs-economy-social",
+      "eventName": "note_cta_click",
+      "eventCount": 7
+    },
+    {
+      "label": "ビルドジョブ",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 7
+    },
+    {
+      "label": "note-nc360aaa381b0",
+      "eventName": "note_article_click",
+      "eventCount": 6
+    },
+    {
+      "label": "urban-planning-exam-themes",
+      "eventName": "note_cta_click",
+      "eventCount": 5
+    },
+    {
+      "label": "category-civil-construction-1-hub-mokuji-footer",
+      "eventName": "note_cta_click",
+      "eventCount": 4
+    },
+    {
+      "label": "construction-planning-exam-themes",
+      "eventName": "note_cta_click",
+      "eventCount": 4
+    },
+    {
+      "label": "建設JOBs",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "label": "geotechnical-exam-themes",
+      "eventName": "note_cta_click",
+      "eventCount": 3
+    },
+    {
+      "label": "home-note-hero",
+      "eventName": "note_cta_click",
+      "eventCount": 3
+    },
+    {
+      "label": "note-n3bcb87efddad",
+      "eventName": "note_article_click",
+      "eventCount": 3
+    },
+    {
+      "label": "note-naace4eeaa230",
+      "eventName": "note_article_click",
+      "eventCount": 3
+    },
+    {
+      "label": "note-nb4e6f088f0e8",
+      "eventName": "note_article_click",
+      "eventCount": 3
+    },
+    {
+      "label": "note-ndf7ddb3f0a97",
+      "eventName": "note_cta_click",
+      "eventCount": 3
+    },
+    {
+      "label": "note-nf12d75c3e606",
+      "eventName": "note_article_click",
+      "eventCount": 3
+    },
+    {
+      "label": "river-coast-exam-themes",
+      "eventName": "note_cta_click",
+      "eventCount": 3
+    },
+    {
+      "label": "steel-concrete-exam-themes",
+      "eventName": "note_cta_click",
+      "eventCount": 3
+    },
+    {
+      "label": "toan-kousei-template-footer",
+      "eventName": "note_cta_click",
+      "eventCount": 3
+    },
+    {
+      "label": "urban-planning-ronbun-keyword-mid",
+      "eventName": "note_cta_click",
+      "eventCount": 3
+    },
+    {
+      "label": "DXConsulting-sidebar",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 2
+    },
+    {
+      "label": "bosai-kokudo-kyoujinka-mid",
+      "eventName": "note_cta_click",
+      "eventCount": 2
+    },
+    {
+      "label": "carbon-neutral-kensetsu-tail",
+      "eventName": "note_cta_click",
+      "eventCount": 2
+    },
+    {
+      "label": "construction-planning-ronbun-keyword-mid",
+      "eventName": "note_cta_click",
+      "eventCount": 2
+    },
+    {
+      "label": "environment-exam-themes",
+      "eventName": "note_cta_click",
+      "eventCount": 2
+    },
+    {
+      "label": "guide-earthwork-key-points-inline-2-mid",
+      "eventName": "note_cta_click",
+      "eventCount": 2
+    },
+    {
+      "label": "note-n279ac7c6fe6a",
+      "eventName": "note_article_click",
+      "eventCount": 2
+    },
+    {
+      "label": "note-n5116639ee21f",
+      "eventName": "note_article_click",
+      "eventCount": 2
+    },
+    {
+      "label": "note-n7fb7f92f7841",
+      "eventName": "note_article_click",
+      "eventCount": 2
+    },
+    {
+      "label": "port-airport-ronbun-keyword-mid",
+      "eventName": "note_cta_click",
+      "eventCount": 2
+    },
+    {
+      "label": "required-exam-themes",
+      "eventName": "note_cta_click",
+      "eventCount": 2
+    },
+    {
+      "label": "road-ronbun-keyword-mid",
+      "eventName": "note_cta_click",
+      "eventCount": 2
+    },
+    {
+      "label": "secondary-getting-started-top",
+      "eventName": "note_cta_click",
+      "eventCount": 2
+    },
+    {
+      "label": "secondary-r07-top",
+      "eventName": "note_cta_click",
+      "eventCount": 2
+    },
+    {
+      "label": "tunnel-exam-themes",
+      "eventName": "note_cta_click",
+      "eventCount": 2
+    },
+    {
+      "label": "ハイクラス DX・コンサル転職",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 2
+    },
+    {
+      "label": "(not set)",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "BuildJob-midtext",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "BuildJob-sidebar",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "bosai-kokudo-kyoujinka-tail",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "category-civil-construction-1-hub-mokuji-docs-sb",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "category-civil-construction-1-hub-mokuji-sb",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "category-civil-construction-2-hub-mokuji-docs-sb",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "category-civil-construction-2-hub-mokuji-footer",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "category-pe-comprehensive-management-hub-mokuji-sb",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "category-pe-comprehensive-management-hub-seasonal-mob",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "category-pe-comprehensive-management-hub-seasonal-sb",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "category-pe-construction-hub-mokuji-footer",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "category-pe-construction-hub-seasonal-docs-sb",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "construction-environment-ronbun-keyword-mid",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "construction-planning-ronbun-keyword-sub",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "economic-management-pillar-inline-1-mid",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "gakushuu-jikan-schedule-foot",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "guide-concrete-key-points-inline-2-mid",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "hissu-kamoku-kaitourei-foot",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "home-links-hub",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "management-tradeoffs-economy-human",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "note-n05314b15b375",
+      "eventName": "note_article_click",
+      "eventCount": 1
+    },
+    {
+      "label": "pattern-essay-general-contractor-body",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "pattern-essay-road-municipality-inline-1-mid",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "persona-guide-complete-pack",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "persona-guide-river-consultant",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "persona-guide-road-consultant",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "persona-guide-sewage-municipality",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "persona-guide-water-municipality",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "port-airport-exam-themes",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "power-civil-ronbun-keyword-mid",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "river-coast-ronbun-keyword-mid",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "road-ronbun-keyword-sub",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "secondary-experience-writing-examples-top",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "secondary-r03-top",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "secondary-r04-q1",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "secondary-r06-q1",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "secondary-r06-top",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "sentaku-kamoku-kakiwake-mid",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "social-environment-management-pillar-inline-1-mid",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "soil-foundation-ronbun-keyword-sub",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "toan-kousei-template-mid",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "tunnel-ronbun-keyword-mid",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "urban-planning-ronbun-keyword-sub",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    }
+  ]
+}
