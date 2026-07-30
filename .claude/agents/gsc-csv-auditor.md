@@ -15,6 +15,11 @@ tools: Read, Glob, Grep, Bash
 ## 担当範囲（データ品質のみ）
 
 対象 run: `.claude/state/metrics/gsc-ui/<run>/`（最新、または親指定）。
+**加えて追跡 SSOT** `.claude/state/metrics/gsc-ui/ssot/`（`urls/<issue>--<scope>.json` /
+`history.json` / `diff/<runId>.json`）も対象。raw は gitignore で消えるが SSOT は残るので、
+「そのマシンに run が無い」ケースでも SSOT だけで品質判定できる。
+機械判定は `npm run check-google-ui-ssot` が持つ（marker↔history↔urls の runId 整合・スキーマ・
+検査ゼロ）。**同じ検査を自分で再実装せず**、その出力を読んで意味評価に集中する。
 
 1. **manifest 整合**: `status` と各 `units[].status`。`downloaded` 以外の理由分類。
 2. **行数照合**: `units[].csvRows` と正規化 JSON の `exportedRows` が一致するか。
@@ -39,6 +44,11 @@ tools: Read, Glob, Grep, Bash
 各項目を PASS / WARN / FAIL で採点し、総合「取得は分析に使えるか」を返す:
 
 - **FAIL**: sha256 不一致 / manifest.status=error / 必須フィールド欠落 / 全ユニット download 失敗
+  / `csv-no-urls`（データ行はあるが URL 0 件＝別シートを掴んだ）
+  / **SSOT ユニットが「URL 0 件だが rejects > 0」**（＝グラフのデータ等を正規化した疑い。
+  2026-07-30 に `alternateCanonical--allSubmittedPages` で実際に発生し、URL 0 件・reject 85 行で
+  `downloaded` と記録されていた）
+  / `lastAttempt.complete === false`（必須チャネル gsc-ui のみ。ga4-ui は任意なので WARN）
 - **WARN**: rejects 比率高 / 前回比急減 / truncated だが uiTotal 不明 / row-not-found が想定外に多い
 - **PASS**: 上記なし。truncated:true は「1,000 件上限の正常サンプル」として PASS 扱い（明記する）
 
@@ -65,6 +75,8 @@ tools: Read, Glob, Grep, Bash
 ## 実行手順
 
 1. 最新 run を Glob（`.claude/state/metrics/gsc-ui/*/manifest.json`）で特定。
+   **run が 1 つも無ければ**（別マシン・worktree 破棄後）追跡 SSOT（`gsc-ui/ssot/`）だけで判定する
+   ＝「run が無い」を FAIL にしない（raw は gitignore なので不在が正常）。
 2. manifest を Read。各 unit の rawFile に対し `shasum -a 256` を Bash 実行し manifest 値と照合。
 3. `normalized/*.json` と `*.rejects.json` を Read し行数・rejects・duplicateCount を集計。
 4. 直前 run があれば同 issue×scope の exportedRows を差分。

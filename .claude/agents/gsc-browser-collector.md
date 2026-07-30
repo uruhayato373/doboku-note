@@ -18,6 +18,10 @@ GSC/GA4 の UI CSV を取得する既存スクリプトを実行し、生成物�
 
 - `npm run gsc-ui:fetch -- --dry-run`（DOM 検出）と本取得（`--issues …`）の実行
 - `npm run ga4-ui:fetch -- --dry-run` / 本取得の実行（API 優先を尊重）
+  - **既知の未解決**（2026-07-30 実走）: 3 レポートすべて失敗する（trafficAcquisition=`csv-menu-ambiguous` /
+    landingPage=`report-not-found`(候補0) / events=`report-not-found`(候補11)）。レポート選択の selector が
+    実機と合っていない。GA4 の数値は Data API（週次 CI）が供給しており UI は照合用バックアップなので
+    **blocking ではない**。必要になった時点で config のラベル追加から着手する。
 - 実行後の生成物確認:
   - `.claude/state/metrics/gsc-ui/<run>/manifest.json` の `status` と各 `units[].status`
   - raw CSV（`<issue>--<scope>--<run>.csv`）の存在・行数・sha256（manifest 値）
@@ -48,9 +52,26 @@ GSC/GA4 の UI CSV を取得する既存スクリプトを実行し、生成物�
    issues[*].{rowDetected,exportButtonUnique,csvMenuDetected} を読み、検出できたユニットを列挙。
 3. **停止判定**: dry-run が not-signed-in / property-mismatch / unreachable なら停止し、人間アクションを明示して終了。
 4. **本取得**（親が承認した issue のみ）: `npm run gsc-ui:fetch -- --issues <keys>`（両スコープ）。
-5. **確認**: manifest の各 unit.status を集計（downloaded / row-not-found / *-ambiguous）。
-   `row-not-found` は「該当 0 件 or UI 変更」の両可能性を明示（断定しない）。
-6. **報告**: 下記フォーマットで親へ返す。debug artifact のパスは出すが中身の Cookie/メールは引用しない。
+5. **確認**: manifest の各 unit.status を **3 分類で**集計する（2026-07-30 改訂）。
+   - `okUnits` … `downloaded`（dry-run は `dry-ok`）
+   - `zeroUnits` … `row-not-found`＝そのスコープに当該理由のページが **0 件（正常なゼロ）**
+   - `failedUnits` … それ以外（`scope-switch-failed` / `ambiguous-row` / `drilldown-failed` /
+     `export-button-ambiguous` / `csv-menu-ambiguous` / `empty-download` / `zip-no-table` /
+     **`csv-no-urls`**＝データ行はあるが URL 0 件＝別シートを掴んだ疑い）
+   `zeroUnits` と `failedUnits` を混ぜて「7/10」と報告してはいけない（異常かどうか判断できなくなる）。
+   ある面で `okUnits === 0` かつ `zeroUnits > 0` なら `suspiciousScopes` に出る＝UI 変更を疑う。
+6. **exit code を読む**: 0=完全 / 2=不完全（部分成功・全ゼロ）/ 3=未ログイン / 5=property 不一致 /
+   6=レポート到達不能。**2 でも取れた分は使える**（親の判断で正規化へ進む）。
+7. **マーカー確認**: `.claude/state/metrics/{gsc-ui,ga4-ui}/last-run.json`（schemaVersion 3）の
+   `lastAttempt`（今回）と `lastComplete`（最後に完全だった取得）。失敗しても `lastComplete` は
+   保持される＝月次サイクルの時計は失敗でリセットされない。
+8. **報告**: 下記フォーマットで親へ返す。debug artifact のパスは出すが中身の Cookie/メールは引用しない。
+
+## 担当外（呼ばない）
+
+- **GA4 管理画面の設定**（カスタムディメンション作成・データ保持の観測）: `scripts/ga4-admin-setup.mjs`
+  （`npm run ga4-admin:check` / `:apply`）。収集ではなく**設定**の面なので本エージェントの守備範囲外。
+- SSOT 整合の判定: `npm run check-google-ui-ssot`（決定的スクリプト）。
 
 ## 出力フォーマット（親へ返すテキスト）
 
@@ -63,6 +84,10 @@ GSC/GA4 の UI CSV を取得する既存スクリプトを実行し、生成物�
 - 検出ユニット: {scope:issue → row/export/csv-menu の可否}
 
 ## 本取得
+- 完全性: status={ok/partial/empty/error} / 検査 {N} ユニット → 取得 {ok}・対象なし {zero}・失敗 {failed}
+- exit code: {0/2/3/5/6}
+- lastComplete: {runId or なし}
+
 | issue | scope | uiTotal | csvRows | truncated | status |
 
 ## 停止/要人間

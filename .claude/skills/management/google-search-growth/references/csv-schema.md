@@ -81,6 +81,21 @@
 
 - raw CSV・manifest.json は**上書きしない**（再取得は新しい run-id）。
 - normalized JSON は run 配下 `normalized/` に生成。ad-hoc（`--file`）は `_adhoc/` に隔離。
+- **加えて追跡 SSOT を更新する**（2026-07-30 追加）。raw CSV は再取得しかできない（再生成不可）のに
+  run ディレクトリは gitignore なので、worktree を捨てると URL 情報が消えていた。
+
+```
+.claude/state/metrics/gsc-ui/
+  last-run.json                  # 追跡（schemaVersion 3: lastAttempt / lastComplete / legacy）
+  ssot/                          # 追跡（.gitignore の `!.../ssot/` で例外化）
+    urls/<issue>--<scope>.json   # 最新の正規化 URL 一覧（lean 射影＝raw 列を落とす。rejects は残す）
+    history.json                 # run 別のユニット件数履歴
+    diff/<runId>.json            # 直前 SSOT との URL 増減（added/removed）
+  <run-id>/                      # gitignore（raw CSV / ZIP / manifest / normalized）
+```
+
+`report-search-growth.mjs` は **SSOT を優先**して読む（md に `gscUiSource: ssot` と出る）。
+整合は `npm run check-google-ui-ssot`。真実源の実装は `scripts/lib/google-console-ssot.mjs`。
 
 ## GA4 UI CSV
 

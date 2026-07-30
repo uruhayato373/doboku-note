@@ -17,6 +17,18 @@ Google の UI は予告なく変わる。取得が失敗したら**推測でク�
 | `csv-menu-ambiguous` / `csv-menu-not-found` | CSV メニュー項目が拾えない | selector 更新 |
 | `row-not-found` | 理由行 0 件 | **該当 0 件（正常）** か **UI 変更** かを区別（断定しない） |
 | `download-failed` | download イベント不発 | ネットワーク/権限/UI を確認 |
+| `csv-no-urls` | データ行はあるが URL 0 件 | **別シート（グラフのデータ）を掴んだ**疑い。ZIP のヘッダー同定を確認（2026-07-30 に実発生） |
+| `zip-no-table` | ZIP 内に URL 表が無い | ヘッダーに URL 列を持つシートが 1 つも無い。UI の export 形式変更を疑う |
+| `scope-switch-failed` | スコープ切替を検証できず | 誤ラベル防止でそのスコープを skip。`scopeParams` を確認 |
+
+run 全体の status は **ユニットの完全性**で決まる（例外の有無ではない）:
+`ok`（失敗 0 かつ取得あり）/ `partial`（失敗あり or 疑わしい面あり）/ `empty`（全部「対象なし」）/
+`no-units`（検査対象 0）/ `error`。exit code は 0=完全 / **2=不完全** / 3=未ログイン / 5=property / 6=到達不能。
+
+> [!important] `row-not-found` は失敗ではない
+> `zeroUnits`（正常なゼロ）と `failedUnits`（実失敗）を分けて数える。混ぜて「7/10」と報告すると
+> 異常かどうか判断できない。2026-07-30 の実走では 10 ユニット中 **取得 7・正常なゼロ 3・失敗 0** で
+> `complete=true` だった（allSubmittedPages の notFound/redirect/forbidden が正常なゼロ）。
 
 ## 2. debug artifact を読む
 
@@ -36,6 +48,16 @@ Google の UI は予告なく変わる。取得が失敗したら**推測でク�
 / `csvMenuLabels` / `scopes`）に、`visible-text.txt` から拾った**現行の可視ラベル**（ja/en）を追加する。
 selector 実装（`scripts/lib/google-console-browser.mjs` の `findUniqueByLabels`）は role → text の順で
 一意な要素だけを返す。**config のラベル追加で対応できることが多い**（コード変更を先にしない）。
+
+## 3.5 GA4 管理画面／レポートの実機クセ（2026-07-30 実走で確定）
+
+| クセ | 対処 |
+|---|---|
+| hash ルートがアカウント ID で正規化（`#/p419382901/…` → `#/a121193537p419382901/…`） | `ga4PropertyInUrl` / `ga4RoutePrefix` で接頭辞非依存に照合。ホームを開いて接頭辞を確定してから深いルートへ |
+| カスタム定義の route は `/admin/customdefinitions/**hub**`（`/hierarchy` は拒否されホームへ戻る） | hub を使い、URL 直打ちが効かなければ UI クリックへフォールバック |
+| hash だけの `goto` は SPA 内移動でルーターが反応しないことがある | 到達を URL で検査し、届かなければ `reload` でブートし直す |
+| 左プライマリナビ（`ga-primary-nav.opened`）がクリック対象に重なり通常クリックが intercept で無限リトライ | **ナビ遷移のみ** DOM click（`el.click()`）。保存・削除には使わない |
+| データ保持は「データの収集と修正」を展開しないと項目が可視にならない | セクション展開 → 項目クリックの 2 段 |
 
 selector 選定の原則（実装指示書 §7）:
 

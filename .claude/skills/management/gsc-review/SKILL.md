@@ -54,7 +54,9 @@ user-invocable: true
 どの URL がそうなっているか**は API では取れない（GSC UI のみ）。同月内に `/google-search-growth`
 （ローカル・要 Google ログイン）を併走すると、理由別 UI CSV を取得して API データと URL 突合し、
 修正アクション（FIX_TECHNICAL / REDIRECT_LEGACY / CONSOLIDATE / NOINDEX 候補）へ分類できる。
-期限は `check-gsc-ui-due`（30日）を weekly-review が surface。両者は同じ観測・判断ログを共有。
+期限は `check-gsc-ui-due` を weekly-review が surface。両者は同じ観測・判断ログを共有。
+判定は日数だけではない＝**最後の完全取得（`lastComplete`）から 30 日**、または
+**直近の実行が不完全（`lastAttempt.complete !== true`）**のいずれかで DUE（2026-07-30 改訂）。
 
 ## やらないこと
 
