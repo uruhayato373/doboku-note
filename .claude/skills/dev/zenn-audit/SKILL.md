@@ -144,7 +144,7 @@ for m in re.finditer(r'@media[^{]+\{(?:[^{}]|\{[^{}]*\})*\}', css):
 
 1. **`src/components/layout/TwoColumnShell.tsx`**（2カラムレイアウト値の真実源）を Read:
    - `max-w-\[(\d+)px\]` → コンテナ max-width
-   - `<aside>` の幅ユーティリティ（現行 `w-72`=288px） → サイドバー幅
+   - `<aside>` の幅ユーティリティ（現行 `w-[316px]`=316px） → サイドバー幅
    - `gap-(\d+)` または `gap-\[(\d+)px\]`（現行 `gap-10`=40px） → カラム間ギャップ
    - `zenn-desktop:block` → サイドバー可視化境界（≥993px）
 

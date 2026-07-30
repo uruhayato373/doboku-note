@@ -146,7 +146,7 @@
 | コンポーネント | 役割 | 主な API |
 |---|---|---|
 | `PageShell`（`layout/PageShell.tsx`） | 全ページの chrome（Header/main/Footer）を 1 箇所に集約 | `variant`: `default`（素の main・ページ側が PageHeader+SectionBlock を構成）/ `content`（内側 content rail を持つ単カラム）/ `article`（2カラム記事・内側で `TwoColumnShell` を使う）。`rail`: `780`(既定)/`820`/`860`。`beforeHeader` |
-| `TwoColumnShell`（`layout/TwoColumnShell.tsx`） | **2カラム（本文＋右サイドバー）の単一定義**。docs 記事・category が共用（旧: 各ページが手書きコピペ）。外枠 `max-w-[1280px]`・カラム間 `gap-10`(40px)・サイドバー `w-72`(288px)・`zenn-desktop`(≥993px)でのみサイドバー表示——これらレイアウト値の**真実源はこのファイルのみ**（幅・gap・cap を変えるときはここだけ）。サイドバー中身は `aside` prop へ渡す（`<aside>` 要素・幅・表示制御はシェルが所有） | `gutter`: `flush-mobile`（docs・≤576px 外周0でカードフルブリード）/ `default`（category 等・`px-4 sm:px-6 lg:px-10`）。`mainClassName`(既定 `py-10`)。`aside` |
+| `TwoColumnShell`（`layout/TwoColumnShell.tsx`） | **2カラム（本文＋右サイドバー）の単一定義**。docs 記事・category が共用（旧: 各ページが手書きコピペ）。外枠 `max-w-[1280px]`・カラム間 `gap-10`(40px)・サイドバー `w-[316px]`(316px＝300px バナー + 内側 padding 16px)・`zenn-desktop`(≥993px)でのみサイドバー表示——これらレイアウト値の**真実源はこのファイルのみ**（幅・gap・cap を変えるときはここだけ）。サイドバー中身は `aside` prop へ渡す（`<aside>` 要素・幅・表示制御はシェルが所有） | `gutter`: `flush-mobile`（docs・≤576px 外周0でカードフルブリード）/ `default`（category 等・`px-4 sm:px-6 lg:px-10`）。`mainClassName`(既定 `py-10`)。`aside` |
 | `PageHeader`（`layout/PageHeader.tsx`） | 下層ページの breadcrumb + eyebrow label + h1 + lead + meta + actions | `variant`: `band`(全幅帯)/`inline`(帯なし)。`titleSize`: `default`/`lg`。`width`: `wide`(既定)/`860`/`780`/`760` |
 | `SectionBlock`（`layout/SectionBlock.tsx`） | セクション間余白・band 背景を統一 | — |
 | `SectionCard`（`ui/SectionCard/`） | カード（radius/border/shadow を token に統一・カード内カード回避） | — |
@@ -172,7 +172,7 @@
 | Site shell（外枠） | `max-w-[1280px]` + `px-4 sm:px-6 lg:px-10` |
 | Article shell（2カラム） | `max-w-[1280px]` + カラム間 `gap-10`(40px)。真実源 = `TwoColumnShell` |
 | Content rail（読み幅） | `max-w-[780px]`〜`860px`（PageShell `rail`） |
-| Sidebar | `288px`（`w-72`・`TwoColumnShell` 所有・≥993px でのみ表示） |
+| Sidebar | `316px`（`w-[316px]`＝300px バナー + 内側 padding 16px・`TwoColumnShell` 所有・≥993px でのみ表示） |
 | 記事カード 横 padding | ≤576px `16px`（`--article-gutter-sp`）/ 577–992px `40px`（`px-10`）/ ≥993px `44px`（`zenn-desktop:px-11`） |
 
 単カラムページでも外枠は変えず、読み幅は内側 content rail で制御する。
