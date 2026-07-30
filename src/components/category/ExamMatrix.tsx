@@ -51,6 +51,9 @@ export function ExamChipLink({
  * @param rowHeader 行ラベル列の見出し。既定 '年度'（過去問）。キーワード節は '選択科目' を渡す。
  * @param rowLabelWidth モバイルの行ラベル最小幅。長い科目名を扱う面は 'wide' で改行を許す。
  * @param dense 列が多い面（建設部門の 7 年度＝8 列）でセル左右余白を詰める。狭いカラムでの横溢れを抑える。
+ * @param tableFrom table に切り替える最小幅。既定 `desktop`(993px)。`wide`(1280px) は列が多く 993px 帯では
+ *   表が記事カラムに収まらない面（建設部門 8 列＝自然幅 600px に対し内容幅は 1,116px 未満で 600px 割れ）。
+ *   収まらない帯域では table を出さずチップリストにするため、**どの幅でも横スクロールが起きない**。
  */
 export default function ExamMatrix({
   columns,
@@ -58,18 +61,28 @@ export default function ExamMatrix({
   rowHeader = '年度',
   rowLabelWidth = 'default',
   dense = false,
+  tableFrom = 'desktop',
 }: {
   columns: string[];
   rows: ExamMatrixRow[];
   rowHeader?: string;
   rowLabelWidth?: 'default' | 'wide';
   dense?: boolean;
+  tableFrom?: 'desktop' | 'wide';
 }) {
+  // Tailwind は動的な variant 接頭辞を解決できないため、両方の完全なクラス文字列を静的に持つ。
+  const listHiddenClass = tableFrom === 'wide' ? 'xl:hidden' : 'zenn-desktop:hidden';
+  const tableShownClass = tableFrom === 'wide' ? 'hidden xl:block' : 'hidden zenn-desktop:block';
   // 年度ラベル（"令和7年度"）は nowrap で 1 行に収まるが、科目名（"施工計画、施工設備及び積算"）は
-  // モバイル幅で溢れるため wide では nowrap を外して全幅の行見出しにする（チップは次行へ）。
+  // モバイル幅で溢れるため wide では全幅の行見出しにする（チップは次行へ）。
+  // ただし ≥769px は横に並べても収まる（科目 192px ＋ 年度チップ 7 個 300px）ので inline に戻し、
+  // 1 科目 1 行に圧縮する（tableFrom='wide' の 993〜1279px 帯もこの経路で描かれるため効く）。
   const rowLabelClass =
     rowLabelWidth === 'wide'
-      ? 'w-full font-medium text-[var(--ink)]'
+      // min-w-[10rem] は「最長の行ラベル（鋼構造・コンクリート＝160px）」に合わせた floor。
+      // これ以上広げるとチップ 7 個（258px）＋gap（56px）が 1024px 幅の記事カラム（498px）に収まらず
+      // 2 行に折返して行高が 118px に膨らむ（実測）。狭めても各行のチップ開始位置は揃う。
+      ? 'w-full font-medium text-[var(--ink)] zenn-tablet:w-auto zenn-tablet:min-w-[10rem] zenn-tablet:shrink-0 zenn-tablet:whitespace-nowrap'
       : 'min-w-[5.5rem] shrink-0 whitespace-nowrap font-medium text-[var(--ink)]';
   const cellX = dense ? 'px-2' : 'px-4';
   // 行ラベル列は横スクロール中も左に貼り付けて「どの科目の行か」を失わせない。
@@ -77,8 +90,9 @@ export default function ExamMatrix({
   const stickyLabel = 'sticky left-0 z-10 border-r border-[var(--rule-soft)] bg-[var(--paper)]';
   return (
     <>
-      {/* モバイル（<993px）: 1年度=1行。年度ラベル＋存在するリンクだけチップ横並び（"—" は出さない）。 */}
-      <ul className="flex flex-col zenn-desktop:hidden">
+      {/* table 未満の幅（既定 <993px・tableFrom='wide' なら <1280px）: 1 レコード=1行。
+          行ラベル＋存在するリンクだけチップ横並び（"—" は出さない）。 */}
+      <ul className={`flex flex-col ${listHiddenClass}`}>
         {rows.map((row) => {
           const available = row.cells.filter((c) => c.doc);
           return (
@@ -97,12 +111,13 @@ export default function ExamMatrix({
         })}
       </ul>
 
-      {/* デスクトップ（≥993px）: 現行様式の table（行ラベル＋各種別列・行 hover・リンク/"—"）。
+      {/* table（既定 ≥993px・tableFrom='wide' なら ≥1280px）: 行ラベル＋各種別列・行 hover・リンク/"—"。
           `min-w-full`（旧 `w-full`）が要点: `w-full` は表を枠内へ縮めるため、縮まない値セルに押された
           行ラベル列が潰れて折返す（建設部門 8 列・記事カラム 527px で科目列 64px・行高 193px の崩れが発生）。
-          `min-w-full` なら内容が狭いときは全幅・広いときは自然幅で親が横スクロールし、行ラベルは
-          sticky で左に残る。 */}
-      <div className="hidden overflow-x-auto zenn-desktop:block">
+          `min-w-full` なら内容が狭いときは全幅・広いときは自然幅。tableFrom で「収まる幅でしか table を
+          出さない」ようにしているので実際には横スクロールは発生しないが、想定外の狭さでも切れないよう
+          overflow-x-auto と sticky 行ラベルは保険として残す。 */}
+      <div className={`overflow-x-auto ${tableShownClass}`}>
         <table className="min-w-full border-collapse text-base">
           <thead>
             <tr className="border-b-2 border-[var(--rule-soft)]">
