@@ -26,7 +26,27 @@ export function ExamChipLink({ href, children }: { href: string; children: React
   );
 }
 
-export default function ExamMatrix({ columns, rows }: { columns: string[]; rows: ExamMatrixRow[] }) {
+/**
+ * @param rowHeader 行ラベル列の見出し。既定 '年度'（過去問）。キーワード節は '選択科目' を渡す。
+ * @param rowLabelWidth モバイルの行ラベル最小幅。長い科目名を扱う面は 'wide' で改行を許す。
+ */
+export default function ExamMatrix({
+  columns,
+  rows,
+  rowHeader = '年度',
+  rowLabelWidth = 'default',
+}: {
+  columns: string[];
+  rows: ExamMatrixRow[];
+  rowHeader?: string;
+  rowLabelWidth?: 'default' | 'wide';
+}) {
+  // 年度ラベル（"令和7年度"）は nowrap で 1 行に収まるが、科目名（"施工計画、施工設備及び積算"）は
+  // モバイル幅で溢れるため wide では nowrap を外して全幅の行見出しにする（チップは次行へ）。
+  const rowLabelClass =
+    rowLabelWidth === 'wide'
+      ? 'w-full font-medium text-[var(--ink)]'
+      : 'min-w-[5.5rem] shrink-0 whitespace-nowrap font-medium text-[var(--ink)]';
   return (
     <>
       {/* モバイル（<993px）: 1年度=1行。年度ラベル＋存在するリンクだけチップ横並び（"—" は出さない）。 */}
@@ -38,9 +58,7 @@ export default function ExamMatrix({ columns, rows }: { columns: string[]; rows:
               key={row.key}
               className="flex flex-wrap items-center gap-2 border-b border-[var(--rule-soft)] py-3 last:border-b-0"
             >
-              <span className="min-w-[5.5rem] shrink-0 whitespace-nowrap font-medium text-[var(--ink)]">
-                {row.label}
-              </span>
+              <span className={rowLabelClass}>{row.label}</span>
               {available.map((c) => (
                 <ExamChipLink key={c.label} href={`/docs/${c.doc!.slug}`}>
                   {c.label}
@@ -56,7 +74,7 @@ export default function ExamMatrix({ columns, rows }: { columns: string[]; rows:
         <table className="w-full border-collapse text-base">
           <thead>
             <tr className="border-b-2 border-[var(--rule-soft)]">
-              <th className="px-4 py-3 text-left font-semibold text-[var(--ink-body)]">年度</th>
+              <th className="px-4 py-3 text-left font-semibold text-[var(--ink-body)]">{rowHeader}</th>
               {columns.map((col) => (
                 <th key={col} className="px-4 py-3 text-center font-semibold text-[var(--ink-body)]">
                   {col}

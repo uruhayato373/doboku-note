@@ -3,8 +3,9 @@ import Link from 'next/link';
 import { getGroupLabel } from '@/lib/doc-classifier';
 import { type DocGroup } from '@/lib/category-groups';
 import { DocSection } from '@/components/category/CategorySections';
-import { resolveCurriculum, resolveTextbookChapters } from '@/lib/category-curriculum';
+import { resolveCurriculum, resolveKeywordSection, resolveTextbookChapters } from '@/lib/category-curriculum';
 import { CurriculumSection, CurriculumList, CareerSection } from '@/components/category/CurriculumSections';
+import { KeywordSection } from '@/components/category/KeywordSections';
 import { resolveCareerSmallBanner } from '@/config/affiliate-creatives';
 
 /** civil-construction-1: 受験ガイド＋分野別＋テキスト章目次をリスト化、過去問はテーブル維持 */
@@ -268,6 +269,9 @@ export function PeConstructionView({ groups, mobileCareerAds = [] }: { groups: D
   const curriculum = resolveCurriculum('pe-construction', guideGroup?.docs ?? []);
   const examGuideDocs = [...(curriculum.examGuide?.docs ?? []), ...curriculum.unassigned];
   const fieldsCount = curriculum.fields?.blocks.reduce((n, b) => n + b.docs.length, 0) ?? 0;
+  // キーワード 35 本はカードグリッド（12 行）ではなく 必須科目I ブロック＋科目×種別マトリクスで出す。
+  // config（keywordSection）未定義なら null → 従来のカードグリッドへ fallback。
+  const keywordSection = resolveKeywordSection('pe-construction', keywordGroup?.docs ?? []);
 
   return (
     <>
@@ -282,7 +286,11 @@ export function PeConstructionView({ groups, mobileCareerAds = [] }: { groups: D
         </CurriculumSection>
       )}
       {mobileCareerAds[0]}
-      {keywordGroup && <DocSection group={keywordGroup} />}
+      {keywordGroup && (keywordSection ? (
+        <KeywordSection section={keywordSection} title={keywordGroup.title} description={keywordGroup.description} />
+      ) : (
+        <DocSection group={keywordGroup} />
+      ))}
       {pastExamGroup && (
         <DocSection group={pastExamGroup} layout="pe-construction-exam-table" />
       )}

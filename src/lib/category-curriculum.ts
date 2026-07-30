@@ -87,6 +87,76 @@ export function resolveCurriculum(category: string, guideDocs: DocMeta[]): Resol
   return { examGuide, fields, career: { featured, rest }, unassigned };
 }
 
+export type ResolvedKeywordSection = {
+  required: {
+    label: string;
+    note?: string | undefined;
+    theme: DocMeta | null;
+    groups: { label: string; docs: DocMeta[] }[];
+  } | null;
+  selective: {
+    label: string;
+    note?: string | undefined;
+    columns: { header: string; cell: string }[];
+    rows: { key: string; label: string; docs: (DocMeta | undefined)[] }[];
+  } | null;
+  /** config のどのブロックにも属さない keyword 記事。View は必ず表示する（silent drop 防止）。 */
+  unassigned: DocMeta[];
+};
+
+/**
+ * keyword 記事群を config の keywordSection に従って
+ * 必須科目I ブロック（テーマ分析＋チップ帯）と 科目 × 種別マトリクス へ振り分ける。
+ * - 並びは config 記載順（subjects の行順は過去問マトリクスと同じ表記・同じ順に揃える）。
+ * - config に無い keyword 記事は unassigned（resolveCurriculum と同じ silent drop 防止方針）。
+ * - config 未定義のカテゴリは null を返し、呼び出し側は従来のカードグリッドへ fallback する。
+ */
+export function resolveKeywordSection(
+  category: string,
+  keywordDocs: DocMeta[],
+): ResolvedKeywordSection | null {
+  const cfg = getCategoryCurriculum(category)?.keywordSection;
+  if (!cfg) return null;
+
+  const bySuffix = new Map<string, DocMeta>();
+  for (const d of keywordDocs) bySuffix.set(toSuffix(category, d.slug), d);
+
+  const assigned = new Set<DocMeta>();
+  const pickOne = (suffix: string | null | undefined): DocMeta | undefined => {
+    if (!suffix) return undefined;
+    const d = bySuffix.get(suffix);
+    if (!d || assigned.has(d)) return undefined;
+    assigned.add(d);
+    return d;
+  };
+  const pick = (slugs: string[]): DocMeta[] =>
+    slugs.map((s) => pickOne(s)).filter((d): d is DocMeta => Boolean(d));
+
+  const required = cfg.required
+    ? {
+        label: cfg.required.label,
+        note: cfg.required.note,
+        theme: pickOne(cfg.required.themeSlug) ?? null,
+        groups: cfg.required.groups
+          .map((g) => ({ label: g.label, docs: pick(g.slugs) }))
+          .filter((g) => g.docs.length > 0),
+      }
+    : null;
+
+  const rows = (cfg.selective?.subjects ?? [])
+    .map((s) => ({ key: s.label, label: s.label, docs: s.slugs.map((slug) => pickOne(slug)) }))
+    .filter((r) => r.docs.some(Boolean));
+  const selective = cfg.selective && rows.length > 0
+    ? { label: cfg.selective.label, note: cfg.selective.note, columns: cfg.selective.columns, rows }
+    : null;
+
+  return {
+    required: required && (required.theme || required.groups.length > 0) ? required : null,
+    selective,
+    unassigned: keywordDocs.filter((d) => !assigned.has(d)),
+  };
+}
+
 /** テキスト記事の並び順キー（textbook_order 優先、無ければ section 数値、無ければ末尾）。 */
 function textbookSortKey(d: DocMeta): number {
   if (typeof d.textbook_order === 'number') return d.textbook_order;
