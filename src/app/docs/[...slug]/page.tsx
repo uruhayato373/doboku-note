@@ -423,7 +423,7 @@ export default async function DocPage({
       className="pb-16"
       beforeHeader={<StructuredData type="article" docMeta={doc.meta} />}
     >
-        {/* 2カラムシェル（max-w-1280 / gap-10 / サイドバー w-72 の真実源）。gutter=flush-mobile で
+        {/* 2カラムシェル（max-w-1280 / gap-10 / サイドバー w-[316px] の真実源）。gutter=flush-mobile で
             ≤576px は外周 0（記事カードをフルブリードさせる）。サイドバーは aside prop へ集約。 */}
         <TwoColumnShell
           gutter="flush-mobile"
