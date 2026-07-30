@@ -310,7 +310,12 @@ function PeConstructionExamTable({ docs }: { docs: DocMeta[] }) {
   });
 
   // dense: 8 列（科目 + 7 年度）は既定の px-4 では狭い記事カラムで横に溢れるため余白を詰める。
-  return <ExamMatrix columns={columns} rows={rows} rowHeader="科目" rowLabelWidth="wide" dense />;
+  // tableFrom='wide': 表の自然幅 600px を記事カラムが満たすのは viewport ≥1,116px（内容幅 = V − 516）。
+  // それ未満で table を出すと横スクロールになるので、既存ブレークポイント xl(1280px) を切替点にして
+  // 993〜1279px はチップリストで見せる（横スクロールを全幅域で 0 にする）。
+  return (
+    <ExamMatrix columns={columns} rows={rows} rowHeader="科目" rowLabelWidth="wide" dense tableFrom="wide" />
+  );
 }
 
 /**
