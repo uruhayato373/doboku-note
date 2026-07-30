@@ -85,7 +85,13 @@ for (const ch of CHANNELS) {
   }
 
   // (4) 直近の実行の完全性（schemaVersion 3 は lastAttempt / lastComplete が正）
-  const attempt = marker?.schemaVersion >= 3 ? marker.lastAttempt : marker;
+  // v1/v2 マーカーは run id を `lastRun` に持つので `runId` へ写像する（そうしないと表示が "?" になる）。
+  const attempt =
+    marker == null
+      ? null
+      : marker.schemaVersion >= 3
+        ? marker.lastAttempt
+        : { ...marker, runId: marker.lastRun ?? null };
   const lastComplete = marker?.schemaVersion >= 3 ? marker.lastComplete : null;
   entry.attemptRunId = attempt?.runId ?? null;
   entry.attemptComplete = attempt?.complete ?? null;
