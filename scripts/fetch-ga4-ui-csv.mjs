@@ -35,6 +35,7 @@ import {
 } from "./lib/google-console-browser.mjs";
 import { parseCsv } from "./lib/google-console-csv.mjs";
 import { judgeRun, formatRunSummary, exitCodeFor, buildMarker } from "./lib/google-console-units.mjs";
+import { assertGa4Property } from "./lib/google-console-browser.mjs";
 
 const STATE_DIR = ".claude/state/metrics/ga4-ui";
 
@@ -72,14 +73,10 @@ function reportsHome(cfg) {
   return `https://analytics.google.com/analytics/web/#/p${cfg.ga4.propertyId}/reports/intelligenthome`;
 }
 
+// GA4 の hash ルートは a<account>p<property> で正規化されるため `/p<id>` では一致しない
+// （2026-07-30 実機で判明・これが property-mismatch で止まっていた原因）。共通ヘルパーへ寄せる。
 async function assertProperty(page, cfg) {
-  const url = page.url();
-  if (url.includes(`/p${cfg.ga4.propertyId}`)) return true;
-  const body = await page.locator("body").innerText().catch(() => "");
-  if (body.includes(cfg.ga4.propertyId)) return true;
-  const err = new Error(`GA4 property ${cfg.ga4.propertyId} が URL/画面に見当たりません。`);
-  err.code = "GA4_PROPERTY_MISMATCH";
-  throw err;
+  return assertGa4Property(page, cfg.ga4.propertyId);
 }
 
 async function main() {

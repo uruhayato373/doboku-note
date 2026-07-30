@@ -420,6 +420,21 @@ CSV から得た情報は **追跡 SSOT** として commit する（raw CSV は�
 | 観測結果（追跡） | `.claude/state/metrics/ga4-admin/inventory-latest.json` ＋ `history.json` |
 | ドリフト ゲート | `scripts/check-ga4-custom-dimensions.mjs`（blocking な未登録は exit 1・オフライン） |
 
+### 実機で判明した GA4 UI のクセ（2026-07-30 初回実走で確定）
+
+| クセ | 対処 |
+|---|---|
+| hash ルートが **アカウント ID で正規化**される（`#/p419382901/...` → `#/a121193537p419382901/...`） | `url.includes("/p"+id)` では一致しない。`ga4PropertyInUrl` / `ga4RoutePrefix`（`google-console-browser.mjs`）で接頭辞非依存に照合し、まずホームを開いて接頭辞を確定してから深いルートへ行く。**これが `fetch-ga4-ui-csv` が property-mismatch で止まっていた原因** |
+| カスタム定義の route は `/admin/customdefinitions/**hub**`（`/hierarchy` は拒否されホームへ戻る） | `customDefinitionsUrl` を hub に。URL 直打ちが効かない場合は UI クリック（管理 → カスタム定義）へフォールバック |
+| hash だけの `goto` は SPA 内移動になりルーターが反応しないことがある | 到達を URL で検査し、届いていなければ `reload` でドキュメントごと起動し直す（`gotoGa4Route`） |
+| 左プライマリナビ（`ga-primary-nav.opened`）が展開時にクリック対象へ重なり、通常クリックが intercept で無限リトライになる | **ナビの遷移だけ** DOM click（`el.click()`）で hit-test を回避（`domClick`）。保存・削除など破壊的ボタンには使わない |
+| データ保持は左ナビ「データの収集と修正」を**展開しないと**「データの保持」が可視にならない | `clickToAdminItem(section, item)` でセクション展開 → 項目クリック |
+| カスタムディメンション表の列順は ディメンション名 / 説明 / スコープ / パラメータ / 最終変更日（空セルは innerText に出ない） | パラメータ名は**スコープ列の次のセル**として読む。**値の比較で除外してはいけない**（表示名とパラメータ名が同一の行が実在＝`cta_placement`。値比較だと未登録と誤判定する） |
+
+初回実走の結果: カスタムディメンション 4 件を観測（`affiliate`/`event_label`/`cta_placement`/`event_category`）、
+desired の 2 件（`event_label`・`cta_placement`）は**いずれも登録済み**、データ保持は **14 か月（期待どおり）**。
+つまり blocking な欠測は無く、`--by-label` / `--by-placement` は機能していた——が、**それを機械で確認する手段が
+無かった**のが問題だった（未登録になっても緑のままになる）。今は `check-ga4-dimensions` が赤/緑を出す。
 安全弁: **作成のみ**（編集・アーカイブ・削除はしない）／property を URL と画面の両方で assert／
 候補が一意でないステップは推測クリックせず debug dump して停止／作成後に一覧を読み直して
 「実際に増えたか」を確認する（自己申告で成功としない）／`dataRetention` と `unwantedReferrals` は

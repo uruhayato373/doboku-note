@@ -1,31 +1,40 @@
 {
   "$schema": "internal://ga4-admin-desired-state/v1",
-  "$note": "GA4 管理画面の **望ましい状態（desired state）** の SSOT。scripts/ga4-admin-setup.mjs が実機（Playwright）と突合し、customDimensions の欠落だけを --commit で作成する。dataRetention / unwantedReferrals は観測して差分を報告するだけ（アカウント設定の自動変更はしない）。運用手順 → .claude/knowledge/reference/gsc-management.md",
+  "$note": "GA4 管理画面の **望ましい状態（desired state）** の SSOT。scripts/ga4-admin-setup.mjs が実機（Playwright）と突合し、customDimensions の欠落だけを --commit で作成する。dataRetention / unwantedReferrals は観測して差分を報告するだけ（アカウント設定の自動変更はしない）。運用手順 → .claude/knowledge/reference/gsc-management.md 照合キーは parameterName（displayName は表示のみ・実機に合わせて記録）。",
   "schemaVersion": 1,
   "propertyId": "419382901",
   "customDimensions": [
     {
-      "displayName": "event_label",
+      "displayName": "CTA label",
       "parameterName": "event_label",
       "scope": "EVENT",
       "description": "data-cta-label（BuildJob-sidebar / KensetsuJobs-sidebar / BuildJob-midtext 等）。プログラム/面別 EPC 判定に必須。",
-      "requiredBy": ["npm run fetch-ga4-cta-clicks -- --by-label", ".github/workflows/fetch-metrics.yml"],
-      "blocking": true
+      "requiredBy": [
+        "npm run fetch-ga4-cta-clicks -- --by-label",
+        ".github/workflows/fetch-metrics.yml"
+      ],
+      "blocking": true,
+      "$observed": "2026-07-30 実機: 表示名「CTA label」/ スコープ イベント / パラメータ event_label / 作成 2026-07-07"
     },
     {
       "displayName": "cta_placement",
       "parameterName": "cta_placement",
       "scope": "EVENT",
       "description": "配置別（article-mid / article-end-mobile / category-sidebar 等）の可視 impression / click。配置単位 CTR に必須。",
-      "requiredBy": ["npm run fetch-ga4-cta-clicks -- --by-placement", ".github/workflows/fetch-metrics.yml"],
-      "blocking": true
+      "requiredBy": [
+        "npm run fetch-ga4-cta-clicks -- --by-placement",
+        ".github/workflows/fetch-metrics.yml"
+      ],
+      "blocking": true,
+      "$observed": "2026-07-30 実機: 表示名「cta_placement」/ スコープ イベント / パラメータ cta_placement / 作成 2026-07-25"
     }
   ],
   "dataRetention": {
     "$note": "GA4 の既定は 2 か月。イベントデータ保持を 14 か月にしないと、週次で取った履歴を後から掘り直せない。自動変更はしない（アカウント設定）＝差分を報告して人が直す。",
     "eventDataRetentionMonths": 14,
     "resetOnNewActivity": true,
-    "autoFix": false
+    "autoFix": false,
+    "$observed": "2026-07-30 実機: 14 か月（期待どおり）"
   },
   "unwantedReferrals": {
     "$note": "bot / スパム参照元。audit-ga4-bot-ratio が surface した候補を人が判断してここへ追記する。自動変更はしない。",

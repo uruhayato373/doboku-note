@@ -113,6 +113,11 @@ if (!inventory) {
   }
   if (result.dataRetentionDrift) {
     warnings.push(`データ保持のドリフト: ${result.dataRetentionDrift}（管理画面で人が変更・自動変更はしない）`);
+  } else if (inventory.dataRetention?.unverified) {
+    // 「読めなかった」を「ドリフトなし」と同じ緑にしない
+    warnings.push(
+      `データ保持は**未確認**（画面から月数を読めていない・到達=${inventory.dataRetention?.observed?.reached ?? "?"}）。ドリフトなしの意味ではない。`,
+    );
   }
 }
 

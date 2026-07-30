@@ -210,6 +210,36 @@ export async function assertGscProperty(page, cfg) {
 }
 
 /**
+ * GA4 の hash ルートは **アカウント ID で正規化される**。
+ * `#/p419382901/...` で開いても GA4 自身が `#/a121193537p419382901/...` へ書き換えるため、
+ * `url.includes("/p" + propertyId)` は必ず false になる（2026-07-30 実機で判明・
+ * これが `fetch-ga4-ui-csv` と `ga4-admin-setup` が property-mismatch で止まっていた原因）。
+ * 照合は「アカウント接頭辞の有無に依存しない」形で行う。
+ */
+export function ga4PropertyInUrl(url, propertyId) {
+  return new RegExp(`(?:^|[#/]|a\\d+)p${propertyId}(?![0-9])`).test(String(url ?? ""));
+}
+
+/**
+ * 現在の URL から GA4 の hash ルート接頭辞（`a<account>p<property>` もしくは `p<property>`）を取り出す。
+ * 管理画面など深いルートへ遷移するとき、この接頭辞を使わないと GA4 がホームへ戻してしまう。
+ */
+export function ga4RoutePrefix(url, propertyId) {
+  const m = String(url ?? "").match(new RegExp(`(a\\d+p${propertyId}|p${propertyId})(?![0-9])`));
+  return m ? m[1] : `p${propertyId}`;
+}
+
+/** GA4 property の assert（URL 優先・可視テキストでも許容）。不一致なら throw。 */
+export async function assertGa4Property(page, propertyId) {
+  if (ga4PropertyInUrl(page.url(), propertyId)) return true;
+  const body = await page.locator("body").innerText().catch(() => "");
+  if (body.includes(String(propertyId))) return true;
+  const err = new Error(`GA4 property ${propertyId} が URL/画面に見当たりません（現在: ${page.url()}）`);
+  err.code = "GA4_PROPERTY_MISMATCH";
+  throw err;
+}
+
+/**
  * download イベントで確実にファイルを保存する。suggestedFilename は信用しない。
  * @returns {Promise<{path:string, sha256:string, bytes:number, suggested:string}>}
  */
