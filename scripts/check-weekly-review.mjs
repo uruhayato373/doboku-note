@@ -16,6 +16,7 @@
 import { existsSync, appendFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { execFileSync } from "node:child_process";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REVIEW_DIR = join(__dirname, "..", "docs", "reviews", "weekly");
@@ -51,23 +52,73 @@ const lines = [
   "",
 ];
 
+/**
+ * ファイルが今存在しなくても「その週のレビューが生成されたことがあるか」を git 履歴で見る。
+ *
+ * なぜ必要か（2026-07-30 修正）: 週次レビューには **保持方針（最新週だけ残す）** があり、
+ * W31 を作るコミットが W30 を削除する（実例: 58dfb22c1「旧W30は保持方針で削除」）。
+ * 旧実装は「先週分のファイルが今あるか」だけを見ていたため、**サイクルが正常に回っていても
+ * 毎週必ず赤くなる**構造だった（2026-07-20・07-27 の赤はこれが原因で、ルーティン停止ではない）。
+ * 常に赤いゲートは読み飛ばされるようになり、本当の欠落を隠す。
+ *
+ * 履歴が浅い（shallow clone）と誤判定するので、取得できたかを区別して返す。
+ * @returns {{ ok: boolean, reason: string }}
+ */
+function existedInHistory(relPath) {
+  try {
+    const out = execFileSync("git", ["log", "--all", "--diff-filter=A", "--format=%H %ad", "--date=short", "--", relPath], {
+      encoding: "utf-8",
+      stdio: ["ignore", "pipe", "ignore"],
+    }).trim();
+    if (out) return { ok: true, reason: `git 履歴に生成コミットあり（${out.split("\n")[0]}）` };
+    // 履歴が浅いと「無い」と「見えない」を区別できないので shallow を明示的に検出する
+    const shallow = execFileSync("git", ["rev-parse", "--is-shallow-repository"], { encoding: "utf-8" }).trim();
+    if (shallow === "true") {
+      return { ok: false, reason: "履歴が shallow で判定不能（checkout に fetch-depth: 0 が必要）" };
+    }
+    return { ok: false, reason: "git 履歴にも生成コミットが無い" };
+  } catch (e) {
+    return { ok: false, reason: `git 履歴を参照できなかった: ${e?.message ?? e}` };
+  }
+}
+
 if (existsSync(file)) {
-  lines.push(`OK: ${weekId} の週次レビューは生成済みです。`);
+  lines.push(`OK: ${weekId} の週次レビューは生成済みです（ファイル実在）。`);
   writeSummary(lines);
   console.log(`OK: ${relFile} exists — 週次レビュー サイクルは回っています。`);
   process.exit(0);
-} else {
+}
+
+// ファイルが無い → 保持方針で削除された可能性を git 履歴で確認する
+const hist = existedInHistory(relFile);
+if (hist.ok) {
   lines.push(
-    `> **欠落**: ${weekId} の週次レビューがありません。`,
-    ">",
-    "> `/weekly-review` を回すクラウドルーティンが停止/無効/cron ズレの疑いがあります。",
-    "> 対処: 対話セッションで `/routines`（list-first）→ 無ければ `/schedule` で再作成、",
-    "> または既存を `update`（enabled/cron 是正）。真実源: `.claude/skills/management/routines/SKILL.md`"
+    `OK: ${weekId} の週次レビューは生成済みです（現在はファイル無し・**保持方針で削除**）。`,
+    "",
+    `- 根拠: ${hist.reason}`,
+    "- 週次レビューは最新週だけを残す運用のため、翌週分の生成時に前週分が削除される。",
   );
   writeSummary(lines);
-  console.error(
-    `週次レビュー欠落: ${relFile} が存在しません。` +
-      `クラウドルーティン（doboku-note weekly PDCA）の発火状態を確認してください。`
-  );
-  process.exit(1);
+  console.log(`OK: ${relFile} は削除済みだが生成実績あり（${hist.reason}）— サイクルは回っています。`);
+  process.exit(0);
 }
+
+lines.push(
+  `> **欠落**: ${weekId} の週次レビューが生成された記録がありません。`,
+  ">",
+  `> 判定根拠: ファイル無し ＋ ${hist.reason}`,
+  ">",
+  "> **先に切り分ける**（いきなりルーティンを作らない）:",
+  "> 1. 直近の週次レビューが誰の手で生成されているか — `git log --format='%ad %an' --date=short -- docs/reviews/weekly/`",
+  ">    対話セッションで回っているなら routine は不要（作ると二重生成になる）",
+  "> 2. routine を確認するときは **必ず list-first**（`/routines`）。`RemoteTrigger list` は",
+  ">    ページングされ全件を返さないので、不在を確認できないなら **作成しない**",
+  ">    （2026-05-30 の weekly-review 重複生成事故の再発防止）",
+  "> 3. 真実源: `.claude/skills/management/routines/SKILL.md`",
+);
+writeSummary(lines);
+console.error(
+  `週次レビュー欠落: ${relFile} が存在せず、git 履歴にも生成記録がありません（${hist.reason}）。` +
+    `ルーティンを作る前に「誰が生成しているか」を先に切り分けてください。`
+);
+process.exit(1);
