@@ -29,7 +29,10 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 | `/gsc-review` | Skill（月次） | CI データ確認 → gsc-index-auditor 起動 → 観測ログ追記 | — |
 | `/weekly-improve` | Skill（週次） | metrics-analyzer 起動（performance） | — |
 | `/google-search-growth` | Skill（月次・**ローカル手動**） | GSC 理由別 **UI CSV**（API で取れない例 URL）を Playwright 取得 → 正規化 → URL Inspection/GSC page×query/GA4/sitemap/_redirects/生成HTML と突合 → 修正アクション分類（gsc-browser-collector/gsc-csv-auditor/seo-fix-planner）→ approval gate | ブラウザ → `gsc-ui/<run>/`（gitignore）＋ `improvements/search-growth-latest.md` |
-| `check-gsc-ui-due` | Script（surfacer） | 月次 UI 取得の期限催促（30日・committed `gsc-ui/last-run.json` 参照） | weekly-review が DUE を surface |
+| `check-gsc-ui-due` | Script（surfacer） | 月次 UI 取得の期限催促。**日数だけでなく完全性も見る**＝`lastComplete` の年齢（30日）／`lastAttempt.complete !== true` のいずれかで DUE。gsc-ui（必須）と ga4-ui（任意）の 2 チャネル | committed `{gsc-ui,ga4-ui}/last-run.json` → weekly-review が DUE を surface |
+| `check-google-ui-ssot` | Script（ゲート） | 追跡 SSOT の整合（marker ↔ history ↔ urls の runId・スキーマ・truncated・**検査ゼロ**）。SSOT が空／直近実行が不完全なら exit 1 | `gsc-ui/ssot/**` → exit 0/1 |
+| `ga4-admin-setup` | Script（ローカル手動・Playwright） | GA4 管理画面の設定を desired state と突合し、**不足カスタムディメンションを作成**（既定 dry-run・`--commit` で実行）。データ保持は観測のみ | `config/ga4-admin-desired-state.json` → `metrics/ga4-admin/inventory-latest.json` |
+| `check-ga4-dimensions` | Script（ゲート・オフライン） | desired state と最後の実機観測を突合。blocking なカスタムディメンション（`event_label`/`cta_placement`）が未登録なら exit 1 | inventory-latest → exit 0/1 |
 | 機械履歴 | `index-coverage-history.json` | indexed_ratio の時系列 | CI が append |
 | 人間判断履歴 | 本 doc「観測・判断ログ」 | 何を打ち手にしたかの意思決定記録 | `/gsc-review` がユーザーと追記 |
 
@@ -50,6 +53,15 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 - **月次（CI・自動）**: `index-coverage.yml`（毎月1日 JST 11:00）→ 翌日以降に `/gsc-review` を実行 → 本 doc 観測ログへ判断追記
 - **月次（ローカル・手動）**: `/google-search-growth` で理由別 UI CSV を取得 → 突合 → 修正計画 → 観測ログ追記。**放置防止**は `check-gsc-ui-due`（30日）を weekly-review が surface（DUE なら次セッションで実行）。`/gsc-review`（coverage 全体）の深掘り＝理由ごとの例 URL を足す層。
 - **週次**: `fetch-metrics.yml`（CI・金 JST 6:00）→ `/weekly-improve`（performance 側）
+
+- **GA4 管理画面 設定（ローカル手動・随時＋90日で再観測）**: `npm run ga4-admin:check`（観測・dry-run）→ 不足があれば `npm run ga4-admin:apply`（`--commit`）。
+  オフラインの `npm run check-ga4-dimensions` が desired state と最後の観測を突合し、blocking な未登録を FAIL にする。
+
+> [!warning] 「取得したつもり」を作らないための不変条件（2026-07-30 制定）
+> 1. **失敗は月次サイクルの時計をリセットしない**。マーカーは `lastAttempt`（毎回更新）と `lastComplete`（完全な run のみ更新）を分けて持つ。未ログインで即中断した run が直前の成功記録を消した事故の再発防止。
+> 2. **部分成功を `ok` と記録しない**。`row-not-found`（そのスコープに当該理由のページが 0 件＝正常なゼロ）と、`export-button-ambiguous` 等の**失敗**を分けて数え、失敗が 1 件でもあれば `partial`。取得成功 0 件の面は UI 変更の疑いとして `suspiciousScopes` に出す。
+> 3. **不完全なら exit 0 にしない**（fetch/normalize ともに）。合成コマンドの `&&` 連鎖がそこで止まる。
+> 4. **CSV から得た情報は commit する**。raw CSV は再取得しかできないのに run ディレクトリは gitignore だったため、worktree を捨てた時点で URL 情報が消えていた（2026-07-23 の 1,952 行が実際に消失）。
 
 > [!important] CI 例外＝ブラウザは本人セッションで通る
 > 本 doc の原則は「計測は CI/CD 供給が正・ローカル creds 不要（会社 PC はプロキシで外部 API 遮断）」。
@@ -85,8 +97,12 @@ URL Inspection の `coverage_state` と `page_fetch_state` から真因を切り
 | indexed_ratio 時系列 | `.claude/state/metrics/gsc/index-coverage-history.json` |
 | GSC query/page/date | `.claude/state/metrics/gsc/gsc-*.json` |
 | 改善候補（performance） | `.claude/state/improvements/*.md` |
-| GSC UI 理由別 CSV（生・gitignore） | `.claude/state/metrics/gsc-ui/<run>/`（raw ZIP + manifest + `normalized/*.json`） |
-| GSC UI 取得マーカー（committed） | `.claude/state/metrics/gsc-ui/last-run.json`（`check-gsc-ui-due` が参照） |
+| GSC UI 理由別 CSV（生・**gitignore**・再取得のみ） | `.claude/state/metrics/gsc-ui/<run>/`（raw ZIP + manifest + `normalized/*.json`） |
+| **GSC UI 情報の SSOT（committed）** | `.claude/state/metrics/gsc-ui/ssot/urls/<issue>--<scope>.json`（最新 URL 一覧）＋ `ssot/history.json`（run 別件数）＋ `ssot/diff/<runId>.json`（URL 増減） |
+| GSC UI 取得マーカー（committed） | `.claude/state/metrics/gsc-ui/last-run.json`（schemaVersion 3＝`lastAttempt`／`lastComplete`／`legacy`。`check-gsc-ui-due` が参照） |
+| GA4 UI 取得マーカー（committed） | `.claude/state/metrics/ga4-ui/last-run.json`（任意チャネル・一次経路は Data API） |
+| GA4 管理画面 設定の期待値 | `.claude/config/ga4-admin-desired-state.json` |
+| GA4 管理画面 設定の観測（committed） | `.claude/state/metrics/ga4-admin/inventory-latest.json` ＋ `history.json` |
 | 検索流入 修正計画 | `.claude/state/improvements/search-growth-latest.md`（run JSON は gitignore） |
 
 ## 観測・判断ログ（append-only・人間の意思決定記録）

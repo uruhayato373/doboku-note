@@ -1,9 +1,36 @@
 {
-  "lastRun": "2026-07-23T22-59-15Z",
-  "collectedAt": "2026-07-23T22:59:15.535Z",
+  "schemaVersion": 3,
+  "channel": "gsc-ui",
   "property": "sc-domain:doboku-note.com",
-  "downloadedUnits": 7,
-  "totalUnits": 10,
-  "status": "ok",
-  "note": "GSC UI CSV 取得の最新実行マーカー（URL データは含めない）。check-gsc-ui-due が参照。"
+  "lastAttempt": {
+    "runId": "2026-07-30T04-57-57Z",
+    "collectedAt": "2026-07-30T04:57:57.212Z",
+    "status": "not-signed-in",
+    "complete": false,
+    "totalUnits": 0,
+    "downloadedUnits": 0,
+    "zeroUnits": 0,
+    "failedUnits": 0,
+    "failedDetail": [],
+    "suspiciousScopes": [],
+    "byScope": {}
+  },
+  "lastComplete": null,
+  "legacy": {
+    "schemaVersion": 1,
+    "runId": "2026-07-23T22-59-15Z",
+    "collectedAt": "2026-07-23T22:59:15.535Z",
+    "status": "ok",
+    "complete": null,
+    "downloadedUnits": 7,
+    "totalUnits": 10,
+    "note": "旧スキーマで記録された取得。zero と failed が分離されていないため完全性は確定できない（allSubmittedPages の notFound/redirect/forbidden は正常なゼロの可能性が高い）。"
+  },
+  "lastRun": "2026-07-30T04-57-57Z",
+  "collectedAt": "2026-07-30T04:57:57.212Z",
+  "status": "not-signed-in",
+  "complete": false,
+  "totalUnits": 0,
+  "downloadedUnits": 0,
+  "note": "GSC UI CSV 取得の実行マーカー（URL データは含めない）。lastAttempt=最後の実行 / lastComplete=最後に完全だった実行。check-gsc-ui-due が参照。"
 }

@@ -54,6 +54,14 @@ SNS スクリプトの `PROJECT_ROOT = path.resolve(__dirname, "…")` は実行
   `PROJECT_ROOT`（debug/drafts/state 用）は worktree 相対のまま。**プロファイルのみ本体を共有**する。
   本体から実行した場合は従来と同一パスに解決されるため挙動不変。worktree から実行しても同一ログインを共有する。
 - **B（運用の補助）**: それでも投稿・自動操作系は本体リポジトリ `~/doboku-note` から実行するのが無難。
+- **C（恒久対応・適用済み 2026-07-30・Google 系のみ）**: `PROFILE_ROOT` の**ユーザー名ハードコードを撤去**した。
+  `scripts/lib/google-console-browser.mjs` は `DOBOKU_PROFILE_ROOT`（env）→ `~/doboku-note` → 旧 Mac 絶対パス → cwd の順で解決する。
+  `~/doboku-note` は Mac も Windows も本体チェックアウトを指すため、**両機で同じプロファイルへ解決**する。
+  修正前は Windows で Mac パスが存在せず `process.cwd()` に落ち、worktree から実行するとプロファイルが
+  worktree 内に作られて worktree ごと消えていた（GSC UI 取得が実質 Mac 専用になっていた原因）。
+  同ファイルの `profileInitialized()` は「ディレクトリが作られたか」だけを返す＝**ログイン済みの証明ではない**
+  （未ログインの run でも Cookies DB は作られる）。ログイン有無は実際にページを開いて判定する。
+  他サービス（X / IG / note / ココナラ / A8 等）は未適用＝Mac 絶対パスのまま。
 
 ## 再ログイン手順（プロファイルが空／期限切れのとき）
 

@@ -37,6 +37,7 @@ import {
   sha256File,
 } from "./lib/google-console-browser.mjs";
 import { parseCsv } from "./lib/google-console-csv.mjs";
+import { judgeRun, formatRunSummary, exitCodeFor, buildMarker } from "./lib/google-console-units.mjs";
 
 const STATE_DIR = ".claude/state/metrics/gsc-ui";
 
@@ -322,9 +323,7 @@ async function main() {
         message: "未ログイン。先に `npm run google-console:login` を実行してください。",
       });
       console.error("未ログインのため停止しました。`npm run google-console:login` を実行してください。");
-      manifest.status = "not-signed-in";
-      finalize(manifest, runDir);
-      process.exit(3);
+      bail(manifest, runDir, "not-signed-in", 3);
     }
 
     // 対象プロパティ assert（不一致なら全体停止）
@@ -338,9 +337,7 @@ async function main() {
         message: e.message,
       });
       console.error(`プロパティ不一致で停止: ${e.message}`);
-      manifest.status = "property-mismatch";
-      finalize(manifest, runDir);
-      process.exit(5);
+      bail(manifest, runDir, "property-mismatch", 5);
     }
 
     // Page indexing レポートへ到達しているか（理由テーブルの存在で判定）
@@ -355,9 +352,7 @@ async function main() {
         message: "Page indexing レポートに到達できません（UI 変更の可能性）。",
       });
       console.error("Page indexing レポートに到達できませんでした。debug artifact を確認してください。");
-      manifest.status = "page-indexing-unreachable";
-      finalize(manifest, runDir);
-      process.exit(6);
+      bail(manifest, runDir, "page-indexing-unreachable", 6);
     }
 
     for (const scopeKey of scopeKeys) {
@@ -405,36 +400,67 @@ async function main() {
       }
     }
 
-    manifest.status = "ok";
+    manifest.loopCompleted = true;
   } catch (e) {
     await dumpFailure(page, cfg, runId, { step: "unexpected", message: e?.message || String(e) });
-    manifest.status = "error";
+    manifest.fatalStatus = "error";
     manifest.error = String(e?.message || e).slice(0, 300);
   } finally {
     await ctx.close();
   }
 
+  // status は「例外が出なかったか」ではなく **ユニットの完全性**で決める（旧実装は無条件で "ok"）。
+  const judged = judgeRun({ units: manifest.units, fatalStatus: manifest.fatalStatus });
+  manifest.status = judged.status;
+  manifest.completeness = judged;
   finalize(manifest, runDir);
   // 継続運用マーカー（committed・URL データは含めない）。cloud 週次 PDCA の due-surfacer が読む。
-  if (!opts.dryRun) writeLastRunMarker(manifest);
-  const okUnits = manifest.units.filter((u) => u.status === "downloaded").length;
-  console.log(`\n完了: status=${manifest.status} / download 成功 ${okUnits}/${manifest.units.length} ユニット`);
+  if (!opts.dryRun) writeLastRunMarker(manifest, judged);
+  console.log(`\n${formatRunSummary(judged, "完了")}`);
+  for (const f of judged.failedDetail) console.log(`  [failed] ${f.unit} status=${f.status} ${f.error ?? ""}`);
   console.log(`manifest: ${join(runDir, "manifest.json")}`);
+  // 不完全な取得を exit 0 にしない（呼出側＝search-growth:audit の && 連鎖をここで止める）。
+  process.exit(exitCodeFor(judged));
 }
 
-/** 最新取得マーカーを STATE_DIR 直下に書く（run 生データは gitignore・これだけ commit する）。 */
-function writeLastRunMarker(manifest) {
-  const marker = {
-    lastRun: manifest.runId,
-    collectedAt: manifest.collectedAt,
-    property: manifest.property,
-    downloadedUnits: manifest.units.filter((u) => u.status === "downloaded").length,
-    totalUnits: manifest.units.length,
-    status: manifest.status,
-    note: "GSC UI CSV 取得の最新実行マーカー（URL データは含めない）。check-gsc-ui-due が参照。",
-  };
+/**
+ * run を中断して終了する（未ログイン・プロパティ不一致・レポート到達不能）。
+ * マーカーは **complete:false で書く**＝失敗を記録しつつ月次サイクルの時計をリセットさせない
+ * （due 判定は日数だけでなく complete も見る。check-gsc-ui-due 参照）。
+ */
+function bail(manifest, runDir, status, exitCode) {
+  const judged = judgeRun({ units: manifest.units, fatalStatus: status });
+  manifest.status = judged.status;
+  manifest.completeness = judged;
+  finalize(manifest, runDir);
+  if (manifest.mode !== "dry-run") writeLastRunMarker(manifest, judged);
+  console.error(formatRunSummary(judged, "中断"));
+  process.exit(exitCode);
+}
+
+/**
+ * 最新取得マーカーを STATE_DIR 直下に書く（run 生データは gitignore・これだけ commit する）。
+ * 失敗 run が直前の成功記録を消さないよう、既存マーカーを読んで lastComplete を引き継ぐ。
+ */
+function writeLastRunMarker(manifest, judged) {
+  const path = join(STATE_DIR, "last-run.json");
+  let prev = null;
   try {
-    writeFileSync(join(STATE_DIR, "last-run.json"), JSON.stringify(marker, null, 2), "utf-8");
+    prev = JSON.parse(readFileSync(path, "utf-8"));
+  } catch {
+    prev = null;
+  }
+  const marker = buildMarker({
+    prev,
+    channel: "gsc-ui",
+    runId: manifest.runId,
+    collectedAt: manifest.collectedAt,
+    judged,
+    extra: { property: manifest.property },
+    note: "GSC UI CSV 取得の実行マーカー（URL データは含めない）。lastAttempt=最後の実行 / lastComplete=最後に完全だった実行。check-gsc-ui-due が参照。lastAttempt.complete=false は「再取得が必要」。",
+  });
+  try {
+    writeFileSync(path, JSON.stringify(marker, null, 2), "utf-8");
   } catch {
     /* マーカー書込失敗は取得本体を妨げない */
   }

@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 2,
+  "lastRun": "2026-07-30T04-58-10Z",
+  "collectedAt": "2026-07-30T04:58:10.549Z",
+  "propertyId": "419382901",
+  "window": {
+    "startDate": "2026-07-02",
+    "endDate": "2026-07-29",
+    "timezone": "Asia/Tokyo"
+  },
+  "status": "property-mismatch",
+  "complete": false,
+  "totalUnits": 0,
+  "downloadedUnits": 0,
+  "failedUnits": 0,
+  "failedDetail": [],
+  "apiPreferred": true,
+  "note": "GA4 UI CSV 取得の最新実行マーカー。一次経路は Data API（fetch-ga4-data）で、UI は照合用バックアップ。check-gsc-ui-due が参照。"
+}

@@ -4,7 +4,8 @@
  * 生成 HTML を URL 単位で突合し、修正アクションへ分類したレポートを生成する（オフライン join）。
  * ---------------------------------------------------------------------------
  * 入力（すべて既存の state / build 生成物・最新スナップショット自動選択）:
- *   - GSC UI 正規化: .claude/state/metrics/gsc-ui/<run>/normalized/*.json（あれば）
+ *   - GSC UI 正規化: .claude/state/metrics/gsc-ui/ssot/urls/*.json（**追跡 SSOT・優先**）
+ *                    無ければ .claude/state/metrics/gsc-ui/<run>/normalized/*.json（gitignore・そのマシンのみ）
  *   - URL Inspection: .claude/state/metrics/url-inspection/inspection-*.json（最新）
  *   - GSC page:       .claude/state/metrics/gsc/gsc-page-*.json（最新・page×query 可）
  *   - GA4 page:       .claude/state/metrics/ga4/ga4-page-*.json（最新）
@@ -50,31 +51,65 @@ function readJson(p, def = null) {
   }
 }
 
-/** 最新 gsc-ui run の normalized/*.json をすべて読む（無ければ空）。 */
+/**
+ * GSC UI の正規化データを読む。
+ *
+ * 優先順:
+ *   1. **追跡 SSOT** `.claude/state/metrics/gsc-ui/ssot/urls/*.json`（どのマシン・どの worktree でも読める）
+ *   2. 旧経路 最新 run の `<run>/normalized/*.json`（gitignore・そのマシンで取得した直後だけ存在）
+ *
+ * 1 を先に見る理由: 旧実装は 2 だけを見ており、run ディレクトリは gitignore なので
+ * 取得したマシン以外ではレポートが「GSC UI CSV 未取得」に落ちていた（2026-07-23 の run が
+ * worktree ごと消えて実際に再現不能になった）。SSOT を先に読めば診断が常に再現する。
+ */
 function loadGscUi() {
   const base = join(M, "gsc-ui");
-  if (!existsSync(base)) return { rows: [], runs: [], byIssueScope: [] };
-  const runs = readdirSync(base)
-    .filter((f) => existsSync(join(base, f, "manifest.json")))
-    .sort();
-  if (!runs.length) return { rows: [], runs: [], byIssueScope: [] };
-  const runDir = join(base, runs[runs.length - 1]);
-  const normDir = join(runDir, "normalized");
-  const out = { rows: [], runDir, runId: runs[runs.length - 1], byIssueScope: [] };
-  if (!existsSync(normDir)) return out;
-  for (const f of readdirSync(normDir).filter((f) => f.endsWith(".json") && !f.endsWith(".rejects.json"))) {
-    const norm = readJson(join(normDir, f));
-    if (!norm) continue;
+  const out = { rows: [], runId: null, runDir: null, byIssueScope: [], source: "none" };
+  if (!existsSync(base)) return out;
+
+  const collect = (norm, sourceLabel) => {
     out.byIssueScope.push({
       issue: norm.issue,
       scope: norm.scope,
       uiTotal: norm.uiTotal,
       exportedRows: norm.exportedRows,
       truncated: norm.truncated,
+      runId: norm.runId ?? null,
+      collectedAt: norm.collectedAt ?? null,
     });
-    for (const r of norm.rows || []) {
-      out.rows.push({ ...r, issue: norm.issue, scope: norm.scope });
+    for (const r of norm.rows || []) out.rows.push({ ...r, issue: norm.issue, scope: norm.scope });
+    out.source = sourceLabel;
+  };
+
+  // 1. 追跡 SSOT
+  const urlsDir = join(base, "ssot", "urls");
+  if (existsSync(urlsDir)) {
+    const files = readdirSync(urlsDir).filter((f) => f.endsWith(".json"));
+    for (const f of files) {
+      const norm = readJson(join(urlsDir, f));
+      if (norm && Array.isArray(norm.rows)) collect(norm, "ssot");
     }
+    if (out.rows.length || files.length) {
+      // SSOT のユニットは run が混在しうる（部分取得のとき）。最新 runId を代表値にする。
+      out.runId = out.byIssueScope.map((u) => u.runId).filter(Boolean).sort().at(-1) ?? null;
+      out.runDir = urlsDir;
+      return out;
+    }
+  }
+
+  // 2. 旧経路（run ローカル normalized）
+  const runs = readdirSync(base)
+    .filter((f) => existsSync(join(base, f, "manifest.json")))
+    .sort();
+  if (!runs.length) return out;
+  const runDir = join(base, runs[runs.length - 1]);
+  const normDir = join(runDir, "normalized");
+  out.runDir = runDir;
+  out.runId = runs[runs.length - 1];
+  if (!existsSync(normDir)) return out;
+  for (const f of readdirSync(normDir).filter((f) => f.endsWith(".json") && !f.endsWith(".rejects.json"))) {
+    const norm = readJson(join(normDir, f));
+    if (norm) collect(norm, "run-normalized");
   }
   return out;
 }
@@ -522,6 +557,8 @@ async function main() {
     sources: {
       gscUiRun: gscUi.runId || null,
       gscUiRows: gscUi.rows.length,
+      // どこから読んだか: "ssot"（追跡・常に再現可）/ "run-normalized"（そのマシンの run のみ）/ "none"
+      gscUiSource: gscUi.source,
       inspection: inspection.file,
       gscPage: gscPage.file,
       ga4Page: ga4Page.file,
@@ -577,6 +614,7 @@ function renderMarkdown(meta, rows, top, counts, prevCounts) {
   L.push(`- URL universe: **${meta.universe}** 件（GSC UI ${meta.sources.gscUiRows} 行 ∪ URL Inspection）`);
   L.push(`- sitemap: live=${meta.sources.sitemapLive}（source: ${meta.liveSource}）/ local=${meta.sources.sitemapLocal} / _redirects=${meta.sources.redirects}`);
   L.push(`- 入力: inspection=\`${short(meta.sources.inspection)}\` gsc-page=\`${short(meta.sources.gscPage)}\` ga4-page=\`${short(meta.sources.ga4Page)}\``);
+  L.push(`- GSC UI データ源: \`${meta.sources.gscUiSource ?? "none"}\`（ssot=追跡SSOT・どのマシン/worktree でも再現／run-normalized=このマシンの run のみ）`);
   L.push("");
 
   if (meta.gscUiByIssueScope?.length) {

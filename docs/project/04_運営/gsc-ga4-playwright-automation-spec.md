@@ -356,9 +356,74 @@ allowed-tools: Read, Glob, Grep, Bash, Task
   "ga4-ui:fetch": "node scripts/fetch-ga4-ui-csv.mjs",
   "google-console:normalize": "node scripts/normalize-google-console-csv.mjs",
   "search-growth:report": "node scripts/report-search-growth.mjs",
-  "search-growth:audit": "npm run gsc-ui:fetch && npm run google-console:normalize && npm run search-growth:report"
+  "search-growth:audit": "npm run gsc-ui:fetch; npm run google-console:normalize && npm run search-growth:report && npm run check-google-ui-ssot",
+  "check-gsc-ui-due": "node scripts/check-gsc-ui-due.mjs",
+  "check-google-ui-ssot": "node scripts/check-google-ui-ssot.mjs",
+  "ga4-admin:check": "node scripts/ga4-admin-setup.mjs",
+  "ga4-admin:apply": "node scripts/ga4-admin-setup.mjs --commit",
+  "check-ga4-dimensions": "node scripts/check-ga4-custom-dimensions.mjs"
 }
 ```
+
+> [!warning] `search-growth:audit` の連鎖（2026-07-30 修正）
+> 修正前は `gsc-ui:fetch && google-console:normalize && search-growth:report` で、**中間の normalize が
+> 引数なし**のため `resolveRunDir` が null → 「run ディレクトリが見つかりません」で毎回 exit 2 になり、
+> report まで一度も到達していなかった。現在は (1) normalize の既定を最新 run に変更、
+> (2) 取得が**部分成功**（exit 2）でも取れた分は正規化するため `;` で繋ぎ、
+> (3) 末尾に SSOT 整合ゲートを置いて「取得したつもり」で終われないようにしている。
+> normalize 自体は downloaded 0 件なら exit 1 で止まる（検査ゼロを PASS にしない）。
+
+## 10.1 完全性と SSOT（2026-07-30 追加）
+
+取得の成否は「例外が飛ばなかったか」ではなく**ユニットの完全性**で決める。実装は
+`scripts/lib/google-console-units.mjs` に集約（`judgeRun` / `buildMarker` / `exitCodeFor`）。
+
+| 概念 | 意味 |
+|---|---|
+| `okUnits` | `downloaded`（dry-run は `dry-ok`） |
+| `zeroUnits` | `row-not-found`＝そのスコープに当該理由のページが **0 件（正常なゼロ）** |
+| `failedUnits` | それ以外の非取得（`scope-switch-failed` / `ambiguous-row` / `export-button-ambiguous` / `empty-download` 等） |
+| `suspiciousScopes` | ある面で `okUnits === 0` かつ `zeroUnits > 0`＝UI 変更で理由行を取り違えている疑い |
+| status | `ok`（失敗ゼロかつ取得あり）/ `partial` / `empty` / `error` / `no-units` / 致命状態 |
+
+マーカー（`{gsc-ui,ga4-ui}/last-run.json`・schemaVersion 3）は **`lastAttempt`（毎回更新）と
+`lastComplete`（完全な run のみ更新）を分けて持つ**。失敗 run が直前の成功記録を消さないため。
+`legacy` には旧スキーマの記録を畳み込んで残す。
+
+CSV から得た情報は **追跡 SSOT** として commit する（raw CSV は再取得しかできないため）:
+
+```
+.claude/state/metrics/gsc-ui/
+  last-run.json          # 追跡（マーカー）
+  ssot/
+    urls/<issue>--<scope>.json   # 追跡: 最新の正規化 URL 一覧（lean 射影・raw 列は落とす）
+    history.json                 # 追跡: run 別のユニット件数履歴
+    diff/<runId>.json            # 追跡: 直前 SSOT との URL 増減
+  <runId>/               # gitignore（raw CSV / ZIP / manifest / normalized）
+```
+
+`.gitignore` は `.claude/state/metrics/{gsc-ui,ga4-ui}/*/` を無視しつつ `!.../ssot/` で例外化する。
+`report-search-growth.mjs` は **SSOT を優先**して読み（`gscUiSource: "ssot"`）、無ければ run ローカルへ
+フォールバックする。整合は `scripts/check-google-ui-ssot.mjs` が検査する。
+
+## 10.2 GA4 管理画面 設定の自動化（2026-07-30 追加）
+
+`fetch-ga4-cta-clicks -- --by-label` / `--by-placement` は GA4 の**イベントスコープ カスタム
+ディメンション**（`event_label` / `cta_placement`）が未登録だと Data API が失敗する。実装側は
+登録手順を出して exit 0、CI 側も `continue-on-error: true` のため、**未登録のあいだ CI は緑のまま
+プログラム別 EPC と配置別 CTR だけが永久に欠測**していた。
+
+| 要素 | 実体 |
+|---|---|
+| 期待値（SSOT） | `.claude/config/ga4-admin-desired-state.json`（customDimensions / dataRetention / unwantedReferrals） |
+| 観測＋作成 | `scripts/ga4-admin-setup.mjs`（Playwright・**既定 dry-run**・`--commit` で作成） |
+| 観測結果（追跡） | `.claude/state/metrics/ga4-admin/inventory-latest.json` ＋ `history.json` |
+| ドリフト ゲート | `scripts/check-ga4-custom-dimensions.mjs`（blocking な未登録は exit 1・オフライン） |
+
+安全弁: **作成のみ**（編集・アーカイブ・削除はしない）／property を URL と画面の両方で assert／
+候補が一意でないステップは推測クリックせず debug dump して停止／作成後に一覧を読み直して
+「実際に増えたか」を確認する（自己申告で成功としない）／`dataRetention` と `unwantedReferrals` は
+**観測して差分を報告するだけ**（アカウント設定の自動変更はしない）。
 
 ## 11. テスト
 
@@ -391,6 +456,12 @@ allowed-tools: Read, Glob, Grep, Bash, Task
 - 収集失敗時にdebug artifactが残る。
 - 認証情報がgit diff、ログ、生成JSONに含まれない。
 - `npm run type-check`、`npm run lint`、`npm test`が通る。
+
+- **部分成功が `ok` として記録されない**（`zeroUnits` と `failedUnits` が分離されている）。
+- **失敗 run が `lastComplete` を上書きしない**。
+- **不完全な取得・正規化が exit 0 を返さない**。
+- **正規化結果が `ssot/` として commit され、run ディレクトリが無いマシンでもレポートが再現する**。
+- **GA4 の blocking カスタムディメンションの登録状態が `check-ga4-dimensions` で赤/緑になる**。
 
 # Claude Codeへ渡す実装プロンプト
 

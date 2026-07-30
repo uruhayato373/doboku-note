@@ -34,6 +34,7 @@ import {
   makeRunId,
 } from "./lib/google-console-browser.mjs";
 import { parseCsv } from "./lib/google-console-csv.mjs";
+import { judgeRun, formatRunSummary, exitCodeFor, buildMarker } from "./lib/google-console-units.mjs";
 
 const STATE_DIR = ".claude/state/metrics/ga4-ui";
 
@@ -126,8 +127,12 @@ async function main() {
         message: e.message,
       });
       console.error(`GA4 property 不一致で停止: ${e.message}`);
-      manifest.status = "property-mismatch";
+      const judged = judgeRun({ units: manifest.units, fatalStatus: "property-mismatch" });
+      manifest.status = judged.status;
+      manifest.completeness = judged;
       finalize(manifest, runDir);
+      if (!opts.dryRun) writeLastRunMarker(manifest, judged);
+      console.error(formatRunSummary(judged, "中断"));
       process.exit(5);
     }
 
@@ -138,19 +143,54 @@ async function main() {
       await page.goto(reportsHome(cfg), { waitUntil: "domcontentloaded", timeout: cfg.browser.timeoutMs }).catch(() => {});
       await page.waitForTimeout(2000);
     }
-    manifest.status = "ok";
+    manifest.loopCompleted = true;
   } catch (e) {
     await dumpFailure(page, cfg, runId, { step: "unexpected", message: e?.message || String(e) });
-    manifest.status = "error";
+    manifest.fatalStatus = "error";
     manifest.error = String(e?.message || e).slice(0, 300);
   } finally {
     await ctx.close();
   }
 
+  // GSC 側と同じ完全性判定を通す（旧実装は例外が無ければ無条件 "ok"・マーカーも書いていなかった）。
+  // GA4 の UI レポートに「正常なゼロ」は無い＝非 downloaded はすべて失敗として扱われる。
+  const judged = judgeRun({ units: manifest.units, fatalStatus: manifest.fatalStatus });
+  manifest.status = judged.status;
+  manifest.completeness = judged;
   finalize(manifest, runDir);
-  const okUnits = manifest.units.filter((u) => u.status === "downloaded").length;
-  console.log(`\n完了: status=${manifest.status} / download 成功 ${okUnits}/${manifest.units.length}`);
+  if (!opts.dryRun) writeLastRunMarker(manifest, judged);
+  console.log(`\n${formatRunSummary(judged, "完了")}`);
+  for (const f of judged.failedDetail) console.log(`  [failed] ${f.unit} status=${f.status} ${f.error ?? ""}`);
   console.log(`manifest: ${join(runDir, "manifest.json")}`);
+  process.exit(exitCodeFor(judged));
+}
+
+/**
+ * 取得マーカー（committed・URL データは含めない）。旧実装はこれを書いていなかったため
+ * 「GA4 UI 経路が一度も走っていない」ことすら surface されなかった（2026-07-30 追加）。
+ */
+function writeLastRunMarker(manifest, judged) {
+  const path = join(STATE_DIR, "last-run.json");
+  let prev = null;
+  try {
+    prev = JSON.parse(readFileSync(path, "utf-8"));
+  } catch {
+    prev = null;
+  }
+  const marker = buildMarker({
+    prev,
+    channel: "ga4-ui",
+    runId: manifest.runId,
+    collectedAt: manifest.collectedAt,
+    judged,
+    extra: { propertyId: manifest.propertyId, window: manifest.window, apiPreferred: true },
+    note: "GA4 UI CSV 取得の実行マーカー。一次経路は Data API（fetch-ga4-data）で、UI は照合用バックアップ。lastAttempt=最後の実行 / lastComplete=最後に完全だった実行。check-gsc-ui-due が参照。",
+  });
+  try {
+    writeFileSync(path, JSON.stringify(marker, null, 2), "utf-8");
+  } catch {
+    /* マーカー書込失敗は取得本体を妨げない */
+  }
 }
 
 async function processReport(page, cfg, runId, runDir, { key, labels, dryRun, window }) {

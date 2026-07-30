@@ -12,15 +12,24 @@
  *   node scripts/normalize-google-console-csv.mjs --file path/to.csv --issue crawledNotIndexed --scope allSubmittedPages --ui-total 346
  *
  * 出力（raw CSV・manifest は上書きしない）:
- *   <runDir>/normalized/<issueKey>--<scope>.json
+ *   <runDir>/normalized/<issueKey>--<scope>.json          （run ローカル・gitignore）
  *   <runDir>/normalized/<issueKey>--<scope>.rejects.json   （reject があるときのみ）
+ *   .claude/state/metrics/gsc-ui/ssot/urls/<issueKey>--<scope>.json  （**追跡 SSOT**）
+ *   .claude/state/metrics/gsc-ui/ssot/history.json                    （**追跡** run 別件数履歴）
+ *   .claude/state/metrics/gsc-ui/ssot/diff/<runId>.json               （**追跡** URL 増減）
+ *
+ * SSOT を書く理由: raw CSV は再取得しかできない（再生成不可）のに run ディレクトリは gitignore で、
+ * worktree を捨てると URL レベルの情報が消えていた（2026-07-23 の 1,952 行が実際に消失）。
+ * 詳細 → scripts/lib/google-console-ssot.mjs
  */
 import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from "node:fs";
 import { join, basename, isAbsolute } from "node:path";
 import { loadConfig } from "./lib/google-console-browser.mjs";
 import { normalizePageIndexingCsv } from "./lib/google-console-csv.mjs";
+import { writeUnitSsot, writeRunDiff, appendHistory, ssotDir } from "./lib/google-console-ssot.mjs";
 
 const STATE_DIR = ".claude/state/metrics/gsc-ui";
+const CHANNEL = "gsc-ui";
 
 function parseArgs() {
   const a = process.argv.slice(2);
@@ -36,16 +45,22 @@ function parseArgs() {
   return o;
 }
 
+/**
+ * run ディレクトリを決める。**--run も --file も無ければ --latest とみなす**。
+ *
+ * なぜ既定を latest にしたか（2026-07-30）: `npm run search-growth:audit` は
+ * `gsc-ui:fetch && google-console:normalize && search-growth:report` という連鎖だが、
+ * 途中の normalize は **引数なしで呼ばれていたため常に「run ディレクトリが見つかりません」で
+ * exit 2** し、report まで到達できなかった（＝合成コマンドが一度も通っていなかった）。
+ * 取得直後に正規化したいのが唯一の意図なので、既定を最新 run にする。
+ */
 function resolveRunDir(o) {
   if (o.run) return isAbsolute(o.run) || o.run.includes("/") ? o.run : join(STATE_DIR, o.run);
-  if (o.latest) {
-    if (!existsSync(STATE_DIR)) return null;
-    const runs = readdirSync(STATE_DIR)
-      .filter((f) => existsSync(join(STATE_DIR, f, "manifest.json")))
-      .sort();
-    return runs.length ? join(STATE_DIR, runs[runs.length - 1]) : null;
-  }
-  return null;
+  if (!existsSync(STATE_DIR)) return null;
+  const runs = readdirSync(STATE_DIR)
+    .filter((f) => existsSync(join(STATE_DIR, f, "manifest.json")))
+    .sort();
+  return runs.length ? join(STATE_DIR, runs[runs.length - 1]) : null;
 }
 
 function normalizeOne(csvText, meta, outDir, cfg) {
@@ -98,26 +113,76 @@ function main() {
   const outDir = join(runDir, "normalized");
   console.log(`正規化: ${runDir}（run ${manifest.runId}）`);
 
-  const units = (manifest.units || []).filter((u) => u.rawFile && u.status === "downloaded");
+  const allUnits = manifest.units || [];
+  const units = allUnits.filter((u) => u.rawFile && u.status === "downloaded");
+  // §9: 「対象 0 件で何もしなかった」を成功として返さない。manifest はあるのに downloaded が
+  // 1 件も無い＝取得が全滅している run なので、正規化は不成立として exit 1 にする。
   if (!units.length) {
-    console.warn("正規化対象（downloaded な rawFile 付きユニット）がありません。");
-    return;
+    console.error(
+      `[normalize] ✗ 正規化不成立: manifest のユニット ${allUnits.length} 件中、downloaded は 0 件` +
+        `（run=${manifest.runId} status=${manifest.status ?? "?"}）。先に取得をやり直してください。`,
+    );
+    process.exit(1);
   }
+
+  let skipped = 0;
+  const ssotResults = [];
   for (const u of units) {
     const csvPath = join(runDir, u.rawFile);
     if (!existsSync(csvPath)) {
       console.warn(`  [skip] raw CSV 不在: ${u.rawFile}`);
+      skipped += 1;
       continue;
     }
     // manifest のユニットは issueKey を持つ（normalizeOne は meta.issue を使う）ため写像する。
-    normalizeOne(
+    const issue = u.issue ?? u.issueKey;
+    const norm = normalizeOne(
       readFileSync(csvPath, "utf-8"),
-      { ...u, issue: u.issue ?? u.issueKey, runId: manifest.runId, property: manifest.property },
+      { ...u, issue, runId: manifest.runId, property: manifest.property },
       outDir,
       cfg,
     );
+    // 追跡 SSOT へ反映（run ディレクトリが消えても URL 情報が残る）
+    const res = writeUnitSsot(CHANNEL, {
+      issue,
+      scope: u.scope,
+      norm,
+      collectedAt: manifest.collectedAt,
+    });
+    ssotResults.push(res);
+    console.log(
+      `    → ssot/urls/${res.key}.json (rows=${res.rows}` +
+        `${res.previousRows != null ? ` / 前回 ${res.previousRows}・+${res.added.length}/-${res.removed.length}` : " / 初回"})`,
+    );
   }
-  console.log(`\n完了: ${units.length} ユニットを ${outDir} へ正規化しました（raw/manifest は不変）。`);
+
+  const normalized = ssotResults.length;
+  if (normalized === 0) {
+    console.error(`[normalize] ✗ 正規化不成立: downloaded ${units.length} 件すべてで raw CSV が不在（skip ${skipped}）。`);
+    process.exit(1);
+  }
+
+  writeRunDiff(CHANNEL, { runId: manifest.runId, collectedAt: manifest.collectedAt, units: ssotResults });
+  appendHistory(CHANNEL, {
+    runId: manifest.runId,
+    collectedAt: manifest.collectedAt,
+    property: manifest.property,
+    status: manifest.status ?? null,
+    complete: manifest.completeness?.complete ?? null,
+    manifestUnits: allUnits.length,
+    downloadedUnits: units.length,
+    normalizedUnits: normalized,
+    skippedUnits: skipped,
+    totalRows: ssotResults.reduce((n, r) => n + r.rows, 0),
+    units: ssotResults.map((r) => ({ unit: r.key, rows: r.rows, added: r.added.length, removed: r.removed.length })),
+  });
+
+  console.log(
+    `\n完了: manifest ${allUnits.length} ユニット中 downloaded ${units.length} → 正規化 ${normalized}・skip ${skipped}` +
+      `（合計 ${ssotResults.reduce((n, r) => n + r.rows, 0)} 行）。SSOT: ${ssotDir(CHANNEL)}（raw/manifest は不変）`,
+  );
+  // 一部でも skip があれば不完全として非 0（呼出側の && 連鎖を止める）
+  process.exit(skipped > 0 ? 2 : 0);
 }
 
 main();

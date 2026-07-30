@@ -8,6 +8,77 @@ title: 計測・検証事故の記録
 
 個別事例は時系列の逆順（新しい順）で追記する。各事例は「現象 / 根本原因 / 気づきの遅延理由（or 検出経緯）/ 適用した対策 / 教訓」を明記する。
 
+## 2026-07-30: GSC/GA4 UI 取得の「偽緑」— 失敗した run が月次サイクルを満たしたと記録されていた（恒久ルール）
+
+### 現象
+
+`check-gsc-ui-due` が「OK: 前回 2026-07-23（2日前）」と緑を返していた。実際のマーカーは
+`downloadedUnits 7 / totalUnits 10` で **3 ユニット分が取れていない**のに `status: "ok"` と記録されていた。
+さらに GA4 UI 経路（`ga4-ui:fetch`）は **一度も走っていない**のに、それを surface する仕組みが無かった
+（`.claude/state/metrics/ga4-ui/` が存在しないだけ＝誰も気づけない）。
+
+同時に判明した実害:
+
+- **`search-growth:audit` が一度も通っていなかった**。`gsc-ui:fetch && google-console:normalize && search-growth:report`
+  の連鎖で、中間の normalize が **引数なし**で呼ばれており `resolveRunDir` が null → 「run ディレクトリが
+  見つかりません」で毎回 exit 2 → report まで到達しない。個別実行でしか回っていなかった。
+- **CSV から得た URL 情報が消えた**。`.claude/state/metrics/gsc-ui/*/` は gitignore で、raw CSV は
+  **再取得しかできない**（再生成不可）。2026-07-23 の 1,952 行は worktree 消滅と同時に失われ、
+  `report-search-growth` はその run の normalized/ しか読まないため別マシンで診断が再現しなくなった。
+- **Playwright プロファイルが実質 Mac 専用だった**。`google-console-browser.mjs` の `PROFILE_ROOT` が
+  Mac 絶対パスのハードコードで、Windows では `process.cwd()` にフォールバック → worktree から実行すると
+  プロファイルが worktree 内に作られ、worktree を捨てると同時にログインが消える。
+- **GA4 カスタムディメンション未登録が永久に緑**。`fetch-ga4-cta-clicks -- --by-label` / `--by-placement` は
+  `customEvent:event_label` / `cta_placement` が未登録だと登録手順を出して **exit 0**、CI 側も
+  `continue-on-error: true`。プログラム別 EPC と配置別 CTR が欠測し続けても赤くならない。
+
+### 根本原因
+
+1. `manifest.status = "ok"` を **例外が飛ばなかったこと**の同義として立てていた（ユニットの成否と無関係）。
+2. マーカー書き込みが status に関わらず実行され、**単一の run 情報しか持たなかった**ため、失敗 run が
+   直前の成功記録を上書きして消した（実際 not-signed-in の run が 07-23 の記録を消した）。
+3. due 判定が `collectedAt` の経過日数のみ。完全性を見ていなかった。
+4. `row-not-found`（正常なゼロ）と取得失敗が同じ「downloaded でない」として一括されていたため、
+   「7/10」が異常なのか正常なのか誰も判断できなかった。
+
+### 恒久ルール
+
+1. **失敗は月次サイクルの時計をリセットしない**。マーカーは `lastAttempt`（毎回更新・失敗も記録）と
+   `lastComplete`（完全な run のみ更新）を分けて持つ（schemaVersion 3）。年齢は `lastComplete` で測る。
+2. **正常なゼロと失敗を分けて数える**。`row-not-found` は `zeroUnits`、それ以外の非取得は `failedUnits`。
+   失敗が 1 件でもあれば `partial`。ある面で取得成功が 0 件なら UI 変更の疑いとして `suspiciousScopes`。
+3. **不完全なら exit 0 にしない**。取得・正規化ともに非 0 を返し、合成コマンドの連鎖をそこで止める。
+4. **「再取得しかできないデータ」から得た情報は commit する**。raw は gitignore のままでよいが、
+   正規化結果は `ssot/urls/` ＋ `ssot/history.json` ＋ `ssot/diff/` として追跡する。
+5. **プロファイルパスにユーザー名をハードコードしない**。`~/doboku-note` で解決する（Mac/Windows 共通）。
+6. **「設定が無いのでスキップ」を緑にしない**。設定の期待値を config に置き、実機観測と突合するゲートを持つ。
+
+### 適用した対策
+
+| 対策 | 実体 |
+|---|---|
+| 完全性判定の単一実装 | `scripts/lib/google-console-units.mjs`（`judgeRun` / `buildMarker` / `exitCodeFor`） |
+| 取得の status を完全性で決定 | `fetch-gsc-ui-csv.mjs` / `fetch-ga4-ui-csv.mjs`（`bail()` で中断時もマーカーを complete:false で記録） |
+| due 判定に完全性を導入 | `check-gsc-ui-due.mjs`（gsc-ui 必須 / ga4-ui 任意の 2 チャネル） |
+| CSV 情報の追跡 SSOT | `scripts/lib/google-console-ssot.mjs` ＋ `normalize-google-console-csv.mjs` ＋ `.gitignore` の `!.../ssot/` 例外 |
+| SSOT 整合ゲート | `scripts/check-google-ui-ssot.mjs`（検査ゼロ・runId 不整合・不完全 run を FAIL） |
+| レポートの再現性 | `report-search-growth.mjs` が SSOT を優先読込（`gscUiSource` を md に明記） |
+| プロファイル解決 | `google-console-browser.mjs` の `PROFILE_ROOT_CANDIDATES`（env → `~/doboku-note` → 旧 Mac パス） |
+| GA4 設定の desired state | `.claude/config/ga4-admin-desired-state.json` ＋ `scripts/ga4-admin-setup.mjs`（dry-run 既定・`--commit` gate） |
+| GA4 設定のドリフト検知 | `scripts/check-ga4-custom-dimensions.mjs`（blocking 未登録は exit 1） |
+| 合成コマンドの修復 | `normalize` の既定を最新 run に／`search-growth:audit` を部分成功許容＋末尾に SSOT ゲート |
+
+### 教訓
+
+「異常 0 件」と「1 件も検査していない」に加えて、**「一部しか取れていない」も同じ緑になる**。
+検査系の出力には必ず「検査対象数・成功数・正常なゼロ・失敗数」の 4 つを出す。1 つの数字（7/10）は
+それが異常かどうかを判断できないので、緑にも赤にもできない＝結局読み飛ばされる。
+
+### 関連
+
+- [gsc-management.md](gsc-management.md)「cadence」の不変条件 4 項
+- `docs/project/04_運営/gsc-ga4-playwright-automation-spec.md`（実装指示書）
+- CLAUDE.md §9「検査ゼロを PASS と呼ばない」
 ## 2026-07-27: 「検証できない理由」の誤り — エラー文を原因として引用しない（恒久ルール）
 
 ### 現象

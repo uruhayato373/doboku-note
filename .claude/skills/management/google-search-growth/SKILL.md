@@ -52,6 +52,8 @@ GSC/GA4 を横断して「どの URL が・なぜ検索に効いていないか�
    - `git branch --show-current` と `git status`（並行セッションの巻き込み防止・自分の変更のみ commit）
    - `.claude/config/google-console-automation.json` の property を確認
    - `.claude/state/metrics/{gsc,ga4,url-inspection}/` の最新スナップショット日付を確認
+   - `npm run check-gsc-ui-due` で **前回が完全だったか**を確認（`lastAttempt.complete !== true` なら再取得が必要）
+   - `npm run check-ga4-dimensions` で GA4 設定ドリフトを確認（blocking な未登録があれば手順 7 へ）
    - `analyze-only` なら 2〜4 を飛ばして 5 へ
 
 2. **collect**（`gsc-browser-collector` を起動）
@@ -61,6 +63,8 @@ GSC/GA4 を横断して「どの URL が・なぜ検索に効いていないか�
    - **UI 変更で dry-run が失敗したら** `.local/playwright-google-debug/<run>/` を根拠に selector を
      更新（推測クリック禁止）。ダウンロードや外部状態変更はまだしない
    - dry-run OK なら本取得: `npm run gsc-ui:fetch -- --issues <keys>`（両スコープ）
+   - **exit code を見る**: 0=完全 / 2=不完全（部分成功・全ゼロ）/ 3=未ログイン / 5=property 不一致 / 6=レポート到達不能。
+     2 のときは `zeroUnits`（正常なゼロ）と `failedUnits`（実失敗）を出力で区別する。`suspiciousScopes` が出たら UI 変更を疑う
    - GA4 は API 優先。UI CSV が要るときのみ `npm run ga4-ui:fetch`
 
 3. **validate**（`gsc-csv-auditor` を起動）
@@ -68,7 +72,10 @@ GSC/GA4 を横断して「どの URL が・なぜ検索に効いていないか�
    - FAIL（sha256 不一致・全 download 失敗等）なら再取得を促し、join へ進めない
 
 4. **normalize**（決定的スクリプト）
-   - `npm run google-console:normalize -- --latest`（raw/manifest は不変・共通 JSON を run 配下に生成）
+   - `npm run google-console:normalize`（既定で最新 run。raw/manifest は不変）
+   - run 配下の共通 JSON に加えて **追跡 SSOT** を更新する: `gsc-ui/ssot/urls/*.json`・`ssot/history.json`・`ssot/diff/<runId>.json`
+   - downloaded が 0 件なら exit 1（正規化不成立）。取得をやり直す
+   - `npm run check-google-ui-ssot` で marker ↔ history ↔ urls の整合を確認
 
 5. **join**（決定的スクリプト）
    - `npm run search-growth:report`（GSC UI 正規化 ∪ URL Inspection を universe に、sitemap/_redirects/

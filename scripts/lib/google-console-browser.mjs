@@ -19,10 +19,22 @@ import {
   existsSync,
 } from "node:fs";
 import { join } from "node:path";
+import { homedir } from "node:os";
 import { createHash } from "node:crypto";
 
-// auth-profiles.md 準拠: プロファイルは本体チェックアウト固定（worktree 分裂でも共有）。
-const PROFILE_ROOT = "/Users/minamidaisuke/doboku-note";
+// playwright-auth-profiles.md 準拠: プロファイルは本体チェックアウト固定（worktree 分裂でも共有）。
+//
+// 2026-07-30 修正: 旧実装は Mac の絶対パス（/Users/<name>/doboku-note）をハードコードしており、
+// Windows では存在しないため `process.cwd()` にフォールバックしていた。その結果 worktree から
+// 実行すると **プロファイルが worktree 内に作られ、worktree を捨てると同時にログインが消える**
+// （実際このマシンには .local/playwright-google-profile が存在せず、GSC UI 取得は Mac 専用に
+// なっていた）。`~/doboku-note` は Mac も Windows も本体チェックアウトを指すので、
+// ユーザー名をハードコードせずに両機で同じ場所へ解決できる。
+const PROFILE_ROOT_CANDIDATES = [
+  process.env.DOBOKU_PROFILE_ROOT || null,
+  join(homedir(), "doboku-note"),
+  "/Users/minamidaisuke/doboku-note", // 旧実装の互換（チェックアウトが ~ 直下でない場合）
+].filter(Boolean);
 export const CONFIG_PATH = ".claude/config/google-console-automation.json";
 
 export function loadConfig() {
@@ -30,9 +42,28 @@ export function loadConfig() {
   return JSON.parse(raw);
 }
 
+/**
+ * 永続プロファイルの置き場。**本体チェックアウト固定**（worktree から実行しても同じログインを共有）。
+ * 解決できる候補が 1 つも無ければ cwd にフォールバックする（従来挙動）。
+ */
 export function profileDir(cfg) {
-  const base = existsSync(PROFILE_ROOT) ? PROFILE_ROOT : process.cwd();
+  const base = PROFILE_ROOT_CANDIDATES.find((p) => existsSync(p)) ?? process.cwd();
   return join(base, cfg.browser.profileDir);
+}
+
+/**
+ * プロファイルが**初期化済み**か（＝一度でも Chrome が起動してディレクトリを作ったか）。
+ *
+ * **これは「Google にログイン済み」を意味しない。** Cookies DB はログインしていなくても作られる
+ * （実際 2026-07-30 の not-signed-in run がこのディレクトリを作った）。ログイン有無を確定できるのは
+ * 実際にページを開いて `isSignedInToGsc` で見たときだけなので、この関数は
+ * 「プロファイルが未作成＝確実に要ログイン」の**早期案内**にしか使わない。
+ * 真偽を反転して「true ならログイン済み」と読むのは誤り。
+ */
+export function profileInitialized(cfg) {
+  const dir = profileDir(cfg);
+  if (!existsSync(dir)) return false;
+  return existsSync(join(dir, "Default", "Cookies")) || existsSync(join(dir, "Default", "Network", "Cookies"));
 }
 
 export function debugRoot(cfg) {

@@ -101,9 +101,15 @@ public/posts
 .local/playwright-afb-debug/
 .local/playwright-afb-state.json
 
-# GSC UI 生取得データ（run 単位・URL 一覧/ZIP を含む・regenerable）はコミットしない。
-# 直下の last-run.json（取得日マーカー・URL 非含有）だけは due-surfacer 用に追跡する。
+# GSC/GA4 UI の **生取得データ**（run 単位の raw CSV / ZIP / manifest）はコミットしない。
+# ただし raw CSV は「再取得しかできない＝再生成不可能」なので、そこから得た情報は
+# ssot/ 配下（urls/ + history.json + diff/）を **追跡 SSOT** として commit する
+# （2026-07-23 の run が worktree ごと消えて 1,952 行の URL 情報が失われた再発防止）。
+# 真実源 → scripts/lib/google-console-ssot.mjs
 .claude/state/metrics/gsc-ui/*/
+!.claude/state/metrics/gsc-ui/ssot/
+.claude/state/metrics/ga4-ui/*/
+!.claude/state/metrics/ga4-ui/ssot/
 # A8 レポート生取得データ（run 単位・raw CSV）。正規化後の a8-report-log.json / a8-results.json が
 # 追跡対象の SSOT で、raw は再取得可能。直下の last-run.json は取得マーカーとして追跡する。
 .claude/state/metrics/affiliate/a8-ui/*/

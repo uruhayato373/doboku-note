@@ -57,7 +57,11 @@ description: >
   ※Playwright + ログイン済みプロファイル必須＝ローカル実行限定。クラウド週次では実行不可なのでサーフェスのみ
 - note 競合再スキャン期限: `npm run check-competitor-scan-due -- --json` を実行（四半期＝90日。creds不要・ローカルhistory参照）。
   `due:true` なら「次セッションで `/competitor-review`（scout→competitor-analyst→09反映）」をサーフェスのみ（実取得はしない）。
-- GSC UI 取得期限（月次）: `npm run check-gsc-ui-due -- --json` を実行（30日。committed `gsc-ui/last-run.json` 参照・creds不要）。
+- GSC/GA4 UI 取得期限（月次）: `npm run check-gsc-ui-due -- --json` を実行（30日。committed `{gsc-ui,ga4-ui}/last-run.json` 参照・creds不要）。
+  **日数だけでなく完全性も見る**＝`channels[].due` は「最後の完全取得から30日」または「直近実行が不完全（部分成功・未ログイン等）」で true。
+  `anyDue` が true なら理由（`reasons`）をそのまま列挙する。
+- GA4 管理画面 設定ドリフト: `npm run check-ga4-dimensions -- --json` を実行（オフライン。desired state ↔ 最後の実機観測の突合・creds不要）。
+  `blockingMissing` が非空なら、そのあいだ **プログラム別 EPC / 配置別 CTR が CI で黙って欠測している**ので必ず surface する。
   `due:true` なら「次セッションで `/google-search-growth`（GSC 理由別 UI CSV → API 突合 → 修正計画）」をサーフェスのみ。
   ※Playwright + Google ログイン必須＝ローカル実行限定。クラウド週次では実行不可なのでサーフェスのみ（真実源 `.claude/knowledge/reference/gsc-management.md`）
 - A8 成果取込期限（月次）: `npm run check-a8-report-due -- --json` を実行（30日。committed `affiliate/a8-ui/last-run.json` 参照・creds不要）。
@@ -77,7 +81,8 @@ description: >
 - 「note 再公開ドリフト（本文 N 本 / タグ N 本）」（`check-note-republish` が drift のときのみ）
 - 「note 構成監査 CRITICAL（境界破損 N 本）」（`check-note-structure` が CRITICAL のときのみ）
 - 「競合再スキャン DUE」（`check-competitor-scan-due` が due のときのみ）
-- 「GSC UI 取得 DUE（月次）」（`check-gsc-ui-due` が due のときのみ・→ 次セッションで `/google-search-growth`）
+- 「GSC/GA4 UI 取得 DUE（月次）」（`check-gsc-ui-due` の `anyDue` が true のときのみ・理由つき・→ 次セッションで `/google-search-growth`）
+- 「GA4 設定ドリフト」（`check-ga4-dimensions` が blockingMissing を返したときのみ・→ 次セッションで `npm run ga4-admin:apply`）
 - 「A8 成果取込 DUE（月次）」（`check-a8-report-due` が due のときのみ・→ 次セッションで `/a8-report`）
 - 「A8 集計の取りこぼし / 混入疑い」（`check-a8-report-due` の `issues[]` が空でないとき・due でなくても出す）
 - 「実験の再測定 DUE」（`check-experiments-due` が due のときのみ・→ 次セッションで `/nsm-experiment measure <id>`）
