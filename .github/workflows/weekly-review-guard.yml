@@ -31,6 +31,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+        with:
+          # check-weekly-review は「保持方針で削除された週」を git 履歴で判定するため全履歴が必要。
+          # shallow だと「無い」と「見えない」を区別できず誤って赤落ちする。
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
