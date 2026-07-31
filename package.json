@@ -185,6 +185,8 @@
     "check-note-republish": "node scripts/check-note-republish.mjs",
     "check-note-structure": "node scripts/check-note-structure.mjs",
     "check-note-boundary": "node scripts/check-note-boundary.mjs",
+    "wire-note-paid-cta": "node scripts/wire-note-paid-cta.mjs",
+    "check-note-paid-cta": "node scripts/wire-note-paid-cta.mjs --check",
     "check-note-price-consistency": "node scripts/check-note-price-consistency.mjs",
     "check-gate-coverage": "node scripts/check-gate-coverage.mjs",
     "check-note-live-tags": "node scripts/check-note-live-tags.mjs",

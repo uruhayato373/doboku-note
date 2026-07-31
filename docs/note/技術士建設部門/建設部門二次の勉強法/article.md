@@ -53,7 +53,7 @@ cover:
 
 どちらか一方では合格答案になりません。型がなければ知識が空回りし、ネタがなければ抽象論で終わります。独学ではこの二本柱を意識的に分けて積み上げるのが近道です。
 
-型の作り方は <https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide> で、ネタの全体像は <https://doboku-note.com/docs/pe-construction-required-exam-themes> で詳しく扱っています。
+型の作り方は [二次試験 論文の書き方](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary-study-method&utm_content=pe-secondary-essay-guide) で、ネタの全体像は [必須科目I 頻出テーマ](https://doboku-note.com/docs/pe-construction-required-exam-themes?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary-study-method&utm_content=required-exam-themes) で詳しく扱っています。
 
 ## 科目別の特性と対策の順序
 
@@ -87,7 +87,7 @@ II-1の専門知識を軸に、必須Iの型・II-2の手順・IIIの解決策�
 
 なお、建設部門の必須科目Iは「多面的な課題抽出→最重要課題の解決策→新たなリスクと対策→技術者倫理・社会の持続可能性」という4設問構成が繰り返されます。この型を体に入れておくと、年度が変わっても答案の骨格に迷いません。
 
-必須科目Iの年度別マクロテーマの整理は <https://doboku-note.com/docs/pe-construction-required-exam-themes> に、令和8年度のコンピテンシー改訂の影響は <https://doboku-note.com/docs/pe-construction-competency-revision-r8> にまとめています。
+必須科目Iの年度別マクロテーマの整理は [必須科目I 頻出テーマ](https://doboku-note.com/docs/pe-construction-required-exam-themes?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary-study-method&utm_content=required-exam-themes) に、令和8年度のコンピテンシー改訂の影響は [令和8年度のコンピテンシー改訂](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary-study-method&utm_content=competency-revision-r8) にまとめています。
 
 ## 過去問の使い方とキーワード整理
 

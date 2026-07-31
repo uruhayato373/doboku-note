@@ -83,9 +83,7 @@ cover:
 
 多面性とは知識の量ではなく、立場を行き来できる視野のことだと考えると腑に落ちるはずです。
 
-必須科目Iの答案構成そのものをもっと具体的に知りたい方は、サイト側の解説もあわせてどうぞ。
-
-<https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide>
+必須科目Iの答案構成そのものをもっと具体的に知りたい方は、[二次試験 論文の書き方](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-nanido&utm_content=pe-secondary-essay-guide)もあわせてどうぞ。
 
 ## 合格する人に共通する取り組み方
 
@@ -101,9 +99,7 @@ cover:
 - 論述の型を体に入れる：課題抽出→解決策→リスクと対策→倫理という流れを、白紙から再現できるまで書き込む。
 - 自分の経歴を具体例に変換する：業務経歴を答案の根拠として使えるよう棚卸ししておく。これは口頭試験でも問われます。
 
-頻出テーマと出題源をひととおり押さえたい方は、こちらの整理が役立ちます。
-
-<https://doboku-note.com/docs/pe-construction-required-exam-themes>
+頻出テーマと出題源をひととおり押さえたい方は、[必須科目I 頻出テーマ](https://doboku-note.com/docs/pe-construction-required-exam-themes?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-nanido&utm_content=required-exam-themes)の整理が役立ちます。
 
 加えて、令和8年度のコンピテンシー改訂にも注意が必要です。令和8年度からコンピテンシーが改訂され、データ・情報技術の活用、ステークホルダーとの合意形成、持続可能性、文化的価値の尊重などが明文化されました。
 

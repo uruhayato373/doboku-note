@@ -92,9 +92,9 @@ https://note.com/dobokunote/n/n7279ca0d926f
 - インフラメンテナンス第2フェーズ（令和4年12月提言）：中央自動車道笹子トンネル事故（2012年）を契機とする第1フェーズ（2012〜2021年）の成果を総括し、「群マネ」を中核とした新たな展開方向を示した提言書です。速やかに実行すべき5施策として、群マネの展開・市区町村の体制構築・新技術活用・DXによるデジタル国土管理・国民参加とパートナーシップへの進展が示されています。
 - 包括的民間委託：複数の施設・業務を一括して民間事業者に委託する手法です。技術系職員が不足する地方公共団体の維持管理体制を補完し、スケールメリットによるコスト縮減と専門性の確保を同時に実現します。群マネの展開において中核的な手法として位置づけられています。
 
-論文全体の構成や添削観点をひととおり確認したい場合は、サイトの[記述式論文の書き方ガイド](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide)もあわせてどうぞ。
+論文全体の構成や添削観点をひととおり確認したい場合は、サイトの[記述式論文の書き方ガイド](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-iji-keyword)もあわせてどうぞ。
 
-必須科目Iの6系統と年度別出題の整理は[こちら](https://doboku-note.com/docs/pe-construction-required-exam-themes)にまとめています。
+必須科目Iの6系統と年度別出題の整理は[こちら](https://doboku-note.com/docs/pe-construction-required-exam-themes?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-iji-keyword)にまとめています。
 
 ## 発注者視点で一段差をつける
 

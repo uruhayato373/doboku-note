@@ -1,6 +1,7 @@
 ---
 notePublishedAt: "2026-07-23"
 noteId: "n5d0292fa4f1f"
+utmCampaign: tankan-kijutsu-kakikata
 noteUrl: "https://note.com/dobokunote/n/n5d0292fa4f1f"
 notePricing: paid
 price: 500
@@ -48,6 +49,12 @@ https://note.com/dobokunote/m/m6e7de5e4ea3d
 
 ここで「視点の広さ」とは、5つの管理（経済性・人的資源・情報・安全・社会環境）を横断的に捉える力を指します。単に各管理を列挙するだけでは「広い視点」とは評価されません。
 
+---
+
+<!-- cta:tankan-mokuji -->
+総監のほかの無料記事・有料マガジンは「総監もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n3ed4c77ceed6
 
 ## ありがちな失敗 --- 「管理の羅列」
 
@@ -86,7 +93,7 @@ https://note.com/dobokunote/m/m6e7de5e4ea3d
 
 5管理で分析すると、必ず管理間の対立が見えてきます。たとえば、人的資源管理として高齢者の活用を推進すれば、安全管理上のリスクが増大します。経済性管理としてICT投資を行えば、情報管理上のセキュリティ課題が生じます。
 
-このトレードオフの特定が、合格答案と不合格答案を分ける最大のポイントです。管理間の10ペアそれぞれに典型的な対立パターンと解決フレームがあります。全パターンの整理は doboku-note の「[5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs)」を参照してください。
+このトレードオフの特定が、合格答案と不合格答案を分ける最大のポイントです。管理間の10ペアそれぞれに典型的な対立パターンと解決フレームがあります。全パターンの整理は doboku-note の「[5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=tankan-kijutsu-kakikata&utm_content=management-tradeoffs)」を参照してください。
 
 **第4層: 統合的な解決策を提示する**
 
@@ -94,7 +101,7 @@ https://note.com/dobokunote/m/m6e7de5e4ea3d
 
 この「ある管理間の対立を別の管理で解決する」構造こそが、総監の記述式が求める **統合的な視点** です。
 
-より詳しい解答工程の解説は、doboku-noteの「[記述式試験の解答戦略](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy)」で 5 ステップに分解して整理しています。
+より詳しい解答工程の解説は、doboku-noteの「[記述式試験の解答戦略](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy?utm_source=note&utm_medium=referral&utm_campaign=tankan-kijutsu-kakikata&utm_content=essay-exam-strategy)」で 5 ステップに分解して整理しています。
 
 ---
 
@@ -111,7 +118,7 @@ https://note.com/dobokunote/m/m6e7de5e4ea3d
 
 設問は、(1)自分の事業での少子高齢化への対応状況、(2)近い将来に想定される課題と施策2つ、(3)我が国として取るべき施策2つ、という構成です。
 
-この問題で合格水準の答案を構成するための思考プロセスを示します。問題全文と採点基準の詳細は doboku-note の「[令和7年度 記述式過去問](https://doboku-note.com/docs/pe-comprehensive-management-r07-secondary)」で確認できます。
+この問題で合格水準の答案を構成するための思考プロセスを示します。問題全文と採点基準の詳細は doboku-note の「[令和7年度 記述式過去問](https://doboku-note.com/docs/pe-comprehensive-management-r07-secondary?utm_source=note&utm_medium=referral&utm_campaign=tankan-kijutsu-kakikata&utm_content=r07-secondary)」で確認できます。
 
 ![「少子高齢化」× 5 管理 論点マッピング（R07 記述式テーマ）](./img/figure-2-management-mapping.png)
 
@@ -131,7 +138,7 @@ https://note.com/dobokunote/m/m6e7de5e4ea3d
 - 情報管理の視点: 暗黙知のデジタル化により技術情報の体系的な蓄積が可能になる一方、情報漏洩リスクも増大する
 - 人的資源管理の視点: ベテランの知識をシステムに移行することで、若手の学習効率が向上する一方、OJTの機会が減少し実践的な判断力の育成が遅れる懸念がある
 
-克服策: 情報管理上のセキュリティ対策（アクセス権限管理、暗号化）を前提としたうえで、システム学習とOJTのハイブリッド型育成プログラムを設計します。これにより、人的資源管理と情報管理のトレードオフを経済性管理の視点（投資対効果の最適化）から統合的に管理します。人的資源管理の論点（技術継承・多様な人材確保・高齢者活用の施策体系）の詳細は doboku-note の「[人的資源管理 ピラーページ](https://doboku-note.com/docs/pe-comprehensive-management-human-resource-management-pillar)」を参照してください。
+克服策: 情報管理上のセキュリティ対策（アクセス権限管理、暗号化）を前提としたうえで、システム学習とOJTのハイブリッド型育成プログラムを設計します。これにより、人的資源管理と情報管理のトレードオフを経済性管理の視点（投資対効果の最適化）から統合的に管理します。人的資源管理の論点（技術継承・多様な人材確保・高齢者活用の施策体系）の詳細は doboku-note の「[人的資源管理 ピラーページ](https://doboku-note.com/docs/pe-comprehensive-management-human-resource-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=tankan-kijutsu-kakikata&utm_content=human-resource-management-pillar)」を参照してください。
 
 このように、施策の「良い面」だけでなく「別の管理への負の影響」を書き、さらに「その対立をどう解消するか」まで踏み込むことが、合格答案の要件です。
 
@@ -148,7 +155,7 @@ https://note.com/dobokunote/m/m6e7de5e4ea3d
 
 総監の記述式は「書く力」の試験ではありません。「工程管理の力」の試験です。限られた時間の中で、分析・構成・確認・執筆の各工程を適切に管理できるかどうかが問われています。
 
-過去問の前文分析や骨子構成の詳細は、doboku-noteの「[記述式試験の解答戦略](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy)」にまとめています。平成30年度「働き方改革」の分析サンプルも掲載しているので、演習の参考にしてみてください。
+過去問の前文分析や骨子構成の詳細は、doboku-noteの「[記述式試験の解答戦略](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy?utm_source=note&utm_medium=referral&utm_campaign=tankan-kijutsu-kakikata&utm_content=essay-exam-strategy)」にまとめています。平成30年度「働き方改革」の分析サンプルも掲載しているので、演習の参考にしてみてください。
 
 ---
 
@@ -164,10 +171,3 @@ https://doboku-note.com/category/pe-comprehensive-management
 **さらに深掘りする note**
 - 総監記述式 論文骨子テンプレート｜テーマ駆動・5 管理横串フレームワーク（A-1）¥1,980 — 5 枚構成の章立て + 主要 5 テーマ × 5 管理マッピング集 + 定型フレーズ集
 - 総監の合否を分ける「トレードオフ思考」完全ガイド ¥1,200 — 5 管理 × 10 組み合わせのマトリクス（B-2 商品）
-
----
-
-<!-- cta:tankan-mokuji -->
-総監のほかの無料記事・有料マガジンは「総監もくじ」から一覧できます。
-
-https://note.com/dobokunote/n/n3ed4c77ceed6

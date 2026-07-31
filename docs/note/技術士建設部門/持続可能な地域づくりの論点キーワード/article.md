@@ -244,9 +244,9 @@ MaaSやAIオンデマンド交通の活用・自動運転の活用場面の拡�
 
 ---
 
-論文全体の構成や書き方の型をひととおり確認したい場合は、サイトの[記述式論文の書き方ガイド](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide)をあわせてどうぞ。
+論文全体の構成や書き方の型をひととおり確認したい場合は、サイトの[記述式論文の書き方ガイド](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-chiiki-keyword)をあわせてどうぞ。
 
-必須科目Iの6系統と年度別出題の整理は[こちら](https://doboku-note.com/docs/pe-construction-required-exam-themes)にまとめています。
+必須科目Iの6系統と年度別出題の整理は[こちら](https://doboku-note.com/docs/pe-construction-required-exam-themes?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-chiiki-keyword)にまとめています。
 
 ## 発注者視点で一段差をつける
 

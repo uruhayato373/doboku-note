@@ -105,11 +105,11 @@ cover:
 
 最後の**置換**が本番力に直結します。模範解答の論点をそのまま借りるのではなく、自分が説明できる事例・数値・制度に置き換えて初めて、口頭試験でも崩れない答案になります。
 
-出題テーマの全体像は[必須科目I 出題テーマ分析（R01〜R07）](https://doboku-note.com/docs/pe-construction-required-exam-themes)で先につかんでおくと、置換のネタ集めが効率化します。
+出題テーマの全体像は[必須科目I 出題テーマ分析（R01〜R07）](https://doboku-note.com/docs/pe-construction-required-exam-themes?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-hissu-kaitourei)で先につかんでおくと、置換のネタ集めが効率化します。
 
 過去問の問題文そのものは当サイトで令和元年度〜令和7年度まで無料公開しています。まず問題文で設問の問われ方を確認し、その上で完成答案を骨子層に分解する、という順序が効率的です。
 
-書き方そのものは[記述式答案の書き方ガイド](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide)で設問対応・論点の絞り込み・読みやすい文章の作法を体系化しています。
+書き方そのものは[記述式答案の書き方ガイド](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-hissu-kaitourei)で設問対応・論点の絞り込み・読みやすい文章の作法を体系化しています。
 
 ## さらに深く学ぶには
 

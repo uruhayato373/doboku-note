@@ -84,7 +84,7 @@ ICT施工や遠隔臨場は、その基盤の上で動く個別技術として�
 
 発注・データ仕様・検査制度の側から論じられると、受注者側の受験者が書きにくい角度になり、答案の差別化につながります。
 
-論文の全体像から押さえたい場合は、[記述式論文の書き方ガイド](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide?utm_source=note&utm_medium=inline&utm_campaign=pe-dx&utm_content=essay-guide)もあわせて読むと骨組みが固まります。
+論文の全体像から押さえたい場合は、[記述式論文の書き方ガイド](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide?utm_source=note&utm_medium=referral&utm_campaign=pe-dx&utm_content=essay-guide)もあわせて読むと骨組みが固まります。
 
 ## 必須科目Iの設問構成に落とし込む
 
@@ -101,9 +101,9 @@ ICT施工や遠隔臨場は、その基盤の上で動く個別技術として�
 
 令和8年度のコンピテンシー改訂では、データ活用・ステークホルダー合意・持続可能な成果・文化的価値の尊重が明文化されました。建設DXの答案では、データ活用とステークホルダー合意がそのまま得点源になります。
 
-3次元データを誰がどう共有し、住民や関係機関との合意形成にどう生かすかまで踏み込めると、改訂後の評価軸に正面から応えられます。必須科目Iの系統と年度別の出題傾向は、[必須科目Iの頻出テーマ系統](https://doboku-note.com/docs/pe-construction-required-exam-themes?utm_source=note&utm_medium=inline&utm_campaign=pe-dx&utm_content=exam-themes)で整理しています。
+3次元データを誰がどう共有し、住民や関係機関との合意形成にどう生かすかまで踏み込めると、改訂後の評価軸に正面から応えられます。必須科目Iの系統と年度別の出題傾向は、[必須科目Iの頻出テーマ系統](https://doboku-note.com/docs/pe-construction-required-exam-themes?utm_source=note&utm_medium=referral&utm_campaign=pe-dx&utm_content=exam-themes)で整理しています。
 
-建設DX・担い手の論点を用語単位で押さえるなら、[担い手確保・生産性向上の論点キーワード集](https://doboku-note.com/docs/pe-construction-ninaite-dx-ronbun-keyword?utm_source=note&utm_medium=inline&utm_campaign=pe-dx&utm_content=kw-ninaite-dx)もサイトにあります。
+建設DX・担い手の論点を用語単位で押さえるなら、[担い手確保・生産性向上の論点キーワード集](https://doboku-note.com/docs/pe-construction-ninaite-dx-ronbun-keyword?utm_source=note&utm_medium=referral&utm_campaign=pe-dx&utm_content=kw-ninaite-dx)もサイトにあります。
 
 ## DXのリスクを「対策まで」書く
 

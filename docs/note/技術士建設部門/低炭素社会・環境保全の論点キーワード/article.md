@@ -140,9 +140,9 @@ IPCC第6次評価報告書は、大幅な排出削減がなければ21世紀中�
 
 三者は守備範囲が異なるため、「誰が何のために策定したか」を整理して使い分けてください。
 
-論文全体の構成や添削観点をひととおり確認したい場合は、サイトの[記述式論文の書き方ガイド](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide)もあわせてどうぞ。
+論文全体の構成や添削観点をひととおり確認したい場合は、サイトの[記述式論文の書き方ガイド](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-datsutanso-keyword)もあわせてどうぞ。
 
-必須科目Iの6系統と年度別出題の整理は[こちら](https://doboku-note.com/docs/pe-construction-required-exam-themes)にまとめています。
+必須科目Iの6系統と年度別出題の整理は[こちら](https://doboku-note.com/docs/pe-construction-required-exam-themes?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-datsutanso-keyword)にまとめています。
 
 ## 発注者視点で一段差をつける
 

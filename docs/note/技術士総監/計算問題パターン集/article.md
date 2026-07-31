@@ -39,6 +39,13 @@ H21〜R07（17 年分・520 問）の過去問を分類すると、毎年必ず�
 
 パターン 1（統計・信頼性計算）・パターン 2（BEP）は公式当てはめで即答できるため、本記事の冒頭から自然に易しいパターンから演習できます。最頻出のパターン 6（NPV）は条件の読み取りに時間がかかるため、基本を固めてから取り組みましょう。計算問題全体の出題分野・試験戦略については、[総合技術監理部門 合格戦略](https://doboku-note.com/docs/pe-comprehensive-management-exam-passing-strategy?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns) も参考にしてください。
 
+---
+
+<!-- cta:tankan-mokuji -->
+総監のほかの無料記事・有料マガジンは「総監もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n3ed4c77ceed6
+
 ## パターン 1: 統計・信頼性計算
 
 **出題実績: 17 年中 12 年**（H23〜R07 のほぼ毎年）
@@ -521,8 +528,3 @@ https://note.com/dobokunote/n/nc360aaa381b0
 学習スケジュール全体の組み立て方。試験前 6-7 ヶ月を 4 フェーズに分けて合格ラインに届く設計を公開しています。
 
 https://note.com/dobokunote/n/n6f9854578518
-
-<!-- cta:tankan-mokuji -->
-総監のほかの無料記事・有料マガジンは「総監もくじ」から一覧できます。
-
-https://note.com/dobokunote/n/n3ed4c77ceed6

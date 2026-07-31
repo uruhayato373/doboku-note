@@ -107,7 +107,7 @@ cover:
 
 地域づくりのテーマは、まさにこれらを正面から問えるテーマであり、合意形成を軸に据えた論述の重要性はさらに高まります。
 
-コンピテンシー改訂の詳細は[令和8年度のコンピテンシー改訂](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=inline&utm_campaign=pe-kokudo&utm_content=r8-revision)にまとめています。
+コンピテンシー改訂の詳細は[令和8年度のコンピテンシー改訂](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-kokudo&utm_content=r8-revision)にまとめています。
 
 ## 答案に落とし込む順序
 
@@ -120,11 +120,11 @@ cover:
 
 施策と計画の中身を押さえたら、あとは設問への当てはめです。
 
-答案の組み立て方そのものは[記述式論文の書き方ガイド](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide?utm_source=note&utm_medium=inline&utm_campaign=pe-kokudo&utm_content=essay-guide)で体系的に解説しています。
+答案の組み立て方そのものは[記述式論文の書き方ガイド](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide?utm_source=note&utm_medium=referral&utm_campaign=pe-kokudo&utm_content=essay-guide)で体系的に解説しています。
 
-また、必須科目Iで問われる6つの頻出テーマ系統の全体像は[こちら](https://doboku-note.com/docs/pe-construction-required-exam-themes?utm_source=note&utm_medium=inline&utm_campaign=pe-kokudo&utm_content=exam-themes)で俯瞰できます。
+また、必須科目Iで問われる6つの頻出テーマ系統の全体像は[こちら](https://doboku-note.com/docs/pe-construction-required-exam-themes?utm_source=note&utm_medium=referral&utm_campaign=pe-kokudo&utm_content=exam-themes)で俯瞰できます。
 
-地域づくりの論点を用語単位で押さえるなら、[持続可能で活力ある地域づくりの論点キーワード集](https://doboku-note.com/docs/pe-construction-chiiki-dukuri-ronbun-keyword?utm_source=note&utm_medium=inline&utm_campaign=pe-kokudo&utm_content=kw-chiiki)も参照してください。
+地域づくりの論点を用語単位で押さえるなら、[持続可能で活力ある地域づくりの論点キーワード集](https://doboku-note.com/docs/pe-construction-chiiki-dukuri-ronbun-keyword?utm_source=note&utm_medium=referral&utm_campaign=pe-kokudo&utm_content=kw-chiiki)も参照してください。
 
 ## さらに深く学ぶには
 

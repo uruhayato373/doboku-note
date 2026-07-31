@@ -1,6 +1,7 @@
 ---
 notePublishedAt: "2026-07-23"
 noteId: "n4b679c8da64e"
+utmCampaign: tankan-saijuken-taisaku
 noteUrl: "https://note.com/dobokunote/n/n4b679c8da64e"
 notePricing: paid
 price: 500
@@ -45,6 +46,11 @@ https://note.com/dobokunote/m/m6e7de5e4ea3d
 【ここからマガジン限定】
 
 ---
+
+<!-- cta:tankan-mokuji -->
+総監のほかの無料記事・有料マガジンは「総監もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n3ed4c77ceed6
 
 ## 不合格の3パターン
 
@@ -92,7 +98,7 @@ https://note.com/dobokunote/m/m6e7de5e4ea3d
 
 **弱点分野を特定したら、その分野のキーワード集を重点的に学習しましょう。** 5分野を均等に勉強するのではなく、弱点に時間を集中させるのがポイントです。17年分の過去問を分野別に解いてみると、出題パターンが見えてきます。
 
-弱点分野のキーワード補強には、doboku-noteの[キーワード集2026 全項目](https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026)が役立ちます。650項目を分野別に絞り込んで読めるので、「情報管理が弱い」とわかった時点から集中インプットに入れます。分野別の出題傾向については、[択一式17年分分析](https://doboku-note.com/docs/pe-comprehensive-management-exam-passing-strategy)で詳しく解説しています。毎年出る鉄板テーマ10選を押さえるだけでも、10問以上を安定して確保できます。
+弱点分野のキーワード補強には、doboku-noteの[キーワード集2026 全項目](https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026?utm_source=note&utm_medium=referral&utm_campaign=tankan-saijuken-taisaku&utm_content=keyword-2026)が役立ちます。650項目を分野別に絞り込んで読めるので、「情報管理が弱い」とわかった時点から集中インプットに入れます。分野別の出題傾向については、[択一式17年分分析](https://doboku-note.com/docs/pe-comprehensive-management-exam-passing-strategy?utm_source=note&utm_medium=referral&utm_campaign=tankan-saijuken-taisaku&utm_content=exam-passing-strategy)で詳しく解説しています。毎年出る鉄板テーマ10選を押さえるだけでも、10問以上を安定して確保できます。
 
 ### パターン2: 記述式 — B判定とC判定の違い
 
@@ -123,7 +129,7 @@ B判定とC判定では、目指すべきゴールも練習方法も大きく異
 
 ![B/C 判定別 再受験戦略マトリクス](img/figure-2-bc-matrix.png)
 
-この「トレードオフ思考」の具体像は、doboku-noteの[5管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs)で10ペアのパターンと解決フレームとともに解説しています。記述式対策の深め方については、[記述式戦略ページ](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy)も合わせて参照してください。
+この「トレードオフ思考」の具体像は、doboku-noteの[5管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=tankan-saijuken-taisaku&utm_content=management-tradeoffs)で10ペアのパターンと解決フレームとともに解説しています。記述式対策の深め方については、[記述式戦略ページ](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy?utm_source=note&utm_medium=referral&utm_campaign=tankan-saijuken-taisaku&utm_content=essay-exam-strategy)も合わせて参照してください。
 
 ### パターン3: 口頭試験 — 業務経歴の語り方を見直す
 
@@ -219,7 +225,7 @@ B判定とC判定では、目指すべきゴールも練習方法も大きく異
 
 その経験こそが、記述式と口頭試験における最大の武器になります。前回の不合格は、その武器の使い方を知らなかっただけかもしれません。不合格要因を正確に分析し、対策の方向性を変えれば、次の試験では実務経験がそのまま得点に変わっていきます。
 
-日常業務でのトレードオフ思考の実践方法については、doboku-noteの[合格戦略ページ](https://doboku-note.com/docs/pe-comprehensive-management-exam-passing-strategy)で具体的なフレームワークとともに解説しています。
+日常業務でのトレードオフ思考の実践方法については、doboku-noteの[合格戦略ページ](https://doboku-note.com/docs/pe-comprehensive-management-exam-passing-strategy?utm_source=note&utm_medium=referral&utm_campaign=tankan-saijuken-taisaku&utm_content=exam-passing-strategy)で具体的なフレームワークとともに解説しています。
 
 ---
 
@@ -236,10 +242,3 @@ https://doboku-note.com/category/pe-comprehensive-management
 - 計算問題で落とした → 総監択一式 頻出計算問題 5 パターン完全攻略 ¥980
 - 記述式で B/C 判定だった → 総監記述式 論文骨子テンプレート（A-1）¥1,980 — テーマ駆動・5 管理横串フレームワーク / トレードオフ思考完全ガイド ¥1,200
 - 口頭試験で詰まった → 総監口頭試験 20 分で落ちない「業務経歴」の語り方 ¥1,500
-
----
-
-<!-- cta:tankan-mokuji -->
-総監のほかの無料記事・有料マガジンは「総監もくじ」から一覧できます。
-
-https://note.com/dobokunote/n/n3ed4c77ceed6

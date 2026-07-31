@@ -245,9 +245,9 @@ IV-2の重点施策には、i-Construction 2.0の推進、建設業の働き方�
 
 答案で混同すると採点者に知識の曖昧さが露呈するため、策定時期と目標（2040年度・省人化3割・生産性1.5倍）をセットで押さえておきましょう。
 
-論文全体の構成や添削観点をひととおり確認したい場合は、サイトの[記述式論文の書き方ガイド](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide)もあわせてどうぞ。
+論文全体の構成や添削観点をひととおり確認したい場合は、サイトの[記述式論文の書き方ガイド](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-ninaite-keyword)もあわせてどうぞ。
 
-必須科目Iの6系統と年度別出題の整理は[こちら](https://doboku-note.com/docs/pe-construction-required-exam-themes)にまとめています。
+必須科目Iの6系統と年度別出題の整理は[こちら](https://doboku-note.com/docs/pe-construction-required-exam-themes?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-ninaite-keyword)にまとめています。
 
 ## 発注者視点で一段差をつける
 

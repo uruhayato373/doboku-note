@@ -90,7 +90,7 @@ II-1（専門知識・600字）は個別技術として、II-2（応用能力）
 
 道路分野では、ダブル連結トラック対応、中継輸送拠点、高速道路ネットワークの機能強化が解決策として書けます。担い手不足という必須科目Iのテーマとも直結する、近年の重要キーワードです。
 
-道路選択科目の年度別出題分析は、サイトの解説記事（<https://doboku-note.com/docs/pe-construction-road-exam-themes>）でも整理しています。
+道路選択科目の年度別出題分析は、サイトの解説記事（[道路の出題テーマ分析](https://doboku-note.com/docs/pe-construction-road-exam-themes?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-road-keyword&utm_content=road-exam-themes)）でも整理しています。
 
 ## キーワードを論文へ落とし込む
 
@@ -104,7 +104,7 @@ II-1（専門知識・600字）は個別技術として、II-2（応用能力）
 
 発注者として住民対応・行政調整を担ってきた経験からも、合意形成プロセスを具体的に書けるかが差になります。
 
-記述式の答案構成そのものの作り方は、書き方ガイド（<https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide>）にまとめています。
+記述式の答案構成そのものの作り方は、書き方ガイド（[二次試験 論文の書き方](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-road-keyword&utm_content=pe-secondary-essay-guide)）にまとめています。
 
 ## さらに深く学ぶには
 

@@ -181,10 +181,10 @@ R7（少子高齢化）で扱ったテーマが R8 で **完全に同じ形式�
 
 ### あわせて使いたい doboku-note の無料コンテンツ
 
-- [総合技術監理 キーワード集 2026](https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026)
-- [記述式試験の解答戦略（三層構造の元解説）](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy)
-- [5 管理トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs)
-- [R8 出題候補テーマ俯瞰](https://doboku-note.com/docs/pe-comprehensive-management-r8-essay-keyword-forecast)
+- [総合技術監理 キーワード集 2026](https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026?utm_source=note&utm_medium=referral&utm_campaign=r8-essay-forecast-intro)
+- [記述式試験の解答戦略（三層構造の元解説）](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy?utm_source=note&utm_medium=referral&utm_campaign=r8-essay-forecast-intro)
+- [5 管理トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=r8-essay-forecast-intro)
+- [R8 出題候補テーマ俯瞰](https://doboku-note.com/docs/pe-comprehensive-management-r8-essay-keyword-forecast?utm_source=note&utm_medium=referral&utm_campaign=r8-essay-forecast-intro)
 
 ---
 

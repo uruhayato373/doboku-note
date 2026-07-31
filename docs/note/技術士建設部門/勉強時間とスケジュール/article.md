@@ -87,7 +87,7 @@ cover:
 
 必須科目Iは答案用紙3枚（600字×3＝約1,800字）を時間内に書き切る感覚、選択科目は知識を素早く引き出す感覚を、本番と同じ手書き・字数で固めます。頻出テーマの骨子を見ずに再現できる状態を目標にしてください。
 
-なお、令和8年度からコンピテンシーが改訂され、データに基づく課題抽出、ステークホルダーとの合意形成、持続可能な成果、文化的価値の尊重といった観点が明文化されました（詳しくは <https://doboku-note.com/docs/pe-construction-competency-revision-r8> で解説しています）。
+なお、令和8年度からコンピテンシーが改訂され、データに基づく課題抽出、ステークホルダーとの合意形成、持続可能な成果、文化的価値の尊重といった観点が明文化されました（詳しくは [令和8年度のコンピテンシー改訂](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-gakushuu-jikan-schedule&utm_content=competency-revision-r8) で解説しています）。
 
 骨子を組むときは、こうした視点を解決策に織り込めるかも意識しておくと安全です。
 
@@ -103,7 +103,7 @@ cover:
 
 まずは7月という固定ゴールから逆算し、今の自分が「構築期」のどこに立っているかを把握するところから始めてください。
 
-答案そのものの組み立て方や、必須科目Iの6テーマ系統と出題傾向は、サイトの解説（<https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide> ／ <https://doboku-note.com/docs/pe-construction-required-exam-themes>）で体系的にまとめています。
+答案そのものの組み立て方や、必須科目Iの6テーマ系統と出題傾向は、サイトの解説（[二次試験 論文の書き方](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-gakushuu-jikan-schedule&utm_content=pe-secondary-essay-guide) ／ [必須科目I 頻出テーマ](https://doboku-note.com/docs/pe-construction-required-exam-themes?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-gakushuu-jikan-schedule&utm_content=required-exam-themes)）で体系的にまとめています。
 
 ## さらに深く学ぶには
 

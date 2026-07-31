@@ -20,7 +20,6 @@ cover:
 ---
 # 1級土木 施工経験記述｜専門〔共同溝〕品質管理 完成答案（プレキャストボックス接合部）
 
-
 ![技術士（総合技術監理部門）を持つ元発注者が、施工管理技士の記述を分析して作成。総監＝上位資格の分析力、元発注者＝採点者の視点、施工管理技士＝合格した当事者](img/figure-author-authority.png)
 
 **こんな人のための記事です**
@@ -61,6 +60,13 @@ https://note.com/dobokunote/m/m8290970a7f05
 - 目地材充填・止水ゴム圧着・ボルト締付けトルクなど**工程ごとの管理手法と試験・計測**が書かれているか。
 - 監理技術者として**計画段階での品質確保**（製品検査・施工仕様の事前確認）に触れているか。
 - 「所定の止水性能と出来形を確保した」と客観指標（漏水検査・計測値）で締めているか。
+
+---
+
+<!-- cta:civil-mokuji -->
+1級・2級土木のほかの記事・経験記述の答案集は「土木もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n4fde0f62dc20
 
 ## 想定工事①：プレキャストボックス共同溝工事（接合部品質管理）
 
@@ -122,13 +128,13 @@ https://note.com/dobokunote/m/m8290970a7f05
 - [施工経験記述 出題傾向と対策（無料・doboku-note）](https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil1-keiken-pack-utilitytunnel&utm_content=guide)
 - [施工経験記述 改善例（無料・doboku-note）](https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-examples?utm_source=note&utm_medium=referral&utm_campaign=civil1-keiken-pack-utilitytunnel&utm_content=examples)
 
-![技術士（総合技術監理部門）を持つ元発注者が、施工管理技士の記述を分析して作成。総監＝上位資格の分析力、元発注者＝採点者の視点、施工管理技士＝合格した当事者](img/figure-author-authority.png)
-
 上位資格の分析力・発注者の採点眼・合格者の当事者性で、あなたの答案を合格ラインへ引き上げます。
 
 ---
 
-<!-- cta:civil-mokuji -->
-1級・2級土木のほかの記事・経験記述の答案集は「土木もくじ」から一覧できます。
+<!-- cta:civil-membership-lab -->
+書き換えた答案を「これで通るか」第三者に確認してほしい方へ。
 
-https://note.com/dobokunote/n/n4fde0f62dc20
+月例の予想問題と施工経験記述のマンツーマン添削がつくメンバーシップ「土木セコカン合格ラボ」があります。
+
+https://note.com/dobokunote/membership/join

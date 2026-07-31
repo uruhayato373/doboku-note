@@ -63,6 +63,11 @@ https://note.com/dobokunote/m/m8290970a7f05
 
 ---
 
+<!-- cta:civil-mokuji -->
+1級・2級土木のほかの記事・経験記述の答案集は「土木もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n4fde0f62dc20
+
 ## 品質管理（漏水止水・断面修復材の品質確保）
 
 既設トンネルの漏水止水工と断面修復材の品質確保を題材とした答案。注入効果の確認と付着強度の管理が1級で問われやすい論点。
@@ -286,7 +291,9 @@ NG：「環境に配慮して廃材を処理し排水に気をつけた。」処
 
 ---
 
-<!-- cta:civil-mokuji -->
-1級・2級土木のほかの記事・経験記述の答案集は「土木もくじ」から一覧できます。
+<!-- cta:civil-membership-lab -->
+書き換えた答案を「これで通るか」第三者に確認してほしい方へ。
 
-https://note.com/dobokunote/n/n4fde0f62dc20
+月例の予想問題と施工経験記述のマンツーマン添削がつくメンバーシップ「土木セコカン合格ラボ」があります。
+
+https://note.com/dobokunote/membership/join

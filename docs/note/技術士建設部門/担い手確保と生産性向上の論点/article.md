@@ -57,7 +57,7 @@ cover:
 
 担い手確保は「防災・国土強靱化」「カーボンニュートラル」「インフラ老朽化」「国土形成」「インフラDX」と並ぶ、必須科目Iの6テーマ系統のひとつです。どのテーマが出ても、担い手不足という制約は背景に絡みます。
 
-年度別のマクロテーマと6テーマ系統の関係は、[必須科目Iの頻出テーマ系統](https://doboku-note.com/docs/pe-construction-required-exam-themes?utm_source=note&utm_medium=inline&utm_campaign=pe-ninaite&utm_content=exam-themes)で一覧できます。
+年度別のマクロテーマと6テーマ系統の関係は、[必須科目Iの頻出テーマ系統](https://doboku-note.com/docs/pe-construction-required-exam-themes?utm_source=note&utm_medium=referral&utm_campaign=pe-ninaite&utm_content=exam-themes)で一覧できます。
 
 ## 構造的背景 — なぜ担い手が足りないのか
 
@@ -109,13 +109,13 @@ i-Construction を中心に据える場合は、DXは目的ではなく担い手
 
 担い手テーマは、施工データの活用（生産性の可視化）や、発注者・受注者・地域の合意形成と相性がよく、改訂後の評価軸にも乗せやすい題材です。
 
-改訂の詳細は[令和8年度のコンピテンシー改訂](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=inline&utm_campaign=pe-ninaite&utm_content=r8-revision)にまとめています。
+改訂の詳細は[令和8年度のコンピテンシー改訂](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-ninaite&utm_content=r8-revision)にまとめています。
 
 論点の引き出しを増やすには、年度別の出題傾向と、隣接する6テーマとの接続を押さえておくことが近道です。
 
-答案そのものの組み立て方は[記述式論文の書き方ガイド](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide?utm_source=note&utm_medium=inline&utm_campaign=pe-ninaite&utm_content=essay-guide)も参考にしてください。
+答案そのものの組み立て方は[記述式論文の書き方ガイド](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide?utm_source=note&utm_medium=referral&utm_campaign=pe-ninaite&utm_content=essay-guide)も参考にしてください。
 
-担い手・生産性向上の論点を用語単位で押さえるなら、[担い手確保・生産性向上の論点キーワード集](https://doboku-note.com/docs/pe-construction-ninaite-dx-ronbun-keyword?utm_source=note&utm_medium=inline&utm_campaign=pe-ninaite&utm_content=kw-ninaite-dx)もどうぞ。
+担い手・生産性向上の論点を用語単位で押さえるなら、[担い手確保・生産性向上の論点キーワード集](https://doboku-note.com/docs/pe-construction-ninaite-dx-ronbun-keyword?utm_source=note&utm_medium=referral&utm_campaign=pe-ninaite&utm_content=kw-ninaite-dx)もどうぞ。
 
 ## さらに深く学ぶには
 

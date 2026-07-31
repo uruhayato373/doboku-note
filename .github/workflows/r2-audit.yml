@@ -87,6 +87,11 @@ jobs:
       - name: Check note paid boundary (paidBoundary resolvable, full)
         run: npm run check-note-boundary
 
+      # 有料記事の L3 帰路 CTA（資格別 L2 もくじ）が paywall の中に埋まっていないか。
+      # 末尾配置のままだと非購入者に一度も見えない（2026-07-31 に 238 本を是正）。
+      - name: Check note paid CTA placement (L2 mokuji in free preview, full)
+        run: npm run check-note-paid-cta
+
       # 単品価格の一貫性（マガジン内 L1 / 宣言済みシリーズ L2）。pre-commit は --staged のみで
       # 「触っていないマガジンのドリフト」を拾えないため、全量の backstop をここに置く。
       # network 不要（ソース内検査）。2026-07-28 新設。

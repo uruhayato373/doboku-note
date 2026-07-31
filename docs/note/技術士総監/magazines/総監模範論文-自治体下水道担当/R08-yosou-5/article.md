@@ -62,6 +62,13 @@ A 案は処理場の監視制御システム（SCADA）を含む制御系（OT�
 
 https://note.com/dobokunote/m/m171222175fac
 
+---
+
+<!-- cta:tankan-mokuji -->
+総監のほかの無料記事・有料マガジンは「総監もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n3ed4c77ceed6
+
 ## 試験問題（令和8年度（予想） 生成AIと情報ガバナンス）
 
 **【テーマ：生成AIの活用促進と情報ガバナンス】**

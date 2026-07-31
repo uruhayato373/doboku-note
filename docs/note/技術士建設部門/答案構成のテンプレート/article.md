@@ -44,7 +44,7 @@ cover:
 
 本記事では合格答案の骨格を「現状→課題→解決策→効果・リスク」としてテンプレ化し、多面的な観点の出し方、最重要課題の選び方、新たなリスクの書き方を、例とともに具体化します。
 
-なお、設問対応や文章作法そのものは別の[書き方ガイド](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide)に譲り、本記事はその実践編として「構成の型」に集中します。
+なお、設問対応や文章作法そのものは別の[書き方ガイド](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-toan-kousei)に譲り、本記事はその実践編として「構成の型」に集中します。
 
 <!-- cta:pack-top -->
 > 建設部門は「必須科目I＋選択科目」の組み合わせで合否が決まります。全受験者共通の[必須科目I 模範解答集（R03-R07＋R8予想）](https://note.com/dobokunote/m/m0f3bc3933454)がまず1冊目。あなたの選択科目の模範解答集は[建設部門もくじ](https://note.com/dobokunote/n/n7279ca0d926f)から選べます（単品を1本ずつ買うより約8割お得）。
@@ -90,7 +90,7 @@ cover:
 
 テーマごとの課題の引き出しは、必須科目Iの6系統（防災・国土強靱化／担い手確保・生産性向上／カーボンニュートラル／老朽化・維持管理／国土形成・地域づくり／インフラDX）で整理しておくと再現性が高まります。
 
-系統別の出題傾向は[必須科目Iのテーマ別出題傾向](https://doboku-note.com/docs/pe-construction-required-exam-themes)で確認できます。
+系統別の出題傾向は[必須科目Iのテーマ別出題傾向](https://doboku-note.com/docs/pe-construction-required-exam-themes?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-toan-kousei)で確認できます。
 
 ## 最重要課題は「理由」とセットで選ぶ
 

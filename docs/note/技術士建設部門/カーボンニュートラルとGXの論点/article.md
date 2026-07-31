@@ -75,8 +75,8 @@ cover:
 
 必須科目I全体の頻出テーマ系統や、記述式そのものの書き方の骨格は、サイト側の解説でより詳しく扱っています。あわせて読むと、脱炭素テーマの位置づけが立体的になります。
 
-- [記述式の書き方ガイド](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide?utm_source=note&utm_medium=inline&utm_campaign=pe-gx&utm_content=essay-guide)
-- [必須科目I 頻出テーマ系統の全体像](https://doboku-note.com/docs/pe-construction-required-exam-themes?utm_source=note&utm_medium=inline&utm_campaign=pe-gx&utm_content=exam-themes)
+- [記述式の書き方ガイド](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide?utm_source=note&utm_medium=referral&utm_campaign=pe-gx&utm_content=essay-guide)
+- [必須科目I 頻出テーマ系統の全体像](https://doboku-note.com/docs/pe-construction-required-exam-themes?utm_source=note&utm_medium=referral&utm_campaign=pe-gx&utm_content=exam-themes)
 
 ## 必須科目Iの型に落とし込む
 
@@ -90,9 +90,9 @@ cover:
 
 設問(4)では、令和8年度のコンピテンシー改訂で明文化される「持続可能な成果」「ステークホルダーとの合意形成」とも整合させ、住民・利用者・将来世代への責任という観点で締めると一貫性が出ます。
 
-令和8年度の改訂内容は、サイトの[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=inline&utm_campaign=pe-gx&utm_content=r8-revision)も参照してください。
+令和8年度の改訂内容は、サイトの[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-gx&utm_content=r8-revision)も参照してください。
 
-脱炭素・環境保全の論点を用語単位で押さえるなら、[低炭素社会・環境保全の論点キーワード集](https://doboku-note.com/docs/pe-construction-datsutanso-kankyo-ronbun-keyword?utm_source=note&utm_medium=inline&utm_campaign=pe-gx&utm_content=kw-datsutanso)もサイトにあります。
+脱炭素・環境保全の論点を用語単位で押さえるなら、[低炭素社会・環境保全の論点キーワード集](https://doboku-note.com/docs/pe-construction-datsutanso-kankyo-ronbun-keyword?utm_source=note&utm_medium=referral&utm_campaign=pe-gx&utm_content=kw-datsutanso)もサイトにあります。
 
 ### 発注者視点という差別化の引き出し
 

@@ -52,6 +52,13 @@ https://note.com/dobokunote/m/m32a8a5b3b473
 
 https://note.com/dobokunote/m/m171222175fac
 
+---
+
+<!-- cta:tankan-mokuji -->
+総監のほかの無料記事・有料マガジンは「総監もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n3ed4c77ceed6
+
 ## 試験問題（令和8年度（予想） 生成AIと情報ガバナンス）
 
 **【テーマ：生成AIの活用促進と情報ガバナンス】**

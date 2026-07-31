@@ -72,7 +72,7 @@ cover:
 
 この「解決策が新たなリスクを生む」構造こそ、IIIで求められる多面性の見せどころです。
 
-都市計画の論点をもう少し具体的な過去問の傾向と結びつけたい場合は、<https://doboku-note.com/docs/pe-construction-urban-planning-exam-themes> で頻出テーマと出題傾向を整理しています。
+都市計画の論点をもう少し具体的な過去問の傾向と結びつけたい場合は、[都市計画の出題テーマ分析](https://doboku-note.com/docs/pe-construction-urban-planning-exam-themes?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-urban-planning-keyword&utm_content=urban-planning-exam-themes) で頻出テーマと出題傾向を整理しています。
 
 あわせて読むと、キーワードがどの設問でどう問われるかの感覚が掴めます。
 

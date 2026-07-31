@@ -99,7 +99,7 @@ IIIと必須科目Iの最大の違いは論じる土俵です。必須科目Iは
 
 必須科目Iの頻出テーマや出題系統を押さえておくと、IIIとの違いがさらに鮮明になります。
 
-詳しくは <https://doboku-note.com/docs/pe-construction-required-exam-themes> を参照してください。
+詳しくは [必須科目I 頻出テーマ](https://doboku-note.com/docs/pe-construction-required-exam-themes?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-sentaku-kakiwake&utm_content=required-exam-themes) を参照してください。
 
 ## 書き分けの起点は「設問が測る力」の特定
 

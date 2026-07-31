@@ -53,6 +53,13 @@ https://note.com/dobokunote/m/m921fbe060575
 
 https://note.com/dobokunote/m/m171222175fac
 
+---
+
+<!-- cta:tankan-mokuji -->
+総監のほかの無料記事・有料マガジンは「総監もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n3ed4c77ceed6
+
 ## 経済性 × 安全
 
 経済性管理の核はコスト・原価・収益の最適化、安全管理の核は人命・第三者影響の回避にあります。両者は「限られた原資を、どこまで安全余裕に振り向けるか」という配分の局面で衝突します。

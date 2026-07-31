@@ -194,9 +194,9 @@ PPP/PFI未実施の自治体が主な対象です。
 
 とくに「社会資本整備重点計画（社会資本の重点目標）」「国土形成計画（10年スパンの国土構造の方向性）」「交通政策基本計画（交通分野の施策）」は役割が違うため、混同しないようにします。
 
-論文全体の構成や添削観点をひととおり確認したい場合は、サイトの[記述式論文の書き方ガイド](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide)もあわせてどうぞ。
+論文全体の構成や添削観点をひととおり確認したい場合は、サイトの[記述式論文の書き方ガイド](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-shakai-shihon-keyword)もあわせてどうぞ。
 
-必須科目Iの6系統と年度別出題の整理は[こちら](https://doboku-note.com/docs/pe-construction-required-exam-themes)にまとめています。
+必須科目Iの6系統と年度別出題の整理は[こちら](https://doboku-note.com/docs/pe-construction-required-exam-themes?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-shakai-shihon-keyword)にまとめています。
 
 ## 発注者視点で一段差をつける
 
@@ -254,7 +254,7 @@ PPPはより広い官民連携の総称で、PFI方式・コンセッション�
 
 A. この記事は出題テーマ「社会資本整備」の論点キーワードを、白書・重点計画ベースで知識として整理するインプット用の記事です。
 
-課題抽出から解決策・新たなリスクへと流す4部構成の書き方そのものは、[記述式論文の書き方ガイド](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide)や[必須科目Iのテーマ整理ハブ](https://doboku-note.com/docs/pe-construction-required-exam-themes)で扱っています。
+課題抽出から解決策・新たなリスクへと流す4部構成の書き方そのものは、[記述式論文の書き方ガイド](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-shakai-shihon-keyword)や[必須科目Iのテーマ整理ハブ](https://doboku-note.com/docs/pe-construction-required-exam-themes?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-shakai-shihon-keyword)で扱っています。
 
 ---
 

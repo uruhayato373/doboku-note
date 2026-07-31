@@ -109,7 +109,7 @@ cover:
 
 逆に、立場・課題・工夫・成果が一貫した720字は、そのまま想定問答の骨格になります。申込書づくりは、半年先の口頭試験対策の第一歩だと捉えてください。
 
-筆記そのものの組み立て方は、[建設部門 記述式答案の書き方ガイド](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide)にまとめています。
+筆記そのものの組み立て方は、[建設部門 記述式答案の書き方ガイド](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-gyoumu-keireki-hyou)にまとめています。
 
 あわせて読むと、申込から筆記・口頭までの流れがつながります。
 

@@ -51,6 +51,13 @@ https://note.com/dobokunote/m/m921fbe060575
 
 https://note.com/dobokunote/m/m171222175fac
 
+---
+
+<!-- cta:tankan-mokuji -->
+総監のほかの無料記事・有料マガジンは「総監もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n3ed4c77ceed6
+
 ## 人的資源 × 安全
 
 人的資源管理の核は労働力の確保・育成と労働環境・モラールの維持、安全管理の核は人命・健康・第三者影響の回避にあります。

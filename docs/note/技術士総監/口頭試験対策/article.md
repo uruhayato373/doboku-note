@@ -1,6 +1,7 @@
 ---
 notePublishedAt: "2026-07-23"
 noteId: "n8ab5e6bc2970"
+utmCampaign: tankan-koutou-taisaku
 noteUrl: "https://note.com/dobokunote/n/n8ab5e6bc2970"
 notePricing: paid
 price: 500
@@ -49,7 +50,14 @@ https://note.com/dobokunote/m/m6e7de5e4ea3d
 
 この 20 分は短いようで長い時間です。準備なしで臨めば、曖昧な回答を重ねるうちにあっという間に時間切れになります。逆に、事前の整理ができていれば、試験官に「この人は総監の視点を持っている」と伝わる密度の高い対話になります。
 
-本記事では、口頭試験で落ちないための **(1) 一般部門との違いの把握 → (2) 業務経歴の 5 管理棚卸し → (3) 想定質問の回答フレーム** までを、橋梁工事の実演例とともに整理します。試験全体の位置づけや合格戦略の大枠を先に確認したい方は、doboku-note の [総監合格戦略ページ](https://doboku-note.com/docs/pe-comprehensive-management-exam-passing-strategy) も参照してみてください。
+本記事では、口頭試験で落ちないための **(1) 一般部門との違いの把握 → (2) 業務経歴の 5 管理棚卸し → (3) 想定質問の回答フレーム** までを、橋梁工事の実演例とともに整理します。試験全体の位置づけや合格戦略の大枠を先に確認したい方は、doboku-note の [総監合格戦略ページ](https://doboku-note.com/docs/pe-comprehensive-management-exam-passing-strategy?utm_source=note&utm_medium=referral&utm_campaign=tankan-koutou-taisaku&utm_content=exam-passing-strategy) も参照してみてください。
+
+---
+
+<!-- cta:tankan-mokuji -->
+総監のほかの無料記事・有料マガジンは「総監もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n3ed4c77ceed6
 
 ## 2. 一般部門の口頭試験との違い --- なぜ同じ語り方では通用しないのか
 
@@ -82,7 +90,7 @@ https://note.com/dobokunote/m/m6e7de5e4ea3d
 
 ![業務経歴の 5 管理マッピング例（橋梁工事）](img/figure-2-5mgmt-map.png)
 
-上図は「橋梁上部工の架設工事」という1つの業務を5管理に紐付けた例です。このように、1つの業務から複数の管理分野へのつながりを意識的に描くことで、総監の視点を持った語り口が見えてきます。各管理の守備範囲と典型キーワードは doboku-note の各ピラーページで詳しく確認できます（[経済性管理](https://doboku-note.com/docs/pe-comprehensive-management-economic-management-pillar) / [人的資源管理](https://doboku-note.com/docs/pe-comprehensive-management-human-resource-management-pillar) / [安全管理](https://doboku-note.com/docs/pe-comprehensive-management-safety-management-pillar)）。
+上図は「橋梁上部工の架設工事」という1つの業務を5管理に紐付けた例です。このように、1つの業務から複数の管理分野へのつながりを意識的に描くことで、総監の視点を持った語り口が見えてきます。各管理の守備範囲と典型キーワードは doboku-note の各ピラーページで詳しく確認できます（[経済性管理](https://doboku-note.com/docs/pe-comprehensive-management-economic-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=tankan-koutou-taisaku&utm_content=economic-management-pillar) / [人的資源管理](https://doboku-note.com/docs/pe-comprehensive-management-human-resource-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=tankan-koutou-taisaku&utm_content=human-resource-management-pillar) / [安全管理](https://doboku-note.com/docs/pe-comprehensive-management-safety-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=tankan-koutou-taisaku&utm_content=safety-management-pillar)）。
 
 ここで重要なのは、5つの管理すべてに無理に記入する必要はないということです。該当しない管理は空欄で構いません。ただし、5つの業務全体を見渡したとき、5分野がバランスよく含まれていることが望ましいです。
 
@@ -131,7 +139,7 @@ https://note.com/dobokunote/m/m6e7de5e4ea3d
 - **トレードオフを具体的に示している** --- 経済性管理（工期短縮）と安全管理（リスク増大）の対立構造が明確
 - **第三の管理で解決策を示している** --- 情報管理・人的資源管理という別の管理の視点を持ち込んでトレードオフを改善している
 
-このように、同じ業務経験でも「5管理のフレームワーク」を通して語ることで、総監技術士にふさわしい視点を示すことができます。口頭試験で問われるトレードオフの典型パターン（10 ペア）と解決フレームは、doboku-note の [5 管理間トレードオフ解説ページ](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs) にまとめているので、業務経歴の棚卸しと並行して確認しておくと語りの引き出しが増えます。
+このように、同じ業務経験でも「5管理のフレームワーク」を通して語ることで、総監技術士にふさわしい視点を示すことができます。口頭試験で問われるトレードオフの典型パターン（10 ペア）と解決フレームは、doboku-note の [5 管理間トレードオフ解説ページ](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=tankan-koutou-taisaku&utm_content=management-tradeoffs) にまとめているので、業務経歴の棚卸しと並行して確認しておくと語りの引き出しが増えます。
 
 
 ## 5. 想定質問と回答の組み立て方
@@ -180,7 +188,7 @@ https://note.com/dobokunote/m/m6e7de5e4ea3d
 
 口頭試験の対策は、筆記試験合格後に始めるのでは遅いです。出願段階から、自分の業務経歴を5つの管理の視点で整理し、トレードオフを意識して経歴票を作成しておきましょう。その準備が、20分間の口頭試験で自信を持って語るための土台になります。
 
-5つの管理の視点での業務整理や出願書類の書き方については、doboku-noteの「[出願の留意点](https://doboku-note.com/docs/pe-comprehensive-management-exam-application-guide)」で詳しく解説しています。
+5つの管理の視点での業務整理や出願書類の書き方については、doboku-noteの「[出願の留意点](https://doboku-note.com/docs/pe-comprehensive-management-exam-application-guide?utm_source=note&utm_medium=referral&utm_campaign=tankan-koutou-taisaku&utm_content=exam-application-guide)」で詳しく解説しています。
 
 ---
 
@@ -197,10 +205,3 @@ https://doboku-note.com/category/pe-comprehensive-management
 **口頭試験対策に役立つ note**
 - 総監の合否を分ける「トレードオフ思考」完全ガイド ¥1,200 — 口頭試験で「管理間の矛盾をどう解決したか」を問われた時の引き出し
 - 総監記述式 論文骨子テンプレート（A-1）¥1,980 — テーマ駆動・5 管理横串フレームワーク（筆記試験との一貫性を担保する型）
-
----
-
-<!-- cta:tankan-mokuji -->
-総監のほかの無料記事・有料マガジンは「総監もくじ」から一覧できます。
-
-https://note.com/dobokunote/n/n3ed4c77ceed6

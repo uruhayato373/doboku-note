@@ -53,6 +53,13 @@ https://note.com/dobokunote/m/m921fbe060575
 
 https://note.com/dobokunote/m/m171222175fac
 
+---
+
+<!-- cta:tankan-mokuji -->
+総監のほかの無料記事・有料マガジンは「総監もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n3ed4c77ceed6
+
 ## 情報 × 安全
 
 情報管理の核は機密性・完全性・可用性（CIA）の確保と業務効率化、安全管理の核は人命・第三者影響の回避と労働安全にあります。

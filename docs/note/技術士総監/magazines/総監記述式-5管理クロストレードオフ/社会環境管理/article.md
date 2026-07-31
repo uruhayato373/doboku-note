@@ -49,6 +49,13 @@ https://note.com/dobokunote/m/m921fbe060575
 
 https://note.com/dobokunote/m/m171222175fac
 
+---
+
+<!-- cta:tankan-mokuji -->
+総監のほかの無料記事・有料マガジンは「総監もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n3ed4c77ceed6
+
 ## 社会環境 × 安全
 
 社会環境管理の核は環境保全・景観・地域合意による社会受容性の確保、安全管理の核は人命・健康・第三者影響の回避にあります。
