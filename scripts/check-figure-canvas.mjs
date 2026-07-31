@@ -81,8 +81,9 @@ if (syncAllowlist) {
 }
 
 // --- 命名規則チェック: figure- プレフィックスなし SVG を検出 ---
-// 過去問クロップ専用ディレクトリ（h24-primary, primary-h26-b 等）は免除
-const EXAM_DIR_RE = /\/(h\d+-primary|primary-h\d+[^/]*)\//;
+// 過去問専用ディレクトリ（h24-primary, primary-h26-b, primary-exercise-01 等）は免除。
+// 設問図は原図の縦横比に従うため固定キャンバス（4:5 / 16:9）を適用しない。
+const EXAM_DIR_RE = /\/(h\d+-primary|primary-h\d+[^/]*|primary-exercise-\d+)\//;
 
 function listNonFigureSvgs() {
   if (!existsSync(POSTS)) return [];
