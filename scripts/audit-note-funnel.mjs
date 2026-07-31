@@ -165,7 +165,12 @@ for (const [key, ex] of Object.entries(CONFIG.exams)) {
   }
 
   // D2: 公開済みマガジンが L2 もくじに未収録
-  const examMags = MAGS.filter(mg => (ex.magazineExamMatch || []).some(s => mg.id.includes(s)));
+  // パターンは既定で部分一致だが、先頭 `^` で前方一致にできる。部分一致だけだと資格を跨いで
+  // 誤マッチする（2026-07-31: tankan の "essay-" にコンクリート診断士 `cd-essay-magazine` と
+  // 主任技師 `cce-essay-magazine` が当たり、「総監もくじに未収録」という資格セグメント違反の
+  // ドリフトを出していた）。concrete 系は非 HUB 資格で L2 もくじを持たないため対象外が正しい。
+  const matchId = (id, s) => (s.startsWith('^') ? id.startsWith(s.slice(1)) : id.includes(s));
+  const examMags = MAGS.filter(mg => (ex.magazineExamMatch || []).some(s => matchId(mg.id, s)));
   for (const mg of examMags) {
     if (mg.noteId && L2body && !L2body.includes(mg.noteId)) {
       drifts.push(`D2 [${key}] 公開マガジン ${mg.id}(${mg.noteId}) が L2「${ex.L2.title}」に未収録`);
