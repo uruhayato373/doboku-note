@@ -2,10 +2,11 @@
 notePricing: paid
 noteSeries: コンクリート診断士-記述式
 utmCampaign: cd-essay-b-asr
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/na11ded82fb1b"
+noteId: "na11ded82fb1b"
+notePublishedAt: "2026-07-31"
 noteMagazine: コンクリート診断士-記述式-模範答案集
+noteStatus: published
 paidBoundary: "答案の方針"
 price: 500
 coverTitle: "問題B 模範答案｜ASR（橋脚・擁壁）"

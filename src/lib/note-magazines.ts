@@ -708,17 +708,14 @@ const MAGAZINES_RAW = {
   },
 
   // 原稿配置: docs/note/コンクリート診断士/magazines/コンクリート診断士-記述式-模範答案集/
-  // コンクリート診断士 記述式（問題A・問題B）模範答案集。劣化機構別フル答案 8 本。published: false。
-  // 公開待ちの状態（2026-07-31 時点）:
-  //   - 原稿8本・記事カバー(cover.png/svg)・マガジンカバー(_cover.png)・hashtags(各94タグ) 揃い
-  //   - 診断士 vertical はサイト公開済（18記事）。magazine-placement.ts に配線済みで、
-  //     published:true にした瞬間に guide-essay / textbook-assessment / textbook-repair で CTA が出る
-  //   - 残りは note への実投稿のみ。投稿後に noteUrl / noteId / notePublishedAt を各 article.md に埋め、
-  //     ここを published: true にする（価格は note 側の設定と一致させること）
+  // コンクリート診断士 記述式（問題A・問題B）模範答案集。劣化機構別フル答案 8 本。
+  // 2026-07-31 公開。8記事とも有料境界の検証を通してから投稿し、マガジンへ 8/8 収録済み
+  //（note API で実体確認）。published:true により guide-essay / textbook-assessment /
+  // textbook-repair の3面で CTA が発火する（magazine-placement.ts 配線済み）。
   'cd-essay-magazine': {
     id: 'cd-essay-magazine',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/mf2a132408b6f',
     title: 'コンクリート診断士 記述式｜問題A・問題B 模範答案集',
     description:
       'コンクリート診断士試験 記述式（問題A・問題B）のフル模範答案集。問題A（資質・論述）2本、問題B（具体構造物の診断・対策提案）5本を塩害・中性化・ASR・凍害・疲労複合の劣化機構別に収録。答案の型と採点視点をまとめた解法ガイド1本付き。想定問題はオリジナル代表例、固有数値は置換前提。',

@@ -2,10 +2,11 @@
 notePricing: paid
 noteSeries: コンクリート診断士-記述式
 utmCampaign: cd-essay-b-fatigue
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n094029176c4c"
+noteId: "n094029176c4c"
+notePublishedAt: "2026-07-31"
 noteMagazine: コンクリート診断士-記述式-模範答案集
+noteStatus: published
 paidBoundary: "答案の方針"
 price: 500
 coverTitle: "問題B 模範答案｜RC床版の疲労と複合劣化"

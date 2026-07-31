@@ -2,10 +2,11 @@
 notePricing: paid
 noteSeries: コンクリート診断士-記述式
 utmCampaign: cd-essay-method
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n66d2d9244bc8"
+noteId: "n66d2d9244bc8"
+notePublishedAt: "2026-07-31"
 noteMagazine: コンクリート診断士-記述式-模範答案集
+noteStatus: published
 paidBoundary: "問題Bの答案の型（5ステップ）"
 price: 500
 coverTitle: "コンクリート診断士 記述式 突破法"
