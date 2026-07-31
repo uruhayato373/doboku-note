@@ -38,7 +38,7 @@ export async function countEmbeds(page) {
  * @param {{anchor?: string|null, timeoutMs?: number}} opts anchor 指定時はその文字列を含む最小段落の直後へ挿入
  * @returns {Promise<{ok:boolean, reason?:string, embedsBefore:number, embedsAfter:number}>}
  */
-export async function attachFileInEditor(page, fileAbs, { anchor = null, timeoutMs = 40000 } = {}) {
+export async function attachFileInEditor(page, fileAbs, { anchor = null, timeoutMs = 60000 } = {}) {
   await page.click('[contenteditable=true]');
   await sleep(500);
   const pos = await page.evaluate((a) => {
@@ -84,21 +84,31 @@ export async function attachFileInEditor(page, fileAbs, { anchor = null, timeout
   ]);
   await chooser.setFiles(fileAbs);
 
-  // アップロード完了をポーリング（note のアップロードは遅延・混雑する）
+  // アップロード完了をポーリング（note のアップロードは遅延・混雑する）。
+  // 判定はファイル名の完全一致に頼らない——note はカード上のファイル名を省略表示するため、
+  // 長い日本語名（例「建設部門-施工計画-R08予想-II-1-予想問題と模範解答.pdf」41字）だと
+  // innerText に全体が現れず、アップロード成功なのに失敗と誤診する（2026-07-31 に 3 本）。
+  // ①埋め込み数の増加 ②本文中の ".pdf" 出現数の増加 ③名前の先頭 10 字の出現、のどれかで成立。
   const base = fileAbs.split(/[\\/]/).pop();
+  const head = base.slice(0, 10);
+  const pdfCountBefore = await page.evaluate(() => ((document.querySelector('[contenteditable=true]')?.innerText || '').match(/\.pdf/gi) || []).length);
   let embedsAfter = embedsBefore;
   const until = Date.now() + timeoutMs;
   while (Date.now() < until) {
     await sleep(3000);
-    const st = await page.evaluate((b) => {
+    const st = await page.evaluate((h) => {
       const ed = document.querySelector('[contenteditable=true]');
-      const embeds = document.querySelectorAll('[contenteditable=true] figure, [contenteditable=true] [embedded-service], [contenteditable=true] [data-name]').length;
-      return { embeds, hasFile: (ed?.innerText || '').includes(b) };
-    }, base);
+      const txt = ed?.innerText || '';
+      return {
+        embeds: document.querySelectorAll('[contenteditable=true] figure, [contenteditable=true] [embedded-service], [contenteditable=true] [data-name]').length,
+        pdfCount: (txt.match(/\.pdf/gi) || []).length,
+        hasHead: txt.includes(h),
+      };
+    }, head);
     embedsAfter = st.embeds;
-    if (st.embeds > embedsBefore || st.hasFile) return { ok: true, embedsBefore, embedsAfter };
+    if (st.embeds > embedsBefore || st.pdfCount > pdfCountBefore || st.hasHead) return { ok: true, embedsBefore, embedsAfter };
   }
-  return { ok: false, reason: 'アップロード後にカードが現れない', embedsBefore, embedsAfter };
+  return { ok: false, reason: `アップロード後にカードが現れない（embeds ${embedsBefore}→${embedsAfter} / pdf件数 ${pdfCountBefore}）`, embedsBefore, embedsAfter };
 }
 
 /**
