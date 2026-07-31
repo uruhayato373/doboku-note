@@ -133,9 +133,9 @@ function main() {
   if (CI) {
     if (ciViolations) {
       console.error(`[check-image-assets] ✗ サイズ新規超過 ${fresh.length} / 肥大 ${grew.length} / 危険名 ${dangerous.length}`);
-      for (const o of fresh) console.error(`  [size-new] ${o.rel} ${fmtBytes(o.bytes)} > ${fmtBytes(o.limit)}`);
-      for (const o of grew) console.error(`  [size-grew] ${o.rel} ${fmtBytes(o.was)} → ${fmtBytes(o.bytes)}`);
-      for (const d of dangerous) console.error(`  [bad-name] ${d.rel}`);
+      for (const o of fresh) console.error(`  [size-new] ${o.relPath} ${fmtBytes(o.bytes)} > ${fmtBytes(o.limit)}`);
+      for (const o of grew) console.error(`  [size-grew] ${o.relPath} ${fmtBytes(o.was)} → ${fmtBytes(o.bytes)}`);
+      for (const d of dangerous) console.error(`  [bad-name] ${d.relPath}`);
       console.error(`  対処: 画像を圧縮 or 許容超過なら npm run update-image-baseline。危険名はリネーム(参照元も更新)。`);
       process.exit(1);
     }

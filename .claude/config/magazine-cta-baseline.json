@@ -1,0 +1,15 @@
+{
+  "_comment": "check-magazine-cta-reachability のラチェット baseline。公開済みなのにサイト内 CTA が 0 面のマガジンを、理由付きで記録する。ここに無い新規の 0 面は CI が落とす。CTA を配線したら該当行を削除する（スクリプトが info で知らせる）。",
+  "_updatedAt": "2026-07-31",
+  "zeroSurface": {
+    "civil-2-takuitsu-pdf": "note 単品 PDF 併売（Kindle と同一コンテンツ）。サイト導線は未判断 → docs/todo/backlog.md",
+    "pe1-takuitsu-pdf": "note 単品 PDF 併売（Kindle と同一コンテンツ）。サイト導線は未判断 → docs/todo/backlog.md",
+    "tankan-takuitsu-reiwa-pdf": "note 単品 PDF 併売（Kindle と同一コンテンツ）。サイト導線は未判断 → docs/todo/backlog.md",
+    "tankan-takuitsu-heisei-pdf": "note 単品 PDF 併売（Kindle と同一コンテンツ）。サイト導線は未判断 → docs/todo/backlog.md",
+    "civil-1-ichiji-ronten": "note 単品記事（マガジンではない）。サイト導線は未判断 → docs/todo/backlog.md",
+    "civil-1-r8-bunseki": "note 単品記事（マガジンではない）。サイト導線は未判断 → docs/todo/backlog.md",
+    "civil-2-anki-note": "note 単品記事（マガジンではない）。サイト導線は未判断 → docs/todo/backlog.md",
+    "civil-2-gakka-kijutsu": "2級 学科記述。個別 CTA 未配線・もくじタイル経由のみ → docs/todo/backlog.md",
+    "pe-construction-road-pack": "建設部門 道路パック。個別 CTA 未配線 → docs/todo/backlog.md"
+  }
+}

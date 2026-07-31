@@ -101,6 +101,17 @@ node scripts/kdp-publish.mjs --sync-status   # .tmp/kdp-sync-status.json
 自己検証つき: catalog に ASIN がある本を1件も再現できなければ **exit 1（検査不成立）**。
 `found:false` を「本棚に無い」の証拠として使ってよいのは exit 0 のときだけ。
 
+### 既刊の価格改定
+```
+node scripts/kdp-publish.mjs --id <id> --set-price            # dry-run（現在価格と目標を表示）
+node scripts/kdp-publish.mjs --id <id> --set-price --commit   # 保存（公開価格が変わる）
+```
+価格の真実源は `scripts/kindle-specs/<id>.json` の `price`。**catalog の `priceJpy` と両方を更新**してから実行する（resolveBook が読むのは spec 側）。
+
+70% 印税帯は **¥250〜¥1,250**。これを超えると 35% に落ちて実収益が下がる（¥1,490×35%≒¥522 < ¥1,250×70%≒¥875）ので、値上げの上限は ¥1,250。
+
+保存直後の本は「変更事項のレビュー中」になり **pricing ページが本棚へリダイレクトされる**。同じ `--set-price` で読み直しても検証できないので、**本棚の表示価格**で突合する（2026-07-31 に 19 冊を改定して 19/19 一致を確認した方法）。反映は最大 72h。
+
 ### ドラフト削除（テスト残骸）
 ```
 node scripts/kdp-publish.mjs --list-drafts               # 本棚確認

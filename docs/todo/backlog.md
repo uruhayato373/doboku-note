@@ -192,6 +192,22 @@ page/category の合成ロジック共通化（2026-06-25 アセスメント起�
 
 原典照合できない数値は出していない（JIS 規格値は原理を問う形へ、改正年代順は塩化物総量規制の考え方へ差し替え済み）。
 
+### 診断士 textbook 2章の文体が規約と逆（ですます調 → である調）
+タグ: [品質]
+
+`textbook-variation` と `textbook-deterioration` が **ですます調**で書かれている。[content-principles.md](../../.claude/knowledge/reference/content-principles.md) の文体ルールでは **教科書は である調**で、同じ診断士の他 4 章（assessment / repair / investigation / maintenance）は である調。資格内で文体が割れている。
+
+副作用として lint の 15-1（同じ文末 3 連続。**ですます調限定**のルール）が 21 件出ており、2026-07-31 に baseline へ計上して CI を通した。である調へ変換すれば 15-1 は対象外になり、規約にも他章にも揃う。**変換したら baseline から該当行を落とす**こと。
+
+機械変換する場合の注意: 「〜ています」→「〜ている」と「〜います」→「〜う」の判別、`<Callout>` 内と引用の扱い、`{/* source: */}` コメントの非対象化。変換後は `npm run check-content-quality` と目視サンプリングで検証する。
+
+### 公開マガジン 9 件がサイト CTA 0 面
+タグ: [収益化]
+
+`npm run check-magazine-cta` が検出。note 単品 PDF 併売（`*-takuitsu-pdf` 4件）・note 単品記事（`civil-1-ichiji-ronten` 等 3件）・`civil-2-gakka-kijutsu`・`pe-construction-road-pack` に、サイト内の個別 CTA が 1 面も無い。
+
+`.claude/config/magazine-cta-baseline.json` に理由付きで計上済み（新規の 0 面だけ CI が落ちる）。**サイト導線を付けるか、意図的に付けない設計と確定させるか**の判断が要る。付けたら baseline から削除する（スクリプトが info で知らせる）。
+
 ### コンクリート系 CTA 背景イラスト（cta-bg）未整備
 タグ: [デザイン]
 

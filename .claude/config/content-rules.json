@@ -60,56 +60,174 @@
   },
   "scopes": {
     "_doc": "各ルールの適用条件(記述的 SSOT)。複雑なもの(path 正規表現・性能上の早期 return)は lint-mdx-mobile.mjs 内のガードが一次実行点。ここは可読な対応表で、資格別の有効/無効の実運用ノブは overrides を使う。",
-    "3-1": { "applies": "all", "note": "入れ子リスト(2階層以上)。全資格共通" },
-    "6-2": { "applies": "group:guide", "note": "見出し直下いきなり箇条書き" },
-    "6-3": { "applies": "group:guide", "note": "見出し直下いきなり図" },
-    "6-4": { "applies": "group:guide", "note": "見出し直下いきなり SpecSheetList" },
-    "6-5": { "applies": "group:guide", "note": "見出し直下いきなり Callout（試験のポイント予告も1〜2文リードを挟む）" },
-    "6-6": { "applies": "group:guide|secondary|textbook（過去問アーカイブ除外）", "note": "記事冒頭がリード散文なしで構造物直始まり。keyword は定義H2様式（§1）のため対象外" },
-    "9-14": { "applies": "all（過去問アーカイブ除外）", "note": "Callout 連続（間に地の文なし）" },
-    "9-15": { "applies": "all（過去問アーカイブ除外）", "note": "例題・計算例タイトルの Callout（本文化）" },
-    "9-16": { "applies": "all（過去問アーカイブ除外）", "note": "Callout 密度超過（guide/pillar>12・他>3）" },
-    "9-7": { "applies": "category:pe-comprehensive-management", "note": "教材外の実務応用セクション禁止" },
-    "9-12": { "applies": "category:civil-construction-1 & slug:secondary-r0X", "note": "解答欠落検出" },
-    "12-1": { "applies": "group:guide", "note": "総合技術監理における位置づけ H2 禁止" },
-    "12-2": { "applies": "group:guide", "note": "参考資料/参考文献 H2 禁止" },
-    "12-3": { "applies": "group:guide", "note": "末尾 H2 が承認パターン外" },
-    "13-1": { "applies": "slug:r8-essay-theme-*", "note": "許可外ペルソナ名" },
-    "13-2": { "applies": "slug:r8-essay-theme-*", "note": "ペルソナ別サブセクション数" },
-    "14-1": { "applies": "all except group:guide", "note": "factual table の出典 Callout 欠落" },
-    "15-3": { "applies": "all", "note": "1段落300字超。全資格共通(サイト基準。note は別系統〜120字)" }
+    "3-1": {
+      "applies": "all",
+      "note": "入れ子リスト(2階層以上)。全資格共通"
+    },
+    "6-2": {
+      "applies": "group:guide",
+      "note": "見出し直下いきなり箇条書き"
+    },
+    "6-3": {
+      "applies": "group:guide",
+      "note": "見出し直下いきなり図"
+    },
+    "6-4": {
+      "applies": "group:guide",
+      "note": "見出し直下いきなり SpecSheetList"
+    },
+    "6-5": {
+      "applies": "group:guide",
+      "note": "見出し直下いきなり Callout（試験のポイント予告も1〜2文リードを挟む）"
+    },
+    "6-6": {
+      "applies": "group:guide|secondary|textbook（過去問アーカイブ除外）",
+      "note": "記事冒頭がリード散文なしで構造物直始まり。keyword は定義H2様式（§1）のため対象外"
+    },
+    "9-14": {
+      "applies": "all（過去問アーカイブ除外）",
+      "note": "Callout 連続（間に地の文なし）"
+    },
+    "9-15": {
+      "applies": "all（過去問アーカイブ除外）",
+      "note": "例題・計算例タイトルの Callout（本文化）"
+    },
+    "9-16": {
+      "applies": "all（過去問アーカイブ除外）",
+      "note": "Callout 密度超過（guide/pillar>12・他>3）"
+    },
+    "9-7": {
+      "applies": "category:pe-comprehensive-management",
+      "note": "教材外の実務応用セクション禁止"
+    },
+    "9-12": {
+      "applies": "category:civil-construction-1 & slug:secondary-r0X",
+      "note": "解答欠落検出"
+    },
+    "12-1": {
+      "applies": "group:guide",
+      "note": "総合技術監理における位置づけ H2 禁止"
+    },
+    "12-2": {
+      "applies": "group:guide",
+      "note": "参考資料/参考文献 H2 禁止"
+    },
+    "12-3": {
+      "applies": "group:guide",
+      "note": "末尾 H2 が承認パターン外"
+    },
+    "13-1": {
+      "applies": "slug:r8-essay-theme-*",
+      "note": "許可外ペルソナ名"
+    },
+    "13-2": {
+      "applies": "slug:r8-essay-theme-*",
+      "note": "ペルソナ別サブセクション数"
+    },
+    "14-1": {
+      "applies": "all except group:guide",
+      "note": "factual table の出典 Callout 欠落"
+    },
+    "15-3": {
+      "applies": "all",
+      "note": "1段落300字超。全資格共通(サイト基準。note は別系統〜120字)"
+    }
   },
   "overrides": {
     "_doc": "資格(exam=category)×種別(docGroup=group)単位でルールを無効化/重大度上書きする実運用ノブ。形式: overrides[exam][group|'*'][ruleId] = { enabled?: false, severity?: 'HIGH'|'MEDIUM'|'LOW' }。真実源は exam-content-policy.md Part 2 のレビュー視点マトリクス。",
     "civil-construction-1": {
       "textbook": {
-        "1-3": { "enabled": false },
-        "1-4": { "enabled": false }
+        "1-3": {
+          "enabled": false
+        },
+        "1-4": {
+          "enabled": false
+        }
       },
       "secondary": {
         "_note": "二次検定の解説/基礎ページ(secondary-*-basics 等)は textbook 転載の規格表(JIS A5308 17列・土量計算12列・締固め機種10列等)を含み、箇条書き化すると2次元参照性を失うため textbook と同じ免除。2026-07-10 品質サイクルで決定",
-        "1-3": { "enabled": false },
-        "1-4": { "enabled": false }
+        "1-3": {
+          "enabled": false
+        },
+        "1-4": {
+          "enabled": false
+        }
       }
     },
     "civil-construction-2": {
       "textbook": {
-        "1-3": { "enabled": false },
-        "1-4": { "enabled": false }
+        "1-3": {
+          "enabled": false
+        },
+        "1-4": {
+          "enabled": false
+        }
       }
     },
     "concrete-chief-engineer": {
       "primary": {
         "_note": "過去問(primary)の問題データ表(ふるい分け試験・圧縮強度試験・配合計算の容積内訳等)は多列・多次元が本質で、箇条書き化すると2次元参照性を失うため 1-3/1-4 を免除。問題文・計算過程は条件を1文で提示する性質があり、モバイル散文の文長ルール(15-2/15-3)は過去問問題文に不適のため同じく免除。civil-construction-1 secondary の免除(2026-07-10)に倣う。2026-07-14。",
-        "1-3": { "enabled": false },
-        "1-4": { "enabled": false },
-        "15-2": { "enabled": false },
-        "15-3": { "enabled": false }
+        "1-3": {
+          "enabled": false
+        },
+        "1-4": {
+          "enabled": false
+        },
+        "15-2": {
+          "enabled": false
+        },
+        "15-3": {
+          "enabled": false
+        }
+      }
+    },
+    "concrete-diagnostician": {
+      "primary": {
+        "_note": "演習問題(primary-exercise-NN)の選択肢マトリクス表（(A)(B)(C) の組合せを行で並べる形式）と試験データ表は多列・多次元が本質で、箇条書き化すると組合せの対応が壊れる。concrete-chief-engineer primary の免除（2026-07-14）に倣う。2026-07-31。",
+        "1-3": {
+          "enabled": false
+        },
+        "1-4": {
+          "enabled": false
+        },
+        "15-2": {
+          "enabled": false
+        },
+        "15-3": {
+          "enabled": false
+        }
       }
     }
   },
   "fullScan": {
     "_doc": "--all(週次CIラチェット/check-content-quality)が追跡するルール = モバイル可読性・レイアウト系に限定。理由: (1)pre-commit は staged で全ルールを見るが、全量ラチェットは『読みやすい記事』ミッションのルール群だけを追い、baseline を意味あるものに保つ。(2)10-5(画像存在)は画像が git ツリー外(R2同期)のため全量走査で誤検知 → r2-audit の image ステップが担当。(3)9-6(解答マーカー)等の過去問固有 HIGH は本来の pre-commit ゲートが担当。ここに無いルールは pre-commit では従来どおり効く。",
-    "rules": ["0-3", "0-4", "1-3", "1-4", "1-5", "1-7", "2-1", "2-3", "2-4", "3-1", "6-1", "6-2", "6-3", "6-4", "6-5", "6-6", "7-3", "9-14", "9-15", "9-16", "10-6", "11-1", "11-2", "15-1", "15-2", "15-3"]
+    "rules": [
+      "0-3",
+      "0-4",
+      "1-3",
+      "1-4",
+      "1-5",
+      "1-7",
+      "2-1",
+      "2-3",
+      "2-4",
+      "3-1",
+      "6-1",
+      "6-2",
+      "6-3",
+      "6-4",
+      "6-5",
+      "6-6",
+      "7-3",
+      "9-14",
+      "9-15",
+      "9-16",
+      "10-6",
+      "11-1",
+      "11-2",
+      "15-1",
+      "15-2",
+      "15-3"
+    ]
   }
 }

@@ -79,6 +79,7 @@ note 記事・マガジンが増えると、記事末尾の CTA が場当たり�
 | `npm run wire-note-funnel-cta -- --exam {key} [--apply]` | 資格別に L3 冒頭/末尾 CTA を**ソースへ**冪等配線（既定は dry-run） |
 | `npm run note-append-cta -- --note {id} ...` | **公開済み記事へ CTA を live 反映**（Playwright・Windows 可・browser-use 不要）。`--after`=free プレビューへアンカー挿入／`--boundary-h2`=有料境界保持。D5 ドリフトの修復手段。詳細 → [publish-note/references/update-mode.md](../../skills/social/publish-note/references/update-mode.md) |
 | `npm run note-append-list-links -- --spec {json} [--commit]` | **公開済みもくじの既存 `<ul>` へインラインリンク項目を live 追加**（D2 ライブ反映）。type ではインラインリンクが作れない（`[text](url)` はリテラル残存・bare URL はカード化）ため `insertAdjacentHTML` で兄弟 `<li>` を挿入。spec JSON = `{note, sections:[{anchorMagId, items:[{url,title,desc}]}]}` |
+| `npm run check-magazine-cta` / `:ci` | **サイト側**の CTA 到達性ゲート（note 内の導線を見る他ツールと直交）。公開マガジンが `/docs` のどこかで実際に CTA として出るかを、`placement.top` / 中間 CTA（group と h2>=5・本文 8,000 字の発火条件込み）/ MDX 内 `<MagazineCard>` の 3 経路で判定する。**`published: true` にしても CTA が 1 面も出ない**事故（2026-07-31 コンクリート診断士）の再発防止。既存の 0 面は `.claude/config/magazine-cta-baseline.json` に理由付きで計上し、**baseline 外の新規 0 面だけ落とす**ラチェット方式。`placement.sidebar` は 2026-07 の CTA 統一以降どこからも参照されない死に配線なので、配線しても到達手段にならない |
 | `audit-note-funnel` スキル | 監査→修復→再公開の手順書（資格別 config 駆動） |
 | `note-funnel-auditor` エージェント | 意味的監査（もくじ構成・CTA 文面の関連性・回遊の質）。Evaluator・audit-only。機械の D1-D5 とは直交 |
 

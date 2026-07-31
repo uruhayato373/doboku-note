@@ -60,10 +60,13 @@ model: sonnet
 | `--id <id> --commit-publish` | 上記＋出版（不可逆）＋出版後検証。**承認後のみ** |
 | `--list-drafts` | 本棚を `.tmp` へダンプ（読み取り） |
 | `--delete-drafts <ASIN,...>` | 下書きのみ削除（下書き assert・1件ずつ） |
+| `--id <id> --set-price` | 既刊の価格改定。既定は dry-run（現在価格と目標価格を出すだけ）で、保存は `--commit` が要る。価格の真実源は spec の `price`（catalog の `priceJpy` と同期させる）。**審査中（変更事項のレビュー中）の本は pricing ページが本棚へリダイレクトされる**ため、直後の再取得では検証できない → 本棚の表示価格で突合する |
 | `--dump --asin <ASIN> --page <details\|content\|pricing>` | KDP UI 変更時の再較正（HTML+スクショ） |
 | `--diag-category --asin <ASIN>` | カテゴリーカスケードの候補実測（A/E系 末端ラベル較正） |
 
-補助: `node scripts/gen-kdp-memo.mjs <id>`（コピペ用メモ txt 生成・メタデータ人手確認用）。
+補助:
+- `node scripts/gen-kdp-memo.mjs <id>`（コピペ用メモ txt 生成・メタデータ人手確認用）
+- `npm run kdp-report`（**別スクリプト**・読み取り専用）: KDP レポート画面から月次ロイヤリティを取得し `.claude/state/sales/kdp-royalties.json` へ保存。当月/前月のみ。売上の把握はこちらで、`kdp-publish` は入稿・価格側という分担 → [sales-tracking.md](../knowledge/reference/sales-tracking.md)
 
 ## 実行手順
 
