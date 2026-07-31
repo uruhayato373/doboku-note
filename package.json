@@ -223,7 +223,8 @@
     "gen-kdp-memo": "node scripts/gen-kdp-memo.mjs",
     "kdp-report": "node scripts/kdp-report.mjs",
     "sync-kindle-dist": "node scripts/sync-kindle-dist.mjs",
-    "build-takuitsu-pdf": "node scripts/build-takuitsu-pdf.mjs"
+    "build-takuitsu-pdf": "node scripts/build-takuitsu-pdf.mjs",
+    "delete-r2-objects": "node scripts/delete-r2-objects.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.908.0",

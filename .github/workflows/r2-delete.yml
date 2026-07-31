@@ -1,0 +1,52 @@
+name: R2 Delete Objects
+
+# r2-sync.yml はアップロードのみで削除を行わないため、リポジトリから撤去した画像が
+# R2 に残り続ける。著作権対応などで確実に撤去したい場合に、明示リストのキーだけを削除する。
+#
+# 自動実行はしない（誤削除の影響が大きいため workflow_dispatch のみ）。
+# 既定は dry-run。実削除するには commit=true を明示する。
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit:
+        description: '実際に削除する（false のときは dry-run で対象一覧のみ出力）'
+        required: false
+        default: false
+        type: boolean
+      list:
+        description: '削除リストのパス'
+        required: false
+        default: '.claude/config/r2-delete-list.txt'
+        type: string
+
+concurrency:
+  group: r2-delete
+  cancel-in-progress: false
+
+jobs:
+  delete:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps --ignore-scripts
+
+      - name: Delete objects from R2
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
+          CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
+        run: |
+          ARGS="--list ${{ github.event.inputs.list }}"
+          if [ "${{ github.event.inputs.commit }}" = "true" ]; then
+            ARGS="$ARGS --commit"
+          fi
+          node scripts/delete-r2-objects.mjs $ARGS
