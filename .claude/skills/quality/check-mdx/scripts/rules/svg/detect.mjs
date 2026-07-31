@@ -475,6 +475,9 @@ function luminance(hex) {
 function isAllowedColor(raw) {
   if (!raw) return true; // 未指定は検出対象外
   const lower = raw.toLowerCase().trim();
+  // fill="url(#pattern)" 等の参照は色リテラルではない（パターン/グラデーションの参照）。
+  // 参照先の色は defs 内の要素として別途走査されるため、ここで弾くと二重検出になる。
+  if (lower === "url" || lower.startsWith("url(")) return true;
   if (ALLOWED_COLORS.has(lower)) return true;
   const norm = normalizeHex(raw);
   if (norm && ALLOWED_COLORS.has(norm)) return true;
