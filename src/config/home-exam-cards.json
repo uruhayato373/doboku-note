@@ -82,5 +82,19 @@
       { "label": "過去問", "groups": ["primary"], "tags": ["past-questions"] },
       { "label": "テキスト", "groups": ["textbook"], "tags": [] }
     ]
+  },
+  {
+    "slug": "concrete-diagnostician",
+    "order": 7,
+    "label": "コンクリート診断士",
+    "en": "JCI Concrete Diagnosis Engineer",
+    "subtitle": "四肢択一・記述式 完全対策",
+    "description": "変状・劣化機構・調査・評価・補修補強・維持管理の6分野を体系整理。分野別テキストと四肢択一の演習問題98問、記述式対策を収録。",
+    "nextExam": "2027年7月（予定）",
+    "stats": [
+      { "label": "記事", "total": true },
+      { "label": "演習問題", "groups": ["primary"], "tags": [] },
+      { "label": "テキスト", "groups": ["textbook"], "tags": [] }
+    ]
   }
 ]

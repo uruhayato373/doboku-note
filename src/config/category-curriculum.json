@@ -68,6 +68,13 @@
       "slugs": ["guide-overview", "guide-trends", "guide-essay"]
     }
   },
+  "concrete-diagnostician": {
+    "examGuide": {
+      "title": "受験ガイド",
+      "description": "試験概要・出題傾向・学習法・記述式対策",
+      "slugs": ["guide-overview", "guide-trends", "guide-study-method", "guide-essay"]
+    }
+  },
   "pe-construction": {
     "$note": "guide group（11本）に加え、keyword group（35本）の並びも keywordSection で扱う。",
     "keywordSection": {
