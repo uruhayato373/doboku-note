@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="電気化学的補修の共通構成と、脱塩・再アルカリ化・電気防食の目的と通電のしかたの違い">
+  <defs>
+    <marker id="cdr3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#d4a017"/>
+    </marker>
+  </defs>
+
+  <text x="200" y="16" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">構成は共通。違いは「目的」と「通電のしかた」</text>
+
+  <rect x="30" y="60" width="340" height="94" fill="#f5f5f5" stroke="#555" stroke-width="1.5"/>
+  <text x="42" y="80" font-family="sans-serif" font-size="11" fill="#8a8a8a">コンクリート</text>
+
+  <rect x="30" y="52" width="340" height="10" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <text x="200" y="44" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#d4a017">外部電極（陽極）</text>
+
+  <line x1="60" y1="128" x2="340" y2="128" stroke="#8a8a8a" stroke-width="4"/>
+  <text x="300" y="148" font-family="sans-serif" font-size="11" fill="#8a8a8a">鋼材（陰極）</text>
+
+  <line x1="120" y1="66" x2="120" y2="120" stroke="#d4a017" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#cdr3)"/>
+  <line x1="240" y1="66" x2="240" y2="120" stroke="#d4a017" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#cdr3)"/>
+  <text x="152" y="104" font-family="sans-serif" font-size="11" fill="#d4a017">直流を通電</text>
+
+  <text x="20" y="176" font-family="sans-serif" font-size="11" fill="#555">はつらずに深部まで処理できるのが共通の利点</text>
+
+  <rect x="20" y="190" width="360" height="88" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="34" y="212" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">脱塩</text>
+  <text x="120" y="212" font-family="sans-serif" font-size="11" fill="#555">塩化物イオンを表面側へ移動させ除去</text>
+  <text x="34" y="236" font-family="sans-serif" font-size="11" fill="#8a8a8a">大電流・短期間</text>
+  <text x="34" y="258" font-family="sans-serif" font-size="11" fill="#555">目安 4〜8 週間 ／ 約 1 A/m²</text>
+
+  <rect x="20" y="288" width="360" height="88" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <text x="34" y="310" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">再アルカリ化</text>
+  <text x="140" y="310" font-family="sans-serif" font-size="11" fill="#555">細孔液の pH を回復させる</text>
+  <text x="34" y="334" font-family="sans-serif" font-size="11" fill="#8a8a8a">大電流・短期間（脱塩と同様）</text>
+  <text x="34" y="356" font-family="sans-serif" font-size="11" fill="#555">目安 4〜8 週間 ／ 約 1 A/m²</text>
+
+  <rect x="20" y="386" width="360" height="96" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <text x="34" y="408" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">電気防食</text>
+  <text x="120" y="408" font-family="sans-serif" font-size="11" fill="#555">防食電位を維持し続ける</text>
+  <text x="34" y="432" font-family="sans-serif" font-size="11" font-weight="bold" fill="#b22234">低電流・常時通電（止めない）</text>
+  <text x="34" y="454" font-family="sans-serif" font-size="11" fill="#555">目安 0.2〜20 mA/m²</text>
+  <text x="34" y="474" font-family="sans-serif" font-size="11" fill="#8a8a8a">参照電極で過防食も確認する</text>
+</svg>
