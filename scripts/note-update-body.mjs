@@ -166,6 +166,10 @@ function deriveProbe(body) {
     !/https?:\/\//.test(s) &&
     !/[#>|*_`\[\]()~]/.test(s) &&
     !/^[-+]\s/.test(s) &&
+    // 番号付きリスト（1. 〜）は note エディタが <ol> の自動採番にするため、innerText に
+    // 「1.」が現れず probe 照合が必ず外れる（2026-07-31: 00-序章 で paste 成功なのに
+    // 「probe 未検出」で保存中断＝偽陰性になった）。probe の材料から除く。
+    !/^\d+[.)]\s/.test(s) &&
     s.length >= 16
   );
   const pick = clean.length ? clean.sort((a, b) => b.length - a.length)[Math.floor(clean.length / 2)] || clean[0] : null;
