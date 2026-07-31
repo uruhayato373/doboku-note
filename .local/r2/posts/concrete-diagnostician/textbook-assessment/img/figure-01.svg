@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="潜伏期・進展期・加速期・劣化期の四段階における性能低下曲線と、各段階で現れる現象および対策時期の関係">
+  <defs>
+    <marker id="cda1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#555"/>
+    </marker>
+  </defs>
+
+  <text x="200" y="16" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">四段階の区分は「いつ対策を打つか」を決めるための枠組み</text>
+
+  <line x1="52" y1="200" x2="380" y2="200" stroke="#222" stroke-width="1.5" marker-end="url(#cda1)"/>
+  <line x1="52" y1="200" x2="52" y2="36" stroke="#222" stroke-width="1.5" marker-end="url(#cda1)"/>
+  <text x="378" y="194" text-anchor="end" font-family="sans-serif" font-size="11" fill="#222">経過時間</text>
+  <text x="58" y="48" font-family="sans-serif" font-size="11" fill="#222">性能</text>
+
+  <line x1="134" y1="52" x2="134" y2="200" stroke="#d7d7d7" stroke-width="1.2"/>
+  <line x1="216" y1="52" x2="216" y2="200" stroke="#d7d7d7" stroke-width="1.2"/>
+  <line x1="298" y1="52" x2="298" y2="200" stroke="#d7d7d7" stroke-width="1.2"/>
+
+  <path d="M52 62 L134 68 Q 180 78 216 100 Q 258 128 298 164 L360 192" fill="none" stroke="#2e6da4" stroke-width="2.5"/>
+
+  <text x="93" y="222" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">潜伏期</text>
+  <text x="175" y="222" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">進展期</text>
+  <text x="257" y="222" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">加速期</text>
+  <text x="335" y="222" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">劣化期</text>
+
+  <rect x="52" y="236" width="326" height="18" rx="3" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1"/>
+  <rect x="216" y="236" width="162" height="18" rx="3" fill="#f8d7da" stroke="#b22234" stroke-width="1"/>
+  <text x="130" y="249" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a3a5c">対策のコスト効果が高い</text>
+  <text x="297" y="249" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a3a5c">根本的な補強が必要</text>
+
+  <rect x="20" y="266" width="360" height="216" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="200" y="286" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#222">各段階で外に現れるもの</text>
+
+  <rect x="30" y="296" width="340" height="42" rx="3" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="42" y="313" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">潜伏期</text>
+  <text x="110" y="313" font-family="sans-serif" font-size="11" fill="#555">外観・性能に変化なし</text>
+  <text x="110" y="330" font-family="sans-serif" font-size="11" fill="#8a8a8a">劣化因子が内部に蓄積している</text>
+
+  <rect x="30" y="344" width="340" height="42" rx="3" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="42" y="361" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">進展期</text>
+  <text x="110" y="361" font-family="sans-serif" font-size="11" fill="#555">ひび割れ・錆汁が現れる</text>
+  <text x="110" y="378" font-family="sans-serif" font-size="11" fill="#8a8a8a">性能低下は限定的だが速度が上がる</text>
+
+  <rect x="30" y="392" width="340" height="42" rx="3" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="42" y="409" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">加速期</text>
+  <text x="110" y="409" font-family="sans-serif" font-size="11" fill="#555">かぶりの剥落・断面欠損</text>
+  <text x="110" y="426" font-family="sans-serif" font-size="11" fill="#8a8a8a">ひび割れが水・酸素の供給路になる</text>
+
+  <rect x="30" y="440" width="340" height="34" rx="3" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="42" y="461" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">劣化期</text>
+  <text x="110" y="461" font-family="sans-serif" font-size="11" fill="#555">要求水準を大きく下回る</text>
+</svg>
