@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="補修が元の性能への回復、補強が要求性能の向上を目指すという違いと、代表的な補強工法および品質管理の要点">
+  <defs>
+    <marker id="cdm3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#555"/>
+    </marker>
+  </defs>
+
+  <text x="200" y="16" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">どこまで戻すのか、それとも超えるのか</text>
+
+  <line x1="46" y1="150" x2="186" y2="150" stroke="#222" stroke-width="1.5" marker-end="url(#cdm3)"/>
+  <line x1="46" y1="150" x2="46" y2="36" stroke="#222" stroke-width="1.5" marker-end="url(#cdm3)"/>
+  <line x1="46" y1="60" x2="180" y2="60" stroke="#8a8a8a" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <text x="52" y="54" font-family="sans-serif" font-size="11" fill="#8a8a8a">当初の性能</text>
+  <path d="M46 60 L96 116 L96 62 L150 96" fill="none" stroke="#2e6da4" stroke-width="2.2"/>
+  <text x="116" y="146" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2e6da4">補修</text>
+  <text x="116" y="164" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">元の性能へ回復</text>
+
+  <line x1="214" y1="150" x2="366" y2="150" stroke="#222" stroke-width="1.5" marker-end="url(#cdm3)"/>
+  <line x1="214" y1="150" x2="214" y2="36" stroke="#222" stroke-width="1.5" marker-end="url(#cdm3)"/>
+  <line x1="214" y1="60" x2="360" y2="60" stroke="#8a8a8a" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <text x="220" y="54" font-family="sans-serif" font-size="11" fill="#8a8a8a">当初の性能</text>
+  <path d="M214 60 L264 116 L264 42 L330 42" fill="none" stroke="#3a7d44" stroke-width="2.2"/>
+  <text x="290" y="146" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#3a7d44">補強</text>
+  <text x="290" y="164" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">要求性能まで向上</text>
+
+  <text x="20" y="192" font-family="sans-serif" font-size="11" fill="#555">補強の目的: 耐震性能の向上・増加荷重・著しい断面欠損</text>
+
+  <rect x="20" y="206" width="360" height="276" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="200" y="226" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#222">代表的な補強工法と管理の要点</text>
+
+  <rect x="30" y="238" width="340" height="112" rx="3" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="42" y="258" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">炭素繊維シート巻立て</text>
+  <text x="42" y="278" font-family="sans-serif" font-size="11" fill="#555">柱・梁の外面に樹脂で貼り、せん断耐力と</text>
+  <text x="42" y="296" font-family="sans-serif" font-size="11" fill="#555">じん性を高める。軽量・高強度で施工性がよい</text>
+  <text x="42" y="322" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2e6da4">管理: 含浸量・接着強度・積層数</text>
+  <text x="42" y="342" font-family="sans-serif" font-size="11" fill="#8a8a8a">耐震補強で広く普及している</text>
+
+  <rect x="30" y="358" width="340" height="112" rx="3" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="42" y="378" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">鋼板巻立て・増し厚</text>
+  <text x="42" y="398" font-family="sans-serif" font-size="11" fill="#555">既設の外側に鋼板や RC を増設する。</text>
+  <text x="42" y="416" font-family="sans-serif" font-size="11" fill="#555">増設部と既設部の一体性が最重要課題</text>
+  <text x="42" y="442" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2e6da4">管理: アンカー筋の配置・グラウト充填</text>
+  <text x="42" y="462" font-family="sans-serif" font-size="11" fill="#8a8a8a">一体化できなければ性能は出ない</text>
+</svg>
