@@ -21,6 +21,9 @@
  *   --images-only             全文置換せず、SoT の各画像を既存本文のアンカー直後に追加挿入するのみ
  *                             （PDF 添付カード・有料境界・本文を触らない＝有料PDF記事の画像欠落修復用）
  *   --img-lenient             本文画像アップロードが一部失敗しても中断せず続行（既定は保存せず ABORT）
+ *   --reattach-pdf            全文置換で消える PDF 添付を、同じセッションで貼り直す（保存前に復元＋実体確認）。
+ *                             ローカルに実ファイルが揃わなければ本文を触らず中断する
+ *   --max-consecutive-fail N  --list バッチで N 本連続失敗したら残りを実行せず中断（既定 3）
  *
  * 本文画像: SoT の `![alt](img/xxx.png)` は除去せず、paste 後に「＋」メニュー→画像アップロードで
  *   live に反映する（lib/note-images.mjs）。トークン残存/挿入失敗時は保存せず中断する。
@@ -51,13 +54,14 @@
  * ---------------------------------------------------------------------------
  */
 import { chromium } from 'playwright';
-import { readFileSync, existsSync, mkdirSync } from 'node:fs';
+import { readFileSync, existsSync, mkdirSync, readdirSync } from 'node:fs';
 import { join, dirname, resolve, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { recordPublishedHash } from './lib/note-republish-hash.mjs';
 import { cardifyBareUrls, repairUrlHeadings, listUrlHeadingsInEditor } from './lib/note-cardify.mjs';
 import { extractBodyImages, insertImagesAtPlaceholders, insertImagesAfterAnchors, countEditorImages } from './lib/note-images.mjs';
 import { assertLiveBody } from './lib/note-live-check.mjs';
+import { attachFileInEditor, listAttachedFiles, resolveLocalFiles } from './lib/note-attach.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = join(ROOT, '.local/playwright-note-profile');
@@ -82,6 +86,9 @@ const ALLOW_ATTACH_LOSS = argv.includes('--allow-attachment-loss');
 // 壊れた更新を量産する（2026-07-31 に有料2本の無料プレビューを壊した反省）。
 // 既定 3 連続で中断。走り切らせたいときだけ明示的に緩める。
 const MAX_CONSEC_FAIL = Number(getArg('--max-consecutive-fail') || 3);
+// 全文置換で消える PDF 添付を、同じセッションで貼り直す。ローカルに実ファイルが揃っている
+// ときだけ有効で、1つでも解決できなければ本文を触らず中断する（消して戻せない状態を作らない）。
+const REATTACH_PDF = argv.includes('--reattach-pdf');
 const TRIAL_LINE_BOTTOM = argv.includes('--trial-line-bottom'); // メンバーシップ試し読み: ラインを末尾直前に置き ほぼ全文を無料プレビュー化（入口LP復旧用）
 
 // 目次が「最初のh2より後」に入って直せなかった記事（バッチ末尾サマリで失敗として可視化する）
@@ -462,11 +469,27 @@ async function updateArticle(page, { abs, noteId, title, body, images, isPaid, b
   // 全文置換（Ctrl+A → Delete）は本文内の PDF 添付カードごと消す。SoT の markdown には添付が
   // 存在しないので paste では戻らず、購入者が PDF を受け取れなくなる。既存添付を検出したら
   // 既定で中断し、意図的に消す場合だけ --allow-attachment-loss を明示させる。
-  const attachedPdfs = await page.evaluate(() => ((document.querySelector('[contenteditable=true]')?.innerText || '').match(/\S+\.pdf/gi) || []));
-  if (attachedPdfs.length && !ALLOW_ATTACH_LOSS) {
+  const attachedPdfs = await listAttachedFiles(page);
+  // --reattach-pdf: 消える添付を同じセッションで貼り直す前提で全文置換を許可する。
+  // ローカルに実ファイルが揃っていることを**置換前に**確認し、1つでも欠けたら本文を触らない
+  // （消してから「戻せません」では購入者が PDF を受け取れないまま復旧不能になる）。
+  let toReattach = [];
+  if (attachedPdfs.length && REATTACH_PDF) {
+    const dir = dirname(abs);
+    const { resolved, missing, poolSize } = resolveLocalFiles(attachedPdfs, dir, { existsSync, readdirSync, join });
+    if (missing.length) {
+      console.error(`[FAIL] --reattach-pdf: live の添付 ${attachedPdfs.length} 件のうち ${missing.length} 件がローカルに無い → 本文を触らず中断: ${noteId}`);
+      for (const m of missing) console.error(`         見つからない: ${m}（探索: ${dir} と ${dir}/pdf・候補${poolSize}件）`);
+      return false;
+    }
+    toReattach = resolved;
+    console.log(`[3-pre] --reattach-pdf: 添付 ${resolved.length} 件を置換後に貼り直す（${resolved.map((r) => r.base).join(' / ')}）`);
+  }
+  if (attachedPdfs.length && !ALLOW_ATTACH_LOSS && !REATTACH_PDF) {
     console.error(`[FAIL] 本文に PDF 添付カード ${attachedPdfs.length} 件を検出 → 全文置換すると消えるため中断: ${noteId}`);
     for (const f of attachedPdfs) console.error(`         ${f}`);
-    console.error('  対処: 画像だけ直すなら --images-only（本文・添付・有料境界を触らない）。');
+    console.error('  対処: 添付を貼り直しつつ本文を差し替えるなら --reattach-pdf（推奨・同一セッションで復元）。');
+    console.error('        画像だけ直すなら --images-only（本文・添付・有料境界を触らない）。');
     console.error('        本文を差し替えるなら --allow-attachment-loss を付け、反映後に必ず再添付する:');
     console.error(`        node scripts/note-attach-file.mjs --note ${noteId} --file <pdf> --commit`);
     return false;
@@ -511,6 +534,28 @@ async function updateArticle(page, { abs, noteId, title, body, images, isPaid, b
   if (!argv.includes('--no-toc') && h2count >= 3) {
     const tocStatus = await insertTocBlock(page, noteId);
     if (tocStatus === 'misplaced') tocProblems.push(noteId);
+  }
+
+  // 4.6 PDF 添付の復元（--reattach-pdf）。全文置換で消えた添付を、保存前に同じセッションで貼り直す。
+  //     有料記事では本文末尾＝有料エリア内に入るため、無料プレビューへ漏れない（note-attach-file と同型）。
+  //     1 件でも貼り直せなければ保存しない＝「添付が消えたまま更新」を絶対に作らない。
+  if (toReattach.length) {
+    for (const f of toReattach) {
+      const r = await attachFileInEditor(page, f.abs);
+      if (!r.ok) {
+        console.error(`[4.6] ABORT: 添付の復元に失敗（${f.base}: ${r.reason}）→ 保存しない: ${noteId}`);
+        await page.screenshot({ path: join(ROOT, `.tmp/nu-reattachfail-${noteId}.png`) });
+        return false;
+      }
+      console.log(`[4.6] 添付を復元: ${f.base}（embeds ${r.embedsBefore}→${r.embedsAfter}）`);
+    }
+    // 復元後の実体確認: 元と同じ本数のファイルカードが本文にあるか
+    const now = await listAttachedFiles(page);
+    if (now.length < toReattach.length) {
+      console.error(`[4.6] ABORT: 復元後の添付が ${now.length}/${toReattach.length} 件しかない → 保存しない: ${noteId}`);
+      return false;
+    }
+    console.log(`[4.6] 添付復元 OK（${now.length} 件）`);
   }
 
   // 4.7 タイトル変更（frontmatter に title があるとき）。edit 画面のタイトル textarea を差し替える。
