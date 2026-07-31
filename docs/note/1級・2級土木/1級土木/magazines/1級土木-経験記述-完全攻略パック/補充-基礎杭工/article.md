@@ -85,6 +85,13 @@ https://note.com/dobokunote/m/m8290970a7f05
 - マニフェストの管理（適正処分の記録）が明示されているか。
 - 評価が「法令基準を満たし適正処理した」と客観指標で締まっているか。
 
+---
+
+<!-- cta:civil-mokuji -->
+1級・2級土木のほかの記事・経験記述の答案集は「土木もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n4fde0f62dc20
+
 ## 完成答案①：施工計画（PHC杭中掘り工法による橋台基礎工事）
 
 ### 〔工事概要〕（記入例）
@@ -220,7 +227,9 @@ https://note.com/dobokunote/m/m8290970a7f05
 
 ---
 
-<!-- cta:civil-mokuji -->
-1級・2級土木のほかの記事・経験記述の答案集は「土木もくじ」から一覧できます。
+<!-- cta:civil-membership-lab -->
+書き換えた答案を「これで通るか」第三者に確認してほしい方へ。
 
-https://note.com/dobokunote/n/n4fde0f62dc20
+月例の予想問題と施工経験記述のマンツーマン添削がつくメンバーシップ「土木セコカン合格ラボ」があります。
+
+https://note.com/dobokunote/membership/join
