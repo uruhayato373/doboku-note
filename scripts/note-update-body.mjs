@@ -445,7 +445,7 @@ async function updateArticle(page, { abs, noteId, title, body, images, isPaid, b
     if (!r.settled && !IMG_LENIENT) { console.error('[4.4] ABORT: 画像が CDN 確定せず（保存すると live で欠落）→ 再実行'); await page.screenshot({ path: join(ROOT, `.tmp/nu-imgsettle-${noteId}.png`) }); return false; }
     const live = await publishLive(page, noteId, boundary);
     if (!live) { console.error(`[FAIL] ライブ反映に失敗: ${noteId}`); return false; }
-    const chk = await assertLiveBody(noteId, { expectedImgs });
+    const chk = await assertLiveBody(noteId, { expectedImgs, paid: isPaid });
     if (chk.fetchError) console.log(`[5e] WARN: API検証未達（${chk.fetchError}）→ 手動確認`);
     else if (!chk.ok) { console.error(`[5e] FAIL: live不整合 ${liveIssues(chk)} → 手動確認`); return false; }
     else console.log(`[5e] API 実体検証 OK（img=${chk.imgLive} 空引用0 URL見出し0）`);
@@ -559,7 +559,7 @@ async function updateArticle(page, { abs, noteId, title, body, images, isPaid, b
 
   // 5e. 公開後 API 実体検証（自動化・3検査）: URL見出し / 空引用 / 画像欠落。
   //     ネットワーク失敗は WARN（手動確認へフォールバック）、検出は FAIL。
-  const chk = await assertLiveBody(noteId, { expectedImgs });
+  const chk = await assertLiveBody(noteId, { expectedImgs, paid: isPaid });
   if (chk.fetchError) {
     console.log(`[5e] WARN: API検証がネットワークで未達（${chk.fetchError}）→ 手動確認: curl --ssl-no-revoke https://note.com/api/v3/notes/${noteId}`);
   } else if (!chk.ok) {
@@ -578,6 +578,7 @@ function liveIssues(chk) {
   if (chk.urlHeadings.length) parts.push(`URL見出し[${chk.urlHeadings.join(' / ')}]`);
   if (chk.emptyBq) parts.push(`空引用${chk.emptyBq}件`);
   if (chk.imgShort) parts.push(`画像欠落(live=${chk.imgLive})`);
+  if (chk.freeShort) parts.push(`無料プレビュー崩壊(${chk.freeChars}字＝有料境界が冒頭へ動いた疑い)`);
   return parts.join(' / ') || 'なし';
 }
 

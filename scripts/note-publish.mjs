@@ -454,12 +454,13 @@ try {
       // [13] 公開後 API 実体検証（3検査）: URL見出し / 空引用 / 画像欠落（偽成功ガードの一部）
       const pubId = (publishedUrl.match(/n[0-9a-f]{12}/) || [])[0];
       if (pubId) {
-        const chk = await assertLiveBody(pubId, { expectedImgs });
+        const chk = await assertLiveBody(pubId, { expectedImgs, paid: isPaid });
         if (chk.fetchError) console.log(`[13] WARN: API検証未達（${chk.fetchError}）→ 手動確認: curl --ssl-no-revoke https://note.com/api/v3/notes/${pubId}`);
         else if (!chk.ok) {
           const parts = [];
           if (chk.urlHeadings.length) parts.push(`URL見出し[${chk.urlHeadings.join(' / ')}]`);
           if (chk.emptyBq) parts.push(`空引用${chk.emptyBq}件`);
+          if (chk.freeShort) parts.push(`無料プレビュー崩壊(${chk.freeChars}字＝有料境界が冒頭へ動いた疑い)`);
           if (chk.imgShort) parts.push(`画像欠落(live=${chk.imgLive}/期待=${expectedImgs})`);
           console.error(`[13] FAIL: 公開本文に不整合: ${parts.join(' / ')} → note-update-body --commit で修復`); process.exitCode = 2;
         } else console.log(`[13] API 実体検証 OK（URL見出し0 空引用0 img=${chk.imgLive}）`);

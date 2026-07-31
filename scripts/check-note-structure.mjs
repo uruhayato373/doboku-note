@@ -26,6 +26,7 @@
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { spawnSync } from 'node:child_process';
+import { MIN_FREE_PREVIEW_CHARS } from './lib/note-live-check.mjs';
 
 const ROOT = 'docs/note';
 const JSON_OUT = process.argv.includes('--json');
@@ -169,6 +170,12 @@ function runAll() {
     const freeMissing = t.freeProbe && t.freeProbe.length >= 8 && !liveBody.includes(t.freeProbe);
     if (paidLeak) push('CRITICAL', 'PAYWALL_LEAK', `有料境界「${t.boundary}」直後が無料本文に露出（有料内容が無料で読める）`);
     else if (freeMissing && liveBody.length < 40) push('CRITICAL', 'FULL_LOCK', `無料プレビューがほぼ空（全ロック）bodyLen=${liveBody.length}`);
+    // 「全ロック(<40字)」までいかなくても、リード数行だけ残して境界が冒頭へ動く崩れ方がある。
+    // 2026-07-31: note-update-body --keep-boundary で本文ブロックが増え、境界が記事冒頭へ移動して
+    // 有料2本の無料プレビューが数百字まで縮んだ。bodyLen<40 の FULL_LOCK では拾えず、
+    // BOUNDARY_SHIFT(HIGH) 止まりで CRITICAL に上がらないため、購入判断の材料が消えた事故を
+    // 見逃す。無料プレビューの下限（MIN_FREE_PREVIEW_CHARS）を切ったら CRITICAL に上げる。
+    else if (freeMissing && liveBody.length < MIN_FREE_PREVIEW_CHARS) push('CRITICAL', 'FREE_PREVIEW_COLLAPSE', `無料プレビューが${liveBody.length}字（下限${MIN_FREE_PREVIEW_CHARS}）＝有料境界が冒頭へ動いた疑い`);
     else if (freeMissing) push('HIGH', 'BOUNDARY_SHIFT', `無料プローブがlive無料本文に無い（境界が想定より上/本文改稿）`);
     // 画像（境界前の期待枚数）
     if (!paidLeak && liveImgs < t.expectedFreeImgs) push('HIGH', 'IMG_MISSING', `live無料img=${liveImgs}<期待${t.expectedFreeImgs}（バナー等の欠落）`);

@@ -100,19 +100,39 @@ export function countImgs(html) {
 }
 
 /**
- * 公開後の実体検証。expectedImgs を渡すと画像欠落も判定する（null/undefined なら画像検査 skip）。
- * @returns {Promise<{ok:boolean, urlHeadings:string[], emptyBq:number, imgLive:number, imgShort:boolean, fetchError:string|null}>}
+ * 有料記事の「無料プレビューが生きているか」の下限。
+ * note の公開 API は非購入者に配信される本文（＝無料プレビュー）しか返さないので、
+ * body の長さがそのまま無料プレビュー量になる。有料境界が事故で記事冒頭へ動くと
+ * ここが数百字まで落ちる（2026-07-31: note-update-body --keep-boundary で本文ブロックが
+ * 増えた結果、境界が冒頭へ移動し、有料2本が無料プレビューほぼ0字で公開された）。
+ * リード＋見出し数本で 800 字前後にはなるので、それを大きく下回ったら事故を疑う。
  */
-export async function assertLiveBody(noteId, { expectedImgs = null } = {}) {
+export const MIN_FREE_PREVIEW_CHARS = 600;
+
+/** HTML タグを落とした可読文字数（無料プレビュー量の目安）。 */
+export function textLen(html) {
+  return (html || '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim().length;
+}
+
+/**
+ * 公開後の実体検証。expectedImgs を渡すと画像欠落も判定する（null/undefined なら画像検査 skip）。
+ * paid=true を渡すと **無料プレビューの崩壊**（有料境界が冒頭へ動く事故）も検査する。
+ * @returns {Promise<{ok:boolean, urlHeadings:string[], emptyBq:number, imgLive:number, imgShort:boolean, freeChars:number, freeShort:boolean, fetchError:string|null}>}
+ */
+export async function assertLiveBody(noteId, { expectedImgs = null, paid = false, minFreeChars = MIN_FREE_PREVIEW_CHARS } = {}) {
+  const base = { urlHeadings: [], emptyBq: 0, imgLive: 0, imgShort: false, freeChars: 0, freeShort: false };
   const { body, error, unmeasurable } = await fetchNoteBody(noteId);
-  if (error) return { ok: false, urlHeadings: [], emptyBq: 0, imgLive: 0, imgShort: false, unmeasurable: false, fetchError: error };
+  if (error) return { ok: false, ...base, unmeasurable: false, fetchError: error };
   // 未ログインで中身が返らない記事は「破損なし」でも「破損あり」でもなく計測不能。
   // ここで imgShort を立てると存在する画像を欠落と誤診する（2026-07-30・isUnmeasurable 参照）。
-  if (unmeasurable) return { ok: true, urlHeadings: [], emptyBq: 0, imgLive: 0, imgShort: false, unmeasurable: true, fetchError: null };
+  if (unmeasurable) return { ok: true, ...base, unmeasurable: true, fetchError: null };
   const urlHeadings = findUrlHeadings(body);
   const emptyBq = countEmptyBlockquotes(body);
   const imgLive = countImgs(body);
   const imgShort = expectedImgs != null && imgLive < expectedImgs;
-  const ok = urlHeadings.length === 0 && emptyBq === 0 && !imgShort;
-  return { ok, urlHeadings, emptyBq, imgLive, imgShort, unmeasurable: false, fetchError: null };
+  const freeChars = textLen(body);
+  // 有料記事のときだけ見る。無料記事は body 全文が返るので短くても事故ではない。
+  const freeShort = paid && freeChars < minFreeChars;
+  const ok = urlHeadings.length === 0 && emptyBq === 0 && !imgShort && !freeShort;
+  return { ok, urlHeadings, emptyBq, imgLive, imgShort, freeChars, freeShort, unmeasurable: false, fetchError: null };
 }

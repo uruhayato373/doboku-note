@@ -218,6 +218,29 @@ browser-use --headed --profile "$NOTE_PROFILE" state 2>&1 > /tmp/note-acct.txt
 - **バッチ側の一次ガード（2026-07-01 実装済）**: `note-publish-magazine.mjs` は即時公開分について、書き戻した noteId が note API v3 で実在するか照合する。確定 404（幻 id）なら `fail` で停止する（予約投稿は go-live 後刻ゆえ検証しない）。
 - **バッチ後の確証ゲート（必須）**: 公開バッチ完了後・「完了」と報告する前に必ず `npm run verify-note-status` を回す。**fm=published ↔ ライブ=404** を `WARN` で列挙する reconciler で、幻 id・静かな未公開を全件で捕捉する。WARN が出たら該当記事の frontmatter（noteUrl/noteId/notePublishedAt）を空へリセット→`--commit` で再公開→再照合する。ネットワーク依存で遅いため CI ゲートには入れない（weekly-review でも定期実行）。
 
+### 有料記事は「公開・更新しただけ」では未完成（2026-07-31 新設）
+
+有料記事は **公開できたか**だけでなく、**購入前の読者に何が見えているか**まで確認して初めて完了になる。2026-07-31 に 2 つの事故が同時に起きた。
+
+**① 無料プレビューの崩壊（paywall 事故）**: `note-update-body --keep-boundary` で本文にブロックを足したところ、有料境界が記事冒頭へ移動し、**有料2本が無料プレビューほぼ0字の状態で公開された**。スクリプトは「ライブ反映完了」と正常終了しており、公開ページを人が開くまで誰も気づけなかった。
+
+- **`--keep-boundary` は本文のブロック数が変わる更新では使わない**。CTA 追加・段落追加を伴う更新は必ず `--boundary-h2 "<境界H2>"` で境界を再設定する
+- `assertLiveBody` が `paid: true` のとき無料プレビュー長を検査するようになった（既定 600 字未満で FAIL）。`note-publish` / `note-update-body` は緑で終わらない
+- 全件の実査は `npm run check-note-free-preview`（`:ci` で exit 1）。公開・本文更新の直後と週次で回す
+
+**② 商品導線ゼロ**: 単品有料記事を 8 本公開したのに、**無料プレビューにマガジンへの導線が 1 本も無かった**。単品 ¥500 を読んだ読者がセットに気づけない。`check-note-paid-cta` は「L2 もくじ未定義の資格 14 件（対象外）」として素通りさせていた＝検査ゼロを PASS と呼んでいた。
+
+- 有料記事は**所属マガジン URL を無料域（有料境界の直前）に bare URL 単独行**で置く。価格は本文に書かない（改訂で陳腐化・content-principles §14-c）
+- `npm run check-note-paid-cta` が L2 未定義の資格も検査するようになった（導線ゼロは exit 1）
+
+**公開・更新後の必須3点**（これを通すまで「完了」と言わない）:
+
+```bash
+npm run check-note-free-preview -- --dir docs/note/<資格>   # 無料プレビューが生きているか
+npm run check-note-paid-cta                                  # 無料域に商品導線があるか
+npm run verify-note-magazines                                # マガジン公開状態と SoT の突合
+```
+
 ### PDF 商品は「公開しただけ」では未完成（2026-07-28 新設）
 
 note の PDF 添付はプラットフォーム機能で **markdown に現れない**。公開と添付は別工程で、添付を忘れても SoT からは分からず、**購入者が代金を払って PDF を受け取れないまま売れ続ける**（1級土木 一次過去問PDF ¥1,980 で発生・PDF はビルド済みでアップロードだけが漏れていた）。

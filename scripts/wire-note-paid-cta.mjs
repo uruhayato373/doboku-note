@@ -104,7 +104,7 @@ function membershipBlock(file) {
   return null;
 }
 
-const stats = { scanned: 0, paid: 0, dedupedImg: 0, movedMokuji: 0, insertedMokuji: 0, addedMembership: 0, alreadyOk: 0, noBoundary: [], noExam: [] };
+const stats = { scanned: 0, paid: 0, dedupedImg: 0, movedMokuji: 0, insertedMokuji: 0, addedMembership: 0, alreadyOk: 0, noBoundary: [], noExam: [], noExamNoCta: [] };
 const changed = [];
 
 for (const file of walk(ROOT)) {
@@ -118,7 +118,19 @@ for (const file of walk(ROOT)) {
   stats.paid++;
 
   const exam = EXAMS.find((e) => file.startsWith(e.dir + '/'));
-  if (!exam) { stats.noExam.push(file); continue; }
+  if (!exam) {
+    // L2 もくじ未定義の資格（concrete 系・技術士一次 等）は「もくじ CTA の自動配線」はできない。
+    // だが**導線がゼロでよい理由にはならない**——2026-07-31 にコンクリート診断士の有料8本が
+    // 「対象外」として素通りし、マガジンへの導線が1本も無いまま公開されていた（検査ゼロを
+    // PASS と呼んでいた状態）。配線はできなくても検査はできるので、無料域に note 商品への
+    // 導線（マガジン /m/ か単品 /n/）が1つでもあるかだけは必ず見る。
+    stats.noExam.push(file);
+    const lines0 = raw.split(/\r?\n/);
+    const bi0 = boundaryIdx(lines0, fmv(raw, 'paidBoundary') || DEFAULT_BOUNDARY);
+    const free0 = bi0 >= 0 ? lines0.slice(0, bi0).join('\n') : raw;
+    if (!/note\.com\/dobokunote\/[mn]\//.test(free0)) stats.noExamNoCta.push(file);
+    continue;
+  }
 
   const eol = raw.includes('\r\n') ? '\r\n' : '\n';
   const endsWithNewline = /\r?\n$/.test(raw);
@@ -200,10 +212,16 @@ console.log(`  もくじ新規挿入(未配線)   : ${stats.insertedMokuji}`);
 console.log(`  メンバーシップCTA追加     : ${stats.addedMembership}`);
 console.log(`  重複画像を除去した記事    : ${stats.dedupedImg}`);
 console.log(`  既に無料域にあり(据置)    : ${stats.alreadyOk}`);
-if (stats.noExam.length) console.log(`  L2 もくじ未定義の資格     : ${stats.noExam.length} 件（対象外）`);
+if (stats.noExam.length) console.log(`  L2 もくじ未定義の資格     : ${stats.noExam.length} 件（もくじ自動配線は対象外・導線有無は検査済み／うち導線ゼロ ${stats.noExamNoCta.length} 件）`);
 if (stats.noBoundary.length) { console.log(`  有料境界を解決できず      : ${stats.noBoundary.length} 件`); stats.noBoundary.forEach((f) => console.log('    - ' + f)); }
 console.log(`  => 変更対象 ${changed.length} 件 ${APPLY ? '(書き込み済み)' : '(dry-run・未書き込み)'}`);
 
 if (stats.paid === 0) { console.error('[wire-note-paid-cta] FAIL: paid 記事を 1 件も検査していない（検査ゼロは PASS ではない）'); process.exit(1); }
 if (LIST_OUT) { writeFileSync(LIST_OUT, changed.join('\n') + '\n', 'utf8'); console.log(`  -> ${LIST_OUT}`); }
+if (CHECK && stats.noExamNoCta.length) {
+  console.error(`[wire-note-paid-cta] FAIL: L2 もくじ未定義の資格で、無料域に note 商品への導線が 1 つも無い有料記事 ${stats.noExamNoCta.length} 件:`);
+  for (const f of stats.noExamNoCta) console.error('    - ' + f);
+  console.error('  対処: 所属マガジン URL（bare URL 単独行）を有料境界の直前に置く。価格は本文に書かない（content-principles §14-c）');
+  process.exit(1);
+}
 if (CHECK && changed.length) { console.error(`[wire-note-paid-cta] FAIL: ${changed.length} 件の有料記事で L3 CTA が非購入者に見えない位置にある。 node scripts/wire-note-paid-cta.mjs --apply`); process.exit(1); }

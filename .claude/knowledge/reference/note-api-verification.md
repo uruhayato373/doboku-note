@@ -152,6 +152,12 @@ node scripts/note-update-body.mjs --list   <list.txt>   --commit    # 複数記�
   **取得は curl 経路・偽 PASS は封じ済み（2026-07-28 修正）**: 以前は Node の `fetch` を使っていたためプロキシで全件遮断され、**675/675 が `FETCH_ERR` でも exit 0 を返す＝検査ゼロの偽 PASS** だった。`curl --ssl-no-revoke`（プロキシ env を自動利用）へ置換し、**取得失敗率が 20% を超えたら `--ci` の有無にかかわらず exit 1**（「検査不成立」）にした。出力は必ず「実検査 N本（対象M・取得失敗K）」を示す。レート制限対策として逐次＋250ms スロットル＋失敗時バックオフ（最大4回）を入れてある（対策なしに215本を短時間で2周して148本が取得失敗した実測がある）。
   **初回の実検査結果（2026-07-28・675本すべて取得成功）**: 要対応 CRITICAL 2件＝`FULL_LOCK`（無料プレビュー 0字＝買う前に何も読めない有料記事）を検出。07-24 の境界破壊事故（58本）の復旧漏れと見られる。これは fetch 時代には**一度も検査されていなかった**もの。
 - **paidProbe の注意**: 境界H2テキスト自体は note 目次（無料側）に出るため偽陽性になる→境界H2の**直後の本文段落**を probe にする（check-note-structure.mjs 実装済）。
+- **`FREE_PREVIEW_COLLAPSE`（CRITICAL・2026-07-31 追加）**: 従来の `FULL_LOCK` は `bodyLen<40` と厳しく、**リード数行だけ残して境界が冒頭へ動く崩れ方**（無料プレビューが数百字まで縮む）を CRITICAL に上げられず `BOUNDARY_SHIFT`(HIGH) 止まりだった。無料プレビューが `MIN_FREE_PREVIEW_CHARS`（600字・`scripts/lib/note-live-check.mjs`）を切ったら CRITICAL にする。
+- **公開・更新の直後に即時検知するゲート（2026-07-31 追加）**: `assertLiveBody(noteId, { paid: true })` が無料プレビュー長を検査し、下限未満なら `note-publish` / `note-update-body` が FAIL する（週次の check-note-structure を待たずにその場で止まる）。
+
+> [!warning] `note-update-body --keep-boundary` は本文のブロック数が変わる更新で境界を壊す
+> 2026-07-31、CTA 段落を足して `--keep-boundary` で更新したところ、**有料境界が記事冒頭へ移動し、有料2本が無料プレビューほぼ0字で公開された**。`--keep-boundary` の検証は「境界line が存在するか」だけで**位置を見ていなかった**ため、スクリプトは「[OK] ライブ反映完了」と正常終了した。
+> **CTA・段落を足す更新では `--boundary-h2 "<境界H2>"` を使う**（`--keep-boundary` は本文が増減しない更新に限る）。
 
 ### 有料公開の `price:` 欄必須 と 既存無料→有料 変換: `note-convert-to-paid`（2026-07-24 新設）
 
