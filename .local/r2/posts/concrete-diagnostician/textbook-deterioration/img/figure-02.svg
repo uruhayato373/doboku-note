@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="塩化物イオンの浸入から不動態被膜の破壊、さびの膨張、鉄筋軸方向のひび割れ・はく落に至る塩害の進行段階">
+  <defs>
+    <marker id="cdd2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#555"/>
+    </marker>
+    <marker id="cdd2b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <text x="200" y="16" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">アルカリ性が保たれていても、塩化物イオンが限界を超えると腐食する</text>
+
+  <rect x="30" y="30" width="340" height="120" fill="#f5f5f5" stroke="#555" stroke-width="1.5"/>
+  <text x="40" y="48" font-family="sans-serif" font-size="11" fill="#8a8a8a">飛来塩分・凍結防止剤</text>
+
+  <line x1="46" y1="56" x2="90" y2="86" stroke="#2e6da4" stroke-width="1.8" marker-end="url(#cdd2b)"/>
+  <line x1="86" y1="56" x2="130" y2="86" stroke="#2e6da4" stroke-width="1.8" marker-end="url(#cdd2b)"/>
+  <line x1="126" y1="56" x2="170" y2="86" stroke="#2e6da4" stroke-width="1.8" marker-end="url(#cdd2b)"/>
+  <text x="196" y="76" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2e6da4">Cl⁻ が表面から浸透</text>
+
+  <circle cx="150" cy="112" r="11" fill="#8a8a8a" stroke="#555" stroke-width="1.5"/>
+  <path d="M139 101 a11 11 0 0 1 22 0" fill="#b22234"/>
+  <text x="150" y="140" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">鉄筋</text>
+
+  <path d="M150 101 l-10 -30 l6 30 l-4 -28" fill="none" stroke="#b22234" stroke-width="2"/>
+  <path d="M256 96 l-8 -26 M256 96 l10 -24" fill="none" stroke="#b22234" stroke-width="2"/>
+  <circle cx="256" cy="112" r="11" fill="#8a8a8a" stroke="#555" stroke-width="1.5"/>
+  <path d="M245 101 a11 11 0 0 1 22 0" fill="#b22234"/>
+  <text x="290" y="116" font-family="sans-serif" font-size="11" fill="#b22234">さびの膨張圧</text>
+  <text x="200" y="166" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">さびは鉄の 2〜3 倍に膨張し、かぶりを内側から押し広げる</text>
+
+  <rect x="20" y="178" width="360" height="60" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="34" y="198" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">1. 浸入</text>
+  <text x="110" y="198" font-family="sans-serif" font-size="11" fill="#555">外来塩は表面から拡散、内在塩は初期から存在</text>
+  <text x="34" y="222" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">2. 限界超過</text>
+  <text x="110" y="222" font-family="sans-serif" font-size="11" fill="#555">全塩化物イオン量 1.2 kg/m³ が参考値</text>
+
+  <line x1="200" y1="242" x2="200" y2="258" stroke="#555" stroke-width="1.5" marker-end="url(#cdd2)"/>
+
+  <rect x="20" y="264" width="360" height="60" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <text x="34" y="284" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">3. 不動態被膜の局部破壊</text>
+  <text x="34" y="302" font-family="sans-serif" font-size="11" fill="#555">アルカリ性は保たれたまま、被膜だけが点状に壊れる。</text>
+  <text x="34" y="318" font-family="sans-serif" font-size="11" fill="#555">中性化と異なり pH 低下を伴わない点が識別の鍵。</text>
+
+  <line x1="200" y1="328" x2="200" y2="344" stroke="#555" stroke-width="1.5" marker-end="url(#cdd2)"/>
+
+  <rect x="20" y="350" width="360" height="132" rx="6" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+  <text x="34" y="370" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">4. 外観変状の進行順</text>
+  <text x="34" y="390" font-family="sans-serif" font-size="11" fill="#555">腐食ひび割れの発生（鉄筋軸に沿う一直線）</text>
+  <text x="34" y="408" font-family="sans-serif" font-size="11" fill="#555">→ さび汁の滲出</text>
+  <text x="34" y="426" font-family="sans-serif" font-size="11" fill="#555">→ かぶりのはく落</text>
+  <text x="34" y="444" font-family="sans-serif" font-size="11" fill="#555">→ 鉄筋の断面欠損</text>
+  <text x="34" y="468" font-family="sans-serif" font-size="11" font-weight="bold" fill="#b22234">内在塩は一様分布、外来塩は飛来側の面に集中</text>
+</svg>
