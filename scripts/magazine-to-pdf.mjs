@@ -76,6 +76,10 @@ function extract(content, article) {
   const h1 = (content.match(/^#\s+.+$/m) || [''])[0]
   const includes = article.include && article.include.length ? article.include : [{ from: '^#\\s+', to: null }]
   let body = includes.map((r) => sliceRange(content, r.from, r.to)).join('\n\n---\n\n')
+  // H1 は下の `md` で先頭に別途置くため、本文側に残った H1 を落とす。
+  // include 省略時の既定範囲 `^#\s+`（H1〜末尾）や、H1 を含む include 指定だと
+  // タイトルが 2 回印字される（2026-07-31 実測: 設問3施策バンク12本・5管理クロスTO6本）。
+  body = body.replace(/^\s*#\s+.+(\r?\n)+/, '')
   for (const r of article.exclude || []) {
     if (!r.to) throw new Error('exclude には to が必要です')
     body = dropRange(body, r.from, r.to)

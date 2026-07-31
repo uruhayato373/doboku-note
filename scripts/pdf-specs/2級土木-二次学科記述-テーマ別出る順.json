@@ -1,0 +1,85 @@
+{
+  "srcDir": "docs/note/1級・2級土木/2級土木/magazines/2級土木-二次学科記述-テーマ別出る順",
+  "articles": [
+    {
+      "src": "コンクリート工/article.md",
+      "out": "2級土木-学科記述-コンクリート工",
+      "include": [
+        {
+          "from": "^## 出る順① 打込み・締固め（2回）",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "品質管理/article.md",
+      "out": "2級土木-学科記述-品質管理",
+      "include": [
+        {
+          "from": "^## 出る順① 鉄筋・型枠・型枠支保工の品質管理（3回・ほぼ毎年）",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "土工/article.md",
+      "out": "2級土木-学科記述-土工",
+      "include": [
+        {
+          "from": "^## 出る順① 盛土の施工・締固め（最頻出・土工の中核）",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "安全管理・法規/article.md",
+      "out": "2級土木-学科記述-安全管理・法規",
+      "include": [
+        {
+          "from": "^## 出る順① 移動式クレーン・玉掛け作業（3回・最頻）",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "施工計画・環境/article.md",
+      "out": "2級土木-学科記述-施工計画・環境",
+      "include": [
+        {
+          "from": "^## 出る順① 工程表の特徴・構造（最頻出・5年連続）",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    }
+  ]
+}

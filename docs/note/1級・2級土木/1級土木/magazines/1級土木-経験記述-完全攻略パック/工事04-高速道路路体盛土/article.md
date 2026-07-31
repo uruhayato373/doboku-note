@@ -9,7 +9,6 @@ utmCampaign: civil1-keiken-pack-koji04
 noteUrl: "https://note.com/dobokunote/n/n72925ed2a3e5"
 noteId: "n72925ed2a3e5"
 notePublishedAt: "2026-07-23"
-price: ""
 coverTitle: ["1級土木 施工経験記述", "高速道路 路体・路床盛土", "5管理 完成答案"]
 cover:
   leadIn: "1級土木施工管理技士 二次"
@@ -320,3 +319,11 @@ https://note.com/dobokunote/n/n4fde0f62dc20
 月例の予想問題と施工経験記述のマンツーマン添削がつくメンバーシップ「土木セコカン合格ラボ」があります。
 
 https://note.com/dobokunote/membership/join
+
+---
+
+## 印刷用PDF｜本記事の完成答案
+
+本記事の完成答案を、そのまま印刷できるPDFにまとめました。
+
+答案用紙への手書き書き写し練習や、試験直前の読み返しにご活用ください。

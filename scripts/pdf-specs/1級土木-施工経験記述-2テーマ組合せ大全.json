@@ -1,0 +1,165 @@
+{
+  "srcDir": "docs/note/1級・2級土木/1級土木/magazines/1級土木-施工経験記述-2テーマ組合せ大全",
+  "articles": [
+    {
+      "src": "品質x安全/article.md",
+      "out": "1級土木-2テーマ組合せ-品質x安全",
+      "include": [
+        {
+          "from": "^## 想定工事①：鋼桁橋 RC床版工事",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "品質x工程/article.md",
+      "out": "1級土木-2テーマ組合せ-品質x工程",
+      "include": [
+        {
+          "from": "^## 品質管理と工程管理の書き分け方（採点者が見るポイント）",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "品質x施工計画/article.md",
+      "out": "1級土木-2テーマ組合せ-品質x施工計画",
+      "include": [
+        {
+          "from": "^## 品質管理と施工計画の書き分け方（採点者が見るポイント）",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "品質x環境/article.md",
+      "out": "1級土木-2テーマ組合せ-品質x環境",
+      "include": [
+        {
+          "from": "^## 品質管理×環境対策を書き分けるポイント",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "安全x工程/article.md",
+      "out": "1級土木-2テーマ組合せ-安全x工程",
+      "include": [
+        {
+          "from": "^## 安全管理×工程管理を書き分けるポイント",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "安全x施工計画/article.md",
+      "out": "1級土木-2テーマ組合せ-安全x施工計画",
+      "include": [
+        {
+          "from": "^## 安全管理×施工計画を書き分けるポイント",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "安全x環境/article.md",
+      "out": "1級土木-2テーマ組合せ-安全x環境",
+      "include": [
+        {
+          "from": "^## 安全管理×環境対策を書き分けるポイント",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "工程x施工計画/article.md",
+      "out": "1級土木-2テーマ組合せ-工程x施工計画",
+      "include": [
+        {
+          "from": "^## 工程管理と施工計画の書き分け方（採点者が見るポイント）",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "工程x環境/article.md",
+      "out": "1級土木-2テーマ組合せ-工程x環境",
+      "include": [
+        {
+          "from": "^## 工程管理×環境対策を書き分けるポイント",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "施工計画x環境/article.md",
+      "out": "1級土木-2テーマ組合せ-施工計画x環境",
+      "include": [
+        {
+          "from": "^## 施工計画と環境対策の書き分け方（採点者が見るポイント）",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    }
+  ]
+}
