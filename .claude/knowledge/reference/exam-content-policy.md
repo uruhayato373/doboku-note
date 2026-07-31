@@ -167,12 +167,14 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 7. **トップページの資格カードに追加**（公開＝サイトに出すなら必須）: `src/config/home-exam-cards.json` にカード（`slug`/`order`/`label`/`en`/`subtitle`/`description`/`nextExam`/`stats`）を追加する。**ナビ（`categories.json`）と別管理**なのは、カードのコピーがナビ用と意図的に異なるため（例: ナビ「技術士第二次試験（建設部門）」⇄ カード「技術士（建設部門）」）。「どの資格をトップに出すか」は `categories.json` の `visible`（≠false）/`variant`（≠reference）が真実源で、両者の整合は `npm run check-home-exam-coverage`（pre-commit / CI ゲート）が強制する。**これを忘れると、公開済みコンテンツがあってもトップの資格カードに出ない**（2026-06-15 pe-first-stage 21本が該当＝ナビからのみ到達可能だった）。意図的にトップへ出さない資格は `categories.json` で `visible:false` にする。
 8. **OGP 画像を生成**（公開前必須）: `npm run ogp -- --all`（未生成分のみ生成）→ 新規 `ogp.png` を pathspec commit。**新カテゴリは OGP が 0 枚から始まる**ため、これを忘れると `og:image` が R2 で 404 になり、**note / X / Facebook 等の外部リンクカードが生成されない**（2026-06-12 pe-construction で全114本が該当）。`published:false` のドラフトは仕様上スキップされる＝公開化（`published:true`）のタイミングで再実行する。`ogp.png` は `r2-sync.yml` の path フィルタ（`**/ogp.png`）経由で main push 時に R2 同期される。詳細 → [measurement-incidents.md](./measurement-incidents.md)「2026-06-12 OGP 404」
 
-### 新資格メモ: コンクリート診断士（`concrete-diagnostician`、2026-05-30 新設）
+### 新資格メモ: コンクリート診断士（`concrete-diagnostician`、2026-05-30 新設 → 2026-07-31 公開）
 
-- groups = guide / textbook / primary。variant=civil / order=2.6 / **visible:false**（下書き段階）。
-- **テキスト**: 原典（技報堂スキャン）の文を写さず独自散文で合成し、図・写真のみクロップ→webp 埋込（`<ArticleImage>`）。図は当面ラフな頁領域クロップ。公開前に精密トリミング/SVG化＋著作権差替が前提。
-- **過去問（択一・厳選101問）**: スキャンが頁により回転不統一・約6割が図依存・逐語誤り頻発のため、**rotate→transcribe→verify→self-repair（自己修復ループ）＋図依存問題の図クロップ＋正答は頁内解説＋独立解答で確定** という正攻法で整備（98問・図59点、`primary-exercise-01〜08`, 全 `published:false`）。低確度正答は記事冒頭の下書き注記 Callout に明示。**原典＝技報堂の問題は JCI 過去問の再録のため、公開には権利確認が必須＝当面 draft 固定**。低確度問題の人手校正・欠番(48/56/85)補完・図トリミングが公開前の残課題（生きたタスクは `docs/todo/backlog.md` の「🟣 判断待ち」＝「コンクリート診断士 — 著作権方針の決定」）。整備経緯の詳細は git 履歴の旧 handoff `2026-05-30-concrete-diagnostician.md`（削除済み）。
-- スキャンは頁により回転が不統一（問題頁90°回転 / 解答頁正立）。
+- groups = guide / textbook / primary。variant=civil / order=2.6。**2026-07-31 に 18 記事（ガイド4・テキスト6章・演習問題8）を公開**（`visible` 解除・`home-exam-cards.json` order 7・`category-curriculum.json` に受験ガイド4本）。テーマ色は `--exam-concrete-diagnosis`（`#6E3A8C` 紫。note カバー/OGP と同一の資格アイデンティティ色）。
+- **テキスト**: 原典（技報堂スキャン）の文を写さず独自散文で合成。図は当初スキャンのクロップだったが、**2026-07-31 に 25 枚を全数置換**（自作 SVG 21・生成画像 3・本文の表と重複のため削除 1）。書籍ページ撮影の webp はゼロ。
+- **択一（`primary-exercise-01〜08`・98問）**: 当初は原典を逐語転記した「過去問演習」だったが、**設問文・選択肢そのものが他者著作物の複製**であり図を差し替えても公開できないと判明したため、**2026-07-31 に論点だけ保って全 98 問を自作の設問・選択肢・解説へ書き換え、「演習問題」として公開**した。原典由来の枠組み（厳選101問より問題N〜M）と `past-questions` タグは外している。この転換により、図の材料不足（写真が設問の核である約27問・クロップ切れ・原典スキャンの消失）と、正答の確度が低い42問分の注記が同時に解消した。
+- **原典照合できない数値は出題しない**。JIS の規格値を問う設問は原理を問う形に、JIS 改正の年代順は塩化物総量規制の考え方に差し替えた。
+- **残課題**: 98 問の技術内容の人手レビュー（公開済みのため、誤りが見つかれば修正して再デプロイ）。
+- 経緯の詳細は handoff [2026-07-31-concrete-diagnostician-launch.md](../../../docs/handoffs/2026-07-31-concrete-diagnostician-launch.md)。スキャン整備期の経緯は git 履歴の旧 handoff `2026-05-30-concrete-diagnostician.md`（削除済み）。
 
 ### 新資格メモ: コンクリート主任技師（`concrete-chief-engineer`、2026-05-30 公開）
 
