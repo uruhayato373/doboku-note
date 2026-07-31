@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="反発度と推定圧縮強度の相関にばらつき帯があること、および影響因子とコア試験による補正の流れ">
+  <defs>
+    <marker id="cdi1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#555"/>
+    </marker>
+  </defs>
+
+  <text x="200" y="16" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">反発度から得られるのは「推定値」。単独で強度は確定しない</text>
+
+  <line x1="60" y1="230" x2="370" y2="230" stroke="#222" stroke-width="1.5" marker-end="url(#cdi1)"/>
+  <line x1="60" y1="230" x2="60" y2="36" stroke="#222" stroke-width="1.5" marker-end="url(#cdi1)"/>
+  <text x="368" y="248" text-anchor="end" font-family="sans-serif" font-size="11" fill="#222">反発度 R</text>
+  <text x="66" y="48" font-family="sans-serif" font-size="11" fill="#222">推定圧縮強度</text>
+
+  <path d="M70 214 L340 74 L340 118 L70 244 Z" fill="#e8f0fe" stroke="none" opacity="0.9"/>
+  <line x1="70" y1="228" x2="340" y2="96" stroke="#2e6da4" stroke-width="2.5"/>
+  <text x="250" y="150" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2e6da4">回帰式</text>
+  <text x="228" y="196" font-family="sans-serif" font-size="11" fill="#8a8a8a">ばらつきの幅</text>
+
+  <text x="20" y="268" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">推定値をずらす主な因子</text>
+  <text x="20" y="286" font-family="sans-serif" font-size="11" fill="#555">表面の含水状態 ／ 表層の中性化</text>
+  <text x="20" y="302" font-family="sans-serif" font-size="11" fill="#555">骨材の種類 ／ 型枠の種類・表面状態</text>
+
+  <rect x="20" y="318" width="360" height="164" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="200" y="338" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#222">実務での使い方</text>
+
+  <rect x="30" y="348" width="340" height="36" rx="3" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="42" y="371" font-family="sans-serif" font-size="11" fill="#555">1. 反発度法で広い面を面的に測る（簡便・非破壊）</text>
+
+  <rect x="30" y="390" width="340" height="36" rx="3" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="42" y="413" font-family="sans-serif" font-size="11" fill="#555">2. 代表点でコアを採り、実強度を測る</text>
+
+  <rect x="30" y="432" width="340" height="36" rx="3" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="42" y="455" font-family="sans-serif" font-size="11" fill="#555">3. 両者で補正式を作り、面的な推定値を較正する</text>
+</svg>

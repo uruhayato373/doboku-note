@@ -42,7 +42,13 @@ dateModified: '2026-05-30'
 
 スプリングで打撃子を打ち付けたときの跳ね返り量（反発度 R）を測定し、表面硬度からコンクリートの圧縮強度を推定する手法である。操作が簡便で広面積の調査に向くが、表面含水状態・カーボネーション（炭酸化）・骨材種類・型枠の影響を受けるため、単独で強度を確定することは難しい。コア試験と組み合わせて補正式を構築し、精度を高めるのが実務上の標準的な使い方だ。
 
-<ArticleImage src="/posts/concrete-diagnostician/textbook-investigation/img/figure-01.webp" alt="反発度と圧縮強度の相関グラフ" width={1223} height={1700} />
+{/* source: doboku-note による自作 SVG（反発度と推定強度の相関とばらつき） */}
+<ArticleImage
+  src="/posts/concrete-diagnostician/textbook-investigation/img/figure-01.svg"
+  alt="反発度 R と推定圧縮強度の回帰関係にばらつきの幅があることを示すグラフと、含水・中性化・骨材・型枠という誤差要因、コア試験で補正式を作る 3 段階の手順"
+  width={400}
+  height={500}
+/>
 
 ### 超音波法（弾性波法）
 
@@ -80,7 +86,13 @@ X線をコンクリートに透過させ、内部の鉄筋・空洞・異物を�
 
 コアは構造物からドリルで切り出した円柱供試体であり、実構造物の材料試験に必要な「実物サンプル」を提供する。コア径は一般に $\phi$ 50〜100 mm が使われ、径が大きいほど代表性は高まるが、採取による損傷範囲も広がる。
 
-<ArticleImage src="/posts/concrete-diagnostician/textbook-investigation/img/figure-02.webp" alt="コア採取装置と採取手順の模式図" width={1205} height={1700} />
+{/* source: doboku-note による自作 SVG（コア採取と試験項目の分岐） */}
+<ArticleImage
+  src="/posts/concrete-diagnostician/textbook-investigation/img/figure-02.svg"
+  alt="鉄筋を避けた位置にコアドリルで φ50〜100 mm の円柱供試体を採取する断面模式図と、コアから圧縮強度・中性化深さ・塩化物イオン量の各試験へ分岐する流れ"
+  width={400}
+  height={500}
+/>
 
 ### 圧縮強度試験
 
@@ -110,7 +122,13 @@ $$
 
 鉄筋が腐食すると半電池電位が変化する。鉄筋とコンクリート表面の照合電極（飽和甘汞電極：SCE、または銅/硫酸銅電極：CSE）との間の電位差（自然電位）を測定し、鉄筋の腐食活性の程度を面的に把握する手法である。
 
-<ArticleImage src="/posts/concrete-diagnostician/textbook-investigation/img/figure-03.webp" alt="自然電位法の測定回路模式図" width={1300} height={1428} />
+{/* source: doboku-note による自作 SVG（自然電位法の測定回路と解釈の限界） */}
+<ArticleImage
+  src="/posts/concrete-diagnostician/textbook-investigation/img/figure-03.svg"
+  alt="鉄筋に直接接続した電位差計と、コンクリート表面を移動させる照合電極で自然電位を面的に測る回路模式図。腐食の活動度は分かるが腐食速度は分からないこと、含水・酸素・温度に依存することを併記"
+  width={400}
+  height={500}
+/>
 
 ASTM C 876 では CSE を基準として、次のような腐食確率の目安が示されている。
 
@@ -136,7 +154,13 @@ $$
 
 で推定される。ここで $B$ は Stern-Geary 定数（一般に 26 mV が用いられることが多い）である。$i_\text{corr}$ が大きいほど腐食速度が速く、断面減少速度を定量的に評価できる点で自然電位法を補完する。
 
-<ArticleImage src="/posts/concrete-diagnostician/textbook-investigation/img/figure-04.webp" alt="分極抵抗法の測定回路と腐食電流の関係" width={1244} height={1700} />
+{/* source: doboku-note による自作 SVG（分極抵抗法の測定回路と自然電位法との役割分担） */}
+<ArticleImage
+  src="/posts/concrete-diagnostician/textbook-investigation/img/figure-04.svg"
+  alt="対極から微小電流を流し照合電極で電位変化を測る分極抵抗法の回路模式図と、分極抵抗から腐食電流密度を求める関係、自然電位法が活動度・分極抵抗法が速度を担うという役割分担"
+  width={400}
+  height={500}
+/>
 
 ### はつり調査
 
