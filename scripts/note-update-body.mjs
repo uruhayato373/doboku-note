@@ -310,7 +310,7 @@ async function insertTocBlock(page, noteId) {
  * 5(commit). 公開に進む →（有料なら境界保持）→ 更新する → 更新通知「いいえ」
  * note-append-cta.mjs:144-219 を移植。戻り値 = 成否。
  */
-async function publishLive(page, noteId, boundary = '試験問題|予想問題') {
+async function publishLive(page, noteId, boundary = '試験問題|予想問題', isPaid = true) {
   // 公開に進む（自動保存の落ち着きを待ってからクリックし、設定ページ到達を polling）
   await sleep(3000);
   const next = page.getByRole('button', { name: '公開に進む' });
@@ -329,8 +329,13 @@ async function publishLive(page, noteId, boundary = '試験問題|予想問題')
   }
   if (!onSettings) { console.error('[5] ABORT: 公開設定ページに到達せず。保存せず終了。'); await page.screenshot({ path: join(ROOT, `.tmp/nu-nosettings-${noteId}.png`) }); return false; }
 
-  // 5b. 有料記事なら 有料エリア設定。無料記事は area ボタンが無い＝この節を飛ばす。
-  const area = page.getByRole('button', { name: '有料エリア設定' });
+  // 5b. 有料記事なら 有料エリア設定。
+  // 無料記事（notePricing: free）では**触らない**。note は無料記事でも「有料エリア設定」
+  // ボタンを出すことがあり、area の有無だけで分岐していたため無料記事が有料フローへ入り
+  // 「境界 H2 が無い」で保存中断していた（2026-07-31: 設問3バンク 00-序章）。
+  // 無料記事に paywall は無いので境界検証は不要（note-attach-file の isPaid 分岐と同型）。
+  const area = isPaid ? page.getByRole('button', { name: '有料エリア設定' }) : { count: async () => 0 };
+  if (!isPaid) console.log('[5b] 無料記事 → 有料境界の設定・検証をスキップ');
   if (await area.count() && KEEP_BOUNDARY) {
     // 試験問題型の境界が無い有料記事: 境界を動かさず既存を保持
     console.log('[5b] 有料記事フロー（既存境界を保持・動かさない）');
@@ -462,7 +467,7 @@ async function updateArticle(page, { abs, noteId, title, body, images, isPaid, b
     const r = await insertImagesAfterAnchors(page, images, { tag: '[4.4]' });
     if (r.failed.length && !IMG_LENIENT) { console.error(`[4.4] ABORT: 画像挿入に失敗（${r.failed.length}件）→ 保存しない（--img-lenient で続行可）`); await page.screenshot({ path: join(ROOT, `.tmp/nu-imgfail-${noteId}.png`) }); return false; }
     if (!r.settled && !IMG_LENIENT) { console.error('[4.4] ABORT: 画像が CDN 確定せず（保存すると live で欠落）→ 再実行'); await page.screenshot({ path: join(ROOT, `.tmp/nu-imgsettle-${noteId}.png`) }); return false; }
-    const live = await publishLive(page, noteId, boundary);
+    const live = await publishLive(page, noteId, boundary, isPaid);
     if (!live) { console.error(`[FAIL] ライブ反映に失敗: ${noteId}`); return false; }
     const chk = await assertLiveBody(noteId, { expectedImgs, paid: isPaid });
     if (chk.fetchError) console.log(`[5e] WARN: API検証未達（${chk.fetchError}）→ 手動確認`);
@@ -611,7 +616,7 @@ async function updateArticle(page, { abs, noteId, title, body, images, isPaid, b
     console.log(`[dry-run] paste まで成功（未反映）。スクショ: .tmp/nu-dry-${noteId}.png。実反映は --commit。`);
     return true;
   }
-  const live = await publishLive(page, noteId, boundary);
+  const live = await publishLive(page, noteId, boundary, isPaid);
   if (!live) { console.error(`[FAIL] ライブ反映に失敗: ${noteId}`); return false; }
 
   // 5e. 公開後 API 実体検証（自動化・3検査）: URL見出し / 空引用 / 画像欠落。
