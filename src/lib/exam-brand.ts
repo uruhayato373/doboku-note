@@ -16,7 +16,8 @@ export type ExamKey =
   | 'pe-first-stage'
   | 'civil-1'
   | 'civil-2'
-  | 'concrete';
+  | 'concrete-chief'
+  | 'concrete-diagnosis';
 
 /**
  * マガジン id から資格キーを推定する（links / 導線が共有）。
@@ -32,7 +33,9 @@ export function examKeyOf(id: string): ExamKey {
   if (id.startsWith('pe1-')) return 'pe-first-stage';
   if (id.startsWith('civil-1') || id === 'civil-membership-lab') return 'civil-1';
   if (id.startsWith('civil-2')) return 'civil-2';
-  if (id.startsWith('cd-') || id.startsWith('cce-')) return 'concrete';
+  // コンクリート系は主任技師（cce-）と診断士（cd-）で資格が別。ラベルもテーマ色も分ける。
+  if (id.startsWith('cd-')) return 'concrete-diagnosis';
+  if (id.startsWith('cce-')) return 'concrete-chief';
   return 'tankan';
 }
 
@@ -43,7 +46,7 @@ export interface ExamBrand {
   readonly themeVar: string;
   /**
    * CTA タイル/バナーの背景イラスト（cta-bg/*.webp）。省略時はテーマ色のベタ塗りにフォールバック。
-   * concrete はイラスト未整備＋該当マガジンが未公開のため未設定（描画されない）。
+   * コンクリート系（主任技師・診断士）はイラスト未整備のため未設定（ベタ塗りで描画される）。
    */
   readonly ctaBg?: string;
 }
@@ -75,10 +78,14 @@ export const EXAM_BRAND: Record<ExamKey, ExamBrand> = {
     themeVar: '--exam-civil-2',
     ctaBg: '/images/cta-bg/civil-2.webp',
   },
-  // concrete はテーマ色のみ（診断士専用トークンは無いため主任＝chief を流用）。
-  concrete: {
-    label: 'コンクリート',
+  // コンクリート系は背景イラスト（cta-bg/*.webp）が未整備のため、テーマ色のベタ塗りにフォールバックする。
+  'concrete-chief': {
+    label: 'コンクリート主任技師',
     themeVar: '--exam-concrete-chief',
+  },
+  'concrete-diagnosis': {
+    label: 'コンクリート診断士',
+    themeVar: '--exam-concrete-diagnosis',
   },
 };
 

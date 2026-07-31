@@ -67,6 +67,7 @@
     --exam-pe: #16365c;              /* 総監・第一次＝濃紺 */
     --exam-pe-construction: #33356b; /* 建設部門＝藍 */
     --exam-concrete-chief: #0f6e6e;  /* コンクリート主任＝ティール */
+    --exam-concrete-diagnosis: #6e3a8c; /* コンクリート診断士＝紫（note カバー/OGP と同一の資格アイデンティティ色） */
 
     /* CTA バナー画像上の文字色。背景イラスト（cta-bg/*.webp）は常に明色でテーマ非追従のため、
        文字はダーク固定にして可読性を担保する（.dark で上書きしない＝両テーマで同値）。 */
@@ -171,6 +172,7 @@
     --exam-pe: #7fa3d6;
     --exam-pe-construction: #8385d0;
     --exam-concrete-chief: #4db3b3;
+    --exam-concrete-diagnosis: #ac82c6;
 
     /* Editorial palette — Soft Editorial dark (2026-07)。
        paper を bg より 1 段明るくしカードに浮遊感を与える。ink 系は寒色寄せで accent と色温度統一。 */
