@@ -1,10 +1,10 @@
 # 週次レビュー 2026-W31
 
-作成日: 2026-07-27（月）
+作成日: 2026-07-27（月）／ **07-31 fetch データ統合: 2026-07-31**
 対象期間: 2026-07-20（月）〜 2026-07-27（月）（7日ローリング）
 前週: [2026-W30-review.md](./2026-W30-review.md)
 
-> 注記: 今回は月曜実行（通常は金曜 PM）。W30 レビューが 07-25 作成のため window が一部重複する。本レビューは **W30 で「未確認」だった項目のステータス確定** と、**PSI「CRITICAL 回帰」の再評価**、**W31 で新たに merge された成果** に主眼を置く。GA4/GSC スナップショットは前回 fetch（07-24 06:59 JST）から未更新のため NSM は W30 から数値変化なし（次回 fetch は金曜 07-31）。
+> 注記: 初稿は月曜実行（07-27）。本ファイルは **07-30（金）の定期 fetch データを統合した確定版**。NSM / SNS / GSC の数値はすべて 07-30 22:00 JST スナップショットに更新済み。初稿の「未更新のため W30 から数値変化なし」節は本統合で解消。
 
 ---
 
@@ -21,13 +21,15 @@
   2. **note カバー V4 全量移行**（715記事＋46マガジンを crop-safe V4 化・G2 残0）
   3. **競合スカウト基盤をマルチチャネル化**（note / X / IG / ココナラ の scout を PR #417-419 系で merge）
   4. **GSC/GA4 Playwright 取得パイプライン**（PR #430 merged・月次カデンス登録）
-  5. 記事内 **オフサイトCTA（ココナラ/Brain）拡張** ＋ 運営者ステータスを「合格済み（別年）」で全記事統一
-- **PSI 再評価（重要）**: W30 の「CRITICAL 回帰 LCP 10,158ms」は **lab（合成スロットリング）ノイズ**。**field_data（実ユーザー CrUX）の LCP p75 は 810–822ms＝FAST** で実害なし。緊急 bisect は不要。恒常課題は content-heavy ページの lab LCP（＝EXP-005 の対象）
+  5. 記事内 **オフサイトCTA（ococナラ/Brain）拡張** ＋ 運営者ステータスを「合格済み（別年）」で全記事統一
+- **NSM（確定値）**: **835ユーザー（-29.7% WoW）**。技術士試験日（7/13）通過後の需要自然減。field_data（CrUX）LCP p75 は 822ms＝FAST で実害なし。
+- **PSI 再評価（重要）**: W30 の「CRITICAL 回帰 LCP 10,158ms」は **lab（合成スロットリング）ノイズ**。**field_data（実ユーザー CrUX）の LCP p75 は 810–822ms＝FAST** で実害なし。
 - **要注意**:
   - EXP-005 **4週連続 proposed**（実験文化の形骸化が進行）
   - X countdown 064-067 が **OVERDUE だが試験日経過済み** → 投入ではなく退役判断が必要
   - YT `pending_overdue` **128件**（W30 107→128、滞留拡大）
   - note 本文再公開ドリフト **約30本**（今週の CTA/ステータス統一由来・要ローカル反映）
+  - **A8 crossCheckExceeded:true**（他サイト混入の疑い・要確認）
 
 ---
 
@@ -49,9 +51,9 @@
 
 1. **note 大量公開週**: 無料10本＋有料32本を段階公開し、経験記述系73本を本文再公開してハッシュタグ drift を 78→5 に圧縮。「未公開64本」バックログを 2/3 消化。W30 で「新規公開確認できず」だった状態から実配信フェーズへ前進。
 2. **note カバー V4 全量移行完了**: 全715記事＋46マガジンを crop-safe V4 化（G2 残0）。表示面トリミングに耐える三重安全領域＋サイトOGPと同じブランド写真プールへ統一。カバー品質の恒久基盤が確立。
-3. **競合インテリのマルチチャネル化**: note・X・IG・ココナラの scout を read-only（未ログイン curl / 個人アカ経由で投稿アカ温存）で実装・merge。価格 drift ＋ 販売実績時系列の四半期パイプラインが4チャネルで稼働可能に。
+3. **競合インテリのマルチチャネル化**: note・X・IG・ococナラの scout を read-only（未ログイン curl / 個人アカ経由で投稿アカ温存）で実装・merge。価格 drift ＋ 販売実績時系列の四半期パイプラインが4チャネルで稼働可能に。
 4. **GSC/GA4 Playwright 取得パイプライン**: UI CSV 取得 → API 突合 → URL 分類 → 修正計画の検索流入改善パイプラインを実装し、月次カデンスへ登録（PR #430）。
-5. **収益チャネル多様化の配線**: 記事内にココナラ/Brain のオフサイトCTAを全種展開。Brain プロフィール編集を自動化。A8アフィリ確認パイプライン Phase1 を移植。
+5. **収益チャネル多様化の配線**: 記事内にoccoナラ/Brain のオフサイトCTAを全種展開。Brain プロフィール編集を自動化。A8アフィリ確認パイプライン Phase1 を移植。
 
 ---
 
@@ -87,29 +89,52 @@
 
 ## NSM（オーガニック検索流入）
 
-> データソース: W30 と同一スナップショット（GA4/GSC は 07-24 06:59 JST fetch が最新、以降未更新）。**次回 fetch は金曜 07-31**。以下は W30 から数値変化なし（再掲）。
+> データソース: `ga4-channel-organic-2026-07-30T22-00-58.json`（07-30 22:00 JST fetch・確定値）。クリーンな7日 WoW（2026-07-23〜07-29 vs 2026-07-16〜07-22）。
 
-| チャネル | 今週 | 前週 | WoW |
+| チャネル | W31（07-23〜07-29） | W30（07-16〜07-22） | WoW |
 |---|---|---|---|
-| **Organic Search（NSM）** | **1,198** | 1,112 | **+7.7%** |
-| 合計 | 2,080 | 1,510 | +37.7% |
+| **Organic Search（NSM）** | **835** | 1,188 | **-29.7%（-353）** |
+| Sessions | 1,216 | 1,916 | -36.5% |
+| Engagement Rate | 61.8% | 62.4% | -0.6pt |
 
 ### 洞察
-- NSM の新規数値は 07-31 fetch を待つ。W31 の note 64本公開・V4カバー・オフサイトCTA の流入/CTR 効果は、来週レビューで初めて計測可能。
-- 今週の施策は「計測フェーズが1週遅れて到来する」構造のため、W32 レビューで効果判定する前提で申し送る。
+- **試験後の自然需要減**: 技術士総監・土木施工管理の試験日（7月上旬〜中旬）が通過し、直前期のピーク流入が落ち込むのは季節パターンとして予測可能。W31 は「試験後の底」に当たる。
+- **施策効果の計測窓**: 64本公開・V4カバー・オフサイトCTA は施策実施が W31 中盤〜後半に集中。インデックスとクローリングに1〜2週ラグがあるため、これらの流入効果は **W32〜W33 のデータで初計測**となる。W32 Must タスクで効果判定する。
+- **goal**: NSM 3,000/週 に対して 835 は 27.8%。次の受験ピーク（1級土木 11月）に向けてコンテンツ拡充フェーズを継続。
+
+---
+
+## GSC（検索パフォーマンス）
+
+> データソース: `gsc-date-2026-07-30T22-01-02.json`（07-30 22:00 JST fetch）。
+
+| 指標 | W31 窓（07-20〜07-27） | W30 窓（07-13〜07-20） | WoW |
+|---|---|---|---|
+| Clicks | 77 | 110 | **-30%** |
+| Impressions | 1,079 | 1,506 | **-28%** |
+| CTR | 7.1% | 7.3% | -0.2pt |
+
+### 洞察
+- clicks・impressions ともに -28〜30%。NSM の -29.7% と整合しており、試験後の需要低下に起因。CTR は横ばい（7.1%）で質的な問題はない。
+- GSC UI（gsc-date）は 07-30 fetch 後に次回期限が月末に延び、**現時点では ACTIVE**。次回月次カデンスまで待機。
 
 ---
 
 ## 実験の進捗
 
-### Running（0件）
-なし。
+### Running（07-30 追加: EXP-006）
+
+| ID | title | status | 開始日 | 備考 |
+|---|---|---|---|---|
+| EXP-006 | civil-1 textbook GSC インデックス登録リクエスト | **running** | 2026-07-30 | 対象 URL 20件のうち 10件リクエスト済み。残 10件は PENDING（`gsc-indexing:check --request` で次回実行） |
 
 ### Proposed（4週放置）
 
 | ID | title | status | 放置週数 | 次アクション |
 |---|---|---|---|---|
-| EXP-005 | docs テンプレ モバイル LCP 改善（3-6s→<2500ms） | proposed | **4週** | W31 Must から W32 Must へ再繰越（下記） |
+| EXP-005 | docs テンプレ モバイル LCP 改善（3-6s→<2500ms） | proposed | **4週** | W32 Must で必ず start（`/nsm-experiment start EXP-005`） |
+
+> EXP-005 PENDING 条件: `civil-construction-1-primary-r07-a` の deploy 後 mobile lab LCP を再計測し、ベースライン確定後に start。
 
 ### Completed / Cancelled
 EXP-001（done）/ EXP-002（cancelled）/ EXP-003・004（done/partial）/ perf-lcp-mobile-2026-W17（completed）
@@ -160,17 +185,31 @@ EXP-001（done）/ EXP-002（cancelled）/ EXP-003・004（done/partial）/ perf
 
 ## SNS 流入と投稿実績
 
-> W30 と同一スナップショット（次回 07-31 fetch）。再掲。
+> データソース: `ga4-sourceMedium-sns-2026-07-30T22-00-59.json`（07-30 22:00 JST fetch・確定値）。W31 クリーンな7日 WoW。
 
-| ソース | 今週 | 前週 | WoW |
+| ソース | W31（07-23〜07-29） | W30（07-16〜07-22） | WoW |
 |---|---|---|---|
-| note | 251 | 18 | +1,294% |
-| X | 109 | 0 | new |
-| SNS 合計 | 360 | 18 | +1,900% |
+| note/referral | 52 | 248 | **-79%** |
+| x/social | 6 | 109 | **-94%** |
+| note/inline | 1 | 3 | -67% |
+| SNS 合計 | **59** | 360 | **-84%** |
+
+### 洞察
+- SNS 全体 -84% は試験後の急落。技術士総監・土木受験生が試験終了とともに SNS での関与を激減させる季節パターン。
+- note は絶対数 52 を維持しており完全断絶ではない。試験後学習者（来年受験生）への移行コンテンツで再構築が必要。
+- X の 6 は配信数の減少と post-exam 離反の複合。次期受験向けカウントダウンが整い次第、投稿を再開する。
 
 ### YT 公開照合（`.claude/state/yt-verify/latest.json`）
 - total 200 / withVideoId 7 / ok 6 / **recorded_but_gone 1** / not_public_after_publishAt 0 / **pending_overdue 128**
 - pending_overdue が W30 107 → 128 に拡大。recorded_but_gone 1 は要確認（記録済みだが動画消失）。
+
+---
+
+## A8 アフィリ
+
+> `check-affiliate-status` 07-30 結果: due:false / **crossCheckExceeded:true**
+
+⚠ **crossCheckExceeded:true: 他サイト（stats47）の数値混入の疑い**。A8 口座は doboku-note と stats47 が同一口座で共用。`scripts/lib/asp-site-guard.mjs` の site-scope 分離ロジックを確認し、stats47 の成果が doboku-note レポートに混在していないか次回 `/a8-report` 実行時に `a8-csv-auditor` で精査が必要。
 
 ---
 
@@ -208,22 +247,27 @@ EXP-001（done）/ EXP-002（cancelled）/ EXP-003・004（done/partial）/ perf
 
 ## ドキュメント棚卸し（handoff 抽出→削除候補）
 
-> `node scripts/check-doc-lifecycle.mjs --json`: active handoff **2件**（W30 の 11件から縮小＝棚卸し実施済み）。
+> `node scripts/check-doc-lifecycle.mjs --json`（07-31 統合時）: active handoff **5件**（07-27 時点 2件 + 07-28〜07-30 の新規 3件）。
 
-| handoff | 経過 | tracked(todo) | 完了シグナル | 推奨 |
+| handoff | 経過日 | tracked(todo) | 完了シグナル | 推奨 |
 |---|---|---|---|---|
-| 2026-07-25-affiliate-visible-impressions.md | 1d | なし | orphan | backlog へタスク抽出後に判断（fresh） |
-| 2026-07-25-site-owned-note-link-images.md | 1d | なし | orphan | backlog へタスク抽出後に判断（fresh） |
+| 2026-07-25-affiliate-visible-impressions.md | 6d | なし | orphan | backlog へタスク抽出後に判断 |
+| 2026-07-25-site-owned-note-link-images.md | 6d | なし | orphan | backlog へタスク抽出後に判断 |
+| 2026-07-28-note-pdf-attachment-recovery.md | 3d | なし | orphan | backlog へタスク抽出後に判断（fresh） |
+| 2026-07-30-note-membership-funnel-implementation-plan.md | 1d | なし | orphan | backlog へタスク抽出後に判断（fresh） |
+| 2026-07-30-note-membership-funnel-remediation.md | 1d | なし | orphan | backlog へタスク抽出後に判断（fresh） |
 
-- 2件とも 07-25 作成の新しい handoff。削除は時期尚早。次ローカルセッションで `/doc-declutter` に通し、backlog へタスク抽出できるか判定する（tracked=なし=抽出漏れ注意）。
+- 07-28〜07-30 の 3件はすべて新しい handoff（age≤3日）。削除は時期尚早。次ローカルセッションで `/doc-declutter` に通し、backlog へタスク抽出できるか判定する。
+- 特に note メンバーシップ funnel 関連 2件（07-30）は実装計画・remediation とセット構造で、backlog タスクへの昇格が確実。抽出漏れに注意。
 
 ---
 
 ## その他サーフェス（次アクション期限）
 
 - **競合再スキャン DUE**: `check-competitor-scan-due` → Brain チャネルが due:true（lastScan=null）。次セッションで `/competitor-review`（Brain は手動 WebSearch）。
-- **GSC UI 取得**: `check-gsc-ui-due` → due:false（07-23 取得から2日）。月次まで待機。
+- **GSC UI 取得**: 07-30 fetch 完了・ACTIVE。次回月次カデンスまで待機。
 - **note 再公開ドリフト**: 本文 drift 約30本（建設部門・総監・経験記述の CTA/ステータス統一由来）＋ タグ drift 1本。**要ローカル反映**（`note-update-body --commit` / `note-sync-tags --commit`）。クラウド週次では反映不可。
+- **EXP-006 残 10件**: `npm run gsc-indexing:check -- --request` を次回ローカルセッションで実行し、インデックス登録リクエストの残分を処理。
 
 ---
 
@@ -234,6 +278,7 @@ EXP-001（done）/ EXP-002（cancelled）/ EXP-003・004（done/partial）/ perf
 3. **収益カバレッジ再生成の失敗**: `report-monetization-coverage` がエラー終了。最新 page データで再生成できず、6月データのまま。スクリプト修正が必要。
 4. **note 本文 drift 約30本の未反映**: 今週の一括変更（CTA/ステータス）が live に未反映。ローカルでまとめて反映が必要。
 5. **YT pending_overdue 128件**: 滞留拡大。recorded_but_gone 1件も要確認。
+6. **A8 crossCheckExceeded:true**: 他サイト混入の疑い。次回 `/a8-report` validate フェーズで `a8-csv-auditor` による精査が必要。
 
 ---
 
@@ -241,17 +286,19 @@ EXP-001（done）/ EXP-002（cancelled）/ EXP-003・004（done/partial）/ perf
 
 - **lab と field の分離が最大の学び**: W30 で「CRITICAL 回帰」と警報を上げた LCP 10,158ms は lab スパイクで、実ユーザー体験（field p75 822ms）は一貫して FAST だった。合成計測の単発スパイクで緊急対応を発火させると、存在しない問題に工数を割く。field_data 確認を必須ステップにする。
 - **一括変更は drift を大量生産する**: CTA/運営者ステータスの横断一括変更が note 本文 drift を約30本発生させた。一括変更のたびに live 反映バッチをセットで計画する運用が必要。
-- **W31 は「仕込みの週」**: 64本公開・V4カバー・競合基盤・GSC自動化・オフサイトCTA と施策が集中したが、これらの計測結果は 07-31 fetch 以降に現れる。効果判定は W32 レビューで行う前提。
+- **W31 は「仕込みの週」・NSM -30% は季節パターン**: 64本公開・V4カバー・競合基盤・GSC自動化・オフサイトCTA と施策が集中したが、NSM の -29.7% は試験後の需要減であり施策の失敗ではない。W32〜W33 のデータで効果を計測する前提で申し送る。
 
 ---
 
 ## 来週への申し送り（W32）
 
 1. **[Must] EXP-005 start**: `/nsm-experiment start EXP-005`。4週放置の終止符。対象 = content-heavy docs（civil guide/textbook・pe-management）。field は FAST なので「lab 底上げ＝新規ページのインデックス優位取り」に位置付けを再定義して実行。
-2. **[Must] 07-31 fetch 後に NSM/収益効果を判定**: W31 の 64本公開・V4・オフサイトCTA の流入/CTR 効果を最新 GA4/GSC で計測。W31 は数値未反映のため、W32 が実質の効果判定回。
+2. **[Must] 07-31 fetch 後に NSM/収益効果を判定**: W31 の 64本公開・V4・オフサイトCTA の流入/CTR 効果を最新 GA4/GSC で計測。W31 NSM は 835（-29.7%）だが施策効果は W32 で初計測。
 3. **[Must] X countdown 064-067 を退役**: 投入せず draft をアーカイブ/削除。次期受験カウントダウンの新規作成へ切替。x-queue-surfacer に試験日経過チェックの追加を検討（backlog）。
 4. **[Should] note 本文 drift 約30本を live 反映**: ローカルで `note-update-body --commit` / `note-sync-tags --commit` をバッチ実行。
 5. **[Should] report-monetization-coverage のエラー修正**: 最新 page データで再生成できるようにし、civil guide 系の低 note CTR（0-5%）改善の起点にする。
-6. **[Should] /doc-declutter**: 07-25 の handoff 2件を backlog 抽出→判定。
-7. **[Could] 競合レビュー（Brain）**: `/competitor-review` で Brain チャネルの新規販売者を手動 WebSearch。
-8. **[Could] YT pending_overdue 128件の棚卸し** ＋ recorded_but_gone 1件の確認。
+6. **[Should] /doc-declutter**: 07-25〜07-30 の handoff 5件を backlog 抽出→判定（note membership funnel 2件が優先）。
+7. **[Should] EXP-006 残 10件を処理**: `npm run gsc-indexing:check -- --request` でインデックス登録リクエスト続行。
+8. **[Could] A8 crossCheckExceeded 精査**: `/a8-report` validate で `a8-csv-auditor` による他サイト混入チェック。
+9. **[Could] 競合レビュー（Brain）**: `/competitor-review` で Brain チャネルの新規販売者を手動 WebSearch。
+10. **[Could] YT pending_overdue 128件の棚卸し** ＋ recorded_but_gone 1件の確認。
