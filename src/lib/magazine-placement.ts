@@ -573,20 +573,16 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   //     - guide-essay: 記述式対策ガイド（最も整合）
   //     - textbook-assessment / textbook-repair: 問題B の答案で中核になる
   //       「評価・予測」と「対策の選定」の解説。読者が答案の書き方を求める地点
-  //     published: false の間は getMagazine が null を返し CTA 非表示（防御的）。
+  //     2026-07-31: マガジン公開時に「配線はあるのに CTA が 1 つも出ない」ことが判明した。
+  //     inline は中間 CTA 経由（h2>=5 かつ本文 8,000 字が条件）だが診断士は最長 7,364 字で
+  //     届かず、sidebar は 2026-07 の CTA 統一以降どこからも参照されていない（死に配線）。
+  //     concrete 系は非 HUB 資格でもくじタイルも出ない。よって **top（冒頭 CTA）で出す**。
+  //     textbook 2 本は本文の文脈に紐付けたいので MDX 内 <MagazineCard> が担う（top は置かない）。
   if (slug === 'concrete-diagnostician-guide-essay') {
     return {
+      top: slot('cd-essay-magazine', slug, 'top'),
       inline: [slot('cd-essay-magazine', slug, 'inline-1')],
-      sidebar: [slot('cd-essay-magazine', slug, 'sidebar-1')],
-    };
-  }
-  if (
-    slug === 'concrete-diagnostician-textbook-assessment' ||
-    slug === 'concrete-diagnostician-textbook-repair'
-  ) {
-    return {
-      inline: [],
-      sidebar: [slot('cd-essay-magazine', slug, 'sidebar-1')],
+      sidebar: [],
     };
   }
 
