@@ -126,6 +126,21 @@ if (!LIVE) {
     } else {
       console.log('\n✓ 約束と PDF 実体の不一致なし');
     }
+    // 逆向きの取りこぼし（非ゲート surfacer）: PDF は作ってあるのに本文が一言も触れていない。
+    // 2026-07-31 実測で総監模範論文 93 本がこの状態だった（添付はされていたが本文に案内が無く、
+    // 読者には「PDF が付く」ことが伝わっていない＝作った資産が売り物として見えていない）。
+    const silent = targets.filter((t) => t.expected.length > 0 && !t.promises);
+    if (silent.length) {
+      const byMag = {};
+      for (const s of silent) {
+        const k = (s.file.match(/magazines\/([^/]+)/) || [, s.file.split('/').slice(1, 3).join('/')])[1];
+        byMag[k] = (byMag[k] || 0) + 1;
+      }
+      console.log(`\n△ PDF 実体はあるが本文で案内していない: ${silent.length} 件（非ゲート・訴求もれの候補）`);
+      Object.entries(byMag).sort((a, b) => b[1] - a[1]).slice(0, 12)
+        .forEach(([k, v]) => console.log(`    ${String(v).padStart(4)} ${k}`));
+      console.log('    → 本文に「## 印刷用PDF」節を足すと購入判断の材料になる（節の文面は建設部門 200 本が既存例）');
+    }
     console.log(`\n  ライブに実際に添付されているかは CI では見えない（有料エリアの添付カードは未ログイン HTML に出ない）。`);
     console.log(`  ローカルで: node scripts/check-note-attachments.mjs --live`);
   }

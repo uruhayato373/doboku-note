@@ -92,6 +92,11 @@ jobs:
       - name: Check note paid CTA placement (L2 mokuji in free preview, full)
         run: npm run check-note-paid-cta
 
+      # frontmatter のトップレベルキー重複。YAML 重複キーは gray-matter を停止させ、
+      # 2026-07-31 に PDF 生成 104 本が丸ごと落ちた。既存ゲートは正規表現の先頭一致なので拾えない。
+      - name: Check note frontmatter duplicate keys (full)
+        run: npm run check-note-frontmatter-dup
+
       # 単品価格の一貫性（マガジン内 L1 / 宣言済みシリーズ L2）。pre-commit は --staged のみで
       # 「触っていないマガジンのドリフト」を拾えないため、全量の backstop をここに置く。
       # network 不要（ソース内検査）。2026-07-28 新設。

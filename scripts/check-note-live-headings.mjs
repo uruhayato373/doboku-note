@@ -62,7 +62,11 @@ for (const f of walk(join(ROOT, 'docs/note'), [])) {
   const raw = readFileSync(f, 'utf8');
   if (!raw.startsWith('---')) continue;
   const fm = raw.split('---')[1] || '';
-  if (!/noteStatus:\s*"?published"?/.test(fm)) continue;
+  // 公開判定は「noteUrl 非空 OR noteStatus に publish」（check-note-3set / check-note-boundary と同一）。
+  // 2026-07-31: `noteStatus: published` を必須にしていたため、この行を持たない公開済み記事
+  // 351 本（建設部門208・総監107・土木28・コンクリート診断士8）を無言でスキップし、
+  // 698 本中 347 本しか検査していなかった。CLAUDE.md §9「検査ゼロを PASS と呼ばない」の同型。
+  if (!/^noteUrl:\s*\S/m.test(fm) && !/noteStatus:.*publish/.test(fm)) continue;
   const m = fm.match(/noteId:\s*"?(n[0-9a-f]{12})"?/);
   if (m) targets.push({ noteId: m[1], path: f.slice(ROOT.length + 1), expectedImgs: expectedImagesOf(raw) });
 }

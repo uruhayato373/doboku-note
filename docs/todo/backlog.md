@@ -35,6 +35,13 @@ node scripts/note-attach-batch.mjs --commit --limit 100
 
 前提: note ログイン済みプロファイル（無ければ `npm run note-edit-session`）。経緯 → [2026-07-31 handoff](../handoffs/2026-07-31-note-paid-cta-and-pdf.md)
 
+### 総監模範論文 77本に「印刷用PDF」節を追加（訴求もれ）
+タグ: [収益化]
+
+**PDF はライブに添付済みなのに、本文が一言も触れていない**。読者には「PDF が付く」ことが伝わっておらず、作った資産が購入判断の材料になっていない。2026-07-31 の全数検査で発覚し、`check-note-attachments` に非ゲート surfacer を追加したので `node scripts/check-note-attachments.mjs` で常時列挙される。
+
+節の文面は建設部門 200 本が既存例（`## 印刷用PDF｜本記事の模範解答`）。土木 178 本と同じく `place-civil-keiken-pdfs.mjs` 相当の追記 → `note-update-body --commit` でライブ反映。**添付は済んでいるので本文更新だけ**だが、全文置換は添付カードを消すので `--allow-attachment-loss` ＋ 再添付が要る点に注意（1日100件上限も効く）。
+
 ### 建設部門 電力土木/鉄道 R08-yosou 6本の PDF 生成 → CTA 修正の取り込み
 タグ: [コンテンツ品質]
 
