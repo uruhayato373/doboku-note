@@ -115,8 +115,11 @@ function parseArticle(articlePath) {
   const raw = readFileSync(abs, 'utf8').replace(/^﻿/, ''); // strip BOM
   const fm = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/)?.[1] ?? '';
   const fmField = (k) => (fm.match(new RegExp('^' + k + ':\\s*(?:"(.*?)"|\'(.*?)\'|(.+?))\\s*$', 'm')) || []).slice(1).find(Boolean) || '';
-  const noteId = fmField('noteId');
-  if (!noteId || !/^n[0-9a-f]{6,}$/.test(noteId)) { throw new Error('noteId missing or invalid: ' + noteId); }
+  // noteId が無い公開記事が実在する（2026-07-31 実測: 再公開対象 179 本のうち 7 本。
+  // 総監テキスト精読ガイドなど、writeback が noteUrl だけ書いた時代の記事）。noteUrl から
+  // 導出できるのに throw していたため、バッチが 3 連続失敗で止まっていた。
+  const noteId = fmField('noteId') || (fmField('noteUrl').match(/\/n\/([0-9a-z]+)/) || [])[1] || '';
+  if (!noteId || !/^n[0-9a-f]{6,}$/.test(noteId)) { throw new Error('noteId missing or invalid（noteUrl からも導出不可）: ' + noteId); }
   const title = fmField('title'); // --pause 時にユーザーへ提示する新タイトル（本文には出さない）
   const notePricing = fmField('notePricing');
   const isPaid = notePricing === 'paid';
