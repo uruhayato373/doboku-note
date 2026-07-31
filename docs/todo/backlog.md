@@ -20,6 +20,37 @@
 
 ## 🔴 高 — 来月中に着手
 
+### note PDF 添付 185 件（1日100件上限・最低2日）
+タグ: [収益化]
+
+土木 経験記述 178 本へ PDF を配置し本文案内までライブ反映済み。**添付だけが未了**。`check-note-attachments --live` を 457 件で実行済み（取得失敗0・充足272/不足185）。欠落リストは `.claude/state/note-attachments-missing.json` に生成済み。
+
+**note のファイルアップロードは1日100件が上限**（超えると以降が全て ABORT）。done-log は `.claude/state/note-attach-done.json`（git 追跡下）なので翌日そのまま再実行すれば続きから進む。
+
+```bash
+node scripts/note-attach-batch.mjs --commit --limit 100
+```
+
+**最優先は `BK-I_必須科目I` の7本**（R07 模範解答＋R8予想①〜⑥）。今回の作業とは無関係な既存の欠落で、本文で印刷用PDFを約束しているのにライブに無く**購入者が受け取れていない**。
+
+前提: note ログイン済みプロファイル（無ければ `npm run note-edit-session`）。経緯 → [2026-07-31 handoff](../handoffs/2026-07-31-note-paid-cta-and-pdf.md)
+
+### 建設部門 電力土木/鉄道 R08-yosou 6本の PDF 生成 → CTA 修正の取り込み
+タグ: [コンテンツ品質]
+
+本文で印刷用PDFを約束しているのに PDF 実体が無く、`check-note-attachments` が pre-commit を止めるため CTA 位置修正から2度とも除外されている（現在も未適用）。spec は存在するので生成すれば通る。
+
+```bash
+node scripts/magazine-to-pdf.mjs --spec scripts/pdf-specs/BK-09_電力土木.json
+node scripts/magazine-to-pdf.mjs --spec scripts/pdf-specs/BK-10_鉄道.json
+node scripts/wire-note-paid-cta.mjs --apply
+```
+
+### 総監 計算問題パターン集のライブ反映（画像14枚で CDN 確定せず）
+タグ: [コンテンツ品質]
+
+`ne190c3ef2fca`。4回試して毎回 note 側の CDN 確定が 9〜11/14 で止まり fail-closed で中断。押し切ると有料記事の図がライブで欠落する。画像重複なし・時間切れでもない（280秒待つ設定）。CTA と PDF 節がソース止まり。別 PC・別回線で再試行するか `--img-lenient` を使うかは要判断。
+
 ### note-live-audit の疎通確認（main マージ直後に1回だけ）
 タグ: [運用基盤]
 
@@ -669,6 +700,24 @@ account ゲート/ClipboardEvent paste/リンクカード化/ブラウザ起動�
 ---
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
+
+### ココナラ PDF 4商品の取り下げ（note 一本化 C-2 の後半・実操作はユーザー）
+タグ: [収益化]
+
+note の土木 経験記述 178 本に印刷用PDFを付けたため、同内容を売っている以下 4 商品が重複する。C-2 方針＝「note へ一本化し、ココナラは人が動くサービス（診断/添削/作成）に絞る」。
+
+| ココナラ商品 | 価格 |
+|---|---|
+| 1級土木の経験記述 完成答案集を送ります | ¥3,500 |
+| 2級土木の経験記述 完成答案集を送ります | ¥3,000 |
+| 1級土木 経験記述の過去問模範答案を送ります | ¥3,000 |
+| 2級土木 経験記述の過去問模範答案を送ります | ¥3,000 |
+
+取り下げ後に SSOT を更新: `src/lib/coconala-services.ts`（status）／`docs/note/1級・2級土木/ココナラ展開キット.md` §2 価格表／`.claude/knowledge/reference/coconala-operations.md`。整合は `npm run check-coconala-wiring`。
+
+**残り5商品**（学科記述攻略 1級2級・予想模試 1級2級・出題分析）は note 側に PDF spec が無いので今回の対象外。やるなら `gen-pdf-specs-civil-keiken.mjs` と同じ方式で spec を起こす。
+
+**先に A（PDF 添付185件）を終えてから**。添付前に取り下げると、どちらでも買えない期間ができる。
 
 ### 会員特典22本の会員限定公開（メンバーシップ未ローンチ・2026-07-24）
 タグ: [note運用]
