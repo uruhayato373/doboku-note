@@ -77,6 +77,11 @@ const IMG_LENIENT = argv.includes('--img-lenient'); // 画像挿入 failed で�
 // 全文置換は本文内の PDF 添付カードも消す。既定では添付を検出したら中断する（--allow-attachment-loss で明示解除）。
 // 2026-07-28: 建設部門の送客リンク是正で 196 本を全文置換し、6/16 に添付した PDF カードを消してしまった。
 const ALLOW_ATTACH_LOSS = argv.includes('--allow-attachment-loss');
+// --list バッチの連続失敗ストッパー。1本の失敗は個別事情でも、続けて落ちるのは
+// note 側の UI 変更・ログイン切れ・レート制限など**系統的な原因**で、走らせ続けると
+// 壊れた更新を量産する（2026-07-31 に有料2本の無料プレビューを壊した反省）。
+// 既定 3 連続で中断。走り切らせたいときだけ明示的に緩める。
+const MAX_CONSEC_FAIL = Number(getArg('--max-consecutive-fail') || 3);
 const TRIAL_LINE_BOTTOM = argv.includes('--trial-line-bottom'); // メンバーシップ試し読み: ラインを末尾直前に置き ほぼ全文を無料プレビュー化（入口LP復旧用）
 
 // 目次が「最初のh2より後」に入って直せなかった記事（バッチ末尾サマリで失敗として可視化する）
@@ -607,6 +612,7 @@ try {
   if (!acct) { console.error('ABORT: account != dobokunote'); await ctx.close(); process.exit(2); }
   console.log('[1] account gate OK (dobokunote)');
 
+  let consecFail = 0;
   for (const artPath of articles) {
     try {
       const parsed = parseArticle(artPath);
@@ -617,10 +623,17 @@ try {
         ok++;
         // フル本文を live 反映できた → 再公開ドリフト検出のハッシュを in-sync 化（--commit 時のみ）。
         if (COMMIT && recordPublishedHash(relative(ROOT, parsed.abs))) console.log(`[hash] ${relative(ROOT, parsed.abs)} 再公開ハッシュ更新`);
-      } else fail++;
+        consecFail = 0;
+      } else { fail++; consecFail++; }
     } catch (e) {
       console.error('[ERROR]', artPath, e.message);
-      fail++;
+      fail++; consecFail++;
+    }
+    if (articles.length > 1 && consecFail >= MAX_CONSEC_FAIL) {
+      console.error(`\n[ABORT] ${consecFail} 本連続で失敗 → 残り ${articles.length - (ok + fail)} 本を実行せず中断。`);
+      console.error('  系統的な原因（note の UI 変更 / ログイン切れ / レート制限）を疑い、1 本を --article 単体で再現してから再開すること。');
+      console.error('  成功分は再公開ハッシュが in-sync 済みなので、原因を直したあと同じ list で再実行すれば続きから進む。');
+      break;
     }
     if (articles.length > 1) await sleep(2000);
   }
