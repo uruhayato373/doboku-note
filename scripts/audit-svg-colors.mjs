@@ -11,10 +11,13 @@
  *   node scripts/audit-svg-colors.mjs --top=20       # 最もズレているファイル top N
  */
 
-import { readdirSync, readFileSync, statSync } from 'fs';
+import { existsSync, readdirSync, readFileSync, statSync } from 'fs';
 import { join, relative } from 'path';
+import { fileURLToPath } from 'url';
 
-const ROOT = new URL('..', import.meta.url).pathname;
+// URL#pathname は Windows で '/C:/...' を返し、join() が 'C:\C:\...' を作る。
+// fileURLToPath でプラットフォーム固有の絶対パスへ変換する。
+const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const TARGET_DIR = join(ROOT, '.local/r2/posts');
 
 /** パレット（hex 小文字） + 受容色（white/none 等） */
@@ -96,7 +99,16 @@ function isAccepted(c) {
 }
 
 function main() {
+  // 検査ゼロを PASS と呼ばない（CLAUDE.md §9）: 走査不成立は緑ではなく exit 1。
+  if (!existsSync(TARGET_DIR)) {
+    console.error(`audit-svg-colors: FAIL — 走査対象ディレクトリが存在しない: ${TARGET_DIR}`);
+    process.exit(1);
+  }
   const files = walk(TARGET_DIR);
+  if (files.length === 0) {
+    console.error(`audit-svg-colors: FAIL — SVG を 1 枚も検査していない（走査対象: ${TARGET_DIR}）`);
+    process.exit(1);
+  }
   const report = [];
   const globalOutOfPalette = new Map();
 
@@ -137,7 +149,7 @@ function main() {
 
   console.log('');
   console.log('='.repeat(70));
-  console.log(` SVG カラー監査レポート（対象 ${report.length} 枚）`);
+  console.log(` SVG カラー監査レポート（走査 ${files.length} 枚 / 色定義あり ${report.length} 枚）`);
   console.log('='.repeat(70));
   console.log(`  100%  適合:  ${compliant} 枚`);
   console.log(`  80-99%  :    ${almost} 枚（軽微な修正で済む）`);

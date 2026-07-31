@@ -10,6 +10,10 @@
  *   node .claude/skills/quality/check-mdx/scripts/rules/svg/audit.mjs --path=<glob>
  *   node .claude/skills/quality/check-mdx/scripts/rules/svg/audit.mjs --file=<single.svg>
  *   node .claude/skills/quality/check-mdx/scripts/rules/svg/audit.mjs --fail-on=HIGH   # exit 1 if any HIGH finding
+ *
+ * exit 1 の条件（--fail-on とは独立に常時適用。CLAUDE.md §9「検査ゼロを PASS と呼ばない」）:
+ *   - --path / --file のマッチが 0 件（走査不成立。所見なしではない）
+ *   - 読めない/壊れた SVG が 1 件以上（未検査。所見 0 と混同しない）
  */
 
 import { writeFileSync, existsSync, mkdirSync } from "fs";
@@ -40,18 +44,28 @@ function main() {
   const args = parseArgs(process.argv);
 
   const allFiles = args.file ? [args.file] : globSync(args.path);
+  // 検査ゼロを PASS と呼ばない（CLAUDE.md §9）: マッチ 0 件は「異常なし」ではなく走査不成立。
+  // 判定は allFiles（除外前）で行う — 全件が exam crop の場合は意図的な除外なので緑のままでよい。
+  if (allFiles.length === 0) {
+    const what = args.file ? `--file=${args.file}` : `--path=${args.path}`;
+    console.error(`audit-svg: FAIL — SVG を 1 枚も検査していない（${what} にマッチ 0 件。cwd=${process.cwd()}）`);
+    process.exit(1);
+  }
   const examCrops = allFiles.filter((f) => EXAM_DIR_RE.test(f.replace(/\\/g, "/")));
   const files = allFiles.filter((f) => !EXAM_DIR_RE.test(f.replace(/\\/g, "/")));
   const bySeverity = { HIGH: 0, MEDIUM: 0, LOW: 0 };
   const byPattern = {};
   const allFindings = [];
 
+  const parseErrors = [];
   for (const file of files) {
     let findings;
     try {
       findings = auditSvgFile(file);
     } catch (e) {
+      // 読めない/壊れた SVG は「所見なし」ではなく未検査。緑で流さず最後に exit 1 する。
       console.error(`parse error: ${file}: ${e.message}`);
+      parseErrors.push({ file, message: e.message });
       continue;
     }
     if (args.severity !== "ALL") {
@@ -65,7 +79,9 @@ function main() {
   }
 
   const summary = {
-    scanned_files: files.length,
+    scanned_files: files.length - parseErrors.length,
+    matched_files: allFiles.length,
+    parse_errors: parseErrors.length,
     exam_crops_skipped: examCrops.length,
     files_with_issues: new Set(allFindings.map((f) => f.file)).size,
     total_findings: allFindings.length,
@@ -82,6 +98,7 @@ function main() {
     },
     summary,
     findings: allFindings,
+    parse_errors: parseErrors,
     exam_crops: examCrops,
   };
 
@@ -98,6 +115,13 @@ function main() {
     console.log(`    ${p}: ${n}`);
   }
   console.log(`  report: ${outPath}`);
+
+  // 未検査（読めなかった SVG）が 1 件でもあれば緑にしない — 所見 0 と検査不成立は別物。
+  if (parseErrors.length > 0) {
+    console.error(`audit-svg: FAIL — ${parseErrors.length} file(s) を検査できなかった（未検査を所見 0 と混同しない）`);
+    for (const e of parseErrors) console.error(`  UNSCANNED ${e.file}: ${e.message}`);
+    process.exit(1);
+  }
 
   if (args.failOn) {
     const order = { LOW: 0, MEDIUM: 1, HIGH: 2 };
