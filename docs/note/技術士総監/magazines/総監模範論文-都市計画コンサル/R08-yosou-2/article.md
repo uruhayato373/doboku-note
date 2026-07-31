@@ -63,6 +63,13 @@ https://note.com/dobokunote/m/mf0f98993407f
 
 https://note.com/dobokunote/m/m171222175fac
 
+---
+
+<!-- cta:tankan-mokuji -->
+総監のほかの無料記事・有料マガジンは「総監もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n3ed4c77ceed6
+
 ## 試験問題（令和8年度（予想） 資源循環 × コンパクトシティ資材戦略）
 
 **【テーマ：グローバルな不確実性下における資源循環と供給網の最適化】**

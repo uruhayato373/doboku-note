@@ -52,6 +52,11 @@ https://note.com/dobokunote/m/m6e7de5e4ea3d
 
 ---
 
+<!-- cta:tankan-mokuji -->
+総監のほかの無料記事・有料マガジンは「総監もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n3ed4c77ceed6
+
 ## 予想問題本文
 
 **【テーマ：激甚化する気候変動リスクに対するインフラの適応と持続可能な地域管理】**

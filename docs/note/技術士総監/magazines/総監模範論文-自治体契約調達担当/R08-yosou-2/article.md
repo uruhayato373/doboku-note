@@ -61,6 +61,13 @@ https://note.com/dobokunote/m/m55b930cbfcf9
 
 https://note.com/dobokunote/m/m171222175fac
 
+---
+
+<!-- cta:tankan-mokuji -->
+総監のほかの無料記事・有料マガジンは「総監もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n3ed4c77ceed6
+
 ## 試験問題（令和8年度（予想） 資源循環 × グリーン調達・総合評価制度）
 
 **【テーマ：グローバルな不確実性下における資源循環とグリーン公共調達の最適化】**

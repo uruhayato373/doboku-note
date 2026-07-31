@@ -61,6 +61,13 @@ https://note.com/dobokunote/m/mf9f281e2cb32
 
 https://note.com/dobokunote/m/m171222175fac
 
+---
+
+<!-- cta:tankan-mokuji -->
+総監のほかの無料記事・有料マガジンは「総監もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n3ed4c77ceed6
+
 ## 試験問題（令和8年度（予想） 資源循環 × 技術基準・調達仕様の改定）
 
 **【テーマ：グローバルな不確実性下における資源制約と建設資材の循環利用に向けた技術基準・調達仕様の見直し】**

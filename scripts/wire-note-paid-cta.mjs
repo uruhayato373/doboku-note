@@ -111,8 +111,10 @@ for (const file of walk(ROOT)) {
   stats.scanned++;
   const raw = readFileSync(file, 'utf8');
   if (fmv(raw, 'notePricing') !== 'paid') continue;
-  if (fmv(raw, 'noteStatus') !== 'published') continue;
-  if (!fmv(raw, 'noteId')) continue;
+  // 公開判定は noteId / noteUrl の有無で行う（check-note-boundary.mjs と同一）。
+  // 2026-07-31: 当初 noteStatus:'published' を必須にしていたが、この行を持たない
+  // 公開済み記事が 326 本あり（577 中）、静かに検査対象から落ちていた。
+  if (!fmv(raw, 'noteId') && !fmv(raw, 'noteUrl')) continue;
   stats.paid++;
 
   const exam = EXAMS.find((e) => file.startsWith(e.dir + '/'));

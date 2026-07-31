@@ -45,6 +45,11 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 ---
 
+<!-- cta:tankan-mokuji -->
+総監のほかの無料記事・有料マガジンは「総監もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n3ed4c77ceed6
+
 ## 安全管理と安全法規（優先度: 高）
 
 安全管理の基本概念と各法律の概要を扱う分野です。**[製造物責任法](https://doboku-note.com/docs/pe-comprehensive-management-product-liability-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は過去17年中10年で出題される頻出エリアです**。[安全文化](https://doboku-note.com/docs/pe-comprehensive-management-safety-culture?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)はR02・R03で連続出題されるなど出題頻度は中程度です。

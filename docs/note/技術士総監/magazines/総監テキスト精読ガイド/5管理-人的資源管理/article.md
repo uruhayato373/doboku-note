@@ -45,6 +45,11 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 ---
 
+<!-- cta:tankan-mokuji -->
+総監のほかの無料記事・有料マガジンは「総監もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n3ed4c77ceed6
+
 ## 人の行動と組織（優先度: 最高）
 
 このエリアは、**択一式で最も出題頻度が高い領域** です。動機づけ理論3本柱とリーダーシップ論は毎年いずれかが出題されていると考えてよく、最優先で押さえる必要があります。
@@ -59,8 +64,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 組織開発を語る際に欠かせないのが **[コンテント／プロセス](https://doboku-note.com/docs/pe-comprehensive-management-content-process?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** の区別です。**コンテント** は「What（何を話しているか・取り組んでいるか）」、**プロセス** は「How（どのように課題に取り組んでいるか）」を指します。択一では定義の正誤を問う形式で出題されます。
 
-> **【出題例: [R5年度 Ⅰ-1-13](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-13)】** 組織開発に関する記述として最も適切なものを選ぶ問題。
-> → **正答2：診断型組織開発はサーベイ等の診断フェーズを持ちつつ、対話も重視する。**
+> **【出題例: [R5年度 Ⅰ-1-13](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-13)】** 組織開発に関する記述として最も適切なものを選ぶ問題。 → **正答2：診断型組織開発はサーベイ等の診断フェーズを持ちつつ、対話も重視する。**
 
 ### 人間関係管理
 
@@ -72,11 +76,9 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 **[心理的安全性](https://doboku-note.com/docs/pe-comprehensive-management-psychological-safety?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** とは1999年に提唱された概念で、「組織の中で自分の気持ちを誰に対しても安心して発言できる状態」を指します。[心理的安全性](https://doboku-note.com/docs/pe-comprehensive-management-psychological-safety?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)が高い職場では、メンバーがアイデア・提案を率直に発言でき、業績基準と組み合わせた4象限（無関心／快適／不安／学習）で組織の状態を分類できます。
 
-> **【出題例: [R3年度 Ⅰ-1-13](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-13)】** 組織文化に関する記述として最も適切なものを選ぶ問題。
-> → **正答3：シャインの「基本的仮定」のレベルに相当し、メンバーが当然とみなす前提も組織文化に含まれる。**
+> **【出題例: [R3年度 Ⅰ-1-13](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-13)】** 組織文化に関する記述として最も適切なものを選ぶ問題。 → **正答3：シャインの「基本的仮定」のレベルに相当し、メンバーが当然とみなす前提も組織文化に含まれる。**
 
-> **【出題例: [R5年度 Ⅰ-1-16](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-16)】** 心理的安全性と業績基準を分類した4象限の組合せ問題。
-> → **正答3：A=快適、B=学習、C=無関心、D=不安。心理的安全性が高く業績基準も高い場合に「学習」状態となる。**
+> **【出題例: [R5年度 Ⅰ-1-16](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-16)】** 心理的安全性と業績基準を分類した4象限の組合せ問題。 → **正答3：A=快適、B=学習、C=無関心、D=不安。心理的安全性が高く業績基準も高い場合に「学習」状態となる。**
 
 ### インセンティブ
 
@@ -104,8 +106,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 **「功利的コミットメントを抑え、情緒的と規範的を高めることで有益な従業員が定着する」** という方向性（一体感は情緒的、使命感は規範的）が選択肢の正誤問題に出やすい論点です。
 
-> **【出題例: [R4年度 Ⅰ-1-14](https://doboku-note.com/docs/pe-comprehensive-management-r04-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-14)】** 組織コミットメントに関する記述として最も不適切なものを選ぶ問題。
-> → **正答4：組織の目標・価値観への共感は情緒的コミットメントの典型である一方、ある選択肢は功利的・規範的コミットメントの定義を取り違えており不適切。**
+> **【出題例: [R4年度 Ⅰ-1-14](https://doboku-note.com/docs/pe-comprehensive-management-r04-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-14)】** 組織コミットメントに関する記述として最も不適切なものを選ぶ問題。 → **正答4：組織の目標・価値観への共感は情緒的コミットメントの典型である一方、ある選択肢は功利的・規範的コミットメントの定義を取り違えており不適切。**
 
 ### 組織構造7形態
 
@@ -121,11 +122,9 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 ![図2：7組織形態の特徴と弱点比較](/posts/note/5管理-人的資源管理/img/figure-2-organizations.webp)
 
-> **【出題例: [R3年度 Ⅰ-1-16](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-16)】** 職能別組織と事業部制組織の優位性を4項目（専門知識蓄積／規模の経済／環境変化対応／次世代経営者育成）で比較する組合せ問題。
-> → **正答1：ア＝職能別、イ＝職能別、ウ＝事業部制、エ＝事業部制。**
+> **【出題例: [R3年度 Ⅰ-1-16](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-16)】** 職能別組織と事業部制組織の優位性を4項目（専門知識蓄積／規模の経済／環境変化対応／次世代経営者育成）で比較する組合せ問題。 → **正答1：ア＝職能別、イ＝職能別、ウ＝事業部制、エ＝事業部制。**
 
-> **【出題例: [R4年度 Ⅰ-1-13](https://doboku-note.com/docs/pe-comprehensive-management-r04-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-13)】** 組織構造の特性4説明と組織名（ネットワーク／ティール／ピラミッド／マトリクス）の組合せ問題。
-> → **正答5：ア＝ネットワーク、イ＝ティール、ウ＝ピラミッド、エ＝マトリクス。**
+> **【出題例: [R4年度 Ⅰ-1-13](https://doboku-note.com/docs/pe-comprehensive-management-r04-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-13)】** 組織構造の特性4説明と組織名（ネットワーク／ティール／ピラミッド／マトリクス）の組合せ問題。 → **正答5：ア＝ネットワーク、イ＝ティール、ウ＝ピラミッド、エ＝マトリクス。**
 
 ### 動機づけ理論3本柱
 
@@ -153,8 +152,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 ![図4：動機づけ理論3本柱の対比](/posts/note/5管理-人的資源管理/img/figure-4-motivation-theories.webp)
 
-> **【出題例: [R6年度 Ⅰ-1-16](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-16)】** 従業員モチベーション施策（A〜D）と行動モデル用語（マズロー／マグレガー／ハーズバーグ／テイラー）の組合せ問題。
-> → **正答5：A＝マズロー、B＝マグレガー、C＝ハーズバーグ、D＝テイラー。**
+> **【出題例: [R6年度 Ⅰ-1-16](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-16)】** 従業員モチベーション施策（A〜D）と行動モデル用語（マズロー／マグレガー／ハーズバーグ／テイラー）の組合せ問題。 → **正答5：A＝マズロー、B＝マグレガー、C＝ハーズバーグ、D＝テイラー。**
 
 ### リーダーシップ
 
@@ -180,8 +178,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 **[フォロワーシップ](https://doboku-note.com/docs/pe-comprehensive-management-followership?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 部下・フォロワー側の主体的な貢献姿勢。サーバントリーダーシップとセットで問われます。
 
-> **【出題例: [R7年度 Ⅰ-1-14](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-14)】** リーダーシップ用語（ア〜エ）と企業の行動事例（A〜D）の組合せ問題。
-> → **正答2：用語と事例の対応関係を正しく組み合わせた選択肢が正解。**
+> **【出題例: [R7年度 Ⅰ-1-14](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-14)】** リーダーシップ用語（ア〜エ）と企業の行動事例（A〜D）の組合せ問題。 → **正答2：用語と事例の対応関係を正しく組み合わせた選択肢が正解。**
 
 ### 科学的管理法
 
@@ -214,8 +211,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 **裁量労働制2種** — **専門業務型** （[第38条の3](https://laws.e-gov.go.jp/law/322AC0000000049#Mp-At_38_3)：研究開発・SE・デザイナー等）と **企画業務型** （[第38条の4](https://laws.e-gov.go.jp/law/322AC0000000049#Mp-At_38_4)：事業運営の企画立案調査分析）。
 
-> **【出題例: [R7年度 Ⅰ-1-9](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-9)】** 労基法第33条「災害等による臨時の必要がある場合」の時間外労働に関する記述。
-> → **正答1：第33条は天災事変・人命公益保護の臨時必要時に時間外労働を許容する条文で、リコール対応など人命・公益保護事例は適切。**
+> **【出題例: [R7年度 Ⅰ-1-9](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-9)】** 労基法第33条「災害等による臨時の必要がある場合」の時間外労働に関する記述。 → **正答1：第33条は天災事変・人命公益保護の臨時必要時に時間外労働を許容する条文で、リコール対応など人命・公益保護事例は適切。**
 
 ### 労働組合法・労働関係調整法
 
@@ -229,8 +225,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 これら以外に、**[労働審判制度](https://doboku-note.com/docs/pe-comprehensive-management-labor-tribunal-act?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （労働審判法、裁判所が原則3回以内の期日で審理）、**[個別労働紛争解決制度](https://doboku-note.com/docs/pe-comprehensive-management-individual-labor-dispute-act?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （個別労働紛争解決促進法、都道府県労働局のあっせん）があります。
 
-> **【出題例: [R3年度 Ⅰ-1-9](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-9)】** 労使関係に関する記述として最も適切なものを選ぶ問題。
-> → **正答2：団体交渉事項には労働条件に加え、団交手続や組合活動に関する事項も含まれる。**
+> **【出題例: [R3年度 Ⅰ-1-9](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-9)】** 労使関係に関する記述として最も適切なものを選ぶ問題。 → **正答2：団体交渉事項には労働条件に加え、団交手続や組合活動に関する事項も含まれる。**
 
 ### 男女雇用機会均等法
 
@@ -240,22 +235,19 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 **[セクシャルハラスメント](https://doboku-note.com/docs/pe-comprehensive-management-sexual-harassment?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 対価型・環境型の2類型。**同性に対するものも含む**。事業主が講ずべき措置として、方針の明確化と周知・啓発、相談体制整備、事後の迅速・適切対応の3点が義務化されています。
 
-> **【出題例: [R3年度 Ⅰ-1-12](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-12)】** セクシュアルハラスメントについて政府が策定した指針に関する記述として最も不適切なものを選ぶ問題。
-> → **正答2：事業主が講ずべき措置として、方針の明確化・周知啓発、相談体制整備、事後対応等が定められているが、ある選択肢は措置内容の解釈を誤っており不適切。**
+> **【出題例: [R3年度 Ⅰ-1-12](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-12)】** セクシュアルハラスメントについて政府が策定した指針に関する記述として最も不適切なものを選ぶ問題。 → **正答2：事業主が講ずべき措置として、方針の明確化・周知啓発、相談体制整備、事後対応等が定められているが、ある選択肢は措置内容の解釈を誤っており不適切。**
 
 ### 高年齢者雇用安定法
 
 **[高年齢者雇用安定法](https://doboku-note.com/docs/pe-comprehensive-management-elderly-employment-act?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （[**高齢法**](https://laws.e-gov.go.jp/law/346AC0000000068)）— **定年は60歳を下回れない** （[第8条](https://laws.e-gov.go.jp/law/346AC0000000068#Mp-At_8)）。**65歳までの雇用確保措置** として、①定年引上げ／②継続雇用制度／③定年廃止のいずれかが義務（[第9条](https://laws.e-gov.go.jp/law/346AC0000000068#Mp-At_9)）。**70歳までの就業確保措置** は努力義務として加わっています。
 
-> **【出題例: [R6年度 Ⅰ-1-10](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-10)】** 高年齢者が活躍できる環境整備に係る諸法令に関する記述として最も不適切なものを選ぶ問題。
-> → **正答1：定年年齢を下回ることを条件とした募集・採用は年齢制限の例外として認められているが、ある選択肢は雇用確保措置の解釈を誤っており不適切。**
+> **【出題例: [R6年度 Ⅰ-1-10](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-10)】** 高年齢者が活躍できる環境整備に係る諸法令に関する記述として最も不適切なものを選ぶ問題。 → **正答1：定年年齢を下回ることを条件とした募集・採用は年齢制限の例外として認められているが、ある選択肢は雇用確保措置の解釈を誤っており不適切。**
 
 ### 育児・介護休業法
 
 **[育児・介護休業法](https://doboku-note.com/docs/pe-comprehensive-management-childcare-nursing-leave-act?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （[**育介法**](https://laws.e-gov.go.jp/law/403AC0000000076)）— **1歳未満の子** について育児休業を申し出る権利（[第5条](https://laws.e-gov.go.jp/law/403AC0000000076#Mp-At_5)）。**不利益取扱いの禁止** （[第10条](https://laws.e-gov.go.jp/law/403AC0000000076#Mp-At_10)）。介護休業は **対象家族1人につき通算93日まで・3回まで分割可** （[第11条](https://laws.e-gov.go.jp/law/403AC0000000076#Mp-At_11)）。
 
-> **【出題例: [R6年度 Ⅰ-1-11](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-11)】** 育児・介護休業法に関する記述として最も不適切なものを選ぶ問題。
-> → **正答4：育児休業の取得が円滑に行われるための雇用環境整備義務は適切な規定だが、ある選択肢は休業期間や対象範囲の解釈を誤っており不適切。**
+> **【出題例: [R6年度 Ⅰ-1-11](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-11)】** 育児・介護休業法に関する記述として最も不適切なものを選ぶ問題。 → **正答4：育児休業の取得が円滑に行われるための雇用環境整備義務は適切な規定だが、ある選択肢は休業期間や対象範囲の解釈を誤っており不適切。**
 
 ### 障害者雇用促進法・労働者派遣法
 
@@ -263,8 +255,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 **[労働者派遣法](https://doboku-note.com/docs/pe-comprehensive-management-worker-dispatch-act?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （[**派遣法**](https://laws.e-gov.go.jp/law/360AC0000000088)）— 派遣元・派遣先・派遣労働者の三者関係。**雇用主は派遣元** （賃金支払・社会保険加入の責任）、**労働時間管理の義務は派遣先**。**派遣可能期間は3年**、延長時は過半数労組等の意見聴取が必要。
 
-> **【出題例: [R3年度 Ⅰ-1-10](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-10)】** 労働者派遣法に関する記述として最も不適切なものを選ぶ問題。
-> → **正答3：事業所単位の期間制限**（3年）**を延長する場合の意見聴取は適切な規定だが、ある選択肢は派遣禁止業務や雇用安定措置の解釈を誤っており不適切。**
+> **【出題例: [R3年度 Ⅰ-1-10](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-10)】** 労働者派遣法に関する記述として最も不適切なものを選ぶ問題。 → **正答3：事業所単位の期間制限**（3年）**を延長する場合の意見聴取は適切な規定だが、ある選択肢は派遣禁止業務や雇用安定措置の解釈を誤っており不適切。**
 
 ### その他の労働関係法
 
@@ -274,8 +265,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 - **[女性活躍推進法](https://doboku-note.com/docs/pe-comprehensive-management-women-empowerment-act?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 常時100人超の事業主に **一般事業主行動計画** の策定義務。**えるぼし認定** （3段階）を公表
 - **[次世代育成支援対策推進法](https://doboku-note.com/docs/pe-comprehensive-management-child-rearing-support-act?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — **くるみん認定** （子育てサポート企業の認定）
 
-> **【出題例: [R7年度 Ⅰ-1-10](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-10)】** パートタイム・有期雇用労働法および労働基準法に関する記述として最も適切なものを選ぶ問題。
-> → **正答5：同一職務内容の教育訓練は短時間労働者等にも実施義務があり、同一労働同一待遇原則を反映した適切な記述。**
+> **【出題例: [R7年度 Ⅰ-1-10](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-10)】** パートタイム・有期雇用労働法および労働基準法に関する記述として最も適切なものを選ぶ問題。 → **正答5：同一職務内容の教育訓練は短時間労働者等にも実施義務があり、同一労働同一待遇原則を反映した適切な記述。**
 
 ### 賃金管理
 
@@ -288,8 +278,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 中小企業（資本金1千万〜1億未満）の労働分配率は **80%程度**、大企業（資本金10億以上）では **60%程度**。G7サミット参加国の1人当たり名目GDPは **アメリカ＞カナダ＞ドイツ＞イギリス＞フランス＞イタリア＞日本** （2022年）。
 
-> **【出題例: [R3年度 Ⅰ-1-14](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-14)】** マクロ経済の労働分配率と労働生産性に関する記述として最も適切なものを選ぶ問題。
-> → **正答1：労働分配率は景気の遅行指標であり、景気拡大期に低下、後退期に上昇する傾向がある。**
+> **【出題例: [R3年度 Ⅰ-1-14](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-14)】** マクロ経済の労働分配率と労働生産性に関する記述として最も適切なものを選ぶ問題。 → **正答1：労働分配率は景気の遅行指標であり、景気拡大期に低下、後退期に上昇する傾向がある。**
 
 ### 働き方改革
 
@@ -299,15 +288,13 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 セキュリティ対策として **BYOD** （Bring Your Own Device、私物端末利用）の場合は通信回線・端末費用負担が必要。**シンクライアント型端末** （ほとんどの機能がサーバ処理）はデータ持出を避けられるためセキュリティ上有効です。
 
-> **【出題例: [R4年度 Ⅰ-1-11](https://doboku-note.com/docs/pe-comprehensive-management-r04-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-11)】** 厚生労働省のテレワーク導入ガイドラインに関する記述として最も適切なものを選ぶ問題。
-> → **正答2：テレワークガイドラインでは各種労働時間制度**（通常・変形・フレックス・事業場外みなし・裁量労働制）**すべてでテレワーク利用が可能とされている。**
+> **【出題例: [R4年度 Ⅰ-1-11](https://doboku-note.com/docs/pe-comprehensive-management-r04-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-11)】** 厚生労働省のテレワーク導入ガイドラインに関する記述として最も適切なものを選ぶ問題。 → **正答2：テレワークガイドラインでは各種労働時間制度**（通常・変形・フレックス・事業場外みなし・裁量労働制）**すべてでテレワーク利用が可能とされている。**
 
 **[パワーハラスメント](https://doboku-note.com/docs/pe-comprehensive-management-power-harassment?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — ①優越的関係を背景／②業務上必要かつ相当な範囲を超える／③就業環境を害する、の **3要素すべてを満たす** ものをいいます（厚労省指針）。**6類型** — ①身体的攻撃／②精神的攻撃／③人間関係からの切り離し／④過大な要求／⑤過小な要求／⑥個の侵害。
 
 行為者には刑事罰（暴行・傷害・名誉棄損・侮辱・脅迫罪）、民法709条（不法行為）の損害賠償責任が課される場合があります。会社にも民法415条（債務不履行）・715条（使用者責任）が課されます。
 
-> **【出題例: [R5年度 Ⅰ-1-11](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-11)】** パワーハラスメント指針に関する記述として最も不適切なものを選ぶ問題。
-> → **正答1：同僚や部下からの優越的関係を背景とした言動もパワハラに該当しうるが、ある選択肢はパワハラ要素のうち「優越的関係」の解釈を誤っており不適切。**
+> **【出題例: [R5年度 Ⅰ-1-11](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-11)】** パワーハラスメント指針に関する記述として最も不適切なものを選ぶ問題。 → **正答1：同僚や部下からの優越的関係を背景とした言動もパワハラに該当しうるが、ある選択肢はパワハラ要素のうち「優越的関係」の解釈を誤っており不適切。**
 
 ---
 
@@ -347,11 +334,9 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 **[タレントマネジメント](https://doboku-note.com/docs/pe-comprehensive-management-talent-management?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 人材を適材適所に配置し将来のリーダーを育てる仕組み。社員のスキル把握・最大化のための配置・教育が要素です。
 
-> **【出題例: [R4年度 Ⅰ-1-15](https://doboku-note.com/docs/pe-comprehensive-management-r04-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-15)】** ジョブ型雇用とメンバーシップ型雇用に関する記述として最も不適切なものを選ぶ問題。
-> → **正答3：ジョブ型は外部労働市場で競争するため市場価格に見合った報酬設定が必要だが、ある選択肢は職務分析や賃金体系の解釈を誤っており不適切。**
+> **【出題例: [R4年度 Ⅰ-1-15](https://doboku-note.com/docs/pe-comprehensive-management-r04-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-15)】** ジョブ型雇用とメンバーシップ型雇用に関する記述として最も不適切なものを選ぶ問題。 → **正答3：ジョブ型は外部労働市場で競争するため市場価格に見合った報酬設定が必要だが、ある選択肢は職務分析や賃金体系の解釈を誤っており不適切。**
 
-> **【出題例: [R7年度 Ⅰ-1-13](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-13)】** 専門職制度に関する記述として最も不適切なものを選ぶ問題。
-> → **正答1：専門性軸のキャリア目標と長期的仕事意欲に関する記述は適切だが、ある選択肢は専門職と管理職の関係性を誤っており不適切。**
+> **【出題例: [R7年度 Ⅰ-1-13](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-13)】** 専門職制度に関する記述として最も不適切なものを選ぶ問題。 → **正答1：専門性軸のキャリア目標と長期的仕事意欲に関する記述は適切だが、ある選択肢は専門職と管理職の関係性を誤っており不適切。**
 
 ### 社員格付3制度
 
@@ -363,11 +348,9 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 **ダイバーシティ・マネジメント** — 性別・人種・雇用形態などが異なる多様な人材を適材適所に活用すること。差別解消・人権確立・きめ細かい個人評価・ワーク・ライフ・バランス・テレワーク活用が推進策となります。
 
-> **【出題例: [R5年度 Ⅰ-1-14](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-14)】** 社員格付け制度に関する記述として最も不適切なものを選ぶ問題。
-> → **正答2：職能資格制度は年功的に昇格しやすく総人件費が膨張する傾向は適切だが、ある選択肢は職務等級制度の柔軟性や役割等級制度の特徴を誤っており不適切。**
+> **【出題例: [R5年度 Ⅰ-1-14](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-14)】** 社員格付け制度に関する記述として最も不適切なものを選ぶ問題。 → **正答2：職能資格制度は年功的に昇格しやすく総人件費が膨張する傾向は適切だが、ある選択肢は職務等級制度の柔軟性や役割等級制度の特徴を誤っており不適切。**
 
-> **【出題例: [R6年度 Ⅰ-1-14](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-14)】** ダイバーシティ・マネジメントに関する記述として最も不適切なものを選ぶ問題。
-> → **正答4：ダイバーシティの範囲には表層的属性と深層的属性、働き方の違いも含まれるが、ある選択肢は推進策や効果の解釈を誤っており不適切。**
+> **【出題例: [R6年度 Ⅰ-1-14](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-14)】** ダイバーシティ・マネジメントに関する記述として最も不適切なものを選ぶ問題。 → **正答4：ダイバーシティの範囲には表層的属性と深層的属性、働き方の違いも含まれるが、ある選択肢は推進策や効果の解釈を誤っており不適切。**
 
 ---
 
@@ -408,8 +391,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 ![図8：6評価バイアス一覧](/posts/note/5管理-人的資源管理/img/figure-8-evaluation-biases.webp)
 
-> **【出題例: [R7年度 Ⅰ-1-16](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-16)】** 人事考課管理に関する記述として最も不適切なものを選ぶ問題。
-> → **正答5：人事評価の基準・手続・結果の公開による透明性が納得性を高めるとする記述は適切だが、ある選択肢は加点主義や成果主義の運用条件を誤っており不適切。**
+> **【出題例: [R7年度 Ⅰ-1-16](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-16)】** 人事考課管理に関する記述として最も不適切なものを選ぶ問題。 → **正答5：人事評価の基準・手続・結果の公開による透明性が納得性を高めるとする記述は適切だが、ある選択肢は加点主義や成果主義の運用条件を誤っており不適切。**
 
 ### 人的資源開発（10教育訓練手法）
 
@@ -441,11 +423,9 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 **TQM**（Total Quality Management、総合品質管理） — 企業活動全般の品質維持・向上のための考え方。製品だけでなく経営的課題も扱います。経営者・管理者は人材育成・職場活性化の観点からTQM活動を実践し、QCサークルへの全員参加を支援する必要があります。
 
-> **【出題例: [R5年度 Ⅰ-1-15](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-15)】** 教育訓練の4技法（A〜D）と効果説明（ア〜エ）の組合せ問題。
-> → **正答5：A=イ、B=ウ、C=エ、D=ア の対応関係がすべて正しい。**
+> **【出題例: [R5年度 Ⅰ-1-15](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-15)】** 教育訓練の4技法（A〜D）と効果説明（ア〜エ）の組合せ問題。 → **正答5：A=イ、B=ウ、C=エ、D=ア の対応関係がすべて正しい。**
 
-> **【出題例: [R6年度 Ⅰ-1-15](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-15)】** キャリアオーナーシップやリスキリングに関する記述として最も不適切なものを選ぶ問題。
-> → **正答3：キャリア自律の定義として組織主導から個人主導への転換は適切だが、ある選択肢は職業能力開発促進法やリスキリング施策の解釈を誤っており不適切。**
+> **【出題例: [R6年度 Ⅰ-1-15](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-15)】** キャリアオーナーシップやリスキリングに関する記述として最も不適切なものを選ぶ問題。 → **正答3：キャリア自律の定義として組織主導から個人主導への転換は適切だが、ある選択肢は職業能力開発促進法やリスキリング施策の解釈を誤っており不適切。**
 
 ---
 

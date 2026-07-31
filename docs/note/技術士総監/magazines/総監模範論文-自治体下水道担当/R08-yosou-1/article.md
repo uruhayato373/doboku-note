@@ -61,6 +61,13 @@ https://note.com/dobokunote/m/mf1cbc32d53aa
 
 https://note.com/dobokunote/m/m171222175fac
 
+---
+
+<!-- cta:tankan-mokuji -->
+総監のほかの無料記事・有料マガジンは「総監もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n3ed4c77ceed6
+
 ## 試験問題（令和8年度（予想） 気候変動適応 × 浸水対策・グリーンインフラ）
 
 **【テーマ：激甚化する気候変動リスクに対する下水道インフラの適応と持続可能な地域管理】**

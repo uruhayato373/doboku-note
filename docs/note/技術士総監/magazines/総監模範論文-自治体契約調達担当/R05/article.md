@@ -53,6 +53,13 @@ R5 は管理対象が **「組織」** に切り替わった年度です。R2-R4
 
 https://note.com/dobokunote/m/m171222175fac
 
+---
+
+<!-- cta:tankan-mokuji -->
+総監のほかの無料記事・有料マガジンは「総監もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n3ed4c77ceed6
+
 ## 試験問題（令和5年度 必須科目 I-2）
 
 本記事が解答するのは、技術士総合技術監理部門 令和5年度 必須科目（記述式）I-2「SWOT 分析と戦略立案」です。前文（SWOT 分析の手法・図1図2 の説明）の全文は [令和5年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r05-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-procurement-muni-r05) に掲載しています。ここでは解答すべき設問と、設問が前提とする SWOT の枠組みを再掲します。

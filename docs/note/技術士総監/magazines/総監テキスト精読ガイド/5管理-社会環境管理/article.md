@@ -43,6 +43,11 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 ---
 
+<!-- cta:tankan-mokuji -->
+総監のほかの無料記事・有料マガジンは「総監もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n3ed4c77ceed6
+
 ## 地球的規模の環境問題（優先度: 最高）
 
 「持続可能な開発」は、1984年に国連に設置された **環境と開発に関する世界委員会** （[WCED](https://doboku-note.com/docs/pe-comprehensive-management-wced?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)、ブルントラント委員会）で「将来世代のニーズを損なうことなく現在世代のニーズを満たす開発」と定義されました。この定義は択一の選択肢として頻出します。

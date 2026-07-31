@@ -65,6 +65,13 @@ R4 は「デジタル技術の利用」と「DX」を明確に区別します。
 
 https://note.com/dobokunote/m/m171222175fac
 
+---
+
+<!-- cta:tankan-mokuji -->
+総監のほかの無料記事・有料マガジンは「総監もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n3ed4c77ceed6
+
 ## 試験問題（令和4年度 必須科目 I-2）
 
 本記事が解答するのは、技術士総合技術監理部門 令和4年度 必須科目（記述式）I-2「DX推進」です。前文（DXとデジタル技術の利用の区別など出題の背景）の全文は [令和4年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r04-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-sewage-muni-r04) に掲載しています。ここでは解答すべき設問を再掲します。

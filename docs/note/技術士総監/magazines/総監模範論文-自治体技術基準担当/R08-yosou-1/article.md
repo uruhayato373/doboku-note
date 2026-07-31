@@ -61,6 +61,13 @@ https://note.com/dobokunote/m/mf9f281e2cb32
 
 https://note.com/dobokunote/m/m171222175fac
 
+---
+
+<!-- cta:tankan-mokuji -->
+総監のほかの無料記事・有料マガジンは「総監もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n3ed4c77ceed6
+
 ## 試験問題（令和8年度（予想） 気候変動適応 × 技術基準・設計基準の改定）
 
 **【テーマ：激甚化する気候変動リスクを踏まえた技術基準の見直しと持続可能な社会資本管理】**
