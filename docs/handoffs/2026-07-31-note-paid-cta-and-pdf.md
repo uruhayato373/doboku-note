@@ -82,13 +82,7 @@ C-2 は「note へ一本化し、ココナラは人が動くサービス（診�
 
 **`技術士総監/計算問題パターン集`（ne190c3ef2fca）** — 画像 14 枚。4 回試して毎回 note 側の CDN 確定が 9〜11/14 で止まり fail-closed で中断。押し切ると有料記事の図がライブで欠落する。CTA と PDF 節がソース止まり。画像に重複は無く時間切れでもない（14 枚なら 280 秒待つ設定）。別 PC・別回線で再試行するか、`--img-lenient` を使うかは要判断。
 
-**建設部門 電力土木/鉄道 R08-yosou 6 本** — 本文で印刷用PDFを約束しているのに **PDF 実体が無い**ため `check-note-attachments` が pre-commit を止め、CTA 修正を 2 度とも除外した（現在も未適用）。spec（`BK-09_電力土木.json` / `BK-10_鉄道.json`）は存在するので PDF を生成すれば通る。
-
-```bash
-node scripts/magazine-to-pdf.mjs --spec scripts/pdf-specs/BK-09_電力土木.json
-node scripts/magazine-to-pdf.mjs --spec scripts/pdf-specs/BK-10_鉄道.json
-node scripts/wire-note-paid-cta.mjs --apply
-```
+**建設部門 電力土木/鉄道 R08-yosou 6 本** — 解決済み（`a737fa3c0`）。PDF を生成・配置して約束との不一致を解消し、CTA 修正も取り込んだ。**この 6 本の PDF 添付は未了**なので上記 A のバッチ対象に含まれる（欠落は 185 → 191 件になる。`--live` を再実行してリストを作り直すこと）。
 
 ## 別 PC での前提
 
@@ -103,3 +97,13 @@ node scripts/wire-note-paid-cta.mjs --apply
 **2. 別セッションのコミットに 326 ファイルが同梱された。** commit しようとした瞬間に別セッションが commit し HEAD が動いて失敗、その間に相手の `ccf8dfeb7`（本来 1 ファイルの競合調査 docs）へ私の変更が巻き込まれた（328 files changed）。**内容の欠落は無い**が、コミットメッセージと中身が食い違っている。並行セッションが動いている最中の reset/amend は過去に作業消失を起こしているので履歴は触っていない。同一ワークツリーでの並行は worktree 分離が正（CLAUDE.md §10）。
 
 **3. `nohup ... &` でバックグラウンド起動したら親シェル終了で道連れになった。** 216 本のバッチが 1 本で止まっていた。harness の `run_in_background` を使うこと。
+
+## セッション終了前の監査で追加した機械化（`a737fa3c0`）
+
+| 対象 | 内容 |
+|---|---|
+| `check-note-live-headings.mjs` | 同型の公開判定バグを修正。698 本中 347 本しか検査していなかった → 488 本へ。即座に実欠陥を検出（総監 R8予想問題が live 画像 0/3） |
+| `check-note-frontmatter-dup.mjs`（新設） | frontmatter キー重複を検知。pre-commit + CI 全量 + quality:audit に配線。**意図的に壊して赤くなることを実証済み** |
+| `check-note-attachments.mjs` | 逆向き surfacer（非ゲート）を追加。「PDF 実体はあるのに本文が触れていない」＝訴求もれを列挙（現在 77 件＝総監模範論文） |
+
+**新たに見つかった未対応**: 総監 `R8予想問題`（`n8e92e4673a99`）はライブで画像が 0/3 欠落している。`check-note-live-headings` の判定を直したことで初めて見えた。要調査。

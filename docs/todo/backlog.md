@@ -42,15 +42,13 @@ node scripts/note-attach-batch.mjs --commit --limit 100
 
 節の文面は建設部門 200 本が既存例（`## 印刷用PDF｜本記事の模範解答`）。土木 178 本と同じく `place-civil-keiken-pdfs.mjs` 相当の追記 → `note-update-body --commit` でライブ反映。**添付は済んでいるので本文更新だけ**だが、全文置換は添付カードを消すので `--allow-attachment-loss` ＋ 再添付が要る点に注意（1日100件上限も効く）。
 
-### 建設部門 電力土木/鉄道 R08-yosou 6本の PDF 生成 → CTA 修正の取り込み
+### 総監 R8予想問題のライブ画像欠落（live=0 / sot=3）
 タグ: [コンテンツ品質]
 
-本文で印刷用PDFを約束しているのに PDF 実体が無く、`check-note-attachments` が pre-commit を止めるため CTA 位置修正から2度とも除外されている（現在も未適用）。spec は存在するので生成すれば通る。
+`n8e92e4673a99`。`check-note-live-headings` の公開判定バグを直した（2026-07-31）ことで初めて検出された。ソースに画像3枚があるのにライブに1枚も出ていない。有料記事なので購入者に図が見えていない可能性がある。
 
 ```bash
-node scripts/magazine-to-pdf.mjs --spec scripts/pdf-specs/BK-09_電力土木.json
-node scripts/magazine-to-pdf.mjs --spec scripts/pdf-specs/BK-10_鉄道.json
-node scripts/wire-note-paid-cta.mjs --apply
+node scripts/check-note-live-headings.mjs --paths-only
 ```
 
 ### 総監 計算問題パターン集のライブ反映（画像14枚で CDN 確定せず）
