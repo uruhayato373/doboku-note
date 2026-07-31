@@ -6,6 +6,7 @@ noteUrl: ""
 noteId: ""
 notePublishedAt: ""
 noteMagazine: コンクリート診断士-記述式-模範答案集
+paidBoundary: "答案の方針"
 price: 500
 coverTitle: "問題A 模範答案｜予防保全と維持管理"
 cover:

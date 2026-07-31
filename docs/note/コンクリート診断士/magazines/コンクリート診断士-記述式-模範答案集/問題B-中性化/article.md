@@ -6,6 +6,7 @@ noteUrl: ""
 noteId: ""
 notePublishedAt: ""
 noteMagazine: コンクリート診断士-記述式-模範答案集
+paidBoundary: "答案の方針"
 price: 500
 coverTitle: "問題B 模範答案｜中性化と鋼材腐食"
 cover:

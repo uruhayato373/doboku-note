@@ -6,6 +6,7 @@ noteUrl: ""
 noteId: ""
 notePublishedAt: ""
 noteMagazine: コンクリート診断士-記述式-模範答案集
+paidBoundary: "問題Bの答案の型（5ステップ）"
 price: 500
 coverTitle: "コンクリート診断士 記述式 突破法"
 cover:

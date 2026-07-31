@@ -568,6 +568,28 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     };
   }
 
+  // 10. コンクリート診断士 記述式 → 記述式 模範答案集マガジン。
+  //     送客元は「記述式の書き方を知りたい人が必ず通る面」に絞る。
+  //     - guide-essay: 記述式対策ガイド（最も整合）
+  //     - textbook-assessment / textbook-repair: 問題B の答案で中核になる
+  //       「評価・予測」と「対策の選定」の解説。読者が答案の書き方を求める地点
+  //     published: false の間は getMagazine が null を返し CTA 非表示（防御的）。
+  if (slug === 'concrete-diagnostician-guide-essay') {
+    return {
+      inline: [slot('cd-essay-magazine', slug, 'inline-1')],
+      sidebar: [slot('cd-essay-magazine', slug, 'sidebar-1')],
+    };
+  }
+  if (
+    slug === 'concrete-diagnostician-textbook-assessment' ||
+    slug === 'concrete-diagnostician-textbook-repair'
+  ) {
+    return {
+      inline: [],
+      sidebar: [slot('cd-essay-magazine', slug, 'sidebar-1')],
+    };
+  }
+
   return EMPTY;
 }
 

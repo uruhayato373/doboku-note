@@ -709,7 +709,12 @@ const MAGAZINES_RAW = {
 
   // 原稿配置: docs/note/コンクリート診断士/magazines/コンクリート診断士-記述式-模範答案集/
   // コンクリート診断士 記述式（問題A・問題B）模範答案集。劣化機構別フル答案 8 本。published: false。
-  // 公開時: noteUrl 埋め + cover 画像作成 + published: true。site 側は診断士 vertical 公開後に CTA 発火。
+  // 公開待ちの状態（2026-07-31 時点）:
+  //   - 原稿8本・記事カバー(cover.png/svg)・マガジンカバー(_cover.png)・hashtags(各94タグ) 揃い
+  //   - 診断士 vertical はサイト公開済（18記事）。magazine-placement.ts に配線済みで、
+  //     published:true にした瞬間に guide-essay / textbook-assessment / textbook-repair で CTA が出る
+  //   - 残りは note への実投稿のみ。投稿後に noteUrl / noteId / notePublishedAt を各 article.md に埋め、
+  //     ここを published: true にする（価格は note 側の設定と一致させること）
   'cd-essay-magazine': {
     id: 'cd-essay-magazine',
     published: false,
