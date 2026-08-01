@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-07-01T05:04:07.062Z",
+  "updated_at": "2026-08-01T05:03:34.073Z",
   "entries": [
     {
       "date": "2026-04-27",
@@ -48,6 +48,22 @@
       "other": 2,
       "indexed_ratio": 0.746,
       "batch_file": "inspection-batch-2026-07-01T05-04-05.json",
+      "notes": "monthly cron (index-coverage.yml)"
+    },
+    {
+      "date": "2026-08-01",
+      "run_at": "2026-08-01T05:03:34.073Z",
+      "sitemap_urls": 1109,
+      "inspected": 1109,
+      "indexed": 795,
+      "discovered_not_indexed": 4,
+      "crawled_not_indexed": 292,
+      "redirect": 0,
+      "not_found": 0,
+      "excluded_noindex": 0,
+      "other": 18,
+      "indexed_ratio": 0.717,
+      "batch_file": "inspection-batch-2026-08-01T05-03-32.json",
       "notes": "monthly cron (index-coverage.yml)"
     }
   ]
