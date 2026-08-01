@@ -54,7 +54,7 @@
  * ---------------------------------------------------------------------------
  */
 import { chromium } from 'playwright';
-import { readFileSync, existsSync, mkdirSync, readdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 'node:fs';
 import { join, dirname, resolve, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { recordPublishedHash } from './lib/note-republish-hash.mjs';
@@ -89,6 +89,26 @@ const MAX_CONSEC_FAIL = Number(getArg('--max-consecutive-fail') || 3);
 // 全文置換で消える PDF 添付を、同じセッションで貼り直す。ローカルに実ファイルが揃っている
 // ときだけ有効で、1つでも解決できなければ本文を触らず中断する（消して戻せない状態を作らない）。
 const REATTACH_PDF = argv.includes('--reattach-pdf');
+// note のファイルアップロードは **1 日 100 件が上限**（超えると以降が全て「カード未検出」で
+// 失敗する）。note-attach-batch.mjs が既に done-log で管理していた既知の制約を、
+// --reattach-pdf も共有する。2026-07-31 にこれを引き継がなかったため上限に達し、
+// 添付復元の失敗 → 再実行 → PDF 消失という事故を起こした。
+const ATTACH_DONE_LOG = join(ROOT, '.claude/state/note-attach-done.json');
+const ATTACH_DAILY_LIMIT = Number(getArg('--attach-daily-limit') || 90); // 上限 100 に対し余裕を持たせる
+function attachedTodayCount() {
+  try {
+    const j = JSON.parse(readFileSync(ATTACH_DONE_LOG, 'utf8'));
+    const today = new Date().toISOString().slice(0, 10);
+    return (j.attached || []).filter((a) => a.at === today).length;
+  } catch { return 0; }
+}
+function recordAttach(noteId, pdfPath) {
+  try {
+    const j = existsSync(ATTACH_DONE_LOG) ? JSON.parse(readFileSync(ATTACH_DONE_LOG, 'utf8')) : { attached: [] };
+    j.attached.push({ noteId, pdf: pdfPath, at: new Date().toISOString().slice(0, 10) });
+    writeFileSync(ATTACH_DONE_LOG, JSON.stringify(j, null, 2) + '\n');
+  } catch (e) { console.log('[attach-log] 記録失敗:', e.message); }
+}
 const TRIAL_LINE_BOTTOM = argv.includes('--trial-line-bottom'); // メンバーシップ試し読み: ラインを末尾直前に置き ほぼ全文を無料プレビュー化（入口LP復旧用）
 
 // 目次が「最初のh2より後」に入って直せなかった記事（バッチ末尾サマリで失敗として可視化する）
@@ -486,6 +506,28 @@ async function updateArticle(page, { abs, noteId, title, body, images, isPaid, b
   // ローカルに実ファイルが揃っていることを**置換前に**確認し、1つでも欠けたら本文を触らない
   // （消してから「戻せません」では購入者が PDF を受け取れないまま復旧不能になる）。
   let toReattach = [];
+  // ★最重要ゲート（2026-07-31 の事故を機械で止める）★
+  // ソースに PDF があるのに live の本文に添付が 1 つも無い＝**添付が既に失われている**疑い。
+  // このまま全文置換すると「添付なし」を正として上書きし、失われた状態を確定させてしまう。
+  // 実際に起きた連鎖: note の 1 日 100 件アップロード上限に達して添付復元が失敗 →「保存しない」で
+  // 中断したがエディタ側は添付削除済み → 失敗理由を確かめず再実行 → 添付なしで保存され、
+  // 購入者が受け取るはずの PDF 3 本が live から消えた。
+  if (REATTACH_PDF) {
+    const dir0 = dirname(abs);
+    const pool0 = [];
+    for (const d of [dir0, join(dir0, 'pdf')]) {
+      if (!existsSync(d)) continue;
+      for (const f of readdirSync(d)) if (/\.pdf$/i.test(f)) pool0.push(f);
+    }
+    if (pool0.length && attachedPdfs.length === 0) {
+      console.error(`[FAIL] --reattach-pdf: ソースに PDF ${pool0.length} 件があるのに live 本文の添付が 0 件 → 更新しない: ${noteId}`);
+      console.error('  添付が既に失われている疑い。このまま更新すると「添付なし」を正として上書きしてしまう。');
+      console.error('  1) 実査:   npm run check-note-attachments:live');
+      for (const f of pool0) console.error(`  2) 復旧:   node scripts/note-attach-file.mjs --note ${noteId} --file "${join(dir0, f)}" --commit`);
+      console.error('  3) 復旧後にこのコマンドを再実行する（note のアップロードは 1 日 100 件が上限。翌日に回す判断も要る）');
+      return false;
+    }
+  }
   if (attachedPdfs.length && REATTACH_PDF) {
     const dir = dirname(abs);
     const { resolved, missing, poolSize } = resolveLocalFiles(attachedPdfs, dir, { existsSync, readdirSync, join });
@@ -552,6 +594,12 @@ async function updateArticle(page, { abs, noteId, title, body, images, isPaid, b
   //     有料記事では本文末尾＝有料エリア内に入るため、無料プレビューへ漏れない（note-attach-file と同型）。
   //     1 件でも貼り直せなければ保存しない＝「添付が消えたまま更新」を絶対に作らない。
   if (toReattach.length) {
+    const usedToday = attachedTodayCount();
+    if (usedToday + toReattach.length > ATTACH_DAILY_LIMIT) {
+      console.error(`[4.6] ABORT: 本日の添付アップロードが上限に達する（済 ${usedToday} + 今回 ${toReattach.length} > ${ATTACH_DAILY_LIMIT}）→ 更新しない: ${noteId}`);
+      console.error('  note の 1 日 100 件上限を超えるとアップロードが全て失敗し、添付を失ったまま保存する事故になる。翌日に再開すること。');
+      return false;
+    }
     for (const f of toReattach) {
       const r = await attachFileInEditor(page, f.abs);
       if (!r.ok) {
@@ -559,7 +607,8 @@ async function updateArticle(page, { abs, noteId, title, body, images, isPaid, b
         await page.screenshot({ path: join(ROOT, `.tmp/nu-reattachfail-${noteId}.png`) });
         return false;
       }
-      console.log(`[4.6] 添付を復元: ${f.base}（embeds ${r.embedsBefore}→${r.embedsAfter}）`);
+      recordAttach(noteId, relative(ROOT, f.abs));
+      console.log(`[4.6] 添付を復元: ${f.base}（embeds ${r.embedsBefore}→${r.embedsAfter}・本日 ${attachedTodayCount()}/${ATTACH_DAILY_LIMIT}）`);
     }
     // 復元後の実体確認: 元と同じ本数のファイルカードが本文にあるか
     const now = await listAttachedFiles(page);
