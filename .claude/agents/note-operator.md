@@ -61,17 +61,23 @@ note.com への高レベル操作指示を受け取り、既存の決定的ス�
 | スクリプト | 用途 | 引数 |
 |---|---|---|
 | `verify-note-magazines.mjs` | note API と SoT の同期検証 | `[--contents]` |
-| `check-note-free-preview.mjs` | **有料記事の無料プレビューが生きているか**をライブ実査（既定 600 字未満で崩壊とみなす）。有料境界が事故で冒頭へ動くと購入判断の材料がゼロになる | `[--dir <path>] [--min <n>] [--ci]` |
+| `check-note-structure.mjs` | ライブ実査（無料プレビュー崩壊 `FREE_PREVIEW_COLLAPSE`・全ロック・境界ズレ・価格不一致）。有料境界が事故で冒頭へ動くと購入判断の材料がゼロになる | `[--ci]` |
+| `check-note-attachments.mjs --live` | **約束した PDF が live に実在するか**（要ログイン）。添付は API では判定できず、著者ログインで `a[href*="attachments/download"]` を数えるのが唯一の実測手段 | `--live [--only <noteId,...>]` |
 | `wire-note-paid-cta.mjs --check` | 有料記事の無料域に商品導線があるか。**L2 もくじ未定義の資格（concrete 系等）も検査対象**（2026-07-31 以降） | `--check` |
 | `check-magazine-cta-reachability.mts` | 公開マガジンが**サイト側**で 1 面以上 CTA として出るか（top / 中間CTA / MagazineCard） | `[--ci]` |
 
-> [!important] 有料記事を公開・更新したら必ずこの 3 つを通す
+> [!important] 有料記事を公開・更新したら必ずこの検証を通す
 > 「反映完了」のログは信用しない。2026-07-31 に `note-update-body --keep-boundary` で
 > **有料境界が記事冒頭へ移動し、有料2本が無料プレビューほぼ0字で公開された**（スクリプトは
 > 正常終了していた）。同じ日、単品有料8本に**マガジンへの導線が1本も無い**まま公開されて
 > いたことも判明した（ゲートが「対象外」で素通りさせていた）。
 > **`--keep-boundary` は本文のブロック数が変わる更新では使わない**——CTA や段落を足す更新は
 > `--boundary-h2 "<境界H2>"` で境界を再設定する。
+>
+> **添付を持つ有料記事は `--reattach-pdf`**（置換前に添付を記録し保存前に貼り直す）。
+> アップロードは **1 日 100 件が上限**で、超えると復元が全滅する。中断した記事は
+> `.claude/state/note-update-aborted.json` に記録され次回 SKIP される——**live を実査せずに
+> `--force-retry` で押し通さない**。2026-07-31 に確かめず再実行して有料 PDF 3 本を失った。
 
 ### 記事アセット・削除
 

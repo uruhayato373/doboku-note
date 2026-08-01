@@ -102,6 +102,28 @@ function attachedTodayCount() {
     return (j.attached || []).filter((a) => a.at === today).length;
   } catch { return 0; }
 }
+// 中断ログ。note のエディタは「保存しない」で抜けても**全文置換＋添付削除の状態を保持する**。
+// その記事を確かめずに再実行すると、汚れた状態（添付0など）を正として上書きしてしまう
+// （2026-07-31 の PDF 消失はこれ）。中断した記事は次回スキップし、人の確認を挟ませる。
+const ABORTED_LOG = join(ROOT, '.claude/state/note-update-aborted.json');
+const FORCE_RETRY = argv.includes('--force-retry');
+function readAborted() {
+  try { return JSON.parse(readFileSync(ABORTED_LOG, 'utf8')); } catch { return { aborted: [] }; }
+}
+function recordAbort(noteId, reason) {
+  const j = readAborted();
+  j.aborted = (j.aborted || []).filter((a) => a.noteId !== noteId);
+  j.aborted.push({ noteId, reason: String(reason).slice(0, 120), at: new Date().toISOString().slice(0, 19) });
+  try { writeFileSync(ABORTED_LOG, JSON.stringify(j, null, 2) + '\n'); } catch {}
+}
+function clearAbort(noteId) {
+  const j = readAborted();
+  const before = (j.aborted || []).length;
+  j.aborted = (j.aborted || []).filter((a) => a.noteId !== noteId);
+  if (j.aborted.length !== before) { try { writeFileSync(ABORTED_LOG, JSON.stringify(j, null, 2) + '\n'); } catch {} }
+}
+function abortedEntry(noteId) { return (readAborted().aborted || []).find((a) => a.noteId === noteId) || null; }
+
 function recordAttach(noteId, pdfPath) {
   try {
     const j = existsSync(ATTACH_DONE_LOG) ? JSON.parse(readFileSync(ATTACH_DONE_LOG, 'utf8')) : { attached: [] };
@@ -724,15 +746,29 @@ try {
       const parsed = parseArticle(artPath);
       // probe: 単一記事は --probe 優先、それ以外は本文から自動導出（list 時は各記事ごと自動）
       const probe = (articles.length === 1 && PROBE_ARG) ? PROBE_ARG : deriveProbe(parsed.body);
+      // 前回この記事で中断していたら、エディタに壊れた状態が残っている可能性がある。
+      // 確かめずに再実行して「汚れた状態」を上書き保存する事故（2026-07-31）を機械で止める。
+      const prevAbort = abortedEntry(parsed.noteId);
+      if (prevAbort && !FORCE_RETRY) {
+        console.error(`[SKIP] ${parsed.noteId} は前回中断している（${prevAbort.at}: ${prevAbort.reason}）`);
+        console.error('  note のエディタには中断時の状態（全文置換済み・添付削除済み等）が残る。');
+        console.error('  live を実査して問題がないことを確認してから --force-retry を付けて再実行すること:');
+        console.error(`    npm run check-note-attachments:live -- --only ${parsed.noteId}`);
+        fail++; consecFail++;
+        if (articles.length > 1 && consecFail >= MAX_CONSEC_FAIL) { console.error('\n[ABORT] 連続 SKIP/失敗で中断'); break; }
+        continue;
+      }
       const result = await updateArticle(page, parsed, probe);
       if (result) {
+        clearAbort(parsed.noteId);
         ok++;
         // フル本文を live 反映できた → 再公開ドリフト検出のハッシュを in-sync 化（--commit 時のみ）。
         if (COMMIT && recordPublishedHash(relative(ROOT, parsed.abs))) console.log(`[hash] ${relative(ROOT, parsed.abs)} 再公開ハッシュ更新`);
         consecFail = 0;
-      } else { fail++; consecFail++; }
+      } else { recordAbort(parsed.noteId, '更新フローが false を返した（保存せず中断）'); fail++; consecFail++; }
     } catch (e) {
       console.error('[ERROR]', artPath, e.message);
+      try { const pj = parseArticle(artPath); recordAbort(pj.noteId, e.message); } catch {}
       fail++; consecFail++;
     }
     if (articles.length > 1 && consecFail >= MAX_CONSEC_FAIL) {

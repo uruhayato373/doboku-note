@@ -233,13 +233,22 @@ browser-use --headed --profile "$NOTE_PROFILE" state 2>&1 > /tmp/note-acct.txt
 - 有料記事は**所属マガジン URL を無料域（有料境界の直前）に bare URL 単独行**で置く。価格は本文に書かない（改訂で陳腐化・content-principles §14-c）
 - `npm run check-note-paid-cta` が L2 未定義の資格も検査するようになった（導線ゼロは exit 1）
 
-**公開・更新後の必須3点**（これを通すまで「完了」と言わない）:
+**③ PDF 添付の消失**: 全文置換で添付が消え、**購入者が代金を払って PDF を受け取れなくなった**（施工計画 R08予想 3 本）。note のアップロード 1 日 100 件上限に達して復元が失敗 →「保存しない」で中断 → **エディタには添付削除済みの状態が残る** → 失敗理由を確かめず再実行し、添付 0 を正として上書きした。
+
+- 本文を差し替える有料記事は **`--reattach-pdf`**（置換前に添付を記録し、保存前に貼り直す）
+- **中断した記事をそのまま再実行しない**。`note-update-body` は中断を `.claude/state/note-update-aborted.json` に記録し、次回は SKIP する（`--force-retry` で解除）。解除前に必ず live を実査する
+- アップロードは **1 日 100 件が上限**。`--reattach-pdf` は done-log を見て 90 件で止まる
+
+**公開・更新後の必須4点**（これを通すまで「完了」と言わない）:
 
 ```bash
-npm run check-note-free-preview -- --dir docs/note/<資格>   # 無料プレビューが生きているか
-npm run check-note-paid-cta                                  # 無料域に商品導線があるか
-npm run verify-note-magazines                                # マガジン公開状態と SoT の突合
+node scripts/check-note-structure.mjs                          # 無料プレビュー崩壊・境界・価格（FREE_PREVIEW_COLLAPSE/FULL_LOCK）
+npm run check-note-attachments:live -- --only <noteId,...>     # 約束した PDF が live に実在するか（要ログイン）
+npm run check-note-paid-cta                                    # 無料域に商品導線があるか
+npm run verify-note-magazines                                  # マガジン公開状態と SoT の突合
 ```
+
+**添付を持つ記事を更新したら `check-note-attachments:live` を必ず回す**。2026-07-31 はこれを一度も回さなかったため、3 本の消失に気づくのが遅れた。
 
 ### PDF 商品は「公開しただけ」では未完成（2026-07-28 新設）
 
