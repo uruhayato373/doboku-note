@@ -106,27 +106,51 @@ export function metaHash(raw) {
   return createHash('sha256').update(picked.join('\n'), 'utf8').digest('hex').slice(0, 16);
 }
 
-// ---- アセット（PDF 添付・カバー画像）ドリフト（assetHashes: {articlePath→hash}） ----
-// note の PDF 添付とカバー画像はプラットフォーム側の実体で、markdown には現れない。
-// 差し替えても本文 hash が変わらないため **購入者が古い PDF を受け取り続ける**事故になりうる。
-// 記事 dir 直下と dir/pdf・dir/img の対象ファイルを内容ハッシュして 1 本にまとめる。
-const ASSET_PATTERNS = [/\.pdf$/i, /^cover\.(png|jpe?g|webp)$/i];
+// ---- アセット（本文画像・PDF 添付・カバー画像）ドリフト（assetHashes: {articlePath→hash}） ----
+// note へ載る「ファイルの実体」は markdown に現れない。同じパス・同じ記法のまま**中身だけ**
+// 差し替えると本文ハッシュが変わらず、live には古い画像/PDF が残り続ける。
+//   - 本文画像: note-update-body が毎回アップロードし直す（insertImagesAtPlaceholders）
+//   - PDF:      note-attach-file で添付
+//   - カバー:   note-update-cover で差し替え
+// 対象は「本文が実際に参照している画像」＋「記事 dir/pdf/ 配下の PDF」＋「img/cover.*」。
+// dir 全走査にしないのは、未使用ファイルの増減で偽の drift を出さないため。
+const PDF_RE = /\.pdf$/i;
+const COVER_RE = /^cover\.(png|jpe?g|webp)$/i;
 
-/** 記事パス → その記事が live へ持ち込むアセットの内容ハッシュ（対象が無ければ 'none'）。 */
+/** 本文から参照されている画像の相対パス（![](...) と <img src="...">・外部 URL は除く）。 */
+export function referencedImages(raw) {
+  const body = String(raw).replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, '');
+  const out = new Set();
+  for (const m of body.matchAll(/!\[[^\]]*\]\(([^)\s]+)/g)) out.add(m[1]);
+  for (const m of body.matchAll(/<img[^>]*\ssrc=["']([^"']+)["']/g)) out.add(m[1]);
+  return [...out].filter((u) => !/^https?:\/\//.test(u));
+}
+
+/** 記事パス → live へ持ち込むファイル実体の内容ハッシュ（対象が無ければ 'none'）。 */
 export function assetHash(articlePath) {
-  const dir = dirname(String(articlePath).replaceAll('\\', '/'));
+  const key = String(articlePath).replaceAll('\\', '/');
+  const dir = dirname(key);
   const parts = [];
+  const add = (label, abs) => {
+    try { parts.push(`${label}:${createHash('sha256').update(readFileSync(abs)).digest('hex').slice(0, 16)}`); }
+    catch { parts.push(`${label}:MISSING`); } // 参照しているのにファイルが無い＝それ自体ドリフト
+  };
+  // 1. 本文が参照している画像
+  try {
+    for (const rel of referencedImages(readFileSync(key, 'utf8')).sort()) {
+      add(`body/${rel}`, rel.startsWith('/') ? `.${rel}` : `${dir}/${rel}`);
+    }
+  } catch { /* 読めなければ後段だけで判定 */ }
+  // 2. PDF（記事 dir 直下と dir/pdf）と 3. カバー（img/）
   for (const sub of ['', 'pdf', 'img']) {
     const d = sub ? `${dir}/${sub}` : dir;
     if (!existsSync(d)) continue;
-    let names;
-    try { names = readdirSync(d).sort(); } catch { continue; }
+    let names; try { names = readdirSync(d).sort(); } catch { continue; }
     for (const n of names) {
-      if (!ASSET_PATTERNS.some((re) => re.test(n))) continue;
-      try {
-        const buf = readFileSync(`${d}/${n}`);
-        parts.push(`${sub}/${n}:${createHash('sha256').update(buf).digest('hex').slice(0, 16)}`);
-      } catch { /* 読めないものは無視（best-effort） */ }
+      const isPdf = PDF_RE.test(n);
+      const isCover = sub === 'img' && COVER_RE.test(n);
+      if (!isPdf && !isCover) continue;
+      add(`${sub}/${n}`, `${d}/${n}`);
     }
   }
   return parts.length ? createHash('sha256').update(parts.join('|'), 'utf8').digest('hex').slice(0, 16) : 'none';

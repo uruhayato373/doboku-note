@@ -189,7 +189,7 @@ if (BASELINE) {
 }
 console.log(`[check-note-republish] 公開記事=${synced.length + drift.length + unknown.length}  synced=${synced.length}  要再公開(本文drift)=${drift.length}  未初期化=${unknown.length}`);
 console.log(`[check-note-republish] タグ: 公開=${tagSynced.length + tagDrift.length + tagUnknown.length}  synced=${tagSynced.length}  要再公開(タグdrift)=${tagDrift.length}  未初期化=${tagUnknown.length}`);
-console.log(`[check-note-republish] メタ(価格/境界/カバー定義): drift=${metaDrift.length}  未初期化=${metaUnknown.length}／アセット(PDF/カバー画像): drift=${assetDrift.length}  未初期化=${assetUnknown.length}`);
+console.log(`[check-note-republish] メタ(価格/境界/カバー定義): drift=${metaDrift.length}  未初期化=${metaUnknown.length}／アセット(本文画像/PDF/カバー): drift=${assetDrift.length}  未初期化=${assetUnknown.length}`);
 if (drift.length) {
   console.log('\n■ 要再公開（本文が公開時から変更）:');
   for (const f of drift) console.log('  ' + f.replace(/^docs\/note\//, '').replace(/\/article\.md$/, ''));
@@ -204,9 +204,9 @@ if (metaDrift.length) {
   console.log('  → 価格/境界: note-update-body --commit --boundary-h2 / note-article-price-sweep、カバー: note-update-cover --commit');
 }
 if (assetDrift.length) {
-  console.log('\n■ 要反映（PDF 添付・カバー画像の実体が変更）:');
+  console.log('\n■ 要反映（本文画像・PDF 添付・カバー画像の実体が変更）:');
   for (const f of assetDrift) console.log('  ' + f.replace(/^docs\/note\//, '').replace(/\/article\.md$/, ''));
-  console.log('  → PDF: note-attach-file --commit（差し替えは note 側の旧カード削除が要る）、カバー: note-update-cover --commit');
+  console.log('  → 本文画像: note-update-body --commit（毎回アップロードし直す）、PDF: note-attach-file --commit（差し替えは note 側の旧カード削除が要る）、カバー: note-update-cover --commit');
 }
 if (unknown.length) console.log(`\n□ 本文未初期化 ${unknown.length}件（baseline で初期化するか要再公開判断）`);
 if (metaUnknown.length) console.log(`□ メタ未初期化 ${metaUnknown.length}件（baseline で初期化）`);
