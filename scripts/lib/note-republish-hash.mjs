@@ -1,6 +1,6 @@
 // note 再公開ドリフト検出の共有ロジック（副作用なし・CLI から分離）。
 // check-note-republish.mjs（surfacer）と note-publish.mjs / note-update-body.mjs（公開時記録）が共用。
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { createHash } from 'node:crypto';
 
@@ -73,6 +73,81 @@ export function recordPublishedTagHash(hashtagsPath) {
     if (h == null) return false;
     const st = loadState();
     (st.tagHashes ||= {})[key] = h;
+    st.updatedAt = new Date().toISOString().slice(0, 10);
+    saveState(st);
+    return true;
+  } catch { return false; }
+}
+
+// ---- live 影響メタ（frontmatter）ドリフト（metaHashes: {articlePath→hash}） ----
+// 本文 hash は frontmatter を丸ごと落とすため、**note 上の見え方を変えるメタ変更が検知できなかった**。
+// 実際に live を変えるのは次の 5 つだけ。noteUrl/noteId/notePublishedAt/noteStatus は
+// 「公開した結果」なので含めない（含めると公開直後に必ず drift になる）。
+//   coverTitle … note のカバー見出し（cover 画像の再生成 → note-update-cover で反映）
+//   cover      … カバー生成パラメータ一式（同上）
+//   price      … 価格（note-article-price-sweep / note-edit）
+//   notePricing… 有料/無料（同上）
+//   paidBoundary … 有料境界の基準 H2（note-update-body --boundary-h2）
+const LIVE_META_KEYS = ['notePricing', 'price', 'paidBoundary', 'coverTitle', 'cover'];
+
+/** frontmatter から live 影響キーだけを抜き出して正規化ハッシュ。cover は複数行ブロックなので行継続も拾う。 */
+export function metaHash(raw) {
+  const m = String(raw).replace(/^\ufeff/, '').match(/^---\r?\n([\s\S]*?)\r?\n---/);
+  if (!m) return createHash('sha256').update('', 'utf8').digest('hex').slice(0, 16);
+  const lines = m[1].replace(/\r\n/g, '\n').split('\n');
+  const picked = [];
+  let capturing = false;
+  for (const line of lines) {
+    const key = (line.match(/^([a-zA-Z0-9_]+):/) || [])[1];
+    if (key) capturing = LIVE_META_KEYS.includes(key);
+    else if (!/^\s/.test(line)) capturing = false; // インデントされていない継続行は別要素
+    if (capturing) picked.push(line.replace(/\s+$/, ''));
+  }
+  return createHash('sha256').update(picked.join('\n'), 'utf8').digest('hex').slice(0, 16);
+}
+
+// ---- アセット（PDF 添付・カバー画像）ドリフト（assetHashes: {articlePath→hash}） ----
+// note の PDF 添付とカバー画像はプラットフォーム側の実体で、markdown には現れない。
+// 差し替えても本文 hash が変わらないため **購入者が古い PDF を受け取り続ける**事故になりうる。
+// 記事 dir 直下と dir/pdf・dir/img の対象ファイルを内容ハッシュして 1 本にまとめる。
+const ASSET_PATTERNS = [/\.pdf$/i, /^cover\.(png|jpe?g|webp)$/i];
+
+/** 記事パス → その記事が live へ持ち込むアセットの内容ハッシュ（対象が無ければ 'none'）。 */
+export function assetHash(articlePath) {
+  const dir = dirname(String(articlePath).replaceAll('\\', '/'));
+  const parts = [];
+  for (const sub of ['', 'pdf', 'img']) {
+    const d = sub ? `${dir}/${sub}` : dir;
+    if (!existsSync(d)) continue;
+    let names;
+    try { names = readdirSync(d).sort(); } catch { continue; }
+    for (const n of names) {
+      if (!ASSET_PATTERNS.some((re) => re.test(n))) continue;
+      try {
+        const buf = readFileSync(`${d}/${n}`);
+        parts.push(`${sub}/${n}:${createHash('sha256').update(buf).digest('hex').slice(0, 16)}`);
+      } catch { /* 読めないものは無視（best-effort） */ }
+    }
+  }
+  return parts.length ? createHash('sha256').update(parts.join('|'), 'utf8').digest('hex').slice(0, 16) : 'none';
+}
+
+/** meta / asset の現ハッシュを記録して in-sync 化。反映系スクリプトが成功直後に呼ぶ。 */
+export function recordPublishedMetaHash(filePath) {
+  try {
+    const key = String(filePath).replaceAll('\\', '/');
+    const st = loadState();
+    (st.metaHashes ||= {})[key] = metaHash(readFileSync(key, 'utf8'));
+    st.updatedAt = new Date().toISOString().slice(0, 10);
+    saveState(st);
+    return true;
+  } catch { return false; }
+}
+export function recordPublishedAssetHash(filePath) {
+  try {
+    const key = String(filePath).replaceAll('\\', '/');
+    const st = loadState();
+    (st.assetHashes ||= {})[key] = assetHash(key);
     st.updatedAt = new Date().toISOString().slice(0, 10);
     saveState(st);
     return true;

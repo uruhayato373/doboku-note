@@ -38,6 +38,7 @@ import { chromium } from 'playwright';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readFileSync, existsSync } from 'node:fs';
+import { recordPublishedAssetHash, recordPublishedMetaHash } from './lib/note-republish-hash.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = join(ROOT, '.local/playwright-note-profile');
@@ -141,6 +142,12 @@ async function doOne(page, { abs, noteId, pricing, cover }) {
   for (let i = 0; i < 6; i++) { const no = page.getByRole('button', { name: 'いいえ', exact: true }); if (await no.count()) { await no.first().click(); console.log('[save] 通知いいえ'); break; } await sleep(1200); }
   await sleep(3000);
   console.log('[OK] ライブ反映完了');
+  // カバー画像（img/cover.png）と cover 定義が live に載った → asset/meta を in-sync 化
+  try {
+    const rel = String(abs).replace(/\\/g, '/').replace(/^.*?(docs\/note\/)/, '$1');
+    recordPublishedAssetHash(rel); recordPublishedMetaHash(rel);
+    console.log('[hash] カバー asset/meta ハッシュ更新');
+  } catch { /* best-effort */ }
   return true;
 }
 

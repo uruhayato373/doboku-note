@@ -23,7 +23,8 @@
  */
 import { chromium } from 'playwright';
 import { spawnSync } from 'node:child_process';
-import { existsSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { recordPublishedAssetHash } from './lib/note-republish-hash.mjs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -259,6 +260,30 @@ if (COMMIT && exitCode === 0 && !wasFreeArticle) {
   const paid = /購入手続き|有料エリア|このコンテンツは有料/.test(html) || /"price":\s*[1-9]/.test(html);
   console.log(`  paid指標=${paid ? 'OK ✓' : '✗ 検出できず'} (htmlLen=${html.length})`);
   if (!paid) { console.error('  ⚠ 有料指標を検出できません（手動確認推奨）'); exitCode = 8; }
+}
+// 添付が live に載ったらアセット hash を in-sync 化する。--note しか受け取らないので、
+// PDF の置き場（記事 dir）から noteId 一致の article*.md を逆引きしてキーにする。
+if (exitCode === 0) {
+  try {
+    const dir = dirname(fileAbs).replace(/\\/g, '/');
+    const cands = [dir, dir.replace(/\/pdf$/, '')];
+    let hit = null;
+    for (const d of cands) {
+      if (!existsSync(d)) continue;
+      for (const n of readdirSync(d)) {
+        if (!/^article(-[^/\\]+)?\.md$/.test(n)) continue;
+        const raw = readFileSync(`${d}/${n}`, 'utf8');
+        if (new RegExp(`noteId:\\s*["']?${NOTE}["']?`).test(raw)) { hit = `${d}/${n}`; break; }
+      }
+      if (hit) break;
+    }
+    if (hit) {
+      const rel = hit.replace(/^.*?(docs\/note\/)/, '$1');
+      if (recordPublishedAssetHash(rel)) console.log(`[hash] アセットハッシュ更新: ${rel}`);
+    } else {
+      console.log('[hash] 記事を逆引きできずアセットハッシュ未更新（check-note-republish で drift が残る）');
+    }
+  } catch { /* best-effort */ }
 }
 console.log(`\n${exitCode === 0 ? '完了' : 'エラーあり'} (exit ${exitCode})`);
 process.exit(exitCode);

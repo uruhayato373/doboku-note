@@ -11,6 +11,10 @@
 // 使い方:
 //   node scripts/check-note-republish.mjs                 # レポート（surfacer・exit 0）
 //   node scripts/check-note-republish.mjs --json          # 機械可読（admin/weekly 用）
+//   node scripts/check-note-republish.mjs --baseline-meta-asset
+//       meta(価格/境界/カバー定義) と asset(PDF/カバー画像) のトラックだけを現状で初期化する。
+//       本文・タグの drift 状態は触らない。**新トラック追加時は --baseline を使わないこと**
+//       （--baseline は現ソース=live と仮定するため未反映記事の drift を消してしまう）。
 //   node scripts/check-note-republish.mjs --baseline [--since <ref>]
 //       中央state に現ハッシュを記録して in-sync 化。--since 指定時は <ref>..HEAD で変更された記事は
 //       「live=旧本文」なので ref時点の旧ハッシュを記録し drift として残す（正直な初期化）。
@@ -20,12 +24,17 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { bodyHash, tagsHashFile, tagsHashRaw, loadState, saveState, STATE } from './lib/note-republish-hash.mjs';
+import { bodyHash, tagsHashFile, tagsHashRaw, metaHash, assetHash, loadState, saveState, STATE } from './lib/note-republish-hash.mjs';
 
 const ROOT = 'docs/note';
 const args = process.argv.slice(2);
 const JSON_OUT = args.includes('--json');
 const BASELINE = args.includes('--baseline');
+// meta/asset トラックだけを初期化する。本文・タグの drift 状態は一切触らない。
+// --baseline は「現ソース＝live」と仮定するため、**未反映の記事を反映済みと誤記録する**
+// （2026-08-03 に実際にやってしまい、未反映 176 本の drift を消した）。新トラックを後から
+// 足すときは全体 baseline ではなくこちらを使う。
+const BASELINE_META_ASSET = args.includes('--baseline-meta-asset');
 const SINCE = (() => { const i = args.indexOf('--since'); return i >= 0 ? args[i + 1] : null; })();
 
 function walk(dir, acc = []) {
@@ -61,6 +70,9 @@ if (SINCE) {
 const st = loadState();
 const files = walk(ROOT);
 const synced = [], drift = [], unknown = [];
+// live 影響メタ（価格/有料境界/カバー定義）とアセット（PDF・カバー画像）は本文 hash に入らない。
+// 本文を1文字も変えずに価格や PDF を差し替えると「要再公開」が立たず、購入者が古い実体を受け取り続ける。
+const metaDrift = [], metaUnknown = [], assetDrift = [], assetUnknown = [];
 let baselined = 0;
 for (const f of files) {
   const raw = readFileSync(f, 'utf8');
@@ -68,6 +80,13 @@ for (const f of files) {
   const cur = bodyHash(raw);
   const rec = st.hashes[f];
 
+  if (BASELINE_META_ASSET) {
+    // 本文・タグには触れず meta/asset のみ現状で初期化（以後の変更は全て検知される）
+    (st.metaHashes ||= {})[f] = metaHash(raw);
+    (st.assetHashes ||= {})[f] = assetHash(f);
+    baselined++;
+    continue;
+  }
   if (BASELINE) {
     if (SINCE && changedSet.has(f)) {
       // ref以降に変更＝live は旧本文。ref時点の旧ハッシュを記録し drift として出す。新規記事は unknown。
@@ -78,13 +97,27 @@ for (const f of files) {
       else unknown.push(f);
       continue;
     }
-    st.hashes[f] = cur; baselined++; synced.push(f);
+    st.hashes[f] = cur;
+    (st.metaHashes ||= {})[f] = metaHash(raw);
+    (st.assetHashes ||= {})[f] = assetHash(f);
+    baselined++; synced.push(f);
     continue;
   }
 
   if (!rec) unknown.push(f);
   else if (rec === cur) synced.push(f);
   else drift.push(f);
+
+  // meta / asset は本文とは独立トラック（反映手段が別: 価格は note-edit、PDF は note-attach-file、
+  // カバーは note-update-cover）。同じ記事が同時に複数トラックで drift しうる。
+  const mCur = metaHash(raw);
+  const mRec = (st.metaHashes || {})[f];
+  if (mRec === undefined) metaUnknown.push(f); else if (mRec !== mCur) metaDrift.push(f);
+
+  const aCur = assetHash(f);
+  const aRec = (st.assetHashes || {})[f];
+  if (aRec === undefined) { if (aCur !== 'none') assetUnknown.push(f); }
+  else if (aRec !== aCur) assetDrift.push(f);
 }
 
 // ---- タグ再公開ドリフト（hashtags*.txt 単位・本文とは独立トラック） ----
@@ -132,12 +165,20 @@ for (const hp of walkTags(ROOT)) {
   else tagDrift.push(hp);
 }
 
-if (BASELINE) { st.updatedAt = new Date().toISOString().slice(0, 10); saveState(st); }
+if (BASELINE || BASELINE_META_ASSET) { st.updatedAt = new Date().toISOString().slice(0, 10); saveState(st); }
+if (BASELINE_META_ASSET) {
+  console.log(`[check-note-republish] meta/asset のみ baseline=${baselined} 件（本文・タグの drift 状態は不変）`);
+  console.log(`  state: ${STATE}`);
+  console.log('  注意: 初期化時点で live とズレているメタ/アセットは検知できない（以後の変更は全て検知される）');
+  process.exit(0);
+}
 
 if (JSON_OUT) {
   console.log(JSON.stringify({
     synced: synced.length, drift: drift.length, unknown: unknown.length, driftFiles: drift, unknownFiles: unknown,
     tagSynced: tagSynced.length, tagDrift: tagDrift.length, tagUnknown: tagUnknown.length, tagDriftFiles: tagDrift, tagUnknownFiles: tagUnknown,
+    metaDrift: metaDrift.length, metaUnknown: metaUnknown.length, metaDriftFiles: metaDrift, metaUnknownFiles: metaUnknown,
+    assetDrift: assetDrift.length, assetUnknown: assetUnknown.length, assetDriftFiles: assetDrift, assetUnknownFiles: assetUnknown,
   }, null, 2));
   process.exit(0);
 }
@@ -148,6 +189,7 @@ if (BASELINE) {
 }
 console.log(`[check-note-republish] 公開記事=${synced.length + drift.length + unknown.length}  synced=${synced.length}  要再公開(本文drift)=${drift.length}  未初期化=${unknown.length}`);
 console.log(`[check-note-republish] タグ: 公開=${tagSynced.length + tagDrift.length + tagUnknown.length}  synced=${tagSynced.length}  要再公開(タグdrift)=${tagDrift.length}  未初期化=${tagUnknown.length}`);
+console.log(`[check-note-republish] メタ(価格/境界/カバー定義): drift=${metaDrift.length}  未初期化=${metaUnknown.length}／アセット(PDF/カバー画像): drift=${assetDrift.length}  未初期化=${assetUnknown.length}`);
 if (drift.length) {
   console.log('\n■ 要再公開（本文が公開時から変更）:');
   for (const f of drift) console.log('  ' + f.replace(/^docs\/note\//, '').replace(/\/article\.md$/, ''));
@@ -156,6 +198,18 @@ if (tagDrift.length) {
   console.log('\n■ 要再公開（ハッシュタグが公開時から変更）:');
   for (const f of tagDrift) console.log('  ' + f.replace(/^docs\/note\//, ''));
 }
+if (metaDrift.length) {
+  console.log('\n■ 要反映（価格/有料境界/カバー定義が公開時から変更）:');
+  for (const f of metaDrift) console.log('  ' + f.replace(/^docs\/note\//, '').replace(/\/article\.md$/, ''));
+  console.log('  → 価格/境界: note-update-body --commit --boundary-h2 / note-article-price-sweep、カバー: note-update-cover --commit');
+}
+if (assetDrift.length) {
+  console.log('\n■ 要反映（PDF 添付・カバー画像の実体が変更）:');
+  for (const f of assetDrift) console.log('  ' + f.replace(/^docs\/note\//, '').replace(/\/article\.md$/, ''));
+  console.log('  → PDF: note-attach-file --commit（差し替えは note 側の旧カード削除が要る）、カバー: note-update-cover --commit');
+}
 if (unknown.length) console.log(`\n□ 本文未初期化 ${unknown.length}件（baseline で初期化するか要再公開判断）`);
+if (metaUnknown.length) console.log(`□ メタ未初期化 ${metaUnknown.length}件（baseline で初期化）`);
+if (assetUnknown.length) console.log(`□ アセット未初期化 ${assetUnknown.length}件（baseline で初期化）`);
 if (tagUnknown.length) console.log(`□ タグ未初期化 ${tagUnknown.length}件（baseline で初期化）`);
 process.exit(0);

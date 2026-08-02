@@ -57,7 +57,7 @@ import { chromium } from 'playwright';
 import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 'node:fs';
 import { join, dirname, resolve, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { recordPublishedHash } from './lib/note-republish-hash.mjs';
+import { recordPublishedHash, recordPublishedMetaHash } from './lib/note-republish-hash.mjs';
 import { cardifyBareUrls, repairUrlHeadings, listUrlHeadingsInEditor } from './lib/note-cardify.mjs';
 import { extractBodyImages, insertImagesAtPlaceholders, insertImagesAfterAnchors, countEditorImages } from './lib/note-images.mjs';
 import { assertLiveBody } from './lib/note-live-check.mjs';
@@ -764,6 +764,9 @@ try {
         ok++;
         // フル本文を live 反映できた → 再公開ドリフト検出のハッシュを in-sync 化（--commit 時のみ）。
         if (COMMIT && recordPublishedHash(relative(ROOT, parsed.abs))) console.log(`[hash] ${relative(ROOT, parsed.abs)} 再公開ハッシュ更新`);
+        // 本文反映は有料境界を再設定し価格ページも通るため、live 影響メタも in-sync 化する。
+        // アセット(PDF/カバー)は別工程なのでここでは触らない（note-attach-file / note-update-cover が記録）。
+        if (COMMIT) recordPublishedMetaHash(relative(ROOT, parsed.abs));
         consecFail = 0;
       } else { recordAbort(parsed.noteId, '更新フローが false を返した（保存せず中断）'); fail++; consecFail++; }
     } catch (e) {

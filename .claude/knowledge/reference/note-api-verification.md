@@ -152,6 +152,26 @@ node scripts/note-update-body.mjs --list   <list.txt>   --commit    # 複数記�
   **取得は curl 経路・偽 PASS は封じ済み（2026-07-28 修正）**: 以前は Node の `fetch` を使っていたためプロキシで全件遮断され、**675/675 が `FETCH_ERR` でも exit 0 を返す＝検査ゼロの偽 PASS** だった。`curl --ssl-no-revoke`（プロキシ env を自動利用）へ置換し、**取得失敗率が 20% を超えたら `--ci` の有無にかかわらず exit 1**（「検査不成立」）にした。出力は必ず「実検査 N本（対象M・取得失敗K）」を示す。レート制限対策として逐次＋250ms スロットル＋失敗時バックオフ（最大4回）を入れてある（対策なしに215本を短時間で2周して148本が取得失敗した実測がある）。
   **初回の実検査結果（2026-07-28・675本すべて取得成功）**: 要対応 CRITICAL 2件＝`FULL_LOCK`（無料プレビュー 0字＝買う前に何も読めない有料記事）を検出。07-24 の境界破壊事故（58本）の復旧漏れと見られる。これは fetch 時代には**一度も検査されていなかった**もの。
 - **paidProbe の注意**: 境界H2テキスト自体は note 目次（無料側）に出るため偽陽性になる→境界H2の**直後の本文段落**を probe にする（check-note-structure.mjs 実装済）。
+> [!important] 「live へ反映すべき変更」は 4 トラックで検知する（2026-08-03 拡張）
+> `check-note-republish` は当初**本文ハッシュだけ**だったため、本文を 1 文字も変えずに
+> 価格・有料境界・カバー定義・PDF 実体を差し替えても「要再公開」が立たなかった。
+> 購入者が古い PDF を受け取り続ける事故になりうる。トラックと反映手段は次のとおり:
+>
+> | トラック | 対象 | state キー | 反映手段 |
+> |---|---|---|---|
+> | 本文 | frontmatter を除く本文全体 | `hashes` | `note-update-body --commit` |
+> | タグ | `hashtags*.txt`（順序非依存） | `tagHashes` | `note-sync-tags --commit` |
+> | メタ | `notePricing`/`price`/`paidBoundary`/`coverTitle`/`cover` | `metaHashes` | `note-update-body --boundary-h2` / `note-article-price-sweep` / `note-update-cover` |
+> | アセット | 記事 dir・`pdf/`・`img/` の `*.pdf` と `cover.*` の**内容**ハッシュ | `assetHashes` | `note-attach-file --commit` / `note-update-cover --commit` |
+>
+> メタに `noteUrl`/`noteId`/`notePublishedAt`/`noteStatus` を**含めない**（公開した結果であり、
+> 含めると公開直後に必ず drift になる）。反映系スクリプトは成功直後に該当トラックだけを
+> in-sync 化する（本文更新は meta も、カバー更新は asset+meta も載るため両方記録）。
+>
+> **新トラックを後から足すときに `--baseline` を打たない**。`--baseline` は「現ソース＝live」と
+> 仮定するので、**未反映記事の drift を消してしまう**（2026-08-03 に実際にやり 176 本の drift を
+> 消して git から復元した）。`--baseline-meta-asset` のように対象トラックを限定する。
+
 - **`FREE_PREVIEW_COLLAPSE`（CRITICAL・2026-07-31 追加）**: 従来の `FULL_LOCK` は `bodyLen<40` と厳しく、**リード数行だけ残して境界が冒頭へ動く崩れ方**（無料プレビューが数百字まで縮む）を CRITICAL に上げられず `BOUNDARY_SHIFT`(HIGH) 止まりだった。無料プレビューが `MIN_FREE_PREVIEW_CHARS`（600字・`scripts/lib/note-live-check.mjs`）を切ったら CRITICAL にする。
 - **公開・更新の直後に即時検知するゲート（2026-07-31 追加）**: `assertLiveBody(noteId, { paid: true })` が無料プレビュー長を検査し、下限未満なら `note-publish` / `note-update-body` が FAIL する（週次の check-note-structure を待たずにその場で止まる）。
 
