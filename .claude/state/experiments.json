@@ -670,12 +670,12 @@
           }
         }
       },
-      "status": "running",
+      "status": "done",
       "created_at": "2026-06-26T23:07:43.668Z",
       "started_at": "2026-07-26T21:06:47.000Z",
-      "result": null,
-      "learnings": null,
-      "closed_at": null,
+      "result": "no-effect",
+      "learnings": "field が FAST な領域で lab 値を target_metric にすると判定不能に陥る。EXP-005 は mobile lab LCP <2500ms を目標にしたが、field(CrUX) p75 は介入前から 822ms=FAST で実害ゼロだった。改善余地の無い指標を 5 週間追いかけた。\nlab LCP は同一ページが 2 日で 1.6 倍振れる（h26-a 5,476→7,501ms / guide-strategy 4,681→2,251ms）。単発値でも n=2 でも方向が定まらず、判定には複数バッチ中央値が要る。\n目標指標は field で設定する。lab は「何が LCP 要素か」の診断に使い、合否判定には使わない（真実源: measurement-incidents.md「2026-07-27 lab と field の判定原則」）。\n介入自体（本文1枚目の図版を eager+fetchpriority=high 化・24本）は害がなく、check-lcp-image-hints が pre-commit ゲートとして残ったので資産になった。実験は no-effect でも副産物は残る。",
+      "closed_at": "2026-08-02T21:43:50.600Z",
       "actions": [
         "1. 診断: PSI batch JSON の lcp_element を worst3ページで抽出し LCP要素(text/img/heading)を特定。lab_data の TBT/main-thread を併読",
         "2. LCP要素が above-fold 画像なら next/image priority+sizes、text block なら render-blocking CSS/JS 除去を検討",
@@ -698,6 +698,16 @@
           "date": "2026-07-26T21:18:16.000Z",
           "action": "diagnosed_and_intervened",
           "summary": "LCP要素を Playwright で特定=本文1枚目図版の lazy 読込。24本を eager+fetchpriority=high 化（介入1）。deploy 後に PSI で判定。"
+        },
+        {
+          "date": "2026-08-02T21:40:23.102Z",
+          "action": "measured",
+          "summary": "deploy 後 2 バッチで前後比較。lab mobile LCP は日次で 1.6 倍振れ（h26-a 5476→7501）方向が定まらず n=2 では判定不能。field LCP p75 は 822→826ms で FAST 維持＝実害ゼロ。"
+        },
+        {
+          "date": "2026-08-02T21:43:50.604Z",
+          "action": "closed",
+          "summary": "no-effect で close。field は介入前後とも FAST(822→826ms)＝実害ゼロ、lab はノイズ支配で判定不能。学び=目標指標を field で設定する（lab は診断用）。副産物として check-lcp-image-hints が残存。"
         }
       ],
       "initial_baseline_2026_06_26": {
@@ -758,7 +768,39 @@
           "detail": "/deploy 実行 -> 翌日以降の psi-batch で civil-construction-1-primary-r07-a の lab LCP 中央値を baseline 5653ms と比較",
           "reference": "docs/reviews/weekly/2026-W31-review.md"
         }
-      ]
+      ],
+      "measurement": {
+        "measured_at": "2026-08-02T21:40:23.096Z",
+        "window": "deploy(2026-08-01)後の mobile バッチ 2 日分（08-01/08-02）",
+        "lab_mobile_lcp_median": {
+          "primary-r07-a": {
+            "baseline": 5653,
+            "current": 6262,
+            "note": "08-01:7051 / 08-02:5473 と日次で1.6倍振れる"
+          },
+          "guide-strategy": {
+            "baseline": 6001,
+            "current": 3466,
+            "note": "08-01:4681 / 08-02:2251"
+          },
+          "primary-h26-a": {
+            "baseline": 4890,
+            "current": 6489,
+            "note": "08-01:5476 / 08-02:7501"
+          },
+          "guide-four-management": {
+            "baseline": 2551,
+            "current": 2626,
+            "note": "08-01:2701 / 08-02:2551"
+          }
+        },
+        "field_lcp_p75": {
+          "baseline": 822,
+          "current": "826-827",
+          "category": "FAST（全ページ・変化なし）"
+        },
+        "verdict_draft": "判定不能（lab はノイズ支配・n=2）。field は介入前後とも FAST で実害なし"
+      }
     },
     {
       "id": "EXP-006",

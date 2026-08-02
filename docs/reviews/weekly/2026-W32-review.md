@@ -8,7 +8,7 @@
 
 ## サマリー
 
-- **W31 申し送り達成率 2/6（33%）**。Must の EXP-005 は **5週連続で未決着**、X countdown は退役判断が未了。今週は計画外の note 公開作業に時間が集中した
+- **W31 申し送り達成率 3/6（50%）**。EXP-005 は W32 中に close（5週の滞留を解消）。X countdown の退役判断は未了。今週は計画外の note 公開作業に時間が集中した
 - **主な成果**: コンクリート診断士 note マガジン公開（8記事）、note ライブ反映 175/352 本、**収益導線の穴を 4 種類の機械ゲートに変換**
 - **重大→解決**: 有料 PDF 3 本が live から消失していたが **2026-08-03 に復旧**（check-note-attachments:live で充足 3/3 実測）
 - **NSM 大幅減**: Organic users **1,188 → 835（-29.7%）**。GSC clicks も 110 → 77（-30%）。試験期終了の季節性が主因と見るが未検証
@@ -20,7 +20,7 @@
 
 | # | タスク | 分類 | 状態 | メモ |
 |---|---|---|---|---|
-| 1 | EXP-005 の効果判定（deploy 後 LCP 再計測） | Must | 🔴 未着手 | **5週連続**。`check-experiment-due` が PENDING で surface 継続 |
+| 1 | EXP-005 の効果判定（deploy 後 LCP 再計測） | Must | ✅ 完了 | 2026-08-03 に measure→close（no-effect）。5週の滞留を解消 |
 | 2 | X countdown 064-067 の退役判断 | Must | 🔴 未着手 | 試験日経過済み。新たに **4 件が投入 DUE** |
 | 3 | note 残り 1/3 の公開 | 継続 | ⚠ 部分 | 診断士 8 本は公開。ライブ反映は 175/352 で中断 |
 | 4 | YT pending_overdue 削減 | Should | 🔴 悪化 | 128 → **149 件** |
@@ -70,12 +70,12 @@
 
 | ID | title | 経過 | 状態 | 次アクション |
 |---|---|---|---|---|
-| EXP-005 | docs テンプレ モバイル LCP 改善 | 7 日 | PENDING | **deploy 後に r07-a の mobile lab LCP を再計測**（5週連続で滞留） |
+| EXP-005 | docs テンプレ モバイル LCP 改善 | 7 日 | ✅ **done（no-effect）** | 2026-08-03 に measure→close。field は介入前後とも FAST（822→826ms）＝実害ゼロ、lab はノイズ支配で判定不能 |
 | EXP-006 | インデックス登録 | — | PENDING | 残り 10 本のインデックス登録リクエスト（日次クォータ回復後） |
 
 ### 今週 close
 
-- なし
+- **EXP-005（no-effect）**: field が FAST な領域で lab を target_metric にしたため判定不能。目標指標は field で設定すべきという学びを得た。副産物として `check-lcp-image-hints`（本文1枚目の図版を eager+fetchpriority=high に強制する pre-commit ゲート）が資産として残った
 
 ### 次サイクルへの仮説
 
@@ -126,7 +126,7 @@
 
 1. ✅ **有料 PDF 3 本が live から消失 → 2026-08-03 復旧済み**（施工計画 R08予想 II-1/II-2/III）。原因は note のアップロード 1日100件上限に達した後、失敗理由を確かめず再実行して「添付なし」を上書きしたこと。`note-attach-file --commit` で再添付し、`check-note-attachments:live` で **充足 3/3・取得失敗 0** を実測。有料維持も公開ページで確認済み
 2. 🔴 **note 本文 drift 176 本**（W31 の ~30 本から増加）。ソースに配線した L2 もくじ CTA が live に届いていない。実害は回遊導線のみだが、反映には 1日100件上限の制約がある
-3. 🔴 **EXP-005 が 5週連続で滞留**。deploy は完了しているので、再計測すれば閉じられる
+3. ✅ **EXP-005 → 2026-08-03 に close 済み**（no-effect）。5週の滞留を解消
 4. ⚠ **YT pending_overdue 149 件**が拡大の一途。予約投稿の go-live 後処理が回っていない
 5. ⚠ **A8 crossCheck 超過**（stats47 混入の疑い）が未確認のまま
 
@@ -145,9 +145,8 @@
 
 | # | タスク | 分類 | 理由 |
 |---|---|---|---|
-| 1 | EXP-005 の再計測（`/nsm-experiment measure`） | Must | 5週連続滞留。deploy 済みで判定可能な状態 |
-| 2 | note ライブ反映 残り 177 本 | Must | 1日100件上限があるため 2 日に分ける |
-| 3 | NSM 下落の季節性検証（前年同期比） | Should | −29.7% が季節性か施策劣化かを分離する |
-| 4 | X countdown の退役判断 | Should | 2週連続で滞留。投入 DUE 4 件 |
-| 5 | YT pending_overdue 149 件の棚卸し | Should | 拡大の一途 |
-| 6 | 競合再スキャン / A8 crossCheck 確認 | Could | どちらも due 継続 |
+| 1 | note ライブ反映 残り 177 本 | Must | 1日100件上限があるため 2 日に分ける |
+| 2 | NSM 下落の季節性検証（前年同期比） | Should | −29.7% が季節性か施策劣化かを分離する |
+| 3 | X countdown の退役判断 | Should | 2週連続で滞留。投入 DUE 4 件 |
+| 4 | YT pending_overdue 149 件の棚卸し | Should | 拡大の一途 |
+| 5 | 競合再スキャン / A8 crossCheck 確認 | Could | どちらも due 継続 |
