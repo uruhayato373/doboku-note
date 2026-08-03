@@ -1,0 +1,93 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="品質管理の7手順。品質特性の選定、品質標準の設定、作業標準の決定という準備の3手順のあと、データ採取、分析確認、作業方法の見直し、作業の継続と進み、手順7から手順5へ戻って繰り返す構造を示した図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-phase { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-step  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-num   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-loop  { font-size: 11px; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #222; }
+      .box-prep { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-run  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-act  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .dot-prep { fill: #ffffff; stroke: #2e6da4; stroke-width: 2; }
+      .dot-run  { fill: #ffffff; stroke: #d4a017; stroke-width: 2; }
+      .dot-act  { fill: #ffffff; stroke: #3a7d44; stroke-width: 2; }
+      .flow { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .loop { stroke: #3a7d44; stroke-width: 1.5; fill: none; stroke-dasharray: 5,3; }
+    </style>
+    <marker id="a1" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+    <marker id="a2" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">図の作成に入る前に手順1〜3を十分検討する</text>
+
+  <text class="t-phase" x="20" y="36">準備（統計的手法に入る前）</text>
+
+  <rect class="box-prep" x="20" y="44" width="318" height="44" rx="6"/>
+  <circle class="dot-prep" cx="46" cy="66" r="14"/>
+  <text class="t-num" x="46" y="71" text-anchor="middle">1</text>
+  <text class="t-step" x="70" y="63">品質特性の選定</text>
+  <text class="t-desc" x="70" y="80">管理する対象項目を決める</text>
+  <line class="flow" x1="179" y1="88" x2="179" y2="96" marker-end="url(#a1)"/>
+
+  <rect class="box-prep" x="20" y="99" width="318" height="44" rx="6"/>
+  <circle class="dot-prep" cx="46" cy="121" r="14"/>
+  <text class="t-num" x="46" y="126" text-anchor="middle">2</text>
+  <text class="t-step" x="70" y="118">品質標準の設定</text>
+  <text class="t-desc" x="70" y="135">平均値とバラツキの幅で設定</text>
+  <line class="flow" x1="179" y1="143" x2="179" y2="151" marker-end="url(#a1)"/>
+
+  <rect class="box-prep" x="20" y="154" width="318" height="44" rx="6"/>
+  <circle class="dot-prep" cx="46" cy="176" r="14"/>
+  <text class="t-num" x="46" y="181" text-anchor="middle">3</text>
+  <text class="t-step" x="70" y="173">作業標準の決定</text>
+  <text class="t-desc" x="70" y="190">品質標準を満たす作業の方法</text>
+  <line class="flow" x1="179" y1="198" x2="179" y2="206" marker-end="url(#a1)"/>
+
+  <text class="t-phase" x="20" y="222">実施と統計的手法</text>
+
+  <rect class="box-run" x="20" y="230" width="318" height="44" rx="6"/>
+  <circle class="dot-run" cx="46" cy="252" r="14"/>
+  <text class="t-num" x="46" y="257" text-anchor="middle">4</text>
+  <text class="t-step" x="70" y="249">データ採取</text>
+  <text class="t-desc" x="70" y="266">作業標準に従い一定期間採る</text>
+  <line class="flow" x1="179" y1="274" x2="179" y2="282" marker-end="url(#a1)"/>
+
+  <rect class="box-run" x="20" y="285" width="318" height="44" rx="6"/>
+  <circle class="dot-run" cx="46" cy="307" r="14"/>
+  <text class="t-num" x="46" y="312" text-anchor="middle">5</text>
+  <text class="t-step" x="70" y="304">分析確認</text>
+  <text class="t-desc" x="70" y="321">規格の満足と工程の安定を確認</text>
+  <line class="flow" x1="179" y1="329" x2="179" y2="337" marker-end="url(#a1)"/>
+
+  <rect class="box-act" x="20" y="340" width="318" height="44" rx="6"/>
+  <circle class="dot-act" cx="46" cy="362" r="14"/>
+  <text class="t-num" x="46" y="367" text-anchor="middle">6</text>
+  <text class="t-step" x="70" y="359">作業方法の見直し</text>
+  <text class="t-desc" x="70" y="376">異常時は原因を追求し再発防止</text>
+  <line class="flow" x1="179" y1="384" x2="179" y2="392" marker-end="url(#a1)"/>
+
+  <rect class="box-act" x="20" y="395" width="318" height="44" rx="6"/>
+  <circle class="dot-act" cx="46" cy="417" r="14"/>
+  <text class="t-num" x="46" y="422" text-anchor="middle">7</text>
+  <text class="t-step" x="70" y="414">作業の継続</text>
+  <text class="t-desc" x="70" y="431">監視しながら作業を続ける</text>
+
+  <!-- 手順7 → 手順5 の反復 -->
+  <path class="loop" d="M 338 417 L 368 417 L 368 307 L 344 307" marker-end="url(#a2)"/>
+  <text class="t-loop" x="384" y="362" text-anchor="middle" transform="rotate(90 384 362)">手順5以下を繰り返す</text>
+
+  <rect class="box-surf" x="20" y="452" width="360" height="32" rx="6"/>
+  <text class="t-note" x="200" y="472" text-anchor="middle">一定期間（例：1か月）またはデータ数（例：20点）ごとに反復</text>
+</svg>
