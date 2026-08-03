@@ -31,10 +31,19 @@ node scripts/note-update-body.mjs --list <list> --reattach-pdf --commit
 
 未反映のまま残ると、ソースに配線した L2 もくじ CTA が読者に届かない（実害＝回遊導線のみ・記事本文は正常）。検知は `npm run check-note-republish`。
 
-### note PDF 添付 185 件（1日100件上限・最低2日）
+### note PDF 添付 192 件（1日100件上限・最低2日）
 タグ: [収益化]
 
-土木 経験記述 178 本へ PDF を配置し本文案内までライブ反映済み。**添付だけが未了**。`check-note-attachments --live` を 457 件で実行済み（取得失敗0・充足272/不足185）。欠落リストは `.claude/state/note-attachments-missing.json` に生成済み。
+土木 経験記述 178 本へ PDF を配置し本文案内までライブ反映済み。**添付だけが未了**。欠落リストは `.claude/state/note-attachments-missing.json` に生成済み。
+
+> [!important] 2026-08-03 に全量再実査：**欠落は 192 件**（07-31 の 185 件から +7）
+> 実検査 463 件（対象 463・取得失敗 0＝検査成立）／充足 271 ／不足 192。
+> 07-31 から**解消 0 件・新規欠落 7 件**（技術士建設部門の電力土木3・鉄道4）で、
+> 充足は 272→271 と 1 件減っている。**192 件すべてが「本文で PDF 配布を約束しているのに
+> live に添付が無い」＝購入者が受け取れない実害**（約束していない“静かな”欠落は 0 件）。
+>
+> commit `fb80c1234` のメッセージにある「欠落107→7件」は分母が違う別集計で、
+> **現状を表していない**。数の真実源は `.claude/state/note-attachments-missing.json`。
 
 **note のファイルアップロードは1日100件が上限**（超えると以降が全て ABORT）。done-log は `.claude/state/note-attach-done.json`（git 追跡下）なので翌日そのまま再実行すれば続きから進む。
 
