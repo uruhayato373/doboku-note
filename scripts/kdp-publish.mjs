@@ -154,12 +154,17 @@ try {
         const STAT = /下書き|レビュー中|販売中|ブロック|出版準備中|非公開/;
         const rows = [...document.querySelectorAll('tr.mt-row')]
           .map((tr) => (tr.textContent || '').replace(/\s+/g, ' ').trim())
-          .filter((t) => t.includes('著:') && /ASIN:\s*B0[0-9A-Z]{8}|下書き/.test(t));
+          // 出版直後の「レビュー中」は ASIN がまだ発番されない。ASIN か「下書き」でしか
+          // 行を拾わないと、この状態の本が丸ごと消えて found:false になる（＝本棚に無い、と
+          // 誤読して重複作成しかねない。2026-08-03 に f-09 で実測）。状態語も行の根拠に加える。
+          .filter((t) => t.includes('著:') && (/ASIN:\s*B0[0-9A-Z]{8}/.test(t) || STAT.test(t)));
         return rows.map((t) => ({
           shelfTitle: t.split('著:')[0].trim().slice(0, 80),
           asin: (t.match(/ASIN:\s*(B0[0-9A-Z]{8})/) || [])[1] || null,
           status: (t.match(STAT) || [])[0] || null,
           submittedAt: (t.match(/提出日:\s*([0-9]{4}年[0-9]{1,2}月[0-9]{1,2}日)/) || [])[1] || null,
+          // 本棚行の表示価格。UI で手動改定すると catalog/spec と割れるので必ず持ち帰る。
+          priceJpy: (() => { const m = t.match(/¥\s*([0-9][0-9,]*)/); return m ? Number(m[1].replace(/,/g, '')) : null; })(),
         }));
       });
     };
@@ -180,6 +185,8 @@ try {
         id: b.id, title: b.title.slice(0, 50), found: !!mine,
         asin: mine?.asin ?? null, status: mine?.status ?? null, submittedAt: mine?.submittedAt ?? null,
         catalogAsin: b.asin ?? null, catalogStatus: b.status,
+        livePriceJpy: mine?.priceJpy ?? null, catalogPriceJpy: b.priceJpy ?? null,
+        priceMatch: mine?.priceJpy != null && b.priceJpy != null ? mine.priceJpy === b.priceJpy : null,
         asinMatch: mine?.asin && b.asin ? mine.asin === b.asin : null,
         ambiguous: !mine && rows.length > 1 ? rows.length : undefined,
       });
@@ -192,6 +199,11 @@ try {
     const mismatch = known.filter((i) => i.asinMatch === false);
     const errs = items.filter((i) => i.err);
     console.log(`[sync] 検査 ${items.length} 冊（catalog 駆動）／ASIN 既知 ${expectedKnown} 件のうち再現 ${repro.length} 件${errs.length ? `／取得エラー ${errs.length} 件` : ''}`);
+    // 価格ドリフト（UI で手動改定すると catalog/spec と割れる）。比較できた件数も必ず出す。
+    const priced = items.filter((i) => i.priceMatch !== null);
+    const priceDrift = priced.filter((i) => i.priceMatch === false);
+    console.log(`[sync] 価格突合 ${priced.length} 冊（比較不能 ${items.length - priced.length} 冊）／不一致 ${priceDrift.length} 件`);
+    for (const i of priceDrift) console.log(`   PRICE DRIFT ${i.id}: live ¥${i.livePriceJpy} ≠ catalog ¥${i.catalogPriceJpy}`);
     console.log(JSON.stringify(items, null, 2));
     writeFileSync(join(TMP, 'kdp-sync-status.json'), JSON.stringify(items, null, 2) + '\n');
     console.log('[sync] .tmp/kdp-sync-status.json に保存（kdp-operator が catalog と突合）');
@@ -434,6 +446,16 @@ try {
       const already = await page.evaluate(() => (document.body.innerText.match(/(\d+)\s*個のカテゴリーを選択済み/) || [])[1] || '0');
       if (already && already !== '0') { console.log(`[cat] 既に ${already} 個選択済み → スキップ`); return true; }
     } catch {}
+    // 保存済みドラフトの再開では上の modal 内カウンタが無く、代わりに「本の現在のカテゴリー … › <末端>」
+    // が出る。両方見ないと resume が毎回「L0 選択失敗（候補なし）」で誤 ABORT する（2026-08-03 f-08 実測）。
+    try {
+      const saved = await page.evaluate(() => ((document.body.innerText || '').match(/本の現在のカテゴリー\s*\n?\s*([^\n]+)/) || [])[1] || '');
+      if (saved) {
+        if (saved.includes(book.catLeaf)) { console.log(`[cat] 設定済み「${saved.trim()}」→ スキップ`); return true; }
+        console.log(`[cat] 設定済みだが末端 "${book.catLeaf}" と不一致: ${saved.trim()}`);
+        return false;
+      }
+    } catch {}
     for (const sel of ['button:has-text("カテゴリーを選択")', 'text=カテゴリーを選択']) { try { const l = page.locator(sel); if (await l.count()) { await l.first().click({ timeout: 8000 }); break; } } catch {} }
     await sleep(2500);
     for (let lvl = 0; lvl < book.catDropdowns.length; lvl++) {
@@ -491,6 +513,34 @@ try {
   console.log('[3] 原稿処理: ' + up);
   if (up === 'error') { console.error('ABORT: 原稿がKDP変換で失敗（.svg拡張子のJPEG等を疑う→build確認）'); await ctx.close(); process.exit(4); }
   if (up === 'timeout') { console.error('ABORT: 原稿処理が10分で完了せず（スクショ確認）'); await ctx.close(); process.exit(4); }
+
+  // ── 表紙は投げっぱなしにせず「正常にアップロード」を実査する ──
+  // 原稿と同時に投げると表紙側の AJAX だけ無言で落ちることがある（2026-08-03 f-08 で実測。原稿は
+  // 完了・表紙は「表紙がアップロードされていません」のままで、価格ページへ進めず ABORT した）。
+  // 判定文言は「正常にアップロード」（＝原稿側）ではなく「表紙のアップロードに成功しました」。
+  // ただしこの文字列は全パターンが非表示テンプレとして DOM に常駐するので innerText(可視) で見る。
+  // 併せてサムネイル <img> の実在も見て、未アップロード時の placeholder と区別する。
+  // 判定は必ず「成功の肯定証拠 → 無ければ否定」の順。未アップロード時の placeholder
+  // 「表紙がアップロードされていません」は成功後も innerText に残るため、否定を先に見ると
+  // 永久に false になる（2026-08-03 に f-09 でこの順序ミスにより偽の ABORT を出した）。
+  const coverUploaded = async () => page.evaluate(() => {
+    const txt = document.body.innerText || '';
+    if (/表紙のアップロードに成功しました/.test(txt)) return true;
+    const input = document.querySelector('#data-assets-cover-file-upload-AjaxInput');
+    const sec = input && input.closest('div[class*="a-row"], section, form');
+    if (sec && Array.from(sec.querySelectorAll('img')).some((i) => i.naturalWidth > 40)) return true;
+    return false;
+  });
+  let coverOk = await coverUploaded();
+  for (let attempt = 1; attempt <= 3 && !coverOk; attempt++) {
+    if (attempt > 1) {
+      console.log(`[3] 表紙 再アップロード（${attempt}回目）…`);
+      await page.locator('#data-assets-cover-file-upload-AjaxInput').setInputFiles(book.cover);
+    }
+    for (let t = 0; t < 18 && !coverOk; t++) { await sleep(5000); coverOk = await coverUploaded(); }
+  }
+  console.log('[3] 表紙: ' + (coverOk ? 'ok' : 'fail'));
+  if (!coverOk) { await shot(page, '04b-cover-fail'); console.error('ABORT: 表紙がアップロードされないまま（3回試行）。スクショで表紙欄を確認'); await ctx.close(); process.exit(4); }
 
   // ── AI 生成コンテンツ申告（config の aiDeclaration に準拠）──
   const ai = book.aiDeclaration;

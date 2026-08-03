@@ -1,0 +1,78 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="場所打ち杭4工法の孔壁保護方法。オールケーシング工法はケーシングチューブで孔壁全体を保護し、アースドリル工法は表層のみケーシングでそれより深い部分は安定液の水圧で保持する。リバース工法はスタンドパイプを設け孔内水位を地下水位より 2m 以上高く保ち、深礎工法はライナープレートで土留めしながら掘削する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #222; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .cell { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .soil { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.2; }
+      .bore { fill: #ffffff; stroke: #8a8a8a; stroke-width: 1; }
+      .mud  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1; }
+      .case { fill: #2e6da4; }
+      .liner{ fill: #fff3cd; stroke: #d4a017; stroke-width: 1.2; }
+      .wl   { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .gw   { stroke: #8a8a8a; stroke-width: 1.2; fill: none; stroke-dasharray: 4 3; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">違いは「孔壁を何で保護するか」だけ</text>
+
+  <rect class="cell" x="20" y="30" width="176" height="156" rx="4"/>
+  <text class="t-name" x="108" y="54" text-anchor="middle">オールケーシング</text>
+  <rect class="soil" x="28" y="66" width="160" height="84"/>
+  <rect class="bore" x="88" y="66" width="40" height="84"/>
+  <rect class="case" x="82" y="66" width="6" height="84"/>
+  <rect class="case" x="128" y="66" width="6" height="84"/>
+  <text class="t-desc" x="108" y="166" text-anchor="middle">ケーシングチューブで</text>
+  <text class="t-desc" x="108" y="182" text-anchor="middle">孔壁全体を保護</text>
+
+  <rect class="cell" x="204" y="30" width="176" height="156" rx="4"/>
+  <text class="t-name" x="292" y="54" text-anchor="middle">アースドリル</text>
+  <rect class="soil" x="212" y="66" width="160" height="84"/>
+  <rect class="mud" x="272" y="66" width="40" height="84"/>
+  <rect class="case" x="266" y="66" width="6" height="26"/>
+  <rect class="case" x="312" y="66" width="6" height="26"/>
+  <text class="t-desc" x="292" y="166" text-anchor="middle">表層のみケーシング</text>
+  <text class="t-desc" x="292" y="182" text-anchor="middle">以深は安定液の水圧</text>
+
+  <rect class="cell" x="20" y="194" width="176" height="156" rx="4"/>
+  <text class="t-name" x="108" y="218" text-anchor="middle">リバース</text>
+  <rect class="soil" x="28" y="230" width="160" height="84"/>
+  <rect class="mud" x="88" y="230" width="40" height="84"/>
+  <rect class="case" x="82" y="230" width="6" height="26"/>
+  <rect class="case" x="128" y="230" width="6" height="26"/>
+  <line class="wl" x1="88" y1="258" x2="128" y2="258"/>
+  <line class="gw" x1="28" y1="274" x2="82" y2="274"/>
+  <line class="gw" x1="134" y1="274" x2="188" y2="274"/>
+  <text class="t-desc" x="108" y="330" text-anchor="middle">孔内水位を地下水位より</text>
+  <text class="t-desc" x="108" y="346" text-anchor="middle">2m 以上高く保つ</text>
+
+  <rect class="cell" x="204" y="194" width="176" height="156" rx="4"/>
+  <text class="t-name" x="292" y="218" text-anchor="middle">深礎</text>
+  <rect class="soil" x="212" y="230" width="160" height="84"/>
+  <rect class="bore" x="272" y="230" width="40" height="84"/>
+  <rect class="liner" x="266" y="230" width="6" height="20"/>
+  <rect class="liner" x="266" y="252" width="6" height="20"/>
+  <rect class="liner" x="266" y="274" width="6" height="20"/>
+  <rect class="liner" x="266" y="296" width="6" height="18"/>
+  <rect class="liner" x="312" y="230" width="6" height="20"/>
+  <rect class="liner" x="312" y="252" width="6" height="20"/>
+  <rect class="liner" x="312" y="274" width="6" height="20"/>
+  <rect class="liner" x="312" y="296" width="6" height="18"/>
+  <text class="t-desc" x="292" y="330" text-anchor="middle">ライナープレートで</text>
+  <text class="t-desc" x="292" y="346" text-anchor="middle">土留めしながら掘削</text>
+
+  <rect class="box-surf" x="20" y="376" width="360" height="106" rx="6"/>
+  <text class="t-sec" x="200" y="398" text-anchor="middle">読み取り方</text>
+  <line class="rule" x1="36" y1="407" x2="364" y2="407"/>
+  <text class="t-item" x="40" y="432">4 工法の違いは孔壁をどう保護するかにある</text>
+  <text class="t-item" x="40" y="456">リバースのスタンドパイプは杭径＋150〜300mm</text>
+</svg>

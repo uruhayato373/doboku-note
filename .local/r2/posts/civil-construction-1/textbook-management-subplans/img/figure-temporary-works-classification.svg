@@ -1,0 +1,70 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="仮設備の2つの区分。契約上の区分では指定仮設が発注者の指定により設計変更の対象となり、任意仮設は施工者の自主性にゆだねられ契約変更の対象とならない。機能上の区分では本工事に直接必要な直接仮設と、遂行に間接的に必要な共通仮設に分かれる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .h-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-box  { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub  { font-size: 11px; fill: #555; }
+      .t-item { font-size: 12px; fill: #222; }
+      .t-badge{ font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-note { font-size: 11px; fill: #222; }
+      .box-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-plain { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-pos   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-dan   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-surf  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule      { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <!-- ===== 契約上の区分 ===== -->
+  <text class="h-sec" x="20" y="22">契約上の区分 — 変更の取扱い</text>
+
+  <rect class="box-brand" x="20" y="30" width="172" height="152" rx="6"/>
+  <text class="t-box" x="106" y="56" text-anchor="middle">指定仮設</text>
+  <line class="rule" x1="32" y1="66" x2="180" y2="66"/>
+  <text class="t-sub" x="106" y="86" text-anchor="middle">発注者が仕様・数量・</text>
+  <text class="t-sub" x="106" y="104" text-anchor="middle">配置などを指定</text>
+  <rect class="box-pos" x="32" y="118" width="148" height="50" rx="6"/>
+  <text class="t-badge" x="106" y="140" text-anchor="middle">設計変更の対象</text>
+  <text class="t-sub" x="106" y="158" text-anchor="middle">数量の増減など</text>
+
+  <rect class="box-plain" x="208" y="30" width="172" height="152" rx="6"/>
+  <text class="t-box" x="294" y="56" text-anchor="middle">任意仮設</text>
+  <line class="rule" x1="220" y1="66" x2="368" y2="66"/>
+  <text class="t-sub" x="294" y="86" text-anchor="middle">施工者の自主性と</text>
+  <text class="t-sub" x="294" y="104" text-anchor="middle">企業努力にゆだねる</text>
+  <rect class="box-dan" x="220" y="118" width="148" height="50" rx="6"/>
+  <text class="t-badge" x="294" y="140" text-anchor="middle">契約変更の対象外</text>
+  <text class="t-sub" x="294" y="158" text-anchor="middle">経費は一式計上</text>
+
+  <!-- ===== 機能上の区分 ===== -->
+  <text class="h-sec" x="20" y="208">機能上の区分 — 本工事との関係</text>
+
+  <rect class="box-surf" x="20" y="216" width="172" height="170" rx="6"/>
+  <text class="t-box" x="106" y="242" text-anchor="middle">直接仮設</text>
+  <text class="t-sub" x="106" y="261" text-anchor="middle">本工事に直接必要</text>
+  <line class="rule" x1="32" y1="272" x2="180" y2="272"/>
+  <text class="t-item" x="106" y="294" text-anchor="middle">仮締切り</text>
+  <text class="t-item" x="106" y="316" text-anchor="middle">型枠支保工・足場</text>
+  <text class="t-item" x="106" y="338" text-anchor="middle">土留め</text>
+  <text class="t-item" x="106" y="360" text-anchor="middle">仮桟橋</text>
+
+  <rect class="box-surf" x="208" y="216" width="172" height="170" rx="6"/>
+  <text class="t-box" x="294" y="242" text-anchor="middle">共通仮設</text>
+  <text class="t-sub" x="294" y="261" text-anchor="middle">遂行に間接的に必要</text>
+  <line class="rule" x1="220" y1="272" x2="368" y2="272"/>
+  <text class="t-item" x="294" y="294" text-anchor="middle">現場事務所</text>
+  <text class="t-item" x="294" y="316" text-anchor="middle">仮設道路</text>
+  <text class="t-item" x="294" y="338" text-anchor="middle">給水設備・電力設備</text>
+  <text class="t-item" x="294" y="360" text-anchor="middle">資材置き場</text>
+
+  <!-- ===== 計画上の共通事項 ===== -->
+  <rect class="box-surf" x="20" y="400" width="360" height="82" rx="6"/>
+  <text class="t-note" x="200" y="424" text-anchor="middle">計画の範囲は設置・維持だけでなく撤去・後片付けまで含む</text>
+  <text class="t-note" x="200" y="448" text-anchor="middle">材料は市販品・規格統一とし、他工事へ転用できる計画とする</text>
+  <text class="t-note" x="200" y="472" text-anchor="middle">使用期間が長期・重要度が大きい場合は相応の安全率を採る</text>
+</svg>

@@ -1,0 +1,43 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="火薬類の取扱いにおける禁止事項と遵守事項。火薬庫に入るときは鉄類や指定外の灯火を持ち込まず土足で出入りしない。貯蔵では火薬類以外を置かず温度変化に注意する。取扱いは18歳未満が禁止され、混包や偽装をせず、容器は電気不良導体で内面に鉄類を表さない">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .t-sub  { font-size: 11px; fill: #555; }
+      .box-1 { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-2 { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-3 { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">場面ごとに禁止・遵守の内容が決まっている</text>
+
+  <rect class="box-1" x="20" y="28" width="360" height="128" rx="6"/>
+  <text class="t-sec" x="36" y="52">火薬庫に入るとき</text>
+  <line class="rule" x1="36" y1="61" x2="364" y2="61"/>
+  <text class="t-item" x="40" y="86">鉄類・鉄製器具・懐中電灯以外の灯火を持ち込まない</text>
+  <text class="t-item" x="40" y="110">あらかじめ定めた履物を使い、土足で出入りしない</text>
+  <text class="t-item" x="40" y="134">所有者等の指定する場所以外で喫煙・火気を扱わない</text>
+
+  <rect class="box-2" x="20" y="168" width="360" height="150" rx="6"/>
+  <text class="t-sec" x="36" y="192">火薬庫での貯蔵</text>
+  <line class="rule" x1="36" y1="201" x2="364" y2="201"/>
+  <text class="t-item" x="40" y="226">火薬類以外の物を貯蔵しない</text>
+  <text class="t-item" x="40" y="250">同一の火薬庫に貯蔵してはならない組合せがある</text>
+  <text class="t-item" x="40" y="274">換気に注意し、温度の変化を少なくする</text>
+  <text class="t-sub" x="40" y="296">無煙火薬・ダイナマイトは最高最低寒暖計を備える</text>
+
+  <rect class="box-3" x="20" y="330" width="360" height="152" rx="6"/>
+  <text class="t-sec" x="36" y="354">取扱い全般</text>
+  <line class="rule" x1="36" y1="363" x2="364" y2="363"/>
+  <text class="t-item" x="40" y="388">18歳未満の者はいかなる場合も取扱いをしてはならない</text>
+  <text class="t-item" x="40" y="412">他の物と混包し、火薬類でないように見せかけない</text>
+  <text class="t-item" x="40" y="436">容器は木その他電気不良導体とし内面に鉄類を表さない</text>
+  <text class="t-item" x="40" y="460">腕章・保護帽の標示等で他の作業員と識別できるようにする</text>
+</svg>

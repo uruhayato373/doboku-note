@@ -1,0 +1,64 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="新しい測量技術の位置づけ。地上から面的に取得するのが地上レーザ測量、地上から線状に取得するのが車載写真レーザ測量、空中から面的に取得するのが UAV 写真測量である">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-hd   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #222; }
+      .t-none { font-size: 13px; fill: #8a8a8a; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .hcol { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .hrow { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .cell { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .empty { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">面的か線状か、地上か空中かで整理する</text>
+
+  <rect class="hcol" x="104" y="40" width="136" height="30" rx="4"/>
+  <text class="t-hd" x="172" y="60" text-anchor="middle">面的に取得</text>
+  <rect class="hcol" x="244" y="40" width="136" height="30" rx="4"/>
+  <text class="t-hd" x="312" y="60" text-anchor="middle">線状に取得</text>
+
+  <rect class="hrow" x="20" y="74" width="80" height="98" rx="4"/>
+  <text class="t-hd" x="60" y="128" text-anchor="middle">地上から</text>
+  <rect class="hrow" x="20" y="176" width="80" height="98" rx="4"/>
+  <text class="t-hd" x="60" y="230" text-anchor="middle">空中から</text>
+
+  <rect class="cell" x="104" y="74" width="136" height="98" rx="4"/>
+  <text class="t-name" x="172" y="98" text-anchor="middle">地上レーザ測量</text>
+  <text class="t-desc" x="172" y="122" text-anchor="middle">機器から面的に</text>
+  <text class="t-desc" x="172" y="140" text-anchor="middle">距離と反射強度を</text>
+  <text class="t-desc" x="172" y="158" text-anchor="middle">取得する</text>
+
+  <rect class="cell" x="244" y="74" width="136" height="98" rx="4"/>
+  <text class="t-name" x="312" y="98" text-anchor="middle">車載写真レーザ</text>
+  <text class="t-desc" x="312" y="122" text-anchor="middle">走行しながら</text>
+  <text class="t-desc" x="312" y="140" text-anchor="middle">道路・堤防など</text>
+  <text class="t-desc" x="312" y="158" text-anchor="middle">線状を取得</text>
+
+  <rect class="cell" x="104" y="176" width="136" height="98" rx="4"/>
+  <text class="t-name" x="172" y="200" text-anchor="middle">UAV 写真測量</text>
+  <text class="t-desc" x="172" y="224" text-anchor="middle">空中から連続撮影し</text>
+  <text class="t-desc" x="172" y="242" text-anchor="middle">三次元データを</text>
+  <text class="t-desc" x="172" y="260" text-anchor="middle">作成する</text>
+
+  <rect class="empty" x="244" y="176" width="136" height="98" rx="4"/>
+  <text class="t-none" x="312" y="230" text-anchor="middle">—</text>
+
+  <rect class="box-surf" x="20" y="310" width="360" height="172" rx="6"/>
+  <text class="t-sec" x="200" y="332" text-anchor="middle">読み取り方</text>
+  <line class="rule" x1="36" y1="341" x2="364" y2="341"/>
+  <text class="t-item" x="40" y="366">名称と用途は 2 つの軸で対比すると混同しない</text>
+  <text class="t-item" x="40" y="392">車載写真レーザは道路・河川堤防など線状に適する</text>
+  <text class="t-item" x="40" y="418">UAV は従来より低コスト・短時間で実施できる</text>
+  <text class="t-item" x="40" y="444">いずれも現況把握や出来形管理での活用が広がる</text>
+</svg>

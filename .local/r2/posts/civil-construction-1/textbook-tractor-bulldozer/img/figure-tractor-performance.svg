@@ -1,0 +1,50 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="トラクタの4つの性能。けん引力は質量と粘着係数で決まりエンジン出力は含まれない。けん引出力はダイレクトドライブでエンジン出力の80パーセント、トルコンパワーシフトで60から70パーセント。接地圧は軟弱地の走破性の目安。登坂能力はクローラ式で30度">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-form { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .t-val  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .box-1 { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-2 { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-3 { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-4 { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">性能ごとに何で決まるかが異なる</text>
+
+  <rect class="box-1" x="20" y="28" width="360" height="128" rx="6"/>
+  <text class="t-name" x="40" y="52">けん引力</text>
+  <text class="t-form" x="364" y="52" text-anchor="end">P ＝ μ W g</text>
+  <text class="t-desc" x="40" y="76">W＝トラクタの質量、μ＝粘着係数、g＝重力加速度</text>
+  <text class="t-item" x="40" y="100">質量（自重）と地盤条件で決まり、エンジン出力は含まれない</text>
+  <text class="t-item" x="40" y="126">クローラ式　μ ＝ 0.80〜0.90</text>
+  <text class="t-item" x="40" y="146">ホイール式　μ ＝ 0.50〜0.70</text>
+
+  <rect class="box-2" x="20" y="168" width="360" height="102" rx="6"/>
+  <text class="t-name" x="40" y="192">けん引出力</text>
+  <text class="t-desc" x="40" y="214">エンジン出力から内部摩擦などの損失を除いた有効出力</text>
+  <text class="t-item" x="40" y="238">ダイレクトドライブ</text>
+  <text class="t-val" x="360" y="238" text-anchor="end">出力の約 80%</text>
+  <text class="t-item" x="40" y="260">トルコンパワーシフト</text>
+  <text class="t-val" x="360" y="260" text-anchor="end">出力の 60〜70%</text>
+
+  <rect class="box-3" x="20" y="282" width="360" height="102" rx="6"/>
+  <text class="t-name" x="40" y="306">接地圧</text>
+  <text class="t-desc" x="40" y="328">軟弱地における走破性能を判断する目安</text>
+  <text class="t-item" x="40" y="352">運転質量 ÷（2 × 履帯幅 × 接地長）から求める</text>
+  <text class="t-item" x="40" y="374">湿地ブルドーザは幅広の三角断面シューで接地圧を下げる</text>
+
+  <rect class="box-4" x="20" y="396" width="360" height="86" rx="6"/>
+  <text class="t-name" x="40" y="420">登坂能力</text>
+  <text class="t-val" x="364" y="420" text-anchor="end">クローラ式 30°</text>
+  <text class="t-desc" x="40" y="442">無負荷状態のトラクタで登坂できる最大能力</text>
+  <text class="t-item" x="40" y="466">地盤条件によりこの角度前にシューがすべる場合がある</text>
+</svg>

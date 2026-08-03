@@ -1,0 +1,60 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="遵守義務の発生源の違い。法令上の義務は契約図書に指定がなくとも誰の指示がなくとも当然に発生し、違反すると刑事罰を伴うものが多い。契約上の義務はJISや民間団体の基準などが契約図書に明記されて初めて発生する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-head { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-axis { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-cell { font-size: 11px; fill: #222; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-key  { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #555; }
+      .head-a { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .head-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .cell-a { fill: #ffffff; stroke: #b22234; stroke-width: 1.5; }
+      .cell-b { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">義務がどこから発生するかで2種類に分かれる</text>
+
+  <rect class="head-a" x="20" y="28" width="172" height="36" rx="6"/>
+  <text class="t-head" x="106" y="52" text-anchor="middle">法令上の義務</text>
+  <rect class="head-b" x="208" y="28" width="172" height="36" rx="6"/>
+  <text class="t-head" x="294" y="52" text-anchor="middle">契約上の義務</text>
+
+  <text class="t-axis" x="200" y="84" text-anchor="middle">義務の発生</text>
+  <rect class="cell-a" x="20" y="92" width="172" height="76" rx="6"/>
+  <text class="t-cell" x="106" y="118" text-anchor="middle">契約図書に指定がなく</text>
+  <text class="t-cell" x="106" y="136" text-anchor="middle">誰の指示がなくとも</text>
+  <text class="t-cell" x="106" y="156" text-anchor="middle">当然に発生する</text>
+  <rect class="cell-b" x="208" y="92" width="172" height="76" rx="6"/>
+  <text class="t-cell" x="294" y="118" text-anchor="middle">契約図書に明記されて</text>
+  <text class="t-cell" x="294" y="136" text-anchor="middle">初めて発生する</text>
+  <text class="t-cell" x="294" y="156" text-anchor="middle">（案）でも同じ</text>
+
+  <text class="t-axis" x="200" y="190" text-anchor="middle">対象となるもの</text>
+  <rect class="cell-a" x="20" y="198" width="172" height="76" rx="6"/>
+  <text class="t-cell" x="106" y="224" text-anchor="middle">法律・政令</text>
+  <text class="t-cell" x="106" y="242" text-anchor="middle">省令・告示</text>
+  <text class="t-cell" x="106" y="262" text-anchor="middle">違反に刑事罰が多い</text>
+  <rect class="cell-b" x="208" y="198" width="172" height="76" rx="6"/>
+  <text class="t-cell" x="294" y="224" text-anchor="middle">JIS・土木学会基準</text>
+  <text class="t-cell" x="294" y="242" text-anchor="middle">民間団体の規格</text>
+  <text class="t-cell" x="294" y="262" text-anchor="middle">国土交通省の基準（案）</text>
+
+  <rect class="box-surf" x="20" y="292" width="360" height="190" rx="6"/>
+  <text class="t-sec" x="200" y="316" text-anchor="middle">契約図書に取り込まれる主な基準</text>
+  <line class="rule" x1="36" y1="325" x2="364" y2="325"/>
+  <text class="t-key" x="40" y="350">公共工事標準請負契約約款</text>
+  <text class="t-item" x="40" y="368">公共建設工事の契約書のひな形となる</text>
+  <text class="t-key" x="40" y="396">土木工事共通仕様書</text>
+  <text class="t-item" x="40" y="414">国土交通省が作成し、事実上の標準として使われる</text>
+  <text class="t-key" x="40" y="442">建設工事公衆災害防止対策要綱</text>
+  <text class="t-item" x="40" y="460">法律上の拘束力はないが共通仕様書で遵守が求められる</text>
+</svg>

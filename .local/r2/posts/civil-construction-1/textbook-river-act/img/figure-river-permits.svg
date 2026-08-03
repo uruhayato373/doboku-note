@@ -1,0 +1,45 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="河川区域における許可の対象地の違い。土地の占用と土石等の採取は官有地のみが対象で民有地には許可が不要。工作物の新築等と土地の掘削等は官有地・民有地を問わず対象となる。河川工事と一体とみなす仮設物などは許可を要しない">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 12px; fill: #222; }
+      .t-sub  { font-size: 11px; fill: #555; }
+      .t-warn { font-size: 11px; fill: #b22234; }
+      .box-a { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-b { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">許可が及ぶ土地の範囲が行為ごとに異なる</text>
+
+  <rect class="box-a" x="20" y="28" width="360" height="118" rx="6"/>
+  <text class="t-sec" x="200" y="52" text-anchor="middle">官有地のみが対象</text>
+  <line class="rule" x1="36" y1="61" x2="364" y2="61"/>
+  <text class="t-item" x="40" y="88">土地の占用の許可（法第24条）</text>
+  <text class="t-sub" x="40" y="108">上空・地下にも及ぶ。民有地の占用は許可不要</text>
+  <text class="t-item" x="40" y="134">土石等の採取の許可（法第25条）</text>
+
+  <rect class="box-b" x="20" y="158" width="360" height="118" rx="6"/>
+  <text class="t-sec" x="200" y="182" text-anchor="middle">官有地・民有地を問わず対象</text>
+  <line class="rule" x1="36" y1="191" x2="364" y2="191"/>
+  <text class="t-item" x="40" y="218">工作物の新築等の許可（法第26条）</text>
+  <text class="t-item" x="40" y="244">土地の掘削等の許可（法第27条）</text>
+  <text class="t-sub" x="40" y="264">上空・地下・一時的な仮設工作物にも適用される</text>
+
+  <rect class="box-surf" x="20" y="288" width="360" height="194" rx="6"/>
+  <text class="t-sec" x="200" y="312" text-anchor="middle">許可を必要としない主な行為</text>
+  <line class="rule" x1="36" y1="321" x2="364" y2="321"/>
+  <text class="t-sub" x="40" y="346">河川工事と一体とみなす資機材運搬施設・足場・板囲・標識</text>
+  <text class="t-sub" x="40" y="372">河川管理施設の敷地から10 m以上離れた土地における耕うん</text>
+  <text class="t-sub" x="40" y="398">許可を得た工作物の新築に伴う掘削・盛土・切土</text>
+  <text class="t-sub" x="40" y="424">河川工事・維持のため現場付近で行う土石等の採取</text>
+  <text class="t-sub" x="40" y="450">バケツでくみあげる程度のごく少量の流水の使用</text>
+  <text class="t-warn" x="40" y="474">現場事務所等は河川工事であっても許可が必要</text>
+</svg>

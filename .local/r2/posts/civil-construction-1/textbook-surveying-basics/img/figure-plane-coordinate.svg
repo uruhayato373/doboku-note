@@ -1,0 +1,57 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="平面直角座標系の軸の向き。X軸は座標原点を通る子午線の方向で南北にとり真北が正、Y軸はX軸に直交する東西方向で東が正となる。日本全国を19の区域に分け各区域ごとに座標原点を定める">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-ax   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-dir  { font-size: 12px; font-weight: bold; fill: #2e6da4; }
+      .t-neg  { font-size: 11px; fill: #8a8a8a; }
+      .t-org  { font-size: 11px; fill: #222; }
+      .t-band { font-size: 11px; fill: #222; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .t-key  { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .axis   { stroke: #1a3a5c; stroke-width: 2; fill: none; }
+      .origin { fill: #b22234; }
+      .band   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="sv-a" markerWidth="9" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0,0 9,4 0,8" fill="#1a3a5c"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">X軸が南北、Y軸が東西にとられる</text>
+
+  <!-- 軸 -->
+  <line class="axis" x1="200" y1="238" x2="200" y2="62" marker-end="url(#sv-a)"/>
+  <line class="axis" x1="112" y1="150" x2="292" y2="150" marker-end="url(#sv-a)"/>
+
+  <text class="t-ax" x="216" y="76">X軸</text>
+  <text class="t-dir" x="200" y="48" text-anchor="middle">真北（＋）</text>
+  <text class="t-ax" x="272" y="140">Y軸</text>
+  <text class="t-dir" x="300" y="154">東（＋）</text>
+  <text class="t-neg" x="200" y="258" text-anchor="middle">南（−）</text>
+  <text class="t-neg" x="104" y="154" text-anchor="end">西（−）</text>
+
+  <circle class="origin" cx="200" cy="150" r="5"/>
+  <text class="t-org" x="190" y="176" text-anchor="end">座標原点</text>
+
+  <rect class="band" x="20" y="274" width="360" height="60" rx="6"/>
+  <text class="t-band" x="200" y="298" text-anchor="middle">X軸＝座標原点を通る子午線の方向（南北）</text>
+  <text class="t-band" x="200" y="320" text-anchor="middle">Y軸＝X軸に直交する方向（東西）</text>
+
+  <rect class="box-surf" x="20" y="348" width="360" height="134" rx="6"/>
+  <text class="t-sec" x="200" y="372" text-anchor="middle">座標系と測量の原点</text>
+  <line class="rule" x1="36" y1="381" x2="364" y2="381"/>
+  <text class="t-item" x="40" y="404">日本全国を19の区域に分け、区域ごとに座標原点を定める</text>
+  <text class="t-item" x="40" y="424">子午線に接する横軸円筒面に投影する</text>
+  <text class="t-key" x="40" y="450">経緯度原点</text>
+  <text class="t-item" x="118" y="450">東京都港区麻布台</text>
+  <text class="t-key" x="40" y="472">水準原点</text>
+  <text class="t-item" x="118" y="472">東京都千代田区永田町　標高 24.3900 m</text>
+</svg>

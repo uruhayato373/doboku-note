@@ -1,0 +1,52 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="かぶりとあきの違い。かぶりは鉄筋の表面とコンクリート表面との最短距離で測った厚さ、あきは隣り合う鉄筋の表面どうしの間隔である。あきの基準ははりが 20mm 以上、柱が 40mm 以上">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-dim  { font-size: 11px; font-weight: bold; fill: #b22234; }
+      .t-part { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .conc { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 2; }
+      .bar  { fill: #d7d7d7; stroke: #555; stroke-width: 1.5; }
+      .dim  { stroke: #b22234; stroke-width: 1.5; fill: none; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="cs-a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#b22234"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">かぶりは外へ、あきは鉄筋どうしの間</text>
+
+  <rect class="conc" x="80" y="54" width="240" height="220" rx="2"/>
+  <circle class="bar" cx="121" cy="95" r="11"/>
+  <circle class="bar" cx="279" cy="95" r="11"/>
+  <circle class="bar" cx="121" cy="233" r="11"/>
+  <circle class="bar" cx="174" cy="233" r="11"/>
+  <circle class="bar" cx="226" cy="233" r="11"/>
+  <circle class="bar" cx="279" cy="233" r="11"/>
+
+  <line class="dim" x1="147" y1="233" x2="133" y2="233" marker-end="url(#cs-a)"/>
+  <line class="dim" x1="147" y1="233" x2="161" y2="233" marker-end="url(#cs-a)"/>
+  <text class="t-dim" x="147" y="211" text-anchor="middle">あき</text>
+  <text class="t-part" x="279" y="211" text-anchor="middle">主鉄筋</text>
+
+  <line class="dim" x1="121" y1="258" x2="121" y2="245" marker-end="url(#cs-a)"/>
+  <line class="dim" x1="121" y1="258" x2="121" y2="273" marker-end="url(#cs-a)"/>
+  <text class="t-dim" x="155" y="264" text-anchor="middle">かぶり</text>
+
+  <text class="t-part" x="200" y="292" text-anchor="middle">はり・柱の断面</text>
+
+  <rect class="box-surf" x="20" y="320" width="360" height="162" rx="6"/>
+  <text class="t-sec" x="200" y="342" text-anchor="middle">読み取り方</text>
+  <line class="rule" x1="36" y1="351" x2="364" y2="351"/>
+  <text class="t-item" x="40" y="376">かぶり＝鉄筋表面とコンクリート表面との最短距離</text>
+  <text class="t-item" x="40" y="400">あき＝隣り合う鉄筋の表面どうしの間隔</text>
+  <text class="t-item" x="40" y="424">あきの基準は はり 20 mm 以上・柱 40 mm 以上</text>
+  <text class="t-item" x="40" y="448">かぶり不足はひび割れ・耐久性低下・耐火性低下の原因</text>
+</svg>

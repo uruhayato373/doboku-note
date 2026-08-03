@@ -1,0 +1,49 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="元請負人の義務の期限。完成検査の完了は下請からの完成通知から20日以内、目的物の引渡しは検査後に下請の申出があれば直ちに、下請代金の支払は注文者から支払を受けた日から1か月以内、特定建設業者の支払は下請の引渡し申出日から50日以内。義務ごとに起算日が異なる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-act  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-from { font-size: 11px; fill: #555; }
+      .t-law  { font-size: 11px; fill: #8a8a8a; }
+      .t-due  { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-note { font-size: 11px; fill: #222; }
+      .row-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .row-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">義務ごとに起算日が異なる点に注意する</text>
+
+  <rect class="row-b" x="20" y="28" width="360" height="88" rx="6"/>
+  <text class="t-act" x="40" y="56">完成検査の完了</text>
+  <text class="t-from" x="40" y="82">起算日：下請からの完成通知</text>
+  <text class="t-law" x="40" y="102">法第24条の4</text>
+  <text class="t-due" x="360" y="88" text-anchor="end">20日以内</text>
+
+  <rect class="row-b" x="20" y="124" width="360" height="88" rx="6"/>
+  <text class="t-act" x="40" y="152">目的物の引渡し</text>
+  <text class="t-from" x="40" y="178">起算日：検査後の下請の申出</text>
+  <text class="t-law" x="40" y="198">法第24条の4</text>
+  <text class="t-due" x="360" y="184" text-anchor="end">直ちに</text>
+
+  <rect class="row-b" x="20" y="220" width="360" height="88" rx="6"/>
+  <text class="t-act" x="40" y="248">下請代金の支払</text>
+  <text class="t-from" x="40" y="274">起算日：注文者から支払を受けた日</text>
+  <text class="t-law" x="40" y="294">法第24条の3</text>
+  <text class="t-due" x="360" y="280" text-anchor="end">1か月以内</text>
+
+  <rect class="row-w" x="20" y="316" width="360" height="88" rx="6"/>
+  <text class="t-act" x="40" y="344">特定建設業者の支払</text>
+  <text class="t-from" x="40" y="370">起算日：下請の引渡し申出日</text>
+  <text class="t-law" x="40" y="390">法第24条の6</text>
+  <text class="t-due" x="360" y="376" text-anchor="end">50日以内</text>
+
+  <rect class="box-surf" x="20" y="420" width="360" height="62" rx="6"/>
+  <text class="t-note" x="200" y="444" text-anchor="middle">特定建設業者は下請代金の支払期日と下請負人への</text>
+  <text class="t-note" x="200" y="466" text-anchor="middle">指導等について義務が強化されている</text>
+</svg>

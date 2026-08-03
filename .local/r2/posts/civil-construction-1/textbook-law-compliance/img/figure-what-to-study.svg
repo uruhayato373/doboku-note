@@ -1,0 +1,50 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="施工管理のために学ぶべき内容。工事現場で必要な措置・資格制度・技術的な基準や規格・許可届出検査の手続き・各法令固有の用語を優先して押さえる。試験では細則より許可権者・期間・金額と法令間の関係の大枠が問われる。法律の目的から正解を類推できる場合もある">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .t-num  { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub  { font-size: 11px; fill: #555; }
+      .box-a { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-b { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-c { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">遵守すべき法令に絞って学ぶのが基本</text>
+
+  <rect class="box-a" x="20" y="28" width="360" height="174" rx="6"/>
+  <text class="t-sec" x="200" y="52" text-anchor="middle">優先して押さえる内容</text>
+  <line class="rule" x1="36" y1="61" x2="364" y2="61"/>
+  <text class="t-num" x="42" y="88">1</text>
+  <text class="t-item" x="60" y="88">工事現場において必要な措置</text>
+  <text class="t-num" x="42" y="114">2</text>
+  <text class="t-item" x="60" y="114">資格制度</text>
+  <text class="t-num" x="42" y="140">3</text>
+  <text class="t-item" x="60" y="140">技術的な基準・規格</text>
+  <text class="t-num" x="42" y="166">4</text>
+  <text class="t-item" x="60" y="166">許可・届出・検査などの手続き</text>
+  <text class="t-num" x="42" y="192">5</text>
+  <text class="t-item" x="60" y="192">各法令固有の用語</text>
+
+  <rect class="box-b" x="20" y="216" width="360" height="106" rx="6"/>
+  <text class="t-sec" x="200" y="240" text-anchor="middle">試験で問われやすいところ（細則より大枠）</text>
+  <line class="rule" x1="36" y1="249" x2="364" y2="249"/>
+  <text class="t-item" x="40" y="278">許可権者・期間・金額などの数字</text>
+  <text class="t-item" x="40" y="306">法令間の関係の大枠</text>
+
+  <rect class="box-c" x="20" y="336" width="360" height="146" rx="6"/>
+  <text class="t-sec" x="200" y="360" text-anchor="middle">法律の目的から類推する</text>
+  <line class="rule" x1="36" y1="369" x2="364" y2="369"/>
+  <text class="t-item" x="40" y="394">多くの法律は第1条あたりに目的が明記されている</text>
+  <text class="t-item" x="40" y="418">条文の内容を知らずとも、問題文の文脈と目的から</text>
+  <text class="t-item" x="40" y="436">正解を類推できる場合がある</text>
+  <text class="t-sub" x="40" y="462">例：道路法の関係条文の目的は</text>
+  <text class="t-sub" x="40" y="478">「道路の通行の確保と道路構造の保全」</text>
+</svg>

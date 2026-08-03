@@ -1,0 +1,52 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="解体工法の分類。解体原理では打撃・圧砕・切断・静的破砕剤・転倒の5工法に分かれ、切断工法はさらにカッタ・ワイヤソーイング・コアドリル・ウォータージェットに分かれる。施工要領では地上解体工法と階上解体工法に分かれる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">解体原理と施工要領の2つの軸で分類される</text>
+
+  <text class="t-sec" x="20" y="38">解体原理による分類</text>
+
+  <rect class="box-b" x="20" y="44" width="360" height="48" rx="6"/>
+  <text class="t-name" x="40" y="64">打撃工法</text>
+  <text class="t-desc" x="40" y="82">ハンドブレーカ／大型ブレーカ（油圧ショベルに装着）</text>
+
+  <rect class="box-b" x="20" y="96" width="360" height="48" rx="6"/>
+  <text class="t-name" x="40" y="116">圧砕工法</text>
+  <text class="t-desc" x="40" y="134">油圧で圧砕アームを開閉。昭和50年頃から主流</text>
+
+  <rect class="box-b" x="20" y="148" width="360" height="48" rx="6"/>
+  <text class="t-name" x="40" y="168">切断工法</text>
+  <text class="t-desc" x="40" y="186">カッタ／ワイヤソーイング／コアドリル／ウォータージェット</text>
+
+  <rect class="box-b" x="20" y="200" width="360" height="48" rx="6"/>
+  <text class="t-name" x="40" y="220">静的破砕剤工法</text>
+  <text class="t-desc" x="40" y="238">酸化カルシウムと水の膨張圧で破砕する</text>
+
+  <rect class="box-b" x="20" y="252" width="360" height="48" rx="6"/>
+  <text class="t-name" x="40" y="272">転倒工法</text>
+  <text class="t-desc" x="40" y="290">ワイヤロープ等を頂部に掛けて引き倒す</text>
+
+  <text class="t-sec" x="20" y="322">施工要領による分類</text>
+
+  <rect class="box-w" x="20" y="328" width="360" height="72" rx="6"/>
+  <text class="t-name" x="40" y="350">地上解体工法</text>
+  <text class="t-desc" x="40" y="370">ロングブーム圧砕機により地上から解体する</text>
+  <text class="t-desc" x="40" y="388">ブームとアームの合計が12m以上は特定解体用機械</text>
+
+  <rect class="box-w" x="20" y="406" width="360" height="72" rx="6"/>
+  <text class="t-name" x="40" y="428">階上解体工法</text>
+  <text class="t-desc" x="40" y="448">屋上に機械を上げ、上から順に解体する</text>
+  <text class="t-desc" x="40" y="466">床版・梁に支保工を設置。都市部で多く採用</text>
+</svg>

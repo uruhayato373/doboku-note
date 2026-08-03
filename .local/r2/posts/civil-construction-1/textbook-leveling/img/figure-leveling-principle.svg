@@ -1,0 +1,80 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="水準測量の観測の仕組み。レベルを後視標尺と前視標尺の中間に据え、水平な視準線で両方の標尺を読む。高低差は後視の読みaから前視の読みbを引いて求め、到達点の標高は出発点の標高に高低差を加えて求める">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-lbl  { font-size: 11px; fill: #222; }
+      .t-dim  { font-size: 13px; font-weight: bold; fill: #2e6da4; }
+      .t-sight{ font-size: 11px; fill: #555; }
+      .t-form { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .staff  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .level  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .tripod { stroke: #3a7d44; stroke-width: 1.5; fill: none; }
+      .ground { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .sight  { stroke: #555; stroke-width: 1; stroke-dasharray: 5,3; }
+      .dim    { stroke: #2e6da4; stroke-width: 1; }
+      .tick   { stroke: #2e6da4; stroke-width: 1; }
+      .band   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule   { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="lv-up" markerWidth="7" markerHeight="7" refX="7" refY="3.5" orient="auto">
+      <polygon points="0,0 7,3.5 0,7" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">レベルを2つの標尺の中間（等距離）に据えて読む</text>
+
+  <!-- 視準線 -->
+  <line class="sight" x1="46" y1="96" x2="356" y2="96"/>
+  <text class="t-sight" x="316" y="88" text-anchor="end">視準線（水平）</text>
+
+  <!-- 地盤 -->
+  <polyline class="ground" points="28,216 140,218 230,200 372,186"/>
+
+  <!-- 後視標尺 -->
+  <rect class="staff" x="66" y="56" width="10" height="160"/>
+  <line class="tick" x1="66" y1="96" x2="76" y2="96"/>
+  <line class="tick" x1="66" y1="136" x2="76" y2="136"/>
+  <line class="tick" x1="66" y1="176" x2="76" y2="176"/>
+
+  <!-- 前視標尺 -->
+  <rect class="staff" x="324" y="56" width="10" height="134"/>
+  <line class="tick" x1="324" y1="96" x2="334" y2="96"/>
+  <line class="tick" x1="324" y1="136" x2="334" y2="136"/>
+  <line class="tick" x1="324" y1="176" x2="334" y2="176"/>
+
+  <!-- レベル -->
+  <rect class="level" x="172" y="86" width="36" height="16" rx="3"/>
+  <path class="tripod" d="M 182 102 L 168 204 M 198 102 L 212 204 M 190 102 L 190 204"/>
+  <text class="t-lbl" x="190" y="78" text-anchor="middle">レベル</text>
+
+  <!-- 寸法 a -->
+  <line class="dim" x1="48" y1="96" x2="48" y2="216" marker-start="url(#lv-up)" marker-end="url(#lv-up)"/>
+  <text class="t-dim" x="36" y="160" text-anchor="middle">a</text>
+
+  <!-- 寸法 b -->
+  <line class="dim" x1="352" y1="96" x2="352" y2="190" marker-start="url(#lv-up)" marker-end="url(#lv-up)"/>
+  <text class="t-dim" x="366" y="147" text-anchor="middle">b</text>
+
+  <text class="t-lbl" x="71" y="238" text-anchor="middle">後視標尺（既知点）</text>
+  <text class="t-lbl" x="329" y="210" text-anchor="middle">前視標尺（未知点）</text>
+
+  <rect class="band" x="20" y="258" width="360" height="52" rx="6"/>
+  <text class="t-form" x="200" y="282" text-anchor="middle">高低差 Δh ＝ a − b</text>
+  <text class="t-item" x="200" y="302" text-anchor="middle">到達点の標高 ＝ 出発点の標高 ＋ Δh</text>
+
+  <rect class="box-surf" x="20" y="322" width="360" height="160" rx="6"/>
+  <text class="t-sec" x="200" y="346" text-anchor="middle">水準測量の主な用語</text>
+  <line class="rule" x1="36" y1="355" x2="364" y2="355"/>
+  <text class="t-item" x="40" y="378">後視（B.S.）　既知点方向、進行方向の後方の読み</text>
+  <text class="t-item" x="40" y="400">前視（F.S.）　未知点方向、進行方向の前方の読み</text>
+  <text class="t-item" x="40" y="422">器械高（I.H.）　レベルの視準線の標高</text>
+  <text class="t-item" x="40" y="444">移器点（T.P.）　標尺を据え替える点</text>
+  <text class="t-item" x="40" y="466">中間点（I.P.）　移器点以外で標高を求める点</text>
+</svg>

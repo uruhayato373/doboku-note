@@ -1,0 +1,58 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="契約不適合責任。請求できるのは工事目的物の引渡しを受けた日から2年以内で、履行の追完・代金の減額・損害賠償・契約の解除の4つを請求できる。過分な費用を要するとき、検査で発見できた不適合を直ちに請求しないとき、知りながら通知しないとき、支給材料や指図により生じたときは請求できない">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-term { font-size: 16px; font-weight: bold; fill: #1a3a5c; }
+      .t-from { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .t-item { font-size: 11px; fill: #222; }
+      .box-term { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .card { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">起算点は完成時ではなく引渡しを受けた日</text>
+
+  <rect class="box-term" x="20" y="28" width="360" height="76" rx="6"/>
+  <text class="t-from" x="200" y="52" text-anchor="middle">工事目的物の引渡しを受けた日から</text>
+  <text class="t-term" x="200" y="82" text-anchor="middle">2年以内</text>
+
+  <text class="t-sec" x="20" y="128">請求できる内容</text>
+
+  <rect class="card" x="20" y="136" width="172" height="76" rx="6"/>
+  <text class="t-name" x="106" y="162" text-anchor="middle">履行の追完</text>
+  <text class="t-desc" x="106" y="182" text-anchor="middle">目的物の修補または</text>
+  <text class="t-desc" x="106" y="198" text-anchor="middle">代替物の引渡し</text>
+
+  <rect class="card" x="208" y="136" width="172" height="76" rx="6"/>
+  <text class="t-name" x="294" y="162" text-anchor="middle">代金の減額</text>
+  <text class="t-desc" x="294" y="182" text-anchor="middle">催告しても追完が</text>
+  <text class="t-desc" x="294" y="198" text-anchor="middle">ないとき</text>
+
+  <rect class="card" x="20" y="220" width="172" height="76" rx="6"/>
+  <text class="t-name" x="106" y="246" text-anchor="middle">損害賠償</text>
+  <text class="t-desc" x="106" y="270" text-anchor="middle">不適合により生じた</text>
+  <text class="t-desc" x="106" y="286" text-anchor="middle">損害の賠償</text>
+
+  <rect class="card" x="208" y="220" width="172" height="76" rx="6"/>
+  <text class="t-name" x="294" y="246" text-anchor="middle">契約の解除</text>
+  <text class="t-desc" x="294" y="270" text-anchor="middle">不適合の程度に</text>
+  <text class="t-desc" x="294" y="286" text-anchor="middle">応じて</text>
+
+  <rect class="box-surf" x="20" y="316" width="360" height="166" rx="6"/>
+  <text class="t-sec" x="200" y="340" text-anchor="middle">請求できない・責任を負わない場合</text>
+  <line class="rule" x1="36" y1="349" x2="364" y2="349"/>
+  <text class="t-item" x="40" y="374">履行の追完に過分な費用を要するとき（追完のみ）</text>
+  <text class="t-item" x="40" y="400">検査で発見できる不適合を引渡し時に直ちに請求しないとき</text>
+  <text class="t-item" x="40" y="426">引渡しの際に不適合を知りながら直ちに通知しないとき</text>
+  <text class="t-item" x="40" y="452">支給材料の性質や発注者・監督員の指図により生じたとき</text>
+  <text class="t-desc" x="40" y="472">受注者が不適当と知りながら通知しなかった場合を除く</text>
+</svg>

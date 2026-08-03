@@ -1,0 +1,60 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="偶然原因と異常原因の区別。偶然原因は技術的におさえられないか不経済となる原因で作業標準どおりでもバラツキを与えるため許容する。異常原因は技術的に除去できる見逃せない原因で検出して除去する。管理限界線の内側でクセがなければ安定と判定する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-head { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-axis { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-cell { font-size: 11px; fill: #222; }
+      .t-act  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-key  { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .head-a { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .head-b { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .cell-a { fill: #ffffff; stroke: #3a7d44; stroke-width: 1.5; }
+      .cell-b { fill: #ffffff; stroke: #b22234; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">許容するものと除去するものを取り違えない</text>
+
+  <rect class="head-a" x="20" y="28" width="172" height="36" rx="6"/>
+  <text class="t-head" x="106" y="52" text-anchor="middle">偶然原因</text>
+  <rect class="head-b" x="208" y="28" width="172" height="36" rx="6"/>
+  <text class="t-head" x="294" y="52" text-anchor="middle">異常原因</text>
+
+  <text class="t-axis" x="200" y="84" text-anchor="middle">どういう原因か</text>
+  <rect class="cell-a" x="20" y="92" width="172" height="96" rx="6"/>
+  <text class="t-cell" x="106" y="116" text-anchor="middle">技術的におさえられ</text>
+  <text class="t-cell" x="106" y="134" text-anchor="middle">ない、またはおさえ</text>
+  <text class="t-cell" x="106" y="152" text-anchor="middle">られても不経済に</text>
+  <text class="t-cell" x="106" y="176" text-anchor="middle">なる原因</text>
+  <rect class="cell-b" x="208" y="92" width="172" height="96" rx="6"/>
+  <text class="t-cell" x="294" y="116" text-anchor="middle">技術的に除去できる</text>
+  <text class="t-cell" x="294" y="134" text-anchor="middle">見逃せない原因</text>
+  <text class="t-cell" x="294" y="160" text-anchor="middle">作業標準を守らない</text>
+  <text class="t-cell" x="294" y="178" text-anchor="middle">または不備による</text>
+
+  <text class="t-axis" x="200" y="208" text-anchor="middle">管理図での扱い</text>
+  <rect class="cell-a" x="20" y="216" width="172" height="56" rx="6"/>
+  <text class="t-act" x="106" y="250" text-anchor="middle">許容する</text>
+  <rect class="cell-b" x="208" y="216" width="172" height="56" rx="6"/>
+  <text class="t-act" x="294" y="250" text-anchor="middle">検出して除去</text>
+
+  <rect class="box-surf" x="20" y="290" width="360" height="192" rx="6"/>
+  <text class="t-sec" x="200" y="314" text-anchor="middle">管理図による安定状態の判定</text>
+  <line class="rule" x1="36" y1="323" x2="364" y2="323"/>
+  <text class="t-key" x="40" y="348">安定している</text>
+  <text class="t-item" x="40" y="366">点が管理限界線の内側にあり、並び方にクセがない</text>
+  <text class="t-item" x="40" y="384">バラツキは偶然原因のみによると判断する</text>
+  <text class="t-key" x="40" y="414">安定していない</text>
+  <text class="t-item" x="40" y="432">点が限界線の外に出る、中心に集まる、限界線に接近</text>
+  <text class="t-item" x="40" y="450">するなどクセが出る。異常原因の存在が推測される</text>
+  <text class="t-item" x="40" y="474">限界線上の点は管理外れとして扱う</text>
+</svg>

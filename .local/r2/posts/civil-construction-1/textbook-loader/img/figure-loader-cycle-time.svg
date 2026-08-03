@@ -1,0 +1,58 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="ローダのサイクルタイムは足廻り係数と片道運搬距離の積に、すくい上げ時間と積込みギヤ入換え段取り時間を加えて求める。足廻り係数はクローラ式2.0、ホイール式1.8秒毎メートル。片道運搬距離は通常8メートル。積込み等の時間は12から20秒で計画では15秒程度を用いる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-form { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-sym  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .t-val  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub  { font-size: 11px; fill: #555; }
+      .band { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">3つの要素の合計がサイクルタイム</text>
+
+  <rect class="band" x="20" y="28" width="360" height="48" rx="6"/>
+  <text class="t-form" x="200" y="59" text-anchor="middle">Cm ＝ m × l ＋ t₁ ＋ t₂</text>
+
+  <rect class="box-b" x="20" y="88" width="360" height="72" rx="6"/>
+  <text class="t-sym" x="40" y="112">m　足廻り係数</text>
+  <text class="t-item" x="40" y="134">クローラ式</text>
+  <text class="t-val" x="200" y="134">2.0 sec/m</text>
+  <text class="t-item" x="40" y="152">ホイール式</text>
+  <text class="t-val" x="200" y="152">1.8 sec/m</text>
+
+  <rect class="box-b" x="20" y="172" width="360" height="54" rx="6"/>
+  <text class="t-sym" x="40" y="196">l　片道運搬距離</text>
+  <text class="t-val" x="360" y="196" text-anchor="end">通常 8 m</text>
+  <text class="t-sub" x="40" y="216">特に運搬距離を考えないときは 8 m としてまとめる</text>
+
+  <rect class="box-b" x="20" y="238" width="360" height="118" rx="6"/>
+  <text class="t-sym" x="40" y="262">t₁　すくい上げ時間</text>
+  <text class="t-item" x="40" y="286">クローラ式　山積状態</text>
+  <text class="t-val" x="360" y="286" text-anchor="end">5〜12 sec</text>
+  <text class="t-item" x="40" y="306">クローラ式　地山掘削集土</text>
+  <text class="t-val" x="360" y="306" text-anchor="end">22〜40 sec</text>
+  <text class="t-item" x="40" y="326">ホイール式　山積状態</text>
+  <text class="t-val" x="360" y="326" text-anchor="end">6〜20 sec</text>
+  <text class="t-item" x="40" y="346">ホイール式　地山掘削集土</text>
+  <text class="t-val" x="360" y="346" text-anchor="end">24〜45 sec</text>
+
+  <rect class="box-b" x="20" y="368" width="360" height="54" rx="6"/>
+  <text class="t-sym" x="40" y="392">t₂　積込み・ギヤ入換え・段取り</text>
+  <text class="t-val" x="360" y="392" text-anchor="end">12〜20 sec</text>
+  <text class="t-sub" x="40" y="412">計画では 15 sec 程度を用いる</text>
+
+  <rect class="box-surf" x="20" y="434" width="360" height="48" rx="6"/>
+  <text class="t-item" x="200" y="456" text-anchor="middle">作業効率 E は通常 0.4〜0.7 程度</text>
+  <text class="t-sub" x="200" y="474" text-anchor="middle">足場・土量・待ち時間・荷台容積・運転員の技量で変化する</text>
+</svg>
