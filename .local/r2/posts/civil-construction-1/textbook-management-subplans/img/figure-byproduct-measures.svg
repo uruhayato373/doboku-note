@@ -1,0 +1,61 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="建設副産物対策の3本柱と施工計画での検討事項。発生の抑制、再利用の促進、適正処分の徹底を基本方針とし、種類と量の推定、契約指示事項の確認、再生資源利用促進計画の作成、分別・保管・運搬方法、処理場の確保と処理の委託の5項目を検討する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .t-num  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-head { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 12px; fill: #222; }
+      .t-note { font-size: 11px; fill: #222; }
+      .box-pos  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-brand{ fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .dot-pos  { fill: #ffffff; stroke: #3a7d44; stroke-width: 2; }
+      .dot-brand{ fill: #ffffff; stroke: #2e6da4; stroke-width: 2; }
+      .dot-warn { fill: #ffffff; stroke: #d4a017; stroke-width: 2; }
+      .rule     { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="20" text-anchor="middle">3本柱を基本方針とし、関係法令にしたがって適正に処置する</text>
+
+  <!-- 3本柱 -->
+  <rect class="box-pos" x="20" y="32" width="360" height="62" rx="6"/>
+  <circle class="dot-pos" cx="52" cy="63" r="17"/>
+  <text class="t-num" x="52" y="68" text-anchor="middle">1</text>
+  <text class="t-name" x="82" y="58">発生の抑制</text>
+  <text class="t-desc" x="82" y="79">施工方法などを工夫して発生そのものを抑える</text>
+
+  <rect class="box-brand" x="20" y="102" width="360" height="62" rx="6"/>
+  <circle class="dot-brand" cx="52" cy="133" r="17"/>
+  <text class="t-num" x="52" y="138" text-anchor="middle">2</text>
+  <text class="t-name" x="82" y="128">再利用の促進</text>
+  <text class="t-desc" x="82" y="149">建設資材等としてリサイクルを促進する</text>
+
+  <rect class="box-warn" x="20" y="172" width="360" height="62" rx="6"/>
+  <circle class="dot-warn" cx="52" cy="203" r="17"/>
+  <text class="t-num" x="52" y="208" text-anchor="middle">3</text>
+  <text class="t-name" x="82" y="198">適正処分の徹底</text>
+  <text class="t-desc" x="82" y="219">不法投棄をなくし適正な処分を徹底する</text>
+
+  <!-- 検討事項 -->
+  <rect class="box-surf" x="20" y="250" width="360" height="172" rx="6"/>
+  <text class="t-head" x="200" y="274" text-anchor="middle">施工計画で検討する5項目</text>
+  <line class="rule" x1="36" y1="284" x2="364" y2="284"/>
+  <text class="t-item" x="40" y="308">1　建設副産物の種類と量の推定</text>
+  <text class="t-item" x="40" y="330">2　契約指示事項などの確認</text>
+  <text class="t-item" x="40" y="352">3　再生資源利用促進計画の作成</text>
+  <text class="t-item" x="40" y="374">4　分別方法・保管方法・運搬方法</text>
+  <text class="t-item" x="40" y="396">5　処理場の確保と処理の委託</text>
+
+  <!-- 委託の要点 -->
+  <rect class="box-surf" x="20" y="432" width="360" height="50" rx="6"/>
+  <text class="t-note" x="200" y="454" text-anchor="middle">委託は廃棄物処理法の許可業者を選定し、マニフェストを</text>
+  <text class="t-note" x="200" y="472" text-anchor="middle">交付してその実施状況を適切に管理する</text>
+</svg>
