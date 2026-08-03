@@ -1,0 +1,58 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="消費場所における火薬類の流れ。火薬庫から火薬類取扱所を経て火工所へ、そして発破場所へ運ぶ。火薬類取扱所は消費場所ごとに1箇所、火工所は1箇所以上設ける。残った火薬類は元の取扱所や火工所へ直ちに返送する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-cnt  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .t-back { font-size: 11px; fill: #3a7d44; }
+      .t-note { font-size: 11px; fill: #222; }
+      .box-1 { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .box-2 { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-3 { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-4 { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .band  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .flow { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="ae" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">取扱所・火工所を経由して発破場所へ運ぶ</text>
+
+  <rect class="box-1" x="20" y="28" width="360" height="70" rx="6"/>
+  <text class="t-name" x="36" y="54">火薬庫</text>
+  <text class="t-desc" x="36" y="78">設置・移転・構造の変更は知事の許可と完成検査</text>
+  <line class="flow" x1="200" y1="98" x2="200" y2="108" marker-end="url(#ae)"/>
+
+  <rect class="box-2" x="20" y="112" width="360" height="86" rx="6"/>
+  <text class="t-name" x="36" y="138">火薬類取扱所</text>
+  <text class="t-cnt" x="364" y="138" text-anchor="end">1消費場所に1箇所</text>
+  <text class="t-desc" x="36" y="162">火薬類の管理と発破の準備を行う</text>
+  <text class="t-desc" x="36" y="184">存置できる数量は1日の消費見込量以下</text>
+  <line class="flow" x1="200" y1="198" x2="200" y2="208" marker-end="url(#ae)"/>
+
+  <rect class="box-3" x="20" y="212" width="360" height="80" rx="6"/>
+  <text class="t-name" x="36" y="238">火工所</text>
+  <text class="t-cnt" x="364" y="238" text-anchor="end">1消費場所に1箇所以上</text>
+  <text class="t-desc" x="36" y="262">薬包に雷管を取り付ける作業を行う</text>
+  <text class="t-desc" x="36" y="282">雷管を取り付けた薬包（親ダイ）を取り扱う</text>
+  <line class="flow" x1="200" y1="292" x2="200" y2="302" marker-end="url(#ae)"/>
+
+  <rect class="box-4" x="20" y="306" width="360" height="62" rx="6"/>
+  <text class="t-name" x="36" y="332">発破場所</text>
+  <text class="t-desc" x="36" y="356">携行する数量は当該作業の消費見込量を超えない</text>
+
+  <rect class="band" x="20" y="380" width="360" height="34" rx="6"/>
+  <text class="t-back" x="200" y="401" text-anchor="middle">装てん後に残った火薬類は元の取扱所・火工所へ直ちに返送</text>
+
+  <rect class="box-surf" x="20" y="424" width="360" height="58" rx="6"/>
+  <text class="t-note" x="200" y="448" text-anchor="middle">1日の消費作業終了後に残った火薬類は火薬庫等へ貯蔵する</text>
+  <text class="t-note" x="200" y="470" text-anchor="middle">取扱所の設置が免除される場合は火工所で管理・準備を行う</text>
+</svg>
