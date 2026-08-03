@@ -1,0 +1,48 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="解体工法ごとに必要な措置。すべての工法で危険範囲への立入りを禁止する。圧砕・大型ブレーカでは自立する部分の高さを厚さの5倍以下とし、転倒工法は転倒方向の空間と地盤の耐力を確認し、カッタは鉄筋配置の事前確認、ワイヤソーイングは張力管理、ウォータージェットは誤噴射防止、静的破砕剤は噴出と火傷に注意する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-band { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-m    { font-size: 11px; fill: #222; }
+      .t-sub  { font-size: 11px; fill: #555; }
+      .band  { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-a { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">工法ごとに固有の措置がある</text>
+
+  <rect class="band" x="20" y="28" width="360" height="34" rx="6"/>
+  <text class="t-band" x="200" y="50" text-anchor="middle">共通　危険範囲に作業員を立ち入らせない</text>
+
+  <rect class="box-a" x="20" y="72" width="360" height="76" rx="6"/>
+  <text class="t-name" x="40" y="94">圧砕工法・大型ブレーカ等</text>
+  <text class="t-m" x="40" y="116">自立する部分の高さは、その部分の厚さの5倍以下</text>
+  <text class="t-sub" x="40" y="136">保護帽・保護めがねの着用、散水、騒音・振動対策</text>
+
+  <rect class="box-b" x="20" y="154" width="360" height="58" rx="6"/>
+  <text class="t-name" x="40" y="176">転倒工法</text>
+  <text class="t-m" x="40" y="198">転倒方向の空間とワイヤの取付位置、地盤の耐力を確認</text>
+
+  <rect class="box-b" x="20" y="218" width="360" height="58" rx="6"/>
+  <text class="t-name" x="40" y="240">カッタ工法</text>
+  <text class="t-m" x="40" y="262">鉄筋等の配置を事前確認し、冷却水の飛散を防止する</text>
+
+  <rect class="box-b" x="20" y="282" width="360" height="58" rx="6"/>
+  <text class="t-name" x="40" y="304">ワイヤソーイング工法</text>
+  <text class="t-m" x="40" y="326">張力を適切に管理し、切断に備えた防護措置を講じる</text>
+
+  <rect class="box-b" x="20" y="346" width="360" height="58" rx="6"/>
+  <text class="t-name" x="40" y="368">ウォータージェット工法</text>
+  <text class="t-m" x="40" y="390">ノズルの誤噴射を防止し、排水の処理対策を講じる</text>
+
+  <rect class="box-b" x="20" y="410" width="360" height="58" rx="6"/>
+  <text class="t-name" x="40" y="432">静的破砕剤工法</text>
+  <text class="t-m" x="40" y="454">異常膨張による噴出と水和熱による火傷に注意する</text>
+</svg>
