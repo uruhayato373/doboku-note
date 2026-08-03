@@ -1,0 +1,72 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="建設機械の分類。対象工事別・工種別・作業種別・機械種別の4つの分類軸を目的に応じて使い分ける。建設業法上はトラクタ系・ショベル系・基礎工事用・モータグレーダ・締固め用・舗装用の建設機械に区分される">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-axis { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-ex   { font-size: 11px; fill: #555; }
+      .t-law  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-mach { font-size: 11px; fill: #555; }
+      .t-note { font-size: 11px; fill: #8a8a8a; }
+      .card { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+      .tick { fill: #3a7d44; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">目的に応じて複数の分類軸を使い分ける</text>
+
+  <text class="t-sec" x="20" y="36">主な分類軸</text>
+
+  <rect class="card" x="20" y="44" width="172" height="62" rx="6"/>
+  <text class="t-axis" x="106" y="70" text-anchor="middle">対象工事別</text>
+  <text class="t-ex" x="106" y="90" text-anchor="middle">道路・河川・港湾</text>
+
+  <rect class="card" x="208" y="44" width="172" height="62" rx="6"/>
+  <text class="t-axis" x="294" y="70" text-anchor="middle">工種別</text>
+  <text class="t-ex" x="294" y="90" text-anchor="middle">土工・舗装・基礎</text>
+
+  <rect class="card" x="20" y="114" width="172" height="62" rx="6"/>
+  <text class="t-axis" x="106" y="140" text-anchor="middle">作業種別</text>
+  <text class="t-ex" x="106" y="160" text-anchor="middle">掘削・運搬・締固め</text>
+
+  <rect class="card" x="208" y="114" width="172" height="62" rx="6"/>
+  <text class="t-axis" x="294" y="140" text-anchor="middle">機械種別</text>
+  <text class="t-ex" x="294" y="160" text-anchor="middle">トラクタ系・ショベル系</text>
+
+  <text class="t-sec" x="20" y="200">建設業法上の区分</text>
+
+  <rect class="box-surf" x="20" y="208" width="360" height="274" rx="6"/>
+
+  <circle class="tick" cx="42" cy="236" r="3"/>
+  <text class="t-law" x="56" y="240">トラクタ系建設機械</text>
+  <text class="t-mach" x="56" y="256">ブルドーザ・スクレーパ</text>
+
+  <circle class="tick" cx="42" cy="274" r="3"/>
+  <text class="t-law" x="56" y="278">ショベル系建設機械</text>
+  <text class="t-mach" x="56" y="294">油圧ショベル・機械式ショベル</text>
+
+  <circle class="tick" cx="42" cy="312" r="3"/>
+  <text class="t-law" x="56" y="316">基礎工事用建設機械</text>
+  <text class="t-mach" x="56" y="332">杭打機・アースオーガ・地盤改良機械</text>
+
+  <circle class="tick" cx="42" cy="350" r="3"/>
+  <text class="t-law" x="56" y="354">モータグレーダ</text>
+  <text class="t-mach" x="56" y="370">路盤機械とあわせて分類される</text>
+
+  <circle class="tick" cx="42" cy="388" r="3"/>
+  <text class="t-law" x="56" y="392">締固め用建設機械</text>
+  <text class="t-mach" x="56" y="408">各種ローラ・コンパクタ・ランマ</text>
+
+  <circle class="tick" cx="42" cy="426" r="3"/>
+  <text class="t-law" x="56" y="430">舗装用建設機械</text>
+  <text class="t-mach" x="56" y="446">アスファルトフィニッシャ・プラント</text>
+
+  <line class="rule" x1="36" y1="458" x2="364" y2="458"/>
+  <text class="t-note" x="200" y="474" text-anchor="middle">建設機械全19分類のうち対応のあるもの</text>
+</svg>
