@@ -1,13 +1,13 @@
 {
   "meta": {
-    "generated_at": "2026-08-03T01:03:13.718Z",
+    "generated_at": "2026-08-03T05:36:43.619Z",
     "path": ".local/r2/posts/**/img/*.svg",
     "file": null,
     "note": "exam crop dirs (h*-primary, primary-h*) are excluded — audited by civil-exam-figure-auditor instead"
   },
   "summary": {
-    "scanned_files": 292,
-    "matched_files": 312,
+    "scanned_files": 386,
+    "matched_files": 406,
     "parse_errors": 0,
     "exam_crops_skipped": 20,
     "files_with_issues": 58,
