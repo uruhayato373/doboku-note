@@ -9,8 +9,9 @@
     "unavailable": "その ASP に案件自体が無い",
     "unknown": "未確認（調べていない。none と区別する）"
   },
-  "updatedAt": "2026-07-27T00:00:00.000Z",
-  "verifiedAt": "2026-07-27",
+  "updatedAt": "2026-08-04T00:00:00.000Z",
+  "verifiedAt": "2026-08-04",
+  "_verifiedNote": "2026-08-04 に 3 ASP を Playwright 実機で全件突合（ドリフト 0）。A8 は口座 a25050375786 の参加中一覧、もしもは shop_site_id=672381 の各プロモ詳細バッジ、afb は SID 984453（doboku-note）へ Chosen 切替＋form POST 後の提携中一覧で確認。afb は既定 stats47(959426) のため切替必須（切替前 37 件→doboku-note は 2 件）。",
   "programs": {
     "buildjob": {
       "label": "ビルドジョブ（建設業界特化 転職エージェント）",
@@ -203,6 +204,38 @@
           "category": "学習教材",
           "note": "afb 側の分類が『学習教材』と確定（2026-07-27 実測）。Red Line 該当が推測でなく裏付けられた。"
         }
+      }
+    },
+    "dokugaku-support": {
+      "label": "独学サポート事務局（施工管理技士 受験対策 通信教育講座）",
+      "vertical": null,
+      "placement": "none",
+      "redLine": true,
+      "decision": "**Red Line 該当・提携は維持しつつサイトには恒久的に出さない**（2026-08-04 ユーザー判断）。施工管理の受験対策講座で、2026-06-25 に廃止した講座/教材アフィリ（note 有料商品とのカニバリ回避）にど真ん中で当たる。A8 で提携済み（実機確認）だが**未配置を維持・解除はしない**。redLine:true により affiliate:apply は申請を拒否し、check-affiliate-wiring は配置されていたら赤落ちする。本文 prose 再提案は check-affiliate-prose の denylist で機械ブロック（未登録なら追加すること）。",
+      "asps": {
+        "a8": {
+          "programId": "s00000020062001",
+          "status": "approved",
+          "note": "2026-08-04 実機で参加中を確認（口座 a25050375786）。"
+        },
+        "moshimo": { "status": "unknown" },
+        "afb": { "status": "unknown" }
+      }
+    },
+    "elearning-genba": {
+      "label": "eラーニング現場系・国家資格（現場系国家資格の教材）",
+      "vertical": null,
+      "placement": "none",
+      "redLine": true,
+      "decision": "**Red Line 該当・提携は維持しつつサイトには恒久的に出さない**（2026-08-04 ユーザー判断）。現場系国家資格の教材で講座/教材アフィリの廃止方針に当たる。A8 で提携済み（実機確認）だが**未配置を維持・解除はしない**。",
+      "asps": {
+        "a8": {
+          "programId": "s00000027186001",
+          "status": "approved",
+          "note": "2026-08-04 実機で参加中を確認（口座 a25050375786）。"
+        },
+        "moshimo": { "status": "unknown" },
+        "afb": { "status": "unknown" }
       }
     }
   },
