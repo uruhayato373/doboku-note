@@ -131,6 +131,14 @@ jobs:
       - name: Check orphan figures (figure-*.svg referenced in article body)
         run: npm run check-orphan-figures
 
+      # MDX の <ArticleImage> width/height が参照先 SVG の実 viewBox と一致するかの全量 backstop。
+      # 4:5 固定キャンバス（400×500）への移行で SVG 側だけ揃え、MDX の埋込寸法が旧値のまま
+      # 取り残される事故（2026-08-03 に 26 箇所）を検知する。check-figure-canvas は SVG 側の
+      # viewBox しか見ないため、この SVG↔MDX の突合は別ゲートでしか塞げない。
+      # pre-commit は staged のみ検査するため、CI で全 .local/r2/posts を検査する。
+      - name: Check figure embed dims (ArticleImage width/height == SVG viewBox)
+        run: npm run check-figure-embed-dims
+
       # モバイル可読性ラチェット。全 published MDX を content-rules.json の fullScan ルール
       # （表/入れ子リスト/段落長/見出し/文体）で走査し、baseline を超える新規違反があれば赤落ち。
       # 既存違反は baseline で grandfather 済み（リライトで漸減）。レポートは PR 差分では追わず、

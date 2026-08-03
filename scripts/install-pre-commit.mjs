@@ -245,6 +245,13 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# MDX の <ArticleImage> width/height が SVG の実 viewBox と一致するか（キャンバス移行で埋込寸法が
+# 旧値のまま取り残される穴。check-figure-canvas は SVG 側しか見ない・2026-08-03 に 26 箇所を是正）
+node scripts/check-figure-embed-dims.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
 # note→サイト送客リンクの UTM 規約（生URL単独行=カード化でUTM消失 / inline は utm_source=note 必須）。SKIP_NOTE_UTM=1 で回避
 node scripts/check-note-site-utm.mjs --staged
 if [ $? -ne 0 ]; then

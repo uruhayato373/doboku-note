@@ -60,6 +60,23 @@
 > [!tip] バックフィル中の段階適用
 > 既存未移行ファイルを一括で赤落ちさせないため、ガードは初期に **allowlist（移行待ちパス）** を持ち、`fitStatus=conforming` になった図から allowlist を外す。新規ファイルは最初から対象。
 
+> [!warning] check-figure-canvas は SVG 側しか見ない
+> このガードが検査するのは **SVG ファイルの viewBox だけ**で、記事 MDX に書かれた `<ArticleImage>` の `width` / `height` は一切見ない。したがって「SVG を 400×500 に揃えたが、MDX の埋込寸法が旧値のまま」という状態を**素通りする**。この穴は次の埋込寸法ガードが塞ぐ。
+
+### 埋込寸法ガード — 「MDX の width/height は SVG の実 viewBox と一致させる」
+
+**`scripts/check-figure-embed-dims.mjs`**（pre-commit `--staged` + CI `r2-audit.yml` 全量・`npm run check-figure-embed-dims`）:
+
+- `.local/r2/posts/**/*.mdx|*.md` 本文の `<ArticleImage src="/posts/….svg">` を走査し、参照先 SVG の `viewBox="0 0 W H"` と `width={W}` `height={H}` を突合。
+- 不一致は file・figure 名・両者の寸法を出して **exit 1**。修正は `npm run check-figure-embed-dims -- --fix`（`writeMdxFile` 経由で CRLF を保持）。
+- `width` / `height` を**書いていない**埋込は違反としない（後述のとおり SVG 経路では描画に使われないため。実測でも 318 箇所中 236 箇所は寸法を書いていない）。
+- 実体なし参照は `check-orphan-figures` / pre-commit の image 検査、`viewBox` を持たない SVG は `check-figure-canvas` の担当なので、本ガードは黙って対象外にする。
+- 「検査ゼロを PASS と呼ばない」（CLAUDE.md §9）に従い、**記事本数 / SVG 埋込数 / SVG 解決数 / 実比較数**を成功・失敗いずれの経路でも出力する。埋込を見つけたのに SVG 実体を 1 件も解決できない場合は「検査不成立」として exit 1。メタゲート `check-gate-coverage` にも登録済み（実比較数の下限 40）。
+- 背景: 2026-08-03、4:5 固定キャンバスへの移行で SVG 側だけを揃えた結果、MDX の埋込寸法が旧値のまま **26 箇所**取り残されていた（例: viewBox 400×500 に対し MDX が 380×160 / 400×870）。全件是正のうえ本ガードを新設。
+
+> [!note] 現状の `<ArticleImage>` は SVG に width/height を出力しない
+> `src/components/ui/ArticleImage/ArticleImage.tsx` は `.svg` のとき `next/image` を使わず素の `<img>` を描画し、そこに `width` / `height` 属性を渡していない（拡大防止のため SVG 側の `style="max-width:400px;width:100%"` に寸法決定を委ねている）。つまり MDX の `width` / `height` は **SVG 経路では描画に使われない**。ずれた寸法が即レイアウトシフトを起こすわけではないが、図の実寸を示すメタデータとしては誤りであり、将来この属性を出力に載せた時点で CLS の原因になるため一致させる。
+
 ### 孤立 figure ガード — 「作った figure は必ず本文に出す」
 
 **`scripts/check-orphan-figures.mjs`**（pre-commit `--staged` + CI `r2-audit.yml` 全量・`npm run check-orphan-figures`）:
