@@ -1,0 +1,58 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="3つの施工速度の関係。最大施工速度は標準施工速度と現場作業能力係数の積で損失を考慮しない公称能力、そこから正常損失時間を控除したものが正常施工速度、さらに偶発損失時間を控除したものが平均施工速度。工程計画と工事費見積りには平均施工速度、機械の組合せ計画には最大・正常施工速度を用いる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-val  { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-form { font-size: 11px; fill: #222; }
+      .t-note { font-size: 11px; fill: #555; }
+      .t-band { font-size: 11px; fill: #b22234; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .t-ex   { font-size: 11px; fill: #8a8a8a; }
+      .box-1 { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-2 { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-3 { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .band  { fill: #f8d7da; stroke: #b22234; stroke-width: 1; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">損失時間をどこまで見込むかで3つに分かれる</text>
+
+  <rect class="box-1" x="20" y="28" width="360" height="80" rx="6"/>
+  <text class="t-name" x="36" y="52">最大施工速度</text>
+  <text class="t-val" x="364" y="52" text-anchor="end">22.5 m³/時</text>
+  <text class="t-form" x="36" y="74">＝ 標準施工速度 × 現場作業能力係数</text>
+  <text class="t-note" x="36" y="94">損失時間を考慮しない機械の公称能力</text>
+
+  <rect class="band" x="20" y="112" width="360" height="28" rx="4"/>
+  <text class="t-band" x="200" y="131" text-anchor="middle">− 正常損失時間（調整・日常整備・燃料補給）</text>
+
+  <rect class="box-2" x="20" y="144" width="360" height="80" rx="6"/>
+  <text class="t-name" x="36" y="168">正常施工速度</text>
+  <text class="t-val" x="364" y="168" text-anchor="end">18 m³/時</text>
+  <text class="t-form" x="36" y="190">＝ 正常時間作業率 × 最大施工速度</text>
+  <text class="t-note" x="36" y="210">作業上一般に除けない損失を織り込む</text>
+
+  <rect class="band" x="20" y="228" width="360" height="28" rx="4"/>
+  <text class="t-band" x="200" y="247" text-anchor="middle">− 偶発損失時間（故障・手待ち・悪天候・設計変更）</text>
+
+  <rect class="box-3" x="20" y="260" width="360" height="80" rx="6"/>
+  <text class="t-name" x="36" y="284">平均施工速度</text>
+  <text class="t-val" x="364" y="284" text-anchor="end">13.5 m³/時</text>
+  <text class="t-form" x="36" y="306">＝ 正常時間作業率 × 偶発時間作業率 × 最大施工速度</text>
+  <text class="t-note" x="36" y="326">平均時間作業率は 0.6〜0.8 が多い</text>
+
+  <rect class="box-surf" x="20" y="356" width="360" height="126" rx="6"/>
+  <text class="t-sec" x="200" y="380" text-anchor="middle">工程計画の基準となる施工速度</text>
+  <line class="rule" x1="36" y1="389" x2="364" y2="389"/>
+  <text class="t-item" x="40" y="414">平均施工速度 … 工程計画および工事費見積りの算出</text>
+  <text class="t-item" x="40" y="440">最大・正常施工速度 … 機械の組合せ計画</text>
+  <text class="t-ex" x="40" y="466">数値例は容量28切（0.75m³）ミキサー・サイクルタイム2分</text>
+</svg>
