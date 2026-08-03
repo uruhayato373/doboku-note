@@ -101,13 +101,21 @@ async function preprocess(body, articleDir, images, imageSrc) {
   // RelatedKeywords（関連キーワードリンク）は items={[...]} を含む自己完結タグで、
   // 未処理だと解説末尾に生の JSX/JSON が露出する（全 D/B 本で漏出を QA が検出）。
   out = out.replace(/<RelatedKeywords[\s\S]*?\/>/g, '')
+  // CareerAffiliate（転職アフィリの広告枠）はサイト専用。未処理だと生 JSX が本文に露出し、
+  // かつ Kindle 本にアフィリ広告を載せることになる（1級土木 primary-* で 48 箇所・2026-08-03 発覚）。
+  out = out.replace(/<CareerAffiliate[\s\S]*?\/>/g, '')
 
-  // ArticleImage → img（webp は sharp で JPEG 化して同梱）
-  const imgRe = /<ArticleImage\s+([\s\S]*?)\/>/g
+  // 画像 → img（webp/png/svg は sharp で JPEG 化して同梱）。
+  // `<ArticleImage .../>`（総監・技術士系）と生の `<img .../>`（1級土木 primary-* 等）の
+  // 両方を同じ経路に載せる。生 img を見ていなかったため、civil-construction-1 の
+  // 過去問は図 219 枚が 1 枚も入らず「下図の…」だけが残る本になっていた（2026-08-03 発覚）。
+  const imgRe = /<(?:ArticleImage|img)\s+([\s\S]*?)\/>/g
   const imgTasks = []
   out = out.replace(imgRe, (whole, props) => {
     const src = (props.match(/src="([^"]+)"/) || [])[1] || ''
     const alt = (props.match(/alt="([^"]*)"/) || [])[1] || ''
+    // サイト絶対パス（/posts/...）以外は外部画像なので同梱しない（丸ごと落とす）
+    if (!/^\/posts\//.test(src)) return ''
     // src は /posts/... のサイト絶対パス → .local/r2 配下の実ファイルへ解決
     const local = resolve(REPO, '.local/r2', src.replace(/^\//, ''))
     // 年度スコープ付き href。合本/科目別合本は年度をまたいで同名の別図（q3-5-fig.jpg 等）を
@@ -173,6 +181,17 @@ async function preprocess(body, articleDir, images, imageSrc) {
     const buf = await sharp(t.local).flatten({ background: '#ffffff' }).jpeg({ quality: 88 }).toBuffer()
     images.set(t.href, buf)
     imageSrc.set(t.href, t.local)
+  }
+
+  // 未処理のサイト専用コンポーネントが残っていないか実査する。残ると markdown 変換で
+  // エスケープされ、生 JSX（`&lt;CareerAffiliate ...`）がそのまま本文に印刷される。
+  // 「知らないコンポーネントは黙って素通り」が事故の温床なので、build を止めて名前を出す。
+  const leaked = [...new Set([...out.matchAll(/<([A-Z][A-Za-z0-9]*)[\s/>]/g)].map((m) => m[1]))]
+  if (leaked.length) {
+    throw new Error(
+      `未処理のサイト専用コンポーネントが本文に残っている: ${leaked.join(', ')}\n` +
+      '  → 除去するなら preprocess に replace を追加、本文に必要なら XHTML へ変換する処理を書く',
+    )
   }
 
   return { text: out, tokens, hasMath }
