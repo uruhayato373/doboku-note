@@ -1,0 +1,57 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="PDCA各段階の要点。計画では安全を前提に基準値を適切に設定し、実施では調査記録を正確に取り、検討では記録データを工学的に判断して問題の所在を明確にし、処置では最小の費用で最大の効果を得られる方法を見つける">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-mark { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .t-note { font-size: 11px; fill: #222; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-d { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-c { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-a { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .dot-p { fill: #ffffff; stroke: #3a7d44; stroke-width: 2; }
+      .dot-d { fill: #ffffff; stroke: #2e6da4; stroke-width: 2; }
+      .dot-c { fill: #ffffff; stroke: #d4a017; stroke-width: 2; }
+      .dot-a { fill: #ffffff; stroke: #b22234; stroke-width: 2; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">各段階で何をするかを押さえる</text>
+
+  <rect class="box-p" x="20" y="28" width="360" height="96" rx="6"/>
+  <circle class="dot-p" cx="52" cy="58" r="17"/>
+  <text class="t-mark" x="52" y="63" text-anchor="middle">P</text>
+  <text class="t-name" x="82" y="63">計画</text>
+  <text class="t-item" x="40" y="90">安全の確保を当然の前提とし、品質・原価・工程の面で</text>
+  <text class="t-item" x="40" y="110">優れた計画を立てる。基準値を適切に設定する</text>
+
+  <rect class="box-d" x="20" y="132" width="360" height="96" rx="6"/>
+  <circle class="dot-d" cx="52" cy="162" r="17"/>
+  <text class="t-mark" x="52" y="167" text-anchor="middle">D</text>
+  <text class="t-name" x="82" y="167">実施</text>
+  <text class="t-item" x="40" y="194">設計図に沿って適切に施工する</text>
+  <text class="t-item" x="40" y="214">調査記録を正確に取ることが求められる</text>
+
+  <rect class="box-c" x="20" y="236" width="360" height="96" rx="6"/>
+  <circle class="dot-c" cx="52" cy="266" r="17"/>
+  <text class="t-mark" x="52" y="271" text-anchor="middle">C</text>
+  <text class="t-name" x="82" y="271">検討</text>
+  <text class="t-item" x="40" y="298">調査記録データを工学的に判断し</text>
+  <text class="t-item" x="40" y="318">問題の所在を明確にする</text>
+
+  <rect class="box-a" x="20" y="340" width="360" height="96" rx="6"/>
+  <circle class="dot-a" cx="52" cy="370" r="17"/>
+  <text class="t-mark" x="52" y="375" text-anchor="middle">A</text>
+  <text class="t-name" x="82" y="375">処置</text>
+  <text class="t-item" x="40" y="402">必要な修正の方策を幅広く検討し、最小の費用で</text>
+  <text class="t-item" x="40" y="422">最大の効果を得られる処置方法を見つけ出す</text>
+
+  <rect class="box-surf" x="20" y="448" width="360" height="34" rx="6"/>
+  <text class="t-note" x="200" y="470" text-anchor="middle">是正処置で対応できないときは計画を修正して再サイクル</text>
+</svg>
