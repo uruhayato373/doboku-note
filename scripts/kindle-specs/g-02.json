@@ -1,0 +1,27 @@
+{
+  "bookId": "g-02",
+  "title": "コンクリート主任技師 体系解説＋分野別問題",
+  "subtitle": "材料・配合・性質・耐久性・製造管理・施工・製品・構造設計の8分野",
+  "price": 1250,
+  "frontMatter": ".claude/content/kindle/books/g-02/front-matter.md",
+  "examName": "コンクリート主任技師試験",
+  "creditIssuer": "公益社団法人 日本コンクリート工学会",
+  "sources": [
+    ".local/r2/posts/concrete-chief-engineer/textbook-materials/article.mdx",
+    ".local/r2/posts/concrete-chief-engineer/textbook-mix-design/article.mdx",
+    ".local/r2/posts/concrete-chief-engineer/textbook-properties/article.mdx",
+    ".local/r2/posts/concrete-chief-engineer/textbook-durability/article.mdx",
+    ".local/r2/posts/concrete-chief-engineer/textbook-production-qc/article.mdx",
+    ".local/r2/posts/concrete-chief-engineer/textbook-construction/article.mdx",
+    ".local/r2/posts/concrete-chief-engineer/textbook-products/article.mdx",
+    ".local/r2/posts/concrete-chief-engineer/textbook-structural-design/article.mdx",
+    ".local/r2/posts/concrete-chief-engineer/primary-materials/article.mdx",
+    ".local/r2/posts/concrete-chief-engineer/primary-mix-design/article.mdx",
+    ".local/r2/posts/concrete-chief-engineer/primary-properties/article.mdx",
+    ".local/r2/posts/concrete-chief-engineer/primary-durability/article.mdx",
+    ".local/r2/posts/concrete-chief-engineer/primary-production-qc/article.mdx",
+    ".local/r2/posts/concrete-chief-engineer/primary-construction/article.mdx",
+    ".local/r2/posts/concrete-chief-engineer/primary-products/article.mdx",
+    ".local/r2/posts/concrete-chief-engineer/primary-structural-design/article.mdx"
+  ]
+}

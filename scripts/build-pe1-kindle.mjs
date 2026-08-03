@@ -104,6 +104,14 @@ async function preprocess(body, articleDir, images, imageSrc) {
   // CareerAffiliate（転職アフィリの広告枠）はサイト専用。未処理だと生 JSX が本文に露出し、
   // かつ Kindle 本にアフィリ広告を載せることになる（1級土木 primary-* で 48 箇所・2026-08-03 発覚）。
   out = out.replace(/<CareerAffiliate[\s\S]*?\/>/g, '')
+  // MagazineCard は note マガジンの販売カード。Kindle に他チャネルの販促を載せない。
+  out = out.replace(/<MagazineCard[\s\S]*?\/>/g, '')
+  // Callout は中身のある本文なので捨てず、見出し付きの段落へ均す。内側は markdown のまま
+  // 返して既存の変換に通す（リスト・番号付きリストを保つため）。
+  out = out.replace(/<Callout\b([^>]*)>([\s\S]*?)<\/Callout>/g, (whole, props, inner) => {
+    const title = (props.match(/title="((?:[^"\\]|\\.)*)"/) || [])[1] || ''
+    return `\n\n${title ? `**${title}**\n\n` : ''}${inner.trim()}\n\n`
+  })
 
   // 画像 → img（webp/png/svg は sharp で JPEG 化して同梱）。
   // `<ArticleImage .../>`（総監・技術士系）と生の `<img .../>`（1級土木 primary-* 等）の

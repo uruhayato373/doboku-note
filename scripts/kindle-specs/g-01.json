@@ -1,0 +1,25 @@
+{
+  "bookId": "g-01",
+  "title": "コンクリート診断士 体系解説＋演習問題",
+  "subtitle": "劣化機構・調査・診断・補修の6分野＋演習8回",
+  "price": 1250,
+  "frontMatter": ".claude/content/kindle/books/g-01/front-matter.md",
+  "examName": "コンクリート診断士試験",
+  "creditIssuer": "公益社団法人 日本コンクリート工学会",
+  "sources": [
+    ".local/r2/posts/concrete-diagnostician/textbook-deterioration/article.mdx",
+    ".local/r2/posts/concrete-diagnostician/textbook-investigation/article.mdx",
+    ".local/r2/posts/concrete-diagnostician/textbook-assessment/article.mdx",
+    ".local/r2/posts/concrete-diagnostician/textbook-repair/article.mdx",
+    ".local/r2/posts/concrete-diagnostician/textbook-maintenance/article.mdx",
+    ".local/r2/posts/concrete-diagnostician/textbook-variation/article.mdx",
+    ".local/r2/posts/concrete-diagnostician/primary-exercise-01/article.mdx",
+    ".local/r2/posts/concrete-diagnostician/primary-exercise-02/article.mdx",
+    ".local/r2/posts/concrete-diagnostician/primary-exercise-03/article.mdx",
+    ".local/r2/posts/concrete-diagnostician/primary-exercise-04/article.mdx",
+    ".local/r2/posts/concrete-diagnostician/primary-exercise-05/article.mdx",
+    ".local/r2/posts/concrete-diagnostician/primary-exercise-06/article.mdx",
+    ".local/r2/posts/concrete-diagnostician/primary-exercise-07/article.mdx",
+    ".local/r2/posts/concrete-diagnostician/primary-exercise-08/article.mdx"
+  ]
+}
