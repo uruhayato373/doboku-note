@@ -1,0 +1,58 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="作業主任者の選任が必要な代表的な作業。高さで決まるものは地山の掘削が掘削面の高さ 2 メートル以上、足場の組立て等とコンクリート造の工作物の解体等が高さ 5 メートル以上。作業の種類で決まるものは土止め支保工の切りばり・腹起しの取付け・取外しと、型枠支保工の組立て・解体">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-grp  { font-size: 11px; font-weight: bold; fill: #555; }
+      .t-work { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-detl { font-size: 11px; fill: #222; }
+      .t-tag  { font-size: 12px; font-weight: bold; fill: #222; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .row { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .tag2 { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .tag5 { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">高さで決まるものと、作業の種類で決まるものがある</text>
+
+  <text class="t-grp" x="24" y="44">高さで決まる</text>
+  <rect class="row" x="20" y="52" width="360" height="36" rx="4"/>
+  <text class="t-work" x="32" y="76">地山の掘削</text>
+  <rect class="tag2" x="282" y="58" width="88" height="24" rx="4"/>
+  <text class="t-tag" x="326" y="75" text-anchor="middle">2 m 以上</text>
+
+  <rect class="row" x="20" y="92" width="360" height="36" rx="4"/>
+  <text class="t-work" x="32" y="116">足場の組立て等</text>
+  <rect class="tag5" x="282" y="98" width="88" height="24" rx="4"/>
+  <text class="t-tag" x="326" y="115" text-anchor="middle">5 m 以上</text>
+
+  <rect class="row" x="20" y="132" width="360" height="36" rx="4"/>
+  <text class="t-work" x="32" y="156">コンクリート造の工作物の解体等</text>
+  <rect class="tag5" x="282" y="138" width="88" height="24" rx="4"/>
+  <text class="t-tag" x="326" y="155" text-anchor="middle">5 m 以上</text>
+
+  <text class="t-grp" x="24" y="192">作業の種類で決まる</text>
+  <rect class="row" x="20" y="200" width="360" height="36" rx="4"/>
+  <text class="t-work" x="32" y="224">土止め支保工</text>
+  <text class="t-detl" x="120" y="224">切りばり・腹起しの取付け・取外し</text>
+
+  <rect class="row" x="20" y="240" width="360" height="36" rx="4"/>
+  <text class="t-work" x="32" y="264">型枠支保工</text>
+  <text class="t-detl" x="120" y="264">組立て・解体</text>
+
+  <rect class="box-surf" x="20" y="300" width="360" height="182" rx="6"/>
+  <text class="t-sec" x="200" y="322" text-anchor="middle">読み取り方</text>
+  <line class="rule" x1="36" y1="331" x2="364" y2="331"/>
+  <text class="t-item" x="40" y="356">支保工は崩壊・倒壊が重大災害につながる</text>
+  <text class="t-item" x="40" y="380">型枠支保工では組立図を作成しこれに従って組み立てる</text>
+  <text class="t-item" x="40" y="404">土止め支保工は部材の取付け・取外しの手順と点検を定める</text>
+  <text class="t-item" x="40" y="428">2 m は地山の掘削だけ、5 m は足場と解体</text>
+  <text class="t-item" x="40" y="452">下の 2 つは規模ではなく作業そのもので選任が決まる</text>
+</svg>
