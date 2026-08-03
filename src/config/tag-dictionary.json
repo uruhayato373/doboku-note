@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-07-31T20:40:49.576Z",
+  "generated_at": "2026-08-03T05:11:28.675Z",
   "summary": {
     "total_mdx_files": 1115,
     "total_unique_tags": 173,
@@ -1389,7 +1389,7 @@
       ]
     },
     {
-      "name": "建設部門",
+      "name": "技術士（第二次試験）",
       "count": 128,
       "inAllowlist": false,
       "usedIn": [
@@ -1397,6 +1397,7 @@
         "pe-construction-bousai-genseigai-ronbun-keyword",
         "pe-construction-carbon-neutral-kensetsu",
         "pe-construction-chiiki-dukuri-ronbun-keyword",
+        "pe-construction-competency-revision-r8",
         "pe-construction-construction-environment-ronbun-keyword",
         "pe-construction-construction-planning-exam-themes",
         "pe-construction-construction-planning-ronbun-keyword",
@@ -1404,7 +1405,6 @@
         "pe-construction-environment-exam-themes",
         "pe-construction-gakushuu-jikan-schedule",
         "pe-construction-geotechnical-exam-themes",
-        "pe-construction-guide-required-essay",
         "pe-construction-gyoumu-keireki-hyou",
         "pe-construction-hissu-kamoku-kaitourei",
         "pe-construction-iji-kanri-ronbun-keyword",
@@ -1524,7 +1524,7 @@
       ]
     },
     {
-      "name": "技術士（第二次試験）",
+      "name": "建設部門",
       "count": 128,
       "inAllowlist": false,
       "usedIn": [
@@ -1532,7 +1532,6 @@
         "pe-construction-bousai-genseigai-ronbun-keyword",
         "pe-construction-carbon-neutral-kensetsu",
         "pe-construction-chiiki-dukuri-ronbun-keyword",
-        "pe-construction-competency-revision-r8",
         "pe-construction-construction-environment-ronbun-keyword",
         "pe-construction-construction-planning-exam-themes",
         "pe-construction-construction-planning-ronbun-keyword",
@@ -1540,6 +1539,7 @@
         "pe-construction-environment-exam-themes",
         "pe-construction-gakushuu-jikan-schedule",
         "pe-construction-geotechnical-exam-themes",
+        "pe-construction-guide-required-essay",
         "pe-construction-gyoumu-keireki-hyou",
         "pe-construction-hissu-kamoku-kaitourei",
         "pe-construction-iji-kanri-ronbun-keyword",
@@ -2124,6 +2124,52 @@
       ]
     },
     {
+      "name": "道路",
+      "count": 16,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-essay-pattern-cross-year-application",
+        "pe-comprehensive-management-pattern-essay-road-municipality",
+        "pe-comprehensive-management-r03-essay-road-municipality",
+        "pe-comprehensive-management-r04-essay-road-municipality",
+        "pe-comprehensive-management-r05-essay-road-municipality",
+        "pe-comprehensive-management-r06-essay-road-municipality",
+        "pe-comprehensive-management-r07-essay-road-municipality",
+        "pe-construction-r01-road",
+        "pe-construction-r02-road",
+        "pe-construction-r03-road",
+        "pe-construction-r04-road",
+        "pe-construction-r05-road",
+        "pe-construction-r06-road",
+        "pe-construction-r07-road",
+        "pe-construction-road-exam-themes",
+        "pe-construction-road-ronbun-keyword"
+      ]
+    },
+    {
+      "name": "必須科目",
+      "count": 16,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-construction-bosai-kokudo-kyoujinka",
+        "pe-construction-bousai-genseigai-ronbun-keyword",
+        "pe-construction-chiiki-dukuri-ronbun-keyword",
+        "pe-construction-datsutanso-kankyo-ronbun-keyword",
+        "pe-construction-hissu-kamoku-kaitourei",
+        "pe-construction-iji-kanri-ronbun-keyword",
+        "pe-construction-ninaite-dx-ronbun-keyword",
+        "pe-construction-r01-required",
+        "pe-construction-r02-required",
+        "pe-construction-r03-required",
+        "pe-construction-r04-required",
+        "pe-construction-r05-required",
+        "pe-construction-r06-required",
+        "pe-construction-r07-required",
+        "pe-construction-required-exam-themes",
+        "pe-construction-shakai-shihon-ronbun-keyword"
+      ]
+    },
+    {
       "name": "令和2年度",
       "count": 16,
       "inAllowlist": true,
@@ -2259,52 +2305,6 @@
         "pe-first-stage-r07-aptitude",
         "pe-first-stage-r07-basic",
         "pe-first-stage-r07-construction"
-      ]
-    },
-    {
-      "name": "必須科目",
-      "count": 16,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-construction-bosai-kokudo-kyoujinka",
-        "pe-construction-bousai-genseigai-ronbun-keyword",
-        "pe-construction-chiiki-dukuri-ronbun-keyword",
-        "pe-construction-datsutanso-kankyo-ronbun-keyword",
-        "pe-construction-hissu-kamoku-kaitourei",
-        "pe-construction-iji-kanri-ronbun-keyword",
-        "pe-construction-ninaite-dx-ronbun-keyword",
-        "pe-construction-r01-required",
-        "pe-construction-r02-required",
-        "pe-construction-r03-required",
-        "pe-construction-r04-required",
-        "pe-construction-r05-required",
-        "pe-construction-r06-required",
-        "pe-construction-r07-required",
-        "pe-construction-required-exam-themes",
-        "pe-construction-shakai-shihon-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "道路",
-      "count": 16,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-essay-pattern-cross-year-application",
-        "pe-comprehensive-management-pattern-essay-road-municipality",
-        "pe-comprehensive-management-r03-essay-road-municipality",
-        "pe-comprehensive-management-r04-essay-road-municipality",
-        "pe-comprehensive-management-r05-essay-road-municipality",
-        "pe-comprehensive-management-r06-essay-road-municipality",
-        "pe-comprehensive-management-r07-essay-road-municipality",
-        "pe-construction-r01-road",
-        "pe-construction-r02-road",
-        "pe-construction-r03-road",
-        "pe-construction-r04-road",
-        "pe-construction-r05-road",
-        "pe-construction-r06-road",
-        "pe-construction-r07-road",
-        "pe-construction-road-exam-themes",
-        "pe-construction-road-ronbun-keyword"
       ]
     },
     {
@@ -2509,22 +2509,6 @@
       ]
     },
     {
-      "name": "土質及び基礎",
-      "count": 9,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-construction-geotechnical-exam-themes",
-        "pe-construction-r01-geotechnical",
-        "pe-construction-r02-geotechnical",
-        "pe-construction-r03-geotechnical",
-        "pe-construction-r04-geotechnical",
-        "pe-construction-r05-geotechnical",
-        "pe-construction-r06-geotechnical",
-        "pe-construction-r07-geotechnical",
-        "pe-construction-soil-foundation-ronbun-keyword"
-      ]
-    },
-    {
       "name": "建設環境",
       "count": 9,
       "inAllowlist": false,
@@ -2557,22 +2541,6 @@
       ]
     },
     {
-      "name": "鉄道",
-      "count": 9,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-construction-r01-railway",
-        "pe-construction-r02-railway",
-        "pe-construction-r03-railway",
-        "pe-construction-r04-railway",
-        "pe-construction-r05-railway",
-        "pe-construction-r06-railway",
-        "pe-construction-r07-railway",
-        "pe-construction-railway-exam-themes",
-        "pe-construction-railway-ronbun-keyword"
-      ]
-    },
-    {
       "name": "鋼構造及びコンクリート",
       "count": 9,
       "inAllowlist": false,
@@ -2586,6 +2554,22 @@
         "pe-construction-r07-steel-concrete",
         "pe-construction-steel-concrete-exam-themes",
         "pe-construction-steel-concrete-ronbun-keyword"
+      ]
+    },
+    {
+      "name": "鉄道",
+      "count": 9,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-construction-r01-railway",
+        "pe-construction-r02-railway",
+        "pe-construction-r03-railway",
+        "pe-construction-r04-railway",
+        "pe-construction-r05-railway",
+        "pe-construction-r06-railway",
+        "pe-construction-r07-railway",
+        "pe-construction-railway-exam-themes",
+        "pe-construction-railway-ronbun-keyword"
       ]
     },
     {
@@ -2605,6 +2589,22 @@
       ]
     },
     {
+      "name": "土質及び基礎",
+      "count": 9,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-construction-geotechnical-exam-themes",
+        "pe-construction-r01-geotechnical",
+        "pe-construction-r02-geotechnical",
+        "pe-construction-r03-geotechnical",
+        "pe-construction-r04-geotechnical",
+        "pe-construction-r05-geotechnical",
+        "pe-construction-r06-geotechnical",
+        "pe-construction-r07-geotechnical",
+        "pe-construction-soil-foundation-ronbun-keyword"
+      ]
+    },
+    {
       "name": "頻出テーマ",
       "count": 9,
       "inAllowlist": false,
@@ -2618,21 +2618,6 @@
         "pe-construction-soil-foundation-ronbun-keyword",
         "pe-construction-steel-concrete-ronbun-keyword",
         "pe-construction-tunnel-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "施工計画、施工設備及び積算",
-      "count": 8,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-construction-construction-planning-exam-themes",
-        "pe-construction-r01-construction-planning",
-        "pe-construction-r02-construction-planning",
-        "pe-construction-r03-construction-planning",
-        "pe-construction-r04-construction-planning",
-        "pe-construction-r05-construction-planning",
-        "pe-construction-r06-construction-planning",
-        "pe-construction-r07-construction-planning"
       ]
     },
     {
@@ -2663,6 +2648,21 @@
         "pe-comprehensive-management-pdca-cycle",
         "pe-comprehensive-management-pfi",
         "pe-comprehensive-management-value-engineering"
+      ]
+    },
+    {
+      "name": "施工計画、施工設備及び積算",
+      "count": 8,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-construction-construction-planning-exam-themes",
+        "pe-construction-r01-construction-planning",
+        "pe-construction-r02-construction-planning",
+        "pe-construction-r03-construction-planning",
+        "pe-construction-r04-construction-planning",
+        "pe-construction-r05-construction-planning",
+        "pe-construction-r06-construction-planning",
+        "pe-construction-r07-construction-planning"
       ]
     },
     {
@@ -2738,17 +2738,17 @@
       ]
     },
     {
-      "name": "地方公共団体",
+      "name": "河川",
       "count": 7,
-      "inAllowlist": false,
+      "inAllowlist": true,
       "usedIn": [
-        "pe-comprehensive-management-essay-pattern-cross-year-application",
-        "pe-comprehensive-management-pattern-essay-road-municipality",
-        "pe-comprehensive-management-r03-essay-road-municipality",
-        "pe-comprehensive-management-r04-essay-road-municipality",
-        "pe-comprehensive-management-r05-essay-road-municipality",
-        "pe-comprehensive-management-r06-essay-road-municipality",
-        "pe-comprehensive-management-r07-essay-road-municipality"
+        "pe-comprehensive-management-pattern-essay-river-consultant",
+        "pe-comprehensive-management-r03-essay-river-consultant",
+        "pe-comprehensive-management-r04-essay-river-consultant",
+        "pe-comprehensive-management-r05-essay-river-consultant",
+        "pe-comprehensive-management-r06-essay-river-consultant",
+        "pe-comprehensive-management-r07-essay-river-consultant",
+        "pe-construction-river-coast-ronbun-keyword"
       ]
     },
     {
@@ -2763,6 +2763,20 @@
         "pe-first-stage-r05-basic",
         "pe-first-stage-r06-basic",
         "pe-first-stage-r07-basic"
+      ]
+    },
+    {
+      "name": "砂防",
+      "count": 7,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-pattern-essay-river-consultant",
+        "pe-comprehensive-management-r03-essay-river-consultant",
+        "pe-comprehensive-management-r04-essay-river-consultant",
+        "pe-comprehensive-management-r05-essay-river-consultant",
+        "pe-comprehensive-management-r06-essay-river-consultant",
+        "pe-comprehensive-management-r07-essay-river-consultant",
+        "pe-construction-river-coast-ronbun-keyword"
       ]
     },
     {
@@ -2794,31 +2808,17 @@
       ]
     },
     {
-      "name": "河川",
-      "count": 7,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-pattern-essay-river-consultant",
-        "pe-comprehensive-management-r03-essay-river-consultant",
-        "pe-comprehensive-management-r04-essay-river-consultant",
-        "pe-comprehensive-management-r05-essay-river-consultant",
-        "pe-comprehensive-management-r06-essay-river-consultant",
-        "pe-comprehensive-management-r07-essay-river-consultant",
-        "pe-construction-river-coast-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "砂防",
+      "name": "地方公共団体",
       "count": 7,
       "inAllowlist": false,
       "usedIn": [
-        "pe-comprehensive-management-pattern-essay-river-consultant",
-        "pe-comprehensive-management-r03-essay-river-consultant",
-        "pe-comprehensive-management-r04-essay-river-consultant",
-        "pe-comprehensive-management-r05-essay-river-consultant",
-        "pe-comprehensive-management-r06-essay-river-consultant",
-        "pe-comprehensive-management-r07-essay-river-consultant",
-        "pe-construction-river-coast-ronbun-keyword"
+        "pe-comprehensive-management-essay-pattern-cross-year-application",
+        "pe-comprehensive-management-pattern-essay-road-municipality",
+        "pe-comprehensive-management-r03-essay-road-municipality",
+        "pe-comprehensive-management-r04-essay-road-municipality",
+        "pe-comprehensive-management-r05-essay-road-municipality",
+        "pe-comprehensive-management-r06-essay-road-municipality",
+        "pe-comprehensive-management-r07-essay-road-municipality"
       ]
     },
     {
@@ -2996,16 +2996,6 @@
       ]
     },
     {
-      "name": "二次試験",
-      "count": 3,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-construction-gakushuu-jikan-schedule",
-        "pe-construction-nanido-goukakuritsu",
-        "pe-construction-secondary-study-method"
-      ]
-    },
-    {
       "name": "少子高齢化",
       "count": 3,
       "inAllowlist": false,
@@ -3016,16 +3006,6 @@
       ]
     },
     {
-      "name": "流域治水",
-      "count": 3,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-bosai-kokudo-kyoujinka",
-        "pe-construction-bousai-genseigai-ronbun-keyword",
-        "pe-construction-river-coast-ronbun-keyword"
-      ]
-    },
-    {
       "name": "生産性向上",
       "count": 3,
       "inAllowlist": false,
@@ -3033,6 +3013,26 @@
         "pe-construction-kensetsu-dx",
         "pe-construction-ninaite-dx-ronbun-keyword",
         "pe-construction-ninaite-kakuho-seisansei"
+      ]
+    },
+    {
+      "name": "二次試験",
+      "count": 3,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-construction-gakushuu-jikan-schedule",
+        "pe-construction-nanido-goukakuritsu",
+        "pe-construction-secondary-study-method"
+      ]
+    },
+    {
+      "name": "流域治水",
+      "count": 3,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-construction-bosai-kokudo-kyoujinka",
+        "pe-construction-bousai-genseigai-ronbun-keyword",
+        "pe-construction-river-coast-ronbun-keyword"
       ]
     },
     {
@@ -3117,12 +3117,39 @@
       ]
     },
     {
-      "name": "予防保全",
+      "name": "維持管理",
       "count": 2,
       "inAllowlist": false,
       "usedIn": [
         "pe-construction-iji-kanri-ronbun-keyword",
         "pe-construction-infra-roukyuuka-iji"
+      ]
+    },
+    {
+      "name": "学習計画",
+      "count": 2,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-construction-gakushuu-jikan-schedule",
+        "pe-construction-secondary-study-method"
+      ]
+    },
+    {
+      "name": "記述式",
+      "count": 2,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-essay-exam-strategy",
+        "pe-construction-pe-secondary-essay-guide"
+      ]
+    },
+    {
+      "name": "建設DX",
+      "count": 2,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-construction-kensetsu-dx",
+        "pe-construction-ninaite-dx-ronbun-keyword"
       ]
     },
     {
@@ -3144,66 +3171,12 @@
       ]
     },
     {
-      "name": "地域づくり",
-      "count": 2,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-construction-chiiki-dukuri-ronbun-keyword",
-        "pe-construction-kokudo-keisei-chiiki"
-      ]
-    },
-    {
-      "name": "学習計画",
-      "count": 2,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-construction-gakushuu-jikan-schedule",
-        "pe-construction-secondary-study-method"
-      ]
-    },
-    {
-      "name": "建設DX",
-      "count": 2,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-construction-kensetsu-dx",
-        "pe-construction-ninaite-dx-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "担い手確保",
-      "count": 2,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-construction-ninaite-dx-ronbun-keyword",
-        "pe-construction-ninaite-kakuho-seisansei"
-      ]
-    },
-    {
       "name": "社会資本整備",
       "count": 2,
       "inAllowlist": false,
       "usedIn": [
         "pe-construction-kokudo-keisei-chiiki",
         "pe-construction-shakai-shihon-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "立地適正化",
-      "count": 2,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-construction-chiiki-dukuri-ronbun-keyword",
-        "pe-construction-urban-planning-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "維持管理",
-      "count": 2,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-construction-iji-kanri-ronbun-keyword",
-        "pe-construction-infra-roukyuuka-iji"
       ]
     },
     {
@@ -3216,12 +3189,21 @@
       ]
     },
     {
-      "name": "記述式",
+      "name": "担い手確保",
       "count": 2,
-      "inAllowlist": true,
+      "inAllowlist": false,
       "usedIn": [
-        "pe-comprehensive-management-essay-exam-strategy",
-        "pe-construction-pe-secondary-essay-guide"
+        "pe-construction-ninaite-dx-ronbun-keyword",
+        "pe-construction-ninaite-kakuho-seisansei"
+      ]
+    },
+    {
+      "name": "地域づくり",
+      "count": 2,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-construction-chiiki-dukuri-ronbun-keyword",
+        "pe-construction-kokudo-keisei-chiiki"
       ]
     },
     {
@@ -3231,6 +3213,24 @@
       "usedIn": [
         "pe-construction-bosai-kokudo-kyoujinka",
         "pe-construction-bousai-genseigai-ronbun-keyword"
+      ]
+    },
+    {
+      "name": "予防保全",
+      "count": 2,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-construction-iji-kanri-ronbun-keyword",
+        "pe-construction-infra-roukyuuka-iji"
+      ]
+    },
+    {
+      "name": "立地適正化",
+      "count": 2,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-construction-chiiki-dukuri-ronbun-keyword",
+        "pe-construction-urban-planning-ronbun-keyword"
       ]
     },
     {
@@ -3482,67 +3482,99 @@
       ]
     },
     {
-      "name": "人的資源管理",
+      "name": "安全管理",
       "count": 1,
       "inAllowlist": true,
       "usedIn": [
-        "pe-comprehensive-management-human-resource-management-pillar"
+        "pe-comprehensive-management-safety-management-pillar"
       ]
     },
     {
-      "name": "働き方改革",
+      "name": "課題抽出",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-construction-toan-kousei-template"
+      ]
+    },
+    {
+      "name": "過去問",
       "count": 1,
       "inAllowlist": true,
       "usedIn": [
-        "pe-construction-ninaite-kakuho-seisansei"
+        "pe-comprehensive-management-frequent-topics"
       ]
     },
     {
-      "name": "出願",
+      "name": "解答例",
       "count": 1,
       "inAllowlist": false,
       "usedIn": [
-        "pe-comprehensive-management-exam-application-guide"
+        "pe-construction-hissu-kamoku-kaitourei"
       ]
     },
     {
-      "name": "勉強時間",
+      "name": "海岸",
       "count": 1,
       "inAllowlist": false,
       "usedIn": [
-        "pe-construction-gakushuu-jikan-schedule"
+        "pe-construction-river-coast-ronbun-keyword"
       ]
     },
     {
-      "name": "勉強法",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-construction-secondary-study-method"
-      ]
-    },
-    {
-      "name": "参考資料",
+      "name": "環境保全",
       "count": 1,
       "inAllowlist": true,
       "usedIn": [
-        "pe-comprehensive-management-whitepaper-study-map"
+        "pe-construction-datsutanso-kankyo-ronbun-keyword"
       ]
     },
     {
-      "name": "受験対策",
+      "name": "気候変動適応",
       "count": 1,
       "inAllowlist": false,
       "usedIn": [
-        "pe-construction-nanido-goukakuritsu"
+        "pe-comprehensive-management-r8-essay-theme-climate-adaptation"
       ]
     },
     {
-      "name": "受験申込",
+      "name": "記述式試験",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-last-minute-2026"
+      ]
+    },
+    {
+      "name": "技術士第二次試験",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-construction-guide-required-essay"
+      ]
+    },
+    {
+      "name": "業務経歴票",
       "count": 1,
       "inAllowlist": false,
       "usedIn": [
         "pe-construction-gyoumu-keireki-hyou"
+      ]
+    },
+    {
+      "name": "業務内容の詳細",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-construction-gyoumu-keireki-hyou"
+      ]
+    },
+    {
+      "name": "経済安全保障",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-r8-essay-theme-economic-security"
       ]
     },
     {
@@ -3562,51 +3594,19 @@
       ]
     },
     {
-      "name": "多面的観点",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-construction-toan-kousei-template"
-      ]
-    },
-    {
-      "name": "安全管理",
+      "name": "索引",
       "count": 1,
       "inAllowlist": true,
       "usedIn": [
-        "pe-comprehensive-management-safety-management-pillar"
+        "pe-comprehensive-management-exam-index"
       ]
     },
     {
-      "name": "循環経済",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-r8-essay-theme-circular-economy"
-      ]
-    },
-    {
-      "name": "必須科目I",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-construction-guide-required-essay"
-      ]
-    },
-    {
-      "name": "情報管理",
+      "name": "参考資料",
       "count": 1,
       "inAllowlist": true,
       "usedIn": [
-        "pe-comprehensive-management-information-management-pillar"
-      ]
-    },
-    {
-      "name": "技術士第二次試験",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-construction-guide-required-essay"
+        "pe-comprehensive-management-whitepaper-study-map"
       ]
     },
     {
@@ -3615,78 +3615,6 @@
       "inAllowlist": true,
       "usedIn": [
         "pe-construction-construction-planning-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "業務内容の詳細",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-construction-gyoumu-keireki-hyou"
-      ]
-    },
-    {
-      "name": "業務経歴票",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-construction-gyoumu-keireki-hyou"
-      ]
-    },
-    {
-      "name": "模範解答",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-construction-hissu-kamoku-kaitourei"
-      ]
-    },
-    {
-      "name": "気候変動適応",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-r8-essay-theme-climate-adaptation"
-      ]
-    },
-    {
-      "name": "流用戦略",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-essay-pattern-cross-year-application"
-      ]
-    },
-    {
-      "name": "海岸",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-construction-river-coast-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "独学",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-construction-secondary-study-method"
-      ]
-    },
-    {
-      "name": "環境保全",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-datsutanso-kankyo-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "直前対策",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-last-minute-2026"
       ]
     },
     {
@@ -3706,6 +3634,78 @@
       ]
     },
     {
+      "name": "受験申込",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-construction-gyoumu-keireki-hyou"
+      ]
+    },
+    {
+      "name": "受験対策",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-construction-nanido-goukakuritsu"
+      ]
+    },
+    {
+      "name": "出願",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-exam-application-guide"
+      ]
+    },
+    {
+      "name": "循環経済",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-r8-essay-theme-circular-economy"
+      ]
+    },
+    {
+      "name": "情報管理",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-information-management-pillar"
+      ]
+    },
+    {
+      "name": "人的資源管理",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-human-resource-management-pillar"
+      ]
+    },
+    {
+      "name": "多面的観点",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-construction-toan-kousei-template"
+      ]
+    },
+    {
+      "name": "直前対策",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-last-minute-2026"
+      ]
+    },
+    {
+      "name": "都市計画",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-construction-urban-planning-ronbun-keyword"
+      ]
+    },
+    {
       "name": "答案の書き方",
       "count": 1,
       "inAllowlist": false,
@@ -3722,27 +3722,35 @@
       ]
     },
     {
-      "name": "索引",
+      "name": "働き方改革",
       "count": 1,
       "inAllowlist": true,
       "usedIn": [
-        "pe-comprehensive-management-exam-index"
+        "pe-construction-ninaite-kakuho-seisansei"
       ]
     },
     {
-      "name": "経済安全保障",
+      "name": "独学",
       "count": 1,
       "inAllowlist": false,
       "usedIn": [
-        "pe-comprehensive-management-r8-essay-theme-economic-security"
+        "pe-construction-secondary-study-method"
       ]
     },
     {
-      "name": "老朽化インフラ",
+      "name": "難易度",
       "count": 1,
       "inAllowlist": false,
       "usedIn": [
-        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance"
+        "pe-construction-nanido-goukakuritsu"
+      ]
+    },
+    {
+      "name": "必須科目I",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-construction-guide-required-essay"
       ]
     },
     {
@@ -3754,7 +3762,23 @@
       ]
     },
     {
-      "name": "解答例",
+      "name": "勉強時間",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-construction-gakushuu-jikan-schedule"
+      ]
+    },
+    {
+      "name": "勉強法",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-construction-secondary-study-method"
+      ]
+    },
+    {
+      "name": "模範解答",
       "count": 1,
       "inAllowlist": false,
       "usedIn": [
@@ -3762,35 +3786,19 @@
       ]
     },
     {
-      "name": "記述式試験",
+      "name": "流用戦略",
       "count": 1,
       "inAllowlist": false,
       "usedIn": [
-        "pe-comprehensive-management-last-minute-2026"
+        "pe-comprehensive-management-essay-pattern-cross-year-application"
       ]
     },
     {
-      "name": "課題抽出",
+      "name": "老朽化インフラ",
       "count": 1,
       "inAllowlist": false,
       "usedIn": [
-        "pe-construction-toan-kousei-template"
-      ]
-    },
-    {
-      "name": "論文テンプレート",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-construction-toan-kousei-template"
-      ]
-    },
-    {
-      "name": "論文の書き方",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-construction-pe-secondary-essay-guide"
+        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance"
       ]
     },
     {
@@ -3810,73 +3818,65 @@
       ]
     },
     {
-      "name": "過去問",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-frequent-topics"
-      ]
-    },
-    {
-      "name": "都市計画",
+      "name": "論文テンプレート",
       "count": 1,
       "inAllowlist": false,
       "usedIn": [
-        "pe-construction-urban-planning-ronbun-keyword"
+        "pe-construction-toan-kousei-template"
       ]
     },
     {
-      "name": "難易度",
+      "name": "論文の書き方",
       "count": 1,
       "inAllowlist": false,
       "usedIn": [
-        "pe-construction-nanido-goukakuritsu"
+        "pe-construction-pe-secondary-essay-guide"
       ]
     }
   ],
   "unknown": [
-    "建設部門",
     "技術士（第二次試験）",
+    "建設部門",
     "模範論文",
     "受験者属性別",
     "必須科目",
     "過去問分析",
     "選択科目",
-    "土質及び基礎",
     "建設環境",
     "港湾及び空港",
-    "鉄道",
     "鋼構造及びコンクリート",
+    "鉄道",
     "電力土木",
+    "土質及び基礎",
     "頻出テーマ",
-    "施工計画、施工設備及び積算",
     "河川、砂防及び海岸・海洋",
+    "施工計画、施工設備及び積算",
     "都市及び地方計画",
-    "地方公共団体",
     "砂防",
+    "地方公共団体",
     "ゼネコン",
     "建設コンサル",
     "施工",
     "SWOT分析",
     "コンパクトシティ",
     "データ利活用",
-    "二次試験",
     "少子高齢化",
     "生産性向上",
+    "二次試験",
     "アセットマネジメント",
     "グリーンインフラ",
-    "予防保全",
-    "国土強靱化",
-    "国土形成計画",
-    "地域づくり",
+    "維持管理",
     "学習計画",
     "建設DX",
-    "担い手確保",
+    "国土強靱化",
+    "国土形成計画",
     "社会資本整備",
-    "立地適正化",
-    "維持管理",
     "脱炭素",
+    "担い手確保",
+    "地域づくり",
     "防災",
+    "予防保全",
+    "立地適正化",
     "2026年版",
     "AI ガバナンス",
     "BIM/CIM",
@@ -3890,40 +3890,40 @@
     "コンピテンシー",
     "スケジュール",
     "まちづくり",
-    "出願",
-    "勉強時間",
-    "勉強法",
-    "受験対策",
-    "受験申込",
+    "課題抽出",
+    "解答例",
+    "海岸",
+    "気候変動適応",
+    "記述式試験",
+    "技術士第二次試験",
+    "業務経歴票",
+    "業務内容の詳細",
+    "経済安全保障",
     "口頭試験",
     "合格率",
-    "多面的観点",
-    "循環経済",
-    "必須科目I",
-    "技術士第二次試験",
-    "業務内容の詳細",
-    "業務経歴票",
-    "模範解答",
-    "気候変動適応",
-    "流用戦略",
-    "海岸",
-    "独学",
-    "直前対策",
     "社会資本整備重点計画",
+    "受験申込",
+    "受験対策",
+    "出願",
+    "循環経済",
+    "多面的観点",
+    "直前対策",
+    "都市計画",
     "答案の書き方",
     "答案構成",
-    "経済安全保障",
-    "老朽化インフラ",
+    "独学",
+    "難易度",
+    "必須科目I",
     "複合災害",
-    "解答例",
-    "記述式試験",
-    "課題抽出",
-    "論文テンプレート",
-    "論文の書き方",
+    "勉強時間",
+    "勉強法",
+    "模範解答",
+    "流用戦略",
+    "老朽化インフラ",
     "論述の型",
     "論述対策",
-    "都市計画",
-    "難易度"
+    "論文テンプレート",
+    "論文の書き方"
   ],
   "typo_candidates": [
     {
