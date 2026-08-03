@@ -1,0 +1,55 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="計画 S 字曲線と実施 S 字曲線の対比。累計出来高を同一グラフに重ねて描き、実施線が計画線より下にあれば遅れ、上にあれば進みすぎと判定する。両線の縦の開きがその時点までの遅れの累積を表す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-axis { font-size: 11px; fill: #555; }
+      .t-plan { font-size: 11px; font-weight: bold; fill: #2e6da4; }
+      .t-act  { font-size: 11px; font-weight: bold; fill: #b22234; }
+      .t-gap  { font-size: 11px; font-weight: bold; fill: #b22234; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .axis { stroke: #222; stroke-width: 1.5; fill: none; }
+      .plan { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+      .act  { stroke: #b22234; stroke-width: 2.5; fill: none; }
+      .gap  { stroke: #b22234; stroke-width: 1.5; fill: none; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="sc-ax" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#222"/>
+    </marker>
+    <marker id="sc-g" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#b22234"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">累計で見るから遅れの積み重なりがわかる</text>
+
+  <line class="axis" x1="60" y1="270" x2="378" y2="270" marker-end="url(#sc-ax)"/>
+  <line class="axis" x1="60" y1="270" x2="60" y2="52" marker-end="url(#sc-ax)"/>
+
+  <path class="plan" d="M 60,270 L 89,264 L 119,250 L 148,226 L 178,194 L 207,160 L 237,130 L 266,106 L 296,90 L 325,78 L 355,70"/>
+  <path class="act" d="M 60,270 L 89,266 L 119,256 L 148,240 L 178,216 L 207,190 L 237,162 L 266,134"/>
+
+  <line class="gap" x1="237" y1="146" x2="237" y2="133" marker-end="url(#sc-g)"/>
+  <line class="gap" x1="237" y1="146" x2="237" y2="161" marker-end="url(#sc-g)"/>
+  <text class="t-gap" x="247" y="150">遅れ</text>
+
+  <text class="t-plan" x="332" y="60" text-anchor="middle">計画</text>
+  <text class="t-act" x="285" y="120">実施</text>
+
+  <text class="t-axis" x="58" y="46">累計出来高 %</text>
+  <text class="t-axis" x="374" y="292" text-anchor="end">時間経過</text>
+
+  <rect class="box-surf" x="20" y="320" width="360" height="162" rx="6"/>
+  <text class="t-sec" x="200" y="342" text-anchor="middle">読み取り方</text>
+  <line class="rule" x1="36" y1="351" x2="364" y2="351"/>
+  <text class="t-item" x="40" y="376">計画線と実施線を同一グラフに描いて対比する</text>
+  <text class="t-item" x="40" y="400">実施が計画より上＝進みすぎ、下＝遅れ</text>
+  <text class="t-item" x="40" y="424">初期は仮設・準備、終盤は仕上げ・検査で伸びにくい</text>
+  <text class="t-item" x="40" y="448">バナナ曲線と判定は同じだが累計を見る点が違う</text>
+</svg>
