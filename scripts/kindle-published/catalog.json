@@ -240,6 +240,29 @@
       ]
     },
     {
+      "id": "e-02",
+      "asin": null,
+      "title": "1級土木施工管理技士 第1次検定 過去問完全解説【平成26〜令和7年度 全年度】",
+      "subtitle": "平成26〜令和7年度 全1162問",
+      "series": "E 土木施工管理 過去問合本",
+      "priceJpy": 1980,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-pe1-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/e-02.json",
+      "epub": "kindle-dist/e-02.epub",
+      "cover": "kindle-dist/e-02.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_e-02.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-08-03",
+          "change": "制作完了(EPUB 1162問+図版109点+前付け+表紙)・KDP提出待ち"
+        }
+      ]
+    },
+    {
       "id": "b-reiwa",
       "asin": "B0H94Y52ZL",
       "title": "技術士総合技術監理部門 択一過去問 令和元〜令和7年度完全解説【合本】",
