@@ -1,0 +1,52 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="手掘り掘削における地山の種類ごとの勾配と高さの基準。砂からなる地山は勾配 35 度以下または高さ 5 メートル未満、発破などで崩れやすい地山は勾配 45 度以下または高さ 2 メートル未満とされる。急な勾配が許される地山ほど、許される高さは低く抑えられる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-crit { font-size: 11px; fill: #222; }
+      .t-dim  { font-size: 11px; font-weight: bold; fill: #b22234; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .soil { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .arc { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ref { stroke: #2e6da4; stroke-width: 1; stroke-dasharray: 4 3; }
+      .dim { stroke: #b22234; stroke-width: 1.2; fill: none; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="ex-d" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#b22234"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">急な勾配が許される地山ほど高さは低く抑える</text>
+
+  <text class="t-name" x="30" y="60">砂からなる地山</text>
+  <polygon class="soil" points="100,70 190,70 276,130 350,130 350,146 100,146"/>
+  <line class="ref" x1="190" y1="70" x2="248" y2="70"/>
+  <path class="arc" d="M 226,70 A 36,36 0 0 1 219.5,90.6"/>
+  <line class="dim" x1="292" y1="70" x2="292" y2="130" marker-start="url(#ex-d)" marker-end="url(#ex-d)"/>
+  <text class="t-dim" x="300" y="104">5 m</text>
+  <text class="t-crit" x="100" y="168">勾配 35 度以下　または　高さ 5 m 未満</text>
+
+  <text class="t-name" x="30" y="188">発破などで崩れやすい地山</text>
+  <polygon class="soil" points="100,198 190,198 220,228 350,228 350,244 100,244"/>
+  <line class="ref" x1="190" y1="198" x2="234" y2="198"/>
+  <path class="arc" d="M 216,198 A 26,26 0 0 1 208.4,216.4"/>
+  <line class="dim" x1="238" y1="198" x2="238" y2="228" marker-start="url(#ex-d)" marker-end="url(#ex-d)"/>
+  <text class="t-dim" x="246" y="216">2 m</text>
+  <text class="t-crit" x="100" y="266">勾配 45 度以下　または　高さ 2 m 未満</text>
+
+  <rect class="box-surf" x="20" y="290" width="360" height="192" rx="6"/>
+  <text class="t-sec" x="200" y="312" text-anchor="middle">読み取り方</text>
+  <line class="rule" x1="36" y1="321" x2="364" y2="321"/>
+  <text class="t-item" x="40" y="346">明り掘削では掘削面の崩壊が最大の危険</text>
+  <text class="t-item" x="40" y="372">点検者を指名し作業前や大雨・地震の後に地山を点検する</text>
+  <text class="t-item" x="40" y="398">掘削機械と労働者の接触を防ぐ</text>
+  <text class="t-item" x="40" y="424">必要に応じて土止め支保工を設ける</text>
+  <text class="t-item" x="40" y="450">青い弧が勾配、赤い矢印が掘削面の高さ</text>
+</svg>

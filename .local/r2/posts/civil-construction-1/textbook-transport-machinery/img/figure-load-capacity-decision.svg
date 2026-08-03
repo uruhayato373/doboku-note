@@ -1,0 +1,57 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="ダンプトラックの1回の積載土量の決め方。重量による制約から求めた値と荷台の平積容量を比較し、小さい方を1回の積載土量とする。計算例では8トン級で重量制約5.05立方メートルが平積容量5.26立方メートルより小さいため5.05を採用する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-form { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-def  { font-size: 11px; fill: #555; }
+      .t-band { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-res  { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .card { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .band { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .res  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">2つの制約を計算し、小さい方を採用する</text>
+
+  <rect class="card" x="20" y="28" width="172" height="150" rx="6"/>
+  <text class="t-name" x="106" y="52" text-anchor="middle">重量による制約</text>
+  <line class="rule" x1="32" y1="62" x2="180" y2="62"/>
+  <text class="t-form" x="106" y="86" text-anchor="middle">V ＝ (T ÷ γ') × L</text>
+  <text class="t-def" x="106" y="110" text-anchor="middle">T：最大積載質量</text>
+  <text class="t-def" x="106" y="128" text-anchor="middle">γ'：地山の湿潤密度</text>
+  <text class="t-def" x="106" y="146" text-anchor="middle">L：土量変化率</text>
+  <text class="t-def" x="106" y="168" text-anchor="middle">公道を利用する場合</text>
+
+  <rect class="card" x="208" y="28" width="172" height="150" rx="6"/>
+  <text class="t-name" x="294" y="52" text-anchor="middle">容量による制約</text>
+  <line class="rule" x1="220" y1="62" x2="368" y2="62"/>
+  <text class="t-form" x="294" y="88" text-anchor="middle">荷台の平積容量</text>
+  <text class="t-def" x="294" y="114" text-anchor="middle">ダンプトラックの</text>
+  <text class="t-def" x="294" y="132" text-anchor="middle">規格ごとに定まる</text>
+  <text class="t-def" x="294" y="168" text-anchor="middle">載荷の形状は別途考慮</text>
+
+  <rect class="band" x="20" y="190" width="360" height="34" rx="6"/>
+  <text class="t-band" x="200" y="212" text-anchor="middle">両者を比較して小さい方を採用する</text>
+
+  <rect class="res" x="20" y="234" width="360" height="66" rx="6"/>
+  <text class="t-res" x="200" y="262" text-anchor="middle">1回の積載土量 C</text>
+  <text class="t-item" x="200" y="286" text-anchor="middle">山積（過積載）は許されない</text>
+
+  <rect class="box-surf" x="20" y="314" width="360" height="168" rx="6"/>
+  <text class="t-sec" x="200" y="338" text-anchor="middle">計算例（8 t級・γ' = 1.9 t/m³・L = 1.2）</text>
+  <line class="rule" x1="36" y1="347" x2="364" y2="347"/>
+  <text class="t-item" x="40" y="374">重量による制約　V ＝ (8 ÷ 1.9) × 1.2 ＝ 5.05 m³</text>
+  <text class="t-item" x="40" y="402">容量による制約　平積容量 ＝ 5.26 m³</text>
+  <text class="t-item" x="40" y="430">5.05 &lt; 5.26 なので</text>
+  <text class="t-sec" x="200" y="462" text-anchor="middle">1回の積載土量 C ＝ 5.05 m³</text>
+</svg>

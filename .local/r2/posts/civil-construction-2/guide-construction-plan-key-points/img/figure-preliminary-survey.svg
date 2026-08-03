@@ -1,0 +1,57 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="事前調査の区分。事前調査は契約条件の確認、設計図書の確認、現場条件の調査に分かれ、現場条件はさらに自然条件と立地条件の二つに分かれる。契約条件では工期や請負代金など、設計図書では図面や仕様書など、自然条件では地形や地質など、立地条件では搬入路や近接構造物などを確認する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-hdr  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-grp  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub  { font-size: 11px; font-weight: bold; fill: #3a7d44; }
+      .t-detl { font-size: 11px; fill: #222; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .hdr { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .grp { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .sub { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.2; }
+      .arw { stroke: #1a3a5c; stroke-width: 1.5; fill: none; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="ps-a" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#1a3a5c"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">現場条件だけが二段になっているのが構造の要点</text>
+
+  <rect class="hdr" x="140" y="30" width="120" height="30" rx="4"/>
+  <text class="t-hdr" x="200" y="50" text-anchor="middle">事前調査</text>
+  <line class="arw" x1="200" y1="60" x2="200" y2="74" marker-end="url(#ps-a)"/>
+
+  <rect class="grp" x="20" y="80" width="360" height="44" rx="4"/>
+  <text class="t-grp" x="32" y="107">契約条件</text>
+  <text class="t-detl" x="120" y="107">工期・請負代金・数量の増減・かし担保</text>
+
+  <rect class="grp" x="20" y="132" width="360" height="44" rx="4"/>
+  <text class="t-grp" x="32" y="159">設計図書</text>
+  <text class="t-detl" x="120" y="159">図面・仕様書・現場説明書</text>
+
+  <rect class="grp" x="20" y="184" width="360" height="108" rx="4"/>
+  <text class="t-grp" x="32" y="206">現場条件</text>
+  <rect class="sub" x="36" y="216" width="328" height="32" rx="3"/>
+  <text class="t-sub" x="48" y="236">自然条件</text>
+  <text class="t-detl" x="124" y="236">地形・地質・地下水・気象</text>
+  <rect class="sub" x="36" y="252" width="328" height="32" rx="3"/>
+  <text class="t-sub" x="48" y="272">立地条件</text>
+  <text class="t-detl" x="124" y="272">搬入路・近接構造物・電力/用水・環境制約</text>
+
+  <rect class="box-surf" x="20" y="310" width="360" height="172" rx="6"/>
+  <text class="t-sec" x="200" y="332" text-anchor="middle">読み取り方</text>
+  <line class="rule" x1="36" y1="341" x2="364" y2="341"/>
+  <text class="t-item" x="40" y="366">把握漏れは後の手戻りや原価超過につながる</text>
+  <text class="t-item" x="40" y="392">現場条件は机上の資料だけでなく現地踏査で確認する</text>
+  <text class="t-item" x="40" y="418">搬入路の幅員や地下埋設物は現地で初めて分かる</text>
+  <text class="t-item" x="40" y="444">得た条件は基本計画・詳細計画の前提になり記録して残す</text>
+</svg>

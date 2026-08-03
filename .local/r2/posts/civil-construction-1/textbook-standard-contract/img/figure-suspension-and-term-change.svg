@@ -1,0 +1,66 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="工事の一時中止と工期の変更。中止は発注者が行い、受注者の責めによらない理由のときは中止させなければならず、必要と認めるときは中止させることができる。工期の延長は受注者が請求し、短縮は発注者が請求する。変更内容は協議し、整わないときは発注者が定めて通知する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-bar  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-name { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-who  { font-size: 11px; font-weight: bold; fill: #2e6da4; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .bar-1 { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .bar-2 { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .card { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">行為ごとに「誰が行うか・請求できるか」が決まっている</text>
+
+  <rect class="bar-1" x="20" y="28" width="360" height="28" rx="6"/>
+  <text class="t-bar" x="32" y="47">工事の一時中止 — 行うのは発注者</text>
+
+  <rect class="card" x="20" y="62" width="172" height="104" rx="6"/>
+  <text class="t-name" x="106" y="86" text-anchor="middle">しなければ</text>
+  <text class="t-name" x="106" y="104" text-anchor="middle">ならない</text>
+  <line class="rule" x1="32" y1="114" x2="180" y2="114"/>
+  <text class="t-desc" x="106" y="134" text-anchor="middle">工事用地等が確保できない</text>
+  <text class="t-desc" x="106" y="154" text-anchor="middle">天災等で損害・現場が変動</text>
+
+  <rect class="card" x="208" y="62" width="172" height="104" rx="6"/>
+  <text class="t-name" x="294" y="86" text-anchor="middle">することが</text>
+  <text class="t-name" x="294" y="104" text-anchor="middle">できる</text>
+  <line class="rule" x1="220" y1="114" x2="368" y2="114"/>
+  <text class="t-desc" x="294" y="132" text-anchor="middle">発注者が必要と</text>
+  <text class="t-desc" x="294" y="148" text-anchor="middle">認めるとき</text>
+
+  <rect class="bar-2" x="20" y="182" width="360" height="28" rx="6"/>
+  <text class="t-bar" x="32" y="201">工期の変更 — 請求できる者が異なる</text>
+
+  <rect class="card" x="20" y="216" width="172" height="104" rx="6"/>
+  <text class="t-name" x="106" y="242" text-anchor="middle">延長</text>
+  <text class="t-who" x="106" y="262" text-anchor="middle">請求＝受注者</text>
+  <line class="rule" x1="32" y1="272" x2="180" y2="272"/>
+  <text class="t-desc" x="106" y="292" text-anchor="middle">天候の不良や関連工事</text>
+  <text class="t-desc" x="106" y="308" text-anchor="middle">の調整等による</text>
+
+  <rect class="card" x="208" y="216" width="172" height="104" rx="6"/>
+  <text class="t-name" x="294" y="242" text-anchor="middle">短縮</text>
+  <text class="t-who" x="294" y="262" text-anchor="middle">請求＝発注者</text>
+  <line class="rule" x1="220" y1="272" x2="368" y2="272"/>
+  <text class="t-desc" x="294" y="292" text-anchor="middle">特別な理由により</text>
+  <text class="t-desc" x="294" y="308" text-anchor="middle">短縮する必要があるとき</text>
+
+  <rect class="box-surf" x="20" y="336" width="360" height="146" rx="6"/>
+  <text class="t-sec" x="200" y="360" text-anchor="middle">変更内容の決定</text>
+  <line class="rule" x1="36" y1="369" x2="364" y2="369"/>
+  <text class="t-item" x="200" y="392" text-anchor="middle">発注者と受注者が協議して定める</text>
+  <text class="t-item" x="200" y="416" text-anchor="middle">所定の期日までに協議が整わないときは</text>
+  <text class="t-item" x="200" y="438" text-anchor="middle">発注者が定めて受注者に通知する</text>
+  <text class="t-item" x="200" y="466" text-anchor="middle">工事従事者の労働時間等が適正に確保されるよう考慮する</text>
+</svg>

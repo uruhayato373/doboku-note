@@ -1,0 +1,59 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="ブルドーザの質量による分類。3トン以下が超小型、10トン以下が小型、15トン前後が中型、20トン以上が大型、60トン以上が超大型。普及度が高いのは中型と小型。小型以下はパワーシフトドライブやHST、中型はパワーシフトドライブ、大型はトルコンパワーシフト方式が多い">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-mass { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-key  { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .t-note { font-size: 11px; fill: #555; }
+      .lv1 { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .lv2 { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .lv3 { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .lv4 { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .lv5 { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">大きさは質量（t）で表す</text>
+
+  <rect class="lv1" x="20" y="28" width="360" height="46" rx="6"/>
+  <text class="t-name" x="40" y="57">超小型ブルドーザ</text>
+  <text class="t-mass" x="364" y="57" text-anchor="end">3 t 以下</text>
+
+  <rect class="lv2" x="20" y="80" width="360" height="46" rx="6"/>
+  <text class="t-name" x="40" y="109">小型ブルドーザ</text>
+  <text class="t-mass" x="364" y="109" text-anchor="end">10 t 以下</text>
+
+  <rect class="lv3" x="20" y="132" width="360" height="46" rx="6"/>
+  <text class="t-name" x="40" y="161">中型ブルドーザ</text>
+  <text class="t-mass" x="364" y="161" text-anchor="end">15 t 前後</text>
+
+  <rect class="lv4" x="20" y="184" width="360" height="46" rx="6"/>
+  <text class="t-name" x="40" y="213">大型ブルドーザ</text>
+  <text class="t-mass" x="364" y="213" text-anchor="end">20 t 以上</text>
+
+  <rect class="lv5" x="20" y="236" width="360" height="46" rx="6"/>
+  <text class="t-name" x="40" y="265">超大型ブルドーザ</text>
+  <text class="t-mass" x="364" y="265" text-anchor="end">60 t 以上</text>
+
+  <rect class="box-surf" x="20" y="300" width="360" height="94" rx="6"/>
+  <text class="t-sec" x="200" y="324" text-anchor="middle">大きさと変速方式の対応</text>
+  <line class="rule" x1="36" y1="333" x2="364" y2="333"/>
+  <text class="t-key" x="40" y="356">小型以下</text>
+  <text class="t-item" x="130" y="356">パワーシフトドライブまたはHST</text>
+  <text class="t-key" x="40" y="378">中型／大型</text>
+  <text class="t-item" x="130" y="378">パワーシフト／トルコンパワーシフト</text>
+
+  <rect class="box-surf" x="20" y="410" width="360" height="72" rx="6"/>
+  <text class="t-note" x="200" y="434" text-anchor="middle">普及度が高いのは中型および小型ブルドーザ</text>
+  <text class="t-note" x="200" y="458" text-anchor="middle">けん引力は質量と地盤条件で決まるため、質量が</text>
+  <text class="t-note" x="200" y="474" text-anchor="middle">大きさの指標として使われる</text>
+</svg>

@@ -1,0 +1,68 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="労働時間・休憩・休日・年次有給休暇の基準と割増賃金率。労働時間は1週40時間1日8時間、休憩は6時間超で45分以上8時間超で1時間以上、休日は週1日以上または4週で4日以上、年次有給休暇は6か月継続勤務かつ8割以上出勤で10労働日。割増賃金は時間外休日が2割5分以上5割以下、深夜が2割5分以上、月60時間超が5割増以上">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-val  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub  { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .t-rate { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-note { font-size: 11px; fill: #222; }
+      .card { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">法定の最低基準（労使協定等による例外を除く）</text>
+
+  <rect class="card" x="20" y="30" width="172" height="104" rx="6"/>
+  <text class="t-name" x="106" y="54" text-anchor="middle">労働時間</text>
+  <line class="rule" x1="32" y1="63" x2="180" y2="63"/>
+  <text class="t-val" x="106" y="85" text-anchor="middle">1週 40時間</text>
+  <text class="t-val" x="106" y="105" text-anchor="middle">1日 8時間</text>
+  <text class="t-sub" x="106" y="124" text-anchor="middle">休憩時間を除く</text>
+
+  <rect class="card" x="208" y="30" width="172" height="104" rx="6"/>
+  <text class="t-name" x="294" y="54" text-anchor="middle">休憩</text>
+  <line class="rule" x1="220" y1="63" x2="368" y2="63"/>
+  <text class="t-val" x="294" y="85" text-anchor="middle">6時間超 → 45分以上</text>
+  <text class="t-val" x="294" y="105" text-anchor="middle">8時間超 → 1時間以上</text>
+  <text class="t-sub" x="294" y="124" text-anchor="middle">途中に原則一斉に付与</text>
+
+  <rect class="card" x="20" y="144" width="172" height="104" rx="6"/>
+  <text class="t-name" x="106" y="168" text-anchor="middle">休日</text>
+  <line class="rule" x1="32" y1="177" x2="180" y2="177"/>
+  <text class="t-val" x="106" y="199" text-anchor="middle">週 1日以上</text>
+  <text class="t-sub" x="106" y="218" text-anchor="middle">または</text>
+  <text class="t-val" x="106" y="238" text-anchor="middle">4週間で 4日以上</text>
+
+  <rect class="card" x="208" y="144" width="172" height="104" rx="6"/>
+  <text class="t-name" x="294" y="168" text-anchor="middle">年次有給休暇</text>
+  <line class="rule" x1="220" y1="177" x2="368" y2="177"/>
+  <text class="t-sub" x="294" y="198" text-anchor="middle">6か月継続勤務かつ</text>
+  <text class="t-sub" x="294" y="216" text-anchor="middle">全労働日の8割以上出勤</text>
+  <text class="t-val" x="294" y="238" text-anchor="middle">→ 10労働日</text>
+
+  <!-- 割増賃金 -->
+  <rect class="box-warn" x="20" y="266" width="360" height="130" rx="6"/>
+  <text class="t-sec" x="200" y="290" text-anchor="middle">割増賃金の率</text>
+  <line class="rule" x1="36" y1="299" x2="364" y2="299"/>
+  <text class="t-item" x="40" y="322">時間外・休日労働</text>
+  <text class="t-rate" x="360" y="322" text-anchor="end">2割5分以上5割以下</text>
+  <text class="t-item" x="40" y="350">深夜（22時〜5時）</text>
+  <text class="t-rate" x="360" y="350" text-anchor="end">2割5分以上</text>
+  <text class="t-item" x="40" y="378">1か月60時間超の時間外</text>
+  <text class="t-rate" x="360" y="378" text-anchor="end">5割増以上</text>
+
+  <rect class="box-surf" x="20" y="412" width="360" height="70" rx="6"/>
+  <text class="t-note" x="200" y="434" text-anchor="middle">使用者の責に帰する休業は平均賃金の60%以上の休業手当</text>
+  <text class="t-note" x="200" y="456" text-anchor="middle">坑内労働は坑口に入った時刻から出た時刻までを労働時間</text>
+  <text class="t-note" x="200" y="474" text-anchor="middle">とみなす（休憩時間を含む）</text>
+</svg>

@@ -1,0 +1,72 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="河川区域と河川保全区域の断面模式図。堤防を境に流水のある側が堤外地、守られる側が堤内地となる。河川区域は河状を呈している土地の一号地、河川管理施設の敷地の二号地、堤外の土地の三号地からなり、河川保全区域は河川管理施設から50メートル以内に指定される">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-brk  { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-lbl  { font-size: 11px; fill: #222; }
+      .t-side { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-num  { font-size: 12px; font-weight: bold; fill: #ffffff; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .levee  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .ground { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .water  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .brk    { stroke: #1a3a5c; stroke-width: 1.5; fill: none; }
+      .divide { stroke: #b22234; stroke-width: 1.5; stroke-dasharray: 5,3; }
+      .dot1   { fill: #2e6da4; }
+      .dot2   { fill: #8a8a8a; }
+      .dot3   { fill: #d4a017; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-w  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .rule   { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">堤防を境に「堤外＝流水のある側」と覚える</text>
+
+  <!-- ブラケット -->
+  <path class="brk" d="M 36 68 L 36 60 L 150 60 L 150 68"/>
+  <text class="t-brk" x="93" y="52" text-anchor="middle">河川保全区域 50 m 以内</text>
+  <path class="brk" d="M 154 68 L 154 60 L 376 60 L 376 68"/>
+  <text class="t-brk" x="265" y="52" text-anchor="middle">河川区域</text>
+
+  <!-- 地盤・堤防・河道 -->
+  <line class="ground" x1="36" y1="200" x2="150" y2="200"/>
+  <polygon class="levee" points="150,200 174,140 206,140 230,200"/>
+  <polyline class="ground" points="230,200 256,228 376,228"/>
+  <rect class="water" x="256" y="206" width="120" height="22"/>
+
+  <!-- 堤内／堤外の境 -->
+  <line class="divide" x1="190" y1="146" x2="190" y2="246"/>
+
+  <!-- 番号 -->
+  <circle class="dot2" cx="190" cy="172" r="11"/>
+  <text class="t-num" x="190" y="177" text-anchor="middle">2</text>
+  <circle class="dot3" cx="242" cy="186" r="11"/>
+  <text class="t-num" x="242" y="191" text-anchor="middle">3</text>
+  <circle class="dot1" cx="316" cy="217" r="11"/>
+  <text class="t-num" x="316" y="222" text-anchor="middle">1</text>
+
+  <text class="t-lbl" x="93" y="186" text-anchor="middle">堤内地</text>
+  <text class="t-lbl" x="190" y="132" text-anchor="middle">堤防</text>
+  <text class="t-lbl" x="316" y="200" text-anchor="middle">流水</text>
+
+  <text class="t-side" x="110" y="262" text-anchor="middle">堤内地（守られる側）</text>
+  <text class="t-side" x="292" y="262" text-anchor="middle">堤外地（流水のある側）</text>
+
+  <rect class="box-surf" x="20" y="278" width="360" height="118" rx="6"/>
+  <text class="t-sec" x="200" y="302" text-anchor="middle">河川区域の3分類</text>
+  <line class="rule" x1="36" y1="311" x2="364" y2="311"/>
+  <text class="t-item" x="40" y="336">1　一号地　河状を呈している土地</text>
+  <text class="t-item" x="40" y="362">2　二号地　河川管理施設の敷地の土地</text>
+  <text class="t-item" x="40" y="388">3　三号地　堤外（堤防から流水側）の土地</text>
+
+  <rect class="box-w" x="20" y="408" width="360" height="74" rx="6"/>
+  <text class="t-sec" x="200" y="432" text-anchor="middle">河川保全区域</text>
+  <line class="rule" x1="36" y1="441" x2="364" y2="441"/>
+  <text class="t-item" x="200" y="464" text-anchor="middle">河岸・堤防などの保全に支障を及ぼす行為を規制する区域</text>
+</svg>

@@ -1,0 +1,52 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="測量の誤差の3分類。過失は統計的に扱えず注意深い観測と検測で排除するしかない。定誤差は常に同じ方向大きさで累積するが正反観測や補正計算で消去できる。不定誤差は原因不明で完全には消去できないが反復測定の平均値で統計的に削減できる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-band { font-size: 11px; fill: #222; }
+      .t-name { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-tag  { font-size: 11px; font-weight: bold; fill: #b22234; }
+      .t-tagok{ font-size: 11px; font-weight: bold; fill: #3a7d44; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .t-key  { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .band  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-1 { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-2 { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-3 { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">消去できるかどうかで対策が変わる</text>
+
+  <rect class="band" x="20" y="28" width="360" height="44" rx="6"/>
+  <text class="t-key" x="40" y="48">誤差の原因</text>
+  <text class="t-band" x="40" y="64">器械の不完全／温度・気圧の変化／観測者の視覚の不完全</text>
+
+  <rect class="box-1" x="20" y="84" width="360" height="126" rx="6"/>
+  <text class="t-name" x="36" y="110">過失（過誤・錯誤）</text>
+  <text class="t-tag" x="364" y="110" text-anchor="end">統計的に扱えない</text>
+  <text class="t-desc" x="36" y="134">観測者の不注意や未熟から生じる</text>
+  <text class="t-desc" x="36" y="152">目盛りの読み違い、記帳の誤りなど</text>
+  <text class="t-key" x="36" y="176">対策</text>
+  <text class="t-item" x="36" y="194">注意深い観測と検測で発見・排除するのが唯一の方法</text>
+
+  <rect class="box-2" x="20" y="216" width="360" height="126" rx="6"/>
+  <text class="t-name" x="36" y="242">定誤差（系統誤差）</text>
+  <text class="t-tagok" x="364" y="242" text-anchor="end">消去できる</text>
+  <text class="t-desc" x="36" y="266">一定の原因で常に同じ方向・大きさで生じる</text>
+  <text class="t-desc" x="36" y="284">測定回数に比例して累積する</text>
+  <text class="t-key" x="36" y="308">対策</text>
+  <text class="t-item" x="36" y="326">正・反観測（望遠鏡の正位・反位）や補正計算で消去</text>
+
+  <rect class="box-3" x="20" y="348" width="360" height="126" rx="6"/>
+  <text class="t-name" x="36" y="374">不定誤差（偶然誤差）</text>
+  <text class="t-tag" x="364" y="374" text-anchor="end">完全には消去できない</text>
+  <text class="t-desc" x="36" y="398">原因が不明で大きさも方向も不規則</text>
+  <text class="t-desc" x="36" y="416">正規分布に従う性質をもつ</text>
+  <text class="t-key" x="36" y="440">対策</text>
+  <text class="t-item" x="36" y="458">測定回数を増やし平均値（最確値）を求めて統計的に削減</text>
+</svg>

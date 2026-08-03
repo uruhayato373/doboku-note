@@ -1,0 +1,44 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="港則法の規制が及ぶ範囲の違い。入出港の届出・航路の航行・工事の許可・危険物の規制などは特定港だけに適用され、汽艇等やいかだのけい留制限・びょう泊の制限・速力の制限・汽笛や喫煙の制限は特定港に限らず港内一般に適用される">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-def  { font-size: 11px; fill: #555; }
+      .t-item { font-size: 11px; fill: #222; }
+      .t-note { font-size: 11px; fill: #222; }
+      .box-a { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-b { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">「特定港だけ」か「港内一般」かを区別する</text>
+
+  <rect class="box-a" x="20" y="28" width="360" height="252" rx="6"/>
+  <text class="t-sec" x="200" y="52" text-anchor="middle">特定港だけに適用される</text>
+  <line class="rule" x1="36" y1="62" x2="364" y2="62"/>
+  <text class="t-item" x="40" y="88">入出港の届出</text>
+  <text class="t-item" x="40" y="112">停泊区域（トン数または積荷の種類による）</text>
+  <text class="t-item" x="40" y="136">修繕・けい船の届出（汽艇等を除く）</text>
+  <text class="t-item" x="40" y="160">航路の航行（汽艇等を除く）</text>
+  <text class="t-item" x="40" y="184">私設信号の制定</text>
+  <text class="t-item" x="40" y="208">工事・作業の許可（境界付近を含む）</text>
+  <text class="t-item" x="40" y="232">竹木材の水揚げ・いかだのけい留と運航</text>
+  <text class="t-item" x="40" y="256">危険物の入港・停泊・積卸・運搬</text>
+
+  <rect class="box-b" x="20" y="292" width="360" height="150" rx="6"/>
+  <text class="t-sec" x="200" y="316" text-anchor="middle">港内一般に適用される（特定港に限らない）</text>
+  <line class="rule" x1="36" y1="326" x2="364" y2="326"/>
+  <text class="t-item" x="40" y="352">汽艇等・いかだのけい留等の制限</text>
+  <text class="t-item" x="40" y="376">みだりなびょう泊・停留の制限</text>
+  <text class="t-item" x="40" y="400">速力の制限（港の境界付近を含む）</text>
+  <text class="t-item" x="40" y="424">汽笛・サイレン、油送船付近での喫煙等の制限</text>
+
+  <rect class="box-surf" x="20" y="452" width="360" height="30" rx="6"/>
+  <text class="t-note" x="200" y="472" text-anchor="middle">特定港以外の工事は海上保安部・海上保安署の長の許可</text>
+</svg>

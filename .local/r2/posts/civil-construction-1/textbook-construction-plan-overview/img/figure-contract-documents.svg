@@ -1,0 +1,60 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="契約図書の構成。契約図書は契約書と設計図書からなり、設計図書は仕様書・契約図面・現場説明書・現場説明に対する質問回答書・工事数量総括表で構成される。仕様書はさらに共通仕様書と特記仕様書に分かれる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-outer { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-mid   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-card  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-item  { font-size: 11px; fill: #222; }
+      .t-note  { font-size: 11px; fill: #222; }
+      .box-outer { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .box-mid   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-inner { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-card  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-surf  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .tick { fill: #2e6da4; }
+    </style>
+  </defs>
+
+  <rect class="box-outer" x="20" y="28" width="360" height="356" rx="6"/>
+  <text class="t-outer" x="36" y="49">契約図書</text>
+
+  <rect class="box-mid" x="34" y="56" width="332" height="54" rx="6"/>
+  <text class="t-mid" x="200" y="80" text-anchor="middle">契約書</text>
+  <text class="t-desc" x="200" y="99" text-anchor="middle">ひな形＝公共工事標準請負契約約款</text>
+
+  <rect class="box-mid" x="34" y="120" width="332" height="252" rx="6"/>
+  <text class="t-mid" x="48" y="142">設計図書</text>
+
+  <rect class="box-inner" x="46" y="152" width="308" height="104" rx="6"/>
+  <text class="t-sub" x="200" y="172" text-anchor="middle">仕様書</text>
+
+  <rect class="box-card" x="58" y="180" width="140" height="68" rx="6"/>
+  <text class="t-card" x="128" y="202" text-anchor="middle">共通仕様書</text>
+  <text class="t-desc" x="128" y="221" text-anchor="middle">定型的な内容を</text>
+  <text class="t-desc" x="128" y="238" text-anchor="middle">あらかじめ盛り込む</text>
+
+  <rect class="box-card" x="212" y="180" width="140" height="68" rx="6"/>
+  <text class="t-card" x="282" y="202" text-anchor="middle">特記仕様書</text>
+  <text class="t-desc" x="282" y="221" text-anchor="middle">共通仕様書を補足し</text>
+  <text class="t-desc" x="282" y="238" text-anchor="middle">固有の要求を定める</text>
+
+  <circle class="tick" cx="62" cy="277" r="3"/>
+  <text class="t-item" x="74" y="281">契約図面（図面）</text>
+  <circle class="tick" cx="62" cy="299" r="3"/>
+  <text class="t-item" x="74" y="303">現場説明書</text>
+  <circle class="tick" cx="62" cy="321" r="3"/>
+  <text class="t-item" x="74" y="325">現場説明に対する質問回答書</text>
+  <circle class="tick" cx="62" cy="343" r="3"/>
+  <text class="t-item" x="74" y="347">工事数量総括表</text>
+
+  <rect class="box-surf" x="20" y="400" width="360" height="82" rx="6"/>
+  <text class="t-note" x="200" y="424" text-anchor="middle">範囲は公共土木工事の土木工事共通仕様書による</text>
+  <text class="t-note" x="200" y="448" text-anchor="middle">設計図書は形状・寸法・品質を示すが施工方法は</text>
+  <text class="t-note" x="200" y="472" text-anchor="middle">ほとんど指示されず、施工手段の選定は施工者に委ねられる</text>
+</svg>

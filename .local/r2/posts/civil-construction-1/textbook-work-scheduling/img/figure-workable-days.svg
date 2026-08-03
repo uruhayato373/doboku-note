@@ -1,0 +1,57 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="作業可能日数の算定。暦日数から定休日と天候等による作業不能日数を差し引き、両者が重なった重複日数を戻して作業可能日数を求める。日程計画は作業可能日数が所要作業日数以上となるように1日平均施工量を定める">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-sign { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-name { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-eq   { font-size: 12px; fill: #222; }
+      .t-key  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .box-base { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .box-minus { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-plus { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-res { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">工期中の暦日数から作業できない日を差し引いて求める</text>
+
+  <rect class="box-base" x="20" y="28" width="360" height="52" rx="6"/>
+  <text class="t-name" x="58" y="50">暦日数</text>
+  <text class="t-desc" x="58" y="68">工期中の日数</text>
+
+  <rect class="box-minus" x="20" y="86" width="360" height="52" rx="6"/>
+  <text class="t-sign" x="38" y="118" text-anchor="middle">−</text>
+  <text class="t-name" x="58" y="108">定休日</text>
+  <text class="t-desc" x="58" y="126">休日・祭日・夏休み・年末年始・地域行事</text>
+
+  <rect class="box-minus" x="20" y="144" width="360" height="52" rx="6"/>
+  <text class="t-sign" x="38" y="176" text-anchor="middle">−</text>
+  <text class="t-name" x="58" y="166">天候等による作業不能日数</text>
+  <text class="t-desc" x="58" y="184">降雨・降雪・出水、降雨後の土質・機械の走行性</text>
+
+  <rect class="box-plus" x="20" y="202" width="360" height="52" rx="6"/>
+  <text class="t-sign" x="38" y="234" text-anchor="middle">＋</text>
+  <text class="t-name" x="58" y="224">重複日数</text>
+  <text class="t-desc" x="58" y="242">休日と作業不能日が重なった分を戻す</text>
+
+  <rect class="box-res" x="20" y="260" width="360" height="52" rx="6"/>
+  <text class="t-sign" x="38" y="292" text-anchor="middle">＝</text>
+  <text class="t-name" x="58" y="282">作業可能日数</text>
+  <text class="t-desc" x="58" y="300">工程計画の基本条件となる</text>
+
+  <rect class="box-surf" x="20" y="328" width="360" height="154" rx="6"/>
+  <text class="t-sec" x="200" y="352" text-anchor="middle">日程計画の基本条件</text>
+  <line class="rule" x1="36" y1="361" x2="364" y2="361"/>
+  <text class="t-key" x="200" y="390" text-anchor="middle">作業可能日数 ≧ 所要作業日数</text>
+  <text class="t-eq" x="200" y="418" text-anchor="middle">所要作業日数 ＝ 工事量 ÷ 1日平均施工量</text>
+  <text class="t-eq" x="200" y="444" text-anchor="middle">1日平均施工量 ≧ 工事量 ÷ 作業可能日数</text>
+  <text class="t-eq" x="200" y="470" text-anchor="middle">1日平均施工量 ＝ 1時間平均施工量 × 1日平均作業時間</text>
+</svg>

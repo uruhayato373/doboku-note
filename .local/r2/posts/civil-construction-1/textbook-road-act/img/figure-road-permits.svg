@@ -1,0 +1,60 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="道路に関する許可と承認の使い分け。道路の占用は道路管理者の占用許可と警察署長の道路使用許可の両方が必要。道路管理者以外の者が行う工事は道路管理者の承認、特殊車両の通行は道路管理者の通行許可を受ける">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-act  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .t-law  { font-size: 11px; fill: #8a8a8a; }
+      .t-who  { font-size: 11px; fill: #555; }
+      .t-kind { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-note { font-size: 11px; fill: #222; }
+      .row-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .row-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .row-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .badge { fill: #ffffff; stroke: #8a8a8a; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">行為ごとに「誰の」「何が」必要かが異なる</text>
+
+  <rect class="row-w" x="20" y="28" width="360" height="88" rx="6"/>
+  <text class="t-act" x="36" y="56">道路の占用</text>
+  <text class="t-desc" x="36" y="78">地上・地下に工作物等を設けて継続使用</text>
+  <text class="t-law" x="36" y="98">道路法 第32条第1項</text>
+  <rect class="badge" x="246" y="46" width="118" height="52" rx="6"/>
+  <text class="t-who" x="305" y="68" text-anchor="middle">道路管理者</text>
+  <text class="t-kind" x="305" y="88" text-anchor="middle">占用許可</text>
+
+  <rect class="row-w" x="20" y="126" width="360" height="88" rx="6"/>
+  <text class="t-act" x="36" y="154">道路の占用（同時に必要）</text>
+  <text class="t-desc" x="36" y="176">占用許可だけでは足りない</text>
+  <text class="t-law" x="36" y="196">道路交通法 第77条第1項</text>
+  <rect class="badge" x="246" y="144" width="118" height="52" rx="6"/>
+  <text class="t-who" x="305" y="166" text-anchor="middle">警察署長</text>
+  <text class="t-kind" x="305" y="186" text-anchor="middle">道路使用許可</text>
+
+  <rect class="row-b" x="20" y="224" width="360" height="88" rx="6"/>
+  <text class="t-act" x="36" y="252">道路管理者以外の者が行う工事</text>
+  <text class="t-desc" x="36" y="274">取付け・交差・地下道・乗入れ口等</text>
+  <text class="t-law" x="36" y="294">道路法 第24条</text>
+  <rect class="badge" x="246" y="242" width="118" height="52" rx="6"/>
+  <text class="t-who" x="305" y="264" text-anchor="middle">道路管理者</text>
+  <text class="t-kind" x="305" y="284" text-anchor="middle">承認</text>
+
+  <rect class="row-p" x="20" y="322" width="360" height="88" rx="6"/>
+  <text class="t-act" x="36" y="350">特殊車両の通行</text>
+  <text class="t-desc" x="36" y="372">車両制限令の最高限度を超える車両</text>
+  <text class="t-law" x="36" y="392">道路法 第47条の2第1項</text>
+  <rect class="badge" x="246" y="340" width="118" height="52" rx="6"/>
+  <text class="t-who" x="305" y="362" text-anchor="middle">道路管理者</text>
+  <text class="t-kind" x="305" y="382" text-anchor="middle">通行許可</text>
+
+  <rect class="box-surf" x="20" y="424" width="360" height="58" rx="6"/>
+  <text class="t-note" x="200" y="448" text-anchor="middle">水管・下水道管・ガス管・電柱・電線等は工事実施の1月前までに</text>
+  <text class="t-note" x="200" y="470" text-anchor="middle">計画書を道路管理者へ提出しておく</text>
+</svg>

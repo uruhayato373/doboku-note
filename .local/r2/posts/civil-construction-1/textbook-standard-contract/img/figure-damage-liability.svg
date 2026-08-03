@@ -1,0 +1,54 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="公共工事標準請負契約約款における損害の負担区分。一般的損害と一般の第三者損害は受注者が負担し、通常避けることのできない騒音・振動・地盤沈下等による第三者損害は発注者が負担する。不可抗力による損害は請負代金の1パーセントを超える額を発注者が負担する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-kind { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .t-exc  { font-size: 11px; fill: #555; }
+      .t-who  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-note { font-size: 11px; fill: #222; }
+      .row { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .badge-u { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .badge-o { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">損害の種類によって負担者が変わる</text>
+
+  <rect class="row" x="20" y="28" width="360" height="98" rx="6"/>
+  <text class="t-kind" x="36" y="52">一般的損害</text>
+  <text class="t-desc" x="36" y="72">引渡し前の目的物・工事材料の損害</text>
+  <rect class="badge-u" x="272" y="42" width="92" height="40" rx="6"/>
+  <text class="t-who" x="318" y="67" text-anchor="middle">受注者</text>
+  <text class="t-exc" x="36" y="102">工事の施工に関して生じた損害を含む</text>
+
+  <rect class="row" x="20" y="134" width="360" height="98" rx="6"/>
+  <text class="t-kind" x="36" y="158">第三者損害</text>
+  <text class="t-desc" x="36" y="178">施工について第三者に損害を及ぼした</text>
+  <rect class="badge-u" x="272" y="148" width="92" height="40" rx="6"/>
+  <text class="t-who" x="318" y="173" text-anchor="middle">受注者</text>
+  <text class="t-exc" x="36" y="208">発注者の責任によるものは発注者が負担</text>
+
+  <rect class="row" x="20" y="240" width="360" height="98" rx="6"/>
+  <text class="t-kind" x="36" y="264">第三者損害（通常避けられない）</text>
+  <text class="t-desc" x="36" y="284">騒音・振動・地盤沈下・地下水の断絶等</text>
+  <rect class="badge-o" x="272" y="254" width="92" height="40" rx="6"/>
+  <text class="t-who" x="318" y="279" text-anchor="middle">発注者</text>
+  <text class="t-exc" x="36" y="314">善良な管理者の注意義務を怠った分は受注者</text>
+
+  <rect class="row" x="20" y="346" width="360" height="98" rx="6"/>
+  <text class="t-kind" x="36" y="370">不可抗力による損害</text>
+  <text class="t-desc" x="36" y="390">天災等いずれの責めにも帰さない事由</text>
+  <rect class="badge-o" x="272" y="360" width="92" height="40" rx="6"/>
+  <text class="t-who" x="318" y="385" text-anchor="middle">発注者</text>
+  <text class="t-exc" x="36" y="420">請負代金の1%を超える額を発注者が負担し、災害</text>
+  <text class="t-exc" x="36" y="436">応急対策・災害復旧の工事は全額を発注者が負担</text>
+
+  <rect class="box-surf" x="20" y="452" width="360" height="30" rx="6"/>
+  <text class="t-note" x="200" y="472" text-anchor="middle">設計図書の定めにより付された保険等でてん補された部分は除く</text>
+</svg>

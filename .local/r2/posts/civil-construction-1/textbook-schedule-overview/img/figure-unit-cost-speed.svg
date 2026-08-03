@@ -1,0 +1,52 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="工程（施工速度）と単位原価の関係。施工速度が遅いと施工効率が悪く単位原価は高く、速めると出来高が増えて単位原価は低減するが、ある限度を超えると機械の大型化や高価な資材の使用により再び上昇する。単位原価が採算限度の原価以下となる工程が採算速度である">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-axis { font-size: 11px; fill: #555; }
+      .t-mark { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-lim  { font-size: 11px; font-weight: bold; fill: #b22234; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .band { fill: #d0e8d0; }
+      .axis { stroke: #222; stroke-width: 1.5; fill: none; }
+      .curve { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+      .lim { stroke: #b22234; stroke-width: 1.5; stroke-dasharray: 5 4; fill: none; }
+      .gd { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="uc-ax" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#222"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">速すぎても遅すぎても単位原価は高くなる</text>
+
+  <rect class="band" x="141" y="205" width="159" height="95"/>
+  <line class="gd" x1="141" y1="205" x2="141" y2="300"/>
+  <line class="gd" x1="300" y1="205" x2="300" y2="300"/>
+
+  <line class="lim" x1="60" y1="205" x2="378" y2="205"/>
+  <text class="t-lim" x="66" y="198">採算限度</text>
+
+  <line class="axis" x1="60" y1="300" x2="378" y2="300" marker-end="url(#uc-ax)"/>
+  <line class="axis" x1="60" y1="300" x2="60" y2="52" marker-end="url(#uc-ax)"/>
+
+  <path class="curve" d="M 78,88 C 112,192 162,242 226,247 C 282,251 322,192 356,80"/>
+
+  <text class="t-mark" x="220" y="285" text-anchor="middle">採算速度</text>
+  <text class="t-axis" x="58" y="46">単位原価</text>
+  <text class="t-axis" x="376" y="318" text-anchor="end">施工速度（工程）</text>
+
+  <rect class="box-surf" x="20" y="335" width="360" height="147" rx="6"/>
+  <text class="t-sec" x="200" y="357" text-anchor="middle">読み取り方</text>
+  <line class="rule" x1="36" y1="366" x2="364" y2="366"/>
+  <text class="t-item" x="40" y="390">遅い＝施工効率が悪く単位原価は高い</text>
+  <text class="t-item" x="40" y="414">速める＝出来高が増えて単位原価は低減</text>
+  <text class="t-item" x="40" y="438">限度を超える＝機械の大型化・高価な資材で上昇</text>
+  <text class="t-item" x="40" y="462">単位原価が採算限度以下となる工程が採算速度</text>
+</svg>

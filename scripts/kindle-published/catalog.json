@@ -45,7 +45,7 @@
       "subtitle": "平成26〜令和7年度 12年分・127問を9論点に再構成",
       "series": "1級土木施工管理技士 第1次検定 論点別過去問",
       "seriesVolume": 1,
-      "priceJpy": 390,
+      "priceJpy": 980,
       "royalty": 0.7,
       "questionCount": 127,
       "rontenCount": 9,
@@ -78,7 +78,7 @@
       "subtitle": "平成26〜令和7年度 12年分・126問を論点別に再構成",
       "series": "1級土木施工管理技士 第1次検定 論点別過去問",
       "seriesVolume": 2,
-      "priceJpy": 390,
+      "priceJpy": 980,
       "royalty": 0.7,
       "questionCount": 126,
       "status": "live",
@@ -105,7 +105,7 @@
       "subtitle": "平成26〜令和7年度 12年分・42問を論点別に再構成",
       "series": "1級土木施工管理技士 第1次検定 論点別過去問",
       "seriesVolume": 3,
-      "priceJpy": 350,
+      "priceJpy": 980,
       "royalty": 0.7,
       "questionCount": 42,
       "status": "live",
@@ -132,7 +132,7 @@
       "subtitle": "平成26〜令和7年度 12年分・31問を論点別に再構成",
       "series": "1級土木施工管理技士 第1次検定 論点別過去問",
       "seriesVolume": 4,
-      "priceJpy": 350,
+      "priceJpy": 980,
       "royalty": 0.7,
       "questionCount": 31,
       "status": "live",
@@ -159,7 +159,7 @@
       "subtitle": "平成26〜令和7年度 12年分・65問を論点別に再構成",
       "series": "1級土木施工管理技士 第1次検定 論点別過去問",
       "seriesVolume": 5,
-      "priceJpy": 350,
+      "priceJpy": 980,
       "royalty": 0.7,
       "questionCount": 65,
       "status": "live",
@@ -186,7 +186,7 @@
       "subtitle": "平成26〜令和7年度 12年分・31問を4論点に再構成",
       "series": "1級土木施工管理技士 第1次検定 論点別過去問",
       "seriesVolume": 6,
-      "priceJpy": 350,
+      "priceJpy": 980,
       "royalty": 0.7,
       "questionCount": 31,
       "rontenCount": 4,
@@ -238,6 +238,35 @@
           "change": "KDP 公開（LIVE・販売中 ¥990）・ASIN=B0H8ZZMM7R。重複下書き B0H8KH1N6G は削除対象。"
         }
       ]
+    },
+    {
+      "id": "e-02",
+      "asin": null,
+      "title": "1級土木施工管理技士 第1次検定 過去問完全解説【平成26〜令和7年度 全年度】",
+      "subtitle": "平成26〜令和7年度 全1162問",
+      "series": "E 土木施工管理 過去問合本",
+      "priceJpy": 1250,
+      "royalty": 0.7,
+      "status": "in_review",
+      "builder": "scripts/build-pe1-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/e-02.json",
+      "epub": "kindle-dist/e-02.epub",
+      "cover": "kindle-dist/e-02.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_e-02.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-08-03",
+          "change": "制作完了(EPUB 1162問+図版109点+前付け+表紙)・KDP提出待ち"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-08-03",
+          "change": "KDP出版申請（審査中）・draft A2HZN8FV9FNYBO"
+        }
+      ],
+      "draftAsin": "A2HZN8FV9FNYBO"
     },
     {
       "id": "b-reiwa",
@@ -307,7 +336,7 @@
       "title": "技術士第一次試験 基礎科目 過去問7年分完全解説",
       "subtitle": "令和元〜7年度 210問",
       "series": "D 技術士一次 科目別",
-      "priceJpy": 490,
+      "priceJpy": 980,
       "royalty": 0.7,
       "status": "live",
       "submittedDate": "2026-07-11",
@@ -921,13 +950,13 @@
     },
     {
       "id": "f-08",
-      "asin": null,
+      "asin": "B0HCMGB517",
       "title": "技術士 総合技術監理部門 記述式 模範論文 自治体河川担当編（令和3〜7年度）",
       "subtitle": "令和3〜7年度 必須科目 模範論文 全5本",
       "series": "F 技術士総監 記述式",
       "priceJpy": 990,
       "royalty": 0.7,
-      "status": "ready",
+      "status": "in_review",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/f-08.json",
       "epub": "kindle-dist/f-08.epub",
@@ -939,18 +968,24 @@
           "version": "1.0",
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-08-03",
+          "change": "KDP出版申請（審査中）・draft A2NF277QIFSS1A"
         }
-      ]
+      ],
+      "draftAsin": "A2NF277QIFSS1A"
     },
     {
       "id": "f-09",
-      "asin": null,
+      "asin": "B0HCMC5JHG",
       "title": "技術士 総合技術監理部門 記述式 模範論文 自治体港湾担当編（令和3〜7年度）",
       "subtitle": "令和3〜7年度 必須科目 模範論文 全5本",
       "series": "F 技術士総監 記述式",
       "priceJpy": 990,
       "royalty": 0.7,
-      "status": "ready",
+      "status": "in_review",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/f-09.json",
       "epub": "kindle-dist/f-09.epub",
@@ -962,8 +997,14 @@
           "version": "1.0",
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-08-03",
+          "change": "KDP出版申請（審査中）・draft A30Q37A4AVVCC6"
         }
-      ]
+      ],
+      "draftAsin": "A30Q37A4AVVCC6"
     },
     {
       "id": "f-10",
@@ -973,7 +1014,7 @@
       "series": "F 技術士総監 記述式",
       "priceJpy": 990,
       "royalty": 0.7,
-      "status": "ready",
+      "status": "in_review",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/f-10.json",
       "epub": "kindle-dist/f-10.epub",
@@ -985,8 +1026,14 @@
           "version": "1.0",
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-08-03",
+          "change": "KDP出版申請（審査中）・draft A38R83UMIERQLB"
         }
-      ]
+      ],
+      "draftAsin": "A38R83UMIERQLB"
     },
     {
       "id": "f-11",
@@ -996,7 +1043,7 @@
       "series": "F 技術士総監 記述式",
       "priceJpy": 990,
       "royalty": 0.7,
-      "status": "ready",
+      "status": "in_review",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/f-11.json",
       "epub": "kindle-dist/f-11.epub",
@@ -1008,8 +1055,14 @@
           "version": "1.0",
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-08-03",
+          "change": "KDP出版申請（審査中）・draft A6R4WDFOK345G"
         }
-      ]
+      ],
+      "draftAsin": "A6R4WDFOK345G"
     },
     {
       "id": "f-12",
@@ -1019,7 +1072,7 @@
       "series": "F 技術士総監 記述式",
       "priceJpy": 990,
       "royalty": 0.7,
-      "status": "ready",
+      "status": "in_review",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/f-12.json",
       "epub": "kindle-dist/f-12.epub",
@@ -1031,8 +1084,14 @@
           "version": "1.0",
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-08-03",
+          "change": "KDP出版申請（審査中）・draft APMEFPLY0KJ0J"
         }
-      ]
+      ],
+      "draftAsin": "APMEFPLY0KJ0J"
     },
     {
       "id": "f-13",
@@ -1042,7 +1101,7 @@
       "series": "F 技術士総監 記述式",
       "priceJpy": 990,
       "royalty": 0.7,
-      "status": "ready",
+      "status": "in_review",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/f-13.json",
       "epub": "kindle-dist/f-13.epub",
@@ -1054,8 +1113,14 @@
           "version": "1.0",
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-08-03",
+          "change": "KDP出版申請（審査中）・draft A2POURQ85XVC03"
         }
-      ]
+      ],
+      "draftAsin": "A2POURQ85XVC03"
     },
     {
       "id": "f-14",
@@ -1065,7 +1130,7 @@
       "series": "F 技術士総監 記述式",
       "priceJpy": 990,
       "royalty": 0.7,
-      "status": "ready",
+      "status": "in_review",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/f-14.json",
       "epub": "kindle-dist/f-14.epub",
@@ -1077,8 +1142,14 @@
           "version": "1.0",
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-08-03",
+          "change": "KDP出版申請（審査中）・draft A38LL41WKHPDFG"
         }
-      ]
+      ],
+      "draftAsin": "A38LL41WKHPDFG"
     },
     {
       "id": "f-15",
@@ -1088,7 +1159,7 @@
       "series": "F 技術士総監 記述式",
       "priceJpy": 1250,
       "royalty": 0.7,
-      "status": "ready",
+      "status": "in_review",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/f-15.json",
       "epub": "kindle-dist/f-15.epub",
@@ -1100,8 +1171,14 @@
           "version": "1.0",
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-08-03",
+          "change": "KDP出版申請（審査中）・draft ASHZ8Y2SHTUH5"
         }
-      ]
+      ],
+      "draftAsin": "ASHZ8Y2SHTUH5"
     },
     {
       "id": "f-16",
@@ -1111,7 +1188,7 @@
       "series": "F 技術士総監 記述式",
       "priceJpy": 1250,
       "royalty": 0.7,
-      "status": "ready",
+      "status": "in_review",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/f-16.json",
       "epub": "kindle-dist/f-16.epub",
@@ -1123,6 +1200,58 @@
           "version": "1.0",
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-08-03",
+          "change": "KDP出版申請（審査中）・draft AD5VQJZEDD2TM"
+        }
+      ],
+      "draftAsin": "AD5VQJZEDD2TM"
+    },
+    {
+      "id": "g-01",
+      "asin": null,
+      "title": "コンクリート診断士 体系解説＋四肢択一演習98問",
+      "subtitle": "変状・劣化機構・調査・診断・対策・維持管理の6分野＋演習8回",
+      "series": "G コンクリート系資格",
+      "priceJpy": 990,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-pe1-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/g-01.json",
+      "epub": "kindle-dist/g-01.epub",
+      "cover": "kindle-dist/g-01.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_g-01.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-08-03",
+          "change": "制作完了(EPUB＋前付け＋表紙＋kdp-memo)・KDP提出待ち"
+        }
+      ]
+    },
+    {
+      "id": "g-02",
+      "asin": null,
+      "title": "コンクリート主任技師 体系解説＋過去問解説303問",
+      "subtitle": "平成26〜令和5年度 四肢択一を8分野別に収録",
+      "series": "G コンクリート系資格",
+      "priceJpy": 1250,
+      "royalty": 0.7,
+      "status": "ready",
+      "builder": "scripts/build-pe1-kindle.mjs",
+      "buildSpec": "scripts/kindle-specs/g-02.json",
+      "epub": "kindle-dist/g-02.epub",
+      "cover": "kindle-dist/g-02.jpg",
+      "kdpMemo": "scripts/kindle-published/KDP入力メモ_g-02.txt",
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2026-08-03",
+          "change": "制作完了(EPUB＋前付け＋表紙＋kdp-memo)・KDP提出待ち"
         }
       ]
     }

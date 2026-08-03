@@ -1,0 +1,72 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="場所打ち杭の代表4工法を孔壁の保護方法で区別する図。オールケーシングはケーシングチューブで孔壁全体を保護し、アースドリルは表層のみケーシングで以深は安定液、リバースは孔内水位を地下水位より高く保ち、深礎は土留めをしながら立坑を掘り下げる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #222; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .cell { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .hole { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.2; }
+      .mud  { fill: #e8f0fe; stroke: #8a8a8a; stroke-width: 1.2; }
+      .case { fill: #2e6da4; }
+      .liner { fill: #8a8a8a; }
+      .wl { stroke: #2e6da4; stroke-width: 2; }
+      .gl { stroke: #8a8a8a; stroke-width: 1.2; stroke-dasharray: 4 3; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">違いは孔壁を何で保護するかにある</text>
+
+  <rect class="cell" x="20" y="40" width="176" height="132" rx="4"/>
+  <text class="t-name" x="108" y="62" text-anchor="middle">オールケーシング</text>
+  <rect class="hole" x="88" y="70" width="40" height="60"/>
+  <rect class="case" x="84" y="70" width="4" height="60"/>
+  <rect class="case" x="128" y="70" width="4" height="60"/>
+  <text class="t-desc" x="108" y="148" text-anchor="middle">ケーシングチューブで</text>
+  <text class="t-desc" x="108" y="164" text-anchor="middle">孔壁全体を保護する</text>
+
+  <rect class="cell" x="204" y="40" width="176" height="132" rx="4"/>
+  <text class="t-name" x="292" y="62" text-anchor="middle">アースドリル</text>
+  <rect class="mud" x="272" y="70" width="40" height="60"/>
+  <rect class="case" x="268" y="70" width="4" height="18"/>
+  <rect class="case" x="312" y="70" width="4" height="18"/>
+  <text class="t-desc" x="292" y="148" text-anchor="middle">表層のみケーシング</text>
+  <text class="t-desc" x="292" y="164" text-anchor="middle">以深は安定液で保護</text>
+
+  <rect class="cell" x="20" y="180" width="176" height="132" rx="4"/>
+  <text class="t-name" x="108" y="202" text-anchor="middle">リバース</text>
+  <line class="gl" x1="40" y1="234" x2="176" y2="234"/>
+  <rect class="mud" x="88" y="210" width="40" height="60"/>
+  <line class="wl" x1="86" y1="213" x2="130" y2="213"/>
+  <text class="t-desc" x="108" y="288" text-anchor="middle">孔内水位を地下水位より</text>
+  <text class="t-desc" x="108" y="304" text-anchor="middle">高く保って孔壁を保護</text>
+
+  <rect class="cell" x="204" y="180" width="176" height="132" rx="4"/>
+  <text class="t-name" x="292" y="202" text-anchor="middle">深礎</text>
+  <rect class="hole" x="272" y="210" width="40" height="60"/>
+  <rect class="liner" x="268" y="212" width="4" height="12"/>
+  <rect class="liner" x="268" y="228" width="4" height="12"/>
+  <rect class="liner" x="268" y="244" width="4" height="12"/>
+  <rect class="liner" x="268" y="260" width="4" height="8"/>
+  <rect class="liner" x="312" y="212" width="4" height="12"/>
+  <rect class="liner" x="312" y="228" width="4" height="12"/>
+  <rect class="liner" x="312" y="244" width="4" height="12"/>
+  <rect class="liner" x="312" y="260" width="4" height="8"/>
+  <text class="t-desc" x="292" y="288" text-anchor="middle">土留めをしながら</text>
+  <text class="t-desc" x="292" y="304" text-anchor="middle">立坑を掘り下げる</text>
+
+  <rect class="box-surf" x="20" y="330" width="360" height="152" rx="6"/>
+  <text class="t-sec" x="200" y="352" text-anchor="middle">読み取り方</text>
+  <line class="rule" x1="36" y1="361" x2="364" y2="361"/>
+  <text class="t-item" x="40" y="384">場所打ち杭は大口径を低騒音・低振動で施工できる</text>
+  <text class="t-item" x="40" y="408">現場で地盤を掘削し鉄筋とコンクリートを打設する</text>
+  <text class="t-item" x="40" y="432">既製杭工法は工場製作の杭を打ち込む・埋め込む</text>
+  <text class="t-item" x="40" y="456">深礎は人力または機械で立坑を掘り下げる</text>
+</svg>

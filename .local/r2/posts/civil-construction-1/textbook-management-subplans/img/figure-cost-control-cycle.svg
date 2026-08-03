@@ -1,0 +1,85 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="原価管理の手順。実行予算の作成（P）、原価発生の統制（D）、実施原価と実行予算の対比（C）、施工計画の再検討と修正措置（A）、修正措置の結果の評価（A）の5段階を縦に並べ、結果が良好でなければ最初へ戻る反復構造を示した図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-step { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .t-mark { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-note { font-size: 11px; fill: #222; }
+      .t-head { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-loop { font-size: 11px; fill: #3a7d44; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-d { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-c { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-a { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .dot-p { fill: #ffffff; stroke: #3a7d44; stroke-width: 2; }
+      .dot-d { fill: #ffffff; stroke: #2e6da4; stroke-width: 2; }
+      .dot-c { fill: #ffffff; stroke: #d4a017; stroke-width: 2; }
+      .dot-a { fill: #ffffff; stroke: #b22234; stroke-width: 2; }
+      .flow  { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .loop  { stroke: #3a7d44; stroke-width: 1.5; fill: none; stroke-dasharray: 5,3; }
+    </style>
+    <marker id="arr" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+    <marker id="arr-loop" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="20" text-anchor="middle">実行予算を基準に実施原価を対比し、差異を施工計画へ戻す</text>
+
+  <!-- 1 -->
+  <rect class="box-p" x="20" y="32" width="322" height="62" rx="6"/>
+  <circle class="dot-p" cx="52" cy="63" r="17"/>
+  <text class="t-mark" x="52" y="68" text-anchor="middle">P</text>
+  <text class="t-step" x="82" y="58">実行予算の作成</text>
+  <text class="t-desc" x="82" y="79">最も経済的な施工計画に基づく予定原価</text>
+  <line class="flow" x1="181" y1="94" x2="181" y2="105" marker-end="url(#arr)"/>
+
+  <!-- 2 -->
+  <rect class="box-d" x="20" y="108" width="322" height="62" rx="6"/>
+  <circle class="dot-d" cx="52" cy="139" r="17"/>
+  <text class="t-mark" x="52" y="144" text-anchor="middle">D</text>
+  <text class="t-step" x="82" y="134">原価発生の統制</text>
+  <text class="t-desc" x="82" y="155">原価比率の高い費目に重点をおき低減</text>
+  <line class="flow" x1="181" y1="170" x2="181" y2="181" marker-end="url(#arr)"/>
+
+  <!-- 3 -->
+  <rect class="box-c" x="20" y="184" width="322" height="62" rx="6"/>
+  <circle class="dot-c" cx="52" cy="215" r="17"/>
+  <text class="t-mark" x="52" y="220" text-anchor="middle">C</text>
+  <text class="t-step" x="82" y="210">実施原価との対比</text>
+  <text class="t-desc" x="82" y="231">工事原価管理台帳で工種別・費目別に対比</text>
+  <line class="flow" x1="181" y1="246" x2="181" y2="257" marker-end="url(#arr)"/>
+
+  <!-- 4 -->
+  <rect class="box-a" x="20" y="260" width="322" height="62" rx="6"/>
+  <circle class="dot-a" cx="52" cy="291" r="17"/>
+  <text class="t-mark" x="52" y="296" text-anchor="middle">A</text>
+  <text class="t-step" x="82" y="286">施工計画の再検討・修正措置</text>
+  <text class="t-desc" x="82" y="307">差異の原因を分析し原価引下げの処置</text>
+  <line class="flow" x1="181" y1="322" x2="181" y2="333" marker-end="url(#arr)"/>
+
+  <!-- 5 -->
+  <rect class="box-a" x="20" y="336" width="322" height="62" rx="6"/>
+  <circle class="dot-a" cx="52" cy="367" r="17"/>
+  <text class="t-mark" x="52" y="372" text-anchor="middle">A</text>
+  <text class="t-step" x="82" y="362">修正措置の結果を評価</text>
+  <text class="t-desc" x="82" y="383">良好なら持続・発展、そうでなければ見直し</text>
+
+  <!-- 反復ループ -->
+  <path class="loop" d="M 342 367 L 372 367 L 372 63 L 348 63" marker-end="url(#arr-loop)"/>
+  <text class="t-loop" x="386" y="215" text-anchor="middle" transform="rotate(90 386 215)">良好でなければ反復</text>
+
+  <!-- 用語 -->
+  <rect class="box-surf" x="20" y="412" width="360" height="70" rx="6"/>
+  <text class="t-head" x="200" y="434" text-anchor="middle">実行予算と実施原価</text>
+  <text class="t-note" x="200" y="455" text-anchor="middle">実行予算＝受注後に設定する予定原価（評価の基準）</text>
+  <text class="t-note" x="200" y="474" text-anchor="middle">実施原価＝実際に発生した原価。数量と金額の両面で対比</text>
+</svg>

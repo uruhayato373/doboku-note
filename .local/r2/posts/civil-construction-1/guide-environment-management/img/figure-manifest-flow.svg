@@ -1,0 +1,55 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="産業廃棄物の委託契約とマニフェスト。排出事業者である元請業者は、収集運搬業者と処分業者のそれぞれに個別かつ直接に委託契約を結ぶ。産業廃棄物管理票（マニフェスト）を交付し、処理が終了した段階で受託者から返送を受けることで適正処理を確認する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-role { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub  { font-size: 11px; fill: #555; }
+      .t-arw  { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-mfd  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-mfs  { font-size: 11px; fill: #222; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .src { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .rcv { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .mfd { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .link { stroke: #1a3a5c; stroke-width: 2; fill: none; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="mf-a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#1a3a5c"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">契約は一括ではなく、それぞれと直接結ぶ</text>
+
+  <rect class="src" x="110" y="40" width="180" height="52" rx="4"/>
+  <text class="t-role" x="200" y="64" text-anchor="middle">排出事業者</text>
+  <text class="t-sub" x="200" y="82" text-anchor="middle">＝元請業者</text>
+
+  <line class="link" x1="160" y1="94" x2="112" y2="164" marker-end="url(#mf-a)"/>
+  <line class="link" x1="240" y1="94" x2="288" y2="164" marker-end="url(#mf-a)"/>
+  <text class="t-arw" x="52" y="132">直接契約</text>
+  <text class="t-arw" x="348" y="132" text-anchor="end">直接契約</text>
+
+  <rect class="rcv" x="20" y="170" width="165" height="50" rx="4"/>
+  <text class="t-role" x="102" y="201" text-anchor="middle">収集運搬業者</text>
+  <rect class="rcv" x="215" y="170" width="165" height="50" rx="4"/>
+  <text class="t-role" x="297" y="201" text-anchor="middle">処分業者</text>
+
+  <rect class="mfd" x="20" y="246" width="360" height="60" rx="4"/>
+  <text class="t-mfd" x="200" y="270" text-anchor="middle">産業廃棄物管理票（マニフェスト）</text>
+  <text class="t-mfs" x="200" y="292" text-anchor="middle">交付 → 処理終了後に受託者から返送</text>
+
+  <rect class="box-surf" x="20" y="326" width="360" height="156" rx="6"/>
+  <text class="t-sec" x="200" y="348" text-anchor="middle">読み取り方</text>
+  <line class="rule" x1="36" y1="357" x2="364" y2="357"/>
+  <text class="t-item" x="40" y="382">収集運搬業者と処分業者に個別かつ直接に委託する</text>
+  <text class="t-item" x="40" y="406">3 者間の一括契約は認められない</text>
+  <text class="t-item" x="40" y="430">下請が発生させたものでも元請業者が処理責任を負う</text>
+  <text class="t-item" x="40" y="454">写しは交付者・受託者とも 5 年間保存</text>
+</svg>

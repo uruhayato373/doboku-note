@@ -1,0 +1,58 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="良質な支持層の深さによる基礎形式の分類。支持層が浅い位置に出る場合は直接基礎が底面から荷重を伝える。支持層が深い場合は杭基礎が杭を通じて、またはケーソン基礎が箱を沈設して荷重を深部の支持層へ伝える">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub  { font-size: 11px; fill: #555; }
+      .t-lyr  { font-size: 11px; fill: #3a7d44; }
+      .t-cap  { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .soil { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.2; }
+      .brg  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.2; }
+      .strc { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">良質な支持層がどの深さに出るかで決まる</text>
+
+  <text class="t-name" x="77" y="42" text-anchor="middle">直接基礎</text>
+  <text class="t-sub" x="77" y="60" text-anchor="middle">浅い基礎</text>
+  <rect class="soil" x="20" y="68" width="114" height="42"/>
+  <rect class="brg" x="20" y="110" width="114" height="140"/>
+  <rect class="strc" x="52" y="80" width="50" height="30"/>
+  <text class="t-lyr" x="77" y="190" text-anchor="middle">支持層</text>
+
+  <text class="t-name" x="200" y="42" text-anchor="middle">杭基礎</text>
+  <text class="t-sub" x="200" y="60" text-anchor="middle">深い基礎</text>
+  <rect class="soil" x="143" y="68" width="114" height="132"/>
+  <rect class="brg" x="143" y="200" width="114" height="50"/>
+  <rect class="strc" x="170" y="80" width="60" height="18"/>
+  <rect class="strc" x="180" y="98" width="8" height="128"/>
+  <rect class="strc" x="212" y="98" width="8" height="128"/>
+  <text class="t-lyr" x="200" y="245" text-anchor="middle">支持層</text>
+
+  <text class="t-name" x="323" y="42" text-anchor="middle">ケーソン基礎</text>
+  <text class="t-sub" x="323" y="60" text-anchor="middle">深い基礎</text>
+  <rect class="soil" x="266" y="68" width="114" height="132"/>
+  <rect class="brg" x="266" y="200" width="114" height="50"/>
+  <rect class="strc" x="296" y="76" width="54" height="150"/>
+  <text class="t-lyr" x="323" y="245" text-anchor="middle">支持層</text>
+
+  <text class="t-cap" x="200" y="274" text-anchor="middle">荷重を伝える先はいずれも良質な支持層</text>
+
+  <rect class="box-surf" x="20" y="300" width="360" height="182" rx="6"/>
+  <text class="t-sec" x="200" y="322" text-anchor="middle">読み取り方</text>
+  <line class="rule" x1="36" y1="331" x2="364" y2="331"/>
+  <text class="t-item" x="40" y="356">直接基礎は底面の地盤反力で鉛直荷重を受ける</text>
+  <text class="t-item" x="40" y="380">水平荷重は底面と地盤との間のせん断抵抗で受ける</text>
+  <text class="t-item" x="40" y="404">杭基礎は杭を通じて荷重を深部へ伝える</text>
+  <text class="t-item" x="40" y="428">ケーソン基礎は橋脚など大型構造物に用いる</text>
+  <text class="t-item" x="40" y="452">フーチングの形状で独立・連続・複合・べたに分かれる</text>
+</svg>

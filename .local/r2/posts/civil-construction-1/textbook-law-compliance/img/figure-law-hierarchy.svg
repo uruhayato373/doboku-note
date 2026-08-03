@@ -1,0 +1,61 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="法令の階層構造。法律・政令・省令・告示の順に構成され、政令や省令や告示は法律の具体的な内容を規定する。条例は憲法に基づき法律の範囲内で制定され広義の法令に含まれる。通達には法令に準ずる役割のものもある">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-ex   { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .t-key  { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .lv1 { fill: #e8f0fe; stroke: #1a3a5c; stroke-width: 3; }
+      .lv2 { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }
+      .lv3 { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+      .lv4 { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+      .link { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="lc-a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">法律 ＞ 政令 ＞ 省令 ＞ 告示 の階層で構成される</text>
+
+  <rect class="lv1" x="20" y="28" width="360" height="50" rx="6"/>
+  <text class="t-name" x="38" y="52">法律</text>
+  <text class="t-ex" x="38" y="70">建設業法・労働安全衛生法</text>
+  <line class="link" x1="46" y1="78" x2="46" y2="86" marker-end="url(#lc-a)"/>
+
+  <rect class="lv2" x="32" y="88" width="348" height="50" rx="6"/>
+  <text class="t-name" x="50" y="112">政令</text>
+  <text class="t-ex" x="50" y="130">建設業法施行令・労働安全衛生法施行令</text>
+  <line class="link" x1="58" y1="138" x2="58" y2="146" marker-end="url(#lc-a)"/>
+
+  <rect class="lv3" x="44" y="148" width="336" height="50" rx="6"/>
+  <text class="t-name" x="62" y="172">省令</text>
+  <text class="t-ex" x="62" y="190">建設業法施行規則・労働安全衛生規則</text>
+  <line class="link" x1="70" y1="198" x2="70" y2="206" marker-end="url(#lc-a)"/>
+
+  <rect class="lv4" x="56" y="208" width="324" height="50" rx="6"/>
+  <text class="t-name" x="74" y="232">告示</text>
+  <text class="t-ex" x="74" y="250">国土交通大臣告示（公示・公表）</text>
+
+  <rect class="box-w" x="20" y="272" width="360" height="98" rx="6"/>
+  <text class="t-item" x="40" y="298">政令・省令・告示は法律の具体的な内容を規定する</text>
+  <text class="t-item" x="40" y="324">法律から直接、省令や告示に委任する場合もある</text>
+  <text class="t-item" x="40" y="350">技術的基準は設計図書に指定がなくとも必ず遵守する</text>
+
+  <rect class="box-surf" x="20" y="384" width="360" height="98" rx="6"/>
+  <text class="t-sec" x="200" y="408" text-anchor="middle">法令に関わるその他の文書</text>
+  <line class="rule" x1="36" y1="417" x2="364" y2="417"/>
+  <text class="t-key" x="40" y="440">条例</text>
+  <text class="t-item" x="86" y="440">法律の範囲内で制定され広義の法令に含まれる</text>
+  <text class="t-key" x="40" y="466">通達</text>
+  <text class="t-item" x="86" y="466">解釈・運用を示し、法令に準ずる役割のものもある</text>
+</svg>

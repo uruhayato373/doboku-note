@@ -1,0 +1,55 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="仮設の分類は 2 つの独立した軸から成る。誰が決めるかの軸では、発注者が設計・数量・施工方法を指定する指定仮設と、経費を一式計上し構造は施工業者の裁量による任意仮設に分かれる。何に必要かの軸では、本工事に直接必要な直接仮設と、間接的に必要な共通仮設に分かれる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-axis { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-pole { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #222; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .hd1 { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .hd2 { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .cell { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">2 つの軸は別物。並べて覚えると混ざる</text>
+
+  <rect class="hd1" x="20" y="32" width="360" height="24" rx="4"/>
+  <text class="t-axis" x="200" y="49" text-anchor="middle">軸 1：誰が決めるか</text>
+  <rect class="cell" x="20" y="60" width="176" height="112" rx="4"/>
+  <text class="t-pole" x="108" y="84" text-anchor="middle">指定仮設</text>
+  <text class="t-desc" x="108" y="110" text-anchor="middle">発注者が設計・数量・</text>
+  <text class="t-desc" x="108" y="128" text-anchor="middle">施工方法を指定</text>
+  <text class="t-desc" x="108" y="154" text-anchor="middle">設計変更の対象</text>
+  <rect class="cell" x="204" y="60" width="176" height="112" rx="4"/>
+  <text class="t-pole" x="292" y="84" text-anchor="middle">任意仮設</text>
+  <text class="t-desc" x="292" y="110" text-anchor="middle">経費は一式計上</text>
+  <text class="t-desc" x="292" y="128" text-anchor="middle">構造は施工業者の裁量</text>
+  <text class="t-desc" x="292" y="154" text-anchor="middle">契約変更の対象外</text>
+
+  <rect class="hd2" x="20" y="190" width="360" height="24" rx="4"/>
+  <text class="t-axis" x="200" y="207" text-anchor="middle">軸 2：何に必要か</text>
+  <rect class="cell" x="20" y="218" width="176" height="112" rx="4"/>
+  <text class="t-pole" x="108" y="242" text-anchor="middle">直接仮設</text>
+  <text class="t-desc" x="108" y="268" text-anchor="middle">本工事に直接必要</text>
+  <text class="t-desc" x="108" y="292" text-anchor="middle">工事用道路・土留め</text>
+  <text class="t-desc" x="108" y="310" text-anchor="middle">締切り・支保工足場</text>
+  <rect class="cell" x="204" y="218" width="176" height="112" rx="4"/>
+  <text class="t-pole" x="292" y="242" text-anchor="middle">共通仮設</text>
+  <text class="t-desc" x="292" y="268" text-anchor="middle">間接的に必要</text>
+  <text class="t-desc" x="292" y="292" text-anchor="middle">現場事務所・宿舎</text>
+
+  <rect class="box-surf" x="20" y="350" width="360" height="132" rx="6"/>
+  <text class="t-sec" x="200" y="372" text-anchor="middle">読み取り方</text>
+  <line class="rule" x1="36" y1="381" x2="364" y2="381"/>
+  <text class="t-item" x="40" y="406">2 つの軸は独立していて、掛け合わせて考える</text>
+  <text class="t-item" x="40" y="430">指定仮設は設計変更の対象、任意仮設は対象外</text>
+  <text class="t-item" x="40" y="454">試験では具体例がどちらに入るかが問われる</text>
+</svg>

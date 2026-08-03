@@ -1,0 +1,62 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="型枠支保工の規定。パイプサポートの支柱は敷板・敷角で沈下を防止し、継手はボルト 4 以上または専用金具で接続する。高さが 3.5m を超える場合は 2m 以内ごとに水平つなぎを設ける">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-part { font-size: 11px; fill: #555; }
+      .t-dim  { font-size: 11px; font-weight: bold; fill: #b22234; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .form { fill: #d7d7d7; stroke: #555; stroke-width: 1.5; }
+      .post { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .tie  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .plate{ fill: #f5f5f5; stroke: #555; stroke-width: 1.5; }
+      .joint{ fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .grd  { stroke: #8a8a8a; stroke-width: 2; fill: none; }
+      .dim  { stroke: #b22234; stroke-width: 1.5; fill: none; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="fs-a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#b22234"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">高さ 3.5m を超えたら水平つなぎが要る</text>
+
+  <rect class="form" x="100" y="50" width="240" height="20"/>
+  <text class="t-part" x="220" y="64" text-anchor="middle">型枠（せき板）</text>
+
+  <rect class="post" x="150" y="70" width="10" height="180"/>
+  <rect class="post" x="280" y="70" width="10" height="180"/>
+  <rect class="tie" x="160" y="83" width="120" height="6"/>
+  <rect class="tie" x="160" y="165" width="120" height="6"/>
+  <text class="t-part" x="298" y="88">水平つなぎ</text>
+
+  <rect class="joint" x="276" y="118" width="18" height="14"/>
+  <text class="t-part" x="302" y="129">ボルト 4 以上</text>
+
+  <rect class="plate" x="130" y="250" width="50" height="12"/>
+  <rect class="plate" x="260" y="250" width="50" height="12"/>
+  <line class="grd" x1="40" y1="262" x2="360" y2="262"/>
+  <text class="t-part" x="155" y="280" text-anchor="middle">敷板・敷角</text>
+
+  <line class="dim" x1="220" y1="127" x2="220" y2="90" marker-end="url(#fs-a)"/>
+  <line class="dim" x1="220" y1="127" x2="220" y2="164" marker-end="url(#fs-a)"/>
+  <text class="t-dim" x="228" y="131">2m 以内</text>
+
+  <line class="dim" x1="60" y1="170" x2="60" y2="71" marker-end="url(#fs-a)"/>
+  <line class="dim" x1="60" y1="170" x2="60" y2="261" marker-end="url(#fs-a)"/>
+  <text class="t-dim" x="68" y="170">3.5m 超</text>
+
+  <rect class="box-surf" x="20" y="320" width="360" height="162" rx="6"/>
+  <text class="t-sec" x="200" y="342" text-anchor="middle">型枠支保工の規定</text>
+  <line class="rule" x1="36" y1="351" x2="364" y2="351"/>
+  <text class="t-item" x="40" y="376">支柱の沈下防止に敷板・敷角を使用する</text>
+  <text class="t-item" x="40" y="400">継手はボルト 4 以上または専用金具で接続</text>
+  <text class="t-item" x="40" y="424">高さ 3.5m を超えるときは 2m 以内ごとに水平つなぎ</text>
+  <text class="t-item" x="40" y="448">打設前に組立図を作成し設計荷重を計算する</text>
+</svg>

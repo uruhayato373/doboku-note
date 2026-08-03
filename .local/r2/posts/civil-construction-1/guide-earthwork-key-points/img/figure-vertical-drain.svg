@@ -1,0 +1,63 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="バーチカルドレーン工法の原理。対策前は軟弱層の水が層厚に相当する長い距離を移動しなければ排水されないが、鉛直の砂柱を打設すると水は砂柱までの短い距離を移動すればよくなる。圧密に要する時間は排水距離の 2 乗に比例するため、排水距離を短縮すると圧密が促進される">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-ttl  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-lay  { font-size: 11px; fill: #555; }
+      .t-dist { font-size: 12px; font-weight: bold; fill: #2e6da4; }
+      .t-cap  { font-size: 11px; fill: #222; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .fill { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .soft { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .base { fill: #d7d7d7; stroke: #8a8a8a; stroke-width: 1.5; }
+      .pile { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .flow { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="vd-a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">圧密に要する時間は排水距離の 2 乗に比例する</text>
+
+  <text class="t-ttl" x="107" y="44" text-anchor="middle">対策前</text>
+  <rect class="fill" x="30" y="54" width="155" height="22"/>
+  <rect class="soft" x="30" y="76" width="155" height="186"/>
+  <rect class="base" x="30" y="262" width="155" height="20"/>
+  <text class="t-lay" x="107" y="70" text-anchor="middle">盛土</text>
+  <text class="t-lay" x="38" y="94">軟弱地盤</text>
+  <text class="t-lay" x="107" y="276" text-anchor="middle">不透水層</text>
+  <line class="flow" x1="107" y1="256" x2="107" y2="84" marker-end="url(#vd-a)"/>
+  <text class="t-dist" x="115" y="170">排水距離 H</text>
+
+  <text class="t-ttl" x="292" y="44" text-anchor="middle">バーチカルドレーン</text>
+  <rect class="fill" x="215" y="54" width="155" height="22"/>
+  <rect class="soft" x="215" y="76" width="155" height="186"/>
+  <rect class="base" x="215" y="262" width="155" height="20"/>
+  <text class="t-lay" x="292" y="70" text-anchor="middle">盛土</text>
+  <text class="t-lay" x="292" y="276" text-anchor="middle">不透水層</text>
+  <rect class="pile" x="228" y="76" width="12" height="186"/>
+  <rect class="pile" x="286" y="76" width="12" height="186"/>
+  <rect class="pile" x="344" y="76" width="12" height="186"/>
+  <line class="flow" x1="263" y1="186" x2="242" y2="186" marker-end="url(#vd-a)"/>
+  <line class="flow" x1="263" y1="186" x2="284" y2="186" marker-end="url(#vd-a)"/>
+  <text class="t-dist" x="263" y="176" text-anchor="middle">d</text>
+
+  <text class="t-cap" x="107" y="304" text-anchor="middle">排水距離が長い</text>
+  <text class="t-cap" x="292" y="304" text-anchor="middle">砂柱で排水距離を d に短縮</text>
+
+  <rect class="box-surf" x="20" y="320" width="360" height="162" rx="6"/>
+  <text class="t-sec" x="200" y="342" text-anchor="middle">読み取り方</text>
+  <line class="rule" x1="36" y1="351" x2="364" y2="351"/>
+  <text class="t-item" x="40" y="376">鉛直の排水路で排水距離を短縮し圧密を促進する</text>
+  <text class="t-item" x="40" y="400">距離が 1/2 になれば圧密時間は 1/4 になる</text>
+  <text class="t-item" x="40" y="424">サンドドレーン工法＝透水性の高い砂の砂柱を打設</text>
+  <text class="t-item" x="40" y="448">ペーパードレーン工法＝施工速度が速く経済的</text>
+</svg>

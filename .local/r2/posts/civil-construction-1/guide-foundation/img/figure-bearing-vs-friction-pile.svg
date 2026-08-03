@@ -1,0 +1,59 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="支持杭と摩擦杭の違い。支持杭は先端が支持層に達し、杭先端の支持力と杭周面の摩擦力の両方で荷重に抵抗する。摩擦杭は先端が支持層に達せず、杭周面の摩擦力だけで抵抗し、先端支持力は積極的に考慮しない">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-lbl  { font-size: 11px; font-weight: bold; fill: #b22234; }
+      .t-lay  { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .soft { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .hard { fill: #d7d7d7; stroke: #8a8a8a; stroke-width: 1.5; }
+      .pile { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .frc  { stroke: #b22234; stroke-width: 2; fill: none; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="pl-a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#b22234"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">先端が支持層に届くかで抵抗のしかたが変わる</text>
+
+  <text class="t-name" x="105" y="44" text-anchor="middle">支持杭</text>
+  <rect class="soft" x="25" y="54" width="160" height="196"/>
+  <rect class="hard" x="25" y="250" width="160" height="34"/>
+  <rect class="pile" x="99" y="54" width="14" height="204"/>
+  <line class="frc" x1="70" y1="120" x2="70" y2="100" marker-end="url(#pl-a)"/>
+  <line class="frc" x1="142" y1="120" x2="142" y2="100" marker-end="url(#pl-a)"/>
+  <line class="frc" x1="70" y1="196" x2="70" y2="176" marker-end="url(#pl-a)"/>
+  <line class="frc" x1="142" y1="196" x2="142" y2="176" marker-end="url(#pl-a)"/>
+  <line class="frc" x1="106" y1="278" x2="106" y2="262" marker-end="url(#pl-a)"/>
+  <text class="t-lbl" x="60" y="150" text-anchor="middle">周面摩擦力</text>
+  <text class="t-lbl" x="60" y="272" text-anchor="middle">先端支持力</text>
+  <text class="t-lay" x="152" y="272" text-anchor="middle">支持層</text>
+
+  <text class="t-name" x="295" y="44" text-anchor="middle">摩擦杭</text>
+  <rect class="soft" x="215" y="54" width="160" height="196"/>
+  <rect class="hard" x="215" y="250" width="160" height="34"/>
+  <rect class="pile" x="289" y="54" width="14" height="150"/>
+  <line class="frc" x1="260" y1="120" x2="260" y2="100" marker-end="url(#pl-a)"/>
+  <line class="frc" x1="332" y1="120" x2="332" y2="100" marker-end="url(#pl-a)"/>
+  <line class="frc" x1="260" y1="196" x2="260" y2="176" marker-end="url(#pl-a)"/>
+  <line class="frc" x1="332" y1="196" x2="332" y2="176" marker-end="url(#pl-a)"/>
+  <text class="t-lbl" x="296" y="228" text-anchor="middle">先端は届かない</text>
+  <text class="t-lay" x="342" y="272" text-anchor="middle">支持層</text>
+
+  <rect class="box-surf" x="20" y="310" width="360" height="172" rx="6"/>
+  <text class="t-sec" x="200" y="332" text-anchor="middle">読み取り方</text>
+  <line class="rule" x1="36" y1="341" x2="364" y2="341"/>
+  <text class="t-item" x="40" y="368">支持杭＝先端の支持力と周面の摩擦力の両方で抵抗</text>
+  <text class="t-item" x="40" y="394">摩擦杭＝周面の摩擦力だけで抵抗する</text>
+  <text class="t-item" x="40" y="420">摩擦杭は先端支持力を積極的に考慮しない</text>
+  <text class="t-item" x="40" y="446">支持層の目安は砂・砂礫 N値 30、粘性土 N値 20 以上</text>
+</svg>

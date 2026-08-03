@@ -1,0 +1,68 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="3種類の工程表の形と長所短所。バーチャートは作業を横棒で表し作成が容易だが作業間の関連が不明。ガントチャートは各作業の達成率を横棒で表し進捗率は明確だが所要日数や日程が不明。ネットワーク式は矢印と結合点で順序関係を表し関連と重要度が明確だが作成に習熟を要する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-pro  { font-size: 11px; fill: #3a7d44; }
+      .t-con  { font-size: 11px; fill: #b22234; }
+      .t-node { font-size: 11px; fill: #1a3a5c; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .bar { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.2; }
+      .bar2 { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.2; }
+      .ax { stroke: #8a8a8a; stroke-width: 1.2; }
+      .gd { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 4 3; }
+      .nd { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .lk { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="sc-n" markerWidth="7" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0,0 7,3 0,6" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">横軸に何をとるかで読み取れる情報が変わる</text>
+
+  <text class="t-name" x="30" y="58">バーチャート</text>
+  <rect class="bar" x="40" y="68" width="60" height="8"/>
+  <rect class="bar" x="70" y="80" width="50" height="8"/>
+  <rect class="bar" x="95" y="92" width="45" height="8"/>
+  <line class="ax" x1="36" y1="106" x2="148" y2="106"/>
+  <text class="t-pro" x="164" y="80">長所　作成が容易で見やすい</text>
+  <text class="t-con" x="164" y="100">短所　作業間の関連が不明</text>
+
+  <text class="t-name" x="30" y="144">ガントチャート</text>
+  <rect class="bar2" x="40" y="154" width="70" height="8"/>
+  <rect class="bar2" x="40" y="166" width="45" height="8"/>
+  <rect class="bar2" x="40" y="178" width="25" height="8"/>
+  <line class="gd" x1="130" y1="150" x2="130" y2="190"/>
+  <line class="ax" x1="36" y1="192" x2="148" y2="192"/>
+  <text class="t-pro" x="164" y="166">長所　進捗率が明確</text>
+  <text class="t-con" x="164" y="186">短所　所要日数・日程が不明</text>
+
+  <text class="t-name" x="30" y="230">ネットワーク式</text>
+  <line class="lk" x1="52" y1="258" x2="78" y2="246" marker-end="url(#sc-n)"/>
+  <line class="lk" x1="52" y1="266" x2="78" y2="278" marker-end="url(#sc-n)"/>
+  <line class="lk" x1="98" y1="246" x2="124" y2="258" marker-end="url(#sc-n)"/>
+  <line class="lk" x1="98" y1="278" x2="124" y2="266" marker-end="url(#sc-n)"/>
+  <circle class="nd" cx="44" cy="262" r="10"/>
+  <circle class="nd" cx="88" cy="242" r="10"/>
+  <circle class="nd" cx="88" cy="282" r="10"/>
+  <circle class="nd" cx="132" cy="262" r="10"/>
+  <text class="t-pro" x="164" y="252">長所　関連と重要度が明確</text>
+  <text class="t-con" x="164" y="272">短所　作成に習熟を要する</text>
+
+  <rect class="box-surf" x="20" y="300" width="360" height="182" rx="6"/>
+  <text class="t-sec" x="200" y="322" text-anchor="middle">読み取り方</text>
+  <line class="rule" x1="36" y1="331" x2="364" y2="331"/>
+  <text class="t-item" x="40" y="356">横軸が時間ならバーチャート、達成率ならガントチャート</text>
+  <text class="t-item" x="40" y="380">ネットワーク式は矢印が作業、結合点が始点・終点</text>
+  <text class="t-item" x="40" y="404">依存関係が矢印の向きで示されるのが最大の強み</text>
+  <text class="t-item" x="40" y="428">並行して進む作業の関係も一目で把握できる</text>
+  <text class="t-item" x="40" y="452">工事の規模や管理目的に応じて使い分ける</text>
+</svg>

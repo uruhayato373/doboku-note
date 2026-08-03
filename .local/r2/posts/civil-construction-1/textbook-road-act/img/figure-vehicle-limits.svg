@@ -1,0 +1,64 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="車両制限令による車両の最高限度。幅2.5メートル、総重量20トン（高速自動車国道・指定道路は25トン以下）、軸重10トン、輪荷重5トン、高さ3.8メートル（指定道路は4.1メートル）、長さ12メートル、最小回転半径12メートル。トレーラ連結車は総重量が高速36トン・その他27トン、長さはセミトレーラ16.5メートル・フルトレーラ18メートル">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 12px; fill: #222; }
+      .t-val  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub  { font-size: 11px; fill: #555; }
+      .t-note { font-size: 11px; fill: #222; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">道路の構造保全と交通の危険防止のための最高限度</text>
+
+  <rect class="box-b" x="20" y="28" width="360" height="266" rx="6"/>
+  <text class="t-sec" x="200" y="52" text-anchor="middle">一般的制限</text>
+  <line class="rule" x1="36" y1="61" x2="364" y2="61"/>
+
+  <text class="t-item" x="40" y="86">幅</text>
+  <text class="t-val" x="360" y="86" text-anchor="end">2.5 m</text>
+
+  <text class="t-item" x="40" y="114">総重量</text>
+  <text class="t-val" x="360" y="114" text-anchor="end">20 t</text>
+  <text class="t-sub" x="40" y="132">※高速・指定道路は25 t以下（長さ・軸距による）</text>
+
+  <text class="t-item" x="40" y="160">軸重</text>
+  <text class="t-val" x="360" y="160" text-anchor="end">10 t</text>
+
+  <text class="t-item" x="40" y="188">輪荷重</text>
+  <text class="t-val" x="360" y="188" text-anchor="end">5 t</text>
+
+  <text class="t-item" x="40" y="216">高さ</text>
+  <text class="t-val" x="360" y="216" text-anchor="end">3.8 m</text>
+  <text class="t-sub" x="40" y="234">道路管理者が指定した道路は4.1 m</text>
+
+  <text class="t-item" x="40" y="262">長さ</text>
+  <text class="t-val" x="360" y="262" text-anchor="end">12 m</text>
+
+  <text class="t-item" x="40" y="286">最小回転半径</text>
+  <text class="t-val" x="360" y="286" text-anchor="end">12 m</text>
+
+  <rect class="box-w" x="20" y="306" width="360" height="130" rx="6"/>
+  <text class="t-sec" x="200" y="330" text-anchor="middle">トレーラ連結車の特例</text>
+  <line class="rule" x1="36" y1="339" x2="364" y2="339"/>
+  <text class="t-item" x="40" y="362">総重量　高速自動車国道</text>
+  <text class="t-val" x="360" y="362" text-anchor="end">36 t</text>
+  <text class="t-item" x="40" y="386">　　　　その他の道路</text>
+  <text class="t-val" x="360" y="386" text-anchor="end">27 t</text>
+  <text class="t-item" x="40" y="410">長さ　　セミトレーラ連結車</text>
+  <text class="t-val" x="360" y="410" text-anchor="end">16.5 m</text>
+  <text class="t-item" x="40" y="430">　　　　フルトレーラ連結車</text>
+  <text class="t-val" x="360" y="430" text-anchor="end">18 m</text>
+
+  <rect class="box-surf" x="20" y="448" width="360" height="34" rx="6"/>
+  <text class="t-note" x="200" y="470" text-anchor="middle">長さは高速自動車国道を通行する車両の値</text>
+</svg>

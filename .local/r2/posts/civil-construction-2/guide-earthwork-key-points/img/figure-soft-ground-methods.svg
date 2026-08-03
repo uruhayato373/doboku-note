@@ -1,0 +1,66 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="軟弱地盤対策工法を目的から逆引きする図。沈下を促進して強度を増したい場合は圧密排水工法でサンドドレーンやペーパードレーン、液状化を防いで支持力を高めたい場合は締固め工法でサンドコンパクションパイルやバイブロフローテーション、軟弱層そのものを無くしたい場合は置換工法を用いる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-hd   { font-size: 11px; font-weight: bold; fill: #555; }
+      .t-goal { font-size: 11px; fill: #222; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-ex   { font-size: 11px; fill: #222; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .goal { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .m1 { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .m2 { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .m3 { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .arw { stroke: #1a3a5c; stroke-width: 1.5; fill: none; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="sg-a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#1a3a5c"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">工法名ではなく目的から引く</text>
+
+  <text class="t-hd" x="20" y="42">何をしたいか</text>
+  <text class="t-hd" x="196" y="42">選ぶ工法</text>
+
+  <rect class="goal" x="20" y="52" width="152" height="72" rx="4"/>
+  <text class="t-goal" x="32" y="80">沈下を早く終わらせ</text>
+  <text class="t-goal" x="32" y="100">強度を増したい</text>
+  <line class="arw" x1="176" y1="88" x2="192" y2="88" marker-end="url(#sg-a)"/>
+  <rect class="m1" x="196" y="52" width="184" height="72" rx="4"/>
+  <text class="t-name" x="208" y="76">圧密排水工法</text>
+  <text class="t-ex" x="208" y="98">サンドドレーン</text>
+  <text class="t-ex" x="208" y="116">ペーパードレーン</text>
+
+  <rect class="goal" x="20" y="136" width="152" height="72" rx="4"/>
+  <text class="t-goal" x="32" y="164">液状化を防ぎ</text>
+  <text class="t-goal" x="32" y="184">支持力を高めたい</text>
+  <line class="arw" x1="176" y1="172" x2="192" y2="172" marker-end="url(#sg-a)"/>
+  <rect class="m2" x="196" y="136" width="184" height="72" rx="4"/>
+  <text class="t-name" x="208" y="160">締固め工法</text>
+  <text class="t-ex" x="208" y="182">サンドコンパクションパイル</text>
+  <text class="t-ex" x="208" y="200">バイブロフローテーション</text>
+
+  <rect class="goal" x="20" y="220" width="152" height="60" rx="4"/>
+  <text class="t-goal" x="32" y="244">軟弱層そのものを</text>
+  <text class="t-goal" x="32" y="264">無くしたい</text>
+  <line class="arw" x1="176" y1="250" x2="192" y2="250" marker-end="url(#sg-a)"/>
+  <rect class="m3" x="196" y="220" width="184" height="60" rx="4"/>
+  <text class="t-name" x="208" y="244">置換工法</text>
+  <text class="t-ex" x="208" y="266">良質材料に入れ替える</text>
+
+  <rect class="box-surf" x="20" y="310" width="360" height="172" rx="6"/>
+  <text class="t-sec" x="200" y="332" text-anchor="middle">読み取り方</text>
+  <line class="rule" x1="36" y1="341" x2="364" y2="341"/>
+  <text class="t-item" x="40" y="366">軟弱地盤＝有機質土・軟弱粘性土など強度が低い地盤</text>
+  <text class="t-item" x="40" y="392">圧密排水は過剰間隙水圧を抜いて沈下を促す</text>
+  <text class="t-item" x="40" y="418">締固めは緩い砂地盤が対象</text>
+  <text class="t-item" x="40" y="444">置換は軟弱層を入れ替える最も直接的な改良手段</text>
+</svg>
