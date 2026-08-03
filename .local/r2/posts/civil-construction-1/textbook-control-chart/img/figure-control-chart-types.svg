@@ -1,0 +1,49 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="管理図の種類。計量値には平均値と範囲を扱うX̄-R管理図、個々の測定値を扱うX-Rs-Rm管理図、メディアンを扱うX̃管理図がある。計数値には不適合品率のP管理図、不適合品数のnP管理図、不適合数のc管理図、単位あたり不適合数のu管理図がある">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-def  { font-size: 11px; fill: #555; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-use  { font-size: 11px; fill: #555; }
+      .t-note { font-size: 11px; fill: #222; }
+      .box-a { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-b { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">扱うデータが計量値か計数値かで使い分ける</text>
+
+  <rect class="box-a" x="20" y="28" width="360" height="172" rx="6"/>
+  <text class="t-sec" x="200" y="52" text-anchor="middle">計量値の管理図（連続的な値）</text>
+  <text class="t-def" x="200" y="72" text-anchor="middle">舗装の厚さ・強度・重量など量的に測定できる値</text>
+  <line class="rule" x1="36" y1="84" x2="364" y2="84"/>
+  <text class="t-name" x="40" y="110">X̄−R 管理図</text>
+  <text class="t-use" x="40" y="128">群の平均値とバラツキの範囲で評価する</text>
+  <text class="t-name" x="40" y="154">X−Rs−Rm 管理図</text>
+  <text class="t-use" x="40" y="172">個々の測定値とバラツキの範囲で評価する</text>
+  <text class="t-name" x="40" y="194">X̃ 管理図　メディアンを用いる</text>
+
+  <rect class="box-b" x="20" y="212" width="360" height="212" rx="6"/>
+  <text class="t-sec" x="200" y="236" text-anchor="middle">計数値の管理図（離散的な値）</text>
+  <text class="t-def" x="200" y="256" text-anchor="middle">鉄筋100本中の不良5本、1か月の事故1回など</text>
+  <line class="rule" x1="36" y1="268" x2="364" y2="268"/>
+  <text class="t-name" x="40" y="294">P 管理図</text>
+  <text class="t-use" x="140" y="294">不適合品率で評価する</text>
+  <text class="t-name" x="40" y="326">nP 管理図</text>
+  <text class="t-use" x="140" y="326">不適合品数で評価する</text>
+  <text class="t-name" x="40" y="358">c 管理図</text>
+  <text class="t-use" x="140" y="358">サンプルに生起した不適合数</text>
+  <text class="t-name" x="40" y="390">u 管理図</text>
+  <text class="t-use" x="140" y="390">単位あたりに生起した不適合数</text>
+  <text class="t-use" x="40" y="414">※ n が 10 を超えると R 管理図は性能が悪くなる</text>
+
+  <rect class="box-surf" x="20" y="436" width="360" height="46" rx="6"/>
+  <text class="t-note" x="200" y="464" text-anchor="middle">建設事業で多く用いられるのは X̄−R と X−Rs−Rm</text>
+</svg>
