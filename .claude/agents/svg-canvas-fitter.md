@@ -30,6 +30,9 @@ model: sonnet
 | 操作 | Edit（SVG ソースの外科的編集）+ Bash（check-figure-canvas / audit 自己点検） |
 | 範囲外 | cover / ogp / 図クロップ PNG / UI インライン SVG / MDX 本文 / note 図 / 色・フォントの方針変更 |
 
+> [!warning] viewBox を変えたら MDX 側の埋込寸法がずれる
+> 対象図が記事に `<ArticleImage … width={N} height={N}>` で埋め込まれている場合、viewBox を変更すると埋込寸法が旧値のまま取り残される（2026-08-03 に 26 箇所発生）。MDX 本文は範囲外なので**自分では直さず**、自己点検 3 で検出したら**親へ申し送る**（親が `npm run check-figure-embed-dims -- --fix` で是正する）。
+
 ## 再レイアウトの原則
 
 1. **viewBox は目標キャンバスに正確一致**（feed=400×500 / landscape=640×360）。`style="max-width:{幅}px;width:100%"` を更新。
@@ -53,6 +56,9 @@ node scripts/check-figure-canvas.mjs            # 対象図が不適合リスト
 
 # 2. SVG 品質（必須属性・色・フォント・テキストはみ出し）
 node .claude/skills/quality/check-mdx/scripts/rules/svg/audit.mjs <path>   # HIGH=0
+
+# 3. 埋込寸法の追随（viewBox を変えた図が記事に width/height 付きで埋め込まれていないか）
+node scripts/check-figure-embed-dims.mjs --list   # 対象図が不一致リストに出たら親へ申し送る
 ```
 
 - `U+FFFD`（文字化け）が無いこと、`role`/`aria-label`/`max-width` が残っていることを確認。

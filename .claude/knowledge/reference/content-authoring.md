@@ -233,6 +233,7 @@ CLAUDE.md 本体にも要点を置いているが、詳細はここで扱う。
 - caption に **図の説明・構造の解説を書くのは禁止**（本文と重複するため）
 - `alt` は簡潔な識別情報のみ、**80 字以内**
 - 機種の詳細・図の読み方は **本文** で説明する
+- **SVG（`figure-*.svg`）で `width`/`height` を書くなら、その SVG の実 `viewBox`（feed は 400×500）と一致必須** — ガード `npm run check-figure-embed-dims`（pre-commit + CI）。省略も可（SVG 経路では描画に使われないため）。詳細 → [figure-canvas-policy.md §3](./figure-canvas-policy.md)
 
 ### 既存 `<img>` との互換
 
