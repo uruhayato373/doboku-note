@@ -44,6 +44,11 @@ model: sonnet
 3. **提出駆動**: `kdp-publish.mjs --id <id>`（下書きまで）。`--commit-publish`（出版）は**親/ユーザー承認後のみ**。
 4. **記録**: 提出後 catalog.json（status=in_review・submittedDate・draftAsin は script が自動記録）。
    LIVE 化検知後（`--sync-status`）は ASIN を **catalog / `.claude/content/kindle/strategy.md` / kindle-published README の3箇所**へ。
+5. **価格ドリフトの是正**: `--sync-status` の `PRICE DRIFT` は「KDP UI で人が手動改定したのに
+   リポジトリが古い」状態。**ライブを正として** `catalog.priceJpy` と `spec.price` の**両方**を
+   更新する（`resolveBook` が読むのは spec 側なので、片方だけだと次の価格処理が旧値で走る）。
+   逆に「リポジトリを正としてライブを変える」のは `--set-price --commit` で、**別の操作＝人の承認が要る**。
+   どちらの向きなのかを取り違えない（2026-08-03 に 7 冊＝A-01〜A-06・d-01 を前者で是正）。
 
 ## 担当外
 
@@ -55,7 +60,7 @@ model: sonnet
 
 | フラグ | 用途 |
 |---|---|
-| `--sync-status` | catalog 各冊を本棚でタイトル検索し {asin,status,提出日,asinMatch} を `.tmp/kdp-sync-status.json` に出力（突合・LIVE検知・重複防止）。**本棚の列挙ではない**——本棚はページネーションで先頭10冊しか DOM に無く、`title-setup/kindle/` の ID は 13〜14 桁の内部IDで ASIN ではないため、列挙方式は live 33 冊の口座で 10 件しか拾えず半分がゴミだった（2026-07-30 に置換）。ASIN 既知の本を1件も再現できなければ **exit 1（検査不成立）**＝ `found:false` を「本棚に無い」の証拠にしない |
+| `--sync-status` | catalog 各冊を本棚でタイトル検索し {asin,status,提出日,asinMatch,**livePriceJpy,catalogPriceJpy,priceMatch**} を `.tmp/kdp-sync-status.json` に出力（突合・LIVE検知・重複防止・**価格ドリフト検知**）。**本棚の列挙ではない**——本棚はページネーションで先頭10冊しか DOM に無く、`title-setup/kindle/` の ID は 13〜14 桁の内部IDで ASIN ではないため、列挙方式は live 33 冊の口座で 10 件しか拾えず半分がゴミだった（2026-07-30 に置換）。ASIN 既知の本を1件も再現できなければ **exit 1（検査不成立）**＝ `found:false` を「本棚に無い」の証拠にしない。**出版直後の「レビュー中」は ASIN 未発番なので、状態語も行の根拠に含める**（含めないとレビュー中の本が消えて found:false になり、重複作成に繋がる。2026-08-03 に f-09 で実測） |
 | `--id <id>` | 新規提出（詳細→カテゴリー→原稿/表紙→処理完了待ち→AI申告→アクセシビリティ→価格→下書き保存）＋チェックリスト |
 | `--id <id> --commit-publish` | 上記＋出版（不可逆）＋出版後検証。**承認後のみ** |
 | `--list-drafts` | 本棚を `.tmp` へダンプ（読み取り） |

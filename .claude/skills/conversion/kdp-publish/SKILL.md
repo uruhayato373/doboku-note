@@ -67,7 +67,8 @@ node scripts/kdp-publish.mjs --id <id> --publish-only --commit-publish
 > 前段の Chrome とプロファイルが競合し、**エラーも出さず無言でハングする**（2026-07-27 に3回発生。
 > 症状＝node は生きているが CPU がほぼ増えず、ブラウザプロセスが 0、スクショも更新されない）。
 > さらにハングを `kill -9` すると `Default/Preferences` の `exit_type` が `Crashed` になり、
-> 次回起動時に復元ダイアログでまたハングする。手順は `scripts/kdp-batch.sh` の `clean_profile()`。
+> 次回起動時に復元ダイアログでまたハングする。手順は `scripts/kdp-batch.mjs` の `cleanProfile()`
+> （プロセス kill → `Default/Preferences` の `exit_type` を `Normal` へ戻す → `Singleton*` 削除）。
 
 ### 途中で落ちた本の再開（2026-08-03 に修復）
 
@@ -88,11 +89,18 @@ node scripts/kdp-publish.mjs --id <id> --publish-only --commit-publish
 ### 一括提出（複数冊）
 
 ```
-npm run kdp-batch -- f-08 f-09 f-10 ...
+npm run kdp-batch -- f-10 f-11 f-12          # 下書き→出版（不可逆）
+npm run kdp-batch -- --draft-only f-10       # 下書きまで
 ```
 
-`scripts/kdp-batch.sh` が「配置 → 下書き → プロファイル掃除 → 出版 → catalog 更新」を
+`scripts/kdp-batch.mjs` が「配置 → 下書き → プロファイル掃除 → 出版 → catalog 更新」を
 1冊あたり約3.5分で回し、異常時は即中断する（2026-07-27 に10冊を無人処理した実績）。
+提出済み（`in_review`/`live`）の id は SKIP、作成数制限に当たったら残りに触れず exit 2。
+
+> [!note] zsh 版は 2026-08-03 に退役
+> 旧 `scripts/kdp-batch.sh` は `zsh` と `pgrep` に依存し、**Windows では 1 行も動かなかった**
+> （Git Bash に `pgrep` が無い）。同じ役割が 2 つあると環境ごとに別物を保守することになるため
+> `.mjs` に一本化した。プロセス掃除だけ `win32`=PowerShell / それ以外=`pkill` で分岐する。
 
 **KDP 新規/実績浅アカウントは本の作成数制限あり**（過去 d-03 提出時、2026-07-27 に f-08 で到達）。
 到達すると詳細ページで **モーダル「本の作成数制限を超えました／このアカウントで提出可能な本の数を
@@ -117,6 +125,17 @@ node scripts/kdp-publish.mjs --sync-status   # .tmp/kdp-sync-status.json
 
 自己検証つき: catalog に ASIN がある本を1件も再現できなければ **exit 1（検査不成立）**。
 `found:false` を「本棚に無い」の証拠として使ってよいのは exit 0 のときだけ。
+
+**ライブ価格も突合する**（2026-08-03 追加）。本棚行の `¥価格` を `livePriceJpy` として持ち帰り、
+`catalog.priceJpy` と比べて `PRICE DRIFT <id>: live ¥X ≠ catalog ¥Y` を出す。**KDP UI で手動改定
+すると catalog/spec と割れるが、これまで検知手段が無かった**——初回実行で 7 冊（A-01〜A-06・d-01）の
+ドリフトが出た。突合できた件数と比較不能件数も併記する（未提出の本は live 価格が無いので比較不能）。
+
+> [!caution] 出版直後の「レビュー中」は ASIN がまだ無い
+> 行の抽出条件を「ASIN あり or 下書き」にすると、**レビュー中の本が丸ごと消えて `found:false`**
+> になる。これを「本棚に無い」と読むと重複作成に直結する（2026-08-03 に f-09 で実測。ブラウザで
+> 本棚を見てレビュー中・¥990・ASIN なしを確認した）。状態語（販売中/レビュー中/出版準備中/下書き等）
+> も行の根拠に含める。
 
 ### 既刊の価格改定
 ```

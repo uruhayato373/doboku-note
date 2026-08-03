@@ -1,5 +1,5 @@
 // Kindle 本を「配置 → 下書き → プロファイル掃除 → 出版 → catalog 更新」で連続処理する driver。
-// scripts/kdp-batch.sh の cross-platform 版（あちらは zsh + pgrep 依存で Windows では動かない）。
+// 旧 scripts/kdp-batch.sh（zsh + pgrep 依存で Windows では動かなかった）の後継。2026-08-03 に一本化。
 //
 // 使い方:
 //   node scripts/kdp-batch.mjs f-10 f-11 f-12        # 下書き→出版まで（不可逆）
@@ -29,11 +29,17 @@ const LIMIT_MARKS = [/ページ2へ遷移できず/, /作成数制限/, /提出�
 
 const cleanProfile = () => {
   // 永続プロファイルを掴んだままのプロセスが残ると Chrome 起動が無言で落ちる。
-  spawnSync('powershell', ['-NoProfile', '-Command',
-    `Get-CimInstance Win32_Process -Filter "Name='chrome.exe' OR Name='node.exe'" |` +
-    ` Where-Object { $_.CommandLine -like '*playwright-kdp-profile*' } |` +
-    ` ForEach-Object { try { Stop-Process -Id $_.ProcessId -Force -ErrorAction Stop } catch {} }`,
-  ], { stdio: 'ignore' })
+  // Windows に pgrep は無く、Git Bash でも入っていない（旧 kdp-batch.sh が Windows で
+  // 動かなかった理由の一つ）。プラットフォームごとに手段を分ける。
+  if (process.platform === 'win32') {
+    spawnSync('powershell', ['-NoProfile', '-Command',
+      `Get-CimInstance Win32_Process -Filter "Name='chrome.exe' OR Name='node.exe'" |` +
+      ` Where-Object { $_.CommandLine -like '*playwright-kdp-profile*' } |` +
+      ` ForEach-Object { try { Stop-Process -Id $_.ProcessId -Force -ErrorAction Stop } catch {} }`,
+    ], { stdio: 'ignore' })
+  } else {
+    spawnSync('pkill', ['-f', 'playwright-kdp-profile'], { stdio: 'ignore' })
+  }
   // kill 後は exit_type=Crashed が残り、次回起動時の復元ダイアログでハングする。
   const prefs = resolve(PROFILE, 'Default/Preferences')
   try {
