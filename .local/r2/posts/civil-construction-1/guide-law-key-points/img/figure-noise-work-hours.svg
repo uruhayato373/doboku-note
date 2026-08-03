@@ -1,0 +1,56 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="特定建設作業の夜間作業禁止時間帯。1号区域は 19 時から翌 7 時までが作業禁止で 1 日の作業時間は 10 時間まで、2号区域は 22 時から翌 6 時までが作業禁止で 1 日の作業時間は 14 時間まで。いずれも騒音規制法と振動規制法で共通である">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-zone { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-time { font-size: 11px; font-weight: bold; fill: #b22234; }
+      .t-in   { font-size: 11px; fill: #222; }
+      .t-cap  { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .ban { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .ok  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">作業できる帯と 1 日の上限は別の規制</text>
+
+  <text class="t-zone" x="24" y="100">1 号区域</text>
+  <rect class="ban" x="90" y="76" width="82" height="40"/>
+  <rect class="ok"  x="172" y="76" width="133" height="40"/>
+  <rect class="ban" x="305" y="76" width="65" height="40"/>
+  <text class="t-cap" x="90" y="68" text-anchor="middle">0 時</text>
+  <text class="t-time" x="172" y="68" text-anchor="middle">7 時</text>
+  <text class="t-time" x="305" y="68" text-anchor="middle">19 時</text>
+  <text class="t-cap" x="370" y="68" text-anchor="middle">24 時</text>
+  <text class="t-in" x="238" y="101" text-anchor="middle">作業できる</text>
+  <text class="t-cap" x="238" y="136" text-anchor="middle">1 日 10 時間まで</text>
+
+  <text class="t-zone" x="24" y="200">2 号区域</text>
+  <rect class="ban" x="90" y="176" width="70" height="40"/>
+  <rect class="ok"  x="160" y="176" width="187" height="40"/>
+  <rect class="ban" x="347" y="176" width="23" height="40"/>
+  <text class="t-time" x="160" y="168" text-anchor="middle">6 時</text>
+  <text class="t-time" x="347" y="168" text-anchor="middle">22 時</text>
+  <text class="t-in" x="253" y="201" text-anchor="middle">作業できる</text>
+  <text class="t-cap" x="253" y="236" text-anchor="middle">1 日 14 時間まで</text>
+
+  <rect class="ok"  x="60" y="266" width="16" height="12"/>
+  <text class="t-cap" x="82" y="276">作業できる時間帯</text>
+  <rect class="ban" x="200" y="266" width="16" height="12"/>
+  <text class="t-cap" x="222" y="276">夜間作業禁止</text>
+
+  <rect class="box-surf" x="20" y="310" width="360" height="172" rx="6"/>
+  <text class="t-sec" x="200" y="332" text-anchor="middle">騒音・振動で共通の規制</text>
+  <line class="rule" x1="36" y1="341" x2="364" y2="341"/>
+  <text class="t-item" x="40" y="368">夜間の禁止時間帯と 1 日の作業時間は共通</text>
+  <text class="t-item" x="40" y="394">測定場所は敷地の境界線</text>
+  <text class="t-item" x="40" y="420">作業期間は連続 6 日間を超えないこと</text>
+  <text class="t-item" x="40" y="446">日曜日・休日は作業禁止</text>
+</svg>
