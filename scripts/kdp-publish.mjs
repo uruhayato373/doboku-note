@@ -154,7 +154,10 @@ try {
         const STAT = /下書き|レビュー中|販売中|ブロック|出版準備中|非公開/;
         const rows = [...document.querySelectorAll('tr.mt-row')]
           .map((tr) => (tr.textContent || '').replace(/\s+/g, ' ').trim())
-          .filter((t) => t.includes('著:') && /ASIN:\s*B0[0-9A-Z]{8}|下書き/.test(t));
+          // 出版直後の「レビュー中」は ASIN がまだ発番されない。ASIN か「下書き」でしか
+          // 行を拾わないと、この状態の本が丸ごと消えて found:false になる（＝本棚に無い、と
+          // 誤読して重複作成しかねない。2026-08-03 に f-09 で実測）。状態語も行の根拠に加える。
+          .filter((t) => t.includes('著:') && (/ASIN:\s*B0[0-9A-Z]{8}/.test(t) || STAT.test(t)));
         return rows.map((t) => ({
           shelfTitle: t.split('著:')[0].trim().slice(0, 80),
           asin: (t.match(/ASIN:\s*(B0[0-9A-Z]{8})/) || [])[1] || null,
