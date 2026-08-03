@@ -434,6 +434,16 @@ try {
       const already = await page.evaluate(() => (document.body.innerText.match(/(\d+)\s*個のカテゴリーを選択済み/) || [])[1] || '0');
       if (already && already !== '0') { console.log(`[cat] 既に ${already} 個選択済み → スキップ`); return true; }
     } catch {}
+    // 保存済みドラフトの再開では上の modal 内カウンタが無く、代わりに「本の現在のカテゴリー … › <末端>」
+    // が出る。両方見ないと resume が毎回「L0 選択失敗（候補なし）」で誤 ABORT する（2026-08-03 f-08 実測）。
+    try {
+      const saved = await page.evaluate(() => ((document.body.innerText || '').match(/本の現在のカテゴリー\s*\n?\s*([^\n]+)/) || [])[1] || '');
+      if (saved) {
+        if (saved.includes(book.catLeaf)) { console.log(`[cat] 設定済み「${saved.trim()}」→ スキップ`); return true; }
+        console.log(`[cat] 設定済みだが末端 "${book.catLeaf}" と不一致: ${saved.trim()}`);
+        return false;
+      }
+    } catch {}
     for (const sel of ['button:has-text("カテゴリーを選択")', 'text=カテゴリーを選択']) { try { const l = page.locator(sel); if (await l.count()) { await l.first().click({ timeout: 8000 }); break; } } catch {} }
     await sleep(2500);
     for (let lvl = 0; lvl < book.catDropdowns.length; lvl++) {
@@ -491,6 +501,31 @@ try {
   console.log('[3] 原稿処理: ' + up);
   if (up === 'error') { console.error('ABORT: 原稿がKDP変換で失敗（.svg拡張子のJPEG等を疑う→build確認）'); await ctx.close(); process.exit(4); }
   if (up === 'timeout') { console.error('ABORT: 原稿処理が10分で完了せず（スクショ確認）'); await ctx.close(); process.exit(4); }
+
+  // ── 表紙は投げっぱなしにせず「正常にアップロード」を実査する ──
+  // 原稿と同時に投げると表紙側の AJAX だけ無言で落ちることがある（2026-08-03 f-08 で実測。原稿は
+  // 完了・表紙は「表紙がアップロードされていません」のままで、価格ページへ進めず ABORT した）。
+  // 判定文言は「正常にアップロード」（＝原稿側）ではなく「表紙のアップロードに成功しました」。
+  // ただしこの文字列は全パターンが非表示テンプレとして DOM に常駐するので innerText(可視) で見る。
+  // 併せてサムネイル <img> の実在も見て、未アップロード時の placeholder と区別する。
+  const coverUploaded = async () => page.evaluate(() => {
+    const txt = document.body.innerText || '';
+    if (/表紙がアップロードされていません/.test(txt)) return false;
+    if (/表紙のアップロードに成功しました/.test(txt)) return true;
+    const input = document.querySelector('#data-assets-cover-file-upload-AjaxInput');
+    const sec = input && input.closest('div[class*="a-row"], section, form');
+    return !!(sec && Array.from(sec.querySelectorAll('img')).some((i) => i.naturalWidth > 40));
+  });
+  let coverOk = await coverUploaded();
+  for (let attempt = 1; attempt <= 3 && !coverOk; attempt++) {
+    if (attempt > 1) {
+      console.log(`[3] 表紙 再アップロード（${attempt}回目）…`);
+      await page.locator('#data-assets-cover-file-upload-AjaxInput').setInputFiles(book.cover);
+    }
+    for (let t = 0; t < 18 && !coverOk; t++) { await sleep(5000); coverOk = await coverUploaded(); }
+  }
+  console.log('[3] 表紙: ' + (coverOk ? 'ok' : 'fail'));
+  if (!coverOk) { await shot(page, '04b-cover-fail'); console.error('ABORT: 表紙がアップロードされないまま（3回試行）。スクショで表紙欄を確認'); await ctx.close(); process.exit(4); }
 
   // ── AI 生成コンテンツ申告（config の aiDeclaration に準拠）──
   const ai = book.aiDeclaration;
