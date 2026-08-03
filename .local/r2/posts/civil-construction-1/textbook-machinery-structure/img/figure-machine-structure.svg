@@ -1,0 +1,47 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="建設機械の構造は原動機・動力伝達装置・走行装置・操向装置・作業装置・付属装置の6要素からなる。建設機械用エンジンには重負荷での運転、高い耐久性、前後左右40度の傾斜運転への耐性、低騒音、排出ガス規制への適合などが要求される">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .box-main { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-sub  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">6つの要素から構成される（青は本章で扱う部分）</text>
+
+  <rect class="box-main" x="20" y="28" width="172" height="60" rx="6"/>
+  <text class="t-name" x="106" y="64" text-anchor="middle">原動機</text>
+  <rect class="box-main" x="208" y="28" width="172" height="60" rx="6"/>
+  <text class="t-name" x="294" y="64" text-anchor="middle">動力伝達装置</text>
+
+  <rect class="box-sub" x="20" y="96" width="172" height="60" rx="6"/>
+  <text class="t-name" x="106" y="132" text-anchor="middle">走行装置</text>
+  <rect class="box-sub" x="208" y="96" width="172" height="60" rx="6"/>
+  <text class="t-name" x="294" y="132" text-anchor="middle">操向装置</text>
+
+  <rect class="box-sub" x="20" y="164" width="172" height="60" rx="6"/>
+  <text class="t-name" x="106" y="200" text-anchor="middle">作業装置</text>
+  <rect class="box-sub" x="208" y="164" width="172" height="60" rx="6"/>
+  <text class="t-name" x="294" y="200" text-anchor="middle">付属装置</text>
+
+  <rect class="box-surf" x="20" y="244" width="360" height="238" rx="6"/>
+  <text class="t-sec" x="200" y="268" text-anchor="middle">建設機械用エンジンに要求される性能</text>
+  <line class="rule" x1="36" y1="277" x2="364" y2="277"/>
+  <text class="t-item" x="40" y="302">機械的衝撃・振動・負荷変動の激しい重負荷でも運転できる</text>
+  <text class="t-item" x="40" y="326">高い負荷率下でも十分な耐久性がある</text>
+  <text class="t-item" x="40" y="350">前後左右 40° の傾斜運転に耐える構造である</text>
+  <text class="t-item" x="40" y="374">砂塵地・寒冷地・高温下での運転に対応する装置を備える</text>
+  <text class="t-item" x="40" y="398">山間へき地での稼動中の故障防止に対する信頼性がある</text>
+  <text class="t-item" x="40" y="422">水中作業に対する電装品の水密性がある</text>
+  <text class="t-item" x="40" y="446">高感度で安定性のよい調速機を装着している</text>
+  <text class="t-item" x="40" y="470">低騒音であり、排出ガス規制に適合している</text>
+</svg>

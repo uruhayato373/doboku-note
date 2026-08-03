@@ -1,0 +1,52 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="動力伝達装置は機械式と油圧式に大別される。機械式の変速装置にはダイレクトドライブ方式、パワーシフトドライブ、トルコンパワーシフト方式の3方式があり、トルコンパワーシフト方式が大型機の主流である。油圧式は油圧ポンプ・油圧モータ・油圧シリンダなどで構成される">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-bar  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .t-use  { font-size: 11px; fill: #2e6da4; }
+      .t-item { font-size: 11px; fill: #222; }
+      .bar-m { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .bar-h { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .card  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-h { fill: #ffffff; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">機械式と油圧式に大きく分けられる</text>
+
+  <rect class="bar-m" x="20" y="28" width="360" height="28" rx="6"/>
+  <text class="t-bar" x="32" y="47">機械式 — 変速装置の3方式</text>
+
+  <rect class="card" x="20" y="62" width="360" height="86" rx="6"/>
+  <text class="t-name" x="40" y="84">ダイレクトドライブ方式</text>
+  <text class="t-desc" x="40" y="106">主クラッチ＋レバー操作式の変速機</text>
+  <text class="t-desc" x="40" y="124">構造が簡単で伝達効率が高く、安価</text>
+  <text class="t-use" x="40" y="142">小型ブルドーザなど一部で使用</text>
+
+  <rect class="card" x="20" y="156" width="360" height="86" rx="6"/>
+  <text class="t-name" x="40" y="178">パワーシフトドライブ</text>
+  <text class="t-desc" x="40" y="200">ダンパ＋パワーシフトトランスミッション</text>
+  <text class="t-desc" x="40" y="218">操作性は改善されたが負荷変動に弱い</text>
+  <text class="t-use" x="40" y="236">小型機種の一部に採用</text>
+
+  <rect class="card" x="20" y="250" width="360" height="86" rx="6"/>
+  <text class="t-name" x="40" y="272">トルコンパワーシフト方式</text>
+  <text class="t-desc" x="40" y="294">トルクコンバータ＋パワーシフト変速機</text>
+  <text class="t-desc" x="40" y="312">大きなけん引力、負荷変動への適応性が高い</text>
+  <text class="t-use" x="40" y="330">ブルドーザ・ホイールローダ・ダンプに採用</text>
+
+  <rect class="bar-h" x="20" y="352" width="360" height="28" rx="6"/>
+  <text class="t-bar" x="32" y="371">油圧式</text>
+
+  <rect class="box-h" x="20" y="386" width="360" height="96" rx="6"/>
+  <text class="t-item" x="40" y="412">油圧ポンプ・油圧モータ・油圧シリンダ・</text>
+  <text class="t-item" x="40" y="432">コントロールバルブ・オイルタンク・配管・フィルタ</text>
+  <text class="t-desc" x="40" y="458">走行装置・旋回装置・作業装置に用いられ、近年は</text>
+  <text class="t-desc" x="40" y="474">ほとんどの建設機械で何らかの形で使われている</text>
+</svg>
