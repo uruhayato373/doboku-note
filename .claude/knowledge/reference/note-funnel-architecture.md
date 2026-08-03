@@ -73,9 +73,9 @@ note 記事・マガジンが増えると、記事末尾の CTA が場当たり�
 | ツール | 役割 |
 |---|---|
 | `npm run audit-note-funnel` | **ソース**ドリフト検出（read-only・高速）。公開記事の CTA マーカー欠落／公開マガジンの L2 未収録／L2 の L1 未リンク／L2 URL 不一致／**除外指定なのに冒頭パック残存**（D1-D4・D6）＋**review surfacer**（トピック不一致の疑いを非ゲートで列挙→`note-funnel-auditor` へ） |
-| `npm run audit-note-funnel -- --live` | **＋ライブ反映検証（D5）**。公開記事の CTA が live note に実反映されているかを note 公開 API（body+embedded）で機械検証。**「ソースは正でもライブ未反映＝再投稿もれ」を検出**（2026-06-18 に総監19本で実害化した事故の機械検知）。低速・network依存のため CI ゲートには含めず、月次/手動で回す |
+| `npm run audit-note-funnel -- --live` | **＋ライブ反映検証（D5）**。公開記事の CTA が live note に実反映されているかを note 公開 API（body+embedded）で機械検証。**「ソースは正でもライブ未反映＝再投稿もれ」を検出**（2026-06-18 に総監19本で実害化した事故の機械検知）。`note-live-audit.yml` が `--live --ci` で週次実行し、手動実行は修復直後の再確認に使う |
 | `npm run check-note-funnel` | CI ゲート（`audit --ci`、**ソースのみ**でドリフト exit 1＝D1-D4・D6・高速）。review surfacer は非ゲート。`r2-audit.yml` で発火 |
-| `npm run check-note-republish` | **本文＋ハッシュタグの再公開ドリフト検出**（surfacer・creds不要・ローカルhash突合）。公開記事のソース本文ハッシュ（`.claude/state/note-republish-hashes.json` の `hashes`）と**ハッシュタグ hash（同 state の `tagHashes`・`hashtags*.txt` 単位）**を現ソースと突合し「要再公開（本文drift／タグdrift）」を各々列挙。**D5 が CTA の live 反映を追うのに対し、こちらは blockquote/UTM/本文改稿など CTA 以外の全本文変更＋タグ変更を追う**（直交・補完）。in-sync 化: 本文＝`note-publish`／`note-update-body --commit`、タグ＝`note-publish`（Phase10でタグ適用）／`note-sync-tags`（公開済み記事へのタグ差分適用）。`note-update-body` はタグ非適用のためタグ hash は記録しない。`note-append-cta` は非hook。pre-commit ゲートにはしない。週次 PDCA でサーフェス。baseline は `--baseline --since <ref>`（本文・タグ両方をseed） |
+| `npm run check-note-republish` | **本文＋ハッシュタグの再公開ドリフト検出**（surfacer・creds不要・ローカルhash突合）。公開記事のソース本文ハッシュ（`.claude/state/note-republish-hashes.json` の `hashes`）と**ハッシュタグ hash（同 state の `tagHashes`・`hashtags*.txt` 単位）**を現ソースと突合し「要再公開（本文drift／タグdrift）」を各々列挙。**D5 が CTA の live 反映を追うのに対し、こちらは blockquote/UTM/本文改稿など CTA 以外の全本文変更＋タグ変更を追う**（直交・補完）。in-sync 化: 本文＝`note-publish`／`note-update-body --commit`、タグ＝`note-publish`（Phase10でタグ適用）／`note-sync-tags`（公開済み記事へのタグ差分適用）。`note-update-body` はタグ非適用のためタグ hash は記録しない。`note-append-cta` は非hook。正常な中間状態も含むためゲートにはせず、`note-live-audit.yml` が週次 artifact に JSON を保存する。baseline は `--baseline --since <ref>`（本文・タグ両方をseed） |
 | `npm run wire-note-funnel-cta -- --exam {key} [--apply]` | 資格別に L3 冒頭/末尾 CTA を**ソースへ**冪等配線（既定は dry-run） |
 | `npm run note-append-cta -- --note {id} ...` | **公開済み記事へ CTA を live 反映**（Playwright・Windows 可・browser-use 不要）。`--after`=free プレビューへアンカー挿入／`--boundary-h2`=有料境界保持。D5 ドリフトの修復手段。詳細 → [publish-note/references/update-mode.md](../../skills/social/publish-note/references/update-mode.md) |
 | `npm run note-append-list-links -- --spec {json} [--commit]` | **公開済みもくじの既存 `<ul>` へインラインリンク項目を live 追加**（D2 ライブ反映）。type ではインラインリンクが作れない（`[text](url)` はリテラル残存・bare URL はカード化）ため `insertAdjacentHTML` で兄弟 `<li>` を挿入。spec JSON = `{note, sections:[{anchorMagId, items:[{url,title,desc}]}]}` |
@@ -89,9 +89,13 @@ note 記事・マガジンが増えると、記事末尾の CTA が場当たり�
 
 - **新規マガジン公開時** — その資格の L2 もくじに追記し、`audit-note-funnel` を実行
 - **新規記事公開時** — L3 CTA が入っているか（`wire-note-funnel-cta` 済みか）確認。**配線が公開より後なら `note-append-cta` で live 反映**（ソースだけ直して再投稿しないと live は死んだまま＝2026-06-18 の事故）
-- **週次レビュー** — `npm run audit-note-funnel` を回しソースドリフトを surface（[workflows.md](workflows.md) 週次運用に組込）
-- **月次クラウドルーティン** — `doboku-note note-funnel monthly audit`（RemoteTrigger `trig_01F5nDWSTs757Ge5K1ou6Dbr`・毎月 15 日 22:00 UTC ＝ 16 日 07:00 JST）。**`audit-note-funnel --live` でライブ反映(D5)まで検証**＋`note-funnel-auditor` 意味監査→ソース修復 PR。**ソースを直したら必ず `note-append-cta`／`publish-note --update` で live 反映**（D5 が再び出ないところまでがクローズ条件）。routine 重複は `/routines` で事前確認
-- **CI** — `check-note-funnel` が公開済みコンテンツの**ソース**ドリフトを赤落ちで機械検知（D5 は network 依存のため CI には含めない）
+- **週次 CI（ソース）** — `r2-audit.yml` の `check-note-funnel` が D1-D4/D6 を赤落ちで機械検知
+- **週次 CI（ライブ）** — `note-live-audit.yml` が `audit-note-funnel --live --ci` を実行し、D5 と取得失敗率を検査
+- **意味的監査** — `note-funnel-auditor` は順序・文面の関連性を判断するときにオンデマンド実行。CI は意味判断やソース修復をしない
+- **修復** — CI が D5 を検出したら `note-append-cta`／`publish-note --update` で live 反映し、手動 `--live --ci` で消失を確認する
+
+> [!warning]
+> 旧クラウドルーティン `doboku-note note-funnel monthly audit`（`trig_01F5nDWSTs757Ge5K1ou6Dbr`）の機械監査責務は CI へ移管済み。クラウドルーティンの削除は API では行えないため、[Claude Code Routines](https://claude.ai/code/routines) で一覧を確認して削除する。
 
 ## 標準フロー（新規 L2 を増やすとき）
 

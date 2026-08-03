@@ -67,13 +67,6 @@ node scripts/check-note-live-headings.mjs --paths-only
 
 `ne190c3ef2fca`。4回試して毎回 note 側の CDN 確定が 9〜11/14 で止まり fail-closed で中断。押し切ると有料記事の図がライブで欠落する。画像重複なし・時間切れでもない（280秒待つ設定）。CTA と PDF 節がソース止まり。別 PC・別回線で再試行するか `--img-lenient` を使うかは要判断。
 
-### note-live-audit の疎通確認（main マージ直後に1回だけ）
-タグ: [運用基盤]
-
-`.github/workflows/note-live-audit.yml`（2026-07-28 新設・週次で `check-note-structure --ci`）は、**Actions ランナーから note API に到達できるかが未実証**のまま入っている。cron も `workflow_dispatch` も既定ブランチにファイルが無いと動かないため（`gh workflow run --ref develop` は 404）、develop 段階では確認できなかった。
-
-**main へマージした直後に workflow_dispatch で1回手動実行し、先頭の「note API 疎通確認」ステップの結果を見る。** 200 が返れば以後は週次で回る。403/404 なら Actions の IP がブロックされている＝CI 化は断念し、その事実を [measurement-incidents.md](../../.claude/knowledge/reference/measurement-incidents.md) に記録して workflow を削除、ローカル運用（`npm run check-note-structure`）へ戻す。
-
 ### noteカバーV4 残4件の手動更新（free×メンバーシップ連携LP）
 タグ: [収益化] [SNS・マーケ]
 

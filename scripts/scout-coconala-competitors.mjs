@@ -32,7 +32,12 @@ const CONFIG_PATH = join(ROOT, '.claude/config/coconala-competitors.json');
 const STATE_DIR = join(ROOT, '.claude/state/coconala');
 const HISTORY_DIR = join(STATE_DIR, 'history');
 const LATEST_PATH = join(STATE_DIR, 'competitors-snapshot.json');
-const PROFILE = join(ROOT, '.local/playwright-coconala-profile');
+const IS_CI = process.env.CI === 'true' || process.env.GITHUB_ACTIONS === 'true';
+// CI は Playwright が管理する Chromium と runner の一時 profile を使う。
+// ローカルは従来どおり system Chrome + 永続 profile（デバッグ時の再現性を維持）。
+const PROFILE = IS_CI
+  ? join(process.env.RUNNER_TEMP || join(ROOT, '.tmp'), 'playwright-coconala-profile')
+  : join(ROOT, '.local/playwright-coconala-profile');
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 
 const argv = process.argv.slice(2);
@@ -171,15 +176,16 @@ async function main() {
   console.log(`対象: ${competitors.length} セラー\n`);
 
   mkdirSync(STATE_DIR, { recursive: true });
-  const ctx = await chromium.launchPersistentContext(PROFILE, {
+  const launchOptions = {
     headless: !HEADED,
-    channel: 'chrome',
     proxy: PROXY ? { server: PROXY } : undefined,
     ignoreHTTPSErrors: true,
     viewport: { width: 1366, height: 1000 },
     args: ['--disable-blink-features=AutomationControlled'],
     locale: 'ja-JP',
-  });
+  };
+  if (!IS_CI) launchOptions.channel = 'chrome';
+  const ctx = await chromium.launchPersistentContext(PROFILE, launchOptions);
   const page = ctx.pages()[0] ?? (await ctx.newPage());
 
   const market = loadMarketServices();
