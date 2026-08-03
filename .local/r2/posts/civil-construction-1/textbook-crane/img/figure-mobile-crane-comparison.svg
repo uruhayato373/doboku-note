@@ -1,0 +1,49 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="移動式クレーンの使い分け。クローラクレーンは走破性に優れるが走行が遅い。トラック・オールテレーンクレーンは機動性が高くオールテレーンは不整地作業も両立する。ラフテレーンクレーンは1人で走行とクレーン作業ができ小回りが利く。積載型トラッククレーンは貨物運搬と兼用だが転倒事故が多い">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-tag  { font-size: 11px; font-weight: bold; fill: #2e6da4; }
+      .t-good { font-size: 11px; fill: #222; }
+      .t-bad  { font-size: 11px; fill: #b22234; }
+      .box-1 { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-2 { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-3 { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-4 { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">走破性と機動性のどちらを取るかで選ぶ</text>
+
+  <rect class="box-1" x="20" y="28" width="360" height="104" rx="6"/>
+  <text class="t-name" x="36" y="54">クローラクレーン</text>
+  <text class="t-tag" x="364" y="54" text-anchor="end">走破性が高い</text>
+  <text class="t-good" x="36" y="78">不整地・軟弱地に強く小回りが利く</text>
+  <text class="t-good" x="36" y="98">大作業半径でのつり能力が大きい</text>
+  <text class="t-bad" x="36" y="120">走行が遅く、移動時はジブを外してトラック輸送</text>
+
+  <rect class="box-2" x="20" y="142" width="360" height="104" rx="6"/>
+  <text class="t-name" x="36" y="168">トラック・オールテレーン</text>
+  <text class="t-tag" x="364" y="168" text-anchor="end">機動性が高い</text>
+  <text class="t-good" x="36" y="192">走行用とクレーン用の運転室が別に設けられる</text>
+  <text class="t-good" x="36" y="212">オールテレーンは高速走行と不整地作業を両立</text>
+  <text class="t-bad" x="36" y="234">タイヤ接地圧が大きく軟弱地盤では作業できない</text>
+
+  <rect class="box-3" x="20" y="256" width="360" height="104" rx="6"/>
+  <text class="t-name" x="36" y="282">ラフテレーンクレーン</text>
+  <text class="t-tag" x="364" y="282" text-anchor="end">狭あい地に強い</text>
+  <text class="t-good" x="36" y="306">運転手1人で走行とクレーン作業ができる</text>
+  <text class="t-good" x="36" y="326">2輪／4輪操向とかに操向で小回りが利く</text>
+  <text class="t-bad" x="36" y="348">大型特殊自動車で最高走行速度50 km/h 未満</text>
+
+  <rect class="box-4" x="20" y="370" width="360" height="104" rx="6"/>
+  <text class="t-name" x="36" y="396">積載型トラッククレーン</text>
+  <text class="t-tag" x="364" y="396" text-anchor="end">生産台数が最多</text>
+  <text class="t-good" x="36" y="420">クレーン作業と貨物運搬の双機能をもつ</text>
+  <text class="t-good" x="36" y="440">つり上げ荷重3 t 未満のものが多い</text>
+  <text class="t-bad" x="36" y="462">つる方向と積荷の有無で安定度が変わり転倒が多い</text>
+</svg>

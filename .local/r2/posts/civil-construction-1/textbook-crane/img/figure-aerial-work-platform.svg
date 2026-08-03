@@ -1,0 +1,47 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="高所作業車の2軸分類。走行装置ではトラック式・ホイール式・クローラ式に分かれ、作業装置では伸縮ブーム型・屈折ブーム型・混合ブーム型・垂直昇降型に分かれる。作業床を目的位置にどう到達させるかで作業装置を選ぶ">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .t-note { font-size: 11px; fill: #222; }
+      .box-a { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-b { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">走行装置と作業装置の2軸で分類する</text>
+
+  <rect class="box-a" x="20" y="28" width="360" height="140" rx="6"/>
+  <text class="t-sec" x="200" y="52" text-anchor="middle">走行装置による分類</text>
+  <line class="rule" x1="36" y1="61" x2="364" y2="61"/>
+  <text class="t-name" x="40" y="88">トラック式</text>
+  <text class="t-desc" x="150" y="88">公道走行を伴う屋外工事全般</text>
+  <text class="t-name" x="40" y="116">ホイール式</text>
+  <text class="t-desc" x="150" y="116">舗装面主体の建設現場・工場構内</text>
+  <text class="t-name" x="40" y="144">クローラ式</text>
+  <text class="t-desc" x="150" y="144">不整地・屋外造成現場など</text>
+
+  <rect class="box-b" x="20" y="182" width="360" height="214" rx="6"/>
+  <text class="t-sec" x="200" y="206" text-anchor="middle">作業装置による分類</text>
+  <line class="rule" x1="36" y1="215" x2="364" y2="215"/>
+  <text class="t-name" x="40" y="242">伸縮ブーム型</text>
+  <text class="t-desc" x="40" y="260">位置決めが容易。電気通信・道路標識・照明工事に多い</text>
+  <text class="t-name" x="40" y="286">屈折ブーム型</text>
+  <text class="t-desc" x="40" y="304">作業床を奥深く進入。障害物の乗越え・電線のかわしが可</text>
+  <text class="t-name" x="40" y="330">混合ブーム型</text>
+  <text class="t-desc" x="40" y="348">作業床が高く作業半径も大きい。大規模施設の補修に</text>
+  <text class="t-name" x="40" y="374">垂直昇降型</text>
+  <text class="t-desc" x="40" y="392">垂直に昇降する小型機。屋内で脚立に代わる足場として</text>
+
+  <rect class="box-surf" x="20" y="422" width="360" height="60" rx="6"/>
+  <text class="t-note" x="200" y="446" text-anchor="middle">高所作業車は作業床が昇降して任意の位置に移動できる</text>
+  <text class="t-note" x="200" y="468" text-anchor="middle">自走式の作業車である</text>
+</svg>
