@@ -1,0 +1,48 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="ダンプトラックのサイクルタイムの構成。積込み時間、行きの走行時間、帰りの走行時間、待ち時間の4つの合計で求める。平均速度は公道2車線以上で積荷20から35、空荷20から40キロメートル毎時、待ち時間は5から12分、作業効率は0.9程度を用いる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-form { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .t-sub  { font-size: 11px; fill: #555; }
+      .box-1 { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-2 { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-3 { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">4つの時間の合計がサイクルタイム</text>
+
+  <rect class="box-1" x="20" y="28" width="360" height="62" rx="6"/>
+  <text class="t-name" x="36" y="52">積込み時間</text>
+  <text class="t-form" x="36" y="74">（1サイクル所要時間 × 積込み回数）÷（60 × 作業効率）</text>
+
+  <rect class="box-2" x="20" y="98" width="360" height="62" rx="6"/>
+  <text class="t-name" x="36" y="122">T₁　行きの走行時間</text>
+  <text class="t-form" x="36" y="144">60 × 行きの走行距離 ÷ 平均速度（積荷）</text>
+
+  <rect class="box-2" x="20" y="168" width="360" height="62" rx="6"/>
+  <text class="t-name" x="36" y="192">T₂　帰りの走行時間</text>
+  <text class="t-form" x="36" y="214">60 × 帰りの走行距離 ÷ 平均速度（空荷）</text>
+
+  <rect class="box-3" x="20" y="238" width="360" height="62" rx="6"/>
+  <text class="t-name" x="36" y="262">T₃　待ち時間</text>
+  <text class="t-form" x="36" y="284">荷おろし・積込み待ち・シート掛けはずし・タイヤ洗浄</text>
+
+  <rect class="box-surf" x="20" y="314" width="360" height="168" rx="6"/>
+  <text class="t-sec" x="200" y="338" text-anchor="middle">算定に用いる参考値</text>
+  <line class="rule" x1="36" y1="347" x2="364" y2="347"/>
+  <text class="t-item" x="40" y="370">平均速度</text>
+  <text class="t-sub" x="54" y="392">公道2車線以上　積荷 20〜35・空荷 20〜40 km/h</text>
+  <text class="t-sub" x="54" y="412">現場内・2車線未満　積荷 5〜25・空荷 10〜30 km/h</text>
+  <text class="t-item" x="40" y="438">待ち時間 T₃ ＝ 5〜12 min</text>
+  <text class="t-item" x="40" y="462">ダンプトラックの作業効率 E ＝ 0.9 程度</text>
+</svg>
