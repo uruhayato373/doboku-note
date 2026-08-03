@@ -13,14 +13,15 @@
 //   （マガジン収録記事の一部など noteUrl で管理する別規約）には field を注入しない。
 //
 // 同系統: verify-note-magazines(マガジン SoT↔live)・audit-note-funnel --live(CTA 反映 D5)。
-//   いずれも network 依存・低速ゆえ CI ゲートに含めず weekly-review(クラウド)/手動で回す。
-//   note 公開 API は creds 不要（会社 PC プロキシ対策の --ssl-no-revoke を踏襲）。連続取得は
-//   レート制限されるため throttle + retry を入れている。
+//   いずれも note-live-audit.yml が週次実行する。note 公開 API は creds 不要
+//   （会社 PC プロキシ対策の --ssl-no-revoke を踏襲）。連続取得はレート制限されるため
+//   throttle + retry を入れている。
 //
 // 使い方:
 //   node scripts/verify-note-status.mjs          # 照合レポート（read-only・exit 0）
 //   node scripts/verify-note-status.mjs --fix     # ライブ published に合わせ既存 noteStatus 行を是正
 //   node scripts/verify-note-status.mjs --json     # 結果を JSON で stdout 出力
+//   node scripts/verify-note-status.mjs --ci       # ドリフト/検査不成立で exit 1（GitHub Actions 用）
 
 import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
@@ -31,6 +32,13 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const NOTE_DIR = join(ROOT, 'docs/note');
 const FIX = process.argv.includes('--fix');
 const JSON_OUT = process.argv.includes('--json');
+const CI = process.argv.includes('--ci');
+const MAX_FETCH_FAIL_RATE = 0.2;
+
+if (CI && FIX) {
+  console.error('[verify-note-status] --ci と --fix は併用できません（CI は read-only）。');
+  process.exit(2);
+}
 
 const sleepSync = (sec) => { try { execFileSync('sleep', [String(sec)]); } catch {} };
 
@@ -62,7 +70,11 @@ const fm = (block, k) => {
 function fetchLiveStatus(noteId, attempt = 0) {
   let out = '';
   try {
-    out = execFileSync('curl', ['-s', '--ssl-no-revoke', '--max-time', '20', `https://note.com/api/v3/notes/${noteId}`], { encoding: 'utf8', maxBuffer: 8 * 1024 * 1024 });
+    out = execFileSync(
+      'curl',
+      ['-s', '--ssl-no-revoke', '--max-time', '20', '-H', 'User-Agent: Mozilla/5.0', '-H', 'Accept: application/json', `https://note.com/api/v3/notes/${noteId}`],
+      { encoding: 'utf8', maxBuffer: 8 * 1024 * 1024 },
+    );
   } catch { out = ''; }
   try {
     const d = JSON.parse(out);
@@ -102,6 +114,7 @@ for (const file of articles) {
   const status = fm(block, 'noteStatus');
   const fmPublished = /publish/i.test(status);
   if (!noteId) {
+    noId++;
     // URL 未付与。noteStatus が publish 主張なら不整合（公開済みなのに ID 欠落）
     if (fmPublished) warn.push({ rel, noteId: '(空)', status, live: 'no-id' });
     continue;
@@ -120,8 +133,27 @@ for (const file of articles) {
   }
 }
 
+const fetchTargets = tracked - noId;
+const fetchFailRate = fetchTargets ? noLive.length / fetchTargets : 1;
+const notConclusive = fetchTargets === 0 || fetchFailRate > MAX_FETCH_FAIL_RATE;
+const failed = drift.length > 0 || warn.length > 0 || notConclusive;
+const result = {
+  tracked,
+  untracked,
+  noId,
+  fetchTargets,
+  inspected: fetchTargets - noLive.length,
+  fetchFail: noLive.length,
+  fetchFailRate,
+  notConclusive,
+  drift,
+  warn,
+  noLive,
+  fixed: fixedCount,
+};
+
 if (JSON_OUT) {
-  console.log(JSON.stringify({ tracked, untracked, noId, drift, warn, noLive, fixed: fixedCount }, null, 2));
+  console.log(JSON.stringify(result, null, 2));
 } else {
   console.log(`[verify-note-status] noteStatus 運用記事 ${tracked} 本を照合（非運用 ${untracked} 本スキップ）`);
   if (drift.length) {
@@ -137,7 +169,14 @@ if (JSON_OUT) {
     console.log(`\n■ ライブ取得不能 ${noLive.length} 本（throttle/network・予約未live の可能性・再実行で確認）`);
     for (const n of noLive) console.log(`  - [${n.status}] ${n.rel} (${n.noteId})`);
   }
-  if (!drift.length && !warn.length && !noLive.length) console.log('  ✓ ドリフトなし（noteStatus とライブが整合）');
+  if (notConclusive) {
+    console.error(
+      `\n■ 検査不成立: API 照合対象 ${fetchTargets} 本中 ${noLive.length} 本が取得不能` +
+      `（${Math.round(fetchFailRate * 100)}%・上限 ${Math.round(MAX_FETCH_FAIL_RATE * 100)}%）`,
+    );
+  } else if (!drift.length && !warn.length) {
+    console.log(`  ✓ ドリフトなし（実検査 ${result.inspected} 本・noteStatus とライブが整合）`);
+  }
 }
 
-process.exit(0); // network 依存ゆえ CI ゲートにはせず常に exit 0
+process.exit(CI && failed ? 1 : 0);

@@ -1,0 +1,153 @@
+name: Fetch competitor snapshots (quarterly)
+
+# 認証不要で取得できる競合データを四半期ごとに取得し、develop の時系列 state へ保存する。
+# note / Instagram は公開HTTP、ココナラはログイン不要の公開ページを headless Chromium で読む。
+# X は個人アカウントのログイン済みCLI、Brainは検索結果の意味判断が必要なため本workflowの対象外。
+
+on:
+  schedule:
+    - cron: "17 1 1 1,4,7,10 *" # 1/4/7/10月1日 10:17 JST
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: competitor-scan
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout develop
+        uses: actions/checkout@v5
+        with:
+          ref: develop
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps --ignore-scripts
+
+      - name: Scan note competitors (public API)
+        id: note
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          npm run scout-note-competitors 2>&1 | tee /tmp/competitor-note.log
+
+      - name: Scan Instagram competitors (public profile metadata)
+        id: ig
+        if: always()
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          npm run scout-ig-competitors 2>&1 | tee /tmp/competitor-ig.log
+
+      - name: Install Chromium for Coconala public pages
+        if: always()
+        run: npx playwright install --with-deps chromium
+
+      - name: Scan Coconala competitors (public pages)
+        id: coconala
+        if: always()
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          npm run scout-coconala-competitors 2>&1 | tee /tmp/competitor-coconala.log
+
+      # 成功したチャネルだけを一時退避する。失敗スクリプトが途中生成した snapshot は公開しない。
+      - name: Stage successful snapshots
+        if: always()
+        env:
+          NOTE_OUTCOME: ${{ steps.note.outcome }}
+          IG_OUTCOME: ${{ steps.ig.outcome }}
+          COCONALA_OUTCOME: ${{ steps.coconala.outcome }}
+        run: |
+          set -euo pipefail
+          stamp=$(date -u +%F)
+          mkdir -p /tmp/competitor-publish
+
+          if [ "$NOTE_OUTCOME" = "success" ]; then
+            mkdir -p /tmp/competitor-publish/note/history
+            cp .claude/state/note/competitors-snapshot.json /tmp/competitor-publish/note/
+            cp ".claude/state/note/history/competitors-${stamp}.json" /tmp/competitor-publish/note/history/
+          fi
+
+          if [ "$IG_OUTCOME" = "success" ]; then
+            mkdir -p /tmp/competitor-publish/ig/history
+            cp .claude/state/ig-competitors/snapshot.json /tmp/competitor-publish/ig/
+            cp ".claude/state/ig-competitors/history/competitors-${stamp}.json" /tmp/competitor-publish/ig/history/
+          fi
+
+          if [ "$COCONALA_OUTCOME" = "success" ]; then
+            mkdir -p /tmp/competitor-publish/coconala/history
+            cp .claude/state/coconala/competitors-snapshot.json /tmp/competitor-publish/coconala/
+            cp ".claude/state/coconala/history/competitors-${stamp}.json" /tmp/competitor-publish/coconala/history/
+          fi
+
+      - name: Publish successful snapshots to develop
+        if: always()
+        run: |
+          set -euo pipefail
+          git fetch origin develop
+          publish_dir="${RUNNER_TEMP}/competitor-push"
+          publish_branch="competitor-publish-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          git worktree add -b "$publish_branch" "$publish_dir" origin/develop
+          cd "$publish_dir"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          if [ -d /tmp/competitor-publish/note ]; then
+            cp -R /tmp/competitor-publish/note/competitors-snapshot.json .claude/state/note/
+            cp -R /tmp/competitor-publish/note/history/. .claude/state/note/history/
+          fi
+          if [ -d /tmp/competitor-publish/ig ]; then
+            cp -R /tmp/competitor-publish/ig/snapshot.json .claude/state/ig-competitors/
+            cp -R /tmp/competitor-publish/ig/history/. .claude/state/ig-competitors/history/
+          fi
+          if [ -d /tmp/competitor-publish/coconala ]; then
+            cp -R /tmp/competitor-publish/coconala/competitors-snapshot.json .claude/state/coconala/
+            cp -R /tmp/competitor-publish/coconala/history/. .claude/state/coconala/history/
+          fi
+
+          git add \
+            .claude/state/note/competitors-snapshot.json .claude/state/note/history \
+            .claude/state/ig-competitors/snapshot.json .claude/state/ig-competitors/history \
+            .claude/state/coconala/competitors-snapshot.json .claude/state/coconala/history
+          if git diff --cached --quiet; then
+            echo "No competitor snapshot changes to publish"
+            exit 0
+          fi
+
+          git commit -m "chore(competitors): quarterly snapshots $(date -u +%F) [skip ci]"
+          git fetch origin develop
+          git rebase origin/develop
+          git push origin HEAD:develop
+
+      - name: Upload scan logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: competitor-scan-logs
+          path: /tmp/competitor-*.log
+          if-no-files-found: ignore
+
+      - name: Fail if any channel could not be scanned
+        if: always()
+        env:
+          NOTE_OUTCOME: ${{ steps.note.outcome }}
+          IG_OUTCOME: ${{ steps.ig.outcome }}
+          COCONALA_OUTCOME: ${{ steps.coconala.outcome }}
+        run: |
+          if [ "$NOTE_OUTCOME" != "success" ] || [ "$IG_OUTCOME" != "success" ] || [ "$COCONALA_OUTCOME" != "success" ]; then
+            echo "::error::競合スキャンに失敗したチャネルがあります（note=$NOTE_OUTCOME / ig=$IG_OUTCOME / coconala=$COCONALA_OUTCOME）。"
+            exit 1
+          fi

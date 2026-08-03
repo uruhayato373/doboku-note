@@ -64,6 +64,10 @@ jobs:
             echo '```'
             node scripts/check-ga4-custom-dimensions.mjs || true
             echo '```'
+            echo '### 競合スキャン期限（CI取得の停止 + X/Brain手動期限）'
+            echo '```'
+            node scripts/check-competitor-scan-due.mjs || true
+            echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
 
       # 決定的ゲート: 公開ページが GSC の 404/リダイレクト URL を指していたら赤。

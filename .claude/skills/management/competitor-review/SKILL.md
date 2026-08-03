@@ -12,7 +12,7 @@ user-invocable: true
 
 ## 用途
 
-競合の**公開データ（価格/品揃え/フォロワー/更新頻度/エンゲージ）を再取得**し、前回スナップショットからの変化を起点に差別化ポジションを再評価する。四半期サイクル。`npm run check-competitor-scan-due` が DUE を返したとき、または重要な競合の動きを察知したときに回す。
+競合の**公開データ（価格/品揃え/フォロワー/更新頻度/エンゲージ）を再取得**し、前回スナップショットからの変化を起点に差別化ポジションを再評価する。四半期サイクル。note / Instagram / ココナラの機械取得は `competitor-scan.yml` が自動実行し、本スキルは取得済みデータの意味評価を担う。X / Brain は `npm run check-competitor-scan-due` が DUE を返したとき、または重要な競合の動きを察知したときに手動取得から回す。
 
 `--platform note|x|ig|coconala|brain|all`（既定 all）。真実源: 価格/品揃え軸=[09_販売チャネル競合分析.md](../../../../docs/project/01_戦略/09_販売チャネル競合分析.md)、コンテンツ型/エンゲージ軸=[07_競合調査.md](../../../../docs/project/01_戦略/07_競合調査.md) の SNS競合節。
 
@@ -34,6 +34,8 @@ twitter -c search "コンクリート診断士 対策" -n 15 | grep -oE '@[A-Za-
 - **「白地」と結論する前に必ずキーワード検索する**（シードに無い＝不在、ではない）。
 
 ### 1. 機械取得（scout・チャネル別）
+
+通常の四半期実行では、note / ココナラ / IG は GitHub Actions `competitor-scan.yml` の成功と最新スナップショットを確認する。再取得が必要な場合だけ次を手動実行する。
 
 ```bash
 npm run scout-note-competitors                 # note（公開API・curl --ssl-no-revoke・会社PC可）
@@ -68,7 +70,7 @@ node scripts/scout-brain-competitors.mjs        # Brain（公開ページ read-o
 - **X**: 実アカ Playwright だが **read-only 専用**（いいね/フォロー/リプライ機能を持たない）・四半期・≤15プロフィール・jitter 遅延・**challenge/captcha/凍結警告で即中断（自動リトライ禁止）**→ `probe-status.json` に記録。投稿スケジュールと実行を重ねない。方針は [x-post-policy.md](../../../../.claude/knowledge/reference/x-post-policy.md) §11
 - **IG**: **未ログイン公開プロフィール（og:description メタ）を curl で read**（2026-07-20 実証・投稿アカ @dobokunotecom の IG セッション不使用＝足跡ゼロ）。取れるのはフォロワー/フォロー/投稿数まで（個別投稿のエンゲージは要ログインで未対応）
 - **有料本文は全チャネルで取得しない/できない**（中身の質は「未読」扱いで断定しない）
-- **新規クラウド cron は作らない**。定期性は `check-competitor-scan-due`（weekly-review Agent B が surface）＋ annual.md 四半期定例
+- **定期取得は GitHub Actions に限定**。`competitor-scan.yml` が note / IG / ココナラを四半期取得し、`check-competitor-scan-due` は Actions 停止と X / Brain の手動期限を backstop する。新規クラウドルーティンは作らない
 
 ## 勝ち型の抽出 → 原案化（伸びてる投稿レーダー）
 
@@ -80,7 +82,7 @@ X scout は各競合の**エンゲージ上位10投稿**（`engagementLeaders`�
 
 ## 関連
 
-- 機械: `scripts/scout-{note,x,ig,brain}-competitors.mjs`・`coconala-research.mjs --competitors`・`check-competitor-scan-due.mjs`
+- 機械: `.github/workflows/competitor-scan.yml`・`scripts/scout-{note,x,ig,brain}-competitors.mjs`・`scout-coconala-competitors.mjs`・`check-competitor-scan-due.mjs`
 - 勝ち型の原案化: `x-post-writer`（生成・ユニーク性強制）／`x-post-qa`（§11 near-duplicate ゲート）
 - Evaluator: `competitor-analyst`（[agents-registry.md](../../../../.claude/knowledge/reference/agents-registry.md)）
 - config: `.claude/config/{note,x,ig,coconala,brain}-competitors.json`（競合ハンドル SSOT・チャネル別）

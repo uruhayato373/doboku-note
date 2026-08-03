@@ -235,6 +235,8 @@ node scripts/check-note-price-consistency.mjs --json      # 機械可読
 | ソース | `npm run check-note-hashtags` | `docs/note/**/hashtags*.txt` が90個以上か。pre-commit（staged）＋ CI 全量 |
 | ライブ | `npm run check-note-live-tags` | note API の `hashtag_notes` が90個以上か。curl 経路・週次 CI（note-live-audit.yml） |
 
+`note-live-audit.yml` はこのタグ検査だけでなく、`check-note-structure --ci` / `check-note-live-headings` / `verify-note-status --ci` / `verify-note-magazines --vs-txt --json` / `audit-note-funnel --live --ci` を同じ週次ジョブで実行する。認証不要の public API 検査はローカルやクラウドルーティンへ残さない。
+
 **2026-07-28 の実測**: ソースは 748 件すべて 90+ で完備（欠落0）なのに、**ライブは 675 本中 250 本（37%）が 90 未満**だった（0タグ19本・30〜59が214本）。ソースだけ見ていると永遠に緑になる。
 
 `check-note-republish` の `tagDrift` はこの穴を塞がない —— あれは「ソースの hashtags が**記録時点から変わったか**」だけを見ており **live を一切見ない**（実際 `tagDrift=1` なのに live=0 の記事が19本あった）。
@@ -329,7 +331,7 @@ note-publish / note-update-body には、SoT どおりに live が反映され�
 3 層の防衛網:
 
 1. **書き込みスクリプト内蔵ゲート**: `note-publish.mjs` / `note-update-body.mjs` はカード化後に URL 見出しを修復（`repairUrlHeadings`）・本文画像をアップロード（`insertImagesAtPlaceholders`）し、残存/失敗すれば**保存/公開せず中断**。公開/更新後は public API で本文を自動検証（`assertLiveBody`＝URL見出し/空引用/画像欠落の 3 検査）。ネットワーク未達は WARN（手動確認コマンド表示）。共有実装は `scripts/lib/note-live-check.mjs`。
-2. **横断スイープ**: `npm run check-note-live-headings` — noteStatus=published 全記事（約 291 本）の live 本文を並列 8 で取得し、3 検査で不整合を列挙。BAD≥1 で exit 1。有料記事は API 本文が paywall で切断されるため画像期待値は「有料境界より前の枚数」、境界が SoT に無い有料は画像検査 skip（PARTIAL）。`--paths` で BAD の article.md パスのみ出力（修復 list 生成用）。
+2. **横断スイープ**: `npm run check-note-live-headings` — 公開判定（noteUrl 非空 OR noteStatus=published）の全記事を live API から並列 8 で取得し、3 検査で不整合を列挙。BAD≥1 で exit 1。`note-live-audit.yml` が週次実行する。有料記事は API 本文が paywall で切断されるため画像期待値は「有料境界より前の枚数」、境界が SoT に無い有料は画像検査 skip（PARTIAL）。`--paths` で BAD の article.md パスのみ出力（修復 list 生成用）。
 3. **lint 予防**（note-lint）: ルール 8＝無料記事の地の文 200 字以上段落（`SKIP_NOTE_PARA=1`）、ルール 9＝複数行 blockquote（`SKIP_NOTE_BQ=1`）。既存違反はバーンダウン（触った記事から漸次是正）。
 
 ```bash

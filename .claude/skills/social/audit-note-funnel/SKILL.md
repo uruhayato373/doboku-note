@@ -29,7 +29,7 @@ npm run audit-note-funnel            # ソース監査（D1-D4・高速）
 npm run audit-note-funnel -- --live  # ＋ライブ反映検証（D5）
 ```
 
-検出: D1 公開記事の CTA マーカー欠落（ソース）/ D2 公開マガジンの L2 未収録 / D3 L2 の L1 未リンク / D4 L2 URL 不一致 / **D5 公開記事の CTA が live note に未反映（`--live` のみ・note API body+embedded で機械検証＝「ソースは正でも配線後に再投稿せず live が死ぬ」ドリフトを検出。2026-06-18 に総監19本で実害化）**。CI ゲートは `npm run check-note-funnel`（**ソース D1-D4** のみ・exit 1、`r2-audit.yml`）。D5 は network 依存で低速のため CI 非対象＝月次/手動で回す。
+検出: D1 公開記事の CTA マーカー欠落（ソース）/ D2 公開マガジンの L2 未収録 / D3 L2 の L1 未リンク / D4 L2 URL 不一致 / **D5 公開記事の CTA が live note に未反映（`--live` のみ・note API body+embedded で機械検証＝「ソースは正でも配線後に再投稿せず live が死ぬ」ドリフトを検出。2026-06-18 に総監19本で実害化）**。CI は `r2-audit.yml` でソース D1-D4/D6、`note-live-audit.yml` で D5 と取得成立性を週次検査する。手動実行は修復直後の再確認用。
 
 ### 2. 修復
 
@@ -49,7 +49,7 @@ npm run audit-note-funnel -- --live  # ＋ライブ反映検証（D5）
 
 ## 見直しサイクル
 
-- 新規マガジン/記事公開時・週次レビュー（[workflows.md](../../../../.claude/knowledge/reference/workflows.md)）・月次クラウドルーティン（`note-funnel-auditor`）・CI（`check-note-funnel`）。
+- 新規マガジン/記事公開時・週次 CI（`r2-audit.yml` のソース監査＋`note-live-audit.yml` の D5）・意味判断が必要なときの `note-funnel-auditor` オンデマンド実行。
 
 ## 関連
 

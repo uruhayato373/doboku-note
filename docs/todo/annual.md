@@ -146,9 +146,9 @@
 
 | サイクル | タスク | 実行 | 前回 |
 |---|---|---|---|
-| 四半期（90日） | **note 競合再スキャン**（価格・品揃え・ポジショニングの再取得＋09反映） | `/competitor-review`（scout→competitor-analyst→09パッチ） | 2026-07-20 |
+| 四半期（90日） | **販売チャネル競合レビュー**（note / IG / ココナラ取得＋全チャネルの意味評価） | `competitor-scan.yml`（機械取得）→ `/competitor-review`（意味評価＋09パッチ） | 2026-07-20 |
 
-> 期限管理は `npm run check-competitor-scan-due`（weekly-review Agent B が DUE を surface）。新規クラウド cron は作らない（weekly PDCA 1本のみ稼働の方針）。時系列は `.claude/state/note/history/` に蓄積。
+> note / IG / ココナラの機械取得は GitHub Actions が四半期実行する。`npm run check-competitor-scan-due` は Actions 停止と、CI 化できない X（ログイン済み個人セッション）/ Brain（WebSearch 判断）の期限を backstop する。意味評価と戦略文書への反映は自動化しない。
 
 ---
 
