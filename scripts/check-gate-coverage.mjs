@@ -91,6 +91,16 @@ const GATES = [
     min: 400,
     note: '有料 note 記事数。notePricing 判定や walk() が壊れると急減する',
   },
+  {
+    name: 'check-figure-embed-dims',
+    cmd: ['node', 'scripts/check-figure-embed-dims.mjs'],
+    // 成功・違反いずれの経路でも末尾に coverage 行を出す「実比較 N 箇所」
+    re: /実比較\s*(\d+)\s*箇所/,
+    // 実測 82（width/height を明記した SVG 埋込のみが比較対象。大半の埋込は寸法を書かない）。
+    // walk() や /posts/ パス解決が壊れると 0 に落ちる。
+    min: 40,
+    note: '寸法を明記した SVG 埋込数。記事走査かパス解決が壊れると急減する',
+  },
 ];
 
 const results = [];
