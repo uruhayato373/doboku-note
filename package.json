@@ -225,7 +225,7 @@
     "character-icons": "node scripts/generate-character-icons.mjs",
     "character-avatars": "node scripts/build-character-avatars.mjs",
     "check-character-avatars": "node scripts/check-character-avatars.mjs",
-    "kdp-batch": "zsh scripts/kdp-batch.sh",
+    "kdp-batch": "node scripts/kdp-batch.mjs",
     "gen-kdp-memo": "node scripts/gen-kdp-memo.mjs",
     "kdp-report": "node scripts/kdp-report.mjs",
     "sync-kindle-dist": "node scripts/sync-kindle-dist.mjs",

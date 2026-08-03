@@ -81,6 +81,26 @@ function stripNoteCta(body) {
   // (1) 末尾の note 商品フッター（**doboku-note の関連ガイド**〜 以降）を切り詰め
   const m = out.match(/\n?(?:---[^\S\n]*\n[^\S\n]*)?\*\*(?:doboku-note の関連ガイド|magazine セット販売|あわせて揃えたい共通装備)/)
   if (m) out = out.slice(0, m.index)
+  // (1b) マーカー付き CTA ブロック（wire-note-paid-cta.mjs が機械挿入する
+  //      `<!-- cta:xxx -->` + 案内文 + note URL）を丸ごと除去。
+  //      マーカーと案内文は「note」も価格も含まないので (2) の語句フィルタを素通りし、
+  //      Kindle 本文に note 誘導が残る（2026-08-03 に f-08 の再ビルドで発覚）。
+  {
+    const lines = out.split('\n')
+    const kept = []
+    for (let i = 0; i < lines.length; i++) {
+      if (!/^\s*<!--\s*cta:[\w-]+\s*-->\s*$/.test(lines[i])) { kept.push(lines[i]); continue }
+      // CTA の直前に置かれた区切りも一緒に落とす（残すと孤立 <hr/> になる）
+      while (kept.length && /^\s*$/.test(kept[kept.length - 1])) kept.pop()
+      if (kept.length && /^\s*---+\s*$/.test(kept[kept.length - 1])) kept.pop()
+      // マーカー行から note URL 行までを捨てる。URL が無い形もありうるので上限を切る。
+      let j = i + 1
+      const limit = Math.min(lines.length, i + 7)
+      while (j < limit && !/note\.com\//.test(lines[j])) j++
+      i = j < limit ? j : i   // URL が見つからなければマーカー行だけ捨てる
+    }
+    out = kept.join('\n')
+  }
   // (2) インライン note CTA 行を除去（価格・完全パック・R8予想誘導・magazine 案内・note.com）
   out = out.split('\n').filter((l) =>
     !/もあわせてご覧ください|「完全パック」|magazine ¥|magazine セット|単品[^\S\n]*[:：]|21%OFF|｜note|note\.com/.test(l),

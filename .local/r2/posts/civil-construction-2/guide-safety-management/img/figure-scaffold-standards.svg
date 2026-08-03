@@ -1,0 +1,61 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="足場の数値基準がどこを測った寸法かを示す図。高さ 2 メートル以上の作業場所には作業床を設け、墜落防止の手すりは作業床から 85 センチメートル以上の高さに設ける。作業床の幅は 40 センチメートル以上、床材間のすき間は 3 センチメートル以下とする">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-part { font-size: 11px; fill: #555; }
+      .t-dim  { font-size: 11px; font-weight: bold; fill: #b22234; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .post { fill: #8a8a8a; stroke: #555; stroke-width: 1; }
+      .deck { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.2; }
+      .rail { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.2; }
+      .gl { stroke: #8a8a8a; stroke-width: 1.5; }
+      .dim { stroke: #b22234; stroke-width: 1.2; fill: none; }
+      .ld { stroke: #b22234; stroke-width: 1; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="sf-d" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#b22234"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">数値がどこを測った寸法かで覚え違いを防ぐ</text>
+
+  <line class="gl" x1="70" y1="170" x2="330" y2="170"/>
+  <rect class="post" x="140" y="54" width="7" height="116"/>
+  <rect class="post" x="253" y="54" width="7" height="116"/>
+  <rect class="rail" x="140" y="66" width="120" height="5"/>
+  <rect class="rail" x="140" y="92" width="120" height="5"/>
+  <rect class="deck" x="147" y="118" width="106" height="10"/>
+
+  <text class="t-part" x="134" y="72" text-anchor="end">手すり</text>
+  <text class="t-part" x="134" y="98" text-anchor="end">中桟</text>
+  <text class="t-part" x="200" y="146" text-anchor="middle">作業床</text>
+
+  <line class="dim" x1="120" y1="170" x2="120" y2="118" marker-start="url(#sf-d)" marker-end="url(#sf-d)"/>
+  <text class="t-dim" x="114" y="148" text-anchor="end">2 m 以上</text>
+  <line class="dim" x1="278" y1="118" x2="278" y2="68" marker-start="url(#sf-d)" marker-end="url(#sf-d)"/>
+  <text class="t-dim" x="286" y="96">85 cm 以上</text>
+
+  <text class="t-dim" x="156" y="196" text-anchor="middle">床材間のすき間 3 cm 以下</text>
+  <line class="ld" x1="156" y1="200" x2="156" y2="212"/>
+  <rect class="deck" x="90" y="214" width="64" height="16"/>
+  <rect class="deck" x="158" y="214" width="64" height="16"/>
+  <rect class="deck" x="226" y="214" width="64" height="16"/>
+  <line class="dim" x1="90" y1="244" x2="290" y2="244" marker-start="url(#sf-d)" marker-end="url(#sf-d)"/>
+  <text class="t-dim" x="190" y="262" text-anchor="middle">作業床の幅 40 cm 以上</text>
+
+  <rect class="box-surf" x="20" y="290" width="360" height="192" rx="6"/>
+  <text class="t-sec" x="200" y="312" text-anchor="middle">読み取り方</text>
+  <line class="rule" x1="36" y1="321" x2="364" y2="321"/>
+  <text class="t-item" x="40" y="346">わく組足場は交さ筋かい＋下桟または幅木でもよい</text>
+  <text class="t-item" x="40" y="372">組立て・変更後や悪天候・地震の後に点検する</text>
+  <text class="t-item" x="40" y="398">点検では床材の損傷・取付け・緊結部の緩みを確認</text>
+  <text class="t-item" x="40" y="424">点検結果と点検者の氏名を記録して保存する</text>
+  <text class="t-item" x="40" y="450">異常があれば補修してから使用する</text>
+</svg>

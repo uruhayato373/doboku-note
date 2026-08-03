@@ -1,0 +1,89 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="管理図で工程の異常と判定する点の並び方4種。管理限界外は UCL の上または LCL の下に点が出ること、連は中心線の片側に連続 7 点以上並ぶこと、傾向は連続 6 点以上が上昇または下降すること、周期は一定の周期で点が変動することである">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-cap  { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .cell { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .lim  { stroke: #b22234; stroke-width: 1.2; stroke-dasharray: 4 3; fill: none; }
+      .cl   { stroke: #8a8a8a; stroke-width: 1.2; fill: none; }
+      .pt   { fill: #2e6da4; }
+      .bad  { fill: #b22234; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">点の並び方そのものが異常のサイン</text>
+
+  <rect class="cell" x="20" y="32" width="176" height="130" rx="4"/>
+  <text class="t-name" x="108" y="52" text-anchor="middle">管理限界外</text>
+  <line class="lim" x1="36" y1="72" x2="180" y2="72"/>
+  <line class="cl"  x1="36" y1="104" x2="180" y2="104"/>
+  <line class="lim" x1="36" y1="136" x2="180" y2="136"/>
+  <circle class="pt" cx="46" cy="100" r="3"/>
+  <circle class="pt" cx="64" cy="108" r="3"/>
+  <circle class="pt" cx="82" cy="98" r="3"/>
+  <circle class="pt" cx="100" cy="106" r="3"/>
+  <circle class="bad" cx="118" cy="62" r="4.5"/>
+  <circle class="pt" cx="136" cy="102" r="3"/>
+  <circle class="pt" cx="154" cy="106" r="3"/>
+  <circle class="pt" cx="172" cy="100" r="3"/>
+
+  <rect class="cell" x="204" y="32" width="176" height="130" rx="4"/>
+  <text class="t-name" x="292" y="52" text-anchor="middle">連</text>
+  <line class="lim" x1="220" y1="72" x2="364" y2="72"/>
+  <line class="cl"  x1="220" y1="104" x2="364" y2="104"/>
+  <line class="lim" x1="220" y1="136" x2="364" y2="136"/>
+  <circle class="pt" cx="230" cy="94" r="3"/>
+  <circle class="pt" cx="248" cy="88" r="3"/>
+  <circle class="pt" cx="266" cy="96" r="3"/>
+  <circle class="pt" cx="284" cy="86" r="3"/>
+  <circle class="pt" cx="302" cy="92" r="3"/>
+  <circle class="pt" cx="320" cy="84" r="3"/>
+  <circle class="pt" cx="338" cy="94" r="3"/>
+  <circle class="pt" cx="356" cy="90" r="3"/>
+
+  <rect class="cell" x="20" y="178" width="176" height="130" rx="4"/>
+  <text class="t-name" x="108" y="198" text-anchor="middle">傾向</text>
+  <line class="lim" x1="36" y1="218" x2="180" y2="218"/>
+  <line class="cl"  x1="36" y1="250" x2="180" y2="250"/>
+  <line class="lim" x1="36" y1="282" x2="180" y2="282"/>
+  <circle class="pt" cx="46" cy="274" r="3"/>
+  <circle class="pt" cx="64" cy="268" r="3"/>
+  <circle class="pt" cx="82" cy="262" r="3"/>
+  <circle class="pt" cx="100" cy="255" r="3"/>
+  <circle class="pt" cx="118" cy="248" r="3"/>
+  <circle class="pt" cx="136" cy="241" r="3"/>
+  <circle class="pt" cx="154" cy="234" r="3"/>
+  <circle class="pt" cx="172" cy="228" r="3"/>
+
+  <rect class="cell" x="204" y="178" width="176" height="130" rx="4"/>
+  <text class="t-name" x="292" y="198" text-anchor="middle">周期</text>
+  <line class="lim" x1="220" y1="218" x2="364" y2="218"/>
+  <line class="cl"  x1="220" y1="250" x2="364" y2="250"/>
+  <line class="lim" x1="220" y1="282" x2="364" y2="282"/>
+  <circle class="pt" cx="230" cy="264" r="3"/>
+  <circle class="pt" cx="248" cy="236" r="3"/>
+  <circle class="pt" cx="266" cy="264" r="3"/>
+  <circle class="pt" cx="284" cy="236" r="3"/>
+  <circle class="pt" cx="302" cy="264" r="3"/>
+  <circle class="pt" cx="320" cy="236" r="3"/>
+  <circle class="pt" cx="338" cy="264" r="3"/>
+  <circle class="pt" cx="356" cy="236" r="3"/>
+
+  <text class="t-cap" x="200" y="324" text-anchor="middle">上下の破線＝UCL・LCL、中央の実線＝CL</text>
+
+  <rect class="box-surf" x="20" y="336" width="360" height="146" rx="6"/>
+  <text class="t-sec" x="200" y="358" text-anchor="middle">判定の目安</text>
+  <line class="rule" x1="36" y1="367" x2="364" y2="367"/>
+  <text class="t-item" x="40" y="392">連は中心線の片側に連続 7 点以上並ぶこと</text>
+  <text class="t-item" x="40" y="416">傾向は連続 6 点以上が上昇または下降すること</text>
+  <text class="t-item" x="40" y="440">管理限界に近い領域に点が偏るのも異常</text>
+</svg>

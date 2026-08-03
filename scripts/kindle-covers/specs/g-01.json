@@ -1,0 +1,15 @@
+{
+  "bookId": "g-01",
+  "background": "scripts/kindle-covers/backgrounds/a-03.png",
+  "accent": "#2A7050",
+  "kicker": "コンクリート診断士",
+  "titleLines": [
+    { "text": "体系解説＋", "size": 176 },
+    { "text": "四肢択一演習", "size": 176 }
+  ],
+  "subLines": [
+    "変状・劣化機構・調査・診断・対策・維持管理",
+    "演習8回 全98問／図版30点"
+  ],
+  "brand": "doboku-note"
+}

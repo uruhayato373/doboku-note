@@ -1,0 +1,60 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="N値と地盤の関係。粘性土では N値 0から4 が軟弱地盤で精密な土質調査が必要、5から14 は安定は問題ないが沈下の可能性があり、15 以上は安定・沈下とも対象としない。砂質土では N値 0から10 は液状化対策が必要、10から30 は中位で基礎には不十分、30 以上は密で大構造物には 50 以上が望ましい">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-soil { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-n    { font-size: 12px; font-weight: bold; fill: #222; }
+      .t-j    { font-size: 11px; fill: #222; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .sg-bad { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .sg-mid { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .sg-ok  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">同じ N値でも土質によって評価が変わる</text>
+
+  <text class="t-soil" x="40" y="44">粘性土</text>
+  <rect class="sg-bad" x="40" y="54" width="108" height="76" rx="4"/>
+  <rect class="sg-mid" x="148" y="54" width="108" height="76" rx="4"/>
+  <rect class="sg-ok"  x="256" y="54" width="108" height="76" rx="4"/>
+  <text class="t-n" x="94"  y="80" text-anchor="middle">N 0〜4</text>
+  <text class="t-j" x="94"  y="102" text-anchor="middle">軟弱地盤</text>
+  <text class="t-j" x="94"  y="120" text-anchor="middle">精密な土質調査</text>
+  <text class="t-n" x="202" y="80" text-anchor="middle">N 5〜14</text>
+  <text class="t-j" x="202" y="102" text-anchor="middle">安定は問題なし</text>
+  <text class="t-j" x="202" y="120" text-anchor="middle">沈下の可能性</text>
+  <text class="t-n" x="310" y="80" text-anchor="middle">N 15 以上</text>
+  <text class="t-j" x="310" y="102" text-anchor="middle">安定・沈下とも</text>
+  <text class="t-j" x="310" y="120" text-anchor="middle">対象としない</text>
+
+  <text class="t-soil" x="40" y="166">砂質土</text>
+  <rect class="sg-bad" x="40" y="176" width="108" height="76" rx="4"/>
+  <rect class="sg-mid" x="148" y="176" width="108" height="76" rx="4"/>
+  <rect class="sg-ok"  x="256" y="176" width="108" height="76" rx="4"/>
+  <text class="t-n" x="94"  y="202" text-anchor="middle">N 0〜10</text>
+  <text class="t-j" x="94"  y="224" text-anchor="middle">液状化</text>
+  <text class="t-j" x="94"  y="242" text-anchor="middle">対策が必要</text>
+  <text class="t-n" x="202" y="202" text-anchor="middle">N 10〜30</text>
+  <text class="t-j" x="202" y="224" text-anchor="middle">中位</text>
+  <text class="t-j" x="202" y="242" text-anchor="middle">基礎に不十分</text>
+  <text class="t-n" x="310" y="202" text-anchor="middle">N 30 以上</text>
+  <text class="t-j" x="310" y="224" text-anchor="middle">密</text>
+  <text class="t-j" x="310" y="242" text-anchor="middle">大構造物 50 以上</text>
+
+  <rect class="box-surf" x="20" y="286" width="360" height="196" rx="6"/>
+  <text class="t-sec" x="200" y="308" text-anchor="middle">読み取り方</text>
+  <line class="rule" x1="36" y1="317" x2="364" y2="317"/>
+  <text class="t-item" x="40" y="344">N値は標準貫入試験で求める硬軟・締まりの指標</text>
+  <text class="t-item" x="40" y="370">粘性土は「沈下」、砂質土は「液状化」が判定の主軸</text>
+  <text class="t-item" x="40" y="396">同じ N値でも土質により評価が変わる</text>
+  <text class="t-item" x="40" y="422">液状化は飽和した緩い砂質土で地震時に発生する</text>
+  <text class="t-item" x="40" y="448">大構造物の基礎は N値 50 以上が望ましい</text>
+</svg>

@@ -1,0 +1,57 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="建築基準法の単体規定と集団規定の対比。単体規定は全国の建築物に適用され、敷地の衛生・安全、構造耐力、採光と換気などを定める。集団規定は都市計画区域および準都市計画区域内に限り適用され、接道義務、用途地域、容積率、建ぺい率などを定める">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-head { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-axis { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-scope{ font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .t-note { font-size: 11px; fill: #222; }
+      .head-s { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .head-g { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .cell-s { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+      .cell-g { fill: #ffffff; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">適用される範囲がまったく異なる</text>
+
+  <rect class="head-s" x="20" y="28" width="172" height="36" rx="6"/>
+  <text class="t-head" x="106" y="52" text-anchor="middle">単体規定</text>
+  <rect class="head-g" x="208" y="28" width="172" height="36" rx="6"/>
+  <text class="t-head" x="294" y="52" text-anchor="middle">集団規定</text>
+
+  <text class="t-axis" x="200" y="84" text-anchor="middle">適用範囲</text>
+  <rect class="cell-s" x="20" y="92" width="172" height="56" rx="6"/>
+  <text class="t-scope" x="106" y="118" text-anchor="middle">全国の建築物</text>
+  <text class="t-item" x="106" y="138" text-anchor="middle">場所を問わない</text>
+  <rect class="cell-g" x="208" y="92" width="172" height="56" rx="6"/>
+  <text class="t-scope" x="294" y="118" text-anchor="middle">都市計画区域</text>
+  <text class="t-item" x="294" y="138" text-anchor="middle">準都市計画区域内のみ</text>
+
+  <text class="t-axis" x="200" y="168" text-anchor="middle">主な内容</text>
+  <rect class="cell-s" x="20" y="176" width="172" height="200" rx="6"/>
+  <text class="t-item" x="106" y="204" text-anchor="middle">敷地の衛生・安全</text>
+  <text class="t-item" x="106" y="232" text-anchor="middle">構造耐力</text>
+  <text class="t-item" x="106" y="260" text-anchor="middle">居室の採光・換気</text>
+  <text class="t-item" x="106" y="288" text-anchor="middle">地階の居室</text>
+  <text class="t-item" x="106" y="316" text-anchor="middle">電気設備・避雷設備</text>
+  <text class="t-item" x="106" y="344" text-anchor="middle">床の高さ・防湿方法</text>
+
+  <rect class="cell-g" x="208" y="176" width="172" height="200" rx="6"/>
+  <text class="t-item" x="294" y="212" text-anchor="middle">接道義務</text>
+  <text class="t-item" x="294" y="244" text-anchor="middle">用途地域</text>
+  <text class="t-item" x="294" y="276" text-anchor="middle">容積率</text>
+  <text class="t-item" x="294" y="308" text-anchor="middle">建ぺい率</text>
+  <text class="t-item" x="294" y="340" text-anchor="middle">防火・準防火地域の屋根</text>
+
+  <rect class="box-surf" x="20" y="392" width="360" height="90" rx="6"/>
+  <text class="t-note" x="200" y="416" text-anchor="middle">敷地が区域・地域の内外にわたる場合は、建築物または</text>
+  <text class="t-note" x="200" y="438" text-anchor="middle">敷地の全部について、敷地の過半が属する区域の規定を適用</text>
+  <text class="t-note" x="200" y="466" text-anchor="middle">建築基準法は敷地・構造・設備・用途の最低の基準を定める</text>
+</svg>

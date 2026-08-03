@@ -1,0 +1,66 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="施工体制台帳と施工体系図。公共工事は下請契約をすれば金額を問わず作成し、民間工事は下請総額5000万円以上で作成する。台帳は現場ごとに備えて発注者の請求で閲覧させ保存は5年、体系図は工事関係者の見やすい場所に掲示し公共工事では公衆の見やすい場所にも掲げ保存は10年">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-name { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .t-item { font-size: 11px; fill: #222; }
+      .t-keep { font-size: 11px; fill: #555; }
+      .t-year { font-size: 16px; font-weight: bold; fill: #1a3a5c; }
+      .card-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .card-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .card-w { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">作成義務は公共工事と民間工事で条件が異なる</text>
+
+  <rect class="card-p" x="20" y="28" width="172" height="80" rx="6"/>
+  <text class="t-name" x="106" y="52" text-anchor="middle">公共工事</text>
+  <text class="t-desc" x="106" y="74" text-anchor="middle">下請契約をすれば</text>
+  <text class="t-desc" x="106" y="92" text-anchor="middle">金額を問わず作成</text>
+
+  <rect class="card-b" x="208" y="28" width="172" height="80" rx="6"/>
+  <text class="t-name" x="294" y="52" text-anchor="middle">民間工事</text>
+  <text class="t-desc" x="294" y="74" text-anchor="middle">下請総額 5,000万円以上</text>
+  <text class="t-desc" x="294" y="92" text-anchor="middle">建築一式 8,000万円以上</text>
+
+  <rect class="card-w" x="20" y="126" width="172" height="212" rx="6"/>
+  <text class="t-name" x="106" y="152" text-anchor="middle">施工体制台帳</text>
+  <line class="rule" x1="32" y1="162" x2="180" y2="162"/>
+  <text class="t-item" x="106" y="184" text-anchor="middle">現場ごとに備える</text>
+  <text class="t-item" x="106" y="212" text-anchor="middle">発注者の請求により</text>
+  <text class="t-item" x="106" y="230" text-anchor="middle">閲覧に供する</text>
+  <text class="t-item" x="106" y="258" text-anchor="middle">公共工事は写しを</text>
+  <text class="t-item" x="106" y="276" text-anchor="middle">発注者へ提出</text>
+  <line class="rule" x1="32" y1="292" x2="180" y2="292"/>
+  <text class="t-keep" x="106" y="310" text-anchor="middle">引渡しから保存</text>
+  <text class="t-year" x="106" y="332" text-anchor="middle">5年</text>
+
+  <rect class="card-w" x="208" y="126" width="172" height="212" rx="6"/>
+  <text class="t-name" x="294" y="152" text-anchor="middle">施工体系図</text>
+  <line class="rule" x1="220" y1="162" x2="368" y2="162"/>
+  <text class="t-item" x="294" y="184" text-anchor="middle">下請の施工分担を表示</text>
+  <text class="t-item" x="294" y="212" text-anchor="middle">工事関係者の見やすい</text>
+  <text class="t-item" x="294" y="230" text-anchor="middle">場所に掲げる</text>
+  <text class="t-item" x="294" y="258" text-anchor="middle">公共工事は公衆の</text>
+  <text class="t-item" x="294" y="276" text-anchor="middle">見やすい場所にも</text>
+  <line class="rule" x1="220" y1="292" x2="368" y2="292"/>
+  <text class="t-keep" x="294" y="310" text-anchor="middle">引渡しから保存</text>
+  <text class="t-year" x="294" y="332" text-anchor="middle">10年</text>
+
+  <rect class="box-surf" x="20" y="354" width="360" height="128" rx="6"/>
+  <text class="t-sec" x="200" y="378" text-anchor="middle">そのほかの要点</text>
+  <line class="rule" x1="36" y1="387" x2="364" y2="387"/>
+  <text class="t-item" x="200" y="410" text-anchor="middle">下請が再下請に出したときは作成建設業者へ再下請負通知</text>
+  <text class="t-item" x="200" y="434" text-anchor="middle">台帳の記載＝商号・住所・許可を受けた建設業の種類・</text>
+  <text class="t-item" x="200" y="452" text-anchor="middle">健康保険等の加入状況・工事内容・工期・主任技術者の氏名</text>
+  <text class="t-item" x="200" y="474" text-anchor="middle">対象は2次・3次を含むすべての下請負人</text>
+</svg>

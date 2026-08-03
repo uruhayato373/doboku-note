@@ -19,7 +19,7 @@
  *   node scripts/note-attach-batch.mjs --commit --limit 40
  * ---------------------------------------------------------------------------
  */
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -41,9 +41,26 @@ const { measuredAt, missing } = JSON.parse(readFileSync(MISSING, 'utf8'));
 const done = existsSync(DONE) ? JSON.parse(readFileSync(DONE, 'utf8')) : { attached: [] };
 const doneSet = new Set(done.attached.map((d) => `${d.noteId}\t${d.pdf}`));
 
+// 有料境界は記事ごとに違う。PDF と同じディレクトリの article*.md から noteId で引き当て、
+// frontmatter の paidBoundary を取る。これを渡さないと note-attach-file が既定パターンで
+// 境界を探して全件 exit 8 になる。
+function boundaryOf(pdfRel, noteId) {
+  // missing[].pdfs は**リポジトリ相対**（docs/note/… を含む）。docs/note を足さない。
+  const dir = dirname(join(ROOT, pdfRel));
+  if (!existsSync(dir)) return null;
+  for (const f of readdirSync(dir)) {
+    if (!/^article.*\.md$/.test(f)) continue;
+    const t = readFileSync(join(dir, f), 'utf8');
+    if (!t.includes(noteId)) continue;
+    const m = t.match(/^paidBoundary:\s*["']?(.+?)["']?\s*$/m);
+    return m ? m[1] : null;
+  }
+  return null;
+}
+
 // 1件 = 1アップロード。売れ筋（土木・総監模範論文）を先に、建設部門を後ろに。
 const jobs = [];
-for (const m of missing) for (const pdf of m.pdfs) jobs.push({ noteId: m.noteId, title: m.title, pdf });
+for (const m of missing) for (const pdf of m.pdfs) jobs.push({ noteId: m.noteId, title: m.title, pdf, boundary: boundaryOf(pdf, m.noteId) });
 const rank = (j) => (/建設部門/.test(j.title) ? 1 : 0);
 jobs.sort((a, b) => rank(a) - rank(b));
 
@@ -61,7 +78,12 @@ if (!COMMIT) {
 let ok = 0; let fail = 0; let consecutiveUploadFail = 0;
 for (const [i, j] of batch.entries()) {
   console.log(`\n===== [${i + 1}/${batch.length}] ${j.noteId} ${j.title.slice(0, 40)}`);
-  const r = spawnSync('node', ['scripts/note-attach-file.mjs', '--note', j.noteId, '--file', j.pdf, '--commit'],
+  // note-attach-file は frontmatter の paidBoundary を読まない。渡さないと既定の
+  // `試験問題|予想問題` で境界を探して見つからず exit 8 で全件中断する
+  // （2026-08-03: 42 件試して成功 0・41 件が「境界検証 NG」。done が 1 件しか無い理由）。
+  const args = ['scripts/note-attach-file.mjs', '--note', j.noteId, '--file', j.pdf, '--commit'];
+  if (j.boundary) args.push('--boundary-regex', j.boundary);
+  const r = spawnSync('node', args,
     { cwd: ROOT, encoding: 'utf8', timeout: 300000, stdio: ['ignore', 'pipe', 'pipe'] });
   const out = `${r.stdout || ''}\n${r.stderr || ''}`;
   if (r.status === 0) {

@@ -1,0 +1,65 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="中性化深さは経過年数の平方根に比例して進む。中性化深さがかぶり厚さに達すると鋼材の不動態被膜が破壊されて腐食が始まるため、かぶりを大きくすると腐食が始まるまでの年数は大きく延びる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-axis { font-size: 11px; fill: #555; }
+      .t-cov  { font-size: 11px; font-weight: bold; fill: #b22234; }
+      .t-eq   { font-size: 12px; font-weight: bold; fill: #2e6da4; }
+      .t-mark { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .axis { stroke: #222; stroke-width: 1.5; fill: none; }
+      .curve { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+      .cov { stroke: #b22234; stroke-width: 1.5; stroke-dasharray: 5 4; fill: none; }
+      .gd { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .dim { stroke: #1a3a5c; stroke-width: 1.5; fill: none; }
+      .dot { fill: #ffffff; stroke: #b22234; stroke-width: 2.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="cb-ax" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#222"/>
+    </marker>
+    <marker id="cb-d" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#1a3a5c"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">かぶりを大きくすると腐食開始は大きく遅れる</text>
+
+  <line class="cov" x1="60" y1="203" x2="372" y2="203"/>
+  <line class="cov" x1="60" y1="163" x2="372" y2="163"/>
+  <text class="t-cov" x="366" y="197" text-anchor="end">かぶり 小</text>
+  <text class="t-cov" x="366" y="157" text-anchor="end">かぶり 大</text>
+
+  <line class="gd" x1="135" y1="203" x2="135" y2="270"/>
+  <line class="gd" x1="252" y1="163" x2="252" y2="270"/>
+
+  <line class="axis" x1="60" y1="270" x2="378" y2="270" marker-end="url(#cb-ax)"/>
+  <line class="axis" x1="60" y1="270" x2="60" y2="52" marker-end="url(#cb-ax)"/>
+
+  <path class="curve" d="M 60,270 L 63,262 L 66,251 L 72,244 L 78,237 L 90,228 L 105,218 L 120,210 L 135,203 L 150,197 L 165,192 L 180,186 L 195,181 L 210,176 L 225,172 L 240,167 L 255,162 L 270,158 L 285,155 L 300,151 L 315,147 L 330,144 L 345,140 L 360,137"/>
+  <text class="t-eq" x="300" y="118" text-anchor="middle">d ＝ A√t</text>
+
+  <circle class="dot" cx="135" cy="203" r="4.5"/>
+  <circle class="dot" cx="252" cy="163" r="4.5"/>
+
+  <line class="dim" x1="193" y1="286" x2="139" y2="286" marker-end="url(#cb-d)"/>
+  <line class="dim" x1="193" y1="286" x2="248" y2="286" marker-end="url(#cb-d)"/>
+  <text class="t-mark" x="193" y="304" text-anchor="middle">腐食開始が遅れる</text>
+
+  <text class="t-axis" x="58" y="46">中性化深さ d</text>
+  <text class="t-axis" x="374" y="292" text-anchor="end">経過年数 t</text>
+
+  <rect class="box-surf" x="20" y="320" width="360" height="162" rx="6"/>
+  <text class="t-sec" x="200" y="342" text-anchor="middle">読み取り方</text>
+  <line class="rule" x1="36" y1="351" x2="364" y2="351"/>
+  <text class="t-item" x="40" y="376">中性化深さは経過年数の平方根に比例して進む</text>
+  <text class="t-item" x="40" y="400">鋼材位置に達すると不動態被膜が壊れ腐食が始まる</text>
+  <text class="t-item" x="40" y="424">かぶりを大きくすると腐食開始までの年数が延びる</text>
+  <text class="t-item" x="40" y="448">対策は表面仕上げ・かぶり増加・気密材・W/C の低減</text>
+</svg>

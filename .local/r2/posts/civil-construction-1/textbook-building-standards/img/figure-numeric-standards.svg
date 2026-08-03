@@ -1,0 +1,51 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="建築基準法の主な数値基準。単体規定では住宅の居室の採光が床面積の7分の1以上、換気が20分の1以上、避雷設備は高さ20メートル超、最下階の木造床は地面から45センチメートル以上、床下換気孔は壁の長さ5メートル以下ごとに300平方センチメートル以上。集団規定では道路の幅員4メートル以上、敷地は道路に2メートル以上接する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .t-val  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-note { font-size: 11px; fill: #222; }
+      .box-s { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">どの規定の数値かをあわせて覚える</text>
+
+  <rect class="box-s" x="20" y="28" width="360" height="180" rx="6"/>
+  <text class="t-sec" x="36" y="52">単体規定の数値</text>
+  <line class="rule" x1="36" y1="61" x2="364" y2="61"/>
+  <text class="t-item" x="40" y="86">居室の採光（住宅）</text>
+  <text class="t-val" x="360" y="86" text-anchor="end">床面積の 1/7 以上</text>
+  <text class="t-item" x="40" y="112">居室の換気</text>
+  <text class="t-val" x="360" y="112" text-anchor="end">床面積の 1/20 以上</text>
+  <text class="t-item" x="40" y="138">避雷設備が必要な高さ</text>
+  <text class="t-val" x="360" y="138" text-anchor="end">20 m をこえる</text>
+  <text class="t-item" x="40" y="164">最下階の木造床の高さ</text>
+  <text class="t-val" x="360" y="164" text-anchor="end">45 cm 以上</text>
+  <text class="t-item" x="40" y="190">床下換気孔</text>
+  <text class="t-val" x="360" y="190" text-anchor="end">5 m ごとに 300 cm²</text>
+
+  <rect class="box-g" x="20" y="220" width="360" height="104" rx="6"/>
+  <text class="t-sec" x="36" y="244">集団規定の数値</text>
+  <line class="rule" x1="36" y1="253" x2="364" y2="253"/>
+  <text class="t-item" x="40" y="278">道路の幅員</text>
+  <text class="t-val" x="360" y="278" text-anchor="end">4 m 以上</text>
+  <text class="t-item" x="40" y="306">敷地が道路に接する長さ</text>
+  <text class="t-val" x="360" y="306" text-anchor="end">2 m 以上</text>
+
+  <rect class="box-surf" x="20" y="336" width="360" height="146" rx="6"/>
+  <text class="t-sec" x="200" y="360" text-anchor="middle">手続きと補足</text>
+  <line class="rule" x1="36" y1="369" x2="364" y2="369"/>
+  <text class="t-note" x="40" y="394">建築確認は着工前に受ける</text>
+  <text class="t-note" x="40" y="420">完了検査の申請は工事完了の日から 4 日以内に到着</text>
+  <text class="t-note" x="40" y="446">道路の幅員は指定区域内では 6 m 以上</text>
+  <text class="t-note" x="40" y="470">換気設備を設けた場合は換気の開口部の規定によらない</text>
+</svg>

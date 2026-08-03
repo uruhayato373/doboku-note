@@ -1,0 +1,66 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="レディーミクストコンクリート受入検査4項目の判定のしかた。スランプは指定値を中心とした許容差の範囲内、空気量は普通コンクリートで 4.5 プラスマイナス 1.5 パーセントの範囲内、塩化物含有量は 0.30 キログラム毎立方メートル以下という上限、圧縮強度は材齢 28 日で所定の強度を確認する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-type { font-size: 11px; fill: #555; }
+      .t-crit { font-size: 11px; fill: #222; }
+      .t-mark { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .track { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.2; }
+      .ok { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.2; }
+      .tick { stroke: #3a7d44; stroke-width: 1.5; }
+      .stop { stroke: #b22234; stroke-width: 2; }
+      .tl { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="ac-a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">緑の帯が合格の範囲、赤い線が超えられない上限</text>
+
+  <text class="t-name" x="20" y="56">スランプ</text>
+  <text class="t-type" x="20" y="74">範囲で管理</text>
+  <rect class="track" x="150" y="46" width="200" height="16"/>
+  <rect class="ok" x="220" y="46" width="60" height="16"/>
+  <line class="tick" x1="250" y1="40" x2="250" y2="68"/>
+  <text class="t-crit" x="150" y="86">指定値を中心に許容差の範囲内</text>
+
+  <text class="t-name" x="20" y="122">空気量</text>
+  <text class="t-type" x="20" y="140">範囲で管理</text>
+  <rect class="track" x="150" y="112" width="200" height="16"/>
+  <rect class="ok" x="217" y="112" width="66" height="16"/>
+  <line class="tick" x1="250" y1="106" x2="250" y2="134"/>
+  <text class="t-crit" x="150" y="152">4.5 ± 1.5 %（普通コンクリート）</text>
+
+  <text class="t-name" x="20" y="188">塩化物含有量</text>
+  <text class="t-type" x="20" y="206">上限で管理</text>
+  <rect class="track" x="150" y="178" width="200" height="16"/>
+  <rect class="ok" x="150" y="178" width="100" height="16"/>
+  <line class="stop" x1="250" y1="172" x2="250" y2="200"/>
+  <text class="t-crit" x="150" y="218">0.30 kg/m³ 以下</text>
+  <text class="t-mark" x="256" y="218">この線を超えると不合格</text>
+
+  <text class="t-name" x="20" y="254">圧縮強度</text>
+  <text class="t-type" x="20" y="272">材齢で確認</text>
+  <line class="tl" x1="150" y1="252" x2="350" y2="252" marker-end="url(#ac-a)"/>
+  <line class="tick" x1="320" y1="244" x2="320" y2="260"/>
+  <text class="t-mark" x="320" y="238" text-anchor="middle">28 日</text>
+  <text class="t-crit" x="150" y="284">供試体を採取し所定の強度を確認</text>
+
+  <rect class="box-surf" x="20" y="310" width="360" height="172" rx="6"/>
+  <text class="t-sec" x="200" y="332" text-anchor="middle">読み取り方</text>
+  <line class="rule" x1="36" y1="341" x2="364" y2="341"/>
+  <text class="t-item" x="40" y="366">スランプはワーカビリティ（軟らかさ）の指標</text>
+  <text class="t-item" x="40" y="392">空気量は凍害抵抗性などに影響する</text>
+  <text class="t-item" x="40" y="418">塩化物含有量は鉄筋の腐食を引き起こすため制限する</text>
+  <text class="t-item" x="40" y="444">圧縮強度は後日判明するため到着時の 2 項目が要</text>
+</svg>

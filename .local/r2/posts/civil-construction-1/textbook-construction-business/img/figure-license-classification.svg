@@ -1,0 +1,59 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="建設業の許可の区分。軽微な建設工事のみを請け負う場合は許可不要。営業所の置き方により大臣許可と知事許可に分かれ、元請として下請に出す金額により一般建設業と特定建設業に分かれる。29の建設工事の種類ごとに業種別の許可を受け、うち7業種が指定建設業。有効期限は5年">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-name { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .t-item { font-size: 11px; fill: #222; }
+      .box-none { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .card { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .card-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">軽微な建設工事のみを請け負う場合を除き許可が必要</text>
+
+  <rect class="box-none" x="20" y="28" width="360" height="66" rx="6"/>
+  <text class="t-sec" x="200" y="50" text-anchor="middle">許可が不要 — 軽微な建設工事のみ</text>
+  <text class="t-item" x="200" y="70" text-anchor="middle">1件の請負代金 500万円未満</text>
+  <text class="t-item" x="200" y="87" text-anchor="middle">建築一式は1,500万円未満／延床150m²未満の木造住宅</text>
+
+  <text class="t-sec" x="20" y="116">営業所の置き方による区分</text>
+
+  <rect class="card" x="20" y="124" width="172" height="72" rx="6"/>
+  <text class="t-name" x="106" y="150" text-anchor="middle">大臣許可</text>
+  <text class="t-desc" x="106" y="172" text-anchor="middle">2以上の都道府県に</text>
+  <text class="t-desc" x="106" y="188" text-anchor="middle">営業所を置く</text>
+
+  <rect class="card" x="208" y="124" width="172" height="72" rx="6"/>
+  <text class="t-name" x="294" y="150" text-anchor="middle">知事許可</text>
+  <text class="t-desc" x="294" y="172" text-anchor="middle">1つの都道府県内</text>
+  <text class="t-desc" x="294" y="188" text-anchor="middle">のみに置く</text>
+
+  <text class="t-sec" x="20" y="218">元請として下請に出す金額による区分</text>
+
+  <rect class="card" x="20" y="226" width="172" height="88" rx="6"/>
+  <text class="t-name" x="106" y="252" text-anchor="middle">一般建設業</text>
+  <text class="t-desc" x="106" y="276" text-anchor="middle">右の基準額に</text>
+  <text class="t-desc" x="106" y="294" text-anchor="middle">満たない場合</text>
+
+  <rect class="card-w" x="208" y="226" width="172" height="88" rx="6"/>
+  <text class="t-name" x="294" y="252" text-anchor="middle">特定建設業</text>
+  <text class="t-desc" x="294" y="276" text-anchor="middle">下請総額 5,000万円以上</text>
+  <text class="t-desc" x="294" y="294" text-anchor="middle">建築一式 8,000万円以上</text>
+
+  <rect class="box-surf" x="20" y="330" width="360" height="152" rx="6"/>
+  <text class="t-sec" x="200" y="354" text-anchor="middle">許可に共通する事項</text>
+  <line class="rule" x1="36" y1="363" x2="364" y2="363"/>
+  <text class="t-item" x="200" y="388" text-anchor="middle">29の建設工事の種類ごとに業種別の許可を受ける</text>
+  <text class="t-item" x="200" y="414" text-anchor="middle">うち7業種は指定建設業（1級資格者等の要件が加わる）</text>
+  <text class="t-item" x="200" y="438" text-anchor="middle">土木・建築・電気・管・鋼構造物・舗装・造園</text>
+  <text class="t-item" x="200" y="466" text-anchor="middle">許可の有効期限は 5年</text>
+</svg>

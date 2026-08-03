@@ -1,0 +1,53 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="締固め曲線の模式図。横軸に含水比、縦軸に乾燥密度をとると曲線は上に凸となり、頂点で乾燥密度が最大になる。この頂点の乾燥密度が最大乾燥密度、そのときの含水比が最適含水比である。含水比が最適値より少なすぎても多すぎても乾燥密度は低下する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-axis { font-size: 11px; fill: #555; }
+      .t-peak { font-size: 11px; font-weight: bold; fill: #b22234; }
+      .t-side { font-size: 11px; fill: #8a8a8a; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .axis { stroke: #222; stroke-width: 1.5; fill: none; }
+      .curve { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+      .guide { stroke: #b22234; stroke-width: 1.5; stroke-dasharray: 5 4; fill: none; }
+      .dot { fill: #b22234; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="cc-ax" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#222"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">水は多すぎても少なすぎても締まらない</text>
+
+  <line class="axis" x1="72" y1="266" x2="378" y2="266" marker-end="url(#cc-ax)"/>
+  <line class="axis" x1="72" y1="266" x2="72" y2="50" marker-end="url(#cc-ax)"/>
+
+  <path class="curve" d="M 96,236 L 122,206 L 148,180 L 174,158 L 200,142 L 220,134 L 240,133 L 262,142 L 288,160 L 314,184 L 340,212 L 358,234"/>
+
+  <line class="guide" x1="72" y1="133" x2="230" y2="133"/>
+  <line class="guide" x1="230" y1="133" x2="230" y2="266"/>
+  <circle class="dot" cx="230" cy="133" r="4"/>
+
+  <text class="t-peak" x="240" y="118">最大乾燥密度</text>
+  <text class="t-peak" x="230" y="286" text-anchor="middle">最適含水比</text>
+
+  <text class="t-side" x="140" y="252" text-anchor="middle">乾燥側</text>
+  <text class="t-side" x="320" y="252" text-anchor="middle">湿潤側</text>
+
+  <text class="t-axis" x="70" y="42">乾燥密度</text>
+  <text class="t-axis" x="374" y="288" text-anchor="end">含水比</text>
+
+  <rect class="box-surf" x="20" y="310" width="360" height="172" rx="6"/>
+  <text class="t-sec" x="200" y="332" text-anchor="middle">読み取り方</text>
+  <line class="rule" x1="36" y1="341" x2="364" y2="341"/>
+  <text class="t-item" x="40" y="366">曲線の頂点が最大乾燥密度＝最もよく締まる状態</text>
+  <text class="t-item" x="40" y="392">そのときの含水比が最適含水比</text>
+  <text class="t-item" x="40" y="418">この曲線は突固めによる締固め試験（室内試験）で得る</text>
+  <text class="t-item" x="40" y="444">締固め度 ＝ 現場の乾燥密度 ÷ 最大乾燥密度 × 100 %</text>
+</svg>

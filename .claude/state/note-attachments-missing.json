@@ -1,9 +1,9 @@
 {
-  "measuredAt": "2026-07-31",
-  "inspected": 457,
-  "target": 457,
+  "measuredAt": "2026-08-03",
+  "inspected": 463,
+  "target": 463,
   "fetchFail": 0,
-  "satisfied": 272,
+  "satisfied": 271,
   "missing": [
     {
       "noteId": "n6ec9bbbbe274",
@@ -1605,6 +1605,69 @@
       "want": 1,
       "pdfs": [
         "docs/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-過去問模範答案集/R07/2級土木-施工経験記述-過去問-R07.pdf"
+      ]
+    },
+    {
+      "noteId": "n925da9ad94e0",
+      "title": "技術士 建設部門｜電力土木 R8予想 選択科目II-1 予想問題＋模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "docs/note/技術士建設部門/magazines/BK-09_電力土木/R08-yosou/建設部門-電力土木-R08予想-II-1-予想問題と模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "na4eeb78b55b0",
+      "title": "技術士 建設部門｜電力土木 R8予想 選択科目II-2 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "docs/note/技術士建設部門/magazines/BK-09_電力土木/R08-yosou/建設部門-電力土木-R08予想-II-2-予想問題と模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n26297aa46164",
+      "title": "技術士 建設部門｜電力土木 R8予想 選択科目III 予想問題＋模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "docs/note/技術士建設部門/magazines/BK-09_電力土木/R08-yosou/建設部門-電力土木-R08予想-III-予想問題と模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n42bfa964435f",
+      "title": "技術士 建設部門｜鉄道 R06 選択科目II-1 模範解答（全4設問）",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "docs/note/技術士建設部門/magazines/BK-10_鉄道/R06/建設部門-鉄道-R06-II-1-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n44418c163b26",
+      "title": "技術士 建設部門｜鉄道 R8予想 選択科目II-1 予想問題＋模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "docs/note/技術士建設部門/magazines/BK-10_鉄道/R08-yosou/建設部門-鉄道-R08予想-II-1-予想問題と模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "ncf693e43a180",
+      "title": "技術士 建設部門｜鉄道 R8予想 選択科目II-2 予想問題＋模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "docs/note/技術士建設部門/magazines/BK-10_鉄道/R08-yosou/建設部門-鉄道-R08予想-II-2-予想問題と模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n31042910b6fa",
+      "title": "技術士 建設部門｜鉄道 R8予想 選択科目III 予想問題＋模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "docs/note/技術士建設部門/magazines/BK-10_鉄道/R08-yosou/建設部門-鉄道-R08予想-III-予想問題と模範解答.pdf"
       ]
     },
     {

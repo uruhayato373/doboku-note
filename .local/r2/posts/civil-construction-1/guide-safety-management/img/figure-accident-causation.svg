@@ -1,0 +1,60 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="労働災害の原因の構造。背景にある間接原因が、物的要因である不安全状態と人的要因である不安全行動という直接原因を生み、それが労働災害に至る。不注意は災害の結果であって原因ではない">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-hd   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-name { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-kind { font-size: 11px; fill: #555; }
+      .t-ex   { font-size: 11px; fill: #222; }
+      .t-acc  { font-size: 13px; font-weight: bold; fill: #b22234; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .ind  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .hd   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .cell { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .acc  { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .flow { stroke: #1a3a5c; stroke-width: 2; fill: none; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="ac-a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#1a3a5c"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">不注意は災害の結果であって原因ではない</text>
+
+  <rect class="ind" x="20" y="32" width="360" height="64" rx="4"/>
+  <text class="t-hd" x="200" y="56" text-anchor="middle">間接原因（背景にある要因）</text>
+  <text class="t-ex" x="200" y="80" text-anchor="middle">組立図の作成不足・手順確認の不備・教育や管理の欠如</text>
+
+  <line class="flow" x1="200" y1="100" x2="200" y2="118" marker-end="url(#ac-a)"/>
+
+  <rect class="hd" x="20" y="122" width="360" height="24" rx="4"/>
+  <text class="t-hd" x="200" y="139" text-anchor="middle">直接原因</text>
+  <rect class="cell" x="20" y="150" width="176" height="72" rx="4"/>
+  <text class="t-name" x="108" y="174" text-anchor="middle">不安全状態</text>
+  <text class="t-kind" x="108" y="194" text-anchor="middle">物的要因</text>
+  <text class="t-ex" x="108" y="212" text-anchor="middle">囲いのない開口部など</text>
+  <rect class="cell" x="204" y="150" width="176" height="72" rx="4"/>
+  <text class="t-name" x="292" y="174" text-anchor="middle">不安全行動</text>
+  <text class="t-kind" x="292" y="194" text-anchor="middle">人的要因</text>
+  <text class="t-ex" x="292" y="212" text-anchor="middle">保護具の不使用など</text>
+
+  <line class="flow" x1="200" y1="226" x2="200" y2="244" marker-end="url(#ac-a)"/>
+
+  <rect class="acc" x="110" y="248" width="180" height="48" rx="4"/>
+  <text class="t-acc" x="200" y="278" text-anchor="middle">労働災害</text>
+
+  <rect class="box-surf" x="20" y="326" width="360" height="156" rx="6"/>
+  <text class="t-sec" x="200" y="348" text-anchor="middle">読み取り方</text>
+  <line class="rule" x1="36" y1="357" x2="364" y2="357"/>
+  <text class="t-item" x="40" y="382">直接原因は物的要因と人的要因に分かれる</text>
+  <text class="t-item" x="40" y="406">間接原因は直接原因の背景にある管理上の要因</text>
+  <text class="t-item" x="40" y="430">「不注意」は災害の結果であって原因ではない</text>
+  <text class="t-item" x="40" y="454">不安全状態と不安全行動を組織的に除去して防ぐ</text>
+</svg>

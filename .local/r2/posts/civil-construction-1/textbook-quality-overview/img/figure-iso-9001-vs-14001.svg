@@ -1,0 +1,64 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="ISO 9001 と ISO 14001 の比較。目的は顧客満足を高めることと環境負荷の低減、対象は顧客のみと社会のすべての人々、要求要素の力点は Do と Check および Plan で異なる。いずれもマネジメントシステムを扱いPDCAを運用の基本とする点は共通">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-head { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-axis { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-cell { font-size: 11px; fill: #222; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .head-q { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .head-e { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .cell-q { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+      .cell-e { fill: #ffffff; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">いずれもマネジメントシステムだが目的が異なる</text>
+
+  <rect class="head-q" x="20" y="28" width="172" height="34" rx="6"/>
+  <text class="t-head" x="106" y="51" text-anchor="middle">ISO 9001</text>
+  <rect class="head-e" x="208" y="28" width="172" height="34" rx="6"/>
+  <text class="t-head" x="294" y="51" text-anchor="middle">ISO 14001</text>
+
+  <!-- 目的 -->
+  <text class="t-axis" x="200" y="82" text-anchor="middle">目的</text>
+  <rect class="cell-q" x="20" y="90" width="172" height="42" rx="6"/>
+  <text class="t-cell" x="106" y="116" text-anchor="middle">顧客満足を高める</text>
+  <rect class="cell-e" x="208" y="90" width="172" height="42" rx="6"/>
+  <text class="t-cell" x="294" y="116" text-anchor="middle">環境負荷の低減</text>
+
+  <!-- 対象 -->
+  <text class="t-axis" x="200" y="154" text-anchor="middle">対象</text>
+  <rect class="cell-q" x="20" y="162" width="172" height="52" rx="6"/>
+  <text class="t-cell" x="106" y="184" text-anchor="middle">顧客のみ</text>
+  <text class="t-cell" x="106" y="202" text-anchor="middle">供給者と購入者の二者</text>
+  <rect class="cell-e" x="208" y="162" width="172" height="52" rx="6"/>
+  <text class="t-cell" x="294" y="184" text-anchor="middle">消費者・株主・住民など</text>
+  <text class="t-cell" x="294" y="202" text-anchor="middle">社会のすべての人々</text>
+
+  <!-- 力点 -->
+  <text class="t-axis" x="200" y="236" text-anchor="middle">要求要素の力点</text>
+  <rect class="cell-q" x="20" y="244" width="172" height="52" rx="6"/>
+  <text class="t-cell" x="106" y="266" text-anchor="middle">Do（実施・運営）と</text>
+  <text class="t-cell" x="106" y="284" text-anchor="middle">Check（監視・測定）</text>
+  <rect class="cell-e" x="208" y="244" width="172" height="52" rx="6"/>
+  <text class="t-cell" x="294" y="275" text-anchor="middle">Plan（方針・計画）</text>
+
+  <!-- 共通点 -->
+  <rect class="box-surf" x="20" y="310" width="360" height="172" rx="6"/>
+  <text class="t-sec" x="200" y="332" text-anchor="middle">両規格に共通する点</text>
+  <line class="rule" x1="36" y1="342" x2="364" y2="342"/>
+  <text class="t-item" x="40" y="364">組織のマネジメントシステムを取り扱う</text>
+  <text class="t-item" x="40" y="385">P−D−C−A サイクルを運用の基本とする</text>
+  <text class="t-item" x="40" y="406">規格の周辺にファミリー規格を持つ</text>
+  <text class="t-item" x="40" y="427">手順化・文書化・記録化を要する</text>
+  <text class="t-item" x="40" y="448">トップマネジメントの責任・役割の明確化</text>
+  <text class="t-item" x="40" y="469">第三者審査登録制度の基準である</text>
+</svg>

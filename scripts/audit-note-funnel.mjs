@@ -14,7 +14,8 @@
 // 使い方:
 //   node scripts/audit-note-funnel.mjs          # ソース監査レポート（exit 0）
 //   node scripts/audit-note-funnel.mjs --ci      # ソースドリフトで exit 1（CI ゲート・高速）
-//   node scripts/audit-note-funnel.mjs --live    # ＋ライブ反映(D5)を note API で検証（低速・月次/手動・CIには含めない）
+//   node scripts/audit-note-funnel.mjs --live    # ＋ライブ反映(D5)を note API で検証
+//   node scripts/audit-note-funnel.mjs --live --ci # D5/取得失敗率を含む CI ゲート
 
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
@@ -25,12 +26,20 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CI = process.argv.includes('--ci');
 // --live: 公開記事の CTA が「ライブ note に反映済みか」を note 公開 API(body+embedded)で機械検証する（D5）。
 // ソースのマーカー(D1)はあってもライブ未反映＝再投稿もれ、を検出する（2026-06-18 に総監19本で実害化）。
-// 実証済みの curl --ssl-no-revoke を shell-out（会社PCプロキシ・CI 双方で疎通）。低速のため CI ゲートには含めない。
+// 実証済みの curl --ssl-no-revoke を shell-out（会社PCプロキシ・CI 双方で疎通）。
 const LIVE = process.argv.includes('--live');
+const MAX_LIVE_FETCH_FAIL_RATE = 0.2;
 // note 公開記事 API を取得し body+embedded_contents の結合文字列を返す（取得不能は null）。
 function fetchLiveBlob(noteId) {
   try {
-    const out = execFileSync('curl', ['-s', '--ssl-no-revoke', '--max-time', '25', `https://note.com/api/v3/notes/${noteId}`], { encoding: 'utf8', maxBuffer: 8 * 1024 * 1024 });
+    const out = execFileSync('curl', [
+      '-s',
+      '--ssl-no-revoke',
+      '--max-time', '25',
+      '-H', 'User-Agent: Mozilla/5.0',
+      '-H', 'Accept: application/json',
+      `https://note.com/api/v3/notes/${noteId}`,
+    ], { encoding: 'utf8', maxBuffer: 8 * 1024 * 1024 });
     const d = JSON.parse(out); const data = d.data || d;
     return JSON.stringify(data.body || '') + JSON.stringify(data.embedded_contents || []);
   } catch { return null; }
@@ -188,13 +197,25 @@ if (reviewCandidates.length) {
   for (const r of reviewCandidates) console.log('    ? ' + r);
   console.log('    → 不一致なら該当 dir を config の topCtaExcludeDirs に追加＋<!-- cta:pack-top --> ブロックを除去（判定は note-funnel-auditor）');
 }
-if (drifts.length === 0) {
+
+const liveFetchFailRate = liveChecked ? liveWarn.length / liveChecked : 1;
+const liveNotConclusive = LIVE && (liveChecked === 0 || liveFetchFailRate > MAX_LIVE_FETCH_FAIL_RATE);
+if (liveNotConclusive) {
+  console.error(
+    `\n[audit-note-funnel] ✗ ライブ検査不成立: 対象 ${liveChecked} 本中 ${liveWarn.length} 本が取得失敗` +
+    `（${Math.round(liveFetchFailRate * 100)}%・上限 ${Math.round(MAX_LIVE_FETCH_FAIL_RATE * 100)}%）`,
+  );
+}
+
+if (drifts.length === 0 && !liveNotConclusive) {
   console.log(`[audit-note-funnel] ✓ ドリフトなし（公開記事 CTA / マガジン収録 / L1-L2 リンク${LIVE ? ' / ライブ反映' : ''} 整合）`);
   process.exit(0);
 }
-console.log(`\n[audit-note-funnel] ✗ ドリフト ${drifts.length} 件:`);
-for (const d of drifts) console.log('  - ' + d);
-console.log('\n修復: D1-D4=npm run wire-note-funnel-cta -- --exam <key> --apply / L2 もくじへ追記 / L1 へ L2 リンク追記');
-console.log('      D5(ライブ未反映)=npm run note-append-cta（公開済み記事へCTA反映）/ publish-note --update');
-console.log('      D6(除外もれ)=除外対象記事から <!-- cta:pack-top --> ブロックを手動除去（config の topCtaExcludeDirs と実体を一致させる）');
-process.exit(CI ? 1 : 0);
+if (drifts.length) {
+  console.log(`\n[audit-note-funnel] ✗ ドリフト ${drifts.length} 件:`);
+  for (const d of drifts) console.log('  - ' + d);
+  console.log('\n修復: D1-D4=npm run wire-note-funnel-cta -- --exam <key> --apply / L2 もくじへ追記 / L1 へ L2 リンク追記');
+  console.log('      D5(ライブ未反映)=npm run note-append-cta（公開済み記事へCTA反映）/ publish-note --update');
+  console.log('      D6(除外もれ)=除外対象記事から <!-- cta:pack-top --> ブロックを手動除去（config の topCtaExcludeDirs と実体を一致させる）');
+}
+process.exit(CI && (drifts.length > 0 || liveNotConclusive) ? 1 : 0);

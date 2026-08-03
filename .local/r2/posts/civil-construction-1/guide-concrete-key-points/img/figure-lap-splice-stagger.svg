@@ -1,0 +1,51 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="重ね継手のずらし方。隣り合う鉄筋の継手は同一断面に集めず、軸方向にずらして配置する。ずらす距離は継手の長さに鉄筋直径の 25 倍を加えた長さ以上とする">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-lap  { font-size: 11px; font-weight: bold; fill: #d4a017; }
+      .t-dim  { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .lap  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .bar  { stroke: #555; stroke-width: 4; fill: none; stroke-linecap: round; }
+      .dim  { stroke: #1a3a5c; stroke-width: 1.5; fill: none; }
+      .gd   { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="ls-a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#1a3a5c"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">継手は同一断面に集めず軸方向にずらす</text>
+
+  <rect class="lap" x="80" y="76" width="90" height="26" rx="3"/>
+  <line class="bar" x1="30" y1="84" x2="170" y2="84"/>
+  <line class="bar" x1="80" y1="94" x2="370" y2="94"/>
+  <text class="t-lap" x="125" y="68" text-anchor="middle">重ね部（継手長さ）</text>
+
+  <rect class="lap" x="240" y="200" width="90" height="26" rx="3"/>
+  <line class="bar" x1="30" y1="208" x2="330" y2="208"/>
+  <line class="bar" x1="240" y1="218" x2="370" y2="218"/>
+  <text class="t-lap" x="285" y="244" text-anchor="middle">重ね部</text>
+
+  <line class="gd" x1="80" y1="104" x2="80" y2="142"/>
+  <line class="gd" x1="240" y1="158" x2="240" y2="198"/>
+  <line class="dim" x1="160" y1="150" x2="84" y2="150" marker-end="url(#ls-a)"/>
+  <line class="dim" x1="160" y1="150" x2="236" y2="150" marker-end="url(#ls-a)"/>
+  <text class="t-dim" x="160" y="140" text-anchor="middle">ずらす距離</text>
+
+  <rect class="box-surf" x="20" y="290" width="360" height="192" rx="6"/>
+  <text class="t-sec" x="200" y="312" text-anchor="middle">重ね継手の規定</text>
+  <line class="rule" x1="36" y1="321" x2="364" y2="321"/>
+  <text class="t-item" x="40" y="348">継手位置は応力の大きい断面を避ける</text>
+  <text class="t-item" x="40" y="374">継手は同一断面に集めないことが原則</text>
+  <text class="t-item" x="40" y="400">ずらす距離は継手の長さ＋鉄筋直径の 25 倍以上</text>
+  <text class="t-item" x="40" y="426">重合せ長さの最小は鉄筋直径の 20 倍以上</text>
+  <text class="t-item" x="40" y="452">重ね継手部の帯鉄筋の間隔は 100 mm 以下</text>
+</svg>

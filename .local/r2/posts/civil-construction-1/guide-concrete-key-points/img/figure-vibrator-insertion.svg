@@ -1,0 +1,54 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="棒状バイブレータの挿入方法。バイブレータはなるべく鉛直に挿入し、挿入間隔は 50cm 以下、先端は下層へ 10cm 程度差し込んで上層と下層を一体化させる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-lay  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-dim  { font-size: 11px; font-weight: bold; fill: #b22234; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .upper { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .lower { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .rod   { fill: #8a8a8a; stroke: #555; stroke-width: 1; }
+      .head  { fill: #d7d7d7; stroke: #555; stroke-width: 1.5; }
+      .dim   { stroke: #b22234; stroke-width: 1.5; fill: none; }
+      .gd    { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="vi-a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#b22234"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">下層に差し込んで上下を一体化させるのが要点</text>
+
+  <rect class="upper" x="30" y="64" width="340" height="112"/>
+  <rect class="lower" x="30" y="176" width="340" height="124"/>
+  <text class="t-lay" x="42" y="86">上層</text>
+  <text class="t-lay" x="42" y="256">下層</text>
+
+  <rect class="head" x="167" y="40" width="16" height="14"/>
+  <rect class="rod"  x="172" y="54" width="6" height="152"/>
+  <rect class="head" x="291" y="40" width="16" height="14"/>
+  <rect class="rod"  x="296" y="54" width="6" height="152"/>
+
+  <line class="dim" x1="237" y1="124" x2="180" y2="124" marker-end="url(#vi-a)"/>
+  <line class="dim" x1="237" y1="124" x2="294" y2="124" marker-end="url(#vi-a)"/>
+  <text class="t-dim" x="237" y="114" text-anchor="middle">50 cm 以下</text>
+
+  <line class="gd" x1="114" y1="206" x2="172" y2="206"/>
+  <line class="dim" x1="120" y1="191" x2="120" y2="177" marker-end="url(#vi-a)"/>
+  <line class="dim" x1="120" y1="191" x2="120" y2="205" marker-end="url(#vi-a)"/>
+  <text class="t-dim" x="44" y="195">10 cm 程度</text>
+
+  <rect class="box-surf" x="20" y="336" width="360" height="146" rx="6"/>
+  <text class="t-sec" x="200" y="358" text-anchor="middle">使い方の基本</text>
+  <line class="rule" x1="36" y1="367" x2="364" y2="367"/>
+  <text class="t-item" x="40" y="392">なるべく鉛直に挿入する</text>
+  <text class="t-item" x="40" y="416">1 箇所あたり 5〜15 秒振動させる</text>
+  <text class="t-item" x="40" y="440">引抜きは徐々に行い、あとに穴を残さない</text>
+</svg>

@@ -3,9 +3,10 @@
  * check-competitor-scan-due.mjs
  * ---------------------------------------------------------------------------
  * 競合の再取得（scout-*-competitors）が四半期サイクル（既定90日）に対して期限切れかを
- * 全チャネル（note / coconala / x / ig / brain）で機械判定する surfacer。weekly-review
- *（唯一稼働のクラウド PDCA）から呼ばれ、「そろそろ再スキャンの時期」を思い出させる＝
- * 新規 cron を作らずに定期性を担保する（クラウドルーティン最小化方針の遵守）。
+ * 全チャネル（note / coconala / x / ig / brain）で機械判定する surfacer。
+ * note / coconala / ig は competitor-scan.yml が四半期に自動取得し、本 surfacer は
+ * その失敗・停止の backstop。X はログイン済み個人セッション、Brain は WebSearch 判断が
+ * 必要なため、weekly-review-guard / weekly-review から手動期限を通知する。
  *
  * 判定: 各チャネルの history/ の最新 competitors-YYYY-MM-DD.json の日付から経過日数
  *       >= しきい値（既定90日）で DUE。履歴が無ければ DUE(初回)。
@@ -28,10 +29,10 @@ const ROOT = join(__dirname, '..');
 
 // チャネル → history ディレクトリ（既存 note/coconala は専用dir、X/IG/Brain は機能スコープdir）
 const PLATFORMS = {
-  note: { dir: '.claude/state/note/history', review: '/competitor-review --platform note' },
-  coconala: { dir: '.claude/state/coconala/history', review: '/competitor-review --platform coconala' },
+  note: { dir: '.claude/state/note/history', automation: 'ci', review: 'competitor-scan.yml の失敗を確認。取得済みなら /competitor-review --platform note で意味分析' },
+  coconala: { dir: '.claude/state/coconala/history', automation: 'ci', review: 'competitor-scan.yml の失敗を確認。取得済みなら /competitor-review --platform coconala で意味分析' },
   x: { dir: '.claude/state/x-competitors/history', review: '/competitor-review --platform x' },
-  ig: { dir: '.claude/state/ig-competitors/history', review: '/competitor-review --platform ig' },
+  ig: { dir: '.claude/state/ig-competitors/history', automation: 'ci', review: 'competitor-scan.yml の失敗を確認。取得済みなら /competitor-review --platform ig で意味分析' },
   brain: { dir: '.claude/state/brain-competitors/history', review: '手動: WebSearch(allowed_domains:brain-market.com)で新規exam販売者確認＝白地(自動scoutなし・09§E)' },
 };
 
@@ -65,7 +66,7 @@ for (const [name, cfg] of Object.entries(platforms)) {
   const last = latestScanDate(cfg.dir);
   const daysSince = last ? Math.floor((Date.now() - Date.parse(last + 'T00:00:00Z')) / 86400000) : null;
   const due = last == null || daysSince >= THRESHOLD;
-  perPlatform[name] = { lastScan: last, daysSince, due, review: cfg.review };
+  perPlatform[name] = { lastScan: last, daysSince, due, automation: cfg.automation ?? 'manual', review: cfg.review };
 }
 
 const dueList = Object.entries(perPlatform).filter(([, v]) => v.due).map(([k]) => k);

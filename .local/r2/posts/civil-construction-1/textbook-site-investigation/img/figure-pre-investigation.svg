@@ -1,0 +1,47 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="事前調査は契約条件の確認と現場条件の調査の2本立てで行う。契約条件では契約内容・設計図書・その他を確認し、現場条件では自然気象・仮設計画・資機材・輸送・近隣環境・建設副産物を調査する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-key  { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .t-note { font-size: 11px; fill: #555; }
+      .box-a { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-b { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">契約条件と現場条件の2本立てで調べる</text>
+
+  <rect class="box-a" x="20" y="28" width="360" height="164" rx="6"/>
+  <text class="t-sec" x="200" y="52" text-anchor="middle">契約条件の確認</text>
+  <line class="rule" x1="36" y1="61" x2="364" y2="61"/>
+  <text class="t-key" x="40" y="86">契約内容</text>
+  <text class="t-item" x="40" y="104">損害・工事中止・変更・瑕疵担保・支払条件の取扱い</text>
+  <text class="t-key" x="40" y="128">設計図書</text>
+  <text class="t-item" x="40" y="146">数量の違算、規格値・基準値、現場説明事項</text>
+  <text class="t-key" x="40" y="170">その他</text>
+  <text class="t-item" x="40" y="186">監督職員の指示範囲、附帯・関連工事、関係条例</text>
+
+  <rect class="box-b" x="20" y="204" width="360" height="200" rx="6"/>
+  <text class="t-sec" x="200" y="228" text-anchor="middle">現場条件の調査</text>
+  <line class="rule" x1="36" y1="237" x2="364" y2="237"/>
+  <text class="t-key" x="40" y="262">自然・気象</text>
+  <text class="t-item" x="40" y="280">地形・地質・土質・地下水、水文気象データ</text>
+  <text class="t-key" x="40" y="302">仮設計画</text>
+  <text class="t-item" x="40" y="320">施工方法・仮設規模・機械選択、動力源・工事用水</text>
+  <text class="t-key" x="40" y="342">資機材と輸送</text>
+  <text class="t-item" x="40" y="360">材料の供給源と価格、労務の供給、道路・搬入路</text>
+  <text class="t-key" x="40" y="382">近隣環境と建設副産物</text>
+  <text class="t-item" x="40" y="398">用地買収・隣接工事・文化財・埋設物・処理方法</text>
+
+  <rect class="box-surf" x="20" y="416" width="360" height="66" rx="6"/>
+  <text class="t-note" x="200" y="440" text-anchor="middle">項目が多いためチェックリストを作成して見落としを防ぐ</text>
+  <text class="t-note" x="200" y="464" text-anchor="middle">重要な項目は複数の者で、時期を改めて調査する</text>
+</svg>

@@ -1,0 +1,51 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="河川の区分と河川管理者。一級河川は国土交通大臣が管理し指定区間は都道府県知事が管理する。二級河川は都道府県知事、準用河川と普通河川は市町村長が管理する。河川法上の河川は一級河川と二級河川を指す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-who  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .t-law  { font-size: 11px; fill: #8a8a8a; }
+      .t-note { font-size: 11px; fill: #222; }
+      .box-1 { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-2 { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-3 { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-4 { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">区分ごとに管理者が定まっている</text>
+
+  <rect class="box-1" x="20" y="28" width="360" height="88" rx="6"/>
+  <text class="t-name" x="40" y="56">一級河川</text>
+  <text class="t-who" x="364" y="56" text-anchor="end">国土交通大臣</text>
+  <text class="t-desc" x="40" y="80">国土保全上・国民経済上とくに重要な水系</text>
+  <text class="t-law" x="40" y="100">指定区間は都道府県知事が管理する（法第4条・第9条）</text>
+
+  <rect class="box-2" x="20" y="126" width="360" height="88" rx="6"/>
+  <text class="t-name" x="40" y="154">二級河川</text>
+  <text class="t-who" x="364" y="154" text-anchor="end">都道府県知事</text>
+  <text class="t-desc" x="40" y="178">一級河川以外で公共の利害に重要な関係のある水系</text>
+  <text class="t-law" x="40" y="198">法第5条</text>
+
+  <rect class="box-3" x="20" y="224" width="360" height="88" rx="6"/>
+  <text class="t-name" x="40" y="252">準用河川</text>
+  <text class="t-who" x="364" y="252" text-anchor="end">市町村長</text>
+  <text class="t-desc" x="40" y="276">一級・二級以外で市町村長が指定した河川</text>
+  <text class="t-law" x="40" y="296">河川法の規定が準用される（法第100条）</text>
+
+  <rect class="box-4" x="20" y="322" width="360" height="88" rx="6"/>
+  <text class="t-name" x="40" y="350">普通河川</text>
+  <text class="t-who" x="364" y="350" text-anchor="end">市町村長</text>
+  <text class="t-desc" x="40" y="374">上記以外の河川</text>
+  <text class="t-law" x="40" y="394">河川法の適用を受けず、条例にもとづき管理する</text>
+
+  <rect class="box-surf" x="20" y="426" width="360" height="56" rx="6"/>
+  <text class="t-note" x="200" y="450" text-anchor="middle">河川法上の「河川」とは、一級河川と二級河川を指す</text>
+  <text class="t-note" x="200" y="472" text-anchor="middle">（法第3条〜第5条）</text>
+</svg>

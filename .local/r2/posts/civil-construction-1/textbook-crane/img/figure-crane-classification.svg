@@ -1,0 +1,52 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="クレーンの分類。走行方式により移動式と固定式に大別される。移動式にはクローラ・トラック・オールテレーン・ホイール・ラフテレーン・積載型トラッククレーンがあり、固定式には天井・ジブ・門型・ケーブルクレーンとテルハがある">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-name { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .t-note { font-size: 11px; fill: #222; }
+      .box-m { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-f { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">走行方式により移動式と固定式に大別される</text>
+
+  <rect class="box-m" x="20" y="28" width="360" height="196" rx="6"/>
+  <text class="t-sec" x="200" y="52" text-anchor="middle">移動式クレーン — 自走して現場まで移動できる</text>
+  <line class="rule" x1="36" y1="61" x2="364" y2="61"/>
+  <text class="t-name" x="40" y="86">クローラクレーン</text>
+  <text class="t-desc" x="152" y="86">不整地・軟弱地に強い</text>
+  <text class="t-name" x="40" y="110">トラッククレーン</text>
+  <text class="t-desc" x="152" y="110">走行用とクレーン用の運転室が別</text>
+  <text class="t-name" x="40" y="134">オールテレーン</text>
+  <text class="t-desc" x="152" y="134">高速走行と不整地作業を両立</text>
+  <text class="t-name" x="40" y="158">ホイールクレーン</text>
+  <text class="t-desc" x="152" y="158">1エンジンで走行とクレーンを駆動</text>
+  <text class="t-name" x="40" y="182">ラフテレーン</text>
+  <text class="t-desc" x="152" y="182">かに操向などで小回りが利く</text>
+  <text class="t-name" x="40" y="206">積載型トラック</text>
+  <text class="t-desc" x="152" y="206">クレーンと貨物運搬の双機能</text>
+
+  <rect class="box-f" x="20" y="238" width="360" height="170" rx="6"/>
+  <text class="t-sec" x="200" y="262" text-anchor="middle">固定式クレーン — 定位置に据え付けて使用する</text>
+  <line class="rule" x1="36" y1="271" x2="364" y2="271"/>
+  <text class="t-name" x="40" y="296">天井クレーン</text>
+  <text class="t-name" x="40" y="320">ジブクレーン</text>
+  <text class="t-name" x="40" y="344">門型クレーン</text>
+  <text class="t-name" x="40" y="368">ケーブルクレーン</text>
+  <text class="t-desc" x="152" y="368">両端のタワー間のワイヤロープで運搬</text>
+  <text class="t-name" x="40" y="392">テルハ</text>
+  <text class="t-desc" x="152" y="392">天井走行式の簡易ホイスト</text>
+
+  <rect class="box-surf" x="20" y="422" width="360" height="60" rx="6"/>
+  <text class="t-note" x="200" y="446" text-anchor="middle">クライミングクレーンは建物躯体を利用してせり上がる</text>
+  <text class="t-note" x="200" y="468" text-anchor="middle">タワークレーンで、高層建築の建設に用いる</text>
+</svg>

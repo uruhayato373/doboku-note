@@ -1,0 +1,54 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="解体工事の一般的な流れ。事前調査、施工計画、事前措置、解体作業の順に進む。解体作業は仮設・養生、構造物の解体、基礎・基礎杭の解体、整地の順で行い、構造種別によって解体方法が異なる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .box-1 { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-2 { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-3 { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .flow { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="ad" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">建設リサイクル法の規定を基本とした流れで行う</text>
+
+  <rect class="box-1" x="20" y="28" width="360" height="62" rx="6"/>
+  <text class="t-name" x="40" y="52">事前調査</text>
+  <text class="t-desc" x="40" y="74">構造物・敷地・道路・近隣・関係機関・廃棄物</text>
+  <line class="flow" x1="200" y1="90" x2="200" y2="100" marker-end="url(#ad)"/>
+
+  <rect class="box-1" x="20" y="104" width="360" height="62" rx="6"/>
+  <text class="t-name" x="40" y="128">施工計画</text>
+  <text class="t-desc" x="40" y="150">準備・仮設・解体作業・工程・安全衛生・環境・廃棄物</text>
+  <line class="flow" x1="200" y1="166" x2="200" y2="176" marker-end="url(#ad)"/>
+
+  <rect class="box-2" x="20" y="180" width="360" height="62" rx="6"/>
+  <text class="t-name" x="40" y="204">事前措置</text>
+  <text class="t-desc" x="40" y="226">作業場所と搬出経路の確保、近隣周知・仮囲い・標識</text>
+  <line class="flow" x1="200" y1="242" x2="200" y2="252" marker-end="url(#ad)"/>
+
+  <rect class="box-3" x="20" y="256" width="360" height="118" rx="6"/>
+  <text class="t-name" x="40" y="280">解体作業</text>
+  <line class="rule" x1="40" y1="290" x2="360" y2="290"/>
+  <text class="t-item" x="40" y="312">1　仮設・養生（足場・防音・散水・照明・換気）</text>
+  <text class="t-item" x="40" y="332">2　構造物の解体</text>
+  <text class="t-item" x="40" y="352">3　基礎・基礎杭の解体　　4　整地</text>
+
+  <rect class="box-surf" x="20" y="388" width="360" height="94" rx="6"/>
+  <text class="t-sec" x="200" y="412" text-anchor="middle">構造種別による解体方法</text>
+  <line class="rule" x1="36" y1="421" x2="364" y2="421"/>
+  <text class="t-item" x="40" y="444">鉄筋コンクリート造　機械作業を主体に手作業で補完</text>
+  <text class="t-item" x="40" y="468">鉄骨造は鉄骨切断機、鉄骨鉄筋コンクリート造は両者を併用</text>
+</svg>

@@ -1,4 +1,4 @@
-// EPUB3 組立の共通ライブラリ（npm 依存ゼロ・zip コマンド利用）。
+// EPUB3 組立の共通ライブラリ（npm 依存ゼロ・外部コマンド不要）。
 // build-takuitsu-reconstruct.mjs（A系: 1級土木択一 論点別）と
 // build-pe1-kindle.mjs（D系: 技術士一次 科目別合本）が共用する。
 //
@@ -19,8 +19,91 @@
 
 import { mkdirSync, writeFileSync, rmSync } from 'node:fs'
 import { join, dirname } from 'node:path'
-import { execFileSync } from 'node:child_process'
+import { deflateRawSync } from 'node:zlib'
 import { randomUUID } from 'node:crypto'
+
+// ── ZIP 書き出し（zlib のみ）─────────────────────────────────────────────
+// 以前は `zip` コマンドに外注していたが、Windows には zip も 7z も bsdtar も無く
+// EPUB を1冊もビルドできなかった（2026-08-03 に発覚）。EPUB の要件は
+// 「mimetype が先頭・無圧縮・extra field なし」だけなので、自前で組む。
+const CRC_TABLE = (() => {
+  const t = new Int32Array(256)
+  for (let n = 0; n < 256; n++) {
+    let c = n
+    for (let k = 0; k < 8; k++) c = c & 1 ? 0xedb88320 ^ (c >>> 1) : c >>> 1
+    t[n] = c
+  }
+  return t
+})()
+const crc32 = (buf) => {
+  let c = 0 ^ -1
+  for (let i = 0; i < buf.length; i++) c = (c >>> 8) ^ CRC_TABLE[(c ^ buf[i]) & 0xff]
+  return (c ^ -1) >>> 0
+}
+
+// 日時は固定にして再現ビルドの差分をゼロにする（内容が同じなら同じバイト列になる）。
+const DOS_TIME = 0
+const DOS_DATE = ((2020 - 1980) << 9) | (1 << 5) | 1
+
+// entries: [{ name, data: Buffer, store: boolean }] を与えた順に格納する。
+function buildZip(entries) {
+  const locals = []
+  const centrals = []
+  let offset = 0
+  for (const e of entries) {
+    const name = Buffer.from(e.name, 'utf8')
+    const crc = crc32(e.data)
+    const body = e.store ? e.data : deflateRawSync(e.data, { level: 9 })
+    const method = e.store ? 0 : 8
+
+    const lh = Buffer.alloc(30)
+    lh.writeUInt32LE(0x04034b50, 0)
+    lh.writeUInt16LE(20, 4)          // version needed
+    lh.writeUInt16LE(0, 6)           // flags（UTF-8 bit は立てない＝名前は ASCII のみ）
+    lh.writeUInt16LE(method, 8)
+    lh.writeUInt16LE(DOS_TIME, 10)
+    lh.writeUInt16LE(DOS_DATE, 12)
+    lh.writeUInt32LE(crc, 14)
+    lh.writeUInt32LE(body.length, 18)
+    lh.writeUInt32LE(e.data.length, 22)
+    lh.writeUInt16LE(name.length, 26)
+    lh.writeUInt16LE(0, 28)          // extra length=0（mimetype に extra を付けない要件）
+    locals.push(lh, name, body)
+
+    const ch = Buffer.alloc(46)
+    ch.writeUInt32LE(0x02014b50, 0)
+    ch.writeUInt16LE(20, 4)          // version made by
+    ch.writeUInt16LE(20, 6)          // version needed
+    ch.writeUInt16LE(0, 8)
+    ch.writeUInt16LE(method, 10)
+    ch.writeUInt16LE(DOS_TIME, 12)
+    ch.writeUInt16LE(DOS_DATE, 14)
+    ch.writeUInt32LE(crc, 16)
+    ch.writeUInt32LE(body.length, 20)
+    ch.writeUInt32LE(e.data.length, 24)
+    ch.writeUInt16LE(name.length, 28)
+    ch.writeUInt16LE(0, 30)          // extra
+    ch.writeUInt16LE(0, 32)          // comment
+    ch.writeUInt16LE(0, 34)          // disk
+    ch.writeUInt16LE(0, 36)          // internal attrs
+    ch.writeUInt32LE(0, 38)          // external attrs
+    ch.writeUInt32LE(offset, 42)     // local header offset
+    centrals.push(ch, name)
+
+    offset += lh.length + name.length + body.length
+  }
+  const central = Buffer.concat(centrals)
+  const eocd = Buffer.alloc(22)
+  eocd.writeUInt32LE(0x06054b50, 0)
+  eocd.writeUInt16LE(0, 4)
+  eocd.writeUInt16LE(0, 6)
+  eocd.writeUInt16LE(entries.length, 8)
+  eocd.writeUInt16LE(entries.length, 10)
+  eocd.writeUInt32LE(central.length, 12)
+  eocd.writeUInt32LE(offset, 16)
+  eocd.writeUInt16LE(0, 20)
+  return Buffer.concat([...locals, central, eocd])
+}
 
 export const xesc = (s) =>
   (s || '')
@@ -42,15 +125,14 @@ export function writeEpub({ meta, css, pages, resources = [] }, { outDir, fileNa
   const today = meta.date || new Date().toISOString().slice(0, 10)
   const language = meta.language || 'ja'
 
-  const work = join(outDir, '_epub')
-  rmSync(work, { recursive: true, force: true })
-  mkdirSync(join(work, 'META-INF'), { recursive: true })
-  mkdirSync(join(work, 'OEBPS'), { recursive: true })
-
+  // 追加順がそのまま zip の格納順になる。mimetype を最初に W() すること。
+  const entries = []
   const W = (rel, data) => {
-    const p = join(work, rel)
-    mkdirSync(dirname(p), { recursive: true })
-    writeFileSync(p, data)
+    entries.push({
+      name: rel,
+      data: Buffer.isBuffer(data) ? data : Buffer.from(String(data), 'utf8'),
+      store: rel === 'mimetype',
+    })
   }
 
   // 固定ファイル
@@ -111,11 +193,11 @@ export function writeEpub({ meta, css, pages, resources = [] }, { outDir, fileNa
 <spine toc="ncx">${spineItems}</spine>
 </package>`)
 
-  // zip（mimetype を無圧縮で先頭に）
+  // zip 化（mimetype を無圧縮で先頭に）
+  if (entries[0]?.name !== 'mimetype') throw new Error('EPUB 不正: mimetype が先頭でない')
   const epubPath = join(outDir, fileName)
+  mkdirSync(outDir, { recursive: true })
   rmSync(epubPath, { force: true })
-  execFileSync('zip', ['-X', '-0', epubPath, 'mimetype'], { cwd: work, stdio: 'pipe' })
-  execFileSync('zip', ['-rgq', epubPath, 'META-INF', 'OEBPS', '-x', 'mimetype'], { cwd: work, stdio: 'pipe' })
-  rmSync(work, { recursive: true, force: true })
+  writeFileSync(epubPath, buildZip(entries))
   return epubPath
 }

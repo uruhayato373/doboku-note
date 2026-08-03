@@ -1,0 +1,78 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="掘削底面の破壊現象4種。ヒービングは軟弱粘性土で背面の土が土留め壁の下を回り込み掘削底面が隆起する。ボイリングは砂質地盤で上向きの浸透流により砂が噴き上がる。盤ぶくれは難透水層の下の被圧水により掘削底面が広範囲に押し上げられる。パイピングは局所的な水みちに沿って浸透破壊が進む">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-cond { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .row  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .soil { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.2; }
+      .slab { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.2; }
+      .wall { fill: #8a8a8a; stroke: #555; stroke-width: 1; }
+      .up   { stroke: #b22234; stroke-width: 2; fill: none; }
+      .flow { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .seep { stroke: #2e6da4; stroke-width: 2; fill: none; stroke-dasharray: 4 3; }
+      .lyr  { stroke: #8a8a8a; stroke-width: 1.2; fill: none; stroke-dasharray: 4 3; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="eb-r" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#b22234"/>
+    </marker>
+    <marker id="eb-b" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">同じ「底面が壊れる」でも動き方が違う</text>
+
+  <rect class="row" x="20" y="32" width="360" height="76" rx="4"/>
+  <text class="t-name" x="30" y="58">ヒービング</text>
+  <text class="t-cond" x="30" y="78">軟弱粘性土</text>
+  <rect class="soil" x="140" y="40" width="90" height="60"/>
+  <rect class="soil" x="236" y="70" width="136" height="30"/>
+  <rect class="wall" x="230" y="40" width="6" height="50"/>
+  <path class="up" d="M 200,82 C 216,96 244,92 262,76" marker-end="url(#eb-r)"/>
+  <line class="up" x1="300" y1="80" x2="300" y2="62" marker-end="url(#eb-r)"/>
+  <line class="up" x1="336" y1="80" x2="336" y2="62" marker-end="url(#eb-r)"/>
+
+  <rect class="row" x="20" y="116" width="360" height="76" rx="4"/>
+  <text class="t-name" x="30" y="142">ボイリング</text>
+  <text class="t-cond" x="30" y="162">砂質地盤</text>
+  <rect class="soil" x="140" y="124" width="90" height="60"/>
+  <rect class="soil" x="236" y="154" width="136" height="30"/>
+  <rect class="wall" x="230" y="124" width="6" height="50"/>
+  <line class="flow" x1="266" y1="180" x2="266" y2="148" marker-end="url(#eb-b)"/>
+  <line class="flow" x1="306" y1="180" x2="306" y2="148" marker-end="url(#eb-b)"/>
+  <line class="flow" x1="346" y1="180" x2="346" y2="148" marker-end="url(#eb-b)"/>
+
+  <rect class="row" x="20" y="200" width="360" height="76" rx="4"/>
+  <text class="t-name" x="30" y="226">盤ぶくれ</text>
+  <text class="t-cond" x="30" y="246">難透水層下の被圧水</text>
+  <rect class="soil" x="140" y="208" width="90" height="60"/>
+  <rect class="slab" x="236" y="238" width="136" height="16"/>
+  <rect class="soil" x="236" y="254" width="136" height="14"/>
+  <rect class="wall" x="230" y="208" width="6" height="50"/>
+  <line class="up" x1="280" y1="266" x2="280" y2="252" marker-end="url(#eb-r)"/>
+  <line class="up" x1="330" y1="266" x2="330" y2="252" marker-end="url(#eb-r)"/>
+
+  <rect class="row" x="20" y="284" width="360" height="76" rx="4"/>
+  <text class="t-name" x="30" y="310">パイピング</text>
+  <text class="t-cond" x="30" y="330">局所的な水みち</text>
+  <rect class="soil" x="140" y="292" width="90" height="60"/>
+  <rect class="soil" x="236" y="322" width="136" height="30"/>
+  <rect class="wall" x="230" y="292" width="6" height="50"/>
+  <path class="seep" d="M 205,308 L 226,340 L 233,346 L 256,326" marker-end="url(#eb-b)"/>
+
+  <rect class="box-surf" x="20" y="372" width="360" height="110" rx="6"/>
+  <text class="t-sec" x="200" y="394" text-anchor="middle">読み取り方</text>
+  <line class="rule" x1="36" y1="403" x2="364" y2="403"/>
+  <text class="t-item" x="40" y="428">赤い矢印は土の動き、青い矢印は水の流れ</text>
+  <text class="t-item" x="40" y="452">対策は根入れ長さの確保・地下水位の低下・地盤改良</text>
+  <text class="t-item" x="40" y="476">土留め壁は周辺の土砂崩壊の防止と止水を兼ねる</text>
+</svg>

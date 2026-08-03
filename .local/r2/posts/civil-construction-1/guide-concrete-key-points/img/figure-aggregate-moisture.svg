@@ -1,0 +1,65 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="骨材の含水状態の4区分。絶対乾燥状態は内部の空隙にも水がない状態、空気中乾燥状態は空隙の一部に水がある状態、表面乾燥飽水状態は空隙が水で満たされ表面は乾いた状態、湿潤状態は表面にも水がある状態。配合計算の基準は表面乾燥飽水状態である">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #222; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .cell { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .grain { fill: #d7d7d7; stroke: #8a8a8a; stroke-width: 1.5; }
+      .film { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .dry { fill: #ffffff; stroke: #8a8a8a; stroke-width: 1; }
+      .wet { fill: #2e6da4; stroke: #2e6da4; stroke-width: 1; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">水がどこにあるかで 4 つに分かれる</text>
+
+  <rect class="cell" x="20" y="30" width="170" height="130" rx="6"/>
+  <text class="t-name" x="105" y="52" text-anchor="middle">絶対乾燥状態</text>
+  <circle class="grain" cx="105" cy="98" r="30"/>
+  <circle class="dry" cx="94" cy="88" r="6"/>
+  <circle class="dry" cx="117" cy="94" r="6"/>
+  <circle class="dry" cx="102" cy="112" r="6"/>
+  <text class="t-desc" x="105" y="148" text-anchor="middle">空隙にも水がない</text>
+
+  <rect class="cell" x="210" y="30" width="170" height="130" rx="6"/>
+  <text class="t-name" x="295" y="52" text-anchor="middle">空気中乾燥状態</text>
+  <circle class="grain" cx="295" cy="98" r="30"/>
+  <circle class="wet" cx="284" cy="88" r="6"/>
+  <circle class="dry" cx="307" cy="94" r="6"/>
+  <circle class="dry" cx="292" cy="112" r="6"/>
+  <text class="t-desc" x="295" y="148" text-anchor="middle">空隙の一部に水</text>
+
+  <rect class="cell" x="20" y="170" width="170" height="130" rx="6"/>
+  <text class="t-name" x="105" y="192" text-anchor="middle">表面乾燥飽水状態</text>
+  <circle class="grain" cx="105" cy="238" r="30"/>
+  <circle class="wet" cx="94" cy="228" r="6"/>
+  <circle class="wet" cx="117" cy="234" r="6"/>
+  <circle class="wet" cx="102" cy="252" r="6"/>
+  <text class="t-desc" x="105" y="288" text-anchor="middle">空隙は満水・表面は乾燥</text>
+
+  <rect class="cell" x="210" y="170" width="170" height="130" rx="6"/>
+  <text class="t-name" x="295" y="192" text-anchor="middle">湿潤状態</text>
+  <circle class="film" cx="295" cy="234" r="36"/>
+  <circle class="grain" cx="295" cy="234" r="30"/>
+  <circle class="wet" cx="284" cy="224" r="6"/>
+  <circle class="wet" cx="307" cy="230" r="6"/>
+  <circle class="wet" cx="292" cy="248" r="6"/>
+  <text class="t-desc" x="295" y="288" text-anchor="middle">表面にも水がある</text>
+
+  <rect class="box-surf" x="20" y="320" width="360" height="162" rx="6"/>
+  <text class="t-sec" x="200" y="342" text-anchor="middle">読み取り方</text>
+  <line class="rule" x1="36" y1="351" x2="364" y2="351"/>
+  <text class="t-item" x="40" y="376">絶乾 → 気乾 → 表乾 → 湿潤 の順に含水量が増える</text>
+  <text class="t-item" x="40" y="400">配合計算の基準となるのは表乾状態</text>
+  <text class="t-item" x="40" y="424">表乾を超えて表面に付いた水が表面水</text>
+  <text class="t-item" x="40" y="448">吸水率の限度は細骨材 3.5%・粗骨材 3.0% 以下</text>
+</svg>

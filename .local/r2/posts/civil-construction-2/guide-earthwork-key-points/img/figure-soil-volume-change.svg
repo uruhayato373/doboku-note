@@ -1,0 +1,53 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="土量変化率 L と C の関係を具体的な数値で示した図。地山の土量 100 立方メートルを基準とすると、ほぐした土量は L イコール 1.20 を掛けて 120 立方メートル、締め固めた土量は C イコール 0.90 を掛けて 90 立方メートルとなる。締固め土量に L 割る C を掛けるとほぐした土量が得られる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-bar  { font-size: 12px; font-weight: bold; fill: #222; }
+      .t-op   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .bar-l { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .bar-n { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .bar-c { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .op { stroke: #1a3a5c; stroke-width: 1.5; fill: none; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="sv2-a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#1a3a5c"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">帯の長さがそのまま体積の違いを表す</text>
+
+  <rect class="bar-l" x="40" y="34" width="216" height="46" rx="4"/>
+  <text class="t-bar" x="52" y="62">ほぐした土量 120 m³</text>
+
+  <line class="op" x1="110" y1="118" x2="110" y2="84" marker-end="url(#sv2-a)"/>
+  <text class="t-op" x="120" y="105">× L ＝ 1.20</text>
+
+  <rect class="bar-n" x="40" y="122" width="180" height="46" rx="4"/>
+  <text class="t-bar" x="52" y="150">地山の土量 100 m³</text>
+
+  <line class="op" x1="110" y1="172" x2="110" y2="206" marker-end="url(#sv2-a)"/>
+  <text class="t-op" x="120" y="193">× C ＝ 0.90</text>
+
+  <rect class="bar-c" x="40" y="210" width="162" height="46" rx="4"/>
+  <text class="t-bar" x="52" y="238">締固め土量 90 m³</text>
+
+  <polyline class="op" points="206,233 285,233 285,57 260,57" marker-end="url(#sv2-a)"/>
+  <text class="t-op" x="293" y="148">× L/C</text>
+
+  <rect class="box-surf" x="20" y="300" width="360" height="182" rx="6"/>
+  <text class="t-sec" x="200" y="322" text-anchor="middle">読み取り方</text>
+  <line class="rule" x1="36" y1="331" x2="364" y2="331"/>
+  <text class="t-item" x="40" y="356">地山の土量がすべての計算の基準（＝ 1）</text>
+  <text class="t-item" x="40" y="380">掘削してほぐすと体積は増える（L は 1 より大きい）</text>
+  <text class="t-item" x="40" y="404">締め固めると体積は減る（C は 1 より小さい）</text>
+  <text class="t-item" x="40" y="428">締固め土量からほぐした土量へは × L/C（右の矢印）</text>
+  <text class="t-item" x="40" y="452">3 つの帯は同じ土であり、状態だけが違う</text>
+</svg>

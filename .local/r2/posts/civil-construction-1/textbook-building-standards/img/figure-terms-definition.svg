@@ -1,0 +1,51 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="建築基準法の主な用語の定義。建築物は土地に定着し屋根と柱または壁を有する工作物、特殊建築物は多数の者が利用する用途の建築物、主要構造部は壁・柱・床・はり・屋根・階段で間仕切壁や最下階の床などは除かれる、特定行政庁は建築主事を置く市町村では市町村長、その他の区域では都道府県知事">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .t-tag  { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+      .inc { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .exc { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">定義の範囲（含む・除く）が問われる</text>
+
+  <rect class="box-b" x="20" y="28" width="360" height="70" rx="6"/>
+  <text class="t-name" x="36" y="52">建築物</text>
+  <text class="t-desc" x="36" y="74">土地に定着する工作物で屋根と柱または壁を有するもの</text>
+  <text class="t-desc" x="36" y="92">附属する門・塀、建築設備等を含む</text>
+
+  <rect class="box-b" x="20" y="108" width="360" height="70" rx="6"/>
+  <text class="t-name" x="36" y="132">特殊建築物</text>
+  <text class="t-desc" x="36" y="154">学校・病院・劇場・百貨店・工場・倉庫等</text>
+  <text class="t-desc" x="36" y="172">多数の者が利用し、または特殊な用途の建築物</text>
+
+  <rect class="box-w" x="20" y="188" width="360" height="134" rx="6"/>
+  <text class="t-name" x="36" y="212">主要構造部</text>
+  <rect class="inc" x="32" y="224" width="164" height="86" rx="6"/>
+  <text class="t-tag" x="114" y="246" text-anchor="middle">含む</text>
+  <text class="t-item" x="114" y="268" text-anchor="middle">壁・柱・床</text>
+  <text class="t-item" x="114" y="288" text-anchor="middle">はり・屋根・階段</text>
+
+  <rect class="exc" x="204" y="224" width="164" height="86" rx="6"/>
+  <text class="t-tag" x="286" y="246" text-anchor="middle">除く</text>
+  <text class="t-item" x="286" y="268" text-anchor="middle">間仕切壁・最下階の床</text>
+  <text class="t-item" x="286" y="288" text-anchor="middle">小ばり・ひさし等</text>
+
+  <rect class="box-b" x="20" y="332" width="360" height="94" rx="6"/>
+  <text class="t-name" x="36" y="356">特定行政庁</text>
+  <text class="t-desc" x="36" y="380">建築主事を置く市町村の区域　　市町村長</text>
+  <text class="t-desc" x="36" y="402">その他の区域　　都道府県知事</text>
+
+  <rect class="box-w" x="20" y="436" width="360" height="46" rx="6"/>
+  <text class="t-item" x="200" y="464" text-anchor="middle">建築確認は建築主事または指定確認検査機関が行う</text>
+</svg>

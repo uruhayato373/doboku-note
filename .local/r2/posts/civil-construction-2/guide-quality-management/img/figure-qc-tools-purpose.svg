@@ -1,0 +1,85 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="代表的な QC 手法4種の見た目と役割。ヒストグラムは柱状グラフでばらつきと中心を把握し、管理図は時系列の折れ線で工程の安定を監視し、パレート図は件数の多い順に並べた棒グラフで重点項目を見つけ、特性要因図は魚の骨の形で原因を整理する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #222; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .cell { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .bar { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.2; }
+      .bar2 { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.2; }
+      .base { stroke: #8a8a8a; stroke-width: 1.2; }
+      .cl { stroke: #2e6da4; stroke-width: 1.5; }
+      .lim { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 4 3; }
+      .pts { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+      .dot { fill: #2e6da4; }
+      .bone { stroke: #3a7d44; stroke-width: 1.5; fill: none; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="qc-a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">グラフの形そのものが役割の目印になる</text>
+
+  <rect class="cell" x="20" y="40" width="176" height="132" rx="4"/>
+  <text class="t-name" x="108" y="62" text-anchor="middle">ヒストグラム</text>
+  <line class="base" x1="72" y1="126" x2="144" y2="126"/>
+  <rect class="bar" x="76" y="114" width="10" height="12"/>
+  <rect class="bar" x="88" y="100" width="10" height="26"/>
+  <rect class="bar" x="100" y="86" width="10" height="40"/>
+  <rect class="bar" x="112" y="82" width="10" height="44"/>
+  <rect class="bar" x="124" y="98" width="10" height="28"/>
+  <rect class="bar" x="136" y="112" width="6" height="14"/>
+  <text class="t-desc" x="108" y="148" text-anchor="middle">ばらつきと中心を</text>
+  <text class="t-desc" x="108" y="164" text-anchor="middle">柱状グラフで把握</text>
+
+  <rect class="cell" x="204" y="40" width="176" height="132" rx="4"/>
+  <text class="t-name" x="292" y="62" text-anchor="middle">管理図</text>
+  <line class="lim" x1="252" y1="80" x2="332" y2="80"/>
+  <line class="cl" x1="252" y1="102" x2="332" y2="102"/>
+  <line class="lim" x1="252" y1="124" x2="332" y2="124"/>
+  <polyline class="pts" points="256,110 268,96 280,106 292,92 304,104 316,90 328,100"/>
+  <circle class="dot" cx="256" cy="110" r="2.5"/>
+  <circle class="dot" cx="280" cy="106" r="2.5"/>
+  <circle class="dot" cx="304" cy="104" r="2.5"/>
+  <circle class="dot" cx="328" cy="100" r="2.5"/>
+  <text class="t-desc" x="292" y="148" text-anchor="middle">時系列で工程が</text>
+  <text class="t-desc" x="292" y="164" text-anchor="middle">安定しているか監視</text>
+
+  <rect class="cell" x="20" y="180" width="176" height="132" rx="4"/>
+  <text class="t-name" x="108" y="202" text-anchor="middle">パレート図</text>
+  <line class="base" x1="72" y1="266" x2="144" y2="266"/>
+  <rect class="bar2" x="76" y="220" width="12" height="46"/>
+  <rect class="bar2" x="90" y="234" width="12" height="32"/>
+  <rect class="bar2" x="104" y="244" width="12" height="22"/>
+  <rect class="bar2" x="118" y="252" width="12" height="14"/>
+  <rect class="bar2" x="132" y="258" width="10" height="8"/>
+  <text class="t-desc" x="108" y="288" text-anchor="middle">件数の多い順に並べ</text>
+  <text class="t-desc" x="108" y="304" text-anchor="middle">重点項目を見つける</text>
+
+  <rect class="cell" x="204" y="180" width="176" height="132" rx="4"/>
+  <text class="t-name" x="292" y="202" text-anchor="middle">特性要因図</text>
+  <line class="bone" x1="248" y1="244" x2="336" y2="244" marker-end="url(#qc-a)"/>
+  <line class="bone" x1="262" y1="224" x2="276" y2="244"/>
+  <line class="bone" x1="294" y1="224" x2="308" y2="244"/>
+  <line class="bone" x1="270" y1="264" x2="284" y2="244"/>
+  <line class="bone" x1="302" y1="264" x2="316" y2="244"/>
+  <text class="t-desc" x="292" y="288" text-anchor="middle">不良の原因を</text>
+  <text class="t-desc" x="292" y="304" text-anchor="middle">系統的に整理する</text>
+
+  <rect class="box-surf" x="20" y="330" width="360" height="152" rx="6"/>
+  <text class="t-sec" x="200" y="352" text-anchor="middle">読み取り方</text>
+  <line class="rule" x1="36" y1="361" x2="364" y2="361"/>
+  <text class="t-item" x="40" y="384">ヒストグラムはデータの分布を柱状グラフで表す</text>
+  <text class="t-item" x="40" y="408">管理図は上方管理限界・下方管理限界との関係を見る</text>
+  <text class="t-item" x="40" y="432">パレート図は不良の項目別件数を多い順に並べる</text>
+  <text class="t-item" x="40" y="456">特性要因図はフィッシュボーン図とも呼ばれる</text>
+</svg>

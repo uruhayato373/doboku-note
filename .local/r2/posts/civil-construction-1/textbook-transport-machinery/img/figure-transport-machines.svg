@@ -1,0 +1,48 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="運搬機械の使い分け。普通ダンプトラックは公道を走行でき最も普及、重ダンプトラックは作業現場専用で固定フレーム式と車体屈折式がある、不整地運搬車はゴムクローラ式で不整地や軟弱地に使い、ベルトコンベヤはバラものの連続大量運搬に用いる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-tag  { font-size: 11px; font-weight: bold; fill: #b22234; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .box-1 { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-2 { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-3 { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-4 { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">走行できる場所と運搬の形態で使い分ける</text>
+
+  <rect class="box-1" x="20" y="28" width="360" height="104" rx="6"/>
+  <text class="t-name" x="36" y="54">普通ダンプトラック</text>
+  <text class="t-tag" x="364" y="54" text-anchor="end">公道 走行可</text>
+  <text class="t-desc" x="36" y="78">トラックシャシにダンプボディを架装した車両</text>
+  <text class="t-desc" x="36" y="98">ダンプ方式はリヤ・サイド・三転（リヤが多数）</text>
+  <text class="t-desc" x="36" y="118">土砂・砂利・砕石を運搬。過積載は法令で禁止</text>
+
+  <rect class="box-2" x="20" y="140" width="360" height="104" rx="6"/>
+  <text class="t-name" x="36" y="166">重ダンプトラック</text>
+  <text class="t-tag" x="364" y="166" text-anchor="end">作業現場専用</text>
+  <text class="t-desc" x="36" y="190">固定フレーム式と車体屈折式の2種がある</text>
+  <text class="t-desc" x="36" y="210">車体屈折式は全輪接地で荷台を水平に保つ</text>
+  <text class="t-desc" x="36" y="230">石灰山・砕石場・大土工・ダム・トンネルで使用</text>
+
+  <rect class="box-3" x="20" y="252" width="360" height="104" rx="6"/>
+  <text class="t-name" x="36" y="278">不整地運搬車</text>
+  <text class="t-tag" x="364" y="278" text-anchor="end">不整地・軟弱地</text>
+  <text class="t-desc" x="36" y="302">ゴムクローラ式またはホイール式の走行装置</text>
+  <text class="t-desc" x="36" y="322">荷台はダンプ機能付きが多く最大15 t級まで</text>
+  <text class="t-desc" x="36" y="342">上部フレーム360°旋回や荷台90°旋回の機種もある</text>
+
+  <rect class="box-4" x="20" y="364" width="360" height="104" rx="6"/>
+  <text class="t-name" x="36" y="390">ベルトコンベヤ</text>
+  <text class="t-tag" x="364" y="390" text-anchor="end">連続・大量</text>
+  <text class="t-desc" x="36" y="414">ベルトを連続して動かし水平・高低差へ運搬</text>
+  <text class="t-desc" x="36" y="434">盛土材・トンネルのずり出し・ダムの骨材運搬</text>
+  <text class="t-desc" x="36" y="454">小型のポータブル式は小規模・補助的な運搬に</text>
+</svg>

@@ -73,13 +73,16 @@ note 記事・マガジンが増えると、記事末尾の CTA が場当たり�
 | ツール | 役割 |
 |---|---|
 | `npm run audit-note-funnel` | **ソース**ドリフト検出（read-only・高速）。公開記事の CTA マーカー欠落／公開マガジンの L2 未収録／L2 の L1 未リンク／L2 URL 不一致／**除外指定なのに冒頭パック残存**（D1-D4・D6）＋**review surfacer**（トピック不一致の疑いを非ゲートで列挙→`note-funnel-auditor` へ） |
-| `npm run audit-note-funnel -- --live` | **＋ライブ反映検証（D5）**。公開記事の CTA が live note に実反映されているかを note 公開 API（body+embedded）で機械検証。**「ソースは正でもライブ未反映＝再投稿もれ」を検出**（2026-06-18 に総監19本で実害化した事故の機械検知）。低速・network依存のため CI ゲートには含めず、月次/手動で回す |
+| `npm run audit-note-funnel -- --live` | **＋ライブ反映検証（D5）**。公開記事の CTA が live note に実反映されているかを note 公開 API（body+embedded）で機械検証。**「ソースは正でもライブ未反映＝再投稿もれ」を検出**（2026-06-18 に総監19本で実害化した事故の機械検知）。`note-live-audit.yml` が `--live --ci` で週次実行し、手動実行は修復直後の再確認に使う |
 | `npm run check-note-funnel` | CI ゲート（`audit --ci`、**ソースのみ**でドリフト exit 1＝D1-D4・D6・高速）。review surfacer は非ゲート。`r2-audit.yml` で発火 |
-| `npm run check-note-republish` | **本文＋ハッシュタグの再公開ドリフト検出**（surfacer・creds不要・ローカルhash突合）。公開記事のソース本文ハッシュ（`.claude/state/note-republish-hashes.json` の `hashes`）と**ハッシュタグ hash（同 state の `tagHashes`・`hashtags*.txt` 単位）**を現ソースと突合し「要再公開（本文drift／タグdrift）」を各々列挙。**D5 が CTA の live 反映を追うのに対し、こちらは blockquote/UTM/本文改稿など CTA 以外の全本文変更＋タグ変更を追う**（直交・補完）。in-sync 化: 本文＝`note-publish`／`note-update-body --commit`、タグ＝`note-publish`（Phase10でタグ適用）／`note-sync-tags`（公開済み記事へのタグ差分適用）。`note-update-body` はタグ非適用のためタグ hash は記録しない。`note-append-cta` は非hook。pre-commit ゲートにはしない。週次 PDCA でサーフェス。baseline は `--baseline --since <ref>`（本文・タグ両方をseed） |
+| `npm run check-note-republish` | **本文＋ハッシュタグの再公開ドリフト検出**（surfacer・creds不要・ローカルhash突合）。公開記事のソース本文ハッシュ（`.claude/state/note-republish-hashes.json` の `hashes`）と**ハッシュタグ hash（同 state の `tagHashes`・`hashtags*.txt` 単位）**を現ソースと突合し「要再公開（本文drift／タグdrift）」を各々列挙。**D5 が CTA の live 反映を追うのに対し、こちらは blockquote/UTM/本文改稿など CTA 以外の全本文変更＋タグ変更を追う**（直交・補完）。in-sync 化: 本文＝`note-publish`／`note-update-body --commit`、タグ＝`note-publish`（Phase10でタグ適用）／`note-sync-tags`（公開済み記事へのタグ差分適用）。`note-update-body` はタグ非適用のためタグ hash は記録しない。`note-append-cta` は非hook。正常な中間状態も含むためゲートにはせず、`note-live-audit.yml` が週次 artifact に JSON を保存する。baseline は `--baseline --since <ref>`（本文・タグ両方をseed） |
 | `npm run wire-note-funnel-cta -- --exam {key} [--apply]` | 資格別に L3 冒頭/末尾 CTA を**ソースへ**冪等配線（既定は dry-run） |
 | `npm run note-append-cta -- --note {id} ...` | **公開済み記事へ CTA を live 反映**（Playwright・Windows 可・browser-use 不要）。`--after`=free プレビューへアンカー挿入／`--boundary-h2`=有料境界保持。D5 ドリフトの修復手段。詳細 → [publish-note/references/update-mode.md](../../skills/social/publish-note/references/update-mode.md) |
 | `npm run note-append-list-links -- --spec {json} [--commit]` | **公開済みもくじの既存 `<ul>` へインラインリンク項目を live 追加**（D2 ライブ反映）。type ではインラインリンクが作れない（`[text](url)` はリテラル残存・bare URL はカード化）ため `insertAdjacentHTML` で兄弟 `<li>` を挿入。spec JSON = `{note, sections:[{anchorMagId, items:[{url,title,desc}]}]}` |
 | `npm run check-magazine-cta` / `:ci` | **サイト側**の CTA 到達性ゲート（note 内の導線を見る他ツールと直交）。公開マガジンが `/docs` のどこかで実際に CTA として出るかを、`placement.top` / 中間 CTA（group と h2>=5・本文 8,000 字の発火条件込み）/ MDX 内 `<MagazineCard>` の 3 経路で判定する。**`published: true` にしても CTA が 1 面も出ない**事故（2026-07-31 コンクリート診断士）の再発防止。既存の 0 面は `.claude/config/magazine-cta-baseline.json` に理由付きで計上し、**baseline 外の新規 0 面だけ落とす**ラチェット方式。`placement.sidebar` は 2026-07 の CTA 統一以降どこからも参照されない死に配線なので、配線しても到達手段にならない |
+| `npm run note-update-body -- --list {file} --commit --reattach-pdf` | 公開済み本文の**全文置換**による live 反映（drift の in-sync 化）。**全文置換は live の PDF 添付を消す**ので、添付のある記事では `--reattach-pdf`（同一セッションで貼り直し）が必須。スクリプト側で「live に添付があるのに `--reattach-pdf` も `--allow-attach-loss` も無い」場合は更新を拒否する（`scripts/note-update-body.mjs:564`）。逆に**ソースに PDF があるのに live の添付が 0 件だと更新自体を中断**する（同 `:545`）ため、**既に添付が消えている記事は先に復旧しないと本文も直せない**（順序依存） |
+| `npm run note-attach-file -- --note {id} --file {pdf} --boundary-regex "…" --commit` | 有料エリアへの PDF 添付。`--boundary-regex` は frontmatter の `paidBoundary` を読まないので**明示必須**（省くと既定 `試験問題\|予想問題` で境界が見つからず exit 8） |
+| `npm run check-note-attachments -- --live` | **live 実査**（要 note ログイン・約60分/463件）。有料エリアの添付カードは未ログイン HTML に出ないため CI では見えない。`--only {noteId,…}` で単発確認。結果は `.claude/state/note-attachments-missing.json` に永続化 |
 | `audit-note-funnel` スキル | 監査→修復→再公開の手順書（資格別 config 駆動） |
 | `note-funnel-auditor` エージェント | 意味的監査（もくじ構成・CTA 文面の関連性・回遊の質）。Evaluator・audit-only。機械の D1-D5 とは直交 |
 
@@ -89,9 +92,13 @@ note 記事・マガジンが増えると、記事末尾の CTA が場当たり�
 
 - **新規マガジン公開時** — その資格の L2 もくじに追記し、`audit-note-funnel` を実行
 - **新規記事公開時** — L3 CTA が入っているか（`wire-note-funnel-cta` 済みか）確認。**配線が公開より後なら `note-append-cta` で live 反映**（ソースだけ直して再投稿しないと live は死んだまま＝2026-06-18 の事故）
-- **週次レビュー** — `npm run audit-note-funnel` を回しソースドリフトを surface（[workflows.md](workflows.md) 週次運用に組込）
-- **月次クラウドルーティン** — `doboku-note note-funnel monthly audit`（RemoteTrigger `trig_01F5nDWSTs757Ge5K1ou6Dbr`・毎月 15 日 22:00 UTC ＝ 16 日 07:00 JST）。**`audit-note-funnel --live` でライブ反映(D5)まで検証**＋`note-funnel-auditor` 意味監査→ソース修復 PR。**ソースを直したら必ず `note-append-cta`／`publish-note --update` で live 反映**（D5 が再び出ないところまでがクローズ条件）。routine 重複は `/routines` で事前確認
-- **CI** — `check-note-funnel` が公開済みコンテンツの**ソース**ドリフトを赤落ちで機械検知（D5 は network 依存のため CI には含めない）
+- **週次 CI（ソース）** — `r2-audit.yml` の `check-note-funnel` が D1-D4/D6 を赤落ちで機械検知
+- **週次 CI（ライブ）** — `note-live-audit.yml` が `audit-note-funnel --live --ci` を実行し、D5 と取得失敗率を検査
+- **意味的監査** — `note-funnel-auditor` は順序・文面の関連性を判断するときにオンデマンド実行。CI は意味判断やソース修復をしない
+- **修復** — CI が D5 を検出したら `note-append-cta`／`publish-note --update` で live 反映し、手動 `--live --ci` で消失を確認する
+
+> [!warning]
+> 旧クラウドルーティン `doboku-note note-funnel monthly audit`（`trig_01F5nDWSTs757Ge5K1ou6Dbr`）の機械監査責務は CI へ移管済み。クラウドルーティンの削除は API では行えないため、[Claude Code Routines](https://claude.ai/code/routines) で一覧を確認して削除する。
 
 ## 標準フロー（新規 L2 を増やすとき）
 
