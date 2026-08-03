@@ -956,8 +956,8 @@ const MAGAZINES_RAW = {
   // Select を外してから note 公開する（.claude/content/kindle/strategy.md）。それまで published: false。
   'civil-1-takuitsu-pdf': {
     id: 'civil-1-takuitsu-pdf',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/n/n155093f42183',
     title: '1級土木 第1次検定｜過去問PDF（平成26〜令和7年度 全12年分 全1162問・全選択肢解説）',
     description:
       '1級土木施工管理技士 第1次検定の平成26〜令和7年度 全12年分・問題A/B 全1162問を、4つの選択肢すべてに正誤の理由を付けて解説したA4印刷用PDF。図つき問題は図版込み、計算問題は考え方つき。印刷して直前期に紙で高速反復できる過去問演習教材。',

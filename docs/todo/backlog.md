@@ -295,8 +295,21 @@ note一覧・リンクカード・関連記事・人気記事・マガジンで�
 - **売上記録**: 発生したら `/record-sales`（productId 規約は sales-recorder 台帳済）
 - **経緯・検証記録**: 企画〜バックテスト＝[brain-r8-policy-prediction-skill/](../project/05_プロダクト/brain-r8-policy-prediction-skill/)（00〜07・統制run結果=04§6）／①仕様=[brain-claude-code-essay-skill/](../project/05_プロダクト/brain-claude-code-essay-skill/)／出品手順=[brain-publish-playbook.md](../project/05_プロダクト/brain-publish-playbook.md)
 
-### note施策A: 1級一次択一PDF `civil-1-takuitsu-pdf` ¥1,980 を公開（10月上旬・Select 明け）
+### note施策A: 1級一次択一PDF `civil-1-takuitsu-pdf` ¥1,980 — **公開済み（2026-07-23）**
 タグ: [収益化]
+
+> [!important] 2026-08-03 実態確認: この節の「10月上旬まで公開しない」は 11 日前から事実と違っていた
+> note API で照合すると **2026-07-23 21:41 に ¥1,980 で公開済み**（`status: published` /
+> `noteId: n155093f42183`）。記事 frontmatter も `noteStatus: published` になっている。
+> 下の「なぜ今公開しないか」は**実行されなかった計画**であり、現状の説明ではない。
+>
+> **KDP Select の扱いは未解決のまま公開されている**。A系 7 冊（2026-07-08 LIVE・Select 加入）と
+> 同一の 1162 問を note で併売している状態で、Select の独占条項に抵触する。2026-08-03 に
+> e-02（同一内容の Kindle 版）を Select 加入で出版したため、独占の満了は ~11 月上旬へ延びた。
+> ユーザー判断で公開を継続中。是正するなら A系・e-02 とも自動更新をオフにしてターム満了を待つ。
+>
+> 残っていた実作業は SKU 配線のみで、2026-08-03 に解消した
+> （`note-magazines.ts` の `published: true` ＋ `noteUrl` 反映）。
 
 **2026-07-16 に「公開直前」まで完了済み**。成果物は全て develop/main にコミット済:
 - PDF: `docs/note/1級・2級土木/1級土木/一次択一-過去問PDF/1級土木一次択一-過去問PDF.pdf`（全1162問・図109点・818頁・約12MB）
