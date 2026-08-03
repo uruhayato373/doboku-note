@@ -1,0 +1,55 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="締固め機械の諸元5項目。線圧はロードローラや振動ローラの目安、輪荷重はタイヤローラの目安で増すと深さ方向の力が増す、接地圧はほぼタイヤ空気圧に等しく増すと表面付近の密度が高まる、起振力は振動系機械の目安、締固め幅は1回の通過で締め固められる全幅">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-unit { font-size: 12px; font-weight: bold; fill: #2e6da4; }
+      .t-def  { font-size: 11px; fill: #555; }
+      .t-use  { font-size: 11px; fill: #222; }
+      .t-note { font-size: 11px; fill: #222; }
+      .box-1 { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-2 { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-3 { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">どの機械の性能を判断する目安かをあわせて覚える</text>
+
+  <rect class="box-1" x="20" y="30" width="360" height="78" rx="6"/>
+  <text class="t-name" x="40" y="54">線圧</text>
+  <text class="t-unit" x="364" y="54" text-anchor="end">N/cm</text>
+  <text class="t-def" x="40" y="76">車輪にかかる荷重をその車輪の幅で除した値</text>
+  <text class="t-use" x="40" y="96">ロードローラ・振動ローラの性能の目安</text>
+
+  <rect class="box-2" x="20" y="113" width="360" height="78" rx="6"/>
+  <text class="t-name" x="40" y="137">輪荷重</text>
+  <text class="t-unit" x="364" y="137" text-anchor="end">N/本</text>
+  <text class="t-def" x="40" y="159">軸荷重をタイヤ本数で除したタイヤ1輪あたりの荷重</text>
+  <text class="t-use" x="40" y="179">タイヤローラの目安。増すと深さ方向の力が増す</text>
+
+  <rect class="box-2" x="20" y="196" width="360" height="78" rx="6"/>
+  <text class="t-name" x="40" y="220">接地圧</text>
+  <text class="t-unit" x="364" y="220" text-anchor="end">Pa</text>
+  <text class="t-def" x="40" y="242">タイヤ接地面の単位面積あたりの平均荷重</text>
+  <text class="t-use" x="40" y="262">ほぼ空気圧に等しい。増すと表面付近が密になる</text>
+
+  <rect class="box-3" x="20" y="279" width="360" height="78" rx="6"/>
+  <text class="t-name" x="40" y="303">起振力</text>
+  <text class="t-unit" x="364" y="303" text-anchor="end">N</text>
+  <text class="t-def" x="40" y="325">起振機の偏心質量の回転で生じる遠心力</text>
+  <text class="t-use" x="40" y="345">振動系締固め機械の性能の目安</text>
+
+  <rect class="box-1" x="20" y="362" width="360" height="78" rx="6"/>
+  <text class="t-name" x="40" y="386">締固め幅</text>
+  <text class="t-unit" x="364" y="386" text-anchor="end">cm（mm）</text>
+  <text class="t-def" x="40" y="408">1回の通過によって締め固められる全幅</text>
+  <text class="t-use" x="40" y="428">マカダムローラは前後輪で線圧が異なり注意</text>
+
+  <rect class="box-surf" x="20" y="452" width="360" height="30" rx="6"/>
+  <text class="t-note" x="200" y="472" text-anchor="middle">振動ローラの起振力は自重の 1〜5 倍の動荷重となる</text>
+</svg>
