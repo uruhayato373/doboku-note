@@ -1,0 +1,75 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="スクレーパの構造と動作。ボウルの前端に昇降するエプロン、後端に土を押し出すエジェクタ、底板前部にカッティングエッジを備える。積込み時はエプロンを開きボウルを下げて前進し、敷均し時はボウルを盛土厚さに下げエプロンを開けて走行する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-lbl  { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-dir  { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .bowl   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }
+      .apron  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .eject  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .edge   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .ground { stroke: #8a8a8a; stroke-width: 1.5; }
+      .leader { stroke: #8a8a8a; stroke-width: 1; }
+      .dir    { stroke: #555; stroke-width: 1.5; fill: none; }
+      .push   { stroke: #3a7d44; stroke-width: 1.5; fill: none; }
+      .box-a { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-b { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="sc-d" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#555"/>
+    </marker>
+    <marker id="sc-p" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">ボウル・エプロン・エジェクタ・カッティングエッジで構成</text>
+
+  <!-- 進行方向 -->
+  <line class="dir" x1="150" y1="46" x2="220" y2="46" marker-end="url(#sc-d)"/>
+  <text class="t-dir" x="185" y="38" text-anchor="middle">前進</text>
+
+  <!-- ボウル（上部が開いた容器） -->
+  <path class="bowl" d="M 108 118 L 108 188 L 252 188 L 252 118"/>
+  <text class="t-lbl" x="180" y="152" text-anchor="middle">ボウル</text>
+
+  <!-- エプロン（前端の昇降ゲート・開いた状態） -->
+  <rect class="apron" x="96" y="94" width="12" height="50" rx="2"/>
+  <line class="leader" x1="80" y1="100" x2="94" y2="108"/>
+  <text class="t-lbl" x="76" y="98" text-anchor="end">エプロン</text>
+
+  <!-- エジェクタ（後端の押出し板） -->
+  <rect class="eject" x="238" y="124" width="10" height="62" rx="2"/>
+  <line class="push" x1="236" y1="155" x2="206" y2="155" marker-end="url(#sc-p)"/>
+  <line class="leader" x1="256" y1="132" x2="286" y2="124"/>
+  <text class="t-lbl" x="290" y="122">エジェクタ</text>
+
+  <!-- カッティングエッジ -->
+  <polygon class="edge" points="108,188 132,188 108,204"/>
+  <line class="leader" x1="112" y1="206" x2="100" y2="220"/>
+  <text class="t-lbl" x="96" y="234" text-anchor="middle">カッティングエッジ</text>
+
+  <!-- 地盤 -->
+  <line class="ground" x1="60" y1="204" x2="340" y2="204"/>
+
+  <rect class="box-a" x="20" y="252" width="360" height="106" rx="6"/>
+  <text class="t-sec" x="200" y="276" text-anchor="middle">積込み時</text>
+  <line class="rule" x1="36" y1="285" x2="364" y2="285"/>
+  <text class="t-item" x="40" y="308">エプロンを開きボウルを下げ、カッティングエッジを</text>
+  <text class="t-item" x="40" y="326">土にくい込ませながら前進する</text>
+  <text class="t-item" x="40" y="348">満杯になったらエプロンを閉めボウルを上げて走行姿勢に</text>
+
+  <rect class="box-b" x="20" y="370" width="360" height="112" rx="6"/>
+  <text class="t-sec" x="200" y="394" text-anchor="middle">敷均し時</text>
+  <line class="rule" x1="36" y1="403" x2="364" y2="403"/>
+  <text class="t-item" x="40" y="426">ボウルを盛土厚さに下げ、エプロンを開けて走行する</text>
+  <text class="t-item" x="40" y="448">カッティングエッジと地面の間隙で敷均し厚が決まる</text>
+  <text class="t-item" x="40" y="470">自然落下しない土はエジェクタを前進させて押し出す</text>
+</svg>
