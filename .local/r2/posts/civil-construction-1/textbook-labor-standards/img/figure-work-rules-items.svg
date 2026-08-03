@@ -1,0 +1,57 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="就業規則の記載事項。必ず記載する絶対的必要記載事項は労働時間関係・賃金関係・退職関係の3つ、定めをする場合に記載する相対的必要記載事項は退職手当・臨時の賃金等・費用負担・安全衛生の4つ。過半数労働組合または過半数代表者の意見を聴き意見書を添えて労働基準監督署へ届け出る">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-bar  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-barsub { font-size: 11px; fill: #555; }
+      .t-num  { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .bar-abs { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .bar-rel { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-abs { fill: #ffffff; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-rel { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">常時10人以上の労働者を使用する使用者が作成し届け出る</text>
+
+  <rect class="bar-abs" x="20" y="28" width="360" height="30" rx="6"/>
+  <text class="t-bar" x="32" y="48">絶対的必要記載事項</text>
+  <text class="t-barsub" x="368" y="48" text-anchor="end">必ず記載する</text>
+
+  <rect class="box-abs" x="20" y="62" width="360" height="106" rx="6"/>
+  <text class="t-num" x="40" y="88">1</text>
+  <text class="t-item" x="58" y="88">始業・終業の時刻、休憩、休日、休暇、就業時転換</text>
+  <text class="t-num" x="40" y="120">2</text>
+  <text class="t-item" x="58" y="120">賃金の決定・計算・支払方法、締切・支払時期、昇給</text>
+  <text class="t-num" x="40" y="152">3</text>
+  <text class="t-item" x="58" y="152">退職に関する事項（解雇の事由を含む）</text>
+
+  <rect class="bar-rel" x="20" y="184" width="360" height="30" rx="6"/>
+  <text class="t-bar" x="32" y="204">相対的必要記載事項</text>
+  <text class="t-barsub" x="368" y="204" text-anchor="end">定めをする場合に記載</text>
+
+  <rect class="box-rel" x="20" y="218" width="360" height="136" rx="6"/>
+  <text class="t-num" x="40" y="244">4</text>
+  <text class="t-item" x="58" y="244">退職手当（範囲・決定・計算・支払方法・時期）</text>
+  <text class="t-num" x="40" y="276">5</text>
+  <text class="t-item" x="58" y="276">臨時の賃金等（退職手当を除く）・最低賃金額</text>
+  <text class="t-num" x="40" y="308">6</text>
+  <text class="t-item" x="58" y="308">労働者に負担させる食費・作業用品その他</text>
+  <text class="t-num" x="40" y="340">7</text>
+  <text class="t-item" x="58" y="340">安全および衛生に関する事項　等</text>
+
+  <rect class="box-surf" x="20" y="370" width="360" height="112" rx="6"/>
+  <text class="t-sec" x="200" y="394" text-anchor="middle">作成・変更の手続</text>
+  <line class="rule" x1="36" y1="403" x2="364" y2="403"/>
+  <text class="t-item" x="40" y="426">過半数労働組合（ないときは過半数代表者）の意見を聴く</text>
+  <text class="t-item" x="40" y="450">意見を記した書面を添えて労働基準監督署へ届け出る</text>
+  <text class="t-item" x="40" y="474">合意なく不利益に労働条件を変更することはできない</text>
+</svg>

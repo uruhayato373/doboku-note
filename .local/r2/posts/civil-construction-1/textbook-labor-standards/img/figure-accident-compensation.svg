@@ -1,0 +1,57 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="労働基準法の災害補償5種類。療養補償は業務上の負傷疾病に対する療養、休業補償は平均賃金の60パーセント、障害補償は障害の程度に応じた日数分、遺族補償は平均賃金の1000日分、打切補償は療養開始後3年で治らない場合の平均賃金1200日分。補償義務が生じない場合と元請負人を使用者とみなす特則もあわせて示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-cond { font-size: 11px; fill: #555; }
+      .t-val  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .row-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .row-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .row-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">業務上の負傷・疾病に対して使用者が行う補償</text>
+
+  <rect class="row-b" x="20" y="28" width="360" height="52" rx="6"/>
+  <text class="t-name" x="40" y="50">療養補償</text>
+  <text class="t-cond" x="40" y="68">業務上の負傷・疾病</text>
+  <text class="t-val" x="360" y="60" text-anchor="end">必要な療養・費用の負担</text>
+
+  <rect class="row-b" x="20" y="86" width="360" height="52" rx="6"/>
+  <text class="t-name" x="40" y="108">休業補償</text>
+  <text class="t-cond" x="40" y="126">療養のため賃金を受けない</text>
+  <text class="t-val" x="360" y="118" text-anchor="end">平均賃金の60%</text>
+
+  <rect class="row-b" x="20" y="144" width="360" height="52" rx="6"/>
+  <text class="t-name" x="40" y="166">障害補償</text>
+  <text class="t-cond" x="40" y="184">治ったが障害が残る</text>
+  <text class="t-val" x="360" y="176" text-anchor="end">程度に応じた日数分</text>
+
+  <rect class="row-d" x="20" y="202" width="360" height="52" rx="6"/>
+  <text class="t-name" x="40" y="224">遺族補償</text>
+  <text class="t-cond" x="40" y="242">業務上の死亡</text>
+  <text class="t-val" x="360" y="234" text-anchor="end">平均賃金の1,000日分</text>
+
+  <rect class="row-w" x="20" y="260" width="360" height="52" rx="6"/>
+  <text class="t-name" x="40" y="282">打切補償</text>
+  <text class="t-cond" x="40" y="300">療養開始後3年で治らない</text>
+  <text class="t-val" x="360" y="292" text-anchor="end">平均賃金の1,200日分</text>
+
+  <rect class="box-surf" x="20" y="328" width="360" height="154" rx="6"/>
+  <text class="t-sec" x="200" y="352" text-anchor="middle">補償の特則</text>
+  <line class="rule" x1="36" y1="361" x2="364" y2="361"/>
+  <text class="t-item" x="40" y="383">打切補償の後は補償を行わなくてよい</text>
+  <text class="t-item" x="40" y="405">重大な過失があり監督署長の認定を受けた場合は義務なし</text>
+  <text class="t-item" x="40" y="427">労災保険法等で相当の給付が行われる場合も義務なし</text>
+  <text class="t-item" x="40" y="449">数次の請負では元請負人を使用者とみなす</text>
+  <text class="t-item" x="40" y="471">権利は退職で変更されず譲渡・差押えもできない</text>
+</svg>
