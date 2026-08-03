@@ -160,6 +160,8 @@ try {
           asin: (t.match(/ASIN:\s*(B0[0-9A-Z]{8})/) || [])[1] || null,
           status: (t.match(STAT) || [])[0] || null,
           submittedAt: (t.match(/提出日:\s*([0-9]{4}年[0-9]{1,2}月[0-9]{1,2}日)/) || [])[1] || null,
+          // 本棚行の表示価格。UI で手動改定すると catalog/spec と割れるので必ず持ち帰る。
+          priceJpy: (() => { const m = t.match(/¥\s*([0-9][0-9,]*)/); return m ? Number(m[1].replace(/,/g, '')) : null; })(),
         }));
       });
     };
@@ -180,6 +182,8 @@ try {
         id: b.id, title: b.title.slice(0, 50), found: !!mine,
         asin: mine?.asin ?? null, status: mine?.status ?? null, submittedAt: mine?.submittedAt ?? null,
         catalogAsin: b.asin ?? null, catalogStatus: b.status,
+        livePriceJpy: mine?.priceJpy ?? null, catalogPriceJpy: b.priceJpy ?? null,
+        priceMatch: mine?.priceJpy != null && b.priceJpy != null ? mine.priceJpy === b.priceJpy : null,
         asinMatch: mine?.asin && b.asin ? mine.asin === b.asin : null,
         ambiguous: !mine && rows.length > 1 ? rows.length : undefined,
       });
@@ -192,6 +196,11 @@ try {
     const mismatch = known.filter((i) => i.asinMatch === false);
     const errs = items.filter((i) => i.err);
     console.log(`[sync] 検査 ${items.length} 冊（catalog 駆動）／ASIN 既知 ${expectedKnown} 件のうち再現 ${repro.length} 件${errs.length ? `／取得エラー ${errs.length} 件` : ''}`);
+    // 価格ドリフト（UI で手動改定すると catalog/spec と割れる）。比較できた件数も必ず出す。
+    const priced = items.filter((i) => i.priceMatch !== null);
+    const priceDrift = priced.filter((i) => i.priceMatch === false);
+    console.log(`[sync] 価格突合 ${priced.length} 冊（比較不能 ${items.length - priced.length} 冊）／不一致 ${priceDrift.length} 件`);
+    for (const i of priceDrift) console.log(`   PRICE DRIFT ${i.id}: live ¥${i.livePriceJpy} ≠ catalog ¥${i.catalogPriceJpy}`);
     console.log(JSON.stringify(items, null, 2));
     writeFileSync(join(TMP, 'kdp-sync-status.json'), JSON.stringify(items, null, 2) + '\n');
     console.log('[sync] .tmp/kdp-sync-status.json に保存（kdp-operator が catalog と突合）');
@@ -508,13 +517,16 @@ try {
   // 判定文言は「正常にアップロード」（＝原稿側）ではなく「表紙のアップロードに成功しました」。
   // ただしこの文字列は全パターンが非表示テンプレとして DOM に常駐するので innerText(可視) で見る。
   // 併せてサムネイル <img> の実在も見て、未アップロード時の placeholder と区別する。
+  // 判定は必ず「成功の肯定証拠 → 無ければ否定」の順。未アップロード時の placeholder
+  // 「表紙がアップロードされていません」は成功後も innerText に残るため、否定を先に見ると
+  // 永久に false になる（2026-08-03 に f-09 でこの順序ミスにより偽の ABORT を出した）。
   const coverUploaded = async () => page.evaluate(() => {
     const txt = document.body.innerText || '';
-    if (/表紙がアップロードされていません/.test(txt)) return false;
     if (/表紙のアップロードに成功しました/.test(txt)) return true;
     const input = document.querySelector('#data-assets-cover-file-upload-AjaxInput');
     const sec = input && input.closest('div[class*="a-row"], section, form');
-    return !!(sec && Array.from(sec.querySelectorAll('img')).some((i) => i.naturalWidth > 40));
+    if (sec && Array.from(sec.querySelectorAll('img')).some((i) => i.naturalWidth > 40)) return true;
+    return false;
   });
   let coverOk = await coverUploaded();
   for (let attempt = 1; attempt <= 3 && !coverOk; attempt++) {

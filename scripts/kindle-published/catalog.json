@@ -927,7 +927,7 @@
       "series": "F 技術士総監 記述式",
       "priceJpy": 990,
       "royalty": 0.7,
-      "status": "ready",
+      "status": "in_review",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/f-08.json",
       "epub": "kindle-dist/f-08.epub",
@@ -939,6 +939,11 @@
           "version": "1.0",
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-08-03",
+          "change": "KDP出版申請（審査中）・draft A2NF277QIFSS1A"
         }
       ],
       "draftAsin": "A2NF277QIFSS1A"
@@ -951,7 +956,7 @@
       "series": "F 技術士総監 記述式",
       "priceJpy": 990,
       "royalty": 0.7,
-      "status": "ready",
+      "status": "in_review",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/f-09.json",
       "epub": "kindle-dist/f-09.epub",
@@ -963,8 +968,14 @@
           "version": "1.0",
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-08-03",
+          "change": "KDP出版申請（審査中）・draft A30Q37A4AVVCC6"
         }
-      ]
+      ],
+      "draftAsin": "A30Q37A4AVVCC6"
     },
     {
       "id": "f-10",
