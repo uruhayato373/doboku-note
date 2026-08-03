@@ -1,0 +1,61 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="施工出来高と工事総原価の関係。工事総原価は施工量に関係なく必要な固定原価と、施工量に応じて増える変動原価から成る。収入直線と工事総原価直線の交点が損益分岐点であり、交点より右が利益、左が損失となる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-axis { font-size: 11px; fill: #555; }
+      .t-inc  { font-size: 11px; font-weight: bold; fill: #3a7d44; }
+      .t-cost { font-size: 11px; font-weight: bold; fill: #b22234; }
+      .t-mark { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .gain { fill: #d0e8d0; }
+      .loss { fill: #f8d7da; }
+      .axis { stroke: #222; stroke-width: 1.5; fill: none; }
+      .inc  { stroke: #3a7d44; stroke-width: 2.5; fill: none; }
+      .cost { stroke: #b22234; stroke-width: 2.5; fill: none; }
+      .lead { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .dot  { fill: #ffffff; stroke: #1a3a5c; stroke-width: 2.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="be-ax" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#222"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">収入と総原価が等しくなる点が損益分岐点</text>
+
+  <polygon class="gain" points="178,205 355,62 355,152"/>
+  <polygon class="loss" points="60,300 178,205 60,240"/>
+
+  <line class="axis" x1="60" y1="300" x2="378" y2="300" marker-end="url(#be-ax)"/>
+  <line class="axis" x1="60" y1="300" x2="60" y2="52" marker-end="url(#be-ax)"/>
+
+  <line class="inc"  x1="60" y1="300" x2="355" y2="62"/>
+  <line class="cost" x1="60" y1="240" x2="355" y2="152"/>
+  <line class="cost" x1="54" y1="240" x2="64" y2="240"/>
+  <text class="t-cost" x="46" y="244" text-anchor="middle">F</text>
+
+  <line class="lead" x1="100" y1="150" x2="172" y2="200"/>
+  <circle class="dot" cx="178" cy="205" r="5"/>
+  <text class="t-mark" x="100" y="142" text-anchor="middle">損益分岐点</text>
+
+  <text class="t-inc"  x="330" y="72" text-anchor="middle">収入</text>
+  <text class="t-cost" x="300" y="192" text-anchor="middle">工事総原価</text>
+  <text class="t-mark" x="300" y="145" text-anchor="middle">利益</text>
+
+  <text class="t-axis" x="58" y="46">金額</text>
+  <text class="t-axis" x="376" y="318" text-anchor="end">施工出来高（施工量）</text>
+
+  <rect class="box-surf" x="20" y="335" width="360" height="147" rx="6"/>
+  <text class="t-sec" x="200" y="357" text-anchor="middle">読み取り方</text>
+  <line class="rule" x1="36" y1="366" x2="364" y2="366"/>
+  <text class="t-item" x="40" y="390">縦軸の切片 F が固定原価、傾きが変動比率 u</text>
+  <text class="t-item" x="40" y="414">2 本の直線の交点が損益分岐点</text>
+  <text class="t-item" x="40" y="438">交点より右が利益、左が損失</text>
+  <text class="t-item" x="40" y="462">内部条件が崩れると交点は右へずれ赤字工事となる</text>
+</svg>
