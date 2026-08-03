@@ -1,0 +1,61 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="出来高累計曲線とバナナ曲線。予定の累計曲線は S 字状になり、その上方と下方に許容限界線を引くとバナナに似た帯ができる。実績がこの帯の下を下回れば工程の遅れ、上を超えれば進みすぎと判断する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-axis { font-size: 11px; fill: #555; }
+      .t-lg   { font-size: 11px; fill: #555; }
+      .t-late { font-size: 11px; font-weight: bold; fill: #b22234; }
+      .t-fast { font-size: 11px; font-weight: bold; fill: #d4a017; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .axis { stroke: #222; stroke-width: 1.5; fill: none; }
+      .band { fill: #f5f5f5; }
+      .lim  { stroke: #8a8a8a; stroke-width: 1.5; fill: none; stroke-dasharray: 5 4; }
+      .plan { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+      .dlate { fill: #b22234; }
+      .dfast { fill: #d4a017; }
+      .dev { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="bc-ax" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#222"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">2 本の限界線が作る帯の中に実績を収める</text>
+
+  <polygon class="band" points="76,240 110,214 145,182 180,142 216,102 250,74 285,60 320,56 356,56 356,60 320,76 285,98 250,128 216,164 180,200 145,230 110,244 76,248"/>
+  <polyline class="lim" points="76,240 110,214 145,182 180,142 216,102 250,74 285,60 320,56 356,56"/>
+  <polyline class="lim" points="76,248 110,244 145,230 180,200 216,164 250,128 285,98 320,76 356,60"/>
+  <polyline class="plan" points="76,244 110,232 145,208 180,172 216,132 250,100 285,78 320,66 356,60"/>
+
+  <line class="dev" x1="216" y1="102" x2="216" y2="82"/>
+  <circle class="dfast" cx="216" cy="78" r="4"/>
+  <text class="t-fast" x="206" y="76" text-anchor="end">進みすぎ（帯より上）</text>
+  <line class="dev" x1="216" y1="164" x2="216" y2="192"/>
+  <circle class="dlate" cx="216" cy="196" r="4"/>
+  <text class="t-late" x="226" y="200">遅れ（帯より下）</text>
+
+  <line class="axis" x1="70" y1="256" x2="378" y2="256" marker-end="url(#bc-ax)"/>
+  <line class="axis" x1="70" y1="256" x2="70" y2="50" marker-end="url(#bc-ax)"/>
+  <text class="t-axis" x="68" y="42">出来高累計 %</text>
+  <text class="t-axis" x="374" y="278" text-anchor="end">時間経過</text>
+
+  <line class="plan" x1="76" y1="292" x2="98" y2="292"/>
+  <text class="t-lg" x="104" y="296">予定（S 字曲線）</text>
+  <line class="lim" x1="212" y1="292" x2="234" y2="292"/>
+  <text class="t-lg" x="240" y="296">上方・下方許容限界</text>
+
+  <rect class="box-surf" x="20" y="310" width="360" height="172" rx="6"/>
+  <text class="t-sec" x="200" y="332" text-anchor="middle">読み取り方</text>
+  <line class="rule" x1="36" y1="341" x2="364" y2="341"/>
+  <text class="t-item" x="40" y="366">序盤は準備作業が中心で出来高の増加はゆるやか</text>
+  <text class="t-item" x="40" y="392">中盤に一気に積み上がり、終盤は再びペースが落ちる</text>
+  <text class="t-item" x="40" y="418">下回れば増員や工法変更などの挽回策を検討する</text>
+  <text class="t-item" x="40" y="444">上回れば過剰施工で不経済になっていないか検討する</text>
+</svg>
