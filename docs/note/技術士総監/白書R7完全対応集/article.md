@@ -1213,6 +1213,8 @@ https://note.com/dobokunote/m/m921fbe060575
 
 *本書は、運営者が技術士総合技術監理部門に合格した実体験と、過去 9 年の国土交通白書／総監記述式試験データの突合分析をもとに執筆しました。R08（2026 年 7 月実施）受験者の総合復習の一助となれば幸いです。*
 
+白書の論点を総監のキーワードに引き直したい方は、[総監キーワード集](https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026?utm_source=note&utm_medium=referral&utm_campaign=whitepaper-r7-strategy&utm_content=keyword-2026)をご覧ください。5 管理別に無料で公開しています。
+
 ---
 
 <!-- cta:tankan-mokuji -->

@@ -80,6 +80,8 @@ https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHBA2+5B0Y+NTJWY
 
 1社に絞らず併用すれば、機会を逃しにくくなります。今すぐ転職すると決めていなくても、まず相場と自分の市場価値を確認するだけでも判断は変わります。
 
+サービス比較の前提となる選び方の枠組みは[施工管理の転職エージェントの選び方](https://doboku-note.com/docs/civil-construction-1-guide-career-agents?utm_source=note&utm_medium=referral&utm_campaign=civil-career-agent-comparison&utm_content=career-agents)に整理しています。
+
 ---
 
 <!-- cta:civil-mokuji -->

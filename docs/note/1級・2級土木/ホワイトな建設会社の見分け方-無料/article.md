@@ -74,6 +74,8 @@ https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHBA2+5B0Y+NTJWY
 
 会社の業態による違いは[ゼネコン・サブコンなどの違い](https://doboku-note.com/docs/civil-construction-1-guide-company-types?utm_source=note&utm_medium=referral&utm_campaign=civil-career-white-company&utm_content=company-types)も参考になります。基準を持って丁寧に見極め、納得のいく転職につなげましょう。辞めるかどうかを決める前に、残業・休日条件のよい求人が実際にあるかだけ確認しておくと判断しやすくなります。その手順は[施工管理を辞める前に相談すべきこと](https://doboku-note.com/docs/civil-construction-1-guide-career-consultation-before-quit?utm_source=note&utm_medium=referral&utm_campaign=civil-career-white-company&utm_content=before-quit)にまとめました。
 
+そもそも何がきついのかを分解した[「きつい・やめとけ」は本当か](https://doboku-note.com/docs/civil-construction-1-guide-quit-honne?utm_source=note&utm_medium=referral&utm_campaign=civil-career-white-company&utm_content=quit-honne)も、条件の優先順位を決める材料になります。
+
 ---
 
 <!-- cta:civil-mokuji -->

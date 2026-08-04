@@ -75,6 +75,8 @@ https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHBA2+5B0Y+NTJWY
 
 大切なのは、1つのサービスを絶対視せず、自分の温度感と条件を整理したうえで複数の選択肢を並べて比べることです。今すぐ転職すると決めていなくても、相場と自分の市場価値を確認するだけで判断は変わります。まずは情報をそろえるところから始めてください。
 
+サイト側でも向き不向きを整理しています。[ビルドジョブは施工管理に向くか](https://doboku-note.com/docs/civil-construction-1-guide-buildjob-review?utm_source=note&utm_medium=referral&utm_campaign=civil-career-buildjob-review&utm_content=buildjob-review)をあわせてご覧ください。
+
 ---
 
 <!-- cta:civil-mokuji -->

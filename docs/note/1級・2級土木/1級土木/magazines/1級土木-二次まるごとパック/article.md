@@ -88,6 +88,8 @@ https://note.com/dobokunote/membership/join
 
 本パックは合格を保証するものではありません。
 
+購入前に出題傾向だけ確認したい方は、[施工経験記述 出題傾向と書き方](https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil1-niji-marugoto&utm_content=experience-writing-guide)を無料で公開しています。
+
 ---
 
 <!-- cta:civil-mokuji -->

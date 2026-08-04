@@ -93,6 +93,8 @@ https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-e
 
 https://note.com/dobokunote/m/m150c9db08902
 
+テーマを決める前に[4つの管理（品質・安全・工程・原価）](https://doboku-note.com/docs/civil-construction-1-guide-four-management?utm_source=note&utm_medium=referral&utm_campaign=c1-essay-theme5&utm_content=four-management)の全体像を押さえておくと、どの管理で書くかの判断が速くなります。
+
 ---
 
 <!-- cta:civil-mokuji -->

@@ -235,6 +235,8 @@ doboku-note の総監向けマガジンの中で、**最も公務員**（特に�
 
 > ⚠️ 自治体の補助制度・資格手当は所属自治体の人事規程によります。本記事の数字は一般的な傾向を示すもので、運営者の経験 + 公開情報からの推定値です。正確な金額は所属自治体の人事課に確認してください。
 
+費用をかけずに進める場合の学習素材として、[総監キーワード集](https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026?utm_source=note&utm_medium=referral&utm_campaign=pe-cem-cost-municipality&utm_content=keyword-2026)を無料で公開しています。5 管理別にキーワードを整理しています。
+
 ---
 
 <!-- cta:tankan-mokuji -->

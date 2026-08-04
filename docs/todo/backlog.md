@@ -130,6 +130,53 @@ BuildJob キャンペーン（〜2026-08-31）の note ドメインパワー活�
 
 1. **（時間差）A8 成果の月末手入力**（`.claude/state/metrics/affiliate/a8-results.json`）→ `npm run report-buildjob-affiliate` で EPC。GA4 面別は event_label 登録済（2026-07-07）＝deploy 後クリック蓄積後に `fetch-ga4-cta-clicks --by-label`
 2. **stray 下書き手動削除**: `nf2316420abd0`（N7 公開検証の dry-run が作った孤児下書き・「ビルドジョブは施工管理に向くか」の下書き 11:51）。note.com/notes ダッシュボードで**公開済みの双子（11:58・同一タイトル）と取り違えないよう手動で**（`note-delete-note` は下書きカードの href を key で拾えず自動削除不可）
+3. **（2026-08-04 追加）サイト送客リンクを足した無料 note 13 本の live 反映**。
+   SoT（`docs/note/**/article.md`）は commit 済みだが **note.com のライブは未更新**。
+   対象は総監 11 本＋`経験記述-AI設計-無料`＋`共通/AIで土木資格を攻略`。
+   `note-edit-session` で本文を再 push し、`verify-note-magazines` / note API（`curl --ssl-no-revoke`）で
+   本文にリンクが実在することを照合する（**「送信した」で成功としない**）。
+   ねらい: この 13 本はサイトへのリンクを 1 本も持っておらず、note→サイトは実測で最も質の高い流入
+   （週 91 セッション・4.6 PV/セッション・平均滞在 42 分）だった。
+   **A8 の追加は不要**＝キャリア文脈の note 14 本には既に全て入っており、残りは学習系で
+   実務者セグメント限定の規約上リンクを置けない
+
+4. **（2026-08-04）施工管理 note 142 本のライブ反映 — 進行中・別 PC へ引き継ぎ**
+   状態の真実源は `.claude/state/note-republish/status.json`。
+
+   | 区分 | 本数 | 反映 | 残 |
+   |---|--:|--:|--:|
+   | 無料（添付なし） | 26 | **21** | 5（`free-pending.txt`） |
+   | 有料（PDF 添付あり） | 116 | 0 | 116（`note-republish-paid-day{1,2,3}.txt`） |
+
+   **続きの手順（別 PC・note ログイン済みプロファイルが要る）**:
+   ```
+   NOTE_IMG_SETTLE_MIN_MS=240000 NOTE_IMG_SETTLE_PER_IMG_MS=60000 \
+     node scripts/note-update-body.mjs --list .claude/state/note-republish/free-pending.txt --commit --force-retry
+   ```
+   有料は **1 本 dry-run（`--reattach-pdf`）で添付の検出と復元経路を確認してから** day1 へ進む:
+   ```
+   node scripts/note-update-body.mjs --article <1本> --reattach-pdf          # dry-run
+   node scripts/note-update-body.mjs --list .claude/state/note-republish/note-republish-paid-day1.txt \
+     --commit --reattach-pdf --attach-daily-limit 45
+   ```
+   `--attach-daily-limit 45` の根拠: スクリプトの日次カウンタは **PDF しか数えていない**が、
+   note の 1 日 100 件上限は画像も含む疑いがある。有料記事は概ね 1 画像 + 1 PDF なので、
+   PDF を 45 に絞れば実アップロードが約 90 に収まる。
+
+   **既知の失敗モードと対処**:
+   - `[4.4] 画像が CDN 確定せず` … 会社 PC のプロキシで CDN 確定が既定 90 秒を超える。
+     実測 1 回目 6/14 失敗 → 待ちを 4 倍（上の環境変数）にして 2 回目は 13/18 成功。
+     **保存はしないので破損しない**。回線の速い PC なら既定でも通る可能性がある。
+   - 3 本連続失敗でバッチが自動停止する（`--max-consecutive-fail`）。中断した記事は
+     `.claude/state/note-update-aborted.json` に載り次回スキップされる（`--force-retry` で再試行）。
+   - **有料記事で中断したら、その記事を人が開いて添付の有無を確認してから再実行する**。
+     note のエディタは「保存しない」で抜けても全文置換＋添付削除の状態を保持するため、
+     確認せず再実行すると「添付なし」を正として保存してしまう（2026-07-31 の消失はこれ）。
+
+   **検証**: 反映後は note API（`curl --ssl-no-revoke https://note.com/api/v3/notes/<id>`）で
+   本文に `doboku-note.com/docs/` が実在することを確認する。ただし `can_read: false` の
+   マガジン総合案内は未ログインでは本文が返らない＝**「取れなかった」を「無い」と読まない**
+   （2026-08-04 に 3 本がこれに該当・著者セッションでの確認が要る）
 
 ### 1級土木 二次10/4 直前スプリント（死守コア3つ）
 タグ: [収益化]
@@ -157,7 +204,15 @@ BuildJob キャンペーン（〜2026-08-31）の note ドメインパワー活�
 
 **残（外部承認依存・ユーザー作業）**:
 1. GSC で sitemap 再送信＋強化した主要URL 10〜20本を手動インデックス登録リクエスト
+   → **civil-1 textbook は自動化で 2 回実施済み**（7/30 に 10 件・8/04 に 10 件受理）。
+   次のバッチ: ① 8/04 に `button-not-found` で送れなかった 3 件
+   （labor-standards / work-scheduling / management-subplans）②civil-2 の未登録 14 件
+   ③総監の未登録 208 件（日次 10 件上限のため 3 週間ぶん）。
+   コマンド: `npm run gsc-indexing:request -- --from-ssot --group <group> --category <cat> --limit 10`
+   （要 Google ログイン・Playwright・1 本あたり 1〜2 分＝10 件で 25〜35 分）
 2. 非インデックス率の観察 1〜2週間（`url-inspection` 再取得）
+   → **URL 検査の単発読みは信用しない**。同じ 20 本を 30 分あけて読むと 4 本で判定が食い違った
+   （不一致率 20%・2026-08-04 実測）。登録本数の権威は月次 CI のカバレッジレポートに置く
 3. **前回却下から2〜4週間空けて再申請**。チェックリスト `docs/project/_archive/03_civil-adsense-resubmission.md:147-191`
 
 ### フロントエンド土台リファクタ（残増分）
@@ -410,12 +465,17 @@ BuildJob アフィリスプリントで注入された copy が rule 15-1（文�
 P1-P3（GA4 計測基盤・NextStepNav・季節モード note CTA）は実装済み。
 
 - **P4**: `keyword-relations.json`（598KB・未活用）から RelatedKeywords 未記述の keyword 記事へ build 時 top-N 自動挿入 fallback。要: 挿入品質の監査＋PE keyword 面 A/B
-- **P5-a（9/1 までに必須）**: **キャンペーン自動復帰後の arm 設計見直し**。8/31 に BuildJob が終了し
-  GKS へ自動切替されると、A8 公開 EPC が **GKS 457 円 < 建設JOBs 709 円**と逆転する。
-  現在の実装は 9/1 から slug ハッシュ 50/50 A/B へ自動復帰するため、放置すると
-  流入の半分が不利側（GKS）に流れる。8月中に「9月以降どちらへ寄せるか」を決めて
-  `isKensetsuJobsArmEffective` を更新する（真実源: `affiliate-operations.md` §6.5）
-- **P5**: アフィリ EPC 判定（~2026-09）。基準は `affiliate-operations.md` §6.5 に新設済。**着手前に 2 点確認**: ①現状は確定成果 0 件（累計 137click）で**分母規律未達＝判定不能**、分母供給には A8 単月取得（`a8-ui:fetch -- --month`）が前提 ②9/1 以降の対戦相手は BuildJob ではなく **GKS**（8/31 キャンペーン終了で自動切替）。期限で無理に決めず、判定不能なら §6.5 の裁定ログに据え置きを記録する
+- ~~**P5-a（9/1 までに必須）**: キャンペーン自動復帰後の arm 設計見直し~~ → **2026-08-04 完了**。
+  9/1 以降の civil 記事面を **建設JOBs 100%** にした（`POST_CAMPAIGN_AB_ENABLED = false`・
+  50/50 A/B は停止）。tsx で 8/15・9/5 のビルド時刻を与えて分岐を実コードで確認済み。
+  根拠と再開手順は `affiliate-operations.md` §6/§6.5 裁定ログ 2026-08-04
+- **P5-b（次の一手・変更ではなく計測）**: **7/28 の面再編（記事末 300×250・本文中間ネイティブ
+  カード）は main 到達が 7/30 で、GA4 の計測窓〜7/29 に 1 日も入っていない**。
+  `BuildJob-endbanner` 表示 0・`article-mid` 表示 1 がその証拠で、新レイアウトの良し悪しは
+  まだ何も測れていない。**面をこれ以上いじる前に** 7/30 以降を窓にした
+  `fetch-ga4-cta-clicks -- --by-label` / `--by-placement` を取り直す（GA4 API＝CI/CD 供給）。
+  取り直すと `report-buildjob-affiliate` が面別 CTR を実値で出す（窓が揃わない間は上限のみ表示）
+- **P5**: アフィリ EPC 判定（~2026-09）。基準は `affiliate-operations.md` §6.5 に新設済。**着手前に 2 点確認**: ①現状は確定成果 0 件（累計 137click）で**分母規律未達＝判定不能**、分母供給には A8 単月取得（`a8-ui:fetch -- --month`）が前提 ②9/1 以降は 50/50 A/B を停止して**建設JOBs 単一 arm**にしたため、判定は arm 間比較ではなく**時系列比較**（8 月の BuildJob ↔ 9 月以降の建設JOBs）になる。期限で無理に決めず、判定不能なら §6.5 の裁定ログに据え置きを記録する
 - **P6**: 高購買意欲ページへ MDX 本文内 `<MagazineCard>` の個別商品導線補強。要: `sales-log.json` で対象ページ特定が先
 - **P7**（🟢）: concrete 系の L2 もくじ新設（note 商品拡充が前提）
 
@@ -502,6 +562,15 @@ Tier 1（NoteLink 計測・cadence 化・bot 監査 CI 等）は実装完了。�
 - **Tier 2/3**: カスタムパラメータ・検索/scroll イベント・アフィリA/B の label 取得・GA4↔GSC 突合／AdSense RPM 取込・sales×流入 attribution・送客リダイレクタ・A8 EPC
 - **GA4 UI（ユーザー手作業）**: 内部トラフィック除外・参照除外・既知ボット除外 ON・カスタムディメンション登録確認
 - **Playwright UI CSV**: `fetch-ga4-ui-csv.mjs` は未ログイン検証のみ。ログイン済み実UIでレポート名・ディメンション・指標・ダウンロードメニューの正式ラベルを確定し、fixtureと回帰テストへ反映（API優先方針は維持）
+  - **故障記録（2026-07-30 実測・`check-gsc-ui-due` が DUE を出し続ける原因）**: 3 ユニットとも失敗。
+    `trafficAcquisition` は `csv-menu-ambiguous`（ダウンロードメニューの候補が一意に決まらない）、
+    `landingPage` は `report-not-found`（候補 0）、`events` は `report-not-found`（候補 11＝絞り込めていない）。
+    上のラベル確定作業がそのまま修正になる。**GSC UI 側は正常**（2026-07-30 に 10 ユニット中 7 取得・失敗 0）
+- ~~**A8 単月取得（`a8-ui:fetch -- --month`）**: 未実装~~ → **2026-07-28 に実装済み**
+  （`d584ef320` ＋ `e347cf1eb` で 2026-01〜07 をバックフィル）。2026-08-04 に本節の
+  「未実装」は誤りと判明。`a8-results.json` には月次レコードが入っている。
+  **EPC が出ないのはツールではなく成果がゼロだから**＝全レコードが `revenueYen: 0` で、
+  唯一の発生 1 件（¥50,000）は cancelled。分子は「実装」ではなく**成約**で埋まる
 - 真実源（file:line・Tier 詳細）: [measurement-infra-enhancement.md](measurement-infra-enhancement.md)
 
 ### サイトアクセス×収益化 戦略の深掘り論点
@@ -563,10 +632,12 @@ PR #269（カタログ）/#270（SNSレンダラー）済。残 = Phase4 記事�
    揃えるには GA4 by-label を月次で取る必要があるが、`fetch-ga4-cta-clicks` は `--days N`
    （N日前〜今日）しか無く、GA4 API は会社 PC のプロキシで叩けない＝**CI 供給側の対応**が要る。
    A/B 勝者判定の前に解消しておく（誤った EPC で勝敗を決めない）
-2. **2026-06 の不足クリック 13 の説明**: サイト別 74 に対し allowlist 合計 61。
-   候補（Neuro Dive・合宿免許・新卒エージェント等）はいずれも stats47 側に見える。
-   自社案件なら `programIdMap` へ追記、違うならサイト別と案件別の集計差の理由を
-   `a8-affiliate-pipeline.md` に記録して `hasShortfall` の毎回 surface を止める
+2. ~~**2026-06 の不足クリック 13 の説明**~~ → **2026-08-04 解消**。単月取得で 2026-07 を
+   引き直したところ `hasShortfall: false`（不足 -18＝allowlist の方が多い＝取りこぼしなし）・
+   `missingProgramCandidates: 0` で、未登録プログラムの疑いは消えた。
+   残るのは逆向きの `exceeded`（口座横断に stats47 が混じる）だが、これは A8 にサイト切替が
+   無い以上**構造的に必ず起きる**。`check-a8-report-due` は超過がサイト別クリックの 50% 以下なら
+   [想定内] として比率だけ出すよう変更済み（毎回 [要対応] を出す偽赤をやめた）
 
 ### （解決済み）A8 レポートの期間指定（月次内訳の自動化）
 タグ: [インフラ・計測]
@@ -589,9 +660,12 @@ PR #269（カタログ）/#270（SNSレンダラー）済。残 = Phase4 記事�
 6. 完了条件: `npm test`（a8-report-csv）green ＋ 実走 1 回で `a8-results.json` に `2026-06::*` の records が入る
    ＋ `npm run check-affiliate-wiring` green
 
-月ごとに fetch → `parsePeriodFromFilename` の `singleMonth` が埋まり、月次 rollup が自動で通る設計は**実装済み**
-（残作業はフォーム操作のみ）。これが入ると `report-buildjob-affiliate` の EPC が月次で出せる＝
-**アフィリの「成果→配置見直し」ループの分母がようやく供給される**（現在は確定成果 0 件で判定不能）。
+**2026-07-28 に全ステップ完了**（`d584ef320`。`e347cf1eb` で 2026-01〜07 をバックフィル済み）。
+`a8-results.json` には月次キーの records が入っており、分母は供給されている。
+「残作業はフォーム操作のみ」は当時の途中経過で、**2026-08-04 時点では残作業なし**。
+
+したがって EPC が出ない原因は分母ではなく**分子**＝確定報酬が全月ゼロであること
+（唯一の発生 1 件 ¥50,000 は cancelled）。ここは実装では埋まらず、成約が要る。
 判定基準は [affiliate-operations.md](../../.claude/knowledge/reference/affiliate-operations.md) §6.5。
 
 ### 画像系 pre-render ワークアラウンドの再検証（Opus 5 vision）

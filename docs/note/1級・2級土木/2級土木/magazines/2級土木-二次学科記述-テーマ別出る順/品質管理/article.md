@@ -70,6 +70,11 @@ https://note.com/dobokunote/m/m9a09a8982734
 
 ---
 
+**関連リンク**
+
+- [第2次検定のはじめ方（無料）](https://doboku-note.com/docs/civil-construction-2-secondary-getting-started?utm_source=note&utm_medium=referral&utm_campaign=civil2-gakka-quality&utm_content=secondary-start)
+- [学習計画の立て方（無料）](https://doboku-note.com/docs/civil-construction-2-guide-study-plan?utm_source=note&utm_medium=referral&utm_campaign=civil2-gakka-quality&utm_content=study-plan)
+
 <!-- cta:civil-mokuji -->
 1級・2級土木のほかの記事・経験記述の答案集は「土木もくじ」から一覧できます。
 

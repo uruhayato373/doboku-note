@@ -103,6 +103,8 @@ https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-e
 
 https://note.com/dobokunote/m/m1881a9578027
 
+テーマ選びの前に試験全体の構成を確認したい方は[2級土木施工管理技士の全体像](https://doboku-note.com/docs/civil-construction-2-guide-overview?utm_source=note&utm_medium=referral&utm_campaign=2c-essay-theme&utm_content=civil2-overview)をご覧ください。
+
 ---
 
 <!-- cta:civil-mokuji -->

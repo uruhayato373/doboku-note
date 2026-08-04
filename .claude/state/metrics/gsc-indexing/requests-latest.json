@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "runId": "2026-07-30T06-40-03Z",
-  "collectedAt": "2026-07-30T06:40:03.109Z",
+  "runId": "2026-08-04T05-34-59Z",
+  "collectedAt": "2026-08-04T05:34:59.201Z",
   "property": "sc-domain:doboku-note.com",
   "mode": "commit",
-  "scriptVersion": "8d28546b8",
+  "scriptVersion": "21408324e",
   "filter": {
     "category": "civil-construction-1",
     "group": "textbook"
@@ -16,16 +16,16 @@
       "slug": "civil-construction-1-textbook-road-act",
       "url": "https://doboku-note.com/docs/civil-construction-1-textbook-road-act",
       "inspected": {
-        "state": "not-indexed",
-        "reason": "クロール済み - インデックス未登録",
-        "lastCrawl": "2026/07/18 17:54:45",
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
         "discoveredVia": "sitemap",
-        "crawlAllowed": true,
-        "indexingAllowed": true
+        "crawlAllowed": null,
+        "indexingAllowed": null
       },
       "request": {
-        "requested": true,
-        "status": "accepted"
+        "requested": false,
+        "status": "already-indexed"
       },
       "reachedVerdict": true
     },
@@ -50,16 +50,16 @@
       "slug": "civil-construction-1-textbook-port-regulations",
       "url": "https://doboku-note.com/docs/civil-construction-1-textbook-port-regulations",
       "inspected": {
-        "state": "not-indexed",
-        "reason": "クロール済み - インデックス未登録",
-        "lastCrawl": "2026/06/12 10:07:07",
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
         "discoveredVia": "sitemap",
-        "crawlAllowed": true,
-        "indexingAllowed": true
+        "crawlAllowed": null,
+        "indexingAllowed": null
       },
       "request": {
-        "requested": true,
-        "status": "accepted"
+        "requested": false,
+        "status": "already-indexed"
       },
       "reachedVerdict": true
     },
@@ -67,16 +67,16 @@
       "slug": "civil-construction-1-textbook-leveling",
       "url": "https://doboku-note.com/docs/civil-construction-1-textbook-leveling",
       "inspected": {
-        "state": "not-indexed",
-        "reason": "クロール済み - インデックス未登録",
-        "lastCrawl": "2026/06/07 14:07:02",
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
         "discoveredVia": "sitemap",
-        "crawlAllowed": true,
-        "indexingAllowed": true
+        "crawlAllowed": null,
+        "indexingAllowed": null
       },
       "request": {
-        "requested": true,
-        "status": "accepted"
+        "requested": false,
+        "status": "already-indexed"
       },
       "reachedVerdict": true
     },
@@ -101,16 +101,16 @@
       "slug": "civil-construction-1-textbook-explosives-act",
       "url": "https://doboku-note.com/docs/civil-construction-1-textbook-explosives-act",
       "inspected": {
-        "state": "not-indexed",
-        "reason": "クロール済み - インデックス未登録",
-        "lastCrawl": "2026/06/01 2:20:30",
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
         "discoveredVia": "sitemap",
-        "crawlAllowed": true,
-        "indexingAllowed": true
+        "crawlAllowed": null,
+        "indexingAllowed": null
       },
       "request": {
-        "requested": true,
-        "status": "accepted"
+        "requested": false,
+        "status": "already-indexed"
       },
       "reachedVerdict": true
     },
@@ -135,16 +135,16 @@
       "slug": "civil-construction-1-textbook-loader",
       "url": "https://doboku-note.com/docs/civil-construction-1-textbook-loader",
       "inspected": {
-        "state": "not-indexed",
-        "reason": "クロール済み - インデックス未登録",
-        "lastCrawl": "2026/05/19 0:09:00",
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
         "discoveredVia": "sitemap",
-        "crawlAllowed": true,
-        "indexingAllowed": true
+        "crawlAllowed": null,
+        "indexingAllowed": null
       },
       "request": {
-        "requested": true,
-        "status": "accepted"
+        "requested": false,
+        "status": "already-indexed"
       },
       "reachedVerdict": true
     },
@@ -171,14 +171,15 @@
       "inspected": {
         "state": "not-indexed",
         "reason": "クロール済み - インデックス未登録",
-        "lastCrawl": "2026/04/28 3:16:07",
+        "lastCrawl": "2026/04/28 8:47:06",
         "discoveredVia": "sitemap",
         "crawlAllowed": true,
         "indexingAllowed": true
       },
       "request": {
-        "requested": true,
-        "status": "accepted"
+        "requested": false,
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
       },
       "reachedVerdict": true
     },
@@ -194,8 +195,8 @@
         "indexingAllowed": true
       },
       "request": {
-        "requested": false,
-        "status": "limit-reached"
+        "requested": true,
+        "status": "accepted"
       },
       "reachedVerdict": true
     },
@@ -205,14 +206,15 @@
       "inspected": {
         "state": "not-indexed",
         "reason": "クロール済み - インデックス未登録",
-        "lastCrawl": "2026/04/28 2:08:23",
+        "lastCrawl": "2026/04/28 3:16:07",
         "discoveredVia": "sitemap",
         "crawlAllowed": true,
         "indexingAllowed": true
       },
       "request": {
         "requested": false,
-        "status": "limit-reached"
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
       },
       "reachedVerdict": true
     },
@@ -220,16 +222,16 @@
       "slug": "civil-construction-1-textbook-grader-compaction",
       "url": "https://doboku-note.com/docs/civil-construction-1-textbook-grader-compaction",
       "inspected": {
-        "state": "not-indexed",
-        "reason": "クロール済み - インデックス未登録",
-        "lastCrawl": "2026/04/28 1:16:23",
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
         "discoveredVia": "sitemap",
-        "crawlAllowed": true,
-        "indexingAllowed": true
+        "crawlAllowed": null,
+        "indexingAllowed": null
       },
       "request": {
         "requested": false,
-        "status": "limit-reached"
+        "status": "already-indexed"
       },
       "reachedVerdict": true
     },
@@ -237,16 +239,16 @@
       "slug": "civil-construction-1-textbook-river-act",
       "url": "https://doboku-note.com/docs/civil-construction-1-textbook-river-act",
       "inspected": {
-        "state": "not-indexed",
-        "reason": "クロール済み - インデックス未登録",
-        "lastCrawl": "2026/04/27 23:32:07",
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
         "discoveredVia": "sitemap",
-        "crawlAllowed": true,
-        "indexingAllowed": true
+        "crawlAllowed": null,
+        "indexingAllowed": null
       },
       "request": {
         "requested": false,
-        "status": "limit-reached"
+        "status": "already-indexed"
       },
       "reachedVerdict": true
     },
@@ -262,8 +264,8 @@
         "indexingAllowed": true
       },
       "request": {
-        "requested": false,
-        "status": "limit-reached"
+        "requested": true,
+        "status": "accepted"
       },
       "reachedVerdict": true
     },
@@ -279,8 +281,8 @@
         "indexingAllowed": true
       },
       "request": {
-        "requested": false,
-        "status": "limit-reached"
+        "requested": true,
+        "status": "accepted"
       },
       "reachedVerdict": true
     },
@@ -296,8 +298,8 @@
         "indexingAllowed": true
       },
       "request": {
-        "requested": false,
-        "status": "limit-reached"
+        "requested": true,
+        "status": "accepted"
       },
       "reachedVerdict": true
     },
@@ -313,8 +315,8 @@
         "indexingAllowed": true
       },
       "request": {
-        "requested": false,
-        "status": "limit-reached"
+        "requested": true,
+        "status": "accepted"
       },
       "reachedVerdict": true
     },
@@ -324,14 +326,15 @@
       "inspected": {
         "state": "not-indexed",
         "reason": "クロール済み - インデックス未登録",
-        "lastCrawl": "2026/04/26 7:44:41",
+        "lastCrawl": "2026/04/27 18:22:01",
         "discoveredVia": "sitemap",
         "crawlAllowed": true,
         "indexingAllowed": true
       },
       "request": {
         "requested": false,
-        "status": "limit-reached"
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
       },
       "reachedVerdict": true
     },
@@ -347,8 +350,8 @@
         "indexingAllowed": true
       },
       "request": {
-        "requested": false,
-        "status": "limit-reached"
+        "requested": true,
+        "status": "accepted"
       },
       "reachedVerdict": true
     }
@@ -357,7 +360,7 @@
   "summary": {
     "inspected": 20,
     "accepted": 10,
-    "alreadyIndexed": 0,
+    "alreadyIndexed": 7,
     "unreadable": 0
   }
 }

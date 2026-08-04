@@ -16,7 +16,13 @@
  *
  * 追加で surface するもの（A8 固有・放置すると静かに壊れる）:
  *   - `crossCheck.hasShortfall`＝サイト別を allowlist で説明しきれていない＝未登録プログラムの疑い
- *   - `crossCheck.exceeded` が true＝stats47 混入の疑いが未解消
+ *   - `crossCheck.exceeded`＝口座横断（stats47 込み）の合計がサイト別を上回っている状態。
+ *     **これは構造的に必ず起きる**（program-detail は口座単位で、A8 にはサイト切替が無い）。
+ *     2026-08-04 まで無条件に「[要対応] 他サイト混入の疑い」を出していたが、毎回赤が出て
+ *     何も対処できない＝偽赤だった。対処は既に済んでいる（案件別の分母は GA4 を使う・
+ *     affiliate-operations.md §6.5）。そこで**超過の大きさ**で分ける:
+ *       超過 ≦ サイト別クリックの 50% … 想定内。INFO として比率だけ出す
+ *       超過 > 50%                     … 想定を超えた混入 or 写像ミスの疑いとして [要対応]
  *
  * 使い方:
  *   npm run check-a8-report-due                 # 1 行サマリ
@@ -28,6 +34,8 @@
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
+
+import { classifyCrossCheck } from "./lib/report-honesty.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
@@ -75,7 +83,23 @@ if (shortfall) {
       "）",
   );
 }
-if (exceeded) issues.push("crossCheck 超過（他サイト混入の疑い）");
+// 超過は口座横断レポートの性質上ふつうに起きる。大きさで「想定内」と「異常」を分ける。
+// 判定は scripts/lib/report-honesty.mjs（純関数・tests/report-honesty.test.mjs で固定）。
+const cc = classifyCrossCheck(log?.crossCheck);
+const EXCESS_RATIO_LIMIT = cc.limit;
+const { siteClicks, excessClicks, excessRatio, abnormal: excessAbnormal } = cc;
+const notes = [];
+if (excessAbnormal) {
+  issues.push(
+    `crossCheck 超過が想定を超える（口座横断 ${excessClicks} click 超過＝サイト別 ${siteClicks} の ` +
+      `${Math.round(excessRatio * 100)}%・上限 ${EXCESS_RATIO_LIMIT * 100}%）。programIdMap の写像ミス or 新たな共用案件を疑う`,
+  );
+} else if (exceeded) {
+  notes.push(
+    `crossCheck 超過 ${excessClicks} click（サイト別 ${siteClicks} の ${excessRatio != null ? Math.round(excessRatio * 100) : "?"}%）＝` +
+      `口座横断レポートに stats47 が含まれるため想定内。案件別の分母は GA4 を使う（affiliate-operations.md §6.5）`,
+  );
+}
 
 const result = {
   check: "a8-report-due",
@@ -88,7 +112,11 @@ const result = {
   missingProgramCandidates: candidates.length,
   crossCheckShortfall: shortfall,
   crossCheckExceeded: exceeded,
+  crossCheckExcessClicks: exceeded ? excessClicks : 0,
+  crossCheckExcessRatio: excessRatio,
+  crossCheckExcessAbnormal: excessAbnormal,
   issues,
+  notes,
   review: REVIEW,
   note: "ローカル専用・要 A8 ログイン。A8 は公開 API 無しでクラウド週次では実行不可＝surface のみ。",
 };
@@ -106,5 +134,6 @@ if (WANT_JSON) {
     console.log(`[A8 成果取込] OK: 前回 ${lastIso}（${daysSince}日前・次回まで${THRESHOLD - daysSince}日）`);
   }
   for (const i of issues) console.log(`  [要対応] ${i}`);
+  for (const n of notes) console.log(`  [想定内] ${n}`);
 }
 process.exit(0);

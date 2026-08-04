@@ -78,6 +78,11 @@ https://note.com/dobokunote/n/nec34238ca6d6
 
 このように、正解番号を覚えるのではなく「1が誤りなのは、まさ土・しらすを『粘着性に富む』とすり替えているから」まで言えるようにするのが、本番で崩れない解き方です。全1162問がこの粒度で解説されています。
 
+**関連リンク**
+
+- [第2次検定のはじめ方（無料）](https://doboku-note.com/docs/civil-construction-1-secondary-getting-started?utm_source=note&utm_medium=referral&utm_campaign=civil1-ichiji-takuitsu-pdf&utm_content=secondary-start)
+- [第1次検定 出題傾向と得点戦略（無料）](https://doboku-note.com/docs/civil-construction-1-guide-strategy?utm_source=note&utm_medium=referral&utm_campaign=civil1-ichiji-takuitsu-pdf&utm_content=civil1-strategy)
+
 <!-- cta:civil-mokuji -->
 1級・2級土木のほかの記事・経験記述の答案集は「土木もくじ」から一覧できます。
 

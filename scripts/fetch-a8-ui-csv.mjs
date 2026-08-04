@@ -43,6 +43,7 @@ import {
   makeRunId,
 } from "./lib/a8-report-browser.mjs";
 import { decodeCsvBuffer, parsePeriodFromFilename } from "./lib/a8-report-csv.mjs";
+import { classifyRun } from "./lib/report-honesty.mjs";
 import { parseCsv } from "./lib/google-console-csv.mjs";
 
 const STATE_DIR = ".claude/state/metrics/affiliate/a8-ui";
@@ -203,16 +204,38 @@ async function processReport(page, cfg, runId, runDir, { reportKey, dryRun, mont
 
   unit.reportUrl = await openReport(page, cfg, reportKey);
 
-  // レポート画面に到達しているか（ラベルの可視で判定）
-  const body = await readVisibleSiteContext(page);
-  if (!body.includes(spec.label)) {
+  // レポート画面に到達しているか。
+  //
+  // 以前は config の `label`（例「プログラム別（詳細）」）が**可視テキストに出ること**を条件に
+  // していたが、これは実機と合っていなかった（2026-08-04 実測）。program-detail の画面では
+  // 可視の見出しは「プログラム別レポート」＋タブ「詳細」で、`label` は HTML には在るが
+  // innerText には現れない。結果、正しく開けているのに `report-unreachable` で落ちた。
+  //
+  // 到達の権威は **URL**（ログインへ飛ばされていれば変わる）に置き、
+  // 「レポートとして機能しているか」は **可視のエクスポート操作**の実在で見る。
+  // 表示文言の言い回しに依存しない＝A8 の文言変更で誤検知しない。
+  const landedUrl = page.url();
+  const expectedPath = new URL(unit.reportUrl).pathname;
+  const onReportUrl = landedUrl.includes(expectedPath);
+  const exportLabels = cfg.a8.exportButtonLabels ?? ["CSV"];
+  let exportVisible = 0;
+  for (const label of exportLabels) {
+    exportVisible += await page
+      .getByText(label, { exact: true })
+      .filter({ visible: true })
+      .count()
+      .catch(() => 0);
+  }
+  if (!onReportUrl || exportVisible === 0) {
     await dumpFailure(page, cfg, runId, {
       step: "reach-report",
-      expected: [spec.label],
-      message: `レポート「${spec.label}」に到達できない（URL/ラベルの UI 変更の可能性）`,
+      expected: [expectedPath, ...exportLabels],
+      message:
+        `レポート「${spec.label}」に到達できない（URL 一致=${onReportUrl} / 可視エクスポート操作 ${exportVisible} 件）` +
+        `。ログインへ飛ばされたか、UI が変わった可能性`,
     });
     unit.status = "report-unreachable";
-    unit.error = "レポート画面に到達できず";
+    unit.error = `レポート画面に到達できず（url=${landedUrl} / export 候補 ${exportVisible} 件）`;
     return unit;
   }
 
@@ -422,7 +445,15 @@ async function main() {
       console.log(`  ${reportKey}: ${unit.status}${unit.csvRows != null ? ` (${unit.csvRows} 行)` : ""}`);
     }
 
-    manifest.status = "ok";
+    // 「例外が出なかった」と「全部取れた」は違う。1 本でも落ちていれば partial にする。
+    // 以前は無条件に "ok" を入れており、program-detail が report-unreachable でも
+    // status=ok / exit 0 で終わっていた（2026-08-04 実測）。緑を見て「取れた」と読ませない。
+    // 判定は scripts/lib/report-honesty.mjs（純関数・tests/report-honesty.test.mjs で固定）。
+    const run = classifyRun(manifest.units);
+    manifest.status = run.status;
+    if (run.failed.length > 0) {
+      manifest.failed = run.failed.map((u) => ({ reportKey: u.reportKey, status: u.status, error: u.error }));
+    }
   } catch (e) {
     const page = ctx.pages()[0];
     if (page) await dumpFailure(page, cfg, runId, { step: "unexpected", message: e?.message || String(e) });
@@ -436,7 +467,13 @@ async function main() {
   if (!opts.dryRun) writeLastRunMarker(manifest);
   const ok = manifest.units.filter((u) => u.status === "downloaded").length;
   console.log(`\n完了: status=${manifest.status} / download 成功 ${ok}/${manifest.units.length}`);
+  if (manifest.failed?.length) {
+    console.log(`⚠ 取得できなかったレポート ${manifest.failed.length} 件:`);
+    for (const f of manifest.failed) console.log(`  ${f.reportKey}: ${f.status}${f.error ? ` — ${f.error}` : ""}`);
+  }
   console.log(`manifest: ${join(runDir, "manifest.json")}`);
+  // 部分取得を 0 で終わらせない（後段の normalize が「全部揃った」前提で走るのを防ぐ）。
+  if (manifest.status !== "ok") process.exit(2);
 }
 
 main().catch((e) => {

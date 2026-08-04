@@ -119,6 +119,7 @@ https://note.com/dobokunote/m/m6854c7437d4d
 
 https://note.com/dobokunote/m/m171222175fac
 
+直前期に絞って確認する論点は、[総監 直前チェック](https://doboku-note.com/docs/pe-comprehensive-management-last-minute-2026?utm_source=note&utm_medium=referral&utm_campaign=tankan-chokuzen-roadmap&utm_content=last-minute)にまとめています。この記事のロードマップと合わせて使ってください。
 
 <!-- cta:tankan-mokuji -->
 総監のほかの無料記事・有料マガジンは「総監もくじ」から一覧できます。

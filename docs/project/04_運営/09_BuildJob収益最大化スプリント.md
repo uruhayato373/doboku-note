@@ -26,8 +26,15 @@ BuildJob（ビルドジョブ）の成果報酬が 2026-08-31 まで高単価（
 
 - BuildJob は A8.net 提携済み。
 - 2026-08-31 までは、無料キャリア面談の成果報酬が ¥50,000/件。
-- `resolveCareerSidebarAd()` はキャンペーン期間中 BuildJob、9/1以降 GKS へ自動復帰する。
+- `resolveCareerSidebarAd()` はキャンペーン期間中 BuildJob、9/1以降 GKS を返す。
 - `resolveDocsCareerSidebarAd(category, slug)` は総監以外で `resolveCareerSidebarAbArm(slug)` を使い、BuildJob/GKS 系と建設JOBs を slug hash 50/50 で A/B している。
+
+> [!important] 2026-08-04 更新（本節以降の「9/1 以降」の記述はこの決定で上書きされる）
+> キャンペーン終了後の civil 記事面は **建設JOBs 100%**（`POST_CAMPAIGN_AB_ENABLED = false`）。
+> slug ハッシュ 50/50 A/B は再開しない＝`isKensetsuJobsArmEffective()` はキャンペーン後は常に true。
+> `resolveCareerSidebarAd()` の GKS 分岐に 9/1 以降到達するのはカテゴリ hub だけになる。
+> 理由（公開 EPC の逆転／GKS 側は分母規律を満たすクリックが貯まらない）と A/B 再開手順は
+> `.claude/knowledge/reference/affiliate-operations.md` §6/§6.5 裁定ログ 2026-08-04。
 - `resolveCareerArticleEndCard(slug)` も同じ slug arm に合わせて、モバイル記事末カードを BuildJob または建設JOBs に出し分けている。
 - `CareerAffiliate program="gks"` は、キャンペーン中 BuildJob 文言へ期間連動する。
 - 本文中間テキストリンク `resolveCareerTextLink(slug)` は arm B（建設JOBs arm）では null にする設計。
@@ -441,7 +448,7 @@ doboku-note の BuildJob アフィリエイト収益最大化スプリントを�
 
 ### 2026-07-14 P0 実装完了
 
-- **高意図 slug の BuildJob 優先表示**: `HIGH_INTENT_CAREER_SLUGS`（P0 時点 31 slug・全ファイル実在確認済み。P1 で 5 本追加し**現在は 36 slug**＝件数の真実源はコード）を `src/config/affiliate-creatives.ts` に追加。`isKensetsuJobsArmEffective()` がキャンペーン中のみ arm B を無効化し、サイドバー・記事末カード・本文中間テキストの 3 面を共有判定で BuildJob に固定。うち 17 本が建設JOBs arm からの切替、14 本は元から BuildJob（コピー強化のみ）。9/1 以降は `isCampaignActive()`=false で自動復帰（コード削除不要）。
+- **高意図 slug の BuildJob 優先表示**: `HIGH_INTENT_CAREER_SLUGS`（P0 時点 31 slug・全ファイル実在確認済み。P1 で 5 本追加し**現在は 36 slug**＝件数の真実源はコード）を `src/config/affiliate-creatives.ts` に追加。`isKensetsuJobsArmEffective()` がキャンペーン中のみ arm B を無効化し、サイドバー・記事末カード・本文中間テキストの 3 面を共有判定で BuildJob に固定。うち 17 本が建設JOBs arm からの切替、14 本は元から BuildJob（コピー強化のみ）。9/1 以降は `isCampaignActive()`=false で切り替わる（コード削除不要）。**2026-08-04 更新: その切替先は 50/50 A/B ではなく建設JOBs 100%**（本節冒頭の important を参照）。
 - **カードコピー改善**: `resolveBuildJobCopy(slug)` 新設。description に安心コピーを常時内蔵、CTA は記事テーマ別 6 パターン＋既定「資格・経験で狙える求人を無料で聞く」。`resolveCareerArticleEndCard` の BuildJob 分岐と inline `CareerAffiliate program="gks"`（163 枚）に自動反映。公式数値（163万円等）は保証表現リスク回避のためカードでは不使用。
 - **本文中間テキスト CTA**: `CareerTextLink` に `lead`（安心コピー）を追加し `MidArticleCta` career モードでリンク直前に表示。A8 公式テキストリンク文言自体は不変。
 - **検証**: check-affiliate-mats / check-affiliate-prose / check-cta-density / lint / type-check / build すべて通過。

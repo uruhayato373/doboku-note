@@ -80,6 +80,10 @@ AIに「経験記述を書いて」と頼むと、工事名も、工期も、施
 
 https://brain-market.com/a/b5EDO3UjMgoTZsNWa0JXY
 
+設問ごとの書き方・過去の出題傾向・留意事項のまとめは、[施工経験記述 出題傾向と書き方](https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil-keiken-ai-kit-note&utm_content=experience-writing-guide)に無料で公開しています。AI に下書きさせる前に、評価される型を先に押さえてください。
+
+評価される文章の型を具体例で確認したい方は[施工経験記述の記述例](https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-examples?utm_source=note&utm_medium=referral&utm_campaign=civil-keiken-ai-kit-note&utm_content=experience-writing-examples)もあわせてご覧ください。
+
 <!-- cta:civil-mokuji -->
 1級・2級土木のほかの記事・経験記述の答案集は「土木もくじ」から一覧できます。
 

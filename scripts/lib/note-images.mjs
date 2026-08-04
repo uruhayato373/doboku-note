@@ -110,6 +110,18 @@ async function uploadAtCaret(page, abs, { uploadMs = 40000 } = {}) {
  * 挿入画像の CDN 確定を待つ。target 枚の非 blob `<img>` が揃うまで（または timeout）。
  * blob: プレビューが CDN URL に差し替わって初めて保存で live に載る。
  */
+/**
+ * CDN 確定待ちの上限を環境変数で伸ばせるようにする（2026-08-04 追加）。
+ *
+ * 既定（min 90 秒 / 20 秒per枚）は速い回線を前提にしている。会社 PC のプロキシ経由だと
+ * note の CDN 確定がこれを超えることがあり、実測で 26 本バッチのうち 6 本が
+ * `[4.4] 画像が CDN 確定せず` で中断した（保存はしないので破損はしないが、進まない）。
+ * **待てば通る種類の失敗なので、環境ごとに待ちを伸ばせる必要がある**。
+ * 判定そのもの（blob: でない img が target 個）は変えない＝緩めない。
+ */
+const SETTLE_MIN_MS = Number(process.env.NOTE_IMG_SETTLE_MIN_MS || 90_000);
+const SETTLE_PER_IMG_MS = Number(process.env.NOTE_IMG_SETTLE_PER_IMG_MS || 20_000);
+
 async function settleUploads(page, target, timeoutMs, tag = '[img]') {
   const t0 = Date.now();
   let confirmed = 0;
@@ -119,7 +131,8 @@ async function settleUploads(page, target, timeoutMs, tag = '[img]') {
     if (c >= target) return { ok: true, confirmed: c };
     await sleep(1500);
   }
-  console.log(`${tag} ⚠ CDN確定待ちタイムアウト（確定=${confirmed}/${target}）`);
+  console.log(`${tag} ⚠ CDN確定待ちタイムアウト（確定=${confirmed}/${target}・上限 ${Math.round(timeoutMs / 1000)}s）`);
+  console.log(`${tag}   待てば通る場合は NOTE_IMG_SETTLE_MIN_MS / NOTE_IMG_SETTLE_PER_IMG_MS で上限を伸ばす`);
   return { ok: false, confirmed };
 }
 
@@ -193,7 +206,7 @@ export async function insertImagesAtPlaceholders(page, images, { tag = '[img]', 
   // (f) settle: 挿入した全画像が CDN 確定（src が blob: でない）になるまで待つ。
   //     保存前に確定していないと live に載らず img 欠落になる（枚数比例の待ち・最低90s）。
   //     全確定で早期 return するため、遅い記事のみ長く待つ（速い記事のコストは不変）。
-  const settled = await settleUploads(page, startImgs + inserted, Math.max(90000, inserted * 20000), tag);
+  const settled = await settleUploads(page, startImgs + inserted, Math.max(SETTLE_MIN_MS, inserted * SETTLE_PER_IMG_MS), tag);
 
   const leftover = await listLeftoverTokens(page);
   console.log(`${tag} 画像挿入: inserted=${inserted}/${images.length} failed=${failed.length} leftover=${leftover.length} 確定=${settled.confirmed}/${startImgs + inserted}`);
@@ -238,7 +251,7 @@ export async function insertImagesAfterAnchors(page, images, { tag = '[img-only]
     if (captionize && alt) await captionLast(page, alt);
     inserted++;
   }
-  const settled = await settleUploads(page, startImgs + inserted, Math.max(30000, inserted * 8000), tag);
+  const settled = await settleUploads(page, startImgs + inserted, Math.max(SETTLE_MIN_MS / 3, inserted * SETTLE_PER_IMG_MS / 2.5), tag);
   console.log(`${tag} 画像挿入(anchor): inserted=${inserted}/${images.length} failed=${failed.length} 確定=${settled.confirmed}/${startImgs + inserted}`);
   if (failed.length) console.log(`${tag} 失敗: ${failed.map((f) => f.reason).join(' / ')}`);
   return { inserted, failed };

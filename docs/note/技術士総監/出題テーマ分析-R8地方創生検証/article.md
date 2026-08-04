@@ -95,6 +95,8 @@ cover:
 
 筆者は元自治体土木職員（発注者側）・1級土木施工管理技士です。試験の採点者・添削者ではありません。本記事は非公式の学習記録であり、合格・的中を保証しません。
 
+本記事で扱った論点をキーワード単位で確認したい方は、[総監キーワード集](https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026?utm_source=note&utm_medium=referral&utm_campaign=sokan-policy-forecast-note&utm_content=keyword-2026)をご覧ください。5 管理別に無料で公開しています。
+
 ---
 
 <!-- cta:tankan-mokuji -->

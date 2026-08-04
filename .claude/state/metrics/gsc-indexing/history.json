@@ -108,6 +108,78 @@
         "civil-construction-1-textbook-management-subplans",
         "civil-construction-1-textbook-site-investigation"
       ]
+    },
+    {
+      "runId": "2026-08-04T05-31-29Z",
+      "collectedAt": "2026-08-04T05:31:29.412Z",
+      "mode": "dry-run",
+      "status": "dry-ok",
+      "filter": {
+        "category": "civil-construction-1",
+        "group": "textbook"
+      },
+      "inspected": 20,
+      "accepted": 0,
+      "alreadyIndexed": 5,
+      "unreadable": 0,
+      "slugs": [
+        "civil-construction-1-textbook-road-act",
+        "civil-construction-1-textbook-demolition",
+        "civil-construction-1-textbook-port-regulations",
+        "civil-construction-1-textbook-leveling",
+        "civil-construction-1-textbook-transport-machinery",
+        "civil-construction-1-textbook-explosives-act",
+        "civil-construction-1-textbook-tractor-bulldozer",
+        "civil-construction-1-textbook-loader",
+        "civil-construction-1-textbook-schedule-overview",
+        "civil-construction-1-textbook-labor-standards",
+        "civil-construction-1-textbook-shovel-excavator",
+        "civil-construction-1-textbook-work-scheduling",
+        "civil-construction-1-textbook-grader-compaction",
+        "civil-construction-1-textbook-river-act",
+        "civil-construction-1-textbook-distance-angle",
+        "civil-construction-1-textbook-building-standards",
+        "civil-construction-1-textbook-surveying-basics",
+        "civil-construction-1-textbook-schedule-charts",
+        "civil-construction-1-textbook-management-subplans",
+        "civil-construction-1-textbook-site-investigation"
+      ]
+    },
+    {
+      "runId": "2026-08-04T05-34-59Z",
+      "collectedAt": "2026-08-04T05:34:59.201Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": "civil-construction-1",
+        "group": "textbook"
+      },
+      "inspected": 20,
+      "accepted": 10,
+      "alreadyIndexed": 7,
+      "unreadable": 0,
+      "slugs": [
+        "civil-construction-1-textbook-road-act",
+        "civil-construction-1-textbook-demolition",
+        "civil-construction-1-textbook-port-regulations",
+        "civil-construction-1-textbook-leveling",
+        "civil-construction-1-textbook-transport-machinery",
+        "civil-construction-1-textbook-explosives-act",
+        "civil-construction-1-textbook-tractor-bulldozer",
+        "civil-construction-1-textbook-loader",
+        "civil-construction-1-textbook-schedule-overview",
+        "civil-construction-1-textbook-labor-standards",
+        "civil-construction-1-textbook-shovel-excavator",
+        "civil-construction-1-textbook-work-scheduling",
+        "civil-construction-1-textbook-grader-compaction",
+        "civil-construction-1-textbook-river-act",
+        "civil-construction-1-textbook-distance-angle",
+        "civil-construction-1-textbook-building-standards",
+        "civil-construction-1-textbook-surveying-basics",
+        "civil-construction-1-textbook-schedule-charts",
+        "civil-construction-1-textbook-management-subplans",
+        "civil-construction-1-textbook-site-investigation"
+      ]
     }
   ]
 }

@@ -70,7 +70,7 @@
 | S3 | essay-exam-strategy 本文の SAT カード | CourseAffiliate(SAT) | ✅ **変更** | カード削除 → management-tradeoffs への内部リンク段落に差し替え（S5 公開後は course-selection-guide リンクへ更新予定） |
 | S4 | exam-application-guide 本文の SAT カード | CourseAffiliate(SAT) | ✅ **変更** | 文言修正で暫定維持（「総監部門の添削対応可否は資料請求で確認を」を明記、断定表現を除去）。アガルート承認後に総監対応講座へ差し替え |
 | S5 | course-selection-guide（独学か講座か） | draft 未公開 | ✅ **新規（公開）** | 「総監対応講座の現状」セクションを追加し published:true（2026-06-11）。note CTA を placement.ts に配線。末尾の SAT カード（実在しない総監講座名）は削除。アガルート承認後のアフィリ受け皿 |
-| S6 | docs サイドバー GKS（全 docs 常設） | GKS 300×250 | **維持**（〜2026-08-31 はビルドジョブに期間切替） | 別 mat・note CTA より下位置。PE での CTR を 4 週間測定し、極端に低ければ PE のみ抑制を再検討。**2026-06-16: サイドバー転職枠を `resolveCareerSidebarAd()` で期間出し分け（〜8/31 ビルドジョブ ¥50,000 増額キャンペーン、9/1 以降 GKS 自動復帰）。creative の mat・出し分けの真実源は `src/config/affiliate-mats.json` と `src/config/affiliate-creatives.ts`、方針は `.claude/knowledge/reference/affiliate-operations.md`** |
+| S6 | docs サイドバー GKS（全 docs 常設） | GKS 300×250 | **維持**（〜2026-08-31 はビルドジョブに期間切替） | 別 mat・note CTA より下位置。PE での CTR を 4 週間測定し、極端に低ければ PE のみ抑制を再検討。**2026-06-16: サイドバー転職枠を `resolveCareerSidebarAd()` で期間出し分け（〜8/31 ビルドジョブ ¥50,000 増額キャンペーン）。2026-08-04 更新: 9/1 以降の復帰先は GKS ではなく**建設JOBs 100%**（`POST_CAMPAIGN_AB_ENABLED = false`・GKS はカテゴリ hub の補完枠のみ）。creative の mat・出し分けの真実源は `src/config/affiliate-mats.json` と `src/config/affiliate-creatives.ts`、方針は `.claude/knowledge/reference/affiliate-operations.md`** |
 
 ### Civil（1級・2級）
 

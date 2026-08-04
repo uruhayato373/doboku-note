@@ -140,6 +140,8 @@ https://note.com/dobokunote/membership/join
 
 [2級 施工経験記述 出題傾向と書き方](https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil-keiken-leadmagnet&utm_content=guide-civil-2)
 
+診断のあと、直した文章がどの水準かを見比べたい方は[施工経験記述の記述例](https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-examples?utm_source=note&utm_medium=referral&utm_campaign=civil-keiken-leadmagnet&utm_content=experience-writing-examples)をご覧ください。
+
 ---
 
 <!-- cta:civil-mokuji -->

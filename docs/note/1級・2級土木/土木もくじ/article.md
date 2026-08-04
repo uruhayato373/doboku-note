@@ -61,6 +61,8 @@ cover:
 
 教材で自習するか、予想と添削で伴走してもらうか。自分に合う方を選んでください。
 
+サイト（doboku-note）では過去問と解説を無料で公開しています。まずは[第1次検定 出題傾向と得点戦略](https://doboku-note.com/docs/civil-construction-1-guide-strategy?utm_source=note&utm_medium=referral&utm_campaign=103-civil-index&utm_content=civil1-strategy)からどうぞ。
+
 <!-- cta:civil-membership-lab -->
 合格ラボの内容・会員特典・2つのプランはこちらで確認できます。
 
