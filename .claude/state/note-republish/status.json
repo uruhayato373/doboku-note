@@ -1,29 +1,14 @@
 {
-  "_comment": "2026-08-04 のサイト送客リンク追加（142本）のライブ反映状況。無料26本のうち21本反映済み・5本が画像CDN確定タイムアウトで未反映。有料116本は未着手（day1-3 のリスト参照）。",
+  "_comment": "2026-08-04 のサイト送客リンク追加（142本）のライブ反映状況。無料26本のうち25本反映済み・1本（nd4c5c13ee445）が画像CDN確定タイムアウトで未反映（保存せず中断＝ライブは無傷・API実査で確認）。有料116本は未着手（day1-3 のリスト参照）。",
   "updatedAt": "2026-08-04",
   "free": {
     "total": 26,
-    "applied": 21,
+    "applied": 25,
     "pending": [
       {
         "noteId": "nd4c5c13ee445",
-        "article": "docs/note/1級・2級土木/1級土木/1級経験記述テーマ選び5管理/article.md"
-      },
-      {
-        "noteId": "nd288c7ac876b",
-        "article": "docs/note/1級・2級土木/2級土木/工事概要の書き方/article.md"
-      },
-      {
-        "noteId": "nffa7e4e03391",
-        "article": "docs/note/1級・2級土木/2級土木/第一次検定の独学突破/article.md"
-      },
-      {
-        "noteId": "n3a5866854425",
-        "article": "docs/note/1級・2級土木/2級土木/経験記述R6新形式/article.md"
-      },
-      {
-        "noteId": "n26e51803f01b",
-        "article": "docs/note/1級・2級土木/2級土木/経験記述テーマ選び/article.md"
+        "article": "docs/note/1級・2級土木/1級土木/1級経験記述テーマ選び5管理/article.md",
+        "note": "CDN確定 1/3 で240s タイムアウト。2回連続で同記事のみ失敗＝画像3枚のうち特定1枚が重い疑い。次回は待ちをさらに延ばすか --img-lenient を検討"
       }
     ]
   },
