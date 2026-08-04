@@ -23,7 +23,11 @@ const POSTS_ROOT = '.local/r2/posts';
  */
 export function extractMdx({ category, slug, path, root = POSTS_ROOT }) {
   const filePath = path ?? join(root, category, slug, 'article.mdx');
-  const raw = readFileSync(filePath, 'utf-8');
+  // 改行は LF へ正規化してから解析する。以降の抽出は split('\n') や行頭・行末
+  // アンカーの正規表現に依存しており、CRLF のままだと各行末に \r が残って
+  // 見出し・リード文の抽出が静かに空振りする。Windows のチェックアウトだけ
+  // 結果が変わり、Linux の CI は緑のままという割れ方をする（2026-08-04）。
+  const raw = readFileSync(filePath, 'utf-8').replace(/\r\n/g, '\n').replace(/\r/g, '\n');
   const { data: frontmatter, content } = matter(raw);
 
   return {

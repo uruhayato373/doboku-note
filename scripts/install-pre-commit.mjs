@@ -252,6 +252,13 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# 太字が描画されるか（閉じ/開き ** が flanking を満たさないとアスタリスクが本文に出る）。
+# 規則を再実装せず remark で実パースし、text ノードに ** が残るかで判定する。
+node scripts/check-bold-rendering.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
 # note→サイト送客リンクの UTM 規約（生URL単独行=カード化でUTM消失 / inline は utm_source=note 必須）。SKIP_NOTE_UTM=1 で回避
 node scripts/check-note-site-utm.mjs --staged
 if [ $? -ne 0 ]; then

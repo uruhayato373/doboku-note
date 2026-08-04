@@ -1024,7 +1024,7 @@ H3 散文の冒頭で「{管理A} は…、{管理B} は…を核とし、両者
 
 **適用範囲**: `group: guide` のみ。**過去問（`group: primary` / `secondary`）・キーワードページ・textbook には適用しない**（§5 §188 の図表中心ページ例外を侵さない）。
 
-**機械検知（ゲート）**: `node scripts/check-guide-length.mjs`（`npm run check-guide-length`）。published かつ `group: guide` の記事本文が 3,000 字未満なら **赤落ち（exit 1）**。pre-commit は staged のガイド MDX のみ、CI（`r2-audit.yml`）は全 published を検査する。
+**機械検知（ゲート）**: `node scripts/check-guide-length.mjs`（`npm run check-guide-length`）。published かつ `group: guide` の記事本文が 3,000 字未満なら **赤落ち（exit 1）**。pre-commit は staged のガイド MDX のみ、CI（`r2-audit.yml`）は全 published を検査する。**どちらも未公開（`published: false`）は対象外**——撤回済み記事の誤字修正まで commit が弾かれるのを避けるため（2026-08-04 に staged 側だけ published を見ておらず、unpublish 済み記事の太字修正がブロックされた）。
 
 **加筆の方向性**: 字数合わせの水増しではなく、§17 に沿って各 H2 セクションの散文導入を 200〜400 字へ充実させ、読者の判断に効く具体（数値・体験・選択基準）を足す。加筆後は `guide-qa`（ガイド軸 5 軸）で再確認する。
 

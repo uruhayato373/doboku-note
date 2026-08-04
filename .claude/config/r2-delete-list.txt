@@ -80,3 +80,6 @@ posts/concrete-diagnostician/textbook-repair/img/figure-05.webp
 posts/concrete-diagnostician/textbook-variation/img/figure-01.webp
 posts/concrete-diagnostician/textbook-variation/img/figure-02.webp
 posts/concrete-diagnostician/textbook-variation/img/figure-03.webp
+# 2026-08-04: figure-break-even-point.svg に置き換えられた旧図（同一概念・同一スロット）。
+# d60738712 で追加後、86d83de65 が後継図を作って埋め込んだため本体は孤立していた。
+posts/civil-construction-1/textbook-schedule-overview/img/figure-break-even.svg

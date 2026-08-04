@@ -1,6 +1,6 @@
 #!/usr/bin/env tsx
 /**
- * check-magazine-cta-reachability.mts
+ * check-magazine-cta-reachability.ts
  * ---------------------------------------------------------------------------
  * 「公開した note マガジンが、サイトのどこかで CTA として実際に出るか」を機械検査する。
  *
@@ -24,17 +24,22 @@
  * 推測判定は置かない——曖昧な warn は「検査したのに素通り」を作るため、0 面は 0 面と数える。
  *
  * 使い方:
- *   npx tsx scripts/check-magazine-cta-reachability.mts        # レポート（exit 0）
- *   npx tsx scripts/check-magazine-cta-reachability.mts --ci   # 到達 0 面があれば exit 1
+ *   npx tsx scripts/check-magazine-cta-reachability.ts        # レポート（exit 0）
+ *   npx tsx scripts/check-magazine-cta-reachability.ts --ci   # 到達 0 面があれば exit 1
  * ---------------------------------------------------------------------------
  */
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { NOTE_MAGAZINES, getMagazine, type MagazineId } from '../src/lib/note-magazines';
 import { resolvePlacement } from '../src/lib/magazine-placement';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+// このリポジトリは package.json に "type" が無く、tsx は .ts を CJS として扱う。
+// src/lib/*.ts も CJS になるため、ESM(.mts) から named import すると
+// cjs-module-lexer が名前付きエクスポートを拾えず
+// 「does not provide an export named 'NOTE_MAGAZINES'」で落ちていた（2026-08-04）。
+// 拡張子を .ts に揃えて同じモジュール系にすることで解消している。
+// そのため import.meta.url は使えず __dirname を使う。
+const ROOT = join(__dirname, '..');
 const CI = process.argv.includes('--ci');
 const POSTS = join(ROOT, '.local/r2/posts');
 const EXEMPT_PATH = join(ROOT, '.claude/config/magazine-cta-baseline.json');

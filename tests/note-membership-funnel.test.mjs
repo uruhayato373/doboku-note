@@ -8,9 +8,13 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import { transformSync } from 'esbuild';
 
-const ROOT = new URL('..', import.meta.url).pathname;
+// URL.pathname は Windows で "/C:/..." を返し、readFileSync が "C:\C:\..." と
+// 解決して ENOENT になる（CI は Linux なので緑、ローカルだけ赤という割れ方をする）。
+// fileURLToPath でプラットフォーム固有のパスへ変換する。
+const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const read = (rel) => readFileSync(ROOT + rel, 'utf8');
 
 const JOIN_URL = 'https://note.com/dobokunote/membership/join';
