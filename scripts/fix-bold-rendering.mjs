@@ -41,6 +41,8 @@ const UNIT_LIKE = /[%％℃°‰]/u;
 // 「…「義務」（[**」のように対応の途中で太字が切れる（2026-08-04 実測）。
 const ANY_BRACKET = /[（）「」『』【】〔〕《》〈〉｛｝()[\]{}]/u;
 const isWord = (c) => /[\p{L}\p{N}]/u.test(c);
+/** 文字列に文字・数字が1つでも含まれるか（強調に意味があるか） */
+const isWord2 = (s) => /[\p{L}\p{N}]/u.test(s);
 const isPunct = (c) => /[\p{P}\p{S}]/u.test(c);
 
 /** 1行を修正して {line, fixed, skipped} を返す */
@@ -59,10 +61,24 @@ function fixLine(line) {
         i++;
       }
     }
-    // 太字スパンがちょうど1つの行だけを対象にする。0個なら何もない、
-    // 3個以上（奇数含む）は入れ子・隣接でペアリングが一意に決まらない。
-    if (stars.length !== 2) {
-      if (stars.length > 0) skipped++;
+    // ペアリングが一意に決まる行だけを対象にする。
+    // 条件: ** が偶数個で、各スパンの中身にも スパン間の隙間にも * が残っていない。
+    // ****強調** や **A**1.5 m** のような入れ子・崩れはここで弾かれる。
+    if (stars.length === 0) break;
+    const pairable =
+      stars.length % 2 === 0 &&
+      (() => {
+        let cursor = 0;
+        for (let p = 0; p + 1 < stars.length; p += 2) {
+          const gap = line.slice(cursor, stars[p]);
+          const body = line.slice(stars[p] + 2, stars[p + 1]);
+          if (gap.includes("*") || body.includes("*")) return false;
+          cursor = stars[p + 1] + 2;
+        }
+        return !line.slice(cursor).includes("*");
+      })();
+    if (!pairable) {
+      skipped++;
       break;
     }
 
@@ -70,16 +86,30 @@ function fixLine(line) {
     for (let p = 0; p + 1 < stars.length; p += 2) {
       const open = stars[p];
       const close = stars[p + 1];
-      const before = line[close - 1];
-      const after = line[close + 2];
-      if (!before || after === undefined) continue;
-      if (!isPunct(before) || !isWord(after)) continue;
-
       const content = line.slice(open + 2, close);
       if (content.length === 0) {
         skipped++;
         continue;
       }
+
+      // (0) 中身に文字も数字も無い強調（例: **[** / **。 ❌**）は打ち間違いの残骸で、
+      //     強調としての意味を持たない。デリミタごと削除する。
+      //     **[**表題](url) → [表題](url) のようにリンクも同時に正常化する。
+      //     この形は開き ** 側が left-flanking にならず崩れているので、
+      //     閉じ ** の後続文字の有無（行末かどうか）は条件にしない。
+      if (!isWord2(content)) {
+        line = line.slice(0, open) + content + line.slice(close + 2);
+        fixed++;
+        applied = true;
+        break;
+      }
+
+      // 以降は「閉じ ** が right-flanking にならない」形の手当てなので、
+      // 直前が約物・直後が文字であることを要求する。
+      const before = line[close - 1];
+      const after = line[close + 2];
+      if (!before || after === undefined) continue;
+      if (!isPunct(before) || !isWord(after)) continue;
 
       if (UNIT_LIKE.test(before)) {
         skipped++;
@@ -212,7 +242,7 @@ for (const [file, lineSet] of byFile) {
 }
 
 console.log(
-  `[fix-bold-rendering] 検出 ${findings.length} 件 / 修正 ${totalFixed} 件 / 要手当て ${totalSkipped} 件（${scanned} 記事を走査）`,
+  `[fix-bold-rendering] 検出 ${findings.length} 件 / 修正 ${totalFixed} スパン（${touched.length} ファイル）/ 要手当て ${totalSkipped} 件（${scanned} 記事を走査）`,
 );
 for (const t of touched) console.log(`  ${t}`);
 if (!COMMIT) {
