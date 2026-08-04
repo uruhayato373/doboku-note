@@ -321,9 +321,29 @@ async function main() {
     `\n完了: status=${result.status} / 検査 ${s.inspected ?? 0} 件（既に登録済み ${s.alreadyIndexed ?? 0}・` +
       `読めず ${s.unreadable ?? 0}）/ リクエスト受理 ${s.accepted ?? 0} 件`,
   );
+
+  // 受理数だけを出すと「送れなかった分」が消える。実測（2026-08-04）で 20 件中 3 件が
+  // button-not-found だったのに、サマリーは「受理 10 件」としか言わず失敗が見えなかった。
+  // 送信を試みて受理に至らなかったものは必ず内訳で surface する（成功数だけを出さない）。
+  const failed = result.items.filter(
+    (i) => i.request && !["accepted", "already-indexed", "limit-reached"].includes(i.request.status),
+  );
+  if (failed.length > 0) {
+    const byStatus = new Map();
+    for (const i of failed) {
+      byStatus.set(i.request.status, [...(byStatus.get(i.request.status) ?? []), i.slug]);
+    }
+    console.log(`\n⚠ 送信できなかった ${failed.length} 件（次回に持ち越し）:`);
+    for (const [status, slugs] of byStatus) {
+      console.log(`  ${status} (${slugs.length}): ${slugs.join(", ")}`);
+    }
+  }
+
   console.log(`記録: ${join(STATE_DIR, "requests-latest.json")}`);
   if (!opts.commit) console.log("実際にリクエストするには --commit を付けて再実行してください。");
-  process.exit(result.status === "ok" || result.status === "dry-ok" ? 0 : 2);
+  // 1 件でも送信に失敗していたら 0 で終わらない（緑を見て「全部送れた」と読ませない）。
+  const clean = result.status === "ok" || result.status === "dry-ok";
+  process.exit(clean && failed.length === 0 ? 0 : 2);
 }
 
 main().catch((e) => {
