@@ -43,6 +43,7 @@ import {
   makeRunId,
 } from "./lib/a8-report-browser.mjs";
 import { decodeCsvBuffer, parsePeriodFromFilename } from "./lib/a8-report-csv.mjs";
+import { classifyRun } from "./lib/report-honesty.mjs";
 import { parseCsv } from "./lib/google-console-csv.mjs";
 
 const STATE_DIR = ".claude/state/metrics/affiliate/a8-ui";
@@ -447,12 +448,11 @@ async function main() {
     // 「例外が出なかった」と「全部取れた」は違う。1 本でも落ちていれば partial にする。
     // 以前は無条件に "ok" を入れており、program-detail が report-unreachable でも
     // status=ok / exit 0 で終わっていた（2026-08-04 実測）。緑を見て「取れた」と読ませない。
-    const failedUnits = manifest.units.filter(
-      (u) => u.status !== "downloaded" && u.status !== "dry-run-ok" && u.status !== "skipped",
-    );
-    manifest.status = failedUnits.length === 0 ? "ok" : "partial";
-    if (failedUnits.length > 0) {
-      manifest.failed = failedUnits.map((u) => ({ reportKey: u.reportKey, status: u.status, error: u.error }));
+    // 判定は scripts/lib/report-honesty.mjs（純関数・tests/report-honesty.test.mjs で固定）。
+    const run = classifyRun(manifest.units);
+    manifest.status = run.status;
+    if (run.failed.length > 0) {
+      manifest.failed = run.failed.map((u) => ({ reportKey: u.reportKey, status: u.status, error: u.error }));
     }
   } catch (e) {
     const page = ctx.pages()[0];

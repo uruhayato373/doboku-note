@@ -42,6 +42,7 @@ import {
   findUniqueByLabels,
   makeRunId,
 } from "./lib/google-console-browser.mjs";
+import { collectFailedRequests } from "./lib/report-honesty.mjs";
 
 const STATE_DIR = ".claude/state/metrics/gsc-indexing";
 const SSOT_URLS = ".claude/state/metrics/gsc-ui/ssot/urls";
@@ -325,9 +326,8 @@ async function main() {
   // 受理数だけを出すと「送れなかった分」が消える。実測（2026-08-04）で 20 件中 3 件が
   // button-not-found だったのに、サマリーは「受理 10 件」としか言わず失敗が見えなかった。
   // 送信を試みて受理に至らなかったものは必ず内訳で surface する（成功数だけを出さない）。
-  const failed = result.items.filter(
-    (i) => i.request && !["accepted", "already-indexed", "limit-reached"].includes(i.request.status),
-  );
+  // 判定は scripts/lib/report-honesty.mjs（純関数・tests/report-honesty.test.mjs で固定）。
+  const failed = collectFailedRequests(result.items);
   if (failed.length > 0) {
     const byStatus = new Map();
     for (const i of failed) {

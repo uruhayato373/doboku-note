@@ -35,6 +35,8 @@ import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
+import { classifyCrossCheck } from "./lib/report-honesty.mjs";
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
 const MARKER = join(ROOT, ".claude/state/metrics/affiliate/a8-ui/last-run.json");
@@ -82,11 +84,10 @@ if (shortfall) {
   );
 }
 // 超過は口座横断レポートの性質上ふつうに起きる。大きさで「想定内」と「異常」を分ける。
-const EXCESS_RATIO_LIMIT = 0.5;
-const siteClicks = Number(log?.crossCheck?.deltas?.clicks?.site ?? 0);
-const excessClicks = Number(log?.crossCheck?.deltas?.clicks?.delta ?? 0);
-const excessRatio = exceeded && siteClicks > 0 ? excessClicks / siteClicks : null;
-const excessAbnormal = exceeded && excessRatio != null && excessRatio > EXCESS_RATIO_LIMIT;
+// 判定は scripts/lib/report-honesty.mjs（純関数・tests/report-honesty.test.mjs で固定）。
+const cc = classifyCrossCheck(log?.crossCheck);
+const EXCESS_RATIO_LIMIT = cc.limit;
+const { siteClicks, excessClicks, excessRatio, abnormal: excessAbnormal } = cc;
 const notes = [];
 if (excessAbnormal) {
   issues.push(

@@ -25,6 +25,8 @@
 import { readdirSync, readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { join } from "node:path";
 
+import { isMeasurementWindowAligned } from "../../scripts/lib/report-honesty.mjs";
+
 const GA4_DIR = ".claude/state/metrics/ga4";
 const AFF_DIR = ".claude/state/metrics/affiliate";
 
@@ -263,7 +265,8 @@ if (totalImpressions === 0) {
   );
   lines.push("> 切り分かないうちは CTR を語らない。");
 } else {
-  const windowAligned = labelPeriodStart != null && labelPeriodStart >= IMPRESSION_SINCE;
+  // 判定は scripts/lib/report-honesty.mjs（純関数・tests/report-honesty.test.mjs で固定）。
+  const { aligned: windowAligned } = isMeasurementWindowAligned(labelPeriodStart, IMPRESSION_SINCE);
   if (!windowAligned) {
     lines.push("> [!warning] CTR は算出できない（分子と分母で窓が違う）");
     lines.push(
