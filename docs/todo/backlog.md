@@ -169,11 +169,12 @@ BuildJob キャンペーン（〜2026-08-31）の note ドメインパワー活�
 
 1. **（時間差）A8 成果の月末手入力**（`.claude/state/metrics/affiliate/a8-results.json`）→ `npm run report-buildjob-affiliate` で EPC。GA4 面別は event_label 登録済（2026-07-07）＝deploy 後クリック蓄積後に `fetch-ga4-cta-clicks --by-label`
 2. **stray 下書き手動削除**: `nf2316420abd0`（N7 公開検証の dry-run が作った孤児下書き・「ビルドジョブは施工管理に向くか」の下書き 11:51）。note.com/notes ダッシュボードで**公開済みの双子（11:58・同一タイトル）と取り違えないよう手動で**（`note-delete-note` は下書きカードの href を key で拾えず自動削除不可）
-3. **（2026-08-04 追加）サイト送客リンクを足した無料 note 13 本の live 反映**。
-   SoT（`docs/note/**/article.md`）は commit 済みだが **note.com のライブは未更新**。
-   対象は総監 11 本＋`経験記述-AI設計-無料`＋`共通/AIで土木資格を攻略`。
-   `note-edit-session` で本文を再 push し、`verify-note-magazines` / note API（`curl --ssl-no-revoke`）で
-   本文にリンクが実在することを照合する（**「送信した」で成功としない**）。
+3. ~~**（2026-08-04 追加）サイト送客リンクを足した無料 note 13 本の live 反映**~~ → **2026-08-04 完了**。
+   対象13本（総監 11＋`経験記述-AI設計-無料`＋`共通/AIで土木資格を攻略`）のうち、
+   `経験記述-AI設計-無料` は着手時点で反映済みだったため、残り 12 本を
+   `note-update-body --list --commit` で反映。**note API で 12 本すべてを実査し、
+   SoT とライブの送客先 slug が一致すること・画像が欠けていないことを確認**（ok=12 / 要確認0 / 判定不能0）。
+   事前に複数行 blockquote（再貼付で脱落する総監の既知の罠）が 13 本とも無いことを検査済み。
    ねらい: この 13 本はサイトへのリンクを 1 本も持っておらず、note→サイトは実測で最も質の高い流入
    （週 91 セッション・4.6 PV/セッション・平均滞在 42 分）だった。
    **A8 の追加は不要**＝キャリア文脈の note 14 本には既に全て入っており、残りは学習系で
