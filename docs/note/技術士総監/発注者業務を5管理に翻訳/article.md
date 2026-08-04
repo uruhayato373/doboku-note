@@ -150,6 +150,8 @@ https://note.com/dobokunote/m/m921fbe060575
 - 【総監択一】自治体の技術職員が総監択一でつまずく3つの盲点｜発注者業務と試験範囲のズレ
 - 【総監択一】キーワード集を1周したのに点が取れない3つの理由｜5管理を「出題視点」で読み直す
 
+5 管理どうしがぶつかる場面の整理は、[5 管理のトレードオフ](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=97-translate-5mgmt&utm_content=management-tradeoffs)にまとめています。翻訳した業務をトレードオフとして論じるときの土台になります。
+
 ---
 
 <!-- cta:tankan-mokuji -->

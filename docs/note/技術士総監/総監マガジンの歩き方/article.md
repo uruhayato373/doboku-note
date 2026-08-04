@@ -198,6 +198,8 @@ https://note.com/dobokunote/m/m171222175fac
 
 3分の地図はここまでです。あなたの合格答案が、いちばん早く形になることを願っています。
 
+過去問を年度・5 管理別に引きたい方は、[総監 過去問インデックス](https://doboku-note.com/docs/pe-comprehensive-management-exam-index?utm_source=note&utm_medium=referral&utm_campaign=99-magazine-guide&utm_content=exam-index)もあわせてご利用ください。無料で公開しています。
+
 ---
 
 <!-- cta:tankan-mokuji -->

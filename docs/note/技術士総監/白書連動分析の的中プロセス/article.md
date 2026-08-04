@@ -100,6 +100,8 @@ https://note.com/dobokunote/n/nfe8bc37ce88e
 
 https://note.com/dobokunote/m/m91516dfc27ac
 
+白書から拾った論点が総監のどのキーワードに当たるかは、[総監キーワード集](https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026?utm_source=note&utm_medium=referral&utm_campaign=r8-hit-process&utm_content=keyword-2026)で引けます。5 管理別に無料で公開しています。
+
 ---
 
 <!-- cta:tankan-mokuji -->

@@ -92,3 +92,5 @@ https://doboku-note.com
 https://note.com/dobokunote/n/n89da1120ccaa
 
 - 1級土木施工管理技士をAIで勉強する（一次の暗記・二次の経験記述）— 公開後にURL反映
+
+1級土木施工管理技士の出題傾向と得点戦略は、[第1次検定 出題傾向と得点戦略](https://doboku-note.com/docs/civil-construction-1-guide-strategy?utm_source=note&utm_medium=referral&utm_campaign=ai-study-civil-hub&utm_content=civil1-strategy)にまとめています。AI を使う前に、どこに時間を割くかを決める材料にしてください。

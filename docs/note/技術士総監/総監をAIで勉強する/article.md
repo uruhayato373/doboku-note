@@ -142,6 +142,8 @@ https://doboku-note.com
 - 【総監択一】キーワード集を1周したのに点が取れない3つの理由｜5管理を「出題視点」で読み直す
 - 【学習優先順位がわかる】総監択一式17年分680問を徹底分析（無料）
 
+AI に問う前提となるキーワードの一覧は、[総監キーワード集](https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026?utm_source=note&utm_medium=referral&utm_campaign=ai-study-method&utm_content=keyword-2026)に無料で公開しています。用語の定義を先に押さえるほど、AI の答えを検証しやすくなります。
+
 ---
 
 <!-- cta:tankan-mokuji -->

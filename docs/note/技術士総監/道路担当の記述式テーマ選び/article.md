@@ -153,6 +153,8 @@ https://note.com/dobokunote/m/m921fbe060575
 - 【総監記述式】発注者（自治体）の立場で記述式をどう組み立てるか｜三層構造と陥りやすい罠
 - 【総監対策】発注者の日常を5管理に翻訳する｜「自分の仕事」で総監を腹落ちさせる
 
+記述式で問われうるキーワードの見通しは、[R8 記述式キーワード予想](https://doboku-note.com/docs/pe-comprehensive-management-r8-essay-keyword-forecast?utm_source=note&utm_medium=referral&utm_campaign=99-road-essay-theme&utm_content=essay-keyword-forecast)に整理しています。テーマを決めたあとの論点集めに使えます。
+
 ---
 
 <!-- cta:tankan-mokuji -->

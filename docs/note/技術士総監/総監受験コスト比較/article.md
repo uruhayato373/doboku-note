@@ -281,6 +281,8 @@ doboku-note の総監向けマガジンの中で **最も汎用性が高いの�
 
 > 価格データは 2026 年 5 月 27 日時点で取得。各社の最新キャンペーン・改定は購入時に公式サイトでご確認ください。doboku-note の社内 SSoT は `.claude/knowledge/reference/pe-cem-school-prices.md` および `.claude/knowledge/reference/pe-cem-pass-rate-history.md` で管理しています。
 
+講座を使わずに独学で進める場合の土台として、[総監キーワード集](https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026?utm_source=note&utm_medium=referral&utm_campaign=pe-cem-cost-comparison&utm_content=keyword-2026)を無料で公開しています。5 管理別にキーワードを整理しています。
+
 ---
 
 <!-- cta:tankan-mokuji -->

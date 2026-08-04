@@ -144,6 +144,8 @@ https://note.com/dobokunote/m/m921fbe060575
 - 【総監対策】発注者の日常を5管理に翻訳する｜「自分の仕事」で総監を腹落ちさせる
 - 【総監択一】自治体の技術職員が総監択一でつまずく3つの盲点｜発注者業務と試験範囲のズレ
 
+答案全体の組み立て方と時間配分は、[総監 記述式の攻略戦略](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy?utm_source=note&utm_medium=referral&utm_campaign=98-owner-essay-build&utm_content=essay-exam-strategy)にまとめています。立場の置き方を決めたあとの手順として読んでください。
+
 ---
 
 <!-- cta:tankan-mokuji -->
