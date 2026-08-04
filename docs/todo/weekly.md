@@ -39,7 +39,7 @@
 
 ## メモ・ブロッカー
 
-- **BuildJobキャンペーン終了 = 2026-08-31**。9/1にGKSへ全面が自動復帰する（SSG・ビルド時刻で確定）。残り約5週。A8実績が入らないと9月のA/B判定が実行不能＝今週のA8対応が最優先タスク。
+- **BuildJobキャンペーン終了 = 2026-08-31**。**2026-08-04 に復帰先を建設JOBs 100% へ変更済み**（`POST_CAMPAIGN_AB_ENABLED = false`・GKSへの全面復帰と50/50 A/Bは停止。SSG・ビルド時刻で確定）。残り約4週。A8実績が入らないと9月以降のEPC判定（arm間比較ではなく時系列比較）が実行不能＝A8単月取得の実装が最優先タスク。
 - **EXP-005**: 介入コミット`af8b6454a`は既にmain deploy済み（`git merge-base --is-ancestor`で確認）。判定は複数psi-batch中央値で行う設計（lab値の単発判断はしない・measurement-incidents.md準拠）。数日分蓄積後に`npm run check-experiments-due`で状態確認して判定を進める。
 - **search-growth**: 最新run（07-23）でUNKNOWN_REVIEW 1,765件・NOINDEX候補312件が承認ゲート前で滞留。機械適用できるFIX_TECHNICAL/REDIRECT_LEGACYは0件＝出尽くし済み。全件裁定は非現実的なので上位バケット代表を見て一括方針を決めるスコープに限定する。
 - **weekly.mdが2週分（W30）未更新だったギャップをgit logで補完**：技術士二次試験終了（7/19-20）後、W30相当の期間でBuildJob note展開の実公開完了・KDP 13冊出版（C系3+F系7+当初3）・3ASPアフィリ運用基盤統合（A8/もしも/afb横断カタログ・サイト帰属ガード`asp-site-guard.mjs`）・エージェント7体のBOM欠損修正（読み込まれていなかった）・A8 `--probe-isolation`→`--probe-period`実装・アフィリEPC判断マトリクス新設（affiliate-operations.md §6.5）・BK価格frontmatter同期（132本+6本）・実験再測定期限surfacer(`check-experiments-due`)新設 が実績として積み上がった。次回からweekly.mdは毎週更新する。
