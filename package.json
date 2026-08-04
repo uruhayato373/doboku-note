@@ -219,6 +219,8 @@
     "audit-katex": "node scripts/audit-katex-warnings.mjs",
     "audit-katex:ci": "node scripts/audit-katex-warnings.mjs --strict",
     "check-orphan-figures": "node scripts/check-orphan-figures.mjs",
+    "check-bold-rendering": "node scripts/check-bold-rendering.mjs",
+    "fix-bold-rendering": "node scripts/fix-bold-rendering.mjs",
     "check-ig-cover": "node scripts/check-ig-cover.mjs",
     "check-ig-cta": "node scripts/check-ig-cta.mjs",
     "character-extract": "node scripts/character-extract.mjs",
