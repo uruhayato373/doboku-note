@@ -26,6 +26,10 @@
  */
 
 import { readFileSync } from "node:fs";
+import { unified } from "unified";
+import remarkParse from "remark-parse";
+import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
 import { writeMdxFile } from "../.claude/scripts/lib/mdx-io.mjs";
 
 const COMMIT = process.argv.includes("--commit");
@@ -44,6 +48,27 @@ const isWord = (c) => /[\p{L}\p{N}]/u.test(c);
 /** 文字列に文字・数字が1つでも含まれるか（強調に意味があるか） */
 const isWord2 = (s) => /[\p{L}\p{N}]/u.test(s);
 const isPunct = (c) => /[\p{P}\p{S}]/u.test(c);
+
+const lineProc = unified().use(remarkParse).use(remarkGfm).use(remarkMath);
+
+/** 1行を単独でパースして {strong: 太字ノード数, literal: text に残った ** の数} を返す */
+function renderStats(line) {
+  let strong = 0;
+  let literal = 0;
+  const walk = (n) => {
+    if (n.type === "strong") strong++;
+    if (n.type === "text") literal += (n.value.match(/\*\*/g) ?? []).length;
+    if (n.type === "code" || n.type === "inlineCode") return;
+    if (n.type === "math" || n.type === "inlineMath") return;
+    (n.children ?? []).forEach(walk);
+  };
+  try {
+    walk(lineProc.parse(line));
+  } catch {
+    return { strong: 0, literal: 0, failed: true };
+  }
+  return { strong, literal };
+}
 
 /** 1行を修正して {line, fixed, skipped} を返す */
 function fixLine(line) {
@@ -183,6 +208,60 @@ function fixLine(line) {
     }
     if (!applied) break;
   }
+
+  // 空白1つで flanking を成立させる手当て。強調範囲を変えずに済むので、
+  // 約物を動かす手当てが効かなかった行に対して試す。
+  // （`を **30 cm 貫入**させる` のように既存記事でも使われている形）
+  for (let round = 0; round < 20; round++) {
+    const st0 = renderStats(line);
+    if (st0.failed || st0.literal === 0) break;
+    const stars = [];
+    for (let i = 0; i + 1 < line.length; i++) {
+      if (line[i] === "*" && line[i + 1] === "*") {
+        stars.push(i);
+        i++;
+      }
+    }
+    let changed = false;
+    for (const at of stars) {
+      const prev = line[at - 1];
+      const next = line[at + 2];
+      let cand = null;
+      // 開き側が left-flanking にならない: 直前が文字・直後が約物 → 前に空白
+      if (prev && next && isWord(prev) && isPunct(next)) {
+        cand = `${line.slice(0, at)} ${line.slice(at)}`;
+      }
+      // 閉じ側が right-flanking にならない: 直前が約物・直後が文字 → 後ろに空白
+      else if (prev && next && isPunct(prev) && isWord(next)) {
+        cand = `${line.slice(0, at + 2)} ${line.slice(at + 2)}`;
+      }
+      if (!cand) continue;
+      const st1 = renderStats(cand);
+      if (!st1.failed && st1.literal < st0.literal && st1.strong >= st0.strong) {
+        line = cand;
+        fixed++;
+        changed = true;
+        break;
+      }
+    }
+    if (!changed) break;
+  }
+
+  // 最終手段: 構造的な手当てができず、かつこの行では太字が1つも成立していない場合、
+  // 残っている ** は読者にはアスタリスクとしてそのまま見えている（＝強調は効いていない）。
+  // デリミタを全部落とせば「今表示されている文字列からアスタリスクだけ消えた」状態になり、
+  // 文言も強調の有無も現状から変わらない。作者の意図を推測せずに済む唯一の安全な出口。
+  const st = renderStats(line);
+  if (!st.failed && st.literal > 0 && st.strong === 0 && line.includes("**")) {
+    const stripped = line.split("**").join("");
+    const after = renderStats(stripped);
+    if (!after.failed && after.literal === 0) {
+      line = stripped;
+      fixed += st.literal;
+      skipped = Math.max(0, skipped - 1);
+    }
+  }
+
   return { line, fixed, skipped };
 }
 
