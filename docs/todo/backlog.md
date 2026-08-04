@@ -148,7 +148,17 @@ BuildJob キャンペーン（〜2026-08-31）の note ドメインパワー活�
    | 無料（添付なし） | 26 | **21** | 5（`free-pending.txt`） |
    | 有料（PDF 添付あり） | 116 | 0 | 116（`note-republish-paid-day{1,2,3}.txt`） |
 
-   **続きの手順（別 PC・note ログイン済みプロファイルが要る）**:
+   **前提（新しい PC では最初にこれ）**: `.local/playwright-note-profile` は gitignore で
+   マシンローカル。無い環境では `npm run note-edit-session` を実行して**人がブラウザで note へログイン**する
+   （スクリプトは認証情報を一切自動入力しない）。account=dobokunote を assert するので別垢では止まる。
+
+   **続きの手順**:
+   ```
+   node scripts/note-update-body.mjs --article "docs/note/1級・2級土木/2級土木/経験記述テーマ選び/article.md"
+   ```
+   ↑ まず 1 本 dry-run（`--commit` なし＝反映しない）。ここで
+   `[4.4] 画像挿入: … 確定=N/N` まで通れば、その PC は既定の待ちで足りている。
+   `画像が CDN 確定せず` が出るなら下の環境変数を付ける（回線が遅い環境だけ必要）。
    ```
    NOTE_IMG_SETTLE_MIN_MS=240000 NOTE_IMG_SETTLE_PER_IMG_MS=60000 \
      node scripts/note-update-body.mjs --list .claude/state/note-republish/free-pending.txt --commit --force-retry
