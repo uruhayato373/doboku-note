@@ -84,6 +84,8 @@ https://note.com/dobokunote/membership/join
 
 過去問のフル完成答案を手元に置きたい人は、買い切りマガジン「施工経験記述 完成答案集」もあります。サンプルで水準を確認したい人は、無料の「落ちる施工経験記述 診断」からどうぞ。
 
+自己添削の基準として使える出題傾向と記述の型は、[施工経験記述 出題傾向と書き方](https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil-keiken-funnel-self-review&utm_content=experience-writing-guide)に無料でまとめています。
+
 ---
 
 <!-- cta:civil-mokuji -->

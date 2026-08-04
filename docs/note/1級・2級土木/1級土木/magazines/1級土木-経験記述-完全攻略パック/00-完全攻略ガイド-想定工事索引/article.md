@@ -201,6 +201,8 @@ NATM・覆工・支保工・都市部開削。
 
 https://note.com/dobokunote/m/m8290970a7f05
 
+工事を選ぶ前に記述の型を押さえたい方は、[施工経験記述 出題傾向と書き方](https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil1-keiken-pack-index&utm_content=experience-writing-guide)を無料で公開しています。
+
 ---
 
 <!-- cta:civil-mokuji -->

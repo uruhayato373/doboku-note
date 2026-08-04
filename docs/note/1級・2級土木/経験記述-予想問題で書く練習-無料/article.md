@@ -76,6 +76,8 @@ https://note.com/dobokunote/membership/join
 
 過去問の年度別模範答案や、テーマ別のフル完成答案が先に欲しい人は、買い切りマガジンもあります。書く前に水準を見たい人は、無料の「落ちる施工経験記述 診断」からどうぞ。
 
+予想問題で書く前に、出題傾向と記述の型は[施工経験記述 出題傾向と書き方](https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil-keiken-funnel-mock-practice&utm_content=experience-writing-guide)で確認できます。
+
 ---
 
 <!-- cta:civil-mokuji -->

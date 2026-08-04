@@ -97,6 +97,8 @@ https://note.com/dobokunote/m/m74cfd7c695d6
 
 https://note.com/dobokunote/m/m150c9db08902
 
+設問ごとの書き分けを具体的な文章で確認したい方は[施工経験記述の記述例](https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-examples?utm_source=note&utm_medium=referral&utm_campaign=c1-essay-r6-split&utm_content=experience-writing-examples)をご覧ください。
+
 ---
 
 <!-- cta:civil-mokuji -->

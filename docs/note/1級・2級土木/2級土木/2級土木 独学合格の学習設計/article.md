@@ -104,6 +104,8 @@ https://doboku-note.com
 
 https://note.com/dobokunote/m/m1881a9578027
 
+週単位の配分まで落とし込みたい方は[2級土木の学習計画の立て方](https://doboku-note.com/docs/civil-construction-2-guide-study-plan?utm_source=note&utm_medium=referral&utm_campaign=2c-study-design&utm_content=study-plan)もあわせてご覧ください。
+
 ---
 
 <!-- cta:civil-mokuji -->

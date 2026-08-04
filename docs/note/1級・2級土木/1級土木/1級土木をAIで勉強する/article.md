@@ -96,6 +96,8 @@ AIは「答える」のは得意ですが、**「何が頻出で、どこが引�
 
 https://doboku-note.com/docs/civil-construction-1-guide-exam-overview
 
+AI に投げる前に、どこから手を付けるかは[第1次検定 出題傾向と得点戦略](https://doboku-note.com/docs/civil-construction-1-guide-strategy?utm_source=note&utm_medium=referral&utm_campaign=ai-study-civil1&utm_content=civil1-strategy)で決めておくと学習効率が変わります。
+
 ---
 
 <!-- cta:civil-mokuji -->

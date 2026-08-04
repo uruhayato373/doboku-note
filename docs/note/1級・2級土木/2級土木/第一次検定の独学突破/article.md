@@ -87,6 +87,8 @@ cover:
 
 https://note.com/dobokunote/m/m1881a9578027
 
+独学で進めるときの時間配分は[2級土木の学習計画の立て方](https://doboku-note.com/docs/civil-construction-2-guide-study-plan?utm_source=note&utm_medium=referral&utm_campaign=2c-primary-selfstudy&utm_content=study-plan)にまとめています。
+
 ---
 
 <!-- cta:civil-mokuji -->

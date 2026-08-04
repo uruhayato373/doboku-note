@@ -108,6 +108,8 @@ https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-e
 
 https://note.com/dobokunote/m/m150c9db08902
 
+自分の現場に置き換える作業の前段（題材の決め方・学習順）は[第2次検定のはじめ方](https://doboku-note.com/docs/civil-construction-1-secondary-getting-started?utm_source=note&utm_medium=referral&utm_campaign=c1-essay-adapt&utm_content=secondary-getting-started)にまとめています。
+
 ---
 
 <!-- cta:civil-mokuji -->

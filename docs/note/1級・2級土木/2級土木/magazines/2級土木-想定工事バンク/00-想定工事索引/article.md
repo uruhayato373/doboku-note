@@ -136,6 +136,8 @@ https://note.com/dobokunote/m/m8554e87ca6ec
 
 https://note.com/dobokunote/m/m8554e87ca6ec
 
+工事を選ぶ前に記述の型を押さえたい方は、[2級 施工経験記述 出題傾向と書き方](https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil2-koji-bank-index&utm_content=experience-writing-guide)を無料で公開しています。
+
 ---
 
 <!-- cta:civil-mokuji -->

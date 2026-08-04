@@ -113,6 +113,8 @@ https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-e
 
 https://note.com/dobokunote/m/m1881a9578027
 
+工事概要が固まったら、答案全体の進め方は[2級 第2次検定のはじめ方](https://doboku-note.com/docs/civil-construction-2-secondary-getting-started?utm_source=note&utm_medium=referral&utm_campaign=2c-essay-outline&utm_content=secondary-getting-started)にまとめています。
+
 ---
 
 <!-- cta:civil-mokuji -->

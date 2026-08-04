@@ -92,6 +92,8 @@ https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=2c-sec
 
 https://note.com/dobokunote/m/m1881a9578027
 
+全体像をつかんだら、実際の文章の水準は[2級 施工経験記述の記述例](https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-examples?utm_source=note&utm_medium=referral&utm_campaign=2c-secondary-overview&utm_content=experience-writing-examples)で確認できます。
+
 ---
 
 <!-- cta:civil-mokuji -->

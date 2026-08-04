@@ -123,6 +123,8 @@ https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-e
 
 https://note.com/dobokunote/m/m150c9db08902
 
+落ちる型を避けたうえで何から手を付けるかは、[第2次検定のはじめ方](https://doboku-note.com/docs/civil-construction-1-secondary-getting-started?utm_source=note&utm_medium=referral&utm_campaign=c1-essay-fail&utm_content=secondary-getting-started)に順序立ててまとめています。
+
 ---
 
 <!-- cta:civil-mokuji -->
