@@ -130,6 +130,15 @@ BuildJob キャンペーン（〜2026-08-31）の note ドメインパワー活�
 
 1. **（時間差）A8 成果の月末手入力**（`.claude/state/metrics/affiliate/a8-results.json`）→ `npm run report-buildjob-affiliate` で EPC。GA4 面別は event_label 登録済（2026-07-07）＝deploy 後クリック蓄積後に `fetch-ga4-cta-clicks --by-label`
 2. **stray 下書き手動削除**: `nf2316420abd0`（N7 公開検証の dry-run が作った孤児下書き・「ビルドジョブは施工管理に向くか」の下書き 11:51）。note.com/notes ダッシュボードで**公開済みの双子（11:58・同一タイトル）と取り違えないよう手動で**（`note-delete-note` は下書きカードの href を key で拾えず自動削除不可）
+3. **（2026-08-04 追加）サイト送客リンクを足した無料 note 13 本の live 反映**。
+   SoT（`docs/note/**/article.md`）は commit 済みだが **note.com のライブは未更新**。
+   対象は総監 11 本＋`経験記述-AI設計-無料`＋`共通/AIで土木資格を攻略`。
+   `note-edit-session` で本文を再 push し、`verify-note-magazines` / note API（`curl --ssl-no-revoke`）で
+   本文にリンクが実在することを照合する（**「送信した」で成功としない**）。
+   ねらい: この 13 本はサイトへのリンクを 1 本も持っておらず、note→サイトは実測で最も質の高い流入
+   （週 91 セッション・4.6 PV/セッション・平均滞在 42 分）だった。
+   **A8 の追加は不要**＝キャリア文脈の note 14 本には既に全て入っており、残りは学習系で
+   実務者セグメント限定の規約上リンクを置けない
 
 ### 1級土木 二次10/4 直前スプリント（死守コア3つ）
 タグ: [収益化]
@@ -157,7 +166,15 @@ BuildJob キャンペーン（〜2026-08-31）の note ドメインパワー活�
 
 **残（外部承認依存・ユーザー作業）**:
 1. GSC で sitemap 再送信＋強化した主要URL 10〜20本を手動インデックス登録リクエスト
+   → **civil-1 textbook は自動化で 2 回実施済み**（7/30 に 10 件・8/04 に 10 件受理）。
+   次のバッチ: ① 8/04 に `button-not-found` で送れなかった 3 件
+   （labor-standards / work-scheduling / management-subplans）②civil-2 の未登録 14 件
+   ③総監の未登録 208 件（日次 10 件上限のため 3 週間ぶん）。
+   コマンド: `npm run gsc-indexing:request -- --from-ssot --group <group> --category <cat> --limit 10`
+   （要 Google ログイン・Playwright・1 本あたり 1〜2 分＝10 件で 25〜35 分）
 2. 非インデックス率の観察 1〜2週間（`url-inspection` 再取得）
+   → **URL 検査の単発読みは信用しない**。同じ 20 本を 30 分あけて読むと 4 本で判定が食い違った
+   （不一致率 20%・2026-08-04 実測）。登録本数の権威は月次 CI のカバレッジレポートに置く
 3. **前回却下から2〜4週間空けて再申請**。チェックリスト `docs/project/_archive/03_civil-adsense-resubmission.md:147-191`
 
 ### フロントエンド土台リファクタ（残増分）
@@ -410,12 +427,17 @@ BuildJob アフィリスプリントで注入された copy が rule 15-1（文�
 P1-P3（GA4 計測基盤・NextStepNav・季節モード note CTA）は実装済み。
 
 - **P4**: `keyword-relations.json`（598KB・未活用）から RelatedKeywords 未記述の keyword 記事へ build 時 top-N 自動挿入 fallback。要: 挿入品質の監査＋PE keyword 面 A/B
-- **P5-a（9/1 までに必須）**: **キャンペーン自動復帰後の arm 設計見直し**。8/31 に BuildJob が終了し
-  GKS へ自動切替されると、A8 公開 EPC が **GKS 457 円 < 建設JOBs 709 円**と逆転する。
-  現在の実装は 9/1 から slug ハッシュ 50/50 A/B へ自動復帰するため、放置すると
-  流入の半分が不利側（GKS）に流れる。8月中に「9月以降どちらへ寄せるか」を決めて
-  `isKensetsuJobsArmEffective` を更新する（真実源: `affiliate-operations.md` §6.5）
-- **P5**: アフィリ EPC 判定（~2026-09）。基準は `affiliate-operations.md` §6.5 に新設済。**着手前に 2 点確認**: ①現状は確定成果 0 件（累計 137click）で**分母規律未達＝判定不能**、分母供給には A8 単月取得（`a8-ui:fetch -- --month`）が前提 ②9/1 以降の対戦相手は BuildJob ではなく **GKS**（8/31 キャンペーン終了で自動切替）。期限で無理に決めず、判定不能なら §6.5 の裁定ログに据え置きを記録する
+- ~~**P5-a（9/1 までに必須）**: キャンペーン自動復帰後の arm 設計見直し~~ → **2026-08-04 完了**。
+  9/1 以降の civil 記事面を **建設JOBs 100%** にした（`POST_CAMPAIGN_AB_ENABLED = false`・
+  50/50 A/B は停止）。tsx で 8/15・9/5 のビルド時刻を与えて分岐を実コードで確認済み。
+  根拠と再開手順は `affiliate-operations.md` §6/§6.5 裁定ログ 2026-08-04
+- **P5-b（次の一手・変更ではなく計測）**: **7/28 の面再編（記事末 300×250・本文中間ネイティブ
+  カード）は main 到達が 7/30 で、GA4 の計測窓〜7/29 に 1 日も入っていない**。
+  `BuildJob-endbanner` 表示 0・`article-mid` 表示 1 がその証拠で、新レイアウトの良し悪しは
+  まだ何も測れていない。**面をこれ以上いじる前に** 7/30 以降を窓にした
+  `fetch-ga4-cta-clicks -- --by-label` / `--by-placement` を取り直す（GA4 API＝CI/CD 供給）。
+  取り直すと `report-buildjob-affiliate` が面別 CTR を実値で出す（窓が揃わない間は上限のみ表示）
+- **P5**: アフィリ EPC 判定（~2026-09）。基準は `affiliate-operations.md` §6.5 に新設済。**着手前に 2 点確認**: ①現状は確定成果 0 件（累計 137click）で**分母規律未達＝判定不能**、分母供給には A8 単月取得（`a8-ui:fetch -- --month`）が前提 ②9/1 以降は 50/50 A/B を停止して**建設JOBs 単一 arm**にしたため、判定は arm 間比較ではなく**時系列比較**（8 月の BuildJob ↔ 9 月以降の建設JOBs）になる。期限で無理に決めず、判定不能なら §6.5 の裁定ログに据え置きを記録する
 - **P6**: 高購買意欲ページへ MDX 本文内 `<MagazineCard>` の個別商品導線補強。要: `sales-log.json` で対象ページ特定が先
 - **P7**（🟢）: concrete 系の L2 もくじ新設（note 商品拡充が前提）
 
@@ -502,6 +524,13 @@ Tier 1（NoteLink 計測・cadence 化・bot 監査 CI 等）は実装完了。�
 - **Tier 2/3**: カスタムパラメータ・検索/scroll イベント・アフィリA/B の label 取得・GA4↔GSC 突合／AdSense RPM 取込・sales×流入 attribution・送客リダイレクタ・A8 EPC
 - **GA4 UI（ユーザー手作業）**: 内部トラフィック除外・参照除外・既知ボット除外 ON・カスタムディメンション登録確認
 - **Playwright UI CSV**: `fetch-ga4-ui-csv.mjs` は未ログイン検証のみ。ログイン済み実UIでレポート名・ディメンション・指標・ダウンロードメニューの正式ラベルを確定し、fixtureと回帰テストへ反映（API優先方針は維持）
+  - **故障記録（2026-07-30 実測・`check-gsc-ui-due` が DUE を出し続ける原因）**: 3 ユニットとも失敗。
+    `trafficAcquisition` は `csv-menu-ambiguous`（ダウンロードメニューの候補が一意に決まらない）、
+    `landingPage` は `report-not-found`（候補 0）、`events` は `report-not-found`（候補 11＝絞り込めていない）。
+    上のラベル確定作業がそのまま修正になる。**GSC UI 側は正常**（2026-07-30 に 10 ユニット中 7 取得・失敗 0）
+- **A8 単月取得（`a8-ui:fetch -- --month`）**: 未実装。これが入るまで実測 EPC の**分子**が供給されず、
+  §6.5 の「成果を見て配置を変える」ループが回らない（現在は累計取得のため月次に写せない）。
+  残作業はフォーム操作のみ。P5 のアフィリ EPC 判定はこれが前提
 - 真実源（file:line・Tier 詳細）: [measurement-infra-enhancement.md](measurement-infra-enhancement.md)
 
 ### サイトアクセス×収益化 戦略の深掘り論点
