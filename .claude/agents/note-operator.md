@@ -64,7 +64,7 @@ note.com への高レベル操作指示を受け取り、既存の決定的ス�
 | `check-note-structure.mjs` | ライブ実査（無料プレビュー崩壊 `FREE_PREVIEW_COLLAPSE`・全ロック・境界ズレ・価格不一致）。有料境界が事故で冒頭へ動くと購入判断の材料がゼロになる | `[--ci]` |
 | `check-note-attachments.mjs --live` | **約束した PDF が live に実在するか**（要ログイン）。添付は API では判定できず、著者ログインで `a[href*="attachments/download"]` を数えるのが唯一の実測手段 | `--live [--only <noteId,...>]` |
 | `wire-note-paid-cta.mjs --check` | 有料記事の無料域に商品導線があるか。**L2 もくじ未定義の資格（concrete 系等）も検査対象**（2026-07-31 以降） | `--check` |
-| `check-magazine-cta-reachability.mts` | 公開マガジンが**サイト側**で 1 面以上 CTA として出るか（top / 中間CTA / MagazineCard） | `[--ci]` |
+| `check-magazine-cta-reachability.ts` | 公開マガジンが**サイト側**で 1 面以上 CTA として出るか（top / 中間CTA / MagazineCard） | `[--ci]` |
 
 > [!important] 有料記事を公開・更新したら必ずこの検証を通す
 > 「反映完了」のログは信用しない。2026-07-31 に `note-update-body --keep-boundary` で
