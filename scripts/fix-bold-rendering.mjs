@@ -52,7 +52,7 @@ const isPunct = (c) => /[\p{P}\p{S}]/u.test(c);
 const lineProc = unified().use(remarkParse).use(remarkGfm).use(remarkMath);
 
 /** 1行を単独でパースして {strong: 太字ノード数, literal: text に残った ** の数} を返す */
-function renderStats(line) {
+export function renderStats(line) {
   let strong = 0;
   let literal = 0;
   const walk = (n) => {
@@ -71,7 +71,7 @@ function renderStats(line) {
 }
 
 /** 1行を修正して {line, fixed, skipped} を返す */
-function fixLine(line) {
+export function fixLine(line) {
   let fixed = 0;
   let skipped = 0;
   let guard = 0;
@@ -265,6 +265,10 @@ function fixLine(line) {
   return { line, fixed, skipped };
 }
 
+// ここから下は CLI 本体。tests/ から fixLine を import しても走らないようにする。
+const INVOKED_AS_CLI = process.argv[1]?.replace(/\\/g, "/").endsWith("scripts/fix-bold-rendering.mjs");
+
+if (INVOKED_AS_CLI) {
 // check 側と同じ対象・同じ検出結果を使う
 const { execFileSync } = await import("node:child_process");
 // checker は検出ありで exit 1 を返す仕様なので、異常終了そのものは失敗扱いにしない
@@ -327,4 +331,5 @@ for (const t of touched) console.log(`  ${t}`);
 if (!COMMIT) {
   console.log("");
   console.log("  ※ dry-run です。書き換えるには --commit を付けてください。");
+}
 }

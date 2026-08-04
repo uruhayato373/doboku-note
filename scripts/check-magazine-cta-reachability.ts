@@ -1,6 +1,6 @@
 #!/usr/bin/env tsx
 /**
- * check-magazine-cta-reachability.mts
+ * check-magazine-cta-reachability.ts
  * ---------------------------------------------------------------------------
  * 「公開した note マガジンが、サイトのどこかで CTA として実際に出るか」を機械検査する。
  *
@@ -24,8 +24,8 @@
  * 推測判定は置かない——曖昧な warn は「検査したのに素通り」を作るため、0 面は 0 面と数える。
  *
  * 使い方:
- *   npx tsx scripts/check-magazine-cta-reachability.mts        # レポート（exit 0）
- *   npx tsx scripts/check-magazine-cta-reachability.mts --ci   # 到達 0 面があれば exit 1
+ *   npx tsx scripts/check-magazine-cta-reachability.ts        # レポート（exit 0）
+ *   npx tsx scripts/check-magazine-cta-reachability.ts --ci   # 到達 0 面があれば exit 1
  * ---------------------------------------------------------------------------
  */
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
