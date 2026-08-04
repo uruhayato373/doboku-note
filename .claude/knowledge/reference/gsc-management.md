@@ -207,6 +207,9 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
 1 件でも送れなければ exit 2 にするよう `gsc-request-indexing.mjs` を修正した
 （CLAUDE.md §9「検査ゼロを PASS と呼ばない・実行系も同じ」）。
 この 3 本は次回 run に持ち越す。
+判定は `scripts/lib/report-honesty.mjs` の `collectFailedRequests` へ切り出し、
+`tests/report-honesty.test.mjs` で固定した（同じ形のバグが同日に A8 側でも 2 件出たため共通化）。
+要点は **未知の status を成功側へ倒さない**こと＝新しい失敗理由が増えても静かに通らない。
 
 ### 2026-07-30（月次・UI CSV 全量取得 → 未登録の切り分け）
 

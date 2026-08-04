@@ -193,9 +193,27 @@ append すると同じ期間が二重に積まれるため、SSOT は `period+si
   `未確定金額` は `確定金額` を部分文字列に含むため、`mapColumns` は完全一致を先に全列走査する
 - **CSV に合計行は無い**（画面にはある）
 - **エクスポートは `<button>CSV</button>` 1 個だけ**。`exportButtonLabels` に候補語を足すと
-  `findUniqueByLabels` が同一ボタンに複数ヒットして「曖昧」となり押せなくなる。増やさない
-- **ラベルドリフト**: 停止したら `.local/playwright-a8-debug/<runId>/visible-text.txt` を見て
-  **config を直す**（スクリプト本体は触らない）
+  `findUniqueByLabels` が同一ボタンに複数ヒットして「曖昧」となり押せなくなる。増やさない。
+  **2026-08-04 追記: このキーには消費者が 2 つある**（DL のクリックと、後述のレポート到達判定）。
+  到達判定は exact 一致の可視件数を数えるだけなので候補語を足しても壊れないが、DL 側が壊れる。
+- **レポート到達の判定は URL ＋ 可視のエクスポート操作**（2026-08-04 変更）。
+  以前は config の `label`（例「プログラム別（詳細）」）が**可視テキストに出ること**を条件にしていたが、
+  実機の可視見出しは「プログラム別レポート」＋タブ「詳細」で、`label` は HTML には在っても
+  `innerText` には出ない。結果、正しく開けているのに `report-unreachable` で停止した。
+  `label` は**人間向けの名前**であって DOM の契約ではない、というのが教訓。
+- **ラベルドリフト**: 停止したら `.local/playwright-a8-debug/<runId>/visible-text.txt` を見る。
+  原則は **config を直す**（スクリプト本体は触らない）。
+  **例外は「その config 値がそもそも実機の可視テキストに存在しない」とき**＝ config をどう直しても
+  判定が成立しないケースで、このときだけ判定の置き方自体を変える（上の到達判定がその 1 例）。
+  変えたら本ドキュメントに理由を残す。
+- **部分取得を ok と呼ばない**（2026-08-04 変更）。以前は例外が出なければ無条件に
+  `manifest.status = "ok"` としており、2 レポート中 1 本が落ちても ok / exit 0 で、
+  後段の `normalize` が「全部揃った」前提で走れた。現在は 1 本でも落ちれば `partial` ＋
+  失敗一覧を出して **exit 2**。判定は `scripts/lib/report-honesty.mjs`（`tests/report-honesty.test.mjs` で固定）
+- **crossCheck の超過は毎回起きる**（A8 にサイト切替が無く program-detail は口座単位のため）。
+  `check-a8-report-due` は超過がサイト別クリックの **50% 以下なら [想定内]** として比率だけ出す。
+  無条件に [要対応] を出していた 2026-08-04 以前は偽赤で、本物の異常を埋もれさせていた。
+  一方 `hasShortfall`（サイト別を allowlist で説明しきれない＝自社案件の写像もれ）は常に異常
 
 ## ファイル一覧
 
@@ -206,7 +224,10 @@ append すると同じ期間が二重に積まれるため、SSOT は `period+si
 - 申請上限: `.claude/scripts/ads/check-a8-apply-budget.cjs`
 - curated（係数・blocklist・vertical・上限・`searchKeywords`）: `.claude/scripts/ads/data/a8-curated.json`
 - カタログ（状態機械）: `.claude/state/ads/a8-catalog.json`
+- 実行の正直さ判定（純関数）: `scripts/lib/report-honesty.mjs`（`classifyRun` / `classifyCrossCheck` 等）。
+  テスト `tests/report-honesty.test.mjs`（`npm test`）。GSC 側の `gsc-request-indexing` と共用
 - 配置先 SSOT: `src/config/affiliate-creatives.ts` / `src/config/affiliate-mats.json` / `.claude/knowledge/reference/affiliate-operations.md`
+- 配線の回帰テスト: `tests/affiliate-arm-routing.test.mjs`（キャンペーン境界の案件切替を固定）
 
 ## 関連
 
