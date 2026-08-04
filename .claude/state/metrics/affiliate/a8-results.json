@@ -49,7 +49,7 @@
     {
       "month": "2026-07",
       "program": "buildjob",
-      "clicks": 36,
+      "clicks": 39,
       "conversions": 0,
       "approved": 0,
       "revenueYen": 0,
@@ -83,6 +83,6 @@
       "note": "A8 レポート自動取込（日本最大級 施工管理・建設業界の転職サイト「建設JOBs」）"
     }
   ],
-  "updatedAt": "2026-07-28T02:29:31.682Z",
+  "updatedAt": "2026-08-04T06:17:44.861Z",
   "source": "fetch-a8-ui-csv.mjs → normalize-a8-csv.mjs（自動取込。手入力は不要）"
 }

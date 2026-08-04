@@ -528,9 +528,11 @@ Tier 1（NoteLink 計測・cadence 化・bot 監査 CI 等）は実装完了。�
     `trafficAcquisition` は `csv-menu-ambiguous`（ダウンロードメニューの候補が一意に決まらない）、
     `landingPage` は `report-not-found`（候補 0）、`events` は `report-not-found`（候補 11＝絞り込めていない）。
     上のラベル確定作業がそのまま修正になる。**GSC UI 側は正常**（2026-07-30 に 10 ユニット中 7 取得・失敗 0）
-- **A8 単月取得（`a8-ui:fetch -- --month`）**: 未実装。これが入るまで実測 EPC の**分子**が供給されず、
-  §6.5 の「成果を見て配置を変える」ループが回らない（現在は累計取得のため月次に写せない）。
-  残作業はフォーム操作のみ。P5 のアフィリ EPC 判定はこれが前提
+- ~~**A8 単月取得（`a8-ui:fetch -- --month`）**: 未実装~~ → **2026-07-28 に実装済み**
+  （`d584ef320` ＋ `e347cf1eb` で 2026-01〜07 をバックフィル）。2026-08-04 に本節の
+  「未実装」は誤りと判明。`a8-results.json` には月次レコードが入っている。
+  **EPC が出ないのはツールではなく成果がゼロだから**＝全レコードが `revenueYen: 0` で、
+  唯一の発生 1 件（¥50,000）は cancelled。分子は「実装」ではなく**成約**で埋まる
 - 真実源（file:line・Tier 詳細）: [measurement-infra-enhancement.md](measurement-infra-enhancement.md)
 
 ### サイトアクセス×収益化 戦略の深掘り論点
@@ -618,9 +620,12 @@ PR #269（カタログ）/#270（SNSレンダラー）済。残 = Phase4 記事�
 6. 完了条件: `npm test`（a8-report-csv）green ＋ 実走 1 回で `a8-results.json` に `2026-06::*` の records が入る
    ＋ `npm run check-affiliate-wiring` green
 
-月ごとに fetch → `parsePeriodFromFilename` の `singleMonth` が埋まり、月次 rollup が自動で通る設計は**実装済み**
-（残作業はフォーム操作のみ）。これが入ると `report-buildjob-affiliate` の EPC が月次で出せる＝
-**アフィリの「成果→配置見直し」ループの分母がようやく供給される**（現在は確定成果 0 件で判定不能）。
+**2026-07-28 に全ステップ完了**（`d584ef320`。`e347cf1eb` で 2026-01〜07 をバックフィル済み）。
+`a8-results.json` には月次キーの records が入っており、分母は供給されている。
+「残作業はフォーム操作のみ」は当時の途中経過で、**2026-08-04 時点では残作業なし**。
+
+したがって EPC が出ない原因は分母ではなく**分子**＝確定報酬が全月ゼロであること
+（唯一の発生 1 件 ¥50,000 は cancelled）。ここは実装では埋まらず、成約が要る。
 判定基準は [affiliate-operations.md](../../.claude/knowledge/reference/affiliate-operations.md) §6.5。
 
 ### 画像系 pre-render ワークアラウンドの再検証（Opus 5 vision）
