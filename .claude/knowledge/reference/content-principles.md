@@ -480,7 +480,7 @@ textbook（個別概念ページ）では原則 ExamPoint を 1 個末尾配置�
 
 **2 つの異なる原因が同時に存在する**:
 
-1. **末尾全角閉じ括弧** — `**…）**` のように bold 閉じタグ `**` の直前が全角閉じ括弧 `）」』】` の場合、CommonMark 仕様の「right-flanking delimiter run」判定に失敗し bold が無音でレンダリングされない（サイト側 MDX で発生）
+1. **末尾の約物** — `**…）**` のように bold 閉じタグ `**` の直前が約物で、かつ**直後が文字・数字**のとき、CommonMark 仕様の「right-flanking delimiter run」判定に失敗し bold が無音でレンダリングされない（サイト側 MDX で発生）。約物は全角閉じ括弧 `）」』】` に限らず `。，％℃` 等でも起きる一方、直後が空白・行末・記号なら閉じ括弧でも崩れない。「末尾が全角閉じ括弧なら必ず崩れる」は近似であって真ではないので、判定は下記の実パースに委ねる
 2. **note 独自パーサの中間全角括弧** — `**…（…）…**` のように bold 内部のどこかに全角括弧を含む（特に長い span・複数括弧・リンク混在）と、note.com のレンダラが bold スパンを正しく解釈しない（note 側で発生）
 
 **サイト側（MDX）で起きる例（原因 1）**:
@@ -496,7 +496,8 @@ textbook（個別概念ページ）では原則 ExamPoint を 1 個末尾配置�
 - OK: `**¥2,480** （6 本セット、単品比 17%OFF）`
 
 **機械検知**:
-- サイト側 MDX: `pre-commit-mdx.mjs` の `checkBoldEndingParen` が原因 1（末尾）を MEDIUM 警告で検知
+- サイト側 MDX: `scripts/check-bold-rendering.mjs`（`npm run check-bold-rendering`）が原因 1 を検知。規則を再実装せず **remark で実パース**し、`text` ノードに `**` が残る＝描画されていない、で判定する（ground truth）。pre-commit（`--staged`）と `quality:audit --ci` の両経路に結線済み。機械的に安全な形の一括修正は `npm run fix-bold-rendering`（dry-run 既定・`--commit` で適用）
+  - 旧 `pre-commit-mdx.mjs` の `checkBoldEndingParen` は 2026-08-04 に削除。`）」』】）` の 5 文字だけを見る近似ルールで、`。，％℃` や壊れたリンクを取りこぼす一方、実際には描画される形を誤検知していた
 - note 側ドラフト: `/note-prepublish-review` Phase 1 § 4b の **Pattern A**（`**…（…）…**` 任意位置・リンク有無不問）が原因 1・2 の両方を検出して BLOCK
 - 補助: 同 Phase の **Pattern B'**（`)**（` 境界）はリンク URL 直後の全角括弧連続パターンを検出
 
