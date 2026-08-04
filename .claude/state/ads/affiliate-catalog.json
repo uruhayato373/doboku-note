@@ -43,7 +43,7 @@
       "label": "GKSキャリア（施工管理 転職エージェント）",
       "vertical": "civil-career",
       "placement": "active",
-      "decision": "A8 で運用（buildjob キャンペーン終了 2026-08-31 後の自動復帰先）。",
+      "decision": "A8 で運用。**2026-08-04 に記事面から外した**（キャンペーン終了後の自動復帰先を GKS → 建設JOBs に変更）。公開 EPC 457 < 建設JOBs 709 と逆転するうえ、分母規律（確定 3 件）に必要なクリックが約 164 と現流量では貯まらないため。撤去ではなく**カテゴリ hub の補完枠として残す**（creative・カード文言もコード温存）。A/B 再開は `POST_CAMPAIGN_AB_ENABLED = true`。根拠 → affiliate-operations.md §6.5 裁定ログ 2026-08-04。",
       "asps": {
         "a8": {
           "programId": "s00000022176005",
@@ -64,7 +64,7 @@
       "label": "建設JOBs（施工管理・建設業界 転職サイト）",
       "vertical": "civil-career",
       "placement": "active",
-      "decision": "A8 で運用。civil-career 面の恒久 A/B の arm B。**9/1 以降の対戦相手は buildjob ではなく gks**（buildjob は 2026-08-31 の増額キャンペーン終了で自動切替されるため）。判定基準・分母規律は affiliate-operations.md §6.5。2026-07 時点は確定成果 0 件で判定不能＝据え置き。",
+      "decision": "A8 で運用。**2026-08-04 に 9/1 以降の civil 記事面の既定案件へ昇格**（slug ハッシュ 50/50 A/B は停止・建設JOBs 100%）。公開 EPC 709 > GKS 457 で、分母規律（確定 3 件）に必要なクリックが約 19 と最短で実測 EPC に到達できるため。キャンペーン中（〜2026-08-31）の記事面は buildjob 固定で、建設JOBs はカテゴリ hub のみ。判定基準・分母規律は affiliate-operations.md §6.5。2026-07 時点は確定成果 0 件で判定不能＝据え置き。",
       "asps": {
         "a8": {
           "programId": "s00000023057002",

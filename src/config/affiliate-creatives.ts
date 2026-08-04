@@ -119,6 +119,25 @@ function isKensetsuJobsArm(slug: string | undefined): boolean {
 }
 
 /**
+ * キャンペーン終了（2026-09-01）後に slug ハッシュ 50/50 A/B を再開するか（2026-08-04 決定・既定 false）。
+ *
+ * false = civil セグメントの記事面は **建設JOBs 100%**。理由:
+ * 1. 9/1 に BuildJob（¥50,000 キャンペーン）が終わると arm A の中身は GKS になり、
+ *    **A8 公開 EPC が GKS 457 円 < 建設JOBs 709 円と逆転する**。50/50 のまま自動復帰すると
+ *    露出の半分を低い側へ流し続ける（backlog P5-a）。
+ * 2. affiliate-operations.md §6.5 の分母規律（確定成果 3 件で判定可）に照らすと、
+ *    必要クリック数は 建設JOBs 約 19（CVR≒15.8%）に対し GKS 約 164（CVR≒1.8%）。
+ *    現在の流量（年初〜7月で全案件合計 137 クリック）では GKS 側の分母は現実的に貯まらず、
+ *    50/50 を続けても「判定不能」が延々と続くだけで学習が進まない。
+ * 3. 建設JOBs へ寄せれば単一 arm に分母が集中し、実測 EPC を最短で得られる。
+ *
+ * true にすると `isKensetsuJobsArm` の 50/50 ハッシュ A/B に戻る（arm A = GKS）。
+ * 型を `boolean` で明示しているのは、リテラル narrowing で分岐が dead code 扱いにならないようにするため。
+ * 真実源: .claude/knowledge/reference/affiliate-operations.md §6.5 裁定ログ 2026-08-04。
+ */
+const POST_CAMPAIGN_AB_ENABLED: boolean = false;
+
+/**
  * 高意図キャリア slug（キャリア/転職/年収/働き方 intent のガイド記事）の一覧。
  *
  * **2026-07-28 以降、arm 判定には使っていない**（キャンペーン中は全ページ BuildJob 固定に
@@ -188,12 +207,14 @@ export const HIGH_INTENT_CAREER_SLUGS: ReadonlySet<string> = new Set([
  * A8 公開 EPC は BuildJob 942 円 / 建設JOBs 709 円で、単価差が最大の 8 月に
  * 半分を低い側へ流す合理性が無いため、キャンペーン中は全体を寄せる。
  *
- * 9 月以降の注意: GKS（EPC 457 円）< 建設JOBs（709 円）と **逆転する**ため、
- * 自動復帰後の 50/50 A/B はそのままだと不利側を含む。復帰後の arm 設計は別途見直す
- * （docs/todo/backlog.md）。判断基準は affiliate-operations.md §6.5。
+ * 9/1 以降（2026-08-04 決定・backlog P5-a の前倒し）: 50/50 A/B へは戻さず **建設JOBs 100%**。
+ * GKS（EPC 457 円）< 建設JOBs（709 円）と逆転するうえ、GKS 側は分母規律を満たすクリックが
+ * 現実的に貯まらないため（根拠は `POST_CAMPAIGN_AB_ENABLED`）。A/B を再開したくなったら
+ * そのフラグを true にするだけで従来のハッシュ振り分けに戻る。
  */
 function isKensetsuJobsArmEffective(slug: string | undefined): boolean {
   if (isCampaignActive()) return false;
+  if (!POST_CAMPAIGN_AB_ENABLED) return true;
   return isKensetsuJobsArm(slug);
 }
 
@@ -219,10 +240,14 @@ function resolveCareerSidebarAbArm(slug: string | undefined): {
 /**
  * サイドバー転職枠の creative を期間で出し分ける（ビルド時に評価＝SSG）。
  * - 2026-08-31（JST）まで: ビルドジョブ（無料面談 ¥50,000 の増額キャンペーン中、GKS の 2 倍報酬）。
- * - 2026-09-01（JST）以降: GKS に自動復帰（ビルドジョブの増額終了想定）。
- * 注: SSG のためビルド時刻で固定される。9/1 以降の最初の本番再ビルドで自動的に GKS へ戻る。
+ * - 2026-09-01（JST）以降: GKS。
+ * 注: SSG のためビルド時刻で固定される。9/1 以降の最初の本番再ビルドで切り替わる。
  *     キャンペーン期間中は GKS の唯一のピクセル源（このサイドバー枠）が止まるため、GKS の
  *     「表示回数」は計測されなくなる（クリック・成果は href 経由で従来どおり計測される）。
+ *
+ * **9/1 以降、この関数の GKS 分岐に到達するのはカテゴリ hub（`resolveCategoryCareerAds`）だけ**。
+ * 記事面（docs サイドバー・記事末カード）は `isKensetsuJobsArmEffective` が true を返して
+ * 建設JOBs 100% になるため。GKS は hub の補完枠として残り、ピクセル源もそこへ戻る。
  * 人間向け真実源: .claude/knowledge/reference/affiliate-operations.md
  */
 /**
@@ -346,6 +371,8 @@ export function resolveCareerArticleEndCard(slug?: string): CareerArticleEndCard
   if (resolveCareerSidebarAd().trackLabel === "BuildJob-sidebar") {
     return resolveBuildJobCopy(slug);
   }
+  // GKS カード。9/1 以降は上の建設JOBs 分岐が全 slug で先に返るため、`POST_CAMPAIGN_AB_ENABLED`
+  // を true に戻して arm A を復活させたときだけ到達する（A/B 再開時の受け皿として残す）。
   return {
     service: "GKSキャリア",
     category: "施工管理 転職エージェント",
