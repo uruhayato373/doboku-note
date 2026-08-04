@@ -140,6 +140,44 @@ BuildJob キャンペーン（〜2026-08-31）の note ドメインパワー活�
    **A8 の追加は不要**＝キャリア文脈の note 14 本には既に全て入っており、残りは学習系で
    実務者セグメント限定の規約上リンクを置けない
 
+4. **（2026-08-04）施工管理 note 142 本のライブ反映 — 進行中・別 PC へ引き継ぎ**
+   状態の真実源は `.claude/state/note-republish/status.json`。
+
+   | 区分 | 本数 | 反映 | 残 |
+   |---|--:|--:|--:|
+   | 無料（添付なし） | 26 | **21** | 5（`free-pending.txt`） |
+   | 有料（PDF 添付あり） | 116 | 0 | 116（`note-republish-paid-day{1,2,3}.txt`） |
+
+   **続きの手順（別 PC・note ログイン済みプロファイルが要る）**:
+   ```
+   NOTE_IMG_SETTLE_MIN_MS=240000 NOTE_IMG_SETTLE_PER_IMG_MS=60000 \
+     node scripts/note-update-body.mjs --list .claude/state/note-republish/free-pending.txt --commit --force-retry
+   ```
+   有料は **1 本 dry-run（`--reattach-pdf`）で添付の検出と復元経路を確認してから** day1 へ進む:
+   ```
+   node scripts/note-update-body.mjs --article <1本> --reattach-pdf          # dry-run
+   node scripts/note-update-body.mjs --list .claude/state/note-republish/note-republish-paid-day1.txt \
+     --commit --reattach-pdf --attach-daily-limit 45
+   ```
+   `--attach-daily-limit 45` の根拠: スクリプトの日次カウンタは **PDF しか数えていない**が、
+   note の 1 日 100 件上限は画像も含む疑いがある。有料記事は概ね 1 画像 + 1 PDF なので、
+   PDF を 45 に絞れば実アップロードが約 90 に収まる。
+
+   **既知の失敗モードと対処**:
+   - `[4.4] 画像が CDN 確定せず` … 会社 PC のプロキシで CDN 確定が既定 90 秒を超える。
+     実測 1 回目 6/14 失敗 → 待ちを 4 倍（上の環境変数）にして 2 回目は 13/18 成功。
+     **保存はしないので破損しない**。回線の速い PC なら既定でも通る可能性がある。
+   - 3 本連続失敗でバッチが自動停止する（`--max-consecutive-fail`）。中断した記事は
+     `.claude/state/note-update-aborted.json` に載り次回スキップされる（`--force-retry` で再試行）。
+   - **有料記事で中断したら、その記事を人が開いて添付の有無を確認してから再実行する**。
+     note のエディタは「保存しない」で抜けても全文置換＋添付削除の状態を保持するため、
+     確認せず再実行すると「添付なし」を正として保存してしまう（2026-07-31 の消失はこれ）。
+
+   **検証**: 反映後は note API（`curl --ssl-no-revoke https://note.com/api/v3/notes/<id>`）で
+   本文に `doboku-note.com/docs/` が実在することを確認する。ただし `can_read: false` の
+   マガジン総合案内は未ログインでは本文が返らない＝**「取れなかった」を「無い」と読まない**
+   （2026-08-04 に 3 本がこれに該当・著者セッションでの確認が要る）
+
 ### 1級土木 二次10/4 直前スプリント（死守コア3つ）
 タグ: [収益化]
 
