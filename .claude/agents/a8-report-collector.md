@@ -69,8 +69,14 @@ A8 の 1 口座に **stats47** と **doboku-note** の 2 サイトが載って�
 3. **停止判定**: `not-signed-in` / `account-mismatch` / `report-unreachable` なら停止し、
    人間アクションを明示して終了（本取得へ進まない）。
 4. **本取得**（親が承認したときのみ）: `npm run a8-ui:fetch -- --reports <keys>`（既定 all）。
-5. **確認**: 各 `unit.status` を集計（downloaded / empty-download / *-ambiguous / site-mismatch）。
-   `encoding` が config の `csvEncoding` と違う場合は「自動切替が起きた」と報告（config 更新候補）。
+5. **確認**: 各 `unit.status` を集計（downloaded / empty-download / *-ambiguous / site-mismatch /
+   report-unreachable）。`encoding` が config の `csvEncoding` と違う場合は「自動切替が起きた」と
+   報告（config 更新候補）。
+   **exit code を読む（2026-08-04 追加）**: `0`=全レポート取得できた / `2`=**部分取得**
+   （1 本でも落ちた。`manifest.status="partial"` ＋ `manifest.failed[]` に内訳）。
+   以前は例外が出なければ無条件に `status="ok"` / exit 0 で、2 本中 1 本が落ちても緑だった。
+   **`status` の緑だけを見て「取れた」と報告しない**。必ず「対象 N 本中 取得 M 本・失敗 K 本」の形で
+   数を出す（CLAUDE.md §9）。失敗があれば normalize へ進まず、親へ持ち越しとして報告する。
 6. **報告**: 下記フォーマットで親へ返す。debug artifact のパスは出すが Cookie/口座情報は引用しない。
 
 ## 出力フォーマット（親へ返すテキスト）
