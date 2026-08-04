@@ -85,16 +85,34 @@ function fmtInt(n) {
   return Number(n).toLocaleString("en-US");
 }
 
+/**
+ * `affiliate_cta_impression` が本番で発火し始めた日（commit 445263f55 の deploy・2026-07-25）。
+ *
+ * これを定数で持つ理由: スナップショット JSON は期間の合計しか持たず、**その期間のどこから
+ * 表示イベントが存在したかをデータだけからは判定できない**。窓が違うまま「クリック ÷ 表示」を
+ * 出すと、分子 28 日 ÷ 分母 5 日 の比になって CTR を数倍に過大評価する。
+ * スナップショットの開始日がこの日より前なら CTR は計算せず、**上限値**（クリックが全て
+ * 表示計測期間に落ちたと仮定した最大値）だけを出す。
+ */
+const IMPRESSION_SINCE = "2026-07-25";
+
 // ---- 1. 面別（label）クリック集計 -------------------------------------------
 const labelFile = latestByLabel();
 const byProgram = new Map(); // program -> total clicks
 const bySurface = new Map(); // label -> clicks
+const impressionsBySurface = new Map(); // label -> impressions
 let labelPeriod = null;
+let labelPeriodStart = null;
 let labelUnavailable = false;
 
 if (labelFile) {
   const data = readJson(labelFile);
   labelPeriod = data.meta ? `${data.meta.startDate}〜${data.meta.endDate}` : null;
+  labelPeriodStart = data.meta?.startDate ?? null;
+  for (const r of data.rows) {
+    if (r.eventName !== "affiliate_cta_impression") continue;
+    impressionsBySurface.set(r.label, (impressionsBySurface.get(r.label) ?? 0) + r.eventCount);
+  }
   const affRows = data.rows.filter((r) => r.eventName === "affiliate_cta_click");
   const nonSet = affRows
     .filter((r) => r.label === "(not set)")
@@ -227,6 +245,65 @@ if (surfaceRows.some((r) => r.clicks > 0)) {
   }
 } else {
   lines.push("_BuildJob 面別クリックはまだ計測されていません（デプロイ後に蓄積 / 面別ラベル未登録）。_");
+}
+lines.push("");
+
+// ---- 面別 表示 → CTR（窓が揃うときだけ CTR を出す） -------------------------
+// 「表示 0 件」と「表示イベント未実装」を同じ空表にしない（＝検査ゼロを PASS と呼ばない）。
+lines.push("## 面別 表示回数と CTR");
+lines.push("");
+const totalImpressions = [...impressionsBySurface.values()].reduce((s, n) => s + n, 0);
+if (totalImpressions === 0) {
+  lines.push("> [!warning]");
+  lines.push(
+    `> このスナップショットに \`affiliate_cta_impression\` が **1 件も無い**（本番反映は ${IMPRESSION_SINCE}）。`,
+  );
+  lines.push(
+    "> 表示ゼロなのか、取得期間が実装前なのか、`cta_placement` ディメンション未登録なのかを切り分けること。",
+  );
+  lines.push("> 切り分かないうちは CTR を語らない。");
+} else {
+  const windowAligned = labelPeriodStart != null && labelPeriodStart >= IMPRESSION_SINCE;
+  if (!windowAligned) {
+    lines.push("> [!warning] CTR は算出できない（分子と分母で窓が違う）");
+    lines.push(
+      `> 表示イベントの本番反映は **${IMPRESSION_SINCE}** で、このスナップショットの開始日は **${labelPeriodStart ?? "不明"}**。`,
+    );
+    lines.push(
+      "> 分母（表示）は実装日以降ぶんしか無いのに分子（クリック）は期間全体ぶんあるため、比を取ると CTR を過大評価する。",
+    );
+    lines.push(
+      `> 下表の CTR 欄は **上限**（クリックが全て表示計測期間に落ちたと仮定した最大値）。実測 CTR を得るには`,
+    );
+    // fetch-ga4-cta-clicks は --days しか受けない（終端は前日）。実装日を跨がない最大日数を出す。
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    const alignedDays = Math.floor(
+      (yesterday.getTime() - new Date(`${IMPRESSION_SINCE}T00:00:00Z`).getTime()) / 86_400_000,
+    ) + 1;
+    lines.push(
+      alignedDays > 0
+        ? `> \`npm run fetch-ga4-cta-clicks -- --by-label --days ${alignedDays}\` で窓を ${IMPRESSION_SINCE} 以降に揃えて取り直す（GA4 API＝CI/CD 供給）。`
+        : `> 実装日 ${IMPRESSION_SINCE} 以降のデータがまだ 1 日も無い。`,
+    );
+    lines.push("");
+  }
+  lines.push(
+    windowAligned ? "| 面 | 表示 | クリック | CTR |" : "| 面 | 表示 | クリック | CTR の上限 |",
+  );
+  lines.push("|---|--:|--:|--:|");
+  const impressionRows = [...impressionsBySurface.entries()].sort((a, b) => b[1] - a[1]);
+  for (const [label, impressions] of impressionRows) {
+    const clicks = bySurface.get(label) ?? 0;
+    const rate = impressions > 0 ? ((clicks / impressions) * 100).toFixed(2) : "-";
+    lines.push(
+      `| \`${label}\` | ${fmtInt(impressions)} | ${fmtInt(clicks)} | ${windowAligned ? "" : "≤ "}${rate}% |`,
+    );
+  }
+  lines.push("");
+  lines.push(
+    `_表示イベントを持つ面 ${impressionRows.length} 件・表示合計 ${fmtInt(totalImpressions)} を実集計。表示イベントが 0 の面は行に出ない（＝計測されていない面は「CTR 0%」ではなく不在として扱う）。_`,
+  );
 }
 lines.push("");
 
