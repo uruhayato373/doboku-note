@@ -35,13 +35,7 @@ const ROOTS = [".local/r2/posts"];
  * 既知の未修正。件数は必ず出力し、黙って隠さない（CLAUDE.md §9）。
  * ここに足すのは「直し方は判っているが別ゲートに阻まれて commit できない」場合だけ。
  */
-const ALLOWLIST = new Map([
-  [
-    ".local/r2/posts/pe-comprehensive-management/primary-statistics-2026/article.mdx",
-    "check-guide-length（本文2713字<3000）がこのファイルを触る commit を全て弾くため未修正。" +
-      "字数を満たすためだけの水増しはしない。記事を加筆して 3000 字に達したら修正して本行を削除する。",
-  ],
-]);
+const ALLOWLIST = new Map();
 
 /** frontmatter を除去し、本文と「本文1行目が元ファイルの何行目か」を返す */
 function stripFrontmatter(raw) {

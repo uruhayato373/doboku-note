@@ -79,7 +79,12 @@ for (const f of files) {
   if (!parsed) continue;
   if (field(parsed.fm, 'group') !== 'guide') continue;
   const published = /^published:\s*true\s*$/m.test(parsed.fm);
-  if (!ALL && !STAGED && !published) continue; // CI 既定: published のみ
+  // 下限は「published かつ group: guide」に課すルール（本ファイル冒頭・content-principles §25）。
+  // staged でも未公開は対象外にする。以前は STAGED だけ published を見ておらず、
+  // 撤回済み記事（published:false）を1文字でも触ると commit が通らなくなっていた。
+  // 例: primary-statistics-2026 は 2026-05-18 に unpublish 済みで再公開しない方針なのに、
+  // 太字崩れの修正すら弾かれていた（2026-08-04）。--all は従来どおり draft も一覧する。
+  if (!ALL && !published) continue;
   rows.push({ f, len: bodyLen(parsed.body), published });
 }
 
