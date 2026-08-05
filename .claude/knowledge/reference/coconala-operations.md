@@ -60,6 +60,7 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 | `coconala-2kyu-moshi-pdf` | C9 2級 二次 予想模擬試験 PDF（問題冊子＋解答解説） |
 | `coconala-1kyu-full-pdf` | C10 1級 二次 **教材フルパック**（分析+模範答案+学科+模試・PDF 18冊・¥10,000）。顧客の買い分け混乱シグナル（2026-08-05 初受注 DM）を受けた旗艦。分析(C1)と学科(C6)はパック限定収録。納品は既存 C系 PDF をそのまま送付（新規ビルドなし）。決定ログ→展開キット §2 |
 | `coconala-2kyu-full-pdf` | C11 2級 二次 教材フルパック（模範答案+学科+模試・PDF 15冊・¥7,000）。学科(C7)はパック限定。C10 の2級版 |
+| `coconala-1kyu-premium` | C12 1級 二次 **プレミアム**（教材フルパック18冊 ＋ 経験記述添削2テーマ・書き直し1回・¥15,000）。純教材の天井 ¥10,000 を超える唯一の手段＝労働を足す。**weeklyCapacity=1**（添削は本番納品が未経験のため工数実測まで絞る）。決定ログ→展開キット §2 追補2 |
 | `coconala-civil-keiken-kit` | K1 制作物（DLキット）テスト出品。1級・2級 施工経験記述の**自作 AI 設計キット**（Claude Code＋Node.js 前提・provision_format=2）。`status:'draft'`。公開前ゲート=(1) 納品ZIPは外部URL(note/サイト)除去版へ差替（安全弁#2）、(2) `/coconala-publish --commit`。客層が限定される test 出品 |
 | `coconala-sokan-bunseki-pdf` | K2 単発PDF（テスト出品）。**総監** 記述式I-2 出題テーマ分析（provision_format=3・PDF は write_pdf 生成＝外部URL0件・`assets/pdf/coconala-sokan-bunseki.pdf`）。有料note施策バンク本文は非転載（分析/読み方に限定＝非カニバリ）。`status:'draft'`。総監はココナラ客層が薄い前提の test |
 

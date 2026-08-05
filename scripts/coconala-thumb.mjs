@@ -47,10 +47,11 @@ const THEMES = {
   'civil-2': { bar: '#2a7050', eyebrow: '#215a40' }, // brand tint #2a7050（緑）系
 };
 // wide 1600×667 から 4:3（889×667）をどの x から切るか（右端 = 1600-889 = 711）
-const CROP_X = { moshi: 711, kanseitoan: 380, full: 560 };
+const CROP_X = { moshi: 711, kanseitoan: 380, full: 560, premium: 200 };
 
 /** id → 商品ライン（クロップ窓の選択キー）。該当なしは null＝既定 bg をそのまま使う */
 function productLine(id) {
+  if (id.includes('premium')) return 'premium';
   if (id.includes('moshi')) return 'moshi';
   if (id.includes('kanseitoan')) return 'kanseitoan';
   if (id.includes('full')) return 'full';
@@ -100,6 +101,12 @@ const THUMB_COPY = {
     title: ['経験記述 答案作成', 'ヒアリング→文章化'],
     hook: '質問シートに答えるだけ。\nあなたの実工事を採点者に伝わる答案に',
     priceLabel: '2テーマ・書き直し1回込み',
+  },
+  'coconala-1kyu-premium': {
+    eyebrow: '1級土木施工管理技士 ／ 第2次検定 教材＋添削',
+    title: ['教材一式', '＋経験記述添削'],
+    hook: 'PDF18冊(115ページ)で書き方を掴み\nあなたの答案を採点者視点で赤入れ',
+    priceLabel: '添削2テーマ・書き直し1回込み／週1名',
   },
   'coconala-1kyu-full-pdf': {
     eyebrow: '1級土木施工管理技士 ／ 第2次検定 対策PDF',

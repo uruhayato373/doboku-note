@@ -25,12 +25,23 @@
       "talkroomId": "18082691",
       "priceYen": 2500,
       "grade": 1,
-      "status": "received",
-      "replyDueAt": "2026-08-06T16:00",
-      "deliveredAt": null,
-      "artifacts": [],
+      "status": "delivered",
+      "replyDueAt": null,
+      "deliveredAt": "2026-08-05T11:59+09:00",
+      "artifacts": [
+        {
+          "file": ".claude/config/coconala/assets/pdf/coconala-C8-1級二次予想模試-問題冊子.pdf",
+          "sha256": "763efeb8df0de054bb814f271353dd2c4848939c3a8e70610fb37b3bc71cf4af",
+          "builtAt": "2026-08-05T09:48:10+09:00"
+        },
+        {
+          "file": ".claude/config/coconala/assets/pdf/coconala-C8-1級二次予想模試-解答解説.pdf",
+          "sha256": "9653cb94a80316c5a213774b564571b02895aba27a16dea12f8d7d3250057e6a",
+          "builtAt": "2026-08-05T09:48:10+09:00"
+        }
+      ],
       "tensakuMinutes": null,
-      "memo": "初受注。C系PDF（問題冊子＋解答解説の2冊）送付のみ。購入者から納品形態（紙かPDFか）の質問あり＝運営者が返信。納品前に記入欄行数と答案例字数のズレを是正し PDF を再ビルド（635c7aae5）＝旧版を送らないこと"
+      "memo": "初受注。C系PDF 2冊（問題冊子＋解答解説）を 2026-08-05 11:59 にトークルームで送付（12:00 既読）。納品前に記入欄行数と答案例字数のズレを是正し PDF を再ビルド（635c7aae5）＝送ったのは修正版。artifacts の sha256 でリポジトリの正版と一致を確認済み。納品形態の質問にも回答済み"
     }
   ]
 }
