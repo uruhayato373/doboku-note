@@ -15,9 +15,10 @@
  *   - **account=dobokunote を assert**（不一致は即中断・1フィールドも触らない）。
  *   - 各ステップ .tmp/ にスクショ。
  *
- * プラン ID（2026-07-01 実機 probe）:
- *   - 4956c2d4f928 = 通年プラン（過去問＆月例予想・定員なし）→ 会費 ¥1,480 予定
- *   - ceacc4bb4574 = 添削つきプラン（受験シーズン・定員制）→ 会費 ¥2,980 予定・**定員は添削実測後に確定**
+ * プラン ID（2026-08-06 現在）:
+ *   - 4956c2d4f928 = 通年プラン（過去問＆月例予想・定員なし）→ ¥1,480
+ *   - f9567e03949d = 添削つきプラン（受験シーズン・定員20）→ ¥4,980
+ *     （旧 ceacc4bb4574 ¥2,980 は会費変更不可のため作り直して削除済み）
  *   （最新は `https://note.com/membership/settings/manage` の各プラン「編集」リンクで確認）
  *
  * 使い方:
@@ -26,15 +27,21 @@
  *   # 会費だけ設定して保存（非公開のまま・可逆）
  *   node scripts/note-membership-plan-edit.mjs --plan 4956c2d4f928 --price 1480 --commit
  *   # 定員つきプラン（添削・定員確定後）
- *   node scripts/note-membership-plan-edit.mjs --plan ceacc4bb4574 --price 2980 --limit 10 --commit
+ *   node scripts/note-membership-plan-edit.mjs --plan <新規作成直後のid> --price 4980 --limit 20 --commit
  *   # 名前・説明も上書き（任意）
  *   node scripts/note-membership-plan-edit.mjs --plan <id> --name "…" --desc "…" --commit
  *   # 特典マガジンを紐付ける（タイトル部分一致・カンマ区切りで複数）
  *   node scripts/note-membership-plan-edit.mjs --plan <id> --benefit-magazine "週次お題ラボ" --commit
  *
- * 会費（--price）の制約: **作成済みプランの会費は note の UI に入力欄が無く変更できない**
- *   （静的テキスト表示・2026-08-06 実機確認。両プランとも `input[name=price]` が存在しない）。
- *   このスクリプトは会費指定を黙って skip するので、値を変えたつもりにならないこと。
+ * 会費（--price）の制約: **一度設定した会費は変更できない**（静的テキスト表示になり入力欄が
+ *   消える・2026-08-06 実機確認）。新規作成直後のプランだけ `input[name=price]` があり、
+ *   そこで入れた値が確定値になる。このスクリプトは既設定プランで会費指定を黙って skip するので、
+ *   値を変えたつもりにならないこと。**会費を変えたいときはプランを作り直す**:
+ *     note-membership-plan-create → 本スクリプトで --price/--limit/--benefit-magazine
+ *     → note-membership-plan-status --publish → 旧プランを --delete
+ *
+ * 「参加特典の表示」について: 特典マガジンを紐付けると**その一覧が自動で表示される**ので、
+ *   同じ内容を --perk で手入力する必要はない（手入力欄は5件で上限に達し disabled になる）。
  *
  * 真実源: .claude/knowledge/reference/note-api-verification.md / エージェント: note-membership-operator
  * ---------------------------------------------------------------------------
@@ -60,6 +67,8 @@ const DESC = getArg('--desc');
 const LIMIT = getArg('--limit');           // 定員（人数制限を有効化して数値設定）。省略時は触らない
 // 特典マガジンの紐付け（タイトル部分一致・カンマ区切り）。省略時は触らない。
 const BENEFIT_MAGS = (getArg('--benefit-magazine') || '').split(',').map((s) => s.trim()).filter(Boolean);
+// 「参加特典の表示」に並べる文言。--perk は繰り返し指定できる（加入ページに出る箇条書き）。
+const PERKS = argv.reduce((acc, a, i) => (a === '--perk' && argv[i + 1] ? [...acc, argv[i + 1]] : acc), []);
 const COMMIT = argv.includes('--commit');
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -166,6 +175,39 @@ if (LIMIT) {
   }
   if (!filled) { console.error('ABORT: 定員の数値入力欄が見つからず（保存しない）'); await page.screenshot({ path: join(TMP, `mplan-${PLAN}-nolimit.png`), fullPage: true }); await ctx.close(); process.exit(9); }
   await sleep(500);
+}
+
+// 参加特典の表示（入力欄へ1件ずつ入れて「追加」）。既に同じ文言があれば足さない（冪等）。
+// 入力欄はページ末尾の「name 属性が無い text input」＝プラン名の次に来るもの（2026-08-06 実測）。
+if (PERKS.length) {
+  // 入力欄は「name 属性が無い text input」の最後（先頭はプラン名・2026-08-06 実測）。
+  // 追加済みの特典は input ではなくリスト項目になるので、欄は常に2つのまま。
+  // 「追加」ボタンは入力が空の間 disabled。JS の value setter だけでは有効化が間に合わないことが
+  // あるので（実測: 6件目で disabled のまま click=false）、fill() で入れて **有効化を待ってから** 押す。
+  const perkInput = () => page.locator('input[type="text"]:not([name="q"])').last();
+  const addBtn = page.getByRole('button', { name: '追加', exact: true });
+  for (const perk of PERKS) {
+    const exists = await page.evaluate((t) => (document.body.innerText || '').replace(/\s+/g, ' ').includes(t), perk);
+    if (exists) { console.log(`[4a] 参加特典「${perk.slice(0, 20)}…」: 既存 skip`); continue; }
+    await perkInput().fill(perk);
+    let enabled = false;
+    for (let i = 0; i < 12 && !enabled; i++) {
+      enabled = !(await addBtn.first().isDisabled().catch(() => true));
+      if (!enabled) await sleep(400);
+    }
+    if (!enabled) {
+      console.error(`ABORT: 「追加」ボタンが有効にならず（${perk.slice(0, 20)}）`);
+      await page.screenshot({ path: join(TMP, `mplan-${PLAN}-perk.png`), fullPage: true }); await ctx.close(); process.exit(14);
+    }
+    await addBtn.first().click();
+    await sleep(1200);
+    const added = await page.evaluate((t) => (document.body.innerText || '').replace(/\s+/g, ' ').includes(t), perk);
+    console.log(`[4a] 参加特典「${perk.slice(0, 20)}…」: added=${added}`);
+    if (!added) {
+      console.error('ABORT: 参加特典が一覧に現れず（保存しない）');
+      await page.screenshot({ path: join(TMP, `mplan-${PLAN}-perk.png`), fullPage: true }); await ctx.close(); process.exit(15);
+    }
+  }
 }
 
 // 特典マガジンの紐付け（「特典マガジンを選択」→ 対象行の「選択」→ ダイアログの「保存」）。
