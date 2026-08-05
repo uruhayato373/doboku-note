@@ -232,10 +232,14 @@ async function main() {
   }
   scan.push({ key: 'unreplied', label: '未返信', url: 'https://coconala.com/mypage/received_orders/open?message_status=2', ok: unrepliedOk, rows: unrepliedOk ? [...byRoom.values()].filter((o) => o.unreplied).length : null });
 
-  // 自動キャンセル期限はトークルーム本文にしか出ない。未返信の room だけ開いて拾う。
+  // 自動キャンセル期限はトークルーム本文にしか出ない。**取引中の room はすべて**開いて拾う。
+  //   当初は unreplied の room だけを対象にしていたが、2026-08-05 に
+  //   「納品予定日を登録した（システムメッセージ）」だけで coconala 側の未返信フラグが
+  //   false に反転する一方、**48時間の自動キャンセル期限バナーは残り続ける**ことを実測した。
+  //   unreplied を条件にすると、期限が生きているのに検査が静かになる（＝取引を落とす偽陰性）。
   let deadlineFailed = 0;
   if (WITH_DEADLINE) {
-    const targets = [...byRoom.values()].filter((o) => o.unreplied).slice(0, MAX_DEADLINE_ROOMS);
+    const targets = [...byRoom.values()].filter((o) => o.tab === 'open').slice(0, MAX_DEADLINE_ROOMS);
     for (const o of targets) {
       if (!(await gotoTab(page, o.talkroomUrl))) { deadlineFailed++; continue; }
       const text = await page.evaluate(() => (document.body?.innerText || '').slice(0, 1500));

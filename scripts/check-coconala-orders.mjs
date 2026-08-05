@@ -120,8 +120,10 @@ for (const s of snapOrders) {
 }
 
 // 3. 返信期限（48時間の自動キャンセル）
+//    unreplied では判定しない。納品予定日の登録だけで coconala の未返信フラグは false に
+//    反転するが、期限バナーは残るため（2026-08-05 実測）。**期限が採れている限り surface する**。
 for (const s of snapOrders) {
-  if (!s.unreplied) continue;
+  if (!s.unreplied && !s.replyDueAt) continue;
   if (!s.replyDueAt) {
     warnings.push(`room ${s.talkroomId}: 未返信だが返信期限を取得できていません（トークルームを直接確認）`);
     continue;
@@ -136,7 +138,7 @@ for (const s of snapOrders) {
       `room ${s.talkroomId}: 返信期限まで ${left.toFixed(1)} 時間（${s.replyDueAt}）— 無連絡で自動キャンセル。${s.talkroomUrl}`
     );
   } else {
-    actions.push(`room ${s.talkroomId}: 未返信（期限 ${s.replyDueAt} / 残り ${Math.floor(left / 24)} 日）。${s.talkroomUrl}`);
+    actions.push(`room ${s.talkroomId}: 連絡期限が有効（${s.replyDueAt} / 残り ${Math.floor(left / 24)} 日）。${s.talkroomUrl}`);
   }
 }
 
