@@ -39,12 +39,16 @@
  * 真実源: .claude/knowledge/reference/coconala-operations.md §8
  * ---------------------------------------------------------------------------
  */
+import { readFileSync, writeFileSync } from 'node:fs';
+import { join } from 'node:path';
 import {
   launchContext,
   waitForLogin,
   assertAccount,
   readCatalog,
   sleep,
+  ROOT,
+  CATALOG_PATH,
 } from './lib/coconala-session.mjs';
 
 const TAG = '[coconala-pause]';
@@ -59,6 +63,12 @@ const HEADLESS = argv.includes('--headless');
 //   （＝先にカタログを listed に戻してから再開する。カタログが常に意図の真実源）。
 const RESUME = argv.includes('--resume');
 const ALL_LISTED = argv.includes('--all-listed');
+// --absence: pauseReason:'absence'（長期不在の一時休止）だけを対象にする。
+//   これと対で --resume を使うと、**カタログの巻き戻しもスクリプトが行う**
+//   （paused+absence → listed へ戻し pauseReason/resumeOn を除去）。
+//   人が「戻すのはどの12件だったか」を思い出す必要をなくすのが目的。
+//   恒久廃止（pauseReason:'retired'）は構造的に選ばれないので復活しない。
+const ABSENCE = argv.includes('--absence');
 
 const LIST_URL = 'https://coconala.com/mypage/services_lists';
 
@@ -69,8 +79,59 @@ const ACTION = RESUME ? '受付再開' : '受付休止';
 let ids = (getArg('--service') || '').split(',').map((s) => s.trim()).filter(Boolean);
 if (ALL_PAUSED) ids = Object.values(catalog).filter((s) => s.status === 'paused').map((s) => s.id);
 if (ALL_LISTED) ids = Object.values(catalog).filter((s) => s.status === 'listed').map((s) => s.id);
+
+/** paused+absence を listed へ戻し pauseReason/resumeOn を除去する（--resume --absence 用） */
+function restoreAbsenceInCatalog(targetIds) {
+  const ts = readFileSync(CATALOG_PATH, 'utf-8');
+  const crlf = ts.includes('\r\n');
+  let body = crlf ? ts.split('\r\n').join('\n') : ts;
+  let n = 0;
+  for (const id of targetIds) {
+    // 正規表現を組み立てず文字列探索でブロックを切り出す（id のエスケープ事故を避ける）。
+    const head = `id: '${id}',`;
+    const at = body.indexOf(head);
+    if (at < 0) continue;
+    const close = body.indexOf('\n  },', at);
+    if (close < 0) continue;
+    const block = body.slice(at, close);
+    if (!/pauseReason:\s*'absence'/.test(block)) continue; // retired は構造的に触らない
+    const next = block
+      .replace(/status: 'paused'/, "status: 'listed'")
+      .replace(/\n\s*pauseReason: 'absence',/, '')
+      .replace(/\n\s*resumeOn: '[^']*',/, '');
+    body = body.slice(0, at) + next + body.slice(close);
+    n++;
+  }
+  writeFileSync(CATALOG_PATH, crlf ? body.split('\n').join('\r\n') : body);
+  return n;
+}
+
+if (RESUME && ABSENCE) {
+  // 対象は「paused かつ pauseReason:'absence'」。retired は構造的に選ばれない。
+  const absent = Object.values(catalog).filter((s) => s.status === 'paused' && s.pauseReason === 'absence');
+  const retired = Object.values(catalog).filter((s) => s.status === 'paused' && s.pauseReason === 'retired');
+  const unmarked = Object.values(catalog).filter((s) => s.status === 'paused' && !s.pauseReason);
+  console.log(`${TAG} 不在復帰: 対象 ${absent.length} 件 / 恒久廃止で据え置き ${retired.length} 件`);
+  for (const r of retired) console.log(`    据え置き: ${r.id}（pauseReason=retired）`);
+  if (unmarked.length) {
+    console.error(`${TAG} ✗ pauseReason 未設定の paused が ${unmarked.length} 件あります（意味が判別できないため中断）:`);
+    for (const u of unmarked) console.error(`    - ${u.id}`);
+    process.exit(1);
+  }
+  if (absent.length === 0) { console.log(`${TAG} 復帰対象なし（既に全て listed）`); process.exit(0); }
+  if (!COMMIT) {
+    console.log(`${TAG} DRY-RUN: --commit でカタログを listed へ戻し、live も reopen します`);
+    for (const a of absent) console.log(`    復帰予定: ${a.id}`);
+    process.exit(0);
+  }
+  const n = restoreAbsenceInCatalog(absent.map((s) => s.id));
+  console.log(`${TAG} カタログを listed へ戻しました: ${n} 件`);
+  ids = absent.map((s) => s.id);
+  Object.assign(catalog, readCatalog()); // 巻き戻し後の状態で以降のガードを効かせる
+}
+
 if (ids.length === 0) {
-  console.error(`${TAG} --service <id[,id]> か --all-paused / --all-listed が必要`);
+  console.error(`${TAG} --service <id[,id]> か --all-paused / --all-listed / --resume --absence が必要`);
   process.exit(1);
 }
 

@@ -15,11 +15,14 @@
  * 出品前は status: 'draft' にしておけば防御的に非表示（listed が 0 件なら
  * セクションごと出ない）。満枠時は 'full'、季節オフは 'paused' へ flip する。
  *
- * ★ 2026-08-06〜08-16 は運営者不在のため **listed 12 件を一時 paused** にしている。
- *   理由: ココナラは購入から48時間以内に出品者が連絡しないと取引が自動キャンセルされ、
- *   レビュー0の段階でそれを踏むと致命的。PDF 商品も手作業送付なので例外にできない。
- *   復帰手順（8/17）: 本ファイルの該当 12 件を 'listed' に戻す
- *   → `npm run coconala-pause -- --resume --all-listed --commit`（実測で stop_fg=0 を検証）
+ * ★ paused には2つの意味があるので **pauseReason で必ず区別する**:
+ *     'retired' = 商品整理で恒久廃止（復帰させない）   … 2026-08-05 統廃合の 5 件
+ *     'absence' = 運営者の長期不在で一時休止（復帰する）… 2026-08-06〜08-16 の 12 件
+ *   ココナラは購入から48時間以内に出品者が連絡しないと取引が自動キャンセルされ、
+ *   PDF 商品も手作業送付なので不在中に例外を作れない（全件休止が既定）。
+ *   復帰（8/17）: `npm run coconala-pause -- --resume --absence --commit`
+ *     → pauseReason:'absence' のものだけを listed へ戻し、live も reopen して実測検証する。
+ *     **--all-listed は使わない**（恒久廃止した 5 件まで復活してしまう）。
  *
  * 戦略・出品文面の真実源: docs/note/1級・2級土木/ココナラ展開キット.md
  * 運用・スキーマの真実源: .claude/knowledge/reference/coconala-operations.md
@@ -56,6 +59,16 @@ export interface CoconalaService {
   readonly weeklyCapacity: number;
   /** 出品日（ISO 日付）。listed 化と同時に埋める */
   readonly listedAt?: string;
+  /**
+   * status:'paused' の**理由**。paused は2つの意味に多重化しうるので必ず区別する:
+   *   'retired'  = 商品整理で恒久的に棚から下ろした（復帰させない）
+   *   'absence'  = 運営者の長期不在による一時休止（復帰させる。resumeOn に復帰予定日）
+   * check-coconala-wiring が「paused なのに pauseReason 無し」を落とす。
+   * これが無いと一括復帰のときに恒久廃止した商品まで復活する（2026-08-05 に実際に危なかった）。
+   */
+  readonly pauseReason?: 'retired' | 'absence';
+  /** pauseReason:'absence' のときの復帰予定日（ISO 日付・目安） */
+  readonly resumeOn?: string;
 }
 
 /**
@@ -93,6 +106,8 @@ const SERVICES_RAW = {
     priceYen: 1500,
     examScope: ['civil-1', 'civil-2'],
     weeklyCapacity: 5,
+    pauseReason: 'absence',
+    resumeOn: '2026-08-17',
     listedAt: '2026-07-18',
   },
 
@@ -114,6 +129,8 @@ const SERVICES_RAW = {
     priceYen: 6000,
     examScope: ['civil-1', 'civil-2'],
     weeklyCapacity: 3,
+    pauseReason: 'absence',
+    resumeOn: '2026-08-17',
     listedAt: '2026-07-18',
   },
 
@@ -132,6 +149,8 @@ const SERVICES_RAW = {
     priceYen: 8000,
     examScope: ['civil-1', 'civil-2'],
     weeklyCapacity: 2,
+    pauseReason: 'absence',
+    resumeOn: '2026-08-17',
     listedAt: '2026-07-18',
   },
 
@@ -150,6 +169,7 @@ const SERVICES_RAW = {
     priceYen: 2500,
     examScope: ['civil-1'],
     weeklyCapacity: 10,
+    pauseReason: 'retired',
     listedAt: '2026-07-18',
   },
 
@@ -170,6 +190,8 @@ const SERVICES_RAW = {
     priceYen: 5000,
     examScope: ['civil-1'],
     weeklyCapacity: 10,
+    pauseReason: 'absence',
+    resumeOn: '2026-08-17',
     listedAt: '2026-07-18',
   },
 
@@ -187,6 +209,8 @@ const SERVICES_RAW = {
     priceYen: 4000,
     examScope: ['civil-2'],
     weeklyCapacity: 10,
+    pauseReason: 'absence',
+    resumeOn: '2026-08-17',
     listedAt: '2026-07-18',
   },
 
@@ -203,6 +227,7 @@ const SERVICES_RAW = {
     priceYen: 3000,
     examScope: ['civil-1'],
     weeklyCapacity: 10,
+    pauseReason: 'retired',
     listedAt: '2026-07-18',
   },
 
@@ -219,6 +244,7 @@ const SERVICES_RAW = {
     priceYen: 3000,
     examScope: ['civil-2'],
     weeklyCapacity: 10,
+    pauseReason: 'retired',
     listedAt: '2026-07-18',
   },
 
@@ -236,6 +262,7 @@ const SERVICES_RAW = {
     priceYen: 2500,
     examScope: ['civil-1'],
     weeklyCapacity: 10,
+    pauseReason: 'retired',
     listedAt: '2026-07-18',
   },
 
@@ -252,6 +279,7 @@ const SERVICES_RAW = {
     priceYen: 2500,
     examScope: ['civil-2'],
     weeklyCapacity: 10,
+    pauseReason: 'retired',
     listedAt: '2026-07-18',
   },
 
@@ -270,6 +298,8 @@ const SERVICES_RAW = {
     priceYen: 2500,
     examScope: ['civil-1'],
     weeklyCapacity: 20,
+    pauseReason: 'absence',
+    resumeOn: '2026-08-17',
     listedAt: '2026-07-18',
   },
 
@@ -286,6 +316,8 @@ const SERVICES_RAW = {
     priceYen: 2000,
     examScope: ['civil-2'],
     weeklyCapacity: 20,
+    pauseReason: 'absence',
+    resumeOn: '2026-08-17',
     listedAt: '2026-07-18',
   },
   // C10: 1級 二次 教材フルパック（C1+C2+C4+C6+C8 全部入り・PDF 18冊）。2026-08-05 新設。
@@ -309,6 +341,8 @@ const SERVICES_RAW = {
     priceYen: 10000,
     examScope: ['civil-1'],
     weeklyCapacity: 20,
+    pauseReason: 'absence',
+    resumeOn: '2026-08-17',
     listedAt: '2026-08-05',
   },
 
@@ -326,6 +360,8 @@ const SERVICES_RAW = {
     priceYen: 7000,
     examScope: ['civil-2'],
     weeklyCapacity: 20,
+    pauseReason: 'absence',
+    resumeOn: '2026-08-17',
     listedAt: '2026-08-05',
   },
 
@@ -352,6 +388,8 @@ const SERVICES_RAW = {
     priceYen: 15000,
     examScope: ['civil-1'],
     weeklyCapacity: 1,
+    pauseReason: 'absence',
+    resumeOn: '2026-08-17',
     listedAt: '2026-08-05',
   },
 
@@ -370,6 +408,8 @@ const SERVICES_RAW = {
     priceYen: 8000,
     examScope: ['civil-1', 'civil-2'],
     weeklyCapacity: 20,
+    pauseReason: 'absence',
+    resumeOn: '2026-08-17',
     listedAt: '2026-07-22',
   },
   // 総監 出題テーマ分析 PDF（テスト出品）。有料note「設問3国家施策バンク」本文は転載せず、
@@ -388,6 +428,8 @@ const SERVICES_RAW = {
     priceYen: 2500,
     examScope: ['pe-comprehensive-management'],
     weeklyCapacity: 20,
+    pauseReason: 'absence',
+    resumeOn: '2026-08-17',
     listedAt: '2026-07-22',
   },
 } as const satisfies Record<string, CoconalaService>;

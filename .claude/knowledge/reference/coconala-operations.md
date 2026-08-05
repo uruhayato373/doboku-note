@@ -316,11 +316,26 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 > 「スケジュール」欄（プロフィール編集 `/mypage/user?anchor=schedule`）は**自由記述600字の表示だけで購入を止めない**——休暇モードは存在しない。止める手段は受付休止のみ。
 >
 > 手順（カタログが常に意図の真実源）:
-> 1. 出発前: `src/lib/coconala-services.ts` の listed を全て `'paused'` へ → `npm run coconala-pause -- --all-paused --commit`
-> 2. 復帰時: 同ファイルを `'listed'` へ戻す → `npm run coconala-pause -- --resume --all-listed --commit`
+> 1. 出発前: listed を `'paused'` ＋ **`pauseReason: 'absence'`（＋`resumeOn`）** にして
+>    `npm run coconala-pause -- --all-paused --commit`
+> 2. 復帰時: **`npm run coconala-pause -- --resume --absence --commit`** の1コマンド
+>    （`pauseReason:'absence'` のものだけカタログを `listed` へ戻し、マーカーを消し、live も reopen して実測検証する）
 >
 > どちらも実行後に `stop_fg` を実測検証する。**レビュー0の段階で自動キャンセルを踏むと致命的**なので、
 > 売上機会の逸失より取引事故の回避を優先する。初回適用＝2026-08-06〜08-16（17件休止）。
+
+> [!important] `paused` は多義なので `pauseReason` で必ず区別する（2026-08-05 制定）
+> 同じ `status:'paused'` に**2つの理由**が同居する:
+>
+> | pauseReason | 意味 | 復帰 |
+> |---|---|---|
+> | `'retired'` | 商品整理で恒久廃止（2026-08-05 統廃合の C1/C4/C5/C6/C7） | **させない** |
+> | `'absence'` | 運営者の長期不在による一時休止 | `--resume --absence` で戻す |
+>
+> 区別が無いと**一括復帰で恒久廃止した商品まで復活し、統廃合が巻き戻る**。
+> 17件を全休止したときに実際に取り違えかけたため、機械可読フィールドとして固定した。
+> `check-coconala-wiring` が ①paused なのに理由なし ②未知の理由 ③listed なのに理由が残存 を落とす（変異テスト済み）。
+> **`--resume --all-listed` は使わない**（理由を見ないため retired を巻き込む）。
 
 > [!warning] 価格は「刻み」に従う（2026-08-05 実機確定）
 > **¥10,000 以下は 500 円刻み／超は 1,000 円刻み**。`¥9,800` `¥4,980` のような端数は**フォームに入力できず** publish がガードで拒否する（`ABORT: priceYen ... はココナラの価格刻みに不一致`）。カタログの `priceYen` を決めるときは先にこの刻みへ丸める。

@@ -84,12 +84,14 @@ function parseCatalog() {
     const slice = body.slice(cur.at, next ? next.at : body.length);
     const pm = slice.match(/priceYen:\s*(\d+)/);
     const lm = slice.match(/listedAt:\s*'([^']*)'/);
+    const rm = slice.match(/pauseReason:\s*'([^']*)'/);
     return {
       id: cur.id,
       status: cur.status,
       serviceUrl: cur.serviceUrl,
       priceYen: pm ? parseInt(pm[1], 10) : null,
       listedAt: lm ? lm[1] : null,
+      pauseReason: rm ? rm[1] : null,
     };
   });
 }
@@ -118,6 +120,26 @@ for (const s of listed) {
       `[${s.id}] status:'listed' なのに serviceUrl が不正/空（"${s.serviceUrl}"）。出品後の URL を埋めてください`
     );
   }
+}
+
+// 8. paused には理由（pauseReason）が必須。
+//    paused は「商品整理で恒久廃止（retired）」と「運営者の長期不在で一時休止（absence）」の
+//    2つの意味に多重化する。区別が無いと一括復帰で**恒久廃止した商品まで復活**する
+//    （2026-08-05、17件全休止のときに実際に取り違えかけた）。
+const PAUSE_REASONS = ['retired', 'absence'];
+for (const s of catalog.filter((x) => x.status === 'paused')) {
+  if (!s.pauseReason) {
+    violations.push(
+      `[${s.id}] status:'paused' なのに pauseReason がありません` +
+        `（'retired'=恒久廃止 / 'absence'=長期不在の一時休止 のどちらかを明記。` +
+        ' 一括復帰 coconala-pause --resume --absence がこの値で対象を選びます）'
+    );
+  } else if (!PAUSE_REASONS.includes(s.pauseReason)) {
+    violations.push(`[${s.id}] 未知の pauseReason: "${s.pauseReason}"（${PAUSE_REASONS.join(' / ')} のいずれか）`);
+  }
+}
+for (const s of catalog.filter((x) => x.status !== 'paused' && x.pauseReason)) {
+  violations.push(`[${s.id}] status:'${s.status}' なのに pauseReason が残っています（復帰時に消し忘れ）`);
 }
 
 // 5. listed があるなら account SSOT が埋まっていること
