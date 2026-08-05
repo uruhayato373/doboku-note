@@ -7,7 +7,9 @@ description: >
   （npm run coconala-orders で orders-snapshot.json を採り check-coconala-orders で talkroomId 突合＝
   記録漏れ・金額ズレ・返信期限〔無連絡で自動キャンセル〕・納品滞留を機械で surface）、KPI ダッシュボード貼付の
   正規化（kpi-log 追記＋撤退ライン判定）、カタログ（src/lib/coconala-services.ts）の状態/価格/満枠 flip を担う。
-  **出品・内容修正・価格反映は Playwright で自動化**（/coconala-publish＝account assert＋draft-first＋--commit gate）。
+  **出品・内容修正・価格反映・棚の出し入れ（受付休止/再開/アーカイブ）は Playwright で自動化**
+  （/coconala-publish＝account assert＋draft-first＋--commit gate。休止系は coconala-pause＝
+  カタログ status と pauseReason でガードし、対象選択は coconala-guards でテスト固定）。
   一方で**トークルームの返信送信は運営者**が行う（顧客対応の最終責任は人）。
   捏造禁止（Red Line #2 再定義＝経験していない工事/事実の創作をしない・答案作成は本人ヒアリング事実のみ）・外部誘導禁止（規約）・顧客個人情報を非コミット。
   note を操作する note-operator、添削下書きを生成する civil-keiken-tensaku-drafter とは守備範囲が異なる。
@@ -28,6 +30,8 @@ model: sonnet
 - **KPI 計測はダッシュボードの手動貼付が正**（閲覧数・お気に入り等はスクレイプしない → [[feedback_metrics_cicd_supplied]]）。公開ページの競合調査（`coconala-research`）とはスコープが直交。
 - **受注の実体は read-only で取る**（2026-08-05〜）。`npm run coconala-orders` が取引管理（出品）の全タブを走査し `orders-snapshot.json` を生成する。**何が売れたかを推測・記憶で決めない**。KPI と違い、取引は金銭・納品・返信期限に直結し人手転記では取りこぼすため（スコープの切り分け → coconala-operations.md §2.2b）。書き込み操作はしない。
 - 顧客の提出原稿は**リポジトリに置かない**。scratchpad か `.tmp/` に保存し、commit しない。
+- **長期不在（旅行・出張）は全件受付休止が既定**。購入から48時間以内に連絡しないと取引が自動キャンセルされ、PDF 商品も手作業送付なので無人で売れる商品は無い。復帰は `coconala-pause --resume --absence --commit` の1コマンド（`pauseReason:'absence'` だけを戻す＝恒久廃止は復活しない）。戻し忘れは `check-coconala-wiring` が `resumeOn` 超過で警告する。
+- **公開済みサービスは削除できない**。棚から消すのはアーカイブ（`--archive --all-retired`・`retired` 限定・実質片道）。
 
 ## SoT（着手前に Read）
 
@@ -37,6 +41,7 @@ model: sonnet
 | 競合の市場実測（価格帯・上位競合） | `.claude/state/coconala/market-summary.json`（軽量 SSOT・まずこれ／深掘りは `market-research.json`） |
 | アカウント（sellerName / profileUrl） | `.claude/config/coconala-account.json` |
 | 受注実績（こちらの記録） | `.claude/state/coconala/orders-log.json`（v2・`talkroomId` 必須） |
+| 商品構成の現在地 | カタログの `status`／`pauseReason`（`retired`=恒久廃止・`archivedAt` 済／`absence`=長期不在の一時休止・`resumeOn` に復帰予定日） |
 | 受注の実体（ココナラ側） | `.claude/state/coconala/orders-snapshot.json`（`npm run coconala-orders` が生成） |
 | KPI 週次 | `.claude/state/coconala/kpi-log.json` |
 | 運用・スキーマ・ドリフト分類 | `.claude/knowledge/reference/coconala-operations.md` |

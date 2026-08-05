@@ -51,6 +51,7 @@ import {
   ROOT,
   CATALOG_PATH,
 } from './lib/coconala-session.mjs';
+import { selectTargets, selectAbsenceResume } from './lib/coconala-guards.mjs';
 
 const TAG = '[coconala-pause]';
 const argv = process.argv.slice(2);
@@ -119,9 +120,7 @@ function restoreAbsenceInCatalog(targetIds) {
 
 if (RESUME && ABSENCE) {
   // 対象は「paused かつ pauseReason:'absence'」。retired は構造的に選ばれない。
-  const absent = Object.values(catalog).filter((s) => s.status === 'paused' && s.pauseReason === 'absence');
-  const retired = Object.values(catalog).filter((s) => s.status === 'paused' && s.pauseReason === 'retired');
-  const unmarked = Object.values(catalog).filter((s) => s.status === 'paused' && !s.pauseReason);
+  const { absent, retired, unmarked } = selectAbsenceResume(Object.values(catalog));
   console.log(`${TAG} 不在復帰: 対象 ${absent.length} 件 / 恒久廃止で据え置き ${retired.length} 件`);
   for (const r of retired) console.log(`    据え置き: ${r.id}（pauseReason=retired）`);
   if (unmarked.length) {
@@ -146,25 +145,22 @@ if (ids.length === 0) {
   process.exit(1);
 }
 
-// ---- G0/G1: カタログ側の事前ガード（ブラウザを開く前に落とす） ----
-const targets = [];
-const rejected = [];
-for (const id of ids) {
-  const svc = catalog[id];
-  if (!svc) { rejected.push(`${id}: カタログに存在しない`); continue; }
-  if (svc.status !== WANT) {
-    rejected.push(
-      `${id}: status='${svc.status}' — ${ACTION}できるのは status:'${WANT}' のものだけ（先にカタログを ${WANT} にしてください）`
-    );
-    continue;
+// ---- G0/G1: カタログ側の事前ガード（ブラウザを開く前に落とす）----
+//   判定は coconala-guards.selectTargets（tests/coconala-guards.test.mjs で固定）。
+const mode = RESUME ? 'resume' : ARCHIVE ? 'archive' : 'pause';
+const sel = selectTargets(Object.values(catalog), { mode, ids });
+const targets = sel.targets.map((svc) => ({
+  id: svc.id,
+  sid: (svc.serviceUrl.match(/services\/(\d+)/) || [])[1],
+  title: svc.title,
+}));
+const rejected = [...sel.rejected];
+// serviceUrl から数値 id を取れないものは操作できない
+for (let i = targets.length - 1; i >= 0; i--) {
+  if (!targets[i].sid) {
+    rejected.push(`${targets[i].id}: serviceUrl から数値 id を取れない`);
+    targets.splice(i, 1);
   }
-  if (ARCHIVE && svc.pauseReason !== 'retired') {
-    rejected.push(`${id}: pauseReason='${svc.pauseReason ?? 'なし'}' — アーカイブできるのは 'retired'（恒久廃止）だけ`);
-    continue;
-  }
-  const sid = (svc.serviceUrl.match(/services\/(\d+)/) || [])[1];
-  if (!sid) { rejected.push(`${id}: serviceUrl から数値 id を取れない（"${svc.serviceUrl}"）`); continue; }
-  targets.push({ id, sid, title: svc.title });
 }
 if (rejected.length) {
   console.error(`${TAG} ✗ ガードで拒否 ${rejected.length} 件:`);

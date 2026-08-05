@@ -1,13 +1,14 @@
 ---
 name: coconala-publish
 description: >
-  ココナラ出品サービスを Playwright で「新規出品」「内容修正」するスキル。カタログ
+  ココナラ出品サービスを Playwright で「新規出品」「内容修正」「受付休止/再開/アーカイブ」するスキル。カタログ
   （src/lib/coconala-services.ts＝価格/状態/URL）と listings（.claude/config/coconala-listings.json
   ＝本文/カテゴリ/納期/ジャンル）を真実源に、ログイン済みプロファイルで出品フォームへ流し込む。
   安全弁＝account assert（sellerName=dobokunote）／既定は「下書きで保存」で実公開は --commit 必須／
   価格・カテゴリの充填 warning があれば公開せず下書き退避。公開成功時はカタログへ status:'listed'＋
-  serviceUrl＋listedAt を書き戻す。KPI 照合は /coconala-status、受注処理は /coconala-order と別。
-  Use when user asks to [ココナラに出品, ココナラ出品を修正, ココナラの価格を反映, サービスを公開, /coconala-publish].
+  serviceUrl＋listedAt を書き戻す。棚の出し入れは coconala-pause（休止/再開/アーカイブ・対象選択は
+  coconala-guards でテスト固定・長期不在は全件休止が既定）。KPI 照合は /coconala-status、受注処理は /coconala-order と別。
+  Use when user asks to [ココナラに出品, ココナラ出品を修正, ココナラの価格を反映, サービスを公開, ココナラを休止, 出品を再開, 商品を取り下げ, /coconala-publish].
 user-invocable: true
 ---
 
@@ -21,7 +22,26 @@ node scripts/coconala-publish.mjs --service coconala-shindan             # 新�
 node scripts/coconala-publish.mjs --service coconala-tensaku-set --commit # 新規：公開
 node scripts/coconala-edit.mjs --service coconala-tensaku-set --commit    # 修正：カタログ現値をフル反映
 node scripts/coconala-edit.mjs --service coconala-shindan --fields price   # 修正：価格だけ（下書き保存）
+node scripts/coconala-edit.mjs --service <id> --image <png> --replace-image --commit  # 商品画像の差し替え
+node scripts/coconala-pause.mjs --all-paused --commit                     # 棚から下ろす（受付休止）
+node scripts/coconala-pause.mjs --resume --absence --commit               # 長期不在あけの一括復帰
+node scripts/coconala-pause.mjs --archive --all-retired --commit          # 恒久廃止を棚から消す
 ```
+
+## 棚の出し入れ（2026-08-05 追加）
+
+**カタログが常に意図の真実源**で、live はそれに合わせる。ガードの向きは操作ごとに反転する。
+
+| 操作 | 対象（カタログ側） | 効果 |
+|---|---|---|
+| 受付休止 | `status:'paused'` のみ | 購入不可。検索/プロフィールには「休止中」で**残る** |
+| 受付再開 | `status:'listed'` のみ | 再び購入可 |
+| アーカイブ | `status:'paused'` かつ `pauseReason:'retired'` のみ | 検索/カテゴリ/プロフィールから**消える**（「受付終了」）。**実質片道** |
+
+- **`paused` は多義**（`retired`=恒久廃止 / `absence`=長期不在の一時休止）。`pauseReason` 必須で `check-coconala-wiring` が強制する。区別が無いと一括復帰で廃止商品が復活する。
+- **長期不在は全件休止が既定**。購入から48時間以内に連絡しないと自動キャンセルされ、PDF商品も手作業送付なので例外を作れない。`resumeOn` 超過は `check-coconala-wiring` が警告する。
+- **公開済みサービスは削除できない**（削除導線があるのは空の下書きのみ＝`coconala-delete-draft.mjs`）。棚から消すのはアーカイブ。
+- 判定ロジックは `scripts/lib/coconala-guards.mjs`（`tests/coconala-guards.test.mjs` で固定）。詳細 → [coconala-operations.md §8](../../../../.claude/knowledge/reference/coconala-operations.md)
 
 ## 前提（最重要）
 

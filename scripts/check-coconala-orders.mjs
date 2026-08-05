@@ -32,6 +32,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { assessSnapshot, reconcileOrders, classifyReplyDeadlines } from './lib/coconala-guards.mjs';
 
 const TAG = '[check-coconala-orders]';
 const ROOT = process.cwd();
@@ -66,23 +67,14 @@ function readJson(path) {
 const snap = readJson(SNAPSHOT_PATH);
 const log = readJson(ORDERS_PATH);
 
-// --- 検査成立性の判定（緑の意味を守る） ---
-if (!snap || snap.__parseError) {
-  console.error(`${TAG} ✗ 検査不成立: 受注スナップショットがありません（${SNAPSHOT_PATH}）`);
-  console.error(`   先に実行: npm run coconala-orders`);
+// --- 検査成立性の判定（緑の意味を守る）→ 判定は coconala-guards（テスト済み） ---
+const health = assessSnapshot(snap, Date.now(), { staleDays: SNAPSHOT_STALE_DAYS, checkFreshness: !noFreshness });
+if (!health.ok) {
+  console.error(`${TAG} ✗ 検査不成立: ${health.reason}`);
+  console.error(`   取得タブ ${snap?.scan?.tabsOk ?? '?'}/${snap?.scan?.tabsTotal ?? '?'} — 再取得: npm run coconala-orders`);
   process.exit(2);
 }
-if (snap.status !== 'ok') {
-  console.error(`${TAG} ✗ 検査不成立: snapshot.status="${snap.status}"（取得できなかったタブがある）`);
-  console.error(`   取得タブ ${snap.scan?.tabsOk ?? '?'}/${snap.scan?.tabsTotal ?? '?'} — 再実行: npm run coconala-orders`);
-  process.exit(2);
-}
-const ageDays = (Date.now() - Date.parse(snap.fetchedAt)) / 86_400_000;
-if (!noFreshness && !(ageDays < SNAPSHOT_STALE_DAYS)) {
-  console.error(`${TAG} ✗ 検査不成立: snapshot が古い（${ageDays.toFixed(1)} 日前・上限 ${SNAPSHOT_STALE_DAYS} 日）`);
-  console.error(`   再取得: npm run coconala-orders`);
-  process.exit(2);
-}
+const ageDays = health.ageDays;
 if (!log || log.__parseError) {
   console.error(`${TAG} ✗ orders-log.json が読めません（${ORDERS_PATH}）`);
   process.exit(1);
@@ -90,55 +82,26 @@ if (!log || log.__parseError) {
 
 const snapOrders = Array.isArray(snap.orders) ? snap.orders : [];
 const logOrders = Array.isArray(log.orders) ? log.orders : [];
-const logByRoom = new Map(logOrders.filter((o) => o.talkroomId).map((o) => [String(o.talkroomId), o]));
 
-const violations = [];
-const warnings = [];
 const actions = [];
 const now = Date.now();
 
-// 1 & 2. snapshot → orders-log の突合
-for (const s of snapOrders) {
-  const l = logByRoom.get(String(s.talkroomId));
-  if (!l) {
-    violations.push(
-      `ココナラに取引があるのに orders-log に記録がありません: room ${s.talkroomId}` +
-      `（${s.serviceId ?? s.listingText.slice(0, 24)} / ¥${s.priceYen} / ${s.soldOn}）` +
-      ` — /coconala-order で追記してください`
-    );
-    continue;
-  }
-  if (s.serviceId && l.serviceId !== s.serviceId) {
-    violations.push(`room ${s.talkroomId}: serviceId 不一致（記録 "${l.serviceId}" vs 実体 "${s.serviceId}"）`);
-  }
-  if (typeof s.priceYen === 'number' && typeof l.priceYen === 'number' && s.priceYen !== l.priceYen) {
-    violations.push(`room ${s.talkroomId}: priceYen 不一致（記録 ${l.priceYen} vs 実体 ${s.priceYen}）`);
-  }
-  if (s.soldOn && l.date && s.soldOn !== l.date) {
-    violations.push(`room ${s.talkroomId}: 販売日 不一致（記録 ${l.date} vs 実体 ${s.soldOn}）`);
-  }
-}
+// 1 & 2 & 5. snapshot ↔ orders-log の突合（判定は coconala-guards）
+const rec = reconcileOrders(snapOrders, logOrders);
+const violations = [...rec.violations];
+const warnings = [...rec.warnings];
 
-// 3. 返信期限（48時間の自動キャンセル）
-//    unreplied では判定しない。納品予定日の登録だけで coconala の未返信フラグは false に
-//    反転するが、期限バナーは残るため（2026-08-05 実測）。**期限が採れている限り surface する**。
-for (const s of snapOrders) {
-  if (!s.unreplied && !s.replyDueAt) continue;
-  if (!s.replyDueAt) {
-    warnings.push(`room ${s.talkroomId}: 未返信だが返信期限を取得できていません（トークルームを直接確認）`);
-    continue;
-  }
-  const left = (Date.parse(s.replyDueAt) - now) / 3_600_000;
-  if (left < 0) {
-    violations.push(
-      `room ${s.talkroomId}: 返信期限を経過しています（${s.replyDueAt}）— 自動キャンセルの可能性。${s.talkroomUrl}`
-    );
-  } else if (left <= REPLY_WARN_HOURS) {
-    actions.push(
-      `room ${s.talkroomId}: 返信期限まで ${left.toFixed(1)} 時間（${s.replyDueAt}）— 無連絡で自動キャンセル。${s.talkroomUrl}`
-    );
+// 3. 返信期限（48時間の自動キャンセル）— 判定は coconala-guards（unreplied では判定しない）
+for (const d of classifyReplyDeadlines(snapOrders, now, { warnHours: REPLY_WARN_HOURS })) {
+  const s2 = d.order;
+  if (d.level === 'unknown') {
+    warnings.push(`room ${s2.talkroomId}: 未返信だが返信期限を取得できていません（トークルームを直接確認）`);
+  } else if (d.level === 'expired') {
+    violations.push(`room ${s2.talkroomId}: 返信期限を経過しています（${s2.replyDueAt}）— 自動キャンセルの可能性。${s2.talkroomUrl}`);
+  } else if (d.level === 'urgent') {
+    actions.push(`room ${s2.talkroomId}: 返信期限まで ${d.hoursLeft.toFixed(1)} 時間（${s2.replyDueAt}）— 無連絡で自動キャンセル。${s2.talkroomUrl}`);
   } else {
-    actions.push(`room ${s.talkroomId}: 連絡期限が有効（${s.replyDueAt} / 残り ${Math.floor(left / 24)} 日）。${s.talkroomUrl}`);
+    actions.push(`room ${s2.talkroomId}: 連絡期限が有効（${s2.replyDueAt} / 残り ${Math.floor(d.hoursLeft / 24)} 日）。${s2.talkroomUrl}`);
   }
 }
 
@@ -162,18 +125,6 @@ for (const l of logOrders) {
       `orders-log: ${l.serviceId}（${l.date}）が ${Math.floor(days)} 日 status:'received' のままです` +
       ` — 納品済みなら delivered へ、未納品なら着手してください`
     );
-  }
-}
-
-// 5. orders-log にあって snapshot に無い
-const snapRooms = new Set(snapOrders.map((s) => String(s.talkroomId)));
-for (const l of logOrders) {
-  if (!l.talkroomId) {
-    warnings.push(`orders-log: ${l.serviceId}（${l.date}）に talkroomId がありません — 取引を追跡できません`);
-    continue;
-  }
-  if (!snapRooms.has(String(l.talkroomId))) {
-    warnings.push(`orders-log: room ${l.talkroomId}（${l.serviceId}）がココナラ側の一覧にありません（talkroomId 誤りの疑い）`);
   }
 }
 

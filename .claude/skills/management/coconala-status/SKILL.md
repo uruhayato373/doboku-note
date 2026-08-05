@@ -25,7 +25,8 @@ user-invocable: true
 0. **受注の実体を取る**: `npm run coconala-orders`（read-only Playwright）→ `npm run check-coconala-orders`。
    記録漏れ・金額ズレ・**返信期限（無連絡で自動キャンセル）**・納品滞留を機械が surface する。
    snapshot が取れない/古いときは exit 2＝**検査不成立**なので「受注 0 件」と報告しない。
-1. **整合チェック**: `node scripts/check-coconala-wiring.mjs` を実行し結果を報告（listed なのに serviceUrl 空・未知 serviceId・priceYen 不一致 等）。
+1. **整合チェック**: `node scripts/check-coconala-wiring.mjs` を実行し結果を報告（listed なのに serviceUrl 空・未知 serviceId・priceYen 不一致・**paused の理由欠落**・**復帰予定日 `resumeOn` の超過** 等）。
+   ⚠ が出たら**棚が止まったままになっていないか**を必ず報告する（長期不在の全件休止から戻し忘れると、売上ゼロのまま誰も気づかない）。
 2. **KPI 正規化**（数値の貼付があるとき）: サービス別の 閲覧数/お気に入り/販売数 を抽出 → `kpi-log.json` の `weekly` に append（`weekOf` = ISO 週初＝月曜）。**読み取れない項目は `null`。推測で埋めない**。
 3. **受注サマリ**: `orders-log.json` から 直近4週の serviceId 別 受注件数・平均 `tensakuMinutes` を集計。
 4. **判定を報告**:
