@@ -32,6 +32,8 @@
  *   node scripts/coconala-pause.mjs --service coconala-bunseki-pdf              # dry-run
  *   node scripts/coconala-pause.mjs --service a,b,c --commit                    # 実行（カンマ区切り可）
  *   node scripts/coconala-pause.mjs --all-paused --commit                       # カタログ paused 全部
+ *   node scripts/coconala-pause.mjs --resume --all-listed --commit              # 休暇あけの一括再開
+ *     （再開は「カタログ status:'listed' のもの」だけが対象＝先にカタログを戻す）
  *
  * exit: 0=成功/skip / 1=ガード違反・検証失敗 / 2=ログイン/アカウント不一致
  * 真実源: .claude/knowledge/reference/coconala-operations.md §8
@@ -51,14 +53,24 @@ const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] :
 const COMMIT = argv.includes('--commit');
 const ALL_PAUSED = argv.includes('--all-paused');
 const HEADLESS = argv.includes('--headless');
+// --resume: 休止中のサービスの受付を再開する（旅行・繁忙期あけの復帰用・2026-08-05）。
+//   休止と同じ popover の別リンク（a[href="/services/reopen/{id}"]・実機確定）。
+//   ガードの向きも反転する: 再開できるのは カタログ status:'listed' のものだけ
+//   （＝先にカタログを listed に戻してから再開する。カタログが常に意図の真実源）。
+const RESUME = argv.includes('--resume');
+const ALL_LISTED = argv.includes('--all-listed');
 
 const LIST_URL = 'https://coconala.com/mypage/services_lists';
 
 const catalog = readCatalog();
+const WANT = RESUME ? 'listed' : 'paused';   // 操作の前提となるカタログ status
+const ACTION = RESUME ? '受付再開' : '受付休止';
+
 let ids = (getArg('--service') || '').split(',').map((s) => s.trim()).filter(Boolean);
 if (ALL_PAUSED) ids = Object.values(catalog).filter((s) => s.status === 'paused').map((s) => s.id);
+if (ALL_LISTED) ids = Object.values(catalog).filter((s) => s.status === 'listed').map((s) => s.id);
 if (ids.length === 0) {
-  console.error(`${TAG} --service <id[,id]> か --all-paused が必要`);
+  console.error(`${TAG} --service <id[,id]> か --all-paused / --all-listed が必要`);
   process.exit(1);
 }
 
@@ -68,8 +80,10 @@ const rejected = [];
 for (const id of ids) {
   const svc = catalog[id];
   if (!svc) { rejected.push(`${id}: カタログに存在しない`); continue; }
-  if (svc.status !== 'paused') {
-    rejected.push(`${id}: status='${svc.status}' — 休止できるのは status:'paused' のものだけ（先にカタログを paused にしてください）`);
+  if (svc.status !== WANT) {
+    rejected.push(
+      `${id}: status='${svc.status}' — ${ACTION}できるのは status:'${WANT}' のものだけ（先にカタログを ${WANT} にしてください）`
+    );
     continue;
   }
   const sid = (svc.serviceUrl.match(/services\/(\d+)/) || [])[1];
@@ -82,7 +96,7 @@ if (rejected.length) {
 }
 if (targets.length === 0) { console.error(`${TAG} 対象 0 件で終了`); process.exit(1); }
 
-console.log(`${TAG} 対象 ${targets.length} 件 / mode=${COMMIT ? 'COMMIT(実行)' : 'DRY-RUN'}`);
+console.log(`${TAG} ${ACTION} 対象 ${targets.length} 件 / mode=${COMMIT ? 'COMMIT(実行)' : 'DRY-RUN'}`);
 for (const t of targets) console.log(`  - ${t.id} (id=${t.sid}) ${t.title}`);
 
 /**
@@ -141,10 +155,11 @@ for (const t of targets) {
   const st = byId(before).get(t.sid);
   // G2: 一覧に居るか
   if (!st) { results.push({ ...t, outcome: 'ng', reason: '出品一覧に見つからない' }); continue; }
-  // G3: 既に休止中なら skip
-  if (String(st.stop_fg) === '1') { results.push({ ...t, outcome: 'skip', reason: '既に受付休止中' }); continue; }
+  // G3: 既に目的の状態なら skip（再実行可能にする）
+  const already = RESUME ? String(st.stop_fg) === '0' : String(st.stop_fg) === '1';
+  if (already) { results.push({ ...t, outcome: 'skip', reason: RESUME ? '既に受付中' : '既に受付休止中' }); continue; }
 
-  if (!COMMIT) { results.push({ ...t, outcome: 'dry-run', reason: `stop_fg=${st.stop_fg} → 休止可（--commit で実行）` }); continue; }
+  if (!COMMIT) { results.push({ ...t, outcome: 'dry-run', reason: `stop_fg=${st.stop_fg} → ${ACTION}可（--commit で実行）` }); continue; }
 
   // 操作は対象が載っているページ上で行う（一覧は10件でページ送り）
   const pageNo = await findPageOf(page, t.sid);
@@ -157,17 +172,20 @@ for (const t of targets) {
   await anchor.first().click({ timeout: 10000 });
   await sleep(1500);
 
-  // 「受付を休止する」= data-mode=stop かつ href が当該 id
-  const stopLink = page.locator(`a.js_change-open-status[data-mode="stop"][href="/services/stop/${t.sid}"]`);
-  if ((await stopLink.count()) === 0) {
-    results.push({ ...t, outcome: 'ng', reason: '「受付を休止する」導線が popover に無い（UI 変更の疑い）' });
+  // 休止 = a.js_change-open-status[data-mode=stop][href="/services/stop/{id}"]
+  // 再開 = a[href="/services/reopen/{id}"]（data-mode 属性は付かない・実機確定 2026-08-05）
+  const link = RESUME
+    ? page.locator(`a[href="/services/reopen/${t.sid}"]`)
+    : page.locator(`a.js_change-open-status[data-mode="stop"][href="/services/stop/${t.sid}"]`);
+  if ((await link.count()) === 0) {
+    results.push({ ...t, outcome: 'ng', reason: `「${ACTION}する」導線が popover に無い（UI 変更の疑い）` });
     await page.keyboard.press('Escape').catch(() => {});
     continue;
   }
-  await stopLink.first().click({ timeout: 10000 });
+  await link.first().click({ timeout: 10000 });
   await sleep(2500);
   // 確認ダイアログ（あれば OK / はい を押す）
-  for (const label of ['OK', 'はい', '休止する']) {
+  for (const label of ['OK', 'はい', '休止する', '再開する']) {
     const b = page.getByRole('button', { name: label, exact: true }).filter({ visible: true });
     if ((await b.count()) > 0) { await b.first().click({ timeout: 5000 }).catch(() => {}); await sleep(2000); break; }
   }
@@ -177,8 +195,9 @@ for (const t of targets) {
   // 実測で検証（自己申告を信じない）
   before = await readStates(page);
   const after = byId(before).get(t.sid);
-  if (after && String(after.stop_fg) === '1') results.push({ ...t, outcome: 'ok', reason: 'stop_fg=1 を実測で確認' });
-  else results.push({ ...t, outcome: 'ng', reason: `休止を反映できていない（stop_fg=${after?.stop_fg ?? '不明'}）` });
+  const want = RESUME ? '0' : '1';
+  if (after && String(after.stop_fg) === want) results.push({ ...t, outcome: 'ok', reason: `stop_fg=${want} を実測で確認` });
+  else results.push({ ...t, outcome: 'ng', reason: `${ACTION}を反映できていない（stop_fg=${after?.stop_fg ?? '不明'}）` });
 }
 
 await ctx.close();
@@ -188,4 +207,4 @@ const c = (o) => results.filter((r) => r.outcome === o).length;
 console.log(`${TAG} 実行 ${results.length} 件: ok=${c('ok')} skip=${c('skip')} dry-run=${c('dry-run')} ng=${c('ng')}`);
 for (const r of results) console.log(`  [${r.outcome}] ${r.id} — ${r.reason}`);
 if (c('ng') > 0) { console.error(`${TAG} ✗ 失敗 ${c('ng')} 件`); process.exit(1); }
-console.log(`${TAG} ✓ ${COMMIT ? '休止を反映' : 'dry-run 完了（--commit で実行）'}`);
+console.log(`${TAG} ✓ ${COMMIT ? ACTION + 'を反映' : 'dry-run 完了（--commit で実行）'}`);

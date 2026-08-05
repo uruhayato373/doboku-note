@@ -296,7 +296,7 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 | `scripts/coconala-edit.mjs --service <id> [--fields …] [--commit]` | 既存修正。カタログ＋listings の現値でフォーム再充填。`--fields price,delivery` 等で部分更新 |
 | `scripts/coconala-delete-draft.mjs --id <n[,n]> [--commit]` | **空の下書き（orphan draft）を安全に削除**。4重ガード（G0 カタログ在籍拒否・G1 URL一致・G2 タイトル空・G3「下書きを削除」導線＝公開商品には出ない）。既定 dry-run・実削除は `--commit`。公開中商品は構造的に誤爆しない |
 | `scripts/coconala-orders.mjs [--no-deadline] [--headless]` | **受注実績＋購入前問い合わせ(DM) の read-only 収集**（§2.2b）。取引管理（出品）の全タブ＋未返信タブ＋DM 一覧を走査し、未返信 room の返信期限をトークルームから拾って `orders-snapshot.json` を生成（DM スレッドは開かない＝既読にしない）。**書き込み一切なし・個人情報を保存しない**。1タブでも取得失敗なら `status:'partial'` ＋ exit 2 |
-| `scripts/coconala-pause.mjs --service <id[,id]> \| --all-paused [--commit]` | **受付を休止する**（出品を購入不可にする・可逆・URL 温存）。G0=カタログ `status:'paused'` のものだけ受け付ける（`listed` の実売商品は構造的に休止できない）／G3=既に休止中なら skip／実行後は一覧を再読して `stop_fg=1` を**実測で検証**。既定 dry-run。**一覧は 1ページ10件でページ送り**するため対象の載るページを探してから操作する（2026-08-05 実機確定・1ページ目しか見ないと 11件目以降が「見つからない」に化ける） |
+| `scripts/coconala-pause.mjs --service <id[,id]> \| --all-paused \| --resume --all-listed [--commit]` | **受付を休止する / 再開する**（出品を購入不可にする・可逆・URL 温存）。G0=カタログ `status:'paused'` のものだけ受け付ける（`listed` の実売商品は構造的に休止できない）／G3=既に休止中なら skip／実行後は一覧を再読して `stop_fg=1` を**実測で検証**。既定 dry-run。**一覧は 1ページ10件でページ送り**するため対象の載るページを探してから操作する（2026-08-05 実機確定・1ページ目しか見ないと 11件目以降が「見つからない」に化ける）。`--resume` は逆向きのガード（`status:'listed'` のみ受付・`a[href="/services/reopen/{id}"]`）で長期不在からの復帰に使う |
 | `scripts/coconala-discover.mjs [--advance] [--cat --sub --type]` | フォーム構造・selector・カテゴリ/価格/facet options の偵察（読み取り専用）。仕様ドリフト時の再校正用 |
 | `scripts/coconala-profile.mjs [--commit]` | プロフィール（職業/アピール/自己紹介）を `coconala-account.json` の値へ反映。**プロフィール編集（/mypage/user）はインライン編集型**（フィールドは初期描画に無く、セクション見出し近傍の鉛筆 `.d-profileItemControlButton` クリックで展開・2026-07-20 UI 変更対応済み）。ナビ誤爆は URL 不変 assert で検知 |
 | 共有 `scripts/lib/coconala-{session,form}.mjs` | プロファイル起動・login 待ち・account assert・カタログ/listings 解析・フォーム充填 |
@@ -309,6 +309,18 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 | `scripts/coconala-thumb.mjs [--service <id>] [--bg <png>]` | 背景＋タイトル/訴求/価格/ブランド色を satori で 1200×900（4:3）合成。コピーは `THUMB_COPY`（サムネ用の短文）＋カタログ priceYen（オプション有=「〜」）。出力 `.claude/config/coconala/assets/thumb-<id>.png` |
 
 素材は `.claude/config/coconala/assets/`（`bg-civil.png`＝生成背景の保存・再生成の課金回避／`thumb-*.png`＝合成結果）。
+
+> [!important] 長期不在（旅行・出張）は**全件 受付休止**が既定（2026-08-05 制定）
+> ココナラは**購入から48時間以内に出品者がトークルームで連絡しないと取引が自動キャンセル**される。
+> **PDF 商品も手作業で送付する**ので「無人で売れる商品」は1つも無く、例外を作れない。
+> 「スケジュール」欄（プロフィール編集 `/mypage/user?anchor=schedule`）は**自由記述600字の表示だけで購入を止めない**——休暇モードは存在しない。止める手段は受付休止のみ。
+>
+> 手順（カタログが常に意図の真実源）:
+> 1. 出発前: `src/lib/coconala-services.ts` の listed を全て `'paused'` へ → `npm run coconala-pause -- --all-paused --commit`
+> 2. 復帰時: 同ファイルを `'listed'` へ戻す → `npm run coconala-pause -- --resume --all-listed --commit`
+>
+> どちらも実行後に `stop_fg` を実測検証する。**レビュー0の段階で自動キャンセルを踏むと致命的**なので、
+> 売上機会の逸失より取引事故の回避を優先する。初回適用＝2026-08-06〜08-16（17件休止）。
 
 > [!warning] 価格は「刻み」に従う（2026-08-05 実機確定）
 > **¥10,000 以下は 500 円刻み／超は 1,000 円刻み**。`¥9,800` `¥4,980` のような端数は**フォームに入力できず** publish がガードで拒否する（`ABORT: priceYen ... はココナラの価格刻みに不一致`）。カタログの `priceYen` を決めるときは先にこの刻みへ丸める。

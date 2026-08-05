@@ -15,6 +15,12 @@
  * 出品前は status: 'draft' にしておけば防御的に非表示（listed が 0 件なら
  * セクションごと出ない）。満枠時は 'full'、季節オフは 'paused' へ flip する。
  *
+ * ★ 2026-08-06〜08-16 は運営者不在のため **listed 12 件を一時 paused** にしている。
+ *   理由: ココナラは購入から48時間以内に出品者が連絡しないと取引が自動キャンセルされ、
+ *   レビュー0の段階でそれを踏むと致命的。PDF 商品も手作業送付なので例外にできない。
+ *   復帰手順（8/17）: 本ファイルの該当 12 件を 'listed' に戻す
+ *   → `npm run coconala-pause -- --resume --all-listed --commit`（実測で stop_fg=0 を検証）
+ *
  * 戦略・出品文面の真実源: docs/note/1級・2級土木/ココナラ展開キット.md
  * 運用・スキーマの真実源: .claude/knowledge/reference/coconala-operations.md
  */
@@ -77,7 +83,7 @@ const SERVICES_RAW = {
   //   価格競争が存在しないため ¥1,500 据え置き。
   'coconala-shindan': {
     id: 'coconala-shindan',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4317349',
     title: '土木施工管理の経験記述を採点者目線で診断します',
     shortTitle: '経験記述 合格診断',
@@ -98,7 +104,7 @@ const SERVICES_RAW = {
   // 価格改定時は priceYen と price の両方＋ココナラ展開キット.md §2 の価格表を同時更新する。
   'coconala-tensaku-set': {
     id: 'coconala-tensaku-set',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4317375',
     title: '土木施工管理の経験記述を発注者目線で添削します',
     shortTitle: '経験記述 添削（2テーマセット）',
@@ -116,7 +122,7 @@ const SERVICES_RAW = {
   //   ¥8,000（控えめ・実売帯下端で初速重視）→評価20件で¥12,000〜16,000。作成は添削より重いので週2枠。
   'coconala-sakusei': {
     id: 'coconala-sakusei',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4317796',
     title: '土木施工管理の経験記述をヒアリングで作成します',
     shortTitle: '経験記述 答案作成（ヒアリング→文章化）',
@@ -154,7 +160,7 @@ const SERVICES_RAW = {
   //   納品 = coconala-C2-*.pdf 5冊 + coconala-C4-*.pdf 5冊 の計10冊。
   'coconala-kanseitoan-pdf': {
     id: 'coconala-kanseitoan-pdf',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4317580',
     title: '1級土木 経験記述の模範答案セットを送ります',
     shortTitle: '1級 経験記述 模範答案セット PDF',
@@ -171,7 +177,7 @@ const SERVICES_RAW = {
   //   納品 = coconala-C3-*.pdf 3冊 + coconala-C5-*.pdf 5冊 の計8冊。
   'coconala-2kyu-kanseitoan-pdf': {
     id: 'coconala-2kyu-kanseitoan-pdf',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4317722',
     title: '2級土木 経験記述の模範答案セットを送ります',
     shortTitle: '2級 経験記述 模範答案セット PDF',
@@ -254,7 +260,7 @@ const SERVICES_RAW = {
   //   Red Line #10 例外運用（模試=静的1回分／会員フロー=毎月更新の予想ドリップで差別化）。
   'coconala-1kyu-moshi-pdf': {
     id: 'coconala-1kyu-moshi-pdf',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4317886',
     title: '1級土木二次の予想模擬試験を送ります',
     shortTitle: '1級 二次 予想模擬試験 PDF',
@@ -270,7 +276,7 @@ const SERVICES_RAW = {
   // C9: 2級 二次 予想模擬試験（問題冊子＋解答解説）。C8 の2級版。
   'coconala-2kyu-moshi-pdf': {
     id: 'coconala-2kyu-moshi-pdf',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4317889',
     title: '2級土木二次の予想模擬試験を送ります',
     shortTitle: '2級 二次 予想模擬試験 PDF',
@@ -293,7 +299,7 @@ const SERVICES_RAW = {
   //   納品は既存 C系 PDF をそのまま送付（新規ビルドなし・労働ゼロ）。
   'coconala-1kyu-full-pdf': {
     id: 'coconala-1kyu-full-pdf',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4341188',
     title: '1級土木二次 教材フルパックを送ります',
     shortTitle: '1級 二次 教材フルパック PDF',
@@ -310,7 +316,7 @@ const SERVICES_RAW = {
   //   価格 ¥7,000（1級 ¥10,000 の 0.7＝級差を保つ・500円刻み適合）。
   'coconala-2kyu-full-pdf': {
     id: 'coconala-2kyu-full-pdf',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4341191',
     title: '2級土木二次 教材フルパックを送ります',
     shortTitle: '2級 二次 教材フルパック PDF',
@@ -336,7 +342,7 @@ const SERVICES_RAW = {
   //   教材のみの C10（¥10,000・無制限）は残す＝「自分でやる / 見てもらう」の1軸だけが増える構成。
   'coconala-1kyu-premium': {
     id: 'coconala-1kyu-premium',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4341335',
     title: '1級土木二次 教材一式と経験記述添削をします',
     shortTitle: '1級 二次 プレミアム（教材＋添削）',
@@ -354,7 +360,7 @@ const SERVICES_RAW = {
   // サイト)を除去した coconala 版に差し替える（安全弁#2 外部誘導）、(2) /coconala-publish --commit。
   'coconala-civil-keiken-kit': {
     id: 'coconala-civil-keiken-kit',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4322659',
     title: '施工経験記述を自作するAI設計キットを渡します',
     shortTitle: '経験記述 AI設計キット（DL）',
@@ -372,7 +378,7 @@ const SERVICES_RAW = {
   // 公開前ゲート: /coconala-publish --commit。総監はココナラ客層が薄い前提の test。
   'coconala-sokan-bunseki-pdf': {
     id: 'coconala-sokan-bunseki-pdf',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4322661',
     title: '技術士総監 記述式の出題テーマ分析を送ります',
     shortTitle: '総監 出題テーマ分析 PDF',
