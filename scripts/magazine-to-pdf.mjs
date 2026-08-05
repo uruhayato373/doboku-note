@@ -29,6 +29,15 @@
 //
 // from/to は本文(frontmatter 除去後)に対する正規表現。"m" フラグで評価するため
 // 行頭アンカー(^)が使える。to を省くと当該レンジは EOF まで。
+//
+// 記入欄マーカー（印刷して手書きする冊子＝模擬試験の問題冊子用）:
+//   源 md に「単独段落」で次を書くと、罫線つきの記入欄に描画される。
+//     [[記入欄:12]]                         12 行の罫線ボックス
+//     [[記入欄表:工事名|工期|あなたの立場]]   ラベル付きの記入表（| 区切り）
+//     [[解答欄:5]]                          穴埋め用の〔1〕〜〔5〕記入マス
+//     [[改ページ]]                          改ページ
+//   markdown の空コードフェンス(```)は空白として潰れて何も印字されないため、
+//   記入欄はこのマーカーで明示する（2026-08-04・C8/C9 模試で記入余白ゼロが発覚）。
 
 import { readFileSync, mkdirSync, writeFileSync, renameSync, copyFileSync, rmSync, existsSync } from 'node:fs'
 import { join, resolve, basename, dirname } from 'node:path'
@@ -90,6 +99,36 @@ function extract(content, article) {
 
 const processor = remark().use(remarkGfm).use(remarkHtml)
 
+// 記入欄マーカー（ファイル冒頭のコメント参照）を罫線ブロックへ展開する。
+// remark-html は生 HTML を落とすため、markdown→HTML 変換後の文字列に対して行う。
+function renderAnswerFields(html) {
+  const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+  return html
+    .replace(/<p>\[\[改ページ\]\]<\/p>/g, '<div class="af-break"></div>')
+    .replace(/<p>\[\[記入欄:(\d+)(?:\|([^\]]*))?\]\]<\/p>/g, (_, n, cap) => {
+      const rows = Math.min(Math.max(Number(n), 1), 40)
+      const head = cap ? `<b class="af-cap">${esc(cap.trim())}</b>` : ''
+      return `<div class="af">${head}${'<div class="af-row"></div>'.repeat(rows)}</div>`
+    })
+    .replace(/<p>\[\[記入欄表:([^\]]+)\]\]<\/p>/g, (_, labels) => {
+      const rows = labels
+        .split('|')
+        .map((l) => `<tr><th>${esc(l.trim())}</th><td></td></tr>`)
+        .join('')
+      return `<table class="af-tbl">${rows}</table>`
+    })
+    // [[解答欄:5]] は〔１〕〜〔５〕、[[解答欄:①|②|③]] は指定ラベルのマスを作る。
+    // 番号は設問文の表記（全角）に合わせる。
+    .replace(/<p>\[\[解答欄:([^\]]+)\]\]<\/p>/g, (_, arg) => {
+      const fw = (s) => String(s).replace(/\d/g, (d) => '０１２３４５６７８９'[Number(d)])
+      const labels = /^\d+$/.test(arg.trim())
+        ? Array.from({ length: Math.min(Math.max(Number(arg), 1), 12) }, (_, i) => `〔${fw(i + 1)}〕`)
+        : arg.split('|').map((s) => s.trim()).slice(0, 12)
+      const cells = labels.map((l) => `<span class="af-cell"><b>${esc(l)}</b><i></i></span>`).join('')
+      return `<div class="af-num">${cells}</div>`
+    })
+}
+
 function buildHtml(title, bodyHtml) {
   return `<!doctype html>
 <html lang="ja"><head><meta charset="utf-8"><title>${title}</title>
@@ -118,6 +157,37 @@ function buildHtml(title, bodyHtml) {
   blockquote { margin: 0 0 11px; padding: 4px 12px; border-left: 3px solid #b8c6d4;
                background: #f5f8fb; color: #333; }
   hr { border: none; border-top: 1px solid #d6dde4; margin: 16px 0; }
+  /* 記入欄（印刷して手書きする冊子用） */
+  /* 「ア）品質管理について」等の見出し的な段落を、直後の記入欄と切り離さない */
+  p:has(> strong:only-child) { break-after: avoid; page-break-after: avoid; }
+  /* 記入欄は途中で改ページさせない（見出しと枠が離れると解答用紙として使えない） */
+  .af { border: 1px solid #97a6b4; margin: 0 0 14px; break-inside: avoid; page-break-inside: avoid; }
+  .af-cap {
+    display: block; background: #f3f7fa; border-bottom: 1px solid #97a6b4;
+    padding: 2px 8px; font-weight: 500; font-size: 9.5pt;
+    font-family: "Yu Gothic","YuGothic","Meiryo",sans-serif;
+  }
+  .af-row { height: 8.5mm; border-bottom: 1px dashed #c8d2db; }
+  .af-row:last-child { border-bottom: none; }
+  .af-tbl {
+    width: 100%; border-collapse: collapse; margin: 0 0 14px;
+    break-inside: avoid; page-break-inside: avoid;
+  }
+  .af-tbl th {
+    width: 27%; text-align: left; vertical-align: middle; background: #f3f7fa;
+    border: 1px solid #97a6b4; padding: 3px 8px; font-weight: 500; font-size: 9.5pt;
+    font-family: "Yu Gothic","YuGothic","Meiryo",sans-serif;
+  }
+  .af-tbl td { border: 1px solid #97a6b4; height: 9mm; }
+  .af-num { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 14px; }
+  .af-cell { flex: 1 1 70px; border: 1px solid #97a6b4; }
+  .af-cell b {
+    display: block; background: #f3f7fa; border-bottom: 1px solid #c8d2db;
+    padding: 1px 5px; font-weight: 500; font-size: 8.5pt;
+    font-family: "Yu Gothic","YuGothic","Meiryo",sans-serif;
+  }
+  .af-cell i { display: block; height: 10mm; }
+  .af-break { break-before: page; page-break-before: always; height: 0; }
 </style></head><body>
 ${bodyHtml}
 </body></html>`
@@ -131,8 +201,11 @@ async function main() {
   const spec = JSON.parse(readFileSync(specPath, 'utf8'))
   const srcDir = resolve(REPO, spec.srcDir)
   // 既定の作業出力先。会社 PC（Windows）は C:\tmp、それ以外は OS の一時ディレクトリ（Mac/CI 対応）。
+  // spec.outDir は srcDir と同じく REPO 基準で絶対パス化する。Chrome の --print-to-pdf は
+  // 相対パスを受け付けず「指定されたパスが見つかりません (0x3)」で無言失敗し、PDF だけが
+  // 出来ないまま exit 0 を返す（呼び出し側には「PDF 生成に失敗」としか見えない・2026-08-05）。
   const outDir =
-    spec.outDir ||
+    (spec.outDir && resolve(REPO, spec.outDir)) ||
     (process.platform === 'win32'
       ? `C:\\tmp\\${basename(spec.srcDir)}-pdf`
       : join(tmpdir(), `${basename(spec.srcDir)}-pdf`))
@@ -151,7 +224,7 @@ async function main() {
     const { content } = matter(raw)
     const { md, title } = extract(content, art)
 
-    const bodyHtml = String(await processor.process(md))
+    const bodyHtml = renderAnswerFields(String(await processor.process(md)))
     const slug = art.out.replace(/[\\/:*?"<>|]/g, '_')
     const htmlPath = join(workDir, `${slug}.html`)
     const pdfTmp = join(workDir, `${slug}.pdf`)

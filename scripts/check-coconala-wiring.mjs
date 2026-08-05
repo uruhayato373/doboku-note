@@ -30,6 +30,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { checkPauseReasons, findOverdueResume } from './lib/coconala-guards.mjs';
 
 const ROOT = process.cwd();
 const CATALOG_PATH = join(ROOT, 'src/lib/coconala-services.ts');
@@ -84,12 +85,16 @@ function parseCatalog() {
     const slice = body.slice(cur.at, next ? next.at : body.length);
     const pm = slice.match(/priceYen:\s*(\d+)/);
     const lm = slice.match(/listedAt:\s*'([^']*)'/);
+    const rm = slice.match(/pauseReason:\s*'([^']*)'/);
+    const om = slice.match(/resumeOn:\s*'([^']*)'/);
     return {
       id: cur.id,
       status: cur.status,
       serviceUrl: cur.serviceUrl,
       priceYen: pm ? parseInt(pm[1], 10) : null,
       listedAt: lm ? lm[1] : null,
+      pauseReason: rm ? rm[1] : null,
+      resumeOn: om ? om[1] : null,
     };
   });
 }
@@ -104,6 +109,8 @@ function readJson(path) {
 }
 
 const violations = [];
+/** 赤で止めるほどではないが人が見るべきもの（復帰忘れ等）。exit code は変えない。 */
+const warnings = [];
 const catalog = parseCatalog();
 if (catalog.length === 0) {
   violations.push('カタログから1件もサービスを抽出できません（SERVICES_RAW の記述順 id→status→serviceUrl を確認）');
@@ -118,6 +125,23 @@ for (const s of listed) {
       `[${s.id}] status:'listed' なのに serviceUrl が不正/空（"${s.serviceUrl}"）。出品後の URL を埋めてください`
     );
   }
+}
+
+// 8. paused には理由（pauseReason）が必須。
+//    paused は「商品整理で恒久廃止（retired）」と「運営者の長期不在で一時休止（absence）」の
+//    2つの意味に多重化する。区別が無いと一括復帰で**恒久廃止した商品まで復活**する
+//    （2026-08-05、17件全休止のときに実際に取り違えかけた）。判定は coconala-guards（テスト済み）。
+violations.push(...checkPauseReasons(catalog));
+
+// 9. 復帰忘れの検知（長期不在プロトコルの最後の輪）。
+//    pauseReason:'absence' で resumeOn を過ぎているのに休止のままなら、売上ゼロのまま
+//    誰も気づかない。日付を跨いだだけで赤くなるのは運用を止めるので**警告**に留める。
+const today = new Date().toISOString().slice(0, 10);
+for (const o of findOverdueResume(catalog, today)) {
+  warnings.push(
+    `[${o.id}] 復帰予定日 ${o.resumeOn} を ${o.overdueDays} 日過ぎても受付休止のままです` +
+      '（復帰: npm run coconala-pause -- --resume --absence --commit）'
+  );
 }
 
 // 5. listed があるなら account SSOT が埋まっていること
@@ -221,6 +245,12 @@ if (neverListed.size > 0) {
         ' — ダミー値の混入か serviceId 取り違え。出品済みならカタログを listed + listedAt へ更新'
     );
   }
+}
+
+if (warnings.length) {
+  console.log('[check-coconala-wiring] ⚠ 要対応:');
+  for (const w of warnings) console.log(`  - ${w}`);
+  console.log('');
 }
 
 if (violations.length) {

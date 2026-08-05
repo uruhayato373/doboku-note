@@ -48,32 +48,33 @@ const RULES: readonly OffsiteRule[] = [
   {
     // 1級 二次 年度別過去問（secondary-r03〜r09）: 経験記述 過去問模範答案＋学科記述攻略が刺さる。
     test: /^civil-construction-1-secondary-r0[3-9]$/,
-    coconala: ['coconala-1kyu-kakomon-pdf', 'coconala-1kyu-gakka-pdf'],
-    coconalaCatch: '年度別に過去問を仕上げたい方へ（模範答案・学科攻略 PDF）。',
+    // 2026-08-05 統廃合: 過去問模範答案・学科攻略の単品は停止（paused）→ 模範答案セット＋フルパックへ。
+    coconala: ['coconala-kanseitoan-pdf', 'coconala-1kyu-full-pdf'],
+    coconalaCatch: '過去問の模範答案で仕上げたい方へ（模範答案セット・全部入りパック PDF）。',
   },
   {
     // 2級 二次 年度別過去問。
     test: /^civil-construction-2-secondary-r0[3-9]$/,
-    coconala: ['coconala-2kyu-kakomon-pdf', 'coconala-2kyu-gakka-pdf'],
-    coconalaCatch: '年度別に過去問を仕上げたい方へ（模範答案・学科攻略 PDF）。',
+    coconala: ['coconala-2kyu-kanseitoan-pdf', 'coconala-2kyu-full-pdf'],
+    coconalaCatch: '過去問の模範答案で仕上げたい方へ（模範答案セット・全部入りパック PDF）。',
   },
   {
     // 1級 二次 学科記述の分野別ページ（コンクリート/施工計画/土工/品質の basics・past-problems）。
     test: /^civil-construction-1-secondary-(concrete|construction-plan|earthwork|quality-management)-(basics|past-problems)$/,
-    coconala: ['coconala-1kyu-gakka-pdf'],
-    coconalaCatch: '学科記述を出る順で仕上げたい方へ（攻略 PDF）。',
+    coconala: ['coconala-1kyu-full-pdf'],
+    coconalaCatch: '学科記述の攻略PDF入り 全部入りパックで仕上げたい方へ。',
   },
   {
     // 1級 二次 入門・直前対策: 予想模試＋出題分析（直前重点）が刺さる。
     test: /^civil-construction-1-(secondary-getting-started|guide-last-minute-2026)$/,
-    coconala: ['coconala-1kyu-moshi-pdf', 'coconala-bunseki-pdf'],
-    coconalaCatch: '直前の総仕上げに（予想模試・出題分析 PDF）。',
+    coconala: ['coconala-1kyu-moshi-pdf', 'coconala-1kyu-full-pdf'],
+    coconalaCatch: '直前の総仕上げに（予想模試・全部入りパック PDF）。',
   },
   {
     // 2級 二次 入門（直前対策 guide は 2級には無いため getting-started のみ）。
     test: /^civil-construction-2-secondary-getting-started$/,
-    coconala: ['coconala-2kyu-moshi-pdf'],
-    coconalaCatch: '直前の総仕上げに（予想模試 PDF）。',
+    coconala: ['coconala-2kyu-moshi-pdf', 'coconala-2kyu-full-pdf'],
+    coconalaCatch: '直前の総仕上げに（予想模試・全部入りパック PDF）。',
   },
   {
     // 総監 記述系（模範論文解説 essay-* / pattern-essay-* / 二次過去問 h2X・r0X-secondary）:

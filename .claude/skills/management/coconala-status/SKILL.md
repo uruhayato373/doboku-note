@@ -1,10 +1,11 @@
 ---
 name: coconala-status
 description: >
-  ココナラ出品の状態を read-only で照合するスキル。ダッシュボードの数値（閲覧数/お気に入り/販売数）の
+  ココナラ出品の状態を read-only で照合するスキル。受注の実体を npm run coconala-orders で収集して
+  orders-log と突合（check-coconala-orders）し、ダッシュボードの数値（閲覧数/お気に入り/販売数）の
   手動貼付を coconala-operator が正規化して kpi-log.json へ週次追記し、カタログ（coconala-services.ts）↔
   state ↔ sales-log のドリフトを報告、撤退ライン（出品4週で S2 受注3件未満）を判定する。
-  スクレイピング・API 取得はしない（会社PCはプロキシで外部 API 遮断＝計測は手動供給が正）。
+  KPI 数値のスクレイピング・API 取得はしない（会社PCはプロキシで外部 API 遮断＝計測は手動供給が正）。
   投稿・出品・価格変更もしない（検知と報告のみ）。
   Use when user asks to [ココナラの状態を確認, ココナラKPIを記録, ココナラの数字を貼る, 撤退ライン判定, /coconala-status].
 user-invocable: true
@@ -21,7 +22,11 @@ user-invocable: true
 
 ## フロー
 
-1. **整合チェック**: `node scripts/check-coconala-wiring.mjs` を実行し結果を報告（listed なのに serviceUrl 空・未知 serviceId・priceYen 不一致 等）。
+0. **受注の実体を取る**: `npm run coconala-orders`（read-only Playwright）→ `npm run check-coconala-orders`。
+   記録漏れ・金額ズレ・**返信期限（無連絡で自動キャンセル）**・納品滞留を機械が surface する。
+   snapshot が取れない/古いときは exit 2＝**検査不成立**なので「受注 0 件」と報告しない。
+1. **整合チェック**: `node scripts/check-coconala-wiring.mjs` を実行し結果を報告（listed なのに serviceUrl 空・未知 serviceId・priceYen 不一致・**paused の理由欠落**・**復帰予定日 `resumeOn` の超過** 等）。
+   ⚠ が出たら**棚が止まったままになっていないか**を必ず報告する（長期不在の全件休止から戻し忘れると、売上ゼロのまま誰も気づかない）。
 2. **KPI 正規化**（数値の貼付があるとき）: サービス別の 閲覧数/お気に入り/販売数 を抽出 → `kpi-log.json` の `weekly` に append（`weekOf` = ISO 週初＝月曜）。**読み取れない項目は `null`。推測で埋めない**。
 3. **受注サマリ**: `orders-log.json` から 直近4週の serviceId 別 受注件数・平均 `tensakuMinutes` を集計。
 4. **判定を報告**:
@@ -41,18 +46,22 @@ user-invocable: true
 
 ## ガードレール
 
-- **取得しない**: ココナラへの HTTP アクセス・Playwright 操作をしない（規約・bot 検知・プロキシ遮断）。数値は必ず人が貼る。
+- **KPI 数値は取得しない**: 閲覧数・お気に入り等のダッシュボード KPI は**必ず人が貼る**（規約・bot 検知・プロキシ遮断）。
+  一方**受注の実体**（何が・いつ・いくらで売れ・どのトークルームか）は `npm run coconala-orders` で read-only 収集してよい
+  ＝金銭と納品に直結し人手転記では取りこぼすため（スコープの切り分けは coconala-operations.md §2.2b）。書き込み操作はしない。
 - **是正しない**: カタログの status flip・価格変更は提案まで（実行は `/coconala-order` ケース3 か運営者）。
 - **捏造しない**: 貼付に含まれない数値を推測で埋めない（`null` のまま記録し、欠測として報告）。
 
 ## 完了条件
 
-- `check-coconala-wiring` の結果＋受注サマリ＋判定が報告されている。
+- `check-coconala-orders`（受注の実体突合）と `check-coconala-wiring`（配線）の結果＋受注サマリ＋判定が報告されている。
+- 受注件数は **snapshot の実検査数**とともに報告する（「0 件」と「取得できていない」を区別する）。
 - 数値の貼付があった場合は kpi-log に1行 append され、`updatedAt` が更新されている。
 
 ## 参照
 
 - エージェント: `.claude/agents/coconala-operator.md`
-- 機械ガード: `scripts/check-coconala-wiring.mjs`（`npm run check-coconala-wiring`）
+- 機械ガード: `scripts/check-coconala-wiring.mjs`（`npm run check-coconala-wiring`）／`scripts/check-coconala-orders.mjs`（`npm run check-coconala-orders`）
+- 受注の実体収集: `scripts/coconala-orders.mjs`（`npm run coconala-orders`・read-only）
 - 運用 SSOT: `.claude/knowledge/reference/coconala-operations.md` / KPI・撤退ライン: `docs/note/1級・2級土木/ココナラ展開キット.md` §6
 - 受注処理は `/coconala-order`

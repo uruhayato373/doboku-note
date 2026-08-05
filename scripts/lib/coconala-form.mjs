@@ -190,6 +190,61 @@ export async function uploadImage(page, imgPath, { tag = '[img]', force = false 
 }
 
 /**
+ * 商品画像を「差し替える」（既存スロットを上書き）。2026-08-05 新設。
+ *
+ * 実機構造（2026-08-05 確定）: populated スロットは
+ *   div.js_thumbnail-wrapper.-image-exists > div.thumbnail.js_image-thumbnail[data-id][style=background-image:url(...)]
+ *     ├ a.delete-button.js_delete-button   ← **width/height が 0（hover 依存）でクリックできない**
+ *     └ input[type=file][name="data[UploadedFile][{id}][image_files]"][data-service-image-id]
+ * つまり **各スロットが自分の file input を持つ**ので、削除せずそこへ setInputFiles すれば
+ * その場で差し替わる。削除ボタンを押す方式は 0×0 要素のため機能しない（初回実装の失敗）。
+ *
+ * 検証は「background-image の URL が変わったか」で行う（枚数は変わらないので数では測れない）。
+ * @returns {Promise<{ok:boolean, before:number, after:number, changed:boolean, reason?:string}>}
+ */
+export async function replaceImage(page, imgPath, { tag = '[img]' } = {}) {
+  await dismissModal(page);
+  const slots = () => page.evaluate(() =>
+    [...document.querySelectorAll('.js_thumbnail-wrapper.-image-exists .thumbnail.js_image-thumbnail')]
+      .map((d) => ({ id: d.getAttribute('data-id'), bg: d.getAttribute('style') || '' }))
+  );
+  const before = await slots();
+  if (before.length === 0) {
+    // まだ画像が無いなら通常アップロードと同義
+    const up = await uploadImage(page, imgPath, { tag, force: true });
+    return { ok: up.ok, before: 0, after: up.after, changed: up.added, reason: up.reason };
+  }
+
+  // 既存スロットを削除 → 新規アップロード。
+  // 削除ボタンは 0×0（hover 依存）で通常クリックできないため dispatchEvent で発火させる
+  // （Playwright の actionability チェックを迂回する。2026-08-05 実機で確定）。
+  for (let i = 0; i < before.length + 2; i++) {
+    const del = page.locator('a.js_delete-button');
+    if ((await del.count()) === 0) break;
+    await del.first().dispatchEvent('click').catch(() => {});
+    await sleep(1500);
+    for (const label of ['OK', 'はい', '削除する']) {
+      const b = page.getByRole('button', { name: label, exact: true }).filter({ visible: true });
+      if ((await b.count()) > 0) { await b.first().click({ timeout: 5000 }).catch(() => {}); await sleep(1500); break; }
+    }
+    if ((await slots()).length === 0) break;
+  }
+  const remaining = await slots();
+  if (remaining.length > 0) {
+    return { ok: false, before: before.length, after: remaining.length, changed: false, reason: `既存画像を削除しきれない（残り ${remaining.length} 枚）` };
+  }
+
+  const up = await uploadImage(page, imgPath, { tag, force: true });
+  return {
+    ok: up.ok,
+    before: before.length,
+    after: up.after,
+    changed: up.added,
+    reason: up.reason,
+  };
+}
+
+/**
  * 送信。commit=false → 「下書きで保存」、commit=true → 「公開する」。
  * ボタンはともに button.submitButton[type=submit]。テキストで判別する。
  * @returns {Promise<{ok:boolean, action:string, url:string, reason?:string}>}

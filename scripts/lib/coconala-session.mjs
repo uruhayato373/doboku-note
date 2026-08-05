@@ -75,6 +75,11 @@ export function readCatalog() {
     const pm = slice.match(/priceYen:\s*(\d+)/);
     const tm = slice.match(/title:\s*'([^']*)'|title:\s*"([^"]*)"/);
     const lm = slice.match(/listedAt:\s*'([^']*)'/);
+    // examScope: ['civil-1'] → ['civil-1']（サムネの級別テーマ選択が使う）
+    const em = slice.match(/examScope:\s*\[([^\]]*)\]/);
+    // paused の理由。'retired'（恒久廃止）と 'absence'（長期不在の一時休止）を区別する。
+    // これが無いと一括復帰で恒久廃止した商品まで復活する（coconala-pause --resume --absence が使う）。
+    const rm = slice.match(/pauseReason:\s*'([^']*)'/);
     out[cur.id] = {
       id: cur.id,
       status: cur.status,
@@ -82,6 +87,8 @@ export function readCatalog() {
       priceYen: pm ? parseInt(pm[1], 10) : null,
       title: tm ? (tm[1] || tm[2]) : '',
       listedAt: lm ? lm[1] : null,
+      examScope: em ? [...em[1].matchAll(/'([^']+)'/g)].map((m) => m[1]) : [],
+      pauseReason: rm ? rm[1] : null,
     };
   });
   return out;

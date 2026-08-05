@@ -1,9 +1,47 @@
 {
-  "version": 1,
-  "updatedAt": "2026-07-16",
+  "version": 2,
+  "updatedAt": "2026-08-05",
   "currency": "JPY",
-  "source": "ココナラの受注を /coconala-order（coconala-operator）で1件ずつ追記する。手入力の転記も可。",
-  "privacyNote": "購入者名・提出原稿・トークルーム本文は記録しない（個人情報をリポジトリに残さない）。記録するのは日付・serviceId・金額・級・進捗・所要時間のみ。事例化する場合は匿名化して docs/note/1級・2級土木/メンバーシップ/添削事例アーカイブ/ へ。",
-  "howToUpdate": "/coconala-order <serviceId>（受注時）→ status を delivered/closed へ更新。serviceId は src/lib/coconala-services.ts の id と一致必須（check-coconala-wiring が検証）。",
-  "orders": []
+  "source": "ココナラの受注を /coconala-order（coconala-operator）で1件ずつ追記する。実体は `npm run coconala-orders` が採る orders-snapshot.json（read-only Playwright）で、`npm run check-coconala-orders` が talkroomId で突合する。",
+  "privacyNote": "購入者名・購入者ID・提出原稿・トークルーム本文は記録しない（個人情報をリポジトリに残さない）。記録するのは日付・serviceId・金額・級・進捗・所要時間・talkroomId・納品成果物のみ。事例化する場合は匿名化して docs/note/1級・2級土木/メンバーシップ/添削事例アーカイブ/ へ。",
+  "howToUpdate": "/coconala-order <serviceId>（受注時）→ status を delivered/closed へ更新。serviceId は src/lib/coconala-services.ts の id と一致必須（check-coconala-wiring が検証）。talkroomId は必須（これが無いと取引を追跡できない）。",
+  "schema": {
+    "date": "販売日（ISO 日付）。snapshot の soldOn と一致必須",
+    "serviceId": "カタログ src/lib/coconala-services.ts の id",
+    "talkroomId": "ココナラのトークルーム ID（https://coconala.com/talkrooms/{id}）。取引の一意キー・突合キー。必須",
+    "priceYen": "販売額（手数料差引前）。カタログと不一致なら memo に改定日",
+    "grade": "1 or 2（級）。級の無い商品は null",
+    "status": "received → delivered → revised（書き直し）→ closed",
+    "replyDueAt": "返信期限（無連絡で自動キャンセルになる時刻）。snapshot が拾える場合はそれを転記",
+    "deliveredAt": "納品した日時（ISO）。未納品は null",
+    "artifacts": "納品した成果物 [{ file, sha256, builtAt }]。どの版を送ったかを後から特定するため（2026-08-05: 納品直前に模試PDFを作り直した経緯がある）",
+    "tensakuMinutes": "最終赤入れの所要時間（工数実測・定員判断の根拠）。C系 PDF は null",
+    "memo": "任意。個人情報・原稿本文は書かない"
+  },
+  "orders": [
+    {
+      "date": "2026-08-04",
+      "serviceId": "coconala-1kyu-moshi-pdf",
+      "talkroomId": "18082691",
+      "priceYen": 2500,
+      "grade": 1,
+      "status": "delivered",
+      "replyDueAt": null,
+      "deliveredAt": "2026-08-05T11:59+09:00",
+      "artifacts": [
+        {
+          "file": ".claude/config/coconala/assets/pdf/coconala-C8-1級二次予想模試-問題冊子.pdf",
+          "sha256": "763efeb8df0de054bb814f271353dd2c4848939c3a8e70610fb37b3bc71cf4af",
+          "builtAt": "2026-08-05T09:48:10+09:00"
+        },
+        {
+          "file": ".claude/config/coconala/assets/pdf/coconala-C8-1級二次予想模試-解答解説.pdf",
+          "sha256": "9653cb94a80316c5a213774b564571b02895aba27a16dea12f8d7d3250057e6a",
+          "builtAt": "2026-08-05T09:48:10+09:00"
+        }
+      ],
+      "tensakuMinutes": null,
+      "memo": "初受注。C系PDF 2冊（問題冊子＋解答解説）を 2026-08-05 11:59 にトークルームで送付（12:00 既読）。納品前に記入欄行数と答案例字数のズレを是正し PDF を再ビルド（635c7aae5）＝送ったのは修正版。artifacts の sha256 でリポジトリの正版と一致を確認済み。納品形態の質問にも回答済み"
+    }
+  ]
 }

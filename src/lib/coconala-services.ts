@@ -15,6 +15,15 @@
  * 出品前は status: 'draft' にしておけば防御的に非表示（listed が 0 件なら
  * セクションごと出ない）。満枠時は 'full'、季節オフは 'paused' へ flip する。
  *
+ * ★ paused には2つの意味があるので **pauseReason で必ず区別する**:
+ *     'retired' = 商品整理で恒久廃止（復帰させない）   … 2026-08-05 統廃合の 5 件
+ *     'absence' = 運営者の長期不在で一時休止（復帰する）… 2026-08-06〜08-16 の 12 件
+ *   ココナラは購入から48時間以内に出品者が連絡しないと取引が自動キャンセルされ、
+ *   PDF 商品も手作業送付なので不在中に例外を作れない（全件休止が既定）。
+ *   復帰（8/17）: `npm run coconala-pause -- --resume --absence --commit`
+ *     → pauseReason:'absence' のものだけを listed へ戻し、live も reopen して実測検証する。
+ *     **--all-listed は使わない**（恒久廃止した 5 件まで復活してしまう）。
+ *
  * 戦略・出品文面の真実源: docs/note/1級・2級土木/ココナラ展開キット.md
  * 運用・スキーマの真実源: .claude/knowledge/reference/coconala-operations.md
  */
@@ -50,6 +59,22 @@ export interface CoconalaService {
   readonly weeklyCapacity: number;
   /** 出品日（ISO 日付）。listed 化と同時に埋める */
   readonly listedAt?: string;
+  /**
+   * status:'paused' の**理由**。paused は2つの意味に多重化しうるので必ず区別する:
+   *   'retired'  = 商品整理で恒久的に棚から下ろした（復帰させない）
+   *   'absence'  = 運営者の長期不在による一時休止（復帰させる。resumeOn に復帰予定日）
+   * check-coconala-wiring が「paused なのに pauseReason 無し」を落とす。
+   * これが無いと一括復帰のときに恒久廃止した商品まで復活する（2026-08-05 に実際に危なかった）。
+   */
+  readonly pauseReason?: 'retired' | 'absence';
+  /** pauseReason:'absence' のときの復帰予定日（ISO 日付・目安） */
+  readonly resumeOn?: string;
+  /**
+   * アーカイブ（非表示）にした日。pauseReason:'retired' のみ。
+   * アーカイブ = 検索/カテゴリ/プロフィール一覧から消え、詳細は「受付終了」。URL と評価は残る。
+   * **解除導線は実機で見つからず実質片道**（2026-08-05 調査）。恒久廃止にのみ使う。
+   */
+  readonly archivedAt?: string;
 }
 
 /**
@@ -77,7 +102,7 @@ const SERVICES_RAW = {
   //   価格競争が存在しないため ¥1,500 据え置き。
   'coconala-shindan': {
     id: 'coconala-shindan',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4317349',
     title: '土木施工管理の経験記述を採点者目線で診断します',
     shortTitle: '経験記述 合格診断',
@@ -87,6 +112,8 @@ const SERVICES_RAW = {
     priceYen: 1500,
     examScope: ['civil-1', 'civil-2'],
     weeklyCapacity: 5,
+    pauseReason: 'absence',
+    resumeOn: '2026-08-17',
     listedAt: '2026-07-18',
   },
 
@@ -98,7 +125,7 @@ const SERVICES_RAW = {
   // 価格改定時は priceYen と price の両方＋ココナラ展開キット.md §2 の価格表を同時更新する。
   'coconala-tensaku-set': {
     id: 'coconala-tensaku-set',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4317375',
     title: '土木施工管理の経験記述を発注者目線で添削します',
     shortTitle: '経験記述 添削（2テーマセット）',
@@ -108,6 +135,8 @@ const SERVICES_RAW = {
     priceYen: 6000,
     examScope: ['civil-1', 'civil-2'],
     weeklyCapacity: 3,
+    pauseReason: 'absence',
+    resumeOn: '2026-08-17',
     listedAt: '2026-07-18',
   },
 
@@ -116,7 +145,7 @@ const SERVICES_RAW = {
   //   ¥8,000（控えめ・実売帯下端で初速重視）→評価20件で¥12,000〜16,000。作成は添削より重いので週2枠。
   'coconala-sakusei': {
     id: 'coconala-sakusei',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4317796',
     title: '土木施工管理の経験記述をヒアリングで作成します',
     shortTitle: '経験記述 答案作成（ヒアリング→文章化）',
@@ -126,14 +155,17 @@ const SERVICES_RAW = {
     priceYen: 8000,
     examScope: ['civil-1', 'civil-2'],
     weeklyCapacity: 2,
+    pauseReason: 'absence',
+    resumeOn: '2026-08-17',
     listedAt: '2026-07-18',
   },
 
-  // C1: 単発コンテンツ（出題分析 PDF）。競合実測（2026-07-18）: 出題分析¥2,500×134件が売れている。
-  //   note ¥980 の r8-bunseki を funnel 除去した PDF 納品（provision_format=3）。添削/診断とは別セグメント（急ぎ・自習単発）。
+  // C1: 出題分析 PDF。2026-08-05 統廃合で出品停止（paused）＝フルパック（C10）専用コンテンツ化。
+  //   C8 予想模試が C1+C6 から生成された派生物のため単品同士の論点重複が大きく、初受注の購入者が
+  //   買い分けできず質問（展開キット §2 決定ログ）。単品で残すと混乱が続くためパックに封入。
   'coconala-bunseki-pdf': {
     id: 'coconala-bunseki-pdf',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4317573',
     title: '1級土木二次 出題分析と直前重点を送ります',
     shortTitle: '二次 出題分析＋直前重点 PDF',
@@ -143,46 +175,56 @@ const SERVICES_RAW = {
     priceYen: 2500,
     examScope: ['civil-1'],
     weeklyCapacity: 10,
+    pauseReason: 'retired',
+    archivedAt: '2026-08-05',
     listedAt: '2026-07-18',
   },
 
-  // C2: 単発コンテンツ（完成答案集 PDF 5本）。競合実測: 解答例送付¥3,500×179件。
-  //   完成答案集（品質/安全/工程/施工計画/環境）を funnel 除去して PDF 5本で納品。
+  // C2: 経験記述 模範答案セット（テーマ別5冊＋年度別5冊＝C2+C4 統合・2026-08-05 統廃合）。
+  //   旧「完成答案集（¥3,500）」と旧C4「過去問模範答案（¥3,000）」はどちらも経験記述の見本答案で
+  //   買い分け不能（初受注の混乱シグナル→展開キット §2 決定ログ）。1商品に統合し ¥5,000。
+  //   ※ココナラの価格刻み＝¥10,000以下は500円刻み。¥4,980 等の端数は入力できない（publish が拒否）。
+  //   納品 = coconala-C2-*.pdf 5冊 + coconala-C4-*.pdf 5冊 の計10冊。
   'coconala-kanseitoan-pdf': {
     id: 'coconala-kanseitoan-pdf',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4317580',
-    title: '1級土木の経験記述 完成答案集を送ります',
-    shortTitle: '経験記述 完成答案集 PDF（5管理）',
+    title: '1級土木 経験記述の模範答案セットを送ります',
+    shortTitle: '1級 経験記述 模範答案セット PDF',
     description:
-      '1級土木施工管理技士 第2次検定 施工経験記述の完成答案集 PDF 5本（品質管理・安全管理・工程管理・施工計画・環境対策）。各テーマ 完成答案3例＋NG→合格答案＋採点者視点チェックポイント。自分の工事に置き換える雛形として使えます。購入後トークルームで PDF をお送りします。',
-    price: '¥3,500（PDF 5本・5管理）',
-    priceYen: 3500,
+      '1級土木施工管理技士 第2次検定 施工経験記述の模範答案セット PDF 10冊。テーマ別の完成答案集5冊（品質管理・安全管理・工程管理・施工計画・環境対策＝完成答案3例＋NG→合格＋採点チェック）と、年度別の過去問模範答案5冊（令和3〜7年度＝各年度の出題テーマに沿った模範答案＋置換ガイド）を一括収録。テーマから引くか年度から引くか、両方の索引で自分の工事に置き換えられます。購入後トークルームで PDF をお送りします。',
+    price: '¥5,000（PDF 10冊・テーマ別＋年度別）',
+    priceYen: 5000,
     examScope: ['civil-1'],
     weeklyCapacity: 10,
+    pauseReason: 'absence',
+    resumeOn: '2026-08-17',
     listedAt: '2026-07-18',
   },
 
-  // C3: 2級 完成答案集 PDF（3テーマ）。1級 C2 の 2級版。
+  // C3: 2級 経験記述 模範答案セット（テーマ別3冊＋年度別5冊＝C3+C5 統合・2026-08-05 統廃合）。
+  //   納品 = coconala-C3-*.pdf 3冊 + coconala-C5-*.pdf 5冊 の計8冊。
   'coconala-2kyu-kanseitoan-pdf': {
     id: 'coconala-2kyu-kanseitoan-pdf',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4317722',
-    title: '2級土木の経験記述 完成答案集を送ります',
-    shortTitle: '2級 経験記述 完成答案集 PDF',
+    title: '2級土木 経験記述の模範答案セットを送ります',
+    shortTitle: '2級 経験記述 模範答案セット PDF',
     description:
-      '2級土木施工管理技士 第2次検定 施工経験記述の完成答案集 PDF 3本（品質管理・安全管理・工程管理）。各テーマ 完成答案＋NG→合格答案＋採点者視点チェックポイント。自分の工事に置き換える雛形として使えます。購入後トークルームで PDF をお送りします。',
-    price: '¥3,000（PDF 3本・3管理）',
-    priceYen: 3000,
+      '2級土木施工管理技士 第2次検定 施工経験記述の模範答案セット PDF 8冊。テーマ別の完成答案集3冊（品質管理・安全管理・工程管理＝完成答案＋NG→合格＋採点チェック）と、年度別の過去問模範答案5冊（令和3〜7年度＝各年度の出題テーマに沿った模範答案＋置換ガイド）を一括収録。テーマから引くか年度から引くか、両方の索引で自分の工事に置き換えられます。購入後トークルームで PDF をお送りします。',
+    price: '¥4,000（PDF 8冊・テーマ別＋年度別）',
+    priceYen: 4000,
     examScope: ['civil-2'],
     weeklyCapacity: 10,
+    pauseReason: 'absence',
+    resumeOn: '2026-08-17',
     listedAt: '2026-07-18',
   },
 
-  // C4: 1級 過去問模範答案集 PDF（R03-R07・年度別）。C2 のテーマ別に対する年度別。
+  // C4: 1級 過去問模範答案集。2026-08-05 統廃合で出品停止（paused）＝C2「模範答案セット」へ統合。
   'coconala-1kyu-kakomon-pdf': {
     id: 'coconala-1kyu-kakomon-pdf',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4317726',
     title: '1級土木 経験記述の過去問模範答案を送ります',
     shortTitle: '1級 経験記述 過去問模範答案 PDF',
@@ -192,13 +234,15 @@ const SERVICES_RAW = {
     priceYen: 3000,
     examScope: ['civil-1'],
     weeklyCapacity: 10,
+    pauseReason: 'retired',
+    archivedAt: '2026-08-05',
     listedAt: '2026-07-18',
   },
 
-  // C5: 2級 過去問模範答案集 PDF（R03-R07・年度別）。
+  // C5: 2級 過去問模範答案集。2026-08-05 統廃合で出品停止（paused）＝C3「模範答案セット」へ統合。
   'coconala-2kyu-kakomon-pdf': {
     id: 'coconala-2kyu-kakomon-pdf',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4317729',
     title: '2級土木 経験記述の過去問模範答案を送ります',
     shortTitle: '2級 経験記述 過去問模範答案 PDF',
@@ -208,13 +252,16 @@ const SERVICES_RAW = {
     priceYen: 3000,
     examScope: ['civil-2'],
     weeklyCapacity: 10,
+    pauseReason: 'retired',
+    archivedAt: '2026-08-05',
     listedAt: '2026-07-18',
   },
 
-  // C6: 1級 二次学科記述 テーマ別出る順 PDF（5論点）。経験記述以外＝学科記述の対策。
+  // C6: 1級 学科記述攻略。2026-08-05 統廃合で出品停止（paused）＝フルパック（C10）専用コンテンツ化。
+  //   C8 模試 第2部（演習版）と同一論点の解説版＝単品併売は買い分け不能。
   'coconala-1kyu-gakka-pdf': {
     id: 'coconala-1kyu-gakka-pdf',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4317734',
     title: '1級土木二次 学科記述の攻略PDFを送ります',
     shortTitle: '1級 二次学科記述 攻略 PDF',
@@ -224,13 +271,15 @@ const SERVICES_RAW = {
     priceYen: 2500,
     examScope: ['civil-1'],
     weeklyCapacity: 10,
+    pauseReason: 'retired',
+    archivedAt: '2026-08-05',
     listedAt: '2026-07-18',
   },
 
-  // C7: 2級 二次学科記述 テーマ別出る順 PDF（5論点）。
+  // C7: 2級 学科記述攻略。2026-08-05 統廃合で出品停止（paused）＝フルパック（C11）専用コンテンツ化。
   'coconala-2kyu-gakka-pdf': {
     id: 'coconala-2kyu-gakka-pdf',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4317736',
     title: '2級土木二次 学科記述の攻略PDFを送ります',
     shortTitle: '2級 二次学科記述 攻略 PDF',
@@ -240,6 +289,8 @@ const SERVICES_RAW = {
     priceYen: 2500,
     examScope: ['civil-2'],
     weeklyCapacity: 10,
+    pauseReason: 'retired',
+    archivedAt: '2026-08-05',
     listedAt: '2026-07-18',
   },
 
@@ -248,7 +299,7 @@ const SERVICES_RAW = {
   //   Red Line #10 例外運用（模試=静的1回分／会員フロー=毎月更新の予想ドリップで差別化）。
   'coconala-1kyu-moshi-pdf': {
     id: 'coconala-1kyu-moshi-pdf',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4317886',
     title: '1級土木二次の予想模擬試験を送ります',
     shortTitle: '1級 二次 予想模擬試験 PDF',
@@ -258,13 +309,15 @@ const SERVICES_RAW = {
     priceYen: 2500,
     examScope: ['civil-1'],
     weeklyCapacity: 20,
+    pauseReason: 'absence',
+    resumeOn: '2026-08-17',
     listedAt: '2026-07-18',
   },
 
   // C9: 2級 二次 予想模擬試験（問題冊子＋解答解説）。C8 の2級版。
   'coconala-2kyu-moshi-pdf': {
     id: 'coconala-2kyu-moshi-pdf',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4317889',
     title: '2級土木二次の予想模擬試験を送ります',
     shortTitle: '2級 二次 予想模擬試験 PDF',
@@ -274,14 +327,89 @@ const SERVICES_RAW = {
     priceYen: 2000,
     examScope: ['civil-2'],
     weeklyCapacity: 20,
+    pauseReason: 'absence',
+    resumeOn: '2026-08-17',
     listedAt: '2026-07-18',
   },
+  // C10: 1級 二次 教材フルパック（C1+C2+C4+C6+C8 全部入り・PDF 18冊）。2026-08-05 新設。
+  //   根拠: ①初受注の購入者が C8 購入直後に C1 との違いを DM で質問＝C系単品は外から区別が
+  //   つかない（買い分け不能）②建築の総合模試 ¥18,000×1,730件・土木「模試/分析」実売中央値
+  //   ¥10,000＝まとめ高単価はココナラで実証済み ③レビュー主導市場で 9 単品にレビューが分散する
+  //   より旗艦1本に集約。価格 ¥10,000＝土木「模試/分析」セグメントの実売中央値と一致。
+  //   note 旗艦「完全攻略パック」（¥9,800・経験記述の深さ＝組合せ大全/想定工事索引）とは軸が直交
+  //   （こちらは二次全体の広さ）で、**同等以上に置いて undercut しない**。当初 ¥9,800 案は
+  //   ココナラの価格刻み（¥10,000以下=500円刻み）で入力できないため ¥10,000 を採る。
+  //   納品は既存 C系 PDF をそのまま送付（新規ビルドなし・労働ゼロ）。
+  'coconala-1kyu-full-pdf': {
+    id: 'coconala-1kyu-full-pdf',
+    status: 'paused',
+    serviceUrl: 'https://coconala.com/services/4341188',
+    title: '1級土木二次 教材フルパックを送ります',
+    shortTitle: '1級 二次 教材フルパック PDF',
+    description:
+      '1級土木施工管理技士 第2次検定の対策PDFを全部入りでまとめたフルパック（計18冊）。出題分析＋直前重点（1冊）・経験記述 模範答案（テーマ別5冊＋年度別5冊）・学科記述 攻略（5冊・5論点）・予想模擬試験（問題冊子＋解答解説の2冊）を一括でお送りします。出題分析と学科記述攻略はこのパックのみの収録。分析→インプット→演習→模試まで一気通貫。購入後トークルームで PDF をお送りします（本試験の出題を保証するものではありません）。',
+    price: '¥10,000（PDF 18冊・全部入り）',
+    priceYen: 10000,
+    examScope: ['civil-1'],
+    weeklyCapacity: 20,
+    pauseReason: 'absence',
+    resumeOn: '2026-08-17',
+    listedAt: '2026-08-05',
+  },
+
+  // C11: 2級 二次 教材フルパック（C3+C5+C7+C9 全部入り・PDF 15冊）。C10 の2級版。
+  //   価格 ¥7,000（1級 ¥10,000 の 0.7＝級差を保つ・500円刻み適合）。
+  'coconala-2kyu-full-pdf': {
+    id: 'coconala-2kyu-full-pdf',
+    status: 'paused',
+    serviceUrl: 'https://coconala.com/services/4341191',
+    title: '2級土木二次 教材フルパックを送ります',
+    shortTitle: '2級 二次 教材フルパック PDF',
+    description:
+      '2級土木施工管理技士 第2次検定の対策PDFを全部入りでまとめたフルパック（計15冊）。経験記述 模範答案（テーマ別3冊＋年度別5冊）・学科記述 攻略（5冊・5論点）・予想模擬試験（問題冊子＋解答解説の2冊）を一括でお送りします。学科記述攻略はこのパックのみの収録。インプット→演習→模試まで一気通貫。購入後トークルームで PDF をお送りします（本試験の出題を保証するものではありません）。',
+    price: '¥7,000（PDF 15冊・全部入り）',
+    priceYen: 7000,
+    examScope: ['civil-2'],
+    weeklyCapacity: 20,
+    pauseReason: 'absence',
+    resumeOn: '2026-08-17',
+    listedAt: '2026-08-05',
+  },
+
+  // C12: 1級 二次 プレミアム（教材フルパック18冊 ＋ 経験記述 添削2テーマ）。2026-08-05 新設。
+  //   なぜ作るか: 純教材の価格天井は実測で ¥10,000（一級建築士製図ノート ¥10,000×31件が最上位。
+  //   PDF556頁の学科資料でも ¥6,500）。物量では上へ行けない（本パックは115ページ）。**労働を足して
+  //   初めて別の帯に入る**。競合ちゃんさとは 添削2問¥12,000／作成代行2問¥16,000 で**教材が付かない**
+  //   純労働なので、同帯で「添削＋115ページの教材」は労働では追随できない差別化になる。
+  //   加えて、ココナラで重みを持つのは**添削体験のレビュー**（ちゃんさとの297件は全て添削）で、
+  //   教材のみのパックではその種類のレビューが永久に貯まらない。
+  //   価格: 単品合計 ¥10,000＋¥6,000＝¥16,000 → セット ¥15,000（¥10,000 超は 1,000 円刻み）。
+  //   リスク管理: **添削は本番顧客への納品が未経験**（S2 はレビュー0）。初回の工数実測が出るまで
+  //   weeklyCapacity=1 に絞る（Red Line #1 の定員制）。tensakuMinutes を記録して 2〜3 件で枠を再判断。
+  //   教材のみの C10（¥10,000・無制限）は残す＝「自分でやる / 見てもらう」の1軸だけが増える構成。
+  'coconala-1kyu-premium': {
+    id: 'coconala-1kyu-premium',
+    status: 'paused',
+    serviceUrl: 'https://coconala.com/services/4341335',
+    title: '1級土木二次 教材一式と経験記述添削をします',
+    shortTitle: '1級 二次 プレミアム（教材＋添削）',
+    description:
+      '1級土木施工管理技士 第2次検定の対策PDF 18冊（出題分析・経験記述模範答案10冊・学科記述攻略5冊・予想模擬試験2冊／計115ページ）に、施工経験記述の添削（新形式2テーマ・赤入れ＋書き直し1回）を組み合わせたセット。教材で書き方を掴み、実際に書いた答案を元自治体土木（発注者＝採点する側）の目で赤入れします。購入後トークルームでPDFをお送りし、答案はヒアリングシートご記入後に添削します。経験していない工事の答案作成（捏造）はお受けしません。合格を保証するものではありません。',
+    price: '¥15,000（PDF18冊＋添削2テーマ・書き直し1回）',
+    priceYen: 15000,
+    examScope: ['civil-1'],
+    weeklyCapacity: 1,
+    pauseReason: 'absence',
+    resumeOn: '2026-08-17',
+    listedAt: '2026-08-05',
+  },
+
   // 制作物（DLキット）テスト出品。Claude Code + Node.js を要する自作ツール版＝客層が限定される
   // ため status:'draft'（防御的非表示）で配線のみ用意。公開前ゲート: (1) 納品ZIPは外部URL(note/
   // サイト)を除去した coconala 版に差し替える（安全弁#2 外部誘導）、(2) /coconala-publish --commit。
   'coconala-civil-keiken-kit': {
     id: 'coconala-civil-keiken-kit',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4322659',
     title: '施工経験記述を自作するAI設計キットを渡します',
     shortTitle: '経験記述 AI設計キット（DL）',
@@ -291,6 +419,8 @@ const SERVICES_RAW = {
     priceYen: 8000,
     examScope: ['civil-1', 'civil-2'],
     weeklyCapacity: 20,
+    pauseReason: 'absence',
+    resumeOn: '2026-08-17',
     listedAt: '2026-07-22',
   },
   // 総監 出題テーマ分析 PDF（テスト出品）。有料note「設問3国家施策バンク」本文は転載せず、
@@ -299,7 +429,7 @@ const SERVICES_RAW = {
   // 公開前ゲート: /coconala-publish --commit。総監はココナラ客層が薄い前提の test。
   'coconala-sokan-bunseki-pdf': {
     id: 'coconala-sokan-bunseki-pdf',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4322661',
     title: '技術士総監 記述式の出題テーマ分析を送ります',
     shortTitle: '総監 出題テーマ分析 PDF',
@@ -309,6 +439,8 @@ const SERVICES_RAW = {
     priceYen: 2500,
     examScope: ['pe-comprehensive-management'],
     weeklyCapacity: 20,
+    pauseReason: 'absence',
+    resumeOn: '2026-08-17',
     listedAt: '2026-07-22',
   },
 } as const satisfies Record<string, CoconalaService>;

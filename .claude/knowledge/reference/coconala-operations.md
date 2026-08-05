@@ -49,15 +49,18 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 | `coconala-shindan` | S1 合格診断。レビュー獲得フロント。診断のみ・書き換え案は出さない |
 | `coconala-tensaku-set` | S2 添削（2テーマセット）。主力。赤入れ＋書き直し1回 |
 | `coconala-sakusei` | S3 答案作成（ヒアリング→文章化・2テーマ・¥8,000）。質問シートで本人の実工事を吸い上げ答案ドラフト化（捏造禁止・本人確認必須・週2枠） |
-| `coconala-bunseki-pdf` | C1 単発コンテンツ。1級 二次 出題分析＋直前重点 PDF（provision_format=3・購入後トークルームで PDF 送付） |
-| `coconala-kanseitoan-pdf` | C2 単発コンテンツ。1級 経験記述 完成答案集 PDF 5本（同上） |
-| `coconala-2kyu-kanseitoan-pdf` | C3 2級 完成答案集 PDF 3本 |
-| `coconala-1kyu-kakomon-pdf` | C4 1級 経験記述 過去問模範答案 PDF 5本（R03-R07・年度別） |
-| `coconala-2kyu-kakomon-pdf` | C5 2級 経験記述 過去問模範答案 PDF 5本（R03-R07） |
-| `coconala-1kyu-gakka-pdf` | C6 1級 二次学科記述 攻略 PDF 5本（5論点） |
-| `coconala-2kyu-gakka-pdf` | C7 2級 二次学科記述 攻略 PDF 5本（5論点） |
+| `coconala-bunseki-pdf` | C1 出題分析 PDF。**paused（2026-08-05 統廃合）**＝C10 フルパック限定収録 |
+| `coconala-kanseitoan-pdf` | C2' 1級 経験記述 **模範答案セット** PDF 10冊（テーマ別5＋年度別5＝旧C2+C4 統合・¥5,000）。納品= C2 5冊+C4 5冊 |
+| `coconala-2kyu-kanseitoan-pdf` | C3' 2級 模範答案セット PDF 8冊（テーマ別3＋年度別5＝旧C3+C5 統合・¥4,000） |
+| `coconala-1kyu-kakomon-pdf` | C4 過去問模範答案。**paused**＝C2' へ統合 |
+| `coconala-2kyu-kakomon-pdf` | C5 過去問模範答案。**paused**＝C3' へ統合 |
+| `coconala-1kyu-gakka-pdf` | C6 学科記述攻略。**paused**＝C10 フルパック限定収録 |
+| `coconala-2kyu-gakka-pdf` | C7 学科記述攻略。**paused**＝C11 フルパック限定収録 |
 | `coconala-1kyu-moshi-pdf` | C8 1級 二次 予想模擬試験 PDF（問題冊子＋解答解説）。build-once の静的模試・Red Line #10 例外運用（計画 §4） |
 | `coconala-2kyu-moshi-pdf` | C9 2級 二次 予想模擬試験 PDF（問題冊子＋解答解説） |
+| `coconala-1kyu-full-pdf` | C10 1級 二次 **教材フルパック**（分析+模範答案+学科+模試・PDF 18冊・¥10,000）。顧客の買い分け混乱シグナル（2026-08-05 初受注 DM）を受けた旗艦。分析(C1)と学科(C6)はパック限定収録。納品は既存 C系 PDF をそのまま送付（新規ビルドなし）。決定ログ→展開キット §2 |
+| `coconala-2kyu-full-pdf` | C11 2級 二次 教材フルパック（模範答案+学科+模試・PDF 15冊・¥7,000）。学科(C7)はパック限定。C10 の2級版 |
+| `coconala-1kyu-premium` | C12 1級 二次 **プレミアム**（教材フルパック18冊 ＋ 経験記述添削2テーマ・書き直し1回・¥15,000）。純教材の天井 ¥10,000 を超える唯一の手段＝労働を足す。**weeklyCapacity=1**（添削は本番納品が未経験のため工数実測まで絞る）。決定ログ→展開キット §2 追補2 |
 | `coconala-civil-keiken-kit` | K1 制作物（DLキット）テスト出品。1級・2級 施工経験記述の**自作 AI 設計キット**（Claude Code＋Node.js 前提・provision_format=2）。`status:'draft'`。公開前ゲート=(1) 納品ZIPは外部URL(note/サイト)除去版へ差替（安全弁#2）、(2) `/coconala-publish --commit`。客層が限定される test 出品 |
 | `coconala-sokan-bunseki-pdf` | K2 単発PDF（テスト出品）。**総監** 記述式I-2 出題テーマ分析（provision_format=3・PDF は write_pdf 生成＝外部URL0件・`assets/pdf/coconala-sokan-bunseki.pdf`）。有料note施策バンク本文は非転載（分析/読み方に限定＝非カニバリ）。`status:'draft'`。総監はココナラ客層が薄い前提の test |
 
@@ -66,13 +69,13 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 | 記事 | 出すサービス |
 |---|---|
 | 経験記述（`secondary-experience-writing-{guide,examples}`・1級2級） | `coconala-shindan`＋`coconala-tensaku-set`（＋Brain 経験キット） |
-| 二次 年度別過去問（`secondary-r0[3-9]`） | `{1kyu,2kyu}-kakomon-pdf`＋`{1kyu,2kyu}-gakka-pdf` |
-| 二次 学科分野別（1級 `secondary-(concrete\|construction-plan\|earthwork\|quality-management)-(basics\|past-problems)`） | `coconala-1kyu-gakka-pdf` |
-| 二次 入門・直前（1級 `secondary-getting-started`／`guide-last-minute-2026`） | `coconala-1kyu-moshi-pdf`＋`coconala-bunseki-pdf` |
-| 二次 入門（2級 `secondary-getting-started`） | `coconala-2kyu-moshi-pdf` |
+| 二次 年度別過去問（`secondary-r0[3-9]`） | `{1kyu,2kyu}-kanseitoan-pdf`（模範答案セット）＋`{1kyu,2kyu}-full-pdf`（2026-08-05 統廃合で改配線） |
+| 二次 学科分野別（1級 `secondary-(concrete\|construction-plan\|earthwork\|quality-management)-(basics\|past-problems)`） | `coconala-1kyu-full-pdf`（学科単品は paused） |
+| 二次 入門・直前（1級 `secondary-getting-started`／`guide-last-minute-2026`） | `coconala-1kyu-moshi-pdf`＋`coconala-1kyu-full-pdf` |
+| 二次 入門（2級 `secondary-getting-started`） | `coconala-2kyu-moshi-pdf`＋`coconala-2kyu-full-pdf` |
 | 総監 記述系（`essay-*`／`pattern-essay-*`／`{h2X,r0X}-secondary`） | `coconala-sokan-bunseki-pdf`（＋Brain 施策バンク） |
 
-未掲載（`/links` のみ）: `coconala-sakusei`／`coconala-kanseitoan-pdf`／`coconala-2kyu-kanseitoan-pdf`／`coconala-civil-keiken-kit`（経験記述ページは診断+添削+Brain で満杯・クロップ回避のため意図的に載せない）。
+未掲載（`/links` のみ）: `coconala-sakusei`／`coconala-civil-keiken-kit`（経験記述ページは診断+添削+Brain で満杯・クロップ回避のため意図的に載せない）。※模範答案セット（`{1kyu,2kyu}-kanseitoan-pdf`）は 2026-08-05 統廃合で年度別過去問記事の CTA へ配線済み。
 
 ### 2.1b 出品投入 SoT: `.claude/config/coconala-listings.json`
 
@@ -90,22 +93,67 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 
 > カテゴリ/価格/facet の value が coconala 側でリニューアルされたら `node scripts/coconala-discover.mjs --advance --cat 12 --sub 254 --type 764` で現行 options を再取得して是正する。
 
-### 2.2 受注実績: `.claude/state/coconala/orders-log.json`
+### 2.2 受注実績: `.claude/state/coconala/orders-log.json`（v2）
 
-`{ version, updatedAt, currency, source, privacyNote, howToUpdate, orders: [] }`
+`{ version, updatedAt, currency, source, privacyNote, howToUpdate, schema, orders: [] }`
 
 | orders[] のキー | 意味 |
 |---|---|
-| `date` | 受注日（ISO 日付） |
+| `date` | 販売日（ISO 日付）。snapshot の `soldOn` と一致必須 |
 | `serviceId` | カタログの id と一致必須 |
+| `talkroomId` | **必須**。ココナラのトークルーム ID（`https://coconala.com/talkrooms/{id}`）＝取引の一意キー・突合キー。これが無いと後からどの取引か辿れない |
 | `priceYen` | 販売額（手数料差引前）。カタログと不一致なら要説明（価格改定時は memo に改定日） |
-| `grade` | 1 or 2（級） |
+| `grade` | 1 or 2（級）。級の無い商品は null |
 | `status` | `received` → `delivered` → `revised`（書き直し対応）→ `closed` |
-| `tensakuMinutes` | 最終赤入れの所要時間（工数の実測・定員判断の根拠） |
+| `replyDueAt` | 返信期限（**無連絡で自動キャンセル**になる時刻）。snapshot が拾えたら転記 |
+| `deliveredAt` | 納品した日時（ISO）。未納品は null |
+| `artifacts` | 納品した成果物 `[{ file, sha256, builtAt }]`。**どの版を送ったかを特定するため** |
+| `tensakuMinutes` | 最終赤入れの所要時間（工数の実測・定員判断の根拠）。C系 PDF は null |
 | `memo` | 任意。**個人情報・原稿本文は書かない** |
 
-> **記録しないもの**: 購入者名・提出原稿・トークルーム本文（privacyNote）。事例化は匿名化して
+> **記録しないもの**: 購入者名・購入者 ID・提出原稿・トークルーム本文（privacyNote）。事例化は匿名化して
 > `docs/note/1級・2級土木/メンバーシップ/添削事例アーカイブ/` へ（1対多の資産化）。
+
+> [!important] `artifacts` を必ず埋める理由（2026-08-05）
+> C8 の初受注では、**販売の翌朝に納品 PDF を作り直した**（記入欄の行数と答案例の字数を是正）。
+> 何を送ったかを残さないと「顧客が持っているのは旧版か新版か」が永久に分からなくなる。
+> C系 PDF は送付時に `file` と `sha256` を記録する。
+
+### 2.2b 受注の実体: `.claude/state/coconala/orders-snapshot.json`（read-only 収集）
+
+`npm run coconala-orders`（`scripts/coconala-orders.mjs`・Playwright・**書き込み一切なし**）が
+取引管理（出品）の全タブを走査して生成する機械可読スナップショット。orders-log が「こちらの記録」、
+snapshot が「ココナラ側の実体」で、`npm run check-coconala-orders` が `talkroomId` で突合する。
+
+`{ version, fetchedAt, status, source, privacyNote, scan: { tabs[], tabsOk, tabsTotal, deadlineFailed }, orders: [] }`
+
+| orders[] のキー | 意味 |
+|---|---|
+| `talkroomId` / `talkroomUrl` | 取引の一意キー。エージェントはこの URL で会話を辿る |
+| `tab` / `tabLabel` | どのタブで見つかったか（`required`/`requests`/`open`/`closed`/`canceled`） |
+| `serviceId` | カタログ `title` の**前方一致**で解決（表示名＝サービス名＋キャッチ）。解決できなければ null で警告 |
+| `priceYen` / `soldOn` / `statusLabel` / `deliveryDueSet` / `lastMessageAt` | 一覧から抽出 |
+| `unreplied` | `open?message_status=2`（未返信タブ）に居るか |
+| `replyDueAt` | 自動キャンセル期限。**一覧に出ないのでトークルームを開いて拾う**（未返信の room のみ・最大10件） |
+
+**`inquiries[]`（購入前の問い合わせ＝ダイレクトメッセージ）**: 受注（トークルーム）とは**別系統**。
+`{ dmId, dmUrl, dateText, subject, serviceId, unread }`。`subject` は引用されたサービス名だけを採り、
+`serviceId` はカタログ title の前方一致で解決する。**スレッドは開かない**（開くと未読→既読になり、
+人が気づく手段を壊すため）。DM 一覧 = `/message?fromMyPage=true`、行 = `a.c-messageItemWrap[href="/mypage/direct_message/{id}"]`。
+
+> [!warning] 受注一覧だけ見ていると DM を落とす（2026-08-05）
+> C8 の購入者から **DM で別商品（C1）の購入前質問**が届いたが、受注一覧しか見ていなかったため
+> 機械では拾えず、人が気づいて指摘した。DM は売上機会そのものなので必ず一緒に採る。
+
+**実機確定（2026-08-05）**:
+- タブ URL = `/mypage/received_orders/{required,requests,open,closed,canceled,flags}`（`close` は 404）
+- 行 = `.d-providerTalkroomCassetteBlock`。**PC/SP が二重描画される**ので `talkroomId` で dedupe する（素の行数を件数として信じない）
+- トークルームは `/talkrooms/{id}`（`/mypage/talkrooms/{id}` は 404）
+- 期限は本文の `期限 M/D HH:MM`（年の表記が無いので販売日の年を採る）
+
+**§4「ダッシュボードはスクレイプしない」との関係**: あちらの対象は **KPI（閲覧数・お気に入り）＝手動貼付が正**。
+こちらは**取引の実在**（何が・いつ・いくらで売れ・どのトークルームか）で、金銭と納品に直結し人手転記では
+取りこぼす。read-only・低頻度・書き込みなしでスコープが直交する。
 
 ### 2.3 市場調査: 2層（生データ + エージェント参照サマリー）
 
@@ -147,7 +195,8 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 ## 3. 受注フロー（`/coconala-order`）
 
 ```
-購入通知 → 初回挨拶＋シート送付（定型文・キット §4c → §4/§4b）
+購入通知 → npm run coconala-orders（実体を取得＝何が売れたかを推測しない・§2.2b）
+  → 初回挨拶＋シート送付（定型文・キット §4c → §4/§4b）
   → 受領 → scratchpad/.tmp に .md 保存（★リポジトリに置かない・C系は不要）
   → /coconala-order <serviceId> <path>
       ├ カタログ status 確認（draft なら停止・full なら警告）
@@ -157,9 +206,10 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
       │   S3 作成  → 宣誓/素材検査→/keiken-tensaku --mode sakusei → 答案ドラフト.md（事実確認チェックリスト）
       │   C系 PDF → ヒアリング不要・キット §4c「C系 PDF 送付」文＋該当PDF特定
       ├ 納品文面ドラフト生成
-      └ orders-log へ append（status: received）
+      └ orders-log へ append（status: received・**talkroomId 必須**・replyDueAt を転記）
+  → npm run check-coconala-orders（記録漏れ・金額ズレ・返信期限を機械で確認）
   → ★運営者: 最終赤入れ/事実確認（10〜30分・C系は送付のみ）→ トークルームへ送信
-  → orders-log を delivered へ・tensakuMinutes 記録
+  → orders-log を delivered へ・deliveredAt/artifacts（送った版の sha256）・tensakuMinutes 記録
   → （書き直し依頼時）/keiken-tensaku を前回下書きと再実行し差分中心に再チェック → status: revised（1回まで）
   → 共通の誤りは匿名化して添削事例アーカイブへ
 ```
@@ -207,6 +257,31 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 > 出品したら**カタログを先に更新**（`status: 'listed'` ＋ `serviceUrl` ＋ `listedAt`）してから KPI・受注を記録する。
 > 順序を逆にすると検査6で落ちる（＝実績の記録先を間違えていないかの早期検知）。
 
+### 6.2 受注の突合（`npm run check-coconala-orders`・2026-08-05 新設）
+
+snapshot（§2.2b＝ココナラ側の実体）と orders-log（こちらの記録）を `talkroomId` で突合する**オフライン検査**。
+取得は `npm run coconala-orders` が担当で、こちらはネットワークに出ない。
+
+| # | 検査 | 落ちる例 |
+|---|---|---|
+| 1 | snapshot の取引が orders-log に存在 | **売れたのに記録が無い**（人手の追記もれ） |
+| 2 | serviceId / priceYen / 販売日 が一致 | 商品の取り違え・価格改定の取り残し |
+| 3 | 未返信かつ返信期限が 24h 以内 or 経過 | **48時間無連絡で自動キャンセル**を落とす |
+| 3b | 購入前の問い合わせ（DM）を要対応に surface | 受注一覧だけ見て**購入前の質問を落とす**（＝売上機会の逸失） |
+| 4 | `status:'received'` のまま 5 日超 | 納品の滞留 |
+| 5 | orders-log にあって snapshot に無い | talkroomId の誤り |
+
+DM は突合相手が無いので**存在の surface に徹する**（未読/既読と対象商品を出すだけ・自動で開かない）。
+DM 一覧の取得に失敗したら警告を出す（「問い合わせ 0 件」と「見ていない」を区別する）。
+
+**「検査ゼロを PASS と呼ばない」**（[[feedback_gate_zero_coverage_false_pass]]）:
+snapshot が **無い / `status:'partial'` / 7日より古い** ときは **exit 2＝検査不成立**で、
+「取引 0 件だから緑」と区別する。出力は常に `実検査 ココナラ側 N 件 / orders-log M 件` の形で件数を出す。
+
+pre-commit では `--staged --no-freshness` で走り、**exit 1（実際の不整合）だけを止める**。
+exit 2（snapshot 欠落・陳腐化）で commit を止めると、無関係な作業のたびに Playwright 実行を
+強いることになり SKIP が常態化するため。鮮度ゲートは週次の `/coconala-status` 側で効かせる。
+
 ## 7. サイト導線（/links）
 
 `src/app/links/page.tsx` の `CoconalaSection` が `listedCoconalaServices()` を参照し、**listed が0件なら描画しない**（wire-ahead＝出品前に配線だけ済ませておける）。ココナラ側 URL に UTM は付けない（計測がココナラ内で完結せずパラメータが露出するだけのため）。
@@ -220,6 +295,8 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 | `scripts/coconala-publish.mjs --service <id> [--commit]` | 新規出品。`/services/add`→種別=テキストチャット→「内容の入力に進む」で下書き生成→フォーム充填→下書き保存（既定）/公開（`--commit`）→公開時カタログへ `listed`＋`serviceUrl`＋`listedAt` 書き戻し |
 | `scripts/coconala-edit.mjs --service <id> [--fields …] [--commit]` | 既存修正。カタログ＋listings の現値でフォーム再充填。`--fields price,delivery` 等で部分更新 |
 | `scripts/coconala-delete-draft.mjs --id <n[,n]> [--commit]` | **空の下書き（orphan draft）を安全に削除**。4重ガード（G0 カタログ在籍拒否・G1 URL一致・G2 タイトル空・G3「下書きを削除」導線＝公開商品には出ない）。既定 dry-run・実削除は `--commit`。公開中商品は構造的に誤爆しない |
+| `scripts/coconala-orders.mjs [--no-deadline] [--headless]` | **受注実績＋購入前問い合わせ(DM) の read-only 収集**（§2.2b）。取引管理（出品）の全タブ＋未返信タブ＋DM 一覧を走査し、未返信 room の返信期限をトークルームから拾って `orders-snapshot.json` を生成（DM スレッドは開かない＝既読にしない）。**書き込み一切なし・個人情報を保存しない**。1タブでも取得失敗なら `status:'partial'` ＋ exit 2 |
+| `scripts/coconala-pause.mjs [--resume --absence \| --archive --all-retired \| --all-paused] [--commit]` | **受付休止 / 再開 / アーカイブ**の決定的操作。対象選択とガードは `scripts/lib/coconala-guards.mjs`（`tests/coconala-guards.test.mjs` で固定）＝休止は `paused` のみ・再開は `listed` のみ・アーカイブは `pauseReason:'retired'` のみを受け付ける。既定 dry-run。実行後は一覧を再読して `stop_fg`（アーカイブは一覧からの消失）を**実測で検証**。**一覧は1ページ10件でページ送り**するので対象の載るページを探してから操作する（1ページ目しか見ないと11件目以降が「見つからない」に化ける）。`--resume --absence` はカタログの `listed` 戻しとマーカー除去まで行う |
 | `scripts/coconala-discover.mjs [--advance] [--cat --sub --type]` | フォーム構造・selector・カテゴリ/価格/facet options の偵察（読み取り専用）。仕様ドリフト時の再校正用 |
 | `scripts/coconala-profile.mjs [--commit]` | プロフィール（職業/アピール/自己紹介）を `coconala-account.json` の値へ反映。**プロフィール編集（/mypage/user）はインライン編集型**（フィールドは初期描画に無く、セクション見出し近傍の鉛筆 `.d-profileItemControlButton` クリックで展開・2026-07-20 UI 変更対応済み）。ナビ誤爆は URL 不変 assert で検知 |
 | 共有 `scripts/lib/coconala-{session,form}.mjs` | プロファイル起動・login 待ち・account assert・カタログ/listings 解析・フォーム充填 |
@@ -232,6 +309,56 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 | `scripts/coconala-thumb.mjs [--service <id>] [--bg <png>]` | 背景＋タイトル/訴求/価格/ブランド色を satori で 1200×900（4:3）合成。コピーは `THUMB_COPY`（サムネ用の短文）＋カタログ priceYen（オプション有=「〜」）。出力 `.claude/config/coconala/assets/thumb-<id>.png` |
 
 素材は `.claude/config/coconala/assets/`（`bg-civil.png`＝生成背景の保存・再生成の課金回避／`thumb-*.png`＝合成結果）。
+
+> [!important] 長期不在（旅行・出張）は**全件 受付休止**が既定（2026-08-05 制定）
+> ココナラは**購入から48時間以内に出品者がトークルームで連絡しないと取引が自動キャンセル**される。
+> **PDF 商品も手作業で送付する**ので「無人で売れる商品」は1つも無く、例外を作れない。
+> 「スケジュール」欄（プロフィール編集 `/mypage/user?anchor=schedule`）は**自由記述600字の表示だけで購入を止めない**——休暇モードは存在しない。止める手段は受付休止のみ。
+>
+> 手順（カタログが常に意図の真実源）:
+> 1. 出発前: listed を `'paused'` ＋ **`pauseReason: 'absence'`（＋`resumeOn`）** にして
+>    `npm run coconala-pause -- --all-paused --commit`
+> 2. 復帰時: **`npm run coconala-pause -- --resume --absence --commit`** の1コマンド
+>    （`pauseReason:'absence'` のものだけカタログを `listed` へ戻し、マーカーを消し、live も reopen して実測検証する）
+>
+> どちらも実行後に `stop_fg` を実測検証する。**レビュー0の段階で自動キャンセルを踏むと致命的**なので、
+> 売上機会の逸失より取引事故の回避を優先する。初回適用＝2026-08-06〜08-16（17件休止）。
+
+> [!important] 公開済みサービスは**削除できない**。棚から消すのはアーカイブ（2026-08-05 実機確定）
+> 削除導線があるのは**空の下書きだけ**（`coconala-delete-draft.mjs` の「下書きを削除」）。
+> 公開済みサービスの選択肢は「受付休止」と「アーカイブ（非表示）」の2つで、差は決定的:
+>
+> | | 受付休止 | アーカイブ |
+> |---|---|---|
+> | 検索・カテゴリ・**プロフィール一覧** | 「休止中」で**残る** | **消える** |
+> | サービス詳細 | 休止中・購入不可 | **「受付終了」**・購入不可 |
+> | URL / 評価 / トークルーム | 残る | 残る（404 にしない仕様） |
+> | 出品サービス管理の一覧 | 残る | **消える** |
+>
+> **解除導線は実機で見つからなかった**（`?archive=1` 等も不発）＝**実質片道**。
+> したがって **`archivedAt` は `pauseReason:'retired'`（恒久廃止）にのみ使う**。
+> 一時休止（`absence`）をアーカイブしないよう `coconala-pause --archive` は retired 限定でガードしている。
+> アーカイブは「一覧に居ない＝既にアーカイブ済み」を skip 扱いにして冪等（初回実装で ng 誤検知した）。
+> 実行: `npm run coconala-pause -- --archive --all-retired --commit`
+> 初回適用＝2026-08-05（統廃合した C1/C4/C5/C6/C7 の 5 件・公開ページで「受付終了」を実測確認）。
+
+> [!important] `paused` は多義なので `pauseReason` で必ず区別する（2026-08-05 制定）
+> 同じ `status:'paused'` に**2つの理由**が同居する:
+>
+> | pauseReason | 意味 | 復帰 |
+> |---|---|---|
+> | `'retired'` | 商品整理で恒久廃止（2026-08-05 統廃合の C1/C4/C5/C6/C7） | **させない** |
+> | `'absence'` | 運営者の長期不在による一時休止 | `--resume --absence` で戻す |
+>
+> 区別が無いと**一括復帰で恒久廃止した商品まで復活し、統廃合が巻き戻る**。
+> 17件を全休止したときに実際に取り違えかけたため、機械可読フィールドとして固定した。
+> `check-coconala-wiring` が ①paused なのに理由なし ②未知の理由 ③listed なのに理由が残存 を落とす（変異テスト済み）。
+> **`--resume --all-listed` は使わない**（理由を見ないため retired を巻き込む）。
+
+> [!warning] 価格は「刻み」に従う（2026-08-05 実機確定）
+> **¥10,000 以下は 500 円刻み／超は 1,000 円刻み**。`¥9,800` `¥4,980` のような端数は**フォームに入力できず** publish がガードで拒否する（`ABORT: priceYen ... はココナラの価格刻みに不一致`）。カタログの `priceYen` を決めるときは先にこの刻みへ丸める。
+
+**画像の差し替え（`--replace-image`・2026-08-05）**: populated スロットの削除ボタン `a.js_delete-button` は **width/height が 0**（hover 依存）で通常クリックできない。Playwright の actionability を迂回する `dispatchEvent('click')` で削除→再アップロードする（`replaceImage` in coconala-form.mjs）。各スロットが持つ `input[type=file][data-service-image-id]` へ直接 `setInputFiles` する方式は **AJAX が発火せず失敗する**（試行済み）。
 
 **アップロード（自動化済み・2026-07-18）**: `node scripts/coconala-edit.mjs --service <id> --service-id <n> --image <png> --commit`。「画像を追加」（`a.js_upload-…`・javascript:;）クリックで隠し file input（`data[UploadedFile][n1][image_files]`）が出現→setInputFiles→**トリミングモーダルなし**でスロットに直接入る（populated 判定＝`a.js_delete-button` の数）。既に画像があれば skip（`--force-image` で追加）。`--image` かつ `--fields` 無しなら**画像だけ更新**（本文フィールドは触らない）。
 
@@ -247,7 +374,15 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 
 - **納品運用**: C系（`provision_format=3`・PDF・各種定型ファイル）は**ヒアリング不要**。購入通知→トークルームで PDF を送付（例: C1=1本 / C2=5本 / C8・C9 模試=問題冊子＋解答解説の2冊）＋キット §4c「C系 PDF 送付」文（`orders-log` へ append）。個別相談は添削（S2）へ誘導。
 - **KDP 安全**: 二次経験記述は Kindle Select ロック無し（土木 Kindle は一次のみ）。一次過去問PDF は Select 独占中＝coconala 化しない。
-- `magazine-to-pdf.mjs` は Mac の新 headless Chrome が exit しない事例に対応（PDF 生成済みなら timeout を成功扱い・2026-07-18）。
+- `magazine-to-pdf.mjs` は Mac の新 headless Chrome が exit しない事例に対応（PDF 生成済みなら timeout を成功扱い・2026-07-18）。**`spec.outDir` は `srcDir` と同じく REPO 基準で絶対パス化する**（Chrome の `--print-to-pdf` は相対パスを受け付けず、`0x3 指定されたパスが見つかりません` で PDF だけ出ないまま exit 0 を返すため。呼び出し側には「PDF 生成に失敗」としか見えない・2026-08-05 修正）。
+
+> [!important] 模試（C8/C9）の記入欄行数は目分量で決めない
+> 問題冊子の `[[記入欄:N]]` は **`.claude/config/keiken-answer-sheet-limits.json`（解答欄しきい値 SSOT）** から決める。
+> 本冊子の記入欄は本文幅 178mm ＝ **約 25字/行**。
+> - **問題1（施工経験記述）**: 1級＝各区画 200字 → **8行**（①②とも同寸。7/9 のような非対称にしない）。2級＝1項目 250字 → **10行**。
+> - **学科記述（問題2以降）**: 公式の行数は非公開＝本冊子独自。「答案例（N行の記入欄に収まる分量）」という冊子の主張が真になるよう、**答案例の実字数 ÷ 25 を切り上げた行数**にする（答案を圧縮して枠に合わせない）。
+>
+> 2026-08-05 に C8 で 1級 経験記述が 7行/9行（旧3項目形式の名残）、学科記述 5 問で答案例が枠から +2〜+68 字あふれる状態を検出し是正。**答案例の「約N字」表記が枠容量を超えている＝その場で破綻が読める**ので、ラベルと行数は必ず突き合わせる。
 
 **安全弁**: ①account assert（`sellerName`=dobokunote をマイページ本文で確認・不一致は即中断）②既定は「下書きで保存」・実公開は `--commit` 必須 ③価格/カテゴリ充填 warning があれば公開せず下書き退避 ④送信後の記入エラーは `ok:false` を返し「公開した」と報告しない。
 

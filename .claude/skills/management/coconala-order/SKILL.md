@@ -24,6 +24,7 @@ user-invocable: true
 まず `serviceId` からタイプを判定し、分岐する（真実源 → [coconala-operations.md §3](../../../../.claude/knowledge/reference/coconala-operations.md)）。
 
 **共通の前段**
+0. **実体を取る**: `npm run coconala-orders` を実行し `.claude/state/coconala/orders-snapshot.json` を更新する。**何が売れたかを購入通知の記憶や推測で決めない**。serviceId 未指定ならスナップショットから特定する（`talkroomId` / `serviceId` / `priceYen` / `soldOn` / `replyDueAt` が採れる）。ログインが切れていれば headed の Chrome で人がログイン。
 1. **カタログ確認**: `serviceId` の `status` を Read。`draft`（未出品）なら停止。`full` なら受付枠超過を警告。
 2. **一時保存**（S系のみ）: シート/下書きを scratchpad / `.tmp/` へ `.md` 保存。**リポジトリには置かない**（個人情報）。
 
@@ -40,8 +41,9 @@ user-invocable: true
 3. **ヒアリング不要**。該当 PDF を `.claude/config/coconala/assets/pdf/` から特定 → キット §4c「C系 PDF 送付」文を商品名・本数で埋める（トークルームで PDF 添付は運営者手作業）。個別相談は S2/S3 へ誘導。
 
 **共通の後段**
-4. **orders-log 追記**: `date` / `serviceId` / `priceYen`（カタログから）/ `grade`（C系は省略可）/ `status:'received'`。
-5. **引き継ぎ提示**: 下記チェックリストを表示して終了。
+4. **orders-log 追記**: `date` / `serviceId` / **`talkroomId`（必須）** / `priceYen`（カタログから）/ `grade`（C系は null 可）/ `status:'received'` / `replyDueAt`（snapshot から転記）/ `deliveredAt:null` / `artifacts:[]`。
+5. **突合**: `npm run check-coconala-orders` を実行し exit 0 を確認（記録漏れ・金額ズレ・返信期限を機械が見る）。
+6. **引き継ぎ提示**: 下記チェックリストを表示して終了。**返信期限（無連絡で自動キャンセル）を必ず明示する**。
 
 ## 運営者チェックリスト（表示される）
 
@@ -50,7 +52,8 @@ user-invocable: true
 - [ ] 納品文面のトーンを自分の言葉に／**AI 下書き注記が消えているか確認**
 - [ ] **note・サイトの URL が入っていないか確認**（ココナラ規約: 外部誘導禁止）
 - [ ] トークルームへ送信（送信はユーザー操作。エージェントは送らない）
-- [ ] orders-log の `status` を `delivered` へ・`tensakuMinutes` 記録
+- [ ] orders-log の `status` を `delivered` へ・`deliveredAt`・`artifacts`（送ったファイルと sha256）・`tensakuMinutes` 記録
+      ※ C系 PDF は再ビルドで中身が変わりうる。**どの版を送ったか**を残さないと後から特定できない（2026-08-05 の C8 で実際に発生）
 - [ ] 共通の誤りは匿名化して添削事例アーカイブへ（1対多の資産化）
 
 ## ガードレール

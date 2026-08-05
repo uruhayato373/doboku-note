@@ -122,6 +122,14 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# ココナラ 受注スナップショット↔orders-log の突合（2026-08-05。オフライン検査・実体取得は npm run coconala-orders）
+if [ -f scripts/check-coconala-orders.mjs ]; then
+  node scripts/check-coconala-orders.mjs --staged --no-freshness
+  if [ $? -eq 1 ]; then
+    exit 1
+  fi
+fi
+
 # Brain カタログ(brain-products.ts)↔listings↔dist の配線ドリフト検証（2026-07-22。スクリプトが無いブランチではスキップ＝並行セッション安全）
 if [ -f scripts/check-brain-wiring.mjs ]; then
   node scripts/check-brain-wiring.mjs --staged
