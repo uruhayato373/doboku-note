@@ -1,20 +1,16 @@
 {
-  "_comment": "2026-08-04 のサイト送客リンク追加（142本）のライブ反映状況。無料26本は25本反映済み（残1＝nd4c5c13ee445・画像CDN確定タイムアウト）。有料116本は day1 の29本を反映。2026-08-05 に PDF 方針が確定し（noteコンテンツ計画 §7）、添付欠落によるブロックは解除。残り85本は添付の有無で2リストに分割済み。",
-  "updatedAt": "2026-08-05",
+  "_comment": "2026-08-04 のサイト送客リンク追加（142本）のライブ反映状況。2026-08-06 に全量完了（無料26/26・有料116/116）。check-note-republish の本文 drift からも 6 本すべてが消えたことを実査確認済み。残る corpus 全体の drift 178 件は別枠（建設部門 UTM 欠落・総監分など・backlog 参照）。",
+  "updatedAt": "2026-08-06",
+  "completed": true,
   "free": {
     "total": 26,
-    "applied": 25,
-    "pending": [
-      {
-        "noteId": "nd4c5c13ee445",
-        "article": "docs/note/1級・2級土木/1級土木/1級経験記述テーマ選び5管理/article.md",
-        "note": "CDN確定 1/3 で240s タイムアウト。2回連続で同記事のみ失敗＝画像3枚のうち特定1枚が重い疑い。次回は待ちをさらに延ばすか --img-lenient を検討"
-      }
-    ]
+    "applied": 26,
+    "pending": [],
+    "note": "最後の1本 nd4c5c13ee445 は 8/5 に画像CDN確定で2回タイムアウトしたが、8/6 に --force-retry で成功（画像 3/3 確定）。原因は一過性のCDN遅延で、同一画像2枚重複（著者バナー）は無関係だった。"
   },
   "paid": {
     "total": 116,
-    "applied": 109,
+    "applied": 116,
     "batches": [
       "day1(46本)",
       "day2(41本)",
@@ -31,12 +27,12 @@
         },
         "withAttach": {
           "file": ".claude/state/note-republish/paid-rest-with-attach.txt",
-          "count": 5,
-          "cmd": "note-update-body --list <file> --commit --reattach-pdf"
+          "count": 0,
+          "cmd": "完了"
         }
       },
       "note": "note のアップロード上限は1日100件（画像含む疑い）。添付なし群は画像のみ＝1本あたり約1件で軽い。",
-      "progress": "2026-08-05: 添付なし群50本＋添付あり群3本を反映し 109/116。残り5本は 2級学科記述テーマ別出る順で、同日に PDF を新規添付したためリスト分類が古くなり --reattach-pdf 無しでゲートに拒否された（ゲートは正常動作・ライブは無傷）。--reattach-pdf を付けて再実行すればよいが、本日のアップロードが上限100に近いため翌日に回す。"
+      "progress": "2026-08-06: 最後の 2級学科記述テーマ別出る順 5本を --reattach-pdf --force-retry で反映し 116/116 完了。8/5 の中断記録により初回は安全弁で SKIP されたため、先に check-note-attachments --live --only で 5/5 充足（ライブ無傷）を確認してから --force-retry を付けた。全件で boundaryBeforeExam=true・PDF添付復元OK・API実体検証OK。"
     }
   }
 }
