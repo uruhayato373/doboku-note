@@ -3,7 +3,7 @@
  * note-membership-plan-edit.mjs
  * ---------------------------------------------------------------------------
  * note メンバーシップ「土木セコカン合格ラボ」の**既存プラン**の内容
- * （プラン名 / 説明 / 会費 / 人数制限=定員）を編集して**保存**するブラウザ CLI。
+ * （プラン名 / 説明 / 会費 / 人数制限=定員 / 特典マガジンの紐付け）を編集して**保存**するブラウザ CLI。
  *
  * 位置づけ・安全設計（重要）:
  *   - **保存（「プランを変更する」）は非公開ドラフトのまま**＝可逆。公開（③ プランを公開しよう）は
@@ -29,6 +29,12 @@
  *   node scripts/note-membership-plan-edit.mjs --plan ceacc4bb4574 --price 2980 --limit 10 --commit
  *   # 名前・説明も上書き（任意）
  *   node scripts/note-membership-plan-edit.mjs --plan <id> --name "…" --desc "…" --commit
+ *   # 特典マガジンを紐付ける（タイトル部分一致・カンマ区切りで複数）
+ *   node scripts/note-membership-plan-edit.mjs --plan <id> --benefit-magazine "週次お題ラボ" --commit
+ *
+ * 会費（--price）の制約: **作成済みプランの会費は note の UI に入力欄が無く変更できない**
+ *   （静的テキスト表示・2026-08-06 実機確認。両プランとも `input[name=price]` が存在しない）。
+ *   このスクリプトは会費指定を黙って skip するので、値を変えたつもりにならないこと。
  *
  * 真実源: .claude/knowledge/reference/note-api-verification.md / エージェント: note-membership-operator
  * ---------------------------------------------------------------------------
@@ -52,6 +58,8 @@ const PRICE = getArg('--price');
 const NAME = getArg('--name');
 const DESC = getArg('--desc');
 const LIMIT = getArg('--limit');           // 定員（人数制限を有効化して数値設定）。省略時は触らない
+// 特典マガジンの紐付け（タイトル部分一致・カンマ区切り）。省略時は触らない。
+const BENEFIT_MAGS = (getArg('--benefit-magazine') || '').split(',').map((s) => s.trim()).filter(Boolean);
 const COMMIT = argv.includes('--commit');
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -158,6 +166,61 @@ if (LIMIT) {
   }
   if (!filled) { console.error('ABORT: 定員の数値入力欄が見つからず（保存しない）'); await page.screenshot({ path: join(TMP, `mplan-${PLAN}-nolimit.png`), fullPage: true }); await ctx.close(); process.exit(9); }
   await sleep(500);
+}
+
+// 特典マガジンの紐付け（「特典マガジンを選択」→ 対象行の「選択」→ ダイアログの「保存」）。
+// 押下後に「選択済」へ変わったことを確認できない行は失敗として扱い、紐付けたつもりにしない。
+if (BENEFIT_MAGS.length) {
+  const opened = await page.evaluate(() => {
+    const b = [...document.querySelectorAll('button')].find((x) => /特典マガジンを選択/.test(x.innerText || ''));
+    if (!b) return false; b.click(); return true;
+  });
+  if (!opened) { console.error('ABORT: 「特典マガジンを選択」ボタン未検出（保存しない）'); await ctx.close(); process.exit(11); }
+  await sleep(4000);
+  const results = [];
+  for (const wanted of BENEFIT_MAGS) {
+    const r = await page.evaluate((label) => {
+      const norm = (s) => (s || '').replace(/\s+/g, ' ').trim();
+      const btns = [...document.querySelectorAll('button')].filter((b) => /^(選択|選択済)$/.test(norm(b.innerText)));
+      for (const b of btns) {
+        let el = b.parentElement;
+        for (let i = 0; i < 6 && el; i++, el = el.parentElement) {
+          const t = norm(el.innerText);
+          if (t.includes(label) && t.length <= label.length + 40) {
+            const before = norm(b.innerText);
+            if (before === '選択') b.click();
+            return { found: true, before, row: t.slice(0, 60) };
+          }
+        }
+      }
+      return { found: false };
+    }, wanted);
+    await sleep(2000);
+    if (!r.found) { results.push({ wanted, ok: false, why: '行が見つからない' }); continue; }
+    const state = await page.evaluate((label) => {
+      const norm = (s) => (s || '').replace(/\s+/g, ' ').trim();
+      const btns = [...document.querySelectorAll('button')].filter((b) => /^(選択|選択済)$/.test(norm(b.innerText)));
+      for (const b of btns) {
+        let el = b.parentElement;
+        for (let i = 0; i < 6 && el; i++, el = el.parentElement) {
+          const t = norm(el.innerText);
+          if (t.includes(label) && t.length <= label.length + 40) return norm(b.innerText);
+        }
+      }
+      return '(row-gone)';
+    }, wanted);
+    results.push({ wanted, ok: state === '選択済', before: r.before, after: state, row: r.row });
+  }
+  results.forEach((r) => console.log(`[4b] 特典マガジン「${r.wanted}」: ${r.before ?? '-'} → ${r.after ?? r.why} / ok=${r.ok}`));
+  await page.screenshot({ path: join(TMP, `mplan-${PLAN}-benefit.png`), fullPage: true });
+  if (results.some((r) => !r.ok)) { console.error('ABORT: 特典マガジンを選択済にできず（プランは保存しない）'); await ctx.close(); process.exit(12); }
+  const saved = await page.evaluate(() => {
+    const b = [...document.querySelectorAll('button')].find((x) => (x.innerText || '').trim() === '保存');
+    if (!b) return false; b.click(); return true;
+  });
+  console.log('[4b] ダイアログ「保存」click =', saved);
+  if (!saved) { console.error('ABORT: ダイアログの「保存」未検出'); await ctx.close(); process.exit(13); }
+  await sleep(3500);
 }
 
 await page.screenshot({ path: join(TMP, `mplan-${PLAN}-filled.png`), fullPage: true });

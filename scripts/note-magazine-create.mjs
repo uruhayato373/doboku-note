@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 /**
  * note-magazine-create.mjs
- * note掲載文.txt 駆動で note 有料マガジンを新規作成（/magazines/new・有料単体）。
+ * note掲載文.txt 駆動で note マガジンを新規作成（/magazines/new）。
  * 既定 probe（フォーム構造ダンプ・作成しない）。--commit で作成。--dir <magazineDir>。
+ * 既定は有料(単体)。--free でメンバーシップ特典マガジン用の**無料マガジン**を作る
+ * （無料は 価格/アピール/カテゴリ の入力欄が無く、タイトルと説明だけ・2026-08-06 実測）。
  * note-edit-magazine（編集専用）が扱わない「新規作成」を担う。
  */
 import { chromium } from 'playwright';
@@ -18,6 +20,7 @@ const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
 const COMMIT = argv.includes('--commit');
+const FREE = argv.includes('--free');
 const DIR = getArg('--dir');
 if (!DIR) { console.error('--dir <magazineDir> required'); process.exit(1); }
 const txtPath = join(ROOT, DIR, 'note掲載文.txt');
@@ -25,7 +28,8 @@ if (!existsSync(txtPath)) { console.error('note掲載文.txt not found: ' + txtP
 const meta = parseNoteText(readFileSync(txtPath, 'utf8'));
 console.log('[meta]', JSON.stringify({ title: meta.title, setPrice: meta.setPrice, descLen: (meta.description || '').length, appealLen: (meta.appealPoint || '').length }));
 const price = parseInt(String(meta.setPrice || '').replace(/[^0-9]/g, ''), 10) || 0;
-if (!meta.title || !price) { console.error('ABORT: title/price 解析失敗', meta.title, price); process.exit(1); }
+if (!meta.title) { console.error('ABORT: title 解析失敗'); process.exit(1); }
+if (!FREE && !price) { console.error('ABORT: price 解析失敗（無料マガジンなら --free）', price); process.exit(1); }
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const ctx = await chromium.launchPersistentContext(PROFILE, {
@@ -49,9 +53,11 @@ try {
     bodyHints: ['有料', '無料', 'マガジン名', 'カテゴリ', 'アピール', '価格'].filter((h) => document.body.innerText.includes(h)),
   }));
   console.log('[form-initial]', JSON.stringify(form, null, 1));
-  // 有料(単体) を選択して price/アピール/カテゴリ を出現させる
-  const paidBtn = page.getByRole('button', { name: '有料(単体)' });
-  if (await paidBtn.count()) { await paidBtn.first().click(); await sleep(2500); console.log('clicked 有料(単体)'); }
+  // 種別タブを選択（有料(単体) は price/アピール/カテゴリ を出現させる。無料は出ない）
+  const kind = FREE ? '無料' : '有料(単体)';
+  const kindBtn = page.getByRole('button', { name: kind, exact: true });
+  if (await kindBtn.count()) { await kindBtn.first().click(); await sleep(2500); console.log('clicked ' + kind); }
+  else console.log('WARN: 種別タブ「' + kind + '」未検出');
   const form2 = await page.evaluate(() => ({
     numberInputs: Array.from(document.querySelectorAll('input[type=number]')).map((i) => i.placeholder || i.getAttribute('aria-label') || i.id || '').slice(0, 6),
     priceInput: !!document.querySelector('input[type=number], input#price'),
@@ -67,23 +73,32 @@ try {
 
   // --- 作成（note掲載文.txt 駆動）---
   await page.locator('input[type=text]').first().fill(meta.title); await sleep(400);
-  await page.locator('textarea[placeholder*="まとめ"]').first().fill(meta.description); await sleep(400);
-  await page.locator('input[type=number]').first().fill(String(price)); await sleep(400);
-  const appeal = page.locator('textarea[placeholder*="購読"]');
-  if (await appeal.count()) { await appeal.first().fill(meta.appealPoint); await sleep(400); }
-  const sel = page.locator('select');
-  if (await sel.count()) { await sel.first().selectOption({ label: 'キャリア' }).catch(async () => { await sel.first().selectOption({ index: 1 }); }); await sleep(400); }
+  // 説明欄の placeholder は種別で異なる（有料=「…まとめ…」/ 無料=「例: ステキなクリエイター…」）。
+  // 無料フォームには textarea が1つしかないので first() で拾う（2026-08-06 実測）。
+  const descSel = FREE ? 'textarea' : 'textarea[placeholder*="まとめ"]';
+  await page.locator(descSel).first().fill(meta.description); await sleep(400);
+  if (!FREE) {
+    await page.locator('input[type=number]').first().fill(String(price)); await sleep(400);
+    const appeal = page.locator('textarea[placeholder*="購読"]');
+    if (await appeal.count()) { await appeal.first().fill(meta.appealPoint); await sleep(400); }
+    const sel = page.locator('select');
+    if (await sel.count()) { await sel.first().selectOption({ label: 'キャリア' }).catch(async () => { await sel.first().selectOption({ index: 1 }); }); await sleep(400); }
+  }
   // 読み戻し検証
-  const filled = await page.evaluate(() => ({
+  const filled = await page.evaluate((sel) => ({
     title: document.querySelector('input[type=text]')?.value || '',
     price: document.querySelector('input[type=number]')?.value || '',
-    descLen: (document.querySelector('textarea[placeholder*="まとめ"]')?.value || '').length,
+    descLen: (document.querySelector(sel)?.value || '').length,
     appealLen: (document.querySelector('textarea[placeholder*="購読"]')?.value || '').length,
     category: (() => { const s = document.querySelector('select'); return s ? s.options[s.selectedIndex]?.text : ''; })(),
-  }));
+  }), descSel);
   console.log('[filled]', JSON.stringify(filled));
   await page.screenshot({ path: join(ROOT, '.tmp/mag-create-filled.png') });
-  if (filled.title !== meta.title || filled.price !== String(price)) { console.log('ABORT: 読み戻し不一致→作成中止'); await ctx.close(); process.exit(3); }
+  // 読み戻しゲート: タイトルは必須一致。価格は有料のときだけ見る（無料は入力欄が無い）。
+  // 説明が空のまま作ると必須未充足で作成が通らないので、ここで一緒に見る。
+  if (filled.title !== meta.title || (!FREE && filled.price !== String(price)) || !filled.descLen) {
+    console.log('ABORT: 読み戻し不一致→作成中止'); await ctx.close(); process.exit(3);
+  }
   // 作成（リダイレクト遅延に強い polling で key 取得）
   await page.getByRole('button', { name: '作成' }).first().click();
   let url = '', key = '';
