@@ -69,6 +69,12 @@ export interface CoconalaService {
   readonly pauseReason?: 'retired' | 'absence';
   /** pauseReason:'absence' のときの復帰予定日（ISO 日付・目安） */
   readonly resumeOn?: string;
+  /**
+   * アーカイブ（非表示）にした日。pauseReason:'retired' のみ。
+   * アーカイブ = 検索/カテゴリ/プロフィール一覧から消え、詳細は「受付終了」。URL と評価は残る。
+   * **解除導線は実機で見つからず実質片道**（2026-08-05 調査）。恒久廃止にのみ使う。
+   */
+  readonly archivedAt?: string;
 }
 
 /**
@@ -170,6 +176,7 @@ const SERVICES_RAW = {
     examScope: ['civil-1'],
     weeklyCapacity: 10,
     pauseReason: 'retired',
+    archivedAt: '2026-08-05',
     listedAt: '2026-07-18',
   },
 
@@ -228,6 +235,7 @@ const SERVICES_RAW = {
     examScope: ['civil-1'],
     weeklyCapacity: 10,
     pauseReason: 'retired',
+    archivedAt: '2026-08-05',
     listedAt: '2026-07-18',
   },
 
@@ -245,6 +253,7 @@ const SERVICES_RAW = {
     examScope: ['civil-2'],
     weeklyCapacity: 10,
     pauseReason: 'retired',
+    archivedAt: '2026-08-05',
     listedAt: '2026-07-18',
   },
 
@@ -263,6 +272,7 @@ const SERVICES_RAW = {
     examScope: ['civil-1'],
     weeklyCapacity: 10,
     pauseReason: 'retired',
+    archivedAt: '2026-08-05',
     listedAt: '2026-07-18',
   },
 
@@ -280,6 +290,7 @@ const SERVICES_RAW = {
     examScope: ['civil-2'],
     weeklyCapacity: 10,
     pauseReason: 'retired',
+    archivedAt: '2026-08-05',
     listedAt: '2026-07-18',
   },
 

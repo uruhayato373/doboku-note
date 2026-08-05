@@ -32,6 +32,7 @@
  *   node scripts/coconala-pause.mjs --service coconala-bunseki-pdf              # dry-run
  *   node scripts/coconala-pause.mjs --service a,b,c --commit                    # 実行（カンマ区切り可）
  *   node scripts/coconala-pause.mjs --all-paused --commit                       # カタログ paused 全部
+ *   node scripts/coconala-pause.mjs --archive --all-retired --commit            # 恒久廃止を棚から消す
  *   node scripts/coconala-pause.mjs --resume --all-listed --commit              # 休暇あけの一括再開
  *     （再開は「カタログ status:'listed' のもの」だけが対象＝先にカタログを戻す）
  *
@@ -69,16 +70,26 @@ const ALL_LISTED = argv.includes('--all-listed');
 //   人が「戻すのはどの12件だったか」を思い出す必要をなくすのが目的。
 //   恒久廃止（pauseReason:'retired'）は構造的に選ばれないので復活しない。
 const ABSENCE = argv.includes('--absence');
+// --archive: 恒久廃止した商品を「アーカイブ（非表示）」にする。
+//   休止との差（実機モーダルの明記・2026-08-05）:
+//     休止   = 検索/カテゴリ/プロフィール一覧に「休止中」で**残る**
+//     アーカイブ = それらから**消える**（サービス詳細は「受付終了」・URLと評価/トークルームは残る）
+//   公開済みサービスに削除導線は無く（削除できるのは空の下書きのみ）、これが実質的な「棚から消す」操作。
+//   ガード: pauseReason:'retired'（恒久廃止）のものだけ。absence（不在の一時休止）は
+//   構造的に選ばれない＝旅行中の商品を誤ってアーカイブしない。
+const ARCHIVE = argv.includes('--archive');
+const ALL_RETIRED = argv.includes('--all-retired');
 
 const LIST_URL = 'https://coconala.com/mypage/services_lists';
 
 const catalog = readCatalog();
 const WANT = RESUME ? 'listed' : 'paused';   // 操作の前提となるカタログ status
-const ACTION = RESUME ? '受付再開' : '受付休止';
+const ACTION = RESUME ? '受付再開' : ARCHIVE ? 'アーカイブ' : '受付休止';
 
 let ids = (getArg('--service') || '').split(',').map((s) => s.trim()).filter(Boolean);
 if (ALL_PAUSED) ids = Object.values(catalog).filter((s) => s.status === 'paused').map((s) => s.id);
 if (ALL_LISTED) ids = Object.values(catalog).filter((s) => s.status === 'listed').map((s) => s.id);
+if (ALL_RETIRED) ids = Object.values(catalog).filter((s) => s.status === 'paused' && s.pauseReason === 'retired').map((s) => s.id);
 
 /** paused+absence を listed へ戻し pauseReason/resumeOn を除去する（--resume --absence 用） */
 function restoreAbsenceInCatalog(targetIds) {
@@ -145,6 +156,10 @@ for (const id of ids) {
     rejected.push(
       `${id}: status='${svc.status}' — ${ACTION}できるのは status:'${WANT}' のものだけ（先にカタログを ${WANT} にしてください）`
     );
+    continue;
+  }
+  if (ARCHIVE && svc.pauseReason !== 'retired') {
+    rejected.push(`${id}: pauseReason='${svc.pauseReason ?? 'なし'}' — アーカイブできるのは 'retired'（恒久廃止）だけ`);
     continue;
   }
   const sid = (svc.serviceUrl.match(/services\/(\d+)/) || [])[1];
@@ -214,10 +229,20 @@ const byId = (arr) => new Map(arr.map((s) => [String(s.id), s]));
 const results = [];
 for (const t of targets) {
   const st = byId(before).get(t.sid);
-  // G2: 一覧に居るか
-  if (!st) { results.push({ ...t, outcome: 'ng', reason: '出品一覧に見つからない' }); continue; }
-  // G3: 既に目的の状態なら skip（再実行可能にする）
-  const already = RESUME ? String(st.stop_fg) === '0' : String(st.stop_fg) === '1';
+  // G2: 一覧に居るか。
+  //   ただし ARCHIVE では「一覧に居ない」＝**既にアーカイブ済み**なので skip（失敗ではない）。
+  //   これを ng にすると再実行のたびに赤くなり、冪等でなくなる（2026-08-05 実際に誤検知した）。
+  if (!st) {
+    results.push(
+      ARCHIVE
+        ? { ...t, outcome: 'skip', reason: '既にアーカイブ済み（一覧に無い）' }
+        : { ...t, outcome: 'ng', reason: '出品一覧に見つからない' }
+    );
+    continue;
+  }
+  // G3: 既に目的の状態なら skip（再実行可能にする）。
+  //   アーカイブは stop_fg では表せないので「一覧から消えたか」で判定する（後段の検証も同様）。
+  const already = ARCHIVE ? false : RESUME ? String(st.stop_fg) === '0' : String(st.stop_fg) === '1';
   if (already) { results.push({ ...t, outcome: 'skip', reason: RESUME ? '既に受付中' : '既に受付休止中' }); continue; }
 
   if (!COMMIT) { results.push({ ...t, outcome: 'dry-run', reason: `stop_fg=${st.stop_fg} → ${ACTION}可（--commit で実行）` }); continue; }
@@ -235,9 +260,16 @@ for (const t of targets) {
 
   // 休止 = a.js_change-open-status[data-mode=stop][href="/services/stop/{id}"]
   // 再開 = a[href="/services/reopen/{id}"]（data-mode 属性は付かない・実機確定 2026-08-05）
-  const link = RESUME
-    ? page.locator(`a[href="/services/reopen/${t.sid}"]`)
-    : page.locator(`a.js_change-open-status[data-mode="stop"][href="/services/stop/${t.sid}"]`);
+  const link = ARCHIVE
+    ? page.locator(`a.js_change-open-status[data-mode="archive"][href="/services/archive/${t.sid}"]`)
+    : RESUME
+      ? page.locator(`a[href="/services/reopen/${t.sid}"]`)
+      : page.locator(`a.js_change-open-status[data-mode="stop"][href="/services/stop/${t.sid}"]`);
+  // アーカイブは popover 内の「アーカイブ（非表示）にする」→ 確認モーダルの OK が実行リンク。
+  if (ARCHIVE) {
+    const opener = page.locator(`a.comp_simple-modal[href="#js_alert-archive-${t.sid}"]`);
+    if ((await opener.count()) > 0) { await opener.first().click({ timeout: 8000 }).catch(() => {}); await sleep(1500); }
+  }
   if ((await link.count()) === 0) {
     results.push({ ...t, outcome: 'ng', reason: `「${ACTION}する」導線が popover に無い（UI 変更の疑い）` });
     await page.keyboard.press('Escape').catch(() => {});
@@ -256,9 +288,15 @@ for (const t of targets) {
   // 実測で検証（自己申告を信じない）
   before = await readStates(page);
   const after = byId(before).get(t.sid);
-  const want = RESUME ? '0' : '1';
-  if (after && String(after.stop_fg) === want) results.push({ ...t, outcome: 'ok', reason: `stop_fg=${want} を実測で確認` });
-  else results.push({ ...t, outcome: 'ng', reason: `${ACTION}を反映できていない（stop_fg=${after?.stop_fg ?? '不明'}）` });
+  if (ARCHIVE) {
+    // アーカイブ成功＝出品サービス一覧（既定表示）から消える
+    if (!after) results.push({ ...t, outcome: 'ok', reason: '一覧から消えたことを実測で確認（アーカイブ済み）' });
+    else results.push({ ...t, outcome: 'ng', reason: 'アーカイブ後も一覧に残っている' });
+  } else {
+    const want = RESUME ? '0' : '1';
+    if (after && String(after.stop_fg) === want) results.push({ ...t, outcome: 'ok', reason: `stop_fg=${want} を実測で確認` });
+    else results.push({ ...t, outcome: 'ng', reason: `${ACTION}を反映できていない（stop_fg=${after?.stop_fg ?? '不明'}）` });
+  }
 }
 
 await ctx.close();
