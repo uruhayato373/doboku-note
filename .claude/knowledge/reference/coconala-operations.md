@@ -133,6 +133,15 @@ snapshot が「ココナラ側の実体」で、`npm run check-coconala-orders` 
 | `unreplied` | `open?message_status=2`（未返信タブ）に居るか |
 | `replyDueAt` | 自動キャンセル期限。**一覧に出ないのでトークルームを開いて拾う**（未返信の room のみ・最大10件） |
 
+**`inquiries[]`（購入前の問い合わせ＝ダイレクトメッセージ）**: 受注（トークルーム）とは**別系統**。
+`{ dmId, dmUrl, dateText, subject, serviceId, unread }`。`subject` は引用されたサービス名だけを採り、
+`serviceId` はカタログ title の前方一致で解決する。**スレッドは開かない**（開くと未読→既読になり、
+人が気づく手段を壊すため）。DM 一覧 = `/message?fromMyPage=true`、行 = `a.c-messageItemWrap[href="/mypage/direct_message/{id}"]`。
+
+> [!warning] 受注一覧だけ見ていると DM を落とす（2026-08-05）
+> C8 の購入者から **DM で別商品（C1）の購入前質問**が届いたが、受注一覧しか見ていなかったため
+> 機械では拾えず、人が気づいて指摘した。DM は売上機会そのものなので必ず一緒に採る。
+
 **実機確定（2026-08-05）**:
 - タブ URL = `/mypage/received_orders/{required,requests,open,closed,canceled,flags}`（`close` は 404）
 - 行 = `.d-providerTalkroomCassetteBlock`。**PC/SP が二重描画される**ので `talkroomId` で dedupe する（素の行数を件数として信じない）
@@ -255,8 +264,12 @@ snapshot（§2.2b＝ココナラ側の実体）と orders-log（こちらの記�
 | 1 | snapshot の取引が orders-log に存在 | **売れたのに記録が無い**（人手の追記もれ） |
 | 2 | serviceId / priceYen / 販売日 が一致 | 商品の取り違え・価格改定の取り残し |
 | 3 | 未返信かつ返信期限が 24h 以内 or 経過 | **48時間無連絡で自動キャンセル**を落とす |
+| 3b | 購入前の問い合わせ（DM）を要対応に surface | 受注一覧だけ見て**購入前の質問を落とす**（＝売上機会の逸失） |
 | 4 | `status:'received'` のまま 5 日超 | 納品の滞留 |
 | 5 | orders-log にあって snapshot に無い | talkroomId の誤り |
+
+DM は突合相手が無いので**存在の surface に徹する**（未読/既読と対象商品を出すだけ・自動で開かない）。
+DM 一覧の取得に失敗したら警告を出す（「問い合わせ 0 件」と「見ていない」を区別する）。
 
 **「検査ゼロを PASS と呼ばない」**（[[feedback_gate_zero_coverage_false_pass]]）:
 snapshot が **無い / `status:'partial'` / 7日より古い** ときは **exit 2＝検査不成立**で、
@@ -279,7 +292,7 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 | `scripts/coconala-publish.mjs --service <id> [--commit]` | 新規出品。`/services/add`→種別=テキストチャット→「内容の入力に進む」で下書き生成→フォーム充填→下書き保存（既定）/公開（`--commit`）→公開時カタログへ `listed`＋`serviceUrl`＋`listedAt` 書き戻し |
 | `scripts/coconala-edit.mjs --service <id> [--fields …] [--commit]` | 既存修正。カタログ＋listings の現値でフォーム再充填。`--fields price,delivery` 等で部分更新 |
 | `scripts/coconala-delete-draft.mjs --id <n[,n]> [--commit]` | **空の下書き（orphan draft）を安全に削除**。4重ガード（G0 カタログ在籍拒否・G1 URL一致・G2 タイトル空・G3「下書きを削除」導線＝公開商品には出ない）。既定 dry-run・実削除は `--commit`。公開中商品は構造的に誤爆しない |
-| `scripts/coconala-orders.mjs [--no-deadline] [--headless]` | **受注実績の read-only 収集**（§2.2b）。取引管理（出品）の全タブ＋未返信タブを走査し、未返信 room の返信期限をトークルームから拾って `orders-snapshot.json` を生成。**書き込み一切なし・個人情報を保存しない**。1タブでも取得失敗なら `status:'partial'` ＋ exit 2 |
+| `scripts/coconala-orders.mjs [--no-deadline] [--headless]` | **受注実績＋購入前問い合わせ(DM) の read-only 収集**（§2.2b）。取引管理（出品）の全タブ＋未返信タブ＋DM 一覧を走査し、未返信 room の返信期限をトークルームから拾って `orders-snapshot.json` を生成（DM スレッドは開かない＝既読にしない）。**書き込み一切なし・個人情報を保存しない**。1タブでも取得失敗なら `status:'partial'` ＋ exit 2 |
 | `scripts/coconala-discover.mjs [--advance] [--cat --sub --type]` | フォーム構造・selector・カテゴリ/価格/facet options の偵察（読み取り専用）。仕様ドリフト時の再校正用 |
 | `scripts/coconala-profile.mjs [--commit]` | プロフィール（職業/アピール/自己紹介）を `coconala-account.json` の値へ反映。**プロフィール編集（/mypage/user）はインライン編集型**（フィールドは初期描画に無く、セクション見出し近傍の鉛筆 `.d-profileItemControlButton` クリックで展開・2026-07-20 UI 変更対応済み）。ナビ誤爆は URL 不変 assert で検知 |
 | 共有 `scripts/lib/coconala-{session,form}.mjs` | プロファイル起動・login 待ち・account assert・カタログ/listings 解析・フォーム充填 |

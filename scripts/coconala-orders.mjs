@@ -18,11 +18,19 @@
  *   購入者名・購入者 ID・トークルーム本文は**抽出しない**。保存するのは
  *   talkroomId / サービス / 金額 / 販売日 / 納品予定 / ステータス / 未返信フラグ / 返信期限。
  *
+ * 受注（トークルーム）とは別に「購入前の問い合わせ（ダイレクトメッセージ）」も採る:
+ *   2026-08-05、C8 の購入者から **DM で別商品(C1)の購入前質問**が届いたが、受注一覧しか
+ *   見ていなかったため機械では拾えなかった（人が気づいて指摘した）。DM は売上機会そのもの
+ *   なので一覧だけ採取する。**スレッドは開かない**（開くと未読→既読になり、人が気づく手段を壊す）。
+ *
  * 実機確定（2026-08-05）:
  *   タブ URL = /mypage/received_orders/{required,requests,open,closed,canceled,flags}
  *   行 = .d-providerTalkroomCassetteBlock（PC/SP の二重描画があるため talkroomId で dedupe）
  *   未返信の絞り込み = /mypage/received_orders/open?message_status=2
  *   48時間の自動キャンセル期限は一覧に出ず、トークルーム本文の「期限 M/D HH:MM」にのみ出る。
+ *   DM 一覧 = /message?fromMyPage=true、行 = a.c-messageItemWrap[href="/mypage/direct_message/{id}"]
+ *     日時 = .c-messageItemDate_text（相対表記）／本文プレビュー = .c-messageItemBody_text
+ *     未読バッジ = .c-messageItemIcon（中身あり＝未読）
  *
  * 使い方:
  *   node scripts/coconala-orders.mjs                 # 全タブ収集＋未返信ルームの期限取得
@@ -88,6 +96,27 @@ function extractRows() {
     });
   }
   return rows;
+}
+
+/** DM 一覧の 1 行から、個人情報を含まない項目だけを抽出する（スレッドは開かない）。 */
+function extractInquiries() {
+  const norm = (s) => (s || '').replace(/\s+/g, ' ').trim();
+  const out = [];
+  for (const a of document.querySelectorAll('a.c-messageItemWrap')) {
+    const href = a.getAttribute('href') || '';
+    const id = (href.match(/\/direct_message\/(\d+)/) || [])[1];
+    if (!id) continue;
+    const preview = norm(a.querySelector('.c-messageItemBody_text')?.innerText);
+    out.push({
+      dmId: id,
+      dateText: norm(a.querySelector('.c-messageItemDate_text')?.innerText),
+      // プレビュー冒頭の「サービス名 …」だけを採る（購入者の文面は保存しない）
+      subject: (preview.match(/^「([^」]{0,80})/) || [, ''])[1],
+      unread: norm(a.querySelector('.c-messageItemIcon')?.innerText).length > 0
+        || !!a.querySelector('.c-messageItemIcon')?.children.length,
+    });
+  }
+  return out;
 }
 
 /** "2,500円" → 2500 */
@@ -218,6 +247,23 @@ async function main() {
     }
   }
 
+  // 購入前の問い合わせ（DM）。一覧だけ採る＝スレッドは開かない（既読にしない）。
+  let inquiries = [];
+  let inquiriesOk = false;
+  if (await gotoTab(page, 'https://coconala.com/message?fromMyPage=true')) {
+    const raw = await page.evaluate(extractInquiries);
+    inquiries = raw.map((r) => ({
+      ...r,
+      dmUrl: `https://coconala.com/mypage/direct_message/${r.dmId}`,
+      serviceId: resolveServiceId(r.subject),
+    }));
+    inquiriesOk = true;
+    console.log(`${TAG} 問い合わせ(DM) ${inquiries.length} 件（未読 ${inquiries.filter((i) => i.unread).length}）`);
+  } else {
+    console.error(`${TAG} ✗ DM 一覧: ページ取得に失敗`);
+  }
+  scan.push({ key: 'inquiries', label: '問い合わせ(DM)', url: 'https://coconala.com/message?fromMyPage=true', ok: inquiriesOk, rows: inquiriesOk ? inquiries.length : null });
+
   await ctx.close();
 
   const orders = [...byRoom.values()].sort((a, b) => String(b.soldOn).localeCompare(String(a.soldOn)));
@@ -235,9 +281,10 @@ async function main() {
         status,
         source: 'coconala.com /mypage/received_orders/*（Playwright・read-only）',
         privacyNote:
-          '購入者名・購入者ID・トークルーム本文は保存しない。保存するのは talkroomId / サービス / 金額 / 日付 / ステータス / 未返信 / 返信期限のみ。',
+          '購入者名・購入者ID・トークルーム本文・DM 本文は保存しない。保存するのは talkroomId / dmId / サービス / 金額 / 日付 / ステータス / 未返信 / 返信期限のみ。DM は subject（引用されたサービス名）だけを採る。',
         scan: { tabs: scan, tabsOk, tabsTotal: scan.length, deadlineFailed },
         orders,
+        inquiries,
       },
       null,
       2
@@ -245,7 +292,9 @@ async function main() {
   );
 
   console.log('');
-  console.log(`${TAG} タブ ${tabsOk}/${scan.length} 取得・取引 ${orders.length} 件 → ${OUT_PATH}`);
+  console.log(
+    `${TAG} タブ ${tabsOk}/${scan.length} 取得・取引 ${orders.length} 件・問い合わせ ${inquiries.length} 件 → ${OUT_PATH}`
+  );
   if (unresolved.length) {
     console.error(`${TAG} ⚠ カタログに紐づかない取引 ${unresolved.length} 件（title 変更の疑い）:`);
     for (const o of unresolved) console.error(`    room ${o.talkroomId}: ${o.listingText.slice(0, 40)}`);

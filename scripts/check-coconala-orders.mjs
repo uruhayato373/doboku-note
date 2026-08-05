@@ -140,6 +140,17 @@ for (const s of snapOrders) {
   }
 }
 
+// 3b. 購入前の問い合わせ（DM）。受注と違い突合相手が無いので surface に徹する。
+const inquiries = Array.isArray(snap.inquiries) ? snap.inquiries : [];
+for (const q of inquiries) {
+  const what = q.serviceId ?? (q.subject ? `「${q.subject}」` : '（対象商品不明）');
+  if (q.unread) {
+    actions.push(`DM ${q.dmId}: 未読の問い合わせ ${what}（${q.dateText}）。${q.dmUrl}`);
+  } else {
+    actions.push(`DM ${q.dmId}: 既読の問い合わせ ${what}（${q.dateText}）— 返信済みか確認。${q.dmUrl}`);
+  }
+}
+
 // 4. received のまま滞留
 for (const l of logOrders) {
   if (l.status !== 'received') continue;
@@ -165,10 +176,15 @@ for (const l of logOrders) {
 }
 
 // --- 出力（実検査数を必ず出す） ---
+const inqScanned = snap.scan?.tabs?.some((t) => t.key === 'inquiries' && t.ok);
 console.log(
-  `${TAG} 実検査 ココナラ側 ${snapOrders.length} 件 / orders-log ${logOrders.length} 件` +
+  `${TAG} 実検査 ココナラ側 取引 ${snapOrders.length} 件 / orders-log ${logOrders.length} 件 / ` +
+  `問い合わせ(DM) ${inqScanned ? `${inquiries.length} 件` : '未取得'}` +
   `（snapshot ${ageDays.toFixed(1)} 日前・タブ ${snap.scan?.tabsOk}/${snap.scan?.tabsTotal} 取得）`
 );
+if (!inqScanned) {
+  warnings.push('DM 一覧を取得できていません（購入前の問い合わせを見落とす可能性）— npm run coconala-orders を再実行');
+}
 
 if (actions.length) {
   console.log('');
