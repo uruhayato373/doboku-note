@@ -1,6 +1,6 @@
 {
-  "_comment": "2026-08-04 のサイト送客リンク追加（142本）のライブ反映状況。無料26本は25本反映済み（残1＝nd4c5c13ee445・画像CDN確定タイムアウト）。有料116本は day1 の29本を反映。day1 残り14本と day2/day3 は、添付欠落84本の扱いを決めてから再開する（attachment-missing-2026-08-04.json）。",
-  "updatedAt": "2026-08-04",
+  "_comment": "2026-08-04 のサイト送客リンク追加（142本）のライブ反映状況。無料26本は25本反映済み（残1＝nd4c5c13ee445・画像CDN確定タイムアウト）。有料116本は day1 の29本を反映。2026-08-05 に PDF 方針が確定し（noteコンテンツ計画 §7）、添付欠落によるブロックは解除。残り85本は添付の有無で2リストに分割済み。",
+  "updatedAt": "2026-08-05",
   "free": {
     "total": 26,
     "applied": 25,
@@ -20,10 +20,22 @@
       "day2(41本)",
       "day3(29本)"
     ],
-    "blocked": {
-      "reason": "有料114本のうち84本がライブに添付0件（ローカルにPDFはある）。--reattach-pdf のゲートが上書きを拒否して停止するため、添付を復旧するか商品仕様として外すかを決めるまで再開しない。",
-      "detail": ".claude/state/note-republish/attachment-missing-2026-08-04.json",
-      "day1Remaining": 14
+    "resumePlan": {
+      "decidedAt": "2026-08-05",
+      "policy": "閲覧＝会員／所有＝買い切り。会員特典マガジン内の記事には新規添付しない。",
+      "lists": {
+        "noAttach": {
+          "file": ".claude/state/note-republish/paid-rest-no-attach.txt",
+          "count": 82,
+          "cmd": "note-update-body --list <file> --commit（--reattach-pdf を付けない＝ライブに添付が無いのでゲートは発火しない）"
+        },
+        "withAttach": {
+          "file": ".claude/state/note-republish/paid-rest-with-attach.txt",
+          "count": 3,
+          "cmd": "note-update-body --list <file> --commit --reattach-pdf"
+        }
+      },
+      "note": "note のアップロード上限は1日100件（画像含む疑い）。添付なし群は画像のみ＝1本あたり約1件で軽い。"
     }
   }
 }

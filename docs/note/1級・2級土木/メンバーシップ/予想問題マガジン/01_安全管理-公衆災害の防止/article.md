@@ -1,5 +1,9 @@
 ---
 notePricing: membership
+noteStatus: draft
+noteDraftId: "n66570efb6d23"
+noteDraftUrl: "https://editor.note.com/notes/n66570efb6d23/edit/"
+noteDraftAt: "2026-08-05"
 noteSeries: 経験記述-週次お題ラボ
 noteMagazine: 経験記述-週次お題ラボ
 membershipOnly: true
