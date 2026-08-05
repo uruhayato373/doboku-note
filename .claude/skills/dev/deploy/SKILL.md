@@ -62,11 +62,16 @@ git push origin develop
 
 ```bash
 git checkout main
-git pull origin main
-git merge develop
+git pull --ff-only origin main
+git merge --no-edit develop
 ```
 
 - コンフリクトが発生した場合 → ユーザーに報告し、解消を支援
+- **`--ff-only` は使わない**: main は PR の squash/merge コミットを持つため develop の子孫にならず、
+  fast-forward は構造的に失敗する（`fatal: Not possible to fast-forward`）。マージコミットが正。
+- **`npm run build` は生成インデックス（`src/config/*.json` の `generated_at` / `dateModified`）を
+  書き換える**。これは CI のビルドで再生成されるノイズなので、main へ直接コミットせず破棄してから
+  マージする（`git checkout -- src/config/<該当ファイル>`・中身が timestamp 差分だけであることを確認してから）。
 
 ### Step 6: main を push（デプロイ開始）
 
@@ -92,12 +97,15 @@ HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://doboku-note.pages.d
 echo "HTTP Status: $HTTP_STATUS"
 
 # <main> タグ + 主要キーワード確認
-curl -s https://doboku-note.pages.dev | grep -c "<main>"
+# ★ `<main>` で grep しない。実際の出力は常に class 付き（`<main class="flex-grow">` 等）で
+#   **構造的に必ず 0 になる＝偽赤**。開きタグの前方一致で数える（2026-08-05 是正）。
+curl -s https://doboku-note.pages.dev | grep -c "<main"
+curl -s https://doboku-note.pages.dev | grep -o "<main[^>]*>" | head -1   # 実体を目視
 ```
 
-- HTTP 200 かつ `<main>` が 1 以上 → 正常
+- HTTP 200 かつ `<main` が 1 以上 → 正常
 - 500 の場合 → Cloudflare API token 期限切れを仮説1番に確認（GitHub Secrets で再発行）
-- `<main>` が 0 → SSR 壊れ。ユーザーに即報告し docs/todo/ に起票
+- `<main` が 0 → SSR 壊れ。ユーザーに即報告し docs/todo/ に起票
 
 ### Step 8: 完了報告
 
