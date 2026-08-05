@@ -49,17 +49,17 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 | `coconala-shindan` | S1 合格診断。レビュー獲得フロント。診断のみ・書き換え案は出さない |
 | `coconala-tensaku-set` | S2 添削（2テーマセット）。主力。赤入れ＋書き直し1回 |
 | `coconala-sakusei` | S3 答案作成（ヒアリング→文章化・2テーマ・¥8,000）。質問シートで本人の実工事を吸い上げ答案ドラフト化（捏造禁止・本人確認必須・週2枠） |
-| `coconala-bunseki-pdf` | C1 単発コンテンツ。1級 二次 出題分析＋直前重点 PDF（provision_format=3・購入後トークルームで PDF 送付） |
-| `coconala-kanseitoan-pdf` | C2 単発コンテンツ。1級 経験記述 完成答案集 PDF 5本（同上） |
-| `coconala-2kyu-kanseitoan-pdf` | C3 2級 完成答案集 PDF 3本 |
-| `coconala-1kyu-kakomon-pdf` | C4 1級 経験記述 過去問模範答案 PDF 5本（R03-R07・年度別） |
-| `coconala-2kyu-kakomon-pdf` | C5 2級 経験記述 過去問模範答案 PDF 5本（R03-R07） |
-| `coconala-1kyu-gakka-pdf` | C6 1級 二次学科記述 攻略 PDF 5本（5論点） |
-| `coconala-2kyu-gakka-pdf` | C7 2級 二次学科記述 攻略 PDF 5本（5論点） |
+| `coconala-bunseki-pdf` | C1 出題分析 PDF。**paused（2026-08-05 統廃合）**＝C10 フルパック限定収録 |
+| `coconala-kanseitoan-pdf` | C2' 1級 経験記述 **模範答案セット** PDF 10冊（テーマ別5＋年度別5＝旧C2+C4 統合・¥4,980）。納品= C2 5冊+C4 5冊 |
+| `coconala-2kyu-kanseitoan-pdf` | C3' 2級 模範答案セット PDF 8冊（テーマ別3＋年度別5＝旧C3+C5 統合・¥3,980） |
+| `coconala-1kyu-kakomon-pdf` | C4 過去問模範答案。**paused**＝C2' へ統合 |
+| `coconala-2kyu-kakomon-pdf` | C5 過去問模範答案。**paused**＝C3' へ統合 |
+| `coconala-1kyu-gakka-pdf` | C6 学科記述攻略。**paused**＝C10 フルパック限定収録 |
+| `coconala-2kyu-gakka-pdf` | C7 学科記述攻略。**paused**＝C11 フルパック限定収録 |
 | `coconala-1kyu-moshi-pdf` | C8 1級 二次 予想模擬試験 PDF（問題冊子＋解答解説）。build-once の静的模試・Red Line #10 例外運用（計画 §4） |
 | `coconala-2kyu-moshi-pdf` | C9 2級 二次 予想模擬試験 PDF（問題冊子＋解答解説） |
-| `coconala-1kyu-full-pdf` | C10 1級 二次 **教材フルパック**（C1+C2+C4+C6+C8 全部入り・PDF 18冊・¥9,800）。顧客の買い分け混乱シグナル（2026-08-05 初受注 DM）を受けた旗艦。納品は既存 C系 PDF をそのまま送付（新規ビルドなし）。決定ログ→展開キット §2 |
-| `coconala-2kyu-full-pdf` | C11 2級 二次 教材フルパック（C3+C5+C7+C9 全部入り・PDF 15冊・¥6,980）。C10 の2級版 |
+| `coconala-1kyu-full-pdf` | C10 1級 二次 **教材フルパック**（分析+模範答案+学科+模試・PDF 18冊・¥9,800）。顧客の買い分け混乱シグナル（2026-08-05 初受注 DM）を受けた旗艦。分析(C1)と学科(C6)はパック限定収録。納品は既存 C系 PDF をそのまま送付（新規ビルドなし）。決定ログ→展開キット §2 |
+| `coconala-2kyu-full-pdf` | C11 2級 二次 教材フルパック（模範答案+学科+模試・PDF 15冊・¥6,980）。学科(C7)はパック限定。C10 の2級版 |
 | `coconala-civil-keiken-kit` | K1 制作物（DLキット）テスト出品。1級・2級 施工経験記述の**自作 AI 設計キット**（Claude Code＋Node.js 前提・provision_format=2）。`status:'draft'`。公開前ゲート=(1) 納品ZIPは外部URL(note/サイト)除去版へ差替（安全弁#2）、(2) `/coconala-publish --commit`。客層が限定される test 出品 |
 | `coconala-sokan-bunseki-pdf` | K2 単発PDF（テスト出品）。**総監** 記述式I-2 出題テーマ分析（provision_format=3・PDF は write_pdf 生成＝外部URL0件・`assets/pdf/coconala-sokan-bunseki.pdf`）。有料note施策バンク本文は非転載（分析/読み方に限定＝非カニバリ）。`status:'draft'`。総監はココナラ客層が薄い前提の test |
 
@@ -68,13 +68,13 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 | 記事 | 出すサービス |
 |---|---|
 | 経験記述（`secondary-experience-writing-{guide,examples}`・1級2級） | `coconala-shindan`＋`coconala-tensaku-set`（＋Brain 経験キット） |
-| 二次 年度別過去問（`secondary-r0[3-9]`） | `{1kyu,2kyu}-kakomon-pdf`＋`{1kyu,2kyu}-gakka-pdf` |
-| 二次 学科分野別（1級 `secondary-(concrete\|construction-plan\|earthwork\|quality-management)-(basics\|past-problems)`） | `coconala-1kyu-gakka-pdf` |
-| 二次 入門・直前（1級 `secondary-getting-started`／`guide-last-minute-2026`） | `coconala-1kyu-moshi-pdf`＋`coconala-bunseki-pdf` |
-| 二次 入門（2級 `secondary-getting-started`） | `coconala-2kyu-moshi-pdf` |
+| 二次 年度別過去問（`secondary-r0[3-9]`） | `{1kyu,2kyu}-kanseitoan-pdf`（模範答案セット）＋`{1kyu,2kyu}-full-pdf`（2026-08-05 統廃合で改配線） |
+| 二次 学科分野別（1級 `secondary-(concrete\|construction-plan\|earthwork\|quality-management)-(basics\|past-problems)`） | `coconala-1kyu-full-pdf`（学科単品は paused） |
+| 二次 入門・直前（1級 `secondary-getting-started`／`guide-last-minute-2026`） | `coconala-1kyu-moshi-pdf`＋`coconala-1kyu-full-pdf` |
+| 二次 入門（2級 `secondary-getting-started`） | `coconala-2kyu-moshi-pdf`＋`coconala-2kyu-full-pdf` |
 | 総監 記述系（`essay-*`／`pattern-essay-*`／`{h2X,r0X}-secondary`） | `coconala-sokan-bunseki-pdf`（＋Brain 施策バンク） |
 
-未掲載（`/links` のみ）: `coconala-sakusei`／`coconala-kanseitoan-pdf`／`coconala-2kyu-kanseitoan-pdf`／`coconala-civil-keiken-kit`（経験記述ページは診断+添削+Brain で満杯・クロップ回避のため意図的に載せない）。
+未掲載（`/links` のみ）: `coconala-sakusei`／`coconala-civil-keiken-kit`（経験記述ページは診断+添削+Brain で満杯・クロップ回避のため意図的に載せない）。※模範答案セット（`{1kyu,2kyu}-kanseitoan-pdf`）は 2026-08-05 統廃合で年度別過去問記事の CTA へ配線済み。
 
 ### 2.1b 出品投入 SoT: `.claude/config/coconala-listings.json`
 

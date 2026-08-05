@@ -66,13 +66,13 @@ const THUMB_COPY = {
   'coconala-1kyu-full-pdf': {
     eyebrow: '1級土木施工管理技士 ／ 第2次検定 対策PDF',
     title: ['二次 教材', 'フルパック'],
-    hook: '分析・完成答案・過去問・学科・模試\n全部入り PDF 18冊（単品計¥14,000）',
+    hook: '分析・模範答案・学科・模試の全部入り\nPDF 18冊（分析と学科はパック限定）',
     priceLabel: 'PDF 18冊・全部入り',
   },
   'coconala-2kyu-full-pdf': {
     eyebrow: '2級土木施工管理技士 ／ 第2次検定 対策PDF',
     title: ['二次 教材', 'フルパック'],
-    hook: '完成答案・過去問・学科・模試\n全部入り PDF 15冊（単品計¥10,500）',
+    hook: '模範答案・学科・模試の全部入り\nPDF 15冊（学科攻略はパック限定）',
     priceLabel: 'PDF 15冊・全部入り',
   },
   'coconala-bunseki-pdf': {
@@ -83,15 +83,15 @@ const THUMB_COPY = {
   },
   'coconala-kanseitoan-pdf': {
     eyebrow: '1級土木施工管理技士 ／ 第2次検定 経験記述',
-    title: ['経験記述', '完成答案集 PDF'],
-    hook: '品質・安全・工程・施工計画・環境の\n完成答案例＋NG→合格＋採点チェック',
-    priceLabel: 'PDF 5本・5管理',
+    title: ['経験記述', '模範答案セット'],
+    hook: 'テーマ別5冊＋年度別5冊の見本答案\n完成答案例＋NG→合格＋置換ガイド',
+    priceLabel: 'PDF 10冊・テーマ別＋年度別',
   },
   'coconala-2kyu-kanseitoan-pdf': {
     eyebrow: '2級土木施工管理技士 ／ 第2次検定 経験記述',
-    title: ['経験記述', '完成答案集 PDF'],
-    hook: '品質・安全・工程の\n完成答案例＋NG→合格＋採点チェック',
-    priceLabel: 'PDF 3本・3管理',
+    title: ['経験記述', '模範答案セット'],
+    hook: 'テーマ別3冊＋年度別5冊の見本答案\n完成答案例＋NG→合格＋置換ガイド',
+    priceLabel: 'PDF 8冊・テーマ別＋年度別',
   },
   'coconala-1kyu-kakomon-pdf': {
     eyebrow: '1級土木施工管理技士 ／ 第2次検定 経験記述',
