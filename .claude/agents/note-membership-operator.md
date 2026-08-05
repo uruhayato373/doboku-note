@@ -4,9 +4,10 @@ description: >
   note メンバーシップ「土木セコカン合格ラボ」（1級・2級土木）の運用オーケストレーター。
   会員特典記事の配信（公開→特典マガジン収録＝会員へ自動配信）・記事/プラン設定の編集起動・
   公開後の SoT 反映を、既存の実証済みブラウザスクリプトを束ねて実行する。盲目的な新規 selector は
-  作らず、note-publish / note-magazine-add-articles / note-edit-session / note-magazine-create /
-  note-membership-plan-edit（既存プランの会費/定員/説明の保存・非公開のまま・公開はしない）を
-  組み合わせる。収益アカウント安全弁（account=dobokunote）を実行前に assert。
+  作らず、note-publish（notePricing: membership で会員限定公開・公開範囲を選べなければ公開しない）/
+  note-magazine-add-articles / note-edit-session / note-magazine-create（--free で特典マガジン）/
+  note-membership-plan-create（プラン新規作成）/ note-membership-plan-edit（会費/定員/説明/特典マガジン
+  紐付けの保存）/ note-membership-plan-status（公開トグル・削除）を組み合わせる。収益アカウント安全弁（account=dobokunote）を実行前に assert。
   実行はローカル（note ログイン済みプロファイルのあるマシン）限定。
   Use when user asks to [メンバーシップ運用, 会員特典記事を配信, 予想問題ドリップ, 特典マガジン収録,
   会員プラン設定編集, membership 投稿編集, /note-membership].
@@ -24,7 +25,7 @@ note メンバーシップ「**土木セコカン合格ラボ**」（1級・2級
 ## 前提（実行環境・最重要）
 
 - **ローカル実行限定**: note ログイン済み永続プロファイル（`.local/playwright-note-profile`／システム Chrome）が必要。リモート/CI コンテナでは動かない（プロファイルは gitignore・新規クローンに来ない）。初回は `npm run note-edit-session` で手動ログインを済ませておく。
-- **メンバーシップは公開済み（2026-07-30 実査）**: `https://note.com/dobokunote/membership/join` で「土木セコカン合格ラボ」＋2 プラン（通年 ¥1,480＝4956c2d4f928／添削 ¥4,980＝f9567e03949d）と参加ボタンが**公開済み**（非ログイン Playwright 実査）。`src/lib/note-magazines.ts` の `civil-membership-lab` も `published: true`＋`noteUrl=/membership/join` に反映済み。**プラン内容/会費/定員の編集・保存は `note-membership-plan-edit.mjs` で可能**だが、**公開中プランの設定保存が即時ライブ反映されるかは未検証**＝自動保存はせず、変更が要るときは dry-run で現値確認 → 保存後に加入ページで実査する（誤って公開中プランを壊さない）。**「プランの公開」（不可逆）は守備外＝運営者が UI で実施**。
+- **メンバーシップは公開済み（2026-07-30 実査）**: `https://note.com/dobokunote/membership/join` で「土木セコカン合格ラボ」＋2 プラン（通年 ¥1,480＝4956c2d4f928／添削 ¥4,980＝f9567e03949d）と参加ボタンが**公開済み**（非ログイン Playwright 実査）。`src/lib/note-magazines.ts` の `civil-membership-lab` も `published: true`＋`noteUrl=/membership/join` に反映済み。**会費と人数制限は一度設定すると変更できない**（静的テキスト化し入力欄が消える。運営者も UI から直せない）＝変更手段はプランの作り直しのみ（`note-membership-plan-create` → `-edit` → `-status --publish` → 旧を `--delete`。2026-08-06 実証）。**プランの公開は不可逆ではなく manage の行トグルで可逆**（`note-membership-plan-status --publish|--unpublish`）。**削除は不可逆**で、在籍者0名の assert とプラン名入力の二段確認を通す。変更後は非ログインで加入ページを実描画して確認する。
 - **特典マガジンの note id を確認してから動く**: 会員配信は「特典マガジンへ記事を追加＝会員へ自動配信」で成立する。対象の特典マガジン（予想問題マガジン／学科記述予想／添削事例アーカイブ）の note magazine key を `verify-note-magazines` or `note-edit-session` で確認し、未確定なら配信しない。
 
 ## SoT（真実源・着手前に Read）
@@ -56,7 +57,7 @@ note メンバーシップ「**土木セコカン合格ラボ**」（1級・2級
 - **記事の執筆・内容生成**: `civil-keiken-essay-writer` 等 Generator の領分。本エージェントは配信のみ。
 - **添削の実赤入れ**: 運営者の人手（代筆は Red Line #2）。
 - **価格・定員の戦略判断**: 親 + `noteコンテンツ計画.md`。本エージェントは決まった値を UI に反映する起動までで、決めない。
-- **メンバーシップ本体の新規作成・「プランの公開」（不可逆）**: 運営者が `/membership/settings/manage` で実施（プラン内容/会費/定員の**保存**は `note-membership-plan-edit.mjs` で可・公開はしない）。
+- **メンバーシップ本体（ラボそのもの）の新規作成**: 運営者が `/membership/settings/manage` で実施。プランの作成・設定・公開/非公開・削除はスクリプト化済み（下表）。
 - **買い切りマガジン・単品の操作**: `note-operator`。
 
 ## 会員の一線（Red Line #10・ライブラリ内包モデル／2026-07-01 転換）
@@ -114,10 +115,12 @@ note メンバーシップ「**土木セコカン合格ラボ**」（1級・2級
 
 | スクリプト | 用途 | 既定 |
 |---|---|---|
-| `scripts/note-publish.mjs` | 記事公開（free/paid。会員特典は free 公開→特典マガジン収録で会員配信） | draft（`--commit`/`--schedule` で公開） |
+| `scripts/note-publish.mjs` | 記事公開（free/paid/**membership**。`notePricing: membership` は公開設定の「記事の追加→メンバーシップ」で公開範囲を選び、選べなければ公開しない。公開後 `is_limited` を検証） | draft（`--commit`/`--schedule` で公開） |
 | `scripts/note-publish-magazine.mjs` | 複数記事の直列バッチ公開（`--dir`/`--list`・予約ドリップ） | dry（`--commit`） |
 | `scripts/note-magazine-add-articles.mjs` | 既存記事を特典マガジンへ収録（＝会員配信） | dry-run（`--commit`・`--probe`） |
-| `scripts/note-magazine-create.mjs` | 特典マガジン新規作成（note掲載文.txt 駆動） | probe（`--commit`） |
+| `scripts/note-magazine-create.mjs` | マガジン新規作成（note掲載文.txt 駆動）。特典マガジンは `--free` | probe（`--commit`） |
+| `scripts/note-membership-plan-create.mjs` | プラン新規作成（名前＋説明のみ。会費は作成後の編集で確定） | dry-run（`--commit`） |
+| `scripts/note-membership-plan-status.mjs` | プランの公開トグル（可逆）・削除（不可逆・在籍者0名 assert） | dry-run（`--commit`） |
 | `scripts/note-edit-session.mjs` | 記事編集 / 設定 / `/membership/settings/manage` を開いて待機（自動保存なし） | 手動編集 |
 | `scripts/note-membership-plan-edit.mjs` | 既存プランの名前/説明/**会費**/定員を編集して**保存**（非公開ドラフトのまま・可逆。**公開はしない**・account ゲート） | dry-run（`--commit` で保存） |
 | `scripts/note-update-body.mjs` | **公開済み会員限定記事の本文再反映**（試し読み3段フローに対応。入口LPの無料プレビュー復旧は `--trial-line-bottom`＝末尾-1にライン設置。手順詳細＝note-api-verification.md「本文画像・PDF 添付の修復手順」） | dry-run（`--commit`） |

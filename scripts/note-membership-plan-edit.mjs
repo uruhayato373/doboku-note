@@ -40,8 +40,8 @@
  *     note-membership-plan-create → 本スクリプトで --price/--limit/--benefit-magazine
  *     → note-membership-plan-status --publish → 旧プランを --delete
  *
- * 「参加特典の表示」について: 特典マガジンを紐付けると**その一覧が自動で表示される**ので、
- *   同じ内容を --perk で手入力する必要はない（手入力欄は5件で上限に達し disabled になる）。
+ * 「参加特典の表示」は触らない: 特典マガジンを紐付けると**その一覧が自動で表示される**ので
+ *   手入力は不要（手入力欄は5件で上限に達し disabled になり、6件目で詰まる・2026-08-06 実測）。
  *
  * 真実源: .claude/knowledge/reference/note-api-verification.md / エージェント: note-membership-operator
  * ---------------------------------------------------------------------------
@@ -67,8 +67,6 @@ const DESC = getArg('--desc');
 const LIMIT = getArg('--limit');           // 定員（人数制限を有効化して数値設定）。省略時は触らない
 // 特典マガジンの紐付け（タイトル部分一致・カンマ区切り）。省略時は触らない。
 const BENEFIT_MAGS = (getArg('--benefit-magazine') || '').split(',').map((s) => s.trim()).filter(Boolean);
-// 「参加特典の表示」に並べる文言。--perk は繰り返し指定できる（加入ページに出る箇条書き）。
-const PERKS = argv.reduce((acc, a, i) => (a === '--perk' && argv[i + 1] ? [...acc, argv[i + 1]] : acc), []);
 const COMMIT = argv.includes('--commit');
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -179,37 +177,6 @@ if (LIMIT) {
 
 // 参加特典の表示（入力欄へ1件ずつ入れて「追加」）。既に同じ文言があれば足さない（冪等）。
 // 入力欄はページ末尾の「name 属性が無い text input」＝プラン名の次に来るもの（2026-08-06 実測）。
-if (PERKS.length) {
-  // 入力欄は「name 属性が無い text input」の最後（先頭はプラン名・2026-08-06 実測）。
-  // 追加済みの特典は input ではなくリスト項目になるので、欄は常に2つのまま。
-  // 「追加」ボタンは入力が空の間 disabled。JS の value setter だけでは有効化が間に合わないことが
-  // あるので（実測: 6件目で disabled のまま click=false）、fill() で入れて **有効化を待ってから** 押す。
-  const perkInput = () => page.locator('input[type="text"]:not([name="q"])').last();
-  const addBtn = page.getByRole('button', { name: '追加', exact: true });
-  for (const perk of PERKS) {
-    const exists = await page.evaluate((t) => (document.body.innerText || '').replace(/\s+/g, ' ').includes(t), perk);
-    if (exists) { console.log(`[4a] 参加特典「${perk.slice(0, 20)}…」: 既存 skip`); continue; }
-    await perkInput().fill(perk);
-    let enabled = false;
-    for (let i = 0; i < 12 && !enabled; i++) {
-      enabled = !(await addBtn.first().isDisabled().catch(() => true));
-      if (!enabled) await sleep(400);
-    }
-    if (!enabled) {
-      console.error(`ABORT: 「追加」ボタンが有効にならず（${perk.slice(0, 20)}）`);
-      await page.screenshot({ path: join(TMP, `mplan-${PLAN}-perk.png`), fullPage: true }); await ctx.close(); process.exit(14);
-    }
-    await addBtn.first().click();
-    await sleep(1200);
-    const added = await page.evaluate((t) => (document.body.innerText || '').replace(/\s+/g, ' ').includes(t), perk);
-    console.log(`[4a] 参加特典「${perk.slice(0, 20)}…」: added=${added}`);
-    if (!added) {
-      console.error('ABORT: 参加特典が一覧に現れず（保存しない）');
-      await page.screenshot({ path: join(TMP, `mplan-${PLAN}-perk.png`), fullPage: true }); await ctx.close(); process.exit(15);
-    }
-  }
-}
-
 // 特典マガジンの紐付け（「特典マガジンを選択」→ 対象行の「選択」→ ダイアログの「保存」）。
 // 押下後に「選択済」へ変わったことを確認できない行は失敗として扱い、紐付けたつもりにしない。
 if (BENEFIT_MAGS.length) {

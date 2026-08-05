@@ -1,0 +1,52 @@
+{
+  "_comment": "note メンバーシップ「土木セコカン合格ラボ」の機械可読 SSOT。会費・定員は note では一度設定すると変更できない（プラン作り直しが唯一の手段）ため、ここが実機とズレたら必ず気づけるように check-note-membership.mjs が突合する。人が読む真実源は docs/note/1級・2級土木/noteコンテンツ計画.md と メンバーシップ説明文.md。",
+  "updatedAt": "2026-08-06",
+  "joinUrl": "https://note.com/dobokunote/membership/join",
+  "plans": [
+    {
+      "id": "4956c2d4f928",
+      "key": "base",
+      "name": "通年プラン｜過去問＆月例予想",
+      "price": 1480,
+      "limit": null,
+      "published": true
+    },
+    {
+      "id": "f9567e03949d",
+      "key": "tensaku",
+      "name": "添削つきプラン｜経験記述マンツーマン",
+      "price": 4980,
+      "limit": 20,
+      "published": true,
+      "note": "2026-08-06 に旧 ceacc4bb4574（¥2,980・定員20）を作り直して改定。定員は旧プランの実値 20 を踏襲したが、設計 SSOT は 10 名。要判断（下の limitDecision）。",
+      "limitDecision": "unresolved"
+    }
+  ],
+  "benefitMagazines": [
+    "1級土木 施工経験記述｜過去問 模範答案集",
+    "1級土木 施工経験記述｜工種×テーマ別 完成答案集",
+    "1級土木 施工経験記述｜2テーマ組合せ大全（全10組合せ）",
+    "2級土木 施工経験記述｜過去問 模範答案集（R03-R07）",
+    "2級土木 施工経験記述｜工種×テーマ別 完成答案集",
+    "1級土木 施工経験記述｜完全攻略パック",
+    "経験記述 週次お題ラボ｜1級・2級土木（会員専用）"
+  ],
+  "mirrors": [
+    {
+      "file": "src/lib/note-magazines.ts",
+      "must": "通年¥{base} / 添削つき¥{tensaku}"
+    },
+    {
+      "file": "docs/note/README.md",
+      "must": "通年プラン ¥{base}/月＋添削つきプラン **¥{tensaku}/月**"
+    },
+    {
+      "file": "docs/note/1級・2級土木/noteコンテンツ計画.md",
+      "must": "| 月額 | **¥{base}** | **¥{tensaku}**"
+    },
+    {
+      "file": "docs/note/1級・2級土木/メンバーシップ説明文.md",
+      "must": "通年 **¥{base}**"
+    }
+  ]
+}
