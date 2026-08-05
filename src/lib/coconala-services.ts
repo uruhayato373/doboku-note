@@ -344,9 +344,13 @@ const SERVICES_RAW = {
   //   （こちらは二次全体の広さ）で、**同等以上に置いて undercut しない**。当初 ¥9,800 案は
   //   ココナラの価格刻み（¥10,000以下=500円刻み）で入力できないため ¥10,000 を採る。
   //   納品は既存 C系 PDF をそのまま送付（新規ビルドなし・労働ゼロ）。
+  //   2026-08-05: 不在休止（8/6-8/16）の**例外として受付再開**（C8 と合わせて2件のみ）。
+  //   理由=本サービスを元に送った見積り提案（模試2冊を除く16冊セット ¥7,500・購入期限 8/12）が
+  //   コンビニ払いで購入待ち。元サービスが受付休止だと決済・取引導線に影響する可能性を排除できず、
+  //   購入期限が不在期間と丸ごと重なるため。不在中の新規購入リスクは運営者が承知のうえで受容。
   'coconala-1kyu-full-pdf': {
     id: 'coconala-1kyu-full-pdf',
-    status: 'paused',
+    status: 'listed',
     serviceUrl: 'https://coconala.com/services/4341188',
     title: '1級土木二次 教材フルパックを送ります',
     shortTitle: '1級 二次 教材フルパック PDF',
@@ -356,8 +360,6 @@ const SERVICES_RAW = {
     priceYen: 10000,
     examScope: ['civil-1'],
     weeklyCapacity: 20,
-    pauseReason: 'absence',
-    resumeOn: '2026-08-17',
     listedAt: '2026-08-05',
   },
 
