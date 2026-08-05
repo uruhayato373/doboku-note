@@ -19,6 +19,11 @@
       "noteId": "nae80802d7745",
       "reason": "更新フローが false を返した（保存せず中断）",
       "at": "2026-08-04T22:47:15"
+    },
+    {
+      "noteId": "n662eef264e46",
+      "reason": "page.screenshot: Target page, context or browser has been closed",
+      "at": "2026-08-05T11:15:55"
     }
   ]
 }

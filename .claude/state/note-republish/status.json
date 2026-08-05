@@ -14,7 +14,7 @@
   },
   "paid": {
     "total": 116,
-    "applied": 29,
+    "applied": 56,
     "batches": [
       "day1(46本)",
       "day2(41本)",
@@ -26,7 +26,7 @@
       "lists": {
         "noAttach": {
           "file": ".claude/state/note-republish/paid-rest-no-attach.txt",
-          "count": 82,
+          "count": 55,
           "cmd": "note-update-body --list <file> --commit（--reattach-pdf を付けない＝ライブに添付が無いのでゲートは発火しない）"
         },
         "withAttach": {
@@ -35,7 +35,8 @@
           "cmd": "note-update-body --list <file> --commit --reattach-pdf"
         }
       },
-      "note": "note のアップロード上限は1日100件（画像含む疑い）。添付なし群は画像のみ＝1本あたり約1件で軽い。"
+      "note": "note のアップロード上限は1日100件（画像含む疑い）。添付なし群は画像のみ＝1本あたり約1件で軽い。",
+      "progress": "2026-08-05: 添付なし群 82本のうち 27本を反映（失敗0・全て [5e] API実体検証OK）。28本目 n662eef264e46（工事51）はエディタを開いた直後にユーザー指示で停止＝保存しておらずライブは無傷だが aborted に載るため再開時は実査してから --force-retry。"
     }
   }
 }
