@@ -1,8 +1,8 @@
 # コンテンツ品質 全量スキャンレポート
 
 - 対象: published MDX（.local/r2/posts）
-- 違反合計: HIGH 23 / MEDIUM 3351 / LOW 454
-- 違反のある記事数: 607
+- 違反合計: HIGH 23 / MEDIUM 3332 / LOW 454
+- 違反のある記事数: 605
 - baseline 比の新規違反: 0 件
 
 優先度 = 違反数 × GA4 人気度（activeUsers）。人気ページの違反を上位に。
@@ -70,4 +70,4 @@
 | 59 | pe-comprehensive-management-essay-pattern-cross-year-application | — | 34 | 1-4:27 2-4:3 1-3:2 6-1:2 |
 | 60 | civil-construction-1-secondary-r03 | — | 32 | 2-4:19 6-1:10 15-2:3 |
 
-※ 上位 60 件のみ表示（違反記事 607 件中 547 件を省略）。全量は --update-baseline 後の baseline JSON を参照。
+※ 上位 60 件のみ表示（違反記事 605 件中 545 件を省略）。全量は --update-baseline 後の baseline JSON を参照。

@@ -65,10 +65,20 @@ for (const f of limitDocs) {
   const abs = join(ROOT, f);
   if (!existsSync(abs)) continue;
   const text = readFileSync(abs, 'utf8');
-  const hits = [...text.matchAll(/定員[（(]?\s*(\d+)\s*(?:名|人)?/g)].map((m) => Number(m[1]));
-  checks += hits.length;
-  const bad = [...new Set(hits.filter((n) => !limits.includes(n)))];
-  if (bad.length) warn.push(`${f}: config の定員 ${JSON.stringify(limits)} と違う記述 ${JSON.stringify(bad)}`);
+  // 行単位で見る。同じ行に現行値（config の limit）も書いてあるなら、それは
+  // 「設計時は10名だったが実枠は20名」のような **履歴つきの記述**なので咎めない。
+  // 現行値に一切触れずに旧い定員だけを述べている行だけが陳腐化の疑い。
+  let hitLines = 0;
+  const bad = new Set();
+  for (const line of text.split('\n')) {
+    const hits = [...line.matchAll(/定員[（(]?\s*(\d+)\s*(?:名|人)?/g)].map((m) => Number(m[1]));
+    if (!hits.length) continue;
+    hitLines++;
+    if (limits.some((n) => line.includes(String(n)))) continue;
+    hits.filter((n) => !limits.includes(n)).forEach((n) => bad.add(n));
+  }
+  checks += hitLines;
+  if (bad.size) warn.push(`${f}: config の定員 ${JSON.stringify(limits)} と違う記述 ${JSON.stringify([...bad])}`);
 }
 
 // ---- C. 退役 planId の残存 -----------------------------------------------

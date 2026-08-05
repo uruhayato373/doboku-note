@@ -18,8 +18,8 @@
       "price": 4980,
       "limit": 20,
       "published": true,
-      "note": "2026-08-06 に旧 ceacc4bb4574（¥2,980・定員20）を作り直して改定。定員は旧プランの実値 20 を踏襲したが、設計 SSOT は 10 名。要判断（下の limitDecision）。",
-      "limitDecision": "unresolved"
+      "note": "2026-08-06 に旧 ceacc4bb4574（¥2,980・定員20）を作り直して ¥4,980 へ改定。定員は 20 で確定（設計時の想定は 10 名だが note は人数制限も変更できないため）。満枠は週20本＝実運用の上限なので、在籍10名超で --unpublish により受付を止める運用でコントロールする。",
+      "limitDecision": "kept-20 (2026-08-06)"
     }
   ],
   "benefitMagazines": [
