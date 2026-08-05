@@ -60,7 +60,7 @@ title: スキル ナビゲーションガイド
 | `/coconala-publish` | ココナラ出品サービスを Playwright で新規出品・内容修正・価格反映（`coconala-operator`。カタログ＋listings SoT→フォーム充填。account assert＋draft-first＋`--commit` gate。公開成功でカタログ書き戻し） | `ココナラに出品`, `ココナラ出品を修正`, `ココナラ価格反映`, `/coconala-publish` |
 | `/brain-publish` | Brain キット商品を Playwright で出品・公開申請（`brain-operator`。カタログ＋listings SoT→Tiptap 充填。draft-first＋`--commit` gate・有料ライン/価格/確認モーダル assert・申請成功でカタログ書き戻し） | `Brainに出品`, `Brain商品を公開申請`, `/brain-publish` |
 | `/coconala-order` | ココナラ受注1件のE2E（`coconala-operator`。シート検証→`/keiken-tensaku`→納品文面ドラフト→orders-log 追記。最終赤入れ・送信は運営者） | `ココナラで受注した`, `ココナラの納品文面`, `/coconala-order` |
-| `/coconala-status` | ココナラ KPI 週次記録＋カタログ↔state↔sales 照合＋撤退ライン判定（read-only・数値は手動貼付。取得も是正もしない） | `ココナラの状態を確認`, `ココナラKPIを記録`, `/coconala-status` |
+| `/coconala-status` | ココナラ 受注実体の収集＋orders-log 突合（`coconala-orders`→`check-coconala-orders`＝記録漏れ・金額ズレ・返信期限・納品滞留）＋KPI 週次記録＋カタログ↔state↔sales 照合＋撤退ライン判定（read-only・KPI 数値は手動貼付。是正はしない） | `ココナラの状態を確認`, `ココナラKPIを記録`, `/coconala-status` |
 | `/civil-figure-rework` | 1級土木 過去問1次の図クロップ品質ループ（extractor → auditor 最大3反復、1ページ単位 commit） | `過去問図再抽出`, `テキスト写り込み修正`, `/civil-figure-rework {exam-slug\|--all}` |
 | `/figure-recrop` | 既存の記事図クロップを**タイト再クロップ**して写り込み（答え/本文/問題文）を除去。provenance の needs=recrop を対象・視覚で切り位置を決め `scripts/figure-recrop.mjs`（crop+webp+MDX+OCR）で機械適用。画質不足(ボケ)は対象外＝rescan。**大量処理（並列 workflow）モード**＝`figure-crop-worker`（Generator）を図ごとに spawn し親が最終目視QA→MDX/台帳を直列適用（png/webp両対応・2026-07-09 確立）。civil-figure-rework(問題PDF抽出)とは別 | `図の写り込みを除く`, `図を再クロップ`, `大量の図をまとめて再クロップ`, `/figure-recrop` |
 | `/audit-pe-first-stage` | 技術士第一次試験全21ページの正答照合・原典視覚突合・構造検査（3軸監査） | `pe-first-stage監査`, `技術士第一次試験QA`, `/audit-pe-first-stage [--year R07] [--sub aptitude]` |

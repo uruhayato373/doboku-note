@@ -1,19 +1,36 @@
 {
-  "version": 1,
+  "version": 2,
   "updatedAt": "2026-08-05",
   "currency": "JPY",
-  "source": "ココナラの受注を /coconala-order（coconala-operator）で1件ずつ追記する。手入力の転記も可。",
-  "privacyNote": "購入者名・提出原稿・トークルーム本文は記録しない（個人情報をリポジトリに残さない）。記録するのは日付・serviceId・金額・級・進捗・所要時間のみ。事例化する場合は匿名化して docs/note/1級・2級土木/メンバーシップ/添削事例アーカイブ/ へ。",
-  "howToUpdate": "/coconala-order <serviceId>（受注時）→ status を delivered/closed へ更新。serviceId は src/lib/coconala-services.ts の id と一致必須（check-coconala-wiring が検証）。",
+  "source": "ココナラの受注を /coconala-order（coconala-operator）で1件ずつ追記する。実体は `npm run coconala-orders` が採る orders-snapshot.json（read-only Playwright）で、`npm run check-coconala-orders` が talkroomId で突合する。",
+  "privacyNote": "購入者名・購入者ID・提出原稿・トークルーム本文は記録しない（個人情報をリポジトリに残さない）。記録するのは日付・serviceId・金額・級・進捗・所要時間・talkroomId・納品成果物のみ。事例化する場合は匿名化して docs/note/1級・2級土木/メンバーシップ/添削事例アーカイブ/ へ。",
+  "howToUpdate": "/coconala-order <serviceId>（受注時）→ status を delivered/closed へ更新。serviceId は src/lib/coconala-services.ts の id と一致必須（check-coconala-wiring が検証）。talkroomId は必須（これが無いと取引を追跡できない）。",
+  "schema": {
+    "date": "販売日（ISO 日付）。snapshot の soldOn と一致必須",
+    "serviceId": "カタログ src/lib/coconala-services.ts の id",
+    "talkroomId": "ココナラのトークルーム ID（https://coconala.com/talkrooms/{id}）。取引の一意キー・突合キー。必須",
+    "priceYen": "販売額（手数料差引前）。カタログと不一致なら memo に改定日",
+    "grade": "1 or 2（級）。級の無い商品は null",
+    "status": "received → delivered → revised（書き直し）→ closed",
+    "replyDueAt": "返信期限（無連絡で自動キャンセルになる時刻）。snapshot が拾える場合はそれを転記",
+    "deliveredAt": "納品した日時（ISO）。未納品は null",
+    "artifacts": "納品した成果物 [{ file, sha256, builtAt }]。どの版を送ったかを後から特定するため（2026-08-05: 納品直前に模試PDFを作り直した経緯がある）",
+    "tensakuMinutes": "最終赤入れの所要時間（工数実測・定員判断の根拠）。C系 PDF は null",
+    "memo": "任意。個人情報・原稿本文は書かない"
+  },
   "orders": [
     {
       "date": "2026-08-04",
       "serviceId": "coconala-1kyu-moshi-pdf",
+      "talkroomId": "18082691",
       "priceYen": 2500,
       "grade": 1,
       "status": "received",
+      "replyDueAt": "2026-08-06T16:00",
+      "deliveredAt": null,
+      "artifacts": [],
       "tensakuMinutes": null,
-      "memo": "初受注。C系PDF（問題冊子＋解答解説の2冊）送付のみ。購入者から納品形態（紙かPDFか）の質問あり＝運営者が返信。48時間無連絡で自動キャンセルの期限あり"
+      "memo": "初受注。C系PDF（問題冊子＋解答解説の2冊）送付のみ。購入者から納品形態（紙かPDFか）の質問あり＝運営者が返信。納品前に記入欄行数と答案例字数のズレを是正し PDF を再ビルド（635c7aae5）＝旧版を送らないこと"
     }
   ]
 }

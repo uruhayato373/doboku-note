@@ -90,22 +90,58 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 
 > カテゴリ/価格/facet の value が coconala 側でリニューアルされたら `node scripts/coconala-discover.mjs --advance --cat 12 --sub 254 --type 764` で現行 options を再取得して是正する。
 
-### 2.2 受注実績: `.claude/state/coconala/orders-log.json`
+### 2.2 受注実績: `.claude/state/coconala/orders-log.json`（v2）
 
-`{ version, updatedAt, currency, source, privacyNote, howToUpdate, orders: [] }`
+`{ version, updatedAt, currency, source, privacyNote, howToUpdate, schema, orders: [] }`
 
 | orders[] のキー | 意味 |
 |---|---|
-| `date` | 受注日（ISO 日付） |
+| `date` | 販売日（ISO 日付）。snapshot の `soldOn` と一致必須 |
 | `serviceId` | カタログの id と一致必須 |
+| `talkroomId` | **必須**。ココナラのトークルーム ID（`https://coconala.com/talkrooms/{id}`）＝取引の一意キー・突合キー。これが無いと後からどの取引か辿れない |
 | `priceYen` | 販売額（手数料差引前）。カタログと不一致なら要説明（価格改定時は memo に改定日） |
-| `grade` | 1 or 2（級） |
+| `grade` | 1 or 2（級）。級の無い商品は null |
 | `status` | `received` → `delivered` → `revised`（書き直し対応）→ `closed` |
-| `tensakuMinutes` | 最終赤入れの所要時間（工数の実測・定員判断の根拠） |
+| `replyDueAt` | 返信期限（**無連絡で自動キャンセル**になる時刻）。snapshot が拾えたら転記 |
+| `deliveredAt` | 納品した日時（ISO）。未納品は null |
+| `artifacts` | 納品した成果物 `[{ file, sha256, builtAt }]`。**どの版を送ったかを特定するため** |
+| `tensakuMinutes` | 最終赤入れの所要時間（工数の実測・定員判断の根拠）。C系 PDF は null |
 | `memo` | 任意。**個人情報・原稿本文は書かない** |
 
-> **記録しないもの**: 購入者名・提出原稿・トークルーム本文（privacyNote）。事例化は匿名化して
+> **記録しないもの**: 購入者名・購入者 ID・提出原稿・トークルーム本文（privacyNote）。事例化は匿名化して
 > `docs/note/1級・2級土木/メンバーシップ/添削事例アーカイブ/` へ（1対多の資産化）。
+
+> [!important] `artifacts` を必ず埋める理由（2026-08-05）
+> C8 の初受注では、**販売の翌朝に納品 PDF を作り直した**（記入欄の行数と答案例の字数を是正）。
+> 何を送ったかを残さないと「顧客が持っているのは旧版か新版か」が永久に分からなくなる。
+> C系 PDF は送付時に `file` と `sha256` を記録する。
+
+### 2.2b 受注の実体: `.claude/state/coconala/orders-snapshot.json`（read-only 収集）
+
+`npm run coconala-orders`（`scripts/coconala-orders.mjs`・Playwright・**書き込み一切なし**）が
+取引管理（出品）の全タブを走査して生成する機械可読スナップショット。orders-log が「こちらの記録」、
+snapshot が「ココナラ側の実体」で、`npm run check-coconala-orders` が `talkroomId` で突合する。
+
+`{ version, fetchedAt, status, source, privacyNote, scan: { tabs[], tabsOk, tabsTotal, deadlineFailed }, orders: [] }`
+
+| orders[] のキー | 意味 |
+|---|---|
+| `talkroomId` / `talkroomUrl` | 取引の一意キー。エージェントはこの URL で会話を辿る |
+| `tab` / `tabLabel` | どのタブで見つかったか（`required`/`requests`/`open`/`closed`/`canceled`） |
+| `serviceId` | カタログ `title` の**前方一致**で解決（表示名＝サービス名＋キャッチ）。解決できなければ null で警告 |
+| `priceYen` / `soldOn` / `statusLabel` / `deliveryDueSet` / `lastMessageAt` | 一覧から抽出 |
+| `unreplied` | `open?message_status=2`（未返信タブ）に居るか |
+| `replyDueAt` | 自動キャンセル期限。**一覧に出ないのでトークルームを開いて拾う**（未返信の room のみ・最大10件） |
+
+**実機確定（2026-08-05）**:
+- タブ URL = `/mypage/received_orders/{required,requests,open,closed,canceled,flags}`（`close` は 404）
+- 行 = `.d-providerTalkroomCassetteBlock`。**PC/SP が二重描画される**ので `talkroomId` で dedupe する（素の行数を件数として信じない）
+- トークルームは `/talkrooms/{id}`（`/mypage/talkrooms/{id}` は 404）
+- 期限は本文の `期限 M/D HH:MM`（年の表記が無いので販売日の年を採る）
+
+**§4「ダッシュボードはスクレイプしない」との関係**: あちらの対象は **KPI（閲覧数・お気に入り）＝手動貼付が正**。
+こちらは**取引の実在**（何が・いつ・いくらで売れ・どのトークルームか）で、金銭と納品に直結し人手転記では
+取りこぼす。read-only・低頻度・書き込みなしでスコープが直交する。
 
 ### 2.3 市場調査: 2層（生データ + エージェント参照サマリー）
 
@@ -147,7 +183,8 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 ## 3. 受注フロー（`/coconala-order`）
 
 ```
-購入通知 → 初回挨拶＋シート送付（定型文・キット §4c → §4/§4b）
+購入通知 → npm run coconala-orders（実体を取得＝何が売れたかを推測しない・§2.2b）
+  → 初回挨拶＋シート送付（定型文・キット §4c → §4/§4b）
   → 受領 → scratchpad/.tmp に .md 保存（★リポジトリに置かない・C系は不要）
   → /coconala-order <serviceId> <path>
       ├ カタログ status 確認（draft なら停止・full なら警告）
@@ -157,9 +194,10 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
       │   S3 作成  → 宣誓/素材検査→/keiken-tensaku --mode sakusei → 答案ドラフト.md（事実確認チェックリスト）
       │   C系 PDF → ヒアリング不要・キット §4c「C系 PDF 送付」文＋該当PDF特定
       ├ 納品文面ドラフト生成
-      └ orders-log へ append（status: received）
+      └ orders-log へ append（status: received・**talkroomId 必須**・replyDueAt を転記）
+  → npm run check-coconala-orders（記録漏れ・金額ズレ・返信期限を機械で確認）
   → ★運営者: 最終赤入れ/事実確認（10〜30分・C系は送付のみ）→ トークルームへ送信
-  → orders-log を delivered へ・tensakuMinutes 記録
+  → orders-log を delivered へ・deliveredAt/artifacts（送った版の sha256）・tensakuMinutes 記録
   → （書き直し依頼時）/keiken-tensaku を前回下書きと再実行し差分中心に再チェック → status: revised（1回まで）
   → 共通の誤りは匿名化して添削事例アーカイブへ
 ```
@@ -207,6 +245,27 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 > 出品したら**カタログを先に更新**（`status: 'listed'` ＋ `serviceUrl` ＋ `listedAt`）してから KPI・受注を記録する。
 > 順序を逆にすると検査6で落ちる（＝実績の記録先を間違えていないかの早期検知）。
 
+### 6.2 受注の突合（`npm run check-coconala-orders`・2026-08-05 新設）
+
+snapshot（§2.2b＝ココナラ側の実体）と orders-log（こちらの記録）を `talkroomId` で突合する**オフライン検査**。
+取得は `npm run coconala-orders` が担当で、こちらはネットワークに出ない。
+
+| # | 検査 | 落ちる例 |
+|---|---|---|
+| 1 | snapshot の取引が orders-log に存在 | **売れたのに記録が無い**（人手の追記もれ） |
+| 2 | serviceId / priceYen / 販売日 が一致 | 商品の取り違え・価格改定の取り残し |
+| 3 | 未返信かつ返信期限が 24h 以内 or 経過 | **48時間無連絡で自動キャンセル**を落とす |
+| 4 | `status:'received'` のまま 5 日超 | 納品の滞留 |
+| 5 | orders-log にあって snapshot に無い | talkroomId の誤り |
+
+**「検査ゼロを PASS と呼ばない」**（[[feedback_gate_zero_coverage_false_pass]]）:
+snapshot が **無い / `status:'partial'` / 7日より古い** ときは **exit 2＝検査不成立**で、
+「取引 0 件だから緑」と区別する。出力は常に `実検査 ココナラ側 N 件 / orders-log M 件` の形で件数を出す。
+
+pre-commit では `--staged --no-freshness` で走り、**exit 1（実際の不整合）だけを止める**。
+exit 2（snapshot 欠落・陳腐化）で commit を止めると、無関係な作業のたびに Playwright 実行を
+強いることになり SKIP が常態化するため。鮮度ゲートは週次の `/coconala-status` 側で効かせる。
+
 ## 7. サイト導線（/links）
 
 `src/app/links/page.tsx` の `CoconalaSection` が `listedCoconalaServices()` を参照し、**listed が0件なら描画しない**（wire-ahead＝出品前に配線だけ済ませておける）。ココナラ側 URL に UTM は付けない（計測がココナラ内で完結せずパラメータが露出するだけのため）。
@@ -220,6 +279,7 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 | `scripts/coconala-publish.mjs --service <id> [--commit]` | 新規出品。`/services/add`→種別=テキストチャット→「内容の入力に進む」で下書き生成→フォーム充填→下書き保存（既定）/公開（`--commit`）→公開時カタログへ `listed`＋`serviceUrl`＋`listedAt` 書き戻し |
 | `scripts/coconala-edit.mjs --service <id> [--fields …] [--commit]` | 既存修正。カタログ＋listings の現値でフォーム再充填。`--fields price,delivery` 等で部分更新 |
 | `scripts/coconala-delete-draft.mjs --id <n[,n]> [--commit]` | **空の下書き（orphan draft）を安全に削除**。4重ガード（G0 カタログ在籍拒否・G1 URL一致・G2 タイトル空・G3「下書きを削除」導線＝公開商品には出ない）。既定 dry-run・実削除は `--commit`。公開中商品は構造的に誤爆しない |
+| `scripts/coconala-orders.mjs [--no-deadline] [--headless]` | **受注実績の read-only 収集**（§2.2b）。取引管理（出品）の全タブ＋未返信タブを走査し、未返信 room の返信期限をトークルームから拾って `orders-snapshot.json` を生成。**書き込み一切なし・個人情報を保存しない**。1タブでも取得失敗なら `status:'partial'` ＋ exit 2 |
 | `scripts/coconala-discover.mjs [--advance] [--cat --sub --type]` | フォーム構造・selector・カテゴリ/価格/facet options の偵察（読み取り専用）。仕様ドリフト時の再校正用 |
 | `scripts/coconala-profile.mjs [--commit]` | プロフィール（職業/アピール/自己紹介）を `coconala-account.json` の値へ反映。**プロフィール編集（/mypage/user）はインライン編集型**（フィールドは初期描画に無く、セクション見出し近傍の鉛筆 `.d-profileItemControlButton` クリックで展開・2026-07-20 UI 変更対応済み）。ナビ誤爆は URL 不変 assert で検知 |
 | 共有 `scripts/lib/coconala-{session,form}.mjs` | プロファイル起動・login 待ち・account assert・カタログ/listings 解析・フォーム充填 |
