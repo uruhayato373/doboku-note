@@ -201,8 +201,11 @@ async function main() {
   const spec = JSON.parse(readFileSync(specPath, 'utf8'))
   const srcDir = resolve(REPO, spec.srcDir)
   // 既定の作業出力先。会社 PC（Windows）は C:\tmp、それ以外は OS の一時ディレクトリ（Mac/CI 対応）。
+  // spec.outDir は srcDir と同じく REPO 基準で絶対パス化する。Chrome の --print-to-pdf は
+  // 相対パスを受け付けず「指定されたパスが見つかりません (0x3)」で無言失敗し、PDF だけが
+  // 出来ないまま exit 0 を返す（呼び出し側には「PDF 生成に失敗」としか見えない・2026-08-05）。
   const outDir =
-    spec.outDir ||
+    (spec.outDir && resolve(REPO, spec.outDir)) ||
     (process.platform === 'win32'
       ? `C:\\tmp\\${basename(spec.srcDir)}-pdf`
       : join(tmpdir(), `${basename(spec.srcDir)}-pdf`))
