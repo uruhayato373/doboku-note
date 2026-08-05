@@ -14,7 +14,7 @@
   },
   "paid": {
     "total": 116,
-    "applied": 56,
+    "applied": 109,
     "batches": [
       "day1(46本)",
       "day2(41本)",
@@ -25,18 +25,18 @@
       "policy": "閲覧＝会員／所有＝買い切り。会員特典マガジン内の記事には新規添付しない。",
       "lists": {
         "noAttach": {
-          "file": ".claude/state/note-republish/paid-rest-no-attach.txt",
-          "count": 55,
-          "cmd": "note-update-body --list <file> --commit（--reattach-pdf を付けない＝ライブに添付が無いのでゲートは発火しない）"
+          "file": "（完了・空）",
+          "count": 0,
+          "cmd": "完了"
         },
         "withAttach": {
           "file": ".claude/state/note-republish/paid-rest-with-attach.txt",
-          "count": 3,
+          "count": 5,
           "cmd": "note-update-body --list <file> --commit --reattach-pdf"
         }
       },
       "note": "note のアップロード上限は1日100件（画像含む疑い）。添付なし群は画像のみ＝1本あたり約1件で軽い。",
-      "progress": "2026-08-05: 添付なし群 82本のうち 27本を反映（失敗0・全て [5e] API実体検証OK）。28本目 n662eef264e46（工事51）はエディタを開いた直後にユーザー指示で停止＝保存しておらずライブは無傷だが aborted に載るため再開時は実査してから --force-retry。"
+      "progress": "2026-08-05: 添付なし群50本＋添付あり群3本を反映し 109/116。残り5本は 2級学科記述テーマ別出る順で、同日に PDF を新規添付したためリスト分類が古くなり --reattach-pdf 無しでゲートに拒否された（ゲートは正常動作・ライブは無傷）。--reattach-pdf を付けて再実行すればよいが、本日のアップロードが上限100に近いため翌日に回す。"
     }
   }
 }
