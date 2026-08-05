@@ -1,11 +1,14 @@
 ---
 notePricing: membership
-noteStatus: draft
+noteStatus: published
 noteDraftId: "n66570efb6d23"
 noteDraftUrl: "https://editor.note.com/notes/n66570efb6d23/edit/"
 noteDraftAt: "2026-08-05"
 noteSeries: 経験記述-週次お題ラボ
 noteMagazine: 経験記述-週次お題ラボ
+notePublishedAt: "2026-08-05"
+noteId: "n66570efb6d23"
+noteUrl: "https://note.com/dobokunote/n/n66570efb6d23"
 membershipOnly: true
 utmCampaign: civil-membership-odai-safety
 coverTitle: ["今週のお題｜安全管理", "公衆災害・第三者災害の防止"]

@@ -59,6 +59,10 @@ export async function fetchNoteMeta(noteId, { retries = 2, delayMs = 3000 } = {}
         return {
           body: d.body || '', hashtags: (d.hashtag_notes || []).length,
           price: d.price ?? null, status: d.status ?? null,
+          // メンバーシップ限定の直接シグナル（2026-08-06 実測・n66570efb6d23）。
+          // isUnmeasurable の「body 空＋タグ空」という間接推定より確かなので、
+          // 会員限定かどうかの判定はこちらを優先する。API が返さない場合は null。
+          isLimited: typeof d.is_limited === 'boolean' ? d.is_limited : null,
           unmeasurable: isUnmeasurable(d), error: null,
         };
       } catch (e) { lastErr = `parse: ${String(e.message || e)}`; }
@@ -67,12 +71,12 @@ export async function fetchNoteMeta(noteId, { retries = 2, delayMs = 3000 } = {}
     }
     if (i < retries) sleepSync(delayMs);
   }
-  return { body: '', hashtags: 0, price: null, status: null, unmeasurable: false, error: String(lastErr) };
+  return { body: '', hashtags: 0, price: null, status: null, isLimited: null, unmeasurable: false, error: String(lastErr) };
 }
 
 export async function fetchNoteBody(noteId, opts = {}) {
   const m = await fetchNoteMeta(noteId, opts);
-  return { body: m.body, error: m.error, unmeasurable: m.unmeasurable };
+  return { body: m.body, error: m.error, unmeasurable: m.unmeasurable, isLimited: m.isLimited };
 }
 
 /** <h1-6> 内に URL を含む見出しのテキスト一覧。 */
@@ -121,11 +125,11 @@ export function textLen(html) {
  */
 export async function assertLiveBody(noteId, { expectedImgs = null, paid = false, minFreeChars = MIN_FREE_PREVIEW_CHARS } = {}) {
   const base = { urlHeadings: [], emptyBq: 0, imgLive: 0, imgShort: false, freeChars: 0, freeShort: false };
-  const { body, error, unmeasurable } = await fetchNoteBody(noteId);
-  if (error) return { ok: false, ...base, unmeasurable: false, fetchError: error };
+  const { body, error, unmeasurable, isLimited } = await fetchNoteBody(noteId);
+  if (error) return { ok: false, ...base, unmeasurable: false, isLimited: null, fetchError: error };
   // 未ログインで中身が返らない記事は「破損なし」でも「破損あり」でもなく計測不能。
   // ここで imgShort を立てると存在する画像を欠落と誤診する（2026-07-30・isUnmeasurable 参照）。
-  if (unmeasurable) return { ok: true, ...base, unmeasurable: true, fetchError: null };
+  if (unmeasurable) return { ok: true, ...base, unmeasurable: true, isLimited, fetchError: null };
   const urlHeadings = findUrlHeadings(body);
   const emptyBq = countEmptyBlockquotes(body);
   const imgLive = countImgs(body);
@@ -134,5 +138,5 @@ export async function assertLiveBody(noteId, { expectedImgs = null, paid = false
   // 有料記事のときだけ見る。無料記事は body 全文が返るので短くても事故ではない。
   const freeShort = paid && freeChars < minFreeChars;
   const ok = urlHeadings.length === 0 && emptyBq === 0 && !imgShort && !freeShort;
-  return { ok, urlHeadings, emptyBq, imgLive, imgShort, freeChars, freeShort, unmeasurable: false, fetchError: null };
+  return { ok, urlHeadings, emptyBq, imgLive, imgShort, freeChars, freeShort, unmeasurable: false, isLimited, fetchError: null };
 }

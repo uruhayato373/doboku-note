@@ -1,11 +1,14 @@
 ---
 notePricing: membership
-noteStatus: draft
+noteStatus: published
 noteDraftId: "nc92c82ac4ea5"
 noteDraftUrl: "https://editor.note.com/notes/nc92c82ac4ea5/edit/"
 noteDraftAt: "2026-08-05"
 noteSeries: 経験記述-週次お題ラボ
 noteMagazine: 経験記述-週次お題ラボ
+notePublishedAt: "2026-08-05"
+noteId: "nc92c82ac4ea5"
+noteUrl: "https://note.com/dobokunote/n/nc92c82ac4ea5"
 membershipOnly: true
 utmCampaign: civil-membership-odai-quality
 coverTitle: ["今週のお題｜品質管理", "コンクリート品質の確保"]
