@@ -63,6 +63,18 @@ const THUMB_COPY = {
     hook: '質問シートに答えるだけ。\nあなたの実工事を採点者に伝わる答案に',
     priceLabel: '2テーマ・書き直し1回込み',
   },
+  'coconala-1kyu-full-pdf': {
+    eyebrow: '1級土木施工管理技士 ／ 第2次検定 対策PDF',
+    title: ['二次 教材', 'フルパック'],
+    hook: '分析・完成答案・過去問・学科・模試\n全部入り PDF 18冊（単品計¥14,000）',
+    priceLabel: 'PDF 18冊・全部入り',
+  },
+  'coconala-2kyu-full-pdf': {
+    eyebrow: '2級土木施工管理技士 ／ 第2次検定 対策PDF',
+    title: ['二次 教材', 'フルパック'],
+    hook: '完成答案・過去問・学科・模試\n全部入り PDF 15冊（単品計¥10,500）',
+    priceLabel: 'PDF 15冊・全部入り',
+  },
   'coconala-bunseki-pdf': {
     eyebrow: '1級土木施工管理技士 ／ 第2次検定 対策PDF',
     title: ['二次 出題分析', '＋直前重点 PDF'],
