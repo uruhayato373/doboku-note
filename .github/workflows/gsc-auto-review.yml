@@ -84,10 +84,21 @@ jobs:
             echo "token 検出（値はマスクされる）"
           fi
 
-      # 現状の記録状態を job summary に残す（Claude が動かなかった場合でも状態が見える）。
-      - name: Surface record-layer state
+      # 実行前の状態を **stdout にも** 出す（job summary だけだと run ログに残らず事後診断できない）。
+      # 併せて実行後の検証に使う gates を step output に保存する。
+      - name: Surface record-layer state (before)
+        id: before
         continue-on-error: true
         run: |
+          node scripts/check-gsc-auto-review.mjs --json > /tmp/gates-before.json || true
+          echo "--- 実行前 ---"
+          node scripts/check-gsc-auto-review.mjs || true
+          node -e '
+            const g = JSON.parse(require("fs").readFileSync("/tmp/gates-before.json","utf8")).gates;
+            const out = require("fs").createWriteStream(process.env.GITHUB_OUTPUT, {flags:"a"});
+            out.write(`stale=${g.gscDataStale}\nweekly=${g.weeklyAlreadyLogged}\nmonthly=${g.monthlyAlreadyLogged}\n`);
+            out.end();
+          '
           {
             echo "## 記録層の状態（実行前）"
             echo '```'
@@ -161,6 +172,56 @@ jobs:
                `node scripts/report-automation-failure.mjs --channel gsc-auto-review --title "<事象を 1 行で>" --body-file /tmp/body.md`
                このスクリプトが重複防止（同 channel の open Issue があればコメント追記）を担う。**push に失敗して観測ログに書けなかった場合は、書くはずだったエントリ全文を body に含める**（記録を失わないため）
 
+      # Claude の実行ログを artifact に残す。無いと「緑なのに何もしていない」が
+      # 完全なブラックボックスになる（2026-08-06 の初回成功実行がまさにこれだった）。
+      - name: Upload Claude execution log
+        if: always() && steps.pre.outputs.has_token == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: claude-execution-log-${{ github.run_id }}
+          path: /home/runner/work/_temp/claude-execution-output.json
+          if-no-files-found: warn
+          retention-days: 14
+
+      # 本 workflow 自身に「検査ゼロを PASS と呼ばない」を適用する。
+      # Claude が成功終了しても記録が増えていなければ、それは成功ではない。
+      - name: Verify - record was actually written
+        if: steps.pre.outputs.has_token == 'true'
+        env:
+          STALE_BEFORE: ${{ steps.before.outputs.stale }}
+          WEEKLY_BEFORE: ${{ steps.before.outputs.weekly }}
+          MONTHLY_BEFORE: ${{ steps.before.outputs.monthly }}
+        run: |
+          echo "--- 実行後 ---"
+          node scripts/check-gsc-auto-review.mjs || true
+          node scripts/check-gsc-auto-review.mjs --json > /tmp/gates-after.json
+          {
+            echo "## 記録層の状態（実行後）"
+            echo '```'
+            node scripts/check-gsc-auto-review.mjs || true
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          node -e '
+            const after = JSON.parse(require("fs").readFileSync("/tmp/gates-after.json","utf8")).gates;
+            const staleBefore = process.env.STALE_BEFORE === "true";
+            const weeklyBefore = process.env.WEEKLY_BEFORE === "true";
+            const monthlyBefore = process.env.MONTHLY_BEFORE === "true";
+            console.log(`before: stale=${staleBefore} weekly=${weeklyBefore} monthly=${monthlyBefore}`);
+            console.log(`after : weekly=${after.weeklyAlreadyLogged} monthly=${after.monthlyAlreadyLogged}`);
+            // 週次はスキップ条件が gates で完全に表現できるので hard fail にする。
+            const weeklyDue = !staleBefore && !weeklyBefore;
+            if (weeklyDue && !after.weeklyAlreadyLogged) {
+              console.error("::error::週次の記録が必要だったのに追記されていない（Claude は成功終了したが仕事をしていない）。artifact の claude-execution-log を確認する");
+              process.exit(1);
+            }
+            // 月次は整合ゲート（history 未追記）で正当にスキップされうるので warning に留める。
+            if (!monthlyBefore && !after.monthlyAlreadyLogged) {
+              console.log("::warning::月次の記録が未追記のまま。整合ゲートで止まった可能性（Claude の最終報告を確認）");
+            }
+            console.log("[verify] 記録層の更新を確認");
+          '
+
       # Claude 自体が落ちたら Issue に記録する（沈黙させない）。
       - name: Report - action failure
         if: failure() && steps.pre.outputs.has_token == 'true'
@@ -169,9 +230,10 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           {
-            echo "GSC auto review の CI 実行が失敗しました（Claude 実行ステップの異常）。"
+            echo "GSC auto review の CI 実行が失敗しました（Claude 実行ステップの異常、または記録が書かれなかった）。"
             echo ""
             echo "- run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            echo "- 実行ログ: 同 run の artifact \`claude-execution-log-${{ github.run_id }}\`"
             echo "- 記録層の現状:"
             echo '```'
             node scripts/check-gsc-auto-review.mjs || true
