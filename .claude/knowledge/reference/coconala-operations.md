@@ -384,8 +384,20 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 
 | スクリプト | 役割 |
 |---|---|
-| `scripts/lib/strip-note-funnel.mjs` | note 記事から CTA コメントブロック・裸URL・note 商品誘導文・ペイウォール文を機械除去。`assertNoFunnel` で残存検査 |
+| `scripts/lib/strip-note-funnel.mjs` | note 記事から CTA コメントブロック・裸URL・note 商品誘導文・ペイウォール文・**note 専用節（印刷用PDF 案内）・著者バナー画像とその定型キャプション**を機械除去し、最後に**除去で中身が空になった見出し/太字ラベルを落とす**。`assertNoFunnel` で残存検査。境界は `tests/strip-note-funnel.test.mjs` で固定 |
 | `scripts/build-coconala-content-pdf.mjs` | `PRODUCTS` 定義（C1〜C9）の源を strip → クリーン版を staging → `magazine-to-pdf` で PDF 生成 → **pdftotext で note.com/URL が 0件でなければ FAIL**。出力 `.claude/config/coconala/assets/pdf/*.pdf`（`CHROME_PATH=... node scripts/build-coconala-content-pdf.mjs [--product C8]`）。C1〜C7 の源は note 記事、**C8/C9（模試）は生成 markdown**（`generated:true`・源 `.claude/config/coconala/assets/moshi-src/{C8,C9}/`・strip は冪等で二重担保） |
+
+> [!warning] 納品前は「URL 0 件」だけでなく **PDF そのもの**を見る（2026-08-06）
+> ビルドのゲートは「note.com/URL が残っていないか」しか見ない。これは緑のまま、
+> **10 冊が「関連リンク」の一語で終わり、うち 3 冊はその一語だけの空白ページが最終ページ**だった
+> （リンク行は消え、ラベルだけ残った）。顧客が最後に見る面がこれでは商品にならない。
+> 納品前に PyMuPDF で次を実測する（対象数と該当数を必ず出す）:
+> **①孤立見出し**（見出し語の後ろが空）**②空白ページ**（ただし模試の**解答欄**は罫線が 5 本以上引かれた
+> 意図的な白ページなので除外する）**③外部 URL / リンク注釈** **④U+FFFD** **⑤note 専用節の混入**。
+>
+> 併せて**PDF が現行ソースと同じ中身か**も確認する。ただし **PDF のコミット日が古いことは陳腐化の証拠にならない**
+> ——導線・カバー・タグの更新は strip で消えるため中身は変わらない。判定は「両版を strip に通して本文比較」で行い、
+> かつ**ビルドと同じ `includeFrom` を適用**する（適用し忘れると、仕様どおり落ちている冒頭が「本文欠落」に見える）。
 
 - **納品運用**: C系（`provision_format=3`・PDF・各種定型ファイル）は**ヒアリング不要**。購入通知→トークルームで PDF を送付（例: C1=1本 / C2=5本 / C8・C9 模試=問題冊子＋解答解説の2冊）＋キット §4c「C系 PDF 送付」文（`orders-log` へ append）。個別相談は添削（S2）へ誘導。
 - **KDP 安全**: 二次経験記述は Kindle Select ロック無し（土木 Kindle は一次のみ）。一次過去問PDF は Select 独占中＝coconala 化しない。
