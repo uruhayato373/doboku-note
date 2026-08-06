@@ -1,5 +1,5 @@
 import { readdirSync, statSync, readFileSync, existsSync, writeFileSync } from 'fs';
-import { join, relative } from 'path';
+import { join, relative, sep } from 'path';
 import matter from 'gray-matter';
 import { loadGitDates, lookupGitDates } from '../.claude/scripts/lib/git-dates.mjs';
 
@@ -165,7 +165,12 @@ const urls = [];
 
 // 静的ページ (/, /about, /contact, /terms, /privacy, /category/*)
 for (const { path, mtime } of collectStaticHtmlFiles(OUT_DIR)) {
-  let urlPath = '/' + relative(OUT_DIR, path).replace(/\.html$/, '').replace(/\/index$/, '');
+  // relative() は OS 区切り文字を返す。Windows でそのまま URL にすると
+  // <loc>https://doboku-note.com/category\civil-construction-1</loc> のように
+  // バックスラッシュが混入する（2026-08-06 実測）。CI は Linux なので本番は無傷だが、
+  // `npm run pages:deploy` を Windows から実行すると壊れた sitemap が本番に出る。
+  const relUrl = relative(OUT_DIR, path).split(sep).join('/');
+  let urlPath = '/' + relUrl.replace(/\.html$/, '').replace(/\/index$/, '');
   if (urlPath === '/index') urlPath = '/';
   const meta = getUrlMeta(urlPath, null);
   if (!meta) continue;
