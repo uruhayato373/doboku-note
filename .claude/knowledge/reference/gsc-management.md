@@ -320,3 +320,34 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
 - 副因: 5/11 deploy（0e2acbdad）の **seoTitle 723 件一括変更**。旧「{title} ｜ 総合技術監理 キーワード集 2026」→新「{title} ｜ 技術士 総合技術監理部門 キーワード集」で **「2026」トークンを全ページから削除** → 「総監キーワード2026」（pos 6.6）等の年度系クエリがクエリレポートから消失。またコアアップデート直前に最大コーパスの全面書き換え＝再クロール churn を最大化。robots.txt AI ブロック（5/16）は Googlebot 非対象で無関係
 - 診断（確定）: **主因＝May 2026 コアアップデート（5/21-6/2）が総監キーワード薄ページ群を品質再評価で demote**（順位崩落→index selection 除外の連鎖）。副因＝直前の 723 件 title 一括変更（年度クエリ喪失＋churn）。時期・対象の集中・対照群の無傷がすべて整合。この demote が 7月の AdSense「非インデックス 265 本」問題の源流
 - 判断: ①打ち手は既に正しい方向で進行中（薄層 112 本フルリライト完遂＝コアアップデート demote への正攻法。次のコアアップデートで再評価される）② title の再変更はしない（年度クエリは hub keyword-2026 が捕捉・一括改変の反復はリスク）③**教訓: 大規模一括改変（数百件単位の title/本文）はコアアップデート時期と重なると被害を増幅する＝分割デプロイし、改変直後 2 週間は GSC 日次を監視**④GSC 日次データの 5/4-5/24 欠損と W20 レビュー欠落が RCA を 2 ヶ月遅らせた＝週次 PDCA の継続で再発防止
+
+### 2026-08-06（週次・自動レビュー）
+
+- 観測: GSC 07/01-07/29（page 453行・完全）＋ query 06/29-07/27、GA4 28日比 07/23→07/30。候補: High-Impr-Low-CTR 33 / Rank-Stuck 17 / Traffic-Drop 9 / Hidden-Winner 27 / SNS-Source-Shift 2。Cannibalization・Content-Decay・Orphan-Query は ✓（0件）
+- 上位候補と推奨:
+  1. **SNS-Source-Shift**: note/referral 427→91 sessions（−78.7%）・x/social 152→16（−89.5%）。推奨=投稿停止/UTM欠落/リンク切れの現物照合
+  2. **Traffic-Drop**: `/docs/civil-construction-1-guide-strategy` sessions 641→421（−34.3%）。engagement 悪化なし＝流入元側の変化を疑う
+  3. **CTR実験候補**: `/docs/civil-construction-1-textbook-scraper` impr 236・clicks 2-3・pos 9.6（「スクレーパとは」impr 112・clicks 0・pos 8.7）。CEM demote バケット外
+  - 他 5 件（Hidden-Winner 非総監群の実需要 27 件・network-schedule pos 63.7 等）→ improvements/2026-08-06.md
+- 自動裁定:
+  - SNS 急落 → 推奨=現物照合タスク化（実験でなく運用確認。note/X の投稿状況と UTM を実体で確認）
+  - guide-strategy 減 → 保留（再浮上条件: 8月再測定でも −20% 超継続なら要診断。単月ローリング比のため）
+  - scraper CTR → 推奨=実験化候補（メタ実験・最大 5 URL・14〜28 日の形で /nsm-experiment propose へ）
+  - CEM 権威性バケットの減（whitepaper-study-map 等）→ 保留（裁定済み方針どおり on-page 修正せず。再浮上条件: 8月再測定で回帰継続・拡大なら薄ページ統合を検討）
+- 注記: 自動生成（metrics-analyzer・人間の上書き歓迎）。GA4 は limit=100 打切りアーティファクト 8 件を Traffic-Drop から除外済み
+
+### 2026-08-06（月次・自動レビュー）
+
+- batch: `inspection-batch-2026-08-01T05-03-32.json`（1,109 件・history 8/1 エントリと完全一致）
+- 観測: inspected 1,109 / sitemap 1,109 / indexed **795（index_ratio 71.7%）**・前回比 **−2.9pt**（74.6%→71.7%）/ クロール済み-未登録 **292**（240→292・net +52）/ 検出-未登録 4 / redirect 0 / 404 0 / other 18
+- 増分内訳（URL 単位遷移の直接比較）: 新規に未登録へ落ちた 126 件＝**総監 89** / pe-construction 12 / civil-1 12 / civil-2 10 / concrete 3。逆に未登録→indexed 回復 74 件（うち総監 66）＝閾値近傍で thrashing しつつ**正味は悪化方向**
+- **総監回帰の判定: 継続・拡大**。総監の未登録件数 182→205（net +23）・母数比 25.1%→28.2%（母数 724→728 でほぼ一定）。**7/2 裁定の再浮上条件「8月再測定で回帰が継続・拡大」に該当** → 総監薄ページの統合（[[no-new-keyword-pages]] と整合）＋被リンク等の権威性トラックを検討開始する材料が揃った
+- 新規 URL +58（sitemap 1,051→1,109）: indexed 37（64%）/ other 18 / discovered 2 / 未登録 1。新規は速やかに登録されており健全
+- 原因バケット:
+  - 権威性: 未登録 292 件は全件 page_fetch SUCCESSFUL＝クロール正常で index 価値の低評価。総監が支配的（主因）
+  - 技術: 該当なし（fetch 失敗・robots・5xx ゼロ）
+  - hygiene: 404/redirect 0。canonical 不一致 2 件（/about・/category/civil-construction-2）は indexed 済みで軽微
+- other 18 の中身: 全件 concrete-diagnostician 系の 8月新規ページで「URL 未認識」＝単純な未クロール。9月測定で残留有無のみ確認（放置で可）
+- 推奨アクション: ①再浮上条件成立につき、次の対話セッションで総監薄ページ統合の対象選定を検討（実行判断は人間）②hygiene タスクなし ③メタ一括変更は不可（実験形式のみ）
+- 異常フラグ: なし（ratio≥60%・低下<5pt・discovered 4・hygiene 0・inspected=sitemap・results 整合）
+- 注記: 自動生成（gsc-index-auditor 診断・最終決定は人間）
