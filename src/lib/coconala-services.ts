@@ -297,9 +297,15 @@ const SERVICES_RAW = {
   // C8: 1級 二次 予想模擬試験（問題冊子＋解答解説）。唯一の未対抗セグメント「模擬試験」への参入。
   //   源=C6 学科記述論点＋C1 出題分析から build-once 生成（新規事実ゼロ・出題保証しない）。
   //   Red Line #10 例外運用（模試=静的1回分／会員フロー=毎月更新の予想ドリップで差別化）。
+  //   2026-08-05: 不在休止（8/6-8/16）の**例外としてこの1件だけ受付再開**（運営者判断）。
+  //   理由=本サービスの購入者へ送った見積り提案（16冊セット ¥7,500・購入期限 8/12）が
+  //   コンビニ払いで購入待ちの状態にあり、購入期限が不在期間と丸ごと重なる。決済・取引導線に
+  //   元サービスの受付状態が影響する可能性を排除できないため、不在中の新規購入リスクを承知で開ける。
+  //   ※ この節のコメントは id/status/serviceUrl の連続性を壊さないようブロック外に置くこと
+  //     （カタログ parser は 3 フィールドが隣接している前提の正規表現）。
   'coconala-1kyu-moshi-pdf': {
     id: 'coconala-1kyu-moshi-pdf',
-    status: 'paused',
+    status: 'listed',
     serviceUrl: 'https://coconala.com/services/4317886',
     title: '1級土木二次の予想模擬試験を送ります',
     shortTitle: '1級 二次 予想模擬試験 PDF',
@@ -309,8 +315,6 @@ const SERVICES_RAW = {
     priceYen: 2500,
     examScope: ['civil-1'],
     weeklyCapacity: 20,
-    pauseReason: 'absence',
-    resumeOn: '2026-08-17',
     listedAt: '2026-07-18',
   },
 
@@ -340,9 +344,13 @@ const SERVICES_RAW = {
   //   （こちらは二次全体の広さ）で、**同等以上に置いて undercut しない**。当初 ¥9,800 案は
   //   ココナラの価格刻み（¥10,000以下=500円刻み）で入力できないため ¥10,000 を採る。
   //   納品は既存 C系 PDF をそのまま送付（新規ビルドなし・労働ゼロ）。
+  //   2026-08-05: 不在休止（8/6-8/16）の**例外として受付再開**（C8 と合わせて2件のみ）。
+  //   理由=本サービスを元に送った見積り提案（模試2冊を除く16冊セット ¥7,500・購入期限 8/12）が
+  //   コンビニ払いで購入待ち。元サービスが受付休止だと決済・取引導線に影響する可能性を排除できず、
+  //   購入期限が不在期間と丸ごと重なるため。不在中の新規購入リスクは運営者が承知のうえで受容。
   'coconala-1kyu-full-pdf': {
     id: 'coconala-1kyu-full-pdf',
-    status: 'paused',
+    status: 'listed',
     serviceUrl: 'https://coconala.com/services/4341188',
     title: '1級土木二次 教材フルパックを送ります',
     shortTitle: '1級 二次 教材フルパック PDF',
@@ -352,8 +360,6 @@ const SERVICES_RAW = {
     priceYen: 10000,
     examScope: ['civil-1'],
     weeklyCapacity: 20,
-    pauseReason: 'absence',
-    resumeOn: '2026-08-17',
     listedAt: '2026-08-05',
   },
 

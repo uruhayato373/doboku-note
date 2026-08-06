@@ -19,11 +19,15 @@
  *   2. 既定は draft（下書き保存のみ）。実公開は --commit 必須
  *   3. --commit でも「有料境界が BOUNDARY 見出しの直前」を検証してからのみ投稿（boundaryBeforeExam=false は中断）
  *   4. 公開後に note 公開ページを実取得し 無料プレビュー/カード/価格 を実体検証（偽成功ガード）
+ *   5. notePricing: membership は公開範囲を選べたときのみ投稿（選べなければ中断＝全員公開の事故防止）。
+ *      公開後は未ログインで本文が読めないことまで検証する（[13m]）
  *
  * 使い方:
  *   node scripts/note-publish.mjs --article <article.md path>                       # 下書き作成のみ（既定・安全）
  *   node scripts/note-publish.mjs --article <path> --commit                        # 即時公開
  *   node scripts/note-publish.mjs --article <path> --commit --schedule 2026-06-20T07:00  # 予約投稿（JST）
+ *   node scripts/note-publish.mjs --article <path> --commit                        # notePricing: membership なら会員限定
+ *   node scripts/note-publish.mjs --article <path> --commit --membership-plan "通年プラン｜過去問＆月例予想"  # プラン限定
  *   （カバー/タグは article と同じ年度dir の cover-<type>.png / hashtags-<type>.txt を自動解決）
  *
  * 予約投稿（--schedule, note は無料で予約公開可）:
@@ -88,6 +92,18 @@ const tagsCandidates = [typeSuffix && join(dir, `hashtags-${typeSuffix}.txt`), j
 const tagsFile = tagsCandidates.find(existsSync);
 const tags = tagsFile ? readFileSync(tagsFile, 'utf8').split(/\r?\n/).map((s) => s.trim().replace(/^#/, '')).filter(Boolean).slice(0, 99) : [];
 const isPaid = notePricing === 'paid' && price > 0;
+// メンバーシップ限定公開（2026-08-06 実装）。note の公開設定は「記事タイプ=無料」のまま
+// 「記事の追加 → メンバーシップ」タブで公開範囲を選ぶ二段構えで、有料(is_paid)とは別軸。
+//   - 既定 = 「メンバー全員に公開」（全プランの会員が読める）
+//   - --membership-plan "<プラン名>" = 「プラン限定公開」の該当プラン行を選ぶ
+// notePricing: membership を isPaid=false のまま素通りさせると **全員に無料公開** される
+// （2026-08-05 実測）。ここで捕まえて公開範囲を明示的に選ばせ、選べなければ公開しない。
+const isMembership = notePricing === 'membership';
+const MEMBERSHIP_PLAN = getArg('--membership-plan') || '';
+const MEMBERSHIP_TARGET = MEMBERSHIP_PLAN || 'メンバー全員に公開';
+// 既存下書きの再利用。--use-draft <noteId> 明示 > frontmatter noteDraftId（--no-reuse-draft で抑止）。
+const USE_DRAFT = getArg('--use-draft') || '';
+const REUSE_DRAFT_FM = !argv.includes('--no-reuse-draft');
 // 目次ブロック挿入（note ネイティブ #toc-setting・最初のh2直前）。H2 が 3 つ以上のとき自動挿入。
 // markdown の #アンカーは note で機能しないため見出しジャンプの唯一手段。--no-toc で抑止。
 const h2count = (body.match(/^##\s+/gm) || []).length;
@@ -138,12 +154,31 @@ try {
   if (!acct) { console.error('ABORT: account != dobokunote'); await ctx.close(); process.exit(2); }
   console.log('[1] account gate OK (dobokunote)');
 
-  // 2. 新規エディタ（/new が空ドラフトを生成・描画遅延に強い polling）
-  await page.goto('https://editor.note.com/new', { waitUntil: 'domcontentloaded', timeout: 60000 });
-  await sleep(3000);
-  try { await page.waitForSelector('[contenteditable=true]', { timeout: 30000 }); }
-  catch { console.error('ABORT: editor not loaded'); await ctx.close(); process.exit(3); }
-  await sleep(2000);
+  // 2. エディタを開く。既定は /new（空ドラフトを生成）。
+  //    --use-draft / frontmatter noteDraftId があれば **既存の下書きを再利用**して開く
+  //    （/new を使うと下書きを作り直して元の下書きが孤児化し、削除は手作業になるため）。
+  //    再利用時は本文を空にしてから既存フローに合流する（note-update-body の [3a] と同型）。
+  const reuseDraft = USE_DRAFT || (REUSE_DRAFT_FM ? fmField('noteDraftId') : '');
+  if (reuseDraft) {
+    await page.goto(`https://editor.note.com/notes/${reuseDraft}/edit/`, { waitUntil: 'domcontentloaded', timeout: 60000 });
+    await sleep(3000);
+    try { await page.waitForSelector('[contenteditable=true]', { timeout: 30000 }); }
+    catch { console.error('ABORT: editor not loaded (draft ' + reuseDraft + ')'); await ctx.close(); process.exit(3); }
+    await sleep(2000);
+    const ed = page.locator('[contenteditable=true]').first();
+    await ed.click(); await sleep(400);
+    await page.keyboard.press(process.platform === 'darwin' ? 'Meta+a' : 'Control+a'); await sleep(300);
+    await page.keyboard.press('Delete'); await sleep(800);
+    const emptied = await page.evaluate(() => (document.querySelector('[contenteditable=true]')?.innerText || '').trim().length);
+    console.log(`[2a] 既存下書き ${reuseDraft} を再利用（emptied chars=${emptied}）`);
+    if (emptied > 0) { console.error('ABORT: 下書きを空にできず（本文二重化の恐れ）'); await ctx.close(); process.exit(3); }
+  } else {
+    await page.goto('https://editor.note.com/new', { waitUntil: 'domcontentloaded', timeout: 60000 });
+    await sleep(3000);
+    try { await page.waitForSelector('[contenteditable=true]', { timeout: 30000 }); }
+    catch { console.error('ABORT: editor not loaded'); await ctx.close(); process.exit(3); }
+    await sleep(2000);
+  }
   const draftUrl = page.url();
   console.log('[2] editor:', draftUrl);
 
@@ -321,7 +356,81 @@ try {
     } catch (e) { console.log('[10] tags skip:', e.message.split('\n')[0]); }
   }
 
+  // 10.5 メンバーシップ限定公開（記事の追加 → メンバーシップ タブ → 対象行の「追加」）
+  // 押下後にボタン表記が「追加」から変わることを確認できなければ **公開しない**。
+  // 押せていないのに投稿すると全員に無料公開されるので、ここは fail-closed。
+  let membershipOk = !isMembership;
+  if (isMembership) {
+    const tabbed = await page.evaluate(() => {
+      const b = Array.from(document.querySelectorAll('button')).find((x) => (x.innerText || '').trim() === 'メンバーシップ');
+      if (!b) return false; b.click(); return true;
+    });
+    if (!tabbed) console.error('[10.5] ABORT: 「メンバーシップ」タブ未検出');
+    else {
+      await sleep(3000);
+      const pick = await page.evaluate((label) => {
+        const norm = (s) => (s || '').replace(/\s+/g, ' ').trim();
+        const btns = Array.from(document.querySelectorAll('button')).filter((b) => /^(追加|追加済み?|削除)$/.test(norm(b.innerText)));
+        for (const b of btns) {
+          let el = b.parentElement;
+          for (let i = 0; i < 6 && el; i++, el = el.parentElement) {
+            const t = norm(el.innerText);
+            // 行コンテナ = ラベルを含み、かつ他行を巻き込まない短さ（ラベル+ボタン文言程度）
+            if (t.includes(label) && t.length <= label.length + 12) {
+              const before = norm(b.innerText);
+              b.click();
+              return { ok: true, row: t, before };
+            }
+          }
+        }
+        return { ok: false, rows: btns.map((b) => norm(b.parentElement?.innerText).slice(0, 50)) };
+      }, MEMBERSHIP_TARGET);
+      if (!pick.ok) console.error(`[10.5] ABORT: 公開範囲「${MEMBERSHIP_TARGET}」の行を特定できず。候補=${JSON.stringify(pick.rows)}`);
+      else {
+        await sleep(2500);
+        const after = await page.evaluate((label) => {
+          const norm = (s) => (s || '').replace(/\s+/g, ' ').trim();
+          const btns = Array.from(document.querySelectorAll('button')).filter((b) => /^(追加|追加済み?|削除)$/.test(norm(b.innerText)));
+          let state = '(row-gone)';
+          for (const b of btns) {
+            let el = b.parentElement;
+            for (let i = 0; i < 6 && el; i++, el = el.parentElement) {
+              const t = norm(el.innerText);
+              if (t.includes(label) && t.length <= label.length + 12) { state = norm(b.innerText); break; }
+            }
+            if (state !== '(row-gone)') break;
+          }
+          const all = document.body.innerText.replace(/\s+/g, ' ');
+          const i = all.indexOf('記事の追加');
+          return { state, section: (i >= 0 ? all.slice(i, i + 220) : '').trim() };
+        }, MEMBERSHIP_TARGET);
+        // 成功形は押下後のボタンが「追加済」（実測 2026-08-06・「み」は付かない）か「削除」に変わること。
+        // 「追加」のままは押せていない、(row-gone) は行を見失った＝どちらも選択の証拠にならないので通さない。
+        // 判定材料を人が読めるよう、押下後のセクション文言もそのままログへ出す。
+        membershipOk = /^(追加済み?|削除)$/.test(after.state);
+        console.log(`[10.5] 公開範囲「${MEMBERSHIP_TARGET}」: ${pick.before} → ${after.state} / ok=${membershipOk}`);
+        console.log(`[10.5] 押下後のセクション: ${after.section}`);
+      }
+    }
+    if (!membershipOk) await page.screenshot({ path: join(ROOT, '.tmp/np-membership.png'), fullPage: true });
+  }
+
   // 11. 有料エリア設定 → 境界を BOUNDARY 見出し直前へ（既定=試験問題/予想問題・civil=品質管理）
+  //
+  // メンバーシップ限定記事も同じ「ライン」機構を通る。ただし入口ボタンが
+  // 「試し読みエリアを設定」で、公開設定画面の一次ボタンがこれに差し替わるため
+  // **この画面を開かないと「投稿する」が出てこない**（2026-08-06 実測）。
+  // また note の説明文どおり「ラインを設定しない場合は購入・購読した人だけが読める記事になる」ので、
+  // 会員特典（週次お題）は既定でラインを引かず全文を会員限定にする。
+  // 無料の試し読みを付けたい記事だけ frontmatter `paidBoundary` か --boundary-regex を明示する。
+  const hasExplicitBoundary = !!(getArg('--boundary-regex') || fmField('paidBoundary'));
+  if (isMembership) {
+    const prev = page.getByRole('button', { name: /試し読みエリア/ });
+    if (await prev.count()) {
+      await prev.first().click(); await sleep(3500);
+      console.log(`[11m] 試し読みエリア画面へ（ライン設定=${hasExplicitBoundary ? BOUNDARY : 'なし＝全文を会員限定'}）`);
+    } else console.log('[11m] WARN: 「試し読みエリアを設定」ボタン未検出');
+  }
   let boundaryOk = !isPaid; // 無料は境界不要
   if (isPaid) {
     const area = page.getByRole('button', { name: '有料エリア設定' });
@@ -365,12 +474,18 @@ try {
   // 無いと URL 記録が無音失敗し、冪等ガード(noteUrl 有無)も効かず一括で重複公開する事故になった。
   // 2026-07-02 是正）。挿入位置は noteMagazine 直後（正準）→ utmCampaign 直後 → 冒頭 --- の順で解決。
   const setFmField = (text, key, val) => {
+    // 改行コードは元ファイルに合わせる。CRLF の記事へ LF 行を挿入すると混在になり
+    // pre-commit で reject される（CLAUDE.md §3・2026-08-06 に会員記事2本で再現）。
+    // アンカー行を `.*` で拾うと末尾 CR まで $1 に入るので、CR を剥がしてから eol を付け直す。
+    const eol = /\r\n/.test(text) ? '\r\n' : '\n';
     const line = `${key}: ${val}`;
     const re = new RegExp('^' + key + ':.*$', 'm');
-    if (re.test(text)) return text.replace(re, line);
-    if (/^noteMagazine:.*$/m.test(text)) return text.replace(/^(noteMagazine:.*)$/m, `$1\n${line}`);
-    if (/^utmCampaign:.*$/m.test(text)) return text.replace(/^(utmCampaign:.*)$/m, `$1\n${line}`);
-    return text.replace(/^(---\r?\n)/, `$1${line}\n`);
+    if (re.test(text)) return text.replace(re, line + (eol === '\r\n' ? '\r' : ''));
+    for (const anchor of ['noteMagazine', 'utmCampaign']) {
+      const ar = new RegExp('^(' + anchor + ':.*)$', 'm');
+      if (ar.test(text)) return text.replace(ar, (_, g1) => `${g1.replace(/\r$/, '')}${eol}${line}${eol === '\r\n' ? '\r' : ''}`);
+    }
+    return text.replace(/^(---\r?\n)/, `$1${line}${eol}`);
   };
   const writeBack = (url, publishDate, statusVal = 'published') => {
     try {
@@ -410,7 +525,7 @@ try {
     // 本文画像トークン残存/挿入失敗 → 公開せず下書き退避（トークン露出・図欠落を本番に出さない）
     await saveDraftExit(`★中断: 本文画像が未完（leftover=${imgLeftover.length} failed=${imgFailed.length}）→ 公開しない★`);
     process.exitCode = 3;
-  } else if (COMMIT && boundaryOk && sched) {
+  } else if (COMMIT && boundaryOk && membershipOk && sched) {
     // --- 予約投稿フロー（--schedule 指定時。selector は scheduling.md 由来・first-run 要検証）---
     // 安全弁: 日時が UI に反映できないときは即時公開せず下書きへ退避（誤即時公開を防止）
     const pad = (n) => String(n).padStart(2, '0');
@@ -445,7 +560,7 @@ try {
       await shot('abort');
       await saveDraftExit('★中断: 予約投稿UIを確定できず（即時公開はしない・selector要first-run検証）★');
     }
-  } else if (COMMIT && boundaryOk) {
+  } else if (COMMIT && boundaryOk && membershipOk) {
     // --- 即時公開（既存）---
     const submit = page.getByRole('button', { name: '投稿する', exact: true });
     if (await submit.count()) {
@@ -467,10 +582,25 @@ try {
           if (chk.imgShort) parts.push(`画像欠落(live=${chk.imgLive}/期待=${expectedImgs})`);
           console.error(`[13] FAIL: 公開本文に不整合: ${parts.join(' / ')} → note-update-body --commit で修復`); process.exitCode = 2;
         } else console.log(`[13] API 実体検証 OK（URL見出し0 空引用0 img=${chk.imgLive}）`);
+        // [13m] メンバーシップ限定の実体検証: 未ログインの public API で本文が読めないこと。
+        // note のメンバーシップ記事は body='' + hashtag_notes=[] を返す（= isUnmeasurable）。
+        // 本文が読めてしまうなら公開範囲の選択が効いておらず **全員に無料公開**されている。
+        // ここは「保存できた」ではなく「読者から見て会員限定か」を見る唯一の検査なので落とす。
+        // 判定は API の is_limited（直接シグナル）を優先し、返らない場合だけ
+        // 「未ログインで本文が読めない」（isUnmeasurable）に落とす。
+        if (isMembership && !chk.fetchError) {
+          const limited = chk.isLimited === null ? chk.unmeasurable : chk.isLimited;
+          if (limited) console.log(`[13m] メンバーシップ限定 OK（is_limited=${chk.isLimited} 未ログイン本文=${chk.freeChars}字）`);
+          else {
+            console.error(`[13m] FAIL: 会員限定になっていない（is_limited=${chk.isLimited} 未ログインで本文${chk.freeChars}字が読める）。note UI で公開範囲を確認せよ`);
+            process.exitCode = 5;
+          }
+        }
       }
     } else console.log('[12] 投稿する 未検出');
   } else {
     if (COMMIT && !boundaryOk) console.log('[12] ★中断: 境界検証 NG（boundaryBeforeExam=false）→ 公開しない★');
+    if (COMMIT && !membershipOk) { console.log('[12] ★中断: メンバーシップ公開範囲を選択できず → 公開しない（全員公開の事故防止）★'); process.exitCode = 4; }
     await saveDraftExit('DRAFT モード/未検証');
     console.log('[12] URL=' + page.url());
   }

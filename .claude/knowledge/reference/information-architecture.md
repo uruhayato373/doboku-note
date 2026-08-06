@@ -53,6 +53,20 @@ doboku-note プロジェクトにおけるドキュメント・データの置�
 
 すべての計画・タスクの単一正源。GitHub Issue・task-queue.json は使わない。
 
+> [!important] GitHub Issue の限定例外＝自動化の失敗記録（2026-08-06 制定）
+> **`automation-failure` ラベルの Issue だけは使う**。スコープは「自動化が失敗した／沈黙した事実の記録」に限る。
+> タスク・改善候補・裁定は従来どおり `docs/todo/` と各 SSOT の観測ログへ書く（Issue に逃がさない）。
+>
+> **理由**: job summary もクラウドルーティンの最終報告も、人が見に行かないと届かない。
+> 沈黙した自動化ほど気づかれず、実際 2026-07・08 の月次カバレッジ 2 回分は CI がデータを
+> commit したのに誰も分析せず、indexed_ratio が 10pt 落ちる間ずっと無記録だった。
+> Issue は通知が飛び open のまま残るので、**能動的な通知チャネル**として機能する。
+>
+> 起票は `scripts/report-automation-failure.mjs` に集約（重複防止＝同 channel の open Issue が
+> あれば新規作成せずコメント追記／**クローズは人間**＝復旧の実体検証を挟む）。
+> 現在の起票元: `weekly-review-guard.yml`（記録層の沈黙）・`index-coverage.yml`（閾値の無条件異常）・
+> クラウドルーティン `doboku-note GSC auto review`（実行時の【要確認】）。
+
 ディレクトリ: `docs/todo/`
 
 | ファイル | 粒度 | 更新タイミング |
@@ -155,6 +169,6 @@ doboku-note プロジェクトにおけるドキュメント・データの置�
 - `.claude/content-principles.md` — 移行先は `.claude/knowledge/reference/content-principles.md` <!-- doc-ref:ignore -->
 - `.claude/design-system/` — 移行先は `.claude/knowledge/design-system/`
 - `.claude/reference/docs-issue-separation.md` — 削除済み。本ドキュメントに統合 <!-- doc-ref:ignore -->
-- GitHub Issue — 廃止。タスクは `docs/todo/` に集約
+- GitHub Issue — 廃止。タスクは `docs/todo/` に集約（**例外**: `automation-failure` ラベル＝自動化の失敗記録のみ・上記「限定例外」参照）
 - `task-queue.json` + `build-todo-view.mjs` + `npm run build-todo` — 廃止完了（2026-06-11）。CI 3本の自動起票・lib スクリプト・全スキル/エージェント参照を撤去し `docs/todo/`（手動運用）へ一本化。CI の違反検出は「CI 失敗 → GitHub 通知 → 手動起票」に置換
 - `docs/project/TODO.md` — 廃止（自動生成ビューは不要と判断）。task-queue.json 撤去で生成元も消滅 <!-- doc-ref:ignore -->

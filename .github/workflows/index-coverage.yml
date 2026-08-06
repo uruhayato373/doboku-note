@@ -14,6 +14,7 @@ on:
 
 permissions:
   contents: write
+  issues: write # 閾値の無条件異常を automation-failure Issue に記録する（限定例外）
 
 jobs:
   inspect:
@@ -113,6 +114,36 @@ jobs:
           fi
           git commit -m "chore(metrics): index-coverage audit $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
           git push origin develop
+
+      # 機械ゲート: publish の**後**に走らせる（赤でも取得済みデータは develop に残る）。
+      # 赤にするのは「機械が無条件に異常と断定できるもの」だけ（inspected 0 / 1900 件上限到達 /
+      # indexed_ratio < 60%）。前月比の低下や hygiene は warning に留め、判断は
+      # クラウドルーティン（GSC auto review）が観測ログへ記録する＝月次 red の狼少年化を防ぐ。
+      - name: Gate - coverage thresholds
+        id: coverage_gate
+        run: node .claude/scripts/check-coverage-thresholds.mjs
+
+      - name: Report - coverage threshold failure
+        if: failure() && steps.coverage_gate.outcome == 'failure'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          {
+            echo "月次 index coverage の閾値ゲートが赤になりました（データ自体は develop に commit 済み）。"
+            echo ""
+            echo '```'
+            node .claude/scripts/check-coverage-thresholds.mjs 2>&1 || true
+            echo '```'
+            echo ""
+            echo "- しきい値の真実源: \`.claude/knowledge/reference/gsc-management.md\` の「閾値」節"
+            echo "- 判定ロジック: \`.claude/scripts/check-coverage-thresholds.mjs\`"
+            echo "- 再実行: \`gh workflow run index-coverage.yml\`"
+          } > /tmp/coverage-body.md
+          node scripts/report-automation-failure.mjs \
+            --channel index-coverage \
+            --title "閾値ゲートが赤（無条件異常）" \
+            --body-file /tmp/coverage-body.md
 
       - name: Cleanup credentials
         if: always()

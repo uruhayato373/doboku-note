@@ -1,0 +1,172 @@
+name: GSC auto review (record layer)
+
+# GSC 計測の「記録層」を CI で回す。データ取得（fetch-metrics / index-coverage）は既に CI 自動だが、
+# その診断を観測ログへ追記する層が手動のまま放置され、2026-07・08 の月次カバレッジ 2 回分が
+# 無記録のまま indexed_ratio が 81.6%→71.7% に低下した。「計測 → 記録」のループを人手なしで閉じる。
+#
+# なぜクラウドルーティンでなく CI か（2026-08-06 移行）:
+#   クラウドルーティンは「ローカル非依存」は満たすが、**設定と実行履歴が repo から見えない**。
+#   本機能を作る動機そのものが「沈黙が見えないこと」だったので、
+#   設定が YAML でバージョン管理され、失敗が赤い run として残る CI を正とする。
+#   （自動化マップの原則「機械的に完結する処理の実行主体は GitHub Actions を正とする」に合わせる。
+#     意味判断はクラウドに残す例外だったが、claude-code-action で CI 実行が可能になったため移す）
+#
+# 移行手順（トークン設定は人間の作業）:
+#   1. 対話ターミナルで `claude setup-token` → 表示されたトークンをコピー
+#   2. `gh secret set CLAUDE_CODE_OAUTH_TOKEN`（または Settings > Secrets and variables > Actions）
+#   3. `gh workflow run gsc-auto-review.yml` で手動検証
+#   4. 成功したらクラウドルーティン `doboku-note GSC auto review` を無効化し、
+#      本 workflow の cron を `0 3 * * 5`（金 12:00 JST）へ戻す
+#   トークン未設定の間はスキップして warning を出すだけ（赤くしない）。
+
+on:
+  schedule:
+    # 移行中は金 13:00 JST（04:00 UTC）＝クラウドルーティン（12:00 JST）の 1 時間後。
+    # 万一両方が生きていても冪等ゲートが後発をスキップする（read-before-write の競合を避ける）。
+    # ルーティン退役後は "0 3 * * 5" へ戻す。
+    - cron: "0 4 * * 5"
+  workflow_dispatch:
+
+permissions:
+  contents: write # 観測ログ・improvements を develop へ push
+  issues: write # 失敗時に automation-failure Issue を起票（限定例外）
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout develop
+        uses: actions/checkout@v5
+        with:
+          ref: develop
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+
+      # トークン未設定でも赤くしない。ただし**黙ってスキップもしない**
+      # （CLAUDE.md §9「検査ゼロを PASS と呼ばない」）＝warning と job summary に理由を出す。
+      - name: Preflight - OAuth token check
+        id: pre
+        env:
+          TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "has_token=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::CLAUDE_CODE_OAUTH_TOKEN が未設定のため記録層をスキップしました（本 workflow のヘッダの移行手順を参照）"
+            {
+              echo "## GSC auto review: スキップ"
+              echo ""
+              echo "\`CLAUDE_CODE_OAUTH_TOKEN\` が未設定です。設定するまで記録層は"
+              echo "クラウドルーティン \`doboku-note GSC auto review\` が担当します。"
+              echo ""
+              echo '```'
+              echo "claude setup-token   # 対話ターミナルで実行"
+              echo "gh secret set CLAUDE_CODE_OAUTH_TOKEN"
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "has_token=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # 現状の記録状態を job summary に残す（Claude が動かなかった場合でも状態が見える）。
+      - name: Surface record-layer state
+        continue-on-error: true
+        run: |
+          {
+            echo "## 記録層の状態（実行前）"
+            echo '```'
+            node scripts/check-gsc-auto-review.mjs || true
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Run GSC auto review
+        if: steps.pre.outputs.has_token == 'true'
+        uses: anthropics/claude-code-action@v1
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # オーケストレーションと判断は fable、重い JSON 走査は .claude/agents/*.md の
+          # frontmatter で sonnet に固定されたサブエージェントが担う（トークン節約）。
+          claude_args: |
+            --model claude-fable-5
+            --max-turns 60
+            --allowedTools Task,Bash,Read,Write,Edit,Glob,Grep
+          prompt: |
+            あなたは doboku-note（技術士・土木施工管理技士の試験対策サイト）の **GSC 計測「記録層」** を回す定例エージェントです。データ収集は GitHub Actions が既に develop へ commit 済みで、あなたの仕事は**その診断結果を観測ログへ追記して commit すること**だけです。
+
+            **あなたの役割はオーケストレーションと判断**です。重いデータ読み（数千行の JSON 走査）はサブエージェント（sonnet）に任せ、**あなた自身は大きな JSON を Read しない**。あなたが使うトークンは「何を記録すべきか」の判断に使う。
+
+            ## 禁止事項（最初に読む）
+
+            - `npm install` / `npm ci` を実行しない。診断はコミット済み JSON の Read/Grep だけで完結する
+            - GSC/GA4 API を叩かない・ライブ fetch しない（計測は CI 供給が正）
+            - **`.claude/state/metrics/` 配下の JSON を自分で Read しない**（数千行ある）。診断は必ずサブエージェントにやらせる
+            - **`gsc-management.md` を全文 Read しない**（300 行超・成長中）。後述の tail 読みだけを使う
+            - `git add -A` / `git add .` を使わない。commit は必ず明示 pathspec（並行セッションの変更を巻き込むため）
+            - 書き込んでよいのは 2 パスのみ: `.claude/knowledge/reference/gsc-management.md`（**末尾への append のみ**）と `.claude/state/improvements/*.md`
+            - `.claude/state/experiments.json` と `docs/todo/` には書かない。実験の start もしない（**推奨まで**。実行判断は人間）
+            - メタ（title/description）の**一括変更は絶対に提案しない**（2026-07 に 723 件一括変更がコアアップデート demote を増幅した）。メタ実験は最大 5 URL・14〜28 日の形でのみ提案
+            - 既存のログエントリを編集・削除しない（append-only。人間が後から上書き・追記する運用）
+
+            ## Phase 0: 準備とゲート（全てコマンドで決める）
+
+            1. 既に develop を checkout 済み。`git config user.name "github-actions[bot]"` と `git config user.email "41898282+github-actions[bot]@users.noreply.github.com"` を設定し、`git pull --rebase origin develop`
+            2. `TZ=Asia/Tokyo date +%F` で `TODAY` を決める
+            3. **ゲートは 1 コマンドで取る**: `node scripts/check-gsc-auto-review.mjs --json`。出力の `gates` をそのまま使い、自分で日付を数え直さない:
+               - `gates.gscDataStale === true` → Phase 1 を中止し、最終報告の先頭を `【要確認】fetch-metrics 停止の疑い: 最新 GSC データが {gates.daysSinceGscQuery} 日前` にする（回復は `gh workflow run fetch-metrics.yml`）。Phase 2 の判定へは進む
+               - `gates.weeklyAlreadyLogged === true` → Phase 1 をスキップ
+               - `gates.monthlyAlreadyLogged === true` → Phase 2 をスキップ
+            4. **文脈ゲート**（直近 2 エントリだけを tail 読みする）:
+               `S=$(grep -n '^### [0-9]' .claude/knowledge/reference/gsc-management.md | tail -2 | head -1 | cut -d: -f1)` のあと `sed -n "${S},\$p" .claude/knowledge/reference/gsc-management.md`
+               裁定済みの候補には「再浮上の条件」が書かれている。**条件を満たさない候補を再提案しない**（同じ指摘の蒸し返しは価値ゼロ）
+
+            ## Phase 1: 週次 performance 記録
+
+            1. サブエージェント `metrics-analyzer`（sonnet）を Task で起動し、`.claude/state/metrics/` の最新 GSC/GA4 JSON から 8 パターンの改善候補を抽出させ `.claude/state/improvements/{TODAY}.md` に出力させる。**生の計測 JSON をあなたが開かない**
+            2. その `improvements/{TODAY}.md` だけを Read し、Phase 0-4 で除外すべき候補を落としたうえで、`gsc-management.md` の**末尾**に追記する（**20 行以内**。上位 3 件まで、残りは「他 N 件 → improvements/{TODAY}.md」と参照で済ませる。問題なしの軸は 1 行で「✓」）。見出しは必ず `### {TODAY}（週次・自動レビュー）` とし、**観測**（窓とパターン別件数を 1 行）/ **上位候補と推奨**（URL・数値・推奨アクションを最大 3 件）/ **自動裁定**（各候補に「推奨=実験化候補」「見送り(理由)」「保留(再浮上条件)」を 1 行ずつ）/ **注記**（自動生成・人間の上書き歓迎）の 4 ブロックで書く
+            3. commit & push（週次分を先に永続化する＝Phase 2 が失敗しても記録は残る）:
+               `git add .claude/knowledge/reference/gsc-management.md .claude/state/improvements/{TODAY}.md` → `git commit -m "docs(gsc): weekly auto review {TODAY} [skip ci]"` → `git pull --rebase origin develop && git push origin develop`
+               push が拒否されたら `pull --rebase` → `push` を最大 2 回まで再試行。`gsc-management.md` で競合したら **両方のエントリを残す**（相手の後ろに自分を置く）で解決する（append-only なのでこれが常に正しい）。それでも失敗したら Phase 3 で Issue に全文を退避する
+
+            ## Phase 2: 月次 coverage 記録（条件付き）
+
+            1. **整合ゲート**: `.claude/state/metrics/gsc/index-coverage-history.json` の**最終エントリだけ**を `tail` 相当の手段で見て、`gates.latestBatch` と同月か確かめる。同月でなければ月次エントリは書かず `【要確認】batch はあるが history 未追記（append-coverage-history の失敗疑い）` として報告のみ
+            2. サブエージェント `gsc-index-auditor`（sonnet）を Task で起動し、最新 batch（1,000 件超）と history を診断させる。**batch JSON をあなたが開かない**
+            3. **異常判定**（1 つでも該当なら最終報告を【要確認】にする）: indexed_ratio < 60% / 前回比 −5pt 超の低下 / discovered_not_indexed が sitemap の 20% 超 / hygiene（404+redirect）> 0 / inspected < sitemap_urls / batch の results が空 or 前回比 50% 以上減
+            4. `gsc-management.md` の末尾に追記（**25 行以内**。hygiene URL は代表 3 件＋総数）。見出しは `### {TODAY}（月次・自動レビュー）` とし、**観測**（history.json の該当月エントリを正として inspected/sitemap/indexed/ratio/前回比/discovered/crawled-not-indexed/hygiene）/ **原因バケット**（権威性・技術・hygiene の auditor 判定を各 1 行）/ **推奨アクション**（本 doc 上部の「判断マトリクス」に沿って 1〜3 行）/ **異常フラグ**（該当項目。なければ「なし」）/ **注記**（自動生成・最終決定は人間）で書く
+            5. commit & push（Phase 1 と同じ規律。pathspec は `gsc-management.md` のみ）: `git commit -m "docs(gsc): monthly auto coverage review {TODAY} [skip ci]"`
+
+            ## Phase 3: 自己点検と報告
+
+            1. `node scripts/check-gsc-auto-review.mjs` を実行し DUE が解消されたことを確認する（週次を記録したのに DUE のままなら見出し形式のミス＝直す）
+            2. **異常なし**: 3 行以内の要約で静かに終わる（「週次: 記録済み（候補 N 件）/ 月次: スキップ or 記録済み」）
+            3. **異常あり**（Phase 0 の鮮度ゲート・Phase 2 の異常判定・push 失敗のいずれか）: 最終報告の先頭を `【要確認】` にして数値と回復コマンドを列挙し、**GitHub Issue に記録する**:
+               `node scripts/report-automation-failure.mjs --channel gsc-auto-review --title "<事象を 1 行で>" --body-file /tmp/body.md`
+               このスクリプトが重複防止（同 channel の open Issue があればコメント追記）を担う。**push に失敗して観測ログに書けなかった場合は、書くはずだったエントリ全文を body に含める**（記録を失わないため）
+
+      # Claude 自体が落ちたら Issue に記録する（沈黙させない）。
+      - name: Report - action failure
+        if: failure() && steps.pre.outputs.has_token == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          {
+            echo "GSC auto review の CI 実行が失敗しました（Claude 実行ステップの異常）。"
+            echo ""
+            echo "- run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            echo "- 記録層の現状:"
+            echo '```'
+            node scripts/check-gsc-auto-review.mjs || true
+            echo '```'
+            echo "- 応急: 対話セッションで \`/gsc-review\`（月次）・\`/weekly-improve\`（週次）"
+          } > /tmp/action-body.md
+          node scripts/report-automation-failure.mjs \
+            --channel gsc-auto-review \
+            --title "CI 実行が失敗（gsc-auto-review.yml）" \
+            --body-file /tmp/action-body.md

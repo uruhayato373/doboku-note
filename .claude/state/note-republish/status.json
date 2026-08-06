@@ -1,39 +1,38 @@
 {
-  "_comment": "2026-08-04 のサイト送客リンク追加（142本）のライブ反映状況。無料26本のうち21本反映済み・5本が画像CDN確定タイムアウトで未反映。有料116本は未着手（day1-3 のリスト参照）。",
-  "updatedAt": "2026-08-04",
+  "_comment": "2026-08-04 のサイト送客リンク追加（142本）のライブ反映状況。2026-08-06 に全量完了（無料26/26・有料116/116）。check-note-republish の本文 drift からも 6 本すべてが消えたことを実査確認済み。残る corpus 全体の drift 178 件は別枠（建設部門 UTM 欠落・総監分など・backlog 参照）。",
+  "updatedAt": "2026-08-06",
+  "completed": true,
   "free": {
     "total": 26,
-    "applied": 21,
-    "pending": [
-      {
-        "noteId": "nd4c5c13ee445",
-        "article": "docs/note/1級・2級土木/1級土木/1級経験記述テーマ選び5管理/article.md"
-      },
-      {
-        "noteId": "nd288c7ac876b",
-        "article": "docs/note/1級・2級土木/2級土木/工事概要の書き方/article.md"
-      },
-      {
-        "noteId": "nffa7e4e03391",
-        "article": "docs/note/1級・2級土木/2級土木/第一次検定の独学突破/article.md"
-      },
-      {
-        "noteId": "n3a5866854425",
-        "article": "docs/note/1級・2級土木/2級土木/経験記述R6新形式/article.md"
-      },
-      {
-        "noteId": "n26e51803f01b",
-        "article": "docs/note/1級・2級土木/2級土木/経験記述テーマ選び/article.md"
-      }
-    ]
+    "applied": 26,
+    "pending": [],
+    "note": "最後の1本 nd4c5c13ee445 は 8/5 に画像CDN確定で2回タイムアウトしたが、8/6 に --force-retry で成功（画像 3/3 確定）。原因は一過性のCDN遅延で、同一画像2枚重複（著者バナー）は無関係だった。"
   },
   "paid": {
     "total": 116,
-    "applied": 0,
+    "applied": 116,
     "batches": [
       "day1(46本)",
       "day2(41本)",
       "day3(29本)"
-    ]
+    ],
+    "resumePlan": {
+      "decidedAt": "2026-08-05",
+      "policy": "閲覧＝会員／所有＝買い切り。会員特典マガジン内の記事には新規添付しない。",
+      "lists": {
+        "noAttach": {
+          "file": "（完了・空）",
+          "count": 0,
+          "cmd": "完了"
+        },
+        "withAttach": {
+          "file": ".claude/state/note-republish/paid-rest-with-attach.txt",
+          "count": 0,
+          "cmd": "完了"
+        }
+      },
+      "note": "note のアップロード上限は1日100件（画像含む疑い）。添付なし群は画像のみ＝1本あたり約1件で軽い。",
+      "progress": "2026-08-06: 最後の 2級学科記述テーマ別出る順 5本を --reattach-pdf --force-retry で反映し 116/116 完了。8/5 の中断記録により初回は安全弁で SKIP されたため、先に check-note-attachments --live --only で 5/5 充足（ライブ無傷）を確認してから --force-retry を付けた。全件で boundaryBeforeExam=true・PDF添付復元OK・API実体検証OK。"
+    }
   }
 }
