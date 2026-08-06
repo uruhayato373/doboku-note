@@ -56,12 +56,98 @@
       "talkroomId": "18091375",
       "priceYen": 7500,
       "grade": 1,
-      "status": "received",
-      "replyDueAt": "2026-08-08T16:00+09:00",
-      "deliveredAt": null,
-      "artifacts": [],
+      "status": "delivered",
+      "replyDueAt": null,
+      "deliveredAt": "2026-08-06T16:38+09:00",
+      "artifacts": [
+        {
+          "file": "（配布ZIP）1級土木二次_教材16冊.zip",
+          "sha256": "7c0e093017d54bb5a5d216181b6b63dbf2fabd56c3439ba13dfe4dbaa680efdf",
+          "builtAt": "2026-08-06T16:30+09:00"
+        },
+        {
+          "file": ".claude/config/coconala/assets/pdf/coconala-C1-出題分析-1級土木二次.pdf",
+          "sha256": "b871495a68e22424b52649732df83b947e1dab7c6b0ecad96949c067b3e4cf10",
+          "builtAt": "2026-08-06T16:05+09:00"
+        },
+        {
+          "file": ".claude/config/coconala/assets/pdf/coconala-C2-完成答案-01-品質管理.pdf",
+          "sha256": "79c5e1f3ebfc2c1cf0de5bb7981010aea9a641dba20e0d39802d238b2a908c6c",
+          "builtAt": "2026-08-06T16:05+09:00"
+        },
+        {
+          "file": ".claude/config/coconala/assets/pdf/coconala-C2-完成答案-02-安全管理.pdf",
+          "sha256": "b505e3c30623962f5774937b6972c55905fe9efc68e1b6cdcaa749e72e37c324",
+          "builtAt": "2026-08-06T16:05+09:00"
+        },
+        {
+          "file": ".claude/config/coconala/assets/pdf/coconala-C2-完成答案-03-工程管理.pdf",
+          "sha256": "dbd5ccc9e0af484c83ee52512f8c01cd1eb06493f939058f4ae1ae55b0313db0",
+          "builtAt": "2026-08-06T16:05+09:00"
+        },
+        {
+          "file": ".claude/config/coconala/assets/pdf/coconala-C2-完成答案-04-施工計画.pdf",
+          "sha256": "535cc901018b03bc021c4864e076a85483bb5e2083ba88eb53acbb4073114d8d",
+          "builtAt": "2026-08-06T16:05+09:00"
+        },
+        {
+          "file": ".claude/config/coconala/assets/pdf/coconala-C2-完成答案-05-環境対策.pdf",
+          "sha256": "febde2a905935de4919e8beac2af844766582a071da6dc7c5386fee4302dfd2f",
+          "builtAt": "2026-08-06T16:05+09:00"
+        },
+        {
+          "file": ".claude/config/coconala/assets/pdf/coconala-C4-1級過去問模範-R03.pdf",
+          "sha256": "a0ed43ed0b24e674895dc962b6fbf34f1ad817afade0bf2ad50ee74ab07c8e57",
+          "builtAt": "2026-08-06T16:05+09:00"
+        },
+        {
+          "file": ".claude/config/coconala/assets/pdf/coconala-C4-1級過去問模範-R04.pdf",
+          "sha256": "70c16e9dbf4e55f6d1a9c798b170a47066210612f51b76e14e03d0d7a8d9cd5b",
+          "builtAt": "2026-08-06T16:05+09:00"
+        },
+        {
+          "file": ".claude/config/coconala/assets/pdf/coconala-C4-1級過去問模範-R05.pdf",
+          "sha256": "dea7efff0db8ecafce7ba533a248703b376a75a7781e659f604119abc534e66e",
+          "builtAt": "2026-08-06T16:05+09:00"
+        },
+        {
+          "file": ".claude/config/coconala/assets/pdf/coconala-C4-1級過去問模範-R06.pdf",
+          "sha256": "140452acb6a65d266a35e9ad6c3134580d1c782f1b93fb86f5c5ed151a58bf2f",
+          "builtAt": "2026-08-06T16:05+09:00"
+        },
+        {
+          "file": ".claude/config/coconala/assets/pdf/coconala-C4-1級過去問模範-R07.pdf",
+          "sha256": "6f1cf8b48b7316fbc71248b19214f727cdd6da68b603ae767e797a805ad4ef82",
+          "builtAt": "2026-08-06T16:05+09:00"
+        },
+        {
+          "file": ".claude/config/coconala/assets/pdf/coconala-C6-1級学科記述-01-コンクリート工.pdf",
+          "sha256": "709f652f8fc780d40ef56b793550616201ed30e7ce108c3cf9c4b1fce12cf1ed",
+          "builtAt": "2026-08-06T16:05+09:00"
+        },
+        {
+          "file": ".claude/config/coconala/assets/pdf/coconala-C6-1級学科記述-02-品質管理.pdf",
+          "sha256": "ca1859bce599976893bf82e980d757361ce337f98064bfa80bfdee2513a142b8",
+          "builtAt": "2026-08-06T16:05+09:00"
+        },
+        {
+          "file": ".claude/config/coconala/assets/pdf/coconala-C6-1級学科記述-03-土工.pdf",
+          "sha256": "c7b7f112712da194ed06448fc05b71892be709bd377a91e667a127935249057f",
+          "builtAt": "2026-08-06T16:05+09:00"
+        },
+        {
+          "file": ".claude/config/coconala/assets/pdf/coconala-C6-1級学科記述-04-安全管理・法規.pdf",
+          "sha256": "702f5ff053a44b4cf7ea4ec3efafe08da4e21686ae2811407835da66190de24b",
+          "builtAt": "2026-08-06T16:05+09:00"
+        },
+        {
+          "file": ".claude/config/coconala/assets/pdf/coconala-C6-1級学科記述-05-施工計画・環境.pdf",
+          "sha256": "70724b0d9e06e8e1a8b617f4d0cd6b340d80492dfc2fa72363d73435a36d4466",
+          "builtAt": "2026-08-06T16:05+09:00"
+        }
+      ],
       "tensakuMinutes": null,
-      "memo": "初のリピート受注かつ初の見積り受注。room 18082691（C8 模試）の購入者からの追加購入。コンビニ払いのため 8/5 20:02 の購入から入金完了までラグがあり、トークルーム開設は 8/6 15:30。販売日はココナラ側で表示が割れており、取引一覧＝2026/08/06・トークルーム取引詳細＝2026年8月5日。突合キーである一覧側（snapshot.soldOn）に合わせて 08-06 で記録。納品予定日 2026/08/17 が自動登録済み（見積り時に申告した不在期間 8/6-8/16 に対応）。納品物は C1×1・C2×5・C4×5・C6×5 の 16 冊で全てビルド済み"
+      "memo": "初のリピート受注かつ初の見積り受注。room 18082691（C8 模試）の購入者からの追加購入。コンビニ払いのため 8/5 20:02 の購入から入金完了までラグがあり、トークルーム開設は 8/6 15:30。販売日はココナラ側で表示が割れており、取引一覧＝2026/08/06・トークルーム取引詳細＝2026年8月5日。突合キーである一覧側（snapshot.soldOn）に合わせて 08-06 で記録。納品予定日 2026/08/17 が自動登録済み（見積り時に申告した不在期間 8/6-8/16 に対応）。納品物は C1×1・C2×5・C4×5・C6×5 の 16 冊で全てビルド済み。2026-08-06 16:38 に ZIP 1ファイル（4.2MB・16冊・全82頁）で送付。ZIP 内はココナラ表示用に読む順の番号へリネーム（内部コード coconala-CN- は外した）。同梱PDFの実体は下の16件で、いずれも 90447dbf2 で再生成した版（孤立見出しの欠陥を修正済み・再生成前の版は送っていない）。返信期限は解消。★正式な納品ボタンは未押下"
     }
   ]
 }
