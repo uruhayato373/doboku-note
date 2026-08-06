@@ -26,8 +26,8 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 | `gsc-index-auditor` | Evaluator（sonnet） | coverage 分類・indexed_ratio・履歴差分・原因バケット・hygiene URL surface | url-inspection + history → 診断テキスト（audit-only） |
 | `metrics-analyzer` | Evaluator（sonnet） | index 済みページの performance 8 パターン（SNS-Source-Shift＋page×query の Cannibalization/Content-Decay 含む） | gsc/ga4（`gsc-page-query-*` 含む）→ `improvements/*.md` |
 | `performance-auditor` | Evaluator（sonnet） | CWV / PSI | psi → improvements |
-| **`gsc-auto-review.yml`** | **CI（週次・金 JST 13:00・要 `CLAUDE_CODE_OAUTH_TOKEN`）** | **記録層の自動化**。オーケストレータ＝`claude-fable-5`。毎週 metrics-analyzer を起動し観測ログへ週次エントリを追記。未記録の inspection-batch があれば同一実行で gsc-index-auditor も起動し月次エントリを追記。異常時のみ `automation-failure` Issue 起票。**重い JSON 走査は sonnet サブエージェント側**（親は生の計測 JSON とログ全文を読まない） | committed state → `gsc-management.md` 観測ログ ＋ `improvements/*.md`（develop へ push） |
-| ~~`doboku-note GSC auto review`~~ | クラウドルーティン（金 JST 12:00・**移行中**） | 上記 CI がトークン設定後に引き継ぐ。CI 検証が済んだら無効化する（実行履歴が repo から見えないため CI を正とする） | 同上 |
+| **`gsc-auto-review.yml`** | **CI（週次・金 JST 12:00・要 `CLAUDE_CODE_OAUTH_TOKEN`）** | **記録層の自動化**。オーケストレータ＝`claude-fable-5`。毎週 metrics-analyzer を起動し観測ログへ週次エントリを追記。未記録の inspection-batch があれば同一実行で gsc-index-auditor も起動し月次エントリを追記。異常時のみ `automation-failure` Issue 起票。**重い JSON 走査は sonnet サブエージェント側**（親は生の計測 JSON とログ全文を読まない） | committed state → `gsc-management.md` 観測ログ ＋ `improvements/*.md`（develop へ push） |
+| ~~`doboku-note GSC auto review`~~ | クラウドルーティン（**退役 2026-08-06**） | 上記 CI が引き継ぎ自走を確認したため `enabled:false`。実行履歴が repo から見えないためクラウドは正にしない | — |
 | `/gsc-review` | Skill（月次・**手動**） | 上記ルーティンの応急・深掘り・上書き用。CI データ確認 → gsc-index-auditor 起動 → 観測ログ追記 | — |
 | `/weekly-improve` | Skill（週次・**手動**） | 同上（performance 側）。metrics-analyzer 起動 | — |
 | `/google-search-growth` | Skill（月次・**ローカル手動**） | GSC 理由別 **UI CSV**（API で取れない例 URL）を Playwright 取得 → 正規化 → URL Inspection/GSC page×query/GA4/sitemap/_redirects/生成HTML と突合 → 修正アクション分類（gsc-browser-collector/gsc-csv-auditor/seo-fix-planner）→ approval gate | ブラウザ → `gsc-ui/<run>/`（raw・gitignore）＋ **`gsc-ui/ssot/`（追跡 SSOT）** ＋ `improvements/search-growth-latest.md` |
@@ -57,7 +57,7 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 
 ## cadence
 
-- **週次（CI・自動）**: `gsc-auto-review.yml`（金 JST 13:00＝fetch-metrics の 7 時間後。移行中はクラウドルーティンが金 12:00 に先行）が
+- **週次（CI・自動）**: `gsc-auto-review.yml`（金 JST 12:00＝fetch-metrics の 6 時間後）が
   metrics-analyzer を起動 → 観測ログへ週次エントリ。**未記録の inspection-batch があれば同一実行で月次診断も行う**
   （月初後の最初の金曜に発火）。よって下の月次 CI → 記録の流れは**人手を介さず閉じる**。
   `/gsc-review`・`/weekly-improve` は応急・深掘り・上書き用として存続
@@ -72,9 +72,10 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 > **オフライン surfacer も CI 側で自動**（`weekly-review-guard.yml` が毎週月曜に実行）:
 > check-experiment-due / check-gsc-ui-due / **check-gsc-auto-review** / check-google-ui-ssot /
 > check-ga4-dimensions を job summary へ出力し、check-internal-links-vs-gsc は hard fail させる。
-> **クラウドルーティン（意味判断層）**: `doboku-note weekly PDCA`（月曜・週次レビュー文章化）と
-> `doboku-note GSC auto review`（金曜・GSC 記録層）。前者の生存は `check-weekly-review`、
-> 後者は `check-gsc-auto-review` が repo 側から検知し、沈黙は `automation-failure` Issue になる。
+> **意味判断層**: GSC 記録層は **CI へ移行済み**（`gsc-auto-review.yml`・金曜・claude-code-action）。
+> クラウドルーティンに残るのは `doboku-note weekly PDCA`（月曜・週次レビュー文章化）のみ。
+> 生存確認は前者が `check-gsc-auto-review`、後者が `check-weekly-review` で、
+> どちらも repo 側から沈黙を検知し `automation-failure` Issue になる。
 >
 > **自動で回っていないもの**:
 > 1. **Playwright 経路は原理的に CI 化不可**（Google ログインが必要）＝`search-growth:audit` /

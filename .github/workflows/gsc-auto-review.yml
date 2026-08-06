@@ -11,20 +11,29 @@ name: GSC auto review (record layer)
 #   （自動化マップの原則「機械的に完結する処理の実行主体は GitHub Actions を正とする」に合わせる。
 #     意味判断はクラウドに残す例外だったが、claude-code-action で CI 実行が可能になったため移す）
 #
-# 移行手順（トークン設定は人間の作業）:
-#   1. 対話ターミナルで `claude setup-token` → 表示されたトークンをコピー
-#   2. `gh secret set CLAUDE_CODE_OAUTH_TOKEN`（または Settings > Secrets and variables > Actions）
-#   3. `gh workflow run gsc-auto-review.yml` で手動検証
-#   4. 成功したらクラウドルーティン `doboku-note GSC auto review` を無効化し、
-#      本 workflow の cron を `0 3 * * 5`（金 12:00 JST）へ戻す
-#   トークン未設定の間はスキップして warning を出すだけ（赤くしない）。
+# 移行は 2026-08-06 に完了。クラウドルーティン `doboku-note GSC auto review`
+# （trig_01MT1RZabGfpadtoCB25kWSv）は enabled:false へ。本 workflow が唯一の実行主体。
+#
+# 立ち上げで踏んだ落とし穴（同じ形の自動化を作るとき再発しやすい）:
+#   1. workflow_dispatch も cron も **デフォルトブランチ版**で動く。main に入るまで発火しない
+#   2. `gh secret set` の隠し入力に貼り付けが効かず**値が空**で登録されることがある。
+#      成否は run ログの env が `TOKEN: ***`（値あり）か `TOKEN: `（空）かで判る
+#   3. claude-code-action は OIDC を使うので `id-token: write` が必須
+#   4. claude-code-action は workflow ファイルが**デフォルトブランチと同一内容**でないと実行をスキップ
+#   5. CI は非対話＝**turn が終わればセッションも終了**。サブエージェントを待って turn を
+#      終えると、書いていない記録は永久に失われる（同期起動・その場で書き切ること）
+#   6. **`.claude/**` への Write は sensitive file として一律拒否**される（allowlist 不可）。
+#      よって Claude は /tmp に断片を出し、反映と commit は後続の bash が行う
+#   7. claude-code-action は step 終了時に自身の app token を revoke するため、
+#      後続ステップの git push は `GITHUB_TOKEN` で remote を貼り直す必要がある
+#
+# トークン未設定の間はスキップして warning を出すだけ（赤くしない）。
 
 on:
   schedule:
-    # 移行中は金 13:00 JST（04:00 UTC）＝クラウドルーティン（12:00 JST）の 1 時間後。
-    # 万一両方が生きていても冪等ゲートが後発をスキップする（read-before-write の競合を避ける）。
-    # ルーティン退役後は "0 3 * * 5" へ戻す。
-    - cron: "0 4 * * 5"
+    # 金 12:00 JST（03:00 UTC）＝ fetch-metrics（金 06:00 JST）の 6 時間後。
+    # 月曜の weekly PDCA ルーティンとは曜日も成果物も重ならない。
+    - cron: "0 3 * * 5"
   workflow_dispatch:
 
 permissions:
