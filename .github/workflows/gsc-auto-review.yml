@@ -30,6 +30,9 @@ on:
 permissions:
   contents: write # 観測ログ・improvements を develop へ push
   issues: write # 失敗時に automation-failure Issue を起票（限定例外）
+  id-token: write # claude-code-action が OIDC トークンを取得するのに必須
+  # ↑ 無いと "Could not fetch an OIDC token" で落ちる（2026-08-06 実測）。
+  #   token の有無とは別の失敗なので preflight では検出できない
 
 jobs:
   review:
