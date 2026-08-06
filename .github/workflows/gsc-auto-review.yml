@@ -220,6 +220,8 @@ jobs:
       # commit は決定的に決まるのでモデルに委ねる理由が無い（CLAUDE.md §5）。
       - name: Apply records and commit
         if: steps.pre.outputs.has_token == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
           LOG=.claude/knowledge/reference/gsc-management.md
@@ -244,6 +246,11 @@ jobs:
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # claude-code-action は step の最後に自身の app token を revoke するため、
+          # checkout が仕込んだ認証がこの時点で無効化されている（2026-08-06 実測:
+          # "Invalid username or token" で push だけ失敗し、commit は成功していた）。
+          # GITHUB_TOKEN で貼り直す。
+          git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
 
           echo "--- 断片の検証 ---"
           set +e
