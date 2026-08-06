@@ -23,6 +23,7 @@ on:
 
 permissions:
   contents: read
+  issues: write # 自動化の沈黙を automation-failure Issue に記録する（限定例外）
 
 jobs:
   guard:
@@ -56,6 +57,10 @@ jobs:
             echo '```'
             node scripts/check-gsc-ui-due.mjs || true
             echo '```'
+            echo '### GSC 自動レビューの発火監視（check-gsc-auto-review）'
+            echo '```'
+            node scripts/check-gsc-auto-review.mjs || true
+            echo '```'
             echo '### UI CSV SSOT の整合（check-google-ui-ssot）'
             echo '```'
             node scripts/check-google-ui-ssot.mjs || true
@@ -69,6 +74,38 @@ jobs:
             node scripts/check-competitor-scan-due.mjs || true
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
+
+      # 記録層（観測ログへの追記）の沈黙を Issue に記録する。
+      # job summary は人が見に行かないと届かない＝沈黙した自動化ほど気づかれない。
+      # Issue なら通知が飛び open のまま残るので能動チャネルになる（限定例外・
+      # 真実源: .claude/knowledge/reference/information-architecture.md）。
+      # 赤落ちはさせない（DUE は「復旧すべき状態」であって CI の失敗ではない）。
+      - name: Report - GSC auto review silence
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/check-gsc-auto-review.mjs --json > /tmp/auto-review.json || true
+          if ! node -e "process.exit(JSON.parse(require('fs').readFileSync('/tmp/auto-review.json','utf8')).anyDue ? 0 : 1)"; then
+            echo "GSC 自動レビューは正常（DUE なし）— Issue は起票しない"
+            exit 0
+          fi
+          {
+            echo "GSC 計測の**記録層**が沈黙しています（データ取得 CI とは別系統）。"
+            echo ""
+            echo '```'
+            node scripts/check-gsc-auto-review.mjs || true
+            echo '```'
+            echo ""
+            echo "- 確認: 対話セッションで \`/routines\`（list-first）→ ルーティン \`doboku-note GSC auto review\` の enabled / cron / last_fired_at"
+            echo "- 応急: \`/gsc-review\`（月次）・\`/weekly-improve\`（週次）を手動実行して観測ログへ追記"
+            echo "- 判定ロジック: \`scripts/check-gsc-auto-review.mjs\`"
+          } > /tmp/auto-review-body.md
+          node scripts/report-automation-failure.mjs \
+            --channel gsc-auto-review \
+            --title "記録層の沈黙を検知（weekly-review-guard）" \
+            --body-file /tmp/auto-review-body.md
 
       # 決定的ゲート: 公開ページが GSC の 404/リダイレクト URL を指していたら赤。
       # これは「0 件が正常」な検査なので surfacer と違い hard fail にする。

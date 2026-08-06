@@ -26,10 +26,13 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 | `gsc-index-auditor` | Evaluator（sonnet） | coverage 分類・indexed_ratio・履歴差分・原因バケット・hygiene URL surface | url-inspection + history → 診断テキスト（audit-only） |
 | `metrics-analyzer` | Evaluator（sonnet） | index 済みページの performance 8 パターン（SNS-Source-Shift＋page×query の Cannibalization/Content-Decay 含む） | gsc/ga4（`gsc-page-query-*` 含む）→ `improvements/*.md` |
 | `performance-auditor` | Evaluator（sonnet） | CWV / PSI | psi → improvements |
-| `/gsc-review` | Skill（月次） | CI データ確認 → gsc-index-auditor 起動 → 観測ログ追記 | — |
-| `/weekly-improve` | Skill（週次） | metrics-analyzer 起動（performance） | — |
+| **`doboku-note GSC auto review`** | **クラウドルーティン（週次・金 JST 12:00）** | **記録層の自動化**。毎週 metrics-analyzer を起動し観測ログへ週次エントリを追記。未記録の inspection-batch があれば同一実行で gsc-index-auditor も起動し月次エントリを追記。異常時のみ通知＋`automation-failure` Issue 起票 | committed state → `gsc-management.md` 観測ログ ＋ `improvements/*.md`（develop へ push） |
+| `/gsc-review` | Skill（月次・**手動**） | 上記ルーティンの応急・深掘り・上書き用。CI データ確認 → gsc-index-auditor 起動 → 観測ログ追記 | — |
+| `/weekly-improve` | Skill（週次・**手動**） | 同上（performance 側）。metrics-analyzer 起動 | — |
 | `/google-search-growth` | Skill（月次・**ローカル手動**） | GSC 理由別 **UI CSV**（API で取れない例 URL）を Playwright 取得 → 正規化 → URL Inspection/GSC page×query/GA4/sitemap/_redirects/生成HTML と突合 → 修正アクション分類（gsc-browser-collector/gsc-csv-auditor/seo-fix-planner）→ approval gate | ブラウザ → `gsc-ui/<run>/`（raw・gitignore）＋ **`gsc-ui/ssot/`（追跡 SSOT）** ＋ `improvements/search-growth-latest.md` |
 | `check-gsc-ui-due` | Script（surfacer） | 月次 UI 取得の期限催促。**日数だけでなく完全性も見る**＝`lastComplete` の年齢（30日）／`lastAttempt.complete !== true` のいずれかで DUE。gsc-ui（必須）と ga4-ui（任意）の 2 チャネル | committed `{gsc-ui,ga4-ui}/last-run.json` → weekly-review が DUE を surface |
+| `check-gsc-auto-review` | Script（surfacer・オフライン） | **記録層の沈黙検知**。観測ログの見出しを走査し「週次エントリが 8 日超前」「最新 inspection-batch が 8 日超未記録」を DUE 判定。走査 0 件は OK でなく「検査不能」。weekly-review-guard が実行し DUE なら Issue 起票 | `gsc-management.md` 見出し + batch 日付 → DUE 一覧 |
+| `check-coverage-thresholds` | Script（ゲート・CI） | 月次データ publish 直後の機械ゲート。**赤=無条件異常のみ**（inspected 0 / sitemap > 1,900 の上限到達 / ratio < 60%）。前月比 −5pt・discovered > 20%・hygiene > 0 は warning に留めルーティンの判断へ回す | `index-coverage-history.json` → exit 0/1 |
 | `check-google-ui-ssot` | Script（ゲート） | 追跡 SSOT の整合（marker ↔ history ↔ urls の runId・スキーマ・truncated・**検査ゼロ**）。SSOT が空／直近実行が不完全なら exit 1 | `gsc-ui/ssot/**` → exit 0/1 |
 | `ga4-admin-setup` | Script（ローカル手動・Playwright） | GA4 管理画面の設定を desired state と突合し、**不足カスタムディメンションを作成**（既定 dry-run・`--commit` で実行）。データ保持は観測のみ | `config/ga4-admin-desired-state.json` → `metrics/ga4-admin/inventory-latest.json` |
 | `check-ga4-dimensions` | Script（ゲート・オフライン） | desired state と最後の実機観測を突合。blocking なカスタムディメンション（`event_label`/`cta_placement`）が未登録なら exit 1 | inventory-latest → exit 0/1 |
@@ -53,24 +56,38 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 
 ## cadence
 
-- **月次（CI・自動）**: `index-coverage.yml`（毎月1日 JST 11:00）→ 翌日以降に `/gsc-review` を実行 → 本 doc 観測ログへ判断追記
+- **週次（クラウドルーティン・自動）**: `doboku-note GSC auto review`（金 JST 12:00＝fetch-metrics の 6 時間後）が
+  metrics-analyzer を起動 → 観測ログへ週次エントリ。**未記録の inspection-batch があれば同一実行で月次診断も行う**
+  （月初後の最初の金曜に発火）。よって下の月次 CI → 記録の流れは**人手を介さず閉じる**。
+  `/gsc-review`・`/weekly-improve` は応急・深掘り・上書き用として存続
+- **月次（CI・自動）**: `index-coverage.yml`（毎月1日 JST 11:00）→ `check-coverage-thresholds` が無条件異常を赤落ち →
+  次の金曜にルーティンが観測ログへ記録（手動で先回りするなら `/gsc-review`）
 - **月次（ローカル・手動）**: `/google-search-growth` で理由別 UI CSV を取得 → 突合 → 修正計画 → 観測ログ追記。**放置防止**は `check-gsc-ui-due`（30日）を weekly-review が surface（DUE なら次セッションで実行）。`/gsc-review`（coverage 全体）の深掘り＝理由ごとの例 URL を足す層。
 - **週次**: `fetch-metrics.yml`（CI・金 JST 6:00）→ `/weekly-improve`（performance 側）
 
-> [!warning] 何が自動で回り、何が回らないか（2026-07-30 実査）
+> [!warning] 何が自動で回り、何が回らないか（2026-08-06 更新）
 > **自動（GitHub Actions cron・実績で確認）**: fetch-metrics（週次）/ psi-audit（日次）/
 > index-coverage（月次）/ link-audit / r2-audit / note-live-audit / uptime-ping。
 > **オフライン surfacer も CI 側で自動**（`weekly-review-guard.yml` が毎週月曜に実行）:
-> check-experiment-due / check-gsc-ui-due / check-google-ui-ssot / check-ga4-dimensions を
-> job summary へ出力し、check-internal-links-vs-gsc は hard fail させる。
+> check-experiment-due / check-gsc-ui-due / **check-gsc-auto-review** / check-google-ui-ssot /
+> check-ga4-dimensions を job summary へ出力し、check-internal-links-vs-gsc は hard fail させる。
+> **クラウドルーティン（意味判断層）**: `doboku-note weekly PDCA`（月曜・週次レビュー文章化）と
+> `doboku-note GSC auto review`（金曜・GSC 記録層）。前者の生存は `check-weekly-review`、
+> 後者は `check-gsc-auto-review` が repo 側から検知し、沈黙は `automation-failure` Issue になる。
 >
 > **自動で回っていないもの**:
-> 1. **`/weekly-review` のクラウドルーティンは停止している**。W29 までは Claude が生成していたが
->    W30/W31 は手動、`weekly-review-guard` は 2026-07-20・07-27 と 2 週連続で赤。復旧は対話セッションで
->    `/routines`（list-first）→ 無ければ `/schedule`。**重複作成事故を避けるため必ず list-first**。
-> 2. **Playwright 経路は原理的に CI 化不可**（Google ログインが必要）＝`search-growth:audit` /
+> 1. **Playwright 経路は原理的に CI 化不可**（Google ログインが必要）＝`search-growth:audit` /
 >    `ga4-admin:check` / `gsc-indexing:request` は月次の手動儀式。放置検知は上の surfacer が担う。
-> 3. **`/nsm-experiment measure` の実行も手動**。期限の surface は自動、判断と記録は人（セッション）。
+> 2. **`/nsm-experiment measure` の実行も手動**。期限の surface は自動、判断と記録は人（セッション）。
+>    実験の start（`running` 遷移）も人の判断＝ルーティンは**推奨までで登録しない**。
+>
+> **訂正（2026-08-06）**: 本ブロックは 2026-07-30 まで「`/weekly-review` のクラウドルーティンは
+> 停止している（W30/W31 手動・guard 2 週連続赤）」と記していたが、**これは誤りだった**。
+> 赤の原因は guard の判定方法（保持方針で先週分が削除され構造的に必ず赤くなる偽赤）で、
+> ルーティン自体は回っていた（W31・W32 とも自動生成の実績あり）。guard は
+> 「現存する最新レビューが先週以降か」判定へ作り替え済み。詳細は
+> [measurement-incidents.md](measurement-incidents.md) の 2026-07-30 エントリ。
+> **教訓: ゲートが赤いとき、まずゲート自身の欠陥を疑う**（偽赤は偽緑と同じくらい有害）。
 
 - **GA4 管理画面 設定（ローカル手動・随時＋90日で再観測）**: `npm run ga4-admin:check`（観測・dry-run）→ 不足があれば `npm run ga4-admin:apply`（`--commit`）。
   オフラインの `npm run check-ga4-dimensions` が desired state と最後の観測を突合し、blocking な未登録を FAIL にする。
@@ -129,11 +146,20 @@ URL Inspection の `coverage_state` と `page_fetch_state` から真因を切り
 
 > 数値は `index-coverage-history.json` を正とする。ここには「何を観測し、何を打ち手に決めたか」を記す。
 
-書き手は 2 系統。見出しに区別を付けて同じ時系列に積む:
+書き手は 4 系統（自動 2 + 手動 2）。見出しに区別を付けて同じ時系列に積む:
 
-- `### YYYY-MM-DD（月次・/gsc-review）` — coverage の観測と打ち手
+- `### YYYY-MM-DD（月次・自動レビュー）` / `### YYYY-MM-DD（週次・自動レビュー）` — クラウドルーティン
+  `doboku-note GSC auto review`（金 JST 12:00）の自動記録。**人間の上書き・追記は歓迎**（後から
+  同日付で手動エントリを足しても良い）。エントリ長は週次 20 行 / 月次 25 行以内に収める。
+  沈黙検知は `check-gsc-auto-review`（weekly-review-guard が毎週実行し DUE なら Issue 起票）
+- `### YYYY-MM-DD（月次・/gsc-review）` — coverage の観測と打ち手（手動。応急・深掘り・上書き用）
 - `### YYYY-MM-DD（週次・/weekly-improve）` — performance 候補の裁定（採用→EXP-ID / 見送り→理由 /
   保留→**再浮上の条件**）。`improvements/{date}.md` は候補の生データ、ここはそれが**どう裁定されたか**の記録
+
+> [!important] 自動エントリは「裁定済み」を上書きしない
+> ルーティンは追記前に直近 2 エントリを読み、**再浮上の条件**を満たさない候補を再提案しない。
+> 既存エントリの編集・削除もしない（append-only）。同じ候補が毎週蒸し返される状態は
+> 「保留に条件が書かれていない」サインなので、人間側が条件を明記して解消する。
 
 ### 2026-08-04（performance・High-Impr-Low-CTR 4 本の裁定 → 全部見送り）
 
