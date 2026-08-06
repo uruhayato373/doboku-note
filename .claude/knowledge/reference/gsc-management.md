@@ -26,7 +26,8 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 | `gsc-index-auditor` | Evaluator（sonnet） | coverage 分類・indexed_ratio・履歴差分・原因バケット・hygiene URL surface | url-inspection + history → 診断テキスト（audit-only） |
 | `metrics-analyzer` | Evaluator（sonnet） | index 済みページの performance 8 パターン（SNS-Source-Shift＋page×query の Cannibalization/Content-Decay 含む） | gsc/ga4（`gsc-page-query-*` 含む）→ `improvements/*.md` |
 | `performance-auditor` | Evaluator（sonnet） | CWV / PSI | psi → improvements |
-| **`doboku-note GSC auto review`** | **クラウドルーティン（週次・金 JST 12:00）** | **記録層の自動化**。毎週 metrics-analyzer を起動し観測ログへ週次エントリを追記。未記録の inspection-batch があれば同一実行で gsc-index-auditor も起動し月次エントリを追記。異常時のみ通知＋`automation-failure` Issue 起票 | committed state → `gsc-management.md` 観測ログ ＋ `improvements/*.md`（develop へ push） |
+| **`gsc-auto-review.yml`** | **CI（週次・金 JST 13:00・要 `CLAUDE_CODE_OAUTH_TOKEN`）** | **記録層の自動化**。オーケストレータ＝`claude-fable-5`。毎週 metrics-analyzer を起動し観測ログへ週次エントリを追記。未記録の inspection-batch があれば同一実行で gsc-index-auditor も起動し月次エントリを追記。異常時のみ `automation-failure` Issue 起票。**重い JSON 走査は sonnet サブエージェント側**（親は生の計測 JSON とログ全文を読まない） | committed state → `gsc-management.md` 観測ログ ＋ `improvements/*.md`（develop へ push） |
+| ~~`doboku-note GSC auto review`~~ | クラウドルーティン（金 JST 12:00・**移行中**） | 上記 CI がトークン設定後に引き継ぐ。CI 検証が済んだら無効化する（実行履歴が repo から見えないため CI を正とする） | 同上 |
 | `/gsc-review` | Skill（月次・**手動**） | 上記ルーティンの応急・深掘り・上書き用。CI データ確認 → gsc-index-auditor 起動 → 観測ログ追記 | — |
 | `/weekly-improve` | Skill（週次・**手動**） | 同上（performance 側）。metrics-analyzer 起動 | — |
 | `/google-search-growth` | Skill（月次・**ローカル手動**） | GSC 理由別 **UI CSV**（API で取れない例 URL）を Playwright 取得 → 正規化 → URL Inspection/GSC page×query/GA4/sitemap/_redirects/生成HTML と突合 → 修正アクション分類（gsc-browser-collector/gsc-csv-auditor/seo-fix-planner）→ approval gate | ブラウザ → `gsc-ui/<run>/`（raw・gitignore）＋ **`gsc-ui/ssot/`（追跡 SSOT）** ＋ `improvements/search-growth-latest.md` |
@@ -56,7 +57,7 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 
 ## cadence
 
-- **週次（クラウドルーティン・自動）**: `doboku-note GSC auto review`（金 JST 12:00＝fetch-metrics の 6 時間後）が
+- **週次（CI・自動）**: `gsc-auto-review.yml`（金 JST 13:00＝fetch-metrics の 7 時間後。移行中はクラウドルーティンが金 12:00 に先行）が
   metrics-analyzer を起動 → 観測ログへ週次エントリ。**未記録の inspection-batch があれば同一実行で月次診断も行う**
   （月初後の最初の金曜に発火）。よって下の月次 CI → 記録の流れは**人手を介さず閉じる**。
   `/gsc-review`・`/weekly-improve` は応急・深掘り・上書き用として存続
