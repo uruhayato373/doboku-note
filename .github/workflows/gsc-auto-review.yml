@@ -56,20 +56,29 @@ jobs:
         run: |
           if [ -z "$TOKEN" ]; then
             echo "has_token=false" >> "$GITHUB_OUTPUT"
-            echo "::warning::CLAUDE_CODE_OAUTH_TOKEN が未設定のため記録層をスキップしました（本 workflow のヘッダの移行手順を参照）"
+            echo "::warning::CLAUDE_CODE_OAUTH_TOKEN が未設定または空のため記録層をスキップしました"
             {
               echo "## GSC auto review: スキップ"
               echo ""
-              echo "\`CLAUDE_CODE_OAUTH_TOKEN\` が未設定です。設定するまで記録層は"
-              echo "クラウドルーティン \`doboku-note GSC auto review\` が担当します。"
+              echo "\`CLAUDE_CODE_OAUTH_TOKEN\` が**未設定、または登録されているが値が空**です。"
+              echo "\`gh secret list\` に名前が出ていてもここが空になることがあります"
+              echo "（PowerShell の隠し入力プロンプトへの貼り付けが効かず、空で登録されるケース）。"
               echo ""
+              echo "対話ターミナルで token を発行し、**貼り付けに頼らない方法**で登録する:"
+              echo ""
+              echo '```powershell'
+              echo "claude setup-token                       # 表示された token をコピー"
+              echo '$t = Read-Host "token"                   # ここに貼る（可視入力なので確実）'
+              echo '$t | gh secret set CLAUDE_CODE_OAUTH_TOKEN'
+              echo 'Remove-Variable t'
               echo '```'
-              echo "claude setup-token   # 対話ターミナルで実行"
-              echo "gh secret set CLAUDE_CODE_OAUTH_TOKEN"
-              echo '```'
+              echo ""
+              echo "登録後の確認は \`gh workflow run gsc-auto-review.yml\` を再実行し、"
+              echo "本ステップの env が \`TOKEN: ***\`（マスク表示）になること。"
             } >> "$GITHUB_STEP_SUMMARY"
           else
             echo "has_token=true" >> "$GITHUB_OUTPUT"
+            echo "token 検出（値はマスクされる）"
           fi
 
       # 現状の記録状態を job summary に残す（Claude が動かなかった場合でも状態が見える）。
