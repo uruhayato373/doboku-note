@@ -122,6 +122,45 @@ function looksLike404(seo) {
   return Boolean(seo.title && /ページが見つかりません/.test(seo.title));
 }
 
+// ---- 逆方向ゲート: ビルドされたのに sitemap に無いページ ----
+// 既存の検査は「sitemap 掲載 URL の母集合を正として」HTML 側を見る**片方向**。
+// それだけだと「載せた URL が壊れていない」ことしか言えず、
+// **ビルドされたのに sitemap から漏れたページ**は誰にも気づかれずに落ちる。
+// /docs/（全体の 98%）は generate-sitemap.mjs が MDX ソースから列挙しており
+// 実ビルドとは独立に決まるため、ここが構造的なドリフト点になる。
+// 2026-08-06 実測: 正当な除外は /search のみ（他 2 件は walkHtml が既に除外済み）。
+const SITEMAP_OPTIONAL = new Set([
+  '/search', // 検索 UI。クエリ依存で単体の検索価値が無いため意図的に非掲載
+]);
+{
+  const candidates = [...routeSet].filter(
+    (r) => !sitemapPaths.has(r) && !SITEMAP_OPTIONAL.has(r) && !redirectSources.has(r),
+  );
+  let missing = 0;
+  for (const route of candidates) {
+    const file = urlPathToFile(route);
+    // noindex / 404 ページは sitemap に載せない方が正しいので除外する。
+    try {
+      const seo = extractSeo(fs.readFileSync(file, 'utf8'));
+      if (isNoindex(seo) || looksLike404(seo)) continue;
+    } catch {
+      // parse できない HTML はそれ自体が異常。下の欠落として報告する。
+    }
+    missing++;
+    add(
+      'error',
+      'sitemap_page_missing',
+      route,
+      `ビルドされているが sitemap に無い（意図的な非掲載なら check-seo-build の SITEMAP_OPTIONAL に追加する）`,
+    );
+  }
+  // §9: 検査ゼロを PASS と呼ばない。母集合と該当数を必ず出す。
+  console.log(
+    `[sitemap 被覆] HTML ルート ${routeSet.size} 件を検査 → 未掲載 ${missing} 件`
+      + `（除外: optional ${SITEMAP_OPTIONAL.size} / redirect ${redirectSources.size} / noindex・404 は個別判定）`,
+  );
+}
+
 // ---- 全 sitemap ページを解析（link graph でも再利用） ----
 const pages = new Map(); // urlPath -> seo
 let checked = 0;

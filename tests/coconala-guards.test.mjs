@@ -175,6 +175,31 @@ test('納品予定日の登録で unreplied が false になっても、期限�
   assert.deepEqual(classifyReplyDeadlines([{ talkroomId: '2', unreplied: false, replyDueAt: null }], NOW), []);
 });
 
+test('正式な納品の後は、同じ「返信期限」を出品者の期限として扱わない', () => {
+  // 2026-08-06 実測: 正式な納品を送ると statusLabel が '納品確認待ち' になり、
+  // 「返信期限」枠の意味が **出品者の連絡期限（無連絡＝自動キャンセル）** から
+  // **買い手の承諾/差し戻し期限（無回答＝自動で承諾）** へ反転する。
+  // 混同すると、出品者が何もしなくてよい取引が要対応として立ち、
+  // 長期不在中に「売上が消えるかもしれない」と誤読させる。
+  const r = classifyReplyDeadlines(
+    [{ talkroomId: '1', statusLabel: '納品確認待ち', unreplied: false, replyDueAt: '2026-08-06T00:00+09:00' }],
+    NOW
+  );
+  assert.equal(r.length, 1, '黙って除外はしない（事実としては surface する）');
+  assert.equal(r[0].level, 'buyer-confirm', '12時間後でも urgent にしてはいけない');
+});
+
+test('納品確認待ち以外の statusLabel は出品者の期限として扱う（未知は surface 側に倒す）', () => {
+  const r = classifyReplyDeadlines(
+    [
+      { talkroomId: '1', statusLabel: '取引中', replyDueAt: '2026-08-06T00:00+09:00' },
+      { talkroomId: '2', statusLabel: '見たことのない表記', replyDueAt: '2026-08-06T00:00+09:00' },
+    ],
+    NOW
+  );
+  assert.deepEqual(r.map((x) => x.level), ['urgent', 'urgent']);
+});
+
 test('未返信でも期限が採れていなければ unknown（黙って緑にしない）', () => {
   const r = classifyReplyDeadlines([{ talkroomId: '1', unreplied: true, replyDueAt: null }], NOW);
   assert.equal(r[0].level, 'unknown');

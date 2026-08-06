@@ -84,6 +84,8 @@ const snapOrders = Array.isArray(snap.orders) ? snap.orders : [];
 const logOrders = Array.isArray(log.orders) ? log.orders : [];
 
 const actions = [];
+// 出品者の作業が要らない事実（納品確認待ち等）。要対応と混ぜないための別枠。
+const infos = [];
 const now = Date.now();
 
 // 1 & 2 & 5. snapshot ↔ orders-log の突合（判定は coconala-guards）
@@ -98,6 +100,12 @@ for (const d of classifyReplyDeadlines(snapOrders, now, { warnHours: REPLY_WARN_
     warnings.push(`room ${s2.talkroomId}: 未返信だが返信期限を取得できていません（トークルームを直接確認）`);
   } else if (d.level === 'expired') {
     violations.push(`room ${s2.talkroomId}: 返信期限を経過しています（${s2.replyDueAt}）— 自動キャンセルの可能性。${s2.talkroomUrl}`);
+  } else if (d.level === 'buyer-confirm') {
+    // 出品者の作業は無い（無回答なら自動で「承諾」）。要対応に混ぜると不在中に偽の緊急が立つ。
+    infos.push(
+      `room ${s2.talkroomId}: 納品確認待ち（買い手の承諾期限 ${s2.replyDueAt} / 残り ${Math.max(0, d.hoursLeft).toFixed(0)} 時間）` +
+      ` — 無回答なら自動で承諾。出品者の対応は不要（差し戻しが来たときのみ要対応）`
+    );
   } else if (d.level === 'urgent') {
     actions.push(`room ${s2.talkroomId}: 返信期限まで ${d.hoursLeft.toFixed(1)} 時間（${s2.replyDueAt}）— 無連絡で自動キャンセル。${s2.talkroomUrl}`);
   } else {
@@ -143,6 +151,11 @@ if (actions.length) {
   console.log('');
   console.log(`${TAG} ▼ 要対応 ${actions.length} 件`);
   for (const a of actions) console.log(`  - ${a}`);
+}
+if (infos.length) {
+  console.log('');
+  console.log(`${TAG} ・進行中（対応不要）${infos.length} 件`);
+  for (const i of infos) console.log(`  - ${i}`);
 }
 if (warnings.length) {
   console.log('');

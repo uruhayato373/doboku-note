@@ -185,10 +185,28 @@ else if (orders) {
       violations.push(`orders-log[${i}] 未知の serviceId: "${o.serviceId}"（カタログに存在しません）`);
       continue;
     }
-    if (typeof o.priceYen === 'number' && svc.priceYen !== null && o.priceYen !== svc.priceYen) {
+    // 見積り（カスタム提案）受注は定価と違うのが正しい取引形態なので、カタログ定価との
+    // 一致検査を quote.amountYen との一致検査へ差し替える（検査を消さない＝ドリフト検知は維持）。
+    // 2026-08-06 初発生: フルパック ¥10,000 から購入済み模試 ¥2,500 を引いた ¥7,500 の見積り。
+    if (o.quote) {
+      if (typeof o.quote.amountYen !== 'number') {
+        violations.push(`orders-log[${i}] quote.amountYen が数値でありません（${o.serviceId}）`);
+      } else if (o.priceYen !== o.quote.amountYen) {
+        violations.push(
+          `orders-log[${i}] priceYen 不一致: 実績 ${o.priceYen} vs quote.amountYen ${o.quote.amountYen}（${o.serviceId}）`
+        );
+      }
+      if (!o.quote.basis || String(o.quote.basis).trim() === '') {
+        violations.push(
+          `orders-log[${i}] quote.basis が空です（${o.serviceId}）` +
+            ' — 定価と違う額の根拠が無いと、後から値引きミスと正当な見積りを区別できません'
+        );
+      }
+    } else if (typeof o.priceYen === 'number' && svc.priceYen !== null && o.priceYen !== svc.priceYen) {
       violations.push(
         `orders-log[${i}] priceYen 不一致: 実績 ${o.priceYen} vs カタログ ${svc.priceYen}（${o.serviceId}）` +
-          ' — 価格改定なら実績は当時の額のままで正なので memo に改定日を書き、カタログ側の改定を確認'
+          ' — 価格改定なら実績は当時の額のままで正なので memo に改定日を書き、カタログ側の改定を確認' +
+          '（カスタム見積りなら quote ブロックを付ける）'
       );
     }
   }

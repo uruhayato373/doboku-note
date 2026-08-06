@@ -162,14 +162,27 @@ export function reconcileOrders(snapOrders, logOrders) {
  * 返信期限（48時間の自動キャンセル）の分類。
  * `unreplied` では判定しない——納品予定日を登録するだけで coconala の未返信フラグは false に
  * 反転する一方、期限バナーは残るため（2026-08-05 実測）。**期限が採れている限り surface する**。
- * @returns {{level:'expired'|'urgent'|'notice', hoursLeft:number|null, order}[]}
+ *
+ * ★「返信期限」は正式な納品の前後で**意味が反転する**（2026-08-06 実測）:
+ *   - 納品前 = 出品者の連絡期限。無連絡で**取引が自動キャンセル**（＝売上が消える。要対応）
+ *   - 納品後（statusLabel:'納品確認待ち'）= 買い手の承諾/差し戻し期限。
+ *     無回答なら自動的に「承諾」＝出品者の作業は無い（＝要対応ではない）
+ *   同じ枠・同じ文字列なので、区別しないと**不在中に偽の要対応が立つ**。
+ *   未知の statusLabel は出品者側の期限として扱う（surface する方が安全）。
+ * @returns {{level:'expired'|'urgent'|'notice'|'buyer-confirm'|'unknown', hoursLeft:number|null, order}[]}
  */
+export const BUYER_CONFIRM_STATUS = '納品確認待ち';
+
 export function classifyReplyDeadlines(snapOrders, nowMs, { warnHours = 24 } = {}) {
   const out = [];
   for (const s of Array.isArray(snapOrders) ? snapOrders : []) {
     if (!s.unreplied && !s.replyDueAt) continue;
     if (!s.replyDueAt) { out.push({ level: 'unknown', hoursLeft: null, order: s }); continue; }
     const left = (Date.parse(s.replyDueAt) - nowMs) / 3_600_000;
+    if (s.statusLabel === BUYER_CONFIRM_STATUS) {
+      out.push({ level: 'buyer-confirm', hoursLeft: left, order: s });
+      continue;
+    }
     const level = left < 0 ? 'expired' : left <= warnHours ? 'urgent' : 'notice';
     out.push({ level, hoursLeft: left, order: s });
   }

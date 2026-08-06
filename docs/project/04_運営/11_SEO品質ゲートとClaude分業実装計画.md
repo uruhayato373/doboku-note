@@ -25,7 +25,7 @@ npm run build
            │
            ▼
 check-seo-build
-  ├─ sitemap / robots / redirects
+  ├─ sitemap / robots / redirects（**双方向**: 掲載URL→HTML と HTML→掲載）
   ├─ title / canonical / OGP / robots
   ├─ SSR main / H1 / JSON-LD
   └─ internal link graph / assets
