@@ -216,6 +216,25 @@ function evalMonthly() {
 const channels = [evalWeekly(), evalMonthly()];
 const bloat = logLines > BLOAT_LINES;
 
+// ルーティン（GSC auto review）が使う判定材料。
+// **ゲートはコードで決める**＝親エージェントに肥大化するログを grep させない
+// （CLAUDE.md §5「コードで決定できるものはモデルに委ねない」＋親のトークン節約）。
+const daysSinceGscQuery = latestGscQuery ? daysSince(latestGscQuery) : null;
+const weekly = channels[0];
+const monthly = channels[1];
+const gates = {
+  // Phase 0 鮮度: 週次データが古すぎる（fetch-metrics 停止の疑い）
+  gscDataStale: daysSinceGscQuery == null || daysSinceGscQuery > THRESHOLD,
+  daysSinceGscQuery,
+  // Phase 1 冪等: 6 日以内に週次エントリがあれば書かない
+  weeklyAlreadyLogged: weekly.daysSince != null && weekly.daysSince <= 6,
+  // Phase 2 発火: 最新 batch 以降に月次エントリがあれば書かない
+  monthlyAlreadyLogged: monthly.logged === true,
+  // 追記位置の目安（親はここから tail 読みすればよい）
+  latestWeeklyEntry: weekly.latestEntry,
+  latestMonthlyEntry: monthly.latestEntry,
+};
+
 const result = {
   check: "gsc-auto-review",
   thresholdDays: THRESHOLD,
@@ -226,9 +245,10 @@ const result = {
   bloat,
   latestBatch,
   latestGscQuery,
+  gates,
   routine: ROUTINE,
   channels,
-  note: "記録層（観測ログへの追記）の沈黙検知。データ取得の停止は check-gsc-ui-due / fetch-metrics 側の担当。",
+  note: "記録層（観測ログへの追記）の沈黙検知。データ取得の停止は check-gsc-ui-due / fetch-metrics 側の担当。gates はルーティンが読む決定的な判定結果。",
 };
 
 if (WANT_JSON) {
