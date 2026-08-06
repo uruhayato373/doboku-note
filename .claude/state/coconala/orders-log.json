@@ -1,15 +1,16 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-05",
+  "updatedAt": "2026-08-06",
   "currency": "JPY",
   "source": "ココナラの受注を /coconala-order（coconala-operator）で1件ずつ追記する。実体は `npm run coconala-orders` が採る orders-snapshot.json（read-only Playwright）で、`npm run check-coconala-orders` が talkroomId で突合する。",
   "privacyNote": "購入者名・購入者ID・提出原稿・トークルーム本文は記録しない（個人情報をリポジトリに残さない）。記録するのは日付・serviceId・金額・級・進捗・所要時間・talkroomId・納品成果物のみ。事例化する場合は匿名化して docs/note/1級・2級土木/メンバーシップ/添削事例アーカイブ/ へ。",
   "howToUpdate": "/coconala-order <serviceId>（受注時）→ status を delivered/closed へ更新。serviceId は src/lib/coconala-services.ts の id と一致必須（check-coconala-wiring が検証）。talkroomId は必須（これが無いと取引を追跡できない）。",
   "schema": {
     "date": "販売日（ISO 日付）。snapshot の soldOn と一致必須",
-    "serviceId": "カタログ src/lib/coconala-services.ts の id",
+    "serviceId": "カタログ src/lib/coconala-services.ts の id。見積り受注では『どの商品から仕立てたか』の基準商品を入れる",
+    "quote": "見積り（カスタム提案）受注のときだけ置く { amountYen, basis, proposedAt, purchasedAt }。存在するとカタログ定価との一致検査を quote.amountYen との一致検査へ差し替える（定価と違うのが正しい取引形態のため）。basis は差額の根拠を必ず書く",
     "talkroomId": "ココナラのトークルーム ID（https://coconala.com/talkrooms/{id}）。取引の一意キー・突合キー。必須",
-    "priceYen": "販売額（手数料差引前）。カタログと不一致なら memo に改定日",
+    "priceYen": "販売額（手数料差引前）。カタログと不一致なら memo に改定日。見積り受注は quote.amountYen と一致必須",
     "grade": "1 or 2（級）。級の無い商品は null",
     "status": "received → delivered → revised（書き直し）→ closed",
     "replyDueAt": "返信期限（無連絡で自動キャンセルになる時刻）。snapshot が拾える場合はそれを転記",
@@ -42,6 +43,25 @@
       ],
       "tensakuMinutes": null,
       "memo": "初受注。C系PDF 2冊（問題冊子＋解答解説）を 2026-08-05 11:59 にトークルームで送付（12:00 既読）。納品前に記入欄行数と答案例字数のズレを是正し PDF を再ビルド（635c7aae5）＝送ったのは修正版。artifacts の sha256 でリポジトリの正版と一致を確認済み。納品形態の質問にも回答済み"
+    },
+    {
+      "date": "2026-08-06",
+      "serviceId": "coconala-1kyu-full-pdf",
+      "quote": {
+        "amountYen": 7500,
+        "basis": "coconala-1kyu-full-pdf（¥10,000・PDF 18冊）から、同一顧客が購入済みの coconala-1kyu-moshi-pdf（¥2,500・PDF 2冊）を差し引いた 16 冊分。分割購入でも一括購入と同額になるよう設計",
+        "proposedAt": "2026-08-05T14:47+09:00",
+        "purchasedAt": "2026-08-05T20:02+09:00"
+      },
+      "talkroomId": "18091375",
+      "priceYen": 7500,
+      "grade": 1,
+      "status": "received",
+      "replyDueAt": "2026-08-08T16:00+09:00",
+      "deliveredAt": null,
+      "artifacts": [],
+      "tensakuMinutes": null,
+      "memo": "初のリピート受注かつ初の見積り受注。room 18082691（C8 模試）の購入者からの追加購入。コンビニ払いのため 8/5 20:02 の購入から入金完了までラグがあり、トークルーム開設は 8/6 15:30。販売日はココナラ側で表示が割れており、取引一覧＝2026/08/06・トークルーム取引詳細＝2026年8月5日。突合キーである一覧側（snapshot.soldOn）に合わせて 08-06 で記録。納品予定日 2026/08/17 が自動登録済み（見積り時に申告した不在期間 8/6-8/16 に対応）。納品物は C1×1・C2×5・C4×5・C6×5 の 16 冊で全てビルド済み"
     }
   ]
 }
