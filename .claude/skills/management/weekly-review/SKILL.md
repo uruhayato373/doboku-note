@@ -62,6 +62,15 @@ description: >
   `anyDue` が true なら理由（`reasons`）をそのまま列挙する。
 - GA4 管理画面 設定ドリフト: `npm run check-ga4-dimensions -- --json` を実行（オフライン。desired state ↔ 最後の実機観測の突合・creds不要）。
   `blockingMissing` が非空なら、そのあいだ **プログラム別 EPC / 配置別 CTR が CI で黙って欠測している**ので必ず surface する。
+- **ココナラの取引・評価**: `npm run check-coconala-orders -- --json`（オフライン・committed snapshot 参照・creds不要）。
+  `actions[]` をそのまま列挙する。特に **`評価未送信`** は放置すると期限（取引完了から概ね2週間）を過ぎて
+  **こちらの評価が永久に公開されない**。ココナラの取引通知・評価依頼は出品アカウントの登録アドレス
+  `dobokunotecom@gmail.com` にしか届かず、Gmail コネクタが繋がっている `uruhayato373` 側には**1通も来ない**ので、
+  メールでは気づけない（2026-08-11 実査）。`scanned.ratings` が 0 なら「静か」ではなく**検査対象ゼロ**を疑う。
+  `snapshotAgeDays` が大きければ実体が古い＝次セッションで `npm run coconala-orders`（Playwright・ローカル限定）。
+  **クラウド週次では snapshot が古いのが常態**（再取得はローカル作業のため）。その場合 `inconclusive:true` と
+  理由が返るので、`actions` が空でも**「実体が検査不成立」として必ず surface する**（静かなのは
+  「問題が無い」ではなく「見ていない」）。
 - **実験サイクルの期限**: `npm run check-experiment-due -- --json`（オフライン・`experiments.json` 参照）。
   これが「計測→記録→改善→**再計測**」の最後の輪。`due[]` の MEASURE_DUE / CLOSE_DUE / PENDING /
   NO_BASELINE をそのまま列挙する。改善を打って再計測されていない実験は学びが台帳に入らず
@@ -90,6 +99,8 @@ description: >
 - 「競合再スキャン DUE」（`check-competitor-scan-due` が due のときのみ）
 - 「GSC/GA4 UI 取得 DUE（月次）」（`check-gsc-ui-due` の `anyDue` が true のときのみ・理由つき・→ 次セッションで `/google-search-growth`）
 - 「GA4 設定ドリフト」（`check-ga4-dimensions` が blockingMissing を返したときのみ・→ 次セッションで `npm run ga4-admin:apply`）
+- 「ココナラ 評価未送信 / 要対応」（`check-coconala-orders` の `actions[]` が空でないときのみ・→ 評価は `npm run coconala-rate-buyer`、実体の採り直しは `npm run coconala-orders`）
+- 「ココナラ 実体が検査不成立」（`check-coconala-orders` が `inconclusive:true` のときのみ・理由つき・→ 次セッションで `npm run coconala-orders`）
 - 「実験の再計測 DUE」（`check-experiment-due` の dueCount > 0 のときのみ・id と理由つき・→ `/nsm-experiment measure <id>`）
 - 「壊れた内部リンク」（`check-internal-links-vs-gsc` が ERROR を返したときのみ）
 - 「A8 成果取込 DUE（月次）」（`check-a8-report-due` が due のときのみ・→ 次セッションで `/a8-report`）
@@ -552,5 +563,6 @@ B. 実験進捗レポート:
 - `.claude/skills/analytics/fetch-gsc-data/scripts/fetch-gsc-data.mjs` — GSC 個別取得（ページ別・フィルタ付き）
 - `.claude/scripts/fetch-ga4-data.mjs` — GA4 個別取得（ディメンション・メトリクス指定）
 - `scripts/check-experiment-due.mjs` — 実験の再計測/close 期限 surfacer（`npm run check-experiment-due`）
+- `scripts/check-coconala-orders.mjs` — ココナラ取引の突合＋**評価未送信/期限切迫** surfacer（`npm run check-coconala-orders -- --json`）
 - `scripts/check-internal-links-vs-gsc.mjs` — 公開ページ→404/リダイレクト URL の内部リンク検査（`npm run check-internal-links-vs-gsc`）
 - `.claude/skills/management/nsm-experiment/references/definition.md` — NSM 定義の真実源

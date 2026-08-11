@@ -45,6 +45,8 @@ const SNAPSHOT_STALE_DAYS = 7;    // snapshot が何日古いと検査不成立�
 
 const staged = process.argv.includes('--staged');
 const noFreshness = process.argv.includes('--no-freshness');
+// --json: 週次レビュー（surfacer）が読む機械可読出力。人向けログは出さない。
+const asJson = process.argv.includes('--json');
 
 if (staged) {
   let changed = '';
@@ -70,6 +72,21 @@ const log = readJson(ORDERS_PATH);
 // --- 検査成立性の判定（緑の意味を守る）→ 判定は coconala-guards（テスト済み） ---
 const health = assessSnapshot(snap, Date.now(), { staleDays: SNAPSHOT_STALE_DAYS, checkFreshness: !noFreshness });
 if (!health.ok) {
+  // --json の呼び出し元（週次レビュー surfacer）は**クラウドで走る**。実体の再取得は
+  // Playwright＋ログイン済みプロファイルが要るローカル作業なので、クラウドでは snapshot が
+  // 古いのが常態になる。ここで非 JSON を吐いて exit 2 すると呼び出し側が壊れるため、
+  // JSON では inconclusive として構造化して返す（「検査不成立」を握り潰さず、かつ落とさない）。
+  if (asJson) {
+    console.log(JSON.stringify({
+      inconclusive: true,
+      reason: health.reason,
+      tabsOk: snap?.scan?.tabsOk ?? null, tabsTotal: snap?.scan?.tabsTotal ?? null,
+      actionCount: 0, warningCount: 1,
+      actions: [],
+      warnings: [`ココナラの実体が検査不成立（${health.reason}）— 次セッションで npm run coconala-orders（ローカル限定）`],
+    }, null, 2));
+    process.exit(1);
+  }
   console.error(`${TAG} ✗ 検査不成立: ${health.reason}`);
   console.error(`   取得タブ ${snap?.scan?.tabsOk ?? '?'}/${snap?.scan?.tabsTotal ?? '?'} — 再取得: npm run coconala-orders`);
   process.exit(2);
@@ -166,6 +183,19 @@ for (const l of logOrders) {
 
 // --- 出力（実検査数を必ず出す） ---
 const inqScanned = snap.scan?.tabs?.some((t) => t.key === 'inquiries' && t.ok);
+if (asJson) {
+  // 週次レビューはこの JSON だけを読む。scanned を必ず含めるのは
+  // 「0 件だから静か」と「1件も検査していないから静か」を呼び出し側で区別するため。
+  console.log(JSON.stringify({
+    scanned: { snapshotOrders: snapOrders.length, logOrders: logOrders.length,
+               inquiries: inqScanned ? inquiries.length : null, ratings: ratingChecked },
+    snapshotAgeDays: Number(ageDays.toFixed(1)),
+    tabsOk: snap.scan?.tabsOk ?? null, tabsTotal: snap.scan?.tabsTotal ?? null,
+    actionCount: actions.length, warningCount: warnings.length,
+    actions, warnings,
+  }, null, 2));
+  process.exit(actions.length || warnings.length ? 1 : 0);
+}
 console.log(
   `${TAG} 実検査 ココナラ側 取引 ${snapOrders.length} 件 / orders-log ${logOrders.length} 件 / ` +
   `問い合わせ(DM) ${inqScanned ? `${inquiries.length} 件` : '未取得'} / 評価 ${ratingChecked} 件` +
