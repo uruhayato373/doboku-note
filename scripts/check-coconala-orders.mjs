@@ -136,11 +136,39 @@ for (const l of logOrders) {
   }
 }
 
+// 5. 評価（出品者→購入者）の未送信・期限切迫
+// 取引がクローズすると評価入力の依頼が来る（期限は概ね完了から2週間）。通知メールは
+// 出品アカウントの登録アドレスにしか届かず（購入者アカウント側には1通も来ない）、
+// 期限を過ぎると入力した側の評価だけが公開される＝**こちらの評価が永久に付かない**。
+// 人が気づく仕組みが無かったので機械で surface する（2026-08-11 新設）。
+const RATING_SOON_DAYS = 5;
+let ratingChecked = 0;
+for (const l of logOrders) {
+  if (l.status !== 'closed' && l.status !== 'delivered') continue;
+  ratingChecked++;
+  const due = l.rating?.dueAt ? Date.parse(l.rating.dueAt) : null;
+  if (!l.rating) {
+    const label = `${l.serviceId}（room ${l.talkroomId}）`;
+    actions.push(
+      `評価未送信: ${label} — 取引は ${l.status} だが orders-log に rating が無い。` +
+      `期限を過ぎるとこちらの評価は公開されない。` +
+      `https://coconala.com/ratings/provider_add/${l.talkroomId}`
+    );
+    continue;
+  }
+  if (due && !l.rating.providerRatedAt) {
+    const left = (due - now) / 86_400_000;
+    if (left < RATING_SOON_DAYS) {
+      actions.push(`評価期限まで ${Math.max(0, Math.floor(left))} 日: room ${l.talkroomId}`);
+    }
+  }
+}
+
 // --- 出力（実検査数を必ず出す） ---
 const inqScanned = snap.scan?.tabs?.some((t) => t.key === 'inquiries' && t.ok);
 console.log(
   `${TAG} 実検査 ココナラ側 取引 ${snapOrders.length} 件 / orders-log ${logOrders.length} 件 / ` +
-  `問い合わせ(DM) ${inqScanned ? `${inquiries.length} 件` : '未取得'}` +
+  `問い合わせ(DM) ${inqScanned ? `${inquiries.length} 件` : '未取得'} / 評価 ${ratingChecked} 件` +
   `（snapshot ${ageDays.toFixed(1)} 日前・タブ ${snap.scan?.tabsOk}/${snap.scan?.tabsTotal} 取得）`
 );
 if (!inqScanned) {
