@@ -105,11 +105,12 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 | `talkroomId` | **必須**。ココナラのトークルーム ID（`https://coconala.com/talkrooms/{id}`）＝取引の一意キー・突合キー。これが無いと後からどの取引か辿れない |
 | `priceYen` | 販売額（手数料差引前）。カタログと不一致なら要説明（価格改定時は memo に改定日）。見積り受注は `quote.amountYen` と一致必須 |
 | `grade` | 1 or 2（級）。級の無い商品は null |
-| `status` | `received` → `delivered` → `revised`（書き直し対応）→ `closed` |
+| `status` | `received` → `delivered` → `revised`（書き直し対応）→ `closed`（**購入者評価まで送信済み**） |
 | `replyDueAt` | 返信期限（**無連絡で自動キャンセル**になる時刻）。snapshot が拾えたら転記 |
 | `deliveredAt` | 納品した日時（ISO）。未納品は null |
 | `artifacts` | 納品した成果物 `[{ file, sha256, builtAt }]`。**どの版を送ったかを特定するため** |
 | `tensakuMinutes` | 最終赤入れの所要時間（工数の実測・定員判断の根拠）。C系 PDF は null |
+| `rating` | 出品者→購入者の評価を送ったら記録 `{ providerRatedAt, stars{overall,demand,communication,schedule}, commentChars, comment, dueAt, verified }`。公開・取消不可なので**送った文面そのもの**を残す |
 | `memo` | 任意。**個人情報・原稿本文は書かない** |
 
 > **記録しないもの**: 購入者名・購入者 ID・提出原稿・トークルーム本文（privacyNote）。事例化は匿名化して
@@ -230,6 +231,50 @@ snapshot が「ココナラ側の実体」で、`npm run check-coconala-orders` 
 ```
 
 添削3ステップ（字数→論点抽出→最終赤入れ）の真実源は [2級経験記述-添削テンプレ.md](../../../docs/note/1級・2級土木/2級土木/2級経験記述-添削テンプレ.md)。トークルーム定型文（初回挨拶・シート送付・C系 PDF 送付・満枠断り・書き直し受付・S1 診断返却テンプレ）は [ココナラ展開キット.md §4c](../../../docs/note/1級・2級土木/ココナラ展開キット.md)、S2 納品文面テンプレは `.claude/agents/coconala-operator.md`。
+
+## 3-1. 受注に気づく経路（通知メールの宛先）
+
+**ココナラの取引通知は `dobokunotecom@gmail.com`（出品アカウント dobokunote の登録アドレス）にだけ届く。**
+購入者アカウント `uruhayato373@gmail.com` の受信箱には**取引通知が1通も来ない**（届くのはクーポン・
+くじ等のマーケティングメールのみ。2026-08-11 に全期間・迷惑メール含めて実査）。
+Gmail コネクタが繋がっているのは `uruhayato373` 側なので、**そこを見ても受注に気づけない**。
+
+- 取引関連メールの受信は**ココナラ設定で必須**（解除不可）＝送られていないのではなく宛先が別
+- サブメールアドレス欄（`/mypage/email`）は**未設定**。ここに入れれば両方へ届く
+- `dobokunotecom` は Playwright プロファイル `.local/playwright-note-profile` にログイン済み
+  （2026-08-11）。`mail.google.com` を開けば読める。セッションが切れたら人がログインし直す
+
+受注の取りこぼしを防ぐ主経路は**サイト側の実体収集**（`npm run coconala-orders` → `check-coconala-orders`）で、
+メールは補助。不在期間があるときは特に、メール到達に依存しないこと。
+
+## 3-2. 購入者評価（出品者→購入者）
+
+取引がクローズすると**評価入力の依頼メールが届く**（宛先は出品アカウントの登録アドレス
+`dobokunotecom@gmail.com`。購入者アカウント `uruhayato373@gmail.com` には**取引通知は一切来ない**ので
+そちらを見ても気づけない）。期限は概ね取引完了から2週間。
+
+**実機仕様（2026-08-11 確定）**
+
+| 項目 | 実体 |
+|---|---|
+| URL | `/ratings/provider_add/{talkroomId}`（トークルームの「評価を入力する」は同 URL への `<a>`。DOM の `.click()` では開かないことがあり URL 直打ちが確実） |
+| 必須 | 4項目＝総合評価（**公開**・コメント400字）／要望のわかりやすさ／コミュニケーション／納期・スケジュール（後ろ3つは非公開・平均値のみ表示） |
+| 星 | radio ではない。`span.rating-star-input.js_rating-*` 配下の `img[alt="1..5"]` をクリック → hidden の `input[name=score]` に入る |
+| 送信 | 「確認する」→ 確認画面（`修正する` / `送信する`）→ 送信の二段構え |
+| 公開条件 | 評価期限内は**双方の評価が揃うまで相手に公開されない**。期限超過で入力した側のみ公開 |
+
+```bash
+npm run coconala-rate-buyer -- <talkroomId> <コメントtxt>            # 入力のみ（既定）
+npm run coconala-rate-buyer -- <talkroomId> <コメントtxt> --submit   # 送信
+```
+
+**安全弁**: 既定は入力までで停止（draft-first）／星の読み戻しが全て 5 でなければ中断／400字超は事前中断／
+確認画面の送信ボタンは既知の名前だけを押す（盲目クリックしない）／送信後にトークルームで
+「評価未入力」が消えたことを実査。**星は 5 固定**なので、5 をつけたくない取引では使わず人が UI で入力する。
+
+**文面の作り方**: やり取りの実体（トークルームのログ）から拾った事実だけで書く（捏造禁止）。
+定型の一文で終わらせず、その取引で実際に起きたことを1つ以上入れる。同一顧客の複数取引では
+文面を書き分ける（同じ文が並ぶと機械的に見える）。
 
 ## 4. KPI 週次運用（`/coconala-status`）
 
