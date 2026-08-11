@@ -150,6 +150,14 @@ if (!LIVE) {
 }
 
 // ============================ live 層 ============================
+// live 層の対象は「ローカルに PDF 実体がある記事」。ただし **本文が配布を約束しているか**で
+// 重大度が全く違うので、ここで分けておく（2026-08-11 是正）:
+//   promises=true  → 約束したのに届かない＝**購入者が受け取れない**（緊急・無条件で直す）
+//   promises=false → PDF は作ってあるが本文は触れていない。会員特典など「閲覧のみで所有は
+//                    渡さない」方針の記事が該当し、添付しないのが正しい場合がある（要方針判断）
+// 両者を同じ「不足 N 件」に混ぜると、緊急分が方針分に埋没して誰も見なくなる。
+// 実際 2026-08-03 の実査は「不足 192 件」と出したまま4日放置され、その中に居た
+// 建設部門 7 本（約束あり）は購入者からの指摘で初めて発覚した。
 const need = targets.filter((t) => t.expected.length > 0);
 if (need.length === 0) { console.error('✗ 検査対象0件＝走査が壊れている疑い（検査不成立）'); process.exit(1); }
 
@@ -188,7 +196,10 @@ for (const [i, t] of need.entries()) {
 await ctx.close();
 
 const inspected = need.length - fetchFail.length;
+const shortPromised = short.filter((s) => s.promises);
+const shortSilent = short.filter((s) => !s.promises);
 console.log(`\n実検査 ${inspected} 件（対象 ${need.length}・取得失敗 ${fetchFail.length}）: 充足 ${ok} / 不足 ${short.length}`);
+console.log(`  内訳: **本文で約束していて未添付 ${shortPromised.length} 件（購入者が受け取れない・緊急）** / 本文で触れず未添付 ${shortSilent.length} 件（方針判断）`);
 
 // 復旧は note の 1日100アップロード上限で複数日に分かれる。別日・別PCから再開できるよう
 // 欠落リストを state に残す（.tmp は git 管理外で、過去の添付 done-log はこれで失われている）。
@@ -199,7 +210,9 @@ if (!ONLY) {
   writeFileSync(outPath, JSON.stringify({
     measuredAt: new Date().toISOString().slice(0, 10),
     inspected, target: need.length, fetchFail: fetchFail.length, satisfied: ok,
-    missing: short.map((s) => ({ noteId: s.noteId, title: s.title, live: s.live, want: s.want, pdfs: s.expected })),
+    missingPromised: shortPromised.map((s) => ({ noteId: s.noteId, title: s.title, live: s.live, want: s.want, pdfs: s.expected })),
+    missingSilent: shortSilent.map((s) => ({ noteId: s.noteId, title: s.title, live: s.live, want: s.want, pdfs: s.expected })),
+    missing: short.map((s) => ({ noteId: s.noteId, title: s.title, live: s.live, want: s.want, pdfs: s.expected, promises: !!s.promises })),
   }, null, 2) + '\n');
   console.log(`\n欠落リスト: .claude/state/note-attachments-missing.json（${short.length} 件）`);
 }
