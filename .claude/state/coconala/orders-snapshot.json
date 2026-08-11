@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fetchedAt": "2026-08-06T07:56:13.722Z",
+  "fetchedAt": "2026-08-11T19:56:15.309Z",
   "status": "ok",
   "source": "coconala.com /mypage/received_orders/*（Playwright・read-only）",
   "privacyNote": "購入者名・購入者ID・トークルーム本文・DM 本文は保存しない。保存するのは talkroomId / dmId / サービス / 金額 / 日付 / ステータス / 未返信 / 返信期限のみ。DM は subject（引用されたサービス名）だけを採る。",
@@ -27,16 +27,16 @@
         "label": "取引中",
         "url": "https://coconala.com/mypage/received_orders/open",
         "ok": true,
-        "rows": 2,
-        "rawRows": 2
+        "rows": 0,
+        "rawRows": 0
       },
       {
         "key": "closed",
         "label": "完了",
         "url": "https://coconala.com/mypage/received_orders/closed",
         "ok": true,
-        "rows": 0,
-        "rawRows": 0
+        "rows": 2,
+        "rawRows": 2
       },
       {
         "key": "canceled",
@@ -63,36 +63,36 @@
     ],
     "tabsOk": 7,
     "tabsTotal": 7,
-    "deadlineFailed": 1
+    "deadlineFailed": 0
   },
   "orders": [
     {
       "talkroomId": "18091375",
       "talkroomUrl": "https://coconala.com/talkrooms/18091375",
-      "tab": "open",
-      "tabLabel": "取引中",
+      "tab": "closed",
+      "tabLabel": "完了",
       "serviceId": null,
       "listingText": "1級土木 二次対策 教材16冊セット（予想模擬試験を除く）",
       "priceYen": 7500,
       "soldOn": "2026-08-06",
       "deliveryDueSet": true,
-      "statusLabel": "納品確認待ち",
-      "lastMessageAt": "16:49",
+      "statusLabel": "完了",
+      "lastMessageAt": "08/07 13:12",
       "unreplied": false,
-      "replyDueAt": "2026-08-09T17:00"
+      "replyDueAt": null
     },
     {
       "talkroomId": "18082691",
       "talkroomUrl": "https://coconala.com/talkrooms/18082691",
-      "tab": "open",
-      "tabLabel": "取引中",
+      "tab": "closed",
+      "tabLabel": "完了",
       "serviceId": "coconala-1kyu-moshi-pdf",
       "listingText": "1級土木二次の予想模擬試験を送ります 本番形式の予想模試1回分＋解答解説で総仕上げ",
       "priceYen": 2500,
       "soldOn": "2026-08-04",
       "deliveryDueSet": true,
-      "statusLabel": "納品確認待ち",
-      "lastMessageAt": "16:52",
+      "statusLabel": "完了",
+      "lastMessageAt": "08/09 06:24",
       "unreplied": false,
       "replyDueAt": null
     }
@@ -100,7 +100,7 @@
   "inquiries": [
     {
       "dmId": "10051134",
-      "dateText": "1時間前",
+      "dateText": "5日前",
       "subject": "",
       "unread": false,
       "dmUrl": "https://coconala.com/mypage/direct_message/10051134",
@@ -108,7 +108,7 @@
     },
     {
       "dmId": "10052267",
-      "dateText": "1日前",
+      "dateText": "6日前",
       "subject": "",
       "unread": false,
       "dmUrl": "https://coconala.com/mypage/direct_message/10052267",
@@ -116,7 +116,7 @@
     },
     {
       "dmId": "10051752",
-      "dateText": "1日前",
+      "dateText": "6日前",
       "subject": "",
       "unread": false,
       "dmUrl": "https://coconala.com/mypage/direct_message/10051752",
