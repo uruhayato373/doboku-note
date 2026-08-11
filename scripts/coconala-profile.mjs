@@ -92,6 +92,13 @@ try {
   const o1 = await openSection('職業・業務領域');
   const r1 = await fillByPlaceholder('input', '広告クリエイター', p.job);
   const o2 = await openSection('自己紹介');
+  // ひとことアピールは **50字上限**。超えるとバリデーションで弾かれ、
+  // 「職業を更新しました」のトーストだけ出て自己紹介側は保存されない＝偽成功になる
+  // （2026-08-11 に 55 字で実際に発生し、ライブは旧文言のまま残った）。
+  if (p.appeal && [...p.appeal].length > 50) {
+    console.error(`ABORT: ひとことアピールが ${[...p.appeal].length} 字（上限 50）: ${p.appeal}`);
+    await ctx.close(); process.exit(3);
+  }
   const r2 = await fillByPlaceholder('input', '思いを伝える', p.appeal);
   const r3 = await fillByPlaceholder('textarea', 'ロゴデザインを', p.bio);
   console.log(`[2] 展開 職業=${o1} 自己紹介=${o2} / fill 職業=${r1} アピール=${r2} 自己紹介文=${r3}`);
@@ -105,5 +112,20 @@ try {
   const s2 = await saveSection('textarea', 'ロゴデザインを'); await sleep(2500);
   console.log(`[3] 保存 職業=${s1} 自己紹介=${s2}`);
   await page.screenshot({ path: join(ROOT, '.tmp/coconala/profile-saved.png'), fullPage: true }).catch(() => {});
-  console.log('RESULT:', JSON.stringify({ job: r1, appeal: r2, bio: r3, saveJob: s1, saveBio: s2 }));
+
+  // 「保存した」を成功と呼ばない。保存後のページに **入力エラー文言**が出ていないか、
+  // かつ意図した値が実際に載っているかを読み戻す（別セクションのトーストを成功と
+  // 取り違えないため・2026-08-11 新設）。
+  await sleep(2000);
+  const verify = await page.evaluate((want) => {
+    const t = (document.body.innerText || '').replace(/\s+/g, ' ');
+    return {
+      formError: (t.match(/[^。]{0,40}(以下で入力してください|入力してください|エラー)[^。]{0,20}/g) || []).slice(0, 3),
+      appealOnPage: want.appeal ? t.includes(want.appeal) : null,
+    };
+  }, { appeal: p.appeal });
+  const ok = verify.formError.length === 0 && verify.appealOnPage !== false;
+  console.log(`[4] 検証 入力エラー=${JSON.stringify(verify.formError)} / アピール反映=${verify.appealOnPage}`);
+  console.log('RESULT:', JSON.stringify({ job: r1, appeal: r2, bio: r3, saveJob: s1, saveBio: s2, verified: ok }));
+  if (!ok) { console.error('FAIL: 保存が通っていない可能性（上のエラー文言を確認）'); process.exitCode = 4; }
 } finally { await ctx.close(); }

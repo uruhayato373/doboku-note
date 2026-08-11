@@ -142,4 +142,4 @@ frontmatter（`notePricing: paid` / `noteSeries` / `noteMagazine` / `utmCampaign
 
 ## 著者オーソリティバナー（差別化）
 
-買い手向け入口記事（`notePricing: free` の総合案内/もくじ）を生成・改修するときは、差別化の信頼性訴求として**著者オーソリティ汎用バナー**を top（H1直後）／bottom（本文の締め→バナー→橋渡し1文→既存カード）に配置する。フレーミング（総監＝分析力／元発注者＝採点者視点／施工管理技士＝当事者・「予想的中」とは呼ばない）と配置・alt・no-price は真実源 `.claude/knowledge/reference/author-authority-banner.md` に従う。一括配布は `node scripts/distribute-author-authority-banner.mjs`。
+買い手向け入口記事（`notePricing: free` の総合案内/もくじ）を生成・改修するときは、差別化の信頼性訴求として**著者オーソリティ汎用バナー**を top（H1直後）／bottom（本文の締め→バナー→橋渡し1文→既存カード）に配置する。フレーミング（総監＝分析力／元発注者＝審査する側の視点／施工管理技士＝当事者・「予想的中」とは呼ばない）と配置・alt・no-price は真実源 `.claude/knowledge/reference/author-authority-banner.md` に従う。一括配布は `node scripts/distribute-author-authority-banner.mjs`。

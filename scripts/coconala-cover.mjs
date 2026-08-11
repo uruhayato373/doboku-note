@@ -32,7 +32,7 @@ const tree = div(
     ),
     div({ fontSize: 46, lineHeight: 1.3, color: INK, marginBottom: 18, display: 'flex', flexDirection: 'column' },
       div({ display: 'flex' }, '技術士（建設・総監）を持つ元自治体土木職員が'),
-      div({ display: 'flex' }, '発注者＝採点者の目で経験記述を添削・診断します'),
+      div({ display: 'flex' }, '発注者として書類を審査してきた目で経験記述を添削・診断します'),
     ),
     div({ fontSize: 27, color: '#41485a', display: 'flex' }, '合格診断・2テーマ添削・出題分析／完成答案集PDF'),
   ),

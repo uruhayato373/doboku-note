@@ -180,4 +180,4 @@ C1/C2（`provision_format=3`・PDF 納品）は**ヒアリング不要**。購�
 
 ## 著者オーソリティ（差別化訴求）
 
-S1/S2 出品文面・プロフィールでは、競合との差別化として**上位資格保有者による分析提供**を訴求する（総監＝分析力／元発注者＝採点者視点／施工管理技士＝当事者）。文面・画像アセット（`figure-author-authority.png`）とフレーミング（誇張禁止・資格の混同禁止）は真実源 `.claude/knowledge/reference/author-authority-banner.md` に従う。ココナラへの画像アップロード等の実操作はユーザー。
+S1/S2 出品文面・プロフィールでは、競合との差別化として**上位資格保有者による分析提供**を訴求する（総監＝分析力／元発注者＝審査する側の視点／施工管理技士＝当事者）。文面・画像アセット（`figure-author-authority.png`）とフレーミング（誇張禁止・資格の混同禁止）は真実源 `.claude/knowledge/reference/author-authority-banner.md` に従う。ココナラへの画像アップロード等の実操作はユーザー。
