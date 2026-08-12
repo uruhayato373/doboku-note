@@ -96,6 +96,7 @@ const CHECKS = [
   // 既存の未解消問題のため report-only（gate に入れると既存債務で CI が赤になる）:
   //   note-meta-lint = note:fs/promises の glob import が Node20 で未提供（スクリプト側の既存バグ・要修正）
   { id: 'note-meta-lint', npm: 'note-meta-lint', timeout: 60_000, ci: false, note: '既存バグ: node:fs/promises glob が Node20 未提供でクラッシュ（要修正）' },
+  { id: 'coconala-blog', npm: 'check-coconala-blog', timeout: 60_000, ci: true, note: 'ココナラブログ記事のハードゲート（外部リンク1本でアカウント制限になりうる）＋公開済み記事の送客先が listed から外れていないかのドリフト' },
   { id: 'doc-lifecycle', npm: 'check-doc-lifecycle', timeout: 90_000, ci: false },
   { id: 'policy-anchors', npm: 'check-policy-anchors', timeout: 90_000, ci: false },
   { id: 'ogp-coverage', npm: 'check-ogp-coverage', timeout: 90_000, ci: false },
