@@ -561,6 +561,25 @@ async function updateArticle(page, { abs, noteId, title, body, images, isPaid, b
     toReattach = resolved;
     console.log(`[3-pre] --reattach-pdf: 添付 ${resolved.length} 件を置換後に貼り直す（${resolved.map((r) => r.base).join(' / ')}）`);
   }
+  // --allow-attachment-loss で意図的に添付を捨てる場合、**その事実をどこにも残さない**と
+  // 「反映後に必ず再添付する」という口約束だけになり、忘れても次の live 実査（手動）まで
+  // 誰も気づかない。中断は note-update-aborted.json に残るのに、意図的な消失は無記録だった。
+  // ここで負債として記録し、check-note-delivery-due が未解消なら surface する（2026-08-11 新設）。
+  if (attachedPdfs.length && ALLOW_ATTACH_LOSS && !REATTACH_PDF) {
+    try {
+      const LOSS_LOG = join(ROOT, '.claude/state/note-attachment-loss.json');
+      const j = existsSync(LOSS_LOG) ? JSON.parse(readFileSync(LOSS_LOG, 'utf8')) : { pending: [] };
+      j.pending = (j.pending || []).filter((x) => x.noteId !== noteId);
+      j.pending.push({
+        noteId, at: new Date().toISOString(),
+        dropped: attachedPdfs,
+        note: '--allow-attachment-loss で添付を捨てた。再添付するまで購入者は受け取れない。解消したらこの entry を消す（note-attach-file が自動で消す）',
+      });
+      mkdirSync(dirname(LOSS_LOG), { recursive: true });
+      writeFileSync(LOSS_LOG, JSON.stringify(j, null, 2) + '\n');
+      console.error(`[loss] 添付 ${attachedPdfs.length} 件を捨てた記録を残した → .claude/state/note-attachment-loss.json（再添付するまで負債）`);
+    } catch (e) { console.error('[loss] 記録に失敗:', e.message); }
+  }
   if (attachedPdfs.length && !ALLOW_ATTACH_LOSS && !REATTACH_PDF) {
     console.error(`[FAIL] 本文に PDF 添付カード ${attachedPdfs.length} 件を検出 → 全文置換すると消えるため中断: ${noteId}`);
     for (const f of attachedPdfs) console.error(`         ${f}`);

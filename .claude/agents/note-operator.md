@@ -180,6 +180,11 @@ note.com への高レベル操作指示を受け取り、既存の決定的ス�
 
 - **`--live` は CI に載せられない**（有料エリアの添付カードは未ログイン HTML に出ない）。
   だから回し忘れを週次レビューの surfacer（`check-note-delivery-due`）で拾う。
+- **本文を更新すると添付カードは消える**。`note-update-body` は live の添付を検出したら
+  既定で中断する（実測で確認済み）。差し替えるなら `--reattach-pdf`（同一セッションで復元）、
+  画像だけなら `--images-only`。`--allow-attachment-loss` は**捨てた事実を
+  `.claude/state/note-attachment-loss.json` に負債として記録**し、再添付するまで
+  `check-note-delivery-due` が surface し続ける（`note-attach-batch` が成功時に自動で消す）。
 - 重大度を混ぜない: `missingPromised`（約束したのに未添付＝緊急）と `missingSilent`
   （本文が触れていない＝会員特典など方針判断）は別物。混ぜると緊急分が埋没する。
 - **コメント返信の罠**: 送信ボタンは**テキストの無い矢印アイコン**。ヘッダー右上の「投稿」は

@@ -95,6 +95,22 @@ if (!existsSync(STATE)) {
   }
 }
 
+// D. --allow-attachment-loss で意図的に捨てた添付が、再添付されないまま残っていないか。
+//    実査（--live）は手動なので、次に回すまで最大14日気づけない。捨てた瞬間の記録で埋める。
+const LOSS = join(ROOT, '.claude/state/note-attachment-loss.json');
+if (existsSync(LOSS)) {
+  try {
+    const l = JSON.parse(readFileSync(LOSS, 'utf8'));
+    const pend = l.pending || [];
+    out.scanned.attachmentLossPending = pend.length;
+    if (pend.length) {
+      out.due = true;
+      out.reasons.push(`**本文更新で添付を捨てたまま再添付していない記事が ${pend.length} 本**（--allow-attachment-loss の負債）`);
+      for (const x of pend.slice(0, 10)) out.actions.push(`再添付: ${x.noteId}（${x.at?.slice(0, 10)} に ${(x.dropped || []).length} 件を破棄）`);
+    }
+  } catch (e) { out.reasons.push(`添付消失ログが読めない: ${e.message}`); out.due = true; }
+} else { out.scanned.attachmentLossPending = 0; }
+
 if (asJson) { console.log(JSON.stringify(out, null, 2)); process.exit(out.due ? 1 : 0); }
 
 console.log(`${TAG} 実査 ${out.measuredAt ?? '(記録なし)'}（${out.ageDays ?? '?'} 日前）` +

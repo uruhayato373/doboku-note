@@ -67,6 +67,8 @@ description: >
   **本文でPDFを約束しているのにライブに添付が無い＝購入者が受け取れない**状態なので、
   他の何より先に出す。`ageDays` が 14 を超えていたら「静か」ではなく**実査していない**。
   再実査は `npm run check-note-attachments:live`（ローカル・要ログイン・約15分）。
+  `attachmentLossPending` が 1 以上なら、**本文更新で添付を捨てたまま再添付していない**記事がある
+  （`--allow-attachment-loss` の負債）。実査は手動なので最大14日気づけない穴を、捨てた瞬間の記録で埋めている。
   ※有料エリアの添付は未ログイン HTML に出ないため CI では原理的に検査できない。
   だからこそ「回し忘れ」を週次で拾う（2026-08-11 の事故＝購入者からの指摘で発覚した再発防止）。
 - **ココナラの取引・評価**: `npm run check-coconala-orders -- --json`（オフライン・committed snapshot 参照・creds不要）。
