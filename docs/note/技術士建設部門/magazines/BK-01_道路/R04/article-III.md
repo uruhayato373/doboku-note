@@ -1,12 +1,13 @@
 ---
 notePricing: paid
 noteMagazine: BK-01
+noteStatus: published
 year: R04
 subject: road
 exam_type: III
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/na2310186e903"
+noteId: "na2310186e903"
+notePublishedAt: "2026-08-12"
 price: 780
 coverTitle: "技術士 建設部門｜道路 R04 選択科目III 模範解答"
 utmCampaign: pe-construction-secondary
