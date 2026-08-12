@@ -814,6 +814,45 @@ Anthropic の Opus 5 プロンプトガイドが「旧モデル向けに仕込�
 - **データ源**: `npm run check-note-republish -- --json`（`{synced, drift, unknown, driftFiles, unknownFiles}` を返す）。admin は既存 CLI を child_process 実行しガードは CLI 側に残す方針（tools/admin-app/README.md）に沿う
 - CLI＋週次で運用は回るため優先度低。真実源 → note-funnel-architecture.md ツール表・memory の再公開ドリフト機構
 
+### ココナラブログ 残り4本の日次公開（2026-08-13〜）
+タグ: [収益化][ココナラ]
+
+第1回を 2026-08-12 に公開済み（`https://coconala.com/blogs/6197366/791576`）。
+**公開は1日1本まで**（bot 検知回避・coconala-blog-policy.md §6）。24〜48時間はアカウント警告が
+出ないか様子を見てから続ける。
+
+```bash
+node scripts/coconala-blog-publish.mjs --post <slug> --commit
+```
+
+| 順 | slug | 内容 | funnel |
+|---|---|---|---|
+| 2 | `dokugaku-tensaku-genkai` | 第2回 独学で伸びない理由 | S2 添削セット |
+| 3 | `yosou-mondai-kaku-renshu` | 第3回 予想テーマで書く練習 | 1級 予想模試 |
+| 4 | `hinshitsu-kanri-kakikata` | 第4回 品質管理の書き方 | 1級 教材フルパック |
+| 5 | `sokan-shutsudai-theme-bunseki` | 単発 総監 出題テーマ | 総監 テーマ分析 |
+
+- 公開後は `npm run check-coconala-blog` で `status: published` ⇔ `blogUrl` の整合を確認して commit
+- 総監（#5）は**実需が小さい**（ブログ内検索「総合技術監理」16件 vs「経験記述」646件）。
+  1本だけ試験投下し、「サービス・ブログ分析」で閲覧が付いてから増やす
+- 第4回の末尾に「次回は安全管理」と予告済み。続けるなら第5回（安全管理）を書く
+
+### ココナラ 出品文面に残る「採点者」表記の掃除
+タグ: [収益化][ココナラ][品質]
+
+2026-08-11 に「発注者＝採点者」の事実誤認を訂正したが、**ココナラ出品の文面には未反映**。
+2026-08-12 に S1 のタイトルだけライブ反映した（「採点者目線」→「発注者目線」）。
+
+残り 8 箇所ほど（`.claude/config/coconala-listings.json` と `src/lib/coconala-services.ts`）:
+「採点者視点のコメント」「発注者側＝採点する側」「採点者視点チェック」など。
+tensaku-set / sakusei / kanseitoan / full-pdf / premium / civil-keiken-kit が該当。
+
+- ブログのサービスカードは**出品タイトルをそのまま描画する**ので、記事本文（発注者＝審査する側）と
+  真下で矛盾する。他の出品にも送客し始める前に直す
+- 反映は `node scripts/coconala-edit.mjs --service <id> --fields title,body --commit`
+  （公開中サービスに「下書きで保存」は無く `--commit`＝更新するが必要）
+- 文言は運営者の目で決めること（機械置換にしない）
+
 ### ココナラ コンテンツマーケット（やりとり不要のPDF販売）への展開
 タグ: [収益化][ココナラ]
 
