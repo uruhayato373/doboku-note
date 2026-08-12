@@ -32,7 +32,7 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync, statSync } from 'no
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
-import { launchContext, waitForLogin, assertAccount, readCatalog, shotPath, sleep, ROOT } from './lib/coconala-session.mjs';
+import { launchContext, waitForLogin, assertAccount, readCatalog, readAccount, shotPath, sleep, ROOT } from './lib/coconala-session.mjs';
 import { assertBlogPost, BlogGuardError } from './lib/coconala-blog-guards.mjs';
 
 const TAG = '[blog-publish]';
@@ -404,19 +404,12 @@ try {
       console.error(`${TAG} 一覧でまだ下書きです＝公開できていません。「公開した」とは報告しません`); process.exit(2);
     }
 
-    // ライブ URL を取得（プロフィールのブログ一覧から自分の記事を引く）
-    const uid = (await page.evaluate(() =>
-      document.querySelector('a[href^="/users/"]')?.getAttribute('href')?.match(/\/users\/(\d+)/)?.[1] ?? '')) || '';
-    if (uid) {
-      await page.goto(`https://coconala.com/blogs/${uid}`, { waitUntil: 'domcontentloaded', timeout: 60_000 });
-      await sleep(3000);
-      liveUrl = await page.evaluate((t) => {
-        const a = [...document.querySelectorAll('a[href*="/blogs/"]')]
-          .find((x) => /\/blogs\/\d+\/\d+/.test(x.getAttribute('href') || '') && (x.textContent || '').includes(t.slice(0, 12)));
-        const h = a?.getAttribute('href') || '';
-        return h ? (h.startsWith('http') ? h : `https://coconala.com${h}`) : '';
-      }, title);
-    }
+    // ライブ URL は **account.json の profileUrl から取れる userId ＋ 編集URLの blogId** で組む。
+    // 一覧ページのリンクを掻き集める方式は当たらなかった（2026-08-12 実測で空）。
+    // 公開URLの postId は編集URLの blogId と同じ（/mypage/blogs/edit/791576 → /blogs/6197366/791576）。
+    const uid = (readAccount().profileUrl || '').match(/\/users\/(\d+)/)?.[1] ?? '';
+    if (uid && blogId) liveUrl = `https://coconala.com/blogs/${uid}/${blogId}`;
+    else console.error(`${TAG} ライブURLを組めません（uid=${uid || '無し'} blogId=${blogId || '無し'}）`);
     console.log(`${TAG} ライブ URL: ${liveUrl || '(取得できず)'}`);
 
     // [10] 偽成功検証（G6）— ログアウト状態の新規コンテキストで実査

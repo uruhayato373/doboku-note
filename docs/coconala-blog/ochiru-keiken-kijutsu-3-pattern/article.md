@@ -1,9 +1,9 @@
 ---
 title: "【第1回】経験記述で落ちる答案に共通する3つの型｜1級・2級土木"
-status: draft
-blogUrl: ""
-blogId: ""
-publishedAt: ""
+status: published
+blogUrl: "https://coconala.com/blogs/6197366/791576"
+blogId: "791576"
+publishedAt: "2026-08-12"
 exam: civil
 angle: 体験
 category: 学び
