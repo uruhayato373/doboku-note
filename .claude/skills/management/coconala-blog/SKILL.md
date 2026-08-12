@@ -59,6 +59,18 @@ node scripts/coconala-blog-publish.mjs --post <slug>
 > 「クリックが成功した」を成功と呼ばない。**逆に、クリックがタイムアウトしても保存されていることがある**
 > （operations.md §9.4）。必ず一覧の実体で判定する。
 
+**中断したら残骸を消してから再実行する（重要）。**
+エディタは**オートセーブする**ので、上のどれかで中断（exit 3）しても**下書きはココナラ側に残る**。
+そのまま再実行すると同じ記事が2本になる。publish は投入前に同名記事を検出して止まるので、
+指示に従って先に消すこと。
+
+```bash
+node scripts/coconala-blog-delete-draft.mjs                                # 下書き一覧（dry-run）
+node scripts/coconala-blog-delete-draft.mjs --title "【第1回】" --commit    # 消す
+```
+
+公開中の記事は `.c-blogContent_statusDraft` を持たないため**構造的に削除対象にならない**。
+
 ### 5. 目視 → 公開
 
 スクリーンショット（`.tmp/coconala/blog-*.png`）と本文をユーザーに提示し、**公開の可否を確認してから**:

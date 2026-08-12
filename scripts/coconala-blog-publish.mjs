@@ -144,6 +144,30 @@ try {
     console.error(`${TAG} エディタに到達できません（URL=${page.url()}）`); process.exit(3);
   }
 
+  // [1b] 同じタイトルの記事が**既にココナラ側にある**なら止める。
+  //   エディタはオートセーブするので、前回の中断（exit 3）で下書きが残っていることがある。
+  //   気づかず再実行すると同じ記事が2本になり、最悪そのまま二重公開になる（2026-08-12 実装中に多発）。
+  {
+    const listPage = await ctx.newPage();
+    await listPage.goto('https://coconala.com/mypage/blogs', { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    await sleep(3000);
+    const dup = await listPage.evaluate((t) =>
+      [...document.querySelectorAll('.c-blogContent')]
+        .map((r) => ({
+          title: (r.querySelector('.c-blogContent_title')?.innerText || '').trim(),
+          draft: !!r.querySelector('.c-blogContent_statusDraft'),
+        }))
+        .find((r) => r.title.includes(t.slice(0, 20))) ?? null, title);
+    await listPage.close();
+    if (dup) {
+      console.error(`${TAG} 同じタイトルの記事が既にあります（${dup.draft ? '下書き' : '公開中'}）: ${dup.title}`);
+      console.error(`${TAG}   下書きなら削除してから再実行してください:`);
+      console.error(`${TAG}   node scripts/coconala-blog-delete-draft.mjs --title "${title.slice(0, 12)}" --commit`);
+      console.error(`${TAG}   公開中なら frontmatter の blogUrl / status を書き戻すべきです（二重投稿を防ぐため中断）`);
+      process.exit(1);
+    }
+  }
+
   // [2] カバー画像
   if (coverAbs) {
     await page.setInputFiles('input[type=file]', coverAbs).catch((e) => console.log(`${TAG} カバー添付 skip: ${e.message.slice(0, 60)}`));

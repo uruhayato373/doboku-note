@@ -160,6 +160,7 @@
     "check-coconala-wiring": "node scripts/check-coconala-wiring.mjs",
     "check-coconala-orders": "node scripts/check-coconala-orders.mjs",
     "check-coconala-blog": "node scripts/check-coconala-blog.mjs",
+    "coconala-blog-delete-draft": "node scripts/coconala-blog-delete-draft.mjs",
     "check-brain-wiring": "node scripts/check-brain-wiring.mjs",
     "coconala-rate-buyer": "node scripts/coconala-rate-buyer.mjs",
     "coconala-orders": "node scripts/coconala-orders.mjs",
