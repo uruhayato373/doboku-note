@@ -105,8 +105,11 @@ if (existsSync(LOSS)) {
     out.scanned.attachmentLossPending = pend.length;
     if (pend.length) {
       out.due = true;
-      out.reasons.push(`**本文更新で添付を捨てたまま再添付していない記事が ${pend.length} 本**（--allow-attachment-loss の負債）`);
-      for (const x of pend.slice(0, 10)) out.actions.push(`再添付: ${x.noteId}（${x.at?.slice(0, 10)} に ${(x.dropped || []).length} 件を破棄）`);
+      out.reasons.push(`**本文更新で添付が失われたまま再添付していない記事が ${pend.length} 本**` +
+        `（意図的な破棄・復元失敗・日次上限到達のいずれか。live は無傷でもエディタ側は添付削除済み）`);
+      for (const x of pend.slice(0, 10)) {
+        out.actions.push(`再添付: ${x.noteId}（${x.at?.slice(0, 10)}／${x.reason ?? '理由不明'}）`);
+      }
     }
   } catch (e) { out.reasons.push(`添付消失ログが読めない: ${e.message}`); out.due = true; }
 } else { out.scanned.attachmentLossPending = 0; }
