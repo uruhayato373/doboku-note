@@ -154,7 +154,12 @@ try {
   await page.fill('input[placeholder="ブログタイトル"]', title);
   await sleep(500);
 
-  // [4] 本文（段落ごとに insertText。innerHTML 注入はしない）
+  // [4] 本文を2パスで入れる。
+  //     パス1 = 全ブロックを素の段落として流し込む（装飾を一切触らない）
+  //     パス2 = 見出し行だけを DOM Range で選択し直してツールバーの「見出し」を当てる
+  //   1パスで「入力→選択→ツールバー」を交互にやると、ツールバーのクリックで
+  //   contenteditable からフォーカスが外れ、**以降の insertText がどこにも入らない**
+  //   （2026-08-12 実測: 本文が 500/1684 字で切れ、見出しも2個目以降が失敗した）。
   const CE = '[contenteditable="true"]';
   await page.click(CE);
   await sleep(400);
@@ -163,28 +168,100 @@ try {
       await page.keyboard.insertText(b.url);
       await page.keyboard.press('Enter');
       await sleep(2500);      // カード化の変換を待つ
+      // ★`page.click(CE)` でフォーカスを取り直してはいけない。クリック位置にキャレットが
+      //   飛ぶため、以降の段落が**本文の途中に挿入される**（2026-08-12 実測: カード後の
+      //   2段落が「まとめ」より前に入り、字数もカード数も正常なのに順序だけ壊れた）。
+      //   末尾へ確実に移動する。
+      await page.evaluate((sel) => {
+        const ce = document.querySelector(sel);
+        if (!ce) return;
+        ce.focus();
+        const r = document.createRange();
+        r.selectNodeContents(ce);
+        r.collapse(false);
+        const sl = window.getSelection();
+        sl.removeAllRanges();
+        sl.addRange(r);
+      }, CE);
+      await sleep(300);
       continue;
     }
     await page.keyboard.insertText(b.text);
-    if (b.kind === 'heading') {
-      // 直前に入れた行を選択 → 装飾ツールバーの「見出し」
-      await page.keyboard.down('Shift');
-      await page.keyboard.press('Home');
-      await page.keyboard.up('Shift');
-      await sleep(700);
-      const ok = await page.evaluate(() => {
-        const btn = [...document.querySelectorAll('.c-blogEditor_decorationBtn, .c-blogEditor_decorationBtn-first')]
-          .find((e) => /見出し/.test(e.textContent || ''));
-        if (!btn) return false; btn.click(); return true;
-      });
-      if (!ok) console.log(`${TAG} 見出し化できず（素の段落のまま）: ${b.text.slice(0, 20)}`);
-      await page.keyboard.press('End');
-      await sleep(400);
-    }
     await page.keyboard.press('Enter');
     await sleep(250);
   }
   await sleep(1500);
+
+  // パス2: 見出し化
+  const headings = blocks.filter((b) => b.kind === 'heading').map((b) => b.text);
+  const headingResults = [];
+  for (const h of headings) {
+    const selected = await page.evaluate((text) => {
+      const el = [...document.querySelectorAll('.c-blogEditor_base > *')]
+        .find((d) => (d.textContent || '').trim() === text);
+      if (!el) return false;
+      // 画面内に入れてから選択する。浮遊ツールバーは選択位置に出るので、対象が
+      // ビューポート外だとボタンの座標も画面外になり、実マウスクリックが**別の要素に当たる**
+      // （2026-08-12 実測: 画面外座標をクリックしてページ遷移が起きた）。
+      el.scrollIntoView({ block: 'center' });
+      const range = document.createRange();
+      range.selectNodeContents(el);
+      const sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      el.dispatchEvent(new MouseEvent('mouseup', { bubbles: true }));
+      document.dispatchEvent(new Event('selectionchange'));
+      return true;
+    }, h);
+    if (!selected) { headingResults.push({ h, ok: false, why: '行が見つからない' }); continue; }
+    await sleep(900);   // 装飾ツールバーの浮上を待つ
+    // ★ボタンは非表示でも DOM に存在するので、まず可視性を確かめる（隠れたボタンへの
+    //   `el.click()` は何も起きないのに成功を返す＝2026-08-12 実測の偽成功）。
+    //   さらに **JS の click() では書式が当たらない**（Vue が実ポインタイベントを見ている）ので、
+    //   座標を取って `page.mouse.click` で本物のクリックを送る。
+    const rect = await page.evaluate(() => {
+      // ★`.c-blogEditor_decorationBtn` は **4ボタンを包むコンテナ**（textContent は
+      //   「見出し 太字 位置 引用」）。テキスト一致で拾うとコンテナが先に当たり、
+      //   その中心をクリックすると3番目の「位置」が押される（2026-08-12 実測で
+      //   5行が c-blogBody_center になった）。見出しは `-first` の個別ボタン。
+      const btn = document.querySelector('.c-blogEditor_decorationBtn-first');
+      if (!btn || !/見出し/.test(btn.textContent || '')) return null;
+      const r = btn.getBoundingClientRect();
+      const cs = getComputedStyle(btn);
+      if (r.width === 0 || cs.visibility === 'hidden' || cs.display === 'none') return null;
+      const x = r.x + r.width / 2, y = r.y + r.height / 2;
+      // ビューポート内に無い座標は押さない（別要素に当たって遷移する）
+      if (x < 0 || y < 0 || x > innerWidth || y > innerHeight) return { offscreen: true, x, y };
+      return { x, y };
+    });
+    let clicked = 'ツールバーが出ない（選択が効いていない）';
+    if (rect?.offscreen) clicked = `ツールバーが画面外 (${Math.round(rect.x)},${Math.round(rect.y)})`;
+    else if (rect) { await page.mouse.click(rect.x, rect.y); clicked = 'clicked(mouse)'; }
+    headingResults.push({ h, clicked });
+    await sleep(800);
+  }
+  // ★クリックしたかではなく **DOM が変わったか** で判定する。判定は全件を当て終えてから
+  //   まとめて採る（1件ずつ直後に見ると Vue の反映が間に合わず「未適用」と誤報する）。
+  await sleep(1200);
+  const headingState = await page.evaluate((texts) => {
+    // ★見出し化すると要素が **div ではなくなる**（`h2.c-blogBody_h2`）。
+    //   `> div` で探すと h2 が5個できているのに「行が見つからない」になる（2026-08-12 実測）。
+    //   タグを限定せず `> *` で探し、テキストは空白差を吸収して比較する。
+    const norm = (x) => (x || '').replace(/[\s\u00a0]+/g, '');
+    return texts.map((t) => {
+      const el = [...document.querySelectorAll('.c-blogEditor_base > *')]
+        .find((d) => norm(d.textContent) === norm(t));
+      return { t, cls: el ? (el.className || '').toString() : null };
+    });
+  }, headings);
+  const appliedSet = new Set(headingState.filter((s) => s.cls && !/(^|\s)c-blogBody_text(\s|$)/.test(s.cls)).map((s) => s.t));
+  for (const r of headingResults) r.ok = appliedSet.has(r.h);
+  const headingOk = headingResults.filter((r) => r.ok).length;
+  console.log(`${TAG} 見出し適用 ${headingOk}/${headings.length}（クリック数ではなく DOM 実測）`);
+  for (const r of headingResults.filter((x) => !x.ok)) {
+    const st = headingState.find((s) => s.t === r.h);
+    console.log(`${TAG}   × ${r.h.slice(0, 24)}（${r.clicked} / class=${st?.cls ?? '行が見つからない'}）`);
+  }
 
   // [5] 反映の実測（入力できたつもりで空、を防ぐ）
   const filled = await page.evaluate((sel) => {
@@ -192,12 +269,48 @@ try {
     return {
       text: (ce?.innerText || '').replace(/\s/g, '').length,
       cards: document.querySelectorAll('.c-blogBody_service').length,
-      headings: document.querySelectorAll('.c-blogBody_heading, .c-blogBody_text h2, .c-blogBody_text h3').length,
+      // 見出し化後の要素クラスは実機未確定なので、**子要素のクラス分布をそのまま出す**
+      // （推測したセレクタで 0 件を返し「見出しが無い」と誤報するより、実物を見せる）
+      blockClasses: [...(document.querySelector(sel)?.children ?? [])]
+        .reduce((acc, el) => { const c = el.className || '(no-class)'; acc[c] = (acc[c] || 0) + 1; return acc; }, {}),
     };
   }, CE);
   const wantLen = blocks.filter((b) => b.kind !== 'service').reduce((n, b) => n + b.text.replace(/\s/g, '').length, 0);
   const ratio = wantLen ? filled.text / wantLen : 1;
   console.log(`${TAG} 反映実測: 本文 ${filled.text}/${wantLen} 字（${(ratio * 100).toFixed(0)}%）・カード ${filled.cards} 枚`);
+  console.log(`${TAG} ブロック構成: ${JSON.stringify(filled.blockClasses)}`);
+
+  // [5b] **順序**の実測。字数とカード枚数が合っていても順序が壊れることがある
+  //      （キャレットが本文の途中に飛ぶと段落がそこへ挿入される）。原稿の並びと突き合わせる。
+  const domOrder = await page.evaluate((sel) =>
+    [...(document.querySelector(sel)?.children ?? [])]
+      .map((el) => el.classList.contains('c-blogBody_service')
+        ? '\u0000CARD'
+        : (el.textContent || '').replace(/[\s\u00a0]+/g, ''))
+      .filter((t) => t.length), CE);
+  const wantOrder = blocks.map((b) => b.kind === 'service' ? '\u0000CARD' : b.text.replace(/[\s\u00a0]+/g, ''));
+  const firstMismatch = wantOrder.findIndex((w, i) => (domOrder[i] ?? '').slice(0, 24) !== w.slice(0, 24));
+  if (firstMismatch >= 0) {
+    await page.screenshot({ path: shot(`blog-order-${SLUG}.png`) }).catch(() => {});
+    console.error(`${TAG} ブロックの順序が原稿と違います（${firstMismatch + 1} 番目）`);
+    console.error(`${TAG}   原稿: ${wantOrder[firstMismatch].slice(0, 40)}`);
+    console.error(`${TAG}   実機: ${(domOrder[firstMismatch] ?? '(無し)').slice(0, 40)}`);
+    process.exit(3);
+  }
+  console.log(`${TAG} 順序一致: ${wantOrder.length} ブロック`);
+  // 見出しは**まだ自動化できていない**（浮遊ツールバーが Playwright の選択操作では安定して出ない・
+  // operations.md §9.4 の未解決事項）。ここで中断すると下書きすら入らないので、
+  // 中断はせず**未適用であることを明示**して運用者に手作業を促す。公開前に必ず目視すること。
+  if (headings.length && headingOk < headings.length) {
+    await page.screenshot({ path: shot(`blog-heading-${SLUG}.png`) }).catch(() => {});
+    console.log(`${TAG} ※見出しは ${headings.length - headingOk} 個が未適用です（本文は入っています）。`);
+    console.log(`${TAG}   公開前にエディタで該当行を選択し、浮遊ツールバーの「見出し」を手で当ててください:`);
+    for (const r of headingResults.filter((x) => !x.ok)) console.log(`${TAG}     - ${r.h}`);
+    if (COMMIT) {
+      console.error(`${TAG} 見出し未適用のまま --commit はしません（目次が付かず構成が崩れるため）`);
+      process.exit(3);
+    }
+  }
   const wantCards = blocks.filter((b) => b.kind === 'service').length;
   if (ratio < 0.9) {
     await page.screenshot({ path: shot(`blog-short-${SLUG}.png`) }).catch(() => {});
