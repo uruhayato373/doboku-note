@@ -1,0 +1,335 @@
+{
+  "schemaVersion": 1,
+  "month": "2026-09",
+  "timezone": "Asia/Tokyo",
+  "status": "draft-plan",
+  "examCalendar": ".claude/config/exam-calendar.json",
+  "policy": ".claude/knowledge/reference/x-post-policy.md",
+  "strategy": {
+    "cadence": "1日1本",
+    "primaryExam": "civil-1",
+    "note": "1級二次(10/4)の直前月。ココナラ送客は8月の2本→6本へ増やし、うち4本を実売実績のある C8 予想模試(4317886)・C11 フルパック(4341188) へ張る（受注ログ: C8 初受注 8/4 → 同一購入者が ¥7,500 リピート 8/6。S1/S2 は実売0のため各1本に留める）。",
+    "mix": {
+      "civil-1": 22,
+      "civil-2": 7,
+      "civil-1+2": 1
+    },
+    "funnelMix": {
+      "site": 15,
+      "linkless": 4,
+      "note": 4,
+      "coconala": 6,
+      "brain": 1
+    },
+    "rules": [
+      "販売投稿を連続させない",
+      "同一URLを週2回以上使わない",
+      "商品名より先に読者の悩みと得られる結果を書く",
+      "短文は280 weighted以下、URLは1本まで",
+      "予約前にx-post-qa、check-x-length、check-sns-urls、x-schedule-guardを通す",
+      "実績の言及は真実のみ（購入者レビューはまだ無いので書かない）"
+    ]
+  },
+  "posts": [
+    {
+      "date": "2026-09-01",
+      "time": "07:40",
+      "exam": "civil-1",
+      "type": "学習設計",
+      "topic": "10/4まで残り33日。9月の優先順位は経験記述の完成→学科記述の順",
+      "funnel": "site",
+      "target": "https://doboku-note.com/docs/civil-construction-1-secondary-getting-started?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep01-start",
+      "image": true
+    },
+    {
+      "date": "2026-09-02",
+      "time": "20:10",
+      "exam": "civil-1",
+      "type": "教材適合",
+      "topic": "対策を一式そろえて9月を始める（実績: 購入者の追加注文あり）",
+      "funnel": "coconala",
+      "target": "https://coconala.com/services/4341188",
+      "image": true
+    },
+    {
+      "date": "2026-09-03",
+      "time": "08:15",
+      "exam": "civil-2",
+      "type": "過去問",
+      "topic": "2級 R7 の実出題から後期の準備範囲を読む",
+      "funnel": "site",
+      "target": "https://doboku-note.com/docs/civil-construction-2-secondary-r07?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep03-r07",
+      "image": true
+    },
+    {
+      "date": "2026-09-04",
+      "time": "19:50",
+      "exam": "civil-1",
+      "type": "教材適合",
+      "topic": "5管理×2テーマの組合せ10通りを先回りする",
+      "funnel": "note",
+      "target": "https://note.com/dobokunote/m/m74cfd7c695d6?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep04-combo",
+      "image": true
+    },
+    {
+      "date": "2026-09-05",
+      "time": "09:20",
+      "exam": "civil-1",
+      "type": "週間チェック",
+      "topic": "経験記述の設問1、工事概要を口頭で1分で言えるか",
+      "funnel": "linkless",
+      "target": null,
+      "image": false
+    },
+    {
+      "date": "2026-09-06",
+      "time": "20:30",
+      "exam": "civil-1",
+      "type": "構造分解",
+      "topic": "完成答案例から「課題→検討→対策→結果」の型を逆算する",
+      "funnel": "site",
+      "target": "https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-examples?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep06-examples",
+      "image": true
+    },
+    {
+      "date": "2026-09-07",
+      "time": "08:05",
+      "exam": "civil-1",
+      "type": "個別支援",
+      "topic": "書き上げた答案の弱点を発注者目線で赤入れ",
+      "funnel": "coconala",
+      "target": "https://coconala.com/services/4317375",
+      "image": false
+    },
+    {
+      "date": "2026-09-08",
+      "time": "19:45",
+      "exam": "civil-2",
+      "type": "構造分解",
+      "topic": "2級の答案例で分量配分を確認する",
+      "funnel": "site",
+      "target": "https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-examples?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep08-examples",
+      "image": true
+    },
+    {
+      "date": "2026-09-09",
+      "time": "07:50",
+      "exam": "civil-1",
+      "type": "過去問",
+      "topic": "コンクリートの学科記述、過去の問われ方は3系統",
+      "funnel": "site",
+      "target": "https://doboku-note.com/docs/civil-construction-1-secondary-concrete-past-problems?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep09-concrete",
+      "image": true
+    },
+    {
+      "date": "2026-09-10",
+      "time": "20:20",
+      "exam": "civil-2",
+      "type": "教材適合",
+      "topic": "自分の工事に近い例を36工種から探す",
+      "funnel": "note",
+      "target": "https://note.com/dobokunote/m/m8554e87ca6ec?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep10-koji",
+      "image": true
+    },
+    {
+      "date": "2026-09-11",
+      "time": "08:25",
+      "exam": "civil-1",
+      "type": "過去問",
+      "topic": "R7 の実出題を1年分通しで読む",
+      "funnel": "site",
+      "target": "https://doboku-note.com/docs/civil-construction-1-secondary-r07?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep11-r07",
+      "image": true
+    },
+    {
+      "date": "2026-09-12",
+      "time": "09:35",
+      "exam": "civil-2",
+      "type": "週間チェック",
+      "topic": "選んだ工事の数量・工期を記録と突き合わせたか",
+      "funnel": "linkless",
+      "target": null,
+      "image": false
+    },
+    {
+      "date": "2026-09-13",
+      "time": "19:40",
+      "exam": "civil-1",
+      "type": "模試",
+      "topic": "本番形式で1回通す。時間切れの箇所が今の弱点（初受注いただいた模試）",
+      "funnel": "coconala",
+      "target": "https://coconala.com/services/4317886",
+      "image": true
+    },
+    {
+      "date": "2026-09-14",
+      "time": "07:45",
+      "exam": "civil-1",
+      "type": "要点圧縮",
+      "topic": "品質管理は基準値と実測値の対比が核",
+      "funnel": "site",
+      "target": "https://doboku-note.com/docs/civil-construction-1-secondary-quality-management-basics?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep14-quality",
+      "image": true
+    },
+    {
+      "date": "2026-09-15",
+      "time": "20:00",
+      "exam": "civil-1",
+      "type": "要点圧縮",
+      "topic": "施工計画は条件→制約→工法→理由の順",
+      "funnel": "site",
+      "target": "https://doboku-note.com/docs/civil-construction-1-secondary-construction-plan-basics?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep15-plan",
+      "image": true
+    },
+    {
+      "date": "2026-09-16",
+      "time": "19:55",
+      "exam": "civil-2",
+      "type": "教材適合",
+      "topic": "品質・安全・工程の3答案を並べて差分を見る",
+      "funnel": "note",
+      "target": "https://note.com/dobokunote/m/m1881a9578027?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep16-answers",
+      "image": true
+    },
+    {
+      "date": "2026-09-17",
+      "time": "08:10",
+      "exam": "civil-1",
+      "type": "要点圧縮",
+      "topic": "土工は施工条件から対策が必然で出る書き方",
+      "funnel": "site",
+      "target": "https://doboku-note.com/docs/civil-construction-1-secondary-earthwork-basics?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep17-earth",
+      "image": true
+    },
+    {
+      "date": "2026-09-18",
+      "time": "09:15",
+      "exam": "civil-1",
+      "type": "週間チェック",
+      "topic": "2テーマ目の答案、1テーマ目と工事概要が矛盾していないか",
+      "funnel": "linkless",
+      "target": null,
+      "image": false
+    },
+    {
+      "date": "2026-09-19",
+      "time": "20:15",
+      "exam": "civil-1",
+      "type": "個別支援",
+      "topic": "出す前に減点箇所だけ知りたい人向けの診断",
+      "funnel": "coconala",
+      "target": "https://coconala.com/services/4317349",
+      "image": false
+    },
+    {
+      "date": "2026-09-20",
+      "time": "08:30",
+      "exam": "civil-2",
+      "type": "過去問",
+      "topic": "2級 R6 新形式の出題を確認",
+      "funnel": "site",
+      "target": "https://doboku-note.com/docs/civil-construction-2-secondary-r06?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep20-r06",
+      "image": true
+    },
+    {
+      "date": "2026-09-21",
+      "time": "19:50",
+      "exam": "civil-1",
+      "type": "過去問",
+      "topic": "R5 の学科記述から頻出の問われ方を拾う",
+      "funnel": "site",
+      "target": "https://doboku-note.com/docs/civil-construction-1-secondary-r05?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep21-r05",
+      "image": true
+    },
+    {
+      "date": "2026-09-22",
+      "time": "20:25",
+      "exam": "civil-1+2",
+      "type": "AI活用",
+      "topic": "AIに書かせず、不足情報で止まる使い方",
+      "funnel": "brain",
+      "target": "https://brain-market.com/a/b5EDO3UjMgoTZsNWa0JXY",
+      "image": true
+    },
+    {
+      "date": "2026-09-23",
+      "time": "07:55",
+      "exam": "civil-1",
+      "type": "要点圧縮",
+      "topic": "安全管理は「何を予見して何を消したか」を書く",
+      "funnel": "site",
+      "target": "https://doboku-note.com/docs/civil-construction-1-guide-safety-management?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep23-safety",
+      "image": true
+    },
+    {
+      "date": "2026-09-24",
+      "time": "19:45",
+      "exam": "civil-1",
+      "type": "教材適合",
+      "topic": "直前2週間の攻め所を日割りで決める（追加注文いただいた教材セット）",
+      "funnel": "coconala",
+      "target": "https://coconala.com/services/4341188",
+      "image": true
+    },
+    {
+      "date": "2026-09-25",
+      "time": "08:20",
+      "exam": "civil-1",
+      "type": "要点圧縮",
+      "topic": "コンクリートの基礎知識を答案語彙に変換する",
+      "funnel": "site",
+      "target": "https://doboku-note.com/docs/civil-construction-1-secondary-concrete-basics?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep25-concrete",
+      "image": true
+    },
+    {
+      "date": "2026-09-26",
+      "time": "09:30",
+      "exam": "civil-2",
+      "type": "週間チェック",
+      "topic": "後期一次と二次、10/25 同日の時間配分を決めたか",
+      "funnel": "linkless",
+      "target": null,
+      "image": false
+    },
+    {
+      "date": "2026-09-27",
+      "time": "19:40",
+      "exam": "civil-1",
+      "type": "模試",
+      "topic": "残り1週間。模試で最終確認して弱点だけ潰す",
+      "funnel": "coconala",
+      "target": "https://coconala.com/services/4317886",
+      "image": true
+    },
+    {
+      "date": "2026-09-28",
+      "time": "07:50",
+      "exam": "civil-1",
+      "type": "直前",
+      "topic": "試験週の過ごし方。新しい教材を開かない",
+      "funnel": "site",
+      "target": "https://doboku-note.com/docs/civil-construction-1-guide-last-minute-2026?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep28-lastweek",
+      "image": true
+    },
+    {
+      "date": "2026-09-29",
+      "time": "20:05",
+      "exam": "civil-1",
+      "type": "過去問",
+      "topic": "R4 を最後の総ざらいに使う",
+      "funnel": "site",
+      "target": "https://doboku-note.com/docs/civil-construction-1-secondary-r04?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep29-r04",
+      "image": true
+    },
+    {
+      "date": "2026-09-30",
+      "time": "19:50",
+      "exam": "civil-1",
+      "type": "教材適合",
+      "topic": "前日は組合せ10通りの棚卸しだけ",
+      "funnel": "note",
+      "target": "https://note.com/dobokunote/m/m74cfd7c695d6?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep30-combo",
+      "image": false
+    }
+  ]
+}
