@@ -130,6 +130,14 @@ if [ -f scripts/check-coconala-orders.mjs ]; then
   fi
 fi
 
+# ココナラブログ記事のハードゲート（2026-08-12。外部リンク1本でアカウント制限になりうるので commit 時点で止める）
+if [ -f scripts/check-coconala-blog.mjs ]; then
+  node scripts/check-coconala-blog.mjs --staged
+  if [ $? -eq 1 ]; then
+    exit 1
+  fi
+fi
+
 # Brain カタログ(brain-products.ts)↔listings↔dist の配線ドリフト検証（2026-07-22。スクリプトが無いブランチではスキップ＝並行セッション安全）
 if [ -f scripts/check-brain-wiring.mjs ]; then
   node scripts/check-brain-wiring.mjs --staged
