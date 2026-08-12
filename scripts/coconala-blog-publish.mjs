@@ -462,7 +462,10 @@ try {
 
     // [11] frontmatter 書き戻し
     if (exitCode === 0) {
-      writeBackFm({ blogUrl: liveUrl, blogId, status: 'published', publishedAt: new Date().toISOString().slice(0, 10) });
+      // ココナラの公開日時は JST。UTC の toISOString だと JST 09:00 前の公開が前日付になり、
+      // 「1日1本まで」の運用判断がズレる（2026-08-13 07:38 JST 公開が 2026-08-12 と記録された）。
+      const jstDate = new Date(Date.now() + 9 * 60 * 60 * 1000).toISOString().slice(0, 10);
+      writeBackFm({ blogUrl: liveUrl, blogId, status: 'published', publishedAt: jstDate });
       console.log(`${TAG} frontmatter 書き戻し完了`);
     } else {
       console.log(`${TAG} 検証が通っていないので frontmatter は書き戻しません（status は draft のまま）`);
