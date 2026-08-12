@@ -66,6 +66,8 @@ model: sonnet
 - QA/有料オプション/画像の自動投入（`/coconala-publish` v1 未対応）→ 公開後にココナラ UI で手動
 - note 側の操作（価格変更・マガジン収録） → `note-operator` / `note-membership-operator`
 - 売上の月次集計 → `sales-recorder`（`/record-sales`）
+- **ココナラブログ**（記事の執筆・採点・公開） → `/coconala-blog`（`coconala-blog-writer` / `coconala-blog-qa`・
+  真実源 `coconala-blog-policy.md`）。本エージェントは出品と受注が対象で、ブログには触れない
 
 ## 実行手順
 
