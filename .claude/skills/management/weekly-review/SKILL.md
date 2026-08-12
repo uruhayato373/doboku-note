@@ -62,6 +62,28 @@ description: >
   `anyDue` が true なら理由（`reasons`）をそのまま列挙する。
 - GA4 管理画面 設定ドリフト: `npm run check-ga4-dimensions -- --json` を実行（オフライン。desired state ↔ 最後の実機観測の突合・creds不要）。
   `blockingMissing` が非空なら、そのあいだ **プログラム別 EPC / 配置別 CTR が CI で黙って欠測している**ので必ず surface する。
+- **note の商品が購入者に届いているか（最重要）**: `npm run check-note-delivery-due -- --json`
+  （オフライン・committed state 参照・creds不要）。`missingPromised` が 1 以上なら
+  **本文でPDFを約束しているのにライブに添付が無い＝購入者が受け取れない**状態なので、
+  他の何より先に出す。`ageDays` が 14 を超えていたら「静か」ではなく**実査していない**。
+  再実査は `npm run check-note-attachments:live`（ローカル・要ログイン・約15分）。
+  `attachmentLossPending` が 1 以上なら、**本文更新で添付を捨てたまま再添付していない**記事がある
+  （`--allow-attachment-loss` の負債）。実査は手動なので最大14日気づけない穴を、捨てた瞬間の記録で埋めている。
+  ※有料エリアの添付は未ログイン HTML に出ないため CI では原理的に検査できない。
+  だからこそ「回し忘れ」を週次で拾う（2026-08-11 の事故＝購入者からの指摘で発覚した再発防止）。
+- **ココナラブログの健全性**: `npm run check-coconala-blog -- --json`（オフライン・`docs/coconala-blog/**` を読む・creds不要）。
+  見るのは2つ。①**公開済み記事の送客先が `listed` から外れていないか**（出品を休止/廃止すると
+  「買えないページへ送る記事」が公開されたまま残るが、記事側を触っていないので pre-commit では永久に出ない）
+  ②下書きの放置（30日超）。`target` が 0 のときは「異常なし」ではなく**未着手**として区別して書く。
+- **ココナラの取引・評価**: `npm run check-coconala-orders -- --json`（オフライン・committed snapshot 参照・creds不要）。
+  `actions[]` をそのまま列挙する。特に **`評価未送信`** は放置すると期限（取引完了から概ね2週間）を過ぎて
+  **こちらの評価が永久に公開されない**。ココナラの取引通知・評価依頼は出品アカウントの登録アドレス
+  `dobokunotecom@gmail.com` にしか届かず、Gmail コネクタが繋がっている `uruhayato373` 側には**1通も来ない**ので、
+  メールでは気づけない（2026-08-11 実査）。`scanned.ratings` が 0 なら「静か」ではなく**検査対象ゼロ**を疑う。
+  `snapshotAgeDays` が大きければ実体が古い＝次セッションで `npm run coconala-orders`（Playwright・ローカル限定）。
+  **クラウド週次では snapshot が古いのが常態**（再取得はローカル作業のため）。その場合 `inconclusive:true` と
+  理由が返るので、`actions` が空でも**「実体が検査不成立」として必ず surface する**（静かなのは
+  「問題が無い」ではなく「見ていない」）。
 - **実験サイクルの期限**: `npm run check-experiment-due -- --json`（オフライン・`experiments.json` 参照）。
   これが「計測→記録→改善→**再計測**」の最後の輪。`due[]` の MEASURE_DUE / CLOSE_DUE / PENDING /
   NO_BASELINE をそのまま列挙する。改善を打って再計測されていない実験は学びが台帳に入らず
@@ -90,6 +112,11 @@ description: >
 - 「競合再スキャン DUE」（`check-competitor-scan-due` が due のときのみ）
 - 「GSC/GA4 UI 取得 DUE（月次）」（`check-gsc-ui-due` の `anyDue` が true のときのみ・理由つき・→ 次セッションで `/google-search-growth`）
 - 「GA4 設定ドリフト」（`check-ga4-dimensions` が blockingMissing を返したときのみ・→ 次セッションで `npm run ga4-admin:apply`）
+- 「**note 未着 N 本（購入者が受け取れない）**」（`check-note-delivery-due` の `missingPromised` > 0 のときのみ・**レポート最上段に置く**・→ `npm run check-note-attachments:live` で再実査し `note-attach-file` で添付）
+- 「note 添付実査 DUE」（`check-note-delivery-due` の `ageDays` > 14 のときのみ）
+- 「ココナラ 評価未送信 / 要対応」（`check-coconala-orders` の `actions[]` が空でないときのみ・→ 評価は `npm run coconala-rate-buyer`、実体の採り直しは `npm run coconala-orders`）
+- 「ココナラ 実体が検査不成立」（`check-coconala-orders` が `inconclusive:true` のときのみ・理由つき・→ 次セッションで `npm run coconala-orders`）
+- 「ココナラブログ 送客先が販売中でない / 下書き放置」（`check-coconala-blog` の `violations[]`・`warnings[]` が空でないときのみ・→ 記事の `funnel` 修正か出品の再開）
 - 「実験の再計測 DUE」（`check-experiment-due` の dueCount > 0 のときのみ・id と理由つき・→ `/nsm-experiment measure <id>`）
 - 「壊れた内部リンク」（`check-internal-links-vs-gsc` が ERROR を返したときのみ）
 - 「A8 成果取込 DUE（月次）」（`check-a8-report-due` が due のときのみ・→ 次セッションで `/a8-report`）
@@ -552,5 +579,8 @@ B. 実験進捗レポート:
 - `.claude/skills/analytics/fetch-gsc-data/scripts/fetch-gsc-data.mjs` — GSC 個別取得（ページ別・フィルタ付き）
 - `.claude/scripts/fetch-ga4-data.mjs` — GA4 個別取得（ディメンション・メトリクス指定）
 - `scripts/check-experiment-due.mjs` — 実験の再計測/close 期限 surfacer（`npm run check-experiment-due`）
+- `scripts/check-note-delivery-due.mjs` — **note の商品が購入者に届いているか**の surfacer（`npm run check-note-delivery-due -- --json`）
+- `scripts/check-coconala-orders.mjs` — ココナラ取引の突合＋**評価未送信/期限切迫** surfacer（`npm run check-coconala-orders -- --json`）
+- `scripts/check-coconala-blog.mjs` — ココナラブログのハードゲート＋**送客先ドリフト** surfacer（`npm run check-coconala-blog -- --json`）
 - `scripts/check-internal-links-vs-gsc.mjs` — 公開ページ→404/リダイレクト URL の内部リンク検査（`npm run check-internal-links-vs-gsc`）
 - `.claude/skills/management/nsm-experiment/references/definition.md` — NSM 定義の真実源

@@ -49,7 +49,7 @@ const NOTE_ONLY_HEADING = /^#{2,6}\s*印刷用PDF/;
  * URL 行だけを消すと**宣伝文だけが宙に浮く**（2026-08-06 実測）。
  * 文面は author-authority-banner.md の SSOT 由来の固定文なので直接マッチしてよい。
  */
-const AUTHOR_BANNER = /!\[[^\]]*\]\([^)]*figure-author-authority[^)]*\)|上位資格の分析力[・･]発注者の採点眼/;
+const AUTHOR_BANNER = /!\[[^\]]*\]\([^)]*figure-author-authority[^)]*\)|上位資格の分析力[・･]発注者として書類を評価してきた目/;
 
 /** 見出し(#…)か、単独行の太字ラベル(**…**)か */
 function labelLevel(line) {

@@ -12,7 +12,7 @@ const CATEGORIES = [
   { value: "civil-construction-1", label: "1級土木施工管理技士" },
   { value: "civil-construction-2", label: "2級土木施工管理技士" },
   { value: "pe-comprehensive-management", label: "技術士（総合技術監理部門）" },
-  { value: "concrete-chief-engineer", label: "コンクリート主任技師" },
+  { value: "concrete-chief-engineer", label: "コンクリート主任技士" },
   { value: "concrete-diagnostician", label: "コンクリート診断士" },
 ];
 

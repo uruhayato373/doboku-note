@@ -90,6 +90,19 @@ for (const [i, j] of batch.entries()) {
     ok++; consecutiveUploadFail = 0;
     done.attached.push({ noteId: j.noteId, pdf: j.pdf, at: measuredAt });
     writeFileSync(DONE, JSON.stringify(done, null, 2) + '\n');   // 1件ごとに永続化（途中で落ちても再開できる）
+    // --allow-attachment-loss で捨てた負債があれば、再添付できた時点で消す（放置検知の解除）。
+    try {
+      const LOSS = join(ROOT, '.claude/state/note-attachment-loss.json');
+      if (existsSync(LOSS)) {
+        const l = JSON.parse(readFileSync(LOSS, 'utf8'));
+        const before = (l.pending || []).length;
+        l.pending = (l.pending || []).filter((x) => x.noteId !== j.noteId);
+        if (l.pending.length !== before) {
+          writeFileSync(LOSS, JSON.stringify(l, null, 2) + '\n');
+          console.log(`  ✓ 添付消失の負債を解消: ${j.noteId}`);
+        }
+      }
+    } catch {}
     console.log(`  ✓ 添付＋ライブ実測OK`);
   } else {
     fail++;

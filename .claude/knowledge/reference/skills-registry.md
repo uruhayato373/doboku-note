@@ -21,7 +21,7 @@ title: スキル ガバナンス記録
 ├── authoring/       # 11 — 記事を作る
 ├── conversion/      # 7 — 形式変換（MDX / OGP 画像 / 紙用 PDF / Kindle EPUB）＋ KDP 入稿・出版 ＋ OGP 意匠の素案試作
 ├── quality/         # 16 — MDX・note 公開前品質検査
-├── management/      # 21 — 計画・分析・戦略
+├── management/      # 22 — 計画・分析・戦略
 ├── dev/             # 13 — 開発・CI/CD
 ├── analytics/       # 2 — サイト分析
 ├── social/          # 22 — SNS 投稿

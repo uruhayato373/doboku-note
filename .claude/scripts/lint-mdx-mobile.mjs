@@ -923,7 +923,7 @@ function isExamArchive(filePath) {
   if (/[\\\/](?:r|h)\d{2}-(?:primary|secondary|essay)/.test(filePath)) return true;
   // Civil 形式: primary-r05-a/, primary-h28-b/, secondary-r03/, secondary-concrete-past-problems/
   if (/civil-construction-1[\\\/](?:primary|secondary)-/.test(filePath)) return true;
-  // コンクリート主任技師 形式: 分野別過去問 primary-materials/, primary-construction/ 等
+  // コンクリート主任技士 形式: 分野別過去問 primary-materials/, primary-construction/ 等
   if (/concrete-chief-engineer[\\\/]primary-/.test(filePath)) return true;
   // コンクリート診断士 形式: 分野別過去問 primary-deterioration/, primary-investigation/ 等
   if (/concrete-diagnostician[\\\/]primary-/.test(filePath)) return true;

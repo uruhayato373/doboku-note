@@ -102,9 +102,13 @@ const SERVICES_RAW = {
   //   価格競争が存在しないため ¥1,500 据え置き。
   'coconala-shindan': {
     id: 'coconala-shindan',
-    status: 'paused',
+    status: 'listed',
     serviceUrl: 'https://coconala.com/services/4317349',
-    title: '土木施工管理の経験記述を採点者目線で診断します',
+    // 2026-08-12: 「採点者目線」→「発注者目線」。運営者は発注者（審査する側）であって
+    // 試験の採点者ではない（author-authority-banner.md の 2026-08-11 訂正と整合）。
+    // ブログのサービスカードは本タイトルをそのまま描画するため、記事本文の
+    // 「発注者＝審査する側」と真下で矛盾していた。
+    title: '土木施工管理の経験記述を発注者目線で診断します',
     shortTitle: '経験記述 合格診断',
     description:
       '1級・2級土木施工管理技士 第2次検定の施工経験記述（問題1）の下書き1テーマ分を、元自治体土木（発注者側）の目で診断。合格可能性の A/B/C 判定＋減点ポイント ワースト3＋字数チェックを返却する。診断のみで書き換え文は提供しない（書き換え案は添削サービスの担当）。',
@@ -112,8 +116,6 @@ const SERVICES_RAW = {
     priceYen: 1500,
     examScope: ['civil-1', 'civil-2'],
     weeklyCapacity: 5,
-    pauseReason: 'absence',
-    resumeOn: '2026-08-17',
     listedAt: '2026-07-18',
   },
 
@@ -125,18 +127,16 @@ const SERVICES_RAW = {
   // 価格改定時は priceYen と price の両方＋ココナラ展開キット.md §2 の価格表を同時更新する。
   'coconala-tensaku-set': {
     id: 'coconala-tensaku-set',
-    status: 'paused',
+    status: 'listed',
     serviceUrl: 'https://coconala.com/services/4317375',
     title: '土木施工管理の経験記述を発注者目線で添削します',
     shortTitle: '経験記述 添削（2テーマセット）',
     description:
-      '1級・2級土木施工管理技士 第2次検定の施工経験記述（問題1）を令和6年度からの新形式（2テーマ必答）に対応して添削。2テーマ分の赤入れ（NG→OK 書き換え案）＋6観点のチェックリスト判定表＋採点者視点のコメント＋書き直し1回を含む。ゼロからの答案作成は「答案作成」サービスで承ります（経験していない工事の答案作成＝捏造はお受けしません）。',
+      '1級・2級土木施工管理技士 第2次検定の施工経験記述（問題1）を令和6年度からの新形式（2テーマ必答）に対応して添削。2テーマ分の赤入れ（NG→OK 書き換え案）＋6観点のチェックリスト判定表＋読み手視点のコメント＋書き直し1回を含む。ゼロからの答案作成は「答案作成」サービスで承ります（経験していない工事の答案作成＝捏造はお受けしません）。',
     price: '¥6,000（2テーマセット・書き直し1回込み）',
     priceYen: 6000,
     examScope: ['civil-1', 'civil-2'],
     weeklyCapacity: 3,
-    pauseReason: 'absence',
-    resumeOn: '2026-08-17',
     listedAt: '2026-07-18',
   },
 
@@ -145,7 +145,7 @@ const SERVICES_RAW = {
   //   ¥8,000（控えめ・実売帯下端で初速重視）→評価20件で¥12,000〜16,000。作成は添削より重いので週2枠。
   'coconala-sakusei': {
     id: 'coconala-sakusei',
-    status: 'paused',
+    status: 'listed',
     serviceUrl: 'https://coconala.com/services/4317796',
     title: '土木施工管理の経験記述をヒアリングで作成します',
     shortTitle: '経験記述 答案作成（ヒアリング→文章化）',
@@ -155,9 +155,30 @@ const SERVICES_RAW = {
     priceYen: 8000,
     examScope: ['civil-1', 'civil-2'],
     weeklyCapacity: 2,
-    pauseReason: 'absence',
-    resumeOn: '2026-08-17',
     listedAt: '2026-07-18',
+  },
+
+  // S3+: 答案作成の上位版（4テーマ・2026-08-12 出品決定）。ちゃんさとは設問数に線形な2段構え
+  //   （作成代行 2問¥16,000×124件／4問¥32,000×132件）で、当方は下段しか無かった。¥16,000＝
+  //   2テーマ版のちょうど2倍・ちゃんさとの半額。売りは「倍の分量」ではなく**出題ガチャへの保険**
+  //   （本試験は5管理から2テーマが当日指定される。4テーマ備えればどの2つが出ても手持ちで戦える）。
+  //   元の起票条件は「評価が付いたら追加」だったが、売れなくても S3 ¥8,000 を安く見せる
+  //   **価格アンカー**として機能するため前倒し（ユーザー決定）。作成4テーマは最重量なので週1枠。
+  //   運用: ヒアリングシートを2回分（4テーマ）受領し `/keiken-tensaku --mode sakusei` を
+  //   2テーマずつ2回実行（コード変更なし・展開キット §4b）。
+  'coconala-sakusei-4theme': {
+    id: 'coconala-sakusei-4theme',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4350199',
+    title: '土木施工管理の経験記述を4テーマ分作成します',
+    shortTitle: '経験記述 答案作成 4テーマ（出題保険つき備え）',
+    description:
+      '1級・2級土木施工管理技士 第2次検定の施工経験記述（問題1）を、質問シート（ヒアリング）へのご回答をもとに4テーマ分の答案にまとめる上位版。本試験は5管理のうち2テーマが当日指定されるため、4テーマ備えることでどの組み合わせが出ても対応できる。あなたが実際に経験した工事のみ対象（経験していない工事の答案作成＝捏造はお受けしません）。事実・数値は全てご回答から構成し、納品は本人の事実確認を前提とした「ドラフト」＋書き直し1回。合格を保証するものではありません。',
+    price: '¥16,000（4テーマ・書き直し1回込み）',
+    priceYen: 16000,
+    examScope: ['civil-1', 'civil-2'],
+    weeklyCapacity: 1,
+    listedAt: '2026-08-12',
   },
 
   // C1: 出題分析 PDF。2026-08-05 統廃合で出品停止（paused）＝フルパック（C10）専用コンテンツ化。
@@ -187,7 +208,7 @@ const SERVICES_RAW = {
   //   納品 = coconala-C2-*.pdf 5冊 + coconala-C4-*.pdf 5冊 の計10冊。
   'coconala-kanseitoan-pdf': {
     id: 'coconala-kanseitoan-pdf',
-    status: 'paused',
+    status: 'listed',
     serviceUrl: 'https://coconala.com/services/4317580',
     title: '1級土木 経験記述の模範答案セットを送ります',
     shortTitle: '1級 経験記述 模範答案セット PDF',
@@ -197,8 +218,6 @@ const SERVICES_RAW = {
     priceYen: 5000,
     examScope: ['civil-1'],
     weeklyCapacity: 10,
-    pauseReason: 'absence',
-    resumeOn: '2026-08-17',
     listedAt: '2026-07-18',
   },
 
@@ -206,7 +225,7 @@ const SERVICES_RAW = {
   //   納品 = coconala-C3-*.pdf 3冊 + coconala-C5-*.pdf 5冊 の計8冊。
   'coconala-2kyu-kanseitoan-pdf': {
     id: 'coconala-2kyu-kanseitoan-pdf',
-    status: 'paused',
+    status: 'listed',
     serviceUrl: 'https://coconala.com/services/4317722',
     title: '2級土木 経験記述の模範答案セットを送ります',
     shortTitle: '2級 経験記述 模範答案セット PDF',
@@ -216,8 +235,6 @@ const SERVICES_RAW = {
     priceYen: 4000,
     examScope: ['civil-2'],
     weeklyCapacity: 10,
-    pauseReason: 'absence',
-    resumeOn: '2026-08-17',
     listedAt: '2026-07-18',
   },
 
@@ -321,7 +338,7 @@ const SERVICES_RAW = {
   // C9: 2級 二次 予想模擬試験（問題冊子＋解答解説）。C8 の2級版。
   'coconala-2kyu-moshi-pdf': {
     id: 'coconala-2kyu-moshi-pdf',
-    status: 'paused',
+    status: 'listed',
     serviceUrl: 'https://coconala.com/services/4317889',
     title: '2級土木二次の予想模擬試験を送ります',
     shortTitle: '2級 二次 予想模擬試験 PDF',
@@ -331,8 +348,6 @@ const SERVICES_RAW = {
     priceYen: 2000,
     examScope: ['civil-2'],
     weeklyCapacity: 20,
-    pauseReason: 'absence',
-    resumeOn: '2026-08-17',
     listedAt: '2026-07-18',
   },
   // C10: 1級 二次 教材フルパック（C1+C2+C4+C6+C8 全部入り・PDF 18冊）。2026-08-05 新設。
@@ -367,7 +382,7 @@ const SERVICES_RAW = {
   //   価格 ¥7,000（1級 ¥10,000 の 0.7＝級差を保つ・500円刻み適合）。
   'coconala-2kyu-full-pdf': {
     id: 'coconala-2kyu-full-pdf',
-    status: 'paused',
+    status: 'listed',
     serviceUrl: 'https://coconala.com/services/4341191',
     title: '2級土木二次 教材フルパックを送ります',
     shortTitle: '2級 二次 教材フルパック PDF',
@@ -377,8 +392,6 @@ const SERVICES_RAW = {
     priceYen: 7000,
     examScope: ['civil-2'],
     weeklyCapacity: 20,
-    pauseReason: 'absence',
-    resumeOn: '2026-08-17',
     listedAt: '2026-08-05',
   },
 
@@ -395,18 +408,16 @@ const SERVICES_RAW = {
   //   教材のみの C10（¥10,000・無制限）は残す＝「自分でやる / 見てもらう」の1軸だけが増える構成。
   'coconala-1kyu-premium': {
     id: 'coconala-1kyu-premium',
-    status: 'paused',
+    status: 'listed',
     serviceUrl: 'https://coconala.com/services/4341335',
     title: '1級土木二次 教材一式と経験記述添削をします',
     shortTitle: '1級 二次 プレミアム（教材＋添削）',
     description:
-      '1級土木施工管理技士 第2次検定の対策PDF 18冊（出題分析・経験記述模範答案10冊・学科記述攻略5冊・予想模擬試験2冊／計115ページ）に、施工経験記述の添削（新形式2テーマ・赤入れ＋書き直し1回）を組み合わせたセット。教材で書き方を掴み、実際に書いた答案を元自治体土木（発注者＝採点する側）の目で赤入れします。購入後トークルームでPDFをお送りし、答案はヒアリングシートご記入後に添削します。経験していない工事の答案作成（捏造）はお受けしません。合格を保証するものではありません。',
+      '1級土木施工管理技士 第2次検定の対策PDF 18冊（出題分析・経験記述模範答案10冊・学科記述攻略5冊・予想模擬試験2冊／計115ページ）に、施工経験記述の添削（新形式2テーマ・赤入れ＋書き直し1回）を組み合わせたセット。教材で書き方を掴み、実際に書いた答案を元自治体土木（発注者＝提出書類を審査する側）の目で赤入れします。購入後トークルームでPDFをお送りし、答案はヒアリングシートご記入後に添削します。経験していない工事の答案作成（捏造）はお受けしません。合格を保証するものではありません。',
     price: '¥15,000（PDF18冊＋添削2テーマ・書き直し1回）',
     priceYen: 15000,
     examScope: ['civil-1'],
     weeklyCapacity: 1,
-    pauseReason: 'absence',
-    resumeOn: '2026-08-17',
     listedAt: '2026-08-05',
   },
 
@@ -415,7 +426,7 @@ const SERVICES_RAW = {
   // サイト)を除去した coconala 版に差し替える（安全弁#2 外部誘導）、(2) /coconala-publish --commit。
   'coconala-civil-keiken-kit': {
     id: 'coconala-civil-keiken-kit',
-    status: 'paused',
+    status: 'listed',
     serviceUrl: 'https://coconala.com/services/4322659',
     title: '施工経験記述を自作するAI設計キットを渡します',
     shortTitle: '経験記述 AI設計キット（DL）',
@@ -425,8 +436,6 @@ const SERVICES_RAW = {
     priceYen: 8000,
     examScope: ['civil-1', 'civil-2'],
     weeklyCapacity: 20,
-    pauseReason: 'absence',
-    resumeOn: '2026-08-17',
     listedAt: '2026-07-22',
   },
   // 総監 出題テーマ分析 PDF（テスト出品）。有料note「設問3国家施策バンク」本文は転載せず、
@@ -435,7 +444,7 @@ const SERVICES_RAW = {
   // 公開前ゲート: /coconala-publish --commit。総監はココナラ客層が薄い前提の test。
   'coconala-sokan-bunseki-pdf': {
     id: 'coconala-sokan-bunseki-pdf',
-    status: 'paused',
+    status: 'listed',
     serviceUrl: 'https://coconala.com/services/4322661',
     title: '技術士総監 記述式の出題テーマ分析を送ります',
     shortTitle: '総監 出題テーマ分析 PDF',
@@ -445,8 +454,6 @@ const SERVICES_RAW = {
     priceYen: 2500,
     examScope: ['pe-comprehensive-management'],
     weeklyCapacity: 20,
-    pauseReason: 'absence',
-    resumeOn: '2026-08-17',
     listedAt: '2026-07-22',
   },
 } as const satisfies Record<string, CoconalaService>;

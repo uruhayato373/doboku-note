@@ -49,6 +49,7 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 | `coconala-shindan` | S1 合格診断。レビュー獲得フロント。診断のみ・書き換え案は出さない |
 | `coconala-tensaku-set` | S2 添削（2テーマセット）。主力。赤入れ＋書き直し1回 |
 | `coconala-sakusei` | S3 答案作成（ヒアリング→文章化・2テーマ・¥8,000）。質問シートで本人の実工事を吸い上げ答案ドラフト化（捏造禁止・本人確認必須・週2枠） |
+| `coconala-sakusei-4theme` | S3+ 答案作成 上位版（4テーマ・¥16,000・週1枠）。本試験は5管理から2テーマが当日指定されるため、4テーマ備えて出題を外す事故に保険をかける商品。運用はシートを2回分受領し `--mode sakusei` を2テーマずつ2回（コード変更なし）。ちゃんさと（作成代行 2問¥16,000／4問¥32,000）の半額帯・S3 の価格アンカーも兼ねる |
 | `coconala-bunseki-pdf` | C1 出題分析 PDF。**paused（2026-08-05 統廃合）**＝C10 フルパック限定収録 |
 | `coconala-kanseitoan-pdf` | C2' 1級 経験記述 **模範答案セット** PDF 10冊（テーマ別5＋年度別5＝旧C2+C4 統合・¥5,000）。納品= C2 5冊+C4 5冊 |
 | `coconala-2kyu-kanseitoan-pdf` | C3' 2級 模範答案セット PDF 8冊（テーマ別3＋年度別5＝旧C3+C5 統合・¥4,000） |
@@ -105,11 +106,12 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 | `talkroomId` | **必須**。ココナラのトークルーム ID（`https://coconala.com/talkrooms/{id}`）＝取引の一意キー・突合キー。これが無いと後からどの取引か辿れない |
 | `priceYen` | 販売額（手数料差引前）。カタログと不一致なら要説明（価格改定時は memo に改定日）。見積り受注は `quote.amountYen` と一致必須 |
 | `grade` | 1 or 2（級）。級の無い商品は null |
-| `status` | `received` → `delivered` → `revised`（書き直し対応）→ `closed` |
+| `status` | `received` → `delivered` → `revised`（書き直し対応）→ `closed`（**購入者評価まで送信済み**） |
 | `replyDueAt` | 返信期限（**無連絡で自動キャンセル**になる時刻）。snapshot が拾えたら転記 |
 | `deliveredAt` | 納品した日時（ISO）。未納品は null |
 | `artifacts` | 納品した成果物 `[{ file, sha256, builtAt }]`。**どの版を送ったかを特定するため** |
 | `tensakuMinutes` | 最終赤入れの所要時間（工数の実測・定員判断の根拠）。C系 PDF は null |
+| `rating` | 出品者→購入者の評価を送ったら記録 `{ providerRatedAt, stars{overall,demand,communication,schedule}, commentChars, comment, dueAt, verified }`。公開・取消不可なので**送った文面そのもの**を残す |
 | `memo` | 任意。**個人情報・原稿本文は書かない** |
 
 > **記録しないもの**: 購入者名・購入者 ID・提出原稿・トークルーム本文（privacyNote）。事例化は匿名化して
@@ -231,6 +233,50 @@ snapshot が「ココナラ側の実体」で、`npm run check-coconala-orders` 
 
 添削3ステップ（字数→論点抽出→最終赤入れ）の真実源は [2級経験記述-添削テンプレ.md](../../../docs/note/1級・2級土木/2級土木/2級経験記述-添削テンプレ.md)。トークルーム定型文（初回挨拶・シート送付・C系 PDF 送付・満枠断り・書き直し受付・S1 診断返却テンプレ）は [ココナラ展開キット.md §4c](../../../docs/note/1級・2級土木/ココナラ展開キット.md)、S2 納品文面テンプレは `.claude/agents/coconala-operator.md`。
 
+## 3-1. 受注に気づく経路（通知メールの宛先）
+
+**ココナラの取引通知は `dobokunotecom@gmail.com`（出品アカウント dobokunote の登録アドレス）にだけ届く。**
+購入者アカウント `uruhayato373@gmail.com` の受信箱には**取引通知が1通も来ない**（届くのはクーポン・
+くじ等のマーケティングメールのみ。2026-08-11 に全期間・迷惑メール含めて実査）。
+Gmail コネクタが繋がっているのは `uruhayato373` 側なので、**そこを見ても受注に気づけない**。
+
+- 取引関連メールの受信は**ココナラ設定で必須**（解除不可）＝送られていないのではなく宛先が別
+- サブメールアドレス欄（`/mypage/email`）は**未設定**。ここに入れれば両方へ届く
+- `dobokunotecom` は Playwright プロファイル `.local/playwright-note-profile` にログイン済み
+  （2026-08-11）。`mail.google.com` を開けば読める。セッションが切れたら人がログインし直す
+
+受注の取りこぼしを防ぐ主経路は**サイト側の実体収集**（`npm run coconala-orders` → `check-coconala-orders`）で、
+メールは補助。不在期間があるときは特に、メール到達に依存しないこと。
+
+## 3-2. 購入者評価（出品者→購入者）
+
+取引がクローズすると**評価入力の依頼メールが届く**（宛先は出品アカウントの登録アドレス
+`dobokunotecom@gmail.com`。購入者アカウント `uruhayato373@gmail.com` には**取引通知は一切来ない**ので
+そちらを見ても気づけない）。期限は概ね取引完了から2週間。
+
+**実機仕様（2026-08-11 確定）**
+
+| 項目 | 実体 |
+|---|---|
+| URL | `/ratings/provider_add/{talkroomId}`（トークルームの「評価を入力する」は同 URL への `<a>`。DOM の `.click()` では開かないことがあり URL 直打ちが確実） |
+| 必須 | 4項目＝総合評価（**公開**・コメント400字）／要望のわかりやすさ／コミュニケーション／納期・スケジュール（後ろ3つは非公開・平均値のみ表示） |
+| 星 | radio ではない。`span.rating-star-input.js_rating-*` 配下の `img[alt="1..5"]` をクリック → hidden の `input[name=score]` に入る |
+| 送信 | 「確認する」→ 確認画面（`修正する` / `送信する`）→ 送信の二段構え |
+| 公開条件 | 評価期限内は**双方の評価が揃うまで相手に公開されない**。期限超過で入力した側のみ公開 |
+
+```bash
+npm run coconala-rate-buyer -- <talkroomId> <コメントtxt>            # 入力のみ（既定）
+npm run coconala-rate-buyer -- <talkroomId> <コメントtxt> --submit   # 送信
+```
+
+**安全弁**: 既定は入力までで停止（draft-first）／星の読み戻しが全て 5 でなければ中断／400字超は事前中断／
+確認画面の送信ボタンは既知の名前だけを押す（盲目クリックしない）／送信後にトークルームで
+「評価未入力」が消えたことを実査。**星は 5 固定**なので、5 をつけたくない取引では使わず人が UI で入力する。
+
+**文面の作り方**: やり取りの実体（トークルームのログ）から拾った事実だけで書く（捏造禁止）。
+定型の一文で終わらせず、その取引で実際に起きたことを1つ以上入れる。同一顧客の複数取引では
+文面を書き分ける（同じ文が並ぶと機械的に見える）。
+
 ## 4. KPI 週次運用（`/coconala-status`）
 
 1. ココナラのダッシュボード数値を**手で貼る**（スクレイピング・API 取得はしない → [[feedback_metrics_cicd_supplied]] と同思想）
@@ -249,7 +295,7 @@ snapshot が「ココナラ側の実体」で、`npm run check-coconala-orders` 
 ## 5. 安全弁
 
 1. **捏造禁止（Red Line #2・2026-07-18 再定義）** — 経験していない工事・事実・数値を創作しない。答案作成（S3）は**本人の実工事のヒアリング事実のみ**から構成（宣誓＋本人の事実確認を必須・欠落数値は `〇〇` プレースホルダ）。旧「代筆禁止＝作成代行は出品しない」を改訂（真実源 → noteコンテンツ計画 §Red Line #2）
-2. **外部誘導禁止（ココナラ規約）** — ココナラ向け文面に note・doboku-note.com の URL を書かない。導線は逆向き（サイト/note → ココナラ）のみ
+2. **外部誘導禁止（ココナラ規約）** — ココナラ向け文面に note・doboku-note.com の URL を書かない。導線は逆向き（サイト/note → ココナラ）のみ。**出品文面・トークルーム・納品PDF だけでなく「ブログ」にも及ぶ**（ブログ投稿エディタが「外部サービスのリンクを記載する行為」を禁止と明示・§9.1）＝ブログを自サイト集客に使う設計は成立しない
 3. **出品・修正は自動化・返信送信は運営者** — 出品・内容修正・価格反映は `/coconala-publish`（account assert＋draft-first＋`--commit` gate）で行う。一方**トークルームの返信送信・購入者対応は運営者（人間）**。「（購入者へ）送信した」と報告しない。バリデーションエラー時は「公開した」と言わない
 4. **価格の直書き禁止** — 真実源はカタログ。文面に価格を出すならカタログから転記し、改定はカタログ→キットの順で同一 commit
 5. **個人情報の非コミット** — 提出原稿・購入者名をリポジトリに置かない
@@ -327,10 +373,14 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 |---|---|
 | `scripts/coconala-publish.mjs --service <id> [--commit]` | 新規出品。`/services/add`→種別=テキストチャット→「内容の入力に進む」で下書き生成→フォーム充填→下書き保存（既定）/公開（`--commit`）→公開時カタログへ `listed`＋`serviceUrl`＋`listedAt` 書き戻し |
 | `scripts/coconala-edit.mjs --service <id> [--fields …] [--commit]` | 既存修正。カタログ＋listings の現値でフォーム再充填。`--fields price,delivery` 等で部分更新 |
-| `scripts/coconala-delete-draft.mjs --id <n[,n]> [--commit]` | **空の下書き（orphan draft）を安全に削除**。4重ガード（G0 カタログ在籍拒否・G1 URL一致・G2 タイトル空・G3「下書きを削除」導線＝公開商品には出ない）。既定 dry-run・実削除は `--commit`。公開中商品は構造的に誤爆しない |
+| `scripts/coconala-delete-draft.mjs --id <n[,n]> [--allow-duplicate] [--commit]` | **空の下書き（orphan draft）を安全に削除**。4重ガード（G0 カタログ在籍拒否・G1 URL一致・G2 タイトル空・G3「下書きを削除」導線＝公開商品には出ない）。既定 dry-run・実削除は `--commit`。公開中商品は構造的に誤爆しない。**G2b（2026-08-12）**: publish は毎回 `/services/add` を叩くため「draft 実行→commit 実行」で**サービスが2件でき draft 側が孤児になる**。この孤児だけは「タイトルが listed 商品と一致（末尾ます剥がしで正規化）かつ別 id」で一意に判定でき、`--allow-duplicate` で削除できる。作りかけの題名付き下書きは従来どおり触らない |
 | `scripts/coconala-orders.mjs [--no-deadline] [--headless]` | **受注実績＋購入前問い合わせ(DM) の read-only 収集**（§2.2b）。取引管理（出品）の全タブ＋未返信タブ＋DM 一覧を走査し、未返信 room の返信期限をトークルームから拾って `orders-snapshot.json` を生成（DM スレッドは開かない＝既読にしない）。**書き込み一切なし・個人情報を保存しない**。1タブでも取得失敗なら `status:'partial'` ＋ exit 2 |
 | `scripts/coconala-pause.mjs [--resume --absence \| --archive --all-retired \| --all-paused] [--commit]` | **受付休止 / 再開 / アーカイブ**の決定的操作。対象選択とガードは `scripts/lib/coconala-guards.mjs`（`tests/coconala-guards.test.mjs` で固定）＝休止は `paused` のみ・再開は `listed` のみ・アーカイブは `pauseReason:'retired'` のみを受け付ける。既定 dry-run。実行後は一覧を再読して `stop_fg`（アーカイブは一覧からの消失）を**実測で検証**。**一覧は1ページ10件でページ送り**するので対象の載るページを探してから操作する（1ページ目しか見ないと11件目以降が「見つからない」に化ける）。`--resume --absence` はカタログの `listed` 戻しとマーカー除去まで行う |
 | `scripts/coconala-discover.mjs [--advance] [--cat --sub --type]` | フォーム構造・selector・カテゴリ/価格/facet options の偵察（読み取り専用）。仕様ドリフト時の再校正用 |
+| `scripts/coconala-blog-publish.mjs --post <slug> [--commit]` | **ブログ記事**の下書き投入/公開（§9・`/coconala-blog`）。投入前に同名記事を検出（オートセーブ残骸の二重投稿防止）→ guards 全通過→ 2パス入力→ **DOM 実測**（本文90%・見出し適用・順序一致・カード枚数・一覧実在）→ `--commit` で公開→ ログアウト実査（G6）→ frontmatter 書き戻し |
+| `scripts/coconala-blog-delete-draft.mjs [--title <部分一致> \| --all] [--commit]` | ブログの**下書きだけ**を削除（公開中は `statusDraft` を持たないため構造的に対象外）。中断のオートセーブ残骸の掃除。既定 dry-run・削除後に一覧再読で実測 |
+| `scripts/scout-coconala-blogs.mjs [--query <q>]` | ブログ検索/競合ブログ一覧の read-only 偵察（四半期）→ `blog-competitors.json` |
+| `scripts/check-coconala-blog.mjs [--staged\|--json]` | ブログ記事 SoT のオフライン検査（ハードゲート＋公開整合＋送客先ドリフト）。pre-commit / quality:audit / 週次に配線 |
 | `scripts/coconala-profile.mjs [--commit]` | プロフィール（職業/アピール/自己紹介）を `coconala-account.json` の値へ反映。**プロフィール編集（/mypage/user）はインライン編集型**（フィールドは初期描画に無く、セクション見出し近傍の鉛筆 `.d-profileItemControlButton` クリックで展開・2026-07-20 UI 変更対応済み）。ナビ誤爆は URL 不変 assert で検知 |
 | 共有 `scripts/lib/coconala-{session,form}.mjs` | プロファイル起動・login 待ち・account assert・カタログ/listings 解析・フォーム充填 |
 
@@ -440,6 +490,122 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 - QA/有料オプション/画像は v1 未対応（公開後 UI 手動）。
 
 **規約**: 2026-07-18 時点で利用規約・ルールに「出品者が自分の出品をブラウザ自動化することを禁じる明示条項」は確認できず（第13条2項22号は購入者側の自動応答が対象）。禁止行為一覧(zendesk)の1面は 403 で未確認・bot 検知の運用リスクは残るため、出品/価格改定時の**低頻度**利用に限る。
+
+## 9. ココナラブログ／コンテンツマーケット（2026-08-12 実機調査）
+
+**現状 = 投稿ゼロ**（`/mypage/blogs` が「ブログを投稿しましょう」の空状態）。
+記事型（9.2）は着手決定・実装中。コンテンツマーケット（9.3）は未探査のまま残置。
+
+### 9.1 使えない用途: サイト/note への集客
+
+**ブログ本文に外部リンクを書けない。** 投稿エディタ（`/mypage/blogs/add?kind=1`）の冒頭に、ココナラ自身が注意書きとして常時表示している:
+
+> ココナラでは外部誘導やココナラを介さない直接取引を禁止しております。メールアドレス、電話番号、LINEなど、**外部連絡先や外部サービスのリンクを記載する行為**やココナラを介さない直接取引を誘引する記載 … これらの行為が確認された場合はアカウント制限等の対応をさせていただきます
+
+つまり §5 安全弁2（外部誘導禁止）は**取引・納品物だけでなくブログにも及ぶ**。
+「ブログで集客して doboku-note / note へ流す」は**成立しない**（アカウント制限のリスクを負うだけ）。
+送客先にできるのは**自分のココナラ出品のみ**で、導線の向きは §5-2 のまま（サイト/note → ココナラ）変わらない。
+
+**ただし「自出品への内部リンク」は禁止どころか公式機構だった**（2026-08-12 実測・当初の推測を訂正）:
+本文に `https://coconala.com/services/{id}` を貼ると、エディタが**サービスカードに自動変換**する
+（`div.c-blogBody_service[data-id]` ＝ 画像・タイトル・出品者・**ライブ価格**を持つウィジェット）。
+つまり CTA は「テキストで出品名を案内」ではなく**カード埋め込み**が正しい形。
+価格はココナラ側が描画するので**本文に価格を書く必要がない**（＝価格ドリフトの余地がそもそも無い）。
+
+### 9.2 使える用途A: ココナラ内検索・回遊から S1/S2/S3 へ
+
+ブログ内検索の実測ヒット数（2026-08-12）:
+
+| クエリ | 件数 |
+|---|---|
+| 技術士 | 1,100 |
+| 施工管理 | 376 |
+| 施工管理技士 | 82 |
+
+※部分一致のためノイズを含む（特に「技術士」）。
+
+**競合が実際に運用中**: 「セコカンサポート長」が経験論文の書き方を、「小泉士郎（技術士 建設・総監）」が**受講生の復元論文＋添削講評**を連載。展開キット §競合 に記録した「ちゃんさと技師＝ブログ無料例文→ココナラ」と同型が、ココナラブログ上でも回っている。
+自社の優位性は**実際の添削事例という一次資産**（競合と同じ土俵で戦える材料がある）。
+
+### 9.3 使える用途B: コンテンツマーケット＝C系PDFの「やりとり不要」販売
+
+ブログ管理画面の導線に明記:
+
+> コンテンツマーケットで記事を出品する — 記事・画像・イラストが**やりとり不要**で、**同時に複数の人に販売**できます
+
+現在の C1〜C9 は `provision_format=3`（購入後トークルームで PDF 手送付）＝**1件ごとに人手が要る**。
+コンテンツマーケットならその納品作業が消える（note 有料記事に近い売り方をココナラ内で完結）。
+**既存 PDF の再利用で在庫が既にあるため、記事執筆型（9.2）より投下コストが小さい。**
+
+> **未確認**（着手前に実機で押さえること）: 価格帯・対応ファイル形式・手数料・出品フォームの構造。
+> 「出品する」導線からのフォーム到達は 2026-08-12 の probe では未達（モーダル遷移）。
+
+### 9.4 実機で確定した仕様（2026-08-12 プローブ完了・捨て下書き1本で計測し削除済み）
+
+**画面・URL**
+
+| 項目 | 実測値 |
+|---|---|
+| ブログ管理 | `/mypage/blogs`（投稿導線 `?new=true`）・種別 radio 3つ（記事 / コンテンツ / 告知）→「入力へ進む」 |
+| 新規エディタ | `/mypage/blogs/add?kind=1` |
+| 既存エディタ | `/mypage/blogs/edit/{blogId}` |
+| 公開記事 | `https://coconala.com/blogs/{userId}/{postId}` |
+| ブログ内検索 | `/blogs/search?keyword=…`（総数は本文の「N 件中」） |
+| 他人のブログ一覧 | `/blogs/{userId}`（**`/users/{id}/blogs` は 404**） |
+| 効果測定 | マイページ「サービス・ブログ分析」／購入者側「購入ブログ」`/mypage/blog_orders` |
+
+**セレクタ（テキスト一致は使えない）**
+
+| 対象 | セレクタ | 備考 |
+|---|---|---|
+| タイトル | `input[placeholder="ブログタイトル"]` | **maxlength 属性なし・200字を投入して切り詰めなし**＝プラットフォーム上限は未到達。上限はポリシー側で決める |
+| 本文 | `div.c-blogEditor_base[contenteditable="true"]` | 段落は `div.c-blogBody_text` が1つずつ生成される |
+| 装飾 | 選択すると `.c-blogEditor_decorationBtn` が浮上（**見出し / 太字 / 位置 / 引用**） | 見出しは**選択→ツールバー**でのみ作れる。`# ` の markdown 記法は変換されない |
+| サービスカード | `div.c-blogBody_service[data-id="{serviceId}"]` | 自出品 URL を貼ると自動生成（§9.1） |
+| 下書き保存 | `button`（tw-* のみで固有クラスなし） | |
+| 公開設定 | `button.c-blogPost_triggerPublish` | |
+| 一覧の行 | `div.c-blogContent` / 編集 `a.c-blogContent_edit` | **`<a href>` ではない**ので JS クリックで開く |
+| 削除 | `.c-blogPost_triggerDelete` → `.dropdown-item`「この投稿を削除」→ モーダル `.c-blogDelete` の「削除する」 | 実測で一覧 0 件に戻ることを確認 |
+
+> **Playwright の罠**: `getByText('下書き保存' / '公開設定').click()` は **30s タイムアウトする**（Vue の再描画で actionability が安定しない）。
+> `page.evaluate(() => document.querySelector(sel).click())` で確実に押せる。
+> なお**タイムアウトしても下書きは保存されていた**（オートセーブ疑い）＝「クリックが失敗したから何も起きていない」と決めつけない。
+
+**本文エディタの罠（2026-08-12 実装時に全部踏んだ）**
+
+| 罠 | 症状 | 正しいやり方 |
+|---|---|---|
+| 入力と装飾を交互にやる | ツールバーのクリックで contenteditable からフォーカスが外れ、**以降の insertText がどこにも入らない**（本文 500/1684 字で切れた） | **2パス**＝全段落を素で流し込む → 見出し行だけ後から選択して当てる |
+| ツールバーを `el.click()` で押す | ボタンは**非表示でも DOM に存在する**ので `true` が返るが書式は当たらない（偽成功） | 可視性を確認し、**実マウス** `page.mouse.click(x, y)` で押す |
+| 対象行が画面外のまま選択 | ツールバーの座標も画面外になり、**別要素をクリックしてページ遷移**した | 選択前に `scrollIntoView({block:'center'})`＋座標がビューポート内か検査 |
+| `.c-blogEditor_decorationBtn` を掴む | これは**4ボタンを包むコンテナ**（textContent＝「見出し 太字 位置 引用」）。中心を押すと3番目の**「位置」**が当たり、5行が `c-blogBody_center` になった | 見出しは `.c-blogEditor_decorationBtn-first`、引用は `-last` |
+| 見出し化後に `> div` で探す | 見出しは **`div` ではなく `h2.c-blogBody_h2` になる**ので、h2 が5個できているのに「行が見つからない」 | `.c-blogEditor_base > *` で探し、テキストは空白差を吸収して比較 |
+| カード挿入後に `page.click(CE)` でフォーカスを取り直す | クリック位置にキャレットが飛び、**以降の段落が本文の途中に挿入される**。字数もカード枚数も正常なのに**順序だけ壊れる** | Range で `selectNodeContents` → `collapse(false)` して末尾へ移動 |
+
+> 最後の罠が示すとおり、**字数とカード枚数の検証だけでは順序の破壊を検出できない**。
+> `coconala-blog-publish.mjs` は原稿のブロック列と DOM の並びを突き合わせる**順序検証**を持つ。
+
+**ブロックのクラス**: 段落 `div.c-blogBody_text` ／ 見出し `h2.c-blogBody_h2` ／
+中央寄せ `div.c-blogBody_text c-blogBody_center` ／ サービスカード `div.c-blogBody_service[data-id]`
+
+**公開設定ダイアログ**（`button.c-blogPost_triggerPublish` で開く）
+
+- **カテゴリ `<select>`（必須）**: コラム / ビジネス・マーケティング / デザイン・イラスト / **学び** / 写真・動画 / 音声・音楽 / 美容・ファッション / 小説 / IT・テクノロジー / ライフスタイル / エンタメ・趣味 / 占い / マンガ / 法律・税務・士業全般 / マネー・副業（未選択だと一覧が「カテゴリなし」になる）
+- **ハッシュタグ** `input.input`（画面表記「2〜4つをオススメ」）
+- **目次設定**: 「見出しを設定すると利用できます」＝見出しを作ると自動で目次が付く
+- ボタン: 「編集を続ける」`.c-blogPublishing_draftBtn` ／ **「投稿する」**（＝最終公開）
+
+**下書き保存が独立ボタンとして在る**＝§8 と同じ draft-first ＋ `--commit` gate の流儀でそのまま自動化できる構造（`coconala-session.mjs` の launch/login/account assert をそのまま再利用可能）。
+
+### 9.5 判断
+
+**着手する（2026-08-12 決定・9.2 を先行）。** 当初は 9.3（コンテンツマーケット）先行と判断したが、
+①出品 10 件を再受付して**送客先が揃った** ②内部リンクがサービスカードとして機能する（§9.1）＝
+ブログ→出品の導線が想定より強い ③ブログ内検索「経験記述」は **646 件**で競合が現に連載している、
+の3点から**記事型（9.2）を先に立てる**。9.3 は出品フォーム未探査のまま残置（backlog）。
+
+実装 → [coconala-blog-policy.md](coconala-blog-policy.md)（真実源）・`/coconala-blog` スキル・
+`coconala-blog-writer` / `coconala-blog-qa`・`scripts/coconala-blog-publish.mjs`・`npm run check-coconala-blog`
 
 ## 関連
 

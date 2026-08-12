@@ -121,6 +121,7 @@ note メンバーシップ「**土木セコカン合格ラボ**」（1級・2級
 | `scripts/note-magazine-create.mjs` | マガジン新規作成（note掲載文.txt 駆動）。特典マガジンは `--free` | probe（`--commit`） |
 | `scripts/note-membership-plan-create.mjs` | プラン新規作成（名前＋説明のみ。会費は作成後の編集で確定） | dry-run（`--commit`） |
 | `scripts/note-membership-plan-status.mjs` | プランの公開トグル（可逆）・削除（不可逆・在籍者0名 assert） | dry-run（`--commit`） |
+| `scripts/note-account-name.mjs` | クリエイター名（表示名）の確認・変更。全記事の著者名に効くので公開 API まで実体検証 | dry-run（`--name` ＋ `--commit`） |
 | `scripts/note-edit-session.mjs` | 記事編集 / 設定 / `/membership/settings/manage` を開いて待機（自動保存なし） | 手動編集 |
 | `scripts/note-membership-plan-edit.mjs` | 既存プランの名前/説明/**会費**/定員を編集して**保存**（非公開ドラフトのまま・可逆。**公開はしない**・account ゲート） | dry-run（`--commit` で保存） |
 | `scripts/note-update-body.mjs` | **公開済み会員限定記事の本文再反映**（試し読み3段フローに対応。入口LPの無料プレビュー復旧は `--trial-line-bottom`＝末尾-1にライン設置。手順詳細＝note-api-verification.md「本文画像・PDF 添付の修復手順」） | dry-run（`--commit`） |

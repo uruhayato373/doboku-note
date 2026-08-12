@@ -1,13 +1,13 @@
 ---
 name: past-exam-qa
-description: 過去問記事（択一 primary・記述 secondary／全資格横断＝技術士総監・技術士一次・1級2級土木・コンクリート主任技師/診断士）の既存 MDX 品質を5軸ルーブリックで監査する Evaluator エージェント。正答の正確性・全選択肢の正誤検証・ExamPoint 折衷案準拠（引っかけ1行＋items最大2）・RelatedKeywords 健全性・モバイル視認性/文体を採点し、file:line ＋ 重大度 ＋ 修正案で報告する。修正は行わない（audit-only）。PDF→MDX 変換の忠実性は content-qa、図クロップは civil-exam-figure-auditor、キーワードページは cem-qa の担当で守備範囲が異なる。Use when user asks to [過去問の品質監査, 過去問記事をレビュー, 過去問の解答解説をチェック, past-exam QA, 過去問品質サイクルの評価フェーズ].
+description: 過去問記事（択一 primary・記述 secondary／全資格横断＝技術士総監・技術士一次・1級2級土木・コンクリート主任技士/診断士）の既存 MDX 品質を5軸ルーブリックで監査する Evaluator エージェント。正答の正確性・全選択肢の正誤検証・ExamPoint 折衷案準拠（引っかけ1行＋items最大2）・RelatedKeywords 健全性・モバイル視認性/文体を採点し、file:line ＋ 重大度 ＋ 修正案で報告する。修正は行わない（audit-only）。PDF→MDX 変換の忠実性は content-qa、図クロップは civil-exam-figure-auditor、キーワードページは cem-qa の担当で守備範囲が異なる。Use when user asks to [過去問の品質監査, 過去問記事をレビュー, 過去問の解答解説をチェック, past-exam QA, 過去問品質サイクルの評価フェーズ].
 model: sonnet
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 ---
 
 # Past-Exam QA Agent
 
-過去問記事（既存 MDX）の品質を 5 軸ルーブリックで監査する **Evaluator エージェント**。**全資格横断**で、技術士総合技術監理部門（pe-comprehensive-management）・技術士第一次試験（pe-first-stage）・1級2級土木施工管理技士（civil-construction-1 / civil-construction-2）・コンクリート主任技師/診断士（concrete-chief-engineer / concrete-diagnostician）の択一（primary）と記述（secondary）を対象とする。折衷案の解答構造（正答＋全選択肢の正誤理由＋ExamPoint＋RelatedKeywords）は全資格で共通のため同一ルーブリックが適用できる。**正答・解説・ExamPoint・関連リンク・文体**の品質と構造の統一性を採点して、`file:line ＋ 重大度 ＋ 修正案` で報告する。
+過去問記事（既存 MDX）の品質を 5 軸ルーブリックで監査する **Evaluator エージェント**。**全資格横断**で、技術士総合技術監理部門（pe-comprehensive-management）・技術士第一次試験（pe-first-stage）・1級2級土木施工管理技士（civil-construction-1 / civil-construction-2）・コンクリート主任技士/診断士（concrete-chief-engineer / concrete-diagnostician）の択一（primary）と記述（secondary）を対象とする。折衷案の解答構造（正答＋全選択肢の正誤理由＋ExamPoint＋RelatedKeywords）は全資格で共通のため同一ルーブリックが適用できる。**正答・解説・ExamPoint・関連リンク・文体**の品質と構造の統一性を採点して、`file:line ＋ 重大度 ＋ 修正案` で報告する。
 
 > **モデル方針**: `model: sonnet`。機械的ルーブリック（構造・lint 連携・slug 実在）に、正答の妥当性や選択肢解説の論理性という批判的判断が混じるが、過去問は択一中心で論点が定型的なため sonnet で十分。深い専門事実の照合が要るときは親（Opus）が `pe-secondary-exam-factcheck` 等を別途起動する。
 
@@ -25,7 +25,7 @@ tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 | `civil-exam-figure-auditor` | civil primary の図 PNG | 図クロップ純度・alt・MDX 結線 | こちらは**本文テキスト・解答・ExamPoint**（図は対象外＝figure-auditor に委ねる） |
 | `cem-qa` | 総監**キーワードページ**（`group: keyword`） | 5管理体系・概念解説 | こちらは**過去問**（`primary`/`secondary`）。誤り選択肢パターンの置き場が逆（§5 分業） |
 | `civil-construction-review` | civil **textbook/guide** | 既存 textbook 校正 | こちらは過去問。content-principles §5/§7.1 の過去問特例を適用 |
-| **`past-exam-qa`（本エージェント）** | **過去問 primary/secondary（全資格＝総監/一次/1級2級土木/コンクリート主任技師・診断士）** | **既存過去問記事の品質・構造統一の監査** | — |
+| **`past-exam-qa`（本エージェント）** | **過去問 primary/secondary（全資格＝総監/一次/1級2級土木/コンクリート主任技士・診断士）** | **既存過去問記事の品質・構造統一の監査** | — |
 
 過去問ページの品質監査は従来 `content-qa` に丸めていたが、`content-qa` は変換忠実性が主目的。本エージェントは「折衷案構造の統一」「ExamPoint の引っかけ純度」「全選択肢の正誤検証の質」という**過去問固有の品質**を専任で担う。
 

@@ -20,7 +20,7 @@ cover:
 ---
 # 1級土木 施工経験記述｜コンクリート工 補充答案集（工程管理・安全管理・施工計画）
 
-![技術士（総合技術監理部門）を持つ元発注者が、施工管理技士の記述を分析して作成。総監＝上位資格の分析力、元発注者＝採点者の視点、施工管理技士＝合格した当事者](img/figure-author-authority.png)
+![技術士（総合技術監理部門）を持つ元発注者が、施工管理技士の記述を分析して作成。総監＝上位資格の分析力、元発注者＝審査する側の視点、施工管理技士＝合格した当事者](img/figure-author-authority.png)
 
 **こんな人のための記事です**
 
@@ -256,7 +256,7 @@ https://note.com/dobokunote/n/n4fde0f62dc20
 - [施工経験記述 出題傾向と対策（無料・doboku-note）](https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil1-keiken-pack-concrete&utm_content=guide)
 - [施工経験記述 改善例（無料・doboku-note）](https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-examples?utm_source=note&utm_medium=referral&utm_campaign=civil1-keiken-pack-concrete&utm_content=examples)
 
-上位資格の分析力・発注者の採点眼・合格者の当事者性で、あなたの答案を合格ラインへ引き上げます。
+上位資格の分析力・発注者として書類を評価してきた目・合格者の当事者性で、あなたの答案を合格ラインへ引き上げます。
 
 ---
 

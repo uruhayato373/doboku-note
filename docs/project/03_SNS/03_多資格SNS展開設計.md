@@ -4,7 +4,7 @@
 
 ## 1. 背景・課題
 
-現状の SNS（IG カルーセル過去問パック・X ドラフト）は **総監を暗黙の前提とした単一試験構造**で、ディレクトリにもデータにも「試験軸」が無い。1級土木・コンクリート主任技師等へ展開すると、どの試験の投稿か判別できず混在する。
+現状の SNS（IG カルーセル過去問パック・X ドラフト）は **総監を暗黙の前提とした単一試験構造**で、ディレクトリにもデータにも「試験軸」が無い。1級土木・コンクリート主任技士等へ展開すると、どの試験の投稿か判別できず混在する。
 
 note カバー v2 は既に「試験＝色」で解決済みだが、SNS は未対応（IG の色は **5管理色**＝総監専用概念）。多資格化の前に、(A) ディレクトリの試験軸、(B) カバーの試験識別レイヤー、(C) 過去問データの試験軸統合、の3点を設計する。
 
@@ -17,12 +17,12 @@ note カバー v2 は既に「試験＝色」で解決済みだが、SNS は未�
 | 技術士総監 | pe-comprehensive | navy | `#16365C` | 既存 |
 | 1級土木 | civil-1 | azure | `#1E73C8` | 既存 |
 | 2級土木 | civil-2 | green | `#2A7050` | 既存 |
-| コンクリート主任技師 | concrete-chief | teal | `#0F6E6E` | **新規追加** |
+| コンクリート主任技士 | concrete-chief | teal | `#0F6E6E` | **新規追加** |
 | コンクリート診断士 | concrete-diagnosis | （未割当・teal/green 被り回避で plum 系等） | TBD | **要色割当** |
 | 共通 | common | bronze | `#9A6B1E` | 既存 |
 
 - 色相は `.claude/knowledge/design-system/note-cover-tokens.json` の `exams` を**唯一のパレット真実源**とし、note カバー・IG・X・Shorts が同じ token を解決する（1回追加で全チャネル伝播）。
-- **コンクリート2資格は色が近接しやすい**。主任技師=teal なら診断士は青緑から離す（plum/indigo 等）。
+- **コンクリート2資格は色が近接しやすい**。主任技士=teal なら診断士は青緑から離す（plum/indigo 等）。
 
 ## 3. ディレクトリ構成（試験軸を追加）
 
@@ -74,7 +74,7 @@ docs/sns/x/draft/{連番}-{試験}-{名前}/
 
 `.claude/knowledge/design-system/note-cover-tokens.json` の `exams` に下記を追加し、SNS 生成器からも解決する。
 
-- `concrete-chief`（dir: コンクリート主任技師, hue: teal, base `#0F6E6E`, deep `#0A4F4F`）
+- `concrete-chief`（dir: コンクリート主任技士, hue: teal, base `#0F6E6E`, deep `#0A4F4F`）
 - `concrete-diagnosis`（dir: コンクリート診断士, hue: 要割当, base TBD）
 
 SNS 側（`.claude/scripts/sns/lib/`）に exam→色 を解決する共有ローダを置き、note と同一 token を参照する。
@@ -87,7 +87,7 @@ IG 過去問パックは「**試験軸つきの問題データ SoT**」から生
 |---|---|---|---|
 | 技術士総監 | `src/config/exam-questions.json` | H21〜R07（全16年度・640問） | ✅ 統合済 |
 | 1級土木 | `.local/r2/posts/civil-construction-1/primary-{年度}-{a,b}/` | h26〜（**要精査**） | ❌ 未統合 |
-| コンクリート主任技師 | `.local/r2/posts/concrete-chief-engineer/primary-*/` | 平成29〜令和5（部分） | ❌ 未統合 |
+| コンクリート主任技士 | `.local/r2/posts/concrete-chief-engineer/primary-*/` | 平成29〜令和5（部分） | ❌ 未統合 |
 
 統合方針（後続タスク）:
 - `exam-questions.json` を **試験軸つき**（`{試験}: {年度: [問...]}`）へ拡張、または試験別ファイルに分割。

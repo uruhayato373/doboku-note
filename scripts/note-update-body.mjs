@@ -561,6 +561,29 @@ async function updateArticle(page, { abs, noteId, title, body, images, isPaid, b
     toReattach = resolved;
     console.log(`[3-pre] --reattach-pdf: 添付 ${resolved.length} 件を置換後に貼り直す（${resolved.map((r) => r.base).join(' / ')}）`);
   }
+  // 添付を失った/失いかけた事実を負債として残すヘルパー。
+  // 「保存していないから無害」は **live に限った話**で、エディタ側は添付削除済みのまま残る。
+  // 失敗理由を確かめず再実行すると「添付なし」を正として保存してしまう（2026-07-31 の消失事故）。
+  // よって **--reattach-pdf の復元失敗・上限到達も負債として記録**し、再添付まで surface する。
+  const recordAttachmentDebt = (reason, files) => {
+    try {
+      const LOSS_LOG = join(ROOT, '.claude/state/note-attachment-loss.json');
+      const j = existsSync(LOSS_LOG) ? JSON.parse(readFileSync(LOSS_LOG, 'utf8')) : { pending: [] };
+      j.pending = (j.pending || []).filter((x) => x.noteId !== noteId);
+      j.pending.push({ noteId, at: new Date().toISOString(), reason, dropped: files, note: '再添付するまで負債。note-attach-batch 成功時に自動で消える' });
+      mkdirSync(dirname(LOSS_LOG), { recursive: true });
+      writeFileSync(LOSS_LOG, JSON.stringify(j, null, 2) + '\n');
+      console.error(`[loss] 負債として記録（${reason}）→ .claude/state/note-attachment-loss.json`);
+    } catch (e) { console.error('[loss] 記録に失敗:', e.message); }
+  };
+
+  // --allow-attachment-loss で意図的に添付を捨てる場合、**その事実をどこにも残さない**と
+  // 「反映後に必ず再添付する」という口約束だけになり、忘れても次の live 実査（手動）まで
+  // 誰も気づかない。中断は note-update-aborted.json に残るのに、意図的な消失は無記録だった。
+  // ここで負債として記録し、check-note-delivery-due が未解消なら surface する（2026-08-11 新設）。
+  if (attachedPdfs.length && ALLOW_ATTACH_LOSS && !REATTACH_PDF) {
+    recordAttachmentDebt('--allow-attachment-loss で意図的に破棄', attachedPdfs);
+  }
   if (attachedPdfs.length && !ALLOW_ATTACH_LOSS && !REATTACH_PDF) {
     console.error(`[FAIL] 本文に PDF 添付カード ${attachedPdfs.length} 件を検出 → 全文置換すると消えるため中断: ${noteId}`);
     for (const f of attachedPdfs) console.error(`         ${f}`);
@@ -620,6 +643,7 @@ async function updateArticle(page, { abs, noteId, title, body, images, isPaid, b
     if (usedToday + toReattach.length > ATTACH_DAILY_LIMIT) {
       console.error(`[4.6] ABORT: 本日の添付アップロードが上限に達する（済 ${usedToday} + 今回 ${toReattach.length} > ${ATTACH_DAILY_LIMIT}）→ 更新しない: ${noteId}`);
       console.error('  note の 1 日 100 件上限を超えるとアップロードが全て失敗し、添付を失ったまま保存する事故になる。翌日に再開すること。');
+      recordAttachmentDebt('復元前に日次上限へ到達（エディタ側は添付削除済み）', toReattach.map((f) => f.base));
       return false;
     }
     for (const f of toReattach) {
@@ -627,6 +651,7 @@ async function updateArticle(page, { abs, noteId, title, body, images, isPaid, b
       if (!r.ok) {
         console.error(`[4.6] ABORT: 添付の復元に失敗（${f.base}: ${r.reason}）→ 保存しない: ${noteId}`);
         await page.screenshot({ path: join(ROOT, `.tmp/nu-reattachfail-${noteId}.png`) });
+        recordAttachmentDebt(`添付の復元に失敗（${f.base}: ${r.reason}）`, toReattach.map((x) => x.base));
         return false;
       }
       recordAttach(noteId, relative(ROOT, f.abs));
@@ -636,6 +661,7 @@ async function updateArticle(page, { abs, noteId, title, body, images, isPaid, b
     const now = await listAttachedFiles(page);
     if (now.length < toReattach.length) {
       console.error(`[4.6] ABORT: 復元後の添付が ${now.length}/${toReattach.length} 件しかない → 保存しない: ${noteId}`);
+      recordAttachmentDebt(`復元後の添付が ${now.length}/${toReattach.length} 件`, toReattach.map((x) => x.base));
       return false;
     }
     console.log(`[4.6] 添付復元 OK（${now.length} 件）`);

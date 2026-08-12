@@ -21,7 +21,7 @@ title: ブランド画像システム（資格別・多フォーマット・色�
 | `civil-2` | 2級土木施工管理技士 | `#2a7050` | 緑 |
 | `pe-comprehensive` | 技術士（総合技術監理）※第一次も共有 | `#16365c` | 濃紺 |
 | `pe-construction` | 技術士（建設部門） | `#33356b` | 藍 |
-| `concrete-chief` | コンクリート主任技師 | `#0f6e6e` | ティール |
+| `concrete-chief` | コンクリート主任技士 | `#0f6e6e` | ティール |
 | `concrete-diagnosis` | コンクリート診断士 | `#6e3a8c` | 紫 |
 
 editorial 基調：`--accent #2a5f96` / `--ink #181a1f` / CTA=`--color-warn #d4a017`（琥珀）。（2026-07 Soft Editorial で accent を紺のまま 1 段明るく調整。写真の色ターゲットは `--exam-*` 側で不変のため OGP／カバー等の再生成は不要。）写真には青焼き（technical blueprint）線を淡く重ねるとサイトの図面モチーフと揃う。

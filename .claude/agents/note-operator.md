@@ -1,9 +1,11 @@
 ---
 name: note-operator
 description: >
-  note.com の高レベル操作指示（価格変更・マガジン新設・記事収録など）を受け取り、
-  既存スクリプト群を組み合わせて実行するオーケストレーター。
-  Use when user asks to [note 価格変更, note マガジン作成, note 記事収録, note 一括操作, /note-operate].
+  note.com の高レベル操作指示（価格変更・マガジン新設・記事収録・**購入者コメントへの返信**など）を
+  受け取り、既存スクリプト群を組み合わせて実行するオーケストレーター。
+  **納品の健全性**（本文でPDFを約束した記事にライブ添付があるか）は check-note-delivery-due /
+  check-note-attachments --live で確認し、欠落は note-attach-file で解消する。
+  Use when user asks to [note 価格変更, note マガジン作成, note 記事収録, note コメント返信, note 一括操作, /note-operate].
 model: sonnet
 ---
 
@@ -163,3 +165,35 @@ note.com への高レベル操作指示を受け取り、既存の決定的ス�
 - `scripts/verify-note-magazines.mjs` — 同期検証
 - `.claude/knowledge/reference/note-api-verification.md` — note API 仕様・真実源
 - `src/lib/note-magazines.ts` — SoT（マガジン定義）
+
+## 購入者への納品と応対（2026-08-11 追加）
+
+**クローズや公開だけでは「届いた」ことにならない。** 本文で「印刷用PDF付き」と約束した記事に
+ライブ添付が無ければ、購入者は代金を払って何も受け取れていない。
+
+| 目的 | コマンド | 既定 |
+|---|---|---|
+| 届いていない記事の把握（オフライン） | `npm run check-note-delivery-due -- --json` | read-only |
+| 実査（有料エリアはログインしないと見えない） | `npm run check-note-attachments:live` | read-only・約15分 |
+| 添付の復旧 | `node scripts/note-attach-file.mjs --note <id> --file <pdf> --commit` | `--commit` gate |
+| コメント返信 | `npm run note-comment-reply -- <noteId> <本文txt> --submit` | draft-first |
+
+- **`--live` は CI に載せられない**（有料エリアの添付カードは未ログイン HTML に出ない）。
+  だから回し忘れを週次レビューの surfacer（`check-note-delivery-due`）で拾う。
+- **note 記事の本文更新は手作業でやらない**（運営者の方針・2026-08-11 明示）。note UI で人が
+  直接編集すると添付カードが消えても記録が残らず、次の live 実査（最大14日後）まで気づけない。
+  更新は必ずスクリプト経由にすることで、失敗も破棄も負債として記録される状態を保つ。
+- **本文を更新すると添付カードは消える**。`note-update-body` は live の添付を検出したら
+  既定で中断する（実測で確認済み）。差し替えるなら `--reattach-pdf`（同一セッションで復元）、
+  画像だけなら `--images-only`。**添付が失われうる4経路すべて**が
+  `.claude/state/note-attachment-loss.json` に負債を記録する＝①`--allow-attachment-loss` での
+  意図的破棄／②`--reattach-pdf` の復元失敗／③復元前の日次上限到達／④復元後の本数不足。
+  ②〜④は「保存せず中断」するので **live は無傷だがエディタ側は添付削除済み**という状態が残り、
+  失敗理由を確かめず再実行すると「添付なし」を正として保存してしまう（2026-07-31 の消失事故）。
+  負債は再添付するまで `check-note-delivery-due` が surface し続ける
+  （`note-attach-batch` が成功時に自動で消す）。
+- 重大度を混ぜない: `missingPromised`（約束したのに未添付＝緊急）と `missingSilent`
+  （本文が触れていない＝会員特典など方針判断）は別物。混ぜると緊急分が埋没する。
+- **コメント返信の罠**: 送信ボタンは**テキストの無い矢印アイコン**。ヘッダー右上の「投稿」は
+  新規記事作成で無関係（テキスト一致で掴むとエディタへ飛ぶ）。投稿後は本文がページに
+  載ったことを読み戻して確認する（2026-08-11 実測）。

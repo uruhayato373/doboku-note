@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { readFileSync, readdirSync, statSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { extname, join, relative } from "node:path";
 
 const ROOT = process.cwd();
@@ -19,9 +19,34 @@ const expected = {
     second: "2026-10-25",
     source: "https://www.jctc.jp/exam/doboku-2/",
   },
+  "pe-comprehensive-management": {
+    applicationDeadline: "2026-04-15",
+    written: "2026-07-19",
+    writtenSelective: "2026-07-20",
+    source: "https://www.engineer.or.jp/c_topics/011/011422.html",
+  },
+  "pe-construction": {
+    applicationDeadline: "2026-04-15",
+    written: "2026-07-20",
+    source: "https://www.engineer.or.jp/c_topics/011/011422.html",
+  },
+  "concrete-chief-engineer": {
+    applicationOpen: "2026-07-01",
+    applicationDeadline: "2026-09-01",
+    exam: "2026-11-30",
+    source: "https://www.jci-net.or.jp/j/exam/gishi/index.html",
+  },
+  "concrete-diagnostician": {
+    applicationOpen: "2026-04-15",
+    applicationDeadline: "2026-05-21",
+    exam: "2026-07-26",
+    source: "https://www.jci-net.or.jp/j/exam/shindan/",
+  },
 };
 
 const errors = [];
+/** 実検査した件数（メッセージに literal を書かない＝検査ゼロを PASS と呼ばないため） */
+const inspected = [];
 for (const [examId, contract] of Object.entries(expected)) {
   const exam = calendar.exams?.[examId];
   if (!exam) {
@@ -31,11 +56,22 @@ for (const [examId, contract] of Object.entries(expected)) {
   if (exam.source !== contract.source) {
     errors.push(`${examId}.source が公式URLと一致しません`);
   }
+  let n = 0;
   for (const [eventId, date] of Object.entries(contract)) {
     if (eventId === "source") continue;
+    n++;
     if (exam.events?.[eventId]?.date !== date) {
       errors.push(`${examId}.${eventId}.date は ${date} である必要があります`);
     }
+  }
+  inspected.push({ examId, label: exam.label ?? examId, n });
+}
+// SSOT にあるのに contract が無い資格は「検査していない」＝素通りするので明示的に落とす
+for (const examId of Object.keys(calendar.exams ?? {})) {
+  if (!expected[examId]) {
+    errors.push(
+      `${examId} は SSOT にあるが本スクリプトの expected に無い（無検査で素通りする）`,
+    );
   }
 }
 
@@ -45,12 +81,36 @@ const scanRoots = [
   "docs/note/1級・2級土木",
   ".claude/agents",
   ".claude/skills",
+  "src/config",
+  "src/lib",
+  ".local/r2/posts/concrete-chief-engineer",
+  ".local/r2/posts/concrete-diagnostician",
 ];
 const textExtensions = new Set([".md", ".mdx", ".json", ".ts", ".mjs"]);
+/**
+ * 判定前に取り除く「実体としてのパス／ファイル名」。
+ * docs/note/コンクリート主任技師/ と docs/textbook/コンクリート主任技師20xx/ は
+ * 実在するディレクトリ名なので、誤記チェックの対象にしてはいけない。
+ */
+const PATH_LITERALS = [
+  /note\/コンクリート主任技師/g, // docs/note/コンクリート主任技師/
+  /コンクリート主任技師-/g, // マガジン用ディレクトリ（コンクリート主任技師-小論文-模範答案集 等）
+  /コンクリート主任技師20/g, // docs/textbook/コンクリート主任技師2022|2024（ローカル PDF 名）
+];
 const forbidden = [
   { pattern: /2026-10-27/g, reason: "2級後期・第二次は2026-10-25" },
   { pattern: /10月27日/g, reason: "2級後期・第二次は10月25日" },
   { pattern: /10\/4-10\/27/g, reason: "土木第二次は1級10/4・2級10/25" },
+  {
+    pattern: /主任技師/g,
+    reason:
+      "公式名称は「コンクリート主任技士」（技師ではない）。2026-08-12 に 46 ファイル 163 箇所を是正した誤記の再発",
+    stripPathLiterals: true,
+  },
+  {
+    pattern: /コンクリート主任技士[^\n]{0,12}10月/g,
+    reason: "コンクリート主任技士の試験は11/30（申込締切9/01）。10月ではない",
+  },
 ];
 
 function walk(dir) {
@@ -64,18 +124,31 @@ function walk(dir) {
   return files;
 }
 
+let scannedFiles = 0;
 for (const scanRoot of scanRoots) {
   const absoluteRoot = join(ROOT, scanRoot);
-  if (!statSync(absoluteRoot).isDirectory()) continue;
+  if (!existsSync(absoluteRoot) || !statSync(absoluteRoot).isDirectory()) continue;
   for (const file of walk(absoluteRoot)) {
-    const content = readFileSync(file, "utf8");
+    const raw = readFileSync(file, "utf8");
+    let stripped = null;
+    scannedFiles++;
     for (const rule of forbidden) {
+      let content = raw;
+      if (rule.stripPathLiterals) {
+        if (stripped === null) {
+          stripped = PATH_LITERALS.reduce((acc, re) => acc.replace(re, ""), raw);
+        }
+        content = stripped;
+      }
       rule.pattern.lastIndex = 0;
       if (rule.pattern.test(content)) {
         errors.push(`${relative(ROOT, file)}: ${rule.reason}`);
       }
     }
   }
+}
+if (scannedFiles === 0) {
+  errors.push("走査対象が 0 ファイル（検査不成立。scanRoots を確認）");
 }
 
 if (errors.length) {
@@ -84,6 +157,10 @@ if (errors.length) {
   process.exit(1);
 }
 
+const totalEvents = inspected.reduce((a, x) => a + x.n, 0);
 console.log(
-  `[check-exam-calendar] OK: ${calendar.verifiedAt}確認済み（1級2件・2級3件）`,
+  `[check-exam-calendar] OK: ${calendar.verifiedAt}確認済み — ` +
+    `資格 ${inspected.length} 件 / 日付 ${totalEvents} 件を実照合、` +
+    `${scannedFiles} ファイルを走査（禁止パターン ${forbidden.length} 種）`,
 );
+for (const x of inspected) console.log(`  ${x.label}: ${x.n} 件`);

@@ -1,8 +1,8 @@
 # GA4 × GSC crosswalk（page 突合）
 
-- GA4: `ga4-page-2026-07-30T22-01-05.json`（2026-07-02〜2026-07-29）
-- GSC: `gsc-page-query-2026-07-30T22-01-04.json`（2026-06-29〜2026-07-27）
-- join 済ページ: 17（GSCのみ 58 / GA4のみ 83）
+- GA4: `ga4-page-2026-08-07T01-01-30.json`（2026-07-10〜2026-08-06）
+- GSC: `gsc-page-query-2026-08-07T01-01-29.json`（2026-07-07〜2026-08-04）
+- join 済ページ: 16（GSCのみ 47 / GA4のみ 84）
 
 ## title/meta 改善機会（上位表示 pos≤15 なのに CTR<1.0%＝クリックされない）
 
@@ -14,7 +14,6 @@
 
 | page | impr | clicks | ctr | pos |
 |---|--:|--:|--:|--:|
-| /docs/pe-comprehensive-management-safety-and-security | 50 | 0 | 0.0% | 34.6 |
 
 ## Ranked-Low-Engagement（検索クリックはあるが GA4 engagement<40%・内容/UX 要改善）
 
