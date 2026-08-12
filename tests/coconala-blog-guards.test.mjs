@@ -19,6 +19,7 @@ import {
   assertBlogPost,
   BlogGuardError,
   SERVICE_URL_RE,
+  TITLE_MAX,
 } from '../scripts/lib/coconala-blog-guards.mjs';
 
 const CATALOG = {
@@ -123,8 +124,16 @@ test('空タイトルは止まる', () => {
   assert.equal(codeOf(() => assertTitle('   ')), 'TITLE_EMPTY');
 });
 
-test('TITLE_MAX 未計測なら lengthChecked:false を返す（黙って PASS にしない）', () => {
-  const r = assertTitle('長さ未計測でも通るタイトル');
+test('TITLE_MAX は運用上限 45（ポリシー由来・プラットフォーム上限ではない）', () => {
+  assert.equal(TITLE_MAX, 45);
+  const r = assertTitle('【第1回】経験記述で落ちる答案に共通する3つの型｜1級・2級土木');
+  assert.equal(r.lengthChecked, true);
+  assert.equal(r.max, 45);
+  assert.equal(codeOf(() => assertTitle('あ'.repeat(46))), 'TITLE_TOO_LONG');
+});
+
+test('max:null を明示すれば長さ検査を外せる（未計測を装わない・戻り値で自己申告する）', () => {
+  const r = assertTitle('どれだけ長くても通る'.repeat(10), { max: null });
   assert.equal(r.lengthChecked, false);
   assert.equal(r.max, null);
 });
@@ -144,7 +153,7 @@ test('assertBlogPost は全ゲートを通し、検査実数を返す', () => {
   assert.equal(r.links.urlsFound, 0);
   assert.equal(r.price.amountsFound, 1);
   assert.equal(r.funnel.targets.length, 1);
-  assert.equal(r.title.lengthChecked, false);
+  assert.equal(r.title.lengthChecked, true);
 });
 
 test('assertBlogPost は1つでも違反があれば例外（握り潰せない）', () => {
