@@ -36,19 +36,15 @@ node scripts/note-attach-batch.mjs --commit
 - 経緯と判断の前提 → [handoff](../handoffs/2026-08-11-note-delivery-recovery.md)
 
 
-### ココナラ 8/17 の復帰（不在明け・全件休止からの再開）
+### ~~ココナラ 8/17 の復帰（不在明け・全件休止からの再開）~~ → **2026-08-12 前倒しで完了**
 タグ: [収益化][ココナラ]
 
-2026-08-06〜08-16 の不在中は**全17件を受付休止**している（購入から48時間以内に連絡できないと自動キャンセルになるため。PDF商品も手作業送付で例外を作れない）。8/17 に復帰する。
+> [!done] 2026-08-12 に `npm run coconala-pause -- --resume --absence --commit` を実行し、**10件を再受付**（予定より5日前倒し）
+> `ok=10 skip=0 ng=0`・全件 **`stop_fg=0` を実測で確認**。恒久廃止（`retired` 5件）は構造的に選ばれず据え置き。
+> 再開: shindan / tensaku-set / sakusei / kanseitoan-pdf / 2kyu-kanseitoan-pdf / 2kyu-moshi-pdf / 2kyu-full-pdf / 1kyu-premium / civil-keiken-kit / sokan-bunseki-pdf
+> 併せて `1kyu-moshi-pdf`・`1kyu-full-pdf`（不在中も listed の例外2件）を含め **listed は計12件**。
 
-```bash
-npm run coconala-pause -- --resume --absence --commit
-```
-
-- `pauseReason:'absence'` の **12件だけ**が対象。恒久廃止（`retired`・5件は archived 済）は構造的に選ばれない
-- カタログの `listed` 戻しとマーカー除去も**スクリプトが行う**（人が対象を思い出す必要なし）
-- 戻し忘れは `npm run check-coconala-wiring` が警告（`resumeOn` 超過で発火・実測確認済み）
-- 真実源 → [coconala-operations.md](../reference/coconala-operations.md)「長期不在」節
+記録: 当初の記載は「`absence` は**12件**」だったが、実カタログは **10件**（absence 10 / retired 5 / listed 2 = 17）。件数を実体に合わせて訂正した。カタログの `listed` 戻しとマーカー除去はスクリプトが行い、戻し忘れは `npm run check-coconala-wiring` が `resumeOn` 超過で警告する（今回は前倒しのため未発火）。真実源 → [coconala-operations.md](../reference/coconala-operations.md)「長期不在」節
 
 ### ココナラ 初受注〜評価まで完了（やみぎく様・2件 計¥10,000）
 タグ: [収益化][ココナラ]
