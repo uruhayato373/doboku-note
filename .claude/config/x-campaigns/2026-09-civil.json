@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "month": "2026-09",
   "timezone": "Asia/Tokyo",
-  "status": "draft-plan",
+  "status": "approved-plan",
   "examCalendar": ".claude/config/exam-calendar.json",
   "policy": ".claude/knowledge/reference/x-post-policy.md",
   "strategy": {

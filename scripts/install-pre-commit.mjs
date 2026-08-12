@@ -275,6 +275,14 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# MDX の BOM（U+FEFF）。先頭に付くと frontmatter の ^--- が外れ、Kindle ビルダが title を
+# 拾えず章名が article.mdx になり YAML が本文に印字される（2026-08-12・審査中の e-02 で発生）。
+# 目視できない事故なので機械で止める。EPUB 展開は重いので commit 時は --bom-only。
+node scripts/check-kindle-epub-leak.mjs --bom-only
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
 # note→サイト送客リンクの UTM 規約（生URL単独行=カード化でUTM消失 / inline は utm_source=note 必須）。SKIP_NOTE_UTM=1 で回避
 node scripts/check-note-site-utm.mjs --staged
 if [ $? -ne 0 ]; then
