@@ -291,7 +291,7 @@ published: true                      # false なら下書き・非表示
 - `pe-comprehensive-management` — 技術士（総合技術監理部門）
 - `pe-first-stage` — 技術士 第一次試験
 - `pe-construction` — 技術士第二次試験（建設部門）
-- `concrete-chief-engineer` — コンクリート主任技師
+- `concrete-chief-engineer` — コンクリート主任技士
 - `concrete-diagnostician` — コンクリート診断士（下書き）
 
 **tags の例**:

@@ -99,7 +99,7 @@ function getExamName(category: string | undefined): string {
     case "pe-comprehensive-management":
       return "技術士 総合技術監理部門";
     case "concrete-chief-engineer":
-      return "コンクリート主任技師";
+      return "コンクリート主任技士";
     case "concrete-diagnostician":
       return "コンクリート診断士";
     default:

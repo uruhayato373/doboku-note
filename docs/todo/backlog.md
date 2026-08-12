@@ -406,7 +406,7 @@ grep -rnoE '表[ 　]*[0-9]+\.[0-9]+' .local/r2/posts/civil-construction-1/textb
 ### コンクリート系 CTA 背景イラスト（cta-bg）未整備
 タグ: [デザイン]
 
-`cta-bg/*.webp` がコンクリート主任技師・診断士の 2 資格分だけ無く、テーマ色のベタ塗りにフォールバックしている。他資格と並べたときに CTA の見栄えが落ちる。
+`cta-bg/*.webp` がコンクリート主任技士・診断士の 2 資格分だけ無く、テーマ色のベタ塗りにフォールバックしている。他資格と並べたときに CTA の見栄えが落ちる。
 
 ### 診断士 記事の増補（競合が持ち自社に無い論点）
 タグ: [コンテンツ]
@@ -883,7 +883,7 @@ node scripts/coconala-blog-publish.mjs --post <slug> --commit
 
 手順は [coconala-operations.md §8](../reference/coconala-operations.md)・`build-coconala-content-pdf.mjs`（C8/C9 は `generated:true`）・作成モード=`/keiken-tensaku --mode sakusei`。
 
-### コンクリート主任技師 H24/H25 skip 分の補完＋R6/R7 拡張
+### コンクリート主任技士 H24/H25 skip 分の補完＋R6/R7 拡張
 タグ: [コンテンツ品質]
 
 2026-07-17 に H24（26問）・H25（12問）を site へ追加（計303問・H24〜R5）。ただし 2022年版底本の**OCR品質がまだらで、以下は復元不能/不確実として収録せず skip**。**書籍原典（コンクリート主任技師2022）を再入手できれば補完可能**（現状ローカルに原典PDFなし＝照合不可）:
@@ -892,7 +892,7 @@ node scripts/coconala-blog-publish.mjs --post <slug> --commit
 - **年度拡張**: R6・R7 は原典スキャン未入手（書籍入手が前提）
 - **表記統一（軽微）**: 既存 cce に「令和1年度」と「令和元年度」の混在（同一年=R1）。片方へ統一
 
-真実源 = [exam-content-policy.md](../reference/exam-content-policy.md) §コンクリート主任技師。
+真実源 = [exam-content-policy.md](../reference/exam-content-policy.md) §コンクリート主任技士。
 
 ### 過去問 年度拡張の未整備分（原典未入手・2026-07-17 調査）
 タグ: [コンテンツ品質]
@@ -901,7 +901,7 @@ node scripts/coconala-blog-publish.mjs --post <slug> --commit
 - **技術士第一次試験 H30以前**: サイトは R01〜R07（560問）のみ。H30以前は engineer.or.jp で公開されているが**正答が合本PDF（`_12` 形式）で別パイプライン要**（[exam-content-policy.md](../reference/exam-content-policy.md) §技術士第一次試験）。RelatedKeywords も当面省略中（建設一次の論点キーワードページ未整備）
 - **1級土木 第二次検定 H26〜R02**: サイトは二次 R03〜R07 のみ（一次は H26〜R07 完備）。H30〜R02 は**旧「実地試験」形式で二次原典がリポジトリに無く入手先の記録もなし**。現行 R8 対策への直接価値は限定的（旧形式）＝学科記述の論点素材としての価値で判断
 - **2級土木 R02以前**: サイト・原典とも R03〜R07 のみ。旧学科/実地は原典なし・拡張計画の記録なし
-- **コンクリート主任技師 R6・R7 / H24・H25 skip 分**: 上記「H24/H25 skip 分の補完＋R6/R7 拡張」参照
+- **コンクリート主任技士 R6・R7 / H24・H25 skip 分**: 上記「H24/H25 skip 分の補完＋R6/R7 拡張」参照
 - **コンクリート診断士**: 98問整備済みだが権利方針未決で全非公開 → 🟣「著作権方針の決定（3択）」参照
 
 ### lint 9-16（Callout 密度超過）22記事のバーンダウン

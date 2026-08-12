@@ -177,7 +177,7 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 - **残課題**: 98 問の技術内容の人手レビュー（公開済みのため、誤りが見つかれば修正して再デプロイ）→ `docs/todo/backlog.md`。
 - 経緯の詳細は git 履歴（handoff `2026-07-31-concrete-diagnostician-launch.md` は抽出のうえ削除済み）。スキャン整備期の経緯は旧 handoff `2026-05-30-concrete-diagnostician.md`（同）。
 
-### 新資格メモ: コンクリート主任技師（`concrete-chief-engineer`、2026-05-30 公開）
+### 新資格メモ: コンクリート主任技士（`concrete-chief-engineer`、2026-05-30 公開）
 
 - groups = guide / textbook / primary（第1次/第2次区分なし、四肢択一＋小論文の単一試験）。variant=civil / order=2.5。
 - **公開構成**: ガイド3 + 過去問8分野（材料/性質/耐久性/配合設計/製造QC/施工/製品/構造設計）+ テキスト8分野 = 計19記事 published:true。診断士と異なり**出荷済**。差は「①問題の図依存率が低く逐語転記が安定 ②正答が各問末尾 [正解(n)] にあり確定可能」だったこと。
