@@ -49,14 +49,19 @@ function parseArgs(argv) {
 
 // ---- frontmatter ----------------------------------------------------------
 function splitFrontmatter(raw) {
-  const m = raw.match(/^---\n([\s\S]*?)\n---\n/)
-  if (!m) return { fm: {}, body: raw }
+  // BOM(U+FEFF) と CRLF を先に均す。どちらも `^---\n` を外し、frontmatter が解析されないまま
+  // 本文として印字され、章タイトルはファイル名（article.mdx）へフォールバックする。
+  // 2026-08 に e-02/g-01/g-02 の配布 EPUB 全章で実発生（e-02 はその状態で審査に出ていた）。
+  // BOM は目視できず、CRLF は Windows で作業すると working tree 全体に付く（既定 autocrlf）。
+  const src = raw.replace(/^\uFEFF/, '').replace(/\r\n/g, '\n')
+  const m = src.match(/^---\n([\s\S]*?)\n---\n/)
+  if (!m) return { fm: {}, body: src }
   const fm = {}
   for (const line of m[1].split('\n')) {
     const kv = line.match(/^(\w[\w-]*):\s*(.*)$/)
     if (kv) fm[kv[1]] = kv[2].replace(/^["']|["']$/g, '')
   }
-  return { fm, body: raw.slice(m[0].length) }
+  return { fm, body: src.slice(m[0].length) }
 }
 
 // ---- KaTeX → MathML（遅延 import: 数式ゼロの科目では katex 不要）----------
