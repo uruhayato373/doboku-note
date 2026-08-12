@@ -153,6 +153,13 @@ try {
     }
   }
   await page.screenshot({ path: shot(`publish-final-${SERVICE}.png`) }).catch(() => {});
+  if (!COMMIT) {
+    // ★このスクリプトは毎回 /services/add を叩くので、「draft 実行 → commit 実行」の順で回すと
+    //   **サービスが2件でき、draft 側が孤児として残る**（2026-08-12 coconala-sakusei-4theme で実発生）。
+    //   下書きは非公開なので購入者影響は無いが、放置すると出品管理が汚れ誤公開の芽になる。
+    console.log(`[!] この下書き（id=${sid}）は --commit 実行では再利用されず、別サービスが新規作成される。`);
+    console.log(`    公開後にこの孤児を消すこと: node scripts/coconala-delete-draft.mjs --id ${sid} --allow-duplicate --commit`);
+  }
   console.log('RESULT:', JSON.stringify({ service: SERVICE, mode: COMMIT ? 'commit' : 'draft', serviceId: sid }));
 } finally {
   await ctx.close();

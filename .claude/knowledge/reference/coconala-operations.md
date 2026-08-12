@@ -49,6 +49,7 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 | `coconala-shindan` | S1 合格診断。レビュー獲得フロント。診断のみ・書き換え案は出さない |
 | `coconala-tensaku-set` | S2 添削（2テーマセット）。主力。赤入れ＋書き直し1回 |
 | `coconala-sakusei` | S3 答案作成（ヒアリング→文章化・2テーマ・¥8,000）。質問シートで本人の実工事を吸い上げ答案ドラフト化（捏造禁止・本人確認必須・週2枠） |
+| `coconala-sakusei-4theme` | S3+ 答案作成 上位版（4テーマ・¥16,000・週1枠）。本試験は5管理から2テーマが当日指定されるため、4テーマ備えて出題を外す事故に保険をかける商品。運用はシートを2回分受領し `--mode sakusei` を2テーマずつ2回（コード変更なし）。ちゃんさと（作成代行 2問¥16,000／4問¥32,000）の半額帯・S3 の価格アンカーも兼ねる |
 | `coconala-bunseki-pdf` | C1 出題分析 PDF。**paused（2026-08-05 統廃合）**＝C10 フルパック限定収録 |
 | `coconala-kanseitoan-pdf` | C2' 1級 経験記述 **模範答案セット** PDF 10冊（テーマ別5＋年度別5＝旧C2+C4 統合・¥5,000）。納品= C2 5冊+C4 5冊 |
 | `coconala-2kyu-kanseitoan-pdf` | C3' 2級 模範答案セット PDF 8冊（テーマ別3＋年度別5＝旧C3+C5 統合・¥4,000） |
@@ -372,7 +373,7 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 |---|---|
 | `scripts/coconala-publish.mjs --service <id> [--commit]` | 新規出品。`/services/add`→種別=テキストチャット→「内容の入力に進む」で下書き生成→フォーム充填→下書き保存（既定）/公開（`--commit`）→公開時カタログへ `listed`＋`serviceUrl`＋`listedAt` 書き戻し |
 | `scripts/coconala-edit.mjs --service <id> [--fields …] [--commit]` | 既存修正。カタログ＋listings の現値でフォーム再充填。`--fields price,delivery` 等で部分更新 |
-| `scripts/coconala-delete-draft.mjs --id <n[,n]> [--commit]` | **空の下書き（orphan draft）を安全に削除**。4重ガード（G0 カタログ在籍拒否・G1 URL一致・G2 タイトル空・G3「下書きを削除」導線＝公開商品には出ない）。既定 dry-run・実削除は `--commit`。公開中商品は構造的に誤爆しない |
+| `scripts/coconala-delete-draft.mjs --id <n[,n]> [--allow-duplicate] [--commit]` | **空の下書き（orphan draft）を安全に削除**。4重ガード（G0 カタログ在籍拒否・G1 URL一致・G2 タイトル空・G3「下書きを削除」導線＝公開商品には出ない）。既定 dry-run・実削除は `--commit`。公開中商品は構造的に誤爆しない。**G2b（2026-08-12）**: publish は毎回 `/services/add` を叩くため「draft 実行→commit 実行」で**サービスが2件でき draft 側が孤児になる**。この孤児だけは「タイトルが listed 商品と一致（末尾ます剥がしで正規化）かつ別 id」で一意に判定でき、`--allow-duplicate` で削除できる。作りかけの題名付き下書きは従来どおり触らない |
 | `scripts/coconala-orders.mjs [--no-deadline] [--headless]` | **受注実績＋購入前問い合わせ(DM) の read-only 収集**（§2.2b）。取引管理（出品）の全タブ＋未返信タブ＋DM 一覧を走査し、未返信 room の返信期限をトークルームから拾って `orders-snapshot.json` を生成（DM スレッドは開かない＝既読にしない）。**書き込み一切なし・個人情報を保存しない**。1タブでも取得失敗なら `status:'partial'` ＋ exit 2 |
 | `scripts/coconala-pause.mjs [--resume --absence \| --archive --all-retired \| --all-paused] [--commit]` | **受付休止 / 再開 / アーカイブ**の決定的操作。対象選択とガードは `scripts/lib/coconala-guards.mjs`（`tests/coconala-guards.test.mjs` で固定）＝休止は `paused` のみ・再開は `listed` のみ・アーカイブは `pauseReason:'retired'` のみを受け付ける。既定 dry-run。実行後は一覧を再読して `stop_fg`（アーカイブは一覧からの消失）を**実測で検証**。**一覧は1ページ10件でページ送り**するので対象の載るページを探してから操作する（1ページ目しか見ないと11件目以降が「見つからない」に化ける）。`--resume --absence` はカタログの `listed` 戻しとマーカー除去まで行う |
 | `scripts/coconala-discover.mjs [--advance] [--cat --sub --type]` | フォーム構造・selector・カテゴリ/価格/facet options の偵察（読み取り専用）。仕様ドリフト時の再校正用 |

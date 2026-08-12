@@ -25,6 +25,7 @@ import {
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
 const COMMIT = argv.includes('--commit');
+const ALLOW_DUP = process.argv.includes('--allow-duplicate');
 const IDS = (getArg('--id') || '').split(',').map((s) => s.trim()).filter(Boolean);
 if (!IDS.length) { console.error('--id <数値[,数値...]> required'); process.exit(1); }
 
@@ -61,7 +62,27 @@ try {
     });
     // G2: タイトル空
     if (!st.hasTitleField) { results.push([id, 'SKIP: タイトルフィールド無し（編集ページでない）']); continue; }
-    if ((st.title || '').trim() !== '') { results.push([id, `SKIP: タイトル非空("${st.title}")=消さない`]); continue; }
+    if ((st.title || '').trim() !== '') {
+      // G2b: **公開済みカタログ商品と同一タイトルの重複下書き**だけは例外的に許可する。
+      //   publish は毎回 /services/add を叩くので「draft 実行 → commit 実行」で
+      //   サービスが2件でき、片方が孤児になる（2026-08-12 に coconala-sakusei-4theme で実発生）。
+      //   この孤児は「タイトルが listed 商品と完全一致」かつ「その商品の serviceId とは別 id」で
+      //   一意に判定できる。それ以外の題名付き下書き（作りかけ）は従来どおり触らない。
+      // フォーム上のタイトルは**末尾「ます」が落ちている**（ココナラが固定サフィックスとして
+      // 自動付与するため coconala-form.mjs が剥がして入れる）。カタログ側も剥がして比べる。
+      const strip = (x) => String(x || '').trim().replace(/ます$/, '');
+      const t = strip(st.title);
+      const twin = Object.values(catalog).find(
+        (c) => c.status === 'listed' && strip(c.title) === t && !String(c.serviceUrl).endsWith('/' + id)
+      );
+      if (!(twin && ALLOW_DUP)) {
+        results.push([id, twin
+          ? `SKIP: 公開済み "${twin.id}" と同題の重複下書き（消すなら --allow-duplicate）`
+          : `SKIP: タイトル非空("${t}")=消さない`]);
+        continue;
+      }
+      results.push([id, `DUP: 公開済み "${twin.id}"（${twin.serviceUrl}）と同題の重複下書きとして扱う`]);
+    }
     // G3: 下書き専用導線
     if (!st.hasDraftDelete) { results.push([id, 'SKIP: 「下書きを削除」導線なし（公開/審査中の可能性）']); continue; }
 
