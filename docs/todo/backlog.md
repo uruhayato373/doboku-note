@@ -20,6 +20,22 @@
 
 ## 🔴 高 — 来月中に着手
 
+### note 添付 残41本（明日いちばん・購入者が受け取れない）
+タグ: [収益化][note運用]
+
+本文でPDFを約束しているのにライブに添付が無い記事の復旧。**136本中94本を 2026-08-11 に添付済み**、
+note の1日100件上限で打ち切り。残 41 本。
+
+```bash
+node scripts/note-attach-batch.mjs --commit
+```
+
+- done-log から自動再開。負債 `nded084d4f646`（上限で復元できなかった分）も同時に解消される
+- 完了後 `npm run check-note-attachments:live` で **`missingPromised: 0`** を確認する
+- 検知は `npm run check-note-delivery-due`（週次レビューにも配線済み）
+- 経緯と判断の前提 → [handoff](../handoffs/2026-08-11-note-delivery-recovery.md)
+
+
 ### ココナラ 8/17 の復帰（不在明け・全件休止からの再開）
 タグ: [収益化][ココナラ]
 
