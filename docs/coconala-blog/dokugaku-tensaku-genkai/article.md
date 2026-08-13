@@ -1,9 +1,9 @@
 ---
 title: "【第2回】経験記述が独学で伸びない理由｜自己採点が成立しない構造"
-status: draft
-blogUrl: ""
-blogId: ""
-publishedAt: ""
+status: "published"
+blogUrl: "https://coconala.com/blogs/6197366/791954"
+blogId: "791954"
+publishedAt: "2026-08-13"
 exam: civil
 angle: 理由
 category: 学び

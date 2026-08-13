@@ -24,12 +24,17 @@ title: スキル ガバナンス記録
 ├── management/      # 22 — 計画・分析・戦略
 ├── dev/             # 13 — 開発・CI/CD
 ├── analytics/       # 2 — サイト分析
-├── social/          # 22 — SNS 投稿
+├── social/          # 23 — SNS 投稿
 ├── metrics/         # 1 — 売上記録
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **98 スキル**（10 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+合計 **100 スキル**（10 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+
+> 2026-08-13 新設（X 1日3本体制の計画基盤）: `social/x-campaign-plan`（X 月次投稿計画 JSON を **schemaVersion 2＝1日3本**で起案し、機械ゲートを通してから執筆・週次投入へ引き継ぐ user-invocable スキル。`disable-model-invocation: true`）。背景＝ユーザー決定で 1日1本→3本へ増量（policy §11.6 S2）。**計画 JSON を先に確定させてから原稿を書く**設計（逆順だと「受付終了した出品に送客していた」「販売投稿が連続していた」が執筆後に判明して全部書き直しになる）。
+> 併せて既存資産を拡張: `check-x-campaign-plan.mjs` を v2 対応（1日3本・スロット A/B/C 重複なし・同一日の間隔 60 分・販売 funnel は 1日1本かつスロット C のみ・販売連続を**時系列順**で判定）＋**送客先のカタログ整合**（coconala `listed` / note `published` / brain `listed` を突合し、2026-08-05 に retired した 5 出品や未公開マガジンへの送客を計画段階で遮断。カタログ 0 件読取は検査不成立で exit 1）。`gen-x-card.mjs` を**全6資格**へ拡張し色を `note-cover-tokens.json` から解決、**資格判定をツイート単位**に変更（1日3本では 1 ドラフトに複数資格が混ざるため。従来はフォルダ単位でコンクリート/建設部門が総監色で誤生成されていた）。新規 `scripts/x-own-metrics.mjs`（`x-own-metrics`）＝**自投稿の反応を初めて記録**（likes/RT・中央値主体。impressions/replies は CLI が返さないため取得不可を明記）。`x-sync-status.mjs` の queued 分岐がキューを一度も見ていなかった欠陥を修正（実照合へ）。
+> エージェントは新設せず `x-post-writer` / `x-post-qa` に `exam` 値（`concrete-chief`/`concrete-diagnosis`/`pe-construction`）とスロット・**実績訴求のガードレール**（★レビュー言及禁止・note の「今月」売上は sales-log 停止中のため禁止・Kindle g-01/g-02 を「発売中」と書かない）を追加＝資格別にエージェントを増やさない原則を維持。合計 `99→100`・social `22→23`・agents 件数は不変。
+> ※ 従来この行は `98` だったが、ツリーと `find` 実数は `99` でドリフトしていた（2026-08-13 に実数へ是正）。
 
 > 2026-07-27 新設（3 ASP 横断の提携運用基盤 ＋ SSOT の `.claude` 集約）: `ads/affiliate-status`（A8/もしも/afb の提携状態を実機照合しカタログとのドリフトを報告・read-only）と `ads/affiliate-apply`（もしも/afb の提携申請・dry-run 既定＋`--commit` gate）。いずれも `disable-model-invocation: true`。あわせて **新エージェント `affiliate-operator`**（Generator/オーケストレーター・sonnet。3 ASP の状態照合・ドリフト是正・**ASP 間比較**〔同一案件の単価/確定率/EPC〕・申請の実行計画）。**設計の中核＝サイト帰属を機械で強制する**: 3 ASP すべてで doboku-note と stats47 が同一口座に同居し、**afb は既定が stats47**。実際に afb の走査で SID 不一致を*警告して続行*し stats47 の一覧を読んで「建設系 0 件」と誤報告した事故が起きたため、判定を純関数 `scripts/lib/asp-site-guard.mjs` に集約し **戻り値ではなく例外**（`assertSiteOrThrow`）にした（＝呼び出し側が握り潰せない・`--force` 相当も作らない）。回帰テスト `tests/asp-site-guard.test.mjs`（11 ケース・事故そのものを固定）。ブラウザ層 `scripts/lib/asp-browser.mjs`（**汎用部は `google-console-browser.mjs` を import 再利用しコピーしない**）＋設定 SoT `.claude/config/affiliate-asp.json`（実機確定値のみ）＋カタログ `.claude/state/ads/affiliate-catalog.json`（9 件・`_statusVocab` で **`none`〔未提携と確認〕と `unknown`〔調べていない〕を分ける**）。決定的スクリプト `scripts/affiliate-status.mjs`（`affiliate:status`）／`affiliate-apply.mjs`（`affiliate:apply`）／`afb-scan.mjs`（`afb:scan`）、配線ガード `scripts/check-affiliate-wiring.mjs`（`check-a8-wiring` を改名・3 ASP 横断の 4 点突合へ拡張・pre-commit。初回実行で dx-consulting の programIdMap 漏れ＝実際の収益突合の穴を検出）。**運用 SSOT を `.claude/knowledge/reference/affiliate-operations.md` に新設し、`docs/project/04_運営/02_アフィリエイト提携状況.md` <!-- doc-ref:ignore -->（470 行・約 4 割が廃止済みの歴史記録）を解体・削除**（ユーザー方針＝SSOT は `.claude` 内で管理）。参照 30 箇所を付け替え（`check-doc-refs` が見るフルパスは 12 箇所だけで、相対リンク・ファイル名のみ・コード/JSON 内の 18 箇所は機械検知されないため手動 sweep）。歴史記録は git 履歴に残す。既存 `ads/scout-asp`（A8 の案件開拓）・`ads/a8-report`（A8 の成果取込）とは守備範囲が直交。合計 `96→98`・ads `2→4`・agents `+1`。
 

@@ -132,6 +132,10 @@ try {
   await page.screenshot({ path: join(ROOT, '.tmp/note-edit-magazine.png'), fullPage: true }).catch(() => {});
   if (!ok) { console.error('  ABORT: 読み戻し不一致'); exitCode = 4; }
   else if (DRY) { console.log('  [dry-run] 保存せず（.tmp/note-edit-magazine.png 確認）'); }
+  // 「変更不要（既に目標値）」と「変更できない（文字数制限等）」を区別する。
+  // 読み戻しが目標値と一致していれば、ボタンが無効なのは変えるものが無いからで、正常。
+  // 混同すると、記事の単品価格だけ直したい再実行が毎回ここで止まる（2026-08-13 実発生）。
+  else if (disabled && ok) { console.log('  変更不要（既に目標値・保存はスキップして次へ）'); }
   else if (disabled) { console.error('  ABORT: 更新ボタン無効（文字数制限・未変更の疑い）'); exitCode = 5; }
   else { await upd.click(); await page.waitForTimeout(5000); console.log('  保存（更新）クリック完了'); }
 
@@ -147,7 +151,13 @@ try {
         await page.locator('button:has-text("公開に進む")').first().click();
         await page.waitForTimeout(3000);
         const pf = page.locator('input[placeholder="300"]').first();
-        await pf.click(); await page.keyboard.press('Control+A'); await page.keyboard.press('Delete');
+        // 全選択は macOS だけ Meta+A。Ctrl+A は行頭移動の emacs binding で選択されず、
+        // 既存値が残ったまま追記されて入力値が一致せず「価格入力失敗」で全件 skip する
+        // （2026-08-13 に主任技士5本で実発生。note-update-body.mjs:233 と同じ罠）。
+        // fill() は React の onChange を発火しない実装があるため pressSequentially を維持する。
+        await pf.click();
+        await page.keyboard.press(process.platform === 'darwin' ? 'Meta+A' : 'Control+A');
+        await page.keyboard.press('Delete');
         if (DRY) { console.log(`  [dry-run] ${n.key}: ¥${n.price}→¥${articlePrice}（保存せず）`); continue; }
         await pf.pressSequentially(articlePrice, { delay: 80 }); await page.waitForTimeout(300);
         if ((await pf.inputValue()).trim() !== articlePrice) { console.log(`  ${n.key}: 価格入力失敗 skip`); continue; }

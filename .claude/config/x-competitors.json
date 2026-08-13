@@ -1,15 +1,99 @@
 {
-  "_note": "X(旧Twitter) 競合アカウント一覧。scripts/scout-x-competitors.mjs が読む。handle = x.com/{handle} の {handle}（@なし）。exams タグは note-competitors.json と共通（sokan/pe/pe-construction/civil/concrete-engineer/concrete-chief/concrete-diagnostician）。シードは docs/project/01_戦略/07_競合調査.md の「SNS競合」節（2026-07-04・多くは要確認）由来＝scout 実行時にライブ検証する。取得は read-only・四半期・安全弁必須（x-post-policy.md §11）。分析真実源は 09_販売チャネル競合分析.md（価格/品揃え軸）、コンテンツ型/エンゲージ軸は 07 の SNS競合節。",
-  "competitors": [
-    { "handle": "sosou_nino",      "label": "小泉士郎",        "exams": ["sokan", "pe-construction"], "note": "最大競合(note)。X ハンドル未確定(sosou_nino は note 用・CLI で not_found)＝07 の『X 突出インフル不在・note主導線』と整合。X 実ハンドル判明後に差し替え" },
-    { "handle": "gijutushiindex",  "label": "技術士-Index",     "exams": ["pe-construction"],          "note": "二次建設・予想問題連番シリーズ。導線=自社ブログ/BASE" },
-    { "handle": "Civil10Engineer", "label": "技術士パパ",       "exams": ["pe-construction", "sokan"], "note": "建設×総監2部門・ゼネコン15年。導線=note/YouTube" },
-    { "handle": "suger_sensei",    "label": "シュガー先生",     "exams": ["civil"],                     "note": "2級土木・工業高校教員。図解『神7』/合否ドラマ型。導線=note(セコカンLAB)" },
-    { "handle": "kaminoblog",      "label": "カミノ",           "exams": ["civil"],                     "note": "土木公務員・1級土木。職種解説/DM相談" },
-    { "handle": "miyabi_labo",     "label": "miyabi_labo",     "exams": ["civil"],                     "note": "note=miyabi_labo と同一主体。まとめノート" },
-    { "handle": "Yurii6ww",        "label": "Yurii",           "exams": ["civil"],                     "note": "07 のX投稿型エンゲージ実測(2026-07-14)対象の土木施工管理アカウント" },
-    { "handle": "dobokusekoukan",  "label": "土木ブロガー",      "exams": ["civil"],                     "note": "2026-07-20 キーワード検索『土木施工管理技士 経験記述』で発掘。1級土木二次・経験記述・YouTube連動" },
-    { "handle": "tvxq_pelican29",  "label": "ペリカン(建設業)",  "exams": ["pe", "pe-construction", "concrete-diagnostician"], "note": "2026-07-20 検索『コンクリート診断士 対策』で発掘。5206F・技術士/施工管理/建築士の多資格発信" },
-    { "handle": "PockyDay2",       "label": "Pocky(診断士)",     "exams": ["concrete-diagnostician"],    "note": "2026-07-20 検索『コンクリート診断士 対策』で発掘。診断士記述式に特化・自己採点募集型。X初の concrete 競合(白地判断の訂正根拠)" }
-  ]
+ "_note": "X(旧Twitter) 競合アカウント一覧。scripts/scout-x-competitors.mjs が読む。handle = x.com/{handle} の {handle}（@なし）。exams タグは note-competitors.json と共通（sokan/pe/pe-construction/civil/concrete-engineer/concrete-chief/concrete-diagnostician）。シードは docs/project/01_戦略/07_競合調査.md の「SNS競合」節（2026-07-04・多くは要確認）由来＝scout 実行時にライブ検証する。取得は read-only・四半期・安全弁必須（x-post-policy.md §11）。分析真実源は 09_販売チャネル競合分析.md（価格/品揃え軸）、コンテンツ型/エンゲージ軸は 07 の SNS競合節。",
+ "competitors": [
+  {
+   "handle": "sosou_nino",
+   "label": "小泉士郎",
+   "exams": [
+    "sokan",
+    "pe-construction"
+   ],
+   "note": "最大競合(note)。X ハンドル未確定(sosou_nino は note 用・CLI で not_found)＝07 の『X 突出インフル不在・note主導線』と整合。X 実ハンドル判明後に差し替え"
+  },
+  {
+   "handle": "gijutushiindex",
+   "label": "技術士-Index",
+   "exams": [
+    "pe-construction"
+   ],
+   "note": "二次建設・予想問題連番シリーズ。導線=自社ブログ/BASE"
+  },
+  {
+   "handle": "Civil10Engineer",
+   "label": "技術士パパ",
+   "exams": [
+    "pe-construction",
+    "sokan"
+   ],
+   "note": "建設×総監2部門・ゼネコン15年。導線=note/YouTube"
+  },
+  {
+   "handle": "suger_sensei",
+   "label": "シュガー先生",
+   "exams": [
+    "civil"
+   ],
+   "note": "2級土木・工業高校教員。図解『神7』/合否ドラマ型。導線=note(セコカンLAB)"
+  },
+  {
+   "handle": "kaminoblog",
+   "label": "カミノ",
+   "exams": [
+    "civil"
+   ],
+   "note": "土木公務員・1級土木。職種解説/DM相談"
+  },
+  {
+   "handle": "miyabi_labo",
+   "label": "miyabi_labo",
+   "exams": [
+    "civil"
+   ],
+   "note": "note=miyabi_labo と同一主体。まとめノート"
+  },
+  {
+   "handle": "Yurii6ww",
+   "label": "Yurii",
+   "exams": [
+    "civil"
+   ],
+   "note": "07 のX投稿型エンゲージ実測(2026-07-14)対象の土木施工管理アカウント"
+  },
+  {
+   "handle": "dobokusekoukan",
+   "label": "土木ブロガー",
+   "exams": [
+    "civil"
+   ],
+   "note": "2026-07-20 キーワード検索『土木施工管理技士 経験記述』で発掘。1級土木二次・経験記述・YouTube連動"
+  },
+  {
+   "handle": "tvxq_pelican29",
+   "label": "ペリカン(建設業)",
+   "exams": [
+    "pe",
+    "pe-construction",
+    "concrete-diagnostician"
+   ],
+   "note": "2026-07-20 検索『コンクリート診断士 対策』で発掘。5206F・技術士/施工管理/建築士の多資格発信"
+  },
+  {
+   "handle": "PockyDay2",
+   "label": "Pocky(診断士)",
+   "exams": [
+    "concrete-diagnostician"
+   ],
+   "note": "2026-07-20 検索『コンクリート診断士 対策』で発掘。診断士記述式に特化・自己採点募集型。X初の concrete 競合(白地判断の訂正根拠)"
+  },
+  {
+   "handle": "JpValue32635",
+   "label": "コンクリート資格アプリ",
+   "exams": [
+    "concrete-engineer",
+    "concrete-chief",
+    "concrete-diagnostician"
+   ],
+   "note": "コンクリート3資格の唯一の日次発信アカ（2026-08-13 実在確認・followers 98 / tweets 1174）。導線=学習アプリ+YouTube一問一答。**投稿量に対しエンゲージほぼ0**（直近6本で♥0〜1）＝コンクリートXニッチの需要が薄い可能性。バースト投稿（同分に4本）で当社の禁忌と逆。"
+  }
+ ]
 }

@@ -66,6 +66,17 @@ jobs.sort((a, b) => rank(a) - rank(b));
 
 const todo = jobs.filter((j) => !doneSet.has(`${j.noteId}\t${j.pdf}`));
 console.log(`[note-attach-batch] 実測日 ${measuredAt} / 総アップロード ${jobs.length} 件 / 済 ${jobs.length - todo.length} / 残 ${todo.length}`);
+
+// 母集団はスナップショット。古いまま回すと「残 0」が出るが、それは**スナップショット以降に
+// 公開した記事を一度も見ていない**という意味でしかない（2026-08-13 に実発生＝08-11 の母集団に
+// 対して残 0 と表示し、その裏で前日公開の建設部門 16 本が未添付のまま残っていた）。
+// 鮮度を明示し、当日でなければ「全部終わった」と読めないよう警告する。
+const todayJst = new Date(Date.now() + 9 * 60 * 60 * 1000).toISOString().slice(0, 10);
+if (measuredAt !== todayJst) {
+  console.warn(`\n★ 母集団が古い（実測 ${measuredAt} / 今日 ${todayJst}）。`);
+  console.warn('  これ以降に公開した記事は母集団に入っていないため、ここで「残 0」になっても未添付が残りうる。');
+  console.warn('  実査で採り直す: node scripts/check-note-attachments.mjs --live\n');
+}
 const batch = todo.slice(0, LIMIT);
 console.log(`今回の対象: ${batch.length} 件（--limit ${LIMIT}・note の1日100件上限に合わせる）\n`);
 

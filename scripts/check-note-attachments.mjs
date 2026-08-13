@@ -208,7 +208,9 @@ if (!ONLY) {
   const outPath = join(ROOT, '.claude/state/note-attachments-missing.json');
   mkdirSync(dirname(outPath), { recursive: true });
   writeFileSync(outPath, JSON.stringify({
-    measuredAt: new Date().toISOString().slice(0, 10),
+    // JST 基準。UTC だと JST 09:00 前の実測が前日付になり、note-attach-batch の鮮度判定が
+    // 常に「1日古い」と誤警告する。
+    measuredAt: new Date(Date.now() + 9 * 60 * 60 * 1000).toISOString().slice(0, 10),
     inspected, target: need.length, fetchFail: fetchFail.length, satisfied: ok,
     missingPromised: shortPromised.map((s) => ({ noteId: s.noteId, title: s.title, live: s.live, want: s.want, pdfs: s.expected })),
     missingSilent: shortSilent.map((s) => ({ noteId: s.noteId, title: s.title, live: s.live, want: s.want, pdfs: s.expected })),
