@@ -40,6 +40,7 @@ import { spawnSync } from 'node:child_process';
 import { readFileSync, readdirSync, mkdirSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { todayJst } from './lib/jst-date.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -216,7 +217,7 @@ function analyze(comp) {
 // --- 時系列・ドリフト -------------------------------------------------------
 
 function todayStamp() {
-  return new Date().toISOString().slice(0, 10); // YYYY-MM-DD（UTC。日単位の履歴には十分）
+  return todayJst(); // YYYY-MM-DD（UTC。日単位の履歴には十分）
 }
 
 /** 今日より前の最新 history スナップショットを読む（比較対象）。 */

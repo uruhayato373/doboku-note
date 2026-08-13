@@ -11,13 +11,14 @@ import { execFileSync, spawnSync } from 'node:child_process'
 import { readFileSync, writeFileSync, copyFileSync, existsSync, rmSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { homedir } from 'node:os'
+import { todayJst } from './lib/jst-date.mjs'
 
 const REPO = resolve(import.meta.dirname, '..')
 const DIST = resolve(REPO, 'scripts/kindle-dist')
 const DL = resolve(homedir(), 'Downloads')
 const PROFILE = resolve(REPO, '.local/playwright-kdp-profile')
 const CATALOG = resolve(REPO, 'scripts/kindle-published/catalog.json')
-const TODAY = new Date().toISOString().slice(0, 10)
+const TODAY = todayJst()
 
 const args = process.argv.slice(2)
 const draftOnly = args.includes('--draft-only')

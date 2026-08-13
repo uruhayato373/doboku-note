@@ -18,6 +18,7 @@
  */
 import { readFileSync, writeFileSync, mkdirSync, appendFileSync } from "node:fs";
 import { join } from "node:path";
+import { todayJst } from './lib/jst-date.mjs';
 
 import {
   loadAspConfig,
@@ -154,7 +155,7 @@ async function main() {
     if (opts.write) {
       for (const d of drift) catalog.programs[d.program].asps[d.asp].status = d.actual;
       catalog.updatedAt = new Date().toISOString();
-      catalog.verifiedAt = new Date().toISOString().slice(0, 10);
+      catalog.verifiedAt = todayJst();
       writeFileSync(CATALOG, JSON.stringify(catalog, null, 2) + "\n", "utf-8");
       console.log(`\n→ --write によりカタログを実機の値へ更新しました`);
     } else {

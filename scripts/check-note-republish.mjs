@@ -25,6 +25,7 @@ import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { bodyHash, tagsHashFile, tagsHashRaw, metaHash, assetHash, loadState, saveState, STATE } from './lib/note-republish-hash.mjs';
+import { todayJst } from './lib/jst-date.mjs';
 
 const ROOT = 'docs/note';
 const args = process.argv.slice(2);
@@ -165,7 +166,7 @@ for (const hp of walkTags(ROOT)) {
   else tagDrift.push(hp);
 }
 
-if (BASELINE || BASELINE_META_ASSET) { st.updatedAt = new Date().toISOString().slice(0, 10); saveState(st); }
+if (BASELINE || BASELINE_META_ASSET) { st.updatedAt = todayJst(); saveState(st); }
 if (BASELINE_META_ASSET) {
   console.log(`[check-note-republish] meta/asset のみ baseline=${baselined} 件（本文・タグの drift 状態は不変）`);
   console.log(`  state: ${STATE}`);

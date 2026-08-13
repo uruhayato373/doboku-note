@@ -27,6 +27,7 @@ import { spawnSync } from 'node:child_process';
 import { readFileSync, readdirSync, mkdirSync, writeFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { todayJst } from './lib/jst-date.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -145,7 +146,7 @@ function analyze(comp, now) {
 
 // --- 時系列・drift（scout-note と同型）---
 function todayStamp() {
-  return new Date().toISOString().slice(0, 10);
+  return todayJst();
 }
 function loadPreviousSnapshot(todayFile) {
   let files = [];

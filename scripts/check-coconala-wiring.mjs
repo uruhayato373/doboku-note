@@ -31,6 +31,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { checkPauseReasons, findOverdueResume } from './lib/coconala-guards.mjs';
+import { todayJst } from './lib/jst-date.mjs';
 
 const ROOT = process.cwd();
 const CATALOG_PATH = join(ROOT, 'src/lib/coconala-services.ts');
@@ -136,7 +137,7 @@ violations.push(...checkPauseReasons(catalog));
 // 9. 復帰忘れの検知（長期不在プロトコルの最後の輪）。
 //    pauseReason:'absence' で resumeOn を過ぎているのに休止のままなら、売上ゼロのまま
 //    誰も気づかない。日付を跨いだだけで赤くなるのは運用を止めるので**警告**に留める。
-const today = new Date().toISOString().slice(0, 10);
+const today = todayJst();
 for (const o of findOverdueResume(catalog, today)) {
   warnings.push(
     `[${o.id}] 復帰予定日 ${o.resumeOn} を ${o.overdueDays} 日過ぎても受付休止のままです` +

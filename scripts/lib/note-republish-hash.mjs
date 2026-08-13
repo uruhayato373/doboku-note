@@ -3,6 +3,7 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { createHash } from 'node:crypto';
+import { todayJst } from './jst-date.mjs';
 
 export const STATE = '.claude/state/note-republish-hashes.json';
 
@@ -35,7 +36,7 @@ export function recordPublishedHash(filePath) {
     const raw = readFileSync(key, 'utf8');
     const st = loadState();
     st.hashes[key] = bodyHash(raw);
-    st.updatedAt = new Date().toISOString().slice(0, 10);
+    st.updatedAt = todayJst();
     saveState(st);
     return true;
   } catch { return false; }
@@ -73,7 +74,7 @@ export function recordPublishedTagHash(hashtagsPath) {
     if (h == null) return false;
     const st = loadState();
     (st.tagHashes ||= {})[key] = h;
-    st.updatedAt = new Date().toISOString().slice(0, 10);
+    st.updatedAt = todayJst();
     saveState(st);
     return true;
   } catch { return false; }
@@ -162,7 +163,7 @@ export function recordPublishedMetaHash(filePath) {
     const key = String(filePath).replaceAll('\\', '/');
     const st = loadState();
     (st.metaHashes ||= {})[key] = metaHash(readFileSync(key, 'utf8'));
-    st.updatedAt = new Date().toISOString().slice(0, 10);
+    st.updatedAt = todayJst();
     saveState(st);
     return true;
   } catch { return false; }
@@ -172,7 +173,7 @@ export function recordPublishedAssetHash(filePath) {
     const key = String(filePath).replaceAll('\\', '/');
     const st = loadState();
     (st.assetHashes ||= {})[key] = assetHash(key);
-    st.updatedAt = new Date().toISOString().slice(0, 10);
+    st.updatedAt = todayJst();
     saveState(st);
     return true;
   } catch { return false; }

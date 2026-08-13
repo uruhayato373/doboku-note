@@ -62,6 +62,7 @@ import { cardifyBareUrls, repairUrlHeadings, listUrlHeadingsInEditor } from './l
 import { extractBodyImages, insertImagesAtPlaceholders, insertImagesAfterAnchors, countEditorImages } from './lib/note-images.mjs';
 import { assertLiveBody } from './lib/note-live-check.mjs';
 import { attachFileInEditor, listAttachedFiles, resolveLocalFiles } from './lib/note-attach.mjs';
+import { todayJst } from './lib/jst-date.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = join(ROOT, '.local/playwright-note-profile');
@@ -98,7 +99,7 @@ const ATTACH_DAILY_LIMIT = Number(getArg('--attach-daily-limit') || 90); // 上�
 function attachedTodayCount() {
   try {
     const j = JSON.parse(readFileSync(ATTACH_DONE_LOG, 'utf8'));
-    const today = new Date().toISOString().slice(0, 10);
+    const today = todayJst();
     return (j.attached || []).filter((a) => a.at === today).length;
   } catch { return 0; }
 }
@@ -127,7 +128,7 @@ function abortedEntry(noteId) { return (readAborted().aborted || []).find((a) =>
 function recordAttach(noteId, pdfPath) {
   try {
     const j = existsSync(ATTACH_DONE_LOG) ? JSON.parse(readFileSync(ATTACH_DONE_LOG, 'utf8')) : { attached: [] };
-    j.attached.push({ noteId, pdf: pdfPath, at: new Date().toISOString().slice(0, 10) });
+    j.attached.push({ noteId, pdf: pdfPath, at: todayJst() });
     writeFileSync(ATTACH_DONE_LOG, JSON.stringify(j, null, 2) + '\n');
   } catch (e) { console.log('[attach-log] 記録失敗:', e.message); }
 }

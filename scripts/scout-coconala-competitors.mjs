@@ -26,6 +26,7 @@
 import { chromium } from 'playwright';
 import { mkdirSync, writeFileSync, readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
+import { todayJst } from './lib/jst-date.mjs';
 
 const ROOT = process.cwd();
 const CONFIG_PATH = join(ROOT, '.claude/config/coconala-competitors.json');
@@ -116,7 +117,7 @@ function servicesFromMarket(market, names) {
 }
 
 function todayStamp() {
-  return new Date().toISOString().slice(0, 10);
+  return todayJst();
 }
 function loadPreviousSnapshot(todayFile) {
   let files = [];

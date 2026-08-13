@@ -19,6 +19,7 @@ import { chromium } from 'playwright';
 import { readFileSync, existsSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { todayJst } from './jst-date.mjs';
 
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 export const PROFILE = join(ROOT, '.local/playwright-coconala-profile');
@@ -107,7 +108,7 @@ export function readListings() {
 export function writeBackCatalog(id, url, today) {
   try {
     let ts = readFileSync(CATALOG_PATH, 'utf-8');
-    const day = today || new Date().toISOString().slice(0, 10);
+    const day = today || todayJst();
     const idRe = new RegExp(`(id:\\s*'${id}',[\\s\\S]*?)(\\n\\s*\\},)`);
     const m = ts.match(idRe);
     if (!m) return false;
