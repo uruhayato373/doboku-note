@@ -894,6 +894,51 @@
           "reference": ".claude/state/metrics/gsc-indexing/history.json の limit-reached"
         }
       ]
+    },
+    {
+      "id": "EXP-007",
+      "title": "X を1日1本→3本へ増量（型×時間帯スロット A/B/C の設計）",
+      "hypothesis": "自投稿100件の実測でエンゲージ率は競合上位帯（約2.2%）と同水準だが、フォロワーは最下位帯。制約は反応率でなく露出量と判断し、1日1本→3本へ増やす。朝A=linkless（実測で平均が最も高い枠を売り込みで潰さない）/ 昼B=サイト送客（最弱枠は短時間で完結する型）/ 夜C=販売または解説（販売は1日1本・スロットCのみ）。これでプロフィール流入とサイト送客が増え、note/ココナラの成約機会が増える。",
+      "target_metric": "いいね中央値（型×時間帯別）とサイト送客クリック",
+      "target_delta": "時間帯別 median: 朝1 / 夜1 / 昼0.5 を基準に、2週間後に再計測して配置を見直す",
+      "baseline": {
+        "measured_at": "2026-08-13",
+        "posts_sampled": 100,
+        "followers": 91,
+        "like_median_by_slot": {
+          "A(朝)": 1,
+          "C(夜)": 1,
+          "B(昼)": 0.5
+        },
+        "like_avg_by_slot": {
+          "A(朝)": 3.03,
+          "C(夜)": 1.46,
+          "B(昼)": 1
+        },
+        "like_median_by_exam": {
+          "civil-1": 3,
+          "civil-1-2": 2,
+          "civil-2": 2,
+          "pe-comprehensive": 0,
+          "pe-construction": 0
+        },
+        "note": "インプレッション・リプライは agent-reach CLI が返さないため取得不可。いいね0を「誰にも見られていない」と読まないこと。"
+      },
+      "status": "running",
+      "created_at": "2026-08-13T03:51:43.437Z",
+      "started_at": "2026-08-13T03:51:43.454Z",
+      "paused_at": null,
+      "paused_reason": null,
+      "result": null,
+      "learnings": null,
+      "closed_at": null,
+      "actions": [
+        "2026-08-13: policy §11.6 を S2（1日3本）へ更新、§11.2.1 に時間帯スロットを新設",
+        "2026-08-13: 8月増強32本を執筆・投入（8/13-8/31 が1日3本・キュー実在51/51 照合済み）",
+        "2026-08-13: 9月90本を執筆（投入は各週の直前・§11.6 の週次バッチ）"
+      ],
+      "next_check_date": "2026-08-27",
+      "resume_criteria": "npm run x-own-metrics -- --report で型×時間帯の中央値を再計測し、朝/昼/夜の配置と型の割当を見直す。凍結・警告の兆候が1度でも出たら即 S0 へ後退（policy §11.6）。"
     }
   ]
 }
