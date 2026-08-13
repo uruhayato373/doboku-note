@@ -26,12 +26,19 @@
 同日の監査で 101 の check を 3 経路（pre-commit / quality:audit / workflows）と突合し、
 **今日直した分を除いて**残った穴。いずれも「緑なのに検査していない／守っていない」型。
 
+> [!note] 2026-08-13 に #4 の YouTube 分は解消済み
+> 監査は「meta.json 32件が旧ハンドル」と報告したが、実測すると**投稿済みは 7 本**だった
+> （meta.json は gitignore の生成物で 193 件は未投稿）。CI（`🔁 Sync YouTube descriptions`）で
+> ライブ 6 本の概要欄を是正し、**再実行で差分 0 を実照合**。
+> 残件は `pJE0G113lWE`（台帳に videoId があるのに **YouTube に存在しない**＝削除/非公開の疑い）。
+> 週次の `verify-yt-status` が拾うはずの状態なので、次回そのレポートを確認すること。
+
 | # | 穴 | 実害 |
 |---|---|---|
 | 1 | **`generate-note-covers.mjs:61` が未知資格を無言で総監へフォールバック** | `docs/note/技術士一次/` に tokens エントリが無く、カバーが**総監紺で出荷済み**（`一次択一-過去問PDF/img/cover.svg` = #16365C）。SNS 側 `exam-palette.mjs:23` は throw するのに、同じトークンを読むこちらは fail-silent |
 | 2 | **生成画像の色・文字を検査するものがゼロ** | X カード PNG（`docs/sns/x/**/img/`）はどの check も開かない。`check-ogp-design` は輝度判定のみで、資格別テーマ色を見ていない |
 | 3 | **内部メモ除去が `gen-x-card` ローカル** | `render-keyword-pack.mjs` / `render-quiz-pack.mjs` に同じ除去が無く、IG パックに同クラスの穴 |
-| 4 | **送客先の状態検査が X の「計画」だけ** | tweets.md（note 324・ココナラ 12 箇所）・IG（313 ファイル）・YouTube（**32 件の meta.json 全部が旧ハンドル `note.com/uruhayato/` を指す**）・note 本文（714 リンク）が未検証 |
+| 4 | **送客先の状態検査が X の「計画」だけ** | tweets.md（note 324・ココナラ 12 箇所）・IG（313 ファイル）・note 本文（714 リンク）が未検証。~~YouTube~~ は 2026-08-13 に解消（上の note 参照） |
 | 5 | **`check-gate-coverage` の GATES が 8 本のみ** | SNS・画像系はゼロ。`check-x-utm` / `check-ig-cta` / `check-sns-urls` 等が `✓ 0` を出しても誰も気づけない |
 | 6 | **実質オーファンな check** | `audit-note-cards`（2026-07-28 事故の当事者・直したが未配線）/ `check-public-bloat`（`check-gate-coverage` が exit code を伝播しない）/ `check-kindle-format`（EPUB 事故直後なのに未配線） |
 
