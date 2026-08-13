@@ -45,6 +45,21 @@ A8 / もしも / afb の 3 ASP を横断する。
 戻り値で返すと呼び出し側が「警告して続行」できてしまい、それが事故の直接原因だった。
 `--force` 相当の迂回手段は作らない。回帰テストは `tests/asp-site-guard.test.mjs`（事故そのものをケース化）。
 
+### もうひとつのガード: 偽陰性（見えていないものを「解除された」と書かない）
+
+site-guard が守るのは**帰属**、こちらが守るのは**実在**。
+セッション切れは「取得は成功したが 0 件」という形で来るため `failed` に入らず、
+`approved → none` の一括ドリフトとして**そのまま書き込まれる**。
+2026-08-13 の実行ログに `a8/partnered: 0 件（SID a25050375786）` `moshimo/partnered: 0 件（SID 672381）`
+が残っており、**`--write` を付けていればカタログの approved が none で塗り潰されていた**
+（付けていなかったため無傷）。
+
+「実機が本当に 0 件」と「ログインが切れて見えていない」は**区別できない**。
+区別できない以上、破壊的な側（全消し）へ倒さない。判定は `scripts/lib/asp-falsenegative-guard.mjs`
+の `detectFalseNegative`（純関数）に集約し、**ある ASP の approved が全滅するドリフト**なら
+`--write` を exit 4 で中止する。一部だけ解除されたケース（実際に起こりうる）は通す。
+`--write` 無しでも疑いは surface する。回帰テストは `tests/asp-falsenegative-guard.test.mjs`（6 ケース）。
+
 判定の優先順位:
 1. **サイト ID の read-back が最強の証拠**。一致すれば通す。ここで禁止文字列を見ない（サイト切替 UI 自体が全サイト名を列挙するため必ず誤検知する）
 2. ID が取れない ASP のみ表示名でフォールバック。弱い判定なので、このときだけ禁止文字列（`統計で見る都道府県` / `stats47`）を適用する
@@ -377,6 +392,7 @@ A8 側の `clicks` は参考値）。A8 から取るのは**成果（発生件�
 | `npm run check-affiliate-mats` | 未登録 mat=ERROR / MDX への生 mat 直書き=ERROR / 失効 creative の配置=WARN | pre-commit |
 | `npm run check-affiliate-prose` | 廃止アフィリ（講座・添削ブランド等）の本文 prose 再提案 | pre-commit ＋ `r2-audit.yml` |
 | `node --test tests/asp-site-guard.test.mjs` | サイト帰属 assert が不一致で throw すること | `npm test` |
+| `node --test tests/asp-falsenegative-guard.test.mjs` | approved 全滅ドリフトを偽陰性として検出し `--write` を止めること | `npm test` |
 
 `check-affiliate-wiring` は初回実行で実際に収益の穴を検出した（dx-consulting がサイトに配置済みなのに `programIdMap` から漏れており、成果が突合できていなかった）。
 

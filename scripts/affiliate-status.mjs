@@ -30,6 +30,8 @@ import {
   SiteAttributionError,
 } from "./lib/asp-browser.mjs";
 
+import { detectFalseNegative } from "./lib/asp-falsenegative-guard.mjs";
+
 const CATALOG = ".claude/state/ads/affiliate-catalog.json";
 
 function parseArgs() {
@@ -152,6 +154,39 @@ async function main() {
     for (const d of drift) {
       console.log(`  - ${d.program} / ${d.asp}: カタログ "${d.catalog}" ↔ 実機 "${d.actual}"（id=${d.id}）`);
     }
+    // ── 偽陰性ガード（2026-08-13 新設）
+    // セッション切れは「取得は成功したが 0 件」という形で来るため failed に入らず、
+    // approved → none の一括ドリフトとして**そのまま書き込まれる**。実際 2026-08-13 の
+    // 実行で a8/moshimo とも partnered 0 件（SID は取れているのに 0）という結果が出ていた。
+    // --write を付けていれば 9 件のカタログが none で塗り潰されていた。
+    // 判定は純関数へ切り出してテスト可能にする（asp-site-guard と同じ設計方針）。
+    const knownApprovedByAsp = {};
+    const partneredSeenByAsp = {};
+    for (const aspName of Object.keys(live)) {
+      knownApprovedByAsp[aspName] = Object.values(catalog.programs ?? {}).filter(
+        (p) => p.asps?.[aspName] && idOf(p.asps[aspName]) && p.asps[aspName].status === 'approved',
+      ).length;
+      partneredSeenByAsp[aspName] = live[aspName].partnered.ids.size;
+    }
+    const blocked = detectFalseNegative({
+      aspNames: Object.keys(live),
+      drift,
+      knownApprovedByAsp,
+      partneredSeenByAsp,
+    });
+    if (blocked.length && opts.write) {
+      console.error('\n★ --write を中止しました（偽陰性ガード）:');
+      for (const b of blocked) console.error(`  - ${b.asp}: ${b.reason}`);
+      console.error('  実機に再ログインしてから再実行するか、本当に解除されたなら該当 ASP を');
+      console.error('  --asp で個別指定して確認したうえで書き込むこと。');
+      console.error(`ログ: ${logPath}`);
+      process.exit(4);
+    }
+    if (blocked.length) {
+      console.log('\n★ 偽陰性の疑い（--write を付けていれば中止していた）:');
+      for (const b of blocked) console.log(`  - ${b.asp}: ${b.reason}`);
+    }
+
     if (opts.write) {
       for (const d of drift) catalog.programs[d.program].asps[d.asp].status = d.actual;
       catalog.updatedAt = new Date().toISOString();
