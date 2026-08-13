@@ -1,9 +1,9 @@
 {
   "_comment": "x-repost（X 引用リポスト curation）の設定。queries/閾値/blocklist を編集してチューニングする。真実源: .claude/skills/social/x-repost/SKILL.md",
-  "ownHandle": "dobokunotecom",
-  "_ownHandle_note": "★必須★ 自分の X ハンドル（@抜き）。自投稿のリポスト・自己引用を除外するために使う。未設定だと discover が警告して停止する。",
+  "ownHandle": "doboku373",
+  "_ownHandle_note": "★必須★ 自分の X ハンドル（@抜き）。自投稿のリポスト・自己引用を除外するために使う。未設定だと discover が警告して停止する。 ／ 2026-08-13: 旧 dobokunotecom は 2026-06-12 に凍結済み。現行は doboku373。",
   "siteBase": "https://doboku-note.com",
-  "noteBase": "https://note.com/uruhayato",
+  "noteBase": "https://note.com/dobokunote",
   "maxPerRun": 3,
   "_maxPerRun_note": "1 回の exec で引用RPする最大件数（1日2-3件運用の上限）。",
   "minDelaySec": 45,
@@ -14,28 +14,80 @@
   "handleCooldownDays": 14,
   "_handleCooldownDays_note": "同一ハンドルへのリポスト間隔（日）。直近この日数以内にリポストしたアカウントは discover 時に除外する。",
   "queries": [
-    { "exam": "pe-comprehensive", "q": "技術士 総合技術監理", "minFaves": 10 },
-    { "exam": "pe-comprehensive", "q": "総合技術監理部門", "minFaves": 8 },
-    { "exam": "civil-1", "q": "1級土木施工管理技士", "minFaves": 8 },
-    { "exam": "civil-1", "q": "一級土木施工管理", "minFaves": 8 },
-    { "exam": "civil-2", "q": "2級土木施工管理技士", "minFaves": 8 },
-    { "exam": "civil-2", "q": "二級土木施工管理", "minFaves": 8 }
+    {
+      "exam": "pe-comprehensive",
+      "q": "技術士 総合技術監理",
+      "minFaves": 10
+    },
+    {
+      "exam": "pe-comprehensive",
+      "q": "総合技術監理部門",
+      "minFaves": 8
+    },
+    {
+      "exam": "civil-1",
+      "q": "1級土木施工管理技士",
+      "minFaves": 8
+    },
+    {
+      "exam": "civil-1",
+      "q": "一級土木施工管理",
+      "minFaves": 8
+    },
+    {
+      "exam": "civil-2",
+      "q": "2級土木施工管理技士",
+      "minFaves": 8
+    },
+    {
+      "exam": "civil-2",
+      "q": "二級土木施工管理",
+      "minFaves": 8
+    }
   ],
   "_query_note": "各 q は X 検索に `<q> min_faves:<minFaves> -filter:replies -filter:nativeretweets lang:ja` として投げ、f=live（最新）で recent×高エンゲージのみ拾う。",
   "blocklist": {
     "handles": [],
     "_handles_note": "リポストしない相手（競合・業者アカ等）の X ハンドル（@抜き）。",
     "bannedKeywords": [
-      "プレゼント", "相互フォロー", "相互", "フォロバ", "副業", "稼ぐ", "稼げる",
-      "アフィリエイト", "投資", "FX", "仮想通貨", "情報商材", "DM", "LINE登録",
-      "政治", "選挙", "ワクチン", "炎上", "誹謗", "訴訟", "案件"
+      "プレゼント",
+      "相互フォロー",
+      "相互",
+      "フォロバ",
+      "副業",
+      "稼ぐ",
+      "稼げる",
+      "アフィリエイト",
+      "投資",
+      "FX",
+      "仮想通貨",
+      "情報商材",
+      "DM",
+      "LINE登録",
+      "政治",
+      "選挙",
+      "ワクチン",
+      "炎上",
+      "誹謗",
+      "訴訟",
+      "案件"
     ],
     "_bannedKeywords_note": "本文に含まれたら候補から除外（炎上・スパム・無関係・宣伝ツイート回避）。curate 側でも安全ゲートで二重チェックする。"
   },
   "baseTags": {
-    "pe-comprehensive": ["#技術士", "#総監"],
-    "civil-1": ["#1級土木施工管理技士", "#施工管理技士"],
-    "civil-2": ["#2級土木施工管理技士", "#施工管理技士"]
+    "pe-comprehensive": [
+      "#技術士",
+      "#総監"
+    ],
+    "civil-1": [
+      "#1級土木施工管理技士",
+      "#施工管理技士"
+    ],
+    "civil-2": [
+      "#2級土木施工管理技士",
+      "#施工管理技士"
+    ]
   },
-  "_baseTags_note": "引用コメントに付けるなら試験別ベースタグ（x-post-policy §4 準拠）。引用RPはタグ無し〜2個までを推奨（タグ過多はスパム印象）。"
+  "_baseTags_note": "引用コメントに付けるなら試験別ベースタグ（x-post-policy §4 準拠）。引用RPはタグ無し〜2個までを推奨（タグ過多はスパム印象）。",
+  "_noteBase_note": "2026-08-13: 旧 note ハンドル（uruhayato 名義）は HTTP 404（実査）。現行は dobokunote。"
 }

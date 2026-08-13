@@ -16,6 +16,7 @@
 import { readFileSync, appendFileSync, existsSync, mkdirSync } from "node:fs";
 import { join, resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { todayJst } from './lib/jst-date.mjs';
 
 const ROOT = resolve(join(dirname(fileURLToPath(import.meta.url)), ".."));
 const BASELINE = join(ROOT, ".claude", "state", "quality", "lint-baseline.json");
@@ -29,7 +30,7 @@ function readJson(p, fallback) {
 function isoDate(arg) {
   if (arg && /^\d{4}-\d{2}-\d{2}$/.test(arg)) return arg;
   // Date は通常スクリプトでは利用可（Workflow 制約は本スクリプトに無関係）
-  return new Date().toISOString().slice(0, 10);
+  return todayJst();
 }
 
 function main() {

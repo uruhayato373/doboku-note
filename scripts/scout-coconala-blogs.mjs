@@ -30,6 +30,7 @@
 import { chromium } from 'playwright';
 import { mkdirSync, writeFileSync, readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
+import { todayJst } from './lib/jst-date.mjs';
 
 const ROOT = process.cwd();
 const CONFIG_PATH = join(ROOT, '.claude/config/coconala-blog.json');
@@ -47,7 +48,7 @@ const AD_HOC = qi >= 0 ? argv[qi + 1] : null;
 const TOP_N = 12;
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const today = () => new Date().toISOString().slice(0, 10);
+const today = () => todayJst();
 
 const config = JSON.parse(readFileSync(CONFIG_PATH, 'utf8'));
 const queries = AD_HOC ? [{ q: AD_HOC, exam: 'adhoc' }] : config.queries ?? [];

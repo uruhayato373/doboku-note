@@ -80,6 +80,9 @@ node scripts/check-x-length.mjs --over          # 違反のみ
 | 総監 | `#技術士` `#総監` |
 | 1級土木 | `#1級土木施工管理技士` `#施工管理技士` |
 | 2級土木 | `#2級土木施工管理技士` `#施工管理技士` |
+| 建設部門 | `#技術士` `#建設部門` |
+| コンクリート主任技士 | `#コンクリート主任技士` `#コンクリート技士` |
+| コンクリート診断士 | `#コンクリート診断士` |
 
 ### 種別ごとの追加タグ
 
@@ -141,7 +144,7 @@ node .tmp/count-x-chars.mjs docs/sns/x/draft/<NNN>-<name>/tweets.md
 ## チャネル別 SSOT
 
 - 画像生成: `scripts/gen-x-card.mjs`（[create-x-card](../../../.claude/skills/social/create-x-card/SKILL.md)）
-- 投稿: `.claude/skills/social/publish-x/publish-x.ts`（[publish-x](../../../.claude/skills/social/publish-x/SKILL.md)）— **🛑 自動投稿は 2026-06-12 凍結を受け当面停止。投稿は人手**（再開条件 → `x-post-policy.md` §11.3）
+- 投稿: `.claude/skills/social/publish-x/publish-x.ts`（[publish-x](../../../.claude/skills/social/publish-x/SKILL.md)）— **予約運用は再開済み。現行 S2＝1日3本**（段階と後退条件 → `x-post-policy.md` §11.6）。投入は1週間分ずつ
 - 字数検証: `scripts/check-x-length.mjs`
 - 予約前ゲート: `scripts/x-schedule-guard.mjs`（`npm run x-schedule-guard [--queue] [--max-per-day 2]`）／俯瞰: `x-schedule-view`／キュー突合: `x-sync-status`
 - マガジン CTA A/B: [magazine-ab-test.md](./magazine-ab-test.md)

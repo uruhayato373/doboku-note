@@ -20,6 +20,53 @@
 
 ## 🔴 高 — 来月中に着手
 
+### 機械チェックの穴 6件（2026-08-13 監査で検出・未処理分）
+タグ: [品質][機械チェック]
+
+同日の監査で 101 の check を 3 経路（pre-commit / quality:audit / workflows）と突合し、
+**今日直した分を除いて**残った穴。いずれも「緑なのに検査していない／守っていない」型。
+
+| # | 穴 | 実害 |
+|---|---|---|
+| 1 | **`generate-note-covers.mjs:61` が未知資格を無言で総監へフォールバック** | `docs/note/技術士一次/` に tokens エントリが無く、カバーが**総監紺で出荷済み**（`一次択一-過去問PDF/img/cover.svg` = #16365C）。SNS 側 `exam-palette.mjs:23` は throw するのに、同じトークンを読むこちらは fail-silent |
+| 2 | **生成画像の色・文字を検査するものがゼロ** | X カード PNG（`docs/sns/x/**/img/`）はどの check も開かない。`check-ogp-design` は輝度判定のみで、資格別テーマ色を見ていない |
+| 3 | **内部メモ除去が `gen-x-card` ローカル** | `render-keyword-pack.mjs` / `render-quiz-pack.mjs` に同じ除去が無く、IG パックに同クラスの穴 |
+| 4 | **送客先の状態検査が X の「計画」だけ** | tweets.md（note 324・ココナラ 12 箇所）・IG（313 ファイル）・YouTube（**32 件の meta.json 全部が旧ハンドル `note.com/uruhayato/` を指す**）・note 本文（714 リンク）が未検証 |
+| 5 | **`check-gate-coverage` の GATES が 8 本のみ** | SNS・画像系はゼロ。`check-x-utm` / `check-ig-cta` / `check-sns-urls` 等が `✓ 0` を出しても誰も気づけない |
+| 6 | **実質オーファンな check** | `audit-note-cards`（2026-07-28 事故の当事者・直したが未配線）/ `check-public-bloat`（`check-gate-coverage` が exit code を伝播しない）/ `check-kindle-format`（EPUB 事故直後なのに未配線） |
+
+**優先順**: 4 の YouTube 旧ハンドル 32 件は**送客が死んでいる可能性**があるので最初に実査。
+次に 1（実害が出荷済み）→ 6 → 5 → 2 → 3。
+
+補足: `.claude/config/figure-sources.json` の `source_pdf` **47件中40件が実在しない**
+（textbook PDF を R2 へ退避した後・`build-figure-provenance.mjs` に実在 assert が無い）。
+
+### X 9月分90本の週次投入（8/25頃から毎週・意図的に未投入）
+タグ: [SNS][X]
+
+9月分90本（1日3本・9/1-9/30）は**執筆・全検査済みだが、あえてキューへ積んでいない**。
+`x-post-policy.md` §11.6 が「1週間分ずつ」を定めており、141本を一度に積むのは
+2026-06-12 凍結の実因そのものだから。8月分51本は投入済み。
+
+| 週 | 対象 | 本数 | ドラフト |
+|---|---|---|---|
+| 1 | 9/1-9/7 | 21 | 090 |
+| 2 | 9/8-9/14 | 21 | 090 / 091 |
+| 3 | 9/15-9/21 | 21 | 091 / 092 |
+| 4 | 9/22-9/30 | 27 | 092 |
+
+**手順**（1週ごとに繰り返す）
+
+```bash
+npm run x-schedule-guard -- --queue    # 緑を確認
+npx tsx .claude/skills/social/publish-x/publish-x.ts <NNN> --tweets <a>-<b> ${=DATES}
+npm run x-sync-status                  # キュー実在を実照合（投入数と queued 昇格数が一致するか）
+```
+
+- **zsh は変数を単語分割しない**。`$DATES` だと日時が引数1個扱いになり、静かに即時投稿モードへ落ちる。`${=DATES}` 必須（`publish-x/SKILL.md` に事故記録）
+- **`--dry-run` の緑は証拠にならない**。ログで「📅 予約モード確認OK」を目で読む
+- 凍結・警告の兆候が1度でも出たら即 S0 へ後退し、投入を止める（§11.6）
+
 ### Kindle e-02 を欠陥版から差し替える（審査中・別セッションがKDP操作中のため保留）
 タグ: [Kindle][収益化]
 
@@ -843,10 +890,11 @@ Anthropic の Opus 5 プロンプトガイドが「旧モデル向けに仕込�
 - **データ源**: `npm run check-note-republish -- --json`（`{synced, drift, unknown, driftFiles, unknownFiles}` を返す）。admin は既存 CLI を child_process 実行しガードは CLI 側に残す方針（tools/admin-app/README.md）に沿う
 - CLI＋週次で運用は回るため優先度低。真実源 → note-funnel-architecture.md ツール表・memory の再公開ドリフト機構
 
-### ココナラブログ 残り4本の日次公開（2026-08-13〜）
+### ココナラブログ 残り3本の日次公開（2026-08-14〜）
 タグ: [収益化][ココナラ]
 
-第1回を 2026-08-12 に公開済み（`https://coconala.com/blogs/6197366/791576`）。
+第1回 2026-08-12（`.../791576`）・**第2回 2026-08-13 公開済み**（`https://coconala.com/blogs/6197366/791954`・
+ライブ実査で外部リンク0件・本文3,206字・カード1枚を確認）。次は第3回から。
 **公開は1日1本まで**（bot 検知回避・coconala-blog-policy.md §6）。24〜48時間はアカウント警告が
 出ないか様子を見てから続ける。
 
@@ -856,7 +904,7 @@ node scripts/coconala-blog-publish.mjs --post <slug> --commit
 
 | 順 | slug | 内容 | funnel |
 |---|---|---|---|
-| 2 | `dokugaku-tensaku-genkai` | 第2回 独学で伸びない理由 | S2 添削セット |
+| ~~2~~ | ~~`dokugaku-tensaku-genkai`~~ | ~~第2回 独学で伸びない理由~~ → 2026-08-13 公開済 | S2 添削セット |
 | 3 | `yosou-mondai-kaku-renshu` | 第3回 予想テーマで書く練習 | 1級 予想模試 |
 | 4 | `hinshitsu-kanri-kakikata` | 第4回 品質管理の書き方 | 1級 教材フルパック |
 | 5 | `sokan-shutsudai-theme-bunseki` | 単発 総監 出題テーマ | 総監 テーマ分析 |
@@ -922,7 +970,7 @@ node scripts/coconala-blog-publish.mjs --post <slug> --commit
 ### コンクリート主任技士 H24/H25 skip 分の補完＋R6/R7 拡張
 タグ: [コンテンツ品質]
 
-2026-07-17 に H24（26問）・H25（12問）を site へ追加（計303問・H24〜R5）。ただし 2022年版底本の**OCR品質がまだらで、以下は復元不能/不確実として収録せず skip**。**書籍原典（コンクリート主任技師2022）を再入手できれば補完可能**（現状ローカルに原典PDFなし＝照合不可）:
+2026-07-17 に H24（26問）・H25（12問）を site へ追加（計303問・H24〜R5）。ただし 2022年版底本の**OCR品質がまだらで、以下は復元不能/不確実として収録せず skip**。**書籍原典（コンクリート主任技士2022）を再入手できれば補完可能**（現状ローカルに原典PDFなし＝照合不可）:
 - **H25 skip 18問**: Q1,3,4,5,7,8,9,10,12,13,14,15,16,17,19,20,21,26（選択肢文のOCR破綻・表崩れで数値確定不可・図が別問題と判明・解答表と技術判断の conflict 3問）
 - **H24 conflict skip 4問**: Q14（低確度・肢が技術的に擁護可能で解答表と齟齬）,Q16（「鉄筋腐食→硫酸塩」等OCR再構成）,Q17（JIS A5308 計量誤差表を数値検証できず）,Q18（標準偏差値がOCRで入替わり解答表と数学的に不整合）。answer key に合わせて再構成した本文の公開は避け撤去済み
 - **年度拡張**: R6・R7 は原典スキャン未入手（書籍入手が前提）

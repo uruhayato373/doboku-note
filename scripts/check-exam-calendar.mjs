@@ -89,13 +89,19 @@ const scanRoots = [
 const textExtensions = new Set([".md", ".mdx", ".json", ".ts", ".mjs"]);
 /**
  * 判定前に取り除く「実体としてのパス／ファイル名」。
- * docs/note/コンクリート主任技師/ と docs/textbook/コンクリート主任技師20xx/ は
- * 実在するディレクトリ名なので、誤記チェックの対象にしてはいけない。
+ * 実在するディレクトリ名は誤記チェックの対象にしてはいけない——が、**実体が消えたら
+ * 除外も消す**こと。2026-08-13 に docs/note/コンクリート主任技師/ を「主任技士」へ
+ * リネームしたのに除外だけ残り、docs/project/01_戦略/README.md の
+ * 「旧名を指す壊れリンク」を静かに検査対象から外していた（除外がバグを覆い隠した）。
+ * 除外を足すときは、その実体が消えたときに気づける形にする（下の存在検査）。
  */
 const PATH_LITERALS = [
-  /note\/コンクリート主任技師/g, // docs/note/コンクリート主任技師/
-  /コンクリート主任技師-/g, // マガジン用ディレクトリ（コンクリート主任技師-小論文-模範答案集 等）
-  /コンクリート主任技師20/g, // docs/textbook/コンクリート主任技師2022|2024（ローカル PDF 名）
+  /コンクリート主任技師20/g, // docs/textbook/コンクリート主任技師2022|2024（ローカル PDF 名・実在）
+];
+// 除外の前提（実体が在ること）が崩れたら落とす。除外は「実在するから誤記でない」という
+// 主張なので、実在しなくなった瞬間に除外自体が誤りになる。
+const PATH_LITERAL_ROOTS = [
+  { glob: "docs/textbook", startsWith: "コンクリート主任技師20", why: "docs/textbook/コンクリート主任技師20xx" },
 ];
 const forbidden = [
   { pattern: /2026-10-27/g, reason: "2級後期・第二次は2026-10-25" },
@@ -149,6 +155,22 @@ for (const scanRoot of scanRoots) {
 }
 if (scannedFiles === 0) {
   errors.push("走査対象が 0 ファイル（検査不成立。scanRoots を確認）");
+}
+
+// PATH_LITERALS の除外は「実在するディレクトリ名だから誤記ではない」という主張。
+// その実体が消えたら除外は誤りになり、旧名を指す壊れリンクを覆い隠す（2026-08-13 実発生）。
+for (const root of PATH_LITERAL_ROOTS) {
+  const dir = join(ROOT, root.glob);
+  const exists =
+    existsSync(dir) &&
+    readdirSync(dir, { withFileTypes: true }).some(
+      (e) => e.isDirectory() && e.name.startsWith(root.startsWith),
+    );
+  if (!exists) {
+    errors.push(
+      `PATH_LITERALS の除外が古い: ${root.why} は実在しない。除外を消すか、実体に合わせて更新すること`,
+    );
+  }
 }
 
 if (errors.length) {

@@ -47,7 +47,7 @@ docs/note/
       2級経験記述-添削テンプレ.md    # 添削半自動化テンプレ
       {slug}/article.md
       magazines/{magazine}/...
-  コンクリート主任技師/
+  コンクリート主任技士/
     magazines/{magazine}/...
   コンクリート診断士/
     magazines/{magazine}/...
@@ -86,9 +86,9 @@ docs/note/
 
 - Kindle 択一シリーズと同一原稿の A4 PDF を有料 note 単発記事として併売する従チャネル。対象 4 商品＝2級土木一次（`civil-2-takuitsu-pdf`・上記 1級・2級土木配下）／技術士一次（`pe1-takuitsu-pdf`）／総監 令和（`tankan-takuitsu-reiwa-pdf`）／総監 平成（`tankan-takuitsu-heisei-pdf`）。**全4商品 2026-07-12 公開済**。真実源＝`.claude/content/kindle/strategy.md`・`src/lib/note-magazines.ts`
 
-### コンクリート主任技師（`コンクリート主任技師/`）
+### コンクリート主任技士（`コンクリート主任技士/`）
 
-- **有料マガジン**（`コンクリート主任技師/magazines/`）: 四肢択一-R8予想問題集（企画）・小論文-模範答案集
+- **有料マガジン**（`コンクリート主任技士/magazines/`）: 四肢択一-R8予想問題集（企画）・小論文-模範答案集
 
 ### コンクリート診断士（`コンクリート診断士/`）
 

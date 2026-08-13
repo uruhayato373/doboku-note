@@ -46,6 +46,7 @@ import { recordPublishedHash, recordPublishedTagHash, recordPublishedMetaHash, r
 import { cardifyBareUrls, repairUrlHeadings, listUrlHeadingsInEditor } from './lib/note-cardify.mjs';
 import { extractBodyImages, insertImagesAtPlaceholders } from './lib/note-images.mjs';
 import { assertLiveBody } from './lib/note-live-check.mjs';
+import { todayJst } from './lib/jst-date.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = join(ROOT, '.local/playwright-note-profile');
@@ -568,7 +569,7 @@ try {
       const close = page.getByRole('button', { name: '閉じる' }); if (await close.count()) { await close.first().click(); await sleep(1500); }
       publishedUrl = page.url();
       console.log('[12] 投稿する clicked → published:', publishedUrl);
-      writeBack(publishedUrl, new Date().toISOString().slice(0, 10));
+      writeBack(publishedUrl, todayJst());
       // [13] 公開後 API 実体検証（3検査）: URL見出し / 空引用 / 画像欠落（偽成功ガードの一部）
       const pubId = (publishedUrl.match(/n[0-9a-f]{12}/) || [])[0];
       if (pubId) {

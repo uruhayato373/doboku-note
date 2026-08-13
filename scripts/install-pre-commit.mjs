@@ -28,7 +28,7 @@ function resolveHooksDir() {
 const HOOKS_DIR = resolveHooksDir();
 const HOOK_PATH = join(HOOKS_DIR, "pre-commit");
 
-const HOOK_CONTENT = `#!/bin/sh
+const HOOK_CONTENT_BODY = `#!/bin/sh
 # Pre-commit hooks
 # Installed by: npm run pre-commit:install
 
@@ -68,6 +68,18 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# 公開したマガジンがサイトで CTA として実際に出るか（published:true にしただけで売り場に
+# 出ていない事故の再発防止・2026-08-13）。ゲート自体は 2026-07-31 に作られていたが
+# quality:audit にしか配線されておらず、公開の瞬間に誰も走らせていなかったため
+# cce-essay-magazine が CTA 0 面のまま公開された。**作ったゲートは走らせて初めてゲート**。
+# note-magazines.ts / magazine-placement.ts / hub-cta.ts が staged のときだけ走る（重いので）。
+if git diff --cached --name-only | grep -qE '^src/lib/(note-magazines|magazine-placement|hub-cta)\.ts$'; then
+  npx tsx scripts/check-magazine-cta-reachability.ts --ci
+  if [ $? -ne 0 ]; then
+    exit 1
+  fi
+fi
+
 # note 単品価格がマガジン内・宣言済みシリーズ内で一貫しているか（値上げの当て漏れ・値崩れの再発防止・2026-07-28）
 node scripts/check-note-price-consistency.mjs --staged
 if [ $? -ne 0 ]; then
@@ -76,6 +88,20 @@ fi
 
 # SNS 投稿（docs/sns/**）の /docs/ リンクが本番に実在するか検証（404 投稿の再発防止）
 node scripts/check-sns-urls.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
+# 退役アカウント/ハンドル（404 の note 旧名・凍結 X 旧アカ）への参照（2026-08-13。
+# SSOT の1行が死んだまま生成物32本が404リンクを吐いていた事故の再発防止）
+node scripts/check-dead-handles.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
+# 運用記録の「今日」が UTC で出ていないか（JST 09:00 前に走らせると前日付になる事故の再発防止・
+# 2026-08-13 に coconala-blog の publishedAt と note-attachments の measuredAt で実発生）
+node scripts/check-jst-date.mjs --staged
 if [ $? -ne 0 ]; then
   exit 1
 fi
@@ -317,6 +343,40 @@ if (existsSync(HOOK_PATH)) {
   console.log("Overwriting with MDX validation hook.");
 }
 
+// 導入済みフックが古いまま走り続ける事故の再発防止（2026-08-13）。
+// フックの再インストールは `npm install`（prepare）でしか走らないため、ゲートを追加しても
+// 各 worktree / 各マシンの .git/hooks は古いままになる。実際にこの日、CTA 到達検査を
+// ソースへ足したのに導入済みフックには入っておらず、無言で素通りしていた。
+// 内容ハッシュを印として埋め、フック自身が「自分が古い」ことを検知して落ちるようにする。
+import { createHash } from 'node:crypto';
+import { readFileSync as _readSelf } from 'node:fs';
+// ハッシュは **ソーステキスト**（テンプレートリテラルの生の中身）から取る。
+// 評価後の文字列から取ると、シェル側が同じ計算を再現できず必ず不一致になる
+// （2026-08-13 に一度その実装で誤検知＝全 commit がブロックされた）。
+const _selfSrc = _readSelf(new URL(import.meta.url).pathname, 'utf8');
+const _bodyMatch = _selfSrc.match(/const HOOK_CONTENT_BODY = `([\s\S]*?)`;/);
+const HOOK_HASH = createHash('sha256').update(_bodyMatch ? _bodyMatch[1] : '').digest('hex').slice(0, 12);
+const DRIFT_GUARD = `
+# --- フック鮮度チェック（install-pre-commit.mjs が埋め込む） ---
+# ソース側のゲート構成が変わったのに再インストールしていないと、古いフックが静かに走る。
+HOOK_HASH_INSTALLED="${HOOK_HASH}"
+HOOK_HASH_SOURCE=$(node -e "
+const {createHash}=require('node:crypto');
+const s=require('fs').readFileSync('scripts/install-pre-commit.mjs','utf8');
+const m=s.match(/const HOOK_CONTENT_BODY = \\\`([\\s\\S]*?)\\\`;/);
+process.stdout.write(m?createHash('sha256').update(m[1]).digest('hex').slice(0,12):'unknown');
+" 2>/dev/null)
+if [ -n "$HOOK_HASH_SOURCE" ] && [ "$HOOK_HASH_SOURCE" != "unknown" ] && [ "$HOOK_HASH_INSTALLED" != "$HOOK_HASH_SOURCE" ]; then
+  echo "[pre-commit] 導入済みフックが古い（installed=$HOOK_HASH_INSTALLED source=$HOOK_HASH_SOURCE）。"
+  echo "             npm run pre-commit:install を実行してから commit してください。"
+  exit 1
+fi
+# --- ここまで ---
+`;
+const HOOK_CONTENT = HOOK_CONTENT_BODY.replace(
+  '# Installed by: npm run pre-commit:install\n',
+  '# Installed by: npm run pre-commit:install\n' + DRIFT_GUARD,
+);
 writeFileSync(HOOK_PATH, HOOK_CONTENT, { mode: 0o755 });
 
 // Windows doesn't use chmod, but set it for cross-platform compatibility

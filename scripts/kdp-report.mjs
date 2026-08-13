@@ -33,6 +33,7 @@ import { chromium } from 'playwright';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { todayJst } from './lib/jst-date.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = join(ROOT, '.local/playwright-kdp-profile');
@@ -242,7 +243,7 @@ try {
     months: {},
   };
   state.months[MONTH] = entry;
-  state.updatedAt = new Date().toISOString().slice(0, 10);
+  state.updatedAt = todayJst();
 
   const top = entry.books.slice(0, 5).map((b) => `  ${(b.bookId || '--').padEnd(5)} ¥${String(b.royalty).padStart(5)}  ${b.title.slice(0, 44)}`).join('\n');
   console.log(`\n[${MONTH}] 推計ロイヤリティ ¥${total.royalty}（電子書籍 ¥${total.ebook} / 紙 ¥${total.print} / KENP ¥${total.kenp}）` +

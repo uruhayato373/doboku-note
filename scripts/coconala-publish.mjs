@@ -28,6 +28,7 @@ import {
   readCatalog, readListings, CATALOG_PATH, resolveImagePath,
 } from './lib/coconala-session.mjs';
 import { fillServiceForm, submitForm, dismissModal, uploadImage } from './lib/coconala-form.mjs';
+import { todayJst } from './lib/jst-date.mjs';
 
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
@@ -169,7 +170,7 @@ try {
 function writeBackCatalog(id, url) {
   try {
     let ts = readFileSync(CATALOG_PATH, 'utf-8');
-    const today = new Date().toISOString().slice(0, 10);
+    const today = todayJst();
     // 該当 id ブロック（id: 'X' から次の '},' まで）を切り出して置換
     const idRe = new RegExp(`(id:\\s*'${id}',[\\s\\S]*?)(\\n\\s*\\},)`);
     const m = ts.match(idRe);

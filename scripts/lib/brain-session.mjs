@@ -16,6 +16,7 @@ import { chromium } from 'playwright';
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { todayJst } from './jst-date.mjs';
 
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 export const PROFILE = join(ROOT, '.local/playwright-brain-profile');
@@ -64,7 +65,7 @@ export function writeBackCatalog(serviceId, articleId) {
   const bm = src.match(blockRe);
   if (!bm) return false;
   let block = bm[1];
-  const today = new Date().toISOString().slice(0, 10);
+  const today = todayJst();
   block = block.replace(/status:\s*'[^']*'/, "status: 'submitted'");
   block = block.replace(/articleId:\s*'[^']*'/, `articleId: '${articleId}'`);
   block = block.replace(/productUrl:\s*'[^']*'/, `productUrl: 'https://brain-market.com/a/${articleId}'`);

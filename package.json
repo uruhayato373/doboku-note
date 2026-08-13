@@ -155,6 +155,8 @@
     "check-seo-build:ci": "node scripts/check-seo-build.mjs --ci",
     "check-doc-refs": "node scripts/check-doc-refs.mjs",
     "check-exam-calendar": "node scripts/check-exam-calendar.mjs",
+    "check-jst-date": "node scripts/check-jst-date.mjs",
+    "check-dead-handles": "node scripts/check-dead-handles.mjs",
     "check-doc-coupling": "node scripts/check-doc-coupling.mjs --staged",
     "check-handoff-extraction": "node scripts/check-handoff-extraction.mjs --staged",
     "check-sales-mapping": "node scripts/check-sales-mapping.mjs",

@@ -18,6 +18,7 @@
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { todayJst } from './lib/jst-date.mjs';
 
 const STAGED = process.argv.includes('--staged');
 const REGISTRY = 'src/config/affiliate-mats.json';
@@ -29,7 +30,7 @@ if (!existsSync(REGISTRY)) {
 
 const registry = JSON.parse(readFileSync(REGISTRY, 'utf8')).mats;
 const known = new Map(registry.map((m) => [m.mat, m]));
-const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
+const today = todayJst(); // YYYY-MM-DD
 
 // A8 mat 形式: 英数を + で 4 連結（例 4B3VR8+F0LMU2+4R40+TSBE9）。XXXX 等の単一トークンは除外。
 const MAT_RE = /a8mat=([A-Z0-9]+(?:\+[A-Z0-9]+){3})/g;
