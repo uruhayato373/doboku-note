@@ -12,7 +12,7 @@ doboku-note（土木・建設系試験対策ハブ。Phase 1 で 1級土木施�
 
 ## 1. 基本方針（v7）
 
-- **X は補助チャネル（2026-06-12 凍結後・縮退運用）**。かつては主力に置いたが、@dobokunotecom 凍結を受けて一次集客の重みは Instagram・note に寄せ、X は @doboku373 で**完全手動・低頻度**に縮退した（下記 v7.3 縮退 callout・再開判定は `.claude/knowledge/reference/x-post-policy.md` §11.6）。役割は受験生コミュニティへの信頼形成と note 誘導。手動運用ベース、`/social-post x` で下書き支援
+- **X は補助チャネル（2026-06-12 凍結 → 段階的復帰中）**。かつては主力に置いたが、@dobokunotecom 凍結を受けて一次集客の重みは Instagram・note に寄せた。@doboku373 で 2026-07-07 に予約運用を再開し、**2026-08-13 に S2（1日3本・時間帯スロット A/B/C）へ移行**（段階と後退条件は `.claude/knowledge/reference/x-post-policy.md` §11.6／スロットは §11.2.1）。役割は受験生コミュニティへの信頼形成と note 誘導。執筆は `x-post-writer`、月次計画は `/x-campaign-plan`、予約は `/publish-x`（投入は1週間分ずつ）
 - **Instagram が SNS 量産の一次制作チャネル**。`slide-data.json` を起点に、Carousel（4:5 PNG）と Reels（9:16 mp4）を同一データソースから派生生成。Carousel は「保存して試験前日に見返す」ストック教材、Reels は VOICEVOX TTS + ffmpeg で組み立てた音声付き縦動画。**Reels の cover/題材/CTA は Reels 専用テンプレで生成**し、カルーセル流用に起因する「スワイプ」CTA 等の不整合を構造的に排除
 - **YouTube Shorts は IG Reels mp4 の二次展開チャネル**。IG Reels（90-110 秒）を ffmpeg で 30-60 秒に短縮 + 字幕焼き込み + 概要欄 UTM 差替で派生生成。YouTube 単独パイプライン（旧 MDX 直結モード）は廃止し、IG Reels が動かない週は YT も発信しない（パイプライン障害は IG カルーセル単独稼働でしのぐ）
 - **運営者は総監合格済み（土木系公務員〔発注者〕の退職者）**。v5 までの「合格者を名乗れない（受験中）」制約は解消。**X では合格者の視点・思考・受験体験の断片を一次情報として発信**し、信頼と指名検索を作る。フル受験記・解答再現は引き続き note 有料商品（E-1〜E-4）に囲い込む
