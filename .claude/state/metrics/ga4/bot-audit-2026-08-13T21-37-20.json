@@ -1,0 +1,87 @@
+{
+  "meta": {
+    "startDate": "2026-07-30",
+    "endDate": "2026-08-12",
+    "minUsers": 5,
+    "threshold": 0.8
+  },
+  "totals": {
+    "allUsers": 1534,
+    "jpUsers": 1467,
+    "foreignUsers": 69
+  },
+  "rows": [
+    {
+      "source": "bing",
+      "totalUsers": 1166,
+      "jpUsers": 1154,
+      "foreignUsers": 13,
+      "foreignRatio": 0.011149228130360206,
+      "engagementRate": 0.657331136738056,
+      "flagged": false
+    },
+    {
+      "source": "(direct)",
+      "totalUsers": 185,
+      "jpUsers": 141,
+      "foreignUsers": 44,
+      "foreignRatio": 0.23783783783783785,
+      "engagementRate": 0.43037974683544306,
+      "flagged": false
+    },
+    {
+      "source": "note",
+      "totalUsers": 41,
+      "jpUsers": 40,
+      "foreignUsers": 1,
+      "foreignRatio": 0.024390243902439025,
+      "engagementRate": 0.4485294117647059,
+      "flagged": false
+    },
+    {
+      "source": "google",
+      "totalUsers": 40,
+      "jpUsers": 38,
+      "foreignUsers": 2,
+      "foreignRatio": 0.05,
+      "engagementRate": 0.5480769230769231,
+      "flagged": false
+    },
+    {
+      "source": "copilot.com",
+      "totalUsers": 32,
+      "jpUsers": 32,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.7608695652173914,
+      "flagged": false
+    },
+    {
+      "source": "note.com",
+      "totalUsers": 16,
+      "jpUsers": 16,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.475177304964539,
+      "flagged": false
+    },
+    {
+      "source": "x",
+      "totalUsers": 13,
+      "jpUsers": 13,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.65,
+      "flagged": false
+    },
+    {
+      "source": "yahoo",
+      "totalUsers": 11,
+      "jpUsers": 11,
+      "foreignUsers": 1,
+      "foreignRatio": 0.09090909090909091,
+      "engagementRate": 0.6578947368421053,
+      "flagged": false
+    }
+  ]
+}
