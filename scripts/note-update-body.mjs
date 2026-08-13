@@ -194,7 +194,9 @@ function parseArticle(articlePath) {
     const bIdx = tokenBody.split('\n').findIndex((l) => bre.test(l.trim()));
     if (bIdx >= 0) expectedImgs = (tokenBody.split('\n').slice(0, bIdx).join('\n').match(/〔〔IMG:\d+〕〕/g) || []).length;
   }
-  return { abs, noteId, title, body: tokenBody, images, isPaid, boundary, expectedImgs };
+  // 本文 H1（ライブ題名との突合に使う）。body からは :171 で剥がされるのでここで拾って渡す。
+  const bodyH1 = (raw.match(/^#\s+(.+)$/m) || [])[1]?.trim() ?? '';
+  return { abs, noteId, title, bodyH1, body: tokenBody, images, isPaid, boundary, expectedImgs };
 }
 
 /**
@@ -486,7 +488,7 @@ async function publishLive(page, noteId, boundary = '試験問題|予想問題',
 // 本文H1とライブ題名の食い違い（frontmatter に title が無い記事）。最終サマリで surface する。
 const TITLE_DRIFTS = [];
 
-async function updateArticle(page, { abs, noteId, title, body, images, isPaid, boundary, expectedImgs }, probe) {
+async function updateArticle(page, { abs, noteId, title, bodyH1, body, images, isPaid, boundary, expectedImgs }, probe) {
   console.log(`\n[article] ${noteId} — ${abs.split(/[/\\]/).slice(-2).join('/')}`);
 
   // 2. 編集 URL へ遷移
@@ -692,7 +694,7 @@ async function updateArticle(page, { abs, noteId, title, body, images, isPaid, b
     // 偽成功が起きた（2026-08-13・コンクリート主任技士 5 本。資格名が誤ったまま販売継続）。
     // タイトルは記事の最も目立つ要素なので、本文 H1 とライブ題名の食い違いを必ず surface する。
     try {
-      const h1 = (raw.match(/^#\s+(.+)$/m) || [])[1]?.trim();
+      const h1 = bodyH1;
       const tl = page.locator('textarea[placeholder*="タイトル"]').first();
       const cur = (await tl.count()) ? ((await tl.inputValue().catch(() => '')) || '').trim() : '';
       if (h1 && cur && h1 !== cur) {
@@ -700,7 +702,11 @@ async function updateArticle(page, { abs, noteId, title, body, images, isPaid, b
         console.log(`[4.7] ★ タイトル未更新: 本文H1「${h1}」に対しライブ題名は「${cur}」のまま。`);
         console.log('       frontmatter に title: を足して再実行しないと、ライブのタイトルは古いまま残る。');
       }
-    } catch { /* 検出できないときは黙って進む（本文更新は妨げない） */ }
+    } catch (e) {
+      // 黙って握り潰すと、検出コード自体が壊れていても気づけない（2026-08-13 に実発生＝
+      // スコープ外の変数を参照して ReferenceError になり、この警告が一度も出ていなかった）。
+      console.log('[4.7] タイトル突合を実施できず:', e.message.split('\n')[0]);
+    }
   }
 
   // 5. 手動確定（--pause）: 本文差替まで済ませ、タイトル変更＋更新確定はユーザーに委ねる。

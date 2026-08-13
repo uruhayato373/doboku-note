@@ -36,7 +36,10 @@ function walk(dir, acc) {
     const p = join(dir, c);
     const st = statSync(p);
     if (st.isDirectory()) walk(p, acc);
-    else if (c === 'article.md') acc.push(p);
+    // 型別ファイル（article-<型>.md）を落とさない。固定名だと建設部門の大半が
+    // 最初から対象外になり「検査したつもり」になる（2026-08-13 に verify-note-status で
+    // 同じ欠陥が 195 本を無検査にしていた）。
+    else if (/^article(-[^/\\]+)?\.md$/.test(c)) acc.push(p);
   }
   return acc;
 }

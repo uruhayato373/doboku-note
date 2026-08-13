@@ -50,14 +50,19 @@ function findArticles(dir) {
   for (const e of entries) {
     const p = join(dir, e.name);
     if (e.isDirectory()) out.push(...findArticles(p));
-    else if (e.name === 'article.md') out.push(p);
+    // 型別ファイル（article-<型>.md）を落とさない。固定名にすると建設部門の大半が
+    // 最初から対象外になり「検査したつもり」になる（2026-07-28 に他4本で直した欠陥クラス）。
+    else if (/^article(-[^/\\]+)?\.md$/.test(e.name)) out.push(p);
   }
   return out;
 }
 
 // frontmatter ブロック（先頭 --- … ---）
 function fmBlock(raw) {
-  const m = raw.match(/^---\n([\s\S]*?)\n---/);
+  // CRLF 対応（docs/note は 720 本中 710 本が CRLF）。`\r?` が無いと frontmatter を
+  // 一切読めず、全件 untracked で continue → 「ドリフトなし」の緑を毎週 CI が出していた
+  // （2026-08-13 実測: 525 件読んで 525 件スキップ）。BOM も剥がす。
+  const m = raw.replace(/^\uFEFF/, '').match(/^---\r?\n([\s\S]*?)\r?\n---/);
   return m ? m[1] : '';
 }
 const hasField = (block, k) => new RegExp('^' + k + ':', 'm').test(block);
@@ -155,7 +160,14 @@ const result = {
 if (JSON_OUT) {
   console.log(JSON.stringify(result, null, 2));
 } else {
-  console.log(`[verify-note-status] noteStatus 運用記事 ${tracked} 本を照合（非運用 ${untracked} 本スキップ）`);
+  console.log(`[verify-note-status] article*.md ${tracked + untracked} 本を走査 → noteStatus 運用 ${tracked} 本を照合（非運用 ${untracked} 本スキップ）`);
+  // 検査ゼロを PASS と呼ばない。走査はしたのに 1 本も照合できていない状態は
+  // 「ドリフトなし」ではなく「検査不成立」（2026-08-13 まで CRLF で毎週これが起きていた）。
+  if (tracked + untracked > 0 && tracked === 0) {
+    console.error('[verify-note-status] NG: 走査 ' + (tracked + untracked) + ' 本すべてで frontmatter を読めていない（検査不成立）');
+    console.error('  frontmatter パーサ（CRLF/BOM）か走査対象の指定を疑うこと。');
+    process.exitCode = 1;
+  }
   if (drift.length) {
     console.log(`\n■ ドリフト（ライブ=published / noteStatus≠publish）: ${drift.length} 本${FIX ? ' → 是正済み' : ''}`);
     for (const d of drift) console.log(`  ${FIX ? 'FIX ' : 'DRIFT '}[${d.status || '空'}→published] ${d.rel}`);
