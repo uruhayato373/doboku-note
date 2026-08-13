@@ -1,4 +1,5 @@
 ---
+title: "コンクリート主任技士 小論文 突破法｜評価される答案の型と時間内に書ききる設計"
 notePricing: paid
 paidBoundary: "採点者が見る4観点"
 noteSeries: コンクリート主任技士-小論文

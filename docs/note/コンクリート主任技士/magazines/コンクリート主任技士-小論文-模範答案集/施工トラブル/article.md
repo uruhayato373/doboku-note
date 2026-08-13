@@ -1,4 +1,5 @@
 ---
+title: "コンクリート主任技士 小論文 模範答案｜施工中に生じる初期欠陥の原因と防止対策"
 notePricing: paid
 paidBoundary: "答案の方針"
 noteSeries: コンクリート主任技士-小論文
