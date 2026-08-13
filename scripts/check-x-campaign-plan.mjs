@@ -173,8 +173,24 @@ for (const file of files) {
   // 日単位の検査
   const [y, mo] = plan.month.split("-").map(Number);
   const daysInMonth = new Date(y, mo, 0).getDate();
+  // 月の途中から本数を増やす「増強計画」を検査できるようにする（2026-08 は 8/1-15 が 1日1本の
+  // v1 計画で、8/16 以降に +2本/日 を重ねた）。coverage があればその範囲だけを対象にする。
+  // ※ 別ファイルの計画との時刻衝突までは見ない。それは x-schedule-guard（全 status.json 横断・
+  //    同一分の衝突を BLOCK）が予約直前に見る担当。
+  const cov = plan.coverage;
+  const covDays = [];
+  if (cov) {
+    if (!cov.from || !cov.to || !cov.perDay) errors.push("coverage は from / to / perDay が必須");
+    else {
+      for (let d = new Date(cov.from + "T00:00:00Z"); d <= new Date(cov.to + "T00:00:00Z"); d.setUTCDate(d.getUTCDate() + 1)) {
+        covDays.push(d.toISOString().slice(0, 10));
+      }
+    }
+  }
+  const expectPerDay = cov ? Number(cov.perDay) : perDay;
   for (const [date, posts] of dates) {
-    if (posts.length !== perDay) errors.push(`${date}: 1日 ${perDay} 本のはずが ${posts.length} 本`);
+    if (cov && !covDays.includes(date)) errors.push(`${date}: coverage(${cov.from}〜${cov.to}) の範囲外`);
+    if (posts.length !== expectPerDay) errors.push(`${date}: 1日 ${expectPerDay} 本のはずが ${posts.length} 本`);
     if (v >= 2) {
       const slots = posts.map((p) => p.slot).filter(Boolean);
       if (new Set(slots).size !== slots.length) errors.push(`${date}: スロット重複 ${slots.join(",")}`);
@@ -191,11 +207,13 @@ for (const file of files) {
       if (sales.length > 1) errors.push(`${date}: 販売投稿が ${sales.length} 本（1日1本まで）`);
     }
   }
-  if (dates.size !== daysInMonth) {
-    errors.push(`${plan.month} は ${daysInMonth} 日分必要: uniqueDates=${dates.size}`);
+  const expectDays = cov ? covDays.length : daysInMonth;
+  const label = cov ? `${cov.from}〜${cov.to}` : plan.month;
+  if (dates.size !== expectDays) {
+    errors.push(`${label} は ${expectDays} 日分必要: uniqueDates=${dates.size}`);
   }
-  if (plan.posts.length !== daysInMonth * perDay) {
-    errors.push(`${plan.month} は ${daysInMonth * perDay} 本必要（${daysInMonth}日 × ${perDay}本）: posts=${plan.posts.length}`);
+  if (plan.posts.length !== expectDays * expectPerDay) {
+    errors.push(`${label} は ${expectDays * expectPerDay} 本必要（${expectDays}日 × ${expectPerDay}本）: posts=${plan.posts.length}`);
   }
 
   totalPosts += plan.posts.length;
@@ -204,7 +222,9 @@ for (const file of files) {
     console.error(`[check-x-campaign-plan] NG: ${basename(file)} (schemaVersion ${v})`);
     for (const error of errors) console.error(`- ${error}`);
   } else {
-    console.log(`[check-x-campaign-plan] OK: ${basename(file)} v${v} ${plan.posts.length}件（1日${perDay}本）`);
+    // 表示は「実際に検査した本数/日」を出す。coverage 付き（部分月の増強計画）で
+    // schemaVersion 由来の既定値を出すと、2本/日の計画を「1日3本」と誤表示する。
+    console.log(`[check-x-campaign-plan] OK: ${basename(file)} v${v} ${plan.posts.length}件（${label} / 1日${expectPerDay}本）`);
     console.log(`  exam=${JSON.stringify(examCounts)} funnel=${JSON.stringify(funnelCounts)}${v >= 2 ? ` slot=${JSON.stringify(slotCounts)}` : ""}`);
   }
 }
