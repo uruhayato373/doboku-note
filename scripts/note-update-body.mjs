@@ -482,6 +482,9 @@ async function publishLive(page, noteId, boundary = '試験問題|予想問題',
   return true;
 }
 
+// 本文H1とライブ題名の食い違い（frontmatter に title が無い記事）。最終サマリで surface する。
+const TITLE_DRIFTS = [];
+
 async function updateArticle(page, { abs, noteId, title, body, images, isPaid, boundary, expectedImgs }, probe) {
   console.log(`\n[article] ${noteId} — ${abs.split(/[/\\]/).slice(-2).join('/')}`);
 
@@ -682,6 +685,21 @@ async function updateArticle(page, { abs, noteId, title, body, images, isPaid, b
         console.log('[4.7] title textarea 未検出（タイトル変更スキップ・本文のみ更新）');
       }
     } catch (e) { console.log('[4.7] title set skip:', e.message.split('\n')[0]); }
+  } else if (!argv.includes('--no-title')) {
+    // frontmatter に title が無いと、本文の H1 をいくら直してもライブのタイトルは古いまま残る。
+    // それでも従来は ok を返していたため「5/5 成功」なのに全タイトルが誤記のまま、という
+    // 偽成功が起きた（2026-08-13・コンクリート主任技士 5 本。資格名が誤ったまま販売継続）。
+    // タイトルは記事の最も目立つ要素なので、本文 H1 とライブ題名の食い違いを必ず surface する。
+    try {
+      const h1 = (raw.match(/^#\s+(.+)$/m) || [])[1]?.trim();
+      const tl = page.locator('textarea[placeholder*="タイトル"]').first();
+      const cur = (await tl.count()) ? ((await tl.inputValue().catch(() => '')) || '').trim() : '';
+      if (h1 && cur && h1 !== cur) {
+        TITLE_DRIFTS.push({ noteId, h1, live: cur });
+        console.log(`[4.7] ★ タイトル未更新: 本文H1「${h1}」に対しライブ題名は「${cur}」のまま。`);
+        console.log('       frontmatter に title: を足して再実行しないと、ライブのタイトルは古いまま残る。');
+      }
+    } catch { /* 検出できないときは黙って進む（本文更新は妨げない） */ }
   }
 
   // 5. 手動確定（--pause）: 本文差替まで済ませ、タイトル変更＋更新確定はユーザーに委ねる。
@@ -813,6 +831,17 @@ try {
 }
 
 console.log(`\n[done] ok=${ok} fail=${fail} / ${articles.length}`);
+if (TITLE_DRIFTS.length) {
+  // ok=N fail=0 を「全部正しくなった」と読ませないための注記。本文だけ直ってタイトルが
+  // 古いまま残るのは、読者から最も見える形の未完了（2026-08-13 に 5 本で実発生）。
+  console.log(`\n★ タイトルが未更新のまま残った記事 ${TITLE_DRIFTS.length} 件（本文は更新済み）:`);
+  for (const d of TITLE_DRIFTS) {
+    console.log(`  ${d.noteId}`);
+    console.log(`    ライブ: ${d.live}`);
+    console.log(`    本文H1: ${d.h1}`);
+  }
+  console.log('  → 各 article.md の frontmatter に title: を足して再実行する。');
+}
 if (tocProblems.length) {
   console.error(`[done] ⚠ 目次位置NG（導入分断の疑い・再挿入しても直らず）: ${tocProblems.length} 件 → ${tocProblems.join(', ')}`);
   console.error('       各記事の .tmp/nu-toc-<id>.png を目視し、必要なら手動で目次を最初のh2直前へ移動すること。');
