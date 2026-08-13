@@ -9,7 +9,7 @@ noteId: "n4cd2ea9e5a75"
 notePublishedAt: "2026-07-23"
 noteMagazine: コンクリート主任技士-小論文-模範答案集
 noteStatus: published
-price: 500
+price: 980
 coverTitle: "小論文 模範答案｜耐久性（厳しい環境下の耐久性確保）"
 cover:
   variant: crop-safe-v4

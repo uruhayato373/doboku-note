@@ -723,7 +723,7 @@ const MAGAZINES_RAW = {
     shortTitle: 'コンクリート診断士 記述式 模範答案集',
     shortDescription:
       '問題A・問題Bのフル模範答案を劣化機構別に8本。変状把握→劣化機構推定→調査→評価→対策の型を反復。',
-    price: '¥1,980（8本セット）',
+    price: '¥2,980（8本セット）',
     badge: 'note 限定 教材',
   },
 
@@ -745,7 +745,7 @@ const MAGAZINES_RAW = {
     shortTitle: 'コンクリート主任技士 小論文 模範答案集',
     shortDescription:
       '解法ガイド＋テーマ別フル模範小論文4本（耐久性・品質管理・環境配慮・施工トラブル）。序論・本論・結論の型と採点4観点で攻略。',
-    price: '¥1,480（5本セット）',
+    price: '¥2,480（5本セット）',
     badge: 'note 限定 教材',
   },
 

@@ -8,7 +8,7 @@ notePublishedAt: "2026-07-31"
 noteMagazine: コンクリート診断士-記述式-模範答案集
 noteStatus: published
 paidBoundary: "答案の方針"
-price: 500
+price: 980
 coverTitle: "問題A 模範答案｜予防保全と維持管理"
 cover:
   variant: crop-safe-v4

@@ -9,7 +9,7 @@ noteId: "n6f5484b58fd4"
 notePublishedAt: "2026-07-23"
 noteMagazine: コンクリート主任技士-小論文-模範答案集
 noteStatus: published
-price: 500
+price: 980
 coverTitle: "コンクリート主任技士 小論文 突破法"
 cover:
   variant: crop-safe-v4
