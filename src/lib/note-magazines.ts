@@ -727,11 +727,11 @@ const MAGAZINES_RAW = {
     badge: 'note 限定 教材',
   },
 
-  // 原稿配置: docs/note/コンクリート主任技師/magazines/コンクリート主任技師-小論文-模範答案集/
+  // 原稿配置: docs/note/コンクリート主任技士/magazines/コンクリート主任技士-小論文-模範答案集/
   // コンクリート主任技士 小論文（記述式）模範答案集。解法ガイド + テーマ別フル模範小論文 4 本。published: false。
   // concrete-chief-engineer vertical は公開済 (guide/textbook/primary 計19記事 published:true)。
   // 公開時: noteUrl 埋め + cover 画像作成 + published: true。CTA は guide-essay 等の小論文系ページで発火。
-  // 上の原稿配置パスだけ旧表記のまま＝docs/note 側のディレクトリ改名が未了のため（実体に合わせている）。
+  // 2026-08-13: docs/note 側のディレクトリを「主任技士」へ改名済み（旧表記の残骸なし）。
   'cce-essay-magazine': {
     id: 'cce-essay-magazine',
     published: false,
