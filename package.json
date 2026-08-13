@@ -64,6 +64,7 @@
     "wire-note-funnel-cta": "node scripts/wire-note-funnel-cta.mjs",
     "note-inject-magazine-url": "node .claude/scripts/note/inject-magazine-url.cjs",
     "x-sync-status": "node scripts/x-sync-status.mjs",
+    "x-own-metrics": "node scripts/x-own-metrics.mjs",
     "x-schedule-view": "node scripts/x-schedule-view.mjs",
     "x-schedule-guard": "node scripts/x-schedule-guard.mjs",
     "check-x-campaign-plan": "node scripts/check-x-campaign-plan.mjs",
