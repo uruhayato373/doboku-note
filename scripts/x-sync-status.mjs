@@ -101,7 +101,8 @@ try {
 }
 
 const entries = loadAllStatuses();
-let promoted = 0, alreadyPosted = 0, stillScheduled = 0, future = 0, queued = 0, notQueued = 0;
+let promoted = 0, alreadyPosted = 0, stillScheduled = 0, future = 0, queued = 0, notQueued = 0, missingFromQueue = 0;
+const missingList = [];
 const promotedList = [];
 const queuedList = [];
 
@@ -130,7 +131,16 @@ for (const entry of entries) {
           notQueued++;
         }
       } else {
-        future++; // 既に queued（キュー実在前提）
+        // 旧実装は「既に queued なら実在するはず」と前提を置き、キューを一度も見ていなかった。
+        // これは検査ゼロを PASS と呼ぶのと同じで、X 側で予約が消えても（凍結・下書き化・
+        // 予約解除・publish の偽成功）ローカルは queued のまま緑になり、投稿が静かに止まる。
+        // 実在するので `inQueue` は既に計算済み。使うだけで検査が成立する。
+        if (inQueue) {
+          future++;
+        } else {
+          missingFromQueue++;
+          missingList.push({ file: entry.file, title: tweet.title, at: tweet.scheduled_at });
+        }
       }
       return;
     }
@@ -166,12 +176,17 @@ console.log(`  posted に昇格   : ${promoted} 件${DRY ? " (dry: 未書込み)
 console.log(`  queued に昇格    : ${queued} 件${DRY ? " (dry: 未書込み)" : ""}（未来予約をキューで実査）`);
 console.log(`  既存 posted     : ${alreadyPosted} 件`);
 console.log(`  X キュー残存    : ${stillScheduled} 件`);
-console.log(`  既 queued        : ${future} 件`);
+console.log(`  既 queued        : ${future} 件（キュー実在を実照合）`);
 console.log(`  未投入(計画)     : ${notQueued} 件（status=scheduled・キュー未投入。次バッチで publish 予定）`);
 if (queuedList.length) {
   console.log(`\nqueued 昇格（キュー実在を確認・§9 偽成功検証）:`);
   queuedList.forEach(p => console.log(`  📥 ${p.at?.slice(0, 16)}  ${p.title}`));
   console.log(`  → 直前に投稿したバッチ数と queued 昇格数が一致するか確認（不一致＝偽成功）。`);
+}
+if (missingList.length) {
+  console.log(`\n★ queued なのに X キューに不在（＝予約が消えている・投稿が静かに止まる）:`);
+  missingList.forEach(p => console.log(`  ⚠ ${p.at?.slice(0, 16)}  ${p.title}`));
+  console.log(`  → X 側で予約解除/下書き化/凍結が起きていないか確認し、必要なら再投入する。`);
 }
 if (promotedList.length) {
   console.log(`\nposted 昇格:`);
