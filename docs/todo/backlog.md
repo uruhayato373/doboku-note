@@ -20,6 +20,32 @@
 
 ## 🔴 高 — 来月中に着手
 
+### X 9月分90本の週次投入（8/25頃から毎週・意図的に未投入）
+タグ: [SNS][X]
+
+9月分90本（1日3本・9/1-9/30）は**執筆・全検査済みだが、あえてキューへ積んでいない**。
+`x-post-policy.md` §11.6 が「1週間分ずつ」を定めており、141本を一度に積むのは
+2026-06-12 凍結の実因そのものだから。8月分51本は投入済み。
+
+| 週 | 対象 | 本数 | ドラフト |
+|---|---|---|---|
+| 1 | 9/1-9/7 | 21 | 090 |
+| 2 | 9/8-9/14 | 21 | 090 / 091 |
+| 3 | 9/15-9/21 | 21 | 091 / 092 |
+| 4 | 9/22-9/30 | 27 | 092 |
+
+**手順**（1週ごとに繰り返す）
+
+```bash
+npm run x-schedule-guard -- --queue    # 緑を確認
+npx tsx .claude/skills/social/publish-x/publish-x.ts <NNN> --tweets <a>-<b> ${=DATES}
+npm run x-sync-status                  # キュー実在を実照合（投入数と queued 昇格数が一致するか）
+```
+
+- **zsh は変数を単語分割しない**。`$DATES` だと日時が引数1個扱いになり、静かに即時投稿モードへ落ちる。`${=DATES}` 必須（`publish-x/SKILL.md` に事故記録）
+- **`--dry-run` の緑は証拠にならない**。ログで「📅 予約モード確認OK」を目で読む
+- 凍結・警告の兆候が1度でも出たら即 S0 へ後退し、投入を止める（§11.6）
+
 ### Kindle e-02 を欠陥版から差し替える（審査中・別セッションがKDP操作中のため保留）
 タグ: [Kindle][収益化]
 
@@ -843,10 +869,11 @@ Anthropic の Opus 5 プロンプトガイドが「旧モデル向けに仕込�
 - **データ源**: `npm run check-note-republish -- --json`（`{synced, drift, unknown, driftFiles, unknownFiles}` を返す）。admin は既存 CLI を child_process 実行しガードは CLI 側に残す方針（tools/admin-app/README.md）に沿う
 - CLI＋週次で運用は回るため優先度低。真実源 → note-funnel-architecture.md ツール表・memory の再公開ドリフト機構
 
-### ココナラブログ 残り4本の日次公開（2026-08-13〜）
+### ココナラブログ 残り3本の日次公開（2026-08-14〜）
 タグ: [収益化][ココナラ]
 
-第1回を 2026-08-12 に公開済み（`https://coconala.com/blogs/6197366/791576`）。
+第1回 2026-08-12（`.../791576`）・**第2回 2026-08-13 公開済み**（`https://coconala.com/blogs/6197366/791954`・
+ライブ実査で外部リンク0件・本文3,206字・カード1枚を確認）。次は第3回から。
 **公開は1日1本まで**（bot 検知回避・coconala-blog-policy.md §6）。24〜48時間はアカウント警告が
 出ないか様子を見てから続ける。
 
@@ -856,7 +883,7 @@ node scripts/coconala-blog-publish.mjs --post <slug> --commit
 
 | 順 | slug | 内容 | funnel |
 |---|---|---|---|
-| 2 | `dokugaku-tensaku-genkai` | 第2回 独学で伸びない理由 | S2 添削セット |
+| ~~2~~ | ~~`dokugaku-tensaku-genkai`~~ | ~~第2回 独学で伸びない理由~~ → 2026-08-13 公開済 | S2 添削セット |
 | 3 | `yosou-mondai-kaku-renshu` | 第3回 予想テーマで書く練習 | 1級 予想模試 |
 | 4 | `hinshitsu-kanri-kakikata` | 第4回 品質管理の書き方 | 1級 教材フルパック |
 | 5 | `sokan-shutsudai-theme-bunseki` | 単発 総監 出題テーマ | 総監 テーマ分析 |
