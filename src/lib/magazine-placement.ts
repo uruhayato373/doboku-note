@@ -561,10 +561,16 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   // 9. コンクリート主任技士 小論文 → 小論文 模範答案集マガジン。
   //    小論文対策ガイド(guide-essay)が最も整合する送客元。published: false の間は
   //    getMagazine が null を返し CTA 非表示（防御的）。
+  //    2026-08-13: マガジン公開後にライブ実査したところ **CTA が 1 つも出ていなかった**。
+  //    診断士で 2026-07-31 に判明したのと同じ構造（下の 10 番のコメント参照）＝
+  //    sidebar は CTA 統一以降どこからも参照されない死に配線、concrete 系は非 HUB で
+  //    もくじタイルも出ない。本記事は 15,533 字 / h2 6 で inline の条件自体は満たすが、
+  //    それでも出なかったため確実に出る **top（冒頭 CTA）** を追加した（診断士と同じ形）。
   if (slug === 'concrete-chief-engineer-guide-essay') {
     return {
+      top: slot('cce-essay-magazine', slug, 'top'),
       inline: [slot('cce-essay-magazine', slug, 'inline-1')],
-      sidebar: [slot('cce-essay-magazine', slug, 'sidebar-1')],
+      sidebar: [],
     };
   }
 
