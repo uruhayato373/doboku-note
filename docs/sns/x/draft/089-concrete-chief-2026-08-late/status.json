@@ -1,43 +1,44 @@
 {
-  "updated_at": "2026-08-13T12:25:59.570+09:00",
+  "updated_at": "2026-08-13T12:34:43.918+09:00",
   "exam": "concrete-chief",
   "campaign": "civil-secondary-2026",
   "note": "2026-08 増強分 後半（8/23-8/31）。計画=.claude/config/x-campaigns/2026-08-civil-boost.json",
   "tweets": {
     "1": {
       "title": "8/23 12:35 concrete-chief / 出題実績分析 / site",
-      "status": "scheduled",
+      "status": "queued",
       "scheduled_at": "2026-08-23T12:35:00.000+09:00",
       "text": "コンクリート主任技士の試験は四肢択一25問+小論文1問、解答時間3時間の2部構成。択一と小論文は別々に採点され、小論文が基準に届かなければ択一が満点でも不合格になる仕組み。\n試験の全体像と学習の進め方を整理した:\nhttps://doboku-note.com/docs/concrete-chief-engineer-guide-overview?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=aug23-guide-overview\n\n#コンクリート主任技士 #コンクリート技士",
       "posted_at": null
     },
     "2": {
       "title": "8/27 07:30 concrete-chief / リフレーム / linkless",
-      "status": "scheduled",
+      "status": "queued",
       "scheduled_at": "2026-08-27T07:30:00.000+09:00",
       "text": "「小論文が書けない」のは経験不足のせいじゃない。\n持っている実務経験を、技術的な文章に組み立てる練習をしていないだけ。\n用語の意味を言えることと、劣化の原因を切り分けて対策と留意点まで書けることは別の力で、ここは訓練でしか埋まらない。\n\n#コンクリート主任技士 #コンクリート技士",
       "posted_at": null
     },
     "3": {
       "title": "8/27 12:25 concrete-chief / 出題実績分析 / site",
-      "status": "scheduled",
+      "status": "queued",
       "scheduled_at": "2026-08-27T12:25:00.000+09:00",
       "text": "小論文の答案は序論・本論・結論の3部構成が基本形。技術的妥当性・論理構成・実務経験の具体性・技術理解の4観点で採点され、実務者が最も落としやすいのは「具体性」だという。\n本論への字数配分と時間配分を整理した:\nhttps://doboku-note.com/docs/concrete-chief-engineer-guide-essay?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=aug27-guide-essay\n\n#コンクリート主任技士 #コンクリート技士",
       "posted_at": null
     },
     "4": {
       "title": "8/31 07:20 concrete-chief / リフレーム / linkless",
-      "status": "scheduled",
+      "status": "queued",
       "scheduled_at": "2026-08-31T07:20:00.000+09:00",
       "text": "「出題範囲が広くて何から手をつけていいか分からない」は最初の壁に見えて、実は本質ではない。\n分野を全部読み終えてから小論文、ではなく、択一と小論文を最初から両輪で意識するかどうかが差になる。\n\n#コンクリート主任技士 #コンクリート技士",
       "posted_at": null
     },
     "5": {
       "title": "8/31 12:20 concrete-chief / 出題実績分析 / site",
-      "status": "scheduled",
+      "status": "queued",
       "scheduled_at": "2026-08-31T12:20:00.000+09:00",
       "text": "コンクリート主任技士「耐久性」分野は平成24年度から令和5年度まで12年連続で出題。中性化・塩害・凍害・アルカリシリカ反応(ASR)が繰り返し問われる定番テーマ。\n過去問20問を年度別に解説:\nhttps://doboku-note.com/docs/concrete-chief-engineer-primary-durability?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=aug31-primary-durability\n\n申込締切は明日9/1、試験は11/30。\n\n#コンクリート主任技士 #コンクリート技士",
       "posted_at": null
     }
-  }
+  },
+  "updatedAt": "2026-08-13T03:34:55.333Z"
 }
