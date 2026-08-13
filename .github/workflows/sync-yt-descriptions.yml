@@ -1,0 +1,80 @@
+name: 🔁 Sync YouTube descriptions
+
+# 投稿済み動画の概要欄を台帳（.claude/state/youtube-schedule.json）の description へ揃える。
+#
+# 背景（2026-08-13）: SNS 共通設定 sns-common/sns-config.mjs の noteUrl が旧ハンドル
+# （HTTP 404）のままで、そこから生成された概要欄が **note への送客が死んだ状態**で公開されていた。
+# SSOT を直しても公開済みの概要欄は自動では変わらないので、台帳を正として live へ流す。
+#
+# **手動трigger 専用**（schedule なし）。収益チャネルへの書き込みなので、既定は dry-run で
+# 差分だけ出し、commit=true を明示したときにだけ実更新する。
+#
+# 前提 Secrets: YOUTUBE_CLIENT_ID / YOUTUBE_CLIENT_SECRET / YOUTUBE_REFRESH_TOKEN
+# （ローカルに creds は置かない＝計測・投稿系は CI/CD 供給が正。measurement-incidents.md 2026-06-05）
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit:
+        description: "true にすると実際に概要欄を更新する（既定 false = 差分表示のみ）"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout develop
+        uses: actions/checkout@v5
+        with:
+          ref: develop
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Sync descriptions
+        id: sync
+        continue-on-error: true
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+        run: |
+          set -o pipefail
+          if [ "${{ inputs.commit }}" = "true" ]; then
+            node .claude/scripts/youtube/sync-descriptions.mjs --commit 2>&1 | tee /tmp/yt-sync.log
+          else
+            node .claude/scripts/youtube/sync-descriptions.mjs 2>&1 | tee /tmp/yt-sync.log
+          fi
+          echo "exit_code=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
+
+      - name: Report diff (dry-run)
+        if: steps.sync.outputs.exit_code == '2'
+        run: |
+          echo "::notice::概要欄に台帳との差分があります。反映するには commit=true で再実行してください。"
+          tail -40 /tmp/yt-sync.log || true
+
+      - name: Fail on auth/API error
+        if: steps.sync.outputs.exit_code == '1'
+        run: |
+          echo "::error::sync-descriptions.mjs が認証/API エラーで失敗しました。"
+          tail -40 /tmp/yt-sync.log || true
+          exit 1
+
+      - name: Fail on inspection-not-established
+        if: steps.sync.outputs.exit_code == '3'
+        run: |
+          echo "::error::検査不成立（台帳が無い / videoId を持つ item が 0 件）。0 件を「差分なし」と読まないための明示的な失敗です。"
+          tail -40 /tmp/yt-sync.log || true
+          exit 1
