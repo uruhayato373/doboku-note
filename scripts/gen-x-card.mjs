@@ -16,6 +16,9 @@ import { readFileSync, existsSync, mkdirSync, readdirSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import sharp from "sharp";
+// 試験色の真実源は note-cover-tokens.json（exam-palette 経由）。ここで hex を直書きすると
+// note カバー・IG・Shorts と色がずれる（x-post-policy §7 は tokens を真実源と定める）。
+import { examColor } from "../.claude/scripts/sns/lib/exam-palette.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const PROJECT_ROOT = join(__dirname, "..");
@@ -34,16 +37,56 @@ const CATEGORY_COLORS = {
 const DEFAULT_COLORS = { bg: "#2e6da4", fill: "#e8f0fe" };
 
 // 試験別カード設定（多資格）。総監は従来どおり管理分野色＋「総監キーワード解説」。
-// 1級/2級は試験色固定＋「{1級/2級}土木 過去問」。色は x-post-policy.md §7 準拠。
+// それ以外は試験色固定。**色は hex を書かず exam-palette（tokens.exams）から解決する**
+// （x-post-policy.md §7 が tokens を真実源と定めるため。従来の直書き値 civil-1 #155293 /
+// civil-2 #1c5038 は tokens の deep と同値なので、移行しても出力は変わらない）。
+// fill は各試験色の淡色。tokens に淡色系の枠が無いので、deep から算出せず明示定義する。
+const EXAM_FILL = {
+  "civil-1": "#e7f0fa",
+  "civil-2": "#e8f3ec",
+  "concrete-chief": "#e4f1f1",
+  "concrete-diagnosis": "#f0e9f5",
+  "pe-construction": "#e9eaf3",
+};
+const examColors = (slug) => ({ bg: examColor(slug, "deep").use, fill: EXAM_FILL[slug] });
+
 const EXAM_CONFIG = {
   "pe-comprehensive": { headerLabel: "総監キーワード解説", titleRe: /【総監キーワード解説】(.+?) ?#\d+/, badge: null, colors: null },
-  "civil-1": { headerLabel: "1級土木 過去問", titleRe: /【1級土木 過去問】(.+?) ?#\d+/, badge: "1級土木", colors: { bg: "#155293", fill: "#e7f0fa" } },
-  "civil-2": { headerLabel: "2級土木 過去問", titleRe: /【2級土木 過去問】(.+?) ?#\d+/, badge: "2級土木", colors: { bg: "#1c5038", fill: "#e8f3ec" } },
+  "civil-1": { headerLabel: "1級土木 過去問", titleRe: /【1級土木 過去問】(.+?) ?#\d+/, badge: "1級土木", colors: examColors("civil-1") },
+  "civil-2": { headerLabel: "2級土木 過去問", titleRe: /【2級土木 過去問】(.+?) ?#\d+/, badge: "2級土木", colors: examColors("civil-2") },
+  // 正式名称は「コンクリート主任技士」（技師ではない）。exam-calendar.json の policy 参照。
+  "concrete-chief": { headerLabel: "コンクリート主任技士", titleRe: /【コンクリート主任技士】(.+?) ?#\d+/, badge: "主任技士", colors: examColors("concrete-chief") },
+  "concrete-diagnosis": { headerLabel: "コンクリート診断士", titleRe: /【コンクリート診断士】(.+?) ?#\d+/, badge: "診断士", colors: examColors("concrete-diagnosis") },
+  "pe-construction": { headerLabel: "技術士 建設部門", titleRe: /【技術士 建設部門】(.+?) ?#\d+/, badge: "建設部門", colors: examColors("pe-construction") },
 };
+
+// 試験の判定。フォルダ名とツイート見出しの両方に効くよう、slug 形（civil-1 / concrete-chief）と
+// 日本語名（1級 / コンクリート主任技士）の双方を拾う。より限定的なものを先に置く。
+// **未知を黙って総監にしない**（2026-08-13 まで concrete/建設部門のドラフトが総監カードとして
+// 誤生成されていた＝別資格の色のまま出る事故）。
+const EXAM_PATTERNS = [
+  ["concrete-chief", /concrete-chief|コンクリート主任技[士師]|主任技[士師]/],
+  ["concrete-diagnosis", /concrete-diag|コンクリート診断士|診断士/],
+  ["pe-construction", /pe-construction|pe-const|建設部門/],
+  ["pe-comprehensive", /pe-comprehensive|sokan|総監|総合技術監理/],
+  // 数字の直後を除く。除かないと "083-civil-2026-08" の年号が civil-2 に誤マッチする（実見）。
+  ["civil-1", /-civil1-|civil-1(?!\d)|1級/],
+  ["civil-2", /-civil2-|civil-2(?!\d)|2級/],
+];
+/** 判定できたら slug、できなければ null（警告しない） */
+function matchExam(text) {
+  for (const [slug, re] of EXAM_PATTERNS) if (re.test(text)) return slug;
+  return null;
+}
+/** フォルダ既定の試験。判定不能なら総監へフォールバックしたうえで WARN を出す */
 function detectExam(folderName) {
-  if (/-civil1-|1級/.test(folderName)) return "civil-1";
-  if (/-civil2-|2級/.test(folderName)) return "civil-2";
-  return "pe-comprehensive"; // 既定（識別子なしの既存総監ドラフトを含む）
+  const hit = matchExam(folderName);
+  if (hit) return hit;
+  console.warn(`  ⚠ 試験を判定できないフォルダ "${folderName}" → 既定は総監。`);
+  console.warn(`     ツイート見出しに資格が書かれていればそちらを優先します（1ツイート単位で判定）。`);
+  console.warn(`     見出しにも無い場合は総監色で出るので、フォルダ名か見出しに識別子を入れてください`);
+  console.warn(`     （例: -civil1- / -concrete-chief- / -pe-construction-）`);
+  return "pe-comprehensive";
 }
 
 // ─── テキスト処理 ────────────────────────────────────────────────────────────
@@ -86,17 +129,26 @@ function wrapJa(text, maxChars = 32) {
 
 // ─── tweets.md パース ────────────────────────────────────────────────────────
 
-function parseTweetsFile(content, exam = "pe-comprehensive") {
-  const cfg = EXAM_CONFIG[exam] || EXAM_CONFIG["pe-comprehensive"];
+function parseTweetsFile(content, folderExam = "pe-comprehensive") {
   const blocks = content.split(/^## Tweet /m).filter((_, i) => i > 0);
   return blocks
-    .map((block) => {
+    .map((rawBlock) => {
+      // tweets.md は制作メモを HTML コメントで書く運用（例: 082 の「転用した勝ち型」）。
+      // 除去しないとカード本文へ流れ、内部メモを載せた画像を公開する事故になる（2026-08-13 実見）。
+      // 閉じ忘れにも耐えるよう、ブロック単位の除去に加えて行頭 <!-- 以降も落とす。
+      const block = rawBlock.replace(/<!--[\s\S]*?-->/g, "").replace(/^\s*<!--[\s\S]*$/m, "");
       const lines = block.split("\n");
       const headerMatch = lines[0].match(/^(\d+):\s*(.+)/);
       if (!headerMatch) return null;
 
       const num = parseInt(headerMatch[1]);
       const sectionTitle = headerMatch[2].trim();
+
+      // 1日3本体制では1ドラフトに複数資格が混ざる（例: 朝=1級・昼=主任技士・夜=総監）。
+      // 資格は**ツイート見出し単位**で判定し、書かれていなければフォルダ既定を使う。
+      // フォルダ単位のままだと混在ドラフトが全部1色になり、別資格の色で出てしまう。
+      const exam = matchExam(sectionTitle) || folderExam;
+      const cfg = EXAM_CONFIG[exam] || EXAM_CONFIG["pe-comprehensive"];
 
       // 管理分野をハッシュタグから検出（総監のみ。1級/2級は試験色固定）
       let category = null;
@@ -171,6 +223,8 @@ function buildSvg({ num, sectionTitle, keywordName, category, contentLines, exam
   const badgeW = Math.max(100, catLabel.length * 23 + 40);
   const badgeX = 1160 - badgeW;
 
+  // 「総監以外レイアウト」の意（大きめ本文＋白パネル）。命名は土木2資格しか無かった頃の名残で、
+  // 現在はコンクリート2資格・建設部門もこちらを使う。
   const isCivil = exam !== "pe-comprehensive";
   const bodySize = isCivil ? 35 : 27;
   const lineHeight = isCivil ? 49 : 38;
