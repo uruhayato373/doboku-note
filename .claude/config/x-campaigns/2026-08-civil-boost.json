@@ -32,7 +32,8 @@
     "rules": [
       "既存予約が占めるスロットには入れない（RESERVED から判定）",
       "販売は夜が空いている日のみ・1日以上あける",
-      "着地先は listed / published のものだけ"
+      "着地先は listed / published のものだけ",
+      "2026-08-13: 8/20・8/21・8/22 の target を原稿の論点に合わせて差し替えた（当初の計画値は執筆時のプロンプト指定と食い違っていた。内容と着地先の整合を優先）"
     ]
   },
   "posts": [
@@ -133,7 +134,7 @@
       "exam": "civil-2",
       "type": "過去問1問1答",
       "funnel": "site",
-      "target": "https://doboku-note.com/docs/civil-construction-2-secondary-r07?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=aug20-c2-r07",
+      "target": "https://doboku-note.com/docs/civil-construction-2-secondary-getting-started?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=aug20-c2-start",
       "image": null
     },
     {
@@ -143,7 +144,7 @@
       "exam": "civil-1",
       "type": "要点圧縮",
       "funnel": "site",
-      "target": "https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-guide?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=aug21-exp-guide",
+      "target": "https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-examples?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=aug21-exp-examples",
       "image": null
     },
     {
@@ -173,7 +174,7 @@
       "exam": "civil-1",
       "type": "引っかけ集",
       "funnel": "site",
-      "target": "https://doboku-note.com/docs/civil-construction-1-secondary-construction-plan-past-problems?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=aug22-plan-past",
+      "target": "https://doboku-note.com/docs/civil-construction-1-secondary-concrete-past-problems?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=aug22-concrete-past",
       "image": null
     },
     {
