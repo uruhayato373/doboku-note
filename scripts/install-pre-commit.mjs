@@ -92,6 +92,13 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# 退役アカウント/ハンドル（404 の note 旧名・凍結 X 旧アカ）への参照（2026-08-13。
+# SSOT の1行が死んだまま生成物32本が404リンクを吐いていた事故の再発防止）
+node scripts/check-dead-handles.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
 # 運用記録の「今日」が UTC で出ていないか（JST 09:00 前に走らせると前日付になる事故の再発防止・
 # 2026-08-13 に coconala-blog の publishedAt と note-attachments の measuredAt で実発生）
 node scripts/check-jst-date.mjs --staged

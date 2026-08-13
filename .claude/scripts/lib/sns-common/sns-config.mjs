@@ -6,7 +6,9 @@ export const SNS_CONFIG = {
   // ブランド
   domain: 'doboku-note.com',
   domainUrl: 'https://doboku-note.com',
-  noteUrl: 'https://note.com/uruhayato/',
+  // 2026-08-13: 旧 note ハンドル（uruhayato 名義）は **HTTP 404**（実査）。ここが SSOT なので
+  // 生成物（YouTube 概要欄 32 本ほか）が全て死んだリンクを吐いていた。現行は dobokunote。
+  noteUrl: 'https://note.com/dobokunote/',
   profession: '技術士（総合技術監理部門）',
   professionShort: '技術士総監',
   defaultCategory: 'pe-comprehensive-management',
