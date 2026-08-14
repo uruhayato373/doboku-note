@@ -352,3 +352,19 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
 - 推奨アクション: ①再浮上条件成立につき、次の対話セッションで総監薄ページ統合の対象選定を検討（実行判断は人間）②hygiene タスクなし ③メタ一括変更は不可（実験形式のみ）
 - 異常フラグ: なし（ratio≥60%・低下<5pt・discovered 4・hygiene 0・inspected=sitemap・results 整合）
 - 注記: 自動生成（gsc-index-auditor 診断・最終決定は人間）
+
+### 2026-08-14（週次・自動レビュー）
+
+- 観測: GSC page/query 07/13-08/10（各100行・truncated）＋ page×query 176行（完全）、GA4 28日比 07/16-08/12。候補: High-Impr-Low-CTR 4 / Rank-Stuck 13 / Traffic-Drop 37 / Hidden-Winner 32。Orphan-Query・SNS-Source-Shift・Cannibalization・Content-Decay は ✓（0件）
+- 上位候補と推奨:
+  1. **サイト全体流入減**: GA4 週次 sessions 3335→1577→1458→1053（4週で−68%・直近週も−27.8%）。GSC clicks は 259→221 と緩やか＝GA4 減の主因は SNS/リファラル側の疑い。推奨=検索/SNS の切り分け診断（現物照合）
+  2. **guide-strategy 再浮上**: `/docs/civil-construction-1-guide-strategy` sessions 641→421→64→45 と加速崩壊・−20% 超継続で 8/6 保留の再浮上条件成立。engagement 0.58 不変＝流入元側。推奨=要診断（severe 格上げ）
+  3. **Hidden-Winner**: `/docs/civil-construction-2-secondary-experience-writing-guide` sessions 386・eng 0.62（`-secondary-r07` も 377・0.74）。戦略外 civil-2 が最大の稼ぎ頭。推奨=導線強化の検討
+  - 他 7 件（pe-comprehensive keyword-2026 −172 sessions・network-schedule pos 60 等）→ improvements/2026-08-14.md
+- 自動裁定:
+  - サイト全体減 → 推奨=切り分け診断タスク化（実験でなく運用確認。Traffic-Drop 37 件の大半は全体トレンド反映疑いのため個別対処より先）
+  - guide-strategy → 推奨=要診断（8/6 保留→再浮上条件成立。on-page でなく流入元調査から）
+  - civil-2 経験記述 Hidden-Winner → 保留（再浮上条件: 次回計測でも sessions 300 超維持なら導線強化を実験化）
+  - SNS 急落（8/6 裁定済み）→ note/referral は回復基調（56→78）・x/social は下げ止まらず（16→11→8）。裁定維持（現物照合タスクの完了確認待ち）
+  - scraper CTR（8/6 実験化候補）→ 裁定維持（pos 9.6→8.0 と改善するも CTR 1% 前後で張り付き＝タイトル実験の妥当性むしろ強まる）
+- 注記: 自動生成（metrics-analyzer・人間の上書き歓迎）。GSC page/query が limit=100 truncated で前週（453行・完全）よりカバレッジ低下——High-Impr-Low-CTR 33→4 件の急減は実態でなくカバレッジ差の可能性大。GA4 Traffic-Drop から打切りアーティファクト 8 件除外済み
