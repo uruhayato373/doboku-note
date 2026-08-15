@@ -26,14 +26,16 @@ title: 推奨ワークフロー
 **発火の信頼性（サイレント欠落の防止）**: 手順 2-3 は**クラウドルーティン**（正典 = `doboku-note weekly PDCA`・`/schedule` で作成）が金曜 PM に発火して回す。状態はクラウド側にしか無く repo からは見えないため、停止・無効・cron ズレで**発火しなくなっても気づけない**（実際 2026-W27/W28 の 2 週分が silent 欠落）。これを防ぐため `weekly-review-guard.yml`（`npm run check-weekly-review`＝`scripts/check-weekly-review.mjs`）が毎週月曜に「先週分の `docs/reviews/weekly/YYYY-Www-review.md` が生成済みか」を検査し、無ければ赤落ちさせる（生成はしない＝ルーティンの責務、ガードは欠落検知のみ）。赤落ち時は対話セッションで `/routines`（list-first）→ 無ければ `/schedule` 再作成、cron ズレなら `update`。ルーティン監査の真実源は [.claude/skills/management/routines/SKILL.md](../../skills/management/routines/SKILL.md)。
 
 > [!warning] 「停止」より「発火しているのに沈黙」の方が多い（2026-08-16）
-> 2026-W33 の欠落を調べたところ、ルーティンは **enabled のまま毎週きちんと発火していた**（`last_fired_at` 2026-08-14）。にもかかわらず 2026-07-31 以降 3 回連続で `claude/weekly-pdca-*` ブランチすら push されておらず、**成果物ゼロのまま黙って終わっていた**。欠落を「ルーティンが止まった」と決めつけると診断を誤る。
+> 2026-W33 の欠落を調べたところ、ルーティンは **enabled のまま毎週きちんと発火していた**（`last_fired_at` 2026-08-14）。にもかかわらず成果物が出ていなかった。欠落を「ルーティンが止まった」と決めつけると診断を誤る。
+>
+> 発火成功の履歴（PR ベースの実測）: W29（07-17 merged）・W30（07-24 merged）・**W31（07-31 作成→closed）まで成功**、W32（08-07 相当）と W33（08-14 相当）は成果物なし＝**2 週連続の失敗**。
 >
 > 調査の実務:
 > - **trigger_id は `RemoteTrigger {action:"get"}` で直接引く**。`list` はページ送りが効かず（`next_cursor` を body に渡しても無視される）、先頭 20 件が別プロジェクトの使い捨て `send_later` トリガーで埋まって正典まで辿り着けない。ID は memory `cloud-routines-minimized` に記録がある
-> - **`git ls-remote --heads origin "*weekly-pdca*"` で push 到達を見る**。空＝手順 8（PR 作成）どころかブランチ push の前で落ちている＝早期失敗
-> - **過去の成功回は commit の author で分かる**。ルーティン産は `claude/weekly-pdca-YYYY-Www` ブランチの PR 経由。直接 commit されている週は人手（＝ルーティンの故障が人手の補完で覆い隠されていた）
+> - **発火の成否は「PR が存在するか」で見る**（`gh pr list` の `headRefName` が `claude/weekly-pdca-YYYY-Www`）。機械判定は `npm run check-weekly-routine-fired`
+> - **`git ls-remote` でブランチの有無を見てはいけない**（2026-08-16 に私が踏んだ罠）。PR の close/merge 後にブランチは自動削除されるため、**成功した週でも空になる**。「ブランチが無い＝push 前に落ちた＝起動失敗」と推論したが、これは**不在を証拠と取り違えた誤り**だった。失敗がどの段階で起きているかは、この方法では分からない
 >
-> 対処として、ルーティン本文に **Phase 8.5「沈黙の禁止」**（PR 作成に到達しなければ `scripts/report-automation-failure.mjs` で automation-failure を起票してから終了）を追加し、モデル指定を退役 ID 候補の `claude-sonnet-4-6` から `claude-sonnet-5` へ更新した。
+> 対処として、ルーティン本文に **Phase 8.5「沈黙の禁止」**（PR 作成に到達しなければ `scripts/report-automation-failure.mjs` で automation-failure を起票してから終了）を追加し、モデル指定を `claude-sonnet-4-6` から `claude-sonnet-5` へ更新した。**ただし後者は実行ログを見られないまま立てた仮説であり、根本原因は未特定**（環境失効・認証切れ等の可能性が残る）。
 >
 > **`update` は nested オブジェクトを丸ごと置換する**。`job_config.ccr.session_context` だけを送ると `events`（プロンプト本文）が消える。実際に一度消して復元した。触る前に `get` で全文を控え、`environment_id` と `events` を必ず同送すること。
 

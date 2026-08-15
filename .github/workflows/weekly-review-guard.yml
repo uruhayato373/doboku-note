@@ -112,6 +112,51 @@ jobs:
       - name: Gate - internal links vs GSC 404/redirect
         run: node scripts/check-internal-links-vs-gsc.mjs
 
+      # ルーティンが「実際に成果物を出したか」を PR の実在で検査する（2026-08-16 追加）。
+      # 上の Check last week's review は**レビューの存在**しか見ないため、ルーティンが死んでいても
+      # 対話セッションで人が書けば緑になる。実際 W32/W33 の 2 週連続失敗は、W31/W32 が人手で
+      # 書かれていたせいで 13 日間ガードに映らなかった。「成果物がある」と「自動化が生きている」は
+      # 別の命題で、後者を直接見る検査がこれ。
+      # 赤落ちはさせず Issue で能動通知する（GSC auto review の沈黙報告と同じ方針＝
+      # 人手で回した週まで赤くすると、常に赤いゲートは読み飛ばされて本物の欠落を隠す）。
+      - name: Report - weekly PDCA routine silence
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set +e
+          node scripts/check-weekly-routine-fired.mjs
+          rc=$?
+          set -e
+          # rc=0 発火あり / rc=1 2週連続で成果物なし / rc=2 検査不成立（gh 不通）
+          if [ "$rc" = "0" ]; then
+            echo "ルーティンは生きています — Issue は起票しない"
+            exit 0
+          fi
+          if [ "$rc" = "2" ]; then
+            echo "::warning::routine 発火の検査が不成立（gh 不通）。異常なしとは扱わない"
+            exit 0
+          fi
+          {
+            echo "クラウドルーティン \`doboku-note weekly PDCA\` が **2 週連続で成果物を出していません**。"
+            echo ""
+            echo '```'
+            node scripts/check-weekly-routine-fired.mjs || true
+            echo '```'
+            echo ""
+            echo "週次レビューのファイル自体は人手でも書けるため、\`check-weekly-review\` は緑のまま通ります。"
+            echo "緑であることを「自動化が生きている」と読まないでください（2026-08-16 の 13 日欠落の原因）。"
+            echo ""
+            echo "- 確認: \`RemoteTrigger {action:\"get\", trigger_id:\"trig_01Edgim5qXCiGwKtnL4AVEmM\"}\`（\`list\` はページ送りが効かない）"
+            echo "- 応急: 対話セッションで \`/weekly-review\` を実行してサイクルを埋める"
+            echo "- 真実源: \`.claude/knowledge/reference/workflows.md\`「発火の信頼性」"
+          } > /tmp/routine-silence.md
+          node scripts/report-automation-failure.mjs \
+            --channel weekly-pdca \
+            --title "週次ルーティンが2週連続で成果物を出していません" \
+            --body-file /tmp/routine-silence.md
+
       # 先週分の docs/reviews/weekly/YYYY-Www-review.md が無ければ exit 1（赤落ち）。
       # 依存パッケージ不要（fs のみ）なので npm ci はスキップ。
       # surfacer より後に置く＝レビュー欠落で赤くても上のサマリは必ず残る。
