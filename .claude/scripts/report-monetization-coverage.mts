@@ -28,10 +28,8 @@ import {
 } from "fs";
 import { join } from "path";
 import { classifyDoc } from "../../src/lib/doc-classifier.ts";
-import {
-  resolvePlacement,
-  resolveCategoryMagazines,
-} from "../../src/lib/magazine-placement.ts";
+import { resolvePlacement } from "../../src/lib/magazine-placement.ts";
+import { resolveHubCta } from "../../src/lib/hub-cta.ts";
 import { getMagazine } from "../../src/lib/note-magazines.ts";
 import {
   resolveCategoryCareerAds,
@@ -184,9 +182,10 @@ for (const [page, t] of traffic) {
     affiliate = null; // 2026-06-25: トップの SAT 講座アフィリ（HOME_AFFILIATE）は廃止。home はアフィリ枠なし。
   } else if (page.startsWith("/category/")) {
     category = page.slice("/category/".length);
-    noteCta = resolveCategoryMagazines(category)
-      .filter((s) => getMagazine(s.magazineId))
-      .map((s) => s.magazineId);
+    // 2026-07-06 に resolveCategoryMagazines（複数誌の直リンク）は resolveHubCta へ一本化された。
+    // mode:'product' は特定マガジンへの直リンク、mode:'mokuji' は L2 もくじへの集約。
+    const hub = resolveHubCta(category);
+    noteCta = hub ? [hub.trackLabel] : [];
     // 転職プログラム名（"DXConsulting" / "BuildJob" / "GKS" / "KensetsuJobs"）。trackLabel = "{program}-sidebar"。
     // カテゴリ hub は両方表示（show-both）= 複数になり得るため "+" 連結（例 "KensetsuJobs+BuildJob"）。
     const affs = resolveCategoryCareerAds(category);
