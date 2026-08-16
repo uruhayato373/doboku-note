@@ -106,7 +106,13 @@ const CHECKS = [
   { id: 'ogp-design', npm: 'check-ogp-design', timeout: 120_000, ci: false },
   { id: 'quality-census', npm: 'quality-census', timeout: 180_000, ci: false, note: 'census.json 再生成（薄層可視化）' },
   { id: 'env-inventory', cmd: ['node', 'scripts/report-env-inventory.mjs'], timeout: 60_000, ci: false },
-  { id: 'knip', npm: 'knip', timeout: 300_000, ci: false, note: 'デッドコード候補（要 grep 裏取り）' },
+  { id: 'knip', npm: 'knip', timeout: 300_000, ci: false, note: 'デッドコード候補の全量（要 grep 裏取り・返済は週次レビューの棚卸しで）' },
+  // デッドコードの「増加」だけを機械で止めるラチェット（ci ゲート）。
+  // knip 本体は false positive を出すので消す判断は人間に残す（＝上の report は維持）が、
+  // report のままだと誰も読まずに溜まる。実際 knip は batch-approve.mjs の壊れ import を
+  // 報告し続けたまま 4 か月放置された。既存分の返済は強制せず、増やすことだけ禁じる。
+  // baseline 更新: npm run check-knip-ratchet -- --update-baseline（2026-08-16 追加）
+  { id: 'knip-ratchet', npm: 'check-knip-ratchet', timeout: 300_000, ci: true, note: 'デッドコードが baseline から増えていないか' },
   {
     id: 'cta-density', npm: 'check-cta-density', timeout: 90_000, ci: false,
     skip: () => existsSync(join(ROOT, 'out', 'docs')) ? null : 'ビルド成果物 out/docs が無い（npm run build 後に実行）',

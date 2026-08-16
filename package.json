@@ -83,6 +83,7 @@
     "check-jst-date": "node scripts/check-jst-date.mjs",
     "check-kindle-epub-leak": "node scripts/check-kindle-epub-leak.mjs",
     "check-kindle-format": "node scripts/check-kindle-format.mjs",
+    "check-knip-ratchet": "node scripts/check-knip-ratchet.mjs",
     "check-lcp-image-hints": "node scripts/check-lcp-image-hints.mjs",
     "check-links": "node .claude/skills/quality/check-mdx/scripts/rules/links/check-links.mjs",
     "check-links-audit": "node .claude/skills/quality/check-mdx/scripts/rules/links/check-links.mjs --scope all --report .claude/state/link-audit/",
