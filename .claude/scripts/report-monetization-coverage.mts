@@ -273,6 +273,18 @@ const md = lines.join("\n");
 console.log(md);
 
 // ── persist ──
+// --check: ここまでの計算（入力の読み込み・配置解決・集計）が完走したことだけを確認し、
+// 成果物は書かない。quality-audit のゲートから毎回呼ぶため、実行のたびに timestamped JSON を
+// 増やさない。なぜゲート化したか: 2026-07-06 に magazine-placement.ts から
+// resolveCategoryMagazines が消えた際、本スクリプトは import エラーで実行不能になったのに
+// 検出器が無く、週次レビューは 6 週間ぶん古い（6/18 時点の）集計を貼り続けた。
+// 「壊れているのに誰も気づかない」を機械で塞ぐ（2026-08-16 追加）。
+if (process.argv.includes("--check")) {
+  console.log(
+    `[monetization-coverage] OK: 流入 ${trafficked.length} ページ / ギャップ ${gaps.length} 件を算出（--check・未書き込み）`,
+  );
+  process.exit(0);
+}
 if (!existsSync(OUT_DIR)) mkdirSync(OUT_DIR, { recursive: true });
 const stamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
 writeFileSync(

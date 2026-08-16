@@ -8,17 +8,37 @@
  *   npm run note-meta-lint            # 検査（違反があれば exit 2）
  * 真実源: .claude/knowledge/reference/note-api-verification.md
  */
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, relative } from 'node:path';
-import { glob } from 'node:fs/promises';
 import { parseNoteText, checkLimits } from './lib/note-meta.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
-const files = [];
-for await (const f of glob('docs/note/**/note掲載文.txt', { cwd: ROOT })) files.push(f);
-files.sort();
+// node:fs/promises の glob は Node 22+ の API で、CI/ローカルの Node 20 では
+// `does not provide an export named 'glob'` で **import 時点でクラッシュ**する。
+// 2026-07-25 以降ずっとこの状態で、quality-audit 上は FAIL と出ていたが report 扱い
+// （ci:false）のため誰も見ておらず、実態は「3 週間 1 件も検査していない」だった
+// （2026-08-16 発覚）。依存を増やさず readdirSync の再帰で置き換える。
+const TARGET = 'note掲載文.txt';
+function collect(dir, acc = []) {
+  for (const e of readdirSync(join(ROOT, dir), { withFileTypes: true })) {
+    if (e.name === 'node_modules' || e.name.startsWith('.')) continue;
+    const rel = `${dir}/${e.name}`;
+    if (e.isDirectory()) collect(rel, acc);
+    else if (e.name === TARGET) acc.push(rel);
+  }
+  return acc;
+}
+const files = collect('docs/note').sort();
+
+// 検査ゼロを PASS と呼ばない（CLAUDE.md §9）。対象 0 件は「違反なし」ではなく
+// 「走査が壊れている」可能性が高い＝この lint が 3 週間沈黙した失敗そのもの。
+if (files.length === 0) {
+  console.error('[note-meta-lint] 検査不成立: docs/note 配下に note掲載文.txt が 1 件も見つかりません。');
+  console.error('  走査ロジックかディレクトリ構成の破損を疑ってください（「違反なし」ではありません）。');
+  process.exit(2);
+}
 
 let violations = 0, noMachine = 0;
 console.log(`=== note掲載文.txt 文字数 lint（${files.length} 件）===`);

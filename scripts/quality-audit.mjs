@@ -115,6 +115,16 @@ const CHECKS = [
     id: 'seo-meta', npm: 'check-seo-meta', timeout: 300_000, ci: false,
     skip: async () => (await portOpen(3020)) ? null : 'dev server (localhost:3020) 不在（npm run dev 起動時のみ実行）',
   },
+  // 週次レビューが読む収益カバレッジ集計が「実行できる」ことを毎回確かめる（ci ゲート）。
+  // 2026-07-06 に magazine-placement.ts から resolveCategoryMagazines が消えて import
+  // エラーになったが検出器が無く、週次レビューは 6 週間ぶん古い集計を貼り続けた
+  // （2026-08-16 発覚）。入力はコミット済み GA4 スナップショットなので creds 不要で常に走る。
+  {
+    id: 'monetization-coverage',
+    cmd: ['npx', 'tsx', '.claude/scripts/report-monetization-coverage.mts', '--check'],
+    timeout: 120_000, ci: true,
+    note: '収益カバレッジ集計が実行可能か（import 破損・入力欠落を検知）',
+  },
 ];
 
 function resolveCommand(check) {
