@@ -20,6 +20,13 @@
 
 ## 🔴 高 — 来月中に着手
 
+### note 売上が 2026-07-14 以降ひとつも記録されていない（handoff 2026-08-11 抽出）
+タグ: [収益化]
+
+`.claude/state/sales/sales-log.json` は 142 件・**最終エントリが 2026-07-14**。7月後半〜8月の売上が丸ごと未記録で、少なくとも建設部門の 8/10・8/11 購入 2 件（鉄道・道路まるごと）が確実に漏れている。
+
+売上ログは月次集計と撤退判断の入力なので、欠けたままだと「note が伸びていない」と誤読する。note の売上管理画面で期間を確認し `/record-sales` で正規化して追記する。真実源 → [sales-tracking.md](../../.claude/knowledge/reference/sales-tracking.md)
+
 ### 高流入ページの note 導線ゼロ 2本（2026-08-16 W33 レビューで検出）
 タグ: [収益化]
 
@@ -226,21 +233,6 @@ node scripts/note-update-body.mjs --list <list> --reattach-pdf --commit
 ```
 
 未反映のまま残ると、ソースに配線した L2 もくじ CTA が読者に届かない（実害＝回遊導線のみ・記事本文は正常）。検知は `npm run check-note-republish`。
-
-### note PDF 添付 185 件（1日100件上限・最低2日）
-タグ: [収益化]
-
-土木 経験記述 178 本へ PDF を配置し本文案内までライブ反映済み。**添付だけが未了**。`check-note-attachments --live` を 457 件で実行済み（取得失敗0・充足272/不足185）。欠落リストは `.claude/state/note-attachments-missing.json` に生成済み。
-
-**note のファイルアップロードは1日100件が上限**（超えると以降が全て ABORT）。done-log は `.claude/state/note-attach-done.json`（git 追跡下）なので翌日そのまま再実行すれば続きから進む。
-
-```bash
-node scripts/note-attach-batch.mjs --commit --limit 100
-```
-
-**最優先は `BK-I_必須科目I` の7本**（R07 模範解答＋R8予想①〜⑥）。今回の作業とは無関係な既存の欠落で、本文で印刷用PDFを約束しているのにライブに無く**購入者が受け取れていない**。
-
-前提: note ログイン済みプロファイル（無ければ `npm run note-edit-session`）。経緯 → [2026-07-31 handoff](../handoffs/2026-07-31-note-paid-cta-and-pdf.md)
 
 ### 総監模範論文 77本に「印刷用PDF」節を追加（訴求もれ）
 タグ: [収益化]
@@ -474,6 +466,32 @@ page/category の合成ロジック共通化（2026-06-25 アセスメント起�
 ---
 
 ## 🟡 中 — 2〜3ヶ月以内
+
+### note ライブ監査の週次 CI が赤のまま（handoff 2026-08-03 抽出）
+タグ: [インフラ・計測] [note運用]
+
+`note-live-audit.yml`（main・週次）は 2026-08-02 success のあと **2026-08-09 は失敗**（run 31340849726）。赤の中身は 2 つで、どちらも未修復:
+
+- `check-note-live-headings`: ライブ本文の不整合 1 件（URL見出し/空引用/画像欠落）
+- マガジン SoT 突合: note 公開中の特典マガジン `mbe07bd5cecda`「経験記述 週次お題ラボ｜1級・2級土木（会員専用）」が `src/lib/note-magazines.ts` に**未配線**（exit 2）
+
+放置すると週次ゲートが恒常的に赤になり、新しい実欠陥が出ても気づけない（CLAUDE.md §9「赤いのに誰も見ていない検査は無いのと同じ」）。修復には note ログイン済みブラウザが要る。あわせて handoff 2026-08-03 が記録した既存ドリフト（CTA 未反映 4 件・`note掲載文.txt` 価格差 2 件）も同じ経路で消える見込み。
+
+### GA4 の配置別 CTA データを誰も読んでいない（handoff 2026-07-25 抽出）
+タグ: [収益化] [計測]
+
+`fetch-metrics.yml` が `ga4-cta-clicks-by-placement-*.json` を週次で積んでいる（現在 4 本・最新 2026-08-13）が、**配置別 CTR を比較する読み手がいない**。参照しているのは GA4 側の設定検査スクリプト 2 本だけで、週次レビューにも改善サイクルにも入っていない。
+
+可視インプレッションを実装した目的は「どの配置が効いているか」を判断することなので、`affiliate_cta_impression` と `affiliate_cta_click` を配置別に突き合わせ、低 CTR 配置の是正まで一度通す。通した結果として読む場所（週次レビューか管理画面か）も決める。
+
+### 土木公務員 SEO 第1期の効果測定（handoff 2026-08-17 抽出）
+タグ: [SNS・マーケ]
+
+2026-08-17 に資格ハブ改稿＋1級土木の新設ページを公開・デプロイ済み。測定が残っている:
+
+1. 資格ハブ（`pe-comprehensive-management-public-engineer-qualification-map`）と新設ページ（`civil-construction-1-public-servant-merit`）を GSC で URL 検査し、インデックス状況を記録する
+2. **目安 2026-09-14 以降**、公開後 28 日と直前 28 日を比較する。判定の正規表現と基準は [13_土木公務員SEO戦略2026-08.md](../project/01_戦略/13_土木公務員SEO戦略2026-08.md)
+3. 次記事「土木公務員に技術士は必要？」の着手可否は 1・2 の結果を見てから判断する（語順違いの類似ページは作らない）
 
 ### 1級土木テキストの実体なし「表N.M」参照 31箇所（図版は解消済み）
 タグ: [品質] [Codex候補]
@@ -843,6 +861,23 @@ PR #269（カタログ）/#270（SNSレンダラー）済。残 = Phase4 記事�
 ---
 
 ## 🟢 低 — 時期未定
+
+### note 添付の負債台帳 `nded084d4f646` が消えていない（handoff 2026-07-28 / 2026-08-11 抽出）
+タグ: [note運用]
+
+`.claude/state/note-attachment-loss.json` に pending 1 件（2026-08-12 記録・1級土木 施工経験記述 R06 安全施工計画の PDF）が残っている一方、`.claude/state/note-attachments-missing.json` は 2026-08-13 実測で **478/478 全充足・missingPromised 空**。台帳が自動消去されなかっただけの可能性が高いが**未確認**。
+
+実体を 1 本確認し、充足していれば pending を落とす。矛盾したまま置くと、次に本当の欠落が出たとき台帳が信用されない。
+
+### note 会員プラン設定の保存が即時ライブ反映か未検証（handoff 2026-07-30 抽出）
+タグ: [note運用]
+
+公開中プランに対する `note-membership-plan-edit` は一度も実行しておらず、保存が即座にライブへ出るかが分かっていない。会費・定員・特典マガジン紐付けを触る前に、影響の小さい項目（説明文）で 1 回だけ実機確認する。会費そのものは変更不可で作り直しになる（memory `note-membership-publish`）。
+
+### 旧クラウドルーティン `note-funnel monthly audit` の削除（handoff 2026-08-03 抽出）
+タグ: [インフラ・計測]
+
+`doboku-note note-funnel monthly audit`（`trig_01F5nDWSTs757Ge5K1ou6Dbr`）は責務を `note-live-audit.yml` へ移したので不要。**削除できたか未確認**（2026-08-17 に一覧取得を試みたが API が 503）。routine の完全削除は API 非対応で [Claude Code Routines](https://claude.ai/code/routines) 画面からの手動操作が要る。`doboku-note weekly PDCA` は意味判断が残るので消さない。
 
 ### A8 月次バックフィルと不足クリック 13 の特定
 タグ: [インフラ・計測]
