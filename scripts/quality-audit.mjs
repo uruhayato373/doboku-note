@@ -125,6 +125,14 @@ const CHECKS = [
     timeout: 120_000, ci: true,
     note: '収益カバレッジ集計が実行可能か（import 破損・入力欠落を検知）',
   },
+  // スクリプト層の壊れた相対 import を落とす（ci ゲート）。tsc は `**/*.ts` しか見ず
+  // `.mjs` と `.claude/**` は型検査の死角。実行されなくなった経路の破損は実行時エラーでも
+  // 気づけないため機械で止める。knip の Unresolved imports は同種を報告していたが
+  // ci:false で誰も読んでいなかった（2026-08-16 追加）。
+  {
+    id: 'script-imports', npm: 'check-script-imports', timeout: 60_000, ci: true,
+    note: 'scripts/ .claude/ の相対 import が解決可能か（参照先の移動・削除への追随漏れ）',
+  },
 ];
 
 function resolveCommand(check) {

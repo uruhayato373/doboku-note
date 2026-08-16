@@ -117,6 +117,7 @@
     "check-public-bloat": "node scripts/check-public-bloat.mjs",
     "check-sales-mapping": "node scripts/check-sales-mapping.mjs",
     "check-scheduled-exec-branch": "node scripts/check-scheduled-exec-branch.mjs",
+    "check-script-imports": "node scripts/check-script-imports.mjs",
     "check-seo-build": "node scripts/check-seo-build.mjs",
     "check-seo-build:ci": "node scripts/check-seo-build.mjs --ci",
     "check-seo-meta": "node .claude/skills/quality/check-seo-meta/scripts/check-seo-meta.mjs",
