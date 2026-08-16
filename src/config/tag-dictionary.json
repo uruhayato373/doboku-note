@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-08-13T02:21:16.539Z",
+  "generated_at": "2026-08-16T21:54:10.801Z",
   "summary": {
-    "total_mdx_files": 1115,
+    "total_mdx_files": 1116,
     "total_unique_tags": 173,
     "allowlist_size": 151,
     "known_count": 84,
@@ -1249,7 +1249,7 @@
     },
     {
       "name": "guide",
-      "count": 134,
+      "count": 135,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1301,6 +1301,7 @@
         "civil-construction-1-guide-white-company",
         "civil-construction-1-guide-women",
         "civil-construction-1-keyword-2026",
+        "civil-construction-1-public-servant-merit",
         "civil-construction-2-guide-buildjob-review",
         "civil-construction-2-guide-career",
         "civil-construction-2-guide-career-agent-comparison",
@@ -1901,7 +1902,7 @@
     },
     {
       "name": "career",
-      "count": 37,
+      "count": 38,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-age-career",
@@ -1930,6 +1931,7 @@
         "civil-construction-1-guide-timing",
         "civil-construction-1-guide-white-company",
         "civil-construction-1-guide-women",
+        "civil-construction-1-public-servant-merit",
         "civil-construction-2-guide-buildjob-review",
         "civil-construction-2-guide-career",
         "civil-construction-2-guide-career-agent-comparison",
@@ -1988,9 +1990,10 @@
     },
     {
       "name": "secondary",
-      "count": 24,
+      "count": 25,
       "inAllowlist": true,
       "usedIn": [
+        "civil-construction-1-public-servant-merit",
         "civil-construction-1-secondary-concrete-basics",
         "civil-construction-1-secondary-concrete-past-problems",
         "civil-construction-1-secondary-construction-plan-basics",
