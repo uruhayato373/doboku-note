@@ -20,18 +20,15 @@
 
 ## 🔴 高 — 来月中に着手
 
-### 高流入ページの note 導線ゼロ 2本（2026-08-16 W33 レビューで検出）
+### 収益カバレッジ判定を「チャネル別」に見る形へ変える
 タグ: [収益化]
 
-> **配線は [PR #468](https://github.com/uruhayato373/doboku-note/pull/468) で実装済み・マージ待ち**（2026-08-17。総監択一は r0X/h2X 全18本を対象にした）。マージ＋deploy が済んだら本セクションを削除する。残るのは下記3つ目の「カバレッジ判定をチャネル別に見る」だけ。
+`report-monetization-coverage` の「導線あり」は **note or アフィリの OR 判定**で、アフィリ枠さえあれば note ゼロでも合格になる。この穴のせいで、全ページ中1位の `pe-comprehensive-management-r08-primary`（481 users）に note CTA が1つも無い状態が surface されず、W33 レビューで人が目視して初めて見つかった（配線は 2026-08-17 に deploy 済み）。
 
-`report-monetization-coverage`（07-16〜08-12 窓）で、**全ページ中1位の `pe-comprehensive-management-r08-primary`（481 users）に note CTA が 1 つも出ていない**。`pe-construction-competency-revision-r8`（115 users）も同じ。いずれもアフィリ枠はあるため、機械ゲートの「導線あり」判定（note **or** アフィリの OR）では surface されなかった。
+判定をチャネル別に割り、note ゼロのページを独立して出す。OR のままだと同種の穴が同じように隠れる。
 
-同種配置の civil 二次系は noteCTR 8〜10% を出しており、機会損失は定量化できている。R8 択一は本試験復元ページで**流入は時間とともに減衰する**ため早いほど効く。
-
-- 配線先の真実源: `src/lib/magazine-placement.ts`
-- 検証: `npm run report-monetization-coverage` で当該ページの note CTA が非空になること
-- 併せて、カバレッジ判定を**チャネル別**に見る形へ見直す（OR 判定のままだと同種の穴が再び隠れる）
+- 対象: `.claude/scripts/report-monetization-coverage.mts`
+- 検証: R8 択一のような「アフィリ有り・note ゼロ」を意図的に作って surface されること
 
 ### 年次比較のためのスナップショットを今から積む（NSM 乖離の決着に伴う後継タスク）
 タグ: [計測]
@@ -230,16 +227,6 @@ CTA・著者バナー・blockquote・cover文言・UTMを直したソースと�
 5. civil 6商品のdescriptionと主要記事導入部へ「元・地方自治体土木職（発注者）＋1級合格者本人」を展開
 
 主力商品の導入フック改善、無料00インデックス、2級安全管理・法規まとめノートは上記の同期後に売上を見て判断する。著者を添削者・採点者と表現しない。
-
-### 総監標準テキスト→キーワード集 実装分を本番deploy
-タグ: [コンテンツ品質] [インフラ・計測]
-
-完全監査とPhase 2/3実装は完了済み（D/E/G=0、新規 `landscape-act` / `cost-benefit-analysis`、補強・ナビ・keyword-relations同期・cem-qa合格）。未完はdevelop→mainのdeployと公開確認のみ。
-
-- `/deploy` の通常手順でmainへ反映
-- 新規2ページとキーワード集ハブをHTTP確認
-- main push時のR2 OGP同期を確認
-- 再監査: `npm run audit-pe-textbook-keyword-coverage`
 
 ### IG 論点パック 残92件の波状予約（1セッション約30件）
 タグ: [SNS]
