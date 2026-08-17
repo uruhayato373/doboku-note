@@ -154,9 +154,30 @@ snapshot が「ココナラ側の実体」で、`npm run check-coconala-orders` 
 | `replyDueAt` | 自動キャンセル期限。**一覧に出ないのでトークルームを開いて拾う**（未返信の room のみ・最大10件） |
 
 **`inquiries[]`（購入前の問い合わせ＝ダイレクトメッセージ）**: 受注（トークルーム）とは**別系統**。
-`{ dmId, dmUrl, dateText, subject, serviceId, unread }`。`subject` は引用されたサービス名だけを採り、
-`serviceId` はカタログ title の前方一致で解決する。**スレッドは開かない**（開くと未読→既読になり、
-人が気づく手段を壊すため）。DM 一覧 = `/message?fromMyPage=true`、行 = `a.c-messageItemWrap[href="/mypage/direct_message/{id}"]`。
+`{ dmId, dmUrl, dateText, subject, serviceId, unread, fromStaff, oneWay, violationRemoved }`。
+`subject` は引用されたサービス名だけを採り、`serviceId` はカタログ title の前方一致で解決する。
+**スレッドは開かない**（開くと未読→既読になり、人が気づく手段を壊すため）。
+DM 一覧 = `/message?fromMyPage=true`、行 = `a.c-messageItemWrap[href="/mypage/direct_message/{id}"]`、
+送信者名 = `.c-messageItemHeading_text`、本文プレビュー = `.c-messageItemBody_text`。
+
+**末尾3つは「構造的に返信できるか」の判定結果**（2026-08-17 追加）。送信者名・本文は
+**snapshot に保存せず**、ブラウザ内で評価したブール値だけを持ち帰る（privacyNote 準拠）。
+
+| フラグ | 実体 |
+|---|---|
+| `fromStaff` | 送信者が「ココナラ 運営スタッフ」＝運営からの一方向通知 |
+| `oneWay` | 本文に「返信は行なっていない」（運営通知の定型文） |
+| `violationRemoved` | 本文が「規約違反のため削除されました」＝相手はアカウント制限中 |
+
+`check-coconala-orders` はこの3つを `classifyInquiries()`（`scripts/lib/coconala-guards.mjs`）で
+**要対応から外し、`infos` に残す**（落としても読まれる経路は残す＝出品取り下げのような重要通知は
+ここにしか来ない。メールは出品アカウント宛にしか届かず接続済み Gmail からは見えない）。
+人が決着させた DM は [`.claude/config/coconala/resolved-inquiries.json`](../../config/coconala/resolved-inquiries.json) で除外し、
+**除外件数を必ず出力する**（黙って消すと検査ゼロの偽 PASS になる）。
+
+> 2026-08-17 まで既読 DM を無条件で「要対応」に積んでいたため、**4/4 件が偽陽性**だった
+> （運営通知1・規約違反削除2・受注完了済み1）。W33 レビューと W34 計画の両方がこれに引っかかり、
+> 実在しない「未対応3件」を計画に載せていた。X の陳腐化下書きと同じ「退役しない surfacer はノイズになる」構図。
 
 > [!warning] 受注一覧だけ見ていると DM を落とす（2026-08-05）
 > C8 の購入者から **DM で別商品（C1）の購入前質問**が届いたが、受注一覧しか見ていなかったため

@@ -31,6 +31,8 @@
  *   DM 一覧 = /message?fromMyPage=true、行 = a.c-messageItemWrap[href="/mypage/direct_message/{id}"]
  *     日時 = .c-messageItemDate_text（相対表記）／本文プレビュー = .c-messageItemBody_text
  *     未読バッジ = .c-messageItemIcon（中身あり＝未読）
+ *     送信者名 = .c-messageItemHeading_text（2026-08-17 追加。「ココナラ 運営スタッフ」等）
+ *       → 名前・本文は保存せず、返信可否の判定（fromStaff / oneWay / violationRemoved）だけ持ち帰る
  *
  * 使い方:
  *   node scripts/coconala-orders.mjs                 # 全タブ収集＋未返信ルームの期限取得
@@ -98,7 +100,17 @@ function extractRows() {
   return rows;
 }
 
-/** DM 一覧の 1 行から、個人情報を含まない項目だけを抽出する（スレッドは開かない）。 */
+/**
+ * DM 一覧の 1 行から、個人情報を含まない項目だけを抽出する（スレッドは開かない）。
+ *
+ * 送信者名と本文プレビューは**ブラウザ内で判定にだけ使い、値そのものは持ち帰らない**。
+ * 「構造的に返信できない DM」を検査側で落とすためのブール値だけを出す（2026-08-17 追加）。
+ * これをやらないと、決着済みの DM が毎回「要対応」に出続けて本物の警告を埋もれさせる
+ * （実際 4/4 件が false-positive で、W33 レビューと W34 計画の両方が引っかかった）。
+ *
+ * 実機 DOM（2026-08-17 実査）: 送信者名 = .c-messageItemHeading_text
+ *   「ココナラ 運営スタッフ」／「やみぎく」／「ren3111」等
+ */
 function extractInquiries() {
   const norm = (s) => (s || '').replace(/\s+/g, ' ').trim();
   const out = [];
@@ -107,6 +119,7 @@ function extractInquiries() {
     const id = (href.match(/\/direct_message\/(\d+)/) || [])[1];
     if (!id) continue;
     const preview = norm(a.querySelector('.c-messageItemBody_text')?.innerText);
+    const sender = norm(a.querySelector('.c-messageItemHeading_text')?.innerText);
     out.push({
       dmId: id,
       dateText: norm(a.querySelector('.c-messageItemDate_text')?.innerText),
@@ -114,6 +127,10 @@ function extractInquiries() {
       subject: (preview.match(/^「([^」]{0,80})/) || [, ''])[1],
       unread: norm(a.querySelector('.c-messageItemIcon')?.innerText).length > 0
         || !!a.querySelector('.c-messageItemIcon')?.children.length,
+      // ↓ 判定結果のみ。送信者名・本文は snapshot に残さない
+      fromStaff: /ココナラ\s*運営スタッフ/.test(sender),
+      oneWay: /返信は行(な|)っていない/.test(preview),
+      violationRemoved: /規約違反のため削除されました/.test(preview),
     });
   }
   return out;
@@ -285,7 +302,7 @@ async function main() {
         status,
         source: 'coconala.com /mypage/received_orders/*（Playwright・read-only）',
         privacyNote:
-          '購入者名・購入者ID・トークルーム本文・DM 本文は保存しない。保存するのは talkroomId / dmId / サービス / 金額 / 日付 / ステータス / 未返信 / 返信期限のみ。DM は subject（引用されたサービス名）だけを採る。',
+          '購入者名・購入者ID・トークルーム本文・DM 本文は保存しない。保存するのは talkroomId / dmId / サービス / 金額 / 日付 / ステータス / 未返信 / 返信期限のみ。DM は subject（引用されたサービス名）だけを採る。送信者名と本文プレビューはブラウザ内で判定にのみ使い、結果のブール値（fromStaff / oneWay / violationRemoved）だけを残す。',
         scan: { tabs: scan, tabsOk, tabsTotal: scan.length, deadlineFailed },
         orders,
         inquiries,

@@ -32,12 +32,14 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { assessSnapshot, reconcileOrders, classifyReplyDeadlines } from './lib/coconala-guards.mjs';
+import { assessSnapshot, reconcileOrders, classifyReplyDeadlines, classifyInquiries } from './lib/coconala-guards.mjs';
 
 const TAG = '[check-coconala-orders]';
 const ROOT = process.cwd();
 const SNAPSHOT_PATH = join(ROOT, '.claude/state/coconala/orders-snapshot.json');
 const ORDERS_PATH = join(ROOT, '.claude/state/coconala/orders-log.json');
+// 人が「決着した」と判断した DM の allowlist（機械判定で落ちない分だけをここに書く）
+const RESOLVED_PATH = join(ROOT, '.claude/config/coconala/resolved-inquiries.json');
 
 const REPLY_WARN_HOURS = 24;      // 返信期限の何時間前から要対応にするか
 const STALE_DAYS = 5;             // received のまま何日で納品滞留とみなすか
@@ -131,14 +133,24 @@ for (const d of classifyReplyDeadlines(snapOrders, now, { warnHours: REPLY_WARN_
 }
 
 // 3b. 購入前の問い合わせ（DM）。受注と違い突合相手が無いので surface に徹する。
+//     ただし**構造的に返信できない DM**（運営の一方向通知・規約違反削除）と、人が決着させた
+//     DM は要対応から外す。2026-08-17 まで既読を無条件で積んでいたため 4/4 件が偽陽性で、
+//     本物の警告を埋もれさせていた（X の陳腐化下書きと同じ構図）。
 const inquiries = Array.isArray(snap.inquiries) ? snap.inquiries : [];
-for (const q of inquiries) {
+const resolvedList = readJson(RESOLVED_PATH)?.resolved ?? [];
+const inq = classifyInquiries(inquiries, resolvedList);
+for (const q of inq.actions) {
   const what = q.serviceId ?? (q.subject ? `「${q.subject}」` : '（対象商品不明）');
   if (q.unread) {
     actions.push(`DM ${q.dmId}: 未読の問い合わせ ${what}（${q.dateText}）。${q.dmUrl}`);
   } else {
     actions.push(`DM ${q.dmId}: 既読の問い合わせ ${what}（${q.dateText}）— 返信済みか確認。${q.dmUrl}`);
   }
+}
+// 返信不可でも**読まれる経路は残す**。出品取り下げのような重要通知はここにしか来ない
+// （メールは出品アカウントの登録アドレス宛にしか届かず、接続済み Gmail からは見えない）。
+for (const q of inq.infos) {
+  infos.push(`DM ${q.dmId}: ${q.why}（${q.dateText}）。${q.dmUrl}`);
 }
 
 // 4. received のまま滞留
@@ -188,7 +200,9 @@ if (asJson) {
   // 「0 件だから静か」と「1件も検査していないから静か」を呼び出し側で区別するため。
   console.log(JSON.stringify({
     scanned: { snapshotOrders: snapOrders.length, logOrders: logOrders.length,
-               inquiries: inqScanned ? inquiries.length : null, ratings: ratingChecked },
+               inquiries: inqScanned ? inquiries.length : null, ratings: ratingChecked,
+               // 落とした分を必ず出す（黙って消すと「検査ゼロを PASS と呼ぶ」ことになる）
+               inquiriesOneWay: inq.infos.length, inquiriesResolved: inq.excluded.length },
     snapshotAgeDays: Number(ageDays.toFixed(1)),
     tabsOk: snap.scan?.tabsOk ?? null, tabsTotal: snap.scan?.tabsTotal ?? null,
     actionCount: actions.length, warningCount: warnings.length,
@@ -198,7 +212,7 @@ if (asJson) {
 }
 console.log(
   `${TAG} 実検査 ココナラ側 取引 ${snapOrders.length} 件 / orders-log ${logOrders.length} 件 / ` +
-  `問い合わせ(DM) ${inqScanned ? `${inquiries.length} 件` : '未取得'} / 評価 ${ratingChecked} 件` +
+  `問い合わせ(DM) ${inqScanned ? `${inquiries.length} 件（返信不可 ${inq.infos.length} / 決着済み除外 ${inq.excluded.length}）` : '未取得'} / 評価 ${ratingChecked} 件` +
   `（snapshot ${ageDays.toFixed(1)} 日前・タブ ${snap.scan?.tabsOk}/${snap.scan?.tabsTotal} 取得）`
 );
 if (!inqScanned) {

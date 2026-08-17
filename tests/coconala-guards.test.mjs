@@ -19,6 +19,7 @@ import {
   reconcileOrders,
   classifyReplyDeadlines,
   assessSnapshot,
+  classifyInquiries,
 } from '../scripts/lib/coconala-guards.mjs';
 
 /** 本日のカタログを模したフィクスチャ */
@@ -221,4 +222,59 @@ test('取引0件でも新しい snapshot なら検査は成立する（0件と�
 test('--no-freshness では鮮度ゲートを外せる（pre-commit 用）', () => {
   const old = { status: 'ok', fetchedAt: '2026-06-01T00:00:00Z' };
   assert.equal(assessSnapshot(old, NOW, { checkFreshness: false }).ok, true);
+});
+
+// --- classifyInquiries: DM の要対応/対応不要/除外の仕分け（2026-08-17 追加） ---
+// 守りたい事故: 既読 DM を無条件で「要対応」に積んでいたため 4/4 件が偽陽性になり、
+// W33 レビューと W34 計画の両方がこれに引っかかった。落とすのは**構造的に返信できないもの**だけ。
+
+test('classifyInquiries: 運営の一方向通知は info（消さずに残す）', () => {
+  const r = classifyInquiries([{ dmId: '1', fromStaff: true }, { dmId: '2', oneWay: true }]);
+  assert.equal(r.actions.length, 0);
+  assert.equal(r.infos.length, 2);
+  assert.match(r.infos[0].why, /一方向通知/);
+});
+
+test('classifyInquiries: 規約違反削除は info（相手が制限中で返信不可）', () => {
+  const r = classifyInquiries([{ dmId: '3', violationRemoved: true }]);
+  assert.equal(r.actions.length, 0);
+  assert.match(r.infos[0].why, /アカウント制限/);
+});
+
+test('classifyInquiries: 通常の購入前 DM は要対応のまま残る（落としすぎない）', () => {
+  const r = classifyInquiries([{ dmId: '4', unread: true }, { dmId: '5' }]);
+  assert.equal(r.actions.length, 2);
+  assert.equal(r.infos.length, 0);
+});
+
+test('classifyInquiries: resolved リストの DM は excluded（件数を返す＝黙って消さない）', () => {
+  const r = classifyInquiries([{ dmId: '6' }], [{ dmId: '6', reason: '受注→評価まで完了' }]);
+  assert.equal(r.actions.length, 0);
+  assert.equal(r.excluded.length, 1);
+  assert.equal(r.excluded[0].why, '受注→評価まで完了');
+});
+
+test('classifyInquiries: resolved は数値/文字列どちらの dmId でも一致する', () => {
+  const r = classifyInquiries([{ dmId: 10051134 }], [{ dmId: '10051134' }]);
+  assert.equal(r.excluded.length, 1);
+});
+
+test('classifyInquiries: 壊れた入力・dmId 無しは落ちずに無視', () => {
+  assert.deepEqual(classifyInquiries(null), { actions: [], infos: [], excluded: [] });
+  assert.equal(classifyInquiries([null, {}, { dmId: '' }]).actions.length, 0);
+});
+
+test('classifyInquiries: 実データ相当（4件）は要対応 0 / info 3 / 除外 1', () => {
+  const r = classifyInquiries(
+    [
+      { dmId: '10075959', fromStaff: true, oneWay: true },
+      { dmId: '10052267', violationRemoved: true },
+      { dmId: '10051752', violationRemoved: true },
+      { dmId: '10051134' },
+    ],
+    [{ dmId: '10051134', reason: '受注→納品→評価まで完了' }],
+  );
+  assert.equal(r.actions.length, 0);
+  assert.equal(r.infos.length, 3);
+  assert.equal(r.excluded.length, 1);
 });

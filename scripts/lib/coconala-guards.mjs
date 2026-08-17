@@ -203,3 +203,51 @@ export function assessSnapshot(snap, nowMs, { staleDays = 7, checkFreshness = tr
   }
   return { ok: true, ageDays };
 }
+
+/**
+ * DM（問い合わせ）を「返信が要るか」で仕分ける。
+ *
+ * 背景（2026-08-17）: check-coconala-orders は既読 DM を無条件で「要対応」に積んでいたため、
+ * 決着済みの 4 件が毎週出続け、**本物の警告を埋もれさせていた**（W33 レビューと W34 計画の
+ * 両方がこの偽陽性に引っかかった）。X の陳腐化下書きと同じ「退役しない surfacer はノイズになる」構図。
+ *
+ * 落とす条件は **構造的に返信できないもの**に限る（実機で確認した 3 形）:
+ *   - fromStaff:         送信者が「ココナラ 運営スタッフ」＝運営からの一方向通知
+ *   - oneWay:            本文に「返信は行なっていない」（運営通知の定型文）
+ *   - violationRemoved:  本文が「規約違反のため削除されました」＝相手はアカウント制限済み
+ * これらは actions ではなく **infos に残す**。出品取り下げのような重要通知はここにしか来ず
+ * （メールは出品アカウント宛にしか届かない）、黙って消すと気づく経路が無くなる。
+ *
+ * 人が決着させた DM は resolved リスト（.claude/config/coconala/resolved-inquiries.json）で除外し、
+ * **除外件数を必ず呼び出し側へ返す**（黙って消すと「検査ゼロを PASS と呼ぶ」ことになる）。
+ *
+ * @param {Array} inquiries snapshot.inquiries
+ * @param {Array} resolved  [{dmId, reason}] 人が決着と判断した DM
+ * @returns {{actions:Array, infos:Array, excluded:Array}}
+ */
+export function classifyInquiries(inquiries, resolved = []) {
+  const resolvedMap = new Map(
+    (Array.isArray(resolved) ? resolved : []).map((r) => [String(r?.dmId ?? ''), r?.reason || '決着済み']),
+  );
+  const actions = [];
+  const infos = [];
+  const excluded = [];
+  for (const q of Array.isArray(inquiries) ? inquiries : []) {
+    if (!q || !q.dmId) continue;
+    const id = String(q.dmId);
+    if (resolvedMap.has(id)) {
+      excluded.push({ ...q, why: resolvedMap.get(id) });
+      continue;
+    }
+    if (q.violationRemoved) {
+      infos.push({ ...q, why: '規約違反として削除済み（相手はアカウント制限中で返信不可）' });
+      continue;
+    }
+    if (q.fromStaff || q.oneWay) {
+      infos.push({ ...q, why: 'ココナラ運営からの一方向通知（返信不可・問い合わせフォームへ）' });
+      continue;
+    }
+    actions.push(q);
+  }
+  return { actions, infos, excluded };
+}
