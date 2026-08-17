@@ -40,12 +40,20 @@
 - 月末に「Organic users / GSC clicks・impressions / 売上総額 / その月の試験イベント」を 1 行で追記する軽い台帳を作る（重い設計にすると続かない。既存の `.claude/state/metrics/` と `sales-log.json` から機械生成できる）
 - 2027 年に初めて前年同期比が成立する。それまでは**試験日 × 売上曲線**が季節性の判定手段（ローカル完結・GA4/GSC の取得状態に依存しない）
 
-### X カウントダウン下書き 064-067 の退役（3週連続で放置）
-タグ: [SNS]
+### x-queue-surfacer が2つの誤りを出している（退役して初めて見えた）
+タグ: [SNS][運用基盤]
 
-`x-queue-surfacer` が毎週 4 件を **OVERDUE** として出し続けているが、これらは試験日（7月）を過ぎて陳腐化した下書きで、**投入すべきものではない＝退役が正しい対処**。放置している間、キュー充足は −29 日 → −42 日と表示上悪化し続け、本物の警告の可視性を下げている。
+064-067 を退役（`docs/sns/x/draft/_archive-2026-pe-countdown/` へ移動）して OVERDUE が消えたところ、下に隠れていた欠陥が2つ出た。
 
-今週投入した 8月増強 51 件はキャンペーン計画系統で管理されており surfacer の視界外。つまり surfacer の警告は現状ほぼ全部この 4 件のノイズ。
+**① 偽赤: キュー充足が恒久的に「残り -43 日」になる**
+
+`covered_until` は `docs/sns/x/draft/*/status.json` だけを見るが、8月増強32件・9月90件は `.claude/config/x-campaigns/*.json` の**キャンペーン計画系統**で管理され surfacer の視界外。実際にはキューは埋まっているのに永久に赤いままで、原則9 の「構造的に必ず赤いゲート」に当たる。→ surfacer にキャンペーン計画を読ませて充足日を合算する。
+
+**② 偽陰性: 068 の 28 件が一度も surface されない**
+
+`068-civil1-secondary-keiken-w1`（7/6-7/12・未投入 28 件）は `all` には出るが `due` に出ない。`parseDatesFromMd` が見出しの **em-dash の直後にある日付だけ**を拾う正規表現なのに対し、068 の見出しは全角括弧＋曜日の形式（`## Tweet 01: 学び・朝A（月 7/6`）で、1件も日付が取れず `start=null` → due 判定から落ちる。**日付が読めなかった draft を「該当なし」ではなく「判定不能」として別に出す**（検査ゼロを PASS と呼ばない）。
+
+併せて 068 自体の処遇（試験日を過ぎた 28 件・退役か日付更新か）を決める。
 
 ### YouTube pending_overdue 171件の棚卸し（3週連続で拡大）
 タグ: [SNS]
@@ -503,13 +511,6 @@ grep -rnoE '表[ 　]*[0-9]+\.[0-9]+' .local/r2/posts/civil-construction-1/textb
 副作用として lint の 15-1（同じ文末 3 連続。**ですます調限定**のルール）が 21 件出ており、2026-07-31 に baseline へ計上して CI を通した。である調へ変換すれば 15-1 は対象外になり、規約にも他章にも揃う。**変換したら baseline から該当行を落とす**こと。
 
 機械変換する場合の注意: 「〜ています」→「〜ている」と「〜います」→「〜う」の判別、`<Callout>` 内と引用の扱い、`{/* source: */}` コメントの非対象化。変換後は `npm run check-content-quality` と目視サンプリングで検証する。
-
-### 公開マガジン 9 件がサイト CTA 0 面
-タグ: [収益化]
-
-`npm run check-magazine-cta` が検出。note 単品 PDF 併売（`*-takuitsu-pdf` 4件）・note 単品記事（`civil-1-ichiji-ronten` 等 3件）・`civil-2-gakka-kijutsu`・`pe-construction-road-pack` に、サイト内の個別 CTA が 1 面も無い。
-
-`.claude/config/magazine-cta-baseline.json` に理由付きで計上済み（新規の 0 面だけ CI が落ちる）。**サイト導線を付けるか、意図的に付けない設計と確定させるか**の判断が要る。付けたら baseline から削除する（スクリプトが info で知らせる）。
 
 ### コンクリート系 CTA 背景イラスト（cta-bg）未整備
 タグ: [デザイン]
