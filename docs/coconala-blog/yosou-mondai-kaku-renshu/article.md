@@ -1,9 +1,9 @@
 ---
 title: "【第3回】経験記述は予想テーマで書く練習｜週1回5ステップ"
-status: draft
-blogUrl: ""
-blogId: ""
-publishedAt: ""
+status: "published"
+blogUrl: "https://coconala.com/blogs/6197366/794012"
+blogId: "794012"
+publishedAt: "2026-08-17"
 exam: civil
 angle: ハウツー
 category: 学び
