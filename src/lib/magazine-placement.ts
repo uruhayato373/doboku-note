@@ -228,12 +228,42 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     };
   }
 
+  // 1.65. 建設部門 コンピテンシー改訂（令和8年度〜）→ 必須科目I 模範解答集。
+  //       W33 レビューで note CTA ゼロと判明（115 users・全ページ 8 位）。改訂の影響を答案で
+  //       確かめる面なので、論文ガイド（pe-secondary-essay-guide）と同じ必須科目I へ送る。
+  //       本文 4,443 字 / h2 8 で MidCta の下限（h2>=5 かつ 8,000 字）に届かないため top で出す。
+  if (slug === 'pe-construction-competency-revision-r8') {
+    return {
+      top: slot('pe-construction-required-magazine', slug, 'top'),
+      inline: [],
+      sidebar: [],
+    };
+  }
+
   // 1.7. 技術士 建設部門 2次: 必須科目I・道路 過去問 + 論文ガイド → 該当 BK 模範解答集（公開時に発火）
   const peEssayMag = matchPeConstructionEssay(slug);
   if (peEssayMag) {
     return {
       inline: [slot(peEssayMag, slug, 'inline-1')],
       sidebar: [slot(peEssayMag, slug, 'sidebar-1')],
+    };
+  }
+
+  // 4.2. 総監 択一（過去問1次 r0X-primary / h2X-primary 全 18 本）→ 年代一致の「択一 過去問PDF」。
+  //      2026-08-17: 全 18 本が EMPTY に落ちて note CTA ゼロだった。とくに r08-primary は
+  //      GA4 全ページ 1 位（481 users・W33 レビュー）でありながら、文脈が完全一致する
+  //      択一 過去問PDF ¥980（令和/平成）が published:true のまま **placement から一度も
+  //      参照されていない孤立マガジン**になっていた。
+  //      **top（冒頭 CTA）で出す**: inline は MidCta の供給源だが、その midEligibleGroup は
+  //      guide/pillar/textbook/civil-secondary 限定で pastExam を含まない（page.tsx）。
+  //      よって inline を足しても描画されない（concrete 2 件で 2026-07/08 に判明した構造と同じ）。
+  const takuitsuMatch = slug.match(/^pe-comprehensive-management-(r0[1-9]|h(?:2[1-9]|30))-primary$/);
+  if (takuitsuMatch) {
+    const isReiwa = takuitsuMatch[1]!.startsWith('r');
+    return {
+      top: slot(isReiwa ? 'tankan-takuitsu-reiwa-pdf' : 'tankan-takuitsu-heisei-pdf', slug, 'top'),
+      inline: [],
+      sidebar: [],
     };
   }
 
