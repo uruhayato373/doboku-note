@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fetchedAt": "2026-08-11T19:56:15.309Z",
+  "fetchedAt": "2026-08-17T06:13:19.565Z",
   "status": "ok",
   "source": "coconala.com /mypage/received_orders/*（Playwright・read-only）",
   "privacyNote": "購入者名・購入者ID・トークルーム本文・DM 本文は保存しない。保存するのは talkroomId / dmId / サービス / 金額 / 日付 / ステータス / 未返信 / 返信期限のみ。DM は subject（引用されたサービス名）だけを採る。",
@@ -58,7 +58,7 @@
         "label": "問い合わせ(DM)",
         "url": "https://coconala.com/message?fromMyPage=true",
         "ok": true,
-        "rows": 3
+        "rows": 4
       }
     ],
     "tabsOk": 7,
@@ -99,8 +99,16 @@
   ],
   "inquiries": [
     {
+      "dmId": "10075959",
+      "dateText": "4日前",
+      "subject": "",
+      "unread": false,
+      "dmUrl": "https://coconala.com/mypage/direct_message/10075959",
+      "serviceId": null
+    },
+    {
       "dmId": "10051134",
-      "dateText": "5日前",
+      "dateText": "8月6日",
       "subject": "",
       "unread": false,
       "dmUrl": "https://coconala.com/mypage/direct_message/10051134",
@@ -108,7 +116,7 @@
     },
     {
       "dmId": "10052267",
-      "dateText": "6日前",
+      "dateText": "8月5日",
       "subject": "",
       "unread": false,
       "dmUrl": "https://coconala.com/mypage/direct_message/10052267",
@@ -116,7 +124,7 @@
     },
     {
       "dmId": "10051752",
-      "dateText": "6日前",
+      "dateText": "8月5日",
       "subject": "",
       "unread": false,
       "dmUrl": "https://coconala.com/mypage/direct_message/10051752",
