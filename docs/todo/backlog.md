@@ -601,8 +601,20 @@ note一覧・リンクカード・関連記事・人気記事・マガジンで�
 - **売上記録**: 発生したら `/record-sales`（productId 規約は sales-recorder 台帳済）
 - **経緯・検証記録**: 企画〜バックテスト＝[brain-r8-policy-prediction-skill/](../project/05_プロダクト/brain-r8-policy-prediction-skill/)（00〜07・統制run結果=04§6）／①仕様=[brain-claude-code-essay-skill/](../project/05_プロダクト/brain-claude-code-essay-skill/)／出品手順=[brain-publish-playbook.md](../project/05_プロダクト/brain-publish-playbook.md)
 
-### note施策A: 1級一次択一PDF `civil-1-takuitsu-pdf` ¥1,980 を公開（10月上旬・Select 明け）
+### note施策A: 1級一次択一PDF `civil-1-takuitsu-pdf` — **台帳と実体が食い違う（ユーザー判定待ち）**
 タグ: [収益化]
+
+> [!warning] 2026-08-17 実査: 本セクションの前提が実体と一致しない
+> 以下は「`published: false` / `noteUrl: ''` なので 10 月上旬の Select 明けまで公開しない」という前提で書かれているが、**実体は既に公開されている**。
+>
+> - `src/lib/note-magazines.ts:964` = `published: true` / `noteUrl: 'https://note.com/dobokunote/n/n155093f42183'`
+> - `docs/note/1級・2級土木/1級土木/一次択一-過去問PDF/article.md` = `noteStatus: published` / `noteId: n155093f42183`
+>
+> **どちらかの対応が要る（判定はユーザー）**:
+> 1. **既に公開済みで本セクションが陳腐化しているだけ** → 下記手順は消化済みなのでセクションごと削除する
+> 2. **Select 独占期間中の先行公開＝規約抵触** → 独占が明ける ~2026-10-06 まで note 側を下書きへ戻すか、KDP 側で Select 自動更新を切る
+>
+> 判定材料: 同一内容の Kindle は `e-02`（1級土木 全年度 1162問）で、**`status: in_review`・ASIN 未発行＝まだ LIVE ではない**。Select 独占が実際に効いているのは別タイトルの A-00〜A-06（422問を論点別に再構成したもので、収録範囲が異なる）。「同一デジタルコンテンツ」に当たるかはユーザーの判断。
 
 **2026-07-16 に「公開直前」まで完了済み**。成果物は全て develop/main にコミット済:
 - PDF: `docs/note/1級・2級土木/1級土木/一次択一-過去問PDF/1級土木一次択一-過去問PDF.pdf`（全1162問・図109点・818頁・約12MB）
@@ -846,6 +858,18 @@ PR #269（カタログ）/#270（SNSレンダラー）済。残 = Phase4 記事�
 2. **docs 数値の三重不整合（総監）**: `ig-carousel-skill.md`＝16年度640問／`.claude/content/kindle/strategy.md` 本文＝18年分／同表＝17年680問。物理在庫は17年度。正へ統一
 3. **技術士一次の総問数不一致**: `.claude/content/kindle/strategy.md` 本文「490問」 vs D-01+02+03 表・note article「560問」。実装は560問＝本文490を是正
 真実源照合は `src/config/*-exam-questions.json` の実カウント。
+
+### note ライブ検査の取得経路を curl へ恒久化（偽 PASS 対策）
+タグ: [インフラ・計測] [Codex候補]
+
+`check-note-structure` / `check-note-live-headings` は `fetch` でライブ本文を取りに行くが、**会社 PC のプロキシで全滅しても `FETCH_ERR` を INFO 扱いにして exit 0**＝「異常なし」と表示する（2026-07-28 に判明した 5 スクリプト同時故障のうちの 2 本）。その陰で有料記事 2 本が無料プレビュー 0 字、送客リンク 64 件がライブでリンク切れだった。
+
+- 外部取得は `fetch` ではなく **`curl --ssl-no-revoke`** 経由へ寄せる（真実源 → [measurement-incidents.md](../../.claude/knowledge/reference/measurement-incidents.md)）
+- **取得失敗が支配的なら exit 1（「検査不成立」）**。対象数と実検査数を必ず出力し、「0 件で異常なし」と「1 件も取れなかった」を区別する（CLAUDE.md §9）
+- note 記事の走査は `/^article(-[^/\\]+)?\.md$/`（型別 `article-*.md` を落とさない）
+- 完了条件: プロキシ環境で走らせて **exit 1 になる**こと（緑にならないこと）を実確認
+
+参照元: `monthly.md`（技術士二次 試験後 制作再開）
 
 ---
 
@@ -1158,6 +1182,8 @@ node scripts/note-publish.mjs --article "docs/note/1級・2級土木/メンバ�
 - **BK-I必須9本**: 既定境界`試験問題`だが実態は「試験問題＝無料つかみ／フル模範解答＝有料」。frontmatter `paidBoundary: "フル模範解答"` 付与で解消（ライブ再公開は不要＝既に正しい）。ただし他の BK necessity 記事との境界一貫性を要確認。
 - **総監テキスト精読5・設問3バンク3**: Phase A で新ルール（最初のH2／`国家施策オプション`）を frontmatter 付与済だが、実ライブ境界はより厳しい（無料が少ない）。**新ルール適用＝より多くを無料化する再公開が必要（＝収益判断）**＋総監記事は複数行blockquoteを持ち note-update-body の再貼付で脱落するため、blockquote単一行化が前提。
 - 判断: ①BK-I はソース境界を`フル模範解答`へ是正（安全）②総監8本は新ルール適用（再公開・より無料化）するか現状維持か。civil 対象外につき今回は保留。
+
+### 土木メンバーシップ ローンチ実機
 タグ: [収益化]
 
 モデルは「ライブラリ内包」へ転換済み（2026-07-01・SSOT [docs/note/1級・2級土木/noteコンテンツ計画.md](../note/1級・2級土木/noteコンテンツ計画.md)）。全24記事＋週次お題11週＋無料導線2本は下書き仕込み完了・サイトCTA配線 PR #271 MERGED。
