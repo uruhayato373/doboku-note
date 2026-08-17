@@ -20,15 +20,10 @@
 
 ## 🔴 高 — 来月中に着手
 
-### note 売上が 2026-07-14 以降ひとつも記録されていない（handoff 2026-08-11 抽出）
-タグ: [収益化]
-
-`.claude/state/sales/sales-log.json` は 142 件・**最終エントリが 2026-07-14**。7月後半〜8月の売上が丸ごと未記録で、少なくとも建設部門の 8/10・8/11 購入 2 件（鉄道・道路まるごと）が確実に漏れている。
-
-売上ログは月次集計と撤退判断の入力なので、欠けたままだと「note が伸びていない」と誤読する。note の売上管理画面で期間を確認し `/record-sales` で正規化して追記する。真実源 → [sales-tracking.md](../../.claude/knowledge/reference/sales-tracking.md)
-
 ### 高流入ページの note 導線ゼロ 2本（2026-08-16 W33 レビューで検出）
 タグ: [収益化]
+
+> **配線は [PR #468](https://github.com/uruhayato373/doboku-note/pull/468) で実装済み・マージ待ち**（2026-08-17。総監択一は r0X/h2X 全18本を対象にした）。マージ＋deploy が済んだら本セクションを削除する。残るのは下記3つ目の「カバレッジ判定をチャネル別に見る」だけ。
 
 `report-monetization-coverage`（07-16〜08-12 窓）で、**全ページ中1位の `pe-comprehensive-management-r08-primary`（481 users）に note CTA が 1 つも出ていない**。`pe-construction-competency-revision-r8`（115 users）も同じ。いずれもアフィリ枠はあるため、機械ゲートの「導線あり」判定（note **or** アフィリの OR）では surface されなかった。
 
