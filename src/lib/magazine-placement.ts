@@ -454,6 +454,25 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     };
   }
 
+  // 8.4. 1級土木 二次ブリッジ磁石（一次合格 → 二次の始め方）→ 会員（伴走・低コミット）を lead に。
+  //      一次合格発表 2026-08-13（公式 jctc.jp で確認）直後に着地する top-of-funnel 面で、
+  //      本文の主張は「最初の一歩は経験記述の題材を1つ決める」。8.5 の catch-all に落ちると
+  //      top が学科記述になり**本文と CTA が食い違う**ため明示分岐する（2級は 7.5 で分岐済み）。
+  //      会員は完成答案ライブラリを内包し「自分の工種を探せる」＝この地点の需要に最も近い
+  //      （noteコンテンツ計画.md §1.4／2026-07-01 のライブラリ内包転換）。旗艦 ¥9,800 は次点。
+  if (slug === 'civil-construction-1-secondary-getting-started') {
+    return {
+      top: slot('civil-membership-lab', slug, 'top'),
+      inline: [
+        slot('civil-membership-lab', slug, 'inline-1'),
+        slot('civil-1-keiken-complete-pack', slug, 'inline-2'),
+        slot('civil-1-gakka-kijutsu', slug, 'inline-3'),
+        slot('civil-1-anki-note', slug, 'inline-4'),
+      ],
+      sidebar: [],
+    };
+  }
+
   // 8.5. 1級土木 secondary テーマ別残余（basics / past-problems 等）→ 3マガジン
   //      secondary-r0X / experience-writing 以外の secondary ページ（分野別）をカバー。
   if (docGroup === 'secondary' && slug.startsWith('civil-construction-1-')) {
