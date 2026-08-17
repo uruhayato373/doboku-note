@@ -24,6 +24,7 @@
  */
 import fs from "fs";
 import path from "path";
+import { DAY_MS, parseDatesFromRaw, summarizeStatus } from "./lib/x-queue-lib.mjs";
 
 const DRAFT_DIR = path.resolve(process.cwd(), "docs/sns/x/draft");
 const argv = process.argv.slice(2);
@@ -35,67 +36,23 @@ const flag = (name, def) => {
 const LOOKAHEAD_DAYS = Number(flag("--lookahead", "8"));
 
 const NOW = new Date();
-const DAY_MS = 86_400_000;
 
-/**
- * ツイート見出しから日付を拾う。**書式が 2 系統ある**（2026-08-17 に判明）。
- *   旧: `## Tweet 01: ハウツー・無料 — 7/6 残り14日`      … em-dash 区切り
- *   新: `## Tweet 01: 朝共感・リフレーム（土 7/19 07:15）` … 全角括弧＋曜日＋時刻
- * 旧しか読めていなかったため、新書式の pack は **start / end が null** になり
- *   ① `end` が拾えず `covered_until` が古い日付で固まる（キューは埋まっているのに永久に赤い）
- *   ② `start` が拾えず due 判定から落ちる（068 の未投入 28 件が一度も surface されなかった）
- * の 2 つを同時に起こしていた。**日付が 1 件も読めなかった pack は握り潰さず undated として返す。**
- */
-const HEADER_DATE_PATTERNS = [
-  /—\s*(\d{1,2})\/(\d{1,2})/, // 「— 7/6 残り14日」
-  /[（(]\s*[月火水木金土日]?\s*(\d{1,2})\/(\d{1,2})/, // 「（土 7/19 07:15）」
-  /^## Tweet \d+:\s*(\d{1,2})\/(\d{1,2})\b/, // 「## Tweet 01: 9/1 07:15 civil-1 / …」
-];
-
+// 日付書式・投入集計の実装は lib へ（テストで固定するため。tests/x-queue-surfacer.test.mjs）
 function parseDatesFromMd(mdPath) {
-  const raw = fs.readFileSync(mdPath, "utf-8");
-  const headers = raw.match(/^## Tweet \d+:.*$/gm) || [];
-  const dates = [];
-  for (const h of headers) {
-    let m = null;
-    for (const re of HEADER_DATE_PATTERNS) {
-      m = h.match(re);
-      if (m) break;
-    }
-    if (!m) continue;
-    const month = Number(m[1]);
-    const day = Number(m[2]);
-    if (month < 1 || month > 12 || day < 1 || day > 31) continue;
-    let d = new Date(NOW.getFullYear(), month - 1, day);
-    if (d.getTime() < NOW.getTime() - 183 * DAY_MS) {
-      d = new Date(NOW.getFullYear() + 1, month - 1, day);
-    }
-    dates.push(d);
-  }
-  return { count: headers.length, dates };
+  return parseDatesFromRaw(fs.readFileSync(mdPath, "utf-8"), NOW);
 }
 
-// status.json から「scheduled_at が埋まっているツイート数」を数える
+// status.json から投入状況を読む（I/O だけ・集計は summarizeStatus）
 function countQueued(statusPath) {
-  if (!fs.existsSync(statusPath)) return { exists: false, queued: 0, posted: 0 };
+  if (!fs.existsSync(statusPath)) return { exists: false, queued: 0, posted: 0, lastScheduled: null };
   let data;
   try {
     data = JSON.parse(fs.readFileSync(statusPath, "utf-8"));
   } catch {
-    return { exists: true, queued: 0, posted: 0, broken: true };
+    // 壊れた status.json を「予約ゼロ」と静かに扱うと未投入が過大に出る。broken を立てて区別する。
+    return { exists: true, queued: 0, posted: 0, lastScheduled: null, broken: true };
   }
-  let queued = 0;
-  let posted = 0;
-  let lastScheduled = null; // 実際に予約が入っている最終日時（キュー充足の真実源）
-  for (const t of Object.values(data.tweets || {})) {
-    if (t.status === "posted") posted++;
-    else if (t.scheduled_at) queued++; // scheduled / queued（投入済み or キュー実在）
-    if (t.scheduled_at) {
-      const d = new Date(t.scheduled_at);
-      if (!Number.isNaN(d.getTime()) && (!lastScheduled || d > lastScheduled)) lastScheduled = d;
-    }
-  }
-  return { exists: true, queued, posted, lastScheduled };
+  return { exists: true, ...summarizeStatus(data) };
 }
 
 const fmt = (d) => `${d.getMonth() + 1}/${d.getDate()}`;
