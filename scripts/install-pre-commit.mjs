@@ -350,10 +350,12 @@ if (existsSync(HOOK_PATH)) {
 // 内容ハッシュを印として埋め、フック自身が「自分が古い」ことを検知して落ちるようにする。
 import { createHash } from 'node:crypto';
 import { readFileSync as _readSelf } from 'node:fs';
+// Windows では new URL(...).pathname が "/C:/..." を返し、C:\C:\... に解決されて ENOENT になる。
+import { fileURLToPath } from 'node:url';
 // ハッシュは **ソーステキスト**（テンプレートリテラルの生の中身）から取る。
 // 評価後の文字列から取ると、シェル側が同じ計算を再現できず必ず不一致になる
 // （2026-08-13 に一度その実装で誤検知＝全 commit がブロックされた）。
-const _selfSrc = _readSelf(new URL(import.meta.url).pathname, 'utf8');
+const _selfSrc = _readSelf(fileURLToPath(import.meta.url), 'utf8');
 const _bodyMatch = _selfSrc.match(/const HOOK_CONTENT_BODY = `([\s\S]*?)`;/);
 const HOOK_HASH = createHash('sha256').update(_bodyMatch ? _bodyMatch[1] : '').digest('hex').slice(0, 12);
 const DRIFT_GUARD = `
