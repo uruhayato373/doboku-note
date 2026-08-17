@@ -584,11 +584,18 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     };
   }
 
-  // 13. 1級土木 primary（一次過去問）→ 一次「出る順 合格ノート」lead＋会員（伴走）＋完成答案集（一次演習中の直結商品）
+  // 13. 1級土木 primary（一次過去問）
+  //     top が必須。inline だけだと描画されない（page.tsx の midEligibleGroup は
+  //     guide/pillar/textbook/civil-secondary 限定で primary を含まないため）。
+  //     2026-08-17 まで inline のみで note CTA が実質ゼロだった（同型欠陥 4 度目）。
+  //     【季節切替】一次は 7/5 に終わり合格発表も 2026-08-13 に済んでいるので、
+  //     二次(2026-10-04)までは二次商品を lead にする。一次の出る順ノートは
+  //     inline に残し、二次終了後（2026年10月中旬）に top へ戻すこと。
   if (docGroup === 'primary' && slug.startsWith('civil-construction-1-')) {
     return {
+      top: slot('civil-1-experience-essay', slug, 'top'), // 二次(10/4)が買い場。10月中旬に civil-1-ichiji-ronten へ戻す
       inline: [
-        slot('civil-1-ichiji-ronten', slug, 'inline-1'), // 一次の出る順ノート（一次演習中に直結）
+        slot('civil-1-ichiji-ronten', slug, 'inline-1'), // 一次の出る順ノート（不合格→来年再挑戦の層向け）
         slot('civil-membership-lab', slug, 'inline-2'),
         slot('civil-1-experience-essay', slug, 'inline-3'),
       ],
@@ -597,8 +604,10 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   }
 
   // 14. 2級土木 primary（一次過去問）→ 会員（伴走）lead＋完成答案集の軽め CTA
+  //     13 と同じ理由で top が必須。2級後期は 2026-10-25。
   if (docGroup === 'primary' && slug.startsWith('civil-construction-2-')) {
     return {
+      top: slot('civil-membership-lab', slug, 'top'),
       inline: [
         slot('civil-membership-lab', slug, 'inline-1'),
         slot('civil-2-experience-essay', slug, 'inline-2'),

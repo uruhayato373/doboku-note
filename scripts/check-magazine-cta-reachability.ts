@@ -45,12 +45,37 @@ const POSTS = join(ROOT, '.local/r2/posts');
 const EXEMPT_PATH = join(ROOT, '.claude/config/magazine-cta-baseline.json');
 
 // 中間 CTA（MidArticleCta）の発火条件。src/app/docs/[...slug]/page.tsx と同じ値を持つ。
-// ここがズレると検査が意味を失うので、page.tsx を変えたらこの 3 つも合わせる。
+// ここがズレると検査が意味を失うので、page.tsx を変えたらこの値も合わせる。
+//
+// 2026-08-17 に 4 点のズレを是正した（それまで検査は実描画より甘く、
+// 「配線したのに出ない」CTA を 4 度続けて見逃していた）:
+//   1. inline を全スロット credit していたが、実際に描画されるのは先頭 1 誌のみ
+//      かつ top と別マガジンのときだけ（page.tsx:380-388）＝過大カウント
+//   2. MID_GROUPS に civil-secondary（civil-1/2 の secondary）が無かった
+//      （page.tsx:342-346 の isCivilSecondary）＝過小カウント
+//   3. group を生 frontmatter から読んでいて classifyDoc の GROUP_FIELD_MAP を
+//      通していなかった（past-exam → pastExam が効かない）
+//   4. midSlotCapacity（h2>=4 かつ 2,500 字・枠数上限 3）を無視していた
 const MID_GROUPS = new Set(['guide', 'pillar', 'textbook']);
 const MID_MIN_H2 = 5;
 const MID_MIN_CHARS = 8000;
+// 中間枠の下限ゲート（page.tsx:371-374 の midSlotCapacity）。
+// これを満たさない記事は 0 枠＝note 中間 CTA も出ない。
+const MID_SLOT_MIN_H2 = 4;
+const MID_SLOT_MIN_CHARS = 2500;
 
 type Doc = { slug: string; category: string; group: string; body: string };
+
+// src/lib/doc-classifier.ts:31-39 と同じ対応表。frontmatter の生値 → DocGroupKey。
+const GROUP_FIELD_MAP: Record<string, string> = {
+  'guide': 'guide',
+  'pillar': 'pillar',
+  'past-exam': 'pastExam',
+  'keyword': 'keyword',
+  'primary': 'primary',
+  'secondary': 'secondary',
+  'textbook': 'textbook',
+};
 
 // .local/r2/posts/{category}/{slug}/article.mdx と {category}/{slug}.mdx の両 Convention を拾う
 function collectDocs(): Doc[] {
@@ -63,10 +88,14 @@ function collectDocs(): Doc[] {
       if (!file || !existsSync(file)) continue;
       const raw = readFileSync(file, 'utf8');
       const name = e.isDirectory() ? e.name : e.name.replace(/\.mdx$/, '');
+      // 生 frontmatter の group 値は classifyDoc の GROUP_FIELD_MAP を通す
+      // （src/lib/doc-classifier.ts:31-39）。past-exam → pastExam の変換を
+      // 落とすと、その記事の配線が丸ごと検査対象外になる。
+      const rawGroup = (raw.match(/^group:\s*(.+)$/m) || [])[1]?.trim() ?? '';
       out.push({
         slug: `${category.name}-${name}`,
         category: category.name,
-        group: (raw.match(/^group:\s*(.+)$/m) || [])[1]?.trim() ?? '',
+        group: GROUP_FIELD_MAP[rawGroup] ?? rawGroup,
         body: raw.replace(/^---[\s\S]*?\n---\n/, ''),
       });
     }
@@ -75,11 +104,24 @@ function collectDocs(): Doc[] {
 }
 
 const docs = collectDocs();
-// 中間 CTA が発火する記事だけを対象に inline 配線を評価する
+
+// 1級・2級土木の secondary も中間 CTA の対象（page.tsx:342-346 の isCivilSecondary）。
+// 全資格の secondary を一律対象にはしない（土木のみ）。
+const isCivilSecondary = (d: Doc): boolean =>
+  (d.category === 'civil-construction-1' || d.category === 'civil-construction-2') &&
+  d.group === 'secondary';
+
+// 中間 CTA が発火する記事だけを対象に inline 配線を評価する（page.tsx:345-347）
 const midFires = (d: Doc): boolean => {
-  if (!MID_GROUPS.has(d.group)) return false;
+  if (!MID_GROUPS.has(d.group) && !isCivilSecondary(d)) return false;
   const stripped = d.body.replace(/^##\s*参考資料[\s\S]*$/m, '');
   return (stripped.match(/^##\s+/gm) || []).length >= MID_MIN_H2 && stripped.length >= MID_MIN_CHARS;
+};
+
+// 中間枠が 1 つでも確保できるか（page.tsx:371-374）。0 枠なら midEnabled でも描画されない。
+const hasMidSlot = (d: Doc): boolean => {
+  const stripped = d.body.replace(/^##\s*参考資料[\s\S]*$/m, '');
+  return (stripped.match(/^##\s+/gm) || []).length >= MID_SLOT_MIN_H2 && stripped.length >= MID_SLOT_MIN_CHARS;
 };
 
 // もくじタイル（hub-cta.ts の HUB）に載っている資格 = 資格単位でマガジン導線がある
@@ -103,10 +145,13 @@ for (const d of docs) {
   if (p.top && getMagazine(p.top.magazineId)) {
     const r = ensure(p.top.magazineId); r.routes.push(`top:${d.slug}`); r.categories.add(d.category);
   }
-  if (midFires(d)) {
-    for (const s of p.inline) {
-      if (!getMagazine(s.magazineId)) continue;
-      const r = ensure(s.magazineId); r.routes.push(`mid:${d.slug}`); r.categories.add(d.category);
+  // note 中間 CTA の供給源は placement.inline の「先頭 1 誌のみ」で、しかも
+  // 冒頭 CTA と別マガジンのときだけ描画される（page.tsx:380-388）。
+  // 2 誌目以降を面として数えると、実際には出ないマガジンが「導線あり」になる。
+  if (midFires(d) && hasMidSlot(d)) {
+    const midNote = p.inline.find((s) => getMagazine(s.magazineId));
+    if (midNote && (!p.top || p.top.magazineId !== midNote.magazineId)) {
+      const r = ensure(midNote.magazineId); r.routes.push(`mid:${d.slug}`); r.categories.add(d.category);
     }
   }
   for (const m of d.body.matchAll(/<MagazineCard[^>]*\sid=["']([^"']+)["']/g)) {
