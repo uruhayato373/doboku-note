@@ -132,6 +132,20 @@
     },
     {
       "weekOf": "2026-08-10",
+      "serviceId": "coconala-sakusei-4theme",
+      "views": 6,
+      "favorites": 0,
+      "orders": 0,
+      "period": {
+        "from": "2026-07-18",
+        "to": "2026-08-16"
+      },
+      "windowDays": 30,
+      "cumulative": true,
+      "source": "analytics-auto"
+    },
+    {
+      "weekOf": "2026-08-10",
       "serviceId": "coconala-shindan",
       "views": 29,
       "favorites": 0,

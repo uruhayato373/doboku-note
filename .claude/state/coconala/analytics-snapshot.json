@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "fetchedAt": "2026-08-17T02:20:35.017Z",
+  "fetchedAt": "2026-08-17T03:16:07.233Z",
   "fetchedOnJst": "2026-08-17",
-  "status": "partial",
+  "status": "ok",
   "source": "coconala.com /mypage/analytics（Playwright・read-only・書き込みなし）",
   "caveats": [
     "数値は「対象期間」の累計であって週次の増分ではない（既定は過去30日間のローリング）。週次差分として扱わないこと。",
@@ -81,13 +81,14 @@
       "numericId": "4350199",
       "catalogStatus": "listed",
       "title": "土木施工管理の経験記述を4テーマ分作成します",
-      "ok": false,
+      "ok": true,
       "impressions": null,
-      "views": null,
-      "orders": null,
-      "favorites": null,
-      "masked": [],
-      "reason": "指標カードが取得できない（構造変化・権限の疑い）"
+      "views": 6,
+      "orders": 0,
+      "favorites": 0,
+      "masked": [
+        "impressions"
+      ]
     },
     {
       "serviceId": "coconala-kanseitoan-pdf",
@@ -280,19 +281,19 @@
         "ok": true,
         "cards": 5,
         "blogs": 3,
-        "serviceCards": 12
+        "serviceCards": 13
       },
       {
         "key": "services",
         "label": "サービス別",
         "url": "https://coconala.com/mypage/analytics/{id}",
-        "ok": false,
-        "rows": 12,
+        "ok": true,
+        "rows": 13,
         "expected": 13,
         "skipped": 5
       }
     ],
-    "ok": 1,
+    "ok": 2,
     "total": 2
   }
 }
