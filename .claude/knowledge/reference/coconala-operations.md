@@ -259,8 +259,11 @@ snapshot が「ココナラ側の実体」で、`npm run check-coconala-orders` 
 Gmail コネクタが繋がっているのは `uruhayato373` 側なので、**そこを見ても受注に気づけない**。
 
 - 取引関連メールの受信は**ココナラ設定で必須**（解除不可）＝送られていないのではなく宛先が別
-- サブメールアドレス欄（`/mypage/email`）は**未設定**。ここに `uruhayato373@gmail.com` を入れれば
-  両方へ届き、Gmail MCP からも読めるようになる（現状は入っていない＝MCP からは永久に見えない）
+- サブメールアドレス欄（`/mypage/email` の `data[User][mobile_mail]`）は**未設定**（2026-08-17 再実査）。
+  主アドレスは `dobokunotecom@gmail.com`。ここに `uruhayato373@gmail.com` を入れれば「こちらにもココナラからの
+  メッセージが届きます」＝**Gmail MCP から読めるようになる**（未設定のままだと MCP からは永久に見えない）。
+  ただし**保存にはログインパスワードの入力が必要**（同フォームの `data[User][login_password]`）＝
+  **エージェントは実行不可・人が UI で入れる**（パスワード入力は禁止行為）
 - **Gmail を Playwright で開くことはできない**（2026-08-17 実測）。`.local/playwright-note-profile` で
   `mail.google.com` を開いても Google の自動化検知で「ブロックされました。」が返り、1通も読めない。
   メールを読む経路は **Gmail MCP コネクタ**（`search_threads` / `get_thread`）だけで、
