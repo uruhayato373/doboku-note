@@ -465,6 +465,17 @@ page/category の合成ロジック共通化（2026-06-25 アセスメント起�
 
 ---
 
+### 1級・2級土木 primary（一次過去問）の note CTA が配線済みなのに描画されていない
+タグ: [収益化]
+
+`magazine-placement.ts` の分岐 13/14（`docGroup === 'primary'` の civil-1 / civil-2）は `inline` に 2〜3 誌を設定しているが、**どこにも描画されない**。`inline` は MidCta の供給源で、`page.tsx:345-347` の `midEligibleGroup` は `guide / pillar / textbook / civil-secondary` 限定＝**`primary` を含まない**ため（2026-08-17 確認）。`top` も設定されていないので、これらのページの note CTA は実質ゼロ。
+
+同じ構造の欠陥は 3 度目で、いずれも「配線はあるのに出ない」形だった — コンクリート診断士（2026-07-31）・コンクリート主任技士（2026-08-13）・総監 択一 18本（2026-08-17・[PR #468](https://github.com/uruhayato373/doboku-note/pull/468)）。
+
+- 対処は 2 択。①該当分岐に `top` を足す（既存3件と同じ・確実に出る）②`midEligibleGroup` に `primary` / `pastExam` を加える（一括で効くが、短い過去問ページにも中間CTAが出るので記事長ゲートの妥当性を先に確認）
+- 検証: dev サーバで civil-1 primary ページを開き `a[href*="note.com"]` に特定マガジンが出ること
+- **再発防止を併せて検討する**: 「placement に書いたのに描画されない」を機械で検出できていない。`check-magazine-cta-reachability` は面を数えるが、`inline` が描画対象外グループで死んでいることは見抜けなかった
+
 ### Gmail 転送＋フィルタで `dobokunotecom` 宛の通知を MCP から読めるようにする（要・別PC作業）
 タグ: [インフラ・計測]
 
