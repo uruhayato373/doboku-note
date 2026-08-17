@@ -259,9 +259,17 @@ snapshot が「ココナラ側の実体」で、`npm run check-coconala-orders` 
 Gmail コネクタが繋がっているのは `uruhayato373` 側なので、**そこを見ても受注に気づけない**。
 
 - 取引関連メールの受信は**ココナラ設定で必須**（解除不可）＝送られていないのではなく宛先が別
-- サブメールアドレス欄（`/mypage/email`）は**未設定**。ここに入れれば両方へ届く
-- `dobokunotecom` は Playwright プロファイル `.local/playwright-note-profile` にログイン済み
-  （2026-08-11）。`mail.google.com` を開けば読める。セッションが切れたら人がログインし直す
+- サブメールアドレス欄（`/mypage/email`）は**未設定**。ここに `uruhayato373@gmail.com` を入れれば
+  両方へ届き、Gmail MCP からも読めるようになる（現状は入っていない＝MCP からは永久に見えない）
+- **Gmail を Playwright で開くことはできない**（2026-08-17 実測）。`.local/playwright-note-profile` で
+  `mail.google.com` を開いても Google の自動化検知で「ブロックされました。」が返り、1通も読めない。
+  メールを読む経路は **Gmail MCP コネクタ**（`search_threads` / `get_thread`）だけで、
+  接続先は `uruhayato373@gmail.com` のみ＝`dobokunotecom` 宛は原理的に見えない
+  → **MCP の 0 件は「メールが無い」ではなく「その宛先が見えていない」**。詳細 →
+  [playwright-auth-profiles.md](playwright-auth-profiles.md)「Gmail は Playwright の対象外」
+- **運営からの通知（出品取り下げ・規約指摘）も同じ**。2026-08-12 の 4テーマ版 取り下げ通知は
+  Gmail（全期間・迷惑メール含む）に**1通も無く**、ココナラのメッセージ側にだけあった。
+  「メールが見つからない＝通知が無い」と読まず、**サイト側のメッセージを実査する**
 
 受注の取りこぼしを防ぐ主経路は**サイト側の実体収集**（`npm run coconala-orders` → `check-coconala-orders`）で、
 メールは補助。不在期間があるときは特に、メール到達に依存しないこと。

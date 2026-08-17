@@ -35,6 +35,8 @@ Brain 商品の出品（下書き作成〜公開申請）。運用・スキー�
    - 成功シグナル＝`/a/complete_published`＋「公開申請が完了しました」。**これ無しに成功と報告しない。**
 5. **書き戻し commit**: カタログの status:'submitted' 書き戻しを確認し、pathspec で commit。
 6. **審査後**: 結果メールを受けてユーザー指示で status を listed/rejected へ flip（brain-operator）。
+   メールは **Gmail MCP** で読む（Playwright で Gmail は開けない）。接続先は `uruhayato373@gmail.com` のみ＝
+   **0 件は「結果が来ていない」ではなく「宛先が見えていない」**。判断は Brain のマイページの実体で行う。
 
 ## 二重申請防止
 

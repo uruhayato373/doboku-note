@@ -33,6 +33,19 @@ Cookie・localStorage をディレクトリごと保持する。**一度ログ�
 - アカウントの真実源（SSOT）は上表の各 config JSON。Playwright 側は「マイページ本文にこの名前が含まれるか」で
   誤アカウント操作を防ぐ assert を持つ（例：ココナラ `sellerName: dobokunote`）。
 
+> [!warning] Gmail は Playwright の対象外（MCP を使う）
+> `mail.google.com` は永続プロファイルで開いても **Google の自動化検知で「ブロックされました。」** が返り、
+> 1通も読めない（2026-08-17・`playwright-note-profile` で実測。ログイン済みでも同じ）。
+> **メールを読む経路は Gmail MCP コネクタ**（`search_threads` / `get_thread`）だけで、
+> プロファイルを増やして解決する問題ではない。上表に Gmail の行が無いのはそのため。
+>
+> ただし **MCP の接続先は `uruhayato373@gmail.com` の1アカウントのみ**。他アドレス宛
+> （ココナラ出品アカウントの `dobokunotecom@gmail.com` 等）は検索してもヒットしない。
+> したがって **0 件は「メールが無い」ではなく「その宛先が見えていない」**——CLAUDE.md 原則9
+> 「検査ゼロを PASS と呼ばない」のメール版。**宛先を確かめずに「通知は来ていません」と報告しない。**
+> プラットフォームの重要通知（出品取り下げ・審査結果）は、メールではなく**サービス側の実体**
+> （ココナラのメッセージ、Brain のマイページ）で確認するのが主経路。
+
 ## 「毎回ログインが必要」になる原因と対策
 
 `.local/playwright-*-profile/` は `.gitignore` 対象（`.gitignore:62–73`）なので、

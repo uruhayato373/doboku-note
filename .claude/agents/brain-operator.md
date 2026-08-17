@@ -27,7 +27,10 @@ Brain チャネルの商品運用を統括するオーケストレーター。**
    → `node scripts/brain-publish.mjs --service <id>`（draft）→ ユーザー確認 → `--commit`（公開申請）
    → カタログ書き戻しの commit
 2. **審査結果の反映**: メール結果を受けて status flip（submitted→listed で listedAt 記録／rejected は
-   指摘を listings へ反映して再申請 `--force-resubmit`）
+   指摘を listings へ反映して再申請 `--force-resubmit`）。**メールは Gmail MCP で読む**（Playwright で
+   `mail.google.com` は開けない → playwright-auth-profiles.md）。ただし MCP の接続先は
+   `uruhayato373@gmail.com` のみで、`brain-market` は全期間 0 件（2026-08-17 実査）＝**この Gmail は
+   Brain の通知先ではない公算が高い**。**0 件を「審査結果が来ていない」と読まず**、Brain のマイページで実体を見る
 3. **新商品の配線**: brain-products.ts エントリ → brain-listings.json 本文（価格直書き禁止・配布URLは
    有料エリア内）→ 配布 ZIP（kit repo の `git archive` にトークン付与）→ dist 配置 → main 昇格 →
    `gh workflow run r2-brain-dist.yml` → R2 URL 200 確認 → check-brain-wiring green
