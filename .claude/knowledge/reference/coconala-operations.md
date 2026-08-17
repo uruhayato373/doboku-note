@@ -27,7 +27,7 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 
 出品前はプレースホルダ（空文字）。**listed のサービスが1件でもあれば `profileUrl` は必須**（`check-coconala-wiring` が強制）。`sellerName`（=dobokunote）は出品自動化の account assert に使う。
 
-> **出品・修正は Playwright で自動化する**（2026-07-18〜）。ログイン済みプロファイル `.local/playwright-coconala-profile`（gitignore）を持つ。§8 参照。KPI 自社数値のスクレイプはしない方針は不変（§4）。
+> **出品・修正は Playwright で自動化する**（2026-07-18〜）。ログイン済みプロファイル `.local/playwright-coconala-profile`（gitignore）を持つ。§8 参照。**KPI 自社数値も read-only で自動取得する**（2026-08-17 方針変更・§4）。
 
 ## 2. 3スキーマ
 
@@ -205,9 +205,27 @@ snapshot が「ココナラ側の実体」で、`npm run check-coconala-orders` 
 
 ### 2.4 KPI: `.claude/state/coconala/kpi-log.json`
 
-`{ version, updatedAt, source, howToUpdate, weekly: [{ weekOf, serviceId, views, favorites, orders }] }`
+`{ version, updatedAt, source, howToUpdate, weekly: [...], blogsWeekly: [...], milestones, sellerRank, notificationMailbox }`
+
+| 配列 | 1行 |
+|---|---|
+| `weekly` | `{ weekOf, serviceId, views, favorites, orders, period:{from,to}, windowDays, cumulative, source }` |
+| `blogsWeekly` | `{ weekOf, slug, blogId, title, views, postedOn, period, windowDays, cumulative, source }` |
 
 `weekOf` は ISO 週初（月曜）。読み取れない数値は `null`（推測で埋めない＝欠測として扱う）。
+`source: 'analytics-auto'` は §4 の自動取得由来。`weekOf` + `serviceId`（ブログは `slug`）で upsert するので再実行しても二重計上しない。
+
+> **`cumulative: true` の意味**: 数値は `period` 区間の**累計**（既定は過去30日間のローリング）であって
+> 週次の増分ではない。前週行との引き算で「今週の伸び」を出してはいけない（区間が26日重なる）。
+
+### 2.5 分析スナップショット: `.claude/state/coconala/analytics-snapshot.json`
+
+`npm run coconala-analytics` の出力＝ココナラ分析画面の実体。`{ fetchedOnJst, status, period{services,blogs}, totals, services[], skipped[], blogs[], scan }`。
+
+- `status: 'partial'` は「取得できなかった対象がある」＝件数を全件として扱わない
+- `services[].ok:false` は 0 件ではなく**欠測**（数値は `null`）
+- `skipped[]` は公開中でない（`paused`）ため分析ページが構造的に無いもの。黙って落とさず残す
+- `masked` は画面が `0000` でマスクした指標（セラーサクセス未加入の表示数）。0 ではなく `null`
 
 ## 3. 受注フロー（`/coconala-order`）
 
@@ -277,10 +295,10 @@ npm run coconala-rate-buyer -- <talkroomId> <コメントtxt> --submit   # 送�
 定型の一文で終わらせず、その取引で実際に起きたことを1つ以上入れる。同一顧客の複数取引では
 文面を書き分ける（同じ文が並ぶと機械的に見える）。
 
-## 4. KPI 週次運用（`/coconala-status`）
+## 4. KPI 週次運用（`/coconala-analytics` → `/coconala-status`）
 
-1. ココナラのダッシュボード数値を**手で貼る**（スクレイピング・API 取得はしない → [[feedback_metrics_cicd_supplied]] と同思想）
-2. kpi-log へ週次 append ＋ orders-log から受注サマリ
+1. ココナラの分析画面を**read-only で自動取得**する（`npm run coconala-analytics -- --append-kpi` → `npm run check-coconala-analytics`）。手動貼付も引き続き可
+2. kpi-log へ週次 upsert ＋ orders-log から受注サマリ
 3. 判定:
    - **撤退ライン**: 出品4週で S2 受注3件未満 → 投資停止・看板維持のみ（キット §6）
    - **価格引き上げ**: 4週で S1+S2 合計5件以上 → S2 の引き上げを検討（評価20件が目安）
@@ -288,9 +306,18 @@ npm run coconala-rate-buyer -- <talkroomId> <コメントtxt> --submit   # 送�
    - **満枠**: 当週受注が `weeklyCapacity` 到達 → `status: 'full'` flip を提案
 4. 売上は月次で orders-log（closed）→ sales-log へ転記（`coconala:<id>`・[sales-tracking.md](sales-tracking.md)）
 
-> **「取得しない」の正確な範囲**: 自社ダッシュボードの KPI（ログイン必須）は**手動貼付が正**。
-> 一方、**公開ページの競合調査**は `npm run coconala-research` で取得してよい（read-only・低頻度・§2.3）。
-> 両者を混同しない（前者はアカウント安全と規約、後者は商品設計の一次データ）。
+> **2026-08-17 方針変更（旧: ダッシュボードはスクレイプしない）**
+> 自社 KPI は長らく「手動貼付が正」としていたが、貼付が続かず `kpi-log.weekly` は**14週間 0 行**のまま
+> だった（初受注 08-04・出品 07-16 を経ても撤退ライン判定の素地が無い）。運用が回らない安全策は
+> 安全ではないので、**ログイン必須の自社分析画面も read-only で自動取得する**（ユーザー判断）。
+> 安全弁は受注収集（§2.2b）と同じ＝`assertAccount`・低頻度（週次）・**書き込み操作なし**
+> （メモ追加・期間変更・出品操作をしない）。取得は `/coconala-analytics`。
+>
+> 変わらない線引き: **公開ページの競合調査**（`npm run coconala-research`・§2.3）は商品設計の一次データで、
+> こちらは自社実績。両者は依然スコープが直交する。
+>
+> 外部 API 遮断（[[feedback_metrics_cicd_supplied]]）との関係: あれは**会社PCから外部 API を叩けない**話。
+> ココナラ分析はブラウザセッションで読む画面なのでプロキシの制約に当たらない。
 
 ## 5. 安全弁
 

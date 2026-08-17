@@ -1,9 +1,178 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-11",
-  "source": "ココナラのダッシュボード数値を手動で貼り付け、/coconala-status（coconala-operator）が正規化して週次で追記する。会社PCはプロキシで外部 API を遮断するため、スクレイピング・API 取得はしない（計測は手動供給が正）。",
-  "howToUpdate": "/coconala-status に「閲覧数/お気に入り/販売数」を貼る → weekly へ1行追記 → 撤退ライン（4週で S2 3件未満）を判定。",
-  "weekly": [],
+  "updatedAt": "2026-08-17",
+  "source": "ココナラ「サービス・ブログ分析」を npm run coconala-analytics（Playwright・read-only）で収集し、--append-kpi で upsert する。数値は対象期間の累計（既定30日ローリング）であって週次増分ではない。手動貼付も引き続き可。",
+  "howToUpdate": "npm run coconala-analytics -- --append-kpi → weekly / blogsWeekly を weekOf 単位で upsert → npm run check-coconala-analytics で鮮度・欠測・整合を確認 → /coconala-status で撤退ライン判定。",
+  "weekly": [
+    {
+      "weekOf": "2026-08-10",
+      "serviceId": "coconala-1kyu-full-pdf",
+      "views": 21,
+      "favorites": 0,
+      "orders": 0,
+      "period": {
+        "from": "2026-07-18",
+        "to": "2026-08-16"
+      },
+      "windowDays": 30,
+      "cumulative": true,
+      "source": "analytics-auto"
+    },
+    {
+      "weekOf": "2026-08-10",
+      "serviceId": "coconala-1kyu-moshi-pdf",
+      "views": 53,
+      "favorites": 1,
+      "orders": 1,
+      "period": {
+        "from": "2026-07-18",
+        "to": "2026-08-16"
+      },
+      "windowDays": 30,
+      "cumulative": true,
+      "source": "analytics-auto"
+    },
+    {
+      "weekOf": "2026-08-10",
+      "serviceId": "coconala-1kyu-premium",
+      "views": 12,
+      "favorites": 0,
+      "orders": 0,
+      "period": {
+        "from": "2026-07-18",
+        "to": "2026-08-16"
+      },
+      "windowDays": 30,
+      "cumulative": true,
+      "source": "analytics-auto"
+    },
+    {
+      "weekOf": "2026-08-10",
+      "serviceId": "coconala-2kyu-full-pdf",
+      "views": 13,
+      "favorites": 0,
+      "orders": 0,
+      "period": {
+        "from": "2026-07-18",
+        "to": "2026-08-16"
+      },
+      "windowDays": 30,
+      "cumulative": true,
+      "source": "analytics-auto"
+    },
+    {
+      "weekOf": "2026-08-10",
+      "serviceId": "coconala-2kyu-kanseitoan-pdf",
+      "views": 12,
+      "favorites": 0,
+      "orders": 0,
+      "period": {
+        "from": "2026-07-18",
+        "to": "2026-08-16"
+      },
+      "windowDays": 30,
+      "cumulative": true,
+      "source": "analytics-auto"
+    },
+    {
+      "weekOf": "2026-08-10",
+      "serviceId": "coconala-2kyu-moshi-pdf",
+      "views": 12,
+      "favorites": 0,
+      "orders": 0,
+      "period": {
+        "from": "2026-07-18",
+        "to": "2026-08-16"
+      },
+      "windowDays": 30,
+      "cumulative": true,
+      "source": "analytics-auto"
+    },
+    {
+      "weekOf": "2026-08-10",
+      "serviceId": "coconala-civil-keiken-kit",
+      "views": 15,
+      "favorites": 1,
+      "orders": 0,
+      "period": {
+        "from": "2026-07-18",
+        "to": "2026-08-16"
+      },
+      "windowDays": 30,
+      "cumulative": true,
+      "source": "analytics-auto"
+    },
+    {
+      "weekOf": "2026-08-10",
+      "serviceId": "coconala-kanseitoan-pdf",
+      "views": 12,
+      "favorites": 0,
+      "orders": 0,
+      "period": {
+        "from": "2026-07-18",
+        "to": "2026-08-16"
+      },
+      "windowDays": 30,
+      "cumulative": true,
+      "source": "analytics-auto"
+    },
+    {
+      "weekOf": "2026-08-10",
+      "serviceId": "coconala-sakusei",
+      "views": 15,
+      "favorites": 0,
+      "orders": 0,
+      "period": {
+        "from": "2026-07-18",
+        "to": "2026-08-16"
+      },
+      "windowDays": 30,
+      "cumulative": true,
+      "source": "analytics-auto"
+    },
+    {
+      "weekOf": "2026-08-10",
+      "serviceId": "coconala-shindan",
+      "views": 29,
+      "favorites": 0,
+      "orders": 0,
+      "period": {
+        "from": "2026-07-18",
+        "to": "2026-08-16"
+      },
+      "windowDays": 30,
+      "cumulative": true,
+      "source": "analytics-auto"
+    },
+    {
+      "weekOf": "2026-08-10",
+      "serviceId": "coconala-sokan-bunseki-pdf",
+      "views": 19,
+      "favorites": 1,
+      "orders": 0,
+      "period": {
+        "from": "2026-07-18",
+        "to": "2026-08-16"
+      },
+      "windowDays": 30,
+      "cumulative": true,
+      "source": "analytics-auto"
+    },
+    {
+      "weekOf": "2026-08-10",
+      "serviceId": "coconala-tensaku-set",
+      "views": 11,
+      "favorites": 0,
+      "orders": 0,
+      "period": {
+        "from": "2026-07-18",
+        "to": "2026-08-16"
+      },
+      "windowDays": 30,
+      "cumulative": true,
+      "source": "analytics-auto"
+    }
+  ],
   "milestones": [
     {
       "date": "2026-08-04",
@@ -40,5 +209,52 @@
     "address": "dobokunotecom@gmail.com",
     "note": "ココナラの取引通知はすべてこのアドレスに届く（出品アカウント dobokunote の登録メール）。購入者アカウント uruhayato373 の受信箱には取引通知は一切来ないので、そちらを見ても受注に気づけない。取引関連メールの受信は解除不可（ココナラ設定で必須）。サブメールは未設定。",
     "verifiedAt": "2026-08-11"
-  }
+  },
+  "blogsWeekly": [
+    {
+      "weekOf": "2026-08-10",
+      "slug": "dokugaku-tensaku-genkai",
+      "blogId": "791954",
+      "title": "【第2回】経験記述が独学で伸びない理由｜自己採点が成立しない構造",
+      "views": 12,
+      "postedOn": "2026-08-13",
+      "period": {
+        "from": "2026-07-19",
+        "to": "2026-08-17"
+      },
+      "windowDays": 30,
+      "cumulative": true,
+      "source": "analytics-auto"
+    },
+    {
+      "weekOf": "2026-08-10",
+      "slug": "ochiru-keiken-kijutsu-3-pattern",
+      "blogId": "791576",
+      "title": "【第1回】経験記述で落ちる答案に共通する3つの型｜1級・2級土木",
+      "views": 14,
+      "postedOn": "2026-08-12",
+      "period": {
+        "from": "2026-07-19",
+        "to": "2026-08-17"
+      },
+      "windowDays": 30,
+      "cumulative": true,
+      "source": "analytics-auto"
+    },
+    {
+      "weekOf": "2026-08-10",
+      "slug": "yosou-mondai-kaku-renshu",
+      "blogId": "794012",
+      "title": "【第3回】経験記述は予想テーマで書く練習｜週1回5ステップ",
+      "views": 0,
+      "postedOn": "2026-08-17",
+      "period": {
+        "from": "2026-07-19",
+        "to": "2026-08-17"
+      },
+      "windowDays": 30,
+      "cumulative": true,
+      "source": "analytics-auto"
+    }
+  ]
 }

@@ -21,7 +21,7 @@ title: スキル ガバナンス記録
 ├── authoring/       # 11 — 記事を作る
 ├── conversion/      # 7 — 形式変換（MDX / OGP 画像 / 紙用 PDF / Kindle EPUB）＋ KDP 入稿・出版 ＋ OGP 意匠の素案試作
 ├── quality/         # 16 — MDX・note 公開前品質検査
-├── management/      # 22 — 計画・分析・戦略
+├── management/      # 23 — 計画・分析・戦略
 ├── dev/             # 13 — 開発・CI/CD
 ├── analytics/       # 2 — サイト分析
 ├── social/          # 23 — SNS 投稿
@@ -29,7 +29,9 @@ title: スキル ガバナンス記録
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **100 スキル**（10 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+合計 **101 スキル**（10 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+
+> 2026-08-17 新設（ココナラ KPI の自動取得＝「手動貼付が正」の撤回）: `management/coconala-analytics`（ココナラ「サービス・ブログ分析」を Playwright で read-only 収集し `kpi-log.json` へ週次 upsert する user-invocable スキル）。**方針変更の理由は運用が回らなかったこと**＝ `coconala-operations.md` §4 は KPI を「手動貼付が正・スクレイプしない」としていたが、出品（07-16）・初受注（08-04）を経ても `kpi-log.weekly` は**0 行**で、撤退ライン（4週で S2 3件未満）を判定する素地が無かった。安全弁は受注収集（`coconala-orders`）と同一＝`assertAccount`・週次・**書き込み操作なし**。新規 `scripts/coconala-analytics.mjs`（`coconala-analytics`・`--append-kpi` で upsert）＋検査 `scripts/check-coconala-analytics.mjs`（`check-coconala-analytics`）。**実機 probe で確定した設計**（盲目 selector を書かない）: サービス別分析は `/mypage/analytics/{n}` で `{n}` はカタログ `serviceUrl` の数値と同一→クリック導線に依存せず URL 直打ち。**数値の罠を2つ機械化**＝(1) セラーサクセス未加入の「表示数」は画面上 `0000` とマスクされるため `null`+`masked` で記録し、検査は「マスクなのに 0」を FAIL にする（0 と書くと「表示ゼロ」の嘘が残る）。(2) 数値は `period` 区間の累計（既定30日ローリング）なので `cumulative: true` と `period` を必ず持たせ、前週行との引き算を禁じる。**偽赤も避ける**＝アーカイブ済み（`paused`）は分析ページが構造的に無いので対象から外し `skipped[]` に明示（毎回赤いゲートは赤の意味を失わせる）。初回実走で**カタログ `listed` なのに公開ページごと 404 の出品 1 件**（`coconala-sakusei-4theme`・`/services/4350199`）を検出＝`check-coconala-wiring` は URL 形式しか見ておらず実在を見ていなかった穴。kpi-log は `weekly` に `period`/`windowDays`/`cumulative`/`source` を追加し `blogsWeekly` を新設（`coconala-operations.md` §2.4/§2.5）。エージェントは新設せず `coconala-operator` の担当に追記（＝チャネル別にエージェントを増やさない原則を維持）。合計 `100→101`・management `22→23`・agents 件数は不変。
 
 > 2026-08-13 新設（X 1日3本体制の計画基盤）: `social/x-campaign-plan`（X 月次投稿計画 JSON を **schemaVersion 2＝1日3本**で起案し、機械ゲートを通してから執筆・週次投入へ引き継ぐ user-invocable スキル。`disable-model-invocation: true`）。背景＝ユーザー決定で 1日1本→3本へ増量（policy §11.6 S2）。**計画 JSON を先に確定させてから原稿を書く**設計（逆順だと「受付終了した出品に送客していた」「販売投稿が連続していた」が執筆後に判明して全部書き直しになる）。
 > 併せて既存資産を拡張: `check-x-campaign-plan.mjs` を v2 対応（1日3本・スロット A/B/C 重複なし・同一日の間隔 60 分・販売 funnel は 1日1本かつスロット C のみ・販売連続を**時系列順**で判定）＋**送客先のカタログ整合**（coconala `listed` / note `published` / brain `listed` を突合し、2026-08-05 に retired した 5 出品や未公開マガジンへの送客を計画段階で遮断。カタログ 0 件読取は検査不成立で exit 1）。`gen-x-card.mjs` を**全6資格**へ拡張し色を `note-cover-tokens.json` から解決、**資格判定をツイート単位**に変更（1日3本では 1 ドラフトに複数資格が混ざるため。従来はフォルダ単位でコンクリート/建設部門が総監色で誤生成されていた）。新規 `scripts/x-own-metrics.mjs`（`x-own-metrics`）＝**自投稿の反応を初めて記録**（likes/RT・中央値主体。impressions/replies は CLI が返さないため取得不可を明記）。`x-sync-status.mjs` の queued 分岐がキューを一度も見ていなかった欠陥を修正（実照合へ）。

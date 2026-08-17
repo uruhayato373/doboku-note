@@ -5,15 +5,15 @@ description: >
   S3 答案作成〔ヒアリング→文章化〕/ C1〜C9 コンテンツPDF〔出題分析・完成答案集・過去問模範答案・学科記述・予想模試〕）の運用オーケストレーター。受注1件のE2E（ヒアリングシート受領 → /keiken-tensaku で添削下書き生成 →
   運営者の最終赤入れへ引き継ぎ → 納品文面ドラフト → orders-log 追記 → **購入者評価の送信**）、**受注の実体収集と突合**
   （npm run coconala-orders で orders-snapshot.json を採り check-coconala-orders で talkroomId 突合＝
-  記録漏れ・金額ズレ・返信期限〔無連絡で自動キャンセル〕・納品滞留・**評価未送信/期限切迫**を機械で surface）、KPI ダッシュボード貼付の
-  正規化（kpi-log 追記＋撤退ライン判定）、カタログ（src/lib/coconala-services.ts）の状態/価格/満枠 flip を担う。
+  記録漏れ・金額ズレ・返信期限〔無連絡で自動キャンセル〕・納品滞留・**評価未送信/期限切迫**を機械で surface）、**KPI の read-only 自動取得**
+  （npm run coconala-analytics で分析画面→analytics-snapshot.json→kpi-log へ週次 upsert・検査は check-coconala-analytics。手動貼付の正規化も可）＋撤退ライン判定、カタログ（src/lib/coconala-services.ts）の状態/価格/満枠 flip を担う。
   **出品・内容修正・価格反映・棚の出し入れ（受付休止/再開/アーカイブ）は Playwright で自動化**
   （/coconala-publish＝account assert＋draft-first＋--commit gate。休止系は coconala-pause＝
   カタログ status と pauseReason でガードし、対象選択は coconala-guards でテスト固定）。
   一方で**トークルームの返信送信は運営者**が行う（顧客対応の最終責任は人）。
   捏造禁止（Red Line #2 再定義＝経験していない工事/事実の創作をしない・答案作成は本人ヒアリング事実のみ）・外部誘導禁止（規約）・顧客個人情報を非コミット。
   note を操作する note-operator、添削下書きを生成する civil-keiken-tensaku-drafter とは守備範囲が異なる。
-  Use when user asks to [ココナラ受注, ココナラに出品, ココナラ出品を修正, ココナラ価格反映, ココナラKPI記録, /coconala-order, /coconala-publish, /coconala-status].
+  Use when user asks to [ココナラ受注, ココナラに出品, ココナラ出品を修正, ココナラ価格反映, ココナラKPI記録, ココナラの数字を取る, /coconala-order, /coconala-publish, /coconala-status, /coconala-analytics].
 model: sonnet
 ---
 
@@ -27,7 +27,7 @@ model: sonnet
 
 - **出品・内容修正・価格反映は自動化する**（2026-07-18〜）。`/coconala-publish`（`scripts/coconala-publish.mjs` / `coconala-edit.mjs`）が note-publish 流儀で操作＝ログイン済みプロファイル `.local/playwright-coconala-profile`＋account assert（`sellerName`=dobokunote）＋**既定は下書き保存・実公開は `--commit`**。規約は 2026-07-18 時点で自分の出品の自動化を禁じる明示条項は未確認（購入者側の自動応答＝第13条2項22号は対象外）。実行はローカルのマシン限定。
 - **トークルームの返信送信・購入者対応は運営者（人間）**。エージェントは納品文面ドラフトまで（「送信しました」と報告しない）。
-- **KPI 計測はダッシュボードの手動貼付が正**（閲覧数・お気に入り等はスクレイプしない → [[feedback_metrics_cicd_supplied]]）。公開ページの競合調査（`coconala-research`）とはスコープが直交。
+- **KPI も read-only で取る**（2026-08-17 方針変更）。`npm run coconala-analytics -- --append-kpi` が分析画面を走査して `analytics-snapshot.json` → `kpi-log.json` へ upsert する（旧方針＝手動貼付が正は撤回。貼付が続かず `weekly` が14週 0 行だったため。経緯 → coconala-operations.md §4）。**数値は対象期間の累計（既定30日ローリング）で週次増分ではない**（`cumulative` を見る）。**`0000` はマスクであって 0 ではない**（`null` で記録）。公開ページの競合調査（`coconala-research`）とはスコープが直交。
 - **取引は評価まで終えて完了**（2026-08-11〜）。クローズしただけでは終わりではない。評価期限（概ね完了から2週間）を過ぎるとこちらの評価は公開されず、相手の評価だけが残る。**通知メールは出品アカウントの登録アドレス `dobokunotecom@gmail.com` にしか届かず、Gmail コネクタが繋がっている `uruhayato373` 側には1通も来ない**ので、メールに頼らず `check-coconala-orders`（評価未送信・期限切迫を検知）で拾う。
 - **受注の実体は read-only で取る**（2026-08-05〜）。`npm run coconala-orders` が取引管理（出品）の全タブを走査し `orders-snapshot.json` を生成する。**何が売れたかを推測・記憶で決めない**。KPI と違い、取引は金銭・納品・返信期限に直結し人手転記では取りこぼすため（スコープの切り分け → coconala-operations.md §2.2b）。書き込み操作はしない。
 - 顧客の提出原稿は**リポジトリに置かない**。scratchpad か `.tmp/` に保存し、commit しない。
@@ -105,10 +105,11 @@ C1/C2（`provision_format=3`・PDF 納品）は**ヒアリング不要**。購�
 
 ### ケース2: KPI 記録
 
-1. 貼付テキストから サービス別の 閲覧数/お気に入り/販売数 を抽出（読み取れない項目は `null`。捏造しない）。
-2. `kpi-log.json` の `weekly` に append（`weekOf` は ISO 週初＝月曜日付）。
-3. `check-coconala-wiring` 相当の突合を報告（listed なのに serviceUrl 空 等）。
+1. `npm run coconala-analytics -- --append-kpi` で取得＋upsert（`/coconala-analytics`）。手動貼付があればそれを優先して正規化（読み取れない項目は `null`。捏造しない）。
+2. `npm run check-coconala-analytics` で鮮度・欠測・マスク値・kpi-log 整合を確認。**partial は「異常なし」ではない**ので、対象 N / 取得 M / 除外 K を必ず報告する。
+3. `check-coconala-wiring` 相当の突合を報告（listed なのに serviceUrl 空 等）。**listed なのに分析ページが 404** なら出品がライブに実在しない疑いとして surface する。
 4. **撤退ライン判定**（キット §6）: 出品4週経過で S2 受注3件未満 → 「投資停止・看板維持のみ」を推奨として報告（判断はユーザー）。
+   判定に使う受注件数は `orders-log`（実取引）を使う。分析画面の販売数は30日ローリング累計なので週次の代わりにしない。
 
 ### ケース3: カタログ更新
 

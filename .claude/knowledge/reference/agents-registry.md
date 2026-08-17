@@ -48,6 +48,7 @@ title: サブエージェント詳細レジストリ
 | `/coconala-publish`                       | `coconala-operator`                                             | ココナラ出品サービスを Playwright で新規出品・修正・価格反映・棚の出し入れ（受付休止/再開/アーカイブ・account assert＋draft-first＋--commit gate） |
 | `/coconala-order`                         | `coconala-operator`（→ `civil-keiken-tensaku-drafter`）          | ココナラ受注1件のE2E（検証→添削下書き→納品文面→orders-log→**購入者評価**） |
 | `/coconala-status`                        | `coconala-operator`                                             | ココナラ 受注実体の収集＋orders-log 突合＋KPI 記録＋カタログ↔state 照合＋撤退ライン判定（read-only） |
+| `/coconala-analytics`                     | `coconala-operator`                                             | ココナラ分析画面の read-only 収集→`analytics-snapshot.json`→`kpi-log` 週次 upsert（機械スクリプト主体・`check-coconala-analytics` で検査） |
 | `/coconala-blog`                          | `coconala-blog-writer` → `coconala-blog-qa`                     | ココナラブログ記事の執筆→採点（公開は `coconala-blog-publish.mjs`・外部リンク禁止/送客はサービスカード） |
 | `/brain-publish`                          | `brain-operator`                                                | Brain キット商品を Playwright で出品（draft-first＋`--commit`・有料ライン/価格/確認モーダル assert・申請成功でカタログ書き戻し） |
 | 技術士建設部門 模範解答生成（親が起動）           | `pe-secondary-exam-writer`, `pe-secondary-exam-qa`              | 二次模範解答 article.md の生成 → 6軸採点ループ（論述メソッドは `技術士論文の書き方` 由来） |
