@@ -197,7 +197,13 @@ if [ $? -ne 0 ]; then
 fi
 
 # affiliate-career-only 違反 prose（添削サービス/講座ブランド等の再提案）を検知（PR#272 取りこぼしの再発防止）
+# 2026-08-17 修正: node の直後に $? 判定が無く、間に check-affiliate-wiring の if 複合文が挟まっていたため、
+# 末尾の "if [ $? -ne 0 ]" は**複合文の終了ステータス（内側で exit しなければ常に 0）**を見ていた。
+# ＝ prose 違反で exit 1 しても commit が通る「壊れたゲート」だった。各 node の直後に判定を置く形へ揃える。
 node scripts/check-affiliate-prose.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
 
 if [ -f scripts/check-affiliate-wiring.mjs ]; then
   node scripts/check-affiliate-wiring.mjs --staged
@@ -205,9 +211,6 @@ if [ -f scripts/check-affiliate-wiring.mjs ]; then
     echo "[pre-commit] アフィリ配線（3 ASP）に不整合。commit を中止しました。"
     exit 1
   fi
-fi
-if [ $? -ne 0 ]; then
-  exit 1
 fi
 
 # ポリシークラスタ（決定が複数文書に散在）の横展開もれリマインダ＋台帳 rot 検出（意味的ドリフトの再発防止）

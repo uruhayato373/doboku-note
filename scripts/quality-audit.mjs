@@ -77,6 +77,8 @@ const CHECKS = [
   { id: 'category-curriculum', npm: 'check-category-curriculum', timeout: 60_000, ci: true },
   { id: 'career-separation', npm: 'check-career-separation', timeout: 60_000, ci: true },
   { id: 'ssot-consumers', npm: 'check-ssot-consumers', timeout: 60_000, ci: true },
+  { id: 'sales-freshness', npm: 'check-sales-freshness', timeout: 30_000, ci: true, note: '売上転記が止まっていないか（updatedAt が 21 日超で赤）。2026-07 は 18% しか転記されず 34 日誰も気づかなかった' },
+  { id: 'sales-mapping', npm: 'check-sales-mapping', timeout: 60_000, ci: true, note: 'sales-log の productId が sales-recorder.md の mapping に文書化されているか（pre-commit のみだった backstop を push 経路にも）' },
   { id: 'note-funnel', npm: 'check-note-funnel', timeout: 90_000, ci: true },
   { id: 'magazine-cta-reachability', npm: 'check-magazine-cta:ci', timeout: 120_000, ci: true, note: '公開マガジンがサイト内で 1 面以上 CTA として出るか（top / 中間CTA / MagazineCard）。baseline 外の新規 0 面で落ちる' },
   { id: 'note-hashtags', npm: 'check-note-hashtags', timeout: 90_000, ci: true, note: 'note 記事ハッシュタグ 90 個以上（全量 backstop・pre-commit は staged のみ）' },
