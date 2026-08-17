@@ -429,6 +429,38 @@ page/category の合成ロジック共通化（2026-06-25 アセスメント起�
 
 ---
 
+### 再発防止の残り2件（Phase B-5 / E）— 2026-08-17 の監査から継続
+タグ: [インフラ・計測][収益化]
+
+今日の事故（売上1ヶ月欠落・CTA未描画・DM偽陽性・surfacer偽赤）の機械化は大半を入れたが、2件残っている。着手済み分は `dcce7cadc` / `63d012b81` / `8f94ba420`。
+
+**① 売上取得スクリプトの committed 化（Phase B-5・要 note ログイン）**
+
+`sales-tracking.md`「取得と検算」に手順は書いたが、実装は使い捨てで残っていない。次回また手作業で組み直すことになる。
+
+- `scripts/note-sales-fetch.mjs` を新設（read-only・既定 dry-run・`--commit` で書き込み）
+- パスワード再確認は**人が通す**（12分待ちループ）。`ctx.close()` で Cookie 書き戻し・storageState 退避
+- 月フィルタは `<select>` の 0=年 / 1=月。「もっとみる」を尽きるまで押す（7月は14回で145件）
+- **検算に通らなければ1バイトも書かない**: 明細合計が「売上管理」の月次表示と一致するまで exit 2
+- productId 解決（正規キー名寄せ→既存ログ→note-magazines.ts→docs/note の H1→手当表）を `scripts/lib/sales-normalize.mjs` に純関数で切り出し、`tests/sales-normalize.test.mjs` で固定（`bk-i-r8-yosou-04-cn-gx` と `bk-i-r08-yosou-4` が同一 id に解決されること）
+- 鮮度検査（`check-sales-freshness`）は導入済みなので、これが FAIL したときの復旧手段がこのスクリプトになる
+
+**② CTA 到達検査を実描画に同期（Phase E・純コードなのでどのPCでも可）**
+
+`scripts/check-magazine-cta-reachability.ts:47-51` が `page.tsx` のロジックを複製していて、4点ズレている。
+
+- `inline` を全スロット credit しているが、実際に描画されるのは**先頭1誌のみ**かつ `top` と別マガジンのときだけ（`page.tsx:381,383`）＝**過大カウント**
+- `MID_GROUPS` に `civil-secondary` が無い（`page.tsx:342-346`）＝過小
+- `group` を生 frontmatter から読み `classifyDoc` の `GROUP_FIELD_MAP` 変換を通していない（`past-exam`→`pastExam` が効かない）
+- `midSlotCapacity`（h2>=4 かつ 2,500字・枠数上限3）を無視
+
+同期すると phantom 面しか持たなかったマガジンが新たに赤くなる（例: `setsumon3-policy-bank` の唯一の面は inline-4 で実際は描画されない）。**赤は「配線を足す」方向で解消する**（ユーザー決定 2026-08-17）。併せて:
+
+- ページ側視点「配線あるのに0面」レポートを追加（まず ci:false → 赤ゼロを確認して ci:true）
+- civil-1/2 primary の分岐13/14 は `inline` のみで**今も死に配線**。`top` に先頭 inline 誌を昇格（civil-1 は `civil-1-ichiji-ronten`・civil-2 は `civil-membership-lab`）。PR #468/#469 と同じ型
+
+**別PCで続ける場合の前提**: `.local/` の Playwright プロファイルは gitignore なので同期されない。①は note の再ログイン（パスワードは人）が要る。②はコードだけなので制約なし。
+
 ## 🟡 中 — 2〜3ヶ月以内
 
 ### note ライブ監査の週次 CI が赤のまま（handoff 2026-08-03 抽出）
