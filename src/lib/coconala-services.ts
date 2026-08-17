@@ -166,9 +166,15 @@ const SERVICES_RAW = {
   //   **価格アンカー**として機能するため前倒し（ユーザー決定）。作成4テーマは最重量なので週1枠。
   //   運用: ヒアリングシートを2回分（4テーマ）受領し `/keiken-tensaku --mode sakusei` を
   //   2テーマずつ2回実行（コード変更なし・展開キット §4b）。
+  // 【2026-08-12 運営が取り下げ】ココナラ運営スタッフのメッセージ（サイト内 DM 10075959・08-12 16:12）:
+  //   取り下げ理由「学校の課題（宿題、レポート、論文、作文等）を代行すると判断されるサービス」。
+  //   ココナラ側は「下書き中」へ戻され、公開ページ /services/4350199 は 404。再出品は内容修正が前提。
+  //   ※ 2テーマ版（coconala-sakusei・¥8,000）は公開中のまま＝同じ理由で狙われうる（要方針判断）。
+  //   検出経路: npm run coconala-analytics が「listed なのに分析ページ 404」で surface（08-17）。
+  //   check-coconala-wiring は serviceUrl の"形式"しか見ておらず実在を検査していなかった。
   'coconala-sakusei-4theme': {
     id: 'coconala-sakusei-4theme',
-    status: 'listed',
+    status: 'draft',
     serviceUrl: 'https://coconala.com/services/4350199',
     title: '土木施工管理の経験記述を4テーマ分作成します',
     shortTitle: '経験記述 答案作成 4テーマ（出題保険つき備え）',
