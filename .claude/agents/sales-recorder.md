@@ -84,6 +84,9 @@ kuro
 | `記述式 完全パック` / `完全パック` | `essay-complete-pack` |
 | `記述式 コアパック` / `コアパック` | `essay-core-pack` |
 | `2級土木 施工経験記述｜想定工事バンク`（セット・工種×5管理フル全体） | `civil-2-koji-bank` |
+| `1級土木 施工経験記述｜工種×テーマ別 完成答案集` | `civil-1-experience-essay` |
+| `2級土木 施工経験記述｜工種×テーマ別 完成答案集` | `civil-2-experience-essay` |
+| `1級土木 施工経験記述｜完全攻略パック` | `civil-1-keiken-complete-pack` |
 | `1級土木 二次学科記述｜テーマ別 出る順`（セット） | `civil-1-gakka-kijutsu` |
 | `2級土木 二次学科記述｜テーマ別 出る順`（セット） | `civil-2-gakka-kijutsu` |
 | `1級土木 二次学科記述｜直前暗記ノート` | `civil-1-anki-note` |
@@ -135,7 +138,25 @@ productId は `article:<slug>` 形式。slug は商品名から推定:
 | `技術士 総合技術監理部門｜択一 過去問PDF 令和` / `総監 択一過去問PDF 令和`（¥980） | `article:tankan-takuitsu-reiwa-pdf` |
 | `技術士 総合技術監理部門｜択一 過去問PDF 平成` / `総監 択一過去問PDF 平成`（¥980） | `article:tankan-takuitsu-heisei-pdf` |
 
+| `{管理} × 他4管理｜トレードオフ構造と総監的解決策` | `article:tradeoff-{kanri}`（`information` / `economic` / `safety` / `human-resource` / `social-environment`） |
+| `気候変動適応 × グリーンインフラ`（総監R8予想） | `article:r8-climate-adaptation-green-infra` |
+| `地方創生・東京一極集中｜設問(3)` | `article:setsumon3-regional-revitalization` |
+| `令和{N}年度 総監記述式 模範論文｜{ペルソナ}版`（過去問年度版・R8予想ではない） | `article:essay-{persona}-r0{N}`（例: `essay-sewage-municipality-r07`） |
+| `総監口頭試験…「業務経歴」の語り方` | `article:tankan-oral-exam` |
+| `【総監再受験者向け】不合格要因を特定する3パターン分析` | `article:tankan-retake-analysis` |
+| `1級土木 施工経験記述｜令和{N}年度 過去問 模範答案` | `article:civil-1-pastexam-essay-r0{N}` |
+| `1級土木 施工経験記述｜{工種}（5管理 完成答案）`（完全攻略パック単品） | `article:civil-1-keiken-pack-{工事番号 or 工種}`。既出: `article:civil-1-keiken-pack-15`（工事15 橋脚フーチング マスコン）／`article:civil-1-keiken-pack-72`（工事72 既設管更生）／`article:civil-1-keiken-pack-tunnel`（補充のトンネル工） |
+| `1級土木 施工経験記述｜{管理A}×{管理B}`（2テーマ組合せ大全 単品） | `article:civil-1-combo-essay-{a}-{b}`（例: `-quality-environment`） |
+
 **推定できない場合**: `article:unknown-{YYYYMMDD}-{index}` として記録し、後でユーザーが修正。
+
+### メンバーシップ（type: membership・2026-08-17〜）
+
+月会費は購入のたびに1行として現れる（`1,480円 / 月`）。productId は `membership:<プラン>` 形式。
+
+| 商品名パターン | productId |
+|---|---|
+| `通年プラン｜過去問＆月例予想`（土木セコカン合格ラボ 通年プラン ¥1,480/月） | `membership:civil-lab-annual` |
 
 ### ココナラ（type: article・非 note チャネル・2026-07-16〜）
 

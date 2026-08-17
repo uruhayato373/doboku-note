@@ -63,6 +63,14 @@ public/posts
 # Playwright MCP & temp files (screenshots, console logs, page snapshots)
 .playwright-mcp/
 
+# Playwright の storageState（Cookie 実体）は**サービスを問わず**除外する。
+# 2026-08-17: note の売上取得スクリプトが新しく playwright-note-state.json を作ったが、
+# 個別列挙しかしていなかったため untracked で git status に出た（＝コミットしうる状態）。
+# 新しいサービスを足すたびに列挙もれで同じ事故が起きるので、パターンで塞ぐ。
+.local/playwright-*-state.json
+.local/playwright-*-profile/
+.local/playwright-*-debug/
+
 # Playwright X 投稿スクリプト用（セッション・デバッグ）
 .local/playwright-x-profile/
 .local/playwright-x-debug/
