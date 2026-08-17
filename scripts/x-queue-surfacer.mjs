@@ -37,16 +37,35 @@ const LOOKAHEAD_DAYS = Number(flag("--lookahead", "8"));
 const NOW = new Date();
 const DAY_MS = 86_400_000;
 
-// "— M/D" を全部拾って Date 化（年は now 基準・半年以上過去なら翌年へ wrap）
+/**
+ * ツイート見出しから日付を拾う。**書式が 2 系統ある**（2026-08-17 に判明）。
+ *   旧: `## Tweet 01: ハウツー・無料 — 7/6 残り14日`      … em-dash 区切り
+ *   新: `## Tweet 01: 朝共感・リフレーム（土 7/19 07:15）` … 全角括弧＋曜日＋時刻
+ * 旧しか読めていなかったため、新書式の pack は **start / end が null** になり
+ *   ① `end` が拾えず `covered_until` が古い日付で固まる（キューは埋まっているのに永久に赤い）
+ *   ② `start` が拾えず due 判定から落ちる（068 の未投入 28 件が一度も surface されなかった）
+ * の 2 つを同時に起こしていた。**日付が 1 件も読めなかった pack は握り潰さず undated として返す。**
+ */
+const HEADER_DATE_PATTERNS = [
+  /—\s*(\d{1,2})\/(\d{1,2})/, // 「— 7/6 残り14日」
+  /[（(]\s*[月火水木金土日]?\s*(\d{1,2})\/(\d{1,2})/, // 「（土 7/19 07:15）」
+  /^## Tweet \d+:\s*(\d{1,2})\/(\d{1,2})\b/, // 「## Tweet 01: 9/1 07:15 civil-1 / …」
+];
+
 function parseDatesFromMd(mdPath) {
   const raw = fs.readFileSync(mdPath, "utf-8");
   const headers = raw.match(/^## Tweet \d+:.*$/gm) || [];
   const dates = [];
   for (const h of headers) {
-    const m = h.match(/—\s*(\d{1,2})\/(\d{1,2})/);
+    let m = null;
+    for (const re of HEADER_DATE_PATTERNS) {
+      m = h.match(re);
+      if (m) break;
+    }
     if (!m) continue;
     const month = Number(m[1]);
     const day = Number(m[2]);
+    if (month < 1 || month > 12 || day < 1 || day > 31) continue;
     let d = new Date(NOW.getFullYear(), month - 1, day);
     if (d.getTime() < NOW.getTime() - 183 * DAY_MS) {
       d = new Date(NOW.getFullYear() + 1, month - 1, day);
@@ -67,11 +86,16 @@ function countQueued(statusPath) {
   }
   let queued = 0;
   let posted = 0;
+  let lastScheduled = null; // 実際に予約が入っている最終日時（キュー充足の真実源）
   for (const t of Object.values(data.tweets || {})) {
     if (t.status === "posted") posted++;
     else if (t.scheduled_at) queued++; // scheduled / queued（投入済み or キュー実在）
+    if (t.scheduled_at) {
+      const d = new Date(t.scheduled_at);
+      if (!Number.isNaN(d.getTime()) && (!lastScheduled || d > lastScheduled)) lastScheduled = d;
+    }
   }
-  return { exists: true, queued, posted };
+  return { exists: true, queued, posted, lastScheduled };
 }
 
 const fmt = (d) => `${d.getMonth() + 1}/${d.getDate()}`;
@@ -91,13 +115,16 @@ if (fs.existsSync(DRAFT_DIR)) {
     if (count === 0) continue;
     const start = dates.length ? new Date(Math.min(...dates.map((d) => d.getTime()))) : null;
     const end = dates.length ? new Date(Math.max(...dates.map((d) => d.getTime()))) : null;
-    const { exists, queued, posted } = countQueued(path.join(dir, "status.json"));
+    const { exists, queued, posted, lastScheduled } = countQueued(path.join(dir, "status.json"));
 
     const unqueued = count - queued - posted;
     const state = unqueued <= 0 ? "fully-queued" : queued + posted > 0 ? "partial" : "未投入";
 
-    // 既存予約の充足ライン（fully/partial で end 日まで埋まっているとみなす）
-    if (queued + posted > 0 && end && (!coveredUntil || end > coveredUntil)) coveredUntil = end;
+    // キュー充足は **status.json の scheduled_at の最大値**で測る（実際に予約が入っている最終日時）。
+    // 2026-08-17 まで tweets.md の見出し日付で測っていたため、見出しに日付を持たない
+    // キャンペーン pack（083-092・9月90件を含む）が 1 件も算入されず、キューが埋まっているのに
+    // 「残り -43 日」と永久に赤く出ていた（原則9 の構造的な赤）。
+    if (lastScheduled && (!coveredUntil || lastScheduled > coveredUntil)) coveredUntil = lastScheduled;
 
     drafts.push({ name, count, queued, posted, unqueued, state, start, end });
   }
@@ -114,6 +141,12 @@ const due = drafts
   }))
   .sort((a, b) => a.start - b.start);
 
+// 日付が 1 件も読めなかった pack。**due にも「該当なし」にも入れず、判定不能として別に出す**
+// （検査ゼロを PASS と呼ばない）。未投入が残っているものだけ人間向けに出す
+// ＝投入済みの undated（日付を書かない速報系など）を毎週のノイズにしない。
+const undated = drafts.filter((d) => !d.start);
+const undatedActionable = undated.filter((d) => d.unqueued > 0);
+
 if (JSON_OUT) {
   console.log(
     JSON.stringify(
@@ -129,6 +162,7 @@ if (JSON_OUT) {
           days_to_go_live: d.daysToGoLive,
           overdue: d.overdue,
         })),
+        undated: undated.map((d) => ({ draft: d.name, tweets: d.count, unqueued: d.unqueued })),
         all: drafts.map((d) => ({ draft: d.name, state: d.state, unqueued: d.unqueued })),
       },
       null,
@@ -146,6 +180,14 @@ lines.push(
     `   lookahead: ${LOOKAHEAD_DAYS} 日`
 );
 lines.push("");
+
+if (undatedActionable.length > 0) {
+  lines.push(`⚠ 判定不能: ${undatedActionable.length} 件（見出しから日付が読めず due 判定できない・未投入あり）`);
+  for (const d of undatedActionable) {
+    lines.push(`   - ${d.name}（未投入 ${d.unqueued}/${d.count}）— 見出しの日付書式を確認する`);
+  }
+  lines.push("");
+}
 
 if (due.length === 0) {
   lines.push("✅ 投入待ちなし（lookahead 内に未投入の下書きはありません）");
