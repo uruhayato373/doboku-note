@@ -30,7 +30,7 @@
 
 | タスク | 状態 |
 |---|---|
-| A8単月取得の実機観察→`.claude/config/a8-report-automation.json`へ期間フォームDOM記述→`setPeriodMonth()`実装 | 進行中（A8ログイン待ち） |
+| ~~A8単月取得の実装~~ | **完了**（2026-07-28 `d584ef320`、2026-01〜07 バックフィル `e347cf1eb`）。分母は供給済み。残るのは分子＝確定報酬ゼロで、実装では埋まらない |
 | A8成果の月次反映→`report-buildjob-affiliate`でEPC算出（判断基準=affiliate-operations.md §6.5） | 実装後着手 |
 | GA4面別CTAクリック突合（`fetch-ga4-cta-clicks --by-label`） | deploy後クリック蓄積待ち |
 

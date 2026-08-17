@@ -249,6 +249,9 @@ snapshot が「ココナラ側の実体」で、`npm run check-coconala-orders` 
   → 共通の誤りは匿名化して添削事例アーカイブへ
 ```
 
+納品の実務メモ: 複数冊を **ZIP でまとめて送るときは解凍手順を一文添える**（2026-08-07 に購入者が実際につまずいた）。
+購入時メッセージには**納品形態（PDF か・何冊か）を明記**する——初回の質問はここに集中した。
+
 添削3ステップ（字数→論点抽出→最終赤入れ）の真実源は [2級経験記述-添削テンプレ.md](../../../docs/note/1級・2級土木/2級土木/2級経験記述-添削テンプレ.md)。トークルーム定型文（初回挨拶・シート送付・C系 PDF 送付・満枠断り・書き直し受付・S1 診断返却テンプレ）は [ココナラ展開キット.md §4c](../../../docs/note/1級・2級土木/ココナラ展開キット.md)、S2 納品文面テンプレは `.claude/agents/coconala-operator.md`。
 
 ## 3-1. 受注に気づく経路（通知メールの宛先）
@@ -421,6 +424,11 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 | `scripts/check-coconala-blog.mjs [--staged\|--json]` | ブログ記事 SoT のオフライン検査（ハードゲート＋公開整合＋送客先ドリフト）。pre-commit / quality:audit / 週次に配線 |
 | `scripts/coconala-profile.mjs [--commit]` | プロフィール（職業/アピール/自己紹介）を `coconala-account.json` の値へ反映。**プロフィール編集（/mypage/user）はインライン編集型**（フィールドは初期描画に無く、セクション見出し近傍の鉛筆 `.d-profileItemControlButton` クリックで展開・2026-07-20 UI 変更対応済み）。ナビ誤爆は URL 不変 assert で検知 |
 | 共有 `scripts/lib/coconala-{session,form}.mjs` | プロファイル起動・login 待ち・account assert・カタログ/listings 解析・フォーム充填 |
+
+> [!warning] 出品文面の掃除は listings の grep だけでは終わらない
+> **プロフィール bio は全サービスページに描画される**ため、listings と カタログを直しても
+> 同じ表現が全ページに残る（2026-08-12 に「採点者に伝わる答案へ」が全13ページで実際に発生）。
+> 文言の一括是正は listings / カタログ / サムネ ＋ **bio** の4面を見て、最後にライブ実査する。
 
 **商品画像（サービスサムネ）**: ブランド流儀＝AI で「文字なし雰囲気写真」を生成 → satori で日本語文字を正確に重ねる（AI に日本語を焼き込ませない）。
 
