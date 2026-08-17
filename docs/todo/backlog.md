@@ -465,6 +465,24 @@ page/category の合成ロジック共通化（2026-06-25 アセスメント起�
 
 ---
 
+### Gmail 転送＋フィルタで `dobokunotecom` 宛の通知を MCP から読めるようにする（要・別PC作業）
+タグ: [インフラ・計測]
+
+ココナラの運営通知（出品取り下げ等）・取引通知・評価依頼は `dobokunotecom@gmail.com` にしか届かない。Claude の Gmail コネクタは `uruhayato373@gmail.com` の1アカウントだけに繋がっているので**MCP からは原理的に見えず**、2026-08-12 の4テーマ版 取り下げはメールで気づけずココナラのメッセージ画面で初めて発見した。Playwright で Gmail を開く経路は Google の自動化検知で塞がれている（→ [playwright-auth-profiles.md](../../.claude/knowledge/reference/playwright-auth-profiles.md)）。
+
+転送するだけだとスマホで同じメールを2回見ることになるので、**受信側でフィルタして受信トレイに出さない**。ラベル `dobokunotecom`（teal・`Label_6`）は作成済み。`create_filter` はコネクタのカタログにはあるがセッションに公開されておらず、フィルタ作成は人の作業。
+
+**順序が大事**（転送を先に有効化すると、フィルタができるまでの分が受信トレイに出る）:
+
+1. `uruhayato373` 側 — 設定 → フィルタとブロック中のアドレス → 新しいフィルタを作成 → **To** に `dobokunotecom@gmail.com` → 「受信トレイをスキップ（アーカイブする）」＋「ラベルを付ける: `dobokunotecom`」
+2. `dobokunotecom` 側 — 設定 → メール転送と POP/IMAP → 転送先に `uruhayato373@gmail.com` を追加 → 確認コードを承認（コードは `uruhayato373` に届くので Claude からも読める）→ 「受信メールを転送する」を有効化
+
+**完了条件**: `label:dobokunotecom` でココナラの取引通知が1件以上ヒットする。**0件は「メールが無い」ではなく設定が効いていない**（12原則 9）。完了したら `coconala-operations.md` §3-1 と memory `reference_gmail_mcp_only` の「MCP では見えない」記述を実態に合わせて更新する。
+
+不採用案: ココナラのサブメール欄への登録はココナラの通知しか救えず、保存にログインパスワードが要る（エージェント実行不可）。転送ならその受信箱宛て全部（Brain 審査結果を含む）が対象になる。
+
+---
+
 ## 🟡 中 — 2〜3ヶ月以内
 
 ### note ライブ監査の週次 CI が赤のまま（handoff 2026-08-03 抽出）
