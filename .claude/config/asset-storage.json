@@ -133,6 +133,41 @@
       ],
       "reason": "2026-08-22 に Git 履歴を単一 commit へ切り詰めた際の、切り詰め前の完全な履歴（git bundle --all）。**R2 が唯一の保管場所**で、これを失うと 6,577 commit 分の log / blame / 個別 diff が永久に失われる。復元は `rclone copy` してから `git clone <bundle>`。",
       "phase": "history-truncation"
+    },
+    {
+      "id": "sns-archived-media",
+      "match": {
+        "pathRegex": "^content/sns/(instagram|youtube)/.+\\.(wav|mp4|m4a)$"
+      },
+      "bucket": "public",
+      "keyPrefix": "sns/",
+      "keyFrom": "stripPrefix:content/sns/",
+      "visibilityFrom": "fixed:public",
+      "regenerable": true,
+      "generator": "wav は VOICEVOX + reels/script.txt、mp4 は wav+png から再生成（sns-archive-policy）",
+      "requiredBy": [
+        "publish-ig-bs（reel 投稿）",
+        "publish-reel-jit"
+      ],
+      "reason": "reels の音声・動画。upload-sns-r2 が公開バケットへ退避しているが台帳に無く check-asset-storage の監視外だった（DN-0116 A）。投稿済みで既に公開されているものなので公開バケットのまま台帳へ載せる。",
+      "phase": "DN-0116"
+    },
+    {
+      "id": "legacy-r2-orphan",
+      "match": {
+        "pathRegex": "^\\.local/archive/legacy-r2/.+$"
+      },
+      "bucket": "private",
+      "keyPrefix": "archive/legacy-r2/",
+      "keyFrom": "stripPrefix:.local/archive/legacy-r2/",
+      "visibilityFrom": "fixed:private",
+      "regenerable": false,
+      "generator": null,
+      "requiredBy": [
+        "削除・改称された旧記事や旧 SNS 構造の素材を掘り起こすとき"
+      ],
+      "reason": "公開バケットに孤児として残っていた旧配置の素材（content/ の旧記事画像 2,573 件と sns/ の消えた構造の残骸 1,146 件）。リポジトリにも posts/ にも対応が無く**唯一の実体**だったので、消す前に private へ退避して台帳に載せた（DN-0116 B）。公開バケット側は削除する。",
+      "phase": "DN-0116"
     }
   ]
 }

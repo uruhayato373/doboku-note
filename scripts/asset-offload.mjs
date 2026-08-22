@@ -42,6 +42,12 @@ const COMMIT = flag('--commit');
 const VERIFY = flag('--verify');
 const OUT_LIST = val('--out');
 const SKIP_EXISTING = flag('--skip-existing');
+// --include-untracked: gitignore 済みのファイルも対象にする。
+// 既定が「追跡ファイルだけ」なのは、追跡外を R2 へ上げても Git は軽くならないから。
+// だが reels の wav/mp4 のように **最初から gitignore されている group** があり、
+// そこでは既定のままだと対象 0 件で exit 1 になる（check-asset-storage が案内する
+// コマンドが動かない、という状態を 2026-08-22 に作ってしまった）。
+const INCLUDE_UNTRACKED = flag('--include-untracked');
 const GROUP_ID = val('--group');
 const LIMIT = Number(val('--limit', '0')) || 0;
 // 直列だと 868 件で約 12 分かかった（571 MiB の up と、sha256 検証のための down で往復 1.1 GB）。
@@ -141,7 +147,13 @@ async function main() {
   // 対象は「追跡中のファイル」だけ。追跡外のものを R2 へ上げても Git は軽くならないし、
   // 手元にしか無いものを外部へ出すのは別の判断（承認の範囲が違う）。
   const tracked = git(['ls-files']).split('\n').filter(Boolean);
-  let targets = tracked.filter((p) => groupFor(p, cfg)?.id === group.id);
+  let candidates = tracked;
+  if (INCLUDE_UNTRACKED) {
+    // gitignore 済みも含めて列挙する（--others --ignored）。
+    const others = git(['ls-files', '--others', '--ignored', '--exclude-standard', 'content']).split('\n').filter(Boolean);
+    candidates = [...new Set([...tracked, ...others])];
+  }
+  let targets = candidates.filter((p) => groupFor(p, cfg)?.id === group.id);
   const totalCount = targets.length;
   if (LIMIT > 0) targets = targets.slice(0, LIMIT);
 
@@ -150,6 +162,7 @@ async function main() {
     console.error('[asset-offload] group "' + group.id + '" に該当する追跡ファイルが 0 件。');
     console.error('  pathRegex: ' + group.match.pathRegex);
     console.error('  既に退避済みか、regex が実体と合っていない。検査不成立として exit 1 にする。');
+    if (!INCLUDE_UNTRACKED) console.error('  gitignore 済みのファイルが対象の group なら --include-untracked を付けること。');
     process.exit(1);
   }
 

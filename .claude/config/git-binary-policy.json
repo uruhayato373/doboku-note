@@ -187,6 +187,13 @@
         "size",
         "archive-bundle"
       ]
+    },
+    {
+      "path": ".claude/state/assets/manifest.json",
+      "reason": "R2 退避の台帳。**これが無いと退避したものを復元できない**ので Git に置くしかない（8,531 件で 6.3 MiB・JSON 上限 4 MiB を超える）。1 エントリあたり約 750 byte で、退避が増えるほど太る。将来さらに膨らむなら logicalPath（キーと重複）・r2Key（group から導出可能）・mime（拡張子から導出可能）・generator/requiredBy（group 単位の定数）を落とせば 6 割減らせる。履歴 959 MB に対して 0.7% なので現時点では許容する。",
+      "appliesTo": [
+        "size"
+      ]
     }
   ]
 }

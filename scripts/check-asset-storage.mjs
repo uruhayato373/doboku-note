@@ -151,7 +151,7 @@ function main() {
         scan.orphan++;
         fail('not-offloaded', 'ワークツリーにしか無い（Git 非追跡・manifest 未登録）。'
           + 'offload しないとこのマシンを失った時点で復元不能: '
-          + 'node scripts/asset-offload.mjs --group ' + hit.g.id + ' --commit', rel);
+          + 'node scripts/asset-offload.mjs --group ' + hit.g.id + ' --commit --include-untracked', rel);
       }
     }
   }

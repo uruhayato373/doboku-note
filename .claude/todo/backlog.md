@@ -1456,21 +1456,3 @@ seo-fix-planner は audit-only なので適用は人の承認後。
 
 ①`publish-note` SKILL.md の幻 noteId 節にエンジン明示を追記（`note-publish-magazine` の一次ガードは Playwright 系の話・実在ゲート `verify-note-status` は全エンジン共通）②名前の紛らわしさ＝リネーム/統合か相互参照強化かの設計判断（🟣寄り・台帳同期が要る大工事なので費用対効果を要検討）。
 
-### [DN-0116] R2 のうち台帳外の 2 領域を塞ぐ（sns/ の復元経路と content/ の孤児）
-タグ: [インフラ・計測] [種類:不具合] [実行:対話] [起票:2026-08-22]
-
-2026-08-22 に R2 を全量棚卸ししたところ（13,672 件 / 7.22 GiB）、退避台帳 `.claude/state/assets/manifest.json` が管理しているのは 4,668 件 / 5.04 GiB で、残りは別の仕組みが持っているか、誰も持っていなかった。内訳と真実源は `.claude/knowledge/reference/asset-storage-policy.md` §9。うち 2 領域が未処置。
-
-**A: public `sns/` 1,194 件 / 0.96 GiB — 復元経路が無い**
-
-`upload-sns-r2` で reels の wav/mp4 を退避しているが、台帳に載っておらず `check-asset-storage` の監視外。取り戻すのは rclone 手動で、`asset-hydrate` に相当する経路が無い。DN-0111 Phase 4-E の「既存 sns-archive-policy と upload-sns-r2 を共通基盤へ寄せる」が未消化のまま残っている。内容は再生成可能（wav は VOICEVOX + script.txt、mp4 は wav+png）なので緊急性は低いが、「消えても誰も気づかない」状態ではある。
-
-やること: `sns-rendered-media` グループを `.claude/config/asset-storage.json` へ追加し、R2 から読み直して sha256 を台帳へ登録する（教材 PDF 397 件で同じ手順を実施済み）。reels は現在 `ig-rendered-image` の regex から意図的に除外してあるので、その整理も併せて行う。
-
-**B: public `content/` 2,573 件 / 0.48 GiB — 孤児**
-
-2026-03-24 に使っていた旧プレフィックス。リポジトリ全域を検索して参照 0 件だが、`https://storage.doboku-note.com/content/environment/noise-evaluation/general/img/fig-1-1.png` は HTTP 200 で取得できる（実測）。現行の記事画像は `posts/` プレフィックスで、`upload-images-to-r2.mjs` が書き `src/lib/r2-image-loader.ts` が読む。
-
-やること: `posts/` 側に同名・同内容が存在するかを突合してから、`.claude/config/r2-delete-list.txt` にキーを列挙して `R2 Delete Objects`（`r2-delete.yml`・既定 dry-run）を `commit=true` で実行する。**突合せずに消さない** — 2026-07-31 に「リポジトリから消しても R2 に残る」で診断士の書籍スキャン 79 件が発覚した経緯があるので、逆に「R2 にしか無い」ものを巻き込む可能性を先に潰すこと。
-
-**検証**: `npm run check-asset-storage` が両領域を検査対象に含むこと。B は削除後に公開 URL が 404 を返すこと。

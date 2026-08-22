@@ -178,30 +178,43 @@ cache は `.local/cache/assets/`（Git 非追跡）。最終アクセス時刻�
 
 ## 9. R2 に何が入っているか（台帳のカバー範囲）
 
-2026-08-22 実測。R2 は **13,672 件 / 7.22 GiB**あり、退避台帳（`manifest.json`）が
-その全部を管理しているわけではない。**台帳が真実源なのは「Git から外して R2 へ移したもの」だけ**で、
-それ以外は別の仕組みが持っている。
+2026-08-22 の棚卸しと整理のあと。**台帳（`manifest.json`）が R2 の全オブジェクトを管理している**
+状態になっている（`check-asset-storage` の走査で該当 4,414 件すべてが「Git 追跡 0 / 退避済み 4,414 /
+どちらでもない 0」）。
 
-| バケット / prefix | 件数 / 容量 | 真実源 | 復元 |
+| バケット / prefix | 件数 | 真実源 | 復元 |
 |---|---|---|---|
-| private `textbook/` | 397 / 3.28 GiB | **台帳**（`textbook-source-pdf`） | `asset-hydrate --group textbook-source-pdf` |
-| private `archive/git-history/` | 1 / 2.59 GiB | **台帳**（`git-history-bundle`） | `rclone copy` → `git clone <bundle>` |
-| private（退避資産） | 3,487 / 1.10 GiB | **台帳** | `asset-hydrate --group <id>` |
-| public `note/covers/` `sns/rendered/` | 784 / 0.66 GiB | **台帳** | 同上 |
-| public `posts/` | 5,234 / 0.74 GiB | **Git**（`content/site/**`） | `npm run upload-images-r2` が一方向で同期。R2 は配信コピーなので台帳不要 |
-| public `sns/` | 1,194 / 0.96 GiB | `sns-archive-policy` + `upload-sns-r2` | rclone 手動。**hydrate 経路なし** |
-| public `content/` | 2,573 / 0.48 GiB | **なし（孤児）** | 2026-03-24 の旧 prefix。リポジトリ全域に参照 0 件だが URL では HTTP 200 で取得できる |
+| private `textbook/` | 397 | 台帳 `textbook-source-pdf` | `asset-hydrate --group textbook-source-pdf` |
+| private（退避資産 4 群） | 3,487 | 台帳 | `asset-hydrate --group <id>` |
+| private `archive/git-history/` | 1 | 台帳 `git-history-bundle` | `rclone copy` → `git clone <bundle>` |
+| private `archive/legacy-r2/` | 3,719 | 台帳 `legacy-r2-orphan` | `asset-hydrate --group legacy-r2-orphan` |
+| public `posts/` | 5,234 | **Git**（`content/site/**`） | `upload-images-r2` が一方向で同期。配信コピーなので台帳不要 |
+| public `note/covers/` | 777 | 台帳 `note-cover-png` | `asset-hydrate` |
+| public `sns/` | 150 | 台帳 `sns-archived-media` / `ig-rendered-image` | `asset-hydrate --group sns-archived-media` |
 | public `brain/` | 2 | `brain-products.ts` | `upload-brain-dist-r2` |
 
-> [!warning] 台帳に載っていないものは check-asset-storage の監視外
+**2026-08-22 に片付けたもの（DN-0116）**:
+
+- 公開バケットの孤児 **3,719 件 1.43 GiB** を削除（`content/` の旧記事画像 2,573 +
+  消えた SNS 構造 `sns/_exam-packs` 等 1,146）。リポジトリ全域に参照 0 件で、`posts/` にも
+  対応が無かった＝**唯一の実体**だったので、消す前に private の `archive/legacy-r2/` へ
+  全件コピーし sha256 つきで台帳へ登録した。削除後に公開 URL が 404 になること、
+  退避先から byte 一致で取り戻せることを実機確認済み。公開バケットは 2.84 → 1.52 GiB。
+- reels の音声動画 **95 件 77 MiB がローカルにしか無かった**のを検出して退避。
+  グループを作るまで誰も見ていなかった領域で、`check-asset-storage` が初めて可視化した。
+
+> [!warning] 台帳に載っていないものは監視外
 > 「消えても誰も気づかない」状態になる。R2 へ何かを置く仕組みを新しく作るときは、
 > **台帳に載せるか、載せない理由（Git が真実源である等）を書く**こと。
-> 2026-08-22 の実測では、教材 PDF 397 件が「Git 履歴から消したのに台帳に無い」という
-> 二重に無防備な状態だった（同日に登録して解消）。
+>
+> `asset-offload` は既定で追跡ファイルしか対象にしない。reels の wav/mp4 のように
+> **最初から gitignore されている group** は `--include-untracked` が要る
+> （これを付け忘れると、check-asset-storage が案内するコマンドが「対象 0 件」で
+> 落ちるという状態になる。2026-08-22 に実際に作ってしまった）。
 
 **取り戻したものを再コミットしない。** `docs/textbook/` は `.gitignore` と
 `check-git-binary-policy` の `textbook-source-asset` ルールの両方で塞いである
-（実測でこの経路が素通りだったので、復元 → `git add -f` → gate が止まることまで確認済み）。
+（復元 → `git add -f` → gate が止まることまで確認済み）。
 
 ## 10. 不変条件
 
