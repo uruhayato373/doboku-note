@@ -153,10 +153,25 @@ cache は `.local/cache/assets/`（Git 非追跡）。最終アクセス時刻�
 （全カードが今日更新・ID 再利用 0 件）は commit 総数で検出して「判定不能」を出すようにした。
 記事の日付は §5 のとおり frontmatter へ移してあるので影響しない。
 
-> [!warning] GitHub の報告容量は減らない
-> `refs/pull/*` が 396 本あり、force-push しても消せない（GitHub が永久保持する読み取り専用 ref）。
-> 旧 commit はそこから到達可能なままなので、**GitHub の `size` は 11 GiB のまま**である。
-> 減るのは **clone が転送する量**（full clone 11.3 GB → 959 MB）であって、サーバの保管量ではない。
+> [!note] GitHub の報告容量も下がった（2026-08-22 実測で訂正）
+> 作業中は「`refs/pull/*` が旧 commit を固定するので GitHub の `size` は減らない」と判断していたが、
+> **実測すると 11,623,642 KB → 948,521 KB（約 0.93 GB）まで下がった**。判断は誤りだった。
+>
+> 古い PR ref のオブジェクト自体は残っており、`git fetch origin refs/pull/97/head` で
+> 実際に取得できる。だが **GitHub の `size` には計上されず、通常の clone でも落ちてこない**
+> （clone は `refs/heads/*` と `refs/tags/*` しか交渉しない）。
+>
+> 実測（切り詰め後）:
+>
+> | | 値 |
+> |---|---|
+> | GitHub 報告容量 | 0.93 GB |
+> | full clone（`--bare`） | 961 MB / 1 分 39 秒 |
+> | partial clone（`--filter=blob:none --no-checkout`） | 1.0 MB |
+>
+> 旧オブジェクトを**完全に消す**唯一の方法はリポジトリの削除と作り直しで、
+> issue・PR・レビューコメント・Actions 履歴・secrets・Cloudflare Pages 連携・
+> ブランチ保護がすべて失われる。private リポジトリで外部露出は無いため、割に合わない。
 >
 > GitHub は 1 回の push が 2 GiB を超えると `pack exceeds maximum allowed size` で拒否する。
 > 超える場合は一時 ref へ first-parent を分割して送り、最後にブランチを切り替える。
