@@ -193,11 +193,11 @@ export default function StructuredData({ type, post, docMeta }: StructuredDataPr
         }
 
         if (docMeta) {
-          const seoHeadline = docMeta.seoTitle || docMeta.title;
           return {
             "@context": "https://schema.org",
             "@type": "TechArticle",
-            headline: seoHeadline,
+            // 検索結果用 seoTitle ではなく、ページ上で見える H1 と一致させる。
+            headline: docMeta.title,
             description: docMeta.description || docMeta.title,
             author: {
               "@type": "Person",

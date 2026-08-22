@@ -323,7 +323,7 @@ function PeConstructionExamTable({ docs }: { docs: DocMeta[] }) {
  * 「よく読まれている記事」（rank 付き）と各セクションの OGP 行（rank 無し）で共用する。
  * サムネの縦横比は self-start で保つ（下記コメント参照）。
  */
-export function OgpThumbRow({ doc, rank }: { doc: DocMeta; rank?: number }) {
+export function OgpThumbRow({ doc, rank, eager = false }: { doc: DocMeta; rank?: number; eager?: boolean }) {
   const title = doc.shortTitle || doc.title;
   const excerpt = doc.subtitle || doc.description;
   return (
@@ -338,7 +338,7 @@ export function OgpThumbRow({ doc, rank }: { doc: DocMeta; rank?: number }) {
             width={336}
             height={176}
             unoptimized
-            loading="lazy"
+            loading={eager ? 'eager' : 'lazy'}
             sizes="(max-width: 640px) 124px, 168px"
             className="h-full w-full object-cover"
           />

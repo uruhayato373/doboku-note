@@ -23,14 +23,15 @@ interface ArticleSidebarProps {
   readonly categoryArticles: DocMeta[];
   readonly hasCategoryNavCard: boolean;
   readonly showPillarNav: boolean;
+  readonly showTableOfContents: boolean;
 }
 
 /**
  * docs 記事の右サイドバー（PC ≥993px）。
  *
  * 2 ブロック構成:
- *  1. 通常フロー（追従させない）: 転職アフィリ枠（最上部・唯一のピクセル源）→ note もくじタイル →
- *     運営者プロフィール。広告・著者を追従させると「広告が追いかけてくる」体験になるため固定。
+ *  1. 通常フロー（追従させない）: 運営者プロフィール → 転職アフィリ枠（唯一のピクセル源）→
+ *     note もくじタイル。広告・著者を追従させると「広告が追いかけてくる」体験になるため固定。
  *  2. sticky クラスタ（列の最終要素・読中に追従）: TOC / 設問ナビ → カテゴリナビ → ピラーナビ。
  *     ナビゲーションだけを追従させ、長記事でも導線が視界に残る。
  *
@@ -50,6 +51,7 @@ export default function ArticleSidebar({
   categoryArticles,
   hasCategoryNavCard,
   showPillarNav,
+  showTableOfContents,
 }: ArticleSidebarProps) {
   const hasStickyCluster =
     docGroup === 'pastExam' || docGroup === 'primary' || docGroup === 'secondary'
@@ -59,8 +61,11 @@ export default function ArticleSidebar({
     // 根の <aside> 要素・幅（w-[316px]）・表示制御（≥993px）・py-10 は TwoColumnShell が所有する。
     // ここは中身のみを返す（aside 入れ子の意味論を回避）。
     <>
-      {/* ブロック1: 通常フロー（追従させない）——転職ピクセル・note・著者 */}
-      {/* 転職アフィリを全 docs サイドバー最上部に常設（唯一のピクセル発火源・ファーストビュー）。 */}
+      {/* ブロック1: 通常フロー（追従させない）——著者・転職ピクセル・note。
+          読者への信頼提示を先に置き、ファーストビューの商業要素を減らす。 */}
+      <div className="mb-3">
+        <AuthorSidebarCard />
+      </div>
       <div className="mb-3">
         <SidebarAdBanner {...careerSidebarAd.creative} trackLabel={careerSidebarAd.trackLabel} />
       </div>
@@ -71,18 +76,13 @@ export default function ArticleSidebar({
           <HubCtaBanner cta={sidebarMokuji} placement="article-sidebar" />
         </div>
       )}
-      {/* 運営者プロフィール（合格体験者＝発注者）。E-E-A-T を提示。 */}
-      <div className="mb-3">
-        <AuthorSidebarCard />
-      </div>
-
       {/* ブロック2: sticky クラスタ（列の最終要素・読中に追従）——TOC/ナビのみ。
           自身をスクロール可能にし、低解像度でも見切れない（TOC 側の max-h は撤去し高さ制御をここへ一元化）。 */}
       {hasStickyCluster && (
         <div className="sticky top-6 max-h-[calc(100vh-3rem)] overflow-y-auto">
-          {/* 過去問ページ（pastExam / primary / secondary）は TOC が問番号の羅列になり機能しないため
-              非表示にし、primary は代わりに設問番号グリッド（ExamQuestionNav）を出す。 */}
-          {docGroup !== 'pastExam' && docGroup !== 'primary' && docGroup !== 'secondary' && (
+          {/* 年度別過去問は TOC が問番号の羅列になるため呼び出し側で showTableOfContents=false。
+              primary は代わりに設問番号グリッド（ExamQuestionNav）を出す。 */}
+          {showTableOfContents && (
             <TableOfContents headings={headings} />
           )}
           {docGroup === 'primary' && <ExamQuestionNav headings={headings} variant="sidebar" />}

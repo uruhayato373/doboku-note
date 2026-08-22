@@ -26,7 +26,7 @@ export function PopularShowcase({ items }: { items: PopularDoc[] }) {
       <h2 className="font-serif text-[22px] sm:text-[26px] font-black text-[var(--ink)] mb-5">よく読まれている記事</h2>
       <ol className="flex flex-col">
         {items.map((item) => (
-          <OgpThumbRow key={item.doc.slug} doc={item.doc} rank={item.rank} />
+          <OgpThumbRow key={item.doc.slug} doc={item.doc} rank={item.rank} eager />
         ))}
       </ol>
     </section>

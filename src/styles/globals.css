@@ -901,6 +901,27 @@
   border-color: var(--accent);
 }
 
+/* Mobile details TOC: each heading remains a full-size touch target.
+   The generic TOC uses -webkit-box for two-line truncation, so this
+   unlayered override must restore flex explicitly. */
+.toc-content.toc-content-mobile a {
+  display: flex;
+  min-height: 44px;
+  max-height: none;
+  margin: 0;
+  align-items: center;
+  padding: 8px 0;
+  -webkit-line-clamp: unset;
+}
+
+.toc-content.toc-content-mobile .ol-depth-1 > li {
+  margin-top: 0;
+}
+
+.toc-content.toc-content-mobile .ol-depth-1 > li::before {
+  top: 16px;
+}
+
 /* =====================================================================
    KaTeX 数式フォントを本文に揃える
    注: @layer components 内だと katex.min.css（無 layer）の既定に負けて

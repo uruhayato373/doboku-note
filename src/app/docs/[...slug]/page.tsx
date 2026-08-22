@@ -7,6 +7,7 @@ import { getAllComponents } from '@/lib/component-loader';
 import { getCategoryLabel } from '@/lib/categories';
 import { classifyDoc, getGroupLabel, isCareerDoc } from '@/lib/doc-classifier';
 import { Metadata } from 'next';
+import { normalizeMetaDescription } from '@/lib/metadata';
 import { getOgpImageUrl } from '@/lib/r2-image-loader';
 import StructuredData from '@/components/seo/StructuredData';
 import remarkMath from 'remark-math';
@@ -31,6 +32,7 @@ import { getMagazine, buildMagazineUrl, type NoteMagazine } from '@/lib/note-mag
 import MagazineTopBanner from '@/components/ui/MagazineTopBanner';
 import MetaRow from '@/components/ui/MetaRow/MetaRow';
 import ArticleFooter from '@/components/ui/ArticleFooter/ArticleFooter';
+import TableOfContents from '@/components/ui/TableOfContents';
 import ArticleSidebar from '@/components/ui/ArticleSidebar/ArticleSidebar';
 import MidArticleCta from '@/components/ui/MidArticleCta/MidArticleCta';
 import CareerAffiliate from '@/components/ui/CareerAffiliate/CareerAffiliate';
@@ -196,7 +198,7 @@ export async function generateMetadata({
   // H1 と同じ自然な title に揃え、検索 <title> とソーシャルカードの役割を分離する。
   const ogTitle = doc.meta.title;
 
-  const description = doc.meta.description || doc.meta.title;
+  const description = normalizeMetaDescription(doc.meta.description || doc.meta.title);
 
   const publishedTime = toISOStringSafe(doc.meta.publishedAt);
   const modifiedTime = toISOStringSafe(
@@ -330,6 +332,13 @@ export default async function DocPage({
     doc.meta.toc_min_heading_level ?? 2,
     doc.meta.toc_max_heading_level ?? 3,
   );
+  // 年度別過去問は見出しが問番号の羅列になるため通常 TOC を出さない。
+  // secondary でも解説・ガイド記事は長文になるため、slug で年度別問題だけを除外する。
+  const isQuestionSeries =
+    docGroup === 'pastExam' ||
+    docGroup === 'primary' ||
+    (docGroup === 'secondary' && /-secondary-(r|h)\d+(?:-|$)/i.test(slugStr));
+  const showTableOfContents = !isQuestionSeries && headings.some((h) => h.level === 2);
 
   // 記事内（本文中間）CTA。**記事長に応じて 1〜3 枠**を h2 境界に挿入する（2026-07-28 に
   // 1 枠固定から拡張）。1 枠だと長文記事で note と転職カードが枠を奪い合い、どちらかが
@@ -390,15 +399,15 @@ export default async function DocPage({
       ));
     }
   }
-  // 2) 転職ネイティブカード（1 記事 1 枚まで＝広告密度を抑える）
+  // 2) 関連記事。長文記事では収益 CTA に枠を使い切らず、サイト内回遊を最低 1 枠確保する。
+  if (midEnabled) {
+    const relatedTop = rankRelated(doc.meta, categoryArticles, 1)[0];
+    if (relatedTop) midRenderers.push(() => <MidArticleCta mode="related" doc={relatedTop} />);
+  }
+  // 3) 転職ネイティブカード（1 記事 1 枚まで＝広告密度を抑える）
   if (careerMidCard) {
     const card = careerMidCard;
     midRenderers.push(() => <MidArticleCta mode="career" card={card} />);
-  }
-  // 3) 関連記事（枠が余ったときの回遊導線）
-  if (midEnabled && midRenderers.length < midSlotCapacity) {
-    const relatedTop = rankRelated(doc.meta, categoryArticles, 1)[0];
-    if (relatedTop) midRenderers.push(() => <MidArticleCta mode="related" doc={relatedTop} />);
   }
 
   // 実際に使う枠数＝用意できた中身と容量の小さい方。
@@ -462,6 +471,7 @@ export default async function DocPage({
               categoryArticles={categoryArticles}
               hasCategoryNavCard={hasCategoryNavCard}
               showPillarNav={showPillarNav}
+              showTableOfContents={showTableOfContents}
             />
           }
         >
@@ -479,6 +489,11 @@ export default async function DocPage({
                 publishedAt={doc.meta.publishedAt || doc.meta.created}
                 updatedAt={doc.meta.updatedAt || doc.meta.dateModified}
               />
+              {showTableOfContents && (
+                <div className="mb-6 zenn-desktop:hidden">
+                  <TableOfContents headings={headings} variant="mobile" />
+                </div>
+              )}
               {/* 記事冒頭 CTA（二次系高 intent ページのみ・1 行テキスト）。未公開は topMagazine=null で非表示 */}
               {topSlot && topMagazine && (
                 <MagazineTopBanner

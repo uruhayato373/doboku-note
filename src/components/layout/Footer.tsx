@@ -2,7 +2,7 @@ import Link from "next/link";
 import categoriesData from "@/config/categories.json";
 import { CategoryDef } from "@/lib/categories";
 
-const categories = categoriesData as CategoryDef[];
+const categories = (categoriesData as CategoryDef[]).filter((category) => category.visible !== false);
 
 export default function Footer() {
   return (
@@ -28,7 +28,7 @@ export default function Footer() {
                 <li key={cat.slug}>
                   <Link
                     href={`/category/${cat.slug}`}
-                    className="text-[var(--ink-body)] hover:text-[var(--accent)] transition-colors"
+                    className="inline-flex min-h-11 items-center text-[var(--ink-body)] hover:text-[var(--accent)] transition-colors"
                   >
                     {cat.label}
                   </Link>
@@ -42,22 +42,22 @@ export default function Footer() {
             <div className="font-mono text-[10px] uppercase tracking-widest text-[var(--ink-muted)] mb-3">Site</div>
             <ul className="space-y-2">
               <li>
-                <Link href="/about" className="text-[var(--ink-body)] hover:text-[var(--accent)] transition-colors">
+                <Link href="/about" className="inline-flex min-h-11 items-center text-[var(--ink-body)] hover:text-[var(--accent)] transition-colors">
                   About
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="text-[var(--ink-body)] hover:text-[var(--accent)] transition-colors">
+                <Link href="/privacy" className="inline-flex min-h-11 items-center text-[var(--ink-body)] hover:text-[var(--accent)] transition-colors">
                   Privacy
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="text-[var(--ink-body)] hover:text-[var(--accent)] transition-colors">
+                <Link href="/terms" className="inline-flex min-h-11 items-center text-[var(--ink-body)] hover:text-[var(--accent)] transition-colors">
                   Terms
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-[var(--ink-body)] hover:text-[var(--accent)] transition-colors">
+                <Link href="/contact" className="inline-flex min-h-11 items-center text-[var(--ink-body)] hover:text-[var(--accent)] transition-colors">
                   Contact
                 </Link>
               </li>

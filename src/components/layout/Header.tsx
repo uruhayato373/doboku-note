@@ -162,14 +162,14 @@ export default function Header() {
             <div className="flex items-center gap-2 md:hidden">
               <Link
                 href="/search"
-                className="focus-ring p-2 rounded-card-inline hover:bg-[var(--accent-fill)] transition-colors"
+                className="focus-ring flex min-h-11 min-w-11 items-center justify-center rounded-card-inline hover:bg-[var(--accent-fill)] transition-colors"
                 aria-label="検索"
               >
                 <Search className="w-6 h-6 text-[var(--ink-body)]" />
               </Link>
               <button
                 onClick={toggleMenu}
-                className="focus-ring p-2 rounded-card-inline hover:bg-[var(--accent-fill)] transition-colors"
+                className="focus-ring flex min-h-11 min-w-11 items-center justify-center rounded-card-inline hover:bg-[var(--accent-fill)] transition-colors"
                 aria-label="メニューを開く"
                 aria-expanded={isMenuOpen}
                 aria-haspopup="true"
@@ -263,7 +263,7 @@ export default function Header() {
           {/* 閉じるボタン */}
           <button
             onClick={closeMenu}
-            className="focus-ring absolute top-4 right-4 p-2 rounded-card-inline hover:bg-[var(--accent-fill)] text-[var(--ink-body)]"
+            className="focus-ring absolute top-4 right-4 flex min-h-11 min-w-11 items-center justify-center rounded-card-inline hover:bg-[var(--accent-fill)] text-[var(--ink-body)]"
             aria-label="メニューを閉じる"
           >
             <X className="w-6 h-6" />
@@ -275,7 +275,7 @@ export default function Header() {
             <Link
               href="/search"
               onClick={closeMenu}
-              className="focus-ring flex items-center gap-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2.5 rounded-card-inline transition-colors"
+              className="focus-ring flex min-h-11 items-center gap-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2.5 rounded-card-inline transition-colors"
             >
               <Search className="w-5 h-5" />
               <span className="font-medium">検索</span>
@@ -286,7 +286,7 @@ export default function Header() {
                 key={cat.slug}
                 href={`/category/${cat.slug}`}
                 onClick={closeMenu}
-                className="focus-ring flex items-center gap-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2.5 rounded-card-inline transition-colors"
+                className="focus-ring flex min-h-11 items-center gap-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2.5 rounded-card-inline transition-colors"
               >
                 <CategoryIcon variant={cat.variant} />
                 <span className="font-medium">{cat.label}</span>
@@ -297,7 +297,7 @@ export default function Header() {
             <Link
               href="/links"
               onClick={closeMenu}
-              className="focus-ring flex items-center gap-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2.5 rounded-card-inline transition-colors"
+              className="focus-ring flex min-h-11 items-center gap-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2.5 rounded-card-inline transition-colors"
             >
               <Layers className="w-5 h-5" />
               <span className="font-medium">教材</span>
@@ -307,7 +307,7 @@ export default function Header() {
             <Link
               href="/about"
               onClick={closeMenu}
-              className="focus-ring flex items-center gap-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2.5 rounded-card-inline transition-colors"
+              className="focus-ring flex min-h-11 items-center gap-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2.5 rounded-card-inline transition-colors"
             >
               <User className="w-5 h-5" />
               <span className="font-medium">About</span>

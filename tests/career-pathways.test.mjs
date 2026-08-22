@@ -141,6 +141,14 @@ test('career_need_select は送信側と取得側の両方に配線されてい�
   assert.ok(picker.includes('data-cta-placement="career-hub"'), 'CareerNeedPicker が placement を出していない');
 });
 
+test('internal_nav_click は送信側と定期取得側の両方に配線されている', () => {
+  const provider = read('src/components/providers/AnalyticsProvider.tsx');
+  assert.ok(provider.includes('nav: "internal_nav_click"'), 'AnalyticsProvider が internal_nav_click を送っていない');
+
+  const fetcher = read('.claude/scripts/fetch-ga4-cta-clicks.mjs');
+  assert.ok(fetcher.includes('"internal_nav_click"'), 'fetch-ga4-cta-clicks が internal_nav_click を取得していない');
+});
+
 test('MDX コンポーネントは本体・loader 登録・使用の 3 点がそろう', () => {
   // 登録漏れは本番 build でだけ落ちる（dev では気づけない）。
   const loader = read('src/lib/component-loader/index.ts');

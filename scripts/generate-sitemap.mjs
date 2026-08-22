@@ -8,6 +8,12 @@ const SITE_URL = 'https://doboku-note.com';
 const OUT_DIR = 'out';
 const POSTS_DIR = SITE_CONTENT_ROOT;
 const REDIRECTS_FILE = join('public', '_redirects');
+const CATEGORIES_FILE = join('src', 'config', 'categories.json');
+const HIDDEN_CATEGORY_PATHS = new Set(
+  JSON.parse(readFileSync(CATEGORIES_FILE, 'utf8'))
+    .filter((category) => category.visible === false)
+    .map((category) => `/category/${category.slug}`),
+);
 
 // ---- _redirects から 301 ソース側の /docs/{slug} を抽出 -------------
 // Cloudflare Pages は物理ファイルを _redirects より優先するため、
@@ -107,6 +113,10 @@ function getUrlMeta(urlPath, slug) {
   }
   if (urlPath === '/about' || urlPath === '/privacy' || urlPath === '/terms' || urlPath === '/contact') {
     return { priority: '0.3', changefreq: 'yearly' };
+  }
+  // visible:false の運用カテゴリ。カテゴリ自体は direct URL で残すが、検索入口にはしない。
+  if (HIDDEN_CATEGORY_PATHS.has(urlPath)) {
+    return null;
   }
   if (urlPath.startsWith('/category/')) {
     return { priority: '0.9', changefreq: 'weekly' };

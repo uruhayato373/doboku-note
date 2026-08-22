@@ -41,6 +41,8 @@ const EVENT_NAMES = [
   "affiliate_cta_click",
   "affiliate_cta_impression",
   "note_article_click",
+  // サイト内回遊（カテゴリ目次・関連記事・次のステップ）。アクセス改善の主要評価指標。
+  "internal_nav_click",
   // キャリア hub / 診断ツールで読者が悩みを選んだイベント（2026-08-21 新設）。
   // これが無いと hub→柱 の遷移が測れず Phase 06 の評価が成立しない。
   "career_need_select",

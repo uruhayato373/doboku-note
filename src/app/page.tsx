@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import PageShell from "@/components/layout/PageShell";
-import { Hero, ExamCards, LatestArticles, AboutSection, PremiumNoteHero } from "@/components/home";
+import { Hero, ExamCards, LatestArticles, RecentUpdatesStrip, AboutSection, PremiumNoteHero } from "@/components/home";
 import type { LatestArticle } from "@/components/home";
 import { getDocsMetaByCategory, getAllDocsMeta, type DocMeta } from "@/lib/docs";
 import { getOgpImageUrl } from "@/lib/r2-image-loader";
@@ -142,6 +142,7 @@ export default async function HomePage() {
   return (
     <PageShell variant="default">
       <Hero />
+      <RecentUpdatesStrip articles={latest.slice(0, 2)} />
       <ExamCards exams={exams} />
       <LatestArticles articles={latest} />
       <AboutSection />

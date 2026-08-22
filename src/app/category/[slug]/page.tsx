@@ -23,6 +23,7 @@ import AuthorSidebarCard from '@/components/ui/AuthorSidebarCard';
 import { resolveHubCta } from '@/lib/hub-cta';
 import SidebarAdBanner from '@/components/ui/SidebarAdBanner';
 import { resolveCategoryCareerAds } from '@/config/affiliate-creatives';
+import CategoryJumpNav from '@/components/category/CategoryJumpNav';
 
 export async function generateStaticParams() {
   const categories = getAllCategories();
@@ -51,6 +52,8 @@ export async function generateMetadata({
     title: cat.label,
     description: cat.description ?? cat.subtitle,
     path: `/category/${slug}`,
+    // ナビから非表示の運用カテゴリは検索入口にせず、掲載記事の follow だけ維持する。
+    noindex: cat.visible === false,
   });
 }
 
@@ -161,6 +164,17 @@ export default async function CategoryPage({
               </h1>
               <p className="text-[15px] leading-[1.8] text-[var(--ink-body)] max-w-[60ch]">{cat.subtitle}</p>
             </div>
+            <CategoryJumpNav category={slug} />
+            {slug === 'reference-materials' && (
+              <section className="border-b border-[var(--rule-soft)] py-6" aria-labelledby="reference-materials-about">
+                <h2 id="reference-materials-about" className="font-serif text-[20px] font-bold text-[var(--ink)]">
+                  公的資料を実務判断に使いやすく整理
+                </h2>
+                <p className="mt-2 max-w-[65ch] text-[14px] leading-[1.9] text-[var(--ink-body)]">
+                  国土交通省・地方整備局・自治体が公開する設計便覧や土木工事共通仕様書から、設計・施工時に確認しやすい規定を資料別に整理しています。原典の代替ではなく、該当箇所を探すための索引として利用し、最終判断では各発注機関が公開する最新版の原文と適用条件を確認してください。
+                </p>
+              </section>
+            )}
             <div className="pt-8 text-[17px] leading-[1.9]">
           {/* よく読まれている記事 特集（GA4 上位 top3・グループ別セクションの上）。データ無しなら描画されない。 */}
           {popularDocs.length > 0 && (

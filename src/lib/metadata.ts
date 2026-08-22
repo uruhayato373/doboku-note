@@ -3,6 +3,19 @@ import type { Metadata } from "next";
 const SITE_URL = "https://doboku-note.com";
 const DEFAULT_OG_IMAGE = `${SITE_URL}/images/og-default.png`;
 const DEFAULT_OG_ALT = "doboku-note - 土木系資格試験 専門技術ノート";
+const META_DESCRIPTION_MAX = 160;
+
+/** 検索スニペット用の description を意味の切れ目で 160 字以内に収める。 */
+export function normalizeMetaDescription(description: string): string {
+  const compact = description.replace(/\s+/g, " ").trim();
+  if (compact.length <= META_DESCRIPTION_MAX) return compact;
+
+  const limit = META_DESCRIPTION_MAX - 1;
+  const prefix = compact.slice(0, limit);
+  const sentenceEnd = Math.max(prefix.lastIndexOf("。"), prefix.lastIndexOf("！"), prefix.lastIndexOf("？"));
+  if (sentenceEnd >= 80) return prefix.slice(0, sentenceEnd + 1);
+  return `${prefix.trimEnd()}…`;
+}
 
 /**
  * ページ自己参照メタデータの生成ヘルパー。
@@ -30,15 +43,16 @@ export function buildPageMetadata({
   noindex?: boolean;
   absoluteTitle?: boolean;
 }): Metadata {
+  const normalizedDescription = description !== undefined ? normalizeMetaDescription(description) : undefined;
   return {
     title: absoluteTitle ? { absolute: title } : title,
-    ...(description !== undefined ? { description } : {}),
+    ...(normalizedDescription !== undefined ? { description: normalizedDescription } : {}),
     ...(noindex ? { robots: { index: false, follow: true } } : {}),
     alternates: { canonical: path },
     openGraph: {
       url: path,
       title,
-      ...(description !== undefined ? { description } : {}),
+      ...(normalizedDescription !== undefined ? { description: normalizedDescription } : {}),
       images: [
         { url: DEFAULT_OG_IMAGE, width: 1200, height: 630, alt: DEFAULT_OG_ALT },
       ],
@@ -121,4 +135,3 @@ export const getCommonSeoData = () => ({
   },
   // GSC所有権確認はDNS認証で完了済み
 });
-
