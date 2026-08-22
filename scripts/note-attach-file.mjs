@@ -45,23 +45,7 @@ if (!NOTE || !FILE) { console.error('--note <key> --file <pdf> required'); proce
 // 他コンテンツ型（例: 直前暗記ノート）は --boundary-regex で上書き（note-publish の paidBoundary と対応）。
 const BOUNDARY = getArg('--boundary-regex') || '試験問題|予想問題';
 const fileAbs = FILE.startsWith('/') || /^[A-Za-z]:/.test(FILE) ? FILE : join(ROOT, FILE);
-// 配布 PDF は DN-0111 Phase 4-D で private R2 へ退避した（Git 追跡外）。新規 clone や
-// 別 PC では実体が無いので、退避台帳に載っていれば取りに行ってから添付する。
-// **取れなければ添付しない**（外部＝note へ書き込む前に止める・fail-closed）。
-if (!existsSync(fileAbs)) {
-  const { loadManifest } = await import('./lib/asset-storage.mjs');
-  const { relative: relPath, sep: pathSep } = await import('node:path');
-  const rel = relPath(ROOT, fileAbs).split(pathSep).join('/');
-  const entry = loadManifest().entries?.[rel];
-  if (!entry) { console.error('file not found: ' + fileAbs + '（退避台帳にも無い）'); process.exit(1); }
-  console.log('[prep] ローカルに無いので R2 から取り寄せる: ' + rel);
-  const { spawnSync } = await import('node:child_process');
-  const r = spawnSync(process.execPath, ['scripts/asset-hydrate.mjs', '--path', rel], { cwd: ROOT, stdio: 'inherit' });
-  if (r.status !== 0 || !existsSync(fileAbs)) {
-    console.error('hydrate に失敗した。note へは何も書かずに止める: ' + rel);
-    process.exit(1);
-  }
-}
+if (!existsSync(fileAbs)) { console.error('file not found: ' + fileAbs); process.exit(1); }
 console.log(`[prep] note=${NOTE} file=${fileAbs} mode=${COMMIT ? 'COMMIT' : 'PROBE'}`);
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

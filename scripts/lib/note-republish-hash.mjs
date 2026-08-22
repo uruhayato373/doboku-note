@@ -118,42 +118,6 @@ export function metaHash(raw) {
 const PDF_RE = /\.pdf$/i;
 const COVER_RE = /^cover\.(png|jpe?g|webp)$/i;
 
-/**
- * 退避台帳（DN-0111）。カバー PNG と配布 PDF は R2 へ出して Git 追跡から外したので、
- * ディスクを読むだけだと **実体が無いマシンで全記事が偽ドリフト**になる
- * （readdir に出ない＝ハッシュの材料が減る／read できない＝MISSING になる）。
- *
- * 台帳の sha256 は同じバイト列から採ったものなので、先頭 16 桁は
- * ローカルで計算した値と**必ず一致する**。差し替えてもハッシュは動かない。
- * asset-storage.mjs を import せず JSON を直読みするのは、この lib が
- * pre-commit の軽い経路からも呼ばれるため。
- */
-const OFFLOADED = (() => {
-  const map = new Map();
-  try {
-    const raw = JSON.parse(readFileSync('.claude/state/assets/manifest.json', 'utf8'));
-    for (const [logical, e] of Object.entries(raw.entries || {})) {
-      if (e.sha256) map.set(logical, e.sha256);
-    }
-  } catch { /* 台帳が無い環境では従来どおりディスクだけを見る */ }
-  return map;
-})();
-
-const norm = (p) => String(p).replaceAll('\\', '/').replace(/^\.\//, '');
-
-/** dir 直下のファイル名を「ディスク ∪ 退避台帳」で列挙する。 */
-function namesIn(dir, diskNames) {
-  const d = norm(dir).replace(/\/$/, '') + '/';
-  const out = new Set(diskNames);
-  for (const key of OFFLOADED.keys()) {
-    if (!key.startsWith(d)) continue;
-    const rest = key.slice(d.length);
-    if (rest.includes('/')) continue;
-    out.add(rest);
-  }
-  return [...out].sort();
-}
-
 /** 本文から参照されている画像の相対パス（![](...) と <img src="...">・外部 URL は除く）。 */
 export function referencedImages(raw) {
   const body = String(raw).replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, '');
@@ -169,11 +133,8 @@ export function assetHash(articlePath) {
   const dir = dirname(key);
   const parts = [];
   const add = (label, abs) => {
-    try { parts.push(`${label}:${createHash('sha256').update(readFileSync(abs)).digest('hex').slice(0, 16)}`); return; }
-    catch { /* ローカルに無い。退避済みかを見る */ }
-    const sha = OFFLOADED.get(norm(abs));
-    if (sha) { parts.push(`${label}:${sha.slice(0, 16)}`); return; }
-    parts.push(`${label}:MISSING`); // 参照しているのに手元にも台帳にも無い＝それ自体ドリフト
+    try { parts.push(`${label}:${createHash('sha256').update(readFileSync(abs)).digest('hex').slice(0, 16)}`); }
+    catch { parts.push(`${label}:MISSING`); } // 参照しているのにファイルが無い＝それ自体ドリフト
   };
   // 1. 本文が参照している画像
   try {
@@ -184,9 +145,8 @@ export function assetHash(articlePath) {
   // 2. PDF（記事 dir 直下と dir/pdf）と 3. カバー（img/）
   for (const sub of ['', 'pdf', 'img']) {
     const d = sub ? `${dir}/${sub}` : dir;
-    // dir ごと退避されていることがあるので existsSync では弾かない（namesIn が台帳から拾う）
-    let disk = []; try { disk = readdirSync(d); } catch { /* dir ごと退避されている場合がある */ }
-    const names = namesIn(d, disk);
+    if (!existsSync(d)) continue;
+    let names; try { names = readdirSync(d).sort(); } catch { continue; }
     for (const n of names) {
       const isPdf = PDF_RE.test(n);
       const isCover = sub === 'img' && COVER_RE.test(n);

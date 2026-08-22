@@ -11,12 +11,15 @@ noteId: "n72925ed2a3e5"
 notePublishedAt: "2026-07-23"
 coverTitle: ["1級土木 施工経験記述", "高速道路 路体・路床盛土", "5管理 完成答案"]
 cover:
-  variant: crop-safe-v4
-  leadIn: "1級土木 経験記述｜路体・路床盛土"
-  headline: "高速道路"
-  hi: "5管理"
-  hiSuffix: "完成答案"
-  benefit: "書き換えてそのまま使える"
+  leadIn: "1級土木施工管理技士 二次"
+  hi: "高速道路"
+  hiSuffix: "路体・路床盛土"
+  banner: "大規模盛土×大型機械×品質基準"
+  meta: "有料マガジン"
+  chips:
+    - { icon: doc, text: "完成答案" }
+    - { icon: edit, text: "置換ガイド" }
+    - { icon: check, text: "5管理一覧" }
 ---
 # 1級土木 施工経験記述｜高速道路 路体・路床盛土（5管理 完成答案）
 

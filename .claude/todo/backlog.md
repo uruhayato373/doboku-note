@@ -187,6 +187,133 @@ Playwrightのprofile/Cookie/storageState/login/statusをCIへ持ち込まず、D
 greenを確認してから次Phaseへ進んでください。外部状態を変えるPhaseの直前で必ず停止してください。
 ```
 
+### [DN-0111] Gitリポジトリ軽量化とR2アセット保管・復元基盤
+タグ: [インフラ・計測] [種類:不具合] [Codex候補] [実行:対話] [起票:2026-08-21] [期日:2026-09-30]
+
+2026-08-21の実査で、`.git`は約16.9GB、到達可能なpackは12.58GiB、現在のHEADは4.15GiB（うち`content/` 3.90GiB）だった。原稿・設定のSSOTと、再生成可能なカバー、投稿用PNG、添付PDF、教材ページ画像が同じGit履歴に混在している。特にnoteカバー生成器は同じ描画結果を`cover.svg`と`cover.png`の両方へ出し、SVG内に背景PNGをBase64埋込みするため、827 SVG=1,288.6MiB、827 PNG=724.6MiBを追跡している。ほかにnote PDF 586件=273.0MiB、Instagram PNG 1,997件=234.7MiB、教材ページ画像303件=269.5MiBが現HEADにある。
+
+教材ページ画像は公開リポジトリに追跡され、`textbook-pdf-archive.md`の「著作権物は公開バケット／公開Gitへ置かない」という原則と衝突している。単なるディスク節約ではなく、**原本と生成物の境界・公開範囲・複数PCでの復元契約を直す不具合修正**として扱う。
+
+**目標構成**:
+
+| 種別 | Gitに残すもの | 保存先／復元方法 |
+|---|---|---|
+| 記事・SNS原本 | Markdown/MDX、frontmatter、hashtags、`slide-data.json`、台本、caption、status | GitをSSOTに維持 |
+| 真のベクター図版 | Base64 rasterを含まない編集可能SVG | GitをSSOTに維持 |
+| noteカバーSVG | 何も残さない。必要時は一時生成 | `.tmp/`へ生成しGit非追跡。R2にも保存しない |
+| noteカバーPNG | frontmatterのcover仕様を原本とする | 公開済み=公開R2、draft/未公開=private R2。ローカルcache→R2→再生成の順で取得 |
+| note添付PDF | 生成spec・商品ID・manifest | private R2。note添付時だけcacheへhydrate |
+| SNSレンダーPNG/動画/音声 | slide/script/caption/status | 投稿済み=公開またはarchive R2、未投稿=private R2／制作中cache |
+| 教材PDF・ページ画像 | 変換メタ・出典・manifest | `doboku-note-archive` private R2のみ。資格／書名単位でhydrate |
+
+**R2キー案**:
+
+- 公開`doboku-note`: `note/covers/{productId}/{sha256}.png`、`sns/rendered/{channel}/{packId}/{sha256}.{ext}`、既存`posts/**`
+- 非公開`doboku-note-archive`: `note/drafts/**`、`note/delivery-pdf/**`、`textbook/**`、`sns/work/**`、`build-artifacts/**`
+- Git追跡manifestは秘密値を持たず、`logicalPath`、`bucket`、`r2Key`、`sha256`、`bytes`、`mime`、`visibility`、`regenerable`、`generator`、`requiredBy`だけを記録する。R2 credential、署名URL、Cookie、ローカル絶対パスは記録しない
+
+**Phase 0 — ベースライン固定・分類（read-only）**:
+
+1. `scripts/audit-repository-assets.mjs`を追加し、HEADの拡張子／ディレクトリ別容量、Git履歴の到達可能blob、上位blob、Base64画像入りSVG、追跡済み生成物をJSON＋Markdownへ出す
+2. 現在値（HEAD 4.15GiB、pack 12.58GiB、garbage 171.48MiB）をfixture化し、以後は増減deltaを表示する。ワークツリー容量とGit履歴容量を混同しない
+3. 各候補を`KEEP_GIT / R2_PUBLIC / R2_PRIVATE / REGENERATE / REVIEW`に分類し、再生成入力、利用スクリプト、公開範囲、最終参照日を付ける
+4. `git ls-files`と実ファイルの差、すでにignore済みだが過去から追跡中のファイル、同一blob重複を分けて報告する。同一blobのワークツリー重複をGit pack削減量として二重計上しない
+
+**Phase 1 — これ以上増やさない機械ゲート**:
+
+1. `scripts/check-git-binary-policy.mjs`と`.claude/config/git-binary-policy.json`を追加し、まず既存件数をbaselineにしたラチェットとしてCIへ入れる
+2. `data:image/*;base64`を含む生成SVG、`mp4`、`wav`、生成EPUB、教材PDF／ページ画像の新規Git追跡をFAILにする。フォント、真正SVG、必要な小型画像は理由付きallowlistに限定する
+3. PNG/JPEG/PDF/SVGのサイズ閾値と総量budgetを設定し、新規巨大blob・同一原本からの二重生成・拡張子偽装を検査する
+4. `quality:audit:ci`、pre-commit、Pre-mergeへ配線し、Job Summaryにパス、サイズ、違反理由、正しい保存先を出す。既存違反を一度に全FAIL化せず、Phase 4完了後にbaselineを0へ締める
+
+**Phase 2 — noteカバーをパイロット移行**:
+
+1. `generate-note-covers.mjs`は既定でPNGだけを出力し、SVGが必要なデバッグ時だけ`.tmp/note-covers/`へ出す。`content/note/**/img/cover*.svg`を再生成しない
+2. `note-publish.mjs`、`note-update-cover.mjs`、`note-cover-gallery.mjs`、`note-lint.mjs`、admin画像一覧の参照契約を棚卸しし、SVG依存0をテストで固定する
+3. 公開・有料・下書き・複数article型を含む20記事で、PNG再生成、R2 upload dry-run、manifest、admin表示、note publish dry-runを確認する
+4. SHA-256とbyte数の一致、表示寸法1280×670、目視差分、noteアップロード入力を確認する。1件でも原本不足・表示不一致・再生成非決定性があれば全量移行を止める
+
+**Phase 3 — 共通offload／hydrate基盤**:
+
+1. `scripts/asset-offload.mjs`、`asset-hydrate.mjs`、`check-asset-storage.mjs`を作る。offloadはdry-run既定、R2書込みは`--commit`、ローカル削除／untrackは別gateにする
+2. upload後にR2のHEADまたはchecksumで`sha256`・byte数を再確認し、manifestを一時ファイルへ生成して検証成功後だけ置換する。確認不能なファイルはローカルにもGitにも残す
+3. hydrateは`ローカルcache → R2 → 再生成可能ならgenerator`の順とし、Windows／macOSで同じ相対キーを使う。部分取得（単一article、商品、SNS pack、教材書名）と`--offline`を用意する
+4. cacheは`.local/cache/assets/`等のGit非追跡領域に集約し、最終アクセス時刻と容量上限を持つ。プロキシ不調時は既存cacheを使用し、勝手に空にしない
+5. 公開アセットは`storage.doboku-note.com`、privateはS3 APIだけで扱う。private keyを画面HTML、ログ、manifest、GitHub artifactへ露出しない
+
+**Phase 4 — 対象別の段階移行**:
+
+1. **A: note `cover*.svg`** — generator・参照テストを直し、追跡解除候補827件／1,288.6MiBの正確な一覧をartifact化する。再生成物なのでR2 uploadは不要
+2. **B: note `cover*.png`** — 公開状態でpublic/privateを分け、manifest＋hydrate確認後に827件／724.6MiBを追跡解除する。公開更新前は自動hydrateまたは再生成する
+3. **C: 教材ページ画像** — 303件／269.5MiBをprivate R2へupload・hash照合し、`content/sources/textbook/**/pages/**`をGit非追跡へ戻す。公開リポジトリからの露出を止め、OCR／crop workerは書名単位hydrateを前提にする
+4. **D: note PDF** — 586件／273.0MiBを「公開配布可／有料添付／原典・非公開」に分類し、原則private R2へ退避する。`note-attach-file`等がproductIdからhydrateできることを確認する
+5. **E: Instagram等** — slide-data／台本／caption／statusが揃うpackだけを対象にし、既存`sns-archive-policy`と`upload-sns-r2`を共通基盤へ寄せる。未投稿・再生成不能・状態不明はpurge禁止
+6. 各グループで`候補一覧 → dry-run → ユーザー承認 → R2 upload → hash照合 → 別commitでuntrack`の順を守り、複数グループを一括削除しない
+
+**Phase 5 — 開発・管理・投稿フローの非回帰**:
+
+1. `npm run dev`のサイト代表記事、adminのnote／SNS／教材ギャラリーで、ローカル有・cacheのみ・R2のみ・offlineの4状態をテストする
+2. adminは欠損を壊れた画像にせず、`ローカル／R2／要hydrate／再生成可／欠損`を表示する。privateアセットを公開URLへ変換しない
+3. note／X／Instagram／YouTube／ココナラ／BrainのPlaywrightスクリプトが必要アセットを実行前に解決し、欠損時は外部保存前にfail-closedすることを確認する
+4. Windows会社PCではcache／offline、MacまたはCIではR2取得を実査し、パス区切り、全角ディレクトリ、プロキシ、改行に依存しないことを確認する
+
+**Phase 6 — 現在のHEAD軽量化と複数PC切替**:
+
+1. 全manifestとR2照合がgreenになったグループだけ`git rm --cached`相当で追跡解除する。ローカル実体の削除は別操作とし、R2確認前には行わない
+2. 目標はHEAD 4.15GiB→1.5GiB以下、Base64 raster入り生成SVG 0、新規cloneでbuild／admin／投稿dry-runが成功すること。達成できない場合は残存上位20項目を再分類する
+3. Windows／Macそれぞれで新規`--filter=blob:none` cloneを作り、通常開発、必要アセットの部分hydrate、offline cache、管理画面を確認する。旧cloneは新clone検証完了まで削除しない
+4. 移行手順、端末初期設定、R2取得失敗時の復旧、cache再作成を`asset-storage-policy.md`へ恒久化する
+
+**Phase 7 — Git履歴12.58GiBの整理は別承認**:
+
+1. 通常commitで現HEADを軽くしても過去blobは残るため、remote自体の縮小が必要かを再計測して意思決定する。`git gc`だけで到達可能blobは消えない
+2. 実施する場合は作業凍結、全ref一覧、mirror clone、`git bundle`バックアップ、R2全件hash照合、除去パス一覧、試験rewrite、build／主要履歴／タグ検証、復旧演習を先に行う
+3. `git filter-repo`等による履歴書換えとforce-pushは、影響一覧（全PC再clone、open PR無効化、commit ID変更）と復旧方法を提示し、**ユーザーが明示承認した場合だけ**実行する
+4. 履歴書換えを見送る場合も、Windows／Macはpartial cloneへ切り替え、現HEADと今後の増加を小さく保つ。Git LFSはR2と認証・保管先が二重化し、既存履歴移行にもrewriteが要るため既定案にしない
+
+**停止条件・禁止事項**:
+
+- R2 upload、Git追跡解除、ローカル削除、force-push、履歴書換え、旧clone削除は、各Phaseの候補一覧・容量・hash検証・復旧方法を提示してユーザー承認を得るまで行わない
+- `doboku-note`公開バケットへ教材、購入者限定PDF、未公開商品、draft画像を置かない。`doboku-note-archive`へカスタムドメインを付けない
+- 他セッションのdirty filesをcommit／revertせず、`git reset --hard`、広域`clean`、未検証`--purge-local`を使わない
+- R2 API不調、SHA不一致、manifest重複、generator入力不足、Playwrightアセット欠損、admin表示不成立のいずれかで、そのグループのuntrackを止める
+
+**完了条件**:
+
+- `check-asset-storage`、`check-git-binary-policy`、`quality:audit:ci`、build、admin E2E、主要投稿dry-runがPASS
+- 現HEADが1.5GiB以下、追跡中の生成`cover*.svg`と著作権教材ページ画像が0、Base64 raster入りSVGの新規追加がCIで阻止される
+- Git追跡manifestとR2がsha256／bytesで一致し、public/private誤配置0、Windows／Macの新規partial cloneで必要資産を部分復元できる
+- `npm run dev`、admin、note／SNS投稿がローカル有・R2のみ・offline時に仕様どおり動き、欠損時は外部変更前に停止する
+- 履歴書換えは「実施して再clone完了」または「見送り理由とpartial clone運用を恒久文書化」のどちらかを記録し、恒久ルールをreferenceへ抽出後に本カードを削除する
+
+**Claude Code 実行プロンプト**:
+
+```text
+DN-0111をPhase 0から1 Phaseずつ実行してください。最初にAGENTS.md、
+.claude/todo/backlog.mdのDN-0111、.gitignore、package.json、
+scripts/generate-note-covers.mjs、scripts/note-publish.mjs、
+scripts/note-update-cover.mjs、.claude/scripts/upload-images-to-r2.mjs、
+.claude/scripts/upload-sns-r2.mjs、sns-archive-policy.md、
+textbook-pdf-archive.mdを全文読んでください。
+
+開始前にbranch、origin/develop・origin/mainとの差、dirty files、git count-objects、
+HEADの拡張子／ディレクトリ別容量を確認してください。他セッションの変更をcommit、revert、
+移動しないでください。ワークツリー容量、HEAD容量、Git履歴容量を別の指標として報告してください。
+
+Phase 0ではread-only監査だけを行い、各ファイルをKEEP_GIT / R2_PUBLIC / R2_PRIVATE /
+REGENERATE / REVIEWへ分類してください。Phase 1で増加防止gateを先に入れ、Phase 2では
+20記事だけのnoteカバーパイロットを実施してください。全量移行を一度に行わないでください。
+
+R2 upload、git rm --cached、ローカル削除、force-push、filter-repoは外部状態または
+回復困難な状態を変える操作です。候補一覧、削減見込み、sha256検証、失敗時の復旧方法を
+提示してユーザー承認を得るまで実行しないでください。教材／有料PDF／draftを公開R2へ
+置かず、secret、署名URL、Cookie、絶対パスをGitやログへ書かないでください。
+
+各Phase終了時に、変更ファイル、実測容量、残存違反、実行した検証、Windows/Macへの影響、
+次Phaseの外部変更有無を報告して停止してください。履歴書換えはPhase 0-6とは別承認とし、
+通常commitだけでは12.58GiBの過去packが減らないことを明記してください。
+```
+
 ### [DN-0001] 技術士一次カバーの資格ラベル誤りを note ライブへ反映
 タグ: [収益化] [種類:不具合] [実行:ユーザー] [起票:2026-08-18]
 
@@ -1455,22 +1582,3 @@ seo-fix-planner は audit-only なので適用は人の承認後。
 タグ: [エージェント・SSOT] [種類:意思決定] [実行:対話]
 
 ①`publish-note` SKILL.md の幻 noteId 節にエンジン明示を追記（`note-publish-magazine` の一次ガードは Playwright 系の話・実在ゲート `verify-note-status` は全エンジン共通）②名前の紛らわしさ＝リネーム/統合か相互参照強化かの設計判断（🟣寄り・台帳同期が要る大工事なので費用対効果を要検討）。
-
-### [DN-0116] R2 のうち台帳外の 2 領域を塞ぐ（sns/ の復元経路と content/ の孤児）
-タグ: [インフラ・計測] [種類:不具合] [実行:対話] [起票:2026-08-22]
-
-2026-08-22 に R2 を全量棚卸ししたところ（13,672 件 / 7.22 GiB）、退避台帳 `.claude/state/assets/manifest.json` が管理しているのは 4,668 件 / 5.04 GiB で、残りは別の仕組みが持っているか、誰も持っていなかった。内訳と真実源は `.claude/knowledge/reference/asset-storage-policy.md` §9。うち 2 領域が未処置。
-
-**A: public `sns/` 1,194 件 / 0.96 GiB — 復元経路が無い**
-
-`upload-sns-r2` で reels の wav/mp4 を退避しているが、台帳に載っておらず `check-asset-storage` の監視外。取り戻すのは rclone 手動で、`asset-hydrate` に相当する経路が無い。DN-0111 Phase 4-E の「既存 sns-archive-policy と upload-sns-r2 を共通基盤へ寄せる」が未消化のまま残っている。内容は再生成可能（wav は VOICEVOX + script.txt、mp4 は wav+png）なので緊急性は低いが、「消えても誰も気づかない」状態ではある。
-
-やること: `sns-rendered-media` グループを `.claude/config/asset-storage.json` へ追加し、R2 から読み直して sha256 を台帳へ登録する（教材 PDF 397 件で同じ手順を実施済み）。reels は現在 `ig-rendered-image` の regex から意図的に除外してあるので、その整理も併せて行う。
-
-**B: public `content/` 2,573 件 / 0.48 GiB — 孤児**
-
-2026-03-24 に使っていた旧プレフィックス。リポジトリ全域を検索して参照 0 件だが、`https://storage.doboku-note.com/content/environment/noise-evaluation/general/img/fig-1-1.png` は HTTP 200 で取得できる（実測）。現行の記事画像は `posts/` プレフィックスで、`upload-images-to-r2.mjs` が書き `src/lib/r2-image-loader.ts` が読む。
-
-やること: `posts/` 側に同名・同内容が存在するかを突合してから、`.claude/config/r2-delete-list.txt` にキーを列挙して `R2 Delete Objects`（`r2-delete.yml`・既定 dry-run）を `commit=true` で実行する。**突合せずに消さない** — 2026-07-31 に「リポジトリから消しても R2 に残る」で診断士の書籍スキャン 79 件が発覚した経緯があるので、逆に「R2 にしか無い」ものを巻き込む可能性を先に潰すこと。
-
-**検証**: `npm run check-asset-storage` が両領域を検査対象に含むこと。B は削除後に公開 URL が 404 を返すこと。

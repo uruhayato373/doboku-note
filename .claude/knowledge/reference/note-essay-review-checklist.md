@@ -213,7 +213,7 @@ grep -nc "^> " article.md
 
 各記事（`{persona}/{RXX}/`）に以下が**揃っているか**確認する。マガジン単位の `_cover.png`/`hashtags.txt` とは別に、**記事ごと**に必要：
 
-- `img/cover.png`: `node scripts/generate-note-covers.mjs "{persona}"` で生成（部分一致で当該マガジン配下を一括生成）
+- `img/cover.png`（＋ `cover.svg`）: `node scripts/generate-note-covers.mjs "{persona}"` で生成（部分一致で当該マガジン配下を一括生成）
   - **frontmatter `cover.banner` は短い単一テーマ＋「｜3,000字級フル論文」に留める**。長い銘（例「資源循環 × サプライチェーン強靭化｜…」）は `bannerFontSize` 下限48pxに張り付いて改行が崩れる（河川R08で発生）。完全テーマは `cover.hiSuffix` とタイトルに既出なので重複させない。生成後は cover.png を必ず目視確認
 - `hashtags.txt`: `/note-hashtags` スキルで生成（記事の論点に沿った 80〜90 個・単一行 space 区切り。本文には入れない＝[[feedback_note_prepublish_verify_not_proxy]] の SoT 規約）
 

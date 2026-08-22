@@ -54,17 +54,8 @@ function main() {
   console.log(`[doc-meta] ${files.length} MDX を走査`);
 
   // git log 全体走査で created / dateModified を上書き（frontmatter の値より優先）
-  // git は frontmatter が欠けたときだけの保険。呼ばれなければ履歴に触れない。
-  let _gitDates = null;
-  let gitFallbackCount = 0;
-  const gitFallbackFiles = [];
-  const gitDatesLazy = () => {
-    if (!_gitDates) {
-      console.log('[doc-meta] frontmatter に日付が無いファイルがあるため git-dates を読み込む');
-      _gitDates = loadGitDates();
-    }
-    return _gitDates;
-  };
+  const gitDates = loadGitDates();
+  console.log(`[doc-meta] git-dates: ${gitDates.size} ファイルを解析`);
 
   const docs = {};
   const byCategory = {};
@@ -98,41 +89,19 @@ function main() {
       published: data.published !== false,
     };
 
-    // Date オブジェクトを文字列に変換（JSON シリアライズ対応）。
-    // 日付フィールドは **YYYY-MM-DD** に揃える——gray-matter は YAML の裸の日付を
-    // Date にパースするので、そのまま toISOString() すると
-    // `2026-06-02` が `2026-06-02T00:00:00.000Z` になり、sitemap lastmod と
-    // JSON-LD datePublished の書式が全ページで変わってしまう（2026-08-22 実測）。
-    const DATE_ONLY_KEYS = new Set(['created', 'dateModified', 'publishedAt', 'updatedAt', 'lastRewrittenAt']);
+    // Date オブジェクトを ISO 文字列に変換（JSON シリアライズ対応）
     for (const [key, value] of Object.entries(meta)) {
       if (value instanceof Date) {
-        meta[key] = DATE_ONLY_KEYS.has(key) ? value.toISOString().slice(0, 10) : value.toISOString();
+        meta[key] = value.toISOString();
       }
     }
 
-    // 日付は **frontmatter が真実源**（2026-08-22 に反転）。
-    //
-    // 以前は git log の値で無条件に上書きしていた。frontmatter が誰にも更新されず
-    // 実測 1,117 件中 1,040 件が古びていたためで、診断としては正しかった。だが
-    // **公開 SEO 信号（sitemap lastmod / JSON-LD datePublished）がリポジトリ基盤に依存する**
-    // 副作用が大きすぎた——リネーム・移行・履歴書換えのたびに 1,117 ページの日付が黙って動き
-    // （2026-08-18 の情報アーキテクチャ移行で全 1,084 記事が created まで巻き戻った）、
-    // ビルドが全履歴を要求するので shallow clone も履歴の切り詰めもできなかった。
-    //
-    // 正しい形は「commit 時に frontmatter へ書き、ビルドは frontmatter だけを読む」。
-    // git は **frontmatter が欠けているときだけの保険**で、通常のビルドでは一切呼ばない
-    // （loadGitDates は遅延ロード。呼ばれた件数は最後にサマリへ出す）。
+    // git log 由来の created / dateModified で上書き（frontmatter が古くなっても追随する）
     const relPath = relative(ROOT, filePath);
-    if (!meta.created) meta.created = meta.publishedAt || null;
-    if (!meta.dateModified) meta.dateModified = meta.updatedAt || null;
-    if (!meta.created || !meta.dateModified) {
-      const gd = lookupGitDates(gitDatesLazy(), relPath);
-      if (gd) {
-        if (!meta.created) meta.created = gd.created;
-        if (!meta.dateModified) meta.dateModified = gd.dateModified;
-        gitFallbackCount += 1;
-        gitFallbackFiles.push(relPath);
-      }
+    const gd = lookupGitDates(gitDates, relPath);
+    if (gd) {
+      meta.created = gd.created;
+      meta.dateModified = gd.dateModified;
     }
 
     docs[slug] = meta;
@@ -143,16 +112,6 @@ function main() {
   }
 
   const published = Object.keys(docs).length;
-
-  // 「git を一度も呼ばずに済んだ」ことを可視化する。件数が増えていたら
-  // frontmatter への書き込み（pre-commit）が効いていない合図。
-  if (gitFallbackCount === 0) {
-    console.log('[doc-meta] 日付はすべて frontmatter から解決（git 履歴に触れていない）');
-  } else {
-    console.warn(`[doc-meta] frontmatter に日付が無く git へフォールバックした: ${gitFallbackCount} 件`);
-    for (const f of gitFallbackFiles.slice(0, 10)) console.warn(`    ${f}`);
-    console.warn('    → node .claude/scripts/backfill-mdx-dates.mjs で frontmatter へ書き込むこと');
-  }
 
   // slug 順でソート（決定論的出力）
   const sorted = {};

@@ -34,30 +34,6 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const BASE = join(ROOT, 'content/note');
-
-// 配布 PDF は DN-0111 Phase 4-D で private R2 へ退避し Git 追跡から外した。実体はローカルに
-// 残るが、CI や新規 clone のツリーには無い。ディスクを readdir するだけだと
-// **「本文で約束しているのに実体が無い」が全記事で成立して CI が偽の赤になる**。
-// 退避台帳に sha256 付きで載っているものは「在る」と数える（実体は R2）。
-const MANIFEST_PDFS = (() => {
-  const byDir = new Map();
-  let m;
-  try { m = JSON.parse(readFileSync(join(ROOT, '.claude/state/assets/manifest.json'), 'utf8')); } catch { return byDir; }
-  for (const [logical, e] of Object.entries(m.entries || {})) {
-    if (e.group !== 'note-delivery-pdf' || !e.sha256 || !e.bytes) continue;
-    const abs = join(ROOT, logical);
-    const d = dirname(abs);
-    if (!byDir.has(d)) byDir.set(d, []);
-    byDir.get(d).push(abs);
-  }
-  return byDir;
-})();
-
-/** dir 直下の PDF を「ディスク実体 ∪ 退避台帳」で列挙する。 */
-function pdfsIn(dir) {
-  const disk = existsSync(dir) ? readdirSync(dir).filter((f) => /\.pdf$/i.test(f)).map((f) => join(dir, f)) : [];
-  return [...new Set([...disk, ...(MANIFEST_PDFS.get(dir) || [])])];
-}
 const ALLOW_PATH = join(ROOT, '.claude/config/note-attachments-allow.json');
 
 const argv = process.argv.slice(2);
@@ -96,9 +72,9 @@ const fm = (raw, k) => {
 function expectedPdfs(file) {
   const dir = dirname(file);
   const name = file.split(/[\\/]/).pop();
-  const here = pdfsIn(dir);
+  const here = readdirSync(dir).filter((f) => /\.pdf$/i.test(f)).map((f) => join(dir, f));
   const sub = join(dir, 'pdf');
-  const nested = pdfsIn(sub);
+  const nested = existsSync(sub) ? readdirSync(sub).filter((f) => /\.pdf$/i.test(f)).map((f) => join(sub, f)) : [];
   const type = (name.match(/^article-(.+)\.md$/) || [])[1];
   if (type && TYPE_PDF[type]) {
     const hit = here.find((p) => TYPE_PDF[type].test(p.split(/[\\/]/).pop()));

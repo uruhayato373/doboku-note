@@ -17,8 +17,8 @@
 | バケット | `doboku-note-archive`（プライベート・カスタムドメインなし） |
 | prefix | `textbook/` |
 | キー対応 | `content/sources/textbook/<相対パス>.pdf` ↔ `textbook/<相対パス>.pdf` |
-| git（元PDF） | `.gitignore` で除外。**2026-08-22 に履歴からも除去済み**（389 件）。実体は R2 `doboku-note-archive:textbook/` の 397 件のみ |
-| git（ページ画像・図クロップ） | `.gitignore` で `content/sources/textbook/**/*.{png,jpg,jpeg,webp,pdf}` を除外。実体は private R2、台帳は `.claude/state/assets/manifest.json`（2026-08-21〜） |
+| git（元PDF） | `.gitignore` で `content/sources/textbook/**/*.pdf` を除外（追跡しない） |
+| git（ページ画像） | `content/sources/textbook/<書名>/pages/pageNNN.jpg` は**追跡する**（2026-08-18〜） |
 
 ## rclone リモート設定（この端末に登録済み・再現手順）
 
@@ -56,39 +56,29 @@ rclone ls doboku-r2:doboku-note-archive/textbook | head
 > [!note] 追跡から外れているので commit 不要
 > `content/sources/textbook/**/*.pdf` は `.gitignore` 済み。pull しても `git status` に現れない（作業用に取り出すだけ）。変換で新規PDFを追加した場合も追跡されないので、`rclone copy` で R2 に退避しておく。
 
-> [!warning] 2026-08-22: 102 件は git 履歴が唯一の保管場所だった
-> 履歴書換えの前に突合したところ、履歴上の教材 PDF 389 件のうち **102 件が R2 に無かった**。
-> 2026-07 の退避で取りこぼされていた分で、git 履歴を消していれば失われていた。
-> 取り出して R2 へ上げ、389/389 が揃ったことを確認してから消した。
-> **R2 が唯一の保管場所になったので、このバケットを失うと復元できない。**
+## ページ画像（`pages/`）— 2026-08-18 追加
 
-## ページ画像（`pages/` と `img/`）— 2026-08-21 に R2 運用へ戻した
-
-元 PDF も、そこから展開したページ画像・図クロップも **git では追跡しない**。すべて private R2（`doboku-note-archive`）に置く。
-2026-08-18 にいったん「ページ画像は git 追跡」としたが、HEAD の 571.2 MiB を占めて clone と CI を重くしたため、
-DN-0111 Phase 4-C で 868 件を退避して追跡から外した（2026-08-21）。手順と復元は [asset-storage-policy.md](asset-storage-policy.md)。
+元 PDF は R2 に退避したままだが、**1 PDF ページ = 1 JPEG に展開したページ画像は git で追跡する**（ユーザー決定）。
 
 | 項目 | 値 |
 |---|---|
 | 置き場 | `content/sources/textbook/<書名>/pages/pageNNN.jpg`（3 桁ゼロ埋め） |
 | 生成 | `python .claude/skills/conversion/pdf-to-mdx/scripts/scanned/pdf_to_page_images.py <PDF>` |
 | 方式 | 埋め込み JPEG をそのまま取り出す（再エンコードなし）。1 枚でないページは 200dpi でラスタライズ |
-| 現状 | 退避済み 868 件 / 571.2 MiB（`textbook/**`・sha256 照合済み） |
-| 取り戻す | `npm run asset-hydrate -- --path 'content/sources/textbook/<書名>/'` |
+| 現状 | 主任技師2022 = 192 枚 / 172.5MB、主任技士2024 = 111 枚 / 97.0MB |
 
 **なぜページ画像なのか**: GitHub は 100MB/ファイルを超える push を拒否する（主任技師2022 の PDF は 172.6MB）。
 ページ単位に割れば最大 1.5MB/枚で制限に掛からず、OCR パイプライン（`scanned-textbook-transcriber`）が
 要求する入力形式とも一致する。ただし**総容量は減らない**（分割はバイト数を変えない）。
 
-> [!note] 決着済み（2026-08-21）
-> かつてこの節は「このリポジトリは PUBLIC なので `pages/` を push すると
-> `raw.githubusercontent.com` 経由で全ページが取得可能になる」として push を止めていた。
-> **その前提は誤りだった。** 2026-08-21 に二重確認: `gh repo view --json visibility` → `PRIVATE`、
-> 追跡済みページ画像の raw URL を未認証で GET → `404`。公開露出は無かった。
+> [!warning] 未決: 公開リポジトリのまま push すると全ページが公開される
+> このリポジトリは **PUBLIC**（`uruhayato373/doboku-note`）。`pages/` を push すると
+> `raw.githubusercontent.com` 経由で 303 ページが個別 URL で取得可能になり、git 履歴・fork に恒久的に残る。
+> 冒頭の警告（著作権のあるスキャンは公開露出させない）と正面から衝突する。
 >
-> 一方で**容量の問題は実在した**。HEAD 2.90 GiB のうち 571.2 MiB を占め、clone と CI の checkout を
-> 重くしていた。DN-0111 Phase 4-C で 868 件を private R2 へ退避し追跡から外した（HEAD 2.90 → 2.34 GiB）。
-> **根拠は著作権露出ではなく容量**である点を混同しないこと。
+> **解消の選択肢**: ①リポジトリを private 化する（Cloudflare Pages は private でもデプロイ可）
+> ②`pages/` 専用の private リポジトリへ分離する ③`pages/` の追跡をやめて R2 運用に戻す。
+> **未決の間は `pages/` を含むコミットを push しない**。
 
 ## 関連
 

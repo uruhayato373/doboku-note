@@ -33,10 +33,15 @@ function parseRedirectedDocSlugs() {
   return excluded;
 }
 
-// 2026-08-22: frontmatter を一次にした（git は欠けているときだけの保険）。
-// 理由は generate-sitemap.mjs の resolveLastmod と同じ——git を一次にすると
-// リポジトリ操作のたびに公開日時が動き、ビルドが全履歴を要求する。
-function resolveDate(data, fullPath, gitDatesLazy, key) {
+function resolveDate(data, fullPath, gitDates, key) {
+  if (key === 'modified') {
+    const relPath = relative(process.cwd(), fullPath);
+    const gd = lookupGitDates(gitDates, relPath);
+    if (gd?.dateModified) {
+      const d = new Date(gd.dateModified);
+      if (!isNaN(d.getTime())) return d;
+    }
+  }
   const candidates =
     key === 'published'
       ? [data.publishedAt, data.created, data.dateModified, data.updated]
@@ -46,22 +51,15 @@ function resolveDate(data, fullPath, gitDatesLazy, key) {
     const d = new Date(typeof c === 'string' ? c : String(c));
     if (!isNaN(d.getTime())) return d;
   }
-  if (key === 'modified') {
-    const gd = lookupGitDates(gitDatesLazy(), relative(process.cwd(), fullPath));
-    if (gd?.dateModified) {
-      const d = new Date(gd.dateModified);
-      if (!isNaN(d.getTime())) return d;
-    }
-  }
   return new Date(0);
 }
 
-function walkMdxFiles(dir, gitDatesLazy, segments = [], results = []) {
+function walkMdxFiles(dir, gitDates, segments = [], results = []) {
   if (!existsSync(dir)) return results;
   for (const entry of readdirSync(dir, { withFileTypes: true })) {
     const full = join(dir, entry.name);
     if (entry.isDirectory()) {
-      walkMdxFiles(full, gitDatesLazy, [...segments, entry.name], results);
+      walkMdxFiles(full, gitDates, [...segments, entry.name], results);
       continue;
     }
     if (!entry.isFile() || !entry.name.endsWith('.mdx')) continue;
@@ -83,8 +81,8 @@ function walkMdxFiles(dir, gitDatesLazy, segments = [], results = []) {
       description: data.description || '',
       category: data.category || '',
       tags: Array.isArray(data.tags) ? data.tags : [],
-      pubDate: resolveDate(data, full, gitDatesLazy, 'published'),
-      updatedDate: resolveDate(data, full, gitDatesLazy, 'modified'),
+      pubDate: resolveDate(data, full, gitDates, 'published'),
+      updatedDate: resolveDate(data, full, gitDates, 'modified'),
     });
   }
   return results;
@@ -182,23 +180,10 @@ ${entriesXml}
 if (!existsSync(OUT_DIR)) mkdirSync(OUT_DIR, { recursive: true });
 
 const excludedSlugs = parseRedirectedDocSlugs();
+const gitDates = loadGitDates();
+console.log(`[rss] git-dates: ${gitDates.size} ファイルを解析`);
 
-// git は frontmatter に日付が無いときだけの保険。呼ばれなければ履歴に触れない。
-let _gitDates = null;
-let gitFallbacks = 0;
-const gitDatesLazy = () => {
-  if (!_gitDates) {
-    console.log('[rss] frontmatter に日付が無いファイルがあるため git-dates を読み込む');
-    _gitDates = loadGitDates();
-  }
-  gitFallbacks += 1;
-  return _gitDates;
-};
-
-const allDocs = walkMdxFiles(POSTS_DIR, gitDatesLazy).filter((d) => !excludedSlugs.has(d.slug));
-console.log(gitFallbacks === 0
-  ? '[rss] 日付はすべて frontmatter から解決（git 履歴に触れていない）'
-  : `[rss] frontmatter に日付が無く git へフォールバック: ${gitFallbacks} 件`);
+const allDocs = walkMdxFiles(POSTS_DIR, gitDates).filter((d) => !excludedSlugs.has(d.slug));
 
 // 更新日降順でソートして上位 MAX_ITEMS 件
 allDocs.sort((a, b) => b.updatedDate.getTime() - a.updatedDate.getTime());

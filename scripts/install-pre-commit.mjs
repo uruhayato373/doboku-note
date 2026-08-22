@@ -32,24 +32,6 @@ const HOOK_CONTENT_BODY = `#!/bin/sh
 # Pre-commit hooks
 # Installed by: npm run pre-commit:install
 
-# 記事の dateModified を commit の瞬間に frontmatter へ書く（2026-08-22）。
-#
-# 日付の真実源は frontmatter で、sitemap lastmod / JSON-LD datePublished / RSS が
-# そこから作られる。以前はビルド時に git log から引いていたが、公開 SEO 信号が
-# リポジトリ基盤に依存してしまい、リネーム・移行・履歴書換えのたびに全ページの
-# 日付が黙って動いた（2026-08-18 の情報アーキテクチャ移行で全 1,084 記事が
-# created まで巻き戻った）。ビルドが全履歴を要求する副作用もあった。
-#
-# **このフックが無いと frontmatter はまた古びる**（反転前の実測で 1,117 件中
-# 1,040 件が中央値 49 日ズレていた）。部分 staging のファイルは触らず警告する。
-# 回避は SKIP_MDX_DATES=1。
-if [ "$SKIP_MDX_DATES" != "1" ]; then
-  node .claude/scripts/backfill-mdx-dates.mjs --staged
-  if [ $? -ne 0 ]; then
-    exit 1
-  fi
-fi
-
 # MDX validation
 node scripts/pre-commit-mdx.mjs
 if [ $? -ne 0 ]; then
@@ -109,16 +91,6 @@ fi
 node scripts/check-relative-links.mjs --staged
 if [ $? -ne 0 ]; then
   exit 1
-fi
-
-# Git に何を追跡してよいか（生成物・著作権物・巨大 blob・拡張子偽装・同一原本の二重生成）。
-# HEAD 4.16GiB / remote 11GB でランナーが落ちるところまで来ているので、まず増加を止める。
-# 既存違反は baseline で猶予され、増加だけが FAIL になる。SKIP_GIT_BINARY_POLICY=1 で回避
-if [ -z "$SKIP_GIT_BINARY_POLICY" ]; then
-  node scripts/check-git-binary-policy.mjs --staged
-  if [ $? -ne 0 ]; then
-    exit 1
-  fi
 fi
 
 # 4 領域モデル（docs/content/.claude/実装）への逆戻り検知。廃止した置き場への新規ファイル・

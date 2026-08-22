@@ -1,9 +1,8 @@
 {
   "_doc": "check-gate-parity のラチェット baseline。package.json に定義があるが pre-commit / quality-audit / workflow / SKILL のどこからも呼ばれない検査を、理由付きで記録する。ここに無い新規オーファンは CI が落とす。配線したら該当行を削除する（スクリプトが info で知らせる）。",
-  "_updatedAt": "2026-08-21",
+  "_updatedAt": "2026-08-17",
   "orphans": {
     "audit-figure-text": "図版内テキストの棚卸し。図を大量に作った直後に手で叩く調査ツールで、常時ゲートにすると既存債務で赤になる",
-    "audit-pe-textbook-keyword-coverage": "総監テキストとキーワードの被覆調査。コンテンツ企画時に手で叩く分析ツールで、合否のあるゲートではない",
-    "audit-repo-assets": "リポジトリ肥大化の read-only 監査（DN-0111）。Phase 境界で手動実行して分類と実測を出す調査ツールで、合否のあるゲートではない（増加を止めるゲートは check-git-binary-policy 側）。--history はローカルキャッシュ前提で CI では成立しない"
+    "audit-pe-textbook-keyword-coverage": "総監テキストとキーワードの被覆調査。コンテンツ企画時に手で叩く分析ツールで、合否のあるゲートではない"
   }
 }

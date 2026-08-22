@@ -38,7 +38,6 @@ import { chromium } from 'playwright';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readFileSync, existsSync } from 'node:fs';
-import { ensureLocal } from './lib/asset-storage.mjs';
 import { recordPublishedAssetHash, recordPublishedMetaHash } from './lib/note-republish-hash.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -71,8 +70,7 @@ async function doOne(page, { abs, noteId, pricing, cover }) {
   const tag = abs.split(/[/\\]/).slice(-3).join('/');
   console.log(`\n[article] ${noteId} ${tag} pricing=${pricing}`);
   if (!/^n[0-9a-f]{6,}$/.test(noteId)) { console.error('[skip] noteId不正:', noteId); return false; }
-  // カバーは R2 へ退避してある（DN-0111 Phase 4-B）。無ければ取り寄せ、取れなければ触らない。
-  if (!ensureLocal(cover)) { console.error('[skip] cover.png が手元にも R2 にも無い:', cover); return false; }
+  if (!existsSync(cover)) { console.error('[skip] cover.png無し'); return false; }
   await page.goto(`https://editor.note.com/notes/${noteId}/edit`, { waitUntil: 'domcontentloaded', timeout: 60000 });
   await page.waitForSelector('[contenteditable=true]', { timeout: 30000 }); await sleep(4000);
   // 1. 既存カバーを削除（差し替え方式）
