@@ -7,23 +7,21 @@
 
 | ファイル | 版 | 最終更新 | 位置づけ |
 |---|---|---|---|
-| `01_SNS集客戦略.md` | **v8** | 2026-07-04 | SNS 全体戦略の SSOT。IG を一次制作へ格上げ・YT は IG Reels の二次展開に再定義。X 凍結対応を統合 |
+| `01_SNS集客戦略.md` | **v7** | 2026-05-28 | SNS 全体戦略の SSOT。IG を一次制作へ格上げ・YT は IG Reels の二次展開に再定義。X 凍結対応の追記あり |
 | `02_チャネル動線設計.md` | **v2** | 2026-05-22 | 5チャネル統合ファネル・UTM 設計・季節×チャネル・実装ロードマップの SSOT |
 | `03_多資格SNS展開設計.md` | 実装完了 | 2026-06-02 | 試験軸（総監/1級/2級/建設部門）ディレクトリ・カバー色の多資格対応 |
 | `05_YouTube戦略_技術士総監.md` | v1 | 2026-06-12 | **総監 YT の独立 SSOT**（01 を上書き）。Tier1 Shorts＋Tier2 通常動画 |
 | `05a_YouTube競合分析_技術士総監_2026-06.md` | 定点 | 2026-06 | 競合分析の根拠資料（年次更新で差分比較） |
-| `06_動画コンテンツ運用設計.md` | v1 | 2026-08-21 | **多資格の動画運用SSOT**。動画パック、通常動画を核にした派生、管理画面、KPI、段階実装 |
 | `.claude/knowledge/reference/x-post-policy.md` | — | — | X 投稿規約＋**凍結ガードレール §11**（doc本体より詳細） |
 | `.claude/knowledge/reference/content-angle-policy.md` | v1 | 2026-06-09 | **6切り口**（結論/理由/体験/反論/数字/ハウツー）の SSOT・Red Line 1-5 |
 | `.claude/knowledge/reference/sns-repurpose-policy.md` | — | — | 6切り口のチャネル別適用 |
 | `.claude/knowledge/reference/ig-{carousel-skill,reels-policy,stories-policy,highlight-design-policy,publish-reconcile}.md` | — | — | IG 各コンテンツ型の規約 |
 | `.claude/knowledge/reference/yt-shorts-publisher-policy.md` | — | — | YT Shorts 品質基準（4軸） |
-| `.claude/knowledge/reference/video-content-policy.md` | v1 | 2026-08-21 | 動画パックschema・状態・専用Generator/Evaluator・機械/公開ゲート |
 | `.claude/knowledge/reference/{sns-image-policy,sns-archive-policy,character-asset-policy}.md` | — | — | 画像/退避/マスコットの共通ポリシー |
 | `.claude/knowledge/reference/note-funnel-architecture.md` | v1 | 2026-06-16 | note 導線 3層モデルの SSOT（機械可読は `.claude/config/note-funnel.json`） |
 
 > [!note] 版の注意
-> X凍結運用の詳細は `x-post-policy §11` が真実源。総監のテーマ・Red Lineは05、多資格の動画パック・役割・管理構造は06が真実源であり、両者を混同しない。
+> 01 の H1 は v7 だが本文に X 凍結（2026-06-12）対応の追記が入っている。凍結運用の詳細は `x-post-policy §11` 側が真実源。総監 YT は 01 でなく 05 が独立 SSOT である点を混同しない。
 
 ## 2. チャネル × キャパビリティ 対応表
 
@@ -34,8 +32,7 @@
 | IG ストーリーズ | 進入・双方向 | 随時 | 半手動 | `ig-stories-writer` | `ig-stories-qa` | — |
 | IG ハイライト | follow判断 | 四半期/6種 | 半手動 | `ig-highlight-designer` | `ig-highlight-qa` | ※6種実制作が未整備 |
 | IG 公開 | — | — | — | — | `ig-publish-auditor` | `/ig-reconcile`（時刻衝突は目視） |
-| YT 通常動画 | 検索・信頼・送客 | pilot 4本 | 半手動 | `video-script-writer`（DN-0110で新設） | `video-content-qa`（DN-0110で新設） | `/video-content`（予定）＋人承認 |
-| YT Shorts | TOFU・発見 | 手動投入 | 自動生成＋手動dispatch | ※なし（`/yt-shorts-create`） | `yt-shorts-publisher-qa`／`yt-shorts-title-writer` | 関連通常動画へ接続 |
+| YT Shorts | TOFU・検索 | 総監日3/他週1-2 | 自動(総監cron) | ※なし（`/yt-shorts-create`） | `yt-shorts-publisher-qa`／`yt-shorts-title-writer` | — |
 | X | TOFU・信頼 | 週数本 | 手動（別アカウントで運用再開） | `x-post-writer` | `x-post-qa`／`x-repost-curator` | 旧アカ凍結（2026-06-12）→別アカウントで再開。`/publish-x` は当面手動運用 |
 | note | BOFU・有料 | — | 決定論スクリプト | `note-operator`系 | `note-funnel-auditor`／`note-fact-checker` | 公開後QA役は非設置(設計上) |
 
@@ -45,8 +42,7 @@
 
 - **6切り口 × 試験軸** を直交させ、リソース増設なしで「試験×角度」を量産（`content-angle-policy.md`）。
 - **試験別色トークン**（総監=紺/1級=青/2級=緑）を note cover と SNS 投稿色帯が共用。※コンクリ診断士の色は未割当。
-- **共通スライド基盤** `sns-common/slide-render.mjs`（4:5・9:16 実装／**16:9 未実装**＝DN-0110 Phase 1のブロッカー）。
-- **動画パック基盤** `content/sns/video-packs/` はDN-0110で新設予定。企画・出典・台本・CTAをSSOTにし、公開状態は `.claude/state/`、バイナリはR2へ分離する。
+- **共通スライド基盤** `sns-common/slide-render.mjs`（4:5・9:16 実装／**16:9 未実装**＝YT通常動画のブロッカー）。
 - **マスコット**「doboku-note 先生」を全チャネル統一。
 - **UTM 統一**は実装済（`.claude/config/utm-templates.json`＋`.claude/scripts/lib/utm-builder.mjs`。X/IG=social・YT=video・note=referral、冪等・CLIあり）。**YT 生成スクリプト（yt-shorts-create / per-problem-shorts）の `.replace()` 手書きは `buildUtmUrl()` へ配線済＝sns-config のハードコード utmParams は撤去（2026-07-04）**。X 送客リンクは `check-x-utm`（pre-commit）で utm_source=x/utm_medium=social を強制。
 
@@ -57,11 +53,11 @@
 | インフラ | UTM 統一＝**実装済**（templates＋builder＋YT生成配線完了＋X UTMゲート check-x-utm）。GA4 SNS流入 breakdown＋週次snapshot復旧＋YT公開照合 verify-yt-status も配線済（2026-07-04） | 🟢 |
 | doc整合 | 索引の版ドリフト（CLAUDE.md 索引 v5→v7・v1→v2 是正済）／X 凍結対応は `x-post-policy §11`（§11.6 復帰ゲート新設）に一本化・01 は参照化で解消済 | 🟢 |
 | インフラ | note CTA ライブ反映が月次のみ（新規公開で未反映が再発） | 🟡 |
-| エージェント | 動画マスターのGenerator/Evaluatorが無い。`video-script-writer` / `video-content-qa` の1組だけをDN-0110で新設する | 🟡 |
+| エージェント | **動画 mp4 の品質評価役が無い**（IG Reels・YT Shorts＝台本は採点、完成 mp4 は無評価） | 🟡 |
 | 制作 | IG ハイライト6種の実制作／YT 16:9 テンプレ（0.5–1日）／字幕焼き込み | 🟡🟢 |
 | エージェント | 投稿時刻の衝突自動検出（現状 `ig-publish-auditor` は目視） | 🟢 |
 
-**着手順の推奨**: ①UTM＋SNS計測基盤＝**実装済** → ②DN-0110 Phase 0（動画schema・state・機械ゲート）→ ③16:9＋通常動画4本pilot → ④専用Generator/Evaluator 1組とread-only管理画面 → ⑤実績テーマだけ他資格・Threadsへ拡張。
+**着手順の推奨**: ①UTM＋SNS計測基盤＝**実装済**（builder 配線・GA4 SNS breakdown・週次snapshot復旧・YT公開照合・X UTMゲート、2026-07-04）→ ②note CTA ライブ反映の自動化 → ③動画 mp4 評価エージェントの新設判断 → ④IG ハイライト6種・YT 16:9。
 
 ## 5. 関連台帳・config
 
@@ -82,7 +78,6 @@
 | IG ハイライト | 6種（intro/カルーセル目次/Reelsまとめ/FAQ/お知らせ/教材） | `highlights/NN_*/slide-data.json` | `node .claude/scripts/instagram/build-highlight-materials.mjs`（**専用スキルなし＝node＋agent 運用**） | `ig-highlight-designer` → `ig-highlight-qa` | `ig-highlight-design-policy.md` |
 | IG 予約投稿 | カルーセル/リールの予約 | — | `/publish-ig-bs`（照合`/ig-reconcile`） | — → `ig-publish-auditor` | `ig-publish-reconcile.md` |
 | YT Shorts | 過去問論点Short（総監は全問展開） | `.claude/state/youtube-schedule.json`（台帳・論点タイトル入力済） | `/yt-shorts-create --from-reels`／`per-problem-shorts.mjs`（YT専用再描画） | `yt-shorts-title-writer` → `yt-shorts-publisher-qa` | `yt-shorts-publisher-policy.md`／`yt-shorts-script-policy.md` |
-| 動画パック／YT通常動画 | 悩み直撃解説・思考法・聞き流し・商品導線 | `video-pack.json`＋`script.md`＋`storyboard.json`（DN-0110） | `/video-content`（予定） | `video-script-writer` → `video-content-qa` | `video-content-policy.md`／`06_動画コンテンツ運用設計.md` |
 | X | 過去問クイズ／カウントダウン／体験断片／angle分割 | `content/sns/x/{draft,published}/NNN-*/tweets.md` | `/social-post --platform x`・カード`/create-x-card`・引用RP`/x-repost`・（投稿`/publish-x`＝§11.6 到達まで停止・人手） | `x-post-writer` → `x-post-qa`（引用=`x-repost-curator`） | `x-post-policy.md`（§11＝凍結ガード） |
 | note | 有料マガジン記事／無料ファネル記事 | `article.md`（frontmatter） | `/pe-note-plan`(企画)→執筆→`/note-publish`等 | `note-operator`系 → `note-funnel-auditor`／`note-fact-checker` | `note-funnel-architecture.md`／`note-selling-structures.md` |
 
@@ -96,7 +91,7 @@
 
 競合で伸びている型のうち現行カタログに無いもの。**policy への正式追加は別段（本 PR では surface のみ）**。真実源候補は 07_競合調査 SNS節。
 
-- **聞き流し一問一答**（YouTube の空白型・日建学院で47k再生実測）→ DN-0110の通常動画pilot後に判断。16:9・反復コンテンツ検査が前提。
+- **聞き流し一問一答**（YouTube の空白型・日建学院で47k再生実測）→ YT 通常動画/長尺 Shorts 候補。16:9 テンプレ実装が前提。
 - **合格後キャリア・現場リアル リール**（IG 差別化・現場密着リールがバイラル実績）→ 合格体験者ポジションと接続。Red Line（一次情報は note 有料囲い込み）を守る。
 - **お悩み相談回答**（技術士系 YT/X で定着）→ X リプライ運用（§10）・リールの角度候補。
 

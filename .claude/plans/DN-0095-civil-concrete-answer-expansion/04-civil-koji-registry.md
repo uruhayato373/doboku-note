@@ -198,7 +198,7 @@ updated: 2026-08-20
 
 各記事は、次をすべて満たすまで公開対象にしない。
 
-1. `article.md`、`img/cover.png`、`hashtags.txt` の3点セットがある（`.claude/scripts/check-note-3set.mjs` と同じ定義）。
+1. `article.md`、`img/cover.svg`、`img/cover.png`、`hashtags.txt` の4点セットがある。
 2. `paidBoundary: 品質管理` が実在するH2へ解決する。
 3. 品質・安全・工程・施工計画・環境対策の5管理があり、各管理の設問1・2が級別字数内である。
 4. `keiken-charcount --strict --min-fill`、note lint、note boundary、note hashtags、U+FFFD、本文価格、兄弟記事重複の全ゲートを通過する。

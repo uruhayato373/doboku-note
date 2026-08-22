@@ -25,9 +25,6 @@ npm run admin   # http://127.0.0.1:3021
 | 品質 | `.claude/state/quality/{lint-baseline,history,census}.json`, `src/config/popular-pages.json` | 違反 × 人気の優先度・ルール別・バーンダウン・採点カバレッジ census（読み取り専用） |
 | TODO | `.claude/todo/*.md` | **層（バックログ/週間/月間/年間）は左サイドバーの入れ子**＝行き先、**絞り込み（優先度/種類）は右ペイン**＝属性、という分担。カテゴリ軸は 2026-08-18 に廃止。カード本文は `lib/markdown.ts` の共有レンダラ（ナレッジタブと同一）で HTML 表示。**backlog カードは `DN-####` を持ち、`?id=DN-0001` で 1 枚を強調＋アンカー**。monthly/weekly は本文を複製せず ID 参照ビューで、backlog と join してタイトル・種類・担当を出す（参照切れは赤）。backlog カードには**そのタスクを参照している Project 文書**へのリンクも出る。read-only・編集はカード見出しの VS Code リンク |
 
-> [!note] 動画コンテンツ管理は未実装
-> `DN-0110` で `/content/video` を追加し、動画パック・通常動画・Shorts・IG/X派生・QA・公開・計測をread-onlyでjoinする。現行SNS状態板は `.claude/state/youtube-schedule.json` を動画パック単位では読まない。目標仕様は `docs/marketing/06_動画コンテンツ運用設計.md`、作業契約は `.claude/knowledge/reference/video-content-policy.md` を真実源とする。編集・投稿・任意shell実行UIは追加しない。
-
 ## ルート allowlist
 
 閲覧できるディレクトリは `src/lib/document-roots.ts` の `ROOTS` に列挙した descriptor だけ。

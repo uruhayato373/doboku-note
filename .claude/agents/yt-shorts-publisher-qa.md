@@ -34,14 +34,13 @@ YT 派生用 Generator エージェントは新設しない（既存スキル `y
 3. 参照のため対応 IG Reels パック `content/sns/instagram/{exam}/exam-packs/<year>/pack-NN/` の `slide-data.json` を読む。
 4. 4 軸を 1〜5 で採点する：
 
-   **軸 1: 尺・画角適正**
-   - 現行Shorts成立条件は縦/正方形かつ `durationSeconds` が **≤180秒**。doboku-noteの派生型は30-60秒を推奨（5点）
-   - **180秒超または横長 → 軸1=0点・不合格**。60秒超だけを理由にShort不成立とは判定しない。既定型から外れる場合は明示承認と音源claim有無を確認
+   **軸 1: 尺適正（Short 成立条件）**
+   - `meta.json` の `durationSeconds` が **≤60 秒**（必須）。30-50 秒推奨（5 点）
+   - **60 秒超 → 軸1=0 点・不合格**（YouTube が「通常動画」扱いにし Shorts フィードに乗らない＝実機確認 2026-06-05）
    - 15 秒未満は -2
    - 透かし: `thumbnail.png`/動画に IG 等他社ロゴが無いこと（あれば -2 / policy §6）
 
-   **軸 2: 関連動画・概要欄 UTM 整合**
-   - 対応する通常動画が公開済みなら `relatedVideoId` が一致する。Shorts説明欄の外部URLは非クリックなので、関連動画を主導線とする
+   **軸 2: 概要欄 UTM 整合**
    - `meta.json.description` 内のサイト URL が `utm_source=youtube` を含む
    - `utm_medium=video`（GA4 標準チャネル分類）。旧 `description`/`youtube-shorts` は**非標準で Unassigned 落ちのため不可**（見つけたら -2）。配信形式は `utm_content=shorts`
    - `utm_campaign=exam-pack-<pack-id>` 等パック固有の campaign 値
@@ -77,10 +76,10 @@ YT 派生用 Generator エージェントは新設しない（既存スキル `y
 合否判定（policy 準拠）:
 - **合格**: 平均 4.0 以上 **かつ** 全軸 3 以上
 - **重大減点 / 不合格ゲート**:
-  - 軸 1: **180秒超または横長 → 軸1=0点・不合格**。15秒未満は -2。60秒超は明示承認なしなら減点だがShort不成立とは断定しない
+  - 軸 1: **尺 60 秒超 → 軸1=0 点・不合格**（Short 不成立）。15 秒未満は -2
   - 軸 2: IG 用 UTM（`utm_source=instagram`）混入 → -2
   - 軸 3: タイトル使い回し（他 Short と同一テンプレで論点差が無い）→ -1（policy §2・§6）
-- **予約アップロード済みの場合**: `videos.list(part=status)` で privacyStatus=private + publishAt + duration≤180s + 縦/正方形を実査し、公開後はrelated videoも確認する（policy §7 偽成功検証）。ログのみの完了報告は差し戻し。
+- **予約アップロード済みの場合**: `videos.list(part=status)` で privacyStatus=private + publishAt + duration≤60s を実査（policy §7 偽成功検証）。`upload.js` のログ「公開設定: unlisted」は表示バグ＝実値 private。ログのみの完了報告は差し戻し。
 - 不合格時は指摘事項リストのみ返す（**自分では修正しない**）
 
 ## 担当外

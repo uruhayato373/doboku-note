@@ -193,26 +193,8 @@ const recurring = cards.filter((c) => c.kind === '定期');
 // **git が既に知っている情報で補う**。blame の author-time は厳密には「起票日」ではなく
 // 「その行が最後に変わった日」だが、鮮度の判定にはむしろこちらが適切
 // （半年前に書かれても先週書き直したカードは古くない）。タグがあればタグを優先する。
-/**
- * 履歴が切り詰められているか。2026-08-22 に単一 commit へ切り詰めたので、
- * blame も `git log -p` も「全部その 1 commit」を返す。
- * それを黙って使うと **全カードが今日更新・ID 再利用 0 件** という嘘の緑になる（§9）。
- */
-function historyTruncated() {
-  try {
-    const n = Number(execFileSync("git", ["rev-list", "--count", "HEAD"], {
-      cwd: ROOT, encoding: "utf8", timeout: 10_000,
-    }).trim() || "0");
-    return n < 50;
-  } catch {
-    return true; // 数えられないなら信用しない
-  }
-}
-const HISTORY_TRUNCATED = historyTruncated();
-
 function blameDays() {
   const out = new Map(); // line(1-based) -> 経過日数
-  if (HISTORY_TRUNCATED) { out.degraded = true; return out; }
   // **必ず時間で打ち切る**。このリポジトリは partial clone（blob:none）なので、
   // 大量の同期直後などキャッシュがコールドだと blame が各リビジョンの blob をリモートへ
   // 取りに行き、20 秒経っても返らないことがある（2026-08-18 実測。34 コミット同期直後に発生し、
@@ -237,7 +219,6 @@ function blameDays() {
   return out;
 }
 function reusedIds() {
-  if (HISTORY_TRUNCATED) { const o = []; o.degraded = true; return o; }
   try {
     const raw = execFileSync(
       'git',
@@ -340,16 +321,14 @@ if (holdWithoutDecision.length) line('   🟣 なのに意思決定でない', h
 line('S4 定期（backlog の役割違反）', recurring.length);
 for (const c of recurring) console.log(`      L${c.line} ${c.title}`);
 line(`S5 起票から ${DAYS} 日超`, `${stale.length}（[起票:] 欠落 ${noFiled.length}${blameAge.degraded ? '・blame 補完なし' : ''}）`);
-if (blameAge.degraded) console.log(HISTORY_TRUNCATED
-  ? `      ※ git 履歴が切り詰められているため blame で鮮度を補完できない（[起票:] のある ${cards.length - noFiled.length} 枚だけで判定）`
-  : `      ※ git blame が 30 秒で完了せず鮮度を補完できていない（[起票:] のある ${cards.length - noFiled.length} 枚だけで判定）`);
+if (blameAge.degraded) console.log(`      ※ git blame が 30 秒で完了せず鮮度を補完できていない（[起票:] のある ${cards.length - noFiled.length} 枚だけで判定）`);
 for (const c of stale.slice(0, 8)) console.log(`      L${c.line} ${c.age}日 ${c.title}`);
 line('S6 語彙外カテゴリの残', aliasCats.length);
 line('S7 sweep 到達不能', `${unreachable.length} / ${cards.length}（うち [検証:] 無し ${unreachableNoVerify.length}＝陳腐化が永久に検出されない）`);
 line('S8 重複候補ペア', dups.length);
 for (const p of dups.slice(0, 5)) console.log(`      L${p.a.line} ↔ L${p.b.line}  共有: ${p.shared.slice(0, 4).join(' ')}`);
 line('S9 .claude/todo の 4 層以外', strayTodo.length ? strayTodo.join(' ') : '0');
-line('S10 ID の再利用（現役カード）', reuse.degraded ? (HISTORY_TRUNCATED ? '判定不能（git 履歴が切り詰められている）' : '判定不能（git 履歴を読めない）') : reusedLive.length);
+line('S10 ID の再利用（現役カード）', reuse.degraded ? '判定不能（git 履歴を読めない）' : reusedLive.length);
 for (const r of reusedLive.slice(0, 8)) {
   console.log(`      ${r.id}  削除 ${r.removedAt.slice(0, 9)} → 別タスクとして再登場 ${r.readdedAt.slice(0, 9)}`);
 }

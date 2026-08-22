@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   // （旧: "Links — doboku-note の入口" + テンプレ = サイト名二重だった）。
   title: "Links — SNS・note・サイトの入口",
   description:
-    "発注者視点で土木・建設系7資格の合格を支援。技術士第一次・建設部門・総合技術監理部門、1級／2級土木施工管理技士、コンクリート主任技士・診断士の無料解説と教材への入口まとめ。",
+    "発注者視点で土木・建設系資格の合格を支援。技術士総監・建設部門・1級／2級土木施工管理技士の無料サイト解説と、模範論文・施工経験記述・記述解答のフル教材（note）への入口まとめ。",
   alternates: {
     canonical: "https://doboku-note.com/links",
   },
@@ -27,14 +27,14 @@ export const metadata: Metadata = {
     type: "website",
     title: "Links — doboku-note の入口",
     description:
-      "技術士・土木施工管理・コンクリート系の7資格を、無料サイト解説から教材まで分野別に案内します。",
+      "発注者視点で土木・建設系資格の合格を支援。無料サイト解説と note フル教材への動線まとめ。",
     url: "https://doboku-note.com/links",
     images: [
       {
         url: "https://doboku-note.com/images/og-links.png",
         width: 1200,
         height: 630,
-        alt: "doboku-note 土木・建設系7資格の試験対策コンテンツ一覧",
+        alt: "doboku-note 試験対策コンテンツ一覧 — 技術士総監・1級土木・2級土木",
       },
     ],
   },
@@ -52,8 +52,7 @@ function withUtm(url: string, content: string): string {
  *
  * 旧構成は「試験別にマガジンを全件列挙 → ページ末尾にココナラ14件・Brain2件を独立セクション」で、
  * チャネルが資格から切り離されて混在し、SNS bio から来た人が自分に関係する導線を選べなかった。
- * カードは **最大 3 行**（①サイトで無料学習 ②note もくじ ③個別サービス）に畳む。
- * ②③は実体がある資格だけ表示し、未整備の導線を作らない。
+ * カードは **役割を固定した 3 行**（①サイトで無料学習 ②note もくじ ③個別サービス）に畳む。
  * 関与度の順に並ぶので、資格をまたいでも同じ位置に同じ性質のリンクが来る。
  *
  * マガジンの個別列挙は **note の L2 もくじへ集約して廃止**した（商品が増えても改修不要）。
@@ -71,13 +70,13 @@ type ExamCard = {
 
 const EXAM_CARDS: ExamCard[] = [
   {
-    key: "pe-first-stage",
-    heading: "技術士 第一次試験",
-    tagline: "適性・基礎・専門（建設部門）を、年度別の過去問で固める",
+    key: "tankan",
+    heading: "技術士（総合技術監理部門）",
+    tagline: "択一・記述・口頭の全体を、無料キーワード集から仕上げまで",
     site: {
-      label: "過去問から学ぶ",
-      sub: "令和元年度〜7年度の3科目を年度別・科目別に収録",
-      href: "/category/pe-first-stage",
+      label: "キーワード集を読む",
+      sub: "650+ 語の解説と過去問 H21-R7 を全問公開",
+      href: "/category/pe-comprehensive-management",
     },
   },
   {
@@ -86,18 +85,8 @@ const EXAM_CARDS: ExamCard[] = [
     tagline: "必須科目I・選択科目を発注者視点でフル解答",
     site: {
       label: "サイトで無料学習",
-      sub: "11選択科目の過去問と論述の型を整理",
+      sub: "出題テーマの整理と論述の型",
       href: "/category/pe-construction",
-    },
-  },
-  {
-    key: "tankan",
-    heading: "技術士（総合技術監理部門）",
-    tagline: "択一・記述・口頭の全体を、無料キーワード集から仕上げまで",
-    site: {
-      label: "キーワード集を読む",
-      sub: "650+ 語の解説と過去問 H21-R7 を全問公開",
-      href: "/category/pe-comprehensive-management",
     },
   },
   {
@@ -119,52 +108,6 @@ const EXAM_CARDS: ExamCard[] = [
       sub: "過去問解説と経験記述の書き方",
       href: "/category/civil-construction-2",
     },
-  },
-  {
-    key: "concrete-chief",
-    heading: "コンクリート主任技士",
-    tagline: "材料・配合・施工・耐久性を体系化し、択一と小論文に備える",
-    site: {
-      label: "サイトで無料学習",
-      sub: "8分野の過去問解説・テキスト・小論文対策",
-      href: "/category/concrete-chief-engineer",
-    },
-  },
-  {
-    key: "concrete-diagnosis",
-    heading: "コンクリート診断士",
-    tagline: "変状・劣化から調査、評価、補修補強まで一つの流れで学ぶ",
-    site: {
-      label: "サイトで無料学習",
-      sub: "6分野のテキスト・択一演習・記述式対策",
-      href: "/category/concrete-diagnostician",
-    },
-  },
-];
-
-const EXAM_GROUPS: {
-  id: string;
-  title: string;
-  description: string;
-  keys: ExamKey[];
-}[] = [
-  {
-    id: "professional-engineer",
-    title: "技術士",
-    description: "第一次試験から、建設部門・総合技術監理部門の第二次試験まで",
-    keys: ["pe-first-stage", "pe-construction", "tankan"],
-  },
-  {
-    id: "civil-construction",
-    title: "土木施工管理技士",
-    description: "1級・2級の第一次検定と第二次検定を、過去問と経験記述で対策",
-    keys: ["civil-1", "civil-2"],
-  },
-  {
-    id: "concrete",
-    title: "コンクリート",
-    description: "製造・施工を担う主任技士と、維持管理を担う診断士を分けて学ぶ",
-    keys: ["concrete-chief", "concrete-diagnosis"],
   },
 ];
 
@@ -214,7 +157,7 @@ function CardRow({
         <span className="block text-sm text-brand group-hover:underline">
           {label}
           {channelLabel && (
-            <span className="ml-1.5 text-xs text-[var(--ink-muted)]">{channelLabel}</span>
+            <span className="ml-1.5 text-[10px] text-[var(--ink-muted)]">{channelLabel}</span>
           )}
         </span>
         {/* 商品カタログの description は 170〜210 字あり、そのまま出すと 1 行だけ極端に高くなる
@@ -275,7 +218,7 @@ function ExamCardView({ card }: { card: ExamCard }) {
       </div>
       <div className="border-b border-[var(--rule-soft)] px-3 py-2">
         <div className="font-serif text-[15px] font-bold leading-tight text-[var(--ink)]">{card.heading}</div>
-        <div className="mt-0.5 text-xs leading-snug text-[var(--ink-muted)]">{card.tagline}</div>
+        <div className="mt-0.5 text-[11px] leading-snug text-[var(--ink-muted)]">{card.tagline}</div>
       </div>
       <div className="px-3 py-1">
         <CardRow channel="site" label={card.site.label} sub={card.site.sub} href={card.site.href} />
@@ -340,47 +283,32 @@ function ChannelLegend() {
 
 function ExamSections() {
   return (
-    <div className="space-y-10">
-      {EXAM_GROUPS.map((group) => {
-        const cards = group.keys
-          .map((key) => EXAM_CARDS.find((card) => card.key === key))
-          .filter((card): card is ExamCard => Boolean(card));
-
-        return (
-          <section key={group.id} id={`group-${group.id}`} className="scroll-mt-24">
-            <div className="mb-4 border-b border-[var(--rule-soft)] pb-3">
-              <h3 className="font-serif text-lg font-bold text-[var(--ink)]">{group.title}</h3>
-              <p className="mt-1 text-xs leading-relaxed text-[var(--ink-muted)]">
-                {group.description}
-              </p>
-            </div>
-            <div
-              className={`grid grid-cols-1 gap-4 sm:grid-cols-2 ${cards.length === 3 ? "lg:grid-cols-3" : ""}`}
-            >
-              {cards.map((card) => (
-                <div key={card.key} id={`exam-${card.key}`} className="scroll-mt-24">
-                  <ExamCardView card={card} />
-                </div>
-              ))}
-            </div>
-          </section>
-        );
-      })}
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      {EXAM_CARDS.map((card) => (
+        <div key={card.key} id={`exam-${card.key}`} className="scroll-mt-24">
+          <ExamCardView card={card} />
+        </div>
+      ))}
     </div>
   );
 }
 
 
-// ヒーロー帯は7資格を個別列挙せず、3分野へジャンプさせて一覧性を保つ。
-const HERO_CHIPS = EXAM_GROUPS.map((group) => ({ label: group.title, id: group.id }));
+// ヒーロー帯の試験チップ（該当セクションへジャンプ）。実コンテンツのある試験のみ描画。
+const HERO_CHIPS: { label: string; key: string }[] = [
+  { label: "技術士総監", key: "tankan" },
+  { label: "建設部門", key: "pe-construction" },
+  { label: "1級土木", key: "civil-1" },
+  { label: "2級土木", key: "civil-2" },
+];
 
 export default function LinksPage() {
   // チップはカード定義から導出する（旧: マガジン件数で出し分け。カード化で常に中身があるため不要）。
-  const chips = HERO_CHIPS;
+  const chips = HERO_CHIPS.filter((c) => EXAM_CARDS.some((card) => card.key === c.key));
 
   return (
     <PageShell variant="default" className="py-10 sm:py-14">
-        <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-10">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
           {/* Hero band: アバター + 名乗り + キャッチ + 試験チップ（ジャンプ） */}
           <section className="card-surface-section mb-8 p-6 shadow-none sm:p-8">
             <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-7">
@@ -399,7 +327,7 @@ export default function LinksPage() {
                   発注者の視点で、土木・建設系資格の「合格」へ最短ルートを。
                 </p>
                 <p className="text-sm text-[var(--ink-body)] leading-relaxed mb-4">
-                  技術士・土木施工管理・コンクリート系、7資格の試験対策ハブ
+                  技術士（総監・建設部門）・1級／2級土木施工管理技士の試験対策ハブ
                   <br />
                   元・地方自治体 土木職（発注者）｜技術士2部門ほか多数の資格を保有する運営者
                 </p>
@@ -407,8 +335,8 @@ export default function LinksPage() {
                   <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
                     {chips.map((chip) => (
                       <a
-                        key={chip.id}
-                        href={`#group-${chip.id}`}
+                        key={chip.key}
+                        href={`#exam-${chip.key}`}
                         className="inline-flex items-center rounded-full border border-[var(--rule-soft)] px-3 py-1 text-xs font-bold text-[var(--ink-body)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors"
                       >
                         {chip.label}
@@ -475,10 +403,10 @@ export default function LinksPage() {
           {/* 試験別: 無料入口 → 有料教材（試験ファースト funnel） */}
           <section className="mb-12">
             <h2 className="font-serif text-xl font-bold text-[var(--ink)] mb-1 text-center">
-              資格別コンテンツ
+              試験別コンテンツ
             </h2>
             <p className="text-xs text-[var(--ink-muted)] mb-8 text-center leading-relaxed">
-              まず分野を選び、次に受験する資格を選択。
+              受験する試験を選択。
               <span className="text-[var(--accent)] font-bold">色付きの無料ガイド</span>
               で全体像をつかみ、必要に応じて note 教材で記述・経験記述を仕上げる流れがおすすめです
             </p>

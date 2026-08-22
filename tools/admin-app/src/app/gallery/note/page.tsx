@@ -58,7 +58,7 @@ export default async function NoteGallery({
       ) : (
         <div className="gallery">
           {filtered.map((i) => (
-            <Thumb key={i.rel} url={i.url} name={i.name} tall={i.kind === 'cover'} offloaded={i.state === 'offloaded'} bucket={i.bucket}>
+            <Thumb key={i.rel} url={i.url} name={i.name} tall={i.kind === 'cover'}>
               <span className="badge neutral">{i.seg}</span>
               <span className={'badge ' + (i.kind === 'cover' ? 'accent' : 'neutral')}>{i.kind}</span>
             </Thumb>

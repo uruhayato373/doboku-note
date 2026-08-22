@@ -7,7 +7,7 @@
 - 派生スキル → [`.claude/skills/social/yt-shorts-create/SKILL.md`](../../skills/social/yt-shorts-create/SKILL.md)
 - IG Reels 側真実源 → [`.claude/knowledge/reference/ig-reels-policy.md`](./ig-reels-policy.md)
 
-最終更新: 2026-08-21（YouTube現行仕様＝縦/正方形は最長3分、Shorts外部URLは非クリック、関連動画はクリック可へ同期）
+最終更新: 2026-05-28（v1: 戦略 v7 化に伴う新設）
 
 ---
 
@@ -38,19 +38,11 @@
   "sourceYear": "r03",
   "sourceUrl": "https://doboku-note.com/docs/pe-comprehensive-management/r03",
   "durationSeconds": 42.3,                               // ffprobe 実測
-  "derivedFrom": "instagram-reels",                      // v7 で必須（独立生成と区別）
-  "relatedVideoId": "..."                               // 通常動画がある場合の主導線
+  "derivedFrom": "instagram-reels"                       // v7 で必須（独立生成と区別）
 }
 ```
 
-### description と導線
-
-YouTubeの現行仕様では、Shortsの説明欄・コメントに置いた外部URLはクリックできない。サイト・noteへの主導線は、Shortsの**関連動画**で通常動画へ送り、通常動画のクリック可能な概要欄から外部へ送る。説明欄URLとUTMは表示・データ整合のため維持するが、直接CTRの主KPIにはしない。
-
-- [YouTube Help: Sharing links with your audiences](https://support.google.com/youtube/answer/13748639)
-- [YouTube Help: Add a related video to your YouTube Shorts](https://support.google.com/youtube/answer/14075157)
-
-説明欄の標準要素:
+### description の必須要素
 
 ```
 {titleBase}（技術士総監）
@@ -85,8 +77,8 @@ https://note.com/{author}?utm_source=youtube&utm_medium=video&utm_campaign=note&
 
 | 軸 | 観点 | 5 点満点の基準 |
 |---|---|---|
-| **1. 尺・画角適正** | 現行Shorts成立条件は縦/正方形かつ最長3分。doboku-noteの派生型は30-60秒を推奨 | ≤180秒かつ縦/正方形。30-60秒の既定型なら満点 |
-| **2. 導線・UTM整合** | 関連通常動画 + `utm_source=youtube` + パック固有campaign | 関連動画設定が可能で、説明欄URLもUTM正規 |
+| **1. 尺適正（Short 成立条件）** | durationSeconds が **≤60 秒**（必須）。30-50 秒推奨 | ≤60 秒（**60 秒超は YouTube が「通常動画」扱いにし Shorts フィードに乗らない**＝実機確認 2026-06-05） |
+| **2. 概要欄 UTM 整合** | `utm_source=youtube` + パック固有 campaign | サイト/note 両 URL に UTM 正規 |
 | **3. タイトル長・検索性** | 40 字以内・年度/パック/管理分野含む | 40 字以内・3 要素すべて含む |
 | **4. 字幕焼き込み** | v7 MVP は字幕無しを許容、メタ整合のみチェック | 字幕無し or duration 一致 |
 
@@ -94,7 +86,7 @@ https://note.com/{author}?utm_source=youtube&utm_medium=video&utm_campaign=note&
 
 - **合格**: 平均 4.0 以上 **かつ** 全軸 3 以上
 - **重大減点 / 不合格ゲート**:
-  - 軸 1: **180秒超または横長 → 軸1=0点・不合格**。60秒超はShort不成立ではないが、既定の30-60秒型から外れるため明示承認がなければ減点。1分超で著作権claimがあるShortは全世界ブロック対象になり得るため使用音源も確認する（[YouTube Help](https://support.google.com/youtube/answer/15424877)）
+  - 軸 1: **尺 60 秒超 → 軸1=0 点・不合格**（Short 不成立＝通常動画扱いになる）。15 秒未満も **-2 点**
   - 軸 2: IG 用 UTM（`utm_source=instagram`）混入 → **-2 点**
   - 偽成功: 予約アップロード後に `videos.list` 実査をしていない完了報告 → §7 違反として差し戻し
 
@@ -109,20 +101,20 @@ https://note.com/{author}?utm_source=youtube&utm_medium=video&utm_campaign=note&
 | YT Shorts 派生 mp4 + meta.json 生成 | `yt-shorts-create --from-reels` または `per-problem-shorts.mjs`（機械処理） |
 | サムネイル（thumbnail.png）の生成・R2 アップ | `upload-shorts-to-r2.mjs`（mp4 と同時アップ）、または `generate-thumbnails.mjs`（単独実行） |
 | 4 軸採点 | `yt-shorts-publisher-qa` |
-| YouTube Data API 投稿（台帳駆動 CI） | `post-from-schedule.cjs` + `post-youtube-scheduled.yml`（手動 `workflow_dispatch`、`youtube-schedule.json` 台帳管理） |
+| YouTube Data API 投稿（台帳駆動 CI） | `post-from-schedule.cjs` + `post-youtube-scheduled.yml`（日次 cron、`youtube-schedule.json` 台帳管理） |
 | 台帳整合性バリデーション | `validate-schedule.mjs`（CI pre-check。publishAt 重複・perDay 超過・videoId 重複を検知） |
 | 投稿済み動画へのサムネイル後付け | `set-thumbnail-uploaded.mjs`（一回限りの補完ツール） |
 
-## 5. 投稿カーデンス・スケジューリング（2026-08-18 更新）
+## 5. 投稿カーデンス・スケジューリング（2026-06-05 確定）
 
-- cron自走は廃止し、`workflow_dispatch`で人が投入量を決める。
-- 既存在庫を消化すること自体を目的にせず、公開済み通常動画へ関連付けられる論点を優先する。
-- 投稿枠を組む場合はJST `07:30` / `12:30` / `20:00`を候補とし、同日上限は台帳 `uploadBatchPerDay` を超えない。
-- **1 Short = 1 問または1論点**。同日に類似論点を連投しない。
+- **1 日 3 本**。技術上限は YouTube Data API quota（`videos.insert` ≈ 1600 units / 日次 10,000 → 約 6 本/日）だが、**新規チャンネルのスパム/低リーチ回避のため 3 本に抑える**（数週かけて様子を見てランプ）。
+- **時間帯（JST）**: `07:30` / `12:30` / `20:00`（通勤・昼休み・夜の学習タイム）。`upload.js`/`post.js` の `--schedule` の publishAt をこのスロットに合わせる。
+- 量産の本線は Instagram（戦略 v7：YT は二次・週 1〜2 本想定）。YT は**厳選して 3 本/日まで**。
+- **1 Short = 1 問**。現状 `yt-shorts-create` は 1 パックから problem 1 のみ抽出するため、3 本/日 = **3 パック/日**で回す（問題 2/3/4 の個別 Short 化は将来対応）。
 
 ## 6. シャドウバン・低リーチ回避（2026-06-05 確定）
 
-1. **他社透かしの混入禁止**: IGアプリ書き出しの透かし入り動画は使わない。本パイプラインは `ig-reel-create` の自前レンダリング（slide-data → mp4）でロゴ無し。IG Reelsのフル動画を無編集で直投稿せず、`yt-shorts-create --from-reels` でShorts向けの尺・冒頭・CTA・メタへ再編集する。
+1. **他社透かしの混入禁止**: IG アプリ書き出しの透かし入り動画は downrank。本パイプラインは `ig-reel-create` の自前レンダリング（slide-data → mp4）で**ロゴ無し**＝OK。**IG Reels のフル `video.mp4`（≈145 秒）を直アップロードしない**（通常動画扱い＋無変換の再利用判定リスク）。必ず `yt-shorts-create --from-reels` の派生 `shorts.mp4`（≤60 秒・メタ/UTM 差替済）を使う。
 2. **再利用コンテンツ対策**: トリム＋概要欄 UTM 差替で IG 版と別物化。かつ運営者オリジナル。
 3. **タイトル/概要の使い回し禁止**: §2 タイトル規約に従い、動画ごとに論点を変える。
 4. **投稿速度**: §5 の 3 本/日を守り、一気の大量投下をしない。
@@ -131,13 +123,11 @@ https://note.com/{author}?utm_source=youtube&utm_medium=video&utm_campaign=note&
 ## 7. 偽成功検証（予約アップロード）
 
 - `post-from-schedule.cjs` のログ「公開設定: unlisted」は**表示バグ**（`publishAt` 指定時の実値は `privacyStatus: private` + `publishAt`）。
-- **報告前に `videos.list(part=status)` で実査**: `privacyStatus === "private"` かつ `publishAt` 設定済み、さらに縦/正方形・`durationSeconds ≤ 180`を確認する。通常動画へのrelated videoも公開後に照合する。
+- **報告前に `videos.list(part=status)` で実査**: `privacyStatus === "private"` かつ `publishAt` 設定済み、さらに `durationSeconds ≤ 60`（Short 成立）を確認する。
 - これは X `publish-x` の偽成功検証と同じ思想（ログを信じず実体を確認）。
 - サムネイル設定（`thumbnails.set`）の確認: `thumbnails.list(videoId)` で `default`/`medium` に画像が設定されているかを実査する。未設定のままだと YouTube が自動選択したフレームが表示され、クリック率が下がる。
 
 ## 改訂履歴
-
-- v3（2026-08-21）: 現行YouTube仕様へ同期。縦/正方形Shortsは最長3分、外部URLは非クリック、関連動画はクリック可。30-60秒はプラットフォーム条件でなくプロジェクト推奨尺へ変更。cron廃止・手動dispatchも反映。
 
 - v3（2026-06-08）: §1 thumbnail 説明を YT 専用生成（`renderExamCoverIg`）に更新。§4 担当境界を `post-from-schedule.cjs`（台帳駆動 CI）・`validate-schedule.mjs`・`generate-thumbnails.mjs` 等の実装に合わせて更新。§7 偽成功検証にサムネイル実査を追加。`upload.js`/`post.js` への言及を削除。
 - v2（2026-06-05）: 尺ゲートを **≤60 秒**（Short 成立条件・60 秒超は通常動画扱い）に厳格化。投稿カーデンス（3 本/日・JST 07:30/12:30/20:00）・シャドウバン回避（§6）・偽成功検証（§7 videos.list）・1 問 1 答タイトル規約（§2）を確定。

@@ -44,7 +44,6 @@
 import { chromium, type BrowserContext, type Page, type Locator } from "playwright";
 import * as path from "path";
 import * as fs from "fs";
-import { spawnSync } from "child_process";
 
 // ─── 設定 ─────────────────────────────────────────────
 const PROJECT_ROOT = path.resolve(__dirname, "../../../..");
@@ -227,35 +226,8 @@ function readCaption(captionPath: string): string {
   return caption;
 }
 
-/**
- * パックのレンダー画像は DN-0111 Phase 4-E で R2 へ退避し Git 追跡から外した。
- * 実体はローカルに残るが、新規 clone や別 PC には無い。**Instagram へ触る前に**
- * 取り寄せる。取れなければ何も投稿せずに止める（fail-closed）。
- *
- * asset-hydrate は「ローカルに在るものは何もしない」ので、通常運用では無害な no-op。
- */
-function hydratePackAssets(dir: string): void {
-  const rel = path.relative(PROJECT_ROOT, dir).replace(/\\/g, "/");
-  if (!rel || rel.startsWith("..")) return;
-  const hasImages = fs.existsSync(path.join(dir, "img"))
-    && fs.readdirSync(path.join(dir, "img")).some((f) => /\.(png|jpe?g)$/i.test(f));
-  if (hasImages) return;
-  const manifestPath = path.join(PROJECT_ROOT, ".claude/state/assets/manifest.json");
-  if (!fs.existsSync(manifestPath)) return;
-  const entries = JSON.parse(fs.readFileSync(manifestPath, "utf-8")).entries || {};
-  const needed = Object.keys(entries).filter((k) => k.startsWith(rel + "/"));
-  if (needed.length === 0) return;
-  console.log(`[prep] 画像がローカルに無いので R2 から取り寄せます: ${rel}（${needed.length} 件）`);
-  const r = spawnSync(process.execPath, ["scripts/asset-hydrate.mjs", "--path", rel + "/"],
-    { cwd: PROJECT_ROOT, stdio: "inherit" });
-  if (r.status !== 0) {
-    throw new Error(`アセットの取り寄せに失敗しました。Instagram には何も投稿せずに止めます: ${rel}`);
-  }
-}
-
 function loadPack(arg: string, kind: "carousel" | "reel" = "carousel"): Pack {
   const dir = resolvePackDir(arg);
-  hydratePackAssets(dir);
   const slug = path.relative(IG_DIR, dir).replace(/[\\/]/g, "-") || path.basename(dir);
 
   if (kind === "reel") {

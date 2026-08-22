@@ -13,9 +13,6 @@
 //   node scripts/generate-note-covers.mjs 一般部門との違い      # 1件だけ生成（slug 部分一致）
 //   node scripts/generate-note-covers.mjs 自治体道路担当         # マガジン配下も部分一致で対象化
 //   node scripts/generate-note-covers.mjs 総監 --debug-safety   # 中央 630×630 の赤枠を重ねる
-//   node scripts/generate-note-covers.mjs 総監 --emit-svg       # 中間 SVG も .tmp/note-covers/ へ（描画デバッグ用）
-//
-// 成果物は PNG のみ。satori の中間 SVG は既定では書かない（DN-0111 Phase 2・2026-08-21）。
 
 import { readdirSync, readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
@@ -136,7 +133,7 @@ function extractTitle(h1) {
   return raw;
 }
 
-async function renderCover({ dirName, title, coverTitle, cover, category, examKey, pricing, debugSafety, emitSvg, fonts, outName = 'cover' }) {
+async function renderCover({ dirName, title, coverTitle, cover, category, examKey, pricing, debugSafety, fonts, outName = 'cover' }) {
   let element;
   // cover: ブロックがあれば G2/V4（試験色分け）、無ければ従来 mono-tag にフォールバック
   if (cover && (cover.banner || cover.hi || cover.leadIn || cover.variant)) {
@@ -209,18 +206,7 @@ async function renderCover({ dirName, title, coverTitle, cover, category, examKe
   const dir = join(NOTE_DIR, dirName);
   const imgDir = join(dir, 'img');
   mkdirSync(imgDir, { recursive: true });
-  // 成果物は PNG のみ。SVG は satori の中間生成物で、V4 は背景写真を data:image base64 で
-  // 丸ごと内包するため 1 枚 1.5〜2.6 MiB になる。2026-08-21 の実査（DN-0111 Phase 2）で
-  // **この SVG を読むコードが 1 行も無い**ことを確認した——note-publish / note-update-cover /
-  // note-cover-gallery / note-lint / check-note-cover-fit / check-note-3set の 3点セットゲートは
-  // すべて cover*.png のみを見る。R2 にも同期されていない（r2-sync は content/site/** だけ）。
-  // それでも 827 件 1,288.6 MiB を追跡し続けていたので、既定では書かない。
-  // 描画のデバッグで中間 SVG が要るときだけ --emit-svg で .tmp/ へ出す（追跡外）。
-  if (emitSvg) {
-    const svgDir = join(ROOT, '.tmp/note-covers', dirName);
-    mkdirSync(svgDir, { recursive: true });
-    writeFileSync(join(svgDir, `${outName}.svg`), svg);
-  }
+  writeFileSync(join(imgDir, `${outName}.svg`), svg);
   await sharp(Buffer.from(svg)).png().toFile(join(imgDir, `${outName}.png`));
   console.log(`  ok: ${dirName}${outName === 'cover' ? '' : ` (${outName})`}`);
 }
@@ -275,17 +261,16 @@ async function processOne(dirName, args, fonts) {
     const category = data.category || COVER_TOKENS.exams[examKey]?.label || DEFAULT_CATEGORY;
     await renderCover({
       dirName, title: extractTitle(h1), coverTitle: data.coverTitle, cover: data.cover,
-      category, examKey, pricing: data.notePricing, debugSafety: args.debugSafety, emitSvg: args.emitSvg, fonts, outName,
+      category, examKey, pricing: data.notePricing, debugSafety: args.debugSafety, fonts, outName,
     });
   }
 }
 
 async function main() {
   const argv = process.argv.slice(2);
-  const args = { target: null, debugSafety: false, emitSvg: false };
+  const args = { target: null, debugSafety: false };
   for (const a of argv) {
     if (a === '--debug-safety') args.debugSafety = true;
-    else if (a === '--emit-svg') args.emitSvg = true;
     else if (!a.startsWith('--')) args.target = a;
   }
 

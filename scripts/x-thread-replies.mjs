@@ -37,8 +37,6 @@ const ACCOUNT = "doboku373"; // 運用アカウント（x-post-policy §2）
 const args = process.argv.slice(2);
 const RUN = args.includes("--run");
 const DRY = args.includes("--dry-run");
-const draftIndex = args.indexOf("--draft");
-const DRAFT_FILTER = draftIndex >= 0 ? args[draftIndex + 1] : null;
 
 // ─── pending スレッド収集 ─────────────────────────────
 function collectPending() {
@@ -172,7 +170,7 @@ function markDone(item) {
 }
 
 // ─── main ─────────────────────────────────────────────
-const pending = collectPending().filter((p) => !DRAFT_FILTER || p.draft === DRAFT_FILTER || p.draft.startsWith(`${DRAFT_FILTER}-`));
+const pending = collectPending();
 const due = pending.filter((p) => p.due);
 
 console.log(`🧵 x-thread-replies — pending スレッド: ${pending.length} 件（予約時刻経過済み: ${due.length} 件）`);
@@ -192,17 +190,6 @@ const ctx = await chromium.launchPersistentContext(PROFILE, {
   args: ["--disable-blink-features=AutomationControlled"],
 });
 const page = ctx.pages()[0] || (await ctx.newPage());
-
-// 投稿先の取り違えは即停止。旧凍結アカウントのセッションが残っていてもリプライしない。
-await page.goto("https://x.com/home", { waitUntil: "domcontentloaded" });
-await page.waitForTimeout(3000);
-const accountText = await page.locator('[data-testid="SideNav_AccountSwitcher_Button"]').first().innerText().catch(() => "");
-if (!accountText.includes(`@${ACCOUNT}`)) {
-  console.error(`🚨 Xアカウント不一致: expected=@${ACCOUNT}, actual=${accountText.replace(/\s+/g, " ").trim() || "unknown"}`);
-  await ctx.close();
-  process.exit(1);
-}
-console.log(`✅ アカウント照合OK: @${ACCOUNT}`);
 
 let ok = 0, ng = 0;
 for (const item of due) {

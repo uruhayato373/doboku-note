@@ -29,16 +29,19 @@ function parseRedirectedDocSlugs() {
   return excluded;
 }
 
-// ---- lastmod 解決（優先順: frontmatter > git log > mtime） -----------
-//
-// 2026-08-22 に git と frontmatter の優先順を反転した。lastmod は**公開 SEO 信号**で、
-// git log を一次にすると **リネーム・移行・履歴書換えのたびに全ページの lastmod が黙って動く**
-// （2026-08-18 の情報アーキテクチャ移行で全 1,084 記事が created まで巻き戻った実績がある）。
-// ビルドが全履歴を要求するので shallow clone も履歴の切り詰めもできなくなる副作用もあった。
-// frontmatter は pre-commit が commit 時に更新するので、こちらを一次にしてよい。
-// git は frontmatter が欠けているときだけの保険で、遅延ロードして通常は履歴に触れない。
-function resolveLastmod(data, fullPath, gitDatesLazy) {
-  // 1. frontmatter（真実源。commit 時に pre-commit が更新する）
+// ---- lastmod 解決（優先順: git log > frontmatter > mtime） -----------
+// git log は build-doc-meta-index.mjs と共有の lib/git-dates.mjs を使い、
+// 1 プロセスで全ファイル分を解析する（per-file 呼出を避ける）。
+function resolveLastmod(data, fullPath, gitDates) {
+  // 1. git log から取得（最も信頼できる、編集のたびに自動追随）
+  const relPath = relative(process.cwd(), fullPath);
+  const gd = lookupGitDates(gitDates, relPath);
+  if (gd?.dateModified) {
+    const d = new Date(gd.dateModified);
+    if (!isNaN(d.getTime())) return d;
+  }
+
+  // 2. frontmatter 候補（後方互換）
   const candidates = [
     data.dateModified,
     data.updated,
@@ -53,13 +56,6 @@ function resolveLastmod(data, fullPath, gitDatesLazy) {
     if (!isNaN(d.getTime())) return d;
   }
 
-  // 2. git log（frontmatter に日付が無いときだけ。ここへ来る件数は呼出側が数える）
-  const gd = lookupGitDates(gitDatesLazy(), relative(process.cwd(), fullPath));
-  if (gd?.dateModified) {
-    const d = new Date(gd.dateModified);
-    if (!isNaN(d.getTime())) return d;
-  }
-
   // 3. filesystem mtime（最終フォールバック）
   return statSync(fullPath).mtime;
 }
@@ -68,12 +64,12 @@ function resolveLastmod(data, fullPath, gitDatesLazy) {
 // src/lib/docs.ts::findMdxFiles() と同じ命名規約を踏襲:
 //   Convention A: {dir}/{file}.mdx → slug = "{dir}-{file}"
 //   Convention B: {dir}/article.mdx → slug = "{dir}"
-function walkMdxFiles(dir, gitDatesLazy, segments = [], results = []) {
+function walkMdxFiles(dir, gitDates, segments = [], results = []) {
   if (!existsSync(dir)) return results;
   for (const entry of readdirSync(dir, { withFileTypes: true })) {
     const full = join(dir, entry.name);
     if (entry.isDirectory()) {
-      walkMdxFiles(full, gitDatesLazy, [...segments, entry.name], results);
+      walkMdxFiles(full, gitDates, [...segments, entry.name], results);
       continue;
     }
     if (!entry.isFile() || !entry.name.endsWith('.mdx')) continue;
@@ -93,7 +89,7 @@ function walkMdxFiles(dir, gitDatesLazy, segments = [], results = []) {
     // page.tsx generateMetadata の robots:{index:false} と対応。
     if (data.noindex === true) continue;
 
-    const lastmod = resolveLastmod(data, full, gitDatesLazy);
+    const lastmod = resolveLastmod(data, full, gitDates);
 
     results.push({ slug, lastmod, category: data.category });
   }
@@ -162,22 +158,9 @@ function collectStaticHtmlFiles(dir, files = [], root = dir) {
 // ---- メイン ---------------------------------------------------------
 
 const excludedSlugs = parseRedirectedDocSlugs();
-
-// git は frontmatter に日付が無いときだけの保険。呼ばれなければ履歴に触れない。
-let _gitDates = null;
-let gitFallbacks = 0;
-const gitDatesLazy = () => {
-  if (!_gitDates) {
-    console.log('[sitemap] frontmatter に日付が無いファイルがあるため git-dates を読み込む');
-    _gitDates = loadGitDates();
-  }
-  gitFallbacks += 1;
-  return _gitDates;
-};
-const mdxDocs = walkMdxFiles(POSTS_DIR, gitDatesLazy).filter((d) => !excludedSlugs.has(d.slug));
-console.log(gitFallbacks === 0
-  ? '[sitemap] lastmod はすべて frontmatter から解決（git 履歴に触れていない）'
-  : `[sitemap] frontmatter に日付が無く git へフォールバック: ${gitFallbacks} 件`);
+const gitDates = loadGitDates();
+console.log(`[sitemap] git-dates: ${gitDates.size} ファイルを解析`);
+const mdxDocs = walkMdxFiles(POSTS_DIR, gitDates).filter((d) => !excludedSlugs.has(d.slug));
 
 const urls = [];
 

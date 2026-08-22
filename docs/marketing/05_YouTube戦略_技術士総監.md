@@ -4,8 +4,8 @@
 
 **最終更新**: 2026-06-12（v1 新規制定）
 **運営者**: ペンネーム「架」。元・地方自治体土木職（発注者）の退職者。技術士（建設部門・総合技術監理部門）含む 10 資格保有。顔出しなし・TTS 前提（真実源: `src/config/author.ts`）
-**親 SSOT**: [01_SNS集客戦略.md](./01_SNS集客戦略.md)（SNS チャネル全体）／[06_動画コンテンツ運用設計.md](./06_動画コンテンツ運用設計.md)（多資格の動画パック・役割・管理・KPI）。本ファイルは総監固有のテーマ・Red Line・季節運用を上書きする
-**関連**: [video-content-policy.md](../../.claude/knowledge/reference/video-content-policy.md)（動画パック作業契約）／[yt-shorts-publisher-policy.md](../../.claude/knowledge/reference/yt-shorts-publisher-policy.md)（Shorts 品質基準）／[noteコンテンツ計画.md](../../content/note/技術士総監/noteコンテンツ計画.md)（送客先・Red Line の真実源）／[content-angle-policy.md](../../.claude/knowledge/reference/content-angle-policy.md)（6 切り口）
+**親 SSOT**: [01_SNS集客戦略.md](./01_SNS集客戦略.md)（SNS チャネル全体の統合管理）。本ファイルはその YouTube 節（総監分）を上書きする
+**関連**: [yt-shorts-publisher-policy.md](../../.claude/knowledge/reference/yt-shorts-publisher-policy.md)（Shorts 品質基準）／[noteコンテンツ計画.md](../../content/note/技術士総監/noteコンテンツ計画.md)（送客先・Red Line の真実源）／[content-angle-policy.md](../../.claude/knowledge/reference/content-angle-policy.md)（6 切り口）
 
 > [!important] 制定経緯
 > 旧 `07_YouTube戦略_技術士総監.md` は v4（2026-04-26）で 01 に統合・廃止された。本ファイルはその**意図的な再独立**。理由は ① X 凍結（2026-06-12、v7.3）による一次集客チャネルの再分散、② 通常動画（16:9 一次制作）という v7 の射程外の拡張、③ 競合空白（総監特化チャンネル不在）の先占機会。01 側には本ファイルへの参照ポインタを置く。
@@ -82,8 +82,8 @@
 
 ### サイト・note との動線
 
-- Shorts: 検索・ショートフィード経由 → YouTubeの関連動画で該当通常動画へ。Shorts説明欄・コメントの外部URLはクリック主導線として扱わない
-- 通常動画: クリック可能な概要欄からサイト・noteへ送る（`utm_medium=video&utm_campaign={pack-id}&utm_content=longform`）。1動画1主CTA
+- Shorts: 検索・ショートフィード経由 → 概要欄でサイト該当ページ＋note プロフィールへ（`utm_medium=shorts&utm_campaign={pack-id}`）
+- 通常動画 P4/P5: 権威性が乗るため note 無料記事への直送も許容（`utm_medium=longform&utm_campaign={theme-slug}`）
 - サイト＝恒久カタログ（キーワード 650 本・過去問 R01-R07）、note＝一次情報の有料囲い込み、の三層分業を踏襲
 
 ### X 凍結後のチャネルミックスにおける位置づけ
@@ -124,7 +124,7 @@ YouTube は**検索面（総監系クエリ）の占有**という、IG（Explor
 
 ### 実行環境の分担
 
-会社 PC はプロキシで外部 API（YouTube・R2・graph）遮断のため、**mp4 生成・アップロードは Mac または GitHub Actions** で実行（確立済みパターン）。台帳編集・台本生成・QA 採点は会社 PC で可。Shorts投稿は `workflow_dispatch` で人が投入量を決める。通常動画（月数本）の投稿は Mac 手動か専用workflowかをPhase Bで決定。
+会社 PC はプロキシで外部 API（YouTube・R2・graph）遮断のため、**mp4 生成・アップロードは Mac または GitHub Actions** で実行（確立済みパターン）。台帳編集・台本生成・QA 採点は会社 PC で可。Shorts は CI cron が自走。通常動画（月数本）の投稿は Mac 手動か専用 workflow かを Phase B で決定。
 
 ### 16:9 拡張（Tier 2 の前提作業）
 
@@ -132,20 +132,18 @@ YouTube は**検索面（総監系クエリ）の占有**という、IG（Explor
 
 ### Generator/Evaluator 分業の拡張方針
 
-通常動画のマスターはShortsタイトル・配信物とは責務が異なるため、DN-0110で専用の1組だけを新設する。
+**新規エージェントは増設せず、既存 2 エージェントにモードを足す**（媒体×Generator/Evaluator 分業に直交パラメータを足す v7.2 思想）:
 
-- `video-script-writer`: 出典付き通常動画台本、storyboard、派生brief、CTA案を生成
-- `video-content-qa`: 悩み適合、事実、視聴構成、図版・字幕、Red Line、ファネルを独立評価
-- `yt-shorts-title-writer`: Shortsタイトルに限定して維持
-- `yt-shorts-publisher-qa`: Shortsのmp4/meta/UTM/関連動画の配信適合に限定して維持
+- `yt-shorts-title-writer` → 通常動画モード追加（「{管理軸}の考え方｜総監記述式」型等。Shorts の「令和X年度 択一｜論点 #Shorts」型と分岐）
+- `yt-shorts-publisher-qa` → 通常動画モード追加（尺ゲート差替・`utm_medium=longform` 検査・**Red Line #5 抵触＝模範論文/解答再現/受験記の中身漏洩チェックを採点軸に追加**）
 
-資格別agentは増やさず `exam` パラメータで横断する。詳細は `video-content-policy.md`。新設時は `agents-registry.md` 等を同一commitで更新し、`check-doc-coupling` を通す。
+増設する場合は `agents-registry.md` 等を同一 commit で更新（`check-doc-coupling` ゲート遵守）。
 
 ## 6. 投稿カデンス・季節カレンダー
 
 ### 定常カデンス
 
-- **Shorts: 手動dispatchで投入量を決定**。既存在庫を通常動画へ接続できる論点から使い、在庫消化を目的に1日3本を固定しない
+- **Shorts: 1 日 3 本**（JST 07:30／12:30／20:00）。API 上限（約 6 本/日）より絞りスパム判定を回避。残 193 本÷3 本/日 ≒ 約 64 日で初回一巡
 - **通常動画: Phase B で月 2-4 本（パイロット）**、Phase C 以降は KPI 次第で月 4-6 本
 
 ### 試験サイクル連動 年間カレンダー
@@ -171,7 +169,7 @@ YouTube は**検索面（総監系クエリ）の占有**という、IG（Explor
 
 | 区分 | 指標 |
 |---|---|
-| 主 | Shorts→関連通常動画流入／通常動画概要欄CTR／doboku-noteへのUTM流入（`utm_source=youtube`）／note遷移数・有料マガジン経由売上 |
+| 主 | 概要欄 CTR／doboku-note への UTM 流入（`utm_source=youtube`）／note 遷移数・有料マガジン経由売上 |
 | 補助 | 総監系クエリでの動画上位表示数（YT 検索トラフィック源）／視聴維持率 |
 | 参考 | 登録者数・1 動画あたり再生 |
 
@@ -179,9 +177,9 @@ YouTube は**検索面（総監系クエリ）の占有**という、IG（Explor
 
 | 時点 | 対象 | 継続条件 | 縮小/撤退ライン |
 |---|---|---|---|
-| 6 週後 | Shorts | 関連通常動画への流入と通常動画経由UTMを観測 | 未達なら在庫消化を止め、関連動画・フック・テーマを見直す |
+| 6 週後 | Shorts | 概要欄 CTR ≥ 0.5%・UTM 流入 週 20+ | 未達でも台帳消化は自走継続（人手を足さない） |
 | 3 ヶ月後 | 通常動画パイロット | UTM 流入 月 100+ かつ note 遷移 月 10+ | 未達 → P4/P5 偏重に絞り、P1/P2/P3 は Shorts へ移譲 |
-| 6 ヶ月後 | チャネル全体 | note経由売上が制作工数に見合う＋検索面占有が増加傾向 | 寄与不明なら通常動画の新規制作を停止。Shortsも関連先のない在庫消化は続けない |
+| 6 ヶ月後 | チャネル全体 | note 経由売上が制作工数に見合う＋検索面占有が増加傾向 | 寄与不明なら Tier 2 停止。**Tier 1 は自走のため撤退は最後** |
 
 通常動画（P4/P5 半手動）は寄与が見えなければ Shorts より先に縮小する。Red Line #2（サイト MDX 整備を圧迫しない）のガードでもある。
 
@@ -189,27 +187,27 @@ YouTube は**検索面（総監系クエリ）の占有**という、IG（Explor
 
 | リスク | 影響度 | 対策 |
 |---|---|---|
-| **YouTube「大量生産・繰り返しコンテンツ」ポリシー**（TTS 量産の収益化審査落ち・露出抑制） | 高 | P3は章立て・導入ナレーション・想起設計で編集判断を明示。タイトル/概要の使い回し禁止。公開本数よりテーマ差・維持率・関連動画への接続を優先 |
+| **YouTube「大量生産・繰り返しコンテンツ」ポリシー**（TTS 量産の収益化審査落ち・露出抑制） | 高 | P3 は章立て・導入ナレーション・想起設計でオリジナル編集を明示。タイトル/概要の使い回し禁止（論点ごとに変える＝title-writer の既定動作）。3 本/日に抑制。収益化は副次目的のため審査落ちは致命傷でないが、露出抑制は監視 |
 | 競合「総監約3〜10分チャンネル」 | 中 | Phase A で実態調査 → §2 更新。総監特化×短尺なら差別化軸（発注者視点・聞き流し・note 送客）を再点検 |
 | 試験日の内部/外部不一致 | 中 | §11。公式（engineer.or.jp）で照合し §6 を補正 |
-| Red Line #5 抵触（模範論文の中身が通常動画に漏れる） | 中 | `video-content-qa` のBLOCK gateで検査し、台本段階で思考フレームまでに留める |
+| Red Line #5 抵触（模範論文の中身が通常動画に漏れる） | 中 | `yt-shorts-publisher-qa` 通常動画モードの採点軸に追加。台本段階で思考フレームまでに留める |
 | IG 派生 Shorts の単一障害点（v7 懸念） | 低 | 総監は YT 専用再描画経路で IG mp4 非依存（§3）。構造的に緩和済み |
 | Lock-On の「総監×スキマ時間」参入 | 低 | 講座販促モデルとバッティングし可能性低。発注者視点・TTS で棲み分け |
-| VOICEVOX 商用規約／OAuth・API 上限 | 低 | ライセンス確認済。投入量は手動dispatchと台帳上限で制御。失効時はtask-queue追記の既存フォールバック |
+| VOICEVOX 商用規約／OAuth・API 上限 | 低 | ライセンス確認済。3 本/日は quota に余裕。失効時は task-queue 追記の既存フォールバック |
 
 ## 9. Phase ロードマップ
 
-### Phase A（DN-0110 Phase 0-1）: 契約＋通常動画pilot
+### Phase A（2026-06・直前期）: Shorts 巡航＋16:9 実装
 
-DoD: ① 動画パックschema・state・機械ゲート確定 ② `slide-render.mjs` 16:9テンプレ追加 ③ 総監通常動画2本を制作 ④ 各動画に関連Shortsを接続 ⑤ `utm_medium=video&utm_content=longform` を通常動画概要欄へ付与。
+DoD: ① 日次 cron が pending を 3 本/日消化し videoId が記録される（`videos.list` 実査で偽成功でないこと＝publisher-policy §7 準拠） ② `slide-render.mjs` 16:9 テンプレ ID 追加 ③ 競合「総監約3〜10分チャンネル」実態調査を §2 に反映 ④ 台帳 meta.total ドリフト是正（§11）
 
-### Phase B（公開後6週間）: 送客観測
+### Phase B（2026-07 試験後〜9 月）: 通常動画パイロット＋E-01/E-02 連動
 
-DoD: ① Shorts→関連動画流入 ② 通常動画の視聴維持 ③ サイト・noteへのUTM ④ note遷移・売上シグナルをsnapshotで観測。未達なら追加量産せずテーマ・導線・尺を修正。
+DoD: ① P1/P3 中心に月 2-4 本投稿 ② `utm_medium=longform` 正規付与 ③ E-01・E-02 への送客が GA4 UTM で観測される ④ 3 ヶ月 KPI 判定を実施し本ファイルに追記
 
-### Phase C（pilot継続判定後）: 季節需要と他ピラー
+### Phase C（2026-10〜）: ¥9,800 リローンチ・口頭試験・来年度需要
 
-DoD: 実績のあるP4/P5または検索テーマだけを追加し、口頭試験・来年度需要へ接続する。P1/P2/P3の一括量産は行わない。
+DoD: ① 10 月末リローンチ週に Shorts＋通常動画＋概要欄を完全パックへ集中投下 ② P4 口頭シリーズ→E-04 送客 ③ note 経由売上を `sales-log.json` で月次トラッキング ④ 12-1 月に P5 で来年度 TOFU 獲得
 
 ### Phase D（2027〜）: 判定と拡張
 

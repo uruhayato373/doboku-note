@@ -88,16 +88,7 @@ body = tokenBody;
 if (imgMissing.length) console.log(`[img] WARN 除去した画像行: ${imgMissing.join(' / ')}`);
 const typeSuffix = (basename(articleAbs).match(/article-([^.]+)\.md$/) || [])[1] || '';
 const coverCandidates = [typeSuffix && join(dir, `img/cover-${typeSuffix}.png`), join(dir, 'img/cover.png')].filter(Boolean);
-// カバー PNG は R2 へ退避してある（DN-0111 Phase 4-B）。実体が無ければ取り寄せる。
-// 取れなければ cover=null のまま進めず、**note へ書き込む前に止める**——
-// カバー無しで公開すると、後から差し替えても外部（SNS カード等）に残ってしまう。
-const { ensureLocal: ensureLocalAsset } = await import('./lib/asset-storage.mjs');
-const cover = coverCandidates.find((c) => ensureLocalAsset(c)) || null;
-if (!cover && coverCandidates.length) {
-  console.error('[prep] カバーが手元にも R2 にも無い。note へは何も書かずに止める:');
-  for (const c of coverCandidates) console.error('  ' + c);
-  process.exit(1);
-}
+const cover = coverCandidates.find(existsSync) || null;
 const tagsCandidates = [typeSuffix && join(dir, `hashtags-${typeSuffix}.txt`), join(dir, 'hashtags.txt')].filter(Boolean);
 const tagsFile = tagsCandidates.find(existsSync);
 const tags = tagsFile ? readFileSync(tagsFile, 'utf8').split(/\r?\n/).map((s) => s.trim().replace(/^#/, '')).filter(Boolean).slice(0, 99) : [];

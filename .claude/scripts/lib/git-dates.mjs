@@ -9,13 +9,13 @@
 //   const entry = dates.get('path/to/file.mdx');
 //
 // 設計:
-// - `git log --all --name-status -M100% --format=__COMMIT__:%ai` を ONE SHOT で実行し解析
+// - `git log --all --name-status -M --format=__COMMIT__:%ai` を ONE SHOT で実行し解析
 // - 773 ファイル × 2 回 git log の per-file 呼出（~1 分）を 1 回のプロセス呼出（~数秒）に短縮
 // - **rename を追跡する**（2026-08-18）。以前は `--name-only` で追跡を捨てており
 //   「MDX のリネームは稀」という前提だったが、情報アーキテクチャ移行で
 //   `.local/r2/posts` → `content/site` の一括 rename が起き、**全 1,084 記事の
 //   dateModified が created まで巻き戻った**（sitemap lastmod が公開影響を持つ）。
-//   `--follow` は 1 ファイルずつしか使えないので、`-M100%` の R レコードから
+//   `--follow` は 1 ファイルずつしか使えないので、`-M` の R レコードから
 //   旧パス → 現パスの別名表を作って 1 回の走査で解決する。
 //
 // プロセス間キャッシュ（2026-07-30 追加）:
@@ -27,21 +27,6 @@
 //   （キャッシュはあくまで高速化で、正しさは git log 実行で担保する）。
 //   バイパスは `GIT_DATES_NO_CACHE=1`。
 //
-// なぜ `-M` ではなく `-M100%`（厳密一致のみ）か（2026-08-21・DN-0111）:
-//   `-M` の既定は類似度 50% の**非厳密**リネーム検出で、blob の中身を読んで比較する。
-//   `--filter=blob:none` の partial clone ではこれが**履歴の blob を丸ごと遅延取得**させる。
-//   実測: 新規 partial clone で `npm run build` を回したところ、この 1 コマンドだけで
-//   `.git` が 969 MB → 7.0 GB へ膨れ、13 分間 CPU 1% のまま downloading を続けた
-//   （partial clone にした意味が最初の build で消える）。
-//   `-M100%` は厳密一致だけを見るので blob の OID 比較で済み、`GIT_NO_LAZY_FETCH=1` でも
-//   完走して `.git` の増加は 0 MiB だった。
-//
-//   精度の差は実測済み: content/site の MDX 1,117 件のうち **dateModified は全件一致**
-//   （＝上に書いた「全 1,084 記事の dateModified が巻き戻る」事故は -M100% でも防げる）。
-//   差が出たのは created の 22 件だけで、いずれも 12 日ぶん後ろへずれる。
-//   これは「リネームと同時に中身も変えた」commit を厳密一致では追えないため。
-//   sitemap lastmod（公開影響を持つ側）は無傷なので、partial clone を成立させる方を採る。
-//
 // 出力の形式: YYYY-MM-DD（JSON-LD / sitemap lastmod 共通）
 
 import { execSync } from 'node:child_process';
@@ -52,16 +37,11 @@ import { join, dirname } from 'node:path';
 const CACHE_FILE = join(process.cwd(), 'node_modules/.cache/doboku-note/git-dates.json');
 
 /** 現在の全 ref のハッシュ。ref が 1 つでも動けばキーが変わる＝キャッシュは自動失効する。 */
-// キャッシュキーに算法も混ぜる。ref だけをキーにすると、**算法を変えても
-// ref が動くまで古い結果が返り続ける**（2026-08-21 に -M → -M100% へ変えたときに気づいた。
-// 気づかなければ「変えたのに反映されない」を延々デバッグすることになる）。
-const ALGO_VERSION = 'rename=exact-only/2026-08-21';
-
 function cacheKey() {
   const refs = execSync('git rev-parse --all', {
     encoding: 'utf-8', stdio: ['pipe', 'pipe', 'ignore'], maxBuffer: 8 * 1024 * 1024,
   });
-  return createHash('sha256').update(ALGO_VERSION + '\n' + refs).digest('hex');
+  return createHash('sha256').update(refs).digest('hex');
 }
 
 function readCache(key) {
@@ -104,7 +84,7 @@ export function loadGitDates() {
     }
   }
 
-  const out = execSync('git log --all --name-status -M100% --format=__COMMIT__:%ai', {
+  const out = execSync('git log --all --name-status -M --format=__COMMIT__:%ai', {
     encoding: 'utf-8',
     stdio: ['pipe', 'pipe', 'ignore'],
     maxBuffer: 64 * 1024 * 1024, // 64MB（38k 行 × 数百 byte 程度を想定）

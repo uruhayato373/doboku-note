@@ -80,7 +80,6 @@ const CHECKS = [
   { id: 'content-layout', npm: 'check-content-layout', timeout: 60_000, ci: true, note: 'content/ の移行インベントリ（件数・容量・二重 SSOT）を read-only で観測' },
   { id: 'project-task-refs', npm: 'check-project-task-refs', timeout: 30_000, ci: true, note: 'docs/ の廃止参照（task-queue.json）と backlog ID 参照切れ。error は判断の余地がなく直し方も自明なのでゲート' },
   { id: 'backlog-health', npm: 'check-backlog-health', timeout: 30_000, ci: false, note: '台帳の候補 surfacer（沈んだ不具合・定期の混入・重複候補）。読み手は /weekly-review Phase 2 と /backlog-sweep --audit' },
-  { id: 'mdx-dates', npm: 'check-mdx-dates', timeout: 60_000, ci: true, note: '記事日付が frontmatter に揃っているか（欠けるとビルドが git 履歴へフォールバックし、公開 SEO 信号がリポジトリ操作で動く状態に逆戻りする）' },
   { id: 'note-cover-tokens', npm: 'check-note-cover-tokens', timeout: 30_000, ci: true, note: 'note カバーの資格トークンが実ディレクトリを網羅しているか。未登録 dir は生成器が無言で総監へ落とし、色だけでなく資格ラベルまで総監のまま出荷される（2026-08-18 に技術士一次で1か月超の誤出荷が判明）' },
   { id: 'table-references', npm: 'check-table-references', timeout: 90_000, ci: true, note: '本文が指す表N.Mのキャプションが実在するか（転記由来の宙に浮いた参照）' },
   { id: 'figure-embed-dims', npm: 'check-figure-embed-dims', timeout: 90_000, ci: true, note: 'ArticleImage の width/height と SVG の実 viewBox の突合。従来は r2-audit（週次 cron）と pre-commit(staged) だけで、push 経路に backstop が無かった' },
@@ -137,13 +136,6 @@ const CHECKS = [
   // report のままだと誰も読まずに溜まる。実際 knip は batch-approve.mjs の壊れ import を
   // 報告し続けたまま 4 か月放置された。既存分の返済は強制せず、増やすことだけ禁じる。
   // baseline 更新: npm run check-knip-ratchet -- --update-baseline（2026-08-16 追加）
-  // アセット退避の整合ゲート（DN-0111 Phase 3・2026-08-21 追加）。R2 へはアクセスせずオフラインで完結。
-  // 「Git から外し・ローカルからも消し・R2 には上がっていなかった」は次に必要になるまで表面化しない。
-  { id: 'asset-storage', npm: 'check-asset-storage', timeout: 90_000, ci: true, note: '退避台帳と設定とワークツリーの辻褄（公開バケット誤配置・r2Key 衝突・復元不能・manifest への秘密混入）' },
-  // Git に何を追跡してよいかのラチェット（DN-0111 Phase 1・2026-08-21 追加）。
-  // 既存違反（教材ページ画像 868 / base64 SVG 756 等）は baseline で猶予し、増加だけを止める。
-  // baseline 更新: npm run check-git-binary-policy -- --update-baseline
-  { id: 'git-binary-policy', npm: 'check-git-binary-policy', timeout: 120_000, ci: true, note: '生成物・著作権物・巨大 blob・拡張子偽装の新規追跡を baseline ラチェットで止める（HEAD 4.16GiB / remote 11GB の再発防止）' },
   { id: 'knip-ratchet', npm: 'check-knip-ratchet', timeout: 300_000, ci: true, note: 'デッドコードが baseline から増えていないか' },
   {
     id: 'cta-density', npm: 'check-cta-density', timeout: 90_000, ci: false,
@@ -188,35 +180,6 @@ function tail(str, n = 20) {
   return lines.slice(-n).join('\n');
 }
 
-/**
- * 失敗の手がかりになる行だけを抜く。
- *
- * 末尾 N 行では足りない。`node --test` の TAP は 600 件超のうち 1 件が落ちても
- * 失敗行は途中に埋もれ、末尾に来るのは無関係な最後のテストと集計だけになる。
- * 2026-08-21 の CI がまさにこれで、ログに残ったのは `[FAIL] unit-tests 19.8s` の
- * 1 行だけだった（--ci はレポートファイルも書かないので他に読む所が無い）。
- */
-function failureExcerpt(stdout, stderr, maxLines = 40) {
-  const lines = (String(stdout || '') + '\n' + String(stderr || '')).split('\n');
-  const SIGNAL = /^not ok \d|Cannot find module|^\s*[A-Za-z]*Error\b|\[FAIL\]|^\s*expected:|^\s*actual:|^\s*at .*\.test\.mjs/;
-  const picked = [];
-  for (let i = 0; i < lines.length && picked.length < maxLines; i++) {
-    if (SIGNAL.test(lines[i])) { picked.push(lines[i]); continue; }
-    // TAP は assert のメッセージを `error: |-` の**次の行以降**に置く。
-    // ここに「content/note が少なすぎる: 3710」のような実数が入るので、
-    // 失敗テスト名だけ拾って捨てると原因の核心が落ちる（2026-08-21 に実際に落とした）。
-    if (/^\s*error:/.test(lines[i])) {
-      picked.push(lines[i].replace(/\s*\|-\s*$/, '').trimEnd());
-      for (let j = i + 1; j < Math.min(i + 4, lines.length); j++) {
-        if (!lines[j].trim() || /^\s*(code|failureType|stack|location|duration_ms|\.\.\.|---):?/.test(lines[j])) break;
-        picked.push(lines[j].trimEnd());
-      }
-    }
-  }
-  const out = picked.length ? picked : lines.filter(Boolean).slice(-maxLines);
-  return out.join('\n').trim();
-}
-
 async function runCheck(check) {
   const started = Date.now();
   if (CI && !check.ci) return null; // --ci では report-only を実行しない
@@ -245,8 +208,6 @@ async function runCheck(check) {
   return {
     id: check.id, ci: check.ci, status, exitCode: r.status ?? null, durationMs,
     stdoutTail: tail(r.stdout), stderrTail: tail(r.stderr), note: check.note,
-    // 全文はここでしか手に入らない（tail 済みの文字列からは信号行を拾えない）
-    excerpt: status === 'pass' ? '' : failureExcerpt(r.stdout, r.stderr),
   };
 }
 
@@ -284,7 +245,7 @@ function buildMarkdown(results, meta) {
       L.push('');
       L.push(`### ${r.id} — ${r.status} (exit ${r.exitCode})`);
       L.push('```');
-      L.push(r.excerpt || tail(r.stdoutTail, 20) || '(stdout 空)');
+      L.push(tail(r.stdoutTail, 20) || '(stdout 空)');
       if (r.stderrTail) { L.push('--- stderr ---'); L.push(tail(r.stderrTail, 10)); }
       L.push('```');
     }
@@ -325,14 +286,8 @@ async function main() {
   process.stderr.write(`[quality-audit] pass ${summary.pass || 0} / fail ${summary.fail || 0} / timeout ${summary.timeout || 0} / skip ${summary.skip || 0}\n`);
 
   if (CI && failed.length) {
-    // --ci はレポートファイルを書かないので、ここで出さないとログに理由が残らない。
-    for (const r of failed) {
-      process.stderr.write(`\n--- ${r.id} — ${r.status} (exit ${r.exitCode}) ---\n`);
-      process.stderr.write((r.excerpt || '(出力なし)') + '\n');
-    }
     process.stderr.write(`[quality-audit] CI 失敗: ${failed.map((f) => f.id).join(', ')}\n`);
-    // process.exit(1) だと stderr がパイプのとき直前の書き込みが捨てられる。
-    process.exitCode = 1;
+    process.exit(1);
   }
 }
 

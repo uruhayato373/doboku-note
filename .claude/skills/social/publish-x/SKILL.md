@@ -58,8 +58,8 @@ npx tsx .claude/skills/social/publish-x/publish-x.ts 004 --tweet 1 2026-05-09T08
 **X ネイティブ予約はスレッド非対応**（実機プローブ 2026-07-14: composer に `tweetTextarea_1` を追加すると `scheduleOption` が `aria-disabled=true`）。本スクリプトは次の分業で対応する（真実源 `x-post-policy.md` §5.2.1）:
 
 - **書式**: `## Tweet NN: タイトル [thread]`、本文内を `--- リプライ ---` 行で区切る（1部目=ヘッド、以降=リプライ）。各部が独立に 280 weighted 判定される（`check-x-length` が part 別検査）。マーカーなしブロックの `--- リプライ ---` 以降は従来どおり投稿対象外（レガシー注記互換）。
-- **即時投稿**（`--immediate`）: composer で全部組んで一括投稿（`addButton` trusted click。画像プレビュー後の透明オーバーレイ時だけ Playwright `force` click → `tweetTextarea_1..N` 入力・各部の空読み戻し検証つき）。現行 UI で追加 textarea が生成されない場合は、`--head-only` でヘッドだけ即時投稿→`node scripts/x-thread-replies.mjs --run`で自己リプライをチェーンする。
-- **予約投稿**: **ヘッドのみ**ネイティブ予約し、リプライ本文を status.json の `thread: {parts, replies_posted_at: null}` に記録。予約時刻経過後に `node scripts/x-thread-replies.mjs --run --draft <NNN>` で対象を限定し、ライブのヘッドを特定してリプライをチェーン投稿する（`--list`=pending 確認 / `--dry-run`=ヘッド特定まで）。cron 常駐はしない（§11.3 自動化フットプリント最小化）。
+- **即時投稿**（`--immediate`）: composer で全部組んで一括投稿（`addButton` trusted click → `tweetTextarea_1..N` 入力・各部の空読み戻し検証つき）。
+- **予約投稿**: **ヘッドのみ**ネイティブ予約し、リプライ本文を status.json の `thread: {parts, replies_posted_at: null}` に記録。予約時刻経過後に `node scripts/x-thread-replies.mjs --run` でライブのヘッドを特定しリプライをチェーン投稿する（`--list`=pending 確認 / `--dry-run`=ヘッド特定まで）。cron 常駐はしない（§11.3 自動化フットプリント最小化）。
 
 ## ⚠️ 重要: 「予約投稿完了」ログを信用せず予約キューを実体検証（2026-05-29）
 
@@ -125,7 +125,6 @@ npx tsx .claude/skills/social/publish-x/publish-x.ts 004 \
 | `[<date>...]` | - | 予約日時 JST (`YYYY-MM-DDTHH:MM`)。ツイート数と一致させる |
 | `--tweet N` | - | 特定ツイートのみ投稿（1-based、省略時は全ツイート） |
 | `--immediate` | - | 予約ではなく即時投稿（`--tweet` と組み合わせ推奨） |
-| `--head-only` | - | `[thread]` のヘッドだけ即時投稿し、リプライを pending として status.json へ残す。続けて `x-thread-replies --run` を実行 |
 | `--dry-run` | - | 実投稿せず予約モード到達まで確認 |
 
 ## tweets.md の形式
@@ -178,7 +177,7 @@ npx tsx .claude/skills/social/publish-x/publish-x.ts 004 \
 | 操作 | セレクタ |
 |---|---|
 | テキスト入力 | `page.getByRole("textbox").first()` |
-| 画像アップロード | `input[data-testid="fileInput"]`。初期 DOM に input が無い現行 UI は、`button[aria-label="画像や動画を追加"]`（英語は `Add photos or video`）押下時の `filechooser` を待ち受けて設定 |
+| 画像アップロード | `input[data-testid="fileInput"]` |
 | 予約ボタン | `[role="dialog"] [data-testid="scheduleOption"]`（DOM `.click()` 必須） |
 | 日時 select | `[role="dialog"] select` × 5（options 内容からロール自動判定） |
 | 確認ボタン | `[data-testid="scheduledConfirmationPrimaryAction"]` |

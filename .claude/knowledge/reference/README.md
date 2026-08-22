@@ -15,7 +15,6 @@ CLAUDE.md 本体に載せるには詳細すぎるが、特定の作業時に参�
 | [skills-registry.md](./skills-registry.md) | management / dev / content / ui / marketing / analytics / strategy / ads の全スキル一覧＋Phase 別運用メモ | 利用可能なスキルを探すとき、新スキル作成時に重複がないか確認するとき |
 | [agents-registry.md](./agents-registry.md) | エージェント詳細表＋チーム連携パターン＋Generator/Evaluator 分離原則 | サブエージェントを呼び出すときの担当範囲確認、連携設計時 |
 | [workflows.md](./workflows.md) | 推奨ワークフロー（週次運用・PDF→MDX 変換フロー・キーワードページ作成フロー・リスク評価）+ Phase 別ロードマップ | 週次運用・変換作業・キーワードページ作成時 |
-| [video-content-policy.md](./video-content-policy.md) | 動画パックのSSOT境界・schema・状態・Generator/Evaluator責務・機械ゲート・公開契約 | YouTube通常動画を核にShorts/IG/Xへ派生するとき、動画管理画面・スキル・エージェントを実装するとき |
 | [book-list.md](./book-list.md) | Amazonアソシエイト紹介書籍リスト（資格別×用途別、ASIN/ISBN/用途/紹介先メモ）+ PA-API 移行ロードマップ | 書籍紹介を追加・更新するとき／PA-API 実装時の seed として |
 
 ## 読み方の原則

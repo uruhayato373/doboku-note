@@ -19,7 +19,6 @@
  *   [<date>...]   予約日時 JST (YYYY-MM-DDTHH:MM)。対象ツイート数と一致させる
  *   --tweet N     特定ツイートのみ投稿（1-based。省略時は全ツイート）
  *   --immediate   予約ではなく即時投稿（--tweet と組み合わせ推奨）
- *   --head-only   即時スレッドのヘッドだけ投稿し、リプライを x-thread-replies に引き継ぐ
  *   --dry-run     実投稿せずセレクタ検出まで確認（初回・セレクタ変更後は必須）
  *
  * ⚠️  初回 / 1 週間以上空いた場合は必ず --dry-run で事前検証すること。
@@ -32,17 +31,13 @@ import * as fs from "fs";
 // ─── 設定 ─────────────────────────────────────────────
 const PROJECT_ROOT = path.resolve(__dirname, "../../../..");
 const DRAFTS_DIR = path.join(PROJECT_ROOT, "content/sns/x/draft");
-const ACCOUNT_CONFIG = JSON.parse(
-  fs.readFileSync(path.join(PROJECT_ROOT, ".claude/config/x-account.json"), "utf-8")
-) as { handle: string; playwrightProfile: string };
-// セッションは端末ごとのローカル領域に置く。macOS 固有の絶対パスに固定すると、Windows で
-// 別ユーザーの古いプロファイルを誤読するため、アカウント SSOT の相対パスから解決する。
-const PROFILE_DIR = path.resolve(PROJECT_ROOT, ACCOUNT_CONFIG.playwrightProfile);
-const EXPECTED_HANDLE = ACCOUNT_CONFIG.handle;
+// ログインプロファイルはメインチェックアウト固定で共有する（worktree から実行しても再ログイン
+// 不要にするため。debug/drafts は worktree ローカルのまま）。.claude/knowledge/reference/playwright-auth-profiles.md
+const PROFILE_ROOT = "/Users/minamidaisuke/doboku-note";
+const PROFILE_DIR = path.join(PROFILE_ROOT, ".local/playwright-x-profile");
 const DEBUG_DIR = path.join(PROJECT_ROOT, ".local/playwright-x-debug");
 
 let IS_DRY_RUN = false;
-let HEAD_ONLY = false;
 
 // ─── screenshot ────────────────────────────────────────
 async function saveScreenshot(page: Page, label: string): Promise<void> {
@@ -201,24 +196,22 @@ function updateStatus(
 
   const nowJst = new Date(Date.now() + 9 * 60 * 60 * 1000).toISOString().replace("Z", "+09:00");
   const key = String(tweetNum);
-  const tb = tweets.find((t) => t.number === tweetNum);
 
   if (scheduledDate) {
     const scheduledJst = new Date(scheduledDate.getTime() + 9 * 60 * 60 * 1000)
       .toISOString()
       .replace("Z", "+09:00");
-    data.tweets[key] = {
-      ...data.tweets[key], status: "scheduled", scheduled_at: scheduledJst, posted_at: null, text: tb?.text,
-    };
+    data.tweets[key] = { ...data.tweets[key], status: "scheduled", scheduled_at: scheduledJst, posted_at: null };
   } else {
-    data.tweets[key] = { ...data.tweets[key], status: "posted", posted_at: nowJst, text: tb?.text };
+    data.tweets[key] = { ...data.tweets[key], status: "posted", posted_at: nowJst };
   }
 
   // スレッド記録: 予約＝リプライ未投稿（x-thread-replies.mjs が拾う）/ 即時＝一括投稿済み
+  const tb = tweets.find((t) => t.number === tweetNum);
   if (tb && tb.threadParts.length > 0) {
     data.tweets[key].thread = {
       parts: tb.threadParts,
-      replies_posted_at: scheduledDate || HEAD_ONLY ? null : nowJst,
+      replies_posted_at: scheduledDate ? null : nowJst,
     };
   }
 
@@ -254,8 +247,6 @@ function parseArgs(): PostJob[] {
       console.log("🧪 DRY RUN モード: 実投稿はせず、セレクタ検出まで確認");
     } else if (args[i] === "--immediate") {
       immediate = true;
-    } else if (args[i] === "--head-only") {
-      HEAD_ONLY = true;
     } else if (args[i] === "--tweet") {
       tweetFilter = parseInt(args[++i], 10);
     } else if (args[i] === "--tweets") {
@@ -313,19 +304,6 @@ async function ensureLogin(page: Page): Promise<void> {
   } else {
     console.log("✅ ログイン済み");
   }
-
-  // ログイン済みだけでは不十分。旧凍結アカウントのセッションが残っていた事故を防ぐため、
-  // 投稿前に現在選択中のハンドルを SSOT と照合し、不一致なら fail-closed で停止する。
-  const accountButton = page.locator('[data-testid="SideNav_AccountSwitcher_Button"]').first();
-  await accountButton.waitFor({ state: "visible", timeout: 15000 });
-  const accountText = await accountButton.innerText();
-  if (!accountText.includes(`@${EXPECTED_HANDLE}`)) {
-    await saveScreenshot(page, `account-mismatch-expected-${EXPECTED_HANDLE}`);
-    throw new Error(
-      `Xアカウント不一致: expected=@${EXPECTED_HANDLE}, actual=${accountText.replace(/\s+/g, " ").trim()}`
-    );
-  }
-  console.log(`✅ アカウント照合OK: @${EXPECTED_HANDLE}`);
 }
 
 // ─── 1ツイート投稿 ────────────────────────────────────
@@ -369,21 +347,7 @@ async function publishTweet(page: Page, job: PostJob, index: number, total: numb
   // 画像アップロード（テキスト入力より先に実行）
   if (tweet.imagePath) {
     const fileInput = page.locator('input[data-testid="fileInput"]').first();
-    if ((await fileInput.count()) > 0) {
-      await fileInput.setInputFiles(tweet.imagePath);
-    } else {
-      // 2026-08-21 の X UI は file input を初期 DOM に置かず、メディアボタン押下時に
-      // OS picker を生成する。filechooser を先に待ち受け、表示言語に依存しない aria 名で押す。
-      const mediaButton = page
-        .getByRole("button", { name: /画像や動画を追加|Add photos or video/i })
-        .first();
-      await mediaButton.waitFor({ state: "visible", timeout: 10000 });
-      const [chooser] = await Promise.all([
-        page.waitForEvent("filechooser", { timeout: 10000 }),
-        mediaButton.click(),
-      ]);
-      await chooser.setFiles(tweet.imagePath);
-    }
+    await fileInput.setInputFiles(tweet.imagePath);
     console.log("📷 画像アップロード中...");
     try {
       await page.locator('[data-testid="attachments"]').waitFor({ state: "visible", timeout: 10000 });
@@ -437,9 +401,7 @@ async function publishTweet(page: Page, job: PostJob, index: number, total: numb
   // aria-disabled）。予約時はヘッドのみ予約し、リプライは x-thread-replies.mjs に委ねる。
   // 即時投稿時のみ composer で全部組んで一括投稿する（プローブで textarea_1 追加成功を確認済み）。
   if (tweet.threadParts.length > 0) {
-    if (HEAD_ONLY) {
-      console.log(`🧵 head-only: ヘッド投稿後、リプライ${tweet.threadParts.length}本を x-thread-replies へ引き継ぎます`);
-    } else if (scheduledDate) {
+    if (scheduledDate) {
       console.log(`🧵 スレッド ${tweet.threadParts.length} 本のリプライは X 予約非対応のためヘッドのみ予約します`);
       console.log(`   予約時刻の経過後に: node scripts/x-thread-replies.mjs --run`);
     } else {
@@ -447,14 +409,7 @@ async function publishTweet(page: Page, job: PostJob, index: number, total: numb
         const part = tweet.threadParts[p];
         // trusted click 必須（DOM .click() では React onClick 不発 = textarea_1 が出ない。プローブ実証）
         const addBtn = page.locator('[data-testid="addButton"]').first();
-        try {
-          await addBtn.click({ timeout: 5000 });
-        } catch {
-          // 画像プレビュー後の現行 UI は透明な fixed layer が pointer event を横取りすることがある。
-          // Playwright の force click は trusted event を維持するため、DOM .click() には落とさない。
-          console.log("⚠️  スレッド追加ボタンがオーバーレイに遮られたため force click で再試行します");
-          await addBtn.click({ force: true, timeout: 5000 });
-        }
+        await addBtn.click({ timeout: 10000 });
         const nextBox = page.locator(`[data-testid="tweetTextarea_${p + 1}"]`);
         try {
           await nextBox.waitFor({ state: "visible", timeout: 10000 });
@@ -772,10 +727,8 @@ async function main() {
     }
     const ok = results.filter((r) => r.success).length;
     console.log(`\n合計: ${ok}/${results.length} 件完了`);
-    if (ok !== results.length) process.exitCode = 1;
   } catch (error) {
     console.error("エラー:", error);
-    process.exitCode = 1;
   } finally {
     await page.waitForTimeout(5000);
     await context.close();

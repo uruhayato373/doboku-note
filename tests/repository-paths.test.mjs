@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 import { mkdtempSync, rmSync, mkdirSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join, dirname, isAbsolute, relative, sep } from 'node:path';
+import { join, dirname, isAbsolute } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import {
   REPO_ROOT, SITE_CONTENT_ROOT, DOCS_ROOT, MIGRATION_MAP, LEGACY_ROOTS,
@@ -129,44 +129,14 @@ test('content/ の各チャネルに実体がある（空を PASS と呼ばな�
     site: SITE_CONTENT_ROOT, note: NOTE_CONTENT_ROOT, sns: SNS_CONTENT_ROOT,
     'coconala/blog': COCONALA_BLOG_ROOT, kindle: KINDLE_CONTENT_ROOT, 'sources/textbook': TEXTBOOK_SOURCES_ROOT,
   };
-
-  // **追跡下**の件数で数える。ワークツリーの実ファイル（inventory）で数えると、
-  // `git rm --cached` で追跡から外した後もローカルには実体が残るぶんを足してしまい、
-  // 手元だけ緑・CI だけ赤になる。2026-08-21 に実際にそうなった——DN-0111 Phase 2 で
-  // note カバー SVG 827 件を untrack した結果、手元 4,722 / 追跡 3,710 と乖離し、
-  // ローカルの `npm test` は 623 件すべて緑のまま CI の unit-tests だけが落ちた。
-  // このテストが守りたいのは「リポジトリに実体があるか」なので、見るべきは追跡下。
-  const tracked = execFileSync(
-    'git', ['-c', 'core.quotepath=false', 'ls-files', '-z', 'content'],
-    { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 },
-  ).split('\0').filter(Boolean);
-  assert.ok(tracked.length > 0, 'content/ の追跡ファイルが 0 件＝検査不成立（git が読めていない）');
-
-  const counts = Object.fromEntries(Object.entries(roots).map(([k, v]) => {
-    const prefix = relative(REPO_ROOT, v).split(sep).join('/') + '/';
-    return [k, tracked.filter((p) => p.startsWith(prefix)).length];
-  }));
+  const counts = Object.fromEntries(Object.entries(roots).map(([k, v]) => [k, inventory(v).files]));
   for (const [name, n] of Object.entries(counts)) {
     assert.ok(n > 0, `content/${name} が空（移行に取りこぼしがある）: ${JSON.stringify(counts)}`);
   }
-
-  // 規模の桁を固定して「1 ファイルだけ残った」を緑にしない。
-  // 下限は「今と同じ桁」を意味するだけで、正確な値に意味は無い。
-  // DN-0111 の R2 退避で意図的に追跡から外すと下限を割る（Phase 4 で note -827 -586 /
-  // sns -1,997 の予定）。そのときは**数字を下げる前に、減った分が
-  // `.claude/state/assets/manifest.json` に sha256 付きで載っていることを確かめる**。
-  // 確かめずに下限だけ下げると、この検査は事故を通すだけの飾りになる。
+  // 規模の桁を固定して「1 ファイルだけ残った」を緑にしない
   assert.ok(counts.site > 4000, `content/site が少なすぎる: ${counts.site}`);
-  // 2026-08-21 に 3000 → 2000 へ。Phase 4-B で cover PNG 827 件を R2 へ退避して追跡から外した
-  // （3,710 → 2,883）。下げる前に 827 件すべてが manifest に sha256・bytes・寸法つきで載り、
-  // R2（公開 777 / archive 50）に実在して bytes 一致することを確認済み。
-  // Phase 4-D の PDF 586 件でさらに 2,297 まで下がる見込み。
-  assert.ok(counts.note > 2000, `content/note が少なすぎる: ${counts.note}`);
-  // 2026-08-21 に 2500 → 1000 へ。Phase 4-E で IG レンダー画像 1,990 件を R2 へ退避して
-  // 追跡から外した（3,240 → 1,250）。下げる前に 1,990 件すべてが manifest に
-  // sha256・bytes・寸法つきで載り、R2（公開 7 / archive 1,983）に実在して bytes 一致することを確認済み。
-  // SoT（slide-data.json と同名 .svg）は Git に残っているので、退避したのは再生成できる側だけ。
-  assert.ok(counts.sns > 1000, `content/sns が少なすぎる: ${counts.sns}`);
+  assert.ok(counts.note > 4000, `content/note が少なすぎる: ${counts.note}`);
+  assert.ok(counts.sns > 3000, `content/sns が少なすぎる: ${counts.sns}`);
 });
 
 test('content/kindle は Web 配信対象に含まれない（非公開原稿）', async () => {

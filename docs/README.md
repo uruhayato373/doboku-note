@@ -13,7 +13,7 @@
 |---|---|---|
 | [strategy/](./strategy/) | 事業・プロダクト・収益・競合の戦略 | `01_プロダクト戦略.md`（北極星）／`03_事業戦略.md`／`07_競合調査.md` |
 | [editorial/](./editorial/) | コンテンツ制作方針・執筆計画 | `01_記述式コンテンツ戦略.md` |
-| [marketing/](./marketing/) | SNS・チャネル動線・集客 | `01_SNS集客戦略.md`／`02_チャネル動線設計.md`／`06_動画コンテンツ運用設計.md` |
+| [marketing/](./marketing/) | SNS・チャネル動線・集客 | `01_SNS集客戦略.md`／`02_チャネル動線設計.md` |
 | [operations/](./operations/) | 運営の手順・自動化・計測基盤 | `04_自動化マップ.md`／`gsc-ga4-playwright-automation-spec.md` |
 | [products/](./products/) | 商品・アプリ・キットの仕様 | `06_PWA過去問アプリ設計方針.md` |
 | [design/](./design/) | UI コンポーネントの視覚ギャラリー | `callout-gallery.md`／`speclist-gallery.md` |

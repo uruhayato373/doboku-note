@@ -11,17 +11,12 @@
 | ファイル | 種別 | 置き場 |
 |---|---|---|
 | `slide-data.json` / `*caption.txt` / `reels/script.txt` / `status.json` | **SoT（消えたら困る）** | git 追跡 |
-| `carousel/img/*.png` / `stories/img/*.png`（成果物スライド） | 投稿そのもの。1 枚は小さいが 1,990 件で 234.4 MiB | **git 非追跡 → R2 退避**（2026-08-21〜・DN-0111 Phase 4-E） |
+| `carousel/img/*.png`（成果物スライド） | 投稿そのもの・小さい（~115KB/枚） | git 追跡 |
 | `reels/wav/*.wav` | TTS で再生成可能・重い | **git 非追跡 → R2 退避** |
 | `reels/video.mp4` / `concat.txt` / `_empty.ass` 等 | wav+png から再生成可能 | **git 非追跡 → R2 退避** |
 
 > [!important] 真実源は slide-data.json
 > 1 パックの「消えたら困る本体」は約 20KB のテキスト（slide-data.json + script/caption + status.json）だけ。wav/mp4/png は全て再生成できる。退避で wav/mp4 を消しても、最悪 JIT 再生成で復元できる。
->
-> **carousel/stories の PNG は 2026-08-21 に R2 退避へ移した**（DN-0111 Phase 4-E・1,990 件 234.4 MiB）。
-> 投稿済み 7 件は公開バケット、それ以外は archive。退避・復元は共通基盤（[asset-storage-policy.md](asset-storage-policy.md)）で、
-> `upload-sns-r2` が扱う wav/mp4 とは別経路。**reels/ 配下はこの共通基盤の対象外**——
-> 両方の regime で同じファイルを見ると片方が「未退避」と誤検出するため、group の regex から除外してある。
 >
 > 旧運用（2026-06-09）は wav を「コミットする SoT」としていたが、2026-06-18 に wav も R2 退避へ統一した（git 肥大 596MB が大きく、gitignore と矛盾していたため）。経緯は `skills-registry.md` の 2026-06-18 エントリ。
 
@@ -30,7 +25,7 @@
 
 ## 3 層モデル
 
-1. **git に残す（極小）** — SoT テキスト（slide-data.json / script / caption / status）と図版 SVG。
+1. **git に残す（極小）** — SoT テキスト + carousel 成果物 PNG。
 2. **ローカル作業セット** — 制作中パックの wav/mp4 のみ手元生成・プレビュー。
 3. **アーカイブ** — 投稿済み・旧パックの重いバイナリを R2 へ退避し、ローカル削除。
 

@@ -5,7 +5,7 @@ import type { ExamKey } from '@/lib/exam-brand';
  * note ファネル L2（資格別「もくじ」記事）の解決。
  *
  * もくじは資格ごとの索引で、有料マガジンを 1 本ずつ列挙する代わりにここへ送れば
- * 商品が増えてもサイト側の改修が要らない（`/links` のカードを最大 3 行に保てる理由）。
+ * 商品が増えてもサイト側の改修が要らない（`/links` のカードが 3 行で済む理由）。
  * 真実源は `.claude/config/note-funnel.json` の `exams.{key}.L2`
  * （運用・追加手順は `.claude/knowledge/reference/note-funnel-architecture.md`）。
  * URL をここで直書きしない — funnel の監査（audit-note-funnel）と食い違うため。

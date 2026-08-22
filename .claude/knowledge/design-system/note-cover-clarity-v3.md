@@ -21,7 +21,7 @@ note の記事一覧やリンクカードで、読者が約 0.5 秒で次の3点
 - Clarity V3 用 frontmatter フィールド
 - 中央 630×630 クロップを守る決定論的レイアウト
 - 文字幅チェックの Clarity V3 対応
-- 代表記事1件の frontmatter と `cover.png` の再生成
+- 代表記事1件の frontmatter と `cover.svg` / `cover.png` の再生成
 - 仕様、トークン、カバー執筆エージェントの更新
 
 ### 今回実装しないもの
@@ -172,7 +172,7 @@ clarityAlertFontSize(text)    // 26..34px、ラベル内幅に収める
 ### 代表記事
 
 - `content/note/1級・2級土木/1級土木/1級経験記述で落ちる答案/article.md`
-- 同ディレクトリの `img/cover.png`
+- 同ディレクトリの `img/cover.svg` / `img/cover.png`
 
 対象記事の本文・その他frontmatterは変更しない。CRLF保護が必要なら `scripts/add-note-cover.mjs` 経由で更新する。
 
@@ -216,7 +216,7 @@ git status --short
 - 代表記事のみ Clarity V3 になっている。
 - variantなし既存G2の出力ロジックが変わっていない。
 - フィット検査が Clarity V3 の主要4領域を検査する。
-- `cover.png` が1280×670で生成される（中間 SVG は既定では出力しない。描画デバッグ時のみ `--emit-svg` で `.tmp/note-covers/` へ）。
+- `cover.png` と `cover.svg` が1280×670で生成される。
 - 上記コマンドが成功し、目視チェックを満たす。
 - note.comへのアップロード、公開、既存記事のライブ差し替えは未実施である。
 

@@ -48,7 +48,7 @@ export default async function SnsGallery({
             </h2>
             <div className="gallery small">
               {p.images.slice(0, 24).map((img) => (
-                <Thumb key={img.url || img.name} url={img.url} name={img.name} video={img.video} offloaded={img.state === 'offloaded'} bucket={img.bucket} />
+                <Thumb key={img.url} url={img.url} name={img.name} video={img.video} />
               ))}
             </div>
             {p.images.length > 24 ? <p className="muted small">他 {p.images.length - 24} 点…</p> : null}

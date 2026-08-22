@@ -23,30 +23,6 @@ function memo<T>(key: string, fn: () => T): T {
   return val;
 }
 
-/**
- * 退避台帳（DN-0111）。note カバーと IG レンダー画像は R2 へ出して Git 追跡から外したので、
- * ディスクを readdir するだけだと**ギャラリーから静かに消える**。台帳に載っているものは
- * 「R2 にある・要 hydrate」として出す。壊れた <img> は出さない（実体が無いので src を作らない）。
- */
-interface OffloadEntry { bucket: string; group: string; bytes: number; width?: number; height?: number }
-function offloadedByRel(rootPrefix: string, groupIds: string[]): Map<string, OffloadEntry> {
-  return memo('offload:' + rootPrefix + ':' + groupIds.join(','), () => {
-    const out = new Map<string, OffloadEntry>();
-    let raw: { entries?: Record<string, OffloadEntry & { logicalPath?: string }> } | null = null;
-    try {
-      raw = JSON.parse(readFileSync(repoPath('.claude', 'state', 'assets', 'manifest.json'), 'utf8'));
-    } catch {
-      return out;
-    }
-    for (const [logical, e] of Object.entries(raw?.entries ?? {})) {
-      if (!groupIds.includes(e.group)) continue;
-      if (!logical.startsWith(rootPrefix)) continue;
-      out.set(logical.slice(rootPrefix.length), e);
-    }
-    return out;
-  });
-}
-
 function readJson<T>(abs: string): T | null {
   try {
     return JSON.parse(readFileSync(abs, 'utf8')) as T;
@@ -243,9 +219,6 @@ export interface NoteImageItem {
   name: string;
   kind: 'cover' | 'figure';
   url: string;
-  /** local = 手元に実体あり / offloaded = R2 にあり要 hydrate */
-  state: 'local' | 'offloaded';
-  bucket?: string;
 }
 
 export function scanNoteImages(): { items: NoteImageItem[]; segs: string[] } {
@@ -261,19 +234,7 @@ export function scanNoteImages(): { items: NoteImageItem[]; segs: string[] } {
       const name = rel.split('/').pop() ?? rel;
       const seg = rel.split('/')[0] ?? '';
       const kind: 'cover' | 'figure' = /^cover/.test(name) ? 'cover' : 'figure';
-      items.push({ rel, seg, name, kind, url: `/media/note/${rel}`, state: 'local' });
-    }
-
-    // 退避済み（ローカルに実体が無い）分を足す。件数が静かに減るのを防ぐ。
-    const seen = new Set(items.map((i) => i.rel));
-    for (const [rel, e] of offloadedByRel('content/note/', ['note-cover-png'])) {
-      if (seen.has(rel)) continue;
-      const name = rel.split('/').pop() ?? rel;
-      items.push({
-        rel, seg: rel.split('/')[0] ?? '', name,
-        kind: /^cover/.test(name) ? 'cover' : 'figure',
-        url: '', state: 'offloaded', bucket: e.bucket,
-      });
+      items.push({ rel, seg, name, kind, url: `/media/note/${rel}` });
     }
     items.sort((a, b) => a.rel.localeCompare(b.rel));
     const segs = [...new Set(items.map((i) => i.seg))].sort();
@@ -286,9 +247,6 @@ export interface SnsImage {
   name: string;
   url: string;
   video: boolean;
-  /** local = 手元に実体あり / offloaded = R2 にあり要 hydrate */
-  state?: 'local' | 'offloaded';
-  bucket?: string;
 }
 export interface SnsPack {
   channel: 'instagram' | 'x';
@@ -320,19 +278,7 @@ export function scanSnsPacks(): { packs: SnsPack[] } {
           name: rel.split('/').pop() ?? rel,
           url: `/media/sns/instagram/${rel}`,
           video: /\.mp4$/i.test(rel),
-          state: 'local',
         });
-        dirsWithMedia.set(packRel, arr);
-      }
-
-      // 退避済み（ローカルに実体が無い）分を足す。
-      const seenIg = new Set<string>();
-      for (const [packRel, arr] of dirsWithMedia) for (const im of arr) seenIg.add(packRel + '/' + im.name);
-      for (const [rel, e] of offloadedByRel('content/sns/instagram/', ['ig-rendered-image'])) {
-        if (seenIg.has(rel)) continue;
-        const packRel = dirname(rel);
-        const arr = dirsWithMedia.get(packRel) ?? [];
-        arr.push({ name: rel.split('/').pop() ?? rel, url: '', video: false, state: 'offloaded', bucket: e.bucket });
         dirsWithMedia.set(packRel, arr);
       }
       for (const [packRel, images] of [...dirsWithMedia.entries()].sort()) {

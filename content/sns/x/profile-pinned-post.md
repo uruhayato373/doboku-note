@@ -2,19 +2,44 @@
 title: X プロフィール固定投稿
 purpose: Xプロフィールから来た受験者へ提供価値と主要導線を伝える固定投稿の本文。
 accountSsot: .claude/config/x-account.json
-status: posted-awaiting-pin
-liveUrl: https://x.com/doboku373/status/2090694451857686650
-publishedAt: 2026-08-21T15:56:18+09:00
-sourceDraft: content/sns/x/draft/093-profile-qualification-tree/tweets.md
+status: planned
 ---
 
 # X プロフィール固定投稿
 
-アカウントの表示名・bio・URLは `.claude/config/x-account.json` がSSOT。
-2026-08-21 に画像付き5部スレッドとして公開済み。本文・画像・投稿状態の正本は
-`content/sns/x/draft/093-profile-qualification-tree/` を参照する。
+アカウントの表示名・bio・URLは `.claude/config/x-account.json` がSSOT。本ファイルは固定投稿本文だけを管理する。
 
-- 公開先: https://x.com/doboku373/status/2090694451857686650
-- 構成: 画像付きヘッド + 施工管理 + コンクリート + 技術士 + 運営者紹介
-- 対象: 技術士第一次・建設部門・総監、1級・2級土木、コンクリート主任技士・診断士
-- 残作業: X プロフィールでヘッド投稿を固定後、`pinnedPost.status` を `pinned` へ更新する
+```text
+技術士・土木施工管理技士を受ける方へ。
+
+doboku-noteでは、過去問を解くだけで終わらず、「評価される答案へ変換する方法」まで体系化しています。
+
+元・自治体土木職の発注者視点で、無料解説・模範論文・学習ツールを公開中です。
+↓
+https://doboku-note.com/links
+```
+
+自己リプライ1:
+
+```text
+主な対象
+
+・技術士 総合技術監理部門
+・技術士 建設部門
+・1級／2級土木施工管理技士
+・コンクリート主任技士
+・コンクリート診断士
+
+過去問、キーワード、記述式、経験記述を試験別に整理しています。
+```
+
+自己リプライ2:
+
+```text
+運営者：架（かける）
+
+元・地方自治体の土木職（発注者）。
+道路・河川などの計画、設計、発注、工事監督、維持管理を担当。
+
+技術士（建設・総監）、1級土木、コンクリート主任技士・診断士などを取得しています。
+```
