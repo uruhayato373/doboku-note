@@ -44,6 +44,7 @@ npm run scout-coconala-blogs                                     # 競合偵察�
 | `dokugaku-tensaku-genkai` | 第2回 | 理由 | S2 添削セット |
 | `yosou-mondai-kaku-renshu` | 第3回 | ハウツー | 1級 予想模試 |
 | `hinshitsu-kanri-kakikata` | 第4回 | ハウツー | 1級 教材フルパック |
+| `anzen-kanri-kakikata` | 第5回 | ハウツー | 1級 模範答案セット |
 | `sokan-shutsudai-theme-bunseki` | 単発 | 数字 | 総監 出題テーマ分析 |
 
 連載は「次回予告 → 次記事の内容」が一致していること（QA が横断で見る）。

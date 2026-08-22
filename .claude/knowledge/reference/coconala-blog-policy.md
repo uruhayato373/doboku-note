@@ -57,14 +57,15 @@ angle の語彙は [content-angle-policy.md](content-angle-policy.md) と共通�
 | 2 | 独学添削の限界 | note 無料「経験記述-独学添削の限界」 | 理由 | S2 添削セット |
 | 3 | 予想問題で書く練習 | note 無料「経験記述-予想問題で書く練習」 | ハウツー | C8/C9 模試 |
 | 4 | 品質管理の書き方 | サイト `civil-construction-{1,2}-secondary-experience-writing-guide` | ハウツー | S3 作成 / C10・C11 |
-| 5 | 総監の出題テーマ | 総監テーマ分析（sokan-bunseki） | 数字 | sokan-bunseki |
+| 5 | 安全管理の書き方 | サイト `civil-construction-{1,2}-secondary-experience-writing-guide` | ハウツー | C2 模範答案セット |
+| 6 | 総監の出題テーマ | 総監テーマ分析（sokan-bunseki） | 数字 | sokan-bunseki |
 
 **source は素材であって原稿ではない。** `stripNoteFunnel()` で外部導線を落としてから**書き直す**。
 逐語転載は note 側の重複コンテンツになり、どちらの資産価値も下げる。
 
 **資格の配分（2026-08-12 決定）**: 土木（1級・2級）中心＋総監は少数。
 理由は実需の実測 —「経験記述」646件に対し「総合技術監理」は**16件**しかない
-（「技術士」1,100件は部分一致のノイズ）。総監は当面 #5 の1本に留め、
+（「技術士」1,100件は部分一致のノイズ）。総監は当面 #6 の1本に留め、
 「サービス・ブログ分析」で閲覧が付いてから増やす。
 
 ---
