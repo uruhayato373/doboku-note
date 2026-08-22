@@ -4,7 +4,11 @@ notePricing: paid
 paidBoundary: "答案の方針"
 noteSeries: コンクリート主任技士-実務立場別小論文
 noteMagazine: コンクリート主任技士-実務立場別小論文集
-noteStatus: draft
+notePublishedAt: "2026-08-22"
+noteId: "nfa67791ed05c"
+noteUrl: "https://note.com/dobokunote/n/nfa67791ed05c"
+noteStatus: published
+price: 980
 utmCampaign: cce-persona-genecon-environment
 coverTitle: "実務立場別小論文｜ゼネコン施工｜環境配慮"
 cover:

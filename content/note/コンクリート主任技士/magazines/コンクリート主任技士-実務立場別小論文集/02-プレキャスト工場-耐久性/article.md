@@ -4,7 +4,11 @@ notePricing: paid
 paidBoundary: "答案の方針"
 noteSeries: コンクリート主任技士-実務立場別小論文
 noteMagazine: コンクリート主任技士-実務立場別小論文集
-noteStatus: draft
+notePublishedAt: "2026-08-22"
+noteId: "n126154ea24d5"
+noteUrl: "https://note.com/dobokunote/n/n126154ea24d5"
+noteStatus: published
+price: 980
 utmCampaign: cce-persona-precast-durability
 coverTitle: "実務立場別小論文｜プレキャスト工場｜耐久性"
 cover:

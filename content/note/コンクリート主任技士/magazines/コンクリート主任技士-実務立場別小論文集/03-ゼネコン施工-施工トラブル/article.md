@@ -4,7 +4,11 @@ notePricing: paid
 paidBoundary: "答案の方針"
 noteSeries: コンクリート主任技士-実務立場別小論文
 noteMagazine: コンクリート主任技士-実務立場別小論文集
-noteStatus: draft
+notePublishedAt: "2026-08-22"
+noteId: "nb2d96b6cb98f"
+noteUrl: "https://note.com/dobokunote/n/nb2d96b6cb98f"
+noteStatus: published
+price: 980
 utmCampaign: cce-persona-genecon-trouble
 coverTitle: "実務立場別小論文｜ゼネコン施工｜施工トラブル"
 cover:

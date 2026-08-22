@@ -3,7 +3,10 @@ title: "コンクリート主任技士 小論文｜自分の立場に近い答�
 notePricing: free
 noteSeries: コンクリート主任技士-実務立場別小論文
 noteMagazine: コンクリート主任技士-実務立場別小論文集
-noteStatus: draft
+notePublishedAt: "2026-08-22"
+noteId: "n6a56bef2fe2b"
+noteUrl: "https://note.com/dobokunote/n/n6a56bef2fe2b"
+noteStatus: published
 utmCampaign: cce-persona-guide
 coverTitle: "実務立場別小論文｜自分の立場に近い答案の選び方"
 cover:
@@ -160,7 +163,7 @@ cover:
 
 各記事は、想定問題・答案の方針・序論から結論までのフル答案・採点者視点のチェックポイント・自分の案件への置換ガイドで構成しています。
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m4ee0a96dce31
 
 ---
 

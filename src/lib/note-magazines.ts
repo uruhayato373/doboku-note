@@ -769,8 +769,8 @@ const MAGAZINES_RAW = {
 
   // DN-0095（2026-08-20 制作・QA完了、未公開）。既存 cce-essay-magazine の上位版。
   // 8実務ペルソナ×4テーマ=32本 ＋ 無料のペルソナ選択ガイド1本＝全33記事が原稿・QA完了。
-  // 価格は計画上の仮説(32本完成時¥5,980)のみで未確定のため本文・カタログとも price 未設定。
-  // note 公開・価格確定は別途判断してから noteUrl を埋め published: true にする。
+  // 2026-08-22: 32本完成につき セット¥5,980 / 単品¥980 で価格確定（DN-0095 の仮説どおり）。
+  // 単品¥980 は既存 cce-essay-magazine と同一の単価ライン。noteUrl は公開時に書き戻す。
   // 実装契約: .claude/plans/DN-0095-civil-concrete-answer-expansion/02-concrete-chief-essay-personas.md
   'cce-essay-persona-pack': {
     id: 'cce-essay-persona-pack',
@@ -782,6 +782,7 @@ const MAGAZINES_RAW = {
     shortTitle: 'コンクリート主任技士 小論文 実務立場別答案集',
     shortDescription:
       '8つの実務立場×4テーマ＝全32答案。製造・施工・発注者・設計・試験・維持管理まで、自分の実務に近い立場で答案が書ける。',
+    price: '¥5,980（33記事セット・単品¥980）',
     badge: 'note 限定 教材',
   },
 

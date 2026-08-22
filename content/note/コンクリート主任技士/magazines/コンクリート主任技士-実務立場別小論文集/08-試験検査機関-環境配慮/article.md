@@ -5,6 +5,7 @@ paidBoundary: "答案の方針"
 noteSeries: コンクリート主任技士-実務立場別小論文
 noteMagazine: コンクリート主任技士-実務立場別小論文集
 noteStatus: draft
+price: 980
 utmCampaign: cce-persona-shiken-environment
 coverTitle: "実務立場別小論文｜試験・検査機関｜環境配慮"
 cover:

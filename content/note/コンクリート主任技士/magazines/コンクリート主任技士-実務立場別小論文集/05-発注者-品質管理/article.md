@@ -4,7 +4,11 @@ notePricing: paid
 paidBoundary: "答案の方針"
 noteSeries: コンクリート主任技士-実務立場別小論文
 noteMagazine: コンクリート主任技士-実務立場別小論文集
-noteStatus: draft
+notePublishedAt: "2026-08-22"
+noteId: "n94fda9899514"
+noteUrl: "https://note.com/dobokunote/n/n94fda9899514"
+noteStatus: published
+price: 980
 utmCampaign: cce-persona-hacchusha-quality
 coverTitle: "実務立場別小論文｜発注者・監督員｜品質管理"
 cover:

@@ -4,7 +4,11 @@ notePricing: paid
 paidBoundary: "答案の方針"
 noteSeries: コンクリート主任技士-実務立場別小論文
 noteMagazine: コンクリート主任技士-実務立場別小論文集
-noteStatus: draft
+notePublishedAt: "2026-08-22"
+noteId: "nad967d055c18"
+noteUrl: "https://note.com/dobokunote/n/nad967d055c18"
+noteStatus: published
+price: 980
 utmCampaign: cce-persona-namacon-environment
 coverTitle: "実務立場別小論文｜生コン工場｜環境配慮"
 cover:

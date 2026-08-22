@@ -4,7 +4,11 @@ notePricing: paid
 paidBoundary: "答案の方針"
 noteSeries: コンクリート主任技士-実務立場別小論文
 noteMagazine: コンクリート主任技士-実務立場別小論文集
-noteStatus: draft
+notePublishedAt: "2026-08-22"
+noteId: "n0fa1dbe93c8b"
+noteUrl: "https://note.com/dobokunote/n/n0fa1dbe93c8b"
+noteStatus: published
+price: 980
 utmCampaign: cce-persona-kenchiku-durability
 coverTitle: "実務立場別小論文｜建築施工｜耐久性"
 cover:

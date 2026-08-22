@@ -121,6 +121,7 @@ npm run sales-summary -- 2026-06   # 指定月（位置引数。--month フラ�
 | 建設部門 まるごと合格パック（必須科目I＋選択科目） | `bk-{subject}-pack`（例: `bk-road-pack`。note-magazines.ts の `pe-construction-{subject}-pack` に対応） |
 | 1級2級土木 学科記述セット | `civil-1-gakka-kijutsu`（¥2,480）/ `civil-2-gakka-kijutsu`（¥1,980） |
 | 1級土木 二次まるごとパック | `civil-1-niji-marugoto-pack`（¥11,800・108記事バンドル） |
+| コンクリート主任技士 小論文 | `cce-essay-magazine`（¥2,480・5本）/ `cce-essay-persona-pack`（¥5,980・33本・実務立場別） |
 
 ### 単品記事
 

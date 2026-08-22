@@ -103,6 +103,8 @@ kuro
 | `建設部門2次｜鉄道 選択科目 模範解答集` | `bk-railway-secondary-magazine` |
 | `建設部門2次｜{他科目} 選択科目 模範解答集` | `bk-{subject}-secondary-magazine`（subject は note-magazines.ts の romaji に合わせる） |
 | `建設部門2次｜{他科目} まるごと合格パック`（必須科目I＋選択科目 バンドル） | `bk-{subject}-pack`（例: `bk-road-pack` / `bk-tunnel-pack` / `bk-urban-planning-pack`。note-magazines.ts の `pe-construction-{subject}-pack` に対応） |
+| `コンクリート主任技士 小論文｜模範答案集`（¥2,480・5本） | `cce-essay-magazine` |
+| `コンクリート主任技士 小論文｜実務立場別 模範答案集`（¥5,980・33本） | `cce-essay-persona-pack` |
 
 ### 単品記事（type: article）
 
