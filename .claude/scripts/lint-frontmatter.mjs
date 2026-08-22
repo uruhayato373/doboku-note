@@ -10,11 +10,11 @@
  *   LOW    : タグ allowlist 外、description 長すぎ、タグ 0 件、exams 多重で sections 欠落
  *
  * ── Usage ──
- *   node scripts/lint-frontmatter.mjs <file.mdx>
- *   node scripts/lint-frontmatter.mjs <dir>         # 再帰
- *   node scripts/lint-frontmatter.mjs --all         # content/site 全体
- *   node scripts/lint-frontmatter.mjs --stdin       # staged files via git diff
- *   node scripts/lint-frontmatter.mjs --json <...>  # JSON 出力
+ *   node .claude/scripts/lint-frontmatter.mjs <file.mdx>
+ *   node .claude/scripts/lint-frontmatter.mjs <dir>         # 再帰
+ *   node .claude/scripts/lint-frontmatter.mjs --all         # content/site 全体
+ *   node .claude/scripts/lint-frontmatter.mjs --stdin       # staged files via git diff
+ *   node .claude/scripts/lint-frontmatter.mjs --json <...>  # JSON 出力
  *
  * Exit code:
  *   0 : HIGH 0 件（MEDIUM/LOW は出力するが成功扱い）
@@ -284,11 +284,11 @@ function printHelp() {
 Frontmatter Linter
 
 Usage:
-  node scripts/lint-frontmatter.mjs <file.mdx>
-  node scripts/lint-frontmatter.mjs <dir>
-  node scripts/lint-frontmatter.mjs --all
-  node scripts/lint-frontmatter.mjs --stdin
-  node scripts/lint-frontmatter.mjs --json <target>
+  node .claude/scripts/lint-frontmatter.mjs <file.mdx>
+  node .claude/scripts/lint-frontmatter.mjs <dir>
+  node .claude/scripts/lint-frontmatter.mjs --all
+  node .claude/scripts/lint-frontmatter.mjs --stdin
+  node .claude/scripts/lint-frontmatter.mjs --json <target>
 
 Exit codes:
   0: HIGH 違反 0 件

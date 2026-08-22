@@ -2,11 +2,11 @@
  * Upload MDX files and images to R2 (S3 API)
  *
  * Usage:
- *   node scripts/upload-images-to-r2.mjs                      # MDX + 画像をアップロード
- *   node scripts/upload-images-to-r2.mjs --images-only         # 画像のみ
- *   node scripts/upload-images-to-r2.mjs --mdx-only            # MDXのみ
- *   node scripts/upload-images-to-r2.mjs --dry-run             # プレビューのみ
- *   node scripts/upload-images-to-r2.mjs --prefix exam/civil   # 特定ディレクトリのみ
+ *   node .claude/scripts/upload-images-to-r2.mjs                      # MDX + 画像をアップロード
+ *   node .claude/scripts/upload-images-to-r2.mjs --images-only         # 画像のみ
+ *   node .claude/scripts/upload-images-to-r2.mjs --mdx-only            # MDXのみ
+ *   node .claude/scripts/upload-images-to-r2.mjs --dry-run             # プレビューのみ
+ *   node .claude/scripts/upload-images-to-r2.mjs --prefix exam/civil   # 特定ディレクトリのみ
  */
 import { S3Client, PutObjectCommand, HeadObjectCommand } from '@aws-sdk/client-s3';
 import fs from 'fs';

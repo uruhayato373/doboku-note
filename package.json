@@ -63,6 +63,7 @@
     "check-doc-coupling": "node scripts/check-doc-coupling.mjs --staged",
     "check-doc-lifecycle": "node scripts/check-doc-lifecycle.mjs",
     "check-relative-links": "node scripts/check-relative-links.mjs",
+    "check-command-guidance": "node scripts/check-command-guidance.mjs",
     "check-doc-refs": "node scripts/check-doc-refs.mjs",
     "check-exam-calendar": "node scripts/check-exam-calendar.mjs",
     "check-experiment-due": "node scripts/check-experiment-due.mjs",

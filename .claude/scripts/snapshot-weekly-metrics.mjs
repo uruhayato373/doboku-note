@@ -11,9 +11,9 @@
  *       .claude/skills/management/weekly-plan/SKILL.md (Phase 0)
  *
  * Usage:
- *   node scripts/snapshot-weekly-metrics.mjs              # 現在の週
- *   node scripts/snapshot-weekly-metrics.mjs --force      # 既存を上書き
- *   node scripts/snapshot-weekly-metrics.mjs --dry-run    # 書き込まず表示
+ *   node .claude/scripts/snapshot-weekly-metrics.mjs              # 現在の週
+ *   node .claude/scripts/snapshot-weekly-metrics.mjs --force      # 既存を上書き
+ *   node .claude/scripts/snapshot-weekly-metrics.mjs --dry-run    # 書き込まず表示
  */
 
 import { existsSync, mkdirSync, readFileSync, writeFileSync, readdirSync } from 'node:fs';

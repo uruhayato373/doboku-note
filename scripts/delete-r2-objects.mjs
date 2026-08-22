@@ -8,6 +8,17 @@
  * 設計: 「リポジトリに無いものを全部消す」自動 prune はしない。R2 にしか存在しない
  * 成果物を黙って壊す危険があるため、削除するキーは必ず明示リストで与える。
  *
+ * さらに **退避が確認できないキーは消さない**（2026-08-22 追加）。同日、教材 PDF 389 件の
+ * うち 102 件（1.72 GiB）が「R2 に退避済みのはず」だったのに実際は R2 に無く、
+ * git 履歴だけが唯一の実体だった。突合せずに消していれば永久に失われていた。
+ * 「〜のはず」で消せてしまう経路をここで塞ぐ。
+ *
+ * 退避済みと認めるのは次のいずれか:
+ *   1. 退避台帳（.claude/state/assets/manifest.json）に sha256 つきで載っている
+ *   2. private の archive/legacy-r2/<key> として台帳に載っている（公開バケットからの退避）
+ *   3. リポジトリ内に対応する実体が現存する
+ * どれでもないキーは削除せず exit 1。意図的に消すなら --allow-unpreserved を付ける。
+ *
  * Usage:
  *   node scripts/delete-r2-objects.mjs                    # dry-run（既定・何も消さない）
  *   node scripts/delete-r2-objects.mjs --commit           # 実際に削除する
@@ -48,6 +59,7 @@ const args = process.argv.slice(2);
 const commit = args.includes('--commit');
 const listIdx = args.indexOf('--list');
 const listPath = listIdx !== -1 ? args[listIdx + 1] : '.claude/config/r2-delete-list.txt';
+const allowUnpreserved = args.includes('--allow-unpreserved');
 
 if (!fs.existsSync(listPath)) {
   console.error(`Error: リストが見つかりません: ${listPath}`);
@@ -73,6 +85,37 @@ for (const key of keys) {
   const local = key.startsWith('posts/') ? path.join(root, '.local/r2', key) : null;
   if (local && fs.existsSync(local)) guarded.push(key);
   else targets.push(key);
+}
+
+// ---- 退避の確認（2026-08-22 追加。詳細は冒頭のコメント） ----------------
+const preserved = (() => {
+  const set = new Set();
+  let m;
+  try { m = JSON.parse(fs.readFileSync(path.join(root, '.claude/state/assets/manifest.json'), 'utf8')); }
+  catch { return set; }
+  for (const e of Object.values(m.entries || {})) {
+    if (!e.sha256 || !e.bytes) continue;
+    const k = String(e.r2Key || '').normalize('NFC');
+    set.add(k);                                                   // 台帳に載っているキーそのもの
+    if (k.startsWith('archive/legacy-r2/')) set.add(k.slice('archive/legacy-r2/'.length)); // 退避元のキー
+    // リポジトリに実体が現存するなら、それも保全されているとみなす
+    if (e.logicalPath && fs.existsSync(path.join(root, e.logicalPath))) set.add(k);
+  }
+  return set;
+})();
+
+const unpreserved = targets.filter((k) => !preserved.has(k.normalize('NFC')));
+console.log(`[delete-r2-objects] 退避確認: ${targets.length - unpreserved.length} / ${targets.length} 件が台帳で保全済み`);
+if (unpreserved.length) {
+  console.error(`\n✗ 退避が確認できないキーが ${unpreserved.length} 件あります（消すと復元できません）:`);
+  for (const k of unpreserved.slice(0, 20)) console.error(`    ${k}`);
+  if (unpreserved.length > 20) console.error(`    ... ほか ${unpreserved.length - 20} 件`);
+  console.error('\n  先に private R2 へ退避して台帳へ登録すること:');
+  console.error('    rclone copy doboku-r2:<bucket>/<prefix> doboku-r2:doboku-note-archive/archive/legacy-r2/<prefix>');
+  console.error('  そのうえで sha256 つきで manifest へ登録する（asset-storage-policy.md §9 に手順）。');
+  console.error('  退避せずに消すと決めたなら --allow-unpreserved を付けること。');
+  if (!allowUnpreserved) process.exit(1);
+  console.error('  --allow-unpreserved が指定されているため続行します。\n');
 }
 
 console.log(`[delete-r2-objects] リスト ${keys.length} 件 / 削除対象 ${targets.length} 件 / 保護 ${guarded.length} 件`);

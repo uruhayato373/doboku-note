@@ -1,7 +1,7 @@
 /**
  * note カバー ギャラリー — content/note 配下の全 cover*.png を1枚の HTML で一覧確認する QA ツール。
  *
- * 一括再生成（npm run note-covers）後の目視チェック用。
+ * 一括再生成（node scripts/generate-note-covers.mjs）後の目視チェック用。
  * バナー帯のはみ出し・HiBox 文字詰まり・試験色の不整合・中央 630 セーフゾーン崩れ等を
  * まとめて確認できる。OGP の ogp-gallery.mjs に対応する note カバー版。
  *

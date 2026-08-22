@@ -6,7 +6,7 @@
  *
  * Usage:
  *   npm run validate-mdx              # 全ファイル検証
- *   node scripts/validate-mdx.mjs path/to/file.mdx  # 単一ファイル
+ *   node .claude/scripts/validate-mdx.mjs path/to/file.mdx  # 単一ファイル
  */
 
 import { readdirSync, readFileSync, statSync, existsSync } from "fs";

@@ -19,9 +19,9 @@
  *   .claude/skills/conversion/exam-questions-import/SKILL.md → カテゴリ2 (2-1, 2-3)
  *
  * Usage:
- *   node scripts/lint-mdx-mobile.mjs <file.mdx>
- *   node scripts/lint-mdx-mobile.mjs <dir>
- *   node scripts/lint-mdx-mobile.mjs                # git diff で変更された MDX を対象
+ *   node .claude/scripts/lint-mdx-mobile.mjs <file.mdx>
+ *   node .claude/scripts/lint-mdx-mobile.mjs <dir>
+ *   node .claude/scripts/lint-mdx-mobile.mjs                # git diff で変更された MDX を対象
  *
  * 検出ルール:
  *   0-1 HIGH   改行コードの混在（CRLF + LF）— pre-commit hook と同等のガード

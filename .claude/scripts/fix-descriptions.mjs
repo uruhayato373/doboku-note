@@ -10,9 +10,9 @@
 // 改行コードは .claude/scripts/lib/mdx-io.mjs 経由で保持する。
 //
 // 使い方:
-//   node scripts/fix-descriptions.mjs            # 全件 dry-run
-//   node scripts/fix-descriptions.mjs --apply    # 実書き込み
-//   node scripts/fix-descriptions.mjs --slug X   # 単一 slug のみ
+//   node .claude/scripts/fix-descriptions.mjs            # 全件 dry-run
+//   node .claude/scripts/fix-descriptions.mjs --apply    # 実書き込み
+//   node .claude/scripts/fix-descriptions.mjs --slug X   # 単一 slug のみ
 
 import { readdirSync, statSync } from 'node:fs';
 import { join, basename, dirname } from 'node:path';
