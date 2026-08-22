@@ -65,6 +65,7 @@ const CHECKS = [
   { id: 'gate-parity', npm: 'check-gate-parity:ci', timeout: 60_000, ci: true, note: 'pre-commit / quality-audit / workflow のどこからも呼ばれていない検査を検出（オーファン化の防止）' },
   { id: 'eslint', npm: 'lint', timeout: 180_000, ci: true },
   { id: 'validate-mdx', npm: 'validate-mdx', timeout: 180_000, ci: true },
+  { id: 'published-vs-redirects', npm: 'check-published-vs-redirects', timeout: 60_000, ci: true, note: '統合済み記事の再公開（published:true なのに 301 の転送元）を検出' },
   { id: 'content-quality-ratchet', npm: 'check-content-quality:ci', timeout: 240_000, ci: true, note: 'latest-report.md を上書き' },
   { id: 'frontmatter', cmd: ['node', '.claude/scripts/lint-frontmatter.mjs', '--all'], timeout: 180_000, ci: true },
   { id: 'svg-audit', npm: 'audit-svg:ci', timeout: 180_000, ci: true, note: 'svg-audit.json を上書き' },

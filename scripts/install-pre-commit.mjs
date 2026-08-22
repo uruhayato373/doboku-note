@@ -111,6 +111,13 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# 統合済み（_redirects で 301 の転送元）の記事を published: true にして「再公開」してしまう事故を止める。
+# 統合の記録は frontmatter ではなく _redirects にしか無いことがあり、目視では気づけない（2026-08-22 実事故）
+node scripts/check-published-vs-redirects.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
 # Git に何を追跡してよいか（生成物・著作権物・巨大 blob・拡張子偽装・同一原本の二重生成）。
 # HEAD 4.16GiB / remote 11GB でランナーが落ちるところまで来ているので、まず増加を止める。
 # 既存違反は baseline で猶予され、増加だけが FAIL になる。SKIP_GIT_BINARY_POLICY=1 で回避

@@ -141,6 +141,7 @@
     "check-table-references": "node scripts/check-table-references.mjs",
     "check-orphan-ogp": "node scripts/check-orphan-ogp.mjs",
     "check-policy-anchors": "node scripts/check-policy-anchors.mjs",
+    "check-published-vs-redirects": "node scripts/check-published-vs-redirects.mjs",
     "check-public-bloat": "node scripts/check-public-bloat.mjs",
     "check-sales-freshness": "node scripts/check-sales-freshness.mjs",
     "check-sales-mapping": "node scripts/check-sales-mapping.mjs",
