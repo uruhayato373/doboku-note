@@ -13,8 +13,7 @@
         "guide-study-plan",
         "guide-study-method",
         "guide-four-management",
-        "guide-last-minute-2026",
-        "keyword-2026"
+        "guide-last-minute-2026"
       ]
     },
     "textbookChapters": [
@@ -138,7 +137,7 @@
     "examGuide": {
       "title": "受験ガイド",
       "description": "試験ガイド・合格戦略・出願の留意点",
-      "slugs": ["exam-index", "exam-passing-strategy", "course-selection-guide", "exam-application-guide", "general-vs-comprehensive", "keyword-2026"]
+      "slugs": ["exam-index", "exam-passing-strategy", "course-selection-guide", "exam-application-guide", "general-vs-comprehensive"]
     },
     "fields": {
       "title": "記述式論文の対策",
