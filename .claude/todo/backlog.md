@@ -52,6 +52,18 @@
 
 ## 🔴 高 — 来月中に着手
 
+### [DN-0117] コンクリート系2冊の Kindle 提出ゲート（図の出所を解消する）
+タグ: [収益化] [種類:制作] [実行:sweep] [検証:audit-figures] [起票:2026-08-22]
+
+`g-01` コンクリート診断士（¥990）と `g-02` コンクリート主任技士（¥1,250）は EPUB・表紙・KDPメモまで完成して `status: ready`（2026-08-03）だが、**図の出所が解消できていないため提出を保留**（2026-08-22 判断）。LIVE 33冊は全て試験実施団体の公式配布物（`answer-booklet` / `question-pdf`）由来で、市販書籍スキャン由来はこの2冊だけ。
+
+| 対象 | 点数 | 実体 | やること |
+|---|---|---|---|
+| `concrete-chief-engineer` 6記事 | 57 | **印刷ページのスキャン**（裏写り・網点を実見。primary-construction 19 / structural-design 16 / properties 9 / mix-design 6 / materials 5 / production-qc 2） | 自作 SVG へ描き直す（診断士が 22 点で実施済みの方式） |
+| `concrete-diagnostician` 4記事 | 8 | **実写真**（スキャンではない。台帳の `textbook-scan` は `source_dir` からの推定で誤り） | 入手元とライセンスを特定し、`image-policy` の出典表記を入れる |
+
+いずれもサイトでは公開中（`published: true`）。有料の Amazon 配布は露出の性格が違うので、Kindle 提出はこのゲート通過後。EPUB 実体は `kindle-dist/` に無く退避台帳にも無いので、提出時は `scripts/build-pe1-kindle.mjs` で再ビルドする。
+
 ### [DN-0100] note回遊導線の緊急修復（試験後CTA・有料74本L3・ライブ4本）
 タグ: [収益化] [種類:不具合] [実行:対話] [検証:check-note-paid-cta] [起票:2026-08-20] [期日:2026-08-23]
 
