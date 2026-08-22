@@ -634,16 +634,14 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   //    sidebar は CTA 統一以降どこからも参照されない死に配線、concrete 系は非 HUB で
   //    もくじタイルも出ない。本記事は 15,533 字 / h2 6 で inline の条件自体は満たすが、
   //    それでも出なかったため確実に出る **top（冒頭 CTA）** を追加した（診断士と同じ形）。
-  //    2026-08-22: 上位版「実務立場別 模範答案集」(cce-essay-persona-pack) を公開したため、
-  //    top は入口の 5 本セットのまま、inline に上位版を足す（入口→上位のラダー。DN-0095 §5）。
-  //    published: false の間は getMagazine が null を返すので、片方だけ公開でも壊れない。
+  //    2026-08-22: 上位版「実務立場別 模範答案集」(cce-essay-persona-pack) を公開。
+  //    ただし inline は本文 8,000 字が条件で本ページでは発火しないため、上位版は
+  //    **本文の該当節（4テーマを挙げる「テーマの傾向と準備」）に <MagazineCard> を直接置いた**。
+  //    top は入口の 5 本セットのままにして、入口→上位のラダーにする（DN-0095 §5）。
   if (slug === 'concrete-chief-engineer-guide-essay') {
     return {
       top: slot('cce-essay-magazine', slug, 'top'),
-      inline: [
-        slot('cce-essay-magazine', slug, 'inline-1'),
-        slot('cce-essay-persona-pack', slug, 'inline-2'),
-      ],
+      inline: [slot('cce-essay-magazine', slug, 'inline-1')],
       sidebar: [],
     };
   }
