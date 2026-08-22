@@ -31,7 +31,7 @@
  *   node scripts/check-public-bloat.mjs --json
  * ---------------------------------------------------------------------------
  */
-import { readdirSync, existsSync, writeSync } from 'node:fs';
+import { readdirSync, existsSync, statSync, writeSync } from 'node:fs';
 import { join } from 'node:path';
 
 const ROOT = 'public';
@@ -115,6 +115,35 @@ if (files > MAX_FILES) {
   console.error('  pagefind のローカル検索用は fragment/ + index/ + ランタイム12点（計 ~950）だけが正しい姿。');
 }
 
+// ---- リポジトリ直下のスクラッチ滞留（2026-08-22 追加） ----------------------
+//
+// public/ と同じ構造の事故。`.gitignore` には `/*.png` `/*.jpeg` `/*.zip` があり、
+// **Git に入れないための規則はあった**が、消す仕組みが無かった。結果、UI 確認の
+// スクショや handoff zip が 9 個 2.5 MB、2026-06〜07 から 2 か月放置されていた
+// （gitignore 済みなので `git status` に出ず、誰も気づかない）。
+//
+// 一時ファイルの正しい置き場は `.tmp/` 配下（CLAUDE.md §3）。
+// **CI のクリーンチェックアウトでは 0 件になる**ので、件数を必ず出して
+// 「0 件検査」と「異常なし」を見分けられるようにする。
+const SCRATCH_RE = /\.(png|jpe?g|gif|webp|svg|zip|mp4|wav|pdf)$/i;
+const rootEntries = readdirSync(process.cwd(), { withFileTypes: true })
+  .filter((e) => e.isFile() && SCRATCH_RE.test(e.name));
+console.log(`[check-public-bloat] リポジトリ直下のスクラッチ: ${rootEntries.length} 件`
+  + (rootEntries.length === 0 ? '（クリーンチェックアウトでは 0 件が正常）' : ''));
+if (rootEntries.length) {
+  bad = true;
+  const total = rootEntries.reduce((sum, e) => {
+    try { return sum + statSync(e.name).size; } catch { return sum; }
+  }, 0);
+  console.error(`\n[check-public-bloat] ✗ リポジトリ直下に一時ファイルが ${rootEntries.length} 件（${(total / 1048576).toFixed(1)} MiB）:`);
+  for (const e of rootEntries.slice(0, 12)) console.error(`    ${e.name}`);
+  if (rootEntries.length > 12) console.error(`    … 他 ${rootEntries.length - 12} 件`);
+  console.error('  一時ファイルは .tmp/ 配下へ出すこと（CLAUDE.md §3）。');
+  console.error('  .gitignore が Git への混入は止めているが、消すのは誰もやらない。');
+  console.error('  不要なら削除する:');
+  console.error(`    rm ${rootEntries.slice(0, 3).map((e) => JSON.stringify(e.name)).join(' ')}${rootEntries.length > 3 ? ' …' : ''}`);
+}
+
 if (bad) process.exit(1);
 
-console.log(`[check-public-bloat] ✓ 生成物の滞留なし（入れ子 0 件・${files} ≤ ${MAX_FILES}）`);
+console.log(`[check-public-bloat] ✓ 生成物の滞留なし（入れ子 0 件・${files} ≤ ${MAX_FILES}・直下スクラッチ 0 件）`);
