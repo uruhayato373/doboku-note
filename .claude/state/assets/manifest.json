@@ -84978,6 +84978,22 @@
       ],
       "group": "textbook-source-pdf",
       "verifiedAt": "2026-08-22T00:15:49.052Z"
+    },
+    ".local/archive/git-history/doboku-note-history-2026-08-22.bundle": {
+      "logicalPath": ".local/archive/git-history/doboku-note-history-2026-08-22.bundle",
+      "bucket": "private",
+      "r2Key": "archive/git-history/doboku-note-history-2026-08-22.bundle",
+      "sha256": "59b3a073fe7af3dd10474b2bdf6c08cccbebc19bff15b5f5d0fb08c465c35df1",
+      "bytes": 2782637003,
+      "mime": "application/octet-stream",
+      "visibility": "private",
+      "regenerable": false,
+      "generator": null,
+      "requiredBy": [
+        "切り詰め前の git log / git blame を読む必要が出たとき"
+      ],
+      "group": "git-history-bundle",
+      "verifiedAt": "2026-08-22T01:06:18.676Z"
     }
   }
 }

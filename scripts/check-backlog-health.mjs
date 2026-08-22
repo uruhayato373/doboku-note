@@ -201,7 +201,7 @@ const recurring = cards.filter((c) => c.kind === '定期');
 function historyTruncated() {
   try {
     const n = Number(execFileSync("git", ["rev-list", "--count", "HEAD"], {
-      cwd: ROOT, encoding: "utf8", timeout: 10_000,
+      cwd: ROOT, encoding: "utf8", timeout: 10_000, maxBuffer: 1024 * 1024,
     }).trim() || "0");
     return n < 50;
   } catch {

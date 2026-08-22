@@ -116,6 +116,23 @@
       ],
       "reason": "slide-data.json が SoT のレンダー成果物。投稿済みパックは R2 archive、未投稿・制作中は再生成で足りる。reels/ は除外する——あちらは sns-archive-policy と upload-sns-r2 が管轄する別系統で、frames は既に gitignore 済み・script/slide-data から再生成する中間物。両方の regime で同じファイルを見ると、片方が「未退避」と誤検出する。",
       "phase": "4-E"
+    },
+    {
+      "id": "git-history-bundle",
+      "match": {
+        "pathRegex": "^\\.local/archive/git-history/.+\\.bundle$"
+      },
+      "bucket": "private",
+      "keyPrefix": "archive/git-history/",
+      "keyFrom": "stripPrefix:.local/archive/git-history/",
+      "visibilityFrom": "fixed:private",
+      "regenerable": false,
+      "generator": null,
+      "requiredBy": [
+        "切り詰め前の git log / git blame を読む必要が出たとき"
+      ],
+      "reason": "2026-08-22 に Git 履歴を単一 commit へ切り詰めた際の、切り詰め前の完全な履歴（git bundle --all）。**R2 が唯一の保管場所**で、これを失うと 6,577 commit 分の log / blame / 個別 diff が永久に失われる。復元は `rclone copy` してから `git clone <bundle>`。",
+      "phase": "history-truncation"
     }
   ]
 }

@@ -71,7 +71,7 @@ function mergedPrSet() {
     // 2026-08-22 に履歴を単一 commit へ切り詰めたので、ここで 0 件を返すと
     // 全 PR が未 merge 扱いになり、助言が丸ごと嘘になる（CLAUDE.md §9）。
     const total = Number(execFileSync('git', ['rev-list', '--count', 'origin/main'], {
-      cwd: ROOT, encoding: 'utf-8', stdio: ['ignore', 'pipe', 'ignore'],
+      cwd: ROOT, encoding: 'utf-8', stdio: ['ignore', 'pipe', 'ignore'], maxBuffer: 1024 * 1024,
     }).trim() || '0');
     if (total < 50) return null; // 履歴が浅い/切り詰め済み → 判定できないのでスキップ
 

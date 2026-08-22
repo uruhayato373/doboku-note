@@ -112,51 +112,54 @@ cache は `.local/cache/assets/`（Git 非追跡）。最終アクセス時刻�
 **勝手に空にはしない** —— プロキシ不調時に消すと作業不能になる。
 壊れたと思ったら手で消せば次回 R2 から作り直される。
 
-## 8. Git 履歴の書換え（2026-08-22 実施済み）
-
-HEAD を軽くしても過去の blob は履歴に残る。2026-08-22 に `git filter-repo` で 2 段階に分けて除去し、
-4 ブランチすべてを force-push した。**現在のツリーは 1 バイトも変えていない**
-（4 ref すべての `git ls-tree -r | sha256sum`・files 数・commits 数が前後で完全一致）。
+## 8. Git 履歴（2026-08-22 に単一 commit へ切り詰め済み）
 
 | | 容量 |
 |---|---|
-| 書換え前の履歴 | 11 GB |
-| 1 段階目（退避済み資産・reels の wav/mp4・旧ラスタ） | 5.2 GB |
-| **2 段階目（教材 PDF）** | **2.6 GB** |
-| ローカル `.git`（partial clone へ入替） | 13 GB → **16 MB** |
+| 元の履歴 | 11 GB |
+| 段階的な除去後 | 2.6 GB |
+| **単一 commit へ切り詰め後** | **959 MB** |
+| ローカル `.git` | 13 GB → 974 MB |
 
-**消したもの**（すべて実体が R2 にあるか、既存ポリシーが再生成可能と定めているもの）:
+**現在のツリーは 1 バイトも変わっていない**（切り詰め前後で全 ref の
+`git ls-tree -r | sha256sum` と files 数が完全一致）。
 
-- note カバー PNG / SVG、note 配布 PDF、教材ページ画像、IG レンダー画像（現配置と旧配置 `docs/note` `docs/sns` の両方）
-- reels の wav / mp4（`sns-archive-policy` が「再生成可能・R2 退避済み」と定義）
-- `.local/r2/posts/**` の旧ラスタ画像（webp 変換前の png。**`.mdx` 21,170 版と `.svg` は残した**＝移行前の記事本文履歴は健在）
-- 教材 PDF 389 件（`docs/textbook` と `.claude/pdfs`。`.claude/pdfs/guide.pdf` だけは現 HEAD にあるので除外）
+> [!important] 切り詰め前の履歴は R2 にある
+> `doboku-note-archive:archive/git-history/doboku-note-history-2026-08-22.bundle`
+> （2.59 GB・sha256 `59b3a073…`・台帳の `git-history-bundle` グループ）。
+> **R2 が唯一の保管場所**で、失えば 6,577 commit 分の log / blame / 個別 diff が永久に失われる。
+>
+> ```bash
+> rclone copy doboku-r2:doboku-note-archive/archive/git-history/ /tmp/
+> git clone /tmp/doboku-note-history-2026-08-22.bundle old-history
+> ```
+> 上げた直後に **R2 から取り直して sha256 照合し、実際に clone できること**を確認済み。
+> 履歴を消す前にこの検証を通すこと。「上げたはず」で消さない。
 
-> [!warning] 教材 PDF 102 件は git 履歴だけが保管場所だった
-> 削除前に突合したところ、履歴上の教材 PDF 389 件のうち **102 件（1.72 GiB）が R2 に無かった**。
-> 2026-07 の退避で取りこぼされていたもので、git 履歴が唯一の実体だった。
-> ミラーから取り出して R2 へ上げ、389/389 が揃ったことを確認してから履歴を消した。
-> **履歴から何かを消す前に「実体が他にあるか」を全件突合すること。** 「R2 に退避済みのはず」で進めない。
+**手順**（次に同じことをするとき）:
+
+1. 切り詰め前の `--bare` clone を取る（`--mirror` は `refs/pull/*` まで取るので使わない）
+2. `git bundle create <name>.bundle --all` → `git bundle verify` で「完全な履歴」を確認
+3. R2 へ上げ、**取り直して sha256 照合 + clone 成功**まで見る
+4. `git commit-tree <tree>` で orphan root を作る。PR ブランチは
+   `git commit-tree <branch^{tree}> -p <root>` で root の上に 1 commit として畳む
+   （ブランチを旧履歴に残すと旧 blob が固定されて容量が減らない）
+5. 全 ref の `ls-tree -r | sha256sum` が前後で一致することを確認してから force-push
+6. ローカルは `git fetch && git reset --soft origin/develop && git read-tree HEAD`
+   （作業ツリーを触らずに済む。`.gitignore` された退避アセットが消えない）
+
+**先に塞いでおくもの**: git 履歴を読む surfacer は、切り詰め後に**例外にならず間違った答えを返す**。
+`check-plan-staleness`（merged PR を 0 件と誤報）と `check-backlog-health`
+（全カードが今日更新・ID 再利用 0 件）は commit 総数で検出して「判定不能」を出すようにした。
+記事の日付は §5 のとおり frontmatter へ移してあるので影響しない。
 
 > [!warning] GitHub の報告容量は減らない
 > `refs/pull/*` が 396 本あり、force-push しても消せない（GitHub が永久保持する読み取り専用 ref）。
 > 旧 commit はそこから到達可能なままなので、**GitHub の `size` は 11 GiB のまま**である。
-> 減るのは **clone が転送する量**（full clone 11.3 → 2.6 GB / partial clone は 14 MB）であって、サーバの保管量ではない。
-> なお `git clone --mirror` は `refs/pull/*` まで取ってくるので、書換え作業には `--bare` を使う。
-
-**手順で詰まる点**: GitHub は 1 回の push が 2 GiB を超えると `pack exceeds maximum allowed size` で
-拒否する。一時 ref へ first-parent を分割して送り、オブジェクトが揃ってからブランチを切り替えると、
-途中でブランチが壊れた状態にならない。
-
-**検証の型**（次に同じことをするとき）:
-1. 書換え前に全 ref の `git ls-tree -r <ref> | sha256sum`・files 数・commit 数を記録する
-2. 書換え後に同じ値が出ることを確認する（**ここが一致すれば内容は無傷**）
-3. 過去 commit を数点抜き取り、旧リポジトリとの差分が「指定した対象パスだけ」であることを確認する
-4. `GIT_NO_LAZY_FETCH=1 git log --all --name-status -M100%` が完走し `.git` が増えないことを確認する
-5. ロールバック元として書換え前の clone を、CI と本番の確認が終わるまで残す
-
-`git gc` だけでは到達可能 blob は消えない。Git LFS は R2 と認証・保管先が二重化し、
-既存履歴の移行にも結局 rewrite が要るため採らない。
+> 減るのは **clone が転送する量**（full clone 11.3 GB → 959 MB）であって、サーバの保管量ではない。
+>
+> GitHub は 1 回の push が 2 GiB を超えると `pack exceeds maximum allowed size` で拒否する。
+> 超える場合は一時 ref へ first-parent を分割して送り、最後にブランチを切り替える。
 
 ## 9. R2 に何が入っているか（台帳のカバー範囲）
 
@@ -167,6 +170,7 @@ HEAD を軽くしても過去の blob は履歴に残る。2026-08-22 に `git f
 | バケット / prefix | 件数 / 容量 | 真実源 | 復元 |
 |---|---|---|---|
 | private `textbook/` | 397 / 3.28 GiB | **台帳**（`textbook-source-pdf`） | `asset-hydrate --group textbook-source-pdf` |
+| private `archive/git-history/` | 1 / 2.59 GiB | **台帳**（`git-history-bundle`） | `rclone copy` → `git clone <bundle>` |
 | private（退避資産） | 3,487 / 1.10 GiB | **台帳** | `asset-hydrate --group <id>` |
 | public `note/covers/` `sns/rendered/` | 784 / 0.66 GiB | **台帳** | 同上 |
 | public `posts/` | 5,234 / 0.74 GiB | **Git**（`content/site/**`） | `npm run upload-images-r2` が一方向で同期。R2 は配信コピーなので台帳不要 |
