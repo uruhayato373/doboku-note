@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-08-22T04:19:42.490Z",
+  "generated_at": "2026-08-22T08:56:10.862Z",
   "summary": {
     "total_keywords": 660,
     "published_keywords": 660,
@@ -8,7 +8,10 @@
     "keywords_below_target": 0,
     "isolated_keywords": [],
     "orphan_slugs_warned": [
-      "general-overview"
+      "after-service",
+      "before-service",
+      "general-overview",
+      "service-quality"
     ],
     "missing_mdx_slugs": []
   },

@@ -1,16 +1,16 @@
 {
   "version": 1,
-  "generated_at": "2026-08-22T04:19:41.762Z",
+  "generated_at": "2026-08-22T08:56:09.246Z",
   "summary": {
     "total": 1117,
-    "published": 1093,
-    "unpublished": 24,
+    "published": 1096,
+    "unpublished": 21,
     "by_category": {
       "civil-construction-1": 136,
       "civil-construction-2": 41,
       "concrete-chief-engineer": 19,
       "concrete-diagnostician": 18,
-      "pe-comprehensive-management": 728,
+      "pe-comprehensive-management": 731,
       "pe-construction": 130,
       "pe-first-stage": 21
     }
@@ -6645,6 +6645,24 @@
       "created": "2026-04-05",
       "dateModified": "2026-06-23"
     },
+    "pe-comprehensive-management-after-service": {
+      "title": "アフターサービス",
+      "description": "アフターサービスの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。",
+      "category": "pe-comprehensive-management",
+      "group": "keyword",
+      "section": "2.2",
+      "tags": [
+        "keyword"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-22",
+      "reviewStatus": "approved",
+      "lastRewrittenAt": "2026-04-15",
+      "revisionCycle": 1,
+      "seoTitle": "アフターサービス ｜ 総合技術監理 キーワード集 2026",
+      "created": "2026-04-05",
+      "dateModified": "2026-08-22"
+    },
     "pe-comprehensive-management-agenda-21": {
       "title": "アジェンダ21",
       "description": "1992年地球サミットで採択されたアジェンダ21の構成と内容を解説。持続可能な開発のための包括的行動計画、ローカルアジェンダ21。技術士総合技術監理キーワード集2026（社会環境管理）。",
@@ -7122,6 +7140,24 @@
       "seoTitle": "バスタブカーブ ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
       "dateModified": "2026-06-23"
+    },
+    "pe-comprehensive-management-before-service": {
+      "title": "ビフォアサービス",
+      "description": "ビフォアサービスの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。",
+      "category": "pe-comprehensive-management",
+      "group": "keyword",
+      "section": "2.2",
+      "tags": [
+        "keyword"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-22",
+      "reviewStatus": "approved",
+      "lastRewrittenAt": "2026-04-15",
+      "revisionCycle": 1,
+      "seoTitle": "ビフォアサービス ｜ 総合技術監理 キーワード集 2026",
+      "created": "2026-04-05",
+      "dateModified": "2026-08-22"
     },
     "pe-comprehensive-management-behavioral-regulation": {
       "title": "行為規制",
@@ -18894,6 +18930,24 @@
       "revisionCycle": 2,
       "created": "2026-04-03",
       "dateModified": "2026-07-24"
+    },
+    "pe-comprehensive-management-service-quality": {
+      "title": "サービス品質・サービス特性",
+      "description": "サービス品質・サービス特性の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。",
+      "category": "pe-comprehensive-management",
+      "group": "keyword",
+      "section": "2.2",
+      "tags": [
+        "keyword"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-22",
+      "reviewStatus": "approved",
+      "lastRewrittenAt": "2026-04-16",
+      "revisionCycle": 1,
+      "seoTitle": "サービス品質・サービス特性 ｜ 総合技術監理 キーワード集 2026",
+      "created": "2026-04-05",
+      "dateModified": "2026-08-22"
     },
     "pe-comprehensive-management-seven-types-of-pollution": {
       "title": "典型７公害",
